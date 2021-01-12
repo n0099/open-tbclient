@@ -8,7 +8,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.NavigableMap;
 import java.util.TreeMap;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class LruArrayPool implements ArrayPool {
     private static final int DEFAULT_SIZE = 4194304;
     @VisibleForTesting
@@ -197,7 +197,7 @@ public final class LruArrayPool implements ArrayPool {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static final class KeyPool extends BaseKeyPool<Key> {
         KeyPool() {
         }
@@ -218,7 +218,7 @@ public final class LruArrayPool implements ArrayPool {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static final class Key implements Poolable {
         private Class<?> arrayClass;
         private final KeyPool pool;

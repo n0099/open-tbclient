@@ -14,11 +14,11 @@ import com.fun.ad.sdk.jy.JYNativeAdView;
 import com.win.opensdk.PBError;
 import com.win.opensdk.PBNative;
 import com.win.opensdk.PBNativeListener;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class q extends i {
-    public PBNative pJn;
+    public PBNative pEM;
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public class a implements PBNativeListener {
         public a() {
         }
@@ -27,9 +27,9 @@ public class q extends i {
         public void onClicked() {
             m.a("JYNativeAd onClicked");
             q qVar = q.this;
-            c cVar = qVar.pJa;
+            c cVar = qVar.pEz;
             if (cVar != null) {
-                ((u) cVar).a(qVar.f8081a.f8060a);
+                ((u) cVar).a(qVar.f7781a.f7760a);
             }
         }
 
@@ -37,9 +37,9 @@ public class q extends i {
         public void onDisplayed() {
             m.a("JYNativeAd onDisplayed");
             q qVar = q.this;
-            c cVar = qVar.pJa;
+            c cVar = qVar.pEz;
             if (cVar != null) {
-                ((u) cVar).c(qVar.f8081a.f8060a);
+                ((u) cVar).c(qVar.f7781a.f7760a);
             }
         }
 
@@ -47,10 +47,10 @@ public class q extends i {
         public void onFail(PBError pBError) {
             m.a("JYNativeAd onFail code: " + pBError.getCode() + ", message: " + pBError.getMsg());
             q qVar = q.this;
-            qVar.f8082b = false;
-            f fVar = qVar.pIZ;
+            qVar.f7782b = false;
+            f fVar = qVar.pEy;
             if (fVar != null) {
-                ((r) fVar).a(qVar.f8081a.f8060a, pBError.getCode(), pBError.getMsg());
+                ((r) fVar).a(qVar.f7781a.f7760a, pBError.getCode(), pBError.getMsg());
             }
         }
 
@@ -58,10 +58,10 @@ public class q extends i {
         public void onLoaded() {
             m.a("JYNativeAd onLoaded");
             q qVar = q.this;
-            qVar.f8082b = false;
-            f fVar = qVar.pIZ;
+            qVar.f7782b = false;
+            f fVar = qVar.pEy;
             if (fVar != null) {
-                ((r) fVar).b(qVar.f8081a.f8060a);
+                ((r) fVar).b(qVar.f7781a.f7760a);
             }
         }
     }
@@ -73,30 +73,30 @@ public class q extends i {
     @Override // com.fun.ad.i
     public void a() {
         super.a();
-        PBNative pBNative = this.pJn;
+        PBNative pBNative = this.pEM;
         if (pBNative != null) {
             pBNative.destroy();
-            this.pJn = null;
+            this.pEM = null;
         }
     }
 
     @Override // com.fun.ad.i
-    public FunRippedAd eBP() {
+    public FunRippedAd exX() {
         return null;
     }
 
     @Override // com.fun.ad.i
     public void a(Context context, FunAdSlot funAdSlot, f fVar) {
         super.a(context.getApplicationContext(), funAdSlot, fVar);
-        if (!this.f8082b) {
-            this.f8082b = true;
-            PBNative pBNative = new PBNative(context.getApplicationContext(), this.f8081a.f8060a);
-            this.pJn = pBNative;
+        if (!this.f7782b) {
+            this.f7782b = true;
+            PBNative pBNative = new PBNative(context.getApplicationContext(), this.f7781a.f7760a);
+            this.pEM = pBNative;
             pBNative.setNativeListener(new a());
-            this.pJn.load();
-            f fVar2 = this.pIZ;
+            this.pEM.load();
+            f fVar2 = this.pEy;
             if (fVar2 != null) {
-                ((r) fVar2).a(this.f8081a.f8060a);
+                ((r) fVar2).a(this.f7781a.f7760a);
             }
         }
     }
@@ -104,17 +104,17 @@ public class q extends i {
     @Override // com.fun.ad.i
     public void a(Activity activity, FunAdView funAdView, c cVar) {
         super.a(activity, funAdView, cVar);
-        if (this.pJn != null) {
+        if (this.pEM != null) {
             JYNativeAdView jYNativeAdView = (JYNativeAdView) LayoutInflater.from(activity).inflate(R.layout.jy_ad_native_view, (ViewGroup) funAdView, false);
             funAdView.removeAllViews();
             funAdView.addView(jYNativeAdView);
-            PBNative pBNative = this.pJn;
-            jYNativeAdView.f8123a.setText(pBNative.getBody());
+            PBNative pBNative = this.pEM;
+            jYNativeAdView.f7823a.setText(pBNative.getBody());
             jYNativeAdView.c.setText(pBNative.getHeadline());
-            ap.a.pJL.a(jYNativeAdView.getContext(), pBNative.getIcon(), jYNativeAdView.d);
+            ap.a.pFk.a(jYNativeAdView.getContext(), pBNative.getIcon(), jYNativeAdView.d);
             jYNativeAdView.e.setText(pBNative.getCallToAction());
             jYNativeAdView.f = (pBNative.getMediaViewWidth() * 1.0f) / (pBNative.getMediaViewHeight() * 1.0f);
-            pBNative.registerViewForInteraction(jYNativeAdView, jYNativeAdView.f8124b);
+            pBNative.registerViewForInteraction(jYNativeAdView, jYNativeAdView.f7824b);
         }
     }
 }

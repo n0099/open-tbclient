@@ -7,21 +7,22 @@ import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.searchbox.config.DefaultSharedPrefsWrapper;
 import java.io.File;
 import java.util.Map;
 import java.util.Set;
 /* loaded from: classes3.dex */
 public class i implements b {
-    private String dKW;
+    private String dGk;
     private final Context mContext = AppRuntime.getAppContext();
     @NonNull
     private final SharedPreferences mSp;
 
     public i(String str) {
-        this.dKW = (TextUtils.isEmpty(str) || str.indexOf(File.separatorChar) >= 0) ? "default" : str;
-        if ("default".equals(this.dKW)) {
+        this.dGk = (TextUtils.isEmpty(str) || str.indexOf(File.separatorChar) >= 0) ? DefaultSharedPrefsWrapper.SP_FILE_DEFAULT : str;
+        if (DefaultSharedPrefsWrapper.SP_FILE_DEFAULT.equals(this.dGk)) {
             this.mSp = PreferenceManager.getDefaultSharedPreferences(this.mContext);
-            this.dKW = this.mContext.getPackageName() + "_preferences";
+            this.dGk = this.mContext.getPackageName() + "_preferences";
             return;
         }
         this.mSp = this.mContext.getSharedPreferences(str, 0);
@@ -35,16 +36,16 @@ public class i implements b {
     @Override // com.baidu.swan.c.b
     @NonNull
     public File getFile() {
-        return az(this.mContext, this.dKW);
+        return az(this.mContext, this.dGk);
     }
 
     @Override // com.baidu.swan.c.b
-    public boolean aPG() {
+    public boolean aLM() {
         return false;
     }
 
     @Override // com.baidu.swan.c.b
-    public Set<String> aPH() {
+    public Set<String> aLN() {
         return this.mSp.getAll().keySet();
     }
 

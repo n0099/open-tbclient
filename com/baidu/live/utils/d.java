@@ -7,17 +7,17 @@ import android.os.Build;
 import android.text.TextUtils;
 import com.baidu.android.util.devices.RomUtils;
 import com.baidu.ar.constants.HttpConstants;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class d {
-    private static int bOO = 0;
-    private static boolean bOP = false;
-    private static boolean bOQ = false;
+    private static int bKc = 0;
+    private static boolean bKd = false;
+    private static boolean bKe = false;
 
-    public static int Xw() {
+    public static int TD() {
         String str;
         String str2;
         String str3;
-        if (bOO == 0) {
+        if (bKc == 0) {
             String str4 = Build.MODEL;
             String str5 = Build.MANUFACTURER;
             String str6 = Build.BRAND;
@@ -37,59 +37,59 @@ public class d {
                 str3 = "";
             }
             if (str == null || str2 == null || str3 == null) {
-                bOO = 1;
+                bKc = 1;
             } else if (str.contains(RomUtils.MANUFACTURER_XIAOMI) || str2.contains(RomUtils.MANUFACTURER_XIAOMI) || str3.contains(RomUtils.MANUFACTURER_XIAOMI)) {
-                bOO = 2;
+                bKc = 2;
             } else if (str.contains("samsung") || str2.contains("samsung") || str3.contains("samsung")) {
-                bOO = 3;
+                bKc = 3;
             } else if (str.contains(RomUtils.MANUFACTURER_HUAWEI) || str2.contains(RomUtils.MANUFACTURER_HUAWEI) || str3.contains(RomUtils.MANUFACTURER_HUAWEI)) {
-                bOO = 4;
+                bKc = 4;
             } else if (str.contains(RomUtils.MANUFACTURER_VIVO) || str2.contains(RomUtils.MANUFACTURER_VIVO) || str3.contains(RomUtils.MANUFACTURER_VIVO)) {
-                bOO = 5;
+                bKc = 5;
             } else if (str.contains(RomUtils.MANUFACTURER_OPPO) || str2.contains(RomUtils.MANUFACTURER_OPPO) || str3.contains(RomUtils.MANUFACTURER_OPPO)) {
-                bOO = 6;
+                bKc = 6;
             } else if (str.contains(RomUtils.MANUFACTURER_MEIZU) || str2.contains(RomUtils.MANUFACTURER_MEIZU) || str3.contains(RomUtils.MANUFACTURER_MEIZU)) {
-                bOO = 7;
+                bKc = 7;
             } else if (str.contains("oneplus") || str2.contains("oneplus") || str3.contains("oneplus")) {
-                bOO = 8;
+                bKc = 8;
             } else {
-                bOO = 1;
+                bKc = 1;
             }
         }
-        return bOO;
+        return bKc;
     }
 
-    public static boolean be(Context context) {
-        if (bOP) {
-            return bOQ;
+    public static boolean bd(Context context) {
+        if (bKd) {
+            return bKe;
         }
-        bOP = true;
-        switch (Xw()) {
+        bKd = true;
+        switch (TD()) {
             case 2:
-                bOQ = bi(context);
+                bKe = bh(context);
                 break;
             case 3:
             case 7:
             default:
-                bOQ = false;
+                bKe = false;
                 break;
             case 4:
-                bOQ = bf(context);
+                bKe = be(context);
                 break;
             case 5:
-                bOQ = bg(context);
+                bKe = bf(context);
                 break;
             case 6:
-                bOQ = bh(context);
+                bKe = bg(context);
                 break;
             case 8:
-                bOQ = bk(context);
+                bKe = bj(context);
                 break;
         }
-        return bOQ;
+        return bKe;
     }
 
-    public static boolean bf(Context context) {
+    public static boolean be(Context context) {
         try {
             Class<?> loadClass = context.getClassLoader().loadClass("com.huawei.android.util.HwNotchSizeUtil");
             return ((Boolean) loadClass.getMethod("hasNotchInScreen", new Class[0]).invoke(loadClass, new Object[0])).booleanValue();
@@ -102,7 +102,7 @@ public class d {
         }
     }
 
-    public static boolean bg(Context context) {
+    public static boolean bf(Context context) {
         try {
             Class<?> loadClass = context.getClassLoader().loadClass("com.util.FtFeature");
             return ((Boolean) loadClass.getMethod("isFeatureSupport", Integer.TYPE).invoke(loadClass, 32)).booleanValue();
@@ -115,11 +115,11 @@ public class d {
         }
     }
 
-    public static boolean bh(Context context) {
+    public static boolean bg(Context context) {
         return context.getPackageManager().hasSystemFeature("com.oppo.feature.screen.heteromorphism");
     }
 
-    public static boolean bi(Context context) {
+    public static boolean bh(Context context) {
         try {
             Class<?> cls = Class.forName("android.os.SystemProperties");
             return "1".equals((String) cls.getDeclaredMethod("get", String.class).invoke(cls, "ro.miui.notch"));
@@ -129,7 +129,7 @@ public class d {
         }
     }
 
-    public static int bj(Context context) {
+    public static int bi(Context context) {
         int identifier = context.getResources().getIdentifier("status_bar_height", "dimen", HttpConstants.OS_TYPE_VALUE);
         if (identifier <= 0) {
             return 0;
@@ -137,17 +137,17 @@ public class d {
         return context.getResources().getDimensionPixelSize(identifier);
     }
 
-    public static boolean bk(Context context) {
+    public static boolean bj(Context context) {
         return TextUtils.equals("ONEPLUS A6000", Build.MODEL) || TextUtils.equals("GM1900", Build.MODEL);
     }
 
-    public static boolean bl(Context context) {
+    public static boolean bk(Context context) {
         return new Intent("android.intent.action.VIEW", Uri.parse("alipays://platformapi/startApp")).resolveActivity(context.getPackageManager()) != null;
     }
 
-    public static boolean Xx() {
+    public static boolean TE() {
         String str;
-        if (Xw() == 2) {
+        if (TD() == 2) {
             String str2 = Build.MODEL;
             if (str2 != null) {
                 str = str2.toLowerCase();

@@ -6,14 +6,14 @@ import android.content.SharedPreferences;
 import android.os.Looper;
 import android.text.TextUtils;
 import java.util.HashMap;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    protected Context f13981a;
+    protected Context f13681a;
 
     /* renamed from: b  reason: collision with root package name */
-    private String f13982b;
+    private String f13682b;
     private volatile SharedPreferences c;
     private HashMap<String, String> d = new HashMap<>();
     private HashMap<String, Long> e = new HashMap<>();
@@ -27,9 +27,9 @@ public class a {
         if (TextUtils.isEmpty(str)) {
             throw new RuntimeException("sharedFileName can't be null");
         }
-        this.f13982b = str;
-        this.c = context.getSharedPreferences(this.f13982b, 0);
-        this.f13981a = context;
+        this.f13682b = str;
+        this.c = context.getSharedPreferences(this.f13682b, 0);
+        this.f13681a = context;
     }
 
     public final void a(String str, String str2) {
@@ -146,10 +146,10 @@ public class a {
 
     private void b() {
         if (this.c == null) {
-            if (this.f13981a == null) {
+            if (this.f13681a == null) {
                 throw new RuntimeException("SharedPreferences is not init", new Throwable());
             }
-            this.c = this.f13981a.getSharedPreferences(this.f13982b, 0);
+            this.c = this.f13681a.getSharedPreferences(this.f13682b, 0);
         }
     }
 }

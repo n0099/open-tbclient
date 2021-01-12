@@ -1,44 +1,44 @@
 package com.baidu.tieba.tbadkCore.data;
 /* loaded from: classes.dex */
 public class n {
-    private Object nrm;
-    private boolean nrn = false;
-    private boolean nro = false;
-    private boolean nrp = false;
+    private Object nmF;
+    private boolean nmG = false;
+    private boolean nmH = false;
+    private boolean nmI = false;
 
     public n(Object obj) {
-        this.nrm = obj;
+        this.nmF = obj;
     }
 
-    public Object dOO() {
-        return this.nrm;
+    public Object dKW() {
+        return this.nmF;
     }
 
     public void aR(Object obj) {
-        this.nrm = obj;
+        this.nmF = obj;
     }
 
-    public boolean dOP() {
-        return this.nrn;
+    public boolean dKX() {
+        return this.nmG;
     }
 
-    public boolean dOQ() {
-        return this.nro;
+    public boolean dKY() {
+        return this.nmH;
     }
 
-    public void ya(boolean z) {
-        this.nro = z;
+    public void xW(boolean z) {
+        this.nmH = z;
     }
 
-    public void yb(boolean z) {
-        this.nrn = z;
+    public void xX(boolean z) {
+        this.nmG = z;
     }
 
-    public boolean dOR() {
-        return this.nrp;
+    public boolean dKZ() {
+        return this.nmI;
     }
 
-    public void yc(boolean z) {
-        this.nrp = z;
+    public void xY(boolean z) {
+        this.nmI = z;
     }
 }

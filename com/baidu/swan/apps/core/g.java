@@ -1,6 +1,6 @@
 package com.baidu.swan.apps.core;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public abstract class g {
-    public void ig(String str) {
+    public void gV(String str) {
     }
 }

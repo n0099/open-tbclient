@@ -3,36 +3,41 @@ package com.baidu.platform.comapi.walknavi.widget;
 import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
-import android.graphics.drawable.ColorDrawable;
+import android.content.res.Resources;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.tieba.R;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class a extends Dialog {
 
     /* renamed from: a  reason: collision with root package name */
-    private TextView f4601a;
+    private TextView f4383a;
 
     /* renamed from: b  reason: collision with root package name */
-    private TextView f4602b;
+    private TextView f4384b;
     private TextView c;
     private TextView d;
     private LinearLayout e;
     private LinearLayout f;
-    private InterfaceC0302a g;
-    private InterfaceC0302a h;
+    private InterfaceC0285a g;
+    private InterfaceC0285a h;
     private boolean i;
     private boolean j;
 
     /* renamed from: com.baidu.platform.comapi.walknavi.widget.a$a  reason: collision with other inner class name */
-    /* loaded from: classes3.dex */
-    public interface InterfaceC0302a {
+    /* loaded from: classes6.dex */
+    public interface InterfaceC0285a {
         void a();
     }
 
     public a(Context context, int i) {
         super(context);
+        if (com.baidu.platform.comapi.bikenavi.a.a.f4143a) {
+            Resources.Theme newTheme = com.baidu.platform.comapi.wnplatform.o.a.a.b().newTheme();
+            newTheme.applyStyle(i, true);
+            com.baidu.platform.comapi.wnplatform.o.a.a.a(this, newTheme);
+        }
     }
 
     public a(Context context) {
@@ -41,24 +46,20 @@ public class a extends Dialog {
 
     public a(Activity activity) {
         this(activity, R.id.BOTH);
-        View a2 = com.baidu.platform.comapi.wnplatform.p.a.a.a(activity, R.array.Mask_X007, null);
-        requestWindowFeature(1);
-        if (getWindow() != null) {
-            getWindow().setBackgroundDrawable(new ColorDrawable(0));
-        }
+        View a2 = com.baidu.platform.comapi.wnplatform.o.a.a.a(activity, R.array.Mask_X005, null);
         setContentView(a2);
-        this.f4601a = (TextView) a2.findViewById(R.dimen.abc_action_bar_content_inset_material);
-        this.f4602b = (TextView) a2.findViewById(R.dimen.abc_action_bar_default_padding_end_material);
-        this.c = (TextView) a2.findViewById(R.dimen.abc_action_bar_overflow_padding_end_material);
-        this.d = (TextView) a2.findViewById(R.dimen.abc_action_bar_overflow_padding_start_material);
-        this.e = (LinearLayout) a2.findViewById(R.dimen.abc_action_bar_icon_vertical_padding_material);
-        this.f = (LinearLayout) a2.findViewById(R.dimen.abc_action_bar_stacked_max_height);
+        this.f4383a = (TextView) a2.findViewById(R.dimen.T_X03);
+        this.f4384b = (TextView) a2.findViewById(R.dimen.T_X06);
+        this.c = (TextView) a2.findViewById(R.dimen.T_X10);
+        this.d = (TextView) a2.findViewById(R.dimen._bottom_enter_anim_place_holder_height);
+        this.e = (LinearLayout) a2.findViewById(R.dimen.T_X09);
+        this.f = (LinearLayout) a2.findViewById(R.dimen.abc_action_bar_content_inset_material);
         this.c.setOnClickListener(new b(this));
         this.d.setOnClickListener(new c(this));
         this.i = false;
         this.j = false;
-        this.f4601a.setVisibility(8);
-        this.f4602b.setVisibility(8);
+        this.f4383a.setVisibility(8);
+        this.f4384b.setVisibility(8);
         this.c.setVisibility(8);
         this.d.setVisibility(8);
         this.e.setVisibility(8);
@@ -68,22 +69,22 @@ public class a extends Dialog {
 
     public a a(String str) {
         if (str == null) {
-            this.f4602b.setVisibility(8);
-            this.f4602b.setText("", TextView.BufferType.SPANNABLE);
+            this.f4384b.setVisibility(8);
+            this.f4384b.setText("", TextView.BufferType.SPANNABLE);
         } else {
-            this.f4602b.setVisibility(0);
-            this.f4602b.setText(str, TextView.BufferType.SPANNABLE);
+            this.f4384b.setVisibility(0);
+            this.f4384b.setText(str, TextView.BufferType.SPANNABLE);
         }
         return this;
     }
 
     public a b(String str) {
         if (str == null) {
-            this.f4601a.setVisibility(8);
-            this.f4601a.setText("", TextView.BufferType.SPANNABLE);
+            this.f4383a.setVisibility(8);
+            this.f4383a.setText("", TextView.BufferType.SPANNABLE);
         } else {
-            this.f4601a.setVisibility(0);
-            this.f4601a.setText(str, TextView.BufferType.SPANNABLE);
+            this.f4383a.setVisibility(0);
+            this.f4383a.setText(str, TextView.BufferType.SPANNABLE);
         }
         return this;
     }
@@ -122,13 +123,13 @@ public class a extends Dialog {
         return this;
     }
 
-    public a a(InterfaceC0302a interfaceC0302a) {
-        this.g = interfaceC0302a;
+    public a a(InterfaceC0285a interfaceC0285a) {
+        this.g = interfaceC0285a;
         return this;
     }
 
-    public a b(InterfaceC0302a interfaceC0302a) {
-        this.h = interfaceC0302a;
+    public a b(InterfaceC0285a interfaceC0285a) {
+        this.h = interfaceC0285a;
         return this;
     }
 

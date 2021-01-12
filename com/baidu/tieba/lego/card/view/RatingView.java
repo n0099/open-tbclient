@@ -11,14 +11,14 @@ import com.baidu.tbadk.core.util.ao;
 import com.baidu.tieba.R;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class RatingView extends LinearLayout {
-    private a lbI;
+    private a kXc;
     private Context mContext;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public static class a {
-        public String lbJ;
+        public String kXd;
         public Double score;
         public String title;
     }
@@ -46,7 +46,7 @@ public class RatingView extends LinearLayout {
         return imageView;
     }
 
-    private a Od(String str) {
+    private a MV(String str) {
         a aVar = new a();
         aVar.title = "";
         if (!TextUtils.isEmpty(str)) {
@@ -68,19 +68,19 @@ public class RatingView extends LinearLayout {
     }
 
     public void setRating(String str, String str2) {
-        this.lbI = Od(str2);
-        this.lbI.lbJ = str;
-        dey();
+        this.kXc = MV(str2);
+        this.kXc.kXd = str;
+        daG();
     }
 
-    private void dey() {
+    private void daG() {
         int i;
         removeAllViews();
-        if (this.lbI != null) {
-            if (!TextUtils.isEmpty(this.lbI.lbJ)) {
+        if (this.kXc != null) {
+            if (!TextUtils.isEmpty(this.kXc.kXd)) {
                 LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
                 TextView textView = new TextView(this.mContext);
-                textView.setText(this.lbI.lbJ);
+                textView.setText(this.kXc.kXd);
                 textView.setTextSize(0, com.baidu.adp.lib.util.l.getDimens(this.mContext, R.dimen.fontsize24));
                 textView.setTextColor(ao.getColor(R.color.CAM_X0109));
                 textView.setPadding(0, 0, com.baidu.adp.lib.util.l.getDimens(this.mContext, R.dimen.ds30), 0);
@@ -88,10 +88,10 @@ public class RatingView extends LinearLayout {
                 textView.setIncludeFontPadding(false);
                 addView(textView);
             }
-            if (!TextUtils.isEmpty(this.lbI.title)) {
+            if (!TextUtils.isEmpty(this.kXc.title)) {
                 LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(-2, -2);
                 TextView textView2 = new TextView(this.mContext);
-                textView2.setText(this.lbI.title);
+                textView2.setText(this.kXc.title);
                 textView2.setTextSize(0, com.baidu.adp.lib.util.l.getDimens(this.mContext, R.dimen.fontsize24));
                 textView2.setTextColor(ao.getColor(R.color.CAM_X0109));
                 textView2.setPadding(0, 0, com.baidu.adp.lib.util.l.getDimens(this.mContext, R.dimen.ds6), 0);
@@ -99,8 +99,8 @@ public class RatingView extends LinearLayout {
                 textView2.setIncludeFontPadding(false);
                 addView(textView2);
             }
-            if (this.lbI.score != null && !Double.isNaN(this.lbI.score.doubleValue())) {
-                Integer valueOf = Integer.valueOf(this.lbI.score.intValue());
+            if (this.kXc.score != null && !Double.isNaN(this.kXc.score.doubleValue())) {
+                Integer valueOf = Integer.valueOf(this.kXc.score.intValue());
                 if (valueOf.intValue() > 10) {
                     valueOf = 10;
                 }

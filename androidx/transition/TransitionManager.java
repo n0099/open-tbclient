@@ -10,7 +10,7 @@ import androidx.core.view.ViewCompat;
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class TransitionManager {
     private static final String LOG_TAG = "TransitionManager";
     private static Transition sDefaultTransition = new AutoTransition();
@@ -84,7 +84,7 @@ public class TransitionManager {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public static class MultiListener implements View.OnAttachStateChangeListener, ViewTreeObserver.OnPreDrawListener {
         ViewGroup mSceneRoot;
         Transition mTransition;

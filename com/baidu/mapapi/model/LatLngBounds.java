@@ -2,47 +2,26 @@ package com.baidu.mapapi.model;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public final class LatLngBounds implements Parcelable {
     public static final Parcelable.Creator<LatLngBounds> CREATOR = new b();
     public final LatLng northeast;
     public final LatLng southwest;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public static final class Builder {
 
         /* renamed from: a  reason: collision with root package name */
-        private double f2945a;
+        private double f2823a;
 
         /* renamed from: b  reason: collision with root package name */
-        private double f2946b;
+        private double f2824b;
         private double c;
         private double d;
         private boolean e = true;
 
-        private void a(LatLng latLng) {
-            if (latLng == null) {
-                return;
-            }
-            double d = latLng.latitude;
-            double d2 = latLng.longitude;
-            if (d < this.f2945a) {
-                this.f2945a = d;
-            }
-            if (d > this.f2946b) {
-                this.f2946b = d;
-            }
-            if (d2 < this.c) {
-                this.c = d2;
-            }
-            if (d2 > this.d) {
-                this.d = d2;
-            }
-        }
-
         public LatLngBounds build() {
-            return new LatLngBounds(new LatLng(this.f2946b, this.d), new LatLng(this.f2945a, this.c));
+            return new LatLngBounds(new LatLng(this.f2824b, this.d), new LatLng(this.f2823a, this.c));
         }
 
         public Builder include(LatLng latLng) {
@@ -50,30 +29,25 @@ public final class LatLngBounds implements Parcelable {
                 if (this.e) {
                     this.e = false;
                     double d = latLng.latitude;
-                    this.f2945a = d;
-                    this.f2946b = d;
+                    this.f2823a = d;
+                    this.f2824b = d;
                     double d2 = latLng.longitude;
                     this.c = d2;
                     this.d = d2;
                 }
-                a(latLng);
-            }
-            return this;
-        }
-
-        public Builder include(List<LatLng> list) {
-            if (list != null && list.size() != 0) {
-                if (list.get(0) != null && this.e) {
-                    this.e = false;
-                    double d = list.get(0).latitude;
-                    this.f2945a = d;
-                    this.f2946b = d;
-                    double d2 = list.get(0).longitude;
-                    this.c = d2;
-                    this.d = d2;
+                double d3 = latLng.latitude;
+                double d4 = latLng.longitude;
+                if (d3 < this.f2823a) {
+                    this.f2823a = d3;
                 }
-                for (LatLng latLng : list) {
-                    a(latLng);
+                if (d3 > this.f2824b) {
+                    this.f2824b = d3;
+                }
+                if (d4 < this.c) {
+                    this.c = d4;
+                }
+                if (d4 > this.d) {
+                    this.d = d4;
                 }
             }
             return this;

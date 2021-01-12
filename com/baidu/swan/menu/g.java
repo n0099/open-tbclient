@@ -9,62 +9,62 @@ import com.baidu.swan.menu.f;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class g implements View.OnKeyListener, e, com.baidu.swan.menu.viewpager.b {
-    private i evl;
-    private List<h> evm;
-    private e evp;
-    private com.baidu.swan.menu.viewpager.b evq;
-    private View.OnKeyListener evr;
-    private a evs;
-    private b evt;
+    private e eqB;
+    private com.baidu.swan.menu.viewpager.b eqC;
+    private View.OnKeyListener eqD;
+    private a eqE;
+    private b eqF;
+    private i eqx;
+    private List<h> eqy;
     private Context mContext;
     private int mStyle;
-    private boolean evk = false;
+    private boolean eqw = false;
     private int mScreenOrientation = 0;
-    private List<h> evn = new ArrayList();
-    private List<List<h>> evo = new ArrayList();
-    private int evu = -1;
+    private List<h> eqz = new ArrayList();
+    private List<List<h>> eqA = new ArrayList();
+    private int eqG = -1;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public interface a {
         void a(g gVar, boolean z);
     }
 
     public g(Context context, View view, int i, b bVar, @Nullable com.baidu.swan.menu.a aVar) {
-        this.evm = new ArrayList();
+        this.eqy = new ArrayList();
         if (i >= 0) {
             this.mContext = context;
             this.mStyle = i;
-            this.evt = bVar;
-            this.evm = j.nm(this.mStyle);
-            this.evt.g(this.mStyle, this.evm);
-            this.evt.h(this.mStyle, this.evm);
-            this.evl = new i(this.mContext, view, aVar);
-            this.evl.a(new PopupWindow.a() { // from class: com.baidu.swan.menu.g.1
+            this.eqF = bVar;
+            this.eqy = j.lG(this.mStyle);
+            this.eqF.g(this.mStyle, this.eqy);
+            this.eqF.h(this.mStyle, this.eqy);
+            this.eqx = new i(this.mContext, view, aVar);
+            this.eqx.a(new PopupWindow.a() { // from class: com.baidu.swan.menu.g.1
                 @Override // com.baidu.swan.menu.PopupWindow.a
                 public void onDismiss() {
-                    if (g.this.evs != null) {
-                        g.this.evs.a(g.this, false);
+                    if (g.this.eqE != null) {
+                        g.this.eqE.a(g.this, false);
                     }
                 }
             });
         }
     }
 
-    private void bfn() {
-        this.evo.clear();
-        int size = this.evn.size();
+    private void bbt() {
+        this.eqA.clear();
+        int size = this.eqz.size();
         if (size > 0 && size <= 5) {
-            this.evo.add(this.evn);
+            this.eqA.add(this.eqz);
         } else if (size > 5 && size <= 10) {
-            int i = this.evk ? 5 : this.evu;
-            this.evo.add(this.evn.subList(0, i));
-            this.evo.add(this.evn.subList(i, size));
+            int i = this.eqw ? 5 : this.eqG;
+            this.eqA.add(this.eqz.subList(0, i));
+            this.eqA.add(this.eqz.subList(i, size));
         } else if (size > 10) {
-            int ceil = this.evk ? (int) Math.ceil(size / 2.0f) : this.evu;
-            this.evo.add(this.evn.subList(0, ceil));
-            this.evo.add(this.evn.subList(ceil, size));
+            int ceil = this.eqw ? (int) Math.ceil(size / 2.0f) : this.eqG;
+            this.eqA.add(this.eqz.subList(0, ceil));
+            this.eqA.add(this.eqz.subList(ceil, size));
         }
     }
 
@@ -81,19 +81,19 @@ public class g implements View.OnKeyListener, e, com.baidu.swan.menu.viewpager.b
             dismiss(true);
             return;
         }
-        if (this.evt != null) {
-            this.evt.f(this.mStyle, this.evm);
+        if (this.eqF != null) {
+            this.eqF.f(this.mStyle, this.eqy);
         }
         o(z, i);
-        bfn();
-        this.evl.b(this.evo, view, z2, this.mScreenOrientation);
-        if (this.evs != null) {
-            this.evs.a(this, true);
+        bbt();
+        this.eqx.b(this.eqA, view, z2, this.mScreenOrientation);
+        if (this.eqE != null) {
+            this.eqE.a(this, true);
         }
     }
 
     public void a(e eVar) {
-        this.evp = eVar;
+        this.eqB = eVar;
     }
 
     @Override // com.baidu.swan.menu.e
@@ -102,38 +102,38 @@ public class g implements View.OnKeyListener, e, com.baidu.swan.menu.viewpager.b
             if (d(hVar)) {
                 dismiss(true);
             }
-            if (this.evp == null) {
+            if (this.eqB == null) {
                 return false;
             }
-            return this.evp.a(view, hVar);
+            return this.eqB.a(view, hVar);
         }
         return true;
     }
 
     @Override // com.baidu.swan.menu.viewpager.b
     public boolean c(h hVar) {
-        if (d(hVar) && !this.evk) {
+        if (d(hVar) && !this.eqw) {
             dismiss(true);
         }
-        if (this.evq == null) {
+        if (this.eqC == null) {
             return false;
         }
-        return this.evq.c(hVar);
+        return this.eqC.c(hVar);
     }
 
     @Override // android.view.View.OnKeyListener
     public boolean onKey(View view, int i, KeyEvent keyEvent) {
-        if (this.evr != null) {
-            return this.evr.onKey(view, i, keyEvent);
+        if (this.eqD != null) {
+            return this.eqD.onKey(view, i, keyEvent);
         }
         return false;
     }
 
-    public void iC(boolean z) {
-        a(ni(5), z);
-        bfn();
-        this.evl.aFQ();
-        bfj();
+    public void iy(boolean z) {
+        a(lC(5), z);
+        bbt();
+        this.eqx.aBW();
+        bbp();
     }
 
     public void dismiss() {
@@ -141,54 +141,54 @@ public class g implements View.OnKeyListener, e, com.baidu.swan.menu.viewpager.b
     }
 
     public void dismiss(boolean z) {
-        this.evl.gi(z);
-        if (this.evs != null) {
-            this.evs.a(this, false);
+        this.eqx.ge(z);
+        if (this.eqE != null) {
+            this.eqE.a(this, false);
         }
     }
 
     public boolean isShowing() {
-        return this.evl != null && this.evl.isShowing();
+        return this.eqx != null && this.eqx.isShowing();
     }
 
-    public void bfj() {
-        if (this.evl != null) {
-            this.evl.bfj();
+    public void bbp() {
+        if (this.eqx != null) {
+            this.eqx.bbp();
         }
     }
 
     public void aA(int i, int i2) {
-        h nn;
+        h lH;
         int i3 = 0;
         boolean z = false;
-        for (h hVar : this.evm) {
+        for (h hVar : this.eqy) {
             z = hVar.getItemId() == i ? true : z;
         }
-        if (!z && (nn = j.nn(i)) != null) {
-            int size = this.evm.size();
+        if (!z && (lH = j.lH(i)) != null) {
+            int size = this.eqy.size();
             if (i2 > 0) {
                 i3 = i2 >= size ? size : i2;
             }
-            this.evm.add(i3, nn);
+            this.eqy.add(i3, lH);
         }
     }
 
-    public void ng(int i) {
-        if (this.evm != null) {
+    public void lA(int i) {
+        if (this.eqy != null) {
             int i2 = -1;
-            for (int i3 = 0; i3 < this.evm.size(); i3++) {
-                if (this.evm.get(i3).getItemId() == i) {
+            for (int i3 = 0; i3 < this.eqy.size(); i3++) {
+                if (this.eqy.get(i3).getItemId() == i) {
                     i2 = i3;
                 }
             }
             if (i2 > -1) {
-                this.evm.remove(i2);
+                this.eqy.remove(i2);
             }
         }
     }
 
-    public void nh(int i) {
-        this.evl.nh(i);
+    public void lB(int i) {
+        this.eqx.lB(i);
     }
 
     private boolean d(h hVar) {
@@ -200,38 +200,38 @@ public class g implements View.OnKeyListener, e, com.baidu.swan.menu.viewpager.b
     }
 
     private void o(boolean z, int i) {
-        if (this.evm != null) {
-            this.evn.clear();
-            nj(41);
-            h a2 = a(ni(38), i);
+        if (this.eqy != null) {
+            this.eqz.clear();
+            lD(41);
+            h a2 = a(lC(38), i);
             if (a2 != null && a2.isVisible()) {
-                this.evn.add(a2);
+                this.eqz.add(a2);
             }
-            nj(48);
-            nj(45);
-            nj(4);
-            nj(101);
-            h ni = ni(35);
-            if (ni != null && ni.isVisible()) {
-                this.evn.add(ni);
+            lD(48);
+            lD(45);
+            lD(4);
+            lD(101);
+            h lC = lC(35);
+            if (lC != null && lC.isVisible()) {
+                this.eqz.add(lC);
             }
-            nj(39);
-            nj(42);
-            nj(9);
-            if (!this.evk) {
-                this.evu = this.evn.size() - 1;
+            lD(39);
+            lD(42);
+            lD(9);
+            if (!this.eqw) {
+                this.eqG = this.eqz.size() - 1;
             }
-            nj(37);
-            nj(100);
-            nj(43);
-            h a3 = a(ni(5), z);
+            lD(37);
+            lD(100);
+            lD(43);
+            h a3 = a(lC(5), z);
             if (a3 != null && a3.isVisible()) {
-                this.evn.add(a3);
+                this.eqz.add(a3);
             }
-            nj(46);
-            nj(47);
-            nj(49);
-            nj(50);
+            lD(46);
+            lD(47);
+            lD(49);
+            lD(50);
         }
     }
 
@@ -258,10 +258,10 @@ public class g implements View.OnKeyListener, e, com.baidu.swan.menu.viewpager.b
         }
         if (i >= 0) {
             Long l = valueOf;
-            for (h hVar : this.evn) {
+            for (h hVar : this.eqz) {
                 if (hVar.getItemId() == i) {
-                    l = Long.valueOf(l.longValue() + hVar.bfp());
-                    hVar.nk(l.longValue() > 0 ? 1 : 0);
+                    l = Long.valueOf(l.longValue() + hVar.bbv());
+                    hVar.lE(l.longValue() > 0 ? 1 : 0);
                     hVar.dk(l.longValue());
                 }
             }
@@ -273,10 +273,10 @@ public class g implements View.OnKeyListener, e, com.baidu.swan.menu.viewpager.b
             return null;
         }
         if (i == 2) {
-            hVar.nl(f.C0558f.aiapp_menu_text_cancel_favorite);
+            hVar.lF(f.C0541f.aiapp_menu_text_cancel_favorite);
             hVar.setIconResId(f.c.aiapp_menu_item_cancel_fav_selector);
         } else if (i == 1) {
-            hVar.nl(f.C0558f.aiapp_menu_text_favorite);
+            hVar.lF(f.C0541f.aiapp_menu_text_favorite);
             hVar.setIconResId(f.c.aiapp_menu_item_add_fav_selector);
         } else if (i == 0) {
             hVar = null;
@@ -288,19 +288,19 @@ public class g implements View.OnKeyListener, e, com.baidu.swan.menu.viewpager.b
         if (hVar == null) {
             return null;
         }
-        hVar.nl(z ? f.C0558f.aiapp_menu_text_day_mode : f.C0558f.aiapp_menu_text_night_mode);
+        hVar.lF(z ? f.C0541f.aiapp_menu_text_day_mode : f.C0541f.aiapp_menu_text_night_mode);
         hVar.setIconResId(z ? f.c.aiapp_menu_item_daymode : f.c.aiapp_menu_item_nightmode);
         return hVar;
     }
 
-    public h ni(int i) {
+    public h lC(int i) {
         int i2 = 0;
         while (true) {
             int i3 = i2;
-            if (i3 >= this.evm.size()) {
+            if (i3 >= this.eqy.size()) {
                 return null;
             }
-            h hVar = this.evm.get(i3);
+            h hVar = this.eqy.get(i3);
             if (hVar.getItemId() != i) {
                 i2 = i3 + 1;
             } else {
@@ -311,10 +311,10 @@ public class g implements View.OnKeyListener, e, com.baidu.swan.menu.viewpager.b
         }
     }
 
-    private void nj(int i) {
-        h ni = ni(i);
-        if (ni != null && ni.isVisible()) {
-            this.evn.add(ni);
+    private void lD(int i) {
+        h lC = lC(i);
+        if (lC != null && lC.isVisible()) {
+            this.eqz.add(lC);
         }
     }
 }

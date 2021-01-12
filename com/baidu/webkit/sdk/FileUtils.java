@@ -6,7 +6,7 @@ import android.content.pm.PackageManager;
 import com.xiaomi.mipush.sdk.Constants;
 import java.io.File;
 import java.io.FilenameFilter;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 class FileUtils {
     static final String TAG = "FileUtils";
     private static String sFileRwErrorDetail;

@@ -1,12 +1,12 @@
 package com.baidu.mobads.openad.b;
-/* loaded from: classes3.dex */
+/* loaded from: classes14.dex */
 class h {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f3447a;
+    private int f3409a;
 
     /* renamed from: b  reason: collision with root package name */
-    private int f3448b;
+    private int f3410b;
     private int c;
     private int d;
     private String e;
@@ -38,19 +38,19 @@ class h {
     }
 
     public int c() {
-        return this.f3447a;
+        return this.f3409a;
     }
 
     public void b(int i) {
-        this.f3447a = i;
+        this.f3409a = i;
     }
 
     public int d() {
-        return this.f3448b;
+        return this.f3410b;
     }
 
     public void c(int i) {
-        this.f3448b = i;
+        this.f3410b = i;
     }
 
     public int e() {

@@ -4,16 +4,16 @@ import okhttp3.internal.http2.Header;
 /* loaded from: classes4.dex */
 public final class c {
     final int i;
-    public final com.bytedance.sdk.a.a.f pjP;
-    public final com.bytedance.sdk.a.a.f pjQ;
-    public static final com.bytedance.sdk.a.a.f pjK = com.bytedance.sdk.a.a.f.a(":");
+    public final com.bytedance.sdk.a.a.f pfk;
+    public final com.bytedance.sdk.a.a.f pfl;
+    public static final com.bytedance.sdk.a.a.f pff = com.bytedance.sdk.a.a.f.a(":");
 
     /* renamed from: b  reason: collision with root package name */
-    public static final com.bytedance.sdk.a.a.f f6190b = com.bytedance.sdk.a.a.f.a(Header.RESPONSE_STATUS_UTF8);
-    public static final com.bytedance.sdk.a.a.f pjL = com.bytedance.sdk.a.a.f.a(Header.TARGET_METHOD_UTF8);
-    public static final com.bytedance.sdk.a.a.f pjM = com.bytedance.sdk.a.a.f.a(Header.TARGET_PATH_UTF8);
-    public static final com.bytedance.sdk.a.a.f pjN = com.bytedance.sdk.a.a.f.a(Header.TARGET_SCHEME_UTF8);
-    public static final com.bytedance.sdk.a.a.f pjO = com.bytedance.sdk.a.a.f.a(Header.TARGET_AUTHORITY_UTF8);
+    public static final com.bytedance.sdk.a.a.f f5890b = com.bytedance.sdk.a.a.f.a(Header.RESPONSE_STATUS_UTF8);
+    public static final com.bytedance.sdk.a.a.f pfg = com.bytedance.sdk.a.a.f.a(Header.TARGET_METHOD_UTF8);
+    public static final com.bytedance.sdk.a.a.f pfh = com.bytedance.sdk.a.a.f.a(Header.TARGET_PATH_UTF8);
+    public static final com.bytedance.sdk.a.a.f pfi = com.bytedance.sdk.a.a.f.a(Header.TARGET_SCHEME_UTF8);
+    public static final com.bytedance.sdk.a.a.f pfj = com.bytedance.sdk.a.a.f.a(Header.TARGET_AUTHORITY_UTF8);
 
     public c(String str, String str2) {
         this(com.bytedance.sdk.a.a.f.a(str), com.bytedance.sdk.a.a.f.a(str2));
@@ -24,24 +24,24 @@ public final class c {
     }
 
     public c(com.bytedance.sdk.a.a.f fVar, com.bytedance.sdk.a.a.f fVar2) {
-        this.pjP = fVar;
-        this.pjQ = fVar2;
+        this.pfk = fVar;
+        this.pfl = fVar2;
         this.i = fVar.g() + 32 + fVar2.g();
     }
 
     public boolean equals(Object obj) {
         if (obj instanceof c) {
             c cVar = (c) obj;
-            return this.pjP.equals(cVar.pjP) && this.pjQ.equals(cVar.pjQ);
+            return this.pfk.equals(cVar.pfk) && this.pfl.equals(cVar.pfl);
         }
         return false;
     }
 
     public int hashCode() {
-        return ((this.pjP.hashCode() + 527) * 31) + this.pjQ.hashCode();
+        return ((this.pfk.hashCode() + 527) * 31) + this.pfl.hashCode();
     }
 
     public String toString() {
-        return com.bytedance.sdk.a.b.a.c.a("%s: %s", this.pjP.a(), this.pjQ.a());
+        return com.bytedance.sdk.a.b.a.c.a("%s: %s", this.pfk.a(), this.pfl.a());
     }
 }

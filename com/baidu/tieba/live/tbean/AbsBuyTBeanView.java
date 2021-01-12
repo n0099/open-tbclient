@@ -6,10 +6,10 @@ import com.baidu.live.adp.widget.listview.IAdapterData;
 import com.baidu.live.tbadk.TbPageContext;
 import com.baidu.tieba.live.tbean.data.CustomData;
 import com.baidu.tieba.live.tbean.data.UserInfoData;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public abstract class AbsBuyTBeanView extends BdBaseView {
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public interface OnPayClickListener {
         void onClick(IAdapterData iAdapterData, UserInfoData userInfoData, int i);
     }

@@ -1,12 +1,12 @@
 package com.baidu.tieba.ala.data;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class o {
-    private String aPa;
-    private int gUP;
-    private String gUQ;
-    private String gUR;
-    private String gqE;
-    private String gqZ;
+    private String aKn;
+    private int gQj;
+    private String gQk;
+    private String gQl;
+    private String glX;
+    private String gms;
     private String mIcon;
     private String mName;
     public int mStatus;
@@ -15,29 +15,29 @@ public class o {
     }
 
     public o(String str, String str2, String str3, String str4, String str5, String str6, String str7, int i) {
-        this.gUQ = str;
+        this.gQk = str;
         this.mIcon = str2;
         this.mName = str3;
-        this.gUR = str4;
-        this.gqZ = str5;
-        this.gqE = str6;
-        this.aPa = str7;
+        this.gQl = str4;
+        this.gms = str5;
+        this.glX = str6;
+        this.aKn = str7;
         this.mStatus = i;
     }
 
-    public int bXD() {
-        return this.gUP;
+    public int bTL() {
+        return this.gQj;
     }
 
-    public void vR(int i) {
-        this.gUP = i;
+    public void ul(int i) {
+        this.gQj = i;
     }
 
-    public String bXE() {
-        return this.gUQ;
+    public String bTM() {
+        return this.gQk;
     }
 
-    public String bXF() {
+    public String bTN() {
         return this.mIcon;
     }
 
@@ -45,15 +45,15 @@ public class o {
         return this.mName;
     }
 
-    public String bXG() {
-        return this.gUR;
+    public String bTO() {
+        return this.gQl;
     }
 
-    public String bXH() {
-        return this.gqZ;
+    public String bTP() {
+        return this.gms;
     }
 
-    public String bXI() {
-        return this.gqE;
+    public String bTQ() {
+        return this.glX;
     }
 }

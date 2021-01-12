@@ -4,7 +4,7 @@ import android.view.View;
 import androidx.annotation.NonNull;
 import com.baidu.live.data.ck;
 import java.util.Map;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public interface c {
     void f(Map<String, Integer> map);
 

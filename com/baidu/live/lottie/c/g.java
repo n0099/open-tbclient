@@ -4,9 +4,10 @@ import android.util.JsonReader;
 import android.util.Log;
 import androidx.annotation.Nullable;
 import com.baidu.mobads.interfaces.IXAdRequestInfo;
+import com.baidu.mobstat.Config;
 import java.io.IOException;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class g {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
@@ -36,7 +37,7 @@ public class g {
                         z = true;
                         break;
                     case 3717:
-                        if (nextName.equals("ty")) {
+                        if (nextName.equals(Config.EXCEPTION_CRASH_CHANNEL)) {
                             z = false;
                             break;
                         }

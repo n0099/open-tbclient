@@ -3,13 +3,13 @@ package com.ss.android.socialbase.appdownloader.c;
 import android.content.DialogInterface;
 /* loaded from: classes4.dex */
 public interface k {
-    k BI(boolean z);
+    k BE(boolean z);
 
-    k Sh(int i);
+    k QA(int i);
 
-    k aaP(String str);
+    k ZH(String str);
 
-    j eGy();
+    j eCH();
 
     k h(int i, DialogInterface.OnClickListener onClickListener);
 

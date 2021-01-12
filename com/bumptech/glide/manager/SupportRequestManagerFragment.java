@@ -13,7 +13,7 @@ import com.bumptech.glide.RequestManager;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class SupportRequestManagerFragment extends Fragment {
     private static final String TAG = "SupportRMFragment";
     private final Set<SupportRequestManagerFragment> childRequestManagerFragments;
@@ -170,7 +170,7 @@ public class SupportRequestManagerFragment extends Fragment {
         return super.toString() + "{parent=" + getParentFragmentUsingHint() + "}";
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     private class SupportFragmentRequestManagerTreeNode implements RequestManagerTreeNode {
         SupportFragmentRequestManagerTreeNode() {
         }

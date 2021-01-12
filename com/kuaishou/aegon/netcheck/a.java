@@ -1,12 +1,12 @@
 package com.kuaishou.aegon.netcheck;
 
 import java.util.EnumSet;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class a {
 
     /* renamed from: com.kuaishou.aegon.netcheck.a$a  reason: collision with other inner class name */
-    /* loaded from: classes5.dex */
-    public enum EnumC1080a {
+    /* loaded from: classes4.dex */
+    public enum EnumC1063a {
         RESULT_WEAK_SIGNAL(1),
         RESULT_BAD_WIFI_GATEWAY(2),
         RESULT_NOT_CONNECTED(3),
@@ -15,7 +15,7 @@ public class a {
         
         public int g;
 
-        EnumC1080a(int i) {
+        EnumC1063a(int i) {
             this.g = i;
         }
 
@@ -24,10 +24,10 @@ public class a {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public interface b {
         void a(int i);
 
-        void a(EnumSet<EnumC1080a> enumSet, String str);
+        void a(EnumSet<EnumC1063a> enumSet, String str);
     }
 }

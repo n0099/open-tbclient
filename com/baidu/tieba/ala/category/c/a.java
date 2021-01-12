@@ -13,46 +13,46 @@ import com.baidu.live.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.ala.category.message.AlaCategoryResponseMessage;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class a extends BdBaseModel {
-    private List<IAdapterData> gOR;
-    private InterfaceC0639a gOX;
-    private HttpMessageListener gOY;
+    private List<IAdapterData> gKl;
+    private InterfaceC0622a gKr;
+    private HttpMessageListener gKs;
 
     /* renamed from: com.baidu.tieba.ala.category.c.a$a  reason: collision with other inner class name */
-    /* loaded from: classes11.dex */
-    public interface InterfaceC0639a {
-        void aE(int i, String str);
+    /* loaded from: classes10.dex */
+    public interface InterfaceC0622a {
+        void aF(int i, String str);
 
         void onLoadSuccess();
     }
 
     public a(TbPageContext tbPageContext) {
         super(tbPageContext);
-        this.gOR = new ArrayList();
-        this.gOY = new HttpMessageListener(1021187, true) { // from class: com.baidu.tieba.ala.category.c.a.1
+        this.gKl = new ArrayList();
+        this.gKs = new HttpMessageListener(1021187, true) { // from class: com.baidu.tieba.ala.category.c.a.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
                 if (httpResponsedMessage instanceof AlaCategoryResponseMessage) {
                     AlaCategoryResponseMessage alaCategoryResponseMessage = (AlaCategoryResponseMessage) httpResponsedMessage;
-                    com.baidu.tieba.ala.category.b.b bWG = alaCategoryResponseMessage.bWG();
-                    if (!alaCategoryResponseMessage.isSuccess() || bWG == null || ListUtils.isEmpty(bWG.bWC())) {
-                        if (a.this.gOX != null) {
-                            a.this.gOX.aE(alaCategoryResponseMessage.getError(), alaCategoryResponseMessage.getErrorString());
+                    com.baidu.tieba.ala.category.b.b bSO = alaCategoryResponseMessage.bSO();
+                    if (!alaCategoryResponseMessage.isSuccess() || bSO == null || ListUtils.isEmpty(bSO.bSK())) {
+                        if (a.this.gKr != null) {
+                            a.this.gKr.aF(alaCategoryResponseMessage.getError(), alaCategoryResponseMessage.getErrorString());
                             return;
                         }
                         return;
                     }
-                    a.this.gOR = bWG.bWC();
-                    if (a.this.gOX != null) {
-                        a.this.gOX.onLoadSuccess();
+                    a.this.gKl = bSO.bSK();
+                    if (a.this.gKr != null) {
+                        a.this.gKr.onLoadSuccess();
                     }
                 }
             }
         };
         registerTask();
-        registerListener(this.gOY);
+        registerListener(this.gKs);
     }
 
     private void registerTask() {
@@ -64,7 +64,7 @@ public class a extends BdBaseModel {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    public void bWH() {
+    public void bSP() {
         loadData();
     }
 
@@ -80,11 +80,11 @@ public class a extends BdBaseModel {
         return true;
     }
 
-    public void a(InterfaceC0639a interfaceC0639a) {
-        this.gOX = interfaceC0639a;
+    public void a(InterfaceC0622a interfaceC0622a) {
+        this.gKr = interfaceC0622a;
     }
 
-    public List<IAdapterData> bWC() {
-        return this.gOR;
+    public List<IAdapterData> bSK() {
+        return this.gKl;
     }
 }

@@ -3,10 +3,10 @@ package com.baidu.live.tbadk.util;
 import android.app.Activity;
 import android.util.DisplayMetrics;
 import android.view.WindowManager;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class PageDialogHelper {
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public enum PayForm {
         NOT_SET,
         DIALOG,

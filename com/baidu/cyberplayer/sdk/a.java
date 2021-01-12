@@ -1,57 +1,57 @@
 package com.baidu.cyberplayer.sdk;
 
 import java.util.ArrayList;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private ArrayList<C0100a> f1773a = new ArrayList<>();
+    private ArrayList<C0099a> f1723a = new ArrayList<>();
 
     /* renamed from: com.baidu.cyberplayer.sdk.a$a  reason: collision with other inner class name */
-    /* loaded from: classes6.dex */
-    public static class C0100a {
+    /* loaded from: classes5.dex */
+    public static class C0099a {
 
         /* renamed from: a  reason: collision with root package name */
-        private String f1774a;
+        private String f1724a;
 
         /* renamed from: b  reason: collision with root package name */
-        private Object f1775b;
+        private Object f1725b;
 
-        public C0100a(String str, Object obj) {
-            this.f1774a = str;
-            this.f1775b = obj;
+        public C0099a(String str, Object obj) {
+            this.f1724a = str;
+            this.f1725b = obj;
         }
 
         public String a() {
-            return this.f1774a;
+            return this.f1724a;
         }
 
         public void a(Object obj) {
-            this.f1775b = obj;
+            this.f1725b = obj;
         }
 
         public Object b() {
-            return this.f1775b;
+            return this.f1725b;
         }
     }
 
     public void a() {
-        this.f1773a.clear();
+        this.f1723a.clear();
     }
 
     public void a(String str, Object obj) {
-        int size = this.f1773a.size();
+        int size = this.f1723a.size();
         for (int i = 0; i < size; i++) {
-            C0100a c0100a = this.f1773a.get(i);
-            if (c0100a != null && c0100a.a() != null && c0100a.a().equals(str)) {
-                c0100a.a(obj);
+            C0099a c0099a = this.f1723a.get(i);
+            if (c0099a != null && c0099a.a() != null && c0099a.a().equals(str)) {
+                c0099a.a(obj);
                 return;
             }
         }
-        this.f1773a.add(new C0100a(str, obj));
+        this.f1723a.add(new C0099a(str, obj));
     }
 
-    public ArrayList<C0100a> b() {
-        return this.f1773a;
+    public ArrayList<C0099a> b() {
+        return this.f1723a;
     }
 }

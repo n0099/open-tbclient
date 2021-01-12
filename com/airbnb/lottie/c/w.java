@@ -7,6 +7,6 @@ import java.io.IOException;
 class w {
     /* JADX INFO: Access modifiers changed from: package-private */
     public static com.airbnb.lottie.a.b.h s(JsonReader jsonReader, com.airbnb.lottie.d dVar) throws IOException {
-        return new com.airbnb.lottie.a.b.h(dVar, q.a(jsonReader, dVar, com.airbnb.lottie.d.f.kA(), x.Hy, jsonReader.peek() == JsonToken.BEGIN_OBJECT));
+        return new com.airbnb.lottie.a.b.h(dVar, q.a(jsonReader, dVar, com.airbnb.lottie.d.f.kA(), x.Hw, jsonReader.peek() == JsonToken.BEGIN_OBJECT));
     }
 }

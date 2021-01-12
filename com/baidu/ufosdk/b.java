@@ -3,14 +3,14 @@ package com.baidu.ufosdk;
 import android.graphics.Bitmap;
 import androidx.core.view.ViewCompat;
 import java.util.HashMap;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f5638a = false;
+    public static boolean f5355a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f5639b = "";
+    public static String f5356b = "";
     public static String c = "";
     public static String d = "";
     public static int e = 0;

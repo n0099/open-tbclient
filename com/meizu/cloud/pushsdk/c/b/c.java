@@ -17,7 +17,7 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicBoolean;
 import javax.net.ssl.HostnameVerifier;
 import javax.net.ssl.SSLSocketFactory;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public abstract class c {
     protected Context d;
     protected Uri.Builder e;
@@ -37,22 +37,22 @@ public abstract class c {
     protected com.meizu.cloud.pushsdk.b.c.a s;
 
     /* renamed from: a  reason: collision with root package name */
-    protected int f11562a = 88;
+    protected int f11262a = 88;
 
     /* renamed from: b  reason: collision with root package name */
-    protected int f11563b = 22;
+    protected int f11263b = 22;
     private final String u = c.class.getSimpleName();
     protected final com.meizu.cloud.pushsdk.b.c.g c = com.meizu.cloud.pushsdk.b.c.g.a(AbstractBceClient.DEFAULT_CONTENT_TYPE);
     protected AtomicBoolean t = new AtomicBoolean(false);
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        protected final String f11564a;
+        protected final String f11264a;
 
         /* renamed from: b  reason: collision with root package name */
-        protected final Context f11565b;
+        protected final Context f11265b;
         protected SSLSocketFactory m;
         protected HostnameVerifier n;
         private Class<? extends c> p;
@@ -69,8 +69,8 @@ public abstract class c {
         protected com.meizu.cloud.pushsdk.b.c.a o = new com.meizu.cloud.pushsdk.b.c.e();
 
         public a(String str, Context context, Class<? extends c> cls) {
-            this.f11564a = str;
-            this.f11565b = context;
+            this.f11264a = str;
+            this.f11265b = context;
             this.p = cls;
         }
 
@@ -111,7 +111,7 @@ public abstract class c {
     public c(a aVar) {
         this.g = aVar.d;
         this.f = aVar.c;
-        this.d = aVar.f11565b;
+        this.d = aVar.f11265b;
         this.h = aVar.e;
         this.i = aVar.f;
         this.j = aVar.m;
@@ -121,7 +121,7 @@ public abstract class c {
         this.o = aVar.h;
         this.p = aVar.j;
         this.q = aVar.k;
-        this.l = aVar.f11564a;
+        this.l = aVar.f11264a;
         this.r = aVar.l;
         this.s = aVar.o;
         c();
@@ -205,7 +205,7 @@ public abstract class c {
                 LinkedList linkedList2 = new LinkedList();
                 linkedList2.add(b2.get(i));
                 com.meizu.cloud.pushsdk.c.a.a aVar = bVar.a().get(i);
-                linkedList.add(new e(aVar.b() + ((long) this.f11563b) > this.p, a(aVar), linkedList2));
+                linkedList.add(new e(aVar.b() + ((long) this.f11263b) > this.p, a(aVar), linkedList2));
             }
         } else {
             int i2 = 0;
@@ -215,14 +215,14 @@ public abstract class c {
                 ArrayList<com.meizu.cloud.pushsdk.c.a.a> arrayList = new ArrayList<>();
                 for (int i3 = i2; i3 < this.h.a() + i2 && i3 < size; i3++) {
                     com.meizu.cloud.pushsdk.c.a.a aVar2 = bVar.a().get(i3);
-                    long b3 = aVar2.b() + this.f11563b;
-                    if (this.f11562a + b3 > this.q) {
+                    long b3 = aVar2.b() + this.f11263b;
+                    if (this.f11262a + b3 > this.q) {
                         ArrayList<com.meizu.cloud.pushsdk.c.a.a> arrayList2 = new ArrayList<>();
                         LinkedList linkedList4 = new LinkedList();
                         arrayList2.add(aVar2);
                         linkedList4.add(b2.get(i3));
                         linkedList.add(new e(true, a(arrayList2), linkedList4));
-                    } else if (j + b3 + this.f11562a + (arrayList.size() - 1) > this.q) {
+                    } else if (j + b3 + this.f11262a + (arrayList.size() - 1) > this.q) {
                         linkedList.add(new e(false, a(arrayList), linkedList3));
                         arrayList = new ArrayList<>();
                         linkedList3 = new LinkedList();

@@ -20,12 +20,12 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.List;
 import org.chromium.support_lib_boundary.WebViewProviderBoundaryInterface;
-/* loaded from: classes3.dex */
+/* loaded from: classes14.dex */
 public class WebViewCompat {
     private static final Uri WILDCARD_URI = Uri.parse("*");
     private static final Uri EMPTY_URI = Uri.parse("");
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes14.dex */
     public interface VisualStateCallback {
         void onComplete(long j);
     }

@@ -9,11 +9,11 @@ import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.live.tbadk.core.util.StringHelper;
 import com.baidu.live.tbadk.core.util.httpnet.HttpResponse;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class UpdateAttentionMessage extends CustomResponsedMessage<UpdateAttentionData> {
     public boolean comeFromHost;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public static class UpdateAttentionData {
         public static final int AUTO_OPEN_FALSE = 2;
         public static final int AUTO_OPEN_FIRSTTIME = 3;

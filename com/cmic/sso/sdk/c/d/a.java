@@ -1,27 +1,27 @@
 package com.cmic.sso.sdk.c.d;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f8015a;
+    private int f7715a;
 
     /* renamed from: b  reason: collision with root package name */
-    private String f8016b;
+    private String f7716b;
 
     private a(int i, String str) {
-        this.f8015a = i;
-        this.f8016b = str;
+        this.f7715a = i;
+        this.f7716b = str;
     }
 
     public int a() {
-        return this.f8015a;
+        return this.f7715a;
     }
 
     public String b() {
-        return this.f8016b;
+        return this.f7716b;
     }
 
-    public static a PY(int i) {
+    public static a Or(int i) {
         switch (i) {
             case 102102:
                 return new a(102102, "网络异常");

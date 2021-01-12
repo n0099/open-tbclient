@@ -48,13 +48,13 @@ public class LaunchStatic {
         initRegisterIntent();
         initRegisterTask();
         initRegisterListeners();
-        bou();
+        bkA();
         SyncSwitch.initSyncSwitch();
         com.baidu.tieba.tbadkCore.location.a.init();
-        com.baidu.tieba.im.widget.b.cZX();
+        com.baidu.tieba.im.widget.b.cWf();
         com.baidu.tieba.im.b.init();
-        ImMemoryCacheRegister.cYL();
-        com.baidu.tieba.im.db.i.cXw();
+        ImMemoryCacheRegister.cUT();
+        com.baidu.tieba.im.db.i.cTE();
         com.baidu.tbadk.browser.c.init();
         i.init();
         WalletStaticInit.init();
@@ -95,7 +95,7 @@ public class LaunchStatic {
         });
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
-        com.baidu.tbadk.getUserInfo.b.bGj().registerTask();
+        com.baidu.tbadk.getUserInfo.b.bCq().registerTask();
         com.baidu.tieba.tbadkCore.a.a.c(303039, ClientConfigSocketResponse.class, false);
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_CLIENT_CONFIG, com.baidu.tieba.tbadkCore.a.a.bU("c/s/getClientConfig", 303039));
         tbHttpMessageTask.setResponsedClass(ClientConfigHttpProtoResponse.class);
@@ -123,7 +123,7 @@ public class LaunchStatic {
         });
     }
 
-    private static void bou() {
+    private static void bkA() {
         com.baidu.adp.lib.e.d.mx().a(10, new t(true, true, false, 10));
         com.baidu.adp.lib.e.d.mx().a(11, new t(false, true, false, 10));
         com.baidu.adp.lib.e.d.mx().a(42, new t(true, false, false, 10));

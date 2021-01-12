@@ -1,7 +1,7 @@
 package com.kwad.sdk.fullscreen.a.a;
 
 import com.kwad.sdk.mvp.Presenter;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class c extends com.kwad.sdk.reward.d {
     public c() {
         a((Presenter) new a());

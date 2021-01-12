@@ -9,11 +9,11 @@ import yaq.gdtadv;
 /* JADX WARN: Classes with same name are omitted:
   assets/yaqgdtadv0.sec
  */
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class p {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final AtomicInteger f13013a = new AtomicInteger(1);
+    private static final AtomicInteger f12713a = new AtomicInteger(1);
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static o a(int i, String str) {

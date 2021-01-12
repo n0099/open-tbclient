@@ -4,12 +4,12 @@ import com.baidu.live.tbadk.core.data.BaseData;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class c extends BaseData {
-    private ArrayList<a> hmm = new ArrayList<>();
+    private ArrayList<a> hhF = new ArrayList<>();
 
-    public ArrayList<a> cbr() {
-        return this.hmm;
+    public ArrayList<a> bXz() {
+        return this.hhF;
     }
 
     @Override // com.baidu.live.tbadk.core.data.BaseData
@@ -19,7 +19,7 @@ public class c extends BaseData {
             for (int i = 0; i < optJSONArray.length(); i++) {
                 a aVar = new a();
                 aVar.parserJson(optJSONArray.optJSONObject(i));
-                this.hmm.add(aVar);
+                this.hhF.add(aVar);
             }
         }
     }

@@ -32,18 +32,18 @@ import com.baidu.tieba.tbadkCore.z;
 import com.sina.weibo.sdk.WbSdk;
 import com.sina.weibo.sdk.auth.AuthInfo;
 import java.util.ArrayList;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class b implements View.OnClickListener {
-    private static final int hIY = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds202);
-    private static final int hIZ = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds239);
+    private static final int hEs = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds202);
+    private static final int hEt = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds239);
     private Context mContext;
     private ArrayList<TransmitForumData> mForumList;
     private int mPrivateThread;
     private ShareItem mShareItem;
-    private ShareGridLayout nDS;
-    private a nDT;
-    private boolean nDU = false;
-    private CustomMessageListener lef = new CustomMessageListener(CmdConfigCustom.CMD_SHARE_FORUM_DATA_LOADED) { // from class: com.baidu.tieba.transmitShare.b.1
+    private ShareGridLayout nzn;
+    private a nzo;
+    private boolean nzp = false;
+    private CustomMessageListener kZy = new CustomMessageListener(CmdConfigCustom.CMD_SHARE_FORUM_DATA_LOADED) { // from class: com.baidu.tieba.transmitShare.b.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -55,19 +55,19 @@ public class b implements View.OnClickListener {
 
     public b(Context context) {
         this.mContext = context;
-        MessageManager.getInstance().registerListener(this.lef);
+        MessageManager.getInstance().registerListener(this.kZy);
     }
 
-    public ShareGridLayout dSX() {
-        if (this.nDS == null) {
+    public ShareGridLayout dPf() {
+        if (this.nzn == null) {
             initView();
         }
-        return this.nDS;
+        return this.nzn;
     }
 
     private void initView() {
-        this.nDS = new ShareGridLayout(this.mContext);
-        this.nDS.setItemParams(hIY, hIZ);
+        this.nzn = new ShareGridLayout(this.mContext);
+        this.nzn.setItemParams(hEs, hEt);
     }
 
     private void b(com.baidu.tbadk.core.util.e.a aVar, int i, int i2) {
@@ -76,7 +76,7 @@ public class b implements View.OnClickListener {
             shareDialogItemView.setItemIcon(aVar, i2);
             shareDialogItemView.setItemName(i);
             shareDialogItemView.setOnClickListener(this);
-            this.nDS.addView(shareDialogItemView.dLd());
+            this.nzn.addView(shareDialogItemView.dHl());
         }
     }
 
@@ -85,16 +85,16 @@ public class b implements View.OnClickListener {
         shareDialogItemView.setItemIcon(i2, ao.getColor(R.color.CAM_X0107), i3);
         shareDialogItemView.setItemName(i);
         shareDialogItemView.setOnClickListener(this);
-        this.nDS.addView(shareDialogItemView.dLd());
+        this.nzn.addView(shareDialogItemView.dHl());
     }
 
     public void a(ShareDialogConfig shareDialogConfig, boolean z) {
         this.mShareItem = shareDialogConfig.shareItem;
         this.mForumList = shareDialogConfig.mForumList;
         this.mPrivateThread = shareDialogConfig.mPrivateThread;
-        this.nDS.removeAllViews();
-        this.nDU = shareDialogConfig.mShowMoreForumShare;
-        if (this.nDU) {
+        this.nzn.removeAllViews();
+        this.nzp = shareDialogConfig.mShowMoreForumShare;
+        if (this.nzp) {
             b(new com.baidu.tbadk.core.util.e.b(R.drawable.icon_mask_share_wechat40_svg), R.string.share_weixin, 4);
             b(new com.baidu.tbadk.core.util.e.b(R.drawable.icon_mask_share_circle40_svg), R.string.share_weixin_timeline, 3);
             b(new com.baidu.tbadk.core.util.e.b(R.drawable.icon_mask_share_qq40_svg), R.string.share_qq_friends, 9);
@@ -103,7 +103,7 @@ public class b implements View.OnClickListener {
             ai(R.string.more_forums, R.drawable.icon_pure_share_moreba40, 13);
             return;
         }
-        if (this.mShareItem.fxz) {
+        if (this.mShareItem.fsQ) {
             b(new com.baidu.tbadk.core.util.e.b(R.drawable.icon_mask_share_wechat40_svg), R.string.share_weixin, 4);
             b(new com.baidu.tbadk.core.util.e.b(R.drawable.icon_mask_share_circle40_svg), R.string.share_weixin_timeline, 3);
             b(new com.baidu.tbadk.core.util.e.b(R.drawable.icon_mask_share_qq40_svg), R.string.share_qq_friends, 9);
@@ -117,27 +117,27 @@ public class b implements View.OnClickListener {
     }
 
     public void a(a aVar) {
-        this.nDT = aVar;
+        this.nzo = aVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.nDT != null) {
-            this.nDT.en(view);
+        if (this.nzo != null) {
+            this.nzo.en(view);
         }
         if (view.getTag() instanceof Integer) {
             Integer num = (Integer) view.getTag();
             if (!j.isNetWorkAvailable() && num.intValue() != 10) {
                 l.showToast(TbadkCoreApplication.getInst().getContext(), R.string.share_on_no_network);
-            } else if (LA(num.intValue())) {
-                Ly(num.intValue());
+            } else if (JT(num.intValue())) {
+                JR(num.intValue());
             } else {
-                Lz(num.intValue());
+                JS(num.intValue());
             }
         }
     }
 
-    private void Ly(int i) {
+    private void JR(int i) {
         g gVar = new g(this.mContext, null);
         ShareItem shareItem = this.mShareItem;
         if (i == 4) {
@@ -150,7 +150,7 @@ public class b implements View.OnClickListener {
             f("share_to_pyq", new Object[0]);
             a(shareItem, 3);
             if (shareItem != null) {
-                if (shareItem.fwX) {
+                if (shareItem.fso) {
                     shareItem.content = "【" + shareItem.title + "】 " + shareItem.content;
                 }
                 gVar.f(shareItem);
@@ -168,7 +168,7 @@ public class b implements View.OnClickListener {
                 }
                 return;
             }
-            BdToast.b(this.mContext, this.mContext.getText(R.string.share_qq_not_install)).bue();
+            BdToast.b(this.mContext, this.mContext.getText(R.string.share_qq_not_install)).bqk();
         } else if (i == 5) {
             if (z.isInstalledPackage(this.mContext, "com.tencent.mobileqq")) {
                 f("share_to_qzone", new Object[0]);
@@ -182,7 +182,7 @@ public class b implements View.OnClickListener {
                 }
                 return;
             }
-            BdToast.b(this.mContext, this.mContext.getText(R.string.share_qq_not_install)).bue();
+            BdToast.b(this.mContext, this.mContext.getText(R.string.share_qq_not_install)).bqk();
         } else if (i == 7) {
             try {
                 if (!WbSdk.isWbInstall(this.mContext)) {
@@ -194,7 +194,7 @@ public class b implements View.OnClickListener {
             f("share_to_sweibo", new Object[0]);
             a(shareItem, 7);
             if (shareItem != null) {
-                if (!shareItem.fwW) {
+                if (!shareItem.fsn) {
                     if (!StringUtils.isNull(shareItem.title) && !StringUtils.isNull(shareItem.content) && shareItem.title.trim().equals(shareItem.content.trim())) {
                         shareItem.content = "";
                     }
@@ -204,31 +204,31 @@ public class b implements View.OnClickListener {
             }
         } else if (i == 10) {
             a(shareItem, 10);
-            shareItem.linkUrl = g.eb(shareItem.linkUrl, shareItem.tid);
+            shareItem.linkUrl = g.ea(shareItem.linkUrl, shareItem.tid);
             com.baidu.adp.lib.util.a.copyToClipboard(shareItem.linkUrl);
             l.showToast(this.mContext.getApplicationContext(), this.mContext.getResources().getString(R.string.copy_pb_url_success));
             n(shareItem);
-            if (shareItem != null && shareItem.fwW) {
-                bN(8, shareItem.fxl);
+            if (shareItem != null && shareItem.fsn) {
+                bO(8, shareItem.fsC);
             }
         }
     }
 
-    private void Lz(int i) {
+    private void JS(int i) {
         if (i == 13) {
-            dSY();
-            LB(13);
+            dPg();
+            JU(13);
         }
     }
 
-    private boolean LA(int i) {
+    private boolean JT(int i) {
         return i == 4 || i == 3 || i == 9 || i == 5 || i == 7 || i == 10;
     }
 
-    private void dSY() {
+    private void dPg() {
         SelectForumActivityConfig selectForumActivityConfig = new SelectForumActivityConfig(this.mContext, RequestResponseCode.REQUEST_SELECT_FORUM);
         selectForumActivityConfig.setForumList(this.mForumList);
-        if (this.nDU) {
+        if (this.nzp) {
             selectForumActivityConfig.setFrom(4);
             selectForumActivityConfig.setMoreForumImg(this.mShareItem.imageUrl);
             selectForumActivityConfig.setMoreForumUrl(this.mShareItem.linkUrl);
@@ -236,64 +236,64 @@ public class b implements View.OnClickListener {
         } else {
             selectForumActivityConfig.setFrom(2);
         }
-        if (this.mShareItem.fxx != null) {
-            selectForumActivityConfig.setBaijiahaoData(this.mShareItem.fxx.baijiahaoData);
-            selectForumActivityConfig.setTransmitOriginThreadComment(this.mShareItem.fxx.transmitOriginThreadComment);
-            selectForumActivityConfig.setTransmitThreadAuthorNameShow(this.mShareItem.fxx.transmitThreadAuthorNameShow);
+        if (this.mShareItem.fsO != null) {
+            selectForumActivityConfig.setBaijiahaoData(this.mShareItem.fsO.baijiahaoData);
+            selectForumActivityConfig.setTransmitOriginThreadComment(this.mShareItem.fsO.transmitOriginThreadComment);
+            selectForumActivityConfig.setTransmitThreadAuthorNameShow(this.mShareItem.fsO.transmitThreadAuthorNameShow);
         }
-        selectForumActivityConfig.setOriginalThread(this.mShareItem.fxw);
+        selectForumActivityConfig.setOriginalThread(this.mShareItem.fsN);
         selectForumActivityConfig.setPrivateThread(this.mPrivateThread);
         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, selectForumActivityConfig));
     }
 
     public void release() {
-        MessageManager.getInstance().unRegisterListener(this.lef);
+        MessageManager.getInstance().unRegisterListener(this.kZy);
     }
 
     private void f(String str, Object... objArr) {
         TiebaStatic.eventStat(this.mContext, str, "click", 1, objArr);
     }
 
-    private void LB(int i) {
+    private void JU(int i) {
         int i2;
         int i3 = 3;
         if (this.mShareItem != null) {
-            TiebaStatic.log(new aq(TbadkCoreStatisticKey.KEY_SHARE_FORUM_OR_THREAD).dX("fid", this.mShareItem.fid).dX("tid", this.mShareItem.tid).an("obj_type", i).an("obj_source", this.mShareItem.fxo).an("obj_param1", this.mShareItem.fxp));
-            int i4 = this.mShareItem.fxt;
+            TiebaStatic.log(new aq(TbadkCoreStatisticKey.KEY_SHARE_FORUM_OR_THREAD).dW("fid", this.mShareItem.fid).dW("tid", this.mShareItem.tid).an("obj_type", i).an("obj_source", this.mShareItem.fsF).an("obj_param1", this.mShareItem.fsG));
+            int i4 = this.mShareItem.fsK;
             ShareItem shareItem = this.mShareItem;
             if (i4 == 5) {
                 i2 = 1;
             } else {
-                int i5 = this.mShareItem.fxt;
+                int i5 = this.mShareItem.fsK;
                 ShareItem shareItem2 = this.mShareItem;
                 if (i5 == 6) {
                     i2 = 2;
                 } else {
-                    int i6 = this.mShareItem.fxt;
+                    int i6 = this.mShareItem.fsK;
                     ShareItem shareItem3 = this.mShareItem;
                     if (i6 == 7) {
                         i2 = 3;
                     } else {
-                        int i7 = this.mShareItem.fxt;
+                        int i7 = this.mShareItem.fsK;
                         ShareItem shareItem4 = this.mShareItem;
                         i2 = i7 == 8 ? 4 : 0;
                     }
                 }
             }
-            int i8 = this.mShareItem.fxo;
+            int i8 = this.mShareItem.fsF;
             ShareItem shareItem5 = this.mShareItem;
             if (i8 == 4) {
                 i3 = 1;
             } else {
-                int i9 = this.mShareItem.fxo;
+                int i9 = this.mShareItem.fsF;
                 ShareItem shareItem6 = this.mShareItem;
                 if (i9 == 3) {
                     i3 = 2;
                 } else {
-                    int i10 = this.mShareItem.fxo;
+                    int i10 = this.mShareItem.fsF;
                     ShareItem shareItem7 = this.mShareItem;
                     if (i10 != 8) {
-                        int i11 = this.mShareItem.fxo;
+                        int i11 = this.mShareItem.fsF;
                         ShareItem shareItem8 = this.mShareItem;
                         i3 = i11 == 6 ? 4 : 0;
                     }
@@ -305,19 +305,19 @@ public class b implements View.OnClickListener {
 
     private void a(ShareItem shareItem, int i) {
         if (shareItem != null && shareItem.extData != null) {
-            if (shareItem.fwX) {
-                TiebaStatic.log(new aq(TbadkCoreStatisticKey.KEY_SHARE_FORUM_OR_THREAD).dX("fid", shareItem.extData).an("obj_type", i));
-            } else if (shareItem.fwY || shareItem.fxb) {
-                TiebaStatic.log(new aq(TbadkCoreStatisticKey.KEY_SHARE_FORUM_OR_THREAD).dX("tid", shareItem.extData).an("obj_type", i).an("obj_source", shareItem.fxo).an("obj_param1", shareItem.fxp).dX("fid", shareItem.fid).an(TiebaInitialize.Params.OBJ_PARAM2, shareItem.fxq));
-            } else if (shareItem.fwZ) {
-                TiebaStatic.log(new aq(TbadkCoreStatisticKey.KEY_SHARE_PHOTO_LIVE).dX("tid", shareItem.extData).an("obj_type", i));
-            } else if (shareItem.fwW) {
-                bN(i, shareItem.fxl);
-            } else if (shareItem.fxa) {
-                TiebaStatic.log(new aq(TbadkCoreStatisticKey.KEY_SHARE_FORUM_OR_THREAD).an("obj_param1", 7).an("obj_type", i).dX("fid", shareItem.extData));
-            } else if (shareItem.fxc) {
+            if (shareItem.fso) {
+                TiebaStatic.log(new aq(TbadkCoreStatisticKey.KEY_SHARE_FORUM_OR_THREAD).dW("fid", shareItem.extData).an("obj_type", i));
+            } else if (shareItem.fsp || shareItem.fss) {
+                TiebaStatic.log(new aq(TbadkCoreStatisticKey.KEY_SHARE_FORUM_OR_THREAD).dW("tid", shareItem.extData).an("obj_type", i).an("obj_source", shareItem.fsF).an("obj_param1", shareItem.fsG).dW("fid", shareItem.fid).an(TiebaInitialize.Params.OBJ_PARAM2, shareItem.fsH));
+            } else if (shareItem.fsq) {
+                TiebaStatic.log(new aq(TbadkCoreStatisticKey.KEY_SHARE_PHOTO_LIVE).dW("tid", shareItem.extData).an("obj_type", i));
+            } else if (shareItem.fsn) {
+                bO(i, shareItem.fsC);
+            } else if (shareItem.fsr) {
+                TiebaStatic.log(new aq(TbadkCoreStatisticKey.KEY_SHARE_FORUM_OR_THREAD).an("obj_param1", 7).an("obj_type", i).dW("fid", shareItem.extData));
+            } else if (shareItem.fst) {
                 aq an = new aq(TbadkCoreStatisticKey.KEY_SHARE_FORUM_OR_THREAD).an("obj_type", i);
-                an.an("obj_source", shareItem.fxo);
+                an.an("obj_source", shareItem.fsF);
                 TiebaStatic.log(an);
             }
         }
@@ -325,22 +325,22 @@ public class b implements View.OnClickListener {
 
     private void n(ShareItem shareItem) {
         aq an = new aq(TbadkCoreStatisticKey.KEY_SHARE_SUCCESS).an("obj_source", 7);
-        if (shareItem.fxp != 0) {
-            an.an("obj_param1", shareItem.fxp);
-            if (shareItem.fxp == 2) {
-                an.dX("fid", shareItem.fid);
-            } else if (shareItem.fxp == 3) {
-                if (shareItem.fxt != 0) {
-                    an.an("obj_type", shareItem.fxt);
+        if (shareItem.fsG != 0) {
+            an.an("obj_param1", shareItem.fsG);
+            if (shareItem.fsG == 2) {
+                an.dW("fid", shareItem.fid);
+            } else if (shareItem.fsG == 3) {
+                if (shareItem.fsK != 0) {
+                    an.an("obj_type", shareItem.fsK);
                 }
-                an.dX("tid", shareItem.tid).dX("fid", shareItem.fid);
+                an.dW("tid", shareItem.tid).dW("fid", shareItem.fid);
             }
         }
         an.an("obj_locate", 9);
         TiebaStatic.log(an);
     }
 
-    private void bN(int i, String str) {
+    private void bO(int i, String str) {
         TiebaStatic.eventStat(this.mContext, "pb_new_share", null, 1, "loc", Integer.valueOf(i), PbChosenActivityConfig.KEY_TID, str);
     }
 }

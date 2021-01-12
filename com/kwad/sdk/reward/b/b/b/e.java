@@ -19,11 +19,11 @@ import com.kwad.sdk.utils.ag;
 import com.kwad.sdk.utils.ao;
 import com.kwad.sdk.widget.AnimatedImageView;
 import java.io.InputStream;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class e extends com.kwad.sdk.reward.d implements View.OnClickListener {
 
     /* renamed from: b  reason: collision with root package name */
-    private ImageView f10887b;
+    private ImageView f10587b;
     private TextView c;
     private ImageView d;
     private ViewGroup e;
@@ -94,9 +94,9 @@ public class e extends com.kwad.sdk.reward.d implements View.OnClickListener {
     }
 
     private void e() {
-        ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.f10887b.getLayoutParams();
+        ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.f10587b.getLayoutParams();
         marginLayoutParams.leftMargin = 0;
-        this.f10887b.setLayoutParams(marginLayoutParams);
+        this.f10587b.setLayoutParams(marginLayoutParams);
         this.c.setVisibility(8);
         RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.e.getLayoutParams();
         if (this.d == null || this.d.getVisibility() != 0) {
@@ -123,29 +123,29 @@ public class e extends com.kwad.sdk.reward.d implements View.OnClickListener {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void f() {
-        com.kwad.sdk.core.report.b.a(this.i, 41, this.f10950a.h.getTouchCoords(), this.f10950a.d);
-        this.f10950a.f10825b.a();
+        com.kwad.sdk.core.report.b.a(this.i, 41, this.f10650a.h.getTouchCoords(), this.f10650a.d);
+        this.f10650a.f10525b.a();
     }
 
     private void g() {
-        this.f10950a.f10825b.e();
+        this.f10650a.f10525b.e();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.kwad.sdk.reward.d, com.kwad.sdk.mvp.Presenter
     public void a() {
         super.a();
-        this.i = this.f10950a.f;
-        this.j = this.f10950a.j;
+        this.i = this.f10650a.f;
+        this.j = this.f10650a.j;
         e();
-        this.f10950a.i.a(this.l);
+        this.f10650a.i.a(this.l);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.kwad.sdk.mvp.Presenter
     public void b_() {
         super.b_();
-        this.f10950a.i.b(this.l);
+        this.f10650a.i.b(this.l);
         this.f.b();
     }
 
@@ -154,7 +154,7 @@ public class e extends com.kwad.sdk.reward.d implements View.OnClickListener {
     public void c() {
         super.c();
         this.c = (TextView) b(R.id.ksad_video_count_down);
-        this.f10887b = (ImageView) b(R.id.ksad_video_sound_switch);
+        this.f10587b = (ImageView) b(R.id.ksad_video_sound_switch);
         this.d = (ImageView) b(R.id.ksad_detail_close_btn);
         this.e = (ViewGroup) b(R.id.ksad_reward_container_new);
         this.f = (AnimatedImageView) this.e.findViewById(R.id.ksad_detail_reward_icon_new);
@@ -165,8 +165,8 @@ public class e extends com.kwad.sdk.reward.d implements View.OnClickListener {
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         if (view == this.e) {
-            com.kwad.sdk.core.download.b.a.a(view.getContext(), this.i, new a.InterfaceC1105a() { // from class: com.kwad.sdk.reward.b.b.b.e.3
-                @Override // com.kwad.sdk.core.download.b.a.InterfaceC1105a
+            com.kwad.sdk.core.download.b.a.a(view.getContext(), this.i, new a.InterfaceC1088a() { // from class: com.kwad.sdk.reward.b.b.b.e.3
+                @Override // com.kwad.sdk.core.download.b.a.InterfaceC1088a
                 public void a() {
                     e.this.f();
                 }

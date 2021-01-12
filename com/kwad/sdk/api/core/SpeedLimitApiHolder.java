@@ -2,7 +2,7 @@ package com.kwad.sdk.api.core;
 
 import androidx.annotation.Nullable;
 import com.kwad.sdk.api.loader.Loader;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class SpeedLimitApiHolder {
     private static volatile SpeedLimitApi instance;
 

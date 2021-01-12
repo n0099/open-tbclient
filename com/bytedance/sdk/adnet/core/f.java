@@ -15,21 +15,21 @@ import java.util.concurrent.BlockingQueue;
 public class f extends Thread {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final boolean f6322a = r.f6346a;
+    private static final boolean f6022a = r.f6046a;
 
     /* renamed from: b  reason: collision with root package name */
-    private final BlockingQueue<Request<?>> f6323b;
+    private final BlockingQueue<Request<?>> f6023b;
     private final BlockingQueue<Request<?>> c;
-    private final com.bytedance.sdk.adnet.e.b ppo;
-    private final com.bytedance.sdk.adnet.e.d ppp;
+    private final com.bytedance.sdk.adnet.e.b pkI;
+    private final com.bytedance.sdk.adnet.e.d pkJ;
     private volatile boolean f = false;
-    private final a ppq = new a(this);
+    private final a pkK = new a(this);
 
     public f(BlockingQueue<Request<?>> blockingQueue, BlockingQueue<Request<?>> blockingQueue2, com.bytedance.sdk.adnet.e.b bVar, com.bytedance.sdk.adnet.e.d dVar) {
-        this.f6323b = blockingQueue;
+        this.f6023b = blockingQueue;
         this.c = blockingQueue2;
-        this.ppo = bVar;
-        this.ppp = dVar;
+        this.pkI = bVar;
+        this.pkJ = dVar;
     }
 
     public void a() {
@@ -39,11 +39,11 @@ public class f extends Thread {
 
     @Override // java.lang.Thread, java.lang.Runnable
     public void run() {
-        if (f6322a) {
+        if (f6022a) {
             r.a("start new dispatcher", new Object[0]);
         }
         Process.setThreadPriority(10);
-        this.ppo.a();
+        this.pkI.a();
         while (true) {
             try {
                 b();
@@ -58,7 +58,7 @@ public class f extends Thread {
     }
 
     private void b() throws InterruptedException {
-        b(this.f6323b.take());
+        b(this.f6023b.take());
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [219=6] */
@@ -71,30 +71,30 @@ public class f extends Thread {
                 request.a("cache-discard-canceled");
                 return;
             }
-            b.a YW = this.ppo.YW(request.getCacheKey());
-            if (YW == null) {
+            b.a XO = this.pkI.XO(request.getCacheKey());
+            if (XO == null) {
                 request.addMarker("cache-miss");
-                if (!this.ppq.d(request)) {
+                if (!this.pkK.d(request)) {
                     this.c.put(request);
                 }
-            } else if (YW.a()) {
+            } else if (XO.a()) {
                 request.addMarker("cache-hit-expired");
-                request.setCacheEntry(YW);
-                if (!this.ppq.d(request)) {
+                request.setCacheEntry(XO);
+                if (!this.pkK.d(request)) {
                     this.c.put(request);
                 }
             } else {
                 request.addMarker("cache-hit");
-                p<?> a2 = request.a(new l(YW.f6362b, YW.h));
+                p<?> a2 = request.a(new l(XO.f6062b, XO.h));
                 request.addMarker("cache-hit-parsed");
-                if (YW.b()) {
+                if (XO.b()) {
                     request.addMarker("cache-hit-refresh-needed");
-                    request.setCacheEntry(YW);
+                    request.setCacheEntry(XO);
                     a2.d = true;
-                    if (this.ppq.d(request)) {
-                        this.ppp.a(request, a2);
+                    if (this.pkK.d(request)) {
+                        this.pkJ.a(request, a2);
                     } else {
-                        this.ppp.a(request, a2, new Runnable() { // from class: com.bytedance.sdk.adnet.core.f.1
+                        this.pkJ.a(request, a2, new Runnable() { // from class: com.bytedance.sdk.adnet.core.f.1
                             @Override // java.lang.Runnable
                             public void run() {
                                 try {
@@ -106,13 +106,13 @@ public class f extends Thread {
                         });
                     }
                 } else {
-                    this.ppp.a(request, a2);
+                    this.pkJ.a(request, a2);
                 }
             }
         } catch (Throwable th) {
             try {
                 r.a(th, "CacheDispatcher Unhandled Throwable %s", th.toString());
-                this.ppp.a(request, new VAdError(th));
+                this.pkJ.a(request, new VAdError(th));
             } finally {
                 request.a(2);
             }
@@ -124,30 +124,30 @@ public class f extends Thread {
     public static class a implements Request.a {
 
         /* renamed from: a  reason: collision with root package name */
-        private final Map<String, List<Request<?>>> f6324a = new HashMap();
-        private final f ppr;
+        private final Map<String, List<Request<?>>> f6024a = new HashMap();
+        private final f pkL;
 
         a(f fVar) {
-            this.ppr = fVar;
+            this.pkL = fVar;
         }
 
         @Override // com.bytedance.sdk.adnet.core.Request.a
         public void a(Request<?> request, p<?> pVar) {
             List<Request<?>> remove;
-            if (pVar.ppE == null || pVar.ppE.a()) {
+            if (pVar.pkY == null || pVar.pkY.a()) {
                 b(request);
                 return;
             }
             String cacheKey = request.getCacheKey();
             synchronized (this) {
-                remove = this.f6324a.remove(cacheKey);
+                remove = this.f6024a.remove(cacheKey);
             }
             if (remove != null) {
-                if (r.f6346a) {
+                if (r.f6046a) {
                     r.a("Releasing %d waiting requests for cacheKey=%s.", Integer.valueOf(remove.size()), cacheKey);
                 }
                 for (Request<?> request2 : remove) {
-                    this.ppr.ppp.a(request2, pVar);
+                    this.pkL.pkJ.a(request2, pVar);
                 }
             }
         }
@@ -155,20 +155,20 @@ public class f extends Thread {
         @Override // com.bytedance.sdk.adnet.core.Request.a
         public synchronized void b(Request<?> request) {
             String cacheKey = request.getCacheKey();
-            List<Request<?>> remove = this.f6324a.remove(cacheKey);
+            List<Request<?>> remove = this.f6024a.remove(cacheKey);
             if (remove != null && !remove.isEmpty()) {
-                if (r.f6346a) {
+                if (r.f6046a) {
                     r.a("%d waiting requests for cacheKey=%s; resend to network", Integer.valueOf(remove.size()), cacheKey);
                 }
                 Request<?> remove2 = remove.remove(0);
-                this.f6324a.put(cacheKey, remove);
+                this.f6024a.put(cacheKey, remove);
                 remove2.a(this);
                 try {
-                    this.ppr.c.put(remove2);
+                    this.pkL.c.put(remove2);
                 } catch (InterruptedException e) {
                     r.c("Couldn't add request to queue. %s", e.toString());
                     Thread.currentThread().interrupt();
-                    this.ppr.a();
+                    this.pkL.a();
                 }
             }
         }
@@ -178,22 +178,22 @@ public class f extends Thread {
             boolean z = false;
             synchronized (this) {
                 String cacheKey = request.getCacheKey();
-                if (this.f6324a.containsKey(cacheKey)) {
-                    List<Request<?>> list = this.f6324a.get(cacheKey);
+                if (this.f6024a.containsKey(cacheKey)) {
+                    List<Request<?>> list = this.f6024a.get(cacheKey);
                     if (list == null) {
                         list = new ArrayList<>();
                     }
                     request.addMarker("waiting-for-response");
                     list.add(request);
-                    this.f6324a.put(cacheKey, list);
-                    if (r.f6346a) {
+                    this.f6024a.put(cacheKey, list);
+                    if (r.f6046a) {
                         r.b("Request for cacheKey=%s is in flight, putting on hold.", cacheKey);
                     }
                     z = true;
                 } else {
-                    this.f6324a.put(cacheKey, null);
+                    this.f6024a.put(cacheKey, null);
                     request.a(this);
-                    if (r.f6346a) {
+                    if (r.f6046a) {
                         r.b("new request, sending to network %s", cacheKey);
                     }
                 }

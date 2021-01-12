@@ -3,27 +3,27 @@ package com.win.opensdk;
 import android.text.TextUtils;
 import com.qq.e.comm.constants.Constants;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public final class am {
     int java = 101;
 
     /* renamed from: java  reason: collision with other field name */
-    public String f24java;
-    JSONObject qez;
+    public String f23java;
+    JSONObject pZY;
 
-    public final void abL(String str) {
+    public final void aaD(String str) {
         JSONObject jSONObject = new JSONObject(str);
         this.java = jSONObject.optInt(Constants.KEYS.RET);
-        this.f24java = jSONObject.optString("msg");
+        this.f23java = jSONObject.optString("msg");
         String optString = jSONObject.optString("data");
         try {
-            optString = bc.abO(optString);
+            optString = bc.aaG(optString);
         } catch (Exception e) {
         }
         if (!TextUtils.isEmpty(optString)) {
-            this.qez = new JSONObject(optString);
+            this.pZY = new JSONObject(optString);
         } else {
-            this.qez = new JSONObject();
+            this.pZY = new JSONObject();
         }
     }
 }

@@ -15,12 +15,11 @@ import androidx.appcompat.R;
 import androidx.appcompat.content.res.AppCompatResources;
 import androidx.appcompat.graphics.drawable.DrawableContainer;
 import androidx.core.content.res.TypedArrayUtils;
-import com.baidu.platform.comapi.map.MapController;
 import java.io.IOException;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 class StateListDrawable extends DrawableContainer {
     private static final boolean DEBUG = false;
     private static final String TAG = "StateListDrawable";
@@ -85,7 +84,7 @@ class StateListDrawable extends DrawableContainer {
             if (next2 != 1) {
                 int depth2 = xmlPullParser.getDepth();
                 if (depth2 >= depth || next2 != 3) {
-                    if (next2 == 2 && depth2 <= depth && xmlPullParser.getName().equals(MapController.ITEM_LAYER_TAG)) {
+                    if (next2 == 2 && depth2 <= depth && xmlPullParser.getName().equals("item")) {
                         TypedArray obtainAttributes = TypedArrayUtils.obtainAttributes(resources, theme, attributeSet, R.styleable.StateListDrawableItem);
                         Drawable drawable = null;
                         int resourceId = obtainAttributes.getResourceId(R.styleable.StateListDrawableItem_android_drawable, -1);
@@ -195,7 +194,7 @@ class StateListDrawable extends DrawableContainer {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public static class StateListState extends DrawableContainer.DrawableContainerState {
         int[][] mStateSets;
 

@@ -1,9 +1,9 @@
 package com.win.opensdk;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public interface r<T> {
     void bH(T t);
 
-    void cc(int i, String str);
+    void cd(int i, String str);
 
-    void eKp();
+    void eGz();
 }

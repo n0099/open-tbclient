@@ -4,7 +4,7 @@ import android.util.Log;
 import com.baidu.live.liveroom.e.h;
 import com.baidu.searchbox.player.callback.IVideoPlayerCallback;
 import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class b implements IVideoPlayerCallback {
     @Override // com.baidu.searchbox.player.callback.IVideoPlayerCallback
     public void onStart() {

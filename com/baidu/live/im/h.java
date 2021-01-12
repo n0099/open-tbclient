@@ -2,19 +2,19 @@ package com.baidu.live.im;
 
 import java.util.HashSet;
 import java.util.Set;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class h {
-    public long aYz;
-    public com.baidu.live.im.data.b bnY;
-    public long bnZ;
-    public long boa;
-    public double bob;
-    public boolean boc;
-    public long bod;
-    public boolean boe = false;
-    public Set<Long> bof = new HashSet();
-    public String bog;
-    public boolean boh;
+    public long aTM;
+    public com.baidu.live.im.data.b bjl;
+    public long bjm;
+    public long bjn;
+    public double bjo;
+    public boolean bjp;
+    public long bjq;
+    public boolean bjr = false;
+    public Set<Long> bjs = new HashSet();
+    public String bjt;
+    public boolean bju;
     public long count;
     public String endColor;
     public String fontColor;

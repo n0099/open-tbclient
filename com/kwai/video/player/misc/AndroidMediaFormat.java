@@ -2,7 +2,7 @@ package com.kwai.video.player.misc;
 
 import android.annotation.TargetApi;
 import android.media.MediaFormat;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class AndroidMediaFormat implements IMediaFormat {
     private final MediaFormat mMediaFormat;
 

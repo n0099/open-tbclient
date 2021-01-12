@@ -10,7 +10,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class MemoryInfo implements b, Serializable {
     private static final long serialVersionUID = -4944913077323984734L;
     public int mAvailableMB;

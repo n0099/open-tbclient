@@ -13,9 +13,9 @@ import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.yuyinala.liveroom.roomcard.e;
 import java.util.List;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class d extends BaseAdapter {
-    private List<e.a> aKA;
+    private List<e.a> aFN;
     private Context mContext;
 
     public d(Context context) {
@@ -23,27 +23,27 @@ public class d extends BaseAdapter {
     }
 
     public void gq(List<e.a> list) {
-        this.aKA = list;
+        this.aFN = list;
     }
 
-    public List<e.a> edo() {
-        return this.aKA;
+    public List<e.a> dZw() {
+        return this.aFN;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.aKA == null) {
+        if (this.aFN == null) {
             return 0;
         }
-        return this.aKA.size();
+        return this.aFN.size();
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        if (this.aKA == null) {
+        if (this.aFN == null) {
             return null;
         }
-        return this.aKA.get(i);
+        return this.aFN.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -58,52 +58,52 @@ public class d extends BaseAdapter {
             view = LayoutInflater.from(this.mContext).inflate(a.g.yuyin_ala_room_card_manager_header_image, (ViewGroup) null);
             a aVar2 = new a(view);
             if (TbadkCoreApplication.getInst().isHaokan()) {
-                aVar2.htT.setDefaultResource(a.e.sdk_icon_default_avatar100_hk);
+                aVar2.hpn.setDefaultResource(a.e.sdk_icon_default_avatar100_hk);
             } else {
-                aVar2.htT.setDefaultResource(a.e.yuyin_sdk_default_avatar);
+                aVar2.hpn.setDefaultResource(a.e.yuyin_sdk_default_avatar);
             }
-            aVar2.htT.setIsRound(true);
-            aVar2.htT.setDrawBorder(true);
-            aVar2.htT.setBorderColor(this.mContext.getResources().getColor(a.c.sdk_cp_bg_line_k_alpha10_1));
-            aVar2.htT.setAutoChangeStyle(false);
-            aVar2.htT.setScaleType(ImageView.ScaleType.CENTER_CROP);
+            aVar2.hpn.setIsRound(true);
+            aVar2.hpn.setDrawBorder(true);
+            aVar2.hpn.setBorderColor(this.mContext.getResources().getColor(a.c.sdk_cp_bg_line_k_alpha10_1));
+            aVar2.hpn.setAutoChangeStyle(false);
+            aVar2.hpn.setScaleType(ImageView.ScaleType.CENTER_CROP);
             view.setTag(aVar2);
             aVar = aVar2;
         } else {
             aVar = (a) view.getTag();
         }
         e.a aVar3 = (e.a) getItem(i);
-        aVar.htT.setDrawBorder(true);
-        switch (aVar3.otu) {
+        aVar.hpn.setDrawBorder(true);
+        switch (aVar3.ooN) {
             case 1:
-                aVar.otk.setBackgroundResource(a.e.yuyin_round_header_day_list_bg_fangzhu);
+                aVar.ooD.setBackgroundResource(a.e.yuyin_round_header_day_list_bg_fangzhu);
                 break;
             case 2:
-                aVar.otk.setBackgroundResource(a.e.yuyin_round_header_day_list_bg_manage);
+                aVar.ooD.setBackgroundResource(a.e.yuyin_round_header_day_list_bg_manage);
                 break;
             case 3:
-                aVar.otk.setBackgroundResource(a.e.yuyin_round_header_day_list_bg_zhuchi);
+                aVar.ooD.setBackgroundResource(a.e.yuyin_round_header_day_list_bg_zhuchi);
                 break;
         }
-        aVar.otk.setText(aVar3.edp());
-        if (!TextUtils.isEmpty(aVar3.otv)) {
-            aVar.htT.startLoad(aVar3.otv, 12, false, false);
+        aVar.ooD.setText(aVar3.dZx());
+        if (!TextUtils.isEmpty(aVar3.ooO)) {
+            aVar.hpn.startLoad(aVar3.ooO, 12, false, false);
         } else {
-            aVar.htT.setDefaultResource(a.e.yuyin_sdk_icon_default_zhuchi);
+            aVar.hpn.setDefaultResource(a.e.yuyin_sdk_icon_default_zhuchi);
         }
         return view;
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public static class a {
-        public HeadImageView htT;
-        public TextView otk;
+        public HeadImageView hpn;
+        public TextView ooD;
         public View rootView;
 
         public a(View view) {
             this.rootView = view;
-            this.htT = (HeadImageView) view.findViewById(a.f.ala_live_room_audience_header_img);
-            this.otk = (TextView) view.findViewById(a.f.ala_live_room_audience_charm_count);
+            this.hpn = (HeadImageView) view.findViewById(a.f.ala_live_room_audience_header_img);
+            this.ooD = (TextView) view.findViewById(a.f.ala_live_room_audience_charm_count);
         }
     }
 }

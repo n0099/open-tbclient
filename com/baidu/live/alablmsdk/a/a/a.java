@@ -1,11 +1,11 @@
 package com.baidu.live.alablmsdk.a.a;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class a implements Cloneable {
-    public boolean aBu;
+    public boolean awH;
     public int time;
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* renamed from: Bm */
+    /* renamed from: xr */
     public a clone() {
         try {
             return (a) super.clone();

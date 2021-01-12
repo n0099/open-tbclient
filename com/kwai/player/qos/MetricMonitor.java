@@ -2,7 +2,7 @@ package com.kwai.player.qos;
 
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class MetricMonitor {
     private static final String TAG = "MetricMonitor";
     private static final boolean VERBOSE = false;

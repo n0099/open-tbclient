@@ -5,13 +5,13 @@ import android.view.ViewGroup;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.ala.alasquare.live_tab.view.OfficialRecommendLiveViewHolder;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class b extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.alasquare.live_tab.b.c, OfficialRecommendLiveViewHolder> {
-    private com.baidu.tieba.ala.alasquare.live_tab.view.b gCB;
+    private com.baidu.tieba.ala.alasquare.live_tab.view.b gxU;
     private TbPageContext mPageContext;
 
     public b(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), com.baidu.tieba.ala.alasquare.live_tab.b.c.gCG);
+        super(tbPageContext.getPageActivity(), com.baidu.tieba.ala.alasquare.live_tab.b.c.gxZ);
         this.mPageContext = tbPageContext;
     }
 
@@ -20,19 +20,19 @@ public class b extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.alasq
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: V */
     public OfficialRecommendLiveViewHolder e(ViewGroup viewGroup) {
-        this.gCB = new com.baidu.tieba.ala.alasquare.live_tab.view.b(this.mPageContext, viewGroup);
-        return new OfficialRecommendLiveViewHolder(this.gCB);
+        this.gxU = new com.baidu.tieba.ala.alasquare.live_tab.view.b(this.mPageContext, viewGroup);
+        return new OfficialRecommendLiveViewHolder(this.gxU);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.ala.alasquare.live_tab.b.c cVar, OfficialRecommendLiveViewHolder officialRecommendLiveViewHolder) {
-        if (officialRecommendLiveViewHolder == null || officialRecommendLiveViewHolder.gCB == null) {
+        if (officialRecommendLiveViewHolder == null || officialRecommendLiveViewHolder.gxU == null) {
             return null;
         }
-        officialRecommendLiveViewHolder.gCB.a(cVar);
-        officialRecommendLiveViewHolder.gCB.onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
+        officialRecommendLiveViewHolder.gxU.a(cVar);
+        officialRecommendLiveViewHolder.gxU.onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
         return officialRecommendLiveViewHolder.getView();
     }
 }

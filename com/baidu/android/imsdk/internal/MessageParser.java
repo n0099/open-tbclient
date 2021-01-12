@@ -26,7 +26,7 @@ import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.MsgUtility;
 import com.baidu.android.imsdk.utils.Utility;
-import com.baidu.i.a;
+import com.baidu.g.a;
 import com.baidu.lcp.sdk.client.bean.BLCPRequest;
 import com.baidu.lcp.sdk.client.bean.b;
 import com.baidu.sapi2.activity.LoadExternalWebViewActivity;
@@ -37,7 +37,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class MessageParser {
     private static final String TAG = "MessageParser";
 
@@ -463,11 +463,11 @@ public class MessageParser {
                 for (List<NewAckMessage.Tripule> list2 : splitList) {
                     final NewAckMessage newAckMessage = new NewAckMessage(context, IMSDK.getInstance(context).getUk(), j, z);
                     newAckMessage.addTriples(list2);
-                    if (a.aze) {
+                    if (a.aur) {
                         BLCPRequest bLCPRequest = new BLCPRequest();
                         bLCPRequest.serviceId = 2L;
                         bLCPRequest.methodId = 95L;
-                        bLCPRequest.azt = newAckMessage.getBody().getBytes();
+                        bLCPRequest.auG = newAckMessage.getBody().getBytes();
                         bLCPRequest.msgId = System.nanoTime();
                         com.baidu.lcp.sdk.client.a.a(bLCPRequest, new b() { // from class: com.baidu.android.imsdk.internal.MessageParser.3
                             @Override // com.baidu.lcp.sdk.client.bean.b
@@ -520,7 +520,7 @@ public class MessageParser {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class DuParser {
         private int category;
         private String content;

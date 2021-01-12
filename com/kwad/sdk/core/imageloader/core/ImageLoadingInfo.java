@@ -6,7 +6,7 @@ import com.kwad.sdk.core.imageloader.core.listener.ImageLoadingListener;
 import com.kwad.sdk.core.imageloader.core.listener.ImageLoadingProgressListener;
 import java.util.concurrent.locks.ReentrantLock;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public final class ImageLoadingInfo {
     final ImageAware imageAware;
     final ImageLoadingListener listener;

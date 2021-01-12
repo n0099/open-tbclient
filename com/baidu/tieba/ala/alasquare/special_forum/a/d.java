@@ -4,15 +4,15 @@ import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.ala.alasquare.special_forum.subtab.view.GameLiveDoubleViewHolder;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class d extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.alasquare.live_tab.b.e, GameLiveDoubleViewHolder> {
-    private String gEU;
-    private com.baidu.tieba.ala.alasquare.special_forum.subtab.view.c gIu;
-    private com.baidu.tieba.ala.alasquare.subtablist.view.f gIv;
+    private String gAn;
+    private com.baidu.tieba.ala.alasquare.special_forum.subtab.view.c gDO;
+    private com.baidu.tieba.ala.alasquare.subtablist.view.f gDP;
     private TbPageContext<?> mPageContext;
 
     public d(TbPageContext<?> tbPageContext) {
-        super(tbPageContext.getPageActivity(), com.baidu.tieba.ala.alasquare.live_tab.b.e.gCI);
+        super(tbPageContext.getPageActivity(), com.baidu.tieba.ala.alasquare.live_tab.b.e.gyb);
         this.mPageContext = tbPageContext;
     }
 
@@ -21,29 +21,29 @@ public class d extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.alasq
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: ai */
     public GameLiveDoubleViewHolder e(ViewGroup viewGroup) {
-        this.gIu = new com.baidu.tieba.ala.alasquare.special_forum.subtab.view.c(this.mPageContext, viewGroup);
-        if (this.gIv != null) {
-            this.gIu.c(this.gIv);
+        this.gDO = new com.baidu.tieba.ala.alasquare.special_forum.subtab.view.c(this.mPageContext, viewGroup);
+        if (this.gDP != null) {
+            this.gDO.c(this.gDP);
         }
-        return new GameLiveDoubleViewHolder(this.gIu);
+        return new GameLiveDoubleViewHolder(this.gDO);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.ala.alasquare.live_tab.b.e eVar, GameLiveDoubleViewHolder gameLiveDoubleViewHolder) {
-        gameLiveDoubleViewHolder.gIu.a(eVar, this.gEU);
+        gameLiveDoubleViewHolder.gDO.a(eVar, this.gAn);
         return gameLiveDoubleViewHolder.getView();
     }
 
     public void a(com.baidu.tieba.ala.alasquare.subtablist.view.f fVar) {
-        this.gIv = fVar;
-        if (this.gIu != null) {
-            this.gIu.c(this.gIv);
+        this.gDP = fVar;
+        if (this.gDO != null) {
+            this.gDO.c(this.gDP);
         }
     }
 
     public void setEntryName(String str) {
-        this.gEU = str;
+        this.gAn = str;
     }
 }

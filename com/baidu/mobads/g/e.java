@@ -4,14 +4,14 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes14.dex */
 public class e implements Parcelable {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Parcelable.Creator<e> f3369a = new f();
+    public static final Parcelable.Creator<e> f3331a = new f();
 
     /* renamed from: b  reason: collision with root package name */
-    private JSONObject f3370b;
+    private JSONObject f3332b;
     private double c;
     private String d;
     private String e;
@@ -26,10 +26,10 @@ public class e implements Parcelable {
 
     public e(String str) {
         try {
-            this.f3370b = new JSONObject(str);
-            this.c = this.f3370b.getDouble("version");
-            this.d = this.f3370b.getString("url");
-            this.e = this.f3370b.getString("sign");
+            this.f3332b = new JSONObject(str);
+            this.c = this.f3332b.getDouble("version");
+            this.d = this.f3332b.getString("url");
+            this.e = this.f3332b.getString("sign");
             this.h = 1;
             this.f = "";
             this.g = 0;
@@ -78,7 +78,7 @@ public class e implements Parcelable {
     }
 
     public String toString() {
-        return this.f3370b.toString();
+        return this.f3332b.toString();
     }
 
     @Override // android.os.Parcelable

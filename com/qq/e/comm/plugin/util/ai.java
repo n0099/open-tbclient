@@ -1,13 +1,13 @@
 package com.qq.e.comm.plugin.util;
 
 import java.util.concurrent.locks.ReentrantReadWriteLock;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class ai {
 
     /* renamed from: a  reason: collision with root package name */
-    private static ReentrantReadWriteLock f12857a = new ReentrantReadWriteLock();
+    private static ReentrantReadWriteLock f12557a = new ReentrantReadWriteLock();
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class a {
     }
 

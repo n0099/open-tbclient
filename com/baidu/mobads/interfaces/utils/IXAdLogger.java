@@ -1,5 +1,5 @@
 package com.baidu.mobads.interfaces.utils;
-/* loaded from: classes3.dex */
+/* loaded from: classes14.dex */
 public interface IXAdLogger {
     public static final int ASSERT = 7;
     public static final int DEBUG = 3;

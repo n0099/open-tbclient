@@ -1,0 +1,105 @@
+package com.baidu.mapsdkplatform.comapi.synchronization.data;
+
+import com.baidu.mapsdkplatform.comapi.location.CoordinateType;
+import com.baidu.mapsdkplatform.comapi.synchronization.data.f;
+import com.baidu.mapsdkplatform.comapi.util.PermissionCheck;
+import com.baidu.mapsdkplatform.comapi.util.SyncSysInfo;
+import com.baidu.mapsdkplatform.comjni.util.AppMD5;
+import com.xiaomi.mipush.sdk.Constants;
+/* loaded from: classes6.dex */
+public class m {
+
+    /* renamed from: a  reason: collision with root package name */
+    private static final String f3133a = m.class.getSimpleName();
+    private static boolean e = true;
+
+    /* renamed from: b  reason: collision with root package name */
+    private com.baidu.mapsdkplatform.comapi.synchronization.d.d f3134b = new com.baidu.mapsdkplatform.comapi.synchronization.d.d();
+    private boolean c = true;
+    private boolean d = true;
+
+    public m(f fVar) {
+        a(fVar);
+    }
+
+    private void a(f fVar) {
+        this.f3134b.a("order_id", b(fVar));
+        this.f3134b.a("company", fVar.c());
+        this.f3134b.a("order_attr", fVar.b());
+        this.f3134b.a("status", String.valueOf(fVar.h()));
+        this.f3134b.a("pull_type", String.valueOf(fVar.i()));
+        this.f3134b.a("route_finger", fVar.d());
+        this.f3134b.a("traffic_finger", fVar.e());
+        this.f3134b.a("pos_num", String.valueOf(fVar.j()));
+        c(fVar);
+        d(fVar);
+        if (this.c) {
+            b();
+        }
+    }
+
+    private String b(f fVar) {
+        StringBuffer stringBuffer = new StringBuffer();
+        stringBuffer.append(fVar.c().toLowerCase());
+        stringBuffer.append(Constants.ACCEPT_TIME_SEPARATOR_SERVER);
+        stringBuffer.append(fVar.a().toLowerCase());
+        stringBuffer.append(Constants.ACCEPT_TIME_SEPARATOR_SERVER);
+        stringBuffer.append("9sc87244121ip32590fq234mn6641tx7".toLowerCase());
+        String a2 = com.baidu.mapsdkplatform.comapi.synchronization.d.c.a(stringBuffer.toString());
+        com.baidu.mapsdkplatform.comapi.synchronization.d.a.a(f3133a, "The orderId = " + stringBuffer.toString() + "; result = " + a2);
+        return a2;
+    }
+
+    private void b() {
+        String authToken = SyncSysInfo.getAuthToken();
+        if (authToken == null) {
+            com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f3133a, "Token is null, permission check again");
+            int permissionCheck = PermissionCheck.permissionCheck();
+            if (permissionCheck != 0) {
+                com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f3133a, "Permission check result is: " + permissionCheck);
+            }
+            authToken = SyncSysInfo.getAuthToken();
+        }
+        this.f3134b.a("token", authToken);
+    }
+
+    private String c() {
+        return e ? com.baidu.mapsdkplatform.comapi.synchronization.c.f.a() : com.baidu.mapsdkplatform.comapi.synchronization.c.f.b();
+    }
+
+    private void c(f fVar) {
+        f.b g = fVar.g();
+        if (f.b.DRIVING == g) {
+            this.f3134b.a("trip_mode", "driving");
+        } else if (f.b.RIDING == g) {
+            this.f3134b.a("trip_mode", "riding");
+        } else {
+            this.f3134b.a("trip_mode", "driving");
+        }
+    }
+
+    private void d(f fVar) {
+        f.a f = fVar.f();
+        if (f.a.BD09LL == f) {
+            this.f3134b.a("coord_type", "bd09ll");
+        } else if (f.a.BD09MC == f) {
+            this.f3134b.a("coord_type", CoordinateType.BD09MC);
+        } else if (f.a.GPS == f) {
+            this.f3134b.a("coord_type", CoordinateType.WGS84);
+        } else if (f.a.COMMON == f) {
+            this.f3134b.a("coord_type", "gcj02");
+        } else {
+            this.f3134b.a("coord_type", "bd09ll");
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public String a() {
+        StringBuffer stringBuffer = new StringBuffer(this.f3134b.a());
+        stringBuffer.append(SyncSysInfo.getPhoneInfo());
+        if (this.d) {
+            stringBuffer.append("&sign=").append(AppMD5.getSignMD5String(stringBuffer.toString()));
+        }
+        return new StringBuffer(c()).append("?").append(stringBuffer).toString();
+    }
+}

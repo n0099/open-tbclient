@@ -12,16 +12,16 @@ public class c {
     private String mData;
     private String mMessage;
     private String mMethodName;
-    private boolean ntR;
-    private boolean ntS;
+    private boolean npm;
+    private boolean npn;
     private int mStatus = -1;
-    private boolean ntT = true;
+    private boolean npo = true;
 
-    public String cxb() {
+    public String ctj() {
         return this.mMethodName;
     }
 
-    public void Tr(String str) {
+    public void Sj(String str) {
         this.mMethodName = str;
     }
 
@@ -33,19 +33,19 @@ public class c {
         this.mStatus = i;
         switch (i) {
             case 0:
-                Tt(TbadkCoreApplication.getInst().getString(R.string.scheme_action_status_ok));
+                Sl(TbadkCoreApplication.getInst().getString(R.string.scheme_action_status_ok));
                 return;
             case 101:
-                Tt(TbadkCoreApplication.getInst().getString(R.string.scheme_action_status_scheme_parse_fail));
+                Sl(TbadkCoreApplication.getInst().getString(R.string.scheme_action_status_scheme_parse_fail));
                 return;
             case 201:
-                Tt(TbadkCoreApplication.getInst().getString(R.string.scheme_action_can_not_find_module));
+                Sl(TbadkCoreApplication.getInst().getString(R.string.scheme_action_can_not_find_module));
                 return;
             case 202:
-                Tt(TbadkCoreApplication.getInst().getString(R.string.scheme_action_can_not_find_action));
+                Sl(TbadkCoreApplication.getInst().getString(R.string.scheme_action_can_not_find_action));
                 return;
             case 301:
-                Tt(TbadkCoreApplication.getInst().getString(R.string.scheme_action_security_check_fail));
+                Sl(TbadkCoreApplication.getInst().getString(R.string.scheme_action_security_check_fail));
                 return;
             default:
                 return;
@@ -56,27 +56,27 @@ public class c {
         this.mMessage = str;
     }
 
-    public void Ts(String str) {
-        Tt(str);
-        KZ(401);
+    public void Sk(String str) {
+        Sl(str);
+        Js(401);
     }
 
-    public void dPI() {
-        Tt(TbadkCoreApplication.getInst().getString(R.string.na_business_error));
-        KZ(401);
+    public void dLQ() {
+        Sl(TbadkCoreApplication.getInst().getString(R.string.na_business_error));
+        Js(401);
     }
 
     public String getMessage() {
         return this.mMessage;
     }
 
-    public void KZ(int i) {
+    public void Js(int i) {
         if (this.mStatus == -1) {
             setStatus(i);
         }
     }
 
-    public void Tt(String str) {
+    public void Sl(String str) {
         if (at.isEmpty(this.mMessage)) {
             this.mMessage = str;
         }
@@ -90,44 +90,44 @@ public class c {
         this.mData = str;
     }
 
-    public boolean dPJ() {
-        return this.ntR;
+    public boolean dLR() {
+        return this.npm;
     }
 
-    public void yj(boolean z) {
-        this.ntR = z;
+    public void yf(boolean z) {
+        this.npm = z;
     }
 
-    public boolean dPK() {
-        return this.ntS;
+    public boolean dLS() {
+        return this.npn;
     }
 
-    public void yk(boolean z) {
-        this.ntS = z;
+    public void yg(boolean z) {
+        this.npn = z;
     }
 
-    public boolean dPL() {
-        return this.ntT;
+    public boolean dLT() {
+        return this.npo;
     }
 
-    public void yl(boolean z) {
-        this.ntT = z;
+    public void yh(boolean z) {
+        this.npo = z;
     }
 
     public boolean isError() {
         return this.mStatus > 0;
     }
 
-    public boolean dPM() {
+    public boolean dLU() {
         return this.mStatus != -1;
     }
 
-    public String dPN() {
+    public String dLV() {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("status", this.mStatus);
             jSONObject.put("message", this.mMessage);
-            if (at.Cc(this.mData)) {
+            if (at.AR(this.mData)) {
                 jSONObject.put("data", new JSONObject(this.mData));
             } else if (at.isJSONArray(this.mData)) {
                 jSONObject.put("data", new JSONArray(this.mData));

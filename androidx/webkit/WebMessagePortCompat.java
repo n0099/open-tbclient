@@ -7,7 +7,7 @@ import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.annotation.RestrictTo;
 import java.lang.reflect.InvocationHandler;
-/* loaded from: classes3.dex */
+/* loaded from: classes14.dex */
 public abstract class WebMessagePortCompat {
     public abstract void close();
 
@@ -24,7 +24,7 @@ public abstract class WebMessagePortCompat {
 
     public abstract void setWebMessageCallback(@NonNull WebMessageCallbackCompat webMessageCallbackCompat);
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes14.dex */
     public static abstract class WebMessageCallbackCompat {
         public void onMessage(@NonNull WebMessagePortCompat webMessagePortCompat, @Nullable WebMessageCompat webMessageCompat) {
         }

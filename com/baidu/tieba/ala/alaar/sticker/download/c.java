@@ -2,7 +2,7 @@ package com.baidu.tieba.ala.alaar.sticker.download;
 
 import android.text.TextUtils;
 import java.io.File;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class c {
     private CharSequence mDescription;
     private File mFolder;
@@ -34,19 +34,19 @@ public class c {
         return this.mName;
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public static class a {
         private CharSequence mDescription;
         private File mFolder;
         private CharSequence mName;
         private String mUri;
 
-        public a Gl(String str) {
+        public a Fa(String str) {
             this.mUri = str;
             return this;
         }
 
-        public a aa(File file) {
+        public a Z(File file) {
             this.mFolder = file;
             return this;
         }
@@ -56,7 +56,7 @@ public class c {
             return this;
         }
 
-        public c bSY() {
+        public c bPg() {
             return new c(this.mUri, this.mFolder, this.mName, this.mDescription);
         }
     }

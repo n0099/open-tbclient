@@ -1,14 +1,14 @@
 package com.kuaishou.aegon;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 final /* synthetic */ class g implements Runnable {
 
     /* renamed from: b  reason: collision with root package name */
-    private final String f8411b;
-    private final f pSl;
+    private final String f8111b;
+    private final f pNL;
 
     private g(f fVar, String str) {
-        this.pSl = fVar;
-        this.f8411b = str;
+        this.pNL = fVar;
+        this.f8111b = str;
     }
 
     public static Runnable b(f fVar, String str) {
@@ -17,6 +17,6 @@ final /* synthetic */ class g implements Runnable {
 
     @Override // java.lang.Runnable
     public void run() {
-        this.pSl.a(this.f8411b);
+        this.pNL.a(this.f8111b);
     }
 }

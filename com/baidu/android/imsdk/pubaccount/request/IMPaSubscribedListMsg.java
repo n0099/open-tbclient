@@ -15,7 +15,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class IMPaSubscribedListMsg extends Message {
     private Context mContext;
 

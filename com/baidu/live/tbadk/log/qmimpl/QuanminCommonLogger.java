@@ -6,7 +6,7 @@ import com.baidu.live.tbadk.log.LogConfig;
 import com.baidu.live.tbadk.log.LogManager;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class QuanminCommonLogger implements ICommonLogger {
     @Override // com.baidu.live.tbadk.log.ICommonLogger
     public void doTestLog() {

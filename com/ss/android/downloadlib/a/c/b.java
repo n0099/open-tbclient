@@ -9,25 +9,25 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class b implements Runnable {
-    private com.ss.android.socialbase.downloader.g.c pVD;
+    private com.ss.android.socialbase.downloader.g.c pRc;
 
     public b(com.ss.android.socialbase.downloader.g.c cVar) {
-        this.pVD = cVar;
+        this.pRc = cVar;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         final com.ss.android.b.a.b.a j;
-        if (this.pVD != null && (j = com.ss.android.downloadlib.a.b.d.eFT().j(this.pVD)) != null) {
-            com.ss.android.downloadlib.e.a.eGB().a("cleanspace_task", j);
+        if (this.pRc != null && (j = com.ss.android.downloadlib.a.b.d.eCc().j(this.pRc)) != null) {
+            com.ss.android.downloadlib.e.a.eCL().a("cleanspace_task", j);
             File externalStorageDirectory = Environment.getExternalStorageDirectory();
-            long longValue = Double.valueOf((com.ss.android.downloadlib.f.d.Sl(this.pVD.g()) + 1.0d) * this.pVD.ejL()).longValue() - this.pVD.eIz();
-            if (j.eGn() != null) {
-                j.eGn().b();
+            long longValue = Double.valueOf((com.ss.android.downloadlib.f.d.QE(this.pRc.g()) + 1.0d) * this.pRc.efR()).longValue() - this.pRc.eEJ();
+            if (j.eCw() != null) {
+                j.eCw().b();
             }
             c.a();
             c.b();
-            if (com.ss.android.downloadlib.f.d.Sr(j.t())) {
+            if (com.ss.android.downloadlib.f.d.QK(j.t())) {
                 c.a(j.a());
             }
             long j2 = 0;
@@ -40,14 +40,14 @@ public class b implements Runnable {
             j.e(true);
             if (z) {
                 j.j("1");
-                g.eFW().d(j);
-                com.ss.android.downloadlib.e.a.eGB().a("cleanspace_download_after_quite_clean", j);
-                f.iA(j.a()).e(this.pVD.g());
-            } else if (j.eGn() != null) {
+                g.eCf().d(j);
+                com.ss.android.downloadlib.e.a.eCL().a("cleanspace_download_after_quite_clean", j);
+                f.iy(j.a()).e(this.pRc.g());
+            } else if (j.eCw() != null) {
                 j.d(false);
-                d.eFY().a(j.z(), new e() { // from class: com.ss.android.downloadlib.a.c.b.1
+                d.eCh().a(j.z(), new e() { // from class: com.ss.android.downloadlib.a.c.b.1
                 });
-                j.eGn().e(this.pVD.g(), this.pVD.j(), longValue);
+                j.eCw().e(this.pRc.g(), this.pRc.j(), longValue);
             } else {
                 JSONObject jSONObject = new JSONObject();
                 try {
@@ -55,7 +55,7 @@ public class b implements Runnable {
                 } catch (JSONException e2) {
                     e2.printStackTrace();
                 }
-                com.ss.android.downloadlib.e.a.eGB().a("cleanspace_window_show", jSONObject, j);
+                com.ss.android.downloadlib.e.a.eCL().a("cleanspace_window_show", jSONObject, j);
             }
         }
     }

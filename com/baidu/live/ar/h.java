@@ -1,12 +1,12 @@
 package com.baidu.live.ar;
 
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class h {
-    private String aFF;
-    private String aFY;
-    private String aFZ;
-    private String aGa;
+    private String aAS;
+    private String aBl;
+    private String aBm;
+    private String aBn;
     private String mFile;
     private String mId;
     private String mName;
@@ -16,20 +16,20 @@ public class h {
         if (jSONObject != null) {
             this.mId = jSONObject.optString("id");
             this.mName = jSONObject.optString("name");
-            this.aFY = jSONObject.optString("bgurl");
+            this.aBl = jSONObject.optString("bgurl");
             this.mType = jSONObject.optString("type");
-            this.aFZ = jSONObject.optString("current");
+            this.aBm = jSONObject.optString("current");
             this.mFile = jSONObject.optString("feature_file");
-            this.aGa = jSONObject.optString("feature_file_token");
-            this.aFF = jSONObject.optString("thinface_value");
+            this.aBn = jSONObject.optString("feature_file_token");
+            this.aAS = jSONObject.optString("thinface_value");
         }
     }
 
-    public String CK() {
-        return this.aFY;
+    public String yP() {
+        return this.aBl;
     }
 
-    public String CL() {
+    public String yQ() {
         return this.mFile;
     }
 
@@ -41,11 +41,11 @@ public class h {
         return this.mType;
     }
 
-    public String CM() {
-        return this.aFZ;
+    public String yR() {
+        return this.aBm;
     }
 
-    public String CN() {
-        return this.aFF;
+    public String yS() {
+        return this.aAS;
     }
 }

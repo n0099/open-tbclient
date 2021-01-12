@@ -1,26 +1,31 @@
 package com.baidu.n.a;
 
-import android.annotation.SuppressLint;
-import android.annotation.TargetApi;
-import android.app.Activity;
-@SuppressLint({"NewApi"})
-@TargetApi(23)
-/* loaded from: classes3.dex */
+import android.text.TextUtils;
+import java.util.ArrayList;
+/* loaded from: classes4.dex */
 public class b {
+    static ArrayList<Integer> oKP = new ArrayList<>(4);
+    static String oKQ;
 
-    /* loaded from: classes3.dex */
-    public interface a {
-        void validateRequestPermissionsRequestCode(int i);
+    static {
+        oKP.add(10000);
+        oKP.add(10001);
+        oKP.add(10002);
+        oKP.add(20001);
+        oKP.add(-1);
     }
 
-    public static void requestPermissions(Activity activity, String[] strArr, int i) {
-        if (activity instanceof a) {
-            ((a) activity).validateRequestPermissionsRequestCode(i);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public static int ege() {
+        if (TextUtils.isEmpty(oKQ)) {
+            oKQ = com.baidu.n.a.c.d.getManufacturer();
         }
-        activity.requestPermissions(strArr, i);
-    }
-
-    public static boolean shouldShowRequestPermissionRationale(Activity activity, String str) {
-        return activity.shouldShowRequestPermissionRationale(str);
+        if (TextUtils.isEmpty(oKQ)) {
+            return 20001;
+        }
+        if (oKQ.toUpperCase().contains("HUAWEI")) {
+            return 10001;
+        }
+        return oKQ.toUpperCase().contains("XIAOMI") ? 10002 : 20001;
     }
 }

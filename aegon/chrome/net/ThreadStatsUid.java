@@ -3,7 +3,7 @@ package aegon.chrome.net;
 import android.net.TrafficStats;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class ThreadStatsUid {
     public static final Method sClearThreadStatsUid;
     public static final Method sSetThreadStatsUid;

@@ -5,9 +5,9 @@ import android.app.Dialog;
 import android.os.Build;
 import com.baidu.live.data.x;
 import com.baidu.live.tbadk.TbPageContext;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class b {
-    private Dialog hNS;
+    private Dialog hJm;
     private TbPageContext mContext;
 
     public b(TbPageContext tbPageContext) {
@@ -17,8 +17,8 @@ public class b {
     public void S(x xVar) {
         if (xVar != null && this.mContext != null) {
             dismiss();
-            this.hNS = new a(this.mContext.getPageActivity(), this.mContext, xVar, this);
-            this.hNS.show();
+            this.hJm = new a(this.mContext.getPageActivity(), this.mContext, xVar, this);
+            this.hJm.show();
         }
     }
 
@@ -27,23 +27,23 @@ public class b {
     }
 
     public void dismiss() {
-        if (cng()) {
-            If();
-            this.hNS = null;
+        if (cjo()) {
+            Ek();
+            this.hJm = null;
         }
     }
 
-    private void If() {
-        if (this.hNS != null && this.hNS.isShowing()) {
+    private void Ek() {
+        if (this.hJm != null && this.hJm.isShowing()) {
             try {
-                this.hNS.dismiss();
+                this.hJm.dismiss();
             } catch (Exception e) {
                 e.printStackTrace();
             }
         }
     }
 
-    private boolean cng() {
+    private boolean cjo() {
         if (this.mContext == null || this.mContext.getPageActivity() == null) {
             return false;
         }

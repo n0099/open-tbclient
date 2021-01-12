@@ -41,10 +41,10 @@ public class h {
     private com.baidu.lcp.sdk.connect.b b(com.baidu.lcp.sdk.connect.b bVar, byte[] bArr, byte[] bArr2) throws Exception {
         RpcMetaPb.RpcMeta parseFrom = RpcMetaPb.RpcMeta.parseFrom(bArr);
         if (parseFrom.getCompressType() == 1) {
-            bArr2 = D(bArr2);
+            bArr2 = C(bArr2);
             com.baidu.lcp.sdk.d.d.d("PbProcessor", "payload is gzip compressed，length : " + bArr2.length);
         }
-        bVar.azK = bArr2;
+        bVar.auX = bArr2;
         if (parseFrom.hasNotify()) {
             RpcMetaPb.RpcNotifyMeta notify = parseFrom.getNotify();
             bVar.errorCode = 0;
@@ -52,7 +52,7 @@ public class h {
             bVar.serviceId = notify.getServiceId();
             bVar.methodId = notify.getMethodId();
             bVar.msgId = notify.getLogId();
-            bVar.azJ = true;
+            bVar.auW = true;
             return bVar;
         } else if (parseFrom.hasResponse()) {
             RpcMetaPb.RpcResponseMeta response = parseFrom.getResponse();
@@ -61,7 +61,7 @@ public class h {
             bVar.serviceId = response.getServiceId();
             bVar.methodId = response.getMethodId();
             bVar.msgId = response.getLogId();
-            bVar.azJ = false;
+            bVar.auW = false;
             if (bVar.errorCode == 0 && bVar.serviceId == 1) {
                 return a(bVar, bArr2);
             }
@@ -84,19 +84,19 @@ public class h {
             com.baidu.lcp.sdk.d.d.d("PbProcessor", "methodId ：" + bVar.methodId + ", logId :" + lcmResponse.getLogId() + ", errMsg :" + lcmResponse.getErrorMsg() + ", errCode :" + lcmResponse.getErrorCode() + ", pingMS :" + lcmResponse.getNextIntervalMs());
             if (lcmResponse.getErrorCode() == 0) {
                 if (bVar.methodId == 1) {
-                    bVar.azM = 0;
-                    bVar.azL = lcmResponse.getNextIntervalMs();
+                    bVar.auZ = 0;
+                    bVar.auY = lcmResponse.getNextIntervalMs();
                 } else if (bVar.methodId == 2) {
-                    bVar.azM = -1;
+                    bVar.auZ = -1;
                 } else if (bVar.methodId == 3) {
-                    bVar.azL = lcmResponse.getNextIntervalMs();
+                    bVar.auY = lcmResponse.getNextIntervalMs();
                 } else if (bVar.methodId == 4) {
                     com.baidu.lcp.sdk.d.d.d("PbProcessor", "parseLcmResponse notify");
                 }
             } else {
                 bVar.errorCode = lcmResponse.getErrorCode();
                 bVar.errorMsg = lcmResponse.getErrorMsg();
-                bVar.azM = -1;
+                bVar.auZ = -1;
             }
         } else if (parseFrom.hasLcmNotify()) {
             com.baidu.lcp.sdk.d.d.d("PbProcessor", "lcmpb hasLcmNotify");
@@ -110,7 +110,7 @@ public class h {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private byte[] D(byte[] bArr) {
+    private byte[] C(byte[] bArr) {
         GZIPInputStream gZIPInputStream;
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
         ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(bArr);

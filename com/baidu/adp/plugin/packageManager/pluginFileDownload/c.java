@@ -3,53 +3,53 @@ package com.baidu.adp.plugin.packageManager.pluginFileDownload;
 import android.text.TextUtils;
 /* loaded from: classes.dex */
 public class c {
-    private static volatile c UW;
-    private b UX;
+    private static volatile c UU;
+    private b UV;
 
     public static c pR() {
-        if (UW == null) {
+        if (UU == null) {
             synchronized (c.class) {
-                if (UW == null) {
-                    UW = new c();
+                if (UU == null) {
+                    UU = new c();
                 }
             }
         }
-        return UW;
+        return UU;
     }
 
     private c() {
     }
 
     public void a(BdFileDownloadData bdFileDownloadData, a aVar) {
-        if (bdFileDownloadData != null && this.UX != null) {
+        if (bdFileDownloadData != null && this.UV != null) {
             bdFileDownloadData.setCallback(aVar);
-            this.UX.h(bdFileDownloadData);
+            this.UV.h(bdFileDownloadData);
         }
     }
 
     public void b(BdFileDownloadData bdFileDownloadData, a aVar) {
-        if (bdFileDownloadData != null && this.UX != null) {
+        if (bdFileDownloadData != null && this.UV != null) {
             bdFileDownloadData.setCallback(aVar);
-            this.UX.b(bdFileDownloadData, 1);
+            this.UV.b(bdFileDownloadData, 1);
         }
     }
 
     public void cG(String str) {
-        if (this.UX != null) {
-            this.UX.cF(str);
+        if (this.UV != null) {
+            this.UV.cF(str);
         }
     }
 
     public void a(b bVar) {
-        this.UX = bVar;
+        this.UV = bVar;
     }
 
     public boolean cE(String str) {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
-        if (this.UX != null) {
-            for (BdFileDownloadData bdFileDownloadData : this.UX.getDownloadList()) {
+        if (this.UV != null) {
+            for (BdFileDownloadData bdFileDownloadData : this.UV.getDownloadList()) {
                 if (str.equals(bdFileDownloadData.getId())) {
                     return true;
                 }

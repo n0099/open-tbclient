@@ -16,42 +16,42 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.ala.livecard.vc.c;
 import com.baidu.tieba.card.ala.AlaVideoContainer;
 import com.baidu.tieba.card.m;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class a implements View.OnClickListener {
-    private bz aim;
-    private final View.OnClickListener alk = new View.OnClickListener() { // from class: com.baidu.tieba.ala.livecard.holder.a.1
+    private bz ahu;
+    private final View.OnClickListener akt = new View.OnClickListener() { // from class: com.baidu.tieba.ala.livecard.holder.a.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (a.this.hnC != null) {
-                a.this.hnC.d(view, a.this.aim);
+            if (a.this.hiW != null) {
+                a.this.hiW.d(view, a.this.ahu);
             }
         }
     };
-    public View dDI;
-    public View hnA;
-    public AlaVideoContainer hnB;
-    private c hnC;
-    public RelativeLayout hnx;
-    public ThreadUserInfoLayout hny;
-    public ThreadCommentAndPraiseInfoLayout hnz;
+    public View dyW;
+    public RelativeLayout hiR;
+    public ThreadUserInfoLayout hiS;
+    public ThreadCommentAndPraiseInfoLayout hiT;
+    public View hiU;
+    public AlaVideoContainer hiV;
+    private c hiW;
     private String mForumName;
     public TextView mTextTitle;
     private View rootView;
 
     public a(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
         this.rootView = LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.frs_ala_stage_live_item, (ViewGroup) null);
-        this.hnx = (RelativeLayout) this.rootView.findViewById(R.id.layout_root);
-        this.hny = (ThreadUserInfoLayout) this.rootView.findViewById(R.id.card_frs_ala_video_user_info_layout);
-        this.hny.setFrom(3);
+        this.hiR = (RelativeLayout) this.rootView.findViewById(R.id.layout_root);
+        this.hiS = (ThreadUserInfoLayout) this.rootView.findViewById(R.id.card_frs_ala_video_user_info_layout);
+        this.hiS.setFrom(3);
         this.mTextTitle = (TextView) this.rootView.findViewById(R.id.text_title);
-        this.hnB = (AlaVideoContainer) this.rootView.findViewById(R.id.ala_video_container);
-        this.hnA = this.rootView.findViewById(R.id.divider_below_reply_number_layout);
-        this.hnz = (ThreadCommentAndPraiseInfoLayout) this.rootView.findViewById(R.id.text_bottom);
-        this.dDI = this.rootView.findViewById(R.id.divider_line);
-        this.hnx.setOnClickListener(this);
-        this.hnz.setOnClickListener(this);
-        this.hnz.getCommentContainer().setOnClickListener(this);
-        this.hnB.setOnVideoClickListener(this);
+        this.hiV = (AlaVideoContainer) this.rootView.findViewById(R.id.ala_video_container);
+        this.hiU = this.rootView.findViewById(R.id.divider_below_reply_number_layout);
+        this.hiT = (ThreadCommentAndPraiseInfoLayout) this.rootView.findViewById(R.id.text_bottom);
+        this.dyW = this.rootView.findViewById(R.id.divider_line);
+        this.hiR.setOnClickListener(this);
+        this.hiT.setOnClickListener(this);
+        this.hiT.getCommentContainer().setOnClickListener(this);
+        this.hiV.setOnVideoClickListener(this);
     }
 
     public View getRootView() {
@@ -59,57 +59,57 @@ public class a implements View.OnClickListener {
     }
 
     public void refreshView() {
-        if (this.aim != null && this.aim.brr() != null) {
-            k(this.aim, this.mForumName);
+        if (this.ahu != null && this.ahu.bnx() != null) {
+            k(this.ahu, this.mForumName);
         }
     }
 
     public void k(bz bzVar, String str) {
-        if (bzVar != null && bzVar.brr() != null) {
-            this.aim = bzVar;
+        if (bzVar != null && bzVar.bnx() != null) {
+            this.ahu = bzVar;
             this.mForumName = str;
-            this.hnx.setVisibility(0);
-            this.hny.setData(bzVar);
-            if (this.hny.getHeaderImg() != null) {
-                this.hny.getHeaderImg().setData(bzVar);
+            this.hiR.setVisibility(0);
+            this.hiS.setData(bzVar);
+            if (this.hiS.getHeaderImg() != null) {
+                this.hiS.getHeaderImg().setData(bzVar);
             }
-            this.hny.setUserAfterClickListener(this.alk);
+            this.hiS.setUserAfterClickListener(this.akt);
             bzVar.z(false, true);
-            this.mTextTitle.setText(bzVar.bsa());
-            this.hnB.getController().a(bzVar, str, "", false);
-            this.hnB.getController().startPlayAnimation();
-            this.hnz.setReplyTimeVisible(false);
-            this.hnz.setNeedAddReplyIcon(true);
-            this.hnz.setIsBarViewVisible(false);
-            this.hnz.setCommentNumEnable(false);
-            this.hnz.setOnClickListener(this);
-            this.hnz.setLiveShareEnable(false);
-            this.hnz.setShareVisible(true);
-            this.hnz.setShowPraiseNum(true);
-            this.hnz.setNeedAddPraiseIcon(true);
-            this.hnz.setFrom(2);
-            if (this.hnz.setData(bzVar)) {
-                this.hnA.setVisibility(8);
+            this.mTextTitle.setText(bzVar.bog());
+            this.hiV.getController().a(bzVar, str, "", false);
+            this.hiV.getController().startPlayAnimation();
+            this.hiT.setReplyTimeVisible(false);
+            this.hiT.setNeedAddReplyIcon(true);
+            this.hiT.setIsBarViewVisible(false);
+            this.hiT.setCommentNumEnable(false);
+            this.hiT.setOnClickListener(this);
+            this.hiT.setLiveShareEnable(false);
+            this.hiT.setShareVisible(true);
+            this.hiT.setShowPraiseNum(true);
+            this.hiT.setNeedAddPraiseIcon(true);
+            this.hiT.setFrom(2);
+            if (this.hiT.setData(bzVar)) {
+                this.hiU.setVisibility(8);
             } else {
-                this.hnA.setVisibility(0);
+                this.hiU.setVisibility(0);
             }
             W(bzVar);
         }
     }
 
     public void o(BdUniqueId bdUniqueId) {
-        if (bdUniqueId != null && this.hnz != null && this.hny != null) {
-            this.hny.setPageUniqueId(bdUniqueId);
+        if (bdUniqueId != null && this.hiT != null && this.hiS != null) {
+            this.hiS.setPageUniqueId(bdUniqueId);
         }
     }
 
     private void W(bz bzVar) {
-        this.hnz.onChangeSkinType();
-        this.hny.onChangeSkinType();
-        this.hnB.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
-        this.hnx.setBackgroundDrawable(ao.qe(R.color.CAM_X0205));
-        ao.setBackgroundColor(this.dDI, R.color.CAM_X0204);
-        if (bzVar != null && m.Jo(bzVar.getId())) {
+        this.hiT.onChangeSkinType();
+        this.hiS.onChangeSkinType();
+        this.hiV.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
+        this.hiR.setBackgroundDrawable(ao.ox(R.color.CAM_X0205));
+        ao.setBackgroundColor(this.dyW, R.color.CAM_X0204);
+        if (bzVar != null && m.Id(bzVar.getId())) {
             ao.setViewTextColor(this.mTextTitle, R.color.CAM_X0109);
         } else {
             ao.setViewTextColor(this.mTextTitle, R.color.CAM_X0105);
@@ -117,20 +117,20 @@ public class a implements View.OnClickListener {
     }
 
     public void a(c cVar) {
-        this.hnC = cVar;
+        this.hiW = cVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.hnx || view == this.hnz.getCommentContainer()) {
-            if (this.aim != null) {
-                m.Jn(this.aim.getId());
+        if (view == this.hiR || view == this.hiT.getCommentContainer()) {
+            if (this.ahu != null) {
+                m.Ic(this.ahu.getId());
             }
-            if (this.hnC != null) {
-                this.hnC.c(view, this.aim);
+            if (this.hiW != null) {
+                this.hiW.c(view, this.ahu);
             }
-        } else if (view.getId() == R.id.video_container && this.hnC != null) {
-            this.hnC.c(view, this.aim);
+        } else if (view.getId() == R.id.video_container && this.hiW != null) {
+            this.hiW.c(view, this.ahu);
         }
     }
 }

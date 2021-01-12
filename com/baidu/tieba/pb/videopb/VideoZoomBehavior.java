@@ -14,8 +14,8 @@ import com.baidu.tieba.pb.pb.main.PbActivity;
 import com.google.android.material.appbar.AppBarLayout;
 /* loaded from: classes2.dex */
 public class VideoZoomBehavior extends AppBarLayout.Behavior {
-    private VideoPbViewModel lIY;
-    private VideoContainerLayout mfC;
+    private VideoPbViewModel lEt;
+    private VideoContainerLayout maX;
 
     public VideoZoomBehavior() {
     }
@@ -27,8 +27,8 @@ public class VideoZoomBehavior extends AppBarLayout.Behavior {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.google.android.material.appbar.AppBarLayout.BaseBehavior, androidx.coordinatorlayout.widget.CoordinatorLayout.Behavior
     public boolean onStartNestedScroll(@NonNull CoordinatorLayout coordinatorLayout, @NonNull AppBarLayout appBarLayout, @NonNull View view, @NonNull View view2, int i, int i2) {
-        this.mfC = cI(appBarLayout);
-        return (this.mfC == null || (i & 2) == 0) ? false : true;
+        this.maX = cI(appBarLayout);
+        return (this.maX == null || (i & 2) == 0) ? false : true;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -41,7 +41,7 @@ public class VideoZoomBehavior extends AppBarLayout.Behavior {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.google.android.material.appbar.AppBarLayout.BaseBehavior, com.google.android.material.appbar.ViewOffsetBehavior, androidx.coordinatorlayout.widget.CoordinatorLayout.Behavior
     public boolean onLayoutChild(CoordinatorLayout coordinatorLayout, AppBarLayout appBarLayout, int i) {
-        this.mfC = cI(appBarLayout);
+        this.maX = cI(appBarLayout);
         return super.onLayoutChild(coordinatorLayout, appBarLayout, i);
     }
 
@@ -49,25 +49,25 @@ public class VideoZoomBehavior extends AppBarLayout.Behavior {
     public boolean setTopAndBottomOffset(int i) {
         ViewGroup.LayoutParams layoutParams;
         boolean topAndBottomOffset = super.setTopAndBottomOffset(i);
-        if (topAndBottomOffset && this.mfC != null && (layoutParams = this.mfC.getLayoutParams()) != null) {
-            int maxHeight = this.mfC.getMaxHeight() + i;
+        if (topAndBottomOffset && this.maX != null && (layoutParams = this.maX.getLayoutParams()) != null) {
+            int maxHeight = this.maX.getMaxHeight() + i;
             if (layoutParams.height != maxHeight) {
                 layoutParams.height = maxHeight;
-                this.mfC.setLayoutParams(layoutParams);
+                this.maX.setLayoutParams(layoutParams);
             }
-            if (this.lIY == null && (this.mfC.getContext() instanceof PbActivity)) {
-                this.lIY = (VideoPbViewModel) ViewModelProviders.of((PbActivity) this.mfC.getContext()).get(VideoPbViewModel.class);
+            if (this.lEt == null && (this.maX.getContext() instanceof PbActivity)) {
+                this.lEt = (VideoPbViewModel) ViewModelProviders.of((PbActivity) this.maX.getContext()).get(VideoPbViewModel.class);
             }
-            if (this.lIY != null) {
+            if (this.lEt != null) {
                 if (i > -5) {
-                    MutableLiveData<Boolean> dwf = this.lIY.dwf();
-                    if (dwf == null || dwf.getValue() == null || !dwf.getValue().booleanValue()) {
-                        this.lIY.we(true);
+                    MutableLiveData<Boolean> dsn = this.lEt.dsn();
+                    if (dsn == null || dsn.getValue() == null || !dsn.getValue().booleanValue()) {
+                        this.lEt.wa(true);
                     }
                 } else {
-                    MutableLiveData<Boolean> dwf2 = this.lIY.dwf();
-                    if (dwf2 == null || dwf2.getValue() == null || dwf2.getValue().booleanValue()) {
-                        this.lIY.we(false);
+                    MutableLiveData<Boolean> dsn2 = this.lEt.dsn();
+                    if (dsn2 == null || dsn2.getValue() == null || dsn2.getValue().booleanValue()) {
+                        this.lEt.wa(false);
                     }
                 }
             }

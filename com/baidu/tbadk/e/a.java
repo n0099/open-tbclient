@@ -4,136 +4,136 @@ import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.e.b;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class a {
-    private static b eJC = null;
-    private static a eJD = null;
-    private static boolean eJE = false;
-    private static String eJF = "";
-    private static transient List<String> eJG = new ArrayList(5);
+    private static b eER = null;
+    private static a eES = null;
+    private static boolean eET = false;
+    private static String eEU = "";
+    private static transient List<String> eEV = new ArrayList(5);
 
     private a() {
     }
 
     public static a b(BaseFragmentActivity baseFragmentActivity) {
-        if (eJD == null) {
+        if (eES == null) {
             synchronized (a.class) {
-                if (eJD == null) {
-                    eJD = new a();
-                    eJC = b.c(baseFragmentActivity);
+                if (eES == null) {
+                    eES = new a();
+                    eER = b.c(baseFragmentActivity);
                 }
             }
-        } else if (eJC != null) {
-            eJC.a(baseFragmentActivity.getPageContext());
+        } else if (eER != null) {
+            eER.a(baseFragmentActivity.getPageContext());
         }
-        if (eJE && eJC != null) {
-            eJC.bnK();
-            eJC.bnL();
-            eJE = false;
+        if (eET && eER != null) {
+            eER.bjQ();
+            eER.bjR();
+            eET = false;
         }
-        return eJD;
+        return eES;
     }
 
     public void a(boolean z, boolean z2, boolean z3, b.a aVar) {
-        bnH();
+        bjN();
         if (z) {
-            bnC();
+            bjI();
         }
         if (z2) {
-            bnD();
+            bjJ();
         }
-        jd(z3);
+        iZ(z3);
         a(aVar);
     }
 
-    public void bnC() {
-        bnH();
-        if (eJC != null) {
-            eJC.bnK();
-            eJE = false;
+    public void bjI() {
+        bjN();
+        if (eER != null) {
+            eER.bjQ();
+            eET = false;
         }
     }
 
-    public void bnD() {
-        bnH();
-        if (eJC != null) {
-            eJC.bnL();
-            eJE = false;
+    public void bjJ() {
+        bjN();
+        if (eER != null) {
+            eER.bjR();
+            eET = false;
         }
     }
 
-    public void jd(boolean z) {
-        bnH();
-        if (eJC != null) {
-            eJC.jd(z);
+    public void iZ(boolean z) {
+        bjN();
+        if (eER != null) {
+            eER.iZ(z);
         }
     }
 
     public void a(b.a aVar) {
-        bnH();
-        if (eJC != null) {
-            eJC.c(aVar);
+        bjN();
+        if (eER != null) {
+            eER.c(aVar);
         }
     }
 
     public void b(b.a aVar) {
-        bnH();
-        if (eJC != null) {
-            if (eJC.bnI()) {
-                eJC.c(aVar);
+        bjN();
+        if (eER != null) {
+            if (eER.bjO()) {
+                eER.c(aVar);
             }
-            eJC.bnJ();
+            eER.bjP();
         }
     }
 
     public void a(int i, b.a aVar) {
-        bnH();
-        if (eJC != null) {
-            if (eJC.bnI()) {
-                eJC.c(aVar);
+        bjN();
+        if (eER != null) {
+            if (eER.bjO()) {
+                eER.c(aVar);
             }
-            eJC.on(i);
+            eER.mH(i);
         }
     }
 
-    public void bnE() {
-        bnH();
-        if (eJC != null) {
-            eJC.bnE();
-            eJE = true;
+    public void bjK() {
+        bjN();
+        if (eER != null) {
+            eER.bjK();
+            eET = true;
         }
     }
 
-    public void bnF() {
-        bnH();
-        if (eJC != null) {
-            eJC.bnF();
+    public void bjL() {
+        bjN();
+        if (eER != null) {
+            eER.bjL();
         }
     }
 
-    public void bnG() {
-        bnH();
-        bnF();
-        bnE();
+    public void bjM() {
+        bjN();
+        bjL();
+        bjK();
     }
 
-    private void bnH() {
-        if (eJC == null) {
+    private void bjN() {
+        if (eER == null) {
         }
     }
 
-    public static void aKt() {
+    public static void aGz() {
         try {
-            if (eJC != null) {
-                if (eJD != null) {
-                    eJD.bnG();
+            if (eER != null) {
+                if (eES != null) {
+                    eES.bjM();
                 }
-                eJC.removeCallBack();
-                eJC.bnM();
-                eJC = null;
+                eER.removeCallBack();
+                eER.bjS();
+                eER = null;
             }
-            if (eJD != null) {
-                eJD = null;
+            if (eES != null) {
+                eES = null;
             }
         } catch (Throwable th) {
             th.printStackTrace();

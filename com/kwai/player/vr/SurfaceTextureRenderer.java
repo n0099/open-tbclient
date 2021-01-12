@@ -22,7 +22,7 @@ import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.egl.EGLContext;
 import javax.microedition.khronos.egl.EGLDisplay;
 import javax.microedition.khronos.egl.EGLSurface;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class SurfaceTextureRenderer implements SurfaceTexture.OnFrameAvailableListener {
     private static final int MSG_DESTROYSURFACE = 2002;
     private static final int MSG_INIT = 1000;
@@ -73,7 +73,7 @@ public class SurfaceTextureRenderer implements SurfaceTexture.OnFrameAvailableLi
     private volatile boolean mWindowSizeChanged = false;
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class RenderHandler extends Handler {
         private WeakReference<SurfaceTextureRenderer> mWeakObj;
 

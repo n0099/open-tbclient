@@ -8,7 +8,7 @@ import java.io.File;
 public class b extends a {
 
     /* renamed from: a  reason: collision with root package name */
-    public final File f7520a;
+    public final File f7220a;
 
     public void a() {
         d.a(new Runnable() { // from class: com.bytedance.sdk.openadsdk.j.a.b.1
@@ -25,7 +25,7 @@ public class b extends a {
         if (a2 != null) {
             com.bytedance.sdk.openadsdk.j.b.c.a(a2).a(1);
         }
-        for (File file : this.f7520a.listFiles()) {
+        for (File file : this.f7220a.listFiles()) {
             try {
                 file.delete();
             } catch (Throwable th) {
@@ -44,6 +44,6 @@ public class b extends a {
     }
 
     File e(String str) {
-        return new File(this.f7520a, str);
+        return new File(this.f7220a, str);
     }
 }

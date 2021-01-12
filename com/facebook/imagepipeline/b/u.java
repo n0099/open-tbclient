@@ -6,14 +6,14 @@ import java.util.Map;
 import javax.annotation.concurrent.GuardedBy;
 /* loaded from: classes3.dex */
 public class u {
-    private static final Class<?> prR = u.class;
+    private static final Class<?> pnm = u.class;
     @GuardedBy("this")
     private Map<com.facebook.cache.common.b, com.facebook.imagepipeline.f.e> mMap = new HashMap();
 
     private u() {
     }
 
-    public static u exA() {
+    public static u etI() {
         return new u();
     }
 
@@ -21,7 +21,7 @@ public class u {
         com.facebook.common.internal.g.checkNotNull(bVar);
         com.facebook.common.internal.g.checkArgument(com.facebook.imagepipeline.f.e.f(eVar));
         com.facebook.imagepipeline.f.e.e(this.mMap.put(bVar, com.facebook.imagepipeline.f.e.b(eVar)));
-        exB();
+        etJ();
     }
 
     public boolean s(com.facebook.cache.common.b bVar) {
@@ -49,18 +49,18 @@ public class u {
         if (eVar2 == null) {
             z = false;
         } else {
-            com.facebook.common.references.a<PooledByteBuffer> ezM = eVar2.ezM();
-            com.facebook.common.references.a<PooledByteBuffer> ezM2 = eVar.ezM();
-            if (ezM != null && ezM2 != null && ezM.get() == ezM2.get()) {
+            com.facebook.common.references.a<PooledByteBuffer> evU = eVar2.evU();
+            com.facebook.common.references.a<PooledByteBuffer> evU2 = eVar.evU();
+            if (evU != null && evU2 != null && evU.get() == evU2.get()) {
                 this.mMap.remove(bVar);
-                com.facebook.common.references.a.c(ezM2);
-                com.facebook.common.references.a.c(ezM);
+                com.facebook.common.references.a.c(evU2);
+                com.facebook.common.references.a.c(evU);
                 com.facebook.imagepipeline.f.e.e(eVar2);
-                exB();
+                etJ();
                 z = true;
             } else {
-                com.facebook.common.references.a.c(ezM2);
-                com.facebook.common.references.a.c(ezM);
+                com.facebook.common.references.a.c(evU2);
+                com.facebook.common.references.a.c(evU);
                 com.facebook.imagepipeline.f.e.e(eVar2);
                 z = false;
             }
@@ -76,7 +76,7 @@ public class u {
             synchronized (eVar) {
                 if (!com.facebook.imagepipeline.f.e.f(eVar)) {
                     this.mMap.remove(bVar);
-                    com.facebook.common.c.a.c(prR, "Found closed reference %d for key %s (%d)", Integer.valueOf(System.identityHashCode(eVar)), bVar.etn(), Integer.valueOf(System.identityHashCode(bVar)));
+                    com.facebook.common.c.a.c(pnm, "Found closed reference %d for key %s (%d)", Integer.valueOf(System.identityHashCode(eVar)), bVar.ept(), Integer.valueOf(System.identityHashCode(bVar)));
                     eVar = null;
                 } else {
                     eVar = com.facebook.imagepipeline.f.e.b(eVar);
@@ -96,7 +96,7 @@ public class u {
                     z = true;
                 } else {
                     this.mMap.remove(bVar);
-                    com.facebook.common.c.a.c(prR, "Found closed reference %d for key %s (%d)", Integer.valueOf(System.identityHashCode(eVar)), bVar.etn(), Integer.valueOf(System.identityHashCode(bVar)));
+                    com.facebook.common.c.a.c(pnm, "Found closed reference %d for key %s (%d)", Integer.valueOf(System.identityHashCode(eVar)), bVar.ept(), Integer.valueOf(System.identityHashCode(bVar)));
                     z = false;
                 }
             }
@@ -106,7 +106,7 @@ public class u {
         return z;
     }
 
-    private synchronized void exB() {
-        com.facebook.common.c.a.c(prR, "Count = %d", Integer.valueOf(this.mMap.size()));
+    private synchronized void etJ() {
+        com.facebook.common.c.a.c(pnm, "Count = %d", Integer.valueOf(this.mMap.size()));
     }
 }

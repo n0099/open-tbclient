@@ -6,13 +6,13 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tieba.tbadkCore.data.AppData;
 import com.baidu.tieba.tbadkCore.data.o;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class e extends com.baidu.adp.widget.ListView.a<o, PbAppEmptyHolder> implements com.baidu.tieba.recapp.o {
-    protected BaseFragmentActivity iJr;
+    protected BaseFragmentActivity iEK;
 
     public e(BaseFragmentActivity baseFragmentActivity, BdUniqueId bdUniqueId) {
         super(baseFragmentActivity.getPageContext().getPageActivity(), bdUniqueId);
-        this.iJr = baseFragmentActivity;
+        this.iEK = baseFragmentActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -20,7 +20,7 @@ public class e extends com.baidu.adp.widget.ListView.a<o, PbAppEmptyHolder> impl
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: cV */
     public PbAppEmptyHolder e(ViewGroup viewGroup) {
-        View view = new View(this.iJr.getPageContext().getPageActivity());
+        View view = new View(this.iEK.getPageContext().getPageActivity());
         view.setVisibility(8);
         return new PbAppEmptyHolder(view);
     }
@@ -30,10 +30,10 @@ public class e extends com.baidu.adp.widget.ListView.a<o, PbAppEmptyHolder> impl
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, o oVar, PbAppEmptyHolder pbAppEmptyHolder) {
         boolean z = false;
-        AppData dOS = oVar.dOS();
-        if (dOS != null) {
-            com.baidu.tbadk.core.data.c cVar = dOS.advertAppContext;
-            if (dOS.goods != null && dOS.goods.goods_style == -1001) {
+        AppData dLa = oVar.dLa();
+        if (dLa != null) {
+            com.baidu.tbadk.core.data.c cVar = dLa.advertAppContext;
+            if (dLa.goods != null && dLa.goods.goods_style == -1001) {
                 z = true;
             }
             com.baidu.tbadk.core.data.c.b(cVar, oVar.getPosition(), z);

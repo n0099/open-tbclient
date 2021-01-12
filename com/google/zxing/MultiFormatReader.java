@@ -9,7 +9,7 @@ import com.google.zxing.qrcode.QRCodeReader;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class MultiFormatReader implements Reader {
     private Map<DecodeHintType, ?> hints;
     private Reader[] readers;

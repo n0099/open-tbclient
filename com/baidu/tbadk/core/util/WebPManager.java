@@ -63,7 +63,7 @@ public class WebPManager {
     }
 
     public static Drawable a(int i, @Nullable ResourceStateType resourceStateType) {
-        Drawable qn;
+        Drawable oG;
         if (i <= 0) {
             return null;
         }
@@ -71,23 +71,23 @@ public class WebPManager {
             resourceStateType = ResourceStateType.NORMAL;
         }
         StateListDrawable stateListDrawable = new StateListDrawable();
-        if (resourceStateType.canPress && (qn = qn(i)) != null) {
-            qn.setAlpha((int) (ao.fdh * 255.0f));
-            stateListDrawable.addState(new int[]{16842919}, qn);
+        if (resourceStateType.canPress && (oG = oG(i)) != null) {
+            oG.setAlpha((int) (ao.eYy * 255.0f));
+            stateListDrawable.addState(new int[]{16842919}, oG);
         }
-        Drawable qn2 = qn(i);
+        Drawable oG2 = oG(i);
         if (resourceStateType.canDisable) {
-            stateListDrawable.addState(new int[0], qn2);
-            Drawable qn3 = qn(i);
-            qn3.setAlpha((int) (ao.fdi * 255.0f));
-            stateListDrawable.addState(new int[0], qn3);
+            stateListDrawable.addState(new int[0], oG2);
+            Drawable oG3 = oG(i);
+            oG3.setAlpha((int) (ao.eYz * 255.0f));
+            stateListDrawable.addState(new int[0], oG3);
             return stateListDrawable;
         }
-        stateListDrawable.addState(new int[0], qn2);
+        stateListDrawable.addState(new int[0], oG2);
         return stateListDrawable;
     }
 
-    private static Drawable qn(int i) {
+    private static Drawable oG(int i) {
         Drawable mutate = ao.getDrawable(i).mutate();
         if (TbadkCoreApplication.getInst().getSkinType() != 0) {
             mutate.setColorFilter(ao.getColor(R.color.CAM_X0501), PorterDuff.Mode.SRC_ATOP);
@@ -103,7 +103,7 @@ public class WebPManager {
         int[] iArr = new int[resourceStateType.stateCount];
         int[][] iArr2 = new int[resourceStateType.stateCount];
         if (resourceStateType.canPress) {
-            iArr[0] = com.baidu.tieba.tbadkCore.c.m(i, ao.fdh);
+            iArr[0] = com.baidu.tieba.tbadkCore.c.m(i, ao.eYy);
             iArr2[0] = new int[]{16842919, 16842910};
             i2 = 1;
         } else {
@@ -115,7 +115,7 @@ public class WebPManager {
             iArr3[0] = 16842910;
             iArr2[i2] = iArr3;
             int i3 = i2 + 1;
-            iArr[i3] = com.baidu.tieba.tbadkCore.c.m(i, ao.fdi);
+            iArr[i3] = com.baidu.tieba.tbadkCore.c.m(i, ao.eYz);
             iArr2[i3] = new int[0];
         } else {
             iArr[i2] = i;
@@ -135,18 +135,18 @@ public class WebPManager {
         Drawable drawable2 = ao.getDrawable(i);
         if (drawable2 != null) {
             Drawable mutate = ao.getDrawable(i).mutate();
-            mutate.setTint(com.baidu.tieba.tbadkCore.c.m(ao.getColor(i3, i4), ao.fdi));
+            mutate.setTint(com.baidu.tieba.tbadkCore.c.m(ao.getColor(i3, i4), ao.eYz));
             stateListDrawable.addState(new int[]{-16842910}, mutate);
             if (i2 > 0 && (drawable = ao.getDrawable(i2)) != null) {
                 Drawable mutate2 = ao.getDrawable(i2).mutate();
-                mutate2.setAlpha((int) (255.0f * ao.fdh));
+                mutate2.setAlpha((int) (255.0f * ao.eYy));
                 mutate2.setTint(ao.getColor(i3, i5));
                 stateListDrawable.addState(new int[]{16842913, 16842919}, mutate2);
                 drawable.mutate().setTint(ao.getColor(i3, i5));
                 stateListDrawable.addState(new int[]{16842913}, drawable);
             }
             Drawable mutate3 = ao.getDrawable(i).mutate();
-            mutate3.setTint(com.baidu.tieba.tbadkCore.c.m(ao.getColor(i3, i4), ao.fdh));
+            mutate3.setTint(com.baidu.tieba.tbadkCore.c.m(ao.getColor(i3, i4), ao.eYy));
             stateListDrawable.addState(new int[]{16842919}, mutate3);
             drawable2.mutate().setTint(ao.getColor(i3, i4));
             stateListDrawable.addState(new int[0], drawable2);

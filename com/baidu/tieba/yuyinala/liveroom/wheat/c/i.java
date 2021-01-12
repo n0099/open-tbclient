@@ -12,51 +12,51 @@ import com.baidu.tieba.yuyinala.liveroom.wheat.a.c;
 import com.baidu.tieba.yuyinala.liveroom.wheat.dialog.g;
 import com.baidu.tieba.yuyinala.liveroom.wheat.message.AlaEndConnectionWheatHttpResponseMessage;
 import com.baidu.tieba.yuyinala.liveroom.wheat.model.f;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class i {
-    private String aUZ;
-    private com.baidu.tieba.yuyinala.liveroom.wheat.dialog.g oBx;
-    private a oBy;
+    private String aQm;
+    private com.baidu.tieba.yuyinala.liveroom.wheat.dialog.g owS;
+    private a owT;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public interface a {
-        void Wv(String str);
+        void Vn(String str);
     }
 
     public void a(TbPageContext tbPageContext, String str, String str2) {
-        this.aUZ = str2;
-        if (this.oBx == null) {
-            this.oBx = new com.baidu.tieba.yuyinala.liveroom.wheat.dialog.g(tbPageContext);
-            this.oBx.g(new DialogInterface.OnDismissListener() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.c.i.1
+        this.aQm = str2;
+        if (this.owS == null) {
+            this.owS = new com.baidu.tieba.yuyinala.liveroom.wheat.dialog.g(tbPageContext);
+            this.owS.g(new DialogInterface.OnDismissListener() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.c.i.1
                 @Override // android.content.DialogInterface.OnDismissListener
                 public void onDismiss(DialogInterface dialogInterface) {
-                    i.this.oBx = null;
+                    i.this.owS = null;
                 }
             });
-            this.oBx.a(new g.a() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.c.i.2
+            this.owS.a(new g.a() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.c.i.2
                 @Override // com.baidu.tieba.yuyinala.liveroom.wheat.dialog.g.a
                 public void onCancel() {
                 }
 
                 @Override // com.baidu.tieba.yuyinala.liveroom.wheat.dialog.g.a
                 public void onConfirm() {
-                    if (o.efg().Wc(i.this.aUZ)) {
-                        h.eeV().zO(true);
+                    if (o.ebo().UU(i.this.aQm)) {
+                        h.ebd().zK(true);
                     } else {
-                        h.eeV().zO(false);
+                        h.ebd().zK(false);
                     }
-                    i.this.Wu(i.this.aUZ);
+                    i.this.Vm(i.this.aQm);
                 }
             });
         }
-        if (!this.oBx.isShowing()) {
-            this.oBx.show();
+        if (!this.owS.isShowing()) {
+            this.owS.show();
         }
-        this.oBx.setText(String.format(TbadkCoreApplication.getInst().getString(a.h.yuyin_ala_connection_wheat_hang_up_wheat_remind_text), str));
+        this.owS.setText(String.format(TbadkCoreApplication.getInst().getString(a.h.yuyin_ala_connection_wheat_hang_up_wheat_remind_text), str));
     }
 
-    public void Wu(final String str) {
-        this.aUZ = str;
+    public void Vm(final String str) {
+        this.aQm = str;
         new com.baidu.tieba.yuyinala.liveroom.wheat.model.f(null, new f.a() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.c.i.3
             @Override // com.baidu.tieba.yuyinala.liveroom.wheat.model.f.a
             public void a(AlaEndConnectionWheatHttpResponseMessage alaEndConnectionWheatHttpResponseMessage) {
@@ -68,33 +68,33 @@ public class i {
             @Override // com.baidu.tieba.yuyinala.liveroom.wheat.model.f.a
             public void onFail(int i, String str2) {
             }
-        }).gS(com.baidu.tieba.yuyinala.liveroom.wheat.a.c.eep().Cq(), this.aUZ);
+        }).gR(com.baidu.tieba.yuyinala.liveroom.wheat.a.c.eax().yv(), this.aQm);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(final String str, AlaEndConnectionWheatHttpResponseMessage alaEndConnectionWheatHttpResponseMessage) {
-        com.baidu.tieba.yuyinala.liveroom.wheat.a.c.eep().a(str, new c.a() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.c.i.4
+        com.baidu.tieba.yuyinala.liveroom.wheat.a.c.eax().a(str, new c.a() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.c.i.4
             @Override // com.baidu.tieba.yuyinala.liveroom.wheat.a.c.a
-            public void zL(boolean z) {
-                if (o.efg().Wc(str)) {
-                    com.baidu.tieba.yuyinala.liveroom.wheat.a.c.eep().eer().Wf("自己挂断自己");
+            public void zH(boolean z) {
+                if (o.ebo().UU(str)) {
+                    com.baidu.tieba.yuyinala.liveroom.wheat.a.c.eax().eaz().UX("自己挂断自己");
                 } else if (z) {
-                    com.baidu.tieba.yuyinala.liveroom.wheat.a.c.eep().eer().Wi(str);
+                    com.baidu.tieba.yuyinala.liveroom.wheat.a.c.eax().eaz().Va(str);
                 }
             }
         });
-        if (!o.efg().eew()) {
+        if (!o.ebo().eaE()) {
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2501027, "hide_dot"));
         }
-        if (o.efg().Wc(str)) {
+        if (o.ebo().UU(str)) {
             BdToast.makeText(TbadkCoreApplication.getInst(), TbadkCoreApplication.getInst().getString(a.h.yuyin_ala_connection_wheat_hung_up_text)).show();
         }
-        if (this.oBx != null) {
-            this.oBx.dismiss();
+        if (this.owS != null) {
+            this.owS.dismiss();
         }
-        h.eeV().a(o.efg().efm(), alaEndConnectionWheatHttpResponseMessage);
-        if (this.oBy != null) {
-            this.oBy.Wv(str);
+        h.ebd().a(o.ebo().ebu(), alaEndConnectionWheatHttpResponseMessage);
+        if (this.owT != null) {
+            this.owT.Vn(str);
         }
         SafeHandler.getInst().postDelayed(new Runnable() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.c.i.5
             @Override // java.lang.Runnable
@@ -105,7 +105,7 @@ public class i {
     }
 
     public i a(a aVar) {
-        this.oBy = aVar;
+        this.owT = aVar;
         return this;
     }
 }

@@ -12,168 +12,168 @@ import com.baidu.tbadk.core.util.ao;
 import com.baidu.tbadk.core.util.at;
 import com.baidu.tieba.R;
 import com.baidu.tieba.hottopic.controller.HotTopicActivity;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class e {
-    private TbPageContext<HotTopicActivity> eXu;
-    private AnimationDrawable kuA;
-    private Animation kuB;
-    private Animation kuC;
-    private Animation kuD;
-    private Animation kuE;
-    private ImageView kuw;
-    private LinearLayout kux;
-    private TextView kuy;
-    private View kuz;
-    private boolean kuF = false;
-    private boolean kuG = false;
+    private TbPageContext<HotTopicActivity> eSJ;
+    private ImageView kpR;
+    private LinearLayout kpS;
+    private TextView kpT;
+    private View kpU;
+    private AnimationDrawable kpV;
+    private Animation kpW;
+    private Animation kpX;
+    private Animation kpY;
+    private Animation kpZ;
+    private boolean kqa = false;
+    private boolean kqb = false;
     private int index = -1;
 
     public e(TbPageContext<HotTopicActivity> tbPageContext, View view) {
-        this.eXu = tbPageContext;
-        this.kuw = (ImageView) view.findViewById(R.id.gif_image);
-        this.kux = (LinearLayout) view.findViewById(R.id.gif_group);
-        this.kuy = (TextView) view.findViewById(R.id.git_desc);
-        this.kuz = view.findViewById(R.id.gif_clikc_view);
+        this.eSJ = tbPageContext;
+        this.kpR = (ImageView) view.findViewById(R.id.gif_image);
+        this.kpS = (LinearLayout) view.findViewById(R.id.gif_group);
+        this.kpT = (TextView) view.findViewById(R.id.git_desc);
+        this.kpU = view.findViewById(R.id.gif_clikc_view);
     }
 
     public void a(int i, boolean z, final long j, int i2) {
-        if (!this.kuF) {
-            this.kux.setVisibility(i);
+        if (!this.kqa) {
+            this.kpS.setVisibility(i);
             if (i != 8) {
-                this.kuy.setText(at.numFormatOverWan(j));
-                this.kuG = z;
-                if (this.kuG) {
+                this.kpT.setText(at.numFormatOverWan(j));
+                this.kqb = z;
+                if (this.kqb) {
                     if (i2 == 1) {
-                        this.kuy.setVisibility(0);
-                        ao.setImageResource(this.kuw, R.drawable.bless_gif);
+                        this.kpT.setVisibility(0);
+                        ao.setImageResource(this.kpR, R.drawable.bless_gif);
                     } else {
-                        this.kuy.setVisibility(8);
-                        ao.setImageResource(this.kuw, R.drawable.pic_float_zhufu);
+                        this.kpT.setVisibility(8);
+                        ao.setImageResource(this.kpR, R.drawable.pic_float_zhufu);
                     }
-                    ((LinearLayout.LayoutParams) this.kuy.getLayoutParams()).setMargins(this.eXu.getResources().getDimensionPixelSize(R.dimen.bless_magin_left), 0, 0, this.eXu.getResources().getDimensionPixelSize(R.dimen.bless_magin_bottom));
-                    ao.setViewTextColor(this.kuy, R.color.topic_bless_text, 1);
-                    ao.setBackgroundResource(this.kuy, R.drawable.pic_float_zhufu_num_b);
+                    ((LinearLayout.LayoutParams) this.kpT.getLayoutParams()).setMargins(this.eSJ.getResources().getDimensionPixelSize(R.dimen.bless_magin_left), 0, 0, this.eSJ.getResources().getDimensionPixelSize(R.dimen.bless_magin_bottom));
+                    ao.setViewTextColor(this.kpT, R.color.topic_bless_text, 1);
+                    ao.setBackgroundResource(this.kpT, R.drawable.pic_float_zhufu_num_b);
                 } else {
                     if (i2 == 1) {
-                        this.kuy.setVisibility(0);
-                        ao.setImageResource(this.kuw, R.drawable.candle_gif);
+                        this.kpT.setVisibility(0);
+                        ao.setImageResource(this.kpR, R.drawable.candle_gif);
                     } else {
-                        this.kuy.setVisibility(8);
-                        ao.setImageResource(this.kuw, R.drawable.pic_float_qifu);
+                        this.kpT.setVisibility(8);
+                        ao.setImageResource(this.kpR, R.drawable.pic_float_qifu);
                     }
-                    ((LinearLayout.LayoutParams) this.kuy.getLayoutParams()).setMargins(this.eXu.getResources().getDimensionPixelSize(R.dimen.candle_magin_left), 0, 0, this.eXu.getResources().getDimensionPixelSize(R.dimen.candle_magin_bottom));
-                    ao.setViewTextColor(this.kuy, R.color.topic_candle_text, 1);
-                    ao.setBackgroundResource(this.kuy, R.drawable.pic_float_qifu_num_b);
+                    ((LinearLayout.LayoutParams) this.kpT.getLayoutParams()).setMargins(this.eSJ.getResources().getDimensionPixelSize(R.dimen.candle_magin_left), 0, 0, this.eSJ.getResources().getDimensionPixelSize(R.dimen.candle_magin_bottom));
+                    ao.setViewTextColor(this.kpT, R.color.topic_candle_text, 1);
+                    ao.setBackgroundResource(this.kpT, R.drawable.pic_float_qifu_num_b);
                 }
                 if (i2 == 1) {
-                    this.kux.clearAnimation();
-                    this.kuA = (AnimationDrawable) this.kuw.getDrawable();
-                    this.kuA.start();
+                    this.kpS.clearAnimation();
+                    this.kpV = (AnimationDrawable) this.kpR.getDrawable();
+                    this.kpV.start();
                 } else {
-                    this.kuz.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.hottopic.view.e.1
+                    this.kpU.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.hottopic.view.e.1
                         @Override // android.view.View.OnClickListener
                         public void onClick(View view) {
-                            if (e.this.kux.getAnimation() == e.this.kuB) {
-                                e.this.kux.clearAnimation();
+                            if (e.this.kpS.getAnimation() == e.this.kpW) {
+                                e.this.kpS.clearAnimation();
                                 return;
                             }
-                            e.this.kuy.setVisibility(0);
-                            e.this.kuy.setText(at.numFormatOverWan(j + 1));
-                            if (e.this.kuG) {
-                                ao.setImageResource(e.this.kuw, R.drawable.bless_gif);
+                            e.this.kpT.setVisibility(0);
+                            e.this.kpT.setText(at.numFormatOverWan(j + 1));
+                            if (e.this.kqb) {
+                                ao.setImageResource(e.this.kpR, R.drawable.bless_gif);
                             } else {
-                                ao.setImageResource(e.this.kuw, R.drawable.candle_gif);
+                                ao.setImageResource(e.this.kpR, R.drawable.candle_gif);
                             }
-                            e.this.kuA = (AnimationDrawable) e.this.kuw.getDrawable();
-                            e.this.kuA.start();
-                            e.this.kux.postDelayed(new Runnable() { // from class: com.baidu.tieba.hottopic.view.e.1.1
+                            e.this.kpV = (AnimationDrawable) e.this.kpR.getDrawable();
+                            e.this.kpV.start();
+                            e.this.kpS.postDelayed(new Runnable() { // from class: com.baidu.tieba.hottopic.view.e.1.1
                                 @Override // java.lang.Runnable
                                 public void run() {
-                                    if (e.this.index > 1 && e.this.kux.getAnimation() != e.this.kuD) {
-                                        e.this.kux.startAnimation(e.this.kuD);
+                                    if (e.this.index > 1 && e.this.kpS.getAnimation() != e.this.kpY) {
+                                        e.this.kpS.startAnimation(e.this.kpY);
                                     }
                                 }
                             }, 2000L);
-                            ((HotTopicActivity) e.this.eXu.getOrignalPage()).cUI();
+                            ((HotTopicActivity) e.this.eSJ.getOrignalPage()).cQQ();
                         }
                     });
-                    this.kux.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.hottopic.view.e.2
+                    this.kpS.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.hottopic.view.e.2
                         @Override // android.view.View.OnClickListener
                         public void onClick(View view) {
-                            if (e.this.kux.getAnimation() == e.this.kuB) {
-                                e.this.kux.clearAnimation();
+                            if (e.this.kpS.getAnimation() == e.this.kpW) {
+                                e.this.kpS.clearAnimation();
                                 return;
                             }
-                            e.this.kuy.setVisibility(0);
-                            e.this.kuy.setText(at.numFormatOverWan(j + 1));
-                            if (e.this.kuG) {
-                                ao.setImageResource(e.this.kuw, R.drawable.bless_gif);
+                            e.this.kpT.setVisibility(0);
+                            e.this.kpT.setText(at.numFormatOverWan(j + 1));
+                            if (e.this.kqb) {
+                                ao.setImageResource(e.this.kpR, R.drawable.bless_gif);
                             } else {
-                                ao.setImageResource(e.this.kuw, R.drawable.candle_gif);
+                                ao.setImageResource(e.this.kpR, R.drawable.candle_gif);
                             }
-                            e.this.kuA = (AnimationDrawable) e.this.kuw.getDrawable();
-                            e.this.kuA.start();
-                            e.this.kux.postDelayed(new Runnable() { // from class: com.baidu.tieba.hottopic.view.e.2.1
+                            e.this.kpV = (AnimationDrawable) e.this.kpR.getDrawable();
+                            e.this.kpV.start();
+                            e.this.kpS.postDelayed(new Runnable() { // from class: com.baidu.tieba.hottopic.view.e.2.1
                                 @Override // java.lang.Runnable
                                 public void run() {
-                                    if (e.this.index > 1 && e.this.kux.getAnimation() != e.this.kuD) {
-                                        e.this.kux.startAnimation(e.this.kuD);
+                                    if (e.this.index > 1 && e.this.kpS.getAnimation() != e.this.kpY) {
+                                        e.this.kpS.startAnimation(e.this.kpY);
                                     }
                                 }
                             }, 2000L);
-                            ((HotTopicActivity) e.this.eXu.getOrignalPage()).cUI();
+                            ((HotTopicActivity) e.this.eSJ.getOrignalPage()).cQQ();
                         }
                     });
                 }
-                this.kuF = true;
-                this.kuB = AnimationUtils.loadAnimation(this.eXu.getPageActivity(), R.anim.gifview_rotate);
-                this.kuC = AnimationUtils.loadAnimation(this.eXu.getPageActivity(), R.anim.gifview_rotate_out);
-                this.kuD = AnimationUtils.loadAnimation(this.eXu.getPageActivity(), R.anim.gifview_alpha);
-                this.kuE = AnimationUtils.loadAnimation(this.eXu.getPageActivity(), R.anim.gifview_alpha_visible);
+                this.kqa = true;
+                this.kpW = AnimationUtils.loadAnimation(this.eSJ.getPageActivity(), R.anim.gifview_rotate);
+                this.kpX = AnimationUtils.loadAnimation(this.eSJ.getPageActivity(), R.anim.gifview_rotate_out);
+                this.kpY = AnimationUtils.loadAnimation(this.eSJ.getPageActivity(), R.anim.gifview_alpha);
+                this.kpZ = AnimationUtils.loadAnimation(this.eSJ.getPageActivity(), R.anim.gifview_alpha_visible);
             }
         }
     }
 
-    public void DN(int i) {
-        if (this.kuF) {
+    public void Ch(int i) {
+        if (this.kqa) {
             this.index = i;
-            if (this.kuw.getDrawable() instanceof AnimationDrawable) {
+            if (this.kpR.getDrawable() instanceof AnimationDrawable) {
                 if (this.index <= 1) {
-                    if (this.kux.getAnimation() != this.kuE) {
-                        this.kux.startAnimation(this.kuE);
-                        this.kuA.start();
+                    if (this.kpS.getAnimation() != this.kpZ) {
+                        this.kpS.startAnimation(this.kpZ);
+                        this.kpV.start();
                     }
-                } else if (this.kux.getAnimation() != this.kuD) {
-                    this.kux.startAnimation(this.kuD);
-                    this.kuA.stop();
+                } else if (this.kpS.getAnimation() != this.kpY) {
+                    this.kpS.startAnimation(this.kpY);
+                    this.kpV.stop();
                 }
             } else if (this.index >= 2) {
-                if (this.kux.getAnimation() != this.kuB) {
-                    this.kux.startAnimation(this.kuB);
+                if (this.kpS.getAnimation() != this.kpW) {
+                    this.kpS.startAnimation(this.kpW);
                 }
-            } else if (this.kux.getAnimation() == this.kuB) {
-                this.kux.startAnimation(this.kuC);
+            } else if (this.kpS.getAnimation() == this.kpW) {
+                this.kpS.startAnimation(this.kpX);
             }
         }
     }
 
     public void clearAnimation() {
-        this.kuw.clearAnimation();
-        this.kux.clearAnimation();
-        if (this.kuB != null) {
-            this.kuB.cancel();
+        this.kpR.clearAnimation();
+        this.kpS.clearAnimation();
+        if (this.kpW != null) {
+            this.kpW.cancel();
         }
-        if (this.kuC != null) {
-            this.kuC.cancel();
+        if (this.kpX != null) {
+            this.kpX.cancel();
         }
-        if (this.kuD != null) {
-            this.kuD.cancel();
+        if (this.kpY != null) {
+            this.kpY.cancel();
         }
-        if (this.kuE != null) {
-            this.kuE.cancel();
+        if (this.kpZ != null) {
+            this.kpZ.cancel();
         }
-        if (this.kuA != null) {
-            this.kuA.stop();
+        if (this.kpV != null) {
+            this.kpV.stop();
         }
     }
 }

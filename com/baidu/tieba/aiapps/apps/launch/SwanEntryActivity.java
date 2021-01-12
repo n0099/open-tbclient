@@ -8,21 +8,21 @@ import android.text.TextUtils;
 import com.baidu.adp.base.a;
 import com.baidu.swan.apps.ao.u;
 import com.baidu.swan.facade.b.b;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class SwanEntryActivity extends Activity {
     @Override // android.app.Activity
     protected void onCreate(Bundle bundle) {
         a.j(this);
         super.onCreate(bundle);
         if (!u.S(this)) {
-            bQq();
+            bMy();
         }
     }
 
     @Override // android.app.Activity
     protected void onNewIntent(Intent intent) {
         super.onNewIntent(intent);
-        bQq();
+        bMy();
     }
 
     @Override // android.app.Activity
@@ -43,7 +43,7 @@ public class SwanEntryActivity extends Activity {
         }
     }
 
-    private void bQq() {
+    private void bMy() {
         String uri;
         Intent intent = getIntent();
         if (intent != null) {
@@ -54,7 +54,7 @@ public class SwanEntryActivity extends Activity {
                 uri = data == null ? null : data.toString();
             }
             if (!TextUtils.isEmpty(uri)) {
-                b.vG(uri);
+                b.uv(uri);
             }
         }
     }

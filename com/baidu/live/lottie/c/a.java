@@ -4,9 +4,10 @@ import android.graphics.PointF;
 import android.util.JsonReader;
 import android.util.JsonToken;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mobstat.Config;
 import java.io.IOException;
 import java.util.ArrayList;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class a {
     public static com.baidu.live.lottie.model.a.e a(JsonReader jsonReader, com.baidu.live.lottie.e eVar) throws IOException {
         ArrayList arrayList = new ArrayList();
@@ -41,7 +42,7 @@ public class a {
                     }
                     break;
                 case 120:
-                    if (nextName.equals("x")) {
+                    if (nextName.equals(Config.EVENT_HEAT_X)) {
                         c = 1;
                         break;
                     }

@@ -9,11 +9,11 @@ import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import java.util.HashMap;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class d {
     public static Spannable a(Context context, Spannable spannable, int i, int i2, int i3) {
-        int jd;
-        b.bu(context);
+        int hS;
+        b.bt(context);
         int length = spannable.length();
         HashMap hashMap = new HashMap();
         c[] cVarArr = (c[]) spannable.getSpans(0, length, c.class);
@@ -25,14 +25,14 @@ public class d {
             Integer num = (Integer) hashMap.get(Integer.valueOf(matcher.start()));
             if (num == null || num.intValue() != matcher.end()) {
                 String group = matcher.group();
-                Integer num2 = b.ZZ().get(group);
+                Integer num2 = b.Wg().get(group);
                 if (num2 != null && num2.intValue() >= 0) {
-                    jd = num2.intValue();
+                    hS = num2.intValue();
                 } else {
-                    jd = jd(group.replaceAll("\\[jx]|\\[/jx]", ""));
+                    hS = hS(group.replaceAll("\\[jx]|\\[/jx]", ""));
                 }
-                if (jd > 0) {
-                    spannable.setSpan(new c(context, jd, i, i2, i3), matcher.start(), matcher.end(), 33);
+                if (hS > 0) {
+                    spannable.setSpan(new c(context, hS, i, i2, i3), matcher.start(), matcher.end(), 33);
                 }
             }
         }
@@ -56,7 +56,7 @@ public class d {
         editText.dispatchKeyEvent(new KeyEvent(0L, 0L, 0, 67, 0, 0, 0, 0, 6));
     }
 
-    public static int jd(String str) {
+    public static int hS(String str) {
         Resources resources = TbadkCoreApplication.getInst().getApp().getResources();
         if (TbadkCoreApplication.getInst().isQuanmin()) {
             return resources.getIdentifier(str, "drawable", "com.baidu.minivideo.live");
@@ -64,7 +64,7 @@ public class d {
         return resources.getIdentifier(str, "drawable", TbadkCoreApplication.getInst().getApp().getApplicationInfo().packageName);
     }
 
-    public static int je(String str) {
+    public static int hT(String str) {
         return str.replaceAll("\\[([一-龥\\w])+\\]", "1").length();
     }
 }

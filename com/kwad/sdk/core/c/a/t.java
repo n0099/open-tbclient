@@ -2,7 +2,7 @@ package com.kwad.sdk.core.c.a;
 
 import com.kwad.sdk.home.download.HomeApkBannerData;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class t implements com.kwad.sdk.core.c<HomeApkBannerData> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.kwad.sdk.core.c

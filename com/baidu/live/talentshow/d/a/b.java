@@ -2,10 +2,10 @@ package com.baidu.live.talentshow.d.a;
 
 import com.baidu.live.alablmsdk.module.c;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class b {
-    public JSONObject bGq;
-    public c bHp;
+    public JSONObject bBE;
+    public c bCD;
     public int index;
     public int status;
     public String uid;

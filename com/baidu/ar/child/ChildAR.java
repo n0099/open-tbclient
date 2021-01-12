@@ -224,7 +224,7 @@ public class ChildAR extends com.baidu.ar.c implements LuaMsgListener {
             this.cb = null;
         }
         if (this.lz != null && !this.lC) {
-            this.lz.a((a.InterfaceC0076a) null);
+            this.lz.a((a.InterfaceC0077a) null);
             this.lz.cQ();
             this.lz = null;
         }
@@ -247,8 +247,8 @@ public class ChildAR extends com.baidu.ar.c implements LuaMsgListener {
         this.bD = (String) hashMap.get("ability_name");
         this.lz = new a(this.mInputWidth, this.mInputHeight);
         this.lB = new com.baidu.ar.child.b.b();
-        this.lz.a(new a.InterfaceC0076a() { // from class: com.baidu.ar.child.ChildAR.2
-            @Override // com.baidu.ar.child.a.InterfaceC0076a
+        this.lz.a(new a.InterfaceC0077a() { // from class: com.baidu.ar.child.ChildAR.2
+            @Override // com.baidu.ar.child.a.InterfaceC0077a
             public void a(final long j, byte[] bArr, int i) {
                 if (bArr == null || bArr.length <= 0) {
                     return;

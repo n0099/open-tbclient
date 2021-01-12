@@ -1,5 +1,5 @@
 package com.google.zxing.oned.rss.expanded.decoders;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 final class BlockParsedResult {
     private final DecodedInformation decodedInformation;
     private final boolean finished;

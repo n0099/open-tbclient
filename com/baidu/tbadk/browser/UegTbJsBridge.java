@@ -10,7 +10,7 @@ import com.baidu.tbadk.coreExtra.data.j;
 import org.json.JSONException;
 import org.json.JSONObject;
 import tbclient.BlockPopInfo;
-@com.baidu.c.a.a
+@com.baidu.b.a.a
 /* loaded from: classes.dex */
 public class UegTbJsBridge implements com.baidu.tieba.tbadkCore.e.b {
     public static final String INTERFACE_NAME = "CommonJSBridge";
@@ -96,7 +96,7 @@ public class UegTbJsBridge implements com.baidu.tieba.tbadkCore.e.b {
 
     private void bindingMobileNumber(String str) {
         try {
-            MessageManager.getInstance().sendMessage(new CustomMessage(2921372, j.bzK()));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2921372, j.bvQ()));
         } catch (Exception e) {
             e.printStackTrace();
         }

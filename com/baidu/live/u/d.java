@@ -1,7 +1,7 @@
 package com.baidu.live.u;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public interface d {
-    void RC();
+    void NH();
 
     void release();
 }

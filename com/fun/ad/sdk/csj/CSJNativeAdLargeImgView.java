@@ -13,7 +13,7 @@ import com.fun.ad.f0;
 import com.fun.ad.m;
 import com.fun.ad.sdk.R;
 import java.util.List;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public final class CSJNativeAdLargeImgView extends f0 {
     public ImageView g;
     public float h;
@@ -44,7 +44,7 @@ public final class CSJNativeAdLargeImgView extends f0 {
         this.g.setLayoutParams(new LinearLayout.LayoutParams(this.f, (this.f * tTImage.getHeight()) / tTImage.getWidth()));
         m.a("CSJNativeAdView ttImage width: " + tTImage.getWidth() + ", height: " + tTImage.getHeight());
         this.h = (tTImage.getWidth() * 1.0f) / (tTImage.getHeight() * 1.0f);
-        ap.a.pJL.a(getContext(), tTImage.getImageUrl(), this.g);
+        ap.a.pFk.a(getContext(), tTImage.getImageUrl(), this.g);
         m.a("CSJNativeAdView ttImage url: " + tTImage.getImageUrl());
     }
 

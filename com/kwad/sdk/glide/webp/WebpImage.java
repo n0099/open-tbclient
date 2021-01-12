@@ -4,7 +4,7 @@ import androidx.annotation.Keep;
 import com.kwad.sdk.glide.g.j;
 import java.nio.ByteBuffer;
 @Keep
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class WebpImage {
     private int mBackgroundColor;
     private int mDurationMs;

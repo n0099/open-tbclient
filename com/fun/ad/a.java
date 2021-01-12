@@ -11,21 +11,21 @@ import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public final class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public List<ar> f8040a;
+    public List<ar> f7740a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Map<String, au> f8041b;
+    public Map<String, au> f7741b;
 
     public void a(String str) {
         m.a("Ad config json: " + str);
         try {
             JSONObject jSONObject = new JSONObject(str);
-            this.f8040a = new ArrayList();
-            this.f8041b = new HashMap();
+            this.f7740a = new ArrayList();
+            this.f7741b = new HashMap();
             Iterator<String> keys = jSONObject.keys();
             while (keys.hasNext()) {
                 String next = keys.next();
@@ -37,7 +37,7 @@ public final class a {
                     }
                     for (int i = 0; i < optJSONArray.length(); i++) {
                         JSONObject optJSONObject = optJSONArray.optJSONObject(i);
-                        this.f8040a.add(new ar(optJSONObject.optString("id"), optJSONObject.optString("type")));
+                        this.f7740a.add(new ar(optJSONObject.optString("id"), optJSONObject.optString("type")));
                     }
                 } else {
                     JSONObject optJSONObject2 = jSONObject.optJSONObject(next);
@@ -57,7 +57,7 @@ public final class a {
                         JSONObject optJSONObject3 = optJSONArray2.optJSONObject(i2);
                         arrayList.add(new au.a(optJSONObject3.optString("id"), optJSONObject3.optString("type"), optJSONObject3.optInt("width"), optJSONObject3.optInt("height"), optJSONObject3.optInt("expressWidth"), optJSONObject3.optInt("expressHeight"), optJSONObject3.optInt("interval", 30), optJSONObject3.optInt("orientation")));
                     }
-                    this.f8041b.put(next, auVar);
+                    this.f7741b.put(next, auVar);
                 }
             }
         } catch (JSONException e) {

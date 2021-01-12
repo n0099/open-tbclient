@@ -9,29 +9,29 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class c implements Cloneable {
-    public List<l> aYX;
-    public long aYz;
+    public long aTM;
+    public List<l> aUk;
+    public boolean aZG;
+    public g aZH;
+    public String aZI;
+    public int aZJ;
+    public boolean aZK;
+    public JSONObject aZL;
+    public long aZM;
+    public long aZN;
+    private long aZO;
+    public boolean aZP;
+    public String aZQ;
+    private boolean aZR;
+    public boolean aZS;
+    public boolean aZT;
+    public boolean aZU;
+    public r aZV;
+    public boolean aZW;
+    public String aZX;
     public String appId;
-    public boolean beA;
-    public JSONObject beB;
-    public long beC;
-    public long beD;
-    private long beE;
-    public boolean beF;
-    public String beG;
-    private boolean beH;
-    public boolean beI;
-    public boolean beJ;
-    public boolean beK;
-    public r beL;
-    public boolean beM;
-    public String beN;
-    public boolean bew;
-    public g bex;
-    public String bey;
-    public int bez;
     public String chatMCastId;
     public String description;
     public String ensureMCastId;
@@ -50,39 +50,39 @@ public class c implements Cloneable {
     public int userStatus;
 
     public c(String str, long j, g gVar, String str2, String str3, String str4, String str5, String str6, boolean z, String str7, String str8, long j2, boolean z2, JSONObject jSONObject) {
-        this.bew = false;
-        this.bey = "";
+        this.aZG = false;
+        this.aZI = "";
         this.followCount = 0L;
         this.fansCount = 0L;
         this.location = "";
         this.priority = 1;
-        this.beD = 0L;
-        this.beH = true;
-        this.beI = false;
-        this.beJ = false;
-        this.beK = false;
-        this.beM = false;
+        this.aZN = 0L;
+        this.aZR = true;
+        this.aZS = false;
+        this.aZT = false;
+        this.aZU = false;
+        this.aZW = false;
         this.giftId = str;
-        this.beC = j;
-        this.bex = gVar;
+        this.aZM = j;
+        this.aZH = gVar;
         this.userId = str2;
         this.portrait = str3;
         this.userName = str4;
         this.liveId = str5;
         this.groupId = str6;
-        this.beF = z;
-        this.beG = str7;
+        this.aZP = z;
+        this.aZQ = str7;
         this.appId = str8;
         this.msgId = j2;
-        this.beA = z2;
-        this.beB = jSONObject;
-        this.aYX = new ArrayList();
-        this.beL = new r();
+        this.aZK = z2;
+        this.aZL = jSONObject;
+        this.aUk = new ArrayList();
+        this.aZV = new r();
         if (jSONObject != null) {
-            this.beL.parserJson(jSONObject);
-            this.beK = jSONObject.optString("content_type").equals(UbcStatConstant.ContentType.UBC_TYPE_TYING_GIFT) && this.beL.aZn == 1;
+            this.aZV.parserJson(jSONObject);
+            this.aZU = jSONObject.optString("content_type").equals(UbcStatConstant.ContentType.UBC_TYPE_TYING_GIFT) && this.aZV.aUA == 1;
         }
-        Jl();
+        Fq();
     }
 
     public c(String str, long j, g gVar, String str2, String str3, String str4, String str5, String str6, boolean z, String str7, String str8, long j2) {
@@ -90,23 +90,23 @@ public class c implements Cloneable {
     }
 
     public void aP(long j) {
-        this.beE = j;
+        this.aZO = j;
     }
 
-    public long Jk() {
-        return this.beE;
+    public long Fp() {
+        return this.aZO;
     }
 
-    private void Jl() {
-        this.bey = this.userId + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + this.giftId + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + this.userName;
+    private void Fq() {
+        this.aZI = this.userId + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + this.giftId + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + this.userName;
     }
 
-    public String Jm() {
-        return this.bey;
+    public String Fr() {
+        return this.aZI;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* renamed from: Jn */
+    /* renamed from: Fs */
     public c clone() {
         try {
             return (c) super.clone();
@@ -116,15 +116,15 @@ public class c implements Cloneable {
         }
     }
 
-    public boolean Jo() {
-        return this.beH;
+    public boolean Ft() {
+        return this.aZR;
     }
 
-    public void bW(boolean z) {
-        this.beH = z;
+    public void bS(boolean z) {
+        this.aZR = z;
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public static class a implements Comparator<c> {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.Comparator
@@ -137,10 +137,10 @@ public class c implements Cloneable {
                 if (cVar.priority < cVar2.priority) {
                     return -1;
                 }
-                if (cVar.bex != null && cVar2.bex != null) {
+                if (cVar.aZH != null && cVar2.aZH != null) {
                     try {
-                        long parseLong = Long.parseLong(cVar.bex.getPrice());
-                        long parseLong2 = Long.parseLong(cVar2.bex.getPrice());
+                        long parseLong = Long.parseLong(cVar.aZH.getPrice());
+                        long parseLong2 = Long.parseLong(cVar2.aZH.getPrice());
                         if (parseLong <= parseLong2) {
                             return parseLong < parseLong2 ? -1 : 0;
                         }

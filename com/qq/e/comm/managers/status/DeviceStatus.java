@@ -7,6 +7,7 @@ import android.location.LocationListener;
 import android.location.LocationManager;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.net.http.Headers;
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.Settings;
@@ -26,14 +27,14 @@ import com.qq.e.comm.util.StringUtil;
 import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class DeviceStatus {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f11863a;
+    private String f11563a;
 
     /* renamed from: b  reason: collision with root package name */
-    private String f11864b;
+    private String f11564b;
     private int c;
     private int d;
     private int e;
@@ -65,7 +66,7 @@ public class DeviceStatus {
     /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: double : 0x004a: INVOKE  (r4v2 double A[REMOVE]) = (r2v6 android.location.Location) type: VIRTUAL call: android.location.Location.getLongitude():double)] */
     private void a() {
         try {
-            final LocationManager locationManager = (LocationManager) this.n.getSystemService("location");
+            final LocationManager locationManager = (LocationManager) this.n.getSystemService(Headers.LOCATION);
             if (locationManager == null) {
                 return;
             }
@@ -214,13 +215,13 @@ public class DeviceStatus {
     }
 
     public String getLanguage() {
-        if (this.f11864b == null) {
-            this.f11864b = Locale.getDefault().getLanguage().toLowerCase(Locale.US);
-            if (this.f11864b.length() == 0) {
-                this.f11864b = h.f1997a;
+        if (this.f11564b == null) {
+            this.f11564b = Locale.getDefault().getLanguage().toLowerCase(Locale.US);
+            if (this.f11564b.length() == 0) {
+                this.f11564b = h.f1947a;
             }
         }
-        return this.f11864b;
+        return this.f11564b;
     }
 
     public String getLat() {
@@ -330,11 +331,11 @@ public class DeviceStatus {
 
     public String getUid() {
         if (GDTADManager.getInstance().getSM().getInteger("adidon", 1) == 1) {
-            if (this.f11863a == null) {
+            if (this.f11563a == null) {
                 String string = Settings.Secure.getString(this.n.getContentResolver(), "android_id");
-                this.f11863a = string == null ? "" : Md5Util.encode(string);
+                this.f11563a = string == null ? "" : Md5Util.encode(string);
             }
-            return this.f11863a;
+            return this.f11563a;
         }
         return "";
     }

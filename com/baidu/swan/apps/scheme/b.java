@@ -1,15 +1,15 @@
 package com.baidu.swan.apps.scheme;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class b {
-    private static volatile a dID;
+    private static volatile a dDR;
 
-    public static synchronized a aNq() {
+    public static synchronized a aJw() {
         a aVar;
         synchronized (b.class) {
-            if (dID == null) {
-                dID = new a();
+            if (dDR == null) {
+                dDR = new a();
             }
-            aVar = dID;
+            aVar = dDR;
         }
         return aVar;
     }

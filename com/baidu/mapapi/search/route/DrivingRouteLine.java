@@ -9,18 +9,17 @@ import com.baidu.mapapi.search.core.RouteNode;
 import com.baidu.mapapi.search.core.RouteStep;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class DrivingRouteLine extends RouteLine<DrivingStep> implements Parcelable {
     public static final Parcelable.Creator<DrivingRouteLine> CREATOR = new d();
 
     /* renamed from: b  reason: collision with root package name */
-    private boolean f3016b;
+    private boolean f2894b;
     private List<RouteNode> c;
     private int d;
     private int e;
-    private int f;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public static class DrivingStep extends RouteStep implements Parcelable {
         public static final Parcelable.Creator<DrivingStep> CREATOR = new e();
         List<LatLng> d;
@@ -33,7 +32,6 @@ public class DrivingRouteLine extends RouteLine<DrivingStep> implements Parcelab
         private String k;
         private String l;
         private int m;
-        private int n;
 
         public DrivingStep() {
         }
@@ -51,7 +49,6 @@ public class DrivingRouteLine extends RouteLine<DrivingStep> implements Parcelab
             this.m = parcel.readInt();
             this.d = parcel.createTypedArrayList(LatLng.CREATOR);
             this.e = parcel.createIntArray();
-            this.n = parcel.readInt();
         }
 
         @Override // com.baidu.mapapi.search.core.RouteStep, android.os.Parcelable
@@ -85,10 +82,6 @@ public class DrivingRouteLine extends RouteLine<DrivingStep> implements Parcelab
 
         public int getNumTurns() {
             return this.m;
-        }
-
-        public int getRoadLevel() {
-            return this.n;
         }
 
         public int[] getTrafficList() {
@@ -139,10 +132,6 @@ public class DrivingRouteLine extends RouteLine<DrivingStep> implements Parcelab
             this.i = str;
         }
 
-        public void setRoadLevel(int i) {
-            this.n = i;
-        }
-
         public void setTrafficList(int[] iArr) {
             this.e = iArr;
         }
@@ -160,7 +149,6 @@ public class DrivingRouteLine extends RouteLine<DrivingStep> implements Parcelab
             parcel.writeInt(this.m);
             parcel.writeTypedList(this.d);
             parcel.writeIntArray(this.e);
-            parcel.writeInt(this.n);
         }
     }
 
@@ -170,12 +158,11 @@ public class DrivingRouteLine extends RouteLine<DrivingStep> implements Parcelab
     /* JADX INFO: Access modifiers changed from: protected */
     public DrivingRouteLine(Parcel parcel) {
         super(parcel);
-        this.f3016b = parcel.readByte() != 0;
+        this.f2894b = parcel.readByte() != 0;
         this.c = new ArrayList();
         parcel.readList(this.c, RouteNode.class.getClassLoader());
         this.d = parcel.readInt();
         this.e = parcel.readInt();
-        this.f = parcel.readInt();
     }
 
     @Override // com.baidu.mapapi.search.core.RouteLine, android.os.Parcelable
@@ -191,17 +178,13 @@ public class DrivingRouteLine extends RouteLine<DrivingStep> implements Parcelab
         return this.e;
     }
 
-    public int getToll() {
-        return this.f;
-    }
-
     public List<RouteNode> getWayPoints() {
         return this.c;
     }
 
     @Deprecated
     public boolean isSupportTraffic() {
-        return this.f3016b;
+        return this.f2894b;
     }
 
     public void setCongestionDistance(int i) {
@@ -213,11 +196,7 @@ public class DrivingRouteLine extends RouteLine<DrivingStep> implements Parcelab
     }
 
     public void setSupportTraffic(boolean z) {
-        this.f3016b = z;
-    }
-
-    public void setToll(int i) {
-        this.f = i;
+        this.f2894b = z;
     }
 
     public void setWayPoints(List<RouteNode> list) {
@@ -228,10 +207,9 @@ public class DrivingRouteLine extends RouteLine<DrivingStep> implements Parcelab
     public void writeToParcel(Parcel parcel, int i) {
         super.setType(RouteLine.TYPE.DRIVESTEP);
         super.writeToParcel(parcel, i);
-        parcel.writeByte(this.f3016b ? (byte) 1 : (byte) 0);
+        parcel.writeByte(this.f2894b ? (byte) 1 : (byte) 0);
         parcel.writeList(this.c);
         parcel.writeInt(this.d);
         parcel.writeInt(this.e);
-        parcel.writeInt(this.f);
     }
 }

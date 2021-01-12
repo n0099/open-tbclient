@@ -13,7 +13,7 @@ import androidx.appcompat.R;
 import androidx.appcompat.content.res.AppCompatResources;
 import androidx.core.widget.ImageViewCompat;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class AppCompatImageHelper {
     private TintInfo mImageTint;
     private TintInfo mInternalImageTint;

@@ -6,7 +6,7 @@ import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.http.request.HttpRequest;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class c extends h<JSONObject> {
     protected String mAppKey;
     protected final Context mContext;
@@ -17,20 +17,20 @@ public class c extends h<JSONObject> {
     }
 
     @Override // com.baidu.swan.apps.setting.oauth.b
-    protected boolean aOa() {
+    protected boolean aKg() {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("app_key", this.mAppKey);
             jSONObject.put("host_pkgname", AppRuntime.getApplication().getPackageName());
             jSONObject.put("host_key_hash", com.baidu.swan.apps.setting.oauth.c.getKeyHash());
-            String alL = com.baidu.swan.apps.t.a.aAE().alL();
-            if (!TextUtils.isEmpty(alL)) {
-                jSONObject.put("host_api_key", alL);
+            String ahR = com.baidu.swan.apps.t.a.awK().ahR();
+            if (!TextUtils.isEmpty(ahR)) {
+                jSONObject.put("host_api_key", ahR);
             }
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        cA("data", jSONObject.toString());
+        cz("data", jSONObject.toString());
         return true;
     }
 
@@ -44,6 +44,6 @@ public class c extends h<JSONObject> {
 
     @Override // com.baidu.swan.apps.setting.oauth.a.h
     protected HttpRequest a(h hVar) {
-        return com.baidu.swan.apps.t.a.aAE().h(this.mContext, hVar.aOB());
+        return com.baidu.swan.apps.t.a.awK().h(this.mContext, hVar.aKH());
     }
 }

@@ -21,34 +21,34 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    private static volatile c f13037a;
+    private static volatile c f12737a;
     private String d = "https://qzs.qq.com/union/res/union_temp_v2/page/ANTempMob/tempMob.c57c184b4f1591947314638.html";
     private String e = "https://qzs.qq.com/union/res/union_temp_v2/page/ANTempMob/videoPlay.0246d5ae241596700948124.html";
     private a c = new a(ah.c(new File(ah.k(), "map")));
 
     /* renamed from: b  reason: collision with root package name */
-    private b f13038b = new b(ah.c(new File(ah.k(), "template")));
+    private b f12738b = new b(ah.c(new File(ah.k(), "template")));
 
     private c() {
     }
 
     public static c a() {
-        if (f13037a == null) {
+        if (f12737a == null) {
             synchronized (c.class) {
                 try {
-                    if (f13037a == null) {
-                        f13037a = new c();
+                    if (f12737a == null) {
+                        f12737a = new c();
                     }
                 } catch (Throwable th) {
                     throw th;
                 }
             }
         }
-        return f13037a;
+        return f12737a;
     }
 
     private void a(String str, az.a aVar) {
@@ -58,7 +58,7 @@ public class c {
 
     private void a(final String str, final String str2) {
         ai.a("TemplateManager", "save template: dir = " + str + ", content = " + str2);
-        s.f12889a.execute(new Runnable() { // from class: com.qq.e.comm.plugin.z.c.2
+        s.f12589a.execute(new Runnable() { // from class: com.qq.e.comm.plugin.z.c.2
             @Override // java.lang.Runnable
             public void run() {
                 File file = new File(ah.k(), str);
@@ -110,7 +110,7 @@ public class c {
 
     private String e(String str) {
         b.a a2;
-        if (TextUtils.isEmpty(str) || (a2 = this.f13038b.a(str)) == null) {
+        if (TextUtils.isEmpty(str) || (a2 = this.f12738b.a(str)) == null) {
             return null;
         }
         return a2.a();
@@ -154,7 +154,7 @@ public class c {
         int min = Math.min(f.size(), f());
         ArrayList arrayList = new ArrayList(min);
         for (int size = f.size() - 1; size >= 0 && arrayList.size() < min; size--) {
-            b.a a2 = this.f13038b.a(f.get(size));
+            b.a a2 = this.f12738b.a(f.get(size));
             if (a2 != null) {
                 arrayList.add(a2.b());
             }
@@ -196,7 +196,7 @@ public class c {
                 if (!z3 && a2) {
                     z3 = true;
                 }
-                boolean a3 = this.f13038b.a(next, cVar);
+                boolean a3 = this.f12738b.a(next, cVar);
                 if (!z && a3) {
                     z2 = true;
                 }
@@ -207,7 +207,7 @@ public class c {
             a("map", this.c.toString());
         }
         if (z) {
-            a("template", this.f13038b.toString());
+            a("template", this.f12738b.toString());
         }
     }
 

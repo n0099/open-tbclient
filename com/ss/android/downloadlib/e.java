@@ -8,37 +8,37 @@ import com.ss.android.downloadlib.a.j;
 public class e implements com.ss.android.socialbase.appdownloader.c.h {
 
     /* renamed from: a  reason: collision with root package name */
-    private static String f13282a = e.class.getSimpleName();
+    private static String f12982a = e.class.getSimpleName();
 
     /* renamed from: b  reason: collision with root package name */
-    private Handler f13283b = new Handler(Looper.getMainLooper());
+    private Handler f12983b = new Handler(Looper.getMainLooper());
 
     @Override // com.ss.android.socialbase.appdownloader.c.h
     public void a(com.ss.android.socialbase.downloader.g.c cVar, com.ss.android.socialbase.downloader.e.a aVar, int i) {
         com.ss.android.b.a.b.a j;
         final com.ss.android.a.a.b.c iY;
-        if (cVar != null && (j = com.ss.android.downloadlib.a.b.d.eFT().j(cVar)) != null) {
+        if (cVar != null && (j = com.ss.android.downloadlib.a.b.d.eCc().j(cVar)) != null) {
             try {
                 if (i == -1) {
                     com.ss.android.socialbase.downloader.e.a aVar2 = null;
                     if (aVar != null) {
                         if (com.ss.android.socialbase.downloader.m.d.J(aVar)) {
-                            if (j.eGn() != null) {
-                                j.eGn().a(j.j());
+                            if (j.eCw() != null) {
+                                j.eCw().a(j.j());
                             }
-                            com.ss.android.downloadlib.e.a.eGB().a("download_failed_for_space", j);
+                            com.ss.android.downloadlib.e.a.eCL().a("download_failed_for_space", j);
                             if (!j.F()) {
                                 j.e(true);
-                                com.ss.android.downloadlib.e.a.eGB().a("download_can_restart", j);
+                                com.ss.android.downloadlib.e.a.eCL().a("download_can_restart", j);
                                 a(cVar, j);
                             }
-                            if ((j.eGn() == null || !j.eGn().a()) && (iY = com.ss.android.downloadlib.a.b.d.eFT().iY(j.j())) != null && iY.k()) {
-                                final com.ss.android.socialbase.downloader.k.a Th = com.ss.android.socialbase.downloader.k.a.Th(cVar.g());
-                                if (Th.a("show_no_enough_space_toast", 0) == 1) {
-                                    this.f13283b.post(new Runnable() { // from class: com.ss.android.downloadlib.e.1
+                            if ((j.eCw() == null || !j.eCw().a()) && (iY = com.ss.android.downloadlib.a.b.d.eCc().iY(j.j())) != null && iY.k()) {
+                                final com.ss.android.socialbase.downloader.k.a RA = com.ss.android.socialbase.downloader.k.a.RA(cVar.g());
+                                if (RA.a("show_no_enough_space_toast", 0) == 1) {
+                                    this.f12983b.post(new Runnable() { // from class: com.ss.android.downloadlib.e.1
                                         @Override // java.lang.Runnable
                                         public void run() {
-                                            j.eGf().a(2, j.a(), iY, Th.a("no_enough_space_toast_text", "您的存储空间不足，请清理后再试"), null, 0);
+                                            j.eCo().a(2, j.a(), iY, RA.a("no_enough_space_toast_text", "您的存储空间不足，请清理后再试"), null, 0);
                                         }
                                     });
                                 }
@@ -46,14 +46,14 @@ public class e implements com.ss.android.socialbase.appdownloader.c.h {
                         }
                         aVar2 = new com.ss.android.socialbase.downloader.e.a(aVar.a(), com.ss.android.downloadlib.f.i.a(aVar.getMessage(), j.i().optInt("exception_msg_length", 500)));
                     }
-                    com.ss.android.downloadlib.e.a.eGB().b(cVar, aVar2);
-                    h.eGC().a(cVar, aVar, "");
+                    com.ss.android.downloadlib.e.a.eCL().b(cVar, aVar2);
+                    h.eCM().a(cVar, aVar, "");
                 } else if (i == -3) {
                     b.a(cVar, j);
                 } else if (i == 2001) {
-                    b.eFO().a(cVar, j, 2001);
+                    b.eBX().a(cVar, j, 2001);
                 } else if (i == 11) {
-                    b.eFO().a(cVar, j, 2000);
+                    b.eBX().a(cVar, j, 2000);
                 }
             } catch (Exception e) {
                 e.printStackTrace();
@@ -62,11 +62,11 @@ public class e implements com.ss.android.socialbase.appdownloader.c.h {
     }
 
     private void a(@NonNull com.ss.android.socialbase.downloader.g.c cVar, @NonNull com.ss.android.b.a.b.a aVar) {
-        if (!com.ss.android.downloadlib.f.d.Sq(cVar.g())) {
-            com.ss.android.downloadlib.e.a.eGB().a("clean_space_switch_closed", aVar);
+        if (!com.ss.android.downloadlib.f.d.QJ(cVar.g())) {
+            com.ss.android.downloadlib.e.a.eCL().a("clean_space_switch_closed", aVar);
             return;
         }
-        com.ss.android.downloadlib.e.a.eGB().a("cleanspace_switch_open", aVar);
-        f.eGz().b(new com.ss.android.downloadlib.a.c.b(cVar));
+        com.ss.android.downloadlib.e.a.eCL().a("cleanspace_switch_open", aVar);
+        f.eCI().b(new com.ss.android.downloadlib.a.c.b(cVar));
     }
 }

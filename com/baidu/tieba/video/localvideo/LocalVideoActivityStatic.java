@@ -11,7 +11,7 @@ import com.baidu.tbadk.core.atomData.RecordVideoActivityConfig;
 import com.baidu.tieba.video.cloudmusic.CloudMusicActivity;
 import com.baidu.tieba.video.editvideo.EditVideoActivity;
 import com.baidu.tieba.video.record.RecordVideoActivity;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class LocalVideoActivityStatic {
     public static String Tag = "tag";
 

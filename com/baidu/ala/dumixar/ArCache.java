@@ -1,7 +1,7 @@
 package com.baidu.ala.dumixar;
 
 import com.baidu.minivideo.arface.bean.Sticker;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class ArCache {
     private static Sticker sDuSticker;
 

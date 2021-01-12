@@ -7,24 +7,24 @@ import com.qq.e.comm.plugin.y.u;
 import com.qq.e.comm.util.GDTLogger;
 import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class k {
 
     /* renamed from: a  reason: collision with root package name */
-    private final Context f11921a;
+    private final Context f11621a;
 
     /* renamed from: b  reason: collision with root package name */
-    private final t f11922b;
+    private final t f11622b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public k(Context context) {
-        this.f11921a = context;
-        this.f11922b = t.a(this.f11921a);
+        this.f11621a = context;
+        this.f11622b = t.a(this.f11621a);
     }
 
     private void a(c cVar, int i) {
         cVar.a(i);
-        this.f11922b.b(cVar);
+        this.f11622b.b(cVar);
     }
 
     private void a(c cVar, int i, int i2) {
@@ -40,7 +40,7 @@ public class k {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public int a(c cVar) {
-        return this.f11922b.b(cVar);
+        return this.f11622b.b(cVar);
     }
 
     /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
@@ -51,7 +51,7 @@ public class k {
         List<c> a2;
         synchronized (this) {
             try {
-                a2 = this.f11922b.a();
+                a2 = this.f11622b.a();
             } catch (Throwable th) {
                 th = th;
                 list = null;
@@ -59,13 +59,13 @@ public class k {
             try {
                 for (c cVar : a2) {
                     if (cVar.o() != 8) {
-                        if (com.qq.e.comm.plugin.a.d.d.c(com.qq.e.comm.plugin.a.d.b.a().a(this.f11921a, cVar.h()))) {
+                        if (com.qq.e.comm.plugin.a.d.d.c(com.qq.e.comm.plugin.a.d.b.a().a(this.f11621a, cVar.h()))) {
                             a(cVar, 8);
                         } else {
                             cVar.d(1);
-                            Intent a3 = j.a(this.f11921a, cVar);
+                            Intent a3 = j.a(this.f11621a, cVar);
                             if (a3 != null) {
-                                this.f11921a.startService(a3);
+                                this.f11621a.startService(a3);
                             }
                         }
                     }
@@ -93,18 +93,18 @@ public class k {
     /* JADX INFO: Access modifiers changed from: package-private */
     public boolean a(int i) {
         try {
-            c c = this.f11922b.c(i);
+            c c = this.f11622b.c(i);
             if (c == null || c.o() == 8) {
                 return false;
             }
-            if (com.qq.e.comm.plugin.a.d.d.c(com.qq.e.comm.plugin.a.d.b.a().a(this.f11921a, c.h()))) {
+            if (com.qq.e.comm.plugin.a.d.d.c(com.qq.e.comm.plugin.a.d.b.a().a(this.f11621a, c.h()))) {
                 a(c, 8);
             } else {
                 com.qq.e.comm.plugin.a.d.b.a().a(c.h(), 128);
                 c.a(128);
-                Intent a2 = j.a(this.f11921a, c);
+                Intent a2 = j.a(this.f11621a, c);
                 if (a2 != null) {
-                    this.f11921a.startService(a2);
+                    this.f11621a.startService(a2);
                 }
             }
             return true;
@@ -116,7 +116,7 @@ public class k {
     /* JADX INFO: Access modifiers changed from: package-private */
     public boolean a(int i, int i2) {
         try {
-            c b2 = this.f11922b.b(i);
+            c b2 = this.f11622b.b(i);
             if (b2 != null) {
                 com.qq.e.comm.plugin.a.d.b.a().a(b2.h(), 32);
                 a(b2, 32, i2);
@@ -130,9 +130,9 @@ public class k {
     /* JADX INFO: Access modifiers changed from: package-private */
     public boolean a(int i, int i2, long j) {
         try {
-            c a2 = this.f11922b.a(i);
+            c a2 = this.f11622b.a(i);
             if (a2 != null) {
-                a(a2, this.f11922b, i2, j);
+                a(a2, this.f11622b, i2, j);
                 return true;
             }
             return false;
@@ -145,11 +145,11 @@ public class k {
     /* JADX INFO: Access modifiers changed from: package-private */
     public boolean a(int i, String str, int i2) {
         try {
-            c a2 = this.f11922b.a(i);
+            c a2 = this.f11622b.a(i);
             if (a2 != null) {
                 com.qq.e.comm.plugin.a.d.b.a().a(a2.h(), 64);
                 a(a2, 64);
-                NotificationManager a3 = com.qq.e.comm.plugin.d.d.a(this.f11921a);
+                NotificationManager a3 = com.qq.e.comm.plugin.d.d.a(this.f11621a);
                 if (a3 != null) {
                     a3.cancel(str, i2);
                 }
@@ -162,20 +162,20 @@ public class k {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public List<c> b() {
-        return this.f11922b.b();
+        return this.f11622b.b();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public List<c> c() {
-        return this.f11922b.c();
+        return this.f11622b.c();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public List<c> d() {
-        return this.f11922b.d();
+        return this.f11622b.d();
     }
 
     public List<c> e() {
-        return this.f11922b.a();
+        return this.f11622b.a();
     }
 }

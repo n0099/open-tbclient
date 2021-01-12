@@ -23,7 +23,7 @@ public interface i extends IInterface {
             if (queryLocalInterface != null && (queryLocalInterface instanceof i)) {
                 return (i) queryLocalInterface;
             }
-            return new C1254a(iBinder);
+            return new C1237a(iBinder);
         }
 
         @Override // android.os.IInterface
@@ -50,18 +50,18 @@ public interface i extends IInterface {
 
         /* renamed from: com.ss.android.socialbase.downloader.d.i$a$a  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        private static class C1254a implements i {
+        private static class C1237a implements i {
 
             /* renamed from: a  reason: collision with root package name */
-            private IBinder f13413a;
+            private IBinder f13113a;
 
-            C1254a(IBinder iBinder) {
-                this.f13413a = iBinder;
+            C1237a(IBinder iBinder) {
+                this.f13113a = iBinder;
             }
 
             @Override // android.os.IInterface
             public IBinder asBinder() {
-                return this.f13413a;
+                return this.f13113a;
             }
 
             @Override // com.ss.android.socialbase.downloader.d.i
@@ -70,7 +70,7 @@ public interface i extends IInterface {
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.depend.IDownloadAidlInterceptor");
-                    this.f13413a.transact(1, obtain, obtain2, 0);
+                    this.f13113a.transact(1, obtain, obtain2, 0);
                     obtain2.readException();
                     return obtain2.readInt() != 0;
                 } finally {

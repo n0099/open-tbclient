@@ -5,14 +5,14 @@ import com.qq.e.comm.plugin.util.ba;
 import java.io.File;
 import java.lang.ref.WeakReference;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class m implements com.qq.e.comm.plugin.j.a {
 
     /* renamed from: a  reason: collision with root package name */
-    private volatile WeakReference<j> f12740a;
+    private volatile WeakReference<j> f12440a;
 
     /* renamed from: b  reason: collision with root package name */
-    private volatile WeakReference<l> f12741b;
+    private volatile WeakReference<l> f12441b;
     private volatile String c;
     private volatile int d = -1;
     private com.qq.e.comm.plugin.y.c e;
@@ -25,7 +25,7 @@ public class m implements com.qq.e.comm.plugin.j.a {
     public void a(long j, long j2, int i) {
         l lVar;
         ai.b("gdt_tag_reward_video", "onProgress(%d,%d,%d)", Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i));
-        if (this.f12741b == null || (lVar = this.f12741b.get()) == null) {
+        if (this.f12441b == null || (lVar = this.f12441b.get()) == null) {
             return;
         }
         lVar.a(j, j2, i, this.c);
@@ -41,21 +41,21 @@ public class m implements com.qq.e.comm.plugin.j.a {
         j jVar;
         l lVar;
         ai.b("gdt_tag_reward_video", "onFailed(%s)", cVar);
-        if (this.f12741b != null && (lVar = this.f12741b.get()) != null) {
+        if (this.f12441b != null && (lVar = this.f12441b.get()) != null) {
             lVar.f();
         }
-        if (this.f12740a == null || (jVar = this.f12740a.get()) == null) {
+        if (this.f12440a == null || (jVar = this.f12440a.get()) == null) {
             return;
         }
         jVar.a(this.c, cVar);
     }
 
     public void a(j jVar) {
-        this.f12740a = new WeakReference<>(jVar);
+        this.f12440a = new WeakReference<>(jVar);
     }
 
     public void a(l lVar) {
-        this.f12741b = new WeakReference<>(lVar);
+        this.f12441b = new WeakReference<>(lVar);
     }
 
     public void a(com.qq.e.comm.plugin.y.c cVar) {
@@ -67,10 +67,10 @@ public class m implements com.qq.e.comm.plugin.j.a {
         j jVar;
         l lVar;
         ai.a("gdt_tag_reward_video", "onCompleted");
-        if (this.f12741b != null && (lVar = this.f12741b.get()) != null) {
+        if (this.f12441b != null && (lVar = this.f12441b.get()) != null) {
             lVar.d();
         }
-        if (this.f12740a != null && (jVar = this.f12740a.get()) != null) {
+        if (this.f12440a != null && (jVar = this.f12440a.get()) != null) {
             jVar.c();
         }
         ba.a(j, this.d, this.c, this.e);
@@ -89,10 +89,10 @@ public class m implements com.qq.e.comm.plugin.j.a {
         j jVar;
         l lVar;
         ai.a("gdt_tag_reward_video", "onCanceled");
-        if (this.f12741b != null && (lVar = this.f12741b.get()) != null) {
+        if (this.f12441b != null && (lVar = this.f12441b.get()) != null) {
             lVar.e();
         }
-        if (this.f12740a == null || (jVar = this.f12740a.get()) == null) {
+        if (this.f12440a == null || (jVar = this.f12440a.get()) == null) {
             return;
         }
         jVar.a(this.c);

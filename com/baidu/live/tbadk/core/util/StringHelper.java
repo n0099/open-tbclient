@@ -24,7 +24,7 @@ import java.util.Date;
 import java.util.Formatter;
 import java.util.Locale;
 import java.util.TimeZone;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class StringHelper extends BdStringHelper {
     public static final String STRING_MORE = "...";
     private static long MS_TO_SEC = 1000;

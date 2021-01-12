@@ -8,7 +8,7 @@ import android.util.Log;
 import android.widget.ImageView;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 class ImageViewUtils {
     private static final String TAG = "ImageViewUtils";
     private static Method sAnimateTransformMethod;

@@ -7,6 +7,7 @@ import androidx.annotation.DrawableRes;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.util.Pools;
+import com.baidu.mobstat.Config;
 import com.bumptech.glide.GlideContext;
 import com.bumptech.glide.Priority;
 import com.bumptech.glide.load.DataSource;
@@ -22,7 +23,7 @@ import com.bumptech.glide.util.Util;
 import com.bumptech.glide.util.pool.FactoryPools;
 import com.bumptech.glide.util.pool.StateVerifier;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class SingleRequest<R> implements Request, ResourceCallback, SizeReadyCallback, FactoryPools.Poolable {
     private static final String GLIDE_TAG = "Glide";
     private TransitionFactory<? super R> animationFactory;
@@ -67,7 +68,7 @@ public final class SingleRequest<R> implements Request, ResourceCallback, SizeRe
     private static final boolean IS_VERBOSE_LOGGABLE = Log.isLoggable(TAG, 2);
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public enum Status {
         PENDING,
         RUNNING,
@@ -369,7 +370,7 @@ public final class SingleRequest<R> implements Request, ResourceCallback, SizeRe
         this.status = Status.COMPLETE;
         this.resource = resource;
         if (this.glideContext.getLogLevel() <= 3) {
-            Log.d(GLIDE_TAG, "Finished loading " + r.getClass().getSimpleName() + " from " + dataSource + " for " + this.model + " with size [" + this.width + "x" + this.height + "] in " + LogTime.getElapsedMillis(this.startTime) + " ms");
+            Log.d(GLIDE_TAG, "Finished loading " + r.getClass().getSimpleName() + " from " + dataSource + " for " + this.model + " with size [" + this.width + Config.EVENT_HEAT_X + this.height + "] in " + LogTime.getElapsedMillis(this.startTime) + " ms");
         }
         this.isCallingCallbacks = true;
         try {
@@ -402,7 +403,7 @@ public final class SingleRequest<R> implements Request, ResourceCallback, SizeRe
         this.stateVerifier.throwIfRecycled();
         int logLevel = this.glideContext.getLogLevel();
         if (logLevel <= i) {
-            Log.w(GLIDE_TAG, "Load failed for " + this.model + " with size [" + this.width + "x" + this.height + "]", glideException);
+            Log.w(GLIDE_TAG, "Load failed for " + this.model + " with size [" + this.width + Config.EVENT_HEAT_X + this.height + "]", glideException);
             if (logLevel <= 4) {
                 glideException.logRootCauses(GLIDE_TAG);
             }

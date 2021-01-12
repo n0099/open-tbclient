@@ -15,10 +15,10 @@ import java.util.concurrent.atomic.AtomicBoolean;
 public class EmptyView extends View implements am.a {
 
     /* renamed from: a  reason: collision with root package name */
-    private boolean f6739a;
+    private boolean f6439a;
 
     /* renamed from: b  reason: collision with root package name */
-    private boolean f6740b;
+    private boolean f6440b;
     private a c;
     private View d;
     private List<View> e;
@@ -119,24 +119,24 @@ public class EmptyView extends View implements am.a {
     }
 
     private void d() {
-        if (this.f6740b && !this.f6739a) {
-            this.f6739a = true;
+        if (this.f6440b && !this.f6439a) {
+            this.f6439a = true;
             this.i.sendEmptyMessage(1);
         }
     }
 
     private void e() {
-        if (this.f6739a) {
+        if (this.f6439a) {
             this.i.removeCallbacksAndMessages(null);
-            this.f6739a = false;
+            this.f6439a = false;
         }
     }
 
     public void setNeedCheckingShow(boolean z) {
-        this.f6740b = z;
-        if (!z && this.f6739a) {
+        this.f6440b = z;
+        if (!z && this.f6439a) {
             e();
-        } else if (z && !this.f6739a) {
+        } else if (z && !this.f6439a) {
             d();
         }
     }
@@ -153,7 +153,7 @@ public class EmptyView extends View implements am.a {
     public void a(Message message) {
         switch (message.what) {
             case 1:
-                if (this.f6739a) {
+                if (this.f6439a) {
                     if (y.a(this.d, 20, this.h)) {
                         e();
                         this.i.sendEmptyMessageDelayed(2, 1000L);

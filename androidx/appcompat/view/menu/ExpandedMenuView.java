@@ -9,7 +9,7 @@ import androidx.annotation.RestrictTo;
 import androidx.appcompat.view.menu.MenuBuilder;
 import androidx.appcompat.widget.TintTypedArray;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public final class ExpandedMenuView extends ListView implements AdapterView.OnItemClickListener, MenuBuilder.ItemInvoker, MenuView {
     private static final int[] TINT_ATTRS = {16842964, 16843049};
     private int mAnimations;

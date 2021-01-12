@@ -17,24 +17,24 @@ import android.view.WindowManager;
 import android.widget.FrameLayout;
 import com.baidu.ar.constants.HttpConstants;
 import java.lang.reflect.Method;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class d {
-    private static String dAk;
-    private final a dAl;
-    private boolean dAm;
-    private boolean dAn;
-    private boolean dAo;
-    private View dAp;
-    private View dAq;
+    private static String dvy;
+    private boolean dvA;
+    private boolean dvB;
+    private boolean dvC;
+    private View dvD;
+    private View dvE;
+    private final a dvz;
 
     static {
         if (Build.VERSION.SDK_INT >= 19) {
             try {
                 Method declaredMethod = Class.forName("android.os.SystemProperties").getDeclaredMethod("get", String.class);
                 declaredMethod.setAccessible(true);
-                dAk = (String) declaredMethod.invoke(null, "qemu.hw.mainkeys");
+                dvy = (String) declaredMethod.invoke(null, "qemu.hw.mainkeys");
             } catch (Throwable th) {
-                dAk = null;
+                dvy = null;
             }
         }
     }
@@ -46,96 +46,96 @@ public class d {
         if (Build.VERSION.SDK_INT >= 19) {
             TypedArray obtainStyledAttributes = activity.obtainStyledAttributes(new int[]{16843759, 16843760});
             try {
-                this.dAm = obtainStyledAttributes.getBoolean(0, false);
-                this.dAn = obtainStyledAttributes.getBoolean(1, false);
+                this.dvA = obtainStyledAttributes.getBoolean(0, false);
+                this.dvB = obtainStyledAttributes.getBoolean(1, false);
                 obtainStyledAttributes.recycle();
                 WindowManager.LayoutParams attributes = window.getAttributes();
                 if ((67108864 & attributes.flags) != 0) {
-                    this.dAm = true;
+                    this.dvA = true;
                 }
                 if ((attributes.flags & 134217728) != 0) {
-                    this.dAn = true;
+                    this.dvB = true;
                 }
             } catch (Throwable th) {
                 obtainStyledAttributes.recycle();
                 throw th;
             }
         }
-        this.dAl = new a(activity, this.dAm, this.dAn);
-        if (!this.dAl.hasNavigtionBar()) {
-            this.dAn = false;
+        this.dvz = new a(activity, this.dvA, this.dvB);
+        if (!this.dvz.hasNavigtionBar()) {
+            this.dvB = false;
         }
-        if (this.dAm) {
+        if (this.dvA) {
             d(activity, viewGroup);
         }
-        if (this.dAn) {
+        if (this.dvB) {
             e(activity, viewGroup);
         }
     }
 
     public void setStatusBarTintEnabled(boolean z) {
-        this.dAo = z;
-        if (this.dAm) {
-            this.dAp.setVisibility(z ? 0 : 8);
+        this.dvC = z;
+        if (this.dvA) {
+            this.dvD.setVisibility(z ? 0 : 8);
         }
     }
 
     private void d(Context context, ViewGroup viewGroup) {
-        this.dAp = new View(context);
-        FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, this.dAl.getStatusBarHeight());
+        this.dvD = new View(context);
+        FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, this.dvz.getStatusBarHeight());
         layoutParams.gravity = 48;
-        if (this.dAn && !this.dAl.isNavigationAtBottom()) {
-            layoutParams.rightMargin = this.dAl.getNavigationBarWidth();
+        if (this.dvB && !this.dvz.isNavigationAtBottom()) {
+            layoutParams.rightMargin = this.dvz.getNavigationBarWidth();
         }
-        this.dAp.setLayoutParams(layoutParams);
-        this.dAp.setBackgroundColor(-1728053248);
-        this.dAp.setVisibility(8);
-        viewGroup.addView(this.dAp);
+        this.dvD.setLayoutParams(layoutParams);
+        this.dvD.setBackgroundColor(-1728053248);
+        this.dvD.setVisibility(8);
+        viewGroup.addView(this.dvD);
     }
 
     private void e(Context context, ViewGroup viewGroup) {
         FrameLayout.LayoutParams layoutParams;
-        this.dAq = new View(context);
-        if (this.dAl.isNavigationAtBottom()) {
-            layoutParams = new FrameLayout.LayoutParams(-1, this.dAl.getNavigationBarHeight());
+        this.dvE = new View(context);
+        if (this.dvz.isNavigationAtBottom()) {
+            layoutParams = new FrameLayout.LayoutParams(-1, this.dvz.getNavigationBarHeight());
             layoutParams.gravity = 80;
         } else {
-            layoutParams = new FrameLayout.LayoutParams(this.dAl.getNavigationBarWidth(), -1);
+            layoutParams = new FrameLayout.LayoutParams(this.dvz.getNavigationBarWidth(), -1);
             layoutParams.gravity = 5;
         }
-        this.dAq.setLayoutParams(layoutParams);
-        this.dAq.setBackgroundColor(-1728053248);
-        this.dAq.setVisibility(8);
-        viewGroup.addView(this.dAq);
+        this.dvE.setLayoutParams(layoutParams);
+        this.dvE.setBackgroundColor(-1728053248);
+        this.dvE.setVisibility(8);
+        viewGroup.addView(this.dvE);
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public static class a {
-        private final int acd;
-        private final boolean dAr;
-        private final boolean dAs;
-        private final boolean dAt;
-        private final int dAu;
-        private final boolean dAv;
-        private final float dAw;
+        private final int acb;
+        private final boolean dvF;
+        private final boolean dvG;
+        private final boolean dvH;
+        private final int dvI;
+        private final boolean dvJ;
+        private final float dvK;
         private final int mActionBarHeight;
         private final int mStatusBarHeight;
 
         private a(Activity activity, boolean z, boolean z2) {
             Resources resources = activity.getResources();
-            this.dAv = resources.getConfiguration().orientation == 1;
-            this.dAw = J(activity);
+            this.dvJ = resources.getConfiguration().orientation == 1;
+            this.dvK = J(activity);
             this.mStatusBarHeight = b(resources, "status_bar_height");
-            this.mActionBarHeight = dh(activity);
-            this.acd = getNavigationBarHeight(activity);
-            this.dAu = di(activity);
-            this.dAt = this.acd > 0;
-            this.dAr = z;
-            this.dAs = z2;
+            this.mActionBarHeight = dg(activity);
+            this.acb = getNavigationBarHeight(activity);
+            this.dvI = dh(activity);
+            this.dvH = this.acb > 0;
+            this.dvF = z;
+            this.dvG = z2;
         }
 
         @TargetApi(14)
-        private int dh(Context context) {
+        private int dg(Context context) {
             if (Build.VERSION.SDK_INT < 14) {
                 return 0;
             }
@@ -151,7 +151,7 @@ public class d {
             if (Build.VERSION.SDK_INT < 14 || !hasNavBar(context)) {
                 return 0;
             }
-            if (this.dAv) {
+            if (this.dvJ) {
                 str = "navigation_bar_height";
             } else {
                 str = "navigation_bar_height_landscape";
@@ -160,11 +160,11 @@ public class d {
         }
 
         public int getNavigationBarHeight() {
-            return this.acd;
+            return this.acb;
         }
 
         @TargetApi(14)
-        private int di(Context context) {
+        private int dh(Context context) {
             Resources resources = context.getResources();
             if (Build.VERSION.SDK_INT < 14 || !hasNavBar(context)) {
                 return 0;
@@ -173,7 +173,7 @@ public class d {
         }
 
         public int getNavigationBarWidth() {
-            return this.dAu;
+            return this.dvI;
         }
 
         @TargetApi(14)
@@ -182,10 +182,10 @@ public class d {
             int identifier = resources.getIdentifier("config_showNavigationBar", "bool", HttpConstants.OS_TYPE_VALUE);
             if (identifier != 0) {
                 boolean z = resources.getBoolean(identifier);
-                if ("1".equals(d.dAk)) {
+                if ("1".equals(d.dvy)) {
                     return false;
                 }
-                if ("0".equals(d.dAk)) {
+                if ("0".equals(d.dvy)) {
                     return true;
                 }
                 return z;
@@ -213,7 +213,7 @@ public class d {
         }
 
         public boolean isNavigationAtBottom() {
-            return this.dAw >= 600.0f || this.dAv;
+            return this.dvK >= 600.0f || this.dvJ;
         }
 
         public int getStatusBarHeight() {
@@ -221,7 +221,7 @@ public class d {
         }
 
         public boolean hasNavigtionBar() {
-            return this.dAt;
+            return this.dvH;
         }
     }
 }

@@ -7,7 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public abstract class PagerAdapter {
     public static final int POSITION_NONE = -2;
     public static final int POSITION_UNCHANGED = -1;

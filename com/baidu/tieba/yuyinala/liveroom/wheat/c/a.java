@@ -12,63 +12,63 @@ import com.baidu.live.tbadk.ubc.UbcStatisticManager;
 import com.baidu.tieba.yuyinala.liveroom.wheat.message.AlaAcceptConnectionWheatHttpResponseMessage;
 import com.baidu.tieba.yuyinala.liveroom.wheat.model.a;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class a {
-    private static a oAJ;
-    private InterfaceC0955a oAI;
-    com.baidu.tieba.yuyinala.liveroom.wheat.a.e oAK = new com.baidu.tieba.yuyinala.liveroom.wheat.a.e() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.c.a.3
+    private static a owe;
+    private InterfaceC0938a owd;
+    com.baidu.tieba.yuyinala.liveroom.wheat.a.e owf = new com.baidu.tieba.yuyinala.liveroom.wheat.a.e() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.c.a.3
         @Override // com.baidu.tieba.yuyinala.liveroom.wheat.a.e, com.baidu.tieba.yuyinala.liveroom.wheat.a.d
         public void onError(int i, int i2, String str) {
-            if (a.this.oAI != null) {
-                a.this.oAI.onFail();
+            if (a.this.owd != null) {
+                a.this.owd.onFail();
             }
         }
 
         @Override // com.baidu.tieba.yuyinala.liveroom.wheat.a.e, com.baidu.tieba.yuyinala.liveroom.wheat.a.d
-        public void NE(int i) {
-            if (a.this.oAI != null) {
-                a.this.oAI.onSuccess();
+        public void LX(int i) {
+            if (a.this.owd != null) {
+                a.this.owd.onSuccess();
             }
         }
     };
 
     /* renamed from: com.baidu.tieba.yuyinala.liveroom.wheat.c.a$a  reason: collision with other inner class name */
-    /* loaded from: classes11.dex */
-    public interface InterfaceC0955a {
-        void Wp(String str);
+    /* loaded from: classes10.dex */
+    public interface InterfaceC0938a {
+        void Vh(String str);
 
         void onFail();
 
         void onSuccess();
     }
 
-    public static a eeJ() {
-        if (oAJ == null) {
-            oAJ = new a();
+    public static a eaR() {
+        if (owe == null) {
+            owe = new a();
         }
-        return oAJ;
+        return owe;
     }
 
     public void b(final String str, final String str2, final String str3, final long j, String str4) {
-        new com.baidu.tieba.yuyinala.liveroom.wheat.model.a(null, new a.InterfaceC0958a() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.c.a.1
-            @Override // com.baidu.tieba.yuyinala.liveroom.wheat.model.a.InterfaceC0958a
+        new com.baidu.tieba.yuyinala.liveroom.wheat.model.a(null, new a.InterfaceC0941a() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.c.a.1
+            @Override // com.baidu.tieba.yuyinala.liveroom.wheat.model.a.InterfaceC0941a
             public void a(AlaAcceptConnectionWheatHttpResponseMessage alaAcceptConnectionWheatHttpResponseMessage) {
                 if (!alaAcceptConnectionWheatHttpResponseMessage.isError()) {
                     com.baidu.tieba.yuyinala.liveroom.wheat.e.d.bj("auth_success_anchor_2", false);
-                    a.this.b(str, str2, str3, j, alaAcceptConnectionWheatHttpResponseMessage.getPushUrl(), alaAcceptConnectionWheatHttpResponseMessage.efV());
+                    a.this.b(str, str2, str3, j, alaAcceptConnectionWheatHttpResponseMessage.getPushUrl(), alaAcceptConnectionWheatHttpResponseMessage.ecd());
                 }
             }
 
-            @Override // com.baidu.tieba.yuyinala.liveroom.wheat.model.a.InterfaceC0958a
+            @Override // com.baidu.tieba.yuyinala.liveroom.wheat.model.a.InterfaceC0941a
             public void b(AlaAcceptConnectionWheatHttpResponseMessage alaAcceptConnectionWheatHttpResponseMessage) {
-                if (a.this.oAI != null) {
-                    a.this.oAI.onFail();
+                if (a.this.owd != null) {
+                    a.this.owd.onFail();
                 }
                 JSONObject jSONObject = new JSONObject();
                 try {
-                    x aat = com.baidu.tieba.yuyinala.liveroom.wheat.a.c.eep().aat();
-                    if (aat != null && aat.aLl != null) {
-                        jSONObject.put(AlaRecorderLog.KEY_CONTENT_EXT_RES_ID, aat.aLl.live_id);
+                    x WA = com.baidu.tieba.yuyinala.liveroom.wheat.a.c.eax().WA();
+                    if (WA != null && WA.aGy != null) {
+                        jSONObject.put(AlaRecorderLog.KEY_CONTENT_EXT_RES_ID, WA.aGy.live_id);
                     }
                     jSONObject.put(AlaRecorderLog.KEY_CURRENT_STAGE, 1);
                     jSONObject.put("error_code", alaAcceptConnectionWheatHttpResponseMessage.getErrno());
@@ -78,43 +78,43 @@ public class a {
                 }
                 UbcStatisticManager.getInstance().logEvent(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_AUDIO_OWNER_JOIN_CHAT, UbcStatConstant.ContentType.UBC_TYPE_AUDIO_LIVE_CHAT, UbcStatConstant.Page.AUDIO_LIVE_ROOM, "user_apply_join_chat_result").setContentExt(jSONObject));
             }
-        }).aU(com.baidu.tieba.yuyinala.liveroom.wheat.a.c.eep().Cq(), str, str4);
+        }).aT(com.baidu.tieba.yuyinala.liveroom.wheat.a.c.eax().yv(), str, str4);
     }
 
     public void b(String str, String str2, String str3, long j, String str4, String str5) {
-        if (o.efg().Wc(str)) {
-            com.baidu.tieba.yuyinala.liveroom.wheat.a.c.eep().b(this.oAK).L(com.baidu.tieba.yuyinala.liveroom.wheat.a.c.eep().eeu(), TbadkCoreApplication.getCurrentAccountInfo().getAccountNameShow(), str4, str5);
+        if (o.ebo().UU(str)) {
+            com.baidu.tieba.yuyinala.liveroom.wheat.a.c.eax().b(this.owf).L(com.baidu.tieba.yuyinala.liveroom.wheat.a.c.eax().eaC(), TbadkCoreApplication.getCurrentAccountInfo().getAccountNameShow(), str4, str5);
             return;
         }
-        com.baidu.tieba.yuyinala.liveroom.wheat.a.c.eep().eer().a(str, str2, str3, j, com.baidu.tieba.yuyinala.liveroom.wheat.a.c.eep().eeu(), true, str4, str5, new IStatusListener() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.c.a.2
+        com.baidu.tieba.yuyinala.liveroom.wheat.a.c.eax().eaz().a(str, str2, str3, j, com.baidu.tieba.yuyinala.liveroom.wheat.a.c.eax().eaC(), true, str4, str5, new IStatusListener() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.c.a.2
             @Override // com.baidu.android.imrtc.utils.IStatusListener
             public void onResult(int i, String str6) {
                 if (i != 0) {
                     JSONObject jSONObject = new JSONObject();
                     try {
-                        x aat = com.baidu.tieba.yuyinala.liveroom.wheat.a.c.eep().aat();
-                        if (aat != null && aat.aLl != null) {
-                            jSONObject.put(AlaRecorderLog.KEY_CONTENT_EXT_RES_ID, aat.aLl.live_id);
+                        x WA = com.baidu.tieba.yuyinala.liveroom.wheat.a.c.eax().WA();
+                        if (WA != null && WA.aGy != null) {
+                            jSONObject.put(AlaRecorderLog.KEY_CONTENT_EXT_RES_ID, WA.aGy.live_id);
                         }
                         jSONObject.put(AlaRecorderLog.KEY_CURRENT_STAGE, 2);
                         jSONObject.put("error_code", i);
-                        jSONObject.put("error_msg", "主持接受发送信令邀请失败：" + str6 + com.baidu.tieba.yuyinala.liveroom.wheat.a.c.eep().eer().eeo());
+                        jSONObject.put("error_msg", "主持接受发送信令邀请失败：" + str6 + com.baidu.tieba.yuyinala.liveroom.wheat.a.c.eax().eaz().eaw());
                     } catch (Exception e) {
                         BdLog.e(e);
                     }
                     UbcStatisticManager.getInstance().logEvent(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_AUDIO_OWNER_JOIN_CHAT, UbcStatConstant.ContentType.UBC_TYPE_AUDIO_LIVE_CHAT, UbcStatConstant.Page.AUDIO_LIVE_ROOM, "user_apply_join_chat_result").setContentExt(jSONObject));
-                    if (a.this.oAI != null) {
-                        a.this.oAI.onFail();
+                    if (a.this.owd != null) {
+                        a.this.owd.onFail();
                     }
                 }
             }
         });
-        if (this.oAI != null) {
-            this.oAI.Wp(str);
+        if (this.owd != null) {
+            this.owd.Vh(str);
         }
     }
 
-    public void a(InterfaceC0955a interfaceC0955a) {
-        this.oAI = interfaceC0955a;
+    public void a(InterfaceC0938a interfaceC0938a) {
+        this.owd = interfaceC0938a;
     }
 }

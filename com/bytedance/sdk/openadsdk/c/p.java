@@ -2,6 +2,7 @@ package com.bytedance.sdk.openadsdk.c;
 
 import android.text.TextUtils;
 import com.bytedance.sdk.openadsdk.utils.u;
+import com.meizu.cloud.pushsdk.notification.model.TimeDisplaySetting;
 import java.util.HashMap;
 import java.util.Iterator;
 import org.json.JSONArray;
@@ -10,10 +11,10 @@ import org.json.JSONObject;
 public class p {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f6546a;
+    private String f6246a;
 
     /* renamed from: b  reason: collision with root package name */
-    private com.bytedance.sdk.openadsdk.core.d.l f6547b;
+    private com.bytedance.sdk.openadsdk.core.d.l f6247b;
     private Boolean c = false;
     private Boolean d = false;
     private Boolean e = false;
@@ -23,23 +24,23 @@ public class p {
     private JSONArray h = new JSONArray();
 
     public p(int i, String str, com.bytedance.sdk.openadsdk.core.d.l lVar) {
-        this.f6546a = "embeded_ad";
-        this.f6546a = str;
-        this.f6547b = lVar;
+        this.f6246a = "embeded_ad";
+        this.f6246a = str;
+        this.f6247b = lVar;
         a(this.f, "webview_source", Integer.valueOf(i));
     }
 
     public void a() {
         long currentTimeMillis = System.currentTimeMillis();
         JSONObject jSONObject = new JSONObject();
-        a(jSONObject, "ts", Long.valueOf(currentTimeMillis));
+        a(jSONObject, TimeDisplaySetting.TIME_DISPLAY_SETTING, Long.valueOf(currentTimeMillis));
         a(this.f, "render_start", jSONObject);
     }
 
     public void b() {
         long currentTimeMillis = System.currentTimeMillis();
         JSONObject jSONObject = new JSONObject();
-        a(jSONObject, "ts", Long.valueOf(currentTimeMillis));
+        a(jSONObject, TimeDisplaySetting.TIME_DISPLAY_SETTING, Long.valueOf(currentTimeMillis));
         a(this.f, "render_success", jSONObject);
     }
 
@@ -50,7 +51,7 @@ public class p {
     public void a(int i, String str) {
         long currentTimeMillis = System.currentTimeMillis();
         JSONObject jSONObject = new JSONObject();
-        a(jSONObject, "ts", Long.valueOf(currentTimeMillis));
+        a(jSONObject, TimeDisplaySetting.TIME_DISPLAY_SETTING, Long.valueOf(currentTimeMillis));
         a(jSONObject, "code", Integer.valueOf(i));
         if (str != null) {
             a(jSONObject, "msg", str);
@@ -61,28 +62,28 @@ public class p {
     public void c() {
         long currentTimeMillis = System.currentTimeMillis();
         JSONObject jSONObject = new JSONObject();
-        a(jSONObject, "ts", Long.valueOf(currentTimeMillis));
+        a(jSONObject, TimeDisplaySetting.TIME_DISPLAY_SETTING, Long.valueOf(currentTimeMillis));
         a(this.f, "native_render_start", jSONObject);
     }
 
     public void d() {
         long currentTimeMillis = System.currentTimeMillis();
         JSONObject jSONObject = new JSONObject();
-        a(jSONObject, "ts", Long.valueOf(currentTimeMillis));
+        a(jSONObject, TimeDisplaySetting.TIME_DISPLAY_SETTING, Long.valueOf(currentTimeMillis));
         a(this.f, "native_render_end", jSONObject);
     }
 
     public void e() {
         long currentTimeMillis = System.currentTimeMillis();
         JSONObject jSONObject = new JSONObject();
-        a(jSONObject, "ts", Long.valueOf(currentTimeMillis));
+        a(jSONObject, TimeDisplaySetting.TIME_DISPLAY_SETTING, Long.valueOf(currentTimeMillis));
         a(this.f, "webview_load_start", (Object) jSONObject, false);
     }
 
     public void f() {
         long currentTimeMillis = System.currentTimeMillis();
         JSONObject jSONObject = new JSONObject();
-        a(jSONObject, "ts", Long.valueOf(currentTimeMillis));
+        a(jSONObject, TimeDisplaySetting.TIME_DISPLAY_SETTING, Long.valueOf(currentTimeMillis));
         a(this.f, "webview_load_success", jSONObject);
     }
 
@@ -94,28 +95,28 @@ public class p {
         if (jSONObject == null) {
             jSONObject = new JSONObject();
         }
-        a(jSONObject, "ts", Long.valueOf(System.currentTimeMillis()));
+        a(jSONObject, TimeDisplaySetting.TIME_DISPLAY_SETTING, Long.valueOf(System.currentTimeMillis()));
         a(this.f, "webview_load_error", jSONObject);
     }
 
     public void h() {
         long currentTimeMillis = System.currentTimeMillis();
         JSONObject jSONObject = new JSONObject();
-        a(jSONObject, "ts", Long.valueOf(currentTimeMillis));
+        a(jSONObject, TimeDisplaySetting.TIME_DISPLAY_SETTING, Long.valueOf(currentTimeMillis));
         a(this.f, "native_endcard_show", jSONObject);
     }
 
     public void i() {
         long currentTimeMillis = System.currentTimeMillis();
         JSONObject jSONObject = new JSONObject();
-        a(jSONObject, "ts", Long.valueOf(currentTimeMillis));
+        a(jSONObject, TimeDisplaySetting.TIME_DISPLAY_SETTING, Long.valueOf(currentTimeMillis));
         a(this.f, "native_endcard_close", jSONObject);
     }
 
     public void j() {
         long currentTimeMillis = System.currentTimeMillis();
         JSONObject jSONObject = new JSONObject();
-        a(jSONObject, "ts", Long.valueOf(currentTimeMillis));
+        a(jSONObject, TimeDisplaySetting.TIME_DISPLAY_SETTING, Long.valueOf(currentTimeMillis));
         a(jSONObject, "type", "native_enterBackground");
         a(this.g, jSONObject);
     }
@@ -123,7 +124,7 @@ public class p {
     public void k() {
         long currentTimeMillis = System.currentTimeMillis();
         JSONObject jSONObject = new JSONObject();
-        a(jSONObject, "ts", Long.valueOf(currentTimeMillis));
+        a(jSONObject, TimeDisplaySetting.TIME_DISPLAY_SETTING, Long.valueOf(currentTimeMillis));
         a(jSONObject, "type", "native_enterForeground");
         a(this.g, jSONObject);
     }
@@ -158,7 +159,7 @@ public class p {
         if (!TextUtils.isEmpty(str)) {
             long currentTimeMillis = System.currentTimeMillis();
             JSONObject jSONObject = new JSONObject();
-            a(jSONObject, "ts", Long.valueOf(currentTimeMillis));
+            a(jSONObject, TimeDisplaySetting.TIME_DISPLAY_SETTING, Long.valueOf(currentTimeMillis));
             a(jSONObject, "jsb", str);
             a(this.f, "webview_jsb_start", jSONObject);
         }
@@ -168,7 +169,7 @@ public class p {
         if (!TextUtils.isEmpty(str)) {
             long currentTimeMillis = System.currentTimeMillis();
             JSONObject jSONObject = new JSONObject();
-            a(jSONObject, "ts", Long.valueOf(currentTimeMillis));
+            a(jSONObject, TimeDisplaySetting.TIME_DISPLAY_SETTING, Long.valueOf(currentTimeMillis));
             a(jSONObject, "jsb", str);
             a(this.f, "webview_jsb_end", jSONObject);
         }
@@ -214,7 +215,7 @@ public class p {
             if (com.bytedance.sdk.openadsdk.core.i.c().u() && this.f != null) {
                 u.b("WebviewTimeTrack", this.f.toString());
             }
-            d.h(com.bytedance.sdk.openadsdk.core.p.a(), this.f6547b, this.f6546a, "webview_time_track", hashMap);
+            d.h(com.bytedance.sdk.openadsdk.core.p.a(), this.f6247b, this.f6246a, "webview_time_track", hashMap);
             this.i = false;
         }
     }

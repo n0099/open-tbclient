@@ -4,13 +4,12 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
-import com.baidu.platform.comapi.map.MapBundleKey;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes4.dex */
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f7938a;
+    private int f7638a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(Context context) {
@@ -25,7 +24,7 @@ public class d {
     }
 
     public int a() {
-        return this.f7938a;
+        return this.f7638a;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -37,7 +36,7 @@ public class d {
         @Override // android.content.BroadcastReceiver
         public void onReceive(Context context, Intent intent) {
             if ("android.intent.action.BATTERY_CHANGED".equals(intent.getAction())) {
-                d.this.f7938a = (int) ((intent.getIntExtra(MapBundleKey.MapObjKey.OBJ_LEVEL, 0) * 100.0f) / intent.getIntExtra("scale", 100));
+                d.this.f7638a = (int) ((intent.getIntExtra("level", 0) * 100.0f) / intent.getIntExtra("scale", 100));
             }
         }
     }

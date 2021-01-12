@@ -17,7 +17,7 @@ import android.graphics.drawable.LayerDrawable;
 import android.graphics.drawable.StateListDrawable;
 import android.util.Log;
 import android.widget.ImageView;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class BdRoundedDrawable extends Drawable {
     public static final int DEFAULT_BORDER_COLOR = 0;
     public static final String TAG = "BdRoundedDrawable";
@@ -187,7 +187,7 @@ public class BdRoundedDrawable extends Drawable {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.baidu.live.adp.widget.imageview.BdRoundedDrawable$1  reason: invalid class name */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public static /* synthetic */ class AnonymousClass1 {
         static final /* synthetic */ int[] $SwitchMap$android$widget$ImageView$ScaleType = new int[ImageView.ScaleType.values().length];
 

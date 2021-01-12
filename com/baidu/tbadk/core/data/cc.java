@@ -14,7 +14,7 @@ public class cc {
         return this.title;
     }
 
-    public String btK() {
+    public String bpQ() {
         return this.title_link;
     }
 

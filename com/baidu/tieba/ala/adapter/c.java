@@ -9,54 +9,54 @@ import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.ala.AlaLastLiveroomInfo;
 import com.baidu.tieba.ala.data.h;
 import java.util.ArrayList;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class c extends BaseAdapter {
-    private String grB;
-    private boolean grC;
-    private long grz;
-    private ArrayList<h> gto;
-    private AlaLastLiveroomInfo gtp;
+    private long gmS;
+    private String gmU;
+    private boolean gmV;
+    private ArrayList<h> goH;
+    private AlaLastLiveroomInfo goI;
     private Context mContext;
 
     public c(Context context, String str, long j, boolean z, AlaLastLiveroomInfo alaLastLiveroomInfo) {
         this.mContext = context;
-        this.grB = str;
-        this.grz = j;
-        this.grC = z;
-        this.gtp = alaLastLiveroomInfo;
+        this.gmU = str;
+        this.gmS = j;
+        this.gmV = z;
+        this.goI = alaLastLiveroomInfo;
     }
 
     public void setData(ArrayList<h> arrayList) {
-        if (this.gto == null) {
-            this.gto = new ArrayList<>();
+        if (this.goH == null) {
+            this.goH = new ArrayList<>();
         } else {
-            this.gto.clear();
+            this.goH.clear();
         }
         if (arrayList != null) {
-            this.gto.addAll(arrayList);
+            this.goH.addAll(arrayList);
         }
         notifyDataSetChanged();
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.gto == null) {
+        if (this.goH == null) {
             return 0;
         }
-        return this.gto.size();
+        return this.goH.size();
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        if (this.gto == null) {
+        if (this.goH == null) {
             return null;
         }
-        return this.gto.get(i);
+        return this.goH.get(i);
     }
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
     public boolean isEmpty() {
-        return this.gto == null || this.gto.size() == 0;
+        return this.goH == null || this.goH.size() == 0;
     }
 
     @Override // android.widget.Adapter
@@ -70,14 +70,14 @@ public class c extends BaseAdapter {
         View view2;
         if (view == null) {
             view2 = LayoutInflater.from(this.mContext).inflate(a.g.ala_rank_list_item_view, (ViewGroup) null);
-            com.baidu.tieba.ala.view.h hVar2 = new com.baidu.tieba.ala.view.h(this.mContext, view2, this.grB, this.grz, this.grC, this.gtp);
+            com.baidu.tieba.ala.view.h hVar2 = new com.baidu.tieba.ala.view.h(this.mContext, view2, this.gmU, this.gmS, this.gmV, this.goI);
             view2.setTag(hVar2);
             hVar = hVar2;
         } else {
             hVar = (com.baidu.tieba.ala.view.h) view.getTag();
             view2 = view;
         }
-        hVar.a(this.gto.get(i), i);
+        hVar.a(this.goH.get(i), i);
         return view2;
     }
 }

@@ -2,33 +2,33 @@ package com.baidu.mobstat;
 
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class ac {
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f3679a;
+    public boolean f3641a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f3680b;
+    public String f3642b;
     public boolean c;
 
     public ac() {
-        this.f3679a = false;
-        this.f3680b = "";
+        this.f3641a = false;
+        this.f3642b = "";
         this.c = false;
     }
 
     public ac(JSONObject jSONObject) {
-        this.f3679a = false;
-        this.f3680b = "";
+        this.f3641a = false;
+        this.f3642b = "";
         this.c = false;
         try {
-            this.f3679a = jSONObject.getBoolean("SDK_BPLUS_SERVICE");
+            this.f3641a = jSONObject.getBoolean("SDK_BPLUS_SERVICE");
         } catch (Exception e) {
             bb.c().b(e);
         }
         try {
-            this.f3680b = jSONObject.getString("SDK_PRODUCT_LY");
+            this.f3642b = jSONObject.getString("SDK_PRODUCT_LY");
         } catch (Exception e2) {
             bb.c().b(e2);
         }
@@ -42,12 +42,12 @@ public class ac {
     public JSONObject a() {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("SDK_BPLUS_SERVICE", this.f3679a);
+            jSONObject.put("SDK_BPLUS_SERVICE", this.f3641a);
         } catch (JSONException e) {
             bb.c().b(e);
         }
         try {
-            jSONObject.put("SDK_PRODUCT_LY", this.f3680b);
+            jSONObject.put("SDK_PRODUCT_LY", this.f3642b);
         } catch (JSONException e2) {
             bb.c().b(e2);
         }

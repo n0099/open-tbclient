@@ -6,7 +6,7 @@ import android.net.Uri;
 import android.text.TextUtils;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeConstants;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class SchemeRouter {
     public static boolean isSchemeAvailable(Context context, Uri uri, String str) {
         if (context == null) {

@@ -1,22 +1,22 @@
 package com.tencent.turingfd.sdk.ams.au;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public final class au extends bf {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f13792a = "";
+    public String f13492a = "";
 
     /* renamed from: b  reason: collision with root package name */
-    public String f13793b = "";
+    public String f13493b = "";
 
     @Override // com.tencent.turingfd.sdk.ams.au.bf
     public void a(ao aoVar) {
-        this.f13792a = aoVar.a(0, true);
-        this.f13793b = aoVar.a(1, true);
+        this.f13492a = aoVar.a(0, true);
+        this.f13493b = aoVar.a(1, true);
     }
 
     @Override // com.tencent.turingfd.sdk.ams.au.bf
     public void a(as asVar) {
-        asVar.a(this.f13792a, 0);
-        asVar.a(this.f13793b, 1);
+        asVar.a(this.f13492a, 0);
+        asVar.a(this.f13493b, 1);
     }
 }

@@ -10,7 +10,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.PbActivityConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.aq;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class NotificationReceiver extends BroadcastReceiver {
     @Override // android.content.BroadcastReceiver
     public void onReceive(Context context, Intent intent) {
@@ -18,7 +18,7 @@ public class NotificationReceiver extends BroadcastReceiver {
             String stringExtra = intent.getStringExtra("thread_id");
             String stringExtra2 = intent.getStringExtra("task_id");
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, new PbActivityConfig(TbadkCoreApplication.getInst().getContext()).createNormalCfg(stringExtra, null, null)));
-            TiebaStatic.log(new aq("c11236").dX("obj_id", stringExtra2));
+            TiebaStatic.log(new aq("c11236").dW("obj_id", stringExtra2));
         }
     }
 }

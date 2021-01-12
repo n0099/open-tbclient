@@ -2,25 +2,25 @@ package com.kwad.sdk.core.video.a;
 
 import android.media.TimedText;
 import com.kwad.sdk.core.video.a.c;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public abstract class a implements c {
 
     /* renamed from: a  reason: collision with root package name */
-    private c.e f9740a;
+    private c.e f9440a;
 
     /* renamed from: b  reason: collision with root package name */
-    private c.b f9741b;
+    private c.b f9441b;
     private c.a c;
     private c.f d;
     private c.h e;
-    private c.InterfaceC1117c f;
+    private c.InterfaceC1100c f;
     private c.d g;
     private c.g h;
 
     public void a() {
-        this.f9740a = null;
+        this.f9440a = null;
         this.c = null;
-        this.f9741b = null;
+        this.f9441b = null;
         this.d = null;
         this.e = null;
         this.f = null;
@@ -56,12 +56,12 @@ public abstract class a implements c {
 
     @Override // com.kwad.sdk.core.video.a.c
     public void a(c.b bVar) {
-        this.f9741b = bVar;
+        this.f9441b = bVar;
     }
 
     @Override // com.kwad.sdk.core.video.a.c
-    public void a(c.InterfaceC1117c interfaceC1117c) {
-        this.f = interfaceC1117c;
+    public void a(c.InterfaceC1100c interfaceC1100c) {
+        this.f = interfaceC1100c;
     }
 
     @Override // com.kwad.sdk.core.video.a.c
@@ -71,7 +71,7 @@ public abstract class a implements c {
 
     @Override // com.kwad.sdk.core.video.a.c
     public void a(c.e eVar) {
-        this.f9740a = eVar;
+        this.f9440a = eVar;
     }
 
     @Override // com.kwad.sdk.core.video.a.c
@@ -86,8 +86,8 @@ public abstract class a implements c {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public final void b() {
-        if (this.f9740a != null) {
-            this.f9740a.a(this);
+        if (this.f9440a != null) {
+            this.f9440a.a(this);
         }
     }
 
@@ -98,8 +98,8 @@ public abstract class a implements c {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public final void c() {
-        if (this.f9741b != null) {
-            this.f9741b.a(this);
+        if (this.f9441b != null) {
+            this.f9441b.a(this);
         }
     }
 

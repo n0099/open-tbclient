@@ -5,17 +5,17 @@ import com.baidu.live.data.x;
 import com.baidu.live.sdk.a;
 import com.baidu.live.talentshow.d.d;
 import com.baidu.live.tbadk.TbPageContext;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class a {
-    private x aGe;
-    private LiveBCChatEnterView bDY;
-    private b bDZ;
-    private View.OnClickListener bEa = new View.OnClickListener() { // from class: com.baidu.live.talentshow.components.enter.a.1
+    private x aBr;
+    private LiveBCChatEnterView bzm;
+    private b bzn;
+    private View.OnClickListener bzo = new View.OnClickListener() { // from class: com.baidu.live.talentshow.components.enter.a.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            a.this.fE(0);
-            if (a.this.bDZ != null) {
-                a.this.bDZ.Z(view);
+            a.this.dY(0);
+            if (a.this.bzn != null) {
+                a.this.bzn.Z(view);
             }
         }
     };
@@ -29,67 +29,67 @@ public class a {
     }
 
     public void t(x xVar) {
-        this.aGe = xVar;
+        this.aBr = xVar;
     }
 
-    public void Ue() {
-        if (this.bDY != null) {
-            this.bDY.setEnterVisible(false);
+    public void Qj() {
+        if (this.bzm != null) {
+            this.bzm.setEnterVisible(false);
         }
     }
 
     public View getEnterView() {
-        if (this.aGe == null) {
+        if (this.aBr == null) {
             return null;
         }
-        if (this.bDY == null) {
-            this.bDY = new LiveBCChatEnterView(this.mContext.getPageActivity());
-            this.bDY.setOnClickListener(this.bEa);
-            this.bDY.setEnterVisible(true);
+        if (this.bzm == null) {
+            this.bzm = new LiveBCChatEnterView(this.mContext.getPageActivity());
+            this.bzm.setOnClickListener(this.bzo);
+            this.bzm.setEnterVisible(true);
         }
         if (this.isHost) {
-            b(this.bDY);
+            b(this.bzm);
         } else {
-            a(this.bDY);
+            a(this.bzm);
         }
-        return this.bDY;
+        return this.bzm;
     }
 
-    public void fE(int i) {
-        if (this.bDY != null) {
+    public void dY(int i) {
+        if (this.bzm != null) {
             if (this.isHost) {
                 if (i > 0) {
-                    this.bDY.setRedDotVisible(true);
+                    this.bzm.setRedDotVisible(true);
                     return;
                 } else {
-                    this.bDY.setRedDotVisible(false);
+                    this.bzm.setRedDotVisible(false);
                     return;
                 }
             }
-            this.bDY.setRedDotVisible(false);
+            this.bzm.setRedDotVisible(false);
         }
     }
 
-    public void fF(int i) {
+    public void dZ(int i) {
         if (!this.isHost) {
-            fG(i);
+            ea(i);
         }
     }
 
-    private void fG(int i) {
-        if (this.bDY != null) {
-            if (i == d.bGL || i == d.bGK || i == d.bGM) {
-                this.bDY.setEnterImageDrawable(a.e.liveshow_enter_connecting);
-            } else if (i == d.bGN) {
-                this.bDY.setEnterImageDrawable(a.e.liveshow_enter_connected);
+    private void ea(int i) {
+        if (this.bzm != null) {
+            if (i == d.bBZ || i == d.bBY || i == d.bCa) {
+                this.bzm.setEnterImageDrawable(a.e.liveshow_enter_connecting);
+            } else if (i == d.bCb) {
+                this.bzm.setEnterImageDrawable(a.e.liveshow_enter_connected);
             } else {
-                this.bDY.setEnterImageDrawable(a.e.liveshow_enter_idle);
+                this.bzm.setEnterImageDrawable(a.e.liveshow_enter_idle);
             }
         }
     }
 
     public void a(b bVar) {
-        this.bDZ = bVar;
+        this.bzn = bVar;
     }
 
     private void a(LiveBCChatEnterView liveBCChatEnterView) {

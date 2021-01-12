@@ -7,11 +7,11 @@ import com.kwad.sdk.contentalliance.home.viewpager.SlidePlayViewPager;
 import com.kwad.sdk.contentalliance.widget.KSPageLoadingView;
 import com.kwad.sdk.utils.p;
 import com.kwad.sdk.utils.v;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class f extends com.kwad.sdk.contentalliance.home.e {
 
     /* renamed from: b  reason: collision with root package name */
-    private KSPageLoadingView f8990b;
+    private KSPageLoadingView f8690b;
     private com.kwad.sdk.contentalliance.home.a.i c;
     private SlidePlayViewPager d;
     private boolean e;
@@ -44,19 +44,19 @@ public class f extends com.kwad.sdk.contentalliance.home.e {
     private com.kwad.sdk.contentalliance.home.a.d j = new com.kwad.sdk.contentalliance.home.a.d() { // from class: com.kwad.sdk.contentalliance.home.b.f.4
         @Override // com.kwad.sdk.contentalliance.home.a.d
         public void a(int i, String str) {
-            f.this.f8990b.a();
+            f.this.f8690b.a();
             if (f.this.d.j()) {
                 if (com.kwad.sdk.core.network.f.g.k == i) {
-                    f.this.f8990b.c();
-                } else if (!v.a(f.this.f8990b.getContext())) {
-                    f.this.f8990b.a(f.this.f.e());
+                    f.this.f8690b.c();
+                } else if (!v.a(f.this.f8690b.getContext())) {
+                    f.this.f8690b.a(f.this.f.e());
                 } else if (com.kwad.sdk.core.network.f.j.k == i) {
-                    f.this.f8990b.d();
+                    f.this.f8690b.d();
                 } else {
-                    f.this.f8990b.b(f.this.f.e());
+                    f.this.f8690b.b(f.this.f.e());
                 }
             } else if (f.this.e) {
-                if (com.kwad.sdk.core.network.f.f9621a.k == i) {
+                if (com.kwad.sdk.core.network.f.f9321a.k == i) {
                     p.a(f.this.o());
                 } else if (com.kwad.sdk.core.network.f.g.k != i) {
                     p.b(f.this.o());
@@ -68,28 +68,28 @@ public class f extends com.kwad.sdk.contentalliance.home.e {
 
         @Override // com.kwad.sdk.contentalliance.home.a.d
         public void a(boolean z, int i) {
-            f.this.f8990b.a();
+            f.this.f8690b.a();
         }
 
         @Override // com.kwad.sdk.contentalliance.home.a.d
         public void a(boolean z, boolean z2, int i, int i2) {
             switch (i) {
                 case 0:
-                    f.this.f8990b.b();
+                    f.this.f8690b.b();
                     return;
                 case 1:
-                    f.this.f8990b.a();
+                    f.this.f8690b.a();
                     return;
                 case 2:
                 case 3:
-                    f.this.f8990b.e();
+                    f.this.f8690b.e();
                     return;
                 case 4:
                     if (f.this.e) {
-                        f.this.f8990b.b();
+                        f.this.f8690b.b();
                         return;
                     } else {
-                        f.this.f8990b.a();
+                        f.this.f8690b.a();
                         return;
                     }
                 default:
@@ -98,14 +98,14 @@ public class f extends com.kwad.sdk.contentalliance.home.e {
         }
     };
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public interface a {
         void a();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void e() {
-        for (a aVar : this.f9034a.p) {
+        for (a aVar : this.f8734a.p) {
             aVar.a();
         }
     }
@@ -113,12 +113,12 @@ public class f extends com.kwad.sdk.contentalliance.home.e {
     @Override // com.kwad.sdk.contentalliance.home.e, com.kwad.sdk.mvp.Presenter
     protected void a() {
         super.a();
-        this.c = this.f9034a.f9036b;
-        this.f = this.f9034a.f.f9042a;
+        this.c = this.f8734a.f8736b;
+        this.f = this.f8734a.f.f8742a;
         this.c.a(this.j);
         this.d.a(this.i);
         this.d.a(this.h);
-        this.f8990b.setRetryClickListener(this.g);
+        this.f8690b.setRetryClickListener(this.g);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -127,7 +127,7 @@ public class f extends com.kwad.sdk.contentalliance.home.e {
         super.b_();
         this.e = false;
         this.c.b(this.j);
-        this.f8990b.setRetryClickListener(null);
+        this.f8690b.setRetryClickListener(null);
         this.d.b(this.i);
         this.d.b(this.h);
     }
@@ -137,6 +137,6 @@ public class f extends com.kwad.sdk.contentalliance.home.e {
     public void c() {
         super.c();
         this.d = (SlidePlayViewPager) b(R.id.ksad_slide_play_view_pager);
-        this.f8990b = (KSPageLoadingView) b(R.id.ksad_page_loading);
+        this.f8690b = (KSPageLoadingView) b(R.id.ksad_page_loading);
     }
 }

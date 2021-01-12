@@ -9,12 +9,12 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import javax.annotation.Nullable;
 import org.apache.http.HttpHost;
-/* loaded from: classes3.dex */
+/* loaded from: classes14.dex */
 public class d {
-    private static final Uri ptU = Uri.withAppendedPath(ContactsContract.AUTHORITY_URI, "display_photo");
+    private static final Uri pps = Uri.withAppendedPath(ContactsContract.AUTHORITY_URI, "display_photo");
 
     @Nullable
-    public static URL M(@Nullable Uri uri) {
+    public static URL J(@Nullable Uri uri) {
         if (uri == null) {
             return null;
         }
@@ -25,46 +25,46 @@ public class d {
         }
     }
 
-    public static boolean N(@Nullable Uri uri) {
-        String W = W(uri);
-        return "https".equals(W) || HttpHost.DEFAULT_SCHEME_NAME.equals(W);
+    public static boolean K(@Nullable Uri uri) {
+        String T = T(uri);
+        return "https".equals(T) || HttpHost.DEFAULT_SCHEME_NAME.equals(T);
     }
 
-    public static boolean O(@Nullable Uri uri) {
-        return "file".equals(W(uri));
+    public static boolean L(@Nullable Uri uri) {
+        return "file".equals(T(uri));
     }
 
-    public static boolean P(@Nullable Uri uri) {
-        return "content".equals(W(uri));
+    public static boolean M(@Nullable Uri uri) {
+        return "content".equals(T(uri));
     }
 
-    public static boolean Q(Uri uri) {
-        return P(uri) && "com.android.contacts".equals(uri.getAuthority()) && !uri.getPath().startsWith(ptU.getPath());
+    public static boolean N(Uri uri) {
+        return M(uri) && "com.android.contacts".equals(uri.getAuthority()) && !uri.getPath().startsWith(pps.getPath());
     }
 
-    public static boolean R(Uri uri) {
+    public static boolean O(Uri uri) {
         String uri2 = uri.toString();
         return uri2.startsWith(MediaStore.Images.Media.EXTERNAL_CONTENT_URI.toString()) || uri2.startsWith(MediaStore.Images.Media.INTERNAL_CONTENT_URI.toString());
     }
 
+    public static boolean P(@Nullable Uri uri) {
+        return "asset".equals(T(uri));
+    }
+
+    public static boolean Q(@Nullable Uri uri) {
+        return "res".equals(T(uri));
+    }
+
+    public static boolean R(@Nullable Uri uri) {
+        return "android.resource".equals(T(uri));
+    }
+
     public static boolean S(@Nullable Uri uri) {
-        return "asset".equals(W(uri));
-    }
-
-    public static boolean T(@Nullable Uri uri) {
-        return "res".equals(W(uri));
-    }
-
-    public static boolean U(@Nullable Uri uri) {
-        return "android.resource".equals(W(uri));
-    }
-
-    public static boolean V(@Nullable Uri uri) {
-        return "data".equals(W(uri));
+        return "data".equals(T(uri));
     }
 
     @Nullable
-    public static String W(@Nullable Uri uri) {
+    public static String T(@Nullable Uri uri) {
         if (uri == null) {
             return null;
         }
@@ -81,7 +81,7 @@ public class d {
         int columnIndex;
         String string;
         Cursor cursor = null;
-        if (P(uri)) {
+        if (M(uri)) {
             try {
                 Cursor query = contentResolver.query(uri, null, null, null, null);
                 if (query != null) {
@@ -109,14 +109,14 @@ public class d {
             } catch (Throwable th2) {
                 th = th2;
             }
-        } else if (O(uri)) {
+        } else if (L(uri)) {
             return uri.getPath();
         } else {
             return null;
         }
     }
 
-    public static Uri Qi(int i) {
+    public static Uri OB(int i) {
         return new Uri.Builder().scheme("res").path(String.valueOf(i)).build();
     }
 }

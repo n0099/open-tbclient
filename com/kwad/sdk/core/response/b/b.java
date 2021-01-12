@@ -6,7 +6,7 @@ import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.IMConnection;
 import com.kwad.sdk.core.response.model.AdStyleInfo;
 import com.kwad.sdk.core.response.model.AdTemplate;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class b {
     public static AdStyleInfo.PlayDetailInfo.PatchAdInfo a(@NonNull AdTemplate adTemplate) {
         return q(adTemplate).playDetailInfo.patchAdInfo;

@@ -2,7 +2,7 @@ package com.baidu.tieba.lego.card.view;
 
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.lego.activity.LegoListFragment;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class d {
     public static n y(TbPageContext<?> tbPageContext) {
         if (tbPageContext == null || !(tbPageContext.getPageActivity() instanceof com.baidu.tieba.lego.b)) {
@@ -15,13 +15,13 @@ public class d {
         if (tbPageContext == null || !(tbPageContext.getPageActivity() instanceof com.baidu.tieba.lego.b)) {
             return null;
         }
-        return ((com.baidu.tieba.lego.b) tbPageContext.getPageActivity()).dcW();
+        return ((com.baidu.tieba.lego.b) tbPageContext.getPageActivity()).cZe();
     }
 
     public static LegoListFragment A(TbPageContext<?> tbPageContext) {
         if (tbPageContext == null || !(tbPageContext.getPageActivity() instanceof com.baidu.tieba.lego.b)) {
             return null;
         }
-        return ((com.baidu.tieba.lego.b) tbPageContext.getPageActivity()).dcX();
+        return ((com.baidu.tieba.lego.b) tbPageContext.getPageActivity()).cZf();
     }
 }

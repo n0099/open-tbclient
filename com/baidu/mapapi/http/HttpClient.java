@@ -1,36 +1,37 @@
 package com.baidu.mapapi.http;
 
 import android.net.ConnectivityManager;
-import android.net.NetworkCapabilities;
 import android.net.NetworkInfo;
-import android.os.Build;
 import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.mapapi.JNIInitializer;
 import com.baidu.mapapi.common.Logger;
-import com.baidu.mapsdkplatform.comapi.util.h;
+import com.baidu.mapsdkplatform.comapi.util.PermissionCheck;
+import com.baidu.mapsdkplatform.comapi.util.f;
 import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import javax.net.ssl.HttpsURLConnection;
-/* loaded from: classes3.dex */
+import org.json.JSONException;
+import org.json.JSONObject;
+/* loaded from: classes6.dex */
 public class HttpClient {
-    public static boolean isHttpsEnable = true;
+    public static boolean isHttpsEnable = false;
 
     /* renamed from: a  reason: collision with root package name */
-    HttpURLConnection f2785a;
+    HttpURLConnection f2685a;
 
     /* renamed from: b  reason: collision with root package name */
-    private String f2786b = null;
+    private String f2686b = null;
     private String c = null;
     private int d;
     private int e;
     private String f;
     private ProtoResultCallback g;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public enum HttpStateError {
         NO_ERROR,
         NETWORK_ERROR,
@@ -39,7 +40,7 @@ public class HttpClient {
         SERVER_ERROR
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public static abstract class ProtoResultCallback {
         public abstract void onFailed(HttpStateError httpStateError);
 
@@ -54,7 +55,7 @@ public class HttpClient {
     private HttpURLConnection a() {
         HttpURLConnection httpURLConnection;
         try {
-            URL url = new URL(this.f2786b);
+            URL url = new URL(this.f2686b);
             if (isHttpsEnable) {
                 httpURLConnection = (HttpsURLConnection) url.openConnection();
                 ((HttpsURLConnection) httpURLConnection).setHostnameVerifier(new b(this));
@@ -78,28 +79,50 @@ public class HttpClient {
         }
     }
 
+    private void a(String str) {
+        try {
+            JSONObject jSONObject = new JSONObject(str);
+            if (jSONObject.has("status") || jSONObject.has("status_sp")) {
+                switch (jSONObject.has("status") ? jSONObject.getInt("status") : jSONObject.getInt("status_sp")) {
+                    case 105:
+                    case 106:
+                        int permissionCheck = PermissionCheck.permissionCheck();
+                        if (permissionCheck != 0) {
+                            Log.e("HttpClient", "permissionCheck result is: " + permissionCheck);
+                            return;
+                        }
+                        return;
+                    default:
+                        return;
+                }
+            }
+        } catch (JSONException e) {
+            Log.e("HttpClient", "Parse json happened exception");
+            e.printStackTrace();
+        }
+    }
+
     public static String getAuthToken() {
-        return h.d;
+        return f.z;
     }
 
     public static String getPhoneInfo() {
-        return h.d();
+        return f.c();
     }
 
     protected boolean checkNetwork() {
-        boolean z;
         try {
             ConnectivityManager connectivityManager = (ConnectivityManager) JNIInitializer.getCachedContext().getSystemService("connectivity");
             if (connectivityManager == null) {
-                z = false;
-            } else if (Build.VERSION.SDK_INT >= 29) {
-                NetworkCapabilities networkCapabilities = connectivityManager.getNetworkCapabilities(connectivityManager.getActiveNetwork());
-                z = networkCapabilities != null && networkCapabilities.hasCapability(12);
-            } else {
-                NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
-                z = activeNetworkInfo != null && activeNetworkInfo.isAvailable();
+                return false;
             }
-            return z;
+            NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
+            if (activeNetworkInfo != null) {
+                if (activeNetworkInfo.isAvailable()) {
+                    return true;
+                }
+            }
+            return false;
         } catch (Exception e) {
             if (Logger.debugEnable()) {
                 e.printStackTrace();
@@ -112,10 +135,10 @@ public class HttpClient {
     }
 
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:23:0x0070 */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:71:0x016a */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:71:0x0171 */
     /* JADX INFO: Access modifiers changed from: protected */
     /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Removed duplicated region for block: B:77:0x0179 A[Catch: Exception -> 0x009f, TryCatch #1 {Exception -> 0x009f, blocks: (B:13:0x003d, B:43:0x00c5, B:44:0x00cb, B:46:0x00cf, B:30:0x008e, B:31:0x0094, B:33:0x0098, B:74:0x016f, B:75:0x0175, B:77:0x0179, B:78:0x017e, B:58:0x011c, B:59:0x0122, B:61:0x0126), top: B:90:0x003d }] */
+    /* JADX WARN: Removed duplicated region for block: B:77:0x0180 A[Catch: Exception -> 0x009f, TryCatch #2 {Exception -> 0x009f, blocks: (B:13:0x003d, B:43:0x00ca, B:44:0x00d0, B:46:0x00d4, B:30:0x008e, B:31:0x0094, B:33:0x0098, B:74:0x0176, B:75:0x017c, B:77:0x0180, B:78:0x0185, B:58:0x0123, B:59:0x0129, B:61:0x012d), top: B:91:0x003d }] */
     /* JADX WARN: Type inference failed for: r1v10, types: [java.io.InputStream] */
     /* JADX WARN: Type inference failed for: r1v11, types: [int] */
     /* JADX WARN: Type inference failed for: r1v20, types: [java.io.InputStream] */
@@ -129,46 +152,47 @@ public class HttpClient {
         ?? r1;
         BufferedReader bufferedReader;
         InputStream inputStream;
-        this.f2786b = str;
+        this.f2686b = str;
         if (!checkNetwork()) {
             this.g.onFailed(HttpStateError.NETWORK_ERROR);
             return;
         }
-        this.f2785a = a();
-        if (this.f2785a == null) {
+        this.f2685a = a();
+        if (this.f2685a == null) {
             Log.e("HttpClient", "url connection failed");
             this.g.onFailed(HttpStateError.INNER_ERROR);
-        } else if (TextUtils.isEmpty(this.f2786b)) {
+        } else if (TextUtils.isEmpty(this.f2686b)) {
             this.g.onFailed(HttpStateError.REQUEST_ERROR);
         } else {
             BufferedReader bufferedReader2 = null;
             try {
-                this.f2785a.connect();
+                this.f2685a.connect();
                 try {
-                    r1 = this.f2785a.getResponseCode();
+                    r1 = this.f2685a.getResponseCode();
                     try {
                         if (200 != r1) {
                             Log.e("HttpClient", "responseCode is: " + ((int) r1));
-                            HttpStateError httpStateError = r1 >= 500 ? HttpStateError.SERVER_ERROR : r1 >= 400 ? HttpStateError.REQUEST_ERROR : HttpStateError.INNER_ERROR;
+                            HttpStateError httpStateError = HttpStateError.NO_ERROR;
+                            HttpStateError httpStateError2 = r1 >= 500 ? HttpStateError.SERVER_ERROR : r1 >= 400 ? HttpStateError.REQUEST_ERROR : HttpStateError.INNER_ERROR;
                             if (Logger.debugEnable()) {
-                                inputStream = this.f2785a.getErrorStream();
+                                inputStream = this.f2685a.getErrorStream();
                                 Logger.logW("HttpClient", inputStream.toString());
                             } else {
-                                Logger.logW("HttpClient", "Get response from server failed, http response code=" + ((int) r1) + ", error=" + httpStateError);
+                                Logger.logW("HttpClient", "Get response from server failed, http response code=" + ((int) r1) + ", error=" + httpStateError2);
                                 inputStream = null;
                             }
-                            this.g.onFailed(httpStateError);
+                            this.g.onFailed(httpStateError2);
                             if (inputStream != null && 0 != 0) {
                                 bufferedReader2.close();
                                 inputStream.close();
                             }
-                            if (this.f2785a != null) {
-                                this.f2785a.disconnect();
+                            if (this.f2685a != null) {
+                                this.f2685a.disconnect();
                                 return;
                             }
                             return;
                         }
-                        r1 = this.f2785a.getInputStream();
+                        r1 = this.f2685a.getInputStream();
                         bufferedReader = new BufferedReader(new InputStreamReader((InputStream) r1, "UTF-8"));
                         try {
                             try {
@@ -181,12 +205,13 @@ public class HttpClient {
                                     stringBuffer.append((char) read);
                                 }
                                 this.c = stringBuffer.toString();
+                                a(this.c);
                                 if (r1 != 0 && bufferedReader != null) {
                                     bufferedReader.close();
                                     r1.close();
                                 }
-                                if (this.f2785a != null) {
-                                    this.f2785a.disconnect();
+                                if (this.f2685a != null) {
+                                    this.f2685a.disconnect();
                                 }
                                 this.g.onSuccess(this.c);
                             } catch (Exception e) {
@@ -196,14 +221,14 @@ public class HttpClient {
                                 } else {
                                     Logger.logW("HttpClient", e.getMessage());
                                 }
-                                Log.e("HttpClient", "Catch exception. INNER_ERROR", e);
+                                Log.e("HttpClient", "Catch exception. INNER_ERROR");
                                 this.g.onFailed(HttpStateError.INNER_ERROR);
                                 if (r1 != 0 && bufferedReader != null) {
                                     bufferedReader.close();
                                     r1.close();
                                 }
-                                if (this.f2785a != null) {
-                                    this.f2785a.disconnect();
+                                if (this.f2685a != null) {
+                                    this.f2685a.disconnect();
                                 }
                             }
                         } catch (Throwable th) {
@@ -212,8 +237,8 @@ public class HttpClient {
                                 bufferedReader.close();
                                 r1.close();
                             }
-                            if (this.f2785a != null) {
-                                this.f2785a.disconnect();
+                            if (this.f2685a != null) {
+                                this.f2685a.disconnect();
                             }
                             throw th;
                         }
@@ -227,7 +252,7 @@ public class HttpClient {
                             bufferedReader.close();
                             r1.close();
                         }
-                        if (this.f2785a != null) {
+                        if (this.f2685a != null) {
                         }
                         throw th;
                     }
@@ -246,7 +271,7 @@ public class HttpClient {
                 } else {
                     Logger.logW("HttpClient", e4.getMessage());
                 }
-                Log.e("HttpClient", "Catch connection exception, INNER_ERROR", e4);
+                Log.e("HttpClient", "Catch connection exception, INNER_ERROR");
                 this.g.onFailed(HttpStateError.INNER_ERROR);
             }
         }

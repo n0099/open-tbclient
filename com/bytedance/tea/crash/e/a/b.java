@@ -17,10 +17,10 @@ import org.json.JSONObject;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    private Application f7934a;
+    private Application f7634a;
 
     /* renamed from: b  reason: collision with root package name */
-    private Context f7935b;
+    private Context f7635b;
     private String g;
     private long h;
     private String i;
@@ -36,7 +36,7 @@ public class b {
     private List<Long> d = new ArrayList();
     private List<String> e = new ArrayList();
     private List<Long> f = new ArrayList();
-    private final Application.ActivityLifecycleCallbacks pqa = new Application.ActivityLifecycleCallbacks() { // from class: com.bytedance.tea.crash.e.a.b.1
+    private final Application.ActivityLifecycleCallbacks plv = new Application.ActivityLifecycleCallbacks() { // from class: com.bytedance.tea.crash.e.a.b.1
         @Override // android.app.Application.ActivityLifecycleCallbacks
         public void onActivityCreated(Activity activity, Bundle bundle) {
             b.this.g = activity.getClass().getName();
@@ -102,16 +102,16 @@ public class b {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(@NonNull Context context) {
-        this.f7935b = context;
-        if (this.f7935b instanceof Application) {
-            this.f7934a = (Application) context;
+        this.f7635b = context;
+        if (this.f7635b instanceof Application) {
+            this.f7634a = (Application) context;
         }
         c();
     }
 
     private void c() {
-        if (Build.VERSION.SDK_INT >= 14 && this.f7934a != null) {
-            this.f7934a.registerActivityLifecycleCallbacks(this.pqa);
+        if (Build.VERSION.SDK_INT >= 14 && this.f7634a != null) {
+            this.f7634a.registerActivityLifecycleCallbacks(this.plv);
         }
     }
 
@@ -186,7 +186,7 @@ public class b {
         List<ActivityManager.RunningTaskInfo> runningTasks;
         JSONArray jSONArray = new JSONArray();
         try {
-            activityManager = (ActivityManager) this.f7935b.getSystemService(PushConstants.INTENT_ACTIVITY_NAME);
+            activityManager = (ActivityManager) this.f7635b.getSystemService(PushConstants.INTENT_ACTIVITY_NAME);
         } catch (Exception e) {
         }
         if (activityManager != null && (runningTasks = activityManager.getRunningTasks(5)) != null) {

@@ -24,7 +24,7 @@ import androidx.annotation.StringRes;
 import androidx.annotation.StyleRes;
 import androidx.appcompat.R;
 import androidx.appcompat.app.AlertController;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class AlertDialog extends AppCompatDialog implements DialogInterface {
     static final int LAYOUT_HINT_NONE = 0;
     static final int LAYOUT_HINT_SIDE = 1;
@@ -138,7 +138,7 @@ public class AlertDialog extends AppCompatDialog implements DialogInterface {
         return super.onKeyUp(i, keyEvent);
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public static class Builder {
         private final AlertController.AlertParams P;
         private final int mTheme;

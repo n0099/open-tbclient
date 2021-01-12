@@ -14,24 +14,24 @@ import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import org.apache.http.protocol.HTTP;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class DpSessionDatasUploader {
     @Keep
     public static final String SAILOR_MONITOR = "sailor_monitor";
 
     /* renamed from: a  reason: collision with root package name */
-    private static DpSessionDatasUploader f1876a;
+    private static DpSessionDatasUploader f1826a;
 
     /* renamed from: b  reason: collision with root package name */
-    private d f1877b = new d();
+    private d f1827b = new d();
     private d c = new d("live_show_session");
 
     private DpSessionDatasUploader() {
     }
 
     private void a() {
-        if (this.f1877b != null) {
-            this.f1877b.a();
+        if (this.f1827b != null) {
+            this.f1827b.a();
         }
         if (this.c != null) {
             this.c.a();
@@ -62,8 +62,8 @@ public final class DpSessionDatasUploader {
             if (this.c != null) {
                 this.c.a(bArr);
             }
-        } else if (this.f1877b != null) {
-            this.f1877b.a(bArr);
+        } else if (this.f1827b != null) {
+            this.f1827b.a(bArr);
         }
     }
 
@@ -83,10 +83,10 @@ public final class DpSessionDatasUploader {
     public static synchronized DpSessionDatasUploader getInstance() {
         DpSessionDatasUploader dpSessionDatasUploader;
         synchronized (DpSessionDatasUploader.class) {
-            if (f1876a == null) {
-                f1876a = new DpSessionDatasUploader();
+            if (f1826a == null) {
+                f1826a = new DpSessionDatasUploader();
             }
-            dpSessionDatasUploader = f1876a;
+            dpSessionDatasUploader = f1826a;
         }
         return dpSessionDatasUploader;
     }
@@ -101,10 +101,10 @@ public final class DpSessionDatasUploader {
     }
 
     public void a(Context context) {
-        if (context == null || this.f1877b == null || this.c == null) {
+        if (context == null || this.f1827b == null || this.c == null) {
             return;
         }
-        this.f1877b.a(context);
+        this.f1827b.a(context);
         this.c.a(context);
     }
 

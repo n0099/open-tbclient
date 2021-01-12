@@ -1,10 +1,10 @@
 package com.baidu.ala.recorder.video.camera;
 
 import com.baidu.ala.recorder.video.AlaLiveVideoConfig;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public interface ICameraStatusHandler {
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public interface Beauty {
         boolean hasAdvancedBeauty();
 

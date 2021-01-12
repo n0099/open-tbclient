@@ -3,23 +3,23 @@ package com.baidu.tieba.write.view.PhotoLiveView;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.LinearLayout;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class PhotoLiveLinearLayout extends LinearLayout {
-    private a ock;
+    private a nXE;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public interface a {
-        void dZf();
+        void dVn();
     }
 
     public PhotoLiveLinearLayout(Context context) {
         super(context);
-        this.ock = null;
+        this.nXE = null;
     }
 
     public PhotoLiveLinearLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.ock = null;
+        this.nXE = null;
     }
 
     @Override // android.widget.LinearLayout, android.view.ViewGroup, android.view.View
@@ -30,12 +30,12 @@ public class PhotoLiveLinearLayout extends LinearLayout {
     @Override // android.view.View
     protected void onSizeChanged(int i, int i2, int i3, int i4) {
         super.onSizeChanged(i, i2, i3, i4);
-        if (this.ock != null) {
-            this.ock.dZf();
+        if (this.nXE != null) {
+            this.nXE.dVn();
         }
     }
 
     public void setOnChangeLayoutListener(a aVar) {
-        this.ock = aVar;
+        this.nXE = aVar;
     }
 }

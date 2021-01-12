@@ -1,29 +1,29 @@
 package com.baidu.platform.comapi.walknavi.f;
 
-import com.baidu.platform.comapi.wnplatform.n.c;
-import com.baidu.platform.comapi.wnplatform.p.j;
+import com.baidu.platform.comapi.wnplatform.m.c;
+import com.baidu.platform.comapi.wnplatform.o.i;
 import com.baidu.platform.comjni.jninative.tts.WNaviTTSPlayer;
-/* loaded from: classes3.dex */
-public class a extends com.baidu.platform.comapi.wnplatform.n.a {
+/* loaded from: classes6.dex */
+public class a extends com.baidu.platform.comapi.wnplatform.m.a {
 
     /* renamed from: a  reason: collision with root package name */
-    private boolean f4486a = false;
+    private boolean f4268a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    private c f4487b = null;
+    private c f4269b = null;
 
     @Override // com.baidu.platform.comapi.walknavi.a
     public void release() {
         c();
         WNaviTTSPlayer.setTTSPlayerListener(null);
-        this.f4486a = false;
-        this.f4487b = null;
+        this.f4268a = false;
+        this.f4269b = null;
     }
 
     @Override // com.baidu.platform.comapi.walknavi.a
     public boolean ready() {
-        this.f4486a = false;
-        if (com.baidu.platform.comapi.walknavi.b.a().M() != 4) {
+        this.f4268a = false;
+        if (com.baidu.platform.comapi.walknavi.b.a().J() != 4) {
             a();
             WNaviTTSPlayer.setTTSPlayerListener(new b(this));
         }
@@ -33,17 +33,17 @@ public class a extends com.baidu.platform.comapi.wnplatform.n.a {
     /* JADX INFO: Access modifiers changed from: private */
     public int a(String str, int i) {
         com.baidu.platform.comapi.wnplatform.d.a.a("yang12", "playTTSText--->" + str + "type:" + i);
-        if (com.baidu.platform.comapi.walknavi.b.f4402a == com.baidu.platform.comapi.walknavi.b.a().u()) {
+        if (com.baidu.platform.comapi.walknavi.b.f4185a == com.baidu.platform.comapi.walknavi.b.a().r()) {
             return a(str, false);
         }
-        if (com.baidu.platform.comapi.walknavi.b.f4403b == com.baidu.platform.comapi.walknavi.b.a().u()) {
+        if (com.baidu.platform.comapi.walknavi.b.f4186b == com.baidu.platform.comapi.walknavi.b.a().r()) {
             if (i == 1) {
-                j.a().b(com.baidu.platform.comapi.wnplatform.f.a.a().b());
+                i.a().b(com.baidu.platform.comapi.wnplatform.e.a.a().b());
                 return 1;
             } else if (i == 2) {
-                j.a().c(com.baidu.platform.comapi.wnplatform.f.a.a().c());
+                i.a().c(com.baidu.platform.comapi.wnplatform.e.a.a().c());
                 return 1;
-            } else if (j.a().b()) {
+            } else if (i.a().b()) {
                 return 0;
             } else {
                 return a(str, false);
@@ -52,35 +52,35 @@ public class a extends com.baidu.platform.comapi.wnplatform.n.a {
         return a(str, false);
     }
 
-    @Override // com.baidu.platform.comapi.wnplatform.n.a
+    @Override // com.baidu.platform.comapi.wnplatform.m.a
     public void a(c cVar) {
-        this.f4487b = cVar;
-        this.f4486a = true;
+        this.f4269b = cVar;
+        this.f4268a = true;
     }
 
     public void a() {
-        if (this.f4487b != null) {
-            this.f4487b.a();
+        if (this.f4269b != null) {
+            this.f4269b.a();
         }
     }
 
     public int b() {
-        if (this.f4487b != null) {
-            return this.f4487b.b();
+        if (this.f4269b != null) {
+            return this.f4269b.b();
         }
         return 0;
     }
 
     public int a(String str, boolean z) {
-        if (this.f4487b == null || this.f4486a) {
+        if (this.f4269b == null || this.f4268a) {
             return 0;
         }
-        return this.f4487b.a(str, z);
+        return this.f4269b.a(str, z);
     }
 
     public void c() {
-        if (this.f4487b != null) {
-            this.f4487b.c();
+        if (this.f4269b != null) {
+            this.f4269b.c();
         }
     }
 }

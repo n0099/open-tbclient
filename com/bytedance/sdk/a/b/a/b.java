@@ -3,18 +3,18 @@ package com.bytedance.sdk.a.b.a;
 public abstract class b implements Runnable {
 
     /* renamed from: b  reason: collision with root package name */
-    protected final String f6158b;
+    protected final String f5858b;
 
     protected abstract void b();
 
     public b(String str, Object... objArr) {
-        this.f6158b = c.a(str, objArr);
+        this.f5858b = c.a(str, objArr);
     }
 
     @Override // java.lang.Runnable
     public final void run() {
         String name = Thread.currentThread().getName();
-        Thread.currentThread().setName(this.f6158b);
+        Thread.currentThread().setName(this.f5858b);
         try {
             b();
         } finally {

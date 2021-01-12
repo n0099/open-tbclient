@@ -5,16 +5,16 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Locale;
-/* loaded from: classes3.dex */
+/* loaded from: classes14.dex */
 public final class a {
     public static OnAnrCrashListener P;
     public static OnCrashExceedListener Q;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f1741a = "";
+    public static String f1691a = "";
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f1742b = "alpha";
+    public static String f1692b = "alpha";
     public static String c = null;
     public static String d = "UNSET";
     public static int e = 10;

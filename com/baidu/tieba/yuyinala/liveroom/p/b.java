@@ -1,20 +1,20 @@
 package com.baidu.tieba.yuyinala.liveroom.p;
 
 import com.baidu.live.data.am;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class b {
-    private static volatile b oub;
-    public am bwr = new am();
+    private static volatile b opv;
+    public am brD = new am();
 
-    public static b edq() {
-        if (oub == null) {
+    public static b dZy() {
+        if (opv == null) {
             synchronized (b.class) {
-                if (oub == null) {
-                    oub = new b();
+                if (opv == null) {
+                    opv = new b();
                 }
             }
         }
-        return oub;
+        return opv;
     }
 
     private b() {

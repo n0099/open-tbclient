@@ -2,7 +2,6 @@ package com.baidu.afd.videopaster.data;
 
 import android.text.TextUtils;
 import com.baidu.afd.ParseError;
-import com.baidu.platform.comapi.map.MapBundleKey;
 import com.baidu.tbadk.core.atomData.BigdayActivityConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
@@ -47,7 +46,7 @@ public class VideoPasterResponseData extends JsonHttpResponsedMessage {
         if (optJSONObject == null) {
             throw new ParseError(1, "paster no res");
         }
-        JSONArray optJSONArray = optJSONObject.optJSONArray(MapBundleKey.MapObjKey.OBJ_AD);
+        JSONArray optJSONArray = optJSONObject.optJSONArray("ad");
         if (optJSONArray == null || optJSONArray.length() == 0) {
             throw new ParseError(1, "paster ad has no adInfo");
         }
@@ -139,8 +138,8 @@ public class VideoPasterResponseData extends JsonHttpResponsedMessage {
             for (int i = 0; i < optJSONArray.length(); i++) {
                 JSONObject optJSONObject4 = optJSONArray.optJSONObject(i);
                 if (optJSONObject4 != null) {
-                    this.pasterData.abo.add(optJSONObject4.optString("show_url"));
-                    this.pasterData.abp.add(optJSONObject4.optString("click_url"));
+                    this.pasterData.abm.add(optJSONObject4.optString("show_url"));
+                    this.pasterData.abn.add(optJSONObject4.optString("click_url"));
                 }
             }
         }
@@ -148,14 +147,14 @@ public class VideoPasterResponseData extends JsonHttpResponsedMessage {
         String optString5 = optJSONObject3.optString(BigdayActivityConfig.JUMP_URL);
         String str = null;
         if (TextUtils.isEmpty(optString4)) {
-            this.pasterData.abl = true;
-            this.pasterData.abm = 10;
-            this.pasterData.abn = 2;
+            this.pasterData.abj = true;
+            this.pasterData.abk = 10;
+            this.pasterData.abl = 2;
             this.pasterData.setAdType(3);
         } else if (TextUtils.isEmpty(optString5)) {
-            this.pasterData.abl = true;
-            this.pasterData.abm = 10;
-            this.pasterData.abn = 1;
+            this.pasterData.abj = true;
+            this.pasterData.abk = 10;
+            this.pasterData.abl = 1;
             this.pasterData.setAdType(3);
         } else {
             JSONArray optJSONArray2 = optJSONObject3.optJSONArray("image_list");
@@ -169,9 +168,9 @@ public class VideoPasterResponseData extends JsonHttpResponsedMessage {
                 }
                 str = optJSONObject5.optString("image");
                 if (TextUtils.isEmpty(str)) {
-                    this.pasterData.abl = true;
-                    this.pasterData.abm = 10;
-                    this.pasterData.abn = 3;
+                    this.pasterData.abj = true;
+                    this.pasterData.abk = 10;
+                    this.pasterData.abl = 3;
                     throw new ParseError(2, "image has no data");
                 }
             }
@@ -192,9 +191,9 @@ public class VideoPasterResponseData extends JsonHttpResponsedMessage {
                 str2 = optJSONObject7.optString("url");
                 str3 = optJSONObject7.optString("cover");
                 if (TextUtils.isEmpty(str2)) {
-                    this.pasterData.abl = true;
-                    this.pasterData.abm = 10;
-                    this.pasterData.abn = 4;
+                    this.pasterData.abj = true;
+                    this.pasterData.abk = 10;
+                    this.pasterData.abl = 4;
                     throw new ParseError(2, "video url or cover has no data");
                 }
             }
@@ -204,20 +203,20 @@ public class VideoPasterResponseData extends JsonHttpResponsedMessage {
                 i2 = optJSONObject8.optInt("time");
             }
             if (this.type == 3) {
-                this.pasterData.abl = true;
-                this.pasterData.abm = 10;
-                this.pasterData.abn = 24;
+                this.pasterData.abj = true;
+                this.pasterData.abk = 10;
+                this.pasterData.abl = 24;
             }
             this.pasterData.adid = optString3;
             this.pasterData.setAdType(this.type);
             this.pasterData.tplName = optString2;
-            this.pasterData.abg = i2;
-            this.pasterData.abf = optString5;
-            this.pasterData.abe = optString4;
-            this.pasterData.abj = optString7;
-            this.pasterData.abi = optString6;
-            this.pasterData.abk = optString8;
-            this.pasterData.abh = str3;
+            this.pasterData.abe = i2;
+            this.pasterData.abd = optString5;
+            this.pasterData.abb = optString4;
+            this.pasterData.abh = optString7;
+            this.pasterData.abg = optString6;
+            this.pasterData.abi = optString8;
+            this.pasterData.abf = str3;
             this.pasterData.videoUrl = str2;
             this.pasterData.picUrl = str;
         }

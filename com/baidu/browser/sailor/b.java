@@ -1,18 +1,18 @@
 package com.baidu.browser.sailor;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public final class b implements Runnable {
-    final /* synthetic */ BdSailorWebView agR;
-    final /* synthetic */ BdSailorWebViewClientExt agS;
+    final /* synthetic */ BdSailorWebView afZ;
+    final /* synthetic */ BdSailorWebViewClientExt aga;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(BdSailorWebViewClientExt bdSailorWebViewClientExt, BdSailorWebView bdSailorWebView) {
-        this.agS = bdSailorWebViewClientExt;
-        this.agR = bdSailorWebView;
+        this.aga = bdSailorWebViewClientExt;
+        this.afZ = bdSailorWebView;
     }
 
     @Override // java.lang.Runnable
     public final void run() {
-        this.agR.showEmbeddedTitleBar(false);
+        this.afZ.showEmbeddedTitleBar(false);
     }
 }

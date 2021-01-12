@@ -2,11 +2,11 @@ package com.baidu.prologue.b;
 
 import androidx.annotation.NonNull;
 import java.io.File;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class c {
-    int Lv = 1;
-    String cvd;
-    String cve;
+    int Lt = 1;
+    String cql;
+    String cqm;
     File mFile;
 
     public static c c(@NonNull File file, @NonNull String str) {
@@ -15,6 +15,6 @@ public class c {
 
     private c(File file, String str) {
         this.mFile = file;
-        this.cve = str;
+        this.cqm = str;
     }
 }

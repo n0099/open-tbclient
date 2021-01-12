@@ -14,7 +14,7 @@ import com.baidu.live.tbadk.TbPageContext;
 import com.baidu.live.tbadk.core.BaseFragmentActivity;
 import com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView;
 import java.io.File;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class SelectImageHelper {
     public static final int REQUEST_WRITE_EXTERNAL_STORGE_AND_CAMERA_PERMISSON = 1;
     public static final String TMP_IMAGE_NAME = "camera.jpg";

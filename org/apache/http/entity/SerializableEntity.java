@@ -5,7 +5,7 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.io.Serializable;
 @Deprecated
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class SerializableEntity extends AbstractHttpEntity {
     public SerializableEntity(Serializable serializable, boolean z) throws IOException {
         throw new RuntimeException("Stub!");

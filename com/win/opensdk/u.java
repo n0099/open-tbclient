@@ -2,31 +2,31 @@ package com.win.opensdk;
 
 import android.content.Context;
 import java.lang.ref.WeakReference;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class u {
-    private static u qec = null;
+    private static u pZB = null;
     private String java = "Poseidon";
-    public PBInterstitial qdp;
-    private WeakReference qed;
+    public PBInterstitial pYO;
+    private WeakReference pZC;
 
     private u(Context context) {
-        this.qed = new WeakReference(context);
+        this.pZC = new WeakReference(context);
     }
 
-    public static u iJ(Context context) {
-        if (qec == null) {
+    public static u iH(Context context) {
+        if (pZB == null) {
             synchronized (u.class) {
-                if (qec == null) {
-                    qec = new u(context);
+                if (pZB == null) {
+                    pZB = new u(context);
                 }
             }
         }
-        return qec;
+        return pZB;
     }
 
-    public final Context eKu() {
+    public final Context eGE() {
         Object obj;
-        if (this.qed == null || (obj = this.qed.get()) == null || !(obj instanceof Context)) {
+        if (this.pZC == null || (obj = this.pZC.get()) == null || !(obj instanceof Context)) {
             return null;
         }
         return (Context) obj;

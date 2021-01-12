@@ -9,23 +9,23 @@ import androidx.collection.SparseArrayCompat;
 import androidx.core.view.animation.PathInterpolatorCompat;
 import com.baidu.mobstat.Config;
 import java.lang.ref.WeakReference;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 class q {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final Interpolator f8277a = new LinearInterpolator();
+    private static final Interpolator f7977a = new LinearInterpolator();
 
     /* renamed from: b  reason: collision with root package name */
-    private static SparseArrayCompat<WeakReference<Interpolator>> f8278b;
+    private static SparseArrayCompat<WeakReference<Interpolator>> f7978b;
 
     q() {
     }
 
     private static SparseArrayCompat<WeakReference<Interpolator>> a() {
-        if (f8278b == null) {
-            f8278b = new SparseArrayCompat<>();
+        if (f7978b == null) {
+            f7978b = new SparseArrayCompat<>();
         }
-        return f8278b;
+        return f7978b;
     }
 
     private static <T> com.ksad.lottie.e.a<T> a(JsonReader jsonReader, float f, aj<T> ajVar) {
@@ -164,10 +164,10 @@ class q {
         }
         jsonReader.endObject();
         if (z) {
-            interpolator = f8277a;
+            interpolator = f7977a;
             t = t3;
         } else if (pointF2 == null || pointF3 == null) {
-            interpolator = f8277a;
+            interpolator = f7977a;
             t = t4;
         } else {
             pointF2.x = com.ksad.lottie.d.e.b(pointF2.x, -f, f);
@@ -204,7 +204,7 @@ class q {
 
     private static void a(int i, WeakReference<Interpolator> weakReference) {
         synchronized (q.class) {
-            f8278b.put(i, weakReference);
+            f7978b.put(i, weakReference);
         }
     }
 }

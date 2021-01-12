@@ -1,7 +1,7 @@
 package com.baidu.sapi2.activity;
 
 import android.os.Bundle;
-import com.baidu.l.a.a;
+import com.baidu.j.a.a;
 import com.baidu.sapi2.CoreViewRouter;
 import com.baidu.sapi2.SapiAccount;
 import com.baidu.sapi2.SapiWebView;

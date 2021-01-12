@@ -7,12 +7,12 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.ao;
 import com.baidu.tieba.R;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class g extends com.baidu.tieba.card.b<com.baidu.tieba.personPolymeric.c.i> {
     private ImageView icon;
-    private TextView jYr;
-    private String mAk;
+    private TextView jTM;
     private View mRootView;
+    private String mvG;
 
     public g(TbPageContext<?> tbPageContext) {
         super(tbPageContext);
@@ -22,7 +22,7 @@ public class g extends com.baidu.tieba.card.b<com.baidu.tieba.personPolymeric.c.
     private void init(View view) {
         this.mRootView = view.findViewById(R.id.card_null_polymeric_rootview);
         this.icon = (ImageView) view.findViewById(R.id.card_null_polymeric_icon);
-        this.jYr = (TextView) view.findViewById(R.id.card_null_polymeric_txt);
+        this.jTM = (TextView) view.findViewById(R.id.card_null_polymeric_txt);
     }
 
     @Override // com.baidu.tieba.card.b
@@ -30,7 +30,7 @@ public class g extends com.baidu.tieba.card.b<com.baidu.tieba.personPolymeric.c.
         if (this.mSkinType != i) {
             ao.setBackgroundResource(this.mRootView, R.color.CAM_X0201);
             ao.setImageResource(this.icon, R.drawable.new_pic_emotion_07);
-            ao.setViewTextColor(this.jYr, R.color.CAM_X0108, 1);
+            ao.setViewTextColor(this.jTM, R.color.CAM_X0108, 1);
         }
         this.mSkinType = i;
     }
@@ -51,8 +51,8 @@ public class g extends com.baidu.tieba.card.b<com.baidu.tieba.personPolymeric.c.
         if (this.mRootView.getVisibility() != 0) {
             this.mRootView.setVisibility(0);
         }
-        if (StringUtils.isNull(this.mAk)) {
-            TextView textView = this.jYr;
+        if (StringUtils.isNull(this.mvG)) {
+            TextView textView = this.jTM;
             String string2 = this.mContext.getString(R.string.person_polymeric_null_data);
             Object[] objArr = new Object[1];
             if (iVar.isHost) {
@@ -66,7 +66,7 @@ public class g extends com.baidu.tieba.card.b<com.baidu.tieba.personPolymeric.c.
             textView.setText(String.format(string2, objArr));
             return;
         }
-        this.jYr.setText(this.mAk);
+        this.jTM.setText(this.mvG);
     }
 
     @Override // android.view.View.OnClickListener

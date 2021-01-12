@@ -1,7 +1,7 @@
 package com.qq.e.comm.plugin.a.c;
 
 import com.qq.e.comm.plugin.a.c;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public interface b {
     boolean a(c cVar);
 

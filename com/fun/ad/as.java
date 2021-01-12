@@ -3,7 +3,7 @@ package com.fun.ad;
 import android.app.Activity;
 import com.fun.ad.au;
 import com.qq.e.ads.interstitial2.UnifiedInterstitialAD;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class as extends bu {
     public as(au.a aVar) {
         super(aVar);

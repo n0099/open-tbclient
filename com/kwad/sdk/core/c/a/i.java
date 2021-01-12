@@ -4,14 +4,14 @@ import com.baidu.live.tbadk.statics.AlaStaticKeys;
 import com.kwad.sdk.core.webview.jshandler.l;
 import com.vivo.push.PushClientConstants;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class i implements com.kwad.sdk.core.c<l.b> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.kwad.sdk.core.c
     public JSONObject a(l.b bVar) {
         JSONObject jSONObject = new JSONObject();
-        com.kwad.sdk.utils.o.a(jSONObject, "appName", bVar.f9900a);
-        com.kwad.sdk.utils.o.a(jSONObject, PushClientConstants.TAG_PKG_NAME, bVar.f9901b);
+        com.kwad.sdk.utils.o.a(jSONObject, "appName", bVar.f9600a);
+        com.kwad.sdk.utils.o.a(jSONObject, PushClientConstants.TAG_PKG_NAME, bVar.f9601b);
         com.kwad.sdk.utils.o.a(jSONObject, "version", bVar.c);
         com.kwad.sdk.utils.o.a(jSONObject, "versionCode", bVar.d);
         com.kwad.sdk.utils.o.a(jSONObject, "appSize", bVar.e);
@@ -28,8 +28,8 @@ public class i implements com.kwad.sdk.core.c<l.b> {
         if (jSONObject == null) {
             return;
         }
-        bVar.f9900a = jSONObject.optString("appName");
-        bVar.f9901b = jSONObject.optString(PushClientConstants.TAG_PKG_NAME);
+        bVar.f9600a = jSONObject.optString("appName");
+        bVar.f9601b = jSONObject.optString(PushClientConstants.TAG_PKG_NAME);
         bVar.c = jSONObject.optString("version");
         bVar.d = jSONObject.optInt("versionCode");
         bVar.e = jSONObject.optLong("appSize");

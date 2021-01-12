@@ -10,10 +10,10 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class TipsConfigItem extends a<TipConfigData> {
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class TipConfigData implements com.kwad.sdk.core.b, Serializable {
         public static final String BOTTOM = "bottom";
         public static final String TOAST = "toast";

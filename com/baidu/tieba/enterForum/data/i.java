@@ -3,7 +3,7 @@ package com.baidu.tieba.enterForum.data;
 import tbclient.FrsTabInfo;
 /* loaded from: classes2.dex */
 public class i {
-    private int iGR;
+    private int iCk;
     private String tabCode;
     private String tabName;
 
@@ -11,7 +11,7 @@ public class i {
         if (frsTabInfo != null) {
             this.tabCode = frsTabInfo.tab_code;
             this.tabName = frsTabInfo.tab_name;
-            this.iGR = frsTabInfo.tab_version.intValue();
+            this.iCk = frsTabInfo.tab_version.intValue();
         }
     }
 }

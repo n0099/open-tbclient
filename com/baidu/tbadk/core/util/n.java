@@ -91,7 +91,7 @@ public class n {
         return false;
     }
 
-    public static boolean w(Uri uri) {
+    public static boolean z(Uri uri) {
         if (uri == null) {
             return false;
         }
@@ -351,11 +351,11 @@ public class n {
         return ((float) imageFileWH[0]) * equipmentDensity >= 100.0f && f >= 3.0f && f <= 50.0f;
     }
 
-    public static boolean BJ(String str) {
+    public static boolean Ay(String str) {
         return str.endsWith(".heif") || str.endsWith(".heic");
     }
 
-    public static boolean BK(String str) {
+    public static boolean Az(String str) {
         return str != null && str.endsWith(".css");
     }
 
@@ -1362,7 +1362,7 @@ public class n {
         }
     }
 
-    public static boolean dU(String str, String str2) {
+    public static boolean dT(String str, String str2) {
         return y(str, str2, false);
     }
 
@@ -1790,14 +1790,14 @@ public class n {
             return str2;
         }
 
-        public static String bvG() {
+        public static String brM() {
             File[] listFiles;
             try {
                 File file = new File(PACKAGE_DATA_DIR + "/" + FileHelper.DataDir.PACKAGE_VERSION_CUR_DIR);
                 if (!file.exists() || !file.isDirectory() || (listFiles = file.listFiles()) == null || listFiles.length == 0) {
                     return null;
                 }
-                Arrays.sort(listFiles, new C0581a());
+                Arrays.sort(listFiles, new C0564a());
                 File file2 = listFiles[0];
                 if (file2 != null) {
                     return file2.getName();
@@ -1812,8 +1812,8 @@ public class n {
         /* JADX INFO: Access modifiers changed from: package-private */
         /* renamed from: com.baidu.tbadk.core.util.n$a$a  reason: collision with other inner class name */
         /* loaded from: classes.dex */
-        public static class C0581a implements Comparator<File> {
-            C0581a() {
+        public static class C0564a implements Comparator<File> {
+            C0564a() {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -1958,7 +1958,7 @@ public class n {
         return str.toLowerCase().startsWith("content:") || str.toLowerCase().startsWith("file:");
     }
 
-    public static String BL(String str) {
+    public static String AA(String str) {
         Uri parse = Uri.parse(str);
         if (parse == null) {
             return null;
@@ -1966,7 +1966,7 @@ public class n {
         return parse.getLastPathSegment();
     }
 
-    public static String BM(String str) {
+    public static String AB(String str) {
         Uri parse = Uri.parse(str);
         if (parse == null) {
             return null;
@@ -1974,18 +1974,18 @@ public class n {
         return (TbadkCoreApplication.getInst().getCacheDir().getAbsolutePath() + "/") + parse.getLastPathSegment();
     }
 
-    public static void BN(@NonNull String str) {
+    public static void AC(@NonNull String str) {
         if (str != null) {
-            S(new File(CACHE_DIR + "/" + str));
+            R(new File(CACHE_DIR + "/" + str));
         }
     }
 
-    private static void S(File file) {
+    private static void R(File file) {
         File[] listFiles;
         if (file.exists() && file.isDirectory() && (listFiles = file.listFiles()) != null) {
             for (File file2 : listFiles) {
                 if (file2.isDirectory()) {
-                    S(file2);
+                    R(file2);
                     file2.delete();
                 } else {
                     file2.delete();

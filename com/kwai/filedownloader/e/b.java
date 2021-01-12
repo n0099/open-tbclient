@@ -6,17 +6,17 @@ import java.io.File;
 import java.io.FileDescriptor;
 import java.io.FileOutputStream;
 import java.io.RandomAccessFile;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class b implements com.kwai.filedownloader.e.a {
 
     /* renamed from: a  reason: collision with root package name */
-    private final BufferedOutputStream f11216a;
+    private final BufferedOutputStream f10916a;
 
     /* renamed from: b  reason: collision with root package name */
-    private final FileDescriptor f11217b;
+    private final FileDescriptor f10917b;
     private final RandomAccessFile c;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class a implements c.e {
         @Override // com.kwai.filedownloader.f.c.e
         public com.kwai.filedownloader.e.a a(File file) {
@@ -31,14 +31,14 @@ public class b implements com.kwai.filedownloader.e.a {
 
     b(File file) {
         this.c = new RandomAccessFile(file, "rw");
-        this.f11217b = this.c.getFD();
-        this.f11216a = new BufferedOutputStream(new FileOutputStream(this.c.getFD()));
+        this.f10917b = this.c.getFD();
+        this.f10916a = new BufferedOutputStream(new FileOutputStream(this.c.getFD()));
     }
 
     @Override // com.kwai.filedownloader.e.a
     public void a() {
-        this.f11216a.flush();
-        this.f11217b.sync();
+        this.f10916a.flush();
+        this.f10917b.sync();
     }
 
     @Override // com.kwai.filedownloader.e.a
@@ -48,12 +48,12 @@ public class b implements com.kwai.filedownloader.e.a {
 
     @Override // com.kwai.filedownloader.e.a
     public void a(byte[] bArr, int i, int i2) {
-        this.f11216a.write(bArr, i, i2);
+        this.f10916a.write(bArr, i, i2);
     }
 
     @Override // com.kwai.filedownloader.e.a
     public void b() {
-        this.f11216a.close();
+        this.f10916a.close();
         this.c.close();
     }
 

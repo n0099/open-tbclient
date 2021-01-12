@@ -3,15 +3,13 @@ package com.baidu.live.aa;
 import android.view.ViewGroup;
 import com.baidu.live.data.x;
 import com.baidu.live.liveroom.g.d;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public interface a {
     void C(int i, int i2);
 
-    void DC();
+    d Od();
 
-    d RY();
-
-    com.baidu.live.liveroom.g.b RZ();
+    com.baidu.live.liveroom.g.b Oe();
 
     void a(ViewGroup viewGroup, ViewGroup viewGroup2);
 
@@ -28,4 +26,6 @@ public interface a {
     void onClose();
 
     void onDestroy();
+
+    void zH();
 }

@@ -1,49 +1,49 @@
 package com.baidu.platform.comapi.walknavi;
 
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
 import android.os.Handler;
-import android.os.Looper;
-import android.util.Log;
+import android.telephony.TelephonyManager;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes3.dex */
-public class j implements WalkNaviModeSwitchListener {
+/* loaded from: classes6.dex */
+public class j extends BroadcastReceiver {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ int f4578a;
-
-    /* renamed from: b  reason: collision with root package name */
-    final /* synthetic */ boolean f4579b;
-    final /* synthetic */ b c;
+    final /* synthetic */ b f4355a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public j(b bVar, int i, boolean z) {
-        this.c = bVar;
-        this.f4578a = i;
-        this.f4579b = z;
+    public j(b bVar) {
+        this.f4355a = bVar;
     }
 
-    @Override // com.baidu.platform.comapi.walknavi.WalkNaviModeSwitchListener
-    public void onSuccess() {
-        com.baidu.platform.comapi.wnplatform.o.a aVar;
-        com.baidu.platform.comapi.wnplatform.o.a aVar2;
-        com.baidu.platform.comapi.wnplatform.o.a aVar3;
-        this.c.T = this.f4578a;
-        aVar = this.c.p;
-        if (aVar != null) {
-            aVar2 = this.c.p;
-            if (aVar2 instanceof com.baidu.platform.comapi.walknavi.g.a) {
-                aVar3 = this.c.p;
-                ((com.baidu.platform.comapi.walknavi.g.a) aVar3).a(this.f4578a, this.f4579b);
-            }
-        }
-        if (com.baidu.platform.comapi.wnplatform.a.a().b()) {
-            b.a().f(0);
-        } else if (com.baidu.platform.comapi.wnplatform.a.a().c()) {
-            new Handler(Looper.myLooper()).postDelayed(new k(this), 100L);
+    @Override // android.content.BroadcastReceiver
+    public void onReceive(Context context, Intent intent) {
+        String stringExtra = intent.getStringExtra("state");
+        if (TelephonyManager.EXTRA_STATE_RINGING.equals(stringExtra)) {
+            a(context);
+        } else if (TelephonyManager.EXTRA_STATE_OFFHOOK.equals(stringExtra)) {
+            a(context);
+        } else if (TelephonyManager.EXTRA_STATE_IDLE.equals(stringExtra)) {
+            b(context);
         }
     }
 
-    @Override // com.baidu.platform.comapi.walknavi.WalkNaviModeSwitchListener
-    public void onFailed() {
-        Log.d("ContentValues", "onWalkNaviModeChange onFailed");
+    private void a(Context context) {
+        Context context2;
+        Context context3;
+        context2 = this.f4355a.y;
+        int a2 = com.baidu.platform.comapi.wnplatform.o.h.a(context2);
+        if (a2 != 0) {
+            com.baidu.platform.comapi.walknavi.b.a.f4187a = a2;
+            context3 = this.f4355a.y;
+            com.baidu.platform.comapi.wnplatform.o.h.a(context3, 0);
+        }
+    }
+
+    private void b(Context context) {
+        Handler handler;
+        handler = this.f4355a.z;
+        handler.postDelayed(new k(this), 2000L);
     }
 }

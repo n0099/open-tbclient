@@ -3,23 +3,23 @@ package com.baidu.tieba.ala.liveroom.messages;
 import com.baidu.live.data.u;
 import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class AlaLiveRecommondHttpResponseMessage extends JsonHttpResponsedMessage {
-    private u hJO;
+    private u hFi;
 
     public AlaLiveRecommondHttpResponseMessage() {
         super(1021021);
     }
 
-    public u clL() {
-        return this.hJO;
+    public u chT() {
+        return this.hFi;
     }
 
     @Override // com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage
     public void decodeLogicInBackGround(int i, JSONObject jSONObject) throws Exception {
         if (jSONObject != null) {
-            this.hJO = new u();
-            this.hJO.parserJson(jSONObject);
+            this.hFi = new u();
+            this.hFi.parserJson(jSONObject);
         }
     }
 }

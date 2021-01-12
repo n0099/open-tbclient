@@ -4,7 +4,7 @@ import java.util.Iterator;
 @kotlin.e
 /* loaded from: classes5.dex */
 public abstract class k implements Iterator<Boolean> {
-    public abstract boolean eCU();
+    public abstract boolean ezc();
 
     @Override // java.util.Iterator
     public void remove() {
@@ -13,8 +13,8 @@ public abstract class k implements Iterator<Boolean> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // java.util.Iterator
-    /* renamed from: eMt */
+    /* renamed from: eID */
     public final Boolean next() {
-        return Boolean.valueOf(eCU());
+        return Boolean.valueOf(ezc());
     }
 }

@@ -28,7 +28,7 @@ import java.lang.reflect.Method;
 import java.util.HashMap;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class TbImageView extends BDImageView implements View.OnClickListener, Runnable {
     private static final int LOADING_FRAMES_COUNT = 12;
     private static final int LOADING_FRAMES_DURATION = 150;
@@ -73,14 +73,14 @@ public class TbImageView extends BDImageView implements View.OnClickListener, Ru
     protected int mWidth;
     protected long requestTime;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public interface ImageViewEvent {
         void onCancel();
 
         void onComplete(String str, boolean z);
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public interface OnDrawListener {
         void onAfterDraw(TbImageView tbImageView, Canvas canvas);
 
@@ -134,8 +134,8 @@ public class TbImageView extends BDImageView implements View.OnClickListener, Ru
         this.mLoadedWidth = 0;
         this.mLoadedHeight = 0;
         this.isPageIdRegisterMessage = false;
-        this.mInternalGestureDetector = new com.baidu.live.tieba.pb.a.a(new a.InterfaceC0222a() { // from class: com.baidu.live.tbadk.widget.TbImageView.1
-            @Override // com.baidu.live.tieba.pb.a.a.InterfaceC0222a
+        this.mInternalGestureDetector = new com.baidu.live.tieba.pb.a.a(new a.InterfaceC0213a() { // from class: com.baidu.live.tbadk.widget.TbImageView.1
+            @Override // com.baidu.live.tieba.pb.a.a.InterfaceC0213a
             public boolean onDoubleTap(View view, MotionEvent motionEvent) {
                 if (TbImageView.this.mGestureDetector != null) {
                     TbImageView.this.mGestureDetector.ad(view);
@@ -144,12 +144,12 @@ public class TbImageView extends BDImageView implements View.OnClickListener, Ru
                 return false;
             }
 
-            @Override // com.baidu.live.tieba.pb.a.a.InterfaceC0222a
+            @Override // com.baidu.live.tieba.pb.a.a.InterfaceC0213a
             public boolean onDoubleTapEvent(View view, MotionEvent motionEvent) {
                 return false;
             }
 
-            @Override // com.baidu.live.tieba.pb.a.a.InterfaceC0222a
+            @Override // com.baidu.live.tieba.pb.a.a.InterfaceC0213a
             public boolean onSingleTapConfirmed(View view, MotionEvent motionEvent) {
                 if (TbImageView.this.getBdImage() != null || TbImageView.this.getDrawable() != null || !TbImageView.this.mInterceptOnClick) {
                     if (TbImageView.this.mOnClickListener != null) {
@@ -190,8 +190,8 @@ public class TbImageView extends BDImageView implements View.OnClickListener, Ru
         this.mLoadedWidth = 0;
         this.mLoadedHeight = 0;
         this.isPageIdRegisterMessage = false;
-        this.mInternalGestureDetector = new com.baidu.live.tieba.pb.a.a(new a.InterfaceC0222a() { // from class: com.baidu.live.tbadk.widget.TbImageView.1
-            @Override // com.baidu.live.tieba.pb.a.a.InterfaceC0222a
+        this.mInternalGestureDetector = new com.baidu.live.tieba.pb.a.a(new a.InterfaceC0213a() { // from class: com.baidu.live.tbadk.widget.TbImageView.1
+            @Override // com.baidu.live.tieba.pb.a.a.InterfaceC0213a
             public boolean onDoubleTap(View view, MotionEvent motionEvent) {
                 if (TbImageView.this.mGestureDetector != null) {
                     TbImageView.this.mGestureDetector.ad(view);
@@ -200,12 +200,12 @@ public class TbImageView extends BDImageView implements View.OnClickListener, Ru
                 return false;
             }
 
-            @Override // com.baidu.live.tieba.pb.a.a.InterfaceC0222a
+            @Override // com.baidu.live.tieba.pb.a.a.InterfaceC0213a
             public boolean onDoubleTapEvent(View view, MotionEvent motionEvent) {
                 return false;
             }
 
-            @Override // com.baidu.live.tieba.pb.a.a.InterfaceC0222a
+            @Override // com.baidu.live.tieba.pb.a.a.InterfaceC0213a
             public boolean onSingleTapConfirmed(View view, MotionEvent motionEvent) {
                 if (TbImageView.this.getBdImage() != null || TbImageView.this.getDrawable() != null || !TbImageView.this.mInterceptOnClick) {
                     if (TbImageView.this.mOnClickListener != null) {

@@ -14,19 +14,19 @@ import java.util.Set;
 import java.util.concurrent.TimeUnit;
 import rx.d;
 import rx.schedulers.Schedulers;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class b extends com.baidu.swan.apps.process.a.a.a implements com.baidu.swan.apps.process.messaging.service.a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static final Set<String> ems = i.R("event_puppet_unload_app", "event_puppet_offline");
-    private static long emt = TimeUnit.SECONDS.toMillis(10);
-    private int emu = SwanAppProcessInfo.UNKNOWN.index;
+    private static final Set<String> ehG = i.R("event_puppet_unload_app", "event_puppet_offline");
+    private static long ehH = TimeUnit.SECONDS.toMillis(10);
+    private int ehI = SwanAppProcessInfo.UNKNOWN.index;
 
     @Override // com.baidu.swan.apps.process.a.a.a
     public void y(@NonNull final Bundle bundle) {
-        this.emu = bundle.getInt("target", SwanAppProcessInfo.UNKNOWN.index);
-        final boolean checkProcessId = SwanAppProcessInfo.checkProcessId(this.emu);
+        this.ehI = bundle.getInt("target", SwanAppProcessInfo.UNKNOWN.index);
+        final boolean checkProcessId = SwanAppProcessInfo.checkProcessId(this.ehI);
         if (DEBUG) {
-            Log.i("SwanGameReloadDelegate", "execCall: target = " + this.emu);
+            Log.i("SwanGameReloadDelegate", "execCall: target = " + this.ehI);
             Log.i("SwanGameReloadDelegate", "execCall: waitCallback = " + checkProcessId);
         }
         d.bX("").c(Schedulers.io()).c(new rx.functions.b<String>() { // from class: com.baidu.swan.games.s.b.1
@@ -35,16 +35,16 @@ public class b extends com.baidu.swan.apps.process.a.a.a implements com.baidu.sw
             public void call(String str) {
                 if (checkProcessId) {
                     if (b.DEBUG) {
-                        Log.i("SwanGameReloadDelegate", "execCall: addCallback CALLBACK_TERM = " + b.emt);
+                        Log.i("SwanGameReloadDelegate", "execCall: addCallback CALLBACK_TERM = " + b.ehH);
                     }
-                    e.aJM().a(b.this, b.emt);
+                    e.aFS().a(b.this, b.ehH);
                 }
-                com.baidu.swan.apps.env.c axc = com.baidu.swan.apps.env.e.axb().axc();
-                if (axc != null) {
-                    axc.b(Collections.singletonList(bundle.getString("appId")), true, com.baidu.swan.apps.env.c.c.axG().iK(6).axH());
+                com.baidu.swan.apps.env.c ati = com.baidu.swan.apps.env.e.ath().ati();
+                if (ati != null) {
+                    ati.b(Collections.singletonList(bundle.getString("appId")), true, com.baidu.swan.apps.env.c.c.atM().he(6).atN());
                 }
                 if (b.DEBUG) {
-                    Log.i("SwanGameReloadDelegate", "execCall: addCallback purge finish = " + axc);
+                    Log.i("SwanGameReloadDelegate", "execCall: addCallback purge finish = " + ati);
                 }
                 if (!checkProcessId) {
                     b.this.invoke();
@@ -55,8 +55,8 @@ public class b extends com.baidu.swan.apps.process.a.a.a implements com.baidu.sw
 
     @Override // com.baidu.swan.apps.process.messaging.service.a
     public void c(String str, com.baidu.swan.apps.process.messaging.service.c cVar) {
-        if (cVar.dwt.index == this.emu && ems.contains(str)) {
-            e.aJM().a(this);
+        if (cVar.drF.index == this.ehI && ehG.contains(str)) {
+            e.aFS().a(this);
             if (DEBUG) {
                 Log.i("SwanGameReloadDelegate", "onEvent: event = " + str);
             }
@@ -65,7 +65,7 @@ public class b extends com.baidu.swan.apps.process.a.a.a implements com.baidu.sw
     }
 
     @Override // com.baidu.swan.apps.process.messaging.service.a
-    public void axg() {
+    public void atm() {
         if (DEBUG) {
             Log.i("SwanGameReloadDelegate", "timeout");
         }
@@ -74,7 +74,7 @@ public class b extends com.baidu.swan.apps.process.a.a.a implements com.baidu.sw
 
     /* JADX INFO: Access modifiers changed from: private */
     public void invoke() {
-        String string = this.dvx.getString("scheme");
+        String string = this.dqI.getString("scheme");
         if (DEBUG) {
             Log.i("SwanGameReloadDelegate", "invoke: scheme = " + string);
         }

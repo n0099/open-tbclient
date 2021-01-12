@@ -4,22 +4,22 @@ import android.util.Log;
 import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes6.dex */
 public class g implements Runnable {
-    private AtomicBoolean ewZ;
-    private b exo;
-    private a exp;
+    private b esB;
+    private a esC;
+    private AtomicBoolean esm;
 
     public g(AtomicBoolean atomicBoolean, b bVar, a aVar) {
-        this.ewZ = atomicBoolean;
-        this.exo = bVar;
-        this.exp = aVar;
+        this.esm = atomicBoolean;
+        this.esB = bVar;
+        this.esC = aVar;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        Runnable iF;
-        while (!this.ewZ.get() && (iF = this.exp.iF(true)) != null && (iF instanceof f)) {
+        Runnable iB;
+        while (!this.esm.get() && (iB = this.esC.iB(true)) != null && (iB instanceof f)) {
             try {
-                l((f) iF);
+                l((f) iB);
             } catch (Throwable th) {
                 if (com.baidu.swan.pms.d.DEBUG) {
                     Log.e("PMSTaskExecutor", "runTask error:" + th.toString());
@@ -29,7 +29,7 @@ public class g implements Runnable {
     }
 
     private <T> void l(f<T> fVar) {
-        this.exo.d(fVar);
+        this.esB.d(fVar);
         try {
             fVar.run();
         } catch (Exception e) {
@@ -37,7 +37,7 @@ public class g implements Runnable {
                 Log.e("PMSTaskExecutor", "run task error:" + e.toString());
             }
         } finally {
-            this.exo.e(fVar);
+            this.esB.e(fVar);
         }
     }
 }

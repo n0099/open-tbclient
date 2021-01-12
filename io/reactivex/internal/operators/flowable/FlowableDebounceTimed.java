@@ -19,7 +19,7 @@ public final class FlowableDebounceTimed<T> extends a<T, T> {
 
     @Override // io.reactivex.g
     protected void a(org.a.c<? super T> cVar) {
-        this.qit.a((j) new DebounceTimedSubscriber(new io.reactivex.subscribers.b(cVar), this.timeout, this.unit, this.scheduler.eLI()));
+        this.qdR.a((j) new DebounceTimedSubscriber(new io.reactivex.subscribers.b(cVar), this.timeout, this.unit, this.scheduler.eHS()));
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */

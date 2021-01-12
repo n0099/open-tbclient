@@ -12,14 +12,14 @@ import com.kwad.sdk.core.response.b.a;
 import com.kwad.sdk.core.response.b.c;
 import com.kwad.sdk.core.response.model.AdInfo;
 import com.kwad.sdk.core.response.model.AdTemplate;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class TailFrameBarH5PortraitHorizontal extends LinearLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    private TextView f11008a;
+    private TextView f10708a;
 
     /* renamed from: b  reason: collision with root package name */
-    private TextView f11009b;
+    private TextView f10709b;
     private ValueAnimator c;
 
     public TailFrameBarH5PortraitHorizontal(Context context) {
@@ -37,8 +37,8 @@ public class TailFrameBarH5PortraitHorizontal extends LinearLayout {
 
     private void a(Context context) {
         inflate(context, R.layout.ksad_video_tf_bar_h5_portrait_horizontal, this);
-        this.f11008a = (TextView) findViewById(R.id.ksad_tf_h5_ad_desc);
-        this.f11009b = (TextView) findViewById(R.id.ksad_tf_h5_open_btn);
+        this.f10708a = (TextView) findViewById(R.id.ksad_tf_h5_ad_desc);
+        this.f10709b = (TextView) findViewById(R.id.ksad_tf_h5_open_btn);
     }
 
     private void b() {
@@ -54,8 +54,8 @@ public class TailFrameBarH5PortraitHorizontal extends LinearLayout {
             @Override // android.animation.ValueAnimator.AnimatorUpdateListener
             public void onAnimationUpdate(ValueAnimator valueAnimator) {
                 float floatValue = ((Float) valueAnimator.getAnimatedValue()).floatValue();
-                TailFrameBarH5PortraitHorizontal.this.f11009b.setScaleY(floatValue);
-                TailFrameBarH5PortraitHorizontal.this.f11009b.setScaleX(floatValue);
+                TailFrameBarH5PortraitHorizontal.this.f10709b.setScaleY(floatValue);
+                TailFrameBarH5PortraitHorizontal.this.f10709b.setScaleX(floatValue);
             }
         });
         this.c.start();
@@ -71,8 +71,8 @@ public class TailFrameBarH5PortraitHorizontal extends LinearLayout {
 
     public void setModel(@NonNull AdTemplate adTemplate) {
         AdInfo j = c.j(adTemplate);
-        this.f11008a.setText(a.n(j));
-        this.f11009b.setText(a.w(j));
+        this.f10708a.setText(a.n(j));
+        this.f10709b.setText(a.w(j));
         b();
     }
 }

@@ -12,10 +12,10 @@ import com.baidu.swan.apps.u.c.c;
 import com.baidu.swan.games.view.webview.GameWebViewJavascriptInterface;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public abstract class c<SelfT extends c<SelfT>> extends e<SelfT> {
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public static final class a extends c<a> {
         @Override // com.baidu.swan.apps.u.c.c, com.baidu.swan.apps.u.c.a.c
         public /* synthetic */ com.baidu.swan.apps.u.c.a.c D(Bundle bundle) {
@@ -24,8 +24,8 @@ public abstract class c<SelfT extends c<SelfT>> extends e<SelfT> {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.swan.apps.ao.e.d
-        /* renamed from: aCt */
-        public a aCs() {
+        /* renamed from: ayz */
+        public a ayy() {
             return this;
         }
     }
@@ -60,7 +60,7 @@ public abstract class c<SelfT extends c<SelfT>> extends e<SelfT> {
 
     @Override // com.baidu.swan.apps.u.c.a.c
     public String toString() {
-        return "SwanAppLaunchParams{appId='" + getAppId() + "', from='" + aCw() + "', page='" + getPage() + "', isDebug=" + isDebug() + ", extraData=" + aCB() + ", clickId='" + aCD() + "', launchScheme='" + aCy() + "', notInHistory='" + aCE() + "'}";
+        return "SwanAppLaunchParams{appId='" + getAppId() + "', from='" + ayC() + "', page='" + getPage() + "', isDebug=" + isDebug() + ", extraData=" + ayH() + ", clickId='" + ayJ() + "', launchScheme='" + ayE() + "', notInHistory='" + ayK() + "'}";
     }
 
     public static String i(String str, String str2, int i) {

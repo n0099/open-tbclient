@@ -1,5 +1,5 @@
 package aegon.chrome.base.task;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 final /* synthetic */ class TaskRunnerImpl$$Lambda$1 implements Runnable {
     private final TaskRunnerImpl arg$1;
 

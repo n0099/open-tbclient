@@ -3,7 +3,7 @@ package com.kwai.video.player.kwai_player;
 import androidx.annotation.Keep;
 import com.kwai.video.player.NativeErrorCode;
 @Keep
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class Util {
     public static boolean isCriticalErrorInMediaPlayer(int i, int i2) {
         switch (i) {

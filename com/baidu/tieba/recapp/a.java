@@ -48,20 +48,20 @@ public class a {
         int i3 = 0;
         for (int i4 = 0; i4 < list.size(); i4++) {
             al alVar = (al) com.baidu.tieba.lego.card.c.a.l(list, i4);
-            if (alVar != null && alVar.bpj() != null) {
+            if (alVar != null && alVar.blp() != null) {
                 int eN = com.baidu.tieba.lego.card.c.a.eN(list2);
-                int e = e(alVar.bpj()) - 1;
+                int e = e(alVar.blp()) - 1;
                 if (e < 0) {
                     i3++;
-                    g(alVar.bpj());
+                    g(alVar.blp());
                 } else {
-                    int bpk = alVar.bpl() ? alVar.bpk() : ((e + i) + i4) - i3;
-                    if (bpk > eN) {
-                        g(alVar.bpj());
+                    int blq = alVar.blr() ? alVar.blq() : ((e + i) + i4) - i3;
+                    if (blq > eN) {
+                        g(alVar.blp());
                         i3++;
                     } else {
-                        alVar.setPosition(bpk);
-                        com.baidu.tieba.lego.card.c.a.a(list2, alVar, bpk);
+                        alVar.setPosition(blq);
+                        com.baidu.tieba.lego.card.c.a.a(list2, alVar, blq);
                         arrayList.add(alVar);
                     }
                 }
@@ -85,13 +85,13 @@ public class a {
             @Override // java.util.Comparator
             /* renamed from: a */
             public int compare(al alVar, al alVar2) {
-                if (alVar.bpl() && alVar2.bpl()) {
-                    return alVar.bpk() - alVar2.bpk();
+                if (alVar.blr() && alVar2.blr()) {
+                    return alVar.blq() - alVar2.blq();
                 }
-                if (alVar.bpl() || alVar2.bpl()) {
-                    return !alVar.bpl() ? 1 : -1;
+                if (alVar.blr() || alVar2.blr()) {
+                    return !alVar.blr() ? 1 : -1;
                 }
-                return (alVar.bpj() == null ? -1 : a.e(alVar.bpj())) - (alVar2.bpj() != null ? a.e(alVar2.bpj()) : -1);
+                return (alVar.blp() == null ? -1 : a.e(alVar.blp())) - (alVar2.blp() != null ? a.e(alVar2.blp()) : -1);
             }
         });
     }
@@ -107,11 +107,11 @@ public class a {
     }
 
     public static int f(@Nullable AdvertAppInfo advertAppInfo) {
-        int bpf = advertAppInfo.bpf();
+        int bll = advertAppInfo.bll();
         if (e(advertAppInfo) < 0) {
             return 23;
         }
-        return bpf;
+        return bll;
     }
 
     private static void g(AdvertAppInfo advertAppInfo) {
@@ -119,9 +119,9 @@ public class a {
     }
 
     private static void b(AdvertAppInfo advertAppInfo, int i) {
-        com.baidu.tieba.recapp.report.e.dFW().a(com.baidu.tieba.recapp.report.h.b(advertAppInfo, 5, 1, i));
-        if (advertAppInfo != null && advertAppInfo.eOj != null) {
-            advertAppInfo.eOj.mDiscardReason = i;
+        com.baidu.tieba.recapp.report.e.dCe().a(com.baidu.tieba.recapp.report.h.b(advertAppInfo, 5, 1, i));
+        if (advertAppInfo != null && advertAppInfo.eJy != null) {
+            advertAppInfo.eJy.mDiscardReason = i;
         }
     }
 
@@ -151,28 +151,28 @@ public class a {
     }
 
     public static Set<com.baidu.adp.widget.ListView.n> a(List<com.baidu.adp.widget.ListView.n> list, int i, String str) {
-        AdvertAppInfo bpj;
-        AdvertAppInfo bpj2;
+        AdvertAppInfo blp;
+        AdvertAppInfo blp2;
         HashSet hashSet = new HashSet();
         if (com.baidu.tieba.lego.card.c.a.isEmpty(list)) {
             return hashSet;
         }
-        Set<com.baidu.adp.widget.ListView.n> RS = com.baidu.tieba.recapp.report.a.RS(str);
-        HashSet hashSet2 = RS == null ? new HashSet() : RS;
+        Set<com.baidu.adp.widget.ListView.n> QK = com.baidu.tieba.recapp.report.a.QK(str);
+        HashSet hashSet2 = QK == null ? new HashSet() : QK;
         for (com.baidu.adp.widget.ListView.n nVar : list) {
             if (nVar != null) {
                 for (com.baidu.adp.widget.ListView.n nVar2 : hashSet2) {
-                    if ((nVar instanceof al) && (bpj2 = ((al) nVar).bpj()) != null && nVar2.hashCode() == bpj2.hashCode()) {
-                        bpj2.advertAppContext = ((AdvertAppInfo) nVar2).advertAppContext;
+                    if ((nVar instanceof al) && (blp2 = ((al) nVar).blp()) != null && nVar2.hashCode() == blp2.hashCode()) {
+                        blp2.advertAppContext = ((AdvertAppInfo) nVar2).advertAppContext;
                     }
                 }
-                if ((nVar instanceof al) && (bpj = ((al) nVar).bpj()) != null && bpj.advertAppContext == null) {
-                    bpj.advertAppContext = new com.baidu.tbadk.core.data.c();
-                    bpj.advertAppContext.page = str;
-                    bpj.advertAppContext.pn = i;
-                    bpj.advertAppContext.extensionInfo = bpj.extensionInfo;
-                    bpj.advertAppContext.aay = false;
-                    hashSet.add(bpj);
+                if ((nVar instanceof al) && (blp = ((al) nVar).blp()) != null && blp.advertAppContext == null) {
+                    blp.advertAppContext = new com.baidu.tbadk.core.data.c();
+                    blp.advertAppContext.page = str;
+                    blp.advertAppContext.pn = i;
+                    blp.advertAppContext.extensionInfo = blp.extensionInfo;
+                    blp.advertAppContext.aaw = false;
+                    hashSet.add(blp);
                 }
             }
         }
@@ -193,8 +193,8 @@ public class a {
                     } else {
                         if (next instanceof al) {
                             al alVar = (al) next;
-                            if (alVar.bpj() != null) {
-                                str2 = alVar.bpj().eNT;
+                            if (alVar.blp() != null) {
+                                str2 = alVar.blp().eJi;
                             }
                         }
                         str2 = "";

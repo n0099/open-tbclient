@@ -6,43 +6,43 @@ import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.TbPageContext;
 import com.baidu.yuyinala.mode.c;
 import com.baidu.yuyinala.mode.c.a;
-/* loaded from: classes11.dex */
-public class b extends com.baidu.live.tieba.pb.interactionpopupwindow.a<c, AlaAudioModeDialogData> implements com.baidu.live.tieba.pb.interactionpopupwindow.c, c.a, a.InterfaceC0974a {
-    private com.baidu.yuyinala.mode.c.a oQL;
+/* loaded from: classes10.dex */
+public class b extends com.baidu.live.tieba.pb.interactionpopupwindow.a<c, AlaAudioModeDialogData> implements com.baidu.live.tieba.pb.interactionpopupwindow.c, c.a, a.InterfaceC0957a {
+    private com.baidu.yuyinala.mode.c.a oMj;
 
     public b(TbPageContext tbPageContext, x xVar, AlaAudioModeDialogData alaAudioModeDialogData) {
         super(tbPageContext, new c(tbPageContext), alaAudioModeDialogData);
-        ((c) this.bKA).a((com.baidu.live.tieba.pb.interactionpopupwindow.c) this);
-        ((c) this.bKA).a((c.a) this);
-        gp(80);
-        da(true);
-        db(true);
-        a((DialogInterface.OnDismissListener) this.bKA);
-        this.oQL = new com.baidu.yuyinala.mode.c.a(xVar, this);
+        ((c) this.bFO).a((com.baidu.live.tieba.pb.interactionpopupwindow.c) this);
+        ((c) this.bFO).a((c.a) this);
+        eI(80);
+        cW(true);
+        cX(true);
+        a((DialogInterface.OnDismissListener) this.bFO);
+        this.oMj = new com.baidu.yuyinala.mode.c.a(xVar, this);
     }
 
     public void a(x xVar, AlaAudioModeDialogData alaAudioModeDialogData) {
-        this.oQL.aO(xVar);
+        this.oMj.aO(xVar);
         a((b) alaAudioModeDialogData);
     }
 
-    @Override // com.baidu.yuyinala.mode.c.a.InterfaceC0974a
-    public void ekF() {
+    @Override // com.baidu.yuyinala.mode.c.a.InterfaceC0957a
+    public void egL() {
         this.mPageContext.showToast(a.h.change_mode_fail);
     }
 
-    @Override // com.baidu.yuyinala.mode.c.a.InterfaceC0974a
-    public void ekG() {
+    @Override // com.baidu.yuyinala.mode.c.a.InterfaceC0957a
+    public void egM() {
         this.mPageContext.showToast(a.h.change_mode_succ);
     }
 
     @Override // com.baidu.live.tieba.pb.interactionpopupwindow.c
-    public boolean UD() {
+    public boolean QI() {
         return true;
     }
 
     @Override // com.baidu.live.tieba.pb.interactionpopupwindow.c
-    public boolean UE() {
+    public boolean QJ() {
         return true;
     }
 
@@ -52,7 +52,7 @@ public class b extends com.baidu.live.tieba.pb.interactionpopupwindow.a<c, AlaAu
     }
 
     @Override // com.baidu.yuyinala.mode.c.a
-    public void OI(int i) {
-        this.oQL.OI(i);
+    public void Nb(int i) {
+        this.oMj.Nb(i);
     }
 }

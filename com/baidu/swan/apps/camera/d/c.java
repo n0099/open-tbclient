@@ -3,9 +3,9 @@ package com.baidu.swan.apps.camera.d;
 import com.baidu.ar.arplay.core.pixel.PixelReadParams;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class c extends com.baidu.swan.apps.component.b.b {
-    public String cLz;
+    public String cGN;
     public String cameraId;
 
     public c(String str) {
@@ -21,6 +21,6 @@ public class c extends com.baidu.swan.apps.component.b.b {
     public void parseFromJson(JSONObject jSONObject) throws JSONException {
         super.parseFromJson(jSONObject);
         this.cameraId = jSONObject.optString("cameraId");
-        this.cLz = jSONObject.optString("quality");
+        this.cGN = jSONObject.optString("quality");
     }
 }

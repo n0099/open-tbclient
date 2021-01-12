@@ -5,9 +5,9 @@ import android.view.MotionEvent;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public interface a {
-    Animatable evv();
+    Animatable erC();
 
     @Nullable
     b getHierarchy();

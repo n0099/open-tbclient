@@ -11,11 +11,11 @@ import java.util.zip.ZipInputStream;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f1131a;
+    private String f1130a;
 
     public a(File file) {
-        this.f1131a = null;
-        this.f1131a = file.getAbsolutePath();
+        this.f1130a = null;
+        this.f1130a = file.getAbsolutePath();
     }
 
     /* JADX WARN: Removed duplicated region for block: B:43:0x0083 A[Catch: Exception -> 0x0087, TRY_LEAVE, TryCatch #2 {Exception -> 0x0087, blocks: (B:41:0x007e, B:43:0x0083), top: B:59:0x007e }] */
@@ -27,10 +27,10 @@ public class a {
         ZipInputStream zipInputStream;
         FileInputStream fileInputStream;
         boolean z = true;
-        if (TextUtils.isEmpty(this.f1131a)) {
+        if (TextUtils.isEmpty(this.f1130a)) {
             return false;
         }
-        File file = new File(this.f1131a);
+        File file = new File(this.f1130a);
         new StringBuilder();
         try {
             fileInputStream = new FileInputStream(file);

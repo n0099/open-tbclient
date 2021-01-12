@@ -10,33 +10,33 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.webkit.CookieManager;
 import android.webkit.WebView;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class y extends WebView {
 
     /* renamed from: a  reason: collision with root package name */
-    private long f14067a;
+    private long f13767a;
 
     /* renamed from: a  reason: collision with other field name */
-    private boolean f84a;
+    private boolean f83a;
 
     /* renamed from: b  reason: collision with root package name */
-    private boolean f14068b;
+    private boolean f13768b;
     private boolean c;
     private int java;
 
     /* renamed from: java  reason: collision with other field name */
-    private af f85java;
-    public q qdA;
-    private long qdF;
-    private boolean qdM;
-    private h qdP;
-    private Context qdj;
-    private boolean qdm;
-    private final Runnable qeK;
-    private long qel;
-    private Handler qer;
-    private cg qfR;
-    private k qfS;
+    private af f84java;
+    private Context pYI;
+    private boolean pYL;
+    public q pYZ;
+    private long pZK;
+    private Handler pZQ;
+    private long pZe;
+    private boolean pZl;
+    private h pZo;
+    private final Runnable qaj;
+    private cg qbq;
+    private k qbr;
 
     public y(Context context, af afVar) {
         this(context, afVar, (byte) 0);
@@ -48,21 +48,21 @@ public class y extends WebView {
 
     public y(Context context, af afVar, char c) {
         super(context.getApplicationContext(), null, 0);
-        this.qer = new Handler(Looper.getMainLooper());
-        this.qdF = 1000L;
-        this.qel = 200L;
-        this.qeK = new Runnable() { // from class: com.win.opensdk.y.1
+        this.pZQ = new Handler(Looper.getMainLooper());
+        this.pZe = 1000L;
+        this.pZK = 200L;
+        this.qaj = new Runnable() { // from class: com.win.opensdk.y.1
             @Override // java.lang.Runnable
             public final void run() {
-                if (!y.this.f84a) {
-                    y.this.eKp();
-                    y.this.qer.postDelayed(this, y.this.qdF);
+                if (!y.this.f83a) {
+                    y.this.eGz();
+                    y.this.pZQ.postDelayed(this, y.this.pZe);
                 }
             }
         };
-        this.qfR = new a();
-        this.f85java = afVar;
-        this.qdj = context;
+        this.qbq = new a();
+        this.f84java = afVar;
+        this.pYI = context;
         setHorizontalScrollbarOverlay(false);
         setHorizontalScrollBarEnabled(false);
         setVerticalScrollbarOverlay(false);
@@ -97,17 +97,17 @@ public class y extends WebView {
         if (Build.VERSION.SDK_INT >= 17) {
             getSettings().setMediaPlaybackRequiresUserGesture(false);
         }
-        this.qdP = new j(this);
-        setWebViewClient(new n(this, this.qdP));
-        setWebChromeClient(new l(this, this.qdP));
+        this.pZo = new j(this);
+        setWebViewClient(new n(this, this.pZo));
+        setWebChromeClient(new l(this, this.pZo));
     }
 
     public q getAttachView() {
-        return this.qdA;
+        return this.pYZ;
     }
 
     public cg getDispatcher() {
-        return this.qfR;
+        return this.qbq;
     }
 
     public ag getMraidState() {
@@ -115,21 +115,21 @@ public class y extends WebView {
     }
 
     public af getMraidMideaType() {
-        return this.f85java;
+        return this.f84java;
     }
 
     public void setMraidListener(k kVar) {
-        this.qfS = kVar;
+        this.qbr = kVar;
     }
 
     @Override // android.webkit.WebView, android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
-        this.f14068b = true;
+        this.f13768b = true;
         return super.onTouchEvent(motionEvent);
     }
 
     public final boolean java() {
-        return this.c && this.qdm;
+        return this.c && this.pYL;
     }
 
     @Override // android.webkit.WebView, android.view.View
@@ -146,57 +146,57 @@ public class y extends WebView {
 
     private void ej(int i, int i2) {
         if (i == 0 && i2 == 0) {
-            this.qdm = true;
+            this.pYL = true;
             a();
         } else {
-            this.qdm = false;
+            this.pYL = false;
             b();
         }
-        this.qdP.b();
+        this.pZo.b();
     }
 
     public Context getViewContext() {
-        if (this.qdj == null) {
-            this.qdj = getContext();
+        if (this.pYI == null) {
+            this.pYI = getContext();
         }
-        return this.qdj instanceof MutableContextWrapper ? ((MutableContextWrapper) this.qdj).getBaseContext() : this.qdj;
+        return this.pYI instanceof MutableContextWrapper ? ((MutableContextWrapper) this.pYI).getBaseContext() : this.pYI;
     }
 
-    public final boolean eKN() {
-        return this.f85java == af.INTERSTITIAL;
+    public final boolean eGX() {
+        return this.f84java == af.INTERSTITIAL;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public final boolean m83a() {
-        return this.f85java == af.Video;
+    public final boolean m79a() {
+        return this.f84java == af.Video;
     }
 
     public void setMRAIDUseCustomClose(boolean z) {
-        this.qdM = z;
+        this.pZl = z;
     }
 
-    public void eKq() {
+    public void eGA() {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a() {
-        if (this.qdm) {
-            this.f84a = false;
-            this.qer.removeCallbacks(this.qeK);
-            this.qer.post(this.qeK);
+        if (this.pYL) {
+            this.f83a = false;
+            this.pZQ.removeCallbacks(this.qaj);
+            this.pZQ.post(this.qaj);
         }
     }
 
     private void b() {
-        this.f84a = true;
-        this.qer.removeCallbacks(this.qeK);
+        this.f83a = true;
+        this.pZQ.removeCallbacks(this.qaj);
     }
 
     @Override // android.webkit.WebView
     public void destroy() {
         try {
-            if (this.qer != null) {
-                this.qer.removeCallbacksAndMessages(null);
+            if (this.pZQ != null) {
+                this.pZQ.removeCallbacksAndMessages(null);
             }
             b();
             removeAllViews();
@@ -207,9 +207,9 @@ public class y extends WebView {
     }
 
     /* renamed from: com.win.opensdk.y$case  reason: invalid class name */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class Ccase extends y {
-        h qdP;
+        h pZo;
 
         public Ccase(Context context, af afVar, h hVar) {
             this(context, afVar, hVar, (byte) 0);
@@ -221,7 +221,7 @@ public class y extends WebView {
 
         private Ccase(Context context, af afVar, h hVar, char c) {
             super(context, afVar, (char) 0);
-            this.qdP = hVar;
+            this.pZo = hVar;
         }
 
         @Override // com.win.opensdk.y
@@ -230,48 +230,48 @@ public class y extends WebView {
         }
 
         @Override // com.win.opensdk.y
-        public final void eKq() {
-            super.eKq();
-            this.qdP.eKp();
+        public final void eGA() {
+            super.eGA();
+            this.pZo.eGz();
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     class a implements cg {
         a() {
         }
 
         @Override // com.win.opensdk.cg
-        public final void eKp() {
+        public final void eGz() {
             y.this.a();
-            if (y.this.qfS != null) {
-                y.this.qfS.eKq();
+            if (y.this.qbr != null) {
+                y.this.qbr.eGA();
             }
         }
 
         @Override // com.win.opensdk.cg
-        public final void eKq() {
-            if (y.this.qfS != null) {
-                k unused = y.this.qfS;
+        public final void eGA() {
+            if (y.this.qbr != null) {
+                k unused = y.this.qbr;
             }
         }
 
         @Override // com.win.opensdk.cg
-        public final boolean abK(String str) {
-            if (y.this.qfS != null) {
-                return y.this.qfS.abK(str);
+        public final boolean aaC(String str) {
+            if (y.this.qbr != null) {
+                return y.this.qbr.aaC(str);
             }
             return false;
         }
     }
 
-    public final void abL(String str) {
+    public final void aaD(String str) {
         loadDataWithBaseURL("http://mr.hiking.com", str, "text/html", "utf-8", null);
     }
 
-    public final void eKp() {
+    public final void eGz() {
         boolean z = true;
-        if (!(System.currentTimeMillis() - this.f14067a < this.qel)) {
+        if (!(System.currentTimeMillis() - this.f13767a < this.pZK)) {
             int[] iArr = new int[2];
             getLocationOnScreen(iArr);
             Rect rect = new Rect();
@@ -284,22 +284,22 @@ public class y extends WebView {
             rect.width();
             getHeight();
             getWidth();
-            int[] iZ = bi.iZ(getViewContext());
-            if (width <= 0 || i >= iZ[0] || height <= 0 || i2 >= iZ[1]) {
+            int[] iX = bi.iX(getViewContext());
+            if (width <= 0 || i >= iX[0] || height <= 0 || i2 >= iX[1]) {
                 z = false;
             }
             this.c = z;
-            if (this.qdP != null) {
-                this.qdP.b();
-                this.qdP.S(i, i2, getWidth(), getHeight());
+            if (this.pZo != null) {
+                this.pZo.b();
+                this.pZo.S(i, i2, getWidth(), getHeight());
                 int i3 = getViewContext().getResources().getConfiguration().orientation;
                 if (this.java != i3) {
                     this.java = i3;
-                    this.qdP.eKq();
-                    this.qdP.a();
+                    this.pZo.eGA();
+                    this.pZo.a();
                 }
             }
-            this.f14067a = System.currentTimeMillis();
+            this.f13767a = System.currentTimeMillis();
         }
     }
 }

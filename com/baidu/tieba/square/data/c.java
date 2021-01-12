@@ -14,8 +14,8 @@ public class c {
     private List<n> dataList = new ArrayList();
     public boolean hasMore = true;
     public int pn = 0;
-    public int nkD = 0;
-    public int fhK = 0;
+    public int nfY = 0;
+    public int fdc = 0;
 
     public List<n> getDataList() {
         return this.dataList;

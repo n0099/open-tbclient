@@ -2,14 +2,13 @@ package com.baidu.tieba.advert.sdk.data;
 
 import android.text.TextUtils;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.platform.comapi.map.MapBundleKey;
 import java.io.Serializable;
 import java.net.URLDecoder;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class AdInfo implements Serializable {
     private static final long serialVersionUID = 1;
     public int adHeight;
@@ -78,11 +77,11 @@ public class AdInfo implements Serializable {
     }
 
     public boolean shouldDownloadVideo() {
-        b FW = b.FW(com.baidu.tieba.advert.sdk.c.a.bPU());
-        if (TextUtils.isEmpty(FW.videoLocalPath)) {
+        b EL = b.EL(com.baidu.tieba.advert.sdk.c.a.bMc());
+        if (TextUtils.isEmpty(EL.videoLocalPath)) {
             return true;
         }
-        return TextUtils.isEmpty(FW.adVideoUrl) ? !TextUtils.isEmpty(this.adVideoUrl) : !FW.adVideoUrl.equals(this.adVideoUrl);
+        return TextUtils.isEmpty(EL.adVideoUrl) ? !TextUtils.isEmpty(this.adVideoUrl) : !EL.adVideoUrl.equals(this.adVideoUrl);
     }
 
     public void parseFromJson(JSONObject jSONObject) {
@@ -97,7 +96,7 @@ public class AdInfo implements Serializable {
         if (jSONObject != null) {
             try {
                 JSONObject jSONObject7 = jSONObject.getJSONObject("res");
-                if (jSONObject7 != null && (jSONArray = jSONObject7.getJSONArray(MapBundleKey.MapObjKey.OBJ_AD)) != null && jSONArray.length() > 0 && (jSONObject2 = jSONArray.getJSONObject(0)) != null && (jSONArray2 = jSONObject2.getJSONArray("adInfo")) != null && jSONArray2.length() > 0 && (jSONObject3 = jSONArray2.getJSONObject(0)) != null) {
+                if (jSONObject7 != null && (jSONArray = jSONObject7.getJSONArray("ad")) != null && jSONArray.length() > 0 && (jSONObject2 = jSONArray.getJSONObject(0)) != null && (jSONArray2 = jSONObject2.getJSONArray("adInfo")) != null && jSONArray2.length() > 0 && (jSONObject3 = jSONArray2.getJSONObject(0)) != null) {
                     if (jSONObject3.has("advisible")) {
                         this.advisible = jSONObject3.getInt("advisible");
                     } else {

@@ -2,7 +2,7 @@ package aegon.chrome.net;
 
 import aegon.chrome.base.ApplicationStatus;
 import aegon.chrome.net.NetworkChangeNotifierAutoDetect;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class RegistrationPolicyApplicationStatus extends NetworkChangeNotifierAutoDetect.RegistrationPolicy implements ApplicationStatus.ApplicationStateListener {
     public boolean mDestroyed;
 

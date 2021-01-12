@@ -8,35 +8,35 @@ import com.baidu.live.lottie.model.content.Mask;
 import com.baidu.searchbox.perfframe.basic.PerfFrameTrackUIUtil;
 import java.util.List;
 import java.util.Locale;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class Layer {
-    private final float BU;
-    private final List<Mask> EA;
-    private final String GP;
+    private final float BS;
+    private final List<Mask> Ey;
+    private final String GN;
+    private final long GO;
     private final long GQ;
-    private final long GU;
     @Nullable
-    private final String GV;
+    private final String GR;
+    private final int GU;
+    private final int GV;
     private final int GW;
-    private final int GX;
+    private final float GX;
     private final int GY;
-    private final float GZ;
-    private final int Ha;
-    private final int Hb;
-    private final List<com.baidu.live.lottie.e.a<Float>> Hf;
+    private final int GZ;
+    private final List<com.baidu.live.lottie.e.a<Float>> Hd;
+    private final LayerType bqJ;
     @Nullable
-    private final com.baidu.live.lottie.model.a.b bvA;
-    private final MatteType bvB;
-    private final l bvk;
-    private final LayerType bvx;
+    private final j bqK;
     @Nullable
-    private final j bvy;
+    private final k bqL;
     @Nullable
-    private final k bvz;
+    private final com.baidu.live.lottie.model.a.b bqM;
+    private final MatteType bqN;
+    private final l bqw;
     private final com.baidu.live.lottie.e composition;
     private final List<com.baidu.live.lottie.model.content.b> shapes;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public enum LayerType {
         PreComp,
         Solid,
@@ -47,7 +47,7 @@ public class Layer {
         Unknown
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public enum MatteType {
         None,
         Add,
@@ -58,25 +58,25 @@ public class Layer {
     public Layer(List<com.baidu.live.lottie.model.content.b> list, com.baidu.live.lottie.e eVar, String str, long j, LayerType layerType, long j2, @Nullable String str2, List<Mask> list2, l lVar, int i, int i2, int i3, float f, float f2, int i4, int i5, @Nullable j jVar, @Nullable k kVar, List<com.baidu.live.lottie.e.a<Float>> list3, MatteType matteType, @Nullable com.baidu.live.lottie.model.a.b bVar) {
         this.shapes = list;
         this.composition = eVar;
-        this.GP = str;
-        this.GQ = j;
-        this.bvx = layerType;
-        this.GU = j2;
-        this.GV = str2;
-        this.EA = list2;
-        this.bvk = lVar;
-        this.GW = i;
-        this.GX = i2;
-        this.GY = i3;
-        this.GZ = f;
-        this.BU = f2;
-        this.Ha = i4;
-        this.Hb = i5;
-        this.bvy = jVar;
-        this.bvz = kVar;
-        this.Hf = list3;
-        this.bvB = matteType;
-        this.bvA = bVar;
+        this.GN = str;
+        this.GO = j;
+        this.bqJ = layerType;
+        this.GQ = j2;
+        this.GR = str2;
+        this.Ey = list2;
+        this.bqw = lVar;
+        this.GU = i;
+        this.GV = i2;
+        this.GW = i3;
+        this.GX = f;
+        this.BS = f2;
+        this.GY = i4;
+        this.GZ = i5;
+        this.bqK = jVar;
+        this.bqL = kVar;
+        this.Hd = list3;
+        this.bqN = matteType;
+        this.bqM = bVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -86,61 +86,61 @@ public class Layer {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public float jX() {
-        return this.GZ;
+        return this.GX;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public float jY() {
-        return this.BU / this.composition.ia();
+        return this.BS / this.composition.ia();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public List<com.baidu.live.lottie.e.a<Float>> jZ() {
-        return this.Hf;
+        return this.Hd;
     }
 
     public long getId() {
-        return this.GQ;
+        return this.GO;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public String getName() {
-        return this.GP;
+        return this.GN;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     @Nullable
     public String getRefId() {
-        return this.GV;
+        return this.GR;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public int ka() {
-        return this.Ha;
+        return this.GY;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public int kb() {
-        return this.Hb;
+        return this.GZ;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public List<Mask> iM() {
-        return this.EA;
+        return this.Ey;
     }
 
-    public LayerType QA() {
-        return this.bvx;
+    public LayerType MF() {
+        return this.bqJ;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public MatteType QB() {
-        return this.bvB;
+    public MatteType MG() {
+        return this.bqN;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public long ke() {
-        return this.GU;
+        return this.GQ;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -149,41 +149,41 @@ public class Layer {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public l Qu() {
-        return this.bvk;
+    public l Mz() {
+        return this.bqw;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public int getSolidColor() {
-        return this.GY;
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public int kf() {
-        return this.GX;
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public int kg() {
         return this.GW;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    @Nullable
-    public j QC() {
-        return this.bvy;
+    public int kf() {
+        return this.GV;
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public int kg() {
+        return this.GU;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     @Nullable
-    public k QD() {
-        return this.bvz;
+    public j MH() {
+        return this.bqK;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     @Nullable
-    public com.baidu.live.lottie.model.a.b QE() {
-        return this.bvA;
+    public k MI() {
+        return this.bqL;
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    @Nullable
+    public com.baidu.live.lottie.model.a.b MJ() {
+        return this.bqM;
     }
 
     public String toString() {

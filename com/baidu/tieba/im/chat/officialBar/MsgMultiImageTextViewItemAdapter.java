@@ -7,7 +7,7 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.im.chat.MsgCommonItemAdapter;
 import com.baidu.tieba.im.chat.MsglistActivity;
 import com.baidu.tieba.im.message.chat.ChatMessage;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class MsgMultiImageTextViewItemAdapter extends MsgCommonItemAdapter<MsgMultiImageTextView> {
     public MsgMultiImageTextViewItemAdapter(TbPageContext<MsglistActivity<?>> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext, bdUniqueId);
@@ -27,21 +27,21 @@ public class MsgMultiImageTextViewItemAdapter extends MsgCommonItemAdapter<MsgMu
     @Override // com.baidu.tieba.im.chat.MsgCommonItemAdapter, com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, ChatMessage chatMessage, MsgCommonItemAdapter.MsgViewHolder<MsgMultiImageTextView> msgViewHolder) {
         super.a(i, view, viewGroup, chatMessage, (MsgCommonItemAdapter.MsgViewHolder) msgViewHolder);
-        MsgMultiImageTextView cWz = msgViewHolder.cWz();
-        cWz.setOnItemViewLongClickListener(this.kwE);
-        cWz.setPosition(i);
-        cWz.gH(this.gsJ);
-        cWz.gG(chatMessage.getCacheData().getLastMsgTime());
-        cWz.a(this.mPageContext, chatMessage, viewGroup);
+        MsgMultiImageTextView cSH = msgViewHolder.cSH();
+        cSH.setOnItemViewLongClickListener(this.krZ);
+        cSH.setPosition(i);
+        cSH.gH(this.goc);
+        cSH.gG(chatMessage.getCacheData().getLastMsgTime());
+        cSH.a(this.mPageContext, chatMessage, viewGroup);
         this.mPageContext.getLayoutMode().setNightMode(false);
         this.mPageContext.getLayoutMode().onModeChanged(view);
-        com.baidu.tieba.im.b.a.cZQ().a(chatMessage, this.mPageContext.getPageActivity());
-        com.baidu.tieba.im.b.a.cZQ().b(chatMessage, this.mPageContext.getPageActivity());
+        com.baidu.tieba.im.b.a.cVY().a(chatMessage, this.mPageContext.getPageActivity());
+        com.baidu.tieba.im.b.a.cVY().b(chatMessage, this.mPageContext.getPageActivity());
         return view;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public class a extends MsgCommonItemAdapter.MsgViewHolder<MsgMultiImageTextView> {
         public a(View view, MsgMultiImageTextView msgMultiImageTextView) {
             super(view, msgMultiImageTextView);

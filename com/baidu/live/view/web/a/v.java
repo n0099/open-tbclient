@@ -4,9 +4,9 @@ import com.baidu.live.adp.framework.MessageManager;
 import com.baidu.live.adp.framework.message.CustomResponsedMessage;
 import com.baidu.live.tbadk.scheme.SchemeCallback;
 import com.baidu.live.tbadk.scheme.SchemeCallbackWithName;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class v extends com.baidu.live.view.web.a {
-    SchemeCallbackWithName bWV = new SchemeCallbackWithName();
+    SchemeCallbackWithName bSj = new SchemeCallbackWithName();
     private SchemeCallback schemeCallback;
 
     public v(SchemeCallback schemeCallback) {
@@ -19,11 +19,11 @@ public class v extends com.baidu.live.view.web.a {
     }
 
     @Override // com.baidu.live.view.web.a
-    public void jf(String str) {
+    public void hU(String str) {
         if (this.schemeCallback != null) {
-            this.bWV.schemeCallback = this.schemeCallback;
-            this.bWV.callBackName = str;
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913280, this.bWV));
+            this.bSj.schemeCallback = this.schemeCallback;
+            this.bSj.callBackName = str;
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913280, this.bSj));
         }
     }
 }

@@ -12,13 +12,13 @@ import com.baidu.tieba.R;
 import tbclient.VideoInfo;
 /* loaded from: classes.dex */
 public class ar extends h {
-    private static final int ahx = UtilHelper.getDimenPixelSize(R.dimen.M_W_X004) * 2;
-    private static int ahy = com.baidu.adp.lib.util.l.getEquipmentWidth(TbadkCoreApplication.getInst());
-    private com.baidu.tbadk.core.data.a ahi;
-    private int akb;
-    private int akc;
-    private VideoImageNoPlayerLayout akd;
-    private com.baidu.card.view.a ake;
+    private static final int agG = UtilHelper.getDimenPixelSize(R.dimen.M_W_X004) * 2;
+    private static int agH = com.baidu.adp.lib.util.l.getEquipmentWidth(TbadkCoreApplication.getInst());
+    private com.baidu.tbadk.core.data.a agr;
+    private int ajk;
+    private int ajl;
+    private VideoImageNoPlayerLayout ajm;
+    private com.baidu.card.view.a ajn;
     private Context mContext;
     private String mFrom;
     private int mLastScreenWidth;
@@ -27,59 +27,59 @@ public class ar extends h {
 
     public ar(Context context) {
         super(context);
-        this.akb = ahy;
-        this.akc = this.akb / 2;
-        this.minHeight = this.akb / 3;
+        this.ajk = agH;
+        this.ajl = this.ajk / 2;
+        this.minHeight = this.ajk / 3;
         this.mLastScreenWidth = 0;
         this.mSkinType = 3;
         this.mContext = context;
-        this.akd = new VideoImageNoPlayerLayout(context);
+        this.ajm = new VideoImageNoPlayerLayout(context);
         c(true);
     }
 
     @Override // com.baidu.card.a
     public View getView() {
-        return this.akd;
+        return this.ajm;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.card.p
     /* renamed from: b */
-    public void D(com.baidu.tbadk.core.data.a aVar) {
+    public void C(com.baidu.tbadk.core.data.a aVar) {
         boolean z;
         boolean z2 = true;
         int equipmentWidth = com.baidu.adp.lib.util.l.getEquipmentWidth(TbadkCoreApplication.getInst());
         if (equipmentWidth != this.mLastScreenWidth) {
-            ahy = com.baidu.adp.lib.util.l.getEquipmentWidth(TbadkCoreApplication.getInst());
+            agH = com.baidu.adp.lib.util.l.getEquipmentWidth(TbadkCoreApplication.getInst());
             if (!"pb".equals(this.mFrom)) {
-                this.akb = ahy - ahx;
+                this.ajk = agH - agG;
             } else {
-                this.akb = ahy;
+                this.ajk = agH;
             }
-            this.akc = this.akb / 2;
-            this.minHeight = this.akb / 3;
+            this.ajl = this.ajk / 2;
+            this.minHeight = this.ajk / 3;
             this.mLastScreenWidth = equipmentWidth;
         }
-        this.ahi = aVar;
-        if (this.ahi == null || this.ahi.boP() == null || this.ahi.boP().eVB == null || this.ahi.boP().eVB.ePW) {
-            this.akd.setVisibility(8);
+        this.agr = aVar;
+        if (this.agr == null || this.agr.bkV() == null || this.agr.bkV().eQQ == null || this.agr.bkV().eQQ.eLl) {
+            this.ajm.setVisibility(8);
             return;
         }
-        this.akd.setVisibility(0);
-        this.akd.D(aVar);
-        ViewGroup.LayoutParams layoutParams = this.akd.getLayoutParams();
-        ViewGroup.LayoutParams layoutParams2 = this.akd.anA.getLayoutParams();
+        this.ajm.setVisibility(0);
+        this.ajm.C(aVar);
+        ViewGroup.LayoutParams layoutParams = this.ajm.getLayoutParams();
+        ViewGroup.LayoutParams layoutParams2 = this.ajm.amJ.getLayoutParams();
         int i = layoutParams.width;
         int i2 = layoutParams.height;
-        if (this.ahi.boP().eVB.videoInfo.is_vertical.intValue() == 1) {
-            VideoInfo videoInfo = this.ahi.boP().eVB.videoInfo;
+        if (this.agr.bkV().eQQ.videoInfo.is_vertical.intValue() == 1) {
+            VideoInfo videoInfo = this.agr.bkV().eQQ.videoInfo;
             if (videoInfo != null) {
-                int i3 = (this.akc / 9) * 16;
+                int i3 = (this.ajl / 9) * 16;
                 int i4 = this.minHeight;
                 int intValue = videoInfo.video_width.intValue();
                 int intValue2 = videoInfo.video_height.intValue();
-                layoutParams.width = this.akb;
-                layoutParams2.width = this.akc;
+                layoutParams.width = this.ajk;
+                layoutParams2.width = this.ajl;
                 boolean z3 = i != layoutParams.width;
                 if (intValue == 0 || intValue2 == 0) {
                     layoutParams.height = i3;
@@ -91,7 +91,7 @@ public class ar extends h {
                     z = z3;
                     z2 = com.baidu.tbadk.a.b.b.a(layoutParams, layoutParams2, i, i2, z);
                 } else {
-                    int i5 = (int) (((1.0f * intValue2) / intValue) * this.akc);
+                    int i5 = (int) (((1.0f * intValue2) / intValue) * this.ajl);
                     if (i5 >= i4) {
                         i4 = i5 > i3 ? i3 : i5;
                     }
@@ -108,41 +108,41 @@ public class ar extends h {
                 return;
             }
         } else {
-            layoutParams.width = this.akb;
-            layoutParams2.width = this.akb;
-            layoutParams.height = ((this.akb / 16) * 9) - com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds6);
-            layoutParams2.height = ((this.akb / 16) * 9) - com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds6);
+            layoutParams.width = this.ajk;
+            layoutParams2.width = this.ajk;
+            layoutParams.height = ((this.ajk / 16) * 9) - com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds6);
+            layoutParams2.height = ((this.ajk / 16) * 9) - com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds6);
             if (i2 == layoutParams.height && i == layoutParams.width) {
                 z2 = false;
             }
         }
         if (z2) {
-            this.akd.setLayoutParams(layoutParams);
-            this.akd.anA.setLayoutParams(layoutParams2);
+            this.ajm.setLayoutParams(layoutParams);
+            this.ajm.amJ.setLayoutParams(layoutParams2);
         }
-        this.akd.setJumpToPbListener(new View.OnClickListener() { // from class: com.baidu.card.ar.1
+        this.ajm.setJumpToPbListener(new View.OnClickListener() { // from class: com.baidu.card.ar.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (ar.this.ahg != null) {
-                    ar.this.ahg.a(ar.this.ahi);
+                if (ar.this.agp != null) {
+                    ar.this.agp.a(ar.this.agr);
                 }
             }
         });
-        this.akd.setData(this.ahi);
-        if (tc() != null) {
+        this.ajm.setData(this.agr);
+        if (sR() != null) {
         }
     }
 
     @Override // com.baidu.card.a
     public void setOnCardSubClickListener(com.baidu.tieba.card.aa<com.baidu.tbadk.core.data.a> aaVar) {
         super.setOnCardSubClickListener(aaVar);
-        this.akd.setOnCardSubClickListener(aaVar);
+        this.ajm.setOnCardSubClickListener(aaVar);
     }
 
     @Override // com.baidu.card.q
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         if (this.mSkinType != i) {
-            this.akd.onChangeSkinType(tbPageContext, i);
+            this.ajm.onChangeSkinType(tbPageContext, i);
         }
         this.mSkinType = i;
     }
@@ -151,24 +151,24 @@ public class ar extends h {
         this.mFrom = str;
     }
 
-    public void a(a.InterfaceC0089a interfaceC0089a) {
-        this.ahg = interfaceC0089a;
+    public void a(a.InterfaceC0088a interfaceC0088a) {
+        this.agp = interfaceC0088a;
     }
 
     public void setVideoAreaClickListener(com.baidu.card.view.a aVar) {
-        this.ake = aVar;
+        this.ajn = aVar;
         if (aVar != null) {
-            tD();
+            ts();
         }
     }
 
-    private void tD() {
-        if (this.akd != null) {
-            this.akd.setVideoAreaClickListener(new com.baidu.card.view.a() { // from class: com.baidu.card.ar.2
+    private void ts() {
+        if (this.ajm != null) {
+            this.ajm.setVideoAreaClickListener(new com.baidu.card.view.a() { // from class: com.baidu.card.ar.2
                 @Override // com.baidu.card.view.a
                 public void a(com.baidu.tbadk.core.data.a aVar) {
-                    if (ar.this.ake != null) {
-                        ar.this.ake.a(ar.this.ahi);
+                    if (ar.this.ajn != null) {
+                        ar.this.ajn.a(ar.this.agr);
                     }
                 }
             });

@@ -8,27 +8,27 @@ import com.baidu.live.adp.framework.message.HttpResponsedMessage;
 import com.baidu.live.tbadk.TbPageContext;
 import com.baidu.live.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.yuyinala.liveroom.wheat.message.AlaGetInviteConnectionWheatListHttpResponseMessage;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class g extends BdBaseModel {
     private TbPageContext mPageContext;
-    private a oEE;
+    private a ozZ;
     private HttpMessageListener messageListener = new HttpMessageListener(1031014) { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.model.g.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            if (httpResponsedMessage != null && (httpResponsedMessage instanceof AlaGetInviteConnectionWheatListHttpResponseMessage) && httpResponsedMessage.getOrginalMessage().getTag() == g.this.bwz && g.this.oEE != null) {
+            if (httpResponsedMessage != null && (httpResponsedMessage instanceof AlaGetInviteConnectionWheatListHttpResponseMessage) && httpResponsedMessage.getOrginalMessage().getTag() == g.this.brL && g.this.ozZ != null) {
                 AlaGetInviteConnectionWheatListHttpResponseMessage alaGetInviteConnectionWheatListHttpResponseMessage = (AlaGetInviteConnectionWheatListHttpResponseMessage) httpResponsedMessage;
                 if (alaGetInviteConnectionWheatListHttpResponseMessage.getError() != 0 || !alaGetInviteConnectionWheatListHttpResponseMessage.isSuccess()) {
-                    g.this.oEE.onFail(alaGetInviteConnectionWheatListHttpResponseMessage.getError(), alaGetInviteConnectionWheatListHttpResponseMessage.getErrorString());
+                    g.this.ozZ.onFail(alaGetInviteConnectionWheatListHttpResponseMessage.getError(), alaGetInviteConnectionWheatListHttpResponseMessage.getErrorString());
                 } else {
-                    g.this.oEE.a(alaGetInviteConnectionWheatListHttpResponseMessage);
+                    g.this.ozZ.a(alaGetInviteConnectionWheatListHttpResponseMessage);
                 }
             }
         }
     };
-    private BdUniqueId bwz = BdUniqueId.gen();
+    private BdUniqueId brL = BdUniqueId.gen();
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public interface a {
         void a(AlaGetInviteConnectionWheatListHttpResponseMessage alaGetInviteConnectionWheatListHttpResponseMessage);
 
@@ -36,15 +36,15 @@ public class g extends BdBaseModel {
     }
 
     public g(TbPageContext tbPageContext, a aVar) {
-        setUniqueId(this.bwz);
+        setUniqueId(this.brL);
         this.mPageContext = tbPageContext;
-        this.oEE = aVar;
-        bmg();
+        this.ozZ = aVar;
+        bim();
         registerListener(this.messageListener);
     }
 
-    private void bmg() {
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1031014, com.baidu.live.a.aAH + "/ala/audio/link/getInvite");
+    private void bim() {
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1031014, com.baidu.live.a.avU + "/ala/audio/link/getInvite");
         tbHttpMessageTask.setIsNeedTbs(true);
         tbHttpMessageTask.setIsUseCurrentBDUSS(true);
         tbHttpMessageTask.setResponsedClass(AlaGetInviteConnectionWheatListHttpResponseMessage.class);
@@ -52,7 +52,7 @@ public class g extends BdBaseModel {
     }
 
     public void request() {
-        sendMessage(new com.baidu.tieba.yuyinala.liveroom.wheat.message.g(com.baidu.tieba.yuyinala.liveroom.wheat.a.c.eep().Cq()));
+        sendMessage(new com.baidu.tieba.yuyinala.liveroom.wheat.message.g(com.baidu.tieba.yuyinala.liveroom.wheat.a.c.eax().yv()));
     }
 
     @Override // com.baidu.live.adp.base.BdBaseModel

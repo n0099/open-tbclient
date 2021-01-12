@@ -3,7 +3,7 @@ package aegon.chrome.net.impl;
 import aegon.chrome.net.UploadDataProvider;
 import aegon.chrome.net.UploadDataSink;
 import java.nio.ByteBuffer;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public final class VersionSafeCallbacks$UploadDataProviderWrapper extends UploadDataProvider {
     public final UploadDataProvider mWrappedProvider;
 

@@ -14,11 +14,11 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class a implements d.a {
-    public static a aoE;
-    public a.a.a.b.b aoF;
-    public c aoG;
+    public static a anR;
+    public a.a.a.b.b anS;
+    public c anT;
     public ExecutorService mExecutorService;
     public Handler mHandler = new Handler(Looper.getMainLooper());
     public Map<String, d> mDownloaderMap = new LinkedHashMap();
@@ -28,12 +28,12 @@ public class a implements d.a {
     }
 
     private void a(@NonNull a.a.a.b.b bVar) {
-        if (bVar.f1036b > bVar.f1035a) {
+        if (bVar.f1035b > bVar.f1034a) {
             throw new IllegalArgumentException("thread num must < max thread num");
         }
-        this.aoF = bVar;
-        this.mExecutorService = Executors.newFixedThreadPool(this.aoF.f1035a);
-        this.aoG = new h(this.mHandler);
+        this.anS = bVar;
+        this.mExecutorService = Executors.newFixedThreadPool(this.anS.f1034a);
+        this.anT = new h(this.mHandler);
     }
 
     private void a(b bVar, String str, com.baidu.cloudbase.download.a.a aVar, c cVar) {
@@ -43,7 +43,7 @@ public class a implements d.a {
             return;
         }
         Log.d("RtcDownSo", "real start down ...");
-        g gVar = new g(bVar, new a.a.a.b.b.a(cVar, aVar), this.mExecutorService, createKey, this.aoF, this);
+        g gVar = new g(bVar, new a.a.a.b.b.a(cVar, aVar), this.mExecutorService, createKey, this.anS, this);
         this.mDownloaderMap.put(createKey, gVar);
         gVar.start();
     }
@@ -67,19 +67,19 @@ public class a implements d.a {
         return false;
     }
 
-    public static a ug() {
-        if (aoE == null) {
+    public static a tZ() {
+        if (anR == null) {
             synchronized (a.class) {
                 try {
-                    if (aoE == null) {
-                        aoE = new a();
+                    if (anR == null) {
+                        anR = new a();
                     }
                 } catch (Throwable th) {
                     throw th;
                 }
             }
         }
-        return aoE;
+        return anR;
     }
 
     public void a(b bVar, String str, com.baidu.cloudbase.download.a.a aVar) {
@@ -87,7 +87,7 @@ public class a implements d.a {
         if (isDownloadRequestRunning(createKey)) {
             return;
         }
-        g gVar = new g(bVar, new a.a.a.b.b.a(this.aoG, aVar), this.mExecutorService, createKey, this.aoF, this);
+        g gVar = new g(bVar, new a.a.a.b.b.a(this.anT, aVar), this.mExecutorService, createKey, this.anS, this);
         this.mDownloaderMap.put(createKey, gVar);
         gVar.start();
     }
@@ -108,7 +108,7 @@ public class a implements d.a {
         if (looper == null) {
             looper = Looper.getMainLooper();
         }
-        a(new b.a().dr(str).k(new File(str2)).d(str3).uh(), str, aVar, new h(new Handler(looper)));
+        a(new b.a().dm(str).j(new File(str2)).d(str3).ua(), str, aVar, new h(new Handler(looper)));
     }
 
     public void cancel(String str) {

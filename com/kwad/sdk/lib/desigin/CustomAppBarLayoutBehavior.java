@@ -17,7 +17,7 @@ import com.kwad.sdk.lib.desigin.KSCoordinatorLayout;
 import java.util.Arrays;
 import java.util.List;
 @Keep
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class CustomAppBarLayoutBehavior extends KSAppBarLayout.KSBehavior implements CustomAppBarCustomAttrListener, CustomAppBarFlingConsumer {
     private static final String TAG = CustomAppBarLayoutBehavior.class.toString();
     private CustomAppBarFlingConsumer mCustomAppBarFlingConsumer;

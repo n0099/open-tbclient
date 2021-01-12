@@ -5,9 +5,9 @@ import android.util.AttributeSet;
 import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.coreExtra.view.TbSettingTextTipView;
 import com.baidu.tieba.R;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class SettingTextFunctionIntroView extends TbSettingTextTipView {
-    public static String ndb = "has_shown_funtion_intro";
+    public static String mYw = "has_shown_funtion_intro";
 
     public SettingTextFunctionIntroView(Context context) {
         super(context);

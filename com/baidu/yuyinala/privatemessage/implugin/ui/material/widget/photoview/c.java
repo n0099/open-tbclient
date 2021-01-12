@@ -1,4 +1,4 @@
 package com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.photoview;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public interface c {
 }

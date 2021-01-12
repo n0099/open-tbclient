@@ -7,23 +7,23 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.themeCenter.background.BackgroundGroupModel;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class BackgroundGroupActivity extends BaseActivity<BackgroundGroupActivity> {
     private TbPageContext<?> mPageContext;
-    private BackgroundGroupModel nBf;
-    private c nBg;
-    private d nBh;
-    private BackgroundGroupModel.a nBi = new BackgroundGroupModel.a() { // from class: com.baidu.tieba.themeCenter.background.BackgroundGroupActivity.1
+    private BackgroundGroupModel nwA;
+    private c nwB;
+    private d nwC;
+    private BackgroundGroupModel.a nwD = new BackgroundGroupModel.a() { // from class: com.baidu.tieba.themeCenter.background.BackgroundGroupActivity.1
         @Override // com.baidu.tieba.themeCenter.background.BackgroundGroupModel.a
         public void a(int i, String str, com.baidu.tieba.themeCenter.dressCenter.e eVar, List<b> list) {
-            BackgroundGroupActivity.this.hideLoadingView(BackgroundGroupActivity.this.nBg.getRootView());
-            BackgroundGroupActivity.this.nBg.cQv();
+            BackgroundGroupActivity.this.hideLoadingView(BackgroundGroupActivity.this.nwB.getRootView());
+            BackgroundGroupActivity.this.nwB.cMD();
             if (i == 0) {
-                BackgroundGroupActivity.this.nBg.a(eVar, list, BackgroundGroupActivity.this.nBf.dMw());
+                BackgroundGroupActivity.this.nwB.a(eVar, list, BackgroundGroupActivity.this.nwA.dIE());
                 return;
             }
             BackgroundGroupActivity.this.showToast(str);
-            BackgroundGroupActivity.this.nBg.cDo();
+            BackgroundGroupActivity.this.nwB.czw();
         }
     };
 
@@ -33,14 +33,14 @@ public class BackgroundGroupActivity extends BaseActivity<BackgroundGroupActivit
         super.onCreate(bundle);
         TbadkCoreApplication.getInst().setThemeWebviewOpen(false);
         this.mPageContext = getPageContext();
-        this.nBf = new BackgroundGroupModel(this);
-        this.nBf.a(this.nBi);
-        this.nBh = new d(this.mPageContext, this.nBf.getUniqueId());
-        this.nBh.setFrom(1);
-        this.nBg = new c(this, this.nBh);
-        this.nBg.cQu();
-        showLoadingView(this.nBg.getRootView());
-        this.nBf.LoadData();
+        this.nwA = new BackgroundGroupModel(this);
+        this.nwA.a(this.nwD);
+        this.nwC = new d(this.mPageContext, this.nwA.getUniqueId());
+        this.nwC.setFrom(1);
+        this.nwB = new c(this, this.nwC);
+        this.nwB.cMC();
+        showLoadingView(this.nwB.getRootView());
+        this.nwA.LoadData();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -49,8 +49,8 @@ public class BackgroundGroupActivity extends BaseActivity<BackgroundGroupActivit
         super.onResume();
         if (TbadkCoreApplication.getInst().getThemeWebviewOpen()) {
             TbadkCoreApplication.getInst().setThemeWebviewOpen(false);
-            showLoadingView(this.nBg.getRootView());
-            this.nBf.LoadData();
+            showLoadingView(this.nwB.getRootView());
+            this.nwA.LoadData();
         }
     }
 
@@ -58,8 +58,8 @@ public class BackgroundGroupActivity extends BaseActivity<BackgroundGroupActivit
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        if (this.nBg != null) {
-            this.nBg.bCP();
+        if (this.nwB != null) {
+            this.nwB.byV();
         }
     }
 
@@ -72,14 +72,14 @@ public class BackgroundGroupActivity extends BaseActivity<BackgroundGroupActivit
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity
     public void onNetRefreshButtonClicked() {
-        if (this.nBf != null && this.nBg != null) {
-            showLoadingView(this.nBg.getRootView());
-            this.nBf.LoadData();
+        if (this.nwA != null && this.nwB != null) {
+            showLoadingView(this.nwB.getRootView());
+            this.nwA.LoadData();
         }
     }
 
     public int getPropId() {
-        return this.nBh.getPropId();
+        return this.nwC.getPropId();
     }
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.tbadk.m.a

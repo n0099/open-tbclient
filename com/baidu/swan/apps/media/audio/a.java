@@ -1,75 +1,76 @@
 package com.baidu.swan.apps.media.audio;
 
 import android.text.TextUtils;
+import com.baidu.searchbox.account.data.UserAccountActionItem;
 import com.baidu.swan.apps.ao.ab;
 import com.baidu.swan.apps.runtime.e;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class a {
     protected static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    String dkZ;
-    public boolean dlb;
+    String dgk;
+    public boolean dgm;
     public String mReferer;
     public String mUserAgent;
-    public String dkT = "";
-    public String cGy = "";
+    public String dge = "";
+    public String cBM = "";
     public String mUrl = "";
     public String mTitle = "";
-    public String dkU = "";
-    public String dkV = "";
+    public String dgf = "";
+    public String dgg = "";
     public String mCoverUrl = "";
-    public String dkW = "";
-    public int dkX = 0;
+    public String dgh = "";
+    public int dgi = 0;
     public int mPos = 0;
-    public String dkY = "";
-    public boolean dla = false;
+    public String dgj = "";
+    public boolean dgl = false;
 
     public static a a(JSONObject jSONObject, a aVar) {
         a aVar2 = new a();
         if (jSONObject != null) {
-            aVar2.dkT = jSONObject.optString("audioId", aVar.dkT);
-            aVar2.cGy = jSONObject.optString("slaveId", aVar.cGy);
-            aVar2.mUrl = jSONObject.optString("src", aVar.mUrl);
-            aVar2.dla = e.aMl() != null && com.baidu.swan.apps.storage.b.tN(aVar2.mUrl);
+            aVar2.dge = jSONObject.optString("audioId", aVar.dge);
+            aVar2.cBM = jSONObject.optString("slaveId", aVar.cBM);
+            aVar2.mUrl = jSONObject.optString(UserAccountActionItem.KEY_SRC, aVar.mUrl);
+            aVar2.dgl = e.aIr() != null && com.baidu.swan.apps.storage.b.sC(aVar2.mUrl);
             aVar2.mTitle = jSONObject.optString("title", aVar.mTitle);
-            aVar2.dkU = jSONObject.optString("epname", aVar.dkU);
-            aVar2.dkV = jSONObject.optString("singer", aVar.dkV);
+            aVar2.dgf = jSONObject.optString("epname", aVar.dgf);
+            aVar2.dgg = jSONObject.optString("singer", aVar.dgg);
             aVar2.mCoverUrl = jSONObject.optString("coverImgUrl", aVar.mCoverUrl);
-            aVar2.dkW = jSONObject.optString("lrcURL", aVar.dkW);
-            aVar2.dkX = jSONObject.optInt("startTime", aVar.dkX);
+            aVar2.dgh = jSONObject.optString("lrcURL", aVar.dgh);
+            aVar2.dgi = jSONObject.optInt("startTime", aVar.dgi);
             aVar2.mPos = jSONObject.optInt("position", aVar.mPos);
-            aVar2.dkZ = jSONObject.optString("cb", aVar.dkZ);
-            aVar2.dkY = jSONObject.optString("param", aVar.dkY);
-            aVar2.dlb = TextUtils.isEmpty(jSONObject.optString("src"));
-            String avZ = com.baidu.swan.apps.core.turbo.d.avB().avZ();
-            if (!TextUtils.isEmpty(avZ)) {
-                aVar2.mUserAgent = avZ;
+            aVar2.dgk = jSONObject.optString("cb", aVar.dgk);
+            aVar2.dgj = jSONObject.optString("param", aVar.dgj);
+            aVar2.dgm = TextUtils.isEmpty(jSONObject.optString(UserAccountActionItem.KEY_SRC));
+            String ase = com.baidu.swan.apps.core.turbo.d.arG().ase();
+            if (!TextUtils.isEmpty(ase)) {
+                aVar2.mUserAgent = ase;
             }
-            String aRz = ab.aRz();
-            if (!TextUtils.isEmpty(aRz) && ab.uQ(aVar2.mUrl)) {
-                aVar2.mReferer = aRz;
+            String aNF = ab.aNF();
+            if (!TextUtils.isEmpty(aNF) && ab.tF(aVar2.mUrl)) {
+                aVar2.mReferer = aNF;
             }
         }
         return aVar2;
     }
 
-    public boolean aEd() {
-        return this.dlb;
+    public boolean aAj() {
+        return this.dgm;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public String qk(String str) {
+    public String oZ(String str) {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.putOpt("src", str);
+            jSONObject.putOpt(UserAccountActionItem.KEY_SRC, str);
             jSONObject.putOpt("title", this.mTitle);
-            jSONObject.putOpt("epname", this.dkU);
-            jSONObject.putOpt("singer", this.dkV);
+            jSONObject.putOpt("epname", this.dgf);
+            jSONObject.putOpt("singer", this.dgg);
             jSONObject.putOpt("coverImgUrl", this.mCoverUrl);
-            jSONObject.putOpt("lrcURL", this.dkW);
-            jSONObject.putOpt("isLocal", Boolean.valueOf(this.dla));
-            jSONObject.putOpt("appid", e.aMn());
+            jSONObject.putOpt("lrcURL", this.dgh);
+            jSONObject.putOpt("isLocal", Boolean.valueOf(this.dgl));
+            jSONObject.putOpt("appid", e.aIt());
             jSONObject.putOpt("user-agent", this.mUserAgent);
             jSONObject.putOpt("refer", this.mReferer);
         } catch (JSONException e) {
@@ -81,6 +82,6 @@ public class a {
     }
 
     public String toString() {
-        return "playerId : " + this.dkT + "; slaveId : " + this.cGy + "; url : " + this.mUrl + "; startTime : " + this.dkX + "; pos : " + this.mPos + "; canPlay : " + this.dlb;
+        return "playerId : " + this.dge + "; slaveId : " + this.cBM + "; url : " + this.mUrl + "; startTime : " + this.dgi + "; pos : " + this.mPos + "; canPlay : " + this.dgm;
     }
 }

@@ -7,7 +7,7 @@ import android.content.Intent;
 import androidx.core.app.NotificationCompat;
 import com.baidu.sofire.MyService;
 import com.baidu.sofire.ac.U;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public final class b {
     public static void a(Context context, int i, boolean z) {
         long j = 600000;

@@ -22,8 +22,8 @@ import org.json.JSONObject;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f7973a = false;
-    private static c pqu;
+    public static boolean f7673a = false;
+    private static c plP;
 
     public static f a(long j, String str, byte[] bArr, a aVar, String str2, boolean z) throws IOException {
         byte[] bArr2;
@@ -113,9 +113,9 @@ public class b {
     private static com.bytedance.tea.crash.upload.f a(java.lang.String r7, byte[] r8, java.lang.String r9, java.lang.String r10, java.lang.String r11, boolean r12, boolean r13) {
         /*
             r3 = 0
-            com.bytedance.tea.crash.upload.c r0 = com.bytedance.tea.crash.upload.b.pqu     // Catch: java.lang.Throwable -> L63
+            com.bytedance.tea.crash.upload.c r0 = com.bytedance.tea.crash.upload.b.plP     // Catch: java.lang.Throwable -> L63
             if (r0 == 0) goto Lb
-            com.bytedance.tea.crash.upload.c r0 = com.bytedance.tea.crash.upload.b.pqu     // Catch: java.lang.Throwable -> L63
+            com.bytedance.tea.crash.upload.c r0 = com.bytedance.tea.crash.upload.b.plP     // Catch: java.lang.Throwable -> L63
             java.lang.String r7 = r0.a(r7, r8)     // Catch: java.lang.Throwable -> L63
         Lb:
             java.util.LinkedList r1 = new java.util.LinkedList     // Catch: java.lang.Throwable -> L63
@@ -228,7 +228,7 @@ public class b {
             byte[] r1 = a(r2)     // Catch: java.lang.Throwable -> L145
             com.bytedance.tea.crash.g.f.a(r2)     // Catch: java.lang.Throwable -> Lfc
         Le2:
-            com.bytedance.tea.crash.upload.f r1 = al(r1)     // Catch: java.lang.Throwable -> Lfc
+            com.bytedance.tea.crash.upload.f r1 = ak(r1)     // Catch: java.lang.Throwable -> Lfc
             if (r0 == 0) goto Leb
             r0.disconnect()     // Catch: java.lang.Exception -> L12c
         Leb:
@@ -308,7 +308,7 @@ public class b {
         throw new UnsupportedOperationException("Method not decompiled: com.bytedance.tea.crash.upload.b.a(java.lang.String, byte[], java.lang.String, java.lang.String, java.lang.String, boolean, boolean):com.bytedance.tea.crash.upload.f");
     }
 
-    private static f al(byte[] bArr) {
+    private static f ak(byte[] bArr) {
         f fVar;
         if (bArr == null || bArr.length == 0) {
             return new f(203);
@@ -327,11 +327,11 @@ public class b {
         }
     }
 
-    public static f hi(String str, String str2) {
+    public static f hh(String str, String str2) {
         return L(str, str2, b());
     }
 
-    public static f hj(String str, String str2) {
+    public static f hi(String str, String str2) {
         return L(str, str2, a());
     }
 
@@ -343,7 +343,7 @@ public class b {
         return true;
     }
 
-    public static f aV(String str, String str2, String str3) {
+    public static f aU(String str, String str2, String str3) {
         f fVar;
         try {
             e eVar = new e(str, "UTF-8", true);
@@ -368,7 +368,7 @@ public class b {
     }
 
     public static String a(Map map) {
-        return h.esI().a();
+        return h.eoO().a();
     }
 
     public static f L(String str, String str2, boolean z) {
@@ -419,7 +419,7 @@ public class b {
 
     /* renamed from: com.bytedance.tea.crash.upload.b$b  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public enum EnumC1047b {
+    public enum EnumC1030b {
         NONE(0),
         MOBILE(1),
         MOBILE_2G(2),
@@ -429,7 +429,7 @@ public class b {
         
         final int g;
 
-        EnumC1047b(int i) {
+        EnumC1030b(int i) {
             this.g = i;
         }
     }

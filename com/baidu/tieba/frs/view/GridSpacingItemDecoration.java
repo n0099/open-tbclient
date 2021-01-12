@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.RecyclerView;
 /* loaded from: classes2.dex */
 public class GridSpacingItemDecoration extends RecyclerView.ItemDecoration {
     private int hSpacing;
-    private boolean jPw;
+    private boolean jKQ;
     private int spanCount;
     private int vSpacing;
 
@@ -14,14 +14,14 @@ public class GridSpacingItemDecoration extends RecyclerView.ItemDecoration {
         this.spanCount = i;
         this.vSpacing = i2;
         this.hSpacing = i3;
-        this.jPw = z;
+        this.jKQ = z;
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.ItemDecoration
     public void getItemOffsets(Rect rect, View view, RecyclerView recyclerView, RecyclerView.State state) {
         int childAdapterPosition = recyclerView.getChildAdapterPosition(view);
         int i = childAdapterPosition % this.spanCount;
-        if (this.jPw) {
+        if (this.jKQ) {
             rect.left = this.vSpacing - ((this.vSpacing * i) / this.spanCount);
             rect.right = ((i + 1) * this.vSpacing) / this.spanCount;
             if (childAdapterPosition < this.spanCount) {

@@ -1,27 +1,27 @@
 package com.baidu.platform.comapi.wnplatform;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f4609a;
+    private int f4391a;
 
     /* renamed from: b  reason: collision with root package name */
-    private int f4610b;
+    private int f4392b;
     private int c;
     private boolean d;
     private int e;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.baidu.platform.comapi.wnplatform.a$a  reason: collision with other inner class name */
-    /* loaded from: classes3.dex */
-    public static class C0303a {
+    /* loaded from: classes6.dex */
+    public static class C0286a {
 
         /* renamed from: a  reason: collision with root package name */
-        static final a f4611a = new a();
+        static final a f4393a = new a();
     }
 
     public static a a() {
-        return C0303a.f4611a;
+        return C0286a.f4393a;
     }
 
     private a() {
@@ -29,38 +29,38 @@ public class a {
     }
 
     public boolean b() {
-        return (this.f4610b & 1) == 1;
+        return (this.f4392b & 1) == 1;
     }
 
     public boolean c() {
-        return (this.f4610b & 2) == 2;
+        return (this.f4392b & 2) == 2;
     }
 
     public boolean d() {
-        return (this.f4610b & 4) == 4;
+        return (this.f4392b & 4) == 4;
     }
 
     public int e() {
-        return this.f4610b;
+        return this.f4392b;
     }
 
     public void a(int i) {
-        this.f4610b = i;
+        this.f4392b = i;
         if (!a().i()) {
-            this.f4610b &= -5;
+            this.f4392b &= -5;
         }
     }
 
     public void b(int i) {
-        this.f4609a = i;
+        this.f4391a = i;
     }
 
     public boolean f() {
-        return this.f4609a == 0;
+        return this.f4391a == 0;
     }
 
     public boolean g() {
-        return this.f4609a == 1 || this.f4609a == 2;
+        return this.f4391a == 1 || this.f4391a == 2;
     }
 
     public int h() {
@@ -73,10 +73,5 @@ public class a {
 
     public boolean i() {
         return this.d;
-    }
-
-    public void a(boolean z) {
-        this.d = z;
-        com.baidu.platform.comapi.walknavi.b.a().G().c(z);
     }
 }

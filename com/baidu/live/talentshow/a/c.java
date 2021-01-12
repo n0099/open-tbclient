@@ -19,13 +19,12 @@ import com.baidu.live.recorder.helper.LiveRecorderConfigHelper;
 import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.TbPageContext;
 import com.baidu.live.tbadk.ubc.UbcStatisticManager;
-import com.baidu.platform.comapi.UIMsg;
 import com.baidu.tbadk.TbConfig;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class c {
-    private AlaLiveRecorder bFC;
-    private VideoBeautyType bFM;
+    private AlaLiveRecorder bAQ;
+    private VideoBeautyType bBa;
     private TbPageContext mPageContext;
     private RecorderCallback mRecorderCallback = new RecorderCallback() { // from class: com.baidu.live.talentshow.a.c.1
         @Override // com.baidu.ala.recorder.RecorderCallback
@@ -48,33 +47,33 @@ public class c {
         this.mPageContext = tbPageContext;
     }
 
-    public AlaLiveRecorder UN() {
-        if (this.bFC == null) {
-            UO();
+    public AlaLiveRecorder QS() {
+        if (this.bAQ == null) {
+            QT();
         }
-        return this.bFC;
+        return this.bAQ;
     }
 
-    private void UO() {
-        this.bFM = bo.b(com.baidu.live.af.a.SE().bCb) ? VideoBeautyType.DUMIX_AR : VideoBeautyType.BEAUTY_NONE;
-        if (this.bFC == null) {
-            AlaLiveVideoConfig d = LiveRecorderConfigHelper.Sb().d(4, 1, false);
-            d.setOutputWidth(UIMsg.MsgDefine.MSG_NETWORK_CHANNEL);
+    private void QT() {
+        this.bBa = bo.b(com.baidu.live.af.a.OJ().bxp) ? VideoBeautyType.DUMIX_AR : VideoBeautyType.BEAUTY_NONE;
+        if (this.bAQ == null) {
+            AlaLiveVideoConfig d = LiveRecorderConfigHelper.Og().d(4, 1, false);
+            d.setOutputWidth(540);
             d.setOutputHeight(TbConfig.HEAD_IMG_SIZE);
-            this.bFC = new AlaLiveRecorder(this.mPageContext.getPageActivity(), d, VideoRecorderType.CAMERA, new com.baidu.live.recorder.helper.a(), this.bFM);
-            this.bFC.addRecorderCallback(this.mRecorderCallback);
+            this.bAQ = new AlaLiveRecorder(this.mPageContext.getPageActivity(), d, VideoRecorderType.CAMERA, new com.baidu.live.recorder.helper.a(), this.bBa);
+            this.bAQ.addRecorderCallback(this.mRecorderCallback);
         }
     }
 
     public void w(ViewGroup viewGroup) {
-        UN();
-        this.bFC.getPreview().setEnabled(false);
-        UQ();
-        ab(this.bFC.getPreview());
-        viewGroup.addView(this.bFC.getPreview(), 0, UP());
+        QS();
+        this.bAQ.getPreview().setEnabled(false);
+        QV();
+        ab(this.bAQ.getPreview());
+        viewGroup.addView(this.bAQ.getPreview(), 0, QU());
     }
 
-    private FrameLayout.LayoutParams UP() {
+    private FrameLayout.LayoutParams QU() {
         return new FrameLayout.LayoutParams(-1, -1);
     }
 
@@ -98,9 +97,9 @@ public class c {
         view.setClipToOutline(true);
     }
 
-    public void UQ() {
+    public void QV() {
         View preview;
-        if (this.bFC != null && (preview = this.bFC.getPreview()) != null) {
+        if (this.bAQ != null && (preview = this.bAQ.getPreview()) != null) {
             if (Build.VERSION.SDK_INT >= 21) {
                 n(preview, 0.0f);
             }
@@ -111,22 +110,22 @@ public class c {
     }
 
     public void startPreview() {
-        if (this.bFC != null) {
-            this.bFC.startRecord();
+        if (this.bAQ != null) {
+            this.bAQ.startRecord();
         }
     }
 
-    public void UR() {
-        if (this.bFC != null) {
-            this.bFC.stopRecord();
+    public void QW() {
+        if (this.bAQ != null) {
+            this.bAQ.stopRecord();
         }
     }
 
     public void onDestroy() {
-        if (this.bFC != null) {
-            this.bFC.stopRecord();
-            this.bFC.release();
-            this.bFC = null;
+        if (this.bAQ != null) {
+            this.bAQ.stopRecord();
+            this.bAQ.release();
+            this.bAQ = null;
         }
     }
 }

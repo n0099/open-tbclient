@@ -18,23 +18,23 @@ public class AccountToolsActivity extends Activity {
     public static final String EXTRA_ACCOUNT_TOOLS_TYPE = "ACCOUNT_TOOLS_TYPE";
 
     /* renamed from: a  reason: collision with root package name */
-    private AccountToolsResult f5045a = new AccountToolsResult();
+    private AccountToolsResult f4762a = new AccountToolsResult();
 
     /* renamed from: b  reason: collision with root package name */
-    private AccountToolsCallback f5046b;
+    private AccountToolsCallback f4763b;
 
     @Override // android.app.Activity
     protected void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         int intExtra = getIntent().getIntExtra(EXTRA_ACCOUNT_TOOLS_TYPE, -1);
-        this.f5046b = CoreViewRouter.getInstance().getAccountToolsCallback();
+        this.f4763b = CoreViewRouter.getInstance().getAccountToolsCallback();
         AccountCenterDTO accountCenterDTO = new AccountCenterDTO();
         accountCenterDTO.accountToolsUrl = a(intExtra);
         CoreViewRouter.getInstance().loadAccountCenter(new AccountCenterCallback() { // from class: com.baidu.sapi2.activity.AccountToolsActivity.1
             @Override // com.baidu.sapi2.callback.AccountCenterCallback
             public void onFinish(AccountCenterResult accountCenterResult) {
-                AccountToolsActivity.this.f5045a.setResultCode(accountCenterResult.getResultCode());
-                AccountToolsActivity.this.f5045a.setResultMsg(accountCenterResult.getResultMsg());
+                AccountToolsActivity.this.f4762a.setResultCode(accountCenterResult.getResultCode());
+                AccountToolsActivity.this.f4762a.setResultMsg(accountCenterResult.getResultMsg());
                 AccountToolsActivity.this.a();
             }
 
@@ -46,7 +46,7 @@ public class AccountToolsActivity extends Activity {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a() {
-        this.f5046b.onFinish(this.f5045a);
+        this.f4763b.onFinish(this.f4762a);
         finish();
     }
 

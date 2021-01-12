@@ -2,7 +2,7 @@ package com.baidu.rtc;
 
 import com.baidu.ala.helper.StreamConfig;
 import com.kwai.video.player.misc.KsMediaFormat;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class RtcParameterSettings {
     public boolean HasVideo = true;
     public boolean HasAudio = true;
@@ -17,38 +17,38 @@ public class RtcParameterSettings {
     public int VideoFps = 20;
     public int VideoMaxkbps = 1000;
     public int VideoMinkbps = 1000;
-    public int cyg = -1;
-    public RtcAudioBitrateMode cxu = RtcAudioBitrateMode.RTC_AUDIO_BITRATE_CBR;
-    public RtcAudioChannel cyq = RtcAudioChannel.RTC_AUDIO_MONNO;
+    public int ctp = -1;
+    public RtcAudioBitrateMode csD = RtcAudioBitrateMode.RTC_AUDIO_BITRATE_CBR;
+    public RtcAudioChannel ctC = RtcAudioChannel.RTC_AUDIO_MONNO;
     public int ConnectionTimeoutMs = 5000;
     public int ReadTimeoutMs = 5000;
     public boolean AutoPublish = true;
     public boolean AutoSubScribe = true;
     public int AudioContentType = 1;
-    public RtcVideoRenderMode cyr = RtcVideoRenderMode.RTC_VIDEO_RENDER_MODE_INTERNAL;
-    public boolean cyp = false;
-    public boolean cyh = false;
-    public boolean cyk = false;
-    public boolean cyn = false;
-    public boolean cyj = false;
-    public boolean cyl = false;
-    public boolean cyi = false;
-    public boolean cym = true;
-    public int cyo = RtcVideoBitrateMode.RTC_VIDEO_CONTROLRATECONSTANT.ordinal();
+    public RtcVideoRenderMode ctD = RtcVideoRenderMode.RTC_VIDEO_RENDER_MODE_INTERNAL;
+    public boolean ctB = false;
+    public boolean ctq = false;
+    public boolean ctv = false;
+    public boolean ctz = false;
+    public boolean ctu = false;
+    public boolean ctw = false;
+    public boolean cts = false;
+    public boolean cty = true;
+    public int ctA = RtcVideoBitrateMode.RTC_VIDEO_CONTROLRATECONSTANT.ordinal();
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public enum RtcAudioBitrateMode {
         RTC_AUDIO_BITRATE_CBR,
         RTC_AUDIO_BITRATE_VBR
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public enum RtcAudioChannel {
         RTC_AUDIO_MONNO,
         RTC_AUDIO_STEREO
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public enum RtcParamSettingType {
         RTC_AUDIO_PARAM_SETTINGS_ONLY_AUDIO,
         RTC_AUDIO_PARAM_SETTINGS_AEC_DUMP,
@@ -68,20 +68,20 @@ public class RtcParameterSettings {
         RTC_PARAM_SETTINGS_OTHERS
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public enum RtcVideoBitrateMode {
         RTC_VIDEO_CONTROLRATEDISABLE,
         RTC_VIDEO_CONTROLRATEVARIABLE,
         RTC_VIDEO_CONTROLRATECONSTANT
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public enum RtcVideoRenderMode {
         RTC_VIDEO_RENDER_MODE_INTERNAL,
         RTC_VIDEO_RENDER_MODE_EXTERNAL
     }
 
-    public static RtcParameterSettings air() {
+    public static RtcParameterSettings aex() {
         return new RtcParameterSettings();
     }
 }

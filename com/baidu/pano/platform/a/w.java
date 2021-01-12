@@ -5,31 +5,31 @@ import android.util.Log;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class w {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f3932a = "Volley";
+    public static String f3894a = "Volley";
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f3933b = Log.isLoggable(f3932a, 2);
+    public static boolean f3895b = Log.isLoggable(f3894a, 2);
 
     public static void a(String str, Object... objArr) {
-        if (f3933b) {
-            Log.v(f3932a, d(str, objArr));
+        if (f3895b) {
+            Log.v(f3894a, d(str, objArr));
         }
     }
 
     public static void b(String str, Object... objArr) {
-        Log.d(f3932a, d(str, objArr));
+        Log.d(f3894a, d(str, objArr));
     }
 
     public static void c(String str, Object... objArr) {
-        Log.e(f3932a, d(str, objArr));
+        Log.e(f3894a, d(str, objArr));
     }
 
     public static void a(Throwable th, String str, Object... objArr) {
-        Log.e(f3932a, d(str, objArr), th);
+        Log.e(f3894a, d(str, objArr), th);
     }
 
     private static String d(String str, Object... objArr) {
@@ -56,31 +56,31 @@ public class w {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final boolean f3934a = w.f3933b;
+        public static final boolean f3896a = w.f3895b;
 
         /* renamed from: b  reason: collision with root package name */
-        private final List<C0279a> f3935b = new ArrayList();
+        private final List<C0267a> f3897b = new ArrayList();
         private boolean c = false;
 
         /* JADX INFO: Access modifiers changed from: private */
         /* renamed from: com.baidu.pano.platform.a.w$a$a  reason: collision with other inner class name */
-        /* loaded from: classes3.dex */
-        public static class C0279a {
+        /* loaded from: classes6.dex */
+        public static class C0267a {
 
             /* renamed from: a  reason: collision with root package name */
-            public final String f3936a;
+            public final String f3898a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final long f3937b;
+            public final long f3899b;
             public final long c;
 
-            public C0279a(String str, long j, long j2) {
-                this.f3936a = str;
-                this.f3937b = j;
+            public C0267a(String str, long j, long j2) {
+                this.f3898a = str;
+                this.f3899b = j;
                 this.c = j2;
             }
         }
@@ -89,19 +89,19 @@ public class w {
             if (this.c) {
                 throw new IllegalStateException("Marker added to finished log");
             }
-            this.f3935b.add(new C0279a(str, j, SystemClock.elapsedRealtime()));
+            this.f3897b.add(new C0267a(str, j, SystemClock.elapsedRealtime()));
         }
 
         public synchronized void a(String str) {
             this.c = true;
             long a2 = a();
             if (a2 > 0) {
-                long j = this.f3935b.get(0).c;
+                long j = this.f3897b.get(0).c;
                 w.b("(%-4d ms) %s", Long.valueOf(a2), str);
                 long j2 = j;
-                for (C0279a c0279a : this.f3935b) {
-                    long j3 = c0279a.c;
-                    w.b("(+%-4d) [%2d] %s", Long.valueOf(j3 - j2), Long.valueOf(c0279a.f3937b), c0279a.f3936a);
+                for (C0267a c0267a : this.f3897b) {
+                    long j3 = c0267a.c;
+                    w.b("(+%-4d) [%2d] %s", Long.valueOf(j3 - j2), Long.valueOf(c0267a.f3899b), c0267a.f3898a);
                     j2 = j3;
                 }
             }
@@ -115,10 +115,10 @@ public class w {
         }
 
         private long a() {
-            if (this.f3935b.size() == 0) {
+            if (this.f3897b.size() == 0) {
                 return 0L;
             }
-            return this.f3935b.get(this.f3935b.size() - 1).c - this.f3935b.get(0).c;
+            return this.f3897b.get(this.f3897b.size() - 1).c - this.f3897b.get(0).c;
         }
     }
 }

@@ -1,5 +1,5 @@
 package com.baidu.mobads.interfaces.error;
-/* loaded from: classes3.dex */
+/* loaded from: classes14.dex */
 public enum XAdErrorCode {
     INTERFACE_USE_PROBLEM(1010001, "接口使用问题"),
     WEBVIEW_LOAD_ERROR(1010002, "web载入异常"),
@@ -34,21 +34,21 @@ public enum XAdErrorCode {
     public static final String ERROR_CODE_MESSAGE = "msg";
 
     /* renamed from: a  reason: collision with root package name */
-    private int f3413a;
+    private int f3375a;
 
     /* renamed from: b  reason: collision with root package name */
-    private String f3414b;
+    private String f3376b;
 
     XAdErrorCode(int i, String str) {
-        this.f3413a = i;
-        this.f3414b = str;
+        this.f3375a = i;
+        this.f3376b = str;
     }
 
     public int getCode() {
-        return this.f3413a;
+        return this.f3375a;
     }
 
     public String getMessage() {
-        return this.f3414b;
+        return this.f3376b;
     }
 }

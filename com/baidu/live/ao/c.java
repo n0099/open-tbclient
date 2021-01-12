@@ -5,19 +5,19 @@ import android.view.View;
 import android.widget.FrameLayout;
 import com.baidu.live.data.x;
 import com.baidu.live.v.f;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public interface c {
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public interface a {
-        void XR();
+        void TY();
 
-        void XS();
+        void TZ();
     }
 
-    void TF();
+    void PK();
 
-    boolean TQ();
+    boolean PV();
 
     void a(a aVar);
 

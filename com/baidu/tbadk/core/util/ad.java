@@ -10,50 +10,49 @@ import com.baidu.tbadk.mutiprocess.event.PrivacyPolicyEvent;
 import com.baidu.webkit.sdk.PermissionRequest;
 /* loaded from: classes.dex */
 public class ad {
-    private static com.baidu.tbadk.mutiprocess.b fcI = new com.baidu.tbadk.mutiprocess.b<PrivacyPolicyEvent>() { // from class: com.baidu.tbadk.core.util.ad.1
+    private static com.baidu.tbadk.mutiprocess.b eXZ = new com.baidu.tbadk.mutiprocess.b<PrivacyPolicyEvent>() { // from class: com.baidu.tbadk.core.util.ad.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.tbadk.mutiprocess.b
         public boolean a(PrivacyPolicyEvent privacyPolicyEvent) {
             if (privacyPolicyEvent != null) {
                 boolean z = privacyPolicyEvent.isAgreePrivacyPolicy;
                 boolean unused = ad.isAgreePrivacyPolicy = z;
-                com.baidu.tbadk.core.sharedPref.b.bvr().putBoolean("key_secret_is_show", z);
+                com.baidu.tbadk.core.sharedPref.b.brx().putBoolean("key_secret_is_show", z);
                 TbadkCoreApplication.getInst().registerPhoneListener();
                 TbadkCoreApplication.getInst().initCyberPlayer();
-                TbadkCoreApplication.getInst().initSapiTask();
             }
             return true;
         }
     };
     private static boolean isAgreePrivacyPolicy;
 
-    public static void bvX() {
-        com.baidu.tbadk.mutiprocess.g.bGG().a(PrivacyPolicyEvent.class, fcI);
+    public static void bsd() {
+        com.baidu.tbadk.mutiprocess.g.bCN().a(PrivacyPolicyEvent.class, eXZ);
     }
 
-    public static void bvY() {
-        com.baidu.tbadk.mutiprocess.g.publishEvent(new PrivacyPolicyEvent(Boolean.valueOf(com.baidu.tbadk.core.sharedPref.b.bvr().getBoolean("key_secret_is_show", false))));
+    public static void bse() {
+        com.baidu.tbadk.mutiprocess.g.publishEvent(new PrivacyPolicyEvent(Boolean.valueOf(com.baidu.tbadk.core.sharedPref.b.brx().getBoolean("key_secret_is_show", false))));
     }
 
-    public static void jN(boolean z) {
+    public static void jJ(boolean z) {
         isAgreePrivacyPolicy = z;
-        com.baidu.tbadk.core.sharedPref.b.bvr().putBoolean("key_secret_is_show", z);
+        com.baidu.tbadk.core.sharedPref.b.brx().putBoolean("key_secret_is_show", z);
         com.baidu.tbadk.mutiprocess.g.publishEvent(new PrivacyPolicyEvent(Boolean.valueOf(z)));
     }
 
-    public static boolean bvZ() {
-        return isAgreePrivacyPolicy || com.baidu.tbadk.core.sharedPref.b.bvr().getBoolean("key_secret_is_show", false);
+    public static boolean bsf() {
+        return isAgreePrivacyPolicy || com.baidu.tbadk.core.sharedPref.b.brx().getBoolean("key_secret_is_show", false);
     }
 
     public static boolean checkLocationForBaiduLocation(Context context) {
         boolean z;
         boolean z2;
-        if (com.baidu.n.a.afm()) {
+        if (com.baidu.l.a.abt()) {
             if (context == null) {
                 return false;
             }
             try {
-                z = com.baidu.n.a.a.checkPermissionGranted(context, "android.permission.READ_PHONE_STATE");
+                z = com.baidu.l.a.a.checkPermissionGranted(context, "android.permission.READ_PHONE_STATE");
             } catch (Exception e) {
                 e = e;
                 z = false;
@@ -73,11 +72,11 @@ public class ad {
     }
 
     public static boolean checkLocationForGoogle(Context context) {
-        if (com.baidu.n.a.afm()) {
+        if (com.baidu.l.a.abt()) {
             if (context != null) {
                 try {
-                    if (!com.baidu.n.a.a.checkPermissionGranted(context, "android.permission.ACCESS_FINE_LOCATION")) {
-                        if (!com.baidu.n.a.a.checkPermissionGranted(context, "android.permission.ACCESS_COARSE_LOCATION")) {
+                    if (!com.baidu.l.a.a.checkPermissionGranted(context, "android.permission.ACCESS_FINE_LOCATION")) {
+                        if (!com.baidu.l.a.a.checkPermissionGranted(context, "android.permission.ACCESS_COARSE_LOCATION")) {
                             return false;
                         }
                     }
@@ -93,12 +92,12 @@ public class ad {
     }
 
     public static boolean checkCamera(Context context) {
-        if (!com.baidu.n.a.afm()) {
+        if (!com.baidu.l.a.abt()) {
             return true;
         }
         if (context != null) {
             try {
-                return com.baidu.n.a.a.checkPermissionGranted(context, PermissionRequest.RESOURCE_VIDEO_CAPTURE);
+                return com.baidu.l.a.a.checkPermissionGranted(context, PermissionRequest.RESOURCE_VIDEO_CAPTURE);
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
                 return false;
@@ -108,12 +107,12 @@ public class ad {
     }
 
     public static boolean checkRecodeAudio(Context context) {
-        if (!com.baidu.n.a.afm()) {
+        if (!com.baidu.l.a.abt()) {
             return true;
         }
         if (context != null) {
             try {
-                return com.baidu.n.a.a.checkPermissionGranted(context, PermissionRequest.RESOURCE_AUDIO_CAPTURE);
+                return com.baidu.l.a.a.checkPermissionGranted(context, PermissionRequest.RESOURCE_AUDIO_CAPTURE);
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
                 return false;
@@ -122,13 +121,13 @@ public class ad {
         return false;
     }
 
-    public static boolean fb(Context context) {
-        if (!com.baidu.n.a.afm()) {
+    public static boolean eZ(Context context) {
+        if (!com.baidu.l.a.abt()) {
             return true;
         }
         if (context != null) {
             try {
-                return com.baidu.n.a.a.checkPermissionGranted(context, "android.permission.ACCESS_WIFI_STATE");
+                return com.baidu.l.a.a.checkPermissionGranted(context, "android.permission.ACCESS_WIFI_STATE");
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
                 return false;
@@ -138,12 +137,12 @@ public class ad {
     }
 
     public static boolean checkReadPhoneState(Context context) {
-        if (!com.baidu.n.a.afm()) {
+        if (!com.baidu.l.a.abt()) {
             return true;
         }
         if (context != null) {
             try {
-                return com.baidu.n.a.a.checkPermissionGranted(context, "android.permission.READ_PHONE_STATE");
+                return com.baidu.l.a.a.checkPermissionGranted(context, "android.permission.READ_PHONE_STATE");
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
                 return false;
@@ -153,12 +152,12 @@ public class ad {
     }
 
     public static boolean checkWriteExternalStorage(Context context) {
-        if (!com.baidu.n.a.afm()) {
+        if (!com.baidu.l.a.abt()) {
             return true;
         }
         if (context != null) {
             try {
-                return com.baidu.n.a.a.checkPermissionGranted(context, "android.permission.WRITE_EXTERNAL_STORAGE");
+                return com.baidu.l.a.a.checkPermissionGranted(context, "android.permission.WRITE_EXTERNAL_STORAGE");
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
                 return false;
@@ -183,7 +182,7 @@ public class ad {
 
     public static void requestWriteExternalStorage(Activity activity, int i) {
         try {
-            com.baidu.n.a.a.requestPermissions(activity, new String[]{"android.permission.WRITE_EXTERNAL_STORAGE"}, i);
+            com.baidu.l.a.a.requestPermissions(activity, new String[]{"android.permission.WRITE_EXTERNAL_STORAGE"}, i);
         } catch (Exception e) {
             BdLog.e(e.getMessage());
         }
@@ -220,12 +219,12 @@ public class ad {
     }
 
     public static boolean aB(Context context, String str) {
-        if (!com.baidu.n.a.afm()) {
+        if (!com.baidu.l.a.abt()) {
             return true;
         }
         if (context != null) {
             try {
-                return com.baidu.n.a.a.checkPermissionGranted(context, str);
+                return com.baidu.l.a.a.checkPermissionGranted(context, str);
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
                 return false;

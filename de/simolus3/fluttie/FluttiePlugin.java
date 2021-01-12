@@ -23,7 +23,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
 @RequiresApi(api = 15)
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class FluttiePlugin implements Application.ActivityLifecycleCallbacks, MethodChannel.MethodCallHandler {
     private PluginRegistry.Registrar registrar;
     private RenderingThreads renderingThreads;

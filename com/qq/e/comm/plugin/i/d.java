@@ -8,14 +8,14 @@ import com.qq.e.comm.plugin.y.g;
 import com.qq.e.comm.plugin.y.u;
 import java.io.File;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    private static aw f12399a = new aw(2048, 5, "downloaded_not_installed_limit_num");
+    private static aw f12099a = new aw(2048, 5, "downloaded_not_installed_limit_num");
 
     public static boolean a() {
-        return f12399a.b();
+        return f12099a.b();
     }
 
     public static boolean a(long j, long j2, com.qq.e.comm.plugin.a.c cVar) {

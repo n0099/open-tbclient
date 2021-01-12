@@ -7,8 +7,8 @@ public class c {
     public String OD;
     public String OE;
     public String OF;
-    public String OG;
-    public String OH;
+    public String Oj;
+    public String Ok;
     public String Ol;
     public String Om;
     public String Oo;

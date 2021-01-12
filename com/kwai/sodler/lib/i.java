@@ -8,7 +8,7 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Set;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class i extends g {
     public i(String str) {
         super(str);
@@ -62,11 +62,11 @@ public class i extends g {
         File file = new File(str);
         a(file);
         try {
-            this.f11296a = b(file);
+            this.f10996a = b(file);
             try {
-                a(a(context, file, this.f11296a));
+                a(a(context, file, this.f10996a));
                 synchronized (Runtime.getRuntime()) {
-                    com.kwai.sodler.lib.ext.d.a(getClass().getClassLoader(), this.f11296a);
+                    com.kwai.sodler.lib.ext.d.a(getClass().getClassLoader(), this.f10996a);
                 }
                 super.a(context, str);
             } catch (IOException e) {

@@ -1,5 +1,5 @@
 package com.baidu.live.alablmsdk.a;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class b {
     public static int q(float f) {
         int ceil = (int) Math.ceil(f);

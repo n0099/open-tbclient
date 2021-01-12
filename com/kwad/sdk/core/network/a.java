@@ -5,14 +5,14 @@ import com.kwad.sdk.core.network.g;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public abstract class a<R extends g> {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final ExecutorService f9611a = Executors.newFixedThreadPool(5);
+    private static final ExecutorService f9311a = Executors.newFixedThreadPool(5);
 
     /* renamed from: b  reason: collision with root package name */
-    private Future<?> f9612b;
+    private Future<?> f9312b;
 
     protected abstract void a(R r, c cVar);
 
@@ -23,7 +23,7 @@ public abstract class a<R extends g> {
     /* JADX INFO: Access modifiers changed from: protected */
     public void d() {
         try {
-            this.f9612b = f9611a.submit(new Runnable() { // from class: com.kwad.sdk.core.network.a.1
+            this.f9312b = f9311a.submit(new Runnable() { // from class: com.kwad.sdk.core.network.a.1
                 @Override // java.lang.Runnable
                 public void run() {
                     a.this.f();
@@ -36,10 +36,10 @@ public abstract class a<R extends g> {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void e() {
-        if (this.f9612b == null) {
+        if (this.f9312b == null) {
             return;
         }
-        this.f9612b.cancel(true);
+        this.f9312b.cancel(true);
     }
 
     protected abstract void f();

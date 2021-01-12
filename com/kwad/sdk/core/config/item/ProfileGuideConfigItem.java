@@ -5,10 +5,10 @@ import androidx.annotation.NonNull;
 import java.io.Serializable;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class ProfileGuideConfigItem extends a<ProfileGuideConfig> {
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class ProfileGuideConfig extends com.kwad.sdk.core.response.a.a implements Serializable {
         private static final long serialVersionUID = -2971202373481870211L;
         public long appearTime = 2000;

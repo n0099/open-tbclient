@@ -42,7 +42,7 @@ import yaq.gdtadv;
 /* JADX WARN: Classes with same name are omitted:
   assets/yaqgdtadv0.sec
  */
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class POFactoryImpl implements POFactory {
     public static final String DETAIL_PAGE = "detailPage";
     public static final String DownloadManage = "downloadManage";
@@ -54,7 +54,7 @@ public class POFactoryImpl implements POFactory {
     public static final String RewardVideo2 = "rewardVideo2";
 
     /* renamed from: a  reason: collision with root package name */
-    private static final POFactory f11884a = new POFactoryImpl();
+    private static final POFactory f11584a = new POFactoryImpl();
 
     private POFactoryImpl() {
         com.qq.e.comm.plugin.x.a.a().b();

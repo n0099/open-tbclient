@@ -9,11 +9,11 @@ import okhttp3.Interceptor;
 public interface a {
     void a(String str, HttpRequestBuilder httpRequestBuilder);
 
-    CookieManager aBJ();
+    CookieManager axP();
 
-    int aBO();
+    int axU();
 
-    int aBP();
+    int axV();
 
     Context getAppContext();
 

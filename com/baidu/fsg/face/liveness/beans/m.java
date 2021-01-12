@@ -17,14 +17,14 @@ import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class m extends UploadBean {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f2331a;
+    private String f2281a;
 
     /* renamed from: b  reason: collision with root package name */
-    private String f2332b;
+    private String f2282b;
     private String c;
     private String d;
     private String e;
@@ -36,7 +36,7 @@ public class m extends UploadBean {
     }
 
     public void b(String str) {
-        this.f2332b = str;
+        this.f2282b = str;
     }
 
     public void c(String str) {
@@ -44,7 +44,7 @@ public class m extends UploadBean {
     }
 
     public void d(String str) {
-        this.f2331a = str;
+        this.f2281a = str;
     }
 
     public m(Context context) {
@@ -67,11 +67,11 @@ public class m extends UploadBean {
             if (!TextUtils.isEmpty(a())) {
                 arrayList.add(new RestNameValuePair("atbc", a()));
             }
-            if (!TextUtils.isEmpty(this.f2331a)) {
-                arrayList.add(new RestNameValuePair(LogConfig.LOG_VIDEO_TYPE, this.f2331a));
+            if (!TextUtils.isEmpty(this.f2281a)) {
+                arrayList.add(new RestNameValuePair(LogConfig.LOG_VIDEO_TYPE, this.f2281a));
             }
-            if (!TextUtils.isEmpty(this.f2332b)) {
-                arrayList.add(new RestNameValuePair("callbackkey", this.f2332b));
+            if (!TextUtils.isEmpty(this.f2282b)) {
+                arrayList.add(new RestNameValuePair("callbackkey", this.f2282b));
             }
             if (!TextUtils.isEmpty(this.c)) {
                 arrayList.add(new RestNameValuePair("image_callbackkey", this.c));

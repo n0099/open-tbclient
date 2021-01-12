@@ -20,7 +20,7 @@ import com.baidu.webkit.sdk.PermissionRequest;
 import com.baidu.webkit.sdk.WebChromeClient;
 import com.baidu.webkit.sdk.WebKitFactory;
 import java.io.File;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class BdUploadHandler implements INoProGuard {
     private static final String AUDIO_MIME_TYPE = "audio/*";
     private static final String IMAGE_MIME_TYPE = "image/*";
@@ -51,7 +51,7 @@ public class BdUploadHandler implements INoProGuard {
         Intent intent = new Intent(this.mActivity.getApplicationContext(), BdPermissionActivity.class);
         intent.putExtra("request_code", 4099);
         intent.putExtra("permissions", new String[]{PermissionRequest.RESOURCE_VIDEO_CAPTURE});
-        com.baidu.browser.core.permission.a.sW().a(4099, new b(this));
+        com.baidu.browser.core.permission.a.sL().a(4099, new b(this));
         return intent;
     }
 
@@ -80,7 +80,7 @@ public class BdUploadHandler implements INoProGuard {
     private Intent createChooserIntent(Intent... intentArr) {
         Intent intent = new Intent("android.intent.action.CHOOSER");
         intent.putExtra("android.intent.extra.INITIAL_INTENTS", intentArr);
-        intent.putExtra("android.intent.extra.TITLE", this.mActivity.getResources().getString(g.O("string", "sailor_choose_upload")));
+        intent.putExtra("android.intent.extra.TITLE", this.mActivity.getResources().getString(g.N("string", "sailor_choose_upload")));
         return intent;
     }
 
@@ -98,13 +98,13 @@ public class BdUploadHandler implements INoProGuard {
     }
 
     public Intent createCameraIntent() {
-        if (com.baidu.browser.core.permission.b.checkCamera(this.mActivity) && com.baidu.browser.core.permission.b.R(this.mActivity)) {
+        if (com.baidu.browser.core.permission.b.checkCamera(this.mActivity) && com.baidu.browser.core.permission.b.Q(this.mActivity)) {
             return createCameraIntentAfterCheckPermission();
         }
         Intent intent = new Intent(this.mActivity.getApplicationContext(), BdPermissionActivity.class);
         intent.putExtra("request_code", 4099);
         intent.putExtra("permissions", new String[]{PermissionRequest.RESOURCE_VIDEO_CAPTURE, "android.permission.WRITE_EXTERNAL_STORAGE"});
-        com.baidu.browser.core.permission.a.sW().a(4099, new a(this));
+        com.baidu.browser.core.permission.a.sL().a(4099, new a(this));
         return intent;
     }
 

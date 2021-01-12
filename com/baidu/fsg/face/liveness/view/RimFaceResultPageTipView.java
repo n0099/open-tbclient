@@ -9,14 +9,14 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.sapi2.biometrics.liveness.R;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class RimFaceResultPageTipView extends LinearLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    private TextView f2426a;
+    private TextView f2376a;
 
     /* renamed from: b  reason: collision with root package name */
-    private TextView f2427b;
+    private TextView f2377b;
     private ImageView c;
     private TextView d;
     private TextView e;
@@ -26,14 +26,14 @@ public class RimFaceResultPageTipView extends LinearLayout {
     private a i;
     private b j;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public interface a {
         void a();
 
         void b();
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public interface b {
         void a();
     }
@@ -56,8 +56,8 @@ public class RimFaceResultPageTipView extends LinearLayout {
         this.e = (TextView) findViewById(R.id.rim_face_result_tips_next_title);
         this.f = (TextView) findViewById(R.id.rim_face_result_page_tip_msg);
         this.g = (LinearLayout) findViewById(R.id.layout_result_page_show_risk_tip);
-        this.f2427b = (TextView) findViewById(R.id.rim_face_result_page_confirm);
-        this.f2426a = (TextView) findViewById(R.id.rim_face_result_page_cancel);
+        this.f2377b = (TextView) findViewById(R.id.rim_face_result_page_confirm);
+        this.f2376a = (TextView) findViewById(R.id.rim_face_result_page_cancel);
         this.h.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.fsg.face.liveness.view.RimFaceResultPageTipView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
@@ -66,7 +66,7 @@ public class RimFaceResultPageTipView extends LinearLayout {
                 }
             }
         });
-        this.f2427b.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.fsg.face.liveness.view.RimFaceResultPageTipView.2
+        this.f2377b.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.fsg.face.liveness.view.RimFaceResultPageTipView.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (RimFaceResultPageTipView.this.i != null) {
@@ -74,7 +74,7 @@ public class RimFaceResultPageTipView extends LinearLayout {
                 }
             }
         });
-        this.f2426a.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.fsg.face.liveness.view.RimFaceResultPageTipView.3
+        this.f2376a.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.fsg.face.liveness.view.RimFaceResultPageTipView.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (RimFaceResultPageTipView.this.i != null) {
@@ -90,8 +90,8 @@ public class RimFaceResultPageTipView extends LinearLayout {
         this.e.setVisibility(4);
         this.h.setVisibility(4);
         this.g.setVisibility(4);
-        this.f2426a.setVisibility(4);
-        this.f2427b.setVisibility(4);
+        this.f2376a.setVisibility(4);
+        this.f2377b.setVisibility(4);
         this.j = null;
         this.i = null;
     }
@@ -135,15 +135,15 @@ public class RimFaceResultPageTipView extends LinearLayout {
 
     public void setResultPageConfirmText(String str) {
         if (!TextUtils.isEmpty(str)) {
-            this.f2427b.setVisibility(0);
-            this.f2427b.setText(str);
+            this.f2377b.setVisibility(0);
+            this.f2377b.setText(str);
         }
     }
 
     public void setResultPageCancelText(String str) {
         if (!TextUtils.isEmpty(str)) {
-            this.f2426a.setVisibility(0);
-            this.f2426a.setText(str);
+            this.f2376a.setVisibility(0);
+            this.f2376a.setText(str);
         }
     }
 

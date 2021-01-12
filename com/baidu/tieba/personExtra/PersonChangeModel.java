@@ -2,21 +2,21 @@ package com.baidu.tieba.personExtra;
 
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.tbadk.coreExtra.data.PersonChangeData;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class PersonChangeModel extends BdBaseModel {
-    PersonChangeData mtC;
+    PersonChangeData moX;
 
     public PersonChangeModel(PersonChangeData personChangeData) {
         super(null);
-        this.mtC = null;
-        this.mtC = personChangeData;
-        if (this.mtC == null) {
-            this.mtC = new PersonChangeData();
+        this.moX = null;
+        this.moX = personChangeData;
+        if (this.moX == null) {
+            this.moX = new PersonChangeData();
         }
     }
 
-    public PersonChangeData dzr() {
-        return this.mtC;
+    public PersonChangeData dvz() {
+        return this.moX;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel

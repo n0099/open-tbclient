@@ -6,7 +6,7 @@ import android.bluetooth.BluetoothDevice;
 import android.bluetooth.BluetoothHeadset;
 import android.bluetooth.BluetoothProfile;
 import android.content.Context;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class KwaiBluetoothDetector {
     private static KwaiBluetoothDetector sBluetoothUtil = null;
     private String TAG = "KwaiBluetoothDetector";
@@ -39,7 +39,7 @@ public class KwaiBluetoothDetector {
         }
     };
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     class KwaiBluetoothDeviceInfo {
         private String mName = null;
         private String mAddress = null;

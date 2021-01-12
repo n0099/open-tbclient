@@ -5,13 +5,13 @@ import java.io.DataOutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes3.dex */
+/* loaded from: classes14.dex */
 public final class q implements Runnable {
-    final /* synthetic */ Context arJ;
+    final /* synthetic */ Context aqW;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public q(Context context) {
-        this.arJ = context;
+        this.aqW = context;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:36:0x00b8 A[Catch: Exception -> 0x00bc, TRY_LEAVE, TryCatch #3 {Exception -> 0x00bc, blocks: (B:34:0x00b3, B:36:0x00b8), top: B:53:0x00b3, outer: #9 }] */
@@ -27,8 +27,8 @@ public final class q implements Runnable {
         Exception e;
         try {
             try {
-                String uD = g.uD();
-                com.baidu.crabsdk.c.a.v("sync json is " + uD);
+                String ux = g.ux();
+                com.baidu.crabsdk.c.a.v("sync json is " + ux);
                 HttpURLConnection httpURLConnection2 = (HttpURLConnection) new URL(com.baidu.crabsdk.a.c()).openConnection();
                 try {
                     httpURLConnection2.setRequestMethod("POST");
@@ -50,14 +50,14 @@ public final class q implements Runnable {
                     dataOutputStream = null;
                 }
                 try {
-                    dataOutputStream.writeBytes(uD);
+                    dataOutputStream.writeBytes(ux);
                     dataOutputStream.flush();
                     dataOutputStream.close();
                     if (httpURLConnection2.getResponseCode() == 200) {
                         com.baidu.crabsdk.b.n.clear();
-                        com.baidu.crabsdk.c.a.dx("#### ^@^ sync ok!");
+                        com.baidu.crabsdk.c.a.ds("#### ^@^ sync ok!");
                     } else {
-                        com.baidu.crabsdk.c.a.dx("#### T^T sync failed!");
+                        com.baidu.crabsdk.c.a.ds("#### T^T sync failed!");
                     }
                     httpURLConnection2.disconnect();
                     try {

@@ -9,12 +9,12 @@ import com.baidu.sumeru.universalimageloader.core.DisplayImageOptions;
 import com.baidu.sumeru.universalimageloader.core.ImageLoader;
 import com.baidu.sumeru.universalimageloader.core.assist.ImageLoadingListener;
 import java.util.List;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class ImagePagerAdapter extends PagerAdapter {
     private List<String> mDatas;
-    private ImageLoader oTV;
-    private String oTW;
-    private DisplayImageOptions oTX;
+    private ImageLoader oPt;
+    private String oPu;
+    private DisplayImageOptions oPv;
 
     public Object getItem(int i) {
         if (i < this.mDatas.size()) {
@@ -34,8 +34,8 @@ public class ImagePagerAdapter extends PagerAdapter {
     public View instantiateItem(ViewGroup viewGroup, int i) {
         ImageView imageView = new ImageView(viewGroup.getContext());
         imageView.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
-        this.oTW = (String) getItem(i);
-        this.oTV.displayImage(Yi(this.oTW), imageView, this.oTX, (ImageLoadingListener) null);
+        this.oPu = (String) getItem(i);
+        this.oPt.displayImage(Xa(this.oPu), imageView, this.oPv, (ImageLoadingListener) null);
         viewGroup.addView(imageView, -1, -1);
         return imageView;
     }
@@ -50,7 +50,7 @@ public class ImagePagerAdapter extends PagerAdapter {
         return view == obj;
     }
 
-    private static String Yi(String str) {
+    private static String Xa(String str) {
         if (TextUtils.isEmpty(str)) {
             return "";
         }

@@ -12,57 +12,57 @@ import java.util.Map;
 public class i {
 
     /* renamed from: a  reason: collision with root package name */
-    private final Map<String, List<String>> f6358a;
+    private final Map<String, List<String>> f6058a;
 
     /* renamed from: b  reason: collision with root package name */
-    private String f6359b;
+    private String f6059b;
 
     public i(String str) {
-        this.f6358a = new LinkedHashMap();
-        this.f6359b = str;
+        this.f6058a = new LinkedHashMap();
+        this.f6059b = str;
     }
 
     public i() {
-        this.f6358a = new LinkedHashMap();
-        this.f6359b = null;
+        this.f6058a = new LinkedHashMap();
+        this.f6059b = null;
     }
 
     public void a(String str, int i) {
-        List<String> list = this.f6358a.get(str);
+        List<String> list = this.f6058a.get(str);
         if (list == null) {
             list = new LinkedList<>();
         }
         list.add(String.valueOf(i));
-        this.f6358a.put(str, list);
+        this.f6058a.put(str, list);
     }
 
     public void d(String str, double d) {
-        List<String> list = this.f6358a.get(str);
+        List<String> list = this.f6058a.get(str);
         if (list == null) {
             list = new LinkedList<>();
         }
         list.add(String.valueOf(d));
-        this.f6358a.put(str, list);
+        this.f6058a.put(str, list);
     }
 
     public void a(String str, String str2) {
-        List<String> list = this.f6358a.get(str);
+        List<String> list = this.f6058a.get(str);
         if (list == null) {
             list = new LinkedList<>();
         }
         list.add(String.valueOf(str2));
-        this.f6358a.put(str, list);
+        this.f6058a.put(str, list);
     }
 
     public String a() {
-        if (this.f6358a.isEmpty()) {
-            return this.f6359b;
+        if (this.f6058a.isEmpty()) {
+            return this.f6059b;
         }
-        String a2 = a(this.f6358a, "UTF-8");
-        if (this.f6359b == null || this.f6359b.length() == 0) {
+        String a2 = a(this.f6058a, "UTF-8");
+        if (this.f6059b == null || this.f6059b.length() == 0) {
             return a2;
         }
-        return this.f6359b.indexOf(63) >= 0 ? this.f6359b + ETAG.ITEM_SEPARATOR + a2 : this.f6359b + "?" + a2;
+        return this.f6059b.indexOf(63) >= 0 ? this.f6059b + ETAG.ITEM_SEPARATOR + a2 : this.f6059b + "?" + a2;
     }
 
     public String a(Map<String, List<String>> map, String str) {

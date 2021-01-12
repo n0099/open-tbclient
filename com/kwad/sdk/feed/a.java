@@ -8,7 +8,7 @@ import com.kwad.sdk.feed.widget.f;
 import com.kwad.sdk.feed.widget.g;
 import com.kwad.sdk.feed.widget.h;
 import com.kwad.sdk.feed.widget.i;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class a {
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
     private static com.kwad.sdk.feed.widget.base.a a(Context context, FeedType feedType) {

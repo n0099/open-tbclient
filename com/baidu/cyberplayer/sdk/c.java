@@ -2,14 +2,14 @@ package com.baidu.cyberplayer.sdk;
 
 import android.text.TextUtils;
 import com.baidu.cyberplayer.sdk.config.CyberCfgManager;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    private static c f1795a;
+    private static c f1745a;
 
     /* renamed from: b  reason: collision with root package name */
-    private boolean f1796b = true;
+    private boolean f1746b = true;
     private String c = null;
     private String d = null;
     private boolean e = true;
@@ -23,10 +23,10 @@ public class c {
     public static synchronized c a() {
         c cVar;
         synchronized (c.class) {
-            if (f1795a == null) {
-                f1795a = new c();
+            if (f1745a == null) {
+                f1745a = new c();
             }
-            cVar = f1795a;
+            cVar = f1745a;
         }
         return cVar;
     }
@@ -47,7 +47,7 @@ public class c {
     }
 
     public boolean b() {
-        if (!this.f1796b) {
+        if (!this.f1746b) {
             CyberLog.i("CyberGlobalSetting", "isStatisticsUploadEnable closed");
             return false;
         } else if (g()) {

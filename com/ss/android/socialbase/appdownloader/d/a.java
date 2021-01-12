@@ -9,81 +9,81 @@ import com.ss.android.socialbase.appdownloader.c.k;
 public class a extends com.ss.android.socialbase.appdownloader.c.b {
 
     /* renamed from: a  reason: collision with root package name */
-    private AlertDialog.Builder f13321a;
+    private AlertDialog.Builder f13021a;
 
     public a(Context context) {
-        this.f13321a = new AlertDialog.Builder(context);
+        this.f13021a = new AlertDialog.Builder(context);
     }
 
     @Override // com.ss.android.socialbase.appdownloader.c.k
-    public k Sh(int i) {
-        if (this.f13321a != null) {
-            this.f13321a.setTitle(i);
+    public k QA(int i) {
+        if (this.f13021a != null) {
+            this.f13021a.setTitle(i);
         }
         return this;
     }
 
     @Override // com.ss.android.socialbase.appdownloader.c.k
-    public k aaP(String str) {
-        if (this.f13321a != null) {
-            this.f13321a.setMessage(str);
+    public k ZH(String str) {
+        if (this.f13021a != null) {
+            this.f13021a.setMessage(str);
         }
         return this;
     }
 
     @Override // com.ss.android.socialbase.appdownloader.c.k
     public k h(int i, DialogInterface.OnClickListener onClickListener) {
-        if (this.f13321a != null) {
-            this.f13321a.setPositiveButton(i, onClickListener);
+        if (this.f13021a != null) {
+            this.f13021a.setPositiveButton(i, onClickListener);
         }
         return this;
     }
 
     @Override // com.ss.android.socialbase.appdownloader.c.k
     public k i(int i, DialogInterface.OnClickListener onClickListener) {
-        if (this.f13321a != null) {
-            this.f13321a.setNegativeButton(i, onClickListener);
+        if (this.f13021a != null) {
+            this.f13021a.setNegativeButton(i, onClickListener);
         }
         return this;
     }
 
     @Override // com.ss.android.socialbase.appdownloader.c.k
     public k h(DialogInterface.OnCancelListener onCancelListener) {
-        if (this.f13321a != null) {
-            this.f13321a.setOnCancelListener(onCancelListener);
+        if (this.f13021a != null) {
+            this.f13021a.setOnCancelListener(onCancelListener);
         }
         return this;
     }
 
     @Override // com.ss.android.socialbase.appdownloader.c.k
-    public j eGy() {
-        return new C1242a(this.f13321a);
+    public j eCH() {
+        return new C1225a(this.f13021a);
     }
 
     /* renamed from: com.ss.android.socialbase.appdownloader.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    private static class C1242a implements j {
+    private static class C1225a implements j {
 
         /* renamed from: a  reason: collision with root package name */
-        private AlertDialog f13322a;
+        private AlertDialog f13022a;
 
-        public C1242a(AlertDialog.Builder builder) {
+        public C1225a(AlertDialog.Builder builder) {
             if (builder != null) {
-                this.f13322a = builder.show();
+                this.f13022a = builder.show();
             }
         }
 
         @Override // com.ss.android.socialbase.appdownloader.c.j
         public void a() {
-            if (this.f13322a != null) {
-                this.f13322a.show();
+            if (this.f13022a != null) {
+                this.f13022a.show();
             }
         }
 
         @Override // com.ss.android.socialbase.appdownloader.c.j
         public boolean b() {
-            if (this.f13322a != null) {
-                return this.f13322a.isShowing();
+            if (this.f13022a != null) {
+                return this.f13022a.isShowing();
             }
             return false;
         }

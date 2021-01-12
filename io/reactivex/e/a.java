@@ -6,39 +6,39 @@ import io.reactivex.v;
 import java.util.concurrent.Callable;
 /* loaded from: classes5.dex */
 public final class a {
-    static final v qmO = io.reactivex.d.a.g(new h());
-    static final v qmP = io.reactivex.d.a.d(new b());
-    static final v qmQ = io.reactivex.d.a.e(new c());
-    static final v qmR = k.eMc();
-    static final v qmS = io.reactivex.d.a.f(new f());
+    static final v qim = io.reactivex.d.a.g(new h());
+    static final v qin = io.reactivex.d.a.d(new b());
+    static final v qio = io.reactivex.d.a.e(new c());
+    static final v qip = k.eIm();
+    static final v qiq = io.reactivex.d.a.f(new f());
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: io.reactivex.e.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public static final class C1305a {
-        static final v qmT = new io.reactivex.internal.schedulers.a();
+    public static final class C1288a {
+        static final v qir = new io.reactivex.internal.schedulers.a();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes5.dex */
     public static final class d {
-        static final v qmT = new io.reactivex.internal.schedulers.d();
+        static final v qir = new io.reactivex.internal.schedulers.d();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes5.dex */
     public static final class e {
-        static final v qmT = new io.reactivex.internal.schedulers.e();
+        static final v qir = new io.reactivex.internal.schedulers.e();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes5.dex */
     public static final class g {
-        static final v qmT = new j();
+        static final v qir = new j();
     }
 
-    public static v eMk() {
-        return io.reactivex.d.a.a(qmO);
+    public static v eIu() {
+        return io.reactivex.d.a.a(qim);
     }
 
     /* loaded from: classes5.dex */
@@ -48,9 +48,9 @@ public final class a {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.concurrent.Callable
-        /* renamed from: eMl */
+        /* renamed from: eIv */
         public v call() throws Exception {
-            return d.qmT;
+            return d.qir;
         }
     }
 
@@ -61,9 +61,9 @@ public final class a {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.concurrent.Callable
-        /* renamed from: eMl */
+        /* renamed from: eIv */
         public v call() throws Exception {
-            return e.qmT;
+            return e.qir;
         }
     }
 
@@ -74,9 +74,9 @@ public final class a {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.concurrent.Callable
-        /* renamed from: eMl */
+        /* renamed from: eIv */
         public v call() throws Exception {
-            return g.qmT;
+            return g.qir;
         }
     }
 
@@ -87,9 +87,9 @@ public final class a {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.concurrent.Callable
-        /* renamed from: eMl */
+        /* renamed from: eIv */
         public v call() throws Exception {
-            return C1305a.qmT;
+            return C1288a.qir;
         }
     }
 }

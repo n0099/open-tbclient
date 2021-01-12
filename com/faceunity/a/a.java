@@ -8,13 +8,13 @@ import android.view.Surface;
 import com.baidu.ala.helper.StreamConfig;
 import com.kwai.video.player.KsMediaMeta;
 import java.nio.ByteBuffer;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class a {
-    private boolean cim;
+    private boolean cdz;
     private MediaCodec.BufferInfo mBufferInfo = new MediaCodec.BufferInfo();
     private MediaCodec mEncoder;
     private int mTrackIndex;
-    private c pIc;
+    private c pDB;
 
     public a(c cVar) {
         MediaFormat createAudioFormat = MediaFormat.createAudioFormat("audio/mp4a-latm", StreamConfig.Audio.AUDIO_RTC_FREQUENCY_48K, 1);
@@ -29,8 +29,8 @@ public class a {
         this.mEncoder.configure(createAudioFormat, (Surface) null, (MediaCrypto) null, 1);
         this.mEncoder.start();
         this.mTrackIndex = -1;
-        this.cim = false;
-        this.pIc = cVar;
+        this.cdz = false;
+        this.pDB = cVar;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -65,7 +65,7 @@ public class a {
         }
     }
 
-    public void eBK() throws Exception {
+    public void exS() throws Exception {
         ByteBuffer[] outputBuffers = this.mEncoder.getOutputBuffers();
         while (true) {
             int dequeueOutputBuffer = this.mEncoder.dequeueOutputBuffer(this.mBufferInfo, 10000L);
@@ -73,24 +73,24 @@ public class a {
                 if (dequeueOutputBuffer == -3) {
                     outputBuffers = this.mEncoder.getOutputBuffers();
                 } else if (dequeueOutputBuffer == -2) {
-                    if (this.cim) {
+                    if (this.cdz) {
                         throw new RuntimeException("format changed twice");
                     }
                     MediaFormat outputFormat = this.mEncoder.getOutputFormat();
                     Log.d("AudioEncoder", "encoder output format changed: " + outputFormat);
-                    this.mTrackIndex = this.pIc.f(outputFormat);
-                    if (!this.pIc.start()) {
-                        synchronized (this.pIc) {
-                            while (!this.pIc.isStarted()) {
+                    this.mTrackIndex = this.pDB.f(outputFormat);
+                    if (!this.pDB.start()) {
+                        synchronized (this.pDB) {
+                            while (!this.pDB.isStarted()) {
                                 try {
-                                    this.pIc.wait(100L);
+                                    this.pDB.wait(100L);
                                 } catch (InterruptedException e) {
                                     e.printStackTrace();
                                 }
                             }
                         }
                     }
-                    this.cim = true;
+                    this.cdz = true;
                 } else if (dequeueOutputBuffer < 0) {
                     Log.w("AudioEncoder", "unexpected result from encoder.dequeueOutputBuffer: " + dequeueOutputBuffer);
                 } else {
@@ -102,12 +102,12 @@ public class a {
                         this.mBufferInfo.size = 0;
                     }
                     if (this.mBufferInfo.size != 0) {
-                        if (!this.cim) {
+                        if (!this.cdz) {
                             throw new RuntimeException("muxer hasn't started");
                         }
                         byteBuffer.position(this.mBufferInfo.offset);
                         byteBuffer.limit(this.mBufferInfo.offset + this.mBufferInfo.size);
-                        this.pIc.c(this.mTrackIndex, byteBuffer, this.mBufferInfo);
+                        this.pDB.c(this.mTrackIndex, byteBuffer, this.mBufferInfo);
                     }
                     this.mEncoder.releaseOutputBuffer(dequeueOutputBuffer, false);
                     if ((this.mBufferInfo.flags & 4) != 0) {
@@ -127,9 +127,9 @@ public class a {
                 this.mEncoder.release();
                 this.mEncoder = null;
             }
-            if (this.pIc != null) {
-                this.pIc.stop();
-                this.pIc = null;
+            if (this.pDB != null) {
+                this.pDB.stop();
+                this.pDB = null;
             }
         } catch (Exception e) {
             e.printStackTrace();

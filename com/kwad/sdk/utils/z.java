@@ -1,7 +1,7 @@
 package com.kwad.sdk.utils;
 
 import androidx.annotation.Nullable;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class z {
     public static <T> T a(T t) {
         if (t == null) {

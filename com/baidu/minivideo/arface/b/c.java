@@ -7,18 +7,18 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class c extends j {
     public c(d dVar) {
-        super(dVar.mUrl, dVar.cld);
+        super(dVar.mUrl, dVar.cgq);
     }
 
     @Override // com.baidu.minivideo.arface.b.j
-    protected boolean o(File file) {
-        return p(file);
+    protected boolean n(File file) {
+        return o(file);
     }
 
-    public static boolean p(File file) {
+    public static boolean o(File file) {
         JSONArray optJSONArray;
         try {
             File file2 = new File(file, "files.json");
@@ -37,7 +37,7 @@ public class c extends j {
             ArrayList arrayList = new ArrayList();
             int length = optJSONArray.length();
             for (int i = 0; i < length; i++) {
-                arrayList.add(a.jI(optJSONArray.getString(i)));
+                arrayList.add(a.ix(optJSONArray.getString(i)));
             }
             return a(file, arrayList);
         } catch (Exception e) {
@@ -77,13 +77,13 @@ public class c extends j {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class a {
         public String mMd5;
         public String mName;
         public String mPath;
 
-        public static a jI(String str) {
+        public static a ix(String str) {
             if (TextUtils.isEmpty(str)) {
                 return null;
             }

@@ -14,7 +14,7 @@ import java.util.List;
 import java.util.Map;
 /* loaded from: classes6.dex */
 public abstract class a {
-    private static volatile a ews;
+    private static volatile a erF;
 
     public abstract boolean a(f fVar, PMSAppInfo pMSAppInfo);
 
@@ -26,11 +26,11 @@ public abstract class a {
     @WorkerThread
     public abstract List<g> ai(@NonNull String str, int i);
 
-    public abstract boolean ak(String str, String str2, String str3);
+    public abstract boolean aj(String str, String str2, String str3);
 
-    public abstract Map<String, f> bgd();
+    public abstract Map<String, f> bcj();
 
-    public abstract Map<String, PMSAppInfo> bge();
+    public abstract Map<String, PMSAppInfo> bck();
 
     public abstract <T extends e> boolean c(T t);
 
@@ -38,9 +38,9 @@ public abstract class a {
 
     public abstract <T extends e> T d(Class<T> cls, String str);
 
-    public abstract void dv(String str, String str2);
+    public abstract void du(String str, String str2);
 
-    public abstract h dw(String str, String str2);
+    public abstract h dv(String str, String str2);
 
     public abstract boolean f(h hVar);
 
@@ -51,25 +51,25 @@ public abstract class a {
     public abstract boolean s(PMSAppInfo pMSAppInfo);
 
     @Nullable
-    public abstract i yM(String str);
+    public abstract i xB(String str);
 
-    public abstract PMSAppInfo yN(String str);
+    public abstract PMSAppInfo xC(String str);
 
-    public abstract boolean yO(String str);
+    public abstract boolean xD(String str);
 
     @WorkerThread
-    public abstract int yP(@NonNull String str);
+    public abstract int xE(@NonNull String str);
 
-    public abstract void yQ(String str);
+    public abstract void xF(String str);
 
-    public static a bgc() {
-        if (ews == null) {
+    public static a bci() {
+        if (erF == null) {
             synchronized (a.class) {
-                if (ews == null) {
-                    ews = new b();
+                if (erF == null) {
+                    erF = new b();
                 }
             }
         }
-        return ews;
+        return erF;
     }
 }

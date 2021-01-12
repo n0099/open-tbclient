@@ -6,40 +6,40 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class ConnectTask {
 
     /* renamed from: a  reason: collision with root package name */
-    final int f11190a;
+    final int f10890a;
 
     /* renamed from: b  reason: collision with root package name */
-    final String f11191b;
+    final String f10891b;
     final com.kwai.filedownloader.d.b c;
     private com.kwai.filedownloader.download.a d;
     private String e;
     private Map<String, List<String>> f;
     private List<String> g;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     class Reconnect extends Throwable {
         Reconnect() {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        private Integer f11192a;
+        private Integer f10892a;
 
         /* renamed from: b  reason: collision with root package name */
-        private String f11193b;
+        private String f10893b;
         private String c;
         private com.kwai.filedownloader.d.b d;
         private com.kwai.filedownloader.download.a e;
 
         public a a(int i) {
-            this.f11192a = Integer.valueOf(i);
+            this.f10892a = Integer.valueOf(i);
             return this;
         }
 
@@ -54,16 +54,16 @@ public class ConnectTask {
         }
 
         public a a(String str) {
-            this.f11193b = str;
+            this.f10893b = str;
             return this;
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
         public ConnectTask a() {
-            if (this.f11192a == null || this.e == null || this.f11193b == null) {
+            if (this.f10892a == null || this.e == null || this.f10893b == null) {
                 throw new IllegalArgumentException();
             }
-            return new ConnectTask(this.e, this.f11192a.intValue(), this.f11193b, this.c, this.d);
+            return new ConnectTask(this.e, this.f10892a.intValue(), this.f10893b, this.c, this.d);
         }
 
         public a b(String str) {
@@ -73,8 +73,8 @@ public class ConnectTask {
     }
 
     private ConnectTask(com.kwai.filedownloader.download.a aVar, int i, String str, String str2, com.kwai.filedownloader.d.b bVar) {
-        this.f11190a = i;
-        this.f11191b = str;
+        this.f10890a = i;
+        this.f10891b = str;
         this.e = str2;
         this.c = bVar;
         this.d = aVar;
@@ -85,8 +85,8 @@ public class ConnectTask {
         if (this.c == null || (a2 = this.c.a()) == null) {
             return;
         }
-        if (com.kwai.filedownloader.f.d.f11228a) {
-            com.kwai.filedownloader.f.d.e(this, "%d add outside header: %s", Integer.valueOf(this.f11190a), a2);
+        if (com.kwai.filedownloader.f.d.f10928a) {
+            com.kwai.filedownloader.f.d.e(this, "%d add outside header: %s", Integer.valueOf(this.f10890a), a2);
         }
         for (Map.Entry<String, List<String>> entry : a2.entrySet()) {
             String key = entry.getKey();
@@ -100,13 +100,13 @@ public class ConnectTask {
     }
 
     private void b(com.kwai.filedownloader.a.b bVar) {
-        if (bVar.a(this.e, this.d.f11198a)) {
+        if (bVar.a(this.e, this.d.f10898a)) {
             return;
         }
         if (!TextUtils.isEmpty(this.e)) {
             bVar.a("If-Match", this.e);
         }
-        bVar.a(Headers.RANGE, this.d.c == 0 ? com.kwai.filedownloader.f.f.a("bytes=%d-", Long.valueOf(this.d.f11199b)) : com.kwai.filedownloader.f.f.a("bytes=%d-%d", Long.valueOf(this.d.f11199b), Long.valueOf(this.d.c)));
+        bVar.a(Headers.RANGE, this.d.c == 0 ? com.kwai.filedownloader.f.f.a("bytes=%d-", Long.valueOf(this.d.f10899b)) : com.kwai.filedownloader.f.f.a("bytes=%d-%d", Long.valueOf(this.d.f10899b), Long.valueOf(this.d.c)));
     }
 
     private void c(com.kwai.filedownloader.a.b bVar) {
@@ -117,13 +117,13 @@ public class ConnectTask {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public com.kwai.filedownloader.a.b a() {
-        com.kwai.filedownloader.a.b a2 = b.a().a(this.f11191b);
+        com.kwai.filedownloader.a.b a2 = b.a().a(this.f10891b);
         a(a2);
         b(a2);
         c(a2);
         this.f = a2.b();
-        if (com.kwai.filedownloader.f.d.f11228a) {
-            com.kwai.filedownloader.f.d.c(this, "%s request header %s", Integer.valueOf(this.f11190a), this.f);
+        if (com.kwai.filedownloader.f.d.f10928a) {
+            com.kwai.filedownloader.f.d.c(this, "%s request header %s", Integer.valueOf(this.f10890a), this.f);
         }
         a2.d();
         this.g = new ArrayList();
@@ -132,7 +132,7 @@ public class ConnectTask {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public boolean b() {
-        return this.d.f11199b > 0;
+        return this.d.f10899b > 0;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */

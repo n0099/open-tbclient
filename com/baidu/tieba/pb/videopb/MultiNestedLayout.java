@@ -16,20 +16,20 @@ public class MultiNestedLayout extends RelativeLayout implements NestedScrolling
     private final int[] mParentScrollConsumed;
     private int mState;
     private View mTarget;
-    private int mfn;
-    private int mfo;
-    private c mfp;
-    private a mfq;
-    private b mfr;
+    private int maI;
+    private int maJ;
+    private c maK;
+    private a maL;
+    private b maM;
 
     /* loaded from: classes2.dex */
     public interface a {
-        void dtI();
+        void dpQ();
     }
 
     /* loaded from: classes2.dex */
     public interface b {
-        void jl(int i);
+        void hF(int i);
     }
 
     /* loaded from: classes2.dex */
@@ -47,17 +47,17 @@ public class MultiNestedLayout extends RelativeLayout implements NestedScrolling
 
     public MultiNestedLayout(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.mfn = Integer.MIN_VALUE;
+        this.maI = Integer.MIN_VALUE;
         this.mParentScrollConsumed = new int[2];
-        this.mfo = 0;
+        this.maJ = 0;
         this.mState = 0;
-        this.mfp = null;
-        this.mfq = null;
-        this.mfr = null;
-        dvq();
+        this.maK = null;
+        this.maL = null;
+        this.maM = null;
+        dry();
     }
 
-    private void dvq() {
+    private void dry() {
         this.mNestedScrollingChildHelper = new NestedScrollingChildHelper(this);
         this.mNestedScrollingParentHelper = new NestedScrollingParentHelper(this);
         setNestedScrollingEnabled(true);
@@ -78,7 +78,7 @@ public class MultiNestedLayout extends RelativeLayout implements NestedScrolling
     protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
         super.onLayout(z, i, i2, i3, i4);
         if (this.mTarget != null) {
-            this.mfn = this.mTarget.getTop();
+            this.maI = this.mTarget.getTop();
         }
     }
 
@@ -88,7 +88,7 @@ public class MultiNestedLayout extends RelativeLayout implements NestedScrolling
                 View childAt = getChildAt(i);
                 if (childAt instanceof NestedScrollingChild) {
                     this.mTarget = childAt;
-                    this.mfn = this.mTarget.getTop();
+                    this.maI = this.mTarget.getTop();
                     return;
                 }
             }
@@ -108,7 +108,7 @@ public class MultiNestedLayout extends RelativeLayout implements NestedScrolling
 
     @Override // android.view.ViewGroup, android.view.ViewParent, androidx.core.view.NestedScrollingParent
     public void onNestedPreScroll(View view, int i, int i2, int[] iArr) {
-        if (dvr()) {
+        if (drz()) {
             int[] iArr2 = this.mParentScrollConsumed;
             if (i2 > 0 && dispatchNestedPreScroll(i, i2, iArr2, null)) {
                 iArr[0] = iArr[0] + iArr2[0];
@@ -117,45 +117,45 @@ public class MultiNestedLayout extends RelativeLayout implements NestedScrolling
                 i2 -= iArr2[1];
             }
             if (i2 >= 0) {
-                if (this.mfn - this.mfo > i2) {
+                if (this.maI - this.maJ > i2) {
                     iArr[1] = iArr[1] + i2;
-                    this.mfo += i2;
+                    this.maJ += i2;
                     if (i2 > 0) {
                         this.mState = 2;
-                        if (this.mfr != null) {
-                            this.mfr.jl(this.mState);
+                        if (this.maM != null) {
+                            this.maM.hF(this.mState);
                         }
                     }
                 } else {
-                    iArr[1] = iArr[1] + (this.mfn - this.mfo);
-                    this.mfo = this.mfn;
+                    iArr[1] = iArr[1] + (this.maI - this.maJ);
+                    this.maJ = this.maI;
                     this.mState = 1;
-                    if (this.mfp != null) {
-                        this.mfp.onScrollToTop();
+                    if (this.maK != null) {
+                        this.maK.onScrollToTop();
                     }
-                    if (this.mfr != null) {
-                        this.mfr.jl(this.mState);
+                    if (this.maM != null) {
+                        this.maM.hF(this.mState);
                     }
                 }
-            } else if (this.mfo > Math.abs(i2)) {
+            } else if (this.maJ > Math.abs(i2)) {
                 iArr[1] = iArr[1] + i2;
-                this.mfo += i2;
+                this.maJ += i2;
                 this.mState = 2;
-                if (this.mfr != null) {
-                    this.mfr.jl(this.mState);
+                if (this.maM != null) {
+                    this.maM.hF(this.mState);
                 }
             } else {
-                iArr[1] = iArr[1] + (-this.mfo);
-                this.mfo = 0;
+                iArr[1] = iArr[1] + (-this.maJ);
+                this.maJ = 0;
                 this.mState = 0;
-                if (this.mfq != null) {
-                    this.mfq.dtI();
+                if (this.maL != null) {
+                    this.maL.dpQ();
                 }
-                if (this.mfr != null) {
-                    this.mfr.jl(this.mState);
+                if (this.maM != null) {
+                    this.maM.hF(this.mState);
                 }
             }
-            setTargetOffsetTopAndBottom(-this.mfo);
+            setTargetOffsetTopAndBottom(-this.maJ);
         }
     }
 
@@ -229,49 +229,49 @@ public class MultiNestedLayout extends RelativeLayout implements NestedScrolling
     }
 
     public void setOffset(int i) {
-        if (dvr()) {
-            this.mfo = i;
-            setTargetOffsetTopAndBottom(-this.mfo);
-            if (this.mfo == this.mfn) {
+        if (drz()) {
+            this.maJ = i;
+            setTargetOffsetTopAndBottom(-this.maJ);
+            if (this.maJ == this.maI) {
                 this.mState = 1;
-                if (this.mfp != null) {
-                    this.mfp.onScrollToTop();
+                if (this.maK != null) {
+                    this.maK.onScrollToTop();
                 }
-            } else if (this.mfo == 0) {
+            } else if (this.maJ == 0) {
                 this.mState = 0;
-                if (this.mfq != null) {
-                    this.mfq.dtI();
+                if (this.maL != null) {
+                    this.maL.dpQ();
                 }
             } else {
                 this.mState = 2;
             }
-            if (this.mfr != null) {
-                this.mfr.jl(this.mState);
+            if (this.maM != null) {
+                this.maM.hF(this.mState);
             }
         }
     }
 
     public void setMaxOffset() {
-        setOffset(this.mfn);
+        setOffset(this.maI);
     }
 
     public void setMinOffset() {
         setOffset(0);
     }
 
-    private boolean dvr() {
-        return this.mTarget != null && this.mfn > -10000;
+    private boolean drz() {
+        return this.mTarget != null && this.maI > -10000;
     }
 
     public void setScrollToTopListener(c cVar) {
-        this.mfp = cVar;
+        this.maK = cVar;
     }
 
     public void setScrollBottomListener(a aVar) {
-        this.mfq = aVar;
+        this.maL = aVar;
     }
 
     public void setScrollStateChangeListener(b bVar) {
-        this.mfr = bVar;
+        this.maM = bVar;
     }
 }

@@ -3,19 +3,19 @@ package com.baidu.tieba.ala.liveroom.challenge.message;
 import com.baidu.live.data.an;
 import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class AlaGetQualifyingResultResponseMessage extends JsonHttpResponsedMessage {
-    private int hvH;
-    private boolean hvI;
-    private int hvJ;
-    private int hvK;
-    private String hvL;
+    private int hrb;
+    private boolean hrc;
+    private int hrd;
+    private int hre;
+    private String hrf;
 
     public AlaGetQualifyingResultResponseMessage() {
         super(1021209);
-        this.hvH = 0;
-        this.hvI = false;
-        this.hvJ = 0;
+        this.hrb = 0;
+        this.hrc = false;
+        this.hrd = 0;
     }
 
     @Override // com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage
@@ -23,42 +23,42 @@ public class AlaGetQualifyingResultResponseMessage extends JsonHttpResponsedMess
         JSONObject optJSONObject;
         an anVar;
         super.decodeLogicInBackGround(i, jSONObject);
-        if (jSONObject != null && (optJSONObject = jSONObject.optJSONObject("data")) != null && (anVar = com.baidu.live.af.a.SE().bwi) != null && anVar.aPn != null) {
-            this.hvI = anVar.aPn.aSw;
-            if (this.hvI) {
+        if (jSONObject != null && (optJSONObject = jSONObject.optJSONObject("data")) != null && (anVar = com.baidu.live.af.a.OJ().bru) != null && anVar.aKA != null) {
+            this.hrc = anVar.aKA.aNJ;
+            if (this.hrc) {
                 JSONObject optJSONObject2 = optJSONObject.optJSONObject("season_info");
                 if (optJSONObject2 != null) {
-                    this.hvH = 1;
-                    this.hvL = optJSONObject2.optString("show_last_time");
-                    if (this.hvL == null || this.hvL.isEmpty()) {
-                        this.hvJ = 0;
+                    this.hrb = 1;
+                    this.hrf = optJSONObject2.optString("show_last_time");
+                    if (this.hrf == null || this.hrf.isEmpty()) {
+                        this.hrd = 0;
                         return;
                     } else {
-                        this.hvJ = 1;
+                        this.hrd = 1;
                         return;
                     }
                 }
-                this.hvH = 0;
+                this.hrb = 0;
                 return;
             }
-            this.hvH = 0;
+            this.hrb = 0;
         }
     }
 
-    public boolean cfV() {
-        return this.hvH == 1;
+    public boolean ccd() {
+        return this.hrb == 1;
     }
 
-    public boolean cfW() {
-        return this.hvJ == 1;
+    public boolean cce() {
+        return this.hrd == 1;
     }
 
-    public long cfX() {
+    public long ccf() {
         try {
-            this.hvK = Integer.parseInt(this.hvL);
+            this.hre = Integer.parseInt(this.hrf);
         } catch (NumberFormatException e) {
             e.printStackTrace();
         }
-        return this.hvK * 1000;
+        return this.hre * 1000;
     }
 }

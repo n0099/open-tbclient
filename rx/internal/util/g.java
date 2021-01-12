@@ -6,11 +6,11 @@ import rx.internal.operators.NotificationLite;
 import rx.internal.util.a.ae;
 import rx.internal.util.a.q;
 import rx.k;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class g implements k {
     public static final int SIZE;
+    public volatile Object qsW;
     private Queue<Object> queue;
-    public volatile Object qxy;
     private final int size;
 
     static {
@@ -29,12 +29,12 @@ public class g implements k {
         SIZE = i;
     }
 
-    public static g eOR() {
-        return ae.ePa() ? new g(false, SIZE) : new g();
+    public static g eLb() {
+        return ae.eLk() ? new g(false, SIZE) : new g();
     }
 
-    public static g eOS() {
-        return ae.ePa() ? new g(true, SIZE) : new g();
+    public static g eLc() {
+        return ae.eLk() ? new g(true, SIZE) : new g();
     }
 
     private g(Queue<Object> queue, int i) {
@@ -81,8 +81,8 @@ public class g implements k {
     }
 
     public void onCompleted() {
-        if (this.qxy == null) {
-            this.qxy = NotificationLite.eOs();
+        if (this.qsW == null) {
+            this.qsW = NotificationLite.eKC();
         }
     }
 
@@ -97,9 +97,9 @@ public class g implements k {
             Queue<Object> queue = this.queue;
             if (queue != null) {
                 Object poll = queue.poll();
-                obj = this.qxy;
+                obj = this.qsW;
                 if (poll == null && obj != null && queue.peek() == null) {
-                    this.qxy = null;
+                    this.qsW = null;
                 } else {
                     obj = poll;
                 }
@@ -116,7 +116,7 @@ public class g implements k {
                 obj = null;
             } else {
                 Object peek = queue.peek();
-                obj = this.qxy;
+                obj = this.qsW;
                 if (peek != null || obj == null || queue.peek() != null) {
                     obj = peek;
                 }

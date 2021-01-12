@@ -6,11 +6,11 @@ import com.kwad.sdk.R;
 import com.kwad.sdk.contentalliance.home.viewpager.SlidePlayViewPager;
 import com.kwad.sdk.core.report.e;
 import com.kwad.sdk.core.response.model.AdTemplate;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class c extends com.kwad.sdk.contentalliance.home.c.a.a implements View.OnClickListener {
 
     /* renamed from: b  reason: collision with root package name */
-    private SlidePlayViewPager f9020b;
+    private SlidePlayViewPager f8720b;
     private View c;
     private View d;
     private View e;
@@ -49,18 +49,18 @@ public class c extends com.kwad.sdk.contentalliance.home.c.a.a implements View.O
     };
 
     private void e() {
-        e.b((AdTemplate) ((com.kwad.sdk.contentalliance.home.c.a.b) this.f10752a).i, 1);
+        e.b((AdTemplate) ((com.kwad.sdk.contentalliance.home.c.a.b) this.f10452a).i, 1);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.kwad.sdk.lib.widget.recycler.b.b, com.kwad.sdk.mvp.Presenter
     public void a() {
         super.a();
-        this.f9020b = ((com.kwad.sdk.contentalliance.home.c.a.b) this.f10752a).f9015a;
-        this.f = ((com.kwad.sdk.contentalliance.home.c.a.b) this.f10752a).f9016b;
-        this.g = ((com.kwad.sdk.contentalliance.home.c.a.b) this.f10752a).h;
-        this.i = (AdTemplate) ((com.kwad.sdk.contentalliance.home.c.a.b) this.f10752a).i;
-        this.h = ((com.kwad.sdk.contentalliance.home.c.a.b) this.f10752a).c;
+        this.f8720b = ((com.kwad.sdk.contentalliance.home.c.a.b) this.f10452a).f8715a;
+        this.f = ((com.kwad.sdk.contentalliance.home.c.a.b) this.f10452a).f8716b;
+        this.g = ((com.kwad.sdk.contentalliance.home.c.a.b) this.f10452a).h;
+        this.i = (AdTemplate) ((com.kwad.sdk.contentalliance.home.c.a.b) this.f10452a).i;
+        this.h = ((com.kwad.sdk.contentalliance.home.c.a.b) this.f10452a).c;
         if (this.i == this.h.a()) {
             this.d.setSelected(true);
             com.kwad.sdk.contentalliance.detail.video.b c = this.h.c();
@@ -98,7 +98,7 @@ public class c extends com.kwad.sdk.contentalliance.home.c.a.a implements View.O
     public void onClick(View view) {
         if (view == this.c) {
             if (this.i != this.h.a()) {
-                this.f9020b.a(this.i);
+                this.f8720b.a(this.i);
             } else if (this.f != null) {
                 this.f.performClick();
             }

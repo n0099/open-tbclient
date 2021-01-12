@@ -6,13 +6,13 @@ import com.baidu.fsg.base.restnet.beans.IBeanResponse;
 import com.baidu.fsg.base.utils.JsonUtils;
 import java.io.Serializable;
 import org.json.JSONException;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class UploadVideoModel implements IBeanResponse, Serializable {
     public String callbackkey;
     public String need_confirm;
     public String video;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class ConfirmBean implements NoProguard, Serializable {
         public String cancel_msg;
         public String confirm_msg;

@@ -5,14 +5,14 @@ import com.sdk.base.framework.c.f;
 import com.sdk.base.module.manager.SDKManager;
 import java.io.IOException;
 import java.util.Properties;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f13141a = a.class.getSimpleName();
+    private static final String f12841a = a.class.getSimpleName();
 
     /* renamed from: b  reason: collision with root package name */
-    private static final boolean f13142b = f.f13119b;
+    private static final boolean f12842b = f.f12819b;
 
     public static String a(String str, String str2) {
         if (c.a(str2).booleanValue()) {
@@ -22,7 +22,7 @@ public class a {
         try {
             properties.load(SDKManager.getContext().getAssets().open(str));
         } catch (IOException e) {
-            c.b(f13141a, "域名读取失败！《" + str2 + "+》", Boolean.valueOf(f13142b));
+            c.b(f12841a, "域名读取失败！《" + str2 + "+》", Boolean.valueOf(f12842b));
         }
         return properties.getProperty(str2);
     }

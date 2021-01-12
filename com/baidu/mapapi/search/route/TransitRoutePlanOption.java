@@ -1,12 +1,12 @@
 package com.baidu.mapapi.search.route;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class TransitRoutePlanOption {
     public PlanNode mFrom = null;
     public PlanNode mTo = null;
     public String mCityName = null;
     public TransitPolicy mPolicy = TransitPolicy.EBUS_TIME_FIRST;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public enum TransitPolicy {
         EBUS_TIME_FIRST(0),
         EBUS_TRANSFER_FIRST(2),
@@ -15,15 +15,15 @@ public class TransitRoutePlanOption {
         
 
         /* renamed from: a  reason: collision with root package name */
-        private int f3048a;
+        private int f2926a;
 
         TransitPolicy(int i) {
-            this.f3048a = 0;
-            this.f3048a = i;
+            this.f2926a = 0;
+            this.f2926a = i;
         }
 
         public int getInt() {
-            return this.f3048a;
+            return this.f2926a;
         }
     }
 

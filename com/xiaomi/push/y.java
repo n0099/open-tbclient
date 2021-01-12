@@ -23,7 +23,7 @@ import java.util.zip.ZipOutputStream;
 public class y {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String[] f14632a = {"jpg", "png", "bmp", "gif", "webp"};
+    public static final String[] f14332a = {"jpg", "png", "bmp", "gif", "webp"};
 
     public static String a(File file) {
         InputStreamReader inputStreamReader;
@@ -80,7 +80,7 @@ public class y {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static void m619a(File file) {
+    public static void m615a(File file) {
         if (!file.isDirectory()) {
             if (file.exists()) {
                 file.delete();
@@ -89,7 +89,7 @@ public class y {
             return;
         }
         for (File file2 : file.listFiles()) {
-            m619a(file2);
+            m615a(file2);
         }
         file.delete();
     }
@@ -110,7 +110,7 @@ public class y {
                 iOException = e2;
                 zipOutputStream = zipOutputStream2;
                 try {
-                    com.xiaomi.channel.commonutils.logger.b.m84a("zip file failure + " + iOException.getMessage());
+                    com.xiaomi.channel.commonutils.logger.b.m80a("zip file failure + " + iOException.getMessage());
                     a(zipOutputStream);
                 } catch (Throwable th2) {
                     th = th2;
@@ -236,7 +236,7 @@ public class y {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m620a(File file) {
+    public static boolean m616a(File file) {
         try {
             if (file.isDirectory()) {
                 return false;

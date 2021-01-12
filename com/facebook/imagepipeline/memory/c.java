@@ -15,8 +15,8 @@ public class c extends BasePool<Bitmap> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.facebook.imagepipeline.memory.BasePool
-    /* renamed from: Rk */
-    public Bitmap Rb(int i) {
+    /* renamed from: PD */
+    public Bitmap Pu(int i) {
         return Bitmap.createBitmap(1, (int) Math.ceil(i / 2.0d), Bitmap.Config.RGB_565);
     }
 
@@ -30,7 +30,7 @@ public class c extends BasePool<Bitmap> {
     }
 
     @Override // com.facebook.imagepipeline.memory.BasePool
-    protected int Rc(int i) {
+    protected int Pv(int i) {
         return i;
     }
 
@@ -44,7 +44,7 @@ public class c extends BasePool<Bitmap> {
     }
 
     @Override // com.facebook.imagepipeline.memory.BasePool
-    protected int Rd(int i) {
+    protected int Pw(int i) {
         return i;
     }
 

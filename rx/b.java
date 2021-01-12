@@ -2,34 +2,34 @@ package rx;
 
 import rx.g;
 import rx.internal.operators.CompletableOnSubscribeConcatIterable;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class b {
-    static final b qsa = new b(new a() { // from class: rx.b.1
+    static final b qny = new b(new a() { // from class: rx.b.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // rx.functions.b
         /* renamed from: a */
         public void call(c cVar) {
-            cVar.onSubscribe(rx.subscriptions.e.ePN());
+            cVar.onSubscribe(rx.subscriptions.e.eLX());
             cVar.onCompleted();
         }
     }, false);
-    static final b qsb = new b(new a() { // from class: rx.b.2
+    static final b qnz = new b(new a() { // from class: rx.b.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // rx.functions.b
         /* renamed from: a */
         public void call(c cVar) {
-            cVar.onSubscribe(rx.subscriptions.e.ePN());
+            cVar.onSubscribe(rx.subscriptions.e.eLX());
         }
     }, false);
-    private final a qrZ;
+    private final a qnx;
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public interface a extends rx.functions.b<c> {
     }
 
     /* renamed from: rx.b$b  reason: collision with other inner class name */
-    /* loaded from: classes15.dex */
-    public interface InterfaceC1321b extends rx.functions.f<c, c> {
+    /* loaded from: classes14.dex */
+    public interface InterfaceC1304b extends rx.functions.f<c, c> {
     }
 
     public static b l(Iterable<? extends b> iterable) {
@@ -63,11 +63,11 @@ public class b {
     }
 
     protected b(a aVar) {
-        this.qrZ = rx.c.c.b(aVar);
+        this.qnx = rx.c.c.b(aVar);
     }
 
     protected b(a aVar, boolean z) {
-        this.qrZ = z ? rx.c.c.b(aVar) : aVar;
+        this.qnx = z ? rx.c.c.b(aVar) : aVar;
     }
 
     public final b a(final g gVar) {
@@ -119,7 +119,7 @@ public class b {
         });
     }
 
-    public final k eNU() {
+    public final k eKe() {
         final rx.subscriptions.c cVar = new rx.subscriptions.c();
         b(new c() { // from class: rx.b.4
             @Override // rx.c
@@ -150,7 +150,7 @@ public class b {
     public final void b(c cVar) {
         bV(cVar);
         try {
-            rx.c.c.b(this, this.qrZ).call(cVar);
+            rx.c.c.b(this, this.qnx).call(cVar);
         } catch (NullPointerException e) {
             throw e;
         } catch (Throwable th) {

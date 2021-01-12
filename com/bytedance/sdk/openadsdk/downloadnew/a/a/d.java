@@ -16,10 +16,10 @@ import java.lang.ref.WeakReference;
 public class d implements h {
 
     /* renamed from: a  reason: collision with root package name */
-    private final WeakReference<Context> f7363a;
+    private final WeakReference<Context> f7063a;
 
     public d(Context context) {
-        this.f7363a = new WeakReference<>(context);
+        this.f7063a = new WeakReference<>(context);
     }
 
     @Override // com.ss.android.a.a.a.h

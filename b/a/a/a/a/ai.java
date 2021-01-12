@@ -15,12 +15,12 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public final class ai extends ah implements Runnable {
     private HandlerThread Az;
-    private w Bm;
-    private volatile af Bo;
-    private volatile aa Bp;
+    private w Bk;
+    private volatile af Bm;
+    private volatile aa Bn;
     private final File c;
     private boolean d;
     private Handler e;
@@ -30,9 +30,9 @@ public final class ai extends ah implements Runnable {
     private volatile List j;
 
     public ai(w wVar) {
-        this.Bm = null;
-        this.Bm = wVar;
-        this.c = new File(this.Bm.f1082a.getExternalFilesDir("data").getAbsolutePath() + "/f_c");
+        this.Bk = null;
+        this.Bk = wVar;
+        this.c = new File(this.Bk.f1081a.getExternalFilesDir("data").getAbsolutePath() + "/f_c");
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -125,7 +125,7 @@ public final class ai extends ah implements Runnable {
         this.h = currentTimeMillis;
         a(5);
         try {
-            ConnectivityManager connectivityManager = (ConnectivityManager) this.Bm.f1082a.getSystemService("connectivity");
+            ConnectivityManager connectivityManager = (ConnectivityManager) this.Bk.f1081a.getSystemService("connectivity");
             NetworkInfo activeNetworkInfo = connectivityManager == null ? null : connectivityManager.getActiveNetworkInfo();
             if (activeNetworkInfo != null && activeNetworkInfo.isConnected() && 1 == activeNetworkInfo.getType()) {
                 if ((Build.VERSION.SDK_INT < 16 || !connectivityManager.isActiveNetworkMetered()) && e() && (listFiles = this.c.listFiles()) != null && listFiles.length != 0) {
@@ -147,12 +147,12 @@ public final class ai extends ah implements Runnable {
     }
 
     public final void a(aa aaVar, af afVar, List list) {
-        if (!this.f1055b || aaVar == null || System.currentTimeMillis() - aaVar.c > 10000) {
+        if (!this.f1054b || aaVar == null || System.currentTimeMillis() - aaVar.c > 10000) {
             return;
         }
         synchronized (this.i) {
-            this.Bp = aaVar;
-            this.Bo = afVar;
+            this.Bn = aaVar;
+            this.Bm = afVar;
             this.j = list;
         }
         if (e()) {
@@ -167,8 +167,8 @@ public final class ai extends ah implements Runnable {
     public final void b(Handler handler) {
         synchronized (this.i) {
             this.j = null;
-            this.Bo = null;
-            this.Bp = null;
+            this.Bm = null;
+            this.Bn = null;
         }
         this.h = 0L;
         this.g = 0L;

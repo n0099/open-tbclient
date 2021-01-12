@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class DownloadTask implements Serializable {
     private static final long serialVersionUID = -7092669850073266500L;
     private int mAllowedNetworkTypes;
@@ -30,7 +30,7 @@ public class DownloadTask implements Serializable {
     private boolean mUserPause;
     private boolean mWakeInstallApk;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class DownloadRequest implements Serializable {
         private static final long serialVersionUID = -3638290207248829674L;
         private int mAllowedNetworkTypes;

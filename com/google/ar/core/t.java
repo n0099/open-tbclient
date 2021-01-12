@@ -1,22 +1,22 @@
 package com.google.ar.core;
 
 import android.animation.ValueAnimator;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 final class t implements ValueAnimator.AnimatorUpdateListener {
 
     /* renamed from: a  reason: collision with root package name */
-    private final /* synthetic */ int f8166a;
+    private final /* synthetic */ int f7866a;
 
     /* renamed from: b  reason: collision with root package name */
-    private final /* synthetic */ int f8167b;
+    private final /* synthetic */ int f7867b;
     private final /* synthetic */ int c;
-    private final /* synthetic */ InstallActivity pMf;
+    private final /* synthetic */ InstallActivity pHE;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public t(InstallActivity installActivity, int i, int i2, int i3) {
-        this.pMf = installActivity;
-        this.f8166a = i;
-        this.f8167b = i2;
+        this.pHE = installActivity;
+        this.f7866a = i;
+        this.f7867b = i2;
         this.c = i3;
     }
 
@@ -24,7 +24,7 @@ final class t implements ValueAnimator.AnimatorUpdateListener {
     public final void onAnimationUpdate(ValueAnimator valueAnimator) {
         float animatedFraction = 1.0f - valueAnimator.getAnimatedFraction();
         float animatedFraction2 = valueAnimator.getAnimatedFraction();
-        this.pMf.getWindow().setLayout((int) ((this.f8166a * animatedFraction) + (this.f8167b * animatedFraction2)), (int) ((animatedFraction * this.c) + (animatedFraction2 * this.f8167b)));
-        this.pMf.getWindow().getDecorView().refreshDrawableState();
+        this.pHE.getWindow().setLayout((int) ((this.f7866a * animatedFraction) + (this.f7867b * animatedFraction2)), (int) ((animatedFraction * this.c) + (animatedFraction2 * this.f7867b)));
+        this.pHE.getWindow().getDecorView().refreshDrawableState();
     }
 }

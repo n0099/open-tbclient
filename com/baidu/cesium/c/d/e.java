@@ -3,21 +3,21 @@ package com.baidu.cesium.c.d;
 import java.math.BigInteger;
 /* loaded from: classes6.dex */
 public class e implements d {
-    private BigInteger afm;
-    private BigInteger afn;
+    private BigInteger any;
+    private BigInteger anz;
 
     public e(byte[] bArr, byte[] bArr2) {
-        this.afm = new BigInteger(bArr);
-        this.afn = new BigInteger(bArr2);
+        this.any = new BigInteger(bArr);
+        this.anz = new BigInteger(bArr2);
     }
 
     @Override // com.baidu.cesium.c.d.d
-    public BigInteger sp() {
-        return this.afm;
+    public BigInteger tO() {
+        return this.any;
     }
 
     @Override // com.baidu.cesium.c.d.d
-    public BigInteger sq() {
-        return this.afn;
+    public BigInteger tP() {
+        return this.anz;
     }
 }

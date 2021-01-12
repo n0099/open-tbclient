@@ -10,11 +10,11 @@ import java.util.zip.GZIPInputStream;
 import java.util.zip.GZIPOutputStream;
 import javax.crypto.Cipher;
 import javax.crypto.spec.SecretKeySpec;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public final class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Charset f9335a = Charset.forName("UTF-8");
+    public static final Charset f9035a = Charset.forName("UTF-8");
 
     public static void a(InputStream inputStream, OutputStream outputStream) {
         GZIPOutputStream gZIPOutputStream = new GZIPOutputStream(outputStream);
@@ -32,7 +32,7 @@ public final class b {
     }
 
     public static byte[] a(String str, byte[] bArr) {
-        return a(str.getBytes(f9335a), bArr, 2);
+        return a(str.getBytes(f9035a), bArr, 2);
     }
 
     public static byte[] a(byte[] bArr) {

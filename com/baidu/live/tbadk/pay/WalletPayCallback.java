@@ -1,5 +1,5 @@
 package com.baidu.live.tbadk.pay;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public interface WalletPayCallback {
     void onResult(int i, String str);
 }

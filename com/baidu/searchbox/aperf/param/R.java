@@ -6,7 +6,7 @@ public final class R {
 
     /* loaded from: classes2.dex */
     public static final class raw {
-        public static final int tnconfig = 0x7f0e007f;
+        public static final int tnconfig = 0x7f0e0082;
 
         private raw() {
         }

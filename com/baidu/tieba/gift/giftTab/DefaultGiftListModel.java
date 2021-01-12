@@ -7,24 +7,24 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.data.ah;
 import com.baidu.tbadk.core.data.ai;
 import java.util.ArrayList;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class DefaultGiftListModel extends BdBaseModel<GiftTabActivity> {
     private String addFreeUrl;
     private ArrayList<com.baidu.tieba.gift.giftTab.a> categoryList;
     private int freeChance;
     private ArrayList<ah> giftList;
-    private a jRU;
-    private com.baidu.adp.framework.listener.a jaH;
+    private com.baidu.adp.framework.listener.a iWa;
+    private a jNp;
     private ArrayList<e> numberList;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public interface a {
         void a(int i, String str, int i2, String str2, int i3, ai aiVar, ArrayList<com.baidu.tieba.gift.giftTab.a> arrayList, ArrayList<ah> arrayList2, ArrayList<e> arrayList3);
     }
 
     public DefaultGiftListModel(com.baidu.adp.base.f<GiftTabActivity> fVar) {
         super(fVar);
-        this.jaH = new com.baidu.adp.framework.listener.a(1003045, CmdConfigSocket.CMD_DEFAULT_GIFT_LIST) { // from class: com.baidu.tieba.gift.giftTab.DefaultGiftListModel.1
+        this.iWa = new com.baidu.adp.framework.listener.a(1003045, CmdConfigSocket.CMD_DEFAULT_GIFT_LIST) { // from class: com.baidu.tieba.gift.giftTab.DefaultGiftListModel.1
             @Override // com.baidu.adp.framework.listener.a
             public void onMessage(ResponsedMessage<?> responsedMessage) {
                 if (responsedMessage != null) {
@@ -50,8 +50,8 @@ public class DefaultGiftListModel extends BdBaseModel<GiftTabActivity> {
                             i = defaultGiftListSocketResponseMessage.currencyType;
                             aiVar = defaultGiftListSocketResponseMessage.urlTitleData;
                         }
-                        if (DefaultGiftListModel.this.jRU != null) {
-                            DefaultGiftListModel.this.jRU.a(responsedMessage.getError(), responsedMessage.getErrorString(), DefaultGiftListModel.this.freeChance, DefaultGiftListModel.this.addFreeUrl, i, aiVar, DefaultGiftListModel.this.categoryList, DefaultGiftListModel.this.giftList, DefaultGiftListModel.this.numberList);
+                        if (DefaultGiftListModel.this.jNp != null) {
+                            DefaultGiftListModel.this.jNp.a(responsedMessage.getError(), responsedMessage.getErrorString(), DefaultGiftListModel.this.freeChance, DefaultGiftListModel.this.addFreeUrl, i, aiVar, DefaultGiftListModel.this.categoryList, DefaultGiftListModel.this.giftList, DefaultGiftListModel.this.numberList);
                         }
                     }
                 }
@@ -79,7 +79,7 @@ public class DefaultGiftListModel extends BdBaseModel<GiftTabActivity> {
     }
 
     private void registerListener() {
-        registerListener(this.jaH);
+        registerListener(this.iWa);
     }
 
     private void registerTask() {
@@ -88,6 +88,6 @@ public class DefaultGiftListModel extends BdBaseModel<GiftTabActivity> {
     }
 
     public void a(a aVar) {
-        this.jRU = aVar;
+        this.jNp = aVar;
     }
 }

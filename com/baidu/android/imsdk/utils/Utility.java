@@ -26,7 +26,7 @@ import com.baidu.android.imsdk.internal.ListenerManager;
 import com.baidu.android.imsdk.task.TaskManager;
 import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.android.imsdk.upload.action.IMTrackDatabase;
-import com.baidu.i.a;
+import com.baidu.g.a;
 import com.baidu.live.adp.lib.cache.BdKVCache;
 import com.baidu.minivideo.plugin.capture.utils.EncryptUtils;
 import java.io.File;
@@ -45,7 +45,7 @@ import javax.crypto.spec.SecretKeySpec;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public final class Utility {
     private static final String ALGORITHM_NAME = "AES";
     private static final String API_KEY = "BD_IM_API_KEY";
@@ -56,7 +56,7 @@ public final class Utility {
     private static int mDisableRestapi = 0;
     private static char[] hexDigits = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public interface DeleteItem {
         void deleteItem(Context context, Long l);
     }
@@ -355,7 +355,7 @@ public final class Utility {
     public static void startIMService(Context context) {
         LogUtils.i(TAG, "--- Start IM Service ---");
         try {
-            a.ap(context).e(context, new Intent(context, a.class));
+            a.ao(context).e(context, new Intent(context, a.class));
         } catch (Exception e) {
             LogUtils.e(TAG, "Exception ", e);
         }
@@ -388,7 +388,7 @@ public final class Utility {
         creatMethodIntent.putExtra("contacter", j2);
         creatMethodIntent.putExtra("category", j);
         try {
-            a.ap(context).e(context, creatMethodIntent);
+            a.ao(context).e(context, creatMethodIntent);
         } catch (Exception e) {
             LogUtils.e(TAG, "Exception ", e);
             new IMTrack.CrashBuilder(context).exception(Log.getStackTraceString(e)).build();
@@ -470,7 +470,7 @@ public final class Utility {
             creatMethodIntent.putExtra(Constants.EXTRA_LISTENER_ID, str);
         }
         try {
-            a.ap(context).e(context, creatMethodIntent);
+            a.ao(context).e(context, creatMethodIntent);
         } catch (Exception e) {
             ListenerManager.getInstance().removeListener(str);
             LogUtils.e(TAG, "Exception ", e);

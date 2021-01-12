@@ -1,24 +1,24 @@
 package com.qq.e.comm.plugin.w.a;
 
 import java.util.Stack;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final ThreadLocal<Stack<a>> f12926a = new ThreadLocal<>();
+    private static final ThreadLocal<Stack<a>> f12626a = new ThreadLocal<>();
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        final int f12927a;
+        final int f12627a;
 
         public a(int i) {
-            this.f12927a = i;
+            this.f12627a = i;
         }
 
         public String toString() {
-            return "ErrInfo [code=" + this.f12927a + "]";
+            return "ErrInfo [code=" + this.f12627a + "]";
         }
     }
 
@@ -26,8 +26,8 @@ public class b {
         Stack<a> stack;
         synchronized (b.class) {
             try {
-                stack = f12926a.get();
-                f12926a.set(null);
+                stack = f12626a.get();
+                f12626a.set(null);
             } catch (Throwable th) {
                 throw th;
             }
@@ -38,10 +38,10 @@ public class b {
     public static void a(a aVar) {
         synchronized (b.class) {
             try {
-                Stack<a> stack = f12926a.get();
+                Stack<a> stack = f12626a.get();
                 if (stack == null) {
                     stack = new Stack<>();
-                    f12926a.set(stack);
+                    f12626a.set(stack);
                 }
                 stack.push(aVar);
             } catch (Throwable th) {

@@ -10,7 +10,7 @@ import java.net.URLDecoder;
 import java.net.URLEncoder;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class l {
     /* JADX INFO: Access modifiers changed from: package-private */
     public static String a(String str) {

@@ -9,7 +9,7 @@ import android.text.TextUtils;
 import com.baidu.ar.constants.HttpConstants;
 import com.xiaomi.mipush.sdk.Constants;
 import java.lang.reflect.Method;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class n {
     public static int a(Context context, String str) {
         ConnectivityManager connectivityManager;

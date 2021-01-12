@@ -1,20 +1,11 @@
 package com.baidu.b.a;
 
-import java.util.Arrays;
-/* loaded from: classes3.dex */
-public class a {
-    g[] aeG = {new h(8, 0), new j(0, 1), new j(1, 1), new h(7, 1)};
-
-    public byte[] a(byte[] bArr) {
-        f fVar = new f();
-        byte[] a2 = c.a(bArr, bArr.length + ((this.aeG.length + 1) * f.f1566a));
-        c.b(a2, fVar.a(), bArr.length);
-        for (int i = 0; i < this.aeG.length; i++) {
-            g gVar = this.aeG[i];
-            int length = bArr.length + ((i + 1) * f.f1566a);
-            fVar.a(gVar.i(a2, 0, length), gVar.a(), gVar.b(), gVar.c());
-            c.b(a2, fVar.a(), length);
-        }
-        return Arrays.copyOf(fVar.a(), f.f1566a);
-    }
+import java.lang.annotation.ElementType;
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+import java.lang.annotation.Target;
+@Target({ElementType.TYPE})
+@Retention(RetentionPolicy.RUNTIME)
+/* loaded from: classes.dex */
+public @interface a {
 }

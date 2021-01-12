@@ -8,15 +8,15 @@ import android.widget.TextView;
 import com.baidu.android.imsdk.chatmessage.messages.ChatMsg;
 import com.baidu.android.imsdk.chatmessage.messages.SignleGraphicTextMsg;
 import com.baidu.yuyinala.privatemessage.model.message.SingleGraphicTextMsgExt;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public abstract class e {
     private Context mContext;
-    public TextView oSk;
-    public ImageView oSn;
-    public ImageView oSp;
-    public ImageView oSq;
-    public View oSr;
-    public ProgressBar oSs;
+    public TextView oNI;
+    public ImageView oNL;
+    public ImageView oNN;
+    public ImageView oNO;
+    public View oNP;
+    public ProgressBar oNQ;
 
     public abstract View getContentView();
 
@@ -24,29 +24,29 @@ public abstract class e {
 
     public void d(ChatMsg chatMsg) {
         if (chatMsg.isMsgSendSuccess()) {
-            this.oSr.setVisibility(4);
+            this.oNP.setVisibility(4);
             return;
         }
-        this.oSr.setVisibility(0);
+        this.oNP.setVisibility(0);
         if (chatMsg.getStatus() == 2) {
-            this.oSq.setVisibility(0);
-            this.oSs.setVisibility(8);
+            this.oNO.setVisibility(0);
+            this.oNQ.setVisibility(8);
         } else if (chatMsg.getStatus() == 1) {
-            this.oSq.setVisibility(8);
+            this.oNO.setVisibility(8);
             SingleGraphicTextMsgExt singleGraphicTextMsgExt = null;
             if (chatMsg instanceof SignleGraphicTextMsg) {
                 singleGraphicTextMsgExt = new SingleGraphicTextMsgExt((SignleGraphicTextMsg) chatMsg);
             }
-            if (chatMsg.getMsgType() == 1 || (singleGraphicTextMsgExt != null && singleGraphicTextMsgExt.eoh() == SingleGraphicTextMsgExt.SingleGraphicTextType.VIDEOSHARE)) {
+            if (chatMsg.getMsgType() == 1 || (singleGraphicTextMsgExt != null && singleGraphicTextMsgExt.ekl() == SingleGraphicTextMsgExt.SingleGraphicTextType.VIDEOSHARE)) {
                 if (chatMsg.isReSend()) {
-                    this.oSs.setVisibility(0);
+                    this.oNQ.setVisibility(0);
                     return;
                 } else {
-                    this.oSs.setVisibility(8);
+                    this.oNQ.setVisibility(8);
                     return;
                 }
             }
-            this.oSs.setVisibility(0);
+            this.oNQ.setVisibility(0);
         }
     }
 

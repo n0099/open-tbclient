@@ -2,11 +2,11 @@ package com.baidu.mapapi.model;
 
 import com.baidu.mapapi.CoordType;
 import com.baidu.mapapi.SDKInitializer;
+import com.baidu.mapapi.model.inner.GeoPoint;
+import com.baidu.mapapi.model.inner.Point;
 import com.baidu.mapsdkplatform.comapi.util.CoordTrans;
-import com.baidu.platform.comapi.basestruct.GeoPoint;
-import com.baidu.platform.comapi.basestruct.Point;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class CoordUtil {
     public static LatLng Coordinate_encryptEx(float f, float f2, String str) {
         return com.baidu.mapsdkplatform.comapi.util.b.a(f, f2, str);

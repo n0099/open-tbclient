@@ -14,12 +14,12 @@ import com.baidu.tbadk.core.util.ao;
 import com.baidu.tbadk.core.util.be;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class b extends com.baidu.tieba.card.b<com.baidu.tieba.ala.alasquare.a.c> {
-    private com.baidu.tieba.ala.alasquare.a.c gLB;
-    private a gLC;
-    private int gLD;
-    private d gLE;
+    private com.baidu.tieba.ala.alasquare.a.c gGV;
+    private a gGW;
+    private int gGX;
+    private d gGY;
     public int mSkinType;
     private int mViewWidth;
 
@@ -27,28 +27,28 @@ public class b extends com.baidu.tieba.card.b<com.baidu.tieba.ala.alasquare.a.c>
         super(tbPageContext);
         this.mSkinType = 3;
         this.mViewWidth = 0;
-        this.gLD = 0;
+        this.gGX = 0;
         initView();
     }
 
     private void initView() {
         this.mViewWidth = l.getEquipmentWidth(this.mContext) / 2;
-        this.gLD = (this.mViewWidth * 9) / 16;
-        this.gLC = new a(getView());
+        this.gGX = (this.mViewWidth * 9) / 16;
+        this.gGW = new a(getView());
         getView().setOnClickListener(this);
     }
 
     public void a(d dVar) {
-        this.gLE = dVar;
+        this.gGY = dVar;
     }
 
     @Override // com.baidu.tieba.card.b
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
         if (this.mSkinType != i) {
-            ao.setBackgroundResource(this.gLC.gLb, R.drawable.addresslist_item_bg);
-            ao.setViewTextColor(this.gLC.gLF, R.color.CAM_X0111);
-            ao.setViewTextColor(this.gLC.gLG, R.color.CAM_X0111);
-            this.gLC.gLG.setAlpha(0.9f);
+            ao.setBackgroundResource(this.gGW.gGv, R.drawable.addresslist_item_bg);
+            ao.setViewTextColor(this.gGW.gGZ, R.color.CAM_X0111);
+            ao.setViewTextColor(this.gGW.gHa, R.color.CAM_X0111);
+            this.gGW.gHa.setAlpha(0.9f);
             this.mSkinType = i;
         }
     }
@@ -62,52 +62,52 @@ public class b extends com.baidu.tieba.card.b<com.baidu.tieba.ala.alasquare.a.c>
     @Override // com.baidu.tieba.card.b
     public void a(com.baidu.tieba.ala.alasquare.a.c cVar) {
         if (cVar != null) {
-            this.gLB = cVar;
-            int i = this.gLB.gAA > 0 ? (this.mViewWidth * this.gLB.gAB) / this.gLB.gAA : this.gLD;
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.gLC.gLb.getLayoutParams();
+            this.gGV = cVar;
+            int i = this.gGV.gvT > 0 ? (this.mViewWidth * this.gGV.gvU) / this.gGV.gvT : this.gGX;
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.gGW.gGv.getLayoutParams();
             layoutParams.width = this.mViewWidth;
             layoutParams.height = i;
-            this.gLC.gLb.setLayoutParams(layoutParams);
-            this.gLC.gKY.startLoad(this.gLB.gAz, 10, false);
-            this.gLC.gLF.setText(this.gLB.gAy);
-            this.gLC.gLG.setText(this.gLB.gAC);
+            this.gGW.gGv.setLayoutParams(layoutParams);
+            this.gGW.gGs.startLoad(this.gGV.gvS, 10, false);
+            this.gGW.gGZ.setText(this.gGV.gvR);
+            this.gGW.gHa.setText(this.gGV.gvV);
             onChangeSkinType(this.mTbPageContext, TbadkCoreApplication.getInst().getSkinType());
         }
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == getView() && this.gLB != null && !StringUtils.isNull(this.gLB.activity_url)) {
-            GM(this.gLB.activity_url);
+        if (view == getView() && this.gGV != null && !StringUtils.isNull(this.gGV.activity_url)) {
+            FB(this.gGV.activity_url);
         }
     }
 
-    private void GM(String str) {
+    private void FB(String str) {
         if (TextUtils.isEmpty(str)) {
             l.showToast(this.mTbPageContext.getPageActivity(), R.string.url_is_null);
         } else {
-            be.bwv().a(this.mTbPageContext, "", new String[]{str}, false, null, true);
+            be.bsB().a(this.mTbPageContext, "", new String[]{str}, false, null, true);
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static class a {
-        public TbImageView gKY;
-        public TextView gLF;
-        public TextView gLG;
-        public LinearLayout gLH;
-        public RelativeLayout gLb;
+        public TextView gGZ;
+        public TbImageView gGs;
+        public RelativeLayout gGv;
+        public TextView gHa;
+        public LinearLayout gHb;
         public View rootView;
 
         public a(View view) {
             this.rootView = view;
-            this.gKY = (TbImageView) view.findViewById(R.id.imgSquareView);
-            this.gLF = (TextView) view.findViewById(R.id.tvActiveTitle);
-            this.gLG = (TextView) view.findViewById(R.id.tvActiveSubTitle);
-            this.gLH = (LinearLayout) view.findViewById(R.id.llActiveInfoPanel);
-            this.gLb = (RelativeLayout) view.findViewById(R.id.rlSquareLivePanel);
-            this.gLF.setTypeface(Typeface.defaultFromStyle(1));
-            this.gKY.setDefaultBgResource(com.baidu.tieba.ala.alasquare.widget.a.bVP());
+            this.gGs = (TbImageView) view.findViewById(R.id.imgSquareView);
+            this.gGZ = (TextView) view.findViewById(R.id.tvActiveTitle);
+            this.gHa = (TextView) view.findViewById(R.id.tvActiveSubTitle);
+            this.gHb = (LinearLayout) view.findViewById(R.id.llActiveInfoPanel);
+            this.gGv = (RelativeLayout) view.findViewById(R.id.rlSquareLivePanel);
+            this.gGZ.setTypeface(Typeface.defaultFromStyle(1));
+            this.gGs.setDefaultBgResource(com.baidu.tieba.ala.alasquare.widget.a.bRX());
         }
     }
 }

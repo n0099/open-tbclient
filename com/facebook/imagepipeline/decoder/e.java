@@ -6,24 +6,24 @@ import java.io.IOException;
 import java.io.InputStream;
 /* loaded from: classes3.dex */
 public class e {
-    private boolean pEr;
-    private final com.facebook.common.memory.a ptw;
-    private int pEn = 0;
-    private int pEm = 0;
-    private int pEo = 0;
-    private int pEq = 0;
-    private int pEp = 0;
-    private int pEl = 0;
+    private final com.facebook.common.memory.a poT;
+    private boolean pzQ;
+    private int pzM = 0;
+    private int pzL = 0;
+    private int pzN = 0;
+    private int pzP = 0;
+    private int pzO = 0;
+    private int pzK = 0;
 
     public e(com.facebook.common.memory.a aVar) {
-        this.ptw = (com.facebook.common.memory.a) g.checkNotNull(aVar);
+        this.poT = (com.facebook.common.memory.a) g.checkNotNull(aVar);
     }
 
     public boolean a(com.facebook.imagepipeline.f.e eVar) {
-        if (this.pEl != 6 && eVar.getSize() > this.pEn) {
-            com.facebook.common.memory.f fVar = new com.facebook.common.memory.f(eVar.getInputStream(), this.ptw.get(16384), this.ptw);
+        if (this.pzK != 6 && eVar.getSize() > this.pzM) {
+            com.facebook.common.memory.f fVar = new com.facebook.common.memory.f(eVar.getInputStream(), this.poT.get(16384), this.poT);
             try {
-                com.facebook.common.util.c.b(fVar, this.pEn);
+                com.facebook.common.util.c.b(fVar, this.pzM);
                 return z(fVar);
             } catch (IOException e) {
                 l.t(e);
@@ -38,88 +38,88 @@ public class e {
     private boolean z(InputStream inputStream) {
         int read;
         boolean z = true;
-        int i = this.pEp;
-        while (this.pEl != 6 && (read = inputStream.read()) != -1) {
+        int i = this.pzO;
+        while (this.pzK != 6 && (read = inputStream.read()) != -1) {
             try {
-                this.pEn++;
-                if (this.pEr) {
-                    this.pEl = 6;
-                    this.pEr = false;
+                this.pzM++;
+                if (this.pzQ) {
+                    this.pzK = 6;
+                    this.pzQ = false;
                     return false;
                 }
-                switch (this.pEl) {
+                switch (this.pzK) {
                     case 0:
                         if (read == 255) {
-                            this.pEl = 1;
+                            this.pzK = 1;
                             break;
                         } else {
-                            this.pEl = 6;
+                            this.pzK = 6;
                             break;
                         }
                     case 1:
                         if (read == 216) {
-                            this.pEl = 2;
+                            this.pzK = 2;
                             break;
                         } else {
-                            this.pEl = 6;
+                            this.pzK = 6;
                             break;
                         }
                     case 2:
                         if (read != 255) {
                             break;
                         } else {
-                            this.pEl = 3;
+                            this.pzK = 3;
                             break;
                         }
                     case 3:
                         if (read == 255) {
-                            this.pEl = 3;
+                            this.pzK = 3;
                             break;
                         } else if (read == 0) {
-                            this.pEl = 2;
+                            this.pzK = 2;
                             break;
                         } else if (read == 217) {
-                            this.pEr = true;
-                            QW(this.pEn - 2);
-                            this.pEl = 2;
+                            this.pzQ = true;
+                            Pp(this.pzM - 2);
+                            this.pzK = 2;
                             break;
                         } else {
                             if (read == 218) {
-                                QW(this.pEn - 2);
+                                Pp(this.pzM - 2);
                             }
-                            if (QV(read)) {
-                                this.pEl = 4;
+                            if (Po(read)) {
+                                this.pzK = 4;
                                 break;
                             } else {
-                                this.pEl = 2;
+                                this.pzK = 2;
                                 break;
                             }
                         }
                     case 4:
-                        this.pEl = 5;
+                        this.pzK = 5;
                         break;
                     case 5:
-                        int i2 = ((this.pEm << 8) + read) - 2;
+                        int i2 = ((this.pzL << 8) + read) - 2;
                         com.facebook.common.util.c.b(inputStream, i2);
-                        this.pEn = i2 + this.pEn;
-                        this.pEl = 2;
+                        this.pzM = i2 + this.pzM;
+                        this.pzK = 2;
                         break;
                     default:
                         g.checkState(false);
                         break;
                 }
-                this.pEm = read;
+                this.pzL = read;
             } catch (IOException e) {
                 l.t(e);
             }
         }
-        if (this.pEl == 6 || this.pEp == i) {
+        if (this.pzK == 6 || this.pzO == i) {
             z = false;
         }
         return z;
     }
 
-    private static boolean QV(int i) {
+    private static boolean Po(int i) {
         boolean z = true;
         if (i == 1) {
             return false;
@@ -133,24 +133,24 @@ public class e {
         return false;
     }
 
-    private void QW(int i) {
-        if (this.pEo > 0) {
-            this.pEq = i;
+    private void Pp(int i) {
+        if (this.pzN > 0) {
+            this.pzP = i;
         }
-        int i2 = this.pEo;
-        this.pEo = i2 + 1;
-        this.pEp = i2;
+        int i2 = this.pzN;
+        this.pzN = i2 + 1;
+        this.pzO = i2;
     }
 
-    public int ezz() {
-        return this.pEq;
+    public int evH() {
+        return this.pzP;
     }
 
-    public int ezA() {
-        return this.pEp;
+    public int evI() {
+        return this.pzO;
     }
 
-    public boolean ezB() {
-        return this.pEr;
+    public boolean evJ() {
+        return this.pzQ;
     }
 }

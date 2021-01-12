@@ -1,33 +1,33 @@
 package com.win.opensdk;
 
 import android.content.Context;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class f {
-    private static f qdy;
-    private q qdA;
-    bp<q> qdz = bp.eKO();
+    private static f pYX;
+    bp<q> pYY = bp.eGY();
+    private q pYZ;
 
     private f() {
     }
 
-    public static f eKo() {
+    public static f eGy() {
         synchronized (f.class) {
-            if (qdy == null) {
-                qdy = new f();
+            if (pYX == null) {
+                pYX = new f();
             }
         }
-        return qdy;
+        return pYX;
     }
 
     public final void a(Context context, String str, af afVar, String str2, bq bqVar) {
         try {
-            this.qdA = this.qdz.abS(str);
-            if (this.qdA == null) {
-                this.qdA = new q(context, afVar);
+            this.pYZ = this.pYY.aaK(str);
+            if (this.pYZ == null) {
+                this.pYZ = new q(context, afVar);
             }
-            this.qdA.a(str2, null);
-            this.qdA.qdW = bqVar;
-            this.qdz.a(str, this.qdA);
+            this.pYZ.a(str2, null);
+            this.pYZ.pZv = bqVar;
+            this.pYY.a(str, this.pYZ);
         } catch (Exception e) {
         }
     }

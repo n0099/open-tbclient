@@ -1,5 +1,5 @@
 package com.baidu.live.ao;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public interface a {
-    boolean Tz();
+    boolean PE();
 }

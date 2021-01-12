@@ -20,14 +20,14 @@ import com.kwad.sdk.core.response.model.AdInfo;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.reward.widget.AppScoreView;
 import com.kwad.sdk.utils.ao;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class ActionBarAppLandscape extends LinearLayout implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    private ImageView f10958a;
+    private ImageView f10658a;
 
     /* renamed from: b  reason: collision with root package name */
-    private TextView f10959b;
+    private TextView f10659b;
     private TextView c;
     private AppScoreView d;
     private TextView e;
@@ -39,7 +39,7 @@ public class ActionBarAppLandscape extends LinearLayout implements View.OnClickL
     private b k;
     private KsAppDownloadListener l;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public interface a {
         void a();
     }
@@ -59,8 +59,8 @@ public class ActionBarAppLandscape extends LinearLayout implements View.OnClickL
 
     private void a() {
         inflate(getContext(), R.layout.ksad_video_actionbar_app_landscape, this);
-        this.f10958a = (ImageView) findViewById(R.id.ksad_app_icon);
-        this.f10959b = (TextView) findViewById(R.id.ksad_app_title);
+        this.f10658a = (ImageView) findViewById(R.id.ksad_app_icon);
+        this.f10659b = (TextView) findViewById(R.id.ksad_app_title);
         this.c = (TextView) findViewById(R.id.ksad_app_desc);
         this.d = (AppScoreView) findViewById(R.id.ksad_app_score);
         this.e = (TextView) findViewById(R.id.ksad_app_download_count);
@@ -141,8 +141,8 @@ public class ActionBarAppLandscape extends LinearLayout implements View.OnClickL
         this.i = com.kwad.sdk.core.response.b.c.j(adTemplate);
         this.j = aVar;
         this.k = bVar;
-        KSImageLoader.loadAppIcon(this.f10958a, com.kwad.sdk.core.response.b.a.o(this.i), adTemplate, 12);
-        this.f10959b.setText(com.kwad.sdk.core.response.b.a.q(this.i));
+        KSImageLoader.loadAppIcon(this.f10658a, com.kwad.sdk.core.response.b.a.o(this.i), adTemplate, 12);
+        this.f10659b.setText(com.kwad.sdk.core.response.b.a.q(this.i));
         b();
         this.f.a(com.kwad.sdk.core.response.b.a.w(this.i), 0);
         if (this.k != null) {
@@ -159,8 +159,8 @@ public class ActionBarAppLandscape extends LinearLayout implements View.OnClickL
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         b.a(this.k, view == this.g);
-        com.kwad.sdk.core.download.b.a.a(view.getContext(), this.h, new a.InterfaceC1105a() { // from class: com.kwad.sdk.reward.widget.actionbar.ActionBarAppLandscape.2
-            @Override // com.kwad.sdk.core.download.b.a.InterfaceC1105a
+        com.kwad.sdk.core.download.b.a.a(view.getContext(), this.h, new a.InterfaceC1088a() { // from class: com.kwad.sdk.reward.widget.actionbar.ActionBarAppLandscape.2
+            @Override // com.kwad.sdk.core.download.b.a.InterfaceC1088a
             public void a() {
                 if (ActionBarAppLandscape.this.j != null) {
                     ActionBarAppLandscape.this.j.a();

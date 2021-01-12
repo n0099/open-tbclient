@@ -67,7 +67,7 @@ import com.baidu.webkit.sdk.performance.ZeusPerformanceTiming;
 import com.googlecode.mp4parser.boxes.apple.TrackLoadSettingsAtom;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class BdSailorWebView extends FrameLayout implements INoProGuard {
     private static final String JAVASCTIPT_URL = "javascript:";
     private static final String SHOW_IMAGE_PREFIX = "imagedisplay:";
@@ -110,7 +110,7 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
     private static boolean sInitFirstWebView = true;
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public class BdSailorWebViewExt implements ISailorWebViewExt {
         private ISailorWebSettingsExt mSettingsExt;
         private BdSailorWebChromeClientExt mWebChromeClientExt;
@@ -657,12 +657,12 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public class a extends WebBackForwardListClient {
-        private WebView agQ;
+        private WebView afY;
 
         protected a(WebView webView) {
-            this.agQ = webView;
+            this.afY = webView;
         }
 
         @Override // com.baidu.webkit.sdk.WebBackForwardListClient
@@ -679,7 +679,7 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public class b implements WebView.PictureListener {
         private b() {
         }
@@ -697,12 +697,12 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public class c implements DownloadListener {
-        private WebView agQ;
+        private WebView afY;
 
         public c(WebView webView) {
-            this.agQ = webView;
+            this.afY = webView;
         }
 
         @Override // android.webkit.DownloadListener
@@ -715,11 +715,11 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public class d extends WebChromeClient {
 
         /* renamed from: b  reason: collision with root package name */
-        private String[] f1640b = {"mail.163.com", "mail.126.com", "mail.yeah.net", "shouji.163.com"};
+        private String[] f1589b = {"mail.163.com", "mail.126.com", "mail.yeah.net", "shouji.163.com"};
 
         public d() {
         }
@@ -886,7 +886,7 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
             if (!TextUtils.isEmpty(str)) {
                 String host = Uri.parse(str).getHost();
                 if (!TextUtils.isEmpty(host)) {
-                    for (String str3 : this.f1640b) {
+                    for (String str3 : this.f1589b) {
                         if (host.contains(str3)) {
                             jsResult.confirm();
                             return true;
@@ -1140,14 +1140,14 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public class e extends WebViewClient {
 
         /* renamed from: b  reason: collision with root package name */
-        private String[] f1641b;
+        private String[] f1590b;
 
         private e() {
-            this.f1641b = new String[]{"wtai://", "tel:", UrlSchemaHelper.SCHEMA_TYPE_SMS, "mailto", "smsto:"};
+            this.f1590b = new String[]{"wtai://", "tel:", UrlSchemaHelper.SCHEMA_TYPE_SMS, "mailto", "smsto:"};
         }
 
         /* synthetic */ e(BdSailorWebView bdSailorWebView, byte b2) {
@@ -1799,7 +1799,7 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
             }
             boolean shouldOverrideUrlLoading2 = !shouldOverrideUrlLoading ? shouldOverrideUrlLoading(webView, uri) : shouldOverrideUrlLoading;
             if (shouldOverrideUrlLoading2 && !TextUtils.isEmpty(uri)) {
-                String[] strArr = this.f1641b;
+                String[] strArr = this.f1590b;
                 int length = strArr.length;
                 while (true) {
                     if (i >= length) {
@@ -1828,7 +1828,7 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public static class f extends FrameLayout {
         public f(Context context) {
             super(context);
@@ -1842,7 +1842,7 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public class g extends WebViewDelegate {
         public g(WebView webView) {
             super(webView);

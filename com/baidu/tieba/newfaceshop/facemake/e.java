@@ -37,29 +37,29 @@ import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class e {
-    private static volatile e lxE;
-    private boolean lxG;
-    private FaceGroupDraft lxH;
+    private static volatile e lsY;
+    private boolean lta;
+    private FaceGroupDraft ltb;
     private Handler mUIHandler = new Handler(Looper.getMainLooper());
-    private BlockingQueue<com.baidu.tbadk.img.f> lxF = new LinkedBlockingQueue(4);
+    private BlockingQueue<com.baidu.tbadk.img.f> lsZ = new LinkedBlockingQueue(4);
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public interface a {
         void b(com.baidu.tieba.newfaceshop.b.b bVar);
 
         void onFail(String str);
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public interface b {
         void onFail();
 
         void onSuccess();
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public interface c {
         void l(String str, List<FaceData> list);
 
@@ -67,20 +67,20 @@ public class e {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public interface d {
         void b(ImageUploadResult imageUploadResult);
     }
 
-    public static e dku() {
-        if (lxE == null) {
+    public static e dgC() {
+        if (lsY == null) {
             synchronized (e.class) {
-                if (lxE == null) {
-                    lxE = new e();
+                if (lsY == null) {
+                    lsY = new e();
                 }
             }
         }
-        return lxE;
+        return lsY;
     }
 
     private e() {
@@ -123,7 +123,7 @@ public class e {
     }
 
     public void a(String str, List<FaceData> list, c cVar, int i) {
-        this.lxG = true;
+        this.lta = true;
         b(str, list, i);
         if (TextUtils.isEmpty(str)) {
             a(cVar, "name empty");
@@ -131,34 +131,34 @@ public class e {
             a(cVar, "list empty");
         } else {
             fb(list);
-            com.baidu.tieba.newfaceshop.a.dka().execute(new AnonymousClass1(list, cVar, str, i));
+            com.baidu.tieba.newfaceshop.a.dgi().execute(new AnonymousClass1(list, cVar, str, i));
         }
     }
 
     /* renamed from: com.baidu.tieba.newfaceshop.facemake.e$1  reason: invalid class name */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     class AnonymousClass1 implements Runnable {
-        final /* synthetic */ List dJf;
-        List<FaceData> lxI = new CopyOnWriteArrayList();
-        List<String> lxJ = new ArrayList();
-        Map<String, Integer> lxK = new HashMap();
-        List<FaceData> lxL = new CopyOnWriteArrayList();
-        final /* synthetic */ c lxM;
-        final /* synthetic */ int lxN;
+        final /* synthetic */ List dEt;
+        List<FaceData> ltc = new CopyOnWriteArrayList();
+        List<String> ltd = new ArrayList();
+        Map<String, Integer> lte = new HashMap();
+        List<FaceData> ltf = new CopyOnWriteArrayList();
+        final /* synthetic */ c ltg;
+        final /* synthetic */ int lth;
         final /* synthetic */ String val$name;
 
         AnonymousClass1(List list, c cVar, String str, int i) {
-            this.dJf = list;
-            this.lxM = cVar;
+            this.dEt = list;
+            this.ltg = cVar;
             this.val$name = str;
-            this.lxN = i;
+            this.lth = i;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             EmotionImageData emotionImageData;
-            for (int i = 0; i < this.dJf.size(); i++) {
-                FaceData faceData = (FaceData) this.dJf.get(i);
+            for (int i = 0; i < this.dEt.size(); i++) {
+                FaceData faceData = (FaceData) this.dEt.get(i);
                 faceData.index = i;
                 if (faceData.type == 2) {
                     EmotionImageData emotionImageData2 = faceData.emotionImageData;
@@ -167,29 +167,29 @@ public class e {
                             faceData.pid = emotionImageData2.getPicId();
                             faceData.width = emotionImageData2.getWidth();
                             faceData.height = emotionImageData2.getHeight();
-                            this.lxI.add(faceData);
+                            this.ltc.add(faceData);
                         } else {
-                            this.lxJ.add(faceData.emotionImageData.getPicUrl());
-                            this.lxK.put(faceData.emotionImageData.getPicUrl(), Integer.valueOf(faceData.index));
+                            this.ltd.add(faceData.emotionImageData.getPicUrl());
+                            this.lte.put(faceData.emotionImageData.getPicUrl(), Integer.valueOf(faceData.index));
                         }
                     }
                 } else if (faceData.type == 3) {
-                    this.lxL.add(faceData);
+                    this.ltf.add(faceData);
                 } else if (faceData.type == 1 && (emotionImageData = faceData.emotionImageData) != null) {
                     faceData.pid = emotionImageData.getPicId();
                     faceData.width = emotionImageData.getWidth();
                     faceData.height = emotionImageData.getHeight();
-                    this.lxI.add(faceData);
+                    this.ltc.add(faceData);
                 }
             }
-            if (this.lxL.size() > 0) {
-                final AtomicInteger atomicInteger = new AtomicInteger(this.lxL.size());
+            if (this.ltf.size() > 0) {
+                final AtomicInteger atomicInteger = new AtomicInteger(this.ltf.size());
                 final com.baidu.tieba.newfaceshop.facemake.a aVar = new com.baidu.tieba.newfaceshop.facemake.a(true);
-                for (int i2 = 0; i2 < Math.min(this.lxL.size(), 4); i2++) {
-                    e.this.lxF.offer(new com.baidu.tbadk.img.f("face group"));
+                for (int i2 = 0; i2 < Math.min(this.ltf.size(), 4); i2++) {
+                    e.this.lsZ.offer(new com.baidu.tbadk.img.f("face group"));
                 }
-                for (int i3 = 0; i3 < this.lxL.size() && aVar.getResult(); i3++) {
-                    final FaceData faceData2 = this.lxL.get(i3);
+                for (int i3 = 0; i3 < this.ltf.size() && aVar.getResult(); i3++) {
+                    final FaceData faceData2 = this.ltf.get(i3);
                     e.this.a(faceData2.imageFileInfo, new d() { // from class: com.baidu.tieba.newfaceshop.facemake.e.1.1
                         @Override // com.baidu.tieba.newfaceshop.facemake.e.d
                         public void b(ImageUploadResult imageUploadResult) {
@@ -198,13 +198,13 @@ public class e {
                                     faceData2.pid = String.valueOf(imageUploadResult.picId);
                                     faceData2.width = imageUploadResult.picInfo.bigPic.width;
                                     faceData2.height = imageUploadResult.picInfo.bigPic.height;
-                                    AnonymousClass1.this.lxI.add(faceData2);
+                                    AnonymousClass1.this.ltc.add(faceData2);
                                     if (atomicInteger.decrementAndGet() == 0) {
-                                        AnonymousClass1.this.dkx();
+                                        AnonymousClass1.this.dgF();
                                     }
                                 } else if (aVar.getResult()) {
-                                    aVar.uk(false);
-                                    e.this.a(AnonymousClass1.this.lxM, "failed to upload image");
+                                    aVar.ug(false);
+                                    e.this.a(AnonymousClass1.this.ltg, "failed to upload image");
                                 }
                             }
                         }
@@ -212,23 +212,23 @@ public class e {
                 }
                 return;
             }
-            dkx();
+            dgF();
         }
 
         /* JADX INFO: Access modifiers changed from: private */
-        public void dkx() {
+        public void dgF() {
             new Handler(Looper.getMainLooper()).post(new Runnable() { // from class: com.baidu.tieba.newfaceshop.facemake.e.1.2
                 @Override // java.lang.Runnable
                 public void run() {
-                    if (AnonymousClass1.this.lxJ.size() > 0) {
-                        new GetEmotionInfosModel().a(AnonymousClass1.this.lxJ, new GetEmotionInfosModel.a() { // from class: com.baidu.tieba.newfaceshop.facemake.e.1.2.1
+                    if (AnonymousClass1.this.ltd.size() > 0) {
+                        new GetEmotionInfosModel().a(AnonymousClass1.this.ltd, new GetEmotionInfosModel.a() { // from class: com.baidu.tieba.newfaceshop.facemake.e.1.2.1
                             @Override // com.baidu.tbadk.img.GetEmotionInfosModel.a
                             public void ai(List<com.baidu.tbadk.img.c> list) {
                                 for (com.baidu.tbadk.img.c cVar : list) {
                                     if (cVar != null) {
                                         FaceData faceData = new FaceData();
                                         faceData.type = 2;
-                                        faceData.index = AnonymousClass1.this.lxK.get(cVar.eJd).intValue();
+                                        faceData.index = AnonymousClass1.this.lte.get(cVar.eEs).intValue();
                                         faceData.pid = cVar.picId;
                                         faceData.width = cVar.width;
                                         faceData.height = cVar.height;
@@ -239,19 +239,19 @@ public class e {
                                         emotionImageData.setWidth(cVar.width);
                                         emotionImageData.setHeight(cVar.height);
                                         faceData.emotionImageData = emotionImageData;
-                                        AnonymousClass1.this.lxI.add(faceData);
+                                        AnonymousClass1.this.ltc.add(faceData);
                                     }
                                 }
-                                new UploadFaceGroupModel().b(AnonymousClass1.this.val$name, AnonymousClass1.this.lxI, AnonymousClass1.this.lxM, AnonymousClass1.this.lxN);
+                                new UploadFaceGroupModel().b(AnonymousClass1.this.val$name, AnonymousClass1.this.ltc, AnonymousClass1.this.ltg, AnonymousClass1.this.lth);
                             }
 
                             @Override // com.baidu.tbadk.img.GetEmotionInfosModel.a
                             public void onFail(int i, String str) {
-                                e.this.a(AnonymousClass1.this.lxM, "get pid fail");
+                                e.this.a(AnonymousClass1.this.ltg, "get pid fail");
                             }
                         });
                     } else {
-                        new UploadFaceGroupModel().b(AnonymousClass1.this.val$name, AnonymousClass1.this.lxI, AnonymousClass1.this.lxM, AnonymousClass1.this.lxN);
+                        new UploadFaceGroupModel().b(AnonymousClass1.this.val$name, AnonymousClass1.this.ltc, AnonymousClass1.this.ltg, AnonymousClass1.this.lth);
                     }
                 }
             });
@@ -260,13 +260,13 @@ public class e {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(final ImageFileInfo imageFileInfo, final d dVar) {
-        com.baidu.tieba.newfaceshop.a.dka().execute(new Runnable() { // from class: com.baidu.tieba.newfaceshop.facemake.e.2
+        com.baidu.tieba.newfaceshop.a.dgi().execute(new Runnable() { // from class: com.baidu.tieba.newfaceshop.facemake.e.2
             @Override // java.lang.Runnable
             public void run() {
                 try {
                     String filePath = imageFileInfo.getFilePath();
                     if (imageFileInfo.isGif()) {
-                        com.baidu.tbadk.img.f fVar = (com.baidu.tbadk.img.f) e.this.lxF.poll(10L, TimeUnit.SECONDS);
+                        com.baidu.tbadk.img.f fVar = (com.baidu.tbadk.img.f) e.this.lsZ.poll(10L, TimeUnit.SECONDS);
                         if (fVar != null) {
                             a(dVar, fVar.f(filePath, true, false));
                             e.this.a(fVar);
@@ -281,7 +281,7 @@ public class e {
                             String saveFileToSDOrMemory = e.saveFileToSDOrMemory("face_" + Math.abs(filePath.hashCode()), c2, 60);
                             c2.recycle();
                             if (!TextUtils.isEmpty(saveFileToSDOrMemory)) {
-                                com.baidu.tbadk.img.f fVar2 = (com.baidu.tbadk.img.f) e.this.lxF.poll(10L, TimeUnit.SECONDS);
+                                com.baidu.tbadk.img.f fVar2 = (com.baidu.tbadk.img.f) e.this.lsZ.poll(10L, TimeUnit.SECONDS);
                                 if (fVar2 != null) {
                                     ImageUploadResult f = fVar2.f(saveFileToSDOrMemory, false, false);
                                     n.deleteFile(new File(saveFileToSDOrMemory));
@@ -338,11 +338,11 @@ public class e {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(com.baidu.tbadk.img.f fVar) {
-        this.lxF.offer(fVar);
+        this.lsZ.offer(fVar);
     }
 
     public void a(String str, final List<FaceData> list, final b bVar) {
-        final String str2 = com.baidu.tieba.newfaceshop.c.lwG + str + "/";
+        final String str2 = com.baidu.tieba.newfaceshop.c.lsa + str + "/";
         new File(str2).mkdirs();
         final com.baidu.tieba.newfaceshop.b.a aVar = new com.baidu.tieba.newfaceshop.b.a();
         aVar.authorId = TbadkCoreApplication.getCurrentAccount();
@@ -361,7 +361,7 @@ public class e {
                         arrayList.addAll(copyOnWriteArrayList);
                         Collections.sort(arrayList);
                         aVar.pics = arrayList;
-                        if (e.this.fR(str2 + ((com.baidu.tieba.newfaceshop.b.b) arrayList.get(0)).lwZ, str2)) {
+                        if (e.this.fQ(str2 + ((com.baidu.tieba.newfaceshop.b.b) arrayList.get(0)).lst, str2)) {
                             e.this.a(aVar, bVar);
                         } else {
                             onFail("face group:fail to create panel");
@@ -373,7 +373,7 @@ public class e {
             @Override // com.baidu.tieba.newfaceshop.facemake.e.a
             public void onFail(String str3) {
                 if (aVar2.getResult()) {
-                    aVar2.uk(false);
+                    aVar2.ug(false);
                     e.this.a(bVar, false);
                     if (!TextUtils.isEmpty(str3)) {
                         BdLog.e(str3);
@@ -401,7 +401,7 @@ public class e {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(com.baidu.tieba.newfaceshop.b.a aVar, b bVar) {
-        int a2 = com.baidu.tieba.faceshop.a.cAV().a(aVar);
+        int a2 = com.baidu.tieba.faceshop.a.cxd().a(aVar);
         if (a2 == 0) {
             BdLog.e("no valid emotion");
             a(bVar, false);
@@ -415,21 +415,21 @@ public class e {
         emotionGroupData.setDownloadTime(System.currentTimeMillis());
         emotionGroupData.setGroupName(aVar.name);
         emotionGroupData.setStatus(1);
-        com.baidu.tieba.faceshop.i.cBl().a(emotionGroupData);
-        com.baidu.tieba.faceshop.i.cBl().a(TbadkCoreApplication.getCurrentAccount(), emotionGroupData);
+        com.baidu.tieba.faceshop.i.cxt().a(emotionGroupData);
+        com.baidu.tieba.faceshop.i.cxt().a(TbadkCoreApplication.getCurrentAccount(), emotionGroupData);
         a(bVar, true);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean fR(String str, String str2) {
-        Bitmap Pj = com.baidu.tieba.newfaceshop.facemake.b.Pj(str);
-        if (Pj == null) {
+    public boolean fQ(String str, String str2) {
+        Bitmap Ob = com.baidu.tieba.newfaceshop.facemake.b.Ob(str);
+        if (Ob == null) {
             BdLog.e("cover bitmap null");
             return false;
-        } else if (TextUtils.isEmpty(com.baidu.tieba.newfaceshop.b.saveFileAsPNG(str2, "panel.png", Pj, 60))) {
+        } else if (TextUtils.isEmpty(com.baidu.tieba.newfaceshop.b.saveFileAsPNG(str2, "panel.png", Ob, 60))) {
             BdLog.e("fail to save Panel");
             return false;
-        } else if (TextUtils.isEmpty(com.baidu.tieba.newfaceshop.b.saveFileAsPNG(str2, "panel_momo.png", Pj, 60))) {
+        } else if (TextUtils.isEmpty(com.baidu.tieba.newfaceshop.b.saveFileAsPNG(str2, "panel_momo.png", Ob, 60))) {
             BdLog.e("fail to save PanelMomo");
             return false;
         } else {
@@ -438,7 +438,7 @@ public class e {
     }
 
     private void a(final FaceData faceData, final String str, final a aVar) {
-        com.baidu.tieba.newfaceshop.a.dka().execute(new Runnable() { // from class: com.baidu.tieba.newfaceshop.facemake.e.4
+        com.baidu.tieba.newfaceshop.a.dgi().execute(new Runnable() { // from class: com.baidu.tieba.newfaceshop.facemake.e.4
             @Override // java.lang.Runnable
             public void run() {
                 Bitmap resizeBitmap;
@@ -475,7 +475,7 @@ public class e {
                     bVar.index = faceData.index;
                     bVar.id = faceData.pid;
                     bVar.name = substring;
-                    bVar.lwZ = str2;
+                    bVar.lst = str2;
                     bVar.width = faceData.width;
                     bVar.height = faceData.height;
                     aVar.b(bVar);
@@ -487,7 +487,7 @@ public class e {
     }
 
     private void b(final FaceData faceData, final String str, final a aVar) {
-        com.baidu.tieba.newfaceshop.a.dka().execute(new Runnable() { // from class: com.baidu.tieba.newfaceshop.facemake.e.5
+        com.baidu.tieba.newfaceshop.a.dgi().execute(new Runnable() { // from class: com.baidu.tieba.newfaceshop.facemake.e.5
             @Override // java.lang.Runnable
             public void run() {
                 EmotionImageData emotionImageData = faceData.emotionImageData;
@@ -504,7 +504,7 @@ public class e {
                     bVar.index = faceData.index;
                     bVar.id = faceData.pid;
                     bVar.name = str2;
-                    bVar.lwZ = str3;
+                    bVar.lst = str3;
                     bVar.width = faceData.width;
                     bVar.height = faceData.height;
                     aVar.b(bVar);
@@ -514,7 +514,7 @@ public class e {
     }
 
     private void c(final FaceData faceData, final String str, final a aVar) {
-        com.baidu.tieba.newfaceshop.a.dka().execute(new Runnable() { // from class: com.baidu.tieba.newfaceshop.facemake.e.6
+        com.baidu.tieba.newfaceshop.a.dgi().execute(new Runnable() { // from class: com.baidu.tieba.newfaceshop.facemake.e.6
             @Override // java.lang.Runnable
             public void run() {
                 EmotionImageData emotionImageData = faceData.emotionImageData;
@@ -522,16 +522,16 @@ public class e {
                 String str2 = "t_" + substring;
                 com.baidu.tbadk.core.util.b.i iVar = new com.baidu.tbadk.core.util.b.i();
                 byte[] ax = iVar.ax(emotionImageData.getPicUrl(), false);
-                if (ax != null && iVar.bwI()) {
+                if (ax != null && iVar.bsO()) {
                     e.this.d(str, substring, ax);
                     byte[] ax2 = iVar.ax(emotionImageData.getThumbUrl(), false);
-                    if (ax2 != null && iVar.bwI()) {
+                    if (ax2 != null && iVar.bsO()) {
                         e.this.d(str, str2, ax2);
                         com.baidu.tieba.newfaceshop.b.b bVar = new com.baidu.tieba.newfaceshop.b.b();
                         bVar.index = faceData.index;
                         bVar.id = faceData.pid;
                         bVar.name = substring;
-                        bVar.lwZ = str2;
+                        bVar.lst = str2;
                         bVar.width = faceData.width;
                         bVar.height = faceData.height;
                         aVar.b(bVar);
@@ -653,7 +653,7 @@ public class e {
                     }
                 }
                 if (z) {
-                    com.baidu.tieba.newfaceshop.d.dkg().dkh();
+                    com.baidu.tieba.newfaceshop.d.dgo().dgp();
                     MessageManager.getInstance().runTask(CmdConfigCustom.EMOTION_RELOAD_EMOTION_GROUPS, (Class) null);
                 }
                 HashMap hashMap = new HashMap();
@@ -680,45 +680,45 @@ public class e {
     }
 
     public void b(String str, List<FaceData> list, int i) {
-        this.lxH = new FaceGroupDraft();
-        this.lxH.setName(str);
-        this.lxH.setList(list);
-        this.lxH.setForumId(i);
+        this.ltb = new FaceGroupDraft();
+        this.ltb.setName(str);
+        this.ltb.setList(list);
+        this.ltb.setForumId(i);
     }
 
-    public void dko() {
-        this.lxH = null;
-        com.baidu.tieba.newfaceshop.facemake.c.dko();
+    public void dgw() {
+        this.ltb = null;
+        com.baidu.tieba.newfaceshop.facemake.c.dgw();
     }
 
-    public FaceGroupDraft dkv() {
-        if (this.lxH == null) {
-            this.lxH = com.baidu.tieba.newfaceshop.facemake.c.dkn();
+    public FaceGroupDraft dgD() {
+        if (this.ltb == null) {
+            this.ltb = com.baidu.tieba.newfaceshop.facemake.c.dgv();
         }
-        return this.lxH;
+        return this.ltb;
     }
 
-    public boolean dkw() {
-        return this.lxG;
+    public boolean dgE() {
+        return this.lta;
     }
 
     public void w(boolean z, String str) {
-        if (this.lxG) {
-            this.lxG = false;
+        if (this.lta) {
+            this.lta = false;
         }
         if (z) {
-            dko();
+            dgw();
             return;
         }
         final HashMap hashMap = new HashMap();
         hashMap.put("upload_result", new Boolean(false));
         if (!TextUtils.isEmpty(str)) {
             hashMap.put("upload_msg", str);
-            if (this.lxH != null) {
-                this.lxH.setFailMsg(str);
+            if (this.ltb != null) {
+                this.ltb.setFailMsg(str);
             }
         }
-        com.baidu.tieba.newfaceshop.facemake.c.a(this.lxH);
+        com.baidu.tieba.newfaceshop.facemake.c.a(this.ltb);
         this.mUIHandler.postDelayed(new Runnable() { // from class: com.baidu.tieba.newfaceshop.facemake.e.9
             @Override // java.lang.Runnable
             public void run() {

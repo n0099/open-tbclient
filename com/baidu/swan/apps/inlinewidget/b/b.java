@@ -3,26 +3,26 @@ package com.baidu.swan.apps.inlinewidget.b;
 import android.os.Bundle;
 import androidx.annotation.NonNull;
 import com.baidu.swan.apps.inlinewidget.b.a;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class b extends com.baidu.swan.apps.inlinewidget.b<a> {
     public b(@NonNull a aVar) {
         super(aVar);
-        ((a) this.dfV).a(new a.InterfaceC0447a() { // from class: com.baidu.swan.apps.inlinewidget.b.b.1
-            @Override // com.baidu.swan.apps.inlinewidget.b.a.InterfaceC0447a
+        ((a) this.dbg).a(new a.InterfaceC0430a() { // from class: com.baidu.swan.apps.inlinewidget.b.b.1
+            @Override // com.baidu.swan.apps.inlinewidget.b.a.InterfaceC0430a
             public void z(Bundle bundle) {
-                if (b.this.dfU != null) {
-                    b.this.dfU.onCallback(b.this, "onMediaMetadataExtracted", bundle);
+                if (b.this.dbf != null) {
+                    b.this.dbf.onCallback(b.this, "onMediaMetadataExtracted", bundle);
                 }
             }
 
-            @Override // com.baidu.swan.apps.inlinewidget.b.a.InterfaceC0447a
+            @Override // com.baidu.swan.apps.inlinewidget.b.a.InterfaceC0430a
             public void onRelease() {
-                if (b.this.dfU != null) {
-                    b.this.dfU = null;
+                if (b.this.dbf != null) {
+                    b.this.dbf = null;
                 }
             }
         });
-        this.dfT.a(new com.baidu.swan.apps.inlinewidget.b.a.a());
-        this.dfT.a(new com.baidu.swan.apps.inlinewidget.b.a.b());
+        this.dbe.a(new com.baidu.swan.apps.inlinewidget.b.a.a());
+        this.dbe.a(new com.baidu.swan.apps.inlinewidget.b.a.b());
     }
 }

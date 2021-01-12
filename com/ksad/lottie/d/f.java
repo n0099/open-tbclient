@@ -8,14 +8,14 @@ import android.graphics.PointF;
 import androidx.annotation.Nullable;
 import com.ksad.lottie.a.a.r;
 import java.io.Closeable;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public final class f {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final PathMeasure f8289a = new PathMeasure();
+    private static final PathMeasure f7989a = new PathMeasure();
 
     /* renamed from: b  reason: collision with root package name */
-    private static final Path f8290b = new Path();
+    private static final Path f7990b = new Path();
     private static final Path c = new Path();
     private static final float[] d = new float[4];
     private static final float e = (float) Math.sqrt(2.0d);
@@ -61,8 +61,8 @@ public final class f {
 
     public static void a(Path path, float f2, float f3, float f4) {
         com.ksad.lottie.c.c("applyTrimPathIfNeeded");
-        f8289a.setPath(path, false);
-        float length = f8289a.getLength();
+        f7989a.setPath(path, false);
+        float length = f7989a.getLength();
         if (f2 == 1.0f && f3 == 0.0f) {
             com.ksad.lottie.c.d("applyTrimPathIfNeeded");
         } else if (length < 1.0f || Math.abs((f3 - f2) - 1.0f) < 0.01d) {
@@ -93,18 +93,18 @@ public final class f {
             if (f8 >= f9) {
                 f8 -= length;
             }
-            f8290b.reset();
-            f8289a.getSegment(f8, f9, f8290b, true);
+            f7990b.reset();
+            f7989a.getSegment(f8, f9, f7990b, true);
             if (f9 > length) {
                 c.reset();
-                f8289a.getSegment(0.0f, f9 % length, c, true);
-                f8290b.addPath(c);
+                f7989a.getSegment(0.0f, f9 % length, c, true);
+                f7990b.addPath(c);
             } else if (f8 < 0.0f) {
                 c.reset();
-                f8289a.getSegment(f8 + length, length, c, true);
-                f8290b.addPath(c);
+                f7989a.getSegment(f8 + length, length, c, true);
+                f7990b.addPath(c);
             }
-            path.set(f8290b);
+            path.set(f7990b);
             com.ksad.lottie.c.d("applyTrimPathIfNeeded");
         }
     }

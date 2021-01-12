@@ -5,14 +5,14 @@ import androidx.annotation.Nullable;
 import com.ksad.lottie.a.b.a;
 import com.ksad.lottie.model.content.ShapeTrimPath;
 import java.util.List;
-/* loaded from: classes5.dex */
-public class p implements l, a.InterfaceC1078a {
+/* loaded from: classes4.dex */
+public class p implements l, a.InterfaceC1061a {
 
     /* renamed from: a  reason: collision with root package name */
-    private final Path f8252a = new Path();
+    private final Path f7952a = new Path();
 
     /* renamed from: b  reason: collision with root package name */
-    private final String f8253b;
+    private final String f7953b;
     private final com.ksad.lottie.f c;
     private final com.ksad.lottie.a.b.a<?, Path> d;
     private boolean e;
@@ -20,7 +20,7 @@ public class p implements l, a.InterfaceC1078a {
     private r f;
 
     public p(com.ksad.lottie.f fVar, com.ksad.lottie.model.layer.a aVar, com.ksad.lottie.model.content.k kVar) {
-        this.f8253b = kVar.a();
+        this.f7953b = kVar.a();
         this.c = fVar;
         this.d = kVar.b().a();
         aVar.a(this.d);
@@ -32,7 +32,7 @@ public class p implements l, a.InterfaceC1078a {
         this.c.invalidateSelf();
     }
 
-    @Override // com.ksad.lottie.a.b.a.InterfaceC1078a
+    @Override // com.ksad.lottie.a.b.a.InterfaceC1061a
     public void a() {
         b();
     }
@@ -57,13 +57,13 @@ public class p implements l, a.InterfaceC1078a {
     @Override // com.ksad.lottie.a.a.l
     public Path d() {
         if (this.e) {
-            return this.f8252a;
+            return this.f7952a;
         }
-        this.f8252a.reset();
-        this.f8252a.set(this.d.e());
-        this.f8252a.setFillType(Path.FillType.EVEN_ODD);
-        com.ksad.lottie.d.f.a(this.f8252a, this.f);
+        this.f7952a.reset();
+        this.f7952a.set(this.d.e());
+        this.f7952a.setFillType(Path.FillType.EVEN_ODD);
+        com.ksad.lottie.d.f.a(this.f7952a, this.f);
         this.e = true;
-        return this.f8252a;
+        return this.f7952a;
     }
 }

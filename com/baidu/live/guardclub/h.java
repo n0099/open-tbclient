@@ -2,10 +2,8 @@ package com.baidu.live.guardclub;
 
 import android.view.ViewGroup;
 import com.baidu.live.data.x;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public interface h {
-    void Bf();
-
     void a(ViewGroup viewGroup, ViewGroup.LayoutParams layoutParams, x xVar);
 
     void a(l lVar);
@@ -15,4 +13,6 @@ public interface h {
     void setHost(boolean z);
 
     void setOtherParams(String str);
+
+    void xk();
 }

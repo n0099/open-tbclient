@@ -1,19 +1,9 @@
 package com.baidu.platform.comapi.wnplatform.i;
-
-import android.os.Bundle;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public interface a {
-    void a(Bundle bundle);
+    void a();
 
-    void a(byte[] bArr);
+    void a(int i);
 
-    void b(Bundle bundle);
-
-    void c(Bundle bundle);
-
-    void d(Bundle bundle);
-
-    void e(Bundle bundle);
-
-    void f(Bundle bundle);
+    void b();
 }

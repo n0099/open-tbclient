@@ -3,13 +3,12 @@ package com.baidu.ala.recorder.video.gles;
 import android.annotation.TargetApi;
 import android.opengl.GLES20;
 import android.util.Log;
-import com.baidu.platform.comapi.map.MapBundleKey;
 import java.nio.Buffer;
 import java.nio.FloatBuffer;
 import java.nio.IntBuffer;
 import java.util.LinkedList;
 @TargetApi(16)
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class Texture2dProgram {
     private static final String FRAGMENT_SHADER_2D = "precision mediump float;\nvarying vec2 vTextureCoord;\nuniform sampler2D sTexture;\nvoid main() {\n    gl_FragColor = texture2D(sTexture, vTextureCoord);\n}\n";
     private static final String FRAGMENT_SHADER_2D_STICKER = "precision mediump float;\nvarying vec2 vTextureCoord;\nuniform sampler2D sTexture;\nvarying vec2 vTextureCoord2;\nuniform sampler2D sTexture2;\nuniform int stickerEnable;\nbool isOutRect(vec2 coord) {\n    return coord.x < 0.0 || coord.x > 1.0 || coord.y < 0.0 || coord.y > 1.0;\n}\nvoid main() {\n    vec4 texture1 = texture2D(sTexture, vTextureCoord);\n    vec4 texture2 = texture2D(sTexture2, vTextureCoord2);\n    bool isOut1 = isOutRect(vTextureCoord);\n    bool isOut2 = isOutRect(vTextureCoord2);\nif (0 == stickerEnable) {\n    gl_FragColor = texture1;\n} else if (isOut2) {\n    gl_FragColor = texture1;\n} else {\n    gl_FragColor = mix(texture1, texture2, texture2.a);\n}}\n";
@@ -53,7 +52,7 @@ public class Texture2dProgram {
     private int mMagic2PowerLevel = 0;
     private final LinkedList<Runnable> mRunOnDraw = new LinkedList<>();
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public enum ProgramType {
         TEXTURE_2D,
         TEXTURE_EXT,
@@ -127,8 +126,8 @@ public class Texture2dProgram {
             GlUtil.checkLocation(this.mMagic2ParamsLocation, "params");
             this.mMagic2StepLocation = GLES20.glGetUniformLocation(this.mProgramHandle, "singleStepOffset");
             GlUtil.checkLocation(this.mMagic2StepLocation, "singleStepOffset");
-            this.mMagic2LevelLocation = GLES20.glGetUniformLocation(this.mProgramHandle, MapBundleKey.MapObjKey.OBJ_LEVEL);
-            GlUtil.checkLocation(this.mMagic2StepLocation, MapBundleKey.MapObjKey.OBJ_LEVEL);
+            this.mMagic2LevelLocation = GLES20.glGetUniformLocation(this.mProgramHandle, "level");
+            GlUtil.checkLocation(this.mMagic2StepLocation, "level");
             setPowerLevel(1);
             setBeautyLevel(1);
         }

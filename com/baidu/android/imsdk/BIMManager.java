@@ -68,7 +68,7 @@ import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class BIMManager extends BaseManager implements NoProGuard {
     private static IConnectListener mConnectListener;
     private static Context sContext = null;
@@ -76,7 +76,7 @@ public class BIMManager extends BaseManager implements NoProGuard {
     private static volatile Runnable checkIMLoginState = new Runnable() { // from class: com.baidu.android.imsdk.BIMManager.4
         @Override // java.lang.Runnable
         public void run() {
-            if (a.zx() == 0 && LoginManager.getInstance(BIMManager.sContext).getCurrentState() != LoginManager.LoginState.LOGINED) {
+            if (a.vC() == 0 && LoginManager.getInstance(BIMManager.sContext).getCurrentState() != LoginManager.LoginState.LOGINED) {
                 LogUtils.e("BIMManager", "checkIMLoginState lcp connected, but im not login, triggle im relogin");
                 LoginManager.getInstance(BIMManager.sContext).triggleLogoutListener(4001, Constants.ERROR_LOGIN_STATE_ERROR);
             }
@@ -84,7 +84,7 @@ public class BIMManager extends BaseManager implements NoProGuard {
         }
     };
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public enum CATEGORY {
         ALL(-1),
         SINGLEPERSON(0),
@@ -131,8 +131,8 @@ public class BIMManager extends BaseManager implements NoProGuard {
         }
         Context applicationContext = context.getApplicationContext();
         sContext = applicationContext;
-        com.baidu.i.a.aze = a.aB(applicationContext);
-        if (com.baidu.i.a.aze) {
+        com.baidu.g.a.aur = a.aA(applicationContext);
+        if (com.baidu.g.a.aur) {
             try {
                 b.i(applicationContext, i != 0);
                 b.j(applicationContext, i);
@@ -154,7 +154,7 @@ public class BIMManager extends BaseManager implements NoProGuard {
                     }
                     try {
                         BIMManager.initIMServiceImpl(context2);
-                        com.baidu.i.a.mHandler.removeCallbacks(BIMManager.checkIMLoginState);
+                        com.baidu.g.a.mHandler.removeCallbacks(BIMManager.checkIMLoginState);
                         if (z) {
                             BIMManager.postCheckRunnable();
                         }
@@ -181,7 +181,7 @@ public class BIMManager extends BaseManager implements NoProGuard {
         TaskManager.getInstance(context).submitForNetWork(new Runnable() { // from class: com.baidu.android.imsdk.BIMManager.2
             @Override // java.lang.Runnable
             public void run() {
-                com.baidu.i.a.ap(context);
+                com.baidu.g.a.ao(context);
             }
         });
     }
@@ -202,7 +202,7 @@ public class BIMManager extends BaseManager implements NoProGuard {
 
     public static void imLogoutByLcp(Context context) {
         try {
-            com.baidu.i.a.aq(context);
+            com.baidu.g.a.ap(context);
             LoginManager.getInstance(context).onLogoutResultInternal(0, "lcp unconnected");
         } catch (Exception e) {
             LogUtils.e(TAG, "imLogoutByLcp exception ", e);
@@ -213,7 +213,7 @@ public class BIMManager extends BaseManager implements NoProGuard {
     public static void postCheckRunnable() {
         try {
             LogUtils.i("BIMManager", "postCheckRunnable after 30s");
-            com.baidu.i.a.mHandler.postDelayed(checkIMLoginState, 30000L);
+            com.baidu.g.a.mHandler.postDelayed(checkIMLoginState, 30000L);
         } catch (Exception e) {
             LogUtils.e(TAG, "postCheckRunnable exception ", e);
         }
@@ -828,7 +828,7 @@ public class BIMManager extends BaseManager implements NoProGuard {
     }
 
     public static void tryConnection(Context context) {
-        if (!com.baidu.i.a.aze) {
+        if (!com.baidu.g.a.aur) {
             AccountManagerImpl.getInstance(context);
             AccountManagerImpl.tryConnection(context);
         }

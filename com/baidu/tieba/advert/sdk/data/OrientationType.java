@@ -1,5 +1,5 @@
 package com.baidu.tieba.advert.sdk.data;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public enum OrientationType {
     UNKNOWN(0),
     PORTRAIT(1),

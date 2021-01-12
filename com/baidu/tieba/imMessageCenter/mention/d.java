@@ -20,12 +20,12 @@ import com.baidu.tieba.imMessageCenter.mention.DelReplyAtMsg.b;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class d extends com.baidu.adp.base.d<AtMessageActivity> {
-    private NoNetworkView gCe;
-    private com.baidu.tbadk.mvc.g.a iBe;
-    private AtMessageActivity kMV;
-    private com.baidu.tbadk.mvc.f.d<FeedData, com.baidu.tbadk.mvc.d.b, a> kNc;
-    protected BdListView kNd;
-    private NavigationBar kNe;
+    private NoNetworkView gxx;
+    private com.baidu.tbadk.mvc.g.a iwx;
+    private AtMessageActivity kIq;
+    private com.baidu.tbadk.mvc.f.d<FeedData, com.baidu.tbadk.mvc.d.b, a> kIx;
+    protected BdListView kIy;
+    private NavigationBar kIz;
     private List<FeedData> mDataList;
     private View mHeaderView;
     protected com.baidu.tbadk.core.view.g mPullView;
@@ -33,47 +33,47 @@ public class d extends com.baidu.adp.base.d<AtMessageActivity> {
 
     public d(AtMessageActivity atMessageActivity) {
         super(atMessageActivity.getPageContext());
-        this.kMV = atMessageActivity;
+        this.kIq = atMessageActivity;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public View bYn() {
-        this.rootView = this.kMV.getActivity().getLayoutInflater().inflate(R.layout.at_me_activity, (ViewGroup) null);
-        this.kMV.setContentView(this.rootView);
-        this.kNd = (BdListView) this.rootView.findViewById(R.id.atme_lv);
-        this.kNe = (NavigationBar) this.rootView.findViewById(R.id.view_navigation_bar);
-        this.kNe.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.kNe.setCenterTextTitle(getPageContext().getString(R.string.at_me));
-        this.kNe.showBottomLine();
-        this.mPullView = new com.baidu.tbadk.core.view.g(this.kMV.getPageContext());
-        this.mPullView.setTag(this.kMV.getUniqueId());
-        this.mPullView.setListPullRefreshListener(this.kMV);
-        this.iBe = new com.baidu.tbadk.mvc.g.a(this.kMV);
-        this.iBe.createView();
-        this.mHeaderView = new TextView(this.kMV.getPageContext().getPageActivity());
-        this.mHeaderView.setLayoutParams(new AbsListView.LayoutParams(-1, UtilHelper.getLightStatusBarHeight() + com.baidu.adp.lib.util.l.getDimens(this.kMV.getPageContext().getPageActivity(), R.dimen.ds88)));
+    public View bUv() {
+        this.rootView = this.kIq.getActivity().getLayoutInflater().inflate(R.layout.at_me_activity, (ViewGroup) null);
+        this.kIq.setContentView(this.rootView);
+        this.kIy = (BdListView) this.rootView.findViewById(R.id.atme_lv);
+        this.kIz = (NavigationBar) this.rootView.findViewById(R.id.view_navigation_bar);
+        this.kIz.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        this.kIz.setCenterTextTitle(getPageContext().getString(R.string.at_me));
+        this.kIz.showBottomLine();
+        this.mPullView = new com.baidu.tbadk.core.view.g(this.kIq.getPageContext());
+        this.mPullView.setTag(this.kIq.getUniqueId());
+        this.mPullView.setListPullRefreshListener(this.kIq);
+        this.iwx = new com.baidu.tbadk.mvc.g.a(this.kIq);
+        this.iwx.createView();
+        this.mHeaderView = new TextView(this.kIq.getPageContext().getPageActivity());
+        this.mHeaderView.setLayoutParams(new AbsListView.LayoutParams(-1, UtilHelper.getLightStatusBarHeight() + com.baidu.adp.lib.util.l.getDimens(this.kIq.getPageContext().getPageActivity(), R.dimen.ds88)));
         BdListViewHelper.a(this.mHeaderView, BdListViewHelper.HeadType.DEFAULT, com.baidu.adp.lib.util.j.isNetWorkAvailable());
-        this.kNd.setPullRefresh(this.mPullView);
-        this.kNd.addHeaderView(this.mHeaderView, 0);
-        this.kNd.setNextPage(this.iBe);
-        this.kNd.setDividerHeight(0);
-        this.gCe = (NoNetworkView) this.rootView.findViewById(R.id.no_networkview);
-        this.gCe.onChangeSkinType(getPageContext(), TbadkCoreApplication.getInst().getSkinType());
-        this.gCe.a(new NoNetworkView.a() { // from class: com.baidu.tieba.imMessageCenter.mention.d.1
+        this.kIy.setPullRefresh(this.mPullView);
+        this.kIy.addHeaderView(this.mHeaderView, 0);
+        this.kIy.setNextPage(this.iwx);
+        this.kIy.setDividerHeight(0);
+        this.gxx = (NoNetworkView) this.rootView.findViewById(R.id.no_networkview);
+        this.gxx.onChangeSkinType(getPageContext(), TbadkCoreApplication.getInst().getSkinType());
+        this.gxx.a(new NoNetworkView.a() { // from class: com.baidu.tieba.imMessageCenter.mention.d.1
             @Override // com.baidu.tbadk.core.view.NoNetworkView.a
             public void onNetworkChange(boolean z) {
-                d.this.td(z);
+                d.this.sZ(z);
             }
         });
-        this.kNd.setExOnSrollToBottomListener(new BdListView.f() { // from class: com.baidu.tieba.imMessageCenter.mention.d.2
+        this.kIy.setExOnSrollToBottomListener(new BdListView.f() { // from class: com.baidu.tieba.imMessageCenter.mention.d.2
             @Override // com.baidu.adp.widget.ListView.BdListView.f
             public void v(BdListView bdListView) {
-                d.this.kMV.cId();
+                d.this.kIq.cEl();
             }
         });
-        this.kNc = new com.baidu.tbadk.mvc.f.d<>(this.kMV.getPageContext(), a.class, R.layout.mention_atme_item, this.kMV.bHj());
-        this.kNc.a(NoDataViewFactory.c.a(NoDataViewFactory.ImgType.CREATE, com.baidu.tbadk.core.util.i.fa(this.kMV)), NoDataViewFactory.d.dY(null, this.kMV.getResources().getString(R.string.mention_atme_nodata)), (NoDataViewFactory.b) null, (FrameLayout.LayoutParams) null);
-        this.kNd.setAdapter((ListAdapter) this.kNc);
+        this.kIx = new com.baidu.tbadk.mvc.f.d<>(this.kIq.getPageContext(), a.class, R.layout.mention_atme_item, this.kIq.bDq());
+        this.kIx.a(NoDataViewFactory.c.a(NoDataViewFactory.ImgType.CREATE, com.baidu.tbadk.core.util.i.eY(this.kIq)), NoDataViewFactory.d.dX(null, this.kIq.getResources().getString(R.string.mention_atme_nodata)), (NoDataViewFactory.b) null, (FrameLayout.LayoutParams) null);
+        this.kIy.setAdapter((ListAdapter) this.kIx);
         return this.rootView;
     }
 
@@ -88,11 +88,11 @@ public class d extends com.baidu.adp.base.d<AtMessageActivity> {
             bVar.a(aVar);
             bVar.a(new b.a() { // from class: com.baidu.tieba.imMessageCenter.mention.d.3
                 @Override // com.baidu.tieba.imMessageCenter.mention.DelReplyAtMsg.b.a
-                public void daX() {
+                public void cXf() {
                     if (!x.isEmpty(d.this.mDataList)) {
                         d.this.mDataList.remove(feedData);
-                        if (d.this.kNc != null) {
-                            d.this.kNc.bN(d.this.mDataList);
+                        if (d.this.kIx != null) {
+                            d.this.kIx.bN(d.this.mDataList);
                         }
                     }
                 }
@@ -105,39 +105,39 @@ public class d extends com.baidu.adp.base.d<AtMessageActivity> {
     public void a(com.baidu.tbadk.mvc.b.a aVar) {
         if (aVar instanceof f) {
             f fVar = (f) aVar;
-            this.mDataList = fVar.dbm();
-            if (this.kNc != null) {
-                this.kNc.bN(fVar.dbm());
+            this.mDataList = fVar.cXu();
+            if (this.kIx != null) {
+                this.kIx.bN(fVar.cXu());
             }
         }
     }
 
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
-        if (this.kNc != null) {
-            this.kNc.b(tbPageContext, i);
+        if (this.kIx != null) {
+            this.kIx.b(tbPageContext, i);
         }
-        if (this.iBe != null) {
-            this.iBe.b(tbPageContext, i);
+        if (this.iwx != null) {
+            this.iwx.b(tbPageContext, i);
         }
         if (this.mPullView != null) {
             this.mPullView.changeSkin(i);
         }
-        this.kNe.onChangeSkinType(tbPageContext, i);
+        this.kIz.onChangeSkinType(tbPageContext, i);
     }
 
-    public void daV() {
-        if (this.kNd != null) {
-            this.kNd.completePullRefreshPostDelayed(0L);
+    public void cXd() {
+        if (this.kIy != null) {
+            this.kIy.completePullRefreshPostDelayed(0L);
         }
     }
 
-    public void td(boolean z) {
+    public void sZ(boolean z) {
         BdListViewHelper.a(this.mHeaderView, BdListViewHelper.HeadType.DEFAULT, com.baidu.adp.lib.util.j.isNetWorkAvailable());
-        if (z && this.kNd != null && this.kNd.getWrappedAdapter() != null && this.kNd.getWrappedAdapter().getCount() <= 0) {
+        if (z && this.kIy != null && this.kIy.getWrappedAdapter() != null && this.kIy.getWrappedAdapter().getCount() <= 0) {
             com.baidu.adp.lib.f.e.mB().post(new Runnable() { // from class: com.baidu.tieba.imMessageCenter.mention.d.4
                 @Override // java.lang.Runnable
                 public void run() {
-                    d.this.kNd.startPullRefresh();
+                    d.this.kIy.startPullRefresh();
                 }
             });
         }
@@ -146,37 +146,37 @@ public class d extends com.baidu.adp.base.d<AtMessageActivity> {
     public void c(com.baidu.tbadk.mvc.d.b bVar) {
         if (bVar instanceof com.baidu.tbadk.mvc.d.a) {
             com.baidu.tbadk.mvc.d.a aVar = (com.baidu.tbadk.mvc.d.a) bVar;
-            if (this.iBe != null) {
-                if (aVar.bHe()) {
-                    this.iBe.rV();
-                    if (aVar.bHc()) {
-                        this.iBe.sS(R.string.loading);
-                    } else if (aVar.bHd()) {
-                        this.iBe.sS(R.string.loading);
+            if (this.iwx != null) {
+                if (aVar.bDl()) {
+                    this.iwx.rV();
+                    if (aVar.bDj()) {
+                        this.iwx.rm(R.string.loading);
+                    } else if (aVar.bDk()) {
+                        this.iwx.rm(R.string.loading);
                     } else {
-                        this.iBe.sT(R.string.no_more_msg);
+                        this.iwx.rn(R.string.no_more_msg);
                     }
                 } else {
-                    this.iBe.hide();
+                    this.iwx.hide();
                 }
             }
             if (aVar.isPullRefreshing()) {
-                daW();
+                cXe();
             } else {
-                daV();
+                cXd();
             }
         }
     }
 
-    public void daW() {
+    public void cXe() {
         if (this.mPullView != null) {
             this.mPullView.setListPullRefreshListener(null);
         }
-        if (this.kNd != null) {
-            this.kNd.startPullRefresh();
+        if (this.kIy != null) {
+            this.kIy.startPullRefresh();
         }
         if (this.mPullView != null) {
-            this.mPullView.setListPullRefreshListener(this.kMV);
+            this.mPullView.setListPullRefreshListener(this.kIq);
         }
     }
 }

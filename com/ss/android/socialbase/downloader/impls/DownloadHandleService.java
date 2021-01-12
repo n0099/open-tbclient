@@ -8,7 +8,7 @@ import android.text.TextUtils;
 public class DownloadHandleService extends Service {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f13478a = DownloadHandleService.class.getSimpleName();
+    private static final String f13178a = DownloadHandleService.class.getSimpleName();
 
     @Override // android.app.Service
     public void onCreate() {
@@ -29,18 +29,18 @@ public class DownloadHandleService extends Service {
             String action = intent.getAction();
             if (!TextUtils.isEmpty(action) && (intExtra = intent.getIntExtra("extra_download_id", 0)) != 0) {
                 if (action.equals("com.ss.android.downloader.action.DOWNLOAD_WAKEUP")) {
-                    com.ss.android.socialbase.downloader.downloader.b.eHB().execute(new Runnable() { // from class: com.ss.android.socialbase.downloader.impls.DownloadHandleService.1
+                    com.ss.android.socialbase.downloader.downloader.b.eDL().execute(new Runnable() { // from class: com.ss.android.socialbase.downloader.impls.DownloadHandleService.1
                         @Override // java.lang.Runnable
                         public void run() {
                             try {
-                                com.ss.android.socialbase.downloader.downloader.c.eHX().SC(intExtra);
+                                com.ss.android.socialbase.downloader.downloader.c.eEh().QV(intExtra);
                             } catch (Exception e) {
                                 e.printStackTrace();
                             }
                         }
                     });
                 } else if (action.equals("com.ss.android.downloader.action.PROCESS_NOTIFY")) {
-                    com.ss.android.socialbase.downloader.downloader.c.eHX().n(intExtra);
+                    com.ss.android.socialbase.downloader.downloader.c.eEh().n(intExtra);
                 } else if (action.equals("com.ss.android.downloader.action.MULTI_PROCESS_NOTIFY")) {
                     com.ss.android.socialbase.downloader.downloader.b.a();
                 }

@@ -10,26 +10,26 @@ import androidx.viewpager.widget.ViewPager;
 import com.baidu.adp.lib.f.d;
 import com.baidu.tbadk.core.util.ao;
 import com.baidu.tieba.R;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class a {
-    private ImageView kuS;
-    private TextView kuT;
-    private Animation kuW;
-    private Animation kuX;
-    private SlidingTabLayout lcr;
+    private SlidingTabLayout kXL;
+    private ImageView kqn;
+    private TextView kqo;
+    private Animation kqr;
+    private Animation kqs;
     private Context mContext;
     private View rootView;
-    private boolean kuY = true;
-    private d lcs = new d() { // from class: com.baidu.tieba.lego.indicator.a.1
+    private boolean kqt = true;
+    private d kXM = new d() { // from class: com.baidu.tieba.lego.indicator.a.1
         @Override // com.baidu.adp.lib.f.d
         public void onSafeAnimationEnd(Animation animation) {
-            if (a.this.kuT != null) {
-                if (animation == a.this.kuW) {
-                    a.this.kuT.setVisibility(0);
-                    a.this.kuT.setClickable(true);
-                } else if (animation == a.this.kuX) {
-                    a.this.kuT.setVisibility(8);
-                    a.this.kuT.setClickable(false);
+            if (a.this.kqo != null) {
+                if (animation == a.this.kqr) {
+                    a.this.kqo.setVisibility(0);
+                    a.this.kqo.setClickable(true);
+                } else if (animation == a.this.kqs) {
+                    a.this.kqo.setVisibility(8);
+                    a.this.kqo.setClickable(false);
                 }
             }
         }
@@ -38,70 +38,70 @@ public class a {
     public a(Context context, View view) {
         this.rootView = view;
         this.mContext = context;
-        this.kuT = (TextView) view.findViewById(R.id.tab_widget_switch);
-        this.kuS = (ImageView) view.findViewById(R.id.tab_widget_more);
-        this.lcr = (SlidingTabLayout) view.findViewById(R.id.tab_widget_sliding_tab);
+        this.kqo = (TextView) view.findViewById(R.id.tab_widget_switch);
+        this.kqn = (ImageView) view.findViewById(R.id.tab_widget_more);
+        this.kXL = (SlidingTabLayout) view.findViewById(R.id.tab_widget_sliding_tab);
     }
 
     public void G(View.OnClickListener onClickListener) {
-        if (this.kuS != null) {
-            this.kuS.setOnClickListener(onClickListener);
+        if (this.kqn != null) {
+            this.kqn.setOnClickListener(onClickListener);
         }
     }
 
     public void setViewPager(ViewPager viewPager, int i) {
-        if (this.lcr != null) {
-            this.lcr.setViewPager(viewPager, i);
+        if (this.kXL != null) {
+            this.kXL.setViewPager(viewPager, i);
         }
     }
 
     public void onChangeSkinType(int i) {
         ao.setBackgroundColor(this.rootView, R.color.CAM_X0205);
-        ao.setBackgroundColor(this.kuT, R.color.CAM_X0205);
-        ao.setViewTextColor(this.kuT, R.color.CAM_X0106, 1);
-        if (this.kuY) {
-            ao.setImageResource(this.kuS, R.drawable.lego_icon_triangle_down_normal);
+        ao.setBackgroundColor(this.kqo, R.color.CAM_X0205);
+        ao.setViewTextColor(this.kqo, R.color.CAM_X0106, 1);
+        if (this.kqt) {
+            ao.setImageResource(this.kqn, R.drawable.lego_icon_triangle_down_normal);
         } else {
-            ao.setImageResource(this.kuS, R.drawable.lego_icon_triangle_up_normal);
+            ao.setImageResource(this.kqn, R.drawable.lego_icon_triangle_up_normal);
         }
-        ao.setBackgroundResource(this.kuS, R.drawable.lego_btn_more_selector);
-        if (this.lcr != null) {
-            this.lcr.onChangeSkinType(i);
+        ao.setBackgroundResource(this.kqn, R.drawable.lego_btn_more_selector);
+        if (this.kXL != null) {
+            this.kXL.onChangeSkinType(i);
         }
     }
 
-    public void bog() {
-        this.kuY = false;
-        if (this.kuT != null) {
-            this.kuT.clearAnimation();
-            this.kuT.setVisibility(0);
-            this.kuT.startAnimation(getInAnimation());
+    public void bkm() {
+        this.kqt = false;
+        if (this.kqo != null) {
+            this.kqo.clearAnimation();
+            this.kqo.setVisibility(0);
+            this.kqo.startAnimation(getInAnimation());
         }
-        ao.setImageResource(this.kuS, R.drawable.lego_icon_triangle_up_normal);
+        ao.setImageResource(this.kqn, R.drawable.lego_icon_triangle_up_normal);
     }
 
-    public void cVK() {
-        this.kuY = true;
-        if (this.kuT != null) {
-            this.kuT.clearAnimation();
-            this.kuT.startAnimation(getOutAnimation());
+    public void cRS() {
+        this.kqt = true;
+        if (this.kqo != null) {
+            this.kqo.clearAnimation();
+            this.kqo.startAnimation(getOutAnimation());
         }
-        ao.setImageResource(this.kuS, R.drawable.lego_icon_triangle_down_normal);
+        ao.setImageResource(this.kqn, R.drawable.lego_icon_triangle_down_normal);
     }
 
     private Animation getInAnimation() {
-        if (this.kuW == null) {
-            this.kuW = AnimationUtils.loadAnimation(this.mContext, R.anim.fade_in);
-            this.kuW.setAnimationListener(this.lcs);
+        if (this.kqr == null) {
+            this.kqr = AnimationUtils.loadAnimation(this.mContext, R.anim.fade_in);
+            this.kqr.setAnimationListener(this.kXM);
         }
-        return this.kuW;
+        return this.kqr;
     }
 
     private Animation getOutAnimation() {
-        if (this.kuX == null) {
-            this.kuX = AnimationUtils.loadAnimation(this.mContext, R.anim.fade_out);
-            this.kuX.setAnimationListener(this.lcs);
+        if (this.kqs == null) {
+            this.kqs = AnimationUtils.loadAnimation(this.mContext, R.anim.fade_out);
+            this.kqs.setAnimationListener(this.kXM);
         }
-        return this.kuX;
+        return this.kqs;
     }
 }

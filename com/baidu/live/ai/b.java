@@ -3,13 +3,13 @@ package com.baidu.live.ai;
 import com.baidu.live.data.x;
 import com.baidu.live.pendantview.PendantChildView;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public interface b {
-    PendantChildView VH();
+    PendantChildView RO();
 
-    void VI();
+    void RP();
 
-    void VJ();
+    void RQ();
 
     void Z(JSONObject jSONObject);
 

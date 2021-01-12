@@ -12,10 +12,10 @@ import java.util.concurrent.atomic.AtomicBoolean;
 public class p {
 
     /* renamed from: a  reason: collision with root package name */
-    private static volatile com.bytedance.sdk.openadsdk.c.b<com.bytedance.sdk.openadsdk.c.a> f6959a;
+    private static volatile com.bytedance.sdk.openadsdk.c.b<com.bytedance.sdk.openadsdk.c.a> f6659a;
 
     /* renamed from: b  reason: collision with root package name */
-    private static volatile com.bytedance.sdk.openadsdk.c.b<c.a> f6960b;
+    private static volatile com.bytedance.sdk.openadsdk.c.b<c.a> f6660b;
     private static volatile com.bytedance.sdk.openadsdk.c.b<c.a> c;
     private static volatile q<com.bytedance.sdk.openadsdk.c.a> d;
     private static volatile com.bytedance.sdk.openadsdk.l.a e;
@@ -56,7 +56,7 @@ public class p {
     }
 
     public static void b() {
-        f6959a = null;
+        f6659a = null;
         e = null;
         f = null;
     }
@@ -65,18 +65,18 @@ public class p {
         if (!com.bytedance.sdk.openadsdk.core.h.j.a()) {
             return com.bytedance.sdk.openadsdk.c.b.c();
         }
-        if (f6959a == null) {
+        if (f6659a == null) {
             synchronized (p.class) {
-                if (f6959a == null) {
+                if (f6659a == null) {
                     if (com.bytedance.sdk.openadsdk.multipro.b.b()) {
-                        f6959a = new com.bytedance.sdk.openadsdk.c.c();
+                        f6659a = new com.bytedance.sdk.openadsdk.c.c();
                     } else {
-                        f6959a = new com.bytedance.sdk.openadsdk.c.b<>(new com.bytedance.sdk.openadsdk.c.f(g), f(), m(), b(g));
+                        f6659a = new com.bytedance.sdk.openadsdk.c.b<>(new com.bytedance.sdk.openadsdk.c.f(g), f(), m(), b(g));
                     }
                 }
             }
         }
-        return f6959a;
+        return f6659a;
     }
 
     public static com.bytedance.sdk.openadsdk.c.b<c.a> d() {
@@ -101,18 +101,18 @@ public class p {
         if (!com.bytedance.sdk.openadsdk.core.h.j.a()) {
             return com.bytedance.sdk.openadsdk.c.b.d();
         }
-        if (f6960b == null) {
+        if (f6660b == null) {
             synchronized (p.class) {
-                if (f6960b == null) {
+                if (f6660b == null) {
                     if (com.bytedance.sdk.openadsdk.multipro.b.b()) {
-                        f6960b = new com.bytedance.sdk.openadsdk.c.m(true);
+                        f6660b = new com.bytedance.sdk.openadsdk.c.m(true);
                     } else {
-                        f6960b = a("ttad_bk_stats", "AdStatsEventThread", true);
+                        f6660b = a("ttad_bk_stats", "AdStatsEventThread", true);
                     }
                 }
             }
         }
-        return f6960b;
+        return f6660b;
     }
 
     public static q<com.bytedance.sdk.openadsdk.c.a> f() {
@@ -231,17 +231,17 @@ public class p {
         @SuppressLint({"StaticFieldLeak"})
 
         /* renamed from: a  reason: collision with root package name */
-        private static volatile Application f6962a;
+        private static volatile Application f6662a;
 
         @Nullable
         public static Application a() {
-            return f6962a;
+            return f6662a;
         }
 
         static {
             try {
                 Object b2 = b();
-                f6962a = (Application) b2.getClass().getMethod("getApplication", new Class[0]).invoke(b2, new Object[0]);
+                f6662a = (Application) b2.getClass().getMethod("getApplication", new Class[0]).invoke(b2, new Object[0]);
                 com.bytedance.sdk.openadsdk.utils.u.f("MyApplication", "application get success");
             } catch (Throwable th) {
                 com.bytedance.sdk.openadsdk.utils.u.c("MyApplication", "application get failed", th);

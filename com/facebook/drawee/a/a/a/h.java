@@ -4,61 +4,61 @@ import com.facebook.imagepipeline.request.ImageRequest;
 import javax.annotation.Nullable;
 /* loaded from: classes6.dex */
 public class h {
-    private boolean VI;
+    private boolean VG;
     private boolean mIsCanceled;
     @Nullable
     private String mRequestId;
     @Nullable
-    private String puY;
+    private com.facebook.imagepipeline.f.f pqA;
+    private boolean pqJ;
     @Nullable
-    private Object pva;
+    private String pqw;
     @Nullable
-    private ImageRequest pvb;
+    private Object pqy;
     @Nullable
-    private com.facebook.imagepipeline.f.f pvc;
-    private boolean pvl;
-    private long pvd = -1;
-    private long pve = -1;
-    private long pvf = -1;
-    private long pvg = -1;
-    private long pvh = -1;
-    private long pvi = -1;
-    private long pvj = -1;
-    private int pvk = -1;
-    private int pvm = -1;
-    private int pvn = -1;
-    private int pvw = -1;
+    private ImageRequest pqz;
+    private long pqB = -1;
+    private long pqC = -1;
+    private long pqD = -1;
+    private long pqE = -1;
+    private long pqF = -1;
+    private long pqG = -1;
+    private long pqH = -1;
+    private int pqI = -1;
+    private int pqK = -1;
+    private int pqL = -1;
+    private int pqU = -1;
 
     public void reset() {
         this.mRequestId = null;
-        this.pvb = null;
-        this.pva = null;
-        this.pvc = null;
-        this.pvd = -1L;
-        this.pvf = -1L;
-        this.pvg = -1L;
-        this.pvh = -1L;
-        this.pvi = -1L;
-        this.pvj = -1L;
-        this.pvk = -1;
+        this.pqz = null;
+        this.pqy = null;
+        this.pqA = null;
+        this.pqB = -1L;
+        this.pqD = -1L;
+        this.pqE = -1L;
+        this.pqF = -1L;
+        this.pqG = -1L;
+        this.pqH = -1L;
+        this.pqI = -1;
         this.mIsCanceled = false;
-        this.VI = false;
-        this.pvl = false;
-        this.pvm = -1;
-        this.pvn = -1;
-        this.pvw = -1;
+        this.VG = false;
+        this.pqJ = false;
+        this.pqK = -1;
+        this.pqL = -1;
+        this.pqU = -1;
     }
 
-    public void Ql(int i) {
-        this.pvw = i;
+    public void OE(int i) {
+        this.pqU = i;
     }
 
-    public int evh() {
-        return this.pvw;
+    public int ern() {
+        return this.pqU;
     }
 
-    public void Zw(@Nullable String str) {
-        this.puY = str;
+    public void Yo(@Nullable String str) {
+        this.pqw = str;
     }
 
     public void setRequestId(@Nullable String str) {
@@ -66,70 +66,70 @@ public class h {
     }
 
     public void setImageRequest(@Nullable ImageRequest imageRequest) {
-        this.pvb = imageRequest;
+        this.pqz = imageRequest;
     }
 
     public void bl(@Nullable Object obj) {
-        this.pva = obj;
+        this.pqy = obj;
     }
 
     public void iA(long j) {
-        this.pvd = j;
+        this.pqB = j;
     }
 
     public void iB(long j) {
-        this.pve = j;
+        this.pqC = j;
     }
 
     public void iC(long j) {
-        this.pvf = j;
+        this.pqD = j;
     }
 
     public void iD(long j) {
-        this.pvg = j;
+        this.pqE = j;
     }
 
     public void iE(long j) {
-        this.pvh = j;
+        this.pqF = j;
     }
 
     public void iF(long j) {
-        this.pvi = j;
+        this.pqG = j;
     }
 
     public void iG(long j) {
-        this.pvj = j;
+        this.pqH = j;
     }
 
-    public void Qm(int i) {
-        this.pvk = i;
+    public void OF(int i) {
+        this.pqI = i;
     }
 
-    public void AS(boolean z) {
+    public void AO(boolean z) {
         this.mIsCanceled = z;
     }
 
-    public void AT(boolean z) {
-        this.VI = z;
+    public void AP(boolean z) {
+        this.VG = z;
     }
 
-    public void AU(boolean z) {
-        this.pvl = z;
+    public void AQ(boolean z) {
+        this.pqJ = z;
     }
 
     public void a(@Nullable com.facebook.imagepipeline.f.f fVar) {
-        this.pvc = fVar;
+        this.pqA = fVar;
     }
 
-    public void Qn(int i) {
-        this.pvm = i;
+    public void OG(int i) {
+        this.pqK = i;
     }
 
-    public void Qo(int i) {
-        this.pvn = i;
+    public void OH(int i) {
+        this.pqL = i;
     }
 
-    public e evi() {
-        return new e(this.puY, this.mRequestId, this.pvb, this.pva, this.pvc, this.pvd, this.pve, this.pvf, this.pvg, this.pvh, this.pvi, this.pvj, this.pvk, this.mIsCanceled, this.VI, this.pvl, this.pvm, this.pvn);
+    public e ero() {
+        return new e(this.pqw, this.mRequestId, this.pqz, this.pqy, this.pqA, this.pqB, this.pqC, this.pqD, this.pqE, this.pqF, this.pqG, this.pqH, this.pqI, this.mIsCanceled, this.VG, this.pqJ, this.pqK, this.pqL);
     }
 }

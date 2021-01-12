@@ -2,18 +2,18 @@ package com.ksad.lottie.model.content;
 
 import java.util.Arrays;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class j implements b {
 
     /* renamed from: a  reason: collision with root package name */
-    private final String f8381a;
+    private final String f8081a;
 
     /* renamed from: b  reason: collision with root package name */
-    private final List<b> f8382b;
+    private final List<b> f8082b;
 
     public j(String str, List<b> list) {
-        this.f8381a = str;
-        this.f8382b = list;
+        this.f8081a = str;
+        this.f8082b = list;
     }
 
     @Override // com.ksad.lottie.model.content.b
@@ -22,14 +22,14 @@ public class j implements b {
     }
 
     public String a() {
-        return this.f8381a;
+        return this.f8081a;
     }
 
     public List<b> b() {
-        return this.f8382b;
+        return this.f8082b;
     }
 
     public String toString() {
-        return "ShapeGroup{name='" + this.f8381a + "' Shapes: " + Arrays.toString(this.f8382b.toArray()) + '}';
+        return "ShapeGroup{name='" + this.f8081a + "' Shapes: " + Arrays.toString(this.f8082b.toArray()) + '}';
     }
 }

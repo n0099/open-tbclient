@@ -15,23 +15,23 @@ import com.baidu.tieba.enterForum.hotuserrank.RankListViewController;
 import com.baidu.tieba.enterForum.hotuserrank.a.c;
 /* loaded from: classes2.dex */
 public class b {
-    private TbPageContext eXu;
-    private RankListViewController.RankListViewHolder iJF;
-    private TextView iJG;
-    private TextView iJH;
-    private String iJI;
-    private int iJJ;
+    private TbPageContext eSJ;
+    private RankListViewController.RankListViewHolder iEY;
+    private TextView iEZ;
+    private TextView iFa;
+    private String iFb;
+    private int iFc;
     private View.OnClickListener mOnClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.enterForum.hotuserrank.b.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (TextUtils.isEmpty(b.this.iJI)) {
-                b.this.eXu.showToast(R.string.load_error_retry);
+            if (TextUtils.isEmpty(b.this.iFb)) {
+                b.this.eSJ.showToast(R.string.load_error_retry);
                 return;
             }
-            be.bwv().b(b.this.eXu, new String[]{b.this.iJI});
-            if (b.this.iJJ != 0) {
-                if (b.this.iJJ != 2) {
-                    if (b.this.iJJ == 1) {
+            be.bsB().b(b.this.eSJ, new String[]{b.this.iFb});
+            if (b.this.iFc != 0) {
+                if (b.this.iFc != 2) {
+                    if (b.this.iFc == 1) {
                         aq aqVar = new aq("c13669");
                         aqVar.an("obj_locate", 2);
                         TiebaStatic.log(aqVar);
@@ -49,34 +49,34 @@ public class b {
     private View mRootView;
 
     public b(TbPageContext tbPageContext, View view) {
-        this.eXu = tbPageContext;
+        this.eSJ = tbPageContext;
         this.mRootView = view;
-        this.iJF = new RankListViewController.RankListViewHolder(view.findViewById(R.id.user_view));
-        this.iJF.zf(1);
-        this.iJG = (TextView) view.findViewById(R.id.get_influence);
-        this.iJH = (TextView) view.findViewById(R.id.rank_num);
-        this.iJH.setTextSize(0, l.getDimens(this.eXu.getPageActivity(), R.dimen.tbfontsize46));
-        this.iJG.setOnClickListener(this.mOnClickListener);
+        this.iEY = new RankListViewController.RankListViewHolder(view.findViewById(R.id.user_view));
+        this.iEY.xz(1);
+        this.iEZ = (TextView) view.findViewById(R.id.get_influence);
+        this.iFa = (TextView) view.findViewById(R.id.rank_num);
+        this.iFa.setTextSize(0, l.getDimens(this.eSJ.getPageActivity(), R.dimen.tbfontsize46));
+        this.iEZ.setOnClickListener(this.mOnClickListener);
     }
 
     public void b(c cVar) {
-        if (cVar != null && cVar.iKj != null && cVar.iKj.iKf != null && !cVar.iKj.iKf.isMask && TbadkCoreApplication.isLogin()) {
+        if (cVar != null && cVar.iFC != null && cVar.iFC.iFy != null && !cVar.iFC.iFy.isMask && TbadkCoreApplication.isLogin()) {
             this.mRootView.setVisibility(0);
-            this.iJF.a(cVar.iKj);
-            this.iJF.czc();
-            this.iJI = cVar.iKk;
+            this.iEY.a(cVar.iFC);
+            this.iEY.cvk();
+            this.iFb = cVar.iFD;
             return;
         }
         this.mRootView.setVisibility(8);
     }
 
     public void onChangeSkinType(int i) {
-        this.iJF.onChangeSkinType(i);
-        ao.setBackgroundColor(this.iJF.itemView, R.color.CAM_X0207);
-        ao.setViewTextColor(this.iJG, R.color.CAM_X0302);
+        this.iEY.onChangeSkinType(i);
+        ao.setBackgroundColor(this.iEY.itemView, R.color.CAM_X0207);
+        ao.setViewTextColor(this.iEZ, R.color.CAM_X0302);
     }
 
-    public void ze(int i) {
-        this.iJJ = i;
+    public void xy(int i) {
+        this.iFc = i;
     }
 }

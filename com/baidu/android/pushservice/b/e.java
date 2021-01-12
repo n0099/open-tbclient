@@ -1,16 +1,16 @@
 package com.baidu.android.pushservice.b;
-/* loaded from: classes3.dex */
+/* loaded from: classes14.dex */
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f1185a;
+    private String f1191a;
 
     /* renamed from: b  reason: collision with root package name */
-    private String f1186b;
+    private String f1192b;
     private int c;
 
     public String a() {
-        return this.f1186b;
+        return this.f1192b;
     }
 
     public void a(int i) {
@@ -18,7 +18,7 @@ public class e {
     }
 
     public void a(String str) {
-        this.f1185a = str;
+        this.f1191a = str;
     }
 
     public int b() {
@@ -26,6 +26,6 @@ public class e {
     }
 
     public void b(String str) {
-        this.f1186b = str;
+        this.f1192b = str;
     }
 }

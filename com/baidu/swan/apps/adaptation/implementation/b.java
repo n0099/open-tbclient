@@ -1,36 +1,37 @@
 package com.baidu.swan.apps.adaptation.implementation;
 
+import com.baidu.android.imsdk.chatmessage.sync.SyncStrategy;
 import com.baidu.android.imsdk.internal.IMConnection;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class b implements com.baidu.swan.apps.adaptation.a.d {
     @Override // com.baidu.swan.apps.adaptation.a.d
-    public String ajW() {
+    public String agc() {
         return null;
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.d
-    public int ajX() {
+    public int agd() {
         return 10;
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.d
-    public int ajY() {
+    public int age() {
         return 1;
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.d
-    public int ajZ() {
+    public int agf() {
         return 1;
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.d
-    public int aka() {
+    public int agg() {
         return 60000;
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.d
-    public boolean akb() {
+    public boolean agh() {
         return false;
     }
 
@@ -55,172 +56,172 @@ public class b implements com.baidu.swan.apps.adaptation.a.d {
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.d
-    public boolean akc() {
+    public boolean agi() {
         return false;
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.d
-    public boolean akd() {
+    public boolean agj() {
         return true;
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.d
-    public boolean ake() {
+    public boolean agk() {
         return true;
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.d
-    public boolean akf() {
+    public boolean agl() {
         return true;
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.d
-    public String akg() {
+    public String agm() {
         return "";
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.d
-    public boolean akh() {
+    public boolean agn() {
         return true;
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.d
-    public boolean hG(int i) {
+    public boolean fZ(int i) {
         return false;
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.d
-    public boolean aki() {
+    public boolean ago() {
         return true;
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.d
-    public boolean akj() {
+    public boolean agp() {
         return false;
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.d
-    public boolean akk() {
+    public boolean agq() {
         return false;
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.d
-    public long akl() {
+    public long agr() {
         return 10000L;
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.d
-    public boolean akm() {
+    public boolean ags() {
         return true;
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.d
-    public boolean akn() {
+    public boolean agt() {
         return false;
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.d
-    public long ako() {
+    public long agu() {
         return IMConnection.RETRY_DELAY_TIMES;
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.d
-    public boolean akp() {
+    public boolean agv() {
         return false;
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.d
-    public boolean akq() {
+    public boolean agw() {
         return false;
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.d
-    public boolean akr() {
+    public boolean agx() {
         return false;
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.d
-    public boolean aks() {
+    public boolean agy() {
         return false;
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.d
-    public long akt() {
+    public long agz() {
         return 6000L;
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.d
-    public boolean aku() {
+    public boolean agA() {
         return true;
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.d
-    public boolean akv() {
+    public boolean agB() {
         return false;
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.d
-    public int akw() {
-        return 6000;
+    public int agC() {
+        return SyncStrategy.DEFAULT_LOGIN_FETCH_SLEEP_TIME;
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.d
-    public int akx() {
+    public int agD() {
         return 2000;
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.d
-    public double aky() {
+    public double agE() {
         return 0.5d;
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.d
-    public boolean akz() {
+    public boolean agF() {
         return false;
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.d
-    public double akA() {
+    public double agG() {
         return 0.7d;
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.d
-    public double akB() {
+    public double agH() {
         return 0.5d;
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.d
-    public int akC() {
+    public int agI() {
         return 5000;
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.d
-    public boolean akD() {
+    public boolean agJ() {
         return false;
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.d
-    public boolean akE() {
+    public boolean agK() {
         return false;
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.d
-    public boolean akF() {
+    public boolean agL() {
         return true;
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.d
-    public boolean akG() {
+    public boolean agM() {
         return false;
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.d
-    public int akH() {
+    public int agN() {
         return 25;
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.d
-    public boolean akI() {
+    public boolean agO() {
         return false;
     }
 }

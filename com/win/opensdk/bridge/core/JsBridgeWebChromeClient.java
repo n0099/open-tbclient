@@ -4,12 +4,12 @@ import android.webkit.JsPromptResult;
 import android.webkit.JsResult;
 import android.webkit.WebChromeClient;
 import android.webkit.WebView;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class JsBridgeWebChromeClient extends WebChromeClient {
     @Override // android.webkit.WebChromeClient
     public final boolean onJsPrompt(WebView webView, String str, String str2, String str3, JsPromptResult jsPromptResult) {
         jsPromptResult.confirm();
-        JsCallJava.eKG().f(webView, str2);
+        JsCallJava.eGQ().f(webView, str2);
         return true;
     }
 

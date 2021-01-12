@@ -15,6 +15,7 @@ import com.baidu.mapapi.SDKInitializer;
 import com.baidu.mapapi.common.AppTools;
 import com.baidu.mapapi.model.CoordUtil;
 import com.baidu.mapapi.model.LatLng;
+import com.baidu.mapapi.model.inner.GeoPoint;
 import com.baidu.mapapi.navi.NaviParaOption;
 import com.baidu.mapapi.utils.poi.DispathcPoiData;
 import com.baidu.mapapi.utils.poi.PoiParaOption;
@@ -22,14 +23,12 @@ import com.baidu.mapapi.utils.route.RouteParaOption;
 import com.baidu.mapframework.open.aidl.IComOpenClient;
 import com.baidu.mapsdkplatform.comapi.util.CoordTrans;
 import com.baidu.mobstat.Config;
-import com.baidu.platform.comapi.basestruct.GeoPoint;
-import com.baidu.platform.comapi.map.MapBundleKey;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class b {
     private static com.baidu.mapframework.open.aidl.a d;
     private static IComOpenClient e;
@@ -39,7 +38,7 @@ public class b {
     private static final String c = b.class.getName();
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f3065a = -1;
+    public static int f2961a = -1;
     private static String g = null;
     private static String h = null;
     private static String i = null;
@@ -56,7 +55,7 @@ public class b {
     private static boolean u = false;
 
     /* renamed from: b  reason: collision with root package name */
-    static ServiceConnection f3066b = new d();
+    static ServiceConnection f2962b = new d();
 
     public static String a() {
         return AppTools.getBaiduMapToken();
@@ -95,7 +94,7 @@ public class b {
 
     public static void a(Context context) {
         if (u) {
-            context.unbindService(f3066b);
+            context.unbindService(f2962b);
             u = false;
         }
     }
@@ -140,41 +139,41 @@ public class b {
         } catch (Exception e2) {
             e2.printStackTrace();
         }
-        if (!com.baidu.platform.comapi.f.a.a(context)) {
+        if (!com.baidu.platform.comapi.a.a.a(context)) {
             Log.d(c, "package sign verify failed");
             return false;
         }
         t = false;
         switch (i2) {
             case 0:
-                f3065a = 0;
+                f2961a = 0;
                 break;
             case 1:
-                f3065a = 1;
+                f2961a = 1;
                 break;
             case 2:
-                f3065a = 2;
+                f2961a = 2;
                 break;
             case 3:
-                f3065a = 3;
+                f2961a = 3;
                 break;
             case 4:
-                f3065a = 4;
+                f2961a = 4;
                 break;
             case 5:
-                f3065a = 5;
+                f2961a = 5;
                 break;
             case 6:
-                f3065a = 6;
+                f2961a = 6;
                 break;
             case 7:
-                f3065a = 7;
+                f2961a = 7;
                 break;
             case 8:
-                f3065a = 8;
+                f2961a = 8;
                 break;
             case 9:
-                f3065a = 9;
+                f2961a = 9;
                 break;
         }
         if (i2 == 9) {
@@ -236,7 +235,7 @@ public class b {
         intent.setAction("com.baidu.map.action.OPEN_SERVICE");
         intent.setPackage("com.baidu.BaiduMap");
         if (i2 != 9) {
-            u = context.bindService(intent, f3066b, 1);
+            u = context.bindService(intent, f2962b, 1);
         }
         if (!u) {
             Log.e("baidumapsdk", "bind service failed，call openapi");
@@ -580,8 +579,8 @@ public class b {
                 try {
                     jSONObject.put("name", j.get(i3).name);
                     GeoPoint ll2mc = CoordUtil.ll2mc(j.get(i3).pt);
-                    jSONObject.put(MapBundleKey.MapObjKey.OBJ_SL_PTX, ll2mc.getLongitudeE6());
-                    jSONObject.put(MapBundleKey.MapObjKey.OBJ_SL_PTY, ll2mc.getLatitudeE6());
+                    jSONObject.put("ptx", ll2mc.getLongitudeE6());
+                    jSONObject.put("pty", ll2mc.getLatitudeE6());
                     jSONObject.put("addr", j.get(i3).addr);
                     jSONObject.put("uid", j.get(i3).uid);
                     i2 = i4 + 1;

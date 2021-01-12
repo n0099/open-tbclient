@@ -2,14 +2,14 @@ package com.kwad.sdk.core.network;
 
 import android.text.TextUtils;
 import com.xiaomi.mipush.sdk.Constants;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public final class k {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f9624a = b() + "ksad-android-3.3.9";
+    private static final String f9324a = b() + "ksad-android-3.3.9";
 
     public static String a() {
-        return f9624a;
+        return f9324a;
     }
 
     private static String b() {

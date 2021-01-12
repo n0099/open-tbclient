@@ -2,11 +2,11 @@ package com.baidu.sofire.b;
 
 import com.baidu.minivideo.plugin.capture.utils.EncryptUtils;
 import java.security.MessageDigest;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public final class b {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String[] f5479a = {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "a", com.baidu.pass.biometrics.face.liveness.d.b.f4081a, "c", "d", "e", "f"};
+    private static final String[] f5196a = {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "a", com.baidu.pass.biometrics.face.liveness.d.b.f4043a, "c", "d", "e", "f"};
 
     public static byte[] a(byte[] bArr) {
         if (bArr == null || bArr.length <= 0) {

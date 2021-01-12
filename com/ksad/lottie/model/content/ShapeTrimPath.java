@@ -1,19 +1,19 @@
 package com.ksad.lottie.model.content;
 
 import com.ksad.lottie.a.a.r;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class ShapeTrimPath implements b {
 
     /* renamed from: a  reason: collision with root package name */
-    private final String f8363a;
+    private final String f8063a;
 
     /* renamed from: b  reason: collision with root package name */
-    private final Type f8364b;
+    private final Type f8064b;
     private final com.ksad.lottie.model.a.b c;
     private final com.ksad.lottie.model.a.b d;
     private final com.ksad.lottie.model.a.b e;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public enum Type {
         Simultaneously,
         Individually;
@@ -31,8 +31,8 @@ public class ShapeTrimPath implements b {
     }
 
     public ShapeTrimPath(String str, Type type, com.ksad.lottie.model.a.b bVar, com.ksad.lottie.model.a.b bVar2, com.ksad.lottie.model.a.b bVar3) {
-        this.f8363a = str;
-        this.f8364b = type;
+        this.f8063a = str;
+        this.f8064b = type;
         this.c = bVar;
         this.d = bVar2;
         this.e = bVar3;
@@ -44,11 +44,11 @@ public class ShapeTrimPath implements b {
     }
 
     public String a() {
-        return this.f8363a;
+        return this.f8063a;
     }
 
     public Type b() {
-        return this.f8364b;
+        return this.f8064b;
     }
 
     public com.ksad.lottie.model.a.b c() {

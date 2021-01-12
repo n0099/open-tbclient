@@ -4,60 +4,56 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import com.baidu.mapapi.model.LatLng;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class PoiDetailInfo implements Parcelable {
     public static final Parcelable.Creator<PoiDetailInfo> CREATOR = new f();
-
-    /* renamed from: a  reason: collision with root package name */
-    private String f2963a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private LatLng f2964b;
-    private String c;
+    private String address;
+    private String area;
     public int checkinNum;
+    private String city;
     public int commentNum;
-    private String d;
+    private int detail;
     public String detailUrl;
     public int discountNum;
     public int distance;
-    private String e;
     public double environmentRating;
-    private String f;
     public double facilityRating;
     public int favoriteNum;
-    private String g;
     public int grouponNum;
-    private String h;
     public double hygieneRating;
-    private String i;
     public int imageNum;
-    private int j;
-    private List<PoiChildrenInfo> k;
+    private LatLng location;
+    private String name;
     public LatLng naviLocation;
     public double overallRating;
+    private List<PoiChildrenInfo> poiChildrenInfoList;
     public double price;
+    private String province;
     public double serviceRating;
     public String shopHours;
+    private String streetId;
     public String tag;
     public double tasteRating;
     public double technologyRating;
+    private String telephone;
     public String type;
+    private String uid;
 
     public PoiDetailInfo() {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public PoiDetailInfo(Parcel parcel) {
-        this.f2963a = parcel.readString();
-        this.f2964b = (LatLng) parcel.readParcelable(LatLng.class.getClassLoader());
-        this.c = parcel.readString();
-        this.d = parcel.readString();
-        this.e = parcel.readString();
-        this.f = parcel.readString();
-        this.g = parcel.readString();
-        this.h = parcel.readString();
-        this.i = parcel.readString();
-        this.j = parcel.readInt();
+        this.name = parcel.readString();
+        this.location = (LatLng) parcel.readParcelable(LatLng.class.getClassLoader());
+        this.address = parcel.readString();
+        this.province = parcel.readString();
+        this.city = parcel.readString();
+        this.area = parcel.readString();
+        this.telephone = parcel.readString();
+        this.uid = parcel.readString();
+        this.streetId = parcel.readString();
+        this.detail = parcel.readInt();
         this.distance = parcel.readInt();
         this.type = parcel.readString();
         this.tag = parcel.readString();
@@ -78,7 +74,7 @@ public class PoiDetailInfo implements Parcelable {
         this.commentNum = parcel.readInt();
         this.favoriteNum = parcel.readInt();
         this.checkinNum = parcel.readInt();
-        this.k = parcel.createTypedArrayList(PoiChildrenInfo.CREATOR);
+        this.poiChildrenInfoList = parcel.createTypedArrayList(PoiChildrenInfo.CREATOR);
     }
 
     @Override // android.os.Parcelable
@@ -87,11 +83,11 @@ public class PoiDetailInfo implements Parcelable {
     }
 
     public String getAddress() {
-        return this.c;
+        return this.address;
     }
 
     public String getArea() {
-        return this.f;
+        return this.area;
     }
 
     public int getCheckinNum() {
@@ -99,7 +95,7 @@ public class PoiDetailInfo implements Parcelable {
     }
 
     public String getCity() {
-        return this.e;
+        return this.city;
     }
 
     public int getCommentNum() {
@@ -107,7 +103,7 @@ public class PoiDetailInfo implements Parcelable {
     }
 
     public int getDetail() {
-        return this.j;
+        return this.detail;
     }
 
     public String getDetailUrl() {
@@ -147,11 +143,11 @@ public class PoiDetailInfo implements Parcelable {
     }
 
     public LatLng getLocation() {
-        return this.f2964b;
+        return this.location;
     }
 
     public String getName() {
-        return this.f2963a;
+        return this.name;
     }
 
     public LatLng getNaviLocation() {
@@ -163,7 +159,7 @@ public class PoiDetailInfo implements Parcelable {
     }
 
     public List<PoiChildrenInfo> getPoiChildrenInfoList() {
-        return this.k;
+        return this.poiChildrenInfoList;
     }
 
     public double getPrice() {
@@ -171,7 +167,7 @@ public class PoiDetailInfo implements Parcelable {
     }
 
     public String getProvince() {
-        return this.d;
+        return this.province;
     }
 
     public double getServiceRating() {
@@ -183,7 +179,7 @@ public class PoiDetailInfo implements Parcelable {
     }
 
     public String getStreetId() {
-        return this.i;
+        return this.streetId;
     }
 
     public String getTag() {
@@ -199,7 +195,7 @@ public class PoiDetailInfo implements Parcelable {
     }
 
     public String getTelephone() {
-        return this.g;
+        return this.telephone;
     }
 
     public String getType() {
@@ -207,15 +203,15 @@ public class PoiDetailInfo implements Parcelable {
     }
 
     public String getUid() {
-        return this.h;
+        return this.uid;
     }
 
     public void setAddress(String str) {
-        this.c = str;
+        this.address = str;
     }
 
     public void setArea(String str) {
-        this.f = str;
+        this.area = str;
     }
 
     public void setCheckinNum(int i) {
@@ -223,7 +219,7 @@ public class PoiDetailInfo implements Parcelable {
     }
 
     public void setCity(String str) {
-        this.e = str;
+        this.city = str;
     }
 
     public void setCommentNum(int i) {
@@ -232,9 +228,9 @@ public class PoiDetailInfo implements Parcelable {
 
     public void setDetail(String str) {
         try {
-            this.j = Integer.parseInt(str);
+            this.detail = Integer.parseInt(str);
         } catch (NumberFormatException e) {
-            this.j = 0;
+            this.detail = 0;
         }
     }
 
@@ -275,11 +271,11 @@ public class PoiDetailInfo implements Parcelable {
     }
 
     public void setLocation(LatLng latLng) {
-        this.f2964b = latLng;
+        this.location = latLng;
     }
 
     public void setName(String str) {
-        this.f2963a = str;
+        this.name = str;
     }
 
     public void setNaviLocation(LatLng latLng) {
@@ -291,7 +287,7 @@ public class PoiDetailInfo implements Parcelable {
     }
 
     public void setPoiChildrenInfoList(List<PoiChildrenInfo> list) {
-        this.k = list;
+        this.poiChildrenInfoList = list;
     }
 
     public void setPrice(double d) {
@@ -299,7 +295,7 @@ public class PoiDetailInfo implements Parcelable {
     }
 
     public void setProvince(String str) {
-        this.d = str;
+        this.province = str;
     }
 
     public void setServiceRating(double d) {
@@ -311,7 +307,7 @@ public class PoiDetailInfo implements Parcelable {
     }
 
     public void setStreetId(String str) {
-        this.i = str;
+        this.streetId = str;
     }
 
     public void setTag(String str) {
@@ -327,7 +323,7 @@ public class PoiDetailInfo implements Parcelable {
     }
 
     public void setTelephone(String str) {
-        this.g = str;
+        this.telephone = str;
     }
 
     public void setType(String str) {
@@ -335,25 +331,25 @@ public class PoiDetailInfo implements Parcelable {
     }
 
     public void setUid(String str) {
-        this.h = str;
+        this.uid = str;
     }
 
     public String toString() {
         StringBuffer stringBuffer = new StringBuffer("PoiDetailInfo: ");
-        stringBuffer.append("name = ").append(this.f2963a);
+        stringBuffer.append("name = ").append(this.name);
         stringBuffer.append("; location = ");
-        if (this.f2964b != null) {
-            stringBuffer.append(this.f2964b.toString());
+        if (this.location != null) {
+            stringBuffer.append(this.location.toString());
         } else {
             stringBuffer.append("null");
         }
-        stringBuffer.append("; address = ").append(this.c);
-        stringBuffer.append("; province = ").append(this.d);
-        stringBuffer.append("; city = ").append(this.e);
-        stringBuffer.append("; area = ").append(this.f);
-        stringBuffer.append("; telephone = ").append(this.g);
-        stringBuffer.append("; uid = ").append(this.h);
-        stringBuffer.append("; detail = ").append(this.j);
+        stringBuffer.append("; address = ").append(this.address);
+        stringBuffer.append("; province = ").append(this.province);
+        stringBuffer.append("; city = ").append(this.city);
+        stringBuffer.append("; area = ").append(this.area);
+        stringBuffer.append("; telephone = ").append(this.telephone);
+        stringBuffer.append("; uid = ").append(this.uid);
+        stringBuffer.append("; detail = ").append(this.detail);
         stringBuffer.append("; distance = ").append(this.distance);
         stringBuffer.append("; type = ").append(this.type);
         stringBuffer.append("; tag = ").append(this.tag);
@@ -379,15 +375,15 @@ public class PoiDetailInfo implements Parcelable {
         stringBuffer.append("; commentNum = ").append(this.commentNum);
         stringBuffer.append("; favoriteNum = ").append(this.favoriteNum);
         stringBuffer.append("; checkinNum = ").append(this.checkinNum);
-        if (this.k != null && !this.k.isEmpty()) {
+        if (this.poiChildrenInfoList != null && !this.poiChildrenInfoList.isEmpty()) {
             int i = 0;
             while (true) {
                 int i2 = i;
-                if (i2 >= this.k.size()) {
+                if (i2 >= this.poiChildrenInfoList.size()) {
                     break;
                 }
                 stringBuffer.append("; The ").append(i2).append(" poiChildrenInfo is: ");
-                PoiChildrenInfo poiChildrenInfo = this.k.get(i2);
+                PoiChildrenInfo poiChildrenInfo = this.poiChildrenInfoList.get(i2);
                 if (poiChildrenInfo != null) {
                     stringBuffer.append(poiChildrenInfo.toString());
                 } else {
@@ -401,16 +397,16 @@ public class PoiDetailInfo implements Parcelable {
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeString(this.f2963a);
-        parcel.writeParcelable(this.f2964b, i);
-        parcel.writeString(this.c);
-        parcel.writeString(this.d);
-        parcel.writeString(this.e);
-        parcel.writeString(this.f);
-        parcel.writeString(this.g);
-        parcel.writeString(this.h);
-        parcel.writeString(this.i);
-        parcel.writeInt(this.j);
+        parcel.writeString(this.name);
+        parcel.writeParcelable(this.location, i);
+        parcel.writeString(this.address);
+        parcel.writeString(this.province);
+        parcel.writeString(this.city);
+        parcel.writeString(this.area);
+        parcel.writeString(this.telephone);
+        parcel.writeString(this.uid);
+        parcel.writeString(this.streetId);
+        parcel.writeInt(this.detail);
         parcel.writeInt(this.distance);
         parcel.writeString(this.type);
         parcel.writeString(this.tag);
@@ -431,6 +427,6 @@ public class PoiDetailInfo implements Parcelable {
         parcel.writeInt(this.commentNum);
         parcel.writeInt(this.favoriteNum);
         parcel.writeInt(this.checkinNum);
-        parcel.writeTypedList(this.k);
+        parcel.writeTypedList(this.poiChildrenInfoList);
     }
 }

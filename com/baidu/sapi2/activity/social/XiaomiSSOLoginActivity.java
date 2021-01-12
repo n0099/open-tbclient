@@ -4,7 +4,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
 import android.widget.RelativeLayout;
-import com.baidu.l.a.a.a;
+import com.baidu.j.a.a.a;
 import com.baidu.sapi2.social.SocialLoginBase;
 import com.baidu.sapi2.utils.Log;
 import com.baidu.sapi2.utils.ParamsUtil;
@@ -12,14 +12,14 @@ import com.baidu.sapi2.utils.enums.SocialType;
 import com.xiaomi.account.openauth.XiaomiOAuthFuture;
 import com.xiaomi.account.openauth.XiaomiOAuthResults;
 import com.xiaomi.account.openauth.XiaomiOAuthorize;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class XiaomiSSOLoginActivity extends BaseSSOLoginActivity {
     private boolean isCancle;
     private XiaoMiCallback xiaoMiCallback;
     private Thread xiaoMiThread;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public interface XiaoMiCallback {
         void onFailure();
 

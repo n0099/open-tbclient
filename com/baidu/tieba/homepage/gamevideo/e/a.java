@@ -19,24 +19,24 @@ import com.baidu.tieba.frs.l;
 /* loaded from: classes2.dex */
 public class a {
     public static void a(com.baidu.tbadk.core.data.a aVar, Context context, int i, boolean z, Rect rect) {
-        if (aVar != null && aVar.boP() != null && context != null) {
-            bz boP = aVar.boP();
-            PbActivityConfig createFromThreadCfg = new PbActivityConfig(context).createFromThreadCfg(boP, null, ImageViewerConfig.FROM_GAME_VIDEO, RequestResponseCode.REQUEST_FRS_TO_PB, true, false, false);
-            createFromThreadCfg.setForumId(String.valueOf(boP.getFid()));
+        if (aVar != null && aVar.bkV() != null && context != null) {
+            bz bkV = aVar.bkV();
+            PbActivityConfig createFromThreadCfg = new PbActivityConfig(context).createFromThreadCfg(bkV, null, ImageViewerConfig.FROM_GAME_VIDEO, RequestResponseCode.REQUEST_FRS_TO_PB, true, false, false);
+            createFromThreadCfg.setForumId(String.valueOf(bkV.getFid()));
             createFromThreadCfg.setFrom(PbActivityConfig.KEY_FROM_GAME_VIDEO);
-            createFromThreadCfg.setForumName(boP.brv());
+            createFromThreadCfg.setForumName(bkV.bnB());
             createFromThreadCfg.setStartFrom(i);
             createFromThreadCfg.setVideoOriginArea(rect);
-            if (aVar.boS() != null) {
-                createFromThreadCfg.addLocateParam(aVar.boS());
+            if (aVar.bkY() != null) {
+                createFromThreadCfg.addLocateParam(aVar.bkY());
             }
-            if (TbSingleton.getInstance().isPbPreloadSwitchOn() && w(boP)) {
+            if (TbSingleton.getInstance().isPbPreloadSwitchOn() && w(bkV)) {
                 createFromThreadCfg.setNeedPreLoad(true);
-                l.an(boP);
+                l.an(bkV);
             }
             createFromThreadCfg.setVideo_source(ImageViewerConfig.FROM_GAME_VIDEO);
             createFromThreadCfg.setJumpGodReply(z);
-            m.Jn(boP.getTid());
+            m.Ic(bkV.getTid());
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, createFromThreadCfg));
         }
     }
@@ -49,12 +49,12 @@ public class a {
         if (i == 0 || i == 11 || i == 40) {
             return true;
         }
-        return bzVar.bqa();
+        return bzVar.bmg();
     }
 
     public static void a(b bVar, int i) {
         aq aA;
-        if (bVar != null && bVar.boP() != null && (aA = bVar.aA("c13496", true)) != null) {
+        if (bVar != null && bVar.bkV() != null && (aA = bVar.aA("c13496", true)) != null) {
             aA.an("obj_type", i);
             TiebaStatic.log(aA);
         }
@@ -62,7 +62,7 @@ public class a {
 
     public static void b(b bVar, int i) {
         aq aA;
-        if (bVar != null && bVar.boP() != null && com.baidu.tieba.card.data.l.ad(bVar.eMv) && (aA = bVar.aA("c13494", true)) != null) {
+        if (bVar != null && bVar.bkV() != null && com.baidu.tieba.card.data.l.ad(bVar.eHK) && (aA = bVar.aA("c13494", true)) != null) {
             aA.an("obj_type", i);
             TiebaStatic.log(aA);
         }
@@ -70,7 +70,7 @@ public class a {
 
     public static void c(b bVar, int i) {
         aq aA;
-        if (bVar != null && com.baidu.tieba.card.data.l.ad(bVar.eMv) && (aA = bVar.aA("c13495", true)) != null) {
+        if (bVar != null && com.baidu.tieba.card.data.l.ad(bVar.eHK) && (aA = bVar.aA("c13495", true)) != null) {
             aA.an("obj_type", i);
             TiebaStatic.log(aA);
         }
@@ -79,11 +79,11 @@ public class a {
     public static void d(b bVar, int i) {
         aq aA;
         if (bVar != null && (aA = bVar.aA("c13488", true)) != null) {
-            if (bVar.boP() != null) {
-                bz boP = bVar.boP();
-                aA.an("obj_name", boP.bsX() != null && (boP.bsX().dPg() != null || boP.bsX().bLf() != null) ? 1 : 0);
-                if (boP.brr() != null) {
-                    aA.an(TiebaInitialize.Params.AB_TYPE, boP.brr().hadConcerned() ? 1 : 0);
+            if (bVar.bkV() != null) {
+                bz bkV = bVar.bkV();
+                aA.an("obj_name", bkV.bpd() != null && (bkV.bpd().dLo() != null || bkV.bpd().bHn() != null) ? 1 : 0);
+                if (bkV.bnx() != null) {
+                    aA.an(TiebaInitialize.Params.AB_TYPE, bkV.bnx().hadConcerned() ? 1 : 0);
                 }
             }
             aA.an("obj_type", i);

@@ -11,47 +11,47 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class a {
-    private List<com.baidu.adp.widget.ListView.a> boM = new ArrayList();
-    private FrsADFragment jli;
-    private BdTypeRecyclerView jlj;
-    private d jlk;
-    private r jll;
+    private List<com.baidu.adp.widget.ListView.a> bjZ = new ArrayList();
+    private FrsADFragment jgB;
+    private BdTypeRecyclerView jgC;
+    private d jgD;
+    private r jgE;
 
     public a(FrsADFragment frsADFragment, BdTypeRecyclerView bdTypeRecyclerView) {
-        this.jli = frsADFragment;
-        this.jlj = bdTypeRecyclerView;
-        MT();
+        this.jgB = frsADFragment;
+        this.jgC = bdTypeRecyclerView;
+        IY();
     }
 
-    private void MT() {
-        this.jlk = new d(this.jli.getPageContext(), c.jly, this.jli.getUniqueId());
-        this.jll = new r(this.jli.getPageContext(), s.jiG);
-        this.boM.add(this.jlk);
-        this.boM.add(this.jll);
-        cHD();
-        this.jlj.addAdapters(this.boM);
+    private void IY() {
+        this.jgD = new d(this.jgB.getPageContext(), c.jgR, this.jgB.getUniqueId());
+        this.jgE = new r(this.jgB.getPageContext(), s.jdY);
+        this.bjZ.add(this.jgD);
+        this.bjZ.add(this.jgE);
+        cDL();
+        this.jgC.addAdapters(this.bjZ);
     }
 
     public void setData(ArrayList<n> arrayList) {
-        this.jlj.setData(arrayList);
+        this.jgC.setData(arrayList);
     }
 
-    private void cHD() {
-        if (!x.isEmpty(this.boM) && this.jli != null) {
-            for (com.baidu.adp.widget.ListView.a aVar : this.boM) {
+    private void cDL() {
+        if (!x.isEmpty(this.bjZ) && this.jgB != null) {
+            for (com.baidu.adp.widget.ListView.a aVar : this.bjZ) {
                 if (aVar instanceof k) {
-                    ((k) aVar).a(this.jli.getTbPageTag());
+                    ((k) aVar).a(this.jgB.getTbPageTag());
                 }
             }
         }
     }
 
     public void notifyDataSetChanged() {
-        this.jlj.getAdapter().notifyDataSetChanged();
+        this.jgC.getAdapter().notifyDataSetChanged();
     }
 
     public void onDestory() {
-        for (com.baidu.adp.widget.ListView.a aVar : this.boM) {
+        for (com.baidu.adp.widget.ListView.a aVar : this.bjZ) {
             if (aVar instanceof k) {
                 ((k) aVar).release();
             }
@@ -59,8 +59,8 @@ public class a {
     }
 
     public void a(w wVar) {
-        if (this.boM != null && this.boM.size() != 0) {
-            for (com.baidu.adp.widget.ListView.a aVar : this.boM) {
+        if (this.bjZ != null && this.bjZ.size() != 0) {
+            for (com.baidu.adp.widget.ListView.a aVar : this.bjZ) {
                 if (aVar != null && (aVar instanceof k)) {
                     aVar.a(wVar);
                 }

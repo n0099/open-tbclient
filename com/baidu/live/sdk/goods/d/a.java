@@ -7,12 +7,12 @@ import com.baidu.live.tbadk.TbConfig;
 import com.baidu.live.tbadk.browser.BrowserHelper;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.webkit.internal.ETAG;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class a {
     public static void o(Context context, String str, String str2) {
-        bq bqVar = com.baidu.live.af.a.SE().bCb;
-        if (bqVar != null && bqVar.aRF != null) {
-            String str3 = bqVar.aRF.aUq;
+        bq bqVar = com.baidu.live.af.a.OJ().bxp;
+        if (bqVar != null && bqVar.aMS != null) {
+            String str3 = bqVar.aMS.aPD;
             if (!TextUtils.isEmpty(str3)) {
                 BrowserHelper.startInternalWebActivity(context, str3 + (str3.contains("?") ? ETAG.ITEM_SEPARATOR : "?") + "feed_id=" + str + "&live_id=" + str2 + "&subapp_type=" + TbConfig.getSubappType());
             }

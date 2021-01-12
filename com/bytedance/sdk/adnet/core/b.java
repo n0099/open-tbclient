@@ -7,10 +7,10 @@ import java.util.List;
 public final class b {
 
     /* renamed from: a  reason: collision with root package name */
-    private final int f6317a;
+    private final int f6017a;
 
     /* renamed from: b  reason: collision with root package name */
-    private final List<a> f6318b;
+    private final List<a> f6018b;
     private final int c;
     private final InputStream d;
 
@@ -19,18 +19,18 @@ public final class b {
     }
 
     public b(int i, List<a> list, int i2, InputStream inputStream) {
-        this.f6317a = i;
-        this.f6318b = list;
+        this.f6017a = i;
+        this.f6018b = list;
         this.c = i2;
         this.d = inputStream;
     }
 
     public final int getStatusCode() {
-        return this.f6317a;
+        return this.f6017a;
     }
 
-    public final List<a> esn() {
-        return Collections.unmodifiableList(this.f6318b);
+    public final List<a> eot() {
+        return Collections.unmodifiableList(this.f6018b);
     }
 
     public final int getContentLength() {

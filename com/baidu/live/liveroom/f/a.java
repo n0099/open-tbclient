@@ -18,16 +18,16 @@ import com.baidu.live.tbadk.core.util.ListUtils;
 import com.baidu.live.v.e;
 import com.baidu.live.v.f;
 import java.util.List;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public abstract class a implements com.baidu.live.liveroom.middleware.b, d, i {
     protected Activity activity;
-    protected com.baidu.live.liveroom.a.c bsW;
-    protected com.baidu.live.liveroom.g.a bsX;
-    protected e bsY;
-    protected f bsZ;
+    protected com.baidu.live.liveroom.a.c bok;
+    protected com.baidu.live.liveroom.g.a bol;
+    protected e bom;
+    protected f bon;
     protected ViewGroup rootView;
     protected Handler mHandler = new Handler();
-    private CustomMessageListener bta = new CustomMessageListener(2913146) { // from class: com.baidu.live.liveroom.f.a.1
+    private CustomMessageListener boo = new CustomMessageListener(2913146) { // from class: com.baidu.live.liveroom.f.a.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -39,7 +39,7 @@ public abstract class a implements com.baidu.live.liveroom.middleware.b, d, i {
             }
         }
     };
-    private CustomMessageListener btb = new CustomMessageListener(2913167) { // from class: com.baidu.live.liveroom.f.a.2
+    private CustomMessageListener bop = new CustomMessageListener(2913167) { // from class: com.baidu.live.liveroom.f.a.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -52,7 +52,7 @@ public abstract class a implements com.baidu.live.liveroom.middleware.b, d, i {
         }
     };
 
-    public abstract boolean Pv();
+    public abstract boolean LA();
 
     public abstract View a(Context context, x xVar, boolean z);
 
@@ -88,12 +88,12 @@ public abstract class a implements com.baidu.live.liveroom.middleware.b, d, i {
     public abstract void onStop();
 
     public void init() {
-        MessageManager.getInstance().registerListener(this.bta);
-        MessageManager.getInstance().registerListener(this.btb);
+        MessageManager.getInstance().registerListener(this.boo);
+        MessageManager.getInstance().registerListener(this.bop);
     }
 
     public void a(com.baidu.live.liveroom.a.c cVar) {
-        this.bsW = cVar;
+        this.bok = cVar;
     }
 
     public Activity getActivity() {
@@ -109,17 +109,17 @@ public abstract class a implements com.baidu.live.liveroom.middleware.b, d, i {
     }
 
     public void b(com.baidu.live.liveroom.g.a aVar) {
-        this.bsX = aVar;
+        this.bol = aVar;
     }
 
-    public void cC(boolean z) {
+    public void cy(boolean z) {
         this.mHandler.removeCallbacksAndMessages(null);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void Pu() {
-        if (this.bsW != null) {
-            this.bsW.cx(true);
+    public void Lz() {
+        if (this.bok != null) {
+            this.bok.ct(true);
         }
     }
 
@@ -128,12 +128,12 @@ public abstract class a implements com.baidu.live.liveroom.middleware.b, d, i {
     }
 
     @Override // com.baidu.live.liveroom.middleware.i
-    public void cA(boolean z) {
+    public void cw(boolean z) {
         if (this.mHandler != null) {
             this.mHandler.removeCallbacksAndMessages(null);
         }
-        MessageManager.getInstance().unRegisterListener(this.bta);
-        MessageManager.getInstance().unRegisterListener(this.btb);
+        MessageManager.getInstance().unRegisterListener(this.boo);
+        MessageManager.getInstance().unRegisterListener(this.bop);
     }
 
     @Override // com.baidu.live.liveroom.middleware.i
@@ -145,15 +145,15 @@ public abstract class a implements com.baidu.live.liveroom.middleware.b, d, i {
     public void onRequestPermissionsResult(int i, String[] strArr, int[] iArr) {
     }
 
-    public void dY(int i) {
+    public void cs(int i) {
     }
 
     public void a(e eVar, f fVar) {
-        this.bsY = eVar;
-        this.bsZ = fVar;
+        this.bom = eVar;
+        this.bon = fVar;
     }
 
-    public f Pw() {
-        return this.bsZ;
+    public f LB() {
+        return this.bon;
     }
 }

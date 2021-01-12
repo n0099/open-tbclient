@@ -5,24 +5,24 @@ import androidx.annotation.Nullable;
 import com.baidu.mapapi.map.WeightedLatLng;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public abstract class a<K, A> {
     @Nullable
 
     /* renamed from: b  reason: collision with root package name */
-    protected com.ksad.lottie.e.c<A> f8258b;
+    protected com.ksad.lottie.e.c<A> f7958b;
     private final List<? extends com.ksad.lottie.e.a<K>> d;
     @Nullable
     private com.ksad.lottie.e.a<K> f;
 
     /* renamed from: a  reason: collision with root package name */
-    final List<InterfaceC1078a> f8257a = new ArrayList();
+    final List<InterfaceC1061a> f7957a = new ArrayList();
     private boolean c = false;
     private float e = 0.0f;
 
     /* renamed from: com.ksad.lottie.a.b.a$a  reason: collision with other inner class name */
-    /* loaded from: classes5.dex */
-    public interface InterfaceC1078a {
+    /* loaded from: classes4.dex */
+    public interface InterfaceC1061a {
         void a();
     }
 
@@ -83,18 +83,18 @@ public abstract class a<K, A> {
         b();
     }
 
-    public void a(InterfaceC1078a interfaceC1078a) {
-        this.f8257a.add(interfaceC1078a);
+    public void a(InterfaceC1061a interfaceC1061a) {
+        this.f7957a.add(interfaceC1061a);
     }
 
     public void b() {
         int i = 0;
         while (true) {
             int i2 = i;
-            if (i2 >= this.f8257a.size()) {
+            if (i2 >= this.f7957a.size()) {
                 return;
             }
-            this.f8257a.get(i2).a();
+            this.f7957a.get(i2).a();
             i = i2 + 1;
         }
     }

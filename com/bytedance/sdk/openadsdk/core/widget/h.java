@@ -14,10 +14,10 @@ import com.bytedance.sdk.openadsdk.utils.ak;
 public class h {
 
     /* renamed from: a  reason: collision with root package name */
-    private View f7117a;
+    private View f6817a;
 
     /* renamed from: b  reason: collision with root package name */
-    private TextView f7118b;
+    private TextView f6818b;
     private Context c;
     private com.bytedance.sdk.openadsdk.core.video.nativevideo.d d;
     private b e;
@@ -49,10 +49,10 @@ public class h {
     }
 
     private void b(Context context, View view) {
-        if (context != null && view != null && this.h != null && this.h.getParent() != null && this.f7117a == null) {
+        if (context != null && view != null && this.h != null && this.h.getParent() != null && this.f6817a == null) {
             this.h.inflate();
-            this.f7117a = view.findViewById(ac.e(context, "tt_video_traffic_tip_layout"));
-            this.f7118b = (TextView) view.findViewById(ac.e(context, "tt_video_traffic_tip_tv"));
+            this.f6817a = view.findViewById(ac.e(context, "tt_video_traffic_tip_layout"));
+            this.f6818b = (TextView) view.findViewById(ac.e(context, "tt_video_traffic_tip_tv"));
             view.findViewById(ac.e(context, "tt_video_traffic_continue_play_btn")).setOnClickListener(new View.OnClickListener() { // from class: com.bytedance.sdk.openadsdk.core.widget.h.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view2) {
@@ -118,18 +118,18 @@ public class h {
     }
 
     public boolean a() {
-        return this.f7117a != null && this.f7117a.getVisibility() == 0;
+        return this.f6817a != null && this.f6817a.getVisibility() == 0;
     }
 
     private void d() {
-        if (this.f7117a != null) {
-            this.f7117a.setVisibility(8);
+        if (this.f6817a != null) {
+            this.f6817a.setVisibility(8);
         }
     }
 
     private void a(s sVar, boolean z) {
         String str;
-        if (sVar != null && this.f7117a != null && this.c != null && this.f7117a.getVisibility() != 0) {
+        if (sVar != null && this.f6817a != null && this.c != null && this.f6817a.getVisibility() != 0) {
             if (this.e != null) {
                 this.e.j();
             }
@@ -139,10 +139,10 @@ public class h {
             } else {
                 str = ac.a(this.c, "tt_video_without_wifi_tips") + ac.a(this.c, "tt_video_bytesize");
             }
-            ak.a(this.f7117a, 0);
-            ak.a(this.f7118b, str);
-            if (ak.d(this.f7117a) && this.f7117a != null) {
-                this.f7117a.bringToFront();
+            ak.a(this.f6817a, 0);
+            ak.a(this.f6818b, str);
+            if (ak.d(this.f6817a) && this.f6817a != null) {
+                this.f6817a.bringToFront();
             }
         }
     }

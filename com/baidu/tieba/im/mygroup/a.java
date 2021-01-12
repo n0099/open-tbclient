@@ -15,33 +15,33 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.im.data.GroupInfoData;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class a extends BaseAdapter {
-    private PersonalGroupFragment kGH;
-    private List<GroupInfoData> kGI = new ArrayList();
+    private PersonalGroupFragment kCc;
+    private List<GroupInfoData> kCd = new ArrayList();
 
     public void eD(List<GroupInfoData> list) {
-        this.kGI = list;
+        this.kCd = list;
     }
 
     public a(PersonalGroupFragment personalGroupFragment) {
-        this.kGH = personalGroupFragment;
+        this.kCc = personalGroupFragment;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        return this.kGI.size();
+        return this.kCd.size();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: Ez */
+    /* renamed from: CT */
     public GroupInfoData getItem(int i) {
         int itemId = (int) getItemId(i);
-        if (itemId < 0 || itemId >= this.kGI.size()) {
+        if (itemId < 0 || itemId >= this.kCd.size()) {
             return null;
         }
-        return this.kGI.get(itemId);
+        return this.kCd.get(itemId);
     }
 
     @Override // android.widget.Adapter
@@ -51,63 +51,63 @@ public class a extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
-        C0776a c0776a;
-        if (view == null || view.getTag() == null || !(view.getTag() instanceof C0776a)) {
-            view = LayoutInflater.from(this.kGH.getActivity()).inflate(R.layout.tab_my_group_item, viewGroup, false);
-            c0776a = new C0776a();
-            c0776a.kGJ = (LinearLayout) view.findViewById(R.id.click_head);
-            c0776a.kGP = (ImageView) view.findViewById(R.id.diver_top);
-            c0776a.kGQ = (ImageView) view.findViewById(R.id.diver_buttom_px);
-            c0776a.kGR = (ImageView) view.findViewById(R.id.diver_top_px);
-            c0776a.kGK = (GroupImageView) view.findViewById(R.id.item_head);
-            c0776a.kGL = (TextView) view.findViewById(R.id.item_group_name);
-            c0776a.kGM = (TextView) view.findViewById(R.id.item_group_num);
-            c0776a.kGN = (TextView) view.findViewById(R.id.item_introduce);
-            c0776a.kGO = (TextView) view.findViewById(R.id.isCreator);
-            c0776a.kGS = (ImageView) view.findViewById(R.id.item_grade1);
-            c0776a.kGT = (ImageView) view.findViewById(R.id.item_grade2);
-            c0776a.kGU = (ImageView) view.findViewById(R.id.item_grade3);
-            c0776a.kGV = new ImageView[4];
-            c0776a.kGV[1] = c0776a.kGS;
-            c0776a.kGV[2] = c0776a.kGT;
-            c0776a.kGV[3] = c0776a.kGU;
-            view.setTag(c0776a);
+        C0759a c0759a;
+        if (view == null || view.getTag() == null || !(view.getTag() instanceof C0759a)) {
+            view = LayoutInflater.from(this.kCc.getActivity()).inflate(R.layout.tab_my_group_item, viewGroup, false);
+            c0759a = new C0759a();
+            c0759a.kCe = (LinearLayout) view.findViewById(R.id.click_head);
+            c0759a.kCk = (ImageView) view.findViewById(R.id.diver_top);
+            c0759a.kCl = (ImageView) view.findViewById(R.id.diver_buttom_px);
+            c0759a.kCm = (ImageView) view.findViewById(R.id.diver_top_px);
+            c0759a.kCf = (GroupImageView) view.findViewById(R.id.item_head);
+            c0759a.kCg = (TextView) view.findViewById(R.id.item_group_name);
+            c0759a.kCh = (TextView) view.findViewById(R.id.item_group_num);
+            c0759a.kCi = (TextView) view.findViewById(R.id.item_introduce);
+            c0759a.kCj = (TextView) view.findViewById(R.id.isCreator);
+            c0759a.kCn = (ImageView) view.findViewById(R.id.item_grade1);
+            c0759a.kCo = (ImageView) view.findViewById(R.id.item_grade2);
+            c0759a.kCp = (ImageView) view.findViewById(R.id.item_grade3);
+            c0759a.kCq = new ImageView[4];
+            c0759a.kCq[1] = c0759a.kCn;
+            c0759a.kCq[2] = c0759a.kCo;
+            c0759a.kCq[3] = c0759a.kCp;
+            view.setTag(c0759a);
         } else {
-            c0776a = (C0776a) view.getTag();
+            c0759a = (C0759a) view.getTag();
         }
-        GroupInfoData groupInfoData = this.kGI.get(i);
-        c0776a.kGK.setTag(null);
-        c0776a.kGK.setDrawBorder(true);
-        c0776a.kGK.setPlaceHolder(1);
+        GroupInfoData groupInfoData = this.kCd.get(i);
+        c0759a.kCf.setTag(null);
+        c0759a.kCf.setDrawBorder(true);
+        c0759a.kCf.setPlaceHolder(1);
         if (groupInfoData != null) {
             String portrait = groupInfoData.getPortrait();
             if (!TextUtils.isEmpty(portrait)) {
-                c0776a.kGK.startLoad(portrait, 10, false);
+                c0759a.kCf.startLoad(portrait, 10, false);
             } else {
-                c0776a.kGK.startLoad("", 10, false);
+                c0759a.kCf.startLoad("", 10, false);
             }
-            c0776a.kGJ.setOnClickListener(this.kGH);
-            c0776a.kGJ.setTag(groupInfoData);
-            c0776a.kGP.setVisibility(8);
-            c0776a.kGR.setVisibility(8);
-            c0776a.kGQ.setVisibility(0);
-            c0776a.kGL.setText(groupInfoData.getName());
-            c0776a.kGM.setText(groupInfoData.getMemberNum() + "/" + groupInfoData.getMaxMemberNum());
-            c0776a.kGN.setText(groupInfoData.getIntro());
+            c0759a.kCe.setOnClickListener(this.kCc);
+            c0759a.kCe.setTag(groupInfoData);
+            c0759a.kCk.setVisibility(8);
+            c0759a.kCm.setVisibility(8);
+            c0759a.kCl.setVisibility(0);
+            c0759a.kCg.setText(groupInfoData.getName());
+            c0759a.kCh.setText(groupInfoData.getMemberNum() + "/" + groupInfoData.getMaxMemberNum());
+            c0759a.kCi.setText(groupInfoData.getIntro());
             if (groupInfoData.getIsGroupManager() == 1) {
-                c0776a.kGO.setVisibility(0);
+                c0759a.kCj.setVisibility(0);
             } else {
-                c0776a.kGO.setVisibility(8);
+                c0759a.kCj.setVisibility(8);
             }
-            a(c0776a.kGV, groupInfoData.getGrade());
+            a(c0759a.kCq, groupInfoData.getGrade());
         }
-        this.kGH.getBaseFragmentActivity().getLayoutMode().setNightMode(TbadkApplication.getInst().getSkinType() == 1);
-        this.kGH.getBaseFragmentActivity().getLayoutMode().onModeChanged(view);
+        this.kCc.getBaseFragmentActivity().getLayoutMode().setNightMode(TbadkApplication.getInst().getSkinType() == 1);
+        this.kCc.getBaseFragmentActivity().getLayoutMode().onModeChanged(view);
         if (groupInfoData != null && groupInfoData.isMemGroup()) {
-            ao.setViewTextColor(c0776a.kGL, R.color.common_color_10009, 1);
-            ao.setImageResource(c0776a.kGS, R.drawable.icon_vip_grade_big_small_s);
-            ao.setImageResource(c0776a.kGT, R.drawable.icon_vip_grade_big_small_s);
-            ao.setImageResource(c0776a.kGU, R.drawable.icon_vip_grade_big_small_s);
+            ao.setViewTextColor(c0759a.kCg, R.color.common_color_10009, 1);
+            ao.setImageResource(c0759a.kCn, R.drawable.icon_vip_grade_big_small_s);
+            ao.setImageResource(c0759a.kCo, R.drawable.icon_vip_grade_big_small_s);
+            ao.setImageResource(c0759a.kCp, R.drawable.icon_vip_grade_big_small_s);
         }
         return view;
     }
@@ -127,23 +127,23 @@ public class a extends BaseAdapter {
     }
 
     /* renamed from: com.baidu.tieba.im.mygroup.a$a  reason: collision with other inner class name */
-    /* loaded from: classes8.dex */
-    static class C0776a {
-        LinearLayout kGJ;
-        GroupImageView kGK;
-        TextView kGL;
-        TextView kGM;
-        TextView kGN;
-        TextView kGO;
-        ImageView kGP;
-        ImageView kGQ;
-        ImageView kGR;
-        ImageView kGS;
-        ImageView kGT;
-        ImageView kGU;
-        ImageView[] kGV;
+    /* loaded from: classes7.dex */
+    static class C0759a {
+        LinearLayout kCe;
+        GroupImageView kCf;
+        TextView kCg;
+        TextView kCh;
+        TextView kCi;
+        TextView kCj;
+        ImageView kCk;
+        ImageView kCl;
+        ImageView kCm;
+        ImageView kCn;
+        ImageView kCo;
+        ImageView kCp;
+        ImageView[] kCq;
 
-        C0776a() {
+        C0759a() {
         }
     }
 }

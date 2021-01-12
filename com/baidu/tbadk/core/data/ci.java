@@ -34,7 +34,7 @@ public class ci {
             builder.is_vertical = Integer.valueOf(jSONObject.optInt("is_vertical"));
             builder.video_h265 = ch.dq(jSONObject.optJSONObject("video_h265"));
             builder.mcn_lead_page = jSONObject.optString("mcn_lead_page");
-            builder.mcn_ad_card = as.m37do(jSONObject.optJSONObject("mcn_ad_card"));
+            builder.mcn_ad_card = as.m32do(jSONObject.optJSONObject("mcn_ad_card"));
             builder.wth_mid_loc = Double.valueOf(jSONObject.optDouble("wth_mid_loc"));
             builder.hth_mid_loc = Double.valueOf(jSONObject.optDouble("hth_mid_loc"));
             return builder.build(true);

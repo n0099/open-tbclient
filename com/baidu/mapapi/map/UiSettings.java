@@ -1,33 +1,33 @@
 package com.baidu.mapapi.map;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public final class UiSettings {
 
     /* renamed from: a  reason: collision with root package name */
-    private com.baidu.mapsdkplatform.comapi.map.d f2891a;
+    private com.baidu.mapsdkplatform.comapi.map.e f2780a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public UiSettings(com.baidu.mapsdkplatform.comapi.map.d dVar) {
-        this.f2891a = dVar;
+    public UiSettings(com.baidu.mapsdkplatform.comapi.map.e eVar) {
+        this.f2780a = eVar;
     }
 
     public boolean isCompassEnabled() {
-        return this.f2891a.q();
+        return this.f2780a.r();
     }
 
     public boolean isOverlookingGesturesEnabled() {
-        return this.f2891a.x();
+        return this.f2780a.z();
     }
 
     public boolean isRotateGesturesEnabled() {
-        return this.f2891a.w();
+        return this.f2780a.y();
     }
 
     public boolean isScrollGesturesEnabled() {
-        return this.f2891a.u();
+        return this.f2780a.w();
     }
 
     public boolean isZoomGesturesEnabled() {
-        return this.f2891a.v();
+        return this.f2780a.x();
     }
 
     public void setAllGesturesEnabled(boolean z) {
@@ -35,39 +35,29 @@ public final class UiSettings {
         setScrollGesturesEnabled(z);
         setOverlookingGesturesEnabled(z);
         setZoomGesturesEnabled(z);
-        setDoubleClickZoomEnabled(z);
-        setTwoTouchClickZoomEnabled(z);
     }
 
     public void setCompassEnabled(boolean z) {
-        this.f2891a.k(z);
-    }
-
-    public void setDoubleClickZoomEnabled(boolean z) {
-        this.f2891a.s(z);
+        this.f2780a.j(z);
     }
 
     public void setEnlargeCenterWithDoubleClickEnable(boolean z) {
-        this.f2891a.u(z);
+        this.f2780a.q(z);
     }
 
     public void setOverlookingGesturesEnabled(boolean z) {
-        this.f2891a.w(z);
+        this.f2780a.s(z);
     }
 
     public void setRotateGesturesEnabled(boolean z) {
-        this.f2891a.v(z);
+        this.f2780a.r(z);
     }
 
     public void setScrollGesturesEnabled(boolean z) {
-        this.f2891a.q(z);
-    }
-
-    public void setTwoTouchClickZoomEnabled(boolean z) {
-        this.f2891a.t(z);
+        this.f2780a.o(z);
     }
 
     public void setZoomGesturesEnabled(boolean z) {
-        this.f2891a.r(z);
+        this.f2780a.p(z);
     }
 }

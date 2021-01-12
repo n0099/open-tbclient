@@ -10,21 +10,21 @@ import android.widget.TextView;
 import com.baidu.tbadk.core.util.ao;
 import com.baidu.tieba.R;
 import com.baidu.tieba.square.square.e;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class a extends BaseAdapter {
     Context mActivity;
-    private e nkG;
-    private int nkH = 0;
-    C0880a nkI;
+    private e ngb;
+    private int ngc = 0;
+    C0863a ngd;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.baidu.tieba.square.flist.a$a  reason: collision with other inner class name */
-    /* loaded from: classes8.dex */
-    public class C0880a {
-        ImageView nkJ;
-        TextView nkK;
+    /* loaded from: classes7.dex */
+    public class C0863a {
+        ImageView nge;
+        TextView ngf;
 
-        C0880a() {
+        C0863a() {
         }
     }
 
@@ -34,18 +34,18 @@ public class a extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.nkG == null || this.nkG.nmU == null) {
+        if (this.ngb == null || this.ngb.niq == null) {
             return 0;
         }
-        return this.nkG.nmU.size();
+        return this.ngb.niq.size();
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        if (this.nkG == null || this.nkG.nmU == null) {
+        if (this.ngb == null || this.ngb.niq == null) {
             return null;
         }
-        return this.nkG.nmU.get(i);
+        return this.ngb.niq.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -56,55 +56,55 @@ public class a extends BaseAdapter {
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
         if (view == null) {
-            view = dNr();
+            view = dJz();
         }
-        if (this.nkG != null) {
-            e eVar = this.nkG.nmU.get(i);
-            this.nkI = (C0880a) view.getTag();
+        if (this.ngb != null) {
+            e eVar = this.ngb.niq.get(i);
+            this.ngd = (C0863a) view.getTag();
             if (eVar != null) {
-                a(this.nkI, eVar, view, i);
+                a(this.ngd, eVar, view, i);
             }
         }
         return view;
     }
 
-    public void KB(int i) {
-        this.nkH = i;
+    public void IU(int i) {
+        this.ngc = i;
         notifyDataSetChanged();
     }
 
     public void a(e eVar) {
-        this.nkG = eVar;
+        this.ngb = eVar;
     }
 
-    public e dNq() {
-        return this.nkG;
+    public e dJy() {
+        return this.ngb;
     }
 
-    private View dNr() {
+    private View dJz() {
         View inflate = LayoutInflater.from(this.mActivity).inflate(R.layout.forum_list_dir_menu_item, (ViewGroup) null);
-        this.nkI = new C0880a();
-        this.nkI.nkJ = (ImageView) inflate.findViewById(R.id.menu_choose);
-        this.nkI.nkK = (TextView) inflate.findViewById(R.id.menu_name);
-        inflate.setTag(this.nkI);
+        this.ngd = new C0863a();
+        this.ngd.nge = (ImageView) inflate.findViewById(R.id.menu_choose);
+        this.ngd.ngf = (TextView) inflate.findViewById(R.id.menu_name);
+        inflate.setTag(this.ngd);
         return inflate;
     }
 
-    private void a(C0880a c0880a, e eVar, View view, int i) {
-        if (c0880a != null && eVar != null) {
-            c0880a.nkK.setText("");
+    private void a(C0863a c0863a, e eVar, View view, int i) {
+        if (c0863a != null && eVar != null) {
+            c0863a.ngf.setText("");
             if (i == 0) {
-                c0880a.nkK.setText(this.mActivity.getString(R.string.all) + eVar.nkO);
+                c0863a.ngf.setText(this.mActivity.getString(R.string.all) + eVar.ngj);
             } else {
-                c0880a.nkK.setText(eVar.nkO);
+                c0863a.ngf.setText(eVar.ngj);
             }
-            if (i != this.nkH) {
-                c0880a.nkJ.setVisibility(4);
-                ao.setViewTextColor(c0880a.nkK, R.color.common_color_10200, 1);
+            if (i != this.ngc) {
+                c0863a.nge.setVisibility(4);
+                ao.setViewTextColor(c0863a.ngf, R.color.common_color_10200, 1);
                 return;
             }
-            c0880a.nkJ.setVisibility(0);
-            ao.setViewTextColor(c0880a.nkK, R.color.common_color_10013, 1);
+            c0863a.nge.setVisibility(0);
+            ao.setViewTextColor(c0863a.ngf, R.color.common_color_10013, 1);
         }
     }
 }

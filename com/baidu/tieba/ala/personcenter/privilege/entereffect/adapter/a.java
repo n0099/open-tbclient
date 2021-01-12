@@ -9,39 +9,39 @@ import com.baidu.tbadk.core.util.x;
 import com.baidu.tieba.ala.personcenter.privilege.entereffect.data.AlaEnterEffectData;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class a {
-    private List<com.baidu.adp.widget.ListView.a> boM;
-    private BdTypeListView gAY;
-    private AlaEnterEffectAdapter icR;
-    private AlaEnterEffectCategoryAdapter icS;
+    private List<com.baidu.adp.widget.ListView.a> bjZ;
+    private BdTypeListView gwr;
+    private AlaEnterEffectAdapter hYk;
+    private AlaEnterEffectCategoryAdapter hYl;
     private List<n> mDataList;
     private TbPageContext mPageContext;
 
     /* renamed from: com.baidu.tieba.ala.personcenter.privilege.entereffect.adapter.a$a  reason: collision with other inner class name */
-    /* loaded from: classes10.dex */
-    public interface InterfaceC0708a {
+    /* loaded from: classes9.dex */
+    public interface InterfaceC0691a {
     }
 
     public a(TbPageContext tbPageContext, BdTypeListView bdTypeListView) {
         this.mPageContext = tbPageContext;
-        this.gAY = bdTypeListView;
-        MT();
+        this.gwr = bdTypeListView;
+        IY();
     }
 
-    private void MT() {
-        this.boM = new ArrayList();
-        this.icR = new AlaEnterEffectAdapter(this.mPageContext.getPageActivity());
-        this.boM.add(this.icR);
-        this.icS = new AlaEnterEffectCategoryAdapter(this.mPageContext.getPageActivity());
-        this.boM.add(this.icS);
-        this.gAY.addAdapters(this.boM);
+    private void IY() {
+        this.bjZ = new ArrayList();
+        this.hYk = new AlaEnterEffectAdapter(this.mPageContext.getPageActivity());
+        this.bjZ.add(this.hYk);
+        this.hYl = new AlaEnterEffectCategoryAdapter(this.mPageContext.getPageActivity());
+        this.bjZ.add(this.hYl);
+        this.gwr.addAdapters(this.bjZ);
     }
 
     public void setData(List<n> list) {
         if (!x.isEmpty(list)) {
-            this.gAY.setData(list);
-            this.mDataList = this.gAY.getData();
+            this.gwr.setData(list);
+            this.mDataList = this.gwr.getData();
         }
     }
 
@@ -91,7 +91,7 @@ public class a {
     }
 
     public void notifyDataSetChanged() {
-        for (com.baidu.adp.widget.ListView.a aVar : this.boM) {
+        for (com.baidu.adp.widget.ListView.a aVar : this.bjZ) {
             aVar.notifyDataSetChanged();
         }
     }

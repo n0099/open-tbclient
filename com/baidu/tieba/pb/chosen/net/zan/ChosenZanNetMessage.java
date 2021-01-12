@@ -5,7 +5,7 @@ import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.util.t;
 import tbclient.ExcZan.DataReq;
 import tbclient.ExcZan.ExcZanReqIdl;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class ChosenZanNetMessage extends NetMessage {
     private int action;
     private long excId;

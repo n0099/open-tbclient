@@ -12,10 +12,9 @@ import com.baidu.ala.ndk.AlaNdkAdapter;
 import com.baidu.ala.recorder.video.IVideoRecorder;
 import com.baidu.ala.recorder.video.hardware.EncoderOutputStream;
 import com.baidu.live.tbadk.core.data.ConstantData;
-import com.baidu.platform.comapi.map.MapBundleKey;
 import com.baidu.searchbox.v8engine.util.TimeUtils;
 import com.kwai.video.player.KsMediaMeta;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class HardH264Encoder {
     private static final int CHECK_STREAM_DURATION = 5000;
     public static final int ENCODE_FPS = 25;
@@ -72,7 +71,7 @@ public class HardH264Encoder {
             this.mMediaFormat.setInteger("i-frame-interval", 2);
             if (!z) {
                 this.mMediaFormat.setInteger(ConstantData.VideoLocationType.PERSON_PROFILE, selectProfile);
-                this.mMediaFormat.setInteger(MapBundleKey.MapObjKey.OBJ_LEVEL, 256);
+                this.mMediaFormat.setInteger("level", 256);
             }
             mediaCodec.configure(this.mMediaFormat, (Surface) null, (MediaCrypto) null, 1);
             return true;

@@ -3,15 +3,15 @@ package com.baidu.tieba.ala.alaar.makeup;
 import android.text.TextUtils;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import java.io.File;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class e {
-    private static File gtV = null;
+    private static File gpo = null;
 
-    public static File bSy() {
-        if (gtV == null) {
-            gtV = getPrivateCaptureRootChildDir("duMakeup");
+    public static File bOG() {
+        if (gpo == null) {
+            gpo = getPrivateCaptureRootChildDir("duMakeup");
         }
-        return gtV;
+        return gpo;
     }
 
     public static File getPrivateCaptureRootChildDir(String str) {

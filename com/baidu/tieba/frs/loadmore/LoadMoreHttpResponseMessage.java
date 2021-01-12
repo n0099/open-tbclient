@@ -77,11 +77,11 @@ public class LoadMoreHttpResponseMessage extends HttpResponsedMessage {
                             ap.a(j, bzVar);
                             bzVar.setUserMap(this.userMap);
                             bzVar.a(threadInfo);
-                            bzVar.bsr();
-                            bzVar.eVN = z;
-                            if (!TextUtils.isEmpty(bzVar.bsD())) {
+                            bzVar.box();
+                            bzVar.eRc = z;
+                            if (!TextUtils.isEmpty(bzVar.boJ())) {
                                 am amVar = new am();
-                                amVar.AP(bzVar.bsD());
+                                amVar.zE(bzVar.boJ());
                                 this.threadList.add(amVar);
                             } else {
                                 this.threadList.add(bzVar);
@@ -91,7 +91,7 @@ public class LoadMoreHttpResponseMessage extends HttpResponsedMessage {
                                 }
                             }
                         }
-                        b.dFV().q("FRS", arrayList);
+                        b.dCd().q("FRS", arrayList);
                     }
                 }
                 this.bannerListData = null;

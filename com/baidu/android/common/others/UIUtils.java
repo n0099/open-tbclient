@@ -4,7 +4,7 @@ import android.graphics.Paint;
 import android.text.TextUtils;
 import android.widget.TextView;
 @Deprecated
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class UIUtils {
     private static final int NO_ALPHA_STANDARD = 7;
     private static final int WITH_ALPHA_STANDARD = 9;

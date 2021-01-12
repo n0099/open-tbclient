@@ -7,35 +7,35 @@ import javax.annotation.concurrent.GuardedBy;
 /* loaded from: classes3.dex */
 public class au<T> implements aj<T> {
     private final Executor mExecutor;
-    private final aj<T> pFG;
-    private final int pHy;
+    private final aj<T> pBf;
+    private final int pCX;
     @GuardedBy("this")
-    private final ConcurrentLinkedQueue<Pair<k<T>, ak>> pHA = new ConcurrentLinkedQueue<>();
+    private final ConcurrentLinkedQueue<Pair<k<T>, ak>> pCZ = new ConcurrentLinkedQueue<>();
     @GuardedBy("this")
-    private int pHz = 0;
+    private int pCY = 0;
 
     static /* synthetic */ int b(au auVar) {
-        int i = auVar.pHz;
-        auVar.pHz = i - 1;
+        int i = auVar.pCY;
+        auVar.pCY = i - 1;
         return i;
     }
 
     public au(int i, Executor executor, aj<T> ajVar) {
-        this.pHy = i;
+        this.pCX = i;
         this.mExecutor = (Executor) com.facebook.common.internal.g.checkNotNull(executor);
-        this.pFG = (aj) com.facebook.common.internal.g.checkNotNull(ajVar);
+        this.pBf = (aj) com.facebook.common.internal.g.checkNotNull(ajVar);
     }
 
     @Override // com.facebook.imagepipeline.producers.aj
     public void a(k<T> kVar, ak akVar) {
         boolean z;
-        akVar.eAI().hn(akVar.getId(), "ThrottlingProducer");
+        akVar.ewQ().hm(akVar.getId(), "ThrottlingProducer");
         synchronized (this) {
-            if (this.pHz >= this.pHy) {
-                this.pHA.add(Pair.create(kVar, akVar));
+            if (this.pCY >= this.pCX) {
+                this.pCZ.add(Pair.create(kVar, akVar));
                 z = true;
             } else {
-                this.pHz++;
+                this.pCY++;
                 z = false;
             }
         }
@@ -45,8 +45,8 @@ public class au<T> implements aj<T> {
     }
 
     void f(k<T> kVar, ak akVar) {
-        akVar.eAI().b(akVar.getId(), "ThrottlingProducer", null);
-        this.pFG.a(new a(kVar), akVar);
+        akVar.ewQ().b(akVar.getId(), "ThrottlingProducer", null);
+        this.pBf.a(new a(kVar), akVar);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -58,28 +58,28 @@ public class au<T> implements aj<T> {
 
         @Override // com.facebook.imagepipeline.producers.b
         protected void f(T t, int i) {
-            eAU().g(t, i);
-            if (Rv(i)) {
-                ehF();
+            exc().g(t, i);
+            if (PO(i)) {
+                edN();
             }
         }
 
         @Override // com.facebook.imagepipeline.producers.n, com.facebook.imagepipeline.producers.b
         protected void C(Throwable th) {
-            eAU().D(th);
-            ehF();
+            exc().D(th);
+            edN();
         }
 
         @Override // com.facebook.imagepipeline.producers.n, com.facebook.imagepipeline.producers.b
-        protected void ezv() {
-            eAU().etW();
-            ehF();
+        protected void evD() {
+            exc().eqc();
+            edN();
         }
 
-        private void ehF() {
+        private void edN() {
             final Pair pair;
             synchronized (au.this) {
-                pair = (Pair) au.this.pHA.poll();
+                pair = (Pair) au.this.pCZ.poll();
                 if (pair == null) {
                     au.b(au.this);
                 }

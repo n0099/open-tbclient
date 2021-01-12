@@ -4,7 +4,7 @@ import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 import rx.c.f;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public final class OnErrorThrowable extends RuntimeException {
     private static final long serialVersionUID = -569558213262703934L;
     private final boolean hasValue;
@@ -56,17 +56,17 @@ public final class OnErrorThrowable extends RuntimeException {
         return th;
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public static class OnNextValue extends RuntimeException {
         private static final long serialVersionUID = -3454462756050397899L;
         private final Object value;
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        /* loaded from: classes15.dex */
+        /* loaded from: classes14.dex */
         public static final class a {
-            static final Set<Class<?>> qsG = eOo();
+            static final Set<Class<?>> qoe = eKy();
 
-            private static Set<Class<?>> eOo() {
+            private static Set<Class<?>> eKy() {
                 HashSet hashSet = new HashSet();
                 hashSet.add(Boolean.class);
                 hashSet.add(Character.class);
@@ -100,7 +100,7 @@ public final class OnErrorThrowable extends RuntimeException {
             if (obj == null) {
                 return "null";
             }
-            if (a.qsG.contains(obj.getClass())) {
+            if (a.qoe.contains(obj.getClass())) {
                 return obj.toString();
             }
             if (obj instanceof String) {
@@ -109,7 +109,7 @@ public final class OnErrorThrowable extends RuntimeException {
             if (obj instanceof Enum) {
                 return ((Enum) obj).name();
             }
-            String ci = f.ePj().ePk().ci(obj);
+            String ci = f.eLt().eLu().ci(obj);
             return ci != null ? ci : obj.getClass().getName() + ".class";
         }
     }

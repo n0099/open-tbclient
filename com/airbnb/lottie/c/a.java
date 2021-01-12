@@ -4,6 +4,7 @@ import android.graphics.PointF;
 import android.util.JsonReader;
 import android.util.JsonToken;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mobstat.Config;
 import java.io.IOException;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */
@@ -41,7 +42,7 @@ public class a {
                     }
                     break;
                 case 120:
-                    if (nextName.equals("x")) {
+                    if (nextName.equals(Config.EVENT_HEAT_X)) {
                         c = 1;
                         break;
                     }

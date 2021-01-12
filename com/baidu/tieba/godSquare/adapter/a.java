@@ -6,31 +6,31 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.card.divider.d;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class a {
-    private List<com.baidu.adp.widget.ListView.a> boM = new ArrayList();
-    private BdTypeListView gAY;
-    private GodSquareHotGodAdapter jUA;
-    private d jUy;
-    private GodSquareRecGodAdapter jUz;
+    private List<com.baidu.adp.widget.ListView.a> bjZ = new ArrayList();
+    private BdTypeListView gwr;
+    private d jPT;
+    private GodSquareRecGodAdapter jPU;
+    private GodSquareHotGodAdapter jPV;
 
-    public List<com.baidu.adp.widget.ListView.a> bUR() {
-        return this.boM;
+    public List<com.baidu.adp.widget.ListView.a> bQZ() {
+        return this.bjZ;
     }
 
     public a(TbPageContext<?> tbPageContext, BdTypeListView bdTypeListView) {
-        this.gAY = bdTypeListView;
-        this.jUy = new d(tbPageContext);
-        this.jUz = new GodSquareRecGodAdapter(tbPageContext);
-        this.jUA = new GodSquareHotGodAdapter(tbPageContext);
-        this.boM.add(this.jUy);
-        this.boM.add(this.jUz);
-        this.boM.add(this.jUA);
+        this.gwr = bdTypeListView;
+        this.jPT = new d(tbPageContext);
+        this.jPU = new GodSquareRecGodAdapter(tbPageContext);
+        this.jPV = new GodSquareHotGodAdapter(tbPageContext);
+        this.bjZ.add(this.jPT);
+        this.bjZ.add(this.jPU);
+        this.bjZ.add(this.jPV);
     }
 
     public void notifyDataSetChanged() {
-        if (this.gAY != null && (this.gAY.getAdapter() instanceof e)) {
-            this.gAY.getAdapter().notifyDataSetChanged();
+        if (this.gwr != null && (this.gwr.getAdapter() instanceof e)) {
+            this.gwr.getAdapter().notifyDataSetChanged();
         }
     }
 }

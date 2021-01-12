@@ -29,7 +29,7 @@ import com.baidubce.http.Headers;
 import com.kwai.video.player.KsMediaMeta;
 import java.io.File;
 import java.util.HashMap;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class BinaryReqTask extends AbstractTask {
     private static final boolean DEBUG = false;
     private static final String TAG = "BinaryReqTask";
@@ -312,7 +312,7 @@ public class BinaryReqTask extends AbstractTask {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class BinaryTaskHandler extends BinaryHttpResponseHandler {
         public BinaryTaskHandler() {
         }

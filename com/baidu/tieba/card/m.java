@@ -18,33 +18,33 @@ import com.baidu.tieba.R;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class m {
-    public static void Jn(String str) {
+    public static void Ic(String str) {
         com.baidu.tieba.tbadkCore.util.d readThreadHistory;
-        if (!StringUtils.isNull(str) && !"0".equalsIgnoreCase(str) && (readThreadHistory = TbadkCoreApplication.getInst().getReadThreadHistory()) != null && !readThreadHistory.TL(str)) {
-            readThreadHistory.TJ(str);
+        if (!StringUtils.isNull(str) && !"0".equalsIgnoreCase(str) && (readThreadHistory = TbadkCoreApplication.getInst().getReadThreadHistory()) != null && !readThreadHistory.SD(str)) {
+            readThreadHistory.SB(str);
         }
     }
 
-    public static boolean Jo(String str) {
+    public static boolean Id(String str) {
         com.baidu.tieba.tbadkCore.util.d readThreadHistory;
-        return (StringUtils.isNull(str) || "0".equalsIgnoreCase(str) || (readThreadHistory = TbadkCoreApplication.getInst().getReadThreadHistory()) == null || !readThreadHistory.TK(str)) ? false : true;
+        return (StringUtils.isNull(str) || "0".equalsIgnoreCase(str) || (readThreadHistory = TbadkCoreApplication.getInst().getReadThreadHistory()) == null || !readThreadHistory.SC(str)) ? false : true;
     }
 
-    public static String cuS() {
+    public static String cra() {
         return String.valueOf(System.currentTimeMillis() / 1000);
     }
 
-    public static String brd() {
+    public static String bnj() {
         return "personalize_page";
     }
 
-    public static String cuT() {
+    public static String crb() {
         return "frs_page";
     }
 
     public static void a(TextView textView, String str, int i, int i2) {
         if (textView instanceof TextView) {
-            if (Jo(str) && TbSingleton.getInstance().isInFrs) {
+            if (Id(str) && TbSingleton.getInstance().isInFrs) {
                 ao.setViewTextColor(textView, i2);
             } else {
                 ao.setViewTextColor(textView, i);
@@ -53,22 +53,22 @@ public class m {
     }
 
     public static void a(bz bzVar, SpannableStringBuilder spannableStringBuilder, boolean z) {
-        if (spannableStringBuilder != null && !at.isEmptyStringAfterTrim(spannableStringBuilder.toString()) && bzVar != null && bzVar.brm() == 0) {
-            if (z || bzVar.brF() == 1 || StringUtils.isNull(bzVar.getTitle())) {
-                ArrayList<com.baidu.tbadk.widget.richText.b> bsn = bzVar.bsn();
-                if (!com.baidu.tbadk.core.util.x.isEmpty(bsn)) {
+        if (spannableStringBuilder != null && !at.isEmptyStringAfterTrim(spannableStringBuilder.toString()) && bzVar != null && bzVar.bns() == 0) {
+            if (z || bzVar.bnL() == 1 || StringUtils.isNull(bzVar.getTitle())) {
+                ArrayList<com.baidu.tbadk.widget.richText.b> bot = bzVar.bot();
+                if (!com.baidu.tbadk.core.util.x.isEmpty(bot)) {
                     StringBuilder sb = new StringBuilder();
-                    for (int i = 0; i < bsn.size(); i++) {
-                        if (bsn.get(i) != null && !StringUtils.isNull(bsn.get(i).getText())) {
-                            sb.append(bsn.get(i).getText());
+                    for (int i = 0; i < bot.size(); i++) {
+                        if (bot.get(i) != null && !StringUtils.isNull(bot.get(i).getText())) {
+                            sb.append(bot.get(i).getText());
                         }
                     }
                     SpannableString spannableString = new SpannableString(sb.toString());
                     int i2 = 0;
-                    for (int i3 = 0; i3 < bsn.size(); i3++) {
-                        if (bsn.get(i3) != null && !StringUtils.isNull(bsn.get(i3).getText())) {
-                            int length = bsn.get(i3).getText().length();
-                            a(spannableString, bsn.get(i3), i2, length);
+                    for (int i3 = 0; i3 < bot.size(); i3++) {
+                        if (bot.get(i3) != null && !StringUtils.isNull(bot.get(i3).getText())) {
+                            int length = bot.get(i3).getText().length();
+                            a(spannableString, bot.get(i3), i2, length);
                             i2 += length;
                         }
                     }
@@ -87,49 +87,49 @@ public class m {
 
     /* loaded from: classes.dex */
     public static class a {
-        public int ady;
-        public int ivU;
-        public String ivV;
-        public int ivW;
-        public int ivX;
+        public int adw;
+        public int irn;
+        public String iro;
+        public int irp;
+        public int irq;
 
         public a(int i, int i2, int i3) {
-            this.ivU = -1;
-            this.ivV = "";
-            this.ady = R.color.CAM_X0304;
-            this.ivW = R.drawable.pic_dot_title;
-            this.ivX = 0;
-            this.ivU = i;
-            this.ady = i2;
-            this.ivW = i3;
+            this.irn = -1;
+            this.iro = "";
+            this.adw = R.color.CAM_X0304;
+            this.irp = R.drawable.pic_dot_title;
+            this.irq = 0;
+            this.irn = i;
+            this.adw = i2;
+            this.irp = i3;
         }
 
         public a(int i) {
-            this.ivU = -1;
-            this.ivV = "";
-            this.ady = R.color.CAM_X0304;
-            this.ivW = R.drawable.pic_dot_title;
-            this.ivX = 0;
-            this.ivU = i;
+            this.irn = -1;
+            this.iro = "";
+            this.adw = R.color.CAM_X0304;
+            this.irp = R.drawable.pic_dot_title;
+            this.irq = 0;
+            this.irn = i;
         }
 
         public a(String str) {
-            this.ivU = -1;
-            this.ivV = "";
-            this.ady = R.color.CAM_X0304;
-            this.ivW = R.drawable.pic_dot_title;
-            this.ivX = 0;
-            this.ivV = str;
+            this.irn = -1;
+            this.iro = "";
+            this.adw = R.color.CAM_X0304;
+            this.irp = R.drawable.pic_dot_title;
+            this.irq = 0;
+            this.iro = str;
         }
 
         public a(String str, int i) {
-            this.ivU = -1;
-            this.ivV = "";
-            this.ady = R.color.CAM_X0304;
-            this.ivW = R.drawable.pic_dot_title;
-            this.ivX = 0;
-            this.ivV = str;
-            this.ivW = i;
+            this.irn = -1;
+            this.iro = "";
+            this.adw = R.color.CAM_X0304;
+            this.irp = R.drawable.pic_dot_title;
+            this.irq = 0;
+            this.iro = str;
+            this.irp = i;
         }
     }
 
@@ -145,24 +145,24 @@ public class m {
         for (int i = 0; i != arrayList.size(); i++) {
             a aVar = arrayList.get(i);
             if (aVar != null) {
-                if (aVar.ivU > 0) {
-                    aVar.ivV = context.getString(aVar.ivU);
+                if (aVar.irn > 0) {
+                    aVar.iro = context.getString(aVar.irn);
                 }
-                if (!com.baidu.adp.lib.util.k.isEmpty(aVar.ivV)) {
+                if (!com.baidu.adp.lib.util.k.isEmpty(aVar.iro)) {
                     int length = spannableStringBuilder.length();
-                    spannableStringBuilder.append((CharSequence) aVar.ivV);
-                    spannableStringBuilder.setSpan(new ForegroundColorSpan(ao.getColor(aVar.ady)), length, spannableStringBuilder.length(), 17);
+                    spannableStringBuilder.append((CharSequence) aVar.iro);
+                    spannableStringBuilder.setSpan(new ForegroundColorSpan(ao.getColor(aVar.adw)), length, spannableStringBuilder.length(), 17);
                     if (i == arrayList.size() - 1 && !z2) {
                         break;
                     }
-                    Bitmap bitmap = ao.getBitmap(aVar.ivW);
+                    Bitmap bitmap = ao.getBitmap(aVar.irp);
                     BitmapDrawable bitmapDrawable = new BitmapDrawable(bitmap);
                     if (bitmap != null) {
                         bitmapDrawable.setBounds(0, 0, bitmap.getWidth(), bitmap.getHeight());
                     }
                     com.baidu.tbadk.core.view.i iVar = new com.baidu.tbadk.core.view.i(bitmapDrawable);
-                    if (aVar.ivX != 0) {
-                        iVar.setOffset(aVar.ivX);
+                    if (aVar.irq != 0) {
+                        iVar.setOffset(aVar.irq);
                     }
                     int length2 = spannableStringBuilder.length();
                     spannableStringBuilder.append((CharSequence) " ");
@@ -179,26 +179,26 @@ public class m {
     }
 
     public static void a(bz bzVar, TextView textView) {
-        if ((StringUtils.isNull(bzVar.getTitle()) && (bzVar.brp() == null || bzVar.brp().size() == 0)) || bzVar.brF() == 1) {
+        if ((StringUtils.isNull(bzVar.getTitle()) && (bzVar.bnv() == null || bzVar.bnv().size() == 0)) || bzVar.bnL() == 1) {
             bzVar.z(false, true);
-            if (bzVar.bsa() == null || StringUtils.isNull(bzVar.bsa().toString())) {
+            if (bzVar.bog() == null || StringUtils.isNull(bzVar.bog().toString())) {
                 textView.setVisibility(8);
                 return;
             }
             textView.setVisibility(0);
-            textView.setText(bzVar.bsa());
+            textView.setText(bzVar.bog());
             return;
         }
         textView.setVisibility(0);
-        bzVar.eTF = 0;
+        bzVar.eOU = 0;
         bzVar.z(false, true);
-        SpannableStringBuilder bsa = bzVar.bsa();
-        textView.setOnTouchListener(new com.baidu.tieba.view.i(bsa));
-        textView.setText(bsa);
+        SpannableStringBuilder bog = bzVar.bog();
+        textView.setOnTouchListener(new com.baidu.tieba.view.i(bog));
+        textView.setText(bog);
         a(textView, bzVar.getId(), R.color.CAM_X0105, R.color.CAM_X0109);
     }
 
-    public static SpannableStringBuilder eJ(String str, String str2) {
+    public static SpannableStringBuilder eI(String str, String str2) {
         SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(str + " " + str2);
         spannableStringBuilder.setSpan(new ForegroundColorSpan(ao.getColor(R.color.CAM_X0304)), 0, str.length(), 17);
         spannableStringBuilder.setSpan(new ForegroundColorSpan(ao.getColor(R.color.CAM_X0106)), str.length(), str.length() + 1, 33);

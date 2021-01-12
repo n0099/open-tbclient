@@ -1,14 +1,13 @@
 package com.baidu.tbadk.core.util;
 
 import android.util.Log;
-import com.baidu.platform.comapi.map.MapBundleKey;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class ai extends Thread {
-    private boolean fcP;
+    private boolean eYg;
     private String mObj;
     private String mObjTp;
     private String mParam;
@@ -19,9 +18,9 @@ public class ai extends Thread {
         this.mParam = null;
         this.mObj = null;
         this.mObjTp = null;
-        this.fcP = false;
+        this.eYg = false;
         this.mType = str;
-        this.fcP = z;
+        this.eYg = z;
     }
 
     public ai(String str, String str2) {
@@ -29,7 +28,7 @@ public class ai extends Thread {
         this.mParam = null;
         this.mObj = null;
         this.mObjTp = null;
-        this.fcP = false;
+        this.eYg = false;
         this.mType = str;
         this.mParam = str2;
     }
@@ -39,7 +38,7 @@ public class ai extends Thread {
         String str;
         super.run();
         if (!TbadkCoreApplication.getInst().checkInterrupt()) {
-            if (this.fcP) {
+            if (this.eYg) {
                 str = TbConfig.IN_PV_ADDRESS;
             } else {
                 str = TbConfig.LOAD_REG_PV_ADDRESS;
@@ -50,7 +49,7 @@ public class ai extends Thread {
                 zVar.addPostData("st_param", this.mParam);
             }
             if (this.mObj != null) {
-                zVar.addPostData(MapBundleKey.MapObjKey.OBJ_SL_OBJ, this.mObj);
+                zVar.addPostData("obj", this.mObj);
             }
             if (this.mObjTp != null) {
                 zVar.addPostData("obj_tp", this.mObjTp);

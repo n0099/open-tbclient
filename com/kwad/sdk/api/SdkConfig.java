@@ -7,7 +7,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 @KsAdSdkApi
 @Keep
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class SdkConfig {
     @Nullable
     @KsAdSdkApi
@@ -44,7 +44,7 @@ public class SdkConfig {
 
     @KsAdSdkApi
     @Keep
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class Builder {
         @Nullable
         private String appId;

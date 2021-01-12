@@ -3,14 +3,14 @@ package com.baidu.ufosdk.ui;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 final class db {
 
     /* renamed from: a  reason: collision with root package name */
-    public TextView f5800a;
+    public TextView f5517a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ImageView f5801b;
+    public ImageView f5518b;
     public TextView c;
     public RelativeLayout d;
     public RelativeLayout e;

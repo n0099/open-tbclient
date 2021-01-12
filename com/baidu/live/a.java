@@ -1,13 +1,13 @@
 package com.baidu.live;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class a {
-    public static String aAH = "https://audio.baidu.com/";
-    public static String aAI = "appkgkkjqetzp8a";
-    public static long aAJ = 405384;
-    public static final String aAK = aAH + "ala/audio/room/getRoomDayRank";
-    public static final String aAL = aAH + "ala/audio/tipOff/tipOffRoom";
-    public static final String aAM = aAH + "ala/audio/tipOff/tipOff";
-    public static final String aAN = aAH + "ala/audio/live/blockIm";
-    public static final String aAO = aAH + "ala/audio/user/appointManager";
-    public static final String aAP = aAH + "ala/audio/user/unappointManager";
+    public static String avU = "https://audio.baidu.com/";
+    public static String avV = "appkgkkjqetzp8a";
+    public static long avW = 405384;
+    public static final String avX = avU + "ala/audio/room/getRoomDayRank";
+    public static final String avY = avU + "ala/audio/tipOff/tipOffRoom";
+    public static final String avZ = avU + "ala/audio/tipOff/tipOff";
+    public static final String awa = avU + "ala/audio/live/blockIm";
+    public static final String awb = avU + "ala/audio/user/appointManager";
+    public static final String awc = avU + "ala/audio/user/unappointManager";
 }

@@ -5,15 +5,15 @@ import com.qq.e.comm.plugin.ab.h;
 import com.qq.e.comm.plugin.util.bi;
 import com.qq.e.comm.util.GDTLogger;
 import java.util.ArrayList;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class e {
     private static boolean k;
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f12065a;
+    private Context f11765a;
 
     /* renamed from: b  reason: collision with root package name */
-    private c f12066b;
+    private c f11766b;
     private com.qq.e.comm.plugin.ab.a.b c;
     private h.a d;
     private boolean e = true;
@@ -24,8 +24,8 @@ public class e {
     private boolean j = true;
 
     public e(Context context, c cVar) {
-        this.f12065a = context;
-        this.f12066b = cVar;
+        this.f11765a = context;
+        this.f11766b = cVar;
     }
 
     public static boolean b() {
@@ -53,14 +53,14 @@ public class e {
 
     public h a() {
         h hVar = null;
-        if (this.f12065a != null && this.f12066b != null) {
+        if (this.f11765a != null && this.f11766b != null) {
             try {
-                hVar = bi.a() ? new n(this.f12065a, this.f12066b) : new g(this.f12065a, this.f12066b);
+                hVar = bi.a() ? new n(this.f11765a, this.f11766b) : new g(this.f11765a, this.f11766b);
             } catch (Exception e) {
                 GDTLogger.d("WebViewBuilder Exception:" + e.getMessage());
             }
             if (hVar == null) {
-                hVar = new g(this.f12065a, this.f12066b);
+                hVar = new g(this.f11765a, this.f11766b);
             }
             k = hVar instanceof n;
             if (this.c != null) {

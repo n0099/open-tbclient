@@ -8,19 +8,19 @@ import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class q extends ch {
     private final Context e;
-    private final cn pgJ;
+    private final cn pcg;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public q(Context context, cn cnVar) {
         super(true, false);
         this.e = context;
-        this.pgJ = cnVar;
+        this.pcg = cnVar;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.bytedance.embedapplog.ch
     public boolean a(JSONObject jSONObject) {
-        String mac = b.eoY() != null ? b.eoY().epr().getMac() : "";
+        String mac = b.elc() != null ? b.elc().elv().getMac() : "";
         if (!TextUtils.isEmpty(mac)) {
             jSONObject.put(Config.DEVICE_MAC_ID, mac);
             return true;

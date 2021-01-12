@@ -23,7 +23,7 @@ public interface am extends IInterface {
             if (queryLocalInterface != null && (queryLocalInterface instanceof am)) {
                 return (am) queryLocalInterface;
             }
-            return new C1250a(iBinder);
+            return new C1233a(iBinder);
         }
 
         @Override // android.os.IInterface
@@ -49,18 +49,18 @@ public interface am extends IInterface {
 
         /* renamed from: com.ss.android.socialbase.downloader.d.am$a$a  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        private static class C1250a implements am {
+        private static class C1233a implements am {
 
             /* renamed from: a  reason: collision with root package name */
-            private IBinder f13409a;
+            private IBinder f13109a;
 
-            C1250a(IBinder iBinder) {
-                this.f13409a = iBinder;
+            C1233a(IBinder iBinder) {
+                this.f13109a = iBinder;
             }
 
             @Override // android.os.IInterface
             public IBinder asBinder() {
-                return this.f13409a;
+                return this.f13109a;
             }
 
             @Override // com.ss.android.socialbase.downloader.d.am
@@ -71,7 +71,7 @@ public interface am extends IInterface {
                     obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.depend.ProcessAidlCallback");
                     obtain.writeInt(i);
                     obtain.writeInt(i2);
-                    this.f13409a.transact(1, obtain, obtain2, 0);
+                    this.f13109a.transact(1, obtain, obtain2, 0);
                     obtain2.readException();
                 } finally {
                     obtain2.recycle();

@@ -2,6 +2,7 @@ package com.qq.e.comm.plugin.b;
 
 import android.content.Context;
 import android.util.Pair;
+import com.baidu.android.imsdk.chatmessage.sync.SyncStrategy;
 import com.baidu.mobstat.Config;
 import com.qq.e.ads.nativ.ADSize;
 import com.qq.e.ads.nativ.NativeExpressADView;
@@ -20,7 +21,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 class c extends f {
     private volatile int g;
     private final Runnable h;
@@ -64,7 +65,7 @@ class c extends f {
             a2.a(this.j.getLoginType());
             a2.e(this.j.getLoginOpenid());
             a2.c(this.j.getExtraInfo());
-            u.a(100402, 1, new com.qq.e.comm.plugin.y.c().a(this.f12317b), n.a(this.j));
+            u.a(100402, 1, new com.qq.e.comm.plugin.y.c().a(this.f12017b), n.a(this.j));
             GDTLogger.d("Banner 2.0: " + this.j.toString());
         }
         return a2;
@@ -72,7 +73,7 @@ class c extends f {
 
     public void a() {
         b();
-        loadAd(this.f12316a.c());
+        loadAd(this.f12016a.c());
     }
 
     public void a(LoadAdParams loadAdParams) {
@@ -83,8 +84,8 @@ class c extends f {
     protected void a(JSONObject jSONObject) {
         Pair<Object, Object> b2 = b(jSONObject);
         if (b2 == null || b2.first == null || b2.second == null) {
-            c(6000);
-            b.a(false, this.f, 6000);
+            c(SyncStrategy.DEFAULT_LOGIN_FETCH_SLEEP_TIME);
+            b.a(false, this.f, (int) SyncStrategy.DEFAULT_LOGIN_FETCH_SLEEP_TIME);
         } else if (b2.first instanceof Integer) {
             c(((Integer) b2.first).intValue());
             b.a(false, this.f, ((Integer) b2.second).intValue());
@@ -131,7 +132,7 @@ class c extends f {
     public void loadAd(int i) {
         b.b(this.f);
         this.e = i;
-        com.qq.e.comm.plugin.w.e.a(a(i), new com.qq.e.comm.plugin.w.b(this.c, this.f12316a, this.f12317b), new e.a() { // from class: com.qq.e.comm.plugin.b.c.2
+        com.qq.e.comm.plugin.w.e.a(a(i), new com.qq.e.comm.plugin.w.b(this.c, this.f12016a, this.f12017b), new e.a() { // from class: com.qq.e.comm.plugin.b.c.2
             @Override // com.qq.e.comm.plugin.w.e.a
             public void a(com.qq.e.comm.plugin.k.a aVar) {
                 ai.a("LoadGDTNativeExpressADFail", aVar);

@@ -3,7 +3,7 @@ package com.baidu.prologue.a.c;
 import com.baidu.minivideo.plugin.capture.utils.EncryptUtils;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class f {
     public static String md5(String str) {
         try {

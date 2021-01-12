@@ -7,11 +7,11 @@ import com.bun.miitmdid.utils.SupplierListener;
 public class a implements InnerIdSupplier {
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f6050a;
+    private Context f5750a;
 
     public a(Context context) {
         com.heytap.openid.a.a.a(context);
-        this.f6050a = context;
+        this.f5750a = context;
     }
 
     @Override // com.bun.miitmdid.supplier.InnerIdSupplier
@@ -40,7 +40,7 @@ public class a implements InnerIdSupplier {
     public String getAAID() {
         String str = "";
         try {
-            str = com.heytap.openid.a.a.d(this.f6050a);
+            str = com.heytap.openid.a.a.d(this.f5750a);
             return str == null ? "" : str;
         } catch (Exception e) {
             e.printStackTrace();
@@ -52,7 +52,7 @@ public class a implements InnerIdSupplier {
     public String getOAID() {
         String str = "";
         try {
-            str = com.heytap.openid.a.a.b(this.f6050a);
+            str = com.heytap.openid.a.a.b(this.f5750a);
             return str == null ? "" : str;
         } catch (Exception e) {
             e.printStackTrace();
@@ -69,7 +69,7 @@ public class a implements InnerIdSupplier {
     public String getVAID() {
         String str = "";
         try {
-            str = com.heytap.openid.a.a.c(this.f6050a);
+            str = com.heytap.openid.a.a.c(this.f5750a);
             return str == null ? "" : str;
         } catch (Exception e) {
             e.printStackTrace();

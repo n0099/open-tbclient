@@ -9,7 +9,7 @@ public class b {
     public static abstract class a {
         protected View view;
 
-        public abstract boolean VN();
+        public abstract boolean RU();
 
         public abstract void postOnAnimation(Runnable runnable);
 
@@ -22,8 +22,8 @@ public class b {
 
     /* renamed from: com.baidu.tieba.horizonalList.a.b$b  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0764b extends a {
-        public C0764b(View view) {
+    public static class C0747b extends a {
+        public C0747b(View view) {
             super(view);
         }
 
@@ -38,12 +38,12 @@ public class b {
         }
 
         @Override // com.baidu.tieba.horizonalList.a.b.a
-        public boolean VN() {
+        public boolean RU() {
             return false;
         }
     }
 
     public static final a dj(View view) {
-        return Build.VERSION.SDK_INT >= 14 ? new com.baidu.tieba.horizonalList.a.b.a(view) : new C0764b(view);
+        return Build.VERSION.SDK_INT >= 14 ? new com.baidu.tieba.horizonalList.a.b.a(view) : new C0747b(view);
     }
 }

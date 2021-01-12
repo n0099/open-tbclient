@@ -7,9 +7,9 @@ import kotlin.TypeCastException;
 @kotlin.e
 /* loaded from: classes5.dex */
 final class af<T> extends d<T> implements RandomAccess {
-    private int bOI;
+    private int bJW;
     private final int capacity;
-    private final Object[] qnw;
+    private final Object[] qiU;
     private int size;
 
     public af(int i) {
@@ -17,7 +17,7 @@ final class af<T> extends d<T> implements RandomAccess {
         if (!(this.capacity >= 0)) {
             throw new IllegalArgumentException(("ring buffer capacity should not be negative but it is " + this.capacity).toString());
         }
-        this.qnw = new Object[this.capacity];
+        this.qiU = new Object[this.capacity];
     }
 
     public final int getCapacity() {
@@ -35,8 +35,8 @@ final class af<T> extends d<T> implements RandomAccess {
 
     @Override // kotlin.collections.d, java.util.List
     public T get(int i) {
-        d.qno.el(i, size());
-        return (T) this.qnw[(this.bOI + i) % getCapacity()];
+        d.qiM.el(i, size());
+        return (T) this.qiU[(this.bJW + i) % getCapacity()];
     }
 
     public final boolean isFull() {
@@ -52,15 +52,15 @@ final class af<T> extends d<T> implements RandomAccess {
         /* JADX DEBUG: Incorrect args count in method signature: ()V */
         a() {
             this.count = af.this.size();
-            this.index = af.this.bOI;
+            this.index = af.this.bJW;
         }
 
         /* JADX DEBUG: Multi-variable search result rejected for r3v0, resolved type: kotlin.collections.af$a */
         /* JADX WARN: Multi-variable type inference failed */
         @Override // kotlin.collections.b
-        protected void eMs() {
+        protected void eIC() {
             if (this.count != 0) {
-                bR(af.this.qnw[this.index]);
+                bR(af.this.qiU[this.index]);
                 this.index = (this.index + 1) % af.this.getCapacity();
                 this.count--;
                 return;
@@ -87,12 +87,12 @@ final class af<T> extends d<T> implements RandomAccess {
         }
         int size = size();
         int i2 = 0;
-        for (int i3 = this.bOI; i2 < size && i3 < this.capacity; i3++) {
-            tArr[i2] = this.qnw[i3];
+        for (int i3 = this.bJW; i2 < size && i3 < this.capacity; i3++) {
+            tArr[i2] = this.qiU[i3];
             i2++;
         }
         while (i2 < size) {
-            tArr[i2] = this.qnw[i];
+            tArr[i2] = this.qiU[i];
             i2++;
             i++;
         }
@@ -117,13 +117,13 @@ final class af<T> extends d<T> implements RandomAccess {
         if (isFull()) {
             throw new IllegalStateException("ring buffer is full");
         }
-        this.qnw[(this.bOI + size()) % getCapacity()] = t;
+        this.qiU[(this.bJW + size()) % getCapacity()] = t;
         setSize(size() + 1);
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r6v0, resolved type: kotlin.collections.af<T> */
     /* JADX WARN: Multi-variable type inference failed */
-    public final void TF(int i) {
+    public final void RY(int i) {
         if (!(i >= 0)) {
             throw new IllegalArgumentException(("n shouldn't be negative but it is " + i).toString());
         }
@@ -131,15 +131,15 @@ final class af<T> extends d<T> implements RandomAccess {
             throw new IllegalArgumentException(("n shouldn't be greater than the buffer size: n = " + i + ", size = " + size()).toString());
         }
         if (i > 0) {
-            int i2 = this.bOI;
+            int i2 = this.bJW;
             int capacity = (i2 + i) % getCapacity();
             if (i2 > capacity) {
-                a(this.qnw, null, i2, this.capacity);
-                a(this.qnw, null, 0, capacity);
+                a(this.qiU, null, i2, this.capacity);
+                a(this.qiU, null, 0, capacity);
             } else {
-                a(this.qnw, null, i2, capacity);
+                a(this.qiU, null, i2, capacity);
             }
-            this.bOI = capacity;
+            this.bJW = capacity;
             setSize(size() - i);
         }
     }

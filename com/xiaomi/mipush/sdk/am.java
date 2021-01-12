@@ -7,19 +7,19 @@ import android.content.Intent;
 public final class am implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ Context f14105a;
+    final /* synthetic */ Context f13805a;
 
     /* renamed from: a  reason: collision with other field name */
-    final /* synthetic */ Intent f123a;
+    final /* synthetic */ Intent f122a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public am(Context context, Intent intent) {
-        this.f14105a = context;
-        this.f123a = intent;
+        this.f13805a = context;
+        this.f122a = intent;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        PushMessageHandler.b(this.f14105a, this.f123a);
+        PushMessageHandler.b(this.f13805a, this.f122a);
     }
 }

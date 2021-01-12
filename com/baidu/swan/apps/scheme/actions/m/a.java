@@ -10,7 +10,7 @@ import com.baidu.swan.apps.core.slave.SwanAppSlaveManager;
 import com.baidu.swan.apps.scheme.j;
 import com.baidu.swan.apps.setting.oauth.a.b;
 import com.baidu.swan.apps.setting.oauth.h;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class a extends e {
     public a(j jVar) {
         super(jVar, "/swanAPI/insertWebView");
@@ -26,19 +26,19 @@ public class a extends e {
             com.baidu.swan.apps.console.c.e("insertWebView", "params is invalid");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
             return false;
-        } else if (!TextUtils.isEmpty(o.mSrc) && d(o.mSrc, o.dKG)) {
+        } else if (!TextUtils.isEmpty(o.mSrc) && d(o.mSrc, o.dFU)) {
             com.baidu.swan.apps.console.c.e("insertWebView", "params is invalid");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
             return false;
         } else {
-            final com.baidu.swan.apps.adaptation.b.c cVar = (com.baidu.swan.apps.adaptation.b.c) com.baidu.swan.apps.v.f.aDH().ob(o.cNP);
+            final com.baidu.swan.apps.adaptation.b.c cVar = (com.baidu.swan.apps.adaptation.b.c) com.baidu.swan.apps.v.f.azN().mQ(o.cJd);
             if (cVar == null) {
                 com.baidu.swan.apps.console.c.e("insertWebView", "viewManager is null");
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
                 return false;
             }
             if (TextUtils.equals(o.mType, "quickPass")) {
-                eVar.aMx().b(context, "scope_webview_extra_operation", new com.baidu.swan.apps.ao.e.b<h<b.d>>() { // from class: com.baidu.swan.apps.scheme.actions.m.a.1
+                eVar.aID().b(context, "scope_webview_extra_operation", new com.baidu.swan.apps.ao.e.b<h<b.d>>() { // from class: com.baidu.swan.apps.scheme.actions.m.a.1
                     /* JADX DEBUG: Method merged with bridge method */
                     @Override // com.baidu.swan.apps.ao.e.b
                     /* renamed from: a */
@@ -47,11 +47,11 @@ public class a extends e {
                             com.baidu.swan.apps.setting.oauth.c.a(hVar, callbackHandler, o.callback);
                             o.mUa = null;
                         } else {
-                            o.dKF = false;
+                            o.dFT = false;
                             a.this.a(callbackHandler, (SwanAppSlaveManager) cVar, o);
                         }
                         if (cVar.a(o)) {
-                            a.this.asQ();
+                            a.this.aoU();
                             return;
                         }
                         com.baidu.swan.apps.console.c.e("insertWebView", "insert webview widget fail");
@@ -63,7 +63,7 @@ public class a extends e {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
                 return false;
             } else {
-                asQ();
+                aoU();
             }
             com.baidu.swan.apps.console.c.i("insertWebView", "insert webview widget success");
             UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
@@ -72,12 +72,12 @@ public class a extends e {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void asQ() {
-        com.baidu.swan.apps.core.d.e asV;
-        com.baidu.swan.apps.core.d.f ajt = com.baidu.swan.apps.v.f.aDH().ajt();
-        if (ajt != null && (asV = ajt.asV()) != null) {
+    public void aoU() {
+        com.baidu.swan.apps.core.d.e aoZ;
+        com.baidu.swan.apps.core.d.f afz = com.baidu.swan.apps.v.f.azN().afz();
+        if (afz != null && (aoZ = afz.aoZ()) != null) {
             com.baidu.swan.apps.console.c.i("insertWebView", "disable navigationStyle custom");
-            asV.asQ();
+            aoZ.aoU();
         }
     }
 }

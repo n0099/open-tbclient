@@ -10,22 +10,22 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class g {
-    private a fad = null;
+    private a eVs = null;
 
     /* loaded from: classes.dex */
     private static final class c {
-        private static final g fap = new g();
+        private static final g eVE = new g();
     }
 
-    public static g buT() {
-        return c.fap;
+    public static g bqZ() {
+        return c.eVE;
     }
 
     public void a(int i, j jVar) {
         if (Build.VERSION.SDK_INT >= 16) {
             try {
-                this.fad = new a(i, jVar);
-                this.fad.buU();
+                this.eVs = new a(i, jVar);
+                this.eVs.bra();
             } catch (Throwable th) {
                 BdLog.e(th);
             }
@@ -35,12 +35,12 @@ public class g {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static class b implements InvocationHandler {
-        protected a fad;
-        private final List<Long> fan = new ArrayList(240);
-        private final List<Integer> fao = new ArrayList(15);
+        private final List<Long> eVC = new ArrayList(240);
+        private final List<Integer> eVD = new ArrayList(15);
+        protected a eVs;
 
         public b(a aVar) {
-            this.fad = aVar;
+            this.eVs = aVar;
         }
 
         @Override // java.lang.reflect.InvocationHandler
@@ -63,15 +63,15 @@ public class g {
         }
 
         private void doFrame(long j) {
-            this.fan.add(Long.valueOf(j));
-            this.fad.buU();
+            this.eVC.add(Long.valueOf(j));
+            this.eVs.bra();
         }
 
         /* JADX INFO: Access modifiers changed from: private */
         public void destroy() {
-            this.fad = null;
-            this.fan.clear();
-            this.fao.clear();
+            this.eVs = null;
+            this.eVC.clear();
+            this.eVD.clear();
         }
     }
 
@@ -79,41 +79,41 @@ public class g {
     /* loaded from: classes.dex */
     public static class a {
         private final int MAX_FRAME_COUNT;
-        private final Class<?> fae;
-        private final Object faf;
-        private final Class<?> fag;
-        private final Method fah;
-        private final Object fai;
-        private final Method faj;
-        private final b fak;
-        private final j fal;
+        private final j eVA;
+        private final Class<?> eVt;
+        private final Object eVu;
+        private final Class<?> eVv;
+        private final Method eVw;
+        private final Object eVx;
+        private final Method eVy;
+        private final b eVz;
         private int index;
 
         private a(int i, j jVar) throws ClassNotFoundException, InvocationTargetException, IllegalAccessException, NoSuchMethodException {
             this.index = 0;
-            this.fag = Class.forName("android.view.Choreographer");
-            this.fae = Class.forName("android.view.Choreographer$FrameCallback");
-            this.fak = new b(this);
-            this.faf = Proxy.newProxyInstance(this.fae.getClassLoader(), new Class[]{this.fae}, this.fak);
-            this.fah = this.fag.getMethod("getInstance", new Class[0]);
-            this.fai = this.fah.invoke(null, new Object[0]);
-            this.faj = this.fag.getMethod("postFrameCallback", this.fae);
+            this.eVv = Class.forName("android.view.Choreographer");
+            this.eVt = Class.forName("android.view.Choreographer$FrameCallback");
+            this.eVz = new b(this);
+            this.eVu = Proxy.newProxyInstance(this.eVt.getClassLoader(), new Class[]{this.eVt}, this.eVz);
+            this.eVw = this.eVv.getMethod("getInstance", new Class[0]);
+            this.eVx = this.eVw.invoke(null, new Object[0]);
+            this.eVy = this.eVv.getMethod("postFrameCallback", this.eVt);
             this.MAX_FRAME_COUNT = i <= 0 ? 16 : i;
-            this.fal = jVar;
+            this.eVA = jVar;
         }
 
         private void kx() throws InvocationTargetException, IllegalAccessException {
-            this.faj.invoke(this.fai, this.faf);
+            this.eVy.invoke(this.eVx, this.eVu);
         }
 
         /* JADX INFO: Access modifiers changed from: private */
-        public void buU() {
+        public void bra() {
             if (this.index >= this.MAX_FRAME_COUNT) {
                 com.baidu.adp.lib.f.e.mB().post(new Runnable() { // from class: com.baidu.tbadk.core.hybrid.g.a.1
                     @Override // java.lang.Runnable
                     public void run() {
-                        a.this.fal.bD(a.this.buW());
-                        a.this.fak.destroy();
+                        a.this.eVA.bD(a.this.brc());
+                        a.this.eVz.destroy();
                         a.this.destroy();
                     }
                 });
@@ -127,25 +127,25 @@ public class g {
             }
         }
 
-        private List<Long> buV() {
-            return this.fak.fan;
+        private List<Long> brb() {
+            return this.eVz.eVC;
         }
 
         /* JADX INFO: Access modifiers changed from: private */
         public void destroy() {
-            this.fak.destroy();
+            this.eVz.destroy();
         }
 
         /* JADX INFO: Access modifiers changed from: private */
-        public List<Long> buW() {
+        public List<Long> brc() {
             ArrayList arrayList = new ArrayList(24);
-            List<Long> buV = buV();
-            int size = buV.size();
+            List<Long> brb = brb();
+            int size = brb.size();
             int i = 0;
             while (true) {
                 int i2 = i;
                 if (i2 < size - 1) {
-                    arrayList.add(Long.valueOf(buV.get(i2 + 1).longValue() - buV.get(i2).longValue()));
+                    arrayList.add(Long.valueOf(brb.get(i2 + 1).longValue() - brb.get(i2).longValue()));
                     i = i2 + 1;
                 } else {
                     return arrayList;

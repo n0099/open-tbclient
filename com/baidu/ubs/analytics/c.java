@@ -3,15 +3,15 @@ package com.baidu.ubs.analytics;
 import android.content.Context;
 import com.baidu.ubs.analytics.d.j;
 import com.kwad.sdk.collector.AppStatusRules;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public final class c {
     private long e;
     private Context mContext;
-    private boolean oNT;
-    private long oNU;
-    private long oNV;
-    private boolean oNW;
-    private int oNX;
+    private boolean oJo;
+    private long oJp;
+    private long oJq;
+    private boolean oJr;
+    private int oJs;
 
     /* synthetic */ c(a aVar, byte b2) {
         this(aVar);
@@ -19,12 +19,12 @@ public final class c {
 
     private c(a aVar) {
         this.mContext = aVar.mContext;
-        this.oNT = aVar.oNT;
-        this.e = aVar.oNY;
-        this.oNU = aVar.oNU;
-        this.oNW = aVar.oNW;
-        this.oNV = aVar.oNV;
-        this.oNX = aVar.oNX;
+        this.oJo = aVar.oJo;
+        this.e = aVar.oJt;
+        this.oJp = aVar.oJp;
+        this.oJr = aVar.oJr;
+        this.oJq = aVar.oJq;
+        this.oJs = aVar.oJs;
     }
 
     public final Context b() {
@@ -32,7 +32,7 @@ public final class c {
     }
 
     public final boolean c() {
-        return this.oNT;
+        return this.oJo;
     }
 
     public final long d() {
@@ -40,68 +40,68 @@ public final class c {
     }
 
     public final long e() {
-        return this.oNU;
+        return this.oJp;
     }
 
     public final long f() {
-        return this.oNV;
+        return this.oJq;
     }
 
     public final boolean g() {
-        return this.oNW;
+        return this.oJr;
     }
 
     public final int h() {
-        return this.oNX;
+        return this.oJs;
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes3.dex */
     public static class a {
         private Context mContext;
-        private boolean oNT = true;
-        private long oNY = 30000;
-        private long oNU = AppStatusRules.DEFAULT_GRANULARITY;
-        private long oNV = 10000;
-        private boolean oNW = false;
-        private int oNX = 1000;
+        private boolean oJo = true;
+        private long oJt = 30000;
+        private long oJp = AppStatusRules.DEFAULT_GRANULARITY;
+        private long oJq = 10000;
+        private boolean oJr = false;
+        private int oJs = 1000;
 
-        public a hn(Context context) {
+        public a hl(Context context) {
             this.mContext = context;
             return this;
         }
 
-        public a Am(boolean z) {
-            this.oNT = z;
+        public a Ai(boolean z) {
+            this.oJo = z;
             return this;
         }
 
         public a hR(long j) {
-            this.oNY = 1000 * j;
+            this.oJt = 1000 * j;
             return this;
         }
 
-        public a Oz(int i) {
-            this.oNU = i * 60 * 1000;
+        public a MS(int i) {
+            this.oJp = i * 60 * 1000;
             return this;
         }
 
         public a hS(long j) {
-            this.oNV = 1000 * j;
+            this.oJq = 1000 * j;
             return this;
         }
 
-        public a An(boolean z) {
-            this.oNW = z;
+        public a Aj(boolean z) {
+            this.oJr = z;
             return this;
         }
 
-        public a OA(int i) {
+        public a MT(int i) {
             int i2 = i <= 0 ? 0 : i;
-            this.oNX = i2 < 1000 ? i2 : 1000;
+            this.oJs = i2 < 1000 ? i2 : 1000;
             return this;
         }
 
-        public c ejx() {
+        public c efF() {
             if (this.mContext == null) {
                 j.I("Context must be not empty!");
                 return null;

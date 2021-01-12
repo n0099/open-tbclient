@@ -21,18 +21,18 @@ public abstract class a<T, R> implements io.reactivex.internal.a.a<T>, d<R> {
             if (dVar instanceof d) {
                 this.qs = (d) dVar;
             }
-            if (eLL()) {
+            if (eHV()) {
                 this.actual.onSubscribe(this);
-                eLM();
+                eHW();
             }
         }
     }
 
-    protected boolean eLL() {
+    protected boolean eHV() {
         return true;
     }
 
-    protected void eLM() {
+    protected void eHW() {
     }
 
     @Override // org.a.c
@@ -61,7 +61,7 @@ public abstract class a<T, R> implements io.reactivex.internal.a.a<T>, d<R> {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public final int Tv(int i) {
+    public final int RO(int i) {
         d<T> dVar = this.qs;
         if (dVar == null || (i & 4) != 0) {
             return 0;

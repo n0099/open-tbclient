@@ -27,28 +27,28 @@ import com.baidu.live.tbadk.core.util.UtilHelper;
 import com.baidu.live.tbadk.widget.flex.FlexAdapter;
 import com.baidu.live.tbadk.widget.flex.FlexLayout;
 import com.baidu.live.view.Switch;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class a extends Dialog {
-    private com.baidu.live.im.b.b brA;
-    private c brC;
-    private FrameLayout brD;
-    private FrameLayout brE;
-    private Switch brF;
-    private View bzl;
-    private FlexLayout bzm;
-    private BdPageContext bzo;
-    private InterfaceC0250a ceO;
-    private b ceP;
+    private InterfaceC0241a bZY;
+    private b bZZ;
+    private com.baidu.live.im.b.b bmO;
+    private c bmQ;
+    private FrameLayout bmR;
+    private FrameLayout bmS;
+    private Switch bmT;
+    private FlexLayout buA;
+    private BdPageContext buC;
+    private View buz;
     private View mContentView;
 
     /* renamed from: com.baidu.live.yuyinquick.a$a  reason: collision with other inner class name */
-    /* loaded from: classes11.dex */
-    public interface InterfaceC0250a {
-        boolean ME();
+    /* loaded from: classes10.dex */
+    public interface InterfaceC0241a {
+        boolean IJ();
 
-        int MK();
+        int IP();
 
-        boolean Nt();
+        boolean Jy();
 
         void b(int i, String str, ck ckVar);
 
@@ -59,12 +59,12 @@ public class a extends Dialog {
 
     public a(@NonNull BdPageContext bdPageContext) {
         super(bdPageContext.getPageActivity(), a.i.sdk_TransparentDialog);
-        this.bzo = bdPageContext;
+        this.buC = bdPageContext;
         init();
     }
 
-    public void a(InterfaceC0250a interfaceC0250a) {
-        this.ceO = interfaceC0250a;
+    public void a(InterfaceC0241a interfaceC0241a) {
+        this.bZY = interfaceC0241a;
     }
 
     public void a(String[] strArr, boolean z) {
@@ -76,29 +76,29 @@ public class a extends Dialog {
                 @Override // java.lang.Runnable
                 public void run() {
                     ViewGroup.LayoutParams layoutParams;
-                    if (a.this.bzm != null && (layoutParams = a.this.bzm.getLayoutParams()) != null) {
-                        layoutParams.height = a.this.bzm.realHeight;
-                        a.this.bzm.setLayoutParams(layoutParams);
+                    if (a.this.buA != null && (layoutParams = a.this.buA.getLayoutParams()) != null) {
+                        layoutParams.height = a.this.buA.realHeight;
+                        a.this.buA.setLayoutParams(layoutParams);
                     }
-                    a.this.Ji();
+                    a.this.Fn();
                 }
             });
         }
     }
 
-    public void RQ() {
-        if (this.brC != null) {
-            this.brC.f(z.HJ().HL());
+    public void NV() {
+        if (this.bmQ != null) {
+            this.bmQ.f(z.DO().DQ());
         }
     }
 
     private void init() {
-        JK();
+        FP();
         initView();
-        Hi();
+        Dn();
     }
 
-    private void JK() {
+    private void FP() {
         Window window = getWindow();
         if (window != null) {
             window.setBackgroundDrawableResource(17170445);
@@ -117,68 +117,68 @@ public class a extends Dialog {
         setCanceledOnTouchOutside(true);
         this.mContentView = LayoutInflater.from(getContext()).inflate(a.g.ala_yuyin_im_quick_input_list, (ViewGroup) null);
         setContentView(this.mContentView);
-        this.bzl = findViewById(a.f.layout_barrage);
-        this.brF = (Switch) findViewById(a.f.switch_barrage);
-        this.bzm = (FlexLayout) findViewById(a.f.flex);
-        this.brE = (FrameLayout) findViewById(a.f.barrage_preview);
-        this.brD = (FrameLayout) findViewById(a.f.hlv_barrage_option);
-        CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2501050, c.class, this.bzo);
+        this.buz = findViewById(a.f.layout_barrage);
+        this.bmT = (Switch) findViewById(a.f.switch_barrage);
+        this.buA = (FlexLayout) findViewById(a.f.flex);
+        this.bmS = (FrameLayout) findViewById(a.f.barrage_preview);
+        this.bmR = (FrameLayout) findViewById(a.f.hlv_barrage_option);
+        CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2501050, c.class, this.buC);
         if (runTask != null) {
-            this.brC = (c) runTask.getData();
+            this.bmQ = (c) runTask.getData();
         }
-        if (this.brC != null) {
-            this.brD.addView(this.brC.getView());
+        if (this.bmQ != null) {
+            this.bmR.addView(this.bmQ.getView());
         }
-        CustomResponsedMessage runTask2 = MessageManager.getInstance().runTask(2501051, com.baidu.live.im.b.b.class, this.bzo);
+        CustomResponsedMessage runTask2 = MessageManager.getInstance().runTask(2501051, com.baidu.live.im.b.b.class, this.buC);
         if (runTask2 != null) {
-            this.brA = (com.baidu.live.im.b.b) runTask2.getData();
+            this.bmO = (com.baidu.live.im.b.b) runTask2.getData();
         }
-        if (this.brA != null) {
-            this.brE.addView(this.brA.getView());
-            this.brE.setVisibility(8);
+        if (this.bmO != null) {
+            this.bmS.addView(this.bmO.getView());
+            this.bmS.setVisibility(8);
         }
-        this.brF.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() { // from class: com.baidu.live.yuyinquick.a.2
+        this.bmT.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() { // from class: com.baidu.live.yuyinquick.a.2
             @Override // android.widget.CompoundButton.OnCheckedChangeListener
             public void onCheckedChanged(CompoundButton compoundButton, boolean z) {
-                a.this.cp(z);
+                a.this.cl(z);
             }
         });
-        if (this.brC != null) {
-            this.brC.setSelectEnabled(false);
-            this.brC.setCallback(new e() { // from class: com.baidu.live.yuyinquick.a.3
+        if (this.bmQ != null) {
+            this.bmQ.setSelectEnabled(false);
+            this.bmQ.setCallback(new e() { // from class: com.baidu.live.yuyinquick.a.3
                 @Override // com.baidu.live.im.b.e
-                public boolean Nt() {
-                    return a.this.ceO != null && a.this.ceO.Nt();
+                public boolean Jy() {
+                    return a.this.bZY != null && a.this.bZY.Jy();
                 }
 
                 @Override // com.baidu.live.im.b.e
-                public void fb(int i) {
-                    a.this.cq(false);
+                public void dv(int i) {
+                    a.this.cm(false);
                 }
 
                 @Override // com.baidu.live.im.b.e
-                public int MK() {
-                    if (a.this.ceO != null) {
-                        return a.this.ceO.MK();
+                public int IP() {
+                    if (a.this.bZY != null) {
+                        return a.this.bZY.IP();
                     }
                     return 0;
                 }
             });
         }
-        this.bzm.setHorizontalSpacing(getContext().getResources().getDimensionPixelOffset(a.d.sdk_ds20));
-        this.bzm.setVerticalSpacing(getContext().getResources().getDimensionPixelOffset(a.d.sdk_ds24));
-        this.bzm.setOnItemClickListener(new FlexLayout.OnItemClickListener() { // from class: com.baidu.live.yuyinquick.a.4
+        this.buA.setHorizontalSpacing(getContext().getResources().getDimensionPixelOffset(a.d.sdk_ds20));
+        this.buA.setVerticalSpacing(getContext().getResources().getDimensionPixelOffset(a.d.sdk_ds24));
+        this.buA.setOnItemClickListener(new FlexLayout.OnItemClickListener() { // from class: com.baidu.live.yuyinquick.a.4
             @Override // com.baidu.live.tbadk.widget.flex.FlexLayout.OnItemClickListener
             public void onItemClick(FlexLayout flexLayout, View view, int i) {
                 ck ckVar;
-                if (a.this.ceO != null) {
-                    if (a.this.bzl.getVisibility() == 0 && a.this.brF.isChecked() && a.this.brC != null) {
-                        ck selectInfo = a.this.brC.getSelectInfo();
-                        if (selectInfo != null && selectInfo.type == 16 && (a.this.ceO == null || !a.this.ceO.Nt())) {
+                if (a.this.bZY != null) {
+                    if (a.this.buz.getVisibility() == 0 && a.this.bmT.isChecked() && a.this.bmQ != null) {
+                        ck selectInfo = a.this.bmQ.getSelectInfo();
+                        if (selectInfo != null && selectInfo.type == 16 && (a.this.bZY == null || !a.this.bZY.Jy())) {
                             BdUtilHelper.showToast(a.this.getContext().getApplicationContext(), a.h.sdk_throne_disabled_alert);
                             return;
-                        } else if (selectInfo != null && selectInfo.type == 17 && selectInfo.aTG > a.this.ceO.MK()) {
-                            if (selectInfo.aTG == 7) {
+                        } else if (selectInfo != null && selectInfo.type == 17 && selectInfo.aOT > a.this.bZY.IP()) {
+                            if (selectInfo.aOT == 7) {
                                 BdUtilHelper.showToast(a.this.getContext().getApplicationContext(), a.h.sdk_noble_king_disabled_alert);
                                 return;
                             } else {
@@ -191,83 +191,83 @@ public class a extends Dialog {
                     } else {
                         ckVar = null;
                     }
-                    a.this.ceO.b(i, a.this.ceP.getItem(i), ckVar);
+                    a.this.bZY.b(i, a.this.bZZ.getItem(i), ckVar);
                 }
             }
         });
     }
 
-    private void Hi() {
+    private void Dn() {
         setOnShowListener(new DialogInterface.OnShowListener() { // from class: com.baidu.live.yuyinquick.a.5
             @Override // android.content.DialogInterface.OnShowListener
             public void onShow(DialogInterface dialogInterface) {
-                if (a.this.ceO != null) {
-                    a.this.ceO.onShow();
+                if (a.this.bZY != null) {
+                    a.this.bZY.onShow();
                 }
             }
         });
         setOnDismissListener(new DialogInterface.OnDismissListener() { // from class: com.baidu.live.yuyinquick.a.6
             @Override // android.content.DialogInterface.OnDismissListener
             public void onDismiss(DialogInterface dialogInterface) {
-                if (a.this.brA != null) {
-                    a.this.brA.release();
+                if (a.this.bmO != null) {
+                    a.this.bmO.release();
                 }
-                if (a.this.ceO != null) {
-                    a.this.ceO.onDismiss();
+                if (a.this.bZY != null) {
+                    a.this.bZY.onDismiss();
                 }
             }
         });
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cp(boolean z) {
-        if (z && this.ceO != null && !this.ceO.ME()) {
-            this.brF.setChecked(false, false);
-        } else if (this.brC != null) {
+    public void cl(boolean z) {
+        if (z && this.bZY != null && !this.bZY.IJ()) {
+            this.bmT.setChecked(false, false);
+        } else if (this.bmQ != null) {
             if (z) {
-                this.brC.setSwitchStatus(true);
-                if (!TextUtils.isEmpty(d.Nk().No())) {
-                    this.brC.setSelectId(d.Nk().No());
+                this.bmQ.setSwitchStatus(true);
+                if (!TextUtils.isEmpty(d.Jp().Jt())) {
+                    this.bmQ.setSelectId(d.Jp().Jt());
                 } else {
-                    this.brC.setSelectPos(0);
+                    this.bmQ.setSelectPos(0);
                 }
-                this.brC.setSelectEnabled(true);
-                cq(true);
+                this.bmQ.setSelectEnabled(true);
+                cm(true);
                 return;
             }
-            this.brC.setSwitchStatus(false);
-            this.brC.setSelectEnabled(false);
-            this.brE.setVisibility(8);
+            this.bmQ.setSwitchStatus(false);
+            this.bmQ.setSelectEnabled(false);
+            this.bmS.setVisibility(8);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cq(boolean z) {
-        if (z && this.brA != null) {
-            this.brA.setPreview();
+    public void cm(boolean z) {
+        if (z && this.bmO != null) {
+            this.bmO.setPreview();
         }
-        if (this.brA != null && this.brC != null) {
-            this.brA.setUIInfo(this.brC.getSelectInfo(), z);
+        if (this.bmO != null && this.bmQ != null) {
+            this.bmO.setUIInfo(this.bmQ.getSelectInfo(), z);
         }
         if (UtilHelper.getRealScreenOrientation(getContext()) == 2) {
-            this.brE.setVisibility(8);
-        } else if (this.brF != null && this.brF.isChecked()) {
-            this.brE.setVisibility(0);
+            this.bmS.setVisibility(8);
+        } else if (this.bmT != null && this.bmT.isChecked()) {
+            this.bmS.setVisibility(0);
         }
     }
 
     private void n(String[] strArr) {
-        if (this.ceP == null) {
-            this.ceP = new b(strArr);
-            this.bzm.setAdapter(this.ceP);
+        if (this.bZZ == null) {
+            this.bZZ = new b(strArr);
+            this.buA.setAdapter(this.bZZ);
             return;
         }
-        this.ceP.setDatas(strArr);
-        this.ceP.notifyDataSetChanged();
+        this.bZZ.setDatas(strArr);
+        this.bZZ.notifyDataSetChanged();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Ji() {
+    public void Fn() {
         TranslateAnimation translateAnimation = new TranslateAnimation(1, 0.0f, 1, 0.0f, 1, 1.0f, 1, 0.0f);
         translateAnimation.setDuration(350L);
         translateAnimation.setInterpolator(new LinearInterpolator());
@@ -276,7 +276,7 @@ public class a extends Dialog {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public static class b extends FlexAdapter<String> {
         b(String[] strArr) {
             super(strArr);

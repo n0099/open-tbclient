@@ -24,7 +24,7 @@ import com.baidu.tieba.homepage.tabfeed.data.SpecialColumnListData;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class HomePageTabFeedCollegeSecondActivity extends BaseActivity {
-    private f<SpecialColumnItemData> kdd = new f<SpecialColumnItemData>() { // from class: com.baidu.tieba.homepage.tabfeed.college.HomePageTabFeedCollegeSecondActivity.2
+    private f<SpecialColumnItemData> jYy = new f<SpecialColumnItemData>() { // from class: com.baidu.tieba.homepage.tabfeed.college.HomePageTabFeedCollegeSecondActivity.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.tbadk.h.f
         public void a(View view, SpecialColumnItemData specialColumnItemData, int i, long j) {
@@ -53,8 +53,8 @@ public class HomePageTabFeedCollegeSecondActivity extends BaseActivity {
             }
         }
     };
-    private BdRecyclerView kjK;
-    private HomePageTabFeedCollegeSecondListAdapter kjL;
+    private BdRecyclerView kfe;
+    private HomePageTabFeedCollegeSecondListAdapter kff;
     private NavigationBar mNavigationBar;
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -65,42 +65,42 @@ public class HomePageTabFeedCollegeSecondActivity extends BaseActivity {
         this.mNavigationBar = (NavigationBar) findViewById(R.id.navi_college_petrol_station);
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         this.mNavigationBar.showBottomLine();
-        this.kjK = (BdRecyclerView) findViewById(R.id.listview_college_petrol_station);
+        this.kfe = (BdRecyclerView) findViewById(R.id.listview_college_petrol_station);
         SpecialColumnListData specialColumnListData = (SpecialColumnListData) getIntent().getParcelableExtra("data");
         if (specialColumnListData != null) {
             this.mNavigationBar.setCenterTextTitle(specialColumnListData.getTitle());
-            final List<SpecialColumnItemData> bUV = specialColumnListData.bUV();
-            if (bUV != null && bUV.size() > 0) {
-                SpecialColumnItemData specialColumnItemData = bUV.get(0);
+            final List<SpecialColumnItemData> bRd = specialColumnListData.bRd();
+            if (bRd != null && bRd.size() > 0) {
+                SpecialColumnItemData specialColumnItemData = bRd.get(0);
                 if (specialColumnItemData.specialType == 1 || specialColumnItemData.specialType == 2) {
-                    this.kjK.setLayoutManager(new LinearLayoutManager(this));
+                    this.kfe.setLayoutManager(new LinearLayoutManager(this));
                 } else if (specialColumnItemData.specialType == 3 || specialColumnItemData.specialType == 4) {
                     GridLayoutManager gridLayoutManager = new GridLayoutManager(this, 2);
                     gridLayoutManager.setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup() { // from class: com.baidu.tieba.homepage.tabfeed.college.HomePageTabFeedCollegeSecondActivity.1
                         @Override // androidx.recyclerview.widget.GridLayoutManager.SpanSizeLookup
                         public int getSpanSize(int i) {
-                            return i == bUV.size() ? 2 : 1;
+                            return i == bRd.size() ? 2 : 1;
                         }
                     });
-                    this.kjK.setLayoutManager(gridLayoutManager);
+                    this.kfe.setLayoutManager(gridLayoutManager);
                     int dimens = l.getDimens(this, R.dimen.tbds44);
                     int dimens2 = l.getDimens(this, R.dimen.tbds44);
-                    this.kjK.addItemDecoration(new GridSpaceItemDecoration(dimens, l.getDimens(this, R.dimen.tbds11), dimens2));
+                    this.kfe.addItemDecoration(new GridSpaceItemDecoration(dimens, l.getDimens(this, R.dimen.tbds11), dimens2));
                 }
             }
-            this.kjL = new HomePageTabFeedCollegeSecondListAdapter(this, bUV);
+            this.kff = new HomePageTabFeedCollegeSecondListAdapter(this, bRd);
         }
-        this.kjL.a(this.kdd);
-        this.kjK.setAdapter(this.kjL);
+        this.kff.a(this.jYy);
+        this.kfe.setAdapter(this.kff);
         View inflate = LayoutInflater.from(getApplicationContext()).inflate(R.layout.item_homepage_tabfeed_footer_view_layout, (ViewGroup) null);
         ao.setViewTextColor(inflate.findViewById(R.id.tv_footer_content), R.color.CAM_X0109, 1);
-        this.kjK.addFooterView(inflate);
+        this.kfe.addFooterView(inflate);
     }
 
     @Override // com.baidu.tbadk.BaseActivity
     public void changeSkinType(int i) {
         super.onChangeSkinType(i);
         this.mNavigationBar.onChangeSkinType(getPageContext(), i);
-        this.kjL.notifyDataSetChanged();
+        this.kff.notifyDataSetChanged();
     }
 }

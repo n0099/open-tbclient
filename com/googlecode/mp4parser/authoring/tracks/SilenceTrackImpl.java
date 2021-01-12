@@ -15,7 +15,7 @@ import java.nio.ByteBuffer;
 import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class SilenceTrackImpl implements Track {
     long[] decodingTimes;
     List<Sample> samples = new LinkedList();

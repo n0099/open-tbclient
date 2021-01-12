@@ -7,12 +7,13 @@ import android.graphics.Matrix;
 import android.util.Base64;
 import android.view.View;
 import androidx.annotation.NonNull;
+import com.baidu.mobstat.Config;
 import com.baidu.swan.apps.ao.ah;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class c extends a {
-    private int cMr;
-    private int cMs;
+    private int cHF;
+    private int cHG;
     private int mHeight;
     private int mWidth;
 
@@ -20,8 +21,8 @@ public class c extends a {
         super(str);
         try {
             JSONObject jSONObject = new JSONObject(str);
-            this.cMr = ah.O((float) jSONObject.optDouble("x"));
-            this.cMs = ah.O((float) jSONObject.optDouble("y"));
+            this.cHF = ah.O((float) jSONObject.optDouble(Config.EVENT_HEAT_X));
+            this.cHG = ah.O((float) jSONObject.optDouble("y"));
             this.mWidth = ah.O((float) jSONObject.optDouble("width"));
             this.mHeight = ah.O((float) jSONObject.optDouble("height"));
         } catch (Exception e) {
@@ -40,14 +41,14 @@ public class c extends a {
             i = 0;
             i2 = 0;
         } else {
-            this.cMr = (this.cMr < 0 || this.cMr >= measuredWidth) ? 0 : this.cMr;
-            this.cMs = (this.cMs < 0 || this.cMs >= measuredHeight) ? 0 : this.cMs;
-            this.mWidth = (this.mWidth <= 0 || this.cMr + this.mWidth > measuredWidth) ? measuredWidth - this.cMr : this.mWidth;
-            this.mHeight = (this.mHeight <= 0 || this.cMs + this.mHeight > measuredHeight) ? measuredHeight - this.cMs : this.mHeight;
+            this.cHF = (this.cHF < 0 || this.cHF >= measuredWidth) ? 0 : this.cHF;
+            this.cHG = (this.cHG < 0 || this.cHG >= measuredHeight) ? 0 : this.cHG;
+            this.mWidth = (this.mWidth <= 0 || this.cHF + this.mWidth > measuredWidth) ? measuredWidth - this.cHF : this.mWidth;
+            this.mHeight = (this.mHeight <= 0 || this.cHG + this.mHeight > measuredHeight) ? measuredHeight - this.cHG : this.mHeight;
             Bitmap createBitmap = Bitmap.createBitmap(this.mWidth, this.mHeight, Bitmap.Config.ARGB_4444);
             Canvas canvas = new Canvas(createBitmap);
             canvas.drawARGB(0, 0, 0, 0);
-            canvas.translate(-this.cMr, -this.cMs);
+            canvas.translate(-this.cHF, -this.cHG);
             view.draw(canvas);
             Bitmap j = j(createBitmap);
             str = Base64.encodeToString(k(j), 2);
@@ -67,7 +68,7 @@ public class c extends a {
 
     @NonNull
     private Bitmap j(@NonNull Bitmap bitmap) {
-        float density = 1.0f / ah.getDensity(com.baidu.swan.apps.t.a.aAs());
+        float density = 1.0f / ah.getDensity(com.baidu.swan.apps.t.a.awy());
         Matrix matrix = new Matrix();
         matrix.postScale(density, density);
         return Bitmap.createBitmap(bitmap, 0, 0, bitmap.getWidth(), bitmap.getHeight(), matrix, true);

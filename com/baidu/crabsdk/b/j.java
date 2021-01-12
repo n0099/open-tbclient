@@ -13,17 +13,17 @@ import com.xiaomi.mipush.sdk.Constants;
 import java.util.UUID;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes14.dex */
 public final class j {
     public static JSONObject a(String str, OnUploadFilesCallback onUploadFilesCallback, String str2, String str3, String str4) {
         JSONObject jSONObject;
         try {
-            byte[] dX = com.baidu.crabsdk.sender.i.dX(str);
-            if (dX == null || dX.length == 0) {
+            byte[] dS = com.baidu.crabsdk.sender.i.dS(str);
+            if (dS == null || dS.length == 0) {
                 onUploadFilesCallback.onFailed("Read file error!");
                 jSONObject = null;
             } else {
-                String encodeToString = Base64.encodeToString(dX, 0);
+                String encodeToString = Base64.encodeToString(dS, 0);
                 jSONObject = a(str2, str3, str4);
                 jSONObject.put(KsMediaMeta.KSM_KEY_FORMAT, 1);
                 jSONObject.put(TbConfig.TMP_LOG_DIR_NAME, encodeToString);
@@ -60,7 +60,7 @@ public final class j {
             } else {
                 jSONObject.put("appVN", com.baidu.crabsdk.a.o);
             }
-            jSONObject.put("appVC", p.M());
+            jSONObject.put("appVC", p.us());
             jSONObject.put("model", Build.MODEL);
             jSONObject.put(Constants.PHONE_BRAND, Build.BRAND);
             jSONObject.put("os", "Android");
@@ -70,7 +70,7 @@ public final class j {
             jSONObject.put("curPage", a.r());
             jSONObject.put("locale", i.B());
             jSONObject.put("cuid", h.z());
-            jSONObject.put("channel", com.baidu.crabsdk.a.f1742b);
+            jSONObject.put("channel", com.baidu.crabsdk.a.f1692b);
             jSONObject.put("cpuabi", Build.CPU_ABI);
             jSONObject.put("romVN", str);
             jSONObject.put("launcherVN", str2);

@@ -1,13 +1,13 @@
 package com.win.opensdk;
 
 import com.win.opensdk.core.Info;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public final class x {
     public String java;
-    Info qdE;
+    Info pZd;
 
     public x(Info info) {
-        this.qdE = info;
+        this.pZd = info;
         if (info != null) {
             this.java = info.getPid();
         }

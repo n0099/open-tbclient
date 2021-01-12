@@ -33,10 +33,10 @@ import org.json.JSONObject;
 public class ak {
 
     /* renamed from: a  reason: collision with root package name */
-    private static float f7854a = -1.0f;
+    private static float f7554a = -1.0f;
 
     /* renamed from: b  reason: collision with root package name */
-    private static int f7855b = -1;
+    private static int f7555b = -1;
     private static float c = -1.0f;
     private static int d = -1;
     private static int e = -1;
@@ -47,7 +47,7 @@ public class ak {
     }
 
     private static boolean b() {
-        return f7854a < 0.0f || f7855b < 0 || c < 0.0f || d < 0 || e < 0;
+        return f7554a < 0.0f || f7555b < 0 || c < 0.0f || d < 0 || e < 0;
     }
 
     public static void a(Context context) {
@@ -56,8 +56,8 @@ public class ak {
         if (a2 != null) {
             if (b()) {
                 DisplayMetrics displayMetrics = a2.getResources().getDisplayMetrics();
-                f7854a = displayMetrics.density;
-                f7855b = displayMetrics.densityDpi;
+                f7554a = displayMetrics.density;
+                f7555b = displayMetrics.densityDpi;
                 c = displayMetrics.scaledDensity;
                 d = displayMetrics.widthPixels;
                 e = displayMetrics.heightPixels;
@@ -149,12 +149,12 @@ public class ak {
 
     public static float e(Context context) {
         a(context);
-        return f7854a;
+        return f7554a;
     }
 
     public static int f(Context context) {
         a(context);
-        return f7855b;
+        return f7555b;
     }
 
     public static void a(View view, int i, int i2, int i3, int i4) {

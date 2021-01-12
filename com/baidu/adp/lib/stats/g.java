@@ -15,9 +15,9 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class g {
-    private String OY;
-    private String OZ;
-    private Map<String, String> Pa;
+    private String OW;
+    private String OX;
+    private Map<String, String> OY;
     private String mAction;
     private c mCommonData;
     private String mErrorCode;
@@ -30,7 +30,7 @@ public class g {
     }
 
     public void bW(String str) {
-        this.OY = str;
+        this.OW = str;
     }
 
     public void setAction(String str) {
@@ -46,10 +46,10 @@ public class g {
     }
 
     public void y(String str, String str2) {
-        if (this.Pa == null) {
-            this.Pa = new HashMap();
+        if (this.OY == null) {
+            this.OY = new HashMap();
         }
-        this.Pa.put(str, str2);
+        this.OY.put(str, str2);
     }
 
     public JSONObject mQ() {
@@ -60,7 +60,7 @@ public class g {
                 jSONObject2.put("app_version", this.mCommonData.mAppVersion);
                 jSONObject2.put("client_timestamp", Long.toString(System.currentTimeMillis()));
                 jSONObject2.put("cuid", this.mCommonData.mCuid);
-                jSONObject2.put(AdExtParam.KEY_SHOUBAI_CUID, this.mCommonData.Op);
+                jSONObject2.put(AdExtParam.KEY_SHOUBAI_CUID, this.mCommonData.Om);
                 jSONObject2.put("from", this.mCommonData.mChannel);
                 jSONObject2.put("uid", this.mCommonData.mUid);
             }
@@ -74,8 +74,8 @@ public class g {
             jSONObject2.put("mission_id", f.mP());
             jSONObject.put("base_info", jSONObject2);
             JSONObject jSONObject3 = new JSONObject();
-            if (this.OY != null) {
-                jSONObject3.put(BdStatsConstant.StatsKey.TYPE, this.OY);
+            if (this.OW != null) {
+                jSONObject3.put(BdStatsConstant.StatsKey.TYPE, this.OW);
             }
             if (this.mAction != null) {
                 jSONObject3.put("action", this.mAction);
@@ -86,9 +86,9 @@ public class g {
             if (this.mErrorMessage != null) {
                 jSONObject3.put("error_message", this.mErrorMessage);
             }
-            if (this.Pa != null) {
+            if (this.OY != null) {
                 StringBuilder sb = new StringBuilder();
-                for (Map.Entry<String, String> entry : this.Pa.entrySet()) {
+                for (Map.Entry<String, String> entry : this.OY.entrySet()) {
                     sb.append(entry.getKey());
                     sb.append(":");
                     sb.append(entry.getValue());
@@ -105,8 +105,8 @@ public class g {
             if (this.mTitle != null) {
                 jSONObject3.put("title", this.mTitle);
             }
-            if (this.OZ != null) {
-                jSONObject3.put("abstract", this.OZ);
+            if (this.OX != null) {
+                jSONObject3.put("abstract", this.OX);
             }
             jSONObject.put(AlaRecorderLog.KEY_DEBUG_INFO, jSONObject3);
             jSONObject.put("kpi", new JSONObject());

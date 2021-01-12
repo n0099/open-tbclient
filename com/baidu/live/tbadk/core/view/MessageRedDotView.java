@@ -13,7 +13,7 @@ import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.core.util.SkinManager;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class MessageRedDotView extends FrameLayout {
     public static final int TYPE_PLUS = 2;
     public static final int TYPE_THREE_DOT = 1;

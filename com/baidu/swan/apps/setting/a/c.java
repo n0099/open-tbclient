@@ -9,7 +9,7 @@ import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.swan.apps.scheme.actions.aa;
 import com.baidu.swan.apps.scheme.j;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class c extends aa {
     public c(j jVar) {
         super(jVar, "/swanAPI/getPhoneNumber");
@@ -31,21 +31,21 @@ public class c extends aa {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "empty cb");
             return false;
         }
-        Activity aMf = context instanceof Activity ? (Activity) context : eVar.aMf();
-        if (aMf == null) {
+        Activity aIl = context instanceof Activity ? (Activity) context : eVar.aIl();
+        if (aIl == null) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "the context is not an activity");
             return false;
         }
-        com.baidu.swan.apps.setting.b.a.a(aMf, "mobile", null, false, new com.baidu.swan.apps.ao.e.b<com.baidu.swan.apps.setting.b.a>() { // from class: com.baidu.swan.apps.setting.a.c.1
+        com.baidu.swan.apps.setting.b.a.a(aIl, "mobile", null, false, new com.baidu.swan.apps.ao.e.b<com.baidu.swan.apps.setting.b.a>() { // from class: com.baidu.swan.apps.setting.a.c.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.swan.apps.ao.e.b
             /* renamed from: a */
             public void L(com.baidu.swan.apps.setting.b.a aVar) {
                 com.baidu.swan.apps.console.c.d("OpenData", "onOpenDataCallback:: ", aVar);
-                if (!aVar.aOE()) {
+                if (!aVar.aKK()) {
                     com.baidu.swan.apps.setting.oauth.c.a(aVar, callbackHandler, optString);
                 } else {
-                    callbackHandler.handleSchemeDispatchCallback(optString, UnitedSchemeUtility.wrapCallbackParams(aVar.dMd, 0).toString());
+                    callbackHandler.handleSchemeDispatchCallback(optString, UnitedSchemeUtility.wrapCallbackParams(aVar.dHr, 0).toString());
                 }
             }
         });

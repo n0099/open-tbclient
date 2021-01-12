@@ -2,24 +2,22 @@ package com.baidu.mapapi;
 
 import android.app.Application;
 import android.content.Context;
-import com.baidu.vi.VIContext;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class JNIInitializer {
 
     /* renamed from: a  reason: collision with root package name */
-    private static Context f2738a;
+    private static Context f2648a;
 
     public static Context getCachedContext() {
-        return f2738a;
+        return f2648a;
     }
 
     public static void setContext(Application application) {
         if (application == null) {
             throw new RuntimeException();
         }
-        if (f2738a == null) {
-            f2738a = application;
+        if (f2648a == null) {
+            f2648a = application;
         }
-        VIContext.init(application);
     }
 }

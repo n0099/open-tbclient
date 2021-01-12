@@ -8,12 +8,12 @@ import com.kwai.filedownloader.c.b;
 import com.kwai.filedownloader.message.MessageSnapshot;
 import com.kwai.filedownloader.services.FileDownloadServiceProxy;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class o extends com.kwai.filedownloader.services.a<a, com.kwai.filedownloader.c.b> {
 
     /* JADX INFO: Access modifiers changed from: protected */
-    /* loaded from: classes5.dex */
-    public static class a extends a.AbstractBinderC1169a {
+    /* loaded from: classes4.dex */
+    public static class a extends a.AbstractBinderC1152a {
         protected a() {
         }
 

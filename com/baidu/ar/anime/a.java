@@ -13,11 +13,11 @@ public class a extends j {
     private int cj = 720;
     private int ck = PlatformPlugin.DEFAULT_SYSTEM_UI;
     private boolean cl = true;
-    private InterfaceC0065a cm = null;
+    private InterfaceC0066a cm = null;
 
     /* renamed from: com.baidu.ar.anime.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public interface InterfaceC0065a {
+    public interface InterfaceC0066a {
         void b(FramePixels framePixels);
     }
 
@@ -27,8 +27,8 @@ public class a extends j {
         this.nk.setOutputHeight(this.ck);
     }
 
-    public void a(InterfaceC0065a interfaceC0065a) {
-        this.cm = interfaceC0065a;
+    public void a(InterfaceC0066a interfaceC0066a) {
+        this.cm = interfaceC0066a;
     }
 
     public void an() {

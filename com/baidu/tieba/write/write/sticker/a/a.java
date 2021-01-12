@@ -1,7 +1,7 @@
 package com.baidu.tieba.write.write.sticker.a;
 
 import com.baidu.tieba.write.write.sticker.view.StickerView;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public interface a {
     void a(StickerView stickerView);
 
@@ -9,5 +9,5 @@ public interface a {
 
     void b(StickerView stickerView);
 
-    void cTi();
+    void cPq();
 }

@@ -10,49 +10,49 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.hottopic.view.TopicVideoControllerView;
 import com.baidu.tieba.hottopic.view.TopicVideoProgressView;
 import com.baidu.tieba.play.cyberPlayer.TbCyberVideoView;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class TopicMediaHolder extends TypeAdapter.ViewHolder {
-    public int akW;
-    public View euw;
-    public TbCyberVideoView gBU;
-    public ForeDrawableImageView ksB;
-    public TopicVideoControllerView ksC;
-    public TopicVideoProgressView ksD;
-    public View ksE;
-    public TextView ksF;
-    public ImageView ksG;
-    public View ksH;
-    public TextView ksI;
-    public View ksJ;
-    public RelativeLayout ksK;
+    public int akf;
+    public View epI;
+    public TbCyberVideoView gxn;
+    public ForeDrawableImageView knW;
+    public TopicVideoControllerView knX;
+    public TopicVideoProgressView knY;
+    public View knZ;
+    public TextView koa;
+    public ImageView kob;
+    public View koc;
+    public TextView kod;
+    public View koe;
+    public RelativeLayout kof;
 
     public TopicMediaHolder(View view) {
         super(view);
-        this.akW = 3;
+        this.akf = 3;
         if (view != null) {
-            this.ksK = (RelativeLayout) view.findViewById(R.id.topic_layout_video_view);
-            this.ksB = (ForeDrawableImageView) view.findViewById(R.id.topic_list_video_item_thumbnail);
-            this.gBU = new TbCyberVideoView(view.getContext());
-            this.gBU.setStageType(null);
-            bKG();
-            this.ksC = (TopicVideoControllerView) view.findViewById(R.id.topic_video_controller);
-            this.ksD = (TopicVideoProgressView) view.findViewById(R.id.topic_video_progress_view);
-            this.ksE = view.findViewById(R.id.topic_replay_layout);
-            this.ksF = (TextView) view.findViewById(R.id.textview_topic_replay);
-            this.ksG = (ImageView) view.findViewById(R.id.topic_img_pause_play);
-            this.ksH = view.findViewById(R.id.topic_layout_loading);
-            this.euw = view.findViewById(R.id.topic_video_cover_view);
-            this.ksI = (TextView) view.findViewById(R.id.topic_vedio_title);
-            this.ksJ = view.findViewById(R.id.topic_vedio_line);
+            this.kof = (RelativeLayout) view.findViewById(R.id.topic_layout_video_view);
+            this.knW = (ForeDrawableImageView) view.findViewById(R.id.topic_list_video_item_thumbnail);
+            this.gxn = new TbCyberVideoView(view.getContext());
+            this.gxn.setStageType(null);
+            bGO();
+            this.knX = (TopicVideoControllerView) view.findViewById(R.id.topic_video_controller);
+            this.knY = (TopicVideoProgressView) view.findViewById(R.id.topic_video_progress_view);
+            this.knZ = view.findViewById(R.id.topic_replay_layout);
+            this.koa = (TextView) view.findViewById(R.id.textview_topic_replay);
+            this.kob = (ImageView) view.findViewById(R.id.topic_img_pause_play);
+            this.koc = view.findViewById(R.id.topic_layout_loading);
+            this.epI = view.findViewById(R.id.topic_video_cover_view);
+            this.kod = (TextView) view.findViewById(R.id.topic_vedio_title);
+            this.koe = view.findViewById(R.id.topic_vedio_line);
         }
     }
 
-    private void bKG() {
-        if (this.gBU != null && this.gBU.getParent() == null) {
+    private void bGO() {
+        if (this.gxn != null && this.gxn.getParent() == null) {
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, -1);
             layoutParams.addRule(13);
-            this.ksK.addView(this.gBU.getView(), 0);
-            this.gBU.getView().setLayoutParams(layoutParams);
+            this.kof.addView(this.gxn.getView(), 0);
+            this.gxn.getView().setLayoutParams(layoutParams);
         }
     }
 }

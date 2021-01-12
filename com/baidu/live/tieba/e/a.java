@@ -7,12 +7,12 @@ import android.os.Handler;
 import android.os.Message;
 import com.baidu.ala.recorder.video.drawer.EncoderTextureDrawer;
 import java.lang.ref.WeakReference;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class a implements SensorEventListener {
-    private WeakReference<Handler> bKY;
+    private WeakReference<Handler> bGm;
 
     public a(Handler handler) {
-        this.bKY = new WeakReference<>(handler);
+        this.bGm = new WeakReference<>(handler);
     }
 
     @Override // android.hardware.SensorEventListener
@@ -34,7 +34,7 @@ public class a implements SensorEventListener {
                     round -= 360;
                 }
                 int i = round < 0 ? round + EncoderTextureDrawer.X264_WIDTH : round;
-                if (this.bKY != null && this.bKY.get() != null && (obtainMessage = (handler = this.bKY.get()).obtainMessage(1)) != null) {
+                if (this.bGm != null && this.bGm.get() != null && (obtainMessage = (handler = this.bGm.get()).obtainMessage(1)) != null) {
                     obtainMessage.arg1 = i;
                     handler.sendMessage(obtainMessage);
                 }

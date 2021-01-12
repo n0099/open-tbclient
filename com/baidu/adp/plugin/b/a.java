@@ -15,31 +15,31 @@ import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class a {
-    private static volatile a TT = null;
-    private HashMap<String, Integer> TS = new HashMap<>();
+    private static volatile a TR = null;
+    private HashMap<String, Integer> TQ = new HashMap<>();
 
     public static synchronized a pg() {
         a aVar;
         synchronized (a.class) {
-            if (TT == null) {
+            if (TR == null) {
                 synchronized (a.class) {
-                    if (TT == null) {
-                        TT = new a();
+                    if (TR == null) {
+                        TR = new a();
                     }
                 }
             }
-            aVar = TT;
+            aVar = TR;
         }
         return aVar;
     }
 
     public void cr(String str) {
         if (str != null) {
-            Integer num = this.TS.get(str);
+            Integer num = this.TQ.get(str);
             if (num == null) {
                 num = 0;
             }
-            this.TS.put(str, Integer.valueOf(num.intValue() + 1));
+            this.TQ.put(str, Integer.valueOf(num.intValue() + 1));
         }
     }
 
@@ -158,7 +158,7 @@ public class a {
     }
 
     public void ph() {
-        if (this.TS.size() != 0) {
+        if (this.TQ.size() != 0) {
             com.baidu.adp.lib.stats.a pi = pi();
             d(pi);
             pi.append("appver", BdStatisticsManager.getInstance().getAppVersion());
@@ -206,10 +206,10 @@ public class a {
 
     private void d(com.baidu.adp.lib.stats.a aVar) {
         if (aVar != null) {
-            for (Map.Entry<String, Integer> entry : this.TS.entrySet()) {
+            for (Map.Entry<String, Integer> entry : this.TQ.entrySet()) {
                 aVar.append(entry.getKey() + "_count", String.valueOf(entry.getValue()));
             }
-            this.TS.clear();
+            this.TQ.clear();
         }
     }
 

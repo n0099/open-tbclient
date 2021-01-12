@@ -13,7 +13,7 @@ import com.baidu.swan.apps.scheme.j;
 import com.baidu.swan.apps.v.f;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class d extends aa {
     public d(j jVar) {
         super(jVar, "/swanAPI/openInput");
@@ -25,26 +25,26 @@ public class d extends aa {
             Log.d("OpenInputAction", "handle entity: " + unitedSchemeEntity.toString());
         }
         JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
-        f aDH = f.aDH();
+        f azN = f.azN();
         if (optParamsAsJo == null) {
             com.baidu.swan.apps.console.c.e("openInput", "paramsJson is null");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
         }
-        com.baidu.swan.apps.core.d.f ajt = aDH.ajt();
-        if (ajt == null) {
+        com.baidu.swan.apps.core.d.f afz = azN.afz();
+        if (afz == null) {
             com.baidu.swan.apps.console.c.e("openInput", "fragmentManager is null");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "fragmentManager is null");
             return false;
         }
-        SwanAppActivity aDr = f.aDH().aDr();
-        if (aDr == null) {
+        SwanAppActivity azx = f.azN().azx();
+        if (azx == null) {
             com.baidu.swan.apps.console.c.e("openInput", "activity is null when add input");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "activity is null when add input");
             return false;
         }
-        com.baidu.swan.apps.core.d.e asV = ajt.asV();
-        if (asV == null) {
+        com.baidu.swan.apps.core.d.e aoZ = afz.aoZ();
+        if (aoZ == null) {
             com.baidu.swan.apps.console.c.e("openInput", "fragment is null when add input");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "fragment is null when add input");
             return false;
@@ -56,12 +56,12 @@ public class d extends aa {
             e.printStackTrace();
             com.baidu.swan.apps.console.c.e("OpenInputAction", "model parse exception:", e);
         }
-        boolean isSuccess = new com.baidu.swan.apps.component.components.f.a(context, bVar, aDr, asV, new a.InterfaceC0410a() { // from class: com.baidu.swan.apps.q.d.1
-            @Override // com.baidu.swan.apps.component.components.f.a.InterfaceC0410a
+        boolean isSuccess = new com.baidu.swan.apps.component.components.f.a(context, bVar, azx, aoZ, new a.InterfaceC0393a() { // from class: com.baidu.swan.apps.q.d.1
+            @Override // com.baidu.swan.apps.component.components.f.a.InterfaceC0393a
             public void f(String str, JSONObject jSONObject) {
                 d.this.a(callbackHandler, 0, str, jSONObject);
             }
-        }).aox().isSuccess();
+        }).akD().isSuccess();
         UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(isSuccess ? 0 : 1001));
         return isSuccess;
     }

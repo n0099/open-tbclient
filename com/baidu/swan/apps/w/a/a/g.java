@@ -4,7 +4,7 @@ import com.baidu.live.adp.widget.VerticalTranslateLayout;
 import com.baidu.swan.apps.ao.ah;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class g implements com.baidu.swan.apps.model.a {
     public int left = Integer.MIN_VALUE;
     public int top = Integer.MIN_VALUE;

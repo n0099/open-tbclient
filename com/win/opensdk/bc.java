@@ -1,9 +1,9 @@
 package com.win.opensdk;
 
 import android.text.TextUtils;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public final class bc {
-    public static byte[] abR(String str) {
+    public static byte[] aaJ(String str) {
         int length = str.length();
         byte[] bArr = new byte[length / 2];
         for (int i = 0; i < length; i += 2) {
@@ -12,17 +12,17 @@ public final class bc {
         return bArr;
     }
 
-    public static String abO(String str) {
-        return TextUtils.isEmpty(str) ? str : new aq(ap.java() + "4c6k", ap.eKw() + "o7my").hw(str, "CBC");
+    public static String aaG(String str) {
+        return TextUtils.isEmpty(str) ? str : new aq(ap.java() + "4c6k", ap.eGG() + "o7my").hv(str, "CBC");
     }
 
-    public static String abP(String str) {
+    public static String aaH(String str) {
         if (!TextUtils.isEmpty(str)) {
-            String hw = an.hw(ap.a() + "mloo0ks9", str);
-            if (!TextUtils.isEmpty(hw)) {
-                hw = "KL_".concat(String.valueOf(hw));
+            String hv = an.hv(ap.a() + "mloo0ks9", str);
+            if (!TextUtils.isEmpty(hv)) {
+                hv = "KL_".concat(String.valueOf(hv));
             }
-            return hw;
+            return hv;
         }
         return str;
     }

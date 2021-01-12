@@ -7,16 +7,16 @@ import android.widget.TextView;
 import androidx.core.view.ViewCompat;
 import com.baidu.swan.apps.ao.ah;
 import com.baidu.tieba.R;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class OpenLocationMenuItem {
-    public static final int erZ = ah.O(45.0f);
-    private MenuItemType esa;
-    private a esb;
-    private TextView esc;
+    public static final int enk = ah.O(45.0f);
+    private MenuItemType enl;
+    private a enm;
+    private TextView enn;
     private int mMarginBottom = ah.O(1.0f);
     private String mTitle;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public enum MenuItemType {
         OPENLOCATION_PATH,
         OPENLOCATION_STREET_VIEW,
@@ -28,51 +28,51 @@ public class OpenLocationMenuItem {
         OPENLOCATION_GOOGLE_MAP
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public interface a {
         void b(OpenLocationMenuItem openLocationMenuItem);
     }
 
     public OpenLocationMenuItem(Context context, String str, MenuItemType menuItemType) {
-        this.esc = new TextView(context);
-        this.esc.setText(str);
-        this.esc.setTextSize(16.0f);
-        this.esc.setBackground(context.getResources().getDrawable(R.drawable.openlocation_bottommenu_itemclick_selector));
-        this.esc.setTextColor(ViewCompat.MEASURED_STATE_MASK);
-        this.esc.setGravity(17);
-        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, erZ);
+        this.enn = new TextView(context);
+        this.enn.setText(str);
+        this.enn.setTextSize(16.0f);
+        this.enn.setBackground(context.getResources().getDrawable(R.drawable.openlocation_bottommenu_itemclick_selector));
+        this.enn.setTextColor(ViewCompat.MEASURED_STATE_MASK);
+        this.enn.setGravity(17);
+        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, enk);
         layoutParams.bottomMargin = this.mMarginBottom;
         layoutParams.gravity = 17;
-        this.esc.setLayoutParams(layoutParams);
+        this.enn.setLayoutParams(layoutParams);
         setTitle(str);
         a(menuItemType);
-        this.esc.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.swan.impl.map.item.OpenLocationMenuItem.1
+        this.enn.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.swan.impl.map.item.OpenLocationMenuItem.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (OpenLocationMenuItem.this.esb != null) {
-                    OpenLocationMenuItem.this.esb.b(OpenLocationMenuItem.this);
+                if (OpenLocationMenuItem.this.enm != null) {
+                    OpenLocationMenuItem.this.enm.b(OpenLocationMenuItem.this);
                 }
             }
         });
     }
 
     public void a(a aVar) {
-        this.esb = aVar;
+        this.enm = aVar;
     }
 
-    public MenuItemType bez() {
-        return this.esa;
+    public MenuItemType baF() {
+        return this.enl;
     }
 
     public void a(MenuItemType menuItemType) {
-        this.esa = menuItemType;
+        this.enl = menuItemType;
     }
 
     public void setTitle(String str) {
         this.mTitle = str;
     }
 
-    public TextView beA() {
-        return this.esc;
+    public TextView baG() {
+        return this.enn;
     }
 }

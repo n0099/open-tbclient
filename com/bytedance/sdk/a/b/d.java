@@ -6,9 +6,9 @@ import java.net.Proxy;
 public final class d {
 
     /* renamed from: b  reason: collision with root package name */
-    final Proxy f6256b;
-    final a piU;
-    final InetSocketAddress pll;
+    final Proxy f5956b;
+    final a pep;
+    final InetSocketAddress pgF;
 
     public d(a aVar, Proxy proxy, InetSocketAddress inetSocketAddress) {
         if (aVar == null) {
@@ -20,36 +20,36 @@ public final class d {
         if (inetSocketAddress == null) {
             throw new NullPointerException("inetSocketAddress == null");
         }
-        this.piU = aVar;
-        this.f6256b = proxy;
-        this.pll = inetSocketAddress;
+        this.pep = aVar;
+        this.f5956b = proxy;
+        this.pgF = inetSocketAddress;
     }
 
-    public a ern() {
-        return this.piU;
+    public a ens() {
+        return this.pep;
     }
 
-    public Proxy ero() {
-        return this.f6256b;
+    public Proxy ent() {
+        return this.f5956b;
     }
 
-    public InetSocketAddress erp() {
-        return this.pll;
+    public InetSocketAddress enu() {
+        return this.pgF;
     }
 
     public boolean d() {
-        return this.piU.pio != null && this.f6256b.type() == Proxy.Type.HTTP;
+        return this.pep.pdJ != null && this.f5956b.type() == Proxy.Type.HTTP;
     }
 
     public boolean equals(Object obj) {
-        return (obj instanceof d) && ((d) obj).piU.equals(this.piU) && ((d) obj).f6256b.equals(this.f6256b) && ((d) obj).pll.equals(this.pll);
+        return (obj instanceof d) && ((d) obj).pep.equals(this.pep) && ((d) obj).f5956b.equals(this.f5956b) && ((d) obj).pgF.equals(this.pgF);
     }
 
     public int hashCode() {
-        return ((((this.piU.hashCode() + 527) * 31) + this.f6256b.hashCode()) * 31) + this.pll.hashCode();
+        return ((((this.pep.hashCode() + 527) * 31) + this.f5956b.hashCode()) * 31) + this.pgF.hashCode();
     }
 
     public String toString() {
-        return "Route{" + this.pll + "}";
+        return "Route{" + this.pgF + "}";
     }
 }

@@ -10,7 +10,7 @@ import tbclient.GetGiftList.GetGiftListResIdl;
 import tbclient.GetGiftList.PresentCategoryList;
 import tbclient.GetGiftList.PresentGiftList1;
 import tbclient.GetGiftList.PresentNumInfo;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class DefaultGiftListSocketResponseMessage extends SocketResponsedMessage {
     private String addFreeUrl;
     private ArrayList<a> categoryList;
@@ -40,8 +40,8 @@ public class DefaultGiftListSocketResponseMessage extends SocketResponsedMessage
                 this.sceneId = getGiftListResIdl.data.scene_id.intValue();
                 this.currencyType = getGiftListResIdl.data.currency_type.intValue();
                 this.urlTitleData = new ai();
-                this.urlTitleData.eQw = getGiftListResIdl.data.currency_txt.name;
-                this.urlTitleData.eQx = getGiftListResIdl.data.currency_txt.url;
+                this.urlTitleData.eLL = getGiftListResIdl.data.currency_txt.name;
+                this.urlTitleData.eLM = getGiftListResIdl.data.currency_txt.url;
                 if (getGiftListResIdl.data.gift_list != null && getGiftListResIdl.data.gift_list.size() > 0) {
                     this.giftList = new ArrayList<>();
                     for (PresentGiftList1 presentGiftList1 : getGiftListResIdl.data.gift_list) {
@@ -51,18 +51,18 @@ public class DefaultGiftListSocketResponseMessage extends SocketResponsedMessage
                             ahVar.name = presentGiftList1.gift_name;
                             ahVar.price = presentGiftList1.price.intValue();
                             ahVar.thumbnailUrl = presentGiftList1.thumbnail_url;
-                            ahVar.eQp = presentGiftList1.ios_price.intValue();
+                            ahVar.eLE = presentGiftList1.ios_price.intValue();
                             ahVar.desc = presentGiftList1.gift_desc;
-                            ahVar.aKj = presentGiftList1.activity_type.intValue();
-                            ahVar.eQq = presentGiftList1.mark_url;
+                            ahVar.aFw = presentGiftList1.activity_type.intValue();
+                            ahVar.eLF = presentGiftList1.mark_url;
                             ahVar.beginTime = presentGiftList1.begin_time.intValue();
                             ahVar.endTime = presentGiftList1.end_time.intValue();
-                            ahVar.eQr = presentGiftList1.discount.intValue();
-                            ahVar.eQs = presentGiftList1.ios_discount.intValue();
-                            ahVar.eQt = presentGiftList1.proportion.intValue();
-                            ahVar.eQu = presentGiftList1.pitch_on.intValue();
-                            ahVar.aZh = presentGiftList1.gift_count.intValue();
-                            ahVar.eQv = presentGiftList1.currency_unit.intValue();
+                            ahVar.eLG = presentGiftList1.discount.intValue();
+                            ahVar.eLH = presentGiftList1.ios_discount.intValue();
+                            ahVar.eLI = presentGiftList1.proportion.intValue();
+                            ahVar.eLJ = presentGiftList1.pitch_on.intValue();
+                            ahVar.aUu = presentGiftList1.gift_count.intValue();
+                            ahVar.eLK = presentGiftList1.currency_unit.intValue();
                             this.giftList.add(ahVar);
                         }
                     }

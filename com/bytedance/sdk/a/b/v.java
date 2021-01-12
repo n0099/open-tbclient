@@ -10,26 +10,26 @@ import java.util.TreeSet;
 public final class v {
 
     /* renamed from: a  reason: collision with root package name */
-    private final String[] f6278a;
+    private final String[] f5978a;
 
     v(a aVar) {
-        this.f6278a = (String[]) aVar.f6279a.toArray(new String[aVar.f6279a.size()]);
+        this.f5978a = (String[]) aVar.f5979a.toArray(new String[aVar.f5979a.size()]);
     }
 
     public String a(String str) {
-        return a(this.f6278a, str);
+        return a(this.f5978a, str);
     }
 
     public int a() {
-        return this.f6278a.length / 2;
+        return this.f5978a.length / 2;
     }
 
     public String a(int i) {
-        return this.f6278a[i * 2];
+        return this.f5978a[i * 2];
     }
 
     public String b(int i) {
-        return this.f6278a[(i * 2) + 1];
+        return this.f5978a[(i * 2) + 1];
     }
 
     public Set<String> b() {
@@ -58,18 +58,18 @@ public final class v {
         return Collections.emptyList();
     }
 
-    public a erx() {
+    public a enB() {
         a aVar = new a();
-        Collections.addAll(aVar.f6279a, this.f6278a);
+        Collections.addAll(aVar.f5979a, this.f5978a);
         return aVar;
     }
 
     public boolean equals(Object obj) {
-        return (obj instanceof v) && Arrays.equals(((v) obj).f6278a, this.f6278a);
+        return (obj instanceof v) && Arrays.equals(((v) obj).f5978a, this.f5978a);
     }
 
     public int hashCode() {
-        return Arrays.hashCode(this.f6278a);
+        return Arrays.hashCode(this.f5978a);
     }
 
     public String toString() {
@@ -94,40 +94,40 @@ public final class v {
     public static final class a {
 
         /* renamed from: a  reason: collision with root package name */
-        final List<String> f6279a = new ArrayList(20);
+        final List<String> f5979a = new ArrayList(20);
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        public a YK(String str) {
+        public a XC(String str) {
             int indexOf = str.indexOf(":", 1);
             if (indexOf != -1) {
-                return he(str.substring(0, indexOf), str.substring(indexOf + 1));
+                return hd(str.substring(0, indexOf), str.substring(indexOf + 1));
             }
             if (str.startsWith(":")) {
-                return he("", str.substring(1));
+                return hd("", str.substring(1));
             }
-            return he("", str);
+            return hd("", str);
         }
 
-        public a hd(String str, String str2) {
+        public a hc(String str, String str2) {
             d(str, str2);
-            return he(str, str2);
+            return hd(str, str2);
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        public a he(String str, String str2) {
-            this.f6279a.add(str);
-            this.f6279a.add(str2.trim());
+        public a hd(String str, String str2) {
+            this.f5979a.add(str);
+            this.f5979a.add(str2.trim());
             return this;
         }
 
-        public a YL(String str) {
+        public a XD(String str) {
             int i = 0;
             while (true) {
                 int i2 = i;
-                if (i2 < this.f6279a.size()) {
-                    if (str.equalsIgnoreCase(this.f6279a.get(i2))) {
-                        this.f6279a.remove(i2);
-                        this.f6279a.remove(i2);
+                if (i2 < this.f5979a.size()) {
+                    if (str.equalsIgnoreCase(this.f5979a.get(i2))) {
+                        this.f5979a.remove(i2);
+                        this.f5979a.remove(i2);
                         i2 -= 2;
                     }
                     i = i2 + 2;
@@ -137,10 +137,10 @@ public final class v {
             }
         }
 
-        public a hf(String str, String str2) {
+        public a he(String str, String str2) {
             d(str, str2);
-            YL(str);
-            he(str, str2);
+            XD(str);
+            hd(str, str2);
             return this;
         }
 
@@ -170,7 +170,7 @@ public final class v {
             }
         }
 
-        public v ery() {
+        public v enC() {
             return new v(this);
         }
     }

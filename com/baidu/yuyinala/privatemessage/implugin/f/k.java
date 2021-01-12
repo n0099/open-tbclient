@@ -6,38 +6,38 @@ import com.baidu.android.imsdk.pubaccount.IIsSubscribedListener;
 import com.baidu.android.imsdk.utils.HttpHelper;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class k {
-    private static k oUI;
+    private static k oQg;
     private Context mContext;
     private static final String TAG = k.class.getSimpleName();
-    private static Map<Long, h> oUJ = new HashMap();
+    private static Map<Long, h> oQh = new HashMap();
 
     private k(Context context) {
         this.mContext = context.getApplicationContext();
     }
 
-    public static k hB(Context context) {
-        if (oUI == null) {
+    public static k hz(Context context) {
+        if (oQg == null) {
             synchronized (k.class) {
-                if (oUI == null) {
-                    oUI = new k(context);
+                if (oQg == null) {
+                    oQg = new k(context);
                 }
             }
         }
-        return oUI;
+        return oQg;
     }
 
-    public Map<Long, h> els() {
-        return oUJ;
+    public Map<Long, h> ehy() {
+        return oQh;
     }
 
     public h hT(long j) {
-        return oUJ.get(Long.valueOf(j));
+        return oQh.get(Long.valueOf(j));
     }
 
     public void a(long j, h hVar) {
-        oUJ.put(Long.valueOf(j), hVar);
+        oQh.put(Long.valueOf(j), hVar);
     }
 
     public void a(String str, long j, IIsSubscribedListener iIsSubscribedListener) {

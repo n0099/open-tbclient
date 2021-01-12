@@ -13,14 +13,14 @@ import com.baidu.tieba.pb.pb.main.l;
 import com.baidu.tieba.tbadkCore.data.PostData;
 /* loaded from: classes2.dex */
 public class PbReplyLoadMoreAdapter extends l<PostData, ReplyLoadMoreViewHolder> {
-    private View.OnClickListener bHO;
+    private View.OnClickListener bDc;
 
     public PbReplyLoadMoreAdapter(com.baidu.tieba.pb.videopb.b bVar, BdUniqueId bdUniqueId) {
         super(bVar, bdUniqueId);
     }
 
     public void setOnClickListener(View.OnClickListener onClickListener) {
-        this.bHO = onClickListener;
+        this.bDc = onClickListener;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -29,9 +29,9 @@ public class PbReplyLoadMoreAdapter extends l<PostData, ReplyLoadMoreViewHolder>
     /* renamed from: cq */
     public ReplyLoadMoreViewHolder e(ViewGroup viewGroup) {
         View inflate = LayoutInflater.from(this.mContext).inflate(R.layout.pb_reply_load_more_item, viewGroup, false);
-        inflate.findViewById(R.id.tv_pb_reply_more).setOnClickListener(this.bHO);
+        inflate.findViewById(R.id.tv_pb_reply_more).setOnClickListener(this.bDc);
         ReplyLoadMoreViewHolder replyLoadMoreViewHolder = new ReplyLoadMoreViewHolder(inflate);
-        replyLoadMoreViewHolder.bCP();
+        replyLoadMoreViewHolder.byV();
         return replyLoadMoreViewHolder;
     }
 
@@ -45,29 +45,29 @@ public class PbReplyLoadMoreAdapter extends l<PostData, ReplyLoadMoreViewHolder>
 
     /* loaded from: classes2.dex */
     public static class ReplyLoadMoreViewHolder extends TypeAdapter.ViewHolder {
-        private TextView lIf;
+        private TextView lDA;
 
         public ReplyLoadMoreViewHolder(View view) {
             super(view);
-            this.lIf = (TextView) view.findViewById(R.id.tv_pb_reply_more);
+            this.lDA = (TextView) view.findViewById(R.id.tv_pb_reply_more);
         }
 
         public void setData(PostData postData) {
             if (postData != null) {
-                if (postData.nrU) {
+                if (postData.nnn) {
                     Drawable drawable = ao.getDrawable(R.drawable.icon_emotion_smallarrow_n);
                     drawable.setBounds(0, 0, drawable.getMinimumWidth(), drawable.getMinimumHeight());
-                    this.lIf.setCompoundDrawables(null, null, drawable, null);
+                    this.lDA.setCompoundDrawables(null, null, drawable, null);
                     return;
                 }
                 Drawable drawable2 = ao.getDrawable(R.drawable.icon_emotion_smallarrow_down);
                 drawable2.setBounds(0, 0, drawable2.getMinimumWidth(), drawable2.getMinimumHeight());
-                this.lIf.setCompoundDrawables(null, null, drawable2, null);
+                this.lDA.setCompoundDrawables(null, null, drawable2, null);
             }
         }
 
-        public void bCP() {
-            ao.setViewTextColor(this.lIf, R.color.CAM_X0109);
+        public void byV() {
+            ao.setViewTextColor(this.lDA, R.color.CAM_X0109);
         }
     }
 }

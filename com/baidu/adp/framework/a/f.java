@@ -18,7 +18,7 @@ import java.util.List;
 /* loaded from: classes.dex */
 public class f {
     private static final String SECONDARY_FOLDER_NAME = "code_cache" + File.separator + "secondary-dexes";
-    public static a JA = null;
+    public static a Jy = null;
 
     private static SharedPreferences getMultiDexPreferences(Context context) {
         return context.getSharedPreferences("multidex.version", Build.VERSION.SDK_INT < 11 ? 0 : 4);
@@ -71,18 +71,18 @@ public class f {
     }
 
     public static void L(Context context) throws PackageManager.NameNotFoundException, IOException {
-        JA = new a(getSourcePaths(context));
-        JA.execute(new List[0]);
+        Jy = new a(getSourcePaths(context));
+        Jy.execute(new List[0]);
     }
 
     /* loaded from: classes.dex */
     public static class a extends BdAsyncTask<List<String>, Integer, String> {
-        public List<String> JB;
+        public List<String> Jz;
         public boolean finished = false;
-        public String JC = "";
+        public String JA = "";
 
         public a(List<String> list) {
-            this.JB = list;
+            this.Jz = list;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -92,7 +92,7 @@ public class f {
         public String doInBackground(List<String>... listArr) throws IOException {
             DexFile dexFile;
             Looper.prepare();
-            for (String str : this.JB) {
+            for (String str : this.Jz) {
                 try {
                     if (str.endsWith(".zip")) {
                         dexFile = DexFile.loadDex(str, str + ".tmp", 0);
@@ -103,9 +103,9 @@ public class f {
                     while (entries.hasMoreElements()) {
                         String nextElement = entries.nextElement();
                         if (nextElement.endsWith("Static")) {
-                            this.JC = nextElement;
+                            this.JA = nextElement;
                             Class.forName(nextElement);
-                            this.JC = "";
+                            this.JA = "";
                             Log.e("MultiLoadHelper", nextElement + l.isMainThread());
                         }
                     }
@@ -125,7 +125,7 @@ public class f {
         }
 
         public boolean br(String str) {
-            return (str == null || !str.equals(this.JC) || this.finished) ? false : true;
+            return (str == null || !str.equals(this.JA) || this.finished) ? false : true;
         }
     }
 }

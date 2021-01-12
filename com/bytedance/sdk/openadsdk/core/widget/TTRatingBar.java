@@ -12,10 +12,10 @@ import com.bytedance.sdk.openadsdk.utils.ak;
 public class TTRatingBar extends LinearLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f7077a;
+    private int f6777a;
 
     /* renamed from: b  reason: collision with root package name */
-    private int f7078b;
+    private int f6778b;
     private int c;
     private float d;
     private float e;
@@ -26,8 +26,8 @@ public class TTRatingBar extends LinearLayout {
 
     public TTRatingBar(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f7077a = 5;
-        this.f7078b = 0;
+        this.f6777a = 5;
+        this.f6778b = 0;
         this.c = 0;
         setOrientation(0);
         this.g = ac.c(context, "tt_star_empty_bg");
@@ -39,19 +39,19 @@ public class TTRatingBar extends LinearLayout {
     }
 
     public int getStarFillNum() {
-        return this.f7077a;
+        return this.f6777a;
     }
 
     public void setStarFillNum(int i) {
-        this.f7077a = i;
+        this.f6777a = i;
     }
 
     public int getStarHalfNum() {
-        return this.f7078b;
+        return this.f6778b;
     }
 
     public void setStarHalfNum(int i) {
-        this.f7078b = i;
+        this.f6778b = i;
     }
 
     public int getStarEmptyNum() {

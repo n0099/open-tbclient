@@ -4,7 +4,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class AlaGameFrsLiveListAdapter extends FragmentPagerAdapter {
     private List<Fragment> list;
 

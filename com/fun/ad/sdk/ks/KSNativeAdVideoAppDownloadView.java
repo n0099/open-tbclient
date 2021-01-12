@@ -22,18 +22,17 @@ import com.fun.ad.sdk.R;
 import com.kwad.sdk.api.KsAdVideoPlayConfig;
 import com.kwad.sdk.api.KsNativeAd;
 import java.util.ArrayList;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class KSNativeAdVideoAppDownloadView extends o1 {
 
     /* renamed from: a  reason: collision with root package name */
-    public TextView f8133a;
+    public TextView f7833a;
 
     /* renamed from: b  reason: collision with root package name */
-    public FrameLayout f8134b;
+    public FrameLayout f7834b;
     public ImageView c;
-    public ImageView d;
-    public TextView e;
-    public Button f;
+    public TextView d;
+    public Button e;
 
     public KSNativeAdVideoAppDownloadView(Context context) {
         this(context, null);
@@ -51,48 +50,47 @@ public class KSNativeAdVideoAppDownloadView extends o1 {
     public void a(Activity activity, String str, String str2, KsNativeAd ksNativeAd, KsNativeAd.AdInteractionListener adInteractionListener) {
         ArrayList arrayList = new ArrayList();
         arrayList.add(this);
-        arrayList.add(this.f);
+        arrayList.add(this.e);
         ksNativeAd.registerViewForInteraction(this, arrayList, adInteractionListener);
-        View videoView = ksNativeAd.getVideoView(activity, new KsAdVideoPlayConfig.Builder().videoSoundEnable(d.f8076b).dataFlowAutoStart(d.c).build());
+        View videoView = ksNativeAd.getVideoView(activity, new KsAdVideoPlayConfig.Builder().videoSoundEnable(d.f7776b).dataFlowAutoStart(d.c).build());
         m.a("KSNativeAd video videoView: " + videoView);
         if (videoView != null && videoView.getParent() != null) {
             ((ViewGroup) videoView.getParent()).removeView(videoView);
         }
         if (videoView != null) {
-            this.f8134b.removeAllViews();
-            this.f8134b.addView(videoView);
+            this.f7834b.removeAllViews();
+            this.f7834b.addView(videoView);
         }
-        this.c.setImageBitmap(ksNativeAd.getSdkLogo());
-        this.f8133a.setText(ksNativeAd.getAdDescription());
+        this.f7833a.setText(ksNativeAd.getAdDescription());
         if (TextUtils.isEmpty(ksNativeAd.getAppIconUrl())) {
-            this.d.setVisibility(8);
+            this.c.setVisibility(8);
         } else {
-            this.d.setVisibility(0);
-            ap.a.pJL.a(getContext(), ksNativeAd.getAppIconUrl(), this.d);
+            this.c.setVisibility(0);
+            ap.a.pFk.a(getContext(), ksNativeAd.getAppIconUrl(), this.c);
         }
-        this.e.setText(ksNativeAd.getAppName());
-        this.f.setText(ksNativeAd.getActionDescription());
-        ksNativeAd.setDownloadListener(new ai(ksNativeAd, this.f, str, FunAdType.KS_NATIVE, str2));
+        this.d.setText(ksNativeAd.getAppName());
+        this.e.setText(ksNativeAd.getActionDescription());
+        ksNativeAd.setDownloadListener(new ai(ksNativeAd, this.e, str, FunAdType.KS_NATIVE, str2));
     }
 
     @Override // android.view.View
     public void onFinishInflate() {
         super.onFinishInflate();
-        this.f8133a = (TextView) findViewById(R.id.ad_description);
-        this.f8134b = (FrameLayout) findViewById(R.id.ad_video);
-        this.c = (ImageView) findViewById(R.id.ad_logo);
-        this.d = (ImageView) findViewById(R.id.ad_app_icon);
-        this.e = (TextView) findViewById(R.id.ad_app_title);
-        this.f = (Button) findViewById(R.id.ad_app_download);
+        this.f7833a = (TextView) findViewById(R.id.ad_description);
+        this.f7834b = (FrameLayout) findViewById(R.id.ad_video);
+        ImageView imageView = (ImageView) findViewById(R.id.ad_logo);
+        this.c = (ImageView) findViewById(R.id.ad_app_icon);
+        this.d = (TextView) findViewById(R.id.ad_app_title);
+        this.e = (Button) findViewById(R.id.ad_app_download);
     }
 
     @Override // android.view.View
     public void onSizeChanged(int i, int i2, int i3, int i4) {
         super.onSizeChanged(i, i2, i3, i4);
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f8134b.getLayoutParams();
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f7834b.getLayoutParams();
         int i5 = (i - layoutParams.leftMargin) - layoutParams.rightMargin;
         layoutParams.width = i5;
         layoutParams.height = (int) (i5 / 1.78f);
-        this.f8134b.setLayoutParams(layoutParams);
+        this.f7834b.setLayoutParams(layoutParams);
     }
 }

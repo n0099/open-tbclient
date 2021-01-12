@@ -1,5 +1,5 @@
 package com.baidu.live.data;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class cs {
-    public String aUF;
+    public String aPS;
 }

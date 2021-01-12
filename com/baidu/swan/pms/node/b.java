@@ -8,22 +8,22 @@ public abstract class b implements e {
     @Override // com.baidu.swan.pms.node.e
     @Nullable
     public JSONArray a(@Nullable c<JSONArray> cVar) {
-        return (JSONArray) a(bhd(), cVar);
+        return (JSONArray) a(bdj(), cVar);
     }
 
     @Override // com.baidu.swan.pms.node.e
     @Nullable
     public JSONObject b(@Nullable c<JSONObject> cVar) {
-        return (JSONObject) a(bhe(), cVar);
+        return (JSONObject) a(bdk(), cVar);
     }
 
     @Nullable
-    protected JSONArray bhd() {
+    protected JSONArray bdj() {
         return null;
     }
 
     @Nullable
-    protected JSONObject bhe() {
+    protected JSONObject bdk() {
         return null;
     }
 

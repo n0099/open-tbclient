@@ -22,27 +22,27 @@ import com.qq.e.comm.plugin.y.u;
 import java.lang.ref.WeakReference;
 import java.util.LinkedHashMap;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static Map<String, WeakReference<Bitmap>> f11959a = new LinkedHashMap();
+    private static Map<String, WeakReference<Bitmap>> f11659a = new LinkedHashMap();
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.qq.e.comm.plugin.aa.b.a$2  reason: invalid class name */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static final class AnonymousClass2 implements com.qq.e.comm.plugin.p.b {
 
         /* renamed from: a  reason: collision with root package name */
-        final /* synthetic */ long f11962a;
+        final /* synthetic */ long f11662a;
 
         /* renamed from: b  reason: collision with root package name */
-        final /* synthetic */ ViewGroup f11963b;
+        final /* synthetic */ ViewGroup f11663b;
         final /* synthetic */ ImageView c;
 
         AnonymousClass2(long j, ViewGroup viewGroup, ImageView imageView) {
-            this.f11962a = j;
-            this.f11963b = viewGroup;
+            this.f11662a = j;
+            this.f11663b = viewGroup;
             this.c = imageView;
         }
 
@@ -52,8 +52,8 @@ public class a {
 
         @Override // com.qq.e.comm.plugin.p.b
         public void a(final String str, ImageView imageView, final com.qq.e.comm.plugin.p.e eVar) {
-            ai.a("BGBlurHelper", "BG Blur download image cost : " + (System.currentTimeMillis() - this.f11962a));
-            s.f12889a.submit(new Runnable() { // from class: com.qq.e.comm.plugin.aa.b.a.2.1
+            ai.a("BGBlurHelper", "BG Blur download image cost : " + (System.currentTimeMillis() - this.f11662a));
+            s.f12589a.submit(new Runnable() { // from class: com.qq.e.comm.plugin.aa.b.a.2.1
                 @Override // java.lang.Runnable
                 public void run() {
                     Bitmap a2 = eVar.a();
@@ -63,12 +63,12 @@ public class a {
                     Bitmap copy = a2.copy(Bitmap.Config.ARGB_8888, true);
                     Matrix matrix = new Matrix();
                     matrix.preScale(0.25f, 0.25f);
-                    final Bitmap b2 = a.b(Bitmap.createBitmap(copy, 0, 0, copy.getWidth(), copy.getHeight(), matrix, false), AnonymousClass2.this.f11963b.getContext());
-                    a.f11959a.put(str, new WeakReference(b2));
+                    final Bitmap b2 = a.b(Bitmap.createBitmap(copy, 0, 0, copy.getWidth(), copy.getHeight(), matrix, false), AnonymousClass2.this.f11663b.getContext());
+                    a.f11659a.put(str, new WeakReference(b2));
                     new Handler(Looper.getMainLooper()).post(new Runnable() { // from class: com.qq.e.comm.plugin.aa.b.a.2.1.1
                         @Override // java.lang.Runnable
                         public void run() {
-                            a.b(AnonymousClass2.this.c, b2, AnonymousClass2.this.f11963b, AnonymousClass2.this.f11962a);
+                            a.b(AnonymousClass2.this.c, b2, AnonymousClass2.this.f11663b, AnonymousClass2.this.f11662a);
                         }
                     });
                 }
@@ -184,7 +184,7 @@ public class a {
         imageView2.setScaleType(ImageView.ScaleType.FIT_XY);
         imageView2.setBackgroundColor(i);
         viewGroup.addView(imageView2, 0);
-        WeakReference<Bitmap> weakReference = f11959a.get(str);
+        WeakReference<Bitmap> weakReference = f11659a.get(str);
         if (weakReference == null || weakReference.get() == null) {
             com.qq.e.comm.plugin.p.a.a().a(str, imageView, new AnonymousClass2(currentTimeMillis, viewGroup, imageView));
             return;

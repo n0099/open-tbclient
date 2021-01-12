@@ -11,6 +11,7 @@ import android.webkit.WebViewClient;
 import com.baidu.android.util.io.BaseJsonData;
 import com.baidu.ar.constants.HttpConstants;
 import com.baidu.live.adp.lib.stats.BdStatsConstant;
+import com.baidu.mobstat.Config;
 import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.sapi2.SapiContext;
 import com.baidu.sapi2.outsdk.OneKeyLoginSdkCall;
@@ -34,26 +35,26 @@ import org.xmlpull.v1.XmlPullParser;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f5385a = "d";
+    public static final String f5102a = "d";
 
     /* renamed from: b  reason: collision with root package name */
-    private static final String f5386b = "file:///android_asset/";
+    private static final String f5103b = "file:///android_asset/";
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes3.dex */
     public static class a extends WebViewClient {
 
         /* renamed from: a  reason: collision with root package name */
-        final /* synthetic */ WebView f5387a;
+        final /* synthetic */ WebView f5104a;
 
         /* renamed from: b  reason: collision with root package name */
-        final /* synthetic */ String f5388b;
+        final /* synthetic */ String f5105b;
         final /* synthetic */ com.baidu.sapi2.callback.a.a c;
 
         /* renamed from: com.baidu.sapi2.utils.d$a$a  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        class C0351a implements ValueCallback<String> {
-            C0351a() {
+        class C0334a implements ValueCallback<String> {
+            C0334a() {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -61,13 +62,13 @@ public class d {
             /* renamed from: a */
             public void onReceiveValue(String str) {
                 a.this.c.a(str);
-                a.this.f5387a.destroy();
+                a.this.f5104a.destroy();
             }
         }
 
         a(WebView webView, String str, com.baidu.sapi2.callback.a.a aVar) {
-            this.f5387a = webView;
-            this.f5388b = str;
+            this.f5104a = webView;
+            this.f5105b = str;
             this.c = aVar;
         }
 
@@ -75,19 +76,19 @@ public class d {
         public void onPageFinished(WebView webView, String str) {
             super.onPageFinished(webView, str);
             if (Build.VERSION.SDK_INT >= 19) {
-                this.f5387a.evaluateJavascript(this.f5388b, new C0351a());
+                this.f5104a.evaluateJavascript(this.f5105b, new C0334a());
                 return;
             }
             this.c.a(null);
-            this.f5387a.destroy();
+            this.f5104a.destroy();
         }
     }
 
     public static InputStream a(Context context, String str) {
         InputStream fileInputStream;
         try {
-            if (str.startsWith(f5386b)) {
-                fileInputStream = context.getAssets().open(str.replace(f5386b, ""));
+            if (str.startsWith(f5103b)) {
+                fileInputStream = context.getAssets().open(str.replace(f5103b, ""));
             } else {
                 fileInputStream = new FileInputStream(str);
             }
@@ -105,7 +106,7 @@ public class d {
         HashMap hashMap = new HashMap();
         hashMap.put("r", 4);
         hashMap.put("w", 2);
-        hashMap.put("x", 1);
+        hashMap.put(Config.EVENT_HEAT_X, 1);
         hashMap.put(Constants.ACCEPT_TIME_SEPARATOR_SERVER, 0);
         int i = 1;
         int i2 = 0;
@@ -194,7 +195,7 @@ public class d {
                 str2 = "chmod " + b2.substring(0, 2) + "1 " + file;
             } else {
                 str = b2;
-                Log.e(f5385a, "chmodFile", "command", str3, "originPer", str);
+                Log.e(f5102a, "chmodFile", "command", str3, "originPer", str);
                 if (str3 == null) {
                     process2 = runtime.exec(str3);
                     try {
@@ -229,7 +230,7 @@ public class d {
             }
             str3 = str2;
             str = b2;
-            Log.e(f5385a, "chmodFile", "command", str3, "originPer", str);
+            Log.e(f5102a, "chmodFile", "command", str3, "originPer", str);
             if (str3 == null) {
             }
             if (process2 == null) {

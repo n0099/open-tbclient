@@ -8,13 +8,13 @@ import android.widget.TextView;
 import com.baidu.adp.base.f;
 import com.baidu.tbadk.core.util.ao;
 import com.baidu.tieba.R;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class b extends a {
     private static int mPadding;
-    private TextView ocl;
-    private TextView ocm;
-    private TextView ocn;
-    private TextView oco;
+    private TextView nXF;
+    private TextView nXG;
+    private TextView nXH;
+    private TextView nXI;
 
     public b(f fVar) {
         super(fVar);
@@ -26,37 +26,37 @@ public class b extends a {
     }
 
     public void H(View.OnClickListener onClickListener) {
-        this.ocl.setTag(0);
-        this.ocm.setTag(1);
-        this.ocn.setTag(2);
-        this.oco.setTag(3);
-        this.ocl.setOnClickListener(onClickListener);
-        this.ocm.setOnClickListener(onClickListener);
-        this.ocn.setOnClickListener(onClickListener);
-        this.oco.setOnClickListener(onClickListener);
+        this.nXF.setTag(0);
+        this.nXG.setTag(1);
+        this.nXH.setTag(2);
+        this.nXI.setTag(3);
+        this.nXF.setOnClickListener(onClickListener);
+        this.nXG.setOnClickListener(onClickListener);
+        this.nXH.setOnClickListener(onClickListener);
+        this.nXI.setOnClickListener(onClickListener);
     }
 
     @Override // com.baidu.tieba.write.view.a.a
     protected void initView() {
         this.mRootView = LayoutInflater.from(this.mBdPageContext.getPageActivity()).inflate(R.layout.pic_rorate_view, (ViewGroup) null);
-        this.ocl = (TextView) this.mRootView.findViewById(R.id.rotate_left);
-        this.ocm = (TextView) this.mRootView.findViewById(R.id.rotate_right);
-        this.ocn = (TextView) this.mRootView.findViewById(R.id.rotate_left_right);
-        this.oco = (TextView) this.mRootView.findViewById(R.id.rotate_up_down);
+        this.nXF = (TextView) this.mRootView.findViewById(R.id.rotate_left);
+        this.nXG = (TextView) this.mRootView.findViewById(R.id.rotate_right);
+        this.nXH = (TextView) this.mRootView.findViewById(R.id.rotate_left_right);
+        this.nXI = (TextView) this.mRootView.findViewById(R.id.rotate_up_down);
     }
 
     public void onChangeSkinType() {
-        ao.setViewTextColor(this.ocl, R.color.CAM_X0107);
-        ao.setViewTextColor(this.ocm, R.color.CAM_X0107);
-        ao.setViewTextColor(this.ocn, R.color.CAM_X0107);
-        ao.setViewTextColor(this.oco, R.color.CAM_X0107);
-        this.ocl.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, ao.getDrawable(R.drawable.filter_rotate_left), (Drawable) null, (Drawable) null);
-        this.ocm.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, ao.getDrawable(R.drawable.filter_rotate_right), (Drawable) null, (Drawable) null);
-        this.oco.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, ao.getDrawable(R.drawable.filter_flip_up_down), (Drawable) null, (Drawable) null);
-        this.ocn.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, ao.getDrawable(R.drawable.filter_flip_left_right), (Drawable) null, (Drawable) null);
-        this.ocl.setCompoundDrawablePadding(mPadding);
-        this.ocm.setCompoundDrawablePadding(mPadding);
-        this.oco.setCompoundDrawablePadding(mPadding);
-        this.ocn.setCompoundDrawablePadding(mPadding);
+        ao.setViewTextColor(this.nXF, R.color.CAM_X0107);
+        ao.setViewTextColor(this.nXG, R.color.CAM_X0107);
+        ao.setViewTextColor(this.nXH, R.color.CAM_X0107);
+        ao.setViewTextColor(this.nXI, R.color.CAM_X0107);
+        this.nXF.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, ao.getDrawable(R.drawable.filter_rotate_left), (Drawable) null, (Drawable) null);
+        this.nXG.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, ao.getDrawable(R.drawable.filter_rotate_right), (Drawable) null, (Drawable) null);
+        this.nXI.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, ao.getDrawable(R.drawable.filter_flip_up_down), (Drawable) null, (Drawable) null);
+        this.nXH.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, ao.getDrawable(R.drawable.filter_flip_left_right), (Drawable) null, (Drawable) null);
+        this.nXF.setCompoundDrawablePadding(mPadding);
+        this.nXG.setCompoundDrawablePadding(mPadding);
+        this.nXI.setCompoundDrawablePadding(mPadding);
+        this.nXH.setCompoundDrawablePadding(mPadding);
     }
 }

@@ -26,7 +26,7 @@ import com.kwad.sdk.widget.DownloadProgressBar;
 import java.io.Serializable;
 @KsAdSdkDynamicImpl(AdWebViewActivity.class)
 @Keep
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class AdWebViewVideoActivityProxy extends IFragmentActivityProxy {
     public static final String KEY_REPORTED = "key_reported";
     public static final String KEY_TEMPLATE = "key_template";

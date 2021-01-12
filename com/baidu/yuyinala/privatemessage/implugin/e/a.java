@@ -11,9 +11,9 @@ import com.baidu.yuyinala.privatemessage.implugin.util.c;
 import com.baidu.yuyinala.privatemessage.implugin.util.e;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class a {
-    private static a oUv;
+    private static a oPT;
     private Context mContext;
 
     private a(Context context) {
@@ -24,53 +24,53 @@ public class a {
         this.mContext = context;
     }
 
-    public static synchronized a hA(Context context) {
+    public static synchronized a hy(Context context) {
         a aVar;
         synchronized (a.class) {
-            if (oUv == null) {
-                oUv = new a(context.getApplicationContext());
+            if (oPT == null) {
+                oPT = new a(context.getApplicationContext());
             }
-            aVar = oUv;
+            aVar = oPT;
         }
         return aVar;
     }
 
     public void add(String str, String str2) {
-        if ((ChatInfo.oTH == ChatInfo.ChatCategory.DUZHAN || ChatInfo.oTH == ChatInfo.ChatCategory.SMART || ChatInfo.oTH == ChatInfo.ChatCategory.C2C) && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
-            String gZ = gZ(str, str2);
-            if (!TextUtils.isEmpty(gZ)) {
-                b.elm().onEvent(str, gZ);
+        if ((ChatInfo.oPf == ChatInfo.ChatCategory.DUZHAN || ChatInfo.oPf == ChatInfo.ChatCategory.SMART || ChatInfo.oPf == ChatInfo.ChatCategory.C2C) && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
+            String gY = gY(str, str2);
+            if (!TextUtils.isEmpty(gY)) {
+                b.ehs().onEvent(str, gY);
             }
         }
     }
 
     public void e(String str, String str2, int i, String str3) {
-        if ((ChatInfo.oTH == ChatInfo.ChatCategory.DUZHAN || ChatInfo.oTH == ChatInfo.ChatCategory.C2C) && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
+        if ((ChatInfo.oPf == ChatInfo.ChatCategory.DUZHAN || ChatInfo.oPf == ChatInfo.ChatCategory.C2C) && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
             String f = f(str, str2, i, str3);
             if (!TextUtils.isEmpty(f)) {
-                b.elm().onEvent(str, f);
+                b.ehs().onEvent(str, f);
             }
         }
     }
 
-    public String gZ(String str, String str2) {
-        if ((ChatInfo.oTH != ChatInfo.ChatCategory.DUZHAN && ChatInfo.oTH != ChatInfo.ChatCategory.SMART && ChatInfo.oTH != ChatInfo.ChatCategory.C2C) || TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
+    public String gY(String str, String str2) {
+        if ((ChatInfo.oPf != ChatInfo.ChatCategory.DUZHAN && ChatInfo.oPf != ChatInfo.ChatCategory.SMART && ChatInfo.oPf != ChatInfo.ChatCategory.C2C) || TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
             return "";
         }
         try {
-            JSONObject ha = ha(str, str2);
+            JSONObject gZ = gZ(str, str2);
             JSONObject jSONObject = new JSONObject();
-            if (ChatInfo.oTH == ChatInfo.ChatCategory.DUZHAN) {
+            if (ChatInfo.oPf == ChatInfo.ChatCategory.DUZHAN) {
                 jSONObject.put("paid", ChatInfo.mPaid);
             }
-            if (b.elm().isCuidLogin(this.mContext)) {
+            if (b.ehs().isCuidLogin(this.mContext)) {
                 jSONObject.put("account_type", "cuid");
             } else {
                 jSONObject.put("account_type", "uid");
             }
-            ha.put("ext", jSONObject);
-            c.d("StatisticsManager", "statistcs = " + ha.toString());
-            return ha.toString();
+            gZ.put("ext", jSONObject);
+            c.d("StatisticsManager", "statistcs = " + gZ.toString());
+            return gZ.toString();
         } catch (JSONException e) {
             e.printStackTrace();
             return "";
@@ -82,10 +82,10 @@ public class a {
             return "";
         }
         try {
-            JSONObject ha = ha(str, str2);
+            JSONObject gZ = gZ(str, str2);
             JSONObject jSONObject = new JSONObject();
             jSONObject.put("paid", ChatInfo.mPaid);
-            if (b.elm().isCuidLogin(this.mContext)) {
+            if (b.ehs().isCuidLogin(this.mContext)) {
                 jSONObject.put("account_type", "cuid");
             } else {
                 jSONObject.put("account_type", "uid");
@@ -96,30 +96,30 @@ public class a {
             if (!TextUtils.isEmpty(str3)) {
                 jSONObject.put(LogConfig.LOG_EXT_LOG, str3);
             }
-            ha.put("ext", jSONObject);
-            c.d("StatisticsManager", "statistcs = " + ha.toString());
-            return ha.toString();
+            gZ.put("ext", jSONObject);
+            c.d("StatisticsManager", "statistcs = " + gZ.toString());
+            return gZ.toString();
         } catch (JSONException e) {
             e.printStackTrace();
             return "";
         }
     }
 
-    private JSONObject ha(String str, String str2) throws JSONException {
+    private JSONObject gZ(String str, String str2) throws JSONException {
         JSONObject jSONObject = new JSONObject();
         jSONObject.put("network", getNetType());
         jSONObject.put("from", "IM");
         jSONObject.put("type", "");
-        if (ChatInfo.oTH == ChatInfo.ChatCategory.DUZHAN) {
+        if (ChatInfo.oPf == ChatInfo.ChatCategory.DUZHAN) {
             if (ChatInfo.mPainfo != null && ChatInfo.mPainfo.getSubsetType() == 16) {
                 jSONObject.put("page", "xianst");
             } else {
                 jSONObject.put("page", "guanfanghao");
             }
-        } else if (ChatInfo.oTH == ChatInfo.ChatCategory.SMART) {
+        } else if (ChatInfo.oPf == ChatInfo.ChatCategory.SMART) {
             jSONObject.put("page", GameWebViewJavascriptInterface.JAVASCRIPT_INTERFACE_NAME);
-        } else if (ChatInfo.oTH == ChatInfo.ChatCategory.C2C) {
-            if (ChatInfo.oTS) {
+        } else if (ChatInfo.oPf == ChatInfo.ChatCategory.C2C) {
+            if (ChatInfo.oPq) {
                 jSONObject.put("page", "minigame");
             } else {
                 jSONObject.put("page", Constants.PAGE_C2C_NAME);
@@ -128,24 +128,24 @@ public class a {
         if (str.equals("417")) {
             jSONObject.put("source", "");
         } else {
-            jSONObject.put("source", ChatInfo.oTR);
+            jSONObject.put("source", ChatInfo.oPp);
         }
         jSONObject.put("value", str2);
         return jSONObject;
     }
 
     private String getNetType() {
-        int hG = e.hG(this.mContext);
-        if (hG == 100) {
+        int hE = e.hE(this.mContext);
+        if (hE == 100) {
             return "wifi";
         }
-        if (hG == 1 || hG == 2 || hG == 4 || hG == 7 || hG == 10) {
+        if (hE == 1 || hE == 2 || hE == 4 || hE == 7 || hE == 10) {
             return "2g";
         }
-        if (hG == 3 || hG == 5 || hG == 6 || hG == 8 || hG == 9 || hG == 11 || hG == 12 || hG == 14) {
+        if (hE == 3 || hE == 5 || hE == 6 || hE == 8 || hE == 9 || hE == 11 || hE == 12 || hE == 14) {
             return "3g";
         }
-        if (hG == 13) {
+        if (hE == 13) {
             return "4g";
         }
         return "other";

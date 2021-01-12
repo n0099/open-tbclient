@@ -13,10 +13,10 @@ import java.util.Map;
 public class c implements g {
 
     /* renamed from: a  reason: collision with root package name */
-    private final WeakReference<Context> f7362a;
+    private final WeakReference<Context> f7062a;
 
     public c(Context context) {
-        this.f7362a = new WeakReference<>(context);
+        this.f7062a = new WeakReference<>(context);
     }
 
     @Override // com.ss.android.a.a.a.g
@@ -50,8 +50,8 @@ public class c implements g {
                 i = 0;
                 break;
         }
-        i esj = i.esj();
-        new j(i, str2, esj) { // from class: com.bytedance.sdk.openadsdk.downloadnew.a.a.c.1
+        i eop = i.eop();
+        new j(i, str2, eop) { // from class: com.bytedance.sdk.openadsdk.downloadnew.a.a.c.1
             @Override // com.bytedance.sdk.adnet.core.Request
             protected Map<String, String> c() throws com.bytedance.sdk.adnet.err.a {
                 HashMap hashMap = new HashMap();
@@ -62,21 +62,21 @@ public class c implements g {
             }
         }.build(com.bytedance.sdk.openadsdk.i.e.a(com.bytedance.sdk.openadsdk.core.p.a()).d());
         try {
-            pVar2 = esj.get();
+            pVar2 = eop.get();
         } catch (Throwable th) {
             pVar2 = null;
         }
         if (pVar2 != null && pVar2.a()) {
             if (pVar != null) {
-                pVar.a((String) pVar2.f6345a);
+                pVar.a((String) pVar2.f6045a);
                 return;
             }
             return;
         }
-        boolean z = TextUtils.isEmpty(pVar2 != null && pVar2.ppF != null ? pVar2.ppF.getMessage() : null) ? false : true;
+        boolean z = TextUtils.isEmpty(pVar2 != null && pVar2.pkZ != null ? pVar2.pkZ.getMessage() : null) ? false : true;
         if (pVar != null) {
             if (z) {
-                valueOf = pVar2.ppF.getMessage();
+                valueOf = pVar2.pkZ.getMessage();
             } else {
                 valueOf = pVar2 != null ? String.valueOf(pVar2.h) : "";
             }

@@ -1,7 +1,7 @@
 package com.baidu.swan.games.f.a;
 
 import com.baidu.searchbox.v8engine.V8Engine;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class a {
     private V8Engine mEngine;
 
@@ -10,14 +10,14 @@ public class a {
     }
 
     public void log(String str) {
-        ay(1, str);
+        az(1, str);
     }
 
     public void error(String str) {
-        ay(4, str);
+        az(4, str);
     }
 
-    private void ay(int i, String str) {
+    private void az(int i, String str) {
         this.mEngine.onConsoleCallBack(i, str);
     }
 }

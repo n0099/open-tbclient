@@ -3,7 +3,7 @@ package com.kwai.video.player.misc;
 import android.text.TextUtils;
 import com.baidu.android.util.devices.RomUtils;
 import com.kwai.video.player.KsMediaMeta;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class KsTrackInfo implements ITrackInfo {
     private KsMediaMeta.KSYStreamMeta mStreamMeta;
     private int mTrackType = 0;

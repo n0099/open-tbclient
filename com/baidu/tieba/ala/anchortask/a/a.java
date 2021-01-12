@@ -27,134 +27,134 @@ import com.kwad.sdk.collector.AppStatusRules;
 import java.util.ArrayList;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class a implements com.baidu.live.b.a {
     private x alaLiveShowData;
     private Context context;
-    private com.baidu.tieba.ala.anchortask.c.a gMD;
-    private com.baidu.tieba.ala.anchortask.b.c gME;
-    private String gMF;
-    private int gMI;
-    private int gMJ;
-    private d gMK;
-    private AlaAnchorBannerViewPager gML;
-    private MyPagerAdapter gMN;
-    private AlaAnchorViewPagerDot gMO;
-    private int gMP;
+    private com.baidu.tieba.ala.anchortask.c.a gHX;
+    private com.baidu.tieba.ala.anchortask.b.c gHY;
+    private String gHZ;
+    private int gIc;
+    private int gId;
+    private d gIe;
+    private AlaAnchorBannerViewPager gIf;
+    private MyPagerAdapter gIh;
+    private AlaAnchorViewPagerDot gIi;
+    private int gIj;
     private Activity mActivity;
     private View mView;
     private Handler handler = new Handler();
-    private Handler gMG = new Handler();
-    private boolean gMH = false;
-    private ArrayList<View> gMM = new ArrayList<>();
+    private Handler gIa = new Handler();
+    private boolean gIb = false;
+    private ArrayList<View> gIg = new ArrayList<>();
     private Runnable runnable = new Runnable() { // from class: com.baidu.tieba.ala.anchortask.a.a.1
         @Override // java.lang.Runnable
         public void run() {
-            a.this.bVS();
+            a.this.bSa();
             a.this.handler.postDelayed(a.this.runnable, AppStatusRules.DEFAULT_GRANULARITY);
         }
     };
-    private Runnable gMQ = new Runnable() { // from class: com.baidu.tieba.ala.anchortask.a.a.2
+    private Runnable gIk = new Runnable() { // from class: com.baidu.tieba.ala.anchortask.a.a.2
         @Override // java.lang.Runnable
         public void run() {
-            a.this.gMK.gNc.setCanVisible(true);
+            a.this.gIe.gIw.setCanVisible(true);
         }
     };
     private View.OnClickListener onClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.ala.anchortask.a.a.3
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (!TextUtils.isEmpty(a.this.gMF)) {
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913141, a.this.gMF));
+            if (!TextUtils.isEmpty(a.this.gHZ)) {
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913141, a.this.gHZ));
             }
-            a.this.bVS();
+            a.this.bSa();
             a.this.handler.removeCallbacksAndMessages(null);
             a.this.handler.postDelayed(a.this.runnable, AppStatusRules.DEFAULT_GRANULARITY);
         }
     };
-    private SlideRatioViewPager.OnPageChangeListener gMR = new SlideRatioViewPager.OnPageChangeListener() { // from class: com.baidu.tieba.ala.anchortask.a.a.4
+    private SlideRatioViewPager.OnPageChangeListener gIl = new SlideRatioViewPager.OnPageChangeListener() { // from class: com.baidu.tieba.ala.anchortask.a.a.4
         @Override // com.baidu.live.tbadk.widget.SlideRatioViewPager.OnPageChangeListener
         public void onPageScrolled(int i, float f, int i2) {
         }
 
         @Override // com.baidu.live.tbadk.widget.SlideRatioViewPager.OnPageChangeListener
         public void onPageSelected(int i) {
-            a.this.gMO.vB(i);
+            a.this.gIi.tV(i);
         }
 
         @Override // com.baidu.live.tbadk.widget.SlideRatioViewPager.OnPageChangeListener
         public void onPageScrollStateChanged(int i) {
         }
     };
-    private HttpMessageListener gMS = new HttpMessageListener(1021172) { // from class: com.baidu.tieba.ala.anchortask.a.a.5
+    private HttpMessageListener gIm = new HttpMessageListener(1021172) { // from class: com.baidu.tieba.ala.anchortask.a.a.5
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            if (httpResponsedMessage != null && (httpResponsedMessage instanceof GetAnchorTaskInfoHttpResponseMessage) && a.this.gMD != null) {
-                a.this.gME = ((GetAnchorTaskInfoHttpResponseMessage) httpResponsedMessage).gME;
-                if (a.this.gME != null && a.this.gME.gNA != null) {
-                    a.this.gMF = a.this.gME.gMF;
-                    a.this.bVT();
-                    boolean a2 = a.this.gMD.a(a.this.gME.gNA);
-                    if (a.this.gMP == 1) {
-                        a.this.gMK.gNc.setCanVisible(true);
+            if (httpResponsedMessage != null && (httpResponsedMessage instanceof GetAnchorTaskInfoHttpResponseMessage) && a.this.gHX != null) {
+                a.this.gHY = ((GetAnchorTaskInfoHttpResponseMessage) httpResponsedMessage).gHY;
+                if (a.this.gHY != null && a.this.gHY.gIU != null) {
+                    a.this.gHZ = a.this.gHY.gHZ;
+                    a.this.bSb();
+                    boolean a2 = a.this.gHX.a(a.this.gHY.gIU);
+                    if (a.this.gIj == 1) {
+                        a.this.gIe.gIw.setCanVisible(true);
                         if (a2) {
-                            if (a.this.gMM.size() <= 1 && a.this.gMD != null) {
-                                a.this.gMM.add(a.this.gMD.getView());
-                                a.this.gML.setAdapter(new MyPagerAdapter(a.this.context, a.this.gMM));
-                                a.this.gMO.vC(a.this.gMM.size());
+                            if (a.this.gIg.size() <= 1 && a.this.gHX != null) {
+                                a.this.gIg.add(a.this.gHX.getView());
+                                a.this.gIf.setAdapter(new MyPagerAdapter(a.this.context, a.this.gIg));
+                                a.this.gIi.tW(a.this.gIg.size());
                             }
-                        } else if (a.this.gMM.size() == 2) {
-                            a.this.gMM.remove(1);
-                            a.this.gML.setAdapter(new MyPagerAdapter(a.this.context, a.this.gMM));
-                            a.this.gMO.vC(a.this.gMM.size());
+                        } else if (a.this.gIg.size() == 2) {
+                            a.this.gIg.remove(1);
+                            a.this.gIf.setAdapter(new MyPagerAdapter(a.this.context, a.this.gIg));
+                            a.this.gIi.tW(a.this.gIg.size());
                         }
                     } else if (!a2) {
-                        a.this.gMM.clear();
+                        a.this.gIg.clear();
                         a.this.mView.setVisibility(8);
-                    } else if (a.this.gMD != null) {
-                        a.this.gMM.clear();
-                        a.this.gMM.add(a.this.gMD.getView());
-                        a.this.gML.setAdapter(new MyPagerAdapter(a.this.context, a.this.gMM));
-                        a.this.gMO.vC(a.this.gMM.size());
+                    } else if (a.this.gHX != null) {
+                        a.this.gIg.clear();
+                        a.this.gIg.add(a.this.gHX.getView());
+                        a.this.gIf.setAdapter(new MyPagerAdapter(a.this.context, a.this.gIg));
+                        a.this.gIi.tW(a.this.gIg.size());
                     }
-                    if (a.this.gME.gNA.gNo == 2) {
+                    if (a.this.gHY.gIU.gII == 2) {
                         a.this.handler.removeCallbacksAndMessages(null);
                     }
                 }
             }
         }
     };
-    private Runnable gMT = new Runnable() { // from class: com.baidu.tieba.ala.anchortask.a.a.6
+    private Runnable gIn = new Runnable() { // from class: com.baidu.tieba.ala.anchortask.a.a.6
         @Override // java.lang.Runnable
         public void run() {
             a.this.mActivity.runOnUiThread(new Runnable() { // from class: com.baidu.tieba.ala.anchortask.a.a.6.1
                 @Override // java.lang.Runnable
                 public void run() {
-                    int currentItem = a.this.gML.getCurrentItem() + 1;
-                    if (a.this.gMM.size() > 0) {
-                        a.this.gML.setCurrentItem(currentItem % a.this.gMM.size());
-                        a.this.gMO.vB(currentItem % a.this.gMM.size());
+                    int currentItem = a.this.gIf.getCurrentItem() + 1;
+                    if (a.this.gIg.size() > 0) {
+                        a.this.gIf.setCurrentItem(currentItem % a.this.gIg.size());
+                        a.this.gIi.tV(currentItem % a.this.gIg.size());
                     }
                 }
             });
-            a.this.gMG.postDelayed(a.this.gMT, 10000L);
+            a.this.gIa.postDelayed(a.this.gIn, 10000L);
         }
     };
-    CustomMessageListener gMU = new CustomMessageListener(2913284) { // from class: com.baidu.tieba.ala.anchortask.a.a.7
+    CustomMessageListener gIo = new CustomMessageListener(2913284) { // from class: com.baidu.tieba.ala.anchortask.a.a.7
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (customResponsedMessage != null && a.this.gML != null) {
-                a.this.gML.setVisibility(8);
+            if (customResponsedMessage != null && a.this.gIf != null) {
+                a.this.gIf.setVisibility(8);
             }
         }
     };
-    CustomMessageListener gMV = new CustomMessageListener(2913283) { // from class: com.baidu.tieba.ala.anchortask.a.a.8
+    CustomMessageListener gIp = new CustomMessageListener(2913283) { // from class: com.baidu.tieba.ala.anchortask.a.a.8
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (customResponsedMessage != null && a.this.gML != null) {
-                a.this.gML.setVisibility(0);
+            if (customResponsedMessage != null && a.this.gIf != null) {
+                a.this.gIf.setVisibility(0);
             }
         }
     };
@@ -162,56 +162,56 @@ public class a implements com.baidu.live.b.a {
     public a(Context context) {
         this.context = context;
         initTasks();
-        this.gMD = new com.baidu.tieba.ala.anchortask.c.a(context);
-        this.gMK = new d(context);
-        this.gMD.getView().setId(a.f.ala_main_anthor_task_entry_id);
-        if (this.gMD.getView() != null) {
-            this.gMD.getView().setOnClickListener(this.onClickListener);
+        this.gHX = new com.baidu.tieba.ala.anchortask.c.a(context);
+        this.gIe = new d(context);
+        this.gHX.getView().setId(a.f.ala_main_anthor_task_entry_id);
+        if (this.gHX.getView() != null) {
+            this.gHX.getView().setOnClickListener(this.onClickListener);
         }
     }
 
     @Override // com.baidu.live.b.a
     public void a(ViewGroup viewGroup, ViewGroup.LayoutParams layoutParams, Activity activity, int i) {
         boolean z;
-        cc ccVar = com.baidu.live.af.a.SE().bCb.aRL;
+        cc ccVar = com.baidu.live.af.a.OJ().bxp.aMY;
         this.mActivity = activity;
-        if (ccVar != null && this.gMK != null) {
-            this.gMK.vA(i);
+        if (ccVar != null && this.gIe != null) {
+            this.gIe.tU(i);
             if (TbadkCoreApplication.getInst().isHaokan()) {
-                z = ccVar.aSD == 1;
+                z = ccVar.aNQ == 1;
             } else if (TbadkCoreApplication.getInst().isQuanmin() || TbadkCoreApplication.getInst().isYinbo()) {
-                z = ccVar.aSE == 1;
+                z = ccVar.aNR == 1;
             } else if (TbadkCoreApplication.getInst().isTieba()) {
-                z = ccVar.aSF == 1;
+                z = ccVar.aNS == 1;
             } else if (TbadkCoreApplication.getInst().isMobileBaidu()) {
-                z = ccVar.aSG == 1;
+                z = ccVar.aNT == 1;
             } else {
                 z = false;
             }
             if (z) {
-                if (this.gMD != null) {
+                if (this.gHX != null) {
                     this.mView = LayoutInflater.from(this.context).inflate(a.g.layout_anchor_viewpager, (ViewGroup) null);
-                    this.gMO = (AlaAnchorViewPagerDot) this.mView.findViewById(a.f.anchor_task_dot);
+                    this.gIi = (AlaAnchorViewPagerDot) this.mView.findViewById(a.f.anchor_task_dot);
                     this.mView.setId(a.f.anthor_task_viewpager_id);
-                    this.gML = (AlaAnchorBannerViewPager) this.mView.findViewById(a.f.anchor_view_pager);
-                    this.gML.requestDisallowInterceptTouchEvent(true);
-                    this.gMP = i;
+                    this.gIf = (AlaAnchorBannerViewPager) this.mView.findViewById(a.f.anchor_view_pager);
+                    this.gIf.requestDisallowInterceptTouchEvent(true);
+                    this.gIj = i;
                     if (i == 1) {
-                        this.gMM.add(this.gMK.gNc.getView());
-                        this.gMK.gNc.setCanVisible(false);
-                        this.gMG.postDelayed(this.gMQ, 10000L);
+                        this.gIg.add(this.gIe.gIw.getView());
+                        this.gIe.gIw.setCanVisible(false);
+                        this.gIa.postDelayed(this.gIk, 10000L);
                     }
-                    this.gMD.Z(this.gMM);
-                    this.gMN = new MyPagerAdapter(this.context, this.gMM);
-                    this.gML.setAdapter(this.gMN);
-                    this.gMO.vC(this.gMM.size());
+                    this.gHX.U(this.gIg);
+                    this.gIh = new MyPagerAdapter(this.context, this.gIg);
+                    this.gIf.setAdapter(this.gIh);
+                    this.gIi.tW(this.gIg.size());
                     viewGroup.addView(this.mView, layoutParams);
-                    this.gMG.postDelayed(this.gMT, 10000L);
-                    this.gML.addOnPageChangeListener(this.gMR);
+                    this.gIa.postDelayed(this.gIn, 10000L);
+                    this.gIf.addOnPageChangeListener(this.gIl);
                 }
                 this.handler.postDelayed(this.runnable, 10000L);
-                MessageManager.getInstance().registerListener(this.gMU);
-                MessageManager.getInstance().registerListener(this.gMV);
+                MessageManager.getInstance().registerListener(this.gIo);
+                MessageManager.getInstance().registerListener(this.gIp);
             }
         }
     }
@@ -219,7 +219,7 @@ public class a implements com.baidu.live.b.a {
     @Override // com.baidu.live.b.a
     public void a(x xVar) {
         this.alaLiveShowData = xVar;
-        this.gMK.a(xVar);
+        this.gIe.a(xVar);
     }
 
     private void initTasks() {
@@ -229,10 +229,10 @@ public class a implements com.baidu.live.b.a {
         tbHttpMessageTask.setIsUseCurrentBDUSS(true);
         tbHttpMessageTask.setResponsedClass(GetAnchorTaskInfoHttpResponseMessage.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
-        MessageManager.getInstance().registerListener(this.gMS);
+        MessageManager.getInstance().registerListener(this.gIm);
     }
 
-    public void bVS() {
+    public void bSa() {
         if (this.alaLiveShowData != null) {
             long j = this.alaLiveShowData.mLiveInfo.live_id;
             long j2 = this.alaLiveShowData.mLiveInfo.user_id;
@@ -245,25 +245,25 @@ public class a implements com.baidu.live.b.a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bVT() {
-        if (this.gME != null && this.gME.gNA != null) {
-            if (!this.gMH) {
-                this.gMH = true;
-                this.gMI = this.gME.gNA.gNm;
-                this.gMJ = this.gME.gNA.gNn;
+    public void bSb() {
+        if (this.gHY != null && this.gHY.gIU != null) {
+            if (!this.gIb) {
+                this.gIb = true;
+                this.gIc = this.gHY.gIU.gIG;
+                this.gId = this.gHY.gIU.gIH;
             }
-            int i = this.gME.gNA.gNo;
-            int i2 = this.gME.gNA.gNp;
-            int i3 = this.gME.gNA.gNq;
+            int i = this.gHY.gIU.gII;
+            int i2 = this.gHY.gIU.gIJ;
+            int i3 = this.gHY.gIU.gIK;
             String str = null;
-            if (this.gMI == 1 && i == 2) {
+            if (this.gIc == 1 && i == 2) {
                 str = this.context.getString(a.h.txt_im_identity_is_mcn);
-            } else if (this.gMI == 2 && i == 1) {
+            } else if (this.gIc == 2 && i == 1) {
                 str = String.format(this.context.getString(a.h.txt_im_identity_is_ugc), Integer.valueOf(i3)) + "%";
-            } else if (this.gMI == 1 && i == 1) {
-                if (i2 > this.gMJ) {
+            } else if (this.gIc == 1 && i == 1) {
+                if (i2 > this.gId) {
                     str = String.format(this.context.getString(a.h.txt_im_identity_advance), Integer.valueOf(i3)) + "%";
-                } else if (i2 < this.gMJ) {
+                } else if (i2 < this.gId) {
                     str = String.format(this.context.getString(a.h.txt_im_identity_reduce), Integer.valueOf(i3)) + "%";
                 }
             }
@@ -277,37 +277,37 @@ public class a implements com.baidu.live.b.a {
                     e.printStackTrace();
                 }
             }
-            this.gMI = i;
-            this.gMJ = i2;
+            this.gIc = i;
+            this.gId = i2;
         }
     }
 
     @Override // com.baidu.live.b.a
     public void setCanVisible(boolean z) {
-        if (this.gMD != null) {
-            this.gMD.setCanVisible(z);
+        if (this.gHX != null) {
+            this.gHX.setCanVisible(z);
         }
     }
 
     @Override // com.baidu.live.b.a
     public void refreshUI() {
-        if (this.gMD != null) {
-            this.gMD.refreshUI();
+        if (this.gHX != null) {
+            this.gHX.refreshUI();
         }
     }
 
     @Override // com.baidu.live.b.a
     public void onDestory() {
         this.handler.removeCallbacksAndMessages(null);
-        this.gMG.removeCallbacksAndMessages(null);
-        MessageManager.getInstance().unRegisterListener(this.gMS);
-        MessageManager.getInstance().unRegisterListener(this.gMU);
-        MessageManager.getInstance().unRegisterListener(this.gMV);
-        if (this.gMD != null) {
-            this.gMD.onDestroy();
+        this.gIa.removeCallbacksAndMessages(null);
+        MessageManager.getInstance().unRegisterListener(this.gIm);
+        MessageManager.getInstance().unRegisterListener(this.gIo);
+        MessageManager.getInstance().unRegisterListener(this.gIp);
+        if (this.gHX != null) {
+            this.gHX.onDestroy();
         }
-        if (this.gMK != null) {
-            this.gMK.onDestory();
+        if (this.gIe != null) {
+            this.gIe.onDestory();
         }
     }
 }

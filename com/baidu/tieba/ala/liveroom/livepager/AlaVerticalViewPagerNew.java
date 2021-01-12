@@ -44,23 +44,23 @@ import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class AlaVerticalViewPagerNew extends ViewGroup {
-    private boolean bWN;
-    private int gdi;
-    private int gdj;
-    private EdgeEffectCompat gdk;
-    private EdgeEffectCompat gdl;
-    private Method gdn;
-    private boolean hGi;
-    private boolean hGj;
-    private boolean hGk;
-    private float hGl;
-    private final c hGm;
-    private f hGn;
-    private e hGo;
-    private com.baidu.tieba.ala.liveroom.livepager.a hGq;
-    private a hGr;
+    private boolean bSb;
+    private int fYA;
+    private EdgeEffectCompat fYB;
+    private EdgeEffectCompat fYC;
+    private Method fYE;
+    private int fYz;
+    private boolean hBC;
+    private boolean hBD;
+    private boolean hBE;
+    private float hBF;
+    private final c hBG;
+    private f hBH;
+    private e hBI;
+    private com.baidu.tieba.ala.liveroom.livepager.a hBK;
+    private a hBL;
     private int mActivePointerId;
     private PagerAdapter mAdapter;
     private boolean mCalledSuper;
@@ -123,46 +123,46 @@ public class AlaVerticalViewPagerNew extends ViewGroup {
             return (f3 * f3 * f3 * f3 * f3) + 1.0f;
         }
     };
-    private static final g hGp = new g();
+    private static final g hBJ = new g();
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public interface a {
-        void cjE();
+        void cfM();
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     interface b {
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     interface e {
         void b(PagerAdapter pagerAdapter, PagerAdapter pagerAdapter2);
     }
 
     public void setIsScrollable(boolean z) {
         if (TbadkCoreApplication.sAlaLiveSwitchData != null && TbadkCoreApplication.sAlaLiveSwitchData.isLiveSwitchUnabled()) {
-            this.hGi = false;
+            this.hBC = false;
         } else {
-            this.hGi = z;
+            this.hBC = z;
         }
     }
 
     public void setTalentShowing(boolean z) {
-        this.hGj = z;
+        this.hBD = z;
     }
 
     public void setIsMixLive(boolean z) {
-        this.hGk = z;
+        this.hBE = z;
     }
 
     public void setDetermineYRatio(float f2) {
-        this.hGl = f2;
+        this.hBF = f2;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public static class c {
-        float gdr;
+        float fYI;
         Object object;
         float offset;
         int position;
@@ -174,11 +174,11 @@ public class AlaVerticalViewPagerNew extends ViewGroup {
 
     public AlaVerticalViewPagerNew(Context context) {
         super(context);
-        this.hGi = true;
-        this.hGk = false;
-        this.bWN = false;
+        this.hBC = true;
+        this.hBE = false;
+        this.bSb = false;
         this.mItems = new ArrayList<>();
-        this.hGm = new c();
+        this.hBG = new c();
         this.mTempRect = new Rect();
         this.mRestoredCurItem = -1;
         this.mRestoredAdapterState = null;
@@ -202,11 +202,11 @@ public class AlaVerticalViewPagerNew extends ViewGroup {
 
     public AlaVerticalViewPagerNew(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.hGi = true;
-        this.hGk = false;
-        this.bWN = false;
+        this.hBC = true;
+        this.hBE = false;
+        this.bSb = false;
         this.mItems = new ArrayList<>();
-        this.hGm = new c();
+        this.hBG = new c();
         this.mTempRect = new Rect();
         this.mRestoredCurItem = -1;
         this.mRestoredAdapterState = null;
@@ -239,8 +239,8 @@ public class AlaVerticalViewPagerNew extends ViewGroup {
         this.mTouchSlop = ViewConfigurationCompat.getScaledPagingTouchSlop(viewConfiguration);
         this.mMinimumVelocity = (int) (400.0f * f2);
         this.mMaximumVelocity = viewConfiguration.getScaledMaximumFlingVelocity();
-        this.gdk = new EdgeEffectCompat(context);
-        this.gdl = new EdgeEffectCompat(context);
+        this.fYB = new EdgeEffectCompat(context);
+        this.fYC = new EdgeEffectCompat(context);
         this.mFlingDistance = (int) (25.0f * f2);
         this.mCloseEnough = (int) (2.0f * f2);
         this.mDefaultGutterSize = (int) (16.0f * f2);
@@ -248,8 +248,8 @@ public class AlaVerticalViewPagerNew extends ViewGroup {
         if (ViewCompat.getImportantForAccessibility(this) == 0) {
             ViewCompat.setImportantForAccessibility(this, 1);
         }
-        this.hGq = new com.baidu.tieba.ala.liveroom.livepager.a(this);
-        this.hGl = 0.5f;
+        this.hBK = new com.baidu.tieba.ala.liveroom.livepager.a(this);
+        this.hBF = 0.5f;
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -273,7 +273,7 @@ public class AlaVerticalViewPagerNew extends ViewGroup {
 
     public void setAdapter(PagerAdapter pagerAdapter) {
         if (this.mAdapter != null) {
-            this.mAdapter.unregisterDataSetObserver(this.hGn);
+            this.mAdapter.unregisterDataSetObserver(this.hBH);
             this.mAdapter.startUpdate((ViewGroup) this);
             for (int i = 0; i < this.mItems.size(); i++) {
                 c cVar = this.mItems.get(i);
@@ -289,10 +289,10 @@ public class AlaVerticalViewPagerNew extends ViewGroup {
         this.mAdapter = pagerAdapter;
         this.mExpectedAdapterCount = 0;
         if (this.mAdapter != null) {
-            if (this.hGn == null) {
-                this.hGn = new f();
+            if (this.hBH == null) {
+                this.hBH = new f();
             }
-            this.mAdapter.registerDataSetObserver(this.hGn);
+            this.mAdapter.registerDataSetObserver(this.hBH);
             this.mPopulatePending = false;
             boolean z = this.mFirstLayout;
             this.mFirstLayout = true;
@@ -309,8 +309,8 @@ public class AlaVerticalViewPagerNew extends ViewGroup {
                 requestLayout();
             }
         }
-        if (this.hGo != null && pagerAdapter2 != pagerAdapter) {
-            this.hGo.b(pagerAdapter2, pagerAdapter);
+        if (this.hBI != null && pagerAdapter2 != pagerAdapter) {
+            this.hBI.b(pagerAdapter2, pagerAdapter);
         }
     }
 
@@ -335,7 +335,7 @@ public class AlaVerticalViewPagerNew extends ViewGroup {
     }
 
     void setOnAdapterChangeListener(e eVar) {
-        this.hGo = eVar;
+        this.hBI = eVar;
     }
 
     private int getClientHeight() {
@@ -396,9 +396,9 @@ public class AlaVerticalViewPagerNew extends ViewGroup {
 
     private void scrollToItem(int i, boolean z, int i2, boolean z2) {
         int i3;
-        c xe = xe(i);
-        if (xe != null) {
-            i3 = (int) (Math.max(this.mFirstOffset, Math.min(xe.offset, this.mLastOffset)) * getClientHeight());
+        c vy = vy(i);
+        if (vy != null) {
+            i3 = (int) (Math.max(this.mFirstOffset, Math.min(vy.offset, this.mLastOffset)) * getClientHeight());
         } else {
             i3 = 0;
         }
@@ -447,16 +447,16 @@ public class AlaVerticalViewPagerNew extends ViewGroup {
 
     void setChildrenDrawingOrderEnabledCompat(boolean z) {
         if (Build.VERSION.SDK_INT >= 7) {
-            if (this.gdn == null) {
+            if (this.fYE == null) {
                 try {
-                    this.gdn = ViewGroup.class.getDeclaredMethod("setChildrenDrawingOrderEnabled", Boolean.TYPE);
+                    this.fYE = ViewGroup.class.getDeclaredMethod("setChildrenDrawingOrderEnabled", Boolean.TYPE);
                 } catch (NoSuchMethodException e2) {
                     Log.e("ViewPager", "Can't find setChildrenDrawingOrderEnabled", e2);
                 }
             }
             try {
-                if (this.gdn != null) {
-                    this.gdn.invoke(this, Boolean.valueOf(z));
+                if (this.fYE != null) {
+                    this.fYE.invoke(this, Boolean.valueOf(z));
                 }
             } catch (Exception e3) {
                 Log.e("ViewPager", "Error changing children drawing order", e3);
@@ -565,7 +565,7 @@ public class AlaVerticalViewPagerNew extends ViewGroup {
         c cVar = new c();
         cVar.position = i;
         cVar.object = this.mAdapter.instantiateItem((ViewGroup) this, i);
-        cVar.gdr = this.mAdapter.getPageWidth(i);
+        cVar.fYI = this.mAdapter.getPageWidth(i);
         if (i2 < 0 || i2 >= this.mItems.size()) {
             this.mItems.add(cVar);
         } else {
@@ -619,7 +619,7 @@ public class AlaVerticalViewPagerNew extends ViewGroup {
             for (int i3 = 0; i3 < childCount; i3++) {
                 LayoutParams layoutParams = (LayoutParams) getChildAt(i3).getLayoutParams();
                 if (!layoutParams.isDecor) {
-                    layoutParams.gdr = 0.0f;
+                    layoutParams.fYI = 0.0f;
                 }
             }
             setCurrentItemInternal(i, false, true);
@@ -647,7 +647,7 @@ public class AlaVerticalViewPagerNew extends ViewGroup {
         int i4 = 2;
         if (this.mCurItem != i) {
             i4 = this.mCurItem < i ? IMPushPb.PushImClient.SDK_NAME_FIELD_NUMBER : 33;
-            cVar2 = xe(this.mCurItem);
+            cVar2 = vy(this.mCurItem);
             this.mCurItem = i;
         }
         int i5 = i4;
@@ -687,7 +687,7 @@ public class AlaVerticalViewPagerNew extends ViewGroup {
                 int i8 = i2 - 1;
                 c cVar3 = i8 >= 0 ? this.mItems.get(i8) : null;
                 int clientHeight = getClientHeight();
-                float paddingLeft = clientHeight <= 0 ? 0.0f : (2.0f - bW.gdr) + (getPaddingLeft() / clientHeight);
+                float paddingLeft = clientHeight <= 0 ? 0.0f : (2.0f - bW.fYI) + (getPaddingLeft() / clientHeight);
                 int i9 = this.mCurItem - 1;
                 int i10 = i2;
                 while (i9 >= 0) {
@@ -705,11 +705,11 @@ public class AlaVerticalViewPagerNew extends ViewGroup {
                             i10 = i11;
                         }
                     } else if (cVar3 != null && i9 == cVar3.position) {
-                        f2 += cVar3.gdr;
+                        f2 += cVar3.fYI;
                         i3 = i8 - 1;
                         cVar3 = i3 >= 0 ? this.mItems.get(i3) : null;
                     } else {
-                        f2 += bW(i9, i8 + 1).gdr;
+                        f2 += bW(i9, i8 + 1).fYI;
                         i10++;
                         cVar3 = i8 >= 0 ? this.mItems.get(i8) : null;
                         i3 = i8;
@@ -717,7 +717,7 @@ public class AlaVerticalViewPagerNew extends ViewGroup {
                     i9--;
                     i8 = i3;
                 }
-                float f3 = bW.gdr;
+                float f3 = bW.fYI;
                 int i12 = i10 + 1;
                 if (f3 < 2.0f) {
                     c cVar4 = i12 < this.mItems.size() ? this.mItems.get(i12) : null;
@@ -733,13 +733,13 @@ public class AlaVerticalViewPagerNew extends ViewGroup {
                                 cVar5 = i12 < this.mItems.size() ? this.mItems.get(i12) : null;
                             }
                         } else if (cVar5 != null && i13 == cVar5.position) {
-                            f3 += cVar5.gdr;
+                            f3 += cVar5.fYI;
                             i12++;
                             cVar5 = i12 < this.mItems.size() ? this.mItems.get(i12) : null;
                         } else {
                             c bW2 = bW(i13, i12);
                             i12++;
-                            f3 += bW2.gdr;
+                            f3 += bW2.fYI;
                             cVar5 = i12 < this.mItems.size() ? this.mItems.get(i12) : null;
                         }
                     }
@@ -753,8 +753,8 @@ public class AlaVerticalViewPagerNew extends ViewGroup {
                 View childAt = getChildAt(i14);
                 LayoutParams layoutParams = (LayoutParams) childAt.getLayoutParams();
                 layoutParams.childIndex = i14;
-                if (!layoutParams.isDecor && layoutParams.gdr == 0.0f && (cv = cv(childAt)) != null) {
-                    layoutParams.gdr = cv.gdr;
+                if (!layoutParams.isDecor && layoutParams.fYI == 0.0f && (cv = cv(childAt)) != null) {
+                    layoutParams.fYI = cv.fYI;
                     layoutParams.position = cv.position;
                 }
             }
@@ -786,7 +786,7 @@ public class AlaVerticalViewPagerNew extends ViewGroup {
             for (int i = 0; i < childCount; i++) {
                 this.mDrawingOrderedChildren.add(getChildAt(i));
             }
-            Collections.sort(this.mDrawingOrderedChildren, hGp);
+            Collections.sort(this.mDrawingOrderedChildren, hBJ);
         }
     }
 
@@ -799,7 +799,7 @@ public class AlaVerticalViewPagerNew extends ViewGroup {
         if (cVar2 != null) {
             int i2 = cVar2.position;
             if (i2 < cVar.position) {
-                float f3 = cVar2.offset + cVar2.gdr + f2;
+                float f3 = cVar2.offset + cVar2.fYI + f2;
                 int i3 = i2 + 1;
                 int i4 = 0;
                 while (i3 <= cVar.position && i4 < this.mItems.size()) {
@@ -817,7 +817,7 @@ public class AlaVerticalViewPagerNew extends ViewGroup {
                         i3++;
                     }
                     cVar4.offset = f3;
-                    f3 += cVar4.gdr + f2;
+                    f3 += cVar4.fYI + f2;
                     i3++;
                 }
             } else if (i2 > cVar.position) {
@@ -838,7 +838,7 @@ public class AlaVerticalViewPagerNew extends ViewGroup {
                         f4 -= this.mAdapter.getPageWidth(i5) + f2;
                         i5--;
                     }
-                    f4 -= cVar3.gdr + f2;
+                    f4 -= cVar3.fYI + f2;
                     cVar3.offset = f4;
                     i5--;
                 }
@@ -848,7 +848,7 @@ public class AlaVerticalViewPagerNew extends ViewGroup {
         float f5 = cVar.offset;
         int i6 = cVar.position - 1;
         this.mFirstOffset = cVar.position == 0 ? cVar.offset : -3.4028235E38f;
-        this.mLastOffset = cVar.position == count + (-1) ? (cVar.offset + cVar.gdr) - 1.0f : Float.MAX_VALUE;
+        this.mLastOffset = cVar.position == count + (-1) ? (cVar.offset + cVar.fYI) - 1.0f : Float.MAX_VALUE;
         for (int i7 = i - 1; i7 >= 0; i7--) {
             c cVar7 = this.mItems.get(i7);
             float f6 = f5;
@@ -856,14 +856,14 @@ public class AlaVerticalViewPagerNew extends ViewGroup {
                 f6 -= this.mAdapter.getPageWidth(i6) + f2;
                 i6--;
             }
-            f5 = f6 - (cVar7.gdr + f2);
+            f5 = f6 - (cVar7.fYI + f2);
             cVar7.offset = f5;
             if (cVar7.position == 0) {
                 this.mFirstOffset = f5;
             }
             i6--;
         }
-        float f7 = cVar.offset + cVar.gdr + f2;
+        float f7 = cVar.offset + cVar.fYI + f2;
         int i8 = cVar.position + 1;
         for (int i9 = i + 1; i9 < size2; i9++) {
             c cVar8 = this.mItems.get(i9);
@@ -873,16 +873,16 @@ public class AlaVerticalViewPagerNew extends ViewGroup {
                 i8++;
             }
             if (cVar8.position == count - 1) {
-                this.mLastOffset = (cVar8.gdr + f8) - 1.0f;
+                this.mLastOffset = (cVar8.fYI + f8) - 1.0f;
             }
             cVar8.offset = f8;
-            f7 = f8 + cVar8.gdr + f2;
+            f7 = f8 + cVar8.fYI + f2;
             i8++;
         }
         this.mNeedCalculatePageOffsets = false;
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public static class SavedState extends View.BaseSavedState {
         public static final Parcelable.Creator<SavedState> CREATOR = ParcelableCompat.newCreator(new ParcelableCompatCreatorCallbacks<SavedState>() { // from class: com.baidu.tieba.ala.liveroom.livepager.AlaVerticalViewPagerNew.SavedState.1
             /* JADX DEBUG: Method merged with bridge method */
@@ -894,7 +894,7 @@ public class AlaVerticalViewPagerNew extends ViewGroup {
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // androidx.core.os.ParcelableCompatCreatorCallbacks
-            /* renamed from: xf */
+            /* renamed from: vz */
             public SavedState[] newArray(int i) {
                 return new SavedState[i];
             }
@@ -1011,7 +1011,7 @@ public class AlaVerticalViewPagerNew extends ViewGroup {
         }
     }
 
-    c xe(int i) {
+    c vy(int i) {
         int i2 = 0;
         while (true) {
             int i3 = i2;
@@ -1100,7 +1100,7 @@ public class AlaVerticalViewPagerNew extends ViewGroup {
         for (int i11 = 0; i11 < childCount2; i11++) {
             View childAt2 = getChildAt(i11);
             if (childAt2.getVisibility() != 8 && (layoutParams = (LayoutParams) childAt2.getLayoutParams()) != null && !layoutParams.isDecor) {
-                childAt2.measure(this.mChildWidthMeasureSpec, View.MeasureSpec.makeMeasureSpec((int) (layoutParams.gdr * paddingTop), 1073741824));
+                childAt2.measure(this.mChildWidthMeasureSpec, View.MeasureSpec.makeMeasureSpec((int) (layoutParams.fYI * paddingTop), 1073741824));
             }
         }
     }
@@ -1118,13 +1118,13 @@ public class AlaVerticalViewPagerNew extends ViewGroup {
             int paddingTop = (int) ((((i - getPaddingTop()) - getPaddingBottom()) + i3) * (getScrollY() / (((i2 - getPaddingTop()) - getPaddingBottom()) + i4)));
             scrollTo(getScrollX(), paddingTop);
             if (!this.mScroller.isFinished()) {
-                this.mScroller.startScroll(0, paddingTop, 0, (int) (xe(this.mCurItem).offset * i), this.mScroller.getDuration() - this.mScroller.timePassed());
+                this.mScroller.startScroll(0, paddingTop, 0, (int) (vy(this.mCurItem).offset * i), this.mScroller.getDuration() - this.mScroller.timePassed());
                 return;
             }
             return;
         }
-        c xe = xe(this.mCurItem);
-        int min = (int) ((xe != null ? Math.min(xe.offset, this.mLastOffset) : 0.0f) * ((i - getPaddingTop()) - getPaddingBottom()));
+        c vy = vy(this.mCurItem);
+        int min = (int) ((vy != null ? Math.min(vy.offset, this.mLastOffset) : 0.0f) * ((i - getPaddingTop()) - getPaddingBottom()));
         if (min != getScrollY()) {
             completeScroll(false);
             scrollTo(getScrollX(), min);
@@ -1227,14 +1227,14 @@ public class AlaVerticalViewPagerNew extends ViewGroup {
                     int i18 = ((int) (cv.offset * i16)) + paddingTop;
                     if (layoutParams2.needsMeasure) {
                         layoutParams2.needsMeasure = false;
-                        childAt2.measure(View.MeasureSpec.makeMeasureSpec((i9 - paddingLeft) - paddingRight, 1073741824), View.MeasureSpec.makeMeasureSpec((int) (layoutParams2.gdr * i16), 1073741824));
+                        childAt2.measure(View.MeasureSpec.makeMeasureSpec((i9 - paddingLeft) - paddingRight, 1073741824), View.MeasureSpec.makeMeasureSpec((int) (layoutParams2.fYI * i16), 1073741824));
                     }
                     childAt2.layout(paddingLeft, i18, childAt2.getMeasuredWidth() + paddingLeft, childAt2.getMeasuredHeight() + i18);
                 }
             }
         }
-        this.gdi = paddingLeft;
-        this.gdj = i9 - paddingRight;
+        this.fYz = paddingLeft;
+        this.fYA = i9 - paddingRight;
         this.mDecorChildCount = i11;
         if (this.mFirstLayout) {
             scrollToItem(this.mCurItem, false, 0, false);
@@ -1249,8 +1249,8 @@ public class AlaVerticalViewPagerNew extends ViewGroup {
             int scrollY = getScrollY();
             int currX = this.mScroller.getCurrX();
             int currY = this.mScroller.getCurrY();
-            if (this.hGr != null && this.mScroller.getFinalY() - currY == 0) {
-                this.hGr.cjE();
+            if (this.hBL != null && this.mScroller.getFinalY() - currY == 0) {
+                this.hBL.cfM();
             }
             if (scrollX != currX || scrollY != currY) {
                 scrollTo(currX, currY);
@@ -1274,12 +1274,12 @@ public class AlaVerticalViewPagerNew extends ViewGroup {
             }
             throw new IllegalStateException("onPageScrolled did not call superclass implementation");
         }
-        c cjD = cjD();
+        c cfL = cfL();
         int clientHeight = getClientHeight();
         int i2 = this.mPageMargin + clientHeight;
         float f2 = this.mPageMargin / clientHeight;
-        int i3 = cjD.position;
-        float f3 = ((i / clientHeight) - cjD.offset) / (cjD.gdr + f2);
+        int i3 = cfL.position;
+        float f3 = ((i / clientHeight) - cfL.offset) / (cfL.fYI + f2);
         this.mCalledSuper = false;
         onPageScrolled(i3, f3, (int) (i2 * f3));
         if (!this.mCalledSuper) {
@@ -1397,11 +1397,11 @@ public class AlaVerticalViewPagerNew extends ViewGroup {
     public boolean dispatchTouchEvent(MotionEvent motionEvent) {
         switch (motionEvent.getAction() & 255) {
             case 0:
-                this.bWN = false;
+                this.bSb = false;
                 break;
             case 1:
             case 3:
-                if (this.bWN) {
+                if (this.bSb) {
                     resetTouch();
                     break;
                 }
@@ -1412,16 +1412,16 @@ public class AlaVerticalViewPagerNew extends ViewGroup {
 
     @Override // android.view.ViewGroup, android.view.ViewParent
     public void requestDisallowInterceptTouchEvent(boolean z) {
-        this.bWN = z;
+        this.bSb = z;
         super.requestDisallowInterceptTouchEvent(z);
     }
 
     @Override // android.view.ViewGroup
     public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
-        if (!this.hGi && !this.hGk) {
+        if (!this.hBC && !this.hBE) {
             return super.onInterceptTouchEvent(motionEvent);
         }
-        if (this.hGj) {
+        if (this.hBD) {
             return super.onInterceptTouchEvent(motionEvent);
         }
         int action = motionEvent.getAction() & 255;
@@ -1477,7 +1477,7 @@ public class AlaVerticalViewPagerNew extends ViewGroup {
                             this.mIsUnableToDrag = true;
                             return false;
                         }
-                        if (abs > this.mTouchSlop && this.hGl * abs > abs2) {
+                        if (abs > this.mTouchSlop && this.hBF * abs > abs2) {
                             this.mIsBeingDragged = true;
                             requestParentDisallowInterceptTouchEvent(true);
                             setScrollState(1);
@@ -1511,16 +1511,16 @@ public class AlaVerticalViewPagerNew extends ViewGroup {
     @Override // android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
         boolean z = false;
-        if (!this.hGi && !this.hGk) {
+        if (!this.hBC && !this.hBE) {
             return super.onTouchEvent(motionEvent);
         }
-        if (this.hGj) {
+        if (this.hBD) {
             return super.onTouchEvent(motionEvent);
         }
         if (this.mFakeDragging) {
             return true;
         }
-        this.hGq.onTouchEvent(motionEvent);
+        this.hBK.onTouchEvent(motionEvent);
         if (motionEvent.getAction() != 0 || motionEvent.getEdgeFlags() == 0) {
             if (this.mAdapter == null || this.mAdapter.getCount() == 0) {
                 return false;
@@ -1550,11 +1550,11 @@ public class AlaVerticalViewPagerNew extends ViewGroup {
                         this.mPopulatePending = true;
                         int clientHeight = getClientHeight();
                         int scrollY = getScrollY();
-                        c cjD = cjD();
-                        setCurrentItemInternal(determineTargetPage(cjD.position, ((scrollY / clientHeight) - cjD.offset) / cjD.gdr, yVelocity, (int) (MotionEventCompat.getY(motionEvent, MotionEventCompat.findPointerIndex(motionEvent, this.mActivePointerId)) - this.mInitialMotionY)), true, true, yVelocity);
+                        c cfL = cfL();
+                        setCurrentItemInternal(determineTargetPage(cfL.position, ((scrollY / clientHeight) - cfL.offset) / cfL.fYI, yVelocity, (int) (MotionEventCompat.getY(motionEvent, MotionEventCompat.findPointerIndex(motionEvent, this.mActivePointerId)) - this.mInitialMotionY)), true, true, yVelocity);
                         this.mActivePointerId = -1;
                         endDrag();
-                        z = this.gdk.onRelease() || this.gdl.onRelease();
+                        z = this.fYB.onRelease() || this.fYC.onRelease();
                         break;
                     }
                     break;
@@ -1588,7 +1588,7 @@ public class AlaVerticalViewPagerNew extends ViewGroup {
                         scrollToItem(this.mCurItem, true, 0, false);
                         this.mActivePointerId = -1;
                         endDrag();
-                        if (this.gdk.onRelease() || this.gdl.onRelease()) {
+                        if (this.fYB.onRelease() || this.fYC.onRelease()) {
                             z = true;
                             break;
                         }
@@ -1654,10 +1654,10 @@ public class AlaVerticalViewPagerNew extends ViewGroup {
         }
         if (scrollY < f4) {
             if (z) {
-                r2 = this.gdk.onPull(Math.abs(f4 - scrollY) / clientHeight);
+                r2 = this.fYB.onPull(Math.abs(f4 - scrollY) / clientHeight);
             }
         } else if (scrollY > f3) {
-            r2 = z2 ? this.gdl.onPull(Math.abs(scrollY - f3) / clientHeight) : false;
+            r2 = z2 ? this.fYC.onPull(Math.abs(scrollY - f3) / clientHeight) : false;
             f4 = f3;
         } else {
             f4 = scrollY;
@@ -1668,7 +1668,7 @@ public class AlaVerticalViewPagerNew extends ViewGroup {
         return r2;
     }
 
-    private c cjD() {
+    private c cfL() {
         c cVar;
         int clientHeight = getClientHeight();
         float scrollY = clientHeight > 0 ? getScrollY() / clientHeight : 0.0f;
@@ -1684,21 +1684,21 @@ public class AlaVerticalViewPagerNew extends ViewGroup {
             if (z || cVar3.position == i + 1) {
                 cVar = cVar3;
             } else {
-                c cVar4 = this.hGm;
+                c cVar4 = this.hBG;
                 cVar4.offset = f4 + f3 + f2;
                 cVar4.position = i + 1;
-                cVar4.gdr = this.mAdapter.getPageWidth(cVar4.position);
+                cVar4.fYI = this.mAdapter.getPageWidth(cVar4.position);
                 i2--;
                 cVar = cVar4;
             }
             f4 = cVar.offset;
-            float f5 = cVar.gdr + f4 + f2;
+            float f5 = cVar.fYI + f4 + f2;
             if (z || scrollY >= f4) {
                 if (scrollY < f5 || i2 == this.mItems.size() - 1) {
                     return cVar;
                 }
                 i = cVar.position;
-                f3 = cVar.gdr;
+                f3 = cVar.fYI;
                 i2++;
                 cVar2 = cVar;
                 z = false;
@@ -1731,28 +1731,28 @@ public class AlaVerticalViewPagerNew extends ViewGroup {
         boolean z = false;
         int overScrollMode = ViewCompat.getOverScrollMode(this);
         if (overScrollMode == 0 || (overScrollMode == 1 && this.mAdapter != null && this.mAdapter.getCount() > 1)) {
-            if (!this.gdk.isFinished()) {
+            if (!this.fYB.isFinished()) {
                 int save = canvas.save();
                 int height = getHeight();
                 int width = (getWidth() - getPaddingLeft()) - getPaddingRight();
                 canvas.translate(getPaddingLeft(), this.mFirstOffset * height);
-                this.gdk.setSize(width, height);
-                z = false | this.gdk.draw(canvas);
+                this.fYB.setSize(width, height);
+                z = false | this.fYB.draw(canvas);
                 canvas.restoreToCount(save);
             }
-            if (!this.gdl.isFinished()) {
+            if (!this.fYC.isFinished()) {
                 int save2 = canvas.save();
                 int height2 = getHeight();
                 int width2 = (getWidth() - getPaddingLeft()) - getPaddingRight();
                 canvas.rotate(180.0f);
                 canvas.translate((-width2) - getPaddingLeft(), (-(this.mLastOffset + 1.0f)) * height2);
-                this.gdl.setSize(width2, height2);
-                z |= this.gdl.draw(canvas);
+                this.fYC.setSize(width2, height2);
+                z |= this.fYC.draw(canvas);
                 canvas.restoreToCount(save2);
             }
         } else {
-            this.gdk.finish();
-            this.gdl.finish();
+            this.fYB.finish();
+            this.fYC.finish();
         }
         if (z) {
             ViewCompat.postInvalidateOnAnimation(this);
@@ -1779,15 +1779,15 @@ public class AlaVerticalViewPagerNew extends ViewGroup {
                     cVar = this.mItems.get(i3);
                 }
                 if (i4 == cVar.position) {
-                    f2 = (cVar.offset + cVar.gdr) * height;
-                    f4 = cVar.offset + cVar.gdr + f3;
+                    f2 = (cVar.offset + cVar.fYI) * height;
+                    f4 = cVar.offset + cVar.fYI + f3;
                 } else {
                     float pageWidth = this.mAdapter.getPageWidth(i4);
                     f2 = (f4 + pageWidth) * height;
                     f4 += pageWidth + f3;
                 }
                 if (this.mPageMargin + f2 > scrollY) {
-                    this.mMarginDrawable.setBounds(this.gdi, (int) f2, this.gdj, (int) (this.mPageMargin + f2 + 0.5f));
+                    this.mMarginDrawable.setBounds(this.fYz, (int) f2, this.fYA, (int) (this.mPageMargin + f2 + 0.5f));
                     this.mMarginDrawable.draw(canvas);
                 }
                 if (f2 > scrollY + height) {
@@ -1824,7 +1824,7 @@ public class AlaVerticalViewPagerNew extends ViewGroup {
         }
     }
 
-    public boolean uj(int i) {
+    public boolean sD(int i) {
         if (this.mAdapter == null) {
             return false;
         }
@@ -1887,7 +1887,7 @@ public class AlaVerticalViewPagerNew extends ViewGroup {
     public boolean arrowScroll(int i) {
         View view;
         boolean z;
-        boolean bMo;
+        boolean bIw;
         View findFocus = findFocus();
         if (findFocus == this) {
             view = null;
@@ -1923,34 +1923,34 @@ public class AlaVerticalViewPagerNew extends ViewGroup {
                 int i2 = getChildRectInPagerCoordinates(this.mTempRect, findNextFocus).top;
                 int i3 = getChildRectInPagerCoordinates(this.mTempRect, view).top;
                 if (view != null && i2 >= i3) {
-                    bMo = bMo();
+                    bIw = bIw();
                 } else {
-                    bMo = findNextFocus.requestFocus();
+                    bIw = findNextFocus.requestFocus();
                 }
             } else {
                 if (i == 130) {
                     int i4 = getChildRectInPagerCoordinates(this.mTempRect, findNextFocus).bottom;
                     int i5 = getChildRectInPagerCoordinates(this.mTempRect, view).bottom;
                     if (view != null && i4 <= i5) {
-                        bMo = bMp();
+                        bIw = bIx();
                     } else {
-                        bMo = findNextFocus.requestFocus();
+                        bIw = findNextFocus.requestFocus();
                     }
                 }
-                bMo = false;
+                bIw = false;
             }
         } else if (i == 33 || i == 1) {
-            bMo = bMo();
+            bIw = bIw();
         } else {
             if (i == 130 || i == 2) {
-                bMo = bMp();
+                bIw = bIx();
             }
-            bMo = false;
+            bIw = false;
         }
-        if (bMo) {
+        if (bIw) {
             playSoundEffect(SoundEffectConstants.getContantForFocusDirection(i));
         }
-        return bMo;
+        return bIw;
     }
 
     private Rect getChildRectInPagerCoordinates(Rect rect, View view) {
@@ -1975,7 +1975,7 @@ public class AlaVerticalViewPagerNew extends ViewGroup {
         return rect2;
     }
 
-    boolean bMo() {
+    boolean bIw() {
         if (this.mCurItem > 0) {
             setCurrentItem(this.mCurItem - 1, false);
             return true;
@@ -1983,7 +1983,7 @@ public class AlaVerticalViewPagerNew extends ViewGroup {
         return false;
     }
 
-    boolean bMp() {
+    boolean bIx() {
         if (this.mAdapter == null || this.mCurItem >= this.mAdapter.getCount() - 1) {
             return false;
         }
@@ -2082,14 +2082,14 @@ public class AlaVerticalViewPagerNew extends ViewGroup {
         return new LayoutParams(getContext(), attributeSet);
     }
 
-    public void setEventListener(a.InterfaceC0684a interfaceC0684a) {
-        if (this.hGq != null) {
-            this.hGq.setEventListener(interfaceC0684a);
+    public void setEventListener(a.InterfaceC0667a interfaceC0667a) {
+        if (this.hBK != null) {
+            this.hBK.setEventListener(interfaceC0667a);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public class d extends AccessibilityDelegateCompat {
         d() {
         }
@@ -2112,10 +2112,10 @@ public class AlaVerticalViewPagerNew extends ViewGroup {
             super.onInitializeAccessibilityNodeInfo(view, accessibilityNodeInfoCompat);
             accessibilityNodeInfoCompat.setClassName(ViewPager.class.getName());
             accessibilityNodeInfoCompat.setScrollable(canScroll());
-            if (AlaVerticalViewPagerNew.this.uj(1)) {
+            if (AlaVerticalViewPagerNew.this.sD(1)) {
                 accessibilityNodeInfoCompat.addAction(4096);
             }
-            if (AlaVerticalViewPagerNew.this.uj(-1)) {
+            if (AlaVerticalViewPagerNew.this.sD(-1)) {
                 accessibilityNodeInfoCompat.addAction(8192);
             }
         }
@@ -2127,13 +2127,13 @@ public class AlaVerticalViewPagerNew extends ViewGroup {
             }
             switch (i) {
                 case 4096:
-                    if (AlaVerticalViewPagerNew.this.uj(1)) {
+                    if (AlaVerticalViewPagerNew.this.sD(1)) {
                         AlaVerticalViewPagerNew.this.setCurrentItem(AlaVerticalViewPagerNew.this.mCurItem + 1);
                         return true;
                     }
                     return false;
                 case 8192:
-                    if (AlaVerticalViewPagerNew.this.uj(-1)) {
+                    if (AlaVerticalViewPagerNew.this.sD(-1)) {
                         AlaVerticalViewPagerNew.this.setCurrentItem(AlaVerticalViewPagerNew.this.mCurItem - 1);
                         return true;
                     }
@@ -2148,7 +2148,7 @@ public class AlaVerticalViewPagerNew extends ViewGroup {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     private class f extends DataSetObserver {
         private f() {
         }
@@ -2164,10 +2164,10 @@ public class AlaVerticalViewPagerNew extends ViewGroup {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public static class LayoutParams extends ViewGroup.LayoutParams {
         int childIndex;
-        float gdr;
+        float fYI;
         public int gravity;
         public boolean isDecor;
         boolean needsMeasure;
@@ -2175,12 +2175,12 @@ public class AlaVerticalViewPagerNew extends ViewGroup {
 
         public LayoutParams() {
             super(-1, -1);
-            this.gdr = 0.0f;
+            this.fYI = 0.0f;
         }
 
         public LayoutParams(Context context, AttributeSet attributeSet) {
             super(context, attributeSet);
-            this.gdr = 0.0f;
+            this.fYI = 0.0f;
             TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, AlaVerticalViewPagerNew.LAYOUT_ATTRS);
             this.gravity = obtainStyledAttributes.getInteger(0, 48);
             obtainStyledAttributes.recycle();
@@ -2188,7 +2188,7 @@ public class AlaVerticalViewPagerNew extends ViewGroup {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public static class g implements Comparator<View> {
         g() {
         }
@@ -2206,6 +2206,6 @@ public class AlaVerticalViewPagerNew extends ViewGroup {
     }
 
     public void setCallback(a aVar) {
-        this.hGr = aVar;
+        this.hBL = aVar;
     }
 }

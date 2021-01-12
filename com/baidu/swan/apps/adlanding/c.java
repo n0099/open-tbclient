@@ -11,7 +11,7 @@ import com.baidu.swan.apps.scheme.actions.aa;
 import com.baidu.swan.apps.scheme.j;
 import com.baidu.swan.apps.setting.oauth.a.b;
 import com.baidu.swan.apps.setting.oauth.h;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class c extends aa {
     public c(j jVar) {
         super(jVar, "/swanAPI/openAdLandingPage");
@@ -28,12 +28,12 @@ public class c extends aa {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
             return false;
         }
-        final f ajt = com.baidu.swan.apps.v.f.aDH().ajt();
-        if (ajt == null) {
+        final f afz = com.baidu.swan.apps.v.f.azN().afz();
+        if (afz == null) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
         }
-        eVar.aMx().b(context, "mapp_i_open_adlanding", new com.baidu.swan.apps.ao.e.b<h<b.d>>() { // from class: com.baidu.swan.apps.adlanding.c.1
+        eVar.aID().b(context, "mapp_i_open_adlanding", new com.baidu.swan.apps.ao.e.b<h<b.d>>() { // from class: com.baidu.swan.apps.adlanding.c.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.swan.apps.ao.e.b
             /* renamed from: a */
@@ -42,7 +42,7 @@ public class c extends aa {
                     com.baidu.swan.apps.setting.oauth.c.a(hVar, callbackHandler, unitedSchemeEntity);
                     return;
                 }
-                c.this.a(com.baidu.swan.apps.model.b.cg(a2, a2), ajt);
+                c.this.a(com.baidu.swan.apps.model.b.cf(a2, a2), afz);
                 com.baidu.swan.apps.console.c.i("AdLanding", "open adLanding page success");
                 UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
             }
@@ -53,6 +53,6 @@ public class c extends aa {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(com.baidu.swan.apps.model.b bVar, f fVar) {
         com.baidu.swan.apps.console.c.i("AdLanding", "openAdLanding: page url=" + bVar.mBaseUrl);
-        fVar.nv("adLanding").ai(f.cUY, f.cVa).a("adLanding", bVar).atf();
+        fVar.mk("adLanding").ai(f.cQm, f.cQo).a("adLanding", bVar).apk();
     }
 }

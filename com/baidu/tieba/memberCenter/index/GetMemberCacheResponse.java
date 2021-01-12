@@ -3,7 +3,7 @@ package com.baidu.tieba.memberCenter.index;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tieba.memberCenter.index.a.m;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class GetMemberCacheResponse extends CustomResponsedMessage<Object> {
     private m mMembercenter;
 

@@ -10,7 +10,7 @@ import android.widget.FrameLayout;
 import androidx.annotation.RestrictTo;
 import androidx.core.view.ViewCompat;
 @RestrictTo({RestrictTo.Scope.LIBRARY})
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class ContentFrameLayout extends FrameLayout {
     private OnAttachListener mAttachListener;
     private final Rect mDecorPadding;
@@ -21,7 +21,7 @@ public class ContentFrameLayout extends FrameLayout {
     private TypedValue mMinWidthMajor;
     private TypedValue mMinWidthMinor;
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public interface OnAttachListener {
         void onAttachedFromWindow();
 

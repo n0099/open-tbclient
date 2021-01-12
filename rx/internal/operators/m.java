@@ -2,9 +2,9 @@ package rx.internal.operators;
 
 import rx.d;
 import rx.g;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public final class m<T> implements d.a<T> {
-    final rx.d<T> qsM;
+    final rx.d<T> qok;
     final rx.g scheduler;
 
     @Override // rx.functions.b
@@ -14,7 +14,7 @@ public final class m<T> implements d.a<T> {
 
     public m(rx.d<T> dVar, rx.g gVar) {
         this.scheduler = gVar;
-        this.qsM = dVar;
+        this.qok = dVar;
     }
 
     public void call(rx.j<? super T> jVar) {
@@ -25,20 +25,20 @@ public final class m<T> implements d.a<T> {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: rx.internal.operators.m$1  reason: invalid class name */
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public class AnonymousClass1 implements rx.functions.a {
-        final /* synthetic */ g.a qvx;
+        final /* synthetic */ g.a qqV;
         final /* synthetic */ rx.j val$subscriber;
 
         AnonymousClass1(rx.j jVar, g.a aVar) {
             this.val$subscriber = jVar;
-            this.qvx = aVar;
+            this.qqV = aVar;
         }
 
         @Override // rx.functions.a
         public void call() {
             final Thread currentThread = Thread.currentThread();
-            m.this.qsM.a((rx.j) new rx.j<T>(this.val$subscriber) { // from class: rx.internal.operators.m.1.1
+            m.this.qok.a((rx.j) new rx.j<T>(this.val$subscriber) { // from class: rx.internal.operators.m.1.1
                 @Override // rx.e
                 public void onNext(T t) {
                     AnonymousClass1.this.val$subscriber.onNext(t);
@@ -49,7 +49,7 @@ public final class m<T> implements d.a<T> {
                     try {
                         AnonymousClass1.this.val$subscriber.onError(th);
                     } finally {
-                        AnonymousClass1.this.qvx.unsubscribe();
+                        AnonymousClass1.this.qqV.unsubscribe();
                     }
                 }
 
@@ -58,7 +58,7 @@ public final class m<T> implements d.a<T> {
                     try {
                         AnonymousClass1.this.val$subscriber.onCompleted();
                     } finally {
-                        AnonymousClass1.this.qvx.unsubscribe();
+                        AnonymousClass1.this.qqV.unsubscribe();
                     }
                 }
 
@@ -70,7 +70,7 @@ public final class m<T> implements d.a<T> {
                             if (currentThread == Thread.currentThread()) {
                                 fVar.request(j);
                             } else {
-                                AnonymousClass1.this.qvx.c(new rx.functions.a() { // from class: rx.internal.operators.m.1.1.1.1
+                                AnonymousClass1.this.qqV.c(new rx.functions.a() { // from class: rx.internal.operators.m.1.1.1.1
                                     @Override // rx.functions.a
                                     public void call() {
                                         fVar.request(j);

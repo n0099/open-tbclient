@@ -12,26 +12,26 @@ import com.baidu.android.imsdk.chatmessage.messages.SignleGraphicTextMsg;
 import com.baidu.live.sdk.a;
 import com.baidu.sumeru.universalimageloader.core.ImageLoader;
 import com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.DarkImageView;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class p extends d {
     public View mContentView;
     public Context mContext;
     public View mConvertView;
-    public DarkImageView oTw;
-    public TextView oTx;
-    public TextView oTy;
+    public DarkImageView oOU;
+    public TextView oOV;
+    public TextView oOW;
 
     public p(Context context, LayoutInflater layoutInflater) {
         this.mContext = context;
         this.mConvertView = layoutInflater.inflate(a.g.bd_im_chating_receive_shared_item, (ViewGroup) null);
-        this.oSk = (TextView) this.mConvertView.findViewById(a.f.bd_im_chating_time_txt);
-        this.oSn = (ImageView) this.mConvertView.findViewById(a.f.bd_im_headview);
-        this.jnJ = (TextView) this.mConvertView.findViewById(a.f.bd_im_user_name);
-        this.mtw = (TextView) this.mConvertView.findViewById(a.f.bd_im_user_agetime);
-        this.oSo = (TextView) this.mConvertView.findViewById(a.f.bd_im_user_constellation);
-        this.oTw = (DarkImageView) this.mConvertView.findViewById(a.f.bd_im_chat_shared_cover);
-        this.oTy = (TextView) this.mConvertView.findViewById(a.f.bd_im_chat_shared_title);
-        this.oTx = (TextView) this.mConvertView.findViewById(a.f.bd_im_chat_shared_content);
+        this.oNI = (TextView) this.mConvertView.findViewById(a.f.bd_im_chating_time_txt);
+        this.oNL = (ImageView) this.mConvertView.findViewById(a.f.bd_im_headview);
+        this.jjc = (TextView) this.mConvertView.findViewById(a.f.bd_im_user_name);
+        this.moR = (TextView) this.mConvertView.findViewById(a.f.bd_im_user_agetime);
+        this.oNM = (TextView) this.mConvertView.findViewById(a.f.bd_im_user_constellation);
+        this.oOU = (DarkImageView) this.mConvertView.findViewById(a.f.bd_im_chat_shared_cover);
+        this.oOW = (TextView) this.mConvertView.findViewById(a.f.bd_im_chat_shared_title);
+        this.oOV = (TextView) this.mConvertView.findViewById(a.f.bd_im_chat_shared_content);
         this.mContentView = this.mConvertView.findViewById(a.f.bd_im_chating_msg_content_layout);
         this.mConvertView.setTag(this);
     }
@@ -58,10 +58,10 @@ public class p extends d {
             if (TextUtils.isEmpty(covers)) {
                 covers = signleGraphicTextMsg.getCover();
             }
-            com.baidu.yuyinala.privatemessage.implugin.util.b.hE(context);
-            ImageLoader.getInstance().displayImage(covers, this.oTw, com.baidu.yuyinala.privatemessage.implugin.util.b.enU());
-            this.oTy.setText(signleGraphicTextMsg.getTitle());
-            this.oTx.setText(signleGraphicTextMsg.getDigest());
+            com.baidu.yuyinala.privatemessage.implugin.util.b.hC(context);
+            ImageLoader.getInstance().displayImage(covers, this.oOU, com.baidu.yuyinala.privatemessage.implugin.util.b.ejZ());
+            this.oOW.setText(signleGraphicTextMsg.getTitle());
+            this.oOV.setText(signleGraphicTextMsg.getDigest());
             this.mContentView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.yuyinala.privatemessage.implugin.a.a.p.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {

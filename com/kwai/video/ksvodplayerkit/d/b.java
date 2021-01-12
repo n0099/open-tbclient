@@ -2,14 +2,14 @@ package com.kwai.video.ksvodplayerkit.d;
 
 import com.kwai.video.hodor.AbstractHodorPreloadTask;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public abstract class b {
 
     /* renamed from: a  reason: collision with root package name */
-    protected com.kwai.video.ksvodplayerkit.HttpDns.d f11363a;
+    protected com.kwai.video.ksvodplayerkit.HttpDns.d f11063a;
 
     /* renamed from: b  reason: collision with root package name */
-    protected AtomicInteger f11364b = new AtomicInteger();
+    protected AtomicInteger f11064b = new AtomicInteger();
     protected int c;
     protected String d;
     protected AbstractHodorPreloadTask e;
@@ -29,7 +29,7 @@ public abstract class b {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public AtomicInteger d() {
-        return this.f11364b;
+        return this.f11064b;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

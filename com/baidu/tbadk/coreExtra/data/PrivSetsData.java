@@ -1,5 +1,6 @@
 package com.baidu.tbadk.coreExtra.data;
 
+import android.net.http.Headers;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.live.tbadk.core.util.TbEnum;
 import com.baidu.tieba.setting.PrivacyMarkActivityConfig;
@@ -22,7 +23,7 @@ public class PrivSetsData extends com.baidu.tbadk.core.data.n implements Seriali
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.location = jSONObject.optInt("location", 0);
+                this.location = jSONObject.optInt(Headers.LOCATION, 0);
                 this.like = jSONObject.optInt("like", 0);
                 this.group = jSONObject.optInt(TbEnum.ParamKey.GROUP, 0);
                 this.post = jSONObject.optInt("post", 0);

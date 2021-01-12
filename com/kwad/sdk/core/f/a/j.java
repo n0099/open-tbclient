@@ -7,20 +7,20 @@ import android.content.ServiceConnection;
 import android.os.IBinder;
 import com.kwad.sdk.core.f.b.f;
 import java.util.concurrent.LinkedBlockingQueue;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class j {
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f9445a;
+    public Context f9145a;
 
     /* renamed from: b  reason: collision with root package name */
-    private final LinkedBlockingQueue<IBinder> f9446b = new LinkedBlockingQueue<>(1);
+    private final LinkedBlockingQueue<IBinder> f9146b = new LinkedBlockingQueue<>(1);
     private ServiceConnection c = new ServiceConnection() { // from class: com.kwad.sdk.core.f.a.j.1
         @Override // android.content.ServiceConnection
         public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
             try {
                 com.kwad.sdk.core.d.a.b("ZTEDeviceIDHelper", "onServiceConnected");
-                j.this.f9446b.put(iBinder);
+                j.this.f9146b.put(iBinder);
             } catch (Exception e) {
                 com.kwad.sdk.core.d.a.a(e);
             }
@@ -32,7 +32,7 @@ public class j {
     };
 
     public j(Context context) {
-        this.f9445a = context;
+        this.f9145a = context;
     }
 
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:33:0x0046 */
@@ -50,23 +50,23 @@ public class j {
             Intent intent = new Intent();
             intent.setClassName("com.mdid.msa", "com.mdid.msa.service.MsaIdService");
             intent.setAction("com.bun.msa.action.bindto.service");
-            intent.putExtra("com.bun.msa.param.pkgname", this.f9445a.getPackageName());
-            ?? bindService = this.f9445a.bindService(intent, this.c, 1);
+            intent.putExtra("com.bun.msa.param.pkgname", this.f9145a.getPackageName());
+            ?? bindService = this.f9145a.bindService(intent, this.c, 1);
             com.kwad.sdk.core.d.a.b("ZTEDeviceIDHelper", "getOAID isBind=" + ((boolean) bindService));
             try {
                 if (bindService != 0) {
                     try {
-                        String a2 = new f.a(this.f9446b.take()).a();
+                        String a2 = new f.a(this.f9146b.take()).a();
                         try {
                             try {
                                 com.kwad.sdk.core.d.a.b("ZTEDeviceIDHelper", "getOAID oaid:" + a2);
-                                this.f9445a.unbindService(this.c);
+                                this.f9145a.unbindService(this.c);
                                 bindService = a2;
                             } catch (Exception e) {
                                 e = e;
                                 str3 = a2;
                                 com.kwad.sdk.core.d.a.a(e);
-                                this.f9445a.unbindService(this.c);
+                                this.f9145a.unbindService(this.c);
                                 bindService = str3;
                                 return bindService;
                             }
@@ -74,7 +74,7 @@ public class j {
                             th = th2;
                             str2 = str3;
                             try {
-                                this.f9445a.unbindService(this.c);
+                                this.f9145a.unbindService(this.c);
                                 throw th;
                             } catch (Exception e2) {
                                 e = e2;
@@ -90,7 +90,7 @@ public class j {
                     } catch (Throwable th3) {
                         th = th3;
                         str2 = "";
-                        this.f9445a.unbindService(this.c);
+                        this.f9145a.unbindService(this.c);
                         throw th;
                     }
                     return bindService;

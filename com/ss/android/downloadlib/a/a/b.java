@@ -10,7 +10,7 @@ import org.json.JSONObject;
 class b {
     /* JADX INFO: Access modifiers changed from: package-private */
     @NonNull
-    public CopyOnWriteArrayList<com.ss.android.downloadlib.a.b.a> hs(String str, String str2) {
+    public CopyOnWriteArrayList<com.ss.android.downloadlib.a.b.a> hr(String str, String str2) {
         CopyOnWriteArrayList<com.ss.android.downloadlib.a.b.a> copyOnWriteArrayList = new CopyOnWriteArrayList<>();
         try {
             String string = j.a().getSharedPreferences(str, 0).getString(str2, "");
@@ -39,7 +39,7 @@ class b {
                 while (it.hasNext()) {
                     com.ss.android.downloadlib.a.b.a next = it.next();
                     if (next != null) {
-                        jSONObject.put(String.valueOf(next.f13230b), next.a());
+                        jSONObject.put(String.valueOf(next.f12930b), next.a());
                     }
                 }
             } catch (Exception e) {

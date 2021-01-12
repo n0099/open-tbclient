@@ -4,35 +4,35 @@ import android.os.Handler;
 import android.os.Looper;
 /* loaded from: classes.dex */
 public class i {
-    private long fPb;
-    private long fPc;
-    private long fPd;
-    private long fPe;
-    private long fPf;
-    private a fPg;
+    private long fKu;
+    private long fKv;
+    private long fKw;
+    private long fKx;
+    private long fKy;
+    private a fKz;
     private long startTime;
     private Handler handler = new Handler(Looper.getMainLooper());
-    private boolean WB = false;
-    private Runnable fPh = new Runnable() { // from class: com.baidu.tbadk.util.i.1
+    private boolean Wz = false;
+    private Runnable fKA = new Runnable() { // from class: com.baidu.tbadk.util.i.1
         @Override // java.lang.Runnable
         public void run() {
             long currentTimeMillis = System.currentTimeMillis();
-            if (i.this.fPf > i.this.fPe) {
-                i.this.fPe = currentTimeMillis - i.this.fPd;
-                i.this.fPf = i.this.fPe;
+            if (i.this.fKy > i.this.fKx) {
+                i.this.fKx = currentTimeMillis - i.this.fKw;
+                i.this.fKy = i.this.fKx;
             }
-            long j = currentTimeMillis - i.this.fPe;
-            i.this.fPc += i.this.fPd;
-            if (i.this.fPc < i.this.fPb) {
-                i.this.handler.postDelayed(i.this.fPh, (2 * i.this.fPd) - j);
-                if (i.this.fPg != null) {
-                    i.this.fPg.e(i.this.fPb, i.this.fPb - i.this.fPc);
+            long j = currentTimeMillis - i.this.fKx;
+            i.this.fKv += i.this.fKw;
+            if (i.this.fKv < i.this.fKu) {
+                i.this.handler.postDelayed(i.this.fKA, (2 * i.this.fKw) - j);
+                if (i.this.fKz != null) {
+                    i.this.fKz.e(i.this.fKu, i.this.fKu - i.this.fKv);
                 }
             } else {
-                i.this.fPc = i.this.fPb;
+                i.this.fKv = i.this.fKu;
                 i.this.finish();
             }
-            i.this.fPe = currentTimeMillis;
+            i.this.fKx = currentTimeMillis;
         }
     };
 
@@ -44,53 +44,53 @@ public class i {
     }
 
     public i(long j, long j2) {
-        this.fPb = j;
-        this.fPd = j2;
+        this.fKu = j;
+        this.fKw = j2;
     }
 
     public void start() {
         this.startTime = System.currentTimeMillis();
-        this.fPe = this.startTime;
-        if (this.fPg != null) {
-            this.fPg.e(this.fPb, this.fPb - this.fPc);
+        this.fKx = this.startTime;
+        if (this.fKz != null) {
+            this.fKz.e(this.fKu, this.fKu - this.fKv);
         }
-        this.handler.postDelayed(this.fPh, this.fPd);
+        this.handler.postDelayed(this.fKA, this.fKw);
     }
 
     public void pause() {
-        if (!this.WB) {
-            this.WB = true;
-            this.fPf = System.currentTimeMillis();
-            this.handler.removeCallbacks(this.fPh);
+        if (!this.Wz) {
+            this.Wz = true;
+            this.fKy = System.currentTimeMillis();
+            this.handler.removeCallbacks(this.fKA);
         }
     }
 
     public void resume() {
-        if (this.WB) {
-            this.WB = false;
-            this.handler.postDelayed(this.fPh, this.fPd - (this.fPf - this.fPe));
+        if (this.Wz) {
+            this.Wz = false;
+            this.handler.postDelayed(this.fKA, this.fKw - (this.fKy - this.fKx));
         }
     }
 
     public void stop() {
-        this.WB = false;
-        this.fPe = this.startTime;
-        this.fPf = this.fPe;
-        this.handler.removeCallbacks(this.fPh);
+        this.Wz = false;
+        this.fKx = this.startTime;
+        this.fKy = this.fKx;
+        this.handler.removeCallbacks(this.fKA);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void finish() {
-        if (this.fPg != null) {
-            this.fPg.N(this.fPb);
+        if (this.fKz != null) {
+            this.fKz.N(this.fKu);
         }
     }
 
     public void a(a aVar) {
-        this.fPg = aVar;
+        this.fKz = aVar;
     }
 
-    public long bIO() {
-        return this.fPc;
+    public long bEW() {
+        return this.fKv;
     }
 }

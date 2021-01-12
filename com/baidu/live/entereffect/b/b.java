@@ -20,11 +20,11 @@ import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class b {
-    private boolean aWk;
-    private com.baidu.live.entereffect.a.a aWl;
-    private String aWm;
+    private boolean aRx;
+    private com.baidu.live.entereffect.a.a aRy;
+    private String aRz;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(final boolean z, final com.baidu.live.entereffect.a.a aVar, final String str, final String str2, final String str3, final boolean z2) {
@@ -38,11 +38,11 @@ public class b {
                     if (aVar == null || TextUtils.isEmpty(aVar.id) || TextUtils.isEmpty(str) || TextUtils.isEmpty(str2) || TextUtils.isEmpty(str3)) {
                         return null;
                     }
-                    b.this.aWk = z;
-                    b.this.aWl = aVar;
-                    b.this.aWm = str;
+                    b.this.aRx = z;
+                    b.this.aRy = aVar;
+                    b.this.aRz = str;
                     if (com.baidu.live.i.a.existFile(str2)) {
-                        b.this.gy(str2);
+                        b.this.fm(str2);
                     }
                     final String str4 = aVar.id;
                     DownloadData downloadData = new DownloadData();
@@ -51,7 +51,7 @@ public class b {
                     downloadData.setName(str4);
                     downloadData.setUrl(str);
                     downloadData.setType(20);
-                    downloadData.setPath(b.this.ar(str2, str4));
+                    downloadData.setPath(b.this.aq(str2, str4));
                     downloadData.setPriority(128);
                     downloadData.setCallback(new FileDownloadCallBack() { // from class: com.baidu.live.entereffect.b.b.1.1
                         @Override // com.baidu.live.tbadk.download.FileDownloadCallBack
@@ -60,7 +60,7 @@ public class b {
 
                         @Override // com.baidu.live.tbadk.download.FileDownloadCallBack
                         public boolean onPreDownload(DownloadData downloadData2) {
-                            return com.baidu.live.ah.a.b.Tq().G(downloadData2);
+                            return com.baidu.live.ah.a.b.Pv().G(downloadData2);
                         }
 
                         @Override // com.baidu.live.tbadk.download.FileDownloadCallBack
@@ -70,7 +70,7 @@ public class b {
 
                         @Override // com.baidu.live.tbadk.download.FileDownloadCallBack
                         public void onFileDownloadSucceed(DownloadData downloadData2) {
-                            b.this.aq(b.this.ar(str2, str4), str3);
+                            b.this.ap(b.this.aq(str2, str4), str3);
                         }
 
                         @Override // com.baidu.live.tbadk.download.FileDownloadCallBack
@@ -179,7 +179,7 @@ public class b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aq(final String str, final String str2) {
+    public void ap(final String str, final String str2) {
         if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
             new BdAsyncTask<Void, Void, List<com.baidu.live.entereffect.a.b>>() { // from class: com.baidu.live.entereffect.b.b.2
                 /* JADX DEBUG: Method merged with bridge method */
@@ -187,17 +187,17 @@ public class b {
                 @Override // com.baidu.live.adp.lib.asynctask.BdAsyncTask
                 /* renamed from: c */
                 public List<com.baidu.live.entereffect.a.b> doInBackground(Void... voidArr) {
-                    List<com.baidu.live.entereffect.a.b> as = b.this.as(str, str2);
-                    if (as == null || as.isEmpty()) {
-                        b.this.gy(str);
-                        b.this.gy(str2);
-                        l.F(b.this.aWl == null ? "" : b.this.aWl.id, b.this.aWm, "unZip result null");
+                    List<com.baidu.live.entereffect.a.b> ar = b.this.ar(str, str2);
+                    if (ar == null || ar.isEmpty()) {
+                        b.this.fm(str);
+                        b.this.fm(str2);
+                        l.E(b.this.aRy == null ? "" : b.this.aRy.id, b.this.aRz, "unZip result null");
                         JSONObject jSONObject = new JSONObject();
                         JSONObject jSONObject2 = new JSONObject();
                         try {
                             String str3 = "";
-                            if (b.this.aWl != null) {
-                                str3 = b.this.aWk ? b.this.aWl.videoUrl : b.this.aWl.aVV;
+                            if (b.this.aRy != null) {
+                                str3 = b.this.aRx ? b.this.aRy.videoUrl : b.this.aRy.aRi;
                             }
                             jSONObject2.put("step_error", 6);
                             jSONObject2.put("down_type", UbcStatConstant.ContentType.UBC_TYPE_ENTEREFFECT_DYNAMIC_LIST);
@@ -208,7 +208,7 @@ public class b {
                         }
                         UbcStatisticManager.getInstance().logSendResponse(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_DOWN_RES_RESP, UbcStatConstant.ContentType.UBC_TYPE_RES_DOWN, "liveroom", "").setContentExt(jSONObject), null, true);
                     }
-                    return as;
+                    return ar;
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
@@ -218,7 +218,7 @@ public class b {
                 public void onPostExecute(List<com.baidu.live.entereffect.a.b> list) {
                     super.onPostExecute(list);
                     if (list != null && !list.isEmpty()) {
-                        c.FF().a(b.this.aWk, b.this.aWl, str2, list);
+                        c.BK().a(b.this.aRx, b.this.aRy, str2, list);
                     }
                 }
             }.execute(new Void[0]);
@@ -226,7 +226,7 @@ public class b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public String ar(String str, String str2) {
+    public String aq(String str, String str2) {
         return str + "/" + str2 + ".zip";
     }
 
@@ -239,7 +239,7 @@ public class b {
         	at jadx.core.dex.visitors.blocks.BlockProcessor.visit(BlockProcessor.java:39)
         */
     /* JADX INFO: Access modifiers changed from: private */
-    public java.util.List<com.baidu.live.entereffect.a.b> as(java.lang.String r8, java.lang.String r9) {
+    public java.util.List<com.baidu.live.entereffect.a.b> ar(java.lang.String r8, java.lang.String r9) {
         /*
             r7 = this;
             r1 = 0
@@ -277,13 +277,13 @@ public class b {
             r0 = move-exception
         L4e:
             r0.printStackTrace()     // Catch: java.lang.Throwable -> Lb5
-            com.baidu.live.entereffect.a.a r4 = r7.aWl     // Catch: java.lang.Throwable -> Lb5
+            com.baidu.live.entereffect.a.a r4 = r7.aRy     // Catch: java.lang.Throwable -> Lb5
             if (r4 != 0) goto L95
             java.lang.String r4 = ""
         L58:
-            java.lang.String r5 = r7.aWm     // Catch: java.lang.Throwable -> Lb5
+            java.lang.String r5 = r7.aRz     // Catch: java.lang.Throwable -> Lb5
             java.lang.String r0 = r0.getMessage()     // Catch: java.lang.Throwable -> Lb5
-            com.baidu.live.utils.l.F(r4, r5, r0)     // Catch: java.lang.Throwable -> Lb5
+            com.baidu.live.utils.l.E(r4, r5, r0)     // Catch: java.lang.Throwable -> Lb5
             if (r2 == 0) goto L66
             r2.close()     // Catch: java.io.IOException -> L9a
         L66:
@@ -315,7 +315,7 @@ public class b {
             r1.printStackTrace()
             goto L6c
         L95:
-            com.baidu.live.entereffect.a.a r4 = r7.aWl     // Catch: java.lang.Throwable -> Lb5
+            com.baidu.live.entereffect.a.a r4 = r7.aRy     // Catch: java.lang.Throwable -> Lb5
             java.lang.String r4 = r4.id     // Catch: java.lang.Throwable -> Lb5
             goto L58
         L9a:
@@ -355,7 +355,7 @@ public class b {
             r2 = r1
             goto L4e
         */
-        throw new UnsupportedOperationException("Method not decompiled: com.baidu.live.entereffect.b.b.as(java.lang.String, java.lang.String):java.util.List");
+        throw new UnsupportedOperationException("Method not decompiled: com.baidu.live.entereffect.b.b.ar(java.lang.String, java.lang.String):java.util.List");
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [442=5, 443=5, 444=5, 446=5, 447=5] */
@@ -429,7 +429,7 @@ public class b {
                         } catch (IOException e4) {
                             e = e4;
                             e.printStackTrace();
-                            l.G(this.aWl == null ? "" : this.aWl.id, this.aWm, e.getMessage());
+                            l.F(this.aRy == null ? "" : this.aRy.id, this.aRz, e.getMessage());
                             if (fileOutputStream != null) {
                                 try {
                                     fileOutputStream.flush();
@@ -470,7 +470,7 @@ public class b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void gy(String str) {
+    public void fm(String str) {
         if (!TextUtils.isEmpty(str)) {
             com.baidu.live.i.a.cleanDir(new File(str));
         }

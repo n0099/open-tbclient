@@ -8,32 +8,32 @@ import com.baidu.live.alablmsdk.config.enums.BLMAudioSampleRate;
 import com.baidu.live.alablmsdk.config.enums.BLMLiveTransferMode;
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import java.util.List;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class a {
-    private static final BLMAudioSampleRate aBQ = BLMAudioSampleRate.BLM_AUDIO_SAMPLE_RATE_48000HZ;
-    public b aBR;
-    public BLMAudioSampleRate aBS;
-    public int aBT;
-    public BLMLiveTransferMode aBU;
-    public String aBV;
-    public boolean aBW = true;
-    public String aBX;
-    public b aBY;
-    public List<c> aBZ;
-    public List<com.baidu.live.alablmsdk.config.a.a> aCa;
-    public String aCb;
+    private static final BLMAudioSampleRate axd = BLMAudioSampleRate.BLM_AUDIO_SAMPLE_RATE_48000HZ;
+    public b axe;
+    public BLMAudioSampleRate axf;
+    public int axg;
+    public BLMLiveTransferMode axh;
+    public String axi;
+    public boolean axj = true;
+    public String axk;
+    public b axl;
+    public List<c> axm;
+    public List<com.baidu.live.alablmsdk.config.a.a> axn;
+    public String axo;
     public int fps;
 
-    public String BC() {
+    public String xH() {
         StringBuilder sb = new StringBuilder();
-        sb.append("custom_layout").append("-v:").append(a(this.aBR)).append("-b:").append(BD()).append("-f:").append(BE()).append("-ar:").append(BF());
-        if (!com.baidu.live.alablmsdk.a.a.isEmpty(this.aCa)) {
-            sb.append("-bgp:").append(BH()).append("-wd:").append("{").append(BI()).append("}");
+        sb.append("custom_layout").append("-v:").append(a(this.axe)).append("-b:").append(xI()).append("-f:").append(xJ()).append("-ar:").append(xK());
+        if (!com.baidu.live.alablmsdk.a.a.isEmpty(this.axn)) {
+            sb.append("-bgp:").append(xM()).append("-wd:").append("{").append(xN()).append("}");
         } else {
-            sb.append("-wp:").append("{").append(BG()).append("}");
+            sb.append("-wp:").append("{").append(xL()).append("}");
         }
         String sb2 = sb.toString();
-        com.baidu.live.alablmsdk.a.b.a.aj(" template " + sb2, "");
+        com.baidu.live.alablmsdk.a.b.a.ai(" template " + sb2, "");
         return sb2;
     }
 
@@ -75,29 +75,29 @@ public class a {
         return "9_16";
     }
 
-    private int BD() {
-        return this.aBT > 0 ? this.aBT : FeatureCodes.ADVANCE_BEAUTY;
+    private int xI() {
+        return this.axg > 0 ? this.axg : FeatureCodes.ADVANCE_BEAUTY;
     }
 
-    private int BE() {
+    private int xJ() {
         if (this.fps != 0) {
             return this.fps;
         }
         return 20;
     }
 
-    private int BF() {
-        return this.aBS != null ? this.aBS.getSampleRate() : aBQ.getSampleRate();
+    private int xK() {
+        return this.axf != null ? this.axf.getSampleRate() : axd.getSampleRate();
     }
 
-    private String BG() {
-        if (com.baidu.live.alablmsdk.a.a.isEmpty(this.aBZ)) {
+    private String xL() {
+        if (com.baidu.live.alablmsdk.a.a.isEmpty(this.axm)) {
             return "";
         }
         StringBuilder sb = new StringBuilder();
         boolean z = true;
-        for (int i = 0; i < this.aBZ.size(); i++) {
-            c cVar = this.aBZ.get(i);
+        for (int i = 0; i < this.axm.size(); i++) {
+            c cVar = this.axm.get(i);
             int i2 = i + 1;
             if (cVar != null) {
                 if (!z) {
@@ -114,31 +114,31 @@ public class a {
         if (cVar == null) {
             return "";
         }
-        if (this.aBY == null || this.aBR == null) {
-            return cVar.BK();
+        if (this.axl == null || this.axe == null) {
+            return cVar.xP();
         }
-        float width = (this.aBR.getWidth() * 1.0f) / this.aBY.getWidth();
-        return new c(com.baidu.live.alablmsdk.a.b.q(cVar.x * width), com.baidu.live.alablmsdk.a.b.q(cVar.y * width), com.baidu.live.alablmsdk.a.b.q(cVar.width * width), com.baidu.live.alablmsdk.a.b.q(width * cVar.height)).BK();
+        float width = (this.axe.getWidth() * 1.0f) / this.axl.getWidth();
+        return new c(com.baidu.live.alablmsdk.a.b.q(cVar.x * width), com.baidu.live.alablmsdk.a.b.q(cVar.y * width), com.baidu.live.alablmsdk.a.b.q(cVar.width * width), com.baidu.live.alablmsdk.a.b.q(width * cVar.height)).xP();
     }
 
-    private String BH() {
-        return !TextUtils.isEmpty(this.aCb) ? this.aCb : "meg_public_show_2x.png";
+    private String xM() {
+        return !TextUtils.isEmpty(this.axo) ? this.axo : "meg_public_show_2x.png";
     }
 
-    public String BI() {
-        if (com.baidu.live.alablmsdk.a.a.isEmpty(this.aCa)) {
+    public String xN() {
+        if (com.baidu.live.alablmsdk.a.a.isEmpty(this.axn)) {
             return "";
         }
         StringBuilder sb = new StringBuilder();
-        float a2 = a(this.aBR, this.aBY);
+        float a2 = a(this.axe, this.axl);
         boolean z = true;
-        for (int i = 0; i < this.aCa.size(); i++) {
-            com.baidu.live.alablmsdk.config.a.a aVar = this.aCa.get(i);
+        for (int i = 0; i < this.axn.size(); i++) {
+            com.baidu.live.alablmsdk.config.a.a aVar = this.axn.get(i);
             if (aVar != null) {
                 if (!z) {
                     sb.append(",");
                 }
-                sb.append(aVar.tag).append(":s:").append(aVar.aCc.getShapeType()).append(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS).append(aVar.r(a2));
+                sb.append(aVar.tag).append(":s:").append(aVar.axp.getShapeType()).append(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS).append(aVar.r(a2));
                 z = false;
             }
         }
@@ -146,7 +146,7 @@ public class a {
     }
 
     private float a(b bVar, b bVar2) {
-        if (bVar == null || bVar.BJ() || bVar2 == null || bVar2.BJ()) {
+        if (bVar == null || bVar.xO() || bVar2 == null || bVar2.xO()) {
             return 1.0f;
         }
         if ((bVar.getWidth() * 1.0f) / bVar.getHeight() < (bVar2.getWidth() * 1.0f) / bVar2.getHeight()) {

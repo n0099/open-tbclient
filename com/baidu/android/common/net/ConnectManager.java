@@ -4,7 +4,7 @@ import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Proxy;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class ConnectManager {
     private static final boolean DEBUG = false;
     private static final String TAG = ConnectManager.class.getSimpleName();

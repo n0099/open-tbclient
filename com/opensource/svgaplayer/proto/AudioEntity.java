@@ -9,19 +9,19 @@ import com.squareup.wire2.d;
 import com.squareup.wire2.internal.a;
 import java.io.IOException;
 import okio.ByteString;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class AudioEntity extends Message<AudioEntity, Builder> {
     public static final String DEFAULT_AUDIOKEY = "";
     private static final long serialVersionUID = 0;
-    @WireField(eFo = "com.squareup.wire.ProtoAdapter#STRING", tag = 1)
+    @WireField(eBx = "com.squareup.wire.ProtoAdapter#STRING", tag = 1)
     public final String audioKey;
-    @WireField(eFo = "com.squareup.wire.ProtoAdapter#INT32", tag = 3)
+    @WireField(eBx = "com.squareup.wire.ProtoAdapter#INT32", tag = 3)
     public final Integer endFrame;
-    @WireField(eFo = "com.squareup.wire.ProtoAdapter#INT32", tag = 2)
+    @WireField(eBx = "com.squareup.wire.ProtoAdapter#INT32", tag = 2)
     public final Integer startFrame;
-    @WireField(eFo = "com.squareup.wire.ProtoAdapter#INT32", tag = 4)
+    @WireField(eBx = "com.squareup.wire.ProtoAdapter#INT32", tag = 4)
     public final Integer startTime;
-    @WireField(eFo = "com.squareup.wire.ProtoAdapter#INT32", tag = 5)
+    @WireField(eBx = "com.squareup.wire.ProtoAdapter#INT32", tag = 5)
     public final Integer totalTime;
     public static final ProtoAdapter<AudioEntity> ADAPTER = new ProtoAdapter_AudioEntity();
     public static final Integer DEFAULT_STARTFRAME = 0;
@@ -99,7 +99,7 @@ public final class AudioEntity extends Message<AudioEntity, Builder> {
         return sb.replace(0, 2, "AudioEntity{").append('}').toString();
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static final class Builder extends Message.a<AudioEntity, Builder> {
         public String audioKey;
         public Integer endFrame;
@@ -140,7 +140,7 @@ public final class AudioEntity extends Message<AudioEntity, Builder> {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     private static final class ProtoAdapter_AudioEntity extends ProtoAdapter<AudioEntity> {
         ProtoAdapter_AudioEntity() {
             super(FieldEncoding.LENGTH_DELIMITED, AudioEntity.class);
@@ -178,11 +178,11 @@ public final class AudioEntity extends Message<AudioEntity, Builder> {
         @Override // com.squareup.wire2.ProtoAdapter
         public AudioEntity decode(c cVar) throws IOException {
             Builder builder = new Builder();
-            long eFg = cVar.eFg();
+            long eBp = cVar.eBp();
             while (true) {
-                int eFh = cVar.eFh();
-                if (eFh != -1) {
-                    switch (eFh) {
+                int eBq = cVar.eBq();
+                if (eBq != -1) {
+                    switch (eBq) {
                         case 1:
                             builder.audioKey(ProtoAdapter.STRING.decode(cVar));
                             break;
@@ -199,12 +199,12 @@ public final class AudioEntity extends Message<AudioEntity, Builder> {
                             builder.totalTime(ProtoAdapter.INT32.decode(cVar));
                             break;
                         default:
-                            FieldEncoding eFi = cVar.eFi();
-                            builder.addUnknownField(eFh, eFi, eFi.rawProtoAdapter().decode(cVar));
+                            FieldEncoding eBr = cVar.eBr();
+                            builder.addUnknownField(eBq, eBr, eBr.rawProtoAdapter().decode(cVar));
                             break;
                     }
                 } else {
-                    cVar.iS(eFg);
+                    cVar.iS(eBp);
                     return builder.build();
                 }
             }

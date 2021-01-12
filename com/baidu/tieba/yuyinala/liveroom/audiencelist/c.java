@@ -28,32 +28,32 @@ import com.baidu.live.tbadk.ubc.UbcStatisticManager;
 import com.baidu.live.tieba.horizonallist.widget.AdapterView;
 import com.baidu.live.view.AlphaGradientHListView;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class c {
-    private x aGe;
-    private ViewGroup bRX;
-    private com.baidu.live.liveroom.a.a huc;
-    public FrameLayout hue;
-    public FrameLayout huf;
-    private AlphaGradientHListView hug;
+    private x aBr;
+    private ViewGroup bNl;
+    private AlphaGradientHListView hpA;
+    private com.baidu.live.liveroom.a.a hpw;
+    public FrameLayout hpy;
+    public FrameLayout hpz;
     private String mLiveId;
     private TbPageContext mTbPageContext;
-    private a oot;
+    private a ojN;
     private String otherParams;
-    private AdapterView.c huj = new AdapterView.c() { // from class: com.baidu.tieba.yuyinala.liveroom.audiencelist.c.1
+    private AdapterView.c hpD = new AdapterView.c() { // from class: com.baidu.tieba.yuyinala.liveroom.audiencelist.c.1
         @Override // com.baidu.live.tieba.horizonallist.widget.AdapterView.c
         public void a(AdapterView<?> adapterView, View view, int i, long j) {
-            q qVar = (q) c.this.oot.getItem(i);
+            q qVar = (q) c.this.ojN.getItem(i);
             if (qVar != null) {
-                if (c.this.huc != null) {
-                    c.this.huc.ff(5);
+                if (c.this.hpw != null) {
+                    c.this.hpw.dz(5);
                 }
-                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new YuyinAlaPersonCardActivityConfig(c.this.getPageContext().getPageActivity(), ExtraParamsManager.getDecryptUserId(qVar.aKu.userUk), qVar.aKu.userName, qVar.aKu.portrait, 0, 0, "", "", 0L, 0L, 0L, 0, "", c.this.mLiveId, false, "", "", qVar.aKu.userName, "")));
-                c.this.Nf(i);
+                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new YuyinAlaPersonCardActivityConfig(c.this.getPageContext().getPageActivity(), ExtraParamsManager.getDecryptUserId(qVar.aFH.userUk), qVar.aFH.userName, qVar.aFH.portrait, 0, 0, "", "", 0L, 0L, 0L, 0, "", c.this.mLiveId, false, "", "", qVar.aFH.userName, "")));
+                c.this.Ly(i);
             }
         }
     };
-    CustomMessageListener gPs = new CustomMessageListener(2913095) { // from class: com.baidu.tieba.yuyinala.liveroom.audiencelist.c.2
+    CustomMessageListener gKM = new CustomMessageListener(2913095) { // from class: com.baidu.tieba.yuyinala.liveroom.audiencelist.c.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -69,8 +69,8 @@ public class c {
 
     public c(TbPageContext tbPageContext, com.baidu.live.liveroom.a.a aVar) {
         this.mTbPageContext = tbPageContext;
-        this.huc = aVar;
-        MessageManager.getInstance().registerListener(this.gPs);
+        this.hpw = aVar;
+        MessageManager.getInstance().registerListener(this.gKM);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -80,47 +80,47 @@ public class c {
 
     public void a(String str, x xVar) {
         this.mLiveId = str;
-        this.aGe = xVar;
+        this.aBr = xVar;
     }
 
     public void c(ViewGroup viewGroup, int i, int i2) {
         if (viewGroup != null) {
-            if (this.hue == null) {
-                this.hue = (FrameLayout) LayoutInflater.from(getPageContext().getPageActivity()).inflate(a.g.yuyin_ala_live_audience_list_layout, (ViewGroup) null);
+            if (this.hpy == null) {
+                this.hpy = (FrameLayout) LayoutInflater.from(getPageContext().getPageActivity()).inflate(a.g.yuyin_ala_live_audience_list_layout, (ViewGroup) null);
             }
-            if (this.bRX != null && this.bRX.indexOfChild(this.hue) > 0) {
-                this.bRX.removeView(this.hue);
+            if (this.bNl != null && this.bNl.indexOfChild(this.hpy) > 0) {
+                this.bNl.removeView(this.hpy);
             }
-            this.bRX = viewGroup;
-            this.hue.setId(a.f.ala_liveroom_audience);
-            this.huf = (FrameLayout) this.hue.findViewById(a.f.content_layout);
-            this.hug = (AlphaGradientHListView) this.hue.findViewById(a.f.ala_live_guest_listview);
-            this.hug.setDividerWidth(BdUtilHelper.getDimens(getPageContext().getPageActivity(), a.d.sdk_ds0));
-            this.oot = new a(getPageContext().getPageActivity());
-            this.hug.setAdapter((ListAdapter) this.oot);
-            this.hug.setSelector(getPageContext().getPageActivity().getResources().getDrawable(a.e.sdk_transparent_bg));
-            this.hug.setOnItemClickListener(this.huj);
-            this.hug.setColor(getPageContext().getResources().getColor(a.c.sdk_white_alpha100), getPageContext().getResources().getColor(a.c.sdk_white_alpha0));
-            this.hug.setNeedAlphaShade(true);
+            this.bNl = viewGroup;
+            this.hpy.setId(a.f.ala_liveroom_audience);
+            this.hpz = (FrameLayout) this.hpy.findViewById(a.f.content_layout);
+            this.hpA = (AlphaGradientHListView) this.hpy.findViewById(a.f.ala_live_guest_listview);
+            this.hpA.setDividerWidth(BdUtilHelper.getDimens(getPageContext().getPageActivity(), a.d.sdk_ds0));
+            this.ojN = new a(getPageContext().getPageActivity());
+            this.hpA.setAdapter((ListAdapter) this.ojN);
+            this.hpA.setSelector(getPageContext().getPageActivity().getResources().getDrawable(a.e.sdk_transparent_bg));
+            this.hpA.setOnItemClickListener(this.hpD);
+            this.hpA.setColor(getPageContext().getResources().getColor(a.c.sdk_white_alpha100), getPageContext().getResources().getColor(a.c.sdk_white_alpha0));
+            this.hpA.setNeedAlphaShade(true);
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, BdUtilHelper.getDimens(getPageContext().getPageActivity(), a.d.sdk_ds82));
             layoutParams.addRule(1, i);
             layoutParams.addRule(8, i);
             layoutParams.addRule(0, i2);
             layoutParams.leftMargin = BdUtilHelper.getDimens(getPageContext().getPageActivity(), a.d.sdk_ds24);
             layoutParams.rightMargin = BdUtilHelper.dip2px(getPageContext().getPageActivity(), -6.0f);
-            this.bRX.addView(this.hue, layoutParams);
+            this.bNl.addView(this.hpy, layoutParams);
         }
     }
 
-    public void dU(int i) {
+    public void co(int i) {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Nf(int i) {
+    public void Ly(int i) {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put(UbcStatConstant.KEY_LIVE_TYPE, UbcStatConstant.VALUE_LIVE_TYPE_AUDIO);
-            jSONObject.put(UbcStatConstant.KEY_CUSTOM_ROOM_ID, this.aGe.aLl.croom_id);
+            jSONObject.put(UbcStatConstant.KEY_CUSTOM_ROOM_ID, this.aBr.aGy.croom_id);
             jSONObject.put("icon_num", i + 1);
         } catch (Exception e) {
             BdLog.e(e);
@@ -129,14 +129,14 @@ public class c {
     }
 
     public void e(r rVar) {
-        if ((rVar == null || TextUtils.isEmpty(rVar.liveId) || rVar.liveId.equals(this.mLiveId)) && this.oot != null) {
-            this.oot.d(rVar);
-            this.oot.notifyDataSetChanged();
+        if ((rVar == null || TextUtils.isEmpty(rVar.liveId) || rVar.liveId.equals(this.mLiveId)) && this.ojN != null) {
+            this.ojN.d(rVar);
+            this.ojN.notifyDataSetChanged();
         }
     }
 
     public void onDestroy() {
-        MessageManager.getInstance().unRegisterListener(this.gPs);
+        MessageManager.getInstance().unRegisterListener(this.gKM);
     }
 
     public void setOtherParams(String str) {

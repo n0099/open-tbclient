@@ -10,27 +10,27 @@ import com.baidu.tieba.faceshop.EmotionPackageData;
 import com.baidu.tieba.faceshop.emotioncenter.data.b;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class a {
-    private f eXW;
-    private BdTypeListView gAY;
-    private EmotionCategoryAdapter iXc;
-    private EmotionHorizontalAdapter iXd;
-    private final List<com.baidu.adp.widget.ListView.a> boM = new ArrayList();
+    private f eTl;
+    private BdTypeListView gwr;
+    private EmotionCategoryAdapter iSv;
+    private EmotionHorizontalAdapter iSw;
+    private final List<com.baidu.adp.widget.ListView.a> bjZ = new ArrayList();
     private List<n> mListData = new ArrayList();
 
     public a(TbPageContext<?> tbPageContext, BdTypeListView bdTypeListView) {
-        this.eXW = tbPageContext;
-        this.gAY = bdTypeListView;
-        MT();
+        this.eTl = tbPageContext;
+        this.gwr = bdTypeListView;
+        IY();
     }
 
-    private void MT() {
-        this.iXc = new EmotionCategoryAdapter((TbPageContext) this.eXW, com.baidu.tieba.faceshop.emotioncenter.data.a.iXf);
-        this.iXd = new EmotionHorizontalAdapter((TbPageContext) this.eXW, b.iXg);
-        this.boM.add(this.iXc);
-        this.boM.add(this.iXd);
-        this.gAY.addAdapters(this.boM);
+    private void IY() {
+        this.iSv = new EmotionCategoryAdapter((TbPageContext) this.eTl, com.baidu.tieba.faceshop.emotioncenter.data.a.iSy);
+        this.iSw = new EmotionHorizontalAdapter((TbPageContext) this.eTl, b.iSz);
+        this.bjZ.add(this.iSv);
+        this.bjZ.add(this.iSw);
+        this.gwr.addAdapters(this.bjZ);
     }
 
     public void setDatas(List<n> list) {
@@ -38,8 +38,8 @@ public class a {
             if (!x.isEmpty(this.mListData)) {
                 this.mListData.clear();
             }
-            if (this.gAY != null) {
-                this.gAY.setData(list);
+            if (this.gwr != null) {
+                this.gwr.setData(list);
                 this.mListData.addAll(list);
             }
             notifyDataSetChanged();
@@ -48,9 +48,9 @@ public class a {
 
     public void cJ(List<n> list) {
         if (!x.isEmpty(list)) {
-            if (this.gAY != null) {
+            if (this.gwr != null) {
                 this.mListData.addAll(list);
-                this.gAY.setData(this.mListData);
+                this.gwr.setData(this.mListData);
             }
             notifyDataSetChanged();
         }
@@ -61,7 +61,7 @@ public class a {
         EmotionPackageData emotionPackageData2;
         if (emotionPackageData != null && !x.isEmpty(this.mListData)) {
             for (n nVar : this.mListData) {
-                if ((nVar instanceof b) && (bVar = (b) nVar) != null && (emotionPackageData2 = bVar.iXh) != null && emotionPackageData2.id == emotionPackageData.id) {
+                if ((nVar instanceof b) && (bVar = (b) nVar) != null && (emotionPackageData2 = bVar.iSA) != null && emotionPackageData2.id == emotionPackageData.id) {
                     emotionPackageData2.download = emotionPackageData.download;
                     emotionPackageData2.share = emotionPackageData.share;
                     notifyDataSetChanged();
@@ -72,8 +72,8 @@ public class a {
     }
 
     public void notifyDataSetChanged() {
-        if (this.gAY != null && this.gAY.getAdapter() != null && (this.gAY.getAdapter() instanceof BaseAdapter)) {
-            this.gAY.getAdapter().notifyDataSetChanged();
+        if (this.gwr != null && this.gwr.getAdapter() != null && (this.gwr.getAdapter() instanceof BaseAdapter)) {
+            this.gwr.getAdapter().notifyDataSetChanged();
         }
     }
 }

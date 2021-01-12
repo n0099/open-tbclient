@@ -24,10 +24,10 @@ import java.util.Timer;
 import java.util.TimerTask;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class a {
     private static final boolean DEBUG = b.DEBUG;
-    private com.baidu.swan.apps.camera.b.b cLd;
+    private com.baidu.swan.apps.camera.b.b cGr;
     private Timer mTimer;
 
     private a() {
@@ -35,13 +35,13 @@ public class a {
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.swan.apps.camera.a$a  reason: collision with other inner class name */
-    /* loaded from: classes9.dex */
-    public static class C0407a {
-        private static final a cLg = new a();
+    /* loaded from: classes8.dex */
+    public static class C0390a {
+        private static final a cGu = new a();
     }
 
-    public static a aoa() {
-        return C0407a.cLg;
+    public static a akg() {
+        return C0390a.cGu;
     }
 
     public boolean a(byte[] bArr, String str, int i, int i2, boolean z) {
@@ -97,46 +97,46 @@ public class a {
     }
 
     public void a(int i, final com.baidu.swan.apps.camera.b.b bVar) {
-        this.cLd = bVar;
+        this.cGr = bVar;
         this.mTimer = new Timer();
         this.mTimer.schedule(new TimerTask() { // from class: com.baidu.swan.apps.camera.a.1
             @Override // java.util.TimerTask, java.lang.Runnable
             public void run() {
                 if (bVar != null) {
-                    bVar.aod();
+                    bVar.akj();
                 }
-                a.this.aob();
+                a.this.akh();
             }
         }, i);
     }
 
-    public void aob() {
-        this.cLd = null;
+    public void akh() {
+        this.cGr = null;
         if (this.mTimer != null) {
             this.mTimer.cancel();
         }
     }
 
     public void cancelTimer() {
-        if (this.cLd != null) {
-            this.cLd.cancel();
+        if (this.cGr != null) {
+            this.cGr.cancel();
         }
-        aob();
+        akh();
     }
 
-    public void eU(boolean z) {
+    public void eQ(boolean z) {
         if (z) {
             cancelTimer();
         }
     }
 
     public void m(String str, String str2, boolean z) {
-        if (ag.uT("1.13.0")) {
+        if (ag.tI("1.13.0")) {
             HashMap hashMap = new HashMap();
             hashMap.put("wvID", str);
             hashMap.put("cameraId", str2);
             hashMap.put("eType", z ? BdStatsConstant.StatsType.ERROR : "stop");
-            f.aDH().b(new com.baidu.swan.apps.event.a.b(PixelReadParams.DEFAULT_FILTER_ID, hashMap));
+            f.azN().b(new com.baidu.swan.apps.event.a.b(PixelReadParams.DEFAULT_FILTER_ID, hashMap));
             return;
         }
         JSONObject jSONObject = new JSONObject();
@@ -152,11 +152,11 @@ public class a {
         com.baidu.swan.apps.view.b.b.a.c(str, str2, PixelReadParams.DEFAULT_FILTER_ID, jSONObject.optString("eType"), jSONObject);
     }
 
-    public boolean cv(Context context) {
+    public boolean cu(Context context) {
         return Build.VERSION.SDK_INT < 23 || ActivityCompat.checkSelfPermission(context, PermissionRequest.RESOURCE_VIDEO_CAPTURE) == 0;
     }
 
-    public boolean cw(Context context) {
+    public boolean cv(Context context) {
         return Build.VERSION.SDK_INT < 23 || ActivityCompat.checkSelfPermission(context, PermissionRequest.RESOURCE_AUDIO_CAPTURE) == 0;
     }
 

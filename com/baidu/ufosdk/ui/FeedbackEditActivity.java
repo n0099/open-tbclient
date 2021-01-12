@@ -54,7 +54,7 @@ import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class FeedbackEditActivity extends Activity {
     private TextView C;
     private TextView D;
@@ -78,7 +78,7 @@ public class FeedbackEditActivity extends Activity {
     private int Y;
 
     /* renamed from: b  reason: collision with root package name */
-    private SharedPreferences.Editor f5690b;
+    private SharedPreferences.Editor f5407b;
     private SharedPreferences c;
     private RelativeLayout i;
     private ImageView j;
@@ -116,7 +116,7 @@ public class FeedbackEditActivity extends Activity {
     private String ae = "";
 
     /* renamed from: a  reason: collision with root package name */
-    public Map f5689a = new HashMap();
+    public Map f5406a = new HashMap();
     private Handler af = new ag(this);
 
     private void a() {
@@ -668,59 +668,59 @@ public class FeedbackEditActivity extends Activity {
             com.baidu.ufosdk.b.ag.onSubmitNewMessage();
         }
         com.baidu.ufosdk.f.c.c("url is https://ufosdk.baidu.com/?m=Index&a=postmsg");
-        this.f5689a.put("clientid", str);
-        this.f5689a.put("appid", UfoSDK.appid);
-        this.f5689a.put("devid", UfoSDK.devid);
-        this.f5689a.put("id", str2);
-        this.f5689a.put("content", str3);
-        this.f5689a.put("product_type", Integer.valueOf(this.W));
-        this.f5689a.put("need_manual", 1);
+        this.f5406a.put("clientid", str);
+        this.f5406a.put("appid", UfoSDK.appid);
+        this.f5406a.put("devid", UfoSDK.devid);
+        this.f5406a.put("id", str2);
+        this.f5406a.put("content", str3);
+        this.f5406a.put("product_type", Integer.valueOf(this.W));
+        this.f5406a.put("need_manual", 1);
         int i = com.baidu.ufosdk.f.i.a(str4) ? 1 : com.baidu.ufosdk.f.i.b(str4) ? 2 : com.baidu.ufosdk.f.i.c(str4) ? 3 : 0;
         com.baidu.ufosdk.f.c.c("contactWay is " + str4 + "; type = " + i);
         if (i == 0) {
-            this.f5689a.put("contact_way", str4);
+            this.f5406a.put("contact_way", str4);
         } else if (i == 1) {
             com.baidu.ufosdk.f.c.c("contactWay is email");
-            this.f5689a.put(NotificationCompat.CATEGORY_EMAIL, str4);
+            this.f5406a.put(NotificationCompat.CATEGORY_EMAIL, str4);
         } else if (i == 2) {
             com.baidu.ufosdk.f.c.c("contactWay is tel");
-            this.f5689a.put("tel", str4);
+            this.f5406a.put("tel", str4);
         } else {
             com.baidu.ufosdk.f.c.c("contactWay is qq");
-            this.f5689a.put("qq", str4);
+            this.f5406a.put("qq", str4);
         }
-        this.f5689a.put(com.xiaomi.mipush.sdk.Constants.PHONE_BRAND, Build.MANUFACTURER);
-        this.f5689a.put("model", Build.MODEL);
-        this.f5689a.put("sdkvn", "2.9.10");
-        this.f5689a.put("os", HttpConstants.OS_TYPE_VALUE);
-        this.f5689a.put("appvn", com.baidu.ufosdk.b.e.b());
-        this.f5689a.put("freespace", String.valueOf(com.baidu.ufosdk.b.a.a()));
-        this.f5689a.put("uid", com.baidu.ufosdk.b.d);
-        this.f5689a.put("username", com.baidu.ufosdk.b.f5639b);
-        this.f5689a.put(DpStatConstants.KEY_USER_ID, com.baidu.ufosdk.b.d);
-        this.f5689a.put("osvn", Build.VERSION.RELEASE);
-        this.f5689a.put("extra", com.baidu.ufosdk.b.f);
-        this.f5689a.put("extend_feedback_channel", Integer.valueOf(com.baidu.ufosdk.b.j));
-        this.f5689a.put("osvc", String.valueOf(com.baidu.ufosdk.f.j.a()));
-        this.f5689a.put(Config.LAUNCH_REFERER, com.baidu.ufosdk.b.p);
-        this.f5689a.put("baiducuid", com.baidu.ufosdk.b.c);
+        this.f5406a.put(com.xiaomi.mipush.sdk.Constants.PHONE_BRAND, Build.MANUFACTURER);
+        this.f5406a.put("model", Build.MODEL);
+        this.f5406a.put("sdkvn", "2.9.10");
+        this.f5406a.put("os", HttpConstants.OS_TYPE_VALUE);
+        this.f5406a.put("appvn", com.baidu.ufosdk.b.e.b());
+        this.f5406a.put("freespace", String.valueOf(com.baidu.ufosdk.b.a.a()));
+        this.f5406a.put("uid", com.baidu.ufosdk.b.d);
+        this.f5406a.put("username", com.baidu.ufosdk.b.f5356b);
+        this.f5406a.put(DpStatConstants.KEY_USER_ID, com.baidu.ufosdk.b.d);
+        this.f5406a.put("osvn", Build.VERSION.RELEASE);
+        this.f5406a.put("extra", com.baidu.ufosdk.b.f);
+        this.f5406a.put("extend_feedback_channel", Integer.valueOf(com.baidu.ufosdk.b.j));
+        this.f5406a.put("osvc", String.valueOf(com.baidu.ufosdk.f.j.a()));
+        this.f5406a.put(Config.LAUNCH_REFERER, com.baidu.ufosdk.b.p);
+        this.f5406a.put("baiducuid", com.baidu.ufosdk.b.c);
         if (!TextUtils.isEmpty(this.g)) {
-            this.f5689a.put("faq_id", this.g);
+            this.f5406a.put("faq_id", this.g);
         }
-        this.f5689a.put("phonetime", String.valueOf(System.currentTimeMillis()));
+        this.f5406a.put("phonetime", String.valueOf(System.currentTimeMillis()));
         if (com.baidu.ufosdk.f.p.a("android.permission.ACCESS_NETWORK_STATE")) {
-            this.f5689a.put("nettype", com.baidu.ufosdk.b.d.a(context));
+            this.f5406a.put("nettype", com.baidu.ufosdk.b.d.a(context));
         } else {
-            this.f5689a.put("nettype", "N/A");
+            this.f5406a.put("nettype", "N/A");
         }
-        this.f5689a.put("screenSize", com.baidu.ufosdk.b.f.a(context));
-        if (com.baidu.ufosdk.b.f5638a) {
-            this.f5689a.put("logcat", com.baidu.ufosdk.b.b.a());
+        this.f5406a.put("screenSize", com.baidu.ufosdk.b.f.a(context));
+        if (com.baidu.ufosdk.b.f5355a) {
+            this.f5406a.put("logcat", com.baidu.ufosdk.b.b.a());
         }
         if (!TextUtils.isEmpty(com.baidu.ufosdk.b.h)) {
-            this.f5689a.put("ip_location", com.baidu.ufosdk.b.h);
+            this.f5406a.put("ip_location", com.baidu.ufosdk.b.h);
         }
-        String a2 = com.baidu.ufosdk.f.k.a(com.baidu.ufosdk.c.a.a(this.f5689a));
+        String a2 = com.baidu.ufosdk.f.k.a(com.baidu.ufosdk.c.a.a(this.f5406a));
         try {
             String a3 = com.baidu.ufosdk.e.b.a("https://ufosdk.baidu.com/?m=Index&a=postmsg", TextUtils.isEmpty(str5) ? "sdk_encrypt=" + URLEncoder.encode(a2, "UTF-8") : "sdk_encrypt=" + URLEncoder.encode(a2, "UTF-8") + "&screenshot=" + URLEncoder.encode(str5, "UTF-8"));
             if (TextUtils.isEmpty(a3)) {
@@ -888,7 +888,7 @@ public class FeedbackEditActivity extends Activity {
         } else {
             this.R = com.baidu.ufosdk.f.k.b(string);
         }
-        this.f5690b = this.c.edit();
+        this.f5407b = this.c.edit();
         this.g = getIntent().getStringExtra("faq_id");
         this.t = getIntent().getStringExtra("msgid");
         this.W = getIntent().getIntExtra("product_type", 0);
@@ -910,19 +910,19 @@ public class FeedbackEditActivity extends Activity {
         com.baidu.ufosdk.f.c.c("--FeedbackEdit:364--today:" + b2 + "; startStr:" + UfoSDK.startStr);
         if (UfoSDK.startStr.equals(b2 + "-enable")) {
             if (!this.c.getBoolean("editFeedbackViewUV_has", false)) {
-                this.f5690b.putInt("editFeedbackViewUV", this.c.getInt("editFeedbackViewUV", 0) + 1);
-                this.f5690b.putBoolean("editFeedbackViewUV_has", true);
+                this.f5407b.putInt("editFeedbackViewUV", this.c.getInt("editFeedbackViewUV", 0) + 1);
+                this.f5407b.putBoolean("editFeedbackViewUV_has", true);
             }
-            this.f5690b.commit();
+            this.f5407b.commit();
         }
         if (this.X == 1) {
             this.h = "";
             if (UfoSDK.startStr.equals(b2 + "-enable")) {
                 if (!this.c.getBoolean("editFeedbackViewFromFaqUV_has", false)) {
-                    this.f5690b.putInt("editFeedbackViewFromFaqUV", this.c.getInt("editFeedbackViewFromFaqUV", 0) + 1);
-                    this.f5690b.putBoolean("editFeedbackViewFromFaqUV_has", true);
+                    this.f5407b.putInt("editFeedbackViewFromFaqUV", this.c.getInt("editFeedbackViewFromFaqUV", 0) + 1);
+                    this.f5407b.putBoolean("editFeedbackViewFromFaqUV_has", true);
                 }
-                this.f5690b.commit();
+                this.f5407b.commit();
             }
         }
         if (this.X == 0) {
@@ -931,10 +931,10 @@ public class FeedbackEditActivity extends Activity {
             this.h = getIntent().getStringExtra("data_array");
             if (UfoSDK.startStr.equals(b2 + "-enable")) {
                 if (!this.c.getBoolean("editFeedbackViewFromRobotUV_has", false)) {
-                    this.f5690b.putInt("editFeedbackViewFromRobotUV", this.c.getInt("editFeedbackViewFromRobotUV", 0) + 1);
-                    this.f5690b.putBoolean("editFeedbackViewFromRobotUV_has", true);
+                    this.f5407b.putInt("editFeedbackViewFromRobotUV", this.c.getInt("editFeedbackViewFromRobotUV", 0) + 1);
+                    this.f5407b.putBoolean("editFeedbackViewFromRobotUV_has", true);
                 }
-                this.f5690b.commit();
+                this.f5407b.commit();
             }
         }
         if (TextUtils.isEmpty(this.t)) {
@@ -943,8 +943,8 @@ public class FeedbackEditActivity extends Activity {
         if (TextUtils.isEmpty(this.g)) {
             this.g = "";
         }
-        this.f5690b.putBoolean("ADD_PIC_FLAG", true);
-        this.f5690b.commit();
+        this.f5407b.putBoolean("ADD_PIC_FLAG", true);
+        this.f5407b.commit();
         this.f = getIntent().getIntExtra("feedback_channel", 0);
         com.baidu.ufosdk.b.j = this.f;
         this.z = new ArrayList();
@@ -1064,18 +1064,18 @@ public class FeedbackEditActivity extends Activity {
         super.onPause();
         String obj = this.n.getText().toString();
         if (obj == null || obj.trim().length() <= 0) {
-            this.f5690b.putString("cryptContactData", "");
+            this.f5407b.putString("cryptContactData", "");
         } else {
-            this.f5690b.putString("cryptContactData", com.baidu.ufosdk.f.k.a(obj));
+            this.f5407b.putString("cryptContactData", com.baidu.ufosdk.f.k.a(obj));
         }
         if (this.s.booleanValue()) {
             if (TextUtils.isEmpty(this.g)) {
-                this.f5690b.putString(this.t, this.m.getText().toString());
+                this.f5407b.putString(this.t, this.m.getText().toString());
             } else {
-                this.f5690b.putString(this.g, this.m.getText().toString());
+                this.f5407b.putString(this.g, this.m.getText().toString());
             }
         }
-        this.f5690b.commit();
+        this.f5407b.commit();
     }
 
     @Override // android.app.Activity

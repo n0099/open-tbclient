@@ -1,6 +1,7 @@
 package com.baidubce.services.bos;
 
 import android.annotation.SuppressLint;
+import android.net.http.Headers;
 import android.util.Base64;
 import com.baidu.android.imsdk.utils.HttpHelper;
 import com.baidu.webkit.internal.ETAG;
@@ -9,7 +10,6 @@ import com.baidubce.BceClientException;
 import com.baidubce.BceServiceException;
 import com.baidubce.auth.BceV1Signer;
 import com.baidubce.auth.SignOptions;
-import com.baidubce.http.Headers;
 import com.baidubce.http.HttpMethodName;
 import com.baidubce.http.handler.BceErrorResponseHandler;
 import com.baidubce.http.handler.BceJsonResponseHandler;
@@ -99,7 +99,7 @@ import java.util.List;
 import java.util.Map;
 import org.json.JSONException;
 @SuppressLint({"NewApi"})
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class BosClient extends AbstractBceClient {
     public static final String STORAGE_CLASS_COLD = "COLD";
     public static final String STORAGE_CLASS_STANDARD = "STANDARD";
@@ -153,7 +153,7 @@ public class BosClient extends AbstractBceClient {
     public GetBucketLocationResponse getBucketLocation(GetBucketLocationRequest getBucketLocationRequest) {
         CheckUtils.isNotNull(getBucketLocationRequest, "request should not be null.");
         InternalRequest createRequest = createRequest(getBucketLocationRequest, HttpMethodName.GET);
-        createRequest.addParameter("location", null);
+        createRequest.addParameter(Headers.LOCATION, null);
         return (GetBucketLocationResponse) invokeHttpClient(createRequest, GetBucketLocationResponse.class);
     }
 
@@ -201,7 +201,7 @@ public class BosClient extends AbstractBceClient {
         InternalRequest createRequest = createRequest(setBucketAclRequest, HttpMethodName.PUT);
         createRequest.addParameter("acl", null);
         if (setBucketAclRequest.getCannedAcl() != null) {
-            createRequest.addHeader(Headers.BCE_ACL, setBucketAclRequest.getCannedAcl().toString());
+            createRequest.addHeader(com.baidubce.http.Headers.BCE_ACL, setBucketAclRequest.getCannedAcl().toString());
             setZeroContentLength(createRequest);
         } else if (setBucketAclRequest.getAccessControlList() != null) {
             try {
@@ -269,7 +269,7 @@ public class BosClient extends AbstractBceClient {
             internalRequest.addHeader("Content-Type", generatePresignedUrlRequest.getContentType());
         }
         if (generatePresignedUrlRequest.getContentMd5() != null) {
-            internalRequest.addHeader(Headers.CONTENT_MD5, generatePresignedUrlRequest.getContentMd5());
+            internalRequest.addHeader(com.baidubce.http.Headers.CONTENT_MD5, generatePresignedUrlRequest.getContentMd5());
         }
         addResponseHeaderParameters(internalRequest, generatePresignedUrlRequest.getResponseHeaders());
         new BceV1Signer().sign(internalRequest, this.config.getCredentials(), signOptions);
@@ -335,7 +335,7 @@ public class BosClient extends AbstractBceClient {
         InternalRequest createRequest = createRequest(getObjectRequest, HttpMethodName.GET);
         long[] range = getObjectRequest.getRange();
         if (range != null) {
-            createRequest.addHeader(Headers.RANGE, "bytes=" + range[0] + Constants.ACCEPT_TIME_SEPARATOR_SERVER + range[1]);
+            createRequest.addHeader(com.baidubce.http.Headers.RANGE, "bytes=" + range[0] + Constants.ACCEPT_TIME_SEPARATOR_SERVER + range[1]);
         }
         BosObject object = ((GetObjectResponse) invokeHttpClient(createRequest, GetObjectResponse.class)).getObject();
         object.setBucketName(getObjectRequest.getBucketName());
@@ -612,28 +612,28 @@ public class BosClient extends AbstractBceClient {
         CheckUtils.isNotNull(copyObjectRequest, "request should not be null.");
         assertStringNotNullOrEmpty(copyObjectRequest.getSourceKey(), "object key should not be null or empty");
         InternalRequest createRequest = createRequest(copyObjectRequest, HttpMethodName.PUT);
-        createRequest.addHeader(Headers.BCE_COPY_SOURCE, HttpUtils.normalizePath("/" + copyObjectRequest.getSourceBucketName() + "/" + copyObjectRequest.getSourceKey()));
+        createRequest.addHeader(com.baidubce.http.Headers.BCE_COPY_SOURCE, HttpUtils.normalizePath("/" + copyObjectRequest.getSourceBucketName() + "/" + copyObjectRequest.getSourceKey()));
         if (copyObjectRequest.getETag() != null) {
-            createRequest.addHeader(Headers.BCE_COPY_SOURCE_IF_MATCH, "\"" + copyObjectRequest.getETag() + "\"");
+            createRequest.addHeader(com.baidubce.http.Headers.BCE_COPY_SOURCE_IF_MATCH, "\"" + copyObjectRequest.getETag() + "\"");
         }
         if (copyObjectRequest.getNoneMatchETagConstraint() != null) {
-            createRequest.addHeader(Headers.BCE_COPY_SOURCE_IF_NONE_MATCH, "\"" + copyObjectRequest.getNoneMatchETagConstraint() + "\"");
+            createRequest.addHeader(com.baidubce.http.Headers.BCE_COPY_SOURCE_IF_NONE_MATCH, "\"" + copyObjectRequest.getNoneMatchETagConstraint() + "\"");
         }
         if (copyObjectRequest.getUnmodifiedSinceConstraint() != null) {
-            createRequest.addHeader(Headers.BCE_COPY_SOURCE_IF_UNMODIFIED_SINCE, copyObjectRequest.getUnmodifiedSinceConstraint());
+            createRequest.addHeader(com.baidubce.http.Headers.BCE_COPY_SOURCE_IF_UNMODIFIED_SINCE, copyObjectRequest.getUnmodifiedSinceConstraint());
         }
         if (copyObjectRequest.getModifiedSinceConstraint() != null) {
-            createRequest.addHeader(Headers.BCE_COPY_SOURCE_IF_MODIFIED_SINCE, copyObjectRequest.getModifiedSinceConstraint());
+            createRequest.addHeader(com.baidubce.http.Headers.BCE_COPY_SOURCE_IF_MODIFIED_SINCE, copyObjectRequest.getModifiedSinceConstraint());
         }
         if (copyObjectRequest.getStorageClass() != null) {
-            createRequest.addHeader(Headers.BCE_STORAGE_CLASS, copyObjectRequest.getStorageClass());
+            createRequest.addHeader(com.baidubce.http.Headers.BCE_STORAGE_CLASS, copyObjectRequest.getStorageClass());
         }
         ObjectMetadata newObjectMetadata = copyObjectRequest.getNewObjectMetadata();
         if (newObjectMetadata != null) {
-            createRequest.addHeader(Headers.BCE_COPY_METADATA_DIRECTIVE, "replace");
+            createRequest.addHeader(com.baidubce.http.Headers.BCE_COPY_METADATA_DIRECTIVE, "replace");
             populateRequestMetadata(createRequest, newObjectMetadata);
         } else {
-            createRequest.addHeader(Headers.BCE_COPY_METADATA_DIRECTIVE, "copy");
+            createRequest.addHeader(com.baidubce.http.Headers.BCE_COPY_METADATA_DIRECTIVE, "copy");
         }
         setZeroContentLength(createRequest);
         CopyObjectResponseWithExceptionInfo copyObjectResponseWithExceptionInfo = (CopyObjectResponseWithExceptionInfo) invokeHttpClient(createRequest, CopyObjectResponseWithExceptionInfo.class);
@@ -671,7 +671,7 @@ public class BosClient extends AbstractBceClient {
         InternalRequest createRequest = createRequest(initiateMultipartUploadRequest, HttpMethodName.POST);
         createRequest.addParameter("uploads", null);
         if (initiateMultipartUploadRequest.getStorageClass() != null) {
-            createRequest.addHeader(Headers.BCE_STORAGE_CLASS, initiateMultipartUploadRequest.getStorageClass());
+            createRequest.addHeader(com.baidubce.http.Headers.BCE_STORAGE_CLASS, initiateMultipartUploadRequest.getStorageClass());
         }
         setZeroContentLength(createRequest);
         if (initiateMultipartUploadRequest.getObjectMetadata() != null) {
@@ -709,7 +709,7 @@ public class BosClient extends AbstractBceClient {
             }
         }
         if (uploadPartRequest.getCrc32() != null) {
-            createRequest.addHeader(Headers.BCE_CRC32, String.valueOf(uploadPartRequest.getCrc32()));
+            createRequest.addHeader(com.baidubce.http.Headers.BCE_CRC32, String.valueOf(uploadPartRequest.getCrc32()));
         }
         try {
             createRequest.setContent(wrapRestartableInputStream(inputStream, Long.valueOf(uploadPartRequest.getPartSize())));
@@ -831,31 +831,31 @@ public class BosClient extends AbstractBceClient {
             internalRequest.addHeader("Content-Type", objectMetadata.getContentType());
         }
         if (objectMetadata.getContentMd5() != null) {
-            internalRequest.addHeader(Headers.CONTENT_MD5, objectMetadata.getContentMd5());
+            internalRequest.addHeader(com.baidubce.http.Headers.CONTENT_MD5, objectMetadata.getContentMd5());
         }
         if (objectMetadata.getContentEncoding() != null) {
             internalRequest.addHeader("Content-Encoding", HttpUtils.normalize(objectMetadata.getContentEncoding()));
         }
         if (objectMetadata.getBceContentSha256() != null) {
-            internalRequest.addHeader(Headers.BCE_CONTENT_SHA256, objectMetadata.getBceContentSha256());
+            internalRequest.addHeader(com.baidubce.http.Headers.BCE_CONTENT_SHA256, objectMetadata.getBceContentSha256());
         }
         if (objectMetadata.getContentDisposition() != null) {
             internalRequest.addHeader("Content-Disposition", HttpUtils.normalize(objectMetadata.getContentDisposition()));
         }
         if (objectMetadata.getETag() != null) {
-            internalRequest.addHeader(Headers.ETAG, objectMetadata.getETag());
+            internalRequest.addHeader(com.baidubce.http.Headers.ETAG, objectMetadata.getETag());
         }
         if (objectMetadata.getExpires() != null) {
-            internalRequest.addHeader(Headers.EXPIRES, objectMetadata.getExpires());
+            internalRequest.addHeader(com.baidubce.http.Headers.EXPIRES, objectMetadata.getExpires());
         }
         if (objectMetadata.getCacheControl() != null) {
-            internalRequest.addHeader(Headers.CACHE_CONTROL, objectMetadata.getCacheControl());
+            internalRequest.addHeader(com.baidubce.http.Headers.CACHE_CONTROL, objectMetadata.getCacheControl());
         }
         if (objectMetadata.getStorageClass() != null) {
-            internalRequest.addHeader(Headers.BCE_STORAGE_CLASS, objectMetadata.getStorageClass());
+            internalRequest.addHeader(com.baidubce.http.Headers.BCE_STORAGE_CLASS, objectMetadata.getStorageClass());
         }
         if (objectMetadata.getCrc32() != null) {
-            internalRequest.addHeader(Headers.BCE_CRC32, String.valueOf(objectMetadata.getCrc32()));
+            internalRequest.addHeader(com.baidubce.http.Headers.BCE_CRC32, String.valueOf(objectMetadata.getCrc32()));
         }
         Map<String, String> userMetadata = objectMetadata.getUserMetadata();
         if (userMetadata != null) {
@@ -869,7 +869,7 @@ public class BosClient extends AbstractBceClient {
                     if (key.length() + value.length() > 32768) {
                         throw new BceClientException("MetadataTooLarge");
                     }
-                    internalRequest.addHeader(Headers.BCE_USER_METADATA_PREFIX + HttpUtils.normalize(key.trim()), HttpUtils.normalize(value));
+                    internalRequest.addHeader(com.baidubce.http.Headers.BCE_USER_METADATA_PREFIX + HttpUtils.normalize(key.trim()), HttpUtils.normalize(value));
                 }
             }
         }

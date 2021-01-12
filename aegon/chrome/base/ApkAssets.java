@@ -3,7 +3,7 @@ package aegon.chrome.base;
 import aegon.chrome.base.annotations.CalledByNative;
 import android.content.res.AssetFileDescriptor;
 import java.io.IOException;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class ApkAssets {
     @CalledByNative
     public static long[] open(String str) {

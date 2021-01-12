@@ -6,10 +6,10 @@ import com.baidu.adp.lib.stats.BdStatisticsManager;
 import java.io.Serializable;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class InstallActivateReminderConfigItem extends a<InstallActivateReminderConfig> {
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class InstallActivateReminderConfig extends com.kwad.sdk.core.response.a.a implements Serializable {
         private static final long serialVersionUID = -6457271849826128465L;
         public int noticeTotalCount = 3;

@@ -53,7 +53,7 @@ public class e {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static int i(float f, float f2) {
+    public static int j(float f, float f2) {
         return m((int) f, (int) f2);
     }
 

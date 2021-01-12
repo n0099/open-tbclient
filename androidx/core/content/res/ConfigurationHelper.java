@@ -3,7 +3,7 @@ package androidx.core.content.res;
 import android.content.res.Resources;
 import android.os.Build;
 import androidx.annotation.NonNull;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public final class ConfigurationHelper {
     private ConfigurationHelper() {
     }

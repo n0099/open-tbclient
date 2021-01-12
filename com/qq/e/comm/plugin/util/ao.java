@@ -7,7 +7,7 @@ import android.graphics.BitmapFactory;
 import android.graphics.drawable.Drawable;
 import android.text.TextUtils;
 import android.util.Base64;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class ao {
     public static Bitmap a(String str) {
         byte[] decode;

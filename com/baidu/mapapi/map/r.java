@@ -1,34 +1,37 @@
 package com.baidu.mapapi.map;
 
 import android.view.View;
-import com.baidu.platform.comapi.map.MapSurfaceView;
+import com.baidu.mapapi.map.SwipeDismissTouchListener;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes3.dex */
-public class r implements View.OnClickListener {
+/* loaded from: classes6.dex */
+public class r implements SwipeDismissTouchListener.DismissCallbacks {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ MapView f2931a;
+    final /* synthetic */ SwipeDismissView f2811a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public r(MapView mapView) {
-        this.f2931a = mapView;
+    public r(SwipeDismissView swipeDismissView) {
+        this.f2811a = swipeDismissView;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        MapSurfaceView mapSurfaceView;
-        MapSurfaceView mapSurfaceView2;
-        MapSurfaceView mapSurfaceView3;
-        mapSurfaceView = this.f2931a.e;
-        float zoomLevel = mapSurfaceView.getZoomLevel();
-        float f = zoomLevel - 1.0f;
-        if (Math.floor(zoomLevel) != zoomLevel) {
-            f = (float) Math.floor(zoomLevel);
+    @Override // com.baidu.mapapi.map.SwipeDismissTouchListener.DismissCallbacks
+    public boolean canDismiss(Object obj) {
+        return true;
+    }
+
+    @Override // com.baidu.mapapi.map.SwipeDismissTouchListener.DismissCallbacks
+    public void onDismiss(View view, Object obj) {
+        if (this.f2811a.f2765a == null) {
+            return;
         }
-        mapSurfaceView2 = this.f2931a.e;
-        float max = Math.max(f, mapSurfaceView2.getController().mMinZoomLevel);
-        BaiduMap.mapStatusReason |= 16;
-        mapSurfaceView3 = this.f2931a.e;
-        mapSurfaceView3.setZoomLevel(max);
+        this.f2811a.f2765a.onDismiss();
+    }
+
+    @Override // com.baidu.mapapi.map.SwipeDismissTouchListener.DismissCallbacks
+    public void onNotify() {
+        if (this.f2811a.f2765a == null) {
+            return;
+        }
+        this.f2811a.f2765a.onNotify();
     }
 }

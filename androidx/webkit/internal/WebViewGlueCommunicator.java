@@ -7,7 +7,7 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import org.chromium.support_lib_boundary.WebViewProviderFactoryBoundaryInterface;
 import org.chromium.support_lib_boundary.util.BoundaryInterfaceReflectionUtil;
-/* loaded from: classes3.dex */
+/* loaded from: classes14.dex */
 public class WebViewGlueCommunicator {
     private static final String GLUE_FACTORY_PROVIDER_FETCHER_CLASS = "org.chromium.support_lib_glue.SupportLibReflectionUtil";
     private static final String GLUE_FACTORY_PROVIDER_FETCHER_METHOD = "createWebViewProviderFactory";
@@ -21,7 +21,7 @@ public class WebViewGlueCommunicator {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes14.dex */
     public static class LAZY_FACTORY_HOLDER {
         static final WebViewProviderFactory INSTANCE = WebViewGlueCommunicator.createGlueProviderFactory();
 
@@ -29,7 +29,7 @@ public class WebViewGlueCommunicator {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes14.dex */
     private static class LAZY_COMPAT_CONVERTER_HOLDER {
         static final WebkitToCompatConverter INSTANCE = new WebkitToCompatConverter(WebViewGlueCommunicator.getFactory().getWebkitToCompatConverter());
 

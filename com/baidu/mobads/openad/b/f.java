@@ -12,14 +12,14 @@ import java.io.FileOutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.Observable;
-/* loaded from: classes3.dex */
+/* loaded from: classes14.dex */
 public class f extends Observable implements IOAdDownloader, Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    protected Context f3443a;
+    protected Context f3405a;
 
     /* renamed from: b  reason: collision with root package name */
-    protected URL f3444b;
+    protected URL f3406b;
     protected String c;
     protected String d;
     protected int e;
@@ -30,8 +30,8 @@ public class f extends Observable implements IOAdDownloader, Runnable {
 
     public f(Context context, URL url, String str, String str2, boolean z) {
         this.i = false;
-        this.f3443a = context;
-        this.f3444b = url;
+        this.f3405a = context;
+        this.f3406b = url;
         this.c = str;
         this.i = z;
         if (str2 != null && str2.trim().length() > 0) {
@@ -69,7 +69,7 @@ public class f extends Observable implements IOAdDownloader, Runnable {
 
     @Override // com.baidu.mobads.openad.interfaces.download.IOAdDownloader
     public String getURL() {
-        return this.f3444b.toString();
+        return this.f3406b.toString();
     }
 
     @Override // com.baidu.mobads.openad.interfaces.download.IOAdDownloader
@@ -135,7 +135,7 @@ public class f extends Observable implements IOAdDownloader, Runnable {
         Object[] objArr;
         int read;
         try {
-            HttpURLConnection httpURLConnection2 = (HttpURLConnection) this.f3444b.openConnection();
+            HttpURLConnection httpURLConnection2 = (HttpURLConnection) this.f3406b.openConnection();
             try {
                 httpURLConnection2.setConnectTimeout(10000);
                 httpURLConnection2.setInstanceFollowRedirects(true);

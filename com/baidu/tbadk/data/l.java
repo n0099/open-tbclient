@@ -1,28 +1,28 @@
 package com.baidu.tbadk.data;
 /* loaded from: classes.dex */
 public class l {
-    private boolean fCC;
-    private boolean fCD;
+    private boolean fxU;
+    private boolean fxV;
     private String method;
 
-    public boolean bEg() {
-        return this.fCC;
+    public boolean bAm() {
+        return this.fxU;
     }
 
-    public void kF(boolean z) {
-        this.fCC = z;
+    public void kB(boolean z) {
+        this.fxU = z;
     }
 
-    public void bEh() {
-        this.fCC = false;
+    public void bAn() {
+        this.fxU = false;
     }
 
     public boolean isOpen() {
-        return this.fCD;
+        return this.fxV;
     }
 
     public void setOpen(boolean z) {
-        this.fCD = z;
+        this.fxV = z;
     }
 
     public String getMethod() {

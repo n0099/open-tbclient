@@ -1,24 +1,24 @@
 package com.baidu.platform.comapi.walknavi.fsm;
 
 import com.baidu.platform.comapi.walknavi.b;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class RGStateBrowseMap extends RGState {
     @Override // com.baidu.platform.comapi.walknavi.fsm.RGState
     protected void onActionUI() {
-        b.a().T().l();
-        b.a().T().c(2130837817);
+        b.a().Q().l();
+        b.a().Q().c(2130837751);
         if (com.baidu.platform.comapi.wnplatform.a.a().f()) {
-            if (b.a().M() != 4) {
-                b.a().T().a(false);
+            if (b.a().J() != 4) {
+                b.a().Q().a(false);
             }
         } else if (com.baidu.platform.comapi.wnplatform.a.a().g()) {
-            b.a().T().a(false);
+            b.a().Q().a(false);
         }
     }
 
     @Override // com.baidu.platform.comapi.walknavi.fsm.RGState
     protected void onActionNaviEngine() {
-        b.a().G().a(true);
+        b.a().D().a(true);
     }
 
     @Override // com.baidu.platform.comapi.walknavi.fsm.RGState
@@ -27,11 +27,11 @@ public class RGStateBrowseMap extends RGState {
 
     @Override // com.baidu.platform.comapi.walknavi.fsm.RGState
     protected void onActionMapStatus() {
-        b.a().T().o();
-        if (b.a().M() != 4) {
-            b.a().T().b(30000);
+        b.a().Q().o();
+        if (b.a().J() != 4) {
+            b.a().Q().b(30000);
         }
-        b.a().J().b(true);
+        b.a().G().b(true);
     }
 
     @Override // com.baidu.platform.comapi.walknavi.fsm.RGState

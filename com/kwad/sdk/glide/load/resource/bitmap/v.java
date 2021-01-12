@@ -14,31 +14,31 @@ import com.kwad.sdk.glide.load.d;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.security.MessageDigest;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class v<T> implements com.kwad.sdk.glide.load.f<T, Bitmap> {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final com.kwad.sdk.glide.load.d<Long> f10601a = com.kwad.sdk.glide.load.d.a("com.kwad.sdk.glide.load.resource.bitmap.VideoBitmapDecode.TargetFrame", -1L, new d.a<Long>() { // from class: com.kwad.sdk.glide.load.resource.bitmap.v.1
+    public static final com.kwad.sdk.glide.load.d<Long> f10301a = com.kwad.sdk.glide.load.d.a("com.kwad.sdk.glide.load.resource.bitmap.VideoBitmapDecode.TargetFrame", -1L, new d.a<Long>() { // from class: com.kwad.sdk.glide.load.resource.bitmap.v.1
 
         /* renamed from: a  reason: collision with root package name */
-        private final ByteBuffer f10603a = ByteBuffer.allocate(8);
+        private final ByteBuffer f10303a = ByteBuffer.allocate(8);
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.kwad.sdk.glide.load.d.a
         public void a(@NonNull byte[] bArr, @NonNull Long l, @NonNull MessageDigest messageDigest) {
             messageDigest.update(bArr);
-            synchronized (this.f10603a) {
-                this.f10603a.position(0);
-                messageDigest.update(this.f10603a.putLong(l.longValue()).array());
+            synchronized (this.f10303a) {
+                this.f10303a.position(0);
+                messageDigest.update(this.f10303a.putLong(l.longValue()).array());
             }
         }
     });
 
     /* renamed from: b  reason: collision with root package name */
-    public static final com.kwad.sdk.glide.load.d<Integer> f10602b = com.kwad.sdk.glide.load.d.a("com.kwad.sdk.glide.load.resource.bitmap.VideoBitmapDecode.FrameOption", 2, new d.a<Integer>() { // from class: com.kwad.sdk.glide.load.resource.bitmap.v.2
+    public static final com.kwad.sdk.glide.load.d<Integer> f10302b = com.kwad.sdk.glide.load.d.a("com.kwad.sdk.glide.load.resource.bitmap.VideoBitmapDecode.FrameOption", 2, new d.a<Integer>() { // from class: com.kwad.sdk.glide.load.resource.bitmap.v.2
 
         /* renamed from: a  reason: collision with root package name */
-        private final ByteBuffer f10604a = ByteBuffer.allocate(4);
+        private final ByteBuffer f10304a = ByteBuffer.allocate(4);
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.kwad.sdk.glide.load.d.a
@@ -47,9 +47,9 @@ public class v<T> implements com.kwad.sdk.glide.load.f<T, Bitmap> {
                 return;
             }
             messageDigest.update(bArr);
-            synchronized (this.f10604a) {
-                this.f10604a.position(0);
-                messageDigest.update(this.f10604a.putInt(num.intValue()).array());
+            synchronized (this.f10304a) {
+                this.f10304a.position(0);
+                messageDigest.update(this.f10304a.putInt(num.intValue()).array());
             }
         }
     });
@@ -59,7 +59,7 @@ public class v<T> implements com.kwad.sdk.glide.load.f<T, Bitmap> {
     private final b f;
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static final class a implements c<AssetFileDescriptor> {
         private a() {
         }
@@ -72,7 +72,7 @@ public class v<T> implements com.kwad.sdk.glide.load.f<T, Bitmap> {
     }
 
     @VisibleForTesting
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     static class b {
         b() {
         }
@@ -84,13 +84,13 @@ public class v<T> implements com.kwad.sdk.glide.load.f<T, Bitmap> {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     @VisibleForTesting
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public interface c<T> {
         void a(MediaMetadataRetriever mediaMetadataRetriever, T t);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static final class d implements c<ParcelFileDescriptor> {
         d() {
         }
@@ -161,9 +161,9 @@ public class v<T> implements com.kwad.sdk.glide.load.f<T, Bitmap> {
 
     @Override // com.kwad.sdk.glide.load.f
     public com.kwad.sdk.glide.load.engine.s<Bitmap> a(@NonNull T t, int i, int i2, @NonNull com.kwad.sdk.glide.load.e eVar) {
-        long longValue = ((Long) eVar.a(f10601a)).longValue();
+        long longValue = ((Long) eVar.a(f10301a)).longValue();
         if (longValue >= 0 || longValue == -1) {
-            Integer num = (Integer) eVar.a(f10602b);
+            Integer num = (Integer) eVar.a(f10302b);
             Integer num2 = num == null ? 2 : num;
             DownsampleStrategy downsampleStrategy = (DownsampleStrategy) eVar.a(DownsampleStrategy.h);
             DownsampleStrategy downsampleStrategy2 = downsampleStrategy == null ? DownsampleStrategy.g : downsampleStrategy;

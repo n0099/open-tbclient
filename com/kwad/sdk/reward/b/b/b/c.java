@@ -13,11 +13,11 @@ import com.kwad.sdk.core.response.model.AdInfo;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.reward.e;
 import com.kwad.sdk.utils.ao;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class c extends com.kwad.sdk.reward.d implements View.OnClickListener {
 
     /* renamed from: b  reason: collision with root package name */
-    private TextView f10879b;
+    private TextView f10579b;
     private ViewGroup c;
     private ImageView d;
     private AdTemplate e;
@@ -48,11 +48,11 @@ public class c extends com.kwad.sdk.reward.d implements View.OnClickListener {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(float f) {
-        if (this.f10879b.getVisibility() == 0) {
+        if (this.f10579b.getVisibility() == 0) {
             int a2 = ao.a(o(), 40.0f);
-            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.f10879b.getLayoutParams();
+            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.f10579b.getLayoutParams();
             layoutParams.rightMargin = (int) (a2 * f);
-            this.f10879b.setLayoutParams(layoutParams);
+            this.f10579b.setLayoutParams(layoutParams);
         }
     }
 
@@ -110,8 +110,8 @@ public class c extends com.kwad.sdk.reward.d implements View.OnClickListener {
         com.kwad.sdk.reward.e.a(this.i, str, new e.a() { // from class: com.kwad.sdk.reward.b.b.b.c.3
             @Override // com.kwad.sdk.reward.e.a
             public void a() {
-                c.this.f10950a.i.f();
-                com.kwad.sdk.core.report.b.j(c.this.e, c.this.f10950a.d);
+                c.this.f10650a.i.f();
+                com.kwad.sdk.core.report.b.j(c.this.e, c.this.f10650a.d);
             }
 
             @Override // com.kwad.sdk.reward.e.a
@@ -122,14 +122,14 @@ public class c extends com.kwad.sdk.reward.d implements View.OnClickListener {
 
             @Override // com.kwad.sdk.reward.e.a
             public void c() {
-                c.this.f10950a.i.e();
-                com.kwad.sdk.core.report.b.k(c.this.e, c.this.f10950a.d);
+                c.this.f10650a.i.e();
+                com.kwad.sdk.core.report.b.k(c.this.e, c.this.f10650a.d);
             }
         });
     }
 
     private void h() {
-        Activity activity = this.f10950a.g;
+        Activity activity = this.f10650a.g;
         if (activity != null) {
             activity.finish();
         }
@@ -137,28 +137,28 @@ public class c extends com.kwad.sdk.reward.d implements View.OnClickListener {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void p() {
-        this.f10950a.i.g();
+        this.f10650a.i.g();
     }
 
     private void q() {
-        this.f10950a.f10825b.e();
+        this.f10650a.f10525b.e();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.kwad.sdk.reward.d, com.kwad.sdk.mvp.Presenter
     public void a() {
         super.a();
-        this.e = this.f10950a.f;
+        this.e = this.f10650a.f;
         this.f = com.kwad.sdk.core.response.b.c.j(this.e);
-        this.i = this.f10950a.g;
-        this.f10950a.i.a(this.j);
+        this.i = this.f10650a.g;
+        this.f10650a.i.a(this.j);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.kwad.sdk.mvp.Presenter
     public void b_() {
         super.b_();
-        this.f10950a.i.b(this.j);
+        this.f10650a.i.b(this.j);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -166,7 +166,7 @@ public class c extends com.kwad.sdk.reward.d implements View.OnClickListener {
     public void c() {
         super.c();
         this.c = (ViewGroup) b(R.id.ksad_reward_container_new);
-        this.f10879b = (TextView) b(R.id.ksad_detail_call_btn);
+        this.f10579b = (TextView) b(R.id.ksad_detail_call_btn);
         this.d = (ImageView) b(R.id.ksad_detail_close_btn);
     }
 

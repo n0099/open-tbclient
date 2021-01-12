@@ -4,7 +4,7 @@ import android.content.Context;
 import android.os.Parcelable;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import java.util.ArrayList;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class AlaNewSquareSubListActivityConfig extends IntentConfig {
     public static final String ALA_SQUARE_SUB_LIST_ACTIVITY_BITMAP_RATIO = "ala_square_sub_liste_activity_bitmap_ratio";
     public static final String ALA_SQUARE_SUB_LIST_ACTIVITY_ENTRY_DATA = "ala_square_sub_liste_activity_entry_data";

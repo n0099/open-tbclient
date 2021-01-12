@@ -4,32 +4,32 @@ import android.view.View;
 import android.widget.RelativeLayout;
 /* loaded from: classes.dex */
 public class c {
-    private RelativeLayout.LayoutParams ahl;
-    private View ahm;
-    protected ak ahn;
+    private RelativeLayout.LayoutParams agu;
+    private View agv;
+    protected ak agw;
     private int insertIndex;
 
-    public RelativeLayout.LayoutParams te() {
-        return this.ahl;
+    public RelativeLayout.LayoutParams sT() {
+        return this.agu;
     }
 
     public void a(RelativeLayout.LayoutParams layoutParams) {
-        this.ahl = layoutParams;
+        this.agu = layoutParams;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void tb() {
+    public void sQ() {
     }
 
     public void b(ak akVar) {
-        this.ahn = akVar;
+        this.agw = akVar;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void tf() {
+    public void sU() {
     }
 
-    public int tg() {
+    public int sV() {
         return this.insertIndex;
     }
 
@@ -37,11 +37,11 @@ public class c {
         this.insertIndex = i;
     }
 
-    public View th() {
-        return this.ahm;
+    public View sW() {
+        return this.agv;
     }
 
     public void H(View view) {
-        this.ahm = view;
+        this.agv = view;
     }
 }

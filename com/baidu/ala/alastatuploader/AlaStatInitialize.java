@@ -3,7 +3,7 @@ package com.baidu.ala.alastatuploader;
 import com.baidu.ala.alastatuploader.model.AlaStatUploadResponseMessage;
 import com.baidu.live.adp.lib.stats.AlaStatManager;
 import com.baidu.live.tieba.f.a.a;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class AlaStatInitialize {
     static {
         AlaStatManager.getInstance().setUploader(AlaStatUploaderManager.getInstance());

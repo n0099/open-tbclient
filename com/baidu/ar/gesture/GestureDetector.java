@@ -64,7 +64,7 @@ public class GestureDetector extends com.baidu.ar.b.a.a {
                 float f = bundle.getFloat("det_thresh", 0.25f);
                 float f2 = bundle.getFloat("first_cls_thresh", 0.75f);
                 float f3 = bundle.getFloat("second_cls_thresh", 0.5f);
-                return aVar.f1487tv ? ARMdlInterfaceJNI.initGestureFromAsset(strArr[0], strArr[1], strArr[2], GestureDetector.this.c(bundle), i, f, f2, f3, 1) : ARMdlInterfaceJNI.initGesture(strArr[0], strArr[1], strArr[2], GestureDetector.this.c(bundle), i, f, f2, f3, 1);
+                return aVar.f1493tv ? ARMdlInterfaceJNI.initGestureFromAsset(strArr[0], strArr[1], strArr[2], GestureDetector.this.c(bundle), i, f, f2, f3, 1) : ARMdlInterfaceJNI.initGesture(strArr[0], strArr[1], strArr[2], GestureDetector.this.c(bundle), i, f, f2, f3, 1);
             }
 
             @Override // com.baidu.ar.c.a

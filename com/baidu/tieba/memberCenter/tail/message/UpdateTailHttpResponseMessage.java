@@ -2,7 +2,7 @@ package com.baidu.tieba.memberCenter.tail.message;
 
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.tieba.memberCenter.tail.data.g;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class UpdateTailHttpResponseMessage extends HttpResponsedMessage {
     private g resultData;
 
@@ -12,7 +12,7 @@ public class UpdateTailHttpResponseMessage extends HttpResponsedMessage {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: getResultData */
-    public g m50getResultData() {
+    public g m45getResultData() {
         return this.resultData;
     }
 

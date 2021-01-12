@@ -23,30 +23,30 @@ import java.util.concurrent.ConcurrentHashMap;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class b implements com.ss.android.b.a.a, b.c, a.InterfaceC1244a {
+public class b implements com.ss.android.b.a.a, b.c, a.InterfaceC1227a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static String f13266a = b.class.getSimpleName();
-    private static volatile b pVb;
+    private static String f12966a = b.class.getSimpleName();
+    private static volatile b pQB;
 
     /* renamed from: b  reason: collision with root package name */
-    private long f13267b;
-    private RunnableC1234b pVa;
+    private long f12967b;
+    private RunnableC1217b pQA;
 
     private b() {
         com.ss.android.socialbase.appdownloader.b.a(this);
-        com.ss.android.socialbase.downloader.a.a.eHp().a(this);
+        com.ss.android.socialbase.downloader.a.a.eDz().a(this);
     }
 
-    public static b eFO() {
-        if (pVb == null) {
+    public static b eBX() {
+        if (pQB == null) {
             synchronized (b.class) {
-                if (pVb == null) {
-                    pVb = new b();
+                if (pQB == null) {
+                    pQB = new b();
                 }
             }
         }
-        return pVb;
+        return pQB;
     }
 
     @WorkerThread
@@ -56,20 +56,20 @@ public class b implements com.ss.android.b.a.a, b.c, a.InterfaceC1244a {
                 com.ss.android.downloadlib.f.i.b();
             } else if (aVar.l() == 1) {
                 String c2 = c(cVar, aVar);
-                com.ss.android.downloadlib.a.b.d.eFT().b(cVar.j(), c2);
-                Map<Long, com.ss.android.b.a.b.a> N = com.ss.android.downloadlib.a.b.d.eFT().N(cVar.j(), c2);
+                com.ss.android.downloadlib.a.b.d.eCc().b(cVar.j(), c2);
+                Map<Long, com.ss.android.b.a.b.a> M = com.ss.android.downloadlib.a.b.d.eCc().M(cVar.j(), c2);
                 aVar.f(System.currentTimeMillis());
                 aVar.e(2);
                 aVar.b(c2);
-                N.put(Long.valueOf(aVar.j()), aVar);
-                com.ss.android.downloadlib.a.b.g.eFW().a(N.values());
+                M.put(Long.valueOf(aVar.j()), aVar);
+                com.ss.android.downloadlib.a.b.g.eCf().a(M.values());
                 a(aVar);
-                h.eGC().a(cVar, c2);
-                if ("application/vnd.android.package-archive".equals(cVar.eIE())) {
-                    eFO().d(aVar);
-                    eFO().b(cVar, aVar);
+                h.eCM().a(cVar, c2);
+                if ("application/vnd.android.package-archive".equals(cVar.eEO())) {
+                    eBX().d(aVar);
+                    eBX().b(cVar, aVar);
                     if (aVar.w()) {
-                        com.ss.android.downloadlib.a.a.a.eFQ().a(cVar.g(), aVar.j(), aVar.k(), c2, cVar.i(), aVar.o(), cVar.n());
+                        com.ss.android.downloadlib.a.a.a.eBZ().a(cVar.g(), aVar.j(), aVar.k(), c2, cVar.i(), aVar.o(), cVar.n());
                     }
                     com.ss.android.downloadlib.a.d.a.a(cVar, aVar.j(), aVar.o(), c2);
                 }
@@ -83,29 +83,29 @@ public class b implements com.ss.android.b.a.a, b.c, a.InterfaceC1244a {
             if (com.ss.android.downloadlib.f.i.a()) {
                 throw new RuntimeException("handleAppInstalled in main thread.");
             }
-            com.ss.android.b.a.b.a aaM = com.ss.android.downloadlib.a.b.d.eFT().aaM(str);
-            if (aaM == null) {
-                com.ss.android.downloadlib.a.b.c.eFS().a(str);
+            com.ss.android.b.a.b.a ZE = com.ss.android.downloadlib.a.b.d.eCc().ZE(str);
+            if (ZE == null) {
+                com.ss.android.downloadlib.a.b.c.eCb().a(str);
             } else {
-                com.ss.android.downloadlib.a.f aaT = h.eGC().aaT(aaM.z());
-                if (aaT != null) {
-                    aaT.e();
+                com.ss.android.downloadlib.a.f ZL = h.eCM().ZL(ZE.z());
+                if (ZL != null) {
+                    ZL.e();
                 }
-                if (!aaM.f13220a.get()) {
-                    a(str, aaM);
-                    if (!com.ss.android.downloadlib.b.a.b(str, aaM) && aaM.v() == 4) {
-                        com.ss.android.downloadlib.a.a.a.eFQ().a(aaM.j());
+                if (!ZE.f12920a.get()) {
+                    a(str, ZE);
+                    if (!com.ss.android.downloadlib.b.a.b(str, ZE) && ZE.v() == 4) {
+                        com.ss.android.downloadlib.a.a.a.eBZ().a(ZE.j());
                     }
-                    com.ss.android.downloadlib.a.a.a.eFQ().b(str);
-                    com.ss.android.socialbase.downloader.g.c v = v(com.ss.android.socialbase.downloader.downloader.f.iA(j.a()).b("application/vnd.android.package-archive"), str);
+                    com.ss.android.downloadlib.a.a.a.eBZ().b(str);
+                    com.ss.android.socialbase.downloader.g.c v = v(com.ss.android.socialbase.downloader.downloader.f.iy(j.a()).b("application/vnd.android.package-archive"), str);
                     if (v != null) {
-                        if (com.ss.android.socialbase.downloader.k.a.Th(v.g()).b("no_hide_notification") != 1) {
-                            com.ss.android.socialbase.downloader.notification.b.eKa().a(v.g());
+                        if (com.ss.android.socialbase.downloader.k.a.RA(v.g()).b("no_hide_notification") != 1) {
+                            com.ss.android.socialbase.downloader.notification.b.eGk().a(v.g());
                         }
-                        h.eGC().b(v, str);
+                        h.eCM().b(v, str);
                         com.ss.android.downloadlib.a.c.d.a(v);
                     } else {
-                        h.eGC().b(null, str);
+                        h.eCM().b(null, str);
                     }
                 }
             }
@@ -123,37 +123,37 @@ public class b implements com.ss.android.b.a.a, b.c, a.InterfaceC1244a {
             if (i != 2000) {
                 max = 2000;
             } else {
-                long a2 = com.ss.android.socialbase.downloader.k.a.Th(cVar.g()).a("check_install_failed_delay_time", 120000L);
+                long a2 = com.ss.android.socialbase.downloader.k.a.RA(cVar.g()).a("check_install_failed_delay_time", 120000L);
                 if (a2 >= 0) {
                     max = Math.max(a2, 30000L);
                 } else {
                     return;
                 }
             }
-            RunnableC1234b runnableC1234b = new RunnableC1234b(aVar.j(), cVar.g(), currentTimeMillis, i);
-            f.eGz().a(runnableC1234b, max);
-            this.pVa = runnableC1234b;
-            com.ss.android.downloadlib.a.b.g.eFW().d(aVar);
+            RunnableC1217b runnableC1217b = new RunnableC1217b(aVar.j(), cVar.g(), currentTimeMillis, i);
+            f.eCI().a(runnableC1217b, max);
+            this.pQA = runnableC1217b;
+            com.ss.android.downloadlib.a.b.g.eCf().d(aVar);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.ss.android.downloadlib.b$b  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public static class RunnableC1234b implements Runnable {
+    public static class RunnableC1217b implements Runnable {
 
         /* renamed from: a  reason: collision with root package name */
-        private long f13271a;
+        private long f12971a;
 
         /* renamed from: b  reason: collision with root package name */
-        private int f13272b;
+        private int f12972b;
         private long c;
         private int d;
         private long e;
 
-        private RunnableC1234b(long j, int i, long j2, int i2) {
-            this.f13271a = j;
-            this.f13272b = i;
+        private RunnableC1217b(long j, int i, long j2, int i2) {
+            this.f12971a = j;
+            this.f12972b = i;
             this.c = j2;
             this.d = i2;
         }
@@ -167,7 +167,7 @@ public class b implements com.ss.android.b.a.a, b.c, a.InterfaceC1244a {
         public void run() {
             try {
                 if (a()) {
-                    b.eFO().a(this.f13271a, this.f13272b);
+                    b.eBX().a(this.f12971a, this.f12972b);
                 }
             } catch (Throwable th) {
                 th.printStackTrace();
@@ -176,16 +176,16 @@ public class b implements com.ss.android.b.a.a, b.c, a.InterfaceC1244a {
 
         boolean a() {
             com.ss.android.socialbase.downloader.g.c h;
-            com.ss.android.b.a.b.a jb = com.ss.android.downloadlib.a.b.d.eFT().jb(this.f13271a);
-            if (jb == null || com.ss.android.downloadlib.f.i.i(jb) || jb.f13220a.get() || (h = com.ss.android.socialbase.downloader.downloader.f.iA(j.a()).h(jb.t())) == null) {
+            com.ss.android.b.a.b.a jb = com.ss.android.downloadlib.a.b.d.eCc().jb(this.f12971a);
+            if (jb == null || com.ss.android.downloadlib.f.i.i(jb) || jb.f12920a.get() || (h = com.ss.android.socialbase.downloader.downloader.f.iy(j.a()).h(jb.t())) == null) {
                 return false;
             }
-            long eFH = jb.eFH();
+            long eBQ = jb.eBQ();
             long b2 = com.ss.android.downloadlib.f.i.b(Environment.getDataDirectory());
             long min = Math.min(524288000L, b2 / 10);
-            long ejL = h.ejL();
+            long efR = h.efR();
             boolean z = true;
-            if (eFH > -1 && ejL > -1 && eFH < min + (ejL * 2.5d)) {
+            if (eBQ > -1 && efR > -1 && eBQ < min + (efR * 2.5d)) {
                 z = false;
             }
             boolean a2 = com.ss.android.socialbase.appdownloader.b.a(j.a());
@@ -193,40 +193,40 @@ public class b implements com.ss.android.b.a.a, b.c, a.InterfaceC1244a {
             this.d = a(z, jb, h, a2, jSONObject);
             try {
                 jSONObject.putOpt("fail_status", Integer.valueOf(this.d));
-                jSONObject.putOpt("available_space", Long.valueOf(eFH / 1048576));
+                jSONObject.putOpt("available_space", Long.valueOf(eBQ / 1048576));
                 jSONObject.putOpt("total_space", Long.valueOf(b2 / 1048576));
-                if (ejL > 0) {
-                    jSONObject.putOpt("package_size", Long.valueOf(ejL / 1048576));
+                if (efR > 0) {
+                    jSONObject.putOpt("package_size", Long.valueOf(efR / 1048576));
                 }
                 jSONObject.putOpt("space_enough", Integer.valueOf(z ? 1 : 2));
-                if (eFH > 0 && ejL > 0) {
-                    jSONObject.put("available_space_ratio", eFH / ejL);
+                if (eBQ > 0 && efR > 0) {
+                    jSONObject.put("available_space_ratio", eBQ / efR);
                 }
                 jSONObject.putOpt("permission_unknown_source_install", Integer.valueOf(a2 ? 1 : 2));
                 jSONObject.put("is_update_download", jb.I() ? 1 : 2);
             } catch (Exception e) {
                 e.printStackTrace();
             }
-            com.ss.android.downloadlib.e.a.eGB().a("install_failed", jSONObject, jb);
+            com.ss.android.downloadlib.e.a.eCL().a("install_failed", jSONObject, jb);
             return true;
         }
 
         private int a(boolean z, com.ss.android.b.a.b.a aVar, com.ss.android.socialbase.downloader.g.c cVar, boolean z2, JSONObject jSONObject) {
-            com.ss.android.socialbase.downloader.k.a Th = com.ss.android.socialbase.downloader.k.a.Th(cVar.g());
-            if (Th.a("install_failed_check_ttmd5", 1) == 1) {
-                int eJj = cVar.eJj();
+            com.ss.android.socialbase.downloader.k.a RA = com.ss.android.socialbase.downloader.k.a.RA(cVar.g());
+            if (RA.a("install_failed_check_ttmd5", 1) == 1) {
+                int eFt = cVar.eFt();
                 try {
-                    jSONObject.put("ttmd5_status", eJj);
+                    jSONObject.put("ttmd5_status", eFt);
                 } catch (Throwable th) {
                 }
-                if (!com.ss.android.socialbase.downloader.m.d.a(eJj)) {
+                if (!com.ss.android.socialbase.downloader.m.d.a(eFt)) {
                     return 2005;
                 }
             }
             if (this.d != 2000) {
                 return this.d;
             }
-            if (Th.a("install_failed_check_signature", 1) == 1 && com.ss.android.downloadlib.f.i.d(j.a(), aVar.m())) {
+            if (RA.a("install_failed_check_signature", 1) == 1 && com.ss.android.downloadlib.f.i.d(j.a(), aVar.m())) {
                 if (!com.ss.android.downloadlib.f.i.b(com.ss.android.downloadlib.f.i.bF(j.a(), cVar.n()), com.ss.android.downloadlib.f.i.bE(j.a(), aVar.m()))) {
                     return 2006;
                 }
@@ -250,12 +250,12 @@ public class b implements com.ss.android.b.a.a, b.c, a.InterfaceC1244a {
     }
 
     public void a(final long j, int i) {
-        long a2 = com.ss.android.socialbase.downloader.k.a.Th(i).a("check_install_finish_hijack_delay_time", FunAdConfig.Builder.AD_EXPIRED_INTERVAL);
+        long a2 = com.ss.android.socialbase.downloader.k.a.RA(i).a("check_install_finish_hijack_delay_time", FunAdConfig.Builder.AD_EXPIRED_INTERVAL);
         if (a2 >= 0) {
-            f.eGz().a(new Runnable() { // from class: com.ss.android.downloadlib.b.1
+            f.eCI().a(new Runnable() { // from class: com.ss.android.downloadlib.b.1
                 @Override // java.lang.Runnable
                 public void run() {
-                    b.eFO().a(j);
+                    b.eBX().a(j);
                 }
             }, Math.max(a2, 300000L));
         }
@@ -265,29 +265,29 @@ public class b implements com.ss.android.b.a.a, b.c, a.InterfaceC1244a {
         c.a e;
         int i;
         try {
-            com.ss.android.b.a.b.a jb = com.ss.android.downloadlib.a.b.d.eFT().jb(j);
-            if (jb != null && !com.ss.android.downloadlib.f.i.i(jb) && !jb.f13220a.get()) {
-                Pair<c.a, Integer> f = com.ss.android.downloadlib.a.b.c.eFS().f(jb);
+            com.ss.android.b.a.b.a jb = com.ss.android.downloadlib.a.b.d.eCc().jb(j);
+            if (jb != null && !com.ss.android.downloadlib.f.i.i(jb) && !jb.f12920a.get()) {
+                Pair<c.a, Integer> f = com.ss.android.downloadlib.a.b.c.eCb().f(jb);
                 if (f != null) {
                     e = (c.a) f.first;
                     i = ((Integer) f.second).intValue();
                 } else {
-                    e = com.ss.android.downloadlib.a.b.c.eFS().e(jb);
+                    e = com.ss.android.downloadlib.a.b.c.eCb().e(jb);
                     i = -1;
                 }
                 if (e != null) {
-                    com.ss.android.downloadlib.a.b.c.eFS().b(e.f13234a);
+                    com.ss.android.downloadlib.a.b.c.eCb().b(e.f12934a);
                     JSONObject jSONObject = new JSONObject();
                     jSONObject.put("installed_app_name", e.d);
-                    jSONObject.put("installed_pkg_name", e.f13234a);
+                    jSONObject.put("installed_pkg_name", e.f12934a);
                     if (i != -1) {
                         jSONObject.put("error_code", i);
                         com.ss.android.downloadlib.f.e.a(jSONObject, jb.t());
                         com.ss.android.downloadlib.guide.install.c.a();
-                        com.ss.android.downloadlib.e.a.eGB().a("install_finish_hijack", jSONObject, jb);
+                        com.ss.android.downloadlib.e.a.eCL().a("install_finish_hijack", jSONObject, jb);
                         return;
                     }
-                    com.ss.android.downloadlib.e.a.eGB().a("install_finish_may_hijack", jSONObject, jb);
+                    com.ss.android.downloadlib.e.a.eCL().a("install_finish_may_hijack", jSONObject, jb);
                 }
             }
         } catch (Throwable th) {
@@ -296,9 +296,9 @@ public class b implements com.ss.android.b.a.a, b.c, a.InterfaceC1244a {
     }
 
     public void a(String str, com.ss.android.b.a.b.a aVar) {
-        if (aVar != null && com.ss.android.downloadlib.f.i.i(aVar) && aVar.f13220a.compareAndSet(false, true)) {
-            com.ss.android.downloadlib.e.a.eGB().a(aVar.x(), "install_finish", a(aVar, str, aVar.v() != 4 ? 3 : 4), aVar);
-            com.ss.android.downloadlib.a.b.g.eFW().d(aVar);
+        if (aVar != null && com.ss.android.downloadlib.f.i.i(aVar) && aVar.f12920a.compareAndSet(false, true)) {
+            com.ss.android.downloadlib.e.a.eCL().a(aVar.x(), "install_finish", a(aVar, str, aVar.v() != 4 ? 3 : 4), aVar);
+            com.ss.android.downloadlib.a.b.g.eCf().d(aVar);
         }
     }
 
@@ -321,61 +321,61 @@ public class b implements com.ss.android.b.a.a, b.c, a.InterfaceC1244a {
     }
 
     public static JSONObject a(JSONObject jSONObject, com.ss.android.socialbase.downloader.g.c cVar, boolean z) {
-        if (jSONObject != null && cVar != null && com.ss.android.socialbase.downloader.k.a.Th(cVar.g()).a("download_event_opt", 1) != 0) {
+        if (jSONObject != null && cVar != null && com.ss.android.socialbase.downloader.k.a.RA(cVar.g()).a("download_event_opt", 1) != 0) {
             try {
                 jSONObject.put("download_id", cVar.g());
                 jSONObject.put("name", cVar.h());
                 jSONObject.put("url", cVar.j());
-                jSONObject.put("cur_bytes", cVar.eIz());
-                jSONObject.put("total_bytes", cVar.ejL());
-                jSONObject.put("network_quality", cVar.eIB());
-                jSONObject.put("current_network_quality", com.ss.android.socialbase.downloader.i.j.eJN().eJO().name());
+                jSONObject.put("cur_bytes", cVar.eEJ());
+                jSONObject.put("total_bytes", cVar.efR());
+                jSONObject.put("network_quality", cVar.eEL());
+                jSONObject.put("current_network_quality", com.ss.android.socialbase.downloader.i.j.eFX().eFY().name());
                 jSONObject.put("only_wifi", cVar.x() ? 1 : 0);
-                jSONObject.put("need_https_degrade", cVar.eIF() ? 1 : 0);
+                jSONObject.put("need_https_degrade", cVar.eEP() ? 1 : 0);
                 jSONObject.put("https_degrade_retry_used", cVar.t() ? 1 : 0);
-                jSONObject.put("chunk_count", cVar.eJl());
-                jSONObject.put(DownloadDataConstants.Columns.COLUMN_RETRY_COUNT, cVar.eIt());
+                jSONObject.put("chunk_count", cVar.eFv());
+                jSONObject.put(DownloadDataConstants.Columns.COLUMN_RETRY_COUNT, cVar.J());
                 jSONObject.put("cur_retry_time", cVar.ax());
-                jSONObject.put("need_retry_delay", cVar.eIG() ? 1 : 0);
+                jSONObject.put("need_retry_delay", cVar.eEQ() ? 1 : 0);
                 jSONObject.put("backup_url_used", cVar.P() ? 1 : 0);
                 jSONObject.put("head_connection_error_msg", cVar.c() != null ? cVar.c() : "");
                 jSONObject.put("need_independent_process", cVar.ae() ? 1 : 0);
-                jSONObject.put("total_retry_count", cVar.eIu());
-                jSONObject.put("cur_retry_time_in_total", cVar.M());
-                jSONObject.put("real_download_time", cVar.eIT());
-                jSONObject.put("first_speed_time", cVar.epM());
-                jSONObject.put("all_connect_time", cVar.eIr());
-                jSONObject.put("download_prepare_time", cVar.eFH());
-                jSONObject.put("download_time", cVar.eIT() + cVar.eIr() + cVar.eFH());
-                jSONObject.put("chunk_downgrade_retry_used", cVar.eIM() ? 1 : 0);
-                jSONObject.put("need_chunk_downgrade_retry", cVar.eIL() ? 1 : 0);
-                jSONObject.put("failed_resume_count", cVar.eJo());
-                jSONObject.put("preconnect_level", cVar.eJu());
+                jSONObject.put("total_retry_count", cVar.eED());
+                jSONObject.put("cur_retry_time_in_total", cVar.us());
+                jSONObject.put("real_download_time", cVar.eFd());
+                jSONObject.put("first_speed_time", cVar.elQ());
+                jSONObject.put("all_connect_time", cVar.eEB());
+                jSONObject.put("download_prepare_time", cVar.eBQ());
+                jSONObject.put("download_time", cVar.eFd() + cVar.eEB() + cVar.eBQ());
+                jSONObject.put("chunk_downgrade_retry_used", cVar.eEW() ? 1 : 0);
+                jSONObject.put("need_chunk_downgrade_retry", cVar.eEV() ? 1 : 0);
+                jSONObject.put("failed_resume_count", cVar.eFy());
+                jSONObject.put("preconnect_level", cVar.eFE());
                 jSONObject.put("md5", cVar.F());
-                jSONObject.put("expect_file_length", cVar.eFI());
-                jSONObject.put("retry_schedule_count", cVar.eIw());
-                jSONObject.put("rw_concurrent", cVar.uE() ? 1 : 0);
-                double eIz = cVar.eIz() / 1048576.0d;
-                double eIT = cVar.eIT() / 1000.0d;
-                if (eIz > 0.0d && eIT > 0.0d) {
-                    double d = eIz / eIT;
+                jSONObject.put("expect_file_length", cVar.eBR());
+                jSONObject.put("retry_schedule_count", cVar.eEF());
+                jSONObject.put("rw_concurrent", cVar.uy() ? 1 : 0);
+                double eEJ = cVar.eEJ() / 1048576.0d;
+                double eFd = cVar.eFd() / 1000.0d;
+                if (eEJ > 0.0d && eFd > 0.0d) {
+                    double d = eEJ / eFd;
                     try {
                         jSONObject.put("download_speed", d);
                     } catch (Exception e) {
                     }
-                    com.ss.android.socialbase.downloader.f.a.b(f13266a, "download speed : " + d + "MB/s");
+                    com.ss.android.socialbase.downloader.f.a.b(f12966a, "download speed : " + d + "MB/s");
                 }
                 try {
-                    jSONObject.put("is_download_service_foreground", com.ss.android.socialbase.downloader.downloader.f.iA(j.a()).SC(cVar.g()) ? 1 : 0);
+                    jSONObject.put("is_download_service_foreground", com.ss.android.socialbase.downloader.downloader.f.iy(j.a()).QV(cVar.g()) ? 1 : 0);
                 } catch (Exception e2) {
                     e2.printStackTrace();
                 }
-                if (cVar.eIY() != null) {
-                    jSONObject.put("backup_url_count", cVar.eIY().size());
+                if (cVar.eFi() != null) {
+                    jSONObject.put("backup_url_count", cVar.eFi().size());
                     jSONObject.put("cur_backup_url_index", cVar.s());
                 }
-                jSONObject.put("clear_space_restart_times", com.ss.android.downloadlib.a.c.d.eFY().b(cVar.j()));
-                jSONObject.put("mime_type", cVar.eIE());
+                jSONObject.put("clear_space_restart_times", com.ss.android.downloadlib.a.c.d.eCh().b(cVar.j()));
+                jSONObject.put("mime_type", cVar.eEO());
                 jSONObject.put(AlaRecorderLog.KEY_NETWORK_AVAILABLE, com.ss.android.socialbase.downloader.m.d.b(j.a()) ? 1 : 2);
                 jSONObject.put("status_code", cVar.aq());
                 a(jSONObject, cVar);
@@ -387,14 +387,14 @@ public class b implements com.ss.android.b.a.a, b.c, a.InterfaceC1244a {
     }
 
     public static JSONObject a(JSONObject jSONObject, com.ss.android.socialbase.downloader.g.c cVar) {
-        if (jSONObject != null && cVar != null && com.ss.android.socialbase.downloader.k.a.Th(cVar.g()).a("download_event_opt", 1) != 0) {
+        if (jSONObject != null && cVar != null && com.ss.android.socialbase.downloader.k.a.RA(cVar.g()).a("download_event_opt", 1) != 0) {
             try {
                 long a2 = com.ss.android.downloadlib.f.i.a(Environment.getExternalStorageDirectory());
                 jSONObject.put("available_space", a2 / 1048576.0d);
-                long ejL = cVar.ejL();
-                jSONObject.put(ConstantData.Logo.LOGO_AD_APK_SIZE, ejL / 1048576.0d);
-                if (a2 > 0 && ejL > 0) {
-                    jSONObject.put("available_space_ratio", a2 / ejL);
+                long efR = cVar.efR();
+                jSONObject.put(ConstantData.Logo.LOGO_AD_APK_SIZE, efR / 1048576.0d);
+                if (a2 > 0 && efR > 0) {
+                    jSONObject.put("available_space_ratio", a2 / efR);
                 }
             } catch (Throwable th) {
                 th.printStackTrace();
@@ -404,10 +404,10 @@ public class b implements com.ss.android.b.a.a, b.c, a.InterfaceC1244a {
     }
 
     public void b(com.ss.android.socialbase.downloader.g.c cVar, final com.ss.android.b.a.b.a aVar) {
-        if (cVar != null && aVar != null && com.ss.android.socialbase.downloader.k.a.Th(cVar.g()).a("install_finish_check_ttmd5", 1) != 0) {
+        if (cVar != null && aVar != null && com.ss.android.socialbase.downloader.k.a.RA(cVar.g()).a("install_finish_check_ttmd5", 1) != 0) {
             final String n = cVar.n();
             if (!TextUtils.isEmpty(n)) {
-                f.eGz().b(new Runnable() { // from class: com.ss.android.downloadlib.b.2
+                f.eCI().b(new Runnable() { // from class: com.ss.android.downloadlib.b.2
                     @Override // java.lang.Runnable
                     public void run() {
                         String a2 = com.ss.android.downloadlib.f.a.a(n);
@@ -423,9 +423,9 @@ public class b implements com.ss.android.b.a.a, b.c, a.InterfaceC1244a {
     private static void a(com.ss.android.b.a.b.a aVar) {
         if (aVar != null) {
             String E = TextUtils.isEmpty(aVar.E()) ? "" : aVar.E();
-            com.ss.android.socialbase.downloader.g.c h = com.ss.android.socialbase.downloader.downloader.f.iA(j.a()).h(aVar.t());
+            com.ss.android.socialbase.downloader.g.c h = com.ss.android.socialbase.downloader.downloader.f.iy(j.a()).h(aVar.t());
             aVar.j("");
-            com.ss.android.downloadlib.a.b.g.eFW().d(aVar);
+            com.ss.android.downloadlib.a.b.g.eCf().d(aVar);
             JSONObject a2 = a(new JSONObject(), h, false);
             try {
                 a2.putOpt("finish_reason", E);
@@ -433,22 +433,22 @@ public class b implements com.ss.android.b.a.a, b.c, a.InterfaceC1244a {
             } catch (JSONException e) {
                 e.printStackTrace();
             }
-            com.ss.android.b.a.b.a j = com.ss.android.downloadlib.a.b.d.eFT().j(h);
+            com.ss.android.b.a.b.a j = com.ss.android.downloadlib.a.b.d.eCc().j(h);
             com.ss.android.downloadlib.f.e.a(a2, h.g());
             try {
                 a2.put("download_failed_times", j.a());
                 a2.put("can_show_notification", com.ss.android.socialbase.appdownloader.e.d.a() ? 1 : 2);
-                if (h.eFI() > 0 && h.ejL() > 0) {
-                    a2.put("file_length_gap", h.eFI() - h.ejL());
+                if (h.eBR() > 0 && h.efR() > 0) {
+                    a2.put("file_length_gap", h.eBR() - h.efR());
                 }
                 a2.put("ttmd5_status", h.z());
-                a2.put("has_send_download_failed_finally", j.f13221b.get() ? 1 : 2);
+                a2.put("has_send_download_failed_finally", j.f12921b.get() ? 1 : 2);
                 a2.put("is_update_download", j.I() ? 1 : 2);
                 com.ss.android.downloadlib.f.e.a(j, a2);
             } catch (Throwable th) {
                 th.printStackTrace();
             }
-            com.ss.android.downloadlib.e.a.eGB().a(a2, aVar);
+            com.ss.android.downloadlib.e.a.eCL().a(a2, aVar);
         }
     }
 
@@ -477,7 +477,7 @@ public class b implements com.ss.android.b.a.a, b.c, a.InterfaceC1244a {
         if (c2 > 0 && b2 > 0 && c2 != b2) {
             return b2 > c2 ? 3011 : 3010;
         }
-        if (com.ss.android.socialbase.downloader.k.a.Th(aVar.t()).a("install_finish_check_ttmd5", 1) == 1) {
+        if (com.ss.android.socialbase.downloader.k.a.RA(aVar.t()).a("install_finish_check_ttmd5", 1) == 1) {
             String string = j.a().getSharedPreferences("sp_ttdownloader_md5", 0).getString(String.valueOf(aVar.j()), null);
             if (TextUtils.isEmpty(string) && cVar != null) {
                 string = com.ss.android.downloadlib.f.a.a(cVar.n());
@@ -518,37 +518,37 @@ public class b implements com.ss.android.b.a.a, b.c, a.InterfaceC1244a {
             } catch (JSONException e2) {
                 e2.printStackTrace();
             }
-            com.ss.android.downloadlib.e.a.eGB().a("embeded_ad", "package_name_error", jSONObject, aVar);
+            com.ss.android.downloadlib.e.a.eCL().a("embeded_ad", "package_name_error", jSONObject, aVar);
             return str;
         }
         return cVar.D();
     }
 
-    @Override // com.ss.android.socialbase.downloader.a.a.InterfaceC1244a
+    @Override // com.ss.android.socialbase.downloader.a.a.InterfaceC1227a
     public void b() {
         d();
         a(5);
     }
 
-    @Override // com.ss.android.socialbase.downloader.a.a.InterfaceC1244a
+    @Override // com.ss.android.socialbase.downloader.a.a.InterfaceC1227a
     public void c() {
         a(6);
     }
 
     synchronized void d() {
-        RunnableC1234b runnableC1234b = this.pVa;
-        if (runnableC1234b != null) {
-            runnableC1234b.b();
-            this.pVa = null;
+        RunnableC1217b runnableC1217b = this.pQA;
+        if (runnableC1217b != null) {
+            runnableC1217b.b();
+            this.pQA = null;
         }
     }
 
     @Override // com.ss.android.b.a.a
     public void a(int i) {
         long currentTimeMillis = System.currentTimeMillis();
-        if (currentTimeMillis - this.f13267b >= 120000) {
-            f.eGz().a(new a(i), this.f13267b > 0 ? 2000L : 8000L);
-            this.f13267b = currentTimeMillis;
+        if (currentTimeMillis - this.f12967b >= 120000) {
+            f.eCI().a(new a(i), this.f12967b > 0 ? 2000L : 8000L);
+            this.f12967b = currentTimeMillis;
         }
     }
 
@@ -558,12 +558,12 @@ public class b implements com.ss.android.b.a.a, b.c, a.InterfaceC1244a {
         ArrayList arrayList = new ArrayList();
         long currentTimeMillis = System.currentTimeMillis();
         for (com.ss.android.b.a.b.a aVar : concurrentHashMap.values()) {
-            if (aVar.f13220a.get()) {
-                if (currentTimeMillis - aVar.n() >= com.ss.android.socialbase.downloader.k.a.Th(aVar.t()).a("start_event_expire_hours", 168) * 60 * 60 * 1000) {
+            if (aVar.f12920a.get()) {
+                if (currentTimeMillis - aVar.n() >= com.ss.android.socialbase.downloader.k.a.RA(aVar.t()).a("start_event_expire_hours", 168) * 60 * 60 * 1000) {
                     arrayList.add(Long.valueOf(aVar.j()));
                 }
             } else if (aVar.l() == 1) {
-                if (c(aVar) <= 0 && currentTimeMillis - aVar.n() >= com.ss.android.socialbase.downloader.k.a.Th(aVar.t()).a("start_event_expire_hours", 168) * 60 * 60 * 1000) {
+                if (c(aVar) <= 0 && currentTimeMillis - aVar.n() >= com.ss.android.socialbase.downloader.k.a.RA(aVar.t()).a("start_event_expire_hours", 168) * 60 * 60 * 1000) {
                     arrayList.add(Long.valueOf(aVar.j()));
                 }
             } else if (aVar.l() == 2) {
@@ -572,10 +572,10 @@ public class b implements com.ss.android.b.a.a, b.c, a.InterfaceC1244a {
                         if (aVar.v() == 4) {
                             i = aVar.v();
                         }
-                        com.ss.android.downloadlib.e.a.eGB().b(a(aVar, aVar.m(), i), aVar);
+                        com.ss.android.downloadlib.e.a.eCL().b(a(aVar, aVar.m(), i), aVar);
                         arrayList.add(Long.valueOf(aVar.j()));
                         com.ss.android.downloadlib.a.c.d.d(aVar);
-                    } else if (currentTimeMillis - aVar.n() >= com.ss.android.socialbase.downloader.k.a.Th(aVar.t()).a("finish_event_expire_hours", 168) * 60 * 60 * 1000) {
+                    } else if (currentTimeMillis - aVar.n() >= com.ss.android.socialbase.downloader.k.a.RA(aVar.t()).a("finish_event_expire_hours", 168) * 60 * 60 * 1000) {
                         arrayList.add(Long.valueOf(aVar.j()));
                     } else if (TextUtils.isEmpty(aVar.m())) {
                         arrayList.add(Long.valueOf(aVar.j()));
@@ -585,36 +585,36 @@ public class b implements com.ss.android.b.a.a, b.c, a.InterfaceC1244a {
                 arrayList.add(Long.valueOf(aVar.j()));
             }
         }
-        com.ss.android.downloadlib.a.b.d.eFT().a(arrayList);
+        com.ss.android.downloadlib.a.b.d.eCc().a(arrayList);
     }
 
     @Override // com.ss.android.socialbase.appdownloader.b.c
     public void a(com.ss.android.socialbase.downloader.g.c cVar, com.ss.android.socialbase.appdownloader.a aVar) {
-        if (cVar != null && aVar != null && com.ss.android.socialbase.downloader.k.a.Th(cVar.g()).abB("anti_hijack_report_config") != null) {
+        if (cVar != null && aVar != null && com.ss.android.socialbase.downloader.k.a.RA(cVar.g()).aat("anti_hijack_report_config") != null) {
             b(cVar, aVar);
         }
     }
 
     private int c(com.ss.android.b.a.b.a aVar) {
         int w;
-        double e = com.ss.android.socialbase.downloader.k.a.Th(aVar.t()).e("download_failed_finally_hours", 48.0d);
+        double e = com.ss.android.socialbase.downloader.k.a.RA(aVar.t()).e("download_failed_finally_hours", 48.0d);
         if (e <= 0.0d) {
             return -1;
         }
         if (System.currentTimeMillis() - aVar.n() < e * 60.0d * 60.0d * 1000.0d) {
             return 1;
         }
-        if (aVar.f13221b.get()) {
+        if (aVar.f12921b.get()) {
             return 0;
         }
-        com.ss.android.socialbase.downloader.g.c h = com.ss.android.socialbase.downloader.downloader.f.iA(j.a()).h(aVar.t());
+        com.ss.android.socialbase.downloader.g.c h = com.ss.android.socialbase.downloader.downloader.f.iy(j.a()).h(aVar.t());
         if (h == null || (w = h.w()) == -3 || w == -4) {
             return -1;
         }
         if (com.ss.android.socialbase.downloader.b.f.b(w)) {
             return 1;
         }
-        if (aVar.f13221b.compareAndSet(false, true)) {
+        if (aVar.f12921b.compareAndSet(false, true)) {
             try {
                 JSONObject jSONObject = new JSONObject();
                 a(jSONObject, h, true);
@@ -622,12 +622,12 @@ public class b implements com.ss.android.b.a.a, b.c, a.InterfaceC1244a {
                 jSONObject.putOpt("fail_status", Integer.valueOf(aVar.h()));
                 jSONObject.putOpt("fail_msg", aVar.i());
                 jSONObject.put("download_failed_times", aVar.a());
-                if (h.ejL() > 0) {
-                    jSONObject.put("download_percent", h.eIz() / h.ejL());
+                if (h.efR() > 0) {
+                    jSONObject.put("download_percent", h.eEJ() / h.efR());
                 }
                 jSONObject.put("is_update_download", aVar.I() ? 1 : 2);
-                com.ss.android.downloadlib.e.a.eGB().a(aVar.x(), "download_failed_finally", jSONObject, aVar);
-                com.ss.android.downloadlib.a.b.g.eFW().d(aVar);
+                com.ss.android.downloadlib.e.a.eCL().a(aVar.x(), "download_failed_finally", jSONObject, aVar);
+                com.ss.android.downloadlib.a.b.g.eCf().d(aVar);
                 return 0;
             } catch (Throwable th) {
                 th.printStackTrace();
@@ -637,7 +637,7 @@ public class b implements com.ss.android.b.a.a, b.c, a.InterfaceC1244a {
     }
 
     private void b(@NonNull com.ss.android.socialbase.downloader.g.c cVar, com.ss.android.socialbase.appdownloader.a aVar) {
-        com.ss.android.b.a.b.a j = com.ss.android.downloadlib.a.b.d.eFT().j(cVar);
+        com.ss.android.b.a.b.a j = com.ss.android.downloadlib.a.b.d.eCc().j(cVar);
         if (j != null) {
             JSONObject jSONObject = new JSONObject();
             aVar.a(jSONObject);
@@ -649,32 +649,32 @@ public class b implements com.ss.android.b.a.a, b.c, a.InterfaceC1244a {
                 th.printStackTrace();
             }
             com.ss.android.downloadlib.f.e.a(jSONObject, cVar.g());
-            com.ss.android.downloadlib.e.a.eGB().a("embeded_ad", "anti_hijack_result", jSONObject, j);
+            com.ss.android.downloadlib.e.a.eCL().a("embeded_ad", "anti_hijack_result", jSONObject, j);
         }
     }
 
     public void d(com.ss.android.b.a.b.a aVar) {
-        f.eGz().a(new c(aVar));
+        f.eCI().a(new c(aVar));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes4.dex */
     public class c implements Runnable {
-        private final com.ss.android.b.a.b.a pVd;
+        private final com.ss.android.b.a.b.a pQD;
 
         public c(com.ss.android.b.a.b.a aVar) {
-            this.pVd = aVar;
+            this.pQD = aVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             try {
-                this.pVd.h(true);
-                b.this.b(this.pVd);
+                this.pQD.h(true);
+                b.this.b(this.pQD);
             } catch (Exception e) {
                 e.printStackTrace();
             } finally {
-                this.pVd.h(false);
+                this.pQD.h(false);
             }
         }
     }
@@ -685,19 +685,19 @@ public class b implements com.ss.android.b.a.a, b.c, a.InterfaceC1244a {
     public class a implements Runnable {
 
         /* renamed from: b  reason: collision with root package name */
-        private final int f13270b;
+        private final int f12970b;
 
         public a(int i) {
-            this.f13270b = i;
+            this.f12970b = i;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             try {
-                com.ss.android.downloadlib.a.b.d.eFT().b();
-                ConcurrentHashMap<Long, com.ss.android.b.a.b.a> eFU = com.ss.android.downloadlib.a.b.d.eFT().eFU();
-                if (eFU != null && !eFU.isEmpty()) {
-                    b.this.a(eFU, this.f13270b);
+                com.ss.android.downloadlib.a.b.d.eCc().b();
+                ConcurrentHashMap<Long, com.ss.android.b.a.b.a> eCd = com.ss.android.downloadlib.a.b.d.eCc().eCd();
+                if (eCd != null && !eCd.isEmpty()) {
+                    b.this.a(eCd, this.f12970b);
                 }
             } catch (Exception e) {
                 e.printStackTrace();
@@ -706,25 +706,25 @@ public class b implements com.ss.android.b.a.a, b.c, a.InterfaceC1244a {
     }
 
     private JSONObject a(com.ss.android.b.a.b.a aVar, String str, int i) {
-        com.ss.android.socialbase.appdownloader.a aaU;
+        com.ss.android.socialbase.appdownloader.a ZM;
         JSONObject jSONObject = new JSONObject();
         try {
-            com.ss.android.socialbase.downloader.g.c h = com.ss.android.socialbase.downloader.downloader.f.iA(j.a()).h(aVar.t());
+            com.ss.android.socialbase.downloader.g.c h = com.ss.android.socialbase.downloader.downloader.f.iy(j.a()).h(aVar.t());
             jSONObject.putOpt("scene", Integer.valueOf(i));
             com.ss.android.downloadlib.f.e.a(jSONObject, aVar.t());
             com.ss.android.downloadlib.f.e.a(aVar, jSONObject);
             jSONObject.put("is_update_download", aVar.I() ? 1 : 2);
             if (h != null) {
                 try {
-                    jSONObject.put("uninstall_resume_count", h.eJq());
+                    jSONObject.put("uninstall_resume_count", h.eFA());
                     if (aVar.f() > 0) {
                         jSONObject.put("install_time", System.currentTimeMillis() - aVar.f());
                     }
                 } catch (Throwable th) {
                 }
-                String string = h.eJw().getString("anti_hijack_attempt");
-                if (!TextUtils.isEmpty(string) && (aaU = com.ss.android.socialbase.appdownloader.a.aaU(string)) != null) {
-                    aaU.a(jSONObject);
+                String string = h.eFG().getString("anti_hijack_attempt");
+                if (!TextUtils.isEmpty(string) && (ZM = com.ss.android.socialbase.appdownloader.a.ZM(string)) != null) {
+                    ZM.a(jSONObject);
                 }
             }
             int a2 = a(aVar, h, str, jSONObject);
@@ -743,7 +743,7 @@ public class b implements com.ss.android.b.a.a, b.c, a.InterfaceC1244a {
     }
 
     public void a(com.ss.android.socialbase.downloader.g.c cVar, long j, long j2, long j3, long j4, long j5, boolean z) {
-        com.ss.android.b.a.b.a j6 = com.ss.android.downloadlib.a.b.d.eFT().j(cVar);
+        com.ss.android.b.a.b.a j6 = com.ss.android.downloadlib.a.b.d.eCc().j(cVar);
         if (j6 == null) {
             com.ss.android.downloadlib.f.i.b();
             return;
@@ -756,8 +756,8 @@ public class b implements com.ss.android.b.a.a, b.c, a.InterfaceC1244a {
             jSONObject.putOpt("is_download_restarted", Integer.valueOf(z ? 1 : 0));
             jSONObject.putOpt("byte_required", Long.valueOf(j3));
             jSONObject.putOpt("clear_sleep_time", Long.valueOf(j5));
-            com.ss.android.downloadlib.e.a.eGB().c(cVar, jSONObject);
-            com.ss.android.downloadlib.e.a.eGB().a("embeded_ad", "cleanup", jSONObject, j6);
+            com.ss.android.downloadlib.e.a.eCL().c(cVar, jSONObject);
+            com.ss.android.downloadlib.e.a.eCL().a("embeded_ad", "cleanup", jSONObject, j6);
         } catch (Exception e) {
             e.printStackTrace();
         }

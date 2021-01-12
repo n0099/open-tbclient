@@ -8,7 +8,7 @@ import java.util.Collection;
 import java.util.Iterator;
 import java.util.StringTokenizer;
 import java.util.regex.Pattern;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public abstract class StringUtils {
     public static boolean hasLength(CharSequence charSequence) {
         return charSequence != null && charSequence.length() > 0;

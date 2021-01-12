@@ -1,6 +1,6 @@
 package com.opensource.svgaplayer.b;
 @kotlin.e
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class c {
     private final double height;
     private final double width;

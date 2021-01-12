@@ -4,15 +4,15 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class a {
 
     /* renamed from: b  reason: collision with root package name */
-    private static final String f1961b = a.class.getSimpleName();
+    private static final String f1911b = a.class.getSimpleName();
     private static final boolean c = false;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f1962a;
+    public String f1912a;
     private String d;
     private String e;
     private String f;
@@ -55,6 +55,6 @@ public class a {
     }
 
     public String e() {
-        return this.f1962a;
+        return this.f1912a;
     }
 }

@@ -10,50 +10,50 @@ import androidx.annotation.NonNull;
 import com.kwad.sdk.R;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public final class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final Pattern f10058a = Pattern.compile("(\\[[^]]*])");
+    private static final Pattern f9758a = Pattern.compile("(\\[[^]]*])");
 
     /* renamed from: b  reason: collision with root package name */
-    private static int f10059b = R.drawable.ksad_emotion_loading;
+    private static int f9759b = R.drawable.ksad_emotion_loading;
 
     /* renamed from: com.kwad.sdk.emotion.widget.a$a  reason: collision with other inner class name */
-    /* loaded from: classes5.dex */
-    public static final class C1125a implements b {
+    /* loaded from: classes4.dex */
+    public static final class C1108a implements b {
 
         /* renamed from: a  reason: collision with root package name */
-        private final TextView f10060a;
+        private final TextView f9760a;
 
         /* renamed from: b  reason: collision with root package name */
-        private final int f10061b;
+        private final int f9761b;
         private final int c;
 
-        public C1125a(@NonNull TextView textView, int i, int i2) {
-            this.f10060a = textView;
-            this.f10061b = i;
+        public C1108a(@NonNull TextView textView, int i, int i2) {
+            this.f9760a = textView;
+            this.f9761b = i;
             this.c = i2;
         }
 
         @Override // com.kwad.sdk.emotion.widget.a.b
         public View a() {
-            return this.f10060a;
+            return this.f9760a;
         }
 
         @Override // com.kwad.sdk.emotion.widget.a.b
         public CharSequence b() {
-            return this.f10060a.getText();
+            return this.f9760a.getText();
         }
 
         @Override // com.kwad.sdk.emotion.widget.a.b
         public int c() {
-            return (int) this.f10060a.getTextSize();
+            return (int) this.f9760a.getTextSize();
         }
 
         @Override // com.kwad.sdk.emotion.widget.a.b
         public int d() {
-            return this.f10061b;
+            return this.f9761b;
         }
 
         @Override // com.kwad.sdk.emotion.widget.a.b
@@ -62,7 +62,7 @@ public final class a {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public interface b {
         @NonNull
         View a();
@@ -87,7 +87,7 @@ public final class a {
     public static synchronized CharSequence a(TextView textView, int i, int i2, boolean z) {
         CharSequence a2;
         synchronized (a.class) {
-            a2 = a(new C1125a(textView, i, i2), z);
+            a2 = a(new C1108a(textView, i, i2), z);
         }
         return a2;
     }
@@ -127,7 +127,7 @@ public final class a {
                                     a3 = com.kwad.sdk.emotion.a.c.a().b(group);
                                 } else {
                                     a2 = a(bVar.c());
-                                    a3 = com.kwad.sdk.emotion.a.c.a().a(bVar.a().getContext(), group, f10059b);
+                                    a3 = com.kwad.sdk.emotion.a.c.a().a(bVar.a().getContext(), group, f9759b);
                                 }
                                 bVar2.setBounds(0, 0, a2, a2);
                                 bVar2.a(a3);
@@ -147,6 +147,6 @@ public final class a {
     }
 
     public static Matcher a(CharSequence charSequence) {
-        return f10058a.matcher(charSequence);
+        return f9758a.matcher(charSequence);
     }
 }

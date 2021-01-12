@@ -1,18 +1,18 @@
 package com.facebook.imagepipeline.memory;
 /* loaded from: classes3.dex */
 public class n implements s {
-    private static n pFd = null;
+    private static n pAC = null;
 
     private n() {
     }
 
-    public static synchronized n eAl() {
+    public static synchronized n ewt() {
         n nVar;
         synchronized (n.class) {
-            if (pFd == null) {
-                pFd = new n();
+            if (pAC == null) {
+                pAC = new n();
             }
-            nVar = pFd;
+            nVar = pAC;
         }
         return nVar;
     }
@@ -22,26 +22,26 @@ public class n implements s {
     }
 
     @Override // com.facebook.imagepipeline.memory.s
-    public void Rp(int i) {
+    public void PI(int i) {
     }
 
     @Override // com.facebook.imagepipeline.memory.s
-    public void eAm() {
+    public void ewu() {
     }
 
     @Override // com.facebook.imagepipeline.memory.s
-    public void eAn() {
+    public void ewv() {
     }
 
     @Override // com.facebook.imagepipeline.memory.s
-    public void Rq(int i) {
+    public void PJ(int i) {
     }
 
     @Override // com.facebook.imagepipeline.memory.s
-    public void Rr(int i) {
+    public void PK(int i) {
     }
 
     @Override // com.facebook.imagepipeline.memory.s
-    public void Rs(int i) {
+    public void PL(int i) {
     }
 }

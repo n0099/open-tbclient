@@ -11,7 +11,7 @@ import com.baidu.swan.apps.scheme.actions.aa;
 import com.baidu.swan.apps.scheme.j;
 import com.baidu.swan.games.c.d;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class e extends aa {
     public e(j jVar) {
         super(jVar, "/swanAPI/debugGameSconsole");
@@ -28,9 +28,9 @@ public class e extends aa {
                 if (TextUtils.isEmpty(optString)) {
                     Toast.makeText(context, a.h.aiapps_debug_swan_core_url_empty, 1).show();
                 } else {
-                    d.aZi().a(optString, new d.a() { // from class: com.baidu.swan.games.c.e.1
+                    d.aVo().a(optString, new d.a() { // from class: com.baidu.swan.games.c.e.1
                         @Override // com.baidu.swan.games.c.d.a
-                        public void fi(boolean z) {
+                        public void fe(boolean z) {
                             Context appContext = AppRuntime.getAppContext();
                             if (z) {
                                 Toast.makeText(appContext, a.h.aiapps_debug_game_sconsole_download_success, 1).show();

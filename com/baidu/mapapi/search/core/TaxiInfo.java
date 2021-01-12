@@ -2,15 +2,15 @@ package com.baidu.mapapi.search.core;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class TaxiInfo implements Parcelable {
     public static final Parcelable.Creator<TaxiInfo> CREATOR = new m();
 
     /* renamed from: a  reason: collision with root package name */
-    private float f2976a;
+    private float f2854a;
 
     /* renamed from: b  reason: collision with root package name */
-    private String f2977b;
+    private String f2855b;
     private int c;
     private int d;
     private float e;
@@ -21,8 +21,8 @@ public class TaxiInfo implements Parcelable {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public TaxiInfo(Parcel parcel) {
-        this.f2976a = parcel.readFloat();
-        this.f2977b = parcel.readString();
+        this.f2854a = parcel.readFloat();
+        this.f2855b = parcel.readString();
         this.c = parcel.readInt();
         this.d = parcel.readInt();
         this.e = parcel.readFloat();
@@ -35,7 +35,7 @@ public class TaxiInfo implements Parcelable {
     }
 
     public String getDesc() {
-        return this.f2977b;
+        return this.f2855b;
     }
 
     public int getDistance() {
@@ -55,11 +55,11 @@ public class TaxiInfo implements Parcelable {
     }
 
     public float getTotalPrice() {
-        return this.f2976a;
+        return this.f2854a;
     }
 
     public void setDesc(String str) {
-        this.f2977b = str;
+        this.f2855b = str;
     }
 
     public void setDistance(int i) {
@@ -79,13 +79,13 @@ public class TaxiInfo implements Parcelable {
     }
 
     public void setTotalPrice(float f) {
-        this.f2976a = f;
+        this.f2854a = f;
     }
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeFloat(this.f2976a);
-        parcel.writeString(this.f2977b);
+        parcel.writeFloat(this.f2854a);
+        parcel.writeString(this.f2855b);
         parcel.writeInt(this.c);
         parcel.writeInt(this.d);
         parcel.writeFloat(this.e);

@@ -3,31 +3,31 @@ package com.baidu.live.alphavideo;
 import android.util.Log;
 import com.baidu.live.adp.framework.MessageManager;
 import com.baidu.live.data.bq;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class a {
-    private boolean aEA;
+    private boolean azN;
 
-    public static a CC() {
-        return C0171a.aEB;
+    public static a yH() {
+        return C0162a.azO;
     }
 
-    public boolean CD() {
-        bq bqVar = com.baidu.live.af.a.SE().bCb;
-        if (bqVar != null && bqVar.aRE != null && !bqVar.aRE.aUk) {
+    public boolean yI() {
+        bq bqVar = com.baidu.live.af.a.OJ().bxp;
+        if (bqVar != null && bqVar.aMR != null && !bqVar.aMR.aPx) {
             return false;
         }
-        Log.e("entereffect", "云控透明视频开关： " + this.aEA);
-        return this.aEA;
+        Log.e("entereffect", "云控透明视频开关： " + this.azN);
+        return this.azN;
     }
 
     private a() {
-        this.aEA = MessageManager.getInstance().findTask(2913180) != null;
+        this.azN = MessageManager.getInstance().findTask(2913180) != null;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.live.alphavideo.a$a  reason: collision with other inner class name */
-    /* loaded from: classes11.dex */
-    public static class C0171a {
-        private static a aEB = new a();
+    /* loaded from: classes10.dex */
+    public static class C0162a {
+        private static a azO = new a();
     }
 }

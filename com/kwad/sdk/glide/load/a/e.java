@@ -1,10 +1,10 @@
 package com.kwad.sdk.glide.load.a;
 
 import androidx.annotation.NonNull;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public interface e<T> {
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public interface a<T> {
         @NonNull
         e<T> a(@NonNull T t);

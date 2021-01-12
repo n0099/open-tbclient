@@ -9,11 +9,11 @@ import android.graphics.RectF;
 import android.graphics.Shader;
 import androidx.collection.LongSparseArray;
 import com.ksad.lottie.model.content.GradientType;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class h extends a {
 
     /* renamed from: b  reason: collision with root package name */
-    private final String f8241b;
+    private final String f7941b;
     private final LongSparseArray<LinearGradient> c;
     private final LongSparseArray<RadialGradient> d;
     private final RectF e;
@@ -28,7 +28,7 @@ public class h extends a {
         this.c = new LongSparseArray<>();
         this.d = new LongSparseArray<>();
         this.e = new RectF();
-        this.f8241b = eVar.a();
+        this.f7941b = eVar.a();
         this.f = eVar.b();
         this.g = (int) (fVar.r().c() / 32.0f);
         this.h = eVar.c().a();
@@ -90,9 +90,9 @@ public class h extends a {
     public void a(Canvas canvas, Matrix matrix, int i) {
         a(this.e, matrix);
         if (this.f == GradientType.Linear) {
-            this.f8229a.setShader(b());
+            this.f7929a.setShader(b());
         } else {
-            this.f8229a.setShader(c());
+            this.f7929a.setShader(c());
         }
         super.a(canvas, matrix, i);
     }

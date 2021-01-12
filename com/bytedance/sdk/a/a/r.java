@@ -10,7 +10,7 @@ public interface r extends Closeable, Flushable {
     @Override // java.io.Closeable, java.lang.AutoCloseable
     void close() throws IOException;
 
-    t epS();
+    t elW();
 
     void flush() throws IOException;
 }

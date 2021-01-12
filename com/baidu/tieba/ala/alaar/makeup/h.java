@@ -4,9 +4,9 @@ import android.util.Log;
 import com.baidu.live.tbadk.extraparams.ExtraParamsManager;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class h {
-    private static Boolean bsQ = false;
+    private static Boolean boe = false;
 
     public static void d(String str, String str2) {
         String str3;
@@ -53,16 +53,16 @@ public class h {
     }
 
     public static boolean isDebug() {
-        if (bsQ != null) {
-            return bsQ.booleanValue();
+        if (boe != null) {
+            return boe.booleanValue();
         }
-        bsQ = false;
+        boe = false;
         HashMap hashMap = new HashMap();
         hashMap.put("isDebugBuildType", false);
         Map<String, Object> process = ExtraParamsManager.getInstance().buildParamsExtra().process(hashMap);
         if (process != null && process.containsKey("isDebugBuildType")) {
-            bsQ = Boolean.valueOf(((Boolean) process.get("isDebugBuildType")).booleanValue());
+            boe = Boolean.valueOf(((Boolean) process.get("isDebugBuildType")).booleanValue());
         }
-        return bsQ.booleanValue();
+        return boe.booleanValue();
     }
 }

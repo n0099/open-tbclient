@@ -6,51 +6,51 @@ import java.util.List;
 import tbclient.BroadcastInfo;
 import tbclient.GetForumBroadcastList.DataRes;
 import tbclient.Page;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class a {
-    private boolean geO;
-    private List<b> kCb = new ArrayList();
-    private boolean kCc;
+    private boolean gae;
+    private List<b> kxw = new ArrayList();
+    private boolean kxx;
     private Page page;
 
-    public boolean cXM() {
-        return this.kCc;
+    public boolean cTU() {
+        return this.kxx;
     }
 
-    public boolean bNc() {
-        return this.geO;
+    public boolean bJk() {
+        return this.gae;
     }
 
-    public void sD(boolean z) {
-        this.geO = z;
+    public void sz(boolean z) {
+        this.gae = z;
     }
 
-    public List<b> cXN() {
-        return this.kCb;
+    public List<b> cTV() {
+        return this.kxw;
     }
 
     public void a(DataRes dataRes) {
         if (dataRes != null) {
             this.page = dataRes.page;
             if (this.page != null) {
-                this.kCc = this.page.has_more.intValue() == 1;
+                this.kxx = this.page.has_more.intValue() == 1;
             }
             List<BroadcastInfo> list = dataRes.bcast_infos;
             if (list != null) {
                 for (int i = 0; i < list.size(); i++) {
                     b bVar = new b();
                     bVar.a(list.get(i));
-                    this.kCb.add(bVar);
+                    this.kxw.add(bVar);
                 }
             }
         }
     }
 
-    public void cXO() {
-        if (this.kCb != null && this.kCb.size() > 0) {
-            for (b bVar : this.kCb) {
+    public void cTW() {
+        if (this.kxw != null && this.kxw.size() > 0) {
+            for (b bVar : this.kxw) {
                 if (bVar != null) {
-                    l.cXD().d(bVar.cXU().forum_id.longValue(), bVar.cXT() * 100, bVar.cXR());
+                    l.cTL().d(bVar.cUc().forum_id.longValue(), bVar.cUb() * 100, bVar.cTZ());
                 }
             }
         }

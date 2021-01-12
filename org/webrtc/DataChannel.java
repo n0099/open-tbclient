@@ -1,12 +1,12 @@
 package org.webrtc;
 
 import java.nio.ByteBuffer;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class DataChannel {
     private long nativeDataChannel;
     private long nativeObserver;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static class Buffer {
         public final boolean binary;
         public final ByteBuffer data;
@@ -18,7 +18,7 @@ public class DataChannel {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static class Init {
         public boolean negotiated;
         public boolean ordered = true;
@@ -58,7 +58,7 @@ public class DataChannel {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public interface Observer {
         @CalledByNative("Observer")
         void onBufferedAmountChange(long j);
@@ -70,7 +70,7 @@ public class DataChannel {
         void onStateChange();
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public enum State {
         CONNECTING,
         OPEN,

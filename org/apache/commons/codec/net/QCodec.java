@@ -5,7 +5,7 @@ import org.apache.commons.codec.EncoderException;
 import org.apache.commons.codec.StringDecoder;
 import org.apache.commons.codec.StringEncoder;
 @Deprecated
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class QCodec extends RFC1522Codec implements StringDecoder, StringEncoder {
     public QCodec() {
         throw new RuntimeException("Stub!");

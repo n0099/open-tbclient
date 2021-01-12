@@ -7,7 +7,7 @@ import android.os.ParcelFileDescriptor;
 import androidx.annotation.NonNull;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class FileDescriptorLocalUriFetcher extends LocalUriFetcher<ParcelFileDescriptor> {
     public FileDescriptorLocalUriFetcher(ContentResolver contentResolver, Uri uri) {
         super(contentResolver, uri);

@@ -22,7 +22,7 @@ import com.idlefish.flutterboost.containers.ViewSplashScreen;
 import io.flutter.embedding.android.SplashScreen;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes12.dex */
+/* loaded from: classes11.dex */
 public class TbFlutterFragment extends FlutterFragment {
     private ContinuousAnimationView loadingView;
     private TbFlutterFragmentLifeCircleInterface mLifeCycleListener;

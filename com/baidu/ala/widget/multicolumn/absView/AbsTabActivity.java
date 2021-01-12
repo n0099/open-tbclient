@@ -9,7 +9,7 @@ import com.baidu.tbadk.core.tabHost.FragmentTabHost;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.mainTab.FragmentTabIndicator;
 import com.baidu.tieba.R;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public abstract class AbsTabActivity extends BaseFragmentActivity {
     protected boolean isSupportNight = true;
     private NavigationBar mNavigationBar;
@@ -120,7 +120,7 @@ public abstract class AbsTabActivity extends BaseFragmentActivity {
             fragmentTabIndicator.setTextSize(0, getResources().getDimension(R.dimen.fontsize32));
             fragmentTabIndicator.setIsSupportNight(this.isSupportNight);
             fragmentTabIndicator.setContentWidthWrapContent();
-            bVar.fbC = fragmentTabIndicator;
+            bVar.eWU = fragmentTabIndicator;
             this.mTabHost.a(bVar);
         }
     }
@@ -153,7 +153,7 @@ public abstract class AbsTabActivity extends BaseFragmentActivity {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static class CustomOnPageChangeListener {
         public void onPageScrolled(int i, float f, int i2, int i3) {
         }

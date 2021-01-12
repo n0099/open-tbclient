@@ -11,41 +11,41 @@ import com.baidu.live.adp.framework.message.CustomResponsedMessage;
 import com.baidu.live.view.web.g;
 import com.baidu.live.view.web.h;
 import com.baidu.webkit.internal.ETAG;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class a {
-    private h bWS = new h() { // from class: com.baidu.live.ap.a.1
+    private h bSg = new h() { // from class: com.baidu.live.ap.a.1
         @Override // com.baidu.live.view.web.h
-        public void jk(String str) {
+        public void hZ(String str) {
             if (!TextUtils.isEmpty(str)) {
                 c cVar = new c();
-                cVar.isFullScreen = a.this.aU(str, "fullscreen");
+                cVar.isFullScreen = a.this.aT(str, "fullscreen");
                 cVar.url = str;
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913232, cVar));
             }
         }
     };
-    private d bXc;
-    private CustomMessageListener bXd;
+    private d bSq;
+    private CustomMessageListener bSr;
     private Activity mContext;
 
     public a(Activity activity) {
         this.mContext = activity;
-        aag();
+        Wn();
     }
 
     public void a(c cVar) {
         if (cVar != null && !TextUtils.isEmpty(cVar.url)) {
             String str = cVar.url;
             dismiss();
-            this.bXc = new d(this.mContext);
-            this.bXc.getWebView().setBackgroundColor(ih(str));
+            this.bSq = new d(this.mContext);
+            this.bSq.getWebView().setBackgroundColor(gW(str));
             g gVar = new g();
-            gVar.w(this.mContext).a(this.bXc).a(this.bXc.getWebView().getSchemeCallback()).b(this.bWS);
-            com.baidu.live.view.web.a[] aaf = gVar.aaf();
-            for (com.baidu.live.view.web.a aVar : aaf) {
-                this.bXc.getWebView().addJavascriptInterface(aVar, aVar.getName());
+            gVar.w(this.mContext).a(this.bSq).a(this.bSq.getWebView().getSchemeCallback()).b(this.bSg);
+            com.baidu.live.view.web.a[] Wm = gVar.Wm();
+            for (com.baidu.live.view.web.a aVar : Wm) {
+                this.bSq.getWebView().addJavascriptInterface(aVar, aVar.getName());
             }
-            this.bXc.c(cVar);
+            this.bSq.c(cVar);
         }
     }
 
@@ -53,55 +53,55 @@ public class a {
         if (cVar != null && !TextUtils.isEmpty(cVar.url)) {
             String str = cVar.url;
             dismiss();
-            this.bXc = new d(this.mContext);
-            this.bXc.getWebView().setBackgroundColor(ih(str));
+            this.bSq = new d(this.mContext);
+            this.bSq.getWebView().setBackgroundColor(gW(str));
             g gVar = new g();
-            gVar.w(this.mContext).a(this.bXc).a(this.bXc.getWebView().getSchemeCallback()).b(this.bWS);
-            com.baidu.live.view.web.a[] aaf = gVar.aaf();
-            for (com.baidu.live.view.web.a aVar : aaf) {
-                this.bXc.getWebView().addJavascriptInterface(aVar, aVar.getName());
+            gVar.w(this.mContext).a(this.bSq).a(this.bSq.getWebView().getSchemeCallback()).b(this.bSg);
+            com.baidu.live.view.web.a[] Wm = gVar.Wm();
+            for (com.baidu.live.view.web.a aVar : Wm) {
+                this.bSq.getWebView().addJavascriptInterface(aVar, aVar.getName());
             }
-            this.bXc.d(cVar);
+            this.bSq.d(cVar);
         }
     }
 
     public void resume() {
-        if (this.bXc != null && this.bXc.isShowing() && this.bXc.getWebView() != null) {
-            this.bXc.getWebView().onResume();
+        if (this.bSq != null && this.bSq.isShowing() && this.bSq.getWebView() != null) {
+            this.bSq.getWebView().onResume();
         }
     }
 
     public void pause() {
-        if (this.bXc != null && this.bXc.isShowing() && this.bXc.getWebView() != null) {
-            this.bXc.getWebView().onPause();
+        if (this.bSq != null && this.bSq.isShowing() && this.bSq.getWebView() != null) {
+            this.bSq.getWebView().onPause();
         }
     }
 
     public void dismiss() {
-        if (this.bXc != null) {
-            this.bXc.aah();
-            this.bXc = null;
+        if (this.bSq != null) {
+            this.bSq.Wo();
+            this.bSq = null;
         }
     }
 
-    public void dU(int i) {
-        if (this.bXc != null && this.bXc.isShowing()) {
-            this.bXc.dU(i);
+    public void co(int i) {
+        if (this.bSq != null && this.bSq.isShowing()) {
+            this.bSq.co(i);
         }
     }
 
-    public void Id() {
+    public void Ei() {
         dismiss();
     }
 
     public void release() {
-        Id();
-        MessageManager.getInstance().unRegisterListener(this.bXd);
-        this.bXd = null;
+        Ei();
+        MessageManager.getInstance().unRegisterListener(this.bSr);
+        this.bSr = null;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean aU(String str, String str2) {
+    public boolean aT(String str, String str2) {
         String queryParameter = Uri.parse(str).getQueryParameter(str2);
         if (TextUtils.isEmpty(queryParameter)) {
             int indexOf = str.indexOf(str2 + "=");
@@ -121,22 +121,22 @@ public class a {
         }
     }
 
-    private void aag() {
-        if (this.bXd == null) {
-            this.bXd = new CustomMessageListener(2913123) { // from class: com.baidu.live.ap.a.2
+    private void Wn() {
+        if (this.bSr == null) {
+            this.bSr = new CustomMessageListener(2913123) { // from class: com.baidu.live.ap.a.2
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.live.adp.framework.listener.MessageListener
                 public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                    if (a.this.bXc != null && a.this.bXc.isShowing()) {
-                        a.this.bXc.dismiss();
+                    if (a.this.bSq != null && a.this.bSq.isShowing()) {
+                        a.this.bSq.dismiss();
                     }
                 }
             };
-            MessageManager.getInstance().registerListener(this.bXd);
+            MessageManager.getInstance().registerListener(this.bSr);
         }
     }
 
-    private int ih(String str) {
+    private int gW(String str) {
         String str2 = null;
         try {
             str2 = Uri.parse(str).getQueryParameter("background");

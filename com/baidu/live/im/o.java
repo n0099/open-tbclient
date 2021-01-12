@@ -1,5 +1,5 @@
 package com.baidu.live.im;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class o {
     public static long aS(long j) {
         return 1 + j;

@@ -15,21 +15,21 @@ import com.baidu.live.view.input.AlaLiveInputEditView;
 import com.baidu.live.view.input.c;
 import com.baidu.tieba.ala.AlaChooseGiftActivity;
 import java.util.ArrayList;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public abstract class d {
-    protected View.OnClickListener bSh;
-    protected AlaChooseGiftActivity gSl;
-    protected String gSm;
-    protected int gSn;
-    protected int gSo;
-    protected AlaLiveInputEditView gpX;
-    protected ArrayList<String> gqb;
+    protected View.OnClickListener bNv;
+    protected AlaChooseGiftActivity gNF;
+    protected String gNG;
+    protected int gNH;
+    protected int gNI;
+    protected AlaLiveInputEditView glq;
+    protected ArrayList<String> glu;
     protected Context mContext;
     protected View mRootView;
 
-    public abstract void aV(int i, String str);
+    public abstract void aW(int i, String str);
 
-    protected abstract int bXe();
+    protected abstract int bTm();
 
     public abstract void confirm();
 
@@ -40,19 +40,19 @@ public abstract class d {
     public abstract void l(TextView textView);
 
     public d(AlaChooseGiftActivity alaChooseGiftActivity, FrameLayout frameLayout, String str, ArrayList<String> arrayList, int i, int i2) {
-        this.gSl = alaChooseGiftActivity;
+        this.gNF = alaChooseGiftActivity;
         this.mContext = alaChooseGiftActivity.getPageContext().getPageActivity();
-        this.gSm = str;
-        this.gqb = arrayList;
-        this.gSn = i;
-        this.gSo = i2;
-        this.mRootView = LayoutInflater.from(this.mContext).inflate(bXe(), (ViewGroup) null);
+        this.gNG = str;
+        this.glu = arrayList;
+        this.gNH = i;
+        this.gNI = i2;
+        this.mRootView = LayoutInflater.from(this.mContext).inflate(bTm(), (ViewGroup) null);
         frameLayout.removeAllViews();
         frameLayout.addView(this.mRootView);
         initView();
     }
 
-    public void vN(int i) {
+    public void uh(int i) {
     }
 
     public void a(CharSequence charSequence, int i, int i2, int i3) {
@@ -62,18 +62,18 @@ public abstract class d {
     }
 
     public void co(View view) {
-        if (this.bSh != null) {
-            this.bSh.onClick(view);
+        if (this.bNv != null) {
+            this.bNv.onClick(view);
         }
     }
 
     public void t(View.OnClickListener onClickListener) {
-        this.bSh = onClickListener;
+        this.bNv = onClickListener;
     }
 
     public void e(AlaLiveInputEditView alaLiveInputEditView) {
-        this.gpX = alaLiveInputEditView;
-        this.gpX.setTextWatcher(new TextWatcher() { // from class: com.baidu.tieba.ala.c.d.1
+        this.glq = alaLiveInputEditView;
+        this.glq.setTextWatcher(new TextWatcher() { // from class: com.baidu.tieba.ala.c.d.1
             @Override // android.text.TextWatcher
             public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
             }
@@ -81,7 +81,7 @@ public abstract class d {
             @Override // android.text.TextWatcher
             public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
                 if (charSequence == null || TextUtils.isEmpty(charSequence.toString().trim())) {
-                    d.this.gpX.setSendEnabled(false);
+                    d.this.glq.setSendEnabled(false);
                 } else {
                     d.this.a(charSequence, i, i2, i3);
                 }
@@ -91,12 +91,12 @@ public abstract class d {
             public void afterTextChanged(Editable editable) {
             }
         });
-        this.gpX.setEditViewConfirmCallBack(new c.a() { // from class: com.baidu.tieba.ala.c.d.2
+        this.glq.setEditViewConfirmCallBack(new c.a() { // from class: com.baidu.tieba.ala.c.d.2
             @Override // com.baidu.live.view.input.c.a
-            public void hn(String str) {
+            public void gb(String str) {
                 if (str != null && !TextUtils.isEmpty(str.trim())) {
                     try {
-                        d.this.vN(Integer.parseInt(str));
+                        d.this.uh(Integer.parseInt(str));
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
@@ -105,25 +105,25 @@ public abstract class d {
         });
     }
 
-    public void bRw() {
-        this.gpX.Ox();
-        this.gpX.getEditView().setFocusable(true);
-        this.gpX.getEditView().setFocusableInTouchMode(true);
-        this.gpX.getEditView().postDelayed(new Runnable() { // from class: com.baidu.tieba.ala.c.d.3
+    public void bNE() {
+        this.glq.KC();
+        this.glq.getEditView().setFocusable(true);
+        this.glq.getEditView().setFocusableInTouchMode(true);
+        this.glq.getEditView().postDelayed(new Runnable() { // from class: com.baidu.tieba.ala.c.d.3
             @Override // java.lang.Runnable
             public void run() {
-                d.this.gpX.getEditView().requestFocus();
-                BdUtilHelper.showSoftKeyPad(d.this.mContext, d.this.gpX.getEditView());
+                d.this.glq.getEditView().requestFocus();
+                BdUtilHelper.showSoftKeyPad(d.this.mContext, d.this.glq.getEditView());
             }
         }, 100L);
     }
 
-    public void bRx() {
-        this.gpX.setVisibility(8);
-        this.gpX.getEditView().post(new Runnable() { // from class: com.baidu.tieba.ala.c.d.4
+    public void bNF() {
+        this.glq.setVisibility(8);
+        this.glq.getEditView().post(new Runnable() { // from class: com.baidu.tieba.ala.c.d.4
             @Override // java.lang.Runnable
             public void run() {
-                BdUtilHelper.hideSoftKeyPad(d.this.mContext, d.this.gpX.getEditView());
+                BdUtilHelper.hideSoftKeyPad(d.this.mContext, d.this.glq.getEditView());
             }
         });
     }

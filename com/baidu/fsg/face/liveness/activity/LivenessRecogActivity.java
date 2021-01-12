@@ -99,7 +99,7 @@ import java.util.Random;
 import java.util.concurrent.ConcurrentHashMap;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class LivenessRecogActivity extends LivenessBaseActivity implements Handler.Callback {
     public static final String EXTRA_UPLOAD_ACTION_TYPE = "action_type";
     public static final int REQUEST_CODE_LIVENESS_RECOG_ACTIVITY = 1001;
@@ -115,7 +115,7 @@ public class LivenessRecogActivity extends LivenessBaseActivity implements Handl
     private static final double ay = 0.5d;
 
     /* renamed from: b  reason: collision with root package name */
-    private static final String f2181b = "LivenessRecogActivity";
+    private static final String f2131b = "LivenessRecogActivity";
     private static final int bN = 1;
     private static final int bO = 2;
     private static final int bP = 1;
@@ -337,7 +337,7 @@ public class LivenessRecogActivity extends LivenessBaseActivity implements Handl
     };
 
     /* renamed from: a  reason: collision with root package name */
-    Camera.PreviewCallback f2182a = new Camera.PreviewCallback() { // from class: com.baidu.fsg.face.liveness.activity.LivenessRecogActivity.28
+    Camera.PreviewCallback f2132a = new Camera.PreviewCallback() { // from class: com.baidu.fsg.face.liveness.activity.LivenessRecogActivity.28
         @Override // android.hardware.Camera.PreviewCallback
         public void onPreviewFrame(byte[] bArr, Camera camera) {
             LivenessRecogActivity.this.bi.a(bArr);
@@ -437,7 +437,7 @@ public class LivenessRecogActivity extends LivenessBaseActivity implements Handl
     /* JADX INFO: Access modifiers changed from: private */
     public String a(int[] iArr) {
         b.a i2 = this.bi.i();
-        Bitmap createBitmap = Bitmap.createBitmap(iArr, i2.f2350b, i2.f2349a, Bitmap.Config.ARGB_8888);
+        Bitmap createBitmap = Bitmap.createBitmap(iArr, i2.f2300b, i2.f2299a, Bitmap.Config.ARGB_8888);
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
         createBitmap.compress(Bitmap.CompressFormat.PNG, 100, byteArrayOutputStream);
         byte[] byteArray = byteArrayOutputStream.toByteArray();
@@ -969,7 +969,7 @@ public class LivenessRecogActivity extends LivenessBaseActivity implements Handl
     @Override // com.baidu.fsg.base.activity.BeanActivity, com.baidu.fsg.base.activity.BaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        BeanManager.getInstance().removeAllBeans(f2181b);
+        BeanManager.getInstance().removeAllBeans(f2131b);
         BeanManager.getInstance().removeAllBeans(c);
         this.aL = true;
         this.aE = null;
@@ -1139,7 +1139,7 @@ public class LivenessRecogActivity extends LivenessBaseActivity implements Handl
         this.aI = new f(5000L, 200L);
         this.aN.C = System.currentTimeMillis();
         this.bA = new com.baidu.fsg.face.liveness.b(this.livenessRecogDTO);
-        this.bA.f2314a = System.currentTimeMillis();
+        this.bA.f2264a = System.currentTimeMillis();
         this.B = SapiLivenessRecogManager.getInstance().getLivenessRecogCallback();
         g();
         this.aH = e();
@@ -1247,7 +1247,7 @@ public class LivenessRecogActivity extends LivenessBaseActivity implements Handl
             H();
         } else {
             a(this.bi.i());
-            this.bi.a(this.f2182a);
+            this.bi.a(this.f2132a);
             this.V.startPreview();
         }
         this.V.setVisibility(0);
@@ -1280,9 +1280,9 @@ public class LivenessRecogActivity extends LivenessBaseActivity implements Handl
                 this.aC.set_min_face_size(100);
             }
         }
-        if (this.bA != null && this.bA.f2315b == 0) {
+        if (this.bA != null && this.bA.f2265b == 0) {
             this.bA.c = this.bW;
-            this.bA.f2315b = this.bV;
+            this.bA.f2265b = this.bV;
             this.bA.a(com.baidu.fsg.face.liveness.d.t);
         }
         if (this.aE == null) {
@@ -1298,14 +1298,14 @@ public class LivenessRecogActivity extends LivenessBaseActivity implements Handl
         int i3 = displayMetrics.heightPixels;
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(this.V.getLayoutParams());
         b.a b2 = b(aVar);
-        if (b2 == null || (b2.f2349a == aVar.f2349a && b2.f2350b == aVar.f2350b)) {
+        if (b2 == null || (b2.f2299a == aVar.f2299a && b2.f2300b == aVar.f2300b)) {
             this.ap = (int) (i2 * 0.667d);
             this.aq = (int) (i3 * 0.667d);
             layoutParams.width = this.ap;
             layoutParams.height = this.aq;
         } else {
-            this.ap = (int) (b2.f2349a * 0.667d);
-            this.aq = (int) (b2.f2350b * 0.667d);
+            this.ap = (int) (b2.f2299a * 0.667d);
+            this.aq = (int) (b2.f2300b * 0.667d);
             layoutParams.width = this.ap;
             layoutParams.height = this.aq;
         }
@@ -1450,17 +1450,17 @@ public class LivenessRecogActivity extends LivenessBaseActivity implements Handl
             return null;
         }
         b.a s2 = s();
-        b.a aVar2 = new b.a(aVar.f2349a, aVar.f2350b);
-        float f2 = aVar.f2349a / aVar.f2350b;
-        float f3 = s2.f2350b / s2.f2349a;
+        b.a aVar2 = new b.a(aVar.f2299a, aVar.f2300b);
+        float f2 = aVar.f2299a / aVar.f2300b;
+        float f3 = s2.f2300b / s2.f2299a;
         if (Math.abs(f2 - f3) > 0.02d) {
             if (f2 < f3) {
-                aVar2.f2349a = (s2.f2350b * aVar.f2350b) / aVar.f2349a;
-                aVar2.f2350b = s2.f2350b;
+                aVar2.f2299a = (s2.f2300b * aVar.f2300b) / aVar.f2299a;
+                aVar2.f2300b = s2.f2300b;
                 return aVar2;
             }
-            aVar2.f2349a = s2.f2349a;
-            aVar2.f2350b = (s2.f2349a * aVar.f2349a) / aVar.f2350b;
+            aVar2.f2299a = s2.f2299a;
+            aVar2.f2300b = (s2.f2299a * aVar.f2299a) / aVar.f2300b;
             return aVar2;
         }
         return aVar2;
@@ -1627,7 +1627,7 @@ public class LivenessRecogActivity extends LivenessBaseActivity implements Handl
                     rotateAnimation.setInterpolator(linearInterpolator);
                     LivenessRecogActivity.this.aj.startAnimation(rotateAnimation);
                     LivenessRecogActivity.this.O.setVisibility(8);
-                    com.baidu.fsg.face.liveness.beans.d dVar = (com.baidu.fsg.face.liveness.beans.d) FaceSDKBeansFactory.getInstance().getBean(LivenessRecogActivity.this.getActivity(), 13, LivenessRecogActivity.f2181b);
+                    com.baidu.fsg.face.liveness.beans.d dVar = (com.baidu.fsg.face.liveness.beans.d) FaceSDKBeansFactory.getInstance().getBean(LivenessRecogActivity.this.getActivity(), 13, LivenessRecogActivity.f2131b);
                     if (LivenessRecogActivity.this.livenessRecogDTO != null) {
                         dVar.a(LivenessRecogActivity.this.livenessRecogDTO);
                     }
@@ -1662,7 +1662,7 @@ public class LivenessRecogActivity extends LivenessBaseActivity implements Handl
                     rotateAnimation.setInterpolator(linearInterpolator);
                     LivenessRecogActivity.this.aj.startAnimation(rotateAnimation);
                     LivenessRecogActivity.this.O.setVisibility(8);
-                    com.baidu.fsg.face.liveness.beans.d dVar = (com.baidu.fsg.face.liveness.beans.d) FaceSDKBeansFactory.getInstance().getBean(LivenessRecogActivity.this.getActivity(), 13, LivenessRecogActivity.f2181b);
+                    com.baidu.fsg.face.liveness.beans.d dVar = (com.baidu.fsg.face.liveness.beans.d) FaceSDKBeansFactory.getInstance().getBean(LivenessRecogActivity.this.getActivity(), 13, LivenessRecogActivity.f2131b);
                     if (LivenessRecogActivity.this.livenessRecogDTO != null) {
                         dVar.a(LivenessRecogActivity.this.livenessRecogDTO);
                     }
@@ -1702,7 +1702,7 @@ public class LivenessRecogActivity extends LivenessBaseActivity implements Handl
                     LivenessRecogActivity.this.aj.startAnimation(rotateAnimation);
                     LivenessRecogActivity.this.am.setVisibility(8);
                     LivenessRecogActivity.this.O.setVisibility(8);
-                    com.baidu.fsg.face.liveness.beans.d dVar = (com.baidu.fsg.face.liveness.beans.d) FaceSDKBeansFactory.getInstance().getBean(LivenessRecogActivity.this.getActivity(), 13, LivenessRecogActivity.f2181b);
+                    com.baidu.fsg.face.liveness.beans.d dVar = (com.baidu.fsg.face.liveness.beans.d) FaceSDKBeansFactory.getInstance().getBean(LivenessRecogActivity.this.getActivity(), 13, LivenessRecogActivity.f2131b);
                     if (LivenessRecogActivity.this.livenessRecogDTO != null) {
                         dVar.a(LivenessRecogActivity.this.livenessRecogDTO);
                     }
@@ -1731,7 +1731,7 @@ public class LivenessRecogActivity extends LivenessBaseActivity implements Handl
                     LivenessRecogActivity.this.aj.startAnimation(rotateAnimation);
                     LivenessRecogActivity.this.am.setVisibility(8);
                     LivenessRecogActivity.this.O.setVisibility(8);
-                    com.baidu.fsg.face.liveness.beans.d dVar = (com.baidu.fsg.face.liveness.beans.d) FaceSDKBeansFactory.getInstance().getBean(LivenessRecogActivity.this.getActivity(), 13, LivenessRecogActivity.f2181b);
+                    com.baidu.fsg.face.liveness.beans.d dVar = (com.baidu.fsg.face.liveness.beans.d) FaceSDKBeansFactory.getInstance().getBean(LivenessRecogActivity.this.getActivity(), 13, LivenessRecogActivity.f2131b);
                     if (LivenessRecogActivity.this.livenessRecogDTO != null) {
                         dVar.a(LivenessRecogActivity.this.livenessRecogDTO);
                     }
@@ -2316,7 +2316,7 @@ public class LivenessRecogActivity extends LivenessBaseActivity implements Handl
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     private class b extends AsyncTask<Void, Void, String> {
         private b() {
         }
@@ -2347,7 +2347,7 @@ public class LivenessRecogActivity extends LivenessBaseActivity implements Handl
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public class f extends CountDownTimer {
         public f(long j, long j2) {
             super(j, j2);
@@ -2613,7 +2613,7 @@ public class LivenessRecogActivity extends LivenessBaseActivity implements Handl
                 new Thread(new Runnable() { // from class: com.baidu.fsg.face.liveness.activity.LivenessRecogActivity.29
                     @Override // java.lang.Runnable
                     public void run() {
-                        k kVar = (k) FaceSDKBeansFactory.getInstance().getBean(LivenessRecogActivity.this.getActivity(), 12, LivenessRecogActivity.f2181b);
+                        k kVar = (k) FaceSDKBeansFactory.getInstance().getBean(LivenessRecogActivity.this.getActivity(), 12, LivenessRecogActivity.f2131b);
                         kVar.d(LivenessRecogActivity.this.a(LivenessRecogActivity.this.aE));
                         if (LivenessRecogActivity.this.livenessRecogDTO != null) {
                             kVar.a(LivenessRecogActivity.this.livenessRecogDTO);
@@ -2726,8 +2726,8 @@ public class LivenessRecogActivity extends LivenessBaseActivity implements Handl
     /* JADX INFO: Access modifiers changed from: private */
     public boolean d(FaceInfo[] faceInfoArr) {
         Rect b2 = h.b(faceInfoArr[0].landmarks);
-        int i2 = this.bi.i().f2349a;
-        double a2 = h.a(this.bi.i().f2350b, this.ap);
+        int i2 = this.bi.i().f2299a;
+        double a2 = h.a(this.bi.i().f2300b, this.ap);
         double a3 = h.a(i2, this.aq);
         int i3 = (int) ((this.at.left - this.ar.left) * a2);
         int i4 = (int) ((this.at.top - this.ar.top) * a3);
@@ -3077,7 +3077,7 @@ public class LivenessRecogActivity extends LivenessBaseActivity implements Handl
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class c implements MediaPlayer.OnErrorListener {
         c() {
         }
@@ -3285,7 +3285,7 @@ public class LivenessRecogActivity extends LivenessBaseActivity implements Handl
 
     public void getRecordVideoQuestions() {
         d(getString(R.string.sapi_loading));
-        com.baidu.fsg.face.liveness.beans.h hVar = (com.baidu.fsg.face.liveness.beans.h) FaceSDKBeansFactory.getInstance().getBean(getActivity(), 6, f2181b);
+        com.baidu.fsg.face.liveness.beans.h hVar = (com.baidu.fsg.face.liveness.beans.h) FaceSDKBeansFactory.getInstance().getBean(getActivity(), 6, f2131b);
         hVar.setResponseCallback(this);
         hVar.execBean();
     }
@@ -3310,7 +3310,7 @@ public class LivenessRecogActivity extends LivenessBaseActivity implements Handl
                             e2.printStackTrace();
                         }
                     }
-                    m mVar = (m) FaceSDKBeansFactory.getInstance().getBean(getActivity(), 7, f2181b);
+                    m mVar = (m) FaceSDKBeansFactory.getInstance().getBean(getActivity(), 7, f2131b);
                     UploadBean.UploadFileModel uploadFileModel = new UploadBean.UploadFileModel();
                     uploadFileModel.filedata = bArr;
                     uploadFileModel.fileName = "video.3gp";
@@ -3393,7 +3393,7 @@ public class LivenessRecogActivity extends LivenessBaseActivity implements Handl
                     }
                     RimStatisticsUtil.onEventStart(com.baidu.fsg.face.liveness.d.y);
                     LogUtil.d("hello", "onEventStart(StatServiceEvent.VIDEOUPLOAD):  视频上传接口开始");
-                    m mVar = (m) FaceSDKBeansFactory.getInstance().getBean(getActivity(), 7, f2181b);
+                    m mVar = (m) FaceSDKBeansFactory.getInstance().getBean(getActivity(), 7, f2131b);
                     UploadBean.UploadFileModel uploadFileModel = new UploadBean.UploadFileModel();
                     uploadFileModel.filedata = bArr;
                     uploadFileModel.fileName = "video.3gp";
@@ -3633,16 +3633,16 @@ public class LivenessRecogActivity extends LivenessBaseActivity implements Handl
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public class d {
         static final int A = 5000;
         static final int B = 20000;
 
         /* renamed from: a  reason: collision with root package name */
-        static final int f2243a = 0;
+        static final int f2193a = 0;
 
         /* renamed from: b  reason: collision with root package name */
-        static final int f2244b = 1;
+        static final int f2194b = 1;
         static final int c = 2;
         static final int d = 3;
         static final int e = 4;
@@ -3677,14 +3677,14 @@ public class LivenessRecogActivity extends LivenessBaseActivity implements Handl
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public class a {
 
         /* renamed from: a  reason: collision with root package name */
-        static final int f2240a = 0;
+        static final int f2190a = 0;
 
         /* renamed from: b  reason: collision with root package name */
-        static final int f2241b = 1;
+        static final int f2191b = 1;
         static final int c = 2;
         static final int d = 3;
         static final int e = 4;
@@ -3706,14 +3706,14 @@ public class LivenessRecogActivity extends LivenessBaseActivity implements Handl
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class e {
 
         /* renamed from: a  reason: collision with root package name */
-        static final int f2245a = 0;
+        static final int f2195a = 0;
 
         /* renamed from: b  reason: collision with root package name */
-        static final int f2246b = 1;
+        static final int f2196b = 1;
         static final int c = 2;
         static final int d = 3;
         static final int e = 4;

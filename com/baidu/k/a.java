@@ -1,173 +1,360 @@
 package com.baidu.k;
 
+import android.app.Activity;
 import android.content.Context;
+import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import com.baidu.adp.base.BdBaseApplication;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.lib.util.NetWorkChangedMessage;
-import com.baidu.adp.lib.util.j;
-import com.baidu.bdhttpdns.BDHttpDns;
-import com.baidu.bdhttpdns.BDHttpDnsResult;
-import com.baidu.live.adp.framework.MessageConfig;
-import com.baidu.live.tbadk.core.util.UrlSchemaHelper;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.b.h;
-import io.flutter.embedding.engine.plugins.FlutterPlugin;
-import io.flutter.plugin.common.MethodCall;
-import io.flutter.plugin.common.MethodChannel;
-import java.net.URL;
-import java.net.URLEncoder;
-import java.util.ArrayList;
-import java.util.HashMap;
-/* loaded from: classes6.dex */
-public class a implements FlutterPlugin, MethodChannel.MethodCallHandler {
-    private static CustomMessageListener PQ = new CustomMessageListener(MessageConfig.CMD_NETWORK_CHANGED) { // from class: com.baidu.k.a.1
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (customResponsedMessage.getCmd() == 2000994 && (customResponsedMessage instanceof NetWorkChangedMessage) && !customResponsedMessage.hasError()) {
-                try {
-                    j.isNetWorkAvailable();
-                } catch (Exception e) {
-                    BdLog.e(e.getMessage());
-                }
-                a.mMethodChannel.invokeMethod("setNetInfo", a.afd());
+import com.baidu.poly.a;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import java.util.Iterator;
+import org.json.JSONException;
+import org.json.JSONObject;
+/* loaded from: classes3.dex */
+public class a {
+    private static final String TAG = a.class.getSimpleName();
+    private static com.baidu.poly.a ciq = null;
+    private static com.baidu.poly.d.a.a cir = null;
+    private static int cis = 1;
+
+    public boolean a(Activity activity, String str, com.baidu.k.a.a aVar) {
+        if (TextUtils.isEmpty(str)) {
+            return false;
+        }
+        b.abp().e(activity, str, aVar);
+        return true;
+    }
+
+    public boolean b(Activity activity, String str, com.baidu.k.a.a aVar) {
+        if (TextUtils.isEmpty(str)) {
+            return false;
+        }
+        b.abp().f(activity, str, aVar);
+        return true;
+    }
+
+    /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
+    /* JADX WARN: Code restructure failed: missing block: B:52:0x00f2, code lost:
+        if (r0.equals("Alipay") != false) goto L57;
+     */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public void a(Activity activity, JSONObject jSONObject, String[] strArr, final com.baidu.k.a.a aVar) {
+        char c;
+        char c2 = 0;
+        if (activity != null) {
+            Bundle bundle = new Bundle();
+            Iterator<String> keys = jSONObject.keys();
+            while (keys.hasNext()) {
+                String next = keys.next();
+                bundle.putString(next, jSONObject.optString(next));
             }
-        }
-    };
-    private static MethodChannel mMethodChannel;
-
-    @Override // io.flutter.embedding.engine.plugins.FlutterPlugin
-    public void onAttachedToEngine(@NonNull FlutterPlugin.FlutterPluginBinding flutterPluginBinding) {
-        mMethodChannel = new MethodChannel(flutterPluginBinding.getBinaryMessenger(), "network_info");
-        mMethodChannel.setMethodCallHandler(new a());
-        init();
-    }
-
-    @Override // io.flutter.embedding.engine.plugins.FlutterPlugin
-    public void onDetachedFromEngine(@NonNull FlutterPlugin.FlutterPluginBinding flutterPluginBinding) {
-    }
-
-    private static void init() {
-        MessageManager.getInstance().registerListener(PQ);
-    }
-
-    static HashMap afd() {
-        HashMap hashMap = new HashMap();
-        hashMap.put("isNetWorkAvailable", Boolean.valueOf(j.isNetWorkAvailable()));
-        hashMap.put("netType", Integer.valueOf(j.netType()));
-        String netType = h.getNetType();
-        if (netType != null) {
-            hashMap.put("getNetTypeString", netType);
-        }
-        return hashMap;
-    }
-
-    @Override // io.flutter.plugin.common.MethodChannel.MethodCallHandler
-    public void onMethodCall(MethodCall methodCall, MethodChannel.Result result) {
-        HashMap hashMap;
-        if (methodCall.method.equals("isNetWorkAvailable")) {
-            result.success(Boolean.valueOf(j.isNetWorkAvailable()));
-        } else if (methodCall.method.equals("isNetworkAvailableForImmediately")) {
-            result.success(Boolean.valueOf(j.isNetworkAvailableForImmediately()));
-        } else if (methodCall.method.equals("getNetInfo")) {
-            result.success(afd());
-        } else if (methodCall.method.equals("getDnsIp")) {
-            String str = (String) methodCall.argument("url");
-            HashMap hashMap2 = new HashMap();
-            try {
-                hashMap = jQ(str);
-            } catch (Exception e) {
-                hashMap = hashMap2;
-            }
-            result.success(hashMap);
-        } else if (methodCall.method.equals("jumpRealNameAuthWebActivity")) {
-            afe();
-        }
-    }
-
-    String a(BDHttpDnsResult.ResolveType resolveType) {
-        if (resolveType == BDHttpDnsResult.ResolveType.RESOLVE_NONE) {
-            return "BDHttpDnsResult.ResolveType.RESOLVE_NONE";
-        }
-        if (resolveType == BDHttpDnsResult.ResolveType.RESOLVE_NONEED) {
-            return "BDHttpDnsResult.ResolveType.RESOLVE_NONEED";
-        }
-        if (resolveType == BDHttpDnsResult.ResolveType.RESOLVE_FROM_HTTPDNS_CACHE) {
-            return "BDHttpDnsResult.ResolveType.RESOLVE_FROM_HTTPDNS_CACHE";
-        }
-        if (resolveType == BDHttpDnsResult.ResolveType.RESOLVE_FROM_HTTPDNS_EXPIRED_CACHE) {
-            return "BDHttpDnsResult.ResolveType.RESOLVE_FROM_HTTPDNS_EXPIRED_CACHE";
-        }
-        if (resolveType == BDHttpDnsResult.ResolveType.RESOLVE_FROM_DNS_CACHE) {
-            return "BDHttpDnsResult.ResolveType.RESOLVE_FROM_DNS_CACHE";
-        }
-        if (resolveType == BDHttpDnsResult.ResolveType.RESOLVE_FROM_DNS) {
-            return "BDHttpDnsResult.ResolveType.RESOLVE_FROM_DNS";
-        }
-        return "";
-    }
-
-    String a(BDHttpDnsResult.ResolveStatus resolveStatus) {
-        if (resolveStatus == BDHttpDnsResult.ResolveStatus.BDHttpDnsResolveOK) {
-            return "BDHttpDnsResult.ResolveStatus.BDHttpDnsResolveOK";
-        }
-        if (resolveStatus == BDHttpDnsResult.ResolveStatus.BDHttpDnsInputError) {
-            return "BDHttpDnsResult.ResolveStatus.BDHttpDnsInputError";
-        }
-        if (resolveStatus == BDHttpDnsResult.ResolveStatus.BDHttpDnsResolveErrorCacheMiss) {
-            return "BDHttpDnsResult.ResolveStatus.BDHttpDnsResolveErrorCacheMiss";
-        }
-        if (resolveStatus == BDHttpDnsResult.ResolveStatus.BDHttpDnsResolveErrorDnsResolve) {
-            return "BDHttpDnsResult.ResolveStatus.BDHttpDnsResolveErrorDnsResolve";
-        }
-        return "";
-    }
-
-    private HashMap jQ(String str) throws Exception {
-        String host;
-        HashMap hashMap = new HashMap();
-        URL url = new URL(str);
-        if (!TextUtils.isEmpty(str)) {
-            try {
-                host = url.getHost();
-            } catch (Exception e) {
-                BdLog.e(e);
-            }
-            if (!TextUtils.isEmpty(host)) {
-                if (host.contains("hiphotos.baidu.com")) {
-                    host = "hiphotos.baidu.com";
-                }
-                BDHttpDnsResult j = BDHttpDns.Q(BdBaseApplication.getInst().getApplicationContext()).j(host, true);
-                if (j != null) {
-                    hashMap.put("dnsResolveType", a(j.sz()));
-                    hashMap.put("dnsResolveStatus", a(j.sA()));
-                    ArrayList<String> sB = j.sB();
-                    if (sB != null && sB.size() > 0) {
-                        hashMap.put("dnsIpList", sB);
-                        return hashMap;
+            if (strArr != null) {
+                String[] strArr2 = new String[strArr.length];
+                for (int i = 0; i < strArr.length; i++) {
+                    String str = strArr[i];
+                    switch (str.hashCode()) {
+                        case -2122629326:
+                            if (str.equals("Huabei")) {
+                                c = 4;
+                                break;
+                            }
+                            c = 65535;
+                            break;
+                        case -1708856474:
+                            if (str.equals("WeChat")) {
+                                c = 1;
+                                break;
+                            }
+                            c = 65535;
+                            break;
+                        case -1001747525:
+                            if (str.equals("Quickpay")) {
+                                c = 3;
+                                break;
+                            }
+                            c = 65535;
+                            break;
+                        case 1725926417:
+                            if (str.equals("Chinapay")) {
+                                c = 5;
+                                break;
+                            }
+                            c = 65535;
+                            break;
+                        case 1865715419:
+                            if (str.equals("BDWallet")) {
+                                c = 2;
+                                break;
+                            }
+                            c = 65535;
+                            break;
+                        case 1963873898:
+                            if (str.equals("Alipay")) {
+                                c = 0;
+                                break;
+                            }
+                            c = 65535;
+                            break;
+                        default:
+                            c = 65535;
+                            break;
+                    }
+                    switch (c) {
+                        case 0:
+                            strArr2[i] = "BAIDU-ALIPAY-WISE";
+                            break;
+                        case 1:
+                            strArr2[i] = "BAIDU-SUPER-WECHAT-WISE";
+                            break;
+                        case 2:
+                            strArr2[i] = "BAIDU-BAIFUBAO-WISE";
+                            break;
+                        case 3:
+                            strArr2[i] = "BAIDU-QUICKPAY";
+                            break;
+                        case 4:
+                            strArr2[i] = "BAIDU-ALIPAY-WISE-HUABEI-PAY";
+                            break;
+                        case 5:
+                            strArr2[i] = "BAIDU-CHINAPAY-B2C";
+                            break;
                     }
                 }
+                bundle.putStringArray("blockedPayChannels", strArr2);
             }
-        }
-        com.baidu.adp.lib.network.http.a lJ = com.baidu.adp.lib.network.http.a.lJ();
-        if (lJ != null) {
-            String bF = lJ.bF(str);
-            if (!TextUtils.isEmpty(bF)) {
-                hashMap.put("dnsIp", bF);
+            String string = bundle.getString("chosenChannel", "");
+            if (!TextUtils.isEmpty(string)) {
+                switch (string.hashCode()) {
+                    case -2122629326:
+                        if (string.equals("Huabei")) {
+                            c2 = 4;
+                            break;
+                        }
+                        c2 = 65535;
+                        break;
+                    case -1708856474:
+                        if (string.equals("WeChat")) {
+                            c2 = 1;
+                            break;
+                        }
+                        c2 = 65535;
+                        break;
+                    case -1001747525:
+                        if (string.equals("Quickpay")) {
+                            c2 = 3;
+                            break;
+                        }
+                        c2 = 65535;
+                        break;
+                    case 1725926417:
+                        if (string.equals("Chinapay")) {
+                            c2 = 5;
+                            break;
+                        }
+                        c2 = 65535;
+                        break;
+                    case 1865715419:
+                        if (string.equals("BDWallet")) {
+                            c2 = 2;
+                            break;
+                        }
+                        c2 = 65535;
+                        break;
+                    case 1963873898:
+                        break;
+                    default:
+                        c2 = 65535;
+                        break;
+                }
+                switch (c2) {
+                    case 0:
+                        string = "BAIDU-ALIPAY-WISE";
+                        break;
+                    case 1:
+                        string = "BAIDU-SUPER-WECHAT-WISE";
+                        break;
+                    case 2:
+                        string = "BAIDU-BAIFUBAO-WISE";
+                        break;
+                    case 3:
+                        string = "BAIDU-QUICKPAY";
+                        break;
+                    case 4:
+                        string = "BAIDU-ALIPAY-WISE-HUABEI-PAY";
+                        break;
+                    case 5:
+                        string = "BAIDU-CHINAPAY-B2C";
+                        break;
+                }
+                bundle.putString("chosenChannel", string);
             }
+            bundle.putString("zid", b.abp().getZid(activity));
+            bG(activity).a(activity, bundle, abn(), new a.b() { // from class: com.baidu.k.a.1
+                @Override // com.baidu.poly.a.b
+                public void onResult(int i2, String str2) {
+                    if (i2 == 3) {
+                        try {
+                            JSONObject jSONObject2 = new JSONObject(str2);
+                            jSONObject2.put("statusCode", 6);
+                            aVar.onPayResult(6, jSONObject2.toString());
+                            return;
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                            aVar.onPayResult(6, str2);
+                            return;
+                        }
+                    }
+                    aVar.onPayResult(i2, str2);
+                }
+            });
         }
-        return hashMap;
     }
 
-    private void afe() {
-        Context applicationContext = TbadkCoreApplication.getInst().getApplicationContext();
-        StringBuilder sb = new StringBuilder(UrlSchemaHelper.REAL_NAME_AUTH_URL);
-        sb.append("&u=").append(URLEncoder.encode(UrlSchemaHelper.FINISH_THIS_WEBVIEW));
-        com.baidu.tbadk.browser.a.startWebActivity(applicationContext, "", sb.toString(), true, true, true, true, true, false);
+    private static com.baidu.poly.d.a.c abn() {
+        return new com.baidu.poly.d.a.c() { // from class: com.baidu.k.a.2
+            @Override // com.baidu.poly.d.a.c
+            public void a(Activity activity, com.baidu.poly.d.a.b bVar, final com.baidu.poly.d.a.a aVar) {
+                if (bVar == null || TextUtils.isEmpty(bVar.channel) || bVar.ckL == null) {
+                    a.a(aVar, 6, "支付信息不能为空");
+                    return;
+                }
+                String str = bVar.channel;
+                char c = 65535;
+                switch (str.hashCode()) {
+                    case -1537577171:
+                        if (str.equals("BAIDU-QUICKPAY")) {
+                            c = 4;
+                            break;
+                        }
+                        break;
+                    case -1021180251:
+                        if (str.equals("BAIDU-ALIPAY-WISE-HUABEI-PAY")) {
+                            c = 1;
+                            break;
+                        }
+                        break;
+                    case 299450696:
+                        if (str.equals("BAIDU-BAIFUBAO-WISE")) {
+                            c = 3;
+                            break;
+                        }
+                        break;
+                    case 1455583605:
+                        if (str.equals("BAIDU-ALIPAY-WISE")) {
+                            c = 0;
+                            break;
+                        }
+                        break;
+                    case 1525377225:
+                        if (str.equals("BAIDU-CHINAPAY-B2C")) {
+                            c = 5;
+                            break;
+                        }
+                        break;
+                    case 2009937959:
+                        if (str.equals("BAIDU-SUPER-WECHAT-WISE")) {
+                            c = 2;
+                            break;
+                        }
+                        break;
+                }
+                switch (c) {
+                    case 0:
+                    case 1:
+                        c.abq().d(activity, bVar.ckL.optString("orderInfo"), new com.baidu.k.a.a() { // from class: com.baidu.k.a.2.1
+                            @Override // com.baidu.k.a.a
+                            public void onPayResult(int i, String str2) {
+                                a.a(aVar, i, str2);
+                            }
+                        });
+                        break;
+                    case 2:
+                        c.abq().a((Context) activity, bVar.ckL, new com.baidu.k.a.a() { // from class: com.baidu.k.a.2.2
+                            @Override // com.baidu.k.a.a
+                            public void onPayResult(int i, String str2) {
+                                a.a(aVar, i, str2);
+                            }
+                        });
+                        break;
+                    case 3:
+                        c.abq().c(activity, bVar.ckL.optString("orderInfo"), new com.baidu.k.a.a() { // from class: com.baidu.k.a.2.3
+                            @Override // com.baidu.k.a.a
+                            public void onPayResult(int i, String str2) {
+                                a.a(aVar, i, str2);
+                            }
+                        });
+                        break;
+                    case 4:
+                        com.baidu.poly.d.a.a unused = a.cir = aVar;
+                        d.abr();
+                        c.abq().e(activity, bVar.ckL);
+                        break;
+                    case 5:
+                        c.abq().a(activity, bVar.ckL, new com.baidu.k.a.a() { // from class: com.baidu.k.a.2.4
+                            @Override // com.baidu.k.a.a
+                            public void onPayResult(int i, String str2) {
+                                a.a(aVar, i, str2);
+                            }
+                        });
+                        break;
+                    default:
+                        aVar.onResult(3, "未知的支付方式");
+                        break;
+                }
+                activity.finish();
+            }
+        };
+    }
+
+    public void a(JSONObject jSONObject, com.baidu.poly.b.a aVar) {
+        bG(AppRuntime.getAppContext()).a(1, jSONObject, aVar);
+    }
+
+    public void a(com.baidu.poly.b.a aVar) {
+        bG(AppRuntime.getAppContext()).a(2, null, aVar);
+    }
+
+    private static com.baidu.poly.a bG(Context context) {
+        if (ciq != null) {
+            return ciq;
+        }
+        cis = PreferenceManager.getDefaultSharedPreferences(AppRuntime.getAppContext()).getInt("poly_cashier_env", 1);
+        ciq = new a.C0290a().fx(cis).bI(context.getApplicationContext()).ec(false).abu();
+        return ciq;
+    }
+
+    public static void af(int i, String str) {
+        if (cir != null) {
+            cir.onResult(i, str);
+            cir = null;
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public static void a(com.baidu.poly.d.a.a aVar, int i, String str) {
+        int i2;
+        if (aVar != null) {
+            switch (i) {
+                case 0:
+                    i2 = 0;
+                    break;
+                case 1:
+                    i2 = 1;
+                    break;
+                case 2:
+                    i2 = 2;
+                    break;
+                default:
+                    i2 = 3;
+                    break;
+            }
+            aVar.onResult(i2, str);
+        }
+    }
+
+    public static boolean abo() {
+        return false;
     }
 }

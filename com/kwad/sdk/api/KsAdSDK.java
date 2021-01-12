@@ -13,7 +13,7 @@ import com.kwad.sdk.api.loader.q;
 import java.util.concurrent.atomic.AtomicBoolean;
 @KsAdSdkApi
 @Keep
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class KsAdSDK {
     private static String sAppTag;
     @Keep
@@ -99,7 +99,7 @@ public class KsAdSDK {
             if (sdkConfig != null) {
                 q.a(a2, "sdkconfig", sdkConfig.toJson());
             }
-            if (b.f8475a.booleanValue()) {
+            if (b.f8175a.booleanValue()) {
                 Loader.get().checkUpdate();
             }
             z = sInited.get();

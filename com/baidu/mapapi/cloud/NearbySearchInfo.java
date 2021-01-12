@@ -1,21 +1,22 @@
 package com.baidu.mapapi.cloud;
 
+import android.net.http.Headers;
 import com.baidu.mapapi.CoordType;
 import com.baidu.mapapi.SDKInitializer;
 import com.baidu.mapapi.http.HttpClient;
 import com.baidu.mapapi.model.LatLng;
 import com.baidu.mapsdkplatform.comapi.util.CoordTrans;
 import com.baidu.webkit.internal.ETAG;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class NearbySearchInfo extends BaseCloudSearchInfo {
     public String location;
     public int radius;
 
     public NearbySearchInfo() {
         if (HttpClient.isHttpsEnable) {
-            this.f2771a = "https://api.map.baidu.com/geosearch/v2/nearby";
+            this.f2671a = "https://api.map.baidu.com/geosearch/v2/nearby";
         } else {
-            this.f2771a = "http://api.map.baidu.com/geosearch/v2/nearby";
+            this.f2671a = "http://api.map.baidu.com/geosearch/v2/nearby";
         }
         this.radius = 1000;
     }
@@ -38,7 +39,7 @@ public class NearbySearchInfo extends BaseCloudSearchInfo {
                 }
             }
             sb.append(ETAG.ITEM_SEPARATOR);
-            sb.append("location");
+            sb.append(Headers.LOCATION);
             sb.append("=");
             sb.append(this.location);
             if (this.radius >= 0) {

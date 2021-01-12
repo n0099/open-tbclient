@@ -9,7 +9,7 @@ import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
 import com.baidu.live.adp.R;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class BdSwitchView extends View implements View.OnTouchListener {
     private static final int CLICK_DELAY_TIME = 200;
     private Bitmap bg_off;
@@ -28,18 +28,18 @@ public class BdSwitchView extends View implements View.OnTouchListener {
     private Bitmap slipping_btn;
     private int width;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public interface OnSwitchStateChangeListener {
         void OnSwitchStateChange(View view, SwitchState switchState);
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public enum SwitchState {
         ON,
         OFF
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public enum SwitchStyle {
         DAY,
         NIGHT,

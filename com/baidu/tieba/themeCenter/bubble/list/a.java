@@ -9,41 +9,41 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.themeCenter.background.DressItemData;
 import com.baidu.tieba.themeCenter.bubble.all.BubbleItemView;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class a extends BaseAdapter {
-    private TbPageContext<?> eXu;
-    private List<List<DressItemData>> nBk;
-    com.baidu.tieba.themeCenter.bubble.all.a nCo;
+    private TbPageContext<?> eSJ;
+    private List<List<DressItemData>> nwF;
+    com.baidu.tieba.themeCenter.bubble.all.a nxJ;
 
     /* renamed from: com.baidu.tieba.themeCenter.bubble.list.a$a  reason: collision with other inner class name */
-    /* loaded from: classes9.dex */
-    public static class C0895a {
+    /* loaded from: classes8.dex */
+    public static class C0878a {
         public View mEmptyView;
-        public BubbleItemView nCw;
-        public BubbleItemView nCx;
+        public BubbleItemView nxR;
+        public BubbleItemView nxS;
     }
 
     public a(TbPageContext<?> tbPageContext, com.baidu.tieba.themeCenter.bubble.all.a aVar) {
-        this.eXu = tbPageContext;
-        this.nCo = aVar;
+        this.eSJ = tbPageContext;
+        this.nxJ = aVar;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.nBk != null) {
-            return this.nBk.size();
+        if (this.nwF != null) {
+            return this.nwF.size();
         }
         return 0;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: zs */
+    /* renamed from: xM */
     public List<DressItemData> getItem(int i) {
-        if (this.nBk == null || this.nBk.size() <= 0 || i < 0 || i >= this.nBk.size()) {
+        if (this.nwF == null || this.nwF.size() <= 0 || i < 0 || i >= this.nwF.size()) {
             return null;
         }
-        return this.nBk.get(i);
+        return this.nwF.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -53,40 +53,40 @@ public class a extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
-        C0895a c0895a;
+        C0878a c0878a;
         List<DressItemData> item = getItem(i);
         if (view != null) {
-            c0895a = (C0895a) view.getTag();
+            c0878a = (C0878a) view.getTag();
         } else {
-            view = LayoutInflater.from(this.eXu.getPageActivity()).inflate(R.layout.bubble_row, viewGroup, false);
-            c0895a = new C0895a();
-            c0895a.mEmptyView = view.findViewById(R.id.top_white_line);
-            c0895a.nCw = (BubbleItemView) view.findViewById(R.id.bg_view1);
-            c0895a.nCx = (BubbleItemView) view.findViewById(R.id.bg_view2);
-            view.setTag(c0895a);
+            view = LayoutInflater.from(this.eSJ.getPageActivity()).inflate(R.layout.bubble_row, viewGroup, false);
+            c0878a = new C0878a();
+            c0878a.mEmptyView = view.findViewById(R.id.top_white_line);
+            c0878a.nxR = (BubbleItemView) view.findViewById(R.id.bg_view1);
+            c0878a.nxS = (BubbleItemView) view.findViewById(R.id.bg_view2);
+            view.setTag(c0878a);
         }
         if (item != null) {
             if (i == 0) {
-                c0895a.mEmptyView.setVisibility(0);
+                c0878a.mEmptyView.setVisibility(0);
             } else {
-                c0895a.mEmptyView.setVisibility(8);
+                c0878a.mEmptyView.setVisibility(8);
             }
-            c0895a.nCw.d(item.get(0));
-            c0895a.nCw.setController(this.nCo);
-            c0895a.nCw.setFromBubbleGroup(false);
+            c0878a.nxR.d(item.get(0));
+            c0878a.nxR.setController(this.nxJ);
+            c0878a.nxR.setFromBubbleGroup(false);
             if (item.size() > 1) {
-                c0895a.nCx.d(item.get(1));
-                c0895a.nCx.setController(this.nCo);
-                c0895a.nCx.setFromBubbleGroup(false);
+                c0878a.nxS.d(item.get(1));
+                c0878a.nxS.setController(this.nxJ);
+                c0878a.nxS.setFromBubbleGroup(false);
             } else {
-                c0895a.nCx.hide();
+                c0878a.nxS.hide();
             }
         }
-        this.eXu.getLayoutMode().onModeChanged(view);
+        this.eSJ.getLayoutMode().onModeChanged(view);
         return view;
     }
 
     public void setData(List<List<DressItemData>> list) {
-        this.nBk = list;
+        this.nwF = list;
     }
 }

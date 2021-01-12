@@ -5,20 +5,20 @@ import com.baidu.tbadk.core.data.ForumData;
 import tbclient.ForumRuleStatus;
 /* loaded from: classes.dex */
 public class p implements com.baidu.adp.widget.ListView.n {
-    private ForumData jPU;
-    private ForumRuleStatus nqd;
+    private ForumData jLo;
+    private ForumRuleStatus nlw;
 
     public p(ForumData forumData, ForumRuleStatus forumRuleStatus) {
-        this.jPU = forumData;
-        this.nqd = forumRuleStatus;
+        this.jLo = forumData;
+        this.nlw = forumRuleStatus;
     }
 
-    public ForumRuleStatus dOp() {
-        return this.nqd;
+    public ForumRuleStatus dKx() {
+        return this.nlw;
     }
 
     public void b(ForumRuleStatus forumRuleStatus) {
-        this.nqd = forumRuleStatus;
+        this.nlw = forumRuleStatus;
     }
 
     @Override // com.baidu.adp.widget.ListView.n

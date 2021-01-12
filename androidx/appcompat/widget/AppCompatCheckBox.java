@@ -12,7 +12,7 @@ import androidx.annotation.RestrictTo;
 import androidx.appcompat.R;
 import androidx.appcompat.content.res.AppCompatResources;
 import androidx.core.widget.TintableCompoundButton;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class AppCompatCheckBox extends CheckBox implements TintableCompoundButton {
     private final AppCompatCompoundButtonHelper mCompoundButtonHelper;
 

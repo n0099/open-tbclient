@@ -3,20 +3,20 @@ package com.baidu.swan.apps.ao;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.webkit.sdk.CookieManager;
 import com.baidu.webkit.sdk.CookieSyncManager;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class ao {
-    public static void aRX() {
+    public static void aOd() {
         p.a(new Runnable() { // from class: com.baidu.swan.apps.ao.ao.1
             @Override // java.lang.Runnable
             public void run() {
-                CookieManager.getInstance().setCookie(".baidu.com", ai.getCookieStr(".baidu.com", "SP_FW_VER", com.baidu.swan.apps.swancore.b.le(0), 2937600L));
-                CookieManager.getInstance().setCookie(".baidu.com", ai.getCookieStr(".baidu.com", "SG_FW_VER", com.baidu.swan.apps.swancore.b.le(1), 2937600L));
-                ao.aRY();
+                CookieManager.getInstance().setCookie(".baidu.com", ai.getCookieStr(".baidu.com", "SP_FW_VER", com.baidu.swan.apps.swancore.b.jy(0), 2937600L));
+                CookieManager.getInstance().setCookie(".baidu.com", ai.getCookieStr(".baidu.com", "SG_FW_VER", com.baidu.swan.apps.swancore.b.jy(1), 2937600L));
+                ao.aOe();
             }
         }, "SwanJsVersionCookieManager");
     }
 
-    public static void aRY() {
+    public static void aOe() {
         if (c.hasLollipop()) {
             CookieManager.getInstance().flush();
             return;

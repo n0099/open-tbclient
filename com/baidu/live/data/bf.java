@@ -4,17 +4,17 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class bf {
-    public List<Long> aQL;
+    public List<Long> aLY;
 
     public void parseJson(JSONObject jSONObject) {
         if (jSONObject != null) {
-            this.aQL = new ArrayList();
+            this.aLY = new ArrayList();
             JSONArray optJSONArray = jSONObject.optJSONArray("id");
             if (optJSONArray != null) {
                 for (int i = 0; i < optJSONArray.length(); i++) {
-                    this.aQL.add(Long.valueOf(optJSONArray.optLong(i)));
+                    this.aLY.add(Long.valueOf(optJSONArray.optLong(i)));
                 }
             }
         }

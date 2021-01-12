@@ -9,7 +9,7 @@ import java.util.RandomAccess;
 @kotlin.e
 /* loaded from: classes5.dex */
 public abstract class d<E> extends kotlin.collections.a<E> implements List<E> {
-    public static final a qno = new a(null);
+    public static final a qiM = new a(null);
 
     @Override // java.util.List
     public void add(int i, E e) {
@@ -50,36 +50,36 @@ public abstract class d<E> extends kotlin.collections.a<E> implements List<E> {
 
     @Override // java.util.List
     public List<E> subList(int i, int i2) {
-        return new C1313d(this, i, i2);
+        return new C1296d(this, i, i2);
     }
 
     @kotlin.e
     /* renamed from: kotlin.collections.d$d  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    private static final class C1313d<E> extends d<E> implements RandomAccess {
-        private int qnq;
-        private final d<E> qnr;
-        private final int qns;
+    private static final class C1296d<E> extends d<E> implements RandomAccess {
+        private int qiO;
+        private final d<E> qiP;
+        private final int qiQ;
 
         /* JADX DEBUG: Multi-variable search result rejected for r4v0, resolved type: kotlin.collections.d<? extends E> */
         /* JADX WARN: Multi-variable type inference failed */
-        public C1313d(d<? extends E> dVar, int i, int i2) {
+        public C1296d(d<? extends E> dVar, int i, int i2) {
             kotlin.jvm.internal.p.o(dVar, "list");
-            this.qnr = dVar;
-            this.qns = i;
-            d.qno.am(this.qns, i2, this.qnr.size());
-            this.qnq = i2 - this.qns;
+            this.qiP = dVar;
+            this.qiQ = i;
+            d.qiM.am(this.qiQ, i2, this.qiP.size());
+            this.qiO = i2 - this.qiQ;
         }
 
         @Override // kotlin.collections.d, java.util.List
         public E get(int i) {
-            d.qno.el(i, this.qnq);
-            return this.qnr.get(this.qns + i);
+            d.qiM.el(i, this.qiO);
+            return this.qiP.get(this.qiQ + i);
         }
 
         @Override // kotlin.collections.a
         public int getSize() {
-            return this.qnq;
+            return this.qiO;
         }
     }
 
@@ -89,14 +89,14 @@ public abstract class d<E> extends kotlin.collections.a<E> implements List<E> {
             return true;
         }
         if (obj instanceof List) {
-            return qno.a(this, (Collection) obj);
+            return qiM.a(this, (Collection) obj);
         }
         return false;
     }
 
     @Override // java.util.Collection, java.util.List
     public int hashCode() {
-        return qno.n(this);
+        return qiM.n(this);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -154,7 +154,7 @@ public abstract class d<E> extends kotlin.collections.a<E> implements List<E> {
 
         public c(int i) {
             super();
-            d.qno.em(i, d.this.size());
+            d.qiM.em(i, d.this.size());
             setIndex(i);
         }
 

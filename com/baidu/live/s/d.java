@@ -10,12 +10,12 @@ import com.baidu.live.tbadk.core.util.NetWork;
 import com.baidu.live.tbadk.core.util.httpnet.HttpRequest;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class d extends BdAsyncTask<String, Void, b> {
-    private c byk;
+    private c btx;
 
     public d(c cVar) {
-        this.byk = cVar;
+        this.btx = cVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -24,7 +24,7 @@ public class d extends BdAsyncTask<String, Void, b> {
     /* renamed from: m */
     public b doInBackground(String... strArr) {
         b bVar = new b();
-        NetWork netWork = new NetWork(com.baidu.live.a.aAH + "ala/audio/user/getUserInfoSDK");
+        NetWork netWork = new NetWork(com.baidu.live.a.avU + "ala/audio/user/getUserInfoSDK");
         netWork.addPostData("uk", strArr[0]);
         netWork.addPostData("group_id", strArr[1]);
         netWork.addPostData("live_id", strArr[2]);
@@ -42,8 +42,8 @@ public class d extends BdAsyncTask<String, Void, b> {
                     bVar.errCode = errorData.error_code;
                     bVar.errMsg = errorData.error_msg;
                     if (optJSONObject != null) {
-                        bVar.byl = new PersonUserData();
-                        bVar.byl.parserJson(optJSONObject);
+                        bVar.bty = new PersonUserData();
+                        bVar.bty.parserJson(optJSONObject);
                     }
                 } catch (JSONException e) {
                     BdLog.detailException(e);
@@ -58,11 +58,11 @@ public class d extends BdAsyncTask<String, Void, b> {
     @Override // com.baidu.live.adp.lib.asynctask.BdAsyncTask
     /* renamed from: a */
     public void onPostExecute(b bVar) {
-        if (this.byk != null && bVar != null) {
+        if (this.btx != null && bVar != null) {
             if (bVar.errCode == 0) {
-                this.byk.a(bVar.byl);
+                this.btx.a(bVar.bty);
             } else {
-                this.byk.u(bVar.errCode, bVar.errMsg);
+                this.btx.v(bVar.errCode, bVar.errMsg);
             }
         }
     }

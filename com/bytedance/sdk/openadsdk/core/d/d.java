@@ -7,18 +7,18 @@ import org.json.JSONObject;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f6789a;
+    private String f6489a;
 
     /* renamed from: b  reason: collision with root package name */
-    private String f6790b;
+    private String f6490b;
     private Map<String, String> c;
 
     public void a(String str) {
-        this.f6789a = str;
+        this.f6489a = str;
     }
 
     public void b(String str) {
-        this.f6790b = str;
+        this.f6490b = str;
     }
 
     public void a(Map<String, String> map) {
@@ -27,12 +27,12 @@ public class d {
 
     public JSONObject a() {
         JSONObject jSONObject = new JSONObject();
-        if (TextUtils.isEmpty(this.f6789a) || TextUtils.isEmpty(this.f6790b)) {
+        if (TextUtils.isEmpty(this.f6489a) || TextUtils.isEmpty(this.f6490b)) {
             return jSONObject;
         }
         try {
-            jSONObject.put("url", this.f6789a);
-            jSONObject.put("html", this.f6790b);
+            jSONObject.put("url", this.f6489a);
+            jSONObject.put("html", this.f6490b);
             JSONObject jSONObject2 = new JSONObject();
             if (this.c != null && this.c.size() > 0) {
                 for (Map.Entry<String, String> entry : this.c.entrySet()) {

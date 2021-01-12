@@ -8,7 +8,7 @@ import yaq.gdtadv;
 /* JADX WARN: Classes with same name are omitted:
   assets/yaqgdtadv0.sec
  */
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class bd {
     private static boolean a(Context context) {
         return gdtadv.getZresult(BaseActivity.DIALOG_LOADING, 1, context);

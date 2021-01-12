@@ -193,21 +193,21 @@ public class FrsActivityConfig extends IntentConfig {
         } else if (FRS_FROM_FREQUENTLY_FORUM_POST_THREAD.equals(stringExtra2)) {
             i = 6;
         }
-        if (d.bmZ() && com.baidu.tbadk.a.b.a.eIU != com.baidu.tbadk.a.b.a.bnj()) {
-            frsRequestData.KM(j.BP(com.baidu.tbadk.a.b.a.bnj()));
+        if (d.bjf() && com.baidu.tbadk.a.b.a.eEj != com.baidu.tbadk.a.b.a.bjp()) {
+            frsRequestData.Jf(j.Aj(com.baidu.tbadk.a.b.a.bjp()));
         }
-        frsRequestData.setSortType(j.BP(i));
+        frsRequestData.setSortType(j.Aj(i));
         if (i == 5) {
             frsRequestData.setIsGood(1);
         } else {
             frsRequestData.setIsGood(0);
         }
-        frsRequestData.gq("forum_name", k.getUrlEncode(stringExtra));
-        frsRequestData.gq("client_type", "2");
+        frsRequestData.gp("forum_name", k.getUrlEncode(stringExtra));
+        frsRequestData.gp("client_type", "2");
         frsRequestData.setPn(1);
         frsRequestData.setCallFrom(intExtra);
         j.a(i, frsRequestData);
-        frsRequestData.Te("2");
+        frsRequestData.RW("2");
         frsRequestData.setObjSource("-2");
         frsRequestData.setKw(stringExtra);
         frsRequestData.setWithGroup(1);
@@ -215,23 +215,23 @@ public class FrsActivityConfig extends IntentConfig {
         frsRequestData.setScrW(l.getEquipmentWidth(TbadkCoreApplication.getInst()));
         frsRequestData.setScrH(l.getEquipmentHeight(TbadkCoreApplication.getInst()));
         frsRequestData.setScrDip(l.getEquipmentDensity(TbadkCoreApplication.getInst()));
-        frsRequestData.setqType(au.bws().bwt() ? 2 : 1);
+        frsRequestData.setqType(au.bsy().bsz() ? 2 : 1);
         if (uri != null) {
             frsRequestData.setSchemeUrl(uri.toString());
         }
         frsRequestData.setLastId(null);
         frsRequestData.setYuelaouLocate(stringExtra3);
-        frsRequestData.setLastClickTid(b.toLong(z.bJg(), 0L));
+        frsRequestData.setLastClickTid(b.toLong(z.bFo(), 0L));
         frsRequestData.setStType(stringExtra2);
-        frsRequestData.KL(1);
+        frsRequestData.Je(1);
         frsRequestData.setNeedCache(true);
         frsRequestData.setUpdateType(3);
         frsRequestData.hB(longExtra);
         j.a(i, frsRequestData);
         frsRequestData.setLoadType(1);
-        if (bz.eTz.get() && r.dEW().dEQ() != null) {
-            int ba = r.dEW().dEQ().ba(stringExtra, false);
-            int bb = r.dEW().dEQ().bb(stringExtra, false);
+        if (bz.eOO.get() && r.dBe().dAY() != null) {
+            int ba = r.dBe().dAY().ba(stringExtra, false);
+            int bb = r.dBe().dAY().bb(stringExtra, false);
             if (frsRequestData.getLoadType() == 1) {
                 ba++;
             } else if (frsRequestData.getLoadType() == 2) {

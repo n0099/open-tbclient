@@ -6,21 +6,21 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class l implements h {
-    private Map<String, Object> Ku;
+    private Map<String, Object> Ks;
 
     public l(Map<String, Object> map) {
-        this.Ku = map;
+        this.Ks = map;
     }
 
     @Override // com.baidu.adp.lib.OrmObject.toolsystem.orm.a.h
     public Object a(com.baidu.adp.lib.OrmObject.toolsystem.orm.d.c cVar) {
         JSONObject jSONObject = new JSONObject();
-        if (this.Ku == null) {
+        if (this.Ks == null) {
             return jSONObject;
         }
         Type[] lo = cVar.lo();
-        for (String str : this.Ku.keySet()) {
-            Object obj = this.Ku.get(str);
+        for (String str : this.Ks.keySet()) {
+            Object obj = this.Ks.get(str);
             if (lo != null && lo.length >= 2) {
                 try {
                     jSONObject.put(str, com.baidu.adp.lib.OrmObject.toolsystem.orm.d.f.r(obj).a(new com.baidu.adp.lib.OrmObject.toolsystem.orm.d.c(lo[1])));
@@ -54,7 +54,7 @@ public class l implements h {
 
     @Override // com.baidu.adp.lib.OrmObject.toolsystem.orm.a.h
     public Object d(com.baidu.adp.lib.OrmObject.toolsystem.orm.d.c cVar) {
-        return this.Ku;
+        return this.Ks;
     }
 
     @Override // com.baidu.adp.lib.OrmObject.toolsystem.orm.a.h
@@ -74,6 +74,6 @@ public class l implements h {
 
     @Override // com.baidu.adp.lib.OrmObject.toolsystem.orm.a.h
     public Object f(com.baidu.adp.lib.OrmObject.toolsystem.orm.d.c cVar) {
-        return this.Ku;
+        return this.Ks;
     }
 }

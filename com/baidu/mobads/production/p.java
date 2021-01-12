@@ -26,14 +26,14 @@ import com.baidu.mobads.openad.interfaces.download.IOAdDownloaderManager;
 import com.baidu.mobads.openad.interfaces.utils.IOAdTimer;
 import com.baidu.mobads.utils.XAdSDKFoundationFacade;
 import java.util.HashMap;
-/* loaded from: classes3.dex */
+/* loaded from: classes14.dex */
 public class p extends com.baidu.mobads.openad.c.c implements IXAdContainerContext {
 
     /* renamed from: a  reason: collision with root package name */
-    public IXAdContainerEventListener f3504a;
+    public IXAdContainerEventListener f3466a;
 
     /* renamed from: b  reason: collision with root package name */
-    private Context f3505b;
+    private Context f3467b;
     private Activity d;
     private RelativeLayout e;
     private IXAdResponseInfo f;
@@ -43,16 +43,16 @@ public class p extends com.baidu.mobads.openad.c.c implements IXAdContainerConte
     private long j = 0;
     private HashMap<String, Integer> k = new HashMap<>();
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes14.dex */
     public class a extends com.baidu.mobads.openad.c.b {
 
         /* renamed from: b  reason: collision with root package name */
-        private String f3507b;
+        private String f3469b;
         private HashMap<String, Object> c;
 
         public a(String str, String str2, HashMap<String, Object> hashMap) {
             super(str);
-            this.f3507b = str2;
+            this.f3469b = str2;
             this.c = hashMap;
         }
 
@@ -64,11 +64,11 @@ public class p extends com.baidu.mobads.openad.c.c implements IXAdContainerConte
     }
 
     public p(Context context, Activity activity, IXAdProdInfo iXAdProdInfo, RelativeLayout relativeLayout, IXAdContainerEventListener iXAdContainerEventListener, IXAdResponseInfo iXAdResponseInfo, View view) {
-        this.f3505b = context;
+        this.f3467b = context;
         this.d = activity;
         this.i = iXAdProdInfo;
         this.e = relativeLayout;
-        this.f3504a = iXAdContainerEventListener;
+        this.f3466a = iXAdContainerEventListener;
         this.f = iXAdResponseInfo;
         this.g = iXAdResponseInfo.getPrimaryAdInstanceInfo();
         this.h = view;
@@ -76,7 +76,7 @@ public class p extends com.baidu.mobads.openad.c.c implements IXAdContainerConte
 
     @Override // com.baidu.mobads.interfaces.IXAdContainerContext
     public Context getApplicationContext() {
-        return this.f3505b;
+        return this.f3467b;
     }
 
     @Override // com.baidu.mobads.interfaces.IXAdContainerContext
@@ -89,7 +89,7 @@ public class p extends com.baidu.mobads.openad.c.c implements IXAdContainerConte
 
     @Override // com.baidu.mobads.interfaces.IXAdContainerContext
     public IXAdContainerEventListener getAdContainerListener() {
-        return this.f3504a;
+        return this.f3466a;
     }
 
     @Override // com.baidu.mobads.interfaces.IXAdContainerContext

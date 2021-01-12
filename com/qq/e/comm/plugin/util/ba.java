@@ -1,7 +1,7 @@
 package com.qq.e.comm.plugin.util;
 
 import com.qq.e.comm.managers.GDTADManager;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class ba {
     public static void a(long j, int i, String str, com.qq.e.comm.plugin.y.c cVar) {
         com.qq.e.comm.plugin.y.g b2 = new com.qq.e.comm.plugin.y.g(2020001).b(j).b(i);

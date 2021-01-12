@@ -14,14 +14,14 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class h<T> {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f13099a = h.class.getSimpleName();
+    private static final String f12799a = h.class.getSimpleName();
 
     /* renamed from: b  reason: collision with root package name */
-    private static boolean f13100b = com.sdk.base.framework.c.f.f13119b;
+    private static boolean f12800b = com.sdk.base.framework.c.f.f12819b;
     private static String c = UUID.randomUUID().toString();
     private Context d;
     private j<T> e;
@@ -73,7 +73,7 @@ public class h<T> {
                 }
             } catch (Exception e) {
                 com.sdk.base.framework.f.g.a.b(e.toString());
-                com.sdk.base.framework.a.a.c.b(f13099a, e.toString(), Boolean.valueOf(f13100b));
+                com.sdk.base.framework.a.a.c.b(f12799a, e.toString(), Boolean.valueOf(f12800b));
             }
         }
         return byteArrayOutputStream;
@@ -90,7 +90,7 @@ public class h<T> {
             if (this.e != null) {
                 String a2 = this.e.a();
                 String e = this.e.e();
-                str = i.f13101a.k;
+                str = i.f12801a.k;
                 if (a2.equals(str)) {
                     String b2 = j.b(this.e.f());
                     return com.sdk.base.framework.a.a.c.b(b2).booleanValue() ? e + "?" + b2 : e;
@@ -99,7 +99,7 @@ public class h<T> {
                 return com.sdk.base.framework.a.a.c.b((String) null).booleanValue() ? e + "?unikey=" + ((String) null) : e;
             }
         } catch (Exception e2) {
-            com.sdk.base.framework.a.a.c.b(f13099a, e2.getMessage(), Boolean.valueOf(f13100b));
+            com.sdk.base.framework.a.a.c.b(f12799a, e2.getMessage(), Boolean.valueOf(f12800b));
         }
         return null;
     }
@@ -115,7 +115,7 @@ public class h<T> {
                 URL url = new URL(str);
                 int a2 = com.sdk.base.framework.f.h.b.a(this.d, (ArrayList<String>) null).a();
                 System.currentTimeMillis();
-                if (!b(str) || a2 == com.sdk.base.framework.f.h.c.f13147b.a()) {
+                if (!b(str) || a2 == com.sdk.base.framework.f.h.c.f12847b.a()) {
                     httpURLConnection = null;
                 } else {
                     int b2 = com.sdk.base.framework.f.a.a.b();
@@ -130,7 +130,7 @@ public class h<T> {
                         } else {
                             a2 = com.sdk.base.framework.f.h.b.a(this.d, (ArrayList<String>) null).a();
                         }
-                        httpURLConnection = (b2 <= 21 || a2 == com.sdk.base.framework.f.h.c.f13147b.a()) ? null : new a(this.d, url).a();
+                        httpURLConnection = (b2 <= 21 || a2 == com.sdk.base.framework.f.h.c.f12847b.a()) ? null : new a(this.d, url).a();
                     } else {
                         httpURLConnection = new a(this.d, url).a();
                     }
@@ -140,7 +140,7 @@ public class h<T> {
                 }
                 if (httpURLConnection == null) {
                     httpURLConnection = (HttpURLConnection) url.openConnection();
-                } else if (a2 == com.sdk.base.framework.f.h.c.f13146a.a()) {
+                } else if (a2 == com.sdk.base.framework.f.h.c.f12846a.a()) {
                     a2 = 2;
                 }
                 httpURLConnection.setDoOutput(true);
@@ -164,7 +164,7 @@ public class h<T> {
             return null;
         } catch (Exception e2) {
             com.sdk.base.framework.f.g.a.b(e2.toString());
-            com.sdk.base.framework.a.a.c.b(f13099a, e2.toString(), Boolean.valueOf(f13100b));
+            com.sdk.base.framework.a.a.c.b(f12799a, e2.toString(), Boolean.valueOf(f12800b));
             throw e2;
         }
     }
@@ -180,7 +180,7 @@ public class h<T> {
             httpURLConnection.setRequestProperty("Charset", "UTF-8");
             httpURLConnection.setRequestProperty(Headers.CONN_DIRECTIVE, "keep-alive");
             if (this.e != null) {
-                str = i.f13102b.k;
+                str = i.f12802b.k;
                 if (str.equals(this.e.a())) {
                     httpURLConnection.setRequestMethod("POST");
                     httpURLConnection.connect();
@@ -199,6 +199,6 @@ public class h<T> {
     }
 
     public final void c() {
-        this.e.a(i.f13101a.toString());
+        this.e.a(i.f12801a.toString());
     }
 }

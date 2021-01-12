@@ -4,7 +4,7 @@ import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.tieba.payment.data.PayResultData;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class ResponsePaymentPayMessage extends JsonHttpResponsedMessage {
     private PayResultData payResultData;
 

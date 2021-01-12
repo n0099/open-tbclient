@@ -15,7 +15,7 @@ import java.util.List;
 import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class AdResultData extends BaseResultData implements com.kwad.sdk.core.b {
     private static final String TAG = "AdResultData";
     private static final long serialVersionUID = -818939163644825380L;
@@ -135,7 +135,7 @@ public class AdResultData extends BaseResultData implements com.kwad.sdk.core.b 
             } catch (Exception e2) {
                 com.kwad.sdk.core.d.a.a(e2);
             }
-            if (com.kwad.sdk.core.d.a.f9354a) {
+            if (com.kwad.sdk.core.d.a.f9054a) {
                 com.kwad.sdk.core.d.a.a(TAG, toJson().toString());
             }
         } catch (Exception e3) {

@@ -3,15 +3,15 @@ package com.xiaomi.clientreport.manager;
 class e implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ d f14077a;
+    final /* synthetic */ d f13777a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(d dVar) {
-        this.f14077a = dVar;
+        this.f13777a = dVar;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        this.f14077a.f14076a.d();
+        this.f13777a.f13776a.d();
     }
 }

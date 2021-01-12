@@ -7,63 +7,63 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.NavigableMap;
 import java.util.TreeMap;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public final class j implements com.kwad.sdk.glide.load.engine.bitmap_recycle.b {
 
     /* renamed from: a  reason: collision with root package name */
-    private final h<a, Object> f10496a;
+    private final h<a, Object> f10196a;
 
     /* renamed from: b  reason: collision with root package name */
-    private final b f10497b;
+    private final b f10197b;
     private final Map<Class<?>, NavigableMap<Integer, Integer>> c;
     private final Map<Class<?>, com.kwad.sdk.glide.load.engine.bitmap_recycle.a<?>> d;
     private final int e;
     private int f;
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static final class a implements m {
 
         /* renamed from: a  reason: collision with root package name */
-        int f10498a;
+        int f10198a;
 
         /* renamed from: b  reason: collision with root package name */
-        private final b f10499b;
+        private final b f10199b;
         private Class<?> c;
 
         a(b bVar) {
-            this.f10499b = bVar;
+            this.f10199b = bVar;
         }
 
         @Override // com.kwad.sdk.glide.load.engine.bitmap_recycle.m
         public void a() {
-            this.f10499b.a(this);
+            this.f10199b.a(this);
         }
 
         void a(int i, Class<?> cls) {
-            this.f10498a = i;
+            this.f10198a = i;
             this.c = cls;
         }
 
         public boolean equals(Object obj) {
             if (obj instanceof a) {
                 a aVar = (a) obj;
-                return this.f10498a == aVar.f10498a && this.c == aVar.c;
+                return this.f10198a == aVar.f10198a && this.c == aVar.c;
             }
             return false;
         }
 
         public int hashCode() {
-            return (this.c != null ? this.c.hashCode() : 0) + (this.f10498a * 31);
+            return (this.c != null ? this.c.hashCode() : 0) + (this.f10198a * 31);
         }
 
         public String toString() {
-            return "Key{size=" + this.f10498a + "array=" + this.c + '}';
+            return "Key{size=" + this.f10198a + "array=" + this.c + '}';
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static final class b extends d<a> {
         b() {
         }
@@ -85,16 +85,16 @@ public final class j implements com.kwad.sdk.glide.load.engine.bitmap_recycle.b 
 
     @VisibleForTesting
     public j() {
-        this.f10496a = new h<>();
-        this.f10497b = new b();
+        this.f10196a = new h<>();
+        this.f10197b = new b();
         this.c = new HashMap();
         this.d = new HashMap();
         this.e = 4194304;
     }
 
     public j(int i) {
-        this.f10496a = new h<>();
-        this.f10497b = new b();
+        this.f10196a = new h<>();
+        this.f10197b = new b();
         this.c = new HashMap();
         this.d = new HashMap();
         this.e = i;
@@ -102,7 +102,7 @@ public final class j implements com.kwad.sdk.glide.load.engine.bitmap_recycle.b 
 
     @Nullable
     private <T> T a(a aVar) {
-        return (T) this.f10496a.a((h<a, Object>) aVar);
+        return (T) this.f10196a.a((h<a, Object>) aVar);
     }
 
     private <T> T a(a aVar, Class<T> cls) {
@@ -114,9 +114,9 @@ public final class j implements com.kwad.sdk.glide.load.engine.bitmap_recycle.b 
         }
         if (t == null) {
             if (Log.isLoggable(b2.a(), 2)) {
-                Log.v(b2.a(), "Allocated " + aVar.f10498a + " bytes");
+                Log.v(b2.a(), "Allocated " + aVar.f10198a + " bytes");
             }
-            return b2.a(aVar.f10498a);
+            return b2.a(aVar.f10198a);
         }
         return t;
     }
@@ -168,7 +168,7 @@ public final class j implements com.kwad.sdk.glide.load.engine.bitmap_recycle.b 
 
     private void c(int i) {
         while (this.f > i) {
-            Object a2 = this.f10496a.a();
+            Object a2 = this.f10196a.a();
             com.kwad.sdk.glide.g.j.a(a2);
             com.kwad.sdk.glide.load.engine.bitmap_recycle.a b2 = b((j) a2);
             this.f -= b2.a((com.kwad.sdk.glide.load.engine.bitmap_recycle.a) a2) * b2.b();
@@ -196,7 +196,7 @@ public final class j implements com.kwad.sdk.glide.load.engine.bitmap_recycle.b 
     public synchronized <T> T a(int i, Class<T> cls) {
         Integer ceilingKey;
         ceilingKey = a((Class<?>) cls).ceilingKey(Integer.valueOf(i));
-        return (T) a(a(i, ceilingKey) ? this.f10497b.a(ceilingKey.intValue(), cls) : this.f10497b.a(i, cls), (Class<Object>) cls);
+        return (T) a(a(i, ceilingKey) ? this.f10197b.a(ceilingKey.intValue(), cls) : this.f10197b.a(i, cls), (Class<Object>) cls);
     }
 
     @Override // com.kwad.sdk.glide.load.engine.bitmap_recycle.b
@@ -220,11 +220,11 @@ public final class j implements com.kwad.sdk.glide.load.engine.bitmap_recycle.b 
         int a2 = b2.a((com.kwad.sdk.glide.load.engine.bitmap_recycle.a<T>) t);
         int b3 = b2.b() * a2;
         if (b(b3)) {
-            a a3 = this.f10497b.a(a2, cls);
-            this.f10496a.a(a3, t);
+            a a3 = this.f10197b.a(a2, cls);
+            this.f10196a.a(a3, t);
             NavigableMap<Integer, Integer> a4 = a(cls);
-            Integer num = (Integer) a4.get(Integer.valueOf(a3.f10498a));
-            a4.put(Integer.valueOf(a3.f10498a), Integer.valueOf(num == null ? 1 : num.intValue() + 1));
+            Integer num = (Integer) a4.get(Integer.valueOf(a3.f10198a));
+            a4.put(Integer.valueOf(a3.f10198a), Integer.valueOf(num == null ? 1 : num.intValue() + 1));
             this.f += b3;
             c();
         }
@@ -238,6 +238,6 @@ public final class j implements com.kwad.sdk.glide.load.engine.bitmap_recycle.b 
 
     @Override // com.kwad.sdk.glide.load.engine.bitmap_recycle.b
     public synchronized <T> T b(int i, Class<T> cls) {
-        return (T) a(this.f10497b.a(i, cls), (Class<Object>) cls);
+        return (T) a(this.f10197b.a(i, cls), (Class<Object>) cls);
     }
 }

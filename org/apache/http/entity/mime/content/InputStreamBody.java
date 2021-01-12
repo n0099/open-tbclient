@@ -3,7 +3,7 @@ package org.apache.http.entity.mime.content;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
-/* loaded from: classes4.dex */
+/* loaded from: classes14.dex */
 public class InputStreamBody extends AbstractContentBody {
     private final String filename;
     private final InputStream in;

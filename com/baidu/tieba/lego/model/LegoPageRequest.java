@@ -8,7 +8,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.util.t;
 import tbclient.Lego.DataReq;
 import tbclient.Lego.LegoReqIdl;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class LegoPageRequest extends NetMessage {
     private String itemId;
     private String lastRank;

@@ -13,22 +13,22 @@ import com.baidu.android.imsdk.chatmessage.messages.TextMsg;
 import com.baidu.android.imsdk.chatmessage.messages.UnSupportedMsg;
 import com.baidu.live.sdk.a;
 import com.baidu.yuyinala.privatemessage.model.message.SingleGraphicTextMsgExt;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class b {
-    private static volatile b oSi;
+    private static volatile b oNG;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public interface a {
         void a(View view, int i, ChatMsg chatMsg);
     }
 
-    public static synchronized b ht(Context context) {
+    public static synchronized b hr(Context context) {
         b bVar;
         synchronized (b.class) {
-            if (oSi == null) {
-                oSi = new b();
+            if (oNG == null) {
+                oNG = new b();
             }
-            bVar = oSi;
+            bVar = oNG;
         }
         return bVar;
     }
@@ -73,7 +73,7 @@ public class b {
         }
         if (r != null) {
             r.b(context, a(context, chatMsg));
-            r.oSp = (ImageView) r.getConvertView().findViewById(a.f.bd_im_headview_vip);
+            r.oNN = (ImageView) r.getConvertView().findViewById(a.f.bd_im_headview_vip);
         }
         return r;
     }
@@ -136,7 +136,7 @@ public class b {
         }
         if (l != null) {
             l.b(context, a(context, chatMsg));
-            l.oSp = (ImageView) l.getConvertView().findViewById(a.f.bd_im_headview_vip);
+            l.oNN = (ImageView) l.getConvertView().findViewById(a.f.bd_im_headview_vip);
         }
         return l;
     }
@@ -175,7 +175,7 @@ public class b {
 
     private d c(Context context, LayoutInflater layoutInflater, ChatMsg chatMsg, View view) {
         new SingleGraphicTextMsgExt((SignleGraphicTextMsg) chatMsg);
-        switch (r1.eoh()) {
+        switch (r1.ekl()) {
             case VIDEOSHARE:
                 return r.m(context, layoutInflater, chatMsg, view);
             case PRIVATEINVITE:
@@ -187,7 +187,7 @@ public class b {
 
     private e d(Context context, LayoutInflater layoutInflater, ChatMsg chatMsg, View view) {
         new SingleGraphicTextMsgExt((SignleGraphicTextMsg) chatMsg);
-        switch (r1.eoh()) {
+        switch (r1.ekl()) {
             case VIDEOSHARE:
                 return x.s(context, layoutInflater, chatMsg, view);
             case PRIVATEINVITE:

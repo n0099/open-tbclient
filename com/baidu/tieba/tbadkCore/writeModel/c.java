@@ -44,15 +44,15 @@ import tbclient.GetMyPost.GetMyPostResIdl;
 /* loaded from: classes.dex */
 public class c {
     public static AntiData antiData;
-    private static WeakReference<com.baidu.tbadk.core.view.a> nvE;
-    public static PostWriteCallBackData nvF;
-    public static ah nvG;
-    public static WriteData nvH;
-    public static Intent nvI;
+    private static WeakReference<com.baidu.tbadk.core.view.a> nqY;
+    public static PostWriteCallBackData nqZ;
+    public static ah nra;
+    public static WriteData nrb;
+    public static Intent nrc;
     private static final BdUniqueId uniqueId = BdUniqueId.gen();
 
     static {
-        dQL();
+        dMT();
     }
 
     public static void k(PostWriteCallBackData postWriteCallBackData) {
@@ -137,7 +137,7 @@ public class c {
             tBSpecificationBtn.setConfig(new com.baidu.tbadk.core.view.commonBtn.c());
             ao.setViewTextColor(textView, R.color.CAM_X0302);
             ao.setViewTextColor(textView2, R.color.CAM_X0302);
-            tBSpecificationBtn.bxP();
+            tBSpecificationBtn.btV();
             shadowLinearLayout.onChangeSkinType();
             tBSpecificationBtn.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.tbadkCore.writeModel.c.1
                 @Override // android.view.View.OnClickListener
@@ -154,7 +154,7 @@ public class c {
                     int equipmentHeight = l.getEquipmentHeight(TbadkCoreApplication.getInst());
                     float f = currentActivity.getResources().getDisplayMetrics().density;
                     int i2 = 1;
-                    if (au.bws().bwt()) {
+                    if (au.bsy().bsz()) {
                         i2 = 2;
                     }
                     RequestGetMyPostNetMessage requestGetMyPostNetMessage = new RequestGetMyPostNetMessage();
@@ -179,9 +179,9 @@ public class c {
             b.d("发帖-失败： 失败弹框 -- 无backData");
             return;
         }
-        nvF = postWriteCallBackData;
-        nvG = ahVar;
-        nvH = writeData;
+        nqZ = postWriteCallBackData;
+        nra = ahVar;
+        nrb = writeData;
         antiData = antiData2;
         b.d("发帖-失败： 失败弹框 -- start");
         final Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
@@ -223,7 +223,7 @@ public class c {
         tBSpecificationBtn.setConfig(new com.baidu.tbadk.core.view.commonBtn.c());
         ao.setViewTextColor(textView, R.color.CAM_X0301);
         ao.setViewTextColor(textView2, R.color.CAM_X0301);
-        tBSpecificationBtn.bxP();
+        tBSpecificationBtn.btV();
         shadowLinearLayout.onChangeSkinType();
         tBSpecificationBtn.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.tbadkCore.writeModel.c.2
             @Override // android.view.View.OnClickListener
@@ -231,25 +231,27 @@ public class c {
                 b.d("发帖-失败： 重新编辑 -- start");
                 view.setOnClickListener(null);
                 WriteActivityConfig newInstance = WriteActivityConfig.newInstance(currentActivity);
-                newInstance.setIntent(c.nvI);
+                if (c.nrc != null) {
+                    newInstance.setIntent(c.nrc);
+                }
                 newInstance.setFromErrorDialog(true);
                 newInstance.send();
-                d.dQP();
+                d.dMX();
                 b.d("发帖-失败： 重新编辑 -- end");
             }
         });
         navigationBarCoverTip.setBackgroundColor(0);
         navigationBarCoverTip.a(currentActivity, shadowLinearLayout, 5000);
-        d.dQO();
+        d.dMW();
         b.d("发帖-失败： 失败弹框 -- 成功 -- end");
     }
 
-    private static void dQL() {
+    private static void dMT() {
         com.baidu.adp.framework.listener.a aVar = new com.baidu.adp.framework.listener.a(1003010, CmdConfigSocket.CMD_GET_MY_POST) { // from class: com.baidu.tieba.tbadkCore.writeModel.c.3
             @Override // com.baidu.adp.framework.listener.a
             public void onMessage(ResponsedMessage<?> responsedMessage) {
                 b.d("发帖-成功： 分享进行 -- 接受GetMyPost");
-                c.cnj();
+                c.cjr();
                 if (responsedMessage instanceof GetMyPostHttpResponseMessage) {
                     GetMyPostHttpResponseMessage getMyPostHttpResponseMessage = (GetMyPostHttpResponseMessage) responsedMessage;
                     c.a(getMyPostHttpResponseMessage.getError(), getMyPostHttpResponseMessage.getResponseData());
@@ -285,7 +287,7 @@ public class c {
         b.d("发帖-成功： 分享弹框 -- start");
         if (bzVar != null && activity != null) {
             String valueOf = String.valueOf(bzVar.getFid());
-            String brv = bzVar.brv();
+            String bnB = bzVar.bnB();
             String title = bzVar.getTitle();
             if (TextUtils.isEmpty(title)) {
                 title = bzVar.getAbstract();
@@ -300,57 +302,57 @@ public class c {
             shareItem.title = title;
             shareItem.content = format;
             shareItem.readCount = 0L;
-            shareItem.fxm = str2;
+            shareItem.fsD = str2;
             shareItem.linkUrl = str;
-            shareItem.eWH = 5;
+            shareItem.eRW = 5;
             shareItem.extData = tid;
-            shareItem.fxp = 3;
+            shareItem.fsG = 3;
             shareItem.fid = valueOf;
-            shareItem.fName = brv;
+            shareItem.fName = bnB;
             shareItem.tid = tid;
-            shareItem.fxb = true;
-            shareItem.fxo = 15;
-            shareItem.fxt = getStateThreadType(bzVar);
+            shareItem.fss = true;
+            shareItem.fsF = 15;
+            shareItem.fsK = getStateThreadType(bzVar);
             if (parse != null) {
                 shareItem.imageUri = parse;
             }
-            shareItem.fxw = OriginalThreadInfo.ShareInfo.generateShareInfo(bzVar);
-            shareItem.fxx = ShareItem.ForwardInfo.generateForwardInfo(bzVar);
+            shareItem.fsN = OriginalThreadInfo.ShareInfo.generateShareInfo(bzVar);
+            shareItem.fsO = ShareItem.ForwardInfo.generateForwardInfo(bzVar);
             TbadkCoreApplication.getInst().setShareItem(shareItem);
-            shareItem.fxD = bzVar.getShareImageUrl();
+            shareItem.fsU = bzVar.getShareImageUrl();
             Bundle bundle = new Bundle();
-            bundle.putInt("obj_param1", shareItem.fxp);
-            bundle.putInt("obj_type", shareItem.fxt);
+            bundle.putInt("obj_param1", shareItem.fsG);
+            bundle.putInt("obj_type", shareItem.fsK);
             bundle.putString("fid", shareItem.fid);
             bundle.putString("tid", shareItem.tid);
-            bundle.putInt("obj_source", shareItem.eWH);
+            bundle.putInt("obj_source", shareItem.eRW);
             shareItem.ae(bundle);
             b.d("发帖-成功： 分享弹框 -- 显示 -- end");
-            com.baidu.tieba.c.f.cwf().b(new ShareDialogConfig((Context) activity, shareItem, true, true));
+            com.baidu.tieba.c.f.csn().b(new ShareDialogConfig((Context) activity, shareItem, true, true));
         }
     }
 
     private static int getStateThreadType(bz bzVar) {
         if (bzVar != null) {
-            if (bzVar.brt()) {
+            if (bzVar.bnz()) {
                 return 4;
             }
-            if (bzVar.bro() == 1) {
+            if (bzVar.bnu() == 1) {
                 return 3;
             }
-            return bzVar.bsM() ? 2 : 1;
+            return bzVar.boS() ? 2 : 1;
         }
         return 0;
     }
 
     private static String getShareImageUrl(bz bzVar) {
-        if (bzVar == null || bzVar.brA() == null) {
+        if (bzVar == null || bzVar.bnG() == null) {
             return null;
         }
-        ArrayList<MediaData> brA = bzVar.brA();
-        int size = brA.size();
+        ArrayList<MediaData> bnG = bzVar.bnG();
+        int size = bnG.size();
         for (int i = 0; i < size; i++) {
-            MediaData mediaData = brA.get(i);
+            MediaData mediaData = bnG.get(i);
             if (mediaData != null && mediaData.getType() == 3) {
                 if (!StringUtils.isNull(mediaData.getThumbnails_url())) {
                     return mediaData.getThumbnails_url();
@@ -366,19 +368,19 @@ public class c {
     /* JADX INFO: Access modifiers changed from: private */
     public static void aC(Activity activity) {
         com.baidu.tbadk.core.view.a aVar = new com.baidu.tbadk.core.view.a(activity);
-        nvE = new WeakReference<>(aVar);
+        nqY = new WeakReference<>(aVar);
         aVar.setDialogVisiable(true);
         b.d("发帖-成功： 开始分享 -- 显示loading");
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static void cnj() {
+    public static void cjr() {
         com.baidu.tbadk.core.view.a aVar;
         b.d("发帖-成功： 开始分享 -- 隐藏loading -- start");
-        if (nvE != null && (aVar = nvE.get()) != null) {
+        if (nqY != null && (aVar = nqY.get()) != null) {
             aVar.setDialogVisiable(false);
             b.d("发帖-成功： 开始分享 -- 隐藏loading -- end");
-            nvE.clear();
+            nqY.clear();
         }
     }
 }

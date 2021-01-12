@@ -20,23 +20,23 @@ import java.io.IOException;
 import java.util.HashMap;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class SwanAppAudioPlayer implements com.baidu.swan.apps.media.a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private MediaPlayer cFn;
-    private String dkT;
-    private c dls;
-    private com.baidu.swan.apps.media.audio.b.a dlt;
-    private a dlw;
+    private MediaPlayer cAB;
+    private c dgD;
+    private com.baidu.swan.apps.media.audio.b.a dgE;
+    private a dgH;
+    private String dge;
     private AudioManager mAudioManager;
     private boolean mHasAudioFocus;
-    private com.baidu.swan.apps.media.audio.b dlr = new com.baidu.swan.apps.media.audio.b();
-    private PlayerStatus dlu = PlayerStatus.NONE;
-    private UserStatus dlv = UserStatus.OPEN;
-    private boolean dlx = false;
+    private com.baidu.swan.apps.media.audio.b dgC = new com.baidu.swan.apps.media.audio.b();
+    private PlayerStatus dgF = PlayerStatus.NONE;
+    private UserStatus dgG = UserStatus.OPEN;
+    private boolean dgI = false;
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public enum PlayerStatus {
         NONE,
         IDLE,
@@ -45,7 +45,7 @@ public class SwanAppAudioPlayer implements com.baidu.swan.apps.media.a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public enum UserStatus {
         OPEN,
         PLAY,
@@ -55,8 +55,8 @@ public class SwanAppAudioPlayer implements com.baidu.swan.apps.media.a {
     }
 
     public SwanAppAudioPlayer(String str) {
-        this.dkT = "";
-        this.dkT = str;
+        this.dge = "";
+        this.dge = str;
         com.baidu.swan.apps.media.b.a(this);
     }
 
@@ -66,19 +66,19 @@ public class SwanAppAudioPlayer implements com.baidu.swan.apps.media.a {
             Log.d("SwanAppAudioPlayer", "===start");
         }
         requestAudioFocus();
-        akK().start();
-        if (this.dls != null) {
-            this.dls.sendEmptyMessage(0);
+        agQ().start();
+        if (this.dgD != null) {
+            this.dgD.sendEmptyMessage(0);
         }
-        if (this.dlt != null) {
-            this.dlt.qq("onPlay");
+        if (this.dgE != null) {
+            this.dgE.pf("onPlay");
         }
-        aEi();
-        if (this.dlr.dkX > 0) {
-            seekTo(this.dlr.dkX);
+        aAo();
+        if (this.dgC.dgi > 0) {
+            seekTo(this.dgC.dgi);
         }
-        if (atw()) {
-            aEf();
+        if (apB()) {
+            aAl();
         }
     }
 
@@ -86,52 +86,52 @@ public class SwanAppAudioPlayer implements com.baidu.swan.apps.media.a {
         if (DEBUG) {
             Log.d("SwanAppAudioPlayer", "===pause");
         }
-        this.dlv = UserStatus.PAUSE;
-        aEf();
+        this.dgG = UserStatus.PAUSE;
+        aAl();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aEf() {
-        if (akK().isPlaying()) {
-            akK().pause();
-            if (this.dlt != null) {
-                this.dlt.qq(MissionEvent.MESSAGE_PAUSE);
+    public void aAl() {
+        if (agQ().isPlaying()) {
+            agQ().pause();
+            if (this.dgE != null) {
+                this.dgE.pf(MissionEvent.MESSAGE_PAUSE);
             }
-            if (this.dls != null) {
-                this.dls.removeMessages(0);
+            if (this.dgD != null) {
+                this.dgD.removeMessages(0);
             }
         }
     }
 
     public void seekTo(int i) {
-        if (this.dlu == PlayerStatus.PREPARED) {
+        if (this.dgF == PlayerStatus.PREPARED) {
             if (DEBUG) {
                 Log.d("SwanAppAudioPlayer", "===seekTo ->" + i);
             }
-            akK().seekTo((int) (i * 1000));
-            if (this.dlt != null) {
-                this.dlt.qq("onSeeking");
+            agQ().seekTo((int) (i * 1000));
+            if (this.dgE != null) {
+                this.dgE.pf("onSeeking");
             }
         }
     }
 
     private void setLooping(boolean z) {
-        akK().setLooping(z);
+        agQ().setLooping(z);
     }
 
     public void stop() {
-        this.dlv = UserStatus.STOP;
-        if (this.dlu == PlayerStatus.PREPARED) {
+        this.dgG = UserStatus.STOP;
+        if (this.dgF == PlayerStatus.PREPARED) {
             if (DEBUG) {
                 Log.d("SwanAppAudioPlayer", "===stop");
             }
-            akK().stop();
-            this.dlu = PlayerStatus.IDLE;
-            if (this.dls != null) {
-                this.dls.removeMessages(0);
+            agQ().stop();
+            this.dgF = PlayerStatus.IDLE;
+            if (this.dgD != null) {
+                this.dgD.removeMessages(0);
             }
-            if (this.dlt != null) {
-                this.dlt.qq(MissionEvent.MESSAGE_STOP);
+            if (this.dgE != null) {
+                this.dgE.pf(MissionEvent.MESSAGE_STOP);
             }
         }
     }
@@ -140,76 +140,76 @@ public class SwanAppAudioPlayer implements com.baidu.swan.apps.media.a {
         if (DEBUG) {
             Log.d("SwanAppAudioPlayer", "===release");
         }
-        this.dlv = UserStatus.DESTROY;
+        this.dgG = UserStatus.DESTROY;
         abandonAudioFocus();
-        akK().release();
-        this.dlu = PlayerStatus.NONE;
-        this.cFn = null;
-        if (this.dls != null) {
-            this.dls.removeMessages(0);
-            this.dls = null;
+        agQ().release();
+        this.dgF = PlayerStatus.NONE;
+        this.cAB = null;
+        if (this.dgD != null) {
+            this.dgD.removeMessages(0);
+            this.dgD = null;
         }
         com.baidu.swan.apps.media.b.b(this);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public MediaPlayer akK() {
-        if (this.cFn == null) {
-            this.cFn = new MediaPlayer();
+    public MediaPlayer agQ() {
+        if (this.cAB == null) {
+            this.cAB = new MediaPlayer();
             b bVar = new b();
-            this.cFn.setOnPreparedListener(bVar);
-            this.cFn.setOnCompletionListener(bVar);
-            this.cFn.setOnInfoListener(bVar);
-            this.cFn.setOnErrorListener(bVar);
-            this.cFn.setOnSeekCompleteListener(bVar);
-            this.cFn.setOnBufferingUpdateListener(bVar);
-            this.dls = new c();
+            this.cAB.setOnPreparedListener(bVar);
+            this.cAB.setOnCompletionListener(bVar);
+            this.cAB.setOnInfoListener(bVar);
+            this.cAB.setOnErrorListener(bVar);
+            this.cAB.setOnSeekCompleteListener(bVar);
+            this.cAB.setOnBufferingUpdateListener(bVar);
+            this.dgD = new c();
         }
-        return this.cFn;
+        return this.cAB;
     }
 
     @Override // com.baidu.swan.apps.media.a
-    public String azY() {
-        return this.dkT;
+    public String awe() {
+        return this.dge;
     }
 
     @Override // com.baidu.swan.apps.media.a
-    public String aEa() {
+    public String aAg() {
         return null;
     }
 
     @Override // com.baidu.swan.apps.media.a
     public String getSlaveId() {
-        return this.dlr.cGy;
+        return this.dgC.cBM;
     }
 
     @Override // com.baidu.swan.apps.media.a
-    public Object aEb() {
+    public Object aAh() {
         return this;
     }
 
     @Override // com.baidu.swan.apps.media.a
-    public void fZ(boolean z) {
+    public void fV(boolean z) {
         if (DEBUG) {
             Log.d("SwanAppAudioPlayer", "--onForegroundChanged -> " + z);
         }
-        e aMl = e.aMl();
-        if (aMl != null && aMl.aME()) {
+        e aIr = e.aIr();
+        if (aIr != null && aIr.aIK()) {
             if (!z) {
-                aEf();
-            } else if (this.dlv == UserStatus.PLAY) {
+                aAl();
+            } else if (this.dgG == UserStatus.PLAY) {
                 play();
             }
         }
     }
 
     @Override // com.baidu.swan.apps.media.a
-    public void ga(boolean z) {
+    public void fW(boolean z) {
         if (DEBUG) {
             Log.d("SwanAppAudioPlayer", "--onAppForegroundChanged -> " + z);
         }
         if (!z) {
-            aEf();
+            aAl();
         }
     }
 
@@ -223,99 +223,99 @@ public class SwanAppAudioPlayer implements com.baidu.swan.apps.media.a {
         if (DEBUG) {
             Log.d("SwanAppAudioPlayer", "--onDestroy");
         }
-        e aMl = e.aMl();
-        if (aMl != null && aMl.aME()) {
+        e aIr = e.aIr();
+        if (aIr != null && aIr.aIK()) {
             release();
         }
     }
 
-    public com.baidu.swan.apps.media.audio.b aEg() {
-        return this.dlr;
+    public com.baidu.swan.apps.media.audio.b aAm() {
+        return this.dgC;
     }
 
     public void a(com.baidu.swan.apps.media.audio.b bVar, CallbackHandler callbackHandler) {
         if (DEBUG) {
             Log.d("SwanAppAudioPlayer", "===openPlayer");
         }
-        this.dlv = UserStatus.OPEN;
-        this.dlr = bVar;
-        if (this.dlr.dkZ != null) {
+        this.dgG = UserStatus.OPEN;
+        this.dgC = bVar;
+        if (this.dgC.dgk != null) {
             try {
-                this.dlt = new com.baidu.swan.apps.media.audio.b.a(callbackHandler, new JSONObject(this.dlr.dkZ));
+                this.dgE = new com.baidu.swan.apps.media.audio.b.a(callbackHandler, new JSONObject(this.dgC.dgk));
             } catch (JSONException e) {
                 if (DEBUG) {
                     Log.e("SwanAppAudioPlayer", "Audio callback is not jsonObject");
                 }
             }
         }
-        akK().reset();
-        setDataSource(this.dlr.mUrl);
-        aEh();
+        agQ().reset();
+        setDataSource(this.dgC.mUrl);
+        aAn();
     }
 
     private void setDataSource(String str) {
         try {
-            String ue = f.aDH().aDn().ue(str);
-            if (!TextUtils.isEmpty(ue)) {
+            String sT = f.azN().azt().sT(str);
+            if (!TextUtils.isEmpty(sT)) {
                 HashMap hashMap = new HashMap();
-                String aRz = ab.aRz();
-                if (!TextUtils.isEmpty(aRz) && ab.uQ(ue)) {
+                String aNF = ab.aNF();
+                if (!TextUtils.isEmpty(aNF) && ab.tF(sT)) {
                     if (DEBUG) {
-                        Log.d("SwanAppAudioPlayer", "set referer for AudioPlayer; referer is" + aRz);
+                        Log.d("SwanAppAudioPlayer", "set referer for AudioPlayer; referer is" + aNF);
                     }
-                    hashMap.put("Referer", aRz);
+                    hashMap.put("Referer", aNF);
                 }
-                String avZ = com.baidu.swan.apps.core.turbo.d.avB().avZ();
-                if (!TextUtils.isEmpty(avZ)) {
-                    hashMap.put("User-Agent", avZ);
+                String ase = com.baidu.swan.apps.core.turbo.d.arG().ase();
+                if (!TextUtils.isEmpty(ase)) {
+                    hashMap.put("User-Agent", ase);
                 }
-                akK().setDataSource(AppRuntime.getAppContext(), Uri.parse(ue), hashMap);
-                this.dlu = PlayerStatus.IDLE;
+                agQ().setDataSource(AppRuntime.getAppContext(), Uri.parse(sT), hashMap);
+                this.dgF = PlayerStatus.IDLE;
             }
         } catch (IOException e) {
             if (DEBUG) {
                 Log.e("SwanAppAudioPlayer", "set data source fail");
             }
-            if (this.dlt != null) {
+            if (this.dgE != null) {
                 JSONObject jSONObject = new JSONObject();
                 if (SwanAppNetworkUtils.isNetworkConnected(null)) {
                     jSONObject.optString("errCode", "10002");
                 } else {
                     jSONObject.optString("errCode", "10003");
                 }
-                this.dlt.qq("onError");
+                this.dgE.pf("onError");
             }
         }
     }
 
-    private void aEh() {
-        if (this.dlx) {
-            akK().reset();
-            setDataSource(this.dlr.mUrl);
-            this.dlx = false;
+    private void aAn() {
+        if (this.dgI) {
+            agQ().reset();
+            setDataSource(this.dgC.mUrl);
+            this.dgI = false;
         }
-        akK().prepareAsync();
-        this.dlu = PlayerStatus.PREPARING;
+        agQ().prepareAsync();
+        this.dgF = PlayerStatus.PREPARING;
     }
 
     public void play() {
-        this.dlv = UserStatus.PLAY;
-        if (!atw()) {
+        this.dgG = UserStatus.PLAY;
+        if (!apB()) {
             if (DEBUG) {
                 Log.d("SwanAppAudioPlayer", "===play");
             }
             requestAudioFocus();
-            if (this.dlu == PlayerStatus.PREPARED) {
-                akK().start();
-                if (this.dls != null) {
-                    this.dls.sendEmptyMessage(0);
+            if (this.dgF == PlayerStatus.PREPARED) {
+                agQ().start();
+                if (this.dgD != null) {
+                    this.dgD.sendEmptyMessage(0);
                 }
-                if (this.dlt != null) {
-                    this.dlt.qq("onPlay");
+                if (this.dgE != null) {
+                    this.dgE.pf("onPlay");
                 }
-            } else if (this.dlu == PlayerStatus.IDLE) {
-                akK().prepareAsync();
-                this.dlu = PlayerStatus.PREPARING;
+            } else if (this.dgF == PlayerStatus.IDLE) {
+                agQ().prepareAsync();
+                this.dgF = PlayerStatus.PREPARING;
             }
         }
     }
@@ -324,39 +324,39 @@ public class SwanAppAudioPlayer implements com.baidu.swan.apps.media.a {
         if (DEBUG) {
             Log.d("SwanAppAudioPlayer", "===update -> " + bVar);
         }
-        String str = this.dlr.mUrl;
-        this.dlr = bVar;
-        if (this.dlt != null) {
-            this.dlt.qp(this.dlr.dkZ);
+        String str = this.dgC.mUrl;
+        this.dgC = bVar;
+        if (this.dgE != null) {
+            this.dgE.pe(this.dgC.dgk);
         }
-        aEi();
+        aAo();
         if (!TextUtils.equals(bVar.mUrl, str)) {
             if (DEBUG) {
                 Log.d("SwanAppAudioPlayer", "update src: " + bVar.mUrl);
             }
-            this.dlx = true;
-            aEh();
+            this.dgI = true;
+            aAn();
         }
     }
 
-    private boolean atw() {
-        if (e.aMl() == null || !e.aMl().aME()) {
+    private boolean apB() {
+        if (e.aIr() == null || !e.aIr().aIK()) {
             return false;
         }
-        com.baidu.swan.apps.core.d.f ajt = f.aDH().ajt();
-        if (ajt == null) {
+        com.baidu.swan.apps.core.d.f afz = f.azN().afz();
+        if (afz == null) {
             return true;
         }
-        com.baidu.swan.apps.core.d.c asU = ajt.asU();
-        if (asU == null || !(asU instanceof j)) {
+        com.baidu.swan.apps.core.d.c aoY = afz.aoY();
+        if (aoY == null || !(aoY instanceof j)) {
             return true;
         }
-        return ((j) asU).atw();
+        return ((j) aoY).apB();
     }
 
-    private void aEi() {
-        setLooping(this.dlr.mLoop);
-        setVolume(this.dlr.mVolume);
+    private void aAo() {
+        setLooping(this.dgC.mLoop);
+        setVolume(this.dgC.mVolume);
     }
 
     private void setVolume(float f) {
@@ -365,21 +365,21 @@ public class SwanAppAudioPlayer implements com.baidu.swan.apps.media.a {
         } else if (f < 0.0f) {
             f = 0.0f;
         }
-        akK().setVolume(f, f);
+        agQ().setVolume(f, f);
     }
 
     private void requestAudioFocus() {
-        if (!aty() && !this.mHasAudioFocus) {
+        if (!apD() && !this.mHasAudioFocus) {
             if (this.mAudioManager == null) {
                 this.mAudioManager = (AudioManager) AppRuntime.getAppContext().getSystemService("audio");
                 if (this.mAudioManager == null) {
                     return;
                 }
             }
-            if (this.dlw == null) {
-                this.dlw = new a();
+            if (this.dgH == null) {
+                this.dgH = new a();
             }
-            this.mHasAudioFocus = this.mAudioManager.requestAudioFocus(this.dlw, 3, 1) == 1;
+            this.mHasAudioFocus = this.mAudioManager.requestAudioFocus(this.dgH, 3, 1) == 1;
             if (DEBUG) {
                 Log.d("SwanAppAudioPlayer", "   requestAudioFocus");
             }
@@ -389,10 +389,10 @@ public class SwanAppAudioPlayer implements com.baidu.swan.apps.media.a {
     /* JADX INFO: Access modifiers changed from: private */
     public void abandonAudioFocus() {
         if (this.mHasAudioFocus) {
-            if (this.mAudioManager != null && this.dlw != null) {
-                this.mAudioManager.abandonAudioFocus(this.dlw);
+            if (this.mAudioManager != null && this.dgH != null) {
+                this.mAudioManager.abandonAudioFocus(this.dgH);
                 this.mAudioManager = null;
-                this.dlw = null;
+                this.dgH = null;
             }
             this.mHasAudioFocus = false;
             if (DEBUG) {
@@ -402,9 +402,9 @@ public class SwanAppAudioPlayer implements com.baidu.swan.apps.media.a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean aty() {
-        e aMl = e.aMl();
-        boolean booleanValue = aMl != null ? aMl.aMD().b("key_audio_is_mix_with_other", (Boolean) false).booleanValue() : false;
+    public boolean apD() {
+        e aIr = e.aIr();
+        boolean booleanValue = aIr != null ? aIr.aIJ().b("key_audio_is_mix_with_other", (Boolean) false).booleanValue() : false;
         if (DEBUG) {
             Log.d("SwanAppAudioPlayer", "   isMixWithOther -> " + booleanValue);
         }
@@ -412,7 +412,7 @@ public class SwanAppAudioPlayer implements com.baidu.swan.apps.media.a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public class c extends Handler {
         private c() {
         }
@@ -422,10 +422,10 @@ public class SwanAppAudioPlayer implements com.baidu.swan.apps.media.a {
             if (message.what == 0) {
                 JSONObject jSONObject = new JSONObject();
                 try {
-                    jSONObject.putOpt("currentTime", Long.valueOf(SwanAppAudioPlayer.this.akK().getCurrentPosition() / 1000));
-                    jSONObject.putOpt("duration", Long.valueOf(SwanAppAudioPlayer.this.akK().getDuration() / 1000));
-                    if (SwanAppAudioPlayer.this.dlt != null) {
-                        SwanAppAudioPlayer.this.dlt.h("onTimeUpdate", jSONObject);
+                    jSONObject.putOpt("currentTime", Long.valueOf(SwanAppAudioPlayer.this.agQ().getCurrentPosition() / 1000));
+                    jSONObject.putOpt("duration", Long.valueOf(SwanAppAudioPlayer.this.agQ().getDuration() / 1000));
+                    if (SwanAppAudioPlayer.this.dgE != null) {
+                        SwanAppAudioPlayer.this.dgE.h("onTimeUpdate", jSONObject);
                     }
                 } catch (JSONException e) {
                     if (SwanAppAudioPlayer.DEBUG) {
@@ -438,7 +438,7 @@ public class SwanAppAudioPlayer implements com.baidu.swan.apps.media.a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public class b implements MediaPlayer.OnBufferingUpdateListener, MediaPlayer.OnCompletionListener, MediaPlayer.OnErrorListener, MediaPlayer.OnInfoListener, MediaPlayer.OnPreparedListener, MediaPlayer.OnSeekCompleteListener {
         private b() {
         }
@@ -448,11 +448,11 @@ public class SwanAppAudioPlayer implements com.baidu.swan.apps.media.a {
             if (SwanAppAudioPlayer.DEBUG) {
                 Log.d("SwanAppAudioPlayer", "--onPrepared");
             }
-            SwanAppAudioPlayer.this.dlu = PlayerStatus.PREPARED;
-            if (SwanAppAudioPlayer.this.dlt != null) {
-                SwanAppAudioPlayer.this.dlt.qq("onCanplay");
+            SwanAppAudioPlayer.this.dgF = PlayerStatus.PREPARED;
+            if (SwanAppAudioPlayer.this.dgE != null) {
+                SwanAppAudioPlayer.this.dgE.pf("onCanplay");
             }
-            if (UserStatus.PLAY == SwanAppAudioPlayer.this.dlv) {
+            if (UserStatus.PLAY == SwanAppAudioPlayer.this.dgG) {
                 SwanAppAudioPlayer.this.start();
             }
         }
@@ -462,14 +462,14 @@ public class SwanAppAudioPlayer implements com.baidu.swan.apps.media.a {
             if (SwanAppAudioPlayer.DEBUG) {
                 Log.d("SwanAppAudioPlayer", "--onCompletion");
             }
-            if (!SwanAppAudioPlayer.this.akK().isLooping()) {
-                SwanAppAudioPlayer.this.dlv = UserStatus.STOP;
+            if (!SwanAppAudioPlayer.this.agQ().isLooping()) {
+                SwanAppAudioPlayer.this.dgG = UserStatus.STOP;
             }
-            SwanAppAudioPlayer.this.dlu = PlayerStatus.PREPARED;
-            if (SwanAppAudioPlayer.this.dlt != null) {
-                SwanAppAudioPlayer.this.dlt.qq("onEnded");
+            SwanAppAudioPlayer.this.dgF = PlayerStatus.PREPARED;
+            if (SwanAppAudioPlayer.this.dgE != null) {
+                SwanAppAudioPlayer.this.dgE.pf("onEnded");
             }
-            SwanAppAudioPlayer.this.dls.removeMessages(0);
+            SwanAppAudioPlayer.this.dgD.removeMessages(0);
         }
 
         @Override // android.media.MediaPlayer.OnInfoListener
@@ -509,8 +509,8 @@ public class SwanAppAudioPlayer implements com.baidu.swan.apps.media.a {
                     Log.d("SwanAppAudioPlayer", Log.getStackTraceString(e));
                 }
             }
-            if (SwanAppAudioPlayer.this.dlt != null) {
-                SwanAppAudioPlayer.this.dlt.h("onError", jSONObject);
+            if (SwanAppAudioPlayer.this.dgE != null) {
+                SwanAppAudioPlayer.this.dgE.h("onError", jSONObject);
                 return true;
             }
             return true;
@@ -521,8 +521,8 @@ public class SwanAppAudioPlayer implements com.baidu.swan.apps.media.a {
             if (SwanAppAudioPlayer.DEBUG) {
                 Log.d("SwanAppAudioPlayer", "--onSeekComplete");
             }
-            if (SwanAppAudioPlayer.this.dlt != null) {
-                SwanAppAudioPlayer.this.dlt.qq("onSeeked");
+            if (SwanAppAudioPlayer.this.dgE != null) {
+                SwanAppAudioPlayer.this.dgE.pf("onSeeked");
             }
         }
 
@@ -531,14 +531,14 @@ public class SwanAppAudioPlayer implements com.baidu.swan.apps.media.a {
             if (SwanAppAudioPlayer.DEBUG) {
                 Log.d("SwanAppAudioPlayer", "--onBufferUpdate -> " + i + "%");
             }
-            if (SwanAppAudioPlayer.this.dlu == PlayerStatus.PREPARED && (SwanAppAudioPlayer.this.akK().getDuration() * i) / 100 <= SwanAppAudioPlayer.this.akK().getCurrentPosition() && SwanAppAudioPlayer.this.dlt != null) {
-                SwanAppAudioPlayer.this.dlt.qq("onWaiting");
+            if (SwanAppAudioPlayer.this.dgF == PlayerStatus.PREPARED && (SwanAppAudioPlayer.this.agQ().getDuration() * i) / 100 <= SwanAppAudioPlayer.this.agQ().getCurrentPosition() && SwanAppAudioPlayer.this.dgE != null) {
+                SwanAppAudioPlayer.this.dgE.pf("onWaiting");
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public class a implements AudioManager.OnAudioFocusChangeListener {
         private a() {
         }
@@ -548,21 +548,21 @@ public class SwanAppAudioPlayer implements com.baidu.swan.apps.media.a {
             ak.runOnUiThread(new Runnable() { // from class: com.baidu.swan.apps.media.audio.SwanAppAudioPlayer.a.1
                 @Override // java.lang.Runnable
                 public void run() {
-                    if (!SwanAppAudioPlayer.this.aty()) {
+                    if (!SwanAppAudioPlayer.this.apD()) {
                         switch (i) {
                             case -2:
                                 if (SwanAppAudioPlayer.DEBUG) {
                                     Log.d("SwanAppAudioPlayer", "--focusChange AUDIOFOCUS_LOSS_TRANSIENT");
                                 }
                                 SwanAppAudioPlayer.this.abandonAudioFocus();
-                                SwanAppAudioPlayer.this.aEf();
+                                SwanAppAudioPlayer.this.aAl();
                                 return;
                             case -1:
                                 if (SwanAppAudioPlayer.DEBUG) {
                                     Log.d("SwanAppAudioPlayer", "--focusChange AUDIOFOCUS_LOSS");
                                 }
                                 SwanAppAudioPlayer.this.abandonAudioFocus();
-                                SwanAppAudioPlayer.this.aEf();
+                                SwanAppAudioPlayer.this.aAl();
                                 return;
                             default:
                                 return;

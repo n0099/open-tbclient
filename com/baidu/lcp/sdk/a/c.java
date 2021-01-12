@@ -19,31 +19,31 @@ public final class c {
         try {
             ArrayList arrayList = new ArrayList();
             arrayList.add(action);
-            return IMPushPb.PushImClient.newBuilder().setCommon(CommonUtils.getIMCommon(context, e.aN(context))).setSdkName("lcp").setSdkVersion(2240016L).addAllActions(arrayList).build().toByteArray();
+            return IMPushPb.PushImClient.newBuilder().setCommon(CommonUtils.getIMCommon(context, e.aM(context))).setSdkName("lcp").setSdkVersion(2240016L).addAllActions(arrayList).build().toByteArray();
         } catch (Exception e) {
             return null;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public byte[] at(Context context) {
+    public byte[] as(Context context) {
         try {
-            Set<String> az = d.az(context);
-            HashSet<String> hashSet = new HashSet(az);
+            Set<String> ay = d.ay(context);
+            HashSet<String> hashSet = new HashSet(ay);
             CopyOnWriteArrayList copyOnWriteArrayList = new CopyOnWriteArrayList();
-            if (az.size() <= 4000 && az.size() >= 1) {
+            if (ay.size() <= 4000 && ay.size() >= 1) {
                 for (String str : hashSet) {
                     copyOnWriteArrayList.add(IMPushPb.Action.parseFrom(Base64.decode(str, 0)));
                 }
             }
-            Set<String> ay = d.ay(context);
-            HashSet<String> hashSet2 = new HashSet(ay);
-            if (ay.size() <= 4000 - az.size() && ay.size() >= 1) {
+            Set<String> ax = d.ax(context);
+            HashSet<String> hashSet2 = new HashSet(ax);
+            if (ax.size() <= 4000 - ay.size() && ax.size() >= 1) {
                 for (String str2 : hashSet2) {
                     copyOnWriteArrayList.add(IMPushPb.Action.parseFrom(Base64.decode(str2, 0)));
                 }
             }
-            return IMPushPb.PushImClient.newBuilder().setCommon(CommonUtils.getIMCommon(context, e.aN(context))).setSdkName("lcp").setSdkVersion(2240016L).addAllActions(copyOnWriteArrayList).build().toByteArray();
+            return IMPushPb.PushImClient.newBuilder().setCommon(CommonUtils.getIMCommon(context, e.aM(context))).setSdkName("lcp").setSdkVersion(2240016L).addAllActions(copyOnWriteArrayList).build().toByteArray();
         } catch (Exception e) {
             com.baidu.lcp.sdk.d.d.e("TrackPbGenerator", "generateTrackClient :", e);
             return null;
@@ -52,7 +52,7 @@ public final class c {
 
     public static void a(Context context, Connection connection) {
         try {
-            HashSet hashSet = new HashSet(d.ay(context));
+            HashSet hashSet = new HashSet(d.ax(context));
             hashSet.add(Base64.encodeToString(b(connection.startTime, connection.stopTime, connection.reason, connection.retryTime, connection.retryCount, connection.ext, connection.aliasId).toByteArray(), 0));
             d.a(context, hashSet);
         } catch (Exception e) {
@@ -66,7 +66,7 @@ public final class c {
 
     public static void a(Context context, Request request) {
         try {
-            HashSet hashSet = new HashSet(d.az(context));
+            HashSet hashSet = new HashSet(d.ay(context));
             hashSet.add(Base64.encodeToString(generateRequestAction(request.method, request.requestId, request.timestamp, request.responseTime, request.errorCode, request.ext, request.aliasId).toByteArray(), 0));
             d.b(context, hashSet);
         } catch (Exception e) {

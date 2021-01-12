@@ -1,12 +1,12 @@
 package com.baidu.swan.apps.res.ui.wheelview3d.a;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class b implements c {
-    private int dDs;
-    private int dDt;
+    private int dyG;
+    private int dyH;
 
     public b(int i, int i2) {
-        this.dDs = i;
-        this.dDt = i2;
+        this.dyG = i;
+        this.dyH = i2;
     }
 
     @Override // com.baidu.swan.apps.res.ui.wheelview3d.a.c
@@ -14,11 +14,11 @@ public class b implements c {
         if (i < 0 || i >= getItemsCount()) {
             return 0;
         }
-        return Integer.valueOf(this.dDs + i);
+        return Integer.valueOf(this.dyG + i);
     }
 
     @Override // com.baidu.swan.apps.res.ui.wheelview3d.a.c
     public int getItemsCount() {
-        return (this.dDt - this.dDs) + 1;
+        return (this.dyH - this.dyG) + 1;
     }
 }

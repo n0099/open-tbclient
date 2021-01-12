@@ -4,7 +4,7 @@ import android.app.Service;
 import android.content.Intent;
 import android.os.IBinder;
 import com.baidu.swan.veloce.b;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class VelocePreloadService extends Service {
     private static final String ACTION_START_SWAN_APP = "com.baidu.veloce.swan.start_swan_app";
     private static final String KEY_SCHEME = "veloce_swan_scheme";
@@ -17,8 +17,8 @@ public class VelocePreloadService extends Service {
     @Override // android.app.Service
     public void onCreate() {
         super.onCreate();
-        if (b.bjr() != null) {
-            b.bjr().bjq();
+        if (b.bfx() != null) {
+            b.bfx().bfw();
         }
     }
 
@@ -26,8 +26,8 @@ public class VelocePreloadService extends Service {
     public int onStartCommand(Intent intent, int i, int i2) {
         if (intent != null && ACTION_START_SWAN_APP.equals(intent.getAction())) {
             String stringExtra = intent.getStringExtra(KEY_SCHEME);
-            if (b.bjr() != null) {
-                b.bjr().zP(stringExtra);
+            if (b.bfx() != null) {
+                b.bfx().yE(stringExtra);
             }
         }
         return super.onStartCommand(intent, i, i2);

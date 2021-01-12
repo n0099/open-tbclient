@@ -8,7 +8,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.lifecycle.ViewModelProvider;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class ViewModelProviders {
     private static Application checkApplication(Activity activity) {
         Application application = activity.getApplication();
@@ -59,7 +59,7 @@ public class ViewModelProviders {
     }
 
     @Deprecated
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class DefaultFactory extends ViewModelProvider.AndroidViewModelFactory {
         @Deprecated
         public DefaultFactory(@NonNull Application application) {

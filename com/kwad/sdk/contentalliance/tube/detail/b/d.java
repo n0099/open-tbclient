@@ -1,11 +1,11 @@
 package com.kwad.sdk.contentalliance.tube.detail.b;
 
 import com.kwad.sdk.internal.api.SceneImpl;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class d extends com.kwad.sdk.contentalliance.tube.detail.a.a {
 
     /* renamed from: b  reason: collision with root package name */
-    private boolean f9239b;
+    private boolean f8939b;
     private long c;
     private String d;
     private SceneImpl e;
@@ -21,10 +21,10 @@ public class d extends com.kwad.sdk.contentalliance.tube.detail.a.a {
 
         @Override // com.kwad.sdk.core.i.c
         public void c_() {
-            if (d.this.f9239b) {
+            if (d.this.f8939b) {
                 com.kwad.sdk.core.report.e.c(d.this.e);
             } else {
-                d.this.f9239b = true;
+                d.this.f8939b = true;
                 com.kwad.sdk.core.report.e.b(d.this.e);
             }
             d.this.c = System.currentTimeMillis();
@@ -35,13 +35,13 @@ public class d extends com.kwad.sdk.contentalliance.tube.detail.a.a {
     @Override // com.kwad.sdk.contentalliance.tube.detail.a.a, com.kwad.sdk.mvp.Presenter
     public void a() {
         super.a();
-        this.f = this.f9222a.c;
+        this.f = this.f8922a.c;
         if (this.f == null) {
             return;
         }
         this.f.a(this.g);
-        this.e = this.f9222a.f;
-        this.d = String.valueOf(this.f9222a.f9223a.hashCode());
+        this.e = this.f8922a.f;
+        this.d = String.valueOf(this.f8922a.f8923a.hashCode());
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

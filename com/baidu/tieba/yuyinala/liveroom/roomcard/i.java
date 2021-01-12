@@ -5,7 +5,7 @@ import android.content.Context;
 import android.os.Process;
 import com.baidu.live.adp.lib.util.BdLog;
 import com.baidu.live.tbadk.core.util.permission.PermissionJudgePolicy;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class i {
     public static boolean a(Context context, Activity activity) {
         try {

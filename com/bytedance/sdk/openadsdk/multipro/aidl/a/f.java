@@ -11,27 +11,27 @@ import java.util.Map;
 public class f extends a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static Map<String, RemoteCallbackList<IRewardAdInteractionListener>> f7656a = Collections.synchronizedMap(new HashMap());
+    private static Map<String, RemoteCallbackList<IRewardAdInteractionListener>> f7356a = Collections.synchronizedMap(new HashMap());
 
     /* renamed from: b  reason: collision with root package name */
-    private static volatile f f7657b;
+    private static volatile f f7357b;
 
     public static f a() {
-        if (f7657b == null) {
+        if (f7357b == null) {
             synchronized (f.class) {
-                if (f7657b == null) {
-                    f7657b = new f();
+                if (f7357b == null) {
+                    f7357b = new f();
                 }
             }
         }
-        return f7657b;
+        return f7357b;
     }
 
     @Override // com.bytedance.sdk.openadsdk.multipro.aidl.a.a, com.bytedance.sdk.openadsdk.IListenerManager
     public synchronized void registerRewardVideoListener(String str, IRewardAdInteractionListener iRewardAdInteractionListener) throws RemoteException {
         RemoteCallbackList<IRewardAdInteractionListener> remoteCallbackList = new RemoteCallbackList<>();
         remoteCallbackList.register(iRewardAdInteractionListener);
-        f7656a.put(str, remoteCallbackList);
+        f7356a.put(str, remoteCallbackList);
     }
 
     @Override // com.bytedance.sdk.openadsdk.multipro.aidl.a.a, com.bytedance.sdk.openadsdk.IListenerManager
@@ -42,11 +42,11 @@ public class f extends a {
     private synchronized void a(String str, String str2, boolean z, int i, String str3) {
         RemoteCallbackList<IRewardAdInteractionListener> remoteCallbackList;
         try {
-            if (f7656a != null) {
+            if (f7356a != null) {
                 if ("recycleRes".equals(str2)) {
-                    remoteCallbackList = f7656a.remove(str);
+                    remoteCallbackList = f7356a.remove(str);
                 } else {
-                    remoteCallbackList = f7656a.get(str);
+                    remoteCallbackList = f7356a.get(str);
                 }
                 if (remoteCallbackList != null) {
                     int beginBroadcast = remoteCallbackList.beginBroadcast();

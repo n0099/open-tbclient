@@ -23,33 +23,33 @@ import java.util.HashSet;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class a {
-    private static final String[] ayY = {"f0fb772cce0da4ed791213b800defea286494ab98d00e1101cbf78a35e70ec4b"};
-    private a.C0141a ayV;
-    private ZipFile ayW;
-    private PackageManager ayX;
+    private static final String[] aum = {"f0fb772cce0da4ed791213b800defea286494ab98d00e1101cbf78a35e70ec4b"};
+    private a.C0133a auj;
+    private ZipFile auk;
+    private PackageManager aul;
     private String k;
     private Context l;
 
     /* renamed from: com.baidu.helios.trusts.zone.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes4.dex */
-    static class C0151a {
+    /* loaded from: classes3.dex */
+    static class C0143a {
 
         /* renamed from: a  reason: collision with root package name */
-        public long f2519a;
+        public long f2469a;
 
-        C0151a() {
+        C0143a() {
         }
 
-        public static C0151a a(a aVar) {
+        public static C0143a a(a aVar) {
             try {
                 String a2 = aVar.a("info");
                 if (!TextUtils.isEmpty(a2)) {
                     JSONObject jSONObject = new JSONObject(a2);
-                    C0151a c0151a = new C0151a();
-                    c0151a.f2519a = jSONObject.getLong("version");
-                    return c0151a;
+                    C0143a c0143a = new C0143a();
+                    c0143a.f2469a = jSONObject.getLong("version");
+                    return c0143a;
                 }
             } catch (Exception e) {
                 e.printStackTrace();
@@ -60,19 +60,19 @@ public class a {
 
     private InputStream b(String str) {
         try {
-            return this.ayW.getInputStream(new ZipEntry(str));
+            return this.auk.getInputStream(new ZipEntry(str));
         } catch (Exception e) {
             throw new TrustSubject.ConfigNotFoundException(e);
         }
     }
 
     private File h() {
-        return this.ayV.getFile("c.dat");
+        return this.auj.getFile("c.dat");
     }
 
     public long a() {
         try {
-            Bundle bundle = this.ayX.getPackageInfo(this.k, 128).applicationInfo.metaData;
+            Bundle bundle = this.aul.getPackageInfo(this.k, 128).applicationInfo.metaData;
             if (bundle != null) {
                 String string = bundle.getString("com.baidu.helios.tc.qver");
                 if (!TextUtils.isEmpty(string) && string.startsWith("v")) {
@@ -98,11 +98,11 @@ public class a {
         }
     }
 
-    public void a(String str, Context context, a.C0141a c0141a) {
+    public void a(String str, Context context, a.C0133a c0133a) {
         this.k = str;
         this.l = context;
-        this.ayV = c0141a;
-        this.ayX = context.getPackageManager();
+        this.auj = c0133a;
+        this.aul = context.getPackageManager();
     }
 
     public int b() {
@@ -113,7 +113,7 @@ public class a {
         FileOutputStream fileOutputStream2;
         try {
             AssetManager assets = this.l.createPackageContext(this.k, 0).getAssets();
-            this.ayV.zg();
+            this.auj.vl();
             File h = h();
             try {
                 h.delete();
@@ -127,8 +127,8 @@ public class a {
                                 d.a(inputStream, fileOutputStream, 16384);
                                 X509Certificate[][] x509CertificateArr = null;
                                 try {
-                                    X509Certificate[][] n = b.n(file);
-                                    if (n.length == 0) {
+                                    X509Certificate[][] m = b.m(file);
+                                    if (m.length == 0) {
                                         c.c(inputStream);
                                         c.c(fileOutputStream);
                                         if (file != null) {
@@ -140,17 +140,17 @@ public class a {
                                         return 3;
                                     }
                                     HashSet hashSet = new HashSet();
-                                    for (X509Certificate[] x509CertificateArr2 : n) {
+                                    for (X509Certificate[] x509CertificateArr2 : m) {
                                         if (x509CertificateArr2 != null) {
                                             for (X509Certificate x509Certificate : x509CertificateArr2) {
                                                 if (x509Certificate != null) {
-                                                    hashSet.add(f.A(x509Certificate.getSignature()));
+                                                    hashSet.add(f.z(x509Certificate.getSignature()));
                                                 }
                                             }
                                         }
                                     }
                                     HashSet hashSet2 = new HashSet();
-                                    Collections.addAll(hashSet2, ayY);
+                                    Collections.addAll(hashSet2, aum);
                                     if (!hashSet2.equals(hashSet)) {
                                         c.c(inputStream);
                                         c.c(fileOutputStream);
@@ -289,7 +289,7 @@ public class a {
     }
 
     public boolean d() {
-        File[] listFiles = this.ayV.zh().listFiles(new FilenameFilter() { // from class: com.baidu.helios.trusts.zone.a.a.1
+        File[] listFiles = this.auj.vm().listFiles(new FilenameFilter() { // from class: com.baidu.helios.trusts.zone.a.a.1
             @Override // java.io.FilenameFilter
             public boolean accept(File file, String str) {
                 return str.endsWith(".cfgtmp");
@@ -307,13 +307,13 @@ public class a {
     }
 
     public boolean e() {
-        if (this.ayW != null) {
+        if (this.auk != null) {
             return true;
         }
         File h = h();
         if (h.exists()) {
             try {
-                this.ayW = new ZipFile(h);
+                this.auk = new ZipFile(h);
                 return true;
             } catch (IOException e) {
                 e.printStackTrace();
@@ -323,18 +323,18 @@ public class a {
     }
 
     public boolean f() {
-        if (this.ayW != null) {
-            c.a(this.ayW);
-            this.ayW = null;
+        if (this.auk != null) {
+            c.a(this.auk);
+            this.auk = null;
             return true;
         }
         return false;
     }
 
     public long g() {
-        C0151a a2 = C0151a.a(this);
+        C0143a a2 = C0143a.a(this);
         if (a2 != null) {
-            return a2.f2519a;
+            return a2.f2469a;
         }
         return 0L;
     }

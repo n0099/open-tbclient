@@ -2,7 +2,7 @@ package com.baidu.live.yuyingift.message;
 
 import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class YuyinAlaComboEndHttpResponseMessage extends JsonHttpResponsedMessage {
     public YuyinAlaComboEndHttpResponseMessage(int i) {
         super(i);

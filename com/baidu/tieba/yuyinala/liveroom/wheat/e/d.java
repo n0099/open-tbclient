@@ -1,15 +1,15 @@
 package com.baidu.tieba.yuyinala.liveroom.wheat.e;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class d {
-    private static c oER;
-    public static boolean oyu = false;
+    private static c oAm;
+    public static boolean otO = false;
 
     public static void bj(String str, boolean z) {
-        if (oyu) {
-            if (oER == null) {
-                oER = new c();
+        if (otO) {
+            if (oAm == null) {
+                oAm = new c();
             }
-            oER.report(str);
+            oAm.report(str);
         }
     }
 }

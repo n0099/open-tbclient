@@ -7,7 +7,7 @@ import com.baidu.swan.games.utils.so.SoUtils;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class h {
     public static JSONObject a(Context context) {
         JSONObject jSONObject = new JSONObject();

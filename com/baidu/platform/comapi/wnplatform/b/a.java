@@ -1,32 +1,27 @@
 package com.baidu.platform.comapi.wnplatform.b;
 
 import android.os.Bundle;
-import com.baidu.platform.comapi.basestruct.GeoPoint;
+import com.baidu.mapapi.model.inner.GeoPoint;
 import com.baidu.platform.comapi.walknavi.b;
-import com.baidu.platform.comapi.wnplatform.e.c;
-import com.baidu.platform.comapi.wnplatform.e.d;
 import com.baidu.platform.comjni.bikenavi.JNIGuidanceControl;
-import com.google.protobuf.micro.MessageMicro;
-import java.io.IOException;
-import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class a extends com.baidu.platform.comapi.walknavi.a {
 
     /* renamed from: a  reason: collision with root package name */
-    int f4612a;
+    int f4394a;
 
     /* renamed from: b  reason: collision with root package name */
-    private JNIGuidanceControl f4613b;
+    private JNIGuidanceControl f4395b;
     private long c;
     private boolean d;
 
     public a() {
-        this.f4613b = null;
+        this.f4395b = null;
         this.c = 0L;
         this.d = false;
-        this.c = b.a().E().c();
+        this.c = b.a().B().c();
         if (this.c != 0) {
-            this.f4613b = new JNIGuidanceControl();
+            this.f4395b = new JNIGuidanceControl();
         }
         this.d = false;
     }
@@ -34,7 +29,7 @@ public class a extends com.baidu.platform.comapi.walknavi.a {
     @Override // com.baidu.platform.comapi.walknavi.a
     public void release() {
         a(true);
-        this.f4613b = null;
+        this.f4395b = null;
     }
 
     @Override // com.baidu.platform.comapi.walknavi.a
@@ -43,95 +38,58 @@ public class a extends com.baidu.platform.comapi.walknavi.a {
     }
 
     public boolean a(int[] iArr, int[] iArr2, int[] iArr3, int[] iArr4) {
-        if (this.f4613b != null) {
-            this.f4612a = iArr.length;
-            String[] strArr = new String[this.f4612a];
-            String[] strArr2 = new String[this.f4612a];
+        if (this.f4395b != null) {
+            this.f4394a = iArr.length;
+            String[] strArr = new String[this.f4394a];
+            String[] strArr2 = new String[this.f4394a];
             for (int i = 0; i < strArr.length; i++) {
                 strArr[i] = "";
             }
             for (int i2 = 0; i2 < strArr2.length; i2++) {
                 strArr2[i2] = "";
             }
-            return this.f4613b.setNaviNodes(this.c, iArr, iArr2, iArr3, iArr4, strArr, strArr2, null, null);
-        }
-        return false;
-    }
-
-    public boolean a(int[] iArr, int[] iArr2, int[] iArr3, int[] iArr4, String[] strArr, String[] strArr2) {
-        if (this.f4613b != null) {
-            this.f4612a = iArr.length;
-            return this.f4613b.setNaviNodes(this.c, iArr, iArr2, iArr3, iArr4, strArr, strArr2, null, null);
+            return this.f4395b.setNaviNodes(this.c, iArr, iArr2, iArr3, iArr4, strArr, strArr2);
         }
         return false;
     }
 
     public int a() {
-        return this.f4612a;
+        return this.f4394a;
     }
 
     public int b() {
-        if (this.f4613b != null) {
+        if (this.f4395b != null) {
+            return this.f4395b.getTrafficFacilitiesNum(this.c);
         }
         return 0;
     }
 
     public boolean a(int[] iArr, int[] iArr2, int[] iArr3) {
-        if (this.f4613b != null) {
-            Bundle bundle = new Bundle();
-            bundle.putIntArray("type", iArr3);
-            bundle.putIntArray("x", iArr);
-            bundle.putIntArray("y", iArr2);
-            return this.f4613b.getTrafficFacilities(this.c, bundle);
+        if (this.f4395b != null) {
+            return this.f4395b.getTrafficFacilities(this.c, iArr, iArr2, iArr3);
         }
         return false;
     }
 
     public boolean b(int[] iArr, int[] iArr2, int[] iArr3) {
-        if (this.f4613b != null) {
-            Bundle bundle = new Bundle();
-            bundle.putIntArray("x", iArr);
-            bundle.putIntArray("y", iArr2);
-            bundle.putIntArray("serial", iArr3);
-            return this.f4613b.getViaNaviNodes(this.c, bundle);
+        if (this.f4395b != null) {
+            return this.f4395b.getViaNaviNodes(this.c, iArr, iArr2, iArr3);
         }
         return false;
     }
 
-    public int a(int i, int i2, int i3, int i4, byte[] bArr) {
+    public int a(int i, int i2, int i3, byte[] bArr) {
         com.baidu.platform.comapi.wnplatform.d.a.a("WNaviGuidance.calcRoute", "" + bArr);
-        if (this.f4613b != null) {
-            return this.f4613b.calcRoute(this.c, i, i2, i3, bArr);
+        if (this.f4395b != null) {
+            return this.f4395b.CalcRoute(this.c, i, i2, i3, bArr);
         }
         return 0;
     }
 
-    public int a(String str) {
-        if (this.f4613b != null) {
-            return this.f4613b.SearchRoutePlan(this.c, str);
-        }
-        return 0;
-    }
-
-    public com.baidu.platform.comapi.wnplatform.e.a a(int i) {
-        byte[] GetProtobufResult;
-        c cVar;
-        if (this.f4613b == null || (GetProtobufResult = this.f4613b.GetProtobufResult(this.c, i)) == null) {
-            return null;
-        }
-        try {
-            List<MessageMicro> a2 = d.a(GetProtobufResult);
-            cVar = a2.size() >= 1 ? new c(0, 31, a2) : null;
-        } catch (IOException e) {
-            cVar = null;
-        }
-        return cVar;
-    }
-
-    public Bundle b(int i) {
+    public Bundle a(int i) {
         com.baidu.platform.comapi.wnplatform.d.a.a("WNaviGuidance.getRoutePlanResult", "" + i);
         Bundle bundle = new Bundle();
-        if (this.f4613b.getRouteResult(this.c, i, bundle)) {
+        if (this.f4395b.GetRouteResult(this.c, i, bundle)) {
             return bundle;
         }
         return null;
@@ -139,28 +97,28 @@ public class a extends com.baidu.platform.comapi.walknavi.a {
 
     public void c() {
         com.baidu.platform.comapi.wnplatform.d.a.a("WNaviGuidance.resumeReRouteCalcRoute", "");
-        if (this.f4613b != null) {
-            this.f4613b.resumeReRouteCalcRoute(this.c);
+        if (this.f4395b != null) {
+            this.f4395b.ResumeReRouteCalcRoute(this.c);
         }
     }
 
     public int d() {
         com.baidu.platform.comapi.wnplatform.d.a.a("WNaviGuidance.getCurCorrectDirection", "");
-        if (this.f4613b != null) {
-            return this.f4613b.getCurCorrectDirection(this.c);
+        if (this.f4395b != null) {
+            return this.f4395b.GetCurCorrectDirection(this.c);
         }
         return 0;
     }
 
     public void a(double d, double d2, double d3, double d4, double d5, double d6) {
-        if (this.f4613b != null) {
-            this.f4613b.updateSensor(this.c, d, d2, d3, d4, d5, d6);
+        if (this.f4395b != null) {
+            this.f4395b.UpdateSensor(this.c, d, d2, d3, d4, d5, d6);
         }
     }
 
     public void a(boolean z) {
-        if (this.f4613b != null) {
-            this.f4613b.setBrowseStatus(this.c, z);
+        if (this.f4395b != null) {
+            this.f4395b.SetBrowseStatus(this.c, z);
         }
     }
 
@@ -173,29 +131,29 @@ public class a extends com.baidu.platform.comapi.walknavi.a {
             geoPoint.setLatitudeE6(iArr2[0]);
             return geoPoint;
         }
-        return b.a().S().b();
+        return b.a().P().b();
     }
 
-    public boolean c(int i) {
+    public boolean b(int i) {
         com.baidu.platform.comapi.wnplatform.d.a.a("WNaviGuidance.setRotateMode", "" + i);
-        if (this.f4613b != null) {
-            return this.f4613b.setRotateMode(this.c, i);
+        if (this.f4395b != null) {
+            return this.f4395b.SetRotateMode(this.c, i);
         }
         return false;
     }
 
     public boolean a(int[] iArr, int[] iArr2) {
         com.baidu.platform.comapi.wnplatform.d.a.a("WNaviGuidance.getShowPoint", "" + iArr.toString() + " " + iArr2.toString());
-        if (this.f4613b != null) {
-            return this.f4613b.getCarPoint(this.c, iArr, iArr2);
+        if (this.f4395b != null) {
+            return this.f4395b.GetCarPoint(this.c, iArr, iArr2);
         }
         return false;
     }
 
     public boolean f() {
         com.baidu.platform.comapi.wnplatform.d.a.a("WNaviGuidance.isBrowseStatus", "");
-        if (this.f4613b != null) {
-            return this.f4613b.isBrowseStatus(this.c);
+        if (this.f4395b != null) {
+            return this.f4395b.IsBrowseStatus(this.c);
         }
         return false;
     }
@@ -206,55 +164,55 @@ public class a extends com.baidu.platform.comapi.walknavi.a {
 
     public boolean h() {
         com.baidu.platform.comapi.wnplatform.d.a.a("WNaviGuidance.startRouteGuide", "");
-        if (this.f4613b != null) {
+        if (this.f4395b != null) {
             this.d = true;
-            return this.f4613b.startRouteGuide(this.c);
+            return this.f4395b.StartRouteGuide(this.c);
         }
         return false;
     }
 
     public boolean i() {
         com.baidu.platform.comapi.wnplatform.d.a.a("WNaviGuidance.stopRouteGuide", "");
-        if (this.f4613b != null) {
-            return this.f4613b.stopRouteGuide(this.c);
+        if (this.f4395b != null) {
+            return this.f4395b.StopRouteGuide(this.c);
         }
         return false;
     }
 
     public boolean j() {
         com.baidu.platform.comapi.wnplatform.d.a.a("WNaviGuidance.resumeRouteGuide", "");
-        if (this.f4613b != null) {
-            return this.f4613b.resumeRouteGuide(this.c);
+        if (this.f4395b != null) {
+            return this.f4395b.ResumeRouteGuide(this.c);
         }
         return false;
     }
 
     public boolean k() {
         com.baidu.platform.comapi.wnplatform.d.a.a("WNaviGuidance.pauseRouteGuide", "");
-        if (this.f4613b != null) {
-            return this.f4613b.pauseRouteGuide(this.c);
+        if (this.f4395b != null) {
+            return this.f4395b.PauseRouteGuide(this.c);
         }
         return false;
     }
 
     public boolean a(Bundle bundle) {
         com.baidu.platform.comapi.wnplatform.d.a.a("WNaviGuidance.getSimpleGuideInfo", "" + bundle.toString());
-        if (this.f4613b != null) {
-            return this.f4613b.getSimpleMapInfo(this.c, bundle);
+        if (this.f4395b != null) {
+            return this.f4395b.GetSimpleMapInfo(this.c, bundle);
         }
         return false;
     }
 
-    public boolean d(int i) {
-        if (this.f4613b != null) {
-            return this.f4613b.setLocateMode(this.c, i);
+    public boolean c(int i) {
+        if (this.f4395b != null) {
+            return this.f4395b.SetLocateMode(this.c, i);
         }
         return false;
     }
 
     public boolean a(double d, double d2, float f, float f2, float f3, float f4, String str, String str2, int i, int i2) {
-        if (this.f4613b != null) {
-            return this.f4613b.triggerGPSDataChange(this.c, d, d2, f, f2, f3, f4, str, str2, i, i2, 0, 0, 0, 0.0f);
+        if (this.f4395b != null) {
+            return this.f4395b.TriggerGPSDataChange(this.c, d, d2, f, f2, f3, f4, str, str2, i, i2);
         }
         return false;
     }
@@ -263,49 +221,49 @@ public class a extends com.baidu.platform.comapi.walknavi.a {
         return null;
     }
 
-    public boolean b(String str) {
-        if (this.f4613b != null) {
-            return this.f4613b.setNetStatistics(this.c, str);
+    public boolean a(String str) {
+        if (this.f4395b != null) {
+            return this.f4395b.SetNetStatistics(this.c, str);
         }
         return false;
     }
 
-    public void e(int i) {
+    public void d(int i) {
         com.baidu.platform.comapi.wnplatform.d.a.a("WNaviGuidance.setGuideTextMaxWordCnt", "");
-        if (this.f4613b != null) {
-            this.f4613b.setGuideTextMaxWordCnt(this.c, i);
+        if (this.f4395b != null) {
+            this.f4395b.SetGuideTextMaxWordCnt(this.c, i);
         }
     }
 
     public boolean a(int i, int i2, Bundle bundle) {
         com.baidu.platform.comapi.wnplatform.d.a.a("WNaviGuidance.getStepGuideText", "");
-        if (this.f4613b != null) {
-            return this.f4613b.getGuideParagraph(this.c, i, i2, bundle);
+        if (this.f4395b != null) {
+            return this.f4395b.GetGuideParagraph(this.c, i, i2, bundle);
         }
         return false;
     }
 
-    public void f(int i) {
+    public void e(int i) {
         com.baidu.platform.comapi.wnplatform.d.a.a("WNaviGuidance.setRouteStepFocus", "");
-        if (this.f4613b != null) {
-            this.f4613b.setParagraphFocus(this.c, i);
+        if (this.f4395b != null) {
+            this.f4395b.SetParagraphFocus(this.c, i);
         }
     }
 
     public Bundle m() {
         com.baidu.platform.comapi.wnplatform.d.a.a("WNaviGuidance.getNaviRouteBoundWithNoMargin", "");
         Bundle bundle = new Bundle();
-        if (this.f4613b == null || !this.f4613b.getNaviRouteBoundWithNoMargin(this.c, bundle)) {
-            return null;
+        if (this.f4395b != null) {
+            this.f4395b.GetNaviRouteBoundWithNoMargin(this.c, bundle);
         }
         return bundle;
     }
 
-    public Bundle g(int i) {
+    public Bundle f(int i) {
         com.baidu.platform.comapi.wnplatform.d.a.a("WNaviGuidance.getParagraphBound", "");
         Bundle bundle = new Bundle();
-        if (this.f4613b != null) {
-            this.f4613b.getParagraphBound(this.c, i, bundle);
+        if (this.f4395b != null) {
+            this.f4395b.GetParagraphBound(this.c, i, bundle);
         }
         return bundle;
     }
@@ -313,98 +271,79 @@ public class a extends com.baidu.platform.comapi.walknavi.a {
     public Bundle n() {
         com.baidu.platform.comapi.wnplatform.d.a.a("WNaviGuidance.getFirstParagraph", "");
         Bundle bundle = new Bundle();
-        if (this.f4613b != null) {
-            this.f4613b.getFirstParagraph(this.c, bundle);
+        if (this.f4395b != null) {
+            this.f4395b.GetFirstParagraph(this.c, bundle);
         }
         return bundle;
     }
 
-    public void a(int i, int i2, int i3, String str, String str2) {
+    public void a(int i, int i2, int i3) {
         com.baidu.platform.comapi.wnplatform.d.a.a("WNaviGuidance.setVehiclePos", " " + i + " " + i2 + " " + i3);
-        if (this.f4613b != null) {
-            this.f4613b.setVehiclePos(this.c, i, i2, i3, str, str2);
+        if (this.f4395b != null) {
+            this.f4395b.SetVehiclePos(this.c, i, i2, i3);
         }
     }
 
     public void o() {
         com.baidu.platform.comapi.wnplatform.d.a.a("WNaviGuidance.PrepareRouteGuide", "");
-        if (this.f4613b != null) {
-            this.f4613b.prepareRouteGuide(this.c);
+        if (this.f4395b != null) {
+            this.f4395b.PrepareRouteGuide(this.c);
+        }
+    }
+
+    public void g(int i) {
+        if (this.f4395b != null) {
+            this.f4395b.SetNaviType(this.c, i);
         }
     }
 
     public void h(int i) {
-        if (this.f4613b != null) {
-            this.f4613b.setNaviType(this.c, i);
-        }
-    }
-
-    public void i(int i) {
-        if (this.f4613b != null) {
-            this.f4613b.setNaviMode(this.c, i);
+        if (this.f4395b != null) {
+            this.f4395b.setNaviMode(this.c, i);
         }
     }
 
     public void b(Bundle bundle) {
-        if (this.f4613b != null) {
-            this.f4613b.getTravelData(this.c, bundle);
+        if (this.f4395b != null) {
+            this.f4395b.GetTravelData(this.c, bundle);
         }
     }
 
-    public boolean j(int i) {
-        if (this.f4613b != null) {
-            return this.f4613b.setOriNaviOverlooking(this.c, i);
+    public boolean i(int i) {
+        if (this.f4395b != null) {
+            return this.f4395b.setOriNaviOverlooking(this.c, i);
         }
         return false;
     }
 
     public boolean c(Bundle bundle) {
-        if (this.f4613b != null) {
-            return this.f4613b.getCurViaPoiPanoImage(this.c, bundle);
+        if (this.f4395b != null) {
+            return this.f4395b.getCurViaPoiPanoImage(this.c, bundle);
         }
         return false;
     }
 
     public void b(boolean z) {
-        if (this.f4613b != null) {
-            this.f4613b.needShowPoiPanoImage(this.c, z);
+        if (this.f4395b != null) {
+            this.f4395b.needShowPoiPanoImage(this.c, z);
         }
     }
 
     public void p() {
-        if (this.f4613b != null) {
-            this.f4613b.registerGetLaunchSystemTime(this.c);
+        if (this.f4395b != null) {
+            this.f4395b.registerGetLaunchSystemTime(this.c);
         }
-    }
-
-    public void a(String str, String str2) {
-        if (this.f4613b != null) {
-            this.f4613b.showFloor(this.c, str, str2);
-        }
-    }
-
-    public boolean q() {
-        if (this.f4613b == null) {
-            return false;
-        }
-        return this.f4613b.isEngineIndoorNaviDefine(this.c);
     }
 
     public void c(boolean z) {
-        if (this.f4613b != null) {
-            this.f4613b.supportIndoorNavi(this.c, z);
-        }
-    }
-
-    public void d(boolean z) {
-        if (this.f4613b != null) {
-            this.f4613b.showNPCModel(this.c, z);
+        if (this.f4395b != null) {
+            this.f4395b.ShowNPCModel(this.c, z);
         }
     }
 
     public void a(int i, int i2) {
-        if (this.f4613b != null) {
-            this.f4613b.setARRouteResID(this.c, i, i2);
+        if (this.f4395b != null) {
+            this.f4395b.setARRouteResID(this.c, i, i2);
         }
     }
 }

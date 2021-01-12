@@ -9,7 +9,7 @@ import com.kwad.sdk.api.KsNativeAd;
 import com.kwad.sdk.api.loader.Wrapper;
 @KsAdSdkDynamicApi
 @Keep
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public abstract class AbstractKsNativeAd implements KsNativeAd {
     @Override // com.kwad.sdk.api.KsNativeAd
     @Nullable

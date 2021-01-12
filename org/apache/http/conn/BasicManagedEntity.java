@@ -6,7 +6,7 @@ import java.io.OutputStream;
 import org.apache.http.HttpEntity;
 import org.apache.http.entity.HttpEntityWrapper;
 @Deprecated
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class BasicManagedEntity extends HttpEntityWrapper implements ConnectionReleaseTrigger, EofSensorWatcher {
     protected final boolean attemptReuse;
     protected ManagedClientConnection managedConn;

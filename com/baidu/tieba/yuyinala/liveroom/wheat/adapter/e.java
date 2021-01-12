@@ -17,15 +17,15 @@ import com.baidu.live.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.yuyinala.liveroom.wheat.c.o;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class e extends BaseAdapter {
-    private static boolean oyi = true;
+    private static boolean otC = true;
     private Context mContext;
-    private ArrayList<AlaWheatInfoData> akq = new ArrayList<>();
-    private ArrayList<AlaWheatInfoData> oyh = new ArrayList<>();
-    private a oyj = null;
+    private ArrayList<AlaWheatInfoData> ajz = new ArrayList<>();
+    private ArrayList<AlaWheatInfoData> otB = new ArrayList<>();
+    private a otD = null;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public interface a {
         void I(View view, int i);
 
@@ -37,19 +37,19 @@ public class e extends BaseAdapter {
     }
 
     public void a(a aVar) {
-        this.oyj = aVar;
+        this.otD = aVar;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        return ListUtils.getCount(this.akq);
+        return ListUtils.getCount(this.ajz);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: NA */
+    /* renamed from: LT */
     public AlaWheatInfoData getItem(int i) {
-        return (AlaWheatInfoData) ListUtils.getItem(this.akq, i);
+        return (AlaWheatInfoData) ListUtils.getItem(this.ajz, i);
     }
 
     @Override // android.widget.Adapter
@@ -71,19 +71,19 @@ public class e extends BaseAdapter {
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
                 if (i == 0) {
-                    boolean unused = e.oyi = e.oyi ? false : true;
-                    e.this.zH(e.oyi);
+                    boolean unused = e.otC = e.otC ? false : true;
+                    e.this.zD(e.otC);
                 } else {
                     AlaWheatInfoData item = e.this.getItem(i);
                     if (item != null) {
                         item.clearSelectFlag = item.clearSelectFlag ? false : true;
                         bVar.a(i, item);
-                        e.this.edZ();
+                        e.this.eah();
                     }
                 }
                 e.this.notifyDataSetChanged();
-                if (e.this.oyj != null) {
-                    e.this.oyj.I(view2, i);
+                if (e.this.otD != null) {
+                    e.this.otD.I(view2, i);
                 }
             }
         });
@@ -91,33 +91,33 @@ public class e extends BaseAdapter {
         return view;
     }
 
-    public void edW() {
-        this.oyh.clear();
-        for (int i = 0; i < this.akq.size(); i++) {
-            if (this.akq.get(i) != null) {
-                this.oyh.add((AlaWheatInfoData) this.akq.get(i).clone());
+    public void eae() {
+        this.otB.clear();
+        for (int i = 0; i < this.ajz.size(); i++) {
+            if (this.ajz.get(i) != null) {
+                this.otB.add((AlaWheatInfoData) this.ajz.get(i).clone());
             } else {
-                this.oyh.add(null);
+                this.otB.add(null);
             }
         }
-        this.akq.clear();
-        this.akq.add(new AlaWheatInfoData());
+        this.ajz.clear();
+        this.ajz.add(new AlaWheatInfoData());
         List<AlaWheatInfoData> arrayList = new ArrayList<>();
-        if (o.efg().aaq() == null || o.efg().aaq().size() == 0) {
+        if (o.ebo().Wx() == null || o.ebo().Wx().size() == 0) {
             arrayList.add(null);
         } else {
-            arrayList = o.efg().aaq();
+            arrayList = o.ebo().Wx();
         }
-        this.akq.addAll(arrayList);
-        this.akq.addAll(o.efg().efj());
-        for (int i2 = 0; i2 < this.akq.size(); i2++) {
-            AlaWheatInfoData alaWheatInfoData = this.akq.get(i2);
+        this.ajz.addAll(arrayList);
+        this.ajz.addAll(o.ebo().ebr());
+        for (int i2 = 0; i2 < this.ajz.size(); i2++) {
+            AlaWheatInfoData alaWheatInfoData = this.ajz.get(i2);
             if (alaWheatInfoData != null) {
-                if (oyi) {
-                    alaWheatInfoData.clearSelectFlag = oyi;
+                if (otC) {
+                    alaWheatInfoData.clearSelectFlag = otC;
                 } else {
-                    for (int i3 = 0; i3 < this.oyh.size(); i3++) {
-                        AlaWheatInfoData alaWheatInfoData2 = this.oyh.get(i3);
+                    for (int i3 = 0; i3 < this.otB.size(); i3++) {
+                        AlaWheatInfoData alaWheatInfoData2 = this.otB.get(i3);
                         if (alaWheatInfoData2 != null && TextUtils.equals(alaWheatInfoData.uk, alaWheatInfoData2.uk)) {
                             alaWheatInfoData.clearSelectFlag = alaWheatInfoData2.clearSelectFlag;
                         }
@@ -126,25 +126,25 @@ public class e extends BaseAdapter {
             }
         }
         notifyDataSetChanged();
-        if (this.oyj != null) {
-            this.oyj.notifyDataSetChanged();
+        if (this.otD != null) {
+            this.otD.notifyDataSetChanged();
         }
     }
 
-    public String edX() {
+    public String eaf() {
         int i = 1;
         StringBuilder sb = new StringBuilder();
-        if (this.akq.size() > 1) {
+        if (this.ajz.size() > 1) {
             while (true) {
                 int i2 = i;
-                if (i2 >= this.akq.size()) {
+                if (i2 >= this.ajz.size()) {
                     break;
                 }
-                if (this.akq.get(i2) != null && this.akq.get(i2).clearSelectFlag) {
+                if (this.ajz.get(i2) != null && this.ajz.get(i2).clearSelectFlag) {
                     if (!sb.toString().isEmpty()) {
                         sb.append(",");
                     }
-                    sb.append(this.akq.get(i2).uk);
+                    sb.append(this.ajz.get(i2).uk);
                 }
                 i = i2 + 1;
             }
@@ -152,29 +152,29 @@ public class e extends BaseAdapter {
         return sb.toString();
     }
 
-    public boolean edY() {
-        return oyi;
+    public boolean eag() {
+        return otC;
     }
 
-    public void edZ() {
-        if (this.akq.size() > 1) {
+    public void eah() {
+        if (this.ajz.size() > 1) {
             boolean z = true;
-            for (int i = 1; i < this.akq.size(); i++) {
-                if (this.akq.get(i) != null && !this.akq.get(i).clearSelectFlag) {
+            for (int i = 1; i < this.ajz.size(); i++) {
+                if (this.ajz.get(i) != null && !this.ajz.get(i).clearSelectFlag) {
                     z = false;
                 }
             }
-            oyi = z;
+            otC = z;
         }
     }
 
-    public void zH(boolean z) {
+    public void zD(boolean z) {
         int i = 0;
         while (true) {
             int i2 = i;
-            if (i2 < this.akq.size()) {
-                if (this.akq.get(i2) != null) {
-                    this.akq.get(i2).clearSelectFlag = z;
+            if (i2 < this.ajz.size()) {
+                if (this.ajz.get(i2) != null) {
+                    this.ajz.get(i2).clearSelectFlag = z;
                 }
                 i = i2 + 1;
             } else {
@@ -183,105 +183,105 @@ public class e extends BaseAdapter {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public static class b {
-        public HeadImageView biV;
-        public TextView hyv;
+        public HeadImageView bec;
+        public TextView htP;
         public boolean mSelected = false;
-        public FrameLayout oym;
-        public ImageView oyn;
-        public LinearLayout oyo;
-        public TextView oyp;
-        public TextView oyq;
-        public LinearLayout oyr;
-        public ImageView oys;
-        public AlaWheatInfoData oyt;
+        public FrameLayout otG;
+        public ImageView otH;
+        public LinearLayout otI;
+        public TextView otJ;
+        public TextView otK;
+        public LinearLayout otL;
+        public ImageView otM;
+        public AlaWheatInfoData otN;
 
         public b(View view) {
-            this.oym = (FrameLayout) view.findViewById(a.f.user_avatar_container);
-            this.biV = (HeadImageView) view.findViewById(a.f.user_avatar);
-            this.oyn = (ImageView) view.findViewById(a.f.user_avatar_circle);
-            this.oyo = (LinearLayout) view.findViewById(a.f.user_label);
-            this.oyp = (TextView) view.findViewById(a.f.tv_host_label);
-            this.oyq = (TextView) view.findViewById(a.f.tv_anchor_label);
-            this.oyr = (LinearLayout) view.findViewById(a.f.charm_container_ll);
-            this.oys = (ImageView) view.findViewById(a.f.iv_charm_icon);
-            this.hyv = (TextView) view.findViewById(a.f.tv_charm_value);
+            this.otG = (FrameLayout) view.findViewById(a.f.user_avatar_container);
+            this.bec = (HeadImageView) view.findViewById(a.f.user_avatar);
+            this.otH = (ImageView) view.findViewById(a.f.user_avatar_circle);
+            this.otI = (LinearLayout) view.findViewById(a.f.user_label);
+            this.otJ = (TextView) view.findViewById(a.f.tv_host_label);
+            this.otK = (TextView) view.findViewById(a.f.tv_anchor_label);
+            this.otL = (LinearLayout) view.findViewById(a.f.charm_container_ll);
+            this.otM = (ImageView) view.findViewById(a.f.iv_charm_icon);
+            this.htP = (TextView) view.findViewById(a.f.tv_charm_value);
         }
 
         public void a(int i, AlaWheatInfoData alaWheatInfoData) {
-            this.oyt = alaWheatInfoData;
-            this.oyn.setVisibility(8);
+            this.otN = alaWheatInfoData;
+            this.otH.setVisibility(8);
             if (alaWheatInfoData != null) {
-                this.oyo.setVisibility(0);
+                this.otI.setVisibility(0);
                 if (i == 0) {
-                    this.biV.setIsRound(false);
-                    this.biV.setDrawBorder(false);
-                    this.biV.setAutoChangeStyle(false);
-                    this.biV.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
-                    this.biV.setImageResource(e.oyi ? a.e.wheat_clear_all_selected : a.e.wheat_clear_all_unselect);
-                    this.oys.setVisibility(8);
-                    this.hyv.setText("全麦");
+                    this.bec.setIsRound(false);
+                    this.bec.setDrawBorder(false);
+                    this.bec.setAutoChangeStyle(false);
+                    this.bec.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
+                    this.bec.setImageResource(e.otC ? a.e.wheat_clear_all_selected : a.e.wheat_clear_all_unselect);
+                    this.otM.setVisibility(8);
+                    this.htP.setText("全麦");
                     return;
                 } else if (i == 1) {
-                    this.biV.setScaleType(ImageView.ScaleType.FIT_XY);
-                    this.biV.setBackgroundResource(0);
-                    this.biV.setIsRound(true);
-                    this.biV.setDrawBorder(false);
-                    this.biV.setAutoChangeStyle(false);
-                    this.biV.setDefaultResource(a.e.wheat_clear_empty_icon);
-                    this.biV.setDefaultBgResource(a.e.yuyin_sdk_connection_wheat_empty);
-                    this.biV.setImageResource(0);
-                    this.biV.setUrl(alaWheatInfoData.portrait);
-                    this.biV.startLoad(alaWheatInfoData.portrait, 12, false, false);
-                    this.oyp.setSelected(alaWheatInfoData.clearSelectFlag);
-                    this.oyq.setSelected(alaWheatInfoData.clearSelectFlag);
-                    this.oyn.setVisibility(alaWheatInfoData.clearSelectFlag ? 0 : 8);
-                    this.oyp.setVisibility(0);
-                    this.oyq.setVisibility(8);
-                    this.oyr.setVisibility(0);
-                    this.oys.setVisibility(0);
-                    this.oys.setImageResource(alaWheatInfoData.isFemale() ? a.e.yuyin_sdk_wheat_heartbeat_female_value : a.e.yuyin_sdk_wheat_heartbeat_male_value);
-                    this.hyv.setText(alaWheatInfoData.charmCount);
-                    this.hyv.setVisibility(0);
+                    this.bec.setScaleType(ImageView.ScaleType.FIT_XY);
+                    this.bec.setBackgroundResource(0);
+                    this.bec.setIsRound(true);
+                    this.bec.setDrawBorder(false);
+                    this.bec.setAutoChangeStyle(false);
+                    this.bec.setDefaultResource(a.e.wheat_clear_empty_icon);
+                    this.bec.setDefaultBgResource(a.e.yuyin_sdk_connection_wheat_empty);
+                    this.bec.setImageResource(0);
+                    this.bec.setUrl(alaWheatInfoData.portrait);
+                    this.bec.startLoad(alaWheatInfoData.portrait, 12, false, false);
+                    this.otJ.setSelected(alaWheatInfoData.clearSelectFlag);
+                    this.otK.setSelected(alaWheatInfoData.clearSelectFlag);
+                    this.otH.setVisibility(alaWheatInfoData.clearSelectFlag ? 0 : 8);
+                    this.otJ.setVisibility(0);
+                    this.otK.setVisibility(8);
+                    this.otL.setVisibility(0);
+                    this.otM.setVisibility(0);
+                    this.otM.setImageResource(alaWheatInfoData.isFemale() ? a.e.yuyin_sdk_wheat_heartbeat_female_value : a.e.yuyin_sdk_wheat_heartbeat_male_value);
+                    this.htP.setText(alaWheatInfoData.charmCount);
+                    this.htP.setVisibility(0);
                     return;
                 } else {
-                    this.biV.setScaleType(ImageView.ScaleType.FIT_XY);
-                    this.biV.setBackgroundResource(0);
-                    this.biV.setIsRound(true);
-                    this.biV.setDrawBorder(false);
-                    this.biV.setAutoChangeStyle(false);
-                    this.biV.setDefaultResource(a.e.wheat_clear_empty_icon);
-                    this.biV.setDefaultBgResource(a.e.yuyin_sdk_connection_wheat_empty);
-                    this.biV.setImageResource(0);
-                    this.biV.setUrl(alaWheatInfoData.portrait);
-                    this.biV.startLoad(alaWheatInfoData.portrait, 12, false, false);
-                    this.oyp.setSelected(alaWheatInfoData.clearSelectFlag);
-                    this.oyq.setSelected(alaWheatInfoData.clearSelectFlag);
-                    this.oyn.setVisibility(alaWheatInfoData.clearSelectFlag ? 0 : 8);
-                    this.oyp.setVisibility(8);
-                    this.oyq.setVisibility(0);
-                    this.oyq.setText(Integer.toString(i - 1));
-                    this.oyr.setVisibility(0);
-                    this.oys.setVisibility(0);
-                    this.oys.setImageResource(alaWheatInfoData.isFemale() ? a.e.yuyin_sdk_wheat_heartbeat_female_value : a.e.yuyin_sdk_wheat_heartbeat_male_value);
-                    this.hyv.setText(alaWheatInfoData.charmCount);
-                    this.hyv.setVisibility(0);
+                    this.bec.setScaleType(ImageView.ScaleType.FIT_XY);
+                    this.bec.setBackgroundResource(0);
+                    this.bec.setIsRound(true);
+                    this.bec.setDrawBorder(false);
+                    this.bec.setAutoChangeStyle(false);
+                    this.bec.setDefaultResource(a.e.wheat_clear_empty_icon);
+                    this.bec.setDefaultBgResource(a.e.yuyin_sdk_connection_wheat_empty);
+                    this.bec.setImageResource(0);
+                    this.bec.setUrl(alaWheatInfoData.portrait);
+                    this.bec.startLoad(alaWheatInfoData.portrait, 12, false, false);
+                    this.otJ.setSelected(alaWheatInfoData.clearSelectFlag);
+                    this.otK.setSelected(alaWheatInfoData.clearSelectFlag);
+                    this.otH.setVisibility(alaWheatInfoData.clearSelectFlag ? 0 : 8);
+                    this.otJ.setVisibility(8);
+                    this.otK.setVisibility(0);
+                    this.otK.setText(Integer.toString(i - 1));
+                    this.otL.setVisibility(0);
+                    this.otM.setVisibility(0);
+                    this.otM.setImageResource(alaWheatInfoData.isFemale() ? a.e.yuyin_sdk_wheat_heartbeat_female_value : a.e.yuyin_sdk_wheat_heartbeat_male_value);
+                    this.htP.setText(alaWheatInfoData.charmCount);
+                    this.htP.setVisibility(0);
                     return;
                 }
             }
-            this.biV.setIsRound(false);
-            this.biV.setDrawBorder(false);
-            this.biV.setAutoChangeStyle(false);
-            this.biV.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
-            this.biV.setImageResource(a.e.wheat_clear_empty_icon);
-            this.oyo.setVisibility(0);
-            this.oyp.setVisibility(i == 1 ? 0 : 8);
-            this.oyp.setSelected(false);
-            this.oyq.setVisibility(i != 1 ? 0 : 8);
-            this.oyq.setText(Integer.toString(i - 1));
-            this.oyq.setSelected(false);
-            this.oyr.setVisibility(4);
+            this.bec.setIsRound(false);
+            this.bec.setDrawBorder(false);
+            this.bec.setAutoChangeStyle(false);
+            this.bec.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
+            this.bec.setImageResource(a.e.wheat_clear_empty_icon);
+            this.otI.setVisibility(0);
+            this.otJ.setVisibility(i == 1 ? 0 : 8);
+            this.otJ.setSelected(false);
+            this.otK.setVisibility(i != 1 ? 0 : 8);
+            this.otK.setText(Integer.toString(i - 1));
+            this.otK.setSelected(false);
+            this.otL.setVisibility(4);
         }
     }
 }

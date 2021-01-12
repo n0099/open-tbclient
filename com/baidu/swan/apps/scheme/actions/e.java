@@ -8,7 +8,7 @@ import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.swan.apps.setting.oauth.a.b;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class e extends aa {
     public e(com.baidu.swan.apps.scheme.j jVar) {
         super(jVar, "/swanAPI/confirmSwanClose");
@@ -38,7 +38,7 @@ public class e extends aa {
                 return false;
             }
             final String optString2 = optParamsAsJo.optString("content");
-            eVar.aMx().b(context, "mapp_confirm_close", new com.baidu.swan.apps.ao.e.b<com.baidu.swan.apps.setting.oauth.h<b.d>>() { // from class: com.baidu.swan.apps.scheme.actions.e.1
+            eVar.aID().b(context, "mapp_confirm_close", new com.baidu.swan.apps.ao.e.b<com.baidu.swan.apps.setting.oauth.h<b.d>>() { // from class: com.baidu.swan.apps.scheme.actions.e.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.swan.apps.ao.e.b
                 /* renamed from: a */
@@ -48,7 +48,7 @@ public class e extends aa {
                         return;
                     }
                     callbackHandler.handleSchemeDispatchCallback(optString, UnitedSchemeUtility.wrapCallbackParams(0).toString());
-                    com.baidu.swan.apps.p.a.azd().oS(optString2);
+                    com.baidu.swan.apps.p.a.avj().nF(optString2);
                 }
             });
             UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);

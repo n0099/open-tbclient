@@ -11,15 +11,15 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.live.sdk.a;
 import com.baidu.live.tieba.view.fresco.SimpleDraweeView;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class BeautyItemView extends LinearLayout {
-    public ImageView gxH;
-    public TextView gyp;
-    public SimpleDraweeView gyr;
-    public ImageView gys;
-    public FrameLayout gyt;
-    public TextView gyu;
-    public ImageView gyv;
+    public TextView gtI;
+    public SimpleDraweeView gtK;
+    public ImageView gtL;
+    public FrameLayout gtM;
+    public TextView gtN;
+    public ImageView gtO;
+    public ImageView gta;
 
     public BeautyItemView(Context context) {
         super(context);
@@ -28,46 +28,46 @@ public class BeautyItemView extends LinearLayout {
 
     private void init(Context context) {
         View inflate = LayoutInflater.from(context).inflate(a.g.beauty_ar_item_layout, (ViewGroup) this, true);
-        this.gyr = (SimpleDraweeView) inflate.findViewById(a.f.filter_img);
-        this.gyv = (ImageView) inflate.findViewById(a.f.filter_redot);
-        this.gyv.setVisibility(8);
-        this.gyr.setScaleType(ImageView.ScaleType.CENTER_CROP);
-        this.gxH = (ImageView) inflate.findViewById(a.f.filter_unload);
-        this.gxH.setVisibility(8);
-        this.gys = (ImageView) inflate.findViewById(a.f.filter_bg);
-        this.gyp = (TextView) inflate.findViewById(a.f.filter_text);
-        this.gyt = (FrameLayout) inflate.findViewById(a.f.fl_head);
-        this.gyu = (TextView) inflate.findViewById(a.f.line);
-        this.gyu.setVisibility(8);
+        this.gtK = (SimpleDraweeView) inflate.findViewById(a.f.filter_img);
+        this.gtO = (ImageView) inflate.findViewById(a.f.filter_redot);
+        this.gtO.setVisibility(8);
+        this.gtK.setScaleType(ImageView.ScaleType.CENTER_CROP);
+        this.gta = (ImageView) inflate.findViewById(a.f.filter_unload);
+        this.gta.setVisibility(8);
+        this.gtL = (ImageView) inflate.findViewById(a.f.filter_bg);
+        this.gtI = (TextView) inflate.findViewById(a.f.filter_text);
+        this.gtM = (FrameLayout) inflate.findViewById(a.f.fl_head);
+        this.gtN = (TextView) inflate.findViewById(a.f.line);
+        this.gtN.setVisibility(8);
     }
 
     public void setUnselectedBackground() {
-        this.gyp.setTextColor(getResources().getColor(a.c.sdk_cp_cont_i));
-        this.gys.setVisibility(4);
+        this.gtI.setTextColor(getResources().getColor(a.c.sdk_cp_cont_i));
+        this.gtL.setVisibility(4);
     }
 
     public void setSelectedBackground() {
-        this.gyp.setTextColor(getResources().getColor(a.c.sdk_cp_other_b));
-        this.gys.setVisibility(0);
+        this.gtI.setTextColor(getResources().getColor(a.c.sdk_cp_other_b));
+        this.gtL.setVisibility(0);
     }
 
     public void setItemIcon(int i) {
-        this.gyr.setImageDrawable(getResources().getDrawable(i));
+        this.gtK.setImageDrawable(getResources().getDrawable(i));
     }
 
     public void setItemIcon(String str) {
-        this.gyr.setImageURI(Uri.parse(str));
+        this.gtK.setImageURI(Uri.parse(str));
     }
 
     public void setItemText(String str) {
-        this.gyp.setText(str);
+        this.gtI.setText(str);
     }
 
     public void setRedotVisible(boolean z) {
         if (z) {
-            this.gyv.setVisibility(0);
+            this.gtO.setVisibility(0);
         } else {
-            this.gyv.setVisibility(8);
+            this.gtO.setVisibility(8);
         }
     }
 }

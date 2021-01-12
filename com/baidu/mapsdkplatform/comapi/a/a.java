@@ -6,14 +6,14 @@ import android.annotation.TargetApi;
 import android.view.animation.Interpolator;
 import com.baidu.mapapi.animation.Animation;
 import com.baidu.mapapi.map.Marker;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class a extends c {
 
     /* renamed from: a  reason: collision with root package name */
-    private Animator f3120a = null;
+    private Animator f3000a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    private long f3121b = 0;
+    private long f3001b = 0;
     private Interpolator c = null;
     private Animation.AnimationListener d = null;
     private int e = 1;
@@ -31,7 +31,7 @@ public class a extends c {
         if (ofFloat != null) {
             ofFloat.setRepeatCount(this.f);
             ofFloat.setRepeatMode(c());
-            ofFloat.setDuration(this.f3121b);
+            ofFloat.setDuration(this.f3001b);
             if (this.c != null) {
                 ofFloat.setInterpolator(this.c);
             }
@@ -42,10 +42,10 @@ public class a extends c {
     @Override // com.baidu.mapsdkplatform.comapi.a.c
     @TargetApi(11)
     public void a() {
-        if (this.f3120a == null) {
+        if (this.f3000a == null) {
             return;
         }
-        this.f3120a.start();
+        this.f3000a.start();
     }
 
     @Override // com.baidu.mapsdkplatform.comapi.a.c
@@ -58,7 +58,7 @@ public class a extends c {
         if (j < 0) {
             j = 0;
         }
-        this.f3121b = j;
+        this.f3001b = j;
     }
 
     @Override // com.baidu.mapsdkplatform.comapi.a.c
@@ -83,22 +83,22 @@ public class a extends c {
     @Override // com.baidu.mapsdkplatform.comapi.a.c
     @TargetApi(11)
     public void a(Marker marker, Animation animation) {
-        this.f3120a = a(marker);
-        a(this.f3120a);
+        this.f3000a = a(marker);
+        a(this.f3000a);
     }
 
     @Override // com.baidu.mapsdkplatform.comapi.a.c
     @TargetApi(11)
     public void b() {
-        if (this.f3120a != null) {
-            this.f3120a.cancel();
-            this.f3120a = null;
+        if (this.f3000a != null) {
+            this.f3000a.cancel();
+            this.f3000a = null;
         }
     }
 
     @Override // com.baidu.mapsdkplatform.comapi.a.c
     public void b(int i) {
-        if (i > 0 || i == -1) {
+        if (i > 0) {
             this.f = i;
         }
     }

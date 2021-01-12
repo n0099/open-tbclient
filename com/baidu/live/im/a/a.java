@@ -10,18 +10,18 @@ import com.baidu.live.adp.widget.listview.BdTypeListView;
 import com.baidu.live.adp.widget.listview.IAdapterData;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class a {
-    private BdPageContext boN;
-    private BdTypeListView boO;
-    private f boP;
-    private c boQ;
-    private g boR;
-    private d boS;
-    private e boT;
-    private boolean boU;
-    private List<AbsDelegateAdapter> boM = new ArrayList();
-    private CustomMessageListener boV = new CustomMessageListener(0) { // from class: com.baidu.live.im.a.a.1
+    private BdPageContext bka;
+    private BdTypeListView bkb;
+    private f bkc;
+    private c bkd;
+    private g bke;
+    private d bkf;
+    private e bkg;
+    private boolean bkh;
+    private List<AbsDelegateAdapter> bjZ = new ArrayList();
+    private CustomMessageListener bki = new CustomMessageListener(0) { // from class: com.baidu.live.im.a.a.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -30,44 +30,44 @@ public class a {
     };
 
     public a(BdPageContext bdPageContext, BdTypeListView bdTypeListView) {
-        this.boN = bdPageContext;
-        this.boO = bdTypeListView;
-        MT();
+        this.bka = bdPageContext;
+        this.bkb = bdTypeListView;
+        IY();
     }
 
-    public void LI() {
-        MessageManager.getInstance().registerListener(2913069, this.boV);
-        if (this.boP != null) {
-            MessageManager.getInstance().registerListener(this.boP.bpW);
+    public void HN() {
+        MessageManager.getInstance().registerListener(2913069, this.bki);
+        if (this.bkc != null) {
+            MessageManager.getInstance().registerListener(this.bkc.blj);
         }
     }
 
-    private void MT() {
-        this.boP = new f(this.boN);
-        this.boQ = new c(this.boN.getPageActivity());
-        this.boR = new g(this.boN.getPageActivity());
-        this.boS = new d(this.boN.getPageActivity());
-        this.boT = new e(this.boN.getPageActivity());
-        this.boM.add(this.boP);
-        this.boM.add(this.boQ);
-        this.boM.add(this.boR);
-        this.boM.add(this.boS);
-        this.boM.add(this.boT);
-        this.boO.addAdapters(this.boM);
+    private void IY() {
+        this.bkc = new f(this.bka);
+        this.bkd = new c(this.bka.getPageActivity());
+        this.bke = new g(this.bka.getPageActivity());
+        this.bkf = new d(this.bka.getPageActivity());
+        this.bkg = new e(this.bka.getPageActivity());
+        this.bjZ.add(this.bkc);
+        this.bjZ.add(this.bkd);
+        this.bjZ.add(this.bke);
+        this.bjZ.add(this.bkf);
+        this.bjZ.add(this.bkg);
+        this.bkb.addAdapters(this.bjZ);
     }
 
     public void setMode(boolean z) {
-        this.boP.setMode(z);
+        this.bkc.setMode(z);
     }
 
     public void setDatas(List<IAdapterData> list) {
-        if (this.boO != null) {
-            this.boO.setData(list);
+        if (this.bkb != null) {
+            this.bkb.setData(list);
         }
     }
 
     public void a(String str, String str2, boolean z, String str3, String str4) {
-        for (AbsDelegateAdapter absDelegateAdapter : this.boM) {
+        for (AbsDelegateAdapter absDelegateAdapter : this.bjZ) {
             if (absDelegateAdapter instanceof b) {
                 ((b) absDelegateAdapter).a(str, str2, z, str3, str4);
             }
@@ -75,36 +75,36 @@ public class a {
     }
 
     public void notifyDataSetChanged() {
-        if (this.boO != null && (this.boO.getAdapter() instanceof BaseAdapter)) {
-            this.boO.getAdapter().notifyDataSetChanged();
+        if (this.bkb != null && (this.bkb.getAdapter() instanceof BaseAdapter)) {
+            this.bkb.getAdapter().notifyDataSetChanged();
         }
     }
 
     public void setFromMaster(boolean z) {
-        this.boU = z;
-        if (this.boU) {
-            if (this.boP != null) {
-                this.boP.ci(true);
+        this.bkh = z;
+        if (this.bkh) {
+            if (this.bkc != null) {
+                this.bkc.ce(true);
             }
-            if (this.boQ != null) {
-                this.boQ.ci(true);
+            if (this.bkd != null) {
+                this.bkd.ce(true);
             }
-            if (this.boR != null) {
-                this.boR.ci(true);
+            if (this.bke != null) {
+                this.bke.ce(true);
             }
-            if (this.boS != null) {
-                this.boS.ci(true);
+            if (this.bkf != null) {
+                this.bkf.ce(true);
             }
-            if (this.boT != null) {
-                this.boT.ci(true);
+            if (this.bkg != null) {
+                this.bkg.ce(true);
             }
         }
     }
 
     public void release() {
-        MessageManager.getInstance().unRegisterListener(this.boV);
-        if (this.boP != null) {
-            this.boP.Ng();
+        MessageManager.getInstance().unRegisterListener(this.bki);
+        if (this.bkc != null) {
+            this.bkc.Jl();
         }
     }
 }

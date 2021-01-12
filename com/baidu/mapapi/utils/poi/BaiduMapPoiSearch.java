@@ -11,14 +11,14 @@ import com.baidu.mapapi.utils.OpenClientUtil;
 import com.baidu.mapapi.utils.route.BaiduMapRoutePlan;
 import com.baidu.mapsdkplatform.comapi.util.CoordTrans;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class BaiduMapPoiSearch {
 
     /* renamed from: a  reason: collision with root package name */
-    private static boolean f3071a = true;
+    private static boolean f2967a = true;
 
     private static void a(PoiParaOption poiParaOption, Context context) {
-        Uri parse = Uri.parse("http://api.map.baidu.com/place/detail?uid=" + poiParaOption.f3072a + "&output=html&src=" + context.getPackageName());
+        Uri parse = Uri.parse("http://api.map.baidu.com/place/detail?uid=" + poiParaOption.f2968a + "&output=html&src=" + context.getPackageName());
         Intent intent = new Intent();
         intent.setAction("android.intent.action.VIEW");
         intent.setFlags(268435456);
@@ -30,7 +30,7 @@ public class BaiduMapPoiSearch {
         StringBuilder sb = new StringBuilder();
         sb.append("http://api.map.baidu.com/place/search?");
         sb.append("query=");
-        sb.append(poiParaOption.f3073b);
+        sb.append(poiParaOption.f2969b);
         sb.append("&location=");
         LatLng latLng = poiParaOption.c;
         if (SDKInitializer.getCoordType() == CoordType.GCJ02) {
@@ -55,10 +55,10 @@ public class BaiduMapPoiSearch {
     /* JADX INFO: Access modifiers changed from: private */
     public static void b(String str, Context context) {
         if (str == null || str.length() == 0) {
-            throw new RuntimeException("BDMapSDKException: pano id can not be null.");
+            throw new RuntimeException("pano id can not be null.");
         }
         if (context == null) {
-            throw new RuntimeException("BDMapSDKException: context cannot be null.");
+            throw new RuntimeException("context cannot be null.");
         }
         StringBuilder sb = new StringBuilder();
         sb.append("baidumap://map/streetscape?");
@@ -69,14 +69,14 @@ public class BaiduMapPoiSearch {
         Intent intent = new Intent("android.intent.action.VIEW", Uri.parse(sb.toString()));
         intent.setFlags(268435456);
         if (intent == null || intent.resolveActivity(context.getPackageManager()) == null) {
-            throw new RuntimeException("BDMapSDKException: BaiduMap app is not installed.");
+            throw new RuntimeException("BaiduMap app is not installed.");
         }
         context.startActivity(intent);
     }
 
     public static boolean dispatchPoiToBaiduMap(List<DispathcPoiData> list, Context context) throws Exception {
         if (list.isEmpty() || list.size() <= 0) {
-            throw new NullPointerException("BDMapSDKException: dispatch poidata is null");
+            throw new NullPointerException("dispatch poidata is null");
         }
         int baiduMapVersion = OpenClientUtil.getBaiduMapVersion(context);
         if (baiduMapVersion == 0) {
@@ -101,75 +101,76 @@ public class BaiduMapPoiSearch {
 
     public static boolean openBaiduMapPoiDetialsPage(PoiParaOption poiParaOption, Context context) {
         if (poiParaOption == null || context == null) {
-            throw new IllegalPoiSearchArgumentException("BDMapSDKException: para or context can not be null.");
+            throw new IllegalPoiSearchArgumentException("para or context can not be null.");
         }
-        if (poiParaOption.f3072a == null) {
-            throw new IllegalPoiSearchArgumentException("BDMapSDKException: poi uid can not be null.");
+        if (poiParaOption.f2968a == null) {
+            throw new IllegalPoiSearchArgumentException("poi uid can not be null.");
         }
-        if (poiParaOption.f3072a.equals("")) {
+        if (poiParaOption.f2968a.equals("")) {
             Log.e(BaiduMapRoutePlan.class.getName(), "poi uid can not be empty string");
             return false;
         }
         int baiduMapVersion = OpenClientUtil.getBaiduMapVersion(context);
         if (baiduMapVersion == 0) {
             Log.e("baidumapsdk", "BaiduMap app is not installed.");
-            if (f3071a) {
+            if (f2967a) {
                 a(poiParaOption, context);
                 return true;
             }
-            throw new IllegalPoiSearchArgumentException("BDMapSDKException: BaiduMap app is not installed.");
+            throw new IllegalPoiSearchArgumentException("BaiduMap app is not installed.");
         } else if (baiduMapVersion >= 810) {
             return com.baidu.mapapi.utils.b.a(poiParaOption, context, 3);
         } else {
             Log.e("baidumapsdk", "Baidumap app version is too lowl.Version is greater than 8.1");
-            if (f3071a) {
+            if (f2967a) {
                 a(poiParaOption, context);
                 return true;
             }
-            throw new IllegalPoiSearchArgumentException("BDMapSDKException: Baidumap app version is too lowl.Version is greater than 8.1");
+            throw new IllegalPoiSearchArgumentException("Baidumap app version is too lowl.Version is greater than 8.1");
         }
     }
 
     public static boolean openBaiduMapPoiNearbySearch(PoiParaOption poiParaOption, Context context) {
         if (poiParaOption == null || context == null) {
-            throw new IllegalPoiSearchArgumentException("BDMapSDKException: para or context can not be null.");
+            throw new IllegalPoiSearchArgumentException("para or context can not be null.");
         }
-        if (poiParaOption.f3073b == null) {
-            throw new IllegalPoiSearchArgumentException("BDMapSDKException: poi search key can not be null.");
+        if (poiParaOption.f2969b == null) {
+            throw new IllegalPoiSearchArgumentException("poi search key can not be null.");
         }
         if (poiParaOption.c == null) {
-            throw new IllegalPoiSearchArgumentException("BDMapSDKException: poi search center can not be null.");
+            throw new IllegalPoiSearchArgumentException("poi search center can not be null.");
         }
         if (poiParaOption.c.longitude == 0.0d || poiParaOption.c.latitude == 0.0d) {
-            throw new IllegalPoiSearchArgumentException("BDMapSDKException: poi search center longitude or latitude can not be 0.");
+            throw new IllegalPoiSearchArgumentException("poi search center longitude or latitude can not be 0.");
         }
         if (poiParaOption.d == 0) {
-            throw new IllegalPoiSearchArgumentException("BDMapSDKException: poi search radius larger than 0.");
+            throw new IllegalPoiSearchArgumentException("poi search radius larger than 0.");
         }
-        if (poiParaOption.f3073b.equals("")) {
-            throw new IllegalPoiSearchArgumentException("BDMapSDKException: poi key can not be empty string");
+        if (poiParaOption.f2969b.equals("")) {
+            Log.e(BaiduMapRoutePlan.class.getName(), "poi key can not be empty string");
+            return false;
         }
         int baiduMapVersion = OpenClientUtil.getBaiduMapVersion(context);
         if (baiduMapVersion == 0) {
             Log.e("baidumapsdk", "BaiduMap app is not installed.");
-            if (f3071a) {
+            if (f2967a) {
                 b(poiParaOption, context);
                 return true;
             }
-            throw new IllegalPoiSearchArgumentException("BDMapSDKException: BaiduMap app is not installed.");
+            throw new IllegalPoiSearchArgumentException("BaiduMap app is not installed.");
         } else if (baiduMapVersion >= 810) {
             return com.baidu.mapapi.utils.b.a(poiParaOption, context, 4);
         } else {
             Log.e("baidumapsdk", "Baidumap app version is too lowl.Version is greater than 8.1");
-            if (f3071a) {
+            if (f2967a) {
                 b(poiParaOption, context);
                 return true;
             }
-            throw new IllegalPoiSearchArgumentException("BDMapSDKException: Baidumap app version is too lowl.Version is greater than 8.1");
+            throw new IllegalPoiSearchArgumentException("Baidumap app version is too lowl.Version is greater than 8.1");
         }
     }
 
     public static void setSupportWebPoi(boolean z) {
-        f3071a = z;
+        f2967a = z;
     }
 }

@@ -10,7 +10,7 @@ import com.baidu.live.adp.lib.util.BdLog;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import java.util.ArrayList;
 import java.util.HashMap;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class DBKVCacheManager extends CustomMessageListener {
     public static final String ALA_GIFT_LIST_CACHE_KEY = "tb.ala.gift_list";
     private static final int DEF_CACHE_COUNT_LIMIT = 20;

@@ -17,9 +17,9 @@ import com.baidu.adp.base.BdBaseApplication;
 import java.util.Arrays;
 /* loaded from: classes.dex */
 public abstract class BDImageView extends ImageView implements ViewTreeObserver.OnPreDrawListener, i {
-    protected e Sw;
-    protected a Sx;
-    private d Sy;
+    protected e Su;
+    protected a Sv;
+    private d Sw;
     protected boolean mAdjustViewBounds;
     private Drawable mBg;
     private Drawable mCurBg;
@@ -44,12 +44,12 @@ public abstract class BDImageView extends ImageView implements ViewTreeObserver.
         this.mDrawerType = 0;
         this.mDefaultScaleType = ImageView.ScaleType.CENTER_INSIDE;
         this.mCurrentScaleType = null;
-        this.Sw = new e();
+        this.Su = new e();
         this.mIsBitmap = true;
         this.mNeedRecomputeMatrix = true;
         this.mMaxWidth = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
         this.mMaxHeight = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
-        this.Sy = new d();
+        this.Sw = new d();
         init(null);
     }
 
@@ -62,38 +62,38 @@ public abstract class BDImageView extends ImageView implements ViewTreeObserver.
         this.mDrawerType = 0;
         this.mDefaultScaleType = ImageView.ScaleType.CENTER_INSIDE;
         this.mCurrentScaleType = null;
-        this.Sw = new e();
+        this.Su = new e();
         this.mIsBitmap = true;
         this.mNeedRecomputeMatrix = true;
         this.mMaxWidth = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
         this.mMaxHeight = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
-        this.Sy = new d();
+        this.Sw = new d();
         init(attributeSet);
     }
 
     protected void init(AttributeSet attributeSet) {
         if (attributeSet != null) {
             TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, R.styleable.BDImageView);
-            this.Sw.mRadius = m(obtainStyledAttributes.getDimensionPixelSize(R.styleable.BDImageView_radius, com.baidu.adp.lib.util.l.dip2px(getContext(), 4.0f)));
-            this.Sw.mIsRound = obtainStyledAttributes.getBoolean(R.styleable.BDImageView_isRound, false);
-            this.Sw.mHasBorder = obtainStyledAttributes.getBoolean(R.styleable.BDImageView_hasBorder, false);
-            this.Sw.mBorderWidth = obtainStyledAttributes.getDimensionPixelSize(R.styleable.BDImageView_borderWidth, com.baidu.adp.lib.util.l.dip2px(getContext(), 1.0f));
-            this.Sw.mBorderColor = obtainStyledAttributes.getColor(R.styleable.BDImageView_borderColor, 201326592);
-            this.Sw.mBorderSurroundContent = obtainStyledAttributes.getBoolean(R.styleable.BDImageView_borderSurroundContent, false);
-            this.Sw.mIsShowGifIcon = obtainStyledAttributes.getBoolean(R.styleable.BDImageView_showGifIcon, true);
-            this.Sw.mForegroundColor = obtainStyledAttributes.getColor(R.styleable.BDImageView_foregroundColor, 0);
+            this.Su.mRadius = m(obtainStyledAttributes.getDimensionPixelSize(R.styleable.BDImageView_radius, com.baidu.adp.lib.util.l.dip2px(getContext(), 4.0f)));
+            this.Su.mIsRound = obtainStyledAttributes.getBoolean(R.styleable.BDImageView_isRound, false);
+            this.Su.mHasBorder = obtainStyledAttributes.getBoolean(R.styleable.BDImageView_hasBorder, false);
+            this.Su.mBorderWidth = obtainStyledAttributes.getDimensionPixelSize(R.styleable.BDImageView_borderWidth, com.baidu.adp.lib.util.l.dip2px(getContext(), 1.0f));
+            this.Su.mBorderColor = obtainStyledAttributes.getColor(R.styleable.BDImageView_borderColor, 201326592);
+            this.Su.mBorderSurroundContent = obtainStyledAttributes.getBoolean(R.styleable.BDImageView_borderSurroundContent, false);
+            this.Su.mIsShowGifIcon = obtainStyledAttributes.getBoolean(R.styleable.BDImageView_showGifIcon, true);
+            this.Su.mForegroundColor = obtainStyledAttributes.getColor(R.styleable.BDImageView_foregroundColor, 0);
             this.mDrawerType = obtainStyledAttributes.getInt(R.styleable.BDImageView_drawerType, 0);
             this.mMaxWidth = obtainStyledAttributes.getDimensionPixelSize(R.styleable.BDImageView_maxWidth, ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED);
             this.mMaxHeight = obtainStyledAttributes.getDimensionPixelSize(R.styleable.BDImageView_maxHeight, ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED);
             this.mAdjustViewBounds = obtainStyledAttributes.getBoolean(R.styleable.BDImageView_adjustViewBounds, false);
             obtainStyledAttributes.recycle();
         } else {
-            this.Sw.mRadius = m(com.baidu.adp.lib.util.l.dip2px(getContext(), 4.0f));
-            this.Sw.mBorderWidth = com.baidu.adp.lib.util.l.dip2px(getContext(), 1.0f);
-            this.Sw.mBorderColor = 201326592;
+            this.Su.mRadius = m(com.baidu.adp.lib.util.l.dip2px(getContext(), 4.0f));
+            this.Su.mBorderWidth = com.baidu.adp.lib.util.l.dip2px(getContext(), 1.0f);
+            this.Su.mBorderColor = 201326592;
         }
-        this.Sx = f.oF().aJ(this.mDrawerType);
-        this.Sx.a(this.Sw);
+        this.Sv = f.oF().aJ(this.mDrawerType);
+        this.Sv.a(this.Su);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -104,18 +104,18 @@ public abstract class BDImageView extends ImageView implements ViewTreeObserver.
         View.MeasureSpec.getSize(i);
         View.MeasureSpec.getSize(i2);
         getDisplayBdImage();
-        int width = this.Sy.getWidth();
-        int height = this.Sy.getHeight();
+        int width = this.Sw.getWidth();
+        int height = this.Sw.getHeight();
         int paddingLeft = getPaddingLeft() + getPaddingRight();
         int paddingTop = getPaddingTop() + getPaddingBottom();
         int i3 = height + paddingTop;
         int max = Math.max(width + paddingLeft, getSuggestedMinimumWidth());
         int max2 = Math.max(i3, getSuggestedMinimumHeight());
-        if (max <= paddingLeft || max2 <= paddingTop || this.Sy.isDefault || !this.mAdjustViewBounds) {
+        if (max <= paddingLeft || max2 <= paddingTop || this.Sw.isDefault || !this.mAdjustViewBounds) {
             max = resolveAdjustedSize(max, this.mMaxWidth, i);
             max2 = resolveAdjustedSize(max2, this.mMaxHeight, i2);
         }
-        this.Sy.reset();
+        this.Sw.reset();
         super.onMeasure(View.MeasureSpec.makeMeasureSpec(max, 1073741824), View.MeasureSpec.makeMeasureSpec(max2, 1073741824));
     }
 
@@ -150,23 +150,23 @@ public abstract class BDImageView extends ImageView implements ViewTreeObserver.
 
     private void getDisplayBdImage() {
         ImageView.ScaleType scaleType = getScaleType();
-        this.Sy.drawable = (BitmapDrawable) getDrawable();
-        this.Sy.SB = getBdImage();
-        if (this.Sy.isDrawableAvalible()) {
-            this.Sy.SB = null;
+        this.Sw.drawable = (BitmapDrawable) getDrawable();
+        this.Sw.Sz = getBdImage();
+        if (this.Sw.isDrawableAvalible()) {
+            this.Sw.Sz = null;
             checkReLayout();
-            this.Sy.isDefault = false;
+            this.Sw.isDefault = false;
             this.mCurBg = this.mBg;
-        } else if (this.Sy.isBdImgAvailable()) {
-            this.Sy.drawable = null;
+        } else if (this.Sw.isBdImgAvailable()) {
+            this.Sw.drawable = null;
             checkReLayout();
-            this.Sy.isDefault = false;
+            this.Sw.isDefault = false;
             this.mCurBg = this.mBg;
         } else {
-            this.Sy.drawable = null;
-            this.Sy.SB = getDefaultBdImage();
-            this.Sy.isDefault = true;
-            ImageView.ScaleType scaleType2 = this.Sy.isBdImgAvailable() ? this.mDefaultScaleType : scaleType;
+            this.Sw.drawable = null;
+            this.Sw.Sz = getDefaultBdImage();
+            this.Sw.isDefault = true;
+            ImageView.ScaleType scaleType2 = this.Sw.isBdImgAvailable() ? this.mDefaultScaleType : scaleType;
             this.mCurBg = this.mDefaultBg;
             scaleType = scaleType2;
         }
@@ -177,7 +177,7 @@ public abstract class BDImageView extends ImageView implements ViewTreeObserver.
     }
 
     private void checkReLayout() {
-        if (this.Sy.isDefault) {
+        if (this.Sw.isDefault) {
             this.mNeedRecomputeMatrix = true;
             if (this.mAdjustViewBounds || this.mWidthMeasureMode != 1073741824 || this.mHeightMeasureMode != 1073741824) {
                 requestLayout();
@@ -218,11 +218,11 @@ public abstract class BDImageView extends ImageView implements ViewTreeObserver.
             return;
         }
         getDisplayBdImage();
-        this.Sx.drawBackground(canvas, this, this.mCurBg);
+        this.Sv.drawBackground(canvas, this, this.mCurBg);
         drawContent(canvas);
         drawContentTag(canvas, this);
-        this.Sx.drawForeground(canvas, this);
-        this.Sy.reset();
+        this.Sv.drawForeground(canvas, this);
+        this.Sw.reset();
     }
 
     public void drawContentTag(Canvas canvas, ImageView imageView) {
@@ -230,23 +230,23 @@ public abstract class BDImageView extends ImageView implements ViewTreeObserver.
 
     private void computeBounds() {
         if (this.mIsHasFrame && this.mIsBitmap && this.mNeedRecomputeMatrix) {
-            this.Sx.a(this.Sy, this, this.mCurrentScaleType);
+            this.Sv.a(this.Sw, this, this.mCurrentScaleType);
             this.mNeedRecomputeMatrix = false;
         }
     }
 
     private void drawContent(Canvas canvas) {
-        if (!this.Sy.isAvailable()) {
-            if (this.Sw.SD) {
-                this.Sx.updatePaint();
-                this.Sx.a(this.Sy, this);
-                this.Sx.drawBorder(canvas, this);
+        if (!this.Sw.isAvailable()) {
+            if (this.Su.SB) {
+                this.Sv.updatePaint();
+                this.Sv.a(this.Sw, this);
+                this.Sv.drawBorder(canvas, this);
                 return;
             }
             return;
         }
         computeBounds();
-        this.Sx.a(canvas, this.Sy, this);
+        this.Sv.a(canvas, this.Sw, this);
     }
 
     public void setDefaultScaleType(ImageView.ScaleType scaleType) {
@@ -258,100 +258,100 @@ public abstract class BDImageView extends ImageView implements ViewTreeObserver.
     }
 
     public void setAlphaValue(float f) {
-        if (Math.abs(this.Sw.mAlpha - f) > 1.0E-4f) {
-            this.Sw.mAlpha = f;
+        if (Math.abs(this.Su.mAlpha - f) > 1.0E-4f) {
+            this.Su.mAlpha = f;
             invalidate();
         }
     }
 
     public void setRadius(int i) {
         float[] m = m(i);
-        if (!Arrays.equals(this.Sw.mRadius, m)) {
-            this.Sw.mRadius = m;
+        if (!Arrays.equals(this.Su.mRadius, m)) {
+            this.Su.mRadius = m;
             invalidate();
         }
     }
 
     public void setRadiusById(int i) {
         float[] aI = aI(i);
-        if (!Arrays.equals(this.Sw.mRadius, aI)) {
-            this.Sw.mRadius = aI;
+        if (!Arrays.equals(this.Su.mRadius, aI)) {
+            this.Su.mRadius = aI;
             invalidate();
         }
     }
 
     public void setIsRound(boolean z) {
-        if (this.Sw.mIsRound != z) {
-            this.Sw.mIsRound = z;
+        if (this.Su.mIsRound != z) {
+            this.Su.mIsRound = z;
             invalidate();
         }
     }
 
     public void setIsNight(boolean z) {
-        if (this.Sw.mIsNight != z) {
-            this.Sw.mIsNight = z;
+        if (this.Su.mIsNight != z) {
+            this.Su.mIsNight = z;
             invalidate();
         }
     }
 
     public void setIsPreDrawBorder(boolean z) {
-        if (this.Sw.SD != z) {
-            this.Sw.SD = z;
+        if (this.Su.SB != z) {
+            this.Su.SB = z;
             invalidate();
         }
     }
 
     public void setDrawBorder(boolean z) {
-        if (this.Sw.mHasBorder != z) {
-            this.Sw.mHasBorder = z;
+        if (this.Su.mHasBorder != z) {
+            this.Su.mHasBorder = z;
             this.mNeedRecomputeMatrix = true;
             invalidate();
         }
     }
 
     public boolean getDrawBorder() {
-        return this.Sw.mHasBorder;
+        return this.Su.mHasBorder;
     }
 
     public void setBorderWidth(int i) {
-        if (this.Sw.mBorderWidth != i) {
-            this.Sw.mBorderWidth = i;
+        if (this.Su.mBorderWidth != i) {
+            this.Su.mBorderWidth = i;
             invalidate();
         }
     }
 
     public void setBorderColor(int i) {
-        if (this.Sw.mBorderColor != i) {
-            this.Sw.mBorderColor = i;
+        if (this.Su.mBorderColor != i) {
+            this.Su.mBorderColor = i;
             invalidate();
         }
     }
 
     public void setBorderSurroundContent(boolean z) {
-        if (this.Sw.mBorderSurroundContent != z) {
-            this.Sw.mBorderSurroundContent = z;
+        if (this.Su.mBorderSurroundContent != z) {
+            this.Su.mBorderSurroundContent = z;
             this.mNeedRecomputeMatrix = true;
             invalidate();
         }
     }
 
     public void setLongIconSupport(boolean z) {
-        if (this.Sw.mIsShowLongIcon != z) {
-            this.Sw.mIsShowLongIcon = z;
+        if (this.Su.mIsShowLongIcon != z) {
+            this.Su.mIsShowLongIcon = z;
             invalidate();
         }
     }
 
     public void setGifIconSupport(boolean z) {
-        if (this.Sw.mIsShowGifIcon != z) {
-            this.Sw.mIsShowGifIcon = z;
+        if (this.Su.mIsShowGifIcon != z) {
+            this.Su.mIsShowGifIcon = z;
             invalidate();
         }
     }
 
     public void setTLIconType(int i) {
-        if (this.Sw.SC != i) {
-            this.Sw.SC = i;
+        if (this.Su.SA != i) {
+            this.Su.SA = i;
             invalidate();
         }
     }
@@ -359,8 +359,8 @@ public abstract class BDImageView extends ImageView implements ViewTreeObserver.
     public void setDrawerType(int i) {
         if (this.mDrawerType != i) {
             this.mDrawerType = i;
-            this.Sx = f.oF().aJ(this.mDrawerType);
-            this.Sx.a(this.Sw);
+            this.Sv = f.oF().aJ(this.mDrawerType);
+            this.Sv.a(this.Su);
             this.mNeedRecomputeMatrix = true;
             invalidate();
         }
@@ -375,7 +375,7 @@ public abstract class BDImageView extends ImageView implements ViewTreeObserver.
     }
 
     public void setExtraMatrix(Matrix matrix) {
-        this.Sw.mExtraMatrix = matrix;
+        this.Su.mExtraMatrix = matrix;
         invalidate();
     }
 
@@ -384,7 +384,7 @@ public abstract class BDImageView extends ImageView implements ViewTreeObserver.
         if (!this.mIsBitmap) {
             super.setImageMatrix(matrix);
         } else if (matrix != null && this.mCurrentScaleType == ImageView.ScaleType.MATRIX) {
-            this.Sx.setDrawMatrix(matrix);
+            this.Sv.setDrawMatrix(matrix);
             this.mNeedRecomputeMatrix = true;
             invalidate();
         }
@@ -392,20 +392,20 @@ public abstract class BDImageView extends ImageView implements ViewTreeObserver.
 
     @Override // android.widget.ImageView
     public Matrix getImageMatrix() {
-        return !this.mIsBitmap ? super.getImageMatrix() : this.Sx.getDrawMatrix();
+        return !this.mIsBitmap ? super.getImageMatrix() : this.Sv.getDrawMatrix();
     }
 
     public int getImageWidth() {
         getDisplayBdImage();
-        int width = this.Sy.getWidth();
-        this.Sy.reset();
+        int width = this.Sw.getWidth();
+        this.Sw.reset();
         return width;
     }
 
     public int getImageHeight() {
         getDisplayBdImage();
-        int height = this.Sy.getHeight();
-        this.Sy.reset();
+        int height = this.Sw.getHeight();
+        this.Sw.reset();
         return height;
     }
 
@@ -418,8 +418,8 @@ public abstract class BDImageView extends ImageView implements ViewTreeObserver.
     }
 
     public void setForegroundColor(int i) {
-        if (this.Sw.mForegroundColor != i) {
-            this.Sw.mForegroundColor = i;
+        if (this.Su.mForegroundColor != i) {
+            this.Su.mForegroundColor = i;
             invalidate();
         }
     }

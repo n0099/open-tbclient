@@ -4,7 +4,7 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import androidx.annotation.Nullable;
 import com.baidu.swan.apps.process.SwanAppIPCData;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class QuickLoginInfo extends SwanAppIPCData {
     public String agreeText;
     public String encryptPhoneNum;
@@ -23,7 +23,7 @@ public class QuickLoginInfo extends SwanAppIPCData {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: mg */
+        /* renamed from: kA */
         public QuickLoginInfo[] newArray(int i) {
             return new QuickLoginInfo[i];
         }
@@ -47,12 +47,12 @@ public class QuickLoginInfo extends SwanAppIPCData {
             return null;
         }
         QuickLoginInfo quickLoginInfo = new QuickLoginInfo();
-        quickLoginInfo.supportQuickLogin = aVar.aTs();
-        quickLoginInfo.encryptPhoneNum = aVar.aTt();
-        quickLoginInfo.serviceAgreement = aVar.aTv();
-        quickLoginInfo.hasHistory = aVar.aTu();
-        quickLoginInfo.loginMode = aVar.aTr();
-        quickLoginInfo.agreeText = aVar.aTw();
+        quickLoginInfo.supportQuickLogin = aVar.aPy();
+        quickLoginInfo.encryptPhoneNum = aVar.aPz();
+        quickLoginInfo.serviceAgreement = aVar.aPB();
+        quickLoginInfo.hasHistory = aVar.aPA();
+        quickLoginInfo.loginMode = aVar.aPx();
+        quickLoginInfo.agreeText = aVar.aPC();
         return quickLoginInfo;
     }
 

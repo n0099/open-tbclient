@@ -4,7 +4,7 @@ import com.baidu.ala.helper.StreamConfig;
 import com.baidu.cyberplayer.sdk.Keep;
 import com.kwai.video.player.misc.KsMediaFormat;
 @Keep
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class CyberRTCSetting {
     public boolean HasVideo = true;
     public boolean HasAudio = true;
@@ -27,7 +27,7 @@ public class CyberRTCSetting {
     public CyberRTCVideoRenderMode VideoRenderMode = CyberRTCVideoRenderMode.CYBER_RTC_VIDEO_RENDER_MODE_INTERNAL;
 
     @Keep
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public enum CyberRTCSettingType {
         CYBER_RTC_AUDIO_PARAM_SETTINGS_ONLY_AUDIO,
         CYBER_RTC_AUDIO_PARAM_SETTINGS_AEC_DUMP,
@@ -48,7 +48,7 @@ public class CyberRTCSetting {
     }
 
     @Keep
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public enum CyberRTCVideoRenderMode {
         CYBER_RTC_VIDEO_RENDER_MODE_EXTERNAL,
         CYBER_RTC_VIDEO_RENDER_MODE_INTERNAL

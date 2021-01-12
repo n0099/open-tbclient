@@ -23,124 +23,124 @@ import com.baidu.tieba.pb.ThreadSkinView;
 import com.baidu.tieba.pb.view.PbBusinessPromotionContainer;
 /* loaded from: classes2.dex */
 public class PbFirstFloorViewHolder extends TypeAdapter.ViewHolder {
-    public VoteView akk;
-    public AppletsCellView ani;
-    public View eXI;
-    public View lKJ;
-    private ImageView lLY;
-    private View lLZ;
-    public TextView lLm;
-    public TbRichTextView lMa;
-    public TbImageView lMb;
-    public TbImageView lMc;
-    public ThreadSkinView lMd;
-    public LinearLayout lMe;
-    public TextView lMf;
-    public LinearLayout lMg;
-    public q lMh;
-    public FrameLayout lMi;
-    public com.baidu.tieba.pb.pb.main.c.a lMj;
-    public ThreadForumEnterButtonContainer lMk;
-    public PbBusinessPromotionContainer lMl;
-    public com.baidu.tieba.pb.pb.main.view.a lMm;
+    public VoteView ajt;
+    public AppletsCellView amr;
+    public View eSX;
+    public TextView lGI;
+    public View lGf;
+    public LinearLayout lHA;
+    public TextView lHB;
+    public LinearLayout lHC;
+    public q lHD;
+    public FrameLayout lHE;
+    public com.baidu.tieba.pb.pb.main.c.a lHF;
+    public ThreadForumEnterButtonContainer lHG;
+    public PbBusinessPromotionContainer lHH;
+    public com.baidu.tieba.pb.pb.main.view.a lHI;
+    private ImageView lHu;
+    private View lHv;
+    public TbRichTextView lHw;
+    public TbImageView lHx;
+    public TbImageView lHy;
+    public ThreadSkinView lHz;
     public int mSkinType;
 
     public PbFirstFloorViewHolder(TbPageContext tbPageContext, View view, boolean z, int i) {
         super(view);
         this.mSkinType = 3;
-        this.lMh = new q(view);
-        this.lLY = (ImageView) view.findViewById(R.id.pb_thread_type_stamp_first_floor_bottom_part);
-        this.lLY.setScaleType(ImageView.ScaleType.MATRIX);
+        this.lHD = new q(view);
+        this.lHu = (ImageView) view.findViewById(R.id.pb_thread_type_stamp_first_floor_bottom_part);
+        this.lHu.setScaleType(ImageView.ScaleType.MATRIX);
         Matrix matrix = new Matrix();
-        matrix.postTranslate(0.0f, -ao.drI());
-        this.lLY.setImageMatrix(matrix);
-        this.lLZ = view.findViewById(R.id.blank_view_above_rich_text);
-        this.lMa = (TbRichTextView) view.findViewById(R.id.richText);
-        this.lKJ = view;
-        int equipmentWidth = (((com.baidu.adp.lib.util.l.getEquipmentWidth(TbadkCoreApplication.getInst()) - view.getPaddingLeft()) - view.getPaddingRight()) - this.lMa.getPaddingLeft()) - this.lMa.getPaddingRight();
+        matrix.postTranslate(0.0f, -ao.dnQ());
+        this.lHu.setImageMatrix(matrix);
+        this.lHv = view.findViewById(R.id.blank_view_above_rich_text);
+        this.lHw = (TbRichTextView) view.findViewById(R.id.richText);
+        this.lGf = view;
+        int equipmentWidth = (((com.baidu.adp.lib.util.l.getEquipmentWidth(TbadkCoreApplication.getInst()) - view.getPaddingLeft()) - view.getPaddingRight()) - this.lHw.getPaddingLeft()) - this.lHw.getPaddingRight();
         int dimension = (int) TbadkCoreApplication.getInst().getResources().getDimension(R.dimen.ds60);
-        d dVar = new d(this.lMa.getLayoutStrategy());
-        dVar.fYR = equipmentWidth;
-        this.lMa.setLayoutStrategy(dVar);
-        this.lMc = (TbImageView) view.findViewById(R.id.game_activity_banner);
+        d dVar = new d(this.lHw.getLayoutStrategy());
+        dVar.fUk = equipmentWidth;
+        this.lHw.setLayoutStrategy(dVar);
+        this.lHy = (TbImageView) view.findViewById(R.id.game_activity_banner);
         int min = Math.min(equipmentWidth - dimension, i);
-        this.lMa.getLayoutStrategy().tz(min);
-        this.lMa.getLayoutStrategy().tA((int) (min * 1.618f));
-        this.lMa.setTextSize(TbConfig.getContentSize());
-        this.lMa.setDisplayImage(z, false);
-        this.lMa.setVoiceViewRes(R.layout.voice_play_btn_new);
-        this.eXI = view.findViewById(R.id.divider_bottom_first_floor);
-        this.lMb = (TbImageView) view.findViewById(R.id.user_head_mask);
-        this.lMd = (ThreadSkinView) view.findViewById(R.id.pb_item_thread_skin);
-        this.lMe = (LinearLayout) view.findViewById(R.id.pb_list_content);
-        this.lLm = (TextView) view.findViewById(R.id.pb_item_tail_content);
-        this.ani = (AppletsCellView) view.findViewById(R.id.card_pb_page_first_floor_thread_share);
-        this.lMg = (LinearLayout) view.findViewById(R.id.pb_link_container_layout);
-        this.lMf = (TextView) view.findViewById(R.id.pb_tail_text);
-        this.lMk = (ThreadForumEnterButtonContainer) view.findViewById(R.id.pb_fourm_name_container);
-        this.lMk.setFrom(1);
-        this.lMm = new com.baidu.tieba.pb.pb.main.view.a(tbPageContext);
-        this.lMl = (PbBusinessPromotionContainer) view.findViewById(R.id.pb_business_promotion_container);
-        this.lMi = (FrameLayout) view.findViewById(R.id.original_thread_root_view);
-        this.akk = (VoteView) view.findViewById(R.id.vote_view);
-        this.akk.setPageContext(tbPageContext);
+        this.lHw.getLayoutStrategy().rT(min);
+        this.lHw.getLayoutStrategy().rU((int) (min * 1.618f));
+        this.lHw.setTextSize(TbConfig.getContentSize());
+        this.lHw.setDisplayImage(z, false);
+        this.lHw.setVoiceViewRes(R.layout.voice_play_btn_new);
+        this.eSX = view.findViewById(R.id.divider_bottom_first_floor);
+        this.lHx = (TbImageView) view.findViewById(R.id.user_head_mask);
+        this.lHz = (ThreadSkinView) view.findViewById(R.id.pb_item_thread_skin);
+        this.lHA = (LinearLayout) view.findViewById(R.id.pb_list_content);
+        this.lGI = (TextView) view.findViewById(R.id.pb_item_tail_content);
+        this.amr = (AppletsCellView) view.findViewById(R.id.card_pb_page_first_floor_thread_share);
+        this.lHC = (LinearLayout) view.findViewById(R.id.pb_link_container_layout);
+        this.lHB = (TextView) view.findViewById(R.id.pb_tail_text);
+        this.lHG = (ThreadForumEnterButtonContainer) view.findViewById(R.id.pb_fourm_name_container);
+        this.lHG.setFrom(1);
+        this.lHI = new com.baidu.tieba.pb.pb.main.view.a(tbPageContext);
+        this.lHH = (PbBusinessPromotionContainer) view.findViewById(R.id.pb_business_promotion_container);
+        this.lHE = (FrameLayout) view.findViewById(R.id.original_thread_root_view);
+        this.ajt = (VoteView) view.findViewById(R.id.vote_view);
+        this.ajt.setPageContext(tbPageContext);
     }
 
     public void a(@NonNull com.baidu.tieba.pb.data.f fVar, boolean z, boolean z2) {
-        if (this.lMk != null && fVar != null && fVar.getForum() != null) {
-            if (fVar.dni() && fVar.dnf()) {
-                this.lMk.setVisibility(8);
+        if (this.lHG != null && fVar != null && fVar.getForum() != null) {
+            if (fVar.djq() && fVar.djn()) {
+                this.lHG.setVisibility(8);
                 return;
             }
-            this.lMk.setBottomPlaceHolderVisibility(z2);
-            if (z || !com.baidu.tbadk.core.util.x.isEmpty(fVar.dnc())) {
+            this.lHG.setBottomPlaceHolderVisibility(z2);
+            if (z || !com.baidu.tbadk.core.util.x.isEmpty(fVar.djk())) {
             }
             bz bzVar = new bz();
             bzVar.setId(fVar.getThreadId());
             bzVar.setFid(com.baidu.adp.lib.f.b.toLong(fVar.getForum().getId(), 0L));
-            bzVar.Bc(fVar.getForum().getName());
-            bzVar.Bh(fVar.getForum().getFirst_class());
-            bzVar.Bi(fVar.getForum().getSecond_class());
-            if (fVar.dmF() != null) {
-                bzVar.setThreadType(fVar.dmF().threadType);
+            bzVar.zR(fVar.getForum().getName());
+            bzVar.zW(fVar.getForum().getFirst_class());
+            bzVar.zX(fVar.getForum().getSecond_class());
+            if (fVar.diN() != null) {
+                bzVar.setThreadType(fVar.diN().threadType);
             }
-            if (fVar.lFT) {
-                this.lMk.setVisibility(8);
-                this.lMl.a(bzVar, fVar.dmE(), fVar.dnf());
+            if (fVar.lBo) {
+                this.lHG.setVisibility(8);
+                this.lHH.a(bzVar, fVar.diM(), fVar.djn());
                 return;
             }
-            this.lMl.setVisibility(8);
+            this.lHH.setVisibility(8);
         }
     }
 
     public void b(com.baidu.tieba.pb.data.f fVar, boolean z, boolean z2) {
-        if (fVar != null && fVar.lFU) {
-            this.lLY.setImageResource(R.drawable.pic_frs_headlines_n);
-            this.lLY.setVisibility(0);
+        if (fVar != null && fVar.lBp) {
+            this.lHu.setImageResource(R.drawable.pic_frs_headlines_n);
+            this.lHu.setVisibility(0);
         } else if (z && z2) {
-            this.lLY.setImageResource(R.drawable.pic_pb_stick_refined_n);
-            this.lLY.setVisibility(0);
+            this.lHu.setImageResource(R.drawable.pic_pb_stick_refined_n);
+            this.lHu.setVisibility(0);
         } else if (z) {
-            this.lLY.setImageResource(R.drawable.pic_pb_refined_n);
-            this.lLY.setVisibility(0);
+            this.lHu.setImageResource(R.drawable.pic_pb_refined_n);
+            this.lHu.setVisibility(0);
         } else if (z2) {
-            this.lLY.setImageResource(R.drawable.pic_pb_stick_n);
-            this.lLY.setVisibility(0);
+            this.lHu.setImageResource(R.drawable.pic_pb_stick_n);
+            this.lHu.setVisibility(0);
         } else {
-            this.lLY.setVisibility(8);
+            this.lHu.setVisibility(8);
         }
     }
 
     public void F(boolean z, int i) {
-        if (this.lLZ != null) {
+        if (this.lHv != null) {
             if (z) {
-                RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.lLZ.getLayoutParams();
+                RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.lHv.getLayoutParams();
                 layoutParams.height = i;
-                this.lLZ.setLayoutParams(layoutParams);
-                this.lLZ.setVisibility(0);
+                this.lHv.setLayoutParams(layoutParams);
+                this.lHv.setVisibility(0);
                 return;
             }
-            this.lLZ.setVisibility(8);
+            this.lHv.setVisibility(8);
         }
     }
 }

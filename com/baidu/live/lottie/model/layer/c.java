@@ -12,10 +12,10 @@ import androidx.annotation.Nullable;
 import com.baidu.live.lottie.a.b.p;
 import com.baidu.live.lottie.h;
 import com.baidu.live.lottie.l;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class c extends a {
     @Nullable
-    private com.baidu.live.lottie.a.b.a<ColorFilter, ColorFilter> btE;
+    private com.baidu.live.lottie.a.b.a<ColorFilter, ColorFilter> boR;
     private final Rect dst;
     private final Paint paint;
     private final Rect src;
@@ -34,8 +34,8 @@ public class c extends a {
         if (bitmap != null && !bitmap.isRecycled()) {
             float kA = com.baidu.live.lottie.d.f.kA();
             this.paint.setAlpha(i);
-            if (this.btE != null) {
-                this.paint.setColorFilter(this.btE.getValue());
+            if (this.boR != null) {
+                this.paint.setColorFilter(this.boR.getValue());
             }
             canvas.save();
             canvas.concat(matrix);
@@ -52,23 +52,23 @@ public class c extends a {
         Bitmap bitmap = getBitmap();
         if (bitmap != null) {
             rectF.set(rectF.left, rectF.top, Math.min(rectF.right, bitmap.getWidth()), Math.min(rectF.bottom, bitmap.getHeight()));
-            this.Gz.mapRect(rectF);
+            this.Gx.mapRect(rectF);
         }
     }
 
     @Nullable
     private Bitmap getBitmap() {
-        return this.lottieDrawable.bf(this.bvo.getRefId());
+        return this.lottieDrawable.bf(this.bqA.getRefId());
     }
 
     @Override // com.baidu.live.lottie.model.layer.a, com.baidu.live.lottie.model.f
     public <T> void a(T t, @Nullable com.baidu.live.lottie.e.c<T> cVar) {
         super.a((c) t, (com.baidu.live.lottie.e.c<c>) cVar);
-        if (t == l.Dd) {
+        if (t == l.Db) {
             if (cVar == null) {
-                this.btE = null;
+                this.boR = null;
             } else {
-                this.btE = new p(cVar);
+                this.boR = new p(cVar);
             }
         }
     }

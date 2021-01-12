@@ -8,55 +8,55 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 /* loaded from: classes.dex */
 public class k {
-    private static String fMp = "tb_perfor_samllflow_time";
-    private static volatile k fMs;
-    private long fMr;
-    private boolean aze = false;
-    private long fMq = 86400;
-    private long fMo = com.baidu.tbadk.core.sharedPref.b.bvr().getLong(fMp, 0);
+    private static String fHI = "tb_perfor_samllflow_time";
+    private static volatile k fHL;
+    private long fHK;
+    private boolean aur = false;
+    private long fHJ = 86400;
+    private long fHH = com.baidu.tbadk.core.sharedPref.b.brx().getLong(fHI, 0);
 
-    public static k bHG() {
-        if (fMs == null) {
+    public static k bDO() {
+        if (fHL == null) {
             synchronized (k.class) {
-                if (fMs == null) {
-                    fMs = new k();
+                if (fHL == null) {
+                    fHL = new k();
                 }
             }
         }
-        return fMs;
+        return fHL;
     }
 
     private k() {
-        this.fMr = 0L;
-        BdBaseApplication.getInst().setStartSmallFlowTime(this.fMo);
-        this.fMr = this.fMq;
-        BdBaseApplication.getInst().setSmallFlowInterval(this.fMr);
+        this.fHK = 0L;
+        BdBaseApplication.getInst().setStartSmallFlowTime(this.fHH);
+        this.fHK = this.fHJ;
+        BdBaseApplication.getInst().setSmallFlowInterval(this.fHK);
     }
 
     public boolean isSmallFlow() {
-        if (!this.aze || (System.currentTimeMillis() - this.fMo) / 1000 <= this.fMr) {
-            return this.aze;
+        if (!this.aur || (System.currentTimeMillis() - this.fHH) / 1000 <= this.fHK) {
+            return this.aur;
         }
         return false;
     }
 
-    public void lo(boolean z) {
+    public void lk(boolean z) {
         long currentTimeMillis = System.currentTimeMillis();
         if (z) {
-            if (0 == this.fMo || currentTimeMillis - this.fMo >= this.fMr) {
-                this.fMo = currentTimeMillis;
-                BdBaseApplication.getInst().setStartSmallFlowTime(this.fMo);
-                com.baidu.tbadk.core.sharedPref.b.bvr().putLong(fMp, this.fMo);
+            if (0 == this.fHH || currentTimeMillis - this.fHH >= this.fHK) {
+                this.fHH = currentTimeMillis;
+                BdBaseApplication.getInst().setStartSmallFlowTime(this.fHH);
+                com.baidu.tbadk.core.sharedPref.b.brx().putLong(fHI, this.fHH);
             }
         } else {
-            this.fMo = 0L;
+            this.fHH = 0L;
             BdBaseApplication.getInst().setStartSmallFlowTime(0L);
-            com.baidu.tbadk.core.sharedPref.b.bvr().putLong(fMp, this.fMo);
+            com.baidu.tbadk.core.sharedPref.b.brx().putLong(fHI, this.fHH);
         }
-        this.aze = z;
+        this.aur = z;
         BdBaseApplication.getInst().setIsSmallFlow(z);
         if (BdStatisticsManager.getInstance().isMainProcess()) {
-            l.bHL().bHM();
+            l.bDT().bDU();
         }
     }
 
@@ -79,7 +79,7 @@ public class k {
         return "2G";
     }
 
-    public long bHH() {
+    public long bDP() {
         try {
             Runtime runtime = Runtime.getRuntime();
             return (runtime.totalMemory() - runtime.freeMemory()) / 1048576;
@@ -89,7 +89,7 @@ public class k {
         }
     }
 
-    public j sW(int i) {
+    public j rq(int i) {
         if (isSmallFlow()) {
             switch (i) {
                 case 1000:
@@ -148,7 +148,7 @@ public class k {
 
     public void setSmallFlowInterval(long j) {
         if (j > 0) {
-            this.fMr = j;
+            this.fHK = j;
             BdBaseApplication.getInst().setSmallFlowInterval(j);
         }
     }
@@ -282,7 +282,7 @@ public class k {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public String bHI() {
+    public String bDQ() {
         BufferedReader bufferedReader;
         Process process;
         String str = null;

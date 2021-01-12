@@ -5,14 +5,14 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class p {
-    private long acA;
-    private int eBl;
-    private JSONObject eBm;
-    private String eBn;
-    private boolean eBo = false;
-    private JSONArray eBq;
+    private long acy;
+    private JSONArray ewB;
+    private int eww;
+    private JSONObject ewx;
+    private String ewy;
+    private boolean ewz = false;
     private String mCategory;
     private String mContent;
     private long mEndTime;
@@ -25,15 +25,15 @@ public class p {
 
     public p(String str, int i, String str2, int i2) {
         this.mId = str;
-        this.eBl = i;
+        this.eww = i;
         this.mContent = str2;
         this.mOption = i2;
     }
 
     public p(String str, int i, JSONObject jSONObject, int i2) {
         this.mId = str;
-        this.eBl = i;
-        this.eBm = jSONObject;
+        this.eww = i;
+        this.ewx = jSONObject;
         this.mOption = i2;
     }
 
@@ -41,27 +41,27 @@ public class p {
         return this.mId;
     }
 
-    public int biA() {
-        return this.eBl;
+    public int beG() {
+        return this.eww;
     }
 
     public String getContent() {
         return this.mContent;
     }
 
-    public JSONObject biC() {
-        return this.eBm;
+    public JSONObject beI() {
+        return this.ewx;
     }
 
-    public long biH() {
-        return this.acA;
+    public long beN() {
+        return this.acy;
     }
 
     public long getEndTime() {
         return this.mEndTime;
     }
 
-    public String biI() {
+    public String beO() {
         return this.mState;
     }
 
@@ -69,16 +69,16 @@ public class p {
         return this.mOption;
     }
 
-    public String biB() {
-        return this.eBn;
+    public String beH() {
+        return this.ewy;
     }
 
     public void setId(String str) {
         this.mId = str;
     }
 
-    public void nQ(int i) {
-        this.eBl = i;
+    public void mk(int i) {
+        this.eww = i;
     }
 
     public void setContent(String str) {
@@ -86,19 +86,19 @@ public class p {
     }
 
     public void dw(long j) {
-        this.acA = j;
+        this.acy = j;
     }
 
     public void setEndTime(long j) {
         this.mEndTime = j;
     }
 
-    public void zz(String str) {
+    public void yo(String str) {
         this.mState = str;
     }
 
-    public void zA(String str) {
-        this.eBn = str;
+    public void yp(String str) {
+        this.ewy = str;
     }
 
     public void setCategory(String str) {
@@ -109,31 +109,31 @@ public class p {
         return this.mCategory;
     }
 
-    public void iL(boolean z) {
-        this.eBo = z;
+    public void iH(boolean z) {
+        this.ewz = z;
     }
 
-    public boolean bix() {
-        return this.eBo;
+    public boolean beD() {
+        return this.ewz;
     }
 
-    public void biE() {
-        if (g.eiX().zp(this.mId)) {
-            this.eBn = UBC.getUBCContext().aGV();
+    public void beK() {
+        if (g.eff().ye(this.mId)) {
+            this.ewy = UBC.getUBCContext().aDb();
         }
     }
 
-    public void zB(String str) {
+    public void yq(String str) {
         if (!TextUtils.isEmpty(str)) {
             try {
-                this.eBq = new JSONArray(str);
+                this.ewB = new JSONArray(str);
             } catch (JSONException e) {
                 e.printStackTrace();
             }
         }
     }
 
-    public JSONArray biJ() {
-        return this.eBq;
+    public JSONArray beP() {
+        return this.ewB;
     }
 }

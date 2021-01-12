@@ -8,14 +8,14 @@ import com.qq.e.ads.RewardvideoPortraitADActivity;
 import com.qq.e.comm.DownloadService;
 import com.qq.e.comm.managers.setting.GlobalSetting;
 import com.qq.e.comm.util.StringUtil;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class CustomPkgConstants {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f11838a = DownloadService.class.getName();
+    private static final String f11538a = DownloadService.class.getName();
 
     /* renamed from: b  reason: collision with root package name */
-    private static final String f11839b = ADActivity.class.getName();
+    private static final String f11539b = ADActivity.class.getName();
     private static final String c = PortraitADActivity.class.getName();
     private static final String d = RewardvideoPortraitADActivity.class.getName();
     private static final String e = LandscapeADActivity.class.getName();
@@ -23,7 +23,7 @@ public class CustomPkgConstants {
 
     public static String getADActivityName() {
         String customADActivityClassName = GlobalSetting.getCustomADActivityClassName();
-        return !StringUtil.isEmpty(customADActivityClassName) ? customADActivityClassName : f11839b;
+        return !StringUtil.isEmpty(customADActivityClassName) ? customADActivityClassName : f11539b;
     }
 
     public static String getAssetPluginDir() {
@@ -39,7 +39,7 @@ public class CustomPkgConstants {
     }
 
     public static String getDownLoadServiceName() {
-        return f11838a;
+        return f11538a;
     }
 
     public static String getLandscapeADActivityName() {

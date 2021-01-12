@@ -13,29 +13,29 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class d extends BaseAdapter {
-    private int akW;
-    private boolean iRV;
-    private b iRW;
-    private a iRX;
+    private int akf;
+    private boolean iNo;
+    private b iNp;
+    private a iNq;
     private List<CollectEmotionData> mDataList = new ArrayList();
-    private List<CollectEmotionData> iRU = new ArrayList();
-    private int dmK = com.baidu.adp.lib.util.l.getEquipmentWidth(TbadkCoreApplication.getInst()) / 4;
-    private com.baidu.tbadk.img.b fAX = new com.baidu.tbadk.img.b();
+    private List<CollectEmotionData> iNn = new ArrayList();
+    private int dhV = com.baidu.adp.lib.util.l.getEquipmentWidth(TbadkCoreApplication.getInst()) / 4;
+    private com.baidu.tbadk.img.b fwp = new com.baidu.tbadk.img.b();
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public interface a {
-        void cAX();
+        void cxf();
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public interface b {
         void dc(List<CollectEmotionData> list);
     }
 
     public d(a aVar) {
-        this.iRX = aVar;
+        this.iNq = aVar;
     }
 
     public void db(List<CollectEmotionData> list) {
@@ -47,34 +47,34 @@ public class d extends BaseAdapter {
     }
 
     public void a(b bVar) {
-        this.iRW = bVar;
+        this.iNp = bVar;
     }
 
     public void clearSelect() {
-        if (this.iRV) {
-            for (CollectEmotionData collectEmotionData : this.iRU) {
+        if (this.iNo) {
+            for (CollectEmotionData collectEmotionData : this.iNn) {
                 collectEmotionData.isSelect = false;
                 collectEmotionData.selectIndex = -1;
             }
-            this.iRU.clear();
+            this.iNn.clear();
             ArrayList arrayList = new ArrayList(this.mDataList);
             this.mDataList.clear();
             this.mDataList.addAll(arrayList);
             notifyDataSetChanged();
-            if (this.iRW != null) {
-                this.iRW.dc(this.iRU);
+            if (this.iNp != null) {
+                this.iNp.dc(this.iNn);
             }
         }
     }
 
-    public void pZ(boolean z) {
-        if (this.iRV != z) {
-            for (CollectEmotionData collectEmotionData : this.iRU) {
+    public void pV(boolean z) {
+        if (this.iNo != z) {
+            for (CollectEmotionData collectEmotionData : this.iNn) {
                 collectEmotionData.isSelect = false;
                 collectEmotionData.selectIndex = -1;
             }
-            this.iRU.clear();
-            this.iRV = z;
+            this.iNn.clear();
+            this.iNo = z;
             ArrayList arrayList = new ArrayList(this.mDataList);
             this.mDataList.clear();
             this.mDataList.addAll(arrayList);
@@ -89,7 +89,7 @@ public class d extends BaseAdapter {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: zp */
+    /* renamed from: xJ */
     public CollectEmotionData getItem(int i) {
         if (i == 0) {
             return null;
@@ -123,30 +123,30 @@ public class d extends BaseAdapter {
                     view = LayoutInflater.from(TbadkCoreApplication.getInst()).inflate(R.layout.collect_image_item_view, viewGroup, false);
                     cVar3.rootView = view;
                     ViewGroup.LayoutParams layoutParams = cVar3.rootView.getLayoutParams();
-                    layoutParams.height = this.dmK;
+                    layoutParams.height = this.dhV;
                     cVar3.rootView.setLayoutParams(layoutParams);
-                    cVar3.iRZ = (TbImageView) view.findViewById(R.id.collect_pic);
-                    ((RelativeLayout.LayoutParams) cVar3.iRZ.getLayoutParams()).setMargins(0, 0, 0, 0);
-                    cVar3.iRZ.setScaleType(ImageView.ScaleType.CENTER);
+                    cVar3.iNs = (TbImageView) view.findViewById(R.id.collect_pic);
+                    ((RelativeLayout.LayoutParams) cVar3.iNs.getLayoutParams()).setMargins(0, 0, 0, 0);
+                    cVar3.iNs.setScaleType(ImageView.ScaleType.CENTER);
                     view.findViewById(R.id.collect_select_icon).setVisibility(8);
                     view.setTag(cVar3);
-                    ao.setBackgroundColor(view, R.color.white_alpha0, this.akW);
+                    ao.setBackgroundColor(view, R.color.white_alpha0, this.akf);
                     cVar = cVar3;
                 } else {
                     cVar = (c) view.getTag();
                 }
-                if (this.iRV) {
+                if (this.iNo) {
                     cVar.rootView.setEnabled(false);
-                    ao.setImageResource(cVar.iRZ, R.drawable.icon_emotion_unplusadd_n);
+                    ao.setImageResource(cVar.iNs, R.drawable.icon_emotion_unplusadd_n);
                 } else {
                     cVar.rootView.setEnabled(true);
-                    ao.setImageResource(cVar.iRZ, R.drawable.icon_emotion_plusadd_n);
+                    ao.setImageResource(cVar.iNs, R.drawable.icon_emotion_plusadd_n);
                 }
                 cVar.rootView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.faceshop.d.3
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view2) {
-                        if (d.this.iRX != null) {
-                            d.this.iRX.cAX();
+                        if (d.this.iNq != null) {
+                            d.this.iNq.cxf();
                         }
                     }
                 });
@@ -157,30 +157,30 @@ public class d extends BaseAdapter {
                     view = LayoutInflater.from(TbadkCoreApplication.getInst()).inflate(R.layout.collect_image_item_view, viewGroup, false);
                     cVar4.rootView = view;
                     ViewGroup.LayoutParams layoutParams2 = cVar4.rootView.getLayoutParams();
-                    layoutParams2.height = this.dmK;
+                    layoutParams2.height = this.dhV;
                     cVar4.rootView.setLayoutParams(layoutParams2);
-                    cVar4.iRZ = (TbImageView) view.findViewById(R.id.collect_pic);
-                    cVar4.bNc = (ImageView) view.findViewById(R.id.collect_select_icon);
+                    cVar4.iNs = (TbImageView) view.findViewById(R.id.collect_pic);
+                    cVar4.bIq = (ImageView) view.findViewById(R.id.collect_select_icon);
                     view.setTag(cVar4);
-                    ao.setBackgroundColor(view, R.color.CAM_X0201, this.akW);
+                    ao.setBackgroundColor(view, R.color.CAM_X0201, this.akf);
                     cVar2 = cVar4;
                 } else {
                     cVar2 = (c) view.getTag();
                 }
-                cVar2.iRZ.setTag(null);
-                cVar2.iRZ.setDefaultResource(R.drawable.img_default_100);
-                cVar2.iRZ.startLoad(null, 12, false);
-                cVar2.iRZ.invalidate();
-                ao.setBackgroundResource(cVar2.iRZ, R.drawable.btn_choose_face_selector, this.akW);
+                cVar2.iNs.setTag(null);
+                cVar2.iNs.setDefaultResource(R.drawable.img_default_100);
+                cVar2.iNs.startLoad(null, 12, false);
+                cVar2.iNs.invalidate();
+                ao.setBackgroundResource(cVar2.iNs, R.drawable.btn_choose_face_selector, this.akf);
                 ImageFileInfo imageFileInfo = getItem(i).imageFileInfo;
                 if (imageFileInfo != null) {
                     imageFileInfo.clearPageActions();
-                    imageFileInfo.addPageAction(com.baidu.tbadk.img.effect.d.bg(this.dmK, this.dmK));
-                    cVar2.iRZ.setTag(imageFileInfo.toCachedKey(false));
-                    if (this.fAX.a(imageFileInfo, false) != null) {
-                        cVar2.iRZ.invalidate();
+                    imageFileInfo.addPageAction(com.baidu.tbadk.img.effect.d.bg(this.dhV, this.dhV));
+                    cVar2.iNs.setTag(imageFileInfo.toCachedKey(false));
+                    if (this.fwp.a(imageFileInfo, false) != null) {
+                        cVar2.iNs.invalidate();
                     } else {
-                        this.fAX.a(imageFileInfo, new com.baidu.tbadk.imageManager.b() { // from class: com.baidu.tieba.faceshop.d.1
+                        this.fwp.a(imageFileInfo, new com.baidu.tbadk.imageManager.b() { // from class: com.baidu.tieba.faceshop.d.1
                             @Override // com.baidu.tbadk.imageManager.b
                             public void a(com.baidu.adp.widget.ImageView.a aVar, String str, boolean z) {
                                 TbImageView tbImageView = (TbImageView) viewGroup.findViewWithTag(str);
@@ -191,31 +191,31 @@ public class d extends BaseAdapter {
                         }, false, false);
                     }
                 }
-                if (this.iRV) {
-                    cVar2.bNc.setVisibility(0);
+                if (this.iNo) {
+                    cVar2.bIq.setVisibility(0);
                 } else {
-                    cVar2.bNc.setVisibility(8);
+                    cVar2.bIq.setVisibility(8);
                 }
-                if (this.iRU.contains(getItem(i))) {
-                    ao.setBackgroundResource(cVar2.bNc, R.drawable.ic_post_image_selected_s);
+                if (this.iNn.contains(getItem(i))) {
+                    ao.setBackgroundResource(cVar2.bIq, R.drawable.ic_post_image_selected_s);
                 } else {
-                    ao.setBackgroundResource(cVar2.bNc, R.drawable.ic_post_image_selected_n);
+                    ao.setBackgroundResource(cVar2.bIq, R.drawable.ic_post_image_selected_n);
                 }
                 View.OnClickListener onClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.faceshop.d.2
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view2) {
                         CollectEmotionData item;
                         ImageView imageView;
-                        if (d.this.iRV && (item = d.this.getItem(i)) != null) {
-                            if (!d.this.iRU.contains(item)) {
-                                item.selectIndex = d.this.iRU.size() + 1;
+                        if (d.this.iNo && (item = d.this.getItem(i)) != null) {
+                            if (!d.this.iNn.contains(item)) {
+                                item.selectIndex = d.this.iNn.size() + 1;
                                 item.isSelect = true;
-                                d.this.iRU.add(item);
+                                d.this.iNn.add(item);
                             } else {
                                 item.selectIndex = -1;
                                 item.isSelect = false;
-                                d.this.iRU.remove(item);
-                                for (int i2 = 0; i2 < d.this.iRU.size(); i2++) {
+                                d.this.iNn.remove(item);
+                                for (int i2 = 0; i2 < d.this.iNn.size(); i2++) {
                                     d.this.getItem(i).selectIndex = i2 + 1;
                                 }
                             }
@@ -231,31 +231,31 @@ public class d extends BaseAdapter {
                                     ao.setBackgroundResource(imageView, R.drawable.ic_post_image_selected_n);
                                 }
                             }
-                            if (d.this.iRW != null) {
-                                d.this.iRW.dc(d.this.iRU);
+                            if (d.this.iNp != null) {
+                                d.this.iNp.dc(d.this.iNn);
                             }
                         }
                     }
                 };
-                cVar2.iRZ.setOnClickListener(onClickListener);
-                cVar2.bNc.setOnClickListener(onClickListener);
+                cVar2.iNs.setOnClickListener(onClickListener);
+                cVar2.bIq.setOnClickListener(onClickListener);
                 break;
         }
         return view;
     }
 
-    public List<CollectEmotionData> cAW() {
-        return this.iRU;
+    public List<CollectEmotionData> cxe() {
+        return this.iNn;
     }
 
     public void setSkinType(int i) {
-        this.akW = i;
+        this.akf = i;
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     private class c {
-        ImageView bNc;
-        TbImageView iRZ;
+        ImageView bIq;
+        TbImageView iNs;
         View rootView;
 
         private c() {

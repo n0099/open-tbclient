@@ -19,13 +19,13 @@ import java.util.Collections;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public final class ReflectiveTypeAdapterFactory implements TypeAdapterFactory {
     private final com.google.gson.internal.b constructorConstructor;
     private final Excluder excluder;
     private final FieldNamingStrategy fieldNamingPolicy;
     private final JsonAdapterAnnotationTypeAdapterFactory jsonAdapterFactory;
-    private final com.google.gson.internal.a.b pMn = com.google.gson.internal.a.b.eDj();
+    private final com.google.gson.internal.a.b pHM = com.google.gson.internal.a.b.ezr();
 
     public ReflectiveTypeAdapterFactory(com.google.gson.internal.b bVar, FieldNamingStrategy fieldNamingStrategy, Excluder excluder, JsonAdapterAnnotationTypeAdapterFactory jsonAdapterAnnotationTypeAdapterFactory) {
         this.constructorConstructor = bVar;
@@ -48,13 +48,13 @@ public final class ReflectiveTypeAdapterFactory implements TypeAdapterFactory {
             return Collections.singletonList(this.fieldNamingPolicy.translateName(field));
         }
         String value = cVar.value();
-        String[] eCu = cVar.eCu();
-        if (eCu.length == 0) {
+        String[] eyC = cVar.eyC();
+        if (eyC.length == 0) {
             return Collections.singletonList(value);
         }
-        ArrayList arrayList = new ArrayList(eCu.length + 1);
+        ArrayList arrayList = new ArrayList(eyC.length + 1);
         arrayList.add(value);
-        for (String str : eCu) {
+        for (String str : eyC) {
             arrayList.add(str);
         }
         return arrayList;
@@ -62,15 +62,15 @@ public final class ReflectiveTypeAdapterFactory implements TypeAdapterFactory {
 
     @Override // com.google.gson.TypeAdapterFactory
     public <T> TypeAdapter<T> create(Gson gson, com.google.gson.b.a<T> aVar) {
-        Class<? super T> eDm = aVar.eDm();
-        if (!Object.class.isAssignableFrom(eDm)) {
+        Class<? super T> ezu = aVar.ezu();
+        if (!Object.class.isAssignableFrom(ezu)) {
             return null;
         }
-        return new Adapter(this.constructorConstructor.a(aVar), a(gson, (com.google.gson.b.a<?>) aVar, (Class<?>) eDm));
+        return new Adapter(this.constructorConstructor.a(aVar), a(gson, (com.google.gson.b.a<?>) aVar, (Class<?>) ezu));
     }
 
     private a a(final Gson gson, final Field field, String str, final com.google.gson.b.a<?> aVar, boolean z, boolean z2) {
-        final boolean q = g.q(aVar.eDm());
+        final boolean q = g.q(aVar.ezu());
         com.google.gson.a.b bVar = (com.google.gson.a.b) field.getAnnotation(com.google.gson.a.b.class);
         final TypeAdapter<?> typeAdapter = null;
         if (bVar != null) {
@@ -96,7 +96,7 @@ public final class ReflectiveTypeAdapterFactory implements TypeAdapterFactory {
 
             @Override // com.google.gson.internal.bind.ReflectiveTypeAdapterFactory.a
             public boolean bE(Object obj) throws IOException, IllegalAccessException {
-                return this.pNM && field.get(obj) != obj;
+                return this.pJl && field.get(obj) != obj;
             }
         };
     }
@@ -113,7 +113,7 @@ public final class ReflectiveTypeAdapterFactory implements TypeAdapterFactory {
                 boolean b2 = b(field, true);
                 boolean b3 = b(field, false);
                 if (b2 || b3) {
-                    this.pMn.c(field);
+                    this.pHM.c(field);
                     Type b4 = C$Gson$Types.b(aVar.getType(), cls, field.getGenericType());
                     List<String> b5 = b(field);
                     a aVar2 = null;
@@ -137,17 +137,17 @@ public final class ReflectiveTypeAdapterFactory implements TypeAdapterFactory {
                 }
             }
             aVar = com.google.gson.b.a.r(C$Gson$Types.b(aVar.getType(), cls, cls.getGenericSuperclass()));
-            cls = aVar.eDm();
+            cls = aVar.ezu();
         }
         return linkedHashMap;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static abstract class a {
         final String name;
-        final boolean pNM;
-        final boolean pNN;
+        final boolean pJl;
+        final boolean pJm;
 
         abstract void a(com.google.gson.stream.a aVar, Object obj) throws IOException, IllegalAccessException;
 
@@ -157,40 +157,40 @@ public final class ReflectiveTypeAdapterFactory implements TypeAdapterFactory {
 
         protected a(String str, boolean z, boolean z2) {
             this.name = str;
-            this.pNM = z;
-            this.pNN = z2;
+            this.pJl = z;
+            this.pJm = z2;
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static final class Adapter<T> extends TypeAdapter<T> {
-        private final Map<String, a> pNL;
-        private final e<T> pNp;
+        private final e<T> pIO;
+        private final Map<String, a> pJk;
 
         Adapter(e<T> eVar, Map<String, a> map) {
-            this.pNp = eVar;
-            this.pNL = map;
+            this.pIO = eVar;
+            this.pJk = map;
         }
 
         @Override // com.google.gson.TypeAdapter
         public T read(com.google.gson.stream.a aVar) throws IOException {
-            if (aVar.eCP() == JsonToken.NULL) {
-                aVar.eCV();
+            if (aVar.eyX() == JsonToken.NULL) {
+                aVar.ezd();
                 return null;
             }
-            T eCw = this.pNp.eCw();
+            T eyE = this.pIO.eyE();
             try {
-                aVar.eCO();
+                aVar.eyW();
                 while (aVar.hasNext()) {
-                    a aVar2 = this.pNL.get(aVar.eCS());
-                    if (aVar2 == null || !aVar2.pNN) {
-                        aVar.eCZ();
+                    a aVar2 = this.pJk.get(aVar.eza());
+                    if (aVar2 == null || !aVar2.pJm) {
+                        aVar.ezh();
                     } else {
-                        aVar2.a(aVar, eCw);
+                        aVar2.a(aVar, eyE);
                     }
                 }
                 aVar.endObject();
-                return eCw;
+                return eyE;
             } catch (IllegalAccessException e) {
                 throw new AssertionError(e);
             } catch (IllegalStateException e2) {
@@ -201,18 +201,18 @@ public final class ReflectiveTypeAdapterFactory implements TypeAdapterFactory {
         @Override // com.google.gson.TypeAdapter
         public void write(com.google.gson.stream.b bVar, T t) throws IOException {
             if (t == null) {
-                bVar.eDi();
+                bVar.ezq();
                 return;
             }
-            bVar.eDg();
+            bVar.ezo();
             try {
-                for (a aVar : this.pNL.values()) {
+                for (a aVar : this.pJk.values()) {
                     if (aVar.bE(t)) {
-                        bVar.ZQ(aVar.name);
+                        bVar.YI(aVar.name);
                         aVar.write(bVar, t);
                     }
                 }
-                bVar.eDh();
+                bVar.ezp();
             } catch (IllegalAccessException e) {
                 throw new AssertionError(e);
             }

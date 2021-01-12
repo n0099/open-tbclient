@@ -10,18 +10,18 @@ import com.baidu.cyberplayer.sdk.remote.e;
 import com.baidu.cyberplayer.sdk.remote.g;
 import java.io.FileDescriptor;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class d extends ExtractorProvider {
 
     /* renamed from: a  reason: collision with root package name */
-    private com.baidu.cyberplayer.sdk.remote.a f1817a;
+    private com.baidu.cyberplayer.sdk.remote.a f1767a;
 
     public d(com.baidu.cyberplayer.sdk.remote.a aVar) {
-        this.f1817a = aVar;
+        this.f1767a = aVar;
     }
 
     public static ExtractorProvider a() {
-        com.baidu.cyberplayer.sdk.remote.a a2 = a.AbstractBinderC0103a.a(g.a().b());
+        com.baidu.cyberplayer.sdk.remote.a a2 = a.AbstractBinderC0102a.a(g.a().b());
         if (a2 != null) {
             return new d(a2);
         }
@@ -29,11 +29,11 @@ public class d extends ExtractorProvider {
     }
 
     private void a(Uri uri, Map<String, String> map) {
-        if (this.f1817a == null) {
+        if (this.f1767a == null) {
             return;
         }
         try {
-            this.f1817a.a(new e(uri, map));
+            this.f1767a.a(new e(uri, map));
         } catch (RemoteException e) {
             e.printStackTrace();
         }
@@ -41,11 +41,11 @@ public class d extends ExtractorProvider {
 
     @Override // com.baidu.cyberplayer.sdk.extractor.ExtractorProvider
     public Bundle getMediaMeta() {
-        if (this.f1817a == null) {
+        if (this.f1767a == null) {
             return null;
         }
         try {
-            return this.f1817a.a();
+            return this.f1767a.a();
         } catch (RemoteException e) {
             e.printStackTrace();
             return null;
@@ -59,12 +59,12 @@ public class d extends ExtractorProvider {
         } catch (RemoteException e) {
             e.printStackTrace();
         } finally {
-            this.f1817a = null;
+            this.f1767a = null;
         }
-        if (this.f1817a == null) {
+        if (this.f1767a == null) {
             return;
         }
-        this.f1817a.b();
+        this.f1767a.b();
     }
 
     @Override // com.baidu.cyberplayer.sdk.extractor.ExtractorProvider
@@ -88,11 +88,11 @@ public class d extends ExtractorProvider {
 
     @Override // com.baidu.cyberplayer.sdk.extractor.ExtractorProvider
     public void setOption(int i, String str, long j) {
-        if (this.f1817a == null) {
+        if (this.f1767a == null) {
             return;
         }
         try {
-            this.f1817a.a(i, str, j);
+            this.f1767a.a(i, str, j);
         } catch (RemoteException e) {
             e.printStackTrace();
         }

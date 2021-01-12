@@ -11,7 +11,7 @@ import android.view.Window;
 import android.widget.Toast;
 import com.baidu.mobstat.Config;
 import com.baidu.swan.apps.a;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public final class e {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
@@ -75,7 +75,7 @@ public final class e {
         if (activity != null && activity.getWindow() != null && activity.getWindow().getDecorView() != null) {
             Window window = activity.getWindow();
             window.setFlags(1024, 1024);
-            window.getDecorView().setSystemUiVisibility(window.getDecorView().getSystemUiVisibility() | aRd());
+            window.getDecorView().setSystemUiVisibility(window.getDecorView().getSystemUiVisibility() | aNj());
         }
     }
 
@@ -83,15 +83,15 @@ public final class e {
         if (activity != null && activity.getWindow() != null && activity.getWindow().getDecorView() != null) {
             Window window = activity.getWindow();
             window.clearFlags(1024);
-            int systemUiVisibility = window.getDecorView().getSystemUiVisibility() & (aRd() ^ (-1));
-            if (com.baidu.swan.apps.res.widget.a.dDB) {
+            int systemUiVisibility = window.getDecorView().getSystemUiVisibility() & (aNj() ^ (-1));
+            if (com.baidu.swan.apps.res.widget.a.dyP) {
                 systemUiVisibility |= Config.MAX_CACHE_JSON_CAPACIT_EXCEPTION;
             }
             window.getDecorView().setSystemUiVisibility(systemUiVisibility);
         }
     }
 
-    public static int aRd() {
+    public static int aNj() {
         return 5894;
     }
 }

@@ -32,36 +32,36 @@ import java.io.Closeable;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class c {
-    public static long dKK;
-    private static ContentObserver dKL;
-    private static PackageManager dKM;
-    private static boolean dKN;
-    private static Runnable dKO;
+    public static long dFY;
+    private static ContentObserver dFZ;
+    private static PackageManager dGa;
+    private static boolean dGb;
+    private static Runnable dGc;
     private static ContentResolver mContentResolver;
     private static Uri mImageUri;
     public static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
     private static long mLastTime = System.currentTimeMillis() - 10000;
     private static List<com.baidu.swan.apps.ag.a> mCallbacks = new ArrayList();
     private static int mCount = 0;
-    private static String dKP = null;
+    private static String dGd = null;
 
-    static /* synthetic */ int aNL() {
+    static /* synthetic */ int aJR() {
         int i = mCount;
         mCount = i + 1;
         return i;
     }
 
-    private static boolean aNI() {
+    private static boolean aJO() {
         return System.currentTimeMillis() - mLastTime <= 1000;
     }
 
-    public static void dr(Context context) {
-        dKM = context.getPackageManager();
+    public static void dq(Context context) {
+        dGa = context.getPackageManager();
         final Handler handler = new Handler(Looper.getMainLooper());
         mContentResolver = context.getContentResolver();
-        dKL = new ContentObserver(handler) { // from class: com.baidu.swan.apps.ag.c.1
+        dFZ = new ContentObserver(handler) { // from class: com.baidu.swan.apps.ag.c.1
             @Override // android.database.ContentObserver
             public void onChange(boolean z, final Uri uri) {
                 super.onChange(z, uri);
@@ -76,8 +76,8 @@ public class c {
                 }, "systemScreenShot", 1);
             }
         };
-        if (ds(context)) {
-            mContentResolver.registerContentObserver(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, true, dKL);
+        if (dr(context)) {
+            mContentResolver.registerContentObserver(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, true, dFZ);
         }
     }
 
@@ -88,10 +88,10 @@ public class c {
         Throwable th;
         Cursor cursor;
         Closeable closeable = null;
-        if (!uri.toString().matches(a.dKS + ".*")) {
+        if (!uri.toString().matches(a.dGg + ".*")) {
             return;
         }
-        if (aNI() && dKN) {
+        if (aJO() && dGb) {
             mLastTime = System.currentTimeMillis();
             return;
         }
@@ -108,7 +108,7 @@ public class c {
                             long j = cursor.getLong(cursor.getColumnIndex("date_added"));
                             long currentTimeMillis2 = System.currentTimeMillis() / 1000;
                             mImageUri = uri;
-                            if (com.baidu.swan.apps.ao.c.aQW()) {
+                            if (com.baidu.swan.apps.ao.c.aNc()) {
                                 mImageUri = ContentUris.withAppendedId(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, cursor.getInt(cursor.getColumnIndex(IMConstants.MSG_ROW_ID)));
                             }
                             if (DEBUG) {
@@ -117,23 +117,23 @@ public class c {
                                 Log.d("SYSTEM_SCREENSHOT", "nowSecs: " + currentTimeMillis2);
                                 Log.d("SYSTEM_SCREENSHOT", "imageUri: " + mImageUri.toString());
                             }
-                            if (aNK()) {
+                            if (aJQ()) {
                                 d.closeSafely(cursor);
                                 return;
                             }
-                            dKP = mImageUri.toString();
-                            if (a.tk(string) && a.n(currentTimeMillis2, j)) {
-                                dKN = true;
+                            dGd = mImageUri.toString();
+                            if (a.rY(string) && a.n(currentTimeMillis2, j)) {
+                                dGb = true;
                                 final b bVar = new b(string, Long.valueOf(j), mImageUri);
-                                dKO = new Runnable() { // from class: com.baidu.swan.apps.ag.c.2
+                                dGc = new Runnable() { // from class: com.baidu.swan.apps.ag.c.2
                                     @Override // java.lang.Runnable
                                     public void run() {
-                                        c.aNL();
+                                        c.aJR();
                                         if (c.DEBUG) {
                                             Log.d("SYSTEM_SCREENSHOT", "mCount: " + c.mCount);
                                         }
                                         if (c.d(string, c.mImageUri) || c.mCount > 10) {
-                                            if (c.d(string, c.mImageUri) && c.aNJ() && !c.c(string, c.mImageUri)) {
+                                            if (c.d(string, c.mImageUri) && c.aJP() && !c.c(string, c.mImageUri)) {
                                                 for (com.baidu.swan.apps.ag.a aVar : c.mCallbacks) {
                                                     if (aVar != null) {
                                                         aVar.a(bVar);
@@ -143,17 +143,17 @@ public class c {
                                             }
                                             return;
                                         }
-                                        handler.postDelayed(c.dKO, 100L);
+                                        handler.postDelayed(c.dGc, 100L);
                                     }
                                 };
-                                handler.post(dKO);
+                                handler.post(dGc);
                             } else {
-                                dKN = false;
+                                dGb = false;
                             }
                         }
                     } catch (RuntimeException e) {
-                        if (dKM != null) {
-                            List<ProviderInfo> queryContentProviders = dKM.queryContentProviders(null, 0, 131072);
+                        if (dGa != null) {
+                            List<ProviderInfo> queryContentProviders = dGa.queryContentProviders(null, 0, 131072);
                             HashMap hashMap = new HashMap();
                             hashMap.put("from", "SystemScreenshot");
                             hashMap.put("page", "SystemScreenshot");
@@ -180,8 +180,8 @@ public class c {
         }
     }
 
-    public static boolean aNJ() {
-        return g.aDQ().isForeground() && System.currentTimeMillis() - dKK > 2000;
+    public static boolean aJP() {
+        return g.azW().isForeground() && System.currentTimeMillis() - dFY > 2000;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -194,7 +194,7 @@ public class c {
         int navigationBarHeight = point.y + getNavigationBarHeight();
         int i = point.x;
         double d = (i != 0 ? navigationBarHeight / (i * 1.0d) : 0.0d) * 1.2d;
-        double j = com.baidu.swan.apps.ao.c.aQW() ? j(uri) : 0.0d;
+        double j = com.baidu.swan.apps.ao.c.aNc() ? j(uri) : 0.0d;
         BitmapFactory.Options options = new BitmapFactory.Options();
         options.inJustDecodeBounds = true;
         BitmapFactory.decodeFile(str, options);
@@ -218,15 +218,15 @@ public class c {
 
     /* JADX INFO: Access modifiers changed from: private */
     public static boolean d(String str, Uri uri) {
-        if (com.baidu.swan.apps.ao.c.aQW()) {
+        if (com.baidu.swan.apps.ao.c.aNc()) {
             return i(uri);
         }
         new BitmapFactory.Options().inJustDecodeBounds = true;
         return BitmapFactory.decodeFile(str) != null;
     }
 
-    private static boolean aNK() {
-        return mImageUri == null || TextUtils.equals(dKP, mImageUri.toString());
+    private static boolean aJQ() {
+        return mImageUri == null || TextUtils.equals(dGd, mImageUri.toString());
     }
 
     private static boolean i(Uri uri) {
@@ -265,7 +265,7 @@ public class c {
         }
     }
 
-    private static boolean ds(Context context) {
+    private static boolean dr(Context context) {
         return Build.VERSION.SDK_INT < 23 || com.baidu.swan.support.v4.a.a.checkSelfPermission(context, "android.permission.READ_EXTERNAL_STORAGE") == 0;
     }
 
@@ -281,34 +281,34 @@ public class c {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public static class b {
-        public long dKT;
-        public Uri dKU;
+        public long dGh;
+        public Uri dGi;
         public String mImagePath;
 
         private b(String str, Long l, Uri uri) {
             this.mImagePath = str;
-            this.dKT = l.longValue();
-            this.dKU = uri;
+            this.dGh = l.longValue();
+            this.dGi = uri;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public static class a {
         private static String[] PROJECTION;
-        private static String dKS;
+        private static String dGg;
 
         static {
-            dKS = null;
+            dGg = null;
             PROJECTION = null;
-            dKS = MediaStore.Images.Media.EXTERNAL_CONTENT_URI.toString();
+            dGg = MediaStore.Images.Media.EXTERNAL_CONTENT_URI.toString();
             PROJECTION = new String[]{"_display_name", "_data", "date_added", IMConstants.MSG_ROW_ID};
         }
 
         /* JADX INFO: Access modifiers changed from: private */
-        public static boolean tk(String str) {
+        public static boolean rY(String str) {
             if (str == null) {
                 return false;
             }

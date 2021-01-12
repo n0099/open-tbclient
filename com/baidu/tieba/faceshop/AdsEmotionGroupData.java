@@ -3,7 +3,7 @@ package com.baidu.tieba.faceshop;
 import android.text.TextUtils;
 import java.io.Serializable;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class AdsEmotionGroupData implements com.baidu.tieba.face.data.b, Serializable {
     private static final long serialVersionUID = 1;
     private String colorCoverUrl;

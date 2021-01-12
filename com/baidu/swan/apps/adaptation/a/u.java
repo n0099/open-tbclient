@@ -4,7 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.net.Uri;
 import com.baidu.swan.apps.scheme.actions.p;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public interface u {
     boolean Z(Context context, String str);
 

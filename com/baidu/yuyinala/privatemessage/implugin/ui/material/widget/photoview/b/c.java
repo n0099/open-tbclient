@@ -1,7 +1,7 @@
 package com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.photoview.b;
 
 import android.util.Log;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class c implements b {
     @Override // com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.photoview.b.b
     public int d(String str, String str2) {

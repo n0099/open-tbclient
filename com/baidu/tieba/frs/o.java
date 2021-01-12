@@ -5,56 +5,56 @@ import android.view.ViewGroup;
 import com.baidu.tbadk.core.view.PullRefreshFrameLayout;
 /* loaded from: classes2.dex */
 public class o {
-    private View jhx;
-    private int jhy = -1;
-    private int jhz = -1;
+    private View jcQ;
+    private int jcR = -1;
+    private int jcS = -1;
 
     public o(View view) {
-        this.jhx = view;
+        this.jcQ = view;
     }
 
     public int getOriginHeight() {
-        return this.jhy;
+        return this.jcR;
     }
 
     public void setOriginHeight(int i) {
-        this.jhy = i;
+        this.jcR = i;
     }
 
-    public void zY(int i) {
-        this.jhz = i;
+    public void ys(int i) {
+        this.jcS = i;
     }
 
     public void setHeight(int i) {
         ViewGroup.LayoutParams layoutParams;
-        if (this.jhx != null && (layoutParams = this.jhx.getLayoutParams()) != null) {
+        if (this.jcQ != null && (layoutParams = this.jcQ.getLayoutParams()) != null) {
             layoutParams.height = i;
-            this.jhz = i;
-            this.jhx.setLayoutParams(layoutParams);
+            this.jcS = i;
+            this.jcQ.setLayoutParams(layoutParams);
         }
     }
 
-    public void B(double d) {
-        if (this.jhx != null) {
-            int i = (int) (this.jhy + (PullRefreshFrameLayout.fle * d));
-            ViewGroup.LayoutParams layoutParams = this.jhx.getLayoutParams();
+    public void v(double d) {
+        if (this.jcQ != null) {
+            int i = (int) (this.jcR + (PullRefreshFrameLayout.fgt * d));
+            ViewGroup.LayoutParams layoutParams = this.jcQ.getLayoutParams();
             if (layoutParams != null) {
                 layoutParams.height = i;
-                this.jhz = layoutParams.height;
-                this.jhx.setLayoutParams(layoutParams);
+                this.jcS = layoutParams.height;
+                this.jcQ.setLayoutParams(layoutParams);
             }
         }
     }
 
     public int getHeight() {
         ViewGroup.LayoutParams layoutParams;
-        if (this.jhx == null || (layoutParams = this.jhx.getLayoutParams()) == null) {
+        if (this.jcQ == null || (layoutParams = this.jcQ.getLayoutParams()) == null) {
             return 0;
         }
         return layoutParams.height;
     }
 
-    public int cFS() {
-        return this.jhz;
+    public int cCa() {
+        return this.jcS;
     }
 }

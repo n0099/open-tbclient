@@ -4,47 +4,47 @@ import android.content.Context;
 import com.baidu.fsg.base.restnet.beans.business.core.utils.ABTestConstant;
 import com.baidu.fsg.base.restnet.beans.business.core.utils.ABTestUtils;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class LivenessABTestUtil {
 
     /* renamed from: a  reason: collision with root package name */
-    private static LivenessABTestUtil f2353a;
+    private static LivenessABTestUtil f2303a;
 
     /* renamed from: b  reason: collision with root package name */
-    private ABTestUtils f2354b;
+    private ABTestUtils f2304b;
 
     private LivenessABTestUtil() {
     }
 
     private LivenessABTestUtil(Context context) {
-        this.f2354b = new ABTestUtils(context);
+        this.f2304b = new ABTestUtils(context);
     }
 
     public static synchronized LivenessABTestUtil getInstance(Context context) {
         LivenessABTestUtil livenessABTestUtil;
         synchronized (LivenessABTestUtil.class) {
-            if (f2353a == null) {
-                f2353a = new LivenessABTestUtil(context);
+            if (f2303a == null) {
+                f2303a = new LivenessABTestUtil(context);
             }
-            livenessABTestUtil = f2353a;
+            livenessABTestUtil = f2303a;
         }
         return livenessABTestUtil;
     }
 
     public static synchronized void cleanInstance() {
         synchronized (LivenessABTestUtil.class) {
-            f2353a = null;
+            f2303a = null;
         }
     }
 
     public boolean isWhiteBgEnable() {
-        if (this.f2354b != null) {
-            return "1".equals(this.f2354b.getABTestValueString("1", ABTestConstant.LIVENESS_BG_STYLE_EXP_KEY_LIVENESS_BG_STYLE, "0"));
+        if (this.f2304b != null) {
+            return "1".equals(this.f2304b.getABTestValueString("1", ABTestConstant.LIVENESS_BG_STYLE_EXP_KEY_LIVENESS_BG_STYLE, "0"));
         }
         return false;
     }
 
     public JSONObject getLivenessBgStyleABTestContent() {
-        return this.f2354b != null ? this.f2354b.getABTestStatistics("1", ABTestConstant.LIVENESS_BG_STYLE_EXP_KEY_LIVENESS_BG_STYLE, "0") : new JSONObject();
+        return this.f2304b != null ? this.f2304b.getABTestStatistics("1", ABTestConstant.LIVENESS_BG_STYLE_EXP_KEY_LIVENESS_BG_STYLE, "0") : new JSONObject();
     }
 }

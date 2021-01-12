@@ -5,10 +5,10 @@ import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.ala.AlaCmdConfigHttp;
 import com.baidu.tbadk.TbPageContext;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class a {
-    private InterfaceC0702a iat;
-    private HttpMessageListener iau = new HttpMessageListener(AlaCmdConfigHttp.CMD_ALA_ENTER_EFFECT_BUY_PROP) { // from class: com.baidu.tieba.ala.personcenter.privilege.a.1
+    private InterfaceC0685a hVM;
+    private HttpMessageListener hVN = new HttpMessageListener(AlaCmdConfigHttp.CMD_ALA_ENTER_EFFECT_BUY_PROP) { // from class: com.baidu.tieba.ala.personcenter.privilege.a.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
@@ -16,8 +16,8 @@ public class a {
                 AlaTDouBuyPrivilegeResponsedMessage alaTDouBuyPrivilegeResponsedMessage = (AlaTDouBuyPrivilegeResponsedMessage) httpResponsedMessage;
                 boolean z = alaTDouBuyPrivilegeResponsedMessage.getError() == 0;
                 String errorString = alaTDouBuyPrivilegeResponsedMessage.getErrorString();
-                if (a.this.iat != null) {
-                    a.this.iat.r(z, errorString);
+                if (a.this.hVM != null) {
+                    a.this.hVM.r(z, errorString);
                 }
             }
         }
@@ -25,15 +25,15 @@ public class a {
     private TbPageContext mPageContext;
 
     /* renamed from: com.baidu.tieba.ala.personcenter.privilege.a$a  reason: collision with other inner class name */
-    /* loaded from: classes10.dex */
-    public interface InterfaceC0702a {
+    /* loaded from: classes9.dex */
+    public interface InterfaceC0685a {
         void r(boolean z, String str);
     }
 
-    public a(TbPageContext tbPageContext, InterfaceC0702a interfaceC0702a) {
+    public a(TbPageContext tbPageContext, InterfaceC0685a interfaceC0685a) {
         this.mPageContext = tbPageContext;
-        this.iat = interfaceC0702a;
-        this.mPageContext.registerListener(this.iau);
+        this.hVM = interfaceC0685a;
+        this.mPageContext.registerListener(this.hVN);
     }
 
     public void aS(String str, int i) {

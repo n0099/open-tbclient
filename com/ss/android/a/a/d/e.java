@@ -8,10 +8,10 @@ public class e {
     public boolean g;
 
     /* renamed from: a  reason: collision with root package name */
-    public long f13205a = -1;
+    public long f12905a = -1;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f13206b = -1;
+    public int f12906b = -1;
     public long c = -1;
     public long d = -1;
     public int f = 0;
@@ -19,25 +19,25 @@ public class e {
     public boolean equals(Object obj) {
         if ((obj instanceof e) && obj != null) {
             e eVar = (e) obj;
-            return ((this.f13205a > eVar.f13205a ? 1 : (this.f13205a == eVar.f13205a ? 0 : -1)) == 0) && (this.f13206b == eVar.f13206b) && ((this.c > eVar.c ? 1 : (this.c == eVar.c ? 0 : -1)) == 0) && ((TextUtils.isEmpty(this.e) && TextUtils.isEmpty(eVar.e)) || (!TextUtils.isEmpty(this.e) && !TextUtils.isEmpty(eVar.e) && this.e.equals(eVar.e)));
+            return ((this.f12905a > eVar.f12905a ? 1 : (this.f12905a == eVar.f12905a ? 0 : -1)) == 0) && (this.f12906b == eVar.f12906b) && ((this.c > eVar.c ? 1 : (this.c == eVar.c ? 0 : -1)) == 0) && ((TextUtils.isEmpty(this.e) && TextUtils.isEmpty(eVar.e)) || (!TextUtils.isEmpty(this.e) && !TextUtils.isEmpty(eVar.e) && this.e.equals(eVar.e)));
         }
         return super.equals(obj);
     }
 
     public int hashCode() {
-        return Arrays.hashCode(new Object[]{Long.valueOf(this.f13205a), Integer.valueOf(this.f13206b), Long.valueOf(this.c), this.e});
+        return Arrays.hashCode(new Object[]{Long.valueOf(this.f12905a), Integer.valueOf(this.f12906b), Long.valueOf(this.c), this.e});
     }
 
     public void a(com.ss.android.socialbase.downloader.g.c cVar) {
         if (cVar != null) {
-            this.f13205a = cVar.g();
-            this.f13206b = cVar.q();
-            this.d = cVar.eIz();
-            this.c = cVar.ejL();
+            this.f12905a = cVar.g();
+            this.f12906b = cVar.q();
+            this.d = cVar.eEJ();
+            this.c = cVar.efR();
             this.e = cVar.n();
-            com.ss.android.socialbase.downloader.e.a eJm = cVar.eJm();
-            if (eJm != null) {
-                this.f = eJm.a();
+            com.ss.android.socialbase.downloader.e.a eFw = cVar.eFw();
+            if (eFw != null) {
+                this.f = eFw.a();
             } else {
                 this.f = 0;
             }

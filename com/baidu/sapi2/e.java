@@ -50,7 +50,7 @@ public final class e {
     private static final String z = "authorized_domains";
 
     /* renamed from: b  reason: collision with root package name */
-    private LoginShareStrategy f5225b;
+    private LoginShareStrategy f4942b;
     public boolean n;
     public boolean o;
     public int p;
@@ -72,7 +72,7 @@ public final class e {
     public String t = b0;
 
     /* renamed from: a  reason: collision with root package name */
-    private a f5224a = new a();
+    private a f4941a = new a();
     public c u = new c();
 
     /* loaded from: classes3.dex */
@@ -80,28 +80,28 @@ public final class e {
         private static final String d = ".BD_SAPI_CACHE";
 
         /* renamed from: b  reason: collision with root package name */
-        private String f5227b;
-        private List<C0341a> c = new ArrayList();
+        private String f4944b;
+        private List<C0324a> c = new ArrayList();
 
         /* renamed from: a  reason: collision with root package name */
-        private boolean f5226a = true;
+        private boolean f4943a = true;
 
         public String b() {
-            return this.f5227b;
+            return this.f4944b;
         }
 
         public boolean c() {
-            return this.f5226a;
+            return this.f4943a;
         }
 
         JSONObject d() {
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put(e.E, this.f5226a);
-                jSONObject.put("version", this.f5227b);
+                jSONObject.put(e.E, this.f4943a);
+                jSONObject.put("version", this.f4944b);
                 JSONArray jSONArray = new JSONArray();
-                for (C0341a c0341a : a()) {
-                    jSONArray.put(c0341a.a());
+                for (C0324a c0324a : a()) {
+                    jSONArray.put(c0324a.a());
                 }
                 jSONObject.put(e.G, jSONArray);
                 return jSONObject;
@@ -110,7 +110,7 @@ public final class e {
             }
         }
 
-        public List<C0341a> a() {
+        public List<C0324a> a() {
             return this.c;
         }
 
@@ -118,11 +118,11 @@ public final class e {
             a aVar = new a();
             if (jSONObject != null) {
                 try {
-                    aVar.f5226a = jSONObject.optBoolean(e.E, true);
-                    aVar.f5227b = jSONObject.optLong("version") + "";
+                    aVar.f4943a = jSONObject.optBoolean(e.E, true);
+                    aVar.f4944b = jSONObject.optLong("version") + "";
                     JSONArray optJSONArray = jSONObject.optJSONArray(e.G);
                     for (int i = 0; i < optJSONArray.length(); i++) {
-                        aVar.a().add(C0341a.a(optJSONArray.getJSONObject(i)));
+                        aVar.a().add(C0324a.a(optJSONArray.getJSONObject(i)));
                     }
                 } catch (Throwable th) {
                 }
@@ -132,13 +132,13 @@ public final class e {
 
         /* renamed from: com.baidu.sapi2.e$a$a  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        public static class C0341a {
+        public static class C0324a {
 
             /* renamed from: a  reason: collision with root package name */
-            public String f5228a;
+            public String f4945a;
 
             /* renamed from: b  reason: collision with root package name */
-            public String f5229b;
+            public String f4946b;
             public String c;
 
             public static String b(String str) {
@@ -152,8 +152,8 @@ public final class e {
             JSONObject a() {
                 JSONObject jSONObject = new JSONObject();
                 try {
-                    jSONObject.put("id", this.f5228a);
-                    jSONObject.put(e.I, this.f5229b);
+                    jSONObject.put("id", this.f4945a);
+                    jSONObject.put(e.I, this.f4946b);
                     jSONObject.put(e.J, this.c);
                     return jSONObject;
                 } catch (Throwable th) {
@@ -162,25 +162,25 @@ public final class e {
             }
 
             public int hashCode() {
-                return this.f5228a.hashCode();
+                return this.f4945a.hashCode();
             }
 
             public boolean equals(Object obj) {
                 if (this == obj) {
                     return true;
                 }
-                if (obj != null && C0341a.class == obj.getClass()) {
-                    return this.f5228a.equals(((C0341a) obj).f5228a);
+                if (obj != null && C0324a.class == obj.getClass()) {
+                    return this.f4945a.equals(((C0324a) obj).f4945a);
                 }
                 return false;
             }
 
-            static C0341a a(JSONObject jSONObject) {
-                C0341a c0341a = new C0341a();
-                c0341a.f5228a = jSONObject.optString("id");
-                c0341a.f5229b = jSONObject.optString(e.I);
-                c0341a.c = jSONObject.optString(e.J);
-                return c0341a;
+            static C0324a a(JSONObject jSONObject) {
+                C0324a c0324a = new C0324a();
+                c0324a.f4945a = jSONObject.optString("id");
+                c0324a.f4946b = jSONObject.optString(e.I);
+                c0324a.c = jSONObject.optString(e.J);
+                return c0324a;
             }
 
             public static String a(String str) {
@@ -193,27 +193,27 @@ public final class e {
     public static class b {
 
         /* renamed from: a  reason: collision with root package name */
-        String f5230a;
+        String f4947a;
 
         /* renamed from: b  reason: collision with root package name */
-        private List<a.C0341a> f5231b = new ArrayList();
+        private List<a.C0324a> f4948b = new ArrayList();
 
         public String b() {
-            return this.f5230a;
+            return this.f4947a;
         }
 
-        public List<a.C0341a> a() {
-            return this.f5231b;
+        public List<a.C0324a> a() {
+            return this.f4948b;
         }
 
         static b a(JSONObject jSONObject) {
             b bVar = new b();
             if (jSONObject != null) {
                 try {
-                    bVar.f5230a = jSONObject.optString(e.D);
+                    bVar.f4947a = jSONObject.optString(e.D);
                     JSONArray optJSONArray = jSONObject.optJSONArray(e.G);
                     for (int i = 0; i < optJSONArray.length(); i++) {
-                        bVar.a().add(a.C0341a.a(optJSONArray.getJSONObject(i)));
+                        bVar.a().add(a.C0324a.a(optJSONArray.getJSONObject(i)));
                     }
                 } catch (Throwable th) {
                 }
@@ -281,7 +281,7 @@ public final class e {
     }
 
     public a e() {
-        return this.f5224a;
+        return this.f4941a;
     }
 
     public List<String> f() {
@@ -293,7 +293,7 @@ public final class e {
     }
 
     public LoginShareStrategy h() {
-        return this.f5225b;
+        return this.f4942b;
     }
 
     public boolean i() {
@@ -363,12 +363,12 @@ public final class e {
     public String q() {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put(B, this.f5224a.d());
+            jSONObject.put(B, this.f4941a.d());
             jSONObject.put(N, this.n);
             jSONObject.put(P, this.o);
             jSONObject.put(M, this.r);
-            if (this.f5225b != null) {
-                jSONObject.put(w, this.f5225b.getStrValue());
+            if (this.f4942b != null) {
+                jSONObject.put(w, this.f4942b.getStrValue());
             }
             jSONObject.put(y, this.c);
             JSONObject jSONObject2 = new JSONObject();
@@ -412,17 +412,17 @@ public final class e {
         private static final String f = "vehicle_system_pkgs";
 
         /* renamed from: a  reason: collision with root package name */
-        private Map<String, String> f5236a = new HashMap();
+        private Map<String, String> f4953a = new HashMap();
 
         /* renamed from: b  reason: collision with root package name */
-        private Map<String, String> f5237b = new HashMap();
+        private Map<String, String> f4954b = new HashMap();
         private Map<String, String> c = new HashMap();
 
         public static d a(JSONObject jSONObject) {
             d dVar = new d();
-            e.b(jSONObject.optJSONObject(d), dVar.f5236a);
+            e.b(jSONObject.optJSONObject(d), dVar.f4953a);
             e.b(jSONObject.optJSONObject(f), dVar.c);
-            e.b(jSONObject.optJSONObject(e), dVar.f5237b);
+            e.b(jSONObject.optJSONObject(e), dVar.f4954b);
             return dVar;
         }
 
@@ -532,7 +532,7 @@ public final class e {
         }
 
         public Map<String, String> e() {
-            return !this.f5237b.isEmpty() ? this.f5237b : c();
+            return !this.f4954b.isEmpty() ? this.f4954b : c();
         }
 
         public Map<String, String> f() {
@@ -542,9 +542,9 @@ public final class e {
         public String g() {
             JSONObject jSONObject = new JSONObject();
             try {
-                e.b(jSONObject, d, this.f5236a);
+                e.b(jSONObject, d, this.f4953a);
                 e.b(jSONObject, f, this.c);
-                e.b(jSONObject, e, this.f5237b);
+                e.b(jSONObject, e, this.f4954b);
             } catch (JSONException e2) {
                 Log.e(e2);
             }
@@ -552,7 +552,7 @@ public final class e {
         }
 
         public Map<String, String> a() {
-            return !this.f5236a.isEmpty() ? this.f5236a : b();
+            return !this.f4953a.isEmpty() ? this.f4953a : b();
         }
     }
 
@@ -560,7 +560,7 @@ public final class e {
     public static class c {
 
         /* renamed from: b  reason: collision with root package name */
-        public static final String f5232b = "share_v3";
+        public static final String f4949b = "share_v3";
         public static final String c = "finger";
         public static final String d = "cm_oauth";
         public static final String e = "cu_oauth";
@@ -572,7 +572,7 @@ public final class e {
         static String k = "t";
 
         /* renamed from: a  reason: collision with root package name */
-        private Map<String, a> f5233a = new HashMap();
+        private Map<String, a> f4950a = new HashMap();
 
         static c a(JSONObject jSONObject) {
             c cVar = new c();
@@ -582,7 +582,7 @@ public final class e {
                 while (keys.hasNext()) {
                     String obj = keys.next().toString();
                     if (obj != null && !"".equals(obj)) {
-                        cVar.f5233a.put(obj, a.a(obj, optJSONObject.optJSONObject(obj)));
+                        cVar.f4950a.put(obj, a.a(obj, optJSONObject.optJSONObject(obj)));
                     }
                 }
             }
@@ -594,10 +594,10 @@ public final class e {
         public static class a {
 
             /* renamed from: a  reason: collision with root package name */
-            String f5234a;
+            String f4951a;
 
             /* renamed from: b  reason: collision with root package name */
-            long f5235b;
+            long f4952b;
             boolean c;
             String d;
 
@@ -607,8 +607,8 @@ public final class e {
             JSONObject a() {
                 JSONObject jSONObject = new JSONObject();
                 try {
-                    jSONObject.put(c.g, this.f5234a);
-                    jSONObject.put(c.h, this.f5235b);
+                    jSONObject.put(c.g, this.f4951a);
+                    jSONObject.put(c.h, this.f4952b);
                     jSONObject.put(c.i, this.d);
                     jSONObject.put(c.j, this.c);
                     return jSONObject;
@@ -624,8 +624,8 @@ public final class e {
                 if (optJSONObject == null) {
                     optJSONObject = new JSONObject();
                 }
-                aVar.f5234a = optJSONObject.has(c.g) ? optJSONObject.optString(c.g) : jSONObject.optString(c.g);
-                aVar.f5235b = optJSONObject.has(c.h) ? optJSONObject.optLong(c.h) : jSONObject.optLong(c.h);
+                aVar.f4951a = optJSONObject.has(c.g) ? optJSONObject.optString(c.g) : jSONObject.optString(c.g);
+                aVar.f4952b = optJSONObject.has(c.h) ? optJSONObject.optLong(c.h) : jSONObject.optLong(c.h);
                 aVar.d = optJSONObject.has(c.i) ? optJSONObject.optString(c.i) : jSONObject.optString(c.i);
                 long j = SapiContext.getInstance().getLong(str, -1L);
                 if (j == -1) {
@@ -634,8 +634,8 @@ public final class e {
                     j = random.nextInt(1000000);
                     SapiContext.getInstance().put(str, j);
                 }
-                aVar.c = aVar.f5235b >= j;
-                if (!TextUtils.isEmpty(aVar.f5234a) && SapiUtils.versionCompareTo(ServiceManager.getInstance().getIsAccountManager().getVersionName(), aVar.f5234a) < 0) {
+                aVar.c = aVar.f4952b >= j;
+                if (!TextUtils.isEmpty(aVar.f4951a) && SapiUtils.versionCompareTo(ServiceManager.getInstance().getIsAccountManager().getVersionName(), aVar.f4951a) < 0) {
                     aVar.c = false;
                 }
                 return aVar;
@@ -644,9 +644,9 @@ public final class e {
 
         JSONObject a() {
             JSONObject jSONObject = new JSONObject();
-            for (String str : this.f5233a.keySet()) {
+            for (String str : this.f4950a.keySet()) {
                 try {
-                    jSONObject.put(str, this.f5233a.get(str).a());
+                    jSONObject.put(str, this.f4950a.get(str).a());
                 } catch (JSONException e2) {
                     Log.e(e2);
                 }
@@ -655,7 +655,7 @@ public final class e {
         }
 
         public a a(String str) {
-            a aVar = this.f5233a.get(str);
+            a aVar = this.f4950a.get(str);
             if (aVar == null) {
                 a aVar2 = new a();
                 aVar2.c = true;
@@ -681,7 +681,7 @@ public final class e {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void a(a aVar) {
-        this.f5224a = aVar;
+        this.f4941a = aVar;
     }
 
     private static void a(JSONObject jSONObject, String str, List<String> list) throws JSONException {
@@ -722,8 +722,8 @@ public final class e {
         while (i2 < length) {
             int intValue = Integer.valueOf(split[i2]).intValue() + i3;
             if (i <= intValue) {
-                eVar.f5224a.c.clear();
-                eVar.f5224a.c.add(a2.f5231b.get(i2));
+                eVar.f4941a.c.clear();
+                eVar.f4941a.c.add(a2.f4948b.get(i2));
                 return;
             }
             i2++;
@@ -733,7 +733,7 @@ public final class e {
 
     public static e a(JSONObject jSONObject) {
         e eVar = new e();
-        eVar.f5224a = a.a(jSONObject.optJSONObject(B));
+        eVar.f4941a = a.a(jSONObject.optJSONObject(B));
         if (jSONObject.has(C)) {
             a(jSONObject, eVar);
         }
@@ -743,7 +743,7 @@ public final class e {
         eVar.r = jSONObject.optInt(M, 0);
         String optString = jSONObject.optString(w);
         if (!TextUtils.isEmpty(optString)) {
-            eVar.f5225b = LoginShareStrategy.mapStrToValue(optString);
+            eVar.f4942b = LoginShareStrategy.mapStrToValue(optString);
         }
         JSONObject optJSONObject = jSONObject.optJSONObject(x);
         if (optJSONObject != null) {

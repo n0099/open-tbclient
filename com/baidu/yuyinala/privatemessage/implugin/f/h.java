@@ -3,27 +3,27 @@ package com.baidu.yuyinala.privatemessage.implugin.f;
 import com.baidu.android.util.io.BaseJsonData;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class h {
     private JSONObject mData;
     private long mPaId;
     private String mType;
-    private String oUE;
-    private int oUF;
-    public int oUG;
-    public int oUH = -1;
+    private String oQc;
+    private int oQd;
+    public int oQe;
+    public int oQf = -1;
 
-    public void Yk(String str) {
+    public void Xc(String str) {
         try {
             JSONObject jSONObject = new JSONObject(str);
-            this.oUH = jSONObject.optInt(BaseJsonData.TAG_ERRNO);
-            if (this.oUH == 0) {
+            this.oQf = jSONObject.optInt(BaseJsonData.TAG_ERRNO);
+            if (this.oQf == 0) {
                 this.mData = jSONObject.optJSONObject("data");
                 if (this.mData != null) {
                     this.mType = this.mData.optString("type");
-                    this.oUE = this.mData.optString("third_id");
-                    this.oUF = this.mData.optInt("has_sub");
-                    this.oUG = this.mData.optInt("notify");
+                    this.oQc = this.mData.optString("third_id");
+                    this.oQd = this.mData.optInt("has_sub");
+                    this.oQe = this.mData.optInt("notify");
                 }
             }
         } catch (JSONException e) {
@@ -40,30 +40,30 @@ public class h {
     }
 
     public String getThirdId() {
-        return this.oUE;
+        return this.oQc;
     }
 
-    public int elp() {
-        return this.oUG;
+    public int ehv() {
+        return this.oQe;
     }
 
-    public void OO(int i) {
-        this.oUG = i;
+    public void Nh(int i) {
+        this.oQe = i;
     }
 
     public String getType() {
-        return Yl("type") ? this.mType : "";
+        return Xd("type") ? this.mType : "";
     }
 
-    public String elq() {
-        return Yl("third_id") ? this.oUE : "";
+    public String ehw() {
+        return Xd("third_id") ? this.oQc : "";
     }
 
     public boolean isDataValid() {
-        return this.oUH == 0;
+        return this.oQf == 0;
     }
 
-    private boolean Yl(String str) {
+    private boolean Xd(String str) {
         return isDataValid() && this.mData != null && this.mData.has(str);
     }
 }

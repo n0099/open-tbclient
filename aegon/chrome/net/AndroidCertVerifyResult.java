@@ -6,7 +6,7 @@ import java.security.cert.X509Certificate;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class AndroidCertVerifyResult {
     public final List<X509Certificate> mCertificateChain;
     public final boolean mIsIssuedByKnownRoot;

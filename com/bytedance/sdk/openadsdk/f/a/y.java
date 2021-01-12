@@ -25,8 +25,8 @@ public class y extends a {
         if (jVar.e != null) {
             return jVar.e;
         }
-        if (jVar.f7428a != null) {
-            return jVar.f7428a.getContext();
+        if (jVar.f7128a != null) {
+            return jVar.f7128a.getContext();
         }
         throw new IllegalStateException("WebView cannot be null!");
     }
@@ -39,7 +39,7 @@ public class y extends a {
     @Override // com.bytedance.sdk.openadsdk.f.a.a
     @SuppressLint({"JavascriptInterface", "AddJavascriptInterface"})
     protected void b(j jVar) {
-        this.j = jVar.f7428a;
+        this.j = jVar.f7128a;
         this.i = jVar.c;
         if (Build.VERSION.SDK_INT >= 17 && !jVar.n) {
             if (!h && this.j == null) {

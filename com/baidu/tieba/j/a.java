@@ -1,6 +1,7 @@
 package com.baidu.tieba.j;
 
 import com.baidu.live.tbadk.core.util.TbEnum;
+import com.baidu.searchbox.account.data.UserAccountActionItem;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import java.util.ArrayList;
 import java.util.List;
@@ -8,42 +9,42 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class a {
-    private String bAi;
-    private String bAr;
-    private String bAs;
-    private String ePq;
+    private String bvF;
+    private String bvG;
+    private String bvw;
+    private String eKF;
     private boolean isSelected;
-    private String jUU;
-    private b jUV;
-    private String jUW;
-    private String jUX;
-    private String jUY;
-    private String jUZ;
-    private String jVa;
-    private List<C0787a> jVb;
+    private String jQp;
+    private b jQq;
+    private String jQr;
+    private String jQs;
+    private String jQt;
+    private String jQu;
+    private String jQv;
+    private List<C0770a> jQw;
     private String nid;
     private String originalPrice;
     private String price;
     private String title;
     private String userName;
 
-    public void LS(String str) {
-        this.jUU = str;
+    public void KK(String str) {
+        this.jQp = str;
     }
 
-    public String cQg() {
-        return this.bAi;
+    public String cMo() {
+        return this.bvw;
     }
 
-    public void LT(String str) {
-        this.bAi = str;
+    public void KL(String str) {
+        this.bvw = str;
     }
 
     public void setTitle(String str) {
         this.title = str;
     }
 
-    public void LU(String str) {
+    public void KM(String str) {
         this.originalPrice = str;
     }
 
@@ -55,104 +56,104 @@ public class a {
         this.price = str;
     }
 
-    public b cQh() {
-        return this.jUV;
+    public b cMp() {
+        return this.jQq;
     }
 
     public void a(b bVar) {
-        this.jUV = bVar;
+        this.jQq = bVar;
     }
 
-    public void LV(String str) {
-        this.jUW = str;
+    public void KN(String str) {
+        this.jQr = str;
     }
 
-    public String cQi() {
-        return this.jUX;
+    public String cMq() {
+        return this.jQs;
     }
 
-    public void LW(String str) {
-        this.jUX = str;
+    public void KO(String str) {
+        this.jQs = str;
     }
 
     public void setUserName(String str) {
         this.userName = str;
     }
 
-    public void LX(String str) {
-        this.jUY = str;
+    public void KP(String str) {
+        this.jQt = str;
     }
 
-    public void LY(String str) {
-        this.jUZ = str;
+    public void KQ(String str) {
+        this.jQu = str;
     }
 
-    public void LZ(String str) {
-        this.bAs = str;
+    public void KR(String str) {
+        this.bvG = str;
     }
 
-    public void Ma(String str) {
-        this.bAr = str;
+    public void KS(String str) {
+        this.bvF = str;
     }
 
-    public void Mb(String str) {
-        this.jVa = str;
+    public void KT(String str) {
+        this.jQv = str;
     }
 
     public void setNid(String str) {
         this.nid = str;
     }
 
-    public String cQj() {
-        return this.ePq;
+    public String cMr() {
+        return this.eKF;
     }
 
-    public void Mc(String str) {
-        this.ePq = str;
+    public void KU(String str) {
+        this.eKF = str;
     }
 
     public void setIsSelected(boolean z) {
         this.isSelected = z;
     }
 
-    public List<C0787a> getImageList() {
-        return this.jVb;
+    public List<C0770a> getImageList() {
+        return this.jQw;
     }
 
-    public void dR(List<C0787a> list) {
-        this.jVb = list;
+    public void dR(List<C0770a> list) {
+        this.jQw = list;
     }
 
     /* loaded from: classes.dex */
     public static class b {
-        private String jVc;
-        private String jVd;
-        private String jVe;
+        private String jQx;
+        private String jQy;
+        private String jQz;
 
-        public void Md(String str) {
-            this.jVc = str;
+        public void KV(String str) {
+            this.jQx = str;
         }
 
-        public String cQk() {
-            return this.jVd;
+        public String cMs() {
+            return this.jQy;
         }
 
-        public void Me(String str) {
-            this.jVd = str;
+        public void KW(String str) {
+            this.jQy = str;
         }
 
-        public String cQl() {
-            return this.jVe;
+        public String cMt() {
+            return this.jQz;
         }
 
-        public void Mf(String str) {
-            this.jVe = str;
+        public void KX(String str) {
+            this.jQz = str;
         }
     }
 
     /* renamed from: com.baidu.tieba.j.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0787a {
+    public static class C0770a {
         private String src;
 
         public String getSrc() {
@@ -169,39 +170,39 @@ public class a {
             return null;
         }
         a aVar = new a();
-        aVar.LV(jSONObject.optString("commission"));
-        aVar.LZ(jSONObject.optString("coupon"));
-        aVar.Mc(jSONObject.optString("goodsId"));
-        aVar.LX(jSONObject.optString("goodsStatus"));
+        aVar.KN(jSONObject.optString("commission"));
+        aVar.KR(jSONObject.optString("coupon"));
+        aVar.KU(jSONObject.optString("goodsId"));
+        aVar.KP(jSONObject.optString("goodsStatus"));
         JSONArray optJSONArray = jSONObject.optJSONArray("imageList");
         if (optJSONArray != null && optJSONArray.length() > 0) {
             ArrayList arrayList = new ArrayList();
             for (int i = 0; i < optJSONArray.length(); i++) {
-                C0787a c0787a = new C0787a();
+                C0770a c0770a = new C0770a();
                 JSONObject optJSONObject = optJSONArray.optJSONObject(i);
                 if (optJSONObject != null) {
-                    c0787a.setSrc(optJSONObject.optString("src"));
-                    arrayList.add(c0787a);
+                    c0770a.setSrc(optJSONObject.optString(UserAccountActionItem.KEY_SRC));
+                    arrayList.add(c0770a);
                 }
             }
             aVar.dR(arrayList);
         }
-        aVar.Mb(jSONObject.optString("isBindingVideo"));
+        aVar.KT(jSONObject.optString("isBindingVideo"));
         aVar.setIsSelected(jSONObject.optBoolean("isSelected"));
         aVar.setNid(jSONObject.optString(IntentConfig.NID));
-        aVar.LS(jSONObject.optString("originalGoodsId"));
-        aVar.LU(jSONObject.optString("originalPrice"));
-        aVar.LT(jSONObject.optString("originalTitle"));
-        aVar.LW(jSONObject.optString("tpName"));
+        aVar.KK(jSONObject.optString("originalGoodsId"));
+        aVar.KM(jSONObject.optString("originalPrice"));
+        aVar.KL(jSONObject.optString("originalTitle"));
+        aVar.KO(jSONObject.optString("tpName"));
         aVar.setPrice(jSONObject.optString("price"));
-        aVar.Ma(jSONObject.optString("saleNum"));
-        aVar.LY(jSONObject.optString("shareStatus"));
+        aVar.KS(jSONObject.optString("saleNum"));
+        aVar.KQ(jSONObject.optString("shareStatus"));
         JSONObject optJSONObject2 = jSONObject.optJSONObject("slink");
         if (optJSONObject2 != null) {
             b bVar = new b();
-            bVar.Me(optJSONObject2.optString("Android"));
-            bVar.Md(optJSONObject2.optString("IOS"));
-            bVar.Mf(optJSONObject2.optString("h5"));
+            bVar.KW(optJSONObject2.optString("Android"));
+            bVar.KV(optJSONObject2.optString("IOS"));
+            bVar.KX(optJSONObject2.optString("h5"));
             aVar.a(bVar);
         }
         aVar.setTitle(jSONObject.optString("title"));

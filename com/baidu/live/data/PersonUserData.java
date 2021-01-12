@@ -3,7 +3,7 @@ package com.baidu.live.data;
 import com.baidu.tieba.ala.live.walletconfig.CashierData;
 import java.io.Serializable;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class PersonUserData implements Serializable {
     public static final int PERSON_FANS_TYPE = 0;
     public static final int PERSON_FOLLOWS_TYPE = 1;
@@ -77,11 +77,11 @@ public class PersonUserData implements Serializable {
     }
 
     public boolean isChatOnceBan() {
-        return this.user_info != null && this.user_info.aQg == 1;
+        return this.user_info != null && this.user_info.aLt == 1;
     }
 
     public boolean isChatForeverBan() {
-        return this.user_info != null && this.user_info.aQg == 2;
+        return this.user_info != null && this.user_info.aLt == 2;
     }
 
     public boolean isLandScapeLive() {

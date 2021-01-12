@@ -4,7 +4,7 @@ import android.opengl.GLES20;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.nio.FloatBuffer;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class GlUtil {
     private GlUtil() {
     }

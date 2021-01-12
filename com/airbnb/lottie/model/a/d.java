@@ -18,6 +18,6 @@ public class d extends n<Integer, Integer> {
 
     @Override // com.airbnb.lottie.model.a.m
     public com.airbnb.lottie.a.b.a<Integer, Integer> jc() {
-        return new com.airbnb.lottie.a.b.e(this.Eu);
+        return new com.airbnb.lottie.a.b.e(this.Es);
     }
 }

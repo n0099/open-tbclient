@@ -13,10 +13,10 @@ import com.baidu.live.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.ala.liveroom.challenge.panel.j;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class i extends BaseAdapter {
-    private List<com.baidu.live.challenge.d> hvB = new ArrayList();
-    private j.a hxp;
+    private List<com.baidu.live.challenge.d> hqV = new ArrayList();
+    private j.a hsJ;
     private Context mContext;
 
     public i(Context context) {
@@ -25,38 +25,38 @@ public class i extends BaseAdapter {
 
     public void setDatas(List<com.baidu.live.challenge.d> list) {
         if (list != null && !ListUtils.isEmpty(list)) {
-            this.hvB.clear();
-            this.hvB.addAll(list);
+            this.hqV.clear();
+            this.hqV.addAll(list);
             notifyDataSetChanged();
         }
     }
 
     public void cJ(List<com.baidu.live.challenge.d> list) {
         if (list != null && !ListUtils.isEmpty(list)) {
-            this.hvB.addAll(list);
+            this.hqV.addAll(list);
             notifyDataSetChanged();
         }
     }
 
-    public void cgE() {
-        if (!ListUtils.isEmpty(this.hvB)) {
-            this.hvB.clear();
+    public void ccM() {
+        if (!ListUtils.isEmpty(this.hqV)) {
+            this.hqV.clear();
             notifyDataSetChanged();
         }
     }
 
     public void a(j.a aVar) {
-        this.hxp = aVar;
+        this.hsJ = aVar;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        return this.hvB.size();
+        return this.hqV.size();
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        return this.hvB.get(i);
+        return this.hqV.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -66,10 +66,10 @@ public class i extends BaseAdapter {
 
     public void i(com.baidu.live.challenge.d dVar) {
         if (dVar != null) {
-            for (com.baidu.live.challenge.d dVar2 : this.hvB) {
+            for (com.baidu.live.challenge.d dVar2 : this.hqV) {
                 if (dVar.equals(dVar2)) {
-                    dVar2.aID = dVar.aID;
-                    dVar2.aIC = dVar.aIC;
+                    dVar2.aDQ = dVar.aDQ;
+                    dVar2.aDP = dVar.aDP;
                 }
             }
             notifyDataSetChanged();
@@ -82,40 +82,40 @@ public class i extends BaseAdapter {
         if (view == null) {
             view = LayoutInflater.from(this.mContext).inflate(a.g.ala_challenge_user_item_view_layout, (ViewGroup) null);
             aVar = new a();
-            aVar.hxs = (HeadImageView) view.findViewById(a.f.ala_challenge_user_header);
-            aVar.hxs.setIsRound(true);
-            aVar.hxs.setAutoChangeStyle(false);
-            aVar.eLt = (TextView) view.findViewById(a.f.ala_challenge_user_name);
-            aVar.hxt = (TextView) view.findViewById(a.f.ala_challenge_user_status);
-            aVar.gQq = (TextView) view.findViewById(a.f.ala_challenge_user_charm);
+            aVar.hsM = (HeadImageView) view.findViewById(a.f.ala_challenge_user_header);
+            aVar.hsM.setIsRound(true);
+            aVar.hsM.setAutoChangeStyle(false);
+            aVar.eGI = (TextView) view.findViewById(a.f.ala_challenge_user_name);
+            aVar.hsN = (TextView) view.findViewById(a.f.ala_challenge_user_status);
+            aVar.gLK = (TextView) view.findViewById(a.f.ala_challenge_user_charm);
             view.setTag(aVar);
         } else {
             aVar = (a) view.getTag();
         }
-        final com.baidu.live.challenge.d dVar = this.hvB.get(i);
-        aVar.hxs.startLoad(dVar.avatar, 12, false);
-        aVar.eLt.setText(Html.fromHtml(dVar.userName));
-        aVar.gQq.setText(this.mContext.getString(a.h.sdk_charm_name, String.valueOf(dVar.charmCount)));
-        if (dVar.aID && dVar.aIC != 1) {
-            aVar.hxt.setEnabled(true);
-            aVar.hxt.setBackgroundResource(a.e.sdk_red_border_bg);
-            aVar.hxt.setText(this.mContext.getString(a.h.ala_challenge_invite));
-            aVar.hxt.setTextColor(this.mContext.getResources().getColor(a.c.sdk_cp_cont_i));
-        } else if (dVar.aIC == 1) {
-            aVar.hxt.setEnabled(false);
-            aVar.hxt.setBackgroundDrawable(null);
-            aVar.hxt.setText(this.mContext.getString(a.h.ala_live_pking));
-            aVar.hxt.setTextColor(this.mContext.getResources().getColor(a.c.sdk_cp_cont_i_alpha50));
+        final com.baidu.live.challenge.d dVar = this.hqV.get(i);
+        aVar.hsM.startLoad(dVar.avatar, 12, false);
+        aVar.eGI.setText(Html.fromHtml(dVar.userName));
+        aVar.gLK.setText(this.mContext.getString(a.h.sdk_charm_name, String.valueOf(dVar.charmCount)));
+        if (dVar.aDQ && dVar.aDP != 1) {
+            aVar.hsN.setEnabled(true);
+            aVar.hsN.setBackgroundResource(a.e.sdk_red_border_bg);
+            aVar.hsN.setText(this.mContext.getString(a.h.ala_challenge_invite));
+            aVar.hsN.setTextColor(this.mContext.getResources().getColor(a.c.sdk_cp_cont_i));
+        } else if (dVar.aDP == 1) {
+            aVar.hsN.setEnabled(false);
+            aVar.hsN.setBackgroundDrawable(null);
+            aVar.hsN.setText(this.mContext.getString(a.h.ala_live_pking));
+            aVar.hsN.setTextColor(this.mContext.getResources().getColor(a.c.sdk_cp_cont_i_alpha50));
         } else {
-            aVar.hxt.setBackgroundDrawable(null);
-            aVar.hxt.setText(this.mContext.getString(a.h.ala_live_challenging));
-            aVar.hxt.setTextColor(this.mContext.getResources().getColor(a.c.sdk_cp_cont_i_alpha50));
+            aVar.hsN.setBackgroundDrawable(null);
+            aVar.hsN.setText(this.mContext.getString(a.h.ala_live_challenging));
+            aVar.hsN.setTextColor(this.mContext.getResources().getColor(a.c.sdk_cp_cont_i_alpha50));
         }
-        aVar.hxt.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.challenge.panel.i.1
+        aVar.hsN.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.challenge.panel.i.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
-                if (dVar.aID && i.this.hxp != null) {
-                    i.this.hxp.f(dVar);
+                if (dVar.aDQ && i.this.hsJ != null) {
+                    i.this.hsJ.f(dVar);
                     view2.setEnabled(false);
                 }
             }
@@ -123,12 +123,12 @@ public class i extends BaseAdapter {
         return view;
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     private static class a {
-        public TextView eLt;
-        public TextView gQq;
-        public HeadImageView hxs;
-        public TextView hxt;
+        public TextView eGI;
+        public TextView gLK;
+        public HeadImageView hsM;
+        public TextView hsN;
 
         private a() {
         }

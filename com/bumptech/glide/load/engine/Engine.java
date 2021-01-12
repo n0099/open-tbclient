@@ -25,7 +25,7 @@ import com.bumptech.glide.util.pool.FactoryPools;
 import java.util.Map;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class Engine implements EngineJobListener, EngineResource.ResourceListener, MemoryCache.ResourceRemovedListener {
     private static final int JOB_POOL_SIZE = 150;
     private static final String TAG = "Engine";
@@ -193,7 +193,7 @@ public class Engine implements EngineJobListener, EngineResource.ResourceListene
         this.activeResources.shutdown();
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class LoadStatus {
         private final ResourceCallback cb;
         private final EngineJob<?> engineJob;
@@ -209,7 +209,7 @@ public class Engine implements EngineJobListener, EngineResource.ResourceListene
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class LazyDiskCacheProvider implements DecodeJob.DiskCacheProvider {
         private volatile DiskCache diskCache;
         private final DiskCache.Factory factory;
@@ -243,7 +243,7 @@ public class Engine implements EngineJobListener, EngineResource.ResourceListene
 
     /* JADX INFO: Access modifiers changed from: package-private */
     @VisibleForTesting
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class DecodeJobFactory {
         private int creationOrder;
         final DecodeJob.DiskCacheProvider diskCacheProvider;
@@ -269,7 +269,7 @@ public class Engine implements EngineJobListener, EngineResource.ResourceListene
 
     /* JADX INFO: Access modifiers changed from: package-private */
     @VisibleForTesting
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class EngineJobFactory {
         final GlideExecutor animationExecutor;
         final GlideExecutor diskCacheExecutor;

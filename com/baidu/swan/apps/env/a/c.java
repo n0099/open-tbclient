@@ -6,7 +6,7 @@ import com.baidu.swan.apps.favordata.SwanFavorDataManager;
 import com.baidu.swan.apps.favordata.SwanFavorItemData;
 import java.util.HashSet;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class c implements a {
     @Override // com.baidu.swan.apps.env.a.a
     @Nullable
@@ -14,10 +14,10 @@ public class c implements a {
         if (list == null) {
             return null;
         }
-        List<SwanFavorItemData> ayl = SwanFavorDataManager.ayk().ayl();
-        if (ayl.size() != 0) {
+        List<SwanFavorItemData> aur = SwanFavorDataManager.auq().aur();
+        if (aur.size() != 0) {
             HashSet hashSet = new HashSet();
-            for (SwanFavorItemData swanFavorItemData : ayl) {
+            for (SwanFavorItemData swanFavorItemData : aur) {
                 hashSet.add(swanFavorItemData.getAppKey());
             }
             list.removeAll(hashSet);

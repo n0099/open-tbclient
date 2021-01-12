@@ -2,7 +2,7 @@ package com.kwad.sdk.api.loader;
 
 import android.os.Build;
 import android.os.Process;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 class s {
     /* JADX INFO: Access modifiers changed from: package-private */
     public static boolean a() {

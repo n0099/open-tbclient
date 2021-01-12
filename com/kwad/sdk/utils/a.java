@@ -7,7 +7,7 @@ import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.text.TextUtils;
 import com.kwad.sdk.utils.InstalledAppInfoManager;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class a extends BroadcastReceiver {
     @Override // android.content.BroadcastReceiver
     public void onReceive(Context context, Intent intent) {

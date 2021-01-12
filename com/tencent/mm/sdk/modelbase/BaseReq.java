@@ -1,7 +1,7 @@
 package com.tencent.mm.sdk.modelbase;
 
 import android.os.Bundle;
-/* loaded from: classes3.dex */
+/* loaded from: classes14.dex */
 public abstract class BaseReq {
     public String openId;
     public String transaction;

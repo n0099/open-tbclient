@@ -3,10 +3,10 @@ package com.kwad.sdk.glide.load;
 import androidx.annotation.NonNull;
 import java.io.InputStream;
 import java.nio.ByteBuffer;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public interface ImageHeaderParser {
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public enum ImageType {
         GIF(true),
         JPEG(false),

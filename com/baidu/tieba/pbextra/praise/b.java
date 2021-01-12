@@ -11,11 +11,11 @@ import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.R;
 /* loaded from: classes2.dex */
 public class b {
-    private View mmS;
-    private HeadImageView mmT;
-    private TextView mmU;
-    private TextView mmV;
-    private ImageView mmW;
+    private View mio;
+    private HeadImageView mip;
+    private TextView miq;
+    private TextView mir;
+    private ImageView mis;
 
     public static b d(Context context, View view) {
         if (view == null || view.getTag() == null || !(view.getTag() instanceof b)) {
@@ -25,28 +25,28 @@ public class b {
     }
 
     private b(Context context) {
-        this.mmS = null;
-        this.mmT = null;
-        this.mmU = null;
-        this.mmV = null;
-        this.mmW = null;
-        this.mmS = LayoutInflater.from(context).inflate(R.layout.zan_list_item, (ViewGroup) null);
-        this.mmT = (HeadImageView) this.mmS.findViewById(R.id.zan_list_item_head);
-        this.mmU = (TextView) this.mmS.findViewById(R.id.zan_list_item_name);
-        this.mmV = (TextView) this.mmS.findViewById(R.id.zan_list_item_time);
-        this.mmW = (ImageView) this.mmS.findViewById(R.id.zan_list_item_line_bottom);
-        this.mmW.setVisibility(0);
-        this.mmS.setTag(this);
+        this.mio = null;
+        this.mip = null;
+        this.miq = null;
+        this.mir = null;
+        this.mis = null;
+        this.mio = LayoutInflater.from(context).inflate(R.layout.zan_list_item, (ViewGroup) null);
+        this.mip = (HeadImageView) this.mio.findViewById(R.id.zan_list_item_head);
+        this.miq = (TextView) this.mio.findViewById(R.id.zan_list_item_name);
+        this.mir = (TextView) this.mio.findViewById(R.id.zan_list_item_time);
+        this.mis = (ImageView) this.mio.findViewById(R.id.zan_list_item_line_bottom);
+        this.mis.setVisibility(0);
+        this.mio.setTag(this);
     }
 
     public View getView() {
-        return this.mmS;
+        return this.mio;
     }
 
     public void f(String str, String str2, long j, boolean z) {
-        this.mmU.setText(str);
-        this.mmT.setImageDrawable(null);
-        this.mmV.setText(at.getFormatTime(j));
-        this.mmT.startLoad(str2, 28, false);
+        this.miq.setText(str);
+        this.mip.setImageDrawable(null);
+        this.mir.setText(at.getFormatTime(j));
+        this.mip.startLoad(str2, 28, false);
     }
 }

@@ -19,7 +19,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class IMGetUserIdentityRequest extends IMUserBaseHttpRequest {
     public static final String TAG = "IMGetUserIdentityRequest";
     private List<Long> mBduids = new ArrayList();

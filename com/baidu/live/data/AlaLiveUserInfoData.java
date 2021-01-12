@@ -1,5 +1,6 @@
 package com.baidu.live.data;
 
+import android.net.http.Headers;
 import android.text.TextUtils;
 import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import com.baidu.live.adp.lib.util.StringUtils;
@@ -13,7 +14,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class AlaLiveUserInfoData extends BaseData implements Serializable {
     public static final int ALA_AUTHENT_STATUS_FAILED = 3;
     public static final int ALA_AUTHENT_STATUS_NOT = 0;
@@ -121,7 +122,7 @@ public class AlaLiveUserInfoData extends BaseData implements Serializable {
             }
             this.levelId = jSONObject.optInt("level_id");
             this.levelExp = jSONObject.optInt("level_exp");
-            this.location = jSONObject.optString("location");
+            this.location = jSONObject.optString(Headers.LOCATION);
             this.lng = jSONObject.optDouble("lng");
             this.lat = jSONObject.optDouble("lat");
             this.fansCount = jSONObject.optInt("fans_count");
@@ -257,7 +258,7 @@ public class AlaLiveUserInfoData extends BaseData implements Serializable {
             jSONObject.put("portrait", this.portrait);
             jSONObject.put("level_id", this.levelId);
             jSONObject.put("level_exp", this.levelExp);
-            jSONObject.put("location", this.location);
+            jSONObject.put(Headers.LOCATION, this.location);
             jSONObject.put("lng", this.lng);
             jSONObject.put("lat", this.lat);
             jSONObject.put("fans_count", this.fansCount);

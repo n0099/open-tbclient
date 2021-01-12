@@ -16,7 +16,7 @@ import android.view.animation.LinearInterpolator;
 import androidx.annotation.ColorInt;
 import com.kwad.sdk.utils.ao;
 import java.lang.ref.WeakReference;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class ScaleAnimSeekBar extends View {
     private boolean A;
     private boolean B;
@@ -36,10 +36,10 @@ public class ScaleAnimSeekBar extends View {
     private boolean P;
 
     /* renamed from: a  reason: collision with root package name */
-    private Paint f9817a;
+    private Paint f9517a;
 
     /* renamed from: b  reason: collision with root package name */
-    private int f9818b;
+    private int f9518b;
     private int c;
     private int d;
     private int e;
@@ -65,7 +65,7 @@ public class ScaleAnimSeekBar extends View {
     private Drawable y;
     private boolean z;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public interface a {
         void a(ScaleAnimSeekBar scaleAnimSeekBar);
 
@@ -146,12 +146,12 @@ public class ScaleAnimSeekBar extends View {
         if (attributeSet != null) {
             a(context);
         }
-        this.f9817a = new Paint();
-        this.f9817a.setStyle(Paint.Style.FILL);
-        this.f9817a.setAntiAlias(true);
+        this.f9517a = new Paint();
+        this.f9517a.setStyle(Paint.Style.FILL);
+        this.f9517a.setAntiAlias(true);
         this.r = new GradientDrawable();
         this.r.setShape(0);
-        this.r.setColor(this.f9818b);
+        this.r.setColor(this.f9518b);
         this.s = new GradientDrawable();
         this.s.setShape(0);
         this.s.setColor(this.c);
@@ -171,8 +171,8 @@ public class ScaleAnimSeekBar extends View {
             this.y.setBounds(this.x);
             this.y.draw(canvas);
         } else {
-            this.f9817a.setColor(this.c);
-            canvas.drawCircle(this.x.centerX(), this.x.centerY(), (this.x.width() * this.K) / 2.0f, this.f9817a);
+            this.f9517a.setColor(this.c);
+            canvas.drawCircle(this.x.centerX(), this.x.centerY(), (this.x.width() * this.K) / 2.0f, this.f9517a);
         }
         canvas.restore();
     }
@@ -327,7 +327,7 @@ public class ScaleAnimSeekBar extends View {
         this.G = false;
         this.i = ao.a(context, 0.3f);
         this.h = ao.a(context, 1.0f);
-        this.f9818b = 654311423;
+        this.f9518b = 654311423;
         this.c = -1;
         this.d = 1090519039;
         this.f = 0;
@@ -481,8 +481,8 @@ public class ScaleAnimSeekBar extends View {
     }
 
     public void setProgressBackgroundColor(@ColorInt int i) {
-        this.f9818b = i;
-        this.r.setColor(this.f9818b);
+        this.f9518b = i;
+        this.r.setColor(this.f9518b);
     }
 
     public void setProgressColor(@ColorInt int i) {

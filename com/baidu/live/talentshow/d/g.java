@@ -20,27 +20,26 @@ import com.baidu.live.talentshow.d.a.a;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.ubc.UbcStatConstant;
 import com.baidu.live.tbadk.ubc.UbcStatisticManager;
-import com.baidu.platform.comapi.UIMsg;
 import com.baidu.tbadk.TbConfig;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class g implements a {
-    private x aGe;
-    private String bGt;
-    private com.baidu.live.alablmsdk.a bGv;
+    private x aBr;
+    private String bBH;
+    private com.baidu.live.alablmsdk.a bBJ;
     private Context mContext;
     private Handler mMainHandler;
-    private com.baidu.live.talentshow.d.a.a bGX = new com.baidu.live.talentshow.d.a.a();
-    private AlaLiveRecorder bGx = null;
-    private f bGY = null;
-    private com.baidu.live.alablmsdk.c.b bGy = new com.baidu.live.alablmsdk.c.b() { // from class: com.baidu.live.talentshow.d.g.2
+    private com.baidu.live.talentshow.d.a.a bCl = new com.baidu.live.talentshow.d.a.a();
+    private AlaLiveRecorder bBL = null;
+    private f bCm = null;
+    private com.baidu.live.alablmsdk.c.b bBM = new com.baidu.live.alablmsdk.c.b() { // from class: com.baidu.live.talentshow.d.g.2
         @Override // com.baidu.live.alablmsdk.c.b
         public void a(final com.baidu.live.alablmsdk.module.rtc.a aVar, final BLMStreamState bLMStreamState) {
-            BdLog.e("BCVideoChat onStreamStateChanged state=" + bLMStreamState + " imUk=" + aVar.aCG);
+            BdLog.e("BCVideoChat onStreamStateChanged state=" + bLMStreamState + " imUk=" + aVar.axT);
             if (bLMStreamState == BLMStreamState.BLMSTREAMSTATE_ARRIVAL) {
                 g.this.mMainHandler.post(new Runnable() { // from class: com.baidu.live.talentshow.d.g.2.1
                     @Override // java.lang.Runnable
@@ -53,7 +52,7 @@ public class g implements a {
 
         @Override // com.baidu.live.alablmsdk.c.b
         public void a(final com.baidu.live.alablmsdk.module.rtc.a aVar, final int i) {
-            BdLog.e("BCVideoChat leavedForSeconds imUk=" + aVar.aCG + " sec=" + i);
+            BdLog.e("BCVideoChat leavedForSeconds imUk=" + aVar.axT + " sec=" + i);
             g.this.mMainHandler.post(new Runnable() { // from class: com.baidu.live.talentshow.d.g.2.3
                 @Override // java.lang.Runnable
                 public void run() {
@@ -64,28 +63,28 @@ public class g implements a {
 
         @Override // com.baidu.live.alablmsdk.c.b
         public void a(final String str, final com.baidu.live.alablmsdk.module.c cVar, JSONObject jSONObject) {
-            BdLog.e("BCVideoChat onRoomReceivedRing roomId=" + str + " imUk=" + cVar.aCG + " ext=" + jSONObject);
+            BdLog.e("BCVideoChat onRoomReceivedRing roomId=" + str + " imUk=" + cVar.axT + " ext=" + jSONObject);
             g.this.mMainHandler.post(new Runnable() { // from class: com.baidu.live.talentshow.d.g.2.4
                 @Override // java.lang.Runnable
                 public void run() {
-                    g.this.g(str, cVar.aCG);
+                    g.this.g(str, cVar.axT);
                 }
             });
         }
 
         @Override // com.baidu.live.alablmsdk.c.b
         public void b(String str, com.baidu.live.alablmsdk.module.c cVar, JSONObject jSONObject) {
-            BdLog.e("BCVideoChat onRoomReceivedInvite roomId=" + str + " imUk=" + cVar.aCG + " ext=" + jSONObject);
+            BdLog.e("BCVideoChat onRoomReceivedInvite roomId=" + str + " imUk=" + cVar.axT + " ext=" + jSONObject);
         }
 
         @Override // com.baidu.live.alablmsdk.c.b
         public void c(String str, com.baidu.live.alablmsdk.module.c cVar, JSONObject jSONObject) {
-            BdLog.e("BCVideoChat onRoomReceivedInviteCancel roomId=" + str + " imUk=" + cVar.aCG + " ext=" + jSONObject);
+            BdLog.e("BCVideoChat onRoomReceivedInviteCancel roomId=" + str + " imUk=" + cVar.axT + " ext=" + jSONObject);
         }
 
         @Override // com.baidu.live.alablmsdk.c.b
         public void a(final String str, final com.baidu.live.alablmsdk.module.c cVar) {
-            BdLog.e("BCVideoChat onRoomReceivedInviteTimeout roomId=" + str + " imUk=" + cVar.aCG);
+            BdLog.e("BCVideoChat onRoomReceivedInviteTimeout roomId=" + str + " imUk=" + cVar.axT);
             g.this.mMainHandler.post(new Runnable() { // from class: com.baidu.live.talentshow.d.g.2.5
                 @Override // java.lang.Runnable
                 public void run() {
@@ -96,7 +95,7 @@ public class g implements a {
 
         @Override // com.baidu.live.alablmsdk.c.b
         public void d(final String str, final com.baidu.live.alablmsdk.module.c cVar, final JSONObject jSONObject) {
-            BdLog.e("BCVideoChat onRoomReceivedInviteAccept roomId=" + str + " imUk=" + cVar.aCG + " ext=" + jSONObject);
+            BdLog.e("BCVideoChat onRoomReceivedInviteAccept roomId=" + str + " imUk=" + cVar.axT + " ext=" + jSONObject);
             g.this.mMainHandler.post(new Runnable() { // from class: com.baidu.live.talentshow.d.g.2.6
                 @Override // java.lang.Runnable
                 public void run() {
@@ -107,7 +106,7 @@ public class g implements a {
 
         @Override // com.baidu.live.alablmsdk.c.b
         public void e(final String str, final com.baidu.live.alablmsdk.module.c cVar, final JSONObject jSONObject) {
-            BdLog.e("BCVideoChat onRoomReceivedInviteReject roomId=" + str + " imUk=" + cVar.aCG + " ext=" + jSONObject);
+            BdLog.e("BCVideoChat onRoomReceivedInviteReject roomId=" + str + " imUk=" + cVar.axT + " ext=" + jSONObject);
             g.this.mMainHandler.post(new Runnable() { // from class: com.baidu.live.talentshow.d.g.2.7
                 @Override // java.lang.Runnable
                 public void run() {
@@ -118,7 +117,7 @@ public class g implements a {
 
         @Override // com.baidu.live.alablmsdk.c.b
         public void b(final String str, final com.baidu.live.alablmsdk.module.c cVar) {
-            BdLog.e("BCVideoChat onRoomUserJoined roomId=" + str + " imUk=" + cVar.aCG);
+            BdLog.e("BCVideoChat onRoomUserJoined roomId=" + str + " imUk=" + cVar.axT);
             g.this.mMainHandler.post(new Runnable() { // from class: com.baidu.live.talentshow.d.g.2.8
                 @Override // java.lang.Runnable
                 public void run() {
@@ -129,7 +128,7 @@ public class g implements a {
 
         @Override // com.baidu.live.alablmsdk.c.b
         public void c(final String str, final com.baidu.live.alablmsdk.module.c cVar) {
-            BdLog.e("BCVideoChat onRoomUserLeaved roomId=" + str + " imUk=" + cVar.aCG);
+            BdLog.e("BCVideoChat onRoomUserLeaved roomId=" + str + " imUk=" + cVar.axT);
             g.this.mMainHandler.post(new Runnable() { // from class: com.baidu.live.talentshow.d.g.2.9
                 @Override // java.lang.Runnable
                 public void run() {
@@ -140,7 +139,7 @@ public class g implements a {
 
         @Override // com.baidu.live.alablmsdk.c.b
         public void d(final String str, final com.baidu.live.alablmsdk.module.c cVar) {
-            BdLog.e("BCVideoChat onRoomUserKickoffed roomId=" + str + " imUk=" + cVar.aCG);
+            BdLog.e("BCVideoChat onRoomUserKickoffed roomId=" + str + " imUk=" + cVar.axT);
             g.this.mMainHandler.post(new Runnable() { // from class: com.baidu.live.talentshow.d.g.2.10
                 @Override // java.lang.Runnable
                 public void run() {
@@ -150,12 +149,12 @@ public class g implements a {
         }
 
         @Override // com.baidu.live.alablmsdk.c.b
-        public void fH(final String str) {
+        public void ev(final String str) {
             BdLog.e("BCVideoChat onRoomClosed roomId=" + str);
             g.this.mMainHandler.post(new Runnable() { // from class: com.baidu.live.talentshow.d.g.2.2
                 @Override // java.lang.Runnable
                 public void run() {
-                    g.this.iE(str);
+                    g.this.ht(str);
                 }
             });
         }
@@ -178,61 +177,61 @@ public class g implements a {
     @Override // com.baidu.live.talentshow.d.a
     public void init(Context context) {
         this.mContext = context;
-        this.bGv = new com.baidu.live.alablmsdk.a(TbadkCoreApplication.getInst());
-        this.bGv.a(this.bGy);
+        this.bBJ = new com.baidu.live.alablmsdk.a(TbadkCoreApplication.getInst());
+        this.bBJ.a(this.bBM);
         this.mMainHandler = new Handler(Looper.getMainLooper());
         HashMap<String, Object> hashMap = new HashMap<>();
-        hashMap.put("room_mode", d.bGO);
-        hashMap.put("rtc_room_source_key", d.bGI);
+        hashMap.put("room_mode", d.bCc);
+        hashMap.put("rtc_room_source_key", d.bBW);
         hashMap.put("is_auto_publish", true);
         ArrayList arrayList = new ArrayList();
         arrayList.add(10);
         arrayList.add(15);
         hashMap.put("blm_rtc_stream_leaved_listen_seconds_key", arrayList);
-        hashMap.put("encode_bitrate", Integer.valueOf(com.baidu.live.af.a.SE().bwi.aPu.aUB));
-        hashMap.put("encode_min_bitrate", Integer.valueOf(com.baidu.live.af.a.SE().bwi.aPu.aUA));
+        hashMap.put("encode_bitrate", Integer.valueOf(com.baidu.live.af.a.OJ().bru.aKH.aPO));
+        hashMap.put("encode_min_bitrate", Integer.valueOf(com.baidu.live.af.a.OJ().bru.aKH.aPN));
         hashMap.put("external_audio_capture", true);
-        this.bGv.v(hashMap);
+        this.bBJ.v(hashMap);
         BdLog.e("BCVideoChat blmsdk constructor");
     }
 
     @Override // com.baidu.live.talentshow.d.a
     public void a(AlaLiveRecorder alaLiveRecorder) {
-        if (this.bGx == null) {
-            this.bGx = alaLiveRecorder;
+        if (this.bBL == null) {
+            this.bBL = alaLiveRecorder;
             com.baidu.live.alablmsdk.config.a aVar = new com.baidu.live.alablmsdk.config.a();
-            aVar.fps = com.baidu.live.af.a.SE().bwi.aPu.fps;
-            aVar.aBR = new com.baidu.live.alablmsdk.config.a.b(UIMsg.MsgDefine.MSG_NETWORK_CHANNEL, TbConfig.HEAD_IMG_SIZE);
-            aVar.aBW = true;
-            aVar.aBV = this.bGx.getPushUrl();
-            aVar.aBT = com.baidu.live.af.a.SE().bwi.aPu.aUx;
-            List<cr.a> list = com.baidu.live.af.a.SE().bwi.aPu.dataList;
-            aVar.aBY = new com.baidu.live.alablmsdk.config.a.b(com.baidu.live.af.a.SE().bwi.aPu.aUv, com.baidu.live.af.a.SE().bwi.aPu.aUw);
+            aVar.fps = com.baidu.live.af.a.OJ().bru.aKH.fps;
+            aVar.axe = new com.baidu.live.alablmsdk.config.a.b(540, TbConfig.HEAD_IMG_SIZE);
+            aVar.axj = true;
+            aVar.axi = this.bBL.getPushUrl();
+            aVar.axg = com.baidu.live.af.a.OJ().bru.aKH.aPK;
+            List<cr.a> list = com.baidu.live.af.a.OJ().bru.aKH.dataList;
+            aVar.axl = new com.baidu.live.alablmsdk.config.a.b(com.baidu.live.af.a.OJ().bru.aKH.aPI, com.baidu.live.af.a.OJ().bru.aKH.aPJ);
             ArrayList arrayList = new ArrayList();
             for (cr.a aVar2 : list) {
                 BLMViewShapeType bLMViewShapeType = BLMViewShapeType.RECTANGLE;
-                if (aVar2.aUE == 1) {
+                if (aVar2.aPR == 1) {
                     bLMViewShapeType = BLMViewShapeType.CIRCLE;
                 }
                 arrayList.add(new com.baidu.live.alablmsdk.config.a.a(aVar2.order, aVar2.z, bLMViewShapeType, new com.baidu.live.alablmsdk.config.a.c(aVar2.x, aVar2.y, aVar2.width, aVar2.height)));
             }
-            aVar.aCa = arrayList;
-            aVar.aCb = com.baidu.live.af.a.SE().bwi.aPu.aUC;
-            aVar.aBX = aVar.BC();
-            com.baidu.live.alablmsdk.a.b.a.d(" BCVideoChat blmsdk mixTemplate =" + aVar.aBX);
-            aVar.aBU = BLMLiveTransferMode.BLM_LIVE_TRANSFER_MODE_ANCHOR;
-            if (this.bGv != null) {
-                this.bGv.a(aVar);
+            aVar.axn = arrayList;
+            aVar.axo = com.baidu.live.af.a.OJ().bru.aKH.aPP;
+            aVar.axk = aVar.xH();
+            com.baidu.live.alablmsdk.a.b.a.d(" BCVideoChat blmsdk mixTemplate =" + aVar.axk);
+            aVar.axh = BLMLiveTransferMode.BLM_LIVE_TRANSFER_MODE_ANCHOR;
+            if (this.bBJ != null) {
+                this.bBJ.a(aVar);
             }
         }
     }
 
     @Override // com.baidu.live.talentshow.d.a
     public void onDestroy() {
-        this.bGx = null;
-        if (this.bGv != null) {
-            this.bGv.onRelease();
-            this.bGv = null;
+        this.bBL = null;
+        if (this.bBJ != null) {
+            this.bBJ.onRelease();
+            this.bBJ = null;
         }
         if (this.mMainHandler != null) {
             this.mMainHandler.removeCallbacksAndMessages(null);
@@ -242,64 +241,64 @@ public class g implements a {
 
     @Override // com.baidu.live.talentshow.d.a
     public void a(f fVar) {
-        this.bGY = fVar;
+        this.bCm = fVar;
         BdLog.e("BCVideoChat blmsdk callback=" + fVar);
     }
 
     @Override // com.baidu.live.talentshow.d.a
     public void setLiveShowData(x xVar) {
-        this.aGe = xVar;
+        this.aBr = xVar;
     }
 
     @Override // com.baidu.live.talentshow.d.a
-    public boolean UY() {
-        BdLog.e("BCVideoChat blmsdk, count=" + this.bGX.getCount());
-        if (this.bGt != null && this.bGt.length() != 0) {
-            Cv();
+    public boolean Rd() {
+        BdLog.e("BCVideoChat blmsdk, count=" + this.bCl.getCount());
+        if (this.bBH != null && this.bBH.length() != 0) {
+            yA();
         }
         return true;
     }
 
     @Override // com.baidu.live.talentshow.d.a
-    public boolean UW() {
-        if (this.bGt == null || this.bGt.length() == 0 || this.bGX.isEmpty()) {
+    public boolean Rb() {
+        if (this.bBH == null || this.bBH.length() == 0 || this.bCl.isEmpty()) {
             return false;
         }
-        boolean fM = this.bGX.fM(d.bGM);
-        boolean fM2 = this.bGX.fM(d.bGN);
-        BdLog.e("BCVideoChat  blmsdk connecting=" + fM + " connected=" + fM2);
-        return fM || fM2;
+        boolean eg = this.bCl.eg(d.bCa);
+        boolean eg2 = this.bCl.eg(d.bCb);
+        BdLog.e("BCVideoChat  blmsdk connecting=" + eg + " connected=" + eg2);
+        return eg || eg2;
     }
 
     @Override // com.baidu.live.talentshow.d.a
-    public boolean UX() {
-        if (this.bGt == null || this.bGt.length() == 0 || this.bGX.isEmpty()) {
+    public boolean Rc() {
+        if (this.bBH == null || this.bBH.length() == 0 || this.bCl.isEmpty()) {
             return false;
         }
-        boolean fM = this.bGX.fM(d.bGJ);
-        boolean fM2 = this.bGX.fM(d.bGL);
-        BdLog.e("BCVideoChat blmsdk idle=" + fM + " wait=" + fM2);
-        return fM || fM2;
+        boolean eg = this.bCl.eg(d.bBX);
+        boolean eg2 = this.bCl.eg(d.bBZ);
+        BdLog.e("BCVideoChat blmsdk idle=" + eg + " wait=" + eg2);
+        return eg || eg2;
     }
 
     @Override // com.baidu.live.talentshow.d.a
     public boolean isFull() {
-        return (this.bGt == null || this.bGt.length() == 0 || !this.bGX.isFull()) ? false : true;
+        return (this.bBH == null || this.bBH.length() == 0 || !this.bCl.isFull()) ? false : true;
     }
 
     @Override // com.baidu.live.talentshow.d.a
     public boolean bj(long j) {
-        BdLog.e("BCVideoChat blmsdk imUK=" + j + "|mBIMRoomId=" + this.bGt + "|count=" + this.bGX.getCount());
-        com.baidu.live.talentshow.d.a.b bn = this.bGX.bn(j);
+        BdLog.e("BCVideoChat blmsdk imUK=" + j + "|mBIMRoomId=" + this.bBH + "|count=" + this.bCl.getCount());
+        com.baidu.live.talentshow.d.a.b bn = this.bCl.bn(j);
         if (bn == null) {
             BdLog.e("BCVideoChat blmsdk queryByImUK fail");
             return false;
-        } else if (bn.status == d.bGL) {
+        } else if (bn.status == d.bBZ) {
             BdLog.e("BCVideoChat blmsdk start Cancel invite user:" + bn.uid);
-            cW(false);
+            cS(false);
             return true;
-        } else if (this.bGX.getCount() == 1) {
-            Cv();
+        } else if (this.bCl.getCount() == 1) {
+            yA();
             return true;
         } else {
             a(j, bn);
@@ -309,22 +308,22 @@ public class g implements a {
 
     @Override // com.baidu.live.talentshow.d.a
     public int a(com.baidu.live.talentshow.d.a.b bVar) {
-        if (bVar == null || bVar.bHp == null) {
+        if (bVar == null || bVar.bCD == null) {
             return -1;
         }
-        BdLog.e("BCVideoChat blmsdk user=" + bVar.bHp.toString() + "|mBIMRoomId=" + this.bGt);
-        if (this.bGX.isFull()) {
-            BdLog.e("BCVideoChat blmsdk isFull user=" + bVar.bHp.toString());
+        BdLog.e("BCVideoChat blmsdk user=" + bVar.bCD.toString() + "|mBIMRoomId=" + this.bBH);
+        if (this.bCl.isFull()) {
+            BdLog.e("BCVideoChat blmsdk isFull user=" + bVar.bCD.toString());
             return -3;
-        } else if (!this.bGX.bl(bVar.bHp.aCG)) {
-            BdLog.e("BCVideoChat blmsdk cannot invite more user=" + bVar.bHp.toString());
+        } else if (!this.bCl.bl(bVar.bCD.axT)) {
+            BdLog.e("BCVideoChat blmsdk cannot invite more user=" + bVar.bCD.toString());
             return -2;
         } else {
-            final com.baidu.live.talentshow.d.a.b d = d(bVar.bHp);
+            final com.baidu.live.talentshow.d.a.b d = d(bVar.bCD);
             d.uid = bVar.uid;
-            this.bGX.c(d);
-            if (this.bGt == null || this.bGt.length() == 0) {
-                this.bGv.a(new com.baidu.live.alablmsdk.c.a() { // from class: com.baidu.live.talentshow.d.g.1
+            this.bCl.c(d);
+            if (this.bBH == null || this.bBH.length() == 0) {
+                this.bBJ.a(new com.baidu.live.alablmsdk.c.a() { // from class: com.baidu.live.talentshow.d.g.1
                     @Override // com.baidu.live.alablmsdk.c.a
                     public void c(final String str, final int i, final String str2) {
                         g.this.mMainHandler.post(new Runnable() { // from class: com.baidu.live.talentshow.d.g.1.1
@@ -337,7 +336,7 @@ public class g implements a {
                 });
                 return 0;
             }
-            a(this.bGt, 0, "", d);
+            a(this.bBH, 0, "", d);
             return 0;
         }
     }
@@ -345,8 +344,8 @@ public class g implements a {
     @Override // com.baidu.live.talentshow.d.a
     public void setMute(boolean z) {
         BdLog.e("BCVideoChat blmsdk setMute=" + z);
-        if (this.bGv != null) {
-            this.bGv.bd(z);
+        if (this.bBJ != null) {
+            this.bBJ.aZ(z);
         }
     }
 
@@ -354,7 +353,7 @@ public class g implements a {
     public int bh(long j) {
         com.baidu.live.talentshow.d.a.b bn;
         BdLog.e("BCVideoChat blmsdk  imUK=" + j);
-        if (this.bGX.isEmpty() || (bn = this.bGX.bn(j)) == null || bn.bHp == null || bn.bHp.aCG != j) {
+        if (this.bCl.isEmpty() || (bn = this.bCl.bn(j)) == null || bn.bCD == null || bn.bCD.axT != j) {
             return -1;
         }
         return bn.status;
@@ -362,19 +361,19 @@ public class g implements a {
 
     @Override // com.baidu.live.talentshow.d.a
     public String bk(long j) {
-        com.baidu.live.talentshow.d.a.b bn = this.bGX.bn(j);
-        if (bn == null || bn.bHp == null) {
+        com.baidu.live.talentshow.d.a.b bn = this.bCl.bn(j);
+        if (bn == null || bn.bCD == null) {
             return "";
         }
-        return bn.bHp.userName;
+        return bn.bCD.userName;
     }
 
     @Override // com.baidu.live.talentshow.d.a
-    public long fJ(int i) {
-        com.baidu.live.talentshow.d.a.b fN;
-        if ((i == 1 || i == 2) && (fN = this.bGX.fN(i)) != null) {
-            if (fN.status == d.bGM || fN.status == d.bGN) {
-                long j = JavaTypesHelper.toLong(fN.uid, 0L);
+    public long ed(int i) {
+        com.baidu.live.talentshow.d.a.b eh;
+        if ((i == 1 || i == 2) && (eh = this.bCl.eh(i)) != null) {
+            if (eh.status == d.bCa || eh.status == d.bCb) {
+                long j = JavaTypesHelper.toLong(eh.uid, 0L);
                 BdLog.e("BCVideoChat index=" + i + " uid=" + j);
                 return j;
             }
@@ -384,36 +383,36 @@ public class g implements a {
     }
 
     @Override // com.baidu.live.talentshow.d.a
-    public void onBackground() {
-        if (this.bGv != null) {
-            this.bGv.enterBackground();
+    public void Re() {
+        if (this.bBJ != null) {
+            this.bBJ.enterBackground();
         }
     }
 
     @Override // com.baidu.live.talentshow.d.a
-    public void onForeground() {
-        if (this.bGv != null) {
-            this.bGv.enterForeground();
+    public void Rf() {
+        if (this.bBJ != null) {
+            this.bBJ.enterForeground();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(final String str, int i, String str2, final com.baidu.live.talentshow.d.a.b bVar) {
-        BdLog.e("BCVideoChat blmsdk roomId=" + str + " status=" + i + " msg=" + str2 + " imUK=" + bVar.bHp.aCG);
+        BdLog.e("BCVideoChat blmsdk roomId=" + str + " status=" + i + " msg=" + str2 + " imUK=" + bVar.bCD.axT);
         if (i != 0) {
-            this.bGX.bm(bVar.bHp.aCG);
+            this.bCl.bm(bVar.bCD.axT);
             BdLog.e("BCVideoChat blmsdk createRoom fail roomId=" + str + " status=" + i + " msg=" + str2);
-            if (this.bGY != null) {
-                this.bGY.d(bVar.bHp.aCG, bVar.index, d.bGP);
+            if (this.bCm != null) {
+                this.bCm.d(bVar.bCD.axT, bVar.index, d.bCd);
                 return;
             }
             return;
         }
-        this.bGt = str;
-        BdLog.e("BCVideoChat blmsdk invite-ext=" + bVar.bGq + " userIndex=" + bVar.index);
+        this.bBH = str;
+        BdLog.e("BCVideoChat blmsdk invite-ext=" + bVar.bBE + " userIndex=" + bVar.index);
         ArrayList arrayList = new ArrayList();
-        arrayList.add(bVar.bHp);
-        this.bGv.a(str, arrayList, bVar.bGq, new com.baidu.live.alablmsdk.c.c() { // from class: com.baidu.live.talentshow.d.g.3
+        arrayList.add(bVar.bCD);
+        this.bBJ.a(str, arrayList, bVar.bBE, new com.baidu.live.alablmsdk.c.c() { // from class: com.baidu.live.talentshow.d.g.3
             @Override // com.baidu.live.alablmsdk.c.c
             public void f(final int i2, final int i3, final String str3) {
                 g.this.mMainHandler.post(new Runnable() { // from class: com.baidu.live.talentshow.d.g.3.1
@@ -429,48 +428,48 @@ public class g implements a {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(String str, int i, int i2, String str2, com.baidu.live.talentshow.d.a.b bVar) {
         if (i2 != 0) {
-            if (this.bGY != null) {
-                this.bGY.d(bVar.bHp.aCG, bVar.index, d.bGQ);
+            if (this.bCm != null) {
+                this.bCm.d(bVar.bCD.axT, bVar.index, d.bCe);
             }
-            this.bGX.bm(bVar.bHp.aCG);
-            if (this.bGX.isEmpty()) {
-                Cv();
+            this.bCl.bm(bVar.bCD.axT);
+            if (this.bCl.isEmpty()) {
+                yA();
             }
             BdLog.e("BCVideoChat blmsdk inviteUser fail roomId=" + str + " status=" + i2 + " msg=" + str2);
             return;
         }
-        BdLog.e("BCVideoChat blmsdk inviteUser succ roomId=" + str + " user=" + bVar.bHp.toString() + " ret=" + this.bGX.j(bVar.bHp.aCG, d.bGL));
-        if (this.bGY != null) {
-            if (this.bGX.getCount() == 1 && !this.bGX.Vp()) {
-                this.bGY.TE();
+        BdLog.e("BCVideoChat blmsdk inviteUser succ roomId=" + str + " user=" + bVar.bCD.toString() + " ret=" + this.bCl.j(bVar.bCD.axT, d.bBZ));
+        if (this.bCm != null) {
+            if (this.bCl.getCount() == 1 && !this.bCl.Rw()) {
+                this.bCm.PJ();
             }
-            this.bGY.d(bVar.bHp.aCG, bVar.index, 0);
+            this.bCm.d(bVar.bCD.axT, bVar.index, 0);
             com.baidu.live.talentshow.b.c cVar = new com.baidu.live.talentshow.b.c();
-            cVar.action = com.baidu.live.talentshow.b.c.bFT;
-            cVar.bGl = this.bGt;
-            cVar.bGn = TbadkCoreApplication.getCurrentAccount();
-            cVar.bGq = bVar.bGq;
-            this.bGY.a(cVar);
+            cVar.action = com.baidu.live.talentshow.b.c.bBh;
+            cVar.bBz = this.bBH;
+            cVar.bBB = TbadkCoreApplication.getCurrentAccount();
+            cVar.bBE = bVar.bBE;
+            this.bCm.a(cVar);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void h(String str, com.baidu.live.alablmsdk.module.c cVar, JSONObject jSONObject) {
-        BdLog.e("BCVideoChat blmsdk roomId=" + str + " imUk=" + cVar.aCG + " ext=" + jSONObject);
-        long j = cVar.aCG;
-        com.baidu.live.talentshow.d.a.b bn = this.bGX.bn(cVar.aCG);
+        BdLog.e("BCVideoChat blmsdk roomId=" + str + " imUk=" + cVar.axT + " ext=" + jSONObject);
+        long j = cVar.axT;
+        com.baidu.live.talentshow.d.a.b bn = this.bCl.bn(cVar.axT);
         if (bn == null) {
-            BdLog.e("BCVideoChat blmsdk roomId=" + str + " imUk=" + cVar.aCG + " ext=" + jSONObject);
-        } else if (this.bGt == null || !this.bGt.equals(str)) {
-            BdLog.e("BCVideoChat blmsdk roomId not equal roomId=" + str + " mBIMRoomId=" + this.bGt);
-            this.bGX.bm(cVar.aCG);
-            if (this.bGX.isEmpty()) {
-                Cv();
+            BdLog.e("BCVideoChat blmsdk roomId=" + str + " imUk=" + cVar.axT + " ext=" + jSONObject);
+        } else if (this.bBH == null || !this.bBH.equals(str)) {
+            BdLog.e("BCVideoChat blmsdk roomId not equal roomId=" + str + " mBIMRoomId=" + this.bBH);
+            this.bCl.bm(cVar.axT);
+            if (this.bCl.isEmpty()) {
+                yA();
             } else {
-                a(cVar.aCG, bn);
+                a(cVar.axT, bn);
             }
-            if (this.bGY != null) {
-                this.bGY.e(bn.bHp.aCG, bn.index, d.bGR);
+            if (this.bCm != null) {
+                this.bCm.e(bn.bCD.axT, bn.index, d.bCf);
             }
         } else {
             try {
@@ -478,14 +477,14 @@ public class g implements a {
                 int optInt = jSONObject.optInt("line", -1);
                 if (bn.index != optInt || !optString.equals("show_pub_v2")) {
                     BdLog.e("BCVideoChat blmsdk check fail index=" + optInt + " roomIndex=" + bn.index + " liveType=" + optString);
-                    this.bGX.bm(cVar.aCG);
-                    if (this.bGX.isEmpty()) {
-                        Cv();
+                    this.bCl.bm(cVar.axT);
+                    if (this.bCl.isEmpty()) {
+                        yA();
                     } else {
-                        a(cVar.aCG, bn);
+                        a(cVar.axT, bn);
                     }
-                    if (this.bGY != null) {
-                        this.bGY.e(bn.bHp.aCG, bn.index, d.bGR);
+                    if (this.bCm != null) {
+                        this.bCm.e(bn.bCD.axT, bn.index, d.bCf);
                         return;
                     }
                     return;
@@ -493,33 +492,33 @@ public class g implements a {
             } catch (Exception e) {
                 e.printStackTrace();
             }
-            if (this.bGX.getCount() == 1) {
-                Uj();
-                iF(this.bGt);
+            if (this.bCl.getCount() == 1) {
+                Qo();
+                hu(this.bBH);
             }
-            this.bGX.j(cVar.aCG, d.bGM);
-            if (this.bGY != null) {
-                this.bGY.bf(cVar.aCG);
+            this.bCl.j(cVar.axT, d.bCa);
+            if (this.bCm != null) {
+                this.bCm.bf(cVar.axT);
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void i(String str, com.baidu.live.alablmsdk.module.c cVar, JSONObject jSONObject) {
-        BdLog.e("BCVideoChat blmsdk roomId=" + str + " imUk=" + cVar.aCG + " ext=" + jSONObject);
-        long j = cVar.aCG;
-        com.baidu.live.talentshow.d.a.b bn = this.bGX.bn(cVar.aCG);
+        BdLog.e("BCVideoChat blmsdk roomId=" + str + " imUk=" + cVar.axT + " ext=" + jSONObject);
+        long j = cVar.axT;
+        com.baidu.live.talentshow.d.a.b bn = this.bCl.bn(cVar.axT);
         if (bn == null) {
-            BdLog.e("BCVideoChat blmsdk roomId=" + str + " imUk=" + cVar.aCG + " ext=" + jSONObject);
-        } else if (this.bGt == null || !this.bGt.equals(str)) {
-            BdLog.e("BCVideoChat blmsdk roomId not equal roomId=" + str + " mBIMRoomId=" + this.bGt);
-            this.bGX.bm(cVar.aCG);
+            BdLog.e("BCVideoChat blmsdk roomId=" + str + " imUk=" + cVar.axT + " ext=" + jSONObject);
+        } else if (this.bBH == null || !this.bBH.equals(str)) {
+            BdLog.e("BCVideoChat blmsdk roomId not equal roomId=" + str + " mBIMRoomId=" + this.bBH);
+            this.bCl.bm(cVar.axT);
         } else {
-            this.bGX.bm(cVar.aCG);
-            if (this.bGY != null) {
-                this.bGY.d(cVar.aCG, bn.index, d.bGV);
-                if (this.bGX.isEmpty()) {
-                    Cv();
+            this.bCl.bm(cVar.axT);
+            if (this.bCm != null) {
+                this.bCm.d(cVar.axT, bn.index, d.bCj);
+                if (this.bCl.isEmpty()) {
+                    yA();
                 }
             }
         }
@@ -527,40 +526,40 @@ public class g implements a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void g(String str, com.baidu.live.alablmsdk.module.c cVar) {
-        BdLog.e("BCVideoChat blmsdk roomId=" + str + " imUk=" + cVar.aCG);
-        long j = cVar.aCG;
-        com.baidu.live.talentshow.d.a.b bn = this.bGX.bn(cVar.aCG);
+        BdLog.e("BCVideoChat blmsdk roomId=" + str + " imUk=" + cVar.axT);
+        long j = cVar.axT;
+        com.baidu.live.talentshow.d.a.b bn = this.bCl.bn(cVar.axT);
         if (bn == null) {
             BdLog.e("BCVideoChat blmsdk roomId=" + str + " imUk=" + j);
-        } else if (this.bGt == null || !this.bGt.equals(str)) {
-            this.bGX.bm(cVar.aCG);
+        } else if (this.bBH == null || !this.bBH.equals(str)) {
+            this.bCl.bm(cVar.axT);
         } else {
-            this.bGX.bm(cVar.aCG);
-            if (this.bGY != null) {
-                this.bGY.i(cVar.aCG, bn.index);
+            this.bCl.bm(cVar.axT);
+            if (this.bCm != null) {
+                this.bCm.i(cVar.axT, bn.index);
             }
-            if (this.bGX.isEmpty() && this.bGX.Vp()) {
+            if (this.bCl.isEmpty() && this.bCl.Rw()) {
                 BdLog.e("BCVideoChat blmsdk roomId=" + str + " imUk=" + j + " switchToRTMP");
-                Cv();
+                yA();
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void h(String str, com.baidu.live.alablmsdk.module.c cVar) {
-        if (this.bGt == null || str == null || !this.bGt.equals(str)) {
+        if (this.bBH == null || str == null || !this.bBH.equals(str)) {
             BdLog.e("BCVideoChat blmsdk dealRoomUserJoin params error");
             return;
         }
-        BdLog.e("BCVideoChat blmsdk dealRoomUserJoin roomId=" + str + " imUK=" + cVar.aCG);
-        com.baidu.live.talentshow.d.a.b bn = this.bGX.bn(cVar.aCG);
-        if (bn != null && this.bGY != null) {
+        BdLog.e("BCVideoChat blmsdk dealRoomUserJoin roomId=" + str + " imUK=" + cVar.axT);
+        com.baidu.live.talentshow.d.a.b bn = this.bCl.bn(cVar.axT);
+        if (bn != null && this.bCm != null) {
             com.baidu.live.talentshow.b.c cVar2 = new com.baidu.live.talentshow.b.c();
-            cVar2.action = com.baidu.live.talentshow.b.c.bGc;
-            cVar2.bGl = this.bGt;
-            cVar2.bGn = TbadkCoreApplication.getCurrentAccount();
-            cVar2.bGq = bn.bGq;
-            this.bGY.a(cVar2);
+            cVar2.action = com.baidu.live.talentshow.b.c.bBq;
+            cVar2.bBz = this.bBH;
+            cVar2.bBB = TbadkCoreApplication.getCurrentAccount();
+            cVar2.bBE = bn.bBE;
+            this.bCm.a(cVar2);
         }
     }
 
@@ -568,22 +567,22 @@ public class g implements a {
     public void a(long j, JSONObject jSONObject, boolean z, int i, String str) {
         com.baidu.live.talentshow.d.a.b bn;
         BdLog.e("BCVideoChat blmsdk dealCancelInviteUsers imUK=" + j + " status=" + i + "|isFromClose=" + z + "|ext=" + jSONObject);
-        if (i == 0 && (bn = this.bGX.bn(j)) != null) {
-            if (this.bGY != null) {
+        if (i == 0 && (bn = this.bCl.bn(j)) != null) {
+            if (this.bCm != null) {
                 com.baidu.live.talentshow.b.c cVar = new com.baidu.live.talentshow.b.c();
-                cVar.action = com.baidu.live.talentshow.b.c.bGd;
-                cVar.bGl = this.bGt;
-                cVar.bGn = TbadkCoreApplication.getCurrentAccount();
-                cVar.bGq = jSONObject;
-                this.bGY.a(cVar);
-                this.bGY.c(bn.bHp.aCG, bn.index, d.bGW);
-                this.bGY.bf(bn.bHp.aCG);
+                cVar.action = com.baidu.live.talentshow.b.c.bBr;
+                cVar.bBz = this.bBH;
+                cVar.bBB = TbadkCoreApplication.getCurrentAccount();
+                cVar.bBE = jSONObject;
+                this.bCm.a(cVar);
+                this.bCm.c(bn.bCD.axT, bn.index, d.bCk);
+                this.bCm.bf(bn.bCD.axT);
                 BdLog.e("BCVideoChat blmsdk imUK=" + j + " status=" + i + " isFromClose=" + z + " ext=" + jSONObject.toString());
             }
-            this.bGX.bm(j);
-            if (this.bGX.isEmpty() && !z) {
+            this.bCl.bm(j);
+            if (this.bCl.isEmpty() && !z) {
                 BdLog.e("BCVideoChat blmsdk imUK=" + j + " later closeRoom");
-                Cv();
+                yA();
             }
         }
     }
@@ -592,48 +591,48 @@ public class g implements a {
     public void f(String str, int i, String str2) {
         BdLog.e("BCVideoChat blmsdk dealJoinRoom status=" + i + " msg=" + str2);
         if (i != 0) {
-            Cv();
-            if (this.bGY != null) {
-                this.bGY.e(0L, 0, d.bGS);
+            yA();
+            if (this.bCm != null) {
+                this.bCm.e(0L, 0, d.bCg);
             }
-        } else if (this.bGY != null) {
-            this.bGY.iy(str);
+        } else if (this.bCm != null) {
+            this.bCm.hn(str);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void i(final String str, com.baidu.live.alablmsdk.module.c cVar) {
-        BdLog.e("BCVideoChat blmsdk roomId=" + str + " imUk=" + cVar.aCG);
-        if (this.bGt == null || !this.bGt.equals(str)) {
-            BdLog.e("BCVideoChat blmsdk roomId not equal roomId=" + str + " mBIMRoomId=" + this.bGt);
-            if (this.bGY != null) {
-                this.bGY.bf(cVar.aCG);
+        BdLog.e("BCVideoChat blmsdk roomId=" + str + " imUk=" + cVar.axT);
+        if (this.bBH == null || !this.bBH.equals(str)) {
+            BdLog.e("BCVideoChat blmsdk roomId not equal roomId=" + str + " mBIMRoomId=" + this.bBH);
+            if (this.bCm != null) {
+                this.bCm.bf(cVar.axT);
             }
-            this.bGX.bm(cVar.aCG);
-        } else if (!this.bGX.fM(d.bGL)) {
+            this.bCl.bm(cVar.axT);
+        } else if (!this.bCl.eg(d.bBZ)) {
             BdLog.e("BCVideoChat blmsdk roomId=" + str + " user wait not exist");
         } else {
-            this.bGX.a(d.bGL, new a.InterfaceC0211a() { // from class: com.baidu.live.talentshow.d.g.4
-                @Override // com.baidu.live.talentshow.d.a.a.InterfaceC0211a
+            this.bCl.a(d.bBZ, new a.InterfaceC0202a() { // from class: com.baidu.live.talentshow.d.g.4
+                @Override // com.baidu.live.talentshow.d.a.a.InterfaceC0202a
                 public void b(com.baidu.live.talentshow.d.a.b bVar) {
-                    if (bVar != null && bVar.bHp != null) {
+                    if (bVar != null && bVar.bCD != null) {
                         BdLog.e("BCVideoChat blmsdk roomId=" + str + " onSelect");
-                        if (g.this.bGY != null) {
-                            g.this.bGY.e(bVar.bHp.aCG, bVar.index, d.bGU);
+                        if (g.this.bCm != null) {
+                            g.this.bCm.e(bVar.bCD.axT, bVar.index, d.bCi);
                         }
-                        if (g.this.bGY != null) {
-                            g.this.bGY.bf(bVar.bHp.aCG);
-                            JSONObject a2 = e.a(g.this.aGe, bVar.uid, bVar.index);
+                        if (g.this.bCm != null) {
+                            g.this.bCm.bf(bVar.bCD.axT);
+                            JSONObject a2 = e.a(g.this.aBr, bVar.uid, bVar.index);
                             com.baidu.live.talentshow.b.c cVar2 = new com.baidu.live.talentshow.b.c();
-                            cVar2.action = com.baidu.live.talentshow.b.c.bGd;
-                            cVar2.bGl = g.this.bGt;
-                            cVar2.bGn = TbadkCoreApplication.getCurrentAccount();
-                            cVar2.bGq = a2;
-                            g.this.bGY.a(cVar2);
+                            cVar2.action = com.baidu.live.talentshow.b.c.bBr;
+                            cVar2.bBz = g.this.bBH;
+                            cVar2.bBB = TbadkCoreApplication.getCurrentAccount();
+                            cVar2.bBE = a2;
+                            g.this.bCm.a(cVar2);
                         }
-                        g.this.bGX.bm(bVar.bHp.aCG);
-                        if (g.this.bGX.isEmpty()) {
-                            g.this.Cv();
+                        g.this.bCl.bm(bVar.bCD.axT);
+                        if (g.this.bCl.isEmpty()) {
+                            g.this.yA();
                         }
                     }
                 }
@@ -650,34 +649,34 @@ public class g implements a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void g(String str, long j) {
-        if (str == null || this.bGt == null || !this.bGt.equals(str)) {
+        if (str == null || this.bBH == null || !this.bBH.equals(str)) {
             BdLog.e("BCVideoChat blmsdk dealRoomRing params error ");
             return;
         }
         BdLog.e("BCVideoChat blmsdk dealRoomRing imUK = " + j + " roomId=" + str);
-        com.baidu.live.talentshow.d.a.b bn = this.bGX.bn(j);
+        com.baidu.live.talentshow.d.a.b bn = this.bCl.bn(j);
         if (bn == null) {
             BdLog.e("BCVideoChat blmsdk chatUser = null imUK=" + j);
-        } else if (this.bGY != null) {
+        } else if (this.bCm != null) {
             com.baidu.live.talentshow.b.c cVar = new com.baidu.live.talentshow.b.c();
-            cVar.action = com.baidu.live.talentshow.b.c.bFV;
-            cVar.bGl = this.bGt;
-            cVar.bGn = TbadkCoreApplication.getCurrentAccount();
-            cVar.bGq = bn.bGq;
-            this.bGY.a(cVar);
+            cVar.action = com.baidu.live.talentshow.b.c.bBj;
+            cVar.bBz = this.bBH;
+            cVar.bBB = TbadkCoreApplication.getCurrentAccount();
+            cVar.bBE = bn.bBE;
+            this.bCm.a(cVar);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void iE(String str) {
-        BdLog.e("BCVideoChat blmsdk roomId =" + str + " " + this.bGt);
-        if (!TextUtils.isEmpty(str) && str.equals(this.bGt)) {
-            if (this.bGX.Vp()) {
-                Ui();
+    public void ht(String str) {
+        BdLog.e("BCVideoChat blmsdk roomId =" + str + " " + this.bBH);
+        if (!TextUtils.isEmpty(str) && str.equals(this.bBH)) {
+            if (this.bCl.Rw()) {
+                Qn();
             }
-            this.bGX.reset();
-            if (this.bGY != null) {
-                this.bGY.e("", null);
+            this.bCl.reset();
+            if (this.bCm != null) {
+                this.bCm.e("", null);
             }
         }
     }
@@ -685,28 +684,28 @@ public class g implements a {
     /* JADX INFO: Access modifiers changed from: private */
     public void j(String str, com.baidu.live.alablmsdk.module.c cVar) {
         if (cVar != null) {
-            BdLog.e("BCVideoChat blmsdk roomID=" + str + " imUK=" + cVar.aCG);
-            com.baidu.live.talentshow.d.a.b bn = this.bGX.bn(cVar.aCG);
+            BdLog.e("BCVideoChat blmsdk roomID=" + str + " imUK=" + cVar.axT);
+            com.baidu.live.talentshow.d.a.b bn = this.bCl.bn(cVar.axT);
             if (bn == null) {
                 BdLog.e("BCVideoChat blmsdk find user failed");
-            } else if (TextUtils.isEmpty(str) || !str.equals(this.bGt)) {
+            } else if (TextUtils.isEmpty(str) || !str.equals(this.bBH)) {
                 BdLog.e("BCVideoChat blmsdk room not eq");
             } else {
-                JSONObject b2 = e.b(this.aGe, bn.uid, bn.index);
-                if (this.bGY != null) {
+                JSONObject b2 = e.b(this.aBr, bn.uid, bn.index);
+                if (this.bCm != null) {
                     com.baidu.live.talentshow.b.c cVar2 = new com.baidu.live.talentshow.b.c();
-                    cVar2.action = com.baidu.live.talentshow.b.c.bGg;
-                    cVar2.bGl = this.bGt;
-                    cVar2.bGn = TbadkCoreApplication.getCurrentAccount();
-                    cVar2.bGq = b2;
-                    this.bGY.a(cVar2);
-                    this.bGY.h(cVar.aCG, bn.index);
+                    cVar2.action = com.baidu.live.talentshow.b.c.bBu;
+                    cVar2.bBz = this.bBH;
+                    cVar2.bBB = TbadkCoreApplication.getCurrentAccount();
+                    cVar2.bBE = b2;
+                    this.bCm.a(cVar2);
+                    this.bCm.h(cVar.axT, bn.index);
                 }
-                long j = bn.bHp.aCG;
-                this.bGX.bm(j);
-                if (this.bGX.isEmpty()) {
+                long j = bn.bCD.axT;
+                this.bCl.bm(j);
+                if (this.bCl.isEmpty()) {
                     BdLog.e("BCVideoChat blmsdk imUK=" + j + " later closeRoom");
-                    Cv();
+                    yA();
                 }
             }
         }
@@ -714,21 +713,21 @@ public class g implements a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void c(com.baidu.live.alablmsdk.module.rtc.a aVar, BLMStreamState bLMStreamState) {
-        BdLog.e("BCVideoChat blmsdk stream.state=" + aVar.aDa + " imUk=" + aVar.aCG);
+        BdLog.e("BCVideoChat blmsdk stream.state=" + aVar.ayn + " imUk=" + aVar.axT);
         if (aVar == null) {
             BdLog.e("BCVideoChat blmsdk stream = null");
             return;
         }
-        com.baidu.live.talentshow.d.a.b bn = this.bGX.bn(aVar.aCG);
+        com.baidu.live.talentshow.d.a.b bn = this.bCl.bn(aVar.axT);
         if (bn == null) {
             BdLog.e("BCVideoChat blmsdk queryByImUK return null");
             return;
         }
-        if (bn != null && bn.status == d.bGM) {
-            bn.status = d.bGN;
+        if (bn != null && bn.status == d.bCa) {
+            bn.status = d.bCb;
         }
-        if (this.bGY != null) {
-            this.bGY.g(aVar.aCG, bn.index);
+        if (this.bCm != null) {
+            this.bCm.g(aVar.axT, bn.index);
         }
     }
 
@@ -738,123 +737,123 @@ public class g implements a {
             BdLog.e("BCVideoChat blmsdk stream = null");
             return;
         }
-        if (aVar.aCG == AccountManager.getUK(this.mContext)) {
+        if (aVar.axT == AccountManager.getUK(this.mContext)) {
             BdLog.e("BCVideoChat blmsdk mystream is break");
-            if (this.bGY != null) {
-                this.bGY.fB(i);
+            if (this.bCm != null) {
+                this.bCm.dV(i);
                 return;
             }
             return;
         }
-        BdLog.e("BCVideoChat blmsdk imUK=" + aVar.aCG + " order=" + aVar.order);
-        com.baidu.live.talentshow.d.a.b bn = this.bGX.bn(aVar.aCG);
+        BdLog.e("BCVideoChat blmsdk imUK=" + aVar.axT + " order=" + aVar.order);
+        com.baidu.live.talentshow.d.a.b bn = this.bCl.bn(aVar.axT);
         if (bn == null) {
             BdLog.e("BCVideoChat blmsdk chatUser = null");
             return;
         }
-        if (this.bGY != null) {
-            this.bGY.a(bn, i);
+        if (this.bCm != null) {
+            this.bCm.a(bn, i);
             if (i >= 15) {
-                JSONObject b2 = e.b(this.aGe, bn.uid, bn.index);
-                if (this.bGY != null) {
+                JSONObject b2 = e.b(this.aBr, bn.uid, bn.index);
+                if (this.bCm != null) {
                     com.baidu.live.talentshow.b.c cVar = new com.baidu.live.talentshow.b.c();
-                    cVar.action = com.baidu.live.talentshow.b.c.bGg;
-                    cVar.bGl = this.bGt;
-                    cVar.bGn = TbadkCoreApplication.getCurrentAccount();
-                    cVar.bGq = b2;
-                    this.bGY.a(cVar);
+                    cVar.action = com.baidu.live.talentshow.b.c.bBu;
+                    cVar.bBz = this.bBH;
+                    cVar.bBB = TbadkCoreApplication.getCurrentAccount();
+                    cVar.bBE = b2;
+                    this.bCm.a(cVar);
                 }
             }
         }
         if (i >= 15) {
-            this.bGX.bm(aVar.aCG);
-            if (this.bGX.isEmpty()) {
-                BdLog.e("BCVideoChat blmsdk closeRoom imUK=" + aVar.aCG + " order=" + aVar.order);
-                Cv();
+            this.bCl.bm(aVar.axT);
+            if (this.bCl.isEmpty()) {
+                BdLog.e("BCVideoChat blmsdk closeRoom imUK=" + aVar.axT + " order=" + aVar.order);
+                yA();
             }
         }
     }
 
     @Override // com.baidu.live.talentshow.d.a
     public View bi(long j) {
-        BdLog.e("BCVideoChat blmsdk" + this.bGX.getCount() + "|imuk=" + j);
-        com.baidu.live.talentshow.d.a.b bn = this.bGX.bn(j);
+        BdLog.e("BCVideoChat blmsdk" + this.bCl.getCount() + "|imuk=" + j);
+        com.baidu.live.talentshow.d.a.b bn = this.bCl.bn(j);
         if (bn == null || !(bn.index == 1 || bn.index == 2)) {
             return null;
         }
-        return this.bGv.Bi().c(bn.bHp);
+        return this.bBJ.xn().c(bn.bCD);
     }
 
-    private void Uj() {
-        BdLog.e("BCVideoChat  blmsdk mAuthorLiveRecorder=" + this.bGx);
-        final com.baidu.live.alablmsdk.c.a.a Cn = this.bGv.Bi().Cn();
-        if (this.bGx != null) {
-            this.bGx.setRecorderErrorCallback(new RecorderErrorCallback() { // from class: com.baidu.live.talentshow.d.g.5
+    private void Qo() {
+        BdLog.e("BCVideoChat  blmsdk mAuthorLiveRecorder=" + this.bBL);
+        final com.baidu.live.alablmsdk.c.a.a ys = this.bBJ.xn().ys();
+        if (this.bBL != null) {
+            this.bBL.setRecorderErrorCallback(new RecorderErrorCallback() { // from class: com.baidu.live.talentshow.d.g.5
                 @Override // com.baidu.ala.recorder.RecorderErrorCallback
                 public void onError(int i, String str) {
-                    if (Cn != null) {
-                        Cn.onError(i, str);
+                    if (ys != null) {
+                        ys.onError(i, str);
                     } else {
-                        BdLog.e("BCVideoChat capturer=" + Cn);
+                        BdLog.e("BCVideoChat capturer=" + ys);
                     }
                 }
             });
-            this.bGx.setEnableCloudRtc(true, new EGLTextureReader.OnPixelReadCallback() { // from class: com.baidu.live.talentshow.d.g.6
+            this.bBL.setEnableCloudRtc(true, new EGLTextureReader.OnPixelReadCallback() { // from class: com.baidu.live.talentshow.d.g.6
                 @Override // com.baidu.ala.dumixar.EGLTextureReader.OnPixelReadCallback
                 public void onPixelRead(byte[] bArr, int i, int i2) {
-                    if (Cn != null) {
-                        Cn.onPixelRead(bArr, i, i2);
+                    if (ys != null) {
+                        ys.onPixelRead(bArr, i, i2);
                     } else {
-                        BdLog.e("BCVideoChat capturer=" + Cn);
+                        BdLog.e("BCVideoChat capturer=" + ys);
                     }
                 }
             });
         }
     }
 
-    private void Ui() {
-        BdLog.e("BCVideoChat blmsdk count=" + this.bGX.getCount());
+    private void Qn() {
+        BdLog.e("BCVideoChat blmsdk count=" + this.bCl.getCount());
         this.mMainHandler.postDelayed(new Runnable() { // from class: com.baidu.live.talentshow.d.g.7
             @Override // java.lang.Runnable
             public void run() {
-                g.this.bGx.setEnableCloudRtc(false, null);
-                g.this.bGx.setRecorderErrorCallback(null);
-                g.this.bGx.startPush();
+                g.this.bBL.setEnableCloudRtc(false, null);
+                g.this.bBL.setRecorderErrorCallback(null);
+                g.this.bBL.startPush();
             }
         }, 500L);
     }
 
-    private void cW(boolean z) {
-        if (!this.bGX.isEmpty()) {
-            this.bGX.a(d.bGL, new AnonymousClass8(z));
+    private void cS(boolean z) {
+        if (!this.bCl.isEmpty()) {
+            this.bCl.a(d.bBZ, new AnonymousClass8(z));
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.baidu.live.talentshow.d.g$8  reason: invalid class name */
-    /* loaded from: classes11.dex */
-    public class AnonymousClass8 implements a.InterfaceC0211a {
-        final /* synthetic */ boolean bHf;
+    /* loaded from: classes10.dex */
+    public class AnonymousClass8 implements a.InterfaceC0202a {
+        final /* synthetic */ boolean bCt;
 
         AnonymousClass8(boolean z) {
-            this.bHf = z;
+            this.bCt = z;
         }
 
-        @Override // com.baidu.live.talentshow.d.a.a.InterfaceC0211a
+        @Override // com.baidu.live.talentshow.d.a.a.InterfaceC0202a
         public void b(final com.baidu.live.talentshow.d.a.b bVar) {
-            BdLog.e("BCVideoChat blmsdk onSelect imUK=" + bVar.bHp.aCG);
-            if (g.this.bGv != null && g.this.bGt != null && g.this.bGt.length() > 0) {
+            BdLog.e("BCVideoChat blmsdk onSelect imUK=" + bVar.bCD.axT);
+            if (g.this.bBJ != null && g.this.bBH != null && g.this.bBH.length() > 0) {
                 ArrayList arrayList = new ArrayList();
-                arrayList.add(bVar.bHp);
-                final JSONObject a2 = e.a(g.this.aGe, bVar.uid, bVar.index);
-                g.this.bGv.b(g.this.bGt, arrayList, a2, new com.baidu.live.alablmsdk.c.c() { // from class: com.baidu.live.talentshow.d.g.8.1
+                arrayList.add(bVar.bCD);
+                final JSONObject a2 = e.a(g.this.aBr, bVar.uid, bVar.index);
+                g.this.bBJ.b(g.this.bBH, arrayList, a2, new com.baidu.live.alablmsdk.c.c() { // from class: com.baidu.live.talentshow.d.g.8.1
                     @Override // com.baidu.live.alablmsdk.c.c
                     public void f(int i, final int i2, final String str) {
                         BdLog.e("BCVideoChat blmsdk status=" + i2 + " msg=" + str);
                         g.this.mMainHandler.post(new Runnable() { // from class: com.baidu.live.talentshow.d.g.8.1.1
                             @Override // java.lang.Runnable
                             public void run() {
-                                g.this.a(bVar.bHp.aCG, a2, AnonymousClass8.this.bHf, i2, str);
+                                g.this.a(bVar.bCD.axT, a2, AnonymousClass8.this.bCt, i2, str);
                             }
                         });
                     }
@@ -865,11 +864,11 @@ public class g implements a {
 
     private void a(final long j, final com.baidu.live.talentshow.d.a.b bVar) {
         BdLog.e("BCVideoChat blmsdk imUK = " + j + " uid=" + bVar.uid);
-        com.baidu.live.alablmsdk.module.c clone = bVar.bHp.clone();
+        com.baidu.live.alablmsdk.module.c clone = bVar.bCD.clone();
         ArrayList arrayList = new ArrayList();
         arrayList.add(clone);
-        final JSONObject b2 = e.b(this.aGe, bVar.uid, bVar.index);
-        this.bGv.a(this.bGt, b2, arrayList, new com.baidu.live.alablmsdk.c.c() { // from class: com.baidu.live.talentshow.d.g.9
+        final JSONObject b2 = e.b(this.aBr, bVar.uid, bVar.index);
+        this.bBJ.a(this.bBH, b2, arrayList, new com.baidu.live.alablmsdk.c.c() { // from class: com.baidu.live.talentshow.d.g.9
             @Override // com.baidu.live.alablmsdk.c.c
             public void f(int i, int i2, String str) {
                 g.this.a(j, bVar.uid, b2, i2, str);
@@ -878,48 +877,48 @@ public class g implements a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Cv() {
-        BdLog.e("BCVideoChat blmsdk roomId=" + this.bGt + " count=" + this.bGX.getCount());
-        if (this.bGt != null && this.bGt.length() != 0) {
-            cW(true);
-            JSONObject w = e.w(this.aGe);
-            this.bGv.d(this.bGt, w, (com.baidu.live.alablmsdk.c.c) null);
-            this.bGX.reset();
-            Ui();
-            if (this.bGY != null) {
-                this.bGY.e(this.bGt, w);
+    public void yA() {
+        BdLog.e("BCVideoChat blmsdk roomId=" + this.bBH + " count=" + this.bCl.getCount());
+        if (this.bBH != null && this.bBH.length() != 0) {
+            cS(true);
+            JSONObject w = e.w(this.aBr);
+            this.bBJ.d(this.bBH, w, (com.baidu.live.alablmsdk.c.c) null);
+            this.bCl.reset();
+            Qn();
+            if (this.bCm != null) {
+                this.bCm.e(this.bBH, w);
                 com.baidu.live.talentshow.b.c cVar = new com.baidu.live.talentshow.b.c();
-                cVar.action = com.baidu.live.talentshow.b.c.bFZ;
-                cVar.bGl = this.bGt;
-                cVar.bGn = TbadkCoreApplication.getCurrentAccount();
-                cVar.bGq = w;
-                this.bGY.a(cVar);
+                cVar.action = com.baidu.live.talentshow.b.c.bBn;
+                cVar.bBz = this.bBH;
+                cVar.bBB = TbadkCoreApplication.getCurrentAccount();
+                cVar.bBE = w;
+                this.bCm.a(cVar);
             }
-            this.bGt = "";
+            this.bBH = "";
         }
     }
 
     private com.baidu.live.talentshow.d.a.b d(com.baidu.live.alablmsdk.module.c cVar) {
-        int Vo = this.bGX.Vo();
-        BdLog.e("BCVideoChat blmsdk index=" + Vo);
-        JSONObject a2 = e.a(this.aGe, cVar, Vo);
-        cVar.order = Vo + "";
+        int Rv = this.bCl.Rv();
+        BdLog.e("BCVideoChat blmsdk index=" + Rv);
+        JSONObject a2 = e.a(this.aBr, cVar, Rv);
+        cVar.order = Rv + "";
         com.baidu.live.talentshow.d.a.b bVar = new com.baidu.live.talentshow.d.a.b();
-        bVar.bGq = a2;
-        bVar.index = Vo;
-        bVar.status = d.bGJ;
-        bVar.bHp = cVar;
+        bVar.bBE = a2;
+        bVar.index = Rv;
+        bVar.status = d.bBX;
+        bVar.bCD = cVar;
         return bVar;
     }
 
-    private void iF(final String str) {
-        BdLog.e("BCVideoChat blmsdk roomID=" + str + " isRtc=" + this.bGX.Vp());
-        if (!this.bGX.Vp()) {
-            this.bGX.cX(true);
+    private void hu(final String str) {
+        BdLog.e("BCVideoChat blmsdk roomID=" + str + " isRtc=" + this.bCl.Rw());
+        if (!this.bCl.Rw()) {
+            this.bCl.cT(true);
             com.baidu.live.alablmsdk.module.c cVar = new com.baidu.live.alablmsdk.module.c();
-            cVar.aCG = AccountManager.getUK(TbadkCoreApplication.getInst());
+            cVar.axT = AccountManager.getUK(TbadkCoreApplication.getInst());
             cVar.order = "0";
-            this.bGv.a(str, cVar, new com.baidu.live.alablmsdk.c.c() { // from class: com.baidu.live.talentshow.d.g.10
+            this.bBJ.a(str, cVar, new com.baidu.live.alablmsdk.c.c() { // from class: com.baidu.live.talentshow.d.g.10
                 @Override // com.baidu.live.alablmsdk.c.c
                 public void f(int i, final int i2, final String str2) {
                     g.this.mMainHandler.post(new Runnable() { // from class: com.baidu.live.talentshow.d.g.10.1

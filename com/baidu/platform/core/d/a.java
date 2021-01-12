@@ -1,5 +1,6 @@
 package com.baidu.platform.core.d;
 
+import android.net.http.Headers;
 import com.baidu.mapapi.CoordType;
 import com.baidu.mapapi.SDKInitializer;
 import com.baidu.mapapi.model.LatLng;
@@ -17,7 +18,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class a extends com.baidu.platform.base.d {
     private LatLng a(JSONObject jSONObject) {
         if (jSONObject == null) {
@@ -65,7 +66,7 @@ public class a extends com.baidu.platform.base.d {
                 bikingStep.setEntrance(RouteNode.location(a(optJSONObject.optJSONObject("stepOriginLocation"))));
                 bikingStep.setExit(RouteNode.location(a(optJSONObject.optJSONObject("stepDestinationLocation"))));
                 String optString = optJSONObject.optString("instructions");
-                if (optString != null && optString.length() >= 4) {
+                if (optString != null || optString.length() >= 4) {
                     optString = optString.replaceAll("</?[a-z]>", "");
                 }
                 bikingStep.setInstructions(optString);
@@ -195,7 +196,7 @@ public class a extends com.baidu.platform.base.d {
                     }
                     poiInfo.uid = jSONObject2.optString("uid");
                     poiInfo.name = jSONObject2.optString("name");
-                    JSONObject optJSONObject = jSONObject2.optJSONObject("location");
+                    JSONObject optJSONObject = jSONObject2.optJSONObject(Headers.LOCATION);
                     if (optJSONObject != null) {
                         poiInfo.location = new LatLng(optJSONObject.optDouble("lat"), optJSONObject.optDouble("lng"));
                         if (SDKInitializer.getCoordType() == CoordType.GCJ02) {

@@ -1,7 +1,7 @@
 package com.kwai.video.hodor;
 
 import com.baidubce.services.bos.BosClientConfiguration;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public interface KlogObserver {
     public static final int kLevelAll = 0;
     public static final int kLevelDebug = 0;
@@ -10,7 +10,7 @@ public interface KlogObserver {
     public static final int kLevelNone = 4;
     public static final int kLevelWarn = 2;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class KlogParam {
         public String filePath;
         public int logLevel = 0;

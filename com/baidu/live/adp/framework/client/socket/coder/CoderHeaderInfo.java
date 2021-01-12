@@ -1,7 +1,7 @@
 package com.baidu.live.adp.framework.client.socket.coder;
 
 import java.nio.ByteBuffer;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class CoderHeaderInfo {
     private int command;
     private int sequenceId;

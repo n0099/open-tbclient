@@ -14,7 +14,7 @@ public class c extends HttpCommonRequest<a> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.searchbox.http.request.HttpRequest
-    /* renamed from: bfU */
+    /* renamed from: bca */
     public a newBuilder() {
         return new a(this);
     }
@@ -47,7 +47,7 @@ public class c extends HttpCommonRequest<a> {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.searchbox.http.request.HttpRequestBuilder
-        /* renamed from: bfE */
+        /* renamed from: bbK */
         public c build() {
             return new c(this);
         }

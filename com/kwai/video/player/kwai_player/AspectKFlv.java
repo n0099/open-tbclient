@@ -3,7 +3,7 @@ package com.kwai.video.player.kwai_player;
 import android.text.TextUtils;
 import androidx.annotation.Keep;
 @Keep
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class AspectKFlv {
     private final KwaiMediaPlayer mPlayer;
 

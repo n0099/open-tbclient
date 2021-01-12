@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.live.tbadk.core.sharedpref.SharedPrefConfig;
+import com.baidu.live.tbadk.core.util.TiebaInitialize;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeConstants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.at;
@@ -23,14 +24,14 @@ public class i {
         String str = null;
         try {
             String versionName = TbadkCoreApplication.getInst().getVersionName();
-            String string = com.baidu.tbadk.core.sharedPref.b.bvr().getString(SharedPrefConfig.VERSION_NAME, "");
+            String string = com.baidu.tbadk.core.sharedPref.b.brx().getString(SharedPrefConfig.VERSION_NAME, "");
             if (!TextUtils.isEmpty(versionName)) {
                 if (versionName.equals(string)) {
-                    str = com.baidu.tbadk.core.sharedPref.b.bvr().getString(SharedPrefConfig.APK_MD5, "");
+                    str = com.baidu.tbadk.core.sharedPref.b.brx().getString(SharedPrefConfig.APK_MD5, "");
                 } else {
-                    com.baidu.tbadk.core.sharedPref.b.bvr().putString(SharedPrefConfig.VERSION_NAME, versionName);
+                    com.baidu.tbadk.core.sharedPref.b.brx().putString(SharedPrefConfig.VERSION_NAME, versionName);
                     String aPKMd5 = av.getAPKMd5(TbadkCoreApplication.getInst().getPackageManager().getPackageInfo(TbadkCoreApplication.getInst().getContext().getPackageName(), 0));
-                    com.baidu.tbadk.core.sharedPref.b.bvr().putString(SharedPrefConfig.APK_MD5, aPKMd5);
+                    com.baidu.tbadk.core.sharedPref.b.brx().putString(SharedPrefConfig.APK_MD5, aPKMd5);
                     str = aPKMd5;
                 }
             }
@@ -80,7 +81,7 @@ public class i {
         bundle.putString("versionname", versionData.getNewVersion());
         bundle.putString("iconurl", versionData.getTiebaIconUrl());
         bundle.putString("updatetime", at.getDateStringDay(new Date(System.currentTimeMillis())));
-        bundle.putString("size", versionData.getSize());
+        bundle.putString(TiebaInitialize.LogFields.SIZE, versionData.getSize());
         bundle.putString("signmd5", str);
         bundle.putString("tj", str + context.getString(R.string.app_name));
         intent.putExtra("extra_client_downloadinfo", bundle);

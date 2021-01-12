@@ -4,42 +4,42 @@ import com.facebook.common.internal.g;
 import java.util.IdentityHashMap;
 import java.util.Map;
 import javax.annotation.concurrent.GuardedBy;
-/* loaded from: classes3.dex */
+/* loaded from: classes14.dex */
 public class SharedReference<T> {
     @GuardedBy("itself")
-    private static final Map<Object, Integer> ptC = new IdentityHashMap();
+    private static final Map<Object, Integer> poZ = new IdentityHashMap();
     @GuardedBy("this")
     private int mRefCount = 1;
     @GuardedBy("this")
     private T mValue;
-    private final c<T> ptp;
+    private final c<T> poN;
 
     public SharedReference(T t, c<T> cVar) {
         this.mValue = (T) g.checkNotNull(t);
-        this.ptp = (c) g.checkNotNull(cVar);
+        this.poN = (c) g.checkNotNull(cVar);
         bd(t);
     }
 
     private static void bd(Object obj) {
-        synchronized (ptC) {
-            Integer num = ptC.get(obj);
+        synchronized (poZ) {
+            Integer num = poZ.get(obj);
             if (num == null) {
-                ptC.put(obj, 1);
+                poZ.put(obj, 1);
             } else {
-                ptC.put(obj, Integer.valueOf(num.intValue() + 1));
+                poZ.put(obj, Integer.valueOf(num.intValue() + 1));
             }
         }
     }
 
     private static void be(Object obj) {
-        synchronized (ptC) {
-            Integer num = ptC.get(obj);
+        synchronized (poZ) {
+            Integer num = poZ.get(obj);
             if (num == null) {
                 com.facebook.common.c.a.h("SharedReference", "No entry in sLiveObjects for value of type %s", obj.getClass());
             } else if (num.intValue() == 1) {
-                ptC.remove(obj);
+                poZ.remove(obj);
             } else {
-                ptC.put(obj, Integer.valueOf(num.intValue() - 1));
+                poZ.put(obj, Integer.valueOf(num.intValue() - 1));
             }
         }
     }
@@ -56,37 +56,37 @@ public class SharedReference<T> {
         return sharedReference != null && sharedReference.isValid();
     }
 
-    public synchronized void eun() {
-        euq();
+    public synchronized void eqt() {
+        eqw();
         this.mRefCount++;
     }
 
-    public void euo() {
+    public void equ() {
         T t;
-        if (eup() == 0) {
+        if (eqv() == 0) {
             synchronized (this) {
                 t = this.mValue;
                 this.mValue = null;
             }
-            this.ptp.release(t);
+            this.poN.release(t);
             be(t);
         }
     }
 
-    private synchronized int eup() {
-        euq();
+    private synchronized int eqv() {
+        eqw();
         g.checkArgument(this.mRefCount > 0);
         this.mRefCount--;
         return this.mRefCount;
     }
 
-    private void euq() {
+    private void eqw() {
         if (!a(this)) {
             throw new NullReferenceException();
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes14.dex */
     public static class NullReferenceException extends RuntimeException {
         public NullReferenceException() {
             super("Null shared reference");

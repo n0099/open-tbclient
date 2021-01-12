@@ -13,7 +13,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.nio.channels.FileChannel;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class BdFileHelper {
     public static final int ERR_FILE_IO_SD = 3;
     public static final int ERR_FILE_NO_SD = 1;

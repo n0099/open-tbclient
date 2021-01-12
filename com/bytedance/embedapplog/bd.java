@@ -17,7 +17,7 @@ import com.bytedance.embedapplog.cl;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes4.dex */
 public final class bd implements bi {
-    private static final aw<Boolean> pgY = new aw<Boolean>() { // from class: com.bytedance.embedapplog.bd.1
+    private static final aw<Boolean> pcw = new aw<Boolean>() { // from class: com.bytedance.embedapplog.bd.1
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.bytedance.embedapplog.aw
@@ -32,7 +32,7 @@ public final class bd implements bi {
         if (context == null) {
             return false;
         }
-        return pgY.b(context).booleanValue();
+        return pcw.b(context).booleanValue();
     }
 
     @Override // com.bytedance.embedapplog.bi
@@ -44,28 +44,28 @@ public final class bd implements bi {
     @Override // com.bytedance.embedapplog.bi
     @Nullable
     @WorkerThread
-    /* renamed from: hS */
-    public a hR(Context context) {
+    /* renamed from: hQ */
+    public a hP(Context context) {
         a aVar = new a();
         if (Build.VERSION.SDK_INT >= 24) {
             try {
                 String string = Settings.Global.getString(context.getContentResolver(), "pps_oaid");
                 String string2 = Settings.Global.getString(context.getContentResolver(), "pps_track_limit");
                 if (!TextUtils.isEmpty(string)) {
-                    aVar.f6101b = string;
+                    aVar.f5801b = string;
                     aVar.c = Boolean.parseBoolean(string2);
-                    aVar.f6098a = 202003021704L;
+                    aVar.f5798a = 202003021704L;
                     return aVar;
                 }
             } catch (Throwable th) {
                 th.printStackTrace();
             }
         }
-        Pair<String, Boolean> hT = hT(context);
-        if (hT != null) {
-            aVar.f6101b = (String) hT.first;
-            aVar.c = ((Boolean) hT.second).booleanValue();
-            aVar.f6098a = e(context);
+        Pair<String, Boolean> hR = hR(context);
+        if (hR != null) {
+            aVar.f5801b = (String) hR.first;
+            aVar.c = ((Boolean) hR.second).booleanValue();
+            aVar.f5798a = e(context);
         }
         return aVar;
     }
@@ -84,7 +84,7 @@ public final class bd implements bi {
     }
 
     @Nullable
-    private static Pair<String, Boolean> hT(Context context) {
+    private static Pair<String, Boolean> hR(Context context) {
         return (Pair) new bp(context, new Intent("com.uodis.opendevice.OPENIDS_SERVICE").setPackage("com.huawei.hwid"), new bp.b<cl, Pair<String, Boolean>>() { // from class: com.bytedance.embedapplog.bd.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.bytedance.embedapplog.bp.b
@@ -109,7 +109,7 @@ public final class bd implements bi {
     public static class a extends bi.a {
 
         /* renamed from: a  reason: collision with root package name */
-        long f6098a = 0;
+        long f5798a = 0;
 
         a() {
         }

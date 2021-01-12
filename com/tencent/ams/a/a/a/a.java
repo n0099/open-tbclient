@@ -8,14 +8,14 @@ import com.tencent.ams.a.a.c.c;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static Context f13553a;
+    public static Context f13253a;
 
     /* renamed from: b  reason: collision with root package name */
-    private static a f13554b = new a();
+    private static a f13254b = new a();
     private boolean c;
     private Map<String, String> d;
 
@@ -23,18 +23,18 @@ public class a {
     }
 
     public static a a() {
-        return f13554b;
+        return f13254b;
     }
 
     private void b(final Context context, final String str) {
         synchronized (this) {
             if (!this.c) {
                 try {
-                    f13553a = context.getApplicationContext();
+                    f13253a = context.getApplicationContext();
                     if (this.d == null) {
-                        this.d = com.tencent.ams.a.a.c.b.e(f13553a);
+                        this.d = com.tencent.ams.a.a.c.b.e(f13253a);
                     }
-                    c.a(f13553a);
+                    c.a(f13253a);
                     this.c = true;
                     new Thread(new Runnable() { // from class: com.tencent.ams.a.a.a.a.1
                         @Override // java.lang.Runnable
@@ -68,48 +68,48 @@ public class a {
         }
         StringBuilder sb = new StringBuilder();
         g a3 = c.a();
-        if (a3 == null || a3.f13571b == null || a3.f13571b.size() == 0) {
+        if (a3 == null || a3.f13271b == null || a3.f13271b.size() == 0) {
             return null;
         }
         HashMap hashMap = new HashMap(this.d);
         long currentTimeMillis = System.currentTimeMillis();
-        for (com.tencent.ams.a.a.b.b bVar : a3.f13571b) {
-            if (bVar.f13562b != null && !TextUtils.isEmpty(bVar.f13562b.f13565a) && a2.endsWith(bVar.f13562b.f13565a)) {
-                hashMap.putAll(com.tencent.ams.a.a.c.b.a(f13553a, bVar.f13561a, bVar.i));
+        for (com.tencent.ams.a.a.b.b bVar : a3.f13271b) {
+            if (bVar.f13262b != null && !TextUtils.isEmpty(bVar.f13262b.f13265a) && a2.endsWith(bVar.f13262b.f13265a)) {
+                hashMap.putAll(com.tencent.ams.a.a.c.b.a(f13253a, bVar.f13261a, bVar.i));
                 ArrayList arrayList = new ArrayList();
                 String str3 = "";
-                if (bVar.e == null || bVar.e.f13563a == null) {
+                if (bVar.e == null || bVar.e.f13263a == null) {
                     str2 = "";
                 } else {
                     String str4 = "";
-                    for (com.tencent.ams.a.a.b.a aVar : bVar.e.f13563a) {
+                    for (com.tencent.ams.a.a.b.a aVar : bVar.e.f13263a) {
                         if (aVar != null && aVar.d) {
                             str4 = bVar.f;
                             str3 = bVar.g;
-                            arrayList.add(aVar.f13560b);
+                            arrayList.add(aVar.f13260b);
                         }
                         str4 = str4;
                     }
                     str2 = str4;
                 }
                 sb.append((String) com.tencent.ams.a.a.c.a.a(str, arrayList, str2, str3, "").get("URL"));
-                if (bVar.e != null && bVar.e.f13563a != null) {
-                    for (com.tencent.ams.a.a.b.a aVar2 : bVar.e.f13563a) {
+                if (bVar.e != null && bVar.e.f13263a != null) {
+                    for (com.tencent.ams.a.a.b.a aVar2 : bVar.e.f13263a) {
                         if (aVar2 != null && aVar2.d) {
-                            if ("TS".equals(aVar2.f13559a)) {
-                                sb.append(bVar.f + aVar2.f13560b + (bVar.g != null ? bVar.g : "") + currentTimeMillis);
-                            } else if ("MUDS".equals(aVar2.f13559a)) {
-                                sb.append(bVar.f + aVar2.f13560b + (bVar.g != null ? bVar.g : "") + com.tencent.ams.a.a.c.a.a("", aVar2, bVar));
+                            if ("TS".equals(aVar2.f13259a)) {
+                                sb.append(bVar.f + aVar2.f13260b + (bVar.g != null ? bVar.g : "") + currentTimeMillis);
+                            } else if ("MUDS".equals(aVar2.f13259a)) {
+                                sb.append(bVar.f + aVar2.f13260b + (bVar.g != null ? bVar.g : "") + com.tencent.ams.a.a.c.a.a("", aVar2, bVar));
                             } else {
-                                sb.append(bVar.f + aVar2.f13560b + (bVar.g != null ? bVar.g : "") + com.tencent.ams.a.a.c.a.a((String) hashMap.get(aVar2.f13559a), aVar2, bVar));
+                                sb.append(bVar.f + aVar2.f13260b + (bVar.g != null ? bVar.g : "") + com.tencent.ams.a.a.c.a.a((String) hashMap.get(aVar2.f13259a), aVar2, bVar));
                             }
                         }
                     }
                 }
                 StringBuilder sb2 = new StringBuilder(com.tencent.ams.a.a.c.a.a(sb.toString(), new ArrayList(), str2, str3));
                 sb2.append("");
-                if (bVar.c != null && bVar.c.f13573b != null) {
-                    sb2.append(bVar.f + bVar.c.f13573b + (bVar.g != null ? bVar.g : "") + com.tencent.ams.a.a.c.a.c(com.tencent.ams.a.a.c.a.a(f13553a, sb2.toString())));
+                if (bVar.c != null && bVar.c.f13273b != null) {
+                    sb2.append(bVar.f + bVar.c.f13273b + (bVar.g != null ? bVar.g : "") + com.tencent.ams.a.a.c.a.c(com.tencent.ams.a.a.c.a.a(f13253a, sb2.toString())));
                 }
                 com.tencent.ams.a.b.a.a("mma_request_url: " + sb2.toString());
                 return sb2.toString();

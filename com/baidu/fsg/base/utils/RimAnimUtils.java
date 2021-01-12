@@ -2,14 +2,14 @@ package com.baidu.fsg.base.utils;
 
 import android.app.Activity;
 import android.content.Context;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class RimAnimUtils {
 
     /* renamed from: a  reason: collision with root package name */
-    private static int f2048a;
+    private static int f1998a;
 
     /* renamed from: b  reason: collision with root package name */
-    private static int f2049b;
+    private static int f1999b;
     private static int c;
     private static int d;
 
@@ -18,12 +18,12 @@ public final class RimAnimUtils {
 
     public static void startActivityAnim(Context context) {
         if (context != null) {
-            if (f2048a == 0 || f2049b == 0) {
-                f2048a = ResUtils.anim(context, "rim_base_slide_from_right");
-                f2049b = ResUtils.anim(context, "rim_base_slide_to_left");
+            if (f1998a == 0 || f1999b == 0) {
+                f1998a = ResUtils.anim(context, "rim_base_slide_from_right");
+                f1999b = ResUtils.anim(context, "rim_base_slide_to_left");
             }
             if (context instanceof Activity) {
-                ((Activity) context).overridePendingTransition(f2048a, f2049b);
+                ((Activity) context).overridePendingTransition(f1998a, f1999b);
             }
         }
     }

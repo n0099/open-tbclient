@@ -1,18 +1,17 @@
 package com.baidu.live.data;
 
 import com.baidu.live.tbadk.ubc.UbcStatConstant;
-import com.baidu.platform.comapi.map.MapBundleKey;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class e {
-    public String aJh;
-    public String aJi;
-    public boolean aJj;
-    public long aJk;
+    public String aEu;
+    public String aEv;
+    public boolean aEw;
+    public long aEx;
     public String cuid;
     public int level;
     public String mCustomRoomId;
@@ -28,18 +27,18 @@ public class e {
     public void parseJson(JSONObject jSONObject) {
         this.mRoomId = jSONObject.optString("room_id", "");
         this.mCustomRoomId = jSONObject.optString(UbcStatConstant.KEY_CUSTOM_ROOM_ID, "");
-        this.aJh = jSONObject.optString("apply_user_id", "");
+        this.aEu = jSONObject.optString("apply_user_id", "");
         this.uk = jSONObject.optString("uk", "");
         this.mUserName = jSONObject.optString("user_nickname", "");
         this.mPortrait = jSONObject.optString("portrait", "");
         this.mSex = jSONObject.optInt("sex", 0);
         this.mPos = jSONObject.optInt("pos", 0);
         this.phone_order = jSONObject.optInt("phone_order", 0);
-        this.level = jSONObject.optInt(MapBundleKey.MapObjKey.OBJ_LEVEL, 0);
+        this.level = jSONObject.optInt("level", 0);
         this.cuid = jSONObject.optString("cuid", "");
-        this.aJi = jSONObject.optString("client_version", "0");
-        this.aJk = jSONObject.optLong("app_id", 0L);
-        this.aJj = jSONObject.optInt("forbidden_status", 0) == 0;
+        this.aEv = jSONObject.optString("client_version", "0");
+        this.aEx = jSONObject.optLong("app_id", 0L);
+        this.aEw = jSONObject.optInt("forbidden_status", 0) == 0;
         JSONArray optJSONArray = jSONObject.optJSONArray("live_mark_info");
         if (optJSONArray != null && optJSONArray.length() > 0) {
             this.mLiveMarkInfo = new ArrayList();

@@ -8,15 +8,15 @@ import com.baidu.fsg.base.restnet.beans.business.BaseBean;
 import com.baidu.tbadk.TbConfig;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class o extends BaseBean {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f2011a;
+    private String f1961a;
 
     public o(Context context, String str) {
         super(context);
-        this.f2011a = str;
+        this.f1961a = str;
     }
 
     @Override // com.baidu.fsg.base.restnet.beans.ApollonBean
@@ -37,7 +37,7 @@ public class o extends BaseBean {
     @Override // com.baidu.fsg.base.restnet.beans.business.NetworkBean
     public List<RestNameValuePair> generateRequestParam() {
         ArrayList arrayList = new ArrayList();
-        String encodeToString = Base64.encodeToString(this.f2011a.getBytes(), 2);
+        String encodeToString = Base64.encodeToString(this.f1961a.getBytes(), 2);
         arrayList.add(new RestNameValuePair("datetime", System.currentTimeMillis() + ""));
         arrayList.add(new RestNameValuePair(TbConfig.TMP_LOG_DIR_NAME, encodeToString));
         return arrayList;

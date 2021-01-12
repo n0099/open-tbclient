@@ -5,8 +5,8 @@ import android.content.ContextWrapper;
 import android.content.SharedPreferences;
 /* loaded from: classes4.dex */
 public class b extends ContextWrapper {
-    private static b afW;
-    private h afX;
+    private static b aff;
+    private h afg;
 
     public b() {
         super(null);
@@ -14,12 +14,12 @@ public class b extends ContextWrapper {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.content.ContextWrapper, android.content.Context
-    /* renamed from: sH */
+    /* renamed from: sw */
     public h getResources() {
-        if (this.afX == null) {
-            this.afX = new h(super.getResources(), getAssets(), super.getResources().getDisplayMetrics(), super.getResources().getConfiguration());
+        if (this.afg == null) {
+            this.afg = new h(super.getResources(), getAssets(), super.getResources().getDisplayMetrics(), super.getResources().getConfiguration());
         }
-        return this.afX;
+        return this.afg;
     }
 
     @Override // android.content.ContextWrapper
@@ -27,19 +27,19 @@ public class b extends ContextWrapper {
         super.attachBaseContext(context);
     }
 
-    public static synchronized b sI() {
+    public static synchronized b sx() {
         b bVar;
         synchronized (b.class) {
-            if (afW == null) {
-                afW = new b();
+            if (aff == null) {
+                aff = new b();
             }
-            bVar = afW;
+            bVar = aff;
         }
         return bVar;
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
     public SharedPreferences getSharedPreferences(String str, int i) {
-        return com.baidu.browser.core.util.c.S(this) ? d.c(str, this) : super.getSharedPreferences(str, i);
+        return com.baidu.browser.core.util.c.R(this) ? d.c(str, this) : super.getSharedPreferences(str, i);
     }
 }

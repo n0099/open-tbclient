@@ -4,10 +4,10 @@ import android.content.ContentValues;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import java.util.Map;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class c extends b {
     @Nullable
-    private ContentValues ddw;
+    private ContentValues cYG;
 
     public c(@Nullable Map<String, String> map) {
         super("lifecycle", map);
@@ -15,21 +15,21 @@ public class c extends b {
 
     public c(@NonNull ContentValues contentValues) {
         super("lifecycle", null);
-        this.ddw = contentValues;
+        this.cYG = contentValues;
     }
 
     @Override // com.baidu.swan.apps.event.a.b, com.baidu.swan.apps.event.a.a
-    public String oF(String str) {
+    public String ns(String str) {
         StringBuilder sb = new StringBuilder();
-        sb.append(com.baidu.swan.apps.event.a.O(str, "cuid", com.baidu.swan.apps.t.a.aAx().cd(com.baidu.swan.apps.t.a.aAs())));
-        sb.append(com.baidu.swan.apps.event.a.O(str, "mtjCuid", com.baidu.swan.apps.t.a.aAx().cd(com.baidu.swan.apps.t.a.aAs())));
-        if (this.ddw != null) {
-            for (String str2 : this.ddw.keySet()) {
-                sb.append(com.baidu.swan.apps.event.a.c(str, str2, this.ddw.get(str2)));
+        sb.append(com.baidu.swan.apps.event.a.N(str, "cuid", com.baidu.swan.apps.t.a.awD().cc(com.baidu.swan.apps.t.a.awy())));
+        sb.append(com.baidu.swan.apps.event.a.N(str, "mtjCuid", com.baidu.swan.apps.t.a.awD().cc(com.baidu.swan.apps.t.a.awy())));
+        if (this.cYG != null) {
+            for (String str2 : this.cYG.keySet()) {
+                sb.append(com.baidu.swan.apps.event.a.c(str, str2, this.cYG.get(str2)));
             }
         } else {
             for (Map.Entry<String, String> entry : this.mParams.entrySet()) {
-                sb.append(com.baidu.swan.apps.event.a.O(str, entry.getKey(), entry.getValue()));
+                sb.append(com.baidu.swan.apps.event.a.N(str, entry.getKey(), entry.getValue()));
             }
         }
         return sb.toString();

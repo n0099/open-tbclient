@@ -3,18 +3,18 @@ package com.bytedance.embedapplog;
 public abstract class aw<T> {
 
     /* renamed from: a  reason: collision with root package name */
-    private volatile T f6089a;
+    private volatile T f5789a;
 
     protected abstract T M(Object... objArr);
 
     public final T b(Object... objArr) {
-        if (this.f6089a == null) {
+        if (this.f5789a == null) {
             synchronized (this) {
-                if (this.f6089a == null) {
-                    this.f6089a = M(objArr);
+                if (this.f5789a == null) {
+                    this.f5789a = M(objArr);
                 }
             }
         }
-        return this.f6089a;
+        return this.f5789a;
     }
 }

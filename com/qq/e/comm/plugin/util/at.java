@@ -2,7 +2,7 @@ package com.qq.e.comm.plugin.util;
 
 import android.content.SharedPreferences;
 import com.qq.e.comm.managers.GDTADManager;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class at {
     public static void a(String str, int i) {
         SharedPreferences.Editor edit = GDTADManager.getInstance().getAppContext().getSharedPreferences("com.qq.e.sdkconfig", 0).edit();

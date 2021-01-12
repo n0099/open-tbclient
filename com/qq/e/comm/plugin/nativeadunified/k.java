@@ -18,7 +18,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Queue;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class k extends com.qq.e.comm.plugin.r.a.a<BaseNativeUnifiedAd> implements NUADI {
     private ADListener d;
     private int e;
@@ -33,71 +33,71 @@ public class k extends com.qq.e.comm.plugin.r.a.a<BaseNativeUnifiedAd> implement
     private String n;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class a implements ADListener {
 
         /* renamed from: a  reason: collision with root package name */
-        private ADListener f12618a;
+        private ADListener f12318a;
 
         /* renamed from: b  reason: collision with root package name */
-        private a.InterfaceC1218a f12619b;
+        private a.InterfaceC1201a f12319b;
 
-        public a(a.InterfaceC1218a interfaceC1218a) {
-            this.f12619b = interfaceC1218a;
+        public a(a.InterfaceC1201a interfaceC1201a) {
+            this.f12319b = interfaceC1201a;
         }
 
         public void a(ADListener aDListener) {
-            this.f12618a = aDListener;
+            this.f12318a = aDListener;
         }
 
         @Override // com.qq.e.comm.adevent.ADListener
         public void onADEvent(ADEvent aDEvent) {
-            this.f12618a.onADEvent(aDEvent);
+            this.f12318a.onADEvent(aDEvent);
             if (aDEvent.getType() == 2) {
-                this.f12619b.b();
+                this.f12319b.b();
             } else if (aDEvent.getType() == 1) {
-                this.f12619b.c();
+                this.f12319b.c();
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class b implements ADListener {
 
         /* renamed from: a  reason: collision with root package name */
-        private a.InterfaceC1218a f12620a;
+        private a.InterfaceC1201a f12320a;
 
         /* renamed from: b  reason: collision with root package name */
-        private Queue<ADEvent> f12621b = new LinkedList();
+        private Queue<ADEvent> f12321b = new LinkedList();
         private boolean c;
 
-        public b(a.InterfaceC1218a interfaceC1218a, boolean z) {
-            this.f12620a = interfaceC1218a;
+        public b(a.InterfaceC1201a interfaceC1201a, boolean z) {
+            this.f12320a = interfaceC1201a;
             this.c = z;
         }
 
         public Queue<ADEvent> a() {
-            return this.f12621b;
+            return this.f12321b;
         }
 
         @Override // com.qq.e.comm.adevent.ADListener
         public void onADEvent(ADEvent aDEvent) {
             if (aDEvent.getType() == 2) {
-                this.f12620a.a();
+                this.f12320a.a();
             } else if (aDEvent.getType() == 1) {
                 if (this.c) {
-                    this.f12620a.a(aDEvent);
-                    this.f12620a.b(aDEvent);
+                    this.f12320a.a(aDEvent);
+                    this.f12320a.b(aDEvent);
                     return;
                 }
-                this.f12621b.offer(aDEvent);
-                this.f12620a.a(aDEvent);
+                this.f12321b.offer(aDEvent);
+                this.f12320a.a(aDEvent);
             } else if (SDKStatus.getSDKVersionCode() >= 70) {
                 if (aDEvent.getType() == 3) {
-                    this.f12620a.b();
+                    this.f12320a.b();
                 } else if (aDEvent.getType() == 4) {
-                    this.f12620a.c();
+                    this.f12320a.c();
                 }
             }
         }
@@ -124,26 +124,26 @@ public class k extends com.qq.e.comm.plugin.r.a.a<BaseNativeUnifiedAd> implement
         }
         ArrayList arrayList = new ArrayList();
         for (NativeUnifiedADData nativeUnifiedADData : list) {
-            arrayList.add(com.qq.e.comm.plugin.nativeadunified.a.a(nativeUnifiedADData, new a(new a.InterfaceC1218a() { // from class: com.qq.e.comm.plugin.nativeadunified.k.2
-                @Override // com.qq.e.comm.plugin.r.a.a.InterfaceC1218a
+            arrayList.add(com.qq.e.comm.plugin.nativeadunified.a.a(nativeUnifiedADData, new a(new a.InterfaceC1201a() { // from class: com.qq.e.comm.plugin.nativeadunified.k.2
+                @Override // com.qq.e.comm.plugin.r.a.a.InterfaceC1201a
                 public void a() {
                 }
 
-                @Override // com.qq.e.comm.plugin.r.a.a.InterfaceC1218a
+                @Override // com.qq.e.comm.plugin.r.a.a.InterfaceC1201a
                 public boolean a(ADEvent aDEvent) {
                     return false;
                 }
 
-                @Override // com.qq.e.comm.plugin.r.a.a.InterfaceC1218a
+                @Override // com.qq.e.comm.plugin.r.a.a.InterfaceC1201a
                 public void b() {
                     k.this.a((k) baseNativeUnifiedAd, 70342);
                 }
 
-                @Override // com.qq.e.comm.plugin.r.a.a.InterfaceC1218a
+                @Override // com.qq.e.comm.plugin.r.a.a.InterfaceC1201a
                 public void b(ADEvent aDEvent) {
                 }
 
-                @Override // com.qq.e.comm.plugin.r.a.a.InterfaceC1218a
+                @Override // com.qq.e.comm.plugin.r.a.a.InterfaceC1201a
                 public void c() {
                     k.this.b(baseNativeUnifiedAd, 70332);
                 }
@@ -158,12 +158,12 @@ public class k extends com.qq.e.comm.plugin.r.a.a<BaseNativeUnifiedAd> implement
     /* renamed from: a  reason: avoid collision after fix types in other method */
     public int b(final BaseNativeUnifiedAd baseNativeUnifiedAd) {
         final long currentTimeMillis = System.currentTimeMillis();
-        b bVar = new b(new a.InterfaceC1218a() { // from class: com.qq.e.comm.plugin.nativeadunified.k.1
+        b bVar = new b(new a.InterfaceC1201a() { // from class: com.qq.e.comm.plugin.nativeadunified.k.1
             private void a(boolean z) {
                 k.this.a((k) baseNativeUnifiedAd, System.currentTimeMillis() - currentTimeMillis, z, z ? 70312 : 70322);
             }
 
-            @Override // com.qq.e.comm.plugin.r.a.a.InterfaceC1218a
+            @Override // com.qq.e.comm.plugin.r.a.a.InterfaceC1201a
             public void a() {
                 a(false);
                 if (!k.this.i() || k.this.b()) {
@@ -172,7 +172,7 @@ public class k extends com.qq.e.comm.plugin.r.a.a<BaseNativeUnifiedAd> implement
                 k.this.a();
             }
 
-            @Override // com.qq.e.comm.plugin.r.a.a.InterfaceC1218a
+            @Override // com.qq.e.comm.plugin.r.a.a.InterfaceC1201a
             public boolean a(ADEvent aDEvent) {
                 boolean z;
                 List a2 = k.this.a(aDEvent);
@@ -200,12 +200,12 @@ public class k extends com.qq.e.comm.plugin.r.a.a<BaseNativeUnifiedAd> implement
                 return false;
             }
 
-            @Override // com.qq.e.comm.plugin.r.a.a.InterfaceC1218a
+            @Override // com.qq.e.comm.plugin.r.a.a.InterfaceC1201a
             public void b() {
                 k.this.a((k) baseNativeUnifiedAd, 70342);
             }
 
-            @Override // com.qq.e.comm.plugin.r.a.a.InterfaceC1218a
+            @Override // com.qq.e.comm.plugin.r.a.a.InterfaceC1201a
             public void b(ADEvent aDEvent) {
                 if (k.this.d == null) {
                     return;
@@ -213,7 +213,7 @@ public class k extends com.qq.e.comm.plugin.r.a.a<BaseNativeUnifiedAd> implement
                 k.this.d.onADEvent(aDEvent);
             }
 
-            @Override // com.qq.e.comm.plugin.r.a.a.InterfaceC1218a
+            @Override // com.qq.e.comm.plugin.r.a.a.InterfaceC1201a
             public void c() {
                 k.this.b(baseNativeUnifiedAd, 70332);
             }
@@ -252,7 +252,7 @@ public class k extends com.qq.e.comm.plugin.r.a.a<BaseNativeUnifiedAd> implement
             return null;
         }
         try {
-            return com.qq.e.comm.plugin.nativeadunified.a.a(cVar.e(), this.f12659a, cVar.b(), cVar.g());
+            return com.qq.e.comm.plugin.nativeadunified.a.a(cVar.e(), this.f12359a, cVar.b(), cVar.g());
         } catch (Exception e) {
             a(70352, cVar);
             e.printStackTrace();

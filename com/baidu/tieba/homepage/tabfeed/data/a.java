@@ -20,103 +20,103 @@ import tbclient.Page;
 import tbclient.ThreadInfo;
 /* loaded from: classes2.dex */
 public class a {
-    private ArrayList<bz> iNF;
-    private l kkc;
-    private aj kkd;
-    private bm kke;
-    private br kkf;
-    private b kkg;
-    private SpecialColumnListData kkh;
+    private ArrayList<bz> iIY;
+    private b kfA;
+    private SpecialColumnListData kfB;
+    private l kfw;
+    private aj kfx;
+    private bm kfy;
+    private br kfz;
     private boolean hasMore = true;
-    private int kkb = 1;
+    private int kfv = 1;
 
     public void a(DataRes dataRes) {
         if (dataRes != null) {
             Page page = dataRes.page_info;
             if (page != null) {
-                this.kkb = page.current_page.intValue();
+                this.kfv = page.current_page.intValue();
                 this.hasMore = page.has_more.intValue() == 1;
             }
-            this.iNF = new ArrayList<>(x.getCount(dataRes.thread_list));
+            this.iIY = new ArrayList<>(x.getCount(dataRes.thread_list));
             for (ThreadInfo threadInfo : dataRes.thread_list) {
                 bz bzVar = new bz();
                 bzVar.a(threadInfo);
-                bzVar.bqT();
-                this.iNF.add(bzVar);
+                bzVar.bmZ();
+                this.iIY.add(bzVar);
             }
             List<BannerImage> list = dataRes.banner_image;
             if (!x.isEmpty(list)) {
-                this.kkc = new l();
-                this.kkc.parserProtobuf(list);
+                this.kfw = new l();
+                this.kfw.parserProtobuf(list);
             }
             List<BannerImage> list2 = dataRes.grid;
             if (x.getCount(list2) >= 4) {
-                this.kkd = new aj();
-                this.kkd.parserProtobuf(list2);
+                this.kfx = new aj();
+                this.kfx.parserProtobuf(list2);
             }
             RecommendForumList recommendForumList = dataRes.recommend_forum;
             if (recommendForumList != null && x.getCount(recommendForumList.forum_list) >= 5) {
-                this.kke = new bm();
-                this.kke.bt(recommendForumList.forum_list);
-                this.kke.className = recommendForumList.class_name;
-                this.kke.floorPosition = recommendForumList.floor_position.intValue();
-                this.kke.title = TbadkCoreApplication.getInst().getString(R.string.recommend_forum_list_title);
-                this.kke.eRL = R.color.CAM_X0108;
+                this.kfy = new bm();
+                this.kfy.bt(recommendForumList.forum_list);
+                this.kfy.className = recommendForumList.class_name;
+                this.kfy.floorPosition = recommendForumList.floor_position.intValue();
+                this.kfy.title = TbadkCoreApplication.getInst().getString(R.string.recommend_forum_list_title);
+                this.kfy.eNa = R.color.CAM_X0108;
             }
             RecommendUserList recommendUserList = dataRes.recommend_user;
             if (recommendUserList != null && x.getCount(recommendUserList.user_list) >= 4) {
-                this.kkf = new br();
-                this.kkf.bu(recommendUserList.user_list);
-                this.kkf.floorPosition = recommendUserList.floor_position.intValue();
-                this.kkf.title = TbadkCoreApplication.getInst().getString(R.string.recommend_user_list_title);
-                this.kkf.eRL = R.color.CAM_X0108;
+                this.kfz = new br();
+                this.kfz.bu(recommendUserList.user_list);
+                this.kfz.floorPosition = recommendUserList.floor_position.intValue();
+                this.kfz.title = TbadkCoreApplication.getInst().getString(R.string.recommend_user_list_title);
+                this.kfz.eNa = R.color.CAM_X0108;
             }
             HotTopic hotTopic = dataRes.hot_topic;
             if (hotTopic != null && x.getCount(hotTopic.topic_list) >= 4) {
-                this.kkg = new b();
-                this.kkg.a(hotTopic);
+                this.kfA = new b();
+                this.kfA.a(hotTopic);
             }
             SpecialColumnList specialColumnList = dataRes.special_column;
             if (specialColumnList != null && x.getCount(specialColumnList.item_list) >= 3) {
-                this.kkh = new SpecialColumnListData();
-                this.kkh.a(specialColumnList);
+                this.kfB = new SpecialColumnListData();
+                this.kfB.a(specialColumnList);
             }
         }
     }
 
-    public int cTN() {
-        return this.kkb;
+    public int cPV() {
+        return this.kfv;
     }
 
     public boolean hasMore() {
         return this.hasMore;
     }
 
-    public ArrayList<bz> czH() {
-        return this.iNF;
+    public ArrayList<bz> cvP() {
+        return this.iIY;
     }
 
-    public bm cTO() {
-        return this.kke;
+    public bm cPW() {
+        return this.kfy;
     }
 
-    public br cTP() {
-        return this.kkf;
+    public br cPX() {
+        return this.kfz;
     }
 
-    public l cTQ() {
-        return this.kkc;
+    public l cPY() {
+        return this.kfw;
     }
 
-    public aj cTR() {
-        return this.kkd;
+    public aj cPZ() {
+        return this.kfx;
     }
 
-    public b cTS() {
-        return this.kkg;
+    public b cQa() {
+        return this.kfA;
     }
 
-    public SpecialColumnListData cTT() {
-        return this.kkh;
+    public SpecialColumnListData cQb() {
+        return this.kfB;
     }
 }

@@ -23,7 +23,7 @@ public class c {
             long j = 0;
             while (i < size) {
                 com.baidu.adp.lib.stats.base.d dVar = e.get(i);
-                j += dVar.Pv;
+                j += dVar.Pt;
                 arrayList2.add(dVar);
                 if (j >= 20480) {
                     bdUploadingLogInfo.add(arrayList2);
@@ -62,7 +62,7 @@ public class c {
         while (it.hasNext()) {
             com.baidu.adp.lib.stats.base.d dVar = (com.baidu.adp.lib.stats.base.d) it.next();
             if (dVar != null) {
-                long j = dVar.Pw;
+                long j = dVar.Pu;
                 if (j != 0 && j + 604800000 < currentTimeMillis) {
                     arrayList3.add(dVar.mFileName);
                 } else {

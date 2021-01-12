@@ -1,9 +1,9 @@
 package com.yxcorp.kuaishou.addfp.android.b;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public final class b {
 
     /* renamed from: a  reason: collision with root package name */
-    private static boolean f14687a = false;
+    private static boolean f14387a = false;
 
     public static String a() {
         return "1.2.6";
@@ -14,7 +14,7 @@ public final class b {
 
     public static void a(Throwable th) {
         try {
-            if (f14687a) {
+            if (f14387a) {
                 th.printStackTrace();
             }
         } catch (Exception e) {

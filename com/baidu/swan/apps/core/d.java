@@ -6,9 +6,9 @@ import com.baidu.swan.apps.network.SwanAppNetworkUtils;
 import com.baidu.swan.apps.statistic.h;
 import com.baidu.swan.games.view.webview.GameWebViewJavascriptInterface;
 import com.baidu.tbadk.core.atomData.FrsActivityConfig;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class d {
-    public static void L(String str, @Nullable String str2, String str3) {
+    public static void K(String str, @Nullable String str2, String str3) {
         com.baidu.swan.apps.statistic.a.e eVar = new com.baidu.swan.apps.statistic.a.e();
         eVar.mFrom = GameWebViewJavascriptInterface.JAVASCRIPT_INTERFACE_NAME;
         eVar.mType = str;
@@ -16,14 +16,14 @@ public class d {
             str2 = "";
         }
         eVar.mValue = str2;
-        eVar.t("appid", com.baidu.swan.apps.runtime.d.aMh().getAppId());
+        eVar.t("appid", com.baidu.swan.apps.runtime.d.aIn().getAppId());
         eVar.t(DpStatConstants.KEY_NETWORK_STATUS, str3);
-        eVar.t("isShow", c.aqG() ? "1" : "0");
+        eVar.t("isShow", c.amL() ? "1" : "0");
         h.a("1619", eVar);
     }
 
-    public static void bt(String str, String str2) {
-        L(str, null, str2);
+    public static void bs(String str, String str2) {
+        K(str, null, str2);
     }
 
     public static void report(final String str) {
@@ -42,7 +42,7 @@ public class d {
                         str2 = "offline";
                         break;
                 }
-                d.L(str, null, str2);
+                d.K(str, null, str2);
             }
         });
     }

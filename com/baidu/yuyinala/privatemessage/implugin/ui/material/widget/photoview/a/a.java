@@ -4,25 +4,25 @@ import android.content.Context;
 import android.view.MotionEvent;
 import android.view.VelocityTracker;
 import android.view.ViewConfiguration;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class a implements d {
-    float bHU;
-    float bHV;
-    final float iRH;
+    float bDi;
+    float bDj;
+    final float iNa;
     private VelocityTracker mVelocityTracker;
-    protected e pac;
-    final float pae;
-    private boolean paf;
+    protected e oVA;
+    final float oVB;
+    private boolean oVC;
 
     @Override // com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.photoview.a.d
     public void a(e eVar) {
-        this.pac = eVar;
+        this.oVA = eVar;
     }
 
     public a(Context context) {
         ViewConfiguration viewConfiguration = ViewConfiguration.get(context);
-        this.pae = viewConfiguration.getScaledMinimumFlingVelocity();
-        this.iRH = viewConfiguration.getScaledTouchSlop();
+        this.oVB = viewConfiguration.getScaledMinimumFlingVelocity();
+        this.iNa = viewConfiguration.getScaledTouchSlop();
     }
 
     float ar(MotionEvent motionEvent) {
@@ -34,13 +34,13 @@ public class a implements d {
     }
 
     @Override // com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.photoview.a.d
-    public boolean eni() {
+    public boolean ejn() {
         return false;
     }
 
     @Override // com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.photoview.a.d
     public boolean isDragging() {
-        return this.paf;
+        return this.oVC;
     }
 
     @Override // com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.photoview.a.d
@@ -51,22 +51,22 @@ public class a implements d {
                 if (this.mVelocityTracker != null) {
                     this.mVelocityTracker.addMovement(motionEvent);
                 } else {
-                    com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.photoview.b.a.enj().i("CupcakeGestureDetector", "Velocity tracker is null");
+                    com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.photoview.b.a.ejo().i("CupcakeGestureDetector", "Velocity tracker is null");
                 }
-                this.bHU = ar(motionEvent);
-                this.bHV = as(motionEvent);
-                this.paf = false;
+                this.bDi = ar(motionEvent);
+                this.bDj = as(motionEvent);
+                this.oVC = false;
                 break;
             case 1:
-                if (this.paf && this.mVelocityTracker != null) {
-                    this.bHU = ar(motionEvent);
-                    this.bHV = as(motionEvent);
+                if (this.oVC && this.mVelocityTracker != null) {
+                    this.bDi = ar(motionEvent);
+                    this.bDj = as(motionEvent);
                     this.mVelocityTracker.addMovement(motionEvent);
                     this.mVelocityTracker.computeCurrentVelocity(1000);
                     float xVelocity = this.mVelocityTracker.getXVelocity();
                     float yVelocity = this.mVelocityTracker.getYVelocity();
-                    if (Math.max(Math.abs(xVelocity), Math.abs(yVelocity)) >= this.pae) {
-                        this.pac.i(this.bHU, this.bHV, -xVelocity, -yVelocity);
+                    if (Math.max(Math.abs(xVelocity), Math.abs(yVelocity)) >= this.oVB) {
+                        this.oVA.i(this.bDi, this.bDj, -xVelocity, -yVelocity);
                     }
                 }
                 if (this.mVelocityTracker != null) {
@@ -78,15 +78,15 @@ public class a implements d {
             case 2:
                 float ar = ar(motionEvent);
                 float as = as(motionEvent);
-                float f = ar - this.bHU;
-                float f2 = as - this.bHV;
-                if (!this.paf) {
-                    this.paf = Math.sqrt((double) ((f * f) + (f2 * f2))) >= ((double) this.iRH);
+                float f = ar - this.bDi;
+                float f2 = as - this.bDj;
+                if (!this.oVC) {
+                    this.oVC = Math.sqrt((double) ((f * f) + (f2 * f2))) >= ((double) this.iNa);
                 }
-                if (this.paf) {
-                    this.pac.onDrag(f, f2);
-                    this.bHU = ar;
-                    this.bHV = as;
+                if (this.oVC) {
+                    this.oVA.onDrag(f, f2);
+                    this.bDi = ar;
+                    this.bDj = as;
                     if (this.mVelocityTracker != null) {
                         this.mVelocityTracker.addMovement(motionEvent);
                         break;

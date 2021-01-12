@@ -14,7 +14,7 @@ import android.graphics.drawable.shapes.Shape;
 import android.util.AttributeSet;
 import android.widget.ProgressBar;
 import androidx.core.graphics.drawable.WrappedDrawable;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 class AppCompatProgressBarHelper {
     private static final int[] TINT_ATTRS = {16843067, 16843068};
     private Bitmap mSampleTile;

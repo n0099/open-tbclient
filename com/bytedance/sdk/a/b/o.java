@@ -17,10 +17,10 @@ import org.apache.http.cookie.SM;
 public final class o {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final Pattern f6267a = Pattern.compile("(\\d{2,4})[^\\d]*");
+    private static final Pattern f5967a = Pattern.compile("(\\d{2,4})[^\\d]*");
 
     /* renamed from: b  reason: collision with root package name */
-    private static final Pattern f6268b = Pattern.compile("(?i)(jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec).*");
+    private static final Pattern f5968b = Pattern.compile("(?i)(jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec).*");
     private static final Pattern c = Pattern.compile("(\\d{1,2})[^\\d]*");
     private static final Pattern d = Pattern.compile("(\\d{1,2}):(\\d{1,2}):(\\d{1,2})[^\\d]*");
     private final String e;
@@ -150,7 +150,7 @@ public final class o {
         } else if (!a(f, str3)) {
             return null;
         }
-        if (f.length() != str3.length() && com.bytedance.sdk.a.b.a.h.a.erc().a(str3) == null) {
+        if (f.length() != str3.length() && com.bytedance.sdk.a.b.a.h.a.enh().a(str3) == null) {
             return null;
         }
         if (str4 == null || !str4.startsWith("/")) {
@@ -181,9 +181,9 @@ public final class o {
                 i5 = Integer.parseInt(matcher.group(3));
             } else if (i6 == -1 && matcher.usePattern(c).matches()) {
                 i6 = Integer.parseInt(matcher.group(1));
-            } else if (i7 == -1 && matcher.usePattern(f6268b).matches()) {
-                i7 = f6268b.pattern().indexOf(matcher.group(1).toLowerCase(Locale.US)) / 4;
-            } else if (i8 == -1 && matcher.usePattern(f6267a).matches()) {
+            } else if (i7 == -1 && matcher.usePattern(f5968b).matches()) {
+                i7 = f5968b.pattern().indexOf(matcher.group(1).toLowerCase(Locale.US)) / 4;
+            } else if (i8 == -1 && matcher.usePattern(f5967a).matches()) {
                 i8 = Integer.parseInt(matcher.group(1));
             }
             b2 = b(str, b3 + 1, i2, false);
@@ -212,7 +212,7 @@ public final class o {
         if (i5 < 0 || i5 > 59) {
             throw new IllegalArgumentException();
         }
-        GregorianCalendar gregorianCalendar = new GregorianCalendar(com.bytedance.sdk.a.b.a.c.pjr);
+        GregorianCalendar gregorianCalendar = new GregorianCalendar(com.bytedance.sdk.a.b.a.c.peM);
         gregorianCalendar.setLenient(false);
         gregorianCalendar.set(1, i8);
         gregorianCalendar.set(2, i7 - 1);

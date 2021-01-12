@@ -8,38 +8,38 @@ import com.baidu.prologue.service.network.i;
 import com.tencent.connect.common.Constants;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class b {
-    private final e ctw;
+    private final e coG;
 
     public b(e eVar) {
-        this.ctw = eVar;
+        this.coG = eVar;
     }
 
-    public void agK() {
-        agL();
-        agM();
+    public void acQ() {
+        acR();
+        acS();
     }
 
     public void a(@NonNull Als.Area area, String str) {
         b(area, str);
-        agN();
+        acT();
     }
 
-    public void agL() {
+    public void acR() {
         Als.a aVar = new Als.a(Als.Type.SHOW);
         aVar.a(Als.Page.NA_SPLASH);
-        aVar.ki(this.ctw.ext);
+        aVar.iX(this.coG.ext);
         Als.a(aVar);
     }
 
     public void b(@NonNull Als.Area area, String str) {
         Als.a aVar = new Als.a(Als.Type.CLICK);
         aVar.a(Als.Page.NA_SPLASH);
-        aVar.ki(this.ctw.ext);
+        aVar.iX(this.coG.ext);
         aVar.b(area);
         if (!TextUtils.isEmpty(str)) {
-            aVar.kl(str);
+            aVar.ja(str);
         }
         Als.a(aVar);
     }
@@ -47,33 +47,33 @@ public class b {
     public void i(String str, long j) {
         Als.a aVar = new Als.a(Als.Type.CLOSE);
         aVar.a(Als.Page.NA_SPLASH);
-        aVar.ki(this.ctw.ext);
-        aVar.kk(String.valueOf(j));
-        if (com.baidu.prologue.a.b.a.ctd.get().agr()) {
-            aVar.kj("1");
+        aVar.iX(this.coG.ext);
+        aVar.iZ(String.valueOf(j));
+        if (com.baidu.prologue.a.b.a.cop.get().acx()) {
+            aVar.iY("1");
         } else {
-            aVar.kj("0");
+            aVar.iY("0");
         }
-        aVar.kl(str);
+        aVar.ja(str);
         Als.a(aVar);
     }
 
-    public void be(String str, String str2) {
+    public void bd(String str, String str2) {
         Als.a aVar = new Als.a(Als.Type.DISCARD);
         aVar.a(Als.Page.NA_SPLASH);
-        aVar.ki(this.ctw.ext);
-        aVar.kj(Constants.VIA_REPORT_TYPE_SHARE_TO_QQ);
-        aVar.kk(str);
-        aVar.kl(str2);
+        aVar.iX(this.coG.ext);
+        aVar.iY(Constants.VIA_REPORT_TYPE_SHARE_TO_QQ);
+        aVar.iZ(str);
+        aVar.ja(str2);
         Als.a(aVar);
     }
 
-    public void agM() {
+    public void acS() {
         String[] strArr;
-        for (String str : this.ctw.ctL) {
+        for (String str : this.coG.coU) {
             if (!TextUtils.isEmpty(str)) {
                 try {
-                    i.km(new JSONObject(str).optString("url"));
+                    i.jb(new JSONObject(str).optString("url"));
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
@@ -83,12 +83,12 @@ public class b {
         }
     }
 
-    public void agN() {
+    public void acT() {
         String[] strArr;
-        for (String str : this.ctw.ctM) {
+        for (String str : this.coG.coV) {
             if (!TextUtils.isEmpty(str)) {
                 try {
-                    i.km(new JSONObject(str).optString("url"));
+                    i.jb(new JSONObject(str).optString("url"));
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
@@ -98,12 +98,12 @@ public class b {
         }
     }
 
-    public static void agO() {
+    public static void acU() {
         String string = k.getString("empty_ext_info", "");
         if (!TextUtils.isEmpty(string)) {
             Als.a aVar = new Als.a(Als.Type.SHOW);
             aVar.a(Als.Page.NA_SPLASH);
-            aVar.ki(string);
+            aVar.iX(string);
             Als.a(aVar);
         }
     }

@@ -11,14 +11,14 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final boolean f3144a;
+    private static final boolean f3024a;
 
     static {
-        f3144a = Build.VERSION.SDK_INT >= 8;
+        f3024a = Build.VERSION.SDK_INT >= 8;
     }
 
     public static Bitmap a(String str, Context context) {
@@ -29,7 +29,128 @@ public class a {
             }
             return null;
         } catch (Exception e) {
-            return BitmapFactory.decodeFile(a("assets/" + str, str, context));
+            return BitmapFactory.decodeFile(b("assets/" + str, str, context));
+        }
+    }
+
+    private static void a(InputStream inputStream, FileOutputStream fileOutputStream) throws IOException {
+        byte[] bArr = new byte[4096];
+        while (true) {
+            try {
+                int read = inputStream.read(bArr);
+                if (read == -1) {
+                    fileOutputStream.flush();
+                    try {
+                        inputStream.close();
+                        try {
+                            fileOutputStream.close();
+                            return;
+                        } catch (IOException e) {
+                            return;
+                        }
+                    } catch (IOException e2) {
+                        return;
+                    }
+                }
+                fileOutputStream.write(bArr, 0, read);
+            } catch (Throwable th) {
+                try {
+                    inputStream.close();
+                    try {
+                        fileOutputStream.close();
+                        throw th;
+                    } catch (IOException e3) {
+                        return;
+                    }
+                } catch (IOException e4) {
+                    return;
+                }
+            }
+        }
+    }
+
+    /* JADX WARN: Not initialized variable reg: 0, insn: 0x00a4: MOVE  (r4 I:??[OBJECT, ARRAY]) = (r0 I:??[OBJECT, ARRAY]), block:B:39:0x00a3 */
+    public static void a(String str, String str2, Context context) {
+        Throwable th;
+        FileOutputStream fileOutputStream;
+        InputStream inputStream;
+        FileOutputStream fileOutputStream2;
+        FileOutputStream fileOutputStream3;
+        try {
+            try {
+                inputStream = context.getAssets().open(str);
+                if (inputStream != null) {
+                    try {
+                        byte[] bArr = new byte[inputStream.available()];
+                        inputStream.read(bArr);
+                        File file = new File(context.getFilesDir().getAbsolutePath() + "/" + str2);
+                        if (file.exists()) {
+                            file.delete();
+                        }
+                        file.createNewFile();
+                        fileOutputStream2 = new FileOutputStream(file);
+                        try {
+                            fileOutputStream2.write(bArr);
+                            fileOutputStream2.close();
+                        } catch (Exception e) {
+                            b("assets/" + str, str2, context);
+                            if (inputStream != null) {
+                                try {
+                                    inputStream.close();
+                                } catch (IOException e2) {
+                                    e2.printStackTrace();
+                                    return;
+                                }
+                            }
+                            if (fileOutputStream2 != null) {
+                                fileOutputStream2.close();
+                                return;
+                            }
+                            return;
+                        }
+                    } catch (Exception e3) {
+                        fileOutputStream2 = null;
+                    } catch (Throwable th2) {
+                        th = th2;
+                        fileOutputStream = null;
+                        if (inputStream != null) {
+                            try {
+                                inputStream.close();
+                            } catch (IOException e4) {
+                                e4.printStackTrace();
+                                throw th;
+                            }
+                        }
+                        if (fileOutputStream != null) {
+                            fileOutputStream.close();
+                        }
+                        throw th;
+                    }
+                } else {
+                    fileOutputStream2 = null;
+                }
+                if (inputStream != null) {
+                    try {
+                        inputStream.close();
+                    } catch (IOException e5) {
+                        e5.printStackTrace();
+                        return;
+                    }
+                }
+                if (fileOutputStream2 != null) {
+                    fileOutputStream2.close();
+                }
+            } catch (Throwable th3) {
+                th = th3;
+                fileOutputStream = fileOutputStream3;
+            }
+        } catch (Exception e6) {
+            fileOutputStream2 = null;
+            inputStream = null;
+        } catch (Throwable th4) {
+            th = th4;
+            fileOutputStream = null;
+            inputStream = null;
         }
     }
 
@@ -37,7 +158,7 @@ public class a {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private static String a(String str, String str2, Context context) {
+    private static String b(String str, String str2, Context context) {
         ZipFile zipFile;
         File file;
         File file2;
@@ -45,7 +166,7 @@ public class a {
         ZipFile zipFile2 = null;
         StringBuilder sb = new StringBuilder(context.getFilesDir().getAbsolutePath());
         try {
-            zipFile = new ZipFile(f3144a ? context.getPackageCodePath() : "");
+            zipFile = new ZipFile(f3024a ? context.getPackageCodePath() : "");
         } catch (Exception e) {
             e = e;
         } catch (Throwable th) {
@@ -110,28 +231,5 @@ public class a {
             }
         }
         return sb.toString();
-    }
-
-    private static void a(InputStream inputStream, FileOutputStream fileOutputStream) throws IOException {
-        byte[] bArr = new byte[4096];
-        while (true) {
-            try {
-                int read = inputStream.read(bArr);
-                if (read == -1) {
-                    break;
-                }
-                fileOutputStream.write(bArr, 0, read);
-            } finally {
-                try {
-                    inputStream.close();
-                } catch (IOException e) {
-                }
-                try {
-                    fileOutputStream.close();
-                } catch (IOException e2) {
-                }
-            }
-        }
-        fileOutputStream.flush();
     }
 }

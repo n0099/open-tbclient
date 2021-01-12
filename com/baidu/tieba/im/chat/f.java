@@ -14,13 +14,13 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class f {
-    private List<MsgCommonItemAdapter> boM;
-    private TbPageContext<MsglistActivity<?>> eXu;
-    private BdTypeListView gAY;
-    private MsgLeftViewItemAdapter kxq;
-    private MsgRightViewItemAdapter kxr;
-    private MsgMidViewItemAdapter kxs;
-    private CustomMessageListener kxt;
+    private List<MsgCommonItemAdapter> bjZ;
+    private TbPageContext<MsglistActivity<?>> eSJ;
+    private BdTypeListView gwr;
+    private MsgLeftViewItemAdapter ksL;
+    private MsgRightViewItemAdapter ksM;
+    private MsgMidViewItemAdapter ksN;
+    private CustomMessageListener ksO;
     private List<ChatMessage> mData;
 
     public f(TbPageContext<MsglistActivity<?>> tbPageContext, BdTypeListView bdTypeListView) {
@@ -29,73 +29,73 @@ public class f {
 
     public f(TbPageContext<MsglistActivity<?>> tbPageContext, BdTypeListView bdTypeListView, int i) {
         this.mData = null;
-        this.boM = new ArrayList();
-        this.kxt = new CustomMessageListener(CmdConfigCustom.CMD_MSG_LIST_ADAPTER_SCAN) { // from class: com.baidu.tieba.im.chat.f.1
+        this.bjZ = new ArrayList();
+        this.ksO = new CustomMessageListener(CmdConfigCustom.CMD_MSG_LIST_ADAPTER_SCAN) { // from class: com.baidu.tieba.im.chat.f.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && customResponsedMessage.getData() != null) {
                     MsgAdapterScanMessage.a aVar = (MsgAdapterScanMessage.a) customResponsedMessage.getData();
-                    if (aVar.kwJ != null && aVar.context != null) {
-                        f.this.boM.addAll(aVar.kwJ);
-                        f.this.gAY.addAdapters(new ArrayList(f.this.boM));
+                    if (aVar.kse != null && aVar.context != null) {
+                        f.this.bjZ.addAll(aVar.kse);
+                        f.this.gwr.addAdapters(new ArrayList(f.this.bjZ));
                     }
                 }
             }
         };
-        this.eXu = tbPageContext;
-        this.gAY = bdTypeListView;
-        MT();
-        this.kxq.DW(i);
-        this.kxr.DW(i);
+        this.eSJ = tbPageContext;
+        this.gwr = bdTypeListView;
+        IY();
+        this.ksL.Cq(i);
+        this.ksM.Cq(i);
     }
 
-    private void MT() {
-        this.kxq = new MsgLeftViewItemAdapter(this.eXu, ChatMessage.TYPE_MSG_LEFT);
-        this.kxq.st(true);
-        this.kxq.ss(true);
-        this.kxr = new MsgRightViewItemAdapter(this.eXu, ChatMessage.TYPE_MSG_RIGHT);
-        this.kxr.st(true);
-        this.kxr.ss(true);
-        this.kxs = new MsgMidViewItemAdapter(this.eXu, ChatMessage.TYPE_MSG_MID);
-        this.boM.add(this.kxq);
-        this.boM.add(this.kxr);
-        this.boM.add(this.kxs);
+    private void IY() {
+        this.ksL = new MsgLeftViewItemAdapter(this.eSJ, ChatMessage.TYPE_MSG_LEFT);
+        this.ksL.sp(true);
+        this.ksL.so(true);
+        this.ksM = new MsgRightViewItemAdapter(this.eSJ, ChatMessage.TYPE_MSG_RIGHT);
+        this.ksM.sp(true);
+        this.ksM.so(true);
+        this.ksN = new MsgMidViewItemAdapter(this.eSJ, ChatMessage.TYPE_MSG_MID);
+        this.bjZ.add(this.ksL);
+        this.bjZ.add(this.ksM);
+        this.bjZ.add(this.ksN);
         initListener();
         MsgAdapterScanMessage.a aVar = new MsgAdapterScanMessage.a();
-        aVar.kwJ = new ArrayList();
-        aVar.context = this.eXu;
+        aVar.kse = new ArrayList();
+        aVar.context = this.eSJ;
         MessageManager.getInstance().dispatchResponsedMessage(new MsgAdapterScanMessage(aVar));
     }
 
     private void initListener() {
-        this.kxt.setPriority(ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED);
-        this.eXu.registerListener(this.kxt);
+        this.ksO.setPriority(ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED);
+        this.eSJ.registerListener(this.ksO);
     }
 
-    public void su(boolean z) {
-        if (this.kxq != null) {
-            this.kxq.su(z);
+    public void sq(boolean z) {
+        if (this.ksL != null) {
+            this.ksL.sq(z);
         }
     }
 
-    public void sv(boolean z) {
-        if (this.kxr != null) {
-            this.kxr.sv(z);
+    public void sr(boolean z) {
+        if (this.ksM != null) {
+            this.ksM.sr(z);
         }
     }
 
     public void a(com.baidu.adp.lib.b.a aVar) {
-        for (MsgCommonItemAdapter msgCommonItemAdapter : this.boM) {
-            if (msgCommonItemAdapter.cWy()) {
+        for (MsgCommonItemAdapter msgCommonItemAdapter : this.bjZ) {
+            if (msgCommonItemAdapter.cSG()) {
                 msgCommonItemAdapter.a(aVar);
             }
         }
     }
 
     public void setOnItemViewLongClickListener(com.baidu.adp.lib.b.b bVar) {
-        for (MsgCommonItemAdapter msgCommonItemAdapter : this.boM) {
-            if (msgCommonItemAdapter.cWx()) {
+        for (MsgCommonItemAdapter msgCommonItemAdapter : this.bjZ) {
+            if (msgCommonItemAdapter.cSF()) {
                 msgCommonItemAdapter.setOnItemViewLongClickListener(bVar);
             }
         }
@@ -106,20 +106,20 @@ public class f {
     }
 
     public void e(ChatMessage chatMessage) {
-        if (this.gAY.getAdapter() instanceof com.baidu.adp.widget.ListView.e) {
-            this.gAY.getAdapter().notifyDataSetChanged();
+        if (this.gwr.getAdapter() instanceof com.baidu.adp.widget.ListView.e) {
+            this.gwr.getAdapter().notifyDataSetChanged();
         }
     }
 
     public void notifyDataSetChanged() {
-        if (this.gAY.getAdapter() instanceof com.baidu.adp.widget.ListView.e) {
-            this.gAY.getAdapter().notifyDataSetChanged();
+        if (this.gwr.getAdapter() instanceof com.baidu.adp.widget.ListView.e) {
+            this.gwr.getAdapter().notifyDataSetChanged();
         }
     }
 
     public void notifyDataSetInvalidated() {
-        if (this.gAY.getAdapter() instanceof com.baidu.adp.widget.ListView.e) {
-            this.gAY.getAdapter().notifyDataSetInvalidated();
+        if (this.gwr.getAdapter() instanceof com.baidu.adp.widget.ListView.e) {
+            this.gwr.getAdapter().notifyDataSetInvalidated();
         }
     }
 
@@ -138,13 +138,13 @@ public class f {
             }
             arrayList.addAll(this.mData);
         }
-        this.gAY.setData(arrayList);
+        this.gwr.setData(arrayList);
     }
 
     public void onDestory() {
-        if (this.kxt != null) {
-            MessageManager.getInstance().unRegisterListener(this.kxt);
-            this.kxt = null;
+        if (this.ksO != null) {
+            MessageManager.getInstance().unRegisterListener(this.ksO);
+            this.ksO = null;
         }
     }
 }

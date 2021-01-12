@@ -1,46 +1,46 @@
 package com.baidu.spswitch.a;
 
 import android.view.View;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class b implements com.baidu.spswitch.a {
-    private final View cDQ;
-    private boolean cDR = false;
-    private boolean cDS = false;
+    private final View cze;
+    private boolean czf = false;
+    private boolean czg = false;
 
     public b(View view) {
-        this.cDQ = view;
+        this.cze = view;
     }
 
     public int[] Y(int i, int i2) {
-        if (this.cDR) {
-            this.cDQ.setVisibility(8);
+        if (this.czf) {
+            this.cze.setVisibility(8);
             i = View.MeasureSpec.makeMeasureSpec(0, 1073741824);
             i2 = View.MeasureSpec.makeMeasureSpec(0, 1073741824);
         }
         return new int[]{i, i2};
     }
 
-    public boolean hC(int i) {
+    public boolean fV(int i) {
         if (i == 0) {
-            this.cDR = false;
+            this.czf = false;
         }
-        if (i == this.cDQ.getVisibility()) {
+        if (i == this.cze.getVisibility()) {
             return true;
         }
-        return aji() && i == 0;
+        return afo() && i == 0;
     }
 
-    public boolean aji() {
-        return this.cDS;
+    public boolean afo() {
+        return this.czg;
     }
 
     @Override // com.baidu.spswitch.a
-    public void aja() {
+    public void afg() {
         throw new IllegalAccessError("You can't invoke handle show in handler, please instead of handling in the panel layout, maybe just need invoke super.setVisibility(View.VISIBLE)");
     }
 
     @Override // com.baidu.spswitch.a
-    public void ajb() {
-        this.cDR = true;
+    public void afh() {
+        this.czf = true;
     }
 }

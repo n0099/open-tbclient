@@ -2,21 +2,17 @@ package com.baidu.live.ar;
 
 import com.baidu.live.ar.AlaFilterAndBeautyData;
 import java.util.HashMap;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public interface m {
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public interface a {
-        Object CU();
-
         String getType();
 
         void setValue(float f);
+
+        Object yZ();
     }
-
-    void CS();
-
-    void CT();
 
     void a(float f, AlaFilterAndBeautyData.BeautyAdjustKey beautyAdjustKey);
 
@@ -37,4 +33,8 @@ public interface m {
     void v(int i, int i2);
 
     void w(int i, int i2);
+
+    void yX();
+
+    void yY();
 }

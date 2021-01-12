@@ -10,6 +10,7 @@ import com.baidu.ar.imu.g;
 import com.baidu.ar.imu.i;
 import com.baidu.ar.vo.b.d;
 import com.baidu.ar.vo.b.e;
+import com.baidu.mobstat.Config;
 import io.flutter.plugin.platform.PlatformPlugin;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -173,7 +174,7 @@ public class VOAR extends c {
 
     private com.baidu.ar.vo.c.b s(HashMap<String, Object> hashMap) {
         com.baidu.ar.vo.c.b bVar = new com.baidu.ar.vo.c.b();
-        bVar.x = ((Float) hashMap.get("x")).floatValue();
+        bVar.x = ((Float) hashMap.get(Config.EVENT_HEAT_X)).floatValue();
         bVar.y = ((Float) hashMap.get("y")).floatValue();
         bVar.type = ((Integer) hashMap.get("type")).intValue();
         bVar.yZ = ((Float) hashMap.get("distance")).floatValue();

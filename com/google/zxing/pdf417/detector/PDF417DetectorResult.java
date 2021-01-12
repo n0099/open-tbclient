@@ -3,7 +3,7 @@ package com.google.zxing.pdf417.detector;
 import com.google.zxing.ResultPoint;
 import com.google.zxing.common.BitMatrix;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class PDF417DetectorResult {
     private final BitMatrix bits;
     private final List<ResultPoint[]> points;

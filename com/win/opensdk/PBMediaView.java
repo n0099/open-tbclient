@@ -5,10 +5,10 @@ import android.util.AttributeSet;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import com.win.opensdk.d;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class PBMediaView extends FrameLayout {
-    private Context qdj;
-    private bw qdq;
+    private Context pYI;
+    private bw pYP;
 
     public PBMediaView(Context context) {
         this(context, null);
@@ -20,9 +20,9 @@ public class PBMediaView extends FrameLayout {
 
     public PBMediaView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.qdj = context;
-        this.qdq = new bw(context);
-        addView(this.qdq.qeM, new FrameLayout.LayoutParams(-1, -1));
+        this.pYI = context;
+        this.pYP = new bw(context);
+        addView(this.pYP.qal, new FrameLayout.LayoutParams(-1, -1));
         try {
             ImageView imageView = new ImageView(context);
             int k = bi.k(context, 15.0f);
@@ -35,6 +35,6 @@ public class PBMediaView extends FrameLayout {
     }
 
     public bw getHtmlWebView() {
-        return this.qdq;
+        return this.pYP;
     }
 }

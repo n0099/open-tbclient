@@ -5,27 +5,27 @@ import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes4.dex */
 public class w extends ch {
-    private final cn pgK;
+    private final cn pch;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public w(cn cnVar) {
         super(true, false, false);
-        this.pgK = cnVar;
+        this.pch = cnVar;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.bytedance.embedapplog.ch
     public boolean a(JSONObject jSONObject) {
-        SharedPreferences epI = this.pgK.epI();
-        String string = epI.getString("install_id", null);
-        String string2 = epI.getString("device_id", null);
-        String string3 = epI.getString("ssid", null);
+        SharedPreferences elM = this.pch.elM();
+        String string = elM.getString("install_id", null);
+        String string2 = elM.getString("device_id", null);
+        String string3 = elM.getString("ssid", null);
         m.a(jSONObject, "install_id", string);
         m.a(jSONObject, "device_id", string2);
         m.a(jSONObject, "ssid", string3);
-        long j = epI.getLong("register_time", 0L);
+        long j = elM.getLong("register_time", 0L);
         if ((!m.e(string) || !m.e(string2)) && j != 0) {
-            epI.edit().putLong("register_time", 0L).apply();
+            elM.edit().putLong("register_time", 0L).apply();
             j = 0;
         }
         jSONObject.put("register_time", j);

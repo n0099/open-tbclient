@@ -1,7 +1,7 @@
 package com.baidu.searchbox.account;
 
 import com.baidu.searchbox.account.result.BoxAddressManageResult;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public interface IAddressManageCallback {
     void onFinish(BoxAddressManageResult boxAddressManageResult);
 }

@@ -1,11 +1,13 @@
 package com.baidu.mapsdkplatform.comapi.map;
+/* loaded from: classes6.dex */
+public enum y {
+    DEFAULT(1),
+    INDOOR(2),
+    STREET(3);
+    
+    private final int d;
 
-import com.baidu.platform.comapi.map.MapController;
-/* loaded from: classes3.dex */
-public class y extends c {
-    public y() {
-        this.c = 2;
-        this.f3171b = MapController.ANDROID_SDK_LAYER_TAG;
-        this.d = 0;
+    y(int i) {
+        this.d = i;
     }
 }

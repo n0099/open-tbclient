@@ -4,7 +4,7 @@ import com.baidu.adp.lib.cache.l;
 import com.baidu.adp.lib.util.BdLog;
 /* loaded from: classes.dex */
 public abstract class d<T> implements k<T> {
-    protected final e Lb;
+    protected final e KZ;
     protected final boolean prefixNameSpaceToKey;
 
     public abstract g<T> bw(String str);
@@ -16,7 +16,7 @@ public abstract class d<T> implements k<T> {
     protected abstract void removeExpiredItem(String str);
 
     public d(e eVar, boolean z) {
-        this.Lb = eVar;
+        this.KZ = eVar;
         this.prefixNameSpaceToKey = z;
     }
 
@@ -40,7 +40,7 @@ public abstract class d<T> implements k<T> {
             }
             return null;
         } else {
-            if (this.Lb.shouldUpdateLastHitTime()) {
+            if (this.KZ.shouldUpdateLastHitTime()) {
                 bw.lastHitTime = System.currentTimeMillis();
                 c(bw);
             }
@@ -92,6 +92,6 @@ public abstract class d<T> implements k<T> {
 
     @Override // com.baidu.adp.lib.cache.k
     public e lu() {
-        return this.Lb;
+        return this.KZ;
     }
 }

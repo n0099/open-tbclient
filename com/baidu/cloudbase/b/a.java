@@ -10,26 +10,26 @@ import java.io.File;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class a {
-    public List<c> aoM;
-    public Map<String, Integer> aoN = new HashMap();
+    public List<c> anZ;
+    public Map<String, Integer> aoa = new HashMap();
     public Context mContext;
 
     /* renamed from: com.baidu.cloudbase.b.a$a  reason: collision with other inner class name */
-    /* loaded from: classes10.dex */
-    public class C0097a extends com.baidu.cloudbase.download.a.a {
+    /* loaded from: classes9.dex */
+    public class C0096a extends com.baidu.cloudbase.download.a.a {
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f1740b;
+        public final /* synthetic */ String f1690b;
         public final /* synthetic */ File c;
         public final /* synthetic */ File d;
         public final /* synthetic */ String e;
         public final /* synthetic */ c zy;
 
-        public C0097a(c cVar, String str, File file, File file2, String str2) {
+        public C0096a(c cVar, String str, File file, File file2, String str2) {
             this.zy = cVar;
-            this.f1740b = str;
+            this.f1690b = str;
             this.c = file;
             this.d = file2;
             this.e = str2;
@@ -39,7 +39,7 @@ public class a {
         public void c(DownloadException downloadException) {
             downloadException.printStackTrace();
             com.baidu.cloudbase.d.a.deleteFile(this.c.getAbsolutePath());
-            a.this.a(this.zy, this.f1740b, downloadException.getErrorCode(), downloadException.getErrorMessage());
+            a.this.a(this.zy, this.f1690b, downloadException.getErrorCode(), downloadException.getErrorMessage());
         }
 
         @Override // com.baidu.cloudbase.download.a.a
@@ -49,49 +49,49 @@ public class a {
                 Log.e("RtcDownSo", "unzip:" + this.d + "---" + this.e);
                 com.baidu.cloudbase.d.a.unzipFile(this.d, this.e);
                 com.baidu.cloudbase.d.a.deleteFile(this.d.getAbsolutePath());
-                a.this.a(this.zy, this.f1740b, this.e);
+                a.this.a(this.zy, this.f1690b, this.e);
             } catch (Exception e) {
                 e.printStackTrace();
                 com.baidu.cloudbase.d.a.deleteFile(this.d.getAbsolutePath());
                 if (com.baidu.cloudbase.d.a.isExists(this.e)) {
                     com.baidu.cloudbase.d.a.deleteDir(new File(this.e));
                 }
-                a.this.a(this.zy, this.f1740b, 108, "unzip exception");
+                a.this.a(this.zy, this.f1690b, 108, "unzip exception");
             }
         }
 
         @Override // com.baidu.cloudbase.download.a.a
         public void onProgress(long j, long j2, int i) {
-            a.this.a(this.zy, this.f1740b, i);
+            a.this.a(this.zy, this.f1690b, i);
         }
 
         @Override // com.baidu.cloudbase.download.a.a
         public void onStarted() {
-            a.this.a(this.zy, this.f1740b);
+            a.this.a(this.zy, this.f1690b);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static class b {
-        public static a aoO = new a();
+        public static a aob = new a();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(c cVar, String str) {
         if (cVar != null) {
-            cVar.dv(str);
+            cVar.dq(str);
         }
-        if (this.aoM == null) {
+        if (this.anZ == null) {
             return;
         }
         int i = 0;
         while (true) {
             int i2 = i;
-            if (i2 >= this.aoM.size()) {
+            if (i2 >= this.anZ.size()) {
                 return;
             }
-            this.aoM.get(i2).dv(str);
+            this.anZ.get(i2).dq(str);
             i = i2 + 1;
         }
     }
@@ -101,56 +101,56 @@ public class a {
         if (cVar != null) {
             cVar.p(f);
         }
-        if (this.aoM == null) {
+        if (this.anZ == null) {
             return;
         }
         int i = 0;
         while (true) {
             int i2 = i;
-            if (i2 >= this.aoM.size()) {
+            if (i2 >= this.anZ.size()) {
                 return;
             }
-            this.aoM.get(i2).p(f);
+            this.anZ.get(i2).p(f);
             i = i2 + 1;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(c cVar, String str, int i, String str2) {
-        this.aoN.put(str, 2);
+        this.aoa.put(str, 2);
         if (cVar != null) {
             cVar.b(str, i, str2);
         }
-        if (this.aoM == null) {
+        if (this.anZ == null) {
             return;
         }
         int i2 = 0;
         while (true) {
             int i3 = i2;
-            if (i3 >= this.aoM.size()) {
+            if (i3 >= this.anZ.size()) {
                 return;
             }
-            this.aoM.get(i3).b(str, i, str2);
+            this.anZ.get(i3).b(str, i, str2);
             i2 = i3 + 1;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(c cVar, String str, String str2) {
-        this.aoN.put(str, 3);
+        this.aoa.put(str, 3);
         if (cVar != null) {
-            cVar.U(str, str2);
+            cVar.T(str, str2);
         }
-        if (this.aoM == null) {
+        if (this.anZ == null) {
             return;
         }
         int i = 0;
         while (true) {
             int i2 = i;
-            if (i2 >= this.aoM.size()) {
+            if (i2 >= this.anZ.size()) {
                 return;
             }
-            this.aoM.get(i2).U(str, str2);
+            this.anZ.get(i2).T(str, str2);
             i = i2 + 1;
         }
     }
@@ -163,49 +163,50 @@ public class a {
         if (!file.exists()) {
             file.mkdirs();
         }
-        this.aoN.put(str, 1);
+        this.aoa.put(str, 1);
         String m = com.baidu.cloudbase.b.b.m(this.mContext, str, str2);
         File file2 = new File(m + ".temp");
         File file3 = new File(m + ".zip");
         Log.d("RtcDownSo", "start down folder=" + str2 + "name=" + file2.getName());
-        com.baidu.cloudbase.download.a.ug().a(str, str2, file2.getName(), looper, new C0097a(cVar, str, file2, file3, m));
+        com.baidu.cloudbase.download.a.tZ().a(str, str2, file2.getName(), looper, new C0096a(cVar, str, file2, file3, m));
     }
 
-    public static a ab(Context context) {
-        b.aoO.mContext = context.getApplicationContext();
-        return b.aoO;
+    public static a aa(Context context) {
+        b.aob.mContext = context.getApplicationContext();
+        return b.aob;
     }
 
     private boolean cE(String str) {
-        return com.baidu.cloudbase.download.a.ug().isRunning(str);
+        return com.baidu.cloudbase.download.a.tZ().isRunning(str);
     }
 
-    public boolean T(@NonNull String str, String str2) {
+    public boolean S(@NonNull String str, String str2) {
         return com.baidu.cloudbase.b.b.n(this.mContext, str, str2);
     }
 
     public void a(@NonNull String str, boolean z, c cVar) {
-        String Z = com.baidu.cloudbase.b.b.Z(this.mContext);
+        String Y = com.baidu.cloudbase.b.b.Y(this.mContext);
         if (TextUtils.isEmpty(str)) {
             cVar.b(str, 108, "download url is empty.");
-        } else if (T(str, Z)) {
+        } else if (S(str, Y)) {
             if (cVar != null) {
-                cVar.U(str, com.baidu.cloudbase.b.b.m(this.mContext, str, Z));
+                cVar.T(str, com.baidu.cloudbase.b.b.m(this.mContext, str, Y));
             }
         } else if (!z) {
-            a(str, Z, Looper.getMainLooper(), cVar);
+            a(str, Y, Looper.getMainLooper(), cVar);
         } else if (Looper.getMainLooper().getThread() == Thread.currentThread()) {
             Log.d("RtcDownSo", "start down so main thread");
-            a(str, Z, Looper.getMainLooper(), cVar);
+            a(str, Y, Looper.getMainLooper(), cVar);
         } else {
             Looper.prepare();
             Log.d("RtcDownSo", "start down so sub thread");
-            a(str, Z, Looper.myLooper(), cVar);
+            a(str, Y, Looper.myLooper(), cVar);
             Looper.loop();
         }
     }
 
-    public boolean dt(@NonNull String str) {
+    /* renamed from: do  reason: not valid java name */
+    public boolean m17do(@NonNull String str) {
         File file = new File(str);
         if (file.exists()) {
             Context context = this.mContext;
@@ -226,7 +227,7 @@ public class a {
         return false;
     }
 
-    public void du(String str) {
-        com.baidu.cloudbase.b.b.ds(str);
+    public void dp(String str) {
+        com.baidu.cloudbase.b.b.dn(str);
     }
 }

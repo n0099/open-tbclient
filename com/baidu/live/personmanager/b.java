@@ -11,15 +11,15 @@ import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.TbPageContext;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.extraparams.ExtraParamsManager;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class b {
-    private a byr;
-    private com.baidu.live.s.d bys;
-    private d byt;
-    private d byu;
+    private a btE;
+    private com.baidu.live.s.d btF;
+    private d btG;
+    private d btH;
     private TbPageContext mTbPageContext;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public interface a {
         void b(PersonUserData personUserData);
 
@@ -32,13 +32,13 @@ public class b {
 
     public b(TbPageContext tbPageContext) {
         this.mTbPageContext = tbPageContext;
-        this.byt = new d(tbPageContext);
-        this.byu = new d(tbPageContext);
-        this.byt.a(new d.a() { // from class: com.baidu.live.personmanager.b.1
+        this.btG = new d(tbPageContext);
+        this.btH = new d(tbPageContext);
+        this.btG.a(new d.a() { // from class: com.baidu.live.personmanager.b.1
             @Override // com.baidu.live.personmanager.d.a
             public void a(bv bvVar) {
-                if (bvVar != null && b.this.byr != null) {
-                    b.this.byr.b(bvVar);
+                if (bvVar != null && b.this.btE != null) {
+                    b.this.btE.b(bvVar);
                 }
             }
 
@@ -46,11 +46,11 @@ public class b {
             public void onFail(String str) {
             }
         });
-        this.byu.a(new d.a() { // from class: com.baidu.live.personmanager.b.2
+        this.btH.a(new d.a() { // from class: com.baidu.live.personmanager.b.2
             @Override // com.baidu.live.personmanager.d.a
             public void a(bv bvVar) {
-                if (bvVar != null && b.this.byr != null) {
-                    b.this.byr.c(bvVar);
+                if (bvVar != null && b.this.btE != null) {
+                    b.this.btE.c(bvVar);
                 }
             }
 
@@ -62,57 +62,57 @@ public class b {
 
     public void c(String str, String str2, String str3, String str4, String str5, String str6) {
         if (!BdNetTypeUtil.isNetWorkAvailable()) {
-            if (this.byr != null) {
-                this.byr.onFail(this.mTbPageContext.getPageActivity().getResources().getString(a.h.sdk_no_network));
+            if (this.btE != null) {
+                this.btE.onFail(this.mTbPageContext.getPageActivity().getResources().getString(a.h.sdk_no_network));
             }
         } else if (TextUtils.isEmpty(str) && TextUtils.isEmpty(str2)) {
-            if (this.byr != null) {
-                this.byr.onFail(this.mTbPageContext.getPageActivity().getResources().getString(a.h.sdk_error_unkown_try_again));
+            if (this.btE != null) {
+                this.btE.onFail(this.mTbPageContext.getPageActivity().getResources().getString(a.h.sdk_error_unkown_try_again));
             }
         } else {
-            this.bys = new com.baidu.live.s.d(new com.baidu.live.s.c() { // from class: com.baidu.live.personmanager.b.3
+            this.btF = new com.baidu.live.s.d(new com.baidu.live.s.c() { // from class: com.baidu.live.personmanager.b.3
                 @Override // com.baidu.live.s.c
                 public void a(PersonUserData personUserData) {
-                    if (b.this.byr != null) {
-                        b.this.byr.b(personUserData);
+                    if (b.this.btE != null) {
+                        b.this.btE.b(personUserData);
                     }
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2501021, personUserData));
                 }
 
                 @Override // com.baidu.live.s.c
-                public void u(int i, String str7) {
-                    if (b.this.byr != null) {
-                        b.this.byr.onFail(str7);
+                public void v(int i, String str7) {
+                    if (b.this.btE != null) {
+                        b.this.btE.onFail(str7);
                     }
                 }
             });
             if (TextUtils.isEmpty(str2)) {
                 str2 = ExtraParamsManager.getEncryptionUserId(str);
             }
-            this.bys.execute(str2, str4, str3);
-            aF(str, str5);
+            this.btF.execute(str2, str4, str3);
+            aE(str, str5);
         }
     }
 
-    public void aF(String str, String str2) {
+    public void aE(String str, String str2) {
         if (TbadkCoreApplication.isLogin()) {
-            this.byt.setPn(-1);
-            this.byt.e(0, str, str2);
-            this.byu.setPn(-1);
-            this.byu.e(1, str, str2);
+            this.btG.setPn(-1);
+            this.btG.e(0, str, str2);
+            this.btH.setPn(-1);
+            this.btH.e(1, str, str2);
         }
     }
 
     public void onDestroy() {
-        if (this.bys != null && !this.bys.isCancelled()) {
-            this.bys.cancel();
+        if (this.btF != null && !this.btF.isCancelled()) {
+            this.btF.cancel();
         }
-        if (this.byr != null) {
-            this.byr.onFail(null);
+        if (this.btE != null) {
+            this.btE.onFail(null);
         }
     }
 
     public void a(a aVar) {
-        this.byr = aVar;
+        this.btE = aVar;
     }
 }

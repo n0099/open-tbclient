@@ -1,5 +1,5 @@
 package com.kwad.sdk.glide.request;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public interface d {
     boolean b(c cVar);
 

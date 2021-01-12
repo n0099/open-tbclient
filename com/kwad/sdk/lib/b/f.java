@@ -1,5 +1,5 @@
 package com.kwad.sdk.lib.b;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public interface f {
     void a(boolean z);
 

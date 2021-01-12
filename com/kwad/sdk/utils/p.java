@@ -9,14 +9,14 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 import com.kwad.sdk.R;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class p {
 
     /* renamed from: a  reason: collision with root package name */
-    private static Handler f11128a = new Handler(Looper.getMainLooper());
+    private static Handler f10828a = new Handler(Looper.getMainLooper());
 
     /* renamed from: b  reason: collision with root package name */
-    private static volatile boolean f11129b = false;
+    private static volatile boolean f10829b = false;
 
     public static void a(Context context) {
         a(context, q.c(context));
@@ -31,10 +31,10 @@ public class p {
     }
 
     private static void a(Context context, String str, int i, long j) {
-        if (f11129b) {
+        if (f10829b) {
             return;
         }
-        f11129b = true;
+        f10829b = true;
         View inflate = LayoutInflater.from(context).inflate(i, (ViewGroup) null);
         ((TextView) inflate.findViewById(R.id.ksad_message_toast_txt)).setText(str);
         Toast toast = new Toast(context.getApplicationContext());
@@ -42,10 +42,10 @@ public class p {
         toast.setDuration(0);
         toast.setView(inflate);
         toast.show();
-        f11128a.postDelayed(new Runnable() { // from class: com.kwad.sdk.utils.p.1
+        f10828a.postDelayed(new Runnable() { // from class: com.kwad.sdk.utils.p.1
             @Override // java.lang.Runnable
             public void run() {
-                boolean unused = p.f11129b = false;
+                boolean unused = p.f10829b = false;
             }
         }, j);
     }

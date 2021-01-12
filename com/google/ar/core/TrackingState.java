@@ -1,7 +1,7 @@
 package com.google.ar.core;
 
 import com.google.ar.core.exceptions.FatalException;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public enum TrackingState {
     TRACKING(0),
     PAUSED(1),

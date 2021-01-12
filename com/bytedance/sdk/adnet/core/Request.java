@@ -32,10 +32,10 @@ public abstract class Request<T> implements Comparable<Request<T>> {
     @GuardedBy("mLock")
 
     /* renamed from: a  reason: collision with root package name */
-    protected p.a<T> f6309a;
+    protected p.a<T> f6009a;
 
     /* renamed from: b  reason: collision with root package name */
-    protected Handler f6310b;
+    protected Handler f6010b;
     private final r.a c;
     private final int d;
     private String e;
@@ -93,7 +93,7 @@ public abstract class Request<T> implements Comparable<Request<T>> {
     }
 
     public Request(int i, String str, @Nullable p.a aVar) {
-        this.c = r.a.f6348a ? new r.a() : null;
+        this.c = r.a.f6048a ? new r.a() : null;
         this.f = "VADNetAgent/0";
         this.h = new Object();
         this.k = true;
@@ -104,10 +104,10 @@ public abstract class Request<T> implements Comparable<Request<T>> {
         this.r = 0L;
         this.s = 0L;
         this.t = true;
-        this.f6310b = new Handler(Looper.getMainLooper());
+        this.f6010b = new Handler(Looper.getMainLooper());
         this.d = i;
         this.e = str;
-        this.f6309a = aVar;
+        this.f6009a = aVar;
         setRetryPolicy(new g());
         this.g = b(str);
     }
@@ -172,7 +172,7 @@ public abstract class Request<T> implements Comparable<Request<T>> {
     public p.a getBaseListener() {
         p.a<T> aVar;
         synchronized (this.h) {
-            aVar = this.f6309a;
+            aVar = this.f6009a;
         }
         return aVar;
     }
@@ -201,7 +201,7 @@ public abstract class Request<T> implements Comparable<Request<T>> {
     }
 
     public void addMarker(String str) {
-        if (r.a.f6348a) {
+        if (r.a.f6048a) {
             this.c.a(str, Thread.currentThread().getId());
         }
     }
@@ -222,10 +222,10 @@ public abstract class Request<T> implements Comparable<Request<T>> {
         if (this.j != null) {
             this.j.k(this);
         }
-        if (r.a.f6348a) {
+        if (r.a.f6048a) {
             final long id = Thread.currentThread().getId();
             if (Looper.myLooper() != Looper.getMainLooper()) {
-                this.f6310b.post(new Runnable() { // from class: com.bytedance.sdk.adnet.core.Request.1
+                this.f6010b.post(new Runnable() { // from class: com.bytedance.sdk.adnet.core.Request.1
                     @Override // java.lang.Runnable
                     public void run() {
                         Request.this.c.a(str, id);
@@ -300,7 +300,7 @@ public abstract class Request<T> implements Comparable<Request<T>> {
     public void cancel() {
         synchronized (this.h) {
             this.l = true;
-            this.f6309a = null;
+            this.f6009a = null;
         }
     }
 
@@ -438,7 +438,7 @@ public abstract class Request<T> implements Comparable<Request<T>> {
     public void deliverError(p<T> pVar) {
         p.a<T> aVar;
         synchronized (this.h) {
-            aVar = this.f6309a;
+            aVar = this.f6009a;
         }
         if (aVar != null) {
             aVar.b(pVar);

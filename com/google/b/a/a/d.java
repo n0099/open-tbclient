@@ -1,7 +1,7 @@
 package com.google.b.a.a;
 
 import android.hardware.SensorEventListener;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public interface d {
     void a();
 

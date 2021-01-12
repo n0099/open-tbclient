@@ -5,5 +5,5 @@ import org.json.JSONObject;
 public interface k {
     void a(m mVar, JSONObject jSONObject);
 
-    void onError(int i, Throwable th);
+    void b(int i, Throwable th);
 }

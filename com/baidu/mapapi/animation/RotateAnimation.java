@@ -3,11 +3,11 @@ package com.baidu.mapapi.animation;
 import android.view.animation.Interpolator;
 import com.baidu.mapapi.animation.Animation;
 import com.baidu.mapsdkplatform.comapi.a.f;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class RotateAnimation extends Animation {
     public RotateAnimation(float f, float f2) {
         if (f < 0.0f || f2 < 0.0f) {
-            throw new NullPointerException("BDMapSDKException: the degrees can't less than zero");
+            throw new NullPointerException("the degrees can't less than zero");
         }
         this.bdAnimation = new f(f, f2);
     }

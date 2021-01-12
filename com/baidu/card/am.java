@@ -11,53 +11,53 @@ import com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout;
 import java.util.List;
 /* loaded from: classes.dex */
 public class am extends a<com.baidu.tbadk.core.data.a> {
-    private int ajP;
-    private int ajQ;
-    private ThreadCommentAndPraiseInfoLayout ajR;
-    private com.baidu.tbadk.core.data.a ajS;
+    private int aiY;
+    private int aiZ;
+    private ThreadCommentAndPraiseInfoLayout aja;
+    private com.baidu.tbadk.core.data.a ajb;
 
     public am(Context context) {
         super(context);
-        this.ajP = 11;
-        this.ajQ = this.ajP;
-        this.ajR = new ThreadCardBottomOpSegmentLayout(context);
-        this.ajR.setReplyTimeVisible(false);
-        this.ajR.setShowPraiseNum(true);
-        this.ajR.setNeedAddPraiseIcon(true);
-        this.ajR.setNeedAddReplyIcon(true);
-        this.ajR.setShareVisible(true);
-        this.ajR.setForumAfterClickListener(new View.OnClickListener() { // from class: com.baidu.card.am.1
+        this.aiY = 11;
+        this.aiZ = this.aiY;
+        this.aja = new ThreadCardBottomOpSegmentLayout(context);
+        this.aja.setReplyTimeVisible(false);
+        this.aja.setShowPraiseNum(true);
+        this.aja.setNeedAddPraiseIcon(true);
+        this.aja.setNeedAddReplyIcon(true);
+        this.aja.setShareVisible(true);
+        this.aja.setForumAfterClickListener(new View.OnClickListener() { // from class: com.baidu.card.am.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (am.this.tc() != null) {
-                    am.this.tc().a(view, am.this.ajS);
+                if (am.this.sR() != null) {
+                    am.this.sR().a(view, am.this.ajb);
                 }
             }
         });
     }
 
     public void setOnCommentClickCallback(ThreadCommentAndPraiseInfoLayout.a aVar) {
-        if (this.ajR != null) {
-            this.ajR.setOnCommentClickCallback(aVar);
+        if (this.aja != null) {
+            this.aja.setOnCommentClickCallback(aVar);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.card.a
-    public void tb() {
-        this.ahd.a(4, new a.b() { // from class: com.baidu.card.am.2
+    public void sQ() {
+        this.agm.a(4, new a.b() { // from class: com.baidu.card.am.2
             @Override // com.baidu.card.a.a.b
-            public boolean a(a.C0090a c0090a) {
-                if (c0090a.tF() instanceof Boolean) {
-                    if (!((Boolean) c0090a.tF()).booleanValue()) {
-                        if ((am.this.ajP & 128) <= 0) {
-                            am.this.ajP &= -5;
-                            am.this.ajP |= 64;
+            public boolean a(a.C0089a c0089a) {
+                if (c0089a.tu() instanceof Boolean) {
+                    if (!((Boolean) c0089a.tu()).booleanValue()) {
+                        if ((am.this.aiY & 128) <= 0) {
+                            am.this.aiY &= -5;
+                            am.this.aiY |= 64;
                         }
                     } else {
-                        am.this.ajP = am.this.ajQ;
+                        am.this.aiY = am.this.aiZ;
                     }
-                    am.this.ajR.setShowFlag(am.this.ajP);
+                    am.this.aja.setShowFlag(am.this.aiY);
                 }
                 return false;
             }
@@ -65,40 +65,40 @@ public class am extends a<com.baidu.tbadk.core.data.a> {
     }
 
     @Override // com.baidu.card.a
-    public void bs(int i) {
-        this.ajP |= i;
-        this.ajR.setShowFlag(this.ajP);
-        this.ajQ = this.ajP;
+    public void bq(int i) {
+        this.aiY |= i;
+        this.aja.setShowFlag(this.aiY);
+        this.aiZ = this.aiY;
     }
 
     @Override // com.baidu.card.a
-    public void bt(int i) {
-        this.ajP &= i ^ (-1);
-        this.ajR.setShowFlag(this.ajP);
-        this.ajQ = this.ajP;
+    public void br(int i) {
+        this.aiY &= i ^ (-1);
+        this.aja.setShowFlag(this.aiY);
+        this.aiZ = this.aiY;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.card.a
     public View getView() {
-        return this.ajR;
+        return this.aja;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.card.p
     /* renamed from: b */
-    public void D(com.baidu.tbadk.core.data.a aVar) {
-        this.ajS = aVar;
-        this.ajR.setData(aVar.boP());
-        tC();
+    public void C(com.baidu.tbadk.core.data.a aVar) {
+        this.ajb = aVar;
+        this.aja.setData(aVar.bkV());
+        tr();
     }
 
-    private void tC() {
+    private void tr() {
         boolean z;
-        setMarginsTop(this.ajR, 0);
-        a tr = this.ahd.tr();
-        if (tr != null) {
-            ViewGroup viewGroup = (ViewGroup) tr.getView();
+        setMarginsTop(this.aja, 0);
+        a tf = this.agm.tf();
+        if (tf != null) {
+            ViewGroup viewGroup = (ViewGroup) tf.getView();
             int childCount = viewGroup.getChildCount();
             int i = 0;
             while (true) {
@@ -113,9 +113,9 @@ public class am extends a<com.baidu.tbadk.core.data.a> {
                 }
             }
             if (z) {
-                List<h> tt = this.ahd.tt();
-                if (!com.baidu.tbadk.core.util.x.isEmpty(tt)) {
-                    for (h hVar : tt) {
+                List<h> th = this.agm.th();
+                if (!com.baidu.tbadk.core.util.x.isEmpty(th)) {
+                    for (h hVar : th) {
                         if (hVar != null && hVar.getView() != null && hVar.getView().getVisibility() == 0) {
                             return;
                         }
@@ -127,34 +127,34 @@ public class am extends a<com.baidu.tbadk.core.data.a> {
 
     @Override // com.baidu.card.q
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
-        this.ajR.onChangeSkinType();
+        this.aja.onChangeSkinType();
     }
 
     public void setFromForPb(int i) {
-        this.ajR.fmP = i;
+        this.aja.fie = i;
     }
 
     public void setFrom(int i) {
-        this.ajR.setFrom(i);
+        this.aja.setFrom(i);
     }
 
     public void setStType(String str) {
-        this.ajR.setStType(str);
+        this.aja.setStType(str);
     }
 
     public void setAgreeStatisticData(com.baidu.tbadk.core.data.d dVar) {
-        this.ajR.setAgreeStatisticData(dVar);
+        this.aja.setAgreeStatisticData(dVar);
     }
 
     public void setShareReportFrom(int i) {
-        this.ajR.setShareReportFrom(i);
+        this.aja.setShareReportFrom(i);
     }
 
     public void setGameId(int i) {
-        this.ajR.setGameId(i);
+        this.aja.setGameId(i);
     }
 
     public void setTabName(String str) {
-        this.ajR.setTabName(str);
+        this.aja.setTabName(str);
     }
 }

@@ -15,7 +15,7 @@ import java.util.Locale;
 public final class c extends v<Date> {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final w f7174a = new w() { // from class: com.bytedance.sdk.openadsdk.d.b.a.c.1
+    public static final w f6874a = new w() { // from class: com.bytedance.sdk.openadsdk.d.b.a.c.1
         @Override // com.bytedance.sdk.openadsdk.d.w
         public <T> v<T> a(com.bytedance.sdk.openadsdk.d.f fVar, com.bytedance.sdk.openadsdk.d.c.a<T> aVar) {
             if (aVar.a() == Date.class) {
@@ -26,15 +26,15 @@ public final class c extends v<Date> {
     };
 
     /* renamed from: b  reason: collision with root package name */
-    private final List<DateFormat> f7175b = new ArrayList();
+    private final List<DateFormat> f6875b = new ArrayList();
 
     public c() {
-        this.f7175b.add(DateFormat.getDateTimeInstance(2, 2, Locale.US));
+        this.f6875b.add(DateFormat.getDateTimeInstance(2, 2, Locale.US));
         if (!Locale.getDefault().equals(Locale.US)) {
-            this.f7175b.add(DateFormat.getDateTimeInstance(2, 2));
+            this.f6875b.add(DateFormat.getDateTimeInstance(2, 2));
         }
         if (com.bytedance.sdk.openadsdk.d.b.e.b()) {
-            this.f7175b.add(com.bytedance.sdk.openadsdk.d.b.j.a(2, 2));
+            this.f6875b.add(com.bytedance.sdk.openadsdk.d.b.j.a(2, 2));
         }
     }
 
@@ -57,7 +57,7 @@ public final class c extends v<Date> {
     */
     private synchronized Date a(String str) {
         Date a2;
-        Iterator<DateFormat> it = this.f7175b.iterator();
+        Iterator<DateFormat> it = this.f6875b.iterator();
         while (true) {
             if (it.hasNext()) {
                 try {
@@ -82,7 +82,7 @@ public final class c extends v<Date> {
         if (date == null) {
             cVar.f();
         } else {
-            cVar.b(this.f7175b.get(0).format(date));
+            cVar.b(this.f6875b.get(0).format(date));
         }
     }
 }

@@ -3,7 +3,7 @@ package com.baidubce.internal;
 import com.baidubce.util.CheckUtils;
 import java.io.IOException;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class RestartableMultiByteArrayInputStream extends RestartableInputStream {
     private int blockSize;
     private List<byte[]> byteArrayList;

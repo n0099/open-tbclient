@@ -1,7 +1,7 @@
 package com.google.zxing.qrcode.decoder;
 
 import com.google.zxing.ResultPoint;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class QRCodeDecoderMetaData {
     private final boolean mirrored;
 

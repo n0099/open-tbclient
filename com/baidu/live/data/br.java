@@ -1,13 +1,13 @@
 package com.baidu.live.data;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class br {
-    public boolean aRO;
-    public boolean aRP;
-    public String aRQ;
-    public int aRR;
-    public int aRS;
-    public long aRT;
-    public long aRU;
-    public String aRV;
+    public boolean aNb;
+    public boolean aNc;
+    public String aNd;
+    public int aNe;
+    public int aNf;
+    public long aNg;
+    public long aNh;
+    public String aNi;
     public boolean hasInit;
 }

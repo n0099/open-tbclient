@@ -6,10 +6,11 @@ import android.text.Html;
 import android.text.Spanned;
 import android.text.TextUtils;
 import com.baidu.android.imsdk.utils.LogUtils;
+import com.baidu.searchbox.account.data.UserAccountActionItem;
 import java.net.URLDecoder;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class SchemaMsg extends NormalMsg {
     public static final Parcelable.Creator<SchemaMsg> CREATOR = new Parcelable.Creator<SchemaMsg>() { // from class: com.baidu.android.imsdk.chatmessage.messages.SchemaMsg.1
         /* JADX DEBUG: Method merged with bridge method */
@@ -50,7 +51,7 @@ public class SchemaMsg extends NormalMsg {
             return false;
         }
         try {
-            this.mContent = new JSONObject(jsonContent).optString("src");
+            this.mContent = new JSONObject(jsonContent).optString(UserAccountActionItem.KEY_SRC);
             return true;
         } catch (JSONException e) {
             LogUtils.e("TextMsg", "parse json err!", e);

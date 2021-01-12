@@ -5,7 +5,7 @@ import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.squareup.wire.Wire;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class HotSelectSocketResponseMessage extends SocketResponsedMessage {
     private c mBangTopic;
     private c mSugTopic;
@@ -63,7 +63,7 @@ public class HotSelectSocketResponseMessage extends SocketResponsedMessage {
     public void afterDispatchInBackGround(int i, byte[] bArr) {
         super.afterDispatchInBackGround(i, (int) bArr);
         if (bArr != null && bArr.length > 0 && getError() == 0) {
-            com.baidu.tbadk.core.c.a.btT().dL("topic_select_space", TbadkCoreApplication.getCurrentAccount()).asyncSetForever("topic_select_user", bArr);
+            com.baidu.tbadk.core.c.a.bpZ().dK("topic_select_space", TbadkCoreApplication.getCurrentAccount()).asyncSetForever("topic_select_user", bArr);
         }
     }
 }

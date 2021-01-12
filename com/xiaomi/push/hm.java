@@ -41,10 +41,10 @@ public enum hm {
     
 
     /* renamed from: a  reason: collision with other field name */
-    private final int f519a;
+    private final int f518a;
 
     hm(int i) {
-        this.f519a = i;
+        this.f518a = i;
     }
 
     public static hm a(int i) {
@@ -129,6 +129,6 @@ public enum hm {
     }
 
     public int a() {
-        return this.f519a;
+        return this.f518a;
     }
 }

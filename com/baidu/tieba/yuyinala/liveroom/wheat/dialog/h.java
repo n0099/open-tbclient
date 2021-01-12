@@ -23,44 +23,44 @@ import com.baidu.live.tbadk.ubc.UbcStatConstant;
 import com.baidu.live.view.c;
 import com.baidu.tieba.yuyinala.liveroom.wheat.adapter.e;
 import com.baidu.tieba.yuyinala.liveroom.wheat.c.o;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class h extends a implements DialogInterface.OnDismissListener, View.OnClickListener {
-    private TextView akw;
-    private TextView bYR;
-    public CustomMessageListener bih;
-    private CustomMessageListener caU;
-    private RelativeLayout gri;
-    private BdGridView gvH;
+    private TextView ajF;
+    private TextView bUf;
+    private CustomMessageListener bWi;
+    public CustomMessageListener bdo;
+    private RelativeLayout gmB;
+    private BdGridView gra;
     private TextView mTitle;
-    private b oAC;
-    private com.baidu.tieba.yuyinala.liveroom.wheat.adapter.e oDl;
-    private TextView oDm;
-    private AlaWheatMoreFunctionData oDn;
-    public HttpMessageListener oDo;
+    private b ovX;
+    private com.baidu.tieba.yuyinala.liveroom.wheat.adapter.e oyG;
+    private TextView oyH;
+    private AlaWheatMoreFunctionData oyI;
+    public HttpMessageListener oyJ;
 
     public h(TbPageContext tbPageContext, AlaWheatMoreFunctionData alaWheatMoreFunctionData) {
         super(tbPageContext);
-        this.caU = new CustomMessageListener(2501081) { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.dialog.h.3
+        this.bWi = new CustomMessageListener(2501081) { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.dialog.h.3
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                if ((customResponsedMessage == null || customResponsedMessage.getCmd() == 2501081) && h.this.oDl != null) {
-                    h.this.oDl.edW();
+                if ((customResponsedMessage == null || customResponsedMessage.getCmd() == 2501081) && h.this.oyG != null) {
+                    h.this.oyG.eae();
                 }
             }
         };
-        this.oDo = new HttpMessageListener(1031017) { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.dialog.h.4
+        this.oyJ = new HttpMessageListener(1031017) { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.dialog.h.4
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
                 if (httpResponsedMessage.getCmd() == 1031017) {
-                    h.this.cnj();
-                    h.this.zX(httpResponsedMessage.getError() == 0);
+                    h.this.cjr();
+                    h.this.zT(httpResponsedMessage.getError() == 0);
                     h.this.dismiss();
                 }
             }
         };
-        this.bih = new CustomMessageListener(2913097) { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.dialog.h.6
+        this.bdo = new CustomMessageListener(2913097) { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.dialog.h.6
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -69,39 +69,39 @@ public class h extends a implements DialogInterface.OnDismissListener, View.OnCl
                 }
             }
         };
-        this.oDn = alaWheatMoreFunctionData;
-        NH(80);
-        zT(true);
-        zU(true);
+        this.oyI = alaWheatMoreFunctionData;
+        Ma(80);
+        zP(true);
+        zQ(true);
         g(this);
     }
 
     protected void initView() {
-        this.bYR = (TextView) findViewById(a.f.tv_cancel);
-        this.bYR.setOnClickListener(this);
+        this.bUf = (TextView) findViewById(a.f.tv_cancel);
+        this.bUf.setOnClickListener(this);
         this.mTitle = (TextView) findViewById(a.f.tv_title);
-        this.oDm = (TextView) findViewById(a.f.tv_clear_confirm);
-        this.oDm.setOnClickListener(this);
-        this.oDm.setClickable(true);
-        this.oDm.setTextColor(-57755);
-        this.gvH = (BdGridView) findViewById(a.f.wheat_clear_gridview);
-        this.gvH.setNumColumns(5);
-        this.oDl = new com.baidu.tieba.yuyinala.liveroom.wheat.adapter.e(this.mContext);
-        this.gvH.setAdapter((ListAdapter) this.oDl);
-        this.oDl.a(new e.a() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.dialog.h.1
+        this.oyH = (TextView) findViewById(a.f.tv_clear_confirm);
+        this.oyH.setOnClickListener(this);
+        this.oyH.setClickable(true);
+        this.oyH.setTextColor(-57755);
+        this.gra = (BdGridView) findViewById(a.f.wheat_clear_gridview);
+        this.gra.setNumColumns(5);
+        this.oyG = new com.baidu.tieba.yuyinala.liveroom.wheat.adapter.e(this.mContext);
+        this.gra.setAdapter((ListAdapter) this.oyG);
+        this.oyG.a(new e.a() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.dialog.h.1
             @Override // com.baidu.tieba.yuyinala.liveroom.wheat.adapter.e.a
             public void I(View view, int i) {
-                h.this.oDm.setClickable(!TextUtils.isEmpty(h.this.oDl.edX()));
-                h.this.oDm.setTextColor(!TextUtils.isEmpty(h.this.oDl.edX()) ? -57755 : -11382190);
+                h.this.oyH.setClickable(!TextUtils.isEmpty(h.this.oyG.eaf()));
+                h.this.oyH.setTextColor(!TextUtils.isEmpty(h.this.oyG.eaf()) ? -57755 : -11382190);
             }
 
             @Override // com.baidu.tieba.yuyinala.liveroom.wheat.adapter.e.a
             public void notifyDataSetChanged() {
-                h.this.bfj();
+                h.this.bbp();
             }
         });
-        this.gri = (RelativeLayout) findViewById(a.f.rl_no_data);
-        this.akw = (TextView) findViewById(a.f.wheat_clear_desc);
+        this.gmB = (RelativeLayout) findViewById(a.f.rl_no_data);
+        this.ajF = (TextView) findViewById(a.f.wheat_clear_desc);
     }
 
     @Override // com.baidu.tieba.yuyinala.liveroom.wheat.dialog.a
@@ -119,12 +119,12 @@ public class h extends a implements DialogInterface.OnDismissListener, View.OnCl
     }
 
     @Override // com.baidu.tieba.yuyinala.liveroom.wheat.dialog.a
-    protected boolean UD() {
+    protected boolean QI() {
         return true;
     }
 
     @Override // com.baidu.tieba.yuyinala.liveroom.wheat.dialog.a
-    protected boolean UE() {
+    protected boolean QJ() {
         return true;
     }
 
@@ -140,68 +140,68 @@ public class h extends a implements DialogInterface.OnDismissListener, View.OnCl
         } catch (Throwable th) {
             th.printStackTrace();
         }
-        MessageManager.getInstance().registerListener(this.bih);
-        MessageManager.getInstance().registerListener(this.oDo);
-        MessageManager.getInstance().registerListener(this.caU);
+        MessageManager.getInstance().registerListener(this.bdo);
+        MessageManager.getInstance().registerListener(this.oyJ);
+        MessageManager.getInstance().registerListener(this.bWi);
     }
 
     @Override // com.baidu.tieba.yuyinala.liveroom.wheat.dialog.a
     protected void initData() {
         initView();
-        if (this.oDl != null) {
-            this.oDl.edW();
+        if (this.oyG != null) {
+            this.oyG.eae();
         }
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.oDm) {
-            efI();
-        } else if (view == this.bYR) {
+        if (view == this.oyH) {
+            ebQ();
+        } else if (view == this.bUf) {
             dismiss();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bfj() {
-        boolean z = (o.efg().aaq() == null || o.efg().aaq().isEmpty()) && (o.efg().efj() == null || o.efg().efj().isEmpty());
-        if (this.gri != null) {
-            this.gri.setVisibility(z ? 0 : 8);
+    public void bbp() {
+        boolean z = (o.ebo().Wx() == null || o.ebo().Wx().isEmpty()) && (o.ebo().ebr() == null || o.ebo().ebr().isEmpty());
+        if (this.gmB != null) {
+            this.gmB.setVisibility(z ? 0 : 8);
         }
-        if (this.gvH != null) {
-            this.gvH.setVisibility(z ? 8 : 0);
+        if (this.gra != null) {
+            this.gra.setVisibility(z ? 8 : 0);
         }
-        if (this.akw != null) {
-            this.akw.setVisibility(z ? 8 : 0);
+        if (this.ajF != null) {
+            this.ajF.setVisibility(z ? 8 : 0);
         }
-        if (this.oDm != null) {
-            this.oDm.setVisibility(z ? 4 : 0);
+        if (this.oyH != null) {
+            this.oyH.setVisibility(z ? 4 : 0);
         }
     }
 
-    private void efI() {
-        final com.baidu.live.view.c cVar = new com.baidu.live.view.c(this.oAe.getPageActivity());
+    private void ebQ() {
+        final com.baidu.live.view.c cVar = new com.baidu.live.view.c(this.ovz.getPageActivity());
         cVar.setCancelable(false);
         cVar.setCanceledOnTouchOutside(false);
-        cVar.dz(false);
-        cVar.o(this.oAe.getString((this.oDl == null || !this.oDl.edY()) ? a.h.yuyin_ala_clear_charm_title_items : a.h.yuyin_ala_clear_charm_title_all), "", this.oAe.getString(a.h.sdk_alert_yes_button), this.oAe.getString(a.h.sdk_live_cancel));
-        cVar.gO(this.oAe.getResources().getColor(a.c.sdk_black_alpha100));
-        cVar.gP(this.oAe.getResources().getColor(a.c.sdk_black_alpha100));
-        cVar.dB(false);
-        cVar.dC(false);
-        cVar.A(this.oAe.getResources().getDimension(a.d.sdk_ds12));
-        cVar.setTitleTextSize(this.oAe.getResources().getDimension(a.d.sdk_fontsize34));
-        cVar.dA(false);
-        cVar.gN(this.oAe.getResources().getColor(a.c.sdk_common_color_10215));
-        cVar.B(this.oAe.getResources().getDimension(a.d.sdk_fontsize28));
+        cVar.dv(false);
+        cVar.o(this.ovz.getString((this.oyG == null || !this.oyG.eag()) ? a.h.yuyin_ala_clear_charm_title_items : a.h.yuyin_ala_clear_charm_title_all), "", this.ovz.getString(a.h.sdk_alert_yes_button), this.ovz.getString(a.h.sdk_live_cancel));
+        cVar.fh(this.ovz.getResources().getColor(a.c.sdk_black_alpha100));
+        cVar.fi(this.ovz.getResources().getColor(a.c.sdk_black_alpha100));
+        cVar.dx(false);
+        cVar.dy(false);
+        cVar.A(this.ovz.getResources().getDimension(a.d.sdk_ds12));
+        cVar.setTitleTextSize(this.ovz.getResources().getDimension(a.d.sdk_fontsize34));
+        cVar.dw(false);
+        cVar.fg(this.ovz.getResources().getColor(a.c.sdk_common_color_10215));
+        cVar.B(this.ovz.getResources().getDimension(a.d.sdk_fontsize28));
         cVar.a(new c.a() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.dialog.h.2
             @Override // com.baidu.live.view.c.a
-            public void Sw() {
-                if (h.this.oDl != null) {
-                    if (!h.this.oDl.edY()) {
-                        h.this.WC(h.this.oDl.edX());
+            public void OB() {
+                if (h.this.oyG != null) {
+                    if (!h.this.oyG.eag()) {
+                        h.this.Vu(h.this.oyG.eaf());
                     } else {
-                        h.this.efJ();
+                        h.this.ebR();
                     }
                     h.this.showLoadingDialog(TbadkCoreApplication.getInst().getString(a.h.yuyin_ala_clear_charm_loading));
                 }
@@ -209,70 +209,70 @@ public class h extends a implements DialogInterface.OnDismissListener, View.OnCl
             }
 
             @Override // com.baidu.live.view.c.a
-            public void Sx() {
+            public void OC() {
                 cVar.dismiss();
             }
         });
         cVar.show();
     }
 
-    public void WC(String str) {
-        if (this.oDn != null) {
+    public void Vu(String str) {
+        if (this.oyI != null) {
             HttpMessage httpMessage = new HttpMessage(1031017);
-            httpMessage.addParam("live_id", this.oDn.mLiveId);
-            httpMessage.addParam(UbcStatConstant.KEY_CUSTOM_ROOM_ID, this.oDn.mCustomRoomId);
-            httpMessage.addParam("room_id", this.oDn.mRoomId);
+            httpMessage.addParam("live_id", this.oyI.mLiveId);
+            httpMessage.addParam(UbcStatConstant.KEY_CUSTOM_ROOM_ID, this.oyI.mCustomRoomId);
+            httpMessage.addParam("room_id", this.oyI.mRoomId);
             httpMessage.addParam("uks", str);
             MessageManager.getInstance().sendMessage(httpMessage);
         }
     }
 
-    public void efJ() {
-        if (this.oDn != null) {
+    public void ebR() {
+        if (this.oyI != null) {
             HttpMessage httpMessage = new HttpMessage(1031017);
-            httpMessage.addParam("live_id", this.oDn.mLiveId);
-            httpMessage.addParam(UbcStatConstant.KEY_CUSTOM_ROOM_ID, this.oDn.mCustomRoomId);
-            httpMessage.addParam("room_id", this.oDn.mRoomId);
+            httpMessage.addParam("live_id", this.oyI.mLiveId);
+            httpMessage.addParam(UbcStatConstant.KEY_CUSTOM_ROOM_ID, this.oyI.mCustomRoomId);
+            httpMessage.addParam("room_id", this.oyI.mRoomId);
             MessageManager.getInstance().sendMessage(httpMessage);
         }
     }
 
-    public void zX(boolean z) {
-        this.oAe.showToast(z ? a.h.yuyin_ala_audio_clear_charm_succ : a.h.yuyin_ala_audio_clear_charm_fail);
+    public void zT(boolean z) {
+        this.ovz.showToast(z ? a.h.yuyin_ala_audio_clear_charm_succ : a.h.yuyin_ala_audio_clear_charm_fail);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void showLoadingDialog(String str) {
-        if (this.oAC == null) {
-            this.oAC = new b(this.mContext);
+        if (this.ovX == null) {
+            this.ovX = new b(this.mContext);
         }
-        this.oAC.setOnDismissListener(new DialogInterface.OnDismissListener() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.dialog.h.5
+        this.ovX.setOnDismissListener(new DialogInterface.OnDismissListener() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.dialog.h.5
             @Override // android.content.DialogInterface.OnDismissListener
             public void onDismiss(DialogInterface dialogInterface) {
-                h.this.oAC = null;
+                h.this.ovX = null;
             }
         });
-        if (!this.oAC.isShowing()) {
-            this.oAC.show();
+        if (!this.ovX.isShowing()) {
+            this.ovX.show();
         }
-        this.oAC.setTipString(str);
+        this.ovX.setTipString(str);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cnj() {
-        if (this.oAC != null) {
-            this.oAC.dismiss();
-            this.oAC = null;
+    public void cjr() {
+        if (this.ovX != null) {
+            this.ovX.dismiss();
+            this.ovX = null;
         }
     }
 
     @Override // android.content.DialogInterface.OnDismissListener
     public void onDismiss(DialogInterface dialogInterface) {
-        if (this.oAC != null) {
-            this.oAC = null;
+        if (this.ovX != null) {
+            this.ovX = null;
         }
-        MessageManager.getInstance().unRegisterListener(this.bih);
-        MessageManager.getInstance().unRegisterListener(this.oDo);
-        MessageManager.getInstance().unRegisterListener(this.caU);
+        MessageManager.getInstance().unRegisterListener(this.bdo);
+        MessageManager.getInstance().unRegisterListener(this.oyJ);
+        MessageManager.getInstance().unRegisterListener(this.bWi);
     }
 }

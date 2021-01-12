@@ -7,35 +7,35 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.x;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class AlaBannerRecyclerAdapter<T> extends RecyclerView.Adapter<AlaBannerViewHolder> {
-    private List<T> cbD;
-    private b gMr;
-    private a gMv;
-    private a gMw;
-    private boolean gMx;
+    private List<T> bWQ;
+    private b gHL;
+    private a gHP;
+    private a gHQ;
+    private boolean gHR;
     private Context mContext;
     private View.OnClickListener mOnClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.ala.alasquare.widget.banner.AlaBannerRecyclerAdapter.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (AlaBannerRecyclerAdapter.this.gMr != null) {
-                AlaBannerRecyclerAdapter.this.gMr.aG(view.getTag());
+            if (AlaBannerRecyclerAdapter.this.gHL != null) {
+                AlaBannerRecyclerAdapter.this.gHL.aG(view.getTag());
             }
         }
     };
 
     public AlaBannerRecyclerAdapter(Context context, a aVar, boolean z) {
         this.mContext = context;
-        this.gMv = aVar;
-        this.gMx = z;
+        this.gHP = aVar;
+        this.gHR = z;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     /* renamed from: u */
     public AlaBannerViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
-        if (this.gMv != null) {
-            return this.gMv.t(viewGroup, i);
+        if (this.gHP != null) {
+            return this.gHP.t(viewGroup, i);
         }
         return null;
     }
@@ -47,7 +47,7 @@ public class AlaBannerRecyclerAdapter<T> extends RecyclerView.Adapter<AlaBannerV
     /* renamed from: a */
     public void onBindViewHolder(AlaBannerViewHolder alaBannerViewHolder, int i) {
         if (getItemCount() != 0 && alaBannerViewHolder != 0) {
-            Object item = x.getItem(this.cbD, vy(i));
+            Object item = x.getItem(this.bWQ, tS(i));
             if (item != null) {
                 alaBannerViewHolder.k(i, item);
                 alaBannerViewHolder.itemView.setTag(item);
@@ -57,34 +57,34 @@ public class AlaBannerRecyclerAdapter<T> extends RecyclerView.Adapter<AlaBannerV
         }
     }
 
-    private int vy(int i) {
-        if (x.getCount(this.cbD) != 0) {
-            return i % x.getCount(this.cbD);
+    private int tS(int i) {
+        if (x.getCount(this.bWQ) != 0) {
+            return i % x.getCount(this.bWQ);
         }
         return i;
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public int getItemCount() {
-        if (x.isEmpty(this.cbD) || x.getCount(this.cbD) == 1) {
-            return x.getCount(this.cbD);
+        if (x.isEmpty(this.bWQ) || x.getCount(this.bWQ) == 1) {
+            return x.getCount(this.bWQ);
         }
-        return this.gMx ? x.getCount(this.cbD) * 3 : x.getCount(this.cbD);
+        return this.gHR ? x.getCount(this.bWQ) * 3 : x.getCount(this.bWQ);
     }
 
-    public int bVQ() {
-        return x.getCount(this.cbD);
+    public int bRY() {
+        return x.getCount(this.bWQ);
     }
 
     public void setData(List<T> list) {
-        this.cbD = list;
+        this.bWQ = list;
     }
 
     public void setOnBannerClickListener(b bVar) {
-        this.gMr = bVar;
+        this.gHL = bVar;
     }
 
     public void setViewHolderAdapter(a aVar) {
-        this.gMw = aVar;
+        this.gHQ = aVar;
     }
 }

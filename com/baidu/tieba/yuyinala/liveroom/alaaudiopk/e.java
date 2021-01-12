@@ -2,7 +2,7 @@ package com.baidu.tieba.yuyinala.liveroom.alaaudiopk;
 
 import com.baidu.live.adp.framework.message.HttpMessage;
 import com.baidu.live.tbadk.ubc.UbcStatConstant;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class e extends HttpMessage {
     public e(int i, String str, int i2, int i3, int i4) {
         super(1031087);

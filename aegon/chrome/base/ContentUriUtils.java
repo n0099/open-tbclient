@@ -14,7 +14,7 @@ import android.webkit.MimeTypeMap;
 import androidx.annotation.Nullable;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public abstract class ContentUriUtils {
     public static final /* synthetic */ boolean $assertionsDisabled = !ContentUriUtils.class.desiredAssertionStatus();
 

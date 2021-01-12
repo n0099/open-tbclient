@@ -9,32 +9,32 @@ import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    private ArrayList<c> f1884a = new ArrayList<>();
+    private ArrayList<c> f1834a = new ArrayList<>();
 
     /* renamed from: b  reason: collision with root package name */
-    private c f1885b;
+    private c f1835b;
 
     public b(Context context) {
         String networkStatisticsData = DpNetworkUtils.getNetworkStatisticsData(context);
-        this.f1885b = new c(DpStatConstants.SESSION_TYPE_DP_INIT_COMMON);
-        this.f1885b.a(new e((int) DpStatConstants.SESSION_TYPE_DP_INIT_COMMON, "timestamp", System.currentTimeMillis()));
-        this.f1885b.a(new e((int) DpStatConstants.SESSION_TYPE_DP_INIT_COMMON, "CPU", n.g()));
-        this.f1885b.a(new e((int) DpStatConstants.SESSION_TYPE_DP_INIT_COMMON, "MODEL", Build.MODEL));
-        this.f1885b.a(new e((int) DpStatConstants.SESSION_TYPE_DP_INIT_COMMON, "HARDWARE", Build.HARDWARE));
-        this.f1885b.a(new e((int) DpStatConstants.SESSION_TYPE_DP_INIT_COMMON, "network", networkStatisticsData));
+        this.f1835b = new c(DpStatConstants.SESSION_TYPE_DP_INIT_COMMON);
+        this.f1835b.a(new e((int) DpStatConstants.SESSION_TYPE_DP_INIT_COMMON, "timestamp", System.currentTimeMillis()));
+        this.f1835b.a(new e((int) DpStatConstants.SESSION_TYPE_DP_INIT_COMMON, "CPU", n.g()));
+        this.f1835b.a(new e((int) DpStatConstants.SESSION_TYPE_DP_INIT_COMMON, "MODEL", Build.MODEL));
+        this.f1835b.a(new e((int) DpStatConstants.SESSION_TYPE_DP_INIT_COMMON, "HARDWARE", Build.HARDWARE));
+        this.f1835b.a(new e((int) DpStatConstants.SESSION_TYPE_DP_INIT_COMMON, "network", networkStatisticsData));
     }
 
     private JSONObject a(JSONObject jSONObject) throws JSONException {
-        this.f1885b.a(jSONObject);
+        this.f1835b.a(jSONObject);
         JSONArray jSONArray = new JSONArray();
-        int size = this.f1884a.size();
+        int size = this.f1834a.size();
         for (int i = 0; i < size; i++) {
             JSONObject jSONObject2 = new JSONObject();
-            this.f1884a.get(i).a(jSONObject2);
+            this.f1834a.get(i).a(jSONObject2);
             jSONArray.put(jSONObject2);
         }
         jSONObject.put("data", jSONArray);
@@ -56,13 +56,13 @@ public class b {
 
     public void a(int i, String str, String str2) {
         if (24323 == i) {
-            this.f1885b.a(new e((int) DpStatConstants.SESSION_TYPE_DP_INIT_COMMON, str, str2));
+            this.f1835b.a(new e((int) DpStatConstants.SESSION_TYPE_DP_INIT_COMMON, str, str2));
             return;
         }
         e eVar = new e(i, str, str2);
-        int size = this.f1884a.size();
+        int size = this.f1834a.size();
         for (int i2 = 0; i2 < size; i2++) {
-            c cVar = this.f1884a.get(i2);
+            c cVar = this.f1834a.get(i2);
             if (cVar != null && cVar.a() == i) {
                 cVar.a(eVar);
                 return;
@@ -70,7 +70,7 @@ public class b {
         }
         c cVar2 = new c(i);
         cVar2.a(eVar);
-        this.f1884a.add(cVar2);
+        this.f1834a.add(cVar2);
     }
 
     public void a(int i, HashMap<String, String> hashMap) {

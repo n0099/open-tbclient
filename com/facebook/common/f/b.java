@@ -3,11 +3,11 @@ package com.facebook.common.f;
 import java.io.FilterInputStream;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes3.dex */
+/* loaded from: classes14.dex */
 public class b extends FilterInputStream {
-    private final byte[] ptN;
-    private int ptO;
-    private int ptP;
+    private final byte[] ppl;
+    private int ppm;
+    private int ppn;
 
     public b(InputStream inputStream, byte[] bArr) {
         super(inputStream);
@@ -17,13 +17,13 @@ public class b extends FilterInputStream {
         if (bArr == null) {
             throw new NullPointerException();
         }
-        this.ptN = bArr;
+        this.ppl = bArr;
     }
 
     @Override // java.io.FilterInputStream, java.io.InputStream
     public int read() throws IOException {
         int read = this.in.read();
-        return read != -1 ? read : euu();
+        return read != -1 ? read : eqA();
     }
 
     @Override // java.io.FilterInputStream, java.io.InputStream
@@ -40,11 +40,11 @@ public class b extends FilterInputStream {
             }
             int i3 = 0;
             while (i3 < i2) {
-                int euu = euu();
-                if (euu == -1) {
+                int eqA = eqA();
+                if (eqA == -1) {
                     break;
                 }
-                bArr[i + i3] = (byte) euu;
+                bArr[i + i3] = (byte) eqA;
                 i3++;
             }
             if (i3 <= 0) {
@@ -59,7 +59,7 @@ public class b extends FilterInputStream {
     public void reset() throws IOException {
         if (this.in.markSupported()) {
             this.in.reset();
-            this.ptO = this.ptP;
+            this.ppm = this.ppn;
             return;
         }
         throw new IOException("mark is not supported");
@@ -69,17 +69,17 @@ public class b extends FilterInputStream {
     public void mark(int i) {
         if (this.in.markSupported()) {
             super.mark(i);
-            this.ptP = this.ptO;
+            this.ppn = this.ppm;
         }
     }
 
-    private int euu() {
-        if (this.ptO >= this.ptN.length) {
+    private int eqA() {
+        if (this.ppm >= this.ppl.length) {
             return -1;
         }
-        byte[] bArr = this.ptN;
-        int i = this.ptO;
-        this.ptO = i + 1;
+        byte[] bArr = this.ppl;
+        int i = this.ppm;
+        this.ppm = i + 1;
         return bArr[i] & 255;
     }
 }

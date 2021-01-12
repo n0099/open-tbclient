@@ -8,58 +8,58 @@ import com.baidu.tbadk.core.util.aq;
 import com.baidu.tbadk.core.util.x;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class a {
-    private static a gHh;
-    private List<aq> gik;
+    private static a gCB;
+    private List<aq> gdB;
 
-    public static a bVm() {
-        if (gHh == null) {
+    public static a bRu() {
+        if (gCB == null) {
             synchronized (a.class) {
-                if (gHh == null) {
-                    gHh = new a();
+                if (gCB == null) {
+                    gCB = new a();
                 }
             }
         }
-        return gHh;
+        return gCB;
     }
 
     public void e(aq aqVar) {
         if (aqVar != null) {
-            if (this.gik == null) {
-                this.gik = new ArrayList();
+            if (this.gdB == null) {
+                this.gdB = new ArrayList();
             }
-            if (this.gik != null) {
-                this.gik.add(aqVar);
+            if (this.gdB != null) {
+                this.gdB.add(aqVar);
             }
         }
     }
 
-    public void GK(String str) {
+    public void Fz(String str) {
         if (str != null) {
-            if (this.gik == null) {
-                this.gik = new ArrayList();
+            if (this.gdB == null) {
+                this.gdB = new ArrayList();
             }
-            if (this.gik != null) {
-                this.gik.add(new aq(str));
+            if (this.gdB != null) {
+                this.gdB.add(new aq(str));
             }
         }
     }
 
-    public void bRT() {
-        if (x.getCount(this.gik) != 0) {
-            for (aq aqVar : this.gik) {
+    public void bOb() {
+        if (x.getCount(this.gdB) != 0) {
+            for (aq aqVar : this.gdB) {
                 if (aqVar != null) {
                     TiebaStatic.log(aqVar);
                 }
             }
-            this.gik.clear();
+            this.gdB.clear();
         }
     }
 
-    public void mG(boolean z) {
-        if (x.getCount(this.gik) != 0) {
-            for (aq aqVar : this.gik) {
+    public void mC(boolean z) {
+        if (x.getCount(this.gdB) != 0) {
+            for (aq aqVar : this.gdB) {
                 if (aqVar != null) {
                     int i = 0;
                     if (z) {
@@ -71,7 +71,7 @@ public class a {
                     TiebaStatic.log(aqVar);
                 }
             }
-            this.gik.clear();
+            this.gdB.clear();
         }
     }
 
@@ -80,32 +80,32 @@ public class a {
             return null;
         }
         String str3 = "";
-        if (bzVar.brK() != null && !StringUtils.isNull(bzVar.brK().appId)) {
-            str3 = bzVar.brK().appId;
+        if (bzVar.bnQ() != null && !StringUtils.isNull(bzVar.bnQ().appId)) {
+            str3 = bzVar.bnQ().appId;
         }
         aq aqVar = new aq(str);
         aqVar.an("obj_type", 1);
         aqVar.w("obj_id", S(bzVar));
-        aqVar.dX("tid", bzVar.getId());
-        aqVar.dX(TiebaInitialize.Params.OBJ_PARAM3, str3);
+        aqVar.dW("tid", bzVar.getId());
+        aqVar.dW(TiebaInitialize.Params.OBJ_PARAM3, str3);
         aqVar.an("entryid", i2);
-        aqVar.dX("name", str2);
+        aqVar.dW("name", str2);
         aqVar.an("is_small_follow", i);
         return aqVar;
     }
 
     private long S(bz bzVar) {
-        if (bzVar == null || bzVar.brK() == null) {
+        if (bzVar == null || bzVar.bnQ() == null) {
             return -1L;
         }
-        return bzVar.brK().live_id;
+        return bzVar.bnQ().live_id;
     }
 
     public void c(String str, int i, int i2, String str2) {
         aq aqVar = new aq(str);
         aqVar.an("obj_source", i);
         aqVar.an("obj_type", i2);
-        aqVar.dX("tid", str2);
+        aqVar.dW("tid", str2);
         TiebaStatic.log(aqVar);
     }
 }

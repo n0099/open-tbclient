@@ -3,12 +3,11 @@ package com.ksad.lottie.c;
 import android.util.JsonReader;
 import com.baidu.mobads.interfaces.IXAdRequestInfo;
 import com.baidu.mobstat.Config;
-import com.baidu.platform.comapi.map.MapBundleKey;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class h implements aj<com.ksad.lottie.model.b> {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final h f8272a = new h();
+    public static final h f7972a = new h();
 
     private h() {
     }
@@ -76,7 +75,7 @@ public class h implements aj<com.ksad.lottie.model.b> {
                     }
                     break;
                 case 3543:
-                    if (nextName.equals(MapBundleKey.MapObjKey.OBJ_OFFSET)) {
+                    if (nextName.equals("of")) {
                         c = '\n';
                         break;
                     }

@@ -4,19 +4,19 @@ import java.io.IOException;
 import java.nio.channels.WritableByteChannel;
 /* loaded from: classes4.dex */
 public interface d extends r, WritableByteChannel {
-    d PK(int i) throws IOException;
+    d Od(int i) throws IOException;
 
-    d PL(int i) throws IOException;
+    d Oe(int i) throws IOException;
 
-    d PM(int i) throws IOException;
+    d Of(int i) throws IOException;
 
-    d YG(String str) throws IOException;
+    d Xy(String str) throws IOException;
 
-    d aj(byte[] bArr) throws IOException;
+    d ai(byte[] bArr) throws IOException;
 
-    c epT();
+    c elX();
 
-    d eqc() throws IOException;
+    d emg() throws IOException;
 
     @Override // com.bytedance.sdk.a.a.r, java.io.Flushable
     void flush() throws IOException;
@@ -25,5 +25,5 @@ public interface d extends r, WritableByteChannel {
 
     d il(long j) throws IOException;
 
-    d x(byte[] bArr, int i, int i2) throws IOException;
+    d w(byte[] bArr, int i, int i2) throws IOException;
 }

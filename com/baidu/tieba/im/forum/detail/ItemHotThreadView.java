@@ -19,21 +19,21 @@ import com.baidu.tieba.R;
 import java.util.HashMap;
 import java.util.List;
 import tbclient.SimpleThreadInfo;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class ItemHotThreadView extends LinearLayout {
-    private HashMap<String, View> kDq;
-    private List<SimpleThreadInfo> kDr;
+    private HashMap<String, View> kyL;
+    private List<SimpleThreadInfo> kyM;
     private Context mContext;
 
     public ItemHotThreadView(Context context) {
         super(context);
-        this.kDq = new HashMap<>();
+        this.kyL = new HashMap<>();
         init(context);
     }
 
     public ItemHotThreadView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.kDq = new HashMap<>();
+        this.kyL = new HashMap<>();
         init(context);
     }
 
@@ -44,7 +44,7 @@ public class ItemHotThreadView extends LinearLayout {
     }
 
     public void setData(List<SimpleThreadInfo> list) {
-        this.kDr = list;
+        this.kyM = list;
         if (list != null && list.size() != 0) {
             setVisibility(0);
             int i = 0;
@@ -56,31 +56,31 @@ public class ItemHotThreadView extends LinearLayout {
     }
 
     private void refresh() {
-        setData(this.kDr);
+        setData(this.kyM);
     }
 
     private void a(SimpleThreadInfo simpleThreadInfo, boolean z) {
         View view;
         a aVar;
         if (simpleThreadInfo != null) {
-            if (!this.kDq.containsKey(String.valueOf(simpleThreadInfo.tid))) {
+            if (!this.kyL.containsKey(String.valueOf(simpleThreadInfo.tid))) {
                 View inflate = LayoutInflater.from(this.mContext).inflate(R.layout.forum_detail_hot_thread_item, (ViewGroup) this, false);
                 aVar = new a();
-                aVar.kDt = (LinearLayout) inflate.findViewById(R.id.thread_item_ll);
-                aVar.kDu = (TextView) inflate.findViewById(R.id.ht_item_title);
-                aVar.kDv = (TextView) inflate.findViewById(R.id.ht_item_content);
-                aVar.kDw = (TextView) inflate.findViewById(R.id.ht_item_reply);
-                aVar.kDx = (TextView) inflate.findViewById(R.id.ht_divider_line);
+                aVar.kyO = (LinearLayout) inflate.findViewById(R.id.thread_item_ll);
+                aVar.kyP = (TextView) inflate.findViewById(R.id.ht_item_title);
+                aVar.kyQ = (TextView) inflate.findViewById(R.id.ht_item_content);
+                aVar.kyR = (TextView) inflate.findViewById(R.id.ht_item_reply);
+                aVar.kyS = (TextView) inflate.findViewById(R.id.ht_divider_line);
                 inflate.setTag(aVar);
-                this.kDq.put(String.valueOf(simpleThreadInfo.tid), inflate);
+                this.kyL.put(String.valueOf(simpleThreadInfo.tid), inflate);
                 addView(inflate);
                 view = inflate;
             } else {
-                View view2 = this.kDq.get(String.valueOf(simpleThreadInfo.tid));
+                View view2 = this.kyL.get(String.valueOf(simpleThreadInfo.tid));
                 view = view2;
                 aVar = (a) view2.getTag();
             }
-            aVar.kDu.setText(simpleThreadInfo.title);
+            aVar.kyP.setText(simpleThreadInfo.title);
             StringBuilder sb = new StringBuilder();
             if (simpleThreadInfo._abstract != null && simpleThreadInfo._abstract.size() != 0) {
                 int size = simpleThreadInfo._abstract.size();
@@ -91,24 +91,24 @@ public class ItemHotThreadView extends LinearLayout {
                 }
             }
             if (!at.isEmpty(sb.toString().trim())) {
-                aVar.kDv.setText(sb.toString());
-                aVar.kDv.setVisibility(0);
+                aVar.kyQ.setText(sb.toString());
+                aVar.kyQ.setVisibility(0);
             } else {
-                aVar.kDv.setVisibility(8);
+                aVar.kyQ.setVisibility(8);
             }
-            aVar.kDw.setText(String.valueOf(simpleThreadInfo.reply_num));
-            ao.setBackgroundResource(aVar.kDt, R.drawable.live_frs_list_item_bg);
-            ao.setViewTextColor(aVar.kDu, R.color.CAM_X0105, 1);
-            ao.setViewTextColor(aVar.kDv, R.color.CAM_X0108, 1);
-            ao.setViewTextColor(aVar.kDw, R.color.CAM_X0304, 1);
+            aVar.kyR.setText(String.valueOf(simpleThreadInfo.reply_num));
+            ao.setBackgroundResource(aVar.kyO, R.drawable.live_frs_list_item_bg);
+            ao.setViewTextColor(aVar.kyP, R.color.CAM_X0105, 1);
+            ao.setViewTextColor(aVar.kyQ, R.color.CAM_X0108, 1);
+            ao.setViewTextColor(aVar.kyR, R.color.CAM_X0304, 1);
             BitmapDrawable bitmapDrawable = (BitmapDrawable) ao.getDrawable(R.drawable.icon_ba_comment);
             bitmapDrawable.setBounds(0, 0, bitmapDrawable.getIntrinsicWidth(), bitmapDrawable.getIntrinsicHeight());
-            aVar.kDw.setCompoundDrawables(bitmapDrawable, null, null, null);
-            ao.setBackgroundResource(aVar.kDx, R.color.CAM_X0204);
+            aVar.kyR.setCompoundDrawables(bitmapDrawable, null, null, null);
+            ao.setBackgroundResource(aVar.kyS, R.color.CAM_X0204);
             if (z) {
-                aVar.kDx.setVisibility(0);
+                aVar.kyS.setVisibility(0);
             } else {
-                aVar.kDx.setVisibility(8);
+                aVar.kyS.setVisibility(8);
             }
             final String valueOf = String.valueOf(simpleThreadInfo.tid);
             view.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.im.forum.detail.ItemHotThreadView.1
@@ -128,13 +128,13 @@ public class ItemHotThreadView extends LinearLayout {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static class a {
-        LinearLayout kDt;
-        TextView kDu;
-        TextView kDv;
-        TextView kDw;
-        TextView kDx;
+        LinearLayout kyO;
+        TextView kyP;
+        TextView kyQ;
+        TextView kyR;
+        TextView kyS;
 
         private a() {
         }

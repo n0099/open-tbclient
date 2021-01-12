@@ -3,14 +3,14 @@ package com.baidu.ar.npc;
 import android.util.Log;
 import com.baidu.ar.npc.ArBridge;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class o implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ int f1541a;
+    final /* synthetic */ int f1549a;
 
     /* renamed from: b  reason: collision with root package name */
-    final /* synthetic */ int f1542b;
+    final /* synthetic */ int f1550b;
     final /* synthetic */ float c;
     final /* synthetic */ float d;
     final /* synthetic */ float e;
@@ -26,8 +26,8 @@ public class o implements Runnable {
     /* JADX INFO: Access modifiers changed from: package-private */
     public o(ArBridge arBridge, int i, int i2, float f, float f2, float f3, float f4, int i3, float f5, float f6, float f7, float f8, long j) {
         this.m = arBridge;
-        this.f1541a = i;
-        this.f1542b = i2;
+        this.f1549a = i;
+        this.f1550b = i2;
         this.c = f;
         this.d = f2;
         this.e = f3;
@@ -48,8 +48,8 @@ public class o implements Runnable {
         eVar = this.m.j;
         Log.d("orientation", append.append(eVar.name()).toString());
         ArBridge arBridge = this.m;
-        int i = this.f1541a;
-        int i2 = this.f1542b;
+        int i = this.f1549a;
+        int i2 = this.f1550b;
         float f = this.c;
         float f2 = this.d;
         float f3 = this.e;

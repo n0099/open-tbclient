@@ -17,47 +17,47 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.memberCenter.index.a.r;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class d {
-    private BdListView WV;
-    private NavigationBar iTI;
-    private NoNetworkView jBY;
-    private b lkG;
-    private View lkH;
-    private TbImageView lkI;
-    private TextView lkJ;
-    private MemberTaskCenterActivity lkx;
+    private BdListView WT;
+    private NavigationBar iPb;
+    private NoNetworkView jxs;
+    private MemberTaskCenterActivity lfS;
+    private b lgb;
+    private View lgc;
+    private TbImageView lgd;
+    private TextView lge;
     private View mRootView;
 
     public d(MemberTaskCenterActivity memberTaskCenterActivity, View.OnClickListener onClickListener) {
-        this.lkx = memberTaskCenterActivity;
+        this.lfS = memberTaskCenterActivity;
         memberTaskCenterActivity.setContentView(R.layout.member_task_center_activity);
         this.mRootView = memberTaskCenterActivity.findViewById(R.id.root_view);
-        this.jBY = (NoNetworkView) memberTaskCenterActivity.findViewById(R.id.view_no_network);
-        this.iTI = (NavigationBar) memberTaskCenterActivity.findViewById(R.id.view_navigation_bar);
-        this.iTI.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.iTI.setTitleText(R.string.member_task_center);
-        this.WV = (BdListView) memberTaskCenterActivity.findViewById(R.id.member_task_list);
-        this.lkH = LayoutInflater.from(memberTaskCenterActivity.getActivity()).inflate(R.layout.member_task_center_header_view, (ViewGroup) null);
-        BdListViewHelper.a(memberTaskCenterActivity.getActivity(), this.WV, BdListViewHelper.HeadType.DEFAULT);
-        this.lkI = (TbImageView) this.lkH.findViewById(R.id.advert_image_view);
-        this.lkI.setScaleType(ImageView.ScaleType.FIT_XY);
-        this.lkJ = (TextView) this.lkH.findViewById(R.id.current_score_num);
-        this.lkI.setOnClickListener(onClickListener);
-        this.lkG = new b(memberTaskCenterActivity);
-        this.lkG.H(onClickListener);
-        this.WV.addHeaderView(this.lkH);
-        this.WV.setAdapter((ListAdapter) this.lkG);
+        this.jxs = (NoNetworkView) memberTaskCenterActivity.findViewById(R.id.view_no_network);
+        this.iPb = (NavigationBar) memberTaskCenterActivity.findViewById(R.id.view_navigation_bar);
+        this.iPb.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        this.iPb.setTitleText(R.string.member_task_center);
+        this.WT = (BdListView) memberTaskCenterActivity.findViewById(R.id.member_task_list);
+        this.lgc = LayoutInflater.from(memberTaskCenterActivity.getActivity()).inflate(R.layout.member_task_center_header_view, (ViewGroup) null);
+        BdListViewHelper.a(memberTaskCenterActivity.getActivity(), this.WT, BdListViewHelper.HeadType.DEFAULT);
+        this.lgd = (TbImageView) this.lgc.findViewById(R.id.advert_image_view);
+        this.lgd.setScaleType(ImageView.ScaleType.FIT_XY);
+        this.lge = (TextView) this.lgc.findViewById(R.id.current_score_num);
+        this.lgd.setOnClickListener(onClickListener);
+        this.lgb = new b(memberTaskCenterActivity);
+        this.lgb.H(onClickListener);
+        this.WT.addHeaderView(this.lgc);
+        this.WT.setAdapter((ListAdapter) this.lgb);
     }
 
     public void a(String str, List<r> list, long j) {
-        this.lkI.startLoad(str, 10, false);
-        this.lkJ.setText(fN(this.lkx.getResources().getString(R.string.current_score), String.valueOf(j)));
-        this.lkG.setData(list);
-        this.lkG.notifyDataSetChanged();
+        this.lgd.startLoad(str, 10, false);
+        this.lge.setText(fM(this.lfS.getResources().getString(R.string.current_score), String.valueOf(j)));
+        this.lgb.setData(list);
+        this.lgb.notifyDataSetChanged();
     }
 
-    private SpannableString fN(String str, String str2) {
+    private SpannableString fM(String str, String str2) {
         SpannableString spannableString = new SpannableString(str + str2);
         spannableString.setSpan(new ForegroundColorSpan(ao.getColor(R.color.CAM_X0109)), 0, str.length(), 33);
         spannableString.setSpan(new ForegroundColorSpan(ao.getColor(R.color.CAM_X0301)), str.length(), spannableString.length(), 33);
@@ -65,7 +65,7 @@ public class d {
     }
 
     public BdListView getListView() {
-        return this.WV;
+        return this.WT;
     }
 
     public View getRootView() {
@@ -73,8 +73,8 @@ public class d {
     }
 
     public void onChangeSkinType(int i) {
-        this.iTI.onChangeSkinType(this.lkx.getPageContext(), i);
-        this.jBY.onChangeSkinType(this.lkx.getPageContext(), i);
-        ao.setBackgroundColor(this.lkJ, R.color.CAM_X0205);
+        this.iPb.onChangeSkinType(this.lfS.getPageContext(), i);
+        this.jxs.onChangeSkinType(this.lfS.getPageContext(), i);
+        ao.setBackgroundColor(this.lge, R.color.CAM_X0205);
     }
 }

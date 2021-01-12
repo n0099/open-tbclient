@@ -6,7 +6,7 @@ import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.NoProGuard;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class GroupMemberJoinMsg extends NotifyMsg implements Parcelable, NoProGuard {
     public static final Parcelable.Creator<GroupMemberJoinMsg> CREATOR = new Parcelable.Creator<GroupMemberJoinMsg>() { // from class: com.baidu.android.imsdk.chatmessage.messages.GroupMemberJoinMsg.1
         /* JADX DEBUG: Method merged with bridge method */

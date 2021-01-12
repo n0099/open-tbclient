@@ -6,7 +6,7 @@ import android.content.Intent;
 import androidx.appcompat.widget.ActivityChooserView;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import java.util.List;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public enum t {
     SERVICE(1) { // from class: com.baidu.mobstat.t.1
         @Override // com.baidu.mobstat.t
@@ -29,8 +29,8 @@ public enum t {
                 Context applicationContext = context.getApplicationContext();
                 a a2 = u.a(context);
                 ac acVar = new ac();
-                acVar.f3679a = false;
-                acVar.f3680b = "M";
+                acVar.f3641a = false;
+                acVar.f3642b = "M";
                 acVar.c = false;
                 a2.a(applicationContext, acVar.a());
             }
@@ -43,8 +43,8 @@ public enum t {
                 Context applicationContext = context.getApplicationContext();
                 a a2 = u.a(context);
                 ac acVar = new ac();
-                acVar.f3679a = false;
-                acVar.f3680b = "R";
+                acVar.f3641a = false;
+                acVar.f3642b = "R";
                 acVar.c = false;
                 a2.a(applicationContext, acVar.a());
             }
@@ -57,8 +57,8 @@ public enum t {
                 Context applicationContext = context.getApplicationContext();
                 a a2 = u.a(context);
                 ac acVar = new ac();
-                acVar.f3679a = false;
-                acVar.f3680b = "E";
+                acVar.f3641a = false;
+                acVar.f3642b = "E";
                 acVar.c = false;
                 a2.a(applicationContext, acVar.a());
             }

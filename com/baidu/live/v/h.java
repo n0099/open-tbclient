@@ -5,7 +5,7 @@ import android.text.TextUtils;
 import com.baidu.live.data.AlaLiveInfoData;
 import com.baidu.live.data.AlaLiveStreamSessionInfo;
 import java.util.List;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class h {
     public static String d(AlaLiveInfoData alaLiveInfoData) {
         if (alaLiveInfoData == null || alaLiveInfoData.session_info == null) {
@@ -15,7 +15,7 @@ public class h {
         return TextUtils.isEmpty(flvUrl) ? alaLiveInfoData.session_info.getRtmpUrl(AlaLiveStreamSessionInfo.STREAM_LEVEL_DEFAULT) : flvUrl;
     }
 
-    public static String ic(String str) {
+    public static String gR(String str) {
         if (str == null || TextUtils.isEmpty(str)) {
             return null;
         }
@@ -32,19 +32,19 @@ public class h {
         return null;
     }
 
-    public static boolean aH(String str, String str2) {
+    public static boolean aG(String str, String str2) {
         if (str == null || TextUtils.isEmpty(str) || str2 == null || TextUtils.isEmpty(str2)) {
             return false;
         }
-        String ic = ic(str);
-        String ic2 = ic(str2);
-        if (ic == null || ic2 == null) {
+        String gR = gR(str);
+        String gR2 = gR(str2);
+        if (gR == null || gR2 == null) {
             return str.equals(str2);
         }
-        return ic.equals(ic2);
+        return gR.equals(gR2);
     }
 
-    public static boolean aI(String str, String str2) {
+    public static boolean aH(String str, String str2) {
         if (str == null || TextUtils.isEmpty(str) || str2 == null || TextUtils.isEmpty(str2)) {
             return false;
         }

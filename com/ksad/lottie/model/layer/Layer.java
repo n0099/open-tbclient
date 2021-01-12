@@ -8,14 +8,14 @@ import com.ksad.lottie.model.a.l;
 import com.ksad.lottie.model.content.Mask;
 import java.util.List;
 import java.util.Locale;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class Layer {
 
     /* renamed from: a  reason: collision with root package name */
-    private final List<com.ksad.lottie.model.content.b> f8391a;
+    private final List<com.ksad.lottie.model.content.b> f8091a;
 
     /* renamed from: b  reason: collision with root package name */
-    private final com.ksad.lottie.d f8392b;
+    private final com.ksad.lottie.d f8092b;
     private final String c;
     private final long d;
     private final LayerType e;
@@ -40,7 +40,7 @@ public class Layer {
     private final List<com.ksad.lottie.e.a<Float>> t;
     private final MatteType u;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public enum LayerType {
         PreComp,
         Solid,
@@ -51,7 +51,7 @@ public class Layer {
         Unknown
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public enum MatteType {
         None,
         Add,
@@ -60,8 +60,8 @@ public class Layer {
     }
 
     public Layer(List<com.ksad.lottie.model.content.b> list, com.ksad.lottie.d dVar, String str, long j, LayerType layerType, long j2, @Nullable String str2, List<Mask> list2, l lVar, int i, int i2, int i3, float f, float f2, int i4, int i5, @Nullable j jVar, @Nullable k kVar, List<com.ksad.lottie.e.a<Float>> list3, MatteType matteType, @Nullable com.ksad.lottie.model.a.b bVar) {
-        this.f8391a = list;
-        this.f8392b = dVar;
+        this.f8091a = list;
+        this.f8092b = dVar;
         this.c = str;
         this.d = j;
         this.e = layerType;
@@ -85,19 +85,19 @@ public class Layer {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public com.ksad.lottie.d a() {
-        return this.f8392b;
+        return this.f8092b;
     }
 
     public String a(String str) {
         StringBuilder sb = new StringBuilder();
         sb.append(str).append(f()).append("\n");
-        Layer a2 = this.f8392b.a(m());
+        Layer a2 = this.f8092b.a(m());
         if (a2 != null) {
             sb.append("\t\tParents: ").append(a2.f());
-            Layer a3 = this.f8392b.a(a2.m());
+            Layer a3 = this.f8092b.a(a2.m());
             while (a3 != null) {
                 sb.append(PerfFrameTrackUIUtil.SEPERATOR_ARROR).append(a3.f());
-                a3 = this.f8392b.a(a3.m());
+                a3 = this.f8092b.a(a3.m());
             }
             sb.append(str).append("\n");
         }
@@ -107,9 +107,9 @@ public class Layer {
         if (r() != 0 && q() != 0) {
             sb.append(str).append("\tBackground: ").append(String.format(Locale.US, "%dx%d %X\n", Integer.valueOf(r()), Integer.valueOf(q()), Integer.valueOf(p())));
         }
-        if (!this.f8391a.isEmpty()) {
+        if (!this.f8091a.isEmpty()) {
             sb.append(str).append("\tShapes:\n");
-            for (com.ksad.lottie.model.content.b bVar : this.f8391a) {
+            for (com.ksad.lottie.model.content.b bVar : this.f8091a) {
                 sb.append(str).append("\t\t").append(bVar).append("\n");
             }
         }
@@ -123,7 +123,7 @@ public class Layer {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public float c() {
-        return this.n / this.f8392b.k();
+        return this.n / this.f8092b.k();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -177,7 +177,7 @@ public class Layer {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public List<com.ksad.lottie.model.content.b> n() {
-        return this.f8391a;
+        return this.f8091a;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */

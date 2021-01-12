@@ -9,7 +9,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.kwad.sdk.contentalliance.home.h;
 import com.kwad.sdk.contentalliance.home.viewpager.SlidePlayViewPager;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public abstract class a extends com.kwad.sdk.contentalliance.b<c> implements com.kwad.sdk.contentalliance.a.a {
     @Nullable
     protected SlidePlayViewPager d;
@@ -67,40 +67,40 @@ public abstract class a extends com.kwad.sdk.contentalliance.b<c> implements com
 
     @Override // com.kwad.sdk.contentalliance.a.a
     public void j() {
-        if (this.f8564b == 0 || ((c) this.f8564b).f8703b == null) {
+        if (this.f8264b == 0 || ((c) this.f8264b).f8403b == null) {
             return;
         }
-        for (com.kwad.sdk.contentalliance.a.a aVar : ((c) this.f8564b).f8703b) {
+        for (com.kwad.sdk.contentalliance.a.a aVar : ((c) this.f8264b).f8403b) {
             aVar.j();
         }
     }
 
     @Override // com.kwad.sdk.contentalliance.a.a
     public void k() {
-        if (this.f8564b == 0 || ((c) this.f8564b).f8703b == null) {
+        if (this.f8264b == 0 || ((c) this.f8264b).f8403b == null) {
             return;
         }
-        for (com.kwad.sdk.contentalliance.a.a aVar : ((c) this.f8564b).f8703b) {
+        for (com.kwad.sdk.contentalliance.a.a aVar : ((c) this.f8264b).f8403b) {
             aVar.k();
         }
     }
 
     @Override // com.kwad.sdk.contentalliance.a.a
     public void l() {
-        if (this.f8564b == 0 || ((c) this.f8564b).f8703b == null) {
+        if (this.f8264b == 0 || ((c) this.f8264b).f8403b == null) {
             return;
         }
-        for (com.kwad.sdk.contentalliance.a.a aVar : ((c) this.f8564b).f8703b) {
+        for (com.kwad.sdk.contentalliance.a.a aVar : ((c) this.f8264b).f8403b) {
             aVar.l();
         }
     }
 
     @Override // com.kwad.sdk.contentalliance.a.a
     public void m() {
-        if (this.f8564b == 0 || ((c) this.f8564b).f8703b == null) {
+        if (this.f8264b == 0 || ((c) this.f8264b).f8403b == null) {
             return;
         }
-        for (com.kwad.sdk.contentalliance.a.a aVar : ((c) this.f8564b).f8703b) {
+        for (com.kwad.sdk.contentalliance.a.a aVar : ((c) this.f8264b).f8403b) {
             aVar.m();
         }
     }
@@ -118,10 +118,10 @@ public abstract class a extends com.kwad.sdk.contentalliance.b<c> implements com
         super.onActivityCreated(bundle);
         this.h = true;
         i();
-        if (this.f8564b == 0 || ((c) this.f8564b).c == null) {
+        if (this.f8264b == 0 || ((c) this.f8264b).c == null) {
             return;
         }
-        for (com.kwad.sdk.contentalliance.a.c cVar : ((c) this.f8564b).c) {
+        for (com.kwad.sdk.contentalliance.a.c cVar : ((c) this.f8264b).c) {
             cVar.e();
         }
     }
@@ -129,10 +129,10 @@ public abstract class a extends com.kwad.sdk.contentalliance.b<c> implements com
     @Override // com.kwad.sdk.api.core.fragment.KsFragment, com.kwad.sdk.api.core.fragment.AbstractIFragmentLifecycle, com.kwad.sdk.api.core.fragment.IFragmentLifecycle
     public void onActivityResult(int i, int i2, Intent intent) {
         super.onActivityResult(i, i2, intent);
-        if (this.f8564b == 0 || ((c) this.f8564b).c == null) {
+        if (this.f8264b == 0 || ((c) this.f8264b).c == null) {
             return;
         }
-        for (com.kwad.sdk.contentalliance.a.c cVar : ((c) this.f8564b).c) {
+        for (com.kwad.sdk.contentalliance.a.c cVar : ((c) this.f8264b).c) {
             cVar.a(i, i2, intent);
         }
     }
@@ -149,26 +149,26 @@ public abstract class a extends com.kwad.sdk.contentalliance.b<c> implements com
     @Override // com.kwad.sdk.api.core.fragment.KsFragment, com.kwad.sdk.api.core.fragment.AbstractIFragmentLifecycle, com.kwad.sdk.api.core.fragment.IFragmentLifecycle
     public void onDestroy() {
         super.onDestroy();
-        if (this.f8564b == 0 || ((c) this.f8564b).c == null) {
+        if (this.f8264b == 0 || ((c) this.f8264b).c == null) {
             return;
         }
-        for (com.kwad.sdk.contentalliance.a.c cVar : ((c) this.f8564b).c) {
+        for (com.kwad.sdk.contentalliance.a.c cVar : ((c) this.f8264b).c) {
             cVar.g();
         }
     }
 
     @Override // com.kwad.sdk.contentalliance.b, com.kwad.sdk.api.core.fragment.KsFragment, com.kwad.sdk.api.core.fragment.AbstractIFragmentLifecycle, com.kwad.sdk.api.core.fragment.IFragmentLifecycle
     public void onDestroyView() {
-        if (this.f8564b != 0) {
-            ((c) this.f8564b).a();
+        if (this.f8264b != 0) {
+            ((c) this.f8264b).a();
         }
         this.h = false;
         f();
         h();
-        if (this.f8564b == 0 || ((c) this.f8564b).c == null) {
+        if (this.f8264b == 0 || ((c) this.f8264b).c == null) {
             return;
         }
-        for (com.kwad.sdk.contentalliance.a.c cVar : ((c) this.f8564b).c) {
+        for (com.kwad.sdk.contentalliance.a.c cVar : ((c) this.f8264b).c) {
             cVar.f();
         }
     }
@@ -176,10 +176,10 @@ public abstract class a extends com.kwad.sdk.contentalliance.b<c> implements com
     @Override // com.kwad.sdk.api.core.fragment.KsFragment, com.kwad.sdk.api.core.fragment.AbstractIFragmentLifecycle, com.kwad.sdk.api.core.fragment.IFragmentLifecycle
     public void onPause() {
         super.onPause();
-        if (this.f8564b == 0 || ((c) this.f8564b).c == null) {
+        if (this.f8264b == 0 || ((c) this.f8264b).c == null) {
             return;
         }
-        for (com.kwad.sdk.contentalliance.a.c cVar : ((c) this.f8564b).c) {
+        for (com.kwad.sdk.contentalliance.a.c cVar : ((c) this.f8264b).c) {
             cVar.d();
         }
     }
@@ -187,10 +187,10 @@ public abstract class a extends com.kwad.sdk.contentalliance.b<c> implements com
     @Override // com.kwad.sdk.api.core.fragment.KsFragment, com.kwad.sdk.api.core.fragment.AbstractIFragmentLifecycle, com.kwad.sdk.api.core.fragment.IFragmentLifecycle
     public void onResume() {
         super.onResume();
-        if (this.f8564b == 0 || ((c) this.f8564b).c == null) {
+        if (this.f8264b == 0 || ((c) this.f8264b).c == null) {
             return;
         }
-        for (com.kwad.sdk.contentalliance.a.c cVar : ((c) this.f8564b).c) {
+        for (com.kwad.sdk.contentalliance.a.c cVar : ((c) this.f8264b).c) {
             cVar.c();
         }
     }

@@ -7,11 +7,11 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.text.TextUtils;
 import com.baidu.fsg.base.utils.LogUtil;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 class i extends SQLiteOpenHelper {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f1999a = "logsender";
+    private static final String f1949a = "logsender";
     private static final String d = "rim_stat_event";
     private static final String e = "rim_stat_event.db";
     private static final int f = 1;
@@ -19,7 +19,7 @@ class i extends SQLiteOpenHelper {
     private static i i;
 
     /* renamed from: b  reason: collision with root package name */
-    private SQLiteDatabase f2000b;
+    private SQLiteDatabase f1950b;
     private final byte[] c;
     private int h;
 
@@ -27,7 +27,7 @@ class i extends SQLiteOpenHelper {
         super(context, str, cursorFactory, i2);
         this.c = new byte[0];
         this.h = 200;
-        this.f2000b = getWritableDatabase();
+        this.f1950b = getWritableDatabase();
     }
 
     public static synchronized i a(Context context) {
@@ -46,16 +46,16 @@ class i extends SQLiteOpenHelper {
             if (hVar != null) {
                 if (!TextUtils.isEmpty(hVar.p)) {
                     ContentValues contentValues = new ContentValues();
-                    contentValues.put(h.f1997a, hVar.p);
+                    contentValues.put(h.f1947a, hVar.p);
                     contentValues.put("et", Long.valueOf(hVar.q));
                     contentValues.put("ev", hVar.r);
                     contentValues.put(h.d, hVar.s);
                     contentValues.put(h.e, hVar.t);
                     try {
-                        this.f2000b.insert(d, null, contentValues);
+                        this.f1950b.insert(d, null, contentValues);
                     } catch (Exception e2) {
                     }
-                    LogUtil.d(f1999a, "插入一条数据" + hVar.p);
+                    LogUtil.d(f1949a, "插入一条数据" + hVar.p);
                 }
             }
         }
@@ -65,7 +65,7 @@ class i extends SQLiteOpenHelper {
     public int a() {
         int i2 = 0;
         synchronized (this.c) {
-            Cursor rawQuery = this.f2000b.rawQuery("SELECT COUNT(*) FROM rim_stat_event", null);
+            Cursor rawQuery = this.f1950b.rawQuery("SELECT COUNT(*) FROM rim_stat_event", null);
             if (rawQuery != null) {
                 try {
                 } catch (Exception e2) {
@@ -102,7 +102,7 @@ class i extends SQLiteOpenHelper {
         int i2 = 0;
         synchronized (this.c) {
             try {
-                cursor = this.f2000b.rawQuery("select * from rim_stat_event", null);
+                cursor = this.f1950b.rawQuery("select * from rim_stat_event", null);
                 try {
                     try {
                     } catch (Throwable th) {
@@ -136,7 +136,7 @@ class i extends SQLiteOpenHelper {
                             break;
                         }
                         h hVar = new h();
-                        hVar.p = cursor.getString(cursor.getColumnIndex(h.f1997a));
+                        hVar.p = cursor.getString(cursor.getColumnIndex(h.f1947a));
                         hVar.q = cursor.getLong(cursor.getColumnIndex("et"));
                         hVar.r = cursor.getString(cursor.getColumnIndex("ev"));
                         hVar.s = cursor.getString(cursor.getColumnIndex(h.d));
@@ -168,17 +168,17 @@ class i extends SQLiteOpenHelper {
         synchronized (this.c) {
             if (hVarArr != null) {
                 if (hVarArr.length != 0) {
-                    LogUtil.d(f1999a, "=====removeEvents-begin=====size=" + hVarArr.length);
+                    LogUtil.d(f1949a, "=====removeEvents-begin=====size=" + hVarArr.length);
                     for (h hVar : hVarArr) {
                         if (hVar != null) {
-                            this.f2000b.delete(d, "nu=" + hVar.u, null);
+                            this.f1950b.delete(d, "nu=" + hVar.u, null);
                         }
                     }
-                    LogUtil.d(f1999a, "=====removeEvents-end=====");
+                    LogUtil.d(f1949a, "=====removeEvents-end=====");
                     return;
                 }
             }
-            LogUtil.d(f1999a, "=====removeEvents=====size=0");
+            LogUtil.d(f1949a, "=====removeEvents=====size=0");
         }
     }
 
@@ -192,10 +192,10 @@ class i extends SQLiteOpenHelper {
     }
 
     protected void finalize() throws Throwable {
-        if (this.f2000b != null && this.f2000b.isOpen()) {
-            this.f2000b.close();
+        if (this.f1950b != null && this.f1950b.isOpen()) {
+            this.f1950b.close();
         }
-        this.f2000b = null;
+        this.f1950b = null;
         super.finalize();
     }
 }

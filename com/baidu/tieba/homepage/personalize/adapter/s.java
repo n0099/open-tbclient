@@ -17,9 +17,9 @@ import com.baidu.tieba.NEGFeedBack.NEGFeedBackView;
 import com.baidu.tieba.card.data.BaseCardInfo;
 /* loaded from: classes2.dex */
 public class s extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.topic.topictab.b.a, ThreadCardViewHolder<com.baidu.tieba.homepage.topic.topictab.b.a>> implements com.baidu.tieba.a.f {
-    private String aji;
-    public BdUniqueId fJu;
-    private NEGFeedBackView.a ggi;
+    private String air;
+    public BdUniqueId fEN;
+    private NEGFeedBackView.a gbz;
     private TbPageContext<?> mPageContext;
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -37,15 +37,15 @@ public class s extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
         com.baidu.tieba.homepage.personalize.view.d dVar = new com.baidu.tieba.homepage.personalize.view.d(this.mContext, this.mPageContext);
         dVar.setTag(this.mPageId);
         aVar.c(dVar);
-        aVar.tx().bB(0);
-        aVar.tx().bC(0);
-        aVar.tx().bD(0);
-        aVar.tx().bA(0);
-        aVar.tx().bz(0);
+        aVar.tl().bz(0);
+        aVar.tl().bA(0);
+        aVar.tl().bB(0);
+        aVar.tl().by(0);
+        aVar.tl().bx(0);
         ak a2 = aVar.a(BaseCardInfo.SupportType.FULL, viewGroup);
         a2.setSourceForPb(2);
         ThreadCardViewHolder<com.baidu.tieba.homepage.topic.topictab.b.a> threadCardViewHolder = new ThreadCardViewHolder<>(a2);
-        threadCardViewHolder.setPageId(this.fJu);
+        threadCardViewHolder.setPageId(this.fEN);
         a(new com.baidu.adp.widget.ListView.w() { // from class: com.baidu.tieba.homepage.personalize.adapter.s.1
             @Override // com.baidu.adp.widget.ListView.w
             public void a(View view, com.baidu.adp.widget.ListView.n nVar, BdUniqueId bdUniqueId, ViewGroup viewGroup2, int i, long j) {
@@ -72,20 +72,20 @@ public class s extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
             return null;
         }
         TiebaStatic.log(new aq("c13448").w("topic_id", aVar.topicId));
-        threadCardViewHolder.ty().setPosition(i);
-        threadCardViewHolder.ty().setPage(this.aji);
-        threadCardViewHolder.aK(false).a(this.ggi);
+        threadCardViewHolder.tm().setPosition(i);
+        threadCardViewHolder.tm().setPage(this.air);
+        threadCardViewHolder.aK(false).a(this.gbz);
         threadCardViewHolder.b((ThreadCardViewHolder<com.baidu.tieba.homepage.topic.topictab.b.a>) aVar);
-        threadCardViewHolder.ty().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
+        threadCardViewHolder.tm().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
         return threadCardViewHolder.getView();
     }
 
     @Override // com.baidu.tieba.a.f
-    public void Fl(String str) {
-        this.aji = str;
+    public void Ea(String str) {
+        this.air = str;
     }
 
     public void setEventCallback(NEGFeedBackView.a aVar) {
-        this.ggi = aVar;
+        this.gbz = aVar;
     }
 }

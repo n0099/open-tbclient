@@ -17,61 +17,61 @@ import com.baidu.swan.apps.setting.oauth.OAuthException;
 import java.lang.ref.WeakReference;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class f extends h<c> {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    public b.a dMG;
-    public b dMH = new b(Looper.getMainLooper(), this);
-    public Bundle dMI;
-    protected JSONObject dMJ;
-    protected String dMu;
+    protected String dHI;
+    public b.a dHU;
+    public b dHV = new b(Looper.getMainLooper(), this);
+    public Bundle dHW;
+    protected JSONObject dHX;
     protected final Activity mActivity;
 
     public f(Activity activity, b.a aVar, Bundle bundle) {
         this.mActivity = activity;
-        this.dMG = aVar;
+        this.dHU = aVar;
         if (bundle != null && bundle.containsKey("__plugin__")) {
-            this.dMu = bundle.getString("__plugin__");
+            this.dHI = bundle.getString("__plugin__");
             bundle.remove("__plugin__");
         }
-        this.dMI = bundle;
+        this.dHW = bundle;
     }
 
     @Override // com.baidu.swan.apps.setting.oauth.b
-    protected boolean aOa() {
+    protected boolean aKg() {
         JSONObject jSONObject = new JSONObject();
         try {
-            boolean isEmpty = TextUtils.isEmpty(this.dMu);
-            jSONObject.put("ma_id", isEmpty ? aOA().id : this.dMu);
+            boolean isEmpty = TextUtils.isEmpty(this.dHI);
+            jSONObject.put("ma_id", isEmpty ? aKG().id : this.dHI);
             JSONObject jSONObject2 = new JSONObject();
-            jSONObject2.put("app_key", isEmpty ? aOA().getAppKey() : this.dMu);
+            jSONObject2.put("app_key", isEmpty ? aKG().getAppKey() : this.dHI);
             jSONObject2.put("host_pkgname", AppRuntime.getApplication().getPackageName());
             jSONObject2.put("host_key_hash", com.baidu.swan.apps.setting.oauth.c.getKeyHash());
-            String alL = com.baidu.swan.apps.t.a.aAE().alL();
-            if (!TextUtils.isEmpty(alL)) {
-                jSONObject2.put("host_api_key", alL);
+            String ahR = com.baidu.swan.apps.t.a.awK().ahR();
+            if (!TextUtils.isEmpty(ahR)) {
+                jSONObject2.put("host_api_key", ahR);
             }
             jSONObject.put("open", jSONObject2);
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        cA("data", jSONObject.toString());
+        cz("data", jSONObject.toString());
         return true;
     }
 
     @Override // com.baidu.swan.apps.setting.oauth.a.h
     protected HttpRequest a(h hVar) {
-        return com.baidu.swan.apps.t.a.aAE().e(this.mActivity, hVar.aOB());
+        return com.baidu.swan.apps.t.a.awK().e(this.mActivity, hVar.aKH());
     }
 
     @Override // com.baidu.swan.apps.setting.oauth.b
-    protected boolean aNZ() {
-        a(aOx());
-        return super.aNZ();
+    protected boolean aKf() {
+        a(aKD());
+        return super.aKf();
     }
 
     @NonNull
-    protected com.baidu.swan.apps.setting.oauth.d aOx() {
+    protected com.baidu.swan.apps.setting.oauth.d aKD() {
         return new a();
     }
 
@@ -100,30 +100,30 @@ public class f extends h<c> {
         if (DEBUG) {
             Log.d("LoginRequest", "finish: remove timeout msg");
         }
-        this.dMH.removeMessages(1);
+        this.dHV.removeMessages(1);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public class a extends com.baidu.swan.apps.setting.oauth.d implements com.baidu.swan.apps.a.a {
         private a() {
         }
 
         @Override // com.baidu.swan.apps.setting.oauth.d
-        protected boolean aOf() throws Exception {
-            com.baidu.swan.apps.a.b aMy = f.this.aOA().aMy();
-            boolean isLogin = aMy.isLogin(f.this.mActivity);
+        protected boolean aKl() throws Exception {
+            com.baidu.swan.apps.a.b aIE = f.this.aKG().aIE();
+            boolean isLogin = aIE.isLogin(f.this.mActivity);
             if (f.DEBUG) {
                 Log.d("LoginRequest", "LoginPreparation isLogin : " + isLogin + " call stack:" + Log.getStackTraceString(new Exception()));
             }
             if (!isLogin) {
-                aMy.a(f.this.mActivity, f.this.dMI, this);
-            } else if (f.this.dMG != null && f.this.dMG.cHR) {
-                long j = f.this.dMG.cHS;
+                aIE.a(f.this.mActivity, f.this.dHW, this);
+            } else if (f.this.dHU != null && f.this.dHU.cDf) {
+                long j = f.this.dHU.cDg;
                 if (f.DEBUG) {
                     Log.d("LoginRequest", "send timeout " + j + "ms msg");
                 }
-                f.this.dMH.sendEmptyMessageDelayed(1, j >= 0 ? j : 0L);
+                f.this.dHV.sendEmptyMessageDelayed(1, j >= 0 ? j : 0L);
             }
             return isLogin;
         }
@@ -143,13 +143,13 @@ public class f extends h<c> {
                     return;
                 case 0:
                     com.baidu.swan.apps.setting.oauth.c.c("Login Preparation ok, is already login", false);
-                    aOh();
+                    aKn();
                     return;
             }
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public static class c {
         public final String code;
 
@@ -162,18 +162,18 @@ public class f extends h<c> {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public static class b extends Handler {
-        private WeakReference<f> dML;
+        private WeakReference<f> dHZ;
 
         private b(Looper looper, f fVar) {
             super(looper);
-            this.dML = new WeakReference<>(fVar);
+            this.dHZ = new WeakReference<>(fVar);
         }
 
         @Override // android.os.Handler
         public void handleMessage(Message message) {
-            f fVar = this.dML.get();
+            f fVar = this.dHZ.get();
             if (fVar != null) {
                 switch (message.what) {
                     case 1:

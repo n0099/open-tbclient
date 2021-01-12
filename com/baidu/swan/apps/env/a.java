@@ -13,7 +13,7 @@ import java.util.Set;
 import okhttp3.Response;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public abstract class a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
@@ -26,9 +26,9 @@ public abstract class a {
             arrayMap.put("ma_ids", list);
             JSONObject jSONObject = new JSONObject();
             try {
-                com.baidu.swan.apps.setting.oauth.g alU = com.baidu.swan.apps.t.a.aAR().alU();
+                com.baidu.swan.apps.setting.oauth.g aia = com.baidu.swan.apps.t.a.awX().aia();
                 jSONObject.put("accredit", new JSONObject(arrayMap));
-                ((PostFormRequest.PostFormRequestBuilder) ((PostFormRequest.PostFormRequestBuilder) com.baidu.swan.a.c.a.bfF().postFormRequest().url(com.baidu.swan.apps.t.a.aAE().akN())).addParam("data", jSONObject.toString()).cookieManager(alU)).build().executeAsyncOnUIBack(awU());
+                ((PostFormRequest.PostFormRequestBuilder) ((PostFormRequest.PostFormRequestBuilder) com.baidu.swan.a.c.a.bbL().postFormRequest().url(com.baidu.swan.apps.t.a.awK().agT())).addParam("data", jSONObject.toString()).cookieManager(aia)).build().executeAsyncOnUIBack(ata());
             } catch (JSONException e) {
                 e.printStackTrace();
                 if (DEBUG) {
@@ -48,35 +48,35 @@ public abstract class a {
             if (aK != null) {
                 hashSet.removeAll(aK);
             }
-            com.baidu.swan.apps.t.a.aBr().a("aiapp_setting_", hashSet, false);
-            com.baidu.swan.apps.t.a.aBr().a("aiapp_", hashSet, false);
+            com.baidu.swan.apps.t.a.axx().a("aiapp_setting_", hashSet, false);
+            com.baidu.swan.apps.t.a.axx().a("aiapp_", hashSet, false);
             for (String str : hashSet) {
                 if (DEBUG) {
                     Log.d("AbsDefaultPurger", "clear storage files: " + str);
                 }
-                String tO = com.baidu.swan.apps.storage.b.tO(str);
-                if (!TextUtils.isEmpty(tO)) {
-                    com.baidu.swan.c.d.deleteFile(tO);
+                String sD = com.baidu.swan.apps.storage.b.sD(str);
+                if (!TextUtils.isEmpty(sD)) {
+                    com.baidu.swan.c.d.deleteFile(sD);
                 }
-                String tU = com.baidu.swan.apps.storage.b.tU(str);
-                if (!TextUtils.isEmpty(tU)) {
-                    com.baidu.swan.c.d.deleteFile(tU);
+                String sJ = com.baidu.swan.apps.storage.b.sJ(str);
+                if (!TextUtils.isEmpty(sJ)) {
+                    com.baidu.swan.c.d.deleteFile(sJ);
                 }
             }
         }
     }
 
-    public void om(String str) {
-        com.baidu.swan.pms.database.a.bgc().yO(str);
-        com.baidu.swan.pms.database.a.bgc().c(com.baidu.swan.pms.model.f.class, str);
+    public void na(String str) {
+        com.baidu.swan.pms.database.a.bci().xD(str);
+        com.baidu.swan.pms.database.a.bci().c(com.baidu.swan.pms.model.f.class, str);
     }
 
-    public void oo(String str) {
-        com.baidu.swan.pms.database.a.bgc().yQ(str);
+    public void nb(String str) {
+        com.baidu.swan.pms.database.a.bci().xF(str);
     }
 
     @NonNull
-    private ResponseCallback<JSONObject> awU() {
+    private ResponseCallback<JSONObject> ata() {
         return new ResponseCallback<JSONObject>() { // from class: com.baidu.swan.apps.env.a.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.searchbox.http.callback.ResponseCallback

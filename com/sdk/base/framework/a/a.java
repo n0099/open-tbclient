@@ -7,14 +7,14 @@ import android.net.NetworkRequest;
 import java.net.HttpURLConnection;
 import java.net.URL;
 @SuppressLint({"NewApi"})
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f13063a = a.class.getName();
+    private static final String f12763a = a.class.getName();
 
     /* renamed from: b  reason: collision with root package name */
-    private static Boolean f13064b = Boolean.valueOf(com.sdk.base.framework.c.f.f13119b);
+    private static Boolean f12764b = Boolean.valueOf(com.sdk.base.framework.c.f.f12819b);
     private static ConnectivityManager.NetworkCallback d;
     private HttpURLConnection c;
 
@@ -27,7 +27,7 @@ public class a {
             d = new b(this, url);
             ((ConnectivityManager) context.getSystemService("connectivity")).requestNetwork(build, d);
         } catch (Exception e) {
-            com.sdk.base.framework.a.a.c.b(f13063a, e.toString(), f13064b);
+            com.sdk.base.framework.a.a.c.b(f12763a, e.toString(), f12764b);
         }
     }
 

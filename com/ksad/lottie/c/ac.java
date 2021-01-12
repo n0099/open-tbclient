@@ -2,11 +2,11 @@ package com.ksad.lottie.c;
 
 import android.util.JsonReader;
 import android.util.JsonToken;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class ac implements aj<com.ksad.lottie.e.d> {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final ac f8269a = new ac();
+    public static final ac f7969a = new ac();
 
     private ac() {
     }

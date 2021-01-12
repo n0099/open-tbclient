@@ -4,7 +4,7 @@ import android.graphics.Color;
 import android.text.TextUtils;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.swan.apps.ao.ah;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class d {
     public static int V(String str, int i) {
         int i2;
@@ -33,7 +33,7 @@ public class d {
         return i2;
     }
 
-    public static float u(double d) {
+    public static float o(double d) {
         return (float) (ah.getDensity(AppRuntime.getAppContext()) * d);
     }
 }

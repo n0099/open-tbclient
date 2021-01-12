@@ -10,15 +10,15 @@ import com.baidu.tieba.lego.card.model.ICardInfo;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes2.dex */
 public class e implements al {
-    public static final AtomicReference<al> jec = new AtomicReference<>(null);
-    private static final al jed = new e();
+    public static final AtomicReference<al> iZv = new AtomicReference<>(null);
+    private static final al iZw = new e();
 
     private e() {
     }
 
-    public static al cEh() {
-        al alVar = jec.get();
-        return alVar == null ? jed : alVar;
+    public static al cAp() {
+        al alVar = iZv.get();
+        return alVar == null ? iZw : alVar;
     }
 
     @Override // com.baidu.tieba.frs.al

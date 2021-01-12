@@ -15,10 +15,10 @@ import java.util.HashSet;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class YuyinAlaDynamicGiftListHttpResponseMessage extends JsonHttpResponsedMessage {
-    private ArrayList<com.baidu.live.gift.b> bgx;
-    private JSONObject bhR;
+    private ArrayList<com.baidu.live.gift.b> bbG;
+    private JSONObject bda;
 
     public YuyinAlaDynamicGiftListHttpResponseMessage(int i) {
         super(i);
@@ -28,26 +28,26 @@ public class YuyinAlaDynamicGiftListHttpResponseMessage extends JsonHttpResponse
     public void decodeLogicInBackGround(int i, JSONObject jSONObject) throws Exception {
         if (jSONObject != null && i == 1031058) {
             super.decodeLogicInBackGround(i, jSONObject);
-            this.bhR = jSONObject.optJSONObject("data");
-            if (this.bhR != null) {
-                this.bgx = M(this.bhR);
-                String JS = getOrginalMessage() instanceof c ? ((c) getOrginalMessage()).JS() : null;
-                if (!TextUtils.isEmpty(JS)) {
-                    List<com.baidu.live.gift.b> M = M(this.bgx);
+            this.bda = jSONObject.optJSONObject("data");
+            if (this.bda != null) {
+                this.bbG = M(this.bda);
+                String FX = getOrginalMessage() instanceof c ? ((c) getOrginalMessage()).FX() : null;
+                if (!TextUtils.isEmpty(FX)) {
+                    List<com.baidu.live.gift.b> M = M(this.bbG);
                     if (M != null) {
-                        b(M, JS);
+                        b(M, FX);
                     }
-                    d.Ba().putString("dynamic_cache_data_list", this.bhR.toString());
-                } else if (this.bgx.size() <= 0) {
-                    am.Ih().HD();
-                    d.Ba().putString("dynamic_cache_data_list", "");
-                    v.gP(null);
+                    d.xf().putString("dynamic_cache_data_list", this.bda.toString());
+                } else if (this.bbG.size() <= 0) {
+                    am.Em().DI();
+                    d.xf().putString("dynamic_cache_data_list", "");
+                    v.fD(null);
                 } else {
-                    hx(d.Ba().getSharedPreferences().getString("dynamic_cache_data_list", ""));
-                    d.Ba().putString("dynamic_cache_data_list", this.bhR.toString());
-                    JT();
-                    FI();
-                    b(this.bgx, null);
+                    gl(d.xf().getSharedPreferences().getString("dynamic_cache_data_list", ""));
+                    d.xf().putString("dynamic_cache_data_list", this.bda.toString());
+                    FY();
+                    BN();
+                    b(this.bbG, null);
                 }
             }
         }
@@ -57,7 +57,7 @@ public class YuyinAlaDynamicGiftListHttpResponseMessage extends JsonHttpResponse
         ArrayList<com.baidu.live.gift.b> arrayList;
         ArrayList arrayList2 = null;
         if (list != null && !list.isEmpty()) {
-            String string = d.Ba().getSharedPreferences().getString("dynamic_cache_data_list", "");
+            String string = d.xf().getSharedPreferences().getString("dynamic_cache_data_list", "");
             if (!TextUtils.isEmpty(string)) {
                 try {
                     arrayList = M(new JSONObject(string));
@@ -84,7 +84,7 @@ public class YuyinAlaDynamicGiftListHttpResponseMessage extends JsonHttpResponse
         return arrayList2;
     }
 
-    private void hx(String str) {
+    private void gl(String str) {
         ArrayList<com.baidu.live.gift.b> arrayList;
         if (!TextUtils.isEmpty(str)) {
             try {
@@ -101,21 +101,21 @@ public class YuyinAlaDynamicGiftListHttpResponseMessage extends JsonHttpResponse
                 }
                 for (int i2 = 0; i2 < arrayList2.size(); i2++) {
                     com.baidu.live.gift.b bVar = (com.baidu.live.gift.b) arrayList2.get(i2);
-                    if (bVar != null && bVar.aWY != null && !TextUtils.isEmpty(bVar.aWY.zipName)) {
-                        am.Ih().gL(bVar.aWY.zipName);
-                        v.gP(bVar.aWY.zipName);
+                    if (bVar != null && bVar.aSl != null && !TextUtils.isEmpty(bVar.aSl.zipName)) {
+                        am.Em().fz(bVar.aSl.zipName);
+                        v.fD(bVar.aSl.zipName);
                     }
                 }
             }
         }
     }
 
-    private void FI() {
-        hy(am.aZM);
-        hy(am.aZN);
+    private void BN() {
+        gm(am.aUZ);
+        gm(am.aVa);
     }
 
-    private void hy(String str) {
+    private void gm(String str) {
         if (!TextUtils.isEmpty(str)) {
             File file = new File(str);
             if (file.exists()) {
@@ -141,10 +141,10 @@ public class YuyinAlaDynamicGiftListHttpResponseMessage extends JsonHttpResponse
                                 file2.delete();
                             } else {
                                 String str2 = null;
-                                if (am.aZM.equals(str)) {
-                                    str2 = com.baidu.live.ah.b.in(name);
-                                } else if (am.aZN.equals(str)) {
-                                    str2 = com.baidu.live.ah.b.io(name);
+                                if (am.aUZ.equals(str)) {
+                                    str2 = com.baidu.live.ah.b.hc(name);
+                                } else if (am.aVa.equals(str)) {
+                                    str2 = com.baidu.live.ah.b.hd(name);
                                 }
                                 if (!TextUtils.isEmpty(str2)) {
                                     File file3 = new File(str2);
@@ -165,15 +165,15 @@ public class YuyinAlaDynamicGiftListHttpResponseMessage extends JsonHttpResponse
         }
     }
 
-    private void JT() {
+    private void FY() {
         File[] listFiles;
-        if (com.baidu.live.alphavideo.a.CC().CD()) {
-            File file = new File(am.aZM);
+        if (com.baidu.live.alphavideo.a.yH().yI()) {
+            File file = new File(am.aUZ);
             if (file.exists() && file.isDirectory() && (listFiles = file.listFiles()) != null && listFiles.length != 0) {
                 for (File file2 : listFiles) {
                     String name = file2.getName();
-                    if (!TextUtils.isEmpty(name) && !com.baidu.live.i.b.b(am.aZM + name, com.baidu.live.i.b.gt("dynamic_video_md5_" + name))) {
-                        com.baidu.live.i.a.cleanDir(new File(am.aZN + name));
+                    if (!TextUtils.isEmpty(name) && !com.baidu.live.i.b.b(am.aUZ + name, com.baidu.live.i.b.fh("dynamic_video_md5_" + name))) {
+                        com.baidu.live.i.a.cleanDir(new File(am.aVa + name));
                     }
                 }
             }
@@ -182,36 +182,36 @@ public class YuyinAlaDynamicGiftListHttpResponseMessage extends JsonHttpResponse
 
     private void b(List<com.baidu.live.gift.b> list, String str) {
         boolean z;
-        if ((!BdNetTypeUtil.isMobileNet() || !m.XB()) && list != null && !list.isEmpty()) {
-            List<u> HF = v.HF();
+        if ((!BdNetTypeUtil.isMobileNet() || !m.TI()) && list != null && !list.isEmpty()) {
+            List<u> DK = v.DK();
             for (int i = 0; i < list.size(); i++) {
                 com.baidu.live.gift.b bVar = list.get(i);
-                if (bVar.aWY != null) {
-                    if (HF != null) {
-                        for (u uVar : HF) {
-                            if (uVar.name.equals(bVar.aWY.zipName)) {
+                if (bVar.aSl != null) {
+                    if (DK != null) {
+                        for (u uVar : DK) {
+                            if (uVar.name.equals(bVar.aSl.zipName)) {
                                 z = false;
                                 break;
                             }
                         }
                     }
                     z = true;
-                    am.Ih().a(bVar, !TextUtils.isEmpty(str) && str.equals(bVar.giftId), z);
+                    am.Em().a(bVar, !TextUtils.isEmpty(str) && str.equals(bVar.giftId), z);
                 }
             }
         }
     }
 
     private boolean a(com.baidu.live.gift.b bVar) {
-        if (bVar == null || bVar.aWY == null) {
+        if (bVar == null || bVar.aSl == null) {
             return false;
         }
-        if (TextUtils.isEmpty(bVar.aWY.videoMd5) && TextUtils.isEmpty(bVar.aWY.zipMD5)) {
+        if (TextUtils.isEmpty(bVar.aSl.videoMd5) && TextUtils.isEmpty(bVar.aSl.zipMD5)) {
             return false;
         }
-        for (int i = 0; i < this.bgx.size(); i++) {
-            com.baidu.live.gift.b bVar2 = this.bgx.get(i);
-            if ((!TextUtils.isEmpty(bVar2.aWY.videoMd5) && bVar2.aWY.videoMd5.equals(bVar.aWY.videoMd5)) || (!TextUtils.isEmpty(bVar2.aWY.zipMD5) && bVar2.aWY.zipMD5.equals(bVar.aWY.zipMD5))) {
+        for (int i = 0; i < this.bbG.size(); i++) {
+            com.baidu.live.gift.b bVar2 = this.bbG.get(i);
+            if ((!TextUtils.isEmpty(bVar2.aSl.videoMd5) && bVar2.aSl.videoMd5.equals(bVar.aSl.videoMd5)) || (!TextUtils.isEmpty(bVar2.aSl.zipMD5) && bVar2.aSl.zipMD5.equals(bVar.aSl.zipMD5))) {
                 return true;
             }
         }
@@ -234,11 +234,11 @@ public class YuyinAlaDynamicGiftListHttpResponseMessage extends JsonHttpResponse
         return arrayList;
     }
 
-    public ArrayList<com.baidu.live.gift.b> JU() {
-        return this.bgx;
+    public ArrayList<com.baidu.live.gift.b> FZ() {
+        return this.bbG;
     }
 
-    public boolean FS() {
+    public boolean BX() {
         if (getOrginalMessage() instanceof c) {
             return ((c) getOrginalMessage()).isHost();
         }

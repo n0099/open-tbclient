@@ -13,7 +13,7 @@ import androidx.annotation.RestrictTo;
 import androidx.appcompat.R;
 import java.lang.ref.WeakReference;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public final class ViewStubCompat extends View {
     private OnInflateListener mInflateListener;
     private int mInflatedId;
@@ -21,7 +21,7 @@ public final class ViewStubCompat extends View {
     private LayoutInflater mInflater;
     private int mLayoutResource;
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public interface OnInflateListener {
         void onInflate(ViewStubCompat viewStubCompat, View view);
     }

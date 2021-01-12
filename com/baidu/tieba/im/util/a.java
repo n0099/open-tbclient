@@ -1,6 +1,5 @@
 package com.baidu.tieba.im.util;
 
-import com.baidu.platform.comapi.map.MapBundleKey;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.z;
@@ -24,7 +23,7 @@ public class a extends Thread {
         super.run();
         if (!TbadkCoreApplication.getInst().checkInterrupt()) {
             z zVar = new z(TbConfig.SERVER_ADDRESS + TbConfig.LOAD_REG_PV_ADDRESS);
-            zVar.addPostData(MapBundleKey.MapObjKey.OBJ_SL_OBJ, this.mObj);
+            zVar.addPostData("obj", this.mObj);
             zVar.addPostData("obj_tp", this.mObjTp);
             zVar.addPostData("group_id", this.mGroupId);
             zVar.postNetData();

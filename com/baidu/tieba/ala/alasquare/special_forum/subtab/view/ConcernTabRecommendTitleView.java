@@ -9,19 +9,19 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.ao;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ala.alasquare.special_forum.data.g;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class ConcernTabRecommendTitleView extends com.baidu.tieba.card.b<g> {
-    private ViewHolder gKd;
+    private ViewHolder gFx;
 
     public ConcernTabRecommendTitleView(TbPageContext<?> tbPageContext, ViewGroup viewGroup) {
         super(tbPageContext, viewGroup);
-        this.gKd = new ViewHolder(getView());
+        this.gFx = new ViewHolder(getView());
         onChangeSkinType(tbPageContext, TbadkCoreApplication.getInst().getSkinType());
     }
 
     @Override // com.baidu.tieba.card.b
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
-        ao.setViewTextColor(this.gKd.textView, R.color.CAM_X0109);
+        ao.setViewTextColor(this.gFx.textView, R.color.CAM_X0109);
     }
 
     @Override // com.baidu.tieba.card.b
@@ -32,11 +32,11 @@ public class ConcernTabRecommendTitleView extends com.baidu.tieba.card.b<g> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.card.b
     public void a(g gVar) {
-        if (this.gKd != null) {
-            if (gVar.gIH) {
-                this.gKd.devider.setVisibility(0);
+        if (this.gFx != null) {
+            if (gVar.gEb) {
+                this.gFx.devider.setVisibility(0);
             } else {
-                this.gKd.devider.setVisibility(8);
+                this.gFx.devider.setVisibility(8);
             }
         }
     }
@@ -45,17 +45,17 @@ public class ConcernTabRecommendTitleView extends com.baidu.tieba.card.b<g> {
     public void onClick(View view) {
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static class ViewHolder extends TypeAdapter.ViewHolder {
         public View devider;
-        public View epV;
+        public View elg;
         public TextView textView;
 
         public ViewHolder(View view) {
             super(view);
-            this.epV = view;
-            this.textView = (TextView) this.epV.findViewById(R.id.title);
-            this.devider = this.epV.findViewById(R.id.divider);
+            this.elg = view;
+            this.textView = (TextView) this.elg.findViewById(R.id.title);
+            this.devider = this.elg.findViewById(R.id.divider);
         }
     }
 }

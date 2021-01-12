@@ -6,7 +6,7 @@ import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class NetProbeThreadPoolUtil implements INoProGuard {
     private static final String LOG_TAG = "NetProbeThreadPoolUtil";
     private static final int THREAD_POOL_KEEP_ALIVE_TIME = 60;
@@ -15,7 +15,7 @@ public class NetProbeThreadPoolUtil implements INoProGuard {
     private static ThreadPoolExecutor mExecutor;
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public static class a implements ThreadFactory {
         private a() {
         }

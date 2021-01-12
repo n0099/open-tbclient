@@ -1,5 +1,5 @@
 package com.google.protobuf;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 final class Utf8 {
     public static final int COMPLETE = 0;
     public static final int MALFORMED = -1;

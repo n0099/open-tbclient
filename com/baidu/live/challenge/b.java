@@ -2,7 +2,7 @@ package com.baidu.live.challenge;
 
 import com.baidu.mobstat.Config;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class b {
     public boolean hasMore;
     public int pn;

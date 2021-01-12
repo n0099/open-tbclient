@@ -5,15 +5,15 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.aq;
 /* loaded from: classes.dex */
 public class d {
-    public static void dQN() {
-        TiebaStatic.log(new aq("c14029").dX("uid", TbadkApplication.getCurrentAccount()));
+    public static void dMV() {
+        TiebaStatic.log(new aq("c14029").dW("uid", TbadkApplication.getCurrentAccount()));
     }
 
-    public static void dQO() {
-        TiebaStatic.log(new aq("c14040").dX("uid", TbadkApplication.getCurrentAccount()));
+    public static void dMW() {
+        TiebaStatic.log(new aq("c14040").dW("uid", TbadkApplication.getCurrentAccount()));
     }
 
-    public static void dQP() {
-        TiebaStatic.log(new aq("c14041").dX("uid", TbadkApplication.getCurrentAccount()));
+    public static void dMX() {
+        TiebaStatic.log(new aq("c14041").dW("uid", TbadkApplication.getCurrentAccount()));
     }
 }

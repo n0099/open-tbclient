@@ -15,14 +15,14 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tieba.frs.ap;
 import java.net.URL;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class AlaGameFrsLiveTabVideoFragment extends BaseFragment implements ap {
     private String forumId;
     private String forumName;
-    private b gYQ;
-    private boolean gXk = false;
-    private boolean gEY = true;
-    private CustomMessageListener gIn = new CustomMessageListener(0) { // from class: com.baidu.tieba.ala.gamefrslivetab.video.AlaGameFrsLiveTabVideoFragment.1
+    private b gUk;
+    private boolean gSE = false;
+    private boolean gAr = true;
+    private CustomMessageListener gDH = new CustomMessageListener(0) { // from class: com.baidu.tieba.ala.gamefrslivetab.video.AlaGameFrsLiveTabVideoFragment.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -30,11 +30,11 @@ public class AlaGameFrsLiveTabVideoFragment extends BaseFragment implements ap {
                 String[] split = ((String) customResponsedMessage.getData()).split(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS);
                 if (split.length == 2) {
                     if ("FrsGameLive".equals(split[0]) && 8 == com.baidu.adp.lib.f.b.toInt(split[1], 0)) {
-                        if (AlaGameFrsLiveTabVideoFragment.this.gYQ != null) {
-                            AlaGameFrsLiveTabVideoFragment.this.gYQ.bVF();
+                        if (AlaGameFrsLiveTabVideoFragment.this.gUk != null) {
+                            AlaGameFrsLiveTabVideoFragment.this.gUk.bRN();
                         }
-                    } else if ("FrsGameLiveLive".equals(split[0]) && 3 == com.baidu.adp.lib.f.b.toInt(split[1], 0) && AlaGameFrsLiveTabVideoFragment.this.gYQ != null) {
-                        AlaGameFrsLiveTabVideoFragment.this.gYQ.bVF();
+                    } else if ("FrsGameLiveLive".equals(split[0]) && 3 == com.baidu.adp.lib.f.b.toInt(split[1], 0) && AlaGameFrsLiveTabVideoFragment.this.gUk != null) {
+                        AlaGameFrsLiveTabVideoFragment.this.gUk.bRN();
                     }
                 }
             }
@@ -47,7 +47,7 @@ public class AlaGameFrsLiveTabVideoFragment extends BaseFragment implements ap {
             if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2921023 && (customResponsedMessage.getData() instanceof String)) {
                 String str = (String) customResponsedMessage.getData();
                 if (AlaGameFrsLiveTabVideoFragment.this.getVideoUrl().contains(str) || str.contains(AlaGameFrsLiveTabVideoFragment.this.getVideoUrl())) {
-                    AlaGameFrsLiveTabVideoFragment.this.gYQ.hideLoadingView();
+                    AlaGameFrsLiveTabVideoFragment.this.gUk.hideLoadingView();
                 }
             }
         }
@@ -56,32 +56,32 @@ public class AlaGameFrsLiveTabVideoFragment extends BaseFragment implements ap {
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        registerListener(CmdConfigCustom.CMD_FORCE_REFRESH, this.gIn, getBaseFragmentActivity().getUniqueId());
+        registerListener(CmdConfigCustom.CMD_FORCE_REFRESH, this.gDH, getBaseFragmentActivity().getUniqueId());
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
-        this.gYQ = new b(this.gXk);
-        return this.gYQ.b(layoutInflater, viewGroup);
+        this.gUk = new b(this.gSE);
+        return this.gUk.b(layoutInflater, viewGroup);
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onActivityCreated(Bundle bundle) {
         super.onActivityCreated(bundle);
-        this.gYQ.b(this);
+        this.gUk.b(this);
         registerListener(this.htmlLoadMessageListener);
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onPrimary() {
         super.onPrimary();
-        if (this.gEY || StringUtils.isNull(this.gYQ.getWebView().getUrl())) {
+        if (this.gAr || StringUtils.isNull(this.gUk.getWebView().getUrl())) {
             if (TbadkCoreApplication.getInst().getSkinType() == 1) {
-                this.gYQ.loadUrl(Hq(getVideoUrl()));
+                this.gUk.loadUrl(Gf(getVideoUrl()));
             } else {
-                this.gYQ.loadUrl(getVideoUrl());
+                this.gUk.loadUrl(getVideoUrl());
             }
-            this.gEY = false;
+            this.gAr = false;
         }
     }
 
@@ -95,7 +95,7 @@ public class AlaGameFrsLiveTabVideoFragment extends BaseFragment implements ap {
         super.onResume();
     }
 
-    private String Hq(String str) {
+    private String Gf(String str) {
         if (StringUtils.isNull(str)) {
             return "";
         }
@@ -115,8 +115,8 @@ public class AlaGameFrsLiveTabVideoFragment extends BaseFragment implements ap {
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onDestroy() {
         super.onDestroy();
-        if (this.gYQ != null) {
-            this.gYQ.onDestroy();
+        if (this.gUk != null) {
+            this.gUk.onDestroy();
         }
     }
 
@@ -128,13 +128,13 @@ public class AlaGameFrsLiveTabVideoFragment extends BaseFragment implements ap {
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        if (!this.gEY) {
+        if (!this.gAr) {
             if (i == 1) {
-                this.gYQ.loadUrl(Hq(getVideoUrl()));
+                this.gUk.loadUrl(Gf(getVideoUrl()));
             } else {
-                this.gYQ.loadUrl(getVideoUrl());
+                this.gUk.loadUrl(getVideoUrl());
             }
-            this.gYQ.onChangeSkinType(i);
+            this.gUk.onChangeSkinType(i);
         }
     }
 
@@ -146,12 +146,12 @@ public class AlaGameFrsLiveTabVideoFragment extends BaseFragment implements ap {
         this.forumName = str;
     }
 
-    public void nk(boolean z) {
-        this.gXk = z;
+    public void ng(boolean z) {
+        this.gSE = z;
     }
 
     public String getVideoUrl() {
-        String string = com.baidu.tbadk.core.sharedPref.b.bvr().getString("ala_game_frs_live_tab_video_url", "https://tieba.baidu.com/n/interact/video/game?");
+        String string = com.baidu.tbadk.core.sharedPref.b.brx().getString("ala_game_frs_live_tab_video_url", "https://tieba.baidu.com/n/interact/video/game?");
         if (string != null) {
             StringBuilder sb = new StringBuilder(string);
             if (string.endsWith("?")) {
@@ -167,7 +167,7 @@ public class AlaGameFrsLiveTabVideoFragment extends BaseFragment implements ap {
     }
 
     @Override // com.baidu.tieba.frs.ap
-    public NavigationBar bYr() {
-        return this.gYQ.bYr();
+    public NavigationBar bUz() {
+        return this.gUk.bUz();
     }
 }

@@ -2,11 +2,11 @@ package com.kwad.sdk.core.report;
 
 import androidx.annotation.Nullable;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public abstract class d implements com.kwad.sdk.core.b {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f9714a;
+    public String f9414a;
 
     public void a(@Nullable JSONObject jSONObject) {
         if (jSONObject == null) {
@@ -14,7 +14,7 @@ public abstract class d implements com.kwad.sdk.core.b {
         }
         try {
             if (jSONObject.has("actionId")) {
-                this.f9714a = jSONObject.optString("actionId");
+                this.f9414a = jSONObject.optString("actionId");
             }
         } catch (Exception e) {
             com.kwad.sdk.core.d.a.a(e);
@@ -24,7 +24,7 @@ public abstract class d implements com.kwad.sdk.core.b {
     @Override // com.kwad.sdk.core.b
     public JSONObject toJson() {
         JSONObject jSONObject = new JSONObject();
-        com.kwad.sdk.utils.o.a(jSONObject, "actionId", this.f9714a);
+        com.kwad.sdk.utils.o.a(jSONObject, "actionId", this.f9414a);
         return jSONObject;
     }
 }

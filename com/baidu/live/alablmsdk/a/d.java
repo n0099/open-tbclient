@@ -2,24 +2,24 @@ package com.baidu.live.alablmsdk.a;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class d {
-    private static d aBq;
+    private static d awD;
     private static boolean isInited = false;
     private static Context mContext;
 
     private d() {
     }
 
-    public static d Bk() {
-        if (aBq == null) {
+    public static d xp() {
+        if (awD == null) {
             synchronized (d.class) {
-                if (aBq == null) {
-                    aBq = new d();
+                if (awD == null) {
+                    awD = new d();
                 }
             }
         }
-        return aBq;
+        return awD;
     }
 
     public void init(Context context) {

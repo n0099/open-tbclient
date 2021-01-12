@@ -8,35 +8,36 @@ import com.baidu.searchbox.process.ipc.delegate.DelegateUtils;
 import com.baidu.swan.apps.ao.ag;
 import com.baidu.swan.apps.runtime.config.SwanAppConfigData;
 import com.baidu.swan.apps.v.f;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class b {
-    public static void jL(int i) {
+    /* renamed from: if  reason: not valid java name */
+    public static void m26if(int i) {
         Bundle bundle = new Bundle();
         bundle.putInt(QuickPersistConfigConst.KEY_TEXT_SIZE, i);
-        com.baidu.swan.apps.process.messaging.a.aIY().a(new com.baidu.swan.apps.process.messaging.c(22, bundle));
+        com.baidu.swan.apps.process.messaging.a.aFe().a(new com.baidu.swan.apps.process.messaging.c(22, bundle));
     }
 
-    public static int aFL() {
-        return aFN() + 1;
+    public static int aBR() {
+        return aBT() + 1;
     }
 
-    public static boolean aFM() {
-        SwanAppConfigData aDm = f.aDH().aDm();
-        if (aDm == null) {
+    public static boolean aBS() {
+        SwanAppConfigData azs = f.azN().azs();
+        if (azs == null) {
             return false;
         }
-        return TextUtils.equals("none", aDm.dHA.dIv);
+        return TextUtils.equals("none", azs.dCO.dDJ);
     }
 
-    public static int aFN() {
-        DelegateResult callOnMainWithContentProvider = DelegateUtils.callOnMainWithContentProvider(com.baidu.swan.apps.t.a.aAs(), d.class, null);
+    public static int aBT() {
+        DelegateResult callOnMainWithContentProvider = DelegateUtils.callOnMainWithContentProvider(com.baidu.swan.apps.t.a.awy(), d.class, null);
         if (callOnMainWithContentProvider.isOk()) {
             return callOnMainWithContentProvider.mResult.getInt("font_size_level", 1);
         }
         return 1;
     }
 
-    public static int jM(int i) {
+    public static int ig(int i) {
         switch (i) {
             case 0:
                 return 82;
@@ -50,7 +51,7 @@ public class b {
         }
     }
 
-    public static boolean aFO() {
-        return ag.uT("3.200.101");
+    public static boolean aBU() {
+        return ag.tI("3.200.101");
     }
 }

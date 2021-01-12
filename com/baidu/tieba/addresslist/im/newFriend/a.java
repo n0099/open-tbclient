@@ -16,55 +16,55 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 @SuppressLint({"UseSparseArrays"})
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class a extends BaseAdapter implements View.OnClickListener {
-    private static SparseArray<Integer> glu = new SparseArray<>();
-    private static HashMap<C0615a, Integer> glv = new HashMap<>();
-    private static HashMap<C0615a, Integer> glw = new HashMap<>();
+    private static SparseArray<Integer> ggM = new SparseArray<>();
+    private static HashMap<C0598a, Integer> ggN = new HashMap<>();
+    private static HashMap<C0598a, Integer> ggO = new HashMap<>();
     private List<com.baidu.tieba.im.data.a> data;
-    private NewFriendsActivity glt;
-    private b glx;
+    private NewFriendsActivity ggL;
+    private b ggP;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public interface b {
         void a(int i, int i2, View view, com.baidu.tieba.im.data.a aVar);
     }
 
     static {
-        glu.put(0, Integer.valueOf(R.string.add));
-        glu.put(4, Integer.valueOf(R.string.added));
-        glu.put(1, Integer.valueOf(R.string.pass));
-        glu.put(2, Integer.valueOf(R.string.passed));
-        glu.put(3, Integer.valueOf(R.string.waiting));
-        glv.put(new C0615a(false), Integer.valueOf(R.drawable.btn_pass));
-        glv.put(new C0615a(true), Integer.valueOf(R.drawable.btn_all_blue));
-        glw.put(new C0615a(false), Integer.valueOf(R.color.btn_pass_text_color));
-        glw.put(new C0615a(true), Integer.valueOf(R.color.btn_agree_text_color));
+        ggM.put(0, Integer.valueOf(R.string.add));
+        ggM.put(4, Integer.valueOf(R.string.added));
+        ggM.put(1, Integer.valueOf(R.string.pass));
+        ggM.put(2, Integer.valueOf(R.string.passed));
+        ggM.put(3, Integer.valueOf(R.string.waiting));
+        ggN.put(new C0598a(false), Integer.valueOf(R.drawable.btn_pass));
+        ggN.put(new C0598a(true), Integer.valueOf(R.drawable.btn_all_blue));
+        ggO.put(new C0598a(false), Integer.valueOf(R.color.btn_pass_text_color));
+        ggO.put(new C0598a(true), Integer.valueOf(R.color.btn_agree_text_color));
     }
 
     /* renamed from: com.baidu.tieba.addresslist.im.newFriend.a$a  reason: collision with other inner class name */
-    /* loaded from: classes8.dex */
-    private static class C0615a {
-        private boolean gly;
+    /* loaded from: classes7.dex */
+    private static class C0598a {
+        private boolean ggQ;
 
-        public C0615a(boolean z) {
-            this.gly = z;
+        public C0598a(boolean z) {
+            this.ggQ = z;
         }
 
         public int hashCode() {
-            return (this.gly ? 1231 : 1237) + 31;
+            return (this.ggQ ? 1231 : 1237) + 31;
         }
 
         public boolean equals(Object obj) {
             if (this == obj) {
                 return true;
             }
-            return obj != null && getClass() == obj.getClass() && this.gly == ((C0615a) obj).gly;
+            return obj != null && getClass() == obj.getClass() && this.ggQ == ((C0598a) obj).ggQ;
         }
     }
 
     public a(NewFriendsActivity newFriendsActivity) {
-        this.glt = newFriendsActivity;
+        this.ggL = newFriendsActivity;
     }
 
     @Override // android.widget.Adapter
@@ -77,7 +77,7 @@ public class a extends BaseAdapter implements View.OnClickListener {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: uG */
+    /* renamed from: ta */
     public com.baidu.tieba.im.data.a getItem(int i) {
         return this.data.get(i);
     }
@@ -95,25 +95,25 @@ public class a extends BaseAdapter implements View.OnClickListener {
         } else {
             view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.add_new_friend_list_item, (ViewGroup) null);
             cVar = new c();
-            cVar.glz = (HeadImageView) view.findViewById(R.id.friend_icon);
-            cVar.glA = (TextView) view.findViewById(R.id.friend_name);
-            cVar.glB = (TextView) view.findViewById(R.id.friend_info);
-            cVar.glC = (TextView) view.findViewById(R.id.friend_add_btn);
+            cVar.ggR = (HeadImageView) view.findViewById(R.id.friend_icon);
+            cVar.ggS = (TextView) view.findViewById(R.id.friend_name);
+            cVar.ggT = (TextView) view.findViewById(R.id.friend_info);
+            cVar.ggU = (TextView) view.findViewById(R.id.friend_add_btn);
             view.setTag(cVar);
         }
         com.baidu.tieba.im.data.a item = getItem(i);
         cVar.c(item);
-        cVar.glC.setTag(Integer.valueOf(i));
-        cVar.glC.setOnClickListener(this);
-        this.glt.getLayoutMode().setNightMode(TbadkCoreApplication.getInst().getSkinType() == 1);
-        this.glt.getLayoutMode().onModeChanged(view);
-        Integer num = glv.get(new C0615a(item.getStatus() == 1));
+        cVar.ggU.setTag(Integer.valueOf(i));
+        cVar.ggU.setOnClickListener(this);
+        this.ggL.getLayoutMode().setNightMode(TbadkCoreApplication.getInst().getSkinType() == 1);
+        this.ggL.getLayoutMode().onModeChanged(view);
+        Integer num = ggN.get(new C0598a(item.getStatus() == 1));
         if (num != null) {
-            ao.setBackgroundResource(cVar.glC, num.intValue());
+            ao.setBackgroundResource(cVar.ggU, num.intValue());
         }
-        Integer num2 = glw.get(new C0615a(item.getStatus() == 1));
+        Integer num2 = ggO.get(new C0598a(item.getStatus() == 1));
         if (num2 != null) {
-            ao.setViewTextColor(cVar.glC, num2.intValue(), 1);
+            ao.setViewTextColor(cVar.ggU, num2.intValue(), 1);
         }
         return view;
     }
@@ -166,40 +166,40 @@ public class a extends BaseAdapter implements View.OnClickListener {
         return -1;
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     private static class c {
-        TextView glA;
-        TextView glB;
-        TextView glC;
-        HeadImageView glz;
+        HeadImageView ggR;
+        TextView ggS;
+        TextView ggT;
+        TextView ggU;
 
         private c() {
         }
 
         public void c(com.baidu.tieba.im.data.a aVar) {
-            this.glz.startLoad(aVar.getPortrait(), 12, false);
-            this.glA.setText(aVar.getName());
+            this.ggR.startLoad(aVar.getPortrait(), 12, false);
+            this.ggS.setText(aVar.getName());
             if (!TextUtils.isEmpty(aVar.getContent())) {
-                this.glB.setText(aVar.getContent());
+                this.ggT.setText(aVar.getContent());
             } else {
-                this.glB.setText("");
+                this.ggT.setText("");
             }
             int status = aVar.getStatus();
-            this.glC.setText(((Integer) a.glu.get(status)).intValue());
-            this.glC.setEnabled(status == 0 || status == 1);
+            this.ggU.setText(((Integer) a.ggM.get(status)).intValue());
+            this.ggU.setEnabled(status == 0 || status == 1);
         }
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.glx != null) {
+        if (this.ggP != null) {
             int id = view.getId();
             int intValue = ((Integer) view.getTag()).intValue();
-            this.glx.a(id, intValue, view, getItem(intValue));
+            this.ggP.a(id, intValue, view, getItem(intValue));
         }
     }
 
     public void a(b bVar) {
-        this.glx = bVar;
+        this.ggP = bVar;
     }
 }

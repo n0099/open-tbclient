@@ -9,8 +9,8 @@ import tbclient.ThreadInfo;
 /* loaded from: classes2.dex */
 public class e implements n {
     public String cover;
-    public bz eMv;
-    public int eWw;
+    public bz eHK;
+    public int eRL;
     public int index;
     public int time;
     public String title;
@@ -18,18 +18,18 @@ public class e implements n {
     public e(@NonNull ThreadInfo threadInfo, int i) {
         this.index = i + 1;
         this.title = threadInfo.title;
-        this.eWw = threadInfo.hot_num.intValue();
+        this.eRL = threadInfo.hot_num.intValue();
         if (!x.isEmpty(threadInfo.media)) {
             this.cover = threadInfo.media.get(0).src_pic;
             this.time = threadInfo.media.get(0).during_time.intValue();
         }
-        this.eMv = new bz();
-        this.eMv.eWi = true;
-        this.eMv.a(threadInfo);
+        this.eHK = new bz();
+        this.eHK.eRx = true;
+        this.eHK.a(threadInfo);
     }
 
     @Override // com.baidu.adp.widget.ListView.n
     public BdUniqueId getType() {
-        return a.kdD;
+        return a.jYY;
     }
 }

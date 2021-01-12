@@ -15,17 +15,18 @@ import com.baidu.mobads.interfaces.utils.IXAdCommonUtils;
 import com.baidu.mobads.interfaces.utils.IXAdSystemUtils;
 import com.baidu.mobads.utils.XAdSDKFoundationFacade;
 import com.baidu.mobstat.Config;
+import com.baidu.searchbox.account.data.UserAccountActionItem;
 import com.xiaomi.mipush.sdk.Constants;
 import java.util.HashSet;
 import java.util.Set;
-/* loaded from: classes3.dex */
+/* loaded from: classes14.dex */
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    private Set<String> f3470a;
+    private Set<String> f3432a;
 
     /* renamed from: b  reason: collision with root package name */
-    private Set<String> f3471b;
+    private Set<String> f3433b;
     private Set<String> c;
     private CookieManager d;
     private IXAdSystemUtils e;
@@ -77,13 +78,13 @@ public class c {
     }
 
     private void c() {
-        this.f3470a = new HashSet();
-        this.f3470a.add("46000");
-        this.f3470a.add("46002");
-        this.f3470a.add("46007");
-        this.f3471b = new HashSet();
-        this.f3471b.add("46001");
-        this.f3471b.add("46006");
+        this.f3432a = new HashSet();
+        this.f3432a.add("46000");
+        this.f3432a.add("46002");
+        this.f3432a.add("46007");
+        this.f3433b = new HashSet();
+        this.f3433b.add("46001");
+        this.f3433b.add("46006");
         this.c = new HashSet();
         this.c.add("46003");
         this.c.add("46005");
@@ -106,7 +107,7 @@ public class c {
         a("cuid", cuid);
         a(Config.EXCEPTION_CRASH_TYPE, Integer.valueOf(a.a(this.g)));
         a("oi", Integer.valueOf(j()));
-        a("src", 1);
+        a(UserAccountActionItem.KEY_SRC, 1);
         a("h", Integer.valueOf(height));
         a("w", Integer.valueOf(width));
         a("apm", a2);
@@ -203,13 +204,13 @@ public class c {
         if (networkOperator == null) {
             return 0;
         }
-        if (this.f3470a.contains(networkOperator)) {
+        if (this.f3432a.contains(networkOperator)) {
             return 1;
         }
         if (this.c.contains(networkOperator)) {
             return 2;
         }
-        if (this.f3471b.contains(networkOperator)) {
+        if (this.f3433b.contains(networkOperator)) {
             return 3;
         }
         return 99;

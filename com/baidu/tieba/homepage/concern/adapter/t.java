@@ -14,22 +14,22 @@ import com.baidu.tieba.card.aa;
 import com.baidu.tieba.card.data.BaseCardInfo;
 /* loaded from: classes2.dex */
 public class t extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data.k, ThreadCardViewHolder<com.baidu.tieba.card.data.k>> {
-    private com.baidu.adp.widget.ListView.s anl;
-    public BdUniqueId fJu;
-    private aa<com.baidu.tieba.card.data.k> iNt;
+    private com.baidu.adp.widget.ListView.s amu;
+    public BdUniqueId fEN;
+    private aa<com.baidu.tieba.card.data.k> iIM;
     private TbPageContext<?> mPageContext;
 
     public t(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
-        this.iNt = new aa<com.baidu.tieba.card.data.k>() { // from class: com.baidu.tieba.homepage.concern.adapter.t.1
+        this.iIM = new aa<com.baidu.tieba.card.data.k>() { // from class: com.baidu.tieba.homepage.concern.adapter.t.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.card.aa
             public void a(View view, com.baidu.tieba.card.data.k kVar) {
                 ThreadCardViewHolder threadCardViewHolder;
                 super.a(view, (View) kVar);
-                if (kVar != null && kVar.boP() != null && (threadCardViewHolder = (ThreadCardViewHolder) view.getTag()) != null) {
-                    ay.a((com.baidu.tbadk.core.data.a) kVar.boP(), view.getContext(), 1, false);
-                    threadCardViewHolder.ty().b(new a.C0090a(1));
+                if (kVar != null && kVar.bkV() != null && (threadCardViewHolder = (ThreadCardViewHolder) view.getTag()) != null) {
+                    ay.a((com.baidu.tbadk.core.data.a) kVar.bkV(), view.getContext(), 1, false);
+                    threadCardViewHolder.tm().b(new a.C0089a(1));
                 }
             }
         };
@@ -43,18 +43,18 @@ public class t extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
     public ThreadCardViewHolder<com.baidu.tieba.card.data.k> e(ViewGroup viewGroup) {
         ak.a aVar = new ak.a(this.mPageContext.getPageActivity(), false);
         aVar.a((com.baidu.card.h) new ag(this.mPageContext.getPageActivity()));
-        ak a2 = aVar.a(BaseCardInfo.SupportType.EXTEND, viewGroup, this.anl);
+        ak a2 = aVar.a(BaseCardInfo.SupportType.EXTEND, viewGroup, this.amu);
         a2.setSourceForPb(1);
         ThreadCardViewHolder<com.baidu.tieba.card.data.k> threadCardViewHolder = new ThreadCardViewHolder<>(a2);
-        threadCardViewHolder.setPageId(this.fJu);
+        threadCardViewHolder.setPageId(this.fEN);
         a(new com.baidu.adp.widget.ListView.w() { // from class: com.baidu.tieba.homepage.concern.adapter.t.2
             @Override // com.baidu.adp.widget.ListView.w
             public void a(View view, com.baidu.adp.widget.ListView.n nVar, BdUniqueId bdUniqueId, ViewGroup viewGroup2, int i, long j) {
                 if ((nVar instanceof com.baidu.tieba.card.data.k) && (view.getTag() instanceof ThreadCardViewHolder)) {
                     ThreadCardViewHolder threadCardViewHolder2 = (ThreadCardViewHolder) view.getTag();
                     com.baidu.tieba.card.data.k kVar = (com.baidu.tieba.card.data.k) nVar;
-                    if (t.this.iNt != null) {
-                        t.this.iNt.a(threadCardViewHolder2.getView(), kVar);
+                    if (t.this.iIM != null) {
+                        t.this.iIM.a(threadCardViewHolder2.getView(), kVar);
                     }
                 }
             }
@@ -66,17 +66,17 @@ public class t extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.card.data.k kVar, ThreadCardViewHolder<com.baidu.tieba.card.data.k> threadCardViewHolder) {
-        if (kVar == null || threadCardViewHolder == null || threadCardViewHolder.getView() == null || kVar.eMv == null) {
+        if (kVar == null || threadCardViewHolder == null || threadCardViewHolder.getView() == null || kVar.eHK == null) {
             return null;
         }
-        kVar.yA(kVar.position + 1);
-        threadCardViewHolder.ty().setPosition(i);
+        kVar.wT(kVar.position + 1);
+        threadCardViewHolder.tm().setPosition(i);
         threadCardViewHolder.b((ThreadCardViewHolder<com.baidu.tieba.card.data.k>) kVar);
-        threadCardViewHolder.ty().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
+        threadCardViewHolder.tm().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
         return threadCardViewHolder.getView();
     }
 
     public void a(com.baidu.adp.widget.ListView.s sVar) {
-        this.anl = sVar;
+        this.amu = sVar;
     }
 }

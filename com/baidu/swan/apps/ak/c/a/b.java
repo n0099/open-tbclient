@@ -4,7 +4,6 @@ import android.content.Context;
 import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import com.baidu.platform.comapi.map.MapBundleKey;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.swan.apps.ak.c.a;
@@ -14,7 +13,7 @@ import com.baidu.swan.apps.scheme.j;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public abstract class b extends aa {
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(j jVar, String str) {
@@ -46,11 +45,11 @@ public abstract class b extends aa {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     @Nullable
-    public JSONObject a(@NonNull a.C0378a c0378a) {
+    public JSONObject a(@NonNull a.C0361a c0361a) {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put(MapBundleKey.MapObjKey.OBJ_LEVEL, String.valueOf(c0378a.level <= 100 ? c0378a.level : 100));
-            jSONObject.put("isCharging", c0378a.dPy);
+            jSONObject.put("level", String.valueOf(c0361a.level <= 100 ? c0361a.level : 100));
+            jSONObject.put("isCharging", c0361a.dKM);
             return jSONObject;
         } catch (JSONException e) {
             return null;

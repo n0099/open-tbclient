@@ -18,9 +18,9 @@ import com.baidu.tbadk.core.util.aq;
 import java.util.HashSet;
 /* loaded from: classes.dex */
 public class c {
-    private static c noN;
-    private SparseArray<HashSet<String>> noQ;
-    private a noR;
+    private static c nkh;
+    private SparseArray<HashSet<String>> nkk;
+    private a nkl;
     Handler mUIHandler = new Handler(Looper.getMainLooper()) { // from class: com.baidu.tieba.s.c.1
         @Override // android.os.Handler
         public void handleMessage(Message message) {
@@ -29,7 +29,7 @@ public class c {
             switch (message.what) {
                 case 5:
                     if ((message.obj instanceof a) && (aVar = (a) message.obj) != null) {
-                        aVar.jGz = false;
+                        aVar.jBT = false;
                         aVar.isRunning = false;
                         aVar.count = 0;
                         return;
@@ -40,84 +40,84 @@ public class c {
             }
         }
     };
-    private CustomMessageListener eMe = new CustomMessageListener(CmdConfigCustom.METHOD_ACCOUNT_CHANGE) { // from class: com.baidu.tieba.s.c.2
+    private CustomMessageListener eHt = new CustomMessageListener(CmdConfigCustom.METHOD_ACCOUNT_CHANGE) { // from class: com.baidu.tieba.s.c.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null) {
-                if (c.this.noQ != null) {
-                    c.this.noQ.clear();
+                if (c.this.nkk != null) {
+                    c.this.nkk.clear();
                 }
-                c.this.noO.dNX();
+                c.this.nki.dKf();
             }
         }
     };
-    private int noP = com.baidu.tbadk.core.sharedPref.b.bvr().getInt("card_show_statistic_max_count", 200);
-    private final b noO = new b();
+    private int nkj = com.baidu.tbadk.core.sharedPref.b.brx().getInt("card_show_statistic_max_count", 200);
+    private final b nki = new b();
 
     private c() {
-        MessageManager.getInstance().registerListener(this.eMe);
+        MessageManager.getInstance().registerListener(this.eHt);
     }
 
-    public static c dNY() {
-        if (noN == null) {
+    public static c dKg() {
+        if (nkh == null) {
             synchronized (c.class) {
-                if (noN == null) {
-                    noN = new c();
+                if (nkh == null) {
+                    nkh = new c();
                 }
             }
         }
-        return noN;
+        return nkh;
     }
 
     public void z(BdUniqueId bdUniqueId) {
         l.checkMainThread();
         if (bdUniqueId != null) {
-            this.noO.z(bdUniqueId);
+            this.nki.z(bdUniqueId);
         }
     }
 
     public void A(BdUniqueId bdUniqueId) {
         l.checkMainThread();
         if (bdUniqueId != null) {
-            this.noO.A(bdUniqueId);
+            this.nki.A(bdUniqueId);
             C(bdUniqueId);
         }
     }
 
     public void C(BdUniqueId bdUniqueId) {
-        if (this.noQ != null) {
-            this.noQ.remove(bdUniqueId.getId());
+        if (this.nkk != null) {
+            this.nkk.remove(bdUniqueId.getId());
         }
     }
 
     public void b(BdUniqueId bdUniqueId, aq aqVar) {
-        this.noO.a(bdUniqueId, true);
+        this.nki.a(bdUniqueId, true);
         TiebaStatic.log(aqVar);
     }
 
     public void a(BdUniqueId bdUniqueId, String str, aq aqVar) {
         if (bdUniqueId != null && aqVar != null) {
             long currentTimeMillis = System.currentTimeMillis();
-            if (!this.noO.B(bdUniqueId)) {
+            if (!this.nki.B(bdUniqueId)) {
                 BdLog.e("error, bdUniqueId not register");
                 return;
             }
             if (TextUtils.isEmpty(str)) {
                 BdLog.e("id is null, statistic key is=" + aqVar.getKey());
             }
-            if (this.noQ == null) {
-                this.noQ = new SparseArray<>();
+            if (this.nkk == null) {
+                this.nkk = new SparseArray<>();
             }
-            HashSet<String> hashSet = this.noQ.get(bdUniqueId.getId());
+            HashSet<String> hashSet = this.nkk.get(bdUniqueId.getId());
             if (hashSet == null) {
                 hashSet = new HashSet<>();
-                this.noQ.put(bdUniqueId.getId(), hashSet);
+                this.nkk.put(bdUniqueId.getId(), hashSet);
             }
             String str2 = aqVar.getKey() + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + str;
-            if (!hashSet.contains(str2) && !cMK()) {
+            if (!hashSet.contains(str2) && !cIS()) {
                 hashSet.add(str2);
-                this.noO.a(bdUniqueId, aqVar);
+                this.nki.a(bdUniqueId, aqVar);
                 if (BdLog.isDebugMode()) {
                     BdLog.d("add show statistic log success" + (System.currentTimeMillis() - currentTimeMillis));
                 }
@@ -125,29 +125,29 @@ public class c {
         }
     }
 
-    private boolean cMK() {
-        if (this.noR == null) {
-            this.noR = new a();
+    private boolean cIS() {
+        if (this.nkl == null) {
+            this.nkl = new a();
         }
-        if (this.noR.jGz) {
+        if (this.nkl.jBT) {
             return true;
         }
         long currentTimeMillis = System.currentTimeMillis();
-        if (this.noR.isRunning) {
-            this.noR.count++;
-            if (currentTimeMillis - this.noR.jGy < 120000) {
-                if (this.noR.count >= this.noP) {
-                    this.noR.jGz = true;
-                    a(this.noR);
+        if (this.nkl.isRunning) {
+            this.nkl.count++;
+            if (currentTimeMillis - this.nkl.jBS < 120000) {
+                if (this.nkl.count >= this.nkj) {
+                    this.nkl.jBT = true;
+                    a(this.nkl);
                     return true;
                 }
             } else {
-                this.noR.isRunning = false;
-                this.noR.count = 0;
+                this.nkl.isRunning = false;
+                this.nkl.count = 0;
             }
         } else {
-            this.noR.isRunning = true;
-            this.noR.jGy = currentTimeMillis;
+            this.nkl.isRunning = true;
+            this.nkl.jBS = currentTimeMillis;
         }
         return false;
     }
@@ -164,7 +164,7 @@ public class c {
         if (BdLog.isDebugMode()) {
             BdLog.d("logStatisticByKey start write log ");
         }
-        this.noO.a(bdUniqueId, z);
+        this.nki.a(bdUniqueId, z);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -172,14 +172,14 @@ public class c {
     public class a {
         public int count;
         public boolean isRunning;
-        public long jGy;
-        public boolean jGz;
+        public long jBS;
+        public boolean jBT;
 
         private a() {
             this.isRunning = false;
             this.count = 0;
-            this.jGy = 0L;
-            this.jGz = false;
+            this.jBS = 0L;
+            this.jBT = false;
         }
     }
 }

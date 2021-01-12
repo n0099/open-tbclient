@@ -7,6 +7,7 @@ import android.os.Build;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import androidx.annotation.Nullable;
+import com.baidu.mobstat.Config;
 import com.kwad.sdk.glide.load.DecodeFormat;
 import com.kwad.sdk.glide.load.ImageHeaderParser;
 import com.kwad.sdk.glide.load.resource.bitmap.DownsampleStrategy;
@@ -20,15 +21,15 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Queue;
 import java.util.Set;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public final class k {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final com.kwad.sdk.glide.load.d<DecodeFormat> f10583a = com.kwad.sdk.glide.load.d.a("com.kwad.sdk.glide.load.resource.bitmap.Downsampler.DecodeFormat", DecodeFormat.DEFAULT);
+    public static final com.kwad.sdk.glide.load.d<DecodeFormat> f10283a = com.kwad.sdk.glide.load.d.a("com.kwad.sdk.glide.load.resource.bitmap.Downsampler.DecodeFormat", DecodeFormat.DEFAULT);
     @Deprecated
 
     /* renamed from: b  reason: collision with root package name */
-    public static final com.kwad.sdk.glide.load.d<DownsampleStrategy> f10584b = DownsampleStrategy.h;
+    public static final com.kwad.sdk.glide.load.d<DownsampleStrategy> f10284b = DownsampleStrategy.h;
     public static final com.kwad.sdk.glide.load.d<Boolean> c = com.kwad.sdk.glide.load.d.a("com.kwad.sdk.glide.load.resource.bitmap.Downsampler.FixBitmapSize", false);
     public static final com.kwad.sdk.glide.load.d<Boolean> d = com.kwad.sdk.glide.load.d.a("com.kwad.sdk.glide.load.resource.bitmap.Downsampler.AllowHardwareDecode", false);
     private static final Set<String> e = Collections.unmodifiableSet(new HashSet(Arrays.asList("image/vnd.wap.wbmp", "image/x-ico")));
@@ -49,7 +50,7 @@ public final class k {
     private final List<ImageHeaderParser> l;
     private final p m = p.a();
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public interface a {
         void a();
 
@@ -92,7 +93,7 @@ public final class k {
                 i5 = Math.round(((int) Math.ceil(i3 / i7)) * f2);
                 i6 = Math.round(((int) Math.ceil(i4 / i7)) * f2);
                 if (Log.isLoggable("Downsampler", 2)) {
-                    Log.v("Downsampler", "Calculated target [" + i5 + "x" + i6 + "] for source [" + i3 + "x" + i4 + "], sampleSize: " + i7 + ", targetDensity: " + options.inTargetDensity + ", density: " + options.inDensity + ", density multiplier: " + f2);
+                    Log.v("Downsampler", "Calculated target [" + i5 + Config.EVENT_HEAT_X + i6 + "] for source [" + i3 + Config.EVENT_HEAT_X + i4 + "], sampleSize: " + i7 + ", targetDensity: " + options.inTargetDensity + ", density: " + options.inDensity + ", density multiplier: " + f2);
                 }
             }
             if (i5 > 0 && i6 > 0) {
@@ -139,11 +140,11 @@ public final class k {
         if (bitmap == null) {
             return null;
         }
-        return "[" + bitmap.getWidth() + "x" + bitmap.getHeight() + "] " + bitmap.getConfig() + (Build.VERSION.SDK_INT >= 19 ? " (" + bitmap.getAllocationByteCount() + ")" : "");
+        return "[" + bitmap.getWidth() + Config.EVENT_HEAT_X + bitmap.getHeight() + "] " + bitmap.getConfig() + (Build.VERSION.SDK_INT >= 19 ? " (" + bitmap.getAllocationByteCount() + ")" : "");
     }
 
     private static void a(int i, int i2, String str, BitmapFactory.Options options, Bitmap bitmap, int i3, int i4, long j) {
-        Log.v("Downsampler", "Decoded " + a(bitmap) + " from [" + i + "x" + i2 + "] " + str + " with inBitmap " + b(options) + " for [" + i3 + "x" + i4 + "], sample size: " + options.inSampleSize + ", density: " + options.inDensity + ", target density: " + options.inTargetDensity + ", thread: " + Thread.currentThread().getName() + ", duration: " + com.kwad.sdk.glide.g.f.a(j));
+        Log.v("Downsampler", "Decoded " + a(bitmap) + " from [" + i + Config.EVENT_HEAT_X + i2 + "] " + str + " with inBitmap " + b(options) + " for [" + i3 + Config.EVENT_HEAT_X + i4 + "], sample size: " + options.inSampleSize + ", density: " + options.inDensity + ", target density: " + options.inTargetDensity + ", thread: " + Thread.currentThread().getName() + ", duration: " + com.kwad.sdk.glide.g.f.a(j));
     }
 
     @TargetApi(26)
@@ -167,14 +168,14 @@ public final class k {
         int floor2;
         if (i2 <= 0 || i3 <= 0) {
             if (Log.isLoggable("Downsampler", 3)) {
-                Log.d("Downsampler", "Unable to determine dimensions for: " + imageType + " with target [" + i4 + "x" + i5 + "]");
+                Log.d("Downsampler", "Unable to determine dimensions for: " + imageType + " with target [" + i4 + Config.EVENT_HEAT_X + i5 + "]");
                 return;
             }
             return;
         }
         float a2 = (i == 90 || i == 270) ? downsampleStrategy.a(i3, i2, i4, i5) : downsampleStrategy.a(i2, i3, i4, i5);
         if (a2 <= 0.0f) {
-            throw new IllegalArgumentException("Cannot scale with factor: " + a2 + " from: " + downsampleStrategy + ", source: [" + i2 + "x" + i3 + "], target: [" + i4 + "x" + i5 + "]");
+            throw new IllegalArgumentException("Cannot scale with factor: " + a2 + " from: " + downsampleStrategy + ", source: [" + i2 + Config.EVENT_HEAT_X + i3 + "], target: [" + i4 + Config.EVENT_HEAT_X + i5 + "]");
         }
         DownsampleStrategy.SampleSizeRounding b2 = downsampleStrategy.b(i2, i3, i4, i5);
         if (b2 == null) {
@@ -232,7 +233,7 @@ public final class k {
             options.inDensity = 0;
         }
         if (Log.isLoggable("Downsampler", 2)) {
-            Log.v("Downsampler", "Calculate scaling, source: [" + i2 + "x" + i3 + "], target: [" + i4 + "x" + i5 + "], power of two scaled: [" + floor + "x" + floor2 + "], exact scale factor: " + a2 + ", power of 2 sample size: " + max + ", adjusted scale factor: " + a4 + ", target density: " + options.inTargetDensity + ", density: " + options.inDensity);
+            Log.v("Downsampler", "Calculate scaling, source: [" + i2 + Config.EVENT_HEAT_X + i3 + "], target: [" + i4 + Config.EVENT_HEAT_X + i5 + "], power of two scaled: [" + floor + Config.EVENT_HEAT_X + floor2 + "], exact scale factor: " + a2 + ", power of 2 sample size: " + max + ", adjusted scale factor: " + a4 + ", target density: " + options.inTargetDensity + ", density: " + options.inDensity);
         }
     }
 
@@ -367,7 +368,7 @@ public final class k {
         byte[] bArr = (byte[]) this.k.a(65536, byte[].class);
         BitmapFactory.Options a2 = a();
         a2.inTempStorage = bArr;
-        DecodeFormat decodeFormat = (DecodeFormat) eVar.a(f10583a);
+        DecodeFormat decodeFormat = (DecodeFormat) eVar.a(f10283a);
         try {
             return d.a(a(inputStream, a2, (DownsampleStrategy) eVar.a(DownsampleStrategy.h), decodeFormat, eVar.a(d) != null && ((Boolean) eVar.a(d)).booleanValue(), i, i2, ((Boolean) eVar.a(c)).booleanValue(), aVar), this.i);
         } finally {

@@ -11,17 +11,17 @@ import com.xiaomi.push.gx;
 public class TrafficProvider extends ContentProvider {
 
     /* renamed from: a  reason: collision with other field name */
-    private SQLiteOpenHelper f871a;
+    private SQLiteOpenHelper f870a;
 
     /* renamed from: a  reason: collision with other field name */
-    public static final Uri f870a = Uri.parse("content://com.xiaomi.push.providers.TrafficProvider/traffic");
+    public static final Uri f869a = Uri.parse("content://com.xiaomi.push.providers.TrafficProvider/traffic");
 
     /* renamed from: a  reason: collision with root package name */
-    private static final UriMatcher f14492a = new UriMatcher(-1);
+    private static final UriMatcher f14192a = new UriMatcher(-1);
 
     static {
-        f14492a.addURI("com.xiaomi.push.providers.TrafficProvider", "traffic", 1);
-        f14492a.addURI("com.xiaomi.push.providers.TrafficProvider", "update_imsi", 2);
+        f14192a.addURI("com.xiaomi.push.providers.TrafficProvider", "traffic", 1);
+        f14192a.addURI("com.xiaomi.push.providers.TrafficProvider", "update_imsi", 2);
     }
 
     @Override // android.content.ContentProvider
@@ -36,7 +36,7 @@ public class TrafficProvider extends ContentProvider {
 
     @Override // android.content.ContentProvider
     public String getType(Uri uri) {
-        switch (f14492a.match(uri)) {
+        switch (f14192a.match(uri)) {
             case 1:
                 return "vnd.android.cursor.dir/vnd.xiaomi.push.traffic";
             default:
@@ -51,17 +51,17 @@ public class TrafficProvider extends ContentProvider {
 
     @Override // android.content.ContentProvider
     public boolean onCreate() {
-        this.f871a = new a(getContext());
+        this.f870a = new a(getContext());
         return true;
     }
 
     @Override // android.content.ContentProvider
     public Cursor query(Uri uri, String[] strArr, String str, String[] strArr2, String str2) {
         Cursor query;
-        synchronized (a.f872a) {
-            switch (f14492a.match(uri)) {
+        synchronized (a.f871a) {
+            switch (f14192a.match(uri)) {
                 case 1:
-                    query = this.f871a.getReadableDatabase().query("traffic", strArr, str, strArr2, null, null, str2);
+                    query = this.f870a.getReadableDatabase().query("traffic", strArr, str, strArr2, null, null, str2);
                     break;
                 default:
                     throw new IllegalArgumentException("Unknown URI " + uri);
@@ -72,12 +72,12 @@ public class TrafficProvider extends ContentProvider {
 
     @Override // android.content.ContentProvider
     public int update(Uri uri, ContentValues contentValues, String str, String[] strArr) {
-        switch (f14492a.match(uri)) {
+        switch (f14192a.match(uri)) {
             case 2:
                 if (contentValues == null || !contentValues.containsKey("imsi")) {
                     return 0;
                 }
-                gx.m361a(contentValues.getAsString("imsi"));
+                gx.m357a(contentValues.getAsString("imsi"));
                 return 0;
             default:
                 return 0;

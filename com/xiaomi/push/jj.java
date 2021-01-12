@@ -3,20 +3,20 @@ package com.xiaomi.push;
 public class jj extends jc {
 
     /* renamed from: a  reason: collision with root package name */
-    protected int f14476a;
+    protected int f14176a;
 
     public jj() {
-        this.f14476a = 0;
+        this.f14176a = 0;
     }
 
     public jj(int i, String str) {
         super(str);
-        this.f14476a = 0;
-        this.f14476a = i;
+        this.f14176a = 0;
+        this.f14176a = i;
     }
 
     public jj(String str) {
         super(str);
-        this.f14476a = 0;
+        this.f14176a = 0;
     }
 }

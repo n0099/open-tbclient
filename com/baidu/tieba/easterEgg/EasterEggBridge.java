@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class EasterEggBridge implements com.baidu.tieba.tbadkCore.e.b {
     private static final String KEY_ARGS = "args";
     private static final String KEY_ARGS_EXT = "native_exts";
@@ -48,7 +48,7 @@ public class EasterEggBridge implements com.baidu.tieba.tbadkCore.e.b {
                 if (!at.isEmpty(str2)) {
                     String trim = optString.trim();
                     for (b bVar : this.mListener) {
-                        if (trim.equals(bVar.cxb())) {
+                        if (trim.equals(bVar.ctj())) {
                             bVar.a(trim, jSONObject.optString(KEY_ARGS), jSONObject.optString(KEY_ARGS_EXT), jSONObject.optString(KEY_CALLBACK), jsPromptResult);
                         }
                     }

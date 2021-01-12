@@ -1,7 +1,7 @@
 package com.baidu.live.tieba.b.a;
 
 import com.baidu.live.adp.widget.listview.IAdapterData;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public abstract class a implements IAdapterData {
     public boolean needTopMargin = false;
     public boolean isFirstFloor = false;

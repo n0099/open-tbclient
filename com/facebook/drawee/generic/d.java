@@ -8,25 +8,25 @@ import com.facebook.drawee.drawable.g;
 import com.facebook.drawee.drawable.s;
 import com.facebook.drawee.drawable.t;
 import javax.annotation.Nullable;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class d extends g implements s {
-    private static ColorFilter pyq = null;
+    private static ColorFilter ptP = null;
     private ColorFilter mColorFilter;
     @Nullable
-    Drawable pvO;
-    private boolean pyr;
+    Drawable prm;
+    private boolean ptQ;
     @Nullable
-    private t pys;
+    private t ptR;
 
     public d(Drawable drawable) {
         super(drawable);
-        this.pvO = null;
+        this.prm = null;
         this.mColorFilter = null;
-        this.pyr = true;
+        this.ptQ = true;
     }
 
-    public void Bb(boolean z) {
-        this.pyr = z;
+    public void AX(boolean z) {
+        this.ptQ = z;
     }
 
     @Override // com.facebook.drawee.drawable.g, android.graphics.drawable.Drawable
@@ -41,13 +41,13 @@ public class d extends g implements s {
 
     @Override // com.facebook.drawee.drawable.s
     public void a(@Nullable t tVar) {
-        this.pys = tVar;
+        this.ptR = tVar;
     }
 
     @Override // com.facebook.drawee.drawable.g, android.graphics.drawable.Drawable
     public boolean setVisible(boolean z, boolean z2) {
-        if (this.pys != null) {
-            this.pys.Ba(z);
+        if (this.ptR != null) {
+            this.ptR.AW(z);
         }
         return super.setVisible(z, z2);
     }
@@ -56,23 +56,23 @@ public class d extends g implements s {
     @SuppressLint({"WrongCall"})
     public void draw(Canvas canvas) {
         if (isVisible()) {
-            if (this.pyr && pyq != this.mColorFilter) {
-                this.mColorFilter = pyq;
+            if (this.ptQ && ptP != this.mColorFilter) {
+                this.mColorFilter = ptP;
                 setColorFilter(this.mColorFilter);
             }
-            if (this.pys != null) {
-                this.pys.onDraw();
+            if (this.ptR != null) {
+                this.ptR.onDraw();
             }
             super.draw(canvas);
-            if (this.pvO != null) {
-                this.pvO.setBounds(getBounds());
-                this.pvO.draw(canvas);
+            if (this.prm != null) {
+                this.prm.setBounds(getBounds());
+                this.prm.draw(canvas);
             }
         }
     }
 
     public void u(@Nullable Drawable drawable) {
-        this.pvO = drawable;
+        this.prm = drawable;
         invalidateSelf();
     }
 }

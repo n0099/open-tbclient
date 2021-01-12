@@ -2,7 +2,7 @@ package com.baidubce.model;
 
 import com.baidubce.auth.BceCredentials;
 import okhttp3.Call;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public abstract class AbstractBceRequest {
     private Call call;
     private boolean canceled = false;

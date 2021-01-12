@@ -3,7 +3,7 @@ package com.baidu.fsg.face.liveness.datamodel;
 import android.content.Context;
 import com.baidu.fsg.base.restnet.beans.IBeanResponse;
 import java.io.Serializable;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class ConfirmModel implements IBeanResponse, Serializable {
     public String message;
     public int status;

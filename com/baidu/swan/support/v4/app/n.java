@@ -10,15 +10,15 @@ import android.view.ViewTreeObserver;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 class n {
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class a {
-        public View ezO;
+        public View euZ;
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public interface b {
         View getView();
     }
@@ -210,14 +210,14 @@ class n {
     private static void a(Transition transition, final a aVar) {
         if (transition != null) {
             transition.setEpicenterCallback(new Transition.EpicenterCallback() { // from class: com.baidu.swan.support.v4.app.n.3
-                private Rect ezI;
+                private Rect euT;
 
                 @Override // android.transition.Transition.EpicenterCallback
                 public Rect onGetEpicenter(Transition transition2) {
-                    if (this.ezI == null && a.this.ezO != null) {
-                        this.ezI = n.bl(a.this.ezO);
+                    if (this.euT == null && a.this.euZ != null) {
+                        this.euT = n.bl(a.this.euZ);
                     }
-                    return this.ezI;
+                    return this.euT;
                 }
             });
         }

@@ -33,7 +33,7 @@ public class HeadSegDetector extends com.baidu.ar.b.a.a {
             @Override // com.baidu.ar.b.b.b
             public int a(com.baidu.ar.mdl.a aVar) {
                 String str = aVar.tw[0];
-                return aVar.f1487tv ? ARMdlInterfaceJNI.initHeadSegFromAsset(str) : ARMdlInterfaceJNI.initHeadSeg(str);
+                return aVar.f1493tv ? ARMdlInterfaceJNI.initHeadSegFromAsset(str) : ARMdlInterfaceJNI.initHeadSeg(str);
             }
 
             @Override // com.baidu.ar.c.a

@@ -18,12 +18,12 @@ import org.apache.http.HttpHost;
 public class f extends com.bytedance.sdk.openadsdk.core.widget.webview.c {
 
     /* renamed from: a  reason: collision with root package name */
-    private com.bytedance.sdk.openadsdk.core.d.l f6936a;
+    private com.bytedance.sdk.openadsdk.core.d.l f6636a;
     private boolean h;
 
     public f(Context context, x xVar, com.bytedance.sdk.openadsdk.core.d.l lVar, com.bytedance.sdk.openadsdk.c.j jVar, boolean z) {
         super(context, xVar, lVar.T(), jVar);
-        this.f6936a = lVar;
+        this.f6636a = lVar;
         this.h = z;
     }
 
@@ -72,7 +72,7 @@ public class f extends com.bytedance.sdk.openadsdk.core.widget.webview.c {
         }
         e.a a2 = com.bytedance.sdk.openadsdk.core.widget.webview.a.e.a(str);
         if (a2 != e.a.IMAGE) {
-            Iterator<com.bytedance.sdk.openadsdk.core.d.k> it = this.f6936a.M().iterator();
+            Iterator<com.bytedance.sdk.openadsdk.core.d.k> it = this.f6636a.M().iterator();
             while (it.hasNext()) {
                 kVar = it.next();
                 if (!TextUtils.isEmpty(kVar.a()) && !TextUtils.isEmpty(str)) {

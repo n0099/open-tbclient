@@ -20,7 +20,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class c {
-    private com.baidu.cesium.c.d.d aop;
+    private com.baidu.cesium.c.d.d anC;
     private List<b> g;
 
     public c() {
@@ -42,24 +42,10 @@ public class c {
     }
 
     private void a() {
-        this.aop = new com.baidu.cesium.c.d.e(d.a(), d.b());
+        this.anC = new com.baidu.cesium.c.d.e(d.a(), d.b());
     }
 
-    private static byte[] a(byte[] bArr, com.baidu.cesium.c.d.d dVar) {
-        com.baidu.cesium.c.d.a tW = com.baidu.cesium.c.d.a.tW();
-        tW.a(2, dVar);
-        return tW.a(bArr);
-    }
-
-    private String[] a(Signature[] signatureArr) {
-        String[] strArr = new String[signatureArr.length];
-        for (int i = 0; i < strArr.length; i++) {
-            strArr[i] = a(com.baidu.cesium.d.c.a(signatureArr[i].toByteArray()));
-        }
-        return strArr;
-    }
-
-    private boolean b(String[] strArr, String[] strArr2) {
+    private boolean a(String[] strArr, String[] strArr2) {
         if (strArr == null || strArr2 == null || strArr.length != strArr2.length) {
             return false;
         }
@@ -72,6 +58,20 @@ public class c {
             hashSet2.add(str2);
         }
         return hashSet.equals(hashSet2);
+    }
+
+    private static byte[] a(byte[] bArr, com.baidu.cesium.c.d.d dVar) {
+        com.baidu.cesium.c.d.a tN = com.baidu.cesium.c.d.a.tN();
+        tN.a(2, dVar);
+        return tN.a(bArr);
+    }
+
+    private String[] a(Signature[] signatureArr) {
+        String[] strArr = new String[signatureArr.length];
+        for (int i = 0; i < strArr.length; i++) {
+            strArr[i] = a(com.baidu.cesium.d.c.a(signatureArr[i].toByteArray()));
+        }
+        return strArr;
     }
 
     List<b> a(Context context, Intent intent, boolean z) {
@@ -89,8 +89,8 @@ public class c {
                                 byte[] a2 = com.baidu.cesium.d.a.a(string.getBytes("utf-8"));
                                 JSONObject jSONObject = new JSONObject(new String(a2));
                                 b bVar = new b();
-                                bVar.f1669b = jSONObject.getInt("priority");
-                                bVar.aeJ = resolveInfo.activityInfo.applicationInfo;
+                                bVar.f1619b = jSONObject.getInt("priority");
+                                bVar.f1618a = resolveInfo.activityInfo.applicationInfo;
                                 if (context.getPackageName().equals(resolveInfo.activityInfo.applicationInfo.packageName)) {
                                     bVar.d = true;
                                 }
@@ -103,8 +103,8 @@ public class c {
                                         for (int i = 0; i < strArr.length; i++) {
                                             strArr[i] = jSONArray.getString(i);
                                         }
-                                        if (b(strArr, a(packageInfo.signatures))) {
-                                            byte[] a3 = a(com.baidu.cesium.d.a.a(string2.getBytes()), this.aop);
+                                        if (a(strArr, a(packageInfo.signatures))) {
+                                            byte[] a3 = a(com.baidu.cesium.d.a.a(string2.getBytes()), this.anC);
                                             if (a3 != null && Arrays.equals(a3, com.baidu.cesium.d.c.a(a2))) {
                                                 bVar.c = true;
                                             }
@@ -124,7 +124,7 @@ public class c {
             @Override // java.util.Comparator
             /* renamed from: a */
             public int compare(b bVar2, b bVar3) {
-                int i2 = bVar3.f1669b - bVar2.f1669b;
+                int i2 = bVar3.f1619b - bVar2.f1619b;
                 if (i2 == 0) {
                     if (bVar2.d && bVar3.d) {
                         return 0;

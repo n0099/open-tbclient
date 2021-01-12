@@ -7,7 +7,7 @@ import com.baidu.android.imsdk.upload.action.pb.IMPushPb;
 import com.baidu.appsearch.update.patchupdate.GDiffPatcher;
 import com.baidu.down.manage.DownloadConstants;
 import com.baidu.fsg.base.activity.BaseActivity;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class ErrorCorrection {
     private static final int MODULO_VALUE = 301;
     private static final int[] FACTOR_SETS = {5, 7, 10, 11, 12, 14, 18, 20, 24, 28, 36, 42, 48, 56, 62, 68};

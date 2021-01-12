@@ -36,6 +36,7 @@ import android.media.projection.MediaProjectionManager;
 import android.media.session.MediaSessionManager;
 import android.media.tv.TvInputManager;
 import android.net.ConnectivityManager;
+import android.net.http.Headers;
 import android.net.nsd.NsdManager;
 import android.net.wifi.WifiManager;
 import android.net.wifi.p2p.WifiP2pManager;
@@ -72,7 +73,7 @@ import com.baidu.mobstat.Config;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import java.io.File;
 import java.util.HashMap;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class ContextCompat {
     private static final String TAG = "ContextCompat";
     private static final Object sLock = new Object();
@@ -246,7 +247,7 @@ public class ContextCompat {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public static final class LegacyServiceMapHolder {
         static final HashMap<Class<?>, String> SERVICES = new HashMap<>();
 
@@ -301,7 +302,7 @@ public class ContextCompat {
             SERVICES.put(InputMethodManager.class, "input_method");
             SERVICES.put(KeyguardManager.class, "keyguard");
             SERVICES.put(LayoutInflater.class, "layout_inflater");
-            SERVICES.put(LocationManager.class, "location");
+            SERVICES.put(LocationManager.class, Headers.LOCATION);
             SERVICES.put(NfcManager.class, "nfc");
             SERVICES.put(NotificationManager.class, ActionJsonData.TAG_NOTIFICATION);
             SERVICES.put(PowerManager.class, "power");

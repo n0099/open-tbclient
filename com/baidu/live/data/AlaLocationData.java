@@ -1,10 +1,11 @@
 package com.baidu.live.data;
 
+import android.net.http.Headers;
 import com.baidu.live.adp.lib.util.BdLog;
 import java.io.Serializable;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class AlaLocationData implements Serializable {
     public static final String LOCATION_DATA = "location_data";
     public String location = "";
@@ -23,7 +24,7 @@ public class AlaLocationData implements Serializable {
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.location = jSONObject.optString("location");
+                this.location = jSONObject.optString(Headers.LOCATION);
                 this.lng = jSONObject.optString("lng");
                 this.lat = jSONObject.optString("lat");
                 this.distance = jSONObject.optLong("distance");
@@ -67,7 +68,7 @@ public class AlaLocationData implements Serializable {
     public JSONObject toJsonObject() {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("location", this.location);
+            jSONObject.put(Headers.LOCATION, this.location);
             jSONObject.put("lng", this.lng);
             jSONObject.put("lat", this.lat);
             jSONObject.put("distance", this.distance);

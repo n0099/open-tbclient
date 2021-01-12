@@ -13,19 +13,19 @@ import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 /* loaded from: classes.dex */
 public class b extends a {
-    private int kTQ;
-    private volatile boolean nve;
-    private volatile d nvh;
+    private int kPl;
+    private volatile d nqB;
+    private volatile boolean nqy;
 
     static /* synthetic */ int b(b bVar) {
-        int i = bVar.kTQ;
-        bVar.kTQ = i + 1;
+        int i = bVar.kPl;
+        bVar.kPl = i + 1;
         return i;
     }
 
     public b(String str, int i, int i2, long j, String str2) {
         super(str, i, i2, j, str2);
-        this.nvh = new d();
+        this.nqB = new d();
     }
 
     @Override // com.baidu.tieba.tbadkCore.videoupload.a.a.a
@@ -33,13 +33,13 @@ public class b extends a {
         final int size = arrayList.size();
         final CountDownLatch countDownLatch = new CountDownLatch(size);
         ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(3, 3, 2L, TimeUnit.SECONDS, new LinkedBlockingDeque(), new ThreadFactory() { // from class: com.baidu.tieba.tbadkCore.videoupload.a.a.b.1
-            private int nvi = 0;
+            private int nqC = 0;
 
             @Override // java.util.concurrent.ThreadFactory
             public Thread newThread(Runnable runnable) {
                 Thread thread = new Thread(runnable);
-                thread.setName("VideoUploadThread@" + this.nvi);
-                this.nvi++;
+                thread.setName("VideoUploadThread@" + this.nqC);
+                this.nqC++;
                 return thread;
             }
         });
@@ -52,15 +52,15 @@ public class b extends a {
                         d a2 = b.this.a(randomAccessFile, ((Integer) arrayList.get(i2)).intValue(), i, str);
                         if (a2 != null) {
                             if (a2.errorNo != 0) {
-                                b.this.nvh.errorNo = a2.errorNo;
-                                b.this.nvh.errorMessage = a2.errorMessage;
+                                b.this.nqB.errorNo = a2.errorNo;
+                                b.this.nqB.errorMessage = a2.errorMessage;
                             }
                             if (!StringUtils.isNull(a2.videoUrl)) {
-                                b.this.nvh.videoUrl = a2.videoUrl;
+                                b.this.nqB.videoUrl = a2.videoUrl;
                             }
                             synchronized (b.this) {
                                 b.b(b.this);
-                                b.this.Li((int) (30.0f + ((50.0f * b.this.kTQ) / size)));
+                                b.this.JB((int) (30.0f + ((50.0f * b.this.kPl) / size)));
                             }
                         }
                         countDownLatch.countDown();
@@ -78,19 +78,19 @@ public class b extends a {
             } catch (IOException e2) {
                 e2.printStackTrace();
             }
-            return this.nvh;
+            return this.nqB;
         } catch (FileNotFoundException e3) {
-            return this.nvh;
+            return this.nqB;
         }
     }
 
     @Override // com.baidu.tieba.tbadkCore.videoupload.a.a.a
     public void cancel() {
-        this.nve = true;
+        this.nqy = true;
     }
 
     @Override // com.baidu.tieba.tbadkCore.videoupload.a.a.a
     public boolean isCancelled() {
-        return (!this.nve && this.nvh.errorNo == 0 && StringUtils.isNull(this.nvh.videoUrl)) ? false : true;
+        return (!this.nqy && this.nqB.errorNo == 0 && StringUtils.isNull(this.nqB.videoUrl)) ? false : true;
     }
 }

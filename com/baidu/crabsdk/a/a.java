@@ -6,27 +6,27 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes14.dex */
 public final class a {
     public static int W = 2000;
     public static int X = 1;
-    static a apc = null;
+    static a aop = null;
     private long Y;
     private long Z;
     private long aa;
     private long ab;
-    private StringBuilder apa = new StringBuilder();
-    public ArrayList<String> apb = new ArrayList<>();
+    private StringBuilder aon = new StringBuilder();
+    public ArrayList<String> aoo = new ArrayList<>();
 
     private a() {
     }
 
     private String g() {
-        Iterator<String> it = this.apb.iterator();
+        Iterator<String> it = this.aoo.iterator();
         while (it.hasNext()) {
             String next = it.next();
             com.baidu.crabsdk.c.a.v("===== stackEntry ===== \n" + next);
-            this.apa.append(next);
+            this.aon.append(next);
             String[] split = next.split("\r\n");
             if (split != null && split.length > 0) {
                 for (String str : split) {
@@ -44,15 +44,15 @@ public final class a {
         return W * 0.6f;
     }
 
-    public static a ur() {
-        if (apc == null) {
+    public static a uk() {
+        if (aop == null) {
             synchronized (a.class) {
-                if (apc == null) {
-                    apc = new a();
+                if (aop == null) {
+                    aop = new a();
                 }
             }
         }
-        return apc;
+        return aop;
     }
 
     public final a a(long j, long j2, long j3, long j4) {
@@ -79,10 +79,10 @@ public final class a {
         hashMap.put("blockEndTime", Long.valueOf(j2));
         hashMap.put("blockCostTime", Long.valueOf(j3));
         hashMap.put("blockThreadTime", Long.valueOf(j4));
-        hashMap.put("errorTrace", this.apa.toString());
+        hashMap.put("errorTrace", this.aon.toString());
         hashMap.put("errorLine", g);
         hashMap.put("errorOriLine", g);
-        this.apa.setLength(0);
+        this.aon.setLength(0);
         return hashMap;
     }
 }

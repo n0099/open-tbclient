@@ -4,7 +4,7 @@ import androidx.annotation.Nullable;
 import com.kwad.sdk.core.b;
 import com.kwad.sdk.core.c.a.v;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class a implements b {
     public void afterParseJson(@Nullable JSONObject jSONObject) {
     }

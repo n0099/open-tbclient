@@ -13,14 +13,14 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.annotation.Nullable;
 import com.baidu.live.sdk.a;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class GuardClubRankTabView extends LinearLayout {
-    private a hej;
+    private a gZD;
     private MotionEvent mMotionEvent;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public interface a {
-        void fb(int i);
+        void dv(int i);
     }
 
     public GuardClubRankTabView(Context context, @Nullable AttributeSet attributeSet) {
@@ -29,7 +29,7 @@ public class GuardClubRankTabView extends LinearLayout {
     }
 
     public void setCallback(a aVar) {
-        this.hej = aVar;
+        this.gZD = aVar;
     }
 
     public void setSelect(int i) {
@@ -39,8 +39,8 @@ public class GuardClubRankTabView extends LinearLayout {
                 cq(getChildAt(i2));
             }
             cp(childAt);
-            if (this.hej != null) {
-                this.hej.fb(i);
+            if (this.gZD != null) {
+                this.gZD.dv(i);
             }
         }
     }
@@ -75,11 +75,11 @@ public class GuardClubRankTabView extends LinearLayout {
 
     private void init() {
         setClickable(true);
-        abk();
+        Xr();
         setOrientation(0);
     }
 
-    private void abk() {
+    private void Xr() {
         GradientDrawable gradientDrawable = new GradientDrawable();
         gradientDrawable.setColor(0);
         gradientDrawable.setCornerRadius(getResources().getDimensionPixelOffset(a.d.sdk_ds28));

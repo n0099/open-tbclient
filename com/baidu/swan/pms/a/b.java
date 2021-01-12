@@ -37,7 +37,7 @@ public abstract class b<T> implements c<T> {
     }
 
     @Override // com.baidu.swan.pms.a.c
-    public Map<String, Object> bfY() {
+    public Map<String, Object> bce() {
         HashMap hashMap = new HashMap();
         hashMap.put("queue_priority", Integer.valueOf(getPriority()));
         return hashMap;

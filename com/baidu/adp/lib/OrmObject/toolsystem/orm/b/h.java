@@ -15,13 +15,13 @@ import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 /* loaded from: classes.dex */
 public class h implements c {
-    private Element KE;
+    private Element KC;
     private Set<String> keySet = new HashSet();
 
     public h(Element element) {
         String nodeName;
         String nodeName2;
-        this.KE = element;
+        this.KC = element;
         if (element != null) {
             NamedNodeMap attributes = element.getAttributes();
             int length = attributes.getLength();
@@ -54,9 +54,9 @@ public class h implements c {
     /* JADX WARN: Type inference failed for: r0v4, types: [java.util.List, java.util.ArrayList] */
     public Object getObject(String str) {
         String nodeName;
-        Object attribute = this.KE.getAttribute(str);
+        Object attribute = this.KC.getAttribute(str);
         if (TextUtils.isEmpty(attribute)) {
-            NodeList childNodes = this.KE.getChildNodes();
+            NodeList childNodes = this.KC.getChildNodes();
             int length = childNodes.getLength();
             attribute = new ArrayList(length);
             for (int i = 0; i < length; i++) {
@@ -87,23 +87,23 @@ public class h implements c {
     public void e(String str, Object obj) {
         if (obj != null && str != null) {
             if (obj instanceof Boolean) {
-                this.KE.setAttribute(str, String.valueOf(obj));
+                this.KC.setAttribute(str, String.valueOf(obj));
             } else if (obj instanceof Byte) {
-                this.KE.setAttribute(str, String.valueOf(obj));
+                this.KC.setAttribute(str, String.valueOf(obj));
             } else if (obj instanceof Character) {
-                this.KE.setAttribute(str, String.valueOf(obj));
+                this.KC.setAttribute(str, String.valueOf(obj));
             } else if (obj instanceof Short) {
-                this.KE.setAttribute(str, String.valueOf(obj));
+                this.KC.setAttribute(str, String.valueOf(obj));
             } else if (obj instanceof Integer) {
-                this.KE.setAttribute(str, String.valueOf(obj));
+                this.KC.setAttribute(str, String.valueOf(obj));
             } else if (obj instanceof Long) {
-                this.KE.setAttribute(str, String.valueOf(obj));
+                this.KC.setAttribute(str, String.valueOf(obj));
             } else if (obj instanceof Float) {
-                this.KE.setAttribute(str, String.valueOf(obj));
+                this.KC.setAttribute(str, String.valueOf(obj));
             } else if (obj instanceof Double) {
-                this.KE.setAttribute(str, String.valueOf(obj));
+                this.KC.setAttribute(str, String.valueOf(obj));
             } else if (obj instanceof String) {
-                this.KE.setAttribute(str, String.valueOf(obj));
+                this.KC.setAttribute(str, String.valueOf(obj));
             } else {
                 if (obj.getClass().isArray() || com.baidu.adp.lib.OrmObject.a.a.isClassIsSubClassForClazz(obj.getClass(), List.class) || com.baidu.adp.lib.OrmObject.a.a.isClassIsSubClassForClazz(obj.getClass(), Queue.class) || com.baidu.adp.lib.OrmObject.a.a.isClassIsSubClassForClazz(obj.getClass(), Set.class) || com.baidu.adp.lib.OrmObject.a.a.isClassIsSubClassForClazz(obj.getClass(), Map.class) || com.baidu.adp.lib.OrmObject.a.a.isClassIsSubClassForClazz(obj.getClass(), SparseArray.class)) {
                 }

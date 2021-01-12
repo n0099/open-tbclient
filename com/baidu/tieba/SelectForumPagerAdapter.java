@@ -13,18 +13,18 @@ import java.util.List;
 /* loaded from: classes2.dex */
 public class SelectForumPagerAdapter extends PagerAdapter {
     private TbPageContext<SelectForumActivity> mPageContext;
-    private int ghh = -1;
-    private List<d> ghg = new ArrayList();
+    private int gcz = -1;
+    private List<d> gcy = new ArrayList();
 
     public SelectForumPagerAdapter(TbPageContext tbPageContext) {
         this.mPageContext = tbPageContext;
-        this.ghg.add(new LatelyView(this.mPageContext.getPageActivity()));
-        this.ghg.add(new AttentionView(this.mPageContext.getPageActivity()));
+        this.gcy.add(new LatelyView(this.mPageContext.getPageActivity()));
+        this.gcy.add(new AttentionView(this.mPageContext.getPageActivity()));
     }
 
     @Override // androidx.viewpager.widget.PagerAdapter
     public int getCount() {
-        return x.getCount(this.ghg);
+        return x.getCount(this.gcy);
     }
 
     @Override // androidx.viewpager.widget.PagerAdapter
@@ -34,7 +34,7 @@ public class SelectForumPagerAdapter extends PagerAdapter {
 
     @Override // androidx.viewpager.widget.PagerAdapter
     public CharSequence getPageTitle(int i) {
-        return x.getItem(this.ghg, i) == null ? "" : ((d) x.getItem(this.ghg, i)).getTitle();
+        return x.getItem(this.gcy, i) == null ? "" : ((d) x.getItem(this.gcy, i)).getTitle();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -42,7 +42,7 @@ public class SelectForumPagerAdapter extends PagerAdapter {
     @NonNull
     /* renamed from: r */
     public d instantiateItem(@NonNull ViewGroup viewGroup, int i) {
-        d dVar = (d) x.getItem(this.ghg, i);
+        d dVar = (d) x.getItem(this.gcy, i);
         if (dVar instanceof View) {
             if (((View) dVar).getParent() != null) {
                 viewGroup.removeView((View) dVar);
@@ -55,17 +55,17 @@ public class SelectForumPagerAdapter extends PagerAdapter {
     @Override // androidx.viewpager.widget.PagerAdapter
     public void setPrimaryItem(@NonNull ViewGroup viewGroup, int i, @NonNull Object obj) {
         super.setPrimaryItem(viewGroup, i, obj);
-        if (this.ghh != i) {
-            this.ghh = i;
-            d dVar = (d) x.getItem(this.ghg, i);
+        if (this.gcz != i) {
+            this.gcz = i;
+            d dVar = (d) x.getItem(this.gcy, i);
             if (dVar != null) {
                 dVar.aB(null);
             }
         }
     }
 
-    public void bNX() {
-        for (d dVar : this.ghg) {
+    public void bKf() {
+        for (d dVar : this.gcy) {
             dVar.onChangeSkinType();
         }
     }
@@ -76,7 +76,7 @@ public class SelectForumPagerAdapter extends PagerAdapter {
     }
 
     public void onDestroy() {
-        for (d dVar : this.ghg) {
+        for (d dVar : this.gcy) {
             dVar.onDestroy();
         }
     }

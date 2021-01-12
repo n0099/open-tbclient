@@ -6,10 +6,10 @@ import org.json.JSONObject;
 public class f implements b {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f13187a;
+    private String f12887a;
 
     /* renamed from: b  reason: collision with root package name */
-    private boolean f13188b;
+    private boolean f12888b;
     private String c;
     private String d;
     private String e;
@@ -30,8 +30,8 @@ public class f implements b {
     }
 
     private f(a aVar) {
-        this.f13187a = aVar.f13189a;
-        this.f13188b = aVar.f13190b;
+        this.f12887a = aVar.f12889a;
+        this.f12888b = aVar.f12890b;
         this.c = aVar.c;
         this.d = aVar.d;
         this.e = aVar.e;
@@ -56,7 +56,7 @@ public class f implements b {
 
     @Override // com.ss.android.a.a.b.b
     public String b() {
-        return this.f13187a;
+        return this.f12887a;
     }
 
     @Override // com.ss.android.a.a.b.b
@@ -95,7 +95,7 @@ public class f implements b {
     }
 
     @Override // com.ss.android.a.a.b.b
-    public Object eFt() {
+    public Object eBC() {
         return this.l;
     }
 
@@ -106,7 +106,7 @@ public class f implements b {
 
     @Override // com.ss.android.a.a.b.b
     public boolean l() {
-        return this.f13188b;
+        return this.f12888b;
     }
 
     @Override // com.ss.android.a.a.b.b
@@ -115,7 +115,7 @@ public class f implements b {
     }
 
     @Override // com.ss.android.a.a.b.b
-    public JSONObject eFu() {
+    public JSONObject eBD() {
         return null;
     }
 
@@ -123,10 +123,10 @@ public class f implements b {
     public static final class a {
 
         /* renamed from: a  reason: collision with root package name */
-        private String f13189a;
+        private String f12889a;
 
         /* renamed from: b  reason: collision with root package name */
-        private boolean f13190b;
+        private boolean f12890b;
         private String c;
         private String d;
         private String e;
@@ -143,7 +143,7 @@ public class f implements b {
         private String p;
         private String q;
 
-        public f eFA() {
+        public f eBJ() {
             return new f(this);
         }
     }

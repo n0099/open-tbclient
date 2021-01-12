@@ -1,5 +1,5 @@
 package com.kwad.sdk.crash;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 class SdkCaughtException extends RuntimeException {
     public SdkCaughtException() {
     }

@@ -1,13 +1,13 @@
 package com.kuaishou.aegon;
 
 import androidx.annotation.Keep;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class AegonLoggingDispatcher {
-    public static i pSk;
+    public static i pNK;
 
     @Keep
     public static void Log(int i, String str, String str2) {
-        i iVar = pSk;
+        i iVar = pNK;
         if (iVar != null) {
             iVar.a(i, str, str2);
         }

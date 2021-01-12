@@ -8,36 +8,36 @@ import com.baidu.tieba.lego.card.a.b;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class a implements com.baidu.tieba.lego.card.a.b {
-    public String abe;
+    public String abb;
+    public String abd;
+    public int abe;
     public String abf;
-    public int abg;
+    public String abg;
     public String abh;
     public String abi;
-    public String abj;
-    public String abk;
-    public boolean abl;
-    public int abm;
-    public int abn;
-    private b.a abq;
+    public boolean abj;
+    public int abk;
+    public int abl;
+    private b.a abo;
     public String adid;
     public String extra;
     public String picUrl;
     public String tplName;
     public String videoUrl;
-    private int abd = 3;
-    public ArrayList<String> abo = new ArrayList<>();
-    public ArrayList<String> abp = new ArrayList<>();
+    private int aba = 3;
+    public ArrayList<String> abm = new ArrayList<>();
+    public ArrayList<String> abn = new ArrayList<>();
 
     public void setAdType(int i) {
-        this.abd = i;
+        this.aba = i;
     }
 
     public boolean isEmpty() {
-        return this.abd == 2;
+        return this.aba == 2;
     }
 
     public int rw() {
-        return this.abd;
+        return this.aba;
     }
 
     public boolean isValid() {
@@ -51,16 +51,16 @@ public class a implements com.baidu.tieba.lego.card.a.b {
     }
 
     public String rx() {
-        return StringUtils.isNull(this.abj) ? TbadkCoreApplication.getInst().getResources().getString(R.string.check_detail) : this.abj;
+        return StringUtils.isNull(this.abh) ? TbadkCoreApplication.getInst().getResources().getString(R.string.check_detail) : this.abh;
     }
 
     @Override // com.baidu.tieba.lego.card.a.b
     public b.a getParallelCharge() {
-        if (this.abq == null) {
-            this.abq = new b.a();
-            this.abq.kXV = this.abo;
-            this.abq.kXW = this.abp;
+        if (this.abo == null) {
+            this.abo = new b.a();
+            this.abo.kTq = this.abm;
+            this.abo.kTr = this.abn;
         }
-        return this.abq;
+        return this.abo;
     }
 }

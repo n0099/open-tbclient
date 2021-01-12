@@ -10,35 +10,35 @@ import org.json.JSONObject;
 public class k implements e {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f6894a;
+    private String f6594a;
 
     /* renamed from: b  reason: collision with root package name */
-    private c f6895b;
+    private c f6595b;
 
     @Override // com.bytedance.sdk.openadsdk.core.h.e
     public void a() {
         if (com.bytedance.sdk.openadsdk.multipro.b.b()) {
-            this.f6894a = com.bytedance.sdk.openadsdk.multipro.d.a.b("tt_dns_settings", "dnsinfo", "");
+            this.f6594a = com.bytedance.sdk.openadsdk.multipro.d.a.b("tt_dns_settings", "dnsinfo", "");
             c();
             return;
         }
-        this.f6894a = e().b("dnsinfo", "");
+        this.f6594a = e().b("dnsinfo", "");
         c();
     }
 
     @Override // com.bytedance.sdk.openadsdk.core.h.e
     public void a(@NonNull JSONObject jSONObject) {
-        this.f6895b = c.a(jSONObject);
-        if (this.f6895b != null) {
-            this.f6894a = this.f6895b.c().toString();
+        this.f6595b = c.a(jSONObject);
+        if (this.f6595b != null) {
+            this.f6594a = this.f6595b.c().toString();
         }
         d();
     }
 
     private void c() {
-        if (!TextUtils.isEmpty(this.f6894a)) {
+        if (!TextUtils.isEmpty(this.f6594a)) {
             try {
-                this.f6895b = c.a(new JSONObject(this.f6894a));
+                this.f6595b = c.a(new JSONObject(this.f6594a));
             } catch (Exception e) {
             }
         }
@@ -46,15 +46,15 @@ public class k implements e {
 
     private void d() {
         if (com.bytedance.sdk.openadsdk.multipro.b.b()) {
-            if (!TextUtils.isEmpty(this.f6894a)) {
-                com.bytedance.sdk.openadsdk.multipro.d.a.a("tt_dns_settings", "dnsinfo", this.f6894a);
+            if (!TextUtils.isEmpty(this.f6594a)) {
+                com.bytedance.sdk.openadsdk.multipro.d.a.a("tt_dns_settings", "dnsinfo", this.f6594a);
                 return;
             }
             return;
         }
         ae e = e();
-        if (!TextUtils.isEmpty(this.f6894a)) {
-            e.a("dnsinfo", this.f6894a);
+        if (!TextUtils.isEmpty(this.f6594a)) {
+            e.a("dnsinfo", this.f6594a);
         }
     }
 
@@ -67,8 +67,8 @@ public class k implements e {
         if (!TextUtils.isEmpty(str)) {
             long currentTimeMillis = System.currentTimeMillis();
             d dVar = null;
-            if (this.f6895b != null && this.f6895b.f6879b != null) {
-                dVar = this.f6895b.f6879b.get(str);
+            if (this.f6595b != null && this.f6595b.f6579b != null) {
+                dVar = this.f6595b.f6579b.get(str);
             }
             if (dVar == null) {
                 if (str.equals("is.snssdk.com")) {

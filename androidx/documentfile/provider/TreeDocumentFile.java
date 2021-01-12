@@ -10,7 +10,7 @@ import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import java.util.ArrayList;
 @RequiresApi(21)
-/* loaded from: classes3.dex */
+/* loaded from: classes14.dex */
 class TreeDocumentFile extends DocumentFile {
     private Context mContext;
     private Uri mUri;

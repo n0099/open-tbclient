@@ -20,14 +20,14 @@ import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    private static String f8561a = "/*";
+    private static String f8261a = "/*";
 
     /* renamed from: b  reason: collision with root package name */
-    private static String f8562b = "*";
+    private static String f8262b = "*";
     private static long c = 86400000;
     private static long d = AppStatusRules.DEFAULT_GRANULARITY;
     private static Map<String, Set<String>> e = new HashMap();
@@ -118,7 +118,7 @@ public class b {
             return;
         }
         try {
-            a(new File(Environment.getExternalStorageDirectory(), d.f9970b));
+            a(new File(Environment.getExternalStorageDirectory(), d.f9670b));
         } catch (Exception e2) {
             com.kwad.sdk.core.d.a.a(e2);
         }
@@ -152,8 +152,8 @@ public class b {
             AppStatusHelper.AppRunningInfo appRunningInfo = createByPackages.get(key);
             if (appRunningInfo != null) {
                 for (String str : value) {
-                    if (str.endsWith(f8561a)) {
-                        File file2 = new File(file, str.replace(f8561a, ""));
+                    if (str.endsWith(f8261a)) {
+                        File file2 = new File(file, str.replace(f8261a, ""));
                         if (file2.exists() && file2.isDirectory() && (list = file2.list()) != null) {
                             int length = list.length;
                             int i = 0;
@@ -168,9 +168,9 @@ public class b {
                                 }
                             }
                         }
-                    } else if (str.endsWith(f8562b)) {
+                    } else if (str.endsWith(f8262b)) {
                         File file4 = new File(file, str.substring(0, str.lastIndexOf("/")));
-                        String replace = str.replace(f8562b, "");
+                        String replace = str.replace(f8262b, "");
                         if (file4.exists() && file4.isDirectory() && (list2 = file4.list()) != null) {
                             String absolutePath = file4.getAbsolutePath();
                             int length2 = list2.length;

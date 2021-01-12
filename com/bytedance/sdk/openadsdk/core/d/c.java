@@ -7,10 +7,10 @@ import org.json.JSONArray;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f6787a;
+    private String f6487a;
 
     /* renamed from: b  reason: collision with root package name */
-    private String f6788b;
+    private String f6488b;
     private String c;
     private JSONArray d;
     private String e;
@@ -28,19 +28,19 @@ public class c {
     }
 
     public String b() {
-        return this.f6787a;
+        return this.f6487a;
     }
 
     public void a(String str) {
-        this.f6787a = str;
+        this.f6487a = str;
     }
 
     public String c() {
-        return this.f6788b;
+        return this.f6488b;
     }
 
     public void b(String str) {
-        this.f6788b = str;
+        this.f6488b = str;
     }
 
     public String d() {

@@ -16,13 +16,13 @@ import com.baidu.android.imsdk.utils.LogUtils;
 import java.security.NoSuchAlgorithmException;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class IMQueryGlobalConfRequest extends GroupBaseHttpRequest {
     private static final String TAG = IMQueryGlobalConfRequest.class.getSimpleName();
     private long mAppid;
     private String mKey;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     class Mytask extends TaskManager.Task {
         public Mytask(String str, String str2) {
             super(str, str2);

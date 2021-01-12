@@ -5,15 +5,15 @@ import android.content.Context;
 public interface a {
     void B(Context context, int i);
 
-    Class<?> bvh();
+    Class<?> brn();
 
-    String bvi();
+    String bro();
 
     void c(Context context, int i, boolean z);
 
     void d(Context context, int i, boolean z);
 
-    void eW(Context context);
+    void eU(Context context);
 
     int getCurrentTabType();
 }

@@ -1,9 +1,9 @@
 package com.google.ar.core;
 
 import com.google.ar.core.exceptions.FatalException;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class LightEstimate {
-    long pLJ;
+    long pHi;
 
     private static native long nativeCreateLightEstimate(long j);
 
@@ -15,7 +15,7 @@ public class LightEstimate {
 
     private native int nativeGetState(long j, long j2);
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public enum State {
         NOT_VALID(0),
         VALID(1);
@@ -38,8 +38,8 @@ public class LightEstimate {
     }
 
     protected void finalize() throws Throwable {
-        if (this.pLJ != 0) {
-            nativeDestroyLightEstimate(this.pLJ);
+        if (this.pHi != 0) {
+            nativeDestroyLightEstimate(this.pHi);
         }
         super.finalize();
     }

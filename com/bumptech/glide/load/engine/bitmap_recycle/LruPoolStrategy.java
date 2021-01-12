@@ -2,7 +2,7 @@ package com.bumptech.glide.load.engine.bitmap_recycle;
 
 import android.graphics.Bitmap;
 import androidx.annotation.Nullable;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 interface LruPoolStrategy {
     @Nullable
     Bitmap get(int i, int i2, Bitmap.Config config);

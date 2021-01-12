@@ -18,29 +18,29 @@ import com.baidu.swan.apps.a;
 import com.baidu.swan.apps.res.ui.SliderBar;
 import com.baidu.swan.menu.PopupWindow;
 import java.util.ArrayList;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class c extends PopupWindow implements View.OnClickListener {
-    private View dqh;
-    private com.baidu.swan.menu.a dqi;
-    private View dqj;
-    private FontSizeSettingMenuView dqk;
-    private a dql;
+    private View dlr;
+    private com.baidu.swan.menu.a dls;
+    private View dlt;
+    private FontSizeSettingMenuView dlu;
+    private a dlv;
     private Context mContext;
     private ViewGroup mRootView;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public interface a {
-        void jK(int i);
+        void ie(int i);
     }
 
     public c(Context context, View view, @Nullable com.baidu.swan.menu.a aVar) {
         super(context);
         this.mContext = context;
-        this.dqh = view;
-        this.dqi = aVar;
-        ei(false);
+        this.dlr = view;
+        this.dls = aVar;
+        ee(false);
         setFocusable(true);
-        eh(true);
+        ed(true);
         setBackgroundDrawable(new ColorDrawable(0));
         setWidth(-1);
         setHeight(-1);
@@ -49,15 +49,15 @@ public class c extends PopupWindow implements View.OnClickListener {
 
     private void initViews() {
         this.mRootView = (FrameLayout) LayoutInflater.from(this.mContext).inflate(a.g.swan_app_font_setting_layout, (ViewGroup) null);
-        this.dqj = this.mRootView.findViewById(a.f.mask);
-        this.dqk = (FontSizeSettingMenuView) this.mRootView.findViewById(a.f.font_size_setting);
-        this.dqj.setOnClickListener(this);
-        this.dqk.setClickListener(this);
-        this.dqk.setOnSliderBarChangeListener(new SliderBar.b() { // from class: com.baidu.swan.apps.menu.fontsize.c.1
+        this.dlt = this.mRootView.findViewById(a.f.mask);
+        this.dlu = (FontSizeSettingMenuView) this.mRootView.findViewById(a.f.font_size_setting);
+        this.dlt.setOnClickListener(this);
+        this.dlu.setClickListener(this);
+        this.dlu.setOnSliderBarChangeListener(new SliderBar.b() { // from class: com.baidu.swan.apps.menu.fontsize.c.1
             @Override // com.baidu.swan.apps.res.ui.SliderBar.b
             public void a(SliderBar sliderBar, int i) {
-                if (c.this.dql != null) {
-                    c.this.dql.jK(i);
+                if (c.this.dlv != null) {
+                    c.this.dlv.ie(i);
                 }
             }
         });
@@ -69,53 +69,53 @@ public class c extends PopupWindow implements View.OnClickListener {
     public void onClick(View view) {
         int id = view.getId();
         if (id == a.f.cancel || id == a.f.mask) {
-            gi(true);
+            ge(true);
         }
     }
 
     public void showView() {
         if (!isShowing()) {
-            aFQ();
+            aBW();
             Activity activity = (Activity) this.mContext;
             if (activity != null && !activity.isFinishing() && !activity.isDestroyed()) {
-                this.dqk.setMode();
-                showAtLocation(this.dqh, 81, 0, 0);
+                this.dlu.setMode();
+                showAtLocation(this.dlr, 81, 0, 0);
                 getContentView().setSystemUiVisibility(Config.MAX_CACHE_JSON_CAPACIT_EXCEPTION);
                 setFocusable(true);
                 update();
-                final View contentView = this.dqk.getContentView();
+                final View contentView = this.dlu.getContentView();
                 if (contentView.getHeight() == 0) {
                     contentView.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() { // from class: com.baidu.swan.apps.menu.fontsize.c.2
                         @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
                         public void onGlobalLayout() {
-                            c.this.dqk.nc(contentView.getHeight());
-                            c.this.aFR();
+                            c.this.dlu.lw(contentView.getHeight());
+                            c.this.aBX();
                             contentView.getViewTreeObserver().removeOnGlobalLayoutListener(this);
                         }
                     });
                 } else {
-                    aFR();
+                    aBX();
                 }
             }
         }
     }
 
-    public void aFQ() {
-        if (this.dqi != null) {
-            this.dqi.a(this.dqk);
+    public void aBW() {
+        if (this.dls != null) {
+            this.dls.a(this.dlu);
         }
     }
 
     public void a(a aVar) {
-        this.dql = aVar;
+        this.dlv = aVar;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aFR() {
-        this.dqj.setAlpha(0.0f);
-        this.dqk.setTranslationY(this.dqk.getHeight());
-        ObjectAnimator a2 = com.baidu.swan.menu.c.a(this.dqj, this.dqk);
-        ObjectAnimator b2 = com.baidu.swan.menu.c.b(this.dqk);
+    public void aBX() {
+        this.dlt.setAlpha(0.0f);
+        this.dlu.setTranslationY(this.dlu.getHeight());
+        ObjectAnimator a2 = com.baidu.swan.menu.c.a(this.dlt, this.dlu);
+        ObjectAnimator b2 = com.baidu.swan.menu.c.b(this.dlu);
         ArrayList arrayList = new ArrayList();
         arrayList.add(a2);
         arrayList.add(b2);
@@ -124,12 +124,12 @@ public class c extends PopupWindow implements View.OnClickListener {
         animatorSet.start();
     }
 
-    public void gi(boolean z) {
+    public void ge(boolean z) {
         if (!z) {
             super.dismiss();
         } else if (isShowing()) {
-            ObjectAnimator bj = com.baidu.swan.menu.c.bj(this.dqj);
-            ObjectAnimator c = com.baidu.swan.menu.c.c(this.dqk);
+            ObjectAnimator bj = com.baidu.swan.menu.c.bj(this.dlt);
+            ObjectAnimator c = com.baidu.swan.menu.c.c(this.dlu);
             AnimatorSet animatorSet = new AnimatorSet();
             animatorSet.addListener(new AnimatorListenerAdapter() { // from class: com.baidu.swan.apps.menu.fontsize.c.3
                 @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener

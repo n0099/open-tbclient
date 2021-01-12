@@ -12,13 +12,13 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class GiftPackageListHttpResponsedMessage extends JsonHttpResponsedMessage {
-    private List<k> aZE;
-    private ArrayList<i> bcD;
-    private ArrayList<k> bcE;
-    private ArrayList<h> bhQ;
-    private JSONObject bhR;
+    private List<k> aUR;
+    private ArrayList<i> aXP;
+    private ArrayList<k> aXQ;
+    private ArrayList<h> bcZ;
+    private JSONObject bda;
     private int flag;
     private String scene_from;
 
@@ -35,21 +35,21 @@ public class GiftPackageListHttpResponsedMessage extends JsonHttpResponsedMessag
     }
 
     public void N(JSONObject jSONObject) {
-        this.bhR = jSONObject.optJSONObject("data");
-        if (this.bhR != null) {
-            this.scene_from = this.bhR.optString("scene_from");
-            this.flag = this.bhR.optInt(FrsActivityConfig.FLAG);
-            j(this.bhR.optJSONArray("list"));
-            k(this.bhR.optJSONArray("num_info"));
-            l(this.bhR.optJSONArray("fragment_num_info"));
+        this.bda = jSONObject.optJSONObject("data");
+        if (this.bda != null) {
+            this.scene_from = this.bda.optString("scene_from");
+            this.flag = this.bda.optInt(FrsActivityConfig.FLAG);
+            j(this.bda.optJSONArray("list"));
+            k(this.bda.optJSONArray("num_info"));
+            l(this.bda.optJSONArray("fragment_num_info"));
         }
     }
 
     private void j(JSONArray jSONArray) {
         JSONObject optJSONObject;
         if (jSONArray != null && jSONArray.length() > 0) {
-            this.bhQ = new ArrayList<>();
-            this.bcD = new ArrayList<>();
+            this.bcZ = new ArrayList<>();
+            this.aXP = new ArrayList<>();
             for (int i = 0; i < jSONArray.length(); i++) {
                 JSONObject optJSONObject2 = jSONArray.optJSONObject(i);
                 int optInt = optJSONObject2.optInt("category_id");
@@ -64,9 +64,9 @@ public class GiftPackageListHttpResponsedMessage extends JsonHttpResponsedMessag
                     i iVar = new i();
                     iVar.setCategoryId(optInt);
                     iVar.setCategoryName(optString);
-                    iVar.k(arrayList);
-                    iVar.bu(z);
-                    this.bcD.add(iVar);
+                    iVar.f(arrayList);
+                    iVar.bq(z);
+                    this.aXP.add(iVar);
                 }
                 JSONArray optJSONArray2 = optJSONObject2.optJSONArray("gift_list");
                 if (optJSONArray2 != null) {
@@ -81,18 +81,18 @@ public class GiftPackageListHttpResponsedMessage extends JsonHttpResponsedMessag
                             aaVar.I(optJSONObject.optJSONObject("long_press"));
                             JSONArray optJSONArray3 = optJSONObject3.optJSONArray("fragment_info");
                             if (optJSONArray3 != null && optJSONArray3.length() > 0) {
-                                aaVar.aZG = new ArrayList();
+                                aaVar.aUT = new ArrayList();
                                 for (int i4 = 0; i4 < optJSONArray3.length(); i4++) {
                                     aa.a aVar = new aa.a();
                                     aVar.parseJson(optJSONArray3.optJSONObject(i4));
-                                    aaVar.aZG.add(aVar);
+                                    aaVar.aUT.add(aVar);
                                 }
                             }
-                            if (aaVar.HP()) {
-                                if (aaVar.aZG != null && !aaVar.aZG.isEmpty()) {
+                            if (aaVar.DU()) {
+                                if (aaVar.aUT != null && !aaVar.aUT.isEmpty()) {
                                     arrayList2.add(aaVar);
                                 }
-                            } else if (aaVar.aXF != null && aaVar.aXF.aXU > 0) {
+                            } else if (aaVar.aSS != null && aaVar.aSS.aTh > 0) {
                                 arrayList2.add(aaVar);
                             }
                         }
@@ -101,8 +101,8 @@ public class GiftPackageListHttpResponsedMessage extends JsonHttpResponsedMessag
                     hVar.setCategoryId(optInt);
                     hVar.setCategoryName(optString);
                     hVar.G(arrayList2);
-                    hVar.bu(z);
-                    this.bhQ.add(hVar);
+                    hVar.bq(z);
+                    this.bcZ.add(hVar);
                 }
             }
         }
@@ -110,13 +110,13 @@ public class GiftPackageListHttpResponsedMessage extends JsonHttpResponsedMessag
 
     private void k(JSONArray jSONArray) {
         if (jSONArray != null && jSONArray.length() > 0) {
-            this.bcE = new ArrayList<>();
+            this.aXQ = new ArrayList<>();
             for (int i = 0; i < jSONArray.length(); i++) {
                 JSONObject optJSONObject = jSONArray.optJSONObject(i);
                 if (optJSONObject != null) {
                     k kVar = new k();
                     kVar.parser(optJSONObject);
-                    this.bcE.add(kVar);
+                    this.aXQ.add(kVar);
                 }
             }
         }
@@ -124,13 +124,13 @@ public class GiftPackageListHttpResponsedMessage extends JsonHttpResponsedMessag
 
     private void l(JSONArray jSONArray) {
         if (jSONArray != null && jSONArray.length() > 0) {
-            this.aZE = new ArrayList();
+            this.aUR = new ArrayList();
             for (int i = 0; i < jSONArray.length(); i++) {
                 JSONObject optJSONObject = jSONArray.optJSONObject(i);
                 if (optJSONObject != null) {
                     k kVar = new k();
                     kVar.parser(optJSONObject);
-                    this.aZE.add(kVar);
+                    this.aUR.add(kVar);
                 }
             }
         }
@@ -140,23 +140,23 @@ public class GiftPackageListHttpResponsedMessage extends JsonHttpResponsedMessag
         return this.scene_from;
     }
 
-    public ArrayList<h> Kh() {
-        return this.bhQ;
+    public ArrayList<h> Gm() {
+        return this.bcZ;
     }
 
     public ArrayList<i> getCategoryList() {
-        return this.bcD;
+        return this.aXP;
     }
 
-    public ArrayList<k> Ki() {
-        return this.bcE;
+    public ArrayList<k> Gn() {
+        return this.aXQ;
     }
 
-    public List<k> HM() {
-        return this.aZE;
+    public List<k> DR() {
+        return this.aUR;
     }
 
-    public String Kj() {
+    public String Go() {
         return getOrginalMessage() instanceof com.baidu.live.gift.message.a ? ((com.baidu.live.gift.message.a) getOrginalMessage()).getLoc() : "";
     }
 

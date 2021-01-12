@@ -6,12 +6,12 @@ import com.baidu.live.tbadk.core.data.BaseData;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class bm extends BaseData {
-    public int aMk;
-    public ArrayList<p> aRm = new ArrayList<>();
-    public ae aRn = new ae();
-    public z aRo = new z();
+    public int aHx;
+    public ArrayList<p> aMz = new ArrayList<>();
+    public ae aMA = new ae();
+    public z aMB = new z();
 
     @Override // com.baidu.live.tbadk.core.data.BaseData
     public void parserJson(JSONObject jSONObject) {
@@ -20,10 +20,10 @@ public class bm extends BaseData {
             try {
                 JSONObject optJSONObject = jSONObject.optJSONObject("data");
                 if (optJSONObject != null) {
-                    this.aMk = optJSONObject.optInt("interval");
+                    this.aHx = optJSONObject.optInt("interval");
                 }
-                if (this.aMk <= 0) {
-                    this.aMk = 5;
+                if (this.aHx <= 0) {
+                    this.aHx = 5;
                 }
                 JSONObject optJSONObject2 = jSONObject.optJSONObject("im_rate");
                 if (optJSONObject2 == null) {
@@ -43,12 +43,12 @@ public class bm extends BaseData {
                                 pVar.a(aVar);
                                 pVar.parseJson(optJSONObject4);
                                 pVar.serverTime = optLong;
-                                this.aRm.add(pVar);
+                                this.aMz.add(pVar);
                             }
                         }
                     }
-                    this.aRn.parseJson(optJSONObject3.optJSONObject("gongyanfang_pkpanel"));
-                    this.aRo.parserJson(optJSONObject3.optJSONObject("lottery_info"));
+                    this.aMA.parseJson(optJSONObject3.optJSONObject("gongyanfang_pkpanel"));
+                    this.aMB.parserJson(optJSONObject3.optJSONObject("lottery_info"));
                 }
             } catch (Exception e) {
                 BdLog.e(e.getMessage());

@@ -20,10 +20,10 @@ public class FrsTabViewPager extends BdBaseViewPager {
     public boolean dispatchTouchEvent(MotionEvent motionEvent) {
         switch (motionEvent.getAction()) {
             case 0:
-                qI(true);
+                qE(true);
                 break;
             case 1:
-                qI(false);
+                qE(false);
                 break;
         }
         return super.dispatchTouchEvent(motionEvent);
@@ -33,46 +33,46 @@ public class FrsTabViewPager extends BdBaseViewPager {
     public boolean onTouchEvent(MotionEvent motionEvent) {
         switch (motionEvent.getAction()) {
             case 1:
-                qI(false);
+                qE(false);
                 break;
         }
         return super.onTouchEvent(motionEvent);
     }
 
-    public void qI(boolean z) {
+    public void qE(boolean z) {
         a aVar = new a();
-        aVar.qJ(cHh());
-        aVar.qK(z);
+        aVar.qF(cDp());
+        aVar.qG(z);
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921369, aVar));
     }
 
-    public void cHg() {
-        qI(false);
+    public void cDo() {
+        qE(false);
     }
 
-    private boolean cHh() {
+    private boolean cDp() {
         return getCurrentItem() == getAdapter().getCount() + (-1);
     }
 
     /* loaded from: classes2.dex */
     public static class a {
-        private boolean jjN;
-        private boolean jjO;
+        private boolean jff;
+        private boolean jfg;
 
-        public boolean cHi() {
-            return this.jjN;
+        public boolean cDq() {
+            return this.jff;
         }
 
-        public void qJ(boolean z) {
-            this.jjN = z;
+        public void qF(boolean z) {
+            this.jff = z;
         }
 
-        public boolean cHj() {
-            return this.jjO;
+        public boolean cDr() {
+            return this.jfg;
         }
 
-        public void qK(boolean z) {
-            this.jjO = z;
+        public void qG(boolean z) {
+            this.jfg = z;
         }
     }
 }

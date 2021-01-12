@@ -10,7 +10,7 @@ import java.util.HashMap;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes14.dex */
 public class k extends c {
     private ArrayList<String> d;
 
@@ -22,12 +22,12 @@ public class k extends c {
     @Override // com.baidu.android.pushservice.d.a
     protected void a(int i, byte[] bArr) {
         Intent intent = new Intent();
-        if (this.f1259b.f1265a.equals("method_list_sdk_tags")) {
+        if (this.f1265b.f1271a.equals("method_list_sdk_tags")) {
             intent.setAction("com.baidu.android.pushservice.action.sdk.RECEIVE");
         } else {
             intent.setAction("com.baidu.android.pushservice.action.RECEIVE");
         }
-        intent.putExtra("method", this.f1259b.f1265a);
+        intent.putExtra("method", this.f1265b.f1271a);
         intent.putExtra("error_msg", i);
         intent.putExtra("content", bArr);
         if (!this.d.isEmpty()) {
@@ -35,14 +35,14 @@ public class k extends c {
         }
         intent.setFlags(32);
         a(intent);
-        if (TextUtils.isEmpty(this.f1259b.d)) {
-            if (!this.f1259b.f1265a.equals("method_list_sdk_tags")) {
+        if (TextUtils.isEmpty(this.f1265b.d)) {
+            if (!this.f1265b.f1271a.equals("method_list_sdk_tags")) {
                 return;
             }
-        } else if (!this.f1259b.f1265a.equals("method_list_sdk_tags")) {
-            intent.setPackage(this.f1259b.d);
+        } else if (!this.f1265b.f1271a.equals("method_list_sdk_tags")) {
+            intent.setPackage(this.f1265b.d);
         }
-        com.baidu.android.pushservice.i.m.b(this.f1258a, intent, intent.getAction(), intent.getPackage());
+        com.baidu.android.pushservice.i.m.b(this.f1264a, intent, intent.getAction(), intent.getPackage());
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -62,7 +62,7 @@ public class k extends c {
                 this.d.add(jSONArray.getJSONObject(i).getString("name"));
             }
         } catch (JSONException e) {
-            new b.c(this.f1258a).a(Log.getStackTraceString(e)).a();
+            new b.c(this.f1264a).a(Log.getStackTraceString(e)).a();
         }
         return b2;
     }

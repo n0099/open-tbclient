@@ -4,9 +4,9 @@ import android.app.Activity;
 import android.content.Context;
 import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.util.ScreenHelper;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class p {
-    public static int bs(Context context) {
+    public static int br(Context context) {
         return context.getResources().getDimensionPixelOffset(a.d.sdk_ds248);
     }
 
@@ -19,6 +19,6 @@ public class p {
     }
 
     public static int v(Activity activity) {
-        return bs(activity) + u(activity);
+        return br(activity) + u(activity);
     }
 }

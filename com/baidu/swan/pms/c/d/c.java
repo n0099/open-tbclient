@@ -1,74 +1,74 @@
 package com.baidu.swan.pms.c.d;
 /* loaded from: classes6.dex */
 public class c extends g {
-    private String exJ;
-    private long exK;
-    private long exL;
-    private String exM;
-    private String exN;
-    private int exO;
+    private String esV;
+    private long esW;
+    private long esX;
+    private String esY;
+    private String esZ;
+    private int eta;
     private String mPath;
 
     public c(String str, int i) {
         super(i);
-        this.exK = -1L;
-        this.exL = -1L;
-        this.exO = -1;
-        this.exJ = str;
+        this.esW = -1L;
+        this.esX = -1L;
+        this.eta = -1;
+        this.esV = str;
     }
 
-    public c nz(int i) {
-        this.exO = i;
+    public c lT(int i) {
+        this.eta = i;
         return this;
     }
 
-    public int bgU() {
-        return this.exO;
+    public int bda() {
+        return this.eta;
     }
 
-    public c yV(String str) {
-        this.exM = str;
+    public c xK(String str) {
+        this.esY = str;
         return this;
     }
 
     public c ds(long j) {
-        this.exK = j;
+        this.esW = j;
         return this;
     }
 
     public c dt(long j) {
-        this.exL = j;
+        this.esX = j;
         return this;
     }
 
-    public c yW(String str) {
-        this.exN = str;
+    public c xL(String str) {
+        this.esZ = str;
         return this;
     }
 
-    public c yX(String str) {
+    public c xM(String str) {
         this.mPath = str;
         return this;
     }
 
     public String getBundleId() {
-        return this.exJ;
+        return this.esV;
     }
 
-    public long bgS() {
-        return this.exK;
+    public long bcY() {
+        return this.esW;
     }
 
-    public long bgT() {
-        return this.exL;
+    public long bcZ() {
+        return this.esX;
     }
 
-    public String bgV() {
-        return this.exM;
+    public String bdb() {
+        return this.esY;
     }
 
-    public String bgW() {
-        return this.exN;
+    public String bdc() {
+        return this.esZ;
     }
 
     public String getPath() {

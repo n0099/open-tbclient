@@ -11,12 +11,12 @@ import android.os.HandlerThread;
 import android.telephony.PhoneStateListener;
 import android.telephony.SignalStrength;
 import android.telephony.TelephonyManager;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class AndroidCellularSignalStrength {
     public static final AndroidCellularSignalStrength sInstance = new AndroidCellularSignalStrength();
     public volatile int mSignalLevel = Integer.MIN_VALUE;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     private class CellStateListener extends PhoneStateListener implements ApplicationStatus.ApplicationStateListener {
         public static final /* synthetic */ boolean $assertionsDisabled = !AndroidCellularSignalStrength.class.desiredAssertionStatus();
         public final TelephonyManager mTelephonyManager;

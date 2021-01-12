@@ -5,45 +5,45 @@ import com.baidu.live.tbadk.core.util.TiebaInitialize;
 import com.baidu.live.tbadk.ubc.UbcStatConstant;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class d {
     public static String KEY_TYPE = "type";
-    public static String bQD = "sender_room_id";
-    public static String bQE = "sender_portrait";
-    public static String bQF = "sender_name";
-    public static String bQG = "sender_user_id";
-    public static String bQH = "sender_live_id";
-    public static String bQI = "receiver_portrait";
-    public static String bQJ = "receiver_room_id";
-    public static String bQK = "receiver_name";
-    public static String bQL = "receiver_user_id";
-    public static String bQM = "receiver_live_id";
-    public static String bQN = "create";
-    public static String bQO = UbcStatConstant.ContentType.UBC_TYPE_PK_ACCPET;
-    public static String bQP = "accept_time_out";
-    public static String bQQ = "reject";
+    public static String bLR = "sender_room_id";
+    public static String bLS = "sender_portrait";
+    public static String bLT = "sender_name";
+    public static String bLU = "sender_user_id";
+    public static String bLV = "sender_live_id";
+    public static String bLW = "receiver_portrait";
+    public static String bLX = "receiver_room_id";
+    public static String bLY = "receiver_name";
+    public static String bLZ = "receiver_user_id";
+    public static String bMa = "receiver_live_id";
+    public static String bMb = "create";
+    public static String bMc = UbcStatConstant.ContentType.UBC_TYPE_PK_ACCPET;
+    public static String bMd = "accept_time_out";
+    public static String bMe = "reject";
 
     public static JSONObject a(x xVar, com.baidu.live.videochat.panel.a.a aVar, String str) {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.putOpt(KEY_TYPE, str);
             if (xVar != null) {
-                if (xVar.aKu != null) {
-                    jSONObject.putOpt(bQF, xVar.aKu.userName);
-                    jSONObject.putOpt(bQE, xVar.aKu.portrait);
-                    jSONObject.putOpt(bQG, Long.valueOf(xVar.aKu.userId));
+                if (xVar.aFH != null) {
+                    jSONObject.putOpt(bLT, xVar.aFH.userName);
+                    jSONObject.putOpt(bLS, xVar.aFH.portrait);
+                    jSONObject.putOpt(bLU, Long.valueOf(xVar.aFH.userId));
                 }
                 if (xVar.mLiveInfo != null) {
-                    jSONObject.putOpt(bQD, Long.valueOf(xVar.mLiveInfo.room_id));
-                    jSONObject.putOpt(bQH, Long.valueOf(xVar.mLiveInfo.live_id));
+                    jSONObject.putOpt(bLR, Long.valueOf(xVar.mLiveInfo.room_id));
+                    jSONObject.putOpt(bLV, Long.valueOf(xVar.mLiveInfo.live_id));
                 }
             }
             if (aVar != null) {
-                jSONObject.putOpt(bQK, aVar.userName);
-                jSONObject.putOpt(bQI, aVar.portrait);
-                jSONObject.putOpt(bQL, aVar.userId);
-                jSONObject.putOpt(bQJ, aVar.roomId);
-                jSONObject.putOpt(bQM, aVar.liveId);
+                jSONObject.putOpt(bLY, aVar.userName);
+                jSONObject.putOpt(bLW, aVar.portrait);
+                jSONObject.putOpt(bLZ, aVar.userId);
+                jSONObject.putOpt(bLX, aVar.roomId);
+                jSONObject.putOpt(bMa, aVar.liveId);
             }
         } catch (JSONException e) {
             e.printStackTrace();
@@ -55,11 +55,11 @@ public class d {
         e eVar = new e();
         if (jSONObject != null) {
             try {
-                eVar.userName = jSONObject.optString(bQF);
-                eVar.roomId = jSONObject.optString(bQD);
-                eVar.userId = jSONObject.optString(bQG);
-                eVar.portrait = jSONObject.optString(bQE);
-                eVar.liveId = jSONObject.optString(bQH);
+                eVar.userName = jSONObject.optString(bLT);
+                eVar.roomId = jSONObject.optString(bLR);
+                eVar.userId = jSONObject.optString(bLU);
+                eVar.portrait = jSONObject.optString(bLS);
+                eVar.liveId = jSONObject.optString(bLV);
                 eVar.type = jSONObject.optString(KEY_TYPE);
             } catch (Exception e) {
                 e.printStackTrace();
@@ -72,11 +72,11 @@ public class d {
         e eVar = new e();
         if (jSONObject != null) {
             try {
-                eVar.userName = jSONObject.optString(bQK);
-                eVar.roomId = jSONObject.optString(bQJ);
-                eVar.userId = jSONObject.optString(bQL);
-                eVar.portrait = jSONObject.optString(bQI);
-                eVar.liveId = jSONObject.optString(bQM);
+                eVar.userName = jSONObject.optString(bLY);
+                eVar.roomId = jSONObject.optString(bLX);
+                eVar.userId = jSONObject.optString(bLZ);
+                eVar.portrait = jSONObject.optString(bLW);
+                eVar.liveId = jSONObject.optString(bMa);
                 eVar.type = jSONObject.optString(KEY_TYPE);
             } catch (Exception e) {
                 e.printStackTrace();
@@ -89,25 +89,25 @@ public class d {
         JSONObject jSONObject = new JSONObject();
         if (eVar != null) {
             try {
-                jSONObject.putOpt(bQD, eVar.roomId);
-                jSONObject.putOpt(bQG, eVar.userId);
-                jSONObject.putOpt(bQH, eVar.liveId);
-                jSONObject.putOpt(bQF, eVar.userName);
-                jSONObject.putOpt(bQE, eVar.portrait);
+                jSONObject.putOpt(bLR, eVar.roomId);
+                jSONObject.putOpt(bLU, eVar.userId);
+                jSONObject.putOpt(bLV, eVar.liveId);
+                jSONObject.putOpt(bLT, eVar.userName);
+                jSONObject.putOpt(bLS, eVar.portrait);
             } catch (Exception e) {
                 e.printStackTrace();
             }
         }
         jSONObject.putOpt(KEY_TYPE, str);
         if (xVar != null) {
-            if (xVar.aKu != null) {
-                jSONObject.putOpt(bQK, xVar.aKu.userName);
-                jSONObject.putOpt(bQI, xVar.aKu.portrait);
-                jSONObject.putOpt(bQL, Long.valueOf(xVar.aKu.userId));
+            if (xVar.aFH != null) {
+                jSONObject.putOpt(bLY, xVar.aFH.userName);
+                jSONObject.putOpt(bLW, xVar.aFH.portrait);
+                jSONObject.putOpt(bLZ, Long.valueOf(xVar.aFH.userId));
             }
             if (xVar.mLiveInfo != null) {
-                jSONObject.putOpt(bQJ, Long.valueOf(xVar.mLiveInfo.room_id));
-                jSONObject.putOpt(bQM, Long.valueOf(xVar.mLiveInfo.live_id));
+                jSONObject.putOpt(bLX, Long.valueOf(xVar.mLiveInfo.room_id));
+                jSONObject.putOpt(bMa, Long.valueOf(xVar.mLiveInfo.live_id));
             }
         }
         return jSONObject;
@@ -117,13 +117,13 @@ public class d {
         b bVar = new b();
         if (jSONObject != null) {
             bVar.type = jSONObject.optString(KEY_TYPE);
-            bVar.bQt = al(jSONObject);
-            bVar.bQu = am(jSONObject);
+            bVar.bLH = al(jSONObject);
+            bVar.bLI = am(jSONObject);
         }
         return bVar;
     }
 
-    public static JSONObject aQ(String str, String str2) {
+    public static JSONObject aP(String str, String str2) {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.putOpt(TiebaInitialize.LogFields.REASON, str);

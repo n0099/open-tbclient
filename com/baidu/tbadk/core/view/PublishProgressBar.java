@@ -10,7 +10,7 @@ import com.baidu.tbadk.core.util.ao;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 class PublishProgressBar extends View {
-    private Rect fkV;
+    private Rect fgk;
     private Paint mPaint;
     private int mProgress;
 
@@ -26,7 +26,7 @@ class PublishProgressBar extends View {
         init(context, attributeSet);
     }
 
-    public int rf(int i) {
+    public int pz(int i) {
         if (i < 0) {
             return 0;
         }
@@ -52,14 +52,14 @@ class PublishProgressBar extends View {
 
     private void init(Context context, AttributeSet attributeSet) {
         this.mPaint = new Paint(1);
-        this.fkV = new Rect();
+        this.fgk = new Rect();
         onChangeSkinType();
     }
 
     @Override // android.view.View
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        this.fkV.set(0, 0, (int) ((this.mProgress / 100.0f) * getWidth()), getHeight());
-        canvas.drawRect(this.fkV, this.mPaint);
+        this.fgk.set(0, 0, (int) ((this.mProgress / 100.0f) * getWidth()), getHeight());
+        canvas.drawRect(this.fgk, this.mPaint);
     }
 }

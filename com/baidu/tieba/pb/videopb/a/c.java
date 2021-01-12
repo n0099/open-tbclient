@@ -38,9 +38,9 @@ public class c extends com.baidu.adp.widget.ListView.a<s, VideoPbEnterForumViewH
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, s sVar, VideoPbEnterForumViewHolder videoPbEnterForumViewHolder) {
         if (sVar != null) {
-            videoPbEnterForumViewHolder.setData(sVar.eMv);
+            videoPbEnterForumViewHolder.setData(sVar.eHK);
         }
-        videoPbEnterForumViewHolder.bxP();
+        videoPbEnterForumViewHolder.btV();
         return view;
     }
 }

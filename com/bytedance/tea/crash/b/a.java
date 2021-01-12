@@ -5,22 +5,22 @@ import android.database.sqlite.SQLiteDatabase;
 import com.bytedance.tea.crash.g.j;
 /* loaded from: classes4.dex */
 public class a {
-    private static volatile a ppV;
+    private static volatile a plq;
     private SQLiteDatabase c;
-    private com.bytedance.tea.crash.b.b.b ppW;
+    private com.bytedance.tea.crash.b.b.b plr;
 
     private a() {
     }
 
-    public static a esx() {
-        if (ppV == null) {
+    public static a eoD() {
+        if (plq == null) {
             synchronized (a.class) {
-                if (ppV == null) {
-                    ppV = new a();
+                if (plq == null) {
+                    plq = new a();
                 }
             }
         }
-        return ppV;
+        return plq;
     }
 
     public void a(Context context) {
@@ -29,16 +29,16 @@ public class a {
         } catch (Throwable th) {
             j.b(th);
         }
-        this.ppW = new com.bytedance.tea.crash.b.b.b();
+        this.plr = new com.bytedance.tea.crash.b.b.b();
     }
 
     public synchronized void a(com.bytedance.tea.crash.b.a.a aVar) {
-        if (this.ppW != null) {
-            this.ppW.a(this.c, aVar);
+        if (this.plr != null) {
+            this.plr.a(this.c, aVar);
         }
     }
 
     public synchronized boolean a(String str) {
-        return this.ppW != null ? this.ppW.c(this.c, str) : false;
+        return this.plr != null ? this.plr.c(this.c, str) : false;
     }
 }

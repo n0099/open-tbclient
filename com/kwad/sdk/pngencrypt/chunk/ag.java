@@ -1,7 +1,7 @@
 package com.kwad.sdk.pngencrypt.chunk;
 
 import com.kwad.sdk.pngencrypt.PngjException;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class ag extends ae {
     public ag(com.kwad.sdk.pngencrypt.k kVar) {
         super("zTXt", kVar);

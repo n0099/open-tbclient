@@ -6,19 +6,19 @@ import android.graphics.drawable.Drawable;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.kwad.sdk.glide.load.engine.s;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public final class c implements e<Drawable, byte[]> {
 
     /* renamed from: a  reason: collision with root package name */
-    private final com.kwad.sdk.glide.load.engine.bitmap_recycle.e f10627a;
+    private final com.kwad.sdk.glide.load.engine.bitmap_recycle.e f10327a;
 
     /* renamed from: b  reason: collision with root package name */
-    private final e<Bitmap, byte[]> f10628b;
+    private final e<Bitmap, byte[]> f10328b;
     private final e<com.kwad.sdk.glide.load.resource.d.c, byte[]> c;
 
     public c(@NonNull com.kwad.sdk.glide.load.engine.bitmap_recycle.e eVar, @NonNull e<Bitmap, byte[]> eVar2, @NonNull e<com.kwad.sdk.glide.load.resource.d.c, byte[]> eVar3) {
-        this.f10627a = eVar;
-        this.f10628b = eVar2;
+        this.f10327a = eVar;
+        this.f10328b = eVar2;
         this.c = eVar3;
     }
 
@@ -34,7 +34,7 @@ public final class c implements e<Drawable, byte[]> {
     public s<byte[]> a(@NonNull s<Drawable> sVar, @NonNull com.kwad.sdk.glide.load.e eVar) {
         Drawable e = sVar.e();
         if (e instanceof BitmapDrawable) {
-            return this.f10628b.a(com.kwad.sdk.glide.load.resource.bitmap.d.a(((BitmapDrawable) e).getBitmap(), this.f10627a), eVar);
+            return this.f10328b.a(com.kwad.sdk.glide.load.resource.bitmap.d.a(((BitmapDrawable) e).getBitmap(), this.f10327a), eVar);
         }
         if (e instanceof com.kwad.sdk.glide.load.resource.d.c) {
             return this.c.a(a(sVar), eVar);

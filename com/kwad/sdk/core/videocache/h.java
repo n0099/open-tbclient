@@ -11,27 +11,27 @@ import java.io.InterruptedIOException;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class h implements m {
 
     /* renamed from: a  reason: collision with root package name */
-    private final com.kwad.sdk.core.videocache.d.b f9799a;
+    private final com.kwad.sdk.core.videocache.d.b f9499a;
 
     /* renamed from: b  reason: collision with root package name */
-    private final com.kwad.sdk.core.videocache.b.b f9800b;
+    private final com.kwad.sdk.core.videocache.b.b f9500b;
     private n c;
     private HttpURLConnection d;
     private InputStream e;
 
     public h(h hVar) {
         this.c = hVar.c;
-        this.f9799a = hVar.f9799a;
-        this.f9800b = hVar.f9800b;
+        this.f9499a = hVar.f9499a;
+        this.f9500b = hVar.f9500b;
     }
 
     public h(String str, com.kwad.sdk.core.videocache.d.b bVar, com.kwad.sdk.core.videocache.b.b bVar2) {
-        this.f9799a = (com.kwad.sdk.core.videocache.d.b) j.a(bVar);
-        this.f9800b = (com.kwad.sdk.core.videocache.b.b) j.a(bVar2);
+        this.f9499a = (com.kwad.sdk.core.videocache.d.b) j.a(bVar);
+        this.f9500b = (com.kwad.sdk.core.videocache.b.b) j.a(bVar2);
         n a2 = bVar.a(str);
         this.c = a2 == null ? new n(str, -2147483648L, l.a(str)) : a2;
     }
@@ -46,13 +46,13 @@ public class h implements m {
 
     private long a(HttpURLConnection httpURLConnection, long j, int i) {
         long a2 = a(httpURLConnection);
-        return i == 200 ? a2 : i == 206 ? a2 + j : this.c.f9807b;
+        return i == 200 ? a2 : i == 206 ? a2 + j : this.c.f9507b;
     }
 
     private HttpURLConnection a(long j, int i) {
         HttpURLConnection httpURLConnection;
         boolean z;
-        String str = this.c.f9806a;
+        String str = this.c.f9506a;
         int i2 = 0;
         do {
             com.kwad.sdk.core.d.a.a("HttpUrlSource", "Open connection " + (j > 0 ? " with offset " + j : "") + " to " + str);
@@ -81,7 +81,7 @@ public class h implements m {
     }
 
     private void a(HttpURLConnection httpURLConnection, String str) {
-        for (Map.Entry<String, String> entry : this.f9800b.a(str).entrySet()) {
+        for (Map.Entry<String, String> entry : this.f9500b.a(str).entrySet()) {
             httpURLConnection.setRequestProperty(entry.getKey(), entry.getValue());
         }
     }
@@ -97,7 +97,7 @@ public class h implements m {
         Closeable closeable;
         InputStream inputStream;
         HttpURLConnection httpURLConnection;
-        com.kwad.sdk.core.d.a.a("HttpUrlSource", "Read content info from " + this.c.f9806a);
+        com.kwad.sdk.core.d.a.a("HttpUrlSource", "Read content info from " + this.c.f9506a);
         ?? r2 = 0;
         try {
             try {
@@ -111,15 +111,15 @@ public class h implements m {
                 String contentType = httpURLConnection.getContentType();
                 inputStream = httpURLConnection.getInputStream();
                 try {
-                    this.c = new n(this.c.f9806a, a2, contentType);
-                    this.f9799a.a(this.c.f9806a, this.c);
+                    this.c = new n(this.c.f9506a, a2, contentType);
+                    this.f9499a.a(this.c.f9506a, this.c);
                     com.kwad.sdk.core.d.a.a("HttpUrlSource", "Source info fetched: " + this.c);
                     l.a(inputStream);
                     if (httpURLConnection != null) {
                         httpURLConnection.disconnect();
                     }
                 } catch (IOException e) {
-                    com.kwad.sdk.core.d.a.d("HttpUrlSource", "Error fetching info from " + this.c.f9806a);
+                    com.kwad.sdk.core.d.a.d("HttpUrlSource", "Error fetching info from " + this.c.f9506a);
                     l.a(inputStream);
                     if (httpURLConnection != null) {
                         httpURLConnection.disconnect();
@@ -150,23 +150,23 @@ public class h implements m {
     @Override // com.kwad.sdk.core.videocache.m
     public int a(byte[] bArr) {
         if (this.e == null) {
-            throw new ProxyCacheException("Error reading data from " + this.c.f9806a + ": connection is absent!");
+            throw new ProxyCacheException("Error reading data from " + this.c.f9506a + ": connection is absent!");
         }
         try {
             return this.e.read(bArr, 0, bArr.length);
         } catch (InterruptedIOException e) {
-            throw new InterruptedProxyCacheException("Reading source " + this.c.f9806a + " is interrupted", e);
+            throw new InterruptedProxyCacheException("Reading source " + this.c.f9506a + " is interrupted", e);
         } catch (IOException e2) {
-            throw new ProxyCacheException("Error reading data from " + this.c.f9806a, e2);
+            throw new ProxyCacheException("Error reading data from " + this.c.f9506a, e2);
         }
     }
 
     @Override // com.kwad.sdk.core.videocache.m
     public synchronized long a() {
-        if (this.c.f9807b == -2147483648L) {
+        if (this.c.f9507b == -2147483648L) {
             e();
         }
-        return this.c.f9807b;
+        return this.c.f9507b;
     }
 
     @Override // com.kwad.sdk.core.videocache.m
@@ -175,10 +175,10 @@ public class h implements m {
             this.d = a(j, -1);
             String contentType = this.d.getContentType();
             this.e = new BufferedInputStream(this.d.getInputStream(), 8192);
-            this.c = new n(this.c.f9806a, a(this.d, j, this.d.getResponseCode()), contentType);
-            this.f9799a.a(this.c.f9806a, this.c);
+            this.c = new n(this.c.f9506a, a(this.d, j, this.d.getResponseCode()), contentType);
+            this.f9499a.a(this.c.f9506a, this.c);
         } catch (IOException e) {
-            throw new ProxyCacheException("Error opening connection for " + this.c.f9806a + " with offset " + j, e);
+            throw new ProxyCacheException("Error opening connection for " + this.c.f9506a + " with offset " + j, e);
         }
     }
 
@@ -207,7 +207,7 @@ public class h implements m {
     }
 
     public String d() {
-        return this.c.f9806a;
+        return this.c.f9506a;
     }
 
     public String toString() {

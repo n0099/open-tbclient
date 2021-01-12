@@ -5,20 +5,20 @@ import com.bytedance.a.a;
 public final class bb {
 
     /* renamed from: a  reason: collision with root package name */
-    private static int f6095a;
-    private static com.bytedance.a.a pgX;
+    private static int f5795a;
+    private static com.bytedance.a.a pcv;
 
     static {
         a(2);
-        a(new a.C0997a());
+        a(new a.C0980a());
     }
 
     public static void a(com.bytedance.a.a aVar) {
-        pgX = aVar;
+        pcv = aVar;
     }
 
     public static void a(int i) {
-        f6095a = i;
+        f5795a = i;
     }
 
     public static void a(String str, String str2) {
@@ -26,8 +26,8 @@ public final class bb {
     }
 
     public static void a(String str, String str2, Throwable th) {
-        if (pgX != null && f6095a <= 2) {
-            pgX.h(str, str2, th);
+        if (pcv != null && f5795a <= 2) {
+            pcv.h(str, str2, th);
         }
     }
 
@@ -36,8 +36,8 @@ public final class bb {
     }
 
     public static void b(String str, String str2, Throwable th) {
-        if (pgX != null && f6095a <= 3) {
-            pgX.j(str, str2, th);
+        if (pcv != null && f5795a <= 3) {
+            pcv.j(str, str2, th);
         }
     }
 
@@ -46,8 +46,8 @@ public final class bb {
     }
 
     public static void c(String str, String str2, Throwable th) {
-        if (pgX != null && f6095a <= 6) {
-            pgX.k(str, str2, th);
+        if (pcv != null && f5795a <= 6) {
+            pcv.k(str, str2, th);
         }
     }
 }

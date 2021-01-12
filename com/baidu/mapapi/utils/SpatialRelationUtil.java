@@ -2,15 +2,15 @@ package com.baidu.mapapi.utils;
 
 import com.baidu.mapapi.model.CoordUtil;
 import com.baidu.mapapi.model.LatLng;
-import com.baidu.platform.comapi.basestruct.GeoPoint;
+import com.baidu.mapapi.model.inner.GeoPoint;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class SpatialRelationUtil {
     private static LatLng a(LatLng latLng, LatLng latLng2, LatLng latLng3) {
         GeoPoint ll2mc = CoordUtil.ll2mc(latLng);
         GeoPoint ll2mc2 = CoordUtil.ll2mc(latLng2);
         GeoPoint ll2mc3 = CoordUtil.ll2mc(latLng3);
-        double sqrt = Math.sqrt(((ll2mc2.getLongitudeE6() - ll2mc.getLongitudeE6()) * (ll2mc2.getLongitudeE6() - ll2mc.getLongitudeE6())) + ((ll2mc2.getLatitudeE6() - ll2mc.getLatitudeE6()) * (ll2mc2.getLatitudeE6() - ll2mc.getLatitudeE6())));
+        double sqrt = Math.sqrt(((ll2mc.getLongitudeE6() - ll2mc.getLongitudeE6()) * (ll2mc2.getLongitudeE6() - ll2mc.getLongitudeE6())) + ((ll2mc2.getLatitudeE6() - ll2mc.getLatitudeE6()) * (ll2mc2.getLatitudeE6() - ll2mc.getLatitudeE6())));
         double latitudeE6 = (((ll2mc3.getLatitudeE6() - ll2mc.getLatitudeE6()) * (ll2mc2.getLatitudeE6() - ll2mc.getLatitudeE6())) + ((ll2mc2.getLongitudeE6() - ll2mc.getLongitudeE6()) * (ll2mc3.getLongitudeE6() - ll2mc.getLongitudeE6()))) / (sqrt * sqrt);
         return CoordUtil.mc2ll(new GeoPoint(((ll2mc2.getLatitudeE6() - ll2mc.getLatitudeE6()) * latitudeE6) + ll2mc.getLatitudeE6(), ll2mc.getLongitudeE6() + ((ll2mc2.getLongitudeE6() - ll2mc.getLongitudeE6()) * latitudeE6)));
     }
@@ -64,7 +64,7 @@ public class SpatialRelationUtil {
                 i = i4;
             } else if (latLng.latitude < Math.min(latLng2.latitude, latLng3.latitude)) {
                 i = i4;
-            } else if (latLng.latitude >= Math.max(latLng2.latitude, latLng3.latitude)) {
+            } else if (latLng.latitude > Math.max(latLng2.latitude, latLng3.latitude)) {
                 i = i4;
             } else {
                 double d = latLng2.longitude + (((latLng.latitude - latLng2.latitude) * (latLng3.longitude - latLng2.longitude)) / (latLng3.latitude - latLng2.latitude));

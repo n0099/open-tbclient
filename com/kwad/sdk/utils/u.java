@@ -8,26 +8,26 @@ import android.view.WindowManager;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class u {
 
     /* renamed from: a  reason: collision with root package name */
-    private static Method f11133a;
+    private static Method f10833a;
 
     /* renamed from: b  reason: collision with root package name */
-    private static Method f11134b;
+    private static Method f10834b;
     private static Field c;
     private static int d;
 
     static {
         d = 0;
         try {
-            f11133a = Activity.class.getMethod("setStatusBarDarkIcon", Integer.TYPE);
+            f10833a = Activity.class.getMethod("setStatusBarDarkIcon", Integer.TYPE);
         } catch (NoSuchMethodException e) {
             e.printStackTrace();
         }
         try {
-            f11134b = Activity.class.getMethod("setStatusBarDarkIcon", Boolean.TYPE);
+            f10834b = Activity.class.getMethod("setStatusBarDarkIcon", Boolean.TYPE);
         } catch (NoSuchMethodException e2) {
             e2.printStackTrace();
         }
@@ -50,7 +50,7 @@ public class u {
     }
 
     private static void a(Activity activity, boolean z, boolean z2) {
-        if (f11134b == null) {
+        if (f10834b == null) {
             if (z2) {
                 a(activity.getWindow(), z);
                 return;
@@ -58,7 +58,7 @@ public class u {
             return;
         }
         try {
-            f11134b.invoke(activity, Boolean.valueOf(z));
+            f10834b.invoke(activity, Boolean.valueOf(z));
         } catch (IllegalAccessException e) {
             e.printStackTrace();
         } catch (InvocationTargetException e2) {

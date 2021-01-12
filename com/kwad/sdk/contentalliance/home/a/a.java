@@ -7,19 +7,19 @@ import com.kwad.sdk.core.response.model.AdTemplate;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public abstract class a implements b {
 
     /* renamed from: a  reason: collision with root package name */
-    protected final List<AdTemplate> f8922a = new ArrayList();
+    protected final List<AdTemplate> f8622a = new ArrayList();
 
     /* renamed from: b  reason: collision with root package name */
-    protected Handler f8923b = new Handler(Looper.getMainLooper());
+    protected Handler f8623b = new Handler(Looper.getMainLooper());
     private List<d> c = new LinkedList();
 
     @Override // com.kwad.sdk.contentalliance.home.a.b
     public int a(AdTemplate adTemplate) {
-        return this.f8922a.indexOf(adTemplate);
+        return this.f8622a.indexOf(adTemplate);
     }
 
     @Override // com.kwad.sdk.contentalliance.home.a.b
@@ -46,10 +46,10 @@ public abstract class a implements b {
 
     @Override // com.kwad.sdk.contentalliance.home.a.b
     public void a(int i, AdTemplate adTemplate) {
-        if (i < 0 || this.f8922a.size() <= i) {
+        if (i < 0 || this.f8622a.size() <= i) {
             return;
         }
-        this.f8922a.set(i, adTemplate);
+        this.f8622a.set(i, adTemplate);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -85,7 +85,7 @@ public abstract class a implements b {
 
     @Override // com.kwad.sdk.contentalliance.home.a.b
     public List<AdTemplate> b() {
-        return this.f8922a;
+        return this.f8622a;
     }
 
     @Override // com.kwad.sdk.contentalliance.home.a.b
@@ -94,11 +94,11 @@ public abstract class a implements b {
     }
 
     public boolean c() {
-        return this.f8922a == null || this.f8922a.isEmpty();
+        return this.f8622a == null || this.f8622a.isEmpty();
     }
 
     @Override // com.kwad.sdk.contentalliance.home.a.b
     public void d() {
-        this.f8923b.removeCallbacksAndMessages(null);
+        this.f8623b.removeCallbacksAndMessages(null);
     }
 }

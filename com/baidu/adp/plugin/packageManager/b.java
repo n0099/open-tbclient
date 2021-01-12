@@ -21,36 +21,36 @@ import java.util.Map;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class b {
-    private static volatile b Uk;
-    private HashMap<String, String> Ul = new HashMap<>();
-    private a Um = null;
-    private boolean Un = false;
+    private static volatile b Ui;
+    private HashMap<String, String> Uj = new HashMap<>();
+    private a Uk = null;
+    private boolean Ul = false;
 
     public static b ps() {
-        if (Uk == null) {
+        if (Ui == null) {
             synchronized (b.class) {
-                if (Uk == null) {
-                    Uk = new b();
+                if (Ui == null) {
+                    Ui = new b();
                 }
             }
         }
-        return Uk;
+        return Ui;
     }
 
     private b() {
     }
 
     public void au(boolean z) {
-        if (z && !this.Un && this.Um == null && pt()) {
-            this.Um = new a();
-            this.Um.execute(new Void[0]);
-            this.Un = true;
+        if (z && !this.Ul && this.Uk == null && pt()) {
+            this.Uk = new a();
+            this.Uk.execute(new Void[0]);
+            this.Ul = true;
         }
     }
 
     private boolean pt() {
         String[] split;
-        this.Ul.clear();
+        this.Uj.clear();
         PluginSettings pW = com.baidu.adp.plugin.packageManager.pluginSettings.c.pZ().pW();
         if (pW == null) {
             return false;
@@ -62,26 +62,26 @@ public class b {
         for (Map.Entry<String, PluginSetting> entry : plugins.entrySet()) {
             PluginSetting value = entry.getValue();
             if (!TextUtils.isEmpty(value.apkPath)) {
-                this.Ul.put(new File(value.apkPath).getName(), "");
+                this.Uj.put(new File(value.apkPath).getName(), "");
             }
             if (!TextUtils.isEmpty(value.getAbandon_apk_path()) && (split = value.getAbandon_apk_path().split(",")) != null && split.length > 0) {
                 for (String str : split) {
                     if (!TextUtils.isEmpty(str)) {
-                        this.Ul.put(new File(str).getName(), "");
+                        this.Uj.put(new File(str).getName(), "");
                     }
                 }
             }
             try {
                 if (value.tempVersionCode > 0 && value.installStatus > 0) {
-                    if (value.installStatus == a.b.Vf) {
+                    if (value.installStatus == a.b.Vd) {
                         String f = Util.f(value);
                         if (!TextUtils.isEmpty(f) && new File(f).exists()) {
-                            this.Ul.put(new File(f).getName(), "");
+                            this.Uj.put(new File(f).getName(), "");
                         }
-                    } else if (value.installStatus == a.b.Vi || value.installStatus == a.b.Vh) {
+                    } else if (value.installStatus == a.b.Vg || value.installStatus == a.b.Vf) {
                         String str2 = Util.f(value) + ".tmp";
                         if (!TextUtils.isEmpty(str2) && new File(str2).exists()) {
-                            this.Ul.put(new File(str2).getName(), "");
+                            this.Uj.put(new File(str2).getName(), "");
                         }
                     }
                 }
@@ -106,7 +106,7 @@ public class b {
             if (pu == null || pu.size() == 0) {
                 return false;
             }
-            j(pu);
+            e(pu);
             return true;
         }
 
@@ -115,7 +115,7 @@ public class b {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(Boolean bool) {
             super.onPostExecute((a) bool);
-            b.this.Um = null;
+            b.this.Uk = null;
         }
 
         private ArrayList<File> pu() {
@@ -129,7 +129,7 @@ public class b {
             StringBuilder sb2 = new StringBuilder();
             StringBuilder sb3 = new StringBuilder();
             try {
-                for (Map.Entry entry : b.this.Ul.entrySet()) {
+                for (Map.Entry entry : b.this.Uj.entrySet()) {
                     if (sb.length() > 0) {
                         sb.append(Constants.ACCEPT_TIME_SEPARATOR_SERVER);
                     }
@@ -180,7 +180,7 @@ public class b {
                                                             if (name3.endsWith(".vdex") || name3.endsWith(".odex")) {
                                                                 name3 = name3.substring(0, name3.length() - 5);
                                                             }
-                                                            if (b.this.Ul.get(name3 + ".apk") == null) {
+                                                            if (b.this.Uj.get(name3 + ".apk") == null) {
                                                                 arrayList.add(file3);
                                                                 if (sb3.length() < 10000) {
                                                                     if (sb3.length() > 0) {
@@ -200,7 +200,7 @@ public class b {
                                                 if (name4.endsWith(".apk.cur.prof")) {
                                                     name4 = name4.substring(0, name4.length() - 13);
                                                 }
-                                                if (b.this.Ul.get(name4 + ".apk") == null) {
+                                                if (b.this.Uj.get(name4 + ".apk") == null) {
                                                     arrayList.add(file2);
                                                     if (sb3.length() < 10000) {
                                                         if (sb3.length() > 0) {
@@ -216,7 +216,7 @@ public class b {
                                         }
                                     }
                                 }
-                            } else if (name.endsWith(".apk") || b.this.Ul.get(name + ".apk") != null) {
+                            } else if (name.endsWith(".apk") || b.this.Uj.get(name + ".apk") != null) {
                                 if (sb2.length() < 10000) {
                                     if (sb2.length() > 0) {
                                         sb2.append(Constants.ACCEPT_TIME_SEPARATOR_SERVER);
@@ -235,7 +235,7 @@ public class b {
                                 }
                             }
                         } else if (name.endsWith(".apk")) {
-                            if (b.this.Ul.get(name) != null) {
+                            if (b.this.Uj.get(name) != null) {
                                 if (sb2.length() < 10000) {
                                     if (sb2.length() > 0) {
                                         sb2.append(Constants.ACCEPT_TIME_SEPARATOR_SERVER);
@@ -260,7 +260,7 @@ public class b {
                                 }
                                 sb2.append(absolutePath);
                             }
-                        } else if (name.contains(".apk_") && b.this.Ul.get(name) != null) {
+                        } else if (name.contains(".apk_") && b.this.Uj.get(name) != null) {
                             if (sb2.length() < 10000) {
                                 if (sb2.length() > 0) {
                                     sb2.append(Constants.ACCEPT_TIME_SEPARATOR_SERVER);
@@ -329,7 +329,7 @@ public class b {
             return arrayList;
         }
 
-        private void j(ArrayList<File> arrayList) {
+        private void e(ArrayList<File> arrayList) {
             if (arrayList != null && arrayList.size() != 0) {
                 Iterator<File> it = arrayList.iterator();
                 while (it.hasNext()) {

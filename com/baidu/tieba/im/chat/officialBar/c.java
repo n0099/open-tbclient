@@ -1,18 +1,18 @@
 package com.baidu.tieba.im.chat.officialBar;
 
 import android.content.Context;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class c {
-    public static c kyG = new c();
-    private com.baidu.adp.lib.d.b<MultiImageTextTopView> kyt;
-    private com.baidu.adp.lib.d.b<MultiImageTextBottomView> kyu;
-    private com.baidu.adp.lib.d.b<SingleImageTextView> kyv;
+    public static c kub = new c();
+    private com.baidu.adp.lib.d.b<MultiImageTextTopView> ktO;
+    private com.baidu.adp.lib.d.b<MultiImageTextBottomView> ktP;
+    private com.baidu.adp.lib.d.b<SingleImageTextView> ktQ;
 
-    private void gr(final Context context) {
-        this.kyt = new com.baidu.adp.lib.d.b<MultiImageTextTopView>(new com.baidu.adp.lib.d.c<MultiImageTextTopView>() { // from class: com.baidu.tieba.im.chat.officialBar.c.1
+    private void gp(final Context context) {
+        this.ktO = new com.baidu.adp.lib.d.b<MultiImageTextTopView>(new com.baidu.adp.lib.d.c<MultiImageTextTopView>() { // from class: com.baidu.tieba.im.chat.officialBar.c.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.lib.d.c
-            /* renamed from: cWI */
+            /* renamed from: cSQ */
             public MultiImageTextTopView makeObject() {
                 return new MultiImageTextTopView(context);
             }
@@ -46,11 +46,11 @@ public class c {
         };
     }
 
-    private void gs(final Context context) {
-        this.kyu = new com.baidu.adp.lib.d.b<MultiImageTextBottomView>(new com.baidu.adp.lib.d.c<MultiImageTextBottomView>() { // from class: com.baidu.tieba.im.chat.officialBar.c.3
+    private void gq(final Context context) {
+        this.ktP = new com.baidu.adp.lib.d.b<MultiImageTextBottomView>(new com.baidu.adp.lib.d.c<MultiImageTextBottomView>() { // from class: com.baidu.tieba.im.chat.officialBar.c.3
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.lib.d.c
-            /* renamed from: cWJ */
+            /* renamed from: cSR */
             public MultiImageTextBottomView makeObject() {
                 return new MultiImageTextBottomView(context);
             }
@@ -84,11 +84,11 @@ public class c {
         };
     }
 
-    private void gt(final Context context) {
-        this.kyv = new com.baidu.adp.lib.d.b<>(new com.baidu.adp.lib.d.c<SingleImageTextView>() { // from class: com.baidu.tieba.im.chat.officialBar.c.5
+    private void gr(final Context context) {
+        this.ktQ = new com.baidu.adp.lib.d.b<>(new com.baidu.adp.lib.d.c<SingleImageTextView>() { // from class: com.baidu.tieba.im.chat.officialBar.c.5
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.lib.d.c
-            /* renamed from: cWK */
+            /* renamed from: cSS */
             public SingleImageTextView makeObject() {
                 return new SingleImageTextView(context);
             }
@@ -121,24 +121,24 @@ public class c {
         }, 1, 0);
     }
 
-    public com.baidu.adp.lib.d.b<MultiImageTextTopView> gu(Context context) {
-        if (this.kyt == null) {
+    public com.baidu.adp.lib.d.b<MultiImageTextTopView> gs(Context context) {
+        if (this.ktO == null) {
+            gp(context);
+        }
+        return this.ktO;
+    }
+
+    public com.baidu.adp.lib.d.b<MultiImageTextBottomView> gt(Context context) {
+        if (this.ktP == null) {
+            gq(context);
+        }
+        return this.ktP;
+    }
+
+    public com.baidu.adp.lib.d.b<SingleImageTextView> gu(Context context) {
+        if (this.ktQ == null) {
             gr(context);
         }
-        return this.kyt;
-    }
-
-    public com.baidu.adp.lib.d.b<MultiImageTextBottomView> gv(Context context) {
-        if (this.kyu == null) {
-            gs(context);
-        }
-        return this.kyu;
-    }
-
-    public com.baidu.adp.lib.d.b<SingleImageTextView> gw(Context context) {
-        if (this.kyv == null) {
-            gt(context);
-        }
-        return this.kyv;
+        return this.ktQ;
     }
 }

@@ -79,7 +79,7 @@ import java.util.Iterator;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class h implements View.OnClickListener, NEADVI, com.qq.e.comm.plugin.a.d.a, com.qq.e.comm.plugin.ab.a.b, com.qq.e.comm.plugin.ab.c, com.qq.e.comm.plugin.ab.d.f, h.a, b.a, c.a {
     private static final String p = com.qq.e.comm.plugin.gdtnativead.b.c();
     private static final String q;
@@ -104,7 +104,7 @@ public class h implements View.OnClickListener, NEADVI, com.qq.e.comm.plugin.a.d
     private d Z;
 
     /* renamed from: a  reason: collision with root package name */
-    com.qq.e.comm.plugin.ab.h f12327a;
+    com.qq.e.comm.plugin.ab.h f12027a;
     private ae aa;
     private com.qq.e.comm.plugin.gdtnativead.a.c ac;
     private com.qq.e.comm.plugin.ab.d.a ad;
@@ -119,7 +119,7 @@ public class h implements View.OnClickListener, NEADVI, com.qq.e.comm.plugin.a.d
     private com.qq.e.comm.plugin.c.a.c az;
 
     /* renamed from: b  reason: collision with root package name */
-    ViewGroup f12328b;
+    ViewGroup f12028b;
     JSONObject c;
     com.qq.e.comm.plugin.s.a d;
     j g;
@@ -166,7 +166,7 @@ public class h implements View.OnClickListener, NEADVI, com.qq.e.comm.plugin.a.d
     private Runnable aA = new Runnable() { // from class: com.qq.e.comm.plugin.gdtnativead.h.22
         @Override // java.lang.Runnable
         public void run() {
-            GDTLogger.d("onContentChanged from view " + (h.this.f12327a != null ? Integer.valueOf(h.this.f12327a.a().hashCode()) : null));
+            GDTLogger.d("onContentChanged from view " + (h.this.f12027a != null ? Integer.valueOf(h.this.f12027a.a().hashCode()) : null));
             h.this.x();
         }
     };
@@ -200,7 +200,7 @@ public class h implements View.OnClickListener, NEADVI, com.qq.e.comm.plugin.a.d
     };
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class a extends com.qq.e.comm.plugin.aa.b.f {
         public a(Context context) {
             super(context);
@@ -224,19 +224,19 @@ public class h implements View.OnClickListener, NEADVI, com.qq.e.comm.plugin.a.d
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class b implements AdData.VideoPlayer {
 
         /* renamed from: a  reason: collision with root package name */
-        private WeakReference<com.qq.e.comm.plugin.aa.b.f> f12370a;
+        private WeakReference<com.qq.e.comm.plugin.aa.b.f> f12070a;
 
         public b(com.qq.e.comm.plugin.aa.b.f fVar) {
-            this.f12370a = new WeakReference<>(fVar);
+            this.f12070a = new WeakReference<>(fVar);
         }
 
         @Override // com.qq.e.comm.pi.AdData.VideoPlayer
         public int getCurrentPosition() {
-            com.qq.e.comm.plugin.aa.b.f fVar = this.f12370a.get();
+            com.qq.e.comm.plugin.aa.b.f fVar = this.f12070a.get();
             if (fVar != null) {
                 return fVar.f();
             }
@@ -245,7 +245,7 @@ public class h implements View.OnClickListener, NEADVI, com.qq.e.comm.plugin.a.d
 
         @Override // com.qq.e.comm.pi.AdData.VideoPlayer
         public int getDuration() {
-            com.qq.e.comm.plugin.aa.b.f fVar = this.f12370a.get();
+            com.qq.e.comm.plugin.aa.b.f fVar = this.f12070a.get();
             if (fVar != null) {
                 return fVar.e();
             }
@@ -254,7 +254,7 @@ public class h implements View.OnClickListener, NEADVI, com.qq.e.comm.plugin.a.d
 
         @Override // com.qq.e.comm.pi.AdData.VideoPlayer
         public int getVideoState() {
-            com.qq.e.comm.plugin.aa.b.f fVar = this.f12370a.get();
+            com.qq.e.comm.plugin.aa.b.f fVar = this.f12070a.get();
             return (fVar == null ? f.d.ERROR : fVar.g()).ordinal();
         }
     }
@@ -270,7 +270,7 @@ public class h implements View.OnClickListener, NEADVI, com.qq.e.comm.plugin.a.d
         this.t = str2;
         this.u = new m(str2, com.qq.e.comm.plugin.ad.e.NATIVEEXPRESSAD, (com.qq.e.comm.plugin.ad.d) null);
         this.y = aDSize;
-        this.f12328b = viewGroup;
+        this.f12028b = viewGroup;
         this.v = com.qq.e.comm.plugin.util.a.a(str, str2, o.b());
         if (neadi instanceof f) {
             this.G = (f) neadi;
@@ -331,7 +331,7 @@ public class h implements View.OnClickListener, NEADVI, com.qq.e.comm.plugin.a.d
             return;
         }
         com.qq.e.comm.plugin.ad.a.a().a(this.l);
-        a(5, new Object[]{this.f12328b});
+        a(5, new Object[]{this.f12028b});
         this.an.a(System.currentTimeMillis());
         this.e = true;
         this.l.post(new Runnable() { // from class: com.qq.e.comm.plugin.gdtnativead.h.4
@@ -344,7 +344,7 @@ public class h implements View.OnClickListener, NEADVI, com.qq.e.comm.plugin.a.d
                 com.qq.e.comm.plugin.w.b bVar = new com.qq.e.comm.plugin.w.b(h.this.a(), com.qq.e.comm.plugin.ad.e.NATIVEEXPRESSAD, h.this.b());
                 final String optString = h.this.c.optString("customizedpingurl");
                 boolean z = h.this.m() && bb.a();
-                String a2 = h.this.an.a(h.this.f12328b, z ? 1 : 2, h.this.d != null ? h.this.d.x() : null, null);
+                String a2 = h.this.an.a(h.this.f12028b, z ? 1 : 2, h.this.d != null ? h.this.d.x() : null, null);
                 c.a(h.this.w, (Boolean) null, h.this.n, 0, (Exception) null);
                 com.qq.e.comm.plugin.w.i.a(a2, com.qq.e.comm.plugin.ad.a.a().b(h.this.l), h.this.d, bVar, q2, new d.b() { // from class: com.qq.e.comm.plugin.gdtnativead.h.4.1
                     @Override // com.qq.e.comm.plugin.w.d.b
@@ -370,7 +370,7 @@ public class h implements View.OnClickListener, NEADVI, com.qq.e.comm.plugin.a.d
     private void B() {
         d(false);
         if (this.I == null) {
-            this.I = new com.qq.e.comm.plugin.ac.a(this.f12328b.getContext());
+            this.I = new com.qq.e.comm.plugin.ac.a(this.f12028b.getContext());
         }
         if (this.i == null) {
             return;
@@ -448,7 +448,7 @@ public class h implements View.OnClickListener, NEADVI, com.qq.e.comm.plugin.a.d
         this.i.getGlobalVisibleRect(this.P);
         this.Q = this.i.getWidth();
         this.R = this.i.getHeight();
-        Activity a2 = bb.a(this.f12328b.getContext());
+        Activity a2 = bb.a(this.f12028b.getContext());
         if (a2 == null) {
             GDTLogger.e("NativeExpressAD constructor must have Activity Context!");
             return;
@@ -459,7 +459,7 @@ public class h implements View.OnClickListener, NEADVI, com.qq.e.comm.plugin.a.d
     }
 
     private void J() {
-        Activity a2 = bb.a(this.f12328b.getContext());
+        Activity a2 = bb.a(this.f12028b.getContext());
         if (a2 == null) {
             GDTLogger.e("NativeExpressAD constructor must have Activity Context!");
             return;
@@ -527,7 +527,7 @@ public class h implements View.OnClickListener, NEADVI, com.qq.e.comm.plugin.a.d
 
     /* JADX INFO: Access modifiers changed from: private */
     public void N() {
-        Activity a2 = bb.a(this.f12328b.getContext());
+        Activity a2 = bb.a(this.f12028b.getContext());
         if (a2 == null) {
             GDTLogger.e("NativeExpressAD constructor must have Activity Context!");
             return;
@@ -553,7 +553,7 @@ public class h implements View.OnClickListener, NEADVI, com.qq.e.comm.plugin.a.d
         if (com.qq.e.comm.plugin.util.d.a(this.c) && !com.qq.e.comm.plugin.util.d.b(this.c)) {
             com.qq.e.comm.plugin.w.a.f.a(new d.a(this.c, null));
         }
-        final Activity a2 = bb.a(this.f12328b.getContext());
+        final Activity a2 = bb.a(this.f12028b.getContext());
         if (a2 == null) {
             GDTLogger.e("NativeExpressAD constructor must have Activity Context!");
             return;
@@ -574,7 +574,7 @@ public class h implements View.OnClickListener, NEADVI, com.qq.e.comm.plugin.a.d
                 bb.a(a2, this.ao);
                 viewGroup.removeView(this.S);
                 M();
-                b(19, new Object[]{this.f12328b});
+                b(19, new Object[]{this.f12028b});
                 F();
                 this.ar = false;
             } else {
@@ -595,7 +595,7 @@ public class h implements View.OnClickListener, NEADVI, com.qq.e.comm.plugin.a.d
                             viewGroup.removeView(h.this.S);
                             h.this.M();
                         }
-                        h.this.b(19, new Object[]{h.this.f12328b});
+                        h.this.b(19, new Object[]{h.this.f12028b});
                         h.this.F();
                         h.this.ar = false;
                     }
@@ -608,7 +608,7 @@ public class h implements View.OnClickListener, NEADVI, com.qq.e.comm.plugin.a.d
             }
             Q();
             this.k = 1;
-            a(10, new Object[]{this.f12328b});
+            a(10, new Object[]{this.f12028b});
         }
     }
 
@@ -694,7 +694,7 @@ public class h implements View.OnClickListener, NEADVI, com.qq.e.comm.plugin.a.d
     }
 
     private void S() {
-        if (!bd.a(this.h, this.f12328b, 50) || this.e || this.f12328b.getHeight() <= 1) {
+        if (!bd.a(this.h, this.f12028b, 50) || this.e || this.f12028b.getHeight() <= 1) {
             return;
         }
         A();
@@ -765,7 +765,7 @@ public class h implements View.OnClickListener, NEADVI, com.qq.e.comm.plugin.a.d
 
     private void a(int i, final String str, boolean z, boolean z2, String str2) {
         if (this.ad == null) {
-            this.ad = new com.qq.e.comm.plugin.ab.d.e(this.f12328b.getContext(), this.c).a();
+            this.ad = new com.qq.e.comm.plugin.ab.d.e(this.f12028b.getContext(), this.c).a();
             this.ad.a(this);
         }
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -1);
@@ -838,7 +838,7 @@ public class h implements View.OnClickListener, NEADVI, com.qq.e.comm.plugin.a.d
     }
 
     private void a(Context context) {
-        this.f12327a = new com.qq.e.comm.plugin.ab.e(context, this).a(true).a((com.qq.e.comm.plugin.ab.a.b) this).b(true).c(false).d(false).a((h.a) this).a();
+        this.f12027a = new com.qq.e.comm.plugin.ab.e(context, this).a(true).a((com.qq.e.comm.plugin.ab.a.b) this).b(true).c(false).d(false).a((h.a) this).a();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -912,7 +912,7 @@ public class h implements View.OnClickListener, NEADVI, com.qq.e.comm.plugin.a.d
             public void a() {
                 GDTLogger.d("onStarted");
                 h.this.av = true;
-                h.this.b(12, new Object[]{h.this.f12328b});
+                h.this.b(12, new Object[]{h.this.f12028b});
             }
 
             @Override // com.qq.e.comm.plugin.j.a
@@ -949,9 +949,9 @@ public class h implements View.OnClickListener, NEADVI, com.qq.e.comm.plugin.a.d
                 h.this.L = 2;
                 h.this.U();
                 if (z2) {
-                    h.this.b(17, new Object[]{h.this.f12328b, 702});
+                    h.this.b(17, new Object[]{h.this.f12028b, 702});
                 } else {
-                    h.this.b(17, new Object[]{h.this.f12328b, 700});
+                    h.this.b(17, new Object[]{h.this.f12028b, 700});
                 }
                 c.a(h.this.w, h.this.n, h.this.B, a2, cVar);
             }
@@ -970,7 +970,7 @@ public class h implements View.OnClickListener, NEADVI, com.qq.e.comm.plugin.a.d
                             if (h.this.X()) {
                                 h.this.G.e();
                             } else {
-                                h.this.b(21, new Object[]{h.this.f12328b});
+                                h.this.b(21, new Object[]{h.this.f12028b});
                             }
                         }
                         File d = ah.d(h.this.B);
@@ -1005,7 +1005,7 @@ public class h implements View.OnClickListener, NEADVI, com.qq.e.comm.plugin.a.d
     /* JADX INFO: Access modifiers changed from: private */
     public void a(final boolean z, final boolean z2, final String str) {
         if (!this.ar && this.k == 1) {
-            a(20, new Object[]{this.f12328b});
+            a(20, new Object[]{this.f12028b});
             if (this.i == null) {
                 f(false);
             }
@@ -1022,14 +1022,14 @@ public class h implements View.OnClickListener, NEADVI, com.qq.e.comm.plugin.a.d
 
     private void b(int i) {
         ADSize aDSize = new ADSize(this.y.getWidth(), i);
-        ViewGroup.LayoutParams layoutParams = this.f12327a.a().getLayoutParams();
+        ViewGroup.LayoutParams layoutParams = this.f12027a.a().getLayoutParams();
         if (layoutParams == null) {
             return;
         }
         a(aDSize);
         if (layoutParams.height != this.A) {
             layoutParams.height = this.A;
-            this.f12327a.a().setLayoutParams(layoutParams);
+            this.f12027a.a().setLayoutParams(layoutParams);
         }
     }
 
@@ -1050,13 +1050,13 @@ public class h implements View.OnClickListener, NEADVI, com.qq.e.comm.plugin.a.d
             return;
         }
         this.F = false;
-        this.f12327a.a(8);
-        a(3, new Object[]{this.f12328b});
+        this.f12027a.a(8);
+        a(3, new Object[]{this.f12028b});
         c.a(this.w, this.F, this.n, aVar);
     }
 
     private void b(JSONObject jSONObject) {
-        GDTLogger.d("Get AdSpecMeasured params：" + jSONObject.toString() + ", adContentHeightInDp: " + this.H + ", view is " + this.f12327a.a().hashCode());
+        GDTLogger.d("Get AdSpecMeasured params：" + jSONObject.toString() + ", adContentHeightInDp: " + this.H + ", view is " + this.f12027a.a().hashCode());
         u.a(50002, 2, this.n, new com.qq.e.comm.plugin.y.d(jSONObject));
         this.H = jSONObject.optInt("contentHeight");
         if (this.y.getHeight() <= 0) {
@@ -1079,7 +1079,7 @@ public class h implements View.OnClickListener, NEADVI, com.qq.e.comm.plugin.a.d
     /* JADX INFO: Access modifiers changed from: private */
     public void b(final boolean z, final boolean z2, final String str) {
         this.as = true;
-        final Activity a2 = bb.a(this.f12328b.getContext());
+        final Activity a2 = bb.a(this.f12028b.getContext());
         if (a2 == null) {
             GDTLogger.e("Native Express AD constructor must have an Activity Context, or video ad will not be able to enter fullscreen!");
             return;
@@ -1092,7 +1092,7 @@ public class h implements View.OnClickListener, NEADVI, com.qq.e.comm.plugin.a.d
         final ViewGroup viewGroup = (ViewGroup) a2.findViewById(16908290);
         if (viewGroup != null) {
             if (this.S == null) {
-                this.S = new FrameLayout(this.f12328b.getContext());
+                this.S = new FrameLayout(this.f12028b.getContext());
                 this.S.setBackgroundColor(ViewCompat.MEASURED_STATE_MASK);
             }
             bc.a(this.S);
@@ -1113,7 +1113,7 @@ public class h implements View.OnClickListener, NEADVI, com.qq.e.comm.plugin.a.d
                 if (this.I != null && this.I.getVisibility() == 0) {
                     this.I.bringToFront();
                 }
-                b(18, new Object[]{this.f12328b});
+                b(18, new Object[]{this.f12028b});
                 this.as = false;
             } else {
                 if (this.V == null) {
@@ -1142,7 +1142,7 @@ public class h implements View.OnClickListener, NEADVI, com.qq.e.comm.plugin.a.d
                         if (h.this.I != null && h.this.I.getVisibility() == 0) {
                             h.this.I.bringToFront();
                         }
-                        h.this.b(18, new Object[]{h.this.f12328b});
+                        h.this.b(18, new Object[]{h.this.f12028b});
                         h.this.as = false;
                     }
                 }, 500L);
@@ -1159,13 +1159,13 @@ public class h implements View.OnClickListener, NEADVI, com.qq.e.comm.plugin.a.d
             } else {
                 d(3);
             }
-            a(9, new Object[]{this.f12328b});
+            a(9, new Object[]{this.f12028b});
         }
     }
 
     private void c(int i) {
         if (this.ae == null) {
-            this.ae = new com.qq.e.comm.plugin.gdtnativead.a.b(this.f12328b.getContext(), this.g, this.c);
+            this.ae = new com.qq.e.comm.plugin.gdtnativead.a.b(this.f12028b.getContext(), this.g, this.c);
             this.ae.a(this);
         } else {
             bc.a(this.ae);
@@ -1193,11 +1193,11 @@ public class h implements View.OnClickListener, NEADVI, com.qq.e.comm.plugin.a.d
             return;
         }
         u.a(50002, 1, this.n);
-        GDTLogger.d("renderSuccess view: " + this.f12327a.hashCode());
+        GDTLogger.d("renderSuccess view: " + this.f12027a.hashCode());
         this.F = true;
         a(this.y);
-        this.l.addView(this.f12327a.a(), new ViewGroup.LayoutParams(this.z, this.A));
-        a(4, new Object[]{this.f12328b});
+        this.l.addView(this.f12027a.a(), new ViewGroup.LayoutParams(this.z, this.A));
+        a(4, new Object[]{this.f12028b});
         e(jSONObject.optString("traceid"));
         u();
         c.a(this.w, this.F, this.n, (com.qq.e.comm.plugin.ab.a.a) null);
@@ -1271,15 +1271,15 @@ public class h implements View.OnClickListener, NEADVI, com.qq.e.comm.plugin.a.d
         w.a(new Runnable() { // from class: com.qq.e.comm.plugin.gdtnativead.h.2
             @Override // java.lang.Runnable
             public void run() {
-                if (h.this.f12327a == null) {
+                if (h.this.f12027a == null) {
                     return;
                 }
                 if (!z) {
-                    h.this.f12327a.b("mtaid.setPlayIconVisibility(false)");
+                    h.this.f12027a.b("mtaid.setPlayIconVisibility(false)");
                     return;
                 }
-                h.this.f12327a.a(0);
-                h.this.f12327a.b("mtaid.setPlayIconVisibility(true)");
+                h.this.f12027a.a(0);
+                h.this.f12027a.b("mtaid.setPlayIconVisibility(true)");
             }
         });
     }
@@ -1322,12 +1322,12 @@ public class h implements View.OnClickListener, NEADVI, com.qq.e.comm.plugin.a.d
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(ak.a(this.h, (int) (this.ab.right - this.ab.left)), ak.a(this.h, (int) (this.ab.bottom - this.ab.top)));
             layoutParams.leftMargin = ak.a(this.h, (int) this.ab.left);
             layoutParams.topMargin = ak.a(this.h, (int) this.ab.top);
-            this.i = new MediaView(this.f12328b.getContext());
+            this.i = new MediaView(this.f12028b.getContext());
             this.i.setLayoutParams(layoutParams);
             this.l.addView(this.i);
             FrameLayout.LayoutParams layoutParams2 = new FrameLayout.LayoutParams(-1, -1);
             layoutParams2.gravity = 17;
-            this.j = new a(this.f12328b.getContext());
+            this.j = new a(this.f12028b.getContext());
             this.j.setKeepScreenOn(true);
             this.j.setLayoutParams(layoutParams2);
             if (X()) {
@@ -1335,15 +1335,15 @@ public class h implements View.OnClickListener, NEADVI, com.qq.e.comm.plugin.a.d
             }
             this.i.addView(this.j);
             this.i.setOnClickListener(this);
-            this.ac = new com.qq.e.comm.plugin.gdtnativead.a.c(this.f12328b.getContext(), this.k, this.c.optString("img"));
+            this.ac = new com.qq.e.comm.plugin.gdtnativead.a.c(this.f12028b.getContext(), this.k, this.c.optString("img"));
             this.ac.a(this);
             this.j.a(this.ac);
             if (SDKStatus.getSDKVersionCode() >= 3 && (a2 = a(this.C)) != null) {
                 a2.a(new b(this.j));
             }
-            b(11, new Object[]{this.f12328b});
+            b(11, new Object[]{this.f12028b});
             if (this.av && X()) {
-                b(12, new Object[]{this.f12328b});
+                b(12, new Object[]{this.f12028b});
             }
             e(z);
         }
@@ -1371,15 +1371,15 @@ public class h implements View.OnClickListener, NEADVI, com.qq.e.comm.plugin.a.d
             @Override // com.qq.e.comm.plugin.c.a.c, com.qq.e.comm.plugin.c.a.a
             public void a(boolean z) {
                 if (z) {
-                    h.this.a(8, new Object[]{h.this.f12328b});
-                    h.this.a(9, new Object[]{h.this.f12328b});
+                    h.this.a(8, new Object[]{h.this.f12028b});
+                    h.this.a(9, new Object[]{h.this.f12028b});
                 }
                 super.a(z);
             }
 
             @Override // com.qq.e.comm.plugin.c.a.c, com.qq.e.comm.plugin.c.a.a
             public BrowserType b(String str, com.qq.e.comm.plugin.s.a aVar) {
-                h.this.a(9, new Object[]{h.this.f12328b});
+                h.this.a(9, new Object[]{h.this.f12028b});
                 return super.b(str, aVar);
             }
 
@@ -1439,8 +1439,8 @@ public class h implements View.OnClickListener, NEADVI, com.qq.e.comm.plugin.a.d
     }
 
     private void s() {
-        if (this.f12328b != null) {
-            this.f12328b.setTag(n());
+        if (this.f12028b != null) {
+            this.f12028b.setTag(n());
         }
     }
 
@@ -1454,7 +1454,7 @@ public class h implements View.OnClickListener, NEADVI, com.qq.e.comm.plugin.a.d
     }
 
     private void u() {
-        GDTLogger.d("callJsHeightMeasure view: " + this.f12327a.hashCode() + ", renderSuccess: " + this.F + ", webViewWidth: " + this.am + ", adContentHeightInDp: " + this.H);
+        GDTLogger.d("callJsHeightMeasure view: " + this.f12027a.hashCode() + ", renderSuccess: " + this.F + ", webViewWidth: " + this.am + ", adContentHeightInDp: " + this.H);
         if (!this.F.booleanValue() || this.am <= 0) {
             return;
         }
@@ -1486,8 +1486,8 @@ public class h implements View.OnClickListener, NEADVI, com.qq.e.comm.plugin.a.d
 
     /* JADX INFO: Access modifiers changed from: private */
     public void x() {
-        if (this.f12327a != null) {
-            this.f12327a.b("mtaid.measureAdSpec()");
+        if (this.f12027a != null) {
+            this.f12027a.b("mtaid.measureAdSpec()");
         }
     }
 
@@ -1520,7 +1520,7 @@ public class h implements View.OnClickListener, NEADVI, com.qq.e.comm.plugin.a.d
     public void a(int i, Exception exc) {
         this.L = 2;
         U();
-        b(17, new Object[]{this.f12328b, 701});
+        b(17, new Object[]{this.f12028b, 701});
         c.a(this.w, false, this.n, i, exc);
     }
 
@@ -1570,14 +1570,14 @@ public class h implements View.OnClickListener, NEADVI, com.qq.e.comm.plugin.a.d
                 d(aVar.b());
                 return;
             case ADClosed:
-                a(7, new Object[]{this.f12328b});
+                a(7, new Object[]{this.f12028b});
                 destroy();
                 return;
             case ADLeftApplication:
-                a(8, new Object[]{this.f12328b});
+                a(8, new Object[]{this.f12028b});
                 return;
             case ADOpenOverlay:
-                a(9, new Object[]{this.f12328b});
+                a(9, new Object[]{this.f12028b});
                 return;
             default:
                 return;
@@ -1649,7 +1649,7 @@ public class h implements View.OnClickListener, NEADVI, com.qq.e.comm.plugin.a.d
             GDTLogger.d("duration = " + this.O);
             com.qq.e.comm.plugin.aa.b.a.a(this.i, this.d.o(), this.j);
         }
-        b(13, new Object[]{this.f12328b, Integer.valueOf(this.O)});
+        b(13, new Object[]{this.f12028b, Integer.valueOf(this.O)});
     }
 
     @Override // com.qq.e.comm.plugin.ab.c
@@ -1684,7 +1684,7 @@ public class h implements View.OnClickListener, NEADVI, com.qq.e.comm.plugin.a.d
             this.j.setVisibility(0);
             com.qq.e.comm.plugin.aa.b.a.a(this.i);
         }
-        b(14, new Object[]{this.f12328b});
+        b(14, new Object[]{this.f12028b});
         c.a(this.w, true, this.n, 0, (Exception) null);
         if (this.aw != 0) {
             ba.b(System.currentTimeMillis() - this.aw, this.ax, this.B, this.n);
@@ -1714,7 +1714,7 @@ public class h implements View.OnClickListener, NEADVI, com.qq.e.comm.plugin.a.d
 
     @Override // com.qq.e.comm.plugin.ab.d.f
     public void d_() {
-        a(8, new Object[]{this.f12328b});
+        a(8, new Object[]{this.f12028b});
     }
 
     @Override // com.qq.e.comm.pi.NEADVI
@@ -1760,9 +1760,9 @@ public class h implements View.OnClickListener, NEADVI, com.qq.e.comm.plugin.a.d
             this.ad.a();
             this.ad = null;
         }
-        if (this.f12327a != null) {
-            this.f12327a.c();
-            this.f12327a = null;
+        if (this.f12027a != null) {
+            this.f12027a.c();
+            this.f12027a = null;
         }
         com.qq.e.comm.plugin.ab.j.e().d();
     }
@@ -1781,14 +1781,14 @@ public class h implements View.OnClickListener, NEADVI, com.qq.e.comm.plugin.a.d
         if (this.k == 4) {
             l();
         }
-        b(16, new Object[]{this.f12328b});
+        b(16, new Object[]{this.f12028b});
     }
 
     @Override // com.qq.e.comm.plugin.aa.b.d.a
     public void g() {
         this.K = 2;
         this.N = 1;
-        b(14, new Object[]{this.f12328b});
+        b(14, new Object[]{this.f12028b});
     }
 
     @Override // com.qq.e.comm.plugin.aa.b.d.a
@@ -1801,13 +1801,13 @@ public class h implements View.OnClickListener, NEADVI, com.qq.e.comm.plugin.a.d
                 com.qq.e.comm.plugin.aa.b.a.b(this.i);
             }
         }
-        b(16, new Object[]{this.f12328b});
+        b(16, new Object[]{this.f12028b});
     }
 
     @Override // com.qq.e.comm.plugin.aa.b.d.a
     public void h_() {
         U();
-        b(15, new Object[]{this.f12328b});
+        b(15, new Object[]{this.f12028b});
     }
 
     @Override // com.qq.e.comm.plugin.aa.b.d.a
@@ -1821,8 +1821,8 @@ public class h implements View.OnClickListener, NEADVI, com.qq.e.comm.plugin.a.d
     @Override // com.qq.e.comm.plugin.ab.h.a
     public void j() {
         int measuredWidth;
-        GDTLogger.d("webview onLayout: " + this.l.hashCode() + ", view width: " + (this.f12327a != null ? Integer.valueOf(this.f12327a.a().getMeasuredWidth()) : "null"));
-        if (this.f12327a == null || (measuredWidth = this.f12327a.a().getMeasuredWidth()) == this.am) {
+        GDTLogger.d("webview onLayout: " + this.l.hashCode() + ", view width: " + (this.f12027a != null ? Integer.valueOf(this.f12027a.a().getMeasuredWidth()) : "null"));
+        if (this.f12027a == null || (measuredWidth = this.f12027a.a().getMeasuredWidth()) == this.am) {
             return;
         }
         this.am = measuredWidth;
@@ -1863,11 +1863,11 @@ public class h implements View.OnClickListener, NEADVI, com.qq.e.comm.plugin.a.d
 
     /* JADX INFO: Access modifiers changed from: protected */
     public String o() {
-        if (this.f12327a == null) {
+        if (this.f12027a == null) {
             GDTLogger.w("view == null!!");
             return null;
         }
-        this.an.a().b(this.f12327a.a().getWidth());
+        this.an.a().b(this.f12027a.a().getWidth());
         this.an.a().a(ak.a(this.h, this.H));
         this.an.a().b(this.c != null ? this.c.optString("template_id") : null);
         this.an.a().c(m() ? 1 : 2);
@@ -1906,7 +1906,7 @@ public class h implements View.OnClickListener, NEADVI, com.qq.e.comm.plugin.a.d
         if (X()) {
             this.G.e();
         } else {
-            b(21, new Object[]{this.f12328b});
+            b(21, new Object[]{this.f12028b});
         }
         GDTLogger.d("preloadVideo, video already cached, cl : " + (this.d == null ? "" : this.d.m()));
     }
@@ -1917,11 +1917,11 @@ public class h implements View.OnClickListener, NEADVI, com.qq.e.comm.plugin.a.d
             z.a().a(this.t);
         }
         c.a(this.w, (Boolean) null, this.n, (com.qq.e.comm.plugin.ab.a.a) null);
-        if (this.E || this.f12327a == null) {
+        if (this.E || this.f12027a == null) {
             c.c(this.w, this.n);
             return;
         }
-        this.f12327a.a(null, r + this.D, "text/html", "UTF-8", null);
+        this.f12027a.a(null, r + this.D, "text/html", "UTF-8", null);
         this.E = true;
     }
 
@@ -1941,20 +1941,20 @@ public class h implements View.OnClickListener, NEADVI, com.qq.e.comm.plugin.a.d
 
     @Override // com.qq.e.comm.pi.NEADVI
     public void setAdSize(ADSize aDSize) {
-        if (this.f12327a == null) {
+        if (this.f12027a == null) {
             GDTLogger.w("Express AD View is null", null);
             return;
         }
         this.y = aDSize;
         a(this.y);
-        ViewGroup.LayoutParams layoutParams = this.f12327a.a().getLayoutParams();
+        ViewGroup.LayoutParams layoutParams = this.f12027a.a().getLayoutParams();
         if (layoutParams != null) {
             layoutParams.width = this.z;
             layoutParams.height = this.A;
         } else {
             layoutParams = new ViewGroup.LayoutParams(this.z, this.A);
         }
-        this.f12327a.a().setLayoutParams(layoutParams);
+        this.f12027a.a().setLayoutParams(layoutParams);
         w.a(this.aA);
     }
 

@@ -4,21 +4,21 @@ import com.baidu.live.adp.widget.listview.IAdapterData;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public abstract class b implements IAdapterData, Cloneable {
     private d barrageCardInfo;
     private String barrageId;
     private int barrageType;
-    public String boI;
+    public String bjV;
+    private com.baidu.live.data.a bkv;
+    private com.baidu.live.data.a blJ;
+    private List<Long> blK;
+    private long blM;
+    private double blN;
+    private long blO;
+    public String blP;
+    private boolean blQ;
     private long bornTime;
-    private com.baidu.live.data.a bpi;
-    private double bqA;
-    private long bqB;
-    public String bqC;
-    private boolean bqD;
-    private com.baidu.live.data.a bqw;
-    private List<Long> bqx;
-    private long bqz;
     private String content;
     private boolean hasRead;
     private String[] imEffect;
@@ -38,10 +38,10 @@ public abstract class b implements IAdapterData, Cloneable {
     private int progressValue = 0;
     private long statisticsTaskId = -1;
     private boolean mIsPushForOperateAccount = false;
-    private boolean bqy = false;
+    private boolean blL = false;
     private boolean isGifLoadSuccess = true;
     private boolean isUploading = false;
-    public boolean aLE = false;
+    public boolean aGR = false;
 
     public boolean isHost() {
         return this.isHost;
@@ -131,20 +131,20 @@ public abstract class b implements IAdapterData, Cloneable {
         this.objContent = obj;
     }
 
-    public com.baidu.live.data.a Nw() {
-        return this.bpi;
+    public com.baidu.live.data.a JB() {
+        return this.bkv;
     }
 
     public void e(com.baidu.live.data.a aVar) {
-        this.bpi = aVar;
+        this.bkv = aVar;
     }
 
-    public com.baidu.live.data.a Nx() {
-        return this.bqw;
+    public com.baidu.live.data.a JC() {
+        return this.blJ;
     }
 
     public void f(com.baidu.live.data.a aVar) {
-        this.bqw = aVar;
+        this.blJ = aVar;
     }
 
     public int getMsgType() {
@@ -221,47 +221,47 @@ public abstract class b implements IAdapterData, Cloneable {
 
     public void m(JSONArray jSONArray) {
         if (jSONArray != null && jSONArray.length() > 0) {
-            if (this.bqx == null) {
-                this.bqx = new ArrayList();
+            if (this.blK == null) {
+                this.blK = new ArrayList();
             }
             for (int i = 0; i < jSONArray.length(); i++) {
                 long optLong = jSONArray.optLong(i);
                 if (optLong > 0) {
-                    this.bqx.add(Long.valueOf(optLong));
+                    this.blK.add(Long.valueOf(optLong));
                 }
             }
         }
     }
 
-    public List<Long> Ny() {
-        return this.bqx;
+    public List<Long> JD() {
+        return this.blK;
     }
 
-    public boolean Nz() {
-        return this.bqy;
+    public boolean JE() {
+        return this.blL;
     }
 
-    public void cl(boolean z) {
-        this.bqy = z;
+    public void ch(boolean z) {
+        this.blL = z;
     }
 
-    public int NA() {
+    public int JF() {
         return this.barrageType;
     }
 
-    public void fc(int i) {
+    public void dw(int i) {
         this.barrageType = i;
     }
 
-    public String NB() {
+    public String JG() {
         return this.barrageId;
     }
 
-    public void hT(String str) {
+    public void gI(String str) {
         this.barrageId = str;
     }
 
-    public d NC() {
+    public d JH() {
         return this.barrageCardInfo;
     }
 
@@ -269,7 +269,7 @@ public abstract class b implements IAdapterData, Cloneable {
         this.barrageCardInfo = dVar;
     }
 
-    public String[] ND() {
+    public String[] JI() {
         return this.imEffect;
     }
 
@@ -277,40 +277,40 @@ public abstract class b implements IAdapterData, Cloneable {
         this.imEffect = strArr;
     }
 
-    public long NE() {
-        return this.bqz;
+    public long JJ() {
+        return this.blM;
     }
 
     public void aT(long j) {
-        this.bqz = j;
+        this.blM = j;
     }
 
-    public double NF() {
-        return this.bqA;
+    public double JK() {
+        return this.blN;
     }
 
-    public void n(double d) {
-        this.bqA = d;
+    public void h(double d) {
+        this.blN = d;
     }
 
-    public long NG() {
-        return this.bqB;
+    public long JL() {
+        return this.blO;
     }
 
     public void aU(long j) {
-        this.bqB = j;
+        this.blO = j;
     }
 
-    public boolean NH() {
-        return this.bqD;
+    public boolean JM() {
+        return this.blQ;
     }
 
-    public void NI() {
-        this.bqD = true;
+    public void JN() {
+        this.blQ = true;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* renamed from: NJ */
+    /* renamed from: JO */
     public b clone() {
         try {
             return (b) super.clone();

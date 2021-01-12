@@ -5,9 +5,9 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.tieba.R;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class LocationFooterViewHolder extends RecyclerView.ViewHolder {
-    private TextView esN;
+    private TextView enZ;
     private ProgressBar mProgressBar;
 
     public LocationFooterViewHolder(View view) {
@@ -16,11 +16,11 @@ public class LocationFooterViewHolder extends RecyclerView.ViewHolder {
     }
 
     private void init(View view) {
-        this.esN = (TextView) view.findViewById(R.id.loading_text);
+        this.enZ = (TextView) view.findViewById(R.id.loading_text);
         this.mProgressBar = (ProgressBar) view.findViewById(R.id.loading_progress);
     }
 
-    public void ix(boolean z) {
+    public void it(boolean z) {
         this.itemView.setVisibility(z ? 0 : 4);
     }
 }

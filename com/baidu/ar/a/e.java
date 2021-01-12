@@ -11,6 +11,7 @@ import com.baidu.ar.ihttp.HttpException;
 import com.baidu.ar.ihttp.HttpFactory;
 import com.baidu.ar.ihttp.IHttpRequest;
 import com.baidu.ar.ihttp.IHttpResponse;
+import com.baidu.searchbox.config.DefaultSharedPrefsWrapper;
 import java.io.IOException;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -83,7 +84,7 @@ public class e {
                 }
                 a aVar = new a();
                 aVar.bI = optJSONObject.getJSONObject("classification");
-                aVar.bH = optJSONObject.optString("classification_id", "default");
+                aVar.bH = optJSONObject.optString("classification_id", DefaultSharedPrefsWrapper.SP_FILE_DEFAULT);
                 if (!d(aVar.bI) && this.bS != null) {
                     com.baidu.ar.h.b.b(TAG, str);
                     u("config format is error. see Logcat filter: " + TAG);

@@ -14,15 +14,15 @@ import android.view.animation.DecelerateInterpolator;
 import android.widget.TextView;
 import androidx.annotation.Nullable;
 @SuppressLint({"AppCompatCustomView"})
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class TimeCountTextView extends TextView {
     private static final String TAG = TimeCountTextView.class.getSimpleName();
-    private CountDownTimer bSG;
+    private CountDownTimer bNU;
     @SuppressLint({"HandlerLeak"})
     Handler handler;
-    private boolean hjG;
+    private boolean heZ;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public interface a {
         void onFinish();
     }
@@ -37,7 +37,7 @@ public class TimeCountTextView extends TextView {
 
     public TimeCountTextView(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.hjG = false;
+        this.heZ = false;
         this.handler = new Handler() { // from class: com.baidu.tieba.ala.live.guess.widget.TimeCountTextView.2
             @Override // android.os.Handler
             public void handleMessage(Message message) {
@@ -65,14 +65,14 @@ public class TimeCountTextView extends TextView {
 
     public void a(long j, final long j2, final a aVar) {
         setTextColor(Color.parseColor("#7968E5"));
-        this.hjG = false;
-        if (this.bSG == null) {
-            this.bSG = new CountDownTimer(j, 1000L) { // from class: com.baidu.tieba.ala.live.guess.widget.TimeCountTextView.1
+        this.heZ = false;
+        if (this.bNU == null) {
+            this.bNU = new CountDownTimer(j, 1000L) { // from class: com.baidu.tieba.ala.live.guess.widget.TimeCountTextView.1
                 @Override // android.os.CountDownTimer
                 public void onTick(long j3) {
                     if (j3 < j2) {
-                        if (!TimeCountTextView.this.hjG) {
-                            TimeCountTextView.this.hjG = true;
+                        if (!TimeCountTextView.this.heZ) {
+                            TimeCountTextView.this.heZ = true;
                             TimeCountTextView.this.setTextColor(Color.parseColor("#FF0050"));
                             TimeCountTextView.this.setText(String.valueOf((100 + j3) / 1000));
                             TimeCountTextView.this.handler.sendEmptyMessage(3);
@@ -91,7 +91,7 @@ public class TimeCountTextView extends TextView {
                 }
             };
         }
-        this.bSG.start();
+        this.bNU.start();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -168,8 +168,8 @@ public class TimeCountTextView extends TextView {
     }
 
     public void cancel() {
-        if (this.bSG != null) {
-            this.bSG.cancel();
+        if (this.bNU != null) {
+            this.bNU.cancel();
         }
         if (this.handler != null) {
             this.handler.removeCallbacksAndMessages(null);

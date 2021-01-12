@@ -8,14 +8,14 @@ import com.kwad.sdk.glide.load.engine.e;
 import java.io.File;
 import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class t implements d.a<Object>, e {
 
     /* renamed from: a  reason: collision with root package name */
-    private final e.a f10548a;
+    private final e.a f10248a;
 
     /* renamed from: b  reason: collision with root package name */
-    private final f<?> f10549b;
+    private final f<?> f10249b;
     private int c;
     private int d = -1;
     private com.kwad.sdk.glide.load.c e;
@@ -27,8 +27,8 @@ public class t implements d.a<Object>, e {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public t(f<?> fVar, e.a aVar) {
-        this.f10549b = fVar;
-        this.f10548a = aVar;
+        this.f10249b = fVar;
+        this.f10248a = aVar;
     }
 
     private boolean c() {
@@ -37,27 +37,27 @@ public class t implements d.a<Object>, e {
 
     @Override // com.kwad.sdk.glide.load.a.d.a
     public void a(@NonNull Exception exc) {
-        this.f10548a.a(this.j, exc, this.h.c, DataSource.RESOURCE_DISK_CACHE);
+        this.f10248a.a(this.j, exc, this.h.c, DataSource.RESOURCE_DISK_CACHE);
     }
 
     @Override // com.kwad.sdk.glide.load.a.d.a
     public void a(Object obj) {
-        this.f10548a.a(this.e, obj, this.h.c, DataSource.RESOURCE_DISK_CACHE, this.j);
+        this.f10248a.a(this.e, obj, this.h.c, DataSource.RESOURCE_DISK_CACHE, this.j);
     }
 
     @Override // com.kwad.sdk.glide.load.engine.e
     public boolean a() {
         boolean z;
-        List<com.kwad.sdk.glide.load.c> o = this.f10549b.o();
+        List<com.kwad.sdk.glide.load.c> o = this.f10249b.o();
         if (o.isEmpty()) {
             return false;
         }
-        List<Class<?>> l = this.f10549b.l();
+        List<Class<?>> l = this.f10249b.l();
         if (l.isEmpty()) {
-            if (File.class.equals(this.f10549b.j())) {
+            if (File.class.equals(this.f10249b.j())) {
                 return false;
             }
-            throw new IllegalStateException("Failed to find any load path from " + this.f10549b.k() + " to " + this.f10549b.j());
+            throw new IllegalStateException("Failed to find any load path from " + this.f10249b.k() + " to " + this.f10249b.j());
         }
         while (true) {
             if (this.f != null && c()) {
@@ -67,12 +67,12 @@ public class t implements d.a<Object>, e {
                     List<com.kwad.sdk.glide.load.b.n<File, ?>> list = this.f;
                     int i = this.g;
                     this.g = i + 1;
-                    this.h = list.get(i).a(this.i, this.f10549b.g(), this.f10549b.h(), this.f10549b.e());
-                    if (this.h == null || !this.f10549b.a(this.h.c.a())) {
+                    this.h = list.get(i).a(this.i, this.f10249b.g(), this.f10249b.h(), this.f10249b.e());
+                    if (this.h == null || !this.f10249b.a(this.h.c.a())) {
                         z = z2;
                     } else {
                         z = true;
-                        this.h.c.a(this.f10549b.d(), this);
+                        this.h.c.a(this.f10249b.d(), this);
                     }
                     z2 = z;
                 }
@@ -88,11 +88,11 @@ public class t implements d.a<Object>, e {
             }
             com.kwad.sdk.glide.load.c cVar = o.get(this.c);
             Class<?> cls = l.get(this.d);
-            this.j = new u(this.f10549b.i(), cVar, this.f10549b.f(), this.f10549b.g(), this.f10549b.h(), this.f10549b.c(cls), cls, this.f10549b.e());
-            this.i = this.f10549b.b().a(this.j);
+            this.j = new u(this.f10249b.i(), cVar, this.f10249b.f(), this.f10249b.g(), this.f10249b.h(), this.f10249b.c(cls), cls, this.f10249b.e());
+            this.i = this.f10249b.b().a(this.j);
             if (this.i != null) {
                 this.e = cVar;
-                this.f = this.f10549b.a(this.i);
+                this.f = this.f10249b.a(this.i);
                 this.g = 0;
             }
         }

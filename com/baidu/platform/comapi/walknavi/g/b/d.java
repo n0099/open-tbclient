@@ -1,56 +1,30 @@
 package com.baidu.platform.comapi.walknavi.g.b;
 
-import com.baidu.mapapi.walknavi.model.RouteGuideKind;
-/* loaded from: classes3.dex */
-/* synthetic */ class d {
+import android.os.Handler;
+import android.view.View;
+/* JADX INFO: Access modifiers changed from: package-private */
+/* loaded from: classes6.dex */
+public class d extends com.baidu.platform.comapi.wnplatform.o.m {
 
     /* renamed from: a  reason: collision with root package name */
-    static final /* synthetic */ int[] f4507a = new int[RouteGuideKind.values().length];
+    final /* synthetic */ c f4298a;
 
-    static {
-        try {
-            f4507a[RouteGuideKind.NE_Maneuver_Kind_OverlineBridge.ordinal()] = 1;
-        } catch (NoSuchFieldError e) {
-        }
-        try {
-            f4507a[RouteGuideKind.NE_Maneuver_Kind_UndergroundPassage.ordinal()] = 2;
-        } catch (NoSuchFieldError e2) {
-        }
-        try {
-            f4507a[RouteGuideKind.NE_Maneuver_Kind_Park.ordinal()] = 3;
-        } catch (NoSuchFieldError e3) {
-        }
-        try {
-            f4507a[RouteGuideKind.NE_Maneuver_Kind_Square.ordinal()] = 4;
-        } catch (NoSuchFieldError e4) {
-        }
-        try {
-            f4507a[RouteGuideKind.NE_Maneuver_Kind_Ladder.ordinal()] = 5;
-        } catch (NoSuchFieldError e5) {
-        }
-        try {
-            f4507a[RouteGuideKind.NE_Maneuver_Kind_Ferry.ordinal()] = 6;
-        } catch (NoSuchFieldError e6) {
-        }
-        try {
-            f4507a[RouteGuideKind.NE_Maneuver_Kind_Bridge.ordinal()] = 7;
-        } catch (NoSuchFieldError e7) {
-        }
-        try {
-            f4507a[RouteGuideKind.NE_Maneuver_Kind_Ring.ordinal()] = 8;
-        } catch (NoSuchFieldError e8) {
-        }
-        try {
-            f4507a[RouteGuideKind.NE_Maneuver_Kind_SideWalk.ordinal()] = 9;
-        } catch (NoSuchFieldError e9) {
-        }
-        try {
-            f4507a[RouteGuideKind.NE_Maneuver_Kind_Sightseeing_Bus.ordinal()] = 10;
-        } catch (NoSuchFieldError e10) {
-        }
-        try {
-            f4507a[RouteGuideKind.NE_Maneuver_Kind_Telpher.ordinal()] = 11;
-        } catch (NoSuchFieldError e11) {
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public d(c cVar) {
+        this.f4298a = cVar;
+    }
+
+    @Override // com.baidu.platform.comapi.wnplatform.o.m
+    public void a(View view) {
+        Handler handler;
+        Handler handler2;
+        if (com.baidu.platform.comapi.walknavi.b.a().t()) {
+            handler = this.f4298a.n;
+            if (handler != null && this.f4298a.i != null) {
+                handler2 = this.f4298a.n;
+                handler2.removeCallbacks(this.f4298a.i);
+            }
+            com.baidu.platform.comapi.walknavi.b.a().a(1, false);
         }
     }
 }

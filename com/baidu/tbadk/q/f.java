@@ -16,9 +16,9 @@ public class f extends com.baidu.adp.framework.b.d {
     public HttpMessage process(HttpMessage httpMessage, HttpMessageTask httpMessageTask) {
         if (httpMessageTask != null && (httpMessageTask instanceof TbHttpMessageTask)) {
             TbHttpMessageTask tbHttpMessageTask = (TbHttpMessageTask) httpMessageTask;
-            if (httpMessage.removeParam("reloin_key") == null && ReloginManager.bvj().bvl() && tbHttpMessageTask.isNeedLogin()) {
+            if (httpMessage.removeParam("reloin_key") == null && ReloginManager.brp().brr() && tbHttpMessageTask.isNeedLogin()) {
                 httpMessage.addParam("reloin_key", "reloin_value");
-                ReloginManager.bvj().a(httpMessage);
+                ReloginManager.brp().a(httpMessage);
                 return null;
             }
             return httpMessage;

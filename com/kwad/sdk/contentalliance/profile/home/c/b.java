@@ -9,11 +9,11 @@ import com.kwad.sdk.contentalliance.profile.home.model.UserProfile;
 import com.kwad.sdk.core.imageloader.KSImageLoader;
 import com.kwad.sdk.utils.ag;
 import com.xiaomi.mipush.sdk.Constants;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class b extends com.kwad.sdk.contentalliance.profile.home.b.a {
 
     /* renamed from: b  reason: collision with root package name */
-    private ImageView f9084b;
+    private ImageView f8784b;
     private TextView c;
     private TextView d;
     private TextView e;
@@ -35,22 +35,22 @@ public class b extends com.kwad.sdk.contentalliance.profile.home.b.a {
     @Override // com.kwad.sdk.contentalliance.profile.home.b.a, com.kwad.sdk.mvp.Presenter
     public void a() {
         super.a();
-        this.f9078a.f.add(this.f);
-        KSImageLoader.loadCircleIcon(this.f9084b, this.f9078a.d.mAuthorIcon, o().getResources().getDrawable(R.drawable.ksad_profile_author_icon));
+        this.f8778a.f.add(this.f);
+        KSImageLoader.loadCircleIcon(this.f8784b, this.f8778a.d.mAuthorIcon, o().getResources().getDrawable(R.drawable.ksad_profile_author_icon));
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.kwad.sdk.mvp.Presenter
     public void b_() {
         super.b_();
-        this.f9078a.f.remove(this.f);
+        this.f8778a.f.remove(this.f);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.kwad.sdk.mvp.Presenter
     public void c() {
         super.c();
-        this.f9084b = (ImageView) b(R.id.ksad_profile_author_icon);
+        this.f8784b = (ImageView) b(R.id.ksad_profile_author_icon);
         this.c = (TextView) b(R.id.ksad_profile_author_name);
         this.d = (TextView) b(R.id.ksad_profile_fans_count);
         this.e = (TextView) b(R.id.ksad_profile_follow_count);

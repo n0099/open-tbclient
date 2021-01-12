@@ -11,11 +11,11 @@ import com.qq.e.comm.util.StringUtil;
 import com.tencent.mm.opensdk.constants.ConstantsAPI;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public final class c implements Parcelable {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Parcelable.Creator<c> f11903a = new Parcelable.Creator<c>() { // from class: com.qq.e.comm.plugin.a.c.1
+    public static final Parcelable.Creator<c> f11603a = new Parcelable.Creator<c>() { // from class: com.qq.e.comm.plugin.a.c.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
         /* renamed from: a */
@@ -32,7 +32,7 @@ public final class c implements Parcelable {
     };
 
     /* renamed from: b  reason: collision with root package name */
-    private int f11904b;
+    private int f11604b;
     private final int c;
     private int d;
     private final String e;
@@ -163,7 +163,7 @@ public final class c implements Parcelable {
     }
 
     public void b(int i) {
-        this.f11904b = i;
+        this.f11604b = i;
     }
 
     public void b(boolean z) {
@@ -244,7 +244,7 @@ public final class c implements Parcelable {
     }
 
     public int m() {
-        return this.f11904b;
+        return this.f11604b;
     }
 
     public int n() {
@@ -290,14 +290,14 @@ public final class c implements Parcelable {
     }
 
     public String toString() {
-        return "ApkDownloadTask{taskId=" + this.f11904b + ", createNetType=" + this.c + ", status=" + this.d + ", targetAppName='" + this.l + "', targetPkgName='" + this.m + "', createTime=" + this.n + ", isReturned=" + this.q + '}';
+        return "ApkDownloadTask{taskId=" + this.f11604b + ", createNetType=" + this.c + ", status=" + this.d + ", targetAppName='" + this.l + "', targetPkgName='" + this.m + "', createTime=" + this.n + ", isReturned=" + this.q + '}';
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public Bundle u() {
         Bundle bundle = new Bundle();
         bundle.putString("adId", this.e);
-        bundle.putInt("taskId", this.f11904b);
+        bundle.putInt("taskId", this.f11604b);
         bundle.putString("targetId", this.f);
         bundle.putString("clickId", this.g);
         bundle.putString("iconUrl", this.h);

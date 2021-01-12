@@ -21,70 +21,70 @@ import com.baidu.live.yuyingift.yuyinhousegift.d;
 import com.baidu.live.yuyingift.yuyinhousegift.view.YuyinGiftItemView;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public abstract class YuyinAlaRoomBaseGiftView extends RelativeLayout {
-    public c cae;
-    protected int ccN;
-    protected int[] ccO;
-    protected boolean ccP;
-    protected List<c> ccQ;
-    protected int ccR;
-    protected a ccS;
-    private final int ccT;
+    public c bVs;
+    protected int bXZ;
+    protected int[] bYa;
+    protected boolean bYb;
+    protected List<c> bYc;
+    protected int bYd;
+    protected a bYe;
+    private final int bYf;
 
-    protected abstract void abD();
+    protected abstract void XK();
 
-    protected abstract void abE();
+    protected abstract void XL();
 
-    protected abstract void abF();
+    protected abstract void XM();
 
     public a getNowAnimal() {
-        return this.ccS;
+        return this.bYe;
     }
 
     public YuyinAlaRoomBaseGiftView(Context context) {
         super(context);
-        this.ccT = 10;
+        this.bYf = 10;
         init();
     }
 
     private void init() {
-        this.ccO = new int[2];
-        this.ccQ = new ArrayList();
+        this.bYa = new int[2];
+        this.bYc = new ArrayList();
     }
 
     public c getLastShowGift() {
-        return this.cae;
+        return this.bVs;
     }
 
     private void a(c cVar, List<YuyinGiftItemView> list, boolean z) {
         if (cVar == null || ListUtils.isEmpty(list)) {
-            this.ccP = false;
-            abF();
+            this.bYb = false;
+            XM();
             return;
         }
-        this.cae = cVar;
-        this.ccQ.clear();
+        this.bVs = cVar;
+        this.bYc.clear();
         removeAllViews();
         for (YuyinGiftItemView yuyinGiftItemView : list) {
             yuyinGiftItemView.setAnimalCallback(new YuyinGiftItemView.a() { // from class: com.baidu.live.yuyingift.yuyinhousegift.view.YuyinAlaRoomBaseGiftView.1
                 @Override // com.baidu.live.yuyingift.yuyinhousegift.view.YuyinGiftItemView.a
                 public void y(c cVar2) {
                     int i = 0;
-                    YuyinAlaRoomBaseGiftView.this.ccR++;
-                    YuyinAlaRoomBaseGiftView.this.cae = cVar2;
-                    if (YuyinAlaRoomBaseGiftView.this.ccR >= YuyinAlaRoomBaseGiftView.this.getChildCount()) {
-                        YuyinAlaRoomBaseGiftView.this.ccR = 0;
+                    YuyinAlaRoomBaseGiftView.this.bYd++;
+                    YuyinAlaRoomBaseGiftView.this.bVs = cVar2;
+                    if (YuyinAlaRoomBaseGiftView.this.bYd >= YuyinAlaRoomBaseGiftView.this.getChildCount()) {
+                        YuyinAlaRoomBaseGiftView.this.bYd = 0;
                         ArrayList arrayList = new ArrayList();
                         boolean z2 = false;
                         int i2 = 0;
                         for (int i3 = 0; i3 < YuyinAlaRoomBaseGiftView.this.getChildCount(); i3++) {
                             YuyinGiftItemView yuyinGiftItemView2 = (YuyinGiftItemView) YuyinAlaRoomBaseGiftView.this.getChildAt(i3);
                             if (yuyinGiftItemView2.getWheatInfoData() != null) {
-                                AlaWheatInfoData aY = d.aY(yuyinGiftItemView2.getWheatInfoData().uk, yuyinGiftItemView2.getWheatInfoData().userName);
-                                if (aY != null) {
-                                    yuyinGiftItemView2.setWheatInfoData(aY);
-                                    if (aY.locationCenterX > 0.0f) {
+                                AlaWheatInfoData aX = d.aX(yuyinGiftItemView2.getWheatInfoData().uk, yuyinGiftItemView2.getWheatInfoData().userName);
+                                if (aX != null) {
+                                    yuyinGiftItemView2.setWheatInfoData(aX);
+                                    if (aX.locationCenterX > 0.0f) {
                                         i2++;
                                     } else {
                                         z2 = true;
@@ -109,19 +109,19 @@ public abstract class YuyinAlaRoomBaseGiftView extends RelativeLayout {
                             while (i < YuyinAlaRoomBaseGiftView.this.getChildCount()) {
                                 YuyinGiftItemView yuyinGiftItemView4 = (YuyinGiftItemView) YuyinAlaRoomBaseGiftView.this.getChildAt(i);
                                 if (yuyinGiftItemView4.getWheatInfoData() != null && yuyinGiftItemView4.getWheatInfoData().locationCenterX > 0.0f) {
-                                    YuyinAlaRoomBaseGiftView.this.ccS = yuyinGiftItemView4.abH();
+                                    YuyinAlaRoomBaseGiftView.this.bYe = yuyinGiftItemView4.XO();
                                 }
                                 i++;
                             }
                         } else if (z2) {
                             while (i < YuyinAlaRoomBaseGiftView.this.getChildCount()) {
-                                YuyinAlaRoomBaseGiftView.this.ccS = ((YuyinGiftItemView) YuyinAlaRoomBaseGiftView.this.getChildAt(i)).abI();
+                                YuyinAlaRoomBaseGiftView.this.bYe = ((YuyinGiftItemView) YuyinAlaRoomBaseGiftView.this.getChildAt(i)).XP();
                                 i++;
                             }
                         } else {
                             YuyinAlaRoomBaseGiftView.this.removeAllViews();
-                            YuyinAlaRoomBaseGiftView.this.ccQ.clear();
-                            YuyinAlaRoomBaseGiftView.this.abB();
+                            YuyinAlaRoomBaseGiftView.this.bYc.clear();
+                            YuyinAlaRoomBaseGiftView.this.XI();
                         }
                     }
                 }
@@ -129,14 +129,14 @@ public abstract class YuyinAlaRoomBaseGiftView extends RelativeLayout {
                 @Override // com.baidu.live.yuyingift.yuyinhousegift.view.YuyinGiftItemView.a
                 public void z(c cVar2) {
                     int i = 0;
-                    YuyinAlaRoomBaseGiftView.this.ccR++;
-                    YuyinAlaRoomBaseGiftView.this.cae = cVar2;
-                    if (YuyinAlaRoomBaseGiftView.this.ccR >= YuyinAlaRoomBaseGiftView.this.getChildCount()) {
-                        YuyinAlaRoomBaseGiftView.this.ccR = 0;
+                    YuyinAlaRoomBaseGiftView.this.bYd++;
+                    YuyinAlaRoomBaseGiftView.this.bVs = cVar2;
+                    if (YuyinAlaRoomBaseGiftView.this.bYd >= YuyinAlaRoomBaseGiftView.this.getChildCount()) {
+                        YuyinAlaRoomBaseGiftView.this.bYd = 0;
                         while (true) {
                             int i2 = i;
                             if (i2 < YuyinAlaRoomBaseGiftView.this.getChildCount()) {
-                                YuyinAlaRoomBaseGiftView.this.ccS = ((YuyinGiftItemView) YuyinAlaRoomBaseGiftView.this.getChildAt(i2)).abI();
+                                YuyinAlaRoomBaseGiftView.this.bYe = ((YuyinGiftItemView) YuyinAlaRoomBaseGiftView.this.getChildAt(i2)).XP();
                                 i = i2 + 1;
                             } else {
                                 return;
@@ -148,19 +148,19 @@ public abstract class YuyinAlaRoomBaseGiftView extends RelativeLayout {
                 @Override // com.baidu.live.yuyingift.yuyinhousegift.view.YuyinGiftItemView.a
                 public void A(c cVar2) {
                     int i = 0;
-                    YuyinAlaRoomBaseGiftView.this.ccR++;
-                    YuyinAlaRoomBaseGiftView.this.cae = cVar2;
-                    if (YuyinAlaRoomBaseGiftView.this.ccR >= YuyinAlaRoomBaseGiftView.this.getChildCount()) {
-                        YuyinAlaRoomBaseGiftView.this.ccR = 0;
-                        YuyinAlaRoomBaseGiftView.this.abE();
-                        if (!ListUtils.isEmpty(YuyinAlaRoomBaseGiftView.this.ccQ)) {
-                            YuyinAlaRoomBaseGiftView.this.abB();
+                    YuyinAlaRoomBaseGiftView.this.bYd++;
+                    YuyinAlaRoomBaseGiftView.this.bVs = cVar2;
+                    if (YuyinAlaRoomBaseGiftView.this.bYd >= YuyinAlaRoomBaseGiftView.this.getChildCount()) {
+                        YuyinAlaRoomBaseGiftView.this.bYd = 0;
+                        YuyinAlaRoomBaseGiftView.this.XL();
+                        if (!ListUtils.isEmpty(YuyinAlaRoomBaseGiftView.this.bYc)) {
+                            YuyinAlaRoomBaseGiftView.this.XI();
                             return;
                         }
                         while (true) {
                             int i2 = i;
                             if (i2 < YuyinAlaRoomBaseGiftView.this.getChildCount()) {
-                                YuyinAlaRoomBaseGiftView.this.ccS = ((YuyinGiftItemView) YuyinAlaRoomBaseGiftView.this.getChildAt(i2)).H(cVar2);
+                                YuyinAlaRoomBaseGiftView.this.bYe = ((YuyinGiftItemView) YuyinAlaRoomBaseGiftView.this.getChildAt(i2)).H(cVar2);
                                 i = i2 + 1;
                             } else {
                                 return;
@@ -172,19 +172,19 @@ public abstract class YuyinAlaRoomBaseGiftView extends RelativeLayout {
                 @Override // com.baidu.live.yuyingift.yuyinhousegift.view.YuyinGiftItemView.a
                 public void B(c cVar2) {
                     int i = 0;
-                    YuyinAlaRoomBaseGiftView.this.ccR++;
-                    YuyinAlaRoomBaseGiftView.this.cae = cVar2;
-                    if (YuyinAlaRoomBaseGiftView.this.ccR >= YuyinAlaRoomBaseGiftView.this.getChildCount()) {
-                        YuyinAlaRoomBaseGiftView.this.ccR = 0;
-                        YuyinAlaRoomBaseGiftView.this.abE();
-                        if (!ListUtils.isEmpty(YuyinAlaRoomBaseGiftView.this.ccQ)) {
-                            YuyinAlaRoomBaseGiftView.this.abB();
+                    YuyinAlaRoomBaseGiftView.this.bYd++;
+                    YuyinAlaRoomBaseGiftView.this.bVs = cVar2;
+                    if (YuyinAlaRoomBaseGiftView.this.bYd >= YuyinAlaRoomBaseGiftView.this.getChildCount()) {
+                        YuyinAlaRoomBaseGiftView.this.bYd = 0;
+                        YuyinAlaRoomBaseGiftView.this.XL();
+                        if (!ListUtils.isEmpty(YuyinAlaRoomBaseGiftView.this.bYc)) {
+                            YuyinAlaRoomBaseGiftView.this.XI();
                             return;
                         }
                         while (true) {
                             int i2 = i;
                             if (i2 < YuyinAlaRoomBaseGiftView.this.getChildCount()) {
-                                YuyinAlaRoomBaseGiftView.this.ccS = ((YuyinGiftItemView) YuyinAlaRoomBaseGiftView.this.getChildAt(i2)).H(cVar2);
+                                YuyinAlaRoomBaseGiftView.this.bYe = ((YuyinGiftItemView) YuyinAlaRoomBaseGiftView.this.getChildAt(i2)).H(cVar2);
                                 i = i2 + 1;
                             } else {
                                 return;
@@ -195,31 +195,31 @@ public abstract class YuyinAlaRoomBaseGiftView extends RelativeLayout {
 
                 @Override // com.baidu.live.yuyingift.yuyinhousegift.view.YuyinGiftItemView.a
                 public void C(c cVar2) {
-                    YuyinAlaRoomBaseGiftView.this.ccR++;
-                    YuyinAlaRoomBaseGiftView.this.cae = cVar2;
-                    if (YuyinAlaRoomBaseGiftView.this.ccR >= YuyinAlaRoomBaseGiftView.this.getChildCount()) {
-                        YuyinAlaRoomBaseGiftView.this.ccR = 0;
-                        YuyinAlaRoomBaseGiftView.this.abE();
-                        YuyinAlaRoomBaseGiftView.this.abB();
+                    YuyinAlaRoomBaseGiftView.this.bYd++;
+                    YuyinAlaRoomBaseGiftView.this.bVs = cVar2;
+                    if (YuyinAlaRoomBaseGiftView.this.bYd >= YuyinAlaRoomBaseGiftView.this.getChildCount()) {
+                        YuyinAlaRoomBaseGiftView.this.bYd = 0;
+                        YuyinAlaRoomBaseGiftView.this.XL();
+                        YuyinAlaRoomBaseGiftView.this.XI();
                     }
                 }
 
                 @Override // com.baidu.live.yuyingift.yuyinhousegift.view.YuyinGiftItemView.a
                 public void D(c cVar2) {
                     int i = 0;
-                    YuyinAlaRoomBaseGiftView.this.ccR++;
-                    YuyinAlaRoomBaseGiftView.this.cae = cVar2;
-                    if (YuyinAlaRoomBaseGiftView.this.ccR >= YuyinAlaRoomBaseGiftView.this.getChildCount()) {
-                        YuyinAlaRoomBaseGiftView.this.ccR = 0;
-                        YuyinAlaRoomBaseGiftView.this.abE();
-                        if (!ListUtils.isEmpty(YuyinAlaRoomBaseGiftView.this.ccQ)) {
-                            YuyinAlaRoomBaseGiftView.this.abB();
+                    YuyinAlaRoomBaseGiftView.this.bYd++;
+                    YuyinAlaRoomBaseGiftView.this.bVs = cVar2;
+                    if (YuyinAlaRoomBaseGiftView.this.bYd >= YuyinAlaRoomBaseGiftView.this.getChildCount()) {
+                        YuyinAlaRoomBaseGiftView.this.bYd = 0;
+                        YuyinAlaRoomBaseGiftView.this.XL();
+                        if (!ListUtils.isEmpty(YuyinAlaRoomBaseGiftView.this.bYc)) {
+                            YuyinAlaRoomBaseGiftView.this.XI();
                             return;
                         }
                         while (true) {
                             int i2 = i;
                             if (i2 < YuyinAlaRoomBaseGiftView.this.getChildCount()) {
-                                YuyinAlaRoomBaseGiftView.this.ccS = ((YuyinGiftItemView) YuyinAlaRoomBaseGiftView.this.getChildAt(i2)).J(cVar2);
+                                YuyinAlaRoomBaseGiftView.this.bYe = ((YuyinGiftItemView) YuyinAlaRoomBaseGiftView.this.getChildAt(i2)).J(cVar2);
                                 i = i2 + 1;
                             } else {
                                 return;
@@ -231,19 +231,19 @@ public abstract class YuyinAlaRoomBaseGiftView extends RelativeLayout {
                 @Override // com.baidu.live.yuyingift.yuyinhousegift.view.YuyinGiftItemView.a
                 public void E(c cVar2) {
                     int i = 0;
-                    YuyinAlaRoomBaseGiftView.this.ccR++;
-                    YuyinAlaRoomBaseGiftView.this.cae = cVar2;
-                    if (YuyinAlaRoomBaseGiftView.this.ccR >= YuyinAlaRoomBaseGiftView.this.getChildCount()) {
-                        YuyinAlaRoomBaseGiftView.this.ccR = 0;
-                        YuyinAlaRoomBaseGiftView.this.abE();
-                        if (!ListUtils.isEmpty(YuyinAlaRoomBaseGiftView.this.ccQ)) {
-                            YuyinAlaRoomBaseGiftView.this.abB();
+                    YuyinAlaRoomBaseGiftView.this.bYd++;
+                    YuyinAlaRoomBaseGiftView.this.bVs = cVar2;
+                    if (YuyinAlaRoomBaseGiftView.this.bYd >= YuyinAlaRoomBaseGiftView.this.getChildCount()) {
+                        YuyinAlaRoomBaseGiftView.this.bYd = 0;
+                        YuyinAlaRoomBaseGiftView.this.XL();
+                        if (!ListUtils.isEmpty(YuyinAlaRoomBaseGiftView.this.bYc)) {
+                            YuyinAlaRoomBaseGiftView.this.XI();
                             return;
                         }
                         while (true) {
                             int i2 = i;
                             if (i2 < YuyinAlaRoomBaseGiftView.this.getChildCount()) {
-                                YuyinAlaRoomBaseGiftView.this.ccS = ((YuyinGiftItemView) YuyinAlaRoomBaseGiftView.this.getChildAt(i2)).K(cVar2);
+                                YuyinAlaRoomBaseGiftView.this.bYe = ((YuyinGiftItemView) YuyinAlaRoomBaseGiftView.this.getChildAt(i2)).K(cVar2);
                                 i = i2 + 1;
                             } else {
                                 return;
@@ -254,32 +254,32 @@ public abstract class YuyinAlaRoomBaseGiftView extends RelativeLayout {
 
                 @Override // com.baidu.live.yuyingift.yuyinhousegift.view.YuyinGiftItemView.a
                 public void F(c cVar2) {
-                    YuyinAlaRoomBaseGiftView.this.ccR++;
-                    YuyinAlaRoomBaseGiftView.this.cae = cVar2;
-                    if (YuyinAlaRoomBaseGiftView.this.ccR >= YuyinAlaRoomBaseGiftView.this.getChildCount()) {
-                        YuyinAlaRoomBaseGiftView.this.ccR = 0;
-                        YuyinAlaRoomBaseGiftView.this.abE();
-                        YuyinAlaRoomBaseGiftView.this.abB();
+                    YuyinAlaRoomBaseGiftView.this.bYd++;
+                    YuyinAlaRoomBaseGiftView.this.bVs = cVar2;
+                    if (YuyinAlaRoomBaseGiftView.this.bYd >= YuyinAlaRoomBaseGiftView.this.getChildCount()) {
+                        YuyinAlaRoomBaseGiftView.this.bYd = 0;
+                        YuyinAlaRoomBaseGiftView.this.XL();
+                        YuyinAlaRoomBaseGiftView.this.XI();
                     }
                 }
             });
             if (z) {
-                this.ccS = yuyinGiftItemView.m(getStartLoc()[0], getStartLoc()[1]);
+                this.bYe = yuyinGiftItemView.n(getStartLoc()[0], getStartLoc()[1]);
             } else {
                 float[] a2 = a(yuyinGiftItemView);
-                this.ccS = yuyinGiftItemView.b(this.cae, a2[0], a2[1]);
+                this.bYe = yuyinGiftItemView.b(this.bVs, a2[0], a2[1]);
             }
-            if (this.ccS != null) {
-                this.ccS.cae = this.cae;
+            if (this.bYe != null) {
+                this.bYe.bVs = this.bVs;
                 addView(yuyinGiftItemView, 0, new RelativeLayout.LayoutParams(-2, -2));
             }
         }
         if (getChildCount() > 0) {
-            abD();
-            this.ccP = true;
+            XK();
+            this.bYb = true;
             return;
         }
-        this.ccP = false;
+        this.bYb = false;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -306,14 +306,14 @@ public abstract class YuyinAlaRoomBaseGiftView extends RelativeLayout {
             YuyinGiftItemView yuyinGiftItemView = (YuyinGiftItemView) getChildAt(i2);
             AlaWheatInfoData wheatInfoData = yuyinGiftItemView.getWheatInfoData();
             if (wheatInfoData != null) {
-                AlaWheatInfoData aY = d.aY(wheatInfoData.uk, wheatInfoData.userName);
-                if (aY != null) {
-                    if (aY.locationCenterX > 0.0f) {
+                AlaWheatInfoData aX = d.aX(wheatInfoData.uk, wheatInfoData.userName);
+                if (aX != null) {
+                    if (aX.locationCenterX > 0.0f) {
                         i++;
                     } else {
                         z = true;
                     }
-                    yuyinGiftItemView.setWheatInfoData(aY);
+                    yuyinGiftItemView.setWheatInfoData(aX);
                 } else {
                     arrayList.add(getChildAt(i2));
                 }
@@ -330,17 +330,17 @@ public abstract class YuyinAlaRoomBaseGiftView extends RelativeLayout {
         at(arrayList);
         if (i == 0 && !z) {
             removeAllViews();
-            this.ccQ.clear();
-            abB();
+            this.bYc.clear();
+            XI();
             return;
         }
         for (int i4 = 0; i4 < getChildCount(); i4++) {
             YuyinGiftItemView yuyinGiftItemView3 = (YuyinGiftItemView) getChildAt(i4);
             float[] a2 = a(yuyinGiftItemView3);
             if (cls == i.class) {
-                this.ccS = yuyinGiftItemView3.a(this.cae, a2[0], a2[1]);
+                this.bYe = yuyinGiftItemView3.a(this.bVs, a2[0], a2[1]);
             } else if (cls == g.class) {
-                this.ccS = yuyinGiftItemView3.b(this.cae, a2[0], a2[1]);
+                this.bYe = yuyinGiftItemView3.b(this.bVs, a2[0], a2[1]);
             }
         }
     }
@@ -353,37 +353,37 @@ public abstract class YuyinAlaRoomBaseGiftView extends RelativeLayout {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void abB() {
-        if (ListUtils.isEmpty(this.ccQ)) {
-            this.ccP = false;
-            this.ccS = null;
-            abF();
+    public void XI() {
+        if (ListUtils.isEmpty(this.bYc)) {
+            this.bYb = false;
+            this.bYe = null;
+            XM();
             return;
         }
         long j = 0;
         if (getChildCount() > 0) {
             j = ((YuyinGiftItemView) getChildAt(0)).getNowShowCount();
         }
-        if (j >= 10 && this.ccQ.size() > 0) {
-            c cVar = this.ccQ.get(0);
+        if (j >= 10 && this.bYc.size() > 0) {
+            c cVar = this.bYc.get(0);
             int i = 1;
             while (true) {
                 int i2 = i;
-                if (i2 >= this.ccQ.size()) {
+                if (i2 >= this.bYc.size()) {
                     break;
                 }
-                if (cVar != null && this.ccQ.get(i2) != null) {
-                    cVar.beC += this.ccQ.get(i2).beC;
+                if (cVar != null && this.bYc.get(i2) != null) {
+                    cVar.aZM += this.bYc.get(i2).aZM;
                 }
                 i = i2 + 1;
             }
-            this.ccQ.clear();
-            this.ccQ.add(cVar);
+            this.bYc.clear();
+            this.bYc.add(cVar);
         }
-        this.cae = this.ccQ.remove(0);
-        if ((this.ccS instanceof com.baidu.live.yuyingift.yuyinhousegift.a.c) || (this.ccS instanceof e) || (this.ccS instanceof com.baidu.live.yuyingift.yuyinhousegift.a.d) || (this.ccS instanceof i) || (this.ccS instanceof g) || (this.ccS instanceof h)) {
+        this.bVs = this.bYc.remove(0);
+        if ((this.bYe instanceof com.baidu.live.yuyingift.yuyinhousegift.a.c) || (this.bYe instanceof e) || (this.bYe instanceof com.baidu.live.yuyingift.yuyinhousegift.a.d) || (this.bYe instanceof i) || (this.bYe instanceof g) || (this.bYe instanceof h)) {
             h(i.class);
-        } else if ((this.ccS instanceof b) || (this.ccS instanceof f)) {
+        } else if ((this.bYe instanceof b) || (this.bYe instanceof f)) {
             h(g.class);
         } else {
             h(g.class);
@@ -394,35 +394,35 @@ public abstract class YuyinAlaRoomBaseGiftView extends RelativeLayout {
         a(cVar, list, z);
     }
 
-    public boolean abC() {
-        return this.ccP;
+    public boolean XJ() {
+        return this.bYb;
     }
 
     protected int[] getStartLoc() {
-        if (this.ccO[0] == 0) {
-            this.ccO = BdUtilHelper.getScreenDimensions(getContext());
-            int[] iArr = this.ccO;
+        if (this.bYa[0] == 0) {
+            this.bYa = BdUtilHelper.getScreenDimensions(getContext());
+            int[] iArr = this.bYa;
             iArr[0] = iArr[0] / 2;
-            int[] iArr2 = this.ccO;
+            int[] iArr2 = this.bYa;
             iArr2[1] = iArr2[1] - getGiftPanelHeight();
         }
-        return this.ccO;
+        return this.bYa;
     }
 
     private int getGiftPanelHeight() {
-        if (this.ccN <= 0) {
-            this.ccN = getDataPagerHeight();
-            this.ccN += getNobalHeight();
-            this.ccN += getMicrophoneListHeight();
-            this.ccN += getOffset();
+        if (this.bXZ <= 0) {
+            this.bXZ = getDataPagerHeight();
+            this.bXZ += getNobalHeight();
+            this.bXZ += getMicrophoneListHeight();
+            this.bXZ += getOffset();
         }
-        return this.ccN;
+        return this.bXZ;
     }
 
     public void q(c cVar) {
-        this.ccQ.add(cVar);
-        if (this.ccS == null) {
-            abB();
+        this.bYc.add(cVar);
+        if (this.bYe == null) {
+            XI();
         }
     }
 
@@ -435,7 +435,7 @@ public abstract class YuyinAlaRoomBaseGiftView extends RelativeLayout {
     }
 
     private int getNobalHeight() {
-        if (abG()) {
+        if (XN()) {
             return getResources().getDimensionPixelOffset(a.d.yuyin_ala_dimen_gift_noblr_maginbottom) + getResources().getDimensionPixelOffset(a.d.yuyin_ala_dimen_gift_noble_height);
         }
         return 0;
@@ -445,12 +445,12 @@ public abstract class YuyinAlaRoomBaseGiftView extends RelativeLayout {
         return (getResources().getDimensionPixelOffset(a.d.sdk_ds192) * 2) + getResources().getDimensionPixelOffset(a.d.sdk_ds4) + getResources().getDimensionPixelOffset(a.d.sdk_ds12) + getResources().getDimensionPixelOffset(a.d.sdk_ds116) + getResources().getDimensionPixelOffset(a.d.yuyin_ala_dimen_gift_tabbar_height);
     }
 
-    private boolean abG() {
-        bq bqVar = com.baidu.live.af.a.SE().bCb;
+    private boolean XN() {
+        bq bqVar = com.baidu.live.af.a.OJ().bxp;
         if (TbadkCoreApplication.getInst().isMobileBaidu()) {
             return false;
         }
-        return bqVar == null || bqVar.aRE == null || bqVar.aRE.aUn;
+        return bqVar == null || bqVar.aMR == null || bqVar.aMR.aPA;
     }
 
     @Override // android.view.ViewGroup, android.view.View

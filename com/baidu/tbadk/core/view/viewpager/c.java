@@ -5,104 +5,104 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class c {
-    private int frn;
-    private List<n> fru;
-    private List<n> frv;
-    private boolean frw;
-    private boolean frx;
-    private int fry = 2;
-    private int frz = 1;
+    private int fmD;
+    private List<n> fmJ;
+    private List<n> fmK;
+    private boolean fmL;
+    private boolean fmM;
+    private int fmN = 2;
+    private int fmO = 1;
 
     public c(List<n> list, boolean z, int i) {
-        this.frn = 2;
-        this.fru = list;
-        this.frx = z;
-        this.frn = i;
+        this.fmD = 2;
+        this.fmJ = list;
+        this.fmM = z;
+        this.fmD = i;
         bG(list);
     }
 
     public void bG(List<n> list) {
-        if (list != null && list.size() >= this.fry && list.size() <= this.frn) {
-            this.frw = true;
-        } else if (list.size() > this.frn && this.frx) {
-            this.frw = true;
+        if (list != null && list.size() >= this.fmN && list.size() <= this.fmD) {
+            this.fmL = true;
+        } else if (list.size() > this.fmD && this.fmM) {
+            this.fmL = true;
         } else {
-            this.frw = false;
+            this.fmL = false;
         }
-        this.frv = byY();
+        this.fmK = bve();
     }
 
-    private List<n> byY() {
+    private List<n> bve() {
         ArrayList arrayList = new ArrayList();
-        if (this.fru != null) {
-            if (this.frw) {
-                if (this.fru.size() > this.frn && this.fru.size() >= this.frz) {
-                    arrayList.addAll(this.fru.subList(0, this.frn));
-                    arrayList.addAll(0, this.fru.subList(this.frn - this.frz, this.frn));
-                    arrayList.addAll(this.fru.subList(0, this.frz));
+        if (this.fmJ != null) {
+            if (this.fmL) {
+                if (this.fmJ.size() > this.fmD && this.fmJ.size() >= this.fmO) {
+                    arrayList.addAll(this.fmJ.subList(0, this.fmD));
+                    arrayList.addAll(0, this.fmJ.subList(this.fmD - this.fmO, this.fmD));
+                    arrayList.addAll(this.fmJ.subList(0, this.fmO));
                 } else {
-                    arrayList.addAll(this.fru);
-                    arrayList.addAll(0, this.fru.subList(this.fru.size() - this.frz, this.fru.size()));
-                    arrayList.addAll(this.fru.subList(0, this.frz));
+                    arrayList.addAll(this.fmJ);
+                    arrayList.addAll(0, this.fmJ.subList(this.fmJ.size() - this.fmO, this.fmJ.size()));
+                    arrayList.addAll(this.fmJ.subList(0, this.fmO));
                 }
-            } else if (this.fru != null && this.fru.size() > 0 && this.fru.size() >= this.frz) {
-                arrayList.addAll(this.fru.subList(0, this.frz));
+            } else if (this.fmJ != null && this.fmJ.size() > 0 && this.fmJ.size() >= this.fmO) {
+                arrayList.addAll(this.fmJ.subList(0, this.fmO));
             }
         }
         return arrayList;
     }
 
-    public int rG(int i) {
-        if (this.frw) {
-            int size = this.frv.size();
+    public int qa(int i) {
+        if (this.fmL) {
+            int size = this.fmK.size();
             if (i == 0) {
-                return (size - 1) - this.frz;
+                return (size - 1) - this.fmO;
             }
-            if (i == size - this.frz) {
-                return this.frz;
+            if (i == size - this.fmO) {
+                return this.fmO;
             }
             return i;
         }
         return i;
     }
 
-    public int rH(int i) {
-        if (this.frw) {
-            return i - this.frz;
+    public int qb(int i) {
+        if (this.fmL) {
+            return i - this.fmO;
         }
         return i;
     }
 
-    public int byZ() {
-        if (this.fru == null) {
+    public int bvf() {
+        if (this.fmJ == null) {
             return 0;
         }
-        return this.fru.size();
+        return this.fmJ.size();
     }
 
-    public int bza() {
-        if (this.frw) {
-            return this.frz;
+    public int bvg() {
+        if (this.fmL) {
+            return this.fmO;
         }
         return 0;
     }
 
-    public void rI(int i) {
-        this.frn = i;
-        bG(this.fru);
+    public void qc(int i) {
+        this.fmD = i;
+        bG(this.fmJ);
     }
 
-    public void rJ(int i) {
-        this.fry = i;
-        bG(this.fru);
+    public void qd(int i) {
+        this.fmN = i;
+        bG(this.fmJ);
     }
 
-    public List<n> bzb() {
-        return this.frv;
+    public List<n> bvh() {
+        return this.fmK;
     }
 
-    public void rK(int i) {
-        this.frz = i;
-        bG(this.fru);
+    public void qe(int i) {
+        this.fmO = i;
+        bG(this.fmJ);
     }
 }

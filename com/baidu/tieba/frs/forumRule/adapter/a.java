@@ -7,11 +7,11 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class a {
-    private BdTypeRecyclerView Yc;
-    private final List<com.baidu.adp.widget.ListView.a> boM = new ArrayList();
-    private d jtF;
-    private c jtG;
-    private b jtH;
+    private BdTypeRecyclerView Ya;
+    private final List<com.baidu.adp.widget.ListView.a> bjZ = new ArrayList();
+    private d joZ;
+    private c jpa;
+    private b jpb;
     private String mFrom;
 
     public a(ForumRulesShowActivity forumRulesShowActivity, BdTypeRecyclerView bdTypeRecyclerView) {
@@ -19,32 +19,32 @@ public class a {
     }
 
     private void a(ForumRulesShowActivity forumRulesShowActivity, BdTypeRecyclerView bdTypeRecyclerView) {
-        this.Yc = bdTypeRecyclerView;
-        this.jtF = new d(forumRulesShowActivity, com.baidu.tieba.frs.forumRule.b.b.TYPE);
-        this.jtG = new c(forumRulesShowActivity, com.baidu.tieba.frs.forumRule.b.c.jun);
-        this.jtH = new b(forumRulesShowActivity, com.baidu.tieba.frs.forumRule.b.a.jui);
-        this.boM.add(this.jtF);
-        this.boM.add(this.jtG);
-        this.boM.add(this.jtH);
-        bdTypeRecyclerView.addAdapters(this.boM);
+        this.Ya = bdTypeRecyclerView;
+        this.joZ = new d(forumRulesShowActivity, com.baidu.tieba.frs.forumRule.b.b.TYPE);
+        this.jpa = new c(forumRulesShowActivity, com.baidu.tieba.frs.forumRule.b.c.jpH);
+        this.jpb = new b(forumRulesShowActivity, com.baidu.tieba.frs.forumRule.b.a.jpC);
+        this.bjZ.add(this.joZ);
+        this.bjZ.add(this.jpa);
+        this.bjZ.add(this.jpb);
+        bdTypeRecyclerView.addAdapters(this.bjZ);
     }
 
     public void setFrom(String str) {
         this.mFrom = str;
-        if (this.jtF != null) {
-            this.jtF.setFrom(str);
+        if (this.joZ != null) {
+            this.joZ.setFrom(str);
         }
-        if (this.jtH != null) {
-            this.jtH.setFrom(str);
+        if (this.jpb != null) {
+            this.jpb.setFrom(str);
         }
     }
 
     public void setData(List<n> list) {
-        if (this.Yc != null) {
-            this.Yc.setData(list);
+        if (this.Ya != null) {
+            this.Ya.setData(list);
         }
-        if (this.jtG != null) {
-            this.jtG.setData(list);
+        if (this.jpa != null) {
+            this.jpa.setData(list);
         }
     }
 

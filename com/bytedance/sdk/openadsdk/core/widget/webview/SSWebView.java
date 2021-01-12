@@ -28,23 +28,23 @@ import java.util.Map;
 public class SSWebView extends WebView {
 
     /* renamed from: a  reason: collision with root package name */
-    private boolean f7122a;
+    private boolean f6822a;
 
     public SSWebView(Context context) {
         super(a(context));
-        this.f7122a = false;
+        this.f6822a = false;
         b(a(context));
     }
 
     public SSWebView(Context context, AttributeSet attributeSet) {
         super(a(context), attributeSet);
-        this.f7122a = false;
+        this.f6822a = false;
         b(a(context));
     }
 
     public SSWebView(Context context, AttributeSet attributeSet, int i) {
         super(a(context), attributeSet, i);
-        this.f7122a = false;
+        this.f6822a = false;
         b(a(context));
     }
 
@@ -294,7 +294,7 @@ public class SSWebView extends WebView {
         ViewParent a2;
         try {
             boolean onTouchEvent = super.onTouchEvent(motionEvent);
-            if (motionEvent.getActionMasked() == 0 && this.f7122a && (a2 = a(this)) != null) {
+            if (motionEvent.getActionMasked() == 0 && this.f6822a && (a2 = a(this)) != null) {
                 a2.requestDisallowInterceptTouchEvent(true);
                 return onTouchEvent;
             }
@@ -305,7 +305,7 @@ public class SSWebView extends WebView {
     }
 
     public void setIsPreventTouchEvent(boolean z) {
-        this.f7122a = z;
+        this.f6822a = z;
     }
 
     private ViewParent a(View view) {

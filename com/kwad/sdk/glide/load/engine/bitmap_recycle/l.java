@@ -2,7 +2,7 @@ package com.kwad.sdk.glide.load.engine.bitmap_recycle;
 
 import android.graphics.Bitmap;
 import androidx.annotation.Nullable;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 interface l {
     @Nullable
     Bitmap a();

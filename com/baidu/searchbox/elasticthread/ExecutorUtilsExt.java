@@ -3,6 +3,7 @@ package com.baidu.searchbox.elasticthread;
 import android.text.TextUtils;
 import android.util.Log;
 import androidx.annotation.NonNull;
+import com.baidu.searchbox.config.DefaultSharedPrefsWrapper;
 import com.baidu.searchbox.elasticthread.scheduler.ElasticTaskScheduler;
 import java.util.concurrent.Executor;
 /* loaded from: classes6.dex */
@@ -79,7 +80,7 @@ public class ExecutorUtilsExt {
 
     private static String getStandardTaskName(@NonNull String str, @NonNull String str2) {
         if (TextUtils.isEmpty(str)) {
-            str = "default";
+            str = DefaultSharedPrefsWrapper.SP_FILE_DEFAULT;
             Log.w(TAG, "received an empty task name ");
         }
         String str3 = str2 + str;

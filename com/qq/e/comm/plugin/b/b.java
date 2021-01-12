@@ -3,7 +3,7 @@ package com.qq.e.comm.plugin.b;
 import com.qq.e.comm.plugin.y.u;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class b {
     private static com.qq.e.comm.plugin.y.d a(Exception exc, String str) {
         com.qq.e.comm.plugin.y.d dVar = new com.qq.e.comm.plugin.y.d();

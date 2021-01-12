@@ -1,10 +1,10 @@
 package com.baidu.live.z;
 
 import android.content.Context;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class a {
-    public String aYx;
-    public long bzt;
+    public String aTK;
+    public long buH;
     public Context context;
     public boolean isHost;
     public int liveType;
@@ -29,7 +29,7 @@ public class a {
         this.isHost = z;
         this.portrait = str;
         this.otherParams = str2;
-        this.aYx = str3;
-        this.bzt = j2;
+        this.aTK = str3;
+        this.buH = j2;
     }
 }

@@ -1,6 +1,6 @@
 package org.apache.commons.codec;
 @Deprecated
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public interface BinaryEncoder extends Encoder {
     byte[] encode(byte[] bArr) throws EncoderException;
 }

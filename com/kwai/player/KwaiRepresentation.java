@@ -2,7 +2,7 @@ package com.kwai.player;
 
 import androidx.annotation.Keep;
 @Keep
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class KwaiRepresentation {
     public static int AUTO_ID = -100;
     public int avgBitreate;

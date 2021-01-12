@@ -4,17 +4,17 @@ import android.view.View;
 import android.view.ViewGroup;
 import androidx.viewpager.widget.PagerAdapter;
 import java.util.List;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class RecommendPagerAdapter extends PagerAdapter {
-    private List<View> mVU;
+    private List<View> mRj;
 
     public RecommendPagerAdapter(List<View> list) {
-        this.mVU = list;
+        this.mRj = list;
     }
 
     @Override // androidx.viewpager.widget.PagerAdapter
     public int getCount() {
-        return this.mVU.size();
+        return this.mRj.size();
     }
 
     @Override // androidx.viewpager.widget.PagerAdapter
@@ -24,12 +24,12 @@ public class RecommendPagerAdapter extends PagerAdapter {
 
     @Override // androidx.viewpager.widget.PagerAdapter
     public Object instantiateItem(ViewGroup viewGroup, int i) {
-        viewGroup.addView(this.mVU.get(i));
-        return this.mVU.get(i);
+        viewGroup.addView(this.mRj.get(i));
+        return this.mRj.get(i);
     }
 
     @Override // androidx.viewpager.widget.PagerAdapter
     public void destroyItem(ViewGroup viewGroup, int i, Object obj) {
-        viewGroup.removeView(this.mVU.get(i));
+        viewGroup.removeView(this.mRj.get(i));
     }
 }

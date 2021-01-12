@@ -15,37 +15,37 @@ import com.baidu.tieba.screenlocknotify.d;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class ScreenLockHeaderView extends LinearLayout {
-    private EditText cDt;
+    private EditText cyH;
     View mLine;
-    TextView mXD;
-    View mXE;
-    View mXF;
-    TextView mXG;
-    TextView mXH;
-    TextView mXI;
-    private d mXJ;
-    private TextView mXK;
-    private RelativeLayout mXL;
+    TextView mST;
+    View mSU;
+    View mSV;
+    TextView mSW;
+    TextView mSX;
+    TextView mSY;
+    private d mSZ;
+    private TextView mTa;
+    private RelativeLayout mTb;
 
     public ScreenLockHeaderView(Context context) {
         super(context);
         LayoutInflater.from(getContext()).inflate(R.layout.screenlock_show_item_header, (ViewGroup) this, true);
-        this.mXD = (TextView) findViewById(R.id.friend_name_show1);
-        this.mXE = findViewById(R.id.friend_name_layout);
-        this.mXF = findViewById(R.id.msg_content_layout);
-        this.mXG = (TextView) findViewById(R.id.last_msg_time_show1);
-        this.mXH = (TextView) findViewById(R.id.one_msg_content_show1);
-        this.mXI = (TextView) findViewById(R.id.unread_msg_count_show1);
+        this.mST = (TextView) findViewById(R.id.friend_name_show1);
+        this.mSU = findViewById(R.id.friend_name_layout);
+        this.mSV = findViewById(R.id.msg_content_layout);
+        this.mSW = (TextView) findViewById(R.id.last_msg_time_show1);
+        this.mSX = (TextView) findViewById(R.id.one_msg_content_show1);
+        this.mSY = (TextView) findViewById(R.id.unread_msg_count_show1);
         this.mLine = findViewById(R.id.line);
         setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
         setBackgroundResource(R.drawable.screen_notify_item_background);
         setOrientation(1);
-        this.mXL = (RelativeLayout) findViewById(R.id.screenlock_input_layout);
-        this.mXK = (TextView) findViewById(R.id.screenlock_send_button);
-        this.cDt = (EditText) findViewById(R.id.screenlock_edit_view);
-        this.mXL.setVisibility(8);
+        this.mTb = (RelativeLayout) findViewById(R.id.screenlock_input_layout);
+        this.mTa = (TextView) findViewById(R.id.screenlock_send_button);
+        this.cyH = (EditText) findViewById(R.id.screenlock_edit_view);
+        this.mTb.setVisibility(8);
     }
 
     public ScreenLockHeaderView(Context context, AttributeSet attributeSet) {
@@ -57,20 +57,20 @@ public class ScreenLockHeaderView extends LinearLayout {
     }
 
     public void f(d dVar) {
-        this.mXJ = dVar;
-        this.mXD.setText(dVar.groupName);
-        this.mXG.setText(hx(dVar.lastTime));
-        this.mXH.setText(dVar.content);
-        this.mXI.setText(JD(dVar.mXA));
+        this.mSZ = dVar;
+        this.mST.setText(dVar.groupName);
+        this.mSW.setText(hx(dVar.lastTime));
+        this.mSX.setText(dVar.content);
+        this.mSY.setText(HW(dVar.mSQ));
     }
 
-    public void xw(boolean z) {
+    public void xs(boolean z) {
         if (z) {
-            this.mXL.setVisibility(0);
+            this.mTb.setVisibility(0);
             this.mLine.setVisibility(8);
             return;
         }
-        this.mXL.setVisibility(8);
+        this.mTb.setVisibility(8);
         this.mLine.setVisibility(0);
     }
 
@@ -78,28 +78,28 @@ public class ScreenLockHeaderView extends LinearLayout {
         return new SimpleDateFormat("HH:mm", Locale.CHINA).format(new Date(j));
     }
 
-    public String JD(int i) {
+    public String HW(int i) {
         return i < 100 ? "" + i : "99+";
     }
 
     public String getInputMsg() {
-        if (this.cDt != null) {
-            return k.charSequence2String(this.cDt.getText(), null);
+        if (this.cyH != null) {
+            return k.charSequence2String(this.cyH.getText(), null);
         }
         return null;
     }
 
     public View getEditText() {
-        return this.cDt;
+        return this.cyH;
     }
 
     public d getData() {
-        return this.mXJ;
+        return this.mSZ;
     }
 
     public void setUIClickListener(View.OnClickListener onClickListener, View.OnClickListener onClickListener2) {
-        this.mXK.setOnClickListener(onClickListener);
-        this.mXE.setOnClickListener(onClickListener2);
-        this.mXF.setOnClickListener(onClickListener2);
+        this.mTa.setOnClickListener(onClickListener);
+        this.mSU.setOnClickListener(onClickListener2);
+        this.mSV.setOnClickListener(onClickListener2);
     }
 }

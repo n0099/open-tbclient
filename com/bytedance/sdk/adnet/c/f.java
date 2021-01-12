@@ -16,12 +16,12 @@ import java.util.Random;
 import org.apache.http.HttpHost;
 /* loaded from: classes4.dex */
 public class f implements c {
-    private static f ppf;
+    private static f pkA;
     private Context e;
-    private e ppg;
+    private e pkB;
 
     /* renamed from: b  reason: collision with root package name */
-    private long f6308b = 0;
+    private long f6008b = 0;
     private boolean d = false;
     private int g = 0;
     private long h = 19700101000L;
@@ -32,10 +32,10 @@ public class f implements c {
     private HashMap<String, Integer> m = new HashMap<>();
     private HashMap<String, Integer> n = new HashMap<>();
     private boolean o = true;
-    private Map<String, Integer> pph = new HashMap();
+    private Map<String, Integer> pkC = new HashMap();
 
     /* renamed from: a  reason: collision with root package name */
-    Handler f6307a = new Handler(Looper.getMainLooper()) { // from class: com.bytedance.sdk.adnet.c.f.1
+    Handler f6007a = new Handler(Looper.getMainLooper()) { // from class: com.bytedance.sdk.adnet.c.f.1
         @Override // android.os.Handler
         public void handleMessage(Message message) {
             switch (message.what) {
@@ -48,13 +48,13 @@ public class f implements c {
         }
     };
 
-    public static synchronized f esl() {
+    public static synchronized f eor() {
         f fVar;
         synchronized (f.class) {
-            if (ppf == null) {
-                ppf = new f();
+            if (pkA == null) {
+                pkA = new f();
             }
-            fVar = ppf;
+            fVar = pkA;
         }
         return fVar;
     }
@@ -63,14 +63,14 @@ public class f implements c {
     }
 
     public void b() {
-        this.pph.clear();
+        this.pkC.clear();
     }
 
     public synchronized void a(Context context, boolean z) {
         if (!this.d) {
             this.e = context;
             this.o = z;
-            this.ppg = new e(context, z);
+            this.pkB = new e(context, z);
             if (z) {
                 f();
             }
@@ -85,23 +85,23 @@ public class f implements c {
         this.h = sharedPreferences.getLong("tnc_probe_version", 19700101000L);
     }
 
-    public d esk() {
-        if (this.ppg != null) {
-            return this.ppg.esk();
+    public d eoq() {
+        if (this.pkB != null) {
+            return this.pkB.eoq();
         }
         return null;
     }
 
     public Map<String, String> d() {
-        d esk = esk();
-        if (esk != null) {
-            return esk.d;
+        d eoq = eoq();
+        if (eoq != null) {
+            return eoq.d;
         }
         return null;
     }
 
-    public e esm() {
-        return this.ppg;
+    public e eos() {
+        return this.pkB;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:24:0x0055  */
@@ -175,11 +175,11 @@ public class f implements c {
                     int i = (int) pVar.h;
                     if ((HttpHost.DEFAULT_SCHEME_NAME.equals(protocol) || "https".equals(protocol)) && !TextUtils.isEmpty(ipAddrStr)) {
                         com.bytedance.sdk.adnet.d.d.b("TNCManager", "onResponse, url: " + protocol + "://" + host + "#" + ipAddrStr + "#" + i);
-                        d esk = esk();
-                        if (esk != null && esk.f6305b) {
+                        d eoq = eoq();
+                        if (eoq != null && eoq.f6005b) {
                             a(pVar, host);
                         }
-                        if (esk != null) {
+                        if (eoq != null) {
                             com.bytedance.sdk.adnet.d.d.b("TNCManager", "onResponse, url matched: " + protocol + "://" + host + "#" + ipAddrStr + "#" + i + " " + this.i + "#" + this.j.size() + "#" + this.k.size() + " " + this.l + "#" + this.m.size() + "#" + this.n.size());
                             if (i > 0) {
                                 if (a(i)) {
@@ -191,7 +191,7 @@ public class f implements c {
                                     this.l++;
                                     this.m.put(path, 0);
                                     this.n.put(ipAddrStr, 0);
-                                    if (this.l >= esk.h && this.m.size() >= esk.i && this.n.size() >= esk.j) {
+                                    if (this.l >= eoq.h && this.m.size() >= eoq.i && this.n.size() >= eoq.j) {
                                         com.bytedance.sdk.adnet.d.d.b("TNCManager", "onResponse, url doUpdate: " + protocol + "://" + host + "#" + ipAddrStr + "#" + i);
                                         a(false, 0L);
                                         g();
@@ -209,17 +209,17 @@ public class f implements c {
     private void b(String str) {
         Map<String, String> d;
         if (!TextUtils.isEmpty(str) && (d = d()) != null && d.containsValue(str)) {
-            if (this.pph.get(str) == null) {
-                this.pph.put(str, 1);
+            if (this.pkC.get(str) == null) {
+                this.pkC.put(str, 1);
             } else {
-                this.pph.put(str, Integer.valueOf(this.pph.get(str).intValue() + 1));
+                this.pkC.put(str, Integer.valueOf(this.pkC.get(str).intValue() + 1));
             }
         }
     }
 
     private void c(String str) {
-        if (!TextUtils.isEmpty(str) && this.pph.containsKey(str)) {
-            this.pph.put(str, 0);
+        if (!TextUtils.isEmpty(str) && this.pkC.containsKey(str)) {
+            this.pkC.put(str, 0);
         }
     }
 
@@ -229,10 +229,10 @@ public class f implements c {
             return false;
         }
         String str2 = d.get(str);
-        if (TextUtils.isEmpty(str2) || this.pph.get(str2) == null) {
+        if (TextUtils.isEmpty(str2) || this.pkC.get(str2) == null) {
             return false;
         }
-        if (this.pph.get(str2).intValue() >= 3) {
+        if (this.pkC.get(str2).intValue() >= 3) {
             com.bytedance.sdk.adnet.d.d.b("TNCManager", "handleHostMapping, TNC host faild num over limit: " + str);
             return true;
         }
@@ -242,7 +242,7 @@ public class f implements c {
     @Override // com.bytedance.sdk.adnet.c.c
     public synchronized void a(Request request, Exception exc) {
         URL url;
-        d esk;
+        d eoq;
         if (request != null && exc != null) {
             if (this.o && com.bytedance.sdk.adnet.d.f.a(this.e)) {
                 try {
@@ -255,12 +255,12 @@ public class f implements c {
                     String host = url.getHost();
                     String path = url.getPath();
                     String ipAddrStr = request.getIpAddrStr();
-                    if ((HttpHost.DEFAULT_SCHEME_NAME.equals(protocol) || "https".equals(protocol)) && (esk = esk()) != null) {
+                    if ((HttpHost.DEFAULT_SCHEME_NAME.equals(protocol) || "https".equals(protocol)) && (eoq = eoq()) != null) {
                         com.bytedance.sdk.adnet.d.d.b("TNCManager", "onError, url matched: " + protocol + "://" + host + "#" + ipAddrStr + "# " + this.i + "#" + this.j.size() + "#" + this.k.size() + " " + this.l + "#" + this.m.size() + "#" + this.n.size());
                         this.i++;
                         this.j.put(path, 0);
                         this.k.put(ipAddrStr, 0);
-                        if (this.i >= esk.e && this.j.size() >= esk.f && this.k.size() >= esk.g) {
+                        if (this.i >= eoq.e && this.j.size() >= eoq.f && this.k.size() >= eoq.g) {
                             com.bytedance.sdk.adnet.d.d.b("TNCManager", "onError, url doUpate: " + protocol + "://" + host + "#" + ipAddrStr);
                             a(false, 0L);
                             g();
@@ -314,9 +314,9 @@ public class f implements c {
                 this.h = j;
                 this.e.getSharedPreferences("ttnet_tnc_config", 0).edit().putInt("tnc_probe_cmd", i).putLong("tnc_probe_version", j).apply();
                 if (this.g == 10000) {
-                    d esk = esk();
-                    if (esk != null) {
-                        long nextInt = esk.l > 0 ? 1000 * new Random(System.currentTimeMillis()).nextInt(esk.l) : 0L;
+                    d eoq = eoq();
+                    if (eoq != null) {
+                        long nextInt = eoq.l > 0 ? 1000 * new Random(System.currentTimeMillis()).nextInt(eoq.l) : 0L;
                         com.bytedance.sdk.adnet.d.d.b("TNCManager", "handleTncProbe, updateConfig delay: " + nextInt + " " + str);
                         a(true, nextInt);
                         return;
@@ -330,32 +330,32 @@ public class f implements c {
     }
 
     private void a(boolean z, long j) {
-        if (!this.f6307a.hasMessages(10000)) {
-            Message obtainMessage = this.f6307a.obtainMessage();
+        if (!this.f6007a.hasMessages(10000)) {
+            Message obtainMessage = this.f6007a.obtainMessage();
             obtainMessage.what = 10000;
             obtainMessage.arg1 = z ? 1 : 0;
             if (j > 0) {
-                this.f6307a.sendMessageDelayed(obtainMessage, j);
+                this.f6007a.sendMessageDelayed(obtainMessage, j);
             } else {
-                this.f6307a.sendMessage(obtainMessage);
+                this.f6007a.sendMessage(obtainMessage);
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(boolean z) {
-        d esk = esk();
-        if (esk != null) {
+        d eoq = eoq();
+        if (eoq != null) {
             com.bytedance.sdk.adnet.d.d.b("TNCManager", "doUpdateRemote, " + z);
             long elapsedRealtime = SystemClock.elapsedRealtime();
             if (!z) {
-                if ((esk.k * 1000) + this.f6308b > elapsedRealtime) {
+                if ((eoq.k * 1000) + this.f6008b > elapsedRealtime) {
                     com.bytedance.sdk.adnet.d.d.b("TNCManager", "doUpdateRemote, time limit");
                     return;
                 }
             }
-            this.f6308b = elapsedRealtime;
-            com.bytedance.sdk.adnet.a.a.hX(this.e).b(com.bytedance.sdk.adnet.d.f.a(this.e));
+            this.f6008b = elapsedRealtime;
+            com.bytedance.sdk.adnet.a.a.hV(this.e).b(com.bytedance.sdk.adnet.d.f.a(this.e));
         }
     }
 
@@ -377,7 +377,7 @@ public class f implements c {
         if (i < 100 || i >= 1000) {
             return true;
         }
-        d esk = esk();
-        return (esk == null || TextUtils.isEmpty(esk.m) || !esk.m.contains(new StringBuilder().append("").append(i).toString())) ? false : true;
+        d eoq = eoq();
+        return (eoq == null || TextUtils.isEmpty(eoq.m) || !eoq.m.contains(new StringBuilder().append("").append(i).toString())) ? false : true;
     }
 }

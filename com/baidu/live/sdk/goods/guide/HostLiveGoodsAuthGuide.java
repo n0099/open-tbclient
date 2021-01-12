@@ -14,16 +14,16 @@ import com.baidu.live.core.layer.b;
 import com.baidu.live.d;
 import com.baidu.live.sdk.a;
 import com.baidu.live.tieba.view.GradientTextView;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class HostLiveGoodsAuthGuide extends LayerChildView {
-    private View bAF;
-    private View bAG;
-    private FrameLayout bAH;
-    private Button bAI;
-    private GradientTextView bAJ;
-    private LinearLayout bAK;
-    private LinearLayout bAL;
-    private ImageView bAM;
+    private View bvT;
+    private View bvU;
+    private FrameLayout bvV;
+    private Button bvW;
+    private GradientTextView bvX;
+    private LinearLayout bvY;
+    private LinearLayout bvZ;
+    private ImageView bwa;
     private Runnable mRunnable;
 
     public HostLiveGoodsAuthGuide(@NonNull Context context) {
@@ -32,17 +32,17 @@ public class HostLiveGoodsAuthGuide extends LayerChildView {
             @Override // java.lang.Runnable
             public void run() {
                 int[] iArr = new int[2];
-                HostLiveGoodsAuthGuide.this.bAF.getLocationOnScreen(iArr);
-                HostLiveGoodsAuthGuide.this.bAK.measure(0, 0);
-                int width = (iArr[0] + (HostLiveGoodsAuthGuide.this.bAF.getWidth() / 2)) - (HostLiveGoodsAuthGuide.this.bAM.getMeasuredWidth() / 2);
-                HostLiveGoodsAuthGuide.this.bAK.setY(((iArr[1] + (HostLiveGoodsAuthGuide.this.bAF.getHeight() / 2)) + (HostLiveGoodsAuthGuide.this.bAM.getMeasuredHeight() / 2)) - HostLiveGoodsAuthGuide.this.bAK.getMeasuredHeight());
-                HostLiveGoodsAuthGuide.this.bAL.setX(width);
+                HostLiveGoodsAuthGuide.this.bvT.getLocationOnScreen(iArr);
+                HostLiveGoodsAuthGuide.this.bvY.measure(0, 0);
+                int width = (iArr[0] + (HostLiveGoodsAuthGuide.this.bvT.getWidth() / 2)) - (HostLiveGoodsAuthGuide.this.bwa.getMeasuredWidth() / 2);
+                HostLiveGoodsAuthGuide.this.bvY.setY(((iArr[1] + (HostLiveGoodsAuthGuide.this.bvT.getHeight() / 2)) + (HostLiveGoodsAuthGuide.this.bwa.getMeasuredHeight() / 2)) - HostLiveGoodsAuthGuide.this.bvY.getMeasuredHeight());
+                HostLiveGoodsAuthGuide.this.bvZ.setX(width);
                 int[] iArr2 = new int[2];
-                HostLiveGoodsAuthGuide.this.bAG.getLocationOnScreen(iArr2);
-                HostLiveGoodsAuthGuide.this.bAI.setY(iArr2[1]);
-                HostLiveGoodsAuthGuide.this.bAH.setVisibility(0);
-                b.En().d(HostLiveGoodsAuthGuide.this);
-                d.Ba().putBoolean("has_show_goods_auth_guide", true);
+                HostLiveGoodsAuthGuide.this.bvU.getLocationOnScreen(iArr2);
+                HostLiveGoodsAuthGuide.this.bvW.setY(iArr2[1]);
+                HostLiveGoodsAuthGuide.this.bvV.setVisibility(0);
+                b.As().d(HostLiveGoodsAuthGuide.this);
+                d.xf().putBoolean("has_show_goods_auth_guide", true);
             }
         };
         init(context);
@@ -54,17 +54,17 @@ public class HostLiveGoodsAuthGuide extends LayerChildView {
             @Override // java.lang.Runnable
             public void run() {
                 int[] iArr = new int[2];
-                HostLiveGoodsAuthGuide.this.bAF.getLocationOnScreen(iArr);
-                HostLiveGoodsAuthGuide.this.bAK.measure(0, 0);
-                int width = (iArr[0] + (HostLiveGoodsAuthGuide.this.bAF.getWidth() / 2)) - (HostLiveGoodsAuthGuide.this.bAM.getMeasuredWidth() / 2);
-                HostLiveGoodsAuthGuide.this.bAK.setY(((iArr[1] + (HostLiveGoodsAuthGuide.this.bAF.getHeight() / 2)) + (HostLiveGoodsAuthGuide.this.bAM.getMeasuredHeight() / 2)) - HostLiveGoodsAuthGuide.this.bAK.getMeasuredHeight());
-                HostLiveGoodsAuthGuide.this.bAL.setX(width);
+                HostLiveGoodsAuthGuide.this.bvT.getLocationOnScreen(iArr);
+                HostLiveGoodsAuthGuide.this.bvY.measure(0, 0);
+                int width = (iArr[0] + (HostLiveGoodsAuthGuide.this.bvT.getWidth() / 2)) - (HostLiveGoodsAuthGuide.this.bwa.getMeasuredWidth() / 2);
+                HostLiveGoodsAuthGuide.this.bvY.setY(((iArr[1] + (HostLiveGoodsAuthGuide.this.bvT.getHeight() / 2)) + (HostLiveGoodsAuthGuide.this.bwa.getMeasuredHeight() / 2)) - HostLiveGoodsAuthGuide.this.bvY.getMeasuredHeight());
+                HostLiveGoodsAuthGuide.this.bvZ.setX(width);
                 int[] iArr2 = new int[2];
-                HostLiveGoodsAuthGuide.this.bAG.getLocationOnScreen(iArr2);
-                HostLiveGoodsAuthGuide.this.bAI.setY(iArr2[1]);
-                HostLiveGoodsAuthGuide.this.bAH.setVisibility(0);
-                b.En().d(HostLiveGoodsAuthGuide.this);
-                d.Ba().putBoolean("has_show_goods_auth_guide", true);
+                HostLiveGoodsAuthGuide.this.bvU.getLocationOnScreen(iArr2);
+                HostLiveGoodsAuthGuide.this.bvW.setY(iArr2[1]);
+                HostLiveGoodsAuthGuide.this.bvV.setVisibility(0);
+                b.As().d(HostLiveGoodsAuthGuide.this);
+                d.xf().putBoolean("has_show_goods_auth_guide", true);
             }
         };
         init(context);
@@ -76,36 +76,36 @@ public class HostLiveGoodsAuthGuide extends LayerChildView {
             @Override // java.lang.Runnable
             public void run() {
                 int[] iArr = new int[2];
-                HostLiveGoodsAuthGuide.this.bAF.getLocationOnScreen(iArr);
-                HostLiveGoodsAuthGuide.this.bAK.measure(0, 0);
-                int width = (iArr[0] + (HostLiveGoodsAuthGuide.this.bAF.getWidth() / 2)) - (HostLiveGoodsAuthGuide.this.bAM.getMeasuredWidth() / 2);
-                HostLiveGoodsAuthGuide.this.bAK.setY(((iArr[1] + (HostLiveGoodsAuthGuide.this.bAF.getHeight() / 2)) + (HostLiveGoodsAuthGuide.this.bAM.getMeasuredHeight() / 2)) - HostLiveGoodsAuthGuide.this.bAK.getMeasuredHeight());
-                HostLiveGoodsAuthGuide.this.bAL.setX(width);
+                HostLiveGoodsAuthGuide.this.bvT.getLocationOnScreen(iArr);
+                HostLiveGoodsAuthGuide.this.bvY.measure(0, 0);
+                int width = (iArr[0] + (HostLiveGoodsAuthGuide.this.bvT.getWidth() / 2)) - (HostLiveGoodsAuthGuide.this.bwa.getMeasuredWidth() / 2);
+                HostLiveGoodsAuthGuide.this.bvY.setY(((iArr[1] + (HostLiveGoodsAuthGuide.this.bvT.getHeight() / 2)) + (HostLiveGoodsAuthGuide.this.bwa.getMeasuredHeight() / 2)) - HostLiveGoodsAuthGuide.this.bvY.getMeasuredHeight());
+                HostLiveGoodsAuthGuide.this.bvZ.setX(width);
                 int[] iArr2 = new int[2];
-                HostLiveGoodsAuthGuide.this.bAG.getLocationOnScreen(iArr2);
-                HostLiveGoodsAuthGuide.this.bAI.setY(iArr2[1]);
-                HostLiveGoodsAuthGuide.this.bAH.setVisibility(0);
-                b.En().d(HostLiveGoodsAuthGuide.this);
-                d.Ba().putBoolean("has_show_goods_auth_guide", true);
+                HostLiveGoodsAuthGuide.this.bvU.getLocationOnScreen(iArr2);
+                HostLiveGoodsAuthGuide.this.bvW.setY(iArr2[1]);
+                HostLiveGoodsAuthGuide.this.bvV.setVisibility(0);
+                b.As().d(HostLiveGoodsAuthGuide.this);
+                d.xf().putBoolean("has_show_goods_auth_guide", true);
             }
         };
         init(context);
     }
 
     @Override // com.baidu.live.core.layer.LayerChildView
-    public void Eh() {
+    public void Am() {
     }
 
     @Override // com.baidu.live.core.layer.LayerChildView
-    public void Ei() {
+    public void An() {
     }
 
     @Override // com.baidu.live.core.layer.LayerChildView
-    public void Ej() {
+    public void Ao() {
     }
 
     @Override // com.baidu.live.core.layer.LayerChildView
-    public void Ek() {
+    public void Ap() {
     }
 
     @Override // com.baidu.live.core.layer.LayerChildView
@@ -115,23 +115,23 @@ public class HostLiveGoodsAuthGuide extends LayerChildView {
 
     private void init(Context context) {
         View inflate = View.inflate(context, a.g.ala_live_goods_auth_guide, this);
-        this.bAH = (FrameLayout) inflate.findViewById(a.f.goodsAuthGuide_layout);
-        this.bAI = (Button) inflate.findViewById(a.f.goodsAuthGuideKnown_button);
-        this.bAK = (LinearLayout) inflate.findViewById(a.f.goodsAuthGuideContent_layout);
-        this.bAJ = (GradientTextView) inflate.findViewById(a.f.goodsAuthGuideTitle_textView);
-        this.bAL = (LinearLayout) inflate.findViewById(a.f.goodsAuthGuideShopping_layout);
-        this.bAM = (ImageView) inflate.findViewById(a.f.goodsAuthGuideShopping_imageView);
-        this.bAI.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.live.sdk.goods.guide.HostLiveGoodsAuthGuide.1
+        this.bvV = (FrameLayout) inflate.findViewById(a.f.goodsAuthGuide_layout);
+        this.bvW = (Button) inflate.findViewById(a.f.goodsAuthGuideKnown_button);
+        this.bvY = (LinearLayout) inflate.findViewById(a.f.goodsAuthGuideContent_layout);
+        this.bvX = (GradientTextView) inflate.findViewById(a.f.goodsAuthGuideTitle_textView);
+        this.bvZ = (LinearLayout) inflate.findViewById(a.f.goodsAuthGuideShopping_layout);
+        this.bwa = (ImageView) inflate.findViewById(a.f.goodsAuthGuideShopping_imageView);
+        this.bvW.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.live.sdk.goods.guide.HostLiveGoodsAuthGuide.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                b.En().e(HostLiveGoodsAuthGuide.this);
+                b.As().e(HostLiveGoodsAuthGuide.this);
             }
         });
     }
 
     public void c(View view, View view2) {
-        this.bAF = view;
-        this.bAG = view2;
+        this.bvT = view;
+        this.bvU = view2;
         view.post(this.mRunnable);
     }
 }

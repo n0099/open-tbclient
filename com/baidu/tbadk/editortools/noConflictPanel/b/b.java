@@ -16,15 +16,15 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class b {
-    private static int fFC = 0;
-    private static int fFD = 0;
-    private static int fFE = 0;
-    private static int fFF = 0;
+    private static int fAU = 0;
+    private static int fAV = 0;
+    private static int fAW = 0;
+    private static int fAX = 0;
 
     /* renamed from: com.baidu.tbadk.editortools.noConflictPanel.b.b$b  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public interface InterfaceC0594b {
-        void kU(boolean z);
+    public interface InterfaceC0577b {
+        void kQ(boolean z);
     }
 
     public static void bS(View view) {
@@ -34,52 +34,52 @@ public class b {
 
     /* JADX INFO: Access modifiers changed from: private */
     public static boolean I(Context context, int i) {
-        if (fFC != i && i > 0) {
-            fFC = i;
-            TbadkCoreApplication.getInst().setKeyboardHeight(fFC);
-            com.baidu.tbadk.core.sharedPref.b.bvr().putInt("key_last_keyboard_height", i);
+        if (fAU != i && i > 0) {
+            fAU = i;
+            TbadkCoreApplication.getInst().setKeyboardHeight(fAU);
+            com.baidu.tbadk.core.sharedPref.b.brx().putInt("key_last_keyboard_height", i);
             return true;
         }
         return false;
     }
 
-    public static int fl(Context context) {
-        if (fFC == 0) {
-            fFC = com.baidu.tbadk.core.sharedPref.b.bvr().getInt("key_last_keyboard_height", i(context.getResources()));
-            if (fFC > 0) {
-                TbadkCoreApplication.getInst().setKeyboardHeight(fFC);
+    public static int fj(Context context) {
+        if (fAU == 0) {
+            fAU = com.baidu.tbadk.core.sharedPref.b.brx().getInt("key_last_keyboard_height", i(context.getResources()));
+            if (fAU > 0) {
+                TbadkCoreApplication.getInst().setKeyboardHeight(fAU);
             }
         }
-        return fFC;
+        return fAU;
     }
 
-    public static int fm(Context context) {
-        return Math.min(h(context.getResources()), Math.max(i(context.getResources()), fl(context)));
+    public static int fk(Context context) {
+        return Math.min(h(context.getResources()), Math.max(i(context.getResources()), fj(context)));
     }
 
     public static int h(Resources resources) {
-        if (fFD == 0) {
-            fFD = resources.getDimensionPixelSize(R.dimen.max_editor_panel_height);
+        if (fAV == 0) {
+            fAV = resources.getDimensionPixelSize(R.dimen.max_editor_panel_height);
         }
-        return fFD;
+        return fAV;
     }
 
     public static int i(Resources resources) {
-        if (fFE == 0) {
-            fFE = resources.getDimensionPixelSize(R.dimen.ds460);
+        if (fAW == 0) {
+            fAW = resources.getDimensionPixelSize(R.dimen.ds460);
         }
-        return fFE;
+        return fAW;
     }
 
-    public static int fn(Context context) {
-        if (fFF == 0) {
-            fFF = context.getResources().getDimensionPixelSize(R.dimen.ds460);
+    public static int fl(Context context) {
+        if (fAX == 0) {
+            fAX = context.getResources().getDimensionPixelSize(R.dimen.ds460);
         }
-        return fFF;
+        return fAX;
     }
 
     @TargetApi(13)
-    public static ViewTreeObserver.OnGlobalLayoutListener a(Activity activity, com.baidu.tbadk.editortools.noConflictPanel.b bVar, InterfaceC0594b interfaceC0594b) {
+    public static ViewTreeObserver.OnGlobalLayoutListener a(Activity activity, com.baidu.tbadk.editortools.noConflictPanel.b bVar, InterfaceC0577b interfaceC0577b) {
         int height;
         ViewGroup viewGroup = (ViewGroup) activity.findViewById(16908290);
         boolean ah = d.ah(activity);
@@ -93,7 +93,7 @@ public class b {
         } else {
             height = defaultDisplay.getHeight();
         }
-        a aVar = new a(ah, A, ai, viewGroup, bVar, interfaceC0594b, height);
+        a aVar = new a(ah, A, ai, viewGroup, bVar, interfaceC0577b, height);
         viewGroup.getViewTreeObserver().addOnGlobalLayoutListener(aVar);
         return aVar;
     }
@@ -110,44 +110,44 @@ public class b {
 
     /* loaded from: classes.dex */
     private static class a implements ViewTreeObserver.OnGlobalLayoutListener {
-        private final int cEd;
-        private final int dXO;
-        private final ViewGroup fFH;
-        private final com.baidu.tbadk.editortools.noConflictPanel.b fFI;
-        private final boolean fFJ;
-        private final boolean fFK;
-        private boolean fFL;
-        private final InterfaceC0594b fFM;
-        private int fFO;
+        private final int czr;
+        private final int dTc;
+        private final ViewGroup fAZ;
+        private final com.baidu.tbadk.editortools.noConflictPanel.b fBa;
+        private final boolean fBb;
+        private final boolean fBc;
+        private boolean fBd;
+        private final InterfaceC0577b fBe;
+        private int fBg;
         private final boolean isFullScreen;
-        private int fFG = 0;
-        private boolean fFN = false;
+        private int fAY = 0;
+        private boolean fBf = false;
 
-        a(boolean z, boolean z2, boolean z3, ViewGroup viewGroup, com.baidu.tbadk.editortools.noConflictPanel.b bVar, InterfaceC0594b interfaceC0594b, int i) {
-            this.fFH = viewGroup;
-            this.fFI = bVar;
+        a(boolean z, boolean z2, boolean z3, ViewGroup viewGroup, com.baidu.tbadk.editortools.noConflictPanel.b bVar, InterfaceC0577b interfaceC0577b, int i) {
+            this.fAZ = viewGroup;
+            this.fBa = bVar;
             this.isFullScreen = z;
-            this.fFJ = z2;
-            this.fFK = z3;
-            this.cEd = c.getStatusBarHeight(viewGroup.getContext());
-            this.fFM = interfaceC0594b;
-            this.dXO = i;
+            this.fBb = z2;
+            this.fBc = z3;
+            this.czr = c.getStatusBarHeight(viewGroup.getContext());
+            this.fBe = interfaceC0577b;
+            this.dTc = i;
         }
 
         @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
         @TargetApi(13)
         public void onGlobalLayout() {
             int i;
-            View childAt = this.fFH.getChildAt(0);
-            View view = (View) this.fFH.getParent();
+            View childAt = this.fAZ.getChildAt(0);
+            View view = (View) this.fAZ.getParent();
             Rect rect = new Rect();
-            if (this.fFJ) {
+            if (this.fBb) {
                 view.getWindowVisibleDisplayFrame(rect);
                 int i2 = rect.bottom - rect.top;
-                if (!this.fFN) {
-                    this.fFN = i2 == this.dXO;
+                if (!this.fBf) {
+                    this.fBf = i2 == this.dTc;
                 }
-                i = !this.fFN ? this.cEd + i2 : i2;
+                i = !this.fBf ? this.czr + i2 : i2;
             } else if (childAt != null) {
                 childAt.getWindowVisibleDisplayFrame(rect);
                 i = rect.bottom - rect.top;
@@ -155,72 +155,72 @@ public class b {
                 i = -1;
             }
             if (i != -1) {
-                sD(i);
-                sE(i);
-                this.fFG = i;
+                qX(i);
+                qY(i);
+                this.fAY = i;
             }
         }
 
-        private void sD(int i) {
+        private void qX(int i) {
             int abs;
-            int fm;
-            if (this.fFG == 0) {
-                this.fFG = i;
-                this.fFI.sB(b.fm(getContext()));
+            int fk;
+            if (this.fAY == 0) {
+                this.fAY = i;
+                this.fBa.qV(b.fk(getContext()));
                 return;
             }
-            if (com.baidu.tbadk.editortools.noConflictPanel.b.a.g(this.isFullScreen, this.fFJ, this.fFK)) {
-                abs = ((View) this.fFH.getParent()).getHeight() - i;
+            if (com.baidu.tbadk.editortools.noConflictPanel.b.a.g(this.isFullScreen, this.fBb, this.fBc)) {
+                abs = ((View) this.fAZ.getParent()).getHeight() - i;
             } else {
-                abs = Math.abs(i - this.fFG);
+                abs = Math.abs(i - this.fAY);
             }
-            if (abs <= b.fn(getContext())) {
-                int height = ((View) this.fFH.getParent()).getHeight() - i;
-                if (i < this.fFG) {
-                    abs = height - this.cEd;
+            if (abs <= b.fl(getContext())) {
+                int height = ((View) this.fAZ.getParent()).getHeight() - i;
+                if (i < this.fAY) {
+                    abs = height - this.czr;
                 } else {
                     return;
                 }
             }
-            if (abs != this.cEd && b.I(getContext(), abs) && this.fFI.getHeight() != (fm = b.fm(getContext()))) {
-                this.fFI.sB(fm);
+            if (abs != this.czr && b.I(getContext(), abs) && this.fBa.getHeight() != (fk = b.fk(getContext()))) {
+                this.fBa.qV(fk);
             }
         }
 
-        private void sE(int i) {
+        private void qY(int i) {
             boolean z;
             boolean z2 = true;
-            View view = (View) this.fFH.getParent();
+            View view = (View) this.fAZ.getParent();
             int height = view.getHeight() - view.getPaddingTop();
-            if (com.baidu.tbadk.editortools.noConflictPanel.b.a.g(this.isFullScreen, this.fFJ, this.fFK)) {
-                if (!this.fFJ && height - i == this.cEd) {
-                    z = this.fFL;
+            if (com.baidu.tbadk.editortools.noConflictPanel.b.a.g(this.isFullScreen, this.fBb, this.fBc)) {
+                if (!this.fBb && height - i == this.czr) {
+                    z = this.fBd;
                 } else {
                     z = height > i;
                 }
             } else {
-                int i2 = this.fFH.getResources().getDisplayMetrics().heightPixels;
-                if (this.fFJ || i2 == height) {
+                int i2 = this.fAZ.getResources().getDisplayMetrics().heightPixels;
+                if (this.fBb || i2 == height) {
                 }
-                if (this.fFO == 0) {
-                    z2 = this.fFL;
-                } else if (i >= this.fFO - b.fn(getContext())) {
+                if (this.fBg == 0) {
+                    z2 = this.fBd;
+                } else if (i >= this.fBg - b.fl(getContext())) {
                     z2 = false;
                 }
-                this.fFO = Math.max(this.fFO, height);
+                this.fBg = Math.max(this.fBg, height);
                 z = z2;
             }
-            if (this.fFL != z) {
-                this.fFI.kU(z);
-                if (this.fFM != null) {
-                    this.fFM.kU(z);
+            if (this.fBd != z) {
+                this.fBa.kQ(z);
+                if (this.fBe != null) {
+                    this.fBe.kQ(z);
                 }
             }
-            this.fFL = z;
+            this.fBd = z;
         }
 
         private Context getContext() {
-            return this.fFH.getContext();
+            return this.fAZ.getContext();
         }
     }
 }

@@ -4,7 +4,7 @@ import android.database.CursorWindow;
 import android.os.Build;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public final class CursorWindowCompat {
     private CursorWindowCompat() {
     }

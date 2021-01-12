@@ -10,13 +10,13 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.TbWebViewActivityConfig;
 import com.baidu.tbadk.core.util.ao;
 import com.baidu.tieba.R;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class a extends com.baidu.adp.widget.ListView.a<b, ComplaintBarlordViewHolder> {
     private View.OnClickListener mClickListener;
     private int mSkinType;
 
     public a(com.baidu.adp.base.f fVar) {
-        super(fVar.getPageActivity(), b.jbg, fVar.getUniqueId());
+        super(fVar.getPageActivity(), b.iWz, fVar.getUniqueId());
         this.mClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.forumMember.member.a.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
@@ -56,16 +56,16 @@ public class a extends com.baidu.adp.widget.ListView.a<b, ComplaintBarlordViewHo
         this.mSkinType = TbadkCoreApplication.getInst().getSkinType();
         if (complaintBarlordViewHolder.mSkinType != this.mSkinType) {
             complaintBarlordViewHolder.mSkinType = this.mSkinType;
-            ao.setBackgroundResource(complaintBarlordViewHolder.bNf, R.drawable.frs_member_manito_bg);
+            ao.setBackgroundResource(complaintBarlordViewHolder.bIt, R.drawable.frs_member_manito_bg);
             ao.setBackgroundColor(complaintBarlordViewHolder.mLineView, R.color.CAM_X0204);
             ao.setViewTextColor(complaintBarlordViewHolder.mTitleView, R.color.CAM_X0105, 1);
-            ao.setImageResource(complaintBarlordViewHolder.idA, R.drawable.icon_arrow12_gray66_right);
+            ao.setImageResource(complaintBarlordViewHolder.hYP, R.drawable.icon_arrow12_gray66_right);
         }
     }
 
     private void a(ComplaintBarlordViewHolder complaintBarlordViewHolder, b bVar) {
-        complaintBarlordViewHolder.mTitleView.setText(bVar.jbh);
-        complaintBarlordViewHolder.bNf.setTag(bVar.mUrl);
-        complaintBarlordViewHolder.bNf.setOnClickListener(this.mClickListener);
+        complaintBarlordViewHolder.mTitleView.setText(bVar.iWA);
+        complaintBarlordViewHolder.bIt.setTag(bVar.mUrl);
+        complaintBarlordViewHolder.bIt.setOnClickListener(this.mClickListener);
     }
 }

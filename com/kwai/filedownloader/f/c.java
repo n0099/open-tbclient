@@ -5,37 +5,37 @@ import android.content.Context;
 import com.kwai.filedownloader.exception.PathConflictException;
 import com.kwai.filedownloader.x;
 import java.io.File;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class c {
     @SuppressLint({"StaticFieldLeak"})
 
     /* renamed from: a  reason: collision with root package name */
-    private static Context f11227a;
+    private static Context f10927a;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public interface a {
         int a(int i, String str, String str2, long j);
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public interface b {
         com.kwai.filedownloader.a.b a(String str);
     }
 
     /* renamed from: com.kwai.filedownloader.f.c$c  reason: collision with other inner class name */
-    /* loaded from: classes5.dex */
-    public interface InterfaceC1172c {
+    /* loaded from: classes4.dex */
+    public interface InterfaceC1155c {
         com.kwai.filedownloader.b.a a();
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public interface d {
         int a(int i, String str, String str2, boolean z);
 
         int a(String str, String str2, boolean z);
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public interface e {
         com.kwai.filedownloader.e.a a(File file);
 
@@ -43,11 +43,11 @@ public class c {
     }
 
     public static Context a() {
-        return f11227a;
+        return f10927a;
     }
 
     public static void a(Context context) {
-        f11227a = context;
+        f10927a = context;
     }
 
     public static boolean a(int i, long j, String str, String str2, x xVar) {

@@ -5,7 +5,7 @@ import com.baidu.pyramid.runtime.service.c;
 import com.baidu.searchbox.PerfSampleManager;
 import com.baidu.searchbox.config.QuickPersistConfig;
 import com.baidu.ubc.ab;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class ANRPerfSampleCallback implements PerfSampleManager.IPerfSampleCallback {
     private static String UBC_ANR_ID = "1794";
     private static String ACTIVE_ANR_UPLOAD_TYPE = "1";

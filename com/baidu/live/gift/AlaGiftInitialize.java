@@ -22,33 +22,33 @@ import com.baidu.live.message.GetQuickGiftHttpResponseMessage;
 import com.baidu.live.tbadk.TbConfig;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.task.TbHttpMessageTask;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class AlaGiftInitialize {
     static {
-        Gl();
-        Gf();
-        Gm();
-        Gn();
-        Gk();
-        Go();
-        Gp();
-        Gq();
-        Gg();
-        Gh();
-        Gi();
-        Gj();
+        Cq();
+        Ck();
+        Cr();
+        Cs();
+        Cp();
+        Ct();
+        Cu();
+        Cv();
+        Cl();
+        Cm();
+        Cn();
+        Co();
         TbadkCoreApplication.getInst().RegisterIntent(com.baidu.live.d.k.class, AlaGiftTabActivity.class);
         TbadkCoreApplication.getInst().RegisterIntent(com.baidu.live.d.l.class, AlaGiftLuckyStarActivity.class);
-        Gr();
-        Gs();
-        Gt();
-        Gu();
-        Gv();
-        Gw();
-        com.baidu.live.gift.c.b.JW();
+        Cw();
+        Cx();
+        Cy();
+        Cz();
+        CA();
+        CB();
+        com.baidu.live.gift.c.b.Gb();
     }
 
-    private static void Gf() {
+    private static void Ck() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1021089, TbConfig.SERVER_ADDRESS + "ala/sdk/v1/open/getDynamicGiftList");
         tbHttpMessageTask.setIsNeedLogin(false);
         tbHttpMessageTask.setIsNeedTbs(true);
@@ -57,7 +57,7 @@ public class AlaGiftInitialize {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    private static void Gg() {
+    private static void Cl() {
         CustomMessageTask customMessageTask = new CustomMessageTask(2913028, new CustomMessageTask.CustomRunnable<f>() { // from class: com.baidu.live.gift.AlaGiftInitialize.1
             @Override // com.baidu.live.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<ad> run(CustomMessage<f> customMessage) {
@@ -68,7 +68,7 @@ public class AlaGiftInitialize {
         MessageManager.getInstance().registerTask(customMessageTask);
     }
 
-    private static void Gh() {
+    private static void Cm() {
         CustomMessageTask customMessageTask = new CustomMessageTask(2913071, new CustomMessageTask.CustomRunnable<a>() { // from class: com.baidu.live.gift.AlaGiftInitialize.2
             @Override // com.baidu.live.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<ab> run(CustomMessage<a> customMessage) {
@@ -79,7 +79,7 @@ public class AlaGiftInitialize {
         MessageManager.getInstance().registerTask(customMessageTask);
     }
 
-    private static void Gi() {
+    private static void Cn() {
         CustomMessageTask customMessageTask = new CustomMessageTask(2913165, new CustomMessageTask.CustomRunnable<Context>() { // from class: com.baidu.live.gift.AlaGiftInitialize.3
             @Override // com.baidu.live.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<af> run(CustomMessage<Context> customMessage) {
@@ -90,7 +90,7 @@ public class AlaGiftInitialize {
         MessageManager.getInstance().registerTask(customMessageTask);
     }
 
-    private static void Gj() {
+    private static void Co() {
         CustomMessageTask customMessageTask = new CustomMessageTask(2913166, new CustomMessageTask.CustomRunnable<Context>() { // from class: com.baidu.live.gift.AlaGiftInitialize.4
             @Override // com.baidu.live.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<ah> run(CustomMessage<Context> customMessage) {
@@ -101,7 +101,7 @@ public class AlaGiftInitialize {
         MessageManager.getInstance().registerTask(customMessageTask);
     }
 
-    private static void Gk() {
+    private static void Cp() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(AlaCmdConfigHttp.CMD_ALA_GIFT_REFRESH_SCORES, TbConfig.SERVER_ADDRESS + "ala/user/getAlaScores");
         tbHttpMessageTask.setIsNeedLogin(true);
         tbHttpMessageTask.setIsNeedTbs(true);
@@ -110,7 +110,7 @@ public class AlaGiftInitialize {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    private static void Gl() {
+    private static void Cq() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1021120, TbConfig.SERVER_ADDRESS + "ala/sdk/v1/open/getGiftListBySceneFrom");
         tbHttpMessageTask.setIsNeedTbs(true);
         tbHttpMessageTask.setIsUseCurrentBDUSS(true);
@@ -118,7 +118,7 @@ public class AlaGiftInitialize {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    private static void Gm() {
+    private static void Cr() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1021015, TbConfig.SERVER_ADDRESS + "ala/sdk/v1/open/placeOrder");
         tbHttpMessageTask.setIsNeedLogin(true);
         tbHttpMessageTask.setIsNeedTbs(true);
@@ -128,7 +128,7 @@ public class AlaGiftInitialize {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    private static void Gn() {
+    private static void Cs() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1021229, "https://sv.baidu.com/liveserver/luckybag/send");
         tbHttpMessageTask.setIsNeedLogin(true);
         tbHttpMessageTask.setIsNeedTbs(true);
@@ -138,7 +138,7 @@ public class AlaGiftInitialize {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    private static void Go() {
+    private static void Ct() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1021014, TbConfig.SERVER_ADDRESS + "ala/sdk/v1/open/sendPetalGift");
         tbHttpMessageTask.setIsNeedLogin(true);
         tbHttpMessageTask.setIsNeedTbs(true);
@@ -148,7 +148,7 @@ public class AlaGiftInitialize {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    private static void Gp() {
+    private static void Cu() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(AlaCmdConfigHttp.CMD_ALA_GAME_LIVE_LIST, TbConfig.SERVER_HOST + "liveserver/v1/knapsack/knapsackquery");
         tbHttpMessageTask.setIsNeedTbs(true);
         tbHttpMessageTask.setIsUseCurrentBDUSS(true);
@@ -157,7 +157,7 @@ public class AlaGiftInitialize {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    private static void Gq() {
+    private static void Cv() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(AlaCmdConfigHttp.CMD_ALA_LIVE_SHARE_IN_BAR, TbConfig.SERVER_HOST + "liveserver/knapsack/knapsackconsume");
         tbHttpMessageTask.setIsNeedTbs(true);
         tbHttpMessageTask.setIsUseCurrentBDUSS(true);
@@ -166,11 +166,11 @@ public class AlaGiftInitialize {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    private static void Gr() {
-        al.a(com.baidu.live.gift.yuangift.a.Lr());
+    private static void Cw() {
+        al.a(com.baidu.live.gift.yuangift.a.Hw());
     }
 
-    private static void Gs() {
+    private static void Cx() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(AlaCmdConfigHttp.CMD_ALA_GET_TAB_LIVE_INFO, TbConfig.SERVER_ADDRESS + "ala/sdk/v1/open/getRmbLiveEnterEffectList");
         tbHttpMessageTask.setIsNeedLogin(false);
         tbHttpMessageTask.setIsNeedTbs(true);
@@ -179,7 +179,7 @@ public class AlaGiftInitialize {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    private static void Gt() {
+    private static void Cy() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1021124, TbConfig.SERVER_ADDRESS + "ala/sdk/v1/open/getQuickGift");
         tbHttpMessageTask.setResponsedClass(GetQuickGiftHttpResponseMessage.class);
         tbHttpMessageTask.setIsNeedTbs(true);
@@ -187,7 +187,7 @@ public class AlaGiftInitialize {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    private static void Gu() {
+    private static void Cz() {
         CustomMessageTask customMessageTask = new CustomMessageTask(2913182, new CustomMessageTask.CustomRunnable() { // from class: com.baidu.live.gift.AlaGiftInitialize.5
             @Override // com.baidu.live.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<Object> run(CustomMessage customMessage) {
@@ -198,7 +198,7 @@ public class AlaGiftInitialize {
         MessageManager.getInstance().registerTask(customMessageTask);
     }
 
-    private static void Gv() {
+    private static void CA() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1021119, TbConfig.SERVER_ADDRESS + "ala/message/giftBroadCast");
         tbHttpMessageTask.setIsNeedLogin(false);
         tbHttpMessageTask.setIsNeedTbs(false);
@@ -207,7 +207,7 @@ public class AlaGiftInitialize {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    private static void Gw() {
+    private static void CB() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1021232, TbConfig.SERVER_HOST + "liveserver/knapsack/knapsackfragmentsynthesise");
         tbHttpMessageTask.setIsNeedTbs(true);
         tbHttpMessageTask.setIsUseCurrentBDUSS(true);

@@ -62,7 +62,7 @@ import java.util.concurrent.atomic.AtomicBoolean;
 import org.json.JSONObject;
 @KsAdSdkDynamicImpl(IKsAdSDK.class)
 @Keep
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class KsAdSDKImpl implements IKsAdSDK {
     private static final String TAG = "KsAdSDKImpl";
     private static final Map<Class, Class> sModelImpl;
@@ -95,11 +95,11 @@ public class KsAdSDKImpl implements IKsAdSDK {
     private static final Map<Class, Class> sRealComponent = new HashMap();
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        private static KsAdSDKImpl f8422a = new KsAdSDKImpl();
+        private static KsAdSDKImpl f8122a = new KsAdSDKImpl();
     }
 
     static {
@@ -132,7 +132,7 @@ public class KsAdSDKImpl implements IKsAdSDK {
     @KsAdSdkDynamicImpl(IKsAdSDK.class)
     @Keep
     public static KsAdSDKImpl get() {
-        return a.f8422a;
+        return a.f8122a;
     }
 
     public static Class<?> getProxyRealClass(Class cls) {
@@ -278,7 +278,7 @@ public class KsAdSDKImpl implements IKsAdSDK {
 
     @Override // com.kwad.sdk.api.core.IKsAdSDK
     public int getSDKType() {
-        return d.f9969a;
+        return d.f9669a;
     }
 
     @Override // com.kwad.sdk.api.core.IKsAdSDK
@@ -342,7 +342,7 @@ public class KsAdSDKImpl implements IKsAdSDK {
                 }
                 com.kwad.sdk.core.a.a.a(KsAdSDKImpl.this.mAppContext, sdkConfig);
                 try {
-                    if (com.kwad.sdk.core.config.c.K() || com.kwad.sdk.a.f8424b.booleanValue()) {
+                    if (com.kwad.sdk.core.config.c.K() || com.kwad.sdk.a.f8124b.booleanValue()) {
                         DynamicInstallReceiver.registerToApp(KsAdSDKImpl.this.mAppContext);
                     }
                 } catch (Throwable th2) {

@@ -11,24 +11,24 @@ import java.io.File;
 import java.io.FileWriter;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 class e {
 
     /* renamed from: a  reason: collision with root package name */
-    protected JSONObject f11856a;
+    protected JSONObject f11556a;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     static final class a<T> {
 
         /* renamed from: a  reason: collision with root package name */
-        private final String f11857a;
+        private final String f11557a;
 
         /* renamed from: b  reason: collision with root package name */
-        private final T f11858b;
+        private final T f11558b;
 
         private a(String str, T t) {
-            this.f11857a = str;
-            this.f11858b = t;
+            this.f11557a = str;
+            this.f11558b = t;
         }
 
         /* synthetic */ a(String str, Object obj, byte b2) {
@@ -36,11 +36,11 @@ class e {
         }
 
         public final String a() {
-            return this.f11857a;
+            return this.f11557a;
         }
 
         public final T b() {
-            return this.f11858b;
+            return this.f11558b;
         }
     }
 
@@ -55,13 +55,13 @@ class e {
         GDTLogger.d("Initialize " + simpleName + ",Json=" + str);
         if (!TextUtils.isEmpty(str)) {
             try {
-                this.f11856a = new JSONObject(str);
+                this.f11556a = new JSONObject(str);
             } catch (JSONException e) {
                 GDTLogger.e("JsonException While build" + simpleName + " Instance from JSON", e);
             }
         }
-        if (this.f11856a == null) {
-            this.f11856a = new JSONObject();
+        if (this.f11556a == null) {
+            this.f11556a = new JSONObject();
         }
     }
 

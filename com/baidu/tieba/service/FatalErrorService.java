@@ -12,7 +12,6 @@ import com.baidu.adp.lib.util.g;
 import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import com.baidu.live.tbadk.core.sharedpref.SharedPrefConfig;
 import com.baidu.live.tbadk.data.Config;
-import com.baidu.platform.comapi.map.MapController;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.sharedPref.b;
@@ -146,9 +145,9 @@ public class FatalErrorService extends BdBaseService {
                                     fileInputStream.close();
                                     fileInputStream = null;
                                 }
-                                if (this.mNetwork.bvR().bwB().isRequestSuccess()) {
+                                if (this.mNetwork.brX().bsH().isRequestSuccess()) {
                                     if (z2) {
-                                        aj(file);
+                                        ai(file);
                                     }
                                     fileWriter = new FileWriter(file, false);
                                     try {
@@ -293,7 +292,7 @@ public class FatalErrorService extends BdBaseService {
         /*
             Code decompiled incorrectly, please refer to instructions dump.
         */
-        private void aj(File file) {
+        private void ai(File file) {
             BufferedReader bufferedReader;
             try {
                 bufferedReader = new BufferedReader(new FileReader(file));
@@ -354,16 +353,16 @@ public class FatalErrorService extends BdBaseService {
             try {
                 a(n.GetFileByAbsolutePath(TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath() + "/" + TbConfig.FATAL_ERROR_FILE), TbConfig.ERROR_UPLOAD_SERVER, "0", true, true);
                 a(n.GetFileByAbsolutePath(TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath() + "/" + TbConfig.LOG_ERROR_FILE), Config.ERROR_LOG_SERVER, "0", false, false);
-                dHD();
-                if (!TbConfig.getVersion().equals(b.bvr().getString(SharedPrefConfig.NATIVE_CRASH_DUMP_VERSION, ""))) {
-                    b.bvr().putString(SharedPrefConfig.NATIVE_CRASH_DUMP_VERSION, TbConfig.getVersion());
+                dDL();
+                if (!TbConfig.getVersion().equals(b.brx().getString(SharedPrefConfig.NATIVE_CRASH_DUMP_VERSION, ""))) {
+                    b.brx().putString(SharedPrefConfig.NATIVE_CRASH_DUMP_VERSION, TbConfig.getVersion());
                     z = false;
                 }
                 File GetFile = n.GetFile(TbConfig.FATAL_ERROR_NATIVE_DIR);
                 if (GetFile != null) {
                     for (File file : GetFile.listFiles()) {
                         if (file.length() >= 1024 && z) {
-                            ak(file);
+                            aj(file);
                             a(file, TbConfig.ERROR_UPLOAD_SERVER, "4", true, true);
                         } else {
                             file.delete();
@@ -378,7 +377,7 @@ public class FatalErrorService extends BdBaseService {
             }
         }
 
-        private void dHD() {
+        private void dDL() {
             File GetFileByAbsolutePath = n.GetFileByAbsolutePath(TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath() + "/" + TbConfig.FATAL_ERROR_ALERT_FILE);
             if (GetFileByAbsolutePath != null) {
                 try {
@@ -404,7 +403,7 @@ public class FatalErrorService extends BdBaseService {
             }
         }
 
-        private void ak(File file) {
+        private void aj(File file) {
             FileWriter fileWriter;
             if (file == null || !file.exists() || !file.isFile()) {
                 return;
@@ -419,7 +418,7 @@ public class FatalErrorService extends BdBaseService {
                             addInfo(fileWriter, "version", TbConfig.getVersion());
                             addInfo(fileWriter, "model", Build.MODEL);
                             addInfo(fileWriter, "android_version", Build.VERSION.RELEASE);
-                            addInfo(fileWriter, MapController.ANDROID_SDK_LAYER_TAG, String.valueOf(Build.VERSION.SDK_INT));
+                            addInfo(fileWriter, "android_sdk", String.valueOf(Build.VERSION.SDK_INT));
                             addInfo(fileWriter, "from", TbConfig.getFrom());
                             addInfo(fileWriter, "current_from", TbConfig.getCurrentFrom());
                             addInfo(fileWriter, "uid", this.intent.getStringExtra("uid"));

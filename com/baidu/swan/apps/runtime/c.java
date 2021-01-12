@@ -4,12 +4,12 @@ import android.os.Bundle;
 import com.baidu.swan.apps.SwanAppActivity;
 import com.baidu.swan.apps.extcore.cores.SwanAppCores;
 import com.baidu.swan.apps.process.SwanAppProcessInfo;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class c extends d {
-    public final e dGv = new e(this, "");
+    public final e dBJ = new e(this, "");
 
     @Override // com.baidu.swan.apps.runtime.h
-    public SwanAppProcessInfo aJv() {
+    public SwanAppProcessInfo aFB() {
         return SwanAppProcessInfo.current();
     }
 
@@ -19,33 +19,33 @@ public class c extends d {
     }
 
     @Override // com.baidu.swan.apps.runtime.h
-    public boolean aJx() {
+    public boolean aFD() {
         return false;
     }
 
     @Override // com.baidu.swan.apps.runtime.h
-    public boolean aJw() {
+    public boolean aFC() {
         return false;
     }
 
     @Override // com.baidu.swan.apps.runtime.h
-    public SwanAppCores aJy() {
+    public SwanAppCores aFE() {
         return null;
     }
 
     @Override // com.baidu.swan.apps.runtime.h
-    public int ajl() {
+    public int afr() {
         return -1;
     }
 
     @Override // com.baidu.swan.apps.runtime.h
-    public com.baidu.swan.apps.process.messaging.client.a aMc() {
+    public com.baidu.swan.apps.process.messaging.client.a aIi() {
         return null;
     }
 
     @Override // com.baidu.swan.apps.runtime.h
-    public e aMd() {
-        return this.dGv;
+    public e aIj() {
+        return this.dBJ;
     }
 
     @Override // com.baidu.swan.apps.runtime.h
@@ -58,7 +58,7 @@ public class c extends d {
     }
 
     @Override // com.baidu.swan.apps.runtime.h
-    public void aMe() {
+    public void aIk() {
     }
 
     @Override // com.baidu.swan.apps.runtime.h
@@ -70,12 +70,12 @@ public class c extends d {
     }
 
     @Override // com.baidu.swan.apps.runtime.h
-    public SwanAppActivity aMf() {
+    public SwanAppActivity aIl() {
         return null;
     }
 
     @Override // com.baidu.swan.apps.runtime.d
-    protected com.baidu.swan.pms.c.f aMg() {
+    protected com.baidu.swan.pms.c.f aIm() {
         return null;
     }
 }

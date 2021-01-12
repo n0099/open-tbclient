@@ -8,11 +8,11 @@ import android.text.TextUtils;
 import java.io.CharArrayWriter;
 import java.io.File;
 import java.io.FileReader;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public final class q {
 
     /* renamed from: a  reason: collision with root package name */
-    private static String f5558a = "";
+    private static String f5275a = "";
 
     /*  JADX ERROR: JadxRuntimeException in pass: BlockProcessor
         jadx.core.utils.exceptions.JadxRuntimeException: Found unreachable blocks
@@ -189,11 +189,11 @@ public final class q {
     }
 
     public static String a(Context context) {
-        if (TextUtils.isEmpty(f5558a)) {
+        if (TextUtils.isEmpty(f5275a)) {
             new q();
-            f5558a = b(context);
+            f5275a = b(context);
         }
-        return f5558a;
+        return f5275a;
     }
 
     private static String c(Context context) {
@@ -203,7 +203,7 @@ public final class q {
             if (!TextUtils.isEmpty(p)) {
                 return p;
             }
-            String string = eVar.f5522b.getString("rpnewuid", "");
+            String string = eVar.f5239b.getString("rpnewuid", "");
             if (!TextUtils.isEmpty(string)) {
                 eVar.c(string);
                 return string;

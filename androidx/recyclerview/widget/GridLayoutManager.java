@@ -11,7 +11,7 @@ import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import java.util.Arrays;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class GridLayoutManager extends LinearLayoutManager {
     private static final boolean DEBUG = false;
     public static final int DEFAULT_SPAN_COUNT = -1;
@@ -630,7 +630,7 @@ public class GridLayoutManager extends LinearLayoutManager {
         }
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public static abstract class SpanSizeLookup {
         final SparseIntArray mSpanIndexCache = new SparseIntArray();
         private boolean mCacheSpanIndices = false;
@@ -849,7 +849,7 @@ public class GridLayoutManager extends LinearLayoutManager {
         return this.mPendingSavedState == null && !this.mPendingSpanCountChange;
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public static final class DefaultSpanSizeLookup extends SpanSizeLookup {
         @Override // androidx.recyclerview.widget.GridLayoutManager.SpanSizeLookup
         public int getSpanSize(int i) {
@@ -862,7 +862,7 @@ public class GridLayoutManager extends LinearLayoutManager {
         }
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public static class LayoutParams extends RecyclerView.LayoutParams {
         public static final int INVALID_SPAN_ID = -1;
         int mSpanIndex;

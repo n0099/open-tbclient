@@ -1,41 +1,41 @@
 package com.google.b.a.a.a;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class e {
-    private g pQI = new g();
-    private g pQJ = new g();
-    private g pPM = new g();
-    private g pPI = new g();
-    private g pPJ = new g();
-    private c pPR = new c();
-    private c pPS = new c();
-    private g pQK = new g();
-    private g pQL = new g();
+    private g pMh = new g();
+    private g pMi = new g();
+    private g pLl = new g();
+    private g pLh = new g();
+    private g pLi = new g();
+    private c pLq = new c();
+    private c pLr = new c();
+    private g pMj = new g();
+    private g pMk = new g();
 
     private static void a(g gVar, double d, double d2, c cVar) {
-        double d3 = gVar.f8181a * gVar.f8181a;
-        double d4 = gVar.f8182b * gVar.f8182b;
+        double d3 = gVar.f7881a * gVar.f7881a;
+        double d4 = gVar.f7882b * gVar.f7882b;
         double d5 = gVar.c * gVar.c;
         cVar.a(0, 0, 1.0d - ((d4 + d5) * d2));
         cVar.a(1, 1, 1.0d - ((d5 + d3) * d2));
         cVar.a(2, 2, 1.0d - ((d3 + d4) * d2));
         double d6 = gVar.c * d;
-        double d7 = gVar.f8181a * gVar.f8182b * d2;
+        double d7 = gVar.f7881a * gVar.f7882b * d2;
         cVar.a(0, 1, d7 - d6);
         cVar.a(1, 0, d6 + d7);
-        double d8 = gVar.f8182b * d;
-        double d9 = gVar.f8181a * gVar.c * d2;
+        double d8 = gVar.f7882b * d;
+        double d9 = gVar.f7881a * gVar.c * d2;
         cVar.a(0, 2, d9 + d8);
         cVar.a(2, 0, d9 - d8);
-        double d10 = gVar.f8181a * d;
-        double d11 = gVar.f8182b * gVar.c * d2;
+        double d10 = gVar.f7881a * d;
+        double d11 = gVar.f7882b * gVar.c * d2;
         cVar.a(1, 2, d11 - d10);
         cVar.a(2, 1, d10 + d11);
     }
 
     private void a(g gVar, c cVar) {
-        this.pQL.a(gVar);
-        this.pQL.a(3.141592653589793d / this.pQL.c());
-        a(this.pQL, 0.0d, 0.20264236728467558d, cVar);
+        this.pMk.a(gVar);
+        this.pMk.a(3.141592653589793d / this.pMk.c());
+        a(this.pMk, 0.0d, 0.20264236728467558d, cVar);
     }
 
     public void a(c cVar, g gVar) {
@@ -53,7 +53,7 @@ public class e {
             double a3 = cVar.a(0, 0) - a2;
             double a4 = cVar.a(1, 1) - a2;
             double a5 = cVar.a(2, 2) - a2;
-            g gVar2 = this.pQK;
+            g gVar2 = this.pMj;
             if (a3 * a3 > a4 * a4 && a3 * a3 > a5 * a5) {
                 gVar2.a(a3, (cVar.a(1, 0) + cVar.a(0, 1)) / 2.0d, (cVar.a(0, 2) + cVar.a(2, 0)) / 2.0d);
             } else if (a4 * a4 > a5 * a5) {
@@ -71,31 +71,31 @@ public class e {
     }
 
     public void a(g gVar, g gVar2, c cVar) {
-        g.c(gVar, gVar2, this.pQJ);
-        if (this.pQJ.c() == 0.0d) {
+        g.c(gVar, gVar2, this.pMi);
+        if (this.pMi.c() == 0.0d) {
             if (g.a(gVar, gVar2) >= 0.0d) {
                 cVar.b();
                 return;
             }
-            g.b(gVar, this.pPJ);
-            a(this.pPJ, cVar);
+            g.b(gVar, this.pLi);
+            a(this.pLi, cVar);
             return;
         }
-        this.pPM.a(gVar);
-        this.pPI.a(gVar2);
-        this.pQJ.b();
-        this.pPM.b();
-        this.pPI.b();
-        c cVar2 = this.pPR;
-        cVar2.a(0, this.pPM);
-        cVar2.a(1, this.pQJ);
-        g.c(this.pQJ, this.pPM, this.pQI);
-        cVar2.a(2, this.pQI);
-        c cVar3 = this.pPS;
-        cVar3.a(0, this.pPI);
-        cVar3.a(1, this.pQJ);
-        g.c(this.pQJ, this.pPI, this.pQI);
-        cVar3.a(2, this.pQI);
+        this.pLl.a(gVar);
+        this.pLh.a(gVar2);
+        this.pMi.b();
+        this.pLl.b();
+        this.pLh.b();
+        c cVar2 = this.pLq;
+        cVar2.a(0, this.pLl);
+        cVar2.a(1, this.pMi);
+        g.c(this.pMi, this.pLl, this.pMh);
+        cVar2.a(2, this.pMh);
+        c cVar3 = this.pLr;
+        cVar3.a(0, this.pLh);
+        cVar3.a(1, this.pMi);
+        g.c(this.pMi, this.pLh, this.pMh);
+        cVar3.a(2, this.pMh);
         cVar2.c();
         c.b(cVar3, cVar2, cVar);
     }

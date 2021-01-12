@@ -2,7 +2,7 @@ package com.qq.e.comm.plugin.splash;
 
 import com.qq.e.comm.constants.Constants;
 import com.qq.e.comm.managers.GDTADManager;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 class i {
     /* JADX INFO: Access modifiers changed from: package-private */
     public static long a() {

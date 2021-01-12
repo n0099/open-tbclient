@@ -4,7 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import com.baidu.android.util.io.BaseJsonData;
-import com.baidu.l.a.a;
+import com.baidu.j.a.a;
 import com.baidu.sapi2.CoreViewRouter;
 import com.baidu.sapi2.SapiAccount;
 import com.baidu.sapi2.SapiAccountManager;
@@ -32,6 +32,11 @@ public class ShareActivity extends BaseActivity {
     private String s;
     private String t;
 
+    public ShareActivity() {
+        Log.e("TITLE", "activity SapiAccountManager.getInstance().getSapiConfiguration()");
+        this.configuration = SapiAccountManager.getInstance().getSapiConfiguration();
+    }
+
     @Override // com.baidu.sapi2.activity.TitleActivity, android.app.Activity
     public void finish() {
         super.finish();
@@ -48,7 +53,9 @@ public class ShareActivity extends BaseActivity {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.sapi2.activity.BaseActivity, com.baidu.sapi2.activity.TitleActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
+        Log.e("TITLE", "onCreate bee");
         super.onCreate(bundle);
+        Log.e("TITLE", "onCreate aff");
         try {
             setContentView(a.f.layout_sapi_sdk_webview_with_title_bar);
             if (b()) {
@@ -100,8 +107,8 @@ public class ShareActivity extends BaseActivity {
                 jSONObject.put("displayName", currentAccount.displayname);
             }
             jSONObject.put("portrait", getIntent().getStringExtra("android.intent.extra.TEXT"));
-            jSONObject.put("session_id", getIntent().getStringExtra(b.f5342b));
-            jSONObject.put("trace_id", getIntent().getStringExtra(b.f5341a));
+            jSONObject.put("session_id", getIntent().getStringExtra(b.f5059b));
+            jSONObject.put("trace_id", getIntent().getStringExtra(b.f5058a));
             this.t = getIntent().getStringExtra(b.c);
         } catch (Exception e) {
             Log.e(e);
@@ -199,7 +206,7 @@ public class ShareActivity extends BaseActivity {
                 LoginActivity.supportShareLogin = true;
                 SapiAccountManager.getInstance().getConfignation().supportFaceLogin = z;
                 ShareActivity.this.q.setResultCode(d.g);
-                ShareActivity.this.q.setResultMsg(String.format(d.f5348a, ShareActivity.this.s));
+                ShareActivity.this.q.setResultMsg(String.format(d.f5065a, ShareActivity.this.s));
                 ShareActivity.this.c();
             }
 
@@ -229,7 +236,7 @@ public class ShareActivity extends BaseActivity {
             return;
         }
         this.q.setResultCode(d.g);
-        this.q.setResultMsg(String.format(d.f5348a, this.s));
+        this.q.setResultMsg(String.format(d.f5065a, this.s));
         c();
     }
 

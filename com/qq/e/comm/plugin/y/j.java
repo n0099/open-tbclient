@@ -4,6 +4,7 @@ import android.os.Build;
 import android.util.Pair;
 import com.baidu.mobads.interfaces.IXAdRequestInfo;
 import com.baidu.mobstat.Config;
+import com.meizu.cloud.pushsdk.notification.model.TimeDisplaySetting;
 import com.qq.e.comm.managers.GDTADManager;
 import com.qq.e.comm.managers.setting.SM;
 import com.qq.e.comm.managers.status.SDKStatus;
@@ -21,17 +22,17 @@ import yaq.gdtadv;
 /* JADX WARN: Classes with same name are omitted:
   assets/yaqgdtadv0.sec
  */
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 class j {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f13007a = UUID.randomUUID().toString();
+    private static final String f12707a = UUID.randomUUID().toString();
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     private static final class a {
 
         /* renamed from: a  reason: collision with root package name */
-        private JSONObject f13008a;
+        private JSONObject f12708a;
 
         a() {
             com.qq.e.comm.plugin.util.u uVar = new com.qq.e.comm.plugin.util.u();
@@ -63,12 +64,12 @@ class j {
                 uVar.a("h", a2.second);
             }
             uVar.a("lid", j.b());
-            this.f13008a = uVar.a();
+            this.f12708a = uVar.a();
         }
 
         com.qq.e.comm.plugin.util.u a() {
             com.qq.e.comm.plugin.util.u uVar = new com.qq.e.comm.plugin.util.u();
-            uVar.a("ts", System.currentTimeMillis());
+            uVar.a(TimeDisplaySetting.TIME_DISPLAY_SETTING, System.currentTimeMillis());
             uVar.a("app", GDTADManager.getInstance().getAppStatus().getAPPID());
             uVar.a(Config.EXCEPTION_CRASH_TYPE, GDTADManager.getInstance().getDeviceStatus().getNetworkType().getConnValue());
             String a2 = ab.a();
@@ -78,21 +79,21 @@ class j {
             uVar.a("lg", Locale.getDefault().getLanguage());
             uVar.a("tz", TimeZone.getDefault().getID());
             uVar.a("ca", com.qq.e.comm.plugin.util.o.e(GDTADManager.getInstance().getAppContext()));
-            Iterator<String> keys = this.f13008a.keys();
+            Iterator<String> keys = this.f12708a.keys();
             while (keys.hasNext()) {
                 String next = keys.next();
-                uVar.a(next, this.f13008a.opt(next));
+                uVar.a(next, this.f12708a.opt(next));
             }
             av.a(uVar, "/log or /event");
             return uVar;
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     private static final class b {
 
         /* renamed from: a  reason: collision with root package name */
-        private static final a f13009a = new a();
+        private static final a f12709a = new a();
     }
 
     public static com.qq.e.comm.plugin.util.u a() {

@@ -1,7 +1,7 @@
 package com.baidu.android.imrtc.utils;
 
 import android.content.Context;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class Utility {
     public static String getRtcRoomToken(Context context) {
         return RtcUtility.getRtcRoomToken(context);

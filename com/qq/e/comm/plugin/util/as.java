@@ -5,17 +5,17 @@ import androidx.appcompat.widget.ActivityChooserView;
 import com.qq.e.comm.managers.GDTADManager;
 import com.qq.e.comm.managers.setting.SM;
 import java.util.Random;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class as {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final Random f12862a = new Random(System.currentTimeMillis());
+    private static final Random f12562a = new Random(System.currentTimeMillis());
 
     /* renamed from: b  reason: collision with root package name */
-    private static volatile Boolean f12863b = null;
+    private static volatile Boolean f12563b = null;
 
     public static void a() {
-        f12863b = null;
+        f12563b = null;
     }
 
     public static boolean a(int i, int i2) {
@@ -43,17 +43,17 @@ public class as {
         if (i <= 0 || i2 <= 0) {
             return false;
         }
-        return i >= i2 || f12862a.nextInt(i2) < i;
+        return i >= i2 || f12562a.nextInt(i2) < i;
     }
 
     public static boolean c() {
-        if (f12863b != null) {
-            return f12863b.booleanValue();
+        if (f12563b != null) {
+            return f12563b.booleanValue();
         }
         SM sm = GDTADManager.getInstance().getSM();
         if (sm != null) {
-            f12863b = Boolean.valueOf(b(sm.getInteger("collectAntiSpamInfo", 0), 10000));
-            return f12863b.booleanValue();
+            f12563b = Boolean.valueOf(b(sm.getInteger("collectAntiSpamInfo", 0), 10000));
+            return f12563b.booleanValue();
         }
         return false;
     }

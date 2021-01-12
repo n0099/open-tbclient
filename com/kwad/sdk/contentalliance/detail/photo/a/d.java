@@ -31,11 +31,11 @@ import com.kwad.sdk.utils.ao;
 import com.kwad.sdk.utils.aq;
 import com.kwad.sdk.utils.p;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class d extends com.kwad.sdk.contentalliance.detail.b implements View.OnClickListener {
 
     /* renamed from: b  reason: collision with root package name */
-    private FrameLayout f8717b;
+    private FrameLayout f8417b;
     private AdBaseFrameLayout c;
     private ViewGroup d;
     private WebView e;
@@ -197,8 +197,8 @@ public class d extends com.kwad.sdk.contentalliance.detail.b implements View.OnC
             this.g.setVisibility(8);
         }
         this.d.setTranslationX(0.0f);
-        this.f8717b.setVisibility(8);
-        this.f8717b.removeCallbacks(this.E);
+        this.f8417b.setVisibility(8);
+        this.f8417b.removeCallbacks(this.E);
         if (this.v != null) {
             this.v.b();
             this.v = null;
@@ -216,14 +216,14 @@ public class d extends com.kwad.sdk.contentalliance.detail.b implements View.OnC
         SceneImpl sceneImpl = this.n.mAdScene;
         f fVar = new f(sceneImpl);
         if (sceneImpl instanceof SceneImpl) {
-            fVar.f9466b = this.n.mAdScene.getPageScene();
+            fVar.f9166b = this.n.mAdScene.getPageScene();
         }
         fVar.c = 101L;
         PhotoInfo k = com.kwad.sdk.core.response.b.c.k(this.n);
         final long k2 = com.kwad.sdk.core.response.b.d.k(k);
         l lVar = new l();
-        lVar.f9476a = k2;
-        lVar.f9477b = com.kwad.sdk.core.response.b.d.o(k);
+        lVar.f9176a = k2;
+        lVar.f9177b = com.kwad.sdk.core.response.b.d.o(k);
         com.kwad.sdk.core.g.f.a(k2, fVar, lVar, new f.a() { // from class: com.kwad.sdk.contentalliance.detail.photo.a.d.2
             @Override // com.kwad.sdk.core.g.f.a
             public void a(int i, String str) {
@@ -324,7 +324,7 @@ public class d extends com.kwad.sdk.contentalliance.detail.b implements View.OnC
             return;
         }
         this.v = new b();
-        this.v.a(this.d, this.g, this.f8717b, this.e, this.c, this.r, this.t);
+        this.v.a(this.d, this.g, this.f8417b, this.e, this.c, this.r, this.t);
         this.v.a();
     }
 
@@ -351,12 +351,12 @@ public class d extends com.kwad.sdk.contentalliance.detail.b implements View.OnC
         if (u()) {
             return;
         }
-        this.f8717b.removeCallbacks(this.E);
+        this.f8417b.removeCallbacks(this.E);
         long j = this.s.strongStyleAppearTime;
         if (j <= 0) {
             j = 5000;
         }
-        this.f8717b.postDelayed(this.E, j);
+        this.f8417b.postDelayed(this.E, j);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -377,13 +377,13 @@ public class d extends com.kwad.sdk.contentalliance.detail.b implements View.OnC
     @Override // com.kwad.sdk.contentalliance.detail.b, com.kwad.sdk.mvp.Presenter
     public void a() {
         super.a();
-        this.n = this.f8693a.j;
+        this.n = this.f8393a.j;
         if (!com.kwad.sdk.core.response.b.d.H(com.kwad.sdk.core.response.b.c.k(this.n))) {
             this.o = false;
             return;
         }
         this.o = true;
-        this.f8693a.f8703b.add(this.A);
+        this.f8393a.f8403b.add(this.A);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -391,7 +391,7 @@ public class d extends com.kwad.sdk.contentalliance.detail.b implements View.OnC
     public void b_() {
         super.b_();
         if (this.o) {
-            this.f8693a.f8703b.remove(this.A);
+            this.f8393a.f8403b.remove(this.A);
         }
     }
 
@@ -401,7 +401,7 @@ public class d extends com.kwad.sdk.contentalliance.detail.b implements View.OnC
         super.c();
         this.c = (AdBaseFrameLayout) b(R.id.ksad_root_container);
         this.d = (ViewGroup) b(R.id.ksad_bottom_content_container);
-        this.f8717b = (FrameLayout) b(R.id.ksad_web_card_container);
+        this.f8417b = (FrameLayout) b(R.id.ksad_web_card_container);
         this.e = (WebView) b(R.id.ksad_actionbar_web_card);
         this.f = (ViewStub) b(R.id.ksad_patch_ad_view_stub);
     }
@@ -411,15 +411,15 @@ public class d extends com.kwad.sdk.contentalliance.detail.b implements View.OnC
         if (view == this.m) {
             p();
             this.y = true;
-            this.f8717b.removeCallbacks(this.E);
+            this.f8417b.removeCallbacks(this.E);
             y();
         } else if (view == this.g) {
             if (!com.ksad.download.d.b.a(view.getContext())) {
                 p.a(view.getContext(), "网络错误");
             }
             com.kwad.sdk.core.download.b.b.a(this.t, true);
-            com.kwad.sdk.core.download.b.a.a(view.getContext(), this.r, new a.InterfaceC1105a() { // from class: com.kwad.sdk.contentalliance.detail.photo.a.d.6
-                @Override // com.kwad.sdk.core.download.b.a.InterfaceC1105a
+            com.kwad.sdk.core.download.b.a.a(view.getContext(), this.r, new a.InterfaceC1088a() { // from class: com.kwad.sdk.contentalliance.detail.photo.a.d.6
+                @Override // com.kwad.sdk.core.download.b.a.InterfaceC1088a
                 public void a() {
                     d.this.z = true;
                     d.this.x();

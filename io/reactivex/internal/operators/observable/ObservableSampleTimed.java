@@ -9,14 +9,14 @@ import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes5.dex */
 public final class ObservableSampleTimed<T> extends a<T, T> {
     final long period;
-    final boolean qjd;
+    final boolean qeB;
     final v scheduler;
     final TimeUnit unit;
 
     @Override // io.reactivex.q
     public void a(u<? super T> uVar) {
         io.reactivex.observers.b bVar = new io.reactivex.observers.b(uVar);
-        if (this.qjd) {
+        if (this.qeB) {
             this.source.subscribe(new SampleTimedEmitLast(bVar, this.period, this.unit, this.scheduler));
         } else {
             this.source.subscribe(new SampleTimedNoLast(bVar, this.period, this.unit, this.scheduler));

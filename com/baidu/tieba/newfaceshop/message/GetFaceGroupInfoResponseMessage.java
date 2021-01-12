@@ -10,7 +10,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class GetFaceGroupInfoResponseMessage extends JsonHttpResponsedMessage {
     private a mData;
 
@@ -61,7 +61,7 @@ public class GetFaceGroupInfoResponseMessage extends JsonHttpResponsedMessage {
                 bVar.url = jSONObject.optString("url");
                 bVar.thumbnail = jSONObject.optString("thumbnail");
                 bVar.name = jSONObject.optString("name");
-                bVar.lwZ = jSONObject.optString("thumbname");
+                bVar.lst = jSONObject.optString("thumbname");
                 bVar.width = jSONObject.optInt("width");
                 bVar.height = jSONObject.optInt("height");
                 arrayList.add(bVar);

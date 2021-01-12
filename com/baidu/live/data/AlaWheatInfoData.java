@@ -1,14 +1,13 @@
 package com.baidu.live.data;
 
 import android.text.TextUtils;
-import com.baidu.platform.comapi.map.MapBundleKey;
 import com.baidu.tbadk.core.atomData.SubPbActivityConfig;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class AlaWheatInfoData implements Serializable, Cloneable {
     public String bg_img;
     public String bigPortrait;
@@ -60,7 +59,7 @@ public class AlaWheatInfoData implements Serializable, Cloneable {
         this.bigPortrait = jSONObject.optString("big_portrait", "");
         this.sex = jSONObject.optInt("sex", 0);
         this.fansCount = jSONObject.optInt("fans_count", 0);
-        this.level = jSONObject.optInt(MapBundleKey.MapObjKey.OBJ_LEVEL, 0);
+        this.level = jSONObject.optInt("level", 0);
         this.userIdentity = jSONObject.optInt(SubPbActivityConfig.KEY_USER_IDENTITY, 0);
         this.charmCount = jSONObject.optString("charm_count", "");
         this.startTime = jSONObject.optString("start_time", "");

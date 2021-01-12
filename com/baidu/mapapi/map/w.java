@@ -1,29 +1,137 @@
 package com.baidu.mapapi.map;
 
-import android.animation.ValueAnimator;
-import android.view.View;
-import android.view.ViewGroup;
+import android.graphics.Bitmap;
+import android.util.SparseArray;
+import android.view.MotionEvent;
+import android.widget.ImageView;
+import android.widget.TextView;
+import com.baidu.mapapi.model.inner.GeoPoint;
+import com.baidu.mapsdkplatform.comapi.map.ab;
+import javax.microedition.khronos.opengles.GL10;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes3.dex */
-public class w implements ValueAnimator.AnimatorUpdateListener {
+/* loaded from: classes6.dex */
+public class w implements com.baidu.mapsdkplatform.comapi.map.l {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ViewGroup.LayoutParams f2938a;
-
-    /* renamed from: b  reason: collision with root package name */
-    final /* synthetic */ SwipeDismissTouchListener f2939b;
+    final /* synthetic */ WearMapView f2817a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public w(SwipeDismissTouchListener swipeDismissTouchListener, ViewGroup.LayoutParams layoutParams) {
-        this.f2939b = swipeDismissTouchListener;
-        this.f2938a = layoutParams;
+    public w(WearMapView wearMapView) {
+        this.f2817a = wearMapView;
     }
 
-    @Override // android.animation.ValueAnimator.AnimatorUpdateListener
-    public void onAnimationUpdate(ValueAnimator valueAnimator) {
-        View view;
-        this.f2938a.height = ((Integer) valueAnimator.getAnimatedValue()).intValue();
-        view = this.f2939b.e;
-        view.setLayoutParams(this.f2938a);
+    @Override // com.baidu.mapsdkplatform.comapi.map.l
+    public void a() {
+        com.baidu.mapsdkplatform.comapi.map.j jVar;
+        com.baidu.mapsdkplatform.comapi.map.j jVar2;
+        com.baidu.mapsdkplatform.comapi.map.j jVar3;
+        float f;
+        SparseArray sparseArray;
+        com.baidu.mapsdkplatform.comapi.map.j jVar4;
+        ImageView imageView;
+        TextView textView;
+        TextView textView2;
+        jVar = this.f2817a.e;
+        if (jVar != null) {
+            jVar2 = this.f2817a.e;
+            if (jVar2.a() == null) {
+                return;
+            }
+            jVar3 = this.f2817a.e;
+            float f2 = jVar3.a().E().f3040a;
+            f = this.f2817a.z;
+            if (f != f2) {
+                sparseArray = WearMapView.w;
+                int intValue = ((Integer) sparseArray.get((int) f2)).intValue();
+                jVar4 = this.f2817a.e;
+                int i = (int) (intValue / jVar4.a().E().m);
+                imageView = this.f2817a.q;
+                imageView.setPadding(i / 2, 0, i / 2, 0);
+                String format = intValue >= 1000 ? String.format(" %d公里 ", Integer.valueOf(intValue / 1000)) : String.format(" %d米 ", Integer.valueOf(intValue));
+                textView = this.f2817a.o;
+                textView.setText(format);
+                textView2 = this.f2817a.p;
+                textView2.setText(format);
+                this.f2817a.z = f2;
+            }
+            this.f2817a.requestLayout();
+        }
+    }
+
+    @Override // com.baidu.mapsdkplatform.comapi.map.l
+    public void a(Bitmap bitmap) {
+    }
+
+    @Override // com.baidu.mapsdkplatform.comapi.map.l
+    public void a(MotionEvent motionEvent) {
+    }
+
+    @Override // com.baidu.mapsdkplatform.comapi.map.l
+    public void a(GeoPoint geoPoint) {
+    }
+
+    @Override // com.baidu.mapsdkplatform.comapi.map.l
+    public void a(ab abVar) {
+    }
+
+    @Override // com.baidu.mapsdkplatform.comapi.map.l
+    public void a(String str) {
+    }
+
+    @Override // com.baidu.mapsdkplatform.comapi.map.l
+    public void a(GL10 gl10, ab abVar) {
+    }
+
+    @Override // com.baidu.mapsdkplatform.comapi.map.l
+    public void a(boolean z) {
+    }
+
+    @Override // com.baidu.mapsdkplatform.comapi.map.l
+    public void b() {
+    }
+
+    @Override // com.baidu.mapsdkplatform.comapi.map.l
+    public void b(GeoPoint geoPoint) {
+    }
+
+    @Override // com.baidu.mapsdkplatform.comapi.map.l
+    public void b(ab abVar) {
+    }
+
+    @Override // com.baidu.mapsdkplatform.comapi.map.l
+    public boolean b(String str) {
+        return false;
+    }
+
+    @Override // com.baidu.mapsdkplatform.comapi.map.l
+    public void c() {
+    }
+
+    @Override // com.baidu.mapsdkplatform.comapi.map.l
+    public void c(GeoPoint geoPoint) {
+    }
+
+    @Override // com.baidu.mapsdkplatform.comapi.map.l
+    public void c(ab abVar) {
+    }
+
+    @Override // com.baidu.mapsdkplatform.comapi.map.l
+    public void d() {
+    }
+
+    @Override // com.baidu.mapsdkplatform.comapi.map.l
+    public void d(GeoPoint geoPoint) {
+    }
+
+    @Override // com.baidu.mapsdkplatform.comapi.map.l
+    public void e() {
+    }
+
+    @Override // com.baidu.mapsdkplatform.comapi.map.l
+    public void e(GeoPoint geoPoint) {
+    }
+
+    @Override // com.baidu.mapsdkplatform.comapi.map.l
+    public void f() {
     }
 }

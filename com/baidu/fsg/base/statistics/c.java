@@ -1,12 +1,12 @@
 package com.baidu.fsg.base.statistics;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f1986a = "dim_excep_time";
+    public static final String f1936a = "dim_excep_time";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f1987b = "dim_excep_cont";
+    public static final String f1937b = "dim_excep_cont";
     public static final String c = "dim_excep_type";
     public static final String d = "dim_excep_line_way";
     public static final String e = "dim_excep_free_mem";

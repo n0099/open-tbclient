@@ -3,7 +3,6 @@ package com.baidu.swan.ubc;
 import android.content.Context;
 import android.text.TextUtils;
 import android.util.Base64;
-import com.baidu.platform.comapi.map.MapBundleKey;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileOutputStream;
@@ -43,19 +42,19 @@ public class b {
             jSONObject.put("eventType", "0");
             if (!TextUtils.isEmpty(iVar.getContent())) {
                 jSONObject.put("content", iVar.getContent());
-            } else if (iVar.biC() != null) {
-                jSONObject.put("content", iVar.biC().toString());
+            } else if (iVar.beI() != null) {
+                jSONObject.put("content", iVar.beI().toString());
             }
-            if (!TextUtils.isEmpty(iVar.biB())) {
-                jSONObject.put("abtest", iVar.biB());
+            if (!TextUtils.isEmpty(iVar.beH())) {
+                jSONObject.put("abtest", iVar.beH());
             }
             if (!TextUtils.isEmpty(iVar.getCategory())) {
                 jSONObject.put("c", iVar.getCategory());
             }
-            if (iVar.bix()) {
-                jSONObject.put(MapBundleKey.MapObjKey.OBJ_OFFSET, "1");
+            if (iVar.beD()) {
+                jSONObject.put("of", "1");
             }
-            jSONObject.put("idtype", d.bik().zu(iVar.getId()));
+            jSONObject.put("idtype", d.beq().yj(iVar.getId()));
         } catch (JSONException e) {
         }
         byte[] encode = Base64.encode(jSONObject.toString().getBytes(), 2);
@@ -113,7 +112,7 @@ public class b {
                         }
                         JSONObject jSONObject = new JSONObject(new String(Base64.decode(readLine.getBytes(), 2)));
                         if (jSONObject.has("abtest")) {
-                            vVar.zF("1");
+                            vVar.yu("1");
                         }
                         long j3 = jSONObject.getLong("timestamp");
                         if (j3 > 0) {
@@ -169,7 +168,7 @@ public class b {
                             }
                             JSONObject jSONObject = new JSONObject(new String(Base64.decode(readLine.getBytes(), 2)));
                             if (jSONObject.has("abtest")) {
-                                vVar.zF("1");
+                                vVar.yu("1");
                             }
                             long j3 = jSONObject.getLong("timestamp");
                             if (j3 > 0) {
@@ -207,7 +206,7 @@ public class b {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void iJ(boolean z) {
+    public void iF(boolean z) {
         File[] listFiles;
         File file = new File(this.mContext.getFilesDir(), "ubcdir");
         if (file.exists()) {

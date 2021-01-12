@@ -7,23 +7,23 @@ import java.lang.reflect.Type;
 public class a<T> {
 
     /* renamed from: a  reason: collision with root package name */
-    final Class<? super T> f7278a;
+    final Class<? super T> f6978a;
 
     /* renamed from: b  reason: collision with root package name */
-    final Type f7279b;
+    final Type f6979b;
     final int c;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public a() {
-        this.f7279b = a(getClass());
-        this.f7278a = (Class<? super T>) b.e(this.f7279b);
-        this.c = this.f7279b.hashCode();
+        this.f6979b = a(getClass());
+        this.f6978a = (Class<? super T>) b.e(this.f6979b);
+        this.c = this.f6979b.hashCode();
     }
 
     a(Type type) {
-        this.f7279b = b.d((Type) com.bytedance.sdk.openadsdk.d.b.a.a(type));
-        this.f7278a = (Class<? super T>) b.e(this.f7279b);
-        this.c = this.f7279b.hashCode();
+        this.f6979b = b.d((Type) com.bytedance.sdk.openadsdk.d.b.a.a(type));
+        this.f6978a = (Class<? super T>) b.e(this.f6979b);
+        this.c = this.f6979b.hashCode();
     }
 
     static Type a(Class<?> cls) {
@@ -35,11 +35,11 @@ public class a<T> {
     }
 
     public final Class<? super T> a() {
-        return this.f7278a;
+        return this.f6978a;
     }
 
     public final Type b() {
-        return this.f7279b;
+        return this.f6979b;
     }
 
     public final int hashCode() {
@@ -47,11 +47,11 @@ public class a<T> {
     }
 
     public final boolean equals(Object obj) {
-        return (obj instanceof a) && b.a(this.f7279b, ((a) obj).f7279b);
+        return (obj instanceof a) && b.a(this.f6979b, ((a) obj).f6979b);
     }
 
     public final String toString() {
-        return b.f(this.f7279b);
+        return b.f(this.f6979b);
     }
 
     public static a<?> a(Type type) {

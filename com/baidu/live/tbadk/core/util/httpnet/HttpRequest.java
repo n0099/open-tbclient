@@ -14,7 +14,7 @@ import com.baidu.live.tbadk.core.util.INetWorkCore;
 import com.baidu.live.tbadk.coreextra.data.AlaLiveSwitchData;
 import com.baidu.sofire.ac.FH;
 import com.xiaomi.mipush.sdk.Constants;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class HttpRequest {
     public static final String BDUSS = "BDUSS";
     public static final String CLIENT_ID = "_client_id";

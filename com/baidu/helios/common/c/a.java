@@ -8,32 +8,32 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.util.ArrayList;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class a {
-    private C0141a axO;
+    private C0133a atc;
     private Context mContext;
 
     public a(Context context) {
         this.mContext = context;
-        ze().mkdirs();
+        vj().mkdirs();
     }
 
-    public File zd() {
+    public File vi() {
         return new File(this.mContext.getApplicationInfo().dataDir);
     }
 
-    private File ze() {
-        return new File(zd(), ".helios");
+    private File vj() {
+        return new File(vi(), ".helios");
     }
 
-    public synchronized C0141a zf() {
-        if (this.axO == null) {
-            this.axO = new C0141a(".helios", null);
+    public synchronized C0133a vk() {
+        if (this.atc == null) {
+            this.atc = new C0133a(".helios", null);
         }
-        return this.axO;
+        return this.atc;
     }
 
-    public static void l(File file) {
+    public static void k(File file) {
         file.mkdirs();
     }
 
@@ -42,7 +42,7 @@ public class a {
         Throwable th;
         FileOutputStream fileOutputStream;
         FileOutputStream fileOutputStream2;
-        l(file);
+        k(file);
         FileOutputStream fileOutputStream3 = null;
         try {
             fileOutputStream2 = new FileOutputStream(new File(file, str));
@@ -53,7 +53,7 @@ public class a {
         }
         try {
             if (z) {
-                fileOutputStream2.write(new b().x(str2.getBytes(str3)));
+                fileOutputStream2.write(new b().w(str2.getBytes(str3)));
             } else {
                 fileOutputStream2.write(str2.getBytes(str3));
             }
@@ -76,7 +76,7 @@ public class a {
         ByteArrayOutputStream byteArrayOutputStream;
         FileInputStream fileInputStream;
         ByteArrayOutputStream byteArrayOutputStream2;
-        l(file);
+        k(file);
         File file2 = new File(file, str);
         try {
             byteArrayOutputStream = new ByteArrayOutputStream();
@@ -99,7 +99,7 @@ public class a {
                     byteArrayOutputStream.write(bArr, 0, read);
                 }
                 byte[] byteArray = byteArrayOutputStream.toByteArray();
-                String str3 = new String(z ? new b().y(byteArray) : byteArray, str2);
+                String str3 = new String(z ? new b().x(byteArray) : byteArray, str2);
                 c.c(fileInputStream);
                 c.c(byteArrayOutputStream);
                 return str3;
@@ -125,85 +125,85 @@ public class a {
     }
 
     /* renamed from: com.baidu.helios.common.c.a$a  reason: collision with other inner class name */
-    /* loaded from: classes4.dex */
-    public final class C0141a {
-        private File axP;
-        private String axQ;
-        private C0141a axR;
-        private boolean axS;
+    /* loaded from: classes3.dex */
+    public final class C0133a {
+        private File atd;
+        private String ate;
+        private C0133a atf;
+        private boolean atg;
 
-        C0141a(String str, C0141a c0141a) {
-            this.axS = false;
-            this.axQ = str;
-            this.axR = c0141a;
-            this.axS = false;
+        C0133a(String str, C0133a c0133a) {
+            this.atg = false;
+            this.ate = str;
+            this.atf = c0133a;
+            this.atg = false;
         }
 
-        C0141a(File file) {
-            this.axS = false;
-            this.axS = true;
-            this.axP = file;
-            this.axQ = file.getName();
+        C0133a(File file) {
+            this.atg = false;
+            this.atg = true;
+            this.atd = file;
+            this.ate = file.getName();
         }
 
-        public void zg() {
-            zh().mkdirs();
+        public void vl() {
+            vm().mkdirs();
         }
 
-        public File zh() {
-            File file = this.axP;
+        public File vm() {
+            File file = this.atd;
             if (file == null) {
-                if (this.axR == null) {
-                    file = new File(a.this.zd(), this.axQ);
+                if (this.atf == null) {
+                    file = new File(a.this.vi(), this.ate);
                 } else {
-                    file = new File(this.axR.zh(), this.axQ);
+                    file = new File(this.atf.vm(), this.ate);
                 }
-                this.axP = file;
+                this.atd = file;
             }
             return file;
         }
 
-        public String zi() {
-            return this.axQ;
+        public String vn() {
+            return this.ate;
         }
 
-        public C0141a fm(String str) {
-            return new C0141a(str, this);
+        public C0133a ea(String str) {
+            return new C0133a(str, this);
         }
 
         public File getFile(String str) {
-            return new File(this.axP, str);
+            return new File(this.atd, str);
         }
 
-        public C0141a zj() {
-            return this.axR;
+        public C0133a vo() {
+            return this.atf;
         }
 
         public boolean c(String str, String str2, boolean z) {
-            return a.b(zh(), str, str2, "UTF-8", z);
+            return a.b(vm(), str, str2, "UTF-8", z);
         }
 
         public String p(String str, boolean z) {
-            return a.b(zh(), str, "UTF-8", z);
+            return a.b(vm(), str, "UTF-8", z);
         }
 
-        public C0141a m(File file) {
-            if (this.axS) {
+        public C0133a l(File file) {
+            if (this.atg) {
                 throw new IllegalStateException("isolate session is not support");
             }
             ArrayList arrayList = new ArrayList();
-            C0141a c0141a = this;
+            C0133a c0133a = this;
             do {
-                arrayList.add(c0141a.zi());
-                c0141a = c0141a.zj();
-            } while (c0141a != null);
+                arrayList.add(c0133a.vn());
+                c0133a = c0133a.vo();
+            } while (c0133a != null);
             int size = arrayList.size() - 1;
             while (size >= 0) {
                 File file2 = new File(file, (String) arrayList.get(size));
                 size--;
                 file = file2;
             }
-            return new C0141a(file);
+            return new C0133a(file);
         }
     }
 }

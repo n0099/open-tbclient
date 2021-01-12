@@ -5,47 +5,47 @@ import androidx.annotation.NonNull;
 import com.baidu.swan.apps.inlinewidget.a.a.d;
 import com.baidu.swan.apps.inlinewidget.a.a.e;
 import com.baidu.swan.apps.inlinewidget.a.c;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 class a extends com.baidu.swan.apps.inlinewidget.b<c> {
-    private final c.a dgb;
+    private final c.a dbm;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(@NonNull c cVar) {
         super(cVar);
-        this.dgb = new c.a() { // from class: com.baidu.swan.apps.inlinewidget.a.a.1
+        this.dbm = new c.a() { // from class: com.baidu.swan.apps.inlinewidget.a.a.1
             @Override // com.baidu.swan.apps.inlinewidget.a.c.a
-            public void hW(int i) {
-                if (a.this.dfU != null) {
-                    a.this.dfU.onCallback(a.this, "onCustomKeyboardShow", Integer.valueOf(i));
+            public void gq(int i) {
+                if (a.this.dbf != null) {
+                    a.this.dbf.onCallback(a.this, "onCustomKeyboardShow", Integer.valueOf(i));
                 }
             }
 
             @Override // com.baidu.swan.apps.inlinewidget.a.c.a
-            public void aoL() {
-                if (a.this.dfU != null) {
-                    a.this.dfU.onCallback(a.this, "onCustomKeyboardHide", null);
+            public void akR() {
+                if (a.this.dbf != null) {
+                    a.this.dbf.onCallback(a.this, "onCustomKeyboardHide", null);
                 }
             }
 
             @Override // com.baidu.swan.apps.inlinewidget.a.c.a
-            public void oX(String str) {
-                if (a.this.dfU != null) {
-                    a.this.dfU.onCallback(a.this, "committext", str);
+            public void nK(String str) {
+                if (a.this.dbf != null) {
+                    a.this.dbf.onCallback(a.this, "committext", str);
                 }
             }
 
             @Override // com.baidu.swan.apps.inlinewidget.a.c.a
-            public void azv() {
-                if (a.this.dfU != null) {
-                    a.this.dfU.onCallback(a.this, "deletebutton", new KeyEvent(0, 67));
+            public void avB() {
+                if (a.this.dbf != null) {
+                    a.this.dbf.onCallback(a.this, "deletebutton", new KeyEvent(0, 67));
                 }
             }
         };
-        cVar.a(this.dgb);
-        this.dfT.a(new e());
-        this.dfT.a(new com.baidu.swan.apps.inlinewidget.a.a.a());
-        this.dfT.a(new d());
-        this.dfT.a(new com.baidu.swan.apps.inlinewidget.a.a.c());
-        this.dfT.a(new com.baidu.swan.apps.inlinewidget.a.a.b());
+        cVar.a(this.dbm);
+        this.dbe.a(new e());
+        this.dbe.a(new com.baidu.swan.apps.inlinewidget.a.a.a());
+        this.dbe.a(new d());
+        this.dbe.a(new com.baidu.swan.apps.inlinewidget.a.a.c());
+        this.dbe.a(new com.baidu.swan.apps.inlinewidget.a.a.b());
     }
 }

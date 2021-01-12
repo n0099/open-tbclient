@@ -1,97 +1,97 @@
 package com.baidu.live.ah;
 
 import android.text.TextUtils;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class b {
-    public static String Tf() {
-        return a.bCu;
+    public static String Pk() {
+        return a.bxI;
     }
 
-    public static String Tg() {
-        return a.bCw;
+    public static String Pl() {
+        return a.bxK;
     }
 
-    public static String il(String str) {
-        return !TextUtils.isEmpty(str) ? Tg() + "/" + str : "";
+    public static String ha(String str) {
+        return !TextUtils.isEmpty(str) ? Pl() + "/" + str : "";
     }
 
-    public static String im(String str) {
-        return !TextUtils.isEmpty(str) ? il(str) + "/dest" : "";
+    public static String hb(String str) {
+        return !TextUtils.isEmpty(str) ? ha(str) + "/dest" : "";
     }
 
-    public static String in(String str) {
-        return !TextUtils.isEmpty(str) ? il(str) + "/video" : "";
+    public static String hc(String str) {
+        return !TextUtils.isEmpty(str) ? ha(str) + "/video" : "";
     }
 
-    public static String io(String str) {
-        return !TextUtils.isEmpty(str) ? il(str) + "/frame" : "";
+    public static String hd(String str) {
+        return !TextUtils.isEmpty(str) ? ha(str) + "/frame" : "";
     }
 
-    public static String Th() {
-        return a.bCx;
+    public static String Pm() {
+        return a.bxL;
     }
 
-    public static String ip(String str) {
-        return !TextUtils.isEmpty(str) ? Th() + "/" + str : "";
+    public static String he(String str) {
+        return !TextUtils.isEmpty(str) ? Pm() + "/" + str : "";
     }
 
-    public static String iq(String str) {
-        return !TextUtils.isEmpty(str) ? ip(str) + "/dest" : "";
+    public static String hf(String str) {
+        return !TextUtils.isEmpty(str) ? he(str) + "/dest" : "";
     }
 
-    public static String ir(String str) {
-        return !TextUtils.isEmpty(str) ? ip(str) + "/video" : "";
+    public static String hg(String str) {
+        return !TextUtils.isEmpty(str) ? he(str) + "/video" : "";
     }
 
-    public static String is(String str) {
-        return !TextUtils.isEmpty(str) ? ip(str) + "/frame" : "";
+    public static String hh(String str) {
+        return !TextUtils.isEmpty(str) ? he(str) + "/frame" : "";
     }
 
-    public static String Ti() {
-        return a.bCy;
+    public static String Pn() {
+        return a.bxM;
     }
 
-    public static String Tj() {
-        return a.bCB;
+    public static String Po() {
+        return a.bxP;
     }
 
-    public static String Tk() {
-        return Ti() + "/start";
+    public static String Pp() {
+        return Pn() + "/start";
     }
 
-    public static String Tl() {
-        return Tj() + "/start";
+    public static String Pq() {
+        return Po() + "/start";
     }
 
-    public static String Tm() {
-        return Tk() + "/dest";
+    public static String Pr() {
+        return Pp() + "/dest";
     }
 
-    public static String Tn() {
-        return Tl() + "/dest";
+    public static String Ps() {
+        return Pq() + "/dest";
     }
 
-    public static String To() {
-        return Tk() + "/video";
+    public static String Pt() {
+        return Pp() + "/video";
     }
 
-    public static String it(String str) {
-        return a.bCz + "/" + str + "/dest";
+    public static String hi(String str) {
+        return a.bxN + "/" + str + "/dest";
     }
 
-    public static String iu(String str) {
-        return a.bCA + "/" + str + "/dest";
+    public static String hj(String str) {
+        return a.bxO + "/" + str + "/dest";
     }
 
-    public static String iv(String str) {
-        return a.bCz + "/" + str;
+    public static String hk(String str) {
+        return a.bxN + "/" + str;
     }
 
-    public static String iw(String str) {
-        return a.bCA + "/" + str;
+    public static String hl(String str) {
+        return a.bxO + "/" + str;
     }
 
-    public static String Tp() {
-        return Tl() + "/video";
+    public static String Pu() {
+        return Pq() + "/video";
     }
 }

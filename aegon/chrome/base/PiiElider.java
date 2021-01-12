@@ -5,7 +5,7 @@ import androidx.core.app.NotificationCompat;
 import com.baidu.android.common.others.java.Patterns;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class PiiElider {
     public static final String[] APP_NAMESPACE;
     public static final String[] SYSTEM_NAMESPACE;

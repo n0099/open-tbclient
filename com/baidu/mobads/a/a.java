@@ -1,14 +1,14 @@
 package com.baidu.mobads.a;
 
 import com.baidu.ar.constants.HttpConstants;
-/* loaded from: classes3.dex */
+/* loaded from: classes14.dex */
 public final class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f3336a = b.f3338a.booleanValue();
+    public static final boolean f3298a = b.f3300a.booleanValue();
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int f3337b;
+    public static final int f3299b;
     public static String c;
     public static final Object d;
     public static final Object e;
@@ -29,7 +29,7 @@ public final class a {
     public static String t;
 
     static {
-        f3337b = f3336a ? 2 : 4;
+        f3299b = f3298a ? 2 : 4;
         c = "0.0";
         d = HttpConstants.OS_TYPE_VALUE;
         e = "androidlunpan";

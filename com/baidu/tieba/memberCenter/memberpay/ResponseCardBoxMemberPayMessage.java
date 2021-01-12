@@ -2,7 +2,7 @@ package com.baidu.tieba.memberCenter.memberpay;
 
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class ResponseCardBoxMemberPayMessage extends JsonHttpResponsedMessage {
     private f mData;
 

@@ -24,9 +24,9 @@ public class c {
         if (hotThreadListResIdl == null || hotThreadListResIdl.data == null || x.isEmpty(hotThreadListResIdl.data.thread_info)) {
             return null;
         }
-        boolean bmy = d.bmy();
+        boolean biE = d.biE();
         List<ThreadInfo> list = hotThreadListResIdl.data.thread_info;
-        if (bmy) {
+        if (biE) {
             return dZ(list);
         }
         return dY(list);
@@ -62,7 +62,7 @@ public class c {
         ArrayList arrayList = new ArrayList(list.size());
         for (ThreadInfo threadInfo : list) {
             bz bzVar = new bz();
-            bzVar.eWi = true;
+            bzVar.eRx = true;
             bzVar.a(threadInfo);
             aC(bzVar);
             arrayList.add(bzVar);
@@ -71,12 +71,12 @@ public class c {
     }
 
     private static void aC(bz bzVar) {
-        String bqO = bzVar.bqO();
-        String dT = at.dT(bzVar.brk() * 1000);
-        if (!TextUtils.isEmpty(bqO) && !TextUtils.isEmpty(dT)) {
-            bqO = bqO + "   " + dT;
+        String bmU = bzVar.bmU();
+        String dT = at.dT(bzVar.bnq() * 1000);
+        if (!TextUtils.isEmpty(bmU) && !TextUtils.isEmpty(dT)) {
+            bmU = bmU + "   " + dT;
         }
-        bzVar.AZ(bqO);
+        bzVar.zO(bmU);
     }
 
     public static List<n> ea(List<bz> list) {
@@ -87,54 +87,54 @@ public class c {
         int i = 0;
         for (bz bzVar : list) {
             int[] imageWidthAndHeight = bzVar.getImageWidthAndHeight();
-            if (bzVar.getType() == bz.eSL) {
+            if (bzVar.getType() == bz.eOa) {
                 bzVar.position = i;
                 by byVar = new by();
-                byVar.eMv = bzVar;
+                byVar.eHK = bzVar;
                 byVar.position = i;
-                byVar.eSH = true;
+                byVar.eNW = true;
                 byVar.setSupportType(BaseCardInfo.SupportType.TOP);
                 arrayList.add(byVar);
                 by byVar2 = new by();
-                byVar2.eMv = bzVar;
+                byVar2.eHK = bzVar;
                 byVar2.position = i;
-                if (bzVar.btp()) {
-                    byVar2.eSv = true;
-                } else if (bzVar.bsz() == 1) {
-                    byVar2.eSt = true;
-                    byVar2.eSI = imageWidthAndHeight[0];
-                    byVar2.eSJ = imageWidthAndHeight[1];
-                } else if (bzVar.bsz() >= 2) {
-                    byVar2.eSu = true;
+                if (bzVar.bpv()) {
+                    byVar2.eNK = true;
+                } else if (bzVar.boF() == 1) {
+                    byVar2.eNI = true;
+                    byVar2.eNX = imageWidthAndHeight[0];
+                    byVar2.eNY = imageWidthAndHeight[1];
+                } else if (bzVar.boF() >= 2) {
+                    byVar2.eNJ = true;
                 } else {
-                    byVar2.eSr = true;
+                    byVar2.eNG = true;
                 }
                 byVar2.setSupportType(BaseCardInfo.SupportType.CONTENT);
                 arrayList.add(byVar2);
                 by byVar3 = new by();
-                byVar3.eSw = true;
-                byVar3.eMv = bzVar;
+                byVar3.eNL = true;
+                byVar3.eHK = bzVar;
                 byVar3.position = i;
                 byVar3.setSupportType(BaseCardInfo.SupportType.BOTTOM);
                 arrayList.add(byVar3);
                 i++;
-            } else if (bzVar.getType() == bz.eTj) {
+            } else if (bzVar.getType() == bz.eOy) {
                 bzVar.position = i;
                 by byVar4 = new by();
-                byVar4.eMv = bzVar;
+                byVar4.eHK = bzVar;
                 byVar4.position = i;
-                byVar4.eSH = true;
+                byVar4.eNW = true;
                 byVar4.setSupportType(BaseCardInfo.SupportType.TOP);
                 arrayList.add(byVar4);
                 by byVar5 = new by();
-                byVar5.eMv = bzVar;
+                byVar5.eHK = bzVar;
                 byVar5.position = i;
-                byVar5.eSy = true;
+                byVar5.eNN = true;
                 byVar5.setSupportType(BaseCardInfo.SupportType.CONTENT);
                 arrayList.add(byVar5);
                 by byVar6 = new by();
-                byVar6.eSw = true;
-                byVar6.eMv = bzVar;
+                byVar6.eNL = true;
+                byVar6.eHK = bzVar;
                 byVar6.position = i;
                 byVar6.setSupportType(BaseCardInfo.SupportType.BOTTOM);
                 arrayList.add(byVar6);

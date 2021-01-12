@@ -12,12 +12,12 @@ import com.baidu.live.tbadk.TbPageContext;
 import com.baidu.live.tbadk.core.util.ListUtils;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class AlaThroneAndNobleControllerAdapter extends PagerAdapter {
-    private String aPa;
-    private String bvS;
-    private ArrayList<c> hex = new ArrayList<>();
-    private ArrayList<com.baidu.tieba.ala.guardthrone.b.b> hey = new ArrayList<>();
+    private String aKn;
+    private String bre;
+    private ArrayList<c> gZR = new ArrayList<>();
+    private ArrayList<com.baidu.tieba.ala.guardthrone.b.b> gZS = new ArrayList<>();
     private boolean mIsHost;
     private String mLiveId;
     private int mTabId;
@@ -26,27 +26,27 @@ public class AlaThroneAndNobleControllerAdapter extends PagerAdapter {
     public AlaThroneAndNobleControllerAdapter(TbPageContext tbPageContext, String str, String str2, String str3, int i, boolean z) {
         this.mTbPageContext = tbPageContext;
         this.mLiveId = str;
-        this.bvS = str2;
-        this.aPa = str3;
+        this.bre = str2;
+        this.aKn = str3;
         this.mTabId = i;
         this.mIsHost = z;
-        bZB();
+        bVJ();
     }
 
-    private void bZB() {
+    private void bVJ() {
         com.baidu.tieba.ala.guardthrone.b.b bVar = new com.baidu.tieba.ala.guardthrone.b.b();
         com.baidu.tieba.ala.guardthrone.a.a aVar = new com.baidu.tieba.ala.guardthrone.a.a();
-        aVar.a(this.mTbPageContext, this.mLiveId, this.bvS, this.aPa, this.mTabId, this.mIsHost);
-        this.hex.add(aVar);
+        aVar.a(this.mTbPageContext, this.mLiveId, this.bre, this.aKn, this.mTabId, this.mIsHost);
+        this.gZR.add(aVar);
         bVar.tabName = this.mTbPageContext.getString(a.h.guard_throne_title);
-        bVar.heM = "guard_throne";
-        this.hey.add(bVar);
+        bVar.hag = "guard_throne";
+        this.gZS.add(bVar);
         c cVar = null;
         com.baidu.live.noble.data.c cVar2 = new com.baidu.live.noble.data.c();
         cVar2.mTbPageContext = this.mTbPageContext;
         cVar2.mLiveId = this.mLiveId;
-        cVar2.bvS = this.bvS;
-        cVar2.aPa = this.aPa;
+        cVar2.bre = this.bre;
+        cVar2.aKn = this.aKn;
         cVar2.mTabId = this.mTabId;
         cVar2.mIsHost = this.mIsHost;
         CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2913204, c.class, cVar2);
@@ -54,29 +54,29 @@ public class AlaThroneAndNobleControllerAdapter extends PagerAdapter {
             cVar = (c) runTask.getData();
         }
         if (cVar != null) {
-            this.hex.add(cVar);
+            this.gZR.add(cVar);
             com.baidu.tieba.ala.guardthrone.b.b bVar2 = new com.baidu.tieba.ala.guardthrone.b.b();
             bVar2.tabName = this.mTbPageContext.getString(a.h.noble_title);
-            bVar2.heM = "noble";
-            this.hey.add(bVar2);
+            bVar2.hag = "noble";
+            this.gZS.add(bVar2);
         }
     }
 
     @Override // androidx.viewpager.widget.PagerAdapter
     public int getCount() {
-        if (this.hex != null) {
-            return this.hex.size();
+        if (this.gZR != null) {
+            return this.gZR.size();
         }
         return 0;
     }
 
     public ArrayList<c> getDataList() {
-        return this.hex;
+        return this.gZR;
     }
 
     @Override // androidx.viewpager.widget.PagerAdapter
     public Object instantiateItem(ViewGroup viewGroup, int i) {
-        c cVar = (c) ListUtils.getItem(this.hex, i);
+        c cVar = (c) ListUtils.getItem(this.gZR, i);
         if (cVar != null && cVar.getView() != null) {
             View view = cVar.getView();
             if (view.getParent() != null) {
@@ -93,22 +93,22 @@ public class AlaThroneAndNobleControllerAdapter extends PagerAdapter {
         return (obj instanceof c) && ((c) obj).getView() == view;
     }
 
-    public void uO(int i) {
-        if (i >= 0 && i < this.hey.size()) {
-            for (int i2 = 0; i2 < this.hex.size(); i2++) {
-                c cVar = this.hex.get(i2);
+    public void ti(int i) {
+        if (i >= 0 && i < this.gZS.size()) {
+            for (int i2 = 0; i2 < this.gZR.size(); i2++) {
+                c cVar = this.gZR.get(i2);
                 if (i2 == i) {
-                    cVar.ca(true);
+                    cVar.bW(true);
                 } else {
-                    cVar.ca(false);
+                    cVar.bW(false);
                 }
             }
         }
     }
 
     public void onConfigurationChanged(Configuration configuration) {
-        if (!ListUtils.isEmpty(this.hex)) {
-            Iterator<c> it = this.hex.iterator();
+        if (!ListUtils.isEmpty(this.gZR)) {
+            Iterator<c> it = this.gZR.iterator();
             while (it.hasNext()) {
                 it.next().onConfigurationChanged(configuration);
             }
@@ -116,8 +116,8 @@ public class AlaThroneAndNobleControllerAdapter extends PagerAdapter {
     }
 
     public void onDestroy() {
-        if (!ListUtils.isEmpty(this.hex)) {
-            Iterator<c> it = this.hex.iterator();
+        if (!ListUtils.isEmpty(this.gZR)) {
+            Iterator<c> it = this.gZR.iterator();
             while (it.hasNext()) {
                 it.next().onDestroy();
             }

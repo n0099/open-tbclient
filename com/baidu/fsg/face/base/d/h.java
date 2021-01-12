@@ -31,14 +31,14 @@ import java.util.Enumeration;
 import java.util.Random;
 import java.util.UUID;
 import org.apache.http.conn.util.InetAddressUtils;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class h {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f2145a = "armeabi";
+    public static final String f2095a = "armeabi";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f2146b = "armeabi-v7a";
+    public static final String f2096b = "armeabi-v7a";
     public static final String c = "x86";
     public static final String d = "arm64-v8a";
     static final int e = 480;
@@ -215,7 +215,7 @@ public class h {
     }
 
     public static String a(String str, Context context) {
-        return str + Constants.ACCEPT_TIME_SEPARATOR_SERVER + d(context) + "-Android-sapi_bio-" + com.baidu.fsg.face.base.c.f2132a;
+        return str + Constants.ACCEPT_TIME_SEPARATOR_SERVER + d(context) + "-Android-sapi_bio-" + com.baidu.fsg.face.base.c.f2082a;
     }
 
     public static int a(Context context, float f2) {

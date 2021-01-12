@@ -6,32 +6,32 @@ import com.baidu.card.view.SmartAppBottomLayout;
 import com.baidu.tbadk.TbPageContext;
 /* loaded from: classes.dex */
 public class ah extends h {
-    private SmartAppBottomLayout aiR;
+    private SmartAppBottomLayout ahZ;
 
     public ah(Context context) {
         super(context);
-        this.aiR = new SmartAppBottomLayout(context);
+        this.ahZ = new SmartAppBottomLayout(context);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.card.a
     public View getView() {
-        return this.aiR;
+        return this.ahZ;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.card.p
     /* renamed from: b */
-    public void D(com.baidu.tbadk.core.data.a aVar) {
-        if (this.aiR != null) {
-            this.aiR.D(aVar);
+    public void C(com.baidu.tbadk.core.data.a aVar) {
+        if (this.ahZ != null) {
+            this.ahZ.C(aVar);
         }
     }
 
     @Override // com.baidu.card.q
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
-        if (this.aiR != null) {
-            this.aiR.onChangeSkinType();
+        if (this.ahZ != null) {
+            this.ahZ.onChangeSkinType();
         }
     }
 }

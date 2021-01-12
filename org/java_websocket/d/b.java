@@ -1,19 +1,19 @@
 package org.java_websocket.d;
 /* loaded from: classes4.dex */
 public class b implements a {
-    private final String qrP;
+    private final String qnn;
 
     public b(String str) {
         if (str == null) {
             throw new IllegalArgumentException();
         }
-        this.qrP = str;
+        this.qnn = str;
     }
 
     @Override // org.java_websocket.d.a
-    public boolean acA(String str) {
+    public boolean abs(String str) {
         for (String str2 : str.replaceAll(" ", "").split(",")) {
-            if (this.qrP.equals(str2)) {
+            if (this.qnn.equals(str2)) {
                 return true;
             }
         }
@@ -21,18 +21,18 @@ public class b implements a {
     }
 
     @Override // org.java_websocket.d.a
-    public String eNQ() {
-        return this.qrP;
+    public String eKa() {
+        return this.qnn;
     }
 
     @Override // org.java_websocket.d.a
-    public a eNR() {
-        return new b(eNQ());
+    public a eKb() {
+        return new b(eKa());
     }
 
     @Override // org.java_websocket.d.a
     public String toString() {
-        return eNQ();
+        return eKa();
     }
 
     public boolean equals(Object obj) {
@@ -42,10 +42,10 @@ public class b implements a {
         if (obj == null || getClass() != obj.getClass()) {
             return false;
         }
-        return this.qrP.equals(((b) obj).qrP);
+        return this.qnn.equals(((b) obj).qnn);
     }
 
     public int hashCode() {
-        return this.qrP.hashCode();
+        return this.qnn.hashCode();
     }
 }

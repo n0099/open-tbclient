@@ -5,19 +5,19 @@ import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.R;
 import com.baidu.tieba.card.b;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class AlaSubListGameLiveDoubleView extends b<com.baidu.tieba.ala.gamelist.b.a> {
-    private a gZk;
-    private a gZl;
+    private a gUE;
+    private a gUF;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static class AlaSubListDoubleLiveViewHolder extends TypeAdapter.ViewHolder {
     }
 
     @Override // com.baidu.tieba.card.b
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
-        this.gZk.onChangeSkinType(tbPageContext, i);
-        this.gZl.onChangeSkinType(tbPageContext, i);
+        this.gUE.onChangeSkinType(tbPageContext, i);
+        this.gUF.onChangeSkinType(tbPageContext, i);
     }
 
     @Override // com.baidu.tieba.card.b
@@ -29,8 +29,8 @@ public class AlaSubListGameLiveDoubleView extends b<com.baidu.tieba.ala.gamelist
     @Override // com.baidu.tieba.card.b
     public void a(com.baidu.tieba.ala.gamelist.b.a aVar) {
         if (aVar != null) {
-            this.gZk.a(aVar.gZa);
-            this.gZl.a(aVar.gZb);
+            this.gUE.a(aVar.gUu);
+            this.gUF.a(aVar.gUv);
         }
     }
 

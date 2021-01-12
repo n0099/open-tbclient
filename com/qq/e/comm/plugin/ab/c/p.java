@@ -1,21 +1,21 @@
 package com.qq.e.comm.plugin.ab.c;
 
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class p implements e {
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     private static final class a {
 
         /* renamed from: a  reason: collision with root package name */
-        static final p f12047a = new p();
+        static final p f11747a = new p();
     }
 
     private p() {
     }
 
     public static p a() {
-        return a.f12047a;
+        return a.f11747a;
     }
 
     @Override // com.qq.e.comm.plugin.ab.c.e

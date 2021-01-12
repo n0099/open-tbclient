@@ -19,18 +19,18 @@ import org.json.JSONObject;
 public class aa {
 
     /* renamed from: a  reason: collision with root package name */
-    public static JSONObject f6070a;
+    public static JSONObject f5770a;
     private static final String[] d = {"GET", "POST"};
     private static final String[] e = {"aid", "app_version", "tt_data"};
 
     /* renamed from: b  reason: collision with root package name */
-    static final String[] f6071b = {"aid", "version_code", "ab_client", "ab_version", "ab_feature", "ab_group", "iid", "device_platform"};
+    static final String[] f5771b = {"aid", "version_code", "ab_client", "ab_version", "ab_feature", "ab_group", "iid", "device_platform"};
     public static final String[] c = {"tt_data", "device_platform"};
-    private static com.bytedance.embedapplog.util.a pgL = com.bytedance.embedapplog.util.a.PD(0);
+    private static com.bytedance.embedapplog.util.a pci = com.bytedance.embedapplog.util.a.NW(0);
 
     private static String a(String str) {
         String[] strArr;
-        if (!TextUtils.isEmpty(str) && b.eoT()) {
+        if (!TextUtils.isEmpty(str) && b.ekX()) {
             Uri parse = Uri.parse(str);
             String query = parse.getQuery();
             ArrayList<Pair> arrayList = new ArrayList();
@@ -45,7 +45,7 @@ public class aa {
             for (Pair pair : arrayList) {
                 buildUpon.appendQueryParameter((String) pair.first, (String) pair.second);
             }
-            buildUpon.appendQueryParameter("tt_info", new String(Base64.encode(b.YA(query), 8)));
+            buildUpon.appendQueryParameter("tt_info", new String(Base64.encode(b.Xs(query), 8)));
             return buildUpon.build().toString();
         }
         return str;
@@ -85,7 +85,7 @@ public class aa {
             r6 = 200(0xc8, float:2.8E-43)
             r5 = 1
             r3 = 0
-            boolean r0 = com.bytedance.embedapplog.au.f6086b
+            boolean r0 = com.bytedance.embedapplog.au.f5786b
             if (r0 == 0) goto L96
             java.lang.StringBuilder r0 = new java.lang.StringBuilder
             r0.<init>()
@@ -185,7 +185,7 @@ public class aa {
             if (r4 == 0) goto L104
             r4.close()     // Catch: java.io.IOException -> L21d
         L104:
-            boolean r1 = com.bytedance.embedapplog.au.f6086b
+            boolean r1 = com.bytedance.embedapplog.au.f5786b
             if (r1 == 0) goto L11f
             java.lang.StringBuilder r1 = new java.lang.StringBuilder
             r1.<init>()
@@ -363,21 +363,21 @@ public class aa {
     }
 
     public static void a(int i) {
-        pgL = com.bytedance.embedapplog.util.a.PD(i);
+        pci = com.bytedance.embedapplog.util.a.NW(i);
     }
 
-    public static com.bytedance.embedapplog.util.a ept() {
-        return pgL;
+    public static com.bytedance.embedapplog.util.a elx() {
+        return pci;
     }
 
     public static JSONObject w(String str, JSONObject jSONObject) {
         HashMap hashMap = new HashMap(2);
-        if (b.eoT()) {
+        if (b.ekX()) {
             hashMap.put("Content-Type", "application/octet-stream;tt-data=a");
         } else {
             hashMap.put("Content-Type", AbstractBceClient.DEFAULT_CONTENT_TYPE);
         }
-        String a2 = a(1, a(str), hashMap, b.YA(jSONObject.toString()));
+        String a2 = a(1, a(str), hashMap, b.Xs(jSONObject.toString()));
         if (a2 != null) {
             try {
                 return new JSONObject(a2);
@@ -440,7 +440,7 @@ public class aa {
         int i;
         int i2;
         HashMap hashMap = new HashMap(2);
-        if (b.eoT()) {
+        if (b.ekX()) {
             hashMap.put("Content-Type", "application/octet-stream;tt-data=a");
         } else {
             hashMap.put("Content-Type", AbstractBceClient.DEFAULT_CONTENT_TYPE);
@@ -487,7 +487,7 @@ public class aa {
                     JSONObject jSONObject2 = new JSONObject();
                     jSONObject2.put("server_time", optLong);
                     jSONObject2.put("local_time", System.currentTimeMillis() / 1000);
-                    f6070a = jSONObject2;
+                    f5770a = jSONObject2;
                 }
             } catch (Exception e4) {
                 au.a(e4);
@@ -525,7 +525,7 @@ public class aa {
     */
     public static JSONObject y(String str, JSONObject jSONObject) {
         JSONObject jSONObject2;
-        String a2 = a(1, str, null, b.YA(jSONObject.toString()));
+        String a2 = a(1, str, null, b.Xs(jSONObject.toString()));
         if (a2 != null) {
             try {
                 jSONObject2 = new JSONObject(a2);
@@ -549,7 +549,7 @@ public class aa {
     */
     public static JSONObject z(String str, JSONObject jSONObject) {
         JSONObject jSONObject2;
-        String a2 = a(1, str, null, b.YA(jSONObject.toString()));
+        String a2 = a(1, str, null, b.Xs(jSONObject.toString()));
         if (a2 != null) {
             try {
                 jSONObject2 = new JSONObject(a2);

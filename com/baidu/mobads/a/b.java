@@ -1,12 +1,12 @@
 package com.baidu.mobads.a;
-/* loaded from: classes3.dex */
+/* loaded from: classes14.dex */
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Boolean f3338a = false;
+    public static final Boolean f3300a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Boolean f3339b = false;
+    public static final Boolean f3301b = false;
 
     public static double a() {
         try {

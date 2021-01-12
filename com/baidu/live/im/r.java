@@ -3,26 +3,26 @@ package com.baidu.live.im;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class r {
-    public long aYz;
-    public long aZQ;
-    public long bnZ;
-    public String boI;
-    public List<a> boJ;
-    public boolean boe = false;
-    public Set<Long> bof = new HashSet();
+    public long aTM;
+    public long aVd;
+    public String bjV;
+    public List<a> bjW;
+    public long bjm;
+    public boolean bjr = false;
+    public Set<Long> bjs = new HashSet();
     public String giftId;
     public String userId;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public static class a {
-        public String aYy;
-        public com.baidu.live.im.data.b bnY;
-        public String boK;
-        public long boa;
-        public double bob;
-        public boolean boc;
+        public String aTL;
+        public String bjX;
+        public com.baidu.live.im.data.b bjl;
+        public long bjn;
+        public double bjo;
+        public boolean bjp;
         public long count;
         public String giftId;
         public String giftName;

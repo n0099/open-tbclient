@@ -3,7 +3,7 @@ package com.baidu.sapi2.activity.social;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.RelativeLayout;
-import com.baidu.l.a.a.a;
+import com.baidu.j.a.a.a;
 import com.baidu.sapi2.social.SocialLoginBase;
 import com.baidu.sapi2.utils.Log;
 import com.baidu.sapi2.utils.ParamsUtil;
@@ -17,7 +17,7 @@ import com.facebook.login.LoginManager;
 import com.facebook.login.LoginResult;
 import java.util.Arrays;
 import java.util.HashMap;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class FacebookSSOLoginActivity extends BaseSSOLoginActivity {
     private static final String TAG = FacebookSSOLoginActivity.class.getSimpleName();
     private CallbackManager callbackManager;

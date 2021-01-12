@@ -6,21 +6,21 @@ import android.widget.GridView;
 import androidx.viewpager.widget.PagerAdapter;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class ConnectionWheatPagerAdapter extends PagerAdapter {
-    private List<View> bbZ;
+    private List<View> aXl;
 
     public ConnectionWheatPagerAdapter(List<View> list) {
-        this.bbZ = new ArrayList();
-        this.bbZ = list;
+        this.aXl = new ArrayList();
+        this.aXl = list;
     }
 
     @Override // androidx.viewpager.widget.PagerAdapter
     public int getCount() {
-        if (this.bbZ == null) {
+        if (this.aXl == null) {
             return 0;
         }
-        return this.bbZ.size();
+        return this.aXl.size();
     }
 
     @Override // androidx.viewpager.widget.PagerAdapter
@@ -31,7 +31,7 @@ public class ConnectionWheatPagerAdapter extends PagerAdapter {
     @Override // androidx.viewpager.widget.PagerAdapter
     public void destroyItem(ViewGroup viewGroup, int i, Object obj) {
         if (i >= 0 && i < getCount()) {
-            View view = this.bbZ.get(i);
+            View view = this.aXl.get(i);
             P(view);
             viewGroup.removeView(view);
         }
@@ -42,7 +42,7 @@ public class ConnectionWheatPagerAdapter extends PagerAdapter {
         if (i < 0 || i >= getCount()) {
             return null;
         }
-        View view = this.bbZ.get(i);
+        View view = this.aXl.get(i);
         viewGroup.addView(view);
         return view;
     }

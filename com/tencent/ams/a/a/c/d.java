@@ -3,7 +3,7 @@ package com.tencent.ams.a.a.c;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.text.TextUtils;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class d {
     public static String a(Context context, String str, String str2) {
         return (context == null || TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) ? "" : context.getSharedPreferences(str, 0).getString(str2, "");

@@ -1,18 +1,18 @@
 package com.baidu.live.follow.pendant;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class b {
-    private String aWS;
+    private String aSf;
     private boolean isFollow = false;
     private String nickName;
     private String userId;
 
     public b(String str, String str2, String str3) {
         this.nickName = str;
-        this.aWS = str2;
+        this.aSf = str2;
         this.userId = str3;
     }
 
-    public void by(boolean z) {
+    public void bu(boolean z) {
         this.isFollow = z;
     }
 
@@ -20,8 +20,8 @@ public class b {
         return this.nickName;
     }
 
-    public String Ga() {
-        return this.aWS;
+    public String Cf() {
+        return this.aSf;
     }
 
     public String getUserId() {

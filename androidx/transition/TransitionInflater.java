@@ -16,7 +16,7 @@ import java.io.IOException;
 import java.lang.reflect.Constructor;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class TransitionInflater {
     private final Context mContext;
     private static final Class<?>[] CONSTRUCTOR_SIGNATURE = {Context.class, AttributeSet.class};

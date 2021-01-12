@@ -18,22 +18,22 @@ import com.baidu.live.utils.m;
 import com.baidu.tieba.yuyinala.charm.bannedpost.a;
 import com.baidu.tieba.yuyinala.charm.bannedpost.f;
 import com.baidu.tieba.yuyinala.charm.bannedpost.g;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class BannedPostItemView extends LinearLayout {
-    public TextView aGM;
-    public HeadImageView gRt;
-    private TextView lYu;
+    public TextView aBZ;
+    public HeadImageView gMN;
+    private TextView lTQ;
     private String mGroupId;
     private String mLiveId;
     private String mRoomId;
     private int mType;
     private String mUserName;
-    private a okq;
-    private a.C0926a okr;
+    private a ofL;
+    private a.C0909a ofM;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public interface a {
-        void VL(String str);
+        void UD(String str);
     }
 
     public BannedPostItemView(Context context) {
@@ -46,31 +46,31 @@ public class BannedPostItemView extends LinearLayout {
         init();
     }
 
-    public void setData(a.C0926a c0926a, String str, String str2, String str3, int i) {
+    public void setData(a.C0909a c0909a, String str, String str2, String str3, int i) {
         this.mType = i;
         this.mRoomId = str3;
         this.mLiveId = str;
         this.mGroupId = str2;
-        this.okr = c0926a;
-        this.mUserName = c0926a.user_name;
-        this.aGM.setText(this.mUserName);
-        m.a(this.gRt, c0926a.bd_portrait, true, false);
-        this.lYu.setVisibility(0);
-        this.lYu.setText("取消禁言");
-        this.lYu.setTextColor(getResources().getColor(a.c.yuyin_ala_attention_checked_color));
-        this.lYu.setBackgroundResource(a.e.yuyin_round_charm_item_attention_bg);
+        this.ofM = c0909a;
+        this.mUserName = c0909a.user_name;
+        this.aBZ.setText(this.mUserName);
+        m.a(this.gMN, c0909a.bd_portrait, true, false);
+        this.lTQ.setVisibility(0);
+        this.lTQ.setText("取消禁言");
+        this.lTQ.setTextColor(getResources().getColor(a.c.yuyin_ala_attention_checked_color));
+        this.lTQ.setBackgroundResource(a.e.yuyin_round_charm_item_attention_bg);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void ebN() {
-        if (this.okr != null) {
+    public void dXV() {
+        if (this.ofM != null) {
             if (!TbadkCoreApplication.isLogin()) {
                 ViewHelper.skipToLoginActivity(getContext());
             } else if (this.mType == 1) {
                 g gVar = new g(getContext());
                 gVar.show();
                 gVar.setText("确定取消" + this.mUserName + "本场禁言吗？");
-                gVar.VM(PayHelper.STATUS_CANCEL_DESC);
+                gVar.UE(PayHelper.STATUS_CANCEL_DESC);
                 gVar.a(new g.a() { // from class: com.baidu.tieba.yuyinala.charm.bannedpost.BannedPostItemView.1
                     @Override // com.baidu.tieba.yuyinala.charm.bannedpost.g.a
                     public void onCancel() {
@@ -82,24 +82,24 @@ public class BannedPostItemView extends LinearLayout {
                         fVar.a(new f.a() { // from class: com.baidu.tieba.yuyinala.charm.bannedpost.BannedPostItemView.1.1
                             @Override // com.baidu.tieba.yuyinala.charm.bannedpost.f.a
                             public void a(com.baidu.tieba.yuyinala.charm.bannedpost.a aVar) {
-                                if (BannedPostItemView.this.okq != null) {
-                                    BannedPostItemView.this.okq.VL(BannedPostItemView.this.okr.uk);
+                                if (BannedPostItemView.this.ofL != null) {
+                                    BannedPostItemView.this.ofL.UD(BannedPostItemView.this.ofM.uk);
                                 }
                                 BdUtilHelper.showToast(BannedPostItemView.this.getContext(), BannedPostItemView.this.mUserName + "已被取消本场禁言", 3000);
                             }
 
                             @Override // com.baidu.tieba.yuyinala.charm.bannedpost.f.a
-                            public void v(int i, String str) {
+                            public void w(int i, String str) {
                             }
                         });
-                        fVar.l(BannedPostItemView.this.mLiveId, BannedPostItemView.this.mGroupId, BannedPostItemView.this.okr.uk, 8);
+                        fVar.l(BannedPostItemView.this.mLiveId, BannedPostItemView.this.mGroupId, BannedPostItemView.this.ofM.uk, 8);
                     }
                 });
             } else if (this.mType == 2) {
                 g gVar2 = new g(getContext());
                 gVar2.show();
                 gVar2.setText("确定取消" + this.mUserName + "永久禁言吗？");
-                gVar2.VM(PayHelper.STATUS_CANCEL_DESC);
+                gVar2.UE(PayHelper.STATUS_CANCEL_DESC);
                 gVar2.a(new g.a() { // from class: com.baidu.tieba.yuyinala.charm.bannedpost.BannedPostItemView.2
                     @Override // com.baidu.tieba.yuyinala.charm.bannedpost.g.a
                     public void onCancel() {
@@ -111,17 +111,17 @@ public class BannedPostItemView extends LinearLayout {
                         fVar.a(new f.a() { // from class: com.baidu.tieba.yuyinala.charm.bannedpost.BannedPostItemView.2.1
                             @Override // com.baidu.tieba.yuyinala.charm.bannedpost.f.a
                             public void a(com.baidu.tieba.yuyinala.charm.bannedpost.a aVar) {
-                                if (BannedPostItemView.this.okq != null) {
-                                    BannedPostItemView.this.okq.VL(BannedPostItemView.this.okr.uk);
+                                if (BannedPostItemView.this.ofL != null) {
+                                    BannedPostItemView.this.ofL.UD(BannedPostItemView.this.ofM.uk);
                                 }
                                 BdUtilHelper.showToast(BannedPostItemView.this.getContext(), BannedPostItemView.this.mUserName + "已被取消永久禁言", 3000);
                             }
 
                             @Override // com.baidu.tieba.yuyinala.charm.bannedpost.f.a
-                            public void v(int i, String str) {
+                            public void w(int i, String str) {
                             }
                         });
-                        fVar.l(BannedPostItemView.this.mLiveId, BannedPostItemView.this.mGroupId, BannedPostItemView.this.okr.uk, 9);
+                        fVar.l(BannedPostItemView.this.mLiveId, BannedPostItemView.this.mGroupId, BannedPostItemView.this.ofM.uk, 9);
                     }
                 });
             }
@@ -131,29 +131,29 @@ public class BannedPostItemView extends LinearLayout {
     private void init() {
         LayoutInflater.from(getContext()).inflate(a.g.yuyin_banned_post_item_view, (ViewGroup) this, true);
         setOrientation(0);
-        IJ();
+        EO();
         initView();
     }
 
-    private void IJ() {
-        this.gRt = (HeadImageView) findViewById(a.f.iv_avatar);
-        this.aGM = (TextView) findViewById(a.f.tv_name);
-        this.lYu = (TextView) findViewById(a.f.tv_cancel);
-        this.lYu.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.charm.bannedpost.BannedPostItemView.3
+    private void EO() {
+        this.gMN = (HeadImageView) findViewById(a.f.iv_avatar);
+        this.aBZ = (TextView) findViewById(a.f.tv_name);
+        this.lTQ = (TextView) findViewById(a.f.tv_cancel);
+        this.lTQ.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.charm.bannedpost.BannedPostItemView.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                BannedPostItemView.this.ebN();
+                BannedPostItemView.this.dXV();
             }
         });
     }
 
     private void initView() {
-        this.gRt.setAutoChangeStyle(false);
-        this.gRt.setDrawBorder(false);
-        this.gRt.setIsRound(true);
+        this.gMN.setAutoChangeStyle(false);
+        this.gMN.setDrawBorder(false);
+        this.gMN.setIsRound(true);
     }
 
     public void setCallBack(a aVar) {
-        this.okq = aVar;
+        this.ofL = aVar;
     }
 }

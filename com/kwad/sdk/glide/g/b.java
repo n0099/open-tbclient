@@ -2,47 +2,47 @@ package com.kwad.sdk.glide.g;
 
 import androidx.collection.ArrayMap;
 import androidx.collection.SimpleArrayMap;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public final class b<K, V> extends ArrayMap<K, V> {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f10315a;
+    private int f10015a;
 
     @Override // androidx.collection.SimpleArrayMap, java.util.Map
     public void clear() {
-        this.f10315a = 0;
+        this.f10015a = 0;
         super.clear();
     }
 
     @Override // androidx.collection.SimpleArrayMap, java.util.Map
     public int hashCode() {
-        if (this.f10315a == 0) {
-            this.f10315a = super.hashCode();
+        if (this.f10015a == 0) {
+            this.f10015a = super.hashCode();
         }
-        return this.f10315a;
+        return this.f10015a;
     }
 
     @Override // androidx.collection.SimpleArrayMap, java.util.Map
     public V put(K k, V v) {
-        this.f10315a = 0;
+        this.f10015a = 0;
         return (V) super.put(k, v);
     }
 
     @Override // androidx.collection.SimpleArrayMap
     public void putAll(SimpleArrayMap<? extends K, ? extends V> simpleArrayMap) {
-        this.f10315a = 0;
+        this.f10015a = 0;
         super.putAll(simpleArrayMap);
     }
 
     @Override // androidx.collection.SimpleArrayMap
     public V removeAt(int i) {
-        this.f10315a = 0;
+        this.f10015a = 0;
         return (V) super.removeAt(i);
     }
 
     @Override // androidx.collection.SimpleArrayMap
     public V setValueAt(int i, V v) {
-        this.f10315a = 0;
+        this.f10015a = 0;
         return (V) super.setValueAt(i, v);
     }
 }

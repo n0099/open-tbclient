@@ -17,6 +17,7 @@ import com.baidu.ar.arplay.core.pixel.PixelRotation;
 import com.baidu.ar.bean.RotationType;
 import com.baidu.ar.bean.Size;
 import com.baidu.ar.libloader.ILibLoader;
+import com.baidu.mobstat.Config;
 import java.io.File;
 import java.lang.ref.SoftReference;
 import org.json.JSONObject;
@@ -493,7 +494,7 @@ public abstract class f implements SurfaceTexture.OnFrameAvailableListener {
         if (this.W.getOutputHeight() == i2 && this.W.getOutputWidth() == i) {
             return;
         }
-        com.baidu.ar.h.b.c("AbstractRenderer", "changeOutputSize() size = " + i + "x" + i2);
+        com.baidu.ar.h.b.c("AbstractRenderer", "changeOutputSize() size = " + i + Config.EVENT_HEAT_X + i2);
         Object outputSurface = this.W.getOutputSurface();
         if (outputSurface instanceof SurfaceTexture) {
             ((SurfaceTexture) outputSurface).setDefaultBufferSize(i, i2);

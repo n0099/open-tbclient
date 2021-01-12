@@ -10,47 +10,47 @@ import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.core.util.ListUtils;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class a extends BaseAdapter {
-    private InterfaceC0679a hCE;
-    private boolean hCF;
+    private InterfaceC0662a hxY;
+    private boolean hxZ;
     private Context mContext;
-    public List<aj> hCD = new ArrayList();
-    private int gwM = -1;
+    public List<aj> hxX = new ArrayList();
+    private int gsf = -1;
 
     /* renamed from: com.baidu.tieba.ala.liveroom.exclusive.a$a  reason: collision with other inner class name */
-    /* loaded from: classes11.dex */
-    public interface InterfaceC0679a {
+    /* loaded from: classes10.dex */
+    public interface InterfaceC0662a {
         void a(View view, int i, aj ajVar);
     }
 
     public a(Context context, boolean z) {
         this.mContext = context;
-        this.hCF = z;
+        this.hxZ = z;
     }
 
-    public void wQ(int i) {
-        this.gwM = i;
+    public void vk(int i) {
+        this.gsf = i;
         notifyDataSetChanged();
     }
 
-    public void a(InterfaceC0679a interfaceC0679a) {
-        this.hCE = interfaceC0679a;
+    public void a(InterfaceC0662a interfaceC0662a) {
+        this.hxY = interfaceC0662a;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.hCD == null) {
+        if (this.hxX == null) {
             return 0;
         }
-        return this.hCD.size();
+        return this.hxX.size();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: wR */
+    /* renamed from: vl */
     public aj getItem(int i) {
-        return (aj) ListUtils.getItem(this.hCD, i);
+        return (aj) ListUtils.getItem(this.hxX, i);
     }
 
     @Override // android.widget.Adapter
@@ -60,8 +60,8 @@ public class a extends BaseAdapter {
 
     public void setDatas(List<aj> list) {
         if (!ListUtils.isEmpty(list)) {
-            this.hCD.clear();
-            this.hCD.addAll(list);
+            this.hxX.clear();
+            this.hxX.addAll(list);
             notifyDataSetChanged();
         }
     }
@@ -71,7 +71,7 @@ public class a extends BaseAdapter {
         g gVar;
         View inflate;
         if (view == null) {
-            if (this.hCF) {
+            if (this.hxZ) {
                 inflate = LayoutInflater.from(this.mContext).inflate(a.g.ala_exclusive_scene_item, (ViewGroup) null);
             } else {
                 inflate = LayoutInflater.from(this.mContext).inflate(a.g.ala_exclusive_scene_land_item, (ViewGroup) null);
@@ -82,19 +82,19 @@ public class a extends BaseAdapter {
         } else {
             gVar = (g) view.getTag();
         }
-        final aj ajVar = this.hCD.get(i);
-        if (this.gwM == i) {
-            gVar.a(ajVar, true, this.hCF);
+        final aj ajVar = this.hxX.get(i);
+        if (this.gsf == i) {
+            gVar.a(ajVar, true, this.hxZ);
         } else {
-            gVar.a(ajVar, false, this.hCF);
+            gVar.a(ajVar, false, this.hxZ);
         }
         view.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.exclusive.a.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
-                a.this.gwM = i;
+                a.this.gsf = i;
                 a.this.notifyDataSetChanged();
-                if (a.this.hCE != null) {
-                    a.this.hCE.a(view2, i, ajVar);
+                if (a.this.hxY != null) {
+                    a.this.hxY.a(view2, i, ajVar);
                 }
             }
         });

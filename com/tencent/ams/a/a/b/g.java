@@ -1,14 +1,14 @@
 package com.tencent.ams.a.a.b;
 
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class g {
 
     /* renamed from: a  reason: collision with root package name */
-    public f f13570a;
+    public f f13270a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<b> f13571b;
+    public List<b> f13271b;
     private String c;
 
     public String toString() {
@@ -16,20 +16,20 @@ public class g {
             return this.c;
         }
         StringBuilder sb = new StringBuilder();
-        if (this.f13570a != null) {
+        if (this.f13270a != null) {
             sb.append("offlineCache[");
-            sb.append("len=").append(this.f13570a.f13568a).append(",");
-            sb.append("timeout=").append(this.f13570a.c).append(",");
-            sb.append("expiration=").append(this.f13570a.f13569b);
+            sb.append("len=").append(this.f13270a.f13268a).append(",");
+            sb.append("timeout=").append(this.f13270a.c).append(",");
+            sb.append("expiration=").append(this.f13270a.f13269b);
             sb.append("]");
         }
-        if (this.f13571b != null && this.f13571b.size() > 0) {
+        if (this.f13271b != null && this.f13271b.size() > 0) {
             sb.append("companies{");
-            for (b bVar : this.f13571b) {
+            for (b bVar : this.f13271b) {
                 if (bVar != null) {
-                    sb.append("[").append(bVar.f13561a);
-                    if (bVar.f13562b != null) {
-                        sb.append("--").append(bVar.f13562b.f13565a);
+                    sb.append("[").append(bVar.f13261a);
+                    if (bVar.f13262b != null) {
+                        sb.append("--").append(bVar.f13262b.f13265a);
                     }
                     sb.append("]");
                 }

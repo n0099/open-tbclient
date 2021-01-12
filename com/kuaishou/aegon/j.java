@@ -1,16 +1,16 @@
 package com.kuaishou.aegon;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public final /* synthetic */ class j implements Runnable {
 
     /* renamed from: b  reason: collision with root package name */
-    private final int f8415b;
+    private final int f8115b;
     private final int c;
-    private final SignalStrengthListener pSn;
+    private final SignalStrengthListener pNN;
 
     private j(SignalStrengthListener signalStrengthListener, int i, int i2) {
-        this.pSn = signalStrengthListener;
-        this.f8415b = i;
+        this.pNN = signalStrengthListener;
+        this.f8115b = i;
         this.c = i2;
     }
 
@@ -20,6 +20,6 @@ public final /* synthetic */ class j implements Runnable {
 
     @Override // java.lang.Runnable
     public void run() {
-        this.pSn.nativeOnSignalStrengthValueUpdate(this.f8415b, this.c);
+        this.pNN.nativeOnSignalStrengthValueUpdate(this.f8115b, this.c);
     }
 }

@@ -1,18 +1,17 @@
 package com.baidu.platform.core.c;
 
 import com.baidu.mapapi.model.CoordUtil;
+import com.baidu.mapapi.model.inner.GeoPoint;
 import com.baidu.mapapi.search.core.SearchResult;
 import com.baidu.mapapi.search.poi.OnGetPoiSearchResultListener;
 import com.baidu.mapapi.search.poi.PoiIndoorInfo;
 import com.baidu.mapapi.search.poi.PoiIndoorResult;
 import com.baidu.mobads.interfaces.IXAdRequestInfo;
-import com.baidu.platform.comapi.basestruct.GeoPoint;
-import com.baidu.platform.comapi.map.MapBundleKey;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class b extends com.baidu.platform.base.d {
     private boolean a(String str, PoiIndoorResult poiIndoorResult) {
         int i = 0;
@@ -76,7 +75,7 @@ public class b extends com.baidu.platform.base.d {
                     return false;
                 case 1:
                     String optString = jSONObject.optString("Msg");
-                    if (optString.contains(MapBundleKey.MapObjKey.OBJ_BID)) {
+                    if (optString.contains("bid")) {
                         poiIndoorResult.error = SearchResult.ERRORNO.POIINDOOR_BID_ERROR;
                         return true;
                     } else if (optString.contains("floor")) {

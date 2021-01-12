@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 import tbclient.GetShoubaiThreadList.GetShoubaiThreadListResIdl;
 import tbclient.ThreadInfo;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class PersonCenterDynamicTabHttpResMessage extends HttpResponsedMessage {
     public long mCursor;
     public boolean mHasMore;

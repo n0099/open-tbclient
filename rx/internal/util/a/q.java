@@ -1,5 +1,5 @@
 package rx.internal.util.a;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public final class q<E> extends v<E> {
     public q(int i) {
         super(i);
@@ -10,7 +10,7 @@ public final class q<E> extends v<E> {
         if (e == null) {
             throw new NullPointerException("null elements not allowed");
         }
-        E[] eArr = this.qnw;
+        E[] eArr = this.qiU;
         long j = this.producerIndex;
         long jy = jy(j);
         if (b(eArr, jy) != null) {
@@ -25,7 +25,7 @@ public final class q<E> extends v<E> {
     public E poll() {
         long j = this.consumerIndex;
         long jy = jy(j);
-        E[] eArr = this.qnw;
+        E[] eArr = this.qiU;
         E b2 = b(eArr, jy);
         if (b2 == null) {
             return null;
@@ -42,35 +42,35 @@ public final class q<E> extends v<E> {
 
     @Override // java.util.AbstractCollection, java.util.Collection
     public int size() {
-        long eLV = eLV();
+        long eIf = eIf();
         while (true) {
-            long eLU = eLU();
-            long eLV2 = eLV();
-            if (eLV == eLV2) {
-                return (int) (eLU - eLV2);
+            long eIe = eIe();
+            long eIf2 = eIf();
+            if (eIf == eIf2) {
+                return (int) (eIe - eIf2);
             }
-            eLV = eLV2;
+            eIf = eIf2;
         }
     }
 
     @Override // java.util.AbstractCollection, java.util.Collection
     public boolean isEmpty() {
-        return eLU() == eLV();
+        return eIe() == eIf();
     }
 
     private void soProducerIndex(long j) {
-        ae.qxX.a(this, qxR, j);
+        ae.qtv.a(this, qtp, j);
     }
 
     private void soConsumerIndex(long j) {
-        ae.qxX.a(this, qxQ, j);
+        ae.qtv.a(this, qto, j);
     }
 
-    private long eLU() {
-        return ae.qxX.e(this, qxR);
+    private long eIe() {
+        return ae.qtv.e(this, qtp);
     }
 
-    private long eLV() {
-        return ae.qxX.e(this, qxQ);
+    private long eIf() {
+        return ae.qtv.e(this, qto);
     }
 }

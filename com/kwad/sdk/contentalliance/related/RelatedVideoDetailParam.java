@@ -1,7 +1,7 @@
 package com.kwad.sdk.contentalliance.related;
 
 import java.io.Serializable;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class RelatedVideoDetailParam implements Serializable {
     private static final long serialVersionUID = -6597203831126070193L;
     public long mEntryScene;

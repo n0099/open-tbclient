@@ -2,7 +2,7 @@ package com.baidu.live.lottie.model.a;
 
 import android.graphics.Path;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class h extends n<com.baidu.live.lottie.model.content.h, Path> {
     @Override // com.baidu.live.lottie.model.a.n
     public /* bridge */ /* synthetic */ String toString() {
@@ -14,7 +14,7 @@ public class h extends n<com.baidu.live.lottie.model.content.h, Path> {
     }
 
     @Override // com.baidu.live.lottie.model.a.m
-    public com.baidu.live.lottie.a.b.a<com.baidu.live.lottie.model.content.h, Path> PP() {
-        return new com.baidu.live.lottie.a.b.l(this.Eu);
+    public com.baidu.live.lottie.a.b.a<com.baidu.live.lottie.model.content.h, Path> LU() {
+        return new com.baidu.live.lottie.a.b.l(this.Es);
     }
 }

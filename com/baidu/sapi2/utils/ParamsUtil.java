@@ -133,7 +133,7 @@ public class ParamsUtil implements NoProguard {
             hashMap.put("connect", "1");
         }
         if (sapiConfiguration.language == Language.ENGLISH) {
-            hashMap.put("lang", com.baidu.fsg.base.statistics.h.f1997a);
+            hashMap.put("lang", com.baidu.fsg.base.statistics.h.f1947a);
         }
         hashMap.put("suppcheck", "1");
         if (sapiConfiguration.supportFaceLogin) {

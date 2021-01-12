@@ -1,5 +1,5 @@
 package rx.internal.util.a;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public final class i<E> extends m<E> {
     public i(int i) {
         super(i);
@@ -10,41 +10,41 @@ public final class i<E> extends m<E> {
         if (e == null) {
             throw new NullPointerException("Null is not a valid element");
         }
-        E[] eArr = this.qnw;
-        long j = this.qxP;
-        long eLU = eLU();
-        long jy = jy(eLU);
+        E[] eArr = this.qiU;
+        long j = this.qtn;
+        long eIe = eIe();
+        long jy = jy(eIe);
         if (b(eArr, jy) != null) {
-            if (eLU - eLV() > j) {
+            if (eIe - eIf() > j) {
                 return false;
             }
             do {
             } while (b(eArr, jy) != null);
             a(eArr, jy, e);
-            jA(1 + eLU);
+            jA(1 + eIe);
             return true;
         }
         a(eArr, jy, e);
-        jA(1 + eLU);
+        jA(1 + eIe);
         return true;
     }
 
     @Override // java.util.Queue
     public E poll() {
-        long eLV;
-        long eOZ = eOZ();
+        long eIf;
+        long eLj = eLj();
         do {
-            eLV = eLV();
-            if (eLV >= eOZ) {
-                long eLU = eLU();
-                if (eLV >= eLU) {
+            eIf = eIf();
+            if (eIf >= eLj) {
+                long eIe = eIe();
+                if (eIf >= eIe) {
                     return null;
                 }
-                jB(eLU);
+                jB(eIe);
             }
-        } while (!Y(eLV, 1 + eLV));
-        long jy = jy(eLV);
-        E[] eArr = this.qnw;
+        } while (!Y(eIf, 1 + eIf));
+        long jy = jy(eIf);
+        E[] eArr = this.qiU;
         E a2 = a(eArr, jy);
         b(eArr, jy, null);
         return a2;
@@ -53,36 +53,36 @@ public final class i<E> extends m<E> {
     @Override // java.util.Queue
     public E peek() {
         E jz;
-        long eOZ = eOZ();
+        long eLj = eLj();
         do {
-            long eLV = eLV();
-            if (eLV >= eOZ) {
-                long eLU = eLU();
-                if (eLV >= eLU) {
+            long eIf = eIf();
+            if (eIf >= eLj) {
+                long eIe = eIe();
+                if (eIf >= eIe) {
                     return null;
                 }
-                jB(eLU);
+                jB(eIe);
             }
-            jz = jz(jy(eLV));
+            jz = jz(jy(eIf));
         } while (jz == null);
         return jz;
     }
 
     @Override // java.util.AbstractCollection, java.util.Collection
     public int size() {
-        long eLV = eLV();
+        long eIf = eIf();
         while (true) {
-            long eLU = eLU();
-            long eLV2 = eLV();
-            if (eLV == eLV2) {
-                return (int) (eLU - eLV2);
+            long eIe = eIe();
+            long eIf2 = eIf();
+            if (eIf == eIf2) {
+                return (int) (eIe - eIf2);
             }
-            eLV = eLV2;
+            eIf = eIf2;
         }
     }
 
     @Override // java.util.AbstractCollection, java.util.Collection
     public boolean isEmpty() {
-        return eLV() == eLU();
+        return eIf() == eIe();
     }
 }

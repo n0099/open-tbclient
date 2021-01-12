@@ -2,20 +2,20 @@ package com.vivo.push.b;
 
 import android.text.TextUtils;
 import com.vivo.push.model.InsideNotificationItem;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public final class r extends com.vivo.push.y {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f13886a;
+    private String f13586a;
 
     /* renamed from: b  reason: collision with root package name */
-    private long f13887b;
+    private long f13587b;
     private InsideNotificationItem c;
 
     public r(String str, long j, InsideNotificationItem insideNotificationItem) {
         super(5);
-        this.f13886a = str;
-        this.f13887b = j;
+        this.f13586a = str;
+        this.f13587b = j;
         this.c = insideNotificationItem;
     }
 
@@ -24,11 +24,11 @@ public final class r extends com.vivo.push.y {
     }
 
     public final String d() {
-        return this.f13886a;
+        return this.f13586a;
     }
 
     public final long e() {
-        return this.f13887b;
+        return this.f13587b;
     }
 
     public final InsideNotificationItem f() {
@@ -37,21 +37,21 @@ public final class r extends com.vivo.push.y {
 
     @Override // com.vivo.push.y
     protected final void c(com.vivo.push.a aVar) {
-        aVar.a("package_name", this.f13886a);
-        aVar.a("notify_id", this.f13887b);
+        aVar.a("package_name", this.f13586a);
+        aVar.a("notify_id", this.f13587b);
         aVar.a("notification_v1", com.vivo.push.util.q.b(this.c));
     }
 
     @Override // com.vivo.push.y
     protected final void d(com.vivo.push.a aVar) {
-        this.f13886a = aVar.a("package_name");
-        this.f13887b = aVar.b("notify_id", -1L);
+        this.f13586a = aVar.a("package_name");
+        this.f13587b = aVar.b("notify_id", -1L);
         String a2 = aVar.a("notification_v1");
         if (!TextUtils.isEmpty(a2)) {
             this.c = com.vivo.push.util.q.a(a2);
         }
         if (this.c != null) {
-            this.c.setMsgId(this.f13887b);
+            this.c.setMsgId(this.f13587b);
         }
     }
 

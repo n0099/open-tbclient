@@ -2,22 +2,22 @@ package com.baidu.live.im.data;
 
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class d {
-    public String beO;
-    public boolean bqK;
+    public String aZY;
+    public boolean blX;
     public String liveId;
 
     public d(boolean z, String str, String str2) {
-        this.bqK = z;
-        this.beO = str;
+        this.blX = z;
+        this.aZY = str;
         this.liveId = str2;
     }
 
     public d(JSONObject jSONObject) {
         if (jSONObject != null) {
-            this.bqK = jSONObject.optBoolean("useCard");
-            this.beO = jSONObject.optString("benefitUid");
+            this.blX = jSONObject.optBoolean("useCard");
+            this.aZY = jSONObject.optString("benefitUid");
             this.liveId = jSONObject.optString("liveId");
         }
     }
@@ -25,8 +25,8 @@ public class d {
     public String toJsonString() {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("useCard", this.bqK);
-            jSONObject.put("benefitUid", this.beO);
+            jSONObject.put("useCard", this.blX);
+            jSONObject.put("benefitUid", this.aZY);
             jSONObject.put("liveId", this.liveId);
         } catch (JSONException e) {
             e.printStackTrace();

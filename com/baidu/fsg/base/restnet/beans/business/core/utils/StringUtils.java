@@ -5,7 +5,7 @@ import com.bytedance.sdk.openadsdk.preload.falconx.statistic.StatisticData;
 import java.math.BigDecimal;
 import java.util.Collection;
 import java.util.regex.Pattern;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public abstract class StringUtils {
     public static String[] toStringArray(Collection<String> collection) {
         if (collection == null) {

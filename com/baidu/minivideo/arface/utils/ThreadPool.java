@@ -8,35 +8,35 @@ import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class ThreadPool {
-    private static volatile b cmq;
+    private static volatile b chC;
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public enum QueueProcessingType {
         FIFO,
         LIFO
     }
 
-    public static b aeL() {
-        if (cmq == null) {
+    public static b aaS() {
+        if (chC == null) {
             synchronized (ThreadPool.class) {
-                if (cmq == null) {
+                if (chC == null) {
                     b bVar = new b("IOThreadPool", b.MAXIMUM_POOL_SIZE);
-                    bVar.aeM();
-                    cmq = bVar;
+                    bVar.aaT();
+                    chC = bVar;
                 }
             }
         }
-        return cmq;
+        return chC;
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class b {
-        private ExecutorService cmv;
-        private int cmw;
-        private QueueProcessingType cmx;
+        private ExecutorService chH;
+        private int chI;
+        private QueueProcessingType chJ;
         private String mName;
         private int mPriority;
         private static final int CPU_COUNT = Runtime.getRuntime().availableProcessors();
@@ -48,21 +48,21 @@ public class ThreadPool {
         }
 
         public b(String str, int i, int i2, QueueProcessingType queueProcessingType) {
-            this.cmw = CORE_POOL_SIZE;
+            this.chI = CORE_POOL_SIZE;
             this.mPriority = 4;
-            this.cmx = QueueProcessingType.FIFO;
+            this.chJ = QueueProcessingType.FIFO;
             this.mName = str;
-            this.cmw = i;
+            this.chI = i;
             this.mPriority = i2;
-            this.cmx = queueProcessingType;
-            if (this.cmv == null) {
-                this.cmv = a(this.mName, this.cmw, this.mPriority, this.cmx);
+            this.chJ = queueProcessingType;
+            if (this.chH == null) {
+                this.chH = a(this.mName, this.chI, this.mPriority, this.chJ);
             }
         }
 
-        protected void aeM() {
-            if ((this.cmv instanceof ThreadPoolExecutor) && this.cmv != null && !this.cmv.isShutdown()) {
-                ((ThreadPoolExecutor) this.cmv).allowsCoreThreadTimeOut();
+        protected void aaT() {
+            if ((this.chH instanceof ThreadPoolExecutor) && this.chH != null && !this.chH.isShutdown()) {
+                ((ThreadPoolExecutor) this.chH).allowsCoreThreadTimeOut();
             }
         }
 
@@ -71,12 +71,12 @@ public class ThreadPool {
         }
 
         public void execute(Runnable runnable) {
-            this.cmv.execute(runnable);
+            this.chH.execute(runnable);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class LIFOLinkedBlockingDeque<T> extends LinkedBlockingDeque<T> {
         private static final long serialVersionUID = -4114786347960826192L;
 
@@ -95,24 +95,24 @@ public class ThreadPool {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class a implements ThreadFactory {
-        private static final AtomicInteger cmr = new AtomicInteger(1);
-        private final ThreadGroup cms;
-        private final AtomicInteger cmt = new AtomicInteger(1);
-        private final String cmu;
+        private static final AtomicInteger chD = new AtomicInteger(1);
+        private final ThreadGroup chE;
+        private final AtomicInteger chF = new AtomicInteger(1);
+        private final String chG;
         private final int mThreadPriority;
 
         public a(String str, int i) {
             this.mThreadPriority = i;
             SecurityManager securityManager = System.getSecurityManager();
-            this.cms = securityManager == null ? Thread.currentThread().getThreadGroup() : securityManager.getThreadGroup();
-            this.cmu = str + Constants.ACCEPT_TIME_SEPARATOR_SERVER + cmr.getAndIncrement() + "-thread-";
+            this.chE = securityManager == null ? Thread.currentThread().getThreadGroup() : securityManager.getThreadGroup();
+            this.chG = str + Constants.ACCEPT_TIME_SEPARATOR_SERVER + chD.getAndIncrement() + "-thread-";
         }
 
         @Override // java.util.concurrent.ThreadFactory
         public Thread newThread(Runnable runnable) {
-            Thread thread = new Thread(this.cms, runnable, this.cmu + this.cmt.getAndIncrement(), 0L);
+            Thread thread = new Thread(this.chE, runnable, this.chG + this.chF.getAndIncrement(), 0L);
             if (thread.isDaemon()) {
                 thread.setDaemon(false);
             }

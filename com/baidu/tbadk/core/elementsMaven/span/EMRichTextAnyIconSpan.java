@@ -15,12 +15,12 @@ import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class EMRichTextAnyIconSpan extends ReplacementSpan {
     private static final int DEFAULT_PADDING = UtilHelper.getDimenPixelSize(R.dimen.M_W_X002);
-    private int eYQ;
-    private IconType eYR;
-    private int eYS;
-    private int eYT;
-    private int eYU;
-    private int eYV;
+    private int eUf;
+    private IconType eUg;
+    private int eUh;
+    private int eUi;
+    private int eUj;
+    private int eUk;
 
     /* loaded from: classes.dex */
     public enum IconType {
@@ -30,33 +30,33 @@ public class EMRichTextAnyIconSpan extends ReplacementSpan {
     }
 
     public EMRichTextAnyIconSpan(int i, int i2, IconType iconType) {
-        this.eYQ = i;
-        this.eYR = iconType;
-        this.eYS = i2;
+        this.eUf = i;
+        this.eUg = iconType;
+        this.eUh = i2;
         setPadding(DEFAULT_PADDING);
     }
 
     @Override // android.text.style.ReplacementSpan
     public int getSize(@NonNull Paint paint, CharSequence charSequence, int i, int i2, @Nullable Paint.FontMetricsInt fontMetricsInt) {
-        this.eYT = (int) paint.getTextSize();
-        return this.eYU + this.eYV + this.eYT;
+        this.eUi = (int) paint.getTextSize();
+        return this.eUj + this.eUk + this.eUi;
     }
 
     @Override // android.text.style.ReplacementSpan
     public void draw(@NonNull Canvas canvas, CharSequence charSequence, int i, int i2, float f, int i3, int i4, int i5, @NonNull Paint paint) {
         Drawable drawable;
         float dimenPixelSize;
-        if (this.eYR == IconType.WEBP) {
-            drawable = WebPManager.a(this.eYQ, ao.getColor(this.eYS), WebPManager.ResourceStateType.NORMAL_PRESS);
-        } else if (this.eYR == IconType.SVG) {
-            drawable = SvgManager.bwr().a(this.eYQ, this.eYS, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+        if (this.eUg == IconType.WEBP) {
+            drawable = WebPManager.a(this.eUf, ao.getColor(this.eUh), WebPManager.ResourceStateType.NORMAL_PRESS);
+        } else if (this.eUg == IconType.SVG) {
+            drawable = SvgManager.bsx().a(this.eUf, this.eUh, SvgManager.SvgResourceStateType.NORMAL_PRESS);
         } else {
-            drawable = ao.getDrawable(this.eYQ);
+            drawable = ao.getDrawable(this.eUf);
         }
         if (drawable != null) {
-            drawable.setBounds(0, 0, this.eYT, this.eYT);
+            drawable.setBounds(0, 0, this.eUi, this.eUi);
             canvas.save();
-            float f2 = f + this.eYU;
+            float f2 = f + this.eUj;
             Paint.FontMetricsInt fontMetricsInt = paint.getFontMetricsInt();
             if (!a.k(charSequence)) {
                 dimenPixelSize = 0.0f + UtilHelper.getDimenPixelSize(R.dimen.tbds3);
@@ -71,15 +71,15 @@ public class EMRichTextAnyIconSpan extends ReplacementSpan {
     }
 
     public void setLeftPadding(int i) {
-        this.eYU = i;
+        this.eUj = i;
     }
 
     public void setRightPadding(int i) {
-        this.eYV = i;
+        this.eUk = i;
     }
 
     public void setPadding(int i) {
-        this.eYU = i;
-        this.eYV = i;
+        this.eUj = i;
+        this.eUk = i;
     }
 }

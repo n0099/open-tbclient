@@ -7,10 +7,10 @@ import java.io.InputStream;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    private InputStream f13344a;
+    private InputStream f13044a;
 
     /* renamed from: b  reason: collision with root package name */
-    private boolean f13345b;
+    private boolean f13045b;
     private int c;
 
     public d() {
@@ -21,15 +21,15 @@ public class d {
     }
 
     public final void b(InputStream inputStream, boolean z) {
-        this.f13344a = inputStream;
-        this.f13345b = z;
+        this.f13044a = inputStream;
+        this.f13045b = z;
         this.c = 0;
     }
 
     public final void a() {
-        if (this.f13344a != null) {
+        if (this.f13044a != null) {
             try {
-                this.f13344a.close();
+                this.f13044a.close();
             } catch (IOException e) {
             }
             b(null, false);
@@ -43,10 +43,10 @@ public class d {
     public final int a(int i) throws IOException {
         int i2;
         if (i >= 0 && i <= 4) {
-            if (this.f13345b) {
+            if (this.f13045b) {
                 i2 = 0;
                 for (int i3 = (i - 1) * 8; i3 >= 0; i3 -= 8) {
-                    int read = this.f13344a.read();
+                    int read = this.f13044a.read();
                     if (read == -1) {
                         throw new EOFException();
                     }
@@ -57,7 +57,7 @@ public class d {
                 int i4 = i * 8;
                 i2 = 0;
                 for (int i5 = 0; i5 != i4; i5 += 8) {
-                    int read2 = this.f13344a.read();
+                    int read2 = this.f13044a.read();
                     if (read2 == -1) {
                         throw new EOFException();
                     }
@@ -72,11 +72,11 @@ public class d {
 
     public final int[] b(int i) throws IOException {
         int[] iArr = new int[i];
-        c(iArr, 0, i);
+        d(iArr, 0, i);
         return iArr;
     }
 
-    public final void c(int[] iArr, int i, int i2) throws IOException {
+    public final void d(int[] iArr, int i, int i2) throws IOException {
         while (i2 > 0) {
             iArr[i] = b();
             i2--;
@@ -86,7 +86,7 @@ public class d {
 
     public final void c(int i) throws IOException {
         if (i > 0) {
-            long skip = this.f13344a.skip(i);
+            long skip = this.f13044a.skip(i);
             this.c = (int) (this.c + skip);
             if (skip != i) {
                 throw new EOFException();

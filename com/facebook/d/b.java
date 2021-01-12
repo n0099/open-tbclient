@@ -8,8 +8,8 @@ import java.io.IOException;
 import java.io.InputStream;
 /* loaded from: classes5.dex */
 public class b {
-    public static int RC(int i) {
-        return d.RC(i);
+    public static int PV(int i) {
+        return d.PV(i);
     }
 
     public static int C(InputStream inputStream) {
@@ -31,7 +31,7 @@ public class b {
             while (i2 == 255) {
                 i2 = c.a(inputStream, 1, false);
             }
-            if ((i == 192 && RD(i2)) || i2 == i) {
+            if ((i == 192 && PW(i2)) || i2 == i) {
                 return true;
             }
             if (i2 != 216 && i2 != 1) {
@@ -44,7 +44,7 @@ public class b {
         return false;
     }
 
-    private static boolean RD(int i) {
+    private static boolean PW(int i) {
         switch (i) {
             case 192:
             case 193:

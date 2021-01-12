@@ -17,18 +17,18 @@ import com.baidu.tieba.faceshop.EmotionPackageData;
 import com.baidu.tieba.horizonalList.widget.HListView;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class ForumEmotionItemView extends LinearLayout {
-    private TextView iSM;
-    private TextView iSN;
-    private HListView iYc;
-    private TextView iYd;
-    private TextView iZp;
-    private ViewGroup iZq;
-    private TextView iZr;
-    private TextView iZs;
-    private View iZt;
-    private a iZu;
+    private TextView iOf;
+    private TextView iOg;
+    private HListView iTv;
+    private TextView iTw;
+    private TextView iUI;
+    private ViewGroup iUJ;
+    private TextView iUK;
+    private TextView iUL;
+    private View iUM;
+    private a iUN;
     private View mLineView;
     private TbPageContext mPageContext;
     private TextView mTitle;
@@ -41,40 +41,40 @@ public class ForumEmotionItemView extends LinearLayout {
 
     private void initView() {
         LayoutInflater.from(getContext()).inflate(R.layout.forum_emotion_list_item_layout, this);
-        this.iYc = (HListView) findViewById(R.id.forum_emotion_item_list);
-        this.iZt = findViewById(R.id.forum_emotion_list_head);
-        this.iZp = (TextView) findViewById(R.id.forum_emotion_filter);
-        this.iZq = (ViewGroup) findViewById(R.id.forum_emotion_filter_dropdown);
-        this.iZs = (TextView) findViewById(R.id.forum_emotion_rank);
+        this.iTv = (HListView) findViewById(R.id.forum_emotion_item_list);
+        this.iUM = findViewById(R.id.forum_emotion_list_head);
+        this.iUI = (TextView) findViewById(R.id.forum_emotion_filter);
+        this.iUJ = (ViewGroup) findViewById(R.id.forum_emotion_filter_dropdown);
+        this.iUL = (TextView) findViewById(R.id.forum_emotion_rank);
         this.mTitle = (TextView) findViewById(R.id.forum_emotion_title_tv);
-        this.iSM = (TextView) findViewById(R.id.forum_emotion_download_num_tv);
-        this.iSN = (TextView) findViewById(R.id.forum_emotion_share_num_tv);
-        this.iYd = (TextView) findViewById(R.id.forum_emotion_download_tv);
+        this.iOf = (TextView) findViewById(R.id.forum_emotion_download_num_tv);
+        this.iOg = (TextView) findViewById(R.id.forum_emotion_share_num_tv);
+        this.iTw = (TextView) findViewById(R.id.forum_emotion_download_tv);
         this.mLineView = findViewById(R.id.line);
-        this.iZr = (TextView) findViewById(R.id.forum_emotion_board_title);
-        this.iYc.setDividerWidth(getContext().getResources().getDimensionPixelSize(R.dimen.ds20));
-        this.iYc.setSelector(this.mPageContext.getResources().getDrawable(R.drawable.transparent_bg));
-        this.iZu = new a(this.mPageContext);
-        this.iYc.setAdapter((ListAdapter) this.iZu);
+        this.iUK = (TextView) findViewById(R.id.forum_emotion_board_title);
+        this.iTv.setDividerWidth(getContext().getResources().getDimensionPixelSize(R.dimen.ds20));
+        this.iTv.setSelector(this.mPageContext.getResources().getDrawable(R.drawable.transparent_bg));
+        this.iUN = new a(this.mPageContext);
+        this.iTv.setAdapter((ListAdapter) this.iUN);
     }
 
     public void onChangeSkin(int i) {
         ao.setViewTextColor(this.mTitle, R.color.CAM_X0105);
-        ao.setViewTextColor(this.iSM, R.color.CAM_X0109);
-        ao.setViewTextColor(this.iSN, R.color.CAM_X0109);
-        ao.setViewTextColor(this.iYd, R.color.CAM_X0109);
-        ao.setViewTextColor(this.iZs, R.color.CAM_X0105);
+        ao.setViewTextColor(this.iOf, R.color.CAM_X0109);
+        ao.setViewTextColor(this.iOg, R.color.CAM_X0109);
+        ao.setViewTextColor(this.iTw, R.color.CAM_X0109);
+        ao.setViewTextColor(this.iUL, R.color.CAM_X0105);
         ao.setBackgroundColor(this.mLineView, R.color.CAM_X0204);
-        ao.setViewTextColor(this.iZq.getChildAt(0), R.color.CAM_X0107);
-        ao.setBackgroundColor(this.iZq.getChildAt(0), R.color.CAM_X0201);
-        ao.setViewTextColor(this.iZq.getChildAt(1), R.color.CAM_X0107);
-        ao.setBackgroundColor(this.iZq.getChildAt(1), R.color.CAM_X0201);
-        ao.setViewTextColor(this.iZr, R.color.CAM_X0107);
-        ao.setViewTextColor(this.iZp, R.color.CAM_X0107);
+        ao.setViewTextColor(this.iUJ.getChildAt(0), R.color.CAM_X0107);
+        ao.setBackgroundColor(this.iUJ.getChildAt(0), R.color.CAM_X0201);
+        ao.setViewTextColor(this.iUJ.getChildAt(1), R.color.CAM_X0107);
+        ao.setBackgroundColor(this.iUJ.getChildAt(1), R.color.CAM_X0201);
+        ao.setViewTextColor(this.iUK, R.color.CAM_X0107);
+        ao.setViewTextColor(this.iUI, R.color.CAM_X0107);
     }
 
     public HListView getListView() {
-        return this.iYc;
+        return this.iTv;
     }
 
     public TextView getTitleView() {
@@ -82,19 +82,19 @@ public class ForumEmotionItemView extends LinearLayout {
     }
 
     public TextView getDownloadNumView() {
-        return this.iSM;
+        return this.iOf;
     }
 
     public TextView getShareNumView() {
-        return this.iSN;
+        return this.iOg;
     }
 
     public TextView getDownLoadView() {
-        return this.iYd;
+        return this.iTw;
     }
 
     public TextView getRankView() {
-        return this.iZs;
+        return this.iUL;
     }
 
     public View getLineView() {
@@ -102,35 +102,35 @@ public class ForumEmotionItemView extends LinearLayout {
     }
 
     public View getHeaderView() {
-        return this.iZt;
+        return this.iUM;
     }
 
     public TextView getFilterView() {
-        return this.iZp;
+        return this.iUI;
     }
 
     public ViewGroup getFilterDropDownView() {
-        return this.iZq;
+        return this.iUJ;
     }
 
     public a getAdapter() {
-        return this.iZu;
+        return this.iUN;
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public static class a extends BaseAdapter {
-        private TbPageContext eXu;
+        private TbPageContext eSJ;
         private List<EmotionPackageData.SingleEmotionData> mDatas = new ArrayList();
-        private boolean iYg = false;
+        private boolean iTz = false;
         private boolean showCover = false;
 
         public a(TbPageContext tbPageContext) {
-            this.eXu = tbPageContext;
+            this.eSJ = tbPageContext;
         }
 
         public void setData(List<EmotionPackageData.SingleEmotionData> list, boolean z) {
             if (!x.isEmpty(list)) {
-                this.iYg = z;
+                this.iTz = z;
                 if (list.size() > 8) {
                     this.mDatas = list.subList(0, 8);
                     this.showCover = true;
@@ -165,51 +165,51 @@ public class ForumEmotionItemView extends LinearLayout {
 
         @Override // android.widget.Adapter
         public View getView(int i, View view, ViewGroup viewGroup) {
-            C0735a c0735a;
+            C0718a c0718a;
             if (view == null) {
-                view = LayoutInflater.from(this.eXu.getPageActivity()).inflate(R.layout.emotion_item_layout, (ViewGroup) null);
-                C0735a c0735a2 = new C0735a(view);
-                view.setTag(c0735a2);
-                c0735a = c0735a2;
+                view = LayoutInflater.from(this.eSJ.getPageActivity()).inflate(R.layout.emotion_item_layout, (ViewGroup) null);
+                C0718a c0718a2 = new C0718a(view);
+                view.setTag(c0718a2);
+                c0718a = c0718a2;
             } else {
-                c0735a = (C0735a) view.getTag();
+                c0718a = (C0718a) view.getTag();
             }
-            c0735a.a(this.mDatas.get(i), i == 0 && this.iYg, this.showCover, i);
+            c0718a.a(this.mDatas.get(i), i == 0 && this.iTz, this.showCover, i);
             return view;
         }
 
         /* renamed from: com.baidu.tieba.faceshop.forumpackage.view.ForumEmotionItemView$a$a  reason: collision with other inner class name */
-        /* loaded from: classes9.dex */
-        static class C0735a {
-            private TextView akH;
-            private TbImageView iYh;
-            private View iYi;
+        /* loaded from: classes8.dex */
+        static class C0718a {
+            private TextView ajQ;
+            private TbImageView iTA;
+            private View iTB;
             private View mView;
 
-            public C0735a(View view) {
+            public C0718a(View view) {
                 this.mView = view;
                 this.mView.setEnabled(false);
-                this.iYh = (TbImageView) this.mView.findViewById(R.id.emotion_img);
-                this.akH = (TextView) this.mView.findViewById(R.id.emotion_single_bar_icon);
-                this.iYi = this.mView.findViewById(R.id.emotion_cover_view);
-                this.iYi.setVisibility(8);
+                this.iTA = (TbImageView) this.mView.findViewById(R.id.emotion_img);
+                this.ajQ = (TextView) this.mView.findViewById(R.id.emotion_single_bar_icon);
+                this.iTB = this.mView.findViewById(R.id.emotion_cover_view);
+                this.iTB.setVisibility(8);
             }
 
             public void a(EmotionPackageData.SingleEmotionData singleEmotionData, boolean z, boolean z2, int i) {
                 if (singleEmotionData != null) {
                     if (!TextUtils.isEmpty(singleEmotionData.thumbnail)) {
-                        this.iYh.setDefaultResource(R.drawable.img_default_100);
-                        this.iYh.startLoad(singleEmotionData.thumbnail, 10, false);
+                        this.iTA.setDefaultResource(R.drawable.img_default_100);
+                        this.iTA.startLoad(singleEmotionData.thumbnail, 10, false);
                     }
                     if (z) {
-                        this.akH.setVisibility(0);
+                        this.ajQ.setVisibility(0);
                     } else {
-                        this.akH.setVisibility(8);
+                        this.ajQ.setVisibility(8);
                     }
                     if (i == 7 && z2) {
-                        this.iYi.setVisibility(0);
+                        this.iTB.setVisibility(0);
                     } else {
-                        this.iYi.setVisibility(8);
+                        this.iTB.setVisibility(8);
                     }
                 }
             }

@@ -1,9 +1,9 @@
 package com.baidu.swan.apps.console.debugger;
 
 import android.os.Bundle;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public interface a {
-    String apn();
+    String als();
 
     void n(Bundle bundle);
 

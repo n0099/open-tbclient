@@ -7,10 +7,10 @@ import android.net.Uri;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f6055a;
+    private Context f5755a;
 
     public a(Context context) {
-        this.f6055a = context;
+        this.f5755a = context;
     }
 
     public String a(int i, String str) {
@@ -29,7 +29,7 @@ public class a {
                 parse = null;
                 break;
         }
-        Cursor query = this.f6055a.getContentResolver().query(parse, null, null, null, null);
+        Cursor query = this.f5755a.getContentResolver().query(parse, null, null, null, null);
         if (query != null) {
             r2 = query.moveToNext() ? query.getString(query.getColumnIndex("value")) : null;
             query.close();

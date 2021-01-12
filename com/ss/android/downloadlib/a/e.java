@@ -14,18 +14,18 @@ import org.json.JSONObject;
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    private Handler f13253a;
+    private Handler f12953a;
     private AtomicBoolean c = new AtomicBoolean(false);
     private AtomicBoolean d = new AtomicBoolean(false);
-    private d.a pVJ;
+    private d.a pRi;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(Handler handler) {
-        this.f13253a = handler;
+        this.f12953a = handler;
     }
 
     public void a(d.a aVar) {
-        this.pVJ = aVar;
+        this.pRi = aVar;
     }
 
     public boolean a() {
@@ -41,44 +41,44 @@ public class e {
         long j3;
         if (aVar != null) {
             this.d.set(false);
-            long Sn = com.ss.android.downloadlib.f.d.Sn(i);
+            long QG = com.ss.android.downloadlib.f.d.QG(i);
             this.c.set(false);
-            final String a2 = this.pVJ.pVw.a();
-            final com.ss.android.b.a.b.a aaN = com.ss.android.downloadlib.a.b.d.eFT().aaN(a2);
-            if (aaN == null) {
-                aaN = new com.ss.android.b.a.b.a(this.pVJ.pVw, this.pVJ.pVx, this.pVJ.pVy, 0);
-                com.ss.android.downloadlib.a.b.d.eFT().d(aaN);
+            final String a2 = this.pRi.pQV.a();
+            final com.ss.android.b.a.b.a ZF = com.ss.android.downloadlib.a.b.d.eCc().ZF(a2);
+            if (ZF == null) {
+                ZF = new com.ss.android.b.a.b.a(this.pRi.pQV, this.pRi.pQW, this.pRi.pQX, 0);
+                com.ss.android.downloadlib.a.b.d.eCc().d(ZF);
             }
-            aaN.e(false);
-            if (j.eGn() != null) {
-                j.eGn().a(aaN.j());
+            ZF.e(false);
+            if (j.eCw() != null) {
+                j.eCw().a(ZF.j());
             }
-            com.ss.android.downloadlib.a.c.d.eFY().a(aaN.z());
-            boolean z = com.ss.android.downloadlib.f.d.So(i) && com.ss.android.downloadlib.f.d.Sp(i);
-            if (j2 > 0 && com.ss.android.downloadlib.f.d.Sp(i)) {
-                com.ss.android.downloadlib.e.a.eGB().a("clean_no_need_fetch_apk_size", aaN);
-                a(i, a2, j2, aaN, j, aVar);
-                j3 = Sn;
+            com.ss.android.downloadlib.a.c.d.eCh().a(ZF.z());
+            boolean z = com.ss.android.downloadlib.f.d.QH(i) && com.ss.android.downloadlib.f.d.QI(i);
+            if (j2 > 0 && com.ss.android.downloadlib.f.d.QI(i)) {
+                com.ss.android.downloadlib.e.a.eCL().a("clean_no_need_fetch_apk_size", ZF);
+                a(i, a2, j2, ZF, j, aVar);
+                j3 = QG;
             } else if (z) {
-                com.ss.android.downloadlib.e.a.eGB().a("clean_fetch_apk_head_switch_open", aaN);
-                final com.ss.android.b.a.b.a aVar2 = aaN;
-                a(a2, aaN, new f.b() { // from class: com.ss.android.downloadlib.a.e.1
+                com.ss.android.downloadlib.e.a.eCL().a("clean_fetch_apk_head_switch_open", ZF);
+                final com.ss.android.b.a.b.a aVar2 = ZF;
+                a(a2, ZF, new f.b() { // from class: com.ss.android.downloadlib.a.e.1
                     @Override // com.ss.android.downloadlib.a.f.b
                     public void a(long j4) {
                         e.this.a(i, a2, j4, aVar2, j, aVar);
                     }
                 });
-                j3 = Sn;
+                j3 = QG;
             } else {
-                com.ss.android.downloadlib.e.a.eGB().a("clean_fetch_apk_head_switch_close", aaN);
+                com.ss.android.downloadlib.e.a.eCL().a("clean_fetch_apk_head_switch_close", ZF);
                 j3 = 0;
             }
-            this.f13253a.postDelayed(new Runnable() { // from class: com.ss.android.downloadlib.a.e.2
+            this.f12953a.postDelayed(new Runnable() { // from class: com.ss.android.downloadlib.a.e.2
                 @Override // java.lang.Runnable
                 public void run() {
                     if (!e.this.c.get()) {
                         e.this.c.set(true);
-                        com.ss.android.downloadlib.e.a.eGB().a("clean_fetch_apk_head_failed", aaN);
+                        com.ss.android.downloadlib.e.a.eCL().a("clean_fetch_apk_head_failed", ZF);
                         aVar.a();
                     }
                 }
@@ -97,10 +97,10 @@ public class e {
                         e.this.c.set(true);
                         try {
                             if (map != null) {
-                                com.ss.android.downloadlib.e.a.eGB().a("clean_fetch_apk_head_success", aVar);
+                                com.ss.android.downloadlib.e.a.eCL().a("clean_fetch_apk_head_success", aVar);
                                 j2 = Long.parseLong(map.get("Content-Length"));
                             } else {
-                                com.ss.android.downloadlib.e.a.eGB().a("clean_fetch_apk_head_failed", aVar);
+                                com.ss.android.downloadlib.e.a.eCL().a("clean_fetch_apk_head_failed", aVar);
                                 j2 = 0;
                             }
                             j = j2;
@@ -116,7 +116,7 @@ public class e {
                             } catch (JSONException e2) {
                                 e2.printStackTrace();
                             }
-                            com.ss.android.downloadlib.e.a.eGB().a("clean_fetch_apk_size_success", jSONObject, aVar);
+                            com.ss.android.downloadlib.e.a.eCL().a("clean_fetch_apk_size_success", jSONObject, aVar);
                         }
                         bVar.a(j);
                     }
@@ -141,7 +141,7 @@ public class e {
             } catch (JSONException e) {
                 e.printStackTrace();
             }
-            long longValue = (Double.valueOf((com.ss.android.downloadlib.f.d.Sl(i) + 1.0d) * j).longValue() + com.ss.android.downloadlib.f.d.Sm(i)) - j2;
+            long longValue = (Double.valueOf((com.ss.android.downloadlib.f.d.QE(i) + 1.0d) * j).longValue() + com.ss.android.downloadlib.f.d.QF(i)) - j2;
             aVar.e(true);
             long b2 = b();
             if (b2 < longValue) {
@@ -151,11 +151,11 @@ public class e {
                 if (b3 < longValue) {
                     aVar.d(true);
                     final String z2 = aVar.z();
-                    com.ss.android.downloadlib.a.c.d.eFY().a(z2, new com.ss.android.downloadlib.a.c.e() { // from class: com.ss.android.downloadlib.a.e.4
+                    com.ss.android.downloadlib.a.c.d.eCh().a(z2, new com.ss.android.downloadlib.a.c.e() { // from class: com.ss.android.downloadlib.a.e.4
                     });
                     z = a(i, aVar, str, longValue);
                     if (z) {
-                        this.f13253a.post(new Runnable() { // from class: com.ss.android.downloadlib.a.e.5
+                        this.f12953a.post(new Runnable() { // from class: com.ss.android.downloadlib.a.e.5
                             @Override // java.lang.Runnable
                             public void run() {
                                 aVar2.a();
@@ -166,13 +166,13 @@ public class e {
                     return;
                 }
                 aVar.j("1");
-                com.ss.android.downloadlib.a.b.g.eFW().d(aVar);
+                com.ss.android.downloadlib.a.b.g.eCf().d(aVar);
                 try {
                     jSONObject.putOpt("quite_clean_size", Long.valueOf(b3 - b2));
                 } catch (JSONException e2) {
                     e2.printStackTrace();
                 }
-                com.ss.android.downloadlib.e.a.eGB().a("cleanspace_download_after_quite_clean", jSONObject, aVar);
+                com.ss.android.downloadlib.e.a.eCL().a("cleanspace_download_after_quite_clean", jSONObject, aVar);
             }
         }
         z = false;
@@ -181,24 +181,24 @@ public class e {
     }
 
     private boolean a(int i, @NonNull com.ss.android.b.a.b.a aVar, String str, long j) {
-        if (!com.ss.android.downloadlib.f.d.Sq(i)) {
-            com.ss.android.downloadlib.e.a.eGB().a("clean_space_switch_closed", aVar);
+        if (!com.ss.android.downloadlib.f.d.QJ(i)) {
+            com.ss.android.downloadlib.e.a.eCL().a("clean_space_switch_closed", aVar);
             return false;
         }
-        com.ss.android.downloadlib.e.a.eGB().a("cleanspace_switch_open", aVar);
-        if (j.eGn() != null) {
-            return j.eGn().e(i, str, j);
+        com.ss.android.downloadlib.e.a.eCL().a("cleanspace_switch_open", aVar);
+        if (j.eCw() != null) {
+            return j.eCw().e(i, str, j);
         }
-        com.ss.android.a.a.a.l eGo = j.eGo();
-        if (eGo != null) {
-            int a2 = eGo.a();
+        com.ss.android.a.a.a.l eCx = j.eCx();
+        if (eCx != null) {
+            int a2 = eCx.a();
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.putOpt("plugin_status", Integer.valueOf(a2));
             } catch (JSONException e) {
                 e.printStackTrace();
             }
-            com.ss.android.downloadlib.e.a.eGB().a("clean_ad_plugin_status", jSONObject, aVar);
+            com.ss.android.downloadlib.e.a.eCL().a("clean_ad_plugin_status", jSONObject, aVar);
         }
         JSONObject jSONObject2 = new JSONObject();
         try {
@@ -206,18 +206,18 @@ public class e {
         } catch (JSONException e2) {
             e2.printStackTrace();
         }
-        com.ss.android.downloadlib.e.a.eGB().a("cleanspace_window_show", jSONObject2, aVar);
+        com.ss.android.downloadlib.e.a.eCL().a("cleanspace_window_show", jSONObject2, aVar);
         return false;
     }
 
     private void d(com.ss.android.b.a.b.a aVar) {
         long b2 = b();
-        if (j.eGn() != null) {
-            j.eGn().b();
+        if (j.eCw() != null) {
+            j.eCw().b();
         }
         com.ss.android.downloadlib.a.c.c.a();
         com.ss.android.downloadlib.a.c.c.b();
-        if (com.ss.android.downloadlib.f.d.Sr(aVar.t())) {
+        if (com.ss.android.downloadlib.f.d.QK(aVar.t())) {
             com.ss.android.downloadlib.a.c.c.a(j.a());
         }
         long b3 = b();
@@ -227,7 +227,7 @@ public class e {
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        com.ss.android.downloadlib.e.a.eGB().a("clean_quite_finish", jSONObject, aVar);
+        com.ss.android.downloadlib.e.a.eCL().a("clean_quite_finish", jSONObject, aVar);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -247,6 +247,6 @@ public class e {
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        com.ss.android.downloadlib.e.a.eGB().a("clean_space_no_enough_for_download", jSONObject, aVar);
+        com.ss.android.downloadlib.e.a.eCL().a("clean_space_no_enough_for_download", jSONObject, aVar);
     }
 }

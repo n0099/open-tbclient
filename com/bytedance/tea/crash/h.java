@@ -2,61 +2,62 @@ package com.bytedance.tea.crash;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import com.baidu.searchbox.config.DefaultSharedPrefsWrapper;
 import com.bytedance.tea.crash.e.j;
 import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes4.dex */
 public final class h {
 
     /* renamed from: a  reason: collision with root package name */
-    private static Context f7970a;
+    private static Context f7670a;
 
     /* renamed from: b  reason: collision with root package name */
-    private static long f7971b;
+    private static long f7671b;
     private static volatile ConcurrentHashMap<Integer, String> h;
     private static volatile int j;
     private static volatile String k;
     @SuppressLint({"StaticFieldLeak"})
-    private static com.bytedance.tea.crash.e.a pqp;
-    private static String c = "default";
+    private static com.bytedance.tea.crash.e.a plK;
+    private static String c = DefaultSharedPrefsWrapper.SP_FILE_DEFAULT;
     private static boolean d = false;
-    private static com.bytedance.tea.crash.e.b pqq = new com.bytedance.tea.crash.e.b();
-    private static b pqr = new b();
-    private static j pqs = null;
+    private static com.bytedance.tea.crash.e.b plL = new com.bytedance.tea.crash.e.b();
+    private static b plM = new b();
+    private static j plN = null;
 
-    public static com.bytedance.tea.crash.e.a esF() {
-        return pqp;
+    public static com.bytedance.tea.crash.e.a eoL() {
+        return plK;
     }
 
-    public static b esG() {
-        return pqr;
+    public static b eoM() {
+        return plM;
     }
 
-    public static j esH() {
-        if (pqs == null) {
+    public static j eoN() {
+        if (plN == null) {
             synchronized (h.class) {
-                pqs = new j(f7970a);
+                plN = new j(f7670a);
             }
         }
-        return pqs;
+        return plN;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static void a(Context context, d dVar) {
-        f7971b = System.currentTimeMillis();
-        f7970a = context;
-        pqp = new com.bytedance.tea.crash.e.a(f7970a, dVar);
+        f7671b = System.currentTimeMillis();
+        f7670a = context;
+        plK = new com.bytedance.tea.crash.e.a(f7670a, dVar);
     }
 
     public static Context d() {
-        return f7970a;
+        return f7670a;
     }
 
-    public static com.bytedance.tea.crash.e.b esI() {
-        return pqq;
+    public static com.bytedance.tea.crash.e.b eoO() {
+        return plL;
     }
 
     public static long f() {
-        return f7971b;
+        return f7671b;
     }
 
     public static String g() {
@@ -67,7 +68,7 @@ public final class h {
         return d;
     }
 
-    public static ConcurrentHashMap<Integer, String> esJ() {
+    public static ConcurrentHashMap<Integer, String> eoP() {
         return h;
     }
 

@@ -9,7 +9,7 @@ import com.baidu.tbadk.core.util.bg;
 import com.baidu.tbadk.core.voice.VoiceManager;
 /* loaded from: classes2.dex */
 public class MessageCenterActivity extends BaseFragmentActivity implements VoiceManager.c {
-    private MessageCenterFragment kOe;
+    private MessageCenterFragment kJz;
     private int mSkinType = 3;
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -20,9 +20,9 @@ public class MessageCenterActivity extends BaseFragmentActivity implements Voice
             finish();
             return;
         }
-        this.kOe = new MessageCenterFragment();
+        this.kJz = new MessageCenterFragment();
         FragmentTransaction beginTransaction = getSupportFragmentManager().beginTransaction();
-        beginTransaction.add(16908290, this.kOe);
+        beginTransaction.add(16908290, this.kJz);
         beginTransaction.commitAllowingStateLoss();
     }
 
@@ -37,8 +37,8 @@ public class MessageCenterActivity extends BaseFragmentActivity implements Voice
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onActivityResult(int i, int i2, Intent intent) {
         super.onActivityResult(i, i2, intent);
-        if (this.kOe != null) {
-            this.kOe.onActivityResult(i, i2, intent);
+        if (this.kJz != null) {
+            this.kJz.onActivityResult(i, i2, intent);
         }
     }
 
@@ -46,8 +46,8 @@ public class MessageCenterActivity extends BaseFragmentActivity implements Voice
     @Override // androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onNewIntent(Intent intent) {
         super.onNewIntent(intent);
-        if (this.kOe != null) {
-            this.kOe.onNewIntent(intent);
+        if (this.kJz != null) {
+            this.kJz.onNewIntent(intent);
         }
     }
 
@@ -55,13 +55,13 @@ public class MessageCenterActivity extends BaseFragmentActivity implements Voice
     protected void onChangeSkinType(int i) {
         if (i != this.mSkinType) {
             this.mSkinType = i;
-            this.kOe.onChangeSkinType(i);
+            this.kJz.onChangeSkinType(i);
         }
     }
 
     @Override // com.baidu.tbadk.core.voice.VoiceManager.c
     public VoiceManager getVoiceManager() {
-        return this.kOe.getVoiceManager();
+        return this.kJz.getVoiceManager();
     }
 
     @Override // com.baidu.tbadk.core.voice.VoiceManager.c

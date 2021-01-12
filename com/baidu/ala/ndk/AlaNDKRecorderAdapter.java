@@ -1,5 +1,5 @@
 package com.baidu.ala.ndk;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class AlaNDKRecorderAdapter {
     public static final int NATIVE_AUDIO_CAPTURE_FAIL_EXCEPTION = 3;
     public static final int NATIVE_AUDIO_ENCODE_FAIL_EXCEPTION = 4;

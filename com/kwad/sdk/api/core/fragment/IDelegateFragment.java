@@ -2,7 +2,7 @@ package com.kwad.sdk.api.core.fragment;
 
 import android.app.Activity;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public interface IDelegateFragment {
     Activity getActivity2();
 

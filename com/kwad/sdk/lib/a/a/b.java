@@ -7,7 +7,7 @@ import com.kwad.sdk.contentalliance.refreshview.RefreshLayout;
 import com.kwad.sdk.lib.widget.recycler.d;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class b<PAGE, MODEL> {
     public List<c> d = new ArrayList();
     public KsFragment e;

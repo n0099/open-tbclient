@@ -7,7 +7,7 @@ import android.os.Process;
 import android.os.SystemClock;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class EarlyTraceEvent {
     public static List<AsyncEvent> sAsyncEvents;
     public static boolean sCachedBackgroundStartupTracingFlag;
@@ -18,7 +18,7 @@ public class EarlyTraceEvent {
     public static volatile int sState = 0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static final class AsyncEvent {
         public final long mId;
         public final boolean mIsStart;
@@ -27,7 +27,7 @@ public class EarlyTraceEvent {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static final class Event {
         public static final /* synthetic */ boolean $assertionsDisabled = !EarlyTraceEvent.class.desiredAssertionStatus();
         public long mEndThreadTimeMillis;

@@ -9,30 +9,30 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.ao;
 import com.baidu.tieba.R;
 import com.baidu.tieba.person.data.c;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class PersonInfoAddUserPicViewHolder extends TypeAdapter.ViewHolder {
-    private n Xy;
+    private n Xw;
     private View.OnClickListener mClickListener;
     private int mSkinType;
-    public ImageView mog;
-    public TextView moh;
+    public ImageView mjC;
+    public TextView mjD;
     public View rootView;
 
     public PersonInfoAddUserPicViewHolder(View view) {
         super(view);
         this.mSkinType = 3;
         this.rootView = view.findViewById(R.id.add_pic_root);
-        this.mog = (ImageView) view.findViewById(R.id.add_image_view);
-        this.moh = (TextView) view.findViewById(R.id.tip_left_count_view);
+        this.mjC = (ImageView) view.findViewById(R.id.add_image_view);
+        this.mjD = (TextView) view.findViewById(R.id.tip_left_count_view);
     }
 
     public void h(n nVar) {
         if (nVar instanceof c) {
-            this.Xy = nVar;
+            this.Xw = nVar;
             c cVar = (c) nVar;
-            ao.setImageResource(this.mog, R.drawable.icon_mine_pic_add);
-            if (cVar.dxY() > 0) {
-                this.moh.setText(String.format(TbadkCoreApplication.getInst().getString(R.string.have_left_some_picture_upload), Integer.valueOf(cVar.dxY())));
+            ao.setImageResource(this.mjC, R.drawable.icon_mine_pic_add);
+            if (cVar.dug() > 0) {
+                this.mjD.setText(String.format(TbadkCoreApplication.getInst().getString(R.string.have_left_some_picture_upload), Integer.valueOf(cVar.dug())));
             }
             getView().setOnClickListener(this.mClickListener);
             onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
@@ -41,14 +41,14 @@ public class PersonInfoAddUserPicViewHolder extends TypeAdapter.ViewHolder {
 
     public void onChangeSkinType(int i) {
         if (this.mSkinType != i) {
-            ao.setViewTextColor(this.moh, R.color.CAM_X0110, 1);
+            ao.setViewTextColor(this.mjD, R.color.CAM_X0110, 1);
             ao.setBackgroundColor(getView(), R.color.CAM_X0205);
             this.mSkinType = i;
         }
     }
 
     public n qx() {
-        return this.Xy;
+        return this.Xw;
     }
 
     public void H(View.OnClickListener onClickListener) {

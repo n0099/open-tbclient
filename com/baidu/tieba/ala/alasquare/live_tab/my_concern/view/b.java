@@ -8,28 +8,28 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.ao;
 import com.baidu.tieba.R;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class b extends com.baidu.tieba.card.b<com.baidu.tieba.ala.alasquare.special_forum.data.e> {
-    private View bUk;
-    private View epV;
-    private TextView gEH;
-    private ImageView gEI;
+    private View bPy;
+    private View elg;
+    private TextView gAa;
+    private ImageView gAb;
 
     public b(TbPageContext tbPageContext, ViewGroup viewGroup) {
         super(tbPageContext, viewGroup);
-        this.epV = getView();
-        this.gEH = (TextView) getView().findViewById(R.id.tv_empty);
-        this.gEI = (ImageView) getView().findViewById(R.id.iv_empty);
-        this.bUk = getView().findViewById(R.id.id_tab_live_sub_empty_divider);
+        this.elg = getView();
+        this.gAa = (TextView) getView().findViewById(R.id.tv_empty);
+        this.gAb = (ImageView) getView().findViewById(R.id.iv_empty);
+        this.bPy = getView().findViewById(R.id.id_tab_live_sub_empty_divider);
         onChangeSkinType(tbPageContext, TbadkCoreApplication.getInst().getSkinType());
     }
 
     @Override // com.baidu.tieba.card.b
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
-        ao.setBackgroundResource(this.epV, R.color.CAM_X0201);
-        ao.setViewTextColor(this.gEH, R.color.CAM_X0109);
-        ao.setImageResource(this.gEI, R.drawable.new_pic_emotion_08);
-        ao.setBackgroundResource(this.bUk, R.color.CAM_X0204);
+        ao.setBackgroundResource(this.elg, R.color.CAM_X0201);
+        ao.setViewTextColor(this.gAa, R.color.CAM_X0109);
+        ao.setImageResource(this.gAb, R.drawable.new_pic_emotion_08);
+        ao.setBackgroundResource(this.bPy, R.color.CAM_X0204);
     }
 
     @Override // com.baidu.tieba.card.b
@@ -41,12 +41,12 @@ public class b extends com.baidu.tieba.card.b<com.baidu.tieba.ala.alasquare.spec
     @Override // com.baidu.tieba.card.b
     public void a(com.baidu.tieba.ala.alasquare.special_forum.data.e eVar) {
         if (eVar.followStatus == 1) {
-            this.gEH.setText(this.mTbPageContext.getResources().getString(R.string.live_sub_tab_no_attention_txt));
-            ao.setImageResource(this.gEI, R.drawable.new_pic_emotion_07);
+            this.gAa.setText(this.mTbPageContext.getResources().getString(R.string.live_sub_tab_no_attention_txt));
+            ao.setImageResource(this.gAb, R.drawable.new_pic_emotion_07);
             return;
         }
-        this.gEH.setText(this.mTbPageContext.getResources().getString(R.string.live_sub_tab_empty_txt));
-        ao.setImageResource(this.gEI, R.drawable.new_pic_emotion_06);
+        this.gAa.setText(this.mTbPageContext.getResources().getString(R.string.live_sub_tab_empty_txt));
+        ao.setImageResource(this.gAb, R.drawable.new_pic_emotion_06);
     }
 
     @Override // android.view.View.OnClickListener

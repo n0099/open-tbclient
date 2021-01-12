@@ -3,14 +3,14 @@ package com.kwad.sdk.glide.request.a;
 import android.graphics.drawable.Drawable;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public abstract class c<T> implements j<T> {
 
     /* renamed from: a  reason: collision with root package name */
-    private final int f10638a;
+    private final int f10338a;
 
     /* renamed from: b  reason: collision with root package name */
-    private final int f10639b;
+    private final int f10339b;
     @Nullable
     private com.kwad.sdk.glide.request.c c;
 
@@ -22,13 +22,13 @@ public abstract class c<T> implements j<T> {
         if (!com.kwad.sdk.glide.g.k.a(i, i2)) {
             throw new IllegalArgumentException("Width and height must both be > 0 or Target#SIZE_ORIGINAL, but given width: " + i + " and height: " + i2);
         }
-        this.f10638a = i;
-        this.f10639b = i2;
+        this.f10338a = i;
+        this.f10339b = i2;
     }
 
     @Override // com.kwad.sdk.glide.request.a.j
     public final void a(@NonNull i iVar) {
-        iVar.a(this.f10638a, this.f10639b);
+        iVar.a(this.f10338a, this.f10339b);
     }
 
     @Override // com.kwad.sdk.glide.request.a.j

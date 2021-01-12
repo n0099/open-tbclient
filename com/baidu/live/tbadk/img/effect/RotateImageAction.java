@@ -5,7 +5,7 @@ import com.baidu.live.adp.lib.util.BdUtilHelper;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.core.util.BitmapHelper;
 import com.baidu.live.tbadk.imagemanager.TbImageMemoryCache;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class RotateImageAction extends ImageAction {
     public static final String ACTION_NAME = "rotate";
     private int rotateType = 0;

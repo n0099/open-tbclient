@@ -5,17 +5,17 @@ import android.view.ViewGroup;
 import androidx.viewpager.widget.PagerAdapter;
 import com.baidu.live.tbadk.core.util.ListUtils;
 import java.util.List;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class AlaEmoticonPagerAdapter extends PagerAdapter {
-    private List<View> bbZ;
+    private List<View> aXl;
 
     public AlaEmoticonPagerAdapter(List<View> list) {
-        this.bbZ = list;
+        this.aXl = list;
     }
 
     @Override // androidx.viewpager.widget.PagerAdapter
     public int getCount() {
-        return ListUtils.getCount(this.bbZ);
+        return ListUtils.getCount(this.aXl);
     }
 
     @Override // androidx.viewpager.widget.PagerAdapter
@@ -28,7 +28,7 @@ public class AlaEmoticonPagerAdapter extends PagerAdapter {
         if (i < 0 || i >= getCount()) {
             return null;
         }
-        View view = this.bbZ.get(i);
+        View view = this.aXl.get(i);
         viewGroup.addView(view);
         return view;
     }
@@ -36,7 +36,7 @@ public class AlaEmoticonPagerAdapter extends PagerAdapter {
     @Override // androidx.viewpager.widget.PagerAdapter
     public void destroyItem(ViewGroup viewGroup, int i, Object obj) {
         if (i >= 0 && i < getCount()) {
-            viewGroup.removeView(this.bbZ.get(i));
+            viewGroup.removeView(this.aXl.get(i));
         }
     }
 }

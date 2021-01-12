@@ -13,18 +13,18 @@ import androidx.annotation.NonNull;
 import com.baidu.tieba.ala.b.i;
 import com.facebook.drawee.view.SimpleDraweeView;
 @TargetApi(17)
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class f implements h {
-    private SimpleDraweeView gOf;
-    private View gOg;
-    private g gOh;
-    private Runnable gOi;
+    private View gJA;
+    private g gJB;
+    private Runnable gJC;
+    private SimpleDraweeView gJz;
     private Context mContext;
     private Dialog mDialog;
     private TextView mTitle;
-    private Runnable gOd = null;
-    private h gOe = null;
-    private boolean gOj = false;
+    private Runnable gJx = null;
+    private h gJy = null;
+    private boolean gJD = false;
     private String mName = "直播";
     private DialogInterface.OnDismissListener mOnDismissListener = null;
 
@@ -33,47 +33,47 @@ public class f implements h {
     }
 
     public f(Context context, @NonNull g gVar) {
-        this.gOh = null;
-        this.gOh = gVar;
-        fY(context);
+        this.gJB = null;
+        this.gJB = gVar;
+        fW(context);
     }
 
-    private void fY(Context context) {
+    private void fW(Context context) {
         this.mContext = context;
         this.mDialog = new Dialog(this.mContext, i.d.SoLoaderDialogStyle);
         this.mDialog.setContentView(i.b.dialog_soloader);
-        this.gOf = (SimpleDraweeView) this.mDialog.findViewById(i.a.soloader_loading_anim);
-        this.gOf.setController(com.facebook.drawee.a.a.c.euP().Zu("https://pic.rmb.bdstatic.com/qmpic_InRooc_1563447539.webp").AX(true).evG());
+        this.gJz = (SimpleDraweeView) this.mDialog.findViewById(i.a.soloader_loading_anim);
+        this.gJz.setController(com.facebook.drawee.a.a.c.eqV().Ym("https://pic.rmb.bdstatic.com/qmpic_InRooc_1563447539.webp").AT(true).erN());
         this.mTitle = (TextView) this.mDialog.findViewById(i.a.soloader_title);
-        this.gOg = this.mDialog.findViewById(i.a.soloader_hide);
+        this.gJA = this.mDialog.findViewById(i.a.soloader_hide);
         this.mDialog.setOnDismissListener(new DialogInterface.OnDismissListener() { // from class: com.baidu.tieba.ala.b.f.1
             @Override // android.content.DialogInterface.OnDismissListener
             public void onDismiss(DialogInterface dialogInterface) {
-                f.this.gOh.detach();
-                if (f.this.gOe != null) {
-                    f.this.gOh.a(f.this.gOe);
+                f.this.gJB.detach();
+                if (f.this.gJy != null) {
+                    f.this.gJB.a(f.this.gJy);
                 }
-                if (!f.this.gOj && f.this.gOi != null) {
-                    f.this.gOi.run();
+                if (!f.this.gJD && f.this.gJC != null) {
+                    f.this.gJC.run();
                 }
-                f.this.mR(f.this.gOj);
+                f.this.mN(f.this.gJD);
                 if (f.this.mOnDismissListener != null) {
                     f.this.mOnDismissListener.onDismiss(dialogInterface);
                 }
             }
         });
-        this.gOg.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.b.f.2
+        this.gJA.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.b.f.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 f.this.dismiss();
-                f.this.bWm();
+                f.this.bSu();
             }
         });
-        bWn();
+        bSv();
     }
 
-    protected void mR(boolean z) {
-        Wr();
+    protected void mN(boolean z) {
+        Sy();
     }
 
     public f e(DialogInterface.OnDismissListener onDismissListener) {
@@ -81,21 +81,21 @@ public class f implements h {
         return this;
     }
 
-    protected void bWm() {
+    protected void bSu() {
     }
 
     public f o(Runnable runnable) {
-        this.gOd = runnable;
+        this.gJx = runnable;
         return this;
     }
 
     public f p(Runnable runnable) {
-        this.gOi = runnable;
+        this.gJC = runnable;
         return this;
     }
 
-    public f bWn() {
-        this.mTitle.setText(String.format("%s加载%s%%…", this.mName, Integer.valueOf((int) (this.gOh.getProgress() * 100.0f))));
+    public f bSv() {
+        this.mTitle.setText(String.format("%s加载%s%%…", this.mName, Integer.valueOf((int) (this.gJB.getProgress() * 100.0f))));
         return this;
     }
 
@@ -106,7 +106,7 @@ public class f implements h {
                 return;
             }
         }
-        this.gOh.a(this);
+        this.gJB.a(this);
         this.mDialog.show();
     }
 
@@ -123,25 +123,25 @@ public class f implements h {
             }
         }
         this.mDialog.dismiss();
-        Wr();
+        Sy();
     }
 
     private void complete() {
-        this.gOj = true;
+        this.gJD = true;
         dismiss();
-        if (this.gOd != null) {
-            this.gOd.run();
+        if (this.gJx != null) {
+            this.gJx.run();
         }
-        if (this.gOe != null) {
-            this.gOe.a(this.gOh);
+        if (this.gJy != null) {
+            this.gJy.a(this.gJB);
         }
     }
 
-    private void aXJ() {
+    private void aTP() {
         dismiss();
         Toast.makeText(this.mContext, i.c.soloader_failed, 0).show();
-        if (this.gOe != null) {
-            this.gOe.b(this.gOh);
+        if (this.gJy != null) {
+            this.gJy.b(this.gJB);
         }
     }
 
@@ -157,13 +157,13 @@ public class f implements h {
 
     @Override // com.baidu.tieba.ala.b.h
     public void b(g gVar) {
-        aXJ();
+        aTP();
     }
 
-    public void Wr() {
-        Animatable evv;
-        if (this.gOf != null && this.gOf.getController() != null && (evv = this.gOf.getController().evv()) != null && evv.isRunning()) {
-            evv.stop();
+    public void Sy() {
+        Animatable erC;
+        if (this.gJz != null && this.gJz.getController() != null && (erC = this.gJz.getController().erC()) != null && erC.isRunning()) {
+            erC.stop();
         }
     }
 }

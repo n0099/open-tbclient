@@ -12,7 +12,7 @@ import com.baidu.swan.apps.ao.ah;
 import com.baidu.swan.apps.scheme.j;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class e extends a {
     @Override // com.baidu.swan.apps.canvas.a.a
     public /* bridge */ /* synthetic */ void a(UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, boolean z) {
@@ -20,8 +20,8 @@ public class e extends a {
     }
 
     @Override // com.baidu.swan.apps.canvas.a.a
-    public /* bridge */ /* synthetic */ JSONObject hQ(int i) {
-        return super.hQ(i);
+    public /* bridge */ /* synthetic */ JSONObject gj(int i) {
+        return super.gj(i);
     }
 
     public e(j jVar) {
@@ -33,7 +33,7 @@ public class e extends a {
         int i;
         int i2;
         Rect rect;
-        unitedSchemeEntity.result = hQ(201);
+        unitedSchemeEntity.result = gj(201);
         com.baidu.swan.apps.canvas.b.d c = c(unitedSchemeEntity);
         if (c == null) {
             return false;
@@ -41,16 +41,16 @@ public class e extends a {
         if (c.mText == null || c.mText.length() <= 0) {
             i = 0;
         } else {
-            if (c.cMv && c.mItalic) {
+            if (c.cHJ && c.mItalic) {
                 i2 = 3;
-            } else if (c.cMv) {
+            } else if (c.cHJ) {
                 i2 = 1;
             } else {
                 i2 = c.mItalic ? 2 : 0;
             }
             TextPaint textPaint = new TextPaint();
-            textPaint.setTypeface(Typeface.create(c.cMt, i2));
-            textPaint.setTextSize(c.cMu);
+            textPaint.setTypeface(Typeface.create(c.cHH, i2));
+            textPaint.setTextSize(c.cHI);
             textPaint.getTextBounds(c.mText, 0, c.mText.length(), new Rect());
             i = ah.Q(rect.width());
         }

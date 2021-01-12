@@ -13,7 +13,7 @@ import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.swan.apps.ao.ak;
 import java.io.File;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes14.dex */
 public class e {
     public static boolean ak(String str, boolean z) {
         if (TextUtils.isEmpty(str)) {
@@ -60,7 +60,7 @@ public class e {
         Uri uriForFile;
         if (com.baidu.swan.apps.ao.c.hasNougat()) {
             try {
-                if (ak.aRQ()) {
+                if (ak.aNW()) {
                     uriForFile = FileProvider.getUriForFile(context, context.getPackageName() + ".fileprovider", file);
                 } else {
                     uriForFile = FileProvider.getUriForFile(context, context.getPackageName() + ".swan.fileprovider", file);

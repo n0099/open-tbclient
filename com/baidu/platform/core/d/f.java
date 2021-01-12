@@ -1,26 +1,27 @@
 package com.baidu.platform.core.d;
 
+import android.net.http.Headers;
 import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import com.baidu.mapapi.model.CoordUtil;
 import com.baidu.mapapi.model.LatLng;
+import com.baidu.mapapi.model.inner.GeoPoint;
 import com.baidu.mapapi.search.core.RouteNode;
 import com.baidu.mapapi.search.core.SearchResult;
 import com.baidu.mapapi.search.route.IndoorRouteLine;
 import com.baidu.mapapi.search.route.IndoorRouteResult;
 import com.baidu.mapapi.search.route.OnGetRoutePlanResultListener;
-import com.baidu.platform.comapi.basestruct.GeoPoint;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class f extends com.baidu.platform.base.d {
     private LatLng a(JSONObject jSONObject, String str) {
         JSONArray optJSONArray = jSONObject.optJSONArray(str);
         if (optJSONArray != null) {
             GeoPoint geoPoint = new GeoPoint(0.0d, 0.0d);
-            geoPoint.setLatitudeE6((int) optJSONArray.optDouble(1));
-            geoPoint.setLongitudeE6((int) optJSONArray.optDouble(0));
+            geoPoint.setLatitudeE6(optJSONArray.optDouble(1));
+            geoPoint.setLongitudeE6(optJSONArray.optDouble(0));
             return CoordUtil.mc2ll(geoPoint);
         }
         return null;
@@ -79,8 +80,8 @@ public class f extends com.baidu.platform.base.d {
                                                 d += optJSONArray4.optDouble(i3 + 1);
                                                 d2 += optJSONArray4.optDouble(i3);
                                                 GeoPoint geoPoint = new GeoPoint(0.0d, 0.0d);
-                                                geoPoint.setLatitudeE6((int) d);
-                                                geoPoint.setLongitudeE6((int) d2);
+                                                geoPoint.setLatitudeE6(d);
+                                                geoPoint.setLongitudeE6(d2);
                                                 LatLng mc2ll = CoordUtil.mc2ll(geoPoint);
                                                 arrayList3.add(Double.valueOf(mc2ll.latitude));
                                                 arrayList3.add(Double.valueOf(mc2ll.longitude));
@@ -97,7 +98,7 @@ public class f extends com.baidu.platform.base.d {
                                                         indoorStepNode.setDetail(optJSONObject6.optString("detail"));
                                                         indoorStepNode.setName(optJSONObject6.optString("name"));
                                                         indoorStepNode.setType(optJSONObject6.optInt("type"));
-                                                        indoorStepNode.setLocation(a(optJSONObject6, "location"));
+                                                        indoorStepNode.setLocation(a(optJSONObject6, Headers.LOCATION));
                                                         arrayList4.add(indoorStepNode);
                                                     }
                                                 }

@@ -7,32 +7,32 @@ import com.qq.e.comm.plugin.util.bd;
 import com.qq.e.comm.util.GDTLogger;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class e extends com.qq.e.comm.plugin.ab.f.a.c {
 
     /* renamed from: a  reason: collision with root package name */
-    private com.qq.e.comm.plugin.s.e f12542a;
+    private com.qq.e.comm.plugin.s.e f12242a;
 
     /* renamed from: b  reason: collision with root package name */
-    private f.a f12543b;
+    private f.a f12243b;
 
     public e(com.qq.e.comm.plugin.s.e eVar, f.a aVar) {
-        this.f12542a = eVar;
-        this.f12543b = aVar;
+        this.f12242a = eVar;
+        this.f12243b = aVar;
     }
 
     @Override // com.qq.e.comm.plugin.ab.f.a.c
     public com.qq.e.comm.plugin.ab.c.f<String> a(com.qq.e.comm.plugin.ab.f.e eVar, View view, String str, String str2, String str3, String str4) {
         String str5;
         GDTLogger.d("EndCardView JS action : " + str2);
-        com.qq.e.comm.plugin.s.a c = this.f12543b.c();
+        com.qq.e.comm.plugin.s.a c = this.f12243b.c();
         if ("getVideoAdInfo".equals(str2)) {
             JSONObject jSONObject = new JSONObject();
             try {
                 JSONObject a2 = n.a(view.getContext(), c);
                 jSONObject.put("code", 0);
                 JSONObject jSONObject2 = new JSONObject();
-                JSONObject a3 = this.f12542a.a();
+                JSONObject a3 = this.f12242a.a();
                 jSONObject2.put("adInfo", a2);
                 jSONObject2.put("cfg", a3);
                 jSONObject.put("data", jSONObject2);
@@ -49,8 +49,8 @@ public class e extends com.qq.e.comm.plugin.ab.f.a.c {
                 e2.printStackTrace();
                 str5 = null;
             }
-            if (this.f12543b != null) {
-                this.f12543b.a(str5, false);
+            if (this.f12243b != null) {
+                this.f12243b.a(str5, false);
             }
             return new com.qq.e.comm.plugin.ab.c.f<>(null);
         } else if ("isViewable".equals(str2)) {

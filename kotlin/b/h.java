@@ -5,18 +5,18 @@ import kotlin.jvm.internal.o;
 @kotlin.e
 /* loaded from: classes5.dex */
 public final class h extends f {
-    public static final a qog = new a(null);
-    private static final h qof = new h(1, 0);
+    public static final a qjE = new a(null);
+    private static final h qjD = new h(1, 0);
 
     public h(int i, int i2) {
         super(i, i2, 1);
     }
 
-    public Integer eMV() {
+    public Integer eJf() {
         return Integer.valueOf(getFirst());
     }
 
-    public Integer eMW() {
+    public Integer eJg() {
         return Integer.valueOf(getLast());
     }
 
@@ -53,8 +53,8 @@ public final class h extends f {
             this();
         }
 
-        public final h eMY() {
-            return h.qof;
+        public final h eJi() {
+            return h.qjD;
         }
     }
 }

@@ -8,9 +8,9 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.data.o;
 import com.baidu.tieba.R;
 import com.baidu.tieba.person.holder.PersonInfoUserPicViewHolder;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class c extends com.baidu.adp.widget.ListView.a<o, PersonInfoUserPicViewHolder> {
-    private View.OnClickListener bHO;
+    private View.OnClickListener bDc;
     private TbPageContext mTbPageContext;
 
     public c(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
@@ -33,12 +33,12 @@ public class c extends com.baidu.adp.widget.ListView.a<o, PersonInfoUserPicViewH
         if (personInfoUserPicViewHolder == null || oVar == null) {
             return null;
         }
-        personInfoUserPicViewHolder.H(this.bHO);
+        personInfoUserPicViewHolder.H(this.bDc);
         personInfoUserPicViewHolder.h(oVar);
         return personInfoUserPicViewHolder.getView();
     }
 
     public void H(View.OnClickListener onClickListener) {
-        this.bHO = onClickListener;
+        this.bDc = onClickListener;
     }
 }

@@ -1,61 +1,61 @@
 package com.baidu.swan.games.binding.model;
 
 import com.baidu.searchbox.v8engine.JsFunction;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public final class a {
-    public JsFunction ehi;
-    public JsFunction ehj;
-    public JsFunction ehk;
+    public JsFunction ecv;
+    public JsFunction ecw;
+    public JsFunction ecx;
 
     public static a f(c cVar) {
         if (cVar == null) {
             return null;
         }
         a aVar = new a();
-        aVar.ehi = cVar.xf("success");
-        aVar.ehj = cVar.xf(com.baidu.pass.biometrics.face.liveness.c.a.p);
-        aVar.ehk = cVar.xf(com.baidu.mobads.openad.c.b.COMPLETE);
+        aVar.ecv = cVar.vU("success");
+        aVar.ecw = cVar.vU(com.baidu.pass.biometrics.face.liveness.c.a.p);
+        aVar.ecx = cVar.vU(com.baidu.mobads.openad.c.b.COMPLETE);
         return aVar;
     }
 
     public void onSuccess(Object obj) {
-        if (this.ehi != null) {
-            this.ehi.call(obj);
+        if (this.ecv != null) {
+            this.ecv.call(obj);
         }
-        if (this.ehk != null) {
-            this.ehk.call(obj);
+        if (this.ecx != null) {
+            this.ecx.call(obj);
         }
-        a(this.ehj);
+        a(this.ecw);
     }
 
     public void ad(Object obj) {
-        if (this.ehj != null) {
-            this.ehj.call(obj);
+        if (this.ecw != null) {
+            this.ecw.call(obj);
         }
-        if (this.ehk != null) {
-            this.ehk.call(obj);
+        if (this.ecx != null) {
+            this.ecx.call(obj);
         }
-        a(this.ehi);
+        a(this.ecv);
     }
 
     public void onSuccess() {
-        if (this.ehi != null) {
-            this.ehi.call();
+        if (this.ecv != null) {
+            this.ecv.call();
         }
-        if (this.ehk != null) {
-            this.ehk.call();
+        if (this.ecx != null) {
+            this.ecx.call();
         }
-        a(this.ehj);
+        a(this.ecw);
     }
 
     public void onFail() {
-        if (this.ehj != null) {
-            this.ehj.call();
+        if (this.ecw != null) {
+            this.ecw.call();
         }
-        if (this.ehk != null) {
-            this.ehk.call();
+        if (this.ecx != null) {
+            this.ecx.call();
         }
-        a(this.ehi);
+        a(this.ecv);
     }
 
     private void a(JsFunction jsFunction) {

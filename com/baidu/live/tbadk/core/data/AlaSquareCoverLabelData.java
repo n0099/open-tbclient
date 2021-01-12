@@ -2,7 +2,7 @@ package com.baidu.live.tbadk.core.data;
 
 import org.json.JSONObject;
 @Deprecated
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class AlaSquareCoverLabelData {
     public String labelColor;
     public int labelId;

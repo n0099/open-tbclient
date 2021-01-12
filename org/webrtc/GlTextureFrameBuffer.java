@@ -1,7 +1,8 @@
 package org.webrtc;
 
 import android.opengl.GLES20;
-/* loaded from: classes10.dex */
+import com.baidu.mobstat.Config;
+/* loaded from: classes9.dex */
 public class GlTextureFrameBuffer {
     private int frameBufferId;
     private int height;
@@ -50,7 +51,7 @@ public class GlTextureFrameBuffer {
 
     public void setSize(int i, int i2) {
         if (i <= 0 || i2 <= 0) {
-            throw new IllegalArgumentException("Invalid size: " + i + "x" + i2);
+            throw new IllegalArgumentException("Invalid size: " + i + Config.EVENT_HEAT_X + i2);
         } else if (i == this.width && i2 == this.height) {
         } else {
             this.width = i;

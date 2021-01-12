@@ -9,7 +9,7 @@ import android.util.JsonReader;
 import com.baidu.adp.plugin.proxy.ContentProviderProxy;
 import com.baidu.android.util.devices.DeviceUtil;
 import com.baidu.android.util.devices.RomUtils;
-import com.baidu.e.c.f;
+import com.baidu.d.c.f;
 import com.baidu.searchbox.aperf.param.util.CpuInfoUtils;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.meizu.cloud.pushsdk.constants.PushConstants;

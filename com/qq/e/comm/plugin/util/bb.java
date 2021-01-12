@@ -7,7 +7,7 @@ import android.content.Context;
 import android.content.ContextWrapper;
 import android.os.Build;
 import android.view.WindowManager;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class bb {
     public static Activity a(Context context) {
         if (context == null) {

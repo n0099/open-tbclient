@@ -1,11 +1,11 @@
 package com.kuaishou.aegon.netcheck;
 
 import androidx.annotation.Keep;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class NetworkQualityEstimator {
 
     @Keep
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class Metrics {
         public int downstreamThroughputKbps;
         public float gatewayLoss;

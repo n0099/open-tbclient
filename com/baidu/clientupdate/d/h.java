@@ -3,7 +3,7 @@ package com.baidu.clientupdate.d;
 import com.baidu.clientupdate.appinfo.AppInfo;
 import com.baidu.clientupdate.appinfo.ClientUpdateInfo;
 import com.baidu.clientupdate.appinfo.RuleInfo;
-import com.baidu.platform.comapi.map.MapBundleKey;
+import com.baidu.live.tbadk.core.util.TiebaInitialize;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public final class h {
@@ -22,7 +22,7 @@ public final class h {
             } else if (3 == i) {
                 RuleInfo ruleInfo3 = new RuleInfo();
                 ruleInfo3.mUpgradeid = jSONObject.optString("upgradeid");
-                ruleInfo3.mLevel = jSONObject.optString(MapBundleKey.MapObjKey.OBJ_LEVEL);
+                ruleInfo3.mLevel = jSONObject.optString("level");
                 ruleInfo3.mSilentDown = jSONObject.optString("silent_down");
                 ruleInfo3.mCategory = jSONObject.optString("category");
                 ruleInfo3.mRemind = jSONObject.optString("remind");
@@ -48,7 +48,7 @@ public final class h {
             ruleInfo.mVercode = jSONObject.optString("vcode");
             ruleInfo.mSignMd5 = jSONObject.optString("signmd5");
             ruleInfo.mApkMd5 = jSONObject.optString("apkmd5");
-            ruleInfo.mSize = jSONObject.optString("size");
+            ruleInfo.mSize = jSONObject.optString(TiebaInitialize.LogFields.SIZE);
             ruleInfo.mPatchDownUrl = jSONObject.optString("patch_downurl");
             ruleInfo.mPatchSize = jSONObject.optString("patch_size");
             ruleInfo.mIconUrl = jSONObject.optString("iconurl");

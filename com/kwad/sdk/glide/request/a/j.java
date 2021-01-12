@@ -3,7 +3,7 @@ package com.kwad.sdk.glide.request.a;
 import android.graphics.drawable.Drawable;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public interface j<R> extends com.kwad.sdk.glide.c.i {
     void a(@Nullable Drawable drawable);
 

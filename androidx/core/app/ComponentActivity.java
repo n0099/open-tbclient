@@ -14,13 +14,13 @@ import androidx.lifecycle.LifecycleOwner;
 import androidx.lifecycle.LifecycleRegistry;
 import androidx.lifecycle.ReportFragment;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class ComponentActivity extends Activity implements KeyEventDispatcher.Component, LifecycleOwner {
     private SimpleArrayMap<Class<? extends ExtraData>, ExtraData> mExtraDataMap = new SimpleArrayMap<>();
     private LifecycleRegistry mLifecycleRegistry = new LifecycleRegistry(this);
 
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public static class ExtraData {
     }
 

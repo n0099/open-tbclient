@@ -18,103 +18,103 @@ import org.apache.http.auth.AUTH;
 import org.apache.http.protocol.HTTP;
 /* loaded from: classes4.dex */
 public final class a implements x {
-    final e pis;
+    final e pdN;
 
     public a(e eVar) {
-        this.pis = eVar;
+        this.pdN = eVar;
     }
 
     @Override // com.bytedance.sdk.a.b.x
     public com.bytedance.sdk.a.b.b a(x.a aVar) throws IOException {
-        com.bytedance.sdk.a.b.b b2 = this.pis != null ? this.pis.b(aVar.eqO()) : null;
-        c eqv = new c.a(System.currentTimeMillis(), aVar.eqO(), b2).eqv();
-        ab abVar = eqv.piw;
-        com.bytedance.sdk.a.b.b bVar = eqv.pix;
-        if (this.pis != null) {
-            this.pis.a(eqv);
+        com.bytedance.sdk.a.b.b b2 = this.pdN != null ? this.pdN.b(aVar.emS()) : null;
+        c emz = new c.a(System.currentTimeMillis(), aVar.emS(), b2).emz();
+        ab abVar = emz.pdR;
+        com.bytedance.sdk.a.b.b bVar = emz.pdS;
+        if (this.pdN != null) {
+            this.pdN.a(emz);
         }
         if (b2 != null && bVar == null) {
-            com.bytedance.sdk.a.b.a.c.a(b2.erh());
+            com.bytedance.sdk.a.b.a.c.a(b2.enm());
         }
         if (abVar == null && bVar == null) {
-            return new b.a().f(aVar.eqO()).a(w.HTTP_1_1).PR(504).YI("Unsatisfiable Request (only-if-cached)").a(com.bytedance.sdk.a.b.a.c.pjf).ip(-1L).iq(System.currentTimeMillis()).erl();
+            return new b.a().f(aVar.emS()).a(w.HTTP_1_1).Ok(504).XA("Unsatisfiable Request (only-if-cached)").a(com.bytedance.sdk.a.b.a.c.peA).ip(-1L).iq(System.currentTimeMillis()).enq();
         }
         if (abVar == null) {
-            return bVar.eri().i(a(bVar)).erl();
+            return bVar.enn().i(a(bVar)).enq();
         }
         try {
             com.bytedance.sdk.a.b.b b3 = aVar.b(abVar);
             if (b3 == null && b2 != null) {
-                com.bytedance.sdk.a.b.a.c.a(b2.erh());
+                com.bytedance.sdk.a.b.a.c.a(b2.enm());
             }
             if (bVar != null) {
                 if (b3.c() == 304) {
-                    com.bytedance.sdk.a.b.b erl = bVar.eri().c(a(bVar.erg(), b3.erg())).ip(b3.k()).iq(b3.l()).i(a(bVar)).h(a(b3)).erl();
-                    b3.erh().close();
-                    this.pis.a();
-                    this.pis.a(bVar, erl);
-                    return erl;
+                    com.bytedance.sdk.a.b.b enq = bVar.enn().c(a(bVar.enl(), b3.enl())).ip(b3.k()).iq(b3.l()).i(a(bVar)).h(a(b3)).enq();
+                    b3.enm().close();
+                    this.pdN.a();
+                    this.pdN.a(bVar, enq);
+                    return enq;
                 }
-                com.bytedance.sdk.a.b.a.c.a(bVar.erh());
+                com.bytedance.sdk.a.b.a.c.a(bVar.enm());
             }
-            com.bytedance.sdk.a.b.b erl2 = b3.eri().i(a(bVar)).h(a(b3)).erl();
-            if (this.pis != null) {
-                if (com.bytedance.sdk.a.b.a.c.e.e(erl2) && c.a(erl2, abVar)) {
-                    return a(this.pis.b(erl2), erl2);
+            com.bytedance.sdk.a.b.b enq2 = b3.enn().i(a(bVar)).h(a(b3)).enq();
+            if (this.pdN != null) {
+                if (com.bytedance.sdk.a.b.a.c.e.e(enq2) && c.a(enq2, abVar)) {
+                    return a(this.pdN.b(enq2), enq2);
                 }
                 if (f.a(abVar.b())) {
                     try {
-                        this.pis.c(abVar);
-                        return erl2;
+                        this.pdN.c(abVar);
+                        return enq2;
                     } catch (IOException e) {
-                        return erl2;
+                        return enq2;
                     }
                 }
-                return erl2;
+                return enq2;
             }
-            return erl2;
+            return enq2;
         } catch (Throwable th) {
             if (0 == 0 && b2 != null) {
-                com.bytedance.sdk.a.b.a.c.a(b2.erh());
+                com.bytedance.sdk.a.b.a.c.a(b2.enm());
             }
             throw th;
         }
     }
 
     private static com.bytedance.sdk.a.b.b a(com.bytedance.sdk.a.b.b bVar) {
-        if (bVar == null || bVar.erh() == null) {
+        if (bVar == null || bVar.enm() == null) {
             return bVar;
         }
-        return bVar.eri().a((com.bytedance.sdk.a.b.c) null).erl();
+        return bVar.enn().a((com.bytedance.sdk.a.b.c) null).enq();
     }
 
     private com.bytedance.sdk.a.b.b a(final b bVar, com.bytedance.sdk.a.b.b bVar2) throws IOException {
-        r equ;
-        if (bVar != null && (equ = bVar.equ()) != null) {
-            final com.bytedance.sdk.a.a.e eqQ = bVar2.erh().eqQ();
-            final com.bytedance.sdk.a.a.d b2 = l.b(equ);
-            return bVar2.eri().a(new h(bVar2.a("Content-Type"), bVar2.erh().b(), l.c(new s() { // from class: com.bytedance.sdk.a.b.a.a.a.1
+        r emy;
+        if (bVar != null && (emy = bVar.emy()) != null) {
+            final com.bytedance.sdk.a.a.e emU = bVar2.enm().emU();
+            final com.bytedance.sdk.a.a.d b2 = l.b(emy);
+            return bVar2.enn().a(new h(bVar2.a("Content-Type"), bVar2.enm().b(), l.c(new s() { // from class: com.bytedance.sdk.a.b.a.a.a.1
 
                 /* renamed from: a  reason: collision with root package name */
-                boolean f6154a;
+                boolean f5854a;
 
                 @Override // com.bytedance.sdk.a.a.s
                 public long b(com.bytedance.sdk.a.a.c cVar, long j) throws IOException {
                     try {
-                        long b3 = eqQ.b(cVar, j);
+                        long b3 = emU.b(cVar, j);
                         if (b3 == -1) {
-                            if (!this.f6154a) {
-                                this.f6154a = true;
+                            if (!this.f5854a) {
+                                this.f5854a = true;
                                 b2.close();
                             }
                             return -1L;
                         }
-                        cVar.a(b2.epT(), cVar.b() - b3, b3);
-                        b2.eqc();
+                        cVar.a(b2.elX(), cVar.b() - b3, b3);
+                        b2.emg();
                         return b3;
                     } catch (IOException e) {
-                        if (!this.f6154a) {
-                            this.f6154a = true;
+                        if (!this.f5854a) {
+                            this.f5854a = true;
                             bVar.b();
                         }
                         throw e;
@@ -122,19 +122,19 @@ public final class a implements x {
                 }
 
                 @Override // com.bytedance.sdk.a.a.s
-                public t epS() {
-                    return eqQ.epS();
+                public t elW() {
+                    return emU.elW();
                 }
 
                 @Override // com.bytedance.sdk.a.a.s, java.io.Closeable, java.lang.AutoCloseable
                 public void close() throws IOException {
-                    if (!this.f6154a && !com.bytedance.sdk.a.b.a.c.a(this, 100, TimeUnit.MILLISECONDS)) {
-                        this.f6154a = true;
+                    if (!this.f5854a && !com.bytedance.sdk.a.b.a.c.a(this, 100, TimeUnit.MILLISECONDS)) {
+                        this.f5854a = true;
                         bVar.b();
                     }
-                    eqQ.close();
+                    emU.close();
                 }
-            }))).erl();
+            }))).enq();
         }
         return bVar2;
     }
@@ -146,17 +146,17 @@ public final class a implements x {
             String a3 = vVar.a(i);
             String b2 = vVar.b(i);
             if ((!"Warning".equalsIgnoreCase(a3) || !b2.startsWith("1")) && (!a(a3) || vVar2.a(a3) == null)) {
-                com.bytedance.sdk.a.b.a.a.pir.a(aVar, a3, b2);
+                com.bytedance.sdk.a.b.a.a.pdM.a(aVar, a3, b2);
             }
         }
         int a4 = vVar2.a();
         for (int i2 = 0; i2 < a4; i2++) {
             String a5 = vVar2.a(i2);
             if (!"Content-Length".equalsIgnoreCase(a5) && a(a5)) {
-                com.bytedance.sdk.a.b.a.a.pir.a(aVar, a5, vVar2.b(i2));
+                com.bytedance.sdk.a.b.a.a.pdM.a(aVar, a5, vVar2.b(i2));
             }
         }
-        return aVar.ery();
+        return aVar.enC();
     }
 
     static boolean a(String str) {

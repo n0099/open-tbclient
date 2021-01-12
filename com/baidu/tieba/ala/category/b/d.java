@@ -4,15 +4,15 @@ import com.baidu.ar.gesture.GestureAR;
 import com.baidu.live.adp.BdUniqueId;
 import com.baidu.live.adp.widget.listview.IAdapterData;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class d implements IAdapterData {
-    public static final BdUniqueId gOU = BdUniqueId.gen();
+    public static final BdUniqueId gKo = BdUniqueId.gen();
     private boolean checked;
-    private int gOV;
+    private int gKp;
     private String member;
     private int score;
 
-    public String bWE() {
+    public String bSM() {
         return this.member;
     }
 
@@ -28,12 +28,12 @@ public class d implements IAdapterData {
         this.checked = z;
     }
 
-    public int bWF() {
-        return this.gOV;
+    public int bSN() {
+        return this.gKp;
     }
 
-    public void vE(int i) {
-        this.gOV = i;
+    public void tY(int i) {
+        this.gKp = i;
     }
 
     public void parse(JSONObject jSONObject) {
@@ -46,6 +46,6 @@ public class d implements IAdapterData {
 
     @Override // com.baidu.live.adp.widget.listview.IAdapterData
     public BdUniqueId getType() {
-        return gOU;
+        return gKo;
     }
 }

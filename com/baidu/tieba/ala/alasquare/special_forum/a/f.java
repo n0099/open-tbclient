@@ -5,15 +5,15 @@ import android.view.ViewGroup;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.ala.alasquare.special_forum.subtab.view.SpecialLiveDoubleViewHolder;
 import com.baidu.tieba.ala.alasquare.subtablist.view.g;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class f extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.alasquare.subtablist.b.b, SpecialLiveDoubleViewHolder> {
-    private com.baidu.tieba.ala.alasquare.special_forum.subtab.view.d gIw;
-    private g gIx;
+    private com.baidu.tieba.ala.alasquare.special_forum.subtab.view.d gDQ;
+    private g gDR;
     private int mFrom;
     private TbPageContext<?> mPageContext;
 
     public f(TbPageContext<?> tbPageContext) {
-        super(tbPageContext.getPageActivity(), com.baidu.tieba.ala.alasquare.subtablist.b.b.gKB);
+        super(tbPageContext.getPageActivity(), com.baidu.tieba.ala.alasquare.subtablist.b.b.gFV);
         this.mPageContext = tbPageContext;
     }
 
@@ -26,25 +26,25 @@ public class f extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.alasq
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: ak */
     public SpecialLiveDoubleViewHolder e(ViewGroup viewGroup) {
-        this.gIw = new com.baidu.tieba.ala.alasquare.special_forum.subtab.view.d(this.mPageContext, viewGroup);
-        if (this.gIx != null) {
-            this.gIw.d(this.gIx);
+        this.gDQ = new com.baidu.tieba.ala.alasquare.special_forum.subtab.view.d(this.mPageContext, viewGroup);
+        if (this.gDR != null) {
+            this.gDQ.d(this.gDR);
         }
-        return new SpecialLiveDoubleViewHolder(this.gIw);
+        return new SpecialLiveDoubleViewHolder(this.gDQ);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.ala.alasquare.subtablist.b.b bVar, SpecialLiveDoubleViewHolder specialLiveDoubleViewHolder) {
-        specialLiveDoubleViewHolder.gIw.a(bVar, this.mFrom);
+        specialLiveDoubleViewHolder.gDQ.a(bVar, this.mFrom);
         return specialLiveDoubleViewHolder.getView();
     }
 
     public void b(g gVar) {
-        this.gIx = gVar;
-        if (this.gIw != null) {
-            this.gIw.d(this.gIx);
+        this.gDR = gVar;
+        if (this.gDQ != null) {
+            this.gDQ.d(this.gDR);
         }
     }
 }

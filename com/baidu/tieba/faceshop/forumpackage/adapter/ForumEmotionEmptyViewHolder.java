@@ -8,31 +8,31 @@ import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.R;
 import com.baidu.tieba.faceshop.forumpackage.view.ForumEmotionEmptyView;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class ForumEmotionEmptyViewHolder extends TypeAdapter.ViewHolder {
-    private ForumEmotionEmptyView iYY;
-    private com.baidu.tieba.faceshop.forumpackage.data.a iYZ;
+    private ForumEmotionEmptyView iUr;
+    private com.baidu.tieba.faceshop.forumpackage.data.a iUs;
     private TbPageContext pageContext;
 
     public ForumEmotionEmptyViewHolder(TbPageContext tbPageContext, View view) {
         super(view);
-        this.iYY = (ForumEmotionEmptyView) view;
+        this.iUr = (ForumEmotionEmptyView) view;
         this.pageContext = tbPageContext;
     }
 
     public void a(com.baidu.tieba.faceshop.forumpackage.data.a aVar, int i, com.baidu.tieba.faceshop.forumpackage.data.b bVar, a aVar2) {
-        this.iYZ = aVar;
+        this.iUs = aVar;
         a(bVar, aVar2);
     }
 
     private void a(final com.baidu.tieba.faceshop.forumpackage.data.b bVar, final a aVar) {
         String string;
-        ViewGroup filterDropDownView = this.iYY.getFilterDropDownView();
+        ViewGroup filterDropDownView = this.iUr.getFilterDropDownView();
         if (bVar != null) {
-            Resources resources = this.iYY.getResources();
-            TextView filterView = this.iYY.getFilterView();
+            Resources resources = this.iUr.getResources();
+            TextView filterView = this.iUr.getFilterView();
             filterDropDownView.setVisibility(0);
-            if (bVar.cCS() == 0) {
+            if (bVar.cza() == 0) {
                 string = resources.getString(R.string.forum_emotion_filter_all_bar);
             } else {
                 string = resources.getString(R.string.forum_emotion_filter_my_bar);
@@ -48,7 +48,7 @@ public class ForumEmotionEmptyViewHolder extends TypeAdapter.ViewHolder {
                 public void onClick(View view) {
                     bVar.setExpanded(!bVar.isExpanded());
                     if (aVar != null) {
-                        aVar.cCR();
+                        aVar.cyZ();
                     }
                 }
             });
@@ -57,9 +57,9 @@ public class ForumEmotionEmptyViewHolder extends TypeAdapter.ViewHolder {
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
                         bVar.setExpanded(false);
-                        bVar.zB(0);
+                        bVar.xV(0);
                         if (aVar != null) {
-                            aVar.zA(bVar.cCS());
+                            aVar.xU(bVar.cza());
                         }
                     }
                 });
@@ -67,9 +67,9 @@ public class ForumEmotionEmptyViewHolder extends TypeAdapter.ViewHolder {
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
                         bVar.setExpanded(false);
-                        bVar.zB(1);
+                        bVar.xV(1);
                         if (aVar != null) {
-                            aVar.zA(bVar.cCS());
+                            aVar.xU(bVar.cza());
                         }
                     }
                 });

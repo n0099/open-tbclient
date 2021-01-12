@@ -16,28 +16,28 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.lego.activity.LegoListFragment;
 import com.baidu.tieba.lego.card.model.ButtonCard;
 import com.baidu.tieba.recapp.r;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class ButtonCardView extends BaseCardView<ButtonCard> {
-    private RelativeLayout kYP;
-    private TbImageView kYQ;
-    private Button kYR;
-    private int kYS;
-    private int kYT;
-    private final int kYU;
+    private RelativeLayout kUk;
+    private TbImageView kUl;
+    private Button kUm;
+    private int kUn;
+    private int kUo;
+    private final int kUp;
 
     public ButtonCardView(TbPageContext tbPageContext) {
         super(tbPageContext);
-        this.kYS = -1;
-        this.kYT = -1;
-        this.kYU = com.baidu.adp.lib.util.l.getEquipmentWidth(getContext());
+        this.kUn = -1;
+        this.kUo = -1;
+        this.kUp = com.baidu.adp.lib.util.l.getEquipmentWidth(getContext());
     }
 
     @Override // com.baidu.tieba.lego.card.view.BaseLegoCardView
-    protected View ddI() {
-        this.kYP = (RelativeLayout) LayoutInflater.from(this.eXu.getPageActivity().getApplicationContext()).inflate(R.layout.card_button, (ViewGroup) null);
-        this.kYR = (Button) this.kYP.findViewById(R.id.bt_phone);
-        this.kYQ = (TbImageView) this.kYP.findViewById(R.id.tb_phone_background);
-        return this.kYP;
+    protected View cZQ() {
+        this.kUk = (RelativeLayout) LayoutInflater.from(this.eSJ.getPageActivity().getApplicationContext()).inflate(R.layout.card_button, (ViewGroup) null);
+        this.kUm = (Button) this.kUk.findViewById(R.id.bt_phone);
+        this.kUl = (TbImageView) this.kUk.findViewById(R.id.tb_phone_background);
+        return this.kUk;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -52,100 +52,100 @@ public class ButtonCardView extends BaseCardView<ButtonCard> {
     public void d(final ButtonCard buttonCard) {
         if (buttonCard != null) {
             reset();
-            float cardWidth = (float) ((this.kYU * 1.0d) / buttonCard.getCardWidth());
-            ViewGroup.LayoutParams layoutParams = this.kYP.getLayoutParams();
-            layoutParams.width = this.kYU;
+            float cardWidth = (float) ((this.kUp * 1.0d) / buttonCard.getCardWidth());
+            ViewGroup.LayoutParams layoutParams = this.kUk.getLayoutParams();
+            layoutParams.width = this.kUp;
             layoutParams.height = (int) (buttonCard.getCardHeight() * cardWidth);
-            this.kYP.setLayoutParams(layoutParams);
+            this.kUk.setLayoutParams(layoutParams);
             int bgColor = buttonCard.getBgColor();
-            this.kYQ.setDefaultBgResource(R.color.transparent);
+            this.kUl.setDefaultBgResource(R.color.transparent);
             if (!TextUtils.isEmpty(buttonCard.getPicUrl())) {
-                this.kYQ.startLoad(buttonCard.getPicUrl(), 17, false);
-            } else if (!com.baidu.tieba.lego.card.c.b.Fh(bgColor)) {
-                this.kYQ.setBackgroundColor(bgColor);
+                this.kUl.startLoad(buttonCard.getPicUrl(), 17, false);
+            } else if (!com.baidu.tieba.lego.card.c.b.DB(bgColor)) {
+                this.kUl.setBackgroundColor(bgColor);
             } else {
-                this.kYQ.setDefaultBgResource(R.color.transparent);
+                this.kUl.setDefaultBgResource(R.color.transparent);
             }
             int dimension = layoutParams.height - ((int) (cardWidth * TbadkCoreApplication.getInst().getResources().getDimension(R.dimen.button_card_padding40)));
-            RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.kYR.getLayoutParams();
+            RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.kUm.getLayoutParams();
             layoutParams2.height = dimension;
             layoutParams2.addRule(13);
-            this.kYR.setText(buttonCard.getText());
-            this.kYR.setTextSize(0, getResources().getDimensionPixelSize(R.dimen.fontsize28));
+            this.kUm.setText(buttonCard.getText());
+            this.kUm.setTextSize(0, getResources().getDimensionPixelSize(R.dimen.fontsize28));
             int textColor = buttonCard.getTextColor();
-            if (!com.baidu.tieba.lego.card.c.b.Fh(textColor)) {
-                this.kYR.setTextColor(textColor);
+            if (!com.baidu.tieba.lego.card.c.b.DB(textColor)) {
+                this.kUm.setTextColor(textColor);
             }
-            this.kYR.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.lego.card.view.ButtonCardView.1
+            this.kUm.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.lego.card.view.ButtonCardView.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     ButtonCardView.this.setDialog(buttonCard);
-                    r.dEW().dES().el(buttonCard.getsExtras(), ButtonCardView.this.mFrom);
+                    r.dBe().dBa().ek(buttonCard.getsExtras(), ButtonCardView.this.mFrom);
                 }
             });
-            this.kYS = buttonCard.getStyle();
+            this.kUn = buttonCard.getStyle();
             int buttonColor = buttonCard.getButtonColor();
-            switch (this.kYS) {
+            switch (this.kUn) {
                 case 1:
                     GradientDrawable gradientDrawable = new GradientDrawable();
                     gradientDrawable.setShape(0);
-                    if (!com.baidu.tieba.lego.card.c.b.Fh(buttonColor)) {
+                    if (!com.baidu.tieba.lego.card.c.b.DB(buttonColor)) {
                         gradientDrawable.setStroke(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.ds3), buttonColor);
                     }
                     gradientDrawable.setColor(0);
-                    this.kYR.setBackgroundDrawable(gradientDrawable);
+                    this.kUm.setBackgroundDrawable(gradientDrawable);
                     break;
                 case 2:
-                    if (!com.baidu.tieba.lego.card.c.b.Fh(buttonColor)) {
-                        this.kYR.setBackgroundColor(buttonColor);
+                    if (!com.baidu.tieba.lego.card.c.b.DB(buttonColor)) {
+                        this.kUm.setBackgroundColor(buttonColor);
                         break;
                     } else {
-                        this.kYR.setBackgroundColor(0);
+                        this.kUm.setBackgroundColor(0);
                         break;
                     }
                 default:
-                    this.kYR.setBackgroundColor(0);
+                    this.kUm.setBackgroundColor(0);
                     break;
             }
-            if (!LegoListFragment.kXu.contains(buttonCard.toString())) {
-                LegoListFragment.kXu.add(buttonCard.toString());
-                r.dEW().dES().ek(buttonCard.getShowExtra(), this.mFrom);
+            if (!LegoListFragment.kSP.contains(buttonCard.toString())) {
+                LegoListFragment.kSP.add(buttonCard.toString());
+                r.dBe().dBa().ej(buttonCard.getShowExtra(), this.mFrom);
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void setDialog(final ButtonCard buttonCard) {
-        com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(this.eXu.getPageActivity());
-        aVar.Bo("是否拨打电话:" + buttonCard.getPhoneNumber());
+        com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(this.eSJ.getPageActivity());
+        aVar.Ad("是否拨打电话:" + buttonCard.getPhoneNumber());
         aVar.a(R.string.call, new a.b() { // from class: com.baidu.tieba.lego.card.view.ButtonCardView.2
             @Override // com.baidu.tbadk.core.dialog.a.b
             public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
-                be.bwv().b(ButtonCardView.this.eXu, new String[]{buttonCard.getBtnScheme()});
-                r.dEW().dES().as(ButtonCardView.this.mFrom, "yes", buttonCard.getsExtras());
+                be.bsB().b(ButtonCardView.this.eSJ, new String[]{buttonCard.getBtnScheme()});
+                r.dBe().dBa().ar(ButtonCardView.this.mFrom, "yes", buttonCard.getsExtras());
                 aVar2.dismiss();
             }
         });
         aVar.b(R.string.cancel, new a.b() { // from class: com.baidu.tieba.lego.card.view.ButtonCardView.3
             @Override // com.baidu.tbadk.core.dialog.a.b
             public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
-                r.dEW().dES().as(ButtonCardView.this.mFrom, "no", buttonCard.getsExtras());
+                r.dBe().dBa().ar(ButtonCardView.this.mFrom, "no", buttonCard.getsExtras());
                 aVar2.dismiss();
             }
         });
-        aVar.b(this.eXu).btY();
+        aVar.b(this.eSJ).bqe();
     }
 
     public void setBackgroundAlpha(float f) {
-        if (this.kYQ != null) {
-            this.kYQ.setAlpha(f);
+        if (this.kUl != null) {
+            this.kUl.setAlpha(f);
         }
     }
 
     public void reset() {
-        if (this.kYQ != null) {
-            this.kYQ.setVisibility(0);
-            this.kYQ.setAlpha(1);
+        if (this.kUl != null) {
+            this.kUl.setVisibility(0);
+            this.kUl.setAlpha(1);
         }
     }
 }

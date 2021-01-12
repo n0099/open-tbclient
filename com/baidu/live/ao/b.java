@@ -5,15 +5,15 @@ import android.view.View;
 import android.widget.FrameLayout;
 import com.baidu.live.data.x;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public interface b {
     void H(Object obj);
 
-    void Tw();
+    void PB();
 
-    boolean Tx();
+    boolean PC();
 
-    boolean Ty();
+    boolean PD();
 
     void Y(View view);
 

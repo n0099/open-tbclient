@@ -18,7 +18,7 @@ import java.io.OutputStream;
 import java.nio.charset.Charset;
 import java.util.Set;
 @RestrictTo({RestrictTo.Scope.LIBRARY})
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 class VersionedParcelStream extends VersionedParcel {
     private static final int TYPE_BOOLEAN = 5;
     private static final int TYPE_BOOLEAN_ARRAY = 6;
@@ -442,7 +442,7 @@ class VersionedParcelStream extends VersionedParcel {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class FieldBuffer {
         private final int mFieldId;
         private final DataOutputStream mTarget;
@@ -465,7 +465,7 @@ class VersionedParcelStream extends VersionedParcel {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     private static class InputBuffer {
         final int mFieldId;
         final DataInputStream mInputStream;

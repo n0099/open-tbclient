@@ -21,11 +21,11 @@ public final class FlowableBuffer<T, C extends Collection<? super T>> extends io
     @Override // io.reactivex.g
     public void a(org.a.c<? super C> cVar) {
         if (this.size == this.skip) {
-            this.qit.a((j) new a(cVar, this.size, this.bufferSupplier));
+            this.qdR.a((j) new a(cVar, this.size, this.bufferSupplier));
         } else if (this.skip > this.size) {
-            this.qit.a((j) new PublisherBufferSkipSubscriber(cVar, this.size, this.skip, this.bufferSupplier));
+            this.qdR.a((j) new PublisherBufferSkipSubscriber(cVar, this.size, this.skip, this.bufferSupplier));
         } else {
-            this.qit.a((j) new PublisherBufferOverlappingSubscriber(cVar, this.size, this.skip, this.bufferSupplier));
+            this.qdR.a((j) new PublisherBufferOverlappingSubscriber(cVar, this.size, this.skip, this.bufferSupplier));
         }
     }
 

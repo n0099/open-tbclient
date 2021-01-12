@@ -4,10 +4,10 @@ import androidx.annotation.RestrictTo;
 import com.baidu.live.lottie.model.content.j;
 import java.util.List;
 @RestrictTo({RestrictTo.Scope.LIBRARY})
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class d {
-    private final double Fe;
-    private final char Fm;
+    private final double Fc;
+    private final char Fk;
     private final String fontFamily;
     private final List<j> shapes;
     private final String style;
@@ -19,8 +19,8 @@ public class d {
 
     public d(List<j> list, char c, double d, double d2, String str, String str2) {
         this.shapes = list;
-        this.Fm = c;
-        this.Fe = d;
+        this.Fk = c;
+        this.Fc = d;
         this.width = d2;
         this.style = str;
         this.fontFamily = str2;
@@ -35,6 +35,6 @@ public class d {
     }
 
     public int hashCode() {
-        return b(this.Fm, this.fontFamily, this.style);
+        return b(this.Fk, this.fontFamily, this.style);
     }
 }

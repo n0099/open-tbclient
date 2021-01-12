@@ -23,7 +23,7 @@ import com.baidu.live.tbadk.pagestayduration.IPageStayDuration;
 import com.baidu.tbadk.coreExtra.service.DealIntentService;
 import java.security.InvalidParameterException;
 import java.util.ArrayList;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class IntentConfig {
     public static final String CALL_FROM = "call_from";
     public static final String CLOSE = "close";
@@ -368,7 +368,7 @@ public class IntentConfig {
         return true;
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     private class ClientHandler extends Handler {
         private ClientHandler() {
         }

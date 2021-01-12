@@ -6,19 +6,19 @@ import com.baidu.swan.apps.u.e.b;
 import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public final class a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static final Map<String, a> dji = new HashMap();
-    private Map<String, String> djj = new HashMap();
-    public final b djk = new b().qb("SwanLaunch").q(aCZ());
+    private static final Map<String, a> det = new HashMap();
+    private Map<String, String> deu = new HashMap();
+    public final b dev = new b().oQ("SwanLaunch").q(azf());
     public final String id;
 
-    public static a pZ(String str) {
-        a aVar = dji.get(str);
+    public static a oO(String str) {
+        a aVar = det.get(str);
         if (aVar == null) {
             a aVar2 = new a(str);
-            dji.put(str, aVar2);
+            det.put(str, aVar2);
             return aVar2;
         }
         return aVar;
@@ -28,49 +28,49 @@ public final class a {
         this.id = str;
     }
 
-    public b.a aCX() {
-        return this.djk.aCX();
+    public b.a azd() {
+        return this.dev.azd();
     }
 
-    public b.a qa(String str) {
-        return this.djk.qa(str);
+    public b.a oP(String str) {
+        return this.dev.oP(str);
     }
 
-    public b.a cb(String str, String str2) {
-        return this.djk.cb(str, str2);
+    public b.a ca(String str, String str2) {
+        return this.dev.ca(str, str2);
     }
 
-    public synchronized a aCY() {
-        this.djk.aDc();
+    public synchronized a aze() {
+        this.dev.azi();
         return this;
     }
 
-    private com.baidu.swan.apps.ao.e.b<b> aCZ() {
+    private com.baidu.swan.apps.ao.e.b<b> azf() {
         return new com.baidu.swan.apps.ao.e.b<b>() { // from class: com.baidu.swan.apps.u.e.a.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.swan.apps.ao.e.b
             /* renamed from: a */
             public void L(b bVar) {
                 if (a.DEBUG) {
-                    axK();
+                    atQ();
                 }
             }
 
-            private synchronized void axK() {
+            private synchronized void atQ() {
                 D("SwanLaunch", "\n\n\n");
                 D("SwanLaunch", ">>>>>> SWAN Launch Log For " + a.this.id);
                 StringBuilder sb = new StringBuilder();
-                for (Map.Entry entry : a.this.djj.entrySet()) {
+                for (Map.Entry entry : a.this.deu.entrySet()) {
                     sb.append(String.format("%s[%s] ", entry.getKey(), entry.getValue()));
                 }
-                for (b.a aVar : a.this.djk.aDb()) {
+                for (b.a aVar : a.this.dev.azh()) {
                     StringBuilder sb2 = new StringBuilder();
-                    for (String str : aVar.djq) {
+                    for (String str : aVar.deB) {
                         sb2.append(str).append(" ");
                     }
                     for (String str2 : aVar.msgs) {
-                        String aDa = a.this.djk.aDa();
-                        D(TextUtils.isEmpty(aVar.tag) ? aDa : aVar.tag, String.format(Locale.getDefault(), "[%s]> %s%s>>> %s", aDa, sb, sb2, str2));
+                        String azg = a.this.dev.azg();
+                        D(TextUtils.isEmpty(aVar.tag) ? azg : aVar.tag, String.format(Locale.getDefault(), "[%s]> %s%s>>> %s", azg, sb, sb2, str2));
                     }
                 }
             }

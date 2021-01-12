@@ -13,44 +13,44 @@ import android.widget.TextView;
 import com.ksad.lottie.LottieAnimationView;
 import com.kwad.sdk.R;
 import com.kwad.sdk.utils.ag;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class CommentLikeButton extends LinearLayout implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f8735a;
+    private int f8435a;
 
     /* renamed from: b  reason: collision with root package name */
-    private ImageView f8736b;
+    private ImageView f8436b;
     private TextView c;
     private LottieAnimationView d;
     private long e;
     private a f;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public interface a {
         void a(int i);
     }
 
     public CommentLikeButton(Context context) {
         super(context);
-        this.f8735a = 1;
-        this.f8736b = null;
+        this.f8435a = 1;
+        this.f8436b = null;
         this.c = null;
         c();
     }
 
     public CommentLikeButton(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f8735a = 1;
-        this.f8736b = null;
+        this.f8435a = 1;
+        this.f8436b = null;
         this.c = null;
         c();
     }
 
     public CommentLikeButton(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.f8735a = 1;
-        this.f8736b = null;
+        this.f8435a = 1;
+        this.f8436b = null;
         this.c = null;
         c();
     }
@@ -66,7 +66,7 @@ public class CommentLikeButton extends LinearLayout implements View.OnClickListe
             public void onAnimationCancel(Animator animator) {
                 super.onAnimationCancel(animator);
                 CommentLikeButton.this.setImageView(i);
-                CommentLikeButton.this.f8736b.setVisibility(0);
+                CommentLikeButton.this.f8436b.setVisibility(0);
                 CommentLikeButton.this.d.setVisibility(8);
             }
 
@@ -74,14 +74,14 @@ public class CommentLikeButton extends LinearLayout implements View.OnClickListe
             public void onAnimationEnd(Animator animator) {
                 super.onAnimationEnd(animator);
                 CommentLikeButton.this.setImageView(i);
-                CommentLikeButton.this.f8736b.setVisibility(0);
+                CommentLikeButton.this.f8436b.setVisibility(0);
                 CommentLikeButton.this.d.setVisibility(8);
             }
 
             @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
             public void onAnimationStart(Animator animator) {
                 super.onAnimationStart(animator);
-                CommentLikeButton.this.f8736b.setVisibility(8);
+                CommentLikeButton.this.f8436b.setVisibility(8);
             }
         });
         this.d.b();
@@ -89,7 +89,7 @@ public class CommentLikeButton extends LinearLayout implements View.OnClickListe
 
     private void c() {
         LayoutInflater.from(getContext()).inflate(R.layout.ksad_content_alliance_comment_like_button_2, (ViewGroup) this, true);
-        this.f8736b = (ImageView) findViewById(R.id.ksad_photo_comment_like_button_image);
+        this.f8436b = (ImageView) findViewById(R.id.ksad_photo_comment_like_button_image);
         this.c = (TextView) findViewById(R.id.ksad_photo_comment_like_count_text);
         this.d = (LottieAnimationView) findViewById(R.id.ksad_photo_comment_like_animation_view);
         setOnClickListener(this);
@@ -97,7 +97,7 @@ public class CommentLikeButton extends LinearLayout implements View.OnClickListe
 
     /* JADX INFO: Access modifiers changed from: private */
     public void setImageView(int i) {
-        this.f8736b.setImageResource(i == 1 ? R.drawable.ksad_photo_comment_like_button_2_normal : R.drawable.ksad_photo_comment_like_button_2_selected);
+        this.f8436b.setImageResource(i == 1 ? R.drawable.ksad_photo_comment_like_button_2_normal : R.drawable.ksad_photo_comment_like_button_2_selected);
     }
 
     private void setImageViewWithAnimator(int i) {
@@ -106,7 +106,7 @@ public class CommentLikeButton extends LinearLayout implements View.OnClickListe
     }
 
     public void a(int i, long j) {
-        this.f8735a = i;
+        this.f8435a = i;
         setImageView(i);
         this.d.setVisibility(8);
         this.e = j;
@@ -115,7 +115,7 @@ public class CommentLikeButton extends LinearLayout implements View.OnClickListe
     }
 
     public boolean a() {
-        return this.f8735a == 2;
+        return this.f8435a == 2;
     }
 
     public void b() {
@@ -125,7 +125,7 @@ public class CommentLikeButton extends LinearLayout implements View.OnClickListe
     }
 
     public int getLikeState() {
-        return this.f8735a;
+        return this.f8435a;
     }
 
     @Override // android.view.View.OnClickListener
@@ -164,7 +164,7 @@ public class CommentLikeButton extends LinearLayout implements View.OnClickListe
     }
 
     public void setLikeState(int i) {
-        this.f8735a = i;
+        this.f8435a = i;
         setImageViewWithAnimator(i);
         setLikeCountColor(i);
     }

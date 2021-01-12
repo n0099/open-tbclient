@@ -60,7 +60,7 @@ import yaq.gdtadv;
   assets/yaqgdtadv0.sec
  */
 @SuppressLint({"ViewConstructor"})
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class b extends FrameLayout implements NSPVI, f.a, com.qq.e.comm.plugin.ab.a.b, h.a {
     private String A;
     private com.qq.e.comm.plugin.s.f B;
@@ -71,8 +71,8 @@ public class b extends FrameLayout implements NSPVI, f.a, com.qq.e.comm.plugin.a
     private boolean G;
     private Runnable H;
     private File I;
-    private volatile EnumC1221b J;
-    private volatile EnumC1221b K;
+    private volatile EnumC1204b J;
+    private volatile EnumC1204b K;
     private File L;
     private boolean M;
     private int N;
@@ -87,11 +87,11 @@ public class b extends FrameLayout implements NSPVI, f.a, com.qq.e.comm.plugin.a
     private e W;
 
     /* renamed from: a  reason: collision with root package name */
-    private final String f12762a;
+    private final String f12462a;
     private com.qq.e.comm.plugin.ac.c aa;
 
     /* renamed from: b  reason: collision with root package name */
-    private final String f12763b;
+    private final String f12463b;
     private final m c;
     private final h d;
     private final com.qq.e.comm.plugin.y.c e;
@@ -118,7 +118,7 @@ public class b extends FrameLayout implements NSPVI, f.a, com.qq.e.comm.plugin.a
     private View z;
 
     /* renamed from: com.qq.e.comm.plugin.splash.b$13  reason: invalid class name */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     class AnonymousClass13 implements d.b {
         AnonymousClass13() {
         }
@@ -139,7 +139,7 @@ public class b extends FrameLayout implements NSPVI, f.a, com.qq.e.comm.plugin.a
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public enum a {
         Unknown,
         PreLoadVideo,
@@ -148,8 +148,8 @@ public class b extends FrameLayout implements NSPVI, f.a, com.qq.e.comm.plugin.a
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.qq.e.comm.plugin.splash.b$b  reason: collision with other inner class name */
-    /* loaded from: classes4.dex */
-    public enum EnumC1221b {
+    /* loaded from: classes3.dex */
+    public enum EnumC1204b {
         Unknown,
         Downloading,
         Downloaded,
@@ -157,11 +157,11 @@ public class b extends FrameLayout implements NSPVI, f.a, com.qq.e.comm.plugin.a
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class c extends LinearLayout {
 
         /* renamed from: a  reason: collision with root package name */
-        private TextView f12801a;
+        private TextView f12501a;
 
         public c(Context context) {
             super(context);
@@ -173,15 +173,15 @@ public class b extends FrameLayout implements NSPVI, f.a, com.qq.e.comm.plugin.a
             int a3 = ak.a(context, 17);
             setBackgroundColor(1711276032);
             setPadding(a2, 0, a2, 0);
-            this.f12801a = new TextView(context);
-            this.f12801a.setEllipsize(TextUtils.TruncateAt.END);
-            this.f12801a.setMaxLines(1);
-            this.f12801a.setTextColor(-1);
-            this.f12801a.setTextSize(2, 15.0f);
+            this.f12501a = new TextView(context);
+            this.f12501a.setEllipsize(TextUtils.TruncateAt.END);
+            this.f12501a.setMaxLines(1);
+            this.f12501a.setTextColor(-1);
+            this.f12501a.setTextSize(2, 15.0f);
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
             layoutParams.gravity = 16;
             layoutParams.weight = Float.MIN_NORMAL;
-            addView(this.f12801a, layoutParams);
+            addView(this.f12501a, layoutParams);
             ImageView imageView = new ImageView(context);
             LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(a3, a3);
             imageView.setImageBitmap(ao.a("iVBORw0KGgoAAAANSUhEUgAAACIAAAAiCAYAAAA6RwvCAAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIqADAAQAAAABAAAAIgAAAAACeqFUAAAArklEQVRYCe2YzQmAMAyFiwfBQVzCs0M4ipM4jTia9RUa6CE9xdYILxAigcbXr4H+hGC0GOOc3FjGNhwCFvidfbdVM4yGgA1e2jdioGCEn6USfH8mZqIYra1AhWQ0MIFkVCxIkgzJ1AjU8n/omaMmvmk+k7kQxdIxYh2a/tVrccxc24/6Lk1FRN+zC0VIj5IESQgBiewJkhACEtETPq6cEOLmEu7jWSItEai88lDzALbxpaSUq9D9AAAAAElFTkSuQmCC"));
@@ -191,13 +191,13 @@ public class b extends FrameLayout implements NSPVI, f.a, com.qq.e.comm.plugin.a
 
         public void a(String str) {
             if (str != null) {
-                this.f12801a.setText(str);
+                this.f12501a.setText(str);
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class d implements View.OnClickListener {
         d() {
         }
@@ -243,18 +243,18 @@ public class b extends FrameLayout implements NSPVI, f.a, com.qq.e.comm.plugin.a
         this.E = 1800000L;
         this.F = false;
         this.G = false;
-        this.J = EnumC1221b.Unknown;
-        this.K = EnumC1221b.Unknown;
+        this.J = EnumC1204b.Unknown;
+        this.K = EnumC1204b.Unknown;
         this.N = 1;
         this.O = a.Unknown;
         this.P = new j();
-        this.f12762a = str;
-        this.f12763b = str2;
+        this.f12462a = str;
+        this.f12463b = str2;
         this.c = new m(str2, com.qq.e.comm.plugin.ad.e.SPLASH, (com.qq.e.comm.plugin.ad.d) null);
         this.f = com.qq.e.comm.plugin.util.a.a(str, str2, o.b());
         n();
         this.e.a(str2);
-        this.d = new h(this.f12762a, this.f12763b, this.c, this.f, lVar, this, this.e);
+        this.d = new h(this.f12462a, this.f12463b, this.c, this.f, lVar, this, this.e);
         this.V = new r(context, true);
     }
 
@@ -520,7 +520,7 @@ public class b extends FrameLayout implements NSPVI, f.a, com.qq.e.comm.plugin.a
                 }
                 this.p.setScaleType(ImageView.ScaleType.FIT_XY);
             }
-            l.a(this.f12763b);
+            l.a(this.f12463b);
             com.qq.e.comm.plugin.splash.a.b.d();
             GDTLogger.d("开屏广告展示完成");
         }
@@ -537,7 +537,7 @@ public class b extends FrameLayout implements NSPVI, f.a, com.qq.e.comm.plugin.a
             GDTLogger.d("广告图片下载成功时开屏广告已超时或者在展示：" + this.P);
             return;
         }
-        this.J = EnumC1221b.Downloaded;
+        this.J = EnumC1204b.Downloaded;
         k.a(this.K, this.J, this.e, 0, null, str, this.g.G());
         this.I = file;
         if (this.w == q.IMG) {
@@ -570,7 +570,7 @@ public class b extends FrameLayout implements NSPVI, f.a, com.qq.e.comm.plugin.a
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(String str, long j, int i, Exception exc) {
-        this.J = EnumC1221b.Failed;
+        this.J = EnumC1204b.Failed;
         if (!this.P.i() || this.g == null) {
             GDTLogger.d("广告图片下载失败时开屏广告已超时或者在展示：" + this.P);
             return;
@@ -604,7 +604,7 @@ public class b extends FrameLayout implements NSPVI, f.a, com.qq.e.comm.plugin.a
             GDTLogger.d("广告视频下载成功时开屏广告已超时或者在展示：" + this.P);
             return;
         }
-        this.K = EnumC1221b.Downloaded;
+        this.K = EnumC1204b.Downloaded;
         GDTLogger.d("开屏视频下载成功耗时ms:" + j + " 大小:" + file.length() + " url:" + str);
         k.b(this.K, this.J, this.e, 0, null, this.g.o(), str);
         if (j > 0) {
@@ -617,18 +617,18 @@ public class b extends FrameLayout implements NSPVI, f.a, com.qq.e.comm.plugin.a
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b(String str, long j, int i, Exception exc) {
-        this.K = EnumC1221b.Failed;
+        this.K = EnumC1204b.Failed;
         if (!this.P.i() || this.g == null) {
             GDTLogger.d("广告视频下载完成时开屏广告已超时或者在展示：" + this.P);
             return;
         }
         GDTLogger.d("开屏视频下载失败耗时:" + j + " url:" + str);
-        if (this.J == EnumC1221b.Downloaded) {
+        if (this.J == EnumC1204b.Downloaded) {
             GDTLogger.d("开屏视频转图文成功");
             k.b(this.K, this.J, this.e, i, exc, null, str);
             this.w = q.IMG;
             m();
-        } else if (this.J == EnumC1221b.Downloading) {
+        } else if (this.J == EnumC1204b.Downloading) {
             GDTLogger.d("开屏视频转图文，图文尚在下载中");
             this.w = q.IMG;
         } else {
@@ -727,7 +727,7 @@ public class b extends FrameLayout implements NSPVI, f.a, com.qq.e.comm.plugin.a
 
             @Override // com.qq.e.comm.plugin.c.a.c, com.qq.e.comm.plugin.c.a.a
             public void a(String str, final com.qq.e.comm.plugin.c.a.b bVar) {
-                Activity a2 = com.qq.e.comm.plugin.util.f.a(this.f12223a);
+                Activity a2 = com.qq.e.comm.plugin.util.f.a(this.f11923a);
                 if (a2 != null) {
                     b.this.aa = new com.qq.e.comm.plugin.ac.c(a2, str, new com.qq.e.comm.plugin.c.a.b() { // from class: com.qq.e.comm.plugin.splash.b.1.1
                         @Override // com.qq.e.comm.plugin.c.a.b
@@ -815,7 +815,7 @@ public class b extends FrameLayout implements NSPVI, f.a, com.qq.e.comm.plugin.a
             this.H = new Runnable() { // from class: com.qq.e.comm.plugin.splash.b.16
                 @Override // java.lang.Runnable
                 public void run() {
-                    if (b.this.P.i() && b.this.w == q.VIDEO && b.this.J == EnumC1221b.Downloaded) {
+                    if (b.this.P.i() && b.this.w == q.VIDEO && b.this.J == EnumC1204b.Downloaded) {
                         GDTLogger.d("开屏视频拉取超时，转图片成功");
                         b.this.w = q.IMG;
                         b.this.m();
@@ -848,7 +848,7 @@ public class b extends FrameLayout implements NSPVI, f.a, com.qq.e.comm.plugin.a
     }
 
     private void q() {
-        this.J = EnumC1221b.Downloading;
+        this.J = EnumC1204b.Downloading;
         final String o = this.g.o();
         final long currentTimeMillis = System.currentTimeMillis();
         com.qq.e.comm.plugin.p.a.a().a(o, new com.qq.e.comm.plugin.p.b() { // from class: com.qq.e.comm.plugin.splash.b.17
@@ -873,7 +873,7 @@ public class b extends FrameLayout implements NSPVI, f.a, com.qq.e.comm.plugin.a
     }
 
     private void r() {
-        this.K = EnumC1221b.Downloading;
+        this.K = EnumC1204b.Downloading;
         final String G = this.g.G();
         File f = ah.f();
         String a2 = ah.a(G);
@@ -959,7 +959,7 @@ public class b extends FrameLayout implements NSPVI, f.a, com.qq.e.comm.plugin.a
             this.g.z(this.A);
             switch (this.B.F()) {
                 case 0:
-                    final File a2 = com.qq.e.comm.plugin.u.b.a().a(this.f12763b, this.B.o());
+                    final File a2 = com.qq.e.comm.plugin.u.b.a().a(this.f12463b, this.B.o());
                     if (a2.exists()) {
                         w.a(new Runnable() { // from class: com.qq.e.comm.plugin.splash.b.19
                             @Override // java.lang.Runnable
@@ -973,8 +973,8 @@ public class b extends FrameLayout implements NSPVI, f.a, com.qq.e.comm.plugin.a
                     f.b(this.e);
                     return;
                 case 1:
-                    final File a3 = com.qq.e.comm.plugin.u.b.a().a(this.f12763b, this.B.G());
-                    final File a4 = com.qq.e.comm.plugin.u.b.a().a(this.f12763b, this.B.o());
+                    final File a3 = com.qq.e.comm.plugin.u.b.a().a(this.f12463b, this.B.G());
+                    final File a4 = com.qq.e.comm.plugin.u.b.a().a(this.f12463b, this.B.o());
                     if (!a3.exists() ? false : !i.e() || TextUtils.isEmpty(this.B.k()) || this.B.k().equals(Md5Util.encode(a3))) {
                         this.w = q.VIDEO;
                         this.O = a.PreLoadVideo;
@@ -1244,12 +1244,12 @@ public class b extends FrameLayout implements NSPVI, f.a, com.qq.e.comm.plugin.a
             GDTLogger.d("删除损坏视频文件失败:" + this.L.getAbsolutePath());
         }
         this.L = null;
-        if (this.J == EnumC1221b.Downloaded && this.P.h()) {
+        if (this.J == EnumC1204b.Downloaded && this.P.h()) {
             GDTLogger.d("转图片开屏成功");
             this.w = q.IMG;
             k.a(false, i, this.e, this.g.G(), exc);
             a(this.I);
-        } else if (this.J == EnumC1221b.Downloading && this.P.g()) {
+        } else if (this.J == EnumC1204b.Downloading && this.P.g()) {
             GDTLogger.d("图片尚在下载中，等待下载结束");
             this.w = q.IMG;
             this.C = true;
@@ -1373,8 +1373,8 @@ public class b extends FrameLayout implements NSPVI, f.a, com.qq.e.comm.plugin.a
         this.B = null;
         this.g = null;
         this.I = null;
-        this.J = EnumC1221b.Unknown;
-        this.K = EnumC1221b.Unknown;
+        this.J = EnumC1204b.Unknown;
+        this.K = EnumC1204b.Unknown;
         this.L = null;
         this.M = false;
         this.N = 1;
@@ -1383,7 +1383,7 @@ public class b extends FrameLayout implements NSPVI, f.a, com.qq.e.comm.plugin.a
         }
         this.Q = System.currentTimeMillis();
         this.h = i.g();
-        this.i = i.b(this.f12763b);
+        this.i = i.b(this.f12463b);
         GDTLogger.d("开始拉取开屏资源广告拉取超时设置:" + this.h + " 广告展示时间:" + this.i);
         o();
     }
@@ -1498,7 +1498,7 @@ public class b extends FrameLayout implements NSPVI, f.a, com.qq.e.comm.plugin.a
         if (l.a(getContext())) {
             com.qq.e.comm.plugin.splash.a.b.a().b();
         }
-        com.qq.e.comm.plugin.u.b.a().a(com.qq.e.comm.plugin.ad.e.SPLASH, this.f12762a, this.f12763b, this.c, this.f, this.x, l.b(this.f12763b));
+        com.qq.e.comm.plugin.u.b.a().a(com.qq.e.comm.plugin.ad.e.SPLASH, this.f12462a, this.f12463b, this.c, this.f, this.x, l.b(this.f12463b));
     }
 
     @Override // com.qq.e.comm.pi.NSPVI

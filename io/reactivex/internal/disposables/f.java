@@ -20,7 +20,7 @@ public final class f<T> extends c implements io.reactivex.disposables.b {
     public void dispose() {
         if (!this.cancelled) {
             this.cancelled = true;
-            eLK();
+            eHU();
         }
     }
 
@@ -30,7 +30,7 @@ public final class f<T> extends c implements io.reactivex.disposables.b {
         return bVar != null ? bVar.isDisposed() : this.cancelled;
     }
 
-    void eLK() {
+    void eHU() {
         io.reactivex.disposables.b bVar = this.resource;
         this.resource = null;
         if (bVar != null) {
@@ -90,7 +90,7 @@ public final class f<T> extends c implements io.reactivex.disposables.b {
                             }
                         } else if (NotificationLite.isError(poll2)) {
                             aVar.clear();
-                            eLK();
+                            eHU();
                             Throwable error = NotificationLite.getError(poll2);
                             if (!this.cancelled) {
                                 this.cancelled = true;
@@ -100,7 +100,7 @@ public final class f<T> extends c implements io.reactivex.disposables.b {
                             }
                         } else if (NotificationLite.isComplete(poll2)) {
                             aVar.clear();
-                            eLK();
+                            eHU();
                             if (!this.cancelled) {
                                 this.cancelled = true;
                                 uVar.onComplete();

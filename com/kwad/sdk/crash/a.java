@@ -6,24 +6,24 @@ import android.os.HandlerThread;
 import androidx.annotation.NonNull;
 import com.kwad.sdk.crash.model.message.ExceptionMessage;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static HandlerThread f9916a;
+    private static HandlerThread f9616a;
 
     /* renamed from: b  reason: collision with root package name */
-    private static volatile boolean f9917b = false;
+    private static volatile boolean f9617b = false;
     private static volatile boolean c = false;
 
     public static void a() {
-        if (f9917b) {
+        if (f9617b) {
             return;
         }
-        f9917b = true;
-        f9916a = new HandlerThread("ex-uploader");
-        f9916a.start();
-        new Handler(f9916a.getLooper()).postDelayed(new Runnable() { // from class: com.kwad.sdk.crash.a.4
+        f9617b = true;
+        f9616a = new HandlerThread("ex-uploader");
+        f9616a.start();
+        new Handler(f9616a.getLooper()).postDelayed(new Runnable() { // from class: com.kwad.sdk.crash.a.4
             @Override // java.lang.Runnable
             public void run() {
                 try {
@@ -84,11 +84,11 @@ public class a {
     /* JADX INFO: Access modifiers changed from: private */
     public static void e() {
         try {
-            if (f9916a != null && f9916a.isAlive()) {
+            if (f9616a != null && f9616a.isAlive()) {
                 if (Build.VERSION.SDK_INT >= 18) {
-                    f9916a.quitSafely();
+                    f9616a.quitSafely();
                 } else {
-                    f9916a.quit();
+                    f9616a.quit();
                 }
             }
         } catch (Throwable th) {

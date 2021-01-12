@@ -35,7 +35,7 @@ import java.nio.ByteBuffer;
 import java.util.Timer;
 import java.util.TimerTask;
 @TargetApi(19)
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class EncoderTextureDrawer {
     private static final int ERR_LOG_LIMIT = 300;
     public static final int IDENTITY_90_MATRIX = 2;
@@ -449,7 +449,7 @@ public class EncoderTextureDrawer {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public static class SWEncoder {
         public ImageReader imageReader;
         public byte[] sendBuffer;
@@ -467,7 +467,7 @@ public class EncoderTextureDrawer {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public static class HWEncoder {
         public TextureEncoder encoder;
         public boolean requestReset = false;
@@ -478,7 +478,7 @@ public class EncoderTextureDrawer {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public class DummyDrawer {
         int mInterval = 100;
         Timer mRepeatTimer = null;
@@ -533,7 +533,7 @@ public class EncoderTextureDrawer {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public class GLThread {
         AFullFrameRect mFullScreen;
         Handler mHandler;

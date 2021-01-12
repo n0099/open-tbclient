@@ -1,5 +1,5 @@
 package com.kwai.filedownloader;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public abstract class g extends i {
     /* JADX INFO: Access modifiers changed from: protected */
     public abstract void a(a aVar, long j, long j2);

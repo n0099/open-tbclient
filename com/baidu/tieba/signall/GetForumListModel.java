@@ -20,30 +20,30 @@ import com.baidu.webkit.internal.ETAG;
 import java.lang.reflect.Field;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class GetForumListModel extends BdBaseModel<SignAllForumActivity> {
-    private static final String niv = TbConfig.SERVER_ADDRESS + Config.GET_FORUM_LIST;
+    private static final String ndP = TbConfig.SERVER_ADDRESS + Config.GET_FORUM_LIST;
     private final BdUniqueId mBdUniqueId;
     private ResponsedMessage<?> mResponsedMessage;
-    private c nis;
-    private a nit;
-    private HttpMessage niu;
-    private boolean niw;
-    private final HttpMessageListener nix;
+    private c ndM;
+    private a ndN;
+    private HttpMessage ndO;
+    private boolean ndQ;
+    private final HttpMessageListener ndR;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public interface a {
-        void Nn(String str);
+        void Mf(String str);
 
         void a(c cVar);
     }
 
     public GetForumListModel(SignAllForumActivity signAllForumActivity) {
         super(signAllForumActivity.getPageContext());
-        this.nis = null;
-        this.nit = null;
+        this.ndM = null;
+        this.ndN = null;
         this.mBdUniqueId = BdUniqueId.gen();
-        this.nix = new HttpMessageListener(1001201) { // from class: com.baidu.tieba.signall.GetForumListModel.1
+        this.ndR = new HttpMessageListener(1001201) { // from class: com.baidu.tieba.signall.GetForumListModel.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
@@ -54,60 +54,60 @@ public class GetForumListModel extends BdBaseModel<SignAllForumActivity> {
                         if (error == 110001) {
                             GetForumListModel.this.d(httpResponsedMessage);
                         }
-                        GetForumListModel.this.nit.Nn(httpResponsedMessage.getErrorString());
+                        GetForumListModel.this.ndN.Mf(httpResponsedMessage.getErrorString());
                     } else if (error == 0) {
-                        GetForumListModel.this.nis = ((GetForumResponsed) httpResponsedMessage).listData;
-                        if (GetForumListModel.this.nit != null) {
-                            if (GetForumListModel.this.nis != null) {
-                                GetForumListModel.this.nit.a(GetForumListModel.this.nis);
+                        GetForumListModel.this.ndM = ((GetForumResponsed) httpResponsedMessage).listData;
+                        if (GetForumListModel.this.ndN != null) {
+                            if (GetForumListModel.this.ndM != null) {
+                                GetForumListModel.this.ndN.a(GetForumListModel.this.ndM);
                             } else {
                                 String errorString = httpResponsedMessage.getErrorString();
                                 if (StringUtils.isNull(errorString)) {
                                     errorString = TbadkCoreApplication.getInst().getContext().getString(R.string.neterror);
                                 }
-                                GetForumListModel.this.nit.Nn(errorString);
+                                GetForumListModel.this.ndN.Mf(errorString);
                             }
                         }
                     } else {
-                        GetForumListModel.this.nit.Nn(httpResponsedMessage.getErrorString());
+                        GetForumListModel.this.ndN.Mf(httpResponsedMessage.getErrorString());
                     }
-                    GetForumListModel.this.niu = null;
+                    GetForumListModel.this.ndO = null;
                 }
             }
         };
-        this.niw = signAllForumActivity.getIntent().getBooleanExtra("member_buy_show", false);
+        this.ndQ = signAllForumActivity.getIntent().getBooleanExtra("member_buy_show", false);
         MessageManager messageManager = MessageManager.getInstance();
-        this.nis = new c();
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1001201, niv);
+        this.ndM = new c();
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1001201, ndP);
         tbHttpMessageTask.setIsNeedLogin(true);
         tbHttpMessageTask.setResponsedClass(GetForumResponsed.class);
         messageManager.registerTask(tbHttpMessageTask);
-        registerListener(this.nix);
+        registerListener(this.ndR);
     }
 
-    public boolean dMw() {
-        return this.niw;
+    public boolean dIE() {
+        return this.ndQ;
     }
 
     public void a(a aVar) {
-        this.nit = aVar;
+        this.ndN = aVar;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean LoadData() {
-        if (this.niu != null) {
+        if (this.ndO != null) {
             return false;
         }
-        this.niu = new HttpMessage(1001201);
+        this.ndO = new HttpMessage(1001201);
         AccountData currentAccountObj = TbadkApplication.getCurrentAccountObj();
         String str = null;
         if (currentAccountObj != null) {
             str = currentAccountObj.getID();
         }
-        this.niu.addParam("user_id", str);
-        this.niu.setTag(this.mBdUniqueId);
-        MessageManager.getInstance().sendMessage(this.niu);
+        this.ndO.addParam("user_id", str);
+        this.ndO.setTag(this.mBdUniqueId);
+        MessageManager.getInstance().sendMessage(this.ndO);
         return true;
     }
 
@@ -136,9 +136,9 @@ public class GetForumListModel extends BdBaseModel<SignAllForumActivity> {
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
-        if (this.niu != null) {
+        if (this.ndO != null) {
             MessageManager.getInstance().removeHttpMessage(this.mBdUniqueId);
-            this.niu = null;
+            this.ndO = null;
         }
         MessageManager.getInstance().unRegisterTask(1001201);
         return true;

@@ -3,11 +3,11 @@ package com.kwad.sdk.glide.load;
 import androidx.annotation.NonNull;
 import java.nio.charset.Charset;
 import java.security.MessageDigest;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public interface c {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Charset f10432a = Charset.forName("UTF-8");
+    public static final Charset f10132a = Charset.forName("UTF-8");
 
     void a(@NonNull MessageDigest messageDigest);
 

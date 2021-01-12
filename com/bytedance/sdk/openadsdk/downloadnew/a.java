@@ -24,8 +24,8 @@ public class a {
     }
 
     public static boolean a(Context context, final ExitInstallListener exitInstallListener) {
-        return com.ss.android.downloadlib.a.a.a.eFQ().a(context, false, new a.InterfaceC1233a() { // from class: com.bytedance.sdk.openadsdk.downloadnew.a.1
-            @Override // com.ss.android.downloadlib.a.a.a.InterfaceC1233a
+        return com.ss.android.downloadlib.a.a.a.eBZ().a(context, false, new a.InterfaceC1216a() { // from class: com.bytedance.sdk.openadsdk.downloadnew.a.1
+            @Override // com.ss.android.downloadlib.a.a.a.InterfaceC1216a
             public void a() {
                 if (ExitInstallListener.this != null) {
                     ExitInstallListener.this.onExitInstall();

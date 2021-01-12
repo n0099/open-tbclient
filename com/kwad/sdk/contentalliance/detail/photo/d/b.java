@@ -14,21 +14,21 @@ import com.kwad.sdk.utils.i;
 import com.kwad.sdk.utils.p;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class b extends LinearLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    protected Presenter f8757a;
+    protected Presenter f8457a;
 
     /* renamed from: b  reason: collision with root package name */
-    protected c f8758b;
+    protected c f8458b;
     private LinearLayout c;
     private Button d;
     private List<a> e;
     private com.kwad.sdk.contentalliance.detail.photo.f.c f;
     private int g;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public interface a {
         void a();
 
@@ -51,8 +51,8 @@ public class b extends LinearLayout {
 
     private c b(@NonNull d dVar) {
         c cVar = new c();
-        cVar.f8764a = dVar;
-        cVar.f8765b = this.f;
+        cVar.f8464a = dVar;
+        cVar.f8465b = this.f;
         return cVar;
     }
 
@@ -122,7 +122,7 @@ public class b extends LinearLayout {
     }
 
     public void a() {
-        this.f8757a.j();
+        this.f8457a.j();
     }
 
     public void a(@NonNull a aVar) {
@@ -130,12 +130,12 @@ public class b extends LinearLayout {
     }
 
     public void a(@NonNull d dVar) {
-        this.f8758b = b(dVar);
-        if (this.f8757a == null) {
-            this.f8757a = c(dVar);
-            this.f8757a.a((View) this.c);
+        this.f8458b = b(dVar);
+        if (this.f8457a == null) {
+            this.f8457a = c(dVar);
+            this.f8457a.a((View) this.c);
         }
-        this.f8757a.a(this.f8758b);
+        this.f8457a.a(this.f8458b);
     }
 
     public void b(@NonNull a aVar) {

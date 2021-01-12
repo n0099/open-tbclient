@@ -12,11 +12,11 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.bitmap_recycle.BitmapPool;
 import com.bumptech.glide.load.resource.bitmap.BitmapTransformation;
 import java.security.MessageDigest;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class a extends BitmapTransformation {
-    private BitmapPool cuU;
-    private int cuV;
-    private int cuW;
+    private BitmapPool cqc;
+    private int cqd;
+    private int cqe;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(@NonNull Context context) {
@@ -24,9 +24,9 @@ public class a extends BitmapTransformation {
     }
 
     a(@NonNull BitmapPool bitmapPool) {
-        this.cuV = 0;
-        this.cuW = 0;
-        this.cuU = bitmapPool;
+        this.cqd = 0;
+        this.cqe = 0;
+        this.cqc = bitmapPool;
     }
 
     @Override // com.bumptech.glide.load.resource.bitmap.BitmapTransformation
@@ -41,7 +41,7 @@ public class a extends BitmapTransformation {
         int min = Math.min(bitmap.getWidth(), bitmap.getHeight());
         int width = (bitmap.getWidth() - min) / 2;
         int height = (bitmap.getHeight() - min) / 2;
-        Bitmap bitmap2 = this.cuU.get(min, min, Bitmap.Config.ARGB_8888);
+        Bitmap bitmap2 = this.cqc.get(min, min, Bitmap.Config.ARGB_8888);
         if (bitmap2 == null) {
             bitmap2 = Bitmap.createBitmap(min, min, Bitmap.Config.ARGB_8888);
         }
@@ -55,19 +55,19 @@ public class a extends BitmapTransformation {
         }
         paint.setShader(bitmapShader);
         paint.setAntiAlias(true);
-        if (this.cuV == 0) {
+        if (this.cqd == 0) {
             float f = min / 2.0f;
             canvas.drawCircle(f, f, f, paint);
             return bitmap2;
         }
         float f2 = min / 2.0f;
-        if (this.cuW != 0) {
+        if (this.cqe != 0) {
             Paint paint2 = new Paint(1);
             paint2.setStyle(Paint.Style.FILL_AND_STROKE);
-            paint2.setColor(this.cuW);
+            paint2.setColor(this.cqe);
             canvas.drawCircle(f2, f2, f2, paint2);
         }
-        canvas.drawCircle(f2, f2, f2 - this.cuV, paint);
+        canvas.drawCircle(f2, f2, f2 - this.cqd, paint);
         return bitmap2;
     }
 

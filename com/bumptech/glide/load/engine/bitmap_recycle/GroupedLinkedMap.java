@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 class GroupedLinkedMap<K extends Poolable, V> {
     private final LinkedEntry<K, V> head = new LinkedEntry<>();
     private final Map<K, LinkedEntry<K, V>> keyToEntry = new HashMap();
@@ -95,7 +95,7 @@ class GroupedLinkedMap<K extends Poolable, V> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class LinkedEntry<K, V> {
         final K key;
         LinkedEntry<K, V> next;

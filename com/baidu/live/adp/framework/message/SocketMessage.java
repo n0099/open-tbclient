@@ -3,7 +3,7 @@ package com.baidu.live.adp.framework.message;
 import com.baidu.live.adp.BdUniqueId;
 import com.baidu.live.adp.framework.FrameHelper;
 import com.baidu.live.adp.lib.util.BdLog;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class SocketMessage extends Message<byte[]> {
     private static String GLOBAL_ENCODE_NAME = "toByteArray";
     private Object mData;

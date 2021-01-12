@@ -16,10 +16,10 @@ import java.util.concurrent.Executors;
 public class BDNetworkStateChangeReceiver extends BroadcastReceiver {
 
     /* renamed from: a  reason: collision with root package name */
-    private boolean f1622a = false;
+    private boolean f1571a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    private boolean f1623b = true;
+    private boolean f1572b = true;
     private boolean c = true;
     private String d = "";
     private boolean e = true;
@@ -50,29 +50,29 @@ public class BDNetworkStateChangeReceiver extends BroadcastReceiver {
     }
 
     private void a(Context context) {
-        l.a("Network change, clearCache(%b) httpDnsPrefetch(%b)", Boolean.valueOf(this.f1623b), Boolean.valueOf(this.c));
-        i sE = i.sE();
-        sE.b();
-        BDHttpDns Q = BDHttpDns.Q(context);
+        l.a("Network change, clearCache(%b) httpDnsPrefetch(%b)", Boolean.valueOf(this.f1572b), Boolean.valueOf(this.c));
+        i st = i.st();
+        st.b();
+        BDHttpDns P = BDHttpDns.P(context);
         refreshIpReachable();
-        ArrayList<String> b2 = Q.sv().b();
-        if (this.f1623b) {
-            Q.sv().a();
-            Q.sw().a();
+        ArrayList<String> b2 = P.sk().b();
+        if (this.f1572b) {
+            P.sk().a();
+            P.sl().a();
         }
         if (this.c) {
             if (isIPv6Only()) {
                 l.a("Now the network is Ipv6 Only, Will not send prefetch request. ", new Object[0]);
             } else if (b2 == null || b2.isEmpty()) {
             } else {
-                sE.a(b2, new k(context));
+                st.a(b2, new k(context));
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(boolean z) {
-        this.f1623b = z;
+        this.f1572b = z;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -88,8 +88,8 @@ public class BDNetworkStateChangeReceiver extends BroadcastReceiver {
     public void onReceive(Context context, Intent intent) {
         String str;
         ConnectivityManager connectivityManager;
-        if (!this.f1622a) {
-            this.f1622a = true;
+        if (!this.f1571a) {
+            this.f1571a = true;
             return;
         }
         try {

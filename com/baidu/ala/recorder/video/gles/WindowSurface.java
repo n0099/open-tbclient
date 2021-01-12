@@ -2,7 +2,7 @@ package com.baidu.ala.recorder.video.gles;
 
 import android.graphics.SurfaceTexture;
 import android.view.Surface;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class WindowSurface extends EglSurfaceBase {
     private boolean mReleaseSurface;
     private Surface mSurface;

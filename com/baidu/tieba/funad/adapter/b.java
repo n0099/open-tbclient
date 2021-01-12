@@ -7,13 +7,13 @@ import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.data.by;
 import com.baidu.tieba.recapp.k;
 import com.baidu.tieba.recapp.o;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class b extends com.baidu.adp.widget.ListView.a<by, FunAdEmptyHolder> implements k, o {
-    private BaseFragmentActivity iJr;
+    private BaseFragmentActivity iEK;
 
     public b(BaseFragmentActivity baseFragmentActivity, BdUniqueId bdUniqueId) {
         super(baseFragmentActivity, bdUniqueId);
-        this.iJr = baseFragmentActivity;
+        this.iEK = baseFragmentActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -21,7 +21,7 @@ public class b extends com.baidu.adp.widget.ListView.a<by, FunAdEmptyHolder> imp
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: bN */
     public FunAdEmptyHolder e(ViewGroup viewGroup) {
-        View view = new View(this.iJr.getPageContext().getPageActivity());
+        View view = new View(this.iEK.getPageContext().getPageActivity());
         view.setVisibility(8);
         return new FunAdEmptyHolder(view);
     }

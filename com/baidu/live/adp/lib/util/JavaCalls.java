@@ -7,7 +7,7 @@ import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class JavaCalls {
     private static final HashMap<Class<?>, Class<?>> PRIMITIVE_MAP = new HashMap<>();
 
@@ -234,7 +234,7 @@ public class JavaCalls {
         return declaredField.get(obj);
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public static class JavaParam<T> {
         public final Class<? extends T> clazz;
         public final T obj;

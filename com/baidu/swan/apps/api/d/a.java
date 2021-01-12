@@ -7,15 +7,15 @@ import androidx.annotation.NonNull;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.swan.apps.adaptation.b.e;
 import com.baidu.swan.games.view.webview.GameWebViewJavascriptInterface;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static final String[] cLa = {GameWebViewJavascriptInterface.JAVASCRIPT_INTERFACE_NAME, "swanAPI", "utils"};
+    private static final String[] cGo = {GameWebViewJavascriptInterface.JAVASCRIPT_INTERFACE_NAME, "swanAPI", "utils"};
 
     @NonNull
     public static Pair<Boolean, com.baidu.swan.apps.api.c.a> a(com.baidu.swan.apps.api.a.a aVar, String str) {
         com.baidu.swan.apps.api.c.b bVar = new com.baidu.swan.apps.api.c.b();
-        boolean a2 = a(str, aVar.anj().anh());
+        boolean a2 = a(str, aVar.ajp().ajn());
         if (a2) {
             bVar.status = 402;
         }
@@ -33,14 +33,14 @@ public class a {
                 throw new RuntimeException("whitelistName is empty");
             }
         } else {
-            String amt = ((e) callbackHandler).amt();
-            if ("ai_apps_widget".equals(amt)) {
-                z = ms(str);
-            } else if ("ai_apps_ad_landing".equals(amt)) {
-                if (!com.baidu.swan.apps.af.a.b.sT(str)) {
+            String aiz = ((e) callbackHandler).aiz();
+            if ("ai_apps_widget".equals(aiz)) {
+                z = lh(str);
+            } else if ("ai_apps_ad_landing".equals(aiz)) {
+                if (!com.baidu.swan.apps.af.a.b.rH(str)) {
                     z = true;
                 }
-            } else if (!"swan_app_alliance_login_widget".equals(amt) && !"swan_app_alliance_choose_address_widget".equals(amt) && DEBUG) {
+            } else if (!"swan_app_alliance_login_widget".equals(aiz) && !"swan_app_alliance_choose_address_widget".equals(aiz) && DEBUG) {
                 Log.d("SwanApiSafe", "intercept: false, source frame is not aiapps widget frame");
             }
             if (DEBUG) {
@@ -50,19 +50,19 @@ public class a {
         return z;
     }
 
-    private static boolean ms(@NonNull String str) {
+    private static boolean lh(@NonNull String str) {
         String[] strArr;
         int indexOf = str.indexOf("/");
         if (indexOf < 0) {
             return true;
         }
         if (!str.startsWith(GameWebViewJavascriptInterface.JAVASCRIPT_INTERFACE_NAME)) {
-            return !com.baidu.swan.apps.af.a.b.sR(str);
+            return !com.baidu.swan.apps.af.a.b.rF(str);
         }
         String substring = str.substring(indexOf + 1);
-        int length = cLa.length;
+        int length = cGo.length;
         for (int i = 0; i < length; i++) {
-            if (com.baidu.swan.apps.af.a.b.sR(strArr[i] + "/" + substring)) {
+            if (com.baidu.swan.apps.af.a.b.rF(strArr[i] + "/" + substring)) {
                 return false;
             }
         }

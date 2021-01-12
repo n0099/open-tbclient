@@ -2,13 +2,13 @@ package com.baidu.live.t;
 
 import android.view.ViewGroup;
 import com.baidu.live.data.x;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public interface a {
-    void LE();
+    void HJ();
 
     void b(x xVar);
 
-    void dU(int i);
+    void co(int i);
 
     void f(x xVar);
 

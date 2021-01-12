@@ -53,7 +53,7 @@ class d {
     }
 
     public static String a(byte[] bArr) {
-        return new String(new com.baidu.helios.common.a.b().y(bArr));
+        return new String(new com.baidu.helios.common.a.b().x(bArr));
     }
 
     public static Method a(Class<?> cls, String str, Class<?>[] clsArr) {

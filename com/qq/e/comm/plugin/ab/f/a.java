@@ -2,7 +2,7 @@ package com.qq.e.comm.plugin.ab.f;
 
 import android.view.View;
 import com.qq.e.comm.plugin.ab.k;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public interface a extends k {
     View c();
 

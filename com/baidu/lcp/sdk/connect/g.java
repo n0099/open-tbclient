@@ -23,14 +23,14 @@ import javax.net.ssl.SSLHandshakeException;
 import javax.net.ssl.SSLSocket;
 /* loaded from: classes3.dex */
 public class g extends d {
-    private String aAx;
+    private String avK;
     private InputStream inputStream;
     private OutputStream outputStream;
     private Socket socket;
 
     public g(Context context, String str) {
         super(context);
-        this.aAx = str;
+        this.avK = str;
     }
 
     @Override // com.baidu.lcp.sdk.connect.d
@@ -41,7 +41,7 @@ public class g extends d {
     @Override // com.baidu.lcp.sdk.connect.d
     public void a(b bVar) throws IOException {
         if (this.socket != null && this.outputStream != null) {
-            this.outputStream.write(bVar.azH);
+            this.outputStream.write(bVar.auU);
             this.outputStream.flush();
         }
     }
@@ -54,14 +54,14 @@ public class g extends d {
             eVar.socket = this.socket;
             eVar.inputStream = this.socket.getInputStream();
             eVar.outputStream = this.socket.getOutputStream();
-            eVar.azQ = true;
-            eVar.azR = true;
+            eVar.avd = true;
+            eVar.ave = true;
         }
         return eVar;
     }
 
     private Socket createSocket(String str, int i) throws UnknownHostException, IOException, KeyManagementException, CertificateException, KeyStoreException, NoSuchAlgorithmException, IllegalArgumentException, NoSuchMethodException, IllegalAccessException, InvocationTargetException, TimeoutException, AssertionError {
-        return this.aAx.equals("tcp") ? createSocketRD(str, i) : createSocketOnLine(str, i);
+        return this.avK.equals("tcp") ? createSocketRD(str, i) : createSocketOnLine(str, i);
     }
 
     private Socket createSocketRD(String str, int i) throws UnknownHostException, IOException {
@@ -118,11 +118,11 @@ public class g extends d {
 
     @Override // com.baidu.lcp.sdk.connect.d
     public boolean socketClose() {
-        return c(this.azP);
+        return c(this.avc);
     }
 
     public boolean c(e eVar) {
-        if (eVar != null && eVar.azQ.booleanValue()) {
+        if (eVar != null && eVar.avd.booleanValue()) {
             try {
                 if (eVar.socket != null) {
                     eVar.socket.close();
@@ -147,16 +147,16 @@ public class g extends d {
     }
 
     @Override // com.baidu.lcp.sdk.connect.d
-    public InputStream zF() throws EOFException, IOException {
+    public InputStream vK() throws EOFException, IOException {
         return new DataInputStream(this.inputStream);
     }
 
     @Override // com.baidu.lcp.sdk.connect.d
     public void a(e eVar) {
-        this.azP = eVar;
-        if (this.azP != null) {
-            this.inputStream = this.azP.inputStream;
-            this.outputStream = this.azP.outputStream;
+        this.avc = eVar;
+        if (this.avc != null) {
+            this.inputStream = this.avc.inputStream;
+            this.outputStream = this.avc.outputStream;
             return;
         }
         this.inputStream = null;

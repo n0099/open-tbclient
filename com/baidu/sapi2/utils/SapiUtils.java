@@ -112,10 +112,10 @@ public class SapiUtils implements NoProguard {
     public static final String QR_LOGIN_LP_PC = "pc";
 
     /* renamed from: a  reason: collision with root package name */
-    static final String f5372a = "cmd";
+    static final String f5089a = "cmd";
 
     /* renamed from: b  reason: collision with root package name */
-    static final String f5373b = "error";
+    static final String f5090b = "error";
     static final String c = "EEE, dd-MMM-yyyy HH:mm:ss 'GMT'";
     static final String d = Character.toString(2);
     static final String e = Character.toString(3);
@@ -132,12 +132,15 @@ public class SapiUtils implements NoProguard {
         }
     }
 
-    private static boolean b(String str) {
-        if (!TextUtils.isEmpty(str) && str.contains("qrsign") && str.contains("scope") && str.contains("channelid") && str.contains("client_id")) {
-            Map<String, String> urlParamsToMap = urlParamsToMap(str);
-            return (TextUtils.isEmpty(urlParamsToMap.get("qrsign")) || TextUtils.isEmpty(urlParamsToMap.get("scope")) || TextUtils.isEmpty(urlParamsToMap.get("channelid")) || TextUtils.isEmpty(urlParamsToMap.get("client_id"))) ? false : true;
+    private static String b(Context context) {
+        try {
+            Log.e("TITLE", "get deviceId");
+            return DeviceId.getDeviceID(context);
+        } catch (Throwable th) {
+            Random random = new Random();
+            random.setSeed(System.currentTimeMillis());
+            return "123456789" + SecurityUtil.md5(String.valueOf(random.nextInt(100)).getBytes(), false);
         }
-        return false;
     }
 
     public static String buildBDUSSCookie(String str, String str2, String str3) {
@@ -274,13 +277,15 @@ public class SapiUtils implements NoProguard {
     }
 
     public static String getClientId(Context context) {
-        try {
-            return DeviceId.getDeviceID(context);
-        } catch (Throwable th) {
-            Random random = new Random();
-            random.setSeed(System.currentTimeMillis());
-            return "123456789" + SecurityUtil.md5(String.valueOf(random.nextInt(100)).getBytes(), false);
+        SapiConfiguration confignation = ServiceManager.getInstance().getIsAccountManager().getConfignation();
+        if (confignation == null || !confignation.isAgreeDangerousProtocol()) {
+            Log.e("TITLE", "dont't get deviceId");
+            return null;
         }
+        if (TextUtils.isEmpty(confignation.clientId)) {
+            confignation.clientId = b(context);
+        }
+        return confignation.clientId;
     }
 
     public static String getCookie(String str, String str2) {
@@ -448,15 +453,21 @@ public class SapiUtils implements NoProguard {
     public static String getLocalIpAddress() {
         String hostAddress;
         try {
-            Enumeration<NetworkInterface> networkInterfaces = NetworkInterface.getNetworkInterfaces();
-            while (networkInterfaces.hasMoreElements()) {
-                Enumeration<InetAddress> inetAddresses = networkInterfaces.nextElement().getInetAddresses();
-                while (inetAddresses.hasMoreElements()) {
-                    InetAddress nextElement = inetAddresses.nextElement();
-                    if (!nextElement.isLoopbackAddress() && (hostAddress = nextElement.getHostAddress()) != null && hostAddress.length() > 0 && (nextElement instanceof Inet4Address)) {
-                        return hostAddress;
+            SapiConfiguration confignation = ServiceManager.getInstance().getIsAccountManager().getConfignation();
+            if (confignation != null && confignation.isAgreeDangerousProtocol()) {
+                Log.e("TITLE", "get ip address");
+                Enumeration<NetworkInterface> networkInterfaces = NetworkInterface.getNetworkInterfaces();
+                while (networkInterfaces.hasMoreElements()) {
+                    Enumeration<InetAddress> inetAddresses = networkInterfaces.nextElement().getInetAddresses();
+                    while (inetAddresses.hasMoreElements()) {
+                        InetAddress nextElement = inetAddresses.nextElement();
+                        if (!nextElement.isLoopbackAddress() && (hostAddress = nextElement.getHostAddress()) != null && hostAddress.length() > 0 && (nextElement instanceof Inet4Address)) {
+                            return hostAddress;
+                        }
                     }
                 }
+            } else {
+                Log.e("TITLE", "don't get ip address");
             }
         } catch (Throwable th) {
             Log.e(th);
@@ -843,7 +854,7 @@ public class SapiUtils implements NoProguard {
                     hashMap2.put("islogin", "1");
                 }
                 hashMap2.put("client", HttpConstants.OS_TYPE_VALUE);
-                k.a(k.f5423a, hashMap2);
+                k.a(k.f5140a, hashMap2);
             }
             return urlParamsToMap;
         } else {
@@ -1117,6 +1128,14 @@ public class SapiUtils implements NoProguard {
             Log.e(th);
             return false;
         }
+    }
+
+    private static boolean b(String str) {
+        if (!TextUtils.isEmpty(str) && str.contains("qrsign") && str.contains("scope") && str.contains("channelid") && str.contains("client_id")) {
+            Map<String, String> urlParamsToMap = urlParamsToMap(str);
+            return (TextUtils.isEmpty(urlParamsToMap.get("qrsign")) || TextUtils.isEmpty(urlParamsToMap.get("scope")) || TextUtils.isEmpty(urlParamsToMap.get("channelid")) || TextUtils.isEmpty(urlParamsToMap.get("client_id"))) ? false : true;
+        }
+        return false;
     }
 
     public static boolean webLogout(Context context) {

@@ -9,7 +9,7 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.PagerAdapter;
 import java.util.ArrayList;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public abstract class FragmentStatePagerAdapter extends PagerAdapter {
     private static final boolean DEBUG = false;
     private static final String TAG = "FragmentStatePagerAdapt";

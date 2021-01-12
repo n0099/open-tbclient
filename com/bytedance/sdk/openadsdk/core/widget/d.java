@@ -15,10 +15,10 @@ import com.bytedance.sdk.openadsdk.utils.ac;
 public class d extends AlertDialog {
 
     /* renamed from: a  reason: collision with root package name */
-    private TextView f7098a;
+    private TextView f6798a;
 
     /* renamed from: b  reason: collision with root package name */
-    private TextView f7099b;
+    private TextView f6799b;
     private Button c;
     private TextView d;
     private TextView e;
@@ -57,10 +57,10 @@ public class d extends AlertDialog {
     }
 
     private void a() {
-        this.f7098a = (TextView) findViewById(ac.e(this.g, "tt_download_title"));
+        this.f6798a = (TextView) findViewById(ac.e(this.g, "tt_download_title"));
         this.d = (TextView) findViewById(ac.e(this.g, "tt_download_app_detail"));
         this.c = (Button) findViewById(ac.e(this.g, "tt_download_btn"));
-        this.f7099b = (TextView) findViewById(ac.e(this.g, "tt_download_app_version"));
+        this.f6799b = (TextView) findViewById(ac.e(this.g, "tt_download_app_version"));
         this.e = (TextView) findViewById(ac.e(this.g, "tt_download_cancel"));
         this.h = (TextView) findViewById(ac.e(this.g, "tt_download_app_privacy"));
         this.i = (TextView) findViewById(ac.e(this.g, "tt_download_app_developer"));
@@ -116,8 +116,8 @@ public class d extends AlertDialog {
         if (this.g == null) {
             this.g = p.a();
         }
-        if (this.f7098a != null) {
-            this.f7098a.setText(this.j);
+        if (this.f6798a != null) {
+            this.f6798a.setText(this.j);
         }
         if (this.f != null && !TextUtils.isEmpty(this.l)) {
             com.bytedance.sdk.openadsdk.i.e.a(this.g).a(this.l, this.f);
@@ -126,9 +126,9 @@ public class d extends AlertDialog {
             String a2 = ac.a(this.g, "tt_open_app_detail_developer");
             this.i.setText(TextUtils.isEmpty(this.m) ? String.format(a2, "补充中，可于应用官网查看") : String.format(a2, this.m));
         }
-        if (this.f7099b != null) {
+        if (this.f6799b != null) {
             String a3 = ac.a(this.g, "tt_open_app_version");
-            this.f7099b.setText(TextUtils.isEmpty(this.k) ? String.format(a3, "暂无") : String.format(a3, this.k));
+            this.f6799b.setText(TextUtils.isEmpty(this.k) ? String.format(a3, "暂无") : String.format(a3, this.k));
         }
     }
 

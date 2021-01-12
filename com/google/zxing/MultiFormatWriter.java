@@ -15,7 +15,7 @@ import com.google.zxing.oned.UPCEWriter;
 import com.google.zxing.pdf417.PDF417Writer;
 import com.google.zxing.qrcode.QRCodeWriter;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class MultiFormatWriter implements Writer {
     @Override // com.google.zxing.Writer
     public BitMatrix encode(String str, BarcodeFormat barcodeFormat, int i, int i2) throws WriterException {

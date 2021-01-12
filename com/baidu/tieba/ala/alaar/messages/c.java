@@ -4,26 +4,26 @@ import com.baidu.live.adp.BdUniqueId;
 import com.baidu.live.adp.framework.message.HttpMessage;
 import com.baidu.live.utils.q;
 import com.baidu.mobstat.Config;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class c extends HttpMessage {
-    private BdUniqueId bwz;
+    private BdUniqueId brL;
     private String mRequestType;
     private int pn;
     private int rn;
 
     public c(BdUniqueId bdUniqueId, String str, int i, int i2) {
         super(1021156);
-        this.bwz = bdUniqueId;
+        this.brL = bdUniqueId;
         this.mRequestType = str;
         this.pn = i;
         this.rn = i2;
     }
 
     public void setParams() {
-        addParam("scene_from", q.Ia());
+        addParam("scene_from", q.Ef());
         addParam("type", this.mRequestType);
         addParam(Config.PACKAGE_NAME, this.pn);
         addParam("rn", this.rn);
-        setTag(this.bwz);
+        setTag(this.brL);
     }
 }

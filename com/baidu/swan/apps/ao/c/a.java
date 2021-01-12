@@ -10,45 +10,45 @@ import java.lang.reflect.Parameter;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public final class a implements c {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private ClassLoader dSD;
-    private final Object[] dSK;
-    private final Set<b<?>> dSB = new HashSet();
-    private final Set<Object> dSC = new HashSet();
-    private int dSE = 0;
-    private int dSF = 0;
-    private int dSG = 0;
-    private int dSH = 0;
-    private int dSI = -1;
-    private int dSJ = 0;
+    private ClassLoader dNR;
+    private final Object[] dNY;
+    private final Set<b<?>> dNP = new HashSet();
+    private final Set<Object> dNQ = new HashSet();
+    private int dNS = 0;
+    private int dNT = 0;
+    private int dNU = 0;
+    private int dNV = 0;
+    private int dNW = -1;
+    private int dNX = 0;
 
     private a(ClassLoader classLoader, Object... objArr) {
-        this.dSD = classLoader;
-        this.dSK = objArr == null ? new Object[0] : objArr;
+        this.dNR = classLoader;
+        this.dNY = objArr == null ? new Object[0] : objArr;
     }
 
     public static a a(ClassLoader classLoader, Object... objArr) {
         return new a(classLoader, objArr);
     }
 
-    public boolean aSk() {
-        return this.dSJ > 0;
+    public boolean aOq() {
+        return this.dNX > 0;
     }
 
     public a a(b<?>... bVarArr) {
         if (bVarArr != null) {
-            this.dSB.addAll(Arrays.asList(bVarArr));
+            this.dNP.addAll(Arrays.asList(bVarArr));
         }
         return this;
     }
 
-    public a lS(int i) {
+    public a km(int i) {
         Object[] objArr;
-        if (!aSk() && i > 0) {
-            this.dSJ = i;
-            for (Object obj : this.dSK) {
+        if (!aOq() && i > 0) {
+            this.dNX = i;
+            for (Object obj : this.dNY) {
                 if (obj instanceof Class) {
                     a(i, (Class) obj);
                 } else if (obj instanceof Annotation) {
@@ -64,50 +64,50 @@ public final class a implements c {
                 }
             }
         }
-        this.dSJ = 0;
+        this.dNX = 0;
         return this;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a a(int i, @NonNull Class<?>... clsArr) {
-        return a(dSL, i, clsArr);
+        return a(dNZ, i, clsArr);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a a(int i, @NonNull Package... packageArr) {
-        return a(dSM, i, packageArr);
+        return a(dOa, i, packageArr);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a a(int i, @NonNull Annotation... annotationArr) {
-        return a(dSN, i, annotationArr);
+        return a(dOb, i, annotationArr);
     }
 
     public a a(int i, @NonNull Method... methodArr) {
-        return a(dSP, i, methodArr);
+        return a(dOd, i, methodArr);
     }
 
     public a a(int i, @NonNull Field... fieldArr) {
-        return a(dSO, i, fieldArr);
+        return a(dOc, i, fieldArr);
     }
 
     public a a(int i, Constructor<?>... constructorArr) {
-        return a(dSQ, i, constructorArr);
+        return a(dOe, i, constructorArr);
     }
 
     @RequiresApi(api = 26)
     public a a(int i, Parameter... parameterArr) {
-        return a(dSR, i, parameterArr);
+        return a(dOf, i, parameterArr);
     }
 
     @SafeVarargs
     private final <TargeT> a a(@NonNull b<TargeT> bVar, int i, TargeT... targetArr) {
-        if (!this.dSB.contains(bVar)) {
+        if (!this.dNP.contains(bVar)) {
             int i2 = i - 1;
             if (i > 0 && targetArr != null && targetArr.length > 0) {
                 for (TargeT target : targetArr) {
                     if (ac(target)) {
-                        bVar.a(this, this.dSD, i2, target);
+                        bVar.a(this, this.dNR, i2, target);
                     }
                 }
             }
@@ -116,15 +116,15 @@ public final class a implements c {
     }
 
     private <TargeT> boolean ac(TargeT target) {
-        this.dSE++;
+        this.dNS++;
         if (target == null) {
-            this.dSG++;
+            this.dNU++;
             return false;
-        } else if (this.dSC.contains(target)) {
-            this.dSF++;
+        } else if (this.dNQ.contains(target)) {
+            this.dNT++;
             return false;
         } else {
-            this.dSC.add(target);
+            this.dNQ.add(target);
             return true;
         }
     }

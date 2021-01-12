@@ -9,7 +9,7 @@ import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.squareup.wire.Wire;
 import tbclient.Bigvip.BigvipResIdl;
 import tbclient.Bigvip.UserInfoBigVip;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class a implements CustomMessageTask.CustomRunnable<Object> {
     @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
     public CustomResponsedMessage<?> run(CustomMessage<Object> customMessage) {
@@ -18,11 +18,11 @@ public class a implements CustomMessageTask.CustomRunnable<Object> {
             return new CustomResponsedMessage<>(CmdConfigCustom.CMD_GET_RECOMMEND_DETAIL, null);
         }
         long longValue = ((Long) customMessage.getData()).longValue();
-        l<byte[]> Bl = com.baidu.tbadk.core.c.a.btT().Bl("tb.im_recommend_detail");
-        if (Bl == null) {
+        l<byte[]> Aa = com.baidu.tbadk.core.c.a.bpZ().Aa("tb.im_recommend_detail");
+        if (Aa == null) {
             return new CustomResponsedMessage<>(CmdConfigCustom.CMD_GET_RECOMMEND_DETAIL, null);
         }
-        byte[] bArr = Bl.get(longValue + "");
+        byte[] bArr = Aa.get(longValue + "");
         if (bArr == null) {
             return new CustomResponsedMessage<>(CmdConfigCustom.CMD_GET_RECOMMEND_DETAIL, null);
         }

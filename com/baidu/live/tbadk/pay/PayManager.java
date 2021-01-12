@@ -11,7 +11,7 @@ import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.live.tbadk.core.frameworkdata.IntentConfig;
 import com.baidu.live.tbadk.core.util.UrlManager;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class PayManager {
     private static PayManager instance = null;
     private WalletSwan mWalletSwan;

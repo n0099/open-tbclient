@@ -43,19 +43,19 @@ import java.util.Objects;
 import java.util.regex.Matcher;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public final class f {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final File f9960a = new File("/proc/self/fd");
+    private static final File f9660a = new File("/proc/self/fd");
 
     /* renamed from: b  reason: collision with root package name */
-    private static final File f9961b = new File("/proc/self/task");
+    private static final File f9661b = new File("/proc/self/task");
 
     private static int a() {
         File[] listFiles;
-        Objects.requireNonNull(f9960a);
-        if (f9960a.exists() && f9960a.isDirectory() && (listFiles = f9960a.listFiles()) != null) {
+        Objects.requireNonNull(f9660a);
+        if (f9660a.exists() && f9660a.isDirectory() && (listFiles = f9660a.listFiles()) != null) {
             return listFiles.length;
         }
         return 0;
@@ -203,12 +203,12 @@ public final class f {
     private static void a(ExceptionMessage exceptionMessage, MemoryInfo memoryInfo, @Nullable Context context) {
         SystemUtil.a c = SystemUtil.c();
         c.e = Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory();
-        c.f9956a = SystemUtil.a();
+        c.f9656a = SystemUtil.a();
         c.d = Debug.getPss();
-        memoryInfo.mTotalMB = (int) (c.f9956a / 1048576);
-        memoryInfo.mJavaHeapLimitMB = (int) (com.kwad.sdk.crash.c.f9927a / 1048576.0d);
+        memoryInfo.mTotalMB = (int) (c.f9656a / 1048576);
+        memoryInfo.mJavaHeapLimitMB = (int) (com.kwad.sdk.crash.c.f9627a / 1048576.0d);
         memoryInfo.mJavaHeapMB = (int) (c.e / 1048576);
-        memoryInfo.mVssMB = (int) (c.f9957b / 1024);
+        memoryInfo.mVssMB = (int) (c.f9657b / 1024);
         memoryInfo.mRssMB = (int) (c.c / 1024);
         memoryInfo.mPssMB = (int) (c.d / 1024);
         memoryInfo.mThreadsCount = c.f;
@@ -220,7 +220,7 @@ public final class f {
         if (memoryInfo.mFdCount > 800) {
             exceptionMessage.mCrashType = exceptionMessage.getTypeFdOOM();
             exceptionMessage.mFdOverflow = "True";
-            File[] listFiles = f9960a.listFiles();
+            File[] listFiles = f9660a.listFiles();
             if (listFiles != null && listFiles.length > 0) {
                 for (File file : listFiles) {
                     try {
@@ -254,7 +254,7 @@ public final class f {
     }
 
     private static void a(MemoryInfo memoryInfo) {
-        File[] listFiles = f9961b.listFiles();
+        File[] listFiles = f9661b.listFiles();
         if (listFiles == null) {
             return;
         }
@@ -441,7 +441,7 @@ public final class f {
             com.kwad.sdk.core.d.a.b(e);
             absolutePath = parentFile.getAbsolutePath();
         }
-        if (com.kwad.sdk.crash.c.f9928b.matcher(absolutePath).matches() || com.kwad.sdk.crash.c.c.matcher(absolutePath).matches()) {
+        if (com.kwad.sdk.crash.c.f9628b.matcher(absolutePath).matches() || com.kwad.sdk.crash.c.c.matcher(absolutePath).matches()) {
             exceptionMessage.mVirtualApp = context.getPackageName();
             return;
         }

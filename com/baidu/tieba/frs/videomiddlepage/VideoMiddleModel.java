@@ -30,10 +30,10 @@ public class VideoMiddleModel extends BdBaseModel {
     public static final String TYPE_CALL_FROM_FRS = "client_frs";
     public static final String TYPE_CALL_FROM_INDEX = "client_index";
     public static final String TYPE_CALL_FROM_OTHER = "client_other";
-    private VideoSerializeVideoThreadInfo jLP;
-    private a jLQ;
-    private String jLR;
-    private final HttpMessageListener jnl;
+    private VideoSerializeVideoThreadInfo jHj;
+    private a jHk;
+    private String jHl;
+    private final HttpMessageListener jiE;
     private String mFrom;
     private String mId;
     private boolean mIsLoading;
@@ -46,7 +46,7 @@ public class VideoMiddleModel extends BdBaseModel {
     public interface a {
         void o(List<BaseCardInfo> list, boolean z);
 
-        void wr(String str);
+        void vg(String str);
     }
 
     static /* synthetic */ int b(VideoMiddleModel videoMiddleModel) {
@@ -57,14 +57,14 @@ public class VideoMiddleModel extends BdBaseModel {
 
     public VideoMiddleModel(TbPageContext tbPageContext, a aVar) {
         super(tbPageContext);
-        this.jLR = "client_other";
-        this.jnl = new HttpMessageListener(1003378) { // from class: com.baidu.tieba.frs.videomiddlepage.VideoMiddleModel.1
+        this.jHl = "client_other";
+        this.jiE = new HttpMessageListener(1003378) { // from class: com.baidu.tieba.frs.videomiddlepage.VideoMiddleModel.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
                 if (httpResponsedMessage == null || httpResponsedMessage.getCmd() != 1003378 || !(httpResponsedMessage instanceof VideoMiddleDataResponseMessage)) {
-                    if (VideoMiddleModel.this.jLQ != null) {
-                        VideoMiddleModel.this.jLQ.wr(BdStatsConstant.StatsType.ERROR);
+                    if (VideoMiddleModel.this.jHk != null) {
+                        VideoMiddleModel.this.jHk.vg(BdStatsConstant.StatsType.ERROR);
                         return;
                     }
                     return;
@@ -76,31 +76,31 @@ public class VideoMiddleModel extends BdBaseModel {
                     if (TextUtils.isEmpty(errorString)) {
                         errorString = TbadkCoreApplication.getInst().getResources().getString(R.string.error_unkown_try_again);
                     }
-                    if (VideoMiddleModel.this.jLQ != null) {
-                        VideoMiddleModel.this.jLQ.wr(errorString);
+                    if (VideoMiddleModel.this.jHk != null) {
+                        VideoMiddleModel.this.jHk.vg(errorString);
                         return;
                     }
                     return;
                 }
                 TbSingleton.getInstance().clearVideoRecord();
-                if (VideoMiddleModel.this.jLQ != null) {
-                    VideoMiddleModel.this.jLQ.o(((VideoMiddleDataResponseMessage) httpResponsedMessage).mDataList, ((VideoMiddleDataResponseMessage) httpResponsedMessage).mHasMore);
+                if (VideoMiddleModel.this.jHk != null) {
+                    VideoMiddleModel.this.jHk.o(((VideoMiddleDataResponseMessage) httpResponsedMessage).mDataList, ((VideoMiddleDataResponseMessage) httpResponsedMessage).mHasMore);
                 }
             }
         };
         this.mPageContext = tbPageContext;
-        this.jLQ = aVar;
+        this.jHk = aVar;
         registerTask();
-        this.jnl.setTag(getUniqueId());
-        this.jnl.setSelfListener(true);
-        registerListener(this.jnl);
+        this.jiE.setTag(getUniqueId());
+        this.jiE.setSelfListener(true);
+        registerListener(this.jiE);
     }
 
     public void setId(String str) {
         this.mId = str;
     }
 
-    public void KN(String str) {
+    public void JD(String str) {
         this.st_type = str;
     }
 
@@ -109,7 +109,7 @@ public class VideoMiddleModel extends BdBaseModel {
     }
 
     public void a(VideoSerializeVideoThreadInfo videoSerializeVideoThreadInfo) {
-        this.jLP = videoSerializeVideoThreadInfo;
+        this.jHj = videoSerializeVideoThreadInfo;
     }
 
     private void registerTask() {
@@ -140,7 +140,7 @@ public class VideoMiddleModel extends BdBaseModel {
                     for (int i2 = 0; i2 < jSONArray.length(); i2++) {
                         com.baidu.tieba.frs.aggregation.g gVar = new com.baidu.tieba.frs.aggregation.g();
                         gVar.parseJson(jSONArray.optString(i2));
-                        if (gVar.jmS != null) {
+                        if (gVar.jil != null) {
                             this.mDataList.add(gVar);
                         }
                     }
@@ -162,27 +162,27 @@ public class VideoMiddleModel extends BdBaseModel {
         int i = this.mPn + 1;
         this.mPn = i;
         httpMessage.addParam(com.baidu.mobstat.Config.PACKAGE_NAME, i);
-        httpMessage.addParam("user_view_data", cOP());
+        httpMessage.addParam("user_view_data", cKX());
         if ("frs".equals(this.mFrom)) {
-            this.jLR = "client_frs";
+            this.jHl = "client_frs";
         } else if ("index".equals(this.mFrom)) {
-            this.jLR = "client_index";
+            this.jHl = "client_index";
         } else {
-            this.jLR = "client_other";
+            this.jHl = "client_other";
         }
-        httpMessage.addParam("call_from", this.jLR);
-        this.jLR = "client_index";
-        if (this.jLP != null && this.jLP.mBaijiahaoData != null) {
-            httpMessage.addParam("ori_ugc_nid", this.jLP.mBaijiahaoData.oriUgcNid);
-            httpMessage.addParam("ori_ugc_type", this.jLP.mBaijiahaoData.oriUgcType);
-            httpMessage.addParam("ori_ugc_vid", this.jLP.mBaijiahaoData.oriUgcVid);
-            httpMessage.addParam("ori_ugc_tid", this.jLP.mBaijiahaoData.oriUgcTid);
+        httpMessage.addParam("call_from", this.jHl);
+        this.jHl = "client_index";
+        if (this.jHj != null && this.jHj.mBaijiahaoData != null) {
+            httpMessage.addParam("ori_ugc_nid", this.jHj.mBaijiahaoData.oriUgcNid);
+            httpMessage.addParam("ori_ugc_type", this.jHj.mBaijiahaoData.oriUgcType);
+            httpMessage.addParam("ori_ugc_vid", this.jHj.mBaijiahaoData.oriUgcVid);
+            httpMessage.addParam("ori_ugc_tid", this.jHj.mBaijiahaoData.oriUgcTid);
         }
         sendMessage(httpMessage);
         return true;
     }
 
-    private String cOP() {
+    private String cKX() {
         JSONArray jSONArray = new JSONArray();
         LinkedList<com.baidu.tbadk.d.a> videoRecordList = TbSingleton.getInstance().getVideoRecordList();
         if (videoRecordList != null) {

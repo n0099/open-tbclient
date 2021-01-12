@@ -6,43 +6,43 @@ import android.graphics.drawable.Drawable;
 import android.widget.ImageView;
 import kotlin.jvm.internal.p;
 @kotlin.e
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class b extends Drawable {
-    private boolean pSE;
-    private int pSF;
-    private final com.opensource.svgaplayer.a.b pSG;
-    private final f pSH;
-    private final c pSI;
+    private boolean pOe;
+    private int pOf;
+    private final com.opensource.svgaplayer.a.b pOg;
+    private final f pOh;
+    private final c pOi;
     private ImageView.ScaleType scaleType;
 
     public b(f fVar, c cVar) {
         p.o(fVar, "videoItem");
         p.o(cVar, "dynamicItem");
-        this.pSH = fVar;
-        this.pSI = cVar;
-        this.pSE = true;
+        this.pOh = fVar;
+        this.pOi = cVar;
+        this.pOe = true;
         this.scaleType = ImageView.ScaleType.MATRIX;
-        this.pSG = new com.opensource.svgaplayer.a.b(this.pSH, this.pSI);
+        this.pOg = new com.opensource.svgaplayer.a.b(this.pOh, this.pOi);
     }
 
-    public final f eDX() {
-        return this.pSH;
+    public final f eAf() {
+        return this.pOh;
     }
 
-    public final void Br(boolean z) {
-        if (this.pSE != z) {
-            this.pSE = z;
+    public final void Bn(boolean z) {
+        if (this.pOe != z) {
+            this.pOe = z;
             invalidateSelf();
         }
     }
 
-    public final int eDW() {
-        return this.pSF;
+    public final int eAe() {
+        return this.pOf;
     }
 
-    public final void RO(int i) {
-        if (this.pSF != i) {
-            this.pSF = i;
+    public final void Qh(int i) {
+        if (this.pOf != i) {
+            this.pOf = i;
             invalidateSelf();
         }
     }
@@ -54,8 +54,8 @@ public final class b extends Drawable {
 
     @Override // android.graphics.drawable.Drawable
     public void draw(Canvas canvas) {
-        if (!this.pSE && canvas != null) {
-            this.pSG.a(canvas, this.pSF, this.scaleType);
+        if (!this.pOe && canvas != null) {
+            this.pOg.a(canvas, this.pOf, this.scaleType);
         }
     }
 

@@ -10,6 +10,7 @@ import android.location.Location;
 import android.location.LocationManager;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.net.http.Headers;
 import android.net.wifi.ScanResult;
 import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
@@ -45,7 +46,7 @@ import java.util.Enumeration;
 import java.util.List;
 import java.util.Locale;
 import org.json.JSONArray;
-/* loaded from: classes3.dex */
+/* loaded from: classes14.dex */
 public class p implements IXAdSystemUtils {
     private String d;
     private String e;
@@ -58,10 +59,10 @@ public class p implements IXAdSystemUtils {
     private String m;
 
     /* renamed from: a  reason: collision with root package name */
-    public JSONArray f3545a = new JSONArray();
+    public JSONArray f3507a = new JSONArray();
 
     /* renamed from: b  reason: collision with root package name */
-    private String f3546b = "";
+    private String f3508b = "";
     private String c = "";
     private int h = -1;
 
@@ -73,7 +74,7 @@ public class p implements IXAdSystemUtils {
 
     @Override // com.baidu.mobads.interfaces.utils.IXAdSystemUtils
     public String getSnFrom(Context context) {
-        return this.f3546b + this.c;
+        return this.f3508b + this.c;
     }
 
     private boolean a(String str) {
@@ -99,19 +100,19 @@ public class p implements IXAdSystemUtils {
             if (a(deviceId)) {
                 String string = Settings.System.getString(context.getContentResolver(), "bd_setting_i");
                 if (a(string)) {
-                    this.f3546b = "2";
+                    this.f3508b = "2";
                     return "";
                 }
-                this.f3546b = "1";
+                this.f3508b = "1";
                 return string;
             }
-            this.f3546b = "0";
+            this.f3508b = "0";
             return deviceId;
         }
-        this.f3546b = "1";
+        this.f3508b = "1";
         String string2 = Settings.System.getString(context.getContentResolver(), "bd_setting_i");
         if (a(string2)) {
-            this.f3546b = "2";
+            this.f3508b = "2";
             string2 = "";
         }
         try {
@@ -165,7 +166,7 @@ public class p implements IXAdSystemUtils {
         }
         if (XAdSDKFoundationFacade.getInstance().getCommonUtils().hasPermission(context, "android.permission.ACCESS_FINE_LOCATION")) {
             try {
-                lastKnownLocation = ((LocationManager) context.getSystemService("location")).getLastKnownLocation("gps");
+                lastKnownLocation = ((LocationManager) context.getSystemService(Headers.LOCATION)).getLastKnownLocation("gps");
             } catch (Exception e2) {
                 dArr = null;
             }
@@ -814,7 +815,7 @@ public class p implements IXAdSystemUtils {
                 if (packageManager.getLaunchIntentForPackage(runningAppProcessInfo.processName) != null && packageManager.getApplicationInfo(runningAppProcessInfo.processName, 128) != null) {
                     for (String str : supportedBrowsers) {
                         if (runningAppProcessInfo.processName.equals(str)) {
-                            this.f3545a.put(runningAppProcessInfo.processName);
+                            this.f3507a.put(runningAppProcessInfo.processName);
                         }
                     }
                 }
@@ -822,8 +823,8 @@ public class p implements IXAdSystemUtils {
         } catch (Exception e) {
             adLogger.d(e);
         }
-        adLogger.d("bgBrowsers:" + this.f3545a);
-        return this.f3545a;
+        adLogger.d("bgBrowsers:" + this.f3507a);
+        return this.f3507a;
     }
 
     @Override // com.baidu.mobads.interfaces.utils.IXAdSystemUtils

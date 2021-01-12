@@ -1,7 +1,7 @@
 package com.kwai.player.vr;
 
 import com.a.a.a.a;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class MDQuaternion {
     private final float[] q;
 

@@ -31,7 +31,7 @@ public class b {
     private g D;
 
     /* renamed from: b  reason: collision with root package name */
-    private Looper f1484b;
+    private Looper f1490b;
     private a c;
     private DefaultParams d;
     private com.baidu.ar.mdl.b e;
@@ -72,8 +72,8 @@ public class b {
                         b.this.a(cVar.mClassName, cVar.H, cVar.I, cVar.G, cVar.J, cVar.K);
                         break;
                     case 1002:
-                        C0073b c0073b = (C0073b) message.obj;
-                        b.this.a(c0073b.mClassName, c0073b.G);
+                        C0074b c0074b = (C0074b) message.obj;
+                        b.this.a(c0074b.mClassName, c0074b.G);
                         break;
                     case 1003:
                         d dVar = (d) message.obj;
@@ -90,11 +90,11 @@ public class b {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.baidu.ar.b$b  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public class C0073b {
+    public class C0074b {
         HashMap<String, Object> G;
         String mClassName;
 
-        C0073b(String str, HashMap<String, Object> hashMap) {
+        C0074b(String str, HashMap<String, Object> hashMap) {
             this.mClassName = str;
             this.G = hashMap;
         }
@@ -154,7 +154,7 @@ public class b {
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(Context context, Looper looper, DefaultParams defaultParams, com.baidu.ar.a.b bVar, com.baidu.ar.filter.a aVar) {
         this.mContext = context;
-        this.f1484b = looper;
+        this.f1490b = looper;
         this.c = new a(looper);
         this.d = defaultParams;
         setMdlModelPath(this.d.getMdlAlgoModelPath());
@@ -371,7 +371,7 @@ public class b {
             return null;
         }
         this.l.put(str, cVar);
-        cVar.a(this.mContext, this.f1484b);
+        cVar.a(this.mContext, this.f1490b);
         cVar.a(this.h, this.g, this.B);
         cVar.a(this.f);
         cVar.a(this.i);
@@ -569,7 +569,7 @@ public class b {
         this.g = cVar;
         this.g.d(this.u);
         l();
-        this.h = new com.baidu.ar.d.g(cVar, this.f1484b);
+        this.h = new com.baidu.ar.d.g(cVar, this.f1490b);
         this.i = com.baidu.ar.a.a();
         try {
             if (this.i != null) {
@@ -648,7 +648,7 @@ public class b {
             com.baidu.ar.h.b.b("AbilityManager", "adjustAbility abilityType = " + str + " not start!!!");
             return false;
         } else if (this.c != null) {
-            this.c.sendMessage(this.c.obtainMessage(1002, new C0073b(this.j.get(str), hashMap)));
+            this.c.sendMessage(this.c.obtainMessage(1002, new C0074b(this.j.get(str), hashMap)));
             return true;
         } else {
             return false;
@@ -852,7 +852,7 @@ public class b {
             this.v = null;
         }
         this.mContext = null;
-        this.f1484b = null;
+        this.f1490b = null;
         this.d = null;
         this.e = null;
         this.B = null;

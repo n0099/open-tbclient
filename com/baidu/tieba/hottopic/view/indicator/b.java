@@ -13,7 +13,7 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.hottopic.data.p;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class b extends BaseAdapter {
     private Context mContext;
     private int padding;
@@ -45,7 +45,7 @@ public class b extends BaseAdapter {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: DQ */
+    /* renamed from: Ck */
     public p getItem(int i) {
         if (i < 0 || i >= this.tagList.size()) {
             return null;

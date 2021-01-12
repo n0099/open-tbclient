@@ -12,9 +12,9 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.ao;
 import com.baidu.tbadk.core.util.at;
 import com.baidu.tieba.R;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class g {
-    public static SpannableString l(long j, boolean z) {
+    public static SpannableString m(long j, boolean z) {
         String formatOverBaiwanNum = at.formatOverBaiwanNum(j);
         String str = z ? "=[icon]" + formatOverBaiwanNum : "[icon]" + formatOverBaiwanNum;
         SpannableString spannableString = new SpannableString(str);
@@ -32,7 +32,7 @@ public class g {
         return spannableString;
     }
 
-    public static SpannableString aJ(String str, String str2, String str3) {
+    public static SpannableString aI(String str, String str2, String str3) {
         if (StringUtils.isNull(str)) {
             return new SpannableString("");
         }

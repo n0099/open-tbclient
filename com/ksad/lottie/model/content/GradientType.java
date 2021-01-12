@@ -1,5 +1,5 @@
 package com.ksad.lottie.model.content;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public enum GradientType {
     Linear,
     Radial

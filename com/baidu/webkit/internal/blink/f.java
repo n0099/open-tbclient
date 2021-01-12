@@ -2,20 +2,20 @@ package com.baidu.webkit.internal.blink;
 
 import com.baidu.webkit.internal.blink.d;
 import com.baidu.webkit.sdk.WebViewFactory;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 final class f implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ d.b f5960a;
+    final /* synthetic */ d.b f5660a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(d.b bVar) {
-        this.f5960a = bVar;
+        this.f5660a = bVar;
     }
 
     @Override // java.lang.Runnable
     public final void run() {
         WebViewFactory.getProvider();
-        this.f5960a.a();
+        this.f5660a.a();
     }
 }

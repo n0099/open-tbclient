@@ -12,30 +12,30 @@ import androidx.annotation.Nullable;
 import com.win.opensdk.az;
 import com.win.opensdk.v;
 import com.win.opensdk.w;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class PProvider extends ContentProvider {
-    private Context qdj;
+    private Context pYI;
 
     @Override // android.content.ContentProvider
     public boolean onCreate() {
         long currentTimeMillis = System.currentTimeMillis();
-        this.qdj = getContext();
-        if (this.qdj != null) {
-            eKp();
+        this.pYI = getContext();
+        if (this.pYI != null) {
+            eGz();
         } else {
             new Handler(Looper.getMainLooper()).post(new Runnable() { // from class: com.win.opensdk.top.PProvider.1
                 @Override // java.lang.Runnable
                 public final void run() {
-                    PProvider.this.qdj = PProvider.this.getContext();
-                    if (PProvider.this.qdj != null) {
-                        PProvider.this.eKp();
+                    PProvider.this.pYI = PProvider.this.getContext();
+                    if (PProvider.this.pYI != null) {
+                        PProvider.this.eGz();
                     }
                 }
             });
         }
         try {
-            if (az.iU(getContext())) {
-                w.iM(this.qdj).js(System.currentTimeMillis() - currentTimeMillis).eKp();
+            if (az.iS(getContext())) {
+                w.iK(this.pYI).js(System.currentTimeMillis() - currentTimeMillis).eGz();
                 return true;
             }
             return true;
@@ -46,9 +46,9 @@ public class PProvider extends ContentProvider {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void eKp() {
-        if (az.d(this.qdj) == 0) {
-            v.iK(this.qdj);
+    public void eGz() {
+        if (az.d(this.pYI) == 0) {
+            v.iI(this.pYI);
         }
     }
 

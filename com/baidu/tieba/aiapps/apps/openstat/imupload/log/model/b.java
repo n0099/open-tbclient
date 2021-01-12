@@ -1,6 +1,6 @@
 package com.baidu.tieba.aiapps.apps.openstat.imupload.log.model;
 
 import com.google.protobuf.MessageLiteOrBuilder;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public interface b extends MessageLiteOrBuilder {
 }

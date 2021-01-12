@@ -19,17 +19,17 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class aa {
-    private static Point fPJ;
-    private b fPL;
-    private long fPM;
-    private a fPN;
-    private a fPO;
+    private static Point fLc;
+    private b fLe;
+    private long fLf;
+    private a fLg;
+    private a fLh;
     private Context mContext;
     private final Handler mUiHandler = new Handler(Looper.getMainLooper());
-    private static final String[] fPG = {"_data", "datetaken"};
-    private static final String[] fPH = {"_data", "datetaken", "width", "height"};
-    private static final String[] fPI = {StatisticConstants.SCREENSHOT, "screen_shot", "screen-shot", "screen shot", "screencapture", "screen_capture", "screen-capture", "screen capture", "screencap", "screen_cap", "screen-cap", "screen cap"};
-    private static final List<String> fPK = new ArrayList();
+    private static final String[] fKZ = {"_data", "datetaken"};
+    private static final String[] fLa = {"_data", "datetaken", "width", "height"};
+    private static final String[] fLb = {StatisticConstants.SCREENSHOT, "screen_shot", "screen-shot", "screen shot", "screencapture", "screen_capture", "screen-capture", "screen capture", "screencap", "screen_cap", "screen-cap", "screen cap"};
+    private static final List<String> fLd = new ArrayList();
 
     /* loaded from: classes.dex */
     public interface b {
@@ -38,10 +38,10 @@ public class aa {
 
     public aa(Context context) {
         this.mContext = context;
-        if (fPJ == null) {
-            fPJ = bJi();
-            if (fPJ != null) {
-                BdLog.d("ScreenShotListenManager: Screen Real Size: " + fPJ.x + " * " + fPJ.y);
+        if (fLc == null) {
+            fLc = bFq();
+            if (fLc != null) {
+                BdLog.d("ScreenShotListenManager: Screen Real Size: " + fLc.x + " * " + fLc.y);
             } else {
                 BdLog.d("ScreenShotListenManager: Get screen real size failed.");
             }
@@ -49,62 +49,62 @@ public class aa {
     }
 
     public void startListen() {
-        if (bJj()) {
-            this.fPM = System.currentTimeMillis();
-            this.fPN = new a(MediaStore.Images.Media.INTERNAL_CONTENT_URI, this.mUiHandler);
-            this.fPO = new a(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, this.mUiHandler);
+        if (bFr()) {
+            this.fLf = System.currentTimeMillis();
+            this.fLg = new a(MediaStore.Images.Media.INTERNAL_CONTENT_URI, this.mUiHandler);
+            this.fLh = new a(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, this.mUiHandler);
             if (Build.VERSION.SDK_INT >= 29) {
-                this.mContext.getContentResolver().registerContentObserver(MediaStore.Images.Media.INTERNAL_CONTENT_URI, true, this.fPN);
-                this.mContext.getContentResolver().registerContentObserver(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, true, this.fPO);
+                this.mContext.getContentResolver().registerContentObserver(MediaStore.Images.Media.INTERNAL_CONTENT_URI, true, this.fLg);
+                this.mContext.getContentResolver().registerContentObserver(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, true, this.fLh);
                 return;
             }
-            this.mContext.getContentResolver().registerContentObserver(MediaStore.Images.Media.INTERNAL_CONTENT_URI, false, this.fPN);
-            this.mContext.getContentResolver().registerContentObserver(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, false, this.fPO);
+            this.mContext.getContentResolver().registerContentObserver(MediaStore.Images.Media.INTERNAL_CONTENT_URI, false, this.fLg);
+            this.mContext.getContentResolver().registerContentObserver(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, false, this.fLh);
         }
     }
 
     public void stopListen() {
-        if (bJj()) {
-            if (this.fPN != null) {
+        if (bFr()) {
+            if (this.fLg != null) {
                 try {
-                    this.mContext.getContentResolver().unregisterContentObserver(this.fPN);
+                    this.mContext.getContentResolver().unregisterContentObserver(this.fLg);
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
-                this.fPN = null;
+                this.fLg = null;
             }
-            if (this.fPO != null) {
+            if (this.fLh != null) {
                 try {
-                    this.mContext.getContentResolver().unregisterContentObserver(this.fPO);
+                    this.mContext.getContentResolver().unregisterContentObserver(this.fLh);
                 } catch (Exception e2) {
                     e2.printStackTrace();
                 }
-                this.fPO = null;
+                this.fLh = null;
             }
-            this.fPM = 0L;
-            this.fPL = null;
+            this.fLf = 0L;
+            this.fLe = null;
         }
     }
 
-    private boolean EK(String str) {
-        if (fPK.contains(str)) {
+    private boolean Dz(String str) {
+        if (fLd.contains(str)) {
             BdLog.d("ScreenShotListenManager: ScreenShot: imgPath has done; imagePath = " + str);
             return true;
         }
-        if (fPK.size() >= 20) {
+        if (fLd.size() >= 20) {
             for (int i = 0; i < 5; i++) {
-                fPK.remove(0);
+                fLd.remove(0);
             }
         }
-        fPK.add(str);
+        fLd.add(str);
         return false;
     }
 
-    private Point bJi() {
+    private Point bFq() {
         Exception e;
         Point point;
         Point point2 = null;
-        if (!bJj() || this.mContext == null) {
+        if (!bFr() || this.mContext == null) {
             return null;
         }
         try {
@@ -135,7 +135,7 @@ public class aa {
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [259=6, 260=5] */
     /* JADX INFO: Access modifiers changed from: private */
-    public void x(Uri uri) {
+    public void A(Uri uri) {
         Cursor cursor;
         int i;
         int i2;
@@ -144,7 +144,7 @@ public class aa {
         Cursor cursor2 = null;
         try {
             try {
-                Cursor query = this.mContext.getContentResolver().query(uri, Build.VERSION.SDK_INT < 16 ? fPG : fPH, null, null, "date_added desc limit 1");
+                Cursor query = this.mContext.getContentResolver().query(uri, Build.VERSION.SDK_INT < 16 ? fKZ : fLa, null, null, "date_added desc limit 1");
                 if (query == null) {
                     if (query == null || query.isClosed()) {
                         return;
@@ -173,9 +173,9 @@ public class aa {
                     String string = query.getString(columnIndex);
                     long j = query.getLong(columnIndex2);
                     if (i2 < 0 || i < 0) {
-                        Point EL = EL(string);
-                        i3 = EL.x;
-                        i4 = EL.y;
+                        Point DA = DA(string);
+                        i3 = DA.x;
+                        i4 = DA.y;
                     } else {
                         i3 = query.getInt(i2);
                         i4 = query.getInt(i);
@@ -216,7 +216,7 @@ public class aa {
         }
     }
 
-    private Point EL(String str) {
+    private Point DA(String str) {
         BitmapFactory.Options options = new BitmapFactory.Options();
         options.inJustDecodeBounds = true;
         BitmapFactory.decodeFile(str, options);
@@ -226,8 +226,8 @@ public class aa {
     private void a(String str, long j, int i, int i2) {
         if (b(str, j, i, i2)) {
             BdLog.d("ScreenShotListenManager: ScreenShot: path = " + str + "; size = " + i + " * " + i2 + "; date = " + j);
-            if (this.fPL != null && !EK(str)) {
-                this.fPL.onShot(str);
+            if (this.fLe != null && !Dz(str)) {
+                this.fLe.onShot(str);
                 return;
             }
             return;
@@ -236,12 +236,12 @@ public class aa {
     }
 
     private boolean b(String str, long j, int i, int i2) {
-        if (j < this.fPM || System.currentTimeMillis() - j > 10000) {
+        if (j < this.fLf || System.currentTimeMillis() - j > 10000) {
             return false;
         }
-        if ((fPJ == null || ((i <= fPJ.x && i2 <= fPJ.y) || (i2 <= fPJ.x && i <= fPJ.y))) && !TextUtils.isEmpty(str)) {
+        if ((fLc == null || ((i <= fLc.x && i2 <= fLc.y) || (i2 <= fLc.x && i <= fLc.y))) && !TextUtils.isEmpty(str)) {
             String lowerCase = str.toLowerCase();
-            for (String str2 : fPI) {
+            for (String str2 : fLb) {
                 if (lowerCase.contains(str2)) {
                     return true;
                 }
@@ -251,12 +251,12 @@ public class aa {
         return false;
     }
 
-    private static boolean bJj() {
+    private static boolean bFr() {
         return Looper.myLooper() == Looper.getMainLooper();
     }
 
     public void a(b bVar) {
-        this.fPL = bVar;
+        this.fLe = bVar;
     }
 
     /* loaded from: classes.dex */
@@ -271,7 +271,7 @@ public class aa {
         @Override // android.database.ContentObserver
         public void onChange(boolean z) {
             super.onChange(z);
-            aa.this.x(this.mContentUri);
+            aa.this.A(this.mContentUri);
         }
     }
 }

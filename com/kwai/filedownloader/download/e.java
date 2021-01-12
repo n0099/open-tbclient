@@ -5,14 +5,14 @@ import com.kwai.filedownloader.exception.FileDownloadGiveUpRetryException;
 import com.kwai.filedownloader.exception.FileDownloadNetworkPolicyException;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    long f11211a;
+    long f10911a;
 
     /* renamed from: b  reason: collision with root package name */
-    private final f f11212b;
+    private final f f10912b;
     private final int c;
     private final int d;
     private final c e;
@@ -28,14 +28,14 @@ public class e {
     private volatile long o;
     private volatile long p;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        c f11213a;
+        c f10913a;
 
         /* renamed from: b  reason: collision with root package name */
-        com.kwai.filedownloader.a.b f11214b;
+        com.kwai.filedownloader.a.b f10914b;
         com.kwai.filedownloader.download.a c;
         f d;
         String e;
@@ -49,7 +49,7 @@ public class e {
         }
 
         public a a(com.kwai.filedownloader.a.b bVar) {
-            this.f11214b = bVar;
+            this.f10914b = bVar;
             return this;
         }
 
@@ -59,7 +59,7 @@ public class e {
         }
 
         public a a(c cVar) {
-            this.f11213a = cVar;
+            this.f10913a = cVar;
             return this;
         }
 
@@ -79,10 +79,10 @@ public class e {
         }
 
         public e a() {
-            if (this.f == null || this.f11214b == null || this.c == null || this.d == null || this.e == null || this.h == null || this.g == null) {
+            if (this.f == null || this.f10914b == null || this.c == null || this.d == null || this.e == null || this.h == null || this.g == null) {
                 throw new IllegalArgumentException();
             }
-            return new e(this.f11214b, this.c, this.f11213a, this.h.intValue(), this.g.intValue(), this.f.booleanValue(), this.d, this.e);
+            return new e(this.f10914b, this.c, this.f10913a, this.h.intValue(), this.g.intValue(), this.f.booleanValue(), this.d, this.e);
         }
 
         public a b(int i) {
@@ -94,7 +94,7 @@ public class e {
     private e(com.kwai.filedownloader.a.b bVar, com.kwai.filedownloader.download.a aVar, c cVar, int i, int i2, boolean z, f fVar, String str) {
         this.o = 0L;
         this.p = 0L;
-        this.f11212b = fVar;
+        this.f10912b = fVar;
         this.k = str;
         this.f = bVar;
         this.g = z;
@@ -102,17 +102,17 @@ public class e {
         this.d = i2;
         this.c = i;
         this.n = b.a().c();
-        this.h = aVar.f11198a;
+        this.h = aVar.f10898a;
         this.i = aVar.c;
-        this.f11211a = aVar.f11199b;
+        this.f10911a = aVar.f10899b;
         this.j = aVar.d;
     }
 
     private void c() {
         long elapsedRealtime = SystemClock.elapsedRealtime();
-        if (com.kwai.filedownloader.f.f.a(this.f11211a - this.o, elapsedRealtime - this.p)) {
+        if (com.kwai.filedownloader.f.f.a(this.f10911a - this.o, elapsedRealtime - this.p)) {
             d();
-            this.o = this.f11211a;
+            this.o = this.f10911a;
             this.p = elapsedRealtime;
         }
     }
@@ -124,19 +124,19 @@ public class e {
             this.l.a();
             z = true;
         } catch (IOException e) {
-            if (com.kwai.filedownloader.f.d.f11228a) {
+            if (com.kwai.filedownloader.f.d.f10928a) {
                 com.kwai.filedownloader.f.d.c(this, "Because of the system cannot guarantee that all the buffers have been synchronized with physical media, or write to filefailed, we just not flushAndSync process to database too %s", e);
             }
             z = false;
         }
         if (z) {
             if (this.e != null) {
-                this.n.a(this.c, this.d, this.f11211a);
+                this.n.a(this.c, this.d, this.f10911a);
             } else {
-                this.f11212b.c();
+                this.f10912b.c();
             }
-            if (com.kwai.filedownloader.f.d.f11228a) {
-                com.kwai.filedownloader.f.d.c(this, "require flushAndSync id[%d] index[%d] offset[%d], consume[%d]", Integer.valueOf(this.c), Integer.valueOf(this.d), Long.valueOf(this.f11211a), Long.valueOf(SystemClock.uptimeMillis() - uptimeMillis));
+            if (com.kwai.filedownloader.f.d.f10928a) {
+                com.kwai.filedownloader.f.d.c(this, "require flushAndSync id[%d] index[%d] offset[%d], consume[%d]", Integer.valueOf(this.c), Integer.valueOf(this.d), Long.valueOf(this.f10911a), Long.valueOf(SystemClock.uptimeMillis() - uptimeMillis));
             }
         }
     }
@@ -156,9 +156,9 @@ public class e {
             throw new FileDownloadGiveUpRetryException(com.kwai.filedownloader.f.f.a("there isn't any content need to download on %d-%d with the content-length is 0", Integer.valueOf(this.c), Integer.valueOf(this.d)));
         }
         if (this.j > 0 && b2 != this.j) {
-            throw new FileDownloadGiveUpRetryException(com.kwai.filedownloader.f.f.a("require %s with contentLength(%d), but the backend response contentLength is %d on downloadId[%d]-connectionIndex[%d], please ask your backend dev to fix such problem.", this.i == 0 ? com.kwai.filedownloader.f.f.a("range[%d-)", Long.valueOf(this.f11211a)) : com.kwai.filedownloader.f.f.a("range[%d-%d)", Long.valueOf(this.f11211a), Long.valueOf(this.i)), Long.valueOf(this.j), Long.valueOf(b2), Integer.valueOf(this.c), Integer.valueOf(this.d)));
+            throw new FileDownloadGiveUpRetryException(com.kwai.filedownloader.f.f.a("require %s with contentLength(%d), but the backend response contentLength is %d on downloadId[%d]-connectionIndex[%d], please ask your backend dev to fix such problem.", this.i == 0 ? com.kwai.filedownloader.f.f.a("range[%d-)", Long.valueOf(this.f10911a)) : com.kwai.filedownloader.f.f.a("range[%d-%d)", Long.valueOf(this.f10911a), Long.valueOf(this.i)), Long.valueOf(this.j), Long.valueOf(b2), Integer.valueOf(this.c), Integer.valueOf(this.d)));
         }
-        long j = this.f11211a;
+        long j = this.f10911a;
         InputStream inputStream = null;
         com.kwai.filedownloader.e.a aVar = null;
         try {
@@ -169,10 +169,10 @@ public class e {
             com.kwai.filedownloader.e.a l = com.kwai.filedownloader.f.f.l(this.k);
             this.l = l;
             if (e) {
-                l.a(this.f11211a);
+                l.a(this.f10911a);
             }
-            if (com.kwai.filedownloader.f.d.f11228a) {
-                com.kwai.filedownloader.f.d.c(this, "start fetch(%d): range [%d, %d), seek to[%d]", Integer.valueOf(this.d), Long.valueOf(this.h), Long.valueOf(this.i), Long.valueOf(this.f11211a));
+            if (com.kwai.filedownloader.f.d.f10928a) {
+                com.kwai.filedownloader.f.d.c(this, "start fetch(%d): range [%d, %d), seek to[%d]", Integer.valueOf(this.d), Long.valueOf(this.h), Long.valueOf(this.i), Long.valueOf(this.f10911a));
             }
             InputStream a2 = this.f.a();
             byte[] bArr = new byte[4096];
@@ -231,16 +231,16 @@ public class e {
                             e6.printStackTrace();
                         }
                     }
-                    long j2 = this.f11211a - j;
+                    long j2 = this.f10911a - j;
                     if (b2 != -1 && b2 != j2) {
-                        throw new FileDownloadGiveUpRetryException(com.kwai.filedownloader.f.f.a("fetched length[%d] != content length[%d], range[%d, %d) offset[%d] fetch begin offset", Long.valueOf(j2), Long.valueOf(b2), Long.valueOf(this.h), Long.valueOf(this.i), Long.valueOf(this.f11211a), Long.valueOf(j)));
+                        throw new FileDownloadGiveUpRetryException(com.kwai.filedownloader.f.f.a("fetched length[%d] != content length[%d], range[%d, %d) offset[%d] fetch begin offset", Long.valueOf(j2), Long.valueOf(b2), Long.valueOf(this.h), Long.valueOf(this.i), Long.valueOf(this.f10911a), Long.valueOf(j)));
                     }
-                    this.f11212b.a(this.e, this.h, this.i);
+                    this.f10912b.a(this.e, this.h, this.i);
                     return;
                 }
                 l.a(bArr, 0, read);
-                this.f11211a += read;
-                this.f11212b.a(read);
+                this.f10911a += read;
+                this.f10912b.a(read);
                 c();
                 if (this.m) {
                     if (a2 != null) {

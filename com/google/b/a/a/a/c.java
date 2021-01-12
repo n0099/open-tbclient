@@ -1,132 +1,132 @@
 package com.google.b.a.a.a;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public double[] f8178a = new double[9];
+    public double[] f7878a = new double[9];
 
     public static void a(c cVar, c cVar2, c cVar3) {
-        cVar3.f8178a[0] = cVar.f8178a[0] + cVar2.f8178a[0];
-        cVar3.f8178a[1] = cVar.f8178a[1] + cVar2.f8178a[1];
-        cVar3.f8178a[2] = cVar.f8178a[2] + cVar2.f8178a[2];
-        cVar3.f8178a[3] = cVar.f8178a[3] + cVar2.f8178a[3];
-        cVar3.f8178a[4] = cVar.f8178a[4] + cVar2.f8178a[4];
-        cVar3.f8178a[5] = cVar.f8178a[5] + cVar2.f8178a[5];
-        cVar3.f8178a[6] = cVar.f8178a[6] + cVar2.f8178a[6];
-        cVar3.f8178a[7] = cVar.f8178a[7] + cVar2.f8178a[7];
-        cVar3.f8178a[8] = cVar.f8178a[8] + cVar2.f8178a[8];
+        cVar3.f7878a[0] = cVar.f7878a[0] + cVar2.f7878a[0];
+        cVar3.f7878a[1] = cVar.f7878a[1] + cVar2.f7878a[1];
+        cVar3.f7878a[2] = cVar.f7878a[2] + cVar2.f7878a[2];
+        cVar3.f7878a[3] = cVar.f7878a[3] + cVar2.f7878a[3];
+        cVar3.f7878a[4] = cVar.f7878a[4] + cVar2.f7878a[4];
+        cVar3.f7878a[5] = cVar.f7878a[5] + cVar2.f7878a[5];
+        cVar3.f7878a[6] = cVar.f7878a[6] + cVar2.f7878a[6];
+        cVar3.f7878a[7] = cVar.f7878a[7] + cVar2.f7878a[7];
+        cVar3.f7878a[8] = cVar.f7878a[8] + cVar2.f7878a[8];
     }
 
     public static void a(c cVar, g gVar, g gVar2) {
-        double d = (cVar.f8178a[0] * gVar.f8181a) + (cVar.f8178a[1] * gVar.f8182b) + (cVar.f8178a[2] * gVar.c);
-        double d2 = (cVar.f8178a[3] * gVar.f8181a) + (cVar.f8178a[4] * gVar.f8182b) + (cVar.f8178a[5] * gVar.c);
-        gVar2.f8181a = d;
-        gVar2.f8182b = d2;
-        gVar2.c = (cVar.f8178a[6] * gVar.f8181a) + (cVar.f8178a[7] * gVar.f8182b) + (cVar.f8178a[8] * gVar.c);
+        double d = (cVar.f7878a[0] * gVar.f7881a) + (cVar.f7878a[1] * gVar.f7882b) + (cVar.f7878a[2] * gVar.c);
+        double d2 = (cVar.f7878a[3] * gVar.f7881a) + (cVar.f7878a[4] * gVar.f7882b) + (cVar.f7878a[5] * gVar.c);
+        gVar2.f7881a = d;
+        gVar2.f7882b = d2;
+        gVar2.c = (cVar.f7878a[6] * gVar.f7881a) + (cVar.f7878a[7] * gVar.f7882b) + (cVar.f7878a[8] * gVar.c);
     }
 
     public static void b(c cVar, c cVar2, c cVar3) {
-        cVar3.a((cVar.f8178a[2] * cVar2.f8178a[6]) + (cVar.f8178a[0] * cVar2.f8178a[0]) + (cVar.f8178a[1] * cVar2.f8178a[3]), (cVar.f8178a[2] * cVar2.f8178a[7]) + (cVar.f8178a[0] * cVar2.f8178a[1]) + (cVar.f8178a[1] * cVar2.f8178a[4]), (cVar.f8178a[2] * cVar2.f8178a[8]) + (cVar.f8178a[0] * cVar2.f8178a[2]) + (cVar.f8178a[1] * cVar2.f8178a[5]), (cVar.f8178a[5] * cVar2.f8178a[6]) + (cVar.f8178a[3] * cVar2.f8178a[0]) + (cVar.f8178a[4] * cVar2.f8178a[3]), (cVar.f8178a[5] * cVar2.f8178a[7]) + (cVar.f8178a[3] * cVar2.f8178a[1]) + (cVar.f8178a[4] * cVar2.f8178a[4]), (cVar.f8178a[5] * cVar2.f8178a[8]) + (cVar.f8178a[3] * cVar2.f8178a[2]) + (cVar.f8178a[4] * cVar2.f8178a[5]), (cVar.f8178a[8] * cVar2.f8178a[6]) + (cVar.f8178a[6] * cVar2.f8178a[0]) + (cVar.f8178a[7] * cVar2.f8178a[3]), (cVar.f8178a[8] * cVar2.f8178a[7]) + (cVar.f8178a[6] * cVar2.f8178a[1]) + (cVar.f8178a[7] * cVar2.f8178a[4]), (cVar.f8178a[8] * cVar2.f8178a[8]) + (cVar.f8178a[6] * cVar2.f8178a[2]) + (cVar.f8178a[7] * cVar2.f8178a[5]));
+        cVar3.a((cVar.f7878a[2] * cVar2.f7878a[6]) + (cVar.f7878a[0] * cVar2.f7878a[0]) + (cVar.f7878a[1] * cVar2.f7878a[3]), (cVar.f7878a[2] * cVar2.f7878a[7]) + (cVar.f7878a[0] * cVar2.f7878a[1]) + (cVar.f7878a[1] * cVar2.f7878a[4]), (cVar.f7878a[2] * cVar2.f7878a[8]) + (cVar.f7878a[0] * cVar2.f7878a[2]) + (cVar.f7878a[1] * cVar2.f7878a[5]), (cVar.f7878a[5] * cVar2.f7878a[6]) + (cVar.f7878a[3] * cVar2.f7878a[0]) + (cVar.f7878a[4] * cVar2.f7878a[3]), (cVar.f7878a[5] * cVar2.f7878a[7]) + (cVar.f7878a[3] * cVar2.f7878a[1]) + (cVar.f7878a[4] * cVar2.f7878a[4]), (cVar.f7878a[5] * cVar2.f7878a[8]) + (cVar.f7878a[3] * cVar2.f7878a[2]) + (cVar.f7878a[4] * cVar2.f7878a[5]), (cVar.f7878a[8] * cVar2.f7878a[6]) + (cVar.f7878a[6] * cVar2.f7878a[0]) + (cVar.f7878a[7] * cVar2.f7878a[3]), (cVar.f7878a[8] * cVar2.f7878a[7]) + (cVar.f7878a[6] * cVar2.f7878a[1]) + (cVar.f7878a[7] * cVar2.f7878a[4]), (cVar.f7878a[8] * cVar2.f7878a[8]) + (cVar.f7878a[6] * cVar2.f7878a[2]) + (cVar.f7878a[7] * cVar2.f7878a[5]));
     }
 
     public double a(int i, int i2) {
-        return this.f8178a[(i * 3) + i2];
+        return this.f7878a[(i * 3) + i2];
     }
 
     public void a() {
-        this.f8178a[0] = 0.0d;
-        this.f8178a[1] = 0.0d;
-        this.f8178a[2] = 0.0d;
-        this.f8178a[3] = 0.0d;
-        this.f8178a[4] = 0.0d;
-        this.f8178a[5] = 0.0d;
-        this.f8178a[6] = 0.0d;
-        this.f8178a[7] = 0.0d;
-        this.f8178a[8] = 0.0d;
+        this.f7878a[0] = 0.0d;
+        this.f7878a[1] = 0.0d;
+        this.f7878a[2] = 0.0d;
+        this.f7878a[3] = 0.0d;
+        this.f7878a[4] = 0.0d;
+        this.f7878a[5] = 0.0d;
+        this.f7878a[6] = 0.0d;
+        this.f7878a[7] = 0.0d;
+        this.f7878a[8] = 0.0d;
     }
 
     public void a(double d) {
-        this.f8178a[0] = d;
-        this.f8178a[4] = d;
-        this.f8178a[8] = d;
+        this.f7878a[0] = d;
+        this.f7878a[4] = d;
+        this.f7878a[8] = d;
     }
 
     public void a(double d, double d2, double d3, double d4, double d5, double d6, double d7, double d8, double d9) {
-        this.f8178a[0] = d;
-        this.f8178a[1] = d2;
-        this.f8178a[2] = d3;
-        this.f8178a[3] = d4;
-        this.f8178a[4] = d5;
-        this.f8178a[5] = d6;
-        this.f8178a[6] = d7;
-        this.f8178a[7] = d8;
-        this.f8178a[8] = d9;
+        this.f7878a[0] = d;
+        this.f7878a[1] = d2;
+        this.f7878a[2] = d3;
+        this.f7878a[3] = d4;
+        this.f7878a[4] = d5;
+        this.f7878a[5] = d6;
+        this.f7878a[6] = d7;
+        this.f7878a[7] = d8;
+        this.f7878a[8] = d9;
     }
 
     public void a(int i, int i2, double d) {
-        this.f8178a[(i * 3) + i2] = d;
+        this.f7878a[(i * 3) + i2] = d;
     }
 
     public void a(int i, g gVar) {
-        this.f8178a[i] = gVar.f8181a;
-        this.f8178a[i + 3] = gVar.f8182b;
-        this.f8178a[i + 6] = gVar.c;
+        this.f7878a[i] = gVar.f7881a;
+        this.f7878a[i + 3] = gVar.f7882b;
+        this.f7878a[i + 6] = gVar.c;
     }
 
     public void a(c cVar) {
-        this.f8178a[0] = cVar.f8178a[0];
-        this.f8178a[1] = cVar.f8178a[1];
-        this.f8178a[2] = cVar.f8178a[2];
-        this.f8178a[3] = cVar.f8178a[3];
-        this.f8178a[4] = cVar.f8178a[4];
-        this.f8178a[5] = cVar.f8178a[5];
-        this.f8178a[6] = cVar.f8178a[6];
-        this.f8178a[7] = cVar.f8178a[7];
-        this.f8178a[8] = cVar.f8178a[8];
+        this.f7878a[0] = cVar.f7878a[0];
+        this.f7878a[1] = cVar.f7878a[1];
+        this.f7878a[2] = cVar.f7878a[2];
+        this.f7878a[3] = cVar.f7878a[3];
+        this.f7878a[4] = cVar.f7878a[4];
+        this.f7878a[5] = cVar.f7878a[5];
+        this.f7878a[6] = cVar.f7878a[6];
+        this.f7878a[7] = cVar.f7878a[7];
+        this.f7878a[8] = cVar.f7878a[8];
     }
 
     public void b() {
-        this.f8178a[0] = 1.0d;
-        this.f8178a[1] = 0.0d;
-        this.f8178a[2] = 0.0d;
-        this.f8178a[3] = 0.0d;
-        this.f8178a[4] = 1.0d;
-        this.f8178a[5] = 0.0d;
-        this.f8178a[6] = 0.0d;
-        this.f8178a[7] = 0.0d;
-        this.f8178a[8] = 1.0d;
+        this.f7878a[0] = 1.0d;
+        this.f7878a[1] = 0.0d;
+        this.f7878a[2] = 0.0d;
+        this.f7878a[3] = 0.0d;
+        this.f7878a[4] = 1.0d;
+        this.f7878a[5] = 0.0d;
+        this.f7878a[6] = 0.0d;
+        this.f7878a[7] = 0.0d;
+        this.f7878a[8] = 1.0d;
     }
 
     public void b(double d) {
         for (int i = 0; i < 9; i++) {
-            double[] dArr = this.f8178a;
+            double[] dArr = this.f7878a;
             dArr[i] = dArr[i] * d;
         }
     }
 
     public void b(c cVar) {
         for (int i = 0; i < 9; i++) {
-            double[] dArr = this.f8178a;
-            dArr[i] = dArr[i] + cVar.f8178a[i];
+            double[] dArr = this.f7878a;
+            dArr[i] = dArr[i] + cVar.f7878a[i];
         }
     }
 
     public void c() {
-        double d = this.f8178a[1];
-        this.f8178a[1] = this.f8178a[3];
-        this.f8178a[3] = d;
-        double d2 = this.f8178a[2];
-        this.f8178a[2] = this.f8178a[6];
-        this.f8178a[6] = d2;
-        double d3 = this.f8178a[5];
-        this.f8178a[5] = this.f8178a[7];
-        this.f8178a[7] = d3;
+        double d = this.f7878a[1];
+        this.f7878a[1] = this.f7878a[3];
+        this.f7878a[3] = d;
+        double d2 = this.f7878a[2];
+        this.f7878a[2] = this.f7878a[6];
+        this.f7878a[6] = d2;
+        double d3 = this.f7878a[5];
+        this.f7878a[5] = this.f7878a[7];
+        this.f7878a[7] = d3;
     }
 
     public void c(c cVar) {
         for (int i = 0; i < 9; i++) {
-            double[] dArr = this.f8178a;
-            dArr[i] = dArr[i] - cVar.f8178a[i];
+            double[] dArr = this.f7878a;
+            dArr[i] = dArr[i] - cVar.f7878a[i];
         }
     }
 
@@ -135,18 +135,18 @@ public class c {
     }
 
     public void d(c cVar) {
-        double d = this.f8178a[1];
-        double d2 = this.f8178a[2];
-        double d3 = this.f8178a[5];
-        cVar.f8178a[0] = this.f8178a[0];
-        cVar.f8178a[1] = this.f8178a[3];
-        cVar.f8178a[2] = this.f8178a[6];
-        cVar.f8178a[3] = d;
-        cVar.f8178a[4] = this.f8178a[4];
-        cVar.f8178a[5] = this.f8178a[7];
-        cVar.f8178a[6] = d2;
-        cVar.f8178a[7] = d3;
-        cVar.f8178a[8] = this.f8178a[8];
+        double d = this.f7878a[1];
+        double d2 = this.f7878a[2];
+        double d3 = this.f7878a[5];
+        cVar.f7878a[0] = this.f7878a[0];
+        cVar.f7878a[1] = this.f7878a[3];
+        cVar.f7878a[2] = this.f7878a[6];
+        cVar.f7878a[3] = d;
+        cVar.f7878a[4] = this.f7878a[4];
+        cVar.f7878a[5] = this.f7878a[7];
+        cVar.f7878a[6] = d2;
+        cVar.f7878a[7] = d3;
+        cVar.f7878a[8] = this.f7878a[8];
     }
 
     public boolean e(c cVar) {
@@ -155,14 +155,14 @@ public class c {
             return false;
         }
         double d2 = 1.0d / d;
-        cVar.a(((this.f8178a[4] * this.f8178a[8]) - (this.f8178a[7] * this.f8178a[5])) * d2, (-((this.f8178a[1] * this.f8178a[8]) - (this.f8178a[2] * this.f8178a[7]))) * d2, ((this.f8178a[1] * this.f8178a[5]) - (this.f8178a[2] * this.f8178a[4])) * d2, (-((this.f8178a[3] * this.f8178a[8]) - (this.f8178a[5] * this.f8178a[6]))) * d2, ((this.f8178a[0] * this.f8178a[8]) - (this.f8178a[2] * this.f8178a[6])) * d2, (-((this.f8178a[0] * this.f8178a[5]) - (this.f8178a[3] * this.f8178a[2]))) * d2, ((this.f8178a[3] * this.f8178a[7]) - (this.f8178a[6] * this.f8178a[4])) * d2, (-((this.f8178a[0] * this.f8178a[7]) - (this.f8178a[6] * this.f8178a[1]))) * d2, ((this.f8178a[0] * this.f8178a[4]) - (this.f8178a[3] * this.f8178a[1])) * d2);
+        cVar.a(((this.f7878a[4] * this.f7878a[8]) - (this.f7878a[7] * this.f7878a[5])) * d2, (-((this.f7878a[1] * this.f7878a[8]) - (this.f7878a[2] * this.f7878a[7]))) * d2, ((this.f7878a[1] * this.f7878a[5]) - (this.f7878a[2] * this.f7878a[4])) * d2, (-((this.f7878a[3] * this.f7878a[8]) - (this.f7878a[5] * this.f7878a[6]))) * d2, ((this.f7878a[0] * this.f7878a[8]) - (this.f7878a[2] * this.f7878a[6])) * d2, (-((this.f7878a[0] * this.f7878a[5]) - (this.f7878a[3] * this.f7878a[2]))) * d2, ((this.f7878a[3] * this.f7878a[7]) - (this.f7878a[6] * this.f7878a[4])) * d2, (-((this.f7878a[0] * this.f7878a[7]) - (this.f7878a[6] * this.f7878a[1]))) * d2, ((this.f7878a[0] * this.f7878a[4]) - (this.f7878a[3] * this.f7878a[1])) * d2);
         return true;
     }
 
     public String toString() {
         StringBuilder append = new StringBuilder().append("{ ");
         for (int i = 0; i < 9; i++) {
-            append.append(Double.toString(this.f8178a[i]));
+            append.append(Double.toString(this.f7878a[i]));
             if (i < 8) {
                 append.append(", ");
             }

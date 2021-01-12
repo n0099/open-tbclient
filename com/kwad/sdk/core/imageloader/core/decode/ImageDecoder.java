@@ -1,5 +1,5 @@
 package com.kwad.sdk.core.imageloader.core.decode;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public interface ImageDecoder {
     DecodedResult decode(ImageDecodingInfo imageDecodingInfo);
 }

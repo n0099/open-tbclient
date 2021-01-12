@@ -1,5 +1,5 @@
 package com.baidu.searchbox.developer;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public final class BdDeveloperUtils {
     public static final String API_KEY = "T9UCyRzS7RQsG1Q8TqUTCjp2";
     public static final String APPID = "405384";

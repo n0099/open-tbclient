@@ -10,18 +10,18 @@ import android.text.TextUtils;
 public class Cdo implements Application.ActivityLifecycleCallbacks {
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f14251a;
+    private Context f13951a;
 
     /* renamed from: a  reason: collision with other field name */
-    private String f305a;
+    private String f304a;
 
     /* renamed from: b  reason: collision with root package name */
-    private String f14252b;
+    private String f13952b;
 
     public Cdo(Context context, String str) {
-        this.f305a = "";
-        this.f14251a = context;
-        this.f305a = str;
+        this.f304a = "";
+        this.f13951a = context;
+        this.f304a = str;
     }
 
     private void a(String str) {
@@ -29,7 +29,7 @@ public class Cdo implements Application.ActivityLifecycleCallbacks {
         huVar.a(str);
         huVar.a(System.currentTimeMillis());
         huVar.a(ho.ActivityActiveTimeStamp);
-        ed.a(this.f14251a, huVar);
+        ed.a(this.f13951a, huVar);
     }
 
     @Override // android.app.Application.ActivityLifecycleCallbacks
@@ -43,25 +43,25 @@ public class Cdo implements Application.ActivityLifecycleCallbacks {
     @Override // android.app.Application.ActivityLifecycleCallbacks
     public void onActivityPaused(Activity activity) {
         String localClassName = activity.getLocalClassName();
-        if (TextUtils.isEmpty(this.f305a) || TextUtils.isEmpty(localClassName)) {
+        if (TextUtils.isEmpty(this.f304a) || TextUtils.isEmpty(localClassName)) {
             return;
         }
-        this.f14252b = "";
-        if (!TextUtils.isEmpty(this.f14252b) && !TextUtils.equals(this.f14252b, localClassName)) {
-            this.f305a = "";
+        this.f13952b = "";
+        if (!TextUtils.isEmpty(this.f13952b) && !TextUtils.equals(this.f13952b, localClassName)) {
+            this.f304a = "";
             return;
         }
-        a(this.f14251a.getPackageName() + "|" + localClassName + ":" + this.f305a + "," + String.valueOf(System.currentTimeMillis() / 1000));
-        this.f305a = "";
-        this.f14252b = "";
+        a(this.f13951a.getPackageName() + "|" + localClassName + ":" + this.f304a + "," + String.valueOf(System.currentTimeMillis() / 1000));
+        this.f304a = "";
+        this.f13952b = "";
     }
 
     @Override // android.app.Application.ActivityLifecycleCallbacks
     public void onActivityResumed(Activity activity) {
-        if (TextUtils.isEmpty(this.f14252b)) {
-            this.f14252b = activity.getLocalClassName();
+        if (TextUtils.isEmpty(this.f13952b)) {
+            this.f13952b = activity.getLocalClassName();
         }
-        this.f305a = String.valueOf(System.currentTimeMillis() / 1000);
+        this.f304a = String.valueOf(System.currentTimeMillis() / 1000);
     }
 
     @Override // android.app.Application.ActivityLifecycleCallbacks

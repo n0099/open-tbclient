@@ -10,17 +10,17 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    private static volatile d f10038a;
+    private static volatile d f9738a;
     private static com.kwad.sdk.emotion.model.a e;
     private static com.kwad.sdk.emotion.model.b f;
     private int d;
 
     /* renamed from: b  reason: collision with root package name */
-    private boolean f10039b = false;
+    private boolean f9739b = false;
     private final Map<Integer, f> c = new ConcurrentHashMap();
     private String g = "0";
 
@@ -28,14 +28,14 @@ public class d {
     }
 
     public static d a() {
-        if (f10038a == null) {
+        if (f9738a == null) {
             synchronized (d.class) {
-                if (f10038a == null) {
-                    f10038a = new d();
+                if (f9738a == null) {
+                    f9738a = new d();
                 }
             }
         }
-        return f10038a;
+        return f9738a;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -71,7 +71,7 @@ public class d {
         e.a(new e.a() { // from class: com.kwad.sdk.emotion.a.d.2
             @Override // com.kwad.sdk.emotion.a.e.a
             public void a(int i, String str) {
-                d.this.f10039b = false;
+                d.this.f9739b = false;
                 if (bVar != null) {
                     bVar.a(null);
                 }
@@ -79,7 +79,7 @@ public class d {
 
             @Override // com.kwad.sdk.emotion.a.e.a
             public void a(EmotionResponse emotionResponse) {
-                d.this.f10039b = true;
+                d.this.f9739b = true;
                 d.this.a(d.this.a(emotionResponse));
                 if (bVar != null) {
                     bVar.a();
@@ -111,7 +111,7 @@ public class d {
 
     public void b() {
         com.kwad.sdk.emotion.b.b.a().a(e.b());
-        if (this.f10039b) {
+        if (this.f9739b) {
             c.a().a(this.c.get(1), f.b());
         } else {
             f.b().a(null, new IllegalStateException("not available: invoke `#fetchEmotionInfo()` or check `#isAvailable()`"));

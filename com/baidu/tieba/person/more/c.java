@@ -11,13 +11,13 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.card.aa;
 import com.baidu.tieba.personCenter.c.h;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class c {
-    private BdTypeListView gAY;
-    private aa<h> jye;
+    private BdTypeListView gwr;
+    private aa<h> jty;
     private NavigationBar mNavigationBar;
     private TbPageContext mPageContext;
-    private a moC;
+    private a mjX;
 
     public c(TbPageContext tbPageContext) {
         this.mPageContext = tbPageContext;
@@ -25,12 +25,12 @@ public class c {
 
     public void ap(View view) {
         this.mNavigationBar = (NavigationBar) view.findViewById(R.id.person_more_navigation_bar);
-        this.gAY = (BdTypeListView) view.findViewById(R.id.person_more_listview);
-        this.moC = new a(this.mPageContext, this.gAY, this.jye);
-        bIl();
+        this.gwr = (BdTypeListView) view.findViewById(R.id.person_more_listview);
+        this.mjX = new a(this.mPageContext, this.gwr, this.jty);
+        bEt();
     }
 
-    private void bIl() {
+    private void bEt() {
         this.mNavigationBar.setCenterTextTitle(this.mPageContext.getString(R.string.person_center_more));
         this.mNavigationBar.showBottomLine();
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new View.OnClickListener() { // from class: com.baidu.tieba.person.more.c.1
@@ -43,16 +43,16 @@ public class c {
     }
 
     public void setData(List<n> list) {
-        this.gAY.setData(list);
+        this.gwr.setData(list);
     }
 
     public void onChangeSkinType() {
-        this.moC.notifyDataSetChanged();
-        ao.setBackgroundColor(this.gAY, R.color.CAM_X0201);
+        this.mjX.notifyDataSetChanged();
+        ao.setBackgroundColor(this.gwr, R.color.CAM_X0201);
         this.mNavigationBar.onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
     }
 
     public void c(aa<h> aaVar) {
-        this.jye = aaVar;
+        this.jty = aaVar;
     }
 }

@@ -5,7 +5,7 @@ import android.util.JsonToken;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 class r {
     /* JADX INFO: Access modifiers changed from: package-private */
     public static <T> List<com.baidu.live.lottie.e.a<T>> a(JsonReader jsonReader, com.baidu.live.lottie.e eVar, float f, aj<T> ajVar) throws IOException {
@@ -61,11 +61,11 @@ class r {
             if (i2 >= size - 1) {
                 break;
             }
-            list.get(i2).HQ = Float.valueOf(list.get(i2 + 1).BU);
+            list.get(i2).HO = Float.valueOf(list.get(i2 + 1).BS);
             i = i2 + 1;
         }
         com.baidu.live.lottie.e.a<?> aVar = list.get(size - 1);
-        if (aVar.HN == 0) {
+        if (aVar.HL == 0) {
             list.remove(aVar);
         }
     }

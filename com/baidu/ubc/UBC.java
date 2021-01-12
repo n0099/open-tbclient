@@ -11,7 +11,7 @@ import com.baidu.ubc.IRemoteUBCService;
 import java.util.Map;
 import org.json.JSONObject;
 @Deprecated
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class UBC {
     public static final String CONTENT_KEY_DURATION = "duration";
     public static final String CONTENT_KEY_EXT = "ext";
@@ -34,7 +34,7 @@ public class UBC {
     private static volatile IRemoteUBCService sProxy;
 
     public static final q getUBCContext() {
-        return com.baidu.tieba.q.r.dLP();
+        return com.baidu.tieba.q.r.dHX();
     }
 
     public static final void onEvent(String str) {
@@ -70,11 +70,11 @@ public class UBC {
     }
 
     public static void onMutilProcessEvent(String str, String str2, String str3) {
-        String XD = com.baidu.o.a.XD(str3);
+        String Wv = com.baidu.m.a.Wv(str3);
         if (DEBUG) {
-            Log.d(TAG, "on onMutilProcessEvent id:" + str + " value:" + str2 + " name: " + XD);
+            Log.d(TAG, "on onMutilProcessEvent id:" + str + " value:" + str2 + " name: " + Wv);
         }
-        d.eiT().n(str, str2, XD, 8);
+        d.efb().n(str, str2, Wv, 8);
     }
 
     public static final Flow beginFlow(String str) {

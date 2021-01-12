@@ -5,36 +5,33 @@ import android.content.Context;
 import android.util.Log;
 import com.baidu.mapapi.JNIInitializer;
 import com.baidu.mapapi.common.EnvironmentUtilities;
-import com.baidu.platform.comapi.util.SysOSUtil;
 import java.io.File;
 import java.io.IOException;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    private static boolean f3141a;
+    private static boolean f3021a;
 
-    public static void a(Context context, boolean z, String str, String str2, String str3) {
-        if (f3141a) {
+    public static void a(Context context, boolean z, String str, String str2) {
+        if (f3021a) {
             return;
         }
         if (context == null) {
-            throw new IllegalArgumentException("BDMapSDKException: context can not be null");
+            throw new IllegalArgumentException("context can not be null");
         }
         if (!(context instanceof Application)) {
-            throw new RuntimeException("BDMapSDKException: context must be an ApplicationContext");
+            throw new RuntimeException("context must be an ApplicationContext");
         }
         NativeLoader.setContext(context);
         NativeLoader.a(z, str);
-        JNIInitializer.setContext((Application) context);
-        SysOSUtil.getInstance().init(new com.baidu.platform.comapi.util.a.b(), new com.baidu.platform.comapi.util.a.a());
         a.a().a(context);
         a.a().c();
+        JNIInitializer.setContext((Application) context);
         if (a(str2)) {
             EnvironmentUtilities.setSDCardPath(str2);
         }
-        EnvironmentUtilities.initAppDirectory(context);
-        f3141a = true;
+        f3021a = true;
     }
 
     private static boolean a(String str) {
@@ -53,7 +50,7 @@ public class c {
             return true;
         } catch (IOException e) {
             Log.e("SDKInitializer", "SDCard cache path invalid", e);
-            throw new IllegalArgumentException("BDMapSDKException: Provided sdcard cache path invalid can not used.");
+            throw new IllegalArgumentException("Provided sdcard cache path invalid can not used.");
         }
     }
 }

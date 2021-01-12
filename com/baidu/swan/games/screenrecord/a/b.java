@@ -1,11 +1,11 @@
 package com.baidu.swan.games.screenrecord.a;
 
 import androidx.annotation.NonNull;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class b {
-    private long eng;
-    private long enh;
-    private long eni;
+    private long eit;
+    private long eiu;
+    private long eiv;
 
     @NonNull
     public static b a(long j, double d, double d2) {
@@ -13,26 +13,26 @@ public class b {
     }
 
     public b(long j, long j2, long j3) {
-        this.eng = j;
-        this.enh = j2;
-        this.eni = j3;
+        this.eit = j;
+        this.eiu = j2;
+        this.eiv = j3;
     }
 
-    public a bbK() {
+    public a aXQ() {
         if (!isValid()) {
             return null;
         }
         a aVar = new a();
-        aVar.start = Math.max(this.eng - this.enh, 0L);
-        aVar.end = this.eng + this.eni;
+        aVar.start = Math.max(this.eit - this.eiu, 0L);
+        aVar.end = this.eit + this.eiv;
         return aVar;
     }
 
     public boolean isValid() {
-        return this.eng >= 0 && this.enh >= 0 && this.eni >= 0 && this.enh + this.eni > 0 && this.eng + this.eni > 0;
+        return this.eit >= 0 && this.eiu >= 0 && this.eiv >= 0 && this.eiu + this.eiv > 0 && this.eit + this.eiv > 0;
     }
 
     public String toString() {
-        return "[ mBaseline = " + this.eng + "; mLeftOffset = " + this.enh + "; mRightOffset = " + this.eni + " ]";
+        return "[ mBaseline = " + this.eit + "; mLeftOffset = " + this.eiu + "; mRightOffset = " + this.eiv + " ]";
     }
 }

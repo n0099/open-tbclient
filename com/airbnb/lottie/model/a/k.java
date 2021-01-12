@@ -4,18 +4,18 @@ import androidx.annotation.Nullable;
 /* loaded from: classes3.dex */
 public class k {
     @Nullable
-    public final a Ft;
+    public final a Fr;
     @Nullable
-    public final a Fu;
+    public final a Fs;
     @Nullable
-    public final b Fv;
+    public final b Ft;
     @Nullable
-    public final b Fw;
+    public final b Fu;
 
     public k(@Nullable a aVar, @Nullable a aVar2, @Nullable b bVar, @Nullable b bVar2) {
-        this.Ft = aVar;
-        this.Fu = aVar2;
-        this.Fv = bVar;
-        this.Fw = bVar2;
+        this.Fr = aVar;
+        this.Fs = aVar2;
+        this.Ft = bVar;
+        this.Fu = bVar2;
     }
 }

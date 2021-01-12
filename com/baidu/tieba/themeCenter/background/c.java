@@ -24,62 +24,62 @@ import com.baidu.tieba.themeCenter.MemberRecommendView;
 import java.util.ArrayList;
 import java.util.List;
 @SuppressLint({"ResourceAsColor"})
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class c {
-    private BdListView WV;
-    private int aht;
-    private View jVC;
+    private BdListView WT;
+    private int agC;
+    private View jQX;
     private NavigationBar mNavigationBar;
     private View mRoot;
-    private TextView nAT;
-    private BackgroundGroupActivity nBr;
-    private MemberRecommendView nBx;
-    private TextView nBy;
-    private a nBz;
+    private BackgroundGroupActivity nwM;
+    private MemberRecommendView nwS;
+    private TextView nwT;
+    private a nwU;
+    private TextView nwo;
 
     public c(BackgroundGroupActivity backgroundGroupActivity, d dVar) {
-        this.aht = 0;
-        this.nBr = backgroundGroupActivity;
-        this.aht = l.getDimens(backgroundGroupActivity.getPageContext().getPageActivity(), R.dimen.ds320);
-        this.mRoot = LayoutInflater.from(this.nBr.getPageContext().getPageActivity()).inflate(R.layout.background_group, (ViewGroup) null);
-        this.nBr.setContentView(this.mRoot);
-        this.jVC = this.mRoot.findViewById(R.id.body_view);
+        this.agC = 0;
+        this.nwM = backgroundGroupActivity;
+        this.agC = l.getDimens(backgroundGroupActivity.getPageContext().getPageActivity(), R.dimen.ds320);
+        this.mRoot = LayoutInflater.from(this.nwM.getPageContext().getPageActivity()).inflate(R.layout.background_group, (ViewGroup) null);
+        this.nwM.setContentView(this.mRoot);
+        this.jQX = this.mRoot.findViewById(R.id.body_view);
         this.mNavigationBar = (NavigationBar) this.mRoot.findViewById(R.id.view_navigation_bar);
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         this.mNavigationBar.setTitleText(R.string.personal_background);
-        this.nBx = (MemberRecommendView) this.mRoot.findViewById(R.id.view_member_recommend);
-        this.nBx.setFromType(4);
-        this.WV = (BdListView) this.mRoot.findViewById(R.id.listview_bg_group);
-        this.nAT = new TextView(this.nBr.getActivity());
-        this.nAT.setHeight(l.getDimens(this.nBr.getActivity(), R.dimen.ds104));
-        this.nBy = (TextView) LayoutInflater.from(this.nBr.getPageContext().getPageActivity()).inflate(R.layout.look_more_view, (ViewGroup) null);
-        this.nBy.setText(R.string.more_backgrounds);
-        this.nBy.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.themeCenter.background.c.1
+        this.nwS = (MemberRecommendView) this.mRoot.findViewById(R.id.view_member_recommend);
+        this.nwS.setFromType(4);
+        this.WT = (BdListView) this.mRoot.findViewById(R.id.listview_bg_group);
+        this.nwo = new TextView(this.nwM.getActivity());
+        this.nwo.setHeight(l.getDimens(this.nwM.getActivity(), R.dimen.ds104));
+        this.nwT = (TextView) LayoutInflater.from(this.nwM.getPageContext().getPageActivity()).inflate(R.layout.look_more_view, (ViewGroup) null);
+        this.nwT.setText(R.string.more_backgrounds);
+        this.nwT.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.themeCenter.background.c.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 TiebaStatic.log("c10283");
-                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PersonalBackdropListActivityConfig(c.this.nBr.getActivity())));
+                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PersonalBackdropListActivityConfig(c.this.nwM.getActivity())));
             }
         });
-        this.nBz = new a(this.nBr.getPageContext(), dVar);
-        TextView textView = new TextView(this.nBr.getActivity());
-        textView.setLayoutParams(new AbsListView.LayoutParams(-1, UtilHelper.getLightStatusBarHeight() + l.getDimens(this.nBr.getActivity(), R.dimen.ds98)));
-        this.WV.addHeaderView(textView, 0);
-        this.WV.addFooterView(this.nBy);
-        this.WV.setAdapter((ListAdapter) this.nBz);
+        this.nwU = new a(this.nwM.getPageContext(), dVar);
+        TextView textView = new TextView(this.nwM.getActivity());
+        textView.setLayoutParams(new AbsListView.LayoutParams(-1, UtilHelper.getLightStatusBarHeight() + l.getDimens(this.nwM.getActivity(), R.dimen.ds98)));
+        this.WT.addHeaderView(textView, 0);
+        this.WT.addFooterView(this.nwT);
+        this.WT.setAdapter((ListAdapter) this.nwU);
     }
 
     public void a(com.baidu.tieba.themeCenter.dressCenter.e eVar, List<b> list, boolean z) {
         if (list == null || list.size() <= 0) {
-            cDo();
+            czw();
             return;
         }
-        cDp();
+        czx();
         if (b(eVar)) {
-            this.WV.removeHeaderView(this.nAT);
-            this.WV.addHeaderView(this.nAT);
+            this.WT.removeHeaderView(this.nwo);
+            this.WT.addHeaderView(this.nwo);
         } else {
-            this.WV.removeHeaderView(this.nAT);
+            this.WT.removeHeaderView(this.nwo);
         }
         fV(fW(list));
     }
@@ -108,56 +108,56 @@ public class c {
 
     private void fV(List<Object> list) {
         if (list == null || list.size() <= 0) {
-            this.WV.setVisibility(8);
+            this.WT.setVisibility(8);
             return;
         }
-        this.WV.setVisibility(0);
-        this.nBz.setData(list);
-        this.nBz.notifyDataSetChanged();
+        this.WT.setVisibility(0);
+        this.nwU.setData(list);
+        this.nwU.notifyDataSetChanged();
     }
 
     private boolean b(com.baidu.tieba.themeCenter.dressCenter.e eVar) {
-        if (eVar == null || StringUtils.isNull(eVar.dSV())) {
-            this.nBx.setVisibility(8);
+        if (eVar == null || StringUtils.isNull(eVar.dPd())) {
+            this.nwS.setVisibility(8);
             return false;
         }
-        this.nBx.setVisibility(0);
-        this.nBx.a(eVar);
+        this.nwS.setVisibility(0);
+        this.nwS.a(eVar);
         return true;
     }
 
-    public void cDo() {
-        this.jVC.setVisibility(8);
+    public void czw() {
+        this.jQX.setVisibility(8);
         ao.setBackgroundColor(this.mRoot, R.color.CAM_X0201);
-        String string = this.nBr.getPageContext().getResources().getString(R.string.no_data_text);
-        this.nBr.setNetRefreshViewTopMargin(this.aht);
-        this.nBr.showNetRefreshView(this.mRoot, string, false);
+        String string = this.nwM.getPageContext().getResources().getString(R.string.no_data_text);
+        this.nwM.setNetRefreshViewTopMargin(this.agC);
+        this.nwM.showNetRefreshView(this.mRoot, string, false);
     }
 
-    public void cDp() {
+    public void czx() {
         ao.setBackgroundColor(this.mRoot, R.color.CAM_X0204);
-        this.nBr.hideNetRefreshView(this.mRoot);
-        this.jVC.setVisibility(0);
+        this.nwM.hideNetRefreshView(this.mRoot);
+        this.jQX.setVisibility(0);
     }
 
-    public void cQu() {
-        this.jVC.setVisibility(8);
+    public void cMC() {
+        this.jQX.setVisibility(8);
     }
 
-    public void cQv() {
-        this.jVC.setVisibility(0);
+    public void cMD() {
+        this.jQX.setVisibility(0);
     }
 
-    public void bCP() {
-        com.baidu.tbadk.r.a.a(this.nBr.getPageContext(), this.mRoot);
-        this.nBr.getLayoutMode().onModeChanged(this.nBy);
+    public void byV() {
+        com.baidu.tbadk.r.a.a(this.nwM.getPageContext(), this.mRoot);
+        this.nwM.getLayoutMode().onModeChanged(this.nwT);
         if (this.mNavigationBar != null) {
-            this.mNavigationBar.onChangeSkinType(this.nBr.getPageContext(), TbadkApplication.getInst().getSkinType());
+            this.mNavigationBar.onChangeSkinType(this.nwM.getPageContext(), TbadkApplication.getInst().getSkinType());
         }
-        if (this.WV != null && this.WV.getVisibility() == 0 && this.nBz != null) {
-            this.nBz.notifyDataSetChanged();
+        if (this.WT != null && this.WT.getVisibility() == 0 && this.nwU != null) {
+            this.nwU.notifyDataSetChanged();
         }
-        ao.setBackgroundColor(this.nAT, R.color.CAM_X0204);
+        ao.setBackgroundColor(this.nwo, R.color.CAM_X0204);
     }
 
     public View getRootView() {

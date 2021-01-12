@@ -18,12 +18,12 @@ import com.baidu.live.tbadk.core.util.UtilHelper;
 import com.baidu.live.tbadk.core.view.HeadImageView;
 import com.baidu.live.utils.m;
 import org.apache.http.HttpHost;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class a implements b {
-    private x aGe;
-    private FrameLayout ajW;
-    private HeadImageView heN;
-    private int heO;
+    private x aBr;
+    private FrameLayout ajf;
+    private HeadImageView hah;
+    private int hai;
     private boolean isHost = false;
     private ImageView mIconView;
     private TbPageContext mTbPageContext;
@@ -34,36 +34,36 @@ public class a implements b {
     }
 
     private void initView() {
-        if (this.ajW == null) {
-            this.ajW = new FrameLayout(this.mTbPageContext.getPageActivity());
+        if (this.ajf == null) {
+            this.ajf = new FrameLayout(this.mTbPageContext.getPageActivity());
         }
-        if (this.heN == null) {
-            this.heN = new HeadImageView(this.mTbPageContext.getPageActivity());
+        if (this.hah == null) {
+            this.hah = new HeadImageView(this.mTbPageContext.getPageActivity());
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(BdUtilHelper.getDimens(this.mTbPageContext.getPageActivity(), a.d.sdk_ds60), BdUtilHelper.getDimens(this.mTbPageContext.getPageActivity(), a.d.sdk_ds60));
             layoutParams.gravity = 17;
-            this.ajW.addView(this.heN, layoutParams);
+            this.ajf.addView(this.hah, layoutParams);
         }
         if (this.mIconView == null) {
             this.mIconView = new ImageView(this.mTbPageContext.getPageActivity());
-            this.ajW.addView(this.mIconView, new FrameLayout.LayoutParams(-2, -2));
+            this.ajf.addView(this.mIconView, new FrameLayout.LayoutParams(-2, -2));
         }
         if (TbadkCoreApplication.getInst().isHaokan()) {
-            this.heN.setDefaultResource(a.e.sdk_icon_default_avatar100_hk);
+            this.hah.setDefaultResource(a.e.sdk_icon_default_avatar100_hk);
         } else {
-            this.heN.setDefaultResource(a.e.sdk_icon_default_avatar100);
+            this.hah.setDefaultResource(a.e.sdk_icon_default_avatar100);
         }
-        this.heN.setIsRound(true);
-        this.heN.setDrawBorder(true);
-        this.heN.setBorderColor(this.mTbPageContext.getResources().getColor(a.c.sdk_cp_bg_line_k_alpha10_1));
-        this.heN.setAutoChangeStyle(false);
-        this.heN.setScaleType(ImageView.ScaleType.CENTER_CROP);
-        this.heN.setVisibility(8);
+        this.hah.setIsRound(true);
+        this.hah.setDrawBorder(true);
+        this.hah.setBorderColor(this.mTbPageContext.getResources().getColor(a.c.sdk_cp_bg_line_k_alpha10_1));
+        this.hah.setAutoChangeStyle(false);
+        this.hah.setScaleType(ImageView.ScaleType.CENTER_CROP);
+        this.hah.setVisibility(8);
         this.mIconView.setImageResource(a.e.icon_live_guardthrone_no);
-        this.ajW.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.guardthrone.c.a.1
+        this.ajf.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.guardthrone.c.a.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (!UtilHelper.isFastDoubleClick() && a.this.aGe != null && a.this.aGe.mLiveInfo != null && com.baidu.live.af.a.SE().bwi != null) {
-                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AlaGuardThroneActivityConfig(a.this.mTbPageContext.getPageActivity(), String.valueOf(a.this.aGe.mLiveInfo.live_id), String.valueOf(a.this.aGe.mLiveInfo.user_id), com.baidu.live.af.a.SE().bwi.aPa, a.this.heO, a.this.isHost)));
+                if (!UtilHelper.isFastDoubleClick() && a.this.aBr != null && a.this.aBr.mLiveInfo != null && com.baidu.live.af.a.OJ().bru != null) {
+                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AlaGuardThroneActivityConfig(a.this.mTbPageContext.getPageActivity(), String.valueOf(a.this.aBr.mLiveInfo.live_id), String.valueOf(a.this.aBr.mLiveInfo.user_id), com.baidu.live.af.a.OJ().bru.aKn, a.this.hai, a.this.isHost)));
                 }
             }
         });
@@ -71,7 +71,7 @@ public class a implements b {
 
     @Override // com.baidu.live.k.b
     public void a(x xVar) {
-        this.aGe = xVar;
+        this.aBr = xVar;
         if (xVar != null) {
             String str = null;
             if (xVar.mLiveInfo != null) {
@@ -79,13 +79,13 @@ public class a implements b {
             }
             if (str == null || TextUtils.isEmpty(str) || !str.startsWith(HttpHost.DEFAULT_SCHEME_NAME)) {
                 this.mIconView.setImageResource(a.e.icon_live_guardthrone_no);
-                this.heN.reset();
-                this.heN.setVisibility(8);
+                this.hah.reset();
+                this.hah.setVisibility(8);
                 return;
             }
-            m.a(this.heN, str, true, false);
+            m.a(this.hah, str, true, false);
             this.mIconView.setImageResource(a.e.icon_live_guardthrone_have);
-            this.heN.setVisibility(0);
+            this.hah.setVisibility(0);
         }
     }
 
@@ -96,11 +96,11 @@ public class a implements b {
 
     @Override // com.baidu.live.k.b
     public View getView() {
-        return this.ajW;
+        return this.ajf;
     }
 
     @Override // com.baidu.live.k.b
-    public void eV(int i) {
-        this.heO = i;
+    public void dp(int i) {
+        this.hai = i;
     }
 }

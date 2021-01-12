@@ -3,17 +3,18 @@ package b.a.a.a.a;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.location.LocationManager;
+import android.net.http.Headers;
 import android.net.wifi.WifiManager;
 import android.os.Build;
 import android.provider.Settings;
 import android.telephony.TelephonyManager;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public final class m {
     private static m At = null;
 
     /* renamed from: b  reason: collision with root package name */
-    private int f1067b = -1;
+    private int f1066b = -1;
     private int c = -1;
     private int d = 1;
 
@@ -67,7 +68,7 @@ public final class m {
                 z2 = z;
                 z3 = false;
                 z4 = false;
-                locationManager = (LocationManager) context.getSystemService("location");
+                locationManager = (LocationManager) context.getSystemService(Headers.LOCATION);
                 if (locationManager != null) {
                 }
                 if (!b2) {
@@ -90,7 +91,7 @@ public final class m {
                     z2 = z;
                     z3 = true;
                     z4 = true;
-                    locationManager = (LocationManager) context.getSystemService("location");
+                    locationManager = (LocationManager) context.getSystemService(Headers.LOCATION);
                     if (locationManager != null) {
                         try {
                             i = Settings.Secure.getInt(context.getContentResolver(), "location_mode");
@@ -164,7 +165,7 @@ public final class m {
         z2 = z;
         z3 = false;
         z4 = z7;
-        locationManager = (LocationManager) context.getSystemService("location");
+        locationManager = (LocationManager) context.getSystemService(Headers.LOCATION);
         if (locationManager != null) {
         }
         if (!b2) {

@@ -4,7 +4,7 @@ import android.text.TextUtils;
 import com.baidu.minivideo.plugin.capture.utils.EncryptUtils;
 import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class d {
     public static String a(String str) {
         if (TextUtils.isEmpty(str)) {

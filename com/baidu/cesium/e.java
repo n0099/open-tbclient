@@ -12,7 +12,7 @@ public class e {
     public int f = 2;
     private int n = 0;
 
-    public static e R(String str, String str2) {
+    public static e Q(String str, String str2) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
@@ -40,12 +40,11 @@ public class e {
         return new String(com.baidu.cesium.d.a.a(str.getBytes()));
     }
 
-    public static e dn(String str) {
-        return m17do(e(str));
+    public static e di(String str) {
+        return dj(e(str));
     }
 
-    /* renamed from: do  reason: not valid java name */
-    private static e m17do(String str) {
+    private static e dj(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }

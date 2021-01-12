@@ -20,32 +20,32 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public abstract class c<T extends d, R extends com.kwad.sdk.core.network.g> {
     private static ExecutorService e = null;
     private Context f;
 
     /* renamed from: a  reason: collision with root package name */
-    private volatile long f9697a = 120000;
+    private volatile long f9397a = 120000;
 
     /* renamed from: b  reason: collision with root package name */
-    private i f9698b = new j();
+    private i f9398b = new j();
     private HandlerThread c = null;
     private Handler d = null;
     private AtomicInteger g = new AtomicInteger(0);
     private AtomicInteger h = new AtomicInteger(0);
     private int i = 5;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class a implements Runnable {
 
         /* renamed from: b  reason: collision with root package name */
-        private final i f9713b;
+        private final i f9413b;
         private final Context c;
 
         public a(Context context, i iVar) {
             this.c = context;
-            this.f9713b = iVar;
+            this.f9413b = iVar;
         }
 
         private void a(@NonNull List<T> list) {
@@ -60,7 +60,7 @@ public abstract class c<T extends d, R extends com.kwad.sdk.core.network.g> {
         @Override // java.lang.Runnable
         public void run() {
             List<T> b2;
-            if (c.this.g.get() > 0 || !com.ksad.download.d.b.a(this.c) || (b2 = this.f9713b.b()) == null || b2.isEmpty()) {
+            if (c.this.g.get() > 0 || !com.ksad.download.d.b.a(this.c) || (b2 = this.f9413b.b()) == null || b2.isEmpty()) {
                 return;
             }
             a(b2);
@@ -80,7 +80,7 @@ public abstract class c<T extends d, R extends com.kwad.sdk.core.network.g> {
             return;
         }
         this.d.removeMessages(16843025);
-        Message obtain = Message.obtain(this.d, new a(this.f, this.f9698b));
+        Message obtain = Message.obtain(this.d, new a(this.f, this.f9398b));
         obtain.what = 16843025;
         this.d.sendMessageDelayed(obtain, j);
     }
@@ -88,7 +88,7 @@ public abstract class c<T extends d, R extends com.kwad.sdk.core.network.g> {
     /* JADX INFO: Access modifiers changed from: private */
     public boolean c() {
         int i = this.h.get();
-        return this.f9698b.a() >= ((long) (com.kwad.sdk.core.config.c.v() << (i <= 16 ? i : 16)));
+        return this.f9398b.a() >= ((long) (com.kwad.sdk.core.config.c.v() << (i <= 16 ? i : 16)));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -96,9 +96,9 @@ public abstract class c<T extends d, R extends com.kwad.sdk.core.network.g> {
         int andIncrement = this.h.getAndIncrement();
         if (andIncrement <= this.i) {
             if (andIncrement > 0) {
-                this.f9697a *= 2;
+                this.f9397a *= 2;
             }
-            b(this.f9697a);
+            b(this.f9397a);
         }
     }
 
@@ -110,9 +110,9 @@ public abstract class c<T extends d, R extends com.kwad.sdk.core.network.g> {
 
     protected void a(long j) {
         if (j < 60) {
-            this.f9697a = AppStatusRules.DEFAULT_GRANULARITY;
+            this.f9397a = AppStatusRules.DEFAULT_GRANULARITY;
         } else {
-            this.f9697a = 1000 * j;
+            this.f9397a = 1000 * j;
         }
     }
 
@@ -177,9 +177,9 @@ public abstract class c<T extends d, R extends com.kwad.sdk.core.network.g> {
             @Override // java.lang.Runnable
             public void run() {
                 if (!c.this.d.hasMessages(16843025)) {
-                    c.this.b(c.this.f9697a);
+                    c.this.b(c.this.f9397a);
                 }
-                c.this.f9698b.a((i) hVar.a());
+                c.this.f9398b.a((i) hVar.a());
                 if (c.this.c()) {
                     c.this.a();
                 }
@@ -189,7 +189,7 @@ public abstract class c<T extends d, R extends com.kwad.sdk.core.network.g> {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void a(i iVar) {
-        this.f9698b = iVar;
+        this.f9398b = iVar;
     }
 
     protected void a(final List<T> list, final AtomicBoolean atomicBoolean) {
@@ -231,12 +231,12 @@ public abstract class c<T extends d, R extends com.kwad.sdk.core.network.g> {
             }
 
             public void a(@NonNull R r, @NonNull BatchReportResult batchReportResult) {
-                c.this.f9698b.a(list);
+                c.this.f9398b.a(list);
                 if (c.this.g.decrementAndGet() == 0 && atomicBoolean.get()) {
                     c.this.d();
                 }
                 c.this.a(batchReportResult.getInterval());
-                c.this.b(c.this.f9697a);
+                c.this.b(c.this.f9397a);
             }
         });
     }

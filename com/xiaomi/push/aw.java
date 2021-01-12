@@ -3,26 +3,26 @@ package com.xiaomi.push;
 public class aw implements ay {
 
     /* renamed from: a  reason: collision with root package name */
-    private final String f14166a;
+    private final String f13866a;
 
     /* renamed from: b  reason: collision with root package name */
-    private final String f14167b;
+    private final String f13867b;
 
     public aw(String str, String str2) {
         if (str == null) {
             throw new IllegalArgumentException("Name may not be null");
         }
-        this.f14166a = str;
-        this.f14167b = str2;
+        this.f13866a = str;
+        this.f13867b = str2;
     }
 
     @Override // com.xiaomi.push.ay
     public String a() {
-        return this.f14166a;
+        return this.f13866a;
     }
 
     @Override // com.xiaomi.push.ay
     public String b() {
-        return this.f14167b;
+        return this.f13867b;
     }
 }

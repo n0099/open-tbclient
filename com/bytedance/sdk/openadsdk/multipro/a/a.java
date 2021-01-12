@@ -22,7 +22,7 @@ public class a {
     }
 
     private static String a() {
-        return e.f7713b + "/t_db/ttopensdk.db/";
+        return e.f7413b + "/t_db/ttopensdk.db/";
     }
 
     public static synchronized void a(Context context, String str, ContentValues contentValues) {

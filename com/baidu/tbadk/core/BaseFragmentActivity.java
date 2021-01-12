@@ -201,7 +201,7 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
 
     public String getPreExtraPageKey() {
         com.baidu.tbadk.pageExtra.c tbPageExtra = getTbPageExtra();
-        return tbPageExtra != null ? tbPageExtra.bHn() : "";
+        return tbPageExtra != null ? tbPageExtra.bDu() : "";
     }
 
     private String getCurrentExtraPageKey() {
@@ -566,7 +566,7 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
             long currentTimeMillis = System.currentTimeMillis() - this.lastResumeTime;
             com.baidu.tbadk.m.d pageStayDurationItem = getPageStayDurationItem();
             pageStayDurationItem.setStayDurationTime(currentTimeMillis);
-            com.baidu.tbadk.m.e.bHt().a(getPageContext().getPageActivity(), pageStayDurationItem, getPageStayFilter());
+            com.baidu.tbadk.m.e.bDA().a(getPageContext().getPageActivity(), pageStayDurationItem, getPageStayFilter());
         }
         stopScreenShotListen();
         TbadkCoreApplication.getInst().DelResumeNum();
@@ -715,19 +715,19 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void showToastWithIcon(String str, int i) {
-        BdToast.b(getPageContext().getContext(), str, i, false).bue();
+        BdToast.b(getPageContext().getContext(), str, i, false).bqk();
     }
 
     protected void showToastWithIconDuration(String str, int i, int i2) {
-        BdToast.a(getPageContext().getContext(), str, i, i2, false).bue();
+        BdToast.a(getPageContext().getContext(), str, i, i2, false).bqk();
     }
 
     protected void showToastWithDefaultIcon(String str, BdToast.DefaultIcon defaultIcon) {
-        BdToast.a(getPageContext().getContext(), str, defaultIcon).bue();
+        BdToast.a(getPageContext().getContext(), str, defaultIcon).bqk();
     }
 
     protected void showToastWithDefauIcDuration(String str, BdToast.DefaultIcon defaultIcon, int i) {
-        BdToast.a(getPageContext().getContext(), str, defaultIcon, i).bue();
+        BdToast.a(getPageContext().getContext(), str, defaultIcon, i).bqk();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -788,7 +788,7 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
                 this.loadingView = new com.baidu.tbadk.l.g(getPageContext().getPageActivity());
             } else {
                 this.loadingView = new com.baidu.tbadk.l.g(getPageContext().getPageActivity(), i);
-                this.loadingView.bGt();
+                this.loadingView.bCA();
             }
             this.loadingView.onChangeSkinType();
         }
@@ -1120,15 +1120,15 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
                 }
             } else {
                 this.mPermissionCallback = eVar;
-                boolean z2 = com.baidu.tbadk.core.sharedPref.b.bvr().getBoolean(SharedPrefConfig.KEY_IS_WINDOW_PERMISSION_DIALOG_SHOWN, false);
+                boolean z2 = com.baidu.tbadk.core.sharedPref.b.brx().getBoolean(SharedPrefConfig.KEY_IS_WINDOW_PERMISSION_DIALOG_SHOWN, false);
                 if (z) {
                     z2 = false;
                 }
                 if (!z2) {
                     com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(this);
-                    aVar.jI(false);
-                    aVar.oZ(R.string.request_permission_default_title);
-                    aVar.pa(R.string.request_window_permission_default_text);
+                    aVar.jE(false);
+                    aVar.nt(R.string.request_permission_default_title);
+                    aVar.nu(R.string.request_window_permission_default_text);
                     aVar.a(R.string.isopen, new a.b() { // from class: com.baidu.tbadk.core.BaseFragmentActivity.7
                         @Override // com.baidu.tbadk.core.dialog.a.b
                         public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
@@ -1153,8 +1153,8 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
                             }
                         }
                     }).b(getPageContext());
-                    aVar.btY();
-                    com.baidu.tbadk.core.sharedPref.b.bvr().putBoolean(SharedPrefConfig.KEY_IS_WINDOW_PERMISSION_DIALOG_SHOWN, true);
+                    aVar.bqe();
+                    com.baidu.tbadk.core.sharedPref.b.brx().putBoolean(SharedPrefConfig.KEY_IS_WINDOW_PERMISSION_DIALOG_SHOWN, true);
                     return false;
                 } else if (this.mPermissionCallback != null) {
                     this.mPermissionCallback.onPermissionResult(false);
@@ -1278,11 +1278,11 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
     }
 
     public void registerResponsedEventListener(Class<? extends com.baidu.tbadk.mutiprocess.a> cls, com.baidu.tbadk.mutiprocess.h hVar) {
-        com.baidu.tbadk.mutiprocess.g.bGG().a(cls, hVar, getUniqueId());
+        com.baidu.tbadk.mutiprocess.g.bCN().a(cls, hVar, getUniqueId());
     }
 
     public void unRegisterResponsedEventListener() {
-        com.baidu.tbadk.mutiprocess.g.bGG().m(getUniqueId());
+        com.baidu.tbadk.mutiprocess.g.bCN().m(getUniqueId());
     }
 
     public boolean checkUpIsLogin() {
@@ -1364,7 +1364,7 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
                 @Override // com.baidu.tbadk.util.aa.b
                 public void onShot(String str) {
                     if (BaseFragmentActivity.this.getCurrentPageKey() != PageStayDurationConstants.PageName.HOMEPAGE && BaseFragmentActivity.this.getCurrentPageKey() != PageStayDurationConstants.PageName.PB && BaseFragmentActivity.this.getCurrentPageKey() != PageStayDurationConstants.PageName.FRS) {
-                        TiebaStatic.log(new aq("c13848").dX("uid", TbadkCoreApplication.getCurrentAccount()).an("obj_type", 4));
+                        TiebaStatic.log(new aq("c13848").dW("uid", TbadkCoreApplication.getCurrentAccount()).an("obj_type", 4));
                     }
                     BaseFragmentActivity.this.onScreenShot(str);
                 }

@@ -3,20 +3,20 @@ package com.ksad.lottie.model.content;
 import androidx.annotation.Nullable;
 import com.ksad.lottie.a.a.o;
 import com.ksad.lottie.model.a.l;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class g implements b {
 
     /* renamed from: a  reason: collision with root package name */
-    private final String f8375a;
+    private final String f8075a;
 
     /* renamed from: b  reason: collision with root package name */
-    private final com.ksad.lottie.model.a.b f8376b;
+    private final com.ksad.lottie.model.a.b f8076b;
     private final com.ksad.lottie.model.a.b c;
     private final l d;
 
     public g(String str, com.ksad.lottie.model.a.b bVar, com.ksad.lottie.model.a.b bVar2, l lVar) {
-        this.f8375a = str;
-        this.f8376b = bVar;
+        this.f8075a = str;
+        this.f8076b = bVar;
         this.c = bVar2;
         this.d = lVar;
     }
@@ -28,11 +28,11 @@ public class g implements b {
     }
 
     public String a() {
-        return this.f8375a;
+        return this.f8075a;
     }
 
     public com.ksad.lottie.model.a.b b() {
-        return this.f8376b;
+        return this.f8076b;
     }
 
     public com.ksad.lottie.model.a.b c() {

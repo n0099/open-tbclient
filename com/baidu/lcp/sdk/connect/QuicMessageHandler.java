@@ -46,7 +46,7 @@ public class QuicMessageHandler extends d implements c {
     }
 
     @Override // com.baidu.lcp.sdk.connect.d
-    public InputStream zF() throws EOFException, IOException {
+    public InputStream vK() throws EOFException, IOException {
         return null;
     }
 }

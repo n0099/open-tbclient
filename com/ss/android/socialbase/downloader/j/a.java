@@ -7,68 +7,68 @@ import java.util.concurrent.Future;
 public class a implements c {
 
     /* renamed from: a  reason: collision with root package name */
-    private final InputStream f13502a;
+    private final InputStream f13202a;
 
     /* renamed from: b  reason: collision with root package name */
-    private final int f13503b;
+    private final int f13203b;
     private final int c;
     private volatile boolean l;
     private volatile boolean m;
     private int p;
-    private b qbB;
-    private b qbC;
-    private b qbD;
-    private b qbE;
-    private b qbF;
-    private b qbG;
-    private volatile Throwable qbH;
-    private volatile Future qbI;
+    private b pXa;
+    private b pXb;
+    private b pXc;
+    private b pXd;
+    private b pXe;
+    private b pXf;
+    private volatile Throwable pXg;
+    private volatile Future pXh;
     private final Object d = new Object();
     private final Object e = new Object();
-    private final Runnable qbJ = new Runnable() { // from class: com.ss.android.socialbase.downloader.j.a.1
+    private final Runnable pXi = new Runnable() { // from class: com.ss.android.socialbase.downloader.j.a.1
         /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [114=6] */
         /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
         /* JADX DEBUG: Finally have unexpected throw blocks count: 3, expect 1 */
         @Override // java.lang.Runnable
         public void run() {
-            b eJU;
+            b eGe;
             Process.setThreadPriority(10);
             do {
                 try {
-                    eJU = a.this.eJU();
-                    eJU.f13505b = a.this.f13502a.read(eJU.f13504a);
-                    a.this.c(eJU);
+                    eGe = a.this.eGe();
+                    eGe.f13205b = a.this.f13202a.read(eGe.f13204a);
+                    a.this.c(eGe);
                 } catch (Throwable th) {
                     try {
-                        a.this.qbH = th;
+                        a.this.pXg = th;
                         th.printStackTrace();
                         synchronized (a.this.e) {
                             a.this.m = true;
                             a.this.e.notify();
-                            com.ss.android.socialbase.downloader.m.d.a(a.this.f13502a);
+                            com.ss.android.socialbase.downloader.m.d.a(a.this.f13202a);
                             return;
                         }
                     } catch (Throwable th2) {
                         synchronized (a.this.e) {
                             a.this.m = true;
                             a.this.e.notify();
-                            com.ss.android.socialbase.downloader.m.d.a(a.this.f13502a);
+                            com.ss.android.socialbase.downloader.m.d.a(a.this.f13202a);
                             throw th2;
                         }
                     }
                 }
-            } while (eJU.f13505b != -1);
+            } while (eGe.f13205b != -1);
             synchronized (a.this.e) {
                 a.this.m = true;
                 a.this.e.notify();
             }
-            com.ss.android.socialbase.downloader.m.d.a(a.this.f13502a);
+            com.ss.android.socialbase.downloader.m.d.a(a.this.f13202a);
         }
     };
 
     public a(InputStream inputStream, int i, int i2) throws Throwable {
-        this.f13502a = inputStream;
-        this.f13503b = i;
+        this.f13202a = inputStream;
+        this.f13203b = i;
         if (i2 < 1) {
             i2 = 1;
         } else if (i2 > 64) {
@@ -79,8 +79,8 @@ public class a implements c {
     }
 
     @Override // com.ss.android.socialbase.downloader.j.c
-    public b eJT() throws com.ss.android.socialbase.downloader.e.a, InterruptedException {
-        return eJV();
+    public b eGd() throws com.ss.android.socialbase.downloader.e.a, InterruptedException {
+        return eGf();
     }
 
     @Override // com.ss.android.socialbase.downloader.j.c
@@ -94,50 +94,50 @@ public class a implements c {
             this.l = true;
             this.d.notify();
         }
-        Future future = this.qbI;
+        Future future = this.pXh;
         if (future != null) {
             try {
                 future.cancel(true);
             } catch (Throwable th) {
             }
-            this.qbI = null;
+            this.pXh = null;
         }
     }
 
     private void c() throws Throwable {
-        this.qbI = com.ss.android.socialbase.downloader.downloader.b.eHF().submit(this.qbJ);
+        this.pXh = com.ss.android.socialbase.downloader.downloader.b.eDP().submit(this.pXi);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public b eJU() throws d, InterruptedException {
-        b bVar = this.qbD;
+    public b eGe() throws d, InterruptedException {
+        b bVar = this.pXc;
         if (bVar != null) {
             if (this.l) {
                 throw new d();
             }
-            this.qbD = bVar.qbL;
-            bVar.qbL = null;
+            this.pXc = bVar.pXk;
+            bVar.pXk = null;
         } else {
             synchronized (this.d) {
                 if (this.l) {
                     throw new d();
                 }
-                bVar = this.qbB;
+                bVar = this.pXa;
                 if (bVar == null && this.p < this.c) {
                     this.p++;
-                    bVar = new b(this.f13503b);
+                    bVar = new b(this.f13203b);
                 } else {
                     while (bVar == null) {
                         this.d.wait();
                         if (this.l) {
                             throw new d();
                         }
-                        bVar = this.qbB;
+                        bVar = this.pXa;
                     }
-                    this.qbD = bVar.qbL;
-                    this.qbC = null;
-                    this.qbB = null;
-                    bVar.qbL = null;
+                    this.pXc = bVar.pXk;
+                    this.pXb = null;
+                    this.pXa = null;
+                    bVar.pXk = null;
                 }
             }
         }
@@ -146,43 +146,43 @@ public class a implements c {
 
     private void b(b bVar) {
         synchronized (this.d) {
-            b bVar2 = this.qbC;
+            b bVar2 = this.pXb;
             if (bVar2 == null) {
-                this.qbC = bVar;
-                this.qbB = bVar;
+                this.pXb = bVar;
+                this.pXa = bVar;
                 this.d.notify();
             } else {
-                bVar2.qbL = bVar;
-                this.qbC = bVar;
+                bVar2.pXk = bVar;
+                this.pXb = bVar;
             }
         }
     }
 
-    private b eJV() throws com.ss.android.socialbase.downloader.e.a, InterruptedException {
-        b bVar = this.qbG;
+    private b eGf() throws com.ss.android.socialbase.downloader.e.a, InterruptedException {
+        b bVar = this.pXf;
         if (bVar != null) {
-            this.qbG = bVar.qbL;
-            bVar.qbL = null;
+            this.pXf = bVar.pXk;
+            bVar.pXk = null;
         } else {
             synchronized (this.e) {
-                bVar = this.qbE;
+                bVar = this.pXd;
                 if (bVar == null) {
                     do {
                         if (this.m) {
                             f();
                         }
                         this.e.wait();
-                        bVar = this.qbE;
+                        bVar = this.pXd;
                     } while (bVar == null);
-                    this.qbG = bVar.qbL;
-                    this.qbF = null;
-                    this.qbE = null;
-                    bVar.qbL = null;
+                    this.pXf = bVar.pXk;
+                    this.pXe = null;
+                    this.pXd = null;
+                    bVar.pXk = null;
                 } else {
-                    this.qbG = bVar.qbL;
-                    this.qbF = null;
-                    this.qbE = null;
-                    bVar.qbL = null;
+                    this.pXf = bVar.pXk;
+                    this.pXe = null;
+                    this.pXd = null;
+                    bVar.pXk = null;
                 }
             }
         }
@@ -192,20 +192,20 @@ public class a implements c {
     /* JADX INFO: Access modifiers changed from: private */
     public void c(b bVar) {
         synchronized (this.e) {
-            b bVar2 = this.qbF;
+            b bVar2 = this.pXe;
             if (bVar2 == null) {
-                this.qbF = bVar;
-                this.qbE = bVar;
+                this.pXe = bVar;
+                this.pXd = bVar;
                 this.e.notify();
             } else {
-                bVar2.qbL = bVar;
-                this.qbF = bVar;
+                bVar2.pXk = bVar;
+                this.pXe = bVar;
             }
         }
     }
 
     private void f() throws com.ss.android.socialbase.downloader.e.a {
-        Throwable th = this.qbH;
+        Throwable th = this.pXg;
         if (th != null) {
             if (th instanceof d) {
                 throw new com.ss.android.socialbase.downloader.e.a(1068, "async reader closed!");

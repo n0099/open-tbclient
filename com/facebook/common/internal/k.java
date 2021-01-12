@@ -1,18 +1,18 @@
 package com.facebook.common.internal;
-/* loaded from: classes3.dex */
+/* loaded from: classes14.dex */
 public class k {
-    public static final j<Boolean> ptg = new j<Boolean>() { // from class: com.facebook.common.internal.k.2
+    public static final j<Boolean> poE = new j<Boolean>() { // from class: com.facebook.common.internal.k.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.facebook.common.internal.j
-        /* renamed from: euc */
+        /* renamed from: eqi */
         public Boolean get() {
             return true;
         }
     };
-    public static final j<Boolean> pth = new j<Boolean>() { // from class: com.facebook.common.internal.k.3
+    public static final j<Boolean> poF = new j<Boolean>() { // from class: com.facebook.common.internal.k.3
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.facebook.common.internal.j
-        /* renamed from: euc */
+        /* renamed from: eqi */
         public Boolean get() {
             return false;
         }

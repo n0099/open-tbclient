@@ -5,13 +5,13 @@ import android.content.ServiceConnection;
 import android.os.IBinder;
 import java.util.concurrent.CountDownLatch;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public final class e implements ServiceConnection {
-    private /* synthetic */ d qgs;
+    private /* synthetic */ d qbR;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(d dVar) {
-        this.qgs = dVar;
+        this.qbR = dVar;
     }
 
     @Override // android.content.ServiceConnection
@@ -19,10 +19,10 @@ public final class e implements ServiceConnection {
         CountDownLatch countDownLatch;
         CountDownLatch countDownLatch2;
         try {
-            this.qgs.qgr = b.a(iBinder);
-            countDownLatch = this.qgs.f;
+            this.qbR.qbQ = b.a(iBinder);
+            countDownLatch = this.qbR.f;
             if (countDownLatch != null) {
-                countDownLatch2 = this.qgs.f;
+                countDownLatch2 = this.qbR.f;
                 countDownLatch2.countDown();
             }
         } catch (Throwable th) {
@@ -31,6 +31,6 @@ public final class e implements ServiceConnection {
 
     @Override // android.content.ServiceConnection
     public final void onServiceDisconnected(ComponentName componentName) {
-        this.qgs.qgr = null;
+        this.qbR.qbQ = null;
     }
 }

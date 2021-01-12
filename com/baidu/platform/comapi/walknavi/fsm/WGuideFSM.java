@@ -2,19 +2,19 @@ package com.baidu.platform.comapi.walknavi.fsm;
 
 import android.util.Log;
 import com.baidu.platform.comapi.walknavi.b;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class WGuideFSM extends com.baidu.platform.comapi.walknavi.a {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f4492a;
+    private String f4274a;
 
     /* renamed from: b  reason: collision with root package name */
-    private String f4493b;
+    private String f4275b;
     private String c;
 
     public WGuideFSM() {
         setInitialState("Entry");
-        this.c = this.f4492a;
+        this.c = this.f4274a;
         FSMTable.initTransition();
     }
 
@@ -29,51 +29,51 @@ public class WGuideFSM extends com.baidu.platform.comapi.walknavi.a {
     }
 
     public void setInitialState(String str) {
-        this.f4492a = str;
+        this.f4274a = str;
     }
 
     public synchronized void runCurrentState() {
-        if (!this.f4492a.equalsIgnoreCase("Entry")) {
-            a(this.f4492a, RGState.METHOD_NAME_EXCUTE);
+        if (!this.f4274a.equalsIgnoreCase("Entry")) {
+            stateReflection(this.f4274a, RGState.METHOD_NAME_EXCUTE);
         }
     }
 
     public synchronized void runEntryState() {
-        if (b.a().M() == 4) {
-            this.f4492a = "SegEntry";
+        if (b.a().J() == 4) {
+            this.f4274a = "SegEntry";
         } else {
-            this.f4492a = "Entry";
+            this.f4274a = "Entry";
         }
-        a(this.f4492a, RGState.METHOD_NAME_EXCUTE);
+        stateReflection(this.f4274a, RGState.METHOD_NAME_EXCUTE);
     }
 
     public synchronized void run(String str) {
-        String str2 = this.f4492a;
+        String str2 = this.f4274a;
         String queryDestState = FSMTable.queryDestState(str2, str);
         if (queryDestState != null) {
-            this.f4493b = str;
+            this.f4275b = str;
             if ("BACK".equals(queryDestState)) {
-                queryDestState = b(str2);
+                queryDestState = getBackState(str2);
             }
-            a(str2, RGState.METHOD_NAME_EXIT);
-            a(queryDestState, "enter");
-            a(queryDestState, RGState.METHOD_NAME_EXCUTE);
-            this.f4492a = queryDestState;
-            a(queryDestState);
+            stateReflection(str2, RGState.METHOD_NAME_EXIT);
+            stateReflection(queryDestState, "enter");
+            stateReflection(queryDestState, RGState.METHOD_NAME_EXCUTE);
+            this.f4274a = queryDestState;
+            cacheBackState(queryDestState);
         }
     }
 
     public String getCurrentState() {
-        return this.f4492a;
+        return this.f4274a;
     }
 
     public String getCurrentEvent() {
-        return this.f4493b;
+        return this.f4275b;
     }
 
     public static void saveZoomLevel() {
         int i = 15;
-        int k = (int) b.a().J().k();
+        int k = (int) b.a().G().k();
         if (k >= 15) {
             i = k > 20 ? 19 : k;
         }
@@ -89,7 +89,7 @@ public class WGuideFSM extends com.baidu.platform.comapi.walknavi.a {
         com.baidu.platform.comapi.walknavi.b.a.c = i;
     }
 
-    private void a(String str, String str2) {
+    private void stateReflection(String str, String str2) {
         try {
             Class<?> cls = Class.forName(RGState.PACKAGE_NAME + "." + RGState.CLASS_PREFIX + str);
             cls.getMethod(str2, new Class[0]).invoke(cls.newInstance(), new Object[0]);
@@ -98,7 +98,7 @@ public class WGuideFSM extends com.baidu.platform.comapi.walknavi.a {
         }
     }
 
-    private void a(String str) {
+    private void cacheBackState(String str) {
         if ("North2D".equals(str)) {
             this.c = "North2D";
         } else if ("Car3D".equals(str) || "Entry".equals(str)) {
@@ -106,7 +106,7 @@ public class WGuideFSM extends com.baidu.platform.comapi.walknavi.a {
         }
     }
 
-    private String b(String str) {
+    private String getBackState(String str) {
         if (!"BrowseMap".equals(str)) {
             return null;
         }

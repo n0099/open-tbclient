@@ -14,19 +14,19 @@ import java.util.Set;
 public class t {
 
     /* renamed from: a  reason: collision with root package name */
-    private final Set<String> f7439a;
+    private final Set<String> f7139a;
 
     /* renamed from: b  reason: collision with root package name */
-    private final Set<String> f7440b;
-    private final v c = q.f7434a;
+    private final Set<String> f7140b;
+    private final v c = q.f7134a;
     private final u d;
     private k.b e;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public t(@Nullable u uVar, @NonNull Set<String> set, @NonNull Set<String> set2) {
         this.d = uVar;
-        this.f7439a = new LinkedHashSet(set);
-        this.f7440b = new LinkedHashSet(set2);
+        this.f7139a = new LinkedHashSet(set);
+        this.f7140b = new LinkedHashSet(set2);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -44,8 +44,8 @@ public class t {
         if (host == null) {
             b2 = null;
         } else {
-            w wVar3 = this.f7440b.contains(bVar.a()) ? w.PUBLIC : null;
-            for (String str2 : this.f7439a) {
+            w wVar3 = this.f7140b.contains(bVar.a()) ? w.PUBLIC : null;
+            for (String str2 : this.f7139a) {
                 if (parse.getHost().equals(str2) || host.endsWith("." + str2)) {
                     wVar = w.PRIVATE;
                     break;
@@ -98,16 +98,16 @@ public class t {
         if (!z || this.d == null) {
             return null;
         }
-        u.c a2 = this.d.a(str, this.f7439a);
+        u.c a2 = this.d.a(str, this.f7139a);
         if (a2.c.contains(bVar.a())) {
             return null;
         }
-        if (a2.f7448b.contains(bVar.a())) {
+        if (a2.f7148b.contains(bVar.a())) {
             return w.PRIVATE;
         }
-        if (a2.f7447a.compareTo(bVar.b()) < 0) {
+        if (a2.f7147a.compareTo(bVar.b()) < 0) {
             return null;
         }
-        return a2.f7447a;
+        return a2.f7147a;
     }
 }

@@ -12,7 +12,7 @@ import com.baidu.android.imsdk.utils.Utility;
 import com.baidu.sapi2.SapiContext;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class IMJoinCastMsg extends Message {
     private static final String TAG = "IMJoinCastMsg";
     private Context mContext;
@@ -104,7 +104,7 @@ public class IMJoinCastMsg extends Message {
             if (r4 <= 0) goto L103
             int r5 = r4 * 1000
             com.baidu.android.imsdk.internal.Heartbeat.ALARM_TIMEOUT = r5     // Catch: java.lang.Exception -> L109
-            boolean r5 = com.baidu.i.a.aze     // Catch: java.lang.Exception -> L109
+            boolean r5 = com.baidu.g.a.aur     // Catch: java.lang.Exception -> L109
             if (r5 == 0) goto L60
             int r4 = r4 * 1000
             com.baidu.android.imsdk.conversation.ConversationStudioManImpl.mCastHeartBeatTime = r4     // Catch: java.lang.Exception -> L109

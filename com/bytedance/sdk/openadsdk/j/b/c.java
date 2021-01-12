@@ -18,29 +18,29 @@ import java.util.concurrent.TimeUnit;
 public class c {
 
     /* renamed from: b  reason: collision with root package name */
-    private static volatile c f7537b;
+    private static volatile c f7237b;
     private final d c;
     private volatile SQLiteStatement e;
 
     /* renamed from: a  reason: collision with root package name */
-    private final SparseArray<Map<String, a>> f7538a = new SparseArray<>(2);
+    private final SparseArray<Map<String, a>> f7238a = new SparseArray<>(2);
     private final Executor d = new ThreadPoolExecutor(0, 1, 60, TimeUnit.SECONDS, new LinkedBlockingDeque());
 
     private c(Context context) {
         this.c = new d(context.getApplicationContext());
-        this.f7538a.put(0, new ConcurrentHashMap());
-        this.f7538a.put(1, new ConcurrentHashMap());
+        this.f7238a.put(0, new ConcurrentHashMap());
+        this.f7238a.put(1, new ConcurrentHashMap());
     }
 
     public static c a(Context context) {
-        if (f7537b == null) {
+        if (f7237b == null) {
             synchronized (c.class) {
-                if (f7537b == null) {
-                    f7537b = new c(context);
+                if (f7237b == null) {
+                    f7237b = new c(context);
                 }
             }
         }
-        return f7537b;
+        return f7237b;
     }
 
     public a a(String str, int i) {
@@ -48,7 +48,7 @@ public class c {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
-        Map<String, a> map = this.f7538a.get(i);
+        Map<String, a> map = this.f7238a.get(i);
         a aVar2 = map == null ? null : map.get(str);
         if (aVar2 != null) {
             return aVar2;
@@ -73,9 +73,9 @@ public class c {
 
     public void a(final a aVar) {
         if (aVar != null) {
-            Map<String, a> map = this.f7538a.get(aVar.d);
+            Map<String, a> map = this.f7238a.get(aVar.d);
             if (map != null) {
-                map.put(aVar.f7533a, aVar);
+                map.put(aVar.f7233a, aVar);
             }
             this.d.execute(new Runnable() { // from class: com.bytedance.sdk.openadsdk.j.b.c.1
                 @Override // java.lang.Runnable
@@ -86,8 +86,8 @@ public class c {
                         } else {
                             c.this.e = c.this.c.getWritableDatabase().compileStatement("INSERT INTO video_http_header_t (key,mime,contentLength,flag,extra) VALUES(?,?,?,?,?)");
                         }
-                        c.this.e.bindString(1, aVar.f7533a);
-                        c.this.e.bindString(2, aVar.f7534b);
+                        c.this.e.bindString(1, aVar.f7233a);
+                        c.this.e.bindString(2, aVar.f7234b);
                         c.this.e.bindLong(3, aVar.c);
                         c.this.e.bindLong(4, aVar.d);
                         c.this.e.bindString(5, aVar.e);
@@ -102,7 +102,7 @@ public class c {
     public void a(Collection<String> collection, int i) {
         if (collection != null && !collection.isEmpty()) {
             String[] strArr = new String[collection.size() + 1];
-            Map<String, a> map = this.f7538a.get(i);
+            Map<String, a> map = this.f7238a.get(i);
             int i2 = -1;
             for (String str : collection) {
                 if (map != null) {
@@ -132,7 +132,7 @@ public class c {
     }
 
     public void a(final int i) {
-        Map<String, a> map = this.f7538a.get(i);
+        Map<String, a> map = this.f7238a.get(i);
         if (map != null) {
             map.clear();
         }

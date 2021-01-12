@@ -3,25 +3,25 @@ package com.baidu.mobstat;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.text.TextUtils;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class bq extends bn {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f3809a = "__Baidu_Stat_SDK_SendRem";
+    private static final String f3771a = "__Baidu_Stat_SDK_SendRem";
 
     /* renamed from: b  reason: collision with root package name */
-    private static bq f3810b = new bq();
+    private static bq f3772b = new bq();
 
     private bq() {
     }
 
     public static bq a() {
-        return f3810b;
+        return f3772b;
     }
 
     @Override // com.baidu.mobstat.bn
     public SharedPreferences a(Context context) {
-        return context.getSharedPreferences(f3809a, 0);
+        return context.getSharedPreferences(f3771a, 0);
     }
 
     public void a(Context context, int i) {

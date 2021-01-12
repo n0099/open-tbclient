@@ -10,7 +10,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public final class Timber {
     private static final Tree[] TREE_ARRAY_EMPTY = new Tree[0];
     private static final List<Tree> FOREST = new ArrayList();
@@ -169,7 +169,7 @@ public final class Timber {
         }
     };
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class DebugTree extends Tree {
         private static final Pattern ANONYMOUS_CLASS = Pattern.compile("(\\$\\d+)+$");
         private static final int CALL_STACK_INDEX = 5;
@@ -236,7 +236,7 @@ public final class Timber {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static abstract class Tree {
         final ThreadLocal<String> explicitTag = new ThreadLocal<>();
 

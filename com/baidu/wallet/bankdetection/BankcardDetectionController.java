@@ -7,13 +7,13 @@ import com.baidu.apollon.statistics.PayStatisticsUtil;
 import com.baidu.wallet.core.NoProguard;
 import java.util.Observable;
 import java.util.Observer;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class BankcardDetectionController extends Observable implements NoProguard, Observer {
 
     /* renamed from: a  reason: collision with root package name */
-    private IDetectionListener f5933a;
+    private IDetectionListener f5633a;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public interface IDetectionListener extends NoProguard {
         void onFail(int i, String str);
 
@@ -24,21 +24,21 @@ public class BankcardDetectionController extends Observable implements NoProguar
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        private static BankcardDetectionController f5934a = new BankcardDetectionController();
+        private static BankcardDetectionController f5634a = new BankcardDetectionController();
     }
 
     public static BankcardDetectionController getInstance() {
-        return a.f5934a;
+        return a.f5634a;
     }
 
     public void gotoDetctionCard(Context context, IDetectionListener iDetectionListener) {
         PayStatisticsUtil.onEvent("takephotoPhotoread");
         if (iDetectionListener != null) {
-            this.f5933a = iDetectionListener;
+            this.f5633a = iDetectionListener;
             Intent intent = new Intent(context, BankCardDetectionActivity.class);
             if (!(context instanceof Activity)) {
                 intent.setFlags(268435456);
@@ -49,22 +49,22 @@ public class BankcardDetectionController extends Observable implements NoProguar
 
     @Override // java.util.Observer
     public void update(Observable observable, Object obj) {
-        if (this.f5933a != null) {
-            this.f5933a.onResult(obj == null ? "" : (String) obj);
-            this.f5933a = null;
+        if (this.f5633a != null) {
+            this.f5633a.onResult(obj == null ? "" : (String) obj);
+            this.f5633a = null;
         }
-        this.f5933a = null;
+        this.f5633a = null;
     }
 
     public void updateFail(int i, String str) {
-        if (this.f5933a != null) {
-            this.f5933a.onFail(i, str);
-            this.f5933a = null;
+        if (this.f5633a != null) {
+            this.f5633a.onFail(i, str);
+            this.f5633a = null;
         }
-        this.f5933a = null;
+        this.f5633a = null;
     }
 
     public void clearCardDetectionCallback() {
-        this.f5933a = null;
+        this.f5633a = null;
     }
 }

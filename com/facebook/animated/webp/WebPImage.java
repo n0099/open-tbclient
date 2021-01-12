@@ -9,7 +9,7 @@ import java.nio.ByteBuffer;
 import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
 @d
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class WebPImage implements c, b {
     @d
     private long mNativeContext;
@@ -52,7 +52,7 @@ public class WebPImage implements c, b {
     }
 
     public static WebPImage P(long j, int i) {
-        com.facebook.imagepipeline.nativecode.b.etk();
+        com.facebook.imagepipeline.nativecode.b.epq();
         g.checkArgument(j != 0);
         return nativeCreateFromNativeMemory(j, i);
     }
@@ -89,8 +89,8 @@ public class WebPImage implements c, b {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.facebook.imagepipeline.animated.base.b
-    /* renamed from: Qd */
-    public WebPFrame Qc(int i) {
+    /* renamed from: Ow */
+    public WebPFrame Ov(int i) {
         return nativeGetFrame(i);
     }
 
@@ -100,17 +100,17 @@ public class WebPImage implements c, b {
     }
 
     @Override // com.facebook.imagepipeline.animated.base.b
-    public boolean etl() {
+    public boolean epr() {
         return true;
     }
 
     @Override // com.facebook.imagepipeline.animated.base.b
-    public AnimatedDrawableFrameInfo Qa(int i) {
-        WebPFrame Qc = Qc(i);
+    public AnimatedDrawableFrameInfo Ot(int i) {
+        WebPFrame Ov = Ov(i);
         try {
-            return new AnimatedDrawableFrameInfo(i, Qc.getXOffset(), Qc.getYOffset(), Qc.getWidth(), Qc.getHeight(), Qc.isBlendWithPreviousFrame() ? AnimatedDrawableFrameInfo.BlendOperation.BLEND_WITH_PREVIOUS : AnimatedDrawableFrameInfo.BlendOperation.NO_BLEND, Qc.shouldDisposeToBackgroundColor() ? AnimatedDrawableFrameInfo.DisposalMethod.DISPOSE_TO_BACKGROUND : AnimatedDrawableFrameInfo.DisposalMethod.DISPOSE_DO_NOT);
+            return new AnimatedDrawableFrameInfo(i, Ov.getXOffset(), Ov.getYOffset(), Ov.getWidth(), Ov.getHeight(), Ov.isBlendWithPreviousFrame() ? AnimatedDrawableFrameInfo.BlendOperation.BLEND_WITH_PREVIOUS : AnimatedDrawableFrameInfo.BlendOperation.NO_BLEND, Ov.shouldDisposeToBackgroundColor() ? AnimatedDrawableFrameInfo.DisposalMethod.DISPOSE_TO_BACKGROUND : AnimatedDrawableFrameInfo.DisposalMethod.DISPOSE_DO_NOT);
         } finally {
-            Qc.dispose();
+            Ov.dispose();
         }
     }
 }

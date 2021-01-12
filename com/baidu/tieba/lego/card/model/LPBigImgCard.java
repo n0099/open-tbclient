@@ -6,7 +6,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.VrPlayerActivityConfig;
 import com.baidu.tieba.lego.card.c.d;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class LPBigImgCard extends BaseCardInfo implements com.baidu.tieba.lego.card.b.a<LPBigImgCard> {
     private final int bgColor;
     private final int bgColorNight;
@@ -25,16 +25,16 @@ public class LPBigImgCard extends BaseCardInfo implements com.baidu.tieba.lego.c
     public LPBigImgCard(JSONObject jSONObject) {
         super(jSONObject);
         this.picUrl = jSONObject.optString("pic_url");
-        this.picWidth = d.Fi(jSONObject.optInt(VrPlayerActivityConfig.PIC_WIDTH));
-        this.picHeight = d.Fi(jSONObject.optInt(VrPlayerActivityConfig.PIC_HEIGHT));
-        this.bgColor = com.baidu.tieba.lego.card.c.b.sF(jSONObject.optString("bg_color"));
-        this.bgColorNight = com.baidu.tieba.lego.card.c.b.sF(jSONObject.optString("bg_color_n"));
+        this.picWidth = d.DC(jSONObject.optInt(VrPlayerActivityConfig.PIC_WIDTH));
+        this.picHeight = d.DC(jSONObject.optInt(VrPlayerActivityConfig.PIC_HEIGHT));
+        this.bgColor = com.baidu.tieba.lego.card.c.b.rt(jSONObject.optString("bg_color"));
+        this.bgColorNight = com.baidu.tieba.lego.card.c.b.rt(jSONObject.optString("bg_color_n"));
         this.btnText = jSONObject.optString("btn_text");
-        this.btnColor = com.baidu.tieba.lego.card.c.b.sF(jSONObject.optString("btn_color"));
-        this.btnColorNight = com.baidu.tieba.lego.card.c.b.sF(jSONObject.optString("btn_color_n"));
+        this.btnColor = com.baidu.tieba.lego.card.c.b.rt(jSONObject.optString("btn_color"));
+        this.btnColorNight = com.baidu.tieba.lego.card.c.b.rt(jSONObject.optString("btn_color_n"));
         this.btnImgUrl = jSONObject.optString("btn_img");
-        this.btnWidth = d.Fi(jSONObject.optInt("btn_width"));
-        this.btnHeight = d.Fi(jSONObject.optInt("btn_height"));
+        this.btnWidth = d.DC(jSONObject.optInt("btn_width"));
+        this.btnHeight = d.DC(jSONObject.optInt("btn_height"));
         this.btnPosRatio = jSONObject.optDouble("btn_pos", 0.5d);
         this.btnLink = jSONObject.optString("link");
     }

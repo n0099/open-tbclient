@@ -14,17 +14,17 @@ import java.util.concurrent.atomic.AtomicInteger;
 public class ThreadPoolService {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final int f4024a = Runtime.getRuntime().availableProcessors();
+    private static final int f3986a = Runtime.getRuntime().availableProcessors();
 
     /* renamed from: b  reason: collision with root package name */
-    private static final ThreadFactory f4025b = new ThreadFactory() { // from class: com.baidu.pass.biometrics.base.utils.thread.ThreadPoolService.1
+    private static final ThreadFactory f3987b = new ThreadFactory() { // from class: com.baidu.pass.biometrics.base.utils.thread.ThreadPoolService.1
 
         /* renamed from: a  reason: collision with root package name */
-        private final AtomicInteger f4026a = new AtomicInteger(1);
+        private final AtomicInteger f3988a = new AtomicInteger(1);
 
         @Override // java.util.concurrent.ThreadFactory
         public Thread newThread(Runnable runnable) {
-            return new Thread(runnable, "pass_face_thread # " + this.f4026a.getAndIncrement());
+            return new Thread(runnable, "pass_face_thread # " + this.f3988a.getAndIncrement());
         }
     };
     private static final int c = 0;
@@ -64,7 +64,7 @@ public class ThreadPoolService {
                 }
             }
         };
-        this.e = new ThreadPoolExecutor(Math.max(2, Math.min(f4024a - 1, 4)), (int) ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED, 60L, TimeUnit.SECONDS, new LinkedBlockingQueue(), f4025b);
+        this.e = new ThreadPoolExecutor(Math.max(2, Math.min(f3986a - 1, 4)), (int) ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED, 60L, TimeUnit.SECONDS, new LinkedBlockingQueue(), f3987b);
         if (Build.VERSION.SDK_INT >= 9) {
             this.e.allowCoreThreadTimeOut(true);
         }

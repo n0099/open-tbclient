@@ -9,23 +9,23 @@ import java.io.File;
 public class f {
 
     /* renamed from: b  reason: collision with root package name */
-    protected a f13679b = new a(c);
+    protected a f13379b = new a(c);
 
     /* renamed from: a  reason: collision with root package name */
-    public static f f13678a = null;
+    public static f f13378a = null;
     private static boolean d = false;
     protected static final b c = new b(c(), c.m, c.g, c.h, c.c, c.i, 10, c.e, c.n);
 
     public static f a() {
-        if (f13678a == null) {
+        if (f13378a == null) {
             synchronized (f.class) {
-                if (f13678a == null) {
-                    f13678a = new f();
+                if (f13378a == null) {
+                    f13378a = new f();
                     d = true;
                 }
             }
         }
-        return f13678a;
+        return f13378a;
     }
 
     private f() {
@@ -36,18 +36,18 @@ public class f {
             String b2 = com.tencent.open.utils.e.b();
             if (!TextUtils.isEmpty(b2)) {
                 String str3 = b2 + " SDK_VERSION:" + Constants.SDK_VERSION;
-                if (this.f13679b != null) {
-                    e.f13677a.b(32, Thread.currentThread(), System.currentTimeMillis(), "openSDK_LOG", str3, null);
-                    this.f13679b.b(32, Thread.currentThread(), System.currentTimeMillis(), "openSDK_LOG", str3, null);
+                if (this.f13379b != null) {
+                    e.f13377a.b(32, Thread.currentThread(), System.currentTimeMillis(), "openSDK_LOG", str3, null);
+                    this.f13379b.b(32, Thread.currentThread(), System.currentTimeMillis(), "openSDK_LOG", str3, null);
                     d = false;
                 } else {
                     return;
                 }
             }
         }
-        e.f13677a.b(i, Thread.currentThread(), System.currentTimeMillis(), str, str2, th);
-        if (d.a.a(c.f13674b, i) && this.f13679b != null) {
-            this.f13679b.b(i, Thread.currentThread(), System.currentTimeMillis(), str, str2, th);
+        e.f13377a.b(i, Thread.currentThread(), System.currentTimeMillis(), str, str2, th);
+        if (d.a.a(c.f13374b, i) && this.f13379b != null) {
+            this.f13379b.b(i, Thread.currentThread(), System.currentTimeMillis(), str, str2, th);
         }
     }
 
@@ -82,8 +82,8 @@ public class f {
     public static void b() {
         synchronized (f.class) {
             a().d();
-            if (f13678a != null) {
-                f13678a = null;
+            if (f13378a != null) {
+                f13378a = null;
             }
         }
     }
@@ -108,10 +108,10 @@ public class f {
     }
 
     protected void d() {
-        if (this.f13679b != null) {
-            this.f13679b.a();
-            this.f13679b.b();
-            this.f13679b = null;
+        if (this.f13379b != null) {
+            this.f13379b.a();
+            this.f13379b.b();
+            this.f13379b = null;
         }
     }
 }

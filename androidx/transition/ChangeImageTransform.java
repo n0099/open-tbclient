@@ -15,7 +15,7 @@ import android.widget.ImageView;
 import androidx.annotation.NonNull;
 import androidx.transition.TransitionUtils;
 import java.util.Map;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class ChangeImageTransform extends Transition {
     private static final String PROPNAME_MATRIX = "android:changeImageTransform:matrix";
     private static final String PROPNAME_BOUNDS = "android:changeImageTransform:bounds";
@@ -123,7 +123,7 @@ public class ChangeImageTransform extends Transition {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: androidx.transition.ChangeImageTransform$3  reason: invalid class name */
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public static /* synthetic */ class AnonymousClass3 {
         static final /* synthetic */ int[] $SwitchMap$android$widget$ImageView$ScaleType = new int[ImageView.ScaleType.values().length];
 

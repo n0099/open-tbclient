@@ -10,47 +10,47 @@ import com.baidu.tbadk.core.util.ao;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class c extends TBSpecificationButtonConfig {
-    private boolean fpI;
+    private boolean fkY;
 
     public c() {
-        this.fpt = R.color.CAM_X0302;
-        this.fpI = false;
+        this.fkJ = R.color.CAM_X0302;
+        this.fkY = false;
     }
 
-    public void rs(@ColorRes int i) {
-        this.fpt = i;
-        this.fpI = false;
-        this.fpE = true;
-        if (this.fpG != null) {
-            this.fpG.byu();
+    public void pM(@ColorRes int i) {
+        this.fkJ = i;
+        this.fkY = false;
+        this.fkU = true;
+        if (this.fkW != null) {
+            this.fkW.buA();
         }
     }
 
-    public void rv(@ColorInt int i) {
-        this.fpt = i;
-        this.fpI = false;
-        this.fpE = false;
-        if (this.fpG != null) {
-            this.fpG.byu();
+    public void pP(@ColorInt int i) {
+        this.fkJ = i;
+        this.fkY = false;
+        this.fkU = false;
+        if (this.fkW != null) {
+            this.fkW.buA();
         }
     }
 
-    public void byy() {
-        this.fpt = R.color.CAM_X0101;
-        this.fpI = false;
-        this.fpE = true;
-        if (this.fpG != null) {
-            this.fpG.byu();
+    public void buE() {
+        this.fkJ = R.color.CAM_X0101;
+        this.fkY = false;
+        this.fkU = true;
+        if (this.fkW != null) {
+            this.fkW.buA();
         }
     }
 
-    public void ru(@ColorRes int i) {
-        this.fpt = i;
-        this.fpu = R.color.CAM_X0902;
-        this.fpI = true;
-        this.fpE = true;
-        if (this.fpG != null) {
-            this.fpG.byu();
+    public void pO(@ColorRes int i) {
+        this.fkJ = i;
+        this.fkK = R.color.CAM_X0902;
+        this.fkY = true;
+        this.fkU = true;
+        if (this.fkW != null) {
+            this.fkW.buA();
         }
     }
 
@@ -62,10 +62,10 @@ public class c extends TBSpecificationButtonConfig {
 
     private Drawable al(float f) {
         GradientDrawable gradientDrawable = new GradientDrawable();
-        if (this.fpI) {
-            gradientDrawable.setStroke(l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds1), ao.getColor(this.akW, this.fpu));
+        if (this.fkY) {
+            gradientDrawable.setStroke(l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds1), ao.getColor(this.akf, this.fkK));
         } else {
-            gradientDrawable.setStroke(l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds1), com.baidu.tieba.tbadkCore.c.m(this.fpE ? ao.getColor(this.akW, this.fpt) : this.fpt, com.baidu.tbadk.core.elementsMaven.a.pq(R.string.A_X07)));
+            gradientDrawable.setStroke(l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds1), com.baidu.tieba.tbadkCore.c.m(this.fkU ? ao.getColor(this.akf, this.fkJ) : this.fkJ, com.baidu.tbadk.core.elementsMaven.a.nJ(R.string.A_X07)));
         }
         gradientDrawable.setShape(0);
         gradientDrawable.setCornerRadius(f);

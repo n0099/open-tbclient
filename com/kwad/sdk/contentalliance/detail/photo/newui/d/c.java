@@ -7,23 +7,23 @@ import androidx.appcompat.widget.ActivityChooserView;
 import com.kwad.sdk.core.config.c;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.utils.ae;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class c {
     private static volatile c i;
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f8864a;
+    private Context f8564a;
     private int d;
     private int f;
 
     /* renamed from: b  reason: collision with root package name */
-    private boolean f8865b = true;
+    private boolean f8565b = true;
     private boolean c = true;
     private int e = -1;
     private volatile boolean g = false;
     private volatile boolean h = false;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public interface a {
         void a(AdTemplate adTemplate, int i);
     }
@@ -41,7 +41,7 @@ public class c {
 
     private boolean a(boolean z, @NonNull AdTemplate adTemplate, int i2) {
         com.kwad.sdk.core.d.a.a("ProfileGuiderManager", "apply mNeedShowSlideUpGuide");
-        if (this.f8865b) {
+        if (this.f8565b) {
             return false;
         }
         com.kwad.sdk.core.d.a.a("ProfileGuiderManager", "apply enablePageSlideLeft=" + z + " mNeedShowSlideLeftGuide=" + this.c);
@@ -58,7 +58,7 @@ public class c {
         if (this.d >= this.f) {
             this.g = true;
         }
-        ae.b(this.f8864a, this.d);
+        ae.b(this.f8564a, this.d);
         com.kwad.sdk.core.d.a.a("ProfileGuiderManager", "realShow mAlreadyShowTimes = " + this.d + " mLastShowPosition=" + this.e);
     }
 
@@ -67,9 +67,9 @@ public class c {
         if (this.h) {
             return;
         }
-        this.f8864a = context;
+        this.f8564a = context;
         this.d = ae.a(context, 0);
-        this.f8865b = ae.c(context);
+        this.f8565b = ae.c(context);
         this.c = ae.a(context);
         com.kwad.sdk.core.d.a.a("ProfileGuiderManager", "init mNeedShowSlideLeftGuide=" + this.c);
         this.h = true;
@@ -89,13 +89,13 @@ public class c {
     }
 
     public void a(boolean z) {
-        this.f8865b = z;
+        this.f8565b = z;
     }
 
     public void b() {
         this.g = true;
         this.d = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
-        ae.b(this.f8864a, this.d);
+        ae.b(this.f8564a, this.d);
     }
 
     public void b(boolean z) {

@@ -3,16 +3,16 @@ package com.baidu.live.lottie.a.b;
 import android.graphics.Path;
 import android.graphics.PointF;
 import androidx.annotation.Nullable;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class h extends com.baidu.live.lottie.e.a<PointF> {
     @Nullable
     private Path path;
 
     public h(com.baidu.live.lottie.e eVar, com.baidu.live.lottie.e.a<PointF> aVar) {
-        super(eVar, aVar.HN, aVar.HO, aVar.HP, aVar.BU, aVar.HQ);
-        boolean z = (this.HO == 0 || this.HN == 0 || !((PointF) this.HN).equals(((PointF) this.HO).x, ((PointF) this.HO).y)) ? false : true;
-        if (this.HO != 0 && !z) {
-            this.path = com.baidu.live.lottie.d.f.b((PointF) this.HN, (PointF) this.HO, aVar.HU, aVar.HV);
+        super(eVar, aVar.HL, aVar.HM, aVar.HN, aVar.BS, aVar.HO);
+        boolean z = (this.HM == 0 || this.HL == 0 || !((PointF) this.HL).equals(((PointF) this.HM).x, ((PointF) this.HM).y)) ? false : true;
+        if (this.HM != 0 && !z) {
+            this.path = com.baidu.live.lottie.d.f.b((PointF) this.HL, (PointF) this.HM, aVar.HR, aVar.HS);
         }
     }
 

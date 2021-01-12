@@ -56,7 +56,7 @@ public class GuardProxy {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
     public class c implements IGuard {
-        private Parcel kVg;
+        private Parcel kQB;
         private IBinder mRemote;
 
         /* JADX INFO: Access modifiers changed from: package-private */
@@ -70,9 +70,9 @@ public class GuardProxy {
 
         @Override // com.baidu.tieba.keepLive.nativekeepalive.IGuard
         public void onPersistentCreate(final Context context, GuardConfigurations guardConfigurations) {
-            dcN();
+            cYV();
             aZ(context, guardConfigurations.DAEMON_ASSISTANT_CONFIG.SERVICE_NAME);
-            dcO();
+            cYW();
             new Thread() { // from class: com.baidu.tieba.keepLive.nativekeepalive.GuardProxy.c.1
                 @Override // java.lang.Thread, java.lang.Runnable
                 public void run() {
@@ -88,9 +88,9 @@ public class GuardProxy {
 
         @Override // com.baidu.tieba.keepLive.nativekeepalive.IGuard
         public void onDaemonAssistantCreate(final Context context, GuardConfigurations guardConfigurations) {
-            dcN();
+            cYV();
             aZ(context, guardConfigurations.PERSISTENT_CONFIG.SERVICE_NAME);
-            dcO();
+            cYW();
             new Thread() { // from class: com.baidu.tieba.keepLive.nativekeepalive.GuardProxy.c.2
                 @Override // java.lang.Thread, java.lang.Runnable
                 public void run() {
@@ -107,7 +107,7 @@ public class GuardProxy {
         @Override // com.baidu.tieba.keepLive.nativekeepalive.IGuard
         public void onDaemonDead() {
             if (TbadkCoreApplication.getKeepLiveSwitch(TbadkCoreApplication.getInst())) {
-                if (dcO()) {
+                if (cYW()) {
                     if (GuardProxy.this.mConfigs != null && GuardProxy.this.mConfigs.LISTENER != null) {
                         GuardProxy.this.mConfigs.LISTENER.onWatchDaemonDaed();
                     }
@@ -119,7 +119,7 @@ public class GuardProxy {
             Process.killProcess(Process.myPid());
         }
 
-        private void dcN() {
+        private void cYV() {
             try {
                 Class<?> cls = Class.forName("android.app.ActivityManagerNative");
                 Object invoke = cls.getMethod("getDefault", new Class[0]).invoke(cls, new Object[0]);
@@ -145,20 +145,20 @@ public class GuardProxy {
         private void aZ(Context context, String str) {
             Intent intent = new Intent();
             intent.setComponent(new ComponentName(context.getPackageName(), str));
-            this.kVg = Parcel.obtain();
-            this.kVg.writeInterfaceToken("android.app.IActivityManager");
-            this.kVg.writeStrongBinder(null);
-            intent.writeToParcel(this.kVg, 0);
-            this.kVg.writeString(null);
-            this.kVg.writeInt(0);
+            this.kQB = Parcel.obtain();
+            this.kQB.writeInterfaceToken("android.app.IActivityManager");
+            this.kQB.writeStrongBinder(null);
+            intent.writeToParcel(this.kQB, 0);
+            this.kQB.writeString(null);
+            this.kQB.writeInt(0);
         }
 
-        private boolean dcO() {
+        private boolean cYW() {
             try {
-                if (this.mRemote == null || this.kVg == null) {
+                if (this.mRemote == null || this.kQB == null) {
                     return false;
                 }
-                this.mRemote.transact(34, this.kVg, null, 0);
+                this.mRemote.transact(34, this.kQB, null, 0);
                 return true;
             } catch (RemoteException e) {
                 e.printStackTrace();
@@ -170,8 +170,8 @@ public class GuardProxy {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
     public class b implements IGuard {
-        private AlarmManager kVa;
-        private PendingIntent kVb;
+        private AlarmManager kQv;
+        private PendingIntent kQw;
 
         /* JADX INFO: Access modifiers changed from: package-private */
         public b() {
@@ -227,7 +227,7 @@ public class GuardProxy {
         @Override // com.baidu.tieba.keepLive.nativekeepalive.IGuard
         public void onDaemonDead() {
             if (TbadkCoreApplication.getKeepLiveSwitch(TbadkCoreApplication.getInst())) {
-                this.kVa.setRepeating(3, SystemClock.elapsedRealtime(), 100L, this.kVb);
+                this.kQv.setRepeating(3, SystemClock.elapsedRealtime(), 100L, this.kQw);
                 if (GuardProxy.this.mConfigs != null && GuardProxy.this.mConfigs.LISTENER != null) {
                     GuardProxy.this.mConfigs.LISTENER.onWatchDaemonDaed();
                 }
@@ -238,26 +238,26 @@ public class GuardProxy {
         }
 
         private void aY(Context context, String str) {
-            if (this.kVa == null) {
-                this.kVa = (AlarmManager) context.getSystemService(NotificationCompat.CATEGORY_ALARM);
+            if (this.kQv == null) {
+                this.kQv = (AlarmManager) context.getSystemService(NotificationCompat.CATEGORY_ALARM);
             }
-            if (this.kVb == null) {
+            if (this.kQw == null) {
                 Intent intent = new Intent();
                 intent.setComponent(new ComponentName(context.getPackageName(), str));
                 intent.setFlags(16);
-                this.kVb = PendingIntent.getService(context, 0, intent, 0);
+                this.kQw = PendingIntent.getService(context, 0, intent, 0);
             }
-            this.kVa.cancel(this.kVb);
+            this.kQv.cancel(this.kQw);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
     public class a implements IGuard {
-        private final String kUY = "bin";
-        private final String kUZ = "daemon";
-        private AlarmManager kVa;
-        private PendingIntent kVb;
+        private final String kQt = "bin";
+        private final String kQu = "daemon";
+        private AlarmManager kQv;
+        private PendingIntent kQw;
 
         /* JADX INFO: Access modifiers changed from: package-private */
         public a() {
@@ -265,7 +265,7 @@ public class GuardProxy {
 
         @Override // com.baidu.tieba.keepLive.nativekeepalive.IGuard
         public boolean onInitialization(Context context) {
-            return gy(context);
+            return gw(context);
         }
 
         @Override // com.baidu.tieba.keepLive.nativekeepalive.IGuard
@@ -302,25 +302,25 @@ public class GuardProxy {
         @Override // com.baidu.tieba.keepLive.nativekeepalive.IGuard
         public void onDaemonDead() {
             if (TbadkCoreApplication.getKeepLiveSwitch(TbadkCoreApplication.getInst())) {
-                this.kVa.setRepeating(3, SystemClock.elapsedRealtime(), 100L, this.kVb);
+                this.kQv.setRepeating(3, SystemClock.elapsedRealtime(), 100L, this.kQw);
                 Process.killProcess(Process.myPid());
             }
         }
 
         private void aY(Context context, String str) {
-            if (this.kVa == null) {
-                this.kVa = (AlarmManager) context.getSystemService(NotificationCompat.CATEGORY_ALARM);
+            if (this.kQv == null) {
+                this.kQv = (AlarmManager) context.getSystemService(NotificationCompat.CATEGORY_ALARM);
             }
-            if (this.kVb == null) {
+            if (this.kQw == null) {
                 Intent intent = new Intent();
                 intent.setComponent(new ComponentName(context.getPackageName(), str));
                 intent.setFlags(16);
-                this.kVb = PendingIntent.getService(context, 0, intent, 0);
+                this.kQw = PendingIntent.getService(context, 0, intent, 0);
             }
-            this.kVa.cancel(this.kVb);
+            this.kQv.cancel(this.kQw);
         }
 
-        private boolean gy(Context context) {
+        private boolean gw(Context context) {
             String str;
             String str2 = Build.CPU_ABI;
             if (str2.startsWith("armeabi-v7a")) {
@@ -375,9 +375,9 @@ public class GuardProxy {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
     public class d implements IGuard {
-        private final String kUY = "bin";
-        private final String kUZ = "daemon";
-        private Parcel kVg;
+        private Parcel kQB;
+        private final String kQt = "bin";
+        private final String kQu = "daemon";
         private IBinder mRemote;
 
         /* JADX INFO: Access modifiers changed from: package-private */
@@ -386,12 +386,12 @@ public class GuardProxy {
 
         @Override // com.baidu.tieba.keepLive.nativekeepalive.IGuard
         public boolean onInitialization(Context context) {
-            return gy(context);
+            return gw(context);
         }
 
         @Override // com.baidu.tieba.keepLive.nativekeepalive.IGuard
         public void onPersistentCreate(final Context context, final GuardConfigurations guardConfigurations) {
-            dcN();
+            cYV();
             aZ(context, guardConfigurations.DAEMON_ASSISTANT_CONFIG.SERVICE_NAME);
             Thread thread = new Thread() { // from class: com.baidu.tieba.keepLive.nativekeepalive.GuardProxy.d.1
                 @Override // java.lang.Thread, java.lang.Runnable
@@ -420,7 +420,7 @@ public class GuardProxy {
 
         @Override // com.baidu.tieba.keepLive.nativekeepalive.IGuard
         public void onDaemonDead() {
-            if (dcO()) {
+            if (cYW()) {
                 if (GuardProxy.this.mConfigs != null && GuardProxy.this.mConfigs.LISTENER != null) {
                     GuardProxy.this.mConfigs.LISTENER.onWatchDaemonDaed();
                 }
@@ -428,7 +428,7 @@ public class GuardProxy {
             }
         }
 
-        private void dcN() {
+        private void cYV() {
             try {
                 Class<?> cls = Class.forName("android.app.ActivityManagerNative");
                 Object invoke = cls.getMethod("getDefault", new Class[0]).invoke(cls, new Object[0]);
@@ -454,20 +454,20 @@ public class GuardProxy {
         private void aZ(Context context, String str) {
             Intent intent = new Intent();
             intent.setComponent(new ComponentName(context.getPackageName(), str));
-            this.kVg = Parcel.obtain();
-            this.kVg.writeInterfaceToken("android.app.IActivityManager");
-            this.kVg.writeStrongBinder(null);
-            intent.writeToParcel(this.kVg, 0);
-            this.kVg.writeString(null);
-            this.kVg.writeInt(0);
+            this.kQB = Parcel.obtain();
+            this.kQB.writeInterfaceToken("android.app.IActivityManager");
+            this.kQB.writeStrongBinder(null);
+            intent.writeToParcel(this.kQB, 0);
+            this.kQB.writeString(null);
+            this.kQB.writeInt(0);
         }
 
-        private boolean dcO() {
+        private boolean cYW() {
             try {
-                if (this.mRemote == null || this.kVg == null) {
+                if (this.mRemote == null || this.kQB == null) {
                     return false;
                 }
-                this.mRemote.transact(34, this.kVg, null, 0);
+                this.mRemote.transact(34, this.kQB, null, 0);
                 return true;
             } catch (RemoteException e) {
                 e.printStackTrace();
@@ -475,7 +475,7 @@ public class GuardProxy {
             }
         }
 
-        private boolean gy(Context context) {
+        private boolean gw(Context context) {
             return h(context, "bin", null, "daemon");
         }
 

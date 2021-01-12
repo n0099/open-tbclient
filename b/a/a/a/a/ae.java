@@ -1,33 +1,33 @@
 package b.a.a.a.a;
 
 import android.location.Location;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public final class ae {
-    public ad Bh;
-    private Location Bk;
+    public ad Bg;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f1053b;
+    public String f1052b;
     public String c = "network";
+    private Location d;
 
-    public final ae g(Location location) {
-        this.Bk = new Location(location);
+    public final ae f(Location location) {
+        this.d = new Location(location);
         return this;
     }
 
     public final ad hM() {
         ad adVar;
-        if (this.f1053b != null) {
+        if (this.f1052b != null) {
             try {
-                adVar = new ad(this.f1053b, (byte) 0);
+                adVar = new ad(this.f1052b, (byte) 0);
             } catch (Throwable th) {
                 new StringBuilder("build: ").append(th);
-                return ad.Bh;
+                return ad.Bg;
             }
         } else {
-            adVar = ad.b(this.Bh);
+            adVar = ad.b(this.Bg);
         }
-        adVar.h = this.c.f1052b = this.Bk;
+        adVar.h = this.c.f1051b = this.d;
         return adVar;
     }
 }

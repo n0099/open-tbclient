@@ -160,7 +160,7 @@ public class s {
                     }
                     break;
                 case 3717:
-                    if (nextName.equals("ty")) {
+                    if (nextName.equals(Config.EXCEPTION_CRASH_CHANNEL)) {
                         c = 3;
                         break;
                     }

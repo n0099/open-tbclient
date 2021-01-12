@@ -10,10 +10,10 @@ import java.util.Set;
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    static volatile com.bytedance.sdk.openadsdk.j.a.b f7556a;
+    static volatile com.bytedance.sdk.openadsdk.j.a.b f7256a;
 
     /* renamed from: b  reason: collision with root package name */
-    static volatile com.bytedance.sdk.openadsdk.j.a.c f7557b;
+    static volatile com.bytedance.sdk.openadsdk.j.a.c f7257b;
     public static volatile boolean d;
     static volatile boolean f;
     public static volatile Integer i;
@@ -46,14 +46,14 @@ public class e {
             throw new IllegalArgumentException("DiskLruCache and Context can't be null !!!");
         }
         k = context.getApplicationContext();
-        if (f7557b == null) {
-            com.bytedance.sdk.openadsdk.j.a.b bVar = f7556a;
-            if (bVar != null && bVar.f7520a.getAbsolutePath().equals(cVar.f7522a.getAbsolutePath())) {
+        if (f7257b == null) {
+            com.bytedance.sdk.openadsdk.j.a.b bVar = f7256a;
+            if (bVar != null && bVar.f7220a.getAbsolutePath().equals(cVar.f7222a.getAbsolutePath())) {
                 throw new IllegalArgumentException("DiskLruCache 和 DiskCache 不能使用相同的目录");
             }
-            f7557b = cVar;
+            f7257b = cVar;
             j = com.bytedance.sdk.openadsdk.j.b.c.a(context);
-            f7557b.a(new c.a() { // from class: com.bytedance.sdk.openadsdk.j.e.1
+            f7257b.a(new c.a() { // from class: com.bytedance.sdk.openadsdk.j.e.1
                 @Override // com.bytedance.sdk.openadsdk.j.a.c.a
                 public void a(String str) {
                     if (e.c) {
@@ -79,10 +79,10 @@ public class e {
     }
 
     public static com.bytedance.sdk.openadsdk.j.a.c b() {
-        return f7557b;
+        return f7257b;
     }
 
     public static com.bytedance.sdk.openadsdk.j.a.b c() {
-        return f7556a;
+        return f7256a;
     }
 }

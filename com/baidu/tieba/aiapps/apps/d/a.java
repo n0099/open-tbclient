@@ -7,51 +7,51 @@ import com.baidu.location.BDAbstractLocationListener;
 import com.baidu.location.BDLocation;
 import com.baidu.location.LocationClient;
 import com.baidu.location.LocationClientOption;
-import com.baidu.platform.comapi.location.CoordinateType;
+import com.baidu.mapsdkplatform.comapi.location.CoordinateType;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.swan.apps.ao.ak;
 import com.baidu.swan.apps.t.b.d;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class a implements d {
     public static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static final long gnT = TimeUnit.MINUTES.toMillis(3);
-    private static final C0620a gnU = new C0620a();
-    private LocationClient eqW;
-    private LocationClientOption gnS;
+    private static final long gjm = TimeUnit.MINUTES.toMillis(3);
+    private static final C0603a gjn = new C0603a();
+    private LocationClient emh;
+    private LocationClientOption gjl;
 
     @Override // com.baidu.swan.apps.t.b.d
     public void a(String str, boolean z, boolean z2, d.a aVar) {
-        BDLocation eT = gnU.eT(bQs());
+        BDLocation eT = gjn.eT(bMA());
         boolean z3 = eT != null;
         if (z3) {
             aVar.a(a(eT, str));
         }
-        if (this.eqW == null) {
-            this.eqW = new LocationClient(AppRuntime.getAppContext());
+        if (this.emh == null) {
+            this.emh = new LocationClient(AppRuntime.getAppContext());
             LocationClientOption locationClientOption = new LocationClientOption();
             locationClientOption.setCoorType("gcj02");
             locationClientOption.setScanSpan(0);
             locationClientOption.setIgnoreKillProcess(true);
             locationClientOption.setIsNeedAddress(true);
-            this.eqW.setLocOption(locationClientOption);
-            this.gnS = locationClientOption;
-            this.eqW.start();
+            this.emh.setLocOption(locationClientOption);
+            this.gjl = locationClientOption;
+            this.emh.start();
         }
-        this.eqW.registerLocationListener(new b(this.eqW, aVar, str, z3));
-        this.gnS.setIsNeedAltitude(z2);
-        this.eqW.setLocOption(this.gnS);
+        this.emh.registerLocationListener(new b(this.emh, aVar, str, z3));
+        this.gjl.setIsNeedAltitude(z2);
+        this.emh.setLocOption(this.gjl);
         ak.l(new Runnable() { // from class: com.baidu.tieba.aiapps.apps.d.a.1
             @Override // java.lang.Runnable
             public void run() {
-                a.this.eqW.requestLocation();
+                a.this.emh.requestLocation();
             }
         });
     }
 
     @Override // com.baidu.swan.apps.t.b.d
-    public com.baidu.swan.apps.scheme.actions.f.b aBS() {
-        BDLocation bDLocation = gnU.gnW;
+    public com.baidu.swan.apps.scheme.actions.f.b axY() {
+        BDLocation bDLocation = gjn.gjp;
         if (bDLocation == null) {
             return null;
         }
@@ -59,9 +59,9 @@ public class a implements d {
     }
 
     @Override // com.baidu.swan.apps.t.b.d
-    public void aBT() {
-        long bQs = bQs();
-        if (gnU.gnW == null || (bQs > 0 && !gnU.eS(bQs))) {
+    public void axZ() {
+        long bMA = bMA();
+        if (gjn.gjp == null || (bMA > 0 && !gjn.eS(bMA))) {
             if (DEBUG) {
                 Log.i("SwanAppLocationImpl", "onWarmUp");
             }
@@ -93,19 +93,19 @@ public class a implements d {
     }
 
     @Override // com.baidu.swan.apps.t.b.d
-    public void aBU() {
+    public void aya() {
     }
 
     @Override // com.baidu.swan.apps.t.b.d
-    public void aBV() {
+    public void ayb() {
     }
 
     @Override // com.baidu.swan.apps.t.b.d
-    public void aBW() {
+    public void ayc() {
     }
 
     @Override // com.baidu.swan.apps.t.b.d
-    public void fS(boolean z) {
+    public void fO(boolean z) {
     }
 
     private double[] a(double d, double d2, String str, String str2) {
@@ -128,49 +128,49 @@ public class a implements d {
         return dArr;
     }
 
-    private long bQs() {
-        return gnT;
+    private long bMA() {
+        return gjm;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public static class b extends BDAbstractLocationListener {
         String coorType;
-        LocationClient gnX;
-        d.a gnY;
-        boolean gnZ;
+        LocationClient gjq;
+        d.a gjr;
+        boolean gjs;
 
         public b(LocationClient locationClient, d.a aVar, String str, boolean z) {
-            this.gnX = locationClient;
-            this.gnY = aVar;
+            this.gjq = locationClient;
+            this.gjr = aVar;
             this.coorType = str;
-            this.gnZ = z;
+            this.gjs = z;
         }
 
         @Override // com.baidu.location.BDAbstractLocationListener
         public void onReceiveLocation(BDLocation bDLocation) {
-            this.gnX.unRegisterLocationListener(this);
+            this.gjq.unRegisterLocationListener(this);
             int locType = bDLocation.getLocType();
-            if (!a.uI(locType)) {
-                if (!this.gnZ) {
-                    this.gnY.onFailed(locType);
+            if (!a.tc(locType)) {
+                if (!this.gjs) {
+                    this.gjr.onFailed(locType);
                     return;
                 }
                 return;
             }
-            a.gnU.f(bDLocation);
-            if (!this.gnZ) {
-                this.gnY.a(a.a(bDLocation, this.coorType));
+            a.gjn.e(bDLocation);
+            if (!this.gjs) {
+                this.gjr.a(a.a(bDLocation, this.coorType));
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static boolean uI(int i) {
+    public static boolean tc(int i) {
         return i == 65 || i == 61 || i == 161 || i == 66 || i == 68;
     }
 
-    private static BDLocation b(double d, double d2, String str) {
+    private static BDLocation a(double d, double d2, String str) {
         BDLocation bDLocation = new BDLocation();
         bDLocation.setLongitude(d2);
         bDLocation.setLatitude(d);
@@ -194,27 +194,27 @@ public class a implements d {
         double longitude = bDLocation.getLongitude();
         double latitude = bDLocation.getLatitude();
         if (!TextUtils.equals(str, bDLocation.getCoorType())) {
-            BDLocation b2 = b(latitude, longitude, str);
-            longitude = b2.getLongitude();
-            latitude = b2.getLatitude();
+            BDLocation a2 = a(latitude, longitude, str);
+            longitude = a2.getLongitude();
+            latitude = a2.getLatitude();
         }
         return new com.baidu.swan.apps.scheme.actions.f.b(str, longitude, latitude, bDLocation.getSpeed(), bDLocation.getRadius(), bDLocation.getAltitude(), bDLocation.getCountry(), bDLocation.getCountryCode(), bDLocation.getCity(), bDLocation.getCityCode(), bDLocation.getProvince(), bDLocation.getDistrict(), bDLocation.getStreet(), bDLocation.getStreetNumber());
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.tieba.aiapps.apps.d.a$a  reason: collision with other inner class name */
-    /* loaded from: classes9.dex */
-    public static class C0620a {
-        private BDLocation gnW;
+    /* loaded from: classes8.dex */
+    public static class C0603a {
+        private BDLocation gjp;
         private long mCacheTime;
 
-        private C0620a() {
+        private C0603a() {
             this.mCacheTime = 0L;
         }
 
         /* JADX INFO: Access modifiers changed from: private */
-        public synchronized void f(BDLocation bDLocation) {
-            this.gnW = bDLocation;
+        public synchronized void e(BDLocation bDLocation) {
+            this.gjp = bDLocation;
             this.mCacheTime = System.currentTimeMillis();
         }
 
@@ -222,7 +222,7 @@ public class a implements d {
             boolean z = true;
             synchronized (this) {
                 long currentTimeMillis = System.currentTimeMillis() - this.mCacheTime;
-                boolean z2 = this.gnW != null;
+                boolean z2 = this.gjp != null;
                 boolean z3 = currentTimeMillis < j;
                 if (!z2 || !z3) {
                     z = false;
@@ -235,7 +235,7 @@ public class a implements d {
         }
 
         synchronized BDLocation eT(long j) {
-            return eS(j) ? this.gnW : null;
+            return eS(j) ? this.gjp : null;
         }
     }
 }

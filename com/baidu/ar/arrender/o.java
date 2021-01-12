@@ -3,16 +3,16 @@ package com.baidu.ar.arrender;
 public class o extends com.baidu.ar.ability.c {
 
     /* renamed from: io  reason: collision with root package name */
-    private byte[] f1483io;
+    private byte[] f1489io;
     private int mHeight;
     private int mWidth;
 
     public void a(byte[] bArr) {
-        this.f1483io = bArr;
+        this.f1489io = bArr;
     }
 
     public byte[] bZ() {
-        return this.f1483io;
+        return this.f1489io;
     }
 
     public int getHeight() {

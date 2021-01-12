@@ -11,7 +11,7 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class FNode implements Serializable, Comparable<FNode> {
     private static final String TAG = "FNode";
     private static HashSet<String> specialPath = new HashSet<>();
@@ -23,7 +23,7 @@ public class FNode implements Serializable, Comparable<FNode> {
     private HashMap<String, Object> infoMap = new HashMap<>();
     private FChildNodeInfo nodeInfo = null;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class FChildNodeInfo implements Serializable {
         private static final long serialVersionUID = 1544029961328446275L;
         private long totalSize;

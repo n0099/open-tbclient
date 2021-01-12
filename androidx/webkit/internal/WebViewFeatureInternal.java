@@ -1,7 +1,7 @@
 package androidx.webkit.internal;
 
 import android.os.Build;
-/* loaded from: classes3.dex */
+/* loaded from: classes14.dex */
 public enum WebViewFeatureInternal {
     VISUAL_STATE_CALLBACK_FEATURE("VISUAL_STATE_CALLBACK", 23),
     OFF_SCREEN_PRERASTER("OFF_SCREEN_PRERASTER", 23),
@@ -64,7 +64,7 @@ public enum WebViewFeatureInternal {
         return false;
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes14.dex */
     private static class LAZY_HOLDER {
         static final String[] WEBVIEW_APK_FEATURES = WebViewGlueCommunicator.getFactory().getWebViewFeatures();
 

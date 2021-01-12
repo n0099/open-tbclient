@@ -12,38 +12,38 @@ import com.baidu.tieba.tbadkCore.FrsViewData;
 import tbclient.ItemInfo;
 /* loaded from: classes2.dex */
 public class ah {
-    private BaseFragment jjR;
-    private FrsTopItemInfoView jjS;
+    private BaseFragment jfj;
+    private FrsTopItemInfoView jfk;
 
     public ah(BaseFragment baseFragment) {
         FrsViewData frsViewData;
         if (baseFragment != null) {
-            this.jjR = baseFragment;
-            this.jjS = new FrsTopItemInfoView(baseFragment.getContext());
+            this.jfj = baseFragment;
+            this.jfk = new FrsTopItemInfoView(baseFragment.getContext());
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -2);
             layoutParams.topMargin = UtilHelper.getDimenPixelSize(R.dimen.M_H_X003);
-            this.jjS.setLayoutParams(layoutParams);
+            this.jfk.setLayoutParams(layoutParams);
             onChangeSkinType();
-            if ((this.jjR instanceof FrsCommonTabFragment) && (frsViewData = ((FrsCommonTabFragment) this.jjR).jof) != null && frsViewData.getForum() != null) {
+            if ((this.jfj instanceof FrsCommonTabFragment) && (frsViewData = ((FrsCommonTabFragment) this.jfj).jjy) != null && frsViewData.getForum() != null) {
                 ForumData forum = frsViewData.getForum();
-                this.jjS.setForumWriteData(new ForumWriteData(forum.getId(), forum.getName(), forum.getPrefixData(), frsViewData.getAnti()));
+                this.jfk.setForumWriteData(new ForumWriteData(forum.getId(), forum.getName(), forum.getPrefixData(), frsViewData.getAnti()));
             }
         }
     }
 
     public void setData(ItemInfo itemInfo) {
-        if (this.jjS != null) {
-            this.jjS.setData(itemInfo);
+        if (this.jfk != null) {
+            this.jfk.setData(itemInfo);
         }
     }
 
     public View getView() {
-        return this.jjS;
+        return this.jfk;
     }
 
     public void onChangeSkinType() {
-        if (this.jjS != null) {
-            this.jjS.onChangeSkinType();
+        if (this.jfk != null) {
+            this.jfk.onChangeSkinType();
         }
     }
 }

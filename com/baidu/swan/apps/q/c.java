@@ -6,17 +6,17 @@ import com.baidu.swan.apps.component.components.f.a;
 import com.baidu.tbadk.core.atomData.AddFriendActivityConfig;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class c {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static a.InterfaceC0410a dhh;
+    private static a.InterfaceC0393a dcs;
 
-    public static void a(a.InterfaceC0410a interfaceC0410a) {
-        dhh = interfaceC0410a;
+    public static void a(a.InterfaceC0393a interfaceC0393a) {
+        dcs = interfaceC0393a;
     }
 
     public static void c(EditText editText, int i) {
-        if (editText != null && dhh != null) {
+        if (editText != null && dcs != null) {
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put("value", editText.getText());
@@ -28,7 +28,7 @@ public class c {
                     e.printStackTrace();
                 }
             }
-            dhh.f(String.valueOf(editText.getTag()), jSONObject);
+            dcs.f(String.valueOf(editText.getTag()), jSONObject);
         }
     }
 
@@ -45,7 +45,7 @@ public class c {
     }
 
     private static void a(EditText editText, String str, int i) {
-        if (editText != null && dhh != null) {
+        if (editText != null && dcs != null) {
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put("value", editText.getText());
@@ -57,7 +57,7 @@ public class c {
                     e.printStackTrace();
                 }
             }
-            dhh.f(String.valueOf(editText.getTag()), jSONObject);
+            dcs.f(String.valueOf(editText.getTag()), jSONObject);
         }
     }
 }

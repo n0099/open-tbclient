@@ -33,35 +33,35 @@ import com.baidu.tieba.faceshop.u;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class aa extends ProxyAdkBaseActivity<aa> implements ab.c, d.a, d.b, u.a {
-    private int akW;
-    private GridView dlY;
-    private com.baidu.tbadk.core.view.a fOA;
-    private TextView giF;
-    private boolean iRV;
-    private com.baidu.tbadk.core.dialog.a iTa;
-    private TextView iVR;
-    private d iVS;
-    private RelativeLayout iVT;
-    private TextView iVU;
-    private TextView iVV;
-    private View iVW;
-    private View iVX;
-    private u iVY;
-    private DialogInterface.OnCancelListener iVZ;
+    private int akf;
+    private GridView dhj;
+    private com.baidu.tbadk.core.view.a fJT;
+    private TextView gdW;
+    private boolean iNo;
+    private com.baidu.tbadk.core.dialog.a iOt;
+    private TextView iRk;
+    private d iRl;
+    private RelativeLayout iRm;
+    private TextView iRn;
+    private TextView iRo;
+    private View iRp;
+    private View iRq;
+    private u iRr;
+    private DialogInterface.OnCancelListener iRs;
     private NavigationBar mNavigationBar;
     private View.OnClickListener mOnClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.faceshop.aa.5
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             ArrayList arrayList;
-            if (aa.this.iRV && (arrayList = new ArrayList(aa.this.iVS.cAW())) != null && arrayList.size() != 0) {
-                if (view == aa.this.giF) {
-                    aa.this.SY();
+            if (aa.this.iNo && (arrayList = new ArrayList(aa.this.iRl.cxe())) != null && arrayList.size() != 0) {
+                if (view == aa.this.gdW) {
+                    aa.this.Pd();
                     return;
                 }
-                if (view != aa.this.iVU) {
-                    if (view == aa.this.iVV) {
+                if (view != aa.this.iRn) {
+                    if (view == aa.this.iRo) {
                         Activity pageActivity = aa.this.getPageContext().getPageActivity();
                         if (aa.this.mPermissionJudgement == null) {
                             aa.this.mPermissionJudgement = new PermissionJudgePolicy();
@@ -69,15 +69,15 @@ public class aa extends ProxyAdkBaseActivity<aa> implements ab.c, d.a, d.b, u.a 
                         aa.this.mPermissionJudgement.clearRequestPermissionList();
                         aa.this.mPermissionJudgement.appendRequestPermission(pageActivity, "android.permission.WRITE_EXTERNAL_STORAGE");
                         if (!aa.this.mPermissionJudgement.startRequestPermission(pageActivity)) {
-                            ab.cCn().b(arrayList, aa.this);
+                            ab.cyv().b(arrayList, aa.this);
                         } else {
                             return;
                         }
                     }
                 } else {
-                    ab.cCn().c(arrayList, true, aa.this);
+                    ab.cyv().c(arrayList, true, aa.this);
                 }
-                aa.this.iVS.clearSelect();
+                aa.this.iRl.clearSelect();
             }
         }
     };
@@ -88,7 +88,7 @@ public class aa extends ProxyAdkBaseActivity<aa> implements ab.c, d.a, d.b, u.a 
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(R.layout.collect_manage_activity);
-        this.iVY = new u();
+        this.iRr = new u();
         initUI();
         initData();
     }
@@ -100,12 +100,12 @@ public class aa extends ProxyAdkBaseActivity<aa> implements ab.c, d.a, d.b, u.a 
             @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
             /* renamed from: c */
             public List<CollectEmotionData> doInBackground(Void... voidArr) {
-                List<CollectEmotionData> Kf = i.cBl().Kf(TbadkCoreApplication.getCurrentAccount());
-                if (Kf == null || Kf.size() < 1) {
+                List<CollectEmotionData> IU = i.cxt().IU(TbadkCoreApplication.getCurrentAccount());
+                if (IU == null || IU.size() < 1) {
                     return null;
                 }
                 ArrayList arrayList = new ArrayList();
-                for (CollectEmotionData collectEmotionData : Kf) {
+                for (CollectEmotionData collectEmotionData : IU) {
                     if (!com.baidu.tbadk.imageManager.d.SETTING_SHARP_TEXT.equals(collectEmotionData.sharpText) && !TextUtils.isEmpty(collectEmotionData.pid)) {
                         String str = TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath() + "/.collect/" + com.baidu.tbadk.imageManager.d.getSaveDir() + "/" + collectEmotionData.pid + "_s.jpg";
                         ImageFileInfo imageFileInfo = new ImageFileInfo();
@@ -126,11 +126,11 @@ public class aa extends ProxyAdkBaseActivity<aa> implements ab.c, d.a, d.b, u.a 
             @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
             /* renamed from: B */
             public void onPostExecute(List<CollectEmotionData> list) {
-                aa.this.iVS.db(list);
-                aa.this.iVS.notifyDataSetChanged();
+                aa.this.iRl.db(list);
+                aa.this.iRl.notifyDataSetChanged();
             }
         }.execute(new Void[0]);
-        this.iVZ = new DialogInterface.OnCancelListener() { // from class: com.baidu.tieba.faceshop.aa.2
+        this.iRs = new DialogInterface.OnCancelListener() { // from class: com.baidu.tieba.faceshop.aa.2
             @Override // android.content.DialogInterface.OnCancelListener
             public void onCancel(DialogInterface dialogInterface) {
                 aa.this.destroyWaitingDialog();
@@ -148,48 +148,48 @@ public class aa extends ProxyAdkBaseActivity<aa> implements ab.c, d.a, d.b, u.a 
             }
         });
         if (this.mNavigationBar.getBackImageView() != null) {
-            SvgManager.bwr().a(this.mNavigationBar.getBackImageView(), R.drawable.icon_pure_topbar_close44_svg, R.color.CAM_X0106, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+            SvgManager.bsx().a(this.mNavigationBar.getBackImageView(), R.drawable.icon_pure_topbar_close44_svg, R.color.CAM_X0106, SvgManager.SvgResourceStateType.NORMAL_PRESS);
         }
-        this.iVR = this.mNavigationBar.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getPageContext().getString(R.string.collect_manage), new View.OnClickListener() { // from class: com.baidu.tieba.faceshop.aa.4
+        this.iRk = this.mNavigationBar.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getPageContext().getString(R.string.collect_manage), new View.OnClickListener() { // from class: com.baidu.tieba.faceshop.aa.4
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (com.baidu.tieba.newfaceshop.d.dkg().dkk()) {
+                if (com.baidu.tieba.newfaceshop.d.dgo().dgs()) {
                     com.baidu.adp.lib.util.l.showToast(view.getContext(), R.string.face_collect_is_syncing);
                     return;
                 }
-                aa.this.iRV = !aa.this.iRV;
-                if (aa.this.iRV) {
-                    ao.setNavbarTitleColor(aa.this.iVR, R.color.CAM_X0302, R.color.s_navbar_title_color);
-                    aa.this.iVR.setText(R.string.done);
-                    aa.this.iVT.setVisibility(0);
-                    aa.this.iVW.setVisibility(0);
+                aa.this.iNo = !aa.this.iNo;
+                if (aa.this.iNo) {
+                    ao.setNavbarTitleColor(aa.this.iRk, R.color.CAM_X0302, R.color.s_navbar_title_color);
+                    aa.this.iRk.setText(R.string.done);
+                    aa.this.iRm.setVisibility(0);
+                    aa.this.iRp.setVisibility(0);
                 } else {
-                    ao.setViewTextColor(aa.this.iVR, R.color.CAM_X0105, 1);
-                    aa.this.iVR.setText(R.string.collect_manage);
-                    aa.this.iVT.setVisibility(8);
-                    aa.this.giF.setText(R.string.delete);
+                    ao.setViewTextColor(aa.this.iRk, R.color.CAM_X0105, 1);
+                    aa.this.iRk.setText(R.string.collect_manage);
+                    aa.this.iRm.setVisibility(8);
+                    aa.this.gdW.setText(R.string.delete);
                 }
-                aa.this.iVS.pZ(aa.this.iRV);
+                aa.this.iRl.pV(aa.this.iNo);
             }
         });
-        ao.setViewTextColor(this.iVR, R.color.CAM_X0105);
-        this.dlY = (GridView) findViewById(R.id.collect_image_gridview);
-        this.iVT = (RelativeLayout) findViewById(R.id.controller_layout);
-        this.iVU = (TextView) findViewById(R.id.move_to_first);
-        this.iVU.setOnClickListener(this.mOnClickListener);
-        this.iVV = (TextView) findViewById(R.id.save_to_local);
-        this.iVV.setOnClickListener(this.mOnClickListener);
-        this.iVX = findViewById(R.id.vertical_div_line);
-        ao.setBackgroundColor(this.iVX, R.color.CAM_X0204);
-        this.giF = (TextView) findViewById(R.id.delete_collect_image);
-        this.giF.setOnClickListener(this.mOnClickListener);
-        this.iVW = findViewById(R.id.cover);
-        this.dlY = (GridView) findViewById(R.id.collect_image_gridview);
-        this.iVS = new d(this);
-        this.iVS.a(this);
-        this.iVS.notifyDataSetChanged();
-        this.dlY.setAdapter((ListAdapter) this.iVS);
-        this.fOA = new com.baidu.tbadk.core.view.a(getPageContext());
+        ao.setViewTextColor(this.iRk, R.color.CAM_X0105);
+        this.dhj = (GridView) findViewById(R.id.collect_image_gridview);
+        this.iRm = (RelativeLayout) findViewById(R.id.controller_layout);
+        this.iRn = (TextView) findViewById(R.id.move_to_first);
+        this.iRn.setOnClickListener(this.mOnClickListener);
+        this.iRo = (TextView) findViewById(R.id.save_to_local);
+        this.iRo.setOnClickListener(this.mOnClickListener);
+        this.iRq = findViewById(R.id.vertical_div_line);
+        ao.setBackgroundColor(this.iRq, R.color.CAM_X0204);
+        this.gdW = (TextView) findViewById(R.id.delete_collect_image);
+        this.gdW.setOnClickListener(this.mOnClickListener);
+        this.iRp = findViewById(R.id.cover);
+        this.dhj = (GridView) findViewById(R.id.collect_image_gridview);
+        this.iRl = new d(this);
+        this.iRl.a(this);
+        this.iRl.notifyDataSetChanged();
+        this.dhj.setAdapter((ListAdapter) this.iRl);
+        this.fJT = new com.baidu.tbadk.core.view.a(getPageContext());
         TiebaStatic.log("c12225");
     }
 
@@ -197,51 +197,51 @@ public class aa extends ProxyAdkBaseActivity<aa> implements ab.c, d.a, d.b, u.a 
     @Override // com.baidu.tbadk.ProxyAdkBaseActivity, com.baidu.adp.plugin.pluginBase.PluginAdpBaseActivity, com.baidu.adp.plugin.pluginBase.PluginBaseActivity
     public void onDestroy() {
         super.onDestroy();
-        this.iVS.a((d.b) null);
+        this.iRl.a((d.b) null);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.ProxyAdkBaseActivity
     public void onChangeSkinType(int i) {
-        this.akW = i;
+        this.akf = i;
         super.onChangeSkinType(i);
         getLayoutMode().setNightMode(i == 1);
-        this.iVS.setSkinType(i);
+        this.iRl.setSkinType(i);
         this.mNavigationBar.onChangeSkinType(getPageContext(), i);
-        ao.setBackgroundColor(this.iVT, R.color.CAM_X0201, i);
-        ao.setBackgroundColor(this.dlY, R.color.CAM_X0201, i);
+        ao.setBackgroundColor(this.iRm, R.color.CAM_X0201, i);
+        ao.setBackgroundColor(this.dhj, R.color.CAM_X0201, i);
         if (i == 1 || i == 4) {
-            ao.setBackgroundColor(this.iVW, R.color.common_color_10311, i);
+            ao.setBackgroundColor(this.iRp, R.color.common_color_10311, i);
         } else {
-            ao.setBackgroundColor(this.iVW, R.color.white_alpha70, i);
+            ao.setBackgroundColor(this.iRp, R.color.white_alpha70, i);
         }
-        ao.setBackgroundColor(this.iVX, R.color.CAM_X0204, i);
+        ao.setBackgroundColor(this.iRq, R.color.CAM_X0204, i);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void SY() {
-        if (this.iTa == null) {
-            this.iTa = new com.baidu.tbadk.core.dialog.a(getPageContext().getPageActivity());
-            this.iTa.pa(R.string.collect_delete_confirm_tip);
-            this.iTa.a(R.string.dialog_ok, new a.b() { // from class: com.baidu.tieba.faceshop.aa.6
+    public void Pd() {
+        if (this.iOt == null) {
+            this.iOt = new com.baidu.tbadk.core.dialog.a(getPageContext().getPageActivity());
+            this.iOt.nu(R.string.collect_delete_confirm_tip);
+            this.iOt.a(R.string.dialog_ok, new a.b() { // from class: com.baidu.tieba.faceshop.aa.6
                 @Override // com.baidu.tbadk.core.dialog.a.b
                 public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
-                    ab.cCn().d(new ArrayList(aa.this.iVS.cAW()), true, aa.this);
+                    ab.cyv().d(new ArrayList(aa.this.iRl.cxe()), true, aa.this);
                     aVar.dismiss();
-                    aa.this.iVS.clearSelect();
-                    aa.this.giF.setText(R.string.delete);
+                    aa.this.iRl.clearSelect();
+                    aa.this.gdW.setText(R.string.delete);
                 }
             });
-            this.iTa.b(R.string.dialog_cancel, new a.b() { // from class: com.baidu.tieba.faceshop.aa.7
+            this.iOt.b(R.string.dialog_cancel, new a.b() { // from class: com.baidu.tieba.faceshop.aa.7
                 @Override // com.baidu.tbadk.core.dialog.a.b
                 public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
                     aVar.dismiss();
                 }
             });
-            this.iTa.jH(true);
-            this.iTa.b(getPageContext());
+            this.iOt.jD(true);
+            this.iOt.b(getPageContext());
         }
-        this.iTa.btY();
+        this.iOt.bqe();
     }
 
     @Override // com.baidu.tieba.faceshop.ab.c
@@ -277,17 +277,17 @@ public class aa extends ProxyAdkBaseActivity<aa> implements ab.c, d.a, d.b, u.a 
     public void dc(List<CollectEmotionData> list) {
         if (list != null) {
             if (list.size() == 0) {
-                this.iVW.setVisibility(0);
-                this.giF.setText(R.string.delete);
+                this.iRp.setVisibility(0);
+                this.gdW.setText(R.string.delete);
                 return;
             }
-            this.iVW.setVisibility(8);
-            this.giF.setText(String.format(getResources().getString(R.string.collect_delete_tip), Integer.valueOf(list.size())));
+            this.iRp.setVisibility(8);
+            this.gdW.setText(String.format(getResources().getString(R.string.collect_delete_tip), Integer.valueOf(list.size())));
         }
     }
 
     @Override // com.baidu.tieba.faceshop.d.a
-    public void cAX() {
+    public void cxf() {
         sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new UserAlbumActivityConfig(getPageContext().getPageActivity(), RequestResponseCode.COLLECT_SELECT_ALBUM)));
     }
 
@@ -298,23 +298,23 @@ public class aa extends ProxyAdkBaseActivity<aa> implements ab.c, d.a, d.b, u.a 
         if (i2 == -1 && i == 25030 && intent.getSerializableExtra("selected_album_list") != null) {
             ArrayList<ImageFileInfo> arrayList = (ArrayList) intent.getSerializableExtra("selected_album_list");
             if (!com.baidu.tbadk.core.util.x.isEmpty(arrayList)) {
-                au(arrayList);
+                ap(arrayList);
             }
         }
     }
 
-    private void au(ArrayList<ImageFileInfo> arrayList) {
+    private void ap(ArrayList<ImageFileInfo> arrayList) {
         if (!com.baidu.tbadk.core.util.x.isEmpty(arrayList)) {
             TiebaStatic.log(new aq("c12491").an("obj_param1", arrayList.size()));
-            showLoadingDialog(getPageContext().getString(R.string.sending), this.iVZ);
-            this.iVY.a(arrayList, this);
+            showLoadingDialog(getPageContext().getString(R.string.sending), this.iRs);
+            this.iRr.a(arrayList, this);
         }
     }
 
     @Override // com.baidu.tieba.faceshop.u.a
     public void df(List<String> list) {
         if (!com.baidu.tbadk.core.util.x.isEmpty(list)) {
-            ab.cCn().a(list, this);
+            ab.cyv().a(list, this);
         } else {
             closeLoadingDialog();
         }
@@ -322,18 +322,18 @@ public class aa extends ProxyAdkBaseActivity<aa> implements ab.c, d.a, d.b, u.a 
 
     @Override // com.baidu.tbadk.ProxyAdkBaseActivity
     public void showLoadingDialog(String str, DialogInterface.OnCancelListener onCancelListener) {
-        this.fOA.setCancelListener(null);
-        this.fOA.setTipString(getPageContext().getString(R.string.collect_uploading));
-        this.fOA.setDialogVisiable(true);
+        this.fJT.setCancelListener(null);
+        this.fJT.setTipString(getPageContext().getString(R.string.collect_uploading));
+        this.fJT.setDialogVisiable(true);
     }
 
     @Override // com.baidu.tbadk.ProxyAdkBaseActivity
     public void closeLoadingDialog() {
-        this.fOA.setDialogVisiable(false);
+        this.fJT.setDialogVisiable(false);
     }
 
     @Override // com.baidu.tieba.faceshop.u.a
-    public void cCe() {
+    public void cym() {
         closeLoadingDialog();
     }
 }

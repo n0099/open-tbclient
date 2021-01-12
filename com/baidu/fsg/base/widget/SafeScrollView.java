@@ -10,14 +10,14 @@ import android.widget.EditText;
 import android.widget.ScrollView;
 import com.baidu.fsg.base.restnet.beans.business.core.utils.BdWalletUtils;
 import com.baidu.fsg.base.utils.RimGlobalUtils;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class SafeScrollView extends ScrollView {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f2083a = SafeScrollView.class.getSimpleName();
+    private static final String f2033a = SafeScrollView.class.getSimpleName();
 
     /* renamed from: b  reason: collision with root package name */
-    private ScrollChangedListener f2084b;
+    private ScrollChangedListener f2034b;
     private boolean c;
     private int d;
     private Context e;
@@ -28,12 +28,12 @@ public class SafeScrollView extends ScrollView {
     private int j;
     private boolean k;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public interface ScrollChangedListener {
         void onScrollChanged(int i, int i2, int i3, int i4);
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public interface onKeyBoardStatusChangeListener {
         void onKeyBoardStatusChange(boolean z, int i);
     }
@@ -175,17 +175,17 @@ public class SafeScrollView extends ScrollView {
     @Override // android.view.View
     protected void onScrollChanged(int i, int i2, int i3, int i4) {
         super.onScrollChanged(i, i2, i3, i4);
-        if (this.f2084b != null) {
-            this.f2084b.onScrollChanged(i, i2, i3, i4);
+        if (this.f2034b != null) {
+            this.f2034b.onScrollChanged(i, i2, i3, i4);
         }
     }
 
     public void setScrollChangeListener(ScrollChangedListener scrollChangedListener) {
-        this.f2084b = scrollChangedListener;
+        this.f2034b = scrollChangedListener;
     }
 
     private void a() {
-        this.f2084b = null;
+        this.f2034b = null;
     }
 
     @Override // android.widget.ScrollView, android.view.ViewGroup, android.view.View

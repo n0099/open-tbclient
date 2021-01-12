@@ -29,14 +29,14 @@ import com.qq.e.comm.plugin.util.ap;
 import com.qq.e.comm.plugin.util.q;
 import com.qq.e.comm.plugin.util.w;
 import com.qq.e.comm.plugin.y.u;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class c extends RelativeLayout implements View.OnClickListener, g {
 
     /* renamed from: a  reason: collision with root package name */
-    private static int f12534a = Color.parseColor("#333333");
+    private static int f12234a = Color.parseColor("#333333");
 
     /* renamed from: b  reason: collision with root package name */
-    private static int f12535b = Color.parseColor("#7F7F7F");
+    private static int f12235b = Color.parseColor("#7F7F7F");
     private static int c = Color.parseColor("#EFF3F9");
     private static int d = Color.parseColor("#3171F4");
     private static int e = Color.parseColor("#EFF3F9");
@@ -89,7 +89,7 @@ public class c extends RelativeLayout implements View.OnClickListener, g {
         layoutParams3.addRule(1, 2131755014);
         layoutParams3.leftMargin = ak.a(getContext(), 4);
         textView.setTextSize(2, 12.0f);
-        textView.setTextColor(f12535b);
+        textView.setTextColor(f12235b);
         if (!this.f.v()) {
             textView.setText(this.f.n());
         } else if (this.f.z() != null) {
@@ -110,11 +110,11 @@ public class c extends RelativeLayout implements View.OnClickListener, g {
         layoutParams4.topMargin = ak.a(getContext(), 5);
         layoutParams4.rightMargin = ak.a(getContext(), 12);
         textView2.setTextSize(2, 14.0f);
-        textView2.setTextColor(f12534a);
-        if (TextUtils.isEmpty(kVar.f12197b)) {
+        textView2.setTextColor(f12234a);
+        if (TextUtils.isEmpty(kVar.f11897b)) {
             textView2.setVisibility(4);
         } else {
-            textView2.setText(kVar.f12197b);
+            textView2.setText(kVar.f11897b);
         }
         relativeLayout.addView(textView2, layoutParams4);
         TextView textView3 = new TextView(getContext());
@@ -131,7 +131,7 @@ public class c extends RelativeLayout implements View.OnClickListener, g {
         layoutParams5.rightMargin = ak.a(getContext(), 12);
         layoutParams5.topMargin = ak.a(getContext(), 1);
         textView3.setTextSize(2, 14.0f);
-        textView3.setTextColor(f12534a);
+        textView3.setTextColor(f12234a);
         if (TextUtils.isEmpty(kVar.e)) {
             textView3.setVisibility(4);
         } else {
@@ -200,7 +200,7 @@ public class c extends RelativeLayout implements View.OnClickListener, g {
         layoutParams9.addRule(11);
         layoutParams9.addRule(15);
         layoutParams9.rightMargin = ak.a(getContext(), 12);
-        this.i = a4.f12157b;
+        this.i = a4.f11857b;
         int i = d;
         GradientDrawable gradientDrawable = new GradientDrawable();
         gradientDrawable.setColor(-1);
@@ -234,10 +234,10 @@ public class c extends RelativeLayout implements View.OnClickListener, g {
         layoutParams.leftMargin = ak.a(getContext(), 4);
         layoutParams.topMargin = ak.a(getContext(), 4);
         layoutParams.bottomMargin = ak.a(getContext(), 8);
-        if (TextUtils.isEmpty(ab.f12196a)) {
+        if (TextUtils.isEmpty(ab.f11896a)) {
             jVar.setVisibility(4);
         } else {
-            com.qq.e.comm.plugin.p.a.a().a(ab.f12196a, jVar, new com.qq.e.comm.plugin.p.b() { // from class: com.qq.e.comm.plugin.n.c.1
+            com.qq.e.comm.plugin.p.a.a().a(ab.f11896a, jVar, new com.qq.e.comm.plugin.p.b() { // from class: com.qq.e.comm.plugin.n.c.1
                 @Override // com.qq.e.comm.plugin.p.b
                 public void a(String str, int i, Exception exc) {
                     ImageView imageView = new ImageView(c.this.getContext());
@@ -282,7 +282,7 @@ public class c extends RelativeLayout implements View.OnClickListener, g {
         textView.setBackgroundDrawable(gradientDrawable);
         textView.setPadding(ak.a(getContext(), 4), 0, ak.a(getContext(), 4), 0);
         textView.setTextSize(2, 11.0f);
-        textView.setTextColor(f12535b);
+        textView.setTextColor(f12235b);
         return textView;
     }
 

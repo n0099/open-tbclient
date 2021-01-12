@@ -24,10 +24,10 @@ public class TTCountdownView extends View {
     private AtomicBoolean B;
 
     /* renamed from: a  reason: collision with root package name */
-    private int f7072a;
+    private int f6772a;
 
     /* renamed from: b  reason: collision with root package name */
-    private int f7073b;
+    private int f6773b;
     private int c;
     private int d;
     private float e;
@@ -72,8 +72,8 @@ public class TTCountdownView extends View {
 
     public TTCountdownView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.f7072a = Color.parseColor("#fce8b6");
-        this.f7073b = Color.parseColor("#f0f0f0");
+        this.f6772a = Color.parseColor("#fce8b6");
+        this.f6773b = Color.parseColor("#f0f0f0");
         this.c = Color.parseColor("#ffffff");
         this.d = Color.parseColor("#7c7c7c");
         this.e = 2.0f;
@@ -100,7 +100,7 @@ public class TTCountdownView extends View {
 
     private void e() {
         this.o = new Paint(1);
-        this.o.setColor(this.f7072a);
+        this.o.setColor(this.f6772a);
         this.o.setStrokeWidth(this.e);
         this.o.setAntiAlias(true);
         this.o.setStyle(Paint.Style.STROKE);
@@ -110,7 +110,7 @@ public class TTCountdownView extends View {
         this.p.setStrokeWidth(this.e);
         this.p.setStyle(Paint.Style.FILL);
         this.q = new Paint(1);
-        this.q.setColor(this.f7073b);
+        this.q.setColor(this.f6773b);
         this.q.setAntiAlias(true);
         this.q.setStrokeWidth(this.e / 2.0f);
         this.q.setStyle(Paint.Style.STROKE);

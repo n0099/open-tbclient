@@ -5,7 +5,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class k {
     public static String bs(long j) {
         long j2 = j / AppStatusRules.DEFAULT_GRANULARITY;
@@ -21,7 +21,7 @@ public class k {
         return new SimpleDateFormat("yyyy-MM-dd").format(date);
     }
 
-    public static Date iR(String str) {
+    public static Date hG(String str) {
         try {
             return new SimpleDateFormat("yyyy-MM-dd").parse(str);
         } catch (ParseException e) {

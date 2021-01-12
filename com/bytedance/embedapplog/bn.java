@@ -15,8 +15,8 @@ import java.security.MessageDigest;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes4.dex */
 public final class bn implements bi {
-    private aw<Boolean> pgU;
-    private final bi phi;
+    private final bi pcG;
+    private aw<Boolean> pcr;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bn() {
@@ -25,7 +25,7 @@ public final class bn implements bi {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bn(bi biVar) {
-        this.pgU = new aw<Boolean>() { // from class: com.bytedance.embedapplog.bn.1
+        this.pcr = new aw<Boolean>() { // from class: com.bytedance.embedapplog.bn.1
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: protected */
             @Override // com.bytedance.embedapplog.aw
@@ -49,7 +49,7 @@ public final class bn implements bi {
                 }
             }
         };
-        this.phi = biVar;
+        this.pcG = biVar;
     }
 
     @Override // com.bytedance.embedapplog.bi
@@ -57,23 +57,23 @@ public final class bn implements bi {
         if (context == null) {
             return false;
         }
-        Boolean b2 = this.pgU.b(context);
-        if (this.phi != null && !b2.booleanValue()) {
-            return this.phi.a(context);
+        Boolean b2 = this.pcr.b(context);
+        if (this.pcG != null && !b2.booleanValue()) {
+            return this.pcG.a(context);
         }
         return b2.booleanValue();
     }
 
     @Override // com.bytedance.embedapplog.bi
-    public bi.a hR(final Context context) {
-        if (this.phi != null && !this.pgU.b(new Object[0]).booleanValue()) {
-            return this.phi.hR(context);
+    public bi.a hP(final Context context) {
+        if (this.pcG != null && !this.pcr.b(new Object[0]).booleanValue()) {
+            return this.pcG.hP(context);
         }
         Intent intent = new Intent();
         intent.setComponent(new ComponentName("com.heytap.openid", "com.heytap.openid.IdentifyService"));
         intent.setAction("action.com.heytap.openid.OPEN_ID_SERVICE");
         bi.a aVar = new bi.a();
-        aVar.f6101b = (String) new bp(context, intent, new bp.b<br, String>() { // from class: com.bytedance.embedapplog.bn.2
+        aVar.f5801b = (String) new bp(context, intent, new bp.b<br, String>() { // from class: com.bytedance.embedapplog.bn.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.bytedance.embedapplog.bp.b
             /* renamed from: a */

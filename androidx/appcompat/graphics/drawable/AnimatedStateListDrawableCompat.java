@@ -36,7 +36,7 @@ import androidx.vectordrawable.graphics.drawable.VectorDrawableCompat;
 import java.io.IOException;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class AnimatedStateListDrawableCompat extends StateListDrawable {
     private static final String ELEMENT_ITEM = "item";
     private static final String ELEMENT_TRANSITION = "transition";
@@ -374,7 +374,7 @@ public class AnimatedStateListDrawableCompat extends StateListDrawable {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public static abstract class Transition {
         public abstract void start();
 
@@ -392,7 +392,7 @@ public class AnimatedStateListDrawableCompat extends StateListDrawable {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public static class AnimatableTransition extends Transition {
         private final Animatable mA;
 
@@ -413,7 +413,7 @@ public class AnimatedStateListDrawableCompat extends StateListDrawable {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public static class AnimationDrawableTransition extends Transition {
         private final ObjectAnimator mAnim;
         private final boolean mHasReversibleFlag;
@@ -456,7 +456,7 @@ public class AnimatedStateListDrawableCompat extends StateListDrawable {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public static class AnimatedVectorDrawableTransition extends Transition {
         private final AnimatedVectorDrawableCompat mAvd;
 
@@ -500,7 +500,7 @@ public class AnimatedStateListDrawableCompat extends StateListDrawable {
                 int depth2 = xmlPullParser.getDepth();
                 if (depth2 >= depth || next != 3) {
                     if (next == 2 && depth2 <= depth) {
-                        if (xmlPullParser.getName().equals("item")) {
+                        if (xmlPullParser.getName().equals(ELEMENT_ITEM)) {
                             parseItem(context, resources, xmlPullParser, attributeSet, theme);
                         } else if (xmlPullParser.getName().equals(ELEMENT_TRANSITION)) {
                             parseTransition(context, resources, xmlPullParser, attributeSet, theme);
@@ -607,7 +607,7 @@ public class AnimatedStateListDrawableCompat extends StateListDrawable {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public static class AnimatedStateListState extends StateListDrawable.StateListState {
         private static final long REVERSED_BIT = 4294967296L;
         private static final long REVERSIBLE_FLAG_BIT = 8589934592L;
@@ -701,7 +701,7 @@ public class AnimatedStateListDrawableCompat extends StateListDrawable {
         }
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     private static class FrameInterpolator implements TimeInterpolator {
         private int[] mFrameTimes;
         private int mFrames;

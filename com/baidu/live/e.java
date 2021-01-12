@@ -1,5 +1,5 @@
 package com.baidu.live;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public interface e {
-    void Bb();
+    void xg();
 }

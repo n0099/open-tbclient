@@ -10,26 +10,26 @@ import java.util.concurrent.Future;
 import java.util.concurrent.ThreadPoolExecutor;
 /* loaded from: classes4.dex */
 public class e extends a {
-    private static com.ss.android.socialbase.downloader.l.d qbd;
+    private static com.ss.android.socialbase.downloader.l.d pWC;
 
     public static void c(List<Callable<Object>> list) throws InterruptedException {
-        ExecutorService eHF = com.ss.android.socialbase.downloader.downloader.b.eHF();
-        if (eHF != null) {
-            eHF.invokeAll(list);
+        ExecutorService eDP = com.ss.android.socialbase.downloader.downloader.b.eDP();
+        if (eDP != null) {
+            eDP.invokeAll(list);
         }
     }
 
     public static List<Future> hd(List<Runnable> list) {
-        ExecutorService eHF = com.ss.android.socialbase.downloader.downloader.b.eHF();
+        ExecutorService eDP = com.ss.android.socialbase.downloader.downloader.b.eDP();
         ArrayList arrayList = new ArrayList(list.size());
         for (Runnable runnable : list) {
-            arrayList.add(eHF.submit(runnable));
+            arrayList.add(eDP.submit(runnable));
         }
         return arrayList;
     }
 
     public e() {
-        qbd = new com.ss.android.socialbase.downloader.l.d();
+        pWC = new com.ss.android.socialbase.downloader.l.d();
     }
 
     public static Runnable he(List<Future> list) {
@@ -39,8 +39,8 @@ public class e extends a {
             return null;
         }
         try {
-            ExecutorService eHF = com.ss.android.socialbase.downloader.downloader.b.eHF();
-            if ((eHF instanceof ThreadPoolExecutor) && (queue = ((ThreadPoolExecutor) eHF).getQueue()) != null && !queue.isEmpty()) {
+            ExecutorService eDP = com.ss.android.socialbase.downloader.downloader.b.eDP();
+            if ((eDP instanceof ThreadPoolExecutor) && (queue = ((ThreadPoolExecutor) eDP).getQueue()) != null && !queue.isEmpty()) {
                 Iterator<Future> it = list.iterator();
                 while (true) {
                     if (!it.hasNext()) {
@@ -66,11 +66,11 @@ public class e extends a {
 
     @Override // com.ss.android.socialbase.downloader.impls.a
     public boolean a(int i) {
-        com.ss.android.socialbase.downloader.g.c Tb;
-        if (qbd == null || !qbd.a(i) || (Tb = Tb(i)) == null) {
+        com.ss.android.socialbase.downloader.g.c Ru;
+        if (pWC == null || !pWC.a(i) || (Ru = Ru(i)) == null) {
             return false;
         }
-        if (!com.ss.android.socialbase.downloader.b.f.b(Tb.q())) {
+        if (!com.ss.android.socialbase.downloader.b.f.b(Ru.q())) {
             b(i);
             return false;
         }
@@ -79,8 +79,8 @@ public class e extends a {
 
     @Override // com.ss.android.socialbase.downloader.impls.a
     public void a(com.ss.android.socialbase.downloader.l.c cVar) {
-        if (qbd != null) {
-            qbd.b(cVar);
+        if (pWC != null) {
+            pWC.b(cVar);
         }
     }
 
@@ -88,34 +88,34 @@ public class e extends a {
     public void a(int i, com.ss.android.socialbase.downloader.g.d dVar) {
         if (dVar != null) {
             com.ss.android.socialbase.downloader.f.a.b("DownloadTask", "start doDownload for task : " + i);
-            qbd.a(new com.ss.android.socialbase.downloader.l.c(dVar, this.qaS));
+            pWC.a(new com.ss.android.socialbase.downloader.l.c(dVar, this.pWr));
         }
     }
 
     @Override // com.ss.android.socialbase.downloader.impls.a
     public void b(int i) {
-        if (qbd != null) {
-            qbd.c(i);
+        if (pWC != null) {
+            pWC.c(i);
         }
     }
 
     @Override // com.ss.android.socialbase.downloader.impls.a
-    protected com.ss.android.socialbase.downloader.l.c Ta(int i) {
-        if (qbd == null) {
+    protected com.ss.android.socialbase.downloader.l.c Rt(int i) {
+        if (pWC == null) {
             return null;
         }
-        return qbd.Tk(i);
+        return pWC.RD(i);
     }
 
     @Override // com.ss.android.socialbase.downloader.impls.a
     public List<Integer> a() {
-        return qbd.a();
+        return pWC.a();
     }
 
     @Override // com.ss.android.socialbase.downloader.impls.a
     public void a(int i, long j) {
-        if (qbd != null) {
-            qbd.a(i, j);
+        if (pWC != null) {
+            pWC.a(i, j);
         }
     }
 }

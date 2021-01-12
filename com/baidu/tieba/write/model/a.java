@@ -1,15 +1,15 @@
 package com.baidu.tieba.write.model;
 
 import com.baidu.tieba.write.a.b;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class a {
-    private b oan = null;
+    private b nVI = null;
 
-    public b dYM() {
-        return this.oan;
+    public b dUU() {
+        return this.nVI;
     }
 
     public void a(b bVar) {
-        this.oan = bVar;
+        this.nVI = bVar;
     }
 }

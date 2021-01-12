@@ -17,9 +17,9 @@ import com.baidu.tbadk.core.util.ao;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ala.alasquare.holder.SquareLiveCategoryViewHolder;
 import java.util.ArrayList;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class a extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.alasquare.live.b.b, SquareLiveCategoryViewHolder> {
-    private IAlaSquareTabController gAR;
+    private IAlaSquareTabController gwk;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public a(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
@@ -56,10 +56,10 @@ public class a extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.alasq
         textView2.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.alasquare.live.a.a.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
-                if (a.this.gAR != null) {
-                    int tabIndex = a.this.gAR.getTabIndex(bVar.tabId);
+                if (a.this.gwk != null) {
+                    int tabIndex = a.this.gwk.getTabIndex(bVar.tabId);
                     if (tabIndex >= 0) {
-                        a.this.gAR.goToTab(tabIndex);
+                        a.this.gwk.goToTab(tabIndex);
                         return;
                     } else {
                         a.this.a(bVar);
@@ -74,10 +74,10 @@ public class a extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.alasq
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(com.baidu.tieba.ala.alasquare.live.b.b bVar) {
-        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AlaNewSquareSubListActivityConfig(this.mContext, bVar.bitmapRatio, bVar.entryName, bVar.labelName, (bVar.gBe == null || !(bVar.gBe instanceof ArrayList)) ? null : (ArrayList) bVar.gBe)));
+        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AlaNewSquareSubListActivityConfig(this.mContext, bVar.bitmapRatio, bVar.entryName, bVar.labelName, (bVar.gwx == null || !(bVar.gwx instanceof ArrayList)) ? null : (ArrayList) bVar.gwx)));
     }
 
     public void a(IAlaSquareTabController iAlaSquareTabController) {
-        this.gAR = iAlaSquareTabController;
+        this.gwk = iAlaSquareTabController;
     }
 }

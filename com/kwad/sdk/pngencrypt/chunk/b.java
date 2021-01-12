@@ -9,21 +9,21 @@ import java.util.List;
 import java.util.regex.Pattern;
 import java.util.zip.DeflaterOutputStream;
 import java.util.zip.InflaterInputStream;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final byte[] f10799a = a("IHDR");
+    public static final byte[] f10499a = a("IHDR");
 
     /* renamed from: b  reason: collision with root package name */
-    public static final byte[] f10800b = a("PLTE");
+    public static final byte[] f10500b = a("PLTE");
     public static final byte[] c = a("IDAT");
     public static final byte[] d = a("IEND");
     private static byte[] f = new byte[4096];
     public static Pattern e = Pattern.compile("[a-zA-Z][a-zA-Z][A-Z][a-zA-Z]");
 
     public static String a(byte[] bArr) {
-        return new String(bArr, com.kwad.sdk.pngencrypt.n.f10816a);
+        return new String(bArr, com.kwad.sdk.pngencrypt.n.f10516a);
     }
 
     public static String a(byte[] bArr, int i) {
@@ -31,7 +31,7 @@ public class b {
     }
 
     public static String a(byte[] bArr, int i, int i2) {
-        return new String(bArr, i, i2, com.kwad.sdk.pngencrypt.n.f10816a);
+        return new String(bArr, i, i2, com.kwad.sdk.pngencrypt.n.f10516a);
     }
 
     public static List<PngChunk> a(List<PngChunk> list, c cVar) {
@@ -56,7 +56,7 @@ public class b {
     }
 
     public static byte[] a(String str) {
-        return str.getBytes(com.kwad.sdk.pngencrypt.n.f10816a);
+        return str.getBytes(com.kwad.sdk.pngencrypt.n.f10516a);
     }
 
     public static byte[] a(byte[] bArr, int i, int i2, boolean z) {
@@ -76,11 +76,11 @@ public class b {
     }
 
     public static String b(byte[] bArr) {
-        return new String(bArr, com.kwad.sdk.pngencrypt.n.f10817b);
+        return new String(bArr, com.kwad.sdk.pngencrypt.n.f10517b);
     }
 
     public static String b(byte[] bArr, int i, int i2) {
-        return new String(bArr, i, i2, com.kwad.sdk.pngencrypt.n.f10817b);
+        return new String(bArr, i, i2, com.kwad.sdk.pngencrypt.n.f10517b);
     }
 
     public static boolean b(String str) {

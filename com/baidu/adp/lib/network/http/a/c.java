@@ -1,26 +1,26 @@
 package com.baidu.adp.lib.network.http.a;
 /* loaded from: classes.dex */
 public class c {
-    private String MT;
-    private String MW;
-    private int MX;
-    private long MY;
-    private int Mn;
+    private String MR;
+    private String MU;
+    private int MV;
+    private long MW;
+    private int Ml;
     private String exception;
-    private boolean MU = false;
-    private boolean MV = false;
-    private int Mb = 0;
+    private boolean MS = false;
+    private boolean MT = false;
+    private int LZ = 0;
 
     public void aj(boolean z) {
-        this.MU = z;
+        this.MS = z;
     }
 
     public boolean mh() {
-        return this.MV;
+        return this.MT;
     }
 
     public void ak(boolean z) {
-        this.MV = z;
+        this.MT = z;
     }
 
     public void setException(String str) {
@@ -28,7 +28,7 @@ public class c {
     }
 
     public void au(int i) {
-        this.Mb = i;
+        this.LZ = i;
     }
 
     public void mi() {
@@ -36,34 +36,34 @@ public class c {
     }
 
     public void bJ(String str) {
-        this.MW = str;
+        this.MU = str;
     }
 
     public String mj() {
-        return this.MW;
+        return this.MU;
     }
 
     public void av(int i) {
-        this.MX = i;
+        this.MV = i;
     }
 
     public void E(long j) {
-        this.MY = j;
+        this.MW = j;
     }
 
     public String toString() {
-        return "isFromNet_" + this.MU + "-statType_" + this.MX + "-dnsErr_" + this.exception + "-hasRetry_" + this.Mb + "-cost_" + this.MY + "-ipIndex_" + this.Mn + "-ipResult_" + this.MT;
+        return "isFromNet_" + this.MS + "-statType_" + this.MV + "-dnsErr_" + this.exception + "-hasRetry_" + this.LZ + "-cost_" + this.MW + "-ipIndex_" + this.Ml + "-ipResult_" + this.MR;
     }
 
     public String mk() {
-        return this.MT;
+        return this.MR;
     }
 
     public void bK(String str) {
-        this.MT = str;
+        this.MR = str;
     }
 
     public void ar(int i) {
-        this.Mn = i;
+        this.Ml = i;
     }
 }

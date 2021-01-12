@@ -9,35 +9,35 @@ import com.kwad.sdk.glide.load.b.o;
 import com.kwad.sdk.glide.load.b.r;
 import com.kwad.sdk.glide.load.resource.bitmap.v;
 import java.io.InputStream;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class d implements n<Uri, InputStream> {
 
     /* renamed from: a  reason: collision with root package name */
-    private final Context f10368a;
+    private final Context f10068a;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class a implements o<Uri, InputStream> {
 
         /* renamed from: a  reason: collision with root package name */
-        private final Context f10369a;
+        private final Context f10069a;
 
         public a(Context context) {
-            this.f10369a = context;
+            this.f10069a = context;
         }
 
         @Override // com.kwad.sdk.glide.load.b.o
         @NonNull
         public n<Uri, InputStream> a(r rVar) {
-            return new d(this.f10369a);
+            return new d(this.f10069a);
         }
     }
 
     public d(Context context) {
-        this.f10368a = context.getApplicationContext();
+        this.f10068a = context.getApplicationContext();
     }
 
     private boolean a(com.kwad.sdk.glide.load.e eVar) {
-        Long l = (Long) eVar.a(v.f10601a);
+        Long l = (Long) eVar.a(v.f10301a);
         return l != null && l.longValue() == -1;
     }
 
@@ -46,7 +46,7 @@ public class d implements n<Uri, InputStream> {
     @Nullable
     public n.a<InputStream> a(@NonNull Uri uri, int i, int i2, @NonNull com.kwad.sdk.glide.load.e eVar) {
         if (com.kwad.sdk.glide.load.a.a.b.a(i, i2) && a(eVar)) {
-            return new n.a<>(new com.kwad.sdk.glide.f.b(uri), com.kwad.sdk.glide.load.a.a.c.b(this.f10368a, uri));
+            return new n.a<>(new com.kwad.sdk.glide.f.b(uri), com.kwad.sdk.glide.load.a.a.c.b(this.f10068a, uri));
         }
         return null;
     }

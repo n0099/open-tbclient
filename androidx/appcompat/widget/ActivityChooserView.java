@@ -29,7 +29,7 @@ import androidx.appcompat.widget.ActivityChooserModel;
 import androidx.core.view.ActionProvider;
 import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class ActivityChooserView extends ViewGroup implements ActivityChooserModel.ActivityChooserModelClient {
     private static final String LOG_TAG = "ActivityChooserView";
     private final View mActivityChooserContent;
@@ -324,7 +324,7 @@ public class ActivityChooserView extends ViewGroup implements ActivityChooserMod
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public class Callbacks implements View.OnClickListener, View.OnLongClickListener, AdapterView.OnItemClickListener, PopupWindow.OnDismissListener {
         Callbacks() {
         }
@@ -404,7 +404,7 @@ public class ActivityChooserView extends ViewGroup implements ActivityChooserMod
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public class ActivityChooserViewAdapter extends BaseAdapter {
         private static final int ITEM_VIEW_TYPE_ACTIVITY = 0;
         private static final int ITEM_VIEW_TYPE_COUNT = 3;
@@ -569,7 +569,7 @@ public class ActivityChooserView extends ViewGroup implements ActivityChooserMod
     }
 
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public static class InnerLayout extends LinearLayout {
         private static final int[] TINT_ATTRS = {16842964};
 

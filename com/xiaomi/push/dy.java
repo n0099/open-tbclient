@@ -4,15 +4,15 @@ package com.xiaomi.push;
 public class dy implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ dx f14258a;
+    final /* synthetic */ dx f13958a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public dy(dx dxVar) {
-        this.f14258a = dxVar;
+        this.f13958a = dxVar;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        this.f14258a.b();
+        this.f13958a.b();
     }
 }

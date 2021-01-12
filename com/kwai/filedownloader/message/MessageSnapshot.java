@@ -4,7 +4,7 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import com.kwai.filedownloader.message.d;
 import com.kwai.filedownloader.message.h;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public abstract class MessageSnapshot implements Parcelable, c {
     public static final Parcelable.Creator<MessageSnapshot> CREATOR = new Parcelable.Creator<MessageSnapshot>() { // from class: com.kwai.filedownloader.message.MessageSnapshot.1
         /* JADX DEBUG: Method merged with bridge method */
@@ -42,7 +42,7 @@ public abstract class MessageSnapshot implements Parcelable, c {
                         jVar = new h.d(parcel);
                         break;
                     } else {
-                        jVar = new d.C1174d(parcel);
+                        jVar = new d.C1157d(parcel);
                         break;
                     }
                 case 1:
@@ -71,7 +71,7 @@ public abstract class MessageSnapshot implements Parcelable, c {
                     }
                 case 5:
                     if (!z) {
-                        jVar = new h.C1175h(parcel);
+                        jVar = new h.C1158h(parcel);
                         break;
                     } else {
                         jVar = new d.h(parcel);
@@ -82,7 +82,7 @@ public abstract class MessageSnapshot implements Parcelable, c {
                     break;
             }
             if (jVar != null) {
-                jVar.f11246a = z;
+                jVar.f10946a = z;
                 return jVar;
             }
             throw new IllegalStateException("Can't restore the snapshot because unknown status: " + ((int) readByte));
@@ -97,24 +97,24 @@ public abstract class MessageSnapshot implements Parcelable, c {
     };
 
     /* renamed from: a  reason: collision with root package name */
-    protected boolean f11246a;
+    protected boolean f10946a;
 
     /* renamed from: b  reason: collision with root package name */
-    private final int f11247b;
+    private final int f10947b;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class NoFieldException extends IllegalStateException {
         NoFieldException(String str, MessageSnapshot messageSnapshot) {
             super(com.kwai.filedownloader.f.f.a("There isn't a field for '%s' in this message %d %d %s", str, Integer.valueOf(messageSnapshot.m()), Byte.valueOf(messageSnapshot.b()), messageSnapshot.getClass().getName()));
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public interface a {
         MessageSnapshot l();
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class b extends MessageSnapshot {
         /* JADX INFO: Access modifiers changed from: package-private */
         public b(int i) {
@@ -133,12 +133,12 @@ public abstract class MessageSnapshot implements Parcelable, c {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public MessageSnapshot(int i) {
-        this.f11247b = i;
+        this.f10947b = i;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public MessageSnapshot(Parcel parcel) {
-        this.f11247b = parcel.readInt();
+        this.f10947b = parcel.readInt();
     }
 
     public int a() {
@@ -187,17 +187,17 @@ public abstract class MessageSnapshot implements Parcelable, c {
     }
 
     public int m() {
-        return this.f11247b;
+        return this.f10947b;
     }
 
     public boolean n() {
-        return this.f11246a;
+        return this.f10946a;
     }
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeByte((byte) (this.f11246a ? 1 : 0));
+        parcel.writeByte((byte) (this.f10946a ? 1 : 0));
         parcel.writeByte(b());
-        parcel.writeInt(this.f11247b);
+        parcel.writeInt(this.f10947b);
     }
 }

@@ -12,6 +12,7 @@ import android.location.Location;
 import android.location.LocationManager;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.net.http.Headers;
 import android.net.wifi.ScanResult;
 import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
@@ -42,14 +43,14 @@ import java.util.Locale;
 import java.util.regex.Pattern;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class bw {
 
     /* renamed from: a  reason: collision with root package name */
-    private static String f3812a = null;
+    private static String f3774a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    private static String f3813b = null;
+    private static String f3775b = null;
     private static String c = null;
     private static final Pattern d = Pattern.compile("\\s*|\t|\r|\n");
 
@@ -160,7 +161,7 @@ public class bw {
     public static String j(Context context) {
         Location lastKnownLocation;
         try {
-            if (bo.e(context, "android.permission.ACCESS_FINE_LOCATION") && (lastKnownLocation = ((LocationManager) context.getSystemService("location")).getLastKnownLocation("gps")) != null) {
+            if (bo.e(context, "android.permission.ACCESS_FINE_LOCATION") && (lastKnownLocation = ((LocationManager) context.getSystemService(Headers.LOCATION)).getLastKnownLocation("gps")) != null) {
                 return String.format("%s_%s_%s", Long.valueOf(lastKnownLocation.getTime()), Double.valueOf(lastKnownLocation.getLongitude()), Double.valueOf(lastKnownLocation.getLatitude()));
             }
         } catch (Exception e) {
@@ -423,7 +424,7 @@ public class bw {
             return "";
         }
         try {
-            z = bo.e(context, "android.permission.ACCESS_FINE_LOCATION") ? ((LocationManager) context.getSystemService("location")).isProviderEnabled("gps") : false;
+            z = bo.e(context, "android.permission.ACCESS_FINE_LOCATION") ? ((LocationManager) context.getSystemService(Headers.LOCATION)).isProviderEnabled("gps") : false;
         } catch (Exception e) {
             z = false;
         }
@@ -590,7 +591,7 @@ public class bw {
 
     private static String y(Context context) {
         String str;
-        String str2 = f3812a;
+        String str2 = f3774a;
         if (str2 == null) {
             try {
                 List<ActivityManager.RunningAppProcessInfo> runningAppProcesses = ((ActivityManager) context.getSystemService(PushConstants.INTENT_ACTIVITY_NAME)).getRunningAppProcesses();
@@ -608,7 +609,7 @@ public class bw {
             if (str == null) {
                 str = "";
             }
-            f3812a = str;
+            f3774a = str;
             return str;
         }
         return str2;
@@ -635,7 +636,7 @@ public class bw {
     }
 
     public static String u(Context context) {
-        String str = f3813b;
+        String str = f3775b;
         if (str == null) {
             String y = y(context);
             str = b(context, y);
@@ -645,7 +646,7 @@ public class bw {
             if (str == null) {
                 str = "";
             }
-            f3813b = str;
+            f3775b = str;
         }
         return str;
     }

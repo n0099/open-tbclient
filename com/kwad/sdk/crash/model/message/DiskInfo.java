@@ -5,7 +5,7 @@ import com.kwad.sdk.core.b;
 import com.kwad.sdk.utils.o;
 import java.io.Serializable;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class DiskInfo implements b, Serializable {
     private static final long serialVersionUID = -154725647775465930L;
     public double mDataAvailableGB;

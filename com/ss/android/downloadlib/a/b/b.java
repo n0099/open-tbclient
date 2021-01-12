@@ -5,12 +5,12 @@ import org.json.JSONObject;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f13231a = 0;
+    public static int f12931a = 0;
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f13232b = 1;
+    public static int f12932b = 1;
     public static int c = 2;
-    private int d = f13231a;
+    private int d = f12931a;
     private long e = 0;
     private JSONObject f = null;
     private int g = 0;
@@ -18,19 +18,19 @@ public class b {
     private String i = "";
 
     public boolean a() {
-        return this.d == f13232b;
+        return this.d == f12932b;
     }
 
     public int b() {
         return this.g;
     }
 
-    public b Se(int i) {
+    public b Qx(int i) {
         this.d = i;
         return this;
     }
 
-    public b Sf(int i) {
+    public b Qy(int i) {
         this.g = i;
         return this;
     }

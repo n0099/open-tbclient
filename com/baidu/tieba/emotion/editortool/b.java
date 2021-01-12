@@ -1,37 +1,37 @@
 package com.baidu.tieba.emotion.editortool;
 
 import com.baidu.tbadk.coreExtra.data.EmotionGroupType;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class b {
-    private int bOI;
-    private int bOJ;
+    private int bJW;
+    private int bJX;
     private int column;
-    private EmotionGroupType iFt;
-    private int iFu;
-    private int iFv;
-    private com.baidu.tbadk.editortools.emotiontool.c iFw;
-    private int iFx;
-    private int iFy;
+    private EmotionGroupType iAM;
+    private int iAN;
+    private int iAO;
+    private com.baidu.tbadk.editortools.emotiontool.c iAP;
+    private int iAQ;
+    private int iAR;
     private int index;
     private int row;
 
     public void e(com.baidu.tbadk.editortools.emotiontool.c cVar) {
-        this.iFw = cVar;
+        this.iAP = cVar;
     }
 
-    public com.baidu.tbadk.editortools.emotiontool.c cxl() {
-        return this.iFw;
+    public com.baidu.tbadk.editortools.emotiontool.c ctt() {
+        return this.iAP;
     }
 
     public void b(EmotionGroupType emotionGroupType) {
-        this.iFt = emotionGroupType;
+        this.iAM = emotionGroupType;
     }
 
-    public EmotionGroupType cxm() {
-        return this.iFt;
+    public EmotionGroupType ctu() {
+        return this.iAM;
     }
 
-    public void sI(int i) {
+    public void rc(int i) {
         this.row = i;
     }
 
@@ -43,44 +43,44 @@ public class b {
         this.column = i;
     }
 
-    public int cxn() {
+    public int ctv() {
         return this.column;
     }
 
-    public void yN(int i) {
-        this.iFy = i;
+    public void xh(int i) {
+        this.iAR = i;
     }
 
-    public int cxo() {
-        return this.iFy;
+    public int ctw() {
+        return this.iAR;
     }
 
-    public void yO(int i) {
-        this.iFx = i;
+    public void xi(int i) {
+        this.iAQ = i;
     }
 
-    public int cxp() {
-        return this.iFx;
+    public int ctx() {
+        return this.iAQ;
     }
 
-    public void yP(int i) {
-        this.iFu = i;
+    public void xj(int i) {
+        this.iAN = i;
     }
 
-    public int cxq() {
-        return this.iFu;
+    public int cty() {
+        return this.iAN;
     }
 
-    public void yQ(int i) {
-        this.bOI = i;
+    public void xk(int i) {
+        this.bJW = i;
     }
 
-    public int cxr() {
-        return this.bOI;
+    public int ctz() {
+        return this.bJW;
     }
 
-    public void yR(int i) {
-        this.bOJ = i;
+    public void xl(int i) {
+        this.bJX = i;
     }
 
     public void setIndex(int i) {
@@ -91,11 +91,11 @@ public class b {
         return this.index;
     }
 
-    public void yS(int i) {
-        this.iFv = i;
+    public void xm(int i) {
+        this.iAO = i;
     }
 
-    public int cxs() {
-        return this.iFv;
+    public int ctA() {
+        return this.iAO;
     }
 }

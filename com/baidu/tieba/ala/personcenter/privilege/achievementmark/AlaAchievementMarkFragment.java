@@ -17,38 +17,38 @@ import com.baidu.tieba.ala.personcenter.privilege.achievementmark.a;
 import com.baidu.tieba.ala.personcenter.privilege.achievementmark.message.AlaAchievementMarkResponsedMessage;
 import com.baidu.tieba.ala.personcenter.privilege.achievementmark.model.AlaPersonCenterPrivilegeMarkModel;
 import com.baidu.tieba.ala.personcenter.privilege.achievementmark.view.a;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class AlaAchievementMarkFragment extends AbsFragment {
     private static final String TITLE = TbadkCoreApplication.getInst().getResources().getString(R.string.ala_achievement_mark_fragment_title);
-    private g gLj;
-    private com.baidu.tieba.ala.personcenter.privilege.achievementmark.view.a ibp;
-    private AlaPersonCenterPrivilegeMarkModel ibq;
-    private a ibr;
-    private AlaPersonCenterPrivilegeMarkModel.a ibs = new AlaPersonCenterPrivilegeMarkModel.a() { // from class: com.baidu.tieba.ala.personcenter.privilege.achievementmark.AlaAchievementMarkFragment.2
+    private g gGD;
+    private com.baidu.tieba.ala.personcenter.privilege.achievementmark.view.a hWI;
+    private AlaPersonCenterPrivilegeMarkModel hWJ;
+    private a hWK;
+    private AlaPersonCenterPrivilegeMarkModel.a hWL = new AlaPersonCenterPrivilegeMarkModel.a() { // from class: com.baidu.tieba.ala.personcenter.privilege.achievementmark.AlaAchievementMarkFragment.2
         @Override // com.baidu.tieba.ala.personcenter.privilege.achievementmark.model.AlaPersonCenterPrivilegeMarkModel.a
         public void a(int i, String str, Object obj) {
             AlaAchievementMarkFragment.this.hideLoadingView();
             if (i != 0 && !StringUtils.isNull(str)) {
-                if (AlaAchievementMarkFragment.this.ibp != null) {
+                if (AlaAchievementMarkFragment.this.hWI != null) {
                     if (j.isNetWorkAvailable()) {
-                        AlaAchievementMarkFragment.this.ibp.a(R.drawable.pic_live_empty04, R.string.ala_net_data_error_fail_tip, false, null);
+                        AlaAchievementMarkFragment.this.hWI.a(R.drawable.pic_live_empty04, R.string.ala_net_data_error_fail_tip, false, null);
                     } else {
-                        AlaAchievementMarkFragment.this.ibp.a(R.drawable.pic_live_empty03, R.string.ala_net_fail_tip, true, AlaAchievementMarkFragment.this.gDV);
+                        AlaAchievementMarkFragment.this.hWI.a(R.drawable.pic_live_empty03, R.string.ala_net_fail_tip, true, AlaAchievementMarkFragment.this.gzo);
                     }
-                    AlaAchievementMarkFragment.this.ibp.a(null, null);
+                    AlaAchievementMarkFragment.this.hWI.a(null, null);
                 }
             } else if (obj == null) {
-                AlaAchievementMarkFragment.this.ibp.a(null, null);
+                AlaAchievementMarkFragment.this.hWI.a(null, null);
             } else if (obj instanceof AlaAchievementMarkResponsedMessage) {
                 AlaAchievementMarkResponsedMessage alaAchievementMarkResponsedMessage = (AlaAchievementMarkResponsedMessage) obj;
-                if (AlaAchievementMarkFragment.this.ibp != null) {
-                    AlaAchievementMarkFragment.this.ibp.Zj();
-                    AlaAchievementMarkFragment.this.ibp.a(alaAchievementMarkResponsedMessage.getAlaUserInfoData(), alaAchievementMarkResponsedMessage.getList());
+                if (AlaAchievementMarkFragment.this.hWI != null) {
+                    AlaAchievementMarkFragment.this.hWI.Vq();
+                    AlaAchievementMarkFragment.this.hWI.a(alaAchievementMarkResponsedMessage.getAlaUserInfoData(), alaAchievementMarkResponsedMessage.getList());
                 }
             }
         }
     };
-    private View.OnClickListener gDV = new View.OnClickListener() { // from class: com.baidu.tieba.ala.personcenter.privilege.achievementmark.AlaAchievementMarkFragment.3
+    private View.OnClickListener gzo = new View.OnClickListener() { // from class: com.baidu.tieba.ala.personcenter.privilege.achievementmark.AlaAchievementMarkFragment.3
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             if (j.isNetWorkAvailable()) {
@@ -58,8 +58,8 @@ public class AlaAchievementMarkFragment extends AbsFragment {
             }
         }
     };
-    private a.InterfaceC0705a ibt = new a.InterfaceC0705a() { // from class: com.baidu.tieba.ala.personcenter.privilege.achievementmark.AlaAchievementMarkFragment.4
-        @Override // com.baidu.tieba.ala.personcenter.privilege.achievementmark.view.a.InterfaceC0705a
+    private a.InterfaceC0688a hWM = new a.InterfaceC0688a() { // from class: com.baidu.tieba.ala.personcenter.privilege.achievementmark.AlaAchievementMarkFragment.4
+        @Override // com.baidu.tieba.ala.personcenter.privilege.achievementmark.view.a.InterfaceC0688a
         public void a(com.baidu.tieba.ala.personcenter.privilege.achievementmark.a.b bVar) {
         }
     };
@@ -67,26 +67,26 @@ public class AlaAchievementMarkFragment extends AbsFragment {
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     @Nullable
     public View onCreateView(LayoutInflater layoutInflater, @Nullable ViewGroup viewGroup, @Nullable Bundle bundle) {
-        this.ibp = new com.baidu.tieba.ala.personcenter.privilege.achievementmark.view.a(getPageContext(), this.ibt);
+        this.hWI = new com.baidu.tieba.ala.personcenter.privilege.achievementmark.view.a(getPageContext(), this.hWM);
         showLoadingView();
         refreshData();
-        this.ibr = new a(getPageContext(), new a.InterfaceC0703a() { // from class: com.baidu.tieba.ala.personcenter.privilege.achievementmark.AlaAchievementMarkFragment.1
-            @Override // com.baidu.tieba.ala.personcenter.privilege.achievementmark.a.InterfaceC0703a
+        this.hWK = new a(getPageContext(), new a.InterfaceC0686a() { // from class: com.baidu.tieba.ala.personcenter.privilege.achievementmark.AlaAchievementMarkFragment.1
+            @Override // com.baidu.tieba.ala.personcenter.privilege.achievementmark.a.InterfaceC0686a
             public void a(boolean z, com.baidu.tieba.ala.personcenter.privilege.achievementmark.a.b bVar) {
                 if (z) {
                     AlaAchievementMarkFragment.this.refreshData();
                 }
             }
         });
-        return this.ibp.getView();
+        return this.hWI.getView();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void refreshData() {
-        if (this.ibq == null) {
-            this.ibq = new AlaPersonCenterPrivilegeMarkModel(BdUniqueId.gen(), this.ibs);
+        if (this.hWJ == null) {
+            this.hWJ = new AlaPersonCenterPrivilegeMarkModel(BdUniqueId.gen(), this.hWL);
         }
-        this.ibq.cqd();
+        this.hWJ.cml();
     }
 
     @Override // com.baidu.ala.widget.multicolumn.absView.AbsFragment
@@ -110,36 +110,36 @@ public class AlaAchievementMarkFragment extends AbsFragment {
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onDestroy() {
         super.onDestroy();
-        if (this.ibq != null) {
-            this.ibq.destory();
+        if (this.hWJ != null) {
+            this.hWJ.destory();
         }
-        if (this.ibr != null) {
-            this.ibr.onDestroy();
+        if (this.hWK != null) {
+            this.hWK.onDestroy();
         }
         hideLoadingView();
     }
 
     private void showLoadingView() {
-        if (this.gLj == null) {
-            this.gLj = new g(getPageContext().getPageActivity(), getContext().getResources().getDimensionPixelSize(R.dimen.ds386));
+        if (this.gGD == null) {
+            this.gGD = new g(getPageContext().getPageActivity(), getContext().getResources().getDimensionPixelSize(R.dimen.ds386));
         }
-        if (this.ibp != null && this.ibp.getView() != null) {
-            this.gLj.attachView(this.ibp.getView(), false);
+        if (this.hWI != null && this.hWI.getView() != null) {
+            this.gGD.attachView(this.hWI.getView(), false);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void hideLoadingView() {
-        if (this.gLj != null && this.ibp != null && this.ibp.getView() != null) {
-            this.gLj.dettachView(this.ibp.getView());
+        if (this.gGD != null && this.hWI != null && this.hWI.getView() != null) {
+            this.gGD.dettachView(this.hWI.getView());
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        if (this.gLj != null) {
-            this.gLj.onChangeSkinType();
+        if (this.gGD != null) {
+            this.gGD.onChangeSkinType();
         }
     }
 }

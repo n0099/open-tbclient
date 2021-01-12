@@ -1,7 +1,7 @@
 package com.baidu.tieba.memberCenter.memberExchange;
 
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class b {
     public String errorCode;
     public String errorMsg;

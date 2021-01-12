@@ -7,7 +7,7 @@ import com.bytedance.sdk.openadsdk.downloadnew.core.b;
 public class a extends b implements com.bytedance.sdk.openadsdk.downloadnew.core.b {
 
     /* renamed from: b  reason: collision with root package name */
-    private b.a f7357b;
+    private b.a f7057b;
 
     public a(Context context, l lVar, String str) {
         super(context, lVar, str);
@@ -16,6 +16,6 @@ public class a extends b implements com.bytedance.sdk.openadsdk.downloadnew.core
 
     @Override // com.bytedance.sdk.openadsdk.downloadnew.core.b
     public void a(b.a aVar) {
-        this.f7357b = aVar;
+        this.f7057b = aVar;
     }
 }

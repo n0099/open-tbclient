@@ -8,12 +8,12 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.widget.ActivityChooserView;
 import androidx.recyclerview.widget.LinearSmoothScroller;
 import androidx.recyclerview.widget.RecyclerView;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class PagerSnapHelper extends SnapHelper {
     @Nullable
-    private d gMA;
+    private d gHT;
     @Nullable
-    private d gMz;
+    private d gHU;
 
     @Override // com.baidu.tieba.ala.alasquare.widget.banner.SnapHelper
     @Nullable
@@ -167,17 +167,17 @@ public class PagerSnapHelper extends SnapHelper {
 
     @NonNull
     private d c(@NonNull RecyclerView.LayoutManager layoutManager) {
-        if (this.gMz == null || this.gMz.mLayoutManager != layoutManager) {
-            this.gMz = d.b(layoutManager);
+        if (this.gHT == null || this.gHT.mLayoutManager != layoutManager) {
+            this.gHT = d.b(layoutManager);
         }
-        return this.gMz;
+        return this.gHT;
     }
 
     @NonNull
     private d d(@NonNull RecyclerView.LayoutManager layoutManager) {
-        if (this.gMA == null || this.gMA.mLayoutManager != layoutManager) {
-            this.gMA = d.a(layoutManager);
+        if (this.gHU == null || this.gHU.mLayoutManager != layoutManager) {
+            this.gHU = d.a(layoutManager);
         }
-        return this.gMA;
+        return this.gHU;
     }
 }

@@ -10,7 +10,7 @@ import androidx.annotation.RestrictTo;
 import androidx.appcompat.R;
 import androidx.core.widget.TextViewCompat;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class DialogTitle extends TextView {
     public DialogTitle(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);

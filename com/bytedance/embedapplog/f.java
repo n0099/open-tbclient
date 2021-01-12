@@ -4,5 +4,5 @@ import android.content.Context;
 import java.util.HashMap;
 /* loaded from: classes4.dex */
 public interface f {
-    HashMap<String, String> hQ(Context context);
+    HashMap<String, String> hO(Context context);
 }

@@ -11,54 +11,54 @@ import com.baidu.tieba.lego.model.LegoPageModel;
 import com.squareup.wire.Wire;
 import java.io.IOException;
 import tbclient.Lego.DataRes;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class c implements a {
-    private LegoPageModel lcC;
-    private b lcD;
-    private LegoPageModel.a lcE = new LegoPageModel.a() { // from class: com.baidu.tieba.lego.model.c.1
+    private LegoPageModel kXV;
+    private b kXW;
+    private LegoPageModel.a kXX = new LegoPageModel.a() { // from class: com.baidu.tieba.lego.model.c.1
         @Override // com.baidu.tieba.lego.model.LegoPageModel.a
         public void a(long j, String str, DataRes dataRes, boolean z, int i) {
-            if (c.this.lcD != null) {
-                c.this.lcD.a(true, dataRes, !z, j, str, i);
+            if (c.this.kXW != null) {
+                c.this.kXW.a(true, dataRes, !z, j, str, i);
             }
         }
 
         @Override // com.baidu.tieba.lego.model.LegoPageModel.a
         public void b(long j, String str, DataRes dataRes, boolean z) {
-            if (c.this.lcD != null) {
-                c.this.lcD.a(j, str, dataRes, z);
+            if (c.this.kXW != null) {
+                c.this.kXW.a(j, str, dataRes, z);
             }
         }
 
         @Override // com.baidu.tieba.lego.model.LegoPageModel.a
         public void b(long j, String str, int i, String str2) {
-            if (c.this.lcD != null) {
-                c.this.lcD.a(j, str, str2, i);
+            if (c.this.kXW != null) {
+                c.this.kXW.a(j, str, str2, i);
             }
         }
     };
 
     public c(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
-        this.lcC = new LegoPageModel(tbPageContext, bdUniqueId);
-        this.lcC.a(this.lcE);
+        this.kXV = new LegoPageModel(tbPageContext, bdUniqueId);
+        this.kXV.a(this.kXX);
     }
 
     @Override // com.baidu.tieba.lego.model.a
     public void a(int i, long j, String str, int i2, String str2) {
-        if (this.lcC != null) {
-            this.lcC.b(i, j, str, i2, str2);
+        if (this.kXV != null) {
+            this.kXV.b(i, j, str, i2, str2);
         }
     }
 
     @Override // com.baidu.tieba.lego.model.a
     public void v(final long j, final String str) {
-        final l<byte[]> Bl = com.baidu.tbadk.core.c.a.btT().Bl("tb.lego_update");
+        final l<byte[]> Aa = com.baidu.tbadk.core.c.a.bpZ().Aa("tb.lego_update");
         ac.a(new ab<DataRes>() { // from class: com.baidu.tieba.lego.model.c.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tbadk.util.ab
-            /* renamed from: dcZ */
+            /* renamed from: cZh */
             public DataRes doInBackground() {
-                byte[] bArr = (byte[]) Bl.get(j + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + (TextUtils.isEmpty(str) ? "" : str));
+                byte[] bArr = (byte[]) Aa.get(j + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + (TextUtils.isEmpty(str) ? "" : str));
                 if (bArr == null || bArr.length == 0) {
                     return null;
                 }
@@ -81,15 +81,15 @@ public class c implements a {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(long j, String str, DataRes dataRes) {
         if (j >= 0) {
-            if (this.lcD != null) {
-                this.lcD.a(false, dataRes, false, j, str, 1);
+            if (this.kXW != null) {
+                this.kXW.a(false, dataRes, false, j, str, 1);
             }
-            this.lcC.b(2, j, str, 1, "");
+            this.kXV.b(2, j, str, 1, "");
         }
     }
 
     @Override // com.baidu.tieba.lego.model.a
     public void a(b bVar) {
-        this.lcD = bVar;
+        this.kXW = bVar;
     }
 }

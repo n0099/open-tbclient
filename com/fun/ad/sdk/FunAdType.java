@@ -1,5 +1,5 @@
 package com.fun.ad.sdk;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public final class FunAdType {
     public static final String CSJ_BANNER = "csjBanner";
     public static final String CSJ_BANNER_EXPRESS = "csjBannerExpress";

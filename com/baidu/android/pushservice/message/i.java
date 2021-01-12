@@ -7,14 +7,14 @@ import com.baidu.android.pushservice.h.a.b;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes14.dex */
 public class i {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f1468a;
+    public String f1474a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f1469b;
+    public String f1475b;
     public String c;
     public String d;
     public String e;
@@ -35,12 +35,12 @@ public class i {
             if (TextUtils.isEmpty(this.g) && TextUtils.isEmpty(this.h)) {
                 publicMsg.mTitle = this.e;
                 publicMsg.mDescription = this.f;
-                publicMsg.mUrl = this.f1468a;
+                publicMsg.mUrl = this.f1474a;
                 publicMsg.mPkgContent = this.c;
             } else {
                 publicMsg.mTitle = this.g;
                 publicMsg.mDescription = this.h;
-                publicMsg.mUrl = this.f1469b;
+                publicMsg.mUrl = this.f1475b;
                 publicMsg.mPkgContent = this.d;
             }
             return publicMsg;

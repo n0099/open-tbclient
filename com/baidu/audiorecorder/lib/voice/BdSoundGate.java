@@ -1,8 +1,8 @@
 package com.baidu.audiorecorder.lib.voice;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class BdSoundGate {
-    private static BdSoundGate acM;
-    private int acL = -1;
+    private static BdSoundGate acK;
+    private int acJ = -1;
     private int blockSize;
 
     private native void close(int i);
@@ -18,10 +18,10 @@ public class BdSoundGate {
     }
 
     public static BdSoundGate rP() {
-        if (acM == null) {
-            acM = new BdSoundGate();
+        if (acK == null) {
+            acK = new BdSoundGate();
         }
-        return acM;
+        return acK;
     }
 
     private BdSoundGate() {
@@ -33,7 +33,7 @@ public class BdSoundGate {
 
     public void a(int i, float f, float f2, float f3) {
         this.blockSize = i;
-        this.acL = getChanger(i, f, f2, f3);
+        this.acJ = getChanger(i, f, f2, f3);
     }
 
     public int getBlockSize() {
@@ -41,13 +41,13 @@ public class BdSoundGate {
     }
 
     public void release() {
-        if (this.acL > 0) {
-            close(this.acL);
-            this.acL = -1;
+        if (this.acJ > 0) {
+            close(this.acJ);
+            this.acJ = -1;
         }
     }
 
     public void a(short[] sArr, short[] sArr2) {
-        throughMono(this.acL, sArr, sArr2);
+        throughMono(this.acJ, sArr, sArr2);
     }
 }

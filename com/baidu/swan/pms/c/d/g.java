@@ -3,7 +3,7 @@ package com.baidu.swan.pms.c.d;
 public abstract class g {
     private int mCategory;
     private String mFrom = "-1";
-    private String ecn = "-1";
+    private String dXB = "-1";
 
     /* JADX INFO: Access modifiers changed from: protected */
     public g(int i) {
@@ -14,13 +14,13 @@ public abstract class g {
         return this.mCategory;
     }
 
-    public g zb(String str) {
+    public g xQ(String str) {
         this.mFrom = str;
         return this;
     }
 
-    public g zc(String str) {
-        this.ecn = str;
+    public g xR(String str) {
+        this.dXB = str;
         return this;
     }
 
@@ -28,7 +28,7 @@ public abstract class g {
         return this.mFrom;
     }
 
-    public String bhc() {
-        return this.ecn;
+    public String bdi() {
+        return this.dXB;
     }
 }

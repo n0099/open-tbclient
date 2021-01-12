@@ -8,18 +8,18 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import com.baidu.android.imsdk.chatmessage.messages.ChatMsg;
 import com.baidu.live.sdk.a;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class h extends f {
     private Context mContext;
     public View mConvertView;
-    public TextView oSt;
+    public TextView oNR;
 
     @SuppressLint({"InflateParams"})
     public h(Context context, LayoutInflater layoutInflater) {
         this.mContext = context;
         this.mConvertView = layoutInflater.inflate(a.g.bd_im_chating_notice_txt, (ViewGroup) null);
-        this.oSk = (TextView) this.mConvertView.findViewById(a.f.bd_im_chating_time_txt);
-        this.oSt = (TextView) this.mConvertView.findViewById(a.f.bd_im_chating_notice);
+        this.oNI = (TextView) this.mConvertView.findViewById(a.f.bd_im_chating_time_txt);
+        this.oNR = (TextView) this.mConvertView.findViewById(a.f.bd_im_chating_notice);
         this.mConvertView.setTag(this);
     }
 
@@ -29,7 +29,7 @@ public class h extends f {
 
     @Override // com.baidu.yuyinala.privatemessage.implugin.a.a.f
     public TextView getTextView() {
-        return this.oSt;
+        return this.oNR;
     }
 
     @Override // com.baidu.yuyinala.privatemessage.implugin.a.a.f
@@ -43,6 +43,6 @@ public class h extends f {
 
     @Override // com.baidu.yuyinala.privatemessage.implugin.a.a.f
     public View getContentView() {
-        return this.oSt;
+        return this.oNR;
     }
 }

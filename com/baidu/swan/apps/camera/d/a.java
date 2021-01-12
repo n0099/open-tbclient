@@ -4,10 +4,10 @@ import android.text.TextUtils;
 import com.baidu.ar.arplay.core.pixel.PixelReadParams;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class a extends com.baidu.swan.apps.component.b.b {
-    private String cLx;
-    private String cLy;
+    private String cGL;
+    private String cGM;
     public String cameraId;
 
     public a(String str) {
@@ -22,37 +22,37 @@ public class a extends com.baidu.swan.apps.component.b.b {
     @Override // com.baidu.swan.apps.component.b.b, com.baidu.swan.apps.model.a
     public void parseFromJson(JSONObject jSONObject) throws JSONException {
         super.parseFromJson(jSONObject);
-        this.cLx = jSONObject.optString("devicePosition", "back");
-        this.cLy = jSONObject.optString("flash", "auto");
+        this.cGL = jSONObject.optString("devicePosition", "back");
+        this.cGM = jSONObject.optString("flash", "auto");
         this.cameraId = jSONObject.optString("cameraId");
     }
 
     public boolean isFrontCamera() {
-        return TextUtils.equals(this.cLx, "front");
+        return TextUtils.equals(this.cGL, "front");
     }
 
-    public String aoe() {
-        return C0408a.my(this.cLy);
+    public String akk() {
+        return C0391a.ln(this.cGM);
     }
 
     public int getWidth() {
-        if (this.cNS == null) {
+        if (this.cJg == null) {
             return 0;
         }
-        return this.cNS.getWidth();
+        return this.cJg.getWidth();
     }
 
     public int getHeight() {
-        if (this.cNS == null) {
+        if (this.cJg == null) {
             return 0;
         }
-        return this.cNS.getHeight();
+        return this.cJg.getHeight();
     }
 
     /* renamed from: com.baidu.swan.apps.camera.d.a$a  reason: collision with other inner class name */
-    /* loaded from: classes9.dex */
-    private static class C0408a {
-        static String my(String str) {
+    /* loaded from: classes8.dex */
+    private static class C0391a {
+        static String ln(String str) {
             char c = 65535;
             switch (str.hashCode()) {
                 case 3551:

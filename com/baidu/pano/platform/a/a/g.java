@@ -17,14 +17,14 @@ import org.apache.http.client.methods.HttpUriRequest;
 import org.apache.http.entity.ByteArrayEntity;
 import org.apache.http.params.HttpConnectionParams;
 import org.apache.http.params.HttpParams;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class g implements i {
 
     /* renamed from: a  reason: collision with root package name */
-    protected final HttpClient f3895a;
+    protected final HttpClient f3857a;
 
     public g(HttpClient httpClient) {
-        this.f3895a = httpClient;
+        this.f3857a = httpClient;
     }
 
     private static void a(HttpUriRequest httpUriRequest, Map<String, String> map) {
@@ -43,7 +43,7 @@ public class g implements i {
         int t = nVar.t();
         HttpConnectionParams.setConnectionTimeout(params, 5000);
         HttpConnectionParams.setSoTimeout(params, t);
-        return this.f3895a.execute(b2);
+        return this.f3857a.execute(b2);
     }
 
     static HttpUriRequest b(com.baidu.pano.platform.a.n<?> nVar, Map<String, String> map) throws com.baidu.pano.platform.a.a {
@@ -97,7 +97,7 @@ public class g implements i {
     protected void a(HttpUriRequest httpUriRequest) throws IOException {
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public static final class a extends HttpEntityEnclosingRequestBase {
         public a() {
         }

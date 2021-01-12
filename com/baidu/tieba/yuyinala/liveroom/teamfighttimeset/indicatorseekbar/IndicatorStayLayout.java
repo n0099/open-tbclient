@@ -6,7 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import androidx.annotation.Nullable;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class IndicatorStayLayout extends LinearLayout {
     public IndicatorStayLayout(Context context) {
         this(context, null);
@@ -43,7 +43,7 @@ public class IndicatorStayLayout extends LinearLayout {
             ViewGroup.MarginLayoutParams marginLayoutParams = new ViewGroup.MarginLayoutParams(new ViewGroup.LayoutParams(-2, -2));
             marginLayoutParams.setMargins(marginLayoutParams.leftMargin, marginLayoutParams.topMargin, marginLayoutParams.rightMargin, f.dp2px(indicatorSeekBar.getContext(), 2.0f) - indicatorSeekBar.getPaddingTop());
             addView(indicatorContentView, i, marginLayoutParams);
-            indicatorSeekBar.edQ();
+            indicatorSeekBar.dZY();
         }
     }
 

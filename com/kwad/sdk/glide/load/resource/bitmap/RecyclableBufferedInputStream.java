@@ -5,20 +5,20 @@ import androidx.annotation.VisibleForTesting;
 import java.io.FilterInputStream;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class RecyclableBufferedInputStream extends FilterInputStream {
 
     /* renamed from: a  reason: collision with root package name */
-    private volatile byte[] f10564a;
+    private volatile byte[] f10264a;
 
     /* renamed from: b  reason: collision with root package name */
-    private int f10565b;
+    private int f10265b;
     private int c;
     private int d;
     private int e;
     private final com.kwad.sdk.glide.load.engine.bitmap_recycle.b f;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     static class InvalidMarkException extends IOException {
         private static final long serialVersionUID = -4338378848813561757L;
 
@@ -36,7 +36,7 @@ public class RecyclableBufferedInputStream extends FilterInputStream {
         super(inputStream);
         this.d = -1;
         this.f = bVar;
-        this.f10564a = (byte[]) bVar.a(i, byte[].class);
+        this.f10264a = (byte[]) bVar.a(i, byte[].class);
     }
 
     private int a(InputStream inputStream, byte[] bArr) {
@@ -45,19 +45,19 @@ public class RecyclableBufferedInputStream extends FilterInputStream {
             if (read > 0) {
                 this.d = -1;
                 this.e = 0;
-                this.f10565b = read;
+                this.f10265b = read;
                 return read;
             }
             return read;
         }
-        if (this.d == 0 && this.c > bArr.length && this.f10565b == bArr.length) {
+        if (this.d == 0 && this.c > bArr.length && this.f10265b == bArr.length) {
             int length = bArr.length * 2;
             if (length > this.c) {
                 length = this.c;
             }
             byte[] bArr2 = (byte[]) this.f.a(length, byte[].class);
             System.arraycopy(bArr, 0, bArr2, 0, bArr.length);
-            this.f10564a = bArr2;
+            this.f10264a = bArr2;
             this.f.a((com.kwad.sdk.glide.load.engine.bitmap_recycle.b) bArr);
             bArr = bArr2;
         } else if (this.d > 0) {
@@ -65,9 +65,9 @@ public class RecyclableBufferedInputStream extends FilterInputStream {
         }
         this.e -= this.d;
         this.d = 0;
-        this.f10565b = 0;
+        this.f10265b = 0;
         int read2 = inputStream.read(bArr, this.e, bArr.length - this.e);
-        this.f10565b = read2 <= 0 ? this.e : this.e + read2;
+        this.f10265b = read2 <= 0 ? this.e : this.e + read2;
         return read2;
     }
 
@@ -76,31 +76,31 @@ public class RecyclableBufferedInputStream extends FilterInputStream {
     }
 
     public synchronized void a() {
-        this.c = this.f10564a.length;
+        this.c = this.f10264a.length;
     }
 
     @Override // java.io.FilterInputStream, java.io.InputStream
     public synchronized int available() {
         InputStream inputStream;
         inputStream = this.in;
-        if (this.f10564a == null || inputStream == null) {
+        if (this.f10264a == null || inputStream == null) {
             throw c();
         }
-        return inputStream.available() + (this.f10565b - this.e);
+        return inputStream.available() + (this.f10265b - this.e);
     }
 
     public synchronized void b() {
-        if (this.f10564a != null) {
-            this.f.a((com.kwad.sdk.glide.load.engine.bitmap_recycle.b) this.f10564a);
-            this.f10564a = null;
+        if (this.f10264a != null) {
+            this.f.a((com.kwad.sdk.glide.load.engine.bitmap_recycle.b) this.f10264a);
+            this.f10264a = null;
         }
     }
 
     @Override // java.io.FilterInputStream, java.io.InputStream, java.io.Closeable, java.lang.AutoCloseable
     public void close() {
-        if (this.f10564a != null) {
-            this.f.a((com.kwad.sdk.glide.load.engine.bitmap_recycle.b) this.f10564a);
-            this.f10564a = null;
+        if (this.f10264a != null) {
+            this.f.a((com.kwad.sdk.glide.load.engine.bitmap_recycle.b) this.f10264a);
+            this.f10264a = null;
         }
         InputStream inputStream = this.in;
         this.in = null;
@@ -124,16 +124,16 @@ public class RecyclableBufferedInputStream extends FilterInputStream {
     public synchronized int read() {
         int i = -1;
         synchronized (this) {
-            byte[] bArr = this.f10564a;
+            byte[] bArr = this.f10264a;
             InputStream inputStream = this.in;
             if (bArr == null || inputStream == null) {
                 throw c();
             }
-            if (this.e < this.f10565b || a(inputStream, bArr) != -1) {
-                if (bArr != this.f10564a && (bArr = this.f10564a) == null) {
+            if (this.e < this.f10265b || a(inputStream, bArr) != -1) {
+                if (bArr != this.f10264a && (bArr = this.f10264a) == null) {
                     throw c();
                 }
-                if (this.f10565b - this.e > 0) {
+                if (this.f10265b - this.e > 0) {
                     int i2 = this.e;
                     this.e = i2 + 1;
                     i = bArr[i2] & 255;
@@ -154,7 +154,7 @@ public class RecyclableBufferedInputStream extends FilterInputStream {
         int i4;
         int i5 = -1;
         synchronized (this) {
-            byte[] bArr2 = this.f10564a;
+            byte[] bArr2 = this.f10264a;
             if (bArr2 == null) {
                 throw c();
             }
@@ -165,8 +165,8 @@ public class RecyclableBufferedInputStream extends FilterInputStream {
                 if (inputStream == null) {
                     throw c();
                 }
-                if (this.e < this.f10565b) {
-                    int i6 = this.f10565b - this.e >= i2 ? i2 : this.f10565b - this.e;
+                if (this.e < this.f10265b) {
+                    int i6 = this.f10265b - this.e >= i2 ? i2 : this.f10265b - this.e;
                     System.arraycopy(bArr2, this.e, bArr, i, i6);
                     this.e += i6;
                     if (i6 == i2 || inputStream.available() == 0) {
@@ -193,10 +193,10 @@ public class RecyclableBufferedInputStream extends FilterInputStream {
                         if (i3 != i2) {
                             i5 = i2 - i3;
                         }
-                    } else if (bArr2 != this.f10564a && (bArr2 = this.f10564a) == null) {
+                    } else if (bArr2 != this.f10264a && (bArr2 = this.f10264a) == null) {
                         throw c();
                     } else {
-                        i4 = this.f10565b - this.e >= i3 ? i3 : this.f10565b - this.e;
+                        i4 = this.f10265b - this.e >= i3 ? i3 : this.f10265b - this.e;
                         System.arraycopy(bArr2, this.e, bArr, i, i4);
                         this.e += i4;
                         i3 -= i4;
@@ -218,7 +218,7 @@ public class RecyclableBufferedInputStream extends FilterInputStream {
 
     @Override // java.io.FilterInputStream, java.io.InputStream
     public synchronized void reset() {
-        if (this.f10564a == null) {
+        if (this.f10264a == null) {
             throw new IOException("Stream is closed");
         }
         if (-1 == this.d) {
@@ -232,7 +232,7 @@ public class RecyclableBufferedInputStream extends FilterInputStream {
         if (j < 1) {
             j = 0;
         } else {
-            byte[] bArr = this.f10564a;
+            byte[] bArr = this.f10264a;
             if (bArr == null) {
                 throw c();
             }
@@ -240,20 +240,20 @@ public class RecyclableBufferedInputStream extends FilterInputStream {
             if (inputStream == null) {
                 throw c();
             }
-            if (this.f10565b - this.e >= j) {
+            if (this.f10265b - this.e >= j) {
                 this.e = (int) (this.e + j);
             } else {
-                long j2 = this.f10565b - this.e;
-                this.e = this.f10565b;
+                long j2 = this.f10265b - this.e;
+                this.e = this.f10265b;
                 if (this.d == -1 || j > this.c) {
                     j = j2 + inputStream.skip(j - j2);
                 } else if (a(inputStream, bArr) == -1) {
                     j = j2;
-                } else if (this.f10565b - this.e >= j - j2) {
+                } else if (this.f10265b - this.e >= j - j2) {
                     this.e = (int) ((this.e + j) - j2);
                 } else {
-                    j = (j2 + this.f10565b) - this.e;
-                    this.e = this.f10565b;
+                    j = (j2 + this.f10265b) - this.e;
+                    this.e = this.f10265b;
                 }
             }
         }

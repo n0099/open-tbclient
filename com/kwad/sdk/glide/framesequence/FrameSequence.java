@@ -6,7 +6,7 @@ import java.io.InputStream;
 import java.io.Serializable;
 import java.nio.ByteBuffer;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class FrameSequence implements Serializable {
     private static final AtomicBoolean ISLOADED = new AtomicBoolean(false);
     private int mDefaultLoopCount;
@@ -17,7 +17,7 @@ public class FrameSequence implements Serializable {
     private int mWidth;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class State implements Serializable {
         private long mNativeState;
 

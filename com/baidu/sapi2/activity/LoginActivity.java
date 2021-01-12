@@ -6,7 +6,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.text.TextUtils;
-import com.baidu.l.a.a;
+import com.baidu.j.a.a;
 import com.baidu.sapi2.CoreViewRouter;
 import com.baidu.sapi2.SapiAccount;
 import com.baidu.sapi2.SapiContext;
@@ -127,8 +127,8 @@ public class LoginActivity extends BaseActivity {
     public void onActivityResult(int i, int i2, Intent intent) {
         int intExtra;
         super.onActivityResult(i, i2, intent);
-        new b().a(new b.AbstractC0349b() { // from class: com.baidu.sapi2.activity.LoginActivity.7
-            @Override // com.baidu.sapi2.share.b.AbstractC0349b
+        new b().a(new b.AbstractC0332b() { // from class: com.baidu.sapi2.activity.LoginActivity.7
+            @Override // com.baidu.sapi2.share.b.AbstractC0332b
             public void onSuccess() {
                 LoginActivity.this.a(AccountType.NORMAL, false);
             }
@@ -343,7 +343,7 @@ public class LoginActivity extends BaseActivity {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(AccountType accountType, boolean z) {
-        new com.baidu.sapi2.utils.b().a(com.baidu.sapi2.utils.b.f5380a + SapiUtils.getLastLoginType());
+        new com.baidu.sapi2.utils.b().a(com.baidu.sapi2.utils.b.f5097a + SapiUtils.getLastLoginType());
         if (this.t == 2003) {
             SapiAccount currentAccount = SapiContext.getInstance().getCurrentAccount();
             Intent intent = new Intent();

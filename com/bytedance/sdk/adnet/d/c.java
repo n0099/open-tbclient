@@ -86,8 +86,8 @@ public class c {
             j4 = j8;
         }
         b.a aVar = new b.a();
-        aVar.f6361a = lVar.f6340a;
-        aVar.f6362b = lVar.f6341b;
+        aVar.f6061a = lVar.f6040a;
+        aVar.f6062b = lVar.f6041b;
         aVar.c = str5;
         aVar.g = j4;
         aVar.f = j3;
@@ -100,7 +100,7 @@ public class c {
 
     public static long a(String str) {
         try {
-            return eso().parse(str).getTime();
+            return eou().parse(str).getTime();
         } catch (Throwable th) {
             r.a(th, "Unable to parse dateStr: %s, falling back to 0", str);
             return 0L;
@@ -108,10 +108,10 @@ public class c {
     }
 
     public static String a(long j) {
-        return eso().format(new Date(j));
+        return eou().format(new Date(j));
     }
 
-    private static SimpleDateFormat eso() {
+    private static SimpleDateFormat eou() {
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("EEE, dd MMM yyyy HH:mm:ss zzz", Locale.US);
         simpleDateFormat.setTimeZone(TimeZone.getTimeZone("GMT"));
         return simpleDateFormat;

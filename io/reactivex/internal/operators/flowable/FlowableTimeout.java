@@ -13,8 +13,8 @@ import org.a.d;
 /* loaded from: classes5.dex */
 public final class FlowableTimeout<T, U, V> extends io.reactivex.internal.operators.flowable.a<T, T> {
     final h<? super T, ? extends org.a.b<V>> itemTimeoutIndicator;
-    final org.a.b<? extends T> qiN;
-    final org.a.b<U> qji;
+    final org.a.b<U> qeG;
+    final org.a.b<? extends T> qel;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes5.dex */
@@ -24,17 +24,17 @@ public final class FlowableTimeout<T, U, V> extends io.reactivex.internal.operat
 
     @Override // io.reactivex.g
     protected void a(org.a.c<? super T> cVar) {
-        if (this.qiN == null) {
+        if (this.qel == null) {
             TimeoutSubscriber timeoutSubscriber = new TimeoutSubscriber(cVar, this.itemTimeoutIndicator);
             cVar.onSubscribe(timeoutSubscriber);
-            timeoutSubscriber.startFirstTimeout(this.qji);
-            this.qit.a((j) timeoutSubscriber);
+            timeoutSubscriber.startFirstTimeout(this.qeG);
+            this.qdR.a((j) timeoutSubscriber);
             return;
         }
-        TimeoutFallbackSubscriber timeoutFallbackSubscriber = new TimeoutFallbackSubscriber(cVar, this.itemTimeoutIndicator, this.qiN);
+        TimeoutFallbackSubscriber timeoutFallbackSubscriber = new TimeoutFallbackSubscriber(cVar, this.itemTimeoutIndicator, this.qel);
         cVar.onSubscribe(timeoutFallbackSubscriber);
-        timeoutFallbackSubscriber.startFirstTimeout(this.qji);
-        this.qit.a((j) timeoutFallbackSubscriber);
+        timeoutFallbackSubscriber.startFirstTimeout(this.qeG);
+        this.qdR.a((j) timeoutFallbackSubscriber);
     }
 
     /* loaded from: classes5.dex */

@@ -12,7 +12,7 @@ import com.baidu.webkit.sdk.Log;
 import com.baidu.webkit.sdk.WebKitFactory;
 import java.util.HashMap;
 import org.json.JSONObject;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class JsUploadTask implements INoProGuard {
     private static final int CONN_TIMEOUT = 5000;
     private static final int READ_TIMEOUT = 10000;
@@ -70,7 +70,7 @@ public class JsUploadTask implements INoProGuard {
     private static JumpType mFirstJumpType = JumpType.DefaultJump;
     private static JumpType mLastJumpType = JumpType.DefaultJump;
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public enum JumpType {
         DefaultJump,
         JsJump,
@@ -234,8 +234,8 @@ public class JsUploadTask implements INoProGuard {
                         CloudSettings.NetRecordList.remove(0);
                         Log.w(TAG, "NetRecordList size1 " + CloudSettings.NetRecordList.size());
                         jSONObject.put(ETAG.KEY_CRONET_ENABLE, aVar.c);
-                        jSONObject.put(ETAG.KEY_CRONET_NET_TIME, aVar.f5967a);
-                        jSONObject.put(ETAG.KEY_CRONET_NET_RES, aVar.f5968b);
+                        jSONObject.put(ETAG.KEY_CRONET_NET_TIME, aVar.f5667a);
+                        jSONObject.put(ETAG.KEY_CRONET_NET_RES, aVar.f5668b);
                     }
                     if (WebSettingsGlobalBlink.isFeedProxyAdUrl(mCurrentUrl)) {
                         jSONObject.put(ETAG.KEY_FEED_PROXY_AD, 1);

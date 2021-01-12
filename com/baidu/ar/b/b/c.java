@@ -6,11 +6,11 @@ public abstract class c<T> extends com.baidu.ar.c.a {
     private int cI;
 
     /* renamed from: cn  reason: collision with root package name */
-    FramePixels f1485cn;
+    FramePixels f1491cn;
 
     public c(int i, FramePixels framePixels) {
         this.cI = i;
-        this.f1485cn = framePixels;
+        this.f1491cn = framePixels;
     }
 
     @Override // com.baidu.ar.c.a
@@ -18,7 +18,7 @@ public abstract class c<T> extends com.baidu.ar.c.a {
         if (com.baidu.ar.b.a.as().c(this.cI)) {
             try {
                 com.baidu.ar.b.a.as().a(this.cI, true);
-                return e(this.f1485cn);
+                return e(this.f1491cn);
             } finally {
                 com.baidu.ar.b.a.as().a(this.cI, false);
             }

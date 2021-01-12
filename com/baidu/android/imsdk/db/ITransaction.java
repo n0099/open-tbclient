@@ -1,7 +1,7 @@
 package com.baidu.android.imsdk.db;
 
 import android.database.sqlite.SQLiteDatabase;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public interface ITransaction {
     void execTransaction(SQLiteDatabase sQLiteDatabase);
 }

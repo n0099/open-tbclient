@@ -2,7 +2,7 @@ package com.baidu.mobads.interfaces;
 
 import com.baidu.mobads.interfaces.IXAdConstants4PDK;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes14.dex */
 public interface IXAdProdInfo {
     String getAdPlacementId();
 

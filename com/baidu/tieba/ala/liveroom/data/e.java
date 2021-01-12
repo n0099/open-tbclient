@@ -7,67 +7,67 @@ import com.baidu.ala.recorder.AlaLiveRecorder;
 import com.baidu.live.ar.k;
 import com.baidu.live.tbadk.TbPageContext;
 import com.baidu.tieba.ala.liveroom.views.AlaLiveView;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class e {
-    public com.baidu.tieba.ala.liveroom.p.d hBP;
-    public AlaLiveView hBQ;
-    public AlaLiveRecorder hCg;
-    public View hCh;
-    public FrameLayout hCi;
-    public ViewGroup hCj;
-    public com.baidu.tieba.ala.liveroom.master.a.d hCk;
-    public k hCl;
-    public AlaLiveRecorderPerfData hCm;
-    public com.baidu.live.tieba.e.b hCn;
-    public com.baidu.live.liveroom.middleware.a hCo;
+    public AlaLiveRecorder hxA;
+    public View hxB;
+    public FrameLayout hxC;
+    public ViewGroup hxD;
+    public com.baidu.tieba.ala.liveroom.master.a.d hxE;
+    public k hxF;
+    public AlaLiveRecorderPerfData hxG;
+    public com.baidu.live.tieba.e.b hxH;
+    public com.baidu.live.liveroom.middleware.a hxI;
+    public com.baidu.tieba.ala.liveroom.p.d hxj;
+    public AlaLiveView hxk;
     private int liveType;
     public TbPageContext pageContext;
     public ViewGroup rootView;
 
-    public int bUm() {
+    public int bQu() {
         return this.liveType;
     }
 
-    public void wP(int i) {
+    public void vj(int i) {
         this.liveType = i;
-        if (this.hCk != null) {
-            this.hCk.xr(i);
+        if (this.hxE != null) {
+            this.hxE.vL(i);
         }
     }
 
     public void g(short s) {
-        if (this.hCk != null) {
-            this.hCk.g(s);
+        if (this.hxE != null) {
+            this.hxE.g(s);
         }
     }
 
-    public void Zs() {
-        if (this.hCk != null) {
-            this.hCk.Zs();
+    public void Vz() {
+        if (this.hxE != null) {
+            this.hxE.Vz();
         }
     }
 
-    public void chx() {
-        if (this.hCk != null) {
-            this.hCk.chx();
+    public void cdF() {
+        if (this.hxE != null) {
+            this.hxE.cdF();
         }
     }
 
-    public void chy() {
-        if (this.hCk != null) {
-            this.hCk.chy();
+    public void cdG() {
+        if (this.hxE != null) {
+            this.hxE.cdG();
         }
     }
 
-    public void chz() {
-        if (this.hCk != null) {
-            this.hCk.chz();
+    public void cdH() {
+        if (this.hxE != null) {
+            this.hxE.cdH();
         }
     }
 
-    public void chA() {
-        if (this.hCk != null) {
-            this.hCk.chA();
+    public void cdI() {
+        if (this.hxE != null) {
+            this.hxE.cdI();
         }
     }
 }

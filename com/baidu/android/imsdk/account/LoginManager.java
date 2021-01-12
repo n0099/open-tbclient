@@ -9,10 +9,10 @@ import com.baidu.android.imsdk.internal.IMConnection;
 import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
-import com.baidu.i.a;
+import com.baidu.g.a;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class LoginManager {
     private static Context mContext;
     private static LoginManager mInstance = null;
@@ -27,7 +27,7 @@ public class LoginManager {
         }
     };
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public enum LoginState {
         NOT_LOGIN,
         LOGINING,
@@ -94,11 +94,11 @@ public class LoginManager {
             this.cidTryLoginedTimes--;
             this.mLoginState = LoginState.NOT_LOGIN;
         } else if (110 != i && 7 != i && 23 != i && 1004 != i && 1001 != i && 8010 != i) {
-            LogUtils.d(this.TAG, "error :" + i + ", and retry ：" + IMUserLoginByTokenMsg.sRetrytimes + "， isLcp :" + a.aze);
+            LogUtils.d(this.TAG, "error :" + i + ", and retry ：" + IMUserLoginByTokenMsg.sRetrytimes + "， isLcp :" + a.aur);
             this.mLoginState = LoginState.NOT_LOGIN;
-            if (a.aze && IMUserLoginByTokenMsg.sRetrytimes < 3) {
+            if (a.aur && IMUserLoginByTokenMsg.sRetrytimes < 3) {
                 imRetryLogin(i);
-            } else if (!a.aze && IMConnection.getInstance(mContext).shouldRetryLogin()) {
+            } else if (!a.aur && IMConnection.getInstance(mContext).shouldRetryLogin()) {
                 LogUtils.d(this.TAG, "IMConnection，im login ：" + IMUserLoginByTokenMsg.sRetrytimes);
                 IMConnection.getInstance(mContext).disconnectedByPeer();
             }

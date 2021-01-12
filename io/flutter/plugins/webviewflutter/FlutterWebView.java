@@ -7,6 +7,7 @@ import android.os.Handler;
 import android.view.View;
 import android.webkit.ValueCallback;
 import android.webkit.WebStorage;
+import com.baidu.mobstat.Config;
 import io.flutter.plugin.common.BinaryMessenger;
 import io.flutter.plugin.common.MethodCall;
 import io.flutter.plugin.common.MethodChannel;
@@ -16,7 +17,7 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class FlutterWebView implements MethodChannel.MethodCallHandler, PlatformView {
     private static final String JS_CHANNEL_NAMES_FIELD = "javascriptChannelNames";
     private final FlutterWebViewClient flutterWebViewClient;
@@ -336,13 +337,13 @@ public class FlutterWebView implements MethodChannel.MethodCallHandler, Platform
 
     private void scrollTo(MethodCall methodCall, MethodChannel.Result result) {
         Map map = (Map) methodCall.arguments;
-        this.webView.scrollTo(((Integer) map.get("x")).intValue(), ((Integer) map.get("y")).intValue());
+        this.webView.scrollTo(((Integer) map.get(Config.EVENT_HEAT_X)).intValue(), ((Integer) map.get("y")).intValue());
         result.success(null);
     }
 
     private void scrollBy(MethodCall methodCall, MethodChannel.Result result) {
         Map map = (Map) methodCall.arguments;
-        this.webView.scrollBy(((Integer) map.get("x")).intValue(), ((Integer) map.get("y")).intValue());
+        this.webView.scrollBy(((Integer) map.get(Config.EVENT_HEAT_X)).intValue(), ((Integer) map.get("y")).intValue());
         result.success(null);
     }
 

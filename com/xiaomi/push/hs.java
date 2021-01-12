@@ -6,10 +6,10 @@ public enum hs {
     
 
     /* renamed from: a  reason: collision with other field name */
-    private final int f542a;
+    private final int f541a;
 
     hs(int i) {
-        this.f542a = i;
+        this.f541a = i;
     }
 
     public static hs a(int i) {
@@ -24,6 +24,6 @@ public enum hs {
     }
 
     public int a() {
-        return this.f542a;
+        return this.f541a;
     }
 }

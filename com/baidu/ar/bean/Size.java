@@ -1,4 +1,6 @@
 package com.baidu.ar.bean;
+
+import com.baidu.mobstat.Config;
 /* loaded from: classes6.dex */
 public class Size {
     private int mHeight;
@@ -65,6 +67,6 @@ public class Size {
     }
 
     public String toString() {
-        return this.mWidth + "x" + this.mHeight;
+        return this.mWidth + Config.EVENT_HEAT_X + this.mHeight;
     }
 }

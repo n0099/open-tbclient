@@ -21,28 +21,28 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.myAttentionAndFans.message.ResponseLocalPersonListMessage;
 import com.baidu.tieba.myAttentionAndFans.message.ResponseNetPersonListMessage;
 import java.util.HashMap;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class PersonListModel extends BdBaseModel<PersonListActivity> {
     public static final int CACHETIME = 604800000;
     public static final int TYPE_ALL = 0;
     public static final int TYPE_EACH = 1;
-    private boolean bmX;
-    private int cea;
+    private int bZk;
+    private boolean bik;
     public CustomMessageListener customListener;
-    private int hlx;
-    private int hly;
-    private String hlz;
+    private int hgQ;
+    private int hgR;
+    private String hgS;
     public HttpMessageListener httpListener;
-    private a lsF;
-    private PersonListActivity lsN;
-    private com.baidu.tbadk.coreExtra.model.a lsO;
+    private a lnW;
+    private PersonListActivity lof;
+    private com.baidu.tbadk.coreExtra.model.a loh;
     private String mId;
     private int mSex;
     public static final BdUniqueId MYFOLLOW = BdUniqueId.gen();
     public static final BdUniqueId FOLLOWME = BdUniqueId.gen();
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public interface a {
         void aD(String str, boolean z);
 
@@ -51,8 +51,8 @@ public class PersonListModel extends BdBaseModel<PersonListActivity> {
 
     public PersonListModel(PersonListActivity personListActivity, a aVar) {
         super(personListActivity.getPageContext());
-        this.cea = 0;
-        this.hlx = 0;
+        this.bZk = 0;
+        this.hgQ = 0;
         this.httpListener = new HttpMessageListener(1002004) { // from class: com.baidu.tieba.myAttentionAndFans.PersonListModel.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
@@ -63,28 +63,28 @@ public class PersonListModel extends BdBaseModel<PersonListActivity> {
                         int statusCode = httpResponsedMessage.getStatusCode();
                         int error = httpResponsedMessage.getError();
                         if (statusCode != 200 || error != 0) {
-                            if (PersonListModel.this.lsF != null) {
+                            if (PersonListModel.this.lnW != null) {
                                 if (StringUtils.isNull(httpResponsedMessage.getErrorString())) {
-                                    errorString = PersonListModel.this.lsN.getResources().getString(R.string.neterror);
+                                    errorString = PersonListModel.this.lof.getResources().getString(R.string.neterror);
                                 } else {
                                     errorString = httpResponsedMessage.getErrorString();
                                 }
-                                PersonListModel.this.lsF.aD(errorString, false);
+                                PersonListModel.this.lnW.aD(errorString, false);
                                 return;
                             }
                             return;
                         }
                         be data = ((ResponseNetPersonListMessage) httpResponsedMessage).getData();
                         if (data != null) {
-                            if (!StringUtils.isNull(data.eRu)) {
-                                PersonListModel.this.hlz = data.eRu;
-                                PersonListModel.this.hly = data.type;
+                            if (!StringUtils.isNull(data.eMJ)) {
+                                PersonListModel.this.hgS = data.eMJ;
+                                PersonListModel.this.hgR = data.type;
                             }
-                            data.type = PersonListModel.this.hly;
-                            data.eRu = PersonListModel.this.hlz;
+                            data.type = PersonListModel.this.hgR;
+                            data.eMJ = PersonListModel.this.hgS;
                         }
-                        if (PersonListModel.this.lsF != null) {
-                            PersonListModel.this.lsF.e(data, false);
+                        if (PersonListModel.this.lnW != null) {
+                            PersonListModel.this.lnW.e(data, false);
                         }
                     }
                 }
@@ -97,38 +97,38 @@ public class PersonListModel extends BdBaseModel<PersonListActivity> {
                 if (customResponsedMessage != null && (customResponsedMessage instanceof ResponseLocalPersonListMessage)) {
                     be data2 = ((ResponseLocalPersonListMessage) customResponsedMessage).getData2();
                     if (data2 == null) {
-                        if (PersonListModel.this.lsF != null) {
-                            PersonListModel.this.lsF.aD("", true);
+                        if (PersonListModel.this.lnW != null) {
+                            PersonListModel.this.lnW.aD("", true);
                             return;
                         }
                         return;
                     }
-                    if (!StringUtils.isNull(data2.eRu)) {
-                        PersonListModel.this.hlz = data2.eRu;
-                        PersonListModel.this.hly = data2.type;
+                    if (!StringUtils.isNull(data2.eMJ)) {
+                        PersonListModel.this.hgS = data2.eMJ;
+                        PersonListModel.this.hgR = data2.type;
                     }
-                    data2.type = PersonListModel.this.hly;
-                    data2.eRu = PersonListModel.this.hlz;
-                    if (PersonListModel.this.lsF != null) {
-                        PersonListModel.this.lsF.e(data2, true);
+                    data2.type = PersonListModel.this.hgR;
+                    data2.eMJ = PersonListModel.this.hgS;
+                    if (PersonListModel.this.lnW != null) {
+                        PersonListModel.this.lnW.e(data2, true);
                     }
                 }
             }
         };
-        this.lsN = personListActivity;
-        this.lsO = new com.baidu.tbadk.coreExtra.model.a(this.lsN.getPageContext());
-        this.lsO.setLoadDataCallBack(this.mLoadDataCallBack);
-        this.bmX = true;
+        this.lof = personListActivity;
+        this.loh = new com.baidu.tbadk.coreExtra.model.a(this.lof.getPageContext());
+        this.loh.setLoadDataCallBack(this.mLoadDataCallBack);
+        this.bik = true;
         this.mId = null;
-        this.lsF = aVar;
+        this.lnW = aVar;
     }
 
     public int getPage() {
-        return this.cea;
+        return this.bZk;
     }
 
     public void setPage(int i) {
-        this.cea = i;
+        this.bZk = i;
     }
 
     public void setId(String str) {
@@ -147,18 +147,18 @@ public class PersonListModel extends BdBaseModel<PersonListActivity> {
         return this.mSex;
     }
 
-    public void by(boolean z) {
-        this.bmX = z;
+    public void bu(boolean z) {
+        this.bik = z;
     }
 
-    public boolean cbl() {
-        return this.bmX;
+    public boolean bXt() {
+        return this.bik;
     }
 
-    public void bUo() {
+    public void bQw() {
         String str;
         MessageManager messageManager = MessageManager.getInstance();
-        if (this.bmX) {
+        if (this.bik) {
             str = TbConfig.SERVER_ADDRESS + Config.GET_FOLLOW_ADDRESS;
         } else {
             str = TbConfig.SERVER_ADDRESS + "c/u/fans/page";
@@ -170,19 +170,19 @@ public class PersonListModel extends BdBaseModel<PersonListActivity> {
     }
 
     public void loadData(int i) {
-        this.hlx = i;
-        this.cea = 0;
-        cbm();
+        this.hgQ = i;
+        this.bZk = 0;
+        bXu();
     }
 
     public int getLoadType() {
-        return this.hlx;
+        return this.hgQ;
     }
 
-    public void cbm() {
+    public void bXu() {
         HttpMessage httpMessage = new HttpMessage(1002004);
         HashMap hashMap = new HashMap();
-        if (this.bmX) {
+        if (this.bik) {
             httpMessage.setTag(FOLLOWME);
         } else {
             httpMessage.setTag(MYFOLLOW);
@@ -191,12 +191,12 @@ public class PersonListModel extends BdBaseModel<PersonListActivity> {
             httpMessage.addParam("uid", this.mId);
         }
         hashMap.put("id", String.valueOf(this.mId));
-        if (this.cea != 0) {
-            this.cea++;
-            httpMessage.addParam(com.baidu.mobstat.Config.PACKAGE_NAME, String.valueOf(this.cea));
+        if (this.bZk != 0) {
+            this.bZk++;
+            httpMessage.addParam(com.baidu.mobstat.Config.PACKAGE_NAME, String.valueOf(this.bZk));
         }
-        httpMessage.addParam("tab", this.hlx);
-        hashMap.put("page", String.valueOf(this.cea));
+        httpMessage.addParam("tab", this.hgQ);
+        hashMap.put("page", String.valueOf(this.bZk));
         hashMap.put("pageid", String.valueOf(getUniqueId().getId()));
         httpMessage.setExtra(hashMap);
         sendMessage(httpMessage);
@@ -217,11 +217,11 @@ public class PersonListModel extends BdBaseModel<PersonListActivity> {
         return false;
     }
 
-    public void Pc(String str) {
+    public void NU(String str) {
         new b(str).execute(new Void[0]);
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static class b extends BdAsyncTask<Void, Void, String> {
         private String mPortrait;
 

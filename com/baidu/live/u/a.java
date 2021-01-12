@@ -3,13 +3,9 @@ package com.baidu.live.u;
 import android.view.ViewGroup;
 import com.baidu.live.data.x;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public interface a {
-    void Bf();
-
-    boolean DB();
-
-    boolean RB();
+    boolean NG();
 
     boolean V(JSONObject jSONObject);
 
@@ -22,4 +18,8 @@ public interface a {
     void setCanVisible(boolean z);
 
     void setIsHost(boolean z);
+
+    void xk();
+
+    boolean zG();
 }

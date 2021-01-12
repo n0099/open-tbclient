@@ -3,22 +3,21 @@ package com.baidu.platform.core.a;
 import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import com.baidu.mapapi.model.CoordUtil;
 import com.baidu.mapapi.model.LatLng;
+import com.baidu.mapapi.model.inner.GeoPoint;
 import com.baidu.mapapi.search.core.SearchResult;
 import com.baidu.mapapi.search.district.DistrictResult;
 import com.baidu.mapapi.search.district.OnGetDistricSearchResultListener;
 import com.baidu.mobstat.Config;
-import com.baidu.platform.comapi.basestruct.GeoPoint;
-import com.baidu.platform.comapi.map.MapBundleKey;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class b extends com.baidu.platform.base.d {
 
     /* renamed from: b  reason: collision with root package name */
-    boolean f4764b = false;
+    boolean f4481b = false;
     String c = null;
 
     private boolean a(String str, DistrictResult districtResult) {
@@ -62,7 +61,7 @@ public class b extends com.baidu.platform.base.d {
                 }
                 if (arrayList.size() > 0) {
                     districtResult.setPolylines(arrayList);
-                    districtResult.setCenterPt(CoordUtil.decodeLocation(optJSONObject.optString(MapBundleKey.MapObjKey.OBJ_GEO)));
+                    districtResult.setCenterPt(CoordUtil.decodeLocation(optJSONObject.optString("geo")));
                     districtResult.setCityCode(optJSONObject.optInt("code"));
                     districtResult.setCityName(optJSONObject.optString("cname"));
                     districtResult.error = SearchResult.ERRORNO.NO_ERROR;
@@ -71,7 +70,7 @@ public class b extends com.baidu.platform.base.d {
             }
             districtResult.setCityName(optJSONObject.optString("uid"));
             this.c = optJSONObject.optString("cname");
-            districtResult.setCenterPt(CoordUtil.decodeLocation(optJSONObject.optString(MapBundleKey.MapObjKey.OBJ_GEO)));
+            districtResult.setCenterPt(CoordUtil.decodeLocation(optJSONObject.optString("geo")));
             districtResult.setCityCode(optJSONObject.optInt("code"));
             return false;
         } catch (JSONException e) {
@@ -101,7 +100,7 @@ public class b extends com.baidu.platform.base.d {
                 ArrayList arrayList = new ArrayList();
                 if (this.c != null) {
                     try {
-                        decodeLocationList2D = CoordUtil.decodeLocationList2D(optJSONObject2.optString(MapBundleKey.MapObjKey.OBJ_GEO));
+                        decodeLocationList2D = CoordUtil.decodeLocationList2D(optJSONObject2.optString("geo"));
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
@@ -163,7 +162,7 @@ public class b extends com.baidu.platform.base.d {
                     }
                 }
                 if (!a(str, districtResult, false)) {
-                    if (this.f4764b) {
+                    if (this.f4481b) {
                         b(str, districtResult);
                     } else if (!a(str, districtResult)) {
                         districtResult.error = SearchResult.ERRORNO.RESULT_NOT_FOUND;
@@ -185,6 +184,6 @@ public class b extends com.baidu.platform.base.d {
     }
 
     public void a(boolean z) {
-        this.f4764b = z;
+        this.f4481b = z;
     }
 }

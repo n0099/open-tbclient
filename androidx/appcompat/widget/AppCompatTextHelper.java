@@ -18,7 +18,7 @@ import androidx.core.widget.AutoSizeableTextView;
 import androidx.core.widget.TextViewCompat;
 import java.lang.ref.WeakReference;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class AppCompatTextHelper {
     private static final int MONOSPACE = 3;
     private static final int SANS = 1;

@@ -10,9 +10,9 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-/* loaded from: classes3.dex */
+/* loaded from: classes14.dex */
 public final class m {
-    private static ActivityManager apZ;
+    private static ActivityManager apl;
     private static Context mContext;
 
     public static String D() {
@@ -138,14 +138,14 @@ public final class m {
     public static String E() {
         Debug.MemoryInfo memoryInfo;
         StringBuilder sb = new StringBuilder();
-        if (apZ == null) {
+        if (apl == null) {
             return sb.toString();
         }
         try {
             ActivityManager.MemoryInfo memoryInfo2 = new ActivityManager.MemoryInfo();
-            apZ.getMemoryInfo(memoryInfo2);
+            apl.getMemoryInfo(memoryInfo2);
             sb.append("isLowMem: ").append(memoryInfo2.lowMemory ? "yes" : "no").append("\navailMem: ").append(com.baidu.crabsdk.c.c.b(memoryInfo2.availMem)).append("\nthreshold: ").append(com.baidu.crabsdk.c.c.b(memoryInfo2.threshold)).append("\n");
-            if (Build.VERSION.SDK_INT >= 5 && (memoryInfo = apZ.getProcessMemoryInfo(new int[]{Process.myPid()})[0]) != null) {
+            if (Build.VERSION.SDK_INT >= 5 && (memoryInfo = apl.getProcessMemoryInfo(new int[]{Process.myPid()})[0]) != null) {
                 sb.append("totalPrivateDirty: ").append(com.baidu.crabsdk.c.c.b(memoryInfo.getTotalPrivateDirty() * 1024)).append("\ntotalPss: ").append(com.baidu.crabsdk.c.c.b(memoryInfo.getTotalPss() * 1024)).append("\ntotalSharedDirty: ").append(com.baidu.crabsdk.c.c.b(memoryInfo.getTotalSharedDirty() * 1024)).append("\n");
             }
         } catch (Exception e) {
@@ -157,7 +157,7 @@ public final class m {
     public static void e(Context context) {
         if (mContext == null) {
             mContext = context;
-            apZ = (ActivityManager) context.getSystemService(PushConstants.INTENT_ACTIVITY_NAME);
+            apl = (ActivityManager) context.getSystemService(PushConstants.INTENT_ACTIVITY_NAME);
         }
     }
 }

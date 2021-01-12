@@ -12,16 +12,16 @@ import com.baidu.live.tbadk.widget.TbImageView;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class AlbumImagePagerAdapter extends PagerAdapter {
-    private Map<Integer, Boolean> bME = new HashMap();
-    private AlbumActivity bMr;
+    private AlbumActivity bHF;
+    private Map<Integer, Boolean> bHS = new HashMap();
     private LayoutInflater mLayoutInflater;
     private List<ImageFileInfo> mList;
 
     public AlbumImagePagerAdapter(AlbumActivity albumActivity) {
-        this.bMr = albumActivity;
-        this.mLayoutInflater = LayoutInflater.from(this.bMr.getPageContext().getPageActivity());
+        this.bHF = albumActivity;
+        this.mLayoutInflater = LayoutInflater.from(this.bHF.getPageContext().getPageActivity());
     }
 
     public void setData(List<ImageFileInfo> list) {
@@ -44,15 +44,15 @@ public class AlbumImagePagerAdapter extends PagerAdapter {
         viewGroup.removeView((View) obj);
     }
 
-    public ImageFileInfo gt(int i) {
+    public ImageFileInfo eM(int i) {
         return (ImageFileInfo) ListUtils.getItem(this.mList, i);
     }
 
-    public boolean gu(int i) {
-        if (this.bME.get(Integer.valueOf(i)) == null) {
+    public boolean eN(int i) {
+        if (this.bHS.get(Integer.valueOf(i)) == null) {
             return false;
         }
-        return this.bME.get(Integer.valueOf(i)).booleanValue();
+        return this.bHS.get(Integer.valueOf(i)).booleanValue();
     }
 
     @Override // androidx.viewpager.widget.PagerAdapter
@@ -65,10 +65,10 @@ public class AlbumImagePagerAdapter extends PagerAdapter {
         tbImageView.setDefaultErrorResource(0);
         tbImageView.setGifIconSupport(false);
         tbImageView.setLongIconSupport(false);
-        ImageFileInfo gt = gt(i);
-        if (gt != null) {
-            tbImageView.startLoad(gt.getFilePath(), 35, false, false);
-            this.bME.put(Integer.valueOf(i), true);
+        ImageFileInfo eM = eM(i);
+        if (eM != null) {
+            tbImageView.startLoad(eM.getFilePath(), 35, false, false);
+            this.bHS.put(Integer.valueOf(i), true);
         }
         viewGroup.addView(inflate, 0);
         SkinManager.setBackgroundColor(inflate, a.c.sdk_cp_bg_line_d);

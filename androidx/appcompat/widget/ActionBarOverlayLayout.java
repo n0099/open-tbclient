@@ -26,7 +26,7 @@ import androidx.core.view.NestedScrollingParent;
 import androidx.core.view.NestedScrollingParentHelper;
 import androidx.core.view.ViewCompat;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class ActionBarOverlayLayout extends ViewGroup implements DecorContentParent, NestedScrollingParent {
     private static final int ACTION_BAR_ANIMATE_DELAY = 600;
     static final int[] ATTRS = {R.attr.actionBarSize, 16842841};
@@ -59,7 +59,7 @@ public class ActionBarOverlayLayout extends ViewGroup implements DecorContentPar
     private Drawable mWindowContentOverlay;
     private int mWindowVisibility;
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public interface ActionBarVisibilityCallback {
         void enableContentAnimations(boolean z);
 
@@ -618,7 +618,7 @@ public class ActionBarOverlayLayout extends ViewGroup implements DecorContentPar
         this.mDecorToolbar.dismissPopupMenus();
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public static class LayoutParams extends ViewGroup.MarginLayoutParams {
         public LayoutParams(Context context, AttributeSet attributeSet) {
             super(context, attributeSet);

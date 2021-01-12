@@ -9,70 +9,70 @@ import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.util.Arrays;
 import java.util.Iterator;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class by {
     private static final String java = by.class.getSimpleName();
 
     /* renamed from: a  reason: collision with root package name */
-    private int f14033a;
+    private int f13733a;
 
     /* renamed from: a  reason: collision with other field name */
-    private byte[] f35a;
+    private byte[] f34a;
 
     /* renamed from: a  reason: collision with other field name */
-    private int[] f36a;
+    private int[] f35a;
 
     /* renamed from: b  reason: collision with root package name */
-    private int f14034b;
+    private int f13734b;
 
     /* renamed from: b  reason: collision with other field name */
-    private byte[] f37b;
+    private byte[] f36b;
     private int c;
 
     /* renamed from: c  reason: collision with other field name */
-    private byte[] f38c;
+    private byte[] f37c;
 
     /* renamed from: case  reason: not valid java name */
-    public int f39case;
+    public int f38case;
     private int d;
     private int e;
     private int f;
 
     /* renamed from: java  reason: collision with other field name */
-    public int f40java;
+    public int f39java;
 
     /* renamed from: java  reason: collision with other field name */
-    private int[] f41java;
-    private boolean qdM;
-    private final int[] qdU;
-    private byte[] qdZ;
-    private boolean qdm;
-    private Bitmap qfc;
-    private ByteBuffer qfm;
+    private int[] f40java;
+    private boolean pYL;
+    private boolean pZl;
+    private final int[] pZt;
+    private byte[] pZy;
+    private Bitmap qaB;
+    private ByteBuffer qaL;
     @Nullable
-    private byte[] qfn;
-    private cb qfo;
-    private short[] qfp;
-    public ca qfq;
-    private a qfr;
+    private byte[] qaM;
+    private cb qaN;
+    private short[] qaO;
+    public ca qaP;
+    private a qaQ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public interface a {
-        byte[] Tr(int i);
+        byte[] RK(int i);
 
-        int[] Ts(int i);
+        int[] RL(int i);
 
         @NonNull
         Bitmap j(int i, int i2, Bitmap.Config config);
     }
 
     private by(a aVar) {
-        this.qdU = new int[256];
-        this.f14033a = 0;
-        this.f14034b = 0;
-        this.qfr = aVar;
-        this.qfq = new ca();
+        this.pZt = new int[256];
+        this.f13733a = 0;
+        this.f13734b = 0;
+        this.qaQ = aVar;
+        this.qaP = new ca();
     }
 
     public by() {
@@ -88,7 +88,7 @@ public class by {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public final synchronized Bitmap eKR() {
+    public final synchronized Bitmap eHb() {
         Bitmap bitmap;
         bz bzVar;
         int i;
@@ -100,85 +100,85 @@ public class by {
         int i7;
         short s;
         int i8;
-        if (this.qfq.f44case <= 0 || this.f40java < 0) {
+        if (this.qaP.f43case <= 0 || this.f39java < 0) {
             this.c = 1;
         }
         if (this.c == 1 || this.c == 2) {
             bitmap = null;
         } else {
             this.c = 0;
-            bz bzVar2 = this.qfq.qen.get(this.f40java);
-            int i9 = this.f40java - 1;
+            bz bzVar2 = this.qaP.pZM.get(this.f39java);
+            int i9 = this.f39java - 1;
             if (i9 < 0) {
                 bzVar = null;
             } else {
-                bzVar = this.qfq.qen.get(i9);
+                bzVar = this.qaP.pZM.get(i9);
             }
-            this.f41java = bzVar2.f43java != null ? bzVar2.f43java : this.qfq.f45java;
-            if (this.f41java == null) {
+            this.f40java = bzVar2.f42java != null ? bzVar2.f42java : this.qaP.f44java;
+            if (this.f40java == null) {
                 this.c = 1;
                 bitmap = null;
             } else {
-                if (bzVar2.qdM) {
-                    System.arraycopy(this.f41java, 0, this.qdU, 0, this.f41java.length);
-                    this.f41java = this.qdU;
-                    this.f41java[bzVar2.d] = 0;
+                if (bzVar2.pZl) {
+                    System.arraycopy(this.f40java, 0, this.pZt, 0, this.f40java.length);
+                    this.f40java = this.pZt;
+                    this.f40java[bzVar2.d] = 0;
                 }
-                int[] iArr = this.f36a;
+                int[] iArr = this.f35a;
                 if (bzVar == null) {
                     Arrays.fill(iArr, 0);
                 }
                 if (bzVar != null && bzVar.c > 0) {
                     if (bzVar.c == 2) {
                         int i10 = 0;
-                        if (!bzVar2.qdM) {
-                            i10 = this.qfq.f;
-                            if (bzVar2.f43java != null && this.qfq.d == bzVar2.d) {
+                        if (!bzVar2.pZl) {
+                            i10 = this.qaP.f;
+                            if (bzVar2.f42java != null && this.qaP.d == bzVar2.d) {
                                 i10 = 0;
                             }
-                        } else if (this.f40java == 0) {
-                            this.qdM = true;
+                        } else if (this.f39java == 0) {
+                            this.pZl = true;
                         }
                         a(iArr, bzVar, i10);
                     } else if (bzVar.c == 3) {
-                        if (this.qfc == null) {
+                        if (this.qaB == null) {
                             a(iArr, bzVar, 0);
                         } else {
-                            int i11 = bzVar.f14036b / this.d;
-                            int i12 = bzVar.f42case / this.d;
-                            int i13 = bzVar.f14035a / this.d;
+                            int i11 = bzVar.f13736b / this.d;
+                            int i12 = bzVar.f41case / this.d;
+                            int i13 = bzVar.f13735a / this.d;
                             int i14 = bzVar.java / this.d;
-                            this.qfc.getPixels(iArr, (this.f * i12) + i14, this.f, i14, i12, i13, i11);
+                            this.qaB.getPixels(iArr, (this.f * i12) + i14, this.f, i14, i12, i13, i11);
                         }
                     }
                 }
-                this.f14033a = 0;
-                this.f14034b = 0;
+                this.f13733a = 0;
+                this.f13734b = 0;
                 if (bzVar2 != null) {
-                    this.qfm.position(bzVar2.f);
+                    this.qaL.position(bzVar2.f);
                 }
-                int i15 = bzVar2 == null ? this.qfq.f14037a * this.qfq.f14038b : bzVar2.f14035a * bzVar2.f14036b;
-                if (this.f38c == null || this.f38c.length < i15) {
-                    this.f38c = this.qfr.Tr(i15);
+                int i15 = bzVar2 == null ? this.qaP.f13737a * this.qaP.f13738b : bzVar2.f13735a * bzVar2.f13736b;
+                if (this.f37c == null || this.f37c.length < i15) {
+                    this.f37c = this.qaQ.RK(i15);
                 }
-                if (this.qfp == null) {
-                    this.qfp = new short[4096];
+                if (this.qaO == null) {
+                    this.qaO = new short[4096];
                 }
-                if (this.f35a == null) {
-                    this.f35a = new byte[4096];
+                if (this.f34a == null) {
+                    this.f34a = new byte[4096];
                 }
-                if (this.f37b == null) {
-                    this.f37b = new byte[4097];
+                if (this.f36b == null) {
+                    this.f36b = new byte[4097];
                 }
-                int eKB = eKB();
-                int i16 = 1 << eKB;
+                int eGL = eGL();
+                int i16 = 1 << eGL;
                 int i17 = i16 + 1;
                 int i18 = i16 + 2;
-                int i19 = eKB + 1;
+                int i19 = eGL + 1;
                 int i20 = (1 << i19) - 1;
                 for (int i21 = 0; i21 < i16; i21++) {
-                    this.qfp[i21] = 0;
-                    this.f35a[i21] = (byte) i21;
+                    this.qaO[i21] = 0;
+                    this.f34a[i21] = (byte) i21;
                 }
                 int i22 = 0;
                 int i23 = 0;
@@ -194,18 +194,18 @@ public class by {
                         break;
                     }
                     if (i30 == 0) {
-                        int eKS = eKS();
-                        if (eKS <= 0) {
+                        int eHc = eHc();
+                        if (eHc <= 0) {
                             this.c = 3;
                             break;
                         }
                         i6 = 0;
-                        i7 = eKS;
+                        i7 = eHc;
                     } else {
                         i6 = i26;
                         i7 = i30;
                     }
-                    int i31 = i29 + ((this.qdZ[i6] & 255) << i23);
+                    int i31 = i29 + ((this.pZy[i6] & 255) << i23);
                     int i32 = i23 + 8;
                     i26 = i6 + 1;
                     i30 = i7 - 1;
@@ -223,7 +223,7 @@ public class by {
                         i29 >>= i19;
                         int i36 = i32 - i19;
                         if (i35 == i16) {
-                            i19 = eKB + 1;
+                            i19 = eGL + 1;
                             i20 = (1 << i19) - 1;
                             i18 = i16 + 2;
                             i32 = i36;
@@ -240,7 +240,7 @@ public class by {
                             i28 = i34;
                             break;
                         } else if (i33 == -1) {
-                            this.f37b[i27] = this.f35a[i35];
+                            this.f36b[i27] = this.f34a[i35];
                             i32 = i36;
                             i33 = i35;
                             i27++;
@@ -248,23 +248,23 @@ public class by {
                         } else {
                             if (i35 >= i18) {
                                 i8 = i27 + 1;
-                                this.f37b[i27] = (byte) i34;
+                                this.f36b[i27] = (byte) i34;
                                 s = i33;
                             } else {
                                 s = i35;
                                 i8 = i27;
                             }
                             while (s >= i16) {
-                                this.f37b[i8] = this.f35a[s];
-                                s = this.qfp[s];
+                                this.f36b[i8] = this.f34a[s];
+                                s = this.qaO[s];
                                 i8++;
                             }
-                            i34 = this.f35a[s] & 255;
+                            i34 = this.f34a[s] & 255;
                             int i37 = i8 + 1;
-                            this.f37b[i8] = (byte) i34;
+                            this.f36b[i8] = (byte) i34;
                             if (i18 < 4096) {
-                                this.qfp[i18] = (short) i33;
-                                this.f35a[i18] = (byte) i34;
+                                this.qaO[i18] = (short) i33;
+                                this.f34a[i18] = (byte) i34;
                                 i18++;
                                 if ((i18 & i20) == 0 && i18 < 4096) {
                                     i19++;
@@ -274,7 +274,7 @@ public class by {
                             int i38 = i37;
                             while (i38 > 0) {
                                 i38--;
-                                this.f38c[i25] = this.f37b[i38];
+                                this.f37c[i25] = this.f36b[i38];
                                 i22++;
                                 i25++;
                             }
@@ -285,19 +285,19 @@ public class by {
                     }
                 }
                 for (int i39 = i25; i39 < i15; i39++) {
-                    this.f38c[i39] = 0;
+                    this.f37c[i39] = 0;
                 }
-                int i40 = bzVar2.f14036b / this.d;
-                int i41 = bzVar2.f42case / this.d;
-                int i42 = bzVar2.f14035a / this.d;
+                int i40 = bzVar2.f13736b / this.d;
+                int i41 = bzVar2.f41case / this.d;
+                int i42 = bzVar2.f13735a / this.d;
                 int i43 = bzVar2.java / this.d;
                 int i44 = 1;
                 int i45 = 8;
                 int i46 = 0;
-                boolean z = this.f40java == 0;
+                boolean z = this.f39java == 0;
                 int i47 = 0;
                 while (i47 < i40) {
-                    if (bzVar2.qdm) {
+                    if (bzVar2.pYL) {
                         if (i46 >= i40) {
                             i44++;
                             switch (i44) {
@@ -330,22 +330,22 @@ public class by {
                         int i50 = i49 + i43;
                         int i51 = i50 + i42;
                         int i52 = this.f + i49 < i51 ? this.f + i49 : i51;
-                        int i53 = this.d * i47 * bzVar2.f14035a;
+                        int i53 = this.d * i47 * bzVar2.f13735a;
                         int i54 = i53 + ((i52 - i50) * this.d);
                         int i55 = i50;
                         int i56 = i53;
                         while (i55 < i52) {
                             if (this.d == 1) {
-                                i5 = this.f41java[this.f38c[i56] & 255];
+                                i5 = this.f40java[this.f37c[i56] & 255];
                             } else {
-                                int i57 = bzVar2.f14035a;
+                                int i57 = bzVar2.f13735a;
                                 int i58 = 0;
                                 int i59 = 0;
                                 int i60 = 0;
                                 int i61 = 0;
                                 int i62 = 0;
-                                for (int i63 = i56; i63 < this.d + i56 && i63 < this.f38c.length && i63 < i54; i63++) {
-                                    int i64 = this.f41java[this.f38c[i63] & 255];
+                                for (int i63 = i56; i63 < this.d + i56 && i63 < this.f37c.length && i63 < i54; i63++) {
+                                    int i64 = this.f40java[this.f37c[i63] & 255];
                                     if (i64 != 0) {
                                         i58 += (i64 >> 24) & 255;
                                         i59 += (i64 >> 16) & 255;
@@ -354,8 +354,8 @@ public class by {
                                         i62++;
                                     }
                                 }
-                                for (int i65 = i56 + i57; i65 < i56 + i57 + this.d && i65 < this.f38c.length && i65 < i54; i65++) {
-                                    int i66 = this.f41java[this.f38c[i65] & 255];
+                                for (int i65 = i56 + i57; i65 < i56 + i57 + this.d && i65 < this.f37c.length && i65 < i54; i65++) {
+                                    int i66 = this.f40java[this.f37c[i65] & 255];
                                     if (i66 != 0) {
                                         i58 += (i66 >> 24) & 255;
                                         i59 += (i66 >> 16) & 255;
@@ -368,8 +368,8 @@ public class by {
                             }
                             if (i5 != 0) {
                                 iArr[i55] = i5;
-                            } else if (!this.qdM && z) {
-                                this.qdM = true;
+                            } else if (!this.pZl && z) {
+                                this.pZl = true;
                             }
                             i55++;
                             i56 += this.d;
@@ -380,13 +380,13 @@ public class by {
                     i45 = i3;
                     i44 = i4;
                 }
-                if (this.qdm && (bzVar2.c == 0 || bzVar2.c == 1)) {
-                    if (this.qfc == null) {
-                        this.qfc = eKT();
+                if (this.pYL && (bzVar2.c == 0 || bzVar2.c == 1)) {
+                    if (this.qaB == null) {
+                        this.qaB = eHd();
                     }
-                    this.qfc.setPixels(iArr, 0, this.f, 0, 0, this.f, this.e);
+                    this.qaB.setPixels(iArr, 0, this.f, 0, 0, this.f, this.e);
                 }
-                bitmap = eKT();
+                bitmap = eHd();
                 bitmap.setPixels(iArr, 0, this.f, 0, 0, this.f, this.e);
             }
         }
@@ -404,71 +404,71 @@ public class by {
     private synchronized void b(ca caVar, ByteBuffer byteBuffer) {
         int highestOneBit = Integer.highestOneBit(1);
         this.c = 0;
-        this.qfq = caVar;
-        this.qdM = false;
-        this.f40java = -1;
-        this.f39case = 0;
-        this.qfm = byteBuffer.asReadOnlyBuffer();
-        this.qfm.position(0);
-        this.qfm.order(ByteOrder.LITTLE_ENDIAN);
-        this.qdm = false;
-        Iterator<bz> it = caVar.qen.iterator();
+        this.qaP = caVar;
+        this.pZl = false;
+        this.f39java = -1;
+        this.f38case = 0;
+        this.qaL = byteBuffer.asReadOnlyBuffer();
+        this.qaL.position(0);
+        this.qaL.order(ByteOrder.LITTLE_ENDIAN);
+        this.pYL = false;
+        Iterator<bz> it = caVar.pZM.iterator();
         while (true) {
             if (!it.hasNext()) {
                 break;
             } else if (it.next().c == 3) {
-                this.qdm = true;
+                this.pYL = true;
                 break;
             }
         }
         this.d = highestOneBit;
-        this.f = caVar.f14037a / highestOneBit;
-        this.e = caVar.f14038b / highestOneBit;
-        this.f38c = this.qfr.Tr(caVar.f14037a * caVar.f14038b);
-        this.f36a = this.qfr.Ts(this.f * this.e);
+        this.f = caVar.f13737a / highestOneBit;
+        this.e = caVar.f13738b / highestOneBit;
+        this.f37c = this.qaQ.RK(caVar.f13737a * caVar.f13738b);
+        this.f35a = this.qaQ.RL(this.f * this.e);
     }
 
-    public final synchronized int au(byte[] bArr) {
-        if (this.qfo == null) {
-            this.qfo = new cb();
+    public final synchronized int at(byte[] bArr) {
+        if (this.qaN == null) {
+            this.qaN = new cb();
         }
-        cb cbVar = this.qfo;
+        cb cbVar = this.qaN;
         if (bArr != null) {
             ByteBuffer wrap = ByteBuffer.wrap(bArr);
-            cbVar.qfm = null;
-            Arrays.fill(cbVar.qdZ, (byte) 0);
-            cbVar.qfq = new ca();
+            cbVar.qaL = null;
+            Arrays.fill(cbVar.pZy, (byte) 0);
+            cbVar.qaP = new ca();
             cbVar.java = 0;
-            cbVar.qfm = wrap.asReadOnlyBuffer();
-            cbVar.qfm.position(0);
-            cbVar.qfm.order(ByteOrder.LITTLE_ENDIAN);
+            cbVar.qaL = wrap.asReadOnlyBuffer();
+            cbVar.qaL.position(0);
+            cbVar.qaL.order(ByteOrder.LITTLE_ENDIAN);
         } else {
-            cbVar.qfm = null;
-            cbVar.qfq.java = 2;
+            cbVar.qaL = null;
+            cbVar.qaP.java = 2;
         }
-        if (cbVar.qfm == null) {
+        if (cbVar.qaL == null) {
             throw new IllegalStateException("You must call setData() before parseHeader()");
         }
         if (!cbVar.java()) {
-            cbVar.eKq();
+            cbVar.eGA();
             if (!cbVar.java()) {
-                cbVar.eKp();
-                if (cbVar.qfq.f44case < 0) {
-                    cbVar.qfq.java = 1;
+                cbVar.eGz();
+                if (cbVar.qaP.f43case < 0) {
+                    cbVar.qaP.java = 1;
                 }
             }
         }
-        this.qfq = cbVar.qfq;
+        this.qaP = cbVar.qaP;
         if (bArr != null) {
-            a(this.qfq, bArr);
+            a(this.qaP, bArr);
         }
         return this.c;
     }
 
     private void a(int[] iArr, bz bzVar, int i) {
-        int i2 = bzVar.f14036b / this.d;
-        int i3 = bzVar.f42case / this.d;
-        int i4 = bzVar.f14035a / this.d;
+        int i2 = bzVar.f13736b / this.d;
+        int i3 = bzVar.f41case / this.d;
+        int i4 = bzVar.f13735a / this.d;
         int i5 = (i3 * this.f) + (bzVar.java / this.d);
         int i6 = i5 + (i2 * this.f);
         while (i5 < i6) {
@@ -480,23 +480,23 @@ public class by {
         }
     }
 
-    private void eKp() {
-        if (this.f14033a <= this.f14034b) {
-            if (this.qfn == null) {
-                this.qfn = this.qfr.Tr(16384);
+    private void eGz() {
+        if (this.f13733a <= this.f13734b) {
+            if (this.qaM == null) {
+                this.qaM = this.qaQ.RK(16384);
             }
-            this.f14034b = 0;
-            this.f14033a = Math.min(this.qfm.remaining(), 16384);
-            this.qfm.get(this.qfn, 0, this.f14033a);
+            this.f13734b = 0;
+            this.f13733a = Math.min(this.qaL.remaining(), 16384);
+            this.qaL.get(this.qaM, 0, this.f13733a);
         }
     }
 
-    private int eKB() {
+    private int eGL() {
         try {
-            eKp();
-            byte[] bArr = this.qfn;
-            int i = this.f14034b;
-            this.f14034b = i + 1;
+            eGz();
+            byte[] bArr = this.qaM;
+            int i = this.f13734b;
+            this.f13734b = i + 1;
             return bArr[i] & 255;
         } catch (Exception e) {
             this.c = 1;
@@ -504,24 +504,24 @@ public class by {
         }
     }
 
-    private int eKS() {
-        int eKB = eKB();
-        if (eKB > 0) {
+    private int eHc() {
+        int eGL = eGL();
+        if (eGL > 0) {
             try {
-                if (this.qdZ == null) {
-                    this.qdZ = this.qfr.Tr(255);
+                if (this.pZy == null) {
+                    this.pZy = this.qaQ.RK(255);
                 }
-                int i = this.f14033a - this.f14034b;
-                if (i >= eKB) {
-                    System.arraycopy(this.qfn, this.f14034b, this.qdZ, 0, eKB);
-                    this.f14034b += eKB;
-                } else if (this.qfm.remaining() + i >= eKB) {
-                    System.arraycopy(this.qfn, this.f14034b, this.qdZ, 0, i);
-                    this.f14034b = this.f14033a;
-                    eKp();
-                    int i2 = eKB - i;
-                    System.arraycopy(this.qfn, 0, this.qdZ, i, i2);
-                    this.f14034b += i2;
+                int i = this.f13733a - this.f13734b;
+                if (i >= eGL) {
+                    System.arraycopy(this.qaM, this.f13734b, this.pZy, 0, eGL);
+                    this.f13734b += eGL;
+                } else if (this.qaL.remaining() + i >= eGL) {
+                    System.arraycopy(this.qaM, this.f13734b, this.pZy, 0, i);
+                    this.f13734b = this.f13733a;
+                    eGz();
+                    int i2 = eGL - i;
+                    System.arraycopy(this.qaM, 0, this.pZy, i, i2);
+                    this.f13734b += i2;
                 } else {
                     this.c = 1;
                 }
@@ -529,11 +529,11 @@ public class by {
                 this.c = 1;
             }
         }
-        return eKB;
+        return eGL;
     }
 
-    private Bitmap eKT() {
-        Bitmap j = this.qfr.j(this.f, this.e, this.qdM ? Bitmap.Config.ARGB_8888 : Bitmap.Config.RGB_565);
+    private Bitmap eHd() {
+        Bitmap j = this.qaQ.j(this.f, this.e, this.pZl ? Bitmap.Config.ARGB_8888 : Bitmap.Config.RGB_565);
         al(j);
         return j;
     }

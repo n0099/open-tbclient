@@ -11,20 +11,20 @@ import android.widget.ListAdapter;
 import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.core.sharedpref.SharedPrefHelper;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class a implements AdapterView.OnItemClickListener {
-    private static b bVI;
-    private static b bVJ;
-    private String[] bVK;
-    private String[] bVL;
-    private View bVM;
+    private static b bQW;
+    private static b bQX;
+    private String[] bQY;
+    private String[] bQZ;
+    private View bRa;
     private Context mContext;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public interface b {
         void al(View view);
 
-        void jc(String str);
+        void hR(String str);
     }
 
     public static a b(Context context, String[] strArr) {
@@ -32,19 +32,19 @@ public class a implements AdapterView.OnItemClickListener {
     }
 
     public a(Context context, String[] strArr) {
-        this.bVK = strArr;
+        this.bQY = strArr;
         this.mContext = context;
     }
 
-    public GridView ZY() {
-        this.bVM = LayoutInflater.from(this.mContext).inflate(a.g.bd_im_emojicon_grid, (ViewGroup) null);
-        GridView gridView = (GridView) this.bVM.findViewById(a.f.Emoji_GridView);
-        this.bVL = new String[this.bVK.length + 1];
-        for (int i = 0; i < this.bVK.length; i++) {
-            this.bVL[i] = this.bVK[i];
+    public GridView Wf() {
+        this.bRa = LayoutInflater.from(this.mContext).inflate(a.g.bd_im_emojicon_grid, (ViewGroup) null);
+        GridView gridView = (GridView) this.bRa.findViewById(a.f.Emoji_GridView);
+        this.bQZ = new String[this.bQY.length + 1];
+        for (int i = 0; i < this.bQY.length; i++) {
+            this.bQZ[i] = this.bQY[i];
         }
         c(gridView);
-        gridView.setAdapter((ListAdapter) new C0237a(this.mContext, this.bVL));
+        gridView.setAdapter((ListAdapter) new C0228a(this.mContext, this.bQZ));
         gridView.setOnItemClickListener(this);
         return gridView;
     }
@@ -71,8 +71,8 @@ public class a implements AdapterView.OnItemClickListener {
 
     public static void a(b bVar) {
         if (bVar instanceof b) {
-            bVJ = bVar;
-            bVI = bVar;
+            bQX = bVar;
+            bQW = bVar;
             return;
         }
         throw new IllegalArgumentException(bVar + " must implement interface " + b.class.getSimpleName());
@@ -80,22 +80,22 @@ public class a implements AdapterView.OnItemClickListener {
 
     @Override // android.widget.AdapterView.OnItemClickListener
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-        if (bVI != null) {
-            if (i != this.bVL.length - 1) {
-                bVI.jc((String) adapterView.getItemAtPosition(i));
+        if (bQW != null) {
+            if (i != this.bQZ.length - 1) {
+                bQW.hR((String) adapterView.getItemAtPosition(i));
                 return;
             } else {
-                bVI.al(view);
+                bQW.al(view);
                 return;
             }
         }
-        bVI = bVJ;
+        bQW = bQX;
     }
 
     /* renamed from: com.baidu.live.view.emojiview.a$a  reason: collision with other inner class name */
-    /* loaded from: classes11.dex */
-    class C0237a extends ArrayAdapter<String> {
-        public C0237a(Context context, String[] strArr) {
+    /* loaded from: classes10.dex */
+    class C0228a extends ArrayAdapter<String> {
+        public C0228a(Context context, String[] strArr) {
             super(context, a.g.sdk_bd_im_emojicon_item, strArr);
         }
 
@@ -103,28 +103,28 @@ public class a implements AdapterView.OnItemClickListener {
         public View getView(int i, View view, ViewGroup viewGroup) {
             if (view == null) {
                 view = View.inflate(getContext(), a.g.sdk_bd_im_emojicon_item, null);
-                C0238a c0238a = new C0238a();
-                c0238a.bVO = (EmojiconTextView) view.findViewById(a.f.emojicon_icon);
-                view.setTag(c0238a);
+                C0229a c0229a = new C0229a();
+                c0229a.bRc = (EmojiconTextView) view.findViewById(a.f.emojicon_icon);
+                view.setTag(c0229a);
             }
             if (i == getCount() - 1) {
                 return View.inflate(getContext(), a.g.bd_im_emojicon_backspace, null);
             }
             String item = getItem(i);
-            C0238a c0238a2 = (C0238a) view.getTag();
-            if (c0238a2 != null && c0238a2.bVO != null && item != null) {
-                c0238a2.bVO.setText(item);
+            C0229a c0229a2 = (C0229a) view.getTag();
+            if (c0229a2 != null && c0229a2.bRc != null && item != null) {
+                c0229a2.bRc.setText(item);
                 return view;
             }
             return view;
         }
 
         /* renamed from: com.baidu.live.view.emojiview.a$a$a  reason: collision with other inner class name */
-        /* loaded from: classes11.dex */
-        class C0238a {
-            EmojiconTextView bVO;
+        /* loaded from: classes10.dex */
+        class C0229a {
+            EmojiconTextView bRc;
 
-            C0238a() {
+            C0229a() {
             }
         }
     }

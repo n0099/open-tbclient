@@ -3,7 +3,7 @@ package com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.photoview.
 import android.annotation.TargetApi;
 import android.content.Context;
 @TargetApi(14)
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class b extends a {
     public b(Context context) {
         super(context);

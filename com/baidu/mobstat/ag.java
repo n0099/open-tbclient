@@ -5,21 +5,21 @@ import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.PaintFlagsDrawFilter;
 import android.widget.TextView;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 class ag extends TextView {
 
     /* renamed from: a  reason: collision with root package name */
-    private Paint f3687a;
+    private Paint f3649a;
 
     /* renamed from: b  reason: collision with root package name */
-    private PaintFlagsDrawFilter f3688b;
+    private PaintFlagsDrawFilter f3650b;
 
     public ag(Context context) {
         super(context);
-        this.f3687a = new Paint();
-        this.f3688b = new PaintFlagsDrawFilter(0, 3);
-        this.f3687a.setColor(-1);
-        this.f3687a.setAntiAlias(true);
+        this.f3649a = new Paint();
+        this.f3650b = new PaintFlagsDrawFilter(0, 3);
+        this.f3649a.setColor(-1);
+        this.f3649a.setAntiAlias(true);
     }
 
     @Override // android.widget.TextView, android.view.View
@@ -31,13 +31,13 @@ class ag extends TextView {
 
     @Override // android.view.View
     public void setBackgroundColor(int i) {
-        this.f3687a.setColor(i);
+        this.f3649a.setColor(i);
     }
 
     @Override // android.view.View
     public void draw(Canvas canvas) {
-        canvas.setDrawFilter(this.f3688b);
-        canvas.drawCircle(getWidth() / 2, getHeight() / 2, Math.max(getWidth(), getHeight()) / 2, this.f3687a);
+        canvas.setDrawFilter(this.f3650b);
+        canvas.drawCircle(getWidth() / 2, getHeight() / 2, Math.max(getWidth(), getHeight()) / 2, this.f3649a);
         super.draw(canvas);
     }
 }

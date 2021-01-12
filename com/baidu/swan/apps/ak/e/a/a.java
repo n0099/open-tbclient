@@ -3,7 +3,6 @@ package com.baidu.swan.apps.ak.e.a;
 import android.content.Context;
 import android.text.TextUtils;
 import android.util.Log;
-import com.baidu.platform.comapi.map.MapController;
 import com.baidu.sapi2.outsdk.OneKeyLoginSdkCall;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
@@ -16,7 +15,7 @@ import com.baidu.swan.apps.scheme.actions.aa;
 import com.baidu.swan.apps.scheme.j;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class a extends aa {
     public a(j jVar) {
         super(jVar, "/swanAPI/startCompass");
@@ -25,7 +24,7 @@ public class a extends aa {
     @Override // com.baidu.swan.apps.scheme.actions.aa
     public boolean a(Context context, final UnitedSchemeEntity unitedSchemeEntity, final CallbackHandler callbackHandler, e eVar) {
         if (eVar == null) {
-            c.e(MapController.COMPASS_LAYER_TAG, "none swanApp");
+            c.e("compass", "none swanApp");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal swanApp");
             if (DEBUG) {
                 Log.d("SwanAppAction", "startCompass --- illegal swanApp");
@@ -33,7 +32,7 @@ public class a extends aa {
             }
             return false;
         } else if (context == null) {
-            c.e(MapController.COMPASS_LAYER_TAG, "none context");
+            c.e("compass", "none context");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal context");
             if (DEBUG) {
                 Log.d("SwanAppAction", "startCompass --- illegal context");
@@ -46,7 +45,7 @@ public class a extends aa {
                 if (DEBUG) {
                     Log.d("SwanAppAction", "startCompass --- params is empty");
                 }
-                c.e(MapController.COMPASS_LAYER_TAG, "none params");
+                c.e("compass", "none params");
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
                 return false;
             }
@@ -55,23 +54,23 @@ public class a extends aa {
                 if (DEBUG) {
                     Log.d("SwanAppAction", "startCompass --- cb is empty");
                 }
-                c.e(MapController.COMPASS_LAYER_TAG, "cb is empty");
+                c.e("compass", "cb is empty");
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
                 return false;
             }
-            c.i(MapController.COMPASS_LAYER_TAG, OneKeyLoginSdkCall.l);
+            c.i("compass", OneKeyLoginSdkCall.l);
             final k kVar = new k("compassChange", optParamsAsJo, optString);
-            com.baidu.swan.apps.ak.e.a aQh = com.baidu.swan.apps.ak.e.a.aQh();
-            aQh.init(context);
-            aQh.a(new a.InterfaceC0380a() { // from class: com.baidu.swan.apps.ak.e.a.a.1
-                @Override // com.baidu.swan.apps.ak.e.a.InterfaceC0380a
+            com.baidu.swan.apps.ak.e.a aMn = com.baidu.swan.apps.ak.e.a.aMn();
+            aMn.init(context);
+            aMn.a(new a.InterfaceC0363a() { // from class: com.baidu.swan.apps.ak.e.a.a.1
+                @Override // com.baidu.swan.apps.ak.e.a.InterfaceC0363a
                 public void b(float f, int i) {
-                    c.i(MapController.COMPASS_LAYER_TAG, "handle compass change, angle:" + f + ",accuracy: " + i);
+                    c.i("compass", "handle compass change, angle:" + f + ",accuracy: " + i);
                     a.this.a(unitedSchemeEntity, callbackHandler, kVar, f, i);
                 }
             });
-            c.i(MapController.COMPASS_LAYER_TAG, "start listen compass");
-            aQh.aQi();
+            c.i("compass", "start listen compass");
+            aMn.aMo();
             UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
             kVar.a(unitedSchemeEntity, callbackHandler);
             return true;
@@ -83,13 +82,13 @@ public class a extends aa {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("direction", f);
-            jSONObject.put("accuracy", com.baidu.swan.apps.ak.e.a.lB(i));
+            jSONObject.put("accuracy", com.baidu.swan.apps.ak.e.a.jV(i));
             if (DEBUG) {
                 Log.d("SwanAppAction", "compassAngle : " + jSONObject.toString());
             }
             kVar.a(unitedSchemeEntity, callbackHandler, jSONObject);
         } catch (JSONException e) {
-            c.e(MapController.COMPASS_LAYER_TAG, "handle compass,json error，" + e.toString());
+            c.e("compass", "handle compass,json error，" + e.toString());
             kVar.a(unitedSchemeEntity, callbackHandler, "Json error");
         }
     }

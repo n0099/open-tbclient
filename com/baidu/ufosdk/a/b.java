@@ -3,29 +3,29 @@ package com.baidu.ufosdk.a;
 import android.content.Context;
 import com.baidu.ufosdk.UfoSDK;
 import com.baidu.ufosdk.f.c;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class b extends Thread {
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f5636a;
+    private Context f5353a;
 
     /* renamed from: b  reason: collision with root package name */
-    private boolean f5637b = false;
+    private boolean f5354b = false;
     private boolean c = false;
     private boolean d = false;
     private final long e = 300;
     private String f = "";
 
     public b(Context context) {
-        this.f5636a = context;
+        this.f5353a = context;
     }
 
     public final void a() {
-        this.f5637b = true;
+        this.f5354b = true;
     }
 
     public final void b() {
-        this.f5637b = false;
+        this.f5354b = false;
     }
 
     @Override // java.lang.Thread, java.lang.Runnable
@@ -34,7 +34,7 @@ public final class b extends Thread {
         if (this.f.length() == 0) {
             return;
         }
-        while (!this.f5637b) {
+        while (!this.f5354b) {
             c.b("@@@@@@@@@@@@@@@@@@@@@");
             try {
                 Thread.sleep(300L);
@@ -42,7 +42,7 @@ public final class b extends Thread {
                 c.a("Interrupted!", e);
             }
             if (!this.c) {
-                com.baidu.ufosdk.e.a.c(this.f5636a);
+                com.baidu.ufosdk.e.a.c(this.f5353a);
             }
             try {
                 if (!this.d) {

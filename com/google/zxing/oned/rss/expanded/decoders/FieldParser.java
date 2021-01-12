@@ -8,7 +8,7 @@ import com.baidu.tieba.tbadkCore.data.PaymentConfirmRequestData;
 import com.google.zxing.NotFoundException;
 import com.sina.weibo.sdk.utils.WbAuthConstants;
 import com.tencent.connect.common.Constants;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 final class FieldParser {
     private static final Object VARIABLE_LENGTH = new Object();
     private static final Object[][] TWO_DIGIT_DATA_LENGTH = {new Object[]{"00", 18}, new Object[]{"01", 14}, new Object[]{"02", 14}, new Object[]{Constants.VIA_REPORT_TYPE_SHARE_TO_QQ, VARIABLE_LENGTH, 20}, new Object[]{Constants.VIA_REPORT_TYPE_SHARE_TO_QZONE, 6}, new Object[]{Constants.VIA_REPORT_TYPE_SET_AVATAR, 6}, new Object[]{Constants.VIA_REPORT_TYPE_JOININ_GROUP, 6}, new Object[]{Constants.VIA_REPORT_TYPE_WPA_STATE, 6}, new Object[]{Constants.VIA_REPORT_TYPE_START_GROUP, 6}, new Object[]{"20", 2}, new Object[]{Constants.VIA_REPORT_TYPE_QQFAVORITES, VARIABLE_LENGTH, 20}, new Object[]{Constants.VIA_REPORT_TYPE_DATALINE, VARIABLE_LENGTH, 29}, new Object[]{"30", VARIABLE_LENGTH, 8}, new Object[]{PayConfig.PAYMENT_POS_KEY_MANGA, VARIABLE_LENGTH, 8}, new Object[]{"90", VARIABLE_LENGTH, 30}, new Object[]{"91", VARIABLE_LENGTH, 30}, new Object[]{"92", VARIABLE_LENGTH, 30}, new Object[]{BaseUtils.METHOD_RECEIVEESSAGE, VARIABLE_LENGTH, 30}, new Object[]{HttpConfig.UBC_HTTP_ID, VARIABLE_LENGTH, 30}, new Object[]{"95", VARIABLE_LENGTH, 30}, new Object[]{"96", VARIABLE_LENGTH, 30}, new Object[]{"97", VARIABLE_LENGTH, 30}, new Object[]{"98", VARIABLE_LENGTH, 30}, new Object[]{"99", VARIABLE_LENGTH, 30}};

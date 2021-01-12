@@ -12,14 +12,14 @@ import com.baidu.fsg.face.liveness.utils.enums.LivenessRecogType;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class d extends BaseBean {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f2321a;
+    private int f2271a;
 
     /* renamed from: b  reason: collision with root package name */
-    private int f2322b;
+    private int f2272b;
     private LivenessRecogDTO c;
 
     public d(Context context) {
@@ -27,11 +27,11 @@ public class d extends BaseBean {
     }
 
     public void a(int i) {
-        this.f2321a = i;
+        this.f2271a = i;
     }
 
     public void b(int i) {
-        this.f2322b = i;
+        this.f2272b = i;
     }
 
     public void a(LivenessRecogDTO livenessRecogDTO) {
@@ -66,9 +66,9 @@ public class d extends BaseBean {
                 arrayList.add(new RestNameValuePair("type", "outer"));
                 arrayList.add(new RestNameValuePair("exuid", this.c.exUid));
             }
-            arrayList.add(new RestNameValuePair("opt", String.valueOf(this.f2321a)));
+            arrayList.add(new RestNameValuePair("opt", String.valueOf(this.f2271a)));
             arrayList.add(new RestNameValuePair(TableDefine.MessageColumns.COLUME_SERVICE_TYPE, this.c.serviceType));
-            arrayList.add(new RestNameValuePair("living_type", String.valueOf(this.f2322b)));
+            arrayList.add(new RestNameValuePair("living_type", String.valueOf(this.f2272b)));
         }
         return arrayList;
     }

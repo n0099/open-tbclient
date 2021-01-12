@@ -7,7 +7,7 @@ import com.baidu.tieba.card.data.p;
 public class b extends BaseCardInfo implements p {
     public static final BdUniqueId TYPE = BdUniqueId.gen();
     public long mTimeStamp;
-    public boolean kix = false;
+    public boolean kdQ = false;
     public boolean showBottomDivider = false;
 
     @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.adp.widget.ListView.n
@@ -21,16 +21,16 @@ public class b extends BaseCardInfo implements p {
     }
 
     @Override // com.baidu.tieba.card.data.p
-    public boolean cvx() {
+    public boolean crF() {
         return true;
     }
 
     @Override // com.baidu.tieba.card.data.p
-    public void py(boolean z) {
+    public void pu(boolean z) {
     }
 
     @Override // com.baidu.tieba.card.data.p
-    public void pz(boolean z) {
+    public void pv(boolean z) {
         this.showBottomDivider = z;
     }
 }

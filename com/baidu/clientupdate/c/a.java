@@ -36,10 +36,10 @@ public final class a {
     private static StringBuilder A;
 
     /* renamed from: a  reason: collision with root package name */
-    private static a f1720a;
+    private static a f1670a;
 
     /* renamed from: b  reason: collision with root package name */
-    private static Context f1721b;
+    private static Context f1671b;
     private static String c;
     private static String d;
     private static String f;
@@ -67,18 +67,18 @@ public final class a {
     private Boolean z = false;
 
     private a(Context context) {
-        f1721b = context.getApplicationContext();
-        this.B = d.a(f1721b);
+        f1671b = context.getApplicationContext();
+        this.B = d.a(f1671b);
         d();
     }
 
     public static synchronized a a(Context context) {
         a aVar;
         synchronized (a.class) {
-            if (f1720a == null) {
-                f1720a = new a(context);
+            if (f1670a == null) {
+                f1670a = new a(context);
             }
-            aVar = f1720a;
+            aVar = f1670a;
         }
         return aVar;
     }
@@ -124,20 +124,20 @@ public final class a {
     }
 
     private void d() {
-        this.e = f1721b.getPackageName();
-        this.s = (ActivityManager) f1721b.getSystemService(PushConstants.INTENT_ACTIVITY_NAME);
+        this.e = f1671b.getPackageName();
+        this.s = (ActivityManager) f1671b.getSystemService(PushConstants.INTENT_ACTIVITY_NAME);
         try {
-            PackageInfo packageInfo = f1721b.getPackageManager().getPackageInfo(this.e, 64);
+            PackageInfo packageInfo = f1671b.getPackageManager().getPackageInfo(this.e, 64);
             c = packageInfo.versionName;
             d = String.valueOf(packageInfo.versionCode);
             x = new File(packageInfo.applicationInfo.publicSourceDir).length() + "";
         } catch (PackageManager.NameNotFoundException e) {
             e.printStackTrace();
         }
-        w = j.a(f1721b, this.e);
+        w = j.a(f1671b, this.e);
         f = g();
         this.h = f();
-        g = b(f1721b);
+        g = b(f1671b);
     }
 
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:31:0x0084 */
@@ -220,7 +220,7 @@ public final class a {
         String str;
         if (TextUtils.isEmpty(f)) {
             try {
-                str = CommonParam.getCUID(f1721b);
+                str = CommonParam.getCUID(f1671b);
             } catch (Exception e) {
                 e.printStackTrace();
                 str = System.currentTimeMillis() + "";
@@ -252,7 +252,7 @@ public final class a {
     private String j() {
         if (Build.VERSION.SDK_INT >= 16) {
             ActivityManager.MemoryInfo memoryInfo = new ActivityManager.MemoryInfo();
-            ((ActivityManager) f1721b.getSystemService(PushConstants.INTENT_ACTIVITY_NAME)).getMemoryInfo(memoryInfo);
+            ((ActivityManager) f1671b.getSystemService(PushConstants.INTENT_ACTIVITY_NAME)).getMemoryInfo(memoryInfo);
             if (memoryInfo != null) {
                 return Long.toHexString(memoryInfo.totalMem);
             }
@@ -296,7 +296,7 @@ public final class a {
 
     public void a(String str) {
         this.v = str;
-        g = b(f1721b);
+        g = b(f1671b);
     }
 
     public void a(String str, String str2) {
@@ -318,8 +318,8 @@ public final class a {
         A.append("\"cvc\":\"" + d + "\",");
         A.append("\"csz\":\"" + x + "\",");
         A.append("\"cmd5\":\"" + w + "\",");
-        ClientUpdateInfo a2 = com.baidu.clientupdate.d.a.a(f1721b).a();
-        RuleInfo b2 = com.baidu.clientupdate.d.a.a(f1721b).b();
+        ClientUpdateInfo a2 = com.baidu.clientupdate.d.a.a(f1671b).a();
+        RuleInfo b2 = com.baidu.clientupdate.d.a.a(f1671b).b();
         if (a2 == null || b2 == null) {
             A.append("\"ug\":\"\",");
             A.append("\"vn\":\"\",");
@@ -347,7 +347,7 @@ public final class a {
             bVar.a(com.baidu.fsg.base.statistics.j.c, g);
             bVar.a("ut", this.h);
             bVar.a("auto", String.valueOf(this.i));
-            this.j = c(f1721b);
+            this.j = c(f1671b);
             bVar.a("network", this.j);
             this.t = h();
             if (this.t != null) {
@@ -366,7 +366,7 @@ public final class a {
             if (!TextUtils.isEmpty(w)) {
                 bVar.a("usermd5", w);
             }
-            this.y = j.a(f1721b, "com.baidu.appsearch");
+            this.y = j.a(f1671b, "com.baidu.appsearch");
             if (!TextUtils.isEmpty(this.y)) {
                 bVar.a("appsearchmd5", this.y);
             }
@@ -384,7 +384,7 @@ public final class a {
     }
 
     public String c() {
-        RuleInfo b2 = com.baidu.clientupdate.d.a.a(f1721b).b();
+        RuleInfo b2 = com.baidu.clientupdate.d.a.a(f1671b).b();
         return b2 != null ? b2.mUpgradeid : "-1";
     }
 

@@ -8,23 +8,23 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class c extends BdAsyncTask<String, String, Integer> {
-    private String nEA;
-    private a nEB;
+    private String nzV;
+    private a nzW;
 
     /* loaded from: classes.dex */
     public interface a {
-        void dcm();
+        void cYu();
 
-        void dcn();
+        void cYv();
 
-        void dco();
+        void cYw();
 
         void onError(String str);
     }
 
     public c(String str, a aVar) {
-        this.nEA = "https://lookup.api.bsb.baidu.com/urlquery?url=" + URLEncoder.encode(str) + "&ver=2.0&key=Gar7ku5AswED&cid=" + TbadkCoreApplication.getInst().getCuid();
-        this.nEB = aVar;
+        this.nzV = "https://lookup.api.bsb.baidu.com/urlquery?url=" + URLEncoder.encode(str) + "&ver=2.0&key=Gar7ku5AswED&cid=" + TbadkCoreApplication.getInst().getCuid();
+        this.nzW = aVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -34,9 +34,9 @@ public class c extends BdAsyncTask<String, String, Integer> {
     public Integer doInBackground(String... strArr) {
         int i = -1;
         try {
-            z zVar = new z(this.nEA);
-            zVar.bvR().bwA().mIsNeedAddCommenParam = false;
-            zVar.bvR().bwA().mIsUseCurrentBDUSS = false;
+            z zVar = new z(this.nzV);
+            zVar.brX().bsG().mIsNeedAddCommenParam = false;
+            zVar.brX().bsG().mIsUseCurrentBDUSS = false;
             JSONArray optJSONArray = new JSONObject(new String(zVar.getNetData())).optJSONArray("result");
             if (optJSONArray == null || optJSONArray.length() <= 0) {
                 return i;
@@ -58,15 +58,15 @@ public class c extends BdAsyncTask<String, String, Integer> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void onPostExecute(Integer num) {
-        if (this.nEB != null && num != null) {
+        if (this.nzW != null && num != null) {
             if (num.intValue() == -1) {
-                this.nEB.onError(null);
+                this.nzW.onError(null);
             } else if (num.intValue() == 1) {
-                this.nEB.dcm();
+                this.nzW.cYu();
             } else if (num.intValue() == 2 || num.intValue() == 0) {
-                this.nEB.dcn();
+                this.nzW.cYv();
             } else {
-                this.nEB.dco();
+                this.nzW.cYw();
             }
         }
     }

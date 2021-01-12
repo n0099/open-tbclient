@@ -7,29 +7,29 @@ import android.content.SharedPreferences;
 public class q implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ p f14494a;
+    final /* synthetic */ p f14194a;
 
     /* renamed from: a  reason: collision with other field name */
-    final /* synthetic */ String f874a;
+    final /* synthetic */ String f873a;
 
     /* renamed from: b  reason: collision with root package name */
-    final /* synthetic */ String f14495b;
+    final /* synthetic */ String f14195b;
     final /* synthetic */ String c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public q(p pVar, String str, String str2, String str3) {
-        this.f14494a = pVar;
-        this.f874a = str;
-        this.f14495b = str2;
+        this.f14194a = pVar;
+        this.f873a = str;
+        this.f14195b = str2;
         this.c = str3;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         Context context;
-        context = this.f14494a.f867a;
-        SharedPreferences.Editor edit = context.getSharedPreferences(this.f874a, 4).edit();
-        edit.putString(this.f14495b, this.c);
+        context = this.f14194a.f866a;
+        SharedPreferences.Editor edit = context.getSharedPreferences(this.f873a, 4).edit();
+        edit.putString(this.f14195b, this.c);
         edit.commit();
     }
 }

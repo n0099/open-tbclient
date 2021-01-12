@@ -13,10 +13,10 @@ import com.bytedance.sdk.openadsdk.dislike.TTDislikeListView;
 public abstract class TTDislikeDialogAbstract extends Dialog {
 
     /* renamed from: a  reason: collision with root package name */
-    private View f6388a;
+    private View f6088a;
 
     /* renamed from: b  reason: collision with root package name */
-    private l f6389b;
+    private l f6089b;
 
     public abstract int getLayoutId();
 
@@ -36,12 +36,12 @@ public abstract class TTDislikeDialogAbstract extends Dialog {
     @Override // android.app.Dialog
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.f6388a = LayoutInflater.from(getContext()).inflate(getLayoutId(), (ViewGroup) null);
-        if (this.f6388a == null) {
+        this.f6088a = LayoutInflater.from(getContext()).inflate(getLayoutId(), (ViewGroup) null);
+        if (this.f6088a == null) {
             throw new IllegalArgumentException("getLayoutId布局文件id可能异常，请检查");
         }
         ViewGroup.LayoutParams layoutParams = getLayoutParams();
-        View view = this.f6388a;
+        View view = this.f6088a;
         if (layoutParams == null) {
             layoutParams = new ViewGroup.LayoutParams(-1, -1);
         }
@@ -50,26 +50,26 @@ public abstract class TTDislikeDialogAbstract extends Dialog {
     }
 
     private void a() {
-        if (this.f6389b != null && this.f6388a != null) {
+        if (this.f6089b != null && this.f6088a != null) {
             int[] tTDislikeListViewIds = getTTDislikeListViewIds();
             if (tTDislikeListViewIds == null || tTDislikeListViewIds.length <= 0) {
                 throw new IllegalArgumentException("dislike选项列表为空，请设置TTDislikeListView");
             }
             for (int i : tTDislikeListViewIds) {
-                View findViewById = this.f6388a.findViewById(i);
+                View findViewById = this.f6088a.findViewById(i);
                 if (findViewById == null) {
                     throw new IllegalArgumentException("getTTDislikeListViewIds提供的id找不到view，请检查");
                 }
                 if (!(findViewById instanceof TTDislikeListView)) {
                     throw new IllegalArgumentException("getTTDislikeListViewIds找到的view类型异常，请检查");
                 }
-                ((TTDislikeListView) findViewById).setMaterialMeta(this.f6389b);
+                ((TTDislikeListView) findViewById).setMaterialMeta(this.f6089b);
             }
         }
     }
 
     public void setMaterialMeta(l lVar) {
-        this.f6389b = lVar;
+        this.f6089b = lVar;
         a();
     }
 }

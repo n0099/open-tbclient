@@ -18,16 +18,16 @@ import java.util.regex.Pattern;
 /* loaded from: classes.dex */
 public final class a implements i {
     private static final Pattern pattern = Pattern.compile("(http://|ftp://|https://|www){1,1}[^一-龥\\s]*", 2);
-    private static a gjb = new a();
+    private static a get = new a();
     private final List<i.a> mListeners = new LinkedList();
     private final ConcurrentHashMap<String, i.b> mHandlers = new ConcurrentHashMap<>();
-    private i.c gjc = null;
+    private i.c geu = null;
 
     private a() {
     }
 
-    public static a bOG() {
-        return gjb;
+    public static a bKO() {
+        return get;
     }
 
     public void a(final i.a aVar) {
@@ -51,7 +51,7 @@ public final class a implements i {
     }
 
     public void a(i.c cVar) {
-        this.gjc = cVar;
+        this.geu = cVar;
     }
 
     public boolean a(Context context, String[] strArr, boolean z, i.d dVar, boolean z2, Bundle bundle) {
@@ -79,7 +79,7 @@ public final class a implements i {
         String str2 = strArr[0];
         i.b bVar = this.mHandlers.get(getSchemaKey(str2));
         if (bVar != null) {
-            bVar.l(context, getInnerParamPair(Fo(str2)));
+            bVar.l(context, getInnerParamPair(Ed(str2)));
             return true;
         }
         Iterator<i.a> it = this.mListeners.iterator();
@@ -93,7 +93,7 @@ public final class a implements i {
                 break;
             }
         }
-        if (!z3 && this.gjc != null) {
+        if (!z3 && this.geu != null) {
             if (str2.contains("nohead:url") || str2.contains("booktown") || str2.contains("bookreader")) {
                 return true;
             }
@@ -102,7 +102,7 @@ public final class a implements i {
         return z3;
     }
 
-    private String Fo(String str) {
+    private String Ed(String str) {
         int lastIndexOf;
         if (!StringUtils.isNull(str) && (lastIndexOf = str.lastIndexOf(":")) >= 0) {
             return str.substring(lastIndexOf + 1);
@@ -151,12 +151,12 @@ public final class a implements i {
 
     private void a(Context context, String str, String str2, boolean z, i.d dVar, boolean z2, Bundle bundle) {
         if (pattern.matcher(str2).find()) {
-            this.gjc.b(context, str, str2, z, dVar, z2, bundle);
+            this.geu.b(context, str, str2, z, dVar, z2, bundle);
         }
     }
 
     @Override // com.baidu.tieba.recapp.i
-    public boolean Fp(String str) {
+    public boolean Ee(String str) {
         return pattern.matcher(str).find();
     }
 }

@@ -12,14 +12,14 @@ import com.kwad.sdk.core.response.b.a;
 import com.kwad.sdk.core.response.b.c;
 import com.kwad.sdk.core.response.model.AdInfo;
 import com.kwad.sdk.core.response.model.AdTemplate;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class TailFrameBarH5PortraitVertical extends LinearLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    private TextView f11011a;
+    private TextView f10711a;
 
     /* renamed from: b  reason: collision with root package name */
-    private TextView f11012b;
+    private TextView f10712b;
     private ValueAnimator c;
 
     public TailFrameBarH5PortraitVertical(Context context) {
@@ -37,8 +37,8 @@ public class TailFrameBarH5PortraitVertical extends LinearLayout {
 
     private void a(Context context) {
         inflate(context, R.layout.ksad_video_tf_bar_h5_portrait_vertical, this);
-        this.f11011a = (TextView) findViewById(R.id.ksad_tf_h5_ad_desc);
-        this.f11012b = (TextView) findViewById(R.id.ksad_tf_h5_open_btn);
+        this.f10711a = (TextView) findViewById(R.id.ksad_tf_h5_ad_desc);
+        this.f10712b = (TextView) findViewById(R.id.ksad_tf_h5_open_btn);
     }
 
     private void b() {
@@ -54,8 +54,8 @@ public class TailFrameBarH5PortraitVertical extends LinearLayout {
             @Override // android.animation.ValueAnimator.AnimatorUpdateListener
             public void onAnimationUpdate(ValueAnimator valueAnimator) {
                 float floatValue = ((Float) valueAnimator.getAnimatedValue()).floatValue();
-                TailFrameBarH5PortraitVertical.this.f11012b.setScaleY(floatValue);
-                TailFrameBarH5PortraitVertical.this.f11012b.setScaleX(floatValue);
+                TailFrameBarH5PortraitVertical.this.f10712b.setScaleY(floatValue);
+                TailFrameBarH5PortraitVertical.this.f10712b.setScaleX(floatValue);
             }
         });
         this.c.start();
@@ -71,8 +71,8 @@ public class TailFrameBarH5PortraitVertical extends LinearLayout {
 
     public void a(@NonNull AdTemplate adTemplate) {
         AdInfo j = c.j(adTemplate);
-        this.f11011a.setText(a.n(j));
-        this.f11012b.setText(a.w(j));
+        this.f10711a.setText(a.n(j));
+        this.f10712b.setText(a.w(j));
         b();
     }
 }

@@ -24,15 +24,15 @@ import com.baidu.tieba.frs.gamesubpb.a;
 import com.baidu.tieba.frs.gamesubpb.model.d;
 /* loaded from: classes2.dex */
 public class SpannableTextView extends TextView {
-    private long gHx;
-    private int jAH;
-    private int jAI;
-    private int jAJ;
-    private int jAK;
-    private int jAL;
-    private int jAM;
-    private boolean jAN;
-    private a.InterfaceC0747a jzO;
+    private long gCR;
+    private a.InterfaceC0730a jvi;
+    private int jwb;
+    private int jwc;
+    private int jwd;
+    private int jwe;
+    private int jwf;
+    private int jwg;
+    private boolean jwh;
 
     public SpannableTextView(Context context) {
         super(context);
@@ -50,18 +50,18 @@ public class SpannableTextView extends TextView {
     }
 
     private void init() {
-        this.gHx = com.baidu.adp.lib.f.b.toLong(TbadkCoreApplication.getCurrentAccount(), -1L);
-        this.jAM = (l.getEquipmentWidth(getContext()) - (getResources().getDimensionPixelSize(R.dimen.ds34) * 2)) - 20;
+        this.gCR = com.baidu.adp.lib.f.b.toLong(TbadkCoreApplication.getCurrentAccount(), -1L);
+        this.jwg = (l.getEquipmentWidth(getContext()) - (getResources().getDimensionPixelSize(R.dimen.ds34) * 2)) - 20;
         onChangeSkinType();
     }
 
     public void f(d dVar) {
         setText(g(dVar));
-        setMovementMethod(a.cLe());
+        setMovementMethod(a.cHm());
     }
 
-    public void setClickListener(a.InterfaceC0747a interfaceC0747a) {
-        this.jzO = interfaceC0747a;
+    public void setClickListener(a.InterfaceC0730a interfaceC0730a) {
+        this.jvi = interfaceC0730a;
     }
 
     private SpannableString g(d dVar) {
@@ -71,19 +71,19 @@ public class SpannableTextView extends TextView {
         int length2 = ": ".length();
         String str2 = dVar.userName;
         int length3 = str2 != null ? str2.length() : 0;
-        String str3 = dVar.jAo ? dVar.userName + "  楼主: " : dVar.userName + ": ";
+        String str3 = dVar.jvI ? dVar.userName + "  楼主: " : dVar.userName + ": ";
         String str4 = dVar.content;
         int length4 = str4 != null ? str4.length() : 0;
-        if ((Lk(new StringBuilder().append(str3).append(str4).toString()) % this.jAM) + Lk(new StringBuilder().append("|").append(dVar.jAg).toString()) >= this.jAM) {
-            str = "\n" + dVar.jAg;
+        if ((Ka(new StringBuilder().append(str3).append(str4).toString()) % this.jwg) + Ka(new StringBuilder().append("|").append(dVar.jvA).toString()) >= this.jwg) {
+            str = "\n" + dVar.jvA;
         } else {
-            str = " " + dVar.jAg;
+            str = " " + dVar.jvA;
         }
         int length5 = str != null ? str.length() : 0;
-        boolean equals = String.valueOf(this.gHx).equals(dVar.userId);
+        boolean equals = String.valueOf(this.gCR).equals(dVar.userId);
         String str5 = "|  删除";
         if (equals) {
-            if (Lk("|  删除") + (Lk(new StringBuilder().append(str3).append(str4).append(str).toString()) % this.jAM) >= this.jAM) {
+            if (Ka("|  删除") + (Ka(new StringBuilder().append(str3).append(str4).append(str).toString()) % this.jwg) >= this.jwg) {
                 str5 = "\n删除";
             } else {
                 str5 = "  删除";
@@ -98,24 +98,24 @@ public class SpannableTextView extends TextView {
         SpannableString spannableString = new SpannableString(append.append(str5).append(equals ? "|" : "").toString());
         int i2 = 0 + length3;
         spannableString.setSpan(new c(dVar), 0, i2, 17);
-        if (dVar.jAo) {
+        if (dVar.jvI) {
             i = i2 + length;
-            spannableString.setSpan(new ForegroundColorSpan(this.jAI), i2, i, 17);
+            spannableString.setSpan(new ForegroundColorSpan(this.jwc), i2, i, 17);
         } else {
             i = i2;
         }
         int i3 = i + length2 + length4;
         int i4 = i3 + length5;
-        spannableString.setSpan(new ForegroundColorSpan(this.jAJ), i3, i4, 17);
+        spannableString.setSpan(new ForegroundColorSpan(this.jwd), i3, i4, 17);
         if (equals) {
             int i5 = i4 + length6;
             spannableString.setSpan(new b(dVar), i4, i5, 17);
-            spannableString.setSpan(new ForegroundColorSpan(this.jAL), i5, i5 + length7, 17);
+            spannableString.setSpan(new ForegroundColorSpan(this.jwf), i5, i5 + length7, 17);
         }
         return spannableString;
     }
 
-    private int Lk(String str) {
+    private int Ka(String str) {
         if (TextUtils.isEmpty(str)) {
             return 0;
         }
@@ -127,22 +127,22 @@ public class SpannableTextView extends TextView {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes2.dex */
     public class c extends ClickableSpan {
-        private d jAP;
+        private d jwj;
 
         public c(d dVar) {
-            this.jAP = dVar;
+            this.jwj = dVar;
         }
 
         @Override // android.text.style.ClickableSpan, android.text.style.CharacterStyle
         public void updateDrawState(TextPaint textPaint) {
-            textPaint.setColor(SpannableTextView.this.jAH);
+            textPaint.setColor(SpannableTextView.this.jwb);
             textPaint.setUnderlineText(false);
         }
 
         @Override // android.text.style.ClickableSpan
         public void onClick(View view) {
-            if (SpannableTextView.this.jzO != null) {
-                SpannableTextView.this.jzO.a(this.jAP);
+            if (SpannableTextView.this.jvi != null) {
+                SpannableTextView.this.jvi.a(this.jwj);
             }
         }
     }
@@ -150,29 +150,29 @@ public class SpannableTextView extends TextView {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes2.dex */
     public class b extends ClickableSpan {
-        private d jAP;
+        private d jwj;
 
         public b(d dVar) {
-            this.jAP = dVar;
+            this.jwj = dVar;
         }
 
         @Override // android.text.style.ClickableSpan, android.text.style.CharacterStyle
         public void updateDrawState(TextPaint textPaint) {
-            textPaint.setColor(SpannableTextView.this.jAK);
+            textPaint.setColor(SpannableTextView.this.jwe);
             textPaint.setUnderlineText(false);
         }
 
         @Override // android.text.style.ClickableSpan
         public void onClick(View view) {
-            if (SpannableTextView.this.jzO != null) {
-                SpannableTextView.this.jzO.b(this.jAP);
+            if (SpannableTextView.this.jvi != null) {
+                SpannableTextView.this.jvi.b(this.jwj);
             }
         }
     }
 
     @Override // android.view.View
     public boolean performClick() {
-        if (this.jAN) {
+        if (this.jwh) {
             return true;
         }
         return super.performClick();
@@ -180,21 +180,21 @@ public class SpannableTextView extends TextView {
 
     @Override // android.widget.TextView, android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
-        this.jAN = false;
+        this.jwh = false;
         return super.onTouchEvent(motionEvent);
     }
 
     public void onChangeSkinType() {
-        this.jAH = ao.getColor(R.color.CAM_X0304);
-        this.jAI = ao.getColor(R.color.CAM_X0302);
-        this.jAJ = ao.getColor(R.color.CAM_X0109);
-        this.jAK = ao.getColor(R.color.CAM_X0304);
-        this.jAL = ao.getColor(R.color.CAM_X0201);
+        this.jwb = ao.getColor(R.color.CAM_X0304);
+        this.jwc = ao.getColor(R.color.CAM_X0302);
+        this.jwd = ao.getColor(R.color.CAM_X0109);
+        this.jwe = ao.getColor(R.color.CAM_X0304);
+        this.jwf = ao.getColor(R.color.CAM_X0201);
     }
 
     /* loaded from: classes2.dex */
     private static class a extends LinkMovementMethod {
-        private static a jAO;
+        private static a jwi;
 
         private a() {
         }
@@ -217,7 +217,7 @@ public class SpannableTextView extends TextView {
                         Selection.setSelection(spannable, spannable.getSpanStart(objArr[0]), spannable.getSpanEnd(objArr[0]));
                     }
                     if (textView instanceof SpannableTextView) {
-                        ((SpannableTextView) textView).jAN = true;
+                        ((SpannableTextView) textView).jwh = true;
                     }
                     return true;
                 }
@@ -228,11 +228,11 @@ public class SpannableTextView extends TextView {
             return Touch.onTouchEvent(textView, spannable, motionEvent);
         }
 
-        public static a cLe() {
-            if (jAO == null) {
-                jAO = new a();
+        public static a cHm() {
+            if (jwi == null) {
+                jwi = new a();
             }
-            return jAO;
+            return jwi;
         }
     }
 }

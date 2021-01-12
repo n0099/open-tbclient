@@ -37,7 +37,7 @@ import com.tencent.mm.opensdk.utils.ILog;
 import com.tencent.mm.opensdk.utils.Log;
 import com.tencent.mm.opensdk.utils.d;
 import java.net.URLEncoder;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 final class WXApiImplV10 implements IWXAPI {
     private static final String TAG = "MicroMsg.SDK.WXApiImplV10";
     private static String wxappPayEntryClassname = null;
@@ -452,12 +452,12 @@ final class WXApiImplV10 implements IWXAPI {
             this.appId = str;
         }
         Log.d(TAG, "register app " + this.context.getPackageName());
-        a.C1274a c1274a = new a.C1274a();
-        c1274a.f13652a = "com.tencent.mm";
-        c1274a.action = "com.tencent.mm.plugin.openapi.Intent.ACTION_HANDLE_APP_REGISTER";
-        c1274a.content = "weixin://registerapp?appid=" + this.appId;
-        c1274a.f13653b = j;
-        return a.a(this.context, c1274a);
+        a.C1257a c1257a = new a.C1257a();
+        c1257a.f13352a = "com.tencent.mm";
+        c1257a.action = "com.tencent.mm.plugin.openapi.Intent.ACTION_HANDLE_APP_REGISTER";
+        c1257a.content = "weixin://registerapp?appid=" + this.appId;
+        c1257a.f13353b = j;
+        return a.a(this.context, c1257a);
     }
 
     @Override // com.tencent.mm.opensdk.openapi.IWXAPI
@@ -596,10 +596,10 @@ final class WXApiImplV10 implements IWXAPI {
             return;
         }
         Log.d(TAG, "unregister app " + this.context.getPackageName());
-        a.C1274a c1274a = new a.C1274a();
-        c1274a.f13652a = "com.tencent.mm";
-        c1274a.action = "com.tencent.mm.plugin.openapi.Intent.ACTION_HANDLE_APP_UNREGISTER";
-        c1274a.content = "weixin://unregisterapp?appid=" + this.appId;
-        a.a(this.context, c1274a);
+        a.C1257a c1257a = new a.C1257a();
+        c1257a.f13352a = "com.tencent.mm";
+        c1257a.action = "com.tencent.mm.plugin.openapi.Intent.ACTION_HANDLE_APP_UNREGISTER";
+        c1257a.content = "weixin://unregisterapp?appid=" + this.appId;
+        a.a(this.context, c1257a);
     }
 }

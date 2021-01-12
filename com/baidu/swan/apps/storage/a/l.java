@@ -7,7 +7,7 @@ import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.swan.apps.scheme.actions.aa;
 import org.json.JSONObject;
 @Deprecated
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class l extends aa {
     public l(com.baidu.swan.apps.scheme.j jVar) {
         super(jVar, "/swanAPI/setStorage");
@@ -28,7 +28,7 @@ public class l extends aa {
         if (aX == null) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
             return false;
-        } else if (com.baidu.swan.apps.storage.c.uc(aX)) {
+        } else if (com.baidu.swan.apps.storage.c.sR(aX)) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "exceed storage key max length");
             return false;
         } else {
@@ -36,17 +36,17 @@ public class l extends aa {
             if (aW == null) {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
                 return false;
-            } else if (com.baidu.swan.apps.storage.c.ud(aW)) {
+            } else if (com.baidu.swan.apps.storage.c.sS(aW)) {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "exceed storage item max length");
                 return false;
             } else {
-                com.baidu.swan.apps.storage.c aMw = eVar.aMw();
-                if (aMw.cJ(aX, aW)) {
+                com.baidu.swan.apps.storage.c aIC = eVar.aIC();
+                if (aIC.cI(aX, aW)) {
                     unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1003, "exceed storage max length");
                     return false;
                 }
-                aMw.aPs().putString(aX, aW);
-                com.baidu.swan.apps.al.e.dQM.update();
+                aIC.aLy().putString(aX, aW);
+                com.baidu.swan.apps.al.e.dMa.update();
                 UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
                 return true;
             }

@@ -8,7 +8,7 @@ import android.telephony.TelephonyManager;
 import androidx.annotation.AnyThread;
 import androidx.annotation.MainThread;
 @AnyThread
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class AndroidTelephonyManagerBridge {
     public static volatile AndroidTelephonyManagerBridge sInstance;
     public Listener mListener;
@@ -16,7 +16,7 @@ public class AndroidTelephonyManagerBridge {
     public volatile String mNetworkOperator;
     public volatile String mSimOperator;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class Listener extends PhoneStateListener {
         public ServiceState mServiceState;
 

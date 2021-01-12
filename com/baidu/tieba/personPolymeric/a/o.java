@@ -5,31 +5,31 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.horizonalList.widget.HTypeListView;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class o {
-    private List<com.baidu.adp.widget.ListView.a> boM = new ArrayList();
-    private com.baidu.tieba.person.a.a mnN;
-    private f mvh;
-    private l mvi;
-    private g mvj;
+    private List<com.baidu.adp.widget.ListView.a> bjZ = new ArrayList();
+    private com.baidu.tieba.person.a.a mjj;
+    private f mqC;
+    private l mqD;
+    private g mqE;
 
     public o(TbPageContext tbPageContext, HTypeListView hTypeListView) {
-        this.mvh = new f(tbPageContext, com.baidu.tieba.personPolymeric.c.o.mxr);
-        this.mvi = new l(tbPageContext);
-        this.mvj = new g(tbPageContext, com.baidu.tieba.personPolymeric.c.h.mxk);
-        this.mnN = new com.baidu.tieba.person.a.a(tbPageContext.getPageActivity(), com.baidu.tieba.person.d.mny);
-        this.boM.add(this.mvh);
-        this.boM.add(this.mvi);
-        this.boM.add(this.mvj);
-        this.boM.add(this.mnN);
-        hTypeListView.addAdapters(this.boM);
+        this.mqC = new f(tbPageContext, com.baidu.tieba.personPolymeric.c.o.msN);
+        this.mqD = new l(tbPageContext);
+        this.mqE = new g(tbPageContext, com.baidu.tieba.personPolymeric.c.h.msG);
+        this.mjj = new com.baidu.tieba.person.a.a(tbPageContext.getPageActivity(), com.baidu.tieba.person.d.miU);
+        this.bjZ.add(this.mqC);
+        this.bjZ.add(this.mqD);
+        this.bjZ.add(this.mqE);
+        this.bjZ.add(this.mjj);
+        hTypeListView.addAdapters(this.bjZ);
     }
 
     public void ab(View.OnClickListener onClickListener) {
-        this.mvh.setOnClickListener(onClickListener);
+        this.mqC.setOnClickListener(onClickListener);
     }
 
     public void ac(View.OnClickListener onClickListener) {
-        this.mvj.setOnClickListener(onClickListener);
+        this.mqE.setOnClickListener(onClickListener);
     }
 }

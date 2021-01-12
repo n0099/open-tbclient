@@ -7,20 +7,20 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.InitUserNameDialogActivityConfig;
 /* loaded from: classes.dex */
 public class n {
-    public static void bIS() {
+    public static void bFa() {
         if (!com.baidu.adp.lib.util.l.isMainThread()) {
             com.baidu.adp.lib.f.e.mB().post(new Runnable() { // from class: com.baidu.tbadk.util.n.1
                 @Override // java.lang.Runnable
                 public void run() {
-                    n.bIT();
+                    n.bFb();
                 }
             });
         } else {
-            bIT();
+            bFb();
         }
     }
 
-    public static void bIT() {
+    public static void bFb() {
         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new InitUserNameDialogActivityConfig(TbadkCoreApplication.getInst().getContext())));
     }
 }

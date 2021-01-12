@@ -13,7 +13,7 @@ import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class ChromeThreadPoolExecutor extends ThreadPoolExecutor {
     public static final int CPU_COUNT = Runtime.getRuntime().availableProcessors();
     public static final int CORE_POOL_SIZE = Math.max(2, Math.min(CPU_COUNT - 1, 4));
@@ -22,7 +22,7 @@ public class ChromeThreadPoolExecutor extends ThreadPoolExecutor {
     public static final BlockingQueue<Runnable> sPoolWorkQueue = new ArrayBlockingQueue(128);
 
     /* renamed from: aegon.chrome.base.task.ChromeThreadPoolExecutor$1 */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class AnonymousClass1 implements ThreadFactory {
         public final AtomicInteger mCount = new AtomicInteger(1);
 

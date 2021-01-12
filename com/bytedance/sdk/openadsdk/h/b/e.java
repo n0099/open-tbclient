@@ -4,17 +4,17 @@ package com.bytedance.sdk.openadsdk.h.b;
 public class e implements a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static volatile e f7484a;
+    private static volatile e f7184a;
 
     public static e c() {
-        if (f7484a == null) {
+        if (f7184a == null) {
             synchronized (e.class) {
-                if (f7484a == null) {
-                    f7484a = new e();
+                if (f7184a == null) {
+                    f7184a = new e();
                 }
             }
         }
-        return f7484a;
+        return f7184a;
     }
 
     private e() {

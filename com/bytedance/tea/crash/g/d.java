@@ -109,7 +109,7 @@ public class d {
         return a(str, null);
     }
 
-    public static com.bytedance.tea.crash.c.c YZ(String str) {
+    public static com.bytedance.tea.crash.c.c XR(String str) {
         try {
             JSONObject jSONObject = new JSONObject(b(str));
             com.bytedance.tea.crash.c.c cVar = new com.bytedance.tea.crash.c.c();
@@ -167,7 +167,7 @@ public class d {
     }
 
     @Nullable
-    public static String[] Za(String str) {
+    public static String[] XS(String str) {
         BufferedReader bufferedReader;
         String[] strArr = null;
         try {

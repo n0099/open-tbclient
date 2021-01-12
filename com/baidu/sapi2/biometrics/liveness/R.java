@@ -1,10 +1,10 @@
 package com.baidu.sapi2.biometrics.liveness;
-/* loaded from: classes13.dex */
+/* loaded from: classes12.dex */
 public final class R {
     private R() {
     }
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes12.dex */
     public static final class anim {
         public static final int sapi_liveness_question_tip_slide_midd_to_top = 0x7f0100cd;
         public static final int sapi_liveness_time_count_point = 0x7f0100ce;
@@ -21,7 +21,7 @@ public final class R {
         }
     }
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes12.dex */
     public static final class array {
         public static final int sapi_liveness_head_pose = 0x7f030015;
         public static final int sapi_liveness_head_pose_new = 0x7f030016;
@@ -30,7 +30,7 @@ public final class R {
         }
     }
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes12.dex */
     public static final class attr {
         public static final int load_failure_color = 0x7f0402ed;
         public static final int load_success_color = 0x7f0402ee;
@@ -52,7 +52,7 @@ public final class R {
         }
     }
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes12.dex */
     public static final class color {
         public static final int indicator_circle_normal_color = 0x7f060722;
         public static final int rim_base_mainColor = 0x7f060892;
@@ -79,7 +79,7 @@ public final class R {
         }
     }
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes12.dex */
     public static final class dimen {
         public static final int liveness_video_lrc_text_gap = 0x7f0703e0;
         public static final int liveness_video_lrc_tip_margintop_afteranim = 0x7f0703e1;
@@ -120,7 +120,7 @@ public final class R {
         }
     }
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes12.dex */
     public static final class drawable {
         public static final int drawable = 0x7f080aaa;
         public static final int rim_face_btn_rounded_rect_white = 0x7f081bef;
@@ -207,7 +207,7 @@ public final class R {
         }
     }
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes12.dex */
     public static final class id {
         public static final int blurring_view_container = 0x7f0907ab;
         public static final int btn_cancel = 0x7f090820;
@@ -224,111 +224,111 @@ public final class R {
         public static final int dialog_content = 0x7f090cbd;
         public static final int dialog_msg = 0x7f090cd1;
         public static final int dialog_title = 0x7f090cd7;
-        public static final int dynamic_wave = 0x7f090d67;
-        public static final int exit_dialog_content = 0x7f090ec0;
-        public static final int exit_dialog_negative = 0x7f090ec1;
-        public static final int exit_dialog_positive = 0x7f090ec2;
-        public static final int exit_dialog_title = 0x7f090ec3;
-        public static final int focuslayout = 0x7f090fcd;
-        public static final int guide_imageview = 0x7f091311;
-        public static final int guide_line1 = 0x7f091314;
-        public static final int guide_line2 = 0x7f091315;
-        public static final int guide_line3 = 0x7f091316;
-        public static final int guide_line4 = 0x7f091317;
-        public static final int imageView = 0x7f0914f6;
-        public static final int img_canvas_view = 0x7f091540;
-        public static final int img_face_recognizing_anim = 0x7f09154f;
-        public static final int img_face_recognizing_light_anim = 0x7f091550;
-        public static final int iv_pose_warning_tip = 0x7f0916bf;
-        public static final int iv_recog_circle = 0x7f0916c4;
-        public static final int iv_recog_logo = 0x7f0916c5;
-        public static final int iv_time_count_point = 0x7f0916da;
-        public static final int iv_video_count_down = 0x7f0916dd;
-        public static final int layout_background = 0x7f091909;
-        public static final int layout_bottom = 0x7f091914;
-        public static final int layout_pose_tip = 0x7f09195d;
-        public static final int layout_pose_warning = 0x7f09195e;
-        public static final int layout_question_tip = 0x7f091962;
-        public static final int layout_result_page_show_brand_label = 0x7f09196b;
-        public static final int layout_result_page_show_risk_tip = 0x7f09196c;
-        public static final int layout_show_progress = 0x7f091976;
-        public static final int layout_top = 0x7f091982;
-        public static final int liveness_again_btn = 0x7f091a88;
-        public static final int ll_time_count = 0x7f091ac4;
-        public static final int ll_video_tip = 0x7f091ac7;
-        public static final int lrc_tipview = 0x7f091b26;
-        public static final int msg_text = 0x7f091c48;
-        public static final int my_circle = 0x7f091c6f;
-        public static final int negative_btn = 0x7f091cc9;
-        public static final int neutral_btn = 0x7f091cd6;
-        public static final int ok_btn = 0x7f091d9f;
-        public static final int positive_btn = 0x7f0920be;
-        public static final int re_video_container = 0x7f092236;
-        public static final int record_video_close_iv = 0x7f09228b;
-        public static final int rim_face_guide_indicator1_wrapper = 0x7f092346;
-        public static final int rim_face_guide_indicator2_content = 0x7f092347;
-        public static final int rim_face_guide_indicator2_wrapper = 0x7f092348;
-        public static final int rim_face_guide_indicator_1 = 0x7f092349;
-        public static final int rim_face_guide_indicator_2 = 0x7f09234a;
-        public static final int rim_face_guide_video_page1 = 0x7f09234b;
-        public static final int rim_face_guide_video_page2 = 0x7f09234c;
-        public static final int rim_face_result_page_brand_label = 0x7f09234d;
-        public static final int rim_face_result_page_cancel = 0x7f09234e;
-        public static final int rim_face_result_page_close_img = 0x7f09234f;
-        public static final int rim_face_result_page_confirm = 0x7f092350;
-        public static final int rim_face_result_page_img = 0x7f092351;
-        public static final int rim_face_result_page_tip_msg = 0x7f092352;
-        public static final int rim_face_result_tips_btn_ll = 0x7f092353;
-        public static final int rim_face_result_tips_cancel = 0x7f092354;
-        public static final int rim_face_result_tips_confirm = 0x7f092355;
-        public static final int rim_face_result_tips_next_title = 0x7f092356;
-        public static final int rim_face_result_tips_pages_img = 0x7f092357;
-        public static final int rim_face_result_tips_pages_tips_msg = 0x7f092358;
-        public static final int rim_face_result_tips_pages_tips_title = 0x7f092359;
-        public static final int rim_face_result_tips_time_tv = 0x7f09235a;
-        public static final int rim_face_result_tips_title = 0x7f09235b;
-        public static final int rim_face_video_guide_indicator2_title_hint = 0x7f09235c;
-        public static final int rim_face_video_guide_vp = 0x7f09235d;
-        public static final int sapi_bio_title_btn_left = 0x7f092423;
-        public static final int sapi_bio_title_btn_right = 0x7f092424;
-        public static final int sapi_bio_title_text = 0x7f092425;
-        public static final int sapi_point1 = 0x7f09242a;
-        public static final int sapi_point2 = 0x7f09242b;
-        public static final int sapi_title_layout = 0x7f092432;
-        public static final int start_record_btn = 0x7f092668;
-        public static final int tick = 0x7f0928cb;
-        public static final int time_out_dialog_msg = 0x7f0928d1;
-        public static final int tips_content_msg = 0x7f092905;
-        public static final int title = 0x7f092909;
-        public static final int toastanim = 0x7f092993;
-        public static final int tv_msg_tips = 0x7f092c08;
-        public static final int tv_name = 0x7f092c0c;
-        public static final int tv_pose_tip = 0x7f092c2c;
-        public static final int tv_pose_warning_tip = 0x7f092c2d;
-        public static final int tv_question_next_tip = 0x7f092c3e;
-        public static final int tv_question_tip = 0x7f092c3f;
-        public static final int tv_recog_msg1 = 0x7f092c47;
-        public static final int tv_record_video_retry = 0x7f092c49;
-        public static final int tv_show_progress = 0x7f092c5e;
-        public static final int tv_time_count = 0x7f092c77;
-        public static final int tv_video_tip = 0x7f092c90;
-        public static final int unrecognized_dialog = 0x7f092d09;
-        public static final int upload_video_container = 0x7f092d12;
-        public static final int uploading_file_view = 0x7f092d13;
-        public static final int uploading_success_prompt_tv = 0x7f092d15;
-        public static final int uploading_success_tv = 0x7f092d16;
-        public static final int uploading_tv = 0x7f092d17;
-        public static final int video_finish_container = 0x7f092dd5;
-        public static final int view_stub_container = 0x7f092e70;
-        public static final int view_stup_upload_video = 0x7f092e71;
-        public static final int view_switcher = 0x7f092e72;
-        public static final int xfordview = 0x7f092fea;
+        public static final int dynamic_wave = 0x7f090d68;
+        public static final int exit_dialog_content = 0x7f090ec1;
+        public static final int exit_dialog_negative = 0x7f090ec2;
+        public static final int exit_dialog_positive = 0x7f090ec3;
+        public static final int exit_dialog_title = 0x7f090ec4;
+        public static final int focuslayout = 0x7f090fce;
+        public static final int guide_imageview = 0x7f091312;
+        public static final int guide_line1 = 0x7f091315;
+        public static final int guide_line2 = 0x7f091316;
+        public static final int guide_line3 = 0x7f091317;
+        public static final int guide_line4 = 0x7f091318;
+        public static final int imageView = 0x7f0914f7;
+        public static final int img_canvas_view = 0x7f091541;
+        public static final int img_face_recognizing_anim = 0x7f091550;
+        public static final int img_face_recognizing_light_anim = 0x7f091551;
+        public static final int iv_pose_warning_tip = 0x7f0916c0;
+        public static final int iv_recog_circle = 0x7f0916c5;
+        public static final int iv_recog_logo = 0x7f0916c6;
+        public static final int iv_time_count_point = 0x7f0916db;
+        public static final int iv_video_count_down = 0x7f0916de;
+        public static final int layout_background = 0x7f09190a;
+        public static final int layout_bottom = 0x7f091915;
+        public static final int layout_pose_tip = 0x7f09195e;
+        public static final int layout_pose_warning = 0x7f09195f;
+        public static final int layout_question_tip = 0x7f091963;
+        public static final int layout_result_page_show_brand_label = 0x7f09196c;
+        public static final int layout_result_page_show_risk_tip = 0x7f09196d;
+        public static final int layout_show_progress = 0x7f091977;
+        public static final int layout_top = 0x7f091983;
+        public static final int liveness_again_btn = 0x7f091a89;
+        public static final int ll_time_count = 0x7f091ac5;
+        public static final int ll_video_tip = 0x7f091ac8;
+        public static final int lrc_tipview = 0x7f091b27;
+        public static final int msg_text = 0x7f091c49;
+        public static final int my_circle = 0x7f091c70;
+        public static final int negative_btn = 0x7f091cca;
+        public static final int neutral_btn = 0x7f091cd7;
+        public static final int ok_btn = 0x7f091da0;
+        public static final int positive_btn = 0x7f0920bf;
+        public static final int re_video_container = 0x7f092237;
+        public static final int record_video_close_iv = 0x7f09228c;
+        public static final int rim_face_guide_indicator1_wrapper = 0x7f092347;
+        public static final int rim_face_guide_indicator2_content = 0x7f092348;
+        public static final int rim_face_guide_indicator2_wrapper = 0x7f092349;
+        public static final int rim_face_guide_indicator_1 = 0x7f09234a;
+        public static final int rim_face_guide_indicator_2 = 0x7f09234b;
+        public static final int rim_face_guide_video_page1 = 0x7f09234c;
+        public static final int rim_face_guide_video_page2 = 0x7f09234d;
+        public static final int rim_face_result_page_brand_label = 0x7f09234e;
+        public static final int rim_face_result_page_cancel = 0x7f09234f;
+        public static final int rim_face_result_page_close_img = 0x7f092350;
+        public static final int rim_face_result_page_confirm = 0x7f092351;
+        public static final int rim_face_result_page_img = 0x7f092352;
+        public static final int rim_face_result_page_tip_msg = 0x7f092353;
+        public static final int rim_face_result_tips_btn_ll = 0x7f092354;
+        public static final int rim_face_result_tips_cancel = 0x7f092355;
+        public static final int rim_face_result_tips_confirm = 0x7f092356;
+        public static final int rim_face_result_tips_next_title = 0x7f092357;
+        public static final int rim_face_result_tips_pages_img = 0x7f092358;
+        public static final int rim_face_result_tips_pages_tips_msg = 0x7f092359;
+        public static final int rim_face_result_tips_pages_tips_title = 0x7f09235a;
+        public static final int rim_face_result_tips_time_tv = 0x7f09235b;
+        public static final int rim_face_result_tips_title = 0x7f09235c;
+        public static final int rim_face_video_guide_indicator2_title_hint = 0x7f09235d;
+        public static final int rim_face_video_guide_vp = 0x7f09235e;
+        public static final int sapi_bio_title_btn_left = 0x7f092424;
+        public static final int sapi_bio_title_btn_right = 0x7f092425;
+        public static final int sapi_bio_title_text = 0x7f092426;
+        public static final int sapi_point1 = 0x7f09242b;
+        public static final int sapi_point2 = 0x7f09242c;
+        public static final int sapi_title_layout = 0x7f092433;
+        public static final int start_record_btn = 0x7f092669;
+        public static final int tick = 0x7f0928cc;
+        public static final int time_out_dialog_msg = 0x7f0928d2;
+        public static final int tips_content_msg = 0x7f092906;
+        public static final int title = 0x7f09290a;
+        public static final int toastanim = 0x7f092994;
+        public static final int tv_msg_tips = 0x7f092c09;
+        public static final int tv_name = 0x7f092c0d;
+        public static final int tv_pose_tip = 0x7f092c2d;
+        public static final int tv_pose_warning_tip = 0x7f092c2e;
+        public static final int tv_question_next_tip = 0x7f092c3f;
+        public static final int tv_question_tip = 0x7f092c40;
+        public static final int tv_recog_msg1 = 0x7f092c48;
+        public static final int tv_record_video_retry = 0x7f092c4a;
+        public static final int tv_show_progress = 0x7f092c5f;
+        public static final int tv_time_count = 0x7f092c78;
+        public static final int tv_video_tip = 0x7f092c91;
+        public static final int unrecognized_dialog = 0x7f092d0a;
+        public static final int upload_video_container = 0x7f092d13;
+        public static final int uploading_file_view = 0x7f092d14;
+        public static final int uploading_success_prompt_tv = 0x7f092d16;
+        public static final int uploading_success_tv = 0x7f092d17;
+        public static final int uploading_tv = 0x7f092d18;
+        public static final int video_finish_container = 0x7f092dd6;
+        public static final int view_stub_container = 0x7f092e71;
+        public static final int view_stup_upload_video = 0x7f092e72;
+        public static final int view_switcher = 0x7f092e73;
+        public static final int xfordview = 0x7f092feb;
 
         private id() {
         }
     }
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes12.dex */
     public static final class layout {
         public static final int layout_liveness_video_activity = 0x7f0c05f6;
         public static final int layout_liveness_video_upload_view = 0x7f0c05f7;
@@ -358,28 +358,28 @@ public final class R {
         }
     }
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes12.dex */
     public static final class raw {
-        public static final int rim_video_lrc_tip = 0x7f0e006f;
-        public static final int rim_video_put_face_round = 0x7f0e0070;
-        public static final int rim_video_too_far = 0x7f0e0071;
-        public static final int rim_video_too_near = 0x7f0e0072;
-        public static final int sapi_camera_blink = 0x7f0e0073;
-        public static final int sapi_camera_found_face = 0x7f0e0074;
-        public static final int sapi_camera_nod = 0x7f0e0075;
-        public static final int sapi_camera_open_mouth = 0x7f0e0076;
-        public static final int sapi_camera_photo_done = 0x7f0e0077;
-        public static final int sapi_camera_put_face_round = 0x7f0e0078;
-        public static final int sapi_camera_special_recg = 0x7f0e0079;
-        public static final int sapi_camera_too_far = 0x7f0e007a;
-        public static final int sapi_camera_too_near = 0x7f0e007b;
-        public static final int sweep = 0x7f0e007e;
+        public static final int rim_video_lrc_tip = 0x7f0e0072;
+        public static final int rim_video_put_face_round = 0x7f0e0073;
+        public static final int rim_video_too_far = 0x7f0e0074;
+        public static final int rim_video_too_near = 0x7f0e0075;
+        public static final int sapi_camera_blink = 0x7f0e0076;
+        public static final int sapi_camera_found_face = 0x7f0e0077;
+        public static final int sapi_camera_nod = 0x7f0e0078;
+        public static final int sapi_camera_open_mouth = 0x7f0e0079;
+        public static final int sapi_camera_photo_done = 0x7f0e007a;
+        public static final int sapi_camera_put_face_round = 0x7f0e007b;
+        public static final int sapi_camera_special_recg = 0x7f0e007c;
+        public static final int sapi_camera_too_far = 0x7f0e007d;
+        public static final int sapi_camera_too_near = 0x7f0e007e;
+        public static final int sweep = 0x7f0e0081;
 
         private raw() {
         }
     }
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes12.dex */
     public static final class string {
         public static final int error_msg_contrast_fail = 0x7f0f0a08;
         public static final int error_msg_face_sdk_init_fail = 0x7f0f0a09;
@@ -401,155 +401,155 @@ public final class R {
         public static final int error_msg_upload_failure = 0x7f0f0a1a;
         public static final int error_msg_user_cancel = 0x7f0f0a1b;
         public static final int error_msg_video_is_reviewing = 0x7f0f0a1c;
-        public static final int liveness_video_file_exceptio_dialog_msg = 0x7f0f0e8a;
-        public static final int liveness_video_file_too_large_exceptio_dialog_msg = 0x7f0f0e8b;
-        public static final int liveness_video_interrupt_dialog_msg = 0x7f0f0e8c;
-        public static final int liveness_video_timeout_dialog_msg = 0x7f0f0e8d;
-        public static final int result_msg_success = 0x7f0f1337;
-        public static final int rim_face_exit_action_content = 0x7f0f1351;
-        public static final int rim_face_exit_action_negative = 0x7f0f1352;
-        public static final int rim_face_exit_action_positive = 0x7f0f1353;
-        public static final int rim_face_exit_action_title = 0x7f0f1354;
-        public static final int rim_face_exit_record_content = 0x7f0f1355;
-        public static final int rim_face_exit_record_negative = 0x7f0f1356;
-        public static final int rim_face_exit_record_positive = 0x7f0f1357;
-        public static final int rim_face_exit_record_title = 0x7f0f1358;
-        public static final int rim_face_result_answer_question = 0x7f0f1359;
-        public static final int rim_face_result_auto_upload_video = 0x7f0f135a;
-        public static final int rim_face_result_enter_ok = 0x7f0f135b;
-        public static final int rim_face_result_pages_ok = 0x7f0f135c;
-        public static final int rim_face_result_pages_promise_string = 0x7f0f135d;
-        public static final int rim_face_result_pages_tips_string = 0x7f0f135e;
-        public static final int rim_face_result_pages_tips_title_string = 0x7f0f135f;
-        public static final int rim_face_result_put_face_round = 0x7f0f1360;
-        public static final int rim_face_result_record_tip = 0x7f0f1361;
-        public static final int rim_face_result_record_video = 0x7f0f1362;
-        public static final int rim_face_result_retry_liveness = 0x7f0f1363;
-        public static final int rim_face_result_risk_tip = 0x7f0f1364;
-        public static final int rim_face_result_start_record = 0x7f0f1365;
-        public static final int rim_face_result_success_record = 0x7f0f1366;
-        public static final int rim_face_video_guide_indicator2_title = 0x7f0f1367;
-        public static final int rim_face_video_guide_indicator2_title_hint = 0x7f0f1368;
-        public static final int rim_face_video_guide_voice_hint = 0x7f0f1369;
-        public static final int rim_face_video_record_tips = 0x7f0f136a;
-        public static final int rim_face_video_tips_keep_face_in_box = 0x7f0f136b;
-        public static final int rim_face_video_tips_read_content = 0x7f0f136c;
-        public static final int rim_face_video_tips_start_resocrd = 0x7f0f136d;
-        public static final int rim_liveness_cancle = 0x7f0f136e;
-        public static final int rim_liveness_donot_glass_tip = 0x7f0f136f;
-        public static final int rim_liveness_donot_hide_face_tip = 0x7f0f1370;
-        public static final int rim_liveness_donot_raise_face_tip = 0x7f0f1371;
-        public static final int rim_liveness_network_set = 0x7f0f1372;
-        public static final int rim_liveness_no_network_tip = 0x7f0f1373;
-        public static final int rim_liveness_recognize_time_out_msg = 0x7f0f1374;
-        public static final int rim_liveness_video_put_face_round = 0x7f0f1375;
-        public static final int rim_liveness_video_tofar_from_camera = 0x7f0f1376;
-        public static final int rim_liveness_video_tonear_from_camera = 0x7f0f1377;
-        public static final int sapi_alert_dialog_btn_cancel = 0x7f0f13b1;
-        public static final int sapi_alert_dialog_btn_goto_exit = 0x7f0f13b2;
-        public static final int sapi_alert_dialog_btn_goto_video = 0x7f0f13b3;
-        public static final int sapi_alert_dialog_btn_ok = 0x7f0f13b4;
-        public static final int sapi_alert_dialog_btn_try_again = 0x7f0f13b5;
-        public static final int sapi_alert_dialog_default_msg_text = 0x7f0f13b6;
-        public static final int sapi_biometric_app_name = 0x7f0f13b8;
-        public static final int sapi_biometric_cancel = 0x7f0f13b9;
-        public static final int sapi_liveness_brightness_too_dark = 0x7f0f13be;
-        public static final int sapi_liveness_dialog_recognized_device_next_title = 0x7f0f13bf;
-        public static final int sapi_liveness_dialog_recognized_device_title = 0x7f0f13c0;
-        public static final int sapi_liveness_dialog_recognized_fail_cancel = 0x7f0f13c1;
-        public static final int sapi_liveness_dialog_recognized_fail_msg1 = 0x7f0f13c2;
-        public static final int sapi_liveness_dialog_recognized_fail_msg2 = 0x7f0f13c3;
-        public static final int sapi_liveness_dialog_recognized_fail_msg3 = 0x7f0f13c4;
-        public static final int sapi_liveness_dialog_recognized_failed_next_title = 0x7f0f13c5;
-        public static final int sapi_liveness_dialog_recognized_failed_title = 0x7f0f13c6;
-        public static final int sapi_liveness_dialog_recognized_retry_title = 0x7f0f13c7;
-        public static final int sapi_liveness_dialog_recognized_time_out_msg = 0x7f0f13c8;
-        public static final int sapi_liveness_dialog_recognized_time_out_title = 0x7f0f13c9;
-        public static final int sapi_liveness_dialog_recognized_timeout_exit = 0x7f0f13ca;
-        public static final int sapi_liveness_dialog_recognized_timeout_next_title = 0x7f0f13cb;
-        public static final int sapi_liveness_dialog_recognized_timeout_retry = 0x7f0f13cc;
-        public static final int sapi_liveness_dialog_recognized_timeout_title = 0x7f0f13cd;
-        public static final int sapi_liveness_dialog_video_done_msg = 0x7f0f13ce;
-        public static final int sapi_liveness_face_to_screen = 0x7f0f13cf;
-        public static final int sapi_liveness_goto_next_question = 0x7f0f13d0;
-        public static final int sapi_liveness_guide_front_screen = 0x7f0f13d1;
-        public static final int sapi_liveness_guide_liveness_recog = 0x7f0f13d2;
-        public static final int sapi_liveness_guide_liveness_video_recog = 0x7f0f13d3;
-        public static final int sapi_liveness_guide_photo_tip = 0x7f0f13d4;
-        public static final int sapi_liveness_guide_start_recog = 0x7f0f13d5;
-        public static final int sapi_liveness_network_checking = 0x7f0f13d6;
-        public static final int sapi_liveness_open_camera_no_permission = 0x7f0f13d7;
-        public static final int sapi_liveness_permission_camera = 0x7f0f13d8;
-        public static final int sapi_liveness_put_face_in_round = 0x7f0f13d9;
-        public static final int sapi_liveness_put_face_round = 0x7f0f13da;
-        public static final int sapi_liveness_put_face_round_new = 0x7f0f13db;
-        public static final int sapi_liveness_recog_fail_dialog_msg = 0x7f0f13dc;
-        public static final int sapi_liveness_recog_loading = 0x7f0f13dd;
-        public static final int sapi_liveness_recog_suggest_record_video_msg = 0x7f0f13de;
-        public static final int sapi_liveness_recoging = 0x7f0f13df;
-        public static final int sapi_liveness_record_success = 0x7f0f13e0;
-        public static final int sapi_liveness_record_up_exit = 0x7f0f13e1;
-        public static final int sapi_liveness_record_up_exit_btn_cancel = 0x7f0f13e2;
-        public static final int sapi_liveness_record_up_exit_btn_ok = 0x7f0f13e3;
-        public static final int sapi_liveness_record_up_interrupt = 0x7f0f13e4;
-        public static final int sapi_liveness_record_up_interrupt_btn_cancel = 0x7f0f13e5;
-        public static final int sapi_liveness_record_up_interrupt_btn_ok = 0x7f0f13e6;
-        public static final int sapi_liveness_record_video_exit_dialog_title = 0x7f0f13e7;
-        public static final int sapi_liveness_record_video_exit_text = 0x7f0f13e8;
-        public static final int sapi_liveness_record_video_fail_dialog_title = 0x7f0f13e9;
-        public static final int sapi_liveness_record_video_guide_tip_1 = 0x7f0f13ea;
-        public static final int sapi_liveness_record_video_guide_tip_2 = 0x7f0f13eb;
-        public static final int sapi_liveness_record_video_guide_tip_3 = 0x7f0f13ec;
-        public static final int sapi_liveness_record_video_identify = 0x7f0f13ed;
-        public static final int sapi_liveness_record_video_in_rect = 0x7f0f13ee;
-        public static final int sapi_liveness_record_video_liveness_again = 0x7f0f13ef;
-        public static final int sapi_liveness_record_video_moible_network_btn_ok = 0x7f0f13f0;
-        public static final int sapi_liveness_record_video_moible_network_tip = 0x7f0f13f1;
-        public static final int sapi_liveness_record_video_no_audio_permission = 0x7f0f13f2;
-        public static final int sapi_liveness_record_video_no_face = 0x7f0f13f3;
-        public static final int sapi_liveness_record_video_record_again = 0x7f0f13f4;
-        public static final int sapi_liveness_record_video_retry_text = 0x7f0f13f5;
-        public static final int sapi_liveness_record_video_start = 0x7f0f13f6;
-        public static final int sapi_liveness_record_video_tip_1 = 0x7f0f13f7;
-        public static final int sapi_liveness_record_video_tip_2 = 0x7f0f13f8;
-        public static final int sapi_liveness_record_video_tip_3 = 0x7f0f13f9;
-        public static final int sapi_liveness_record_video_tip_4 = 0x7f0f13fa;
-        public static final int sapi_liveness_record_video_tip_5 = 0x7f0f13fb;
-        public static final int sapi_liveness_record_video_title_upload_timeout = 0x7f0f13fc;
-        public static final int sapi_liveness_record_video_up_time_out_tip = 0x7f0f13fd;
-        public static final int sapi_liveness_title_text = 0x7f0f13fe;
-        public static final int sapi_liveness_tofar_from_camera = 0x7f0f13ff;
-        public static final int sapi_liveness_tonear_from_camera = 0x7f0f1400;
-        public static final int sapi_liveness_upload_video = 0x7f0f1401;
-        public static final int sapi_liveness_upload_video_fail_dialog_cancel = 0x7f0f1402;
-        public static final int sapi_liveness_upload_video_fail_dialog_exit = 0x7f0f1403;
-        public static final int sapi_liveness_upload_video_fail_dialog_msg = 0x7f0f1404;
-        public static final int sapi_liveness_upload_video_fail_dialog_msg_retry = 0x7f0f1405;
-        public static final int sapi_liveness_upload_video_fail_dialog_ok = 0x7f0f1406;
-        public static final int sapi_liveness_upload_video_fail_dialog_reupload = 0x7f0f1407;
-        public static final int sapi_liveness_video_answer_question = 0x7f0f1408;
-        public static final int sapi_liveness_video_guide_start_recog = 0x7f0f1409;
-        public static final int sapi_liveness_video_record_failed = 0x7f0f140a;
-        public static final int sapi_liveness_video_start_record = 0x7f0f140b;
-        public static final int sapi_liveness_video_start_record_later = 0x7f0f140c;
-        public static final int sapi_liveness_video_start_record_later_new = 0x7f0f140d;
-        public static final int sapi_liveness_video_start_record_new = 0x7f0f140e;
-        public static final int sapi_liveness_will_be_completed = 0x7f0f140f;
-        public static final int sapi_loading = 0x7f0f1410;
-        public static final int sapi_permission_audio = 0x7f0f1412;
-        public static final int sapi_permission_audio_camera = 0x7f0f1413;
-        public static final int sapi_permission_camera = 0x7f0f1414;
-        public static final int sapi_permission_request = 0x7f0f1415;
-        public static final int sapi_permission_without_msg1 = 0x7f0f1416;
-        public static final int sapi_permission_without_msg2 = 0x7f0f1417;
-        public static final int sapi_permission_without_title = 0x7f0f1418;
-        public static final int sapi_point = 0x7f0f1419;
+        public static final int liveness_video_file_exceptio_dialog_msg = 0x7f0f0e90;
+        public static final int liveness_video_file_too_large_exceptio_dialog_msg = 0x7f0f0e91;
+        public static final int liveness_video_interrupt_dialog_msg = 0x7f0f0e92;
+        public static final int liveness_video_timeout_dialog_msg = 0x7f0f0e93;
+        public static final int result_msg_success = 0x7f0f133d;
+        public static final int rim_face_exit_action_content = 0x7f0f1357;
+        public static final int rim_face_exit_action_negative = 0x7f0f1358;
+        public static final int rim_face_exit_action_positive = 0x7f0f1359;
+        public static final int rim_face_exit_action_title = 0x7f0f135a;
+        public static final int rim_face_exit_record_content = 0x7f0f135b;
+        public static final int rim_face_exit_record_negative = 0x7f0f135c;
+        public static final int rim_face_exit_record_positive = 0x7f0f135d;
+        public static final int rim_face_exit_record_title = 0x7f0f135e;
+        public static final int rim_face_result_answer_question = 0x7f0f135f;
+        public static final int rim_face_result_auto_upload_video = 0x7f0f1360;
+        public static final int rim_face_result_enter_ok = 0x7f0f1361;
+        public static final int rim_face_result_pages_ok = 0x7f0f1362;
+        public static final int rim_face_result_pages_promise_string = 0x7f0f1363;
+        public static final int rim_face_result_pages_tips_string = 0x7f0f1364;
+        public static final int rim_face_result_pages_tips_title_string = 0x7f0f1365;
+        public static final int rim_face_result_put_face_round = 0x7f0f1366;
+        public static final int rim_face_result_record_tip = 0x7f0f1367;
+        public static final int rim_face_result_record_video = 0x7f0f1368;
+        public static final int rim_face_result_retry_liveness = 0x7f0f1369;
+        public static final int rim_face_result_risk_tip = 0x7f0f136a;
+        public static final int rim_face_result_start_record = 0x7f0f136b;
+        public static final int rim_face_result_success_record = 0x7f0f136c;
+        public static final int rim_face_video_guide_indicator2_title = 0x7f0f136d;
+        public static final int rim_face_video_guide_indicator2_title_hint = 0x7f0f136e;
+        public static final int rim_face_video_guide_voice_hint = 0x7f0f136f;
+        public static final int rim_face_video_record_tips = 0x7f0f1370;
+        public static final int rim_face_video_tips_keep_face_in_box = 0x7f0f1371;
+        public static final int rim_face_video_tips_read_content = 0x7f0f1372;
+        public static final int rim_face_video_tips_start_resocrd = 0x7f0f1373;
+        public static final int rim_liveness_cancle = 0x7f0f1374;
+        public static final int rim_liveness_donot_glass_tip = 0x7f0f1375;
+        public static final int rim_liveness_donot_hide_face_tip = 0x7f0f1376;
+        public static final int rim_liveness_donot_raise_face_tip = 0x7f0f1377;
+        public static final int rim_liveness_network_set = 0x7f0f1378;
+        public static final int rim_liveness_no_network_tip = 0x7f0f1379;
+        public static final int rim_liveness_recognize_time_out_msg = 0x7f0f137a;
+        public static final int rim_liveness_video_put_face_round = 0x7f0f137b;
+        public static final int rim_liveness_video_tofar_from_camera = 0x7f0f137c;
+        public static final int rim_liveness_video_tonear_from_camera = 0x7f0f137d;
+        public static final int sapi_alert_dialog_btn_cancel = 0x7f0f13b7;
+        public static final int sapi_alert_dialog_btn_goto_exit = 0x7f0f13b8;
+        public static final int sapi_alert_dialog_btn_goto_video = 0x7f0f13b9;
+        public static final int sapi_alert_dialog_btn_ok = 0x7f0f13ba;
+        public static final int sapi_alert_dialog_btn_try_again = 0x7f0f13bb;
+        public static final int sapi_alert_dialog_default_msg_text = 0x7f0f13bc;
+        public static final int sapi_biometric_app_name = 0x7f0f13be;
+        public static final int sapi_biometric_cancel = 0x7f0f13bf;
+        public static final int sapi_liveness_brightness_too_dark = 0x7f0f13c4;
+        public static final int sapi_liveness_dialog_recognized_device_next_title = 0x7f0f13c5;
+        public static final int sapi_liveness_dialog_recognized_device_title = 0x7f0f13c6;
+        public static final int sapi_liveness_dialog_recognized_fail_cancel = 0x7f0f13c7;
+        public static final int sapi_liveness_dialog_recognized_fail_msg1 = 0x7f0f13c8;
+        public static final int sapi_liveness_dialog_recognized_fail_msg2 = 0x7f0f13c9;
+        public static final int sapi_liveness_dialog_recognized_fail_msg3 = 0x7f0f13ca;
+        public static final int sapi_liveness_dialog_recognized_failed_next_title = 0x7f0f13cb;
+        public static final int sapi_liveness_dialog_recognized_failed_title = 0x7f0f13cc;
+        public static final int sapi_liveness_dialog_recognized_retry_title = 0x7f0f13cd;
+        public static final int sapi_liveness_dialog_recognized_time_out_msg = 0x7f0f13ce;
+        public static final int sapi_liveness_dialog_recognized_time_out_title = 0x7f0f13cf;
+        public static final int sapi_liveness_dialog_recognized_timeout_exit = 0x7f0f13d0;
+        public static final int sapi_liveness_dialog_recognized_timeout_next_title = 0x7f0f13d1;
+        public static final int sapi_liveness_dialog_recognized_timeout_retry = 0x7f0f13d2;
+        public static final int sapi_liveness_dialog_recognized_timeout_title = 0x7f0f13d3;
+        public static final int sapi_liveness_dialog_video_done_msg = 0x7f0f13d4;
+        public static final int sapi_liveness_face_to_screen = 0x7f0f13d5;
+        public static final int sapi_liveness_goto_next_question = 0x7f0f13d6;
+        public static final int sapi_liveness_guide_front_screen = 0x7f0f13d7;
+        public static final int sapi_liveness_guide_liveness_recog = 0x7f0f13d8;
+        public static final int sapi_liveness_guide_liveness_video_recog = 0x7f0f13d9;
+        public static final int sapi_liveness_guide_photo_tip = 0x7f0f13da;
+        public static final int sapi_liveness_guide_start_recog = 0x7f0f13db;
+        public static final int sapi_liveness_network_checking = 0x7f0f13dc;
+        public static final int sapi_liveness_open_camera_no_permission = 0x7f0f13dd;
+        public static final int sapi_liveness_permission_camera = 0x7f0f13de;
+        public static final int sapi_liveness_put_face_in_round = 0x7f0f13df;
+        public static final int sapi_liveness_put_face_round = 0x7f0f13e0;
+        public static final int sapi_liveness_put_face_round_new = 0x7f0f13e1;
+        public static final int sapi_liveness_recog_fail_dialog_msg = 0x7f0f13e2;
+        public static final int sapi_liveness_recog_loading = 0x7f0f13e3;
+        public static final int sapi_liveness_recog_suggest_record_video_msg = 0x7f0f13e4;
+        public static final int sapi_liveness_recoging = 0x7f0f13e5;
+        public static final int sapi_liveness_record_success = 0x7f0f13e6;
+        public static final int sapi_liveness_record_up_exit = 0x7f0f13e7;
+        public static final int sapi_liveness_record_up_exit_btn_cancel = 0x7f0f13e8;
+        public static final int sapi_liveness_record_up_exit_btn_ok = 0x7f0f13e9;
+        public static final int sapi_liveness_record_up_interrupt = 0x7f0f13ea;
+        public static final int sapi_liveness_record_up_interrupt_btn_cancel = 0x7f0f13eb;
+        public static final int sapi_liveness_record_up_interrupt_btn_ok = 0x7f0f13ec;
+        public static final int sapi_liveness_record_video_exit_dialog_title = 0x7f0f13ed;
+        public static final int sapi_liveness_record_video_exit_text = 0x7f0f13ee;
+        public static final int sapi_liveness_record_video_fail_dialog_title = 0x7f0f13ef;
+        public static final int sapi_liveness_record_video_guide_tip_1 = 0x7f0f13f0;
+        public static final int sapi_liveness_record_video_guide_tip_2 = 0x7f0f13f1;
+        public static final int sapi_liveness_record_video_guide_tip_3 = 0x7f0f13f2;
+        public static final int sapi_liveness_record_video_identify = 0x7f0f13f3;
+        public static final int sapi_liveness_record_video_in_rect = 0x7f0f13f4;
+        public static final int sapi_liveness_record_video_liveness_again = 0x7f0f13f5;
+        public static final int sapi_liveness_record_video_moible_network_btn_ok = 0x7f0f13f6;
+        public static final int sapi_liveness_record_video_moible_network_tip = 0x7f0f13f7;
+        public static final int sapi_liveness_record_video_no_audio_permission = 0x7f0f13f8;
+        public static final int sapi_liveness_record_video_no_face = 0x7f0f13f9;
+        public static final int sapi_liveness_record_video_record_again = 0x7f0f13fa;
+        public static final int sapi_liveness_record_video_retry_text = 0x7f0f13fb;
+        public static final int sapi_liveness_record_video_start = 0x7f0f13fc;
+        public static final int sapi_liveness_record_video_tip_1 = 0x7f0f13fd;
+        public static final int sapi_liveness_record_video_tip_2 = 0x7f0f13fe;
+        public static final int sapi_liveness_record_video_tip_3 = 0x7f0f13ff;
+        public static final int sapi_liveness_record_video_tip_4 = 0x7f0f1400;
+        public static final int sapi_liveness_record_video_tip_5 = 0x7f0f1401;
+        public static final int sapi_liveness_record_video_title_upload_timeout = 0x7f0f1402;
+        public static final int sapi_liveness_record_video_up_time_out_tip = 0x7f0f1403;
+        public static final int sapi_liveness_title_text = 0x7f0f1404;
+        public static final int sapi_liveness_tofar_from_camera = 0x7f0f1405;
+        public static final int sapi_liveness_tonear_from_camera = 0x7f0f1406;
+        public static final int sapi_liveness_upload_video = 0x7f0f1407;
+        public static final int sapi_liveness_upload_video_fail_dialog_cancel = 0x7f0f1408;
+        public static final int sapi_liveness_upload_video_fail_dialog_exit = 0x7f0f1409;
+        public static final int sapi_liveness_upload_video_fail_dialog_msg = 0x7f0f140a;
+        public static final int sapi_liveness_upload_video_fail_dialog_msg_retry = 0x7f0f140b;
+        public static final int sapi_liveness_upload_video_fail_dialog_ok = 0x7f0f140c;
+        public static final int sapi_liveness_upload_video_fail_dialog_reupload = 0x7f0f140d;
+        public static final int sapi_liveness_video_answer_question = 0x7f0f140e;
+        public static final int sapi_liveness_video_guide_start_recog = 0x7f0f140f;
+        public static final int sapi_liveness_video_record_failed = 0x7f0f1410;
+        public static final int sapi_liveness_video_start_record = 0x7f0f1411;
+        public static final int sapi_liveness_video_start_record_later = 0x7f0f1412;
+        public static final int sapi_liveness_video_start_record_later_new = 0x7f0f1413;
+        public static final int sapi_liveness_video_start_record_new = 0x7f0f1414;
+        public static final int sapi_liveness_will_be_completed = 0x7f0f1415;
+        public static final int sapi_loading = 0x7f0f1416;
+        public static final int sapi_permission_audio = 0x7f0f1418;
+        public static final int sapi_permission_audio_camera = 0x7f0f1419;
+        public static final int sapi_permission_camera = 0x7f0f141a;
+        public static final int sapi_permission_request = 0x7f0f141b;
+        public static final int sapi_permission_without_msg1 = 0x7f0f141c;
+        public static final int sapi_permission_without_msg2 = 0x7f0f141d;
+        public static final int sapi_permission_without_title = 0x7f0f141e;
+        public static final int sapi_point = 0x7f0f141f;
 
         private string() {
         }
     }
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes12.dex */
     public static final class style {
         public static final int AppBaseTheme = 0x7f100007;
         public static final int AppTheme = 0x7f100008;
@@ -563,7 +563,7 @@ public final class R {
         }
     }
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes12.dex */
     public static final class styleable {
         public static final int CustomProgressBar_mpb_background_color = 0x00000000;
         public static final int CustomProgressBar_mpb_fill_color = 0x00000001;

@@ -11,14 +11,14 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.write.write.e;
 import com.baidu.tieba.write.write.f;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class c extends a {
     private View mRootView;
-    private HorizontalListView nJu;
-    private f ocp;
+    private HorizontalListView nEP;
+    private f nXJ;
 
     public void a(e eVar) {
-        this.ocp.b(eVar);
+        this.nXJ.b(eVar);
     }
 
     public c(com.baidu.adp.base.f fVar) {
@@ -28,9 +28,9 @@ public class c extends a {
     @Override // com.baidu.tieba.write.view.a.a
     protected void initView() {
         this.mRootView = LayoutInflater.from(this.mBdPageContext.getPageActivity()).inflate(R.layout.pic_sticker_view, (ViewGroup) null);
-        this.nJu = (HorizontalListView) this.mRootView.findViewById(R.id.horizontal_list);
-        this.ocp = new f();
-        this.nJu.setAdapter((ListAdapter) this.ocp);
+        this.nEP = (HorizontalListView) this.mRootView.findViewById(R.id.horizontal_list);
+        this.nXJ = new f();
+        this.nEP.setAdapter((ListAdapter) this.nXJ);
     }
 
     public View getRootView() {
@@ -39,17 +39,17 @@ public class c extends a {
 
     public void onChangeSkinType() {
         ao.setBackgroundColor(this.mRootView, R.color.CAM_X0201);
-        bZo();
+        bVw();
     }
 
     public void gk(List<String> list) {
         if (!x.isEmpty(list)) {
-            this.ocp.setData(list);
-            this.ocp.notifyDataSetChanged();
+            this.nXJ.setData(list);
+            this.nXJ.notifyDataSetChanged();
         }
     }
 
-    public void bZo() {
-        this.ocp.notifyDataSetChanged();
+    public void bVw() {
+        this.nXJ.notifyDataSetChanged();
     }
 }

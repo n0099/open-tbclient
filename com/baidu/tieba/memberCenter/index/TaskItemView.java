@@ -8,15 +8,15 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class TaskItemView extends LinearLayout {
-    private View.OnClickListener gmj;
-    private View lhW;
-    private TbImageView lia;
-    private TextView lib;
-    private TextView lic;
-    private TextView lid;
-    private View lie;
+    private View.OnClickListener ghB;
+    private View ldq;
+    private TbImageView ldu;
+    private TextView ldv;
+    private TextView ldw;
+    private TextView ldx;
+    private View ldy;
     private Context mContext;
     private View mRootView;
 
@@ -34,19 +34,19 @@ public class TaskItemView extends LinearLayout {
 
     private void initView() {
         this.mRootView = LayoutInflater.from(this.mContext).inflate(R.layout.index_task_item, this);
-        this.lhW = this.mRootView.findViewById(R.id.ly_desc);
-        this.lia = (TbImageView) this.mRootView.findViewById(R.id.task_icon);
-        this.lib = (TextView) this.mRootView.findViewById(R.id.txt_title);
-        this.lic = (TextView) this.mRootView.findViewById(R.id.txt_desc);
-        this.lid = (TextView) this.mRootView.findViewById(R.id.txt_status);
-        this.lid.setOnClickListener(this.gmj);
-        this.lhW.setOnClickListener(this.gmj);
-        this.lie = this.mRootView.findViewById(R.id.divider_line);
+        this.ldq = this.mRootView.findViewById(R.id.ly_desc);
+        this.ldu = (TbImageView) this.mRootView.findViewById(R.id.task_icon);
+        this.ldv = (TextView) this.mRootView.findViewById(R.id.txt_title);
+        this.ldw = (TextView) this.mRootView.findViewById(R.id.txt_desc);
+        this.ldx = (TextView) this.mRootView.findViewById(R.id.txt_status);
+        this.ldx.setOnClickListener(this.ghB);
+        this.ldq.setOnClickListener(this.ghB);
+        this.ldy = this.mRootView.findViewById(R.id.divider_line);
     }
 
     public void setOnCommenClickListener(View.OnClickListener onClickListener) {
-        this.gmj = onClickListener;
-        this.lid.setOnClickListener(this.gmj);
-        this.lhW.setOnClickListener(this.gmj);
+        this.ghB = onClickListener;
+        this.ldx.setOnClickListener(this.ghB);
+        this.ldq.setOnClickListener(this.ghB);
     }
 }

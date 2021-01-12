@@ -5,11 +5,11 @@ import com.qq.e.comm.constants.Constants;
 import com.qq.e.comm.managers.GDTADManager;
 import java.util.Random;
 @SuppressLint({"DefaultLocale"})
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final Random f12848a = new Random(System.currentTimeMillis());
+    private static final Random f12548a = new Random(System.currentTimeMillis());
 
     private static int a(String str, int i) {
         return GDTADManager.getInstance().getSM().getInteger(str, i);
@@ -17,7 +17,7 @@ public class a {
 
     public static String a(String str, String str2, String str3) {
         String format = String.format("%s@%s#%d#%s", str2, str, Long.valueOf(System.currentTimeMillis()), str3);
-        int nextDouble = (int) (f12848a.nextDouble() * 100.0d);
+        int nextDouble = (int) (f12548a.nextDouble() * 100.0d);
         StringBuilder sb = new StringBuilder();
         sb.append(nextDouble < a(Constants.KEYS.SDKServerGetADReportSamplingRate, 1) ? "1" : "0");
         sb.append(nextDouble < a(Constants.KEYS.SDKServerExpReportSamplingRate, 1) ? "1" : "0");

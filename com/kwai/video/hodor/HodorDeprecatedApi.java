@@ -1,5 +1,5 @@
 package com.kwai.video.hodor;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class HodorDeprecatedApi {
     @Deprecated
     public void setEnableTrafficCoordinator(boolean z) {

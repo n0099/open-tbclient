@@ -32,9 +32,9 @@ public class s {
         if (context == null || advertAppInfo == null) {
             return false;
         }
-        String str = advertAppInfo.eNU;
-        if (StringUtils.isNull(str) && advertAppInfo.eOc != null) {
-            str = advertAppInfo.eOc.userName;
+        String str = advertAppInfo.eJj;
+        if (StringUtils.isNull(str) && advertAppInfo.eJr != null) {
+            str = advertAppInfo.eJr.userName;
         }
         if (StringUtils.isNull(str)) {
             str = "";
@@ -46,17 +46,17 @@ public class s {
         if (context == null || advertAppInfo == null) {
             return false;
         }
-        com.baidu.tbadk.distribute.a.bEw().b(advertAppInfo);
-        String str2 = advertAppInfo.eNU;
+        com.baidu.tbadk.distribute.a.bAC().b(advertAppInfo);
+        String str2 = advertAppInfo.eJj;
         if (StringUtils.isNull(str2)) {
             str2 = str;
         }
-        com.baidu.tieba.recapp.download.e.dFc().a(advertAppInfo.eNW, advertAppInfo.apkUrl, str2, i, com.baidu.tieba.recapp.download.e.RD(advertAppInfo.eNW).intValue(), null, true, false, true, advertAppInfo.eOc.userPortrait, downloadStaticsData, advertAppInfo.eOc.userName);
+        com.baidu.tieba.recapp.download.e.dBk().a(advertAppInfo.eJl, advertAppInfo.apkUrl, str2, i, com.baidu.tieba.recapp.download.e.Qv(advertAppInfo.eJl).intValue(), null, true, false, true, advertAppInfo.eJr.userPortrait, downloadStaticsData, advertAppInfo.eJr.userName);
         return true;
     }
 
     public static final void h(AdvertAppInfo advertAppInfo) {
-        com.baidu.tieba.recapp.download.e.dFc().F(advertAppInfo.apkUrl, advertAppInfo.eNW, true);
+        com.baidu.tieba.recapp.download.e.dBk().F(advertAppInfo.apkUrl, advertAppInfo.eJl, true);
     }
 
     public static final void installApp(Context context, String str) {
@@ -178,11 +178,11 @@ public class s {
     }
 
     public static void sendFRS(boolean z, String str, String str2, String str3, List<a.b> list, String str4) {
-        r.dEW().sendFRS(z, str, str2, str3, list, str4);
+        r.dBe().sendFRS(z, str, str2, str3, list, str4);
     }
 
     public static void sendPB(boolean z, String str, String str2, String str3, String str4, List<a.b> list, String str5) {
-        r.dEW().a(z, str, str2, str3, str4, list, str5);
+        r.dBe().a(z, str, str2, str3, str4, list, str5);
     }
 
     public static int c(TbPageContext tbPageContext, String str, String str2) {
@@ -210,15 +210,15 @@ public class s {
 
     private static boolean c(@NonNull Context context, String str, Bundle bundle) {
         String[] strArr = {str};
-        i dET = r.dEW().dET();
-        if (dET == null) {
+        i dBb = r.dBe().dBb();
+        if (dBb == null) {
             return false;
         }
-        if (dET.Fp(str)) {
-            dET.a(context, strArr, true, bundle);
+        if (dBb.Ee(str)) {
+            dBb.a(context, strArr, true, bundle);
             return true;
         }
-        return dET.a(context, strArr, bundle);
+        return dBb.a(context, strArr, bundle);
     }
 
     public static int a(Context context, String str, AdvertAppInfo advertAppInfo) {
@@ -228,7 +228,7 @@ public class s {
         if (str.startsWith("tieba://deeplink?") && f(context, Uri.parse(Uri.parse(str).getQueryParameter(TableDefine.DRColumns.COLUMN_JUMP_TO_RECENT)))) {
             return 1;
         }
-        r.dEW().a(advertAppInfo, context);
+        r.dBe().a(advertAppInfo, context);
         return 2;
     }
 
@@ -239,11 +239,11 @@ public class s {
         return f(context, Uri.parse(Uri.parse(str).getQueryParameter(TableDefine.DRColumns.COLUMN_JUMP_TO_RECENT)));
     }
 
-    public static boolean Ry(String str) {
+    public static boolean Qq(String str) {
         return !TextUtils.isEmpty(str) && str.startsWith("tieba://deeplink?");
     }
 
-    public static String Rz(String str) {
+    public static String Qr(String str) {
         if (!TextUtils.isEmpty(str) && str.startsWith("tieba://deeplink?")) {
             return Uri.parse(str).getQueryParameter("wap");
         }
@@ -251,7 +251,7 @@ public class s {
     }
 
     public static boolean b(AdvertAppInfo advertAppInfo, String str) {
-        if (advertAppInfo == null || !advertAppInfo.bpg() || TextUtils.isEmpty(str) || !isInstalledPackage(TbadkCoreApplication.getInst(), advertAppInfo.eNW) || str.startsWith("tieba://deeplink?")) {
+        if (advertAppInfo == null || !advertAppInfo.blm() || TextUtils.isEmpty(str) || !isInstalledPackage(TbadkCoreApplication.getInst(), advertAppInfo.eJl) || str.startsWith("tieba://deeplink?")) {
             return false;
         }
         return i(advertAppInfo);
@@ -263,7 +263,7 @@ public class s {
         if (advertAppInfo == null) {
             return false;
         }
-        String str = advertAppInfo.eNW;
+        String str = advertAppInfo.eJl;
         if (TextUtils.isEmpty(str) || (be = be((context = TbadkCoreApplication.getInst().getContext()), str)) == null) {
             return false;
         }

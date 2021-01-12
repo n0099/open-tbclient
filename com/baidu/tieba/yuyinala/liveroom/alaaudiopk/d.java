@@ -1,23 +1,23 @@
 package com.baidu.tieba.yuyinala.liveroom.alaaudiopk;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class d {
     public int activity_stage;
-    public String onA;
-    public a onB;
-    public int onC;
-    public int onD = 0;
-    public int onE = 500;
-    public int onx;
-    public int ony;
-    public int onz;
+    public int oiR;
+    public int oiS;
+    public int oiT;
+    public String oiU;
+    public a oiV;
+    public int oiW;
+    public int oiX = 0;
+    public int oiY = 500;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f5632a;
+        public String f5349a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f5633b;
+        public String f5350b;
     }
 }

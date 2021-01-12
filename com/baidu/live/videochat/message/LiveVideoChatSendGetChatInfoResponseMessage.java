@@ -3,11 +3,11 @@ package com.baidu.live.videochat.message;
 import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.live.videochat.b.d;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class LiveVideoChatSendGetChatInfoResponseMessage extends JsonHttpResponsedMessage {
-    private d bRt;
-    private d bRu;
-    private com.baidu.live.videochat.b.b bRv;
+    private d bMH;
+    private d bMI;
+    private com.baidu.live.videochat.b.b bMJ;
     private long mInterval;
 
     public LiveVideoChatSendGetChatInfoResponseMessage() {
@@ -23,18 +23,18 @@ public class LiveVideoChatSendGetChatInfoResponseMessage extends JsonHttpRespons
             this.mInterval = optJSONObject.optLong("interval", 2000L);
             JSONObject optJSONObject2 = optJSONObject.optJSONObject("chat_info");
             if (optJSONObject2 != null) {
-                this.bRv = new com.baidu.live.videochat.b.b();
-                this.bRv.parserJson(optJSONObject2);
+                this.bMJ = new com.baidu.live.videochat.b.b();
+                this.bMJ.parserJson(optJSONObject2);
             }
             JSONObject optJSONObject3 = optJSONObject.optJSONObject("anchor_info");
             if (optJSONObject3 != null) {
-                this.bRt = new d();
-                this.bRt.parserJson(optJSONObject3);
+                this.bMH = new d();
+                this.bMH.parserJson(optJSONObject3);
             }
             JSONObject optJSONObject4 = optJSONObject.optJSONObject("rival_info");
             if (optJSONObject4 != null) {
-                this.bRu = new d();
-                this.bRu.parserJson(optJSONObject4);
+                this.bMI = new d();
+                this.bMI.parserJson(optJSONObject4);
             }
         }
     }
@@ -43,15 +43,15 @@ public class LiveVideoChatSendGetChatInfoResponseMessage extends JsonHttpRespons
         return this.mInterval;
     }
 
-    public d YY() {
-        return this.bRt;
+    public d Vf() {
+        return this.bMH;
     }
 
-    public d YZ() {
-        return this.bRu;
+    public d Vg() {
+        return this.bMI;
     }
 
-    public com.baidu.live.videochat.b.b Za() {
-        return this.bRv;
+    public com.baidu.live.videochat.b.b Vh() {
+        return this.bMJ;
     }
 }

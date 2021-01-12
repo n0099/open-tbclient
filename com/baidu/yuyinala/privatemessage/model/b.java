@@ -10,26 +10,26 @@ import com.baidu.live.tbadk.task.TbHttpMessageTask;
 import com.baidu.yuyinala.privatemessage.model.response.NickNameListResponse;
 import com.baidu.yuyinala.privatemessage.session.b.f;
 import java.util.List;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class b extends BdBaseModel {
-    private a pcm;
-    private HttpMessageListener pcn = new HttpMessageListener(1031060) { // from class: com.baidu.yuyinala.privatemessage.model.b.1
+    private a oXI;
+    private HttpMessageListener oXJ = new HttpMessageListener(1031060) { // from class: com.baidu.yuyinala.privatemessage.model.b.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             if (httpResponsedMessage != null && (httpResponsedMessage instanceof NickNameListResponse)) {
                 if (httpResponsedMessage.getError() != 0 || !httpResponsedMessage.isSuccess()) {
-                    if (b.this.pcm != null) {
-                        b.this.pcm.onFail(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString());
+                    if (b.this.oXI != null) {
+                        b.this.oXI.onFail(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString());
                     }
-                } else if (b.this.pcm != null) {
-                    b.this.pcm.gC(((NickNameListResponse) httpResponsedMessage).pcA);
+                } else if (b.this.oXI != null) {
+                    b.this.oXI.gC(((NickNameListResponse) httpResponsedMessage).oXV);
                 }
             }
         }
     };
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public interface a {
         void gC(List<f> list);
 
@@ -37,21 +37,21 @@ public class b extends BdBaseModel {
     }
 
     public b() {
-        eoc();
+        ekh();
     }
 
-    private void eoc() {
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1031060, com.baidu.live.a.aAH + "ala/audio/user/getUserInfo");
+    private void ekh() {
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1031060, com.baidu.live.a.avU + "ala/audio/user/getUserInfo");
         tbHttpMessageTask.setIsNeedTbs(true);
         tbHttpMessageTask.setIsUseCurrentBDUSS(true);
         tbHttpMessageTask.setMethod(HttpMessageTask.HTTP_METHOD.POST);
         tbHttpMessageTask.setResponsedClass(NickNameListResponse.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
-        MessageManager.getInstance().registerListener(this.pcn);
+        MessageManager.getInstance().registerListener(this.oXJ);
     }
 
     public void a(String str, a aVar) {
-        this.pcm = aVar;
+        this.oXI = aVar;
         HttpMessage httpMessage = new HttpMessage(1031060);
         httpMessage.setTag(getUniqueId());
         httpMessage.addParam("uks", str);
@@ -69,7 +69,7 @@ public class b extends BdBaseModel {
     }
 
     public void destory() {
-        MessageManager.getInstance().unRegisterListener(this.pcn);
+        MessageManager.getInstance().unRegisterListener(this.oXJ);
         MessageManager.getInstance().unRegisterTask(1031060);
     }
 }

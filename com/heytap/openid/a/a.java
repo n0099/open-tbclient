@@ -5,34 +5,34 @@ import com.heytap.openid.a.c;
 /* loaded from: classes5.dex */
 public class a {
     public static void a(Context context) {
-        b.f8202b = c.b.pRK.a(b.a(context));
-        b.f8201a = true;
+        b.f7902b = c.b.pNk.a(b.a(context));
+        b.f7901a = true;
     }
 
     public static boolean a() {
-        if (b.f8201a) {
-            return b.f8202b;
+        if (b.f7901a) {
+            return b.f7902b;
         }
         throw new RuntimeException("SDK Need Init First!");
     }
 
     public static String b(Context context) {
-        if (b.f8201a) {
-            return c.b.pRK.a(b.a(context), "OUID");
+        if (b.f7901a) {
+            return c.b.pNk.a(b.a(context), "OUID");
         }
         throw new RuntimeException("SDK Need Init First!");
     }
 
     public static String c(Context context) {
-        if (b.f8201a) {
-            return c.b.pRK.a(b.a(context), "DUID");
+        if (b.f7901a) {
+            return c.b.pNk.a(b.a(context), "DUID");
         }
         throw new RuntimeException("SDK Need Init First!");
     }
 
     public static String d(Context context) {
-        if (b.f8201a) {
-            return c.b.pRK.a(b.a(context), "AUID");
+        if (b.f7901a) {
+            return c.b.pNk.a(b.a(context), "AUID");
         }
         throw new RuntimeException("SDK Need Init First!");
     }

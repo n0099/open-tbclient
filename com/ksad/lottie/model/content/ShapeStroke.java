@@ -4,15 +4,15 @@ import android.graphics.Paint;
 import androidx.annotation.Nullable;
 import com.ksad.lottie.a.a.q;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class ShapeStroke implements b {
 
     /* renamed from: a  reason: collision with root package name */
-    private final String f8359a;
+    private final String f8059a;
     @Nullable
 
     /* renamed from: b  reason: collision with root package name */
-    private final com.ksad.lottie.model.a.b f8360b;
+    private final com.ksad.lottie.model.a.b f8060b;
     private final List<com.ksad.lottie.model.a.b> c;
     private final com.ksad.lottie.model.a.a d;
     private final com.ksad.lottie.model.a.d e;
@@ -21,7 +21,7 @@ public class ShapeStroke implements b {
     private final LineJoinType h;
     private final float i;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public enum LineCapType {
         Butt,
         Round,
@@ -39,7 +39,7 @@ public class ShapeStroke implements b {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public enum LineJoinType {
         Miter,
         Round,
@@ -60,8 +60,8 @@ public class ShapeStroke implements b {
     }
 
     public ShapeStroke(String str, @Nullable com.ksad.lottie.model.a.b bVar, List<com.ksad.lottie.model.a.b> list, com.ksad.lottie.model.a.a aVar, com.ksad.lottie.model.a.d dVar, com.ksad.lottie.model.a.b bVar2, LineCapType lineCapType, LineJoinType lineJoinType, float f) {
-        this.f8359a = str;
-        this.f8360b = bVar;
+        this.f8059a = str;
+        this.f8060b = bVar;
         this.c = list;
         this.d = aVar;
         this.e = dVar;
@@ -77,7 +77,7 @@ public class ShapeStroke implements b {
     }
 
     public String a() {
-        return this.f8359a;
+        return this.f8059a;
     }
 
     public com.ksad.lottie.model.a.a b() {
@@ -97,7 +97,7 @@ public class ShapeStroke implements b {
     }
 
     public com.ksad.lottie.model.a.b f() {
-        return this.f8360b;
+        return this.f8060b;
     }
 
     public LineCapType g() {

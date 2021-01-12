@@ -4,7 +4,7 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import com.baidu.live.adp.BdUniqueId;
 import com.baidu.live.adp.widget.listview.IAdapterData;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class AlaGameEntryData implements Parcelable, IAdapterData {
     public String bitmapRatio;
     public int entryType;
@@ -22,7 +22,7 @@ public class AlaGameEntryData implements Parcelable, IAdapterData {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: ec */
+        /* renamed from: cw */
         public AlaGameEntryData[] newArray(int i) {
             return new AlaGameEntryData[i];
         }

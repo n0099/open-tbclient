@@ -12,112 +12,112 @@ import java.lang.ref.WeakReference;
 import java.nio.ByteBuffer;
 import java.util.Timer;
 import java.util.TimerTask;
-/* loaded from: classes3.dex */
+/* loaded from: classes14.dex */
 public class b {
     private static final String TAG = b.class.getSimpleName();
-    private long cgS;
-    private long cgT;
-    private long cgU;
-    private com.baidu.mario.a.b.d cgY;
-    private boolean cgZ;
-    private com.baidu.mario.gldraw2d.params.c cgy;
-    private int cha;
-    private c chb;
-    private AudioParams chd;
-    private com.baidu.mario.audio.a.a che;
+    private com.baidu.mario.gldraw2d.params.c cbJ;
+    private long ccd;
+    private long cce;
+    private long ccf;
+    private com.baidu.mario.a.b.d ccj;
+    private boolean cck;
+    private int ccl;
+    private c ccm;
+    private AudioParams cco;
+    private com.baidu.mario.audio.a.a ccp;
     private Context mAppContext;
-    private int cgQ = BdStatisticsManager.UPLOAD_TIMER_INTERVAL;
+    private int ccb = BdStatisticsManager.UPLOAD_TIMER_INTERVAL;
     private int mTextureId = -1;
-    private boolean cgR = false;
-    private boolean cgV = false;
+    private boolean ccc = false;
+    private boolean ccg = false;
     private boolean mIsLandscape = false;
-    private int adt = 0;
-    private int adu = 0;
-    private byte[] chf = ByteBuffer.allocate(3840).putShort(Short.MIN_VALUE).array();
-    private ByteBuffer chg = ByteBuffer.allocate(3840).put(this.chf);
-    private Timer chh = null;
-    private TimerTask chi = null;
-    private boolean chj = false;
-    private boolean chk = false;
-    private long chl = 0;
-    private d cgW = d.acN();
-    private com.baidu.mario.a.a chc = null;
-    private e cgX = new e() { // from class: com.baidu.mario.a.b.1
+    private int adr = 0;
+    private int ads = 0;
+    private byte[] ccq = ByteBuffer.allocate(3840).putShort(Short.MIN_VALUE).array();
+    private ByteBuffer ccr = ByteBuffer.allocate(3840).put(this.ccq);
+    private Timer cct = null;
+    private TimerTask ccu = null;
+    private boolean ccv = false;
+    private boolean ccw = false;
+    private long ccx = 0;
+    private d cch = d.YU();
+    private com.baidu.mario.a.a ccn = null;
+    private e cci = new e() { // from class: com.baidu.mario.a.b.1
         @Override // com.baidu.mario.a.e
         public void onRecorderStart(boolean z) {
-            if (b.this.chb != null) {
-                b.this.chb.onStart();
-                b.this.chj = true;
+            if (b.this.ccm != null) {
+                b.this.ccm.onStart();
+                b.this.ccv = true;
             }
         }
 
         @Override // com.baidu.mario.a.e
         public void bF(long j) {
-            b.this.cgU = j;
-            if (j > b.this.cgQ && b.this.cgZ) {
+            b.this.ccf = j;
+            if (j > b.this.ccb && b.this.cck) {
                 b.this.stopRecord();
             }
         }
 
         @Override // com.baidu.mario.a.e
         public void onRecorderComplete(boolean z, String str) {
-            Log.i(b.TAG, "on RecorderComplete record time :" + b.this.cgU);
-            if (b.this.chb != null) {
-                b.this.chb.aa((int) b.this.cgU, str);
+            Log.i(b.TAG, "on RecorderComplete record time :" + b.this.ccf);
+            if (b.this.ccm != null) {
+                b.this.ccm.ab((int) b.this.ccf, str);
             }
         }
 
         @Override // com.baidu.mario.a.e
         public void onRecorderError(int i) {
             Log.i(b.TAG, "onRecorderError:" + i);
-            if (b.this.chb != null) {
-                b.this.chb.onError(i);
+            if (b.this.ccm != null) {
+                b.this.ccm.onError(i);
             }
         }
     };
 
     public b(Context context) {
         this.mAppContext = context;
-        a(new com.baidu.mario.a.b.d(), this.cgX);
+        a(new com.baidu.mario.a.b.d(), this.cci);
     }
 
     public void setGameRecordCallback(c cVar) {
-        this.chb = cVar;
+        this.ccm = cVar;
     }
 
     public void setAudioEngineProxy(com.baidu.mario.a.a aVar) {
-        this.chc = aVar;
+        this.ccn = aVar;
     }
 
     public void a(boolean z, EGLContext eGLContext, int i, int i2, Context context) {
         if (eGLContext != null) {
             this.mAppContext = context;
             Log.i(TAG, "onContextChanged:" + eGLContext + "; w:" + i + "; h:" + i2 + "; isFlip:" + z);
-            if (this.cgy == null) {
-                this.cgy = new com.baidu.mario.gldraw2d.params.c(eGLContext, 0, true);
+            if (this.cbJ == null) {
+                this.cbJ = new com.baidu.mario.gldraw2d.params.c(eGLContext, 0, true);
             } else {
-                this.cgy.a(eGLContext);
+                this.cbJ.a(eGLContext);
             }
-            this.cgy.acx().setWidth(i);
-            this.cgy.acx().setHeight(i2);
+            this.cbJ.YE().setWidth(i);
+            this.cbJ.YE().setHeight(i2);
             if (z) {
-                this.cgy.acz().a(MirrorType.VERTICALLY);
+                this.cbJ.YG().a(MirrorType.VERTICALLY);
             }
-            this.adt = i;
-            this.adu = i2;
-            this.cgY.setVideoWidth(i);
-            this.cgY.setVideoHeight(i2);
+            this.adr = i;
+            this.ads = i2;
+            this.ccj.setVideoWidth(i);
+            this.ccj.setVideoHeight(i2);
         }
     }
 
-    public void gY(int i) {
-        if (this.cgy != null) {
+    public void fr(int i) {
+        if (this.cbJ != null) {
             if (this.mTextureId != i) {
                 com.baidu.mario.gldraw2d.d.d dVar = new com.baidu.mario.gldraw2d.d.d();
                 dVar.setId(i);
-                this.cgy.c(dVar);
-                if (this.cgW != null) {
-                    this.cgW.b(this.cgy);
+                this.cbJ.c(dVar);
+                if (this.cch != null) {
+                    this.cch.b(this.cbJ);
                 }
                 this.mTextureId = i;
             }
@@ -126,192 +126,192 @@ public class b {
     }
 
     private void h(int i, long j) {
-        if (this.cgZ && this.cgY != null) {
-            switch (this.cha) {
+        if (this.cck && this.ccj != null) {
+            switch (this.ccl) {
                 case 0:
-                    acL();
-                    if (this.cgW != null) {
-                        this.cgW.a(this.mAppContext, this.cgY, this.cgX);
+                    YS();
+                    if (this.cch != null) {
+                        this.cch.a(this.mAppContext, this.ccj, this.cci);
                     }
-                    this.cha = 1;
+                    this.ccl = 1;
                     break;
                 case 1:
                     break;
                 case 2:
-                    this.cgy.acw().setId(i);
-                    if (this.cgW != null) {
-                        this.cgW.c(this.cgy);
+                    this.cbJ.YD().setId(i);
+                    if (this.cch != null) {
+                        this.cch.c(this.cbJ);
                     }
-                    this.cha = 1;
+                    this.ccl = 1;
                     break;
                 default:
-                    throw new RuntimeException("unknown status " + this.cha);
+                    throw new RuntimeException("unknown status " + this.ccl);
             }
         }
-        if (this.cgW != null && !this.cgR) {
-            this.cgW.onVideoFrameAvailable(j - this.cgS);
+        if (this.cch != null && !this.ccc) {
+            this.cch.onVideoFrameAvailable(j - this.ccd);
         }
     }
 
-    public long acG() {
-        return this.cgU;
+    public long YN() {
+        return this.ccf;
     }
 
-    public void acH() {
-        if (!this.cgR) {
-            this.cgV = true;
+    public void YO() {
+        if (!this.ccc) {
+            this.ccg = true;
             pauseRecord();
             return;
         }
-        this.cgV = false;
+        this.ccg = false;
     }
 
-    public void acI() {
-        if (this.cgR && this.cgV) {
+    public void YP() {
+        if (this.ccc && this.ccg) {
             resumeRecord();
         }
-        this.cgV = false;
+        this.ccg = false;
     }
 
     public void startRecord(boolean z, int i, String str, boolean z2) {
-        if (!this.cgZ) {
+        if (!this.cck) {
             Log.i(TAG, "startRecored");
-            this.chl = System.nanoTime();
+            this.ccx = System.nanoTime();
             this.mIsLandscape = z2;
-            this.cgY.setOutputFile(str);
-            this.cgY.setAudioIncluded(z);
-            this.cgY.setOutputTotalMs(i * 1000);
-            this.cgY.setVideoWidth(this.adt);
-            this.cgY.setVideoHeight(this.adu);
-            this.cgS = 0L;
-            this.cgU = 0L;
+            this.ccj.setOutputFile(str);
+            this.ccj.setAudioIncluded(z);
+            this.ccj.setOutputTotalMs(i * 1000);
+            this.ccj.setVideoWidth(this.adr);
+            this.ccj.setVideoHeight(this.ads);
+            this.ccd = 0L;
+            this.ccf = 0L;
             if (i > 0 && i < 120) {
-                this.cgQ = i * 1000;
+                this.ccb = i * 1000;
             } else {
-                this.cgQ = BdStatisticsManager.UPLOAD_TIMER_INTERVAL;
+                this.ccb = BdStatisticsManager.UPLOAD_TIMER_INTERVAL;
             }
             a((AudioParams) null);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public synchronized void acJ() {
-        if (this.chh != null) {
-            this.chh.cancel();
-            this.chh = null;
-            this.chi = null;
+    public synchronized void YQ() {
+        if (this.cct != null) {
+            this.cct.cancel();
+            this.cct = null;
+            this.ccu = null;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b(boolean z, AudioParams audioParams) {
         if (audioParams != null) {
-            this.cgY.setAudioSampleRate(audioParams.getSampleRate());
-            this.cgY.setAudioFrameSize(audioParams.getFrameSize());
-            this.cgY.setAudioChannel(audioParams.getChannelConfig());
+            this.ccj.setAudioSampleRate(audioParams.getSampleRate());
+            this.ccj.setAudioFrameSize(audioParams.getFrameSize());
+            this.ccj.setAudioChannel(audioParams.getChannelConfig());
         }
-        this.chj = false;
-        this.cgZ = true;
-        acJ();
-        this.chh = new Timer();
-        this.chi = new TimerTask() { // from class: com.baidu.mario.a.b.2
+        this.ccv = false;
+        this.cck = true;
+        YQ();
+        this.cct = new Timer();
+        this.ccu = new TimerTask() { // from class: com.baidu.mario.a.b.2
             @Override // java.util.TimerTask, java.lang.Runnable
             public void run() {
-                if (!b.this.chj || b.this.chk) {
-                    b.this.c(b.this.chg, 3840, System.nanoTime() - b.this.chl);
-                    b.this.chk = true;
+                if (!b.this.ccv || b.this.ccw) {
+                    b.this.c(b.this.ccr, 3840, System.nanoTime() - b.this.ccx);
+                    b.this.ccw = true;
                     return;
                 }
                 Log.i(b.TAG, "cancel audio time");
-                b.this.acJ();
-                b.this.chk = false;
+                b.this.YQ();
+                b.this.ccw = false;
             }
         };
-        this.chh.schedule(this.chi, 300L, 20L);
+        this.cct.schedule(this.ccu, 300L, 20L);
     }
 
     private void a(AudioParams audioParams) {
-        if (this.che == null) {
-            acM();
+        if (this.ccp == null) {
+            YT();
         }
         if (audioParams == null) {
             Log.i(TAG, "audioParams is null,start to create AudioPams");
-            this.chd = new AudioParams();
+            this.cco = new AudioParams();
         } else {
-            this.chd = audioParams;
+            this.cco = audioParams;
         }
-        if (this.chc != null) {
-            Log.i(TAG, "set audio engie:" + this.chc);
-            this.chc.a(this.che);
+        if (this.ccn != null) {
+            Log.i(TAG, "set audio engie:" + this.ccn);
+            this.ccn.a(this.ccp);
         }
     }
 
     public void pauseRecord() {
-        if (this.cgR) {
+        if (this.ccc) {
             Log.i(TAG, "pauseRecord cmd has executed, please run resumeRecord!");
-        } else if (this.cgZ) {
-            this.cgR = true;
+        } else if (this.cck) {
+            this.ccc = true;
             Log.i(TAG, LuaMessageHelper.KEY_SEND_LUA_MESSAGE.PAUSE_RECORD);
-            this.cgT = System.nanoTime();
-            this.cgS = 0L;
-            if (this.cgW != null) {
-                this.cgW.acQ();
-                this.cgS = (this.cgT - (this.cgU * TimeUtils.NANOS_PER_MS)) - this.cgW.acO();
-                if (this.cgS < 0) {
-                    this.cgS = 0L;
+            this.cce = System.nanoTime();
+            this.ccd = 0L;
+            if (this.cch != null) {
+                this.cch.YX();
+                this.ccd = (this.cce - (this.ccf * TimeUtils.NANOS_PER_MS)) - this.cch.YV();
+                if (this.ccd < 0) {
+                    this.ccd = 0L;
                 }
             }
-            if (this.chb != null) {
-                this.chb.onPause();
+            if (this.ccm != null) {
+                this.ccm.onPause();
             }
-            acJ();
+            YQ();
         }
     }
 
     public void resumeRecord() {
-        if (this.cgR) {
-            this.cgS += System.nanoTime() - this.cgT;
-            this.cgR = false;
+        if (this.ccc) {
+            this.ccd += System.nanoTime() - this.cce;
+            this.ccc = false;
             a((AudioParams) null);
-            if (this.chb != null) {
-                this.chb.onResume();
+            if (this.ccm != null) {
+                this.ccm.onResume();
             }
         }
     }
 
-    private void acK() {
-        if (this.cgR) {
-            this.cgS += System.nanoTime() - this.cgT;
-            this.cgR = false;
+    private void YR() {
+        if (this.ccc) {
+            this.ccd += System.nanoTime() - this.cce;
+            this.ccc = false;
         }
     }
 
     public void stopRecord() {
         Log.i(TAG, "stopRecored");
-        acK();
-        this.cgZ = false;
-        this.chj = false;
-        this.chk = false;
-        switch (this.cha) {
+        YR();
+        this.cck = false;
+        this.ccv = false;
+        this.ccw = false;
+        switch (this.ccl) {
             case 0:
                 return;
             case 1:
             case 2:
-                this.cha = 0;
-                if (this.cgW != null) {
-                    this.cgW.stopRecorder();
+                this.ccl = 0;
+                if (this.cch != null) {
+                    this.cch.stopRecorder();
                     return;
                 }
                 return;
             default:
-                throw new RuntimeException("unknown status " + this.cha);
+                throw new RuntimeException("unknown status " + this.ccl);
         }
     }
 
-    private void acL() {
-        if (this.cgY != null && this.cgy != null) {
-            int videoHeight = this.cgY.getVideoHeight();
-            int videoWidth = this.cgY.getVideoWidth();
+    private void YS() {
+        if (this.ccj != null && this.cbJ != null) {
+            int videoHeight = this.ccj.getVideoHeight();
+            int videoWidth = this.ccj.getVideoWidth();
             if (videoHeight >= 1920 || videoWidth >= 1920) {
                 videoHeight = (int) ((videoHeight * 2) / 3.0f);
                 videoWidth = (int) ((videoWidth * 2) / 3.0f);
@@ -323,74 +323,74 @@ public class b {
                 videoWidth++;
             }
             Log.i(TAG, "Record video width:" + videoWidth + " ;video height:" + videoHeight);
-            this.cgY.setVideoWidth(videoWidth);
-            this.cgY.setVideoHeight(videoHeight);
+            this.ccj.setVideoWidth(videoWidth);
+            this.ccj.setVideoHeight(videoHeight);
         }
     }
 
     public void a(com.baidu.mario.a.b.d dVar) {
-        this.cgY = dVar;
+        this.ccj = dVar;
     }
 
     public void a(com.baidu.mario.a.b.d dVar, e eVar) {
         a(dVar);
-        this.cgX = eVar;
+        this.cci = eVar;
     }
 
-    private void acM() {
-        if (this.che == null) {
-            this.che = new a(this);
+    private void YT() {
+        if (this.ccp == null) {
+            this.ccp = new a(this);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void c(ByteBuffer byteBuffer, int i, long j) {
-        if (this.cgW != null && this.cgZ && byteBuffer != null && i > 0 && !this.cgR) {
-            this.cgW.onAudioFrameAvailable(byteBuffer, i, j - this.cgS);
+        if (this.cch != null && this.cck && byteBuffer != null && i > 0 && !this.ccc) {
+            this.cch.onAudioFrameAvailable(byteBuffer, i, j - this.ccd);
         }
     }
 
     public void release() {
-        if (this.cgW != null) {
-            this.cgW.onDestroy();
-            this.cgW = null;
+        if (this.cch != null) {
+            this.cch.onDestroy();
+            this.cch = null;
         }
-        if (this.cgX != null) {
-            this.cgX = null;
+        if (this.cci != null) {
+            this.cci = null;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes14.dex */
     public static class a implements com.baidu.mario.audio.a.a {
-        private WeakReference<b> chn;
+        private WeakReference<b> ccz;
 
         public a(b bVar) {
-            this.chn = new WeakReference<>(bVar);
-            Log.i(b.TAG, "gameRecorderRef is:" + this.chn.get());
+            this.ccz = new WeakReference<>(bVar);
+            Log.i(b.TAG, "gameRecorderRef is:" + this.ccz.get());
         }
 
         @Override // com.baidu.mario.audio.a.a
         public void a(boolean z, AudioParams audioParams) {
-            if (this.chn.get() != null) {
-                this.chn.get().b(z, audioParams);
+            if (this.ccz.get() != null) {
+                this.ccz.get().b(z, audioParams);
                 Log.i(b.TAG, "onAudioStart");
             }
         }
 
         @Override // com.baidu.mario.audio.a.a
         public void onAudioFrameAvailable(ByteBuffer byteBuffer, int i, long j) {
-            if (this.chn.get() != null) {
-                this.chn.get().chk = false;
-                this.chn.get().c(byteBuffer, i, j);
+            if (this.ccz.get() != null) {
+                this.ccz.get().ccw = false;
+                this.ccz.get().c(byteBuffer, i, j);
             }
         }
 
         @Override // com.baidu.mario.audio.a.a
         public void onAudioStop(boolean z) {
             Log.i(b.TAG, "onAudioStop");
-            if (this.chn.get() != null) {
-                this.chn.get().acJ();
+            if (this.ccz.get() != null) {
+                this.ccz.get().YQ();
             }
         }
     }

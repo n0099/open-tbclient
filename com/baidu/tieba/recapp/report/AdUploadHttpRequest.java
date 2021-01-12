@@ -23,7 +23,7 @@ public class AdUploadHttpRequest extends HttpMessage {
         super(1003062);
         this.dataArray = new ArrayList<>();
         this.dataArray.addAll(arrayList);
-        addParam("ad", toJSONString(this.dataArray));
+        addParam(KEY_AD, toJSONString(this.dataArray));
         addParam("brand", Build.BRAND);
         addParam(KEY_OS_VERSION, Build.VERSION.SDK);
         addParam(KEY_PRODUCT_ID, 2);
@@ -35,7 +35,7 @@ public class AdUploadHttpRequest extends HttpMessage {
         super(1003062);
         this.dataArray = new ArrayList<>();
         this.dataArray.add(cVar);
-        addParam("ad", toJSONString(this.dataArray));
+        addParam(KEY_AD, toJSONString(this.dataArray));
         addParam("brand", Build.BRAND);
         addParam(KEY_OS_VERSION, Build.VERSION.SDK);
     }

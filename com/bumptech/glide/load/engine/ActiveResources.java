@@ -16,7 +16,7 @@ import java.lang.ref.WeakReference;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 final class ActiveResources {
     private static final int MSG_CLEAN_REF = 1;
     @Nullable
@@ -43,7 +43,7 @@ final class ActiveResources {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     @VisibleForTesting
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public interface DequeuedResourceCallback {
         void onResourceDequeued();
     }
@@ -152,7 +152,7 @@ final class ActiveResources {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     @VisibleForTesting
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static final class ResourceWeakReference extends WeakReference<EngineResource<?>> {
         final boolean isCacheable;
         final Key key;

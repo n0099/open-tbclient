@@ -7,13 +7,13 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class GetPicTxtStickerListHttpResponseMessage extends JsonHttpResponsedMessage {
-    public List<FuFaceItem> gux;
+    public List<FuFaceItem> gpQ;
 
     public GetPicTxtStickerListHttpResponseMessage() {
         super(1021156);
-        this.gux = null;
+        this.gpQ = null;
     }
 
     @Override // com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage
@@ -26,14 +26,14 @@ public class GetPicTxtStickerListHttpResponseMessage extends JsonHttpResponsedMe
             }
             if (opt != null) {
                 JSONArray jSONArray = (JSONArray) opt;
-                if (this.gux == null) {
-                    this.gux = new ArrayList();
+                if (this.gpQ == null) {
+                    this.gpQ = new ArrayList();
                 }
                 for (int i2 = 0; i2 < jSONArray.length(); i2++) {
                     JSONObject optJSONObject = jSONArray.optJSONObject(i2);
                     PicStickerItem picStickerItem = new PicStickerItem();
                     picStickerItem.parse(optJSONObject);
-                    this.gux.add(picStickerItem);
+                    this.gpQ.add(picStickerItem);
                 }
             }
         }

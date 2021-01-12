@@ -9,8 +9,8 @@ import com.baidu.tbadk.core.util.aq;
 import com.baidu.tieba.card.holder.CardViewHolder;
 /* loaded from: classes2.dex */
 public class a extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.personalize.data.b, CardViewHolder<com.baidu.tieba.card.i>> {
-    private BdUniqueId fJu;
-    private com.baidu.tieba.card.i kfT;
+    private BdUniqueId fEN;
+    private com.baidu.tieba.card.i kbn;
     private TbPageContext<?> mPageContext;
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.TypeAdapter$ViewHolder] */
@@ -21,27 +21,27 @@ public class a extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
     }
 
     public a(TbPageContext<?> tbPageContext) {
-        super(tbPageContext.getPageActivity().getBaseContext(), com.baidu.tieba.homepage.personalize.data.d.khL);
+        super(tbPageContext.getPageActivity().getBaseContext(), com.baidu.tieba.homepage.personalize.data.d.kdf);
         this.mPageContext = tbPageContext;
-        this.kfT = new com.baidu.tieba.card.i(this.mPageContext);
-        this.kfT.B("c10714", "c10739", "c10712", "c10738");
-        this.kfT.setFrom("home");
+        this.kbn = new com.baidu.tieba.card.i(this.mPageContext);
+        this.kbn.B("c10714", "c10739", "c10712", "c10738");
+        this.kbn.setFrom("home");
     }
 
     public void setPageUniqueId(BdUniqueId bdUniqueId) {
-        this.fJu = bdUniqueId;
-        if (this.kfT != null) {
-            this.kfT.l(this.fJu);
+        this.fEN = bdUniqueId;
+        if (this.kbn != null) {
+            this.kbn.l(this.fEN);
         }
     }
 
     /* renamed from: a  reason: avoid collision after fix types in other method */
     protected View a2(int i, View view, ViewGroup viewGroup, com.baidu.tieba.homepage.personalize.data.b bVar, CardViewHolder cardViewHolder) {
-        if (cardViewHolder.cvH() == null) {
+        if (cardViewHolder.crP() == null) {
             return null;
         }
-        cardViewHolder.cvH().a(bVar);
-        com.baidu.tieba.card.s.cvb().e(new aq("c10714").dX(TiebaInitialize.Params.OBJ_PARAM3, com.baidu.tieba.card.m.cuS()));
+        cardViewHolder.crP().a(bVar);
+        com.baidu.tieba.card.s.crj().e(new aq("c10714").dW(TiebaInitialize.Params.OBJ_PARAM3, com.baidu.tieba.card.m.cra()));
         return cardViewHolder.getView();
     }
 
@@ -50,17 +50,17 @@ public class a extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: aX */
     public CardViewHolder e(ViewGroup viewGroup) {
-        if (this.kfT == null) {
-            this.kfT = new com.baidu.tieba.card.i(this.mPageContext);
-            this.kfT.l(this.fJu);
-            this.kfT.B("c10714", "c10739", "c10712", "c10738");
+        if (this.kbn == null) {
+            this.kbn = new com.baidu.tieba.card.i(this.mPageContext);
+            this.kbn.l(this.fEN);
+            this.kbn.B("c10714", "c10739", "c10712", "c10738");
         }
-        return new CardViewHolder(this.kfT);
+        return new CardViewHolder(this.kbn);
     }
 
     public void onChangeSkinType(int i) {
-        if (this.kfT != null) {
-            this.kfT.onChangeSkinType(this.mPageContext, i);
+        if (this.kbn != null) {
+            this.kbn.onChangeSkinType(this.mPageContext, i);
         }
     }
 }

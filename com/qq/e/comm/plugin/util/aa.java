@@ -2,7 +2,7 @@ package com.qq.e.comm.plugin.util;
 
 import android.text.TextUtils;
 import com.qq.e.comm.managers.GDTADManager;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class aa {
     public static void a(String str) {
         if (GDTADManager.getInstance().getSM().getInteger("mmaEnabled", 1) == 0 || TextUtils.isEmpty(str)) {

@@ -1,28 +1,28 @@
 package com.baidu.prologue.service.network;
 
 import android.content.Context;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class c extends b {
-    private static e cvl;
-    private final e cvm;
+    private static e cqt;
+    private final e cqu;
 
     private c(Context context) {
-        this.cvm = new h(context);
+        this.cqu = new h(context);
     }
 
-    public static e bP(Context context) {
-        if (cvl == null) {
+    public static e bO(Context context) {
+        if (cqt == null) {
             synchronized (e.class) {
-                if (cvl == null) {
-                    cvl = new c(context);
+                if (cqt == null) {
+                    cqt = new c(context);
                 }
             }
         }
-        return cvl;
+        return cqt;
     }
 
     @Override // com.baidu.prologue.service.network.e
     public void a(Request request, l lVar) {
-        this.cvm.a(request, lVar);
+        this.cqu.a(request, lVar);
     }
 }

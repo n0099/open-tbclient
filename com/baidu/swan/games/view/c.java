@@ -3,42 +3,42 @@ package com.baidu.swan.games.view;
 import android.content.Context;
 import android.view.View;
 import com.baidu.swan.apps.v.f;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class c {
     public static boolean c(View view, com.baidu.swan.apps.model.a.a.a aVar) {
-        d aDK = f.aDH().aDK();
-        return aDK != null && aDK.a(view, aVar);
+        d azQ = f.azN().azQ();
+        return azQ != null && azQ.a(view, aVar);
     }
 
     public static boolean b(View view, com.baidu.swan.apps.model.a.a.a aVar) {
-        d aDK = f.aDH().aDK();
-        return aDK != null && aDK.b(view, aVar);
+        d azQ = f.azN().azQ();
+        return azQ != null && azQ.b(view, aVar);
     }
 
     public static boolean removeView(View view) {
-        d aDK = f.aDH().aDK();
-        return aDK != null && aDK.removeView(view);
+        d azQ = f.azN().azQ();
+        return azQ != null && azQ.removeView(view);
     }
 
     public static Context getViewContext() {
-        d aDK = f.aDH().aDK();
-        if (aDK != null) {
-            return aDK.getContext();
+        d azQ = f.azN().azQ();
+        if (azQ != null) {
+            return azQ.getContext();
         }
         return null;
     }
 
     public static void a(a aVar) {
-        d aDK = f.aDH().aDK();
-        if (aDK != null) {
-            aDK.a(aVar);
+        d azQ = f.azN().azQ();
+        if (azQ != null) {
+            azQ.a(aVar);
         }
     }
 
     public static void b(a aVar) {
-        d aDK = f.aDH().aDK();
-        if (aDK != null) {
-            aDK.b(aVar);
+        d azQ = f.azN().azQ();
+        if (azQ != null) {
+            azQ.b(aVar);
         }
     }
 }

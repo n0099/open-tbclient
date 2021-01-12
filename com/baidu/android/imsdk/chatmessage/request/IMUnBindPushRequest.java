@@ -15,7 +15,7 @@ import java.util.Map;
 import org.apache.http.cookie.SM;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class IMUnBindPushRequest extends BaseHttpRequest {
     private Long mAppid;
     private String mBduss;

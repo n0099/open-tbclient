@@ -55,12 +55,12 @@ public class PbPageReadLocalResponseMessage extends CustomResponsedMessage<Objec
             setErrorString(pbPageResIdl.error.usermsg);
             if (getError() == 0 && pbPageResIdl.data != null) {
                 this.pbData = new com.baidu.tieba.pb.data.f();
-                this.pbData.GH(1);
+                this.pbData.Fb(1);
                 try {
                     this.pbData.a(pbPageResIdl.data, this.context);
                     if (!this.pbData.isValid()) {
                         this.pbData = null;
-                    } else if (isMarkCache() && this.pbData.bnx() != null && !this.pbData.bnx().equals(this.postId)) {
+                    } else if (isMarkCache() && this.pbData.bjD() != null && !this.pbData.bjD().equals(this.postId)) {
                         this.pbData = null;
                     }
                 } catch (Exception e) {

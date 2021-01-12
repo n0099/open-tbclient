@@ -6,10 +6,10 @@ public abstract class d<IN, OUT> {
     private static AtomicLong d = new AtomicLong();
 
     /* renamed from: a  reason: collision with root package name */
-    d f7718a;
+    d f7418a;
 
     /* renamed from: b  reason: collision with root package name */
-    IN f7719b;
+    IN f7419b;
     OUT c;
     private com.bytedance.sdk.openadsdk.preload.a.b.a e;
     private b f;
@@ -20,16 +20,16 @@ public abstract class d<IN, OUT> {
     /* JADX INFO: Access modifiers changed from: package-private */
     public final void a(b bVar, d dVar, IN in, com.bytedance.sdk.openadsdk.preload.a.b.a aVar, Object[] objArr) {
         this.f = new m(bVar);
-        this.f7718a = dVar;
-        this.f7719b = in;
+        this.f7418a = dVar;
+        this.f7419b = in;
         this.e = aVar;
         a();
         a(objArr);
     }
 
     private void a() {
-        if (this.f7718a != null) {
-            this.g = this.f7718a.g;
+        if (this.f7418a != null) {
+            this.g = this.f7418a.g;
             return;
         }
         this.g = d.getAndIncrement();

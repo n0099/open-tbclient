@@ -11,7 +11,7 @@ import java.io.InputStreamReader;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.nio.FloatBuffer;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class EglUtil {
     private static final int FLOAT_SIZE_BYTES = 4;
     public static final int NO_TEXTURE = -1;

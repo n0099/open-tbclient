@@ -5,24 +5,24 @@ import java.math.BigInteger;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    private static byte[] f1695a;
+    private static byte[] f1645a;
 
     /* renamed from: b  reason: collision with root package name */
-    private static byte[] f1696b;
+    private static byte[] f1646b;
 
     public static byte[] a() {
-        if (f1695a != null) {
-            return f1695a;
+        if (f1645a != null) {
+            return f1645a;
         }
-        f1695a = new BigInteger(a.f1693a).modPow(new BigInteger(a.f1694b), new BigInteger(a.e)).toByteArray();
-        return f1695a;
+        f1645a = new BigInteger(a.f1643a).modPow(new BigInteger(a.f1644b), new BigInteger(a.e)).toByteArray();
+        return f1645a;
     }
 
     public static byte[] b() {
-        if (f1696b != null) {
-            return f1696b;
+        if (f1646b != null) {
+            return f1646b;
         }
-        f1696b = new BigInteger(a.c).modPow(new BigInteger(a.d), new BigInteger(a.e)).toByteArray();
-        return f1696b;
+        f1646b = new BigInteger(a.c).modPow(new BigInteger(a.d), new BigInteger(a.e)).toByteArray();
+        return f1646b;
     }
 }

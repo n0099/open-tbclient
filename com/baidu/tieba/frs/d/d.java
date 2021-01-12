@@ -14,17 +14,17 @@ public class d {
         this.fid = str2;
     }
 
-    private String cNd() {
+    private String cJl() {
         return this.uid + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + this.fid;
     }
 
-    public boolean cNe() {
-        if (ei(this.uid, this.fid)) {
-            String cNd = cNd();
-            Date date = new Date(com.baidu.tbadk.core.sharedPref.b.bvr().getLong(cNd, 0L));
+    public boolean cJm() {
+        if (eh(this.uid, this.fid)) {
+            String cJl = cJl();
+            Date date = new Date(com.baidu.tbadk.core.sharedPref.b.brx().getLong(cJl, 0L));
             long currentTimeMillis = System.currentTimeMillis();
             if (bd.b(new Date(currentTimeMillis), date) >= 2) {
-                com.baidu.tbadk.core.sharedPref.b.bvr().putLong(cNd, currentTimeMillis);
+                com.baidu.tbadk.core.sharedPref.b.brx().putLong(cJl, currentTimeMillis);
                 return true;
             }
             return false;
@@ -32,7 +32,7 @@ public class d {
         return false;
     }
 
-    private boolean ei(String str, String str2) {
+    private boolean eh(String str, String str2) {
         return (StringUtils.isNull(str) || StringUtils.isNull(str2) || "0".equals(str) || "0".equals(str2)) ? false : true;
     }
 }

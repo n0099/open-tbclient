@@ -14,12 +14,12 @@ import tbclient.ReplyMe.ReplyMeResIdl;
 /* loaded from: classes2.dex */
 public class j implements com.baidu.tbadk.mvc.b.j {
     protected boolean isSucc;
-    protected ArrayList<FeedData> kOw = new ArrayList<>();
+    protected ArrayList<FeedData> kJR = new ArrayList<>();
     protected ax page = new ax();
-    protected h kOx = new h();
+    protected h kJS = new h();
 
-    public ArrayList<FeedData> dbm() {
-        return this.kOw;
+    public ArrayList<FeedData> cXu() {
+        return this.kJR;
     }
 
     public ax getPage() {
@@ -35,13 +35,13 @@ public class j implements com.baidu.tbadk.mvc.b.j {
                 for (int i = 0; i < optJSONArray2.length(); i++) {
                     FeedData feedData = new FeedData();
                     feedData.parserJson(optJSONArray2.optJSONObject(i));
-                    this.kOw.add(feedData);
+                    this.kJR.add(feedData);
                     if ((FeedData.TYPE_ZAN.equals(feedData.getPraiseItemType()) || FeedData.TYPE_GRAFFITI.equals(feedData.getPraiseItemType())) && x.getCount(feedData.getPraiseList()) == 0) {
-                        this.kOw.remove(feedData);
+                        this.kJR.remove(feedData);
                     }
                 }
             }
-            this.kOx.parserJson(jSONObject.optJSONObject("message"));
+            this.kJS.parserJson(jSONObject.optJSONObject("message"));
             this.page.parserJson(jSONObject.optJSONObject("page"));
             this.isSucc = true;
         } catch (Exception e) {
@@ -60,9 +60,9 @@ public class j implements com.baidu.tbadk.mvc.b.j {
                     for (int i = 0; i < list.size(); i++) {
                         FeedData feedData = new FeedData();
                         feedData.parserProtoBuf(list.get(i));
-                        this.kOw.add(feedData);
+                        this.kJR.add(feedData);
                         if ((FeedData.TYPE_ZAN.equals(feedData.getPraiseItemType()) || FeedData.TYPE_GRAFFITI.equals(feedData.getPraiseItemType())) && x.getCount(feedData.getPraiseList()) == 0) {
-                            this.kOw.remove(feedData);
+                            this.kJR.remove(feedData);
                         }
                     }
                 }

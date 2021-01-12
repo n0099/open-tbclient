@@ -6,11 +6,11 @@ import com.baidu.swan.games.view.webview.GameWebViewJavascriptInterface;
 import java.util.Iterator;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class e {
     public static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    protected JSONObject dOd;
-    protected JSONObject dOe;
+    protected JSONObject dJr;
+    protected JSONObject dJs;
     public String mAppId;
     public String mFrom = GameWebViewJavascriptInterface.JAVASCRIPT_INTERFACE_NAME;
     public String mPage;
@@ -35,16 +35,16 @@ public class e {
             }
             jSONObject.put("source", this.mSource);
             if (!TextUtils.isEmpty(this.mPage)) {
-                this.mPage = com.baidu.swan.apps.statistic.g.tz(this.mPage);
+                this.mPage = com.baidu.swan.apps.statistic.g.sn(this.mPage);
                 jSONObject.put("page", this.mPage);
             }
-            if (this.dOd == null) {
-                this.dOd = new JSONObject();
+            if (this.dJr == null) {
+                this.dJr = new JSONObject();
             }
             if (!TextUtils.isEmpty(this.mAppId)) {
-                this.dOd.put("appid", this.mAppId);
+                this.dJr.put("appid", this.mAppId);
             }
-            jSONObject.put("ext", this.dOd);
+            jSONObject.put("ext", this.dJr);
             return jSONObject;
         } catch (JSONException e) {
             if (DEBUG) {
@@ -56,14 +56,14 @@ public class e {
 
     public void ck(JSONObject jSONObject) {
         if (jSONObject != null) {
-            if (this.dOd == null) {
-                this.dOd = new JSONObject();
+            if (this.dJr == null) {
+                this.dJr = new JSONObject();
             }
             Iterator<String> keys = jSONObject.keys();
             while (keys.hasNext()) {
                 String next = keys.next();
                 try {
-                    this.dOd.put(next, jSONObject.opt(next));
+                    this.dJr.put(next, jSONObject.opt(next));
                 } catch (JSONException e) {
                     if (DEBUG) {
                         e.printStackTrace();
@@ -73,7 +73,7 @@ public class e {
         }
     }
 
-    public void tL(String str) {
+    public void sA(String str) {
         if (!TextUtils.isEmpty(str)) {
             try {
                 ck(new JSONObject(str));
@@ -87,18 +87,18 @@ public class e {
 
     public void cl(JSONObject jSONObject) {
         if (jSONObject != null) {
-            if (this.dOd == null) {
-                this.dOd = new JSONObject();
+            if (this.dJr == null) {
+                this.dJr = new JSONObject();
             }
-            this.dOe = this.dOd.optJSONObject("extlog");
-            if (this.dOe == null) {
-                this.dOe = new JSONObject();
+            this.dJs = this.dJr.optJSONObject("extlog");
+            if (this.dJs == null) {
+                this.dJs = new JSONObject();
             }
             Iterator<String> keys = jSONObject.keys();
             while (keys.hasNext()) {
                 String next = keys.next();
                 try {
-                    this.dOe.put(next, jSONObject.opt(next));
+                    this.dJs.put(next, jSONObject.opt(next));
                 } catch (JSONException e) {
                     if (DEBUG) {
                         e.printStackTrace();
@@ -106,7 +106,7 @@ public class e {
                 }
             }
             try {
-                this.dOd.put("extlog", this.dOe);
+                this.dJr.put("extlog", this.dJs);
             } catch (JSONException e2) {
                 if (DEBUG) {
                     e2.printStackTrace();
@@ -116,11 +116,11 @@ public class e {
     }
 
     public void t(@NonNull String str, Object obj) {
-        if (this.dOd == null) {
-            this.dOd = new JSONObject();
+        if (this.dJr == null) {
+            this.dJr = new JSONObject();
         }
         try {
-            this.dOd.put(str, obj);
+            this.dJr.put(str, obj);
         } catch (JSONException e) {
             if (DEBUG) {
                 e.printStackTrace();
@@ -128,12 +128,12 @@ public class e {
         }
     }
 
-    public JSONObject aPl() {
-        if (this.dOd == null) {
+    public JSONObject aLr() {
+        if (this.dJr == null) {
             return null;
         }
         try {
-            return new JSONObject(this.dOd.toString());
+            return new JSONObject(this.dJr.toString());
         } catch (JSONException e) {
             if (DEBUG) {
                 e.printStackTrace();

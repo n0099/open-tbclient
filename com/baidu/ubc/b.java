@@ -4,7 +4,6 @@ import android.content.Context;
 import android.text.TextUtils;
 import android.util.Base64;
 import android.util.Log;
-import com.baidu.platform.comapi.map.MapBundleKey;
 import com.baidu.searchbox.config.AppConfig;
 import java.io.BufferedReader;
 import java.io.File;
@@ -13,7 +12,7 @@ import java.io.FileReader;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class b {
     private static final boolean DEBUG = AppConfig.isDebug();
     private Context mContext;
@@ -51,19 +50,19 @@ public class b {
             jSONObject.put("type", "0");
             if (!TextUtils.isEmpty(nVar.getContent())) {
                 jSONObject.put("content", nVar.getContent());
-            } else if (nVar.biC() != null) {
-                jSONObject.put("content", nVar.biC().toString());
+            } else if (nVar.beI() != null) {
+                jSONObject.put("content", nVar.beI().toString());
             }
-            if (!TextUtils.isEmpty(nVar.biB())) {
-                jSONObject.put("abtest", nVar.biB());
+            if (!TextUtils.isEmpty(nVar.beH())) {
+                jSONObject.put("abtest", nVar.beH());
             }
             if (!TextUtils.isEmpty(nVar.getCategory())) {
                 jSONObject.put("c", nVar.getCategory());
             }
-            if (nVar.bix()) {
-                jSONObject.put(MapBundleKey.MapObjKey.OBJ_OFFSET, "1");
+            if (nVar.beD()) {
+                jSONObject.put("of", "1");
             }
-            jSONObject.put("idtype", g.eiX().zu(nVar.getId()));
+            jSONObject.put("idtype", g.eff().yj(nVar.getId()));
         } catch (JSONException e) {
             if (DEBUG) {
                 Log.d("UBCFileData", e.getMessage());
@@ -129,7 +128,7 @@ public class b {
             file.mkdirs();
         }
         File file2 = new File(file, "filequality");
-        if (file2.length() > g.eiX().eiY()) {
+        if (file2.length() > g.eff().efg()) {
             if (file2.delete()) {
                 file2 = new File(file, "filequality");
             } else {
@@ -156,7 +155,7 @@ public class b {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void B(Exception exc) {
-        ac.ejp().XC(Log.getStackTraceString(exc));
+        ac.efx().Wu(Log.getStackTraceString(exc));
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [254=4] */
@@ -183,7 +182,7 @@ public class b {
                             }
                             JSONObject jSONObject = new JSONObject(new String(Base64.decode(readLine.getBytes(), 2)));
                             if (jSONObject.has("abtest")) {
-                                ajVar.zF("1");
+                                ajVar.yu("1");
                             }
                             long j3 = jSONObject.getLong("timestamp");
                             if (j3 > 0) {
@@ -273,7 +272,7 @@ public class b {
                             }
                             JSONObject jSONObject = new JSONObject(new String(Base64.decode(readLine.getBytes(), 2)));
                             if (jSONObject.has("abtest")) {
-                                ajVar.zF("1");
+                                ajVar.yu("1");
                             }
                             long j3 = jSONObject.getLong("timestamp");
                             if (j3 > 0) {
@@ -335,7 +334,7 @@ public class b {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void iJ(boolean z) {
+    public void iF(boolean z) {
         File[] listFiles;
         File file = new File(this.mContext.getFilesDir(), "ubcdir");
         if (file.exists()) {

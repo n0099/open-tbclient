@@ -1,5 +1,5 @@
 package com.baidu.live.lottie.model.content;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public enum GradientType {
     Linear,
     Radial

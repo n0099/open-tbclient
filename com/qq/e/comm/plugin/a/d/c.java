@@ -1,27 +1,27 @@
 package com.qq.e.comm.plugin.a.d;
 
 import com.qq.e.comm.plugin.util.bf;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    private final bf<String, a> f11912a = new bf<>();
+    private final bf<String, a> f11612a = new bf<>();
 
     public void a(a aVar) {
-        this.f11912a.a((bf<String, a>) "*", (String) aVar);
+        this.f11612a.a((bf<String, a>) "*", (String) aVar);
     }
 
     public void a(String str, int i, int i2, long j) {
-        for (a aVar : this.f11912a.a(str)) {
+        for (a aVar : this.f11612a.a(str)) {
             aVar.a(str, i, i2, j);
         }
-        for (a aVar2 : this.f11912a.a("*")) {
+        for (a aVar2 : this.f11612a.a("*")) {
             aVar2.a(str, i, i2, j);
         }
     }
 
     public void a(String str, a aVar) {
-        this.f11912a.a((bf<String, a>) str, (String) aVar);
+        this.f11612a.a((bf<String, a>) str, (String) aVar);
     }
 
     public void b(a aVar) {
@@ -29,6 +29,6 @@ public class c {
     }
 
     public void b(String str, a aVar) {
-        this.f11912a.a(str, (String) aVar);
+        this.f11612a.a(str, (String) aVar);
     }
 }

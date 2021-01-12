@@ -17,14 +17,14 @@ import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class ApkInstallCheckManager {
 
     /* renamed from: a  reason: collision with root package name */
-    private Future f9360a;
+    private Future f9060a;
 
     /* renamed from: b  reason: collision with root package name */
-    private File f9361b;
+    private File f9061b;
     private final ExecutorService c;
     private PackageManager d;
     private final f e;
@@ -32,7 +32,7 @@ public class ApkInstallCheckManager {
     private final Callable<PackageInfo> g;
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public enum Holder {
         INSTANCE;
         
@@ -56,8 +56,8 @@ public class ApkInstallCheckManager {
             public PackageInfo call() {
                 PackageInfo a2;
                 synchronized (ApkInstallCheckManager.class) {
-                    if (ApkInstallCheckManager.this.f9361b != null && ApkInstallCheckManager.this.f9361b.exists()) {
-                        for (File file : ApkInstallCheckManager.this.b(ApkInstallCheckManager.this.f9361b)) {
+                    if (ApkInstallCheckManager.this.f9061b != null && ApkInstallCheckManager.this.f9061b.exists()) {
+                        for (File file : ApkInstallCheckManager.this.b(ApkInstallCheckManager.this.f9061b)) {
                             if (file.getName().endsWith(".apk") && a.a().a(file.getAbsolutePath()) != null && (a2 = ApkInstallCheckManager.this.a(file)) != null) {
                                 ApkInstallCheckManager.this.e.a(file);
                                 return a2;
@@ -74,7 +74,7 @@ public class ApkInstallCheckManager {
             return;
         }
         try {
-            this.f9361b = ad.c(KsAdSDKImpl.get().getContext());
+            this.f9061b = ad.c(KsAdSDKImpl.get().getContext());
             this.d = KsAdSDKImpl.get().getContext().getPackageManager();
         } catch (Throwable th) {
             com.kwad.sdk.core.d.a.a(th);
@@ -135,9 +135,9 @@ public class ApkInstallCheckManager {
     }
 
     public void b() {
-        if (this.f && this.f9361b != null && this.f9361b.exists()) {
-            if (this.f9360a == null || this.f9360a.isDone()) {
-                this.f9360a = this.c.submit(this.g);
+        if (this.f && this.f9061b != null && this.f9061b.exists()) {
+            if (this.f9060a == null || this.f9060a.isDone()) {
+                this.f9060a = this.c.submit(this.g);
             }
         }
     }

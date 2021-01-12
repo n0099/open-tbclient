@@ -1,28 +1,28 @@
 package com.baidu.tieba.newfaceshop.nativemotionmanager;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class a {
-    private static a lzg;
-    private volatile boolean jdU = false;
+    private static a luA;
+    private volatile boolean iZn = false;
 
     private a() {
     }
 
-    public void Wb() {
-        this.jdU = false;
+    public void Si() {
+        this.iZn = false;
     }
 
-    public void sM(boolean z) {
-        this.jdU = z;
+    public void sI(boolean z) {
+        this.iZn = z;
     }
 
-    public boolean bOv() {
-        return this.jdU;
+    public boolean bKD() {
+        return this.iZn;
     }
 
-    public static a dkI() {
-        if (lzg == null) {
-            lzg = new a();
+    public static a dgQ() {
+        if (luA == null) {
+            luA = new a();
         }
-        return lzg;
+        return luA;
     }
 }

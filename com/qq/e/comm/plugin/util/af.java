@@ -4,7 +4,7 @@ import android.text.TextUtils;
 import com.qq.e.comm.plugin.t.b.e;
 import com.qq.e.comm.plugin.t.c;
 import com.qq.e.comm.util.GDTLogger;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class af {
     public static void a(String str) {
         a(str, true, null);

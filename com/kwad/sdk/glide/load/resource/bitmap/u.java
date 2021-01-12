@@ -2,18 +2,18 @@ package com.kwad.sdk.glide.load.resource.bitmap;
 
 import android.graphics.Bitmap;
 import androidx.annotation.NonNull;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public final class u implements com.kwad.sdk.glide.load.f<Bitmap, Bitmap> {
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static final class a implements com.kwad.sdk.glide.load.engine.s<Bitmap> {
 
         /* renamed from: a  reason: collision with root package name */
-        private final Bitmap f10600a;
+        private final Bitmap f10300a;
 
         a(@NonNull Bitmap bitmap) {
-            this.f10600a = bitmap;
+            this.f10300a = bitmap;
         }
 
         @Override // com.kwad.sdk.glide.load.engine.s
@@ -27,12 +27,12 @@ public final class u implements com.kwad.sdk.glide.load.f<Bitmap, Bitmap> {
         @NonNull
         /* renamed from: b */
         public Bitmap e() {
-            return this.f10600a;
+            return this.f10300a;
         }
 
         @Override // com.kwad.sdk.glide.load.engine.s
         public int c() {
-            return com.kwad.sdk.glide.g.k.a(this.f10600a);
+            return com.kwad.sdk.glide.g.k.a(this.f10300a);
         }
 
         @Override // com.kwad.sdk.glide.load.engine.s

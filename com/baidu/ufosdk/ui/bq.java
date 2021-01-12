@@ -3,15 +3,15 @@ package com.baidu.ufosdk.ui;
 import android.view.View;
 import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class bq implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ FeedbackInputActivity f5753a;
+    final /* synthetic */ FeedbackInputActivity f5470a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bq(FeedbackInputActivity feedbackInputActivity) {
-        this.f5753a = feedbackInputActivity;
+        this.f5470a = feedbackInputActivity;
     }
 
     @Override // android.view.View.OnClickListener
@@ -19,20 +19,20 @@ public final class bq implements View.OnClickListener {
         List list;
         List list2;
         List list3;
-        if (this.f5753a.D) {
+        if (this.f5470a.D) {
             return;
         }
-        list = this.f5753a.at;
+        list = this.f5470a.at;
         list.remove(((Integer) view.getTag()).intValue());
-        list2 = this.f5753a.at;
+        list2 = this.f5470a.at;
         if (list2.size() == 1) {
-            byte[] a2 = com.baidu.ufosdk.f.m.a(this.f5753a.getApplicationContext());
+            byte[] a2 = com.baidu.ufosdk.f.m.a(this.f5470a.getApplicationContext());
             if (a2 == null) {
                 return;
             }
-            list3 = this.f5753a.at;
+            list3 = this.f5470a.at;
             list3.set(0, a2);
         }
-        this.f5753a.a(false);
+        this.f5470a.a(false);
     }
 }

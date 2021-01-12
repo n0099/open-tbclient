@@ -17,7 +17,7 @@ import com.baidu.sapi2.SapiContext;
 import com.baidu.tieba.ala.alaar.sticker.model.FuFaceItem;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class IMSetShieldAndTopRequest extends IMSettingBaseHttpRequest {
     private static final String TAG = "IMSetShieldAndTopRequest";
     private long mContacter;

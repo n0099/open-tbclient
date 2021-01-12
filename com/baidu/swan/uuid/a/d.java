@@ -24,17 +24,17 @@ public class d implements b<String> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.swan.uuid.a.b
-    /* renamed from: aRo */
+    /* renamed from: aNu */
     public String get() {
-        return bjl();
+        return bfr();
     }
 
     @Override // com.baidu.swan.uuid.a.b
-    public boolean bjj() {
+    public boolean bfp() {
         return false;
     }
 
-    private String bjl() {
+    private String bfr() {
         String str = null;
         List<ResolveInfo> queryBroadcastReceivers = this.mContext.getPackageManager().queryBroadcastReceivers(new Intent("com.baidu.intent.action.UUID"), 0);
         if (queryBroadcastReceivers == null || queryBroadcastReceivers.size() <= 0) {
@@ -43,11 +43,11 @@ public class d implements b<String> {
         for (ResolveInfo resolveInfo : queryBroadcastReceivers) {
             if (resolveInfo.activityInfo != null && resolveInfo.activityInfo.applicationInfo != null && !this.mContext.getPackageName().equals(resolveInfo.activityInfo.applicationInfo.packageName)) {
                 File file = new File(new File(resolveInfo.activityInfo.applicationInfo.dataDir, com.baidu.fsg.face.base.b.c.g), "libuuid.so");
-                String w = file.exists() ? com.baidu.swan.uuid.b.a.w(file) : str;
-                if (!TextUtils.isEmpty(w)) {
-                    return w;
+                String v = file.exists() ? com.baidu.swan.uuid.b.a.v(file) : str;
+                if (!TextUtils.isEmpty(v)) {
+                    return v;
                 }
-                str = w;
+                str = v;
             }
         }
         return str;

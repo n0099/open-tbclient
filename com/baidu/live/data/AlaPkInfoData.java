@@ -1,8 +1,8 @@
 package com.baidu.live.data;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class AlaPkInfoData {
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public enum AlaPkInfoResult {
         AlaPkInfoResultWin,
         AlaPkInfoResultLoss,

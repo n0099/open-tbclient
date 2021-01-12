@@ -12,11 +12,11 @@ import com.kwad.sdk.R;
 import com.kwad.sdk.contentalliance.home.viewpager.SlidePlayViewPager;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.utils.ae;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class o extends com.kwad.sdk.contentalliance.home.e {
 
     /* renamed from: b  reason: collision with root package name */
-    private SlidePlayViewPager f9005b;
+    private SlidePlayViewPager f8705b;
     private View c;
     private TextView d;
     private LottieAnimationView e;
@@ -44,12 +44,12 @@ public class o extends com.kwad.sdk.contentalliance.home.e {
     };
 
     private void e() {
-        this.f9005b.b(this.k);
+        this.f8705b.b(this.k);
         this.k = new ViewPager.SimpleOnPageChangeListener() { // from class: com.kwad.sdk.contentalliance.home.b.o.1
             @Override // androidx.viewpager.widget.ViewPager.SimpleOnPageChangeListener, androidx.viewpager.widget.ViewPager.OnPageChangeListener
             public void onPageSelected(int i) {
                 if (o.this.n == 1) {
-                    com.kwad.sdk.contentalliance.home.viewpager.a adapter = o.this.f9005b.getAdapter();
+                    com.kwad.sdk.contentalliance.home.viewpager.a adapter = o.this.f8705b.getAdapter();
                     AdTemplate e = adapter.e(adapter.a(i));
                     if (e == null || !com.kwad.sdk.core.response.b.c.b(e)) {
                         return;
@@ -68,7 +68,7 @@ public class o extends com.kwad.sdk.contentalliance.home.e {
                 }
             }
         };
-        this.f9005b.a(this.k);
+        this.f8705b.a(this.k);
     }
 
     @SuppressLint({"ClickableViewAccessibility"})
@@ -132,7 +132,7 @@ public class o extends com.kwad.sdk.contentalliance.home.e {
             this.l = false;
             ae.b(o());
             com.kwad.sdk.contentalliance.detail.photo.newui.d.c.a().b(false);
-            this.f9005b.setEnabled(true);
+            this.f8705b.setEnabled(true);
             this.g.d();
             this.c.setOnTouchListener(null);
             this.c.setVisibility(8);
@@ -148,7 +148,7 @@ public class o extends com.kwad.sdk.contentalliance.home.e {
             this.m = false;
             ae.d(o());
             com.kwad.sdk.contentalliance.detail.photo.newui.d.c.a().a(false);
-            this.f9005b.setEnabled(true);
+            this.f8705b.setEnabled(true);
             this.e.d();
             this.c.setOnTouchListener(null);
             if (this.l) {
@@ -184,7 +184,7 @@ public class o extends com.kwad.sdk.contentalliance.home.e {
     }
 
     private void p() {
-        this.f9005b.setEnabled(false);
+        this.f8705b.setEnabled(false);
         this.g.d();
         this.f.setVisibility(8);
         this.g.setVisibility(8);
@@ -196,7 +196,7 @@ public class o extends com.kwad.sdk.contentalliance.home.e {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void q() {
-        this.f9005b.setEnabled(false);
+        this.f8705b.setEnabled(false);
         this.e.d();
         this.e.setVisibility(8);
         this.d.setVisibility(8);
@@ -213,9 +213,9 @@ public class o extends com.kwad.sdk.contentalliance.home.e {
     @Override // com.kwad.sdk.contentalliance.home.e, com.kwad.sdk.mvp.Presenter
     public void a() {
         super.a();
-        this.f9005b.setEnabled(true);
+        this.f8705b.setEnabled(true);
         this.m = ae.c(o());
-        this.l = ae.a(o()) && this.f9034a.l;
+        this.l = ae.a(o()) && this.f8734a.l;
         if (this.m) {
             this.n = 0;
             p();
@@ -230,7 +230,7 @@ public class o extends com.kwad.sdk.contentalliance.home.e {
             this.g.setVisibility(8);
             this.c.setVisibility(8);
         }
-        this.f9034a.f9036b.a(this.p);
+        this.f8734a.f8736b.a(this.p);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -238,7 +238,7 @@ public class o extends com.kwad.sdk.contentalliance.home.e {
     public void b_() {
         super.b_();
         if (this.k != null) {
-            this.f9005b.b(this.k);
+            this.f8705b.b(this.k);
         }
         if (this.e.c()) {
             this.e.d();
@@ -249,14 +249,14 @@ public class o extends com.kwad.sdk.contentalliance.home.e {
         this.c.animate().cancel();
         this.c.setOnTouchListener(null);
         this.c.setVisibility(8);
-        this.f9034a.f9036b.b(this.p);
+        this.f8734a.f8736b.b(this.p);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.kwad.sdk.mvp.Presenter
     public void c() {
         super.c();
-        this.f9005b = (SlidePlayViewPager) b(R.id.ksad_slide_play_view_pager);
+        this.f8705b = (SlidePlayViewPager) b(R.id.ksad_slide_play_view_pager);
         this.c = b(R.id.ksad_guider_mask);
         this.d = (TextView) b(R.id.ksad_guider_up_title);
         this.e = (LottieAnimationView) b(R.id.ksad_guider_up_anim);

@@ -8,12 +8,12 @@ import com.baidu.live.tbadk.data.Config;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.payment.message.ResponsePayNewVcodeInfoMessage;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class PayVcodeModel extends BdBaseModel<PayVcodeModel> {
-    private f<?> lDe;
+    private f<?> lyz;
 
     public PayVcodeModel(f<?> fVar) {
-        this.lDe = fVar;
+        this.lyz = fVar;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -26,11 +26,11 @@ public class PayVcodeModel extends BdBaseModel<PayVcodeModel> {
         return false;
     }
 
-    public void dlY() {
-        this.lDe.sendMessage(new HttpMessage(1001539));
+    public void dig() {
+        this.lyz.sendMessage(new HttpMessage(1001539));
     }
 
-    public void dlZ() {
+    public void dih() {
         MessageManager messageManager = MessageManager.getInstance();
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1001539, TbConfig.SERVER_ADDRESS + Config.PAY_NEW_VCODE);
         tbHttpMessageTask.setResponsedClass(ResponsePayNewVcodeInfoMessage.class);

@@ -9,17 +9,17 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes14.dex */
 public final class d {
-    private static com.baidu.crabsdk.c.b<List> apN = new com.baidu.crabsdk.c.b<>(com.baidu.crabsdk.a.f);
-    private static float apO = 0.0f;
-    private static float apP = 0.0f;
-    private static float apQ = 0.0f;
-    private static float apR = 0.0f;
+    private static com.baidu.crabsdk.c.b<List> aoY = new com.baidu.crabsdk.c.b<>(com.baidu.crabsdk.a.f);
+    private static float aoZ = 0.0f;
+    private static float apa = 0.0f;
+    private static float apb = 0.0f;
+    private static float apc = 0.0f;
     private static String bc = "";
-    private static long apS = 0;
-    private static long apT = 0;
-    private static Rect apU = null;
+    private static long apd = 0;
+    private static long ape = 0;
+    private static Rect apf = null;
 
     private static List<View> I(View view) {
         ArrayList arrayList = new ArrayList();
@@ -28,19 +28,19 @@ public final class d {
             for (int i = 0; i < viewGroup.getChildCount(); i++) {
                 View childAt = viewGroup.getChildAt(i);
                 if (childAt.getVisibility() == 0) {
-                    int i2 = (int) apO;
-                    int i3 = (int) apP;
-                    if (apU == null) {
-                        apU = new Rect();
+                    int i2 = (int) aoZ;
+                    int i3 = (int) apa;
+                    if (apf == null) {
+                        apf = new Rect();
                     }
-                    childAt.getDrawingRect(apU);
+                    childAt.getDrawingRect(apf);
                     int[] iArr = new int[2];
                     childAt.getLocationOnScreen(iArr);
-                    apU.left = iArr[0];
-                    apU.top = iArr[1];
-                    apU.right += iArr[0];
-                    apU.bottom = iArr[1] + apU.bottom;
-                    if (apU.contains(i2, i3)) {
+                    apf.left = iArr[0];
+                    apf.top = iArr[1];
+                    apf.right += iArr[0];
+                    apf.bottom = iArr[1] + apf.bottom;
+                    if (apf.contains(i2, i3)) {
                         arrayList.add(childAt);
                         arrayList.addAll(I(childAt));
                     }
@@ -67,27 +67,27 @@ public final class d {
         switch (i) {
             case 1:
                 arrayList.add("click");
-                arrayList.add("(" + apO + ", " + apP + ")");
+                arrayList.add("(" + aoZ + ", " + apa + ")");
                 break;
             case 2:
                 arrayList.add("doubleClick");
-                arrayList.add("(" + apO + ", " + apP + ")");
+                arrayList.add("(" + aoZ + ", " + apa + ")");
                 break;
             case 3:
                 arrayList.add("longPressed");
-                arrayList.add("(" + apO + ", " + apP + ")");
+                arrayList.add("(" + aoZ + ", " + apa + ")");
                 break;
             case 4:
                 arrayList.add("scroll");
-                arrayList.add("from:(" + apO + ", " + apP + ") to:(" + apQ + ", " + apR + ")");
+                arrayList.add("from:(" + aoZ + ", " + apa + ") to:(" + apb + ", " + apc + ")");
                 break;
             case 5:
                 arrayList.add("fling");
-                arrayList.add("from:(" + apO + ", " + apP + ") to:(" + apQ + ", " + apR + ")");
+                arrayList.add("from:(" + aoZ + ", " + apa + ") to:(" + apb + ", " + apc + ")");
                 break;
         }
         arrayList.add(bc);
-        apN.add(arrayList);
+        aoY.add(arrayList);
     }
 
     public static void dispatchTouchEvent(MotionEvent motionEvent, Activity activity) {
@@ -97,21 +97,21 @@ public final class d {
         bc = activity.getClass().getName();
         switch (motionEvent.getAction()) {
             case 0:
-                apO = motionEvent.getX();
-                apP = motionEvent.getY();
-                apS = System.currentTimeMillis();
+                aoZ = motionEvent.getX();
+                apa = motionEvent.getY();
+                apd = System.currentTimeMillis();
                 return;
             case 1:
-                apQ = motionEvent.getX();
-                apR = motionEvent.getY();
-                apT = System.currentTimeMillis();
-                if (Math.abs(apR - apP) > 30.0f) {
+                apb = motionEvent.getX();
+                apc = motionEvent.getY();
+                ape = System.currentTimeMillis();
+                if (Math.abs(apc - apa) > 30.0f) {
                     a(4, activity);
                     return;
-                } else if (Math.abs(apQ - apO) > 30.0f && Math.abs(apR - apP) < 30.0f) {
+                } else if (Math.abs(apb - aoZ) > 30.0f && Math.abs(apc - apa) < 30.0f) {
                     a(5, activity);
                     return;
-                } else if (apT - apS > 300) {
+                } else if (ape - apd > 300) {
                     a(3, activity);
                     return;
                 } else {
@@ -126,9 +126,9 @@ public final class d {
 
     public static String w() {
         StringBuilder sb = new StringBuilder();
-        int size = apN.size();
+        int size = aoY.size();
         for (int i = 0; i < size; i++) {
-            List list = apN.get(i);
+            List list = aoY.get(i);
             if (list == null || list.size() <= 0) {
                 return sb.toString();
             }

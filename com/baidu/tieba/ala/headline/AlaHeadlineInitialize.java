@@ -8,18 +8,18 @@ import com.baidu.live.d.j;
 import com.baidu.live.tbadk.TbPageContext;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.ala.headline.dialog.AlaHeadlineActivity;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class AlaHeadlineInitialize {
     static {
-        bZQ();
-        bZP();
+        bVY();
+        bVX();
     }
 
-    private static void bZP() {
+    private static void bVX() {
         TbadkCoreApplication.getInst().RegisterIntent(j.class, AlaHeadlineActivity.class);
     }
 
-    private static void bZQ() {
+    private static void bVY() {
         CustomMessageTask customMessageTask = new CustomMessageTask(2913240, new CustomMessageTask.CustomRunnable<TbPageContext>() { // from class: com.baidu.tieba.ala.headline.AlaHeadlineInitialize.1
             @Override // com.baidu.live.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<com.baidu.live.l.a> run(CustomMessage<TbPageContext> customMessage) {

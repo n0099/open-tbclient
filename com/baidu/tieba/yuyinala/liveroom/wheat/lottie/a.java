@@ -5,57 +5,57 @@ import com.baidu.live.adp.lib.util.StringUtils;
 import com.baidu.live.data.av;
 import com.baidu.live.data.cd;
 import com.baidu.live.sdk.a;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class a {
-    private static a oDr;
-    private int oDs = 0;
+    private static a oyM;
+    private int oyN = 0;
 
-    public static a efK() {
-        if (oDr == null) {
+    public static a ebS() {
+        if (oyM == null) {
             synchronized (a.class) {
-                if (oDr == null) {
-                    oDr = new a();
+                if (oyM == null) {
+                    oyM = new a();
                 }
             }
         }
-        return oDr;
+        return oyM;
     }
 
     private a() {
     }
 
     public void a(ViewGroup viewGroup, c cVar) {
-        av Fk = Fk();
-        if (!a(Fk) && a(Fk, true)) {
-            b.efP().a(viewGroup, Fk.Fd(), cVar);
+        av Bp = Bp();
+        if (!a(Bp) && a(Bp, true)) {
+            b.ebX().a(viewGroup, Bp.Bi(), cVar);
         }
     }
 
     public void b(ViewGroup viewGroup, c cVar) {
-        av efL = efL();
-        if (!a(efL) && a(efL, true)) {
-            b.efP().a(viewGroup, efL.Fd(), cVar);
+        av ebT = ebT();
+        if (!a(ebT) && a(ebT, true)) {
+            b.ebX().a(viewGroup, ebT.Bi(), cVar);
         }
     }
 
     public void c(ViewGroup viewGroup, c cVar) {
-        av efM = efM();
-        if (!a(efM) && a(efM, true)) {
-            b.efP().a(viewGroup, efM.Fd(), cVar);
+        av ebU = ebU();
+        if (!a(ebU) && a(ebU, true)) {
+            b.ebX().a(viewGroup, ebU.Bi(), cVar);
         }
     }
 
     public void d(ViewGroup viewGroup, c cVar) {
-        av efN = efN();
-        if (!a(efN) && a(efN, true)) {
-            b.efP().a(viewGroup, efN.Fd(), cVar);
+        av ebV = ebV();
+        if (!a(ebV) && a(ebV, true)) {
+            b.ebX().a(viewGroup, ebV.Bi(), cVar);
         }
     }
 
     public void a(ViewGroup viewGroup, String str, String str2, c cVar) {
-        av Fl = Fl();
-        if (!a(Fl) && a(Fl, true) && !StringUtils.isNull(str, true) && !StringUtils.isNull(str2, true)) {
-            b.efP().a(viewGroup, Fl.Fd(), str, str2, cVar);
+        av Bq = Bq();
+        if (!a(Bq) && a(Bq, true) && !StringUtils.isNull(str, true) && !StringUtils.isNull(str2, true)) {
+            b.ebX().a(viewGroup, Bq.Bi(), str, str2, cVar);
         }
     }
 
@@ -64,9 +64,9 @@ public class a {
     }
 
     public void b(ViewGroup viewGroup, String str, String str2, c cVar) {
-        av Fm = Fm();
-        if (!a(Fm) && a(Fm, true) && !StringUtils.isNull(str, true) && !StringUtils.isNull(str2, true)) {
-            b.efP().b(viewGroup, Fm.Fd(), str, str2, cVar);
+        av Br = Br();
+        if (!a(Br) && a(Br, true) && !StringUtils.isNull(str, true) && !StringUtils.isNull(str2, true)) {
+            b.ebX().b(viewGroup, Br.Bi(), str, str2, cVar);
         }
     }
 
@@ -75,9 +75,9 @@ public class a {
     }
 
     public void c(ViewGroup viewGroup, String str, String str2, c cVar) {
-        av Fn = Fn();
-        if (!a(Fn) && a(Fn, true) && !StringUtils.isNull(str, true) && !StringUtils.isNull(str2, true)) {
-            b.efP().c(viewGroup, Fn.Fd(), str, str2, cVar);
+        av Bs = Bs();
+        if (!a(Bs) && a(Bs, true) && !StringUtils.isNull(str, true) && !StringUtils.isNull(str2, true)) {
+            b.ebX().c(viewGroup, Bs.Bi(), str, str2, cVar);
         }
     }
 
@@ -85,79 +85,79 @@ public class a {
         if (avVar == null) {
             return false;
         }
-        boolean WG = com.baidu.tieba.yuyinala.liveroom.wheat.lottie.a.c.WG(avVar.Fd());
-        if (!WG && z) {
-            com.baidu.tieba.yuyinala.liveroom.wheat.lottie.a.c.b(avVar.getDownloadUrl(), avVar.Fd(), null);
-            return WG;
+        boolean Vy = com.baidu.tieba.yuyinala.liveroom.wheat.lottie.a.c.Vy(avVar.Bi());
+        if (!Vy && z) {
+            com.baidu.tieba.yuyinala.liveroom.wheat.lottie.a.c.b(avVar.getDownloadUrl(), avVar.Bi(), null);
+            return Vy;
         }
-        return WG;
+        return Vy;
     }
 
-    private av Fk() {
-        cd efO = efO();
-        if (efO == null) {
+    private av Bp() {
+        cd ebW = ebW();
+        if (ebW == null) {
             return null;
         }
-        return efO.Fk();
+        return ebW.Bp();
     }
 
-    private av efL() {
-        cd efO = efO();
-        if (efO == null) {
+    private av ebT() {
+        cd ebW = ebW();
+        if (ebW == null) {
             return null;
         }
-        return efO.Fo();
+        return ebW.Bt();
     }
 
-    private av efM() {
-        cd efO = efO();
-        if (efO == null) {
+    private av ebU() {
+        cd ebW = ebW();
+        if (ebW == null) {
             return null;
         }
-        return efO.Fp();
+        return ebW.Bu();
     }
 
-    private av efN() {
-        cd efO = efO();
-        if (efO == null) {
+    private av ebV() {
+        cd ebW = ebW();
+        if (ebW == null) {
             return null;
         }
-        return efO.Fq();
+        return ebW.Bv();
     }
 
-    private av Fl() {
-        cd efO = efO();
-        if (efO == null) {
+    private av Bq() {
+        cd ebW = ebW();
+        if (ebW == null) {
             return null;
         }
-        return efO.Fl();
+        return ebW.Bq();
     }
 
-    private av Fm() {
-        cd efO = efO();
-        if (efO == null) {
+    private av Br() {
+        cd ebW = ebW();
+        if (ebW == null) {
             return null;
         }
-        return efO.Fm();
+        return ebW.Br();
     }
 
-    private av Fn() {
-        cd efO = efO();
-        if (efO == null) {
+    private av Bs() {
+        cd ebW = ebW();
+        if (ebW == null) {
             return null;
         }
-        return efO.Fn();
+        return ebW.Bs();
     }
 
     private static boolean a(av avVar) {
-        return avVar == null || StringUtils.isNull(avVar.getDownloadUrl(), true) || StringUtils.isNull(avVar.Fd(), true);
+        return avVar == null || StringUtils.isNull(avVar.getDownloadUrl(), true) || StringUtils.isNull(avVar.Bi(), true);
     }
 
-    private cd efO() {
-        if (com.baidu.live.af.a.SE().bwi == null || com.baidu.live.af.a.SE().bwi.aPq == null) {
+    private cd ebW() {
+        if (com.baidu.live.af.a.OJ().bru == null || com.baidu.live.af.a.OJ().bru.aKD == null) {
             return null;
         }
-        return com.baidu.live.af.a.SE().bwi.aPq.aSS;
+        return com.baidu.live.af.a.OJ().bru.aKD.aOf;
     }
 
     public void dh(ViewGroup viewGroup) {
@@ -179,11 +179,11 @@ public class a {
         }
     }
 
-    public boolean WD(String str) {
+    public boolean Vv(String str) {
         if (StringUtils.isNull(str, true)) {
             return false;
         }
-        String iw = com.baidu.live.ah.b.iw(str);
-        return com.baidu.live.i.a.existFile(iw) && com.baidu.live.i.a.isDirectory(iw) && !com.baidu.live.i.b.b(iw, com.baidu.live.i.b.gt(new StringBuilder().append("video_bg_md5_").append(str).toString()));
+        String hl = com.baidu.live.ah.b.hl(str);
+        return com.baidu.live.i.a.existFile(hl) && com.baidu.live.i.a.isDirectory(hl) && !com.baidu.live.i.b.b(hl, com.baidu.live.i.b.fh(new StringBuilder().append("video_bg_md5_").append(str).toString()));
     }
 }

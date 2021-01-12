@@ -1,5 +1,6 @@
 package com.coremedia.iso;
 
+import com.baidu.searchbox.config.DefaultSharedPrefsWrapper;
 import com.coremedia.iso.boxes.Box;
 import java.io.IOException;
 import java.io.InputStream;
@@ -9,7 +10,7 @@ import java.util.Enumeration;
 import java.util.Properties;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class PropertyBoxParserImpl extends AbstractBoxParser {
     static String[] EMPTY_STRING_ARRAY = new String[0];
     String clazzName;
@@ -114,7 +115,7 @@ public class PropertyBoxParserImpl extends AbstractBoxParser {
             }
         }
         if (property == null) {
-            property = this.mapping.getProperty("default");
+            property = this.mapping.getProperty(DefaultSharedPrefsWrapper.SP_FILE_DEFAULT);
         }
         if (property == null) {
             throw new RuntimeException("No box object found for " + str);

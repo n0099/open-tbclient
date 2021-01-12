@@ -45,7 +45,7 @@ public class a {
     }
 
     public static void a(Context context, String str, String str2, boolean z, boolean z2, boolean z3, Bundle bundle) {
-        bnU();
+        bka();
         try {
             if (!StringUtils.isNull(str2)) {
                 MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AdWebViewActivityConfig(context, str, str2, z, z2, z3, bundle)));
@@ -102,7 +102,7 @@ public class a {
     /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:17:0x00c4 -> B:33:0x001c). Please submit an issue!!! */
     public static void initCookie(Context context) {
         CookieManager cookieManager;
-        a.b AB = com.baidu.tbadk.core.a.a.bow().AB(TbadkCoreApplication.getCurrentBduss());
+        a.b zq = com.baidu.tbadk.core.a.a.bkC().zq(TbadkCoreApplication.getCurrentBduss());
         try {
             CookieSyncManager.createInstance(TbadkCoreApplication.getInst());
             cookieManager = CookieManager.getInstance();
@@ -111,7 +111,7 @@ public class a {
             cookieManager = null;
         }
         if (cookieManager != null) {
-            if (AB != null) {
+            if (zq != null) {
                 cookieManager.setAcceptCookie(true);
                 cookieManager.setCookie("baidu.com", "CUID=" + TbadkCoreApplication.getInst().getCuid() + "; domain=.baidu.com; cuid_galaxy2=" + TbadkCoreApplication.getInst().getCuidGalaxy2() + "; c3_aid=" + TbadkCoreApplication.getInst().getCuidGalaxy3() + "; cuid_gid=" + TbadkCoreApplication.getInst().getCuidGid() + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR);
                 String c = d.c(TbadkCoreApplication.getCurrentAccountInfo());
@@ -146,7 +146,7 @@ public class a {
         }
     }
 
-    private static void bnU() {
+    private static void bka() {
         new ai("open_webview", true).start();
     }
 }

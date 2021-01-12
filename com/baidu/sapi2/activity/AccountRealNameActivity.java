@@ -4,7 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.widget.Toast;
-import com.baidu.l.a.a;
+import com.baidu.j.a.a;
 import com.baidu.sapi2.CoreViewRouter;
 import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.sapi2.SapiJsCallBacks;

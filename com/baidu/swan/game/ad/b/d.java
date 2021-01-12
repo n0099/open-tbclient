@@ -14,122 +14,122 @@ import java.util.HashMap;
 import java.util.Iterator;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes14.dex */
 public abstract class d {
-    private static String ebF = "ug_";
-    private static String ebG = "ug_business";
-    private static String ebH = "ctkey";
-    private static String ebI = "CTK";
-    private static String ebJ = "eqid";
-    private static String ebK = "sid_eid";
-    private static String ebL = "exps";
-    private String dZp;
-    private String ebM;
-    private String ebN;
-    public b ebR;
-    private String ebS;
+    private static String dWT = "ug_";
+    private static String dWU = "ug_business";
+    private static String dWV = "ctkey";
+    private static String dWW = "CTK";
+    private static String dWX = "eqid";
+    private static String dWY = "sid_eid";
+    private static String dWZ = "exps";
+    private String dUD;
+    private String dXa;
+    private String dXb;
+    public b dXf;
+    private String dXg;
     protected Context mContext;
-    private String ebE = "https://mobads.baidu.com/cpro/ui/mads.php";
-    private String ebO = "1";
-    private String ebP = "2";
-    private String ebQ = "8.800201";
+    private String dWS = "https://mobads.baidu.com/cpro/ui/mads.php";
+    private String dXc = "1";
+    private String dXd = "2";
+    private String dXe = "8.800201";
 
-    protected abstract String aVO();
+    protected abstract String aRU();
 
-    protected abstract HashMap<String, String> aVP();
+    protected abstract HashMap<String, String> aRV();
 
     public d(Context context, b bVar) {
         this.mContext = context;
-        this.ebR = bVar;
-        if (this.ebR != null) {
-            this.dZp = this.ebR.aVL();
-            this.ebM = this.ebR.getAppSid();
-            this.ebN = this.ebR.aVM();
+        this.dXf = bVar;
+        if (this.dXf != null) {
+            this.dUD = this.dXf.aRR();
+            this.dXa = this.dXf.getAppSid();
+            this.dXb = this.dXf.aRS();
         }
-        if (!ak.aRQ()) {
-            this.ebS = com.baidu.swan.game.ad.d.e.aVU();
+        if (!ak.aNW()) {
+            this.dXg = com.baidu.swan.game.ad.d.e.aSa();
         }
     }
 
-    public String aVQ() {
-        HashMap<String, String> aVR = aVR();
-        aVR.putAll(aVP());
-        return com.baidu.swan.game.ad.d.c.getRequestAdUrl(this.ebE, aVR);
+    public String aRW() {
+        HashMap<String, String> aRX = aRX();
+        aRX.putAll(aRV());
+        return com.baidu.swan.game.ad.d.c.getRequestAdUrl(this.dWS, aRX);
     }
 
-    protected String aGA() {
-        return com.baidu.swan.apps.t.a.aAR().alU().getCookie(".baidu.com");
+    protected String aCG() {
+        return com.baidu.swan.apps.t.a.awX().aia().getCookie(".baidu.com");
     }
 
-    private HashMap<String, String> aVR() {
+    private HashMap<String, String> aRX() {
         String str;
-        b.a aMp;
+        b.a aIv;
         JSONArray optJSONArray;
         JSONObject jSONObject;
         HashMap<String, String> hashMap = new HashMap<>();
         try {
             hashMap.put(IXAdRequestInfo.QUERY_WIDTH, String.valueOf(Math.round(ah.getDisplayWidth(this.mContext) / ah.getDensity(this.mContext))));
             hashMap.put(IXAdRequestInfo.QUERY_HEIGHT, String.valueOf(Math.round(ah.getDisplayHeight(this.mContext) / ah.getDensity(this.mContext))));
-            hashMap.put("net", "" + aTz());
-            hashMap.put("n", this.ebO);
-            hashMap.put("pk", this.ebN);
-            hashMap.put("appid", this.ebM);
+            hashMap.put("net", "" + aPF());
+            hashMap.put("n", this.dXc);
+            hashMap.put("pk", this.dXb);
+            hashMap.put("appid", this.dXa);
             hashMap.put("sw", "" + ah.getDisplayWidth(this.mContext));
             hashMap.put(IXAdRequestInfo.SCREEN_HEIGHT, "" + ah.getDisplayHeight(this.mContext));
             hashMap.put(IXAdRequestInfo.SN, "" + getSn());
             hashMap.put("os", HttpConstants.OS_TYPE_VALUE);
-            hashMap.put("apid", "" + this.dZp);
+            hashMap.put("apid", "" + this.dUD);
             hashMap.put("chid", "0");
-            String aRP = ak.aRP();
-            if (aRP.equals("0")) {
-                aRP = "";
+            String aNV = ak.aNV();
+            if (aNV.equals("0")) {
+                aNV = "";
             }
-            hashMap.put("imei", aRP);
-            hashMap.put("cuid", com.baidu.swan.apps.t.a.aAx().cd(com.baidu.swan.apps.t.a.aAs()));
-            hashMap.put(IXAdRequestInfo.OSV, com.baidu.swan.apps.i.c.apd());
+            hashMap.put("imei", aNV);
+            hashMap.put("cuid", com.baidu.swan.apps.t.a.awD().cc(com.baidu.swan.apps.t.a.awy()));
+            hashMap.put(IXAdRequestInfo.OSV, com.baidu.swan.apps.i.c.alj());
             hashMap.put(IXAdRequestInfo.PHONE_TYPE, com.baidu.swan.apps.i.c.getDeviceModel());
             hashMap.put(IXAdRequestInfo.APP_VERSION_NAME, ak.getVersionName());
-            String cookieValue = ai.getCookieValue(aGA(), "BAIDUID");
+            String cookieValue = ai.getCookieValue(aCG(), "BAIDUID");
             if (!TextUtils.isEmpty(cookieValue) && cookieValue.split(":").length > 0) {
                 str = cookieValue.split(":")[0];
             } else {
                 str = "";
             }
             hashMap.put(ETAG.KEY_BAIDU_ID, str);
-            hashMap.put(IXAdRequestInfo.P_VER, this.ebQ);
-            hashMap.put("rpt", this.ebP);
+            hashMap.put(IXAdRequestInfo.P_VER, this.dXe);
+            hashMap.put("rpt", this.dXd);
             hashMap.put("tab", "2");
             hashMap.put("req_id", "");
-            com.baidu.swan.apps.runtime.e aMm = com.baidu.swan.apps.runtime.e.aMm();
-            String aVO = aVO();
-            hashMap.put(ebL, aVO);
-            if (aMm != null && (aMp = aMm.aMp()) != null) {
-                hashMap.put("scene", aMp.aCw());
-                JSONObject aCf = aMp.aCf();
-                if (aCf != null) {
-                    hashMap.put("eqid", aCf.optString(ebJ, ""));
+            com.baidu.swan.apps.runtime.e aIs = com.baidu.swan.apps.runtime.e.aIs();
+            String aRU = aRU();
+            hashMap.put(dWZ, aRU);
+            if (aIs != null && (aIv = aIs.aIv()) != null) {
+                hashMap.put("scene", aIv.ayC());
+                JSONObject ayl = aIv.ayl();
+                if (ayl != null) {
+                    hashMap.put("eqid", ayl.optString(dWX, ""));
                 }
-                JSONObject aCO = aMp.aCO();
-                if (aCO != null) {
-                    if (aCO.has(ebG) && (jSONObject = aCO.getJSONObject(ebG)) != null) {
+                JSONObject ayU = aIv.ayU();
+                if (ayU != null) {
+                    if (ayU.has(dWU) && (jSONObject = ayU.getJSONObject(dWU)) != null) {
                         Iterator<String> keys = jSONObject.keys();
                         while (keys != null && keys.hasNext()) {
                             String next = keys.next();
                             if (!TextUtils.isEmpty(next)) {
                                 String optString = jSONObject.optString(next, "none");
-                                if (ebI.equals(next)) {
-                                    hashMap.put(ebH, optString);
-                                    this.ebS = optString;
+                                if (dWW.equals(next)) {
+                                    hashMap.put(dWV, optString);
+                                    this.dXg = optString;
                                 } else {
-                                    hashMap.put(ebF + next, optString);
+                                    hashMap.put(dWT + next, optString);
                                 }
                             }
                         }
                     }
-                    if (aCO.has(ebK) && (optJSONArray = aCO.optJSONArray(ebK)) != null && optJSONArray.length() > 0) {
+                    if (ayU.has(dWY) && (optJSONArray = ayU.optJSONArray(dWY)) != null && optJSONArray.length() > 0) {
                         StringBuilder sb = new StringBuilder();
-                        if (!TextUtils.isEmpty(aVO)) {
-                            sb.append(aVO + ",");
+                        if (!TextUtils.isEmpty(aRU)) {
+                            sb.append(aRU + ",");
                         }
                         for (int i = 0; i < optJSONArray.length(); i++) {
                             String optString2 = optJSONArray.optString(i);
@@ -141,23 +141,23 @@ public abstract class d {
                             }
                         }
                         if (sb.length() > 0) {
-                            hashMap.put(ebL, sb.toString());
+                            hashMap.put(dWZ, sb.toString());
                         }
                     }
                 }
             }
-            if (!hashMap.containsKey(ebI) && !TextUtils.isEmpty(this.ebS)) {
-                hashMap.put(ebI, this.ebS);
+            if (!hashMap.containsKey(dWW) && !TextUtils.isEmpty(this.dXg)) {
+                hashMap.put(dWW, this.dXg);
             }
-            hashMap.put("con_name", com.baidu.swan.apps.t.a.aBe().getHostName());
+            hashMap.put("con_name", com.baidu.swan.apps.t.a.axk().getHostName());
             return hashMap;
         } catch (Exception e) {
             return hashMap;
         }
     }
 
-    private int aTz() {
-        switch (SwanAppNetworkUtils.aGD()) {
+    private int aPF() {
+        switch (SwanAppNetworkUtils.aCJ()) {
             case NONE:
             default:
                 return 0;
@@ -176,14 +176,14 @@ public abstract class d {
 
     private String getSn() {
         try {
-            String aRP = ak.aRP();
-            return TextUtils.isEmpty(aRP) ? ak.getWifiInfo(this.mContext) : aRP;
+            String aNV = ak.aNV();
+            return TextUtils.isEmpty(aNV) ? ak.getWifiInfo(this.mContext) : aNV;
         } catch (Exception e) {
             return "";
         }
     }
 
-    public String aVS() {
-        return this.ebS;
+    public String aRY() {
+        return this.dXg;
     }
 }

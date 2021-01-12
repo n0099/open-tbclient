@@ -3,16 +3,16 @@ package com.bytedance.sdk.openadsdk.preload.geckox.a.a;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    final int f7742a;
+    final int f7442a;
 
     /* renamed from: b  reason: collision with root package name */
-    final c f7743b;
+    final c f7443b;
     private final b c;
 
-    private a(C1042a c1042a) {
-        this.f7742a = c1042a.f7744a;
-        this.c = c1042a.f7745b;
-        this.f7743b = c1042a.c;
+    private a(C1025a c1025a) {
+        this.f7442a = c1025a.f7444a;
+        this.c = c1025a.f7445b;
+        this.f7443b = c1025a.c;
     }
 
     public b a() {
@@ -20,34 +20,34 @@ public class a {
     }
 
     public int b() {
-        return this.f7742a;
+        return this.f7442a;
     }
 
     public c c() {
-        return this.f7743b;
+        return this.f7443b;
     }
 
     /* renamed from: com.bytedance.sdk.openadsdk.preload.geckox.a.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public static final class C1042a {
+    public static final class C1025a {
 
         /* renamed from: a  reason: collision with root package name */
-        private int f7744a;
+        private int f7444a;
 
         /* renamed from: b  reason: collision with root package name */
-        private b f7745b = b.f7746a;
+        private b f7445b = b.f7446a;
         private c c;
 
-        public C1042a a(int i) {
-            this.f7744a = i;
+        public C1025a a(int i) {
+            this.f7444a = i;
             return this;
         }
 
-        public C1042a a(b bVar) {
+        public C1025a a(b bVar) {
             if (bVar == null) {
-                bVar = b.f7746a;
+                bVar = b.f7446a;
             }
-            this.f7745b = bVar;
+            this.f7445b = bVar;
             return this;
         }
 

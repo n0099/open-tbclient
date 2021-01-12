@@ -1,11 +1,11 @@
 package com.kwad.sdk;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public final class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Boolean f8423a = false;
+    public static final Boolean f8123a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Boolean f8424b = false;
+    public static final Boolean f8124b = false;
     public static final Boolean c = false;
 }

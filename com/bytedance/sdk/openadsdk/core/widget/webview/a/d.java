@@ -21,20 +21,20 @@ import org.json.JSONObject;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    private static volatile d f7132a;
+    private static volatile d f6832a;
 
     /* renamed from: b  reason: collision with root package name */
-    private AtomicBoolean f7133b = new AtomicBoolean(false);
+    private AtomicBoolean f6833b = new AtomicBoolean(false);
 
     public static d a() {
-        if (f7132a == null) {
+        if (f6832a == null) {
             synchronized (d.class) {
-                if (f7132a == null) {
-                    f7132a = new d();
+                if (f6832a == null) {
+                    f6832a = new d();
                 }
             }
         }
-        return f7132a;
+        return f6832a;
     }
 
     private d() {
@@ -90,17 +90,17 @@ public class d {
                 }
             }
             a(hashSet);
-            this.f7133b.set(false);
+            this.f6833b.set(false);
         }
     }
 
     private JSONObject c(String str) {
-        i esj = i.esj();
-        new j(0, str, esj).setShouldCache(false).build(com.bytedance.sdk.openadsdk.i.e.a(p.a()).d());
+        i eop = i.eop();
+        new j(0, str, eop).setShouldCache(false).build(com.bytedance.sdk.openadsdk.i.e.a(p.a()).d());
         try {
-            com.bytedance.sdk.adnet.core.p pVar = esj.get();
-            if (pVar != null && pVar.a() && pVar.f6345a != 0) {
-                return new JSONObject((String) pVar.f6345a);
+            com.bytedance.sdk.adnet.core.p pVar = eop.get();
+            if (pVar != null && pVar.a() && pVar.f6045a != 0) {
+                return new JSONObject((String) pVar.f6045a);
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -127,9 +127,9 @@ public class d {
             u.f("TmplDiffManager", "saveTemplate error: tplInfo == null");
             return;
         }
-        final String str2 = mVar.f6899a;
+        final String str2 = mVar.f6599a;
         final String str3 = mVar.c;
-        final String str4 = mVar.f6900b;
+        final String str4 = mVar.f6600b;
         final String str5 = mVar.d;
         final String str6 = mVar.e;
         final String e = TextUtils.isEmpty(str) ? com.bytedance.sdk.openadsdk.core.i.c().e() : str;

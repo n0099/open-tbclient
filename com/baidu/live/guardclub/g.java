@@ -4,50 +4,50 @@ import android.text.TextUtils;
 import android.util.SparseArray;
 import com.baidu.live.data.bi;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class g {
-    private static volatile g bkY;
-    private bi aRA;
-    private SparseArray<String> bkZ = new SparseArray<>();
-    private SparseArray<String> bla = new SparseArray<>();
-    private SparseArray<String> blb = new SparseArray<>();
-    private SparseArray<String> blc = new SparseArray<>();
-    private JSONObject bld;
+    private static volatile g bgi;
+    private bi aMN;
+    private SparseArray<String> bgj = new SparseArray<>();
+    private SparseArray<String> bgk = new SparseArray<>();
+    private SparseArray<String> bgl = new SparseArray<>();
+    private SparseArray<String> bgm = new SparseArray<>();
+    private JSONObject bgn;
 
     public void O(JSONObject jSONObject) {
-        this.bld = jSONObject;
+        this.bgn = jSONObject;
     }
 
     private g() {
     }
 
-    public static g Ly() {
-        if (bkY == null) {
+    public static g HD() {
+        if (bgi == null) {
             synchronized (g.class) {
-                if (bkY == null) {
-                    bkY = new g();
+                if (bgi == null) {
+                    bgi = new g();
                 }
             }
         }
-        return bkY;
+        return bgi;
     }
 
-    public String Lz() {
-        if (LB() || this.aRA.aQQ == null) {
+    public String HE() {
+        if (HG() || this.aMN.aMd == null) {
             return null;
         }
-        return this.aRA.aQQ;
+        return this.aMN.aMd;
     }
 
-    public String eR(int i) {
-        String str = this.bkZ.get(i);
+    public String dl(int i) {
+        String str = this.bgj.get(i);
         if (TextUtils.isEmpty(str)) {
-            if (LB() || this.aRA.aQU == null) {
+            if (HG() || this.aMN.aMh == null) {
                 return null;
             }
-            String optString = this.aRA.aQU.optString(String.valueOf(i));
+            String optString = this.aMN.aMh.optString(String.valueOf(i));
             if (!TextUtils.isEmpty(optString)) {
-                this.bkZ.put(i, optString);
+                this.bgj.put(i, optString);
                 return optString;
             }
             return optString;
@@ -55,15 +55,15 @@ public class g {
         return str;
     }
 
-    public String eS(int i) {
-        String str = this.bla.get(i);
+    public String dm(int i) {
+        String str = this.bgk.get(i);
         if (TextUtils.isEmpty(str)) {
-            if (LB() || this.aRA.aQS == null) {
+            if (HG() || this.aMN.aMf == null) {
                 return null;
             }
-            String optString = this.aRA.aQS.optString(String.valueOf(i));
+            String optString = this.aMN.aMf.optString(String.valueOf(i));
             if (!TextUtils.isEmpty(optString)) {
-                this.bla.put(i, optString);
+                this.bgk.put(i, optString);
                 return optString;
             }
             return optString;
@@ -71,15 +71,15 @@ public class g {
         return str;
     }
 
-    public String eT(int i) {
-        String str = this.blb.get(i);
+    public String dn(int i) {
+        String str = this.bgl.get(i);
         if (TextUtils.isEmpty(str)) {
-            if (LB() || this.aRA.aQT == null) {
+            if (HG() || this.aMN.aMg == null) {
                 return null;
             }
-            String optString = this.aRA.aQT.optString(String.valueOf(i));
+            String optString = this.aMN.aMg.optString(String.valueOf(i));
             if (!TextUtils.isEmpty(optString)) {
-                this.blb.put(i, optString);
+                this.bgl.put(i, optString);
                 return optString;
             }
             return optString;
@@ -87,15 +87,16 @@ public class g {
         return str;
     }
 
-    public String eU(int i) {
-        String str = this.blc.get(i);
+    /* renamed from: do  reason: not valid java name */
+    public String m19do(int i) {
+        String str = this.bgm.get(i);
         if (TextUtils.isEmpty(str)) {
-            if (LB() || this.aRA.aQV == null) {
+            if (HG() || this.aMN.aMi == null) {
                 return null;
             }
-            String optString = this.aRA.aQV.optString(String.valueOf(i));
+            String optString = this.aMN.aMi.optString(String.valueOf(i));
             if (!TextUtils.isEmpty(optString)) {
-                this.blc.put(i, optString);
+                this.bgm.put(i, optString);
                 return optString;
             }
             return optString;
@@ -103,27 +104,27 @@ public class g {
         return str;
     }
 
-    public bi LA() {
-        if (LB()) {
+    public bi HF() {
+        if (HG()) {
             return null;
         }
-        return this.aRA;
+        return this.aMN;
     }
 
-    private boolean LB() {
-        if (this.aRA == null) {
-            this.aRA = com.baidu.live.af.a.SE().bCb.aRA;
-            if (this.aRA == null) {
+    private boolean HG() {
+        if (this.aMN == null) {
+            this.aMN = com.baidu.live.af.a.OJ().bxp.aMN;
+            if (this.aMN == null) {
                 return true;
             }
         }
         return false;
     }
 
-    public int hF(String str) {
-        if (this.bld == null) {
+    public int gu(String str) {
+        if (this.bgn == null) {
             return -1;
         }
-        return this.bld.optInt(str);
+        return this.bgn.optInt(str);
     }
 }

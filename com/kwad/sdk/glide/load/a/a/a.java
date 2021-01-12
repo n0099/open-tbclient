@@ -1,7 +1,7 @@
 package com.kwad.sdk.glide.load.a.a;
 
 import java.io.File;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 class a {
     public File a(String str) {
         return new File(str);

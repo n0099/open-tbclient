@@ -13,17 +13,17 @@ import java.net.ProtocolException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class b implements a.a.a.b.a.a {
 
     /* renamed from: a  reason: collision with root package name */
-    public final String f1037a;
+    public final String f1036a;
     public volatile int c;
     public volatile long d;
     public final a.InterfaceC0000a zm;
 
     public b(String str, a.InterfaceC0000a interfaceC0000a) {
-        this.f1037a = str;
+        this.f1036a = str;
         this.zm = interfaceC0000a;
     }
 
@@ -37,7 +37,7 @@ public class b implements a.a.a.b.a.a {
         try {
             try {
                 try {
-                    HttpURLConnection httpURLConnection2 = (HttpURLConnection) new URL(this.f1037a).openConnection();
+                    HttpURLConnection httpURLConnection2 = (HttpURLConnection) new URL(this.f1036a).openConnection();
                     try {
                         httpURLConnection2.setConnectTimeout(4000);
                         httpURLConnection2.setReadTimeout(4000);

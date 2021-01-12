@@ -47,27 +47,27 @@ public class b {
         this.nG = true;
     }
 
-    public a.C0078a a(a.b bVar) {
-        a.C0078a c0078a = null;
+    public a.C0079a a(a.b bVar) {
+        a.C0079a c0079a = null;
         switch (bVar.qg) {
             case 0:
                 this.nL = 1;
-                c0078a = bVar.qd;
+                c0079a = bVar.qd;
                 break;
             case 1:
                 this.nL = 1;
-                c0078a = bVar.qe;
+                c0079a = bVar.qe;
                 break;
             case 2:
                 this.nL = 4;
-                c0078a = bVar.qf;
+                c0079a = bVar.qf;
                 break;
             default:
                 com.baidu.ar.h.b.b(TAG, "createFaceParams() device not support!!!");
                 break;
         }
         this.nM = this.nL;
-        return c0078a;
+        return c0079a;
     }
 
     public void b(String str, int i) {

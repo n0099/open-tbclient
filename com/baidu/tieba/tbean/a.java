@@ -36,80 +36,80 @@ import com.baidu.tieba.view.NoScrollGridView;
 import com.baidu.tieba.view.bubbleView.BubbleLayout;
 import java.util.List;
 import tbclient.GetIconList.UserInfo;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class a {
-    private int bNX;
-    private ImageView eqT;
-    private NoScrollGridView gZf;
-    private RelativeLayout grc;
+    private int bJl;
+    private ImageView eme;
+    private NoScrollGridView gUz;
+    private RelativeLayout gmv;
     private LinearLayout mPanelLayout;
     private View mRootView;
     private TextView mTitleView;
-    private BuyTBeanActivity nwC;
-    private RoundRelativeLayout nwI;
-    private com.baidu.tieba.tbean.a.a nwJ;
-    private TextView nwK;
-    private TextView nwL;
-    private EditText nwM;
-    private TextView nwN;
-    private com.baidu.tieba.tbean.b.c nwO;
-    private TextView nwP;
-    private LinearLayout nwQ;
-    private TextView nwR;
-    private boolean nwS;
-    private TextView nwT;
-    private TextView nwU;
-    private TextView nwV;
-    private TextView nwW;
-    private SpannableString nwX;
-    private TextView nwY;
-    private BuyTBeanGiftBagView nwZ;
-    private UserInfo nxa;
-    private int nxb;
-    private int nxc;
-    private RelativeLayout nxd;
-    private BubbleLayout nxe;
-    private boolean nxg;
-    private long nxf = 0;
-    private View.OnClickListener nxh = new View.OnClickListener() { // from class: com.baidu.tieba.tbean.a.1
+    private BuyTBeanActivity nrW;
+    private boolean nsA;
+    private RoundRelativeLayout nsc;
+    private com.baidu.tieba.tbean.a.a nsd;
+    private TextView nse;
+    private TextView nsf;
+    private EditText nsg;
+    private TextView nsh;
+    private com.baidu.tieba.tbean.b.c nsi;
+    private TextView nsj;
+    private LinearLayout nsk;
+    private TextView nsl;
+    private boolean nsm;
+    private TextView nsn;
+    private TextView nso;
+    private TextView nsp;
+    private TextView nsq;
+    private SpannableString nsr;
+    private TextView nss;
+    private BuyTBeanGiftBagView nst;
+    private UserInfo nsu;
+    private int nsv;
+    private int nsw;
+    private RelativeLayout nsx;
+    private BubbleLayout nsy;
+    private long nsz = 0;
+    private View.OnClickListener nsB = new View.OnClickListener() { // from class: com.baidu.tieba.tbean.a.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            a.this.nwM.requestFocus();
-            l.showSoftKeyPad(a.this.nwC, a.this.nwM);
+            a.this.nsg.requestFocus();
+            l.showSoftKeyPad(a.this.nrW, a.this.nsg);
         }
     };
-    private View.OnClickListener nxi = new View.OnClickListener() { // from class: com.baidu.tieba.tbean.a.2
+    private View.OnClickListener nsC = new View.OnClickListener() { // from class: com.baidu.tieba.tbean.a.2
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            a.this.dRr();
+            a.this.dNz();
         }
     };
     private AdapterView.OnItemClickListener mItemClickListener = new AdapterView.OnItemClickListener() { // from class: com.baidu.tieba.tbean.a.3
         @Override // android.widget.AdapterView.OnItemClickListener
         public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-            com.baidu.tieba.tbean.b.b item = a.this.nwJ.getItem(i);
-            if (item != null && item.nxo != null) {
-                a.this.g(item.nxo.iconId, b.getYuanFromFen(item.nxo.dubi.intValue()) * 1, 1, b.a(a.this.nxa, item.nxo.non_member_t.intValue(), item.nxn) * 1);
+            com.baidu.tieba.tbean.b.b item = a.this.nsd.getItem(i);
+            if (item != null && item.nsI != null) {
+                a.this.g(item.nsI.iconId, b.getYuanFromFen(item.nsI.dubi.intValue()) * 1, 1, b.a(a.this.nsu, item.nsI.non_member_t.intValue(), item.nsH) * 1);
                 aq aqVar = new aq(TbeanStatisticKey.BUY_TBEAN_NORMAL_ITEM);
-                aqVar.dX("obj_param1", item.nxo.iconId);
+                aqVar.dW("obj_param1", item.nsI.iconId);
                 TiebaStatic.log(aqVar);
             }
         }
     };
-    private BuyTBeanGiftBagView.a nxj = new BuyTBeanGiftBagView.a() { // from class: com.baidu.tieba.tbean.a.4
+    private BuyTBeanGiftBagView.a nsD = new BuyTBeanGiftBagView.a() { // from class: com.baidu.tieba.tbean.a.4
         @Override // com.baidu.tieba.tbean.view.BuyTBeanGiftBagView.a
         public void a(com.baidu.tieba.tbean.b.a aVar) {
-            if (aVar != null && aVar.nxm != null) {
-                a.this.g(aVar.nxm.icon_id, b.getYuanFromFen(aVar.nxm.dubi.intValue()) * 1, 1, aVar.nxm.non_member_t.intValue() * 1);
+            if (aVar != null && aVar.nsG != null) {
+                a.this.g(aVar.nsG.icon_id, b.getYuanFromFen(aVar.nsG.dubi.intValue()) * 1, 1, aVar.nsG.non_member_t.intValue() * 1);
                 TiebaStatic.log(TbeanStatisticKey.BUY_TBEAN_GIFT_BAG);
             }
         }
     };
-    private Runnable nxk = new Runnable() { // from class: com.baidu.tieba.tbean.a.5
+    private Runnable nsE = new Runnable() { // from class: com.baidu.tieba.tbean.a.5
         @Override // java.lang.Runnable
         public void run() {
-            if (a.this.nxe != null) {
-                a.this.nxe.setVisibility(8);
+            if (a.this.nsy != null) {
+                a.this.nsy.setVisibility(8);
             }
         }
     };
@@ -124,117 +124,117 @@ public class a {
 
         @Override // android.text.TextWatcher
         public void afterTextChanged(Editable editable) {
-            String obj = a.this.nwM.getText().toString();
+            String obj = a.this.nsg.getText().toString();
             if (StringUtils.isNull(obj)) {
-                if (a.this.nwS) {
-                    a.this.nwP.setVisibility(8);
-                    a.this.nwR.setText(String.format(a.this.nwC.getString(R.string.user_define_member_tbean_extra), a.this.nwO.nxn.vip_extra_percent));
+                if (a.this.nsm) {
+                    a.this.nsj.setVisibility(8);
+                    a.this.nsl.setText(String.format(a.this.nrW.getString(R.string.user_define_member_tbean_extra), a.this.nsi.nsH.vip_extra_percent));
                 }
-                a.this.nwT.setEnabled(false);
-                a.this.nwM.setHint(a.this.nwX);
+                a.this.nsn.setEnabled(false);
+                a.this.nsg.setHint(a.this.nsr);
             } else if (obj.startsWith("0")) {
-                if (a.this.nwS) {
-                    a.this.nwP.setVisibility(8);
-                    a.this.nwR.setText(String.format(a.this.nwC.getString(R.string.user_define_member_tbean_extra), a.this.nwO.nxn.vip_extra_percent));
+                if (a.this.nsm) {
+                    a.this.nsj.setVisibility(8);
+                    a.this.nsl.setText(String.format(a.this.nrW.getString(R.string.user_define_member_tbean_extra), a.this.nsi.nsH.vip_extra_percent));
                 }
-                a.this.nwM.setText("");
+                a.this.nsg.setText("");
             } else {
-                a.this.nwT.setEnabled(true);
+                a.this.nsn.setEnabled(true);
                 if (!StringUtils.isNull(obj) && obj.length() >= 7) {
-                    a.this.nwC.showToast(R.string.buy_tbean_custom_price_max);
+                    a.this.nrW.showToast(R.string.buy_tbean_custom_price_max);
                     String substring = obj.substring(0, 6);
-                    a.this.nwM.setText(substring);
-                    a.this.nwM.setSelection(substring.length());
+                    a.this.nsg.setText(substring);
+                    a.this.nsg.setSelection(substring.length());
                     return;
                 }
                 long j = com.baidu.adp.lib.f.b.toLong(obj, 0L);
                 if (j > 200000) {
-                    a.this.nwC.showToast(R.string.buy_tbean_custom_price_max);
+                    a.this.nrW.showToast(R.string.buy_tbean_custom_price_max);
                 }
                 if (j <= 0) {
-                    a.this.nwN.setText(R.string.user_define_init_value);
+                    a.this.nsh.setText(R.string.user_define_init_value);
                     return;
                 }
-                a.this.nwM.setHint("");
-                a.this.nwN.setText(at.formatTosepara(j * 1000));
-                if (a.this.nwS && a.this.nwO != null && a.this.nwO.nxn != null) {
-                    a.this.nwP.setVisibility(0);
-                    a.this.nwP.setText(b.formatTBeanNum(((j * 1000) * a.this.nwO.nxn.vip_extra_percent.intValue()) / 100));
+                a.this.nsg.setHint("");
+                a.this.nsh.setText(at.formatTosepara(j * 1000));
+                if (a.this.nsm && a.this.nsi != null && a.this.nsi.nsH != null) {
+                    a.this.nsj.setVisibility(0);
+                    a.this.nsj.setText(b.formatTBeanNum(((j * 1000) * a.this.nsi.nsH.vip_extra_percent.intValue()) / 100));
                 }
             }
         }
     };
 
     public a(BuyTBeanActivity buyTBeanActivity) {
-        this.nwC = buyTBeanActivity;
+        this.nrW = buyTBeanActivity;
         initView();
     }
 
     private void initView() {
-        this.mRootView = LayoutInflater.from(this.nwC).inflate(R.layout.buy_tbean_view_layout, (ViewGroup) null);
+        this.mRootView = LayoutInflater.from(this.nrW).inflate(R.layout.buy_tbean_view_layout, (ViewGroup) null);
         this.mRootView.setFocusable(true);
-        this.mRootView.setOnClickListener(this.nwC);
+        this.mRootView.setOnClickListener(this.nrW);
         this.mPanelLayout = (LinearLayout) this.mRootView.findViewById(R.id.buy_tbean_panel_layout);
-        this.nwI = (RoundRelativeLayout) this.mRootView.findViewById(R.id.buy_tbean_custom_t_dou_layout);
-        this.nwI.setRadius(this.nwC.getResources().getDimensionPixelSize(R.dimen.ds6));
-        this.nwI.setOnClickListener(this.nxh);
-        this.grc = (RelativeLayout) this.mRootView.findViewById(R.id.buy_tbean_content_layout);
+        this.nsc = (RoundRelativeLayout) this.mRootView.findViewById(R.id.buy_tbean_custom_t_dou_layout);
+        this.nsc.setRadius(this.nrW.getResources().getDimensionPixelSize(R.dimen.ds6));
+        this.nsc.setOnClickListener(this.nsB);
+        this.gmv = (RelativeLayout) this.mRootView.findViewById(R.id.buy_tbean_content_layout);
         this.mTitleView = (TextView) this.mRootView.findViewById(R.id.buy_tbean_title);
-        this.gZf = (NoScrollGridView) this.mRootView.findViewById(R.id.buy_tbean_gridview);
-        this.nwJ = new com.baidu.tieba.tbean.a.a(this.nwC.getPageContext());
-        this.gZf.setAdapter((ListAdapter) this.nwJ);
-        this.gZf.setOnItemClickListener(this.mItemClickListener);
-        this.nxd = (RelativeLayout) this.mRootView.findViewById(R.id.buy_tbean_balance_layout);
-        this.nwL = (TextView) this.mRootView.findViewById(R.id.buy_tbean_balance_tip);
-        this.nwK = (TextView) this.mRootView.findViewById(R.id.buy_tbean_balance);
-        this.nwK.setText(String.valueOf(TbadkCoreApplication.getInst().currentAccountTdouNum));
-        Drawable drawable = this.nwC.getResources().getDrawable(R.drawable.icon_huobi_tdou);
-        int dimensionPixelSize = this.nwC.getResources().getDimensionPixelSize(R.dimen.tbds46);
+        this.gUz = (NoScrollGridView) this.mRootView.findViewById(R.id.buy_tbean_gridview);
+        this.nsd = new com.baidu.tieba.tbean.a.a(this.nrW.getPageContext());
+        this.gUz.setAdapter((ListAdapter) this.nsd);
+        this.gUz.setOnItemClickListener(this.mItemClickListener);
+        this.nsx = (RelativeLayout) this.mRootView.findViewById(R.id.buy_tbean_balance_layout);
+        this.nsf = (TextView) this.mRootView.findViewById(R.id.buy_tbean_balance_tip);
+        this.nse = (TextView) this.mRootView.findViewById(R.id.buy_tbean_balance);
+        this.nse.setText(String.valueOf(TbadkCoreApplication.getInst().currentAccountTdouNum));
+        Drawable drawable = this.nrW.getResources().getDrawable(R.drawable.icon_huobi_tdou);
+        int dimensionPixelSize = this.nrW.getResources().getDimensionPixelSize(R.dimen.tbds46);
         drawable.setBounds(0, 0, dimensionPixelSize, dimensionPixelSize);
-        this.nwK.setCompoundDrawablePadding(this.nwC.getResources().getDimensionPixelSize(R.dimen.tbds12));
-        this.nwK.setCompoundDrawables(drawable, null, null, null);
-        this.nwM = (EditText) this.mRootView.findViewById(R.id.buy_tbean_custom_price_edit);
-        this.nwX = new SpannableString(this.nwC.getString(R.string.buy_tbean_user_define_hint));
-        this.nwX.setSpan(new AbsoluteSizeSpan(this.nwC.getResources().getDimensionPixelSize(R.dimen.tbds42), false), 0, this.nwX.length(), 33);
-        this.nwM.setHint(this.nwX);
-        this.nwM.addTextChangedListener(this.mTextWatcher);
-        this.nwN = (TextView) this.mRootView.findViewById(R.id.buy_tbean_custom_t_dou_num);
-        this.nwN.setCompoundDrawablePadding(this.nwC.getResources().getDimensionPixelSize(R.dimen.ds8));
-        this.nwN.setCompoundDrawables(drawable, null, null, null);
-        this.nwQ = (LinearLayout) this.mRootView.findViewById(R.id.buy_tbean_member_layout);
-        this.nwP = (TextView) this.mRootView.findViewById(R.id.buy_tbean_member_privilege);
-        Drawable drawable2 = this.nwC.getResources().getDrawable(R.drawable.icon_huobi_tdou);
-        int dimensionPixelSize2 = this.nwC.getResources().getDimensionPixelSize(R.dimen.ds20);
+        this.nse.setCompoundDrawablePadding(this.nrW.getResources().getDimensionPixelSize(R.dimen.tbds12));
+        this.nse.setCompoundDrawables(drawable, null, null, null);
+        this.nsg = (EditText) this.mRootView.findViewById(R.id.buy_tbean_custom_price_edit);
+        this.nsr = new SpannableString(this.nrW.getString(R.string.buy_tbean_user_define_hint));
+        this.nsr.setSpan(new AbsoluteSizeSpan(this.nrW.getResources().getDimensionPixelSize(R.dimen.tbds42), false), 0, this.nsr.length(), 33);
+        this.nsg.setHint(this.nsr);
+        this.nsg.addTextChangedListener(this.mTextWatcher);
+        this.nsh = (TextView) this.mRootView.findViewById(R.id.buy_tbean_custom_t_dou_num);
+        this.nsh.setCompoundDrawablePadding(this.nrW.getResources().getDimensionPixelSize(R.dimen.ds8));
+        this.nsh.setCompoundDrawables(drawable, null, null, null);
+        this.nsk = (LinearLayout) this.mRootView.findViewById(R.id.buy_tbean_member_layout);
+        this.nsj = (TextView) this.mRootView.findViewById(R.id.buy_tbean_member_privilege);
+        Drawable drawable2 = this.nrW.getResources().getDrawable(R.drawable.icon_huobi_tdou);
+        int dimensionPixelSize2 = this.nrW.getResources().getDimensionPixelSize(R.dimen.ds20);
         drawable2.setBounds(0, 0, dimensionPixelSize2, dimensionPixelSize2);
-        this.nwP.setCompoundDrawablePadding(this.nwC.getResources().getDimensionPixelSize(R.dimen.ds6));
-        this.nwP.setCompoundDrawables(drawable2, null, null, null);
-        this.nwR = (TextView) this.mRootView.findViewById(R.id.buy_tbean_member_prefix);
-        this.nwT = (TextView) this.mRootView.findViewById(R.id.buy_tbean_recharge);
-        this.nwT.setOnClickListener(this.nxi);
-        this.nwU = (TextView) this.mRootView.findViewById(R.id.buy_tbean_use_rule);
-        this.nwU.setOnClickListener(this.nwC);
-        this.nwV = (TextView) this.mRootView.findViewById(R.id.buy_tbean_diff_value);
-        this.nwV.setCompoundDrawablePadding(this.nwC.getResources().getDimensionPixelSize(R.dimen.ds8));
-        this.nwV.setCompoundDrawables(drawable, null, null, null);
-        this.nwW = (TextView) this.mRootView.findViewById(R.id.buy_tbean_diff_value_tip);
-        this.eqT = (ImageView) this.mRootView.findViewById(R.id.buy_tbean_close_image);
-        this.eqT.setOnClickListener(this.nwC);
-        this.nwY = (TextView) this.mRootView.findViewById(R.id.buy_tbean_yinji_time);
-        this.nwZ = (BuyTBeanGiftBagView) this.mRootView.findViewById(R.id.buy_tbean_gift_bag_layout);
-        this.nwZ.setClickListener(this.nxj);
-        this.nxe = (BubbleLayout) this.mRootView.findViewById(R.id.buy_tbean_pop_view);
-        yq(true);
+        this.nsj.setCompoundDrawablePadding(this.nrW.getResources().getDimensionPixelSize(R.dimen.ds6));
+        this.nsj.setCompoundDrawables(drawable2, null, null, null);
+        this.nsl = (TextView) this.mRootView.findViewById(R.id.buy_tbean_member_prefix);
+        this.nsn = (TextView) this.mRootView.findViewById(R.id.buy_tbean_recharge);
+        this.nsn.setOnClickListener(this.nsC);
+        this.nso = (TextView) this.mRootView.findViewById(R.id.buy_tbean_use_rule);
+        this.nso.setOnClickListener(this.nrW);
+        this.nsp = (TextView) this.mRootView.findViewById(R.id.buy_tbean_diff_value);
+        this.nsp.setCompoundDrawablePadding(this.nrW.getResources().getDimensionPixelSize(R.dimen.ds8));
+        this.nsp.setCompoundDrawables(drawable, null, null, null);
+        this.nsq = (TextView) this.mRootView.findViewById(R.id.buy_tbean_diff_value_tip);
+        this.eme = (ImageView) this.mRootView.findViewById(R.id.buy_tbean_close_image);
+        this.eme.setOnClickListener(this.nrW);
+        this.nss = (TextView) this.mRootView.findViewById(R.id.buy_tbean_yinji_time);
+        this.nst = (BuyTBeanGiftBagView) this.mRootView.findViewById(R.id.buy_tbean_gift_bag_layout);
+        this.nst.setClickListener(this.nsD);
+        this.nsy = (BubbleLayout) this.mRootView.findViewById(R.id.buy_tbean_pop_view);
+        ym(true);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void dRr() {
-        int i = com.baidu.adp.lib.f.b.toInt(this.nwM.getText().toString(), 0);
+    public void dNz() {
+        int i = com.baidu.adp.lib.f.b.toInt(this.nsg.getText().toString(), 0);
         int i2 = i * 1;
         if (i2 > 200000) {
-            this.nwC.showToast(R.string.buy_tbean_custom_price_max);
-        } else if (i2 > 0 && i2 > 0 && this.nwO != null && this.nwO.userInfo != null && this.nwO.nxm != null) {
-            UserInfo userInfo = this.nwO.userInfo;
-            g(this.nwO.nxm.icon_id, i2, i, b.a(userInfo, i2 * 1000, this.nwO.nxn) * 1);
+            this.nrW.showToast(R.string.buy_tbean_custom_price_max);
+        } else if (i2 > 0 && i2 > 0 && this.nsi != null && this.nsi.userInfo != null && this.nsi.nsG != null) {
+            UserInfo userInfo = this.nsi.userInfo;
+            g(this.nsi.nsG.icon_id, i2, i, b.a(userInfo, i2 * 1000, this.nsi.nsH) * 1);
             TiebaStatic.log(TbeanStatisticKey.BUY_BIG_TBEAN_PAY_BUTTON);
         }
     }
@@ -243,90 +243,90 @@ public class a {
     public void g(String str, int i, int i2, int i3) {
         if (!StringUtils.isNull(str) && i >= 0 && i2 >= 0 && i3 >= 0) {
             if (!j.isNetWorkAvailable()) {
-                this.nwC.showToast(this.nwC.getResources().getString(R.string.network_not_available));
+                this.nrW.showToast(this.nrW.getResources().getString(R.string.network_not_available));
                 return;
             }
-            c.Pu(TbeanStatisticKey.BUY_TBEAN_BUY);
-            PayConfig payConfig = new PayConfig(2, "0", str, String.valueOf(i), String.valueOf(i2), true, String.valueOf(i3), this.nwC.dRj(), PageDialogHelper.PayForm.NOT_SET, this.nwC.getReferPage(), this.nwC.getClickZone());
-            payConfig.setFromDecreaseGiftStepStrategy(this.nwC.isFromDecreaseGiftStepStrategy());
-            com.baidu.tbadk.pay.c.bHw().a(payConfig, this.nwC);
+            c.Om(TbeanStatisticKey.BUY_TBEAN_BUY);
+            PayConfig payConfig = new PayConfig(2, "0", str, String.valueOf(i), String.valueOf(i2), true, String.valueOf(i3), this.nrW.dNr(), PageDialogHelper.PayForm.NOT_SET, this.nrW.getReferPage(), this.nrW.getClickZone());
+            payConfig.setFromDecreaseGiftStepStrategy(this.nrW.isFromDecreaseGiftStepStrategy());
+            com.baidu.tbadk.pay.c.bDD().a(payConfig, this.nrW);
         }
     }
 
     public void onKeyboardVisibilityChanged(boolean z) {
         if (z) {
-            this.nxg = true;
-            if (this.bNX <= 0) {
-                this.bNX = (l.getEquipmentHeight(this.nwC) - this.mRootView.getHeight()) - l.getStatusBarHeight(this.nwC);
+            this.nsA = true;
+            if (this.bJl <= 0) {
+                this.bJl = (l.getEquipmentHeight(this.nrW) - this.mRootView.getHeight()) - l.getStatusBarHeight(this.nrW);
             }
-            int height = ((this.bNX + this.nwI.getHeight()) + this.nxd.getHeight()) - this.nxb;
+            int height = ((this.bJl + this.nsc.getHeight()) + this.nsx.getHeight()) - this.nsv;
             if (height > 0) {
                 FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.mPanelLayout.getLayoutParams();
                 layoutParams.topMargin -= height;
                 this.mPanelLayout.setLayoutParams(layoutParams);
-                this.grc.scrollTo(0, this.bNX - height);
+                this.gmv.scrollTo(0, this.bJl - height);
             } else {
-                this.grc.scrollTo(0, this.bNX);
+                this.gmv.scrollTo(0, this.bJl);
             }
-            this.nwM.setSelection(this.nwM.getText().length());
+            this.nsg.setSelection(this.nsg.getText().length());
             TiebaStatic.log(TbeanStatisticKey.BUY_TBEAN_USER_DEFINE);
             return;
         }
-        this.nxg = false;
-        this.grc.scrollTo(0, 0);
+        this.nsA = false;
+        this.gmv.scrollTo(0, 0);
         FrameLayout.LayoutParams layoutParams2 = (FrameLayout.LayoutParams) this.mPanelLayout.getLayoutParams();
-        layoutParams2.topMargin = this.nxc;
+        layoutParams2.topMargin = this.nsw;
         this.mPanelLayout.setLayoutParams(layoutParams2);
-        this.nwM.clearFocus();
+        this.nsg.clearFocus();
     }
 
-    public boolean dRs() {
-        return this.nxg;
+    public boolean dNA() {
+        return this.nsA;
     }
 
     public void hideSoftKeyPad() {
-        this.nwM.clearFocus();
-        l.hideSoftKeyPad(this.nwC, this.nwM);
+        this.nsg.clearFocus();
+        l.hideSoftKeyPad(this.nrW, this.nsg);
     }
 
     public void hC(long j) {
         if (j > 0) {
-            this.nxf = j;
-            this.nwM.setText((j / 1000) + "");
-            this.nwM.setSelection(this.nwM.getText().length());
-            this.nwV.setText(((j / 1000) * 1000) + "");
-            this.nwV.setVisibility(0);
-            this.nwW.setVisibility(0);
-            if (!com.baidu.tbadk.core.sharedPref.b.bvr().getBoolean("key_tbean_buy_bubble_show", false)) {
-                if (this.nxe != null) {
-                    this.nxe.setVisibility(0);
-                    com.baidu.tbadk.core.sharedPref.b.bvr().putBoolean("key_tbean_buy_bubble_show", true);
+            this.nsz = j;
+            this.nsg.setText((j / 1000) + "");
+            this.nsg.setSelection(this.nsg.getText().length());
+            this.nsp.setText(((j / 1000) * 1000) + "");
+            this.nsp.setVisibility(0);
+            this.nsq.setVisibility(0);
+            if (!com.baidu.tbadk.core.sharedPref.b.brx().getBoolean("key_tbean_buy_bubble_show", false)) {
+                if (this.nsy != null) {
+                    this.nsy.setVisibility(0);
+                    com.baidu.tbadk.core.sharedPref.b.brx().putBoolean("key_tbean_buy_bubble_show", true);
                 }
-                e.mB().removeCallbacks(this.nxk);
-                e.mB().postDelayed(this.nxk, 4000L);
+                e.mB().removeCallbacks(this.nsE);
+                e.mB().postDelayed(this.nsE, 4000L);
                 return;
             }
             return;
         }
-        this.nwM.setText("");
-        this.nxe.setVisibility(8);
+        this.nsg.setText("");
+        this.nsy.setVisibility(8);
     }
 
-    private void yq(boolean z) {
+    private void ym(boolean z) {
         if (z) {
-            this.nwT.setVisibility(0);
+            this.nsn.setVisibility(0);
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
             layoutParams.addRule(0, R.id.buy_tbean_recharge);
             layoutParams.addRule(15);
-            layoutParams.rightMargin = this.nwC.getResources().getDimensionPixelSize(R.dimen.ds34);
-            this.nwM.setLayoutParams(layoutParams);
+            layoutParams.rightMargin = this.nrW.getResources().getDimensionPixelSize(R.dimen.ds34);
+            this.nsg.setLayoutParams(layoutParams);
             return;
         }
-        this.nwT.setVisibility(8);
-        RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.nwM.getLayoutParams();
+        this.nsn.setVisibility(8);
+        RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.nsg.getLayoutParams();
         if (layoutParams2 != null) {
             layoutParams2.addRule(11);
-            layoutParams2.rightMargin = this.nwC.getResources().getDimensionPixelSize(R.dimen.ds42);
+            layoutParams2.rightMargin = this.nrW.getResources().getDimensionPixelSize(R.dimen.ds42);
         }
     }
 
@@ -346,91 +346,91 @@ public class a {
         return this.mRootView;
     }
 
-    public void cKk() {
+    public void cGs() {
         FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.mPanelLayout.getLayoutParams();
         if (layoutParams != null) {
-            layoutParams.topMargin = this.nwC.getResources().getDimensionPixelSize(R.dimen.ds500);
+            layoutParams.topMargin = this.nrW.getResources().getDimensionPixelSize(R.dimen.ds500);
             this.mPanelLayout.setLayoutParams(layoutParams);
         }
-        this.nwC.setNetRefreshViewTopMargin(this.nwC.getResources().getDimensionPixelSize(R.dimen.ds50));
-        this.nwC.showNetRefreshView(this.grc, this.nwC.getResources().getString(R.string.neterror));
+        this.nrW.setNetRefreshViewTopMargin(this.nrW.getResources().getDimensionPixelSize(R.dimen.ds50));
+        this.nrW.showNetRefreshView(this.gmv, this.nrW.getResources().getString(R.string.neterror));
     }
 
-    public void cKl() {
-        this.nwC.hideNetRefreshView(this.grc);
+    public void cGt() {
+        this.nrW.hideNetRefreshView(this.gmv);
     }
 
     public void onChangeSkinType(int i) {
         ao.setBackgroundResource(this.mPanelLayout, R.drawable.buy_tbean_circle_bg, i);
-        ao.setViewTextColor(this.nwL, R.color.CAM_X0105, 1, i);
-        ao.setViewTextColor(this.nwK, R.color.CAM_X0105, 1, i);
-        ao.setViewTextColor(this.nwV, R.color.common_color_10191, 1, i);
-        ao.setViewTextColor(this.nwW, R.color.CAM_X0105, 1, i);
-        ao.setViewTextColor(this.nwU, R.color.CAM_X0107, 1, i);
+        ao.setViewTextColor(this.nsf, R.color.CAM_X0105, 1, i);
+        ao.setViewTextColor(this.nse, R.color.CAM_X0105, 1, i);
+        ao.setViewTextColor(this.nsp, R.color.common_color_10191, 1, i);
+        ao.setViewTextColor(this.nsq, R.color.CAM_X0105, 1, i);
+        ao.setViewTextColor(this.nso, R.color.CAM_X0107, 1, i);
         ao.setViewTextColor(this.mTitleView, R.color.CAM_X0105, 1, i);
         if (i == 1 || i == 4) {
-            this.nwI.setBgColorRes(R.color.CAM_X0201_1);
+            this.nsc.setBgColorRes(R.color.CAM_X0201_1);
         } else {
-            this.nwI.setBgColorRes(R.color.CAM_X0201);
+            this.nsc.setBgColorRes(R.color.CAM_X0201);
         }
-        ao.setViewTextColor(this.nwN, R.color.CAM_X0105, 1, i);
-        ao.setViewTextColor(this.nwY, R.color.CAM_X0107, 1, i);
-        ao.setViewTextColor(this.nwR, R.color.CAM_X0107, 1, i);
-        ao.setViewTextColor(this.nwP, R.color.CAM_X0107, 1, i);
-        ao.setViewTextColor(this.nwM, R.color.CAM_X0105, 1, i);
+        ao.setViewTextColor(this.nsh, R.color.CAM_X0105, 1, i);
+        ao.setViewTextColor(this.nss, R.color.CAM_X0107, 1, i);
+        ao.setViewTextColor(this.nsl, R.color.CAM_X0107, 1, i);
+        ao.setViewTextColor(this.nsj, R.color.CAM_X0107, 1, i);
+        ao.setViewTextColor(this.nsg, R.color.CAM_X0105, 1, i);
         ao.setViewTextColor((TextView) this.mRootView.findViewById(R.id.buy_tbean_custom_price_prefix), R.color.CAM_X0105, 1, i);
-        if (this.nwJ != null) {
-            this.nwJ.notifyDataSetChanged();
+        if (this.nsd != null) {
+            this.nsd.notifyDataSetChanged();
         }
     }
 
     public void a(List<com.baidu.tieba.tbean.b.b> list, com.baidu.tieba.tbean.b.c cVar, List<com.baidu.tieba.tbean.b.a> list2, UserInfo userInfo) {
         if (userInfo != null) {
-            this.nxa = userInfo;
+            this.nsu = userInfo;
         }
         if (!x.isEmpty(list)) {
             int i = x.getCount(list) == 6 ? 3 : 2;
-            this.gZf.setNumColumns(i);
-            this.nwJ.Lk(i);
-            this.nwJ.setDatas(list);
+            this.gUz.setNumColumns(i);
+            this.nsd.JD(i);
+            this.nsd.setDatas(list);
         }
         if (cVar != null) {
-            this.nwO = cVar;
-            if (this.nwO.nxn != null && this.nwO.nxn.vip_extra_switch.intValue() == 1 && this.nwO.nxn.vip_extra_percent.intValue() > 0) {
-                this.nwS = true;
-                this.nwQ.setVisibility(0);
-                this.nwP.setVisibility(8);
-                this.nwR.setText(String.format(this.nwC.getString(R.string.user_define_member_tbean_extra), this.nwO.nxn.vip_extra_percent));
-                RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.nwI.getLayoutParams();
+            this.nsi = cVar;
+            if (this.nsi.nsH != null && this.nsi.nsH.vip_extra_switch.intValue() == 1 && this.nsi.nsH.vip_extra_percent.intValue() > 0) {
+                this.nsm = true;
+                this.nsk.setVisibility(0);
+                this.nsj.setVisibility(8);
+                this.nsl.setText(String.format(this.nrW.getString(R.string.user_define_member_tbean_extra), this.nsi.nsH.vip_extra_percent));
+                RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.nsc.getLayoutParams();
                 if (layoutParams != null) {
-                    layoutParams.height = this.nwC.getResources().getDimensionPixelSize(R.dimen.tbds208);
-                    this.nwI.setLayoutParams(layoutParams);
+                    layoutParams.height = this.nrW.getResources().getDimensionPixelSize(R.dimen.tbds208);
+                    this.nsc.setLayoutParams(layoutParams);
                 }
-                RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.nwT.getLayoutParams();
+                RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.nsn.getLayoutParams();
                 if (layoutParams2 != null) {
-                    layoutParams2.width = this.nwC.getResources().getDimensionPixelSize(R.dimen.tbds203);
-                    this.nwT.setLayoutParams(layoutParams2);
+                    layoutParams2.width = this.nrW.getResources().getDimensionPixelSize(R.dimen.tbds203);
+                    this.nsn.setLayoutParams(layoutParams2);
                 }
             } else {
-                this.nwQ.setVisibility(8);
-                this.nwS = false;
-                RelativeLayout.LayoutParams layoutParams3 = (RelativeLayout.LayoutParams) this.nwI.getLayoutParams();
+                this.nsk.setVisibility(8);
+                this.nsm = false;
+                RelativeLayout.LayoutParams layoutParams3 = (RelativeLayout.LayoutParams) this.nsc.getLayoutParams();
                 if (layoutParams3 != null) {
-                    layoutParams3.height = this.nwC.getResources().getDimensionPixelSize(R.dimen.tbds174);
-                    this.nwI.setLayoutParams(layoutParams3);
+                    layoutParams3.height = this.nrW.getResources().getDimensionPixelSize(R.dimen.tbds174);
+                    this.nsc.setLayoutParams(layoutParams3);
                 }
-                RelativeLayout.LayoutParams layoutParams4 = (RelativeLayout.LayoutParams) this.nwT.getLayoutParams();
+                RelativeLayout.LayoutParams layoutParams4 = (RelativeLayout.LayoutParams) this.nsn.getLayoutParams();
                 if (layoutParams4 != null) {
-                    layoutParams4.width = this.nwC.getResources().getDimensionPixelSize(R.dimen.tbds176);
-                    this.nwT.setLayoutParams(layoutParams4);
+                    layoutParams4.width = this.nrW.getResources().getDimensionPixelSize(R.dimen.tbds176);
+                    this.nsn.setLayoutParams(layoutParams4);
                 }
             }
-            if (this.nwO.nxm != null) {
-                this.nwY.setText(this.nwC.getString(R.string.icon_name_valid_day, new Object[]{this.nwO.nxm.name, Integer.valueOf(this.nwO.nxm.duration == null ? 0 : this.nwO.nxm.duration.intValue())}));
+            if (this.nsi.nsG != null) {
+                this.nss.setText(this.nrW.getString(R.string.icon_name_valid_day, new Object[]{this.nsi.nsG.name, Integer.valueOf(this.nsi.nsG.duration == null ? 0 : this.nsi.nsG.duration.intValue())}));
             }
         }
         if (!x.isEmpty(list2)) {
-            this.nwZ.fU(list2);
+            this.nst.fU(list2);
         }
         this.mPanelLayout.post(new Runnable() { // from class: com.baidu.tieba.tbean.a.7
             @Override // java.lang.Runnable
@@ -439,16 +439,16 @@ public class a {
                 int measuredHeight2 = a.this.mPanelLayout.getMeasuredHeight();
                 FrameLayout.LayoutParams layoutParams5 = (FrameLayout.LayoutParams) a.this.mPanelLayout.getLayoutParams();
                 if (layoutParams5 != null) {
-                    a.this.nxc = measuredHeight - measuredHeight2;
-                    layoutParams5.topMargin = a.this.nxc;
+                    a.this.nsw = measuredHeight - measuredHeight2;
+                    layoutParams5.topMargin = a.this.nsw;
                     a.this.mPanelLayout.setLayoutParams(layoutParams5);
                 }
-                a.this.nxb = a.this.grc.getHeight();
+                a.this.nsv = a.this.gmv.getHeight();
             }
         });
     }
 
     public void onDestroy() {
-        e.mB().removeCallbacks(this.nxk);
+        e.mB().removeCallbacks(this.nsE);
     }
 }

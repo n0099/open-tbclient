@@ -11,7 +11,7 @@ public class i extends PutBodyRequest.PutBodyRequestBuilder {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.searchbox.http.request.PutBodyRequest.PutBodyRequestBuilder, com.baidu.searchbox.http.request.HttpRequestBuilder
     public PutBodyRequest build() {
-        com.baidu.swan.a.b.bfB().a(this.httpUrl.toString(), this);
+        com.baidu.swan.a.b.bbH().a(this.httpUrl.toString(), this);
         return super.build();
     }
 }

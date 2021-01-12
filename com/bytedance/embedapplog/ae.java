@@ -35,8 +35,8 @@ public class ae extends ac {
     @Override // com.bytedance.embedapplog.ac
     @NonNull
     public ac B(@NonNull Cursor cursor) {
-        this.f6074a = cursor.getLong(0);
-        this.f6075b = cursor.getLong(1);
+        this.f5774a = cursor.getLong(0);
+        this.f5775b = cursor.getLong(1);
         this.c = cursor.getString(2);
         this.d = cursor.getString(3);
         this.h = cursor.getString(4);
@@ -52,8 +52,8 @@ public class ae extends ac {
 
     @Override // com.bytedance.embedapplog.ac
     protected void d(@NonNull ContentValues contentValues) {
-        contentValues.put("local_time_ms", Long.valueOf(this.f6074a));
-        contentValues.put("tea_event_index", Long.valueOf(this.f6075b));
+        contentValues.put("local_time_ms", Long.valueOf(this.f5774a));
+        contentValues.put("tea_event_index", Long.valueOf(this.f5775b));
         contentValues.put("session_id", this.c);
         contentValues.put("user_unique_id", this.d);
         contentValues.put("category", this.h);
@@ -68,8 +68,8 @@ public class ae extends ac {
 
     @Override // com.bytedance.embedapplog.ac
     protected void a(@NonNull JSONObject jSONObject) {
-        jSONObject.put("local_time_ms", this.f6074a);
-        jSONObject.put("tea_event_index", this.f6075b);
+        jSONObject.put("local_time_ms", this.f5774a);
+        jSONObject.put("tea_event_index", this.f5775b);
         jSONObject.put("session_id", this.c);
         jSONObject.put("user_unique_id", this.d);
         jSONObject.put("category", this.h);
@@ -91,8 +91,8 @@ public class ae extends ac {
         if (jSONObject == null) {
             jSONObject = new JSONObject();
         }
-        jSONObject.put("local_time_ms", this.f6074a);
-        jSONObject.put("tea_event_index", this.f6075b);
+        jSONObject.put("local_time_ms", this.f5774a);
+        jSONObject.put("tea_event_index", this.f5775b);
         jSONObject.put("session_id", this.c);
         if (!TextUtils.isEmpty(this.d)) {
             jSONObject.put("user_unique_id", this.d);
@@ -114,8 +114,8 @@ public class ae extends ac {
 
     @Override // com.bytedance.embedapplog.ac
     protected ac eQ(@NonNull JSONObject jSONObject) {
-        this.f6074a = jSONObject.optLong("local_time_ms", 0L);
-        this.f6075b = jSONObject.optLong("tea_event_index", 0L);
+        this.f5774a = jSONObject.optLong("local_time_ms", 0L);
+        this.f5775b = jSONObject.optLong("tea_event_index", 0L);
         this.c = jSONObject.optString("session_id", null);
         this.d = jSONObject.optString("user_unique_id", null);
         this.h = jSONObject.optString("category", null);

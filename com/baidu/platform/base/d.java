@@ -4,22 +4,22 @@ import com.baidu.android.imrtc.utils.RtcConstants;
 import com.baidu.mapapi.search.core.SearchResult;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public abstract class d {
 
     /* renamed from: a  reason: collision with root package name */
-    protected SearchType f4177a;
+    protected SearchType f4139a;
 
     public abstract SearchResult a(String str);
 
     public SearchType a() {
-        return this.f4177a;
+        return this.f4139a;
     }
 
     public abstract void a(SearchResult searchResult, Object obj);
 
     public void a(SearchType searchType) {
-        this.f4177a = searchType;
+        this.f4139a = searchType;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

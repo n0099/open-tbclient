@@ -13,35 +13,35 @@ import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.video.cloudmusic.data.CloudMusicData;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class CloudMusicModel extends BdBaseModel {
-    private a<CloudMusicData> nGt;
-    private final HttpMessageListener nGw;
+    private a<CloudMusicData> nBO;
+    private final HttpMessageListener nBR;
 
     public CloudMusicModel(f fVar) {
         super(fVar);
-        this.nGw = new HttpMessageListener(1003371) { // from class: com.baidu.tieba.video.cloudmusic.model.CloudMusicModel.1
+        this.nBR = new HttpMessageListener(1003371) { // from class: com.baidu.tieba.video.cloudmusic.model.CloudMusicModel.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-                if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003371 && (httpResponsedMessage instanceof VideoCloudMusicWithTagResponseMessage) && CloudMusicModel.this.nGt != null) {
-                    CloudMusicModel.this.nGt.aT(((VideoCloudMusicWithTagResponseMessage) httpResponsedMessage).mCloudMusicData);
+                if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003371 && (httpResponsedMessage instanceof VideoCloudMusicWithTagResponseMessage) && CloudMusicModel.this.nBO != null) {
+                    CloudMusicModel.this.nBO.aT(((VideoCloudMusicWithTagResponseMessage) httpResponsedMessage).mCloudMusicData);
                 }
             }
         };
-        dTV();
-        this.nGw.setTag(getUniqueId());
-        this.nGw.setSelfListener(true);
-        registerListener(this.nGw);
+        dQd();
+        this.nBR.setTag(getUniqueId());
+        this.nBR.setSelfListener(true);
+        registerListener(this.nBR);
     }
 
-    private void dTV() {
+    private void dQd() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1003371, TbConfig.SERVER_ADDRESS + Config.VIDEO_CLOUD_MUSIC_LIST_WITH_TAGS);
         tbHttpMessageTask.setResponsedClass(VideoCloudMusicWithTagResponseMessage.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static class VideoCloudMusicWithTagResponseMessage extends JsonHttpResponsedMessage {
         public CloudMusicData mCloudMusicData;
 
@@ -62,7 +62,7 @@ public class CloudMusicModel extends BdBaseModel {
     public void a(a<CloudMusicData> aVar) {
         if (aVar != null) {
             sendMessage(new HttpMessage(1003371));
-            this.nGt = aVar;
+            this.nBO = aVar;
         }
     }
 

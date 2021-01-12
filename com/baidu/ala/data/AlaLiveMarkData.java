@@ -4,7 +4,7 @@ import alaim.LiveMarkInfo;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import java.io.Serializable;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class AlaLiveMarkData extends OrmObject implements Serializable {
     public static final String DEFAULT_ANCHOR_USER_ID = "0";
     public static final int TYPE_USER_LABEL = 3;

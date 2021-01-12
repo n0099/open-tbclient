@@ -7,34 +7,34 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.av;
 /* loaded from: classes.dex */
 public class s extends a {
-    private boolean alQ;
+    private boolean akY;
     private int procType;
 
     public s(boolean z, int i) {
-        this.alQ = true;
+        this.akY = true;
         this.procType = 0;
-        this.alQ = z;
+        this.akY = z;
         this.procType = i;
     }
 
     @Override // com.baidu.tbadk.core.util.d.a
-    public int bwN() {
+    public int bsT() {
         return com.baidu.adp.lib.util.l.getEquipmentWidth(TbadkCoreApplication.getInst().getApp());
     }
 
     @Override // com.baidu.tbadk.core.util.d.a
-    public int bwO() {
+    public int bsU() {
         return com.baidu.adp.lib.util.l.getEquipmentHeight(TbadkCoreApplication.getInst().getApp());
     }
 
     @Override // com.baidu.tbadk.core.util.d.a
-    public int bwP() {
+    public int bsV() {
         return this.procType;
     }
 
     @Override // com.baidu.tbadk.core.util.d.a
     public boolean isFromCDN() {
-        return this.alQ;
+        return this.akY;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -44,21 +44,21 @@ public class s extends a {
         long currentTimeMillis = System.currentTimeMillis();
         com.baidu.adp.widget.ImageView.a aVar = null;
         byte[] bArr = new byte[0];
-        com.baidu.adp.lib.Disk.ops.c Ck = Ck(av.getNameMd5FromUrl(str2));
-        if (Ck == null) {
+        com.baidu.adp.lib.Disk.ops.c AZ = AZ(av.getNameMd5FromUrl(str2));
+        if (AZ == null) {
             return null;
         }
-        Ck.a(DiskFileOperate.OperateType.TRY_SUCCESS);
-        Ck.setSubFolder(true);
-        Ck.setIsFormatData(false);
-        Ck.setLock(bArr);
-        Ck.setSdCard(false);
+        AZ.a(DiskFileOperate.OperateType.TRY_SUCCESS);
+        AZ.setSubFolder(true);
+        AZ.setIsFormatData(false);
+        AZ.setLock(bArr);
+        AZ.setSdCard(false);
         if (bVar != null) {
             d dVar = new d();
-            dVar.f(Ck);
-            bVar.Np = dVar;
+            dVar.f(AZ);
+            bVar.Nn = dVar;
         }
-        if (!com.baidu.adp.lib.Disk.d.lh().c(Ck)) {
+        if (!com.baidu.adp.lib.Disk.d.lh().c(AZ)) {
             com.baidu.adp.lib.e.a.c(false, 0L);
             return null;
         }
@@ -72,8 +72,8 @@ public class s extends a {
             } catch (InterruptedException e) {
             }
         }
-        if (Ck.isSuccess()) {
-            aVar = a(Ck, str2, i, i2);
+        if (AZ.isSuccess()) {
+            aVar = a(AZ, str2, i, i2);
         }
         com.baidu.adp.lib.e.a.c(aVar != null, System.currentTimeMillis() - currentTimeMillis);
         return aVar;
@@ -94,7 +94,7 @@ public class s extends a {
             if (bVar != null) {
                 d dVar = new d();
                 dVar.f(cVar);
-                bVar.Np = dVar;
+                bVar.Nn = dVar;
             }
         }
     }

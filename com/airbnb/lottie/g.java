@@ -5,7 +5,7 @@ import androidx.annotation.Nullable;
 import androidx.annotation.RestrictTo;
 /* loaded from: classes3.dex */
 public class g {
-    private final String Cz;
+    private final String Cx;
     @Nullable
     private Bitmap bitmap;
     private final String fileName;
@@ -19,7 +19,7 @@ public class g {
         this.height = i2;
         this.id = str;
         this.fileName = str2;
-        this.Cz = str3;
+        this.Cx = str3;
     }
 
     public String getId() {
@@ -31,7 +31,7 @@ public class g {
     }
 
     public String il() {
-        return this.Cz;
+        return this.Cx;
     }
 
     @Nullable

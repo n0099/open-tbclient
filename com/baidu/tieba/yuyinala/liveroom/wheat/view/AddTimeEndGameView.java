@@ -9,26 +9,26 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.baidu.live.sdk.a;
 import com.baidu.live.view.SafeFrameLayout;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class AddTimeEndGameView extends SafeFrameLayout implements View.OnClickListener {
     private View mView;
-    private TextView oEU;
-    private TextView oEV;
-    private TextView oEW;
-    private TextView oEX;
-    private a oEY;
+    private TextView oAp;
+    private TextView oAq;
+    private TextView oAr;
+    private TextView oAs;
+    private a oAt;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public interface a {
-        int NM(int i);
+        int Mf(int i);
 
-        void egl();
+        void ect();
 
-        void egm();
+        void ecu();
 
-        void egn();
+        void ecv();
 
-        void ego();
+        void ecw();
     }
 
     public AddTimeEndGameView(@NonNull Context context) {
@@ -46,72 +46,72 @@ public class AddTimeEndGameView extends SafeFrameLayout implements View.OnClickL
     }
 
     private void initListener() {
-        this.oEU.setOnClickListener(this);
-        this.oEX.setOnClickListener(this);
-        this.oEV.setOnClickListener(this);
-        this.oEW.setOnClickListener(this);
-        this.oEW.setSelected(true);
-        this.oEV.setSelected(true);
+        this.oAp.setOnClickListener(this);
+        this.oAs.setOnClickListener(this);
+        this.oAq.setOnClickListener(this);
+        this.oAr.setOnClickListener(this);
+        this.oAr.setSelected(true);
+        this.oAq.setSelected(true);
     }
 
     private void initView() {
         this.mView = LayoutInflater.from(getContext()).inflate(a.g.yuyinala_liveroom_wheat_add_time_end_game_layout, this);
-        this.oEU = (TextView) this.mView.findViewById(a.f.start_game);
-        this.oEX = (TextView) this.mView.findViewById(a.f.add_time);
-        this.oEV = (TextView) this.mView.findViewById(a.f.end_game);
-        this.oEW = (TextView) this.mView.findViewById(a.f.next_activity);
+        this.oAp = (TextView) this.mView.findViewById(a.f.start_game);
+        this.oAs = (TextView) this.mView.findViewById(a.f.add_time);
+        this.oAq = (TextView) this.mView.findViewById(a.f.end_game);
+        this.oAr = (TextView) this.mView.findViewById(a.f.next_activity);
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.oEU) {
-            if (this.oEY != null) {
-                this.oEY.egl();
+        if (view == this.oAp) {
+            if (this.oAt != null) {
+                this.oAt.ect();
             }
-        } else if (view == this.oEX) {
-            if (this.oEY != null) {
-                this.oEY.egm();
+        } else if (view == this.oAs) {
+            if (this.oAt != null) {
+                this.oAt.ecu();
             }
-        } else if (view == this.oEV) {
-            if (this.oEY != null) {
-                this.oEY.egn();
+        } else if (view == this.oAq) {
+            if (this.oAt != null) {
+                this.oAt.ecv();
             }
-        } else if (view == this.oEW && this.oEY != null) {
-            this.oEY.ego();
+        } else if (view == this.oAr && this.oAt != null) {
+            this.oAt.ecw();
         }
     }
 
     public void setListener(a aVar) {
-        this.oEY = aVar;
+        this.oAt = aVar;
     }
 
     public void setButtonState(int i) {
         if (i == 0) {
-            this.oEU.setVisibility(0);
-            this.oEX.setVisibility(8);
-            this.oEV.setVisibility(8);
-            this.oEW.setVisibility(8);
+            this.oAp.setVisibility(0);
+            this.oAs.setVisibility(8);
+            this.oAq.setVisibility(8);
+            this.oAr.setVisibility(8);
         } else if (i == 1) {
-            this.oEU.setVisibility(8);
-            this.oEX.setVisibility(0);
-            if (this.oEY != null) {
-                this.oEX.setText(String.format(getContext().getString(a.h.yuyin_ala_add_time_btn_text), Integer.valueOf(this.oEY.NM(i))));
+            this.oAp.setVisibility(8);
+            this.oAs.setVisibility(0);
+            if (this.oAt != null) {
+                this.oAs.setText(String.format(getContext().getString(a.h.yuyin_ala_add_time_btn_text), Integer.valueOf(this.oAt.Mf(i))));
             }
-            this.oEV.setVisibility(8);
-            this.oEW.setVisibility(0);
+            this.oAq.setVisibility(8);
+            this.oAr.setVisibility(0);
         } else if (i == 2) {
-            this.oEU.setVisibility(8);
-            this.oEX.setVisibility(8);
-            this.oEV.setVisibility(8);
-            this.oEW.setVisibility(8);
+            this.oAp.setVisibility(8);
+            this.oAs.setVisibility(8);
+            this.oAq.setVisibility(8);
+            this.oAr.setVisibility(8);
         } else if (i == 3) {
-            this.oEU.setVisibility(8);
-            this.oEX.setVisibility(0);
-            if (this.oEY != null) {
-                this.oEX.setText(String.format(getContext().getString(a.h.yuyin_ala_add_time_btn_text), Integer.valueOf(this.oEY.NM(i))));
+            this.oAp.setVisibility(8);
+            this.oAs.setVisibility(0);
+            if (this.oAt != null) {
+                this.oAs.setText(String.format(getContext().getString(a.h.yuyin_ala_add_time_btn_text), Integer.valueOf(this.oAt.Mf(i))));
             }
-            this.oEV.setVisibility(0);
-            this.oEW.setVisibility(8);
+            this.oAq.setVisibility(0);
+            this.oAr.setVisibility(8);
         }
     }
 }

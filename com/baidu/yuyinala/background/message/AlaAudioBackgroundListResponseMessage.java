@@ -6,10 +6,10 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class AlaAudioBackgroundListResponseMessage extends JsonHttpResponsedMessage {
-    private List<a> nBq;
-    private a oQg;
+    private List<a> nwL;
+    private a oLE;
 
     public AlaAudioBackgroundListResponseMessage() {
         super(1031015);
@@ -19,23 +19,23 @@ public class AlaAudioBackgroundListResponseMessage extends JsonHttpResponsedMess
     public void decodeLogicInBackGround(int i, JSONObject jSONObject) throws Exception {
         JSONArray optJSONArray = jSONObject.optJSONArray("background_list");
         int length = optJSONArray.length();
-        this.nBq = new ArrayList();
+        this.nwL = new ArrayList();
         for (int i2 = 0; i2 < length; i2++) {
             JSONObject optJSONObject = optJSONArray.optJSONObject(i2);
             a aVar = new a();
             aVar.parse(optJSONObject);
-            this.nBq.add(aVar);
-            if (aVar.ekv() && this.oQg == null) {
-                this.oQg = aVar;
+            this.nwL.add(aVar);
+            if (aVar.egB() && this.oLE == null) {
+                this.oLE = aVar;
             }
         }
     }
 
     public List<a> getBgList() {
-        return this.nBq;
+        return this.nwL;
     }
 
-    public a ekx() {
-        return this.oQg;
+    public a egD() {
+        return this.oLE;
     }
 }

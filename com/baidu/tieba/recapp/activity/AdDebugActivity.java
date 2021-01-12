@@ -15,24 +15,24 @@ import com.baidu.tieba.recapp.report.g;
 import com.baidu.tieba.tbadkCore.data.AppData;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class AdDebugActivity extends BaseActivity<AdDebugActivity> implements View.OnClickListener {
-    private LinearLayout ixX;
-    private TextView kMS;
-    private List<AppData> mMU;
+    private LinearLayout itq;
+    private TextView kIn;
+    private List<AppData> mIm;
     private TextView mTitle;
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
         if (view.getId() == R.id.ad_debug_copy) {
-            a.copyToClipboard(this.kMS.getText().toString());
+            a.copyToClipboard(this.kIn.getText().toString());
             showToast("已复制到系统剪贴板");
             return;
         }
-        int indexOfChild = this.ixX.indexOfChild(view);
-        if (indexOfChild >= 0 && indexOfChild < this.mMU.size()) {
+        int indexOfChild = this.itq.indexOfChild(view);
+        if (indexOfChild >= 0 && indexOfChild < this.mIm.size()) {
             this.mTitle.setText("AD" + indexOfChild);
-            a(this.mMU.get(indexOfChild));
+            a(this.mIm.get(indexOfChild));
         }
     }
 
@@ -42,40 +42,40 @@ public class AdDebugActivity extends BaseActivity<AdDebugActivity> implements Vi
         super.onCreate(bundle);
         setContentView(R.layout.ad_debug_layout);
         this.mTitle = (TextView) findViewById(R.id.ad_debug_label_data);
-        this.kMS = (TextView) findViewById(R.id.ad_debug_content);
-        this.ixX = (LinearLayout) findViewById(R.id.ad_debug_item_container);
+        this.kIn = (TextView) findViewById(R.id.ad_debug_content);
+        this.itq = (LinearLayout) findViewById(R.id.ad_debug_item_container);
         ((TextView) findViewById(R.id.ad_debug_copy)).setOnClickListener(this);
-        this.kMS.setMovementMethod(new ScrollingMovementMethod());
-        this.kMS.setText("没刷到广告~ 换个姿势试试！");
-        this.mMU = r.dEW().dEU();
-        bxi();
+        this.kIn.setMovementMethod(new ScrollingMovementMethod());
+        this.kIn.setText("没刷到广告~ 换个姿势试试！");
+        this.mIm = r.dBe().dBc();
+        bto();
     }
 
-    private void bxi() {
-        if (this.mMU.size() == 0) {
-            TextView dEZ = dEZ();
-            dEZ.setOnClickListener(null);
-            dEZ.setText("No AD");
-            this.ixX.addView(dEZ, new LinearLayout.LayoutParams(-1, -1, 1.0f));
+    private void bto() {
+        if (this.mIm.size() == 0) {
+            TextView dBh = dBh();
+            dBh.setOnClickListener(null);
+            dBh.setText("No AD");
+            this.itq.addView(dBh, new LinearLayout.LayoutParams(-1, -1, 1.0f));
             return;
         }
         int i = 0;
         while (true) {
             int i2 = i;
-            if (i2 != this.mMU.size()) {
-                TextView dEZ2 = dEZ();
-                dEZ2.setText("AD" + i2);
-                AppData appData = this.mMU.get(i2);
+            if (i2 != this.mIm.size()) {
+                TextView dBh2 = dBh();
+                dBh2.setText("AD" + i2);
+                AppData appData = this.mIm.get(i2);
                 if (appData.mDiscardReason > 0) {
-                    ao.setBackgroundResource(dEZ2, R.drawable.btn_all_red);
+                    ao.setBackgroundResource(dBh2, R.drawable.btn_all_red);
                 } else {
-                    ao.setBackgroundResource(dEZ2, R.drawable.btn_all_green);
+                    ao.setBackgroundResource(dBh2, R.drawable.btn_all_green);
                 }
                 if (i2 == 0) {
                     a(appData);
                     this.mTitle.setText("AD0");
                 }
-                this.ixX.addView(dEZ2, new LinearLayout.LayoutParams(-1, -1, 1.0f));
+                this.itq.addView(dBh2, new LinearLayout.LayoutParams(-1, -1, 1.0f));
                 i = i2 + 1;
             } else {
                 return;
@@ -83,7 +83,7 @@ public class AdDebugActivity extends BaseActivity<AdDebugActivity> implements Vi
         }
     }
 
-    private TextView dEZ() {
+    private TextView dBh() {
         TextView textView = new TextView(this);
         textView.setGravity(17);
         ao.setViewTextColor(textView, R.color.CAM_X0312);
@@ -94,7 +94,7 @@ public class AdDebugActivity extends BaseActivity<AdDebugActivity> implements Vi
     private void a(AppData appData) {
         String str;
         if (appData == null) {
-            this.kMS.setText("数据格式错误");
+            this.kIn.setText("数据格式错误");
             return;
         }
         JSONObject jSONObject = new JSONObject();
@@ -102,7 +102,7 @@ public class AdDebugActivity extends BaseActivity<AdDebugActivity> implements Vi
             try {
                 String str2 = new String();
                 if (appData.mDiscardReason > 0) {
-                    String str3 = g.mSJ.get(Integer.valueOf(appData.mDiscardReason));
+                    String str3 = g.mOc.get(Integer.valueOf(appData.mDiscardReason));
                     if (TextUtils.isEmpty(str3)) {
                         str3 = "未知原因";
                     }
@@ -116,7 +116,7 @@ public class AdDebugActivity extends BaseActivity<AdDebugActivity> implements Vi
                     optJSONObject.put("lego_card", new JSONObject(optString));
                     jSONObject.put("goods", optJSONObject);
                 }
-                this.kMS.setText(str + jSONObject.toString(4));
+                this.kIn.setText(str + jSONObject.toString(4));
             } catch (Exception e) {
                 e.printStackTrace();
             }

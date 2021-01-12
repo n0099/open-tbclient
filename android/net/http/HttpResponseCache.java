@@ -9,7 +9,7 @@ import java.net.URI;
 import java.net.URLConnection;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class HttpResponseCache extends ResponseCache {
     HttpResponseCache() {
         throw new RuntimeException("Stub!");

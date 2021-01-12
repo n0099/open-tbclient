@@ -1,5 +1,5 @@
 package com.kwai.player.vr;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class FpsStatistic {
     private static final int FPS_CALCULATE_TIME_MS = 1000;
     private volatile boolean mFpsStar;

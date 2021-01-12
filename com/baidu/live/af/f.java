@@ -4,47 +4,47 @@ import android.text.TextUtils;
 import com.baidu.live.data.p;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class f {
-    private long bCp;
-    private p.a bCq;
-    private List<String> bCr;
+    private long bxD;
+    private p.a bxE;
+    private List<String> bxF;
 
-    public static f SV() {
-        return a.bCs;
+    public static f Pa() {
+        return a.bxG;
     }
 
     public void b(p.a aVar) {
-        if (this.bCr != null) {
-            this.bCr.clear();
+        if (this.bxF != null) {
+            this.bxF.clear();
         }
         be(0L);
-        this.bCq = aVar;
-        if (this.bCq != null) {
-            List<String> list = aVar.aKs;
+        this.bxE = aVar;
+        if (this.bxE != null) {
+            List<String> list = aVar.aFF;
             if (list != null && !list.isEmpty()) {
-                if (this.bCr == null) {
-                    this.bCr = new ArrayList();
+                if (this.bxF == null) {
+                    this.bxF = new ArrayList();
                 }
-                this.bCr.addAll(list);
+                this.bxF.addAll(list);
             }
-            be(aVar.endTime - aVar.aKr);
+            be(aVar.endTime - aVar.aFE);
         }
     }
 
     public double i(boolean z, String str) {
         double a2;
-        if (this.bCq == null || this.bCq.aKo != 1) {
+        if (this.bxE == null || this.bxE.aFB != 1) {
             return 0.0d;
         }
         if (z) {
-            if (SW()) {
-                a2 = Math.max(a(str, this.bCq.aKq), a(str, this.bCq.aKp));
+            if (Pb()) {
+                a2 = Math.max(a(str, this.bxE.aFD), a(str, this.bxE.aFC));
             } else {
-                a2 = a(str, this.bCq.aKp);
+                a2 = a(str, this.bxE.aFC);
             }
         } else {
-            a2 = SW() ? a(str, this.bCq.aKq) : 0.0d;
+            a2 = Pb() ? a(str, this.bxE.aFD) : 0.0d;
         }
         if (a2 == 1.0d || a2 < 0.0d) {
             return 0.0d;
@@ -53,9 +53,9 @@ public class f {
     }
 
     private double a(String str, double d) {
-        if (!TextUtils.isEmpty(str) && this.bCq != null) {
-            if (this.bCq.aKt != null && !this.bCq.aKt.isEmpty()) {
-                for (String str2 : this.bCq.aKt) {
+        if (!TextUtils.isEmpty(str) && this.bxE != null) {
+            if (this.bxE.aFG != null && !this.bxE.aFG.isEmpty()) {
+                for (String str2 : this.bxE.aFG) {
                     if (str.equals(str2)) {
                         return d;
                     }
@@ -67,34 +67,34 @@ public class f {
         return 0.0d;
     }
 
-    public boolean SW() {
-        return this.bCp > 0;
+    public boolean Pb() {
+        return this.bxD > 0;
     }
 
     public void be(long j) {
-        this.bCp = j;
+        this.bxD = j;
     }
 
-    public boolean ik(String str) {
-        if (this.bCr == null || this.bCr.isEmpty()) {
+    public boolean gZ(String str) {
+        if (this.bxF == null || this.bxF.isEmpty()) {
             return false;
         }
-        return this.bCr.contains(str);
+        return this.bxF.contains(str);
     }
 
     public void release() {
-        this.bCp = 0L;
-        if (this.bCr != null) {
-            this.bCr.clear();
+        this.bxD = 0L;
+        if (this.bxF != null) {
+            this.bxF.clear();
         }
-        this.bCq = null;
+        this.bxE = null;
     }
 
     private f() {
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     private static class a {
-        private static final f bCs = new f();
+        private static final f bxG = new f();
     }
 }

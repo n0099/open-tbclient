@@ -9,22 +9,22 @@ import com.baidu.live.adp.framework.message.CustomResponsedMessage;
 import com.baidu.live.tbadk.TbPageContext;
 import com.baidu.tieba.ala.liveroom.operation.b;
 import com.baidu.tieba.ala.liveroom.praise.DetailPraiseView;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class a {
-    private DetailPraiseView hNv;
-    private b hNw;
-    private boolean hNx;
+    private DetailPraiseView hIP;
+    private b hIQ;
+    private boolean hIR;
     private TbPageContext mTbPageContext;
     private String otherParams;
-    private DetailPraiseView.a hNy = new DetailPraiseView.a() { // from class: com.baidu.tieba.ala.liveroom.praise.a.1
+    private DetailPraiseView.a hIS = new DetailPraiseView.a() { // from class: com.baidu.tieba.ala.liveroom.praise.a.1
         @Override // com.baidu.tieba.ala.liveroom.praise.DetailPraiseView.a
-        public void cnc() {
-            if (a.this.hNw != null) {
-                a.this.hNw.v(a.this.hNv, 12);
+        public void cjk() {
+            if (a.this.hIQ != null) {
+                a.this.hIQ.v(a.this.hIP, 12);
             }
         }
     };
-    private CustomMessageListener gPs = new CustomMessageListener(2913095) { // from class: com.baidu.tieba.ala.liveroom.praise.a.2
+    private CustomMessageListener gKM = new CustomMessageListener(2913095) { // from class: com.baidu.tieba.ala.liveroom.praise.a.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -40,60 +40,60 @@ public class a {
 
     public a(TbPageContext tbPageContext) {
         this.mTbPageContext = tbPageContext;
-        this.gPs.setTag(this.mTbPageContext.getUniqueId());
-        MessageManager.getInstance().registerListener(this.gPs);
+        this.gKM.setTag(this.mTbPageContext.getUniqueId());
+        MessageManager.getInstance().registerListener(this.gKM);
     }
 
     public void b(b bVar) {
-        this.hNw = bVar;
+        this.hIQ = bVar;
     }
 
-    public void oD(boolean z) {
-        if (this.hNx && z) {
+    public void oz(boolean z) {
+        if (this.hIR && z) {
             z = false;
         }
-        if (this.hNv != null) {
-            this.hNv.setShowPraise(z);
+        if (this.hIP != null) {
+            this.hIP.setShowPraise(z);
         }
     }
 
-    public void oE(boolean z) {
-        this.hNx = z;
+    public void oA(boolean z) {
+        this.hIR = z;
     }
 
     public void setPraiseEnable(boolean z) {
-        if (this.hNx && z) {
+        if (this.hIR && z) {
             z = false;
         }
-        if (this.hNv != null) {
-            this.hNv.setPraiseEnable(z);
+        if (this.hIP != null) {
+            this.hIP.setPraiseEnable(z);
         }
     }
 
     public void aM(ViewGroup viewGroup) {
         if (viewGroup != null && this.mTbPageContext != null) {
-            if (this.hNv == null) {
-                this.hNv = new DetailPraiseView(this.mTbPageContext.getPageActivity());
+            if (this.hIP == null) {
+                this.hIP = new DetailPraiseView(this.mTbPageContext.getPageActivity());
             }
-            this.hNv.setOnDoubleClickListener(this.hNy);
-            if (this.hNv.getParent() != null) {
-                ((ViewGroup) this.hNv.getParent()).removeView(this.hNv);
+            this.hIP.setOnDoubleClickListener(this.hIS);
+            if (this.hIP.getParent() != null) {
+                ((ViewGroup) this.hIP.getParent()).removeView(this.hIP);
             }
-            viewGroup.addView(this.hNv, 0, new RelativeLayout.LayoutParams(-1, -1));
+            viewGroup.addView(this.hIP, 0, new RelativeLayout.LayoutParams(-1, -1));
         }
     }
 
-    public void bZw() {
-        if (this.hNv != null) {
-            this.hNv.bZw();
+    public void bVE() {
+        if (this.hIP != null) {
+            this.hIP.bVE();
         }
     }
 
-    public void Id() {
-        MessageManager.getInstance().unRegisterListener(this.gPs);
+    public void Ei() {
+        MessageManager.getInstance().unRegisterListener(this.gKM);
     }
 
     public View getView() {
-        return this.hNv;
+        return this.hIP;
     }
 }

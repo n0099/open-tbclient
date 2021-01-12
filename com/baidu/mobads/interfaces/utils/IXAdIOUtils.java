@@ -3,7 +3,7 @@ package com.baidu.mobads.interfaces.utils;
 import android.content.Context;
 import java.io.File;
 import java.io.InputStream;
-/* loaded from: classes3.dex */
+/* loaded from: classes14.dex */
 public interface IXAdIOUtils {
     public static final int BUFFER_SIZE = 1024;
     public static final String DEFAULT_CACHE_PATH = "/bddownload/";

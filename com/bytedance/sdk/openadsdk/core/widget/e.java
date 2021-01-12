@@ -17,10 +17,10 @@ import com.bytedance.sdk.openadsdk.utils.ak;
 public class e extends AlertDialog {
 
     /* renamed from: a  reason: collision with root package name */
-    private TextView f7104a;
+    private TextView f6804a;
 
     /* renamed from: b  reason: collision with root package name */
-    private TextView f7105b;
+    private TextView f6805b;
     private Button c;
     private Button d;
     private Context e;
@@ -52,8 +52,8 @@ public class e extends AlertDialog {
     }
 
     private void a() {
-        this.f7104a = (TextView) findViewById(ac.e(this.e, "tt_install_title"));
-        this.f7105b = (TextView) findViewById(ac.e(this.e, "tt_install_content"));
+        this.f6804a = (TextView) findViewById(ac.e(this.e, "tt_install_title"));
+        this.f6805b = (TextView) findViewById(ac.e(this.e, "tt_install_content"));
         this.c = (Button) findViewById(ac.e(this.e, "tt_install_btn_yes"));
         this.d = (Button) findViewById(ac.e(this.e, "tt_install_btn_no"));
         this.c.setOnClickListener(new View.OnClickListener() { // from class: com.bytedance.sdk.openadsdk.core.widget.e.1
@@ -83,8 +83,8 @@ public class e extends AlertDialog {
     }
 
     private void b() {
-        if (this.f7104a != null) {
-            this.f7104a.setText(this.f);
+        if (this.f6804a != null) {
+            this.f6804a.setText(this.f);
             if (this.j != null) {
                 int intrinsicWidth = this.j.getIntrinsicWidth();
                 int intrinsicHeight = this.j.getIntrinsicHeight();
@@ -96,12 +96,12 @@ public class e extends AlertDialog {
                     intrinsicHeight = c;
                 }
                 this.j.setBounds(0, 0, intrinsicWidth, intrinsicHeight);
-                this.f7104a.setCompoundDrawables(this.j, null, null, null);
-                this.f7104a.setCompoundDrawablePadding(ak.c(this.e, 10.0f));
+                this.f6804a.setCompoundDrawables(this.j, null, null, null);
+                this.f6804a.setCompoundDrawablePadding(ak.c(this.e, 10.0f));
             }
         }
-        if (this.f7105b != null) {
-            this.f7105b.setText(this.g);
+        if (this.f6805b != null) {
+            this.f6805b.setText(this.g);
         }
         if (this.c != null) {
             this.c.setText(this.h);

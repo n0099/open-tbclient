@@ -10,10 +10,10 @@ import java.util.concurrent.atomic.AtomicBoolean;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private b f7732a;
+    private b f7432a;
 
     /* renamed from: b  reason: collision with root package name */
-    private AtomicBoolean f7733b = new AtomicBoolean(false);
+    private AtomicBoolean f7433b = new AtomicBoolean(false);
 
     public a(Context context, String str, File file) {
         if (context == null) {
@@ -25,27 +25,27 @@ public class a {
         if (file == null) {
             throw new RuntimeException("resRootDir == null");
         }
-        this.f7732a = new b(context, str, file);
+        this.f7432a = new b(context, str, file);
     }
 
     public InputStream a(String str) throws Exception {
-        if (this.f7733b.get()) {
+        if (this.f7433b.get()) {
             throw new RuntimeException("released!");
         }
         com.bytedance.sdk.openadsdk.preload.geckox.h.b.a("WebOffline-falcon", "GeckoResLoader ready to load, file:", str);
-        return this.f7732a.a(str);
+        return this.f7432a.a(str);
     }
 
     public boolean b(String str) throws Exception {
-        if (this.f7733b.get()) {
+        if (this.f7433b.get()) {
             throw new RuntimeException("released!");
         }
-        return this.f7732a.b(str);
+        return this.f7432a.b(str);
     }
 
     public void a() throws Exception {
-        if (!this.f7733b.getAndSet(true)) {
-            this.f7732a.a();
+        if (!this.f7433b.getAndSet(true)) {
+            this.f7432a.a();
         }
     }
 }

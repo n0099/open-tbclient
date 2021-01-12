@@ -6,18 +6,18 @@ import android.widget.TextView;
 import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.swan.apps.a;
 import com.facebook.drawee.view.SimpleDraweeView;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class ListRecommendViewHolder extends RecyclerView.ViewHolder {
-    public SimpleDraweeView epW;
-    public TextView epX;
-    public TextView eqh;
-    public Button eqi;
+    public SimpleDraweeView elh;
+    public TextView eli;
+    public TextView els;
+    public Button elt;
 
     public ListRecommendViewHolder(View view) {
         super(view);
-        this.epW = (SimpleDraweeView) view.findViewById(a.f.swangame_recommend_item_icon);
-        this.epX = (TextView) view.findViewById(a.f.swangame_recommend_item_name);
-        this.eqh = (TextView) view.findViewById(a.f.swangame_recommend_item_detail);
-        this.eqi = (Button) view.findViewById(a.f.swangame_recommend_item_play);
+        this.elh = (SimpleDraweeView) view.findViewById(a.f.swangame_recommend_item_icon);
+        this.eli = (TextView) view.findViewById(a.f.swangame_recommend_item_name);
+        this.els = (TextView) view.findViewById(a.f.swangame_recommend_item_detail);
+        this.elt = (Button) view.findViewById(a.f.swangame_recommend_item_play);
     }
 }

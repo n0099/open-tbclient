@@ -26,12 +26,12 @@ import java.util.zip.ZipFile;
 /* loaded from: classes.dex */
 public final class a {
     private static final String SECONDARY_FOLDER_NAME = "code_cache" + File.separator + "secondary-dexes";
-    private static final Set<String> lrB = new HashSet();
-    private static final boolean lrC = Pa(System.getProperty("java.vm.version"));
+    private static final Set<String> lmR = new HashSet();
+    private static final boolean lmS = NS(System.getProperty("java.vm.version"));
 
-    public static void gE(Context context) {
+    public static void gC(Context context) {
         Log.i("MultiDex", Config.INPUT_INSTALLED_PKG);
-        if (lrC) {
+        if (lmS) {
             Log.i("MultiDex", "VM has multidex support, MultiDex support library is disabled.");
         } else if (Build.VERSION.SDK_INT < 4) {
             throw new RuntimeException("Multi dex installation failed. SDK " + Build.VERSION.SDK_INT + " is unsupported. Min SDK version is 4.");
@@ -39,11 +39,11 @@ public final class a {
             try {
                 ApplicationInfo applicationInfo = getApplicationInfo(context);
                 if (applicationInfo != null) {
-                    Set<String> set = lrB;
-                    synchronized (lrB) {
+                    Set<String> set = lmR;
+                    synchronized (lmR) {
                         String str = applicationInfo.sourceDir;
-                        if (!lrB.contains(str)) {
-                            lrB.add(str);
+                        if (!lmR.contains(str)) {
+                            lmR.add(str);
                             if (Build.VERSION.SDK_INT > 20) {
                                 Log.w("MultiDex", "MultiDex is not guaranteed to work in SDK version " + Build.VERSION.SDK_INT + ": SDK version higher than 20 should be backed by runtime with built-in multidex capabilty but it's not the case here: java.vm.version=\"" + System.getProperty("java.vm.version") + "\"");
                             }
@@ -53,7 +53,7 @@ public final class a {
                                     Log.e("MultiDex", "Context class loader is null. Must be running in test mode. Skip patching.");
                                     return;
                                 }
-                                gF(context);
+                                gD(context);
                                 File file = new File(applicationInfo.dataDir, SECONDARY_FOLDER_NAME);
                                 List<File> a2 = com.baidu.tieba.m.b.a(context, applicationInfo, file, false);
                                 if (eW(a2)) {
@@ -94,7 +94,7 @@ public final class a {
         }
     }
 
-    static boolean Pa(String str) {
+    static boolean NS(String str) {
         boolean z = false;
         if (str != null) {
             Matcher matcher = Pattern.compile("(\\d+)\\.(\\d+)(\\.\\d+)?").matcher(str);
@@ -120,7 +120,7 @@ public final class a {
                     c.a(classLoader, list);
                     return;
                 } else {
-                    C0803a.a(classLoader, list, file);
+                    C0786a.a(classLoader, list, file);
                     return;
                 }
             }
@@ -130,7 +130,7 @@ public final class a {
 
     private static boolean eW(List<File> list) {
         for (File file : list) {
-            if (!com.baidu.tieba.m.b.ah(file)) {
+            if (!com.baidu.tieba.m.b.ag(file)) {
                 return false;
             }
         }
@@ -177,7 +177,7 @@ public final class a {
         findField.set(obj, objArr3);
     }
 
-    private static void gF(Context context) throws Exception {
+    private static void gD(Context context) throws Exception {
         File file = new File(context.getFilesDir(), "secondary-dexes");
         if (file.isDirectory()) {
             Log.i("MultiDex", "Clearing old secondary dex dir (" + file.getPath() + ").");
@@ -236,7 +236,7 @@ public final class a {
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.tieba.m.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static final class C0803a {
+    public static final class C0786a {
         /* JADX INFO: Access modifiers changed from: private */
         public static void a(ClassLoader classLoader, List<File> list, File file) throws IllegalArgumentException, IllegalAccessException, NoSuchFieldException, InvocationTargetException, NoSuchMethodException {
             Object obj = a.findField(classLoader, "pathList").get(classLoader);

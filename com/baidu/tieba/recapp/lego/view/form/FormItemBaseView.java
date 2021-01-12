@@ -11,34 +11,34 @@ import android.widget.RelativeLayout;
 import com.baidu.tieba.R;
 import com.baidu.tieba.recapp.lego.model.FormCard;
 import com.baidu.tieba.recapp.lego.view.form.FormCardView;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public abstract class FormItemBaseView extends RelativeLayout implements FormCardView.a {
-    protected float cMu;
+    protected float cHI;
     protected Activity mActivity;
     protected Context mContext;
-    protected float mQS;
-    protected Drawable mQV;
-    protected Drawable mQW;
-    protected int mQX;
-    protected int mQY;
-    protected int mQZ;
-    protected int mRa;
-    protected int mRb;
-    protected int mRc;
-    protected int mRd;
-    protected int mRe;
+    protected float mMA;
+    protected int mMB;
+    protected int mMC;
+    protected int mMD;
+    protected int mME;
+    protected View mMF;
+    protected float mMm;
+    protected Drawable mMp;
+    protected Drawable mMq;
+    protected int mMr;
+    protected int mMs;
+    protected int mMt;
+    protected int mMu;
+    protected int mMv;
+    protected int mMw;
+    protected int mMx;
+    protected int mMy;
+    protected float mMz;
     protected Resources mResources;
-    protected float mRf;
-    protected float mRg;
-    protected int mRh;
-    protected int mRi;
-    protected int mRj;
-    protected int mRk;
-    protected View mRl;
     protected String mTag;
 
     /* JADX INFO: Access modifiers changed from: protected */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public enum DrawableType {
         ERROR_FRAME,
         ORDINARY_FRAME
@@ -48,27 +48,27 @@ public abstract class FormItemBaseView extends RelativeLayout implements FormCar
         super(context);
         this.mContext = null;
         this.mResources = null;
-        this.mQV = null;
-        this.mQW = null;
-        this.mQX = 0;
-        this.mQY = 0;
-        this.mQZ = 0;
-        this.mRa = 0;
-        this.mRb = 0;
-        this.mRc = 0;
-        this.mRd = 0;
-        this.mRe = 0;
-        this.cMu = 0.0f;
-        this.mRf = 0.0f;
-        this.mRg = 0.0f;
-        this.mRh = 0;
-        this.mRi = 0;
-        this.mRj = 0;
-        this.mRk = 0;
-        this.mRl = null;
+        this.mMp = null;
+        this.mMq = null;
+        this.mMr = 0;
+        this.mMs = 0;
+        this.mMt = 0;
+        this.mMu = 0;
+        this.mMv = 0;
+        this.mMw = 0;
+        this.mMx = 0;
+        this.mMy = 0;
+        this.cHI = 0.0f;
+        this.mMz = 0.0f;
+        this.mMA = 0.0f;
+        this.mMB = 0;
+        this.mMC = 0;
+        this.mMD = 0;
+        this.mME = 0;
+        this.mMF = null;
         this.mTag = "";
         this.mActivity = null;
-        this.mQS = 1.0f;
+        this.mMm = 1.0f;
         init(context);
     }
 
@@ -76,27 +76,27 @@ public abstract class FormItemBaseView extends RelativeLayout implements FormCar
         super(context, attributeSet);
         this.mContext = null;
         this.mResources = null;
-        this.mQV = null;
-        this.mQW = null;
-        this.mQX = 0;
-        this.mQY = 0;
-        this.mQZ = 0;
-        this.mRa = 0;
-        this.mRb = 0;
-        this.mRc = 0;
-        this.mRd = 0;
-        this.mRe = 0;
-        this.cMu = 0.0f;
-        this.mRf = 0.0f;
-        this.mRg = 0.0f;
-        this.mRh = 0;
-        this.mRi = 0;
-        this.mRj = 0;
-        this.mRk = 0;
-        this.mRl = null;
+        this.mMp = null;
+        this.mMq = null;
+        this.mMr = 0;
+        this.mMs = 0;
+        this.mMt = 0;
+        this.mMu = 0;
+        this.mMv = 0;
+        this.mMw = 0;
+        this.mMx = 0;
+        this.mMy = 0;
+        this.cHI = 0.0f;
+        this.mMz = 0.0f;
+        this.mMA = 0.0f;
+        this.mMB = 0;
+        this.mMC = 0;
+        this.mMD = 0;
+        this.mME = 0;
+        this.mMF = null;
         this.mTag = "";
         this.mActivity = null;
-        this.mQS = 1.0f;
+        this.mMm = 1.0f;
         init(context);
     }
 
@@ -104,27 +104,27 @@ public abstract class FormItemBaseView extends RelativeLayout implements FormCar
         super(context, attributeSet, i);
         this.mContext = null;
         this.mResources = null;
-        this.mQV = null;
-        this.mQW = null;
-        this.mQX = 0;
-        this.mQY = 0;
-        this.mQZ = 0;
-        this.mRa = 0;
-        this.mRb = 0;
-        this.mRc = 0;
-        this.mRd = 0;
-        this.mRe = 0;
-        this.cMu = 0.0f;
-        this.mRf = 0.0f;
-        this.mRg = 0.0f;
-        this.mRh = 0;
-        this.mRi = 0;
-        this.mRj = 0;
-        this.mRk = 0;
-        this.mRl = null;
+        this.mMp = null;
+        this.mMq = null;
+        this.mMr = 0;
+        this.mMs = 0;
+        this.mMt = 0;
+        this.mMu = 0;
+        this.mMv = 0;
+        this.mMw = 0;
+        this.mMx = 0;
+        this.mMy = 0;
+        this.cHI = 0.0f;
+        this.mMz = 0.0f;
+        this.mMA = 0.0f;
+        this.mMB = 0;
+        this.mMC = 0;
+        this.mMD = 0;
+        this.mME = 0;
+        this.mMF = null;
         this.mTag = "";
         this.mActivity = null;
-        this.mQS = 1.0f;
+        this.mMm = 1.0f;
         init(context);
     }
 
@@ -132,35 +132,35 @@ public abstract class FormItemBaseView extends RelativeLayout implements FormCar
         this.mContext = context;
         this.mActivity = (Activity) this.mContext;
         this.mResources = context.getApplicationContext().getResources();
-        this.mRe = this.mResources.getColor(R.color.form_font_color);
-        this.mRh = this.mResources.getColor(R.color.form_button_font_color);
-        this.mRj = this.mResources.getColor(R.color.form_button_grey_bg_color);
-        this.mRi = -1;
-        this.mRk = -1;
-        this.mRd = -1;
-        this.mQV = this.mResources.getDrawable(R.drawable.form_frame_white);
-        this.mQW = this.mResources.getDrawable(R.drawable.form_frame_red);
+        this.mMy = this.mResources.getColor(R.color.form_font_color);
+        this.mMB = this.mResources.getColor(R.color.form_button_font_color);
+        this.mMD = this.mResources.getColor(R.color.form_button_grey_bg_color);
+        this.mMC = -1;
+        this.mME = -1;
+        this.mMx = -1;
+        this.mMp = this.mResources.getDrawable(R.drawable.form_frame_white);
+        this.mMq = this.mResources.getDrawable(R.drawable.form_frame_red);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void a(View view, DrawableType drawableType) {
-        this.mRl = view;
+        this.mMF = view;
         switch (drawableType) {
             case ERROR_FRAME:
-                this.mRl.setBackgroundResource(R.drawable.form_frame_red);
+                this.mMF.setBackgroundResource(R.drawable.form_frame_red);
                 return;
             case ORDINARY_FRAME:
-                this.mRl.setBackgroundResource(R.drawable.form_frame_white);
+                this.mMF.setBackgroundResource(R.drawable.form_frame_white);
                 return;
             default:
-                this.mRl.setBackgroundDrawable(null);
+                this.mMF.setBackgroundDrawable(null);
                 return;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public View getFrameView() {
-        return this.mRl;
+        return this.mMF;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -179,7 +179,7 @@ public abstract class FormItemBaseView extends RelativeLayout implements FormCar
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public int dFC() {
+    public int dBK() {
         return -2;
     }
 
@@ -195,18 +195,18 @@ public abstract class FormItemBaseView extends RelativeLayout implements FormCar
     }
 
     public void aW(float f) {
-        this.mQS = f;
+        this.mMm = f;
         float dimension = this.mResources.getDimension(R.dimen.form_font_size28);
         float dimension2 = this.mResources.getDimension(R.dimen.form_font_size20);
         float dimension3 = this.mResources.getDimension(R.dimen.form_font_size36);
-        this.mQX = (int) (((int) this.mResources.getDimension(R.dimen.form_size20)) * this.mQS);
-        this.mQY = (int) (((int) this.mResources.getDimension(R.dimen.form_size40)) * this.mQS);
-        this.mQZ = (int) (((int) this.mResources.getDimension(R.dimen.form_size50)) * this.mQS);
-        this.mRa = (int) (((int) this.mResources.getDimension(R.dimen.form_size80)) * this.mQS);
-        this.mRb = (int) (((int) this.mResources.getDimension(R.dimen.form_size90)) * this.mQS);
-        this.mRc = (int) (((int) this.mResources.getDimension(R.dimen.form_size240)) * this.mQS);
-        this.cMu = (int) (this.mQS * dimension);
-        this.mRf = (int) (this.mQS * dimension2);
-        this.mRg = (int) (this.mQS * dimension3);
+        this.mMr = (int) (((int) this.mResources.getDimension(R.dimen.form_size20)) * this.mMm);
+        this.mMs = (int) (((int) this.mResources.getDimension(R.dimen.form_size40)) * this.mMm);
+        this.mMt = (int) (((int) this.mResources.getDimension(R.dimen.form_size50)) * this.mMm);
+        this.mMu = (int) (((int) this.mResources.getDimension(R.dimen.form_size80)) * this.mMm);
+        this.mMv = (int) (((int) this.mResources.getDimension(R.dimen.form_size90)) * this.mMm);
+        this.mMw = (int) (((int) this.mResources.getDimension(R.dimen.form_size240)) * this.mMm);
+        this.cHI = (int) (this.mMm * dimension);
+        this.mMz = (int) (this.mMm * dimension2);
+        this.mMA = (int) (this.mMm * dimension3);
     }
 }

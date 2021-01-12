@@ -1,5 +1,5 @@
 package com.baidu.mobads;
-/* loaded from: classes3.dex */
+/* loaded from: classes14.dex */
 public enum AdSize {
     Banner(0),
     Square(1),
@@ -15,13 +15,13 @@ public enum AdSize {
     
 
     /* renamed from: a  reason: collision with root package name */
-    private int f3302a;
+    private int f3264a;
 
     public int getValue() {
-        return this.f3302a;
+        return this.f3264a;
     }
 
     AdSize(int i) {
-        this.f3302a = i;
+        this.f3264a = i;
     }
 }

@@ -6,7 +6,7 @@ import android.util.AttributeSet;
 import android.view.MotionEvent;
 import androidx.viewpager.widget.ViewPager;
 import com.baidu.yuyinala.privatemessage.implugin.ui.theme.ThemeManager;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class HackyViewPager extends ViewPager {
     public HackyViewPager(Context context) {
         super(context);
@@ -38,7 +38,7 @@ public class HackyViewPager extends ViewPager {
     @Override // androidx.viewpager.widget.ViewPager, android.view.View
     public void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        if (ThemeManager.enR() == ThemeManager.ThemeMode.NIGHT) {
+        if (ThemeManager.ejW() == ThemeManager.ThemeMode.NIGHT) {
             canvas.drawColor(2130706432);
         }
     }

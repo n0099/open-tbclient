@@ -5,15 +5,15 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class SMView extends LinearLayout implements View.OnClickListener {
-    private SMListView pfI;
-    private SMLayout pfJ;
-    private c pfK;
-    private a pfL;
+    private SMListView pbf;
+    private SMLayout pbg;
+    private c pbh;
+    private a pbi;
     private int position;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public interface a {
         void a(SMView sMView, c cVar, int i);
     }
@@ -28,10 +28,10 @@ public class SMView extends LinearLayout implements View.OnClickListener {
 
     public SMView(c cVar, SMListView sMListView) {
         super(cVar.getContext());
-        this.pfI = sMListView;
-        this.pfK = cVar;
+        this.pbf = sMListView;
+        this.pbh = cVar;
         int i = 0;
-        for (e eVar : cVar.eoH()) {
+        for (e eVar : cVar.ekL()) {
             a(eVar, i);
             i++;
         }
@@ -72,20 +72,20 @@ public class SMView extends LinearLayout implements View.OnClickListener {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.pfL != null && this.pfJ.isOpen()) {
-            this.pfL.a(this, this.pfK, view.getId());
+        if (this.pbi != null && this.pbg.isOpen()) {
+            this.pbi.a(this, this.pbh, view.getId());
         }
     }
 
     public a getOnSwipeItemClickListener() {
-        return this.pfL;
+        return this.pbi;
     }
 
     public void setOnSwipeItemClickListener(a aVar) {
-        this.pfL = aVar;
+        this.pbi = aVar;
     }
 
     public void setLayout(SMLayout sMLayout) {
-        this.pfJ = sMLayout;
+        this.pbg = sMLayout;
     }
 }

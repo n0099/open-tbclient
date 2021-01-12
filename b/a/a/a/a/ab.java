@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.location.Location;
 import android.location.LocationManager;
+import android.net.http.Headers;
 import android.net.wifi.ScanResult;
 import android.net.wifi.WifiManager;
 import android.os.Build;
@@ -14,19 +15,19 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public final class ab {
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f1051a = 0;
-    public final af Be;
-    private final z Bf;
-    private final aa Bg;
+    public static int f1050a = 0;
+    public final af Bd;
+    private final z Be;
+    private final aa Bf;
 
     public ab(af afVar, z zVar, aa aaVar) {
-        this.Be = afVar;
-        this.Bf = zVar;
-        this.Bg = aaVar;
+        this.Bd = afVar;
+        this.Be = zVar;
+        this.Bf = aaVar;
     }
 
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:66:? */
@@ -90,7 +91,7 @@ public final class ab {
                 i2 = i;
                 z = false;
                 z2 = false;
-                locationManager = (LocationManager) context.getSystemService("location");
+                locationManager = (LocationManager) context.getSystemService(Headers.LOCATION);
                 if (locationManager != null) {
                 }
                 if (!z4) {
@@ -115,7 +116,7 @@ public final class ab {
                     i2 = i;
                     z = true;
                     z2 = true;
-                    locationManager = (LocationManager) context.getSystemService("location");
+                    locationManager = (LocationManager) context.getSystemService(Headers.LOCATION);
                     if (locationManager != null) {
                         try {
                             i5 = Settings.Secure.getInt(context.getContentResolver(), "location_mode");
@@ -187,7 +188,7 @@ public final class ab {
         i2 = i;
         z = false;
         z2 = z5;
-        locationManager = (LocationManager) context.getSystemService("location");
+        locationManager = (LocationManager) context.getSystemService(Headers.LOCATION);
         if (locationManager != null) {
         }
         if (!z4) {
@@ -231,18 +232,18 @@ public final class ab {
             return "";
         }
         try {
-            boolean z2 = this.Bf == null ? true : f1051a != this.Bf.e;
-            f1051a = this.Bf == null ? f1051a : this.Bf.e;
-            if (this.Be == null) {
+            boolean z2 = this.Be == null ? true : f1050a != this.Be.e;
+            f1050a = this.Be == null ? f1050a : this.Be.e;
+            if (this.Bd == null) {
                 sb = "[]";
             } else {
-                af afVar = this.Be;
-                if (afVar.f1054b.size() <= 0) {
+                af afVar = this.Bd;
+                if (afVar.f1053b.size() <= 0) {
                     sb = "[]";
                 } else {
                     StringBuilder sb3 = new StringBuilder("[");
                     int i = 0;
-                    for (ScanResult scanResult : afVar.f1054b) {
+                    for (ScanResult scanResult : afVar.f1053b) {
                         if (i > 0) {
                             sb3.append(",");
                         }
@@ -253,11 +254,11 @@ public final class ab {
                     sb = sb3.toString();
                 }
             }
-            String a2 = this.Bf == null ? "[]" : this.Bf.a(z2);
-            if (this.Bg == null) {
+            String a2 = this.Be == null ? "[]" : this.Be.a(z2);
+            if (this.Bf == null) {
                 sb2 = "{}";
             } else {
-                Location location = this.Bg.f1050b;
+                Location location = this.Bf.f1049b;
                 StringBuilder sb4 = new StringBuilder();
                 String a3 = aa.a(location.getLatitude(), 6);
                 String a4 = aa.a(location.getLongitude(), 6);
@@ -275,7 +276,7 @@ public final class ab {
                 sb4.append("}");
                 sb2 = sb4.toString();
             }
-            x xVar = wVar.AX;
+            x xVar = wVar.AW;
             HashMap hashMap = new HashMap();
             hashMap.put("imei", xVar.f());
             hashMap.put("imsi", xVar.h());
@@ -284,8 +285,8 @@ public final class ab {
             hashMap.put("mac", xVar.e().toLowerCase(Locale.ENGLISH));
             String jSONObject2 = new JSONObject(hashMap).toString();
             String i2 = xVar.i();
-            int a9 = a(wVar.f1082a);
-            String a10 = j.a(wVar.f1082a);
+            int a9 = a(wVar.f1081a);
+            String a10 = j.a(wVar.f1081a);
             try {
                 if (!sb.equals("[]") || a10.equals("{}")) {
                     str = sb;
@@ -300,7 +301,7 @@ public final class ab {
             if (str2 != null) {
                 str2 = str2.replaceAll("[\"|_]", "");
             }
-            String str3 = (("{\"version\":\"" + x.b() + "\",\"address\":0") + ",\"source\":203,\"access_token\":\"" + i2 + "\",\"app_name\":\"" + x.d() + "\",\"app_label\":\"" + (str2 + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + xVar.f1083a) + "\",\"bearing\":1") + ",\"control\":0";
+            String str3 = (("{\"version\":\"" + x.b() + "\",\"address\":0") + ",\"source\":203,\"access_token\":\"" + i2 + "\",\"app_name\":\"" + x.d() + "\",\"app_label\":\"" + (str2 + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + xVar.f1082a) + "\",\"bearing\":1") + ",\"control\":0";
             return (((z ? str3 + ",\"detectgps\":1" : str3 + ",\"detectgps\":0") + ",\"pstat\":" + a9) + ",\"wlan\":" + a10) + ",\"attribute\":" + jSONObject2 + ",\"location\":" + sb2 + ",\"cells\":" + a2 + ",\"wifis\":" + str + ",\"bles\":[]}";
         } catch (Throwable th2) {
             return null;
@@ -308,6 +309,6 @@ public final class ab {
     }
 
     public final boolean a() {
-        return this.Bg != null;
+        return this.Bf != null;
     }
 }

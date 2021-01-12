@@ -5,7 +5,7 @@ import com.baidu.down.loopj.android.http.BaseRetryHandler;
 import com.baidu.down.loopj.android.http.HttpResponseException;
 import com.baidu.down.utils.network.NetWorkDetector;
 import java.io.IOException;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class UrlConnectionRetryHandler extends BaseRetryHandler {
     public UrlConnectionRetryHandler(long[] jArr) {
         super(jArr);

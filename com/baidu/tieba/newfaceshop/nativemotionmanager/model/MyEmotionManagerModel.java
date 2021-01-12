@@ -30,18 +30,18 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import org.json.JSONArray;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class MyEmotionManagerModel extends NativeManageEmotionModel implements com.baidu.tieba.newfaceshop.nativemotionmanager.model.a.a {
-    private TbPageContext<BaseFragmentActivity> kab;
-    private a.InterfaceC0830a lzL;
-    private List<String> lzM;
-    private List<EmotionPackageData> lzN;
-    private CustomMessageListener lzO;
-    private final HttpMessageListener lzP;
+    private TbPageContext<BaseFragmentActivity> jVw;
+    private a.InterfaceC0813a lvf;
+    private List<String> lvg;
+    private List<EmotionPackageData> lvh;
+    private CustomMessageListener lvi;
+    private final HttpMessageListener lvj;
 
     public MyEmotionManagerModel(TbPageContext<BaseFragmentActivity> tbPageContext) {
         super(tbPageContext);
-        this.lzO = new CustomMessageListener(CmdConfigCustom.CMD_SWAP_MY_EMOTION_PACKAGE) { // from class: com.baidu.tieba.newfaceshop.nativemotionmanager.model.MyEmotionManagerModel.1
+        this.lvi = new CustomMessageListener(CmdConfigCustom.CMD_SWAP_MY_EMOTION_PACKAGE) { // from class: com.baidu.tieba.newfaceshop.nativemotionmanager.model.MyEmotionManagerModel.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -51,41 +51,41 @@ public class MyEmotionManagerModel extends NativeManageEmotionModel implements c
                 }
             }
         };
-        this.lzP = new HttpMessageListener(1003385) { // from class: com.baidu.tieba.newfaceshop.nativemotionmanager.model.MyEmotionManagerModel.2
+        this.lvj = new HttpMessageListener(1003385) { // from class: com.baidu.tieba.newfaceshop.nativemotionmanager.model.MyEmotionManagerModel.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
                 if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003385 && (httpResponsedMessage instanceof EmotionManageResponseMessage)) {
                     EmotionManageResponseMessage emotionManageResponseMessage = (EmotionManageResponseMessage) httpResponsedMessage;
-                    if (MyEmotionManagerModel.this.lzL != null) {
+                    if (MyEmotionManagerModel.this.lvf != null) {
                         if (emotionManageResponseMessage.data != null) {
-                            MyEmotionManagerModel.this.lzN.clear();
+                            MyEmotionManagerModel.this.lvh.clear();
                             if (emotionManageResponseMessage.data.data != null) {
-                                MyEmotionManagerModel.this.lzN.addAll(emotionManageResponseMessage.data.data);
+                                MyEmotionManagerModel.this.lvh.addAll(emotionManageResponseMessage.data.data);
                             }
                             Pair fd = MyEmotionManagerModel.this.fd(emotionManageResponseMessage.data.data);
-                            MyEmotionManagerModel.this.lzL.onSuccess(new Pair(fd.first, fd.second));
+                            MyEmotionManagerModel.this.lvf.onSuccess(new Pair(fd.first, fd.second));
                             return;
                         }
-                        MyEmotionManagerModel.this.lzL.onFail();
+                        MyEmotionManagerModel.this.lvf.onFail();
                     }
                 }
             }
         };
-        this.kab = tbPageContext;
-        this.lzM = new ArrayList();
-        this.lzN = new ArrayList();
+        this.jVw = tbPageContext;
+        this.lvg = new ArrayList();
+        this.lvh = new ArrayList();
         registerTask();
-        this.lzP.setTag(getUniqueId());
-        this.lzP.setSelfListener(true);
-        registerListener(this.lzP);
-        registerListener(this.lzO);
+        this.lvj.setTag(getUniqueId());
+        this.lvj.setSelfListener(true);
+        registerListener(this.lvj);
+        registerListener(this.lvi);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public synchronized void db(int i, int i2) {
         try {
-            this.lzM.add(i2, this.lzM.remove(i));
+            this.lvg.add(i2, this.lvg.remove(i));
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -101,8 +101,8 @@ public class MyEmotionManagerModel extends NativeManageEmotionModel implements c
         int size = list.size();
         String id = TbadkCoreApplication.getCurrentAccountObj().getID();
         String str = id == null ? "" : id;
-        List<String> dkS = dkS();
-        for (String str2 : dkS) {
+        List<String> dha = dha();
+        for (String str2 : dha) {
             EmotionPackageData m = m(str2, list);
             if (m != null) {
                 m.ishasdownload = true;
@@ -114,7 +114,7 @@ public class MyEmotionManagerModel extends NativeManageEmotionModel implements c
         boolean z = false;
         for (int i = 0; i < size; i++) {
             EmotionPackageData emotionPackageData = list.get(i);
-            if (emotionPackageData.status == 1 && !dkS.contains(String.valueOf(emotionPackageData.id))) {
+            if (emotionPackageData.status == 1 && !dha.contains(String.valueOf(emotionPackageData.id))) {
                 if (!z) {
                     emotionPackageData.isUndownloadheader = true;
                     z = true;
@@ -177,17 +177,17 @@ public class MyEmotionManagerModel extends NativeManageEmotionModel implements c
 
     @Override // com.baidu.adp.base.BdBaseModel
     protected boolean LoadData() {
-        com.baidu.tieba.newfaceshop.a.dka().execute(new Runnable() { // from class: com.baidu.tieba.newfaceshop.nativemotionmanager.model.MyEmotionManagerModel.3
+        com.baidu.tieba.newfaceshop.a.dgi().execute(new Runnable() { // from class: com.baidu.tieba.newfaceshop.nativemotionmanager.model.MyEmotionManagerModel.3
             @Override // java.lang.Runnable
             public void run() {
-                MyEmotionManagerModel.this.dkR();
-                List<MyEmotionGroupData> dkd = c.dkc().dkd();
+                MyEmotionManagerModel.this.dgZ();
+                List<MyEmotionGroupData> dgl = c.dgk().dgl();
                 JSONArray jSONArray = new JSONArray();
-                if (dkd != null && !dkd.isEmpty()) {
-                    for (MyEmotionGroupData myEmotionGroupData : dkd) {
+                if (dgl != null && !dgl.isEmpty()) {
+                    for (MyEmotionGroupData myEmotionGroupData : dgl) {
                         if (myEmotionGroupData != null) {
                             jSONArray.put(myEmotionGroupData.getGroupId());
-                            MyEmotionManagerModel.this.Pm(myEmotionGroupData.getGroupId());
+                            MyEmotionManagerModel.this.Oe(myEmotionGroupData.getGroupId());
                         }
                     }
                 }
@@ -197,72 +197,72 @@ public class MyEmotionManagerModel extends NativeManageEmotionModel implements c
         return false;
     }
 
-    public void dkQ() {
-        com.baidu.tieba.newfaceshop.a.dka().execute(new Runnable() { // from class: com.baidu.tieba.newfaceshop.nativemotionmanager.model.MyEmotionManagerModel.4
+    public void dgY() {
+        com.baidu.tieba.newfaceshop.a.dgi().execute(new Runnable() { // from class: com.baidu.tieba.newfaceshop.nativemotionmanager.model.MyEmotionManagerModel.4
             @Override // java.lang.Runnable
             public void run() {
-                MyEmotionManagerModel.this.dkR();
-                List<MyEmotionGroupData> dkd = c.dkc().dkd();
+                MyEmotionManagerModel.this.dgZ();
+                List<MyEmotionGroupData> dgl = c.dgk().dgl();
                 JSONArray jSONArray = new JSONArray();
-                if (dkd != null && !dkd.isEmpty()) {
-                    for (MyEmotionGroupData myEmotionGroupData : dkd) {
+                if (dgl != null && !dgl.isEmpty()) {
+                    for (MyEmotionGroupData myEmotionGroupData : dgl) {
                         if (myEmotionGroupData != null) {
                             jSONArray.put(myEmotionGroupData.getGroupId());
-                            MyEmotionManagerModel.this.Pm(myEmotionGroupData.getGroupId());
+                            MyEmotionManagerModel.this.Oe(myEmotionGroupData.getGroupId());
                         }
                     }
                 }
-                if (MyEmotionManagerModel.this.lzL != null) {
-                    Pair fd = MyEmotionManagerModel.this.fd(MyEmotionManagerModel.this.lzN);
-                    MyEmotionManagerModel.this.lzL.onSuccess(new Pair(fd.first, fd.second));
+                if (MyEmotionManagerModel.this.lvf != null) {
+                    Pair fd = MyEmotionManagerModel.this.fd(MyEmotionManagerModel.this.lvh);
+                    MyEmotionManagerModel.this.lvf.onSuccess(new Pair(fd.first, fd.second));
                 }
             }
         });
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public synchronized void dkR() {
-        this.lzM.clear();
+    public synchronized void dgZ() {
+        this.lvg.clear();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public synchronized void Pm(String str) {
-        this.lzM.add(str);
+    public synchronized void Oe(String str) {
+        this.lvg.add(str);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public synchronized List<String> dkS() {
-        return new ArrayList(this.lzM);
+    public synchronized List<String> dha() {
+        return new ArrayList(this.lvg);
     }
 
-    public void dkT() {
-        if (this.lzP != null) {
-            MessageManager.getInstance().unRegisterListener(this.lzP);
+    public void dhb() {
+        if (this.lvj != null) {
+            MessageManager.getInstance().unRegisterListener(this.lvj);
         }
-        if (this.lzO != null) {
-            MessageManager.getInstance().unRegisterListener(this.lzO);
+        if (this.lvi != null) {
+            MessageManager.getInstance().unRegisterListener(this.lvi);
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public class a implements Runnable {
-        private WeakReference<MyEmotionManagerModel> lzR;
-        private JSONArray lzS;
+        private WeakReference<MyEmotionManagerModel> lvl;
+        private JSONArray lvm;
 
         public a(MyEmotionManagerModel myEmotionManagerModel, JSONArray jSONArray) {
-            this.lzR = new WeakReference<>(myEmotionManagerModel);
-            this.lzS = jSONArray;
-            if (this.lzS == null) {
-                this.lzS = new JSONArray();
+            this.lvl = new WeakReference<>(myEmotionManagerModel);
+            this.lvm = jSONArray;
+            if (this.lvm == null) {
+                this.lvm = new JSONArray();
             }
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            MyEmotionManagerModel myEmotionManagerModel = this.lzR.get();
+            MyEmotionManagerModel myEmotionManagerModel = this.lvl.get();
             if (myEmotionManagerModel != null) {
                 HttpMessage httpMessage = new HttpMessage(1003385);
-                httpMessage.addParam("ids", this.lzS);
+                httpMessage.addParam("ids", this.lvm);
                 myEmotionManagerModel.sendMessage(httpMessage);
             }
         }
@@ -272,14 +272,14 @@ public class MyEmotionManagerModel extends NativeManageEmotionModel implements c
         LoadData();
     }
 
-    public void dkK() {
+    public void dgS() {
         e.mB().post(new Runnable() { // from class: com.baidu.tieba.newfaceshop.nativemotionmanager.model.MyEmotionManagerModel.5
             @Override // java.lang.Runnable
             public void run() {
-                if (MyEmotionManagerModel.this.lzL != null) {
-                    MyEmotionManagerModel.this.lzL.dkK();
-                    if (!com.baidu.tieba.newfaceshop.nativemotionmanager.a.dkI().bOv()) {
-                        MyEmotionManagerModel.this.dkU();
+                if (MyEmotionManagerModel.this.lvf != null) {
+                    MyEmotionManagerModel.this.lvf.dgS();
+                    if (!com.baidu.tieba.newfaceshop.nativemotionmanager.a.dgQ().bKD()) {
+                        MyEmotionManagerModel.this.dhc();
                     }
                 }
             }
@@ -287,14 +287,14 @@ public class MyEmotionManagerModel extends NativeManageEmotionModel implements c
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void dkU() {
-        if (d.dkg().dkj()) {
-            l.showToast(this.kab.getPageActivity(), R.string.face_group_is_syncing);
+    public void dhc() {
+        if (d.dgo().dgr()) {
+            l.showToast(this.jVw.getPageActivity(), R.string.face_group_is_syncing);
         } else {
-            com.baidu.tieba.newfaceshop.a.dka().execute(new Runnable() { // from class: com.baidu.tieba.newfaceshop.nativemotionmanager.model.MyEmotionManagerModel.6
+            com.baidu.tieba.newfaceshop.a.dgi().execute(new Runnable() { // from class: com.baidu.tieba.newfaceshop.nativemotionmanager.model.MyEmotionManagerModel.6
                 @Override // java.lang.Runnable
                 public void run() {
-                    c.dkc().v(MyEmotionManagerModel.this.dkS(), true);
+                    c.dgk().v(MyEmotionManagerModel.this.dha(), true);
                 }
             });
         }
@@ -305,7 +305,7 @@ public class MyEmotionManagerModel extends NativeManageEmotionModel implements c
         return false;
     }
 
-    public void a(a.InterfaceC0830a interfaceC0830a) {
-        this.lzL = interfaceC0830a;
+    public void a(a.InterfaceC0813a interfaceC0813a) {
+        this.lvf = interfaceC0813a;
     }
 }

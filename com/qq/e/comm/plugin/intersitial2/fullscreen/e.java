@@ -25,14 +25,14 @@ import com.qq.e.comm.plugin.y.u;
 import com.qq.e.comm.util.GDTLogger;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class e implements ACTD, b.a, b.a, f.a {
 
     /* renamed from: a  reason: collision with root package name */
-    private Activity f12445a;
+    private Activity f12145a;
 
     /* renamed from: b  reason: collision with root package name */
-    private boolean f12446b;
+    private boolean f12146b;
     private c c;
     private ViewGroup d;
     private com.qq.e.comm.plugin.intersitial2.fullscreen.a.a e;
@@ -46,7 +46,7 @@ public class e implements ACTD, b.a, b.a, f.a {
     private com.qq.e.comm.plugin.c.a.c m;
 
     public e(Activity activity) {
-        this.f12445a = activity;
+        this.f12145a = activity;
     }
 
     private void a(int i, String str) {
@@ -63,10 +63,10 @@ public class e implements ACTD, b.a, b.a, f.a {
 
     private void m() {
         InterstitialFSEventCenter.a().a(this.c.m(), 10004, null);
-        if (this.f12445a == null || this.f12445a.isFinishing()) {
+        if (this.f12145a == null || this.f12145a.isFinishing()) {
             return;
         }
-        this.f12445a.finish();
+        this.f12145a.finish();
     }
 
     private void n() {
@@ -148,7 +148,7 @@ public class e implements ACTD, b.a, b.a, f.a {
 
     @Override // com.qq.e.comm.plugin.intersitial2.fullscreen.a.b.a
     public void a(boolean z, int i, Exception exc) {
-        a.a(this.c, this.e, this.f12446b, 2);
+        a.a(this.c, this.e, this.f12146b, 2);
         if (z) {
             com.qq.e.comm.plugin.intersitial2.c.a(com.qq.e.comm.plugin.ad.e.UNIFIED_INTERSTITIAL_FULLSCREEN, false, this.l, i, exc);
         } else {
@@ -182,7 +182,7 @@ public class e implements ACTD, b.a, b.a, f.a {
     @Override // com.qq.e.comm.plugin.intersitial2.fullscreen.a.b.a
     public void f() {
         com.qq.e.comm.plugin.intersitial2.c.a(this.l);
-        a.a(this.c, this.e, this.f12446b, 0);
+        a.a(this.c, this.e, this.f12146b, 0);
         n();
     }
 
@@ -197,7 +197,7 @@ public class e implements ACTD, b.a, b.a, f.a {
     @Override // com.qq.e.comm.plugin.intersitial2.fullscreen.a.b.a
     public void h() {
         if (this.e != null) {
-            a.a(this.c, this.e, this.f12446b, 0);
+            a.a(this.c, this.e, this.f12146b, 0);
             n();
         }
     }
@@ -243,16 +243,16 @@ public class e implements ACTD, b.a, b.a, f.a {
 
     @Override // com.qq.e.comm.pi.ACTD
     public void onAfterCreate(Bundle bundle) {
-        String stringExtra = this.f12445a.getIntent().getStringExtra(Constants.KEYS.AD_INFO);
-        String stringExtra2 = this.f12445a.getIntent().getStringExtra("appid");
-        String stringExtra3 = this.f12445a.getIntent().getStringExtra("adThreadId");
-        String stringExtra4 = this.f12445a.getIntent().getStringExtra("posId");
+        String stringExtra = this.f12145a.getIntent().getStringExtra(Constants.KEYS.AD_INFO);
+        String stringExtra2 = this.f12145a.getIntent().getStringExtra("appid");
+        String stringExtra3 = this.f12145a.getIntent().getStringExtra("adThreadId");
+        String stringExtra4 = this.f12145a.getIntent().getStringExtra("posId");
         this.l.a(stringExtra4);
         com.qq.e.comm.plugin.ad.e eVar = com.qq.e.comm.plugin.ad.e.UNIFIED_INTERSTITIAL_FULLSCREEN;
         if (TextUtils.isEmpty(stringExtra)) {
             GDTLogger.e("InterstitialFSActivityDelegate onAfterCreate adData null");
             com.qq.e.comm.plugin.intersitial2.c.a(eVar, true, 4014, this.l);
-            this.f12445a.finish();
+            this.f12145a.finish();
             return;
         }
         this.c = new c(stringExtra, stringExtra2, stringExtra4, stringExtra3);
@@ -260,24 +260,24 @@ public class e implements ACTD, b.a, b.a, f.a {
         this.l.b(this.c.f()).c(this.c.H());
         if (TextUtils.isEmpty(this.c.g())) {
             com.qq.e.comm.plugin.intersitial2.c.a(eVar, true, 5020, this.l);
-            this.f12445a.finish();
+            this.f12145a.finish();
             return;
         }
-        this.d = new RelativeLayout(this.f12445a);
+        this.d = new RelativeLayout(this.f12145a);
         this.d.setLayoutParams(new FrameLayout.LayoutParams(-1, -1));
         this.k = new com.qq.e.comm.plugin.ad.g();
-        this.e = new com.qq.e.comm.plugin.intersitial2.fullscreen.a.b(this.f12445a, this.c, this.f12446b, this.k, this.l);
+        this.e = new com.qq.e.comm.plugin.intersitial2.fullscreen.a.b(this.f12145a, this.c, this.f12146b, this.k, this.l);
         this.e.a(this);
         this.e.a(this.c.g());
         this.e.a(this.d);
-        this.f = com.qq.e.comm.plugin.n.a.a(this.f12445a, this.c, this.l);
+        this.f = com.qq.e.comm.plugin.n.a.a(this.f12145a, this.c, this.l);
         if (this.f != null) {
             this.f.a(this);
             this.f.a(this.k);
-            this.f.a(this.d, this.f12446b);
+            this.f.a(this.d, this.f12146b);
         }
         boolean k = this.c.k();
-        this.g = com.qq.e.comm.plugin.n.d.a(this.f12445a, this.c, this.k, "Interstitial", l(), this.l);
+        this.g = com.qq.e.comm.plugin.n.d.a(this.f12145a, this.c, this.k, "Interstitial", l(), this.l);
         this.g.a(this);
         if (k) {
             this.h = true;
@@ -285,8 +285,8 @@ public class e implements ACTD, b.a, b.a, f.a {
         }
         this.g.a(this.d);
         this.g.a();
-        this.m = new com.qq.e.comm.plugin.c.a.c(this.f12445a);
-        this.f12445a.setContentView(this.d);
+        this.m = new com.qq.e.comm.plugin.c.a.c(this.f12145a);
+        this.f12145a.setContentView(this.d);
         com.qq.e.comm.plugin.ad.a.a().a(this.d);
         this.d.post(new Runnable() { // from class: com.qq.e.comm.plugin.intersitial2.fullscreen.e.1
             @Override // java.lang.Runnable
@@ -322,12 +322,12 @@ public class e implements ACTD, b.a, b.a, f.a {
 
     @Override // com.qq.e.comm.pi.ACTD
     public void onBeforeCreate(Bundle bundle) {
-        this.f12446b = "l".equals(GDTADManager.getInstance().getDeviceStatus().getScreenOrientation());
-        this.f12445a.requestWindowFeature(1);
-        this.f12445a.getWindow().setFlags(1024, 1024);
-        this.f12445a.getWindow().setBackgroundDrawable(new ColorDrawable(ViewCompat.MEASURED_STATE_MASK));
-        this.f12445a.getWindow().setFlags(16777216, 16777216);
-        this.f12445a.getWindow().setFlags(128, 128);
+        this.f12146b = "l".equals(GDTADManager.getInstance().getDeviceStatus().getScreenOrientation());
+        this.f12145a.requestWindowFeature(1);
+        this.f12145a.getWindow().setFlags(1024, 1024);
+        this.f12145a.getWindow().setBackgroundDrawable(new ColorDrawable(ViewCompat.MEASURED_STATE_MASK));
+        this.f12145a.getWindow().setFlags(16777216, 16777216);
+        this.f12145a.getWindow().setFlags(128, 128);
     }
 
     @Override // com.qq.e.comm.pi.ACTD
@@ -354,10 +354,10 @@ public class e implements ACTD, b.a, b.a, f.a {
         if (!this.i && this.e != null) {
             this.e.c();
         }
-        if (this.c == null || this.e == null || this.i || this.f12445a == null || this.f12445a.isFinishing()) {
+        if (this.c == null || this.e == null || this.i || this.f12145a == null || this.f12145a.isFinishing()) {
             return;
         }
-        a.a(this.c, this.e, this.f12446b, 0);
+        a.a(this.c, this.e, this.f12146b, 0);
     }
 
     @Override // com.qq.e.comm.pi.ACTD

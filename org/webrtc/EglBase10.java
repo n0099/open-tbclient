@@ -6,13 +6,14 @@ import android.graphics.SurfaceTexture;
 import android.view.Surface;
 import android.view.SurfaceHolder;
 import androidx.annotation.Nullable;
+import com.baidu.mobstat.Config;
 import javax.microedition.khronos.egl.EGL10;
 import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.egl.EGLContext;
 import javax.microedition.khronos.egl.EGLDisplay;
 import javax.microedition.khronos.egl.EGLSurface;
 import org.webrtc.EglBase;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 class EglBase10 implements EglBase {
     private static final int EGL_CONTEXT_CLIENT_VERSION = 12440;
     @Nullable
@@ -22,7 +23,7 @@ class EglBase10 implements EglBase {
     private final EGL10 egl = (EGL10) EGLContext.getEGL();
     private EGLDisplay eglDisplay = getEglDisplay();
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static class Context implements EglBase.Context {
         private final EGLContext eglContext;
 
@@ -116,7 +117,7 @@ class EglBase10 implements EglBase {
         }
         this.eglSurface = this.egl.eglCreatePbufferSurface(this.eglDisplay, this.eglConfig, new int[]{12375, i, 12374, i2, 12344});
         if (this.eglSurface == EGL10.EGL_NO_SURFACE) {
-            throw new RuntimeException("Failed to create pixel buffer surface with size " + i + "x" + i2 + ": 0x" + Integer.toHexString(this.egl.eglGetError()));
+            throw new RuntimeException("Failed to create pixel buffer surface with size " + i + Config.EVENT_HEAT_X + i2 + ": 0x" + Integer.toHexString(this.egl.eglGetError()));
         }
     }
 

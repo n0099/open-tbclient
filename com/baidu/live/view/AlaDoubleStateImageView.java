@@ -4,10 +4,10 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.ImageView;
 import androidx.annotation.Nullable;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class AlaDoubleStateImageView extends ImageView {
-    private int bTy;
-    private int bTz;
+    private int bOM;
+    private int bON;
     private boolean isSelected;
 
     public AlaDoubleStateImageView(Context context) {
@@ -27,20 +27,20 @@ public class AlaDoubleStateImageView extends ImageView {
 
     public void setImageSrc(int i, int i2) {
         if (i > 0 && i2 > 0) {
-            this.bTy = i;
-            this.bTz = i2;
-            setImageResource(this.bTy);
+            this.bOM = i;
+            this.bON = i2;
+            setImageResource(this.bOM);
         }
     }
 
     public void setSelect(boolean z) {
         this.isSelected = z;
         if (z) {
-            if (this.bTz > 0) {
-                setImageResource(this.bTz);
+            if (this.bON > 0) {
+                setImageResource(this.bON);
             }
-        } else if (this.bTy > 0) {
-            setImageResource(this.bTy);
+        } else if (this.bOM > 0) {
+            setImageResource(this.bOM);
         }
     }
 

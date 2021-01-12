@@ -12,7 +12,7 @@ import com.baidu.tieba.addresslist.im.newFriend.NewFriendsActivity;
 import com.baidu.tieba.addresslist.im.newFriend.NewFriendsActivityConfig;
 import com.baidu.tieba.addresslist.im.newFriend.ResponsePassFriendMessage;
 import com.baidu.tieba.im.c;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class TaskRegisterStatic {
     public static String Tag = "tag";
 

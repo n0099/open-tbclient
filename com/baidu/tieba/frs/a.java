@@ -13,25 +13,25 @@ import org.json.JSONObject;
 import tbclient.FrsTabInfo;
 /* loaded from: classes.dex */
 public class a {
-    private final List<bz> jdM;
-    private boolean jdN;
-    private int jdO;
-    private List<FrsTabInfo> jdP;
-    private SparseArray<FrsTabInfo> jdQ;
-    private av jdR;
+    private final List<bz> iZf;
+    private boolean iZg;
+    private int iZh;
+    private List<FrsTabInfo> iZi;
+    private SparseArray<FrsTabInfo> iZj;
+    private av iZk;
     private String mForumId;
 
     private a() {
-        this.jdO = -1;
-        this.jdM = new ArrayList();
+        this.iZh = -1;
+        this.iZf = new ArrayList();
     }
 
-    public static a cDR() {
-        return C0739a.jdS;
+    public static a czZ() {
+        return C0722a.iZl;
     }
 
-    public boolean cDS() {
-        return this.jdN;
+    public boolean cAa() {
+        return this.iZg;
     }
 
     public void setForumId(String str) {
@@ -42,44 +42,44 @@ public class a {
         return this.mForumId;
     }
 
-    public void zO(int i) {
-        this.jdO = i;
+    public void yi(int i) {
+        this.iZh = i;
     }
 
-    public int cDT() {
-        return this.jdO;
+    public int cAb() {
+        return this.iZh;
     }
 
     public void dm(List<FrsTabInfo> list) {
-        this.jdP = new ArrayList(list);
-        this.jdQ = new SparseArray<>();
-        for (FrsTabInfo frsTabInfo : this.jdP) {
+        this.iZi = new ArrayList(list);
+        this.iZj = new SparseArray<>();
+        for (FrsTabInfo frsTabInfo : this.iZi) {
             if (frsTabInfo != null) {
-                this.jdQ.append(frsTabInfo.tab_id.intValue(), frsTabInfo);
+                this.iZj.append(frsTabInfo.tab_id.intValue(), frsTabInfo);
             }
         }
     }
 
-    public List<FrsTabInfo> cDU() {
-        return this.jdP;
+    public List<FrsTabInfo> cAc() {
+        return this.iZi;
     }
 
-    public List<bz> cDV() {
-        return this.jdM;
+    public List<bz> cAd() {
+        return this.iZf;
     }
 
-    public boolean zP(int i) {
-        return this.jdQ.get(i) != null && this.jdQ.get(i).is_general_tab.intValue() == 1;
+    public boolean yj(int i) {
+        return this.iZj.get(i) != null && this.iZj.get(i).is_general_tab.intValue() == 1;
     }
 
     public void a(av avVar) {
-        this.jdR = avVar;
+        this.iZk = avVar;
     }
 
     public void X(boolean z, boolean z2) {
-        this.jdN = z;
-        if (this.jdR != null) {
-            this.jdR.e(this.jdN, z2, 2);
+        this.iZg = z;
+        if (this.iZk != null) {
+            this.iZk.e(this.iZg, z2, 2);
         }
     }
 
@@ -87,24 +87,24 @@ public class a {
         if (bzVar == null) {
             return false;
         }
-        if (this.jdM.size() > 29) {
-            if (this.jdR != null) {
-                this.jdR.zX(2);
+        if (this.iZf.size() > 29) {
+            if (this.iZk != null) {
+                this.iZk.yr(2);
                 return false;
             }
             return false;
         }
-        this.jdM.add(bzVar);
-        if (this.jdR != null) {
-            this.jdR.co(this.jdM.size(), 2);
+        this.iZf.add(bzVar);
+        if (this.iZk != null) {
+            this.iZk.co(this.iZf.size(), 2);
         }
         return true;
     }
 
     public void am(bz bzVar) {
-        this.jdM.remove(bzVar);
-        if (this.jdR != null) {
-            this.jdR.co(this.jdM.size(), 2);
+        this.iZf.remove(bzVar);
+        if (this.iZk != null) {
+            this.iZk.co(this.iZf.size(), 2);
         }
     }
 
@@ -112,7 +112,7 @@ public class a {
         try {
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_FRS_MOVE_AREA);
             JSONArray jSONArray = new JSONArray();
-            for (bz bzVar : cDR().cDV()) {
+            for (bz bzVar : czZ().cAd()) {
                 if (bzVar != null) {
                     JSONObject jSONObject = new JSONObject();
                     jSONObject.put("thread_id", bzVar.getId());
@@ -122,31 +122,31 @@ public class a {
                 }
             }
             httpMessage.addParam("threads", jSONArray.toString());
-            httpMessage.addParam("forum_id", cDR().getForumId());
+            httpMessage.addParam("forum_id", czZ().getForumId());
             MessageManager.getInstance().sendMessage(httpMessage);
         } catch (JSONException e) {
             e.printStackTrace();
         }
     }
 
-    public void cDW() {
-        if (!com.baidu.tbadk.core.util.x.isEmpty(this.jdM)) {
-            this.jdM.clear();
-            if (this.jdR != null) {
-                this.jdR.co(this.jdM.size(), 2);
+    public void cAe() {
+        if (!com.baidu.tbadk.core.util.x.isEmpty(this.iZf)) {
+            this.iZf.clear();
+            if (this.iZk != null) {
+                this.iZk.co(this.iZf.size(), 2);
             }
         }
     }
 
     public void clearData() {
-        for (bz bzVar : this.jdM) {
+        for (bz bzVar : this.iZf) {
             if (bzVar != null) {
-                bzVar.jD(false);
+                bzVar.jz(false);
             }
         }
-        this.jdM.clear();
-        if (this.jdR != null) {
-            this.jdR.co(0, 2);
+        this.iZf.clear();
+        if (this.iZk != null) {
+            this.iZk.co(0, 2);
         }
     }
 
@@ -157,19 +157,19 @@ public class a {
 
     public void destory() {
         this.mForumId = null;
-        this.jdO = -1;
-        if (this.jdP != null) {
-            this.jdP.clear();
+        this.iZh = -1;
+        if (this.iZi != null) {
+            this.iZi.clear();
         }
-        if (this.jdQ != null) {
-            this.jdQ.clear();
+        if (this.iZj != null) {
+            this.iZj.clear();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.tieba.frs.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0739a {
-        private static a jdS = new a();
+    public static class C0722a {
+        private static a iZl = new a();
     }
 }

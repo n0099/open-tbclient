@@ -4,7 +4,7 @@ import android.os.Build;
 import androidx.annotation.NonNull;
 import androidx.annotation.RestrictTo;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public interface AutoSizeableTextView {
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
     public static final boolean PLATFORM_SUPPORTS_AUTOSIZE;

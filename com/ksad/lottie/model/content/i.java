@@ -2,14 +2,14 @@ package com.ksad.lottie.model.content;
 
 import android.graphics.Path;
 import androidx.annotation.Nullable;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class i implements b {
 
     /* renamed from: a  reason: collision with root package name */
-    private final boolean f8379a;
+    private final boolean f8079a;
 
     /* renamed from: b  reason: collision with root package name */
-    private final Path.FillType f8380b;
+    private final Path.FillType f8080b;
     private final String c;
     @Nullable
     private final com.ksad.lottie.model.a.a d;
@@ -18,8 +18,8 @@ public class i implements b {
 
     public i(String str, boolean z, Path.FillType fillType, @Nullable com.ksad.lottie.model.a.a aVar, @Nullable com.ksad.lottie.model.a.d dVar) {
         this.c = str;
-        this.f8379a = z;
-        this.f8380b = fillType;
+        this.f8079a = z;
+        this.f8080b = fillType;
         this.d = aVar;
         this.e = dVar;
     }
@@ -44,10 +44,10 @@ public class i implements b {
     }
 
     public Path.FillType d() {
-        return this.f8380b;
+        return this.f8080b;
     }
 
     public String toString() {
-        return "ShapeFill{color=, fillEnabled=" + this.f8379a + '}';
+        return "ShapeFill{color=, fillEnabled=" + this.f8079a + '}';
     }
 }

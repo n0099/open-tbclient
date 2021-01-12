@@ -8,10 +8,10 @@ import java.util.UUID;
 /* loaded from: classes4.dex */
 public class ce {
     private static long f;
-    private static a phI;
+    private static a pdg;
 
     /* renamed from: a  reason: collision with root package name */
-    String f6120a;
+    String f5820a;
     private long g;
     private int h;
     private long i = -1;
@@ -19,28 +19,28 @@ public class ce {
     private long k;
     private int l;
     private String m;
-    private aj phF;
-    private aj phG;
-    private ah phH;
-    private final m phu;
-    private final cn phv;
+    private final m pcS;
+    private final cn pcT;
+    private aj pdd;
+    private aj pde;
+    private ah pdf;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ce(m mVar, cn cnVar) {
-        this.phu = mVar;
-        this.phv = cnVar;
+        this.pcS = mVar;
+        this.pcT = cnVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public synchronized ah epA() {
-        return this.phH;
+    public synchronized ah elE() {
+        return this.pdf;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public synchronized Bundle L(long j, long j2) {
         Bundle bundle;
         bundle = null;
-        if (this.phv.f() && c() && j - this.g > j2) {
+        if (this.pcT.f() && c() && j - this.g > j2) {
             bundle = new Bundle();
             bundle.putInt("session_no", this.l);
             int i = this.h + 1;
@@ -63,21 +63,21 @@ public class ce {
     }
 
     private synchronized void a(ac acVar, ArrayList<ac> arrayList, boolean z) {
-        long j = acVar instanceof a ? -1L : acVar.f6074a;
-        this.f6120a = UUID.randomUUID().toString();
-        f = this.phv.epN();
+        long j = acVar instanceof a ? -1L : acVar.f5774a;
+        this.f5820a = UUID.randomUUID().toString();
+        f = this.pcT.elR();
         this.i = j;
         this.j = z;
         this.k = 0L;
-        if (au.f6086b) {
-            au.a("startSession, " + this.f6120a + ", hadUi:" + z + " data:" + acVar, null);
+        if (au.f5786b) {
+            au.a("startSession, " + this.f5820a + ", hadUi:" + z + " data:" + acVar, null);
         }
         if (z) {
             Calendar calendar = Calendar.getInstance();
             String str = "" + calendar.get(1) + calendar.get(2) + calendar.get(5);
             if (TextUtils.isEmpty(this.m)) {
-                this.m = this.phv.c();
-                this.l = this.phv.d();
+                this.m = this.pcT.c();
+                this.l = this.pcT.d();
             }
             if (!str.equals(this.m)) {
                 this.m = str;
@@ -85,23 +85,23 @@ public class ce {
             } else {
                 this.l++;
             }
-            this.phv.a(str, this.l);
+            this.pcT.a(str, this.l);
             this.h = 0;
         }
         if (j != -1) {
             ah ahVar = new ah();
-            ahVar.c = this.f6120a;
-            ahVar.f6075b = a(this.phv);
-            ahVar.f6074a = this.i;
-            ahVar.i = this.phu.d();
-            ahVar.h = this.phu.c();
-            if (this.phv.v()) {
-                ahVar.e = b.eoS();
-                ahVar.f = b.eoQ();
+            ahVar.c = this.f5820a;
+            ahVar.f5775b = a(this.pcT);
+            ahVar.f5774a = this.i;
+            ahVar.i = this.pcS.d();
+            ahVar.h = this.pcS.c();
+            if (this.pcT.v()) {
+                ahVar.e = b.ekW();
+                ahVar.f = b.ekU();
             }
             arrayList.add(ahVar);
-            this.phH = ahVar;
-            if (au.f6086b) {
+            this.pdf = ahVar;
+            if (au.f5786b) {
                 au.a("gen launch, " + ahVar.c + ", hadUi:" + z, null);
             }
         }
@@ -125,10 +125,10 @@ public class ce {
         } else if (!this.j && b2) {
             a(acVar, arrayList, true);
             z = true;
-        } else if (this.k != 0 && acVar.f6074a > this.k + this.phv.epL()) {
+        } else if (this.k != 0 && acVar.f5774a > this.k + this.pcT.elP()) {
             a(acVar, arrayList, b2);
             z = true;
-        } else if (this.i > acVar.f6074a + 7200000) {
+        } else if (this.i > acVar.f5774a + 7200000) {
             a(acVar, arrayList, b2);
             z = true;
         } else {
@@ -137,29 +137,29 @@ public class ce {
         if (z2) {
             aj ajVar = (aj) acVar;
             if (ajVar.i()) {
-                this.g = acVar.f6074a;
+                this.g = acVar.f5774a;
                 this.k = 0L;
                 arrayList.add(acVar);
                 if (TextUtils.isEmpty(ajVar.i)) {
-                    if (this.phG != null && (ajVar.f6074a - this.phG.f6074a) - this.phG.h < 500) {
-                        ajVar.i = this.phG.j;
-                    } else if (this.phF != null && (ajVar.f6074a - this.phF.f6074a) - this.phF.h < 500) {
-                        ajVar.i = this.phF.j;
+                    if (this.pde != null && (ajVar.f5774a - this.pde.f5774a) - this.pde.h < 500) {
+                        ajVar.i = this.pde.j;
+                    } else if (this.pdd != null && (ajVar.f5774a - this.pdd.f5774a) - this.pdd.h < 500) {
+                        ajVar.i = this.pdd.j;
                     }
                 }
             } else {
-                Bundle L = L(acVar.f6074a, 0L);
+                Bundle L = L(acVar.f5774a, 0L);
                 if (L != null) {
-                    b.j("play_session", L);
+                    b.k("play_session", L);
                 }
                 this.g = 0L;
-                this.k = ajVar.f6074a;
+                this.k = ajVar.f5774a;
                 arrayList.add(acVar);
                 if (ajVar.j()) {
-                    this.phF = ajVar;
+                    this.pdd = ajVar;
                 } else {
-                    this.phG = ajVar;
-                    this.phF = null;
+                    this.pde = ajVar;
+                    this.pdd = null;
                 }
             }
         } else if (!(acVar instanceof a)) {
@@ -171,12 +171,12 @@ public class ce {
 
     public void c(ac acVar) {
         if (acVar != null) {
-            acVar.d = this.phu.f();
-            acVar.c = this.f6120a;
-            acVar.f6075b = a(this.phv);
-            if (this.phv.v()) {
-                acVar.e = b.eoS();
-                acVar.f = b.eoQ();
+            acVar.d = this.pcS.f();
+            acVar.c = this.f5820a;
+            acVar.f5775b = a(this.pcT);
+            if (this.pcT.v()) {
+                acVar.e = b.ekW();
+                acVar.f = b.ekU();
             }
         }
     }
@@ -197,11 +197,11 @@ public class ce {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static a epB() {
-        if (phI == null) {
-            phI = new a();
+    public static a elF() {
+        if (pdg == null) {
+            pdg = new a();
         }
-        phI.f6074a = System.currentTimeMillis();
-        return phI;
+        pdg.f5774a = System.currentTimeMillis();
+        return pdg;
     }
 }

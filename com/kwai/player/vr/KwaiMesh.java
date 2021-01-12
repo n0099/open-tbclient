@@ -3,7 +3,7 @@ package com.kwai.player.vr;
 import android.util.SparseArray;
 import java.nio.FloatBuffer;
 import java.nio.ShortBuffer;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class KwaiMesh {
     private static final int sPositionDataSize = 3;
     private static final int sTextureCoordinateDataSize = 2;

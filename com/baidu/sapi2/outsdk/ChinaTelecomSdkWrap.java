@@ -22,10 +22,10 @@ import org.json.JSONObject;
 public class ChinaTelecomSdkWrap {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final int f5270a = 30000;
+    private static final int f4987a = 30000;
 
     /* renamed from: b  reason: collision with root package name */
-    private static final int f5271b = 15000;
+    private static final int f4988b = 15000;
     private static final int c = 15000;
     private static String d;
 
@@ -39,7 +39,7 @@ public class ChinaTelecomSdkWrap {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(SapiConfiguration sapiConfiguration, String str, String str2, int i, OneKeyLoginCallback oneKeyLoginCallback) {
-        Log.i(OneKeyLoginSdkCall.f5286a, "in china telecom login pre get phone info");
+        Log.i(OneKeyLoginSdkCall.f5003a, "in china telecom login pre get phone info");
         CtAuth.getInstance().init(sapiConfiguration.context, sapiConfiguration.chinaTelecomAppKey, sapiConfiguration.chinaTelecomAppSecret, null);
         d = str2;
         a(str, str2, i, (PreLoginCallback) null, oneKeyLoginCallback);
@@ -88,7 +88,7 @@ public class ChinaTelecomSdkWrap {
             public void onResult(String str3) {
                 String str4;
                 int i2 = 0;
-                Log.i(OneKeyLoginSdkCall.f5286a, "requestPreLogin result = " + str3);
+                Log.i(OneKeyLoginSdkCall.f5003a, "requestPreLogin result = " + str3);
                 try {
                     try {
                         JSONObject jSONObject = new JSONObject(str3);
@@ -167,7 +167,7 @@ public class ChinaTelecomSdkWrap {
                     }
                     jSONObject.put("code", jSONObject2.optInt("result"));
                     SapiContext.getInstance().put("china_telecom_expired_time", 0L);
-                    Log.i(OneKeyLoginSdkCall.f5286a, "in china telecom get token: " + jSONObject.toString());
+                    Log.i(OneKeyLoginSdkCall.f5003a, "in china telecom get token: " + jSONObject.toString());
                 } catch (Exception e) {
                     Log.e(e);
                 }

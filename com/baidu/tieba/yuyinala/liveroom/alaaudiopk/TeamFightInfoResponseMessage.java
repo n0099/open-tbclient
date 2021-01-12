@@ -5,12 +5,12 @@ import com.baidu.live.adp.framework.message.CustomResponsedMessage;
 import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.tieba.yuyinala.liveroom.alaaudiopk.d;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class TeamFightInfoResponseMessage extends JsonHttpResponsedMessage {
-    private d omO;
+    private d oij;
 
-    public d ecj() {
-        return this.omO;
+    public d dYr() {
+        return this.oij;
     }
 
     public TeamFightInfoResponseMessage() {
@@ -22,24 +22,24 @@ public class TeamFightInfoResponseMessage extends JsonHttpResponsedMessage {
         super.decodeLogicInBackGround(i, jSONObject);
         if (jSONObject != null && i == 1031087) {
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2501077, jSONObject.toString()));
-            if (this.omO == null) {
-                this.omO = new d();
+            if (this.oij == null) {
+                this.oij = new d();
             }
             JSONObject optJSONObject = jSONObject.optJSONObject("data");
             if (optJSONObject != null) {
-                this.omO.onx = optJSONObject.optInt("next_sync_seconds");
-                this.omO.activity_stage = optJSONObject.optInt("activity_stage");
-                this.omO.ony = optJSONObject.optInt("stage_end_time");
-                this.omO.onz = optJSONObject.optInt("left_seconds");
-                this.omO.onC = optJSONObject.optInt("left_milliseconds");
-                this.omO.onD = optJSONObject.optInt("need_fix");
-                this.omO.onE = optJSONObject.optInt("fix_moment_milli_range");
-                this.omO.onA = optJSONObject.optString("pk_winner");
+                this.oij.oiR = optJSONObject.optInt("next_sync_seconds");
+                this.oij.activity_stage = optJSONObject.optInt("activity_stage");
+                this.oij.oiS = optJSONObject.optInt("stage_end_time");
+                this.oij.oiT = optJSONObject.optInt("left_seconds");
+                this.oij.oiW = optJSONObject.optInt("left_milliseconds");
+                this.oij.oiX = optJSONObject.optInt("need_fix");
+                this.oij.oiY = optJSONObject.optInt("fix_moment_milli_range");
+                this.oij.oiU = optJSONObject.optString("pk_winner");
                 if (optJSONObject.has("pk_value")) {
                     JSONObject jSONObject2 = new JSONObject(optJSONObject.optString("pk_value"));
-                    this.omO.onB = new d.a();
-                    this.omO.onB.f5632a = jSONObject2.optString("a");
-                    this.omO.onB.f5633b = jSONObject2.optString(com.baidu.pass.biometrics.face.liveness.d.b.f4081a);
+                    this.oij.oiV = new d.a();
+                    this.oij.oiV.f5349a = jSONObject2.optString("a");
+                    this.oij.oiV.f5350b = jSONObject2.optString(com.baidu.pass.biometrics.face.liveness.d.b.f4043a);
                 }
             }
         }

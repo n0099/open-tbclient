@@ -3,9 +3,9 @@ package com.baidu.tieba.ala.guardclub;
 import com.baidu.live.tbadk.TbPageContext;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class a implements com.baidu.live.k.a {
-    private com.baidu.tieba.ala.guardclub.view.e gZn;
+    private com.baidu.tieba.ala.guardclub.view.e gUH;
     private TbPageContext mTbPageContext;
 
     public a(TbPageContext tbPageContext) {
@@ -14,7 +14,7 @@ public class a implements com.baidu.live.k.a {
     }
 
     private void initView() {
-        this.gZn = new com.baidu.tieba.ala.guardclub.view.e();
+        this.gUH = new com.baidu.tieba.ala.guardclub.view.e();
     }
 
     @Override // com.baidu.live.k.a
@@ -38,7 +38,7 @@ public class a implements com.baidu.live.k.a {
     private void dL(JSONObject jSONObject) {
         String optString;
         String optString2;
-        if (this.gZn != null) {
+        if (this.gUH != null) {
             JSONObject optJSONObject = jSONObject.optJSONObject("ext_data");
             if (optJSONObject != null) {
                 optString = optJSONObject.optString("tips1");
@@ -47,7 +47,7 @@ public class a implements com.baidu.live.k.a {
                 optString = jSONObject.optString("tips1");
                 optString2 = jSONObject.optString("tips2");
             }
-            this.gZn.v(this.mTbPageContext.getPageActivity(), optString, optString2);
+            this.gUH.v(this.mTbPageContext.getPageActivity(), optString, optString2);
         }
     }
 }

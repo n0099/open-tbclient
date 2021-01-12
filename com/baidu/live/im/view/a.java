@@ -33,52 +33,52 @@ import java.util.Date;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class a implements com.baidu.live.view.input.b {
-    private int beT;
-    private com.baidu.live.im.d.a brB;
-    private boolean brN;
-    private boolean brO;
-    private int brQ;
-    private String brT;
-    private int brW;
-    private FrameLayout bry;
-    private c bsf;
-    private b.a bsg;
+    private int bad;
+    private FrameLayout bmM;
+    private com.baidu.live.im.d.a bmP;
+    private boolean bnb;
+    private boolean bnc;
+    private int bne;
+    private String bnh;
+    private int bnk;
+    private c bnt;
+    private b.a bnu;
     private TbPageContext mContext;
     private BdAlertDialog mDialog;
     private String mOtherParams;
     private String mUserName;
     private String mVid;
     private View mView;
-    public boolean bsh = false;
-    private boolean bsi = false;
-    private int brS = 0;
-    public CustomMessageListener bpW = new CustomMessageListener(2913193) { // from class: com.baidu.live.im.view.a.2
+    public boolean bnv = false;
+    private boolean bnw = false;
+    private int bng = 0;
+    public CustomMessageListener blj = new CustomMessageListener(2913193) { // from class: com.baidu.live.im.view.a.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null) {
-                if (a.this.brS == 3 || a.this.brS == 4) {
+                if (a.this.bng == 3 || a.this.bng == 4) {
                     if (customResponsedMessage.getData() instanceof ImForbiddenStateData) {
                         ImForbiddenStateData imForbiddenStateData = (ImForbiddenStateData) customResponsedMessage.getData();
                         if (imForbiddenStateData.errno != 0) {
                             BdUtilHelper.showToast(a.this.mContext.getPageActivity(), a.this.mContext.getPageActivity().getResources().getString(a.h.ala_im_ban_no_net_tips));
                             return;
                         } else if (imForbiddenStateData.banState == 0) {
-                            if (a.this.brS == 4) {
-                                a.this.H(a.this.brT, a.this.brW);
+                            if (a.this.bng == 4) {
+                                a.this.H(a.this.bnh, a.this.bnk);
                             }
                         } else {
                             a.this.a(imForbiddenStateData);
                         }
                     }
-                    a.this.brS = 0;
+                    a.this.bng = 0;
                 }
             }
         }
     };
-    public CustomMessageListener bih = new CustomMessageListener(2913097) { // from class: com.baidu.live.im.view.a.3
+    public CustomMessageListener bdo = new CustomMessageListener(2913097) { // from class: com.baidu.live.im.view.a.3
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -87,13 +87,13 @@ public class a implements com.baidu.live.view.input.b {
             }
         }
     };
-    public CustomMessageListener bsj = new CustomMessageListener(2913288) { // from class: com.baidu.live.im.view.a.6
+    public CustomMessageListener bnx = new CustomMessageListener(2913288) { // from class: com.baidu.live.im.view.a.6
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage.getData() != null) {
                 boolean booleanValue = ((Boolean) customResponsedMessage.getData()).booleanValue();
-                a.this.cr(!booleanValue);
+                a.this.cn(!booleanValue);
                 a.this.setClicked(booleanValue);
             }
         }
@@ -102,31 +102,31 @@ public class a implements com.baidu.live.view.input.b {
     public a(TbPageContext tbPageContext) {
         this.mContext = tbPageContext;
         initUI();
-        OG();
+        KL();
     }
 
     private void initUI() {
         this.mView = LayoutInflater.from(this.mContext.getPageActivity()).inflate(a.g.ala_liveroom_quick_im_layout, (ViewGroup) null);
         this.mView.setClickable(true);
         this.mView.setVisibility(0);
-        this.bry = (FrameLayout) this.mView.findViewById(a.f.quick_input_header);
+        this.bmM = (FrameLayout) this.mView.findViewById(a.f.quick_input_header);
         CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2913218, com.baidu.live.im.d.a.class, this.mContext);
         if (runTask != null) {
-            this.brB = (com.baidu.live.im.d.a) runTask.getData();
+            this.bmP = (com.baidu.live.im.d.a) runTask.getData();
         }
-        if (this.brB != null) {
-            this.brB.getView().setClickable(true);
-            this.bry.addView(this.brB.getView());
-            this.brB.setCallback(new a.InterfaceC0187a() { // from class: com.baidu.live.im.view.a.1
-                @Override // com.baidu.live.im.d.a.InterfaceC0187a
+        if (this.bmP != null) {
+            this.bmP.getView().setClickable(true);
+            this.bmM.addView(this.bmP.getView());
+            this.bmP.setCallback(new a.InterfaceC0178a() { // from class: com.baidu.live.im.view.a.1
+                @Override // com.baidu.live.im.d.a.InterfaceC0178a
                 public void G(String str, int i) {
-                    if (com.baidu.live.af.a.SE().bwi.aPf == 1 && !LoginManager.getInstance(a.this.mContext.getPageActivity()).isIMLogined()) {
+                    if (com.baidu.live.af.a.OJ().bru.aKs == 1 && !LoginManager.getInstance(a.this.mContext.getPageActivity()).isIMLogined()) {
                         BdUtilHelper.showToast(a.this.mContext.getPageActivity(), a.this.mContext.getPageActivity().getResources().getString(a.h.ala_forbidden_words_im_link_disconnect));
-                    } else if (com.baidu.live.af.a.SE().bwi.aPe == 1) {
-                        if (a.this.brO) {
-                            a.this.brT = str;
-                            a.this.brW = i;
-                            a.this.brS = 4;
+                    } else if (com.baidu.live.af.a.OJ().bru.aKr == 1) {
+                        if (a.this.bnc) {
+                            a.this.bnh = str;
+                            a.this.bnk = i;
+                            a.this.bng = 4;
                             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913192));
                             return;
                         }
@@ -136,9 +136,9 @@ public class a implements com.baidu.live.view.input.b {
                     }
                 }
 
-                @Override // com.baidu.live.im.d.a.InterfaceC0187a
-                public void Ob() {
-                    a.this.brB.setInVisible();
+                @Override // com.baidu.live.im.d.a.InterfaceC0178a
+                public void Kg() {
+                    a.this.bmP.setInVisible();
                 }
             });
         }
@@ -148,10 +148,10 @@ public class a implements com.baidu.live.view.input.b {
     public void a(ImForbiddenStateData imForbiddenStateData) {
         String format;
         if (imForbiddenStateData.globalBan == 1) {
-            if (imForbiddenStateData.foreverInfo != null && imForbiddenStateData.foreverInfo.bqL == 1) {
+            if (imForbiddenStateData.foreverInfo != null && imForbiddenStateData.foreverInfo.blY == 1) {
                 format = this.mContext.getPageActivity().getResources().getString(a.h.ala_forbidden_words_ueg_block);
             } else {
-                format = String.format(this.mContext.getPageActivity().getResources().getString(a.h.ala_forbidden_words_ueg_forever), imForbiddenStateData.foreverInfo.bqM);
+                format = String.format(this.mContext.getPageActivity().getResources().getString(a.h.ala_forbidden_words_ueg_forever), imForbiddenStateData.foreverInfo.blZ);
             }
             this.mDialog = new BdAlertDialog(this.mContext.getPageActivity());
             this.mDialog.setMessage(format);
@@ -190,9 +190,9 @@ public class a implements com.baidu.live.view.input.b {
     }
 
     public void b(boolean z, int i, int i2, String str) {
-        this.brO = z;
-        this.brQ = i;
-        this.beT = i2;
+        this.bnc = z;
+        this.bne = i;
+        this.bad = i2;
         this.mUserName = str;
     }
 
@@ -200,7 +200,7 @@ public class a implements com.baidu.live.view.input.b {
     public void H(String str, int i) {
         u(str, true);
         setClicked(true);
-        cr(false);
+        cn(false);
         LogManager.getCommonLogger().doClickQuickImPanelLog(this.mVid, String.valueOf(i), str, this.mOtherParams);
         JSONObject jSONObject = new JSONObject();
         try {
@@ -208,22 +208,22 @@ public class a implements com.baidu.live.view.input.b {
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        UbcStatisticManager.getInstance().logEvent(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_1396, "click", "liveroom", UbcStatConstant.Value.VALUE_QUICK_CLICK).setContentExt(null, "popup", "out", jSONObject));
+        UbcStatisticManager.getInstance().logEvent(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_1396, "click", "liveroom", UbcStatConstant.Value.VALUE_QUICK_CLICK).setContentExt(null, UbcStatConstant.SubPage.POPUP, "out", jSONObject));
     }
 
     @Override // com.baidu.live.view.input.b
     public boolean isClicked() {
-        return this.bsh;
+        return this.bnv;
     }
 
     @Override // com.baidu.live.view.input.b
     public void setClicked(boolean z) {
-        this.bsh = z;
+        this.bnv = z;
     }
 
     private void u(String str, boolean z) {
-        if (this.bsg != null) {
-            this.bsg.t(str, z);
+        if (this.bnu != null) {
+            this.bnu.t(str, z);
         }
     }
 
@@ -234,79 +234,79 @@ public class a implements com.baidu.live.view.input.b {
 
     @Override // com.baidu.live.view.input.b
     public void h(x xVar) {
-        OF();
+        KK();
     }
 
-    private void OF() {
-        if (this.bsf == null) {
-            this.bsf = new c();
+    private void KK() {
+        if (this.bnt == null) {
+            this.bnt = new c();
         }
-        String str = this.bsf.date;
-        if ((!TextUtils.isEmpty(str) || !this.bsf.bsz) && !TextUtils.isEmpty(str) && !str.equals(k.b(new Date()))) {
-            this.bsf.bsz = false;
-            this.bsf.bsA = 0;
+        String str = this.bnt.date;
+        if ((!TextUtils.isEmpty(str) || !this.bnt.bnN) && !TextUtils.isEmpty(str) && !str.equals(k.b(new Date()))) {
+            this.bnt.bnN = false;
+            this.bnt.bnO = 0;
         }
     }
 
-    private void OG() {
-        if (this.bsf == null) {
-            this.bsf = new c();
+    private void KL() {
+        if (this.bnt == null) {
+            this.bnt = new c();
         }
-        String string = d.Ba().getString("quick_im_entry_show_times_date", "");
+        String string = d.xf().getString("quick_im_entry_show_times_date", "");
         if (!TextUtils.isEmpty(string)) {
             try {
                 JSONObject jSONObject = new JSONObject(string);
                 String optString = jSONObject.optString("date");
                 String b2 = k.b(new Date());
                 if (optString.equals(b2)) {
-                    this.bsf.bsz = jSONObject.optBoolean("hasInput");
-                    this.bsf.date = b2;
-                    this.bsf.bsA = jSONObject.optInt("times");
+                    this.bnt.bnN = jSONObject.optBoolean("hasInput");
+                    this.bnt.date = b2;
+                    this.bnt.bnO = jSONObject.optInt("times");
                 }
-                Log.i("testQuick", "@@ readLocalQuick  spData:" + d.Ba().getString("quick_im_entry_show_times_date", ""));
+                Log.i("testQuick", "@@ readLocalQuick  spData:" + d.xf().getString("quick_im_entry_show_times_date", ""));
             } catch (JSONException e) {
                 e.printStackTrace();
             }
         }
     }
 
-    public void OH() {
-        if (!this.bsf.bsz) {
+    public void KM() {
+        if (!this.bnt.bnN) {
             String b2 = k.b(new Date());
-            if (b2.equals(this.bsf.date)) {
-                this.bsf.bsA++;
+            if (b2.equals(this.bnt.date)) {
+                this.bnt.bnO++;
             } else {
-                this.bsf.date = b2;
-                this.bsf.bsA = 1;
+                this.bnt.date = b2;
+                this.bnt.bnO = 1;
             }
-            if (com.baidu.live.af.a.SE().bwi != null) {
-                if (this.bsf.bsA >= com.baidu.live.af.a.SE().bwi.aOJ) {
-                    this.bsf.bsz = true;
+            if (com.baidu.live.af.a.OJ().bru != null) {
+                if (this.bnt.bnO >= com.baidu.live.af.a.OJ().bru.aJW) {
+                    this.bnt.bnN = true;
                 }
-                d.Ba().putString("quick_im_entry_show_times_date", this.bsf.toJsonString());
-                Log.i("testQuick", "@@ updateQuick saveSpData:" + d.Ba().getString("quick_im_entry_show_times_date", ""));
+                d.xf().putString("quick_im_entry_show_times_date", this.bnt.toJsonString());
+                Log.i("testQuick", "@@ updateQuick saveSpData:" + d.xf().getString("quick_im_entry_show_times_date", ""));
             }
         }
     }
 
     public void Y(List<String> list) {
         ArrayList arrayList = new ArrayList(list);
-        if (this.brB != null) {
-            this.brB.setData(arrayList.subList(0, arrayList.size()));
-            this.brB.getListView().setShadowWidth(this.mContext.getResources().getDimensionPixelOffset(a.d.sdk_ds80));
-            this.brB.setTextColor(this.mContext.getResources().getColor(a.c.sdk_white_alpha100));
-            this.brB.getListView().setSelection(0);
-            this.brB.setInVisible();
+        if (this.bmP != null) {
+            this.bmP.setData(arrayList.subList(0, arrayList.size()));
+            this.bmP.getListView().setShadowWidth(this.mContext.getResources().getDimensionPixelOffset(a.d.sdk_ds80));
+            this.bmP.setTextColor(this.mContext.getResources().getColor(a.c.sdk_white_alpha100));
+            this.bmP.getListView().setSelection(0);
+            this.bmP.setInVisible();
         }
     }
 
     @Override // com.baidu.live.view.input.b
-    public boolean OI() {
-        return getView().getVisibility() == 0 && this.bry.getVisibility() == 0;
+    public boolean KN() {
+        return getView().getVisibility() == 0 && this.bmM.getVisibility() == 0;
     }
 
     @Override // com.baidu.live.view.input.b
-    public void cr(boolean z) {
+    public void cn(boolean z) {
         if (z) {
             this.mView.setVisibility(0);
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913272, true));
@@ -317,12 +317,12 @@ public class a implements com.baidu.live.view.input.b {
     }
 
     @Override // com.baidu.live.view.input.b
-    public boolean OJ() {
-        return this.bsf.bsz;
+    public boolean KO() {
+        return this.bnt.bnN;
     }
 
     public void a(b.a aVar) {
-        this.bsg = aVar;
+        this.bnu = aVar;
     }
 
     public void setLogData(String str, String str2) {
@@ -336,7 +336,7 @@ public class a implements com.baidu.live.view.input.b {
         this.mOtherParams = str2;
     }
 
-    public void hU(String str) {
+    public void gJ(String str) {
         if (str == null) {
             str = "";
         }
@@ -344,29 +344,29 @@ public class a implements com.baidu.live.view.input.b {
     }
 
     public void setFromMaster(boolean z) {
-        this.brN = z;
+        this.bnb = z;
     }
 
     @Override // com.baidu.live.view.input.b
-    public void Bf() {
-        cr(false);
-        d.Ba().putString("quick_im_entry_show_times_date", this.bsf.toJsonString());
+    public void xk() {
+        cn(false);
+        d.xf().putString("quick_im_entry_show_times_date", this.bnt.toJsonString());
     }
 
     @Override // com.baidu.live.view.input.b
-    public void cs(boolean z) {
-        this.bsi = z;
+    public void co(boolean z) {
+        this.bnw = z;
     }
 
     @Override // com.baidu.live.view.input.b
-    public void el(int i) {
-        if (this.bsi) {
+    public void cF(int i) {
+        if (this.bnw) {
             if (i == 1) {
                 if (!isClicked()) {
-                    cr(true);
+                    cn(true);
                 }
             } else if (i == 2) {
-                cr(false);
+                cn(false);
             }
         }
     }

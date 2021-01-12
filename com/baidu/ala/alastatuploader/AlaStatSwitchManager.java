@@ -11,7 +11,7 @@ import java.util.Iterator;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class AlaStatSwitchManager {
     private static volatile AlaStatSwitchManager inst = null;
     private boolean isInit = false;
@@ -21,7 +21,7 @@ public class AlaStatSwitchManager {
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1021011 && (httpResponsedMessage instanceof AlaSyncHttpResponseMessage)) {
-                if ((httpResponsedMessage.getError() == 0) && ((AlaSyncHttpResponseMessage) httpResponsedMessage).QQ() != null) {
+                if ((httpResponsedMessage.getError() == 0) && ((AlaSyncHttpResponseMessage) httpResponsedMessage).MV() != null) {
                     AlaStatSwitchManager.this.isInit = false;
                     synchronized (AlaStatSwitchManager.class) {
                         AlaStatSwitchManager.this.initSwitch();
@@ -51,7 +51,7 @@ public class AlaStatSwitchManager {
     public void initSwitch() {
         JSONObject jSONObject;
         if (!this.isInit) {
-            String string = d.Ba().getString("key_stat_switch", null);
+            String string = d.xf().getString("key_stat_switch", null);
             if (string != null) {
                 try {
                     jSONObject = new JSONObject(string);

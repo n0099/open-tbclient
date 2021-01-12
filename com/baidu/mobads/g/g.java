@@ -18,14 +18,14 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.lang.Thread;
 import java.util.jar.JarFile;
-/* loaded from: classes3.dex */
+/* loaded from: classes14.dex */
 public class g {
 
     /* renamed from: a  reason: collision with root package name */
-    protected static Thread.UncaughtExceptionHandler f3371a;
+    protected static Thread.UncaughtExceptionHandler f3333a;
 
     /* renamed from: b  reason: collision with root package name */
-    protected static volatile com.baidu.mobads.g.a f3372b = null;
+    protected static volatile com.baidu.mobads.g.a f3334b = null;
     protected static volatile com.baidu.mobads.g.a c = null;
     protected static volatile Class d = null;
     protected static String e = null;
@@ -41,7 +41,7 @@ public class g {
     @SuppressLint({"HandlerLeak"})
     protected final Handler h = new i(this, Looper.getMainLooper());
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes14.dex */
     public interface c {
         void a(boolean z);
     }
@@ -76,12 +76,12 @@ public class g {
         }
         this.l = context;
         c(context);
-        if (f3371a == null) {
-            f3371a = q.a(context);
+        if (f3333a == null) {
+            f3333a = q.a(context);
             q.a(context).a(new j(this));
         }
         if (!(Thread.getDefaultUncaughtExceptionHandler() instanceof q)) {
-            Thread.setDefaultUncaughtExceptionHandler(f3371a);
+            Thread.setDefaultUncaughtExceptionHandler(f3333a);
         }
     }
 
@@ -104,9 +104,9 @@ public class g {
     /* JADX INFO: Access modifiers changed from: protected */
     @TargetApi(9)
     public void a(String str) {
-        if (f3372b != null) {
+        if (f3334b != null) {
             SharedPreferences.Editor edit = l().edit();
-            edit.putFloat("__badApkVersion__8.8146", (float) f3372b.f3362a);
+            edit.putFloat("__badApkVersion__8.8146", (float) f3334b.f3324a);
             if (Build.VERSION.SDK_INT >= 9) {
                 edit.apply();
             } else {
@@ -173,13 +173,13 @@ public class g {
     public void a(com.baidu.mobads.g.b bVar) {
         Class<?> b2 = bVar.b();
         synchronized (this) {
-            c = new com.baidu.mobads.g.a(b2, this.l, com.baidu.mobads.a.b.a(), com.baidu.mobads.a.b.f3338a);
+            c = new com.baidu.mobads.g.a(b2, this.l, com.baidu.mobads.a.b.a(), com.baidu.mobads.a.b.f3300a);
         }
     }
 
     private void b(com.baidu.mobads.g.b bVar) {
         Log.i("XAdApkLoader", "len=" + bVar.length() + ", path=" + bVar.getAbsolutePath());
-        if (f3372b == null) {
+        if (f3334b == null) {
             String a2 = a(this.l);
             com.baidu.mobads.g.b bVar2 = new com.baidu.mobads.g.b(a2, this.l);
             if (bVar2.exists()) {
@@ -190,17 +190,17 @@ public class g {
             } catch (Exception e2) {
                 this.m.e(e2);
             }
-            f3372b = new com.baidu.mobads.g.a(bVar2.b(), this.l, com.baidu.mobads.a.b.a(), com.baidu.mobads.a.b.f3338a);
+            f3334b = new com.baidu.mobads.g.a(bVar2.b(), this.l, com.baidu.mobads.a.b.a(), com.baidu.mobads.a.b.f3300a);
             try {
-                this.m.d("XAdApkLoader", "preloaded apk.version=" + f3372b.a().getRemoteVersion());
+                this.m.d("XAdApkLoader", "preloaded apk.version=" + f3334b.a().getRemoteVersion());
                 return;
             } catch (a e3) {
-                this.m.w("XAdApkLoader", "preload local apk " + bVar.getAbsolutePath() + " failed, msg:" + e3.getMessage() + ", v=" + f3372b.f3362a);
+                this.m.w("XAdApkLoader", "preload local apk " + bVar.getAbsolutePath() + " failed, msg:" + e3.getMessage() + ", v=" + f3334b.f3324a);
                 a(e3.getMessage());
                 throw e3;
             }
         }
-        this.m.w("XAdApkLoader", "mApkBuilder already initialized, version: " + f3372b.f3362a);
+        this.m.w("XAdApkLoader", "mApkBuilder already initialized, version: " + f3334b.f3324a);
     }
 
     private boolean c(com.baidu.mobads.g.b bVar) {
@@ -331,7 +331,7 @@ public class g {
     public void b(c cVar, Handler handler) {
         this.o = cVar;
         this.g = handler;
-        if (f3372b == null) {
+        if (f3334b == null) {
             g();
         } else {
             b(true);
@@ -348,7 +348,7 @@ public class g {
     }
 
     public IXAdContainerFactory h() {
-        return a(f3372b);
+        return a(f3334b);
     }
 
     private IXAdContainerFactory a(com.baidu.mobads.g.a aVar) {
@@ -363,13 +363,13 @@ public class g {
     }
 
     protected void i() {
-        if (f3372b != null) {
-            f3372b.b();
-            f3372b = null;
+        if (f3334b != null) {
+            f3334b.b();
+            f3334b = null;
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes14.dex */
     public static final class a extends Exception {
         public a(String str) {
             XAdSDKFoundationFacade.getInstance().getAdLogger().e(str);
@@ -377,7 +377,7 @@ public class g {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes14.dex */
     public static final class b extends Exception {
         public b(String str) {
             XAdSDKFoundationFacade.getInstance().getAdLogger().e(str);

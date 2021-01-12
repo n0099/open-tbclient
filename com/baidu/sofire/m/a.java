@@ -1,22 +1,22 @@
 package com.baidu.sofire.m;
 
 import android.database.ContentObserver;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public final class a extends ContentObserver {
 
     /* renamed from: a  reason: collision with root package name */
-    private c f5586a;
+    private c f5303a;
 
     public a(c cVar) {
         super(null);
-        this.f5586a = cVar;
+        this.f5303a = cVar;
     }
 
     @Override // android.database.ContentObserver
     public final void onChange(boolean z) {
-        if (this.f5586a != null) {
-            c cVar = this.f5586a;
-            cVar.f5589b = cVar.f5588a.a();
+        if (this.f5303a != null) {
+            c cVar = this.f5303a;
+            cVar.f5306b = cVar.f5305a.a();
         }
     }
 }

@@ -18,49 +18,49 @@ import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public final class c implements b {
-    private final b.C0441b dds;
+    private final b.C0424b cYD;
 
-    private c(b.C0441b c0441b) {
-        this.dds = c0441b == null ? new b.C0441b() : c0441b;
+    private c(b.C0424b c0424b) {
+        this.cYD = c0424b == null ? new b.C0424b() : c0424b;
     }
 
-    public static c axG() {
-        return a((b.C0441b) null);
+    public static c atM() {
+        return a((b.C0424b) null);
     }
 
-    public static c a(b.C0441b c0441b) {
-        return new c(c0441b);
+    public static c a(b.C0424b c0424b) {
+        return new c(c0424b);
     }
 
-    public b.C0441b axH() {
-        return this.dds;
+    public b.C0424b atN() {
+        return this.cYD;
     }
 
-    public c iK(int i) {
-        if (isValid() && i != this.dds.ddr && (this.dds.ddr == 0 || this.dds.ddr == this.dds.ddq)) {
-            this.dds.ddr = i;
+    public c he(int i) {
+        if (isValid() && i != this.cYD.cYC && (this.cYD.cYC == 0 || this.cYD.cYC == this.cYD.cYB)) {
+            this.cYD.cYC = i;
         }
         return this;
     }
 
-    public c iL(int i) {
+    public c hf(int i) {
         if (isValid()) {
-            this.dds.ddq = i;
+            this.cYD.cYB = i;
         }
         return this;
     }
 
-    public int axI() {
-        return this.dds.ddr == 0 ? this.dds.ddq : this.dds.ddr;
+    public int atO() {
+        return this.cYD.cYC == 0 ? this.cYD.cYB : this.cYD.cYC;
     }
 
-    public c oE(@Nullable String str) {
-        if (isValid() && !TextUtils.isEmpty(str) && !a(this.dds.ddp.get(str))) {
-            a oD = a.oD(str);
-            if (a(oD)) {
-                this.dds.ddp.put(oD.axF(), oD);
+    public c nr(@Nullable String str) {
+        if (isValid() && !TextUtils.isEmpty(str) && !a(this.cYD.cYA.get(str))) {
+            a nq = a.nq(str);
+            if (a(nq)) {
+                this.cYD.cYA.put(nq.atL(), nq);
             }
         }
         return this;
@@ -68,8 +68,8 @@ public final class c implements b {
 
     public boolean isValid() {
         boolean z;
-        synchronized (this.dds) {
-            z = this.dds.mIsValid;
+        synchronized (this.cYD) {
+            z = this.cYD.mIsValid;
         }
         return z;
     }
@@ -79,7 +79,7 @@ public final class c implements b {
     }
 
     @NonNull
-    private JSONArray axJ() {
+    private JSONArray atP() {
         JSONArray jSONArray = new JSONArray();
         try {
             Cursor T = com.baidu.swan.apps.database.a.b.T("", 400);
@@ -92,7 +92,7 @@ public final class c implements b {
                     jSONArray.put(jSONObject);
                 }
             }
-            if (ddo) {
+            if (cYz) {
                 Log.i("PurgerStatistic", "queryHisList: cursor=" + count + " items=" + jSONArray.length());
             }
             if (T != null) {
@@ -103,7 +103,7 @@ public final class c implements b {
                 }
             }
         } catch (JSONException e) {
-            if (ddo) {
+            if (cYz) {
                 e.printStackTrace();
                 Log.i("PurgerStatistic", "queryHisList: e=" + e);
             }
@@ -111,43 +111,43 @@ public final class c implements b {
         return jSONArray;
     }
 
-    public void axK() {
-        if (ddo) {
-            Log.i("PurgerStatistic", "performReport: " + this.dds);
+    public void atQ() {
+        if (cYz) {
+            Log.i("PurgerStatistic", "performReport: " + this.cYD);
         }
         if (isValid()) {
             ExecutorUtilsExt.postOnElastic(new Runnable() { // from class: com.baidu.swan.apps.env.c.c.1
                 @Override // java.lang.Runnable
                 public void run() {
-                    c.this.axL();
+                    c.this.atR();
                 }
             }, "PurgerStatistic", 3);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void axL() {
+    public void atR() {
         String str;
         b.a value;
-        synchronized (this.dds) {
+        synchronized (this.cYD) {
             if (isValid()) {
-                this.dds.mIsValid = false;
+                this.cYD.mIsValid = false;
                 e eVar = new e();
                 eVar.mFrom = GameWebViewJavascriptInterface.JAVASCRIPT_INTERFACE_NAME;
                 eVar.mSource = "NA";
-                int axI = axI();
-                eVar.mType = String.valueOf(axI);
+                int atO = atO();
+                eVar.mType = String.valueOf(atO);
                 JSONArray jSONArray = new JSONArray();
-                for (Map.Entry<String, b.a> entry : this.dds.ddp.entrySet()) {
+                for (Map.Entry<String, b.a> entry : this.cYD.cYA.entrySet()) {
                     if (!TextUtils.isEmpty(entry.getKey()) && (value = entry.getValue()) != null && value.isValid()) {
                         jSONArray.put(value.toJSONObject());
                     }
                 }
                 eVar.t("purged_list", jSONArray);
-                if (7 == axI) {
-                    eVar.t("history_list", axJ());
+                if (7 == atO) {
+                    eVar.t("history_list", atP());
                 }
-                if (ddo) {
+                if (cYz) {
                     JSONObject jSONObject = eVar.toJSONObject();
                     if (jSONObject == null) {
                         str = "null";

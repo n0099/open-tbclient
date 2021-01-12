@@ -25,7 +25,7 @@ public final class b implements a {
     private static final int[] u = new int[256];
     private static final int[] v = new int[256];
     private static final int[] w = new int[256];
-    private static final byte[] aod = new byte[30];
+    private static final byte[] ann = new byte[30];
 
     static {
         int i2 = 1;
@@ -132,7 +132,7 @@ public final class b implements a {
             v[i24] = e(i24, bArr9[2]);
             w[i24] = e(i24, bArr9[3]);
         }
-        aod[0] = 1;
+        ann[0] = 1;
         int i25 = 1;
         while (true) {
             int i26 = i2;
@@ -142,7 +142,7 @@ public final class b implements a {
                 return;
             }
             i25 = a(2, i25);
-            aod[i26] = (byte) i25;
+            ann[i26] = (byte) i25;
             i2 = i26 + 1;
         }
     }
@@ -182,8 +182,8 @@ public final class b implements a {
     }
 
     static final boolean a(int i2) {
-        for (int i3 = 0; i3 < f1687b.length; i3++) {
-            if (i2 == f1687b[i3]) {
+        for (int i3 = 0; i3 < f1637b.length; i3++) {
+            if (i2 == f1637b[i3]) {
                 return true;
             }
         }
@@ -232,7 +232,7 @@ public final class b implements a {
             while (i5 < i2) {
                 int i8 = iArr3[length - 1];
                 int i9 = i7 + 1;
-                iArr3[0] = (((j[i8 >>> 24] & 255) ^ (((j[(i8 >>> 16) & 255] << 24) ^ ((j[(i8 >>> 8) & 255] & 255) << 16)) ^ ((j[i8 & 255] & 255) << 8))) ^ (aod[i7] << 24)) ^ iArr3[0];
+                iArr3[0] = (((j[i8 >>> 24] & 255) ^ (((j[(i8 >>> 16) & 255] << 24) ^ ((j[(i8 >>> 8) & 255] & 255) << 16)) ^ ((j[i8 & 255] & 255) << 8))) ^ (ann[i7] << 24)) ^ iArr3[0];
                 if (length != 8) {
                     int i10 = 1;
                     int i11 = 0;

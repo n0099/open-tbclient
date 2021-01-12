@@ -7,7 +7,7 @@ import android.view.Window;
 import androidx.annotation.NonNull;
 import io.flutter.plugin.platform.PlatformPlugin;
 import java.lang.reflect.Method;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class d {
     public static void a(@NonNull Activity activity, int i, boolean z) {
         a(activity, i, z, true);

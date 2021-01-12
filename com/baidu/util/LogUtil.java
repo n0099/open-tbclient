@@ -6,23 +6,23 @@ import android.util.Log;
 public class LogUtil {
 
     /* renamed from: a  reason: collision with root package name */
-    private static LogUtil f5904a;
+    private static LogUtil f5621a;
     private static Boolean c = false;
 
     /* renamed from: b  reason: collision with root package name */
-    private Context f5905b;
+    private Context f5622b;
 
     private LogUtil(Context context) {
-        this.f5905b = context;
+        this.f5622b = context;
     }
 
     public static synchronized LogUtil getInstance(Context context) {
         LogUtil logUtil;
         synchronized (LogUtil.class) {
-            if (f5904a == null) {
-                f5904a = new LogUtil(context);
+            if (f5621a == null) {
+                f5621a = new LogUtil(context);
             }
-            logUtil = f5904a;
+            logUtil = f5621a;
         }
         return logUtil;
     }

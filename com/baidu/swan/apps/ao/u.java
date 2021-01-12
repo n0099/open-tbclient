@@ -4,7 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class u {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 

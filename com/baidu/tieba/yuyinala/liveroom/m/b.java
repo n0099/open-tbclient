@@ -10,72 +10,72 @@ import com.baidu.live.adp.framework.MessageManager;
 import com.baidu.live.adp.framework.listener.CustomMessageListener;
 import com.baidu.live.adp.framework.message.CustomResponsedMessage;
 import com.baidu.live.view.web.g;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class b {
-    private CustomMessageListener bXd;
-    private PopupWindow.OnDismissListener gMZ;
+    private CustomMessageListener bSr;
+    private PopupWindow.OnDismissListener gIt;
     private Activity mContext;
-    private c orN;
+    private c ong;
 
     public b(Activity activity) {
         this.mContext = activity;
-        aag();
+        Wn();
     }
 
-    public void ie(String str) {
-        this.orN = new c(this.mContext);
-        this.orN.setOnDismissListener(this.gMZ);
-        this.orN.getWebView().setBackgroundColor(ih(str));
+    public void gT(String str) {
+        this.ong = new c(this.mContext);
+        this.ong.setOnDismissListener(this.gIt);
+        this.ong.getWebView().setBackgroundColor(gW(str));
         g gVar = new g();
-        gVar.w(this.mContext).a(this.orN).a(this.orN.getWebView().getSchemeCallback());
-        com.baidu.live.view.web.a[] aaf = gVar.aaf();
-        for (com.baidu.live.view.web.a aVar : aaf) {
-            this.orN.getWebView().addJavascriptInterface(aVar, aVar.getName());
+        gVar.w(this.mContext).a(this.ong).a(this.ong.getWebView().getSchemeCallback());
+        com.baidu.live.view.web.a[] Wm = gVar.Wm();
+        for (com.baidu.live.view.web.a aVar : Wm) {
+            this.ong.getWebView().addJavascriptInterface(aVar, aVar.getName());
         }
-        this.orN.GA(str);
+        this.ong.Fp(str);
     }
 
     public void resume() {
-        if (this.orN != null && this.orN.isShowing() && this.orN.getWebView() != null) {
-            this.orN.getWebView().onResume();
+        if (this.ong != null && this.ong.isShowing() && this.ong.getWebView() != null) {
+            this.ong.getWebView().onResume();
         }
     }
 
     public void pause() {
-        if (this.orN != null && this.orN.isShowing() && this.orN.getWebView() != null) {
-            this.orN.getWebView().onPause();
+        if (this.ong != null && this.ong.isShowing() && this.ong.getWebView() != null) {
+            this.ong.getWebView().onPause();
         }
     }
 
     public void dismiss() {
-        if (this.orN != null) {
-            this.orN.aah();
+        if (this.ong != null) {
+            this.ong.Wo();
         }
     }
 
-    public void Id() {
+    public void Ei() {
         dismiss();
     }
 
     public void release() {
-        Id();
-        MessageManager.getInstance().unRegisterListener(this.bXd);
+        Ei();
+        MessageManager.getInstance().unRegisterListener(this.bSr);
     }
 
-    private void aag() {
-        this.bXd = new CustomMessageListener(2913123) { // from class: com.baidu.tieba.yuyinala.liveroom.m.b.1
+    private void Wn() {
+        this.bSr = new CustomMessageListener(2913123) { // from class: com.baidu.tieba.yuyinala.liveroom.m.b.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                if (b.this.orN != null && b.this.orN.isShowing()) {
-                    b.this.orN.dismiss();
+                if (b.this.ong != null && b.this.ong.isShowing()) {
+                    b.this.ong.dismiss();
                 }
             }
         };
-        MessageManager.getInstance().registerListener(this.bXd);
+        MessageManager.getInstance().registerListener(this.bSr);
     }
 
-    private int ih(String str) {
+    private int gW(String str) {
         int indexOf;
         String queryParameter = Uri.parse(str).getQueryParameter("background");
         if ((TextUtils.isEmpty(queryParameter) || queryParameter.length() != 8) && (indexOf = str.indexOf("background=")) >= 0 && indexOf + 19 <= str.length()) {

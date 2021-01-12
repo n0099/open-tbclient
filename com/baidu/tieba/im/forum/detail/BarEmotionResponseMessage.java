@@ -3,11 +3,11 @@ package com.baidu.tieba.im.forum.detail;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class BarEmotionResponseMessage extends JsonHttpResponsedMessage {
     public ForumEmotionData data;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static class ForumEmotionData extends OrmObject {
         public static final int STATUS_OK = 1;
         public int forum_pkg_status;

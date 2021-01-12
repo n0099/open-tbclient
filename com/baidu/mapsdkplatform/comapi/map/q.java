@@ -1,16 +1,24 @@
 package com.baidu.mapsdkplatform.comapi.map;
-/* loaded from: classes3.dex */
+
+import java.util.ArrayList;
+/* loaded from: classes6.dex */
 public class q {
 
     /* renamed from: a  reason: collision with root package name */
-    public p f3194a;
+    public int f3067a;
 
-    public p a() {
-        return this.f3194a;
+    /* renamed from: b  reason: collision with root package name */
+    public String f3068b;
+    public int c;
+    public int d;
+    public ArrayList<q> e;
+
+    public ArrayList<q> a() {
+        return this.e;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void a(p pVar) {
-        this.f3194a = pVar;
+    public void a(ArrayList<q> arrayList) {
+        this.e = arrayList;
     }
 }

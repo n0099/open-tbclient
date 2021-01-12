@@ -13,15 +13,15 @@ import java.nio.channels.FileChannel;
 import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class g {
     public static final char i;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Charset f9962a = Charset.forName("US-ASCII");
+    public static final Charset f9662a = Charset.forName("US-ASCII");
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Charset f9963b = Charset.forName("UTF-8");
+    public static final Charset f9663b = Charset.forName("UTF-8");
     public static final BigInteger c = BigInteger.valueOf(1024);
     public static final BigInteger d = c.multiply(c);
     public static final BigInteger e = c.multiply(d);

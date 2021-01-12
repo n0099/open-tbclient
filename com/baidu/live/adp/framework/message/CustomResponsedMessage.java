@@ -1,5 +1,5 @@
 package com.baidu.live.adp.framework.message;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class CustomResponsedMessage<T> extends ResponsedMessage<T> {
     private T mData;
 

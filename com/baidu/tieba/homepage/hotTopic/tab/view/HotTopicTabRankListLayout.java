@@ -27,66 +27,66 @@ import com.baidu.tieba.homepage.hotTopic.tab.b.d;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class HotTopicTabRankListLayout extends RecyclerView {
-    private int kdK;
-    private a kdL;
+    private int jZf;
+    private a jZg;
 
     public void setOnItemCoverListener(f<c> fVar) {
-        this.kdL.setOnItemCoverListener(fVar);
+        this.jZg.setOnItemCoverListener(fVar);
     }
 
     public HotTopicTabRankListLayout(Context context) {
         super(context);
-        this.kdK = 3;
+        this.jZf = 3;
         initView();
     }
 
     public HotTopicTabRankListLayout(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.kdK = 3;
+        this.jZf = 3;
         initView();
     }
 
     public HotTopicTabRankListLayout(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.kdK = 3;
+        this.jZf = 3;
         initView();
     }
 
     private void initView() {
         setLayoutManager(new GridLayoutManager(getContext(), 2));
         setOverScrollMode(2);
-        this.kdL = new a();
-        setAdapter(this.kdL);
+        this.jZg = new a();
+        setAdapter(this.jZg);
     }
 
     public void a(d dVar) {
-        if (dVar != null && dVar.cSE() != null) {
-            this.kdL.ec(dVar.cSE());
+        if (dVar != null && dVar.cOM() != null) {
+            this.jZg.ec(dVar.cOM());
         }
     }
 
     public void onChangeSkinType(int i) {
-        if (this.kdK != i) {
-            this.kdL.notifyDataSetChanged();
-            this.kdK = i;
+        if (this.jZf != i) {
+            this.jZg.notifyDataSetChanged();
+            this.jZf = i;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes2.dex */
     public static class a extends RecyclerView.Adapter<b> {
-        private f<c> aks;
-        private List<c> kdI;
+        private f<c> ajB;
+        private List<c> jZd;
 
         a() {
         }
 
         public void setOnItemCoverListener(f<c> fVar) {
-            this.aks = fVar;
+            this.ajB = fVar;
         }
 
         void ec(@NonNull List<c> list) {
-            this.kdI = list;
+            this.jZd = list;
             notifyDataSetChanged();
         }
 
@@ -96,7 +96,7 @@ public class HotTopicTabRankListLayout extends RecyclerView {
         /* renamed from: G */
         public b onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
             b bVar = new b(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.hot_topic_tab_rank_list_item, viewGroup, false));
-            bVar.setOnItemCoverListener(this.aks);
+            bVar.setOnItemCoverListener(this.ajB);
             bVar.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
             return bVar;
         }
@@ -105,123 +105,123 @@ public class HotTopicTabRankListLayout extends RecyclerView {
         @Override // androidx.recyclerview.widget.RecyclerView.Adapter
         /* renamed from: a */
         public void onBindViewHolder(@NonNull b bVar, int i) {
-            List<c> list = this.kdI;
+            List<c> list = this.jZd;
             if (list != null && list.size() > i) {
                 c cVar = list.get(i);
                 bVar.a(cVar);
                 bVar.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
-                if (this.aks != null) {
-                    this.aks.b(bVar.itemView, cVar, i, i);
+                if (this.ajB != null) {
+                    this.ajB.b(bVar.itemView, cVar, i, i);
                 }
             }
         }
 
         @Override // androidx.recyclerview.widget.RecyclerView.Adapter
         public int getItemCount() {
-            if (this.kdI == null) {
+            if (this.jZd == null) {
                 return 0;
             }
-            return this.kdI.size();
+            return this.jZd.size();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes2.dex */
     public static class b extends RecyclerView.ViewHolder {
-        private TextView akR;
-        private TextView akS;
-        private f<c> aks;
-        private TextView eKc;
-        private int kdK;
-        private View kdM;
-        private View kdN;
-        private TextView kdO;
-        private ImageView kdP;
+        private f<c> ajB;
+        private TextView aka;
+        private TextView akb;
+        private TextView eFr;
+        private int jZf;
+        private View jZh;
+        private View jZi;
+        private TextView jZj;
+        private ImageView jZk;
 
         b(View view) {
             super(view);
-            this.kdK = 3;
-            this.kdM = view.findViewById(R.id.itemLayout);
-            this.akR = (TextView) view.findViewById(R.id.indexView);
-            this.eKc = (TextView) view.findViewById(R.id.titleView);
-            this.akS = (TextView) view.findViewById(R.id.tagView);
-            this.kdN = view.findViewById(R.id.moreLayout);
-            this.kdO = (TextView) view.findViewById(R.id.moreText);
-            this.kdP = (ImageView) view.findViewById(R.id.moreIcon);
+            this.jZf = 3;
+            this.jZh = view.findViewById(R.id.itemLayout);
+            this.aka = (TextView) view.findViewById(R.id.indexView);
+            this.eFr = (TextView) view.findViewById(R.id.titleView);
+            this.akb = (TextView) view.findViewById(R.id.tagView);
+            this.jZi = view.findViewById(R.id.moreLayout);
+            this.jZj = (TextView) view.findViewById(R.id.moreText);
+            this.jZk = (ImageView) view.findViewById(R.id.moreIcon);
         }
 
         void a(final c cVar) {
             if (cVar != null) {
-                if (cVar.kdH) {
-                    this.kdM.setVisibility(8);
-                    this.kdN.setVisibility(0);
-                    this.kdN.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.homepage.hotTopic.tab.view.HotTopicTabRankListLayout.b.1
+                if (cVar.jZc) {
+                    this.jZh.setVisibility(8);
+                    this.jZi.setVisibility(0);
+                    this.jZi.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.homepage.hotTopic.tab.view.HotTopicTabRankListLayout.b.1
                         @Override // android.view.View.OnClickListener
                         public void onClick(View view) {
                             new HotRanklistActivityConfig(view.getContext()).createNormalConfig("hotforum", "all").start();
-                            if (b.this.aks != null) {
+                            if (b.this.ajB != null) {
                                 int adapterPosition = b.this.getAdapterPosition();
-                                b.this.aks.a(view, cVar, adapterPosition, adapterPosition);
+                                b.this.ajB.a(view, cVar, adapterPosition, adapterPosition);
                             }
                         }
                     });
                     return;
                 }
-                this.kdM.setVisibility(0);
-                this.kdM.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.homepage.hotTopic.tab.view.HotTopicTabRankListLayout.b.2
+                this.jZh.setVisibility(0);
+                this.jZh.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.homepage.hotTopic.tab.view.HotTopicTabRankListLayout.b.2
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
                         new HotTopicActivityConfig(view.getContext()).createNormalConfig("" + cVar.topicId, null, "3").start();
-                        if (b.this.aks != null) {
+                        if (b.this.ajB != null) {
                             int adapterPosition = b.this.getAdapterPosition();
-                            b.this.aks.a(view, cVar, adapterPosition, adapterPosition);
+                            b.this.ajB.a(view, cVar, adapterPosition, adapterPosition);
                         }
                     }
                 });
-                this.kdN.setVisibility(8);
+                this.jZi.setVisibility(8);
                 if (cVar.index > 0) {
-                    this.akR.setText(String.valueOf(cVar.index));
-                    this.akR.setVisibility(0);
+                    this.aka.setText(String.valueOf(cVar.index));
+                    this.aka.setVisibility(0);
                 } else {
-                    this.akR.setVisibility(8);
+                    this.aka.setVisibility(8);
                 }
-                this.eKc.setText(cVar.eRS);
-                String D = TagTextHelper.D(this.akS.getContext(), cVar.tag);
-                ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.eKc.getLayoutParams();
+                this.eFr.setText(cVar.eNh);
+                String D = TagTextHelper.D(this.akb.getContext(), cVar.tag);
+                ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.eFr.getLayoutParams();
                 if (TextUtils.isEmpty(D)) {
-                    this.akS.setVisibility(8);
-                    marginLayoutParams.rightMargin = l.getDimens(this.akS.getContext(), R.dimen.tbds22);
-                    this.eKc.setLayoutParams(marginLayoutParams);
+                    this.akb.setVisibility(8);
+                    marginLayoutParams.rightMargin = l.getDimens(this.akb.getContext(), R.dimen.tbds22);
+                    this.eFr.setLayoutParams(marginLayoutParams);
                 } else {
-                    marginLayoutParams.rightMargin = l.getDimens(this.akS.getContext(), R.dimen.tbds74);
-                    this.eKc.setLayoutParams(marginLayoutParams);
-                    this.akS.setVisibility(0);
-                    this.akS.setText(D);
+                    marginLayoutParams.rightMargin = l.getDimens(this.akb.getContext(), R.dimen.tbds74);
+                    this.eFr.setLayoutParams(marginLayoutParams);
+                    this.akb.setVisibility(0);
+                    this.akb.setText(D);
                 }
-                ao.setViewTextColor(this.akR, TagTextHelper.ql(cVar.index));
-                com.baidu.tbadk.core.elementsMaven.c.bv(this.akS).pK(R.string.J_X04).setBackGroundColor(TagTextHelper.qk(cVar.tag));
+                ao.setViewTextColor(this.aka, TagTextHelper.oE(cVar.index));
+                com.baidu.tbadk.core.elementsMaven.c.bv(this.akb).od(R.string.J_X04).setBackGroundColor(TagTextHelper.oD(cVar.tag));
             }
         }
 
         void setOnItemCoverListener(f<c> fVar) {
-            this.aks = fVar;
+            this.ajB = fVar;
         }
 
         void onChangeSkinType(int i) {
-            if (this.kdK != i) {
+            if (this.jZf != i) {
                 int i2 = R.color.CAM_X0204;
-                com.baidu.tbadk.core.util.f.a.m(this.kdM, R.color.CAM_X0205, i2);
-                com.baidu.tbadk.core.util.f.a.m(this.kdN, R.color.CAM_X0205, i2);
-                ao.setViewTextColor(this.eKc, R.color.CAM_X0105);
-                ao.setViewTextColor(this.akS, R.color.CAM_X0101);
-                if (this.kdN.getVisibility() == 0) {
-                    ao.setViewTextColor(this.kdO, R.color.CAM_X0304);
+                com.baidu.tbadk.core.util.f.a.m(this.jZh, R.color.CAM_X0205, i2);
+                com.baidu.tbadk.core.util.f.a.m(this.jZi, R.color.CAM_X0205, i2);
+                ao.setViewTextColor(this.eFr, R.color.CAM_X0105);
+                ao.setViewTextColor(this.akb, R.color.CAM_X0101);
+                if (this.jZi.getVisibility() == 0) {
+                    ao.setViewTextColor(this.jZj, R.color.CAM_X0304);
                     int color = ao.getColor(R.color.CAM_X0304);
-                    Drawable drawable = this.kdP.getDrawable();
+                    Drawable drawable = this.jZk.getDrawable();
                     DrawableCompat.setTint(drawable, color);
-                    this.kdP.setImageDrawable(drawable);
+                    this.jZk.setImageDrawable(drawable);
                 }
-                this.kdK = i;
+                this.jZf = i;
             }
         }
     }

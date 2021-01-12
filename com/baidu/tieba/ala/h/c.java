@@ -11,49 +11,49 @@ import com.baidu.live.data.bw;
 import com.baidu.live.message.AlaSyncHttpResponseMessage;
 import java.io.File;
 import java.util.List;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class c implements com.baidu.live.u.d {
-    private static final String ifP = com.baidu.live.ah.b.Tk();
-    private static final String ifQ = com.baidu.live.ah.b.Tm();
-    private static final String ifR = com.baidu.live.ah.b.To();
-    private boolean ifS;
-    private HttpMessageListener ifT;
-    private String ifV;
-    private d igO;
+    private static final String ibe = com.baidu.live.ah.b.Pp();
+    private static final String ibf = com.baidu.live.ah.b.Pr();
+    private static final String ibg = com.baidu.live.ah.b.Pt();
+    private boolean ibh;
+    private HttpMessageListener ibi;
+    private String ibk;
+    private d icd;
 
-    public static c crG() {
-        return a.igQ;
+    public static c cnO() {
+        return a.icf;
     }
 
-    public String crr() {
-        return this.ifV;
+    public String cnz() {
+        return this.ibk;
     }
 
     @Override // com.baidu.live.u.d
-    public void RC() {
-        final an anVar = com.baidu.live.af.a.SE().bwi;
-        if (anVar == null || anVar.aPn == null || TextUtils.isEmpty(anVar.aPn.downloadUrl)) {
-            bZT();
-        } else if (!this.ifS) {
-            this.ifV = "";
-            this.ifS = true;
+    public void NH() {
+        final an anVar = com.baidu.live.af.a.OJ().bru;
+        if (anVar == null || anVar.aKA == null || TextUtils.isEmpty(anVar.aKA.downloadUrl)) {
+            bWb();
+        } else if (!this.ibh) {
+            this.ibk = "";
+            this.ibh = true;
             new BdAsyncTask<bw, Void, bw>() { // from class: com.baidu.tieba.ala.h.c.1
                 /* JADX DEBUG: Method merged with bridge method */
                 /* JADX INFO: Access modifiers changed from: protected */
                 @Override // com.baidu.live.adp.lib.asynctask.BdAsyncTask
                 /* renamed from: a */
                 public bw doInBackground(bw... bwVarArr) {
-                    bw Jc;
+                    bw HR;
                     if (bwVarArr == null || bwVarArr.length == 0) {
                         return null;
                     }
                     bw bwVar = bwVarArr[0];
-                    String string = com.baidu.live.d.Ba().getString("live_pk_rank_start_anim", "");
-                    if (TextUtils.isEmpty(string) || (Jc = b.Jc(string)) == null || !bwVar.downloadUrl.equals(Jc.downloadUrl) || !bwVar.aSv.equals(Jc.aSv) || TextUtils.isEmpty(Jc.videoMd5) || !Jc.videoMd5.equals(c.this.crs())) {
-                        c.this.crt();
+                    String string = com.baidu.live.d.xf().getString("live_pk_rank_start_anim", "");
+                    if (TextUtils.isEmpty(string) || (HR = b.HR(string)) == null || !bwVar.downloadUrl.equals(HR.downloadUrl) || !bwVar.aNI.equals(HR.aNI) || TextUtils.isEmpty(HR.videoMd5) || !HR.videoMd5.equals(c.this.cnA())) {
+                        c.this.cnB();
                         return null;
                     }
-                    return Jc;
+                    return HR;
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
@@ -63,54 +63,54 @@ public class c implements com.baidu.live.u.d {
                 public void onPostExecute(bw bwVar) {
                     super.onPostExecute(bwVar);
                     if (bwVar == null) {
-                        c.this.b(anVar.aPn);
+                        c.this.b(anVar.aKA);
                         return;
                     }
-                    c.this.ifV = bwVar.videoPath;
+                    c.this.ibk = bwVar.videoPath;
                 }
-            }.execute(anVar.aPn);
+            }.execute(anVar.aKA);
         }
     }
 
     @Override // com.baidu.live.u.d
     public void release() {
-        this.ifS = false;
-        this.ifV = "";
-        MessageManager.getInstance().unRegisterListener(this.ifT);
-        this.ifT = null;
-        if (this.igO != null) {
-            this.igO.release();
+        this.ibh = false;
+        this.ibk = "";
+        MessageManager.getInstance().unRegisterListener(this.ibi);
+        this.ibi = null;
+        if (this.icd != null) {
+            this.icd.release();
         }
-        com.baidu.live.i.b.ef(21);
+        com.baidu.live.i.b.cz(21);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void cQ(List<bw> list) {
         if (list != null && !list.isEmpty()) {
             bw bwVar = list.get(0);
-            this.ifV = bwVar.videoPath;
-            com.baidu.live.d.Ba().putString("live_pk_rank_start_anim", b.a(bwVar));
+            this.ibk = bwVar.videoPath;
+            com.baidu.live.d.xf().putString("live_pk_rank_start_anim", b.a(bwVar));
         }
     }
 
-    private void bZT() {
-        if (this.ifT == null) {
-            this.ifT = new HttpMessageListener(AlaCmdConfigHttp.CMD_ALA_SYNC) { // from class: com.baidu.tieba.ala.h.c.2
+    private void bWb() {
+        if (this.ibi == null) {
+            this.ibi = new HttpMessageListener(AlaCmdConfigHttp.CMD_ALA_SYNC) { // from class: com.baidu.tieba.ala.h.c.2
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.live.adp.framework.listener.MessageListener
                 public void onMessage(HttpResponsedMessage httpResponsedMessage) {
                     if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1021011 && (httpResponsedMessage instanceof AlaSyncHttpResponseMessage)) {
-                        c.this.RC();
+                        c.this.NH();
                     }
                 }
             };
-            MessageManager.getInstance().registerListener(this.ifT);
+            MessageManager.getInstance().registerListener(this.ibi);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public String crs() {
-        File[] listFiles = new File(ifR).listFiles();
+    public String cnA() {
+        File[] listFiles = new File(ibg).listFiles();
         if (listFiles == null || listFiles.length == 0) {
             return null;
         }
@@ -125,24 +125,24 @@ public class c implements com.baidu.live.u.d {
     /* JADX INFO: Access modifiers changed from: private */
     public void b(bw bwVar) {
         if (bwVar != null && !TextUtils.isEmpty(bwVar.downloadUrl)) {
-            this.igO = new d();
-            this.igO.y(bwVar.downloadUrl, bwVar.aSv, ifQ, ifR);
+            this.icd = new d();
+            this.icd.y(bwVar.downloadUrl, bwVar.aNI, ibf, ibg);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void crt() {
-        this.ifV = "";
-        com.baidu.live.d.Ba().putString("live_pk_rank_start_anim", "");
-        com.baidu.live.i.a.cleanDir(new File(ifP));
+    public void cnB() {
+        this.ibk = "";
+        com.baidu.live.d.xf().putString("live_pk_rank_start_anim", "");
+        com.baidu.live.i.a.cleanDir(new File(ibe));
     }
 
     private c() {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public static class a {
-        private static c igQ = new c();
+        private static c icf = new c();
     }
 }

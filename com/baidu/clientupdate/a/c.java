@@ -11,16 +11,16 @@ import org.json.JSONObject;
 public class c extends Thread {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ b f1710a;
+    final /* synthetic */ b f1660a;
 
     /* renamed from: b  reason: collision with root package name */
-    private final CharSequence f1711b;
+    private final CharSequence f1661b;
     private byte[] c;
 
     public c(b bVar, CharSequence charSequence, byte[] bArr) {
-        this.f1710a = bVar;
+        this.f1660a = bVar;
         this.c = null;
-        this.f1711b = charSequence;
+        this.f1661b = charSequence;
         this.c = bArr;
     }
 
@@ -35,7 +35,7 @@ public class c extends Thread {
         HttpURLConnection httpURLConnection2 = null;
         try {
             try {
-                httpURLConnection = (HttpURLConnection) new URL(this.f1711b.toString()).openConnection();
+                httpURLConnection = (HttpURLConnection) new URL(this.f1661b.toString()).openConnection();
             } catch (Throwable th2) {
                 th = th2;
             }
@@ -66,15 +66,15 @@ public class c extends Thread {
                 inputStream.close();
                 LogUtil.logE("LogRequest", "**********strResult:" + sb.toString());
                 if (new JSONObject(sb.toString()).getString("retcode").equals("1")) {
-                    aVar3 = this.f1710a.c;
+                    aVar3 = this.f1660a.c;
                     aVar3.c();
                 } else {
-                    aVar2 = this.f1710a.c;
+                    aVar2 = this.f1660a.c;
                     aVar2.e();
                 }
             } else {
                 LogUtil.logE("LogRequest", "request failed  " + httpURLConnection.getResponseCode());
-                aVar = this.f1710a.c;
+                aVar = this.f1660a.c;
                 aVar.e();
             }
             if (httpURLConnection != null) {

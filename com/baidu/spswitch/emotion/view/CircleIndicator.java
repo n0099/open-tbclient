@@ -11,18 +11,18 @@ import androidx.viewpager.widget.ViewPager;
 import com.baidu.spswitch.b.a;
 import com.baidu.spswitch.b.d;
 import com.baidu.spswitch.emotion.c;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class CircleIndicator extends View {
-    private int Iq;
-    private ViewPager Zk;
-    private int cDH;
-    private int cDI;
-    private int cDJ;
-    private int cDK;
-    private int cDL;
-    private int cDM;
-    private int cDN;
-    private final ViewPager.OnPageChangeListener cDO;
+    private int Io;
+    private ViewPager Zi;
+    private int cyV;
+    private int cyW;
+    private int cyX;
+    private int cyY;
+    private int cyZ;
+    private int cza;
+    private int czb;
+    private final ViewPager.OnPageChangeListener czc;
     private int mHeight;
     private int mRadius;
     private Paint mTabPaint;
@@ -38,9 +38,9 @@ public class CircleIndicator extends View {
 
     public CircleIndicator(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.Iq = 1;
-        this.cDL = 0;
-        this.cDO = new ViewPager.OnPageChangeListener() { // from class: com.baidu.spswitch.emotion.view.CircleIndicator.1
+        this.Io = 1;
+        this.cyZ = 0;
+        this.czc = new ViewPager.OnPageChangeListener() { // from class: com.baidu.spswitch.emotion.view.CircleIndicator.1
             @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
             public void onPageScrolled(int i2, float f, int i3) {
                 if (f > 0.0f) {
@@ -50,12 +50,12 @@ public class CircleIndicator extends View {
 
             @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
             public void onPageSelected(int i2) {
-                CircleIndicator.this.cDH = i2;
+                CircleIndicator.this.cyV = i2;
             }
 
             @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
             public void onPageScrollStateChanged(int i2) {
-                c.bV(CircleIndicator.this.getContext().getApplicationContext()).ajf();
+                c.bU(CircleIndicator.this.getContext().getApplicationContext()).afl();
             }
         };
         init();
@@ -64,13 +64,13 @@ public class CircleIndicator extends View {
     private void init() {
         this.mTabPaint = new Paint();
         this.mTabPaint.setAntiAlias(true);
-        if (a.ajj().isNightMode()) {
-            this.cDM = -13421773;
-            this.cDN = -11184811;
+        if (a.afp().isNightMode()) {
+            this.cza = -13421773;
+            this.czb = -11184811;
             return;
         }
-        this.cDM = -2565928;
-        this.cDN = -6579301;
+        this.cza = -2565928;
+        this.czb = -6579301;
     }
 
     @Override // android.view.View
@@ -78,10 +78,10 @@ public class CircleIndicator extends View {
         super.onSizeChanged(i, i2, i3, i4);
         this.mHeight = i2;
         this.mWidth = i;
-        this.cDI = (int) d.g(getContext(), 10.0f);
-        this.cDK = (this.mWidth - (this.cDI * (this.Iq - 1))) / 2;
-        this.mRadius = this.cDI / 5;
-        this.cDJ = this.cDI;
+        this.cyW = (int) d.g(getContext(), 10.0f);
+        this.cyY = (this.mWidth - (this.cyW * (this.Io - 1))) / 2;
+        this.mRadius = this.cyW / 5;
+        this.cyX = this.cyW;
     }
 
     @Override // android.view.View
@@ -92,40 +92,40 @@ public class CircleIndicator extends View {
     }
 
     private void m(Canvas canvas) {
-        this.mTabPaint.setColor(this.cDN);
-        int i = (this.cDK + this.cDL) - (this.cDI / 2);
-        canvas.drawRoundRect(new RectF(i, 0, this.cDJ + i, (this.mRadius * 2) + 0), 10.0f, 10.0f, this.mTabPaint);
+        this.mTabPaint.setColor(this.czb);
+        int i = (this.cyY + this.cyZ) - (this.cyW / 2);
+        canvas.drawRoundRect(new RectF(i, 0, this.cyX + i, (this.mRadius * 2) + 0), 10.0f, 10.0f, this.mTabPaint);
     }
 
     private void n(Canvas canvas) {
-        this.mTabPaint.setColor(this.cDM);
-        for (int i = 0; i < this.Iq; i++) {
-            canvas.drawCircle(this.cDK + (this.cDI * i), this.mRadius, this.mRadius, this.mTabPaint);
+        this.mTabPaint.setColor(this.cza);
+        for (int i = 0; i < this.Io; i++) {
+            canvas.drawCircle(this.cyY + (this.cyW * i), this.mRadius, this.mRadius, this.mTabPaint);
         }
     }
 
     public void d(int i, float f) {
-        this.cDL = (int) (this.cDI * (i + f));
+        this.cyZ = (int) (this.cyW * (i + f));
         invalidate();
     }
 
     public void setViewPager(ViewPager viewPager) {
-        this.Zk = viewPager;
-        if (this.Zk != null && this.Zk.getAdapter() != null) {
-            ajh();
-            this.Zk.removeOnPageChangeListener(this.cDO);
-            this.Zk.addOnPageChangeListener(this.cDO);
-            this.cDH = this.Zk.getCurrentItem();
+        this.Zi = viewPager;
+        if (this.Zi != null && this.Zi.getAdapter() != null) {
+            afn();
+            this.Zi.removeOnPageChangeListener(this.czc);
+            this.Zi.addOnPageChangeListener(this.czc);
+            this.cyV = this.Zi.getCurrentItem();
             invalidate();
         }
     }
 
-    private void ajh() {
-        this.Iq = this.Zk.getAdapter().getCount();
-        if (this.Iq > 0) {
-            this.cDI = (int) d.g(getContext(), 10.0f);
-            this.cDK = (this.mWidth - (this.cDI * (this.Iq - 1))) / 2;
-            this.mRadius = this.cDI / 5;
+    private void afn() {
+        this.Io = this.Zi.getAdapter().getCount();
+        if (this.Io > 0) {
+            this.cyW = (int) d.g(getContext(), 10.0f);
+            this.cyY = (this.mWidth - (this.cyW * (this.Io - 1))) / 2;
+            this.mRadius = this.cyW / 5;
             invalidate();
         }
     }

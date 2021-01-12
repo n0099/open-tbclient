@@ -1,8 +1,8 @@
 package com.baidu.webkit.sdk.plugin;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public interface ZeusPluginFactory {
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public interface Invoker {
         Object get(String str);
     }

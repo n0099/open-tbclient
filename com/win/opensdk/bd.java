@@ -20,17 +20,17 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Enumeration;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public final class bd {
-    public static int iS(Context context) {
+    public static int iQ(Context context) {
         return context.getResources().getDisplayMetrics().widthPixels;
     }
 
-    public static int iT(Context context) {
+    public static int iR(Context context) {
         return context.getResources().getDisplayMetrics().heightPixels;
     }
 
-    public static String iR(Context context) {
+    public static String iP(Context context) {
         try {
             return Settings.Secure.getString(context.getContentResolver(), "android_id");
         } catch (Exception e) {
@@ -46,7 +46,7 @@ public final class bd {
         }
     }
 
-    public static String iQ(Context context) {
+    public static String iO(Context context) {
         String str = "";
         try {
             str = context.getPackageManager().getPackageInfo(context.getPackageName(), 0).versionName;
@@ -62,7 +62,7 @@ public final class bd {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static String m74a(Context context) {
+    public static String m70a(Context context) {
         try {
             return ((TelephonyManager) context.getSystemService("phone")).getNetworkOperator();
         } catch (Exception e) {
@@ -115,9 +115,9 @@ public final class bd {
 
     public static String c(Context context) {
         String deviceId;
-        String m73e = az.m73e(context);
+        String m69e = az.m69e(context);
         try {
-            if (TextUtils.isEmpty(m73e)) {
+            if (TextUtils.isEmpty(m69e)) {
                 String str = "";
                 TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService("phone");
                 if (Build.VERSION.SDK_INT >= 23) {
@@ -143,9 +143,9 @@ public final class bd {
                     return deviceId;
                 }
             }
-            return m73e;
+            return m69e;
         } catch (Exception e2) {
-            return m73e;
+            return m69e;
         }
     }
 
@@ -192,9 +192,9 @@ public final class bd {
         }
     }
 
-    public static String eKw() {
+    public static String eGG() {
         try {
-            byte[] hardwareAddress = NetworkInterface.getByInetAddress(eKK()).getHardwareAddress();
+            byte[] hardwareAddress = NetworkInterface.getByInetAddress(eGU()).getHardwareAddress();
             StringBuffer stringBuffer = new StringBuffer();
             for (int i = 0; i < hardwareAddress.length; i++) {
                 if (i != 0) {
@@ -212,7 +212,7 @@ public final class bd {
         }
     }
 
-    private static InetAddress eKK() {
+    private static InetAddress eGU() {
         SocketException e;
         InetAddress inetAddress;
         try {
@@ -260,7 +260,7 @@ public final class bd {
         }
     }
 
-    public static String[] iX(Context context) {
+    public static String[] iV(Context context) {
         String str = "";
         String str2 = "";
         String str3 = "";
@@ -288,7 +288,7 @@ public final class bd {
         return Arrays.toString(strArr);
     }
 
-    public static List<String> eKL() {
+    public static List<String> eGV() {
         ArrayList arrayList = new ArrayList();
         try {
             BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(Runtime.getRuntime().exec("pm list package -3").getInputStream()));

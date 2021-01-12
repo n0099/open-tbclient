@@ -7,14 +7,14 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.ala.alasquare.live_tab.a.e;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class a {
-    private BdTypeRecyclerView Yc;
-    private List<com.baidu.adp.widget.ListView.a> boM;
-    private e gCj;
-    private com.baidu.tieba.ala.alasquare.live_tab.a.c gCk;
-    private com.baidu.tieba.ala.alasquare.live_tab.a.b gCl;
-    private com.baidu.tieba.ala.alasquare.live_tab.a.a gCm;
+    private BdTypeRecyclerView Ya;
+    private List<com.baidu.adp.widget.ListView.a> bjZ;
+    private e gxC;
+    private com.baidu.tieba.ala.alasquare.live_tab.a.c gxD;
+    private com.baidu.tieba.ala.alasquare.live_tab.a.b gxE;
+    private com.baidu.tieba.ala.alasquare.live_tab.a.a gxF;
     private Context mContext;
     private TbPageContext mPageContext;
     private int tabType;
@@ -22,31 +22,31 @@ public class a {
     public a(TbPageContext tbPageContext, BdTypeRecyclerView bdTypeRecyclerView, int i) {
         this.mPageContext = tbPageContext;
         this.mContext = tbPageContext.getPageActivity();
-        this.Yc = bdTypeRecyclerView;
+        this.Ya = bdTypeRecyclerView;
         this.tabType = i;
-        MT();
+        IY();
     }
 
-    private void MT() {
-        this.boM = new ArrayList();
-        this.gCj = new e(this.mPageContext, this.tabType);
-        this.gCk = new com.baidu.tieba.ala.alasquare.live_tab.a.c(this.mPageContext);
-        this.gCl = new com.baidu.tieba.ala.alasquare.live_tab.a.b(this.mPageContext);
-        this.gCm = new com.baidu.tieba.ala.alasquare.live_tab.a.a(this.mPageContext);
-        this.boM.add(this.gCj);
-        this.boM.add(this.gCk);
-        this.boM.add(this.gCl);
-        this.boM.add(this.gCm);
-        this.Yc.addAdapters(this.boM);
+    private void IY() {
+        this.bjZ = new ArrayList();
+        this.gxC = new e(this.mPageContext, this.tabType);
+        this.gxD = new com.baidu.tieba.ala.alasquare.live_tab.a.c(this.mPageContext);
+        this.gxE = new com.baidu.tieba.ala.alasquare.live_tab.a.b(this.mPageContext);
+        this.gxF = new com.baidu.tieba.ala.alasquare.live_tab.a.a(this.mPageContext);
+        this.bjZ.add(this.gxC);
+        this.bjZ.add(this.gxD);
+        this.bjZ.add(this.gxE);
+        this.bjZ.add(this.gxF);
+        this.Ya.addAdapters(this.bjZ);
     }
 
     public void setData(List<n> list) {
-        this.Yc.setData(list);
+        this.Ya.setData(list);
     }
 
     public void notifyDataSetChanged() {
-        if (this.Yc != null) {
-            this.Yc.getListAdapter().notifyDataSetChanged();
+        if (this.Ya != null) {
+            this.Ya.getListAdapter().notifyDataSetChanged();
         }
     }
 }

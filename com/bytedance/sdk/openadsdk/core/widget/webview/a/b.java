@@ -17,10 +17,10 @@ import java.util.concurrent.atomic.AtomicLong;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    private static File f7126a;
+    private static File f6826a;
 
     /* renamed from: b  reason: collision with root package name */
-    private static volatile b f7127b;
+    private static volatile b f6827b;
     private AtomicBoolean c = new AtomicBoolean(true);
     private AtomicBoolean d = new AtomicBoolean(false);
     private boolean e = false;
@@ -28,14 +28,14 @@ public class b {
     private AtomicLong g = new AtomicLong();
 
     public static b a() {
-        if (f7127b == null) {
+        if (f6827b == null) {
             synchronized (b.class) {
-                if (f7127b == null) {
-                    f7127b = new b();
+                if (f6827b == null) {
+                    f6827b = new b();
                 }
             }
         }
-        return f7127b;
+        return f6827b;
     }
 
     private b() {
@@ -171,10 +171,10 @@ public class b {
                         } catch (Throwable th2) {
                         }
                     }
-                    i esj = i.esj();
-                    new com.bytedance.sdk.adnet.b.c(file.getAbsolutePath(), a4, esj).build(com.bytedance.sdk.openadsdk.i.e.a(com.bytedance.sdk.openadsdk.core.p.a()).c());
+                    i eop = i.eop();
+                    new com.bytedance.sdk.adnet.b.c(file.getAbsolutePath(), a4, eop).build(com.bytedance.sdk.openadsdk.i.e.a(com.bytedance.sdk.openadsdk.core.p.a()).c());
                     try {
-                        pVar = esj.get();
+                        pVar = eop.get();
                     } catch (Throwable th3) {
                         pVar = null;
                     }
@@ -249,7 +249,7 @@ public class b {
 
     public static File e() {
         File externalCacheDir;
-        if (f7126a == null) {
+        if (f6826a == null) {
             try {
                 if (("mounted".equals(Environment.getExternalStorageState()) || !Environment.isExternalStorageRemovable()) && com.bytedance.sdk.openadsdk.core.p.a().getExternalCacheDir() != null) {
                     externalCacheDir = com.bytedance.sdk.openadsdk.core.p.a().getExternalCacheDir();
@@ -258,11 +258,11 @@ public class b {
                 }
                 File file = new File(new File(externalCacheDir, "tt_tmpl_pkg"), "template");
                 file.mkdirs();
-                f7126a = file;
+                f6826a = file;
             } catch (Throwable th) {
                 u.c("TemplateManager", "getTemplateDir error", th);
             }
         }
-        return f7126a;
+        return f6826a;
     }
 }

@@ -6,24 +6,24 @@ import com.baidu.tbadk.core.util.ao;
 import com.baidu.tbadk.core.util.f.a.b;
 /* loaded from: classes.dex */
 public class a {
-    public static final float fdh = ao.fdh;
-    public static final float fdi = ao.fdi;
+    public static final float eYy = ao.eYy;
+    public static final float eYz = ao.eYz;
 
-    public static com.baidu.tbadk.core.util.f.b.a bwU() {
-        return com.baidu.tbadk.core.util.f.b.a.bxf();
+    public static com.baidu.tbadk.core.util.f.b.a bta() {
+        return com.baidu.tbadk.core.util.f.b.a.btl();
     }
 
-    public static b bwV() {
-        return b.bwW();
+    public static b btb() {
+        return b.btc();
     }
 
     public static void m(View view, int i, int i2) {
         if (view != null) {
-            b.bwW().qz(1).qr(i).qv(i2).bz(view);
+            b.btc().oS(1).oK(i).oO(i2).bz(view);
         }
     }
 
     public static b c(Drawable drawable, Drawable drawable2) {
-        return b.bwW().qz(1).l(drawable).m(drawable2);
+        return b.btc().oS(1).l(drawable).m(drawable2);
     }
 }

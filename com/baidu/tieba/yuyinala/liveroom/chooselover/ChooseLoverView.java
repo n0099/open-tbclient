@@ -4,7 +4,7 @@ import android.content.Context;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import com.baidu.live.sdk.a;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class ChooseLoverView extends TextView {
     public ChooseLoverView(@NonNull Context context) {
         super(context);

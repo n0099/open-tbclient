@@ -2,33 +2,33 @@ package com.baidu.live.data;
 
 import com.baidu.tbadk.core.atomData.BigdayActivityConfig;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class af {
-    public String aJH;
-    public o aLS;
-    public ad aLT;
-    private int aLU;
+    public String aEU;
+    public o aHf;
+    public ad aHg;
+    private int aHh;
     public String msg;
 
-    public boolean EK() {
-        return this.aLU == 1;
+    public boolean AP() {
+        return this.aHh == 1;
     }
 
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             this.msg = jSONObject.optString("msg");
-            this.aJH = jSONObject.optString(BigdayActivityConfig.JUMP_URL);
+            this.aEU = jSONObject.optString(BigdayActivityConfig.JUMP_URL);
             JSONObject optJSONObject = jSONObject.optJSONObject("super_king");
             if (optJSONObject != null) {
-                this.aLS = new o();
-                this.aLS.iconUrl = optJSONObject.optString("icon_url");
-                this.aLS.msg = optJSONObject.optString("msg");
+                this.aHf = new o();
+                this.aHf.iconUrl = optJSONObject.optString("icon_url");
+                this.aHf.msg = optJSONObject.optString("msg");
             }
-            this.aLU = jSONObject.optInt("is_season_over", 0);
+            this.aHh = jSONObject.optInt("is_season_over", 0);
             JSONObject optJSONObject2 = jSONObject.optJSONObject("division");
             if (optJSONObject2 != null) {
-                this.aLT = new ad();
-                this.aLT.parserJson(optJSONObject2);
+                this.aHg = new ad();
+                this.aHg.parserJson(optJSONObject2);
             }
         }
     }

@@ -8,7 +8,7 @@ import com.heytap.mcssdk.mode.CommandMessage;
 import com.heytap.mcssdk.mode.Message;
 import com.heytap.mcssdk.utils.LogUtil;
 import com.heytap.mcssdk.utils.Utils;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class PushParseHelper {
     public static void parseCommandMessage(Context context, CommandMessage commandMessage, PushManager pushManager) {
         if (context == null) {

@@ -2,9 +2,9 @@ package com.baidu.tieba.newdetail.a;
 
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.n;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class c implements n {
-    public boolean liO = true;
+    public boolean lei = true;
     public String title;
 
     public c(String str) {
@@ -13,6 +13,6 @@ public class c implements n {
 
     @Override // com.baidu.adp.widget.ListView.n
     public BdUniqueId getType() {
-        return a.lvp;
+        return a.lqJ;
     }
 }

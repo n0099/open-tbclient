@@ -2,7 +2,7 @@ package com.baidu.tieba.ala.alasquare.widget.banner;
 
 import android.view.View;
 import androidx.recyclerview.widget.RecyclerView;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public abstract class AlaBannerViewHolder<T> extends RecyclerView.ViewHolder {
     protected abstract void ap(View view);
 

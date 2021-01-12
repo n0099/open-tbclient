@@ -13,7 +13,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /* loaded from: classes.dex */
 public class j {
-    public static void BI(String str) {
+    public static void Ax(String str) {
         int i;
         CustomResponsedMessage runTask;
         int i2 = 0;
@@ -46,7 +46,7 @@ public class j {
         }
     }
 
-    public static void bvF() {
+    public static void brL() {
         new Thread(new Runnable() { // from class: com.baidu.tbadk.core.util.j.1
             @Override // java.lang.Runnable
             public void run() {
@@ -67,7 +67,7 @@ public class j {
                     }
                 }
                 aq aqVar = new aq(TbadkCoreStatisticKey.FACESHOP_TOTAL_NUM);
-                aqVar.dX("uid", TbadkCoreApplication.getCurrentAccount());
+                aqVar.dW("uid", TbadkCoreApplication.getCurrentAccount());
                 aqVar.an("obj_param1", i);
                 TiebaStatic.log(aqVar);
             }

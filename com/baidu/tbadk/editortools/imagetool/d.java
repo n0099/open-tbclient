@@ -8,12 +8,12 @@ import com.baidu.tieba.R;
 public class d extends m {
     public d(Context context, int i) {
         super(context, TbadkCoreApplication.getInst().getString(R.string.editor_image), 10, i);
-        this.fEu = R.drawable.icon_pure_post_image24;
-        this.fEv = R.drawable.icon_pure_post_image24_selection;
-        this.fEw = R.drawable.icon_post_image24_big;
-        this.fEx = false;
-        this.fEy = true;
-        this.fEz = false;
-        this.fED = new int[]{14};
+        this.fzM = R.drawable.icon_pure_post_image24;
+        this.fzN = R.drawable.icon_pure_post_image24_selection;
+        this.fzO = R.drawable.icon_post_image24_big;
+        this.fzP = false;
+        this.fzQ = true;
+        this.fzR = false;
+        this.fzV = new int[]{14};
     }
 }

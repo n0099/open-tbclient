@@ -9,7 +9,7 @@ public class PassBiometricConfiguration {
     public static final String TARGET_TPL = "pp";
 
     /* renamed from: a  reason: collision with root package name */
-    private Application f3970a;
+    private Application f3932a;
     public final String appId;
     public final String appSignKey;
     public String passDomain;
@@ -20,10 +20,10 @@ public class PassBiometricConfiguration {
     public static class Builder {
 
         /* renamed from: a  reason: collision with root package name */
-        private String f3971a;
+        private String f3933a;
 
         /* renamed from: b  reason: collision with root package name */
-        private String f3972b;
+        private String f3934b;
         private String c;
         private String d;
         private boolean e = false;
@@ -35,7 +35,7 @@ public class PassBiometricConfiguration {
         }
 
         public PassBiometricConfiguration build() {
-            if (!TextUtils.isEmpty(this.f3971a) && !TextUtils.isEmpty(this.f3972b) && !TextUtils.isEmpty(this.c)) {
+            if (!TextUtils.isEmpty(this.f3933a) && !TextUtils.isEmpty(this.f3934b) && !TextUtils.isEmpty(this.c)) {
                 if (this.d == null) {
                     this.d = PassBioEnv.PASSPORT_DOMAIN;
                 }
@@ -50,8 +50,8 @@ public class PassBiometricConfiguration {
         }
 
         public Builder setProductLineInfo(String str, String str2, String str3) {
-            this.f3971a = str;
-            this.f3972b = str2;
+            this.f3933a = str;
+            this.f3934b = str2;
             this.c = str3;
             return this;
         }
@@ -72,16 +72,16 @@ public class PassBiometricConfiguration {
     }
 
     public Application getApplication() {
-        return this.f3970a;
+        return this.f3932a;
     }
 
     private PassBiometricConfiguration(Builder builder) {
-        this.tpl = builder.f3971a;
-        this.appId = builder.f3972b;
+        this.tpl = builder.f3933a;
+        this.appId = builder.f3934b;
         this.appSignKey = builder.c;
         this.passDomain = builder.d;
         debug(builder.f);
         this.showPmnRationaleDialog = builder.e;
-        this.f3970a = builder.g;
+        this.f3932a = builder.g;
     }
 }

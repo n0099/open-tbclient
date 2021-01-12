@@ -12,10 +12,10 @@ import java.io.File;
 import java.lang.reflect.Array;
 import java.lang.reflect.Method;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public final class a {
     static {
-        String[] strArr = {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "getNetworkIso", com.baidu.pass.biometrics.face.liveness.d.b.f4081a, "c", "d", "e", "f"};
+        String[] strArr = {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "getNetworkIso", com.baidu.pass.biometrics.face.liveness.d.b.f4043a, "c", "d", "e", "f"};
     }
 
     public static boolean a() {
@@ -55,12 +55,12 @@ public final class a {
         if (bArr2 != null) {
             try {
                 if (bArr2.length > 0 && bArr != null && bArr.length > 0) {
-                    byte[] h = (bArr == null || bArr2 == null) ? null : h(bArr, bArr2);
-                    if (h != null) {
-                        r1 = h.length;
-                        return r1 > 0 ? h : h;
+                    byte[] g = (bArr == null || bArr2 == null) ? null : g(bArr, bArr2);
+                    if (g != null) {
+                        r1 = g.length;
+                        return r1 > 0 ? g : g;
                     }
-                    return h;
+                    return g;
                 }
             } catch (Throwable th) {
                 b.a(th);
@@ -80,12 +80,12 @@ public final class a {
         if (bArr2 != null) {
             try {
                 if (bArr2.length > 0 && bArr != null && bArr.length > 0) {
-                    byte[] h = (bArr == null || bArr2 == null) ? null : h(bArr, bArr2);
-                    if (h != null) {
-                        r1 = h.length;
-                        return r1 > 0 ? h : h;
+                    byte[] g = (bArr == null || bArr2 == null) ? null : g(bArr, bArr2);
+                    if (g != null) {
+                        r1 = g.length;
+                        return r1 > 0 ? g : g;
                     }
-                    return h;
+                    return g;
                 }
             } catch (Throwable th) {
                 b.a(th);
@@ -95,7 +95,7 @@ public final class a {
         return null;
     }
 
-    private static byte[] h(byte[] bArr, byte[] bArr2) {
+    private static byte[] g(byte[] bArr, byte[] bArr2) {
         byte[] a2 = a(bArr2);
         byte[] bArr3 = new byte[bArr.length];
         int i = 0;
@@ -115,7 +115,7 @@ public final class a {
         return bArr3;
     }
 
-    public static String[] jf(Context context) {
+    public static String[] jd(Context context) {
         List<SubscriptionInfo> activeSubscriptionInfoList;
         String str;
         try {

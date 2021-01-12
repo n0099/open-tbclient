@@ -10,81 +10,81 @@ import com.kwai.video.player.misc.ITrackInfo;
 import java.io.FileDescriptor;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public interface IMediaPlayer {
     public static final int kVideoMixOverlay = 1;
     public static final int kVideoMixSideBySide = 2;
     public static final int kVideoMixSingle = 0;
     public static final int kVideoMixUnknow = -1;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public interface OnBufferingUpdateListener {
         void onBufferingUpdate(IMediaPlayer iMediaPlayer, int i);
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public interface OnCompletionListener {
         void onCompletion(IMediaPlayer iMediaPlayer);
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public interface OnErrorListener {
         boolean onError(IMediaPlayer iMediaPlayer, int i, int i2);
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public interface OnFftDataCaptureListener {
         void onFftDataCapture(float[] fArr);
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public interface OnInfoListener {
         boolean onInfo(IMediaPlayer iMediaPlayer, int i, int i2);
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public interface OnLiveAdaptiveQosStatListener {
         void onLiveAdaptiveQosStat(IMediaPlayer iMediaPlayer, JSONObject jSONObject);
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public interface OnLiveEventListener {
         void onLiveEventChange(byte[] bArr);
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public interface OnLiveVoiceCommentListener {
         void onLiveVoiceCommentChange(IMediaPlayer iMediaPlayer, String str);
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public interface OnLogEventListener {
         void onLogEvent(IMediaPlayer iMediaPlayer, String str);
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public interface OnPreparedListener {
         void onPrepared(IMediaPlayer iMediaPlayer);
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public interface OnQosStatListener {
         void onQosStat(IMediaPlayer iMediaPlayer, JSONObject jSONObject);
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public interface OnSeekCompleteListener {
         void onSeekComplete(IMediaPlayer iMediaPlayer);
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public interface OnVideoRawDataListener {
         void onVideoRawDataAvailable(IMediaPlayer iMediaPlayer, byte[] bArr, int i, int i2, int i3, int i4);
 
         void onVideoRawDataSize(IMediaPlayer iMediaPlayer, int i, int i2, int i3, int i4);
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public interface OnVideoSizeChangedListener {
         void onVideoSizeChanged(IMediaPlayer iMediaPlayer, int i, int i2, int i3, int i4);
     }

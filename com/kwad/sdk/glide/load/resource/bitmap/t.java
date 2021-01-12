@@ -12,6 +12,7 @@ import android.os.Build;
 import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.annotation.VisibleForTesting;
+import com.baidu.mobstat.Config;
 import com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView;
 import java.util.Arrays;
 import java.util.HashSet;
@@ -20,19 +21,19 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public final class t {
     private static final Paint c;
     private static final Lock e;
 
     /* renamed from: a  reason: collision with root package name */
-    private static final Paint f10598a = new Paint(6);
+    private static final Paint f10298a = new Paint(6);
 
     /* renamed from: b  reason: collision with root package name */
-    private static final Paint f10599b = new Paint(7);
+    private static final Paint f10299b = new Paint(7);
     private static final Set<String> d = new HashSet(Arrays.asList("XT1085", "XT1092", "XT1093", "XT1094", "XT1095", "XT1096", "XT1097", "XT1098", "XT1031", "XT1028", "XT937C", "XT1032", "XT1008", "XT1033", "XT1035", "XT1034", "XT939G", "XT1039", "XT1040", "XT1042", "XT1045", "XT1063", "XT1064", "XT1068", "XT1069", "XT1072", "XT1077", "XT1078", "XT1079"));
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     private static final class a implements Lock {
         a() {
         }
@@ -187,7 +188,7 @@ public final class t {
         e.lock();
         try {
             Canvas canvas = new Canvas(bitmap2);
-            canvas.drawBitmap(bitmap, matrix, f10598a);
+            canvas.drawBitmap(bitmap, matrix, f10298a);
             a(canvas);
         } finally {
             e.unlock();
@@ -224,9 +225,9 @@ public final class t {
         Bitmap a2 = eVar.a((int) (bitmap.getWidth() * min), (int) (bitmap.getHeight() * min), b(bitmap));
         a(bitmap, a2);
         if (Log.isLoggable("TransformationUtils", 2)) {
-            Log.v("TransformationUtils", "request: " + i + "x" + i2);
-            Log.v("TransformationUtils", "toFit:   " + bitmap.getWidth() + "x" + bitmap.getHeight());
-            Log.v("TransformationUtils", "toReuse: " + a2.getWidth() + "x" + a2.getHeight());
+            Log.v("TransformationUtils", "request: " + i + Config.EVENT_HEAT_X + i2);
+            Log.v("TransformationUtils", "toFit:   " + bitmap.getWidth() + Config.EVENT_HEAT_X + bitmap.getHeight());
+            Log.v("TransformationUtils", "toReuse: " + a2.getWidth() + Config.EVENT_HEAT_X + a2.getHeight());
             Log.v("TransformationUtils", "minPct:   " + min);
         }
         Matrix matrix = new Matrix();
@@ -281,7 +282,7 @@ public final class t {
         e.lock();
         try {
             Canvas canvas = new Canvas(a3);
-            canvas.drawCircle(f, f, f, f10599b);
+            canvas.drawCircle(f, f, f, f10299b);
             canvas.drawBitmap(a2, (Rect) null, rectF, c);
             a(canvas);
             e.unlock();

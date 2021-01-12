@@ -12,13 +12,13 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.tbadkCore.location.LocationData;
 import com.baidu.tieba.tbadkCore.location.LocationModel;
 import com.baidu.tieba.tbadkCore.location.ResponsedSelectLocation;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class WriteLocationView extends LocationInfoView {
-    private LocationModel fFZ;
-    private int fGf;
-    private final LocationModel.a fGm;
-    private final CustomMessageListener nuf;
-    private BaseActivity<?> obR;
+    private final LocationModel.a fBF;
+    private LocationModel fBr;
+    private int fBx;
+    private BaseActivity<?> nXl;
+    private final CustomMessageListener npA;
 
     public WriteLocationView(Context context) {
         this(context, null);
@@ -26,19 +26,19 @@ public class WriteLocationView extends LocationInfoView {
 
     public WriteLocationView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.fGf = 0;
-        this.fGm = new LocationModel.a() { // from class: com.baidu.tieba.write.video.WriteLocationView.1
+        this.fBx = 0;
+        this.fBF = new LocationModel.a() { // from class: com.baidu.tieba.write.video.WriteLocationView.1
             @Override // com.baidu.tieba.tbadkCore.location.LocationModel.a
-            public void bFI() {
-                WriteLocationView.this.obR.showToast(R.string.no_network_guide);
+            public void bBP() {
+                WriteLocationView.this.nXl.showToast(R.string.no_network_guide);
                 WriteLocationView.this.b(0, true, null);
             }
 
             @Override // com.baidu.tieba.tbadkCore.location.LocationModel.a
             public void onFail(String str) {
-                BaseActivity baseActivity = WriteLocationView.this.obR;
+                BaseActivity baseActivity = WriteLocationView.this.nXl;
                 if (StringUtils.isNull(str)) {
-                    str = WriteLocationView.this.obR.getResources().getString(R.string.location_fail);
+                    str = WriteLocationView.this.nXl.getResources().getString(R.string.location_fail);
                 }
                 baseActivity.showToast(str);
                 WriteLocationView.this.b(0, true, null);
@@ -53,19 +53,19 @@ public class WriteLocationView extends LocationInfoView {
                 }
             }
         };
-        this.nuf = new CustomMessageListener(CmdConfigCustom.CMD_SELECT_LOCATION) { // from class: com.baidu.tieba.write.video.WriteLocationView.2
+        this.npA = new CustomMessageListener(CmdConfigCustom.CMD_SELECT_LOCATION) { // from class: com.baidu.tieba.write.video.WriteLocationView.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage instanceof ResponsedSelectLocation) {
                     ResponsedSelectLocation responsedSelectLocation = (ResponsedSelectLocation) customResponsedMessage;
                     if (responsedSelectLocation.isShowLocation()) {
-                        WriteLocationView.this.fFZ.yn(false);
-                        WriteLocationView.this.fFZ.gv(responsedSelectLocation.getName(), responsedSelectLocation.getScreatString());
+                        WriteLocationView.this.fBr.yj(false);
+                        WriteLocationView.this.fBr.gu(responsedSelectLocation.getName(), responsedSelectLocation.getScreatString());
                         WriteLocationView.this.b(2, true, responsedSelectLocation.getName());
                         return;
                     }
-                    WriteLocationView.this.fFZ.yn(true);
+                    WriteLocationView.this.fBr.yj(true);
                     WriteLocationView.this.b(0, true, null);
                 }
             }
@@ -74,7 +74,7 @@ public class WriteLocationView extends LocationInfoView {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b(int i, boolean z, String str) {
-        this.fGf = i;
+        this.fBx = i;
         setVisibility(z ? 0 : 8);
         setState(i, str);
     }

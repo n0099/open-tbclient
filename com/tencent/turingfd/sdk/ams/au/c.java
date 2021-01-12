@@ -10,37 +10,37 @@ import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import com.tencent.turingfd.sdk.ams.au.ap;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f13817a = ab.a("turingfd_conf_").append(af.f13767a).append(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS).append("auMini").toString();
+    public static final String f13517a = ab.a("turingfd_conf_").append(af.f13467a).append(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS).append("auMini").toString();
 
     /* renamed from: b  reason: collision with root package name */
-    public Handler f13818b;
+    public Handler f13518b;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class a implements Runnable {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ Context f13819a;
+        public final /* synthetic */ Context f13519a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ Map f13820b;
+        public final /* synthetic */ Map f13520b;
 
         public a(Context context, Map map) {
-            this.f13819a = context;
-            this.f13820b = map;
+            this.f13519a = context;
+            this.f13520b = map;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            c.this.a(this.f13819a, this.f13820b);
+            c.this.a(this.f13519a, this.f13520b);
         }
     }
 
     public c(Handler handler) {
-        this.f13818b = handler;
+        this.f13518b = handler;
     }
 
     public static long a(Context context) {
@@ -52,7 +52,7 @@ public class c {
     }
 
     public static String a(Context context, String str) {
-        SharedPreferences sharedPreferences = context.getSharedPreferences(f13817a, 0);
+        SharedPreferences sharedPreferences = context.getSharedPreferences(f13517a, 0);
         if (sharedPreferences == null) {
             return "";
         }
@@ -98,7 +98,7 @@ public class c {
     public void a(Context context, ae<Long> aeVar) {
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < aeVar.a(); i++) {
-            sb.append(aeVar.f13766b.get(i));
+            sb.append(aeVar.f13466b.get(i));
             if (i != aeVar.a() - 1) {
                 sb.append(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS);
             }
@@ -108,7 +108,7 @@ public class c {
 
     public void a(Context context, ap apVar) {
         HashMap hashMap = new HashMap();
-        hashMap.put("101", apVar.f13784b);
+        hashMap.put("101", apVar.f13484b);
         hashMap.put(TbEnum.SystemMessage.EVENT_ID_NOTICE_MODIFY, "" + apVar.c);
         if (!TextUtils.isEmpty(apVar.e)) {
             hashMap.put(TbEnum.SystemMessage.EVENT_ID_GROUP_UPGRADE, apVar.e);
@@ -139,7 +139,7 @@ public class c {
 
     public final void a(Context context, Map<String, String> map) {
         SharedPreferences.Editor edit;
-        SharedPreferences sharedPreferences = context.getSharedPreferences(f13817a, 0);
+        SharedPreferences sharedPreferences = context.getSharedPreferences(f13517a, 0);
         if (sharedPreferences == null || (edit = sharedPreferences.edit()) == null) {
             return;
         }
@@ -159,7 +159,7 @@ public class c {
         if (z) {
             a(context, map);
         } else {
-            this.f13818b.post(new a(context, map));
+            this.f13518b.post(new a(context, map));
         }
     }
 
@@ -182,8 +182,8 @@ public class c {
         String a5 = a(context, TbEnum.SystemMessage.EVENT_ID_GROUP_QUIT);
         String a6 = a(context, TbEnum.SystemMessage.EVENT_ID_COMMON);
         ap.b b2 = ap.b(0);
-        b2.f13786b = j;
-        b2.f13785a = a2;
+        b2.f13486b = j;
+        b2.f13485a = a2;
         b2.e = a3;
         b2.f = a4;
         b2.g = a5;

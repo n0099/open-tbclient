@@ -2,6 +2,7 @@ package com.baidu.live.tbadk.widget.lottie;
 
 import android.content.Context;
 import android.util.AttributeSet;
+import com.baidu.l.a.a;
 import com.baidu.live.adp.lib.util.BdFileHelper;
 import com.baidu.live.adp.lib.util.BdStringHelper;
 import com.baidu.live.lottie.LottieAnimationView;
@@ -13,10 +14,9 @@ import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.core.util.StringHelper;
 import com.baidu.live.tbadk.core.util.TiebaInitialize;
 import com.baidu.live.tbadk.widget.lottie.TBLottieAnimationLoader;
-import com.baidu.n.a.a;
 import java.io.File;
 import java.io.InputStream;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class TBLottieAnimationView extends LottieAnimationView {
     private static final String DIR_ANIMATION = "animation";
     public static final String JSON_FILE = "data.json";

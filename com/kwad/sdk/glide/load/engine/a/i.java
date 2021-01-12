@@ -8,25 +8,25 @@ import android.text.format.Formatter;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public final class i {
 
     /* renamed from: a  reason: collision with root package name */
-    private final int f10467a;
+    private final int f10167a;
 
     /* renamed from: b  reason: collision with root package name */
-    private final int f10468b;
+    private final int f10168b;
     private final Context c;
     private final int d;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static final class a {
 
         /* renamed from: a  reason: collision with root package name */
-        static final int f10469a;
+        static final int f10169a;
 
         /* renamed from: b  reason: collision with root package name */
-        final Context f10470b;
+        final Context f10170b;
         ActivityManager c;
         c d;
         float f;
@@ -36,12 +36,12 @@ public final class i {
         int i = 4194304;
 
         static {
-            f10469a = Build.VERSION.SDK_INT < 26 ? 4 : 1;
+            f10169a = Build.VERSION.SDK_INT < 26 ? 4 : 1;
         }
 
         public a(Context context) {
-            this.f = f10469a;
-            this.f10470b = context;
+            this.f = f10169a;
+            this.f10170b = context;
             this.c = (ActivityManager) context.getSystemService(PushConstants.INTENT_ACTIVITY_NAME);
             this.d = new b(context.getResources().getDisplayMetrics());
             if (Build.VERSION.SDK_INT < 26 || !i.a(this.c)) {
@@ -55,28 +55,28 @@ public final class i {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     private static final class b implements c {
 
         /* renamed from: a  reason: collision with root package name */
-        private final DisplayMetrics f10471a;
+        private final DisplayMetrics f10171a;
 
         b(DisplayMetrics displayMetrics) {
-            this.f10471a = displayMetrics;
+            this.f10171a = displayMetrics;
         }
 
         @Override // com.kwad.sdk.glide.load.engine.a.i.c
         public int a() {
-            return this.f10471a.widthPixels;
+            return this.f10171a.widthPixels;
         }
 
         @Override // com.kwad.sdk.glide.load.engine.a.i.c
         public int b() {
-            return this.f10471a.heightPixels;
+            return this.f10171a.heightPixels;
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     interface c {
         int a();
 
@@ -84,7 +84,7 @@ public final class i {
     }
 
     i(a aVar) {
-        this.c = aVar.f10470b;
+        this.c = aVar.f10170b;
         this.d = a(aVar.c) ? aVar.i / 2 : aVar.i;
         int a2 = a(aVar.c, aVar.g, aVar.h);
         int a3 = aVar.d.a() * aVar.d.b() * 4;
@@ -92,15 +92,15 @@ public final class i {
         int round2 = Math.round(a3 * aVar.e);
         int i = a2 - this.d;
         if (round2 + round <= i) {
-            this.f10468b = round2;
-            this.f10467a = round;
+            this.f10168b = round2;
+            this.f10167a = round;
         } else {
             float f = i / (aVar.f + aVar.e);
-            this.f10468b = Math.round(aVar.e * f);
-            this.f10467a = Math.round(f * aVar.f);
+            this.f10168b = Math.round(aVar.e * f);
+            this.f10167a = Math.round(f * aVar.f);
         }
         if (Log.isLoggable("MemorySizeCalculator", 3)) {
-            Log.d("MemorySizeCalculator", "Calculation complete, Calculated memory cache size: " + a(this.f10468b) + ", pool size: " + a(this.f10467a) + ", byte array size: " + a(this.d) + ", memory class limited? " + (round2 + round > a2) + ", max size: " + a(a2) + ", memoryClass: " + aVar.c.getMemoryClass() + ", isLowMemoryDevice: " + a(aVar.c));
+            Log.d("MemorySizeCalculator", "Calculation complete, Calculated memory cache size: " + a(this.f10168b) + ", pool size: " + a(this.f10167a) + ", byte array size: " + a(this.d) + ", memory class limited? " + (round2 + round > a2) + ", max size: " + a(a2) + ", memoryClass: " + aVar.c.getMemoryClass() + ", isLowMemoryDevice: " + a(aVar.c));
         }
     }
 
@@ -126,11 +126,11 @@ public final class i {
     }
 
     public int a() {
-        return this.f10468b;
+        return this.f10168b;
     }
 
     public int b() {
-        return this.f10467a;
+        return this.f10167a;
     }
 
     public int c() {

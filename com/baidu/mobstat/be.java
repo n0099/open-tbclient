@@ -11,7 +11,7 @@ import java.text.DecimalFormatSymbols;
 import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class be implements bk.b {
     @Override // com.baidu.mobstat.bk.b
     public void a(View view, boolean z, Activity activity) {
@@ -67,7 +67,7 @@ public class be implements bk.b {
             DecimalFormatSymbols decimalFormatSymbols = new DecimalFormatSymbols();
             decimalFormatSymbols.setDecimalSeparator('.');
             decimalFormat.setDecimalFormatSymbols(decimalFormatSymbols);
-            jSONObject.put("x", decimalFormat.format(b2));
+            jSONObject.put(Config.EVENT_HEAT_X, decimalFormat.format(b2));
             jSONObject.put("y", decimalFormat.format(b3));
             jSONObject.put(Config.EVENT_HEAT_XP, decimalFormat.format((b2 * 100.0f) / a2));
             jSONObject.put(Config.EVENT_HEAT_YP, decimalFormat.format((b3 * 100.0f) / a3));

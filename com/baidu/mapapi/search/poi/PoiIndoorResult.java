@@ -4,12 +4,12 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import com.baidu.mapapi.search.core.SearchResult;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class PoiIndoorResult extends SearchResult implements Parcelable {
     public static final Parcelable.Creator<PoiIndoorResult> CREATOR = new e();
 
     /* renamed from: a  reason: collision with root package name */
-    private List<PoiIndoorInfo> f3007a;
+    private List<PoiIndoorInfo> f2885a;
     public int pageNum;
     public int poiNum;
 
@@ -32,10 +32,6 @@ public class PoiIndoorResult extends SearchResult implements Parcelable {
         return 0;
     }
 
-    public List<PoiIndoorInfo> getArrayPoiInfo() {
-        return this.f3007a;
-    }
-
     public int getPageNum() {
         return this.pageNum;
     }
@@ -44,13 +40,8 @@ public class PoiIndoorResult extends SearchResult implements Parcelable {
         return this.poiNum;
     }
 
-    @Deprecated
     public List<PoiIndoorInfo> getmArrayPoiInfo() {
-        return this.f3007a;
-    }
-
-    public void setArrayPoiInfo(List<PoiIndoorInfo> list) {
-        this.f3007a = list;
+        return this.f2885a;
     }
 
     public void setPageNum(int i) {
@@ -61,9 +52,8 @@ public class PoiIndoorResult extends SearchResult implements Parcelable {
         this.poiNum = i;
     }
 
-    @Deprecated
     public void setmArrayPoiInfo(List<PoiIndoorInfo> list) {
-        this.f3007a = list;
+        this.f2885a = list;
     }
 
     @Override // com.baidu.mapapi.search.core.SearchResult, android.os.Parcelable

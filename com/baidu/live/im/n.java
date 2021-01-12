@@ -11,13 +11,13 @@ import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.live.adp.lib.util.BdNetTypeUtil;
 import com.baidu.live.im.l;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class n implements IConnectListener {
-    public static String boy = "imlog";
-    private static boolean boz = false;
-    private a boB;
+    public static String bjL = "imlog";
+    private static boolean bjM = false;
+    private a bjO;
     private String mActivityId;
-    private boolean boA = false;
+    private boolean bjN = false;
     private boolean mIsInited = false;
 
     public void init(String str) {
@@ -25,38 +25,38 @@ public class n implements IConnectListener {
         this.mActivityId = str;
         if (!this.mIsInited) {
             this.mIsInited = true;
-            l.MM().init(TbadkCoreApplication.getInst());
-            MR();
-            MQ();
-            if (this.boB == null) {
-                this.boB = new a();
+            l.IR().init(TbadkCoreApplication.getInst());
+            IW();
+            IV();
+            if (this.bjO == null) {
+                this.bjO = new a();
             }
-            this.boB.register();
-            if (!boz) {
-                boz = true;
+            this.bjO.register();
+            if (!bjM) {
+                bjM = true;
                 TbadkCoreApplication inst = TbadkCoreApplication.getInst();
-                com.baidu.j.b.a.by(inst).a(new com.baidu.j.b.a.a.b(inst, new com.baidu.j.b.a.b(inst)));
-                f.Ml().aX(inst);
+                com.baidu.h.b.a.bx(inst).a(new com.baidu.h.b.a.a.b(inst, new com.baidu.h.b.a.b(inst)));
+                f.Iq().aW(inst);
             }
         }
     }
 
-    public void MQ() {
-        l.MM().a(new l.a() { // from class: com.baidu.live.im.n.1
+    public void IV() {
+        l.IR().a(new l.a() { // from class: com.baidu.live.im.n.1
             @Override // com.baidu.live.im.l.a
-            public void s(int i, String str) {
+            public void t(int i, String str) {
                 Log.i("updateImsdk", "@@ updateImsdk LiveIMManager.loginToIm -> loginResult errno=" + i + ", errMsg=" + str);
-                LogUtils.d(n.boy + "LiveIMManager", "LiveIMManager onLoginResult errno = " + i + ", errMsg = " + str + ", isConnected = " + n.this.boA);
-                if (i == 0 && !n.this.boA) {
+                LogUtils.d(n.bjL + "LiveIMManager", "LiveIMManager onLoginResult errno = " + i + ", errMsg = " + str + ", isConnected = " + n.this.bjN);
+                if (i == 0 && !n.this.bjN) {
                     n.this.onResult(0);
                 }
             }
         });
     }
 
-    private void MR() {
-        LogUtils.d(boy + "LiveIMManager", "registerIMConnectListener");
-        this.boA = false;
+    private void IW() {
+        LogUtils.d(bjL + "LiveIMManager", "registerIMConnectListener");
+        this.bjN = false;
         BIMManager.unregisterConnectListener();
         BIMManager.registerConnectListener(this);
     }
@@ -64,30 +64,30 @@ public class n implements IConnectListener {
     @Override // com.baidu.android.imsdk.account.IConnectListener
     public void onResult(int i) {
         Log.i("updateImsdk", "@@ updateImsdk LiveIMManager.onResult statuscode=" + i);
-        LogUtils.d(boy + "LiveIMManager", "IConnectListener onResult statusCode=" + i);
-        this.boA = true;
+        LogUtils.d(bjL + "LiveIMManager", "IConnectListener onResult statusCode=" + i);
+        this.bjN = true;
         if (i == 0) {
-            LogUtils.d(boy + "LiveIMManager", "IConnectListener net connect");
+            LogUtils.d(bjL + "LiveIMManager", "IConnectListener net connect");
         } else if (i == 1) {
-            LogUtils.d(boy + "LiveIMManager", "IConnectListener net disconnect");
+            LogUtils.d(bjL + "LiveIMManager", "IConnectListener net disconnect");
         }
     }
 
-    public void hP(String str) {
+    public void gE(String str) {
         if (this.mActivityId == null || this.mActivityId.equals(str)) {
             this.mIsInited = false;
-            LogUtils.d(boy + "LiveIMManager", "destroy");
-            this.boA = false;
-            if (this.boB != null) {
-                this.boB.destroy();
-                this.boB = null;
+            LogUtils.d(bjL + "LiveIMManager", "destroy");
+            this.bjN = false;
+            if (this.bjO != null) {
+                this.bjO.destroy();
+                this.bjO = null;
             }
             BIMManager.unregisterConnectListener();
-            l.MM().destroy();
+            l.IR().destroy();
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     private class a extends BroadcastReceiver {
         private boolean mIsDestroy;
         private boolean mIsInit;

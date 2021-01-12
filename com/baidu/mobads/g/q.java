@@ -7,20 +7,20 @@ import android.util.Log;
 import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.mobads.utils.XAdSDKFoundationFacade;
 import java.lang.Thread;
-/* loaded from: classes3.dex */
+/* loaded from: classes14.dex */
 public class q implements Thread.UncaughtExceptionHandler {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f3385a = "";
+    public static String f3347a = "";
 
     /* renamed from: b  reason: collision with root package name */
-    private static Thread.UncaughtExceptionHandler f3386b;
+    private static Thread.UncaughtExceptionHandler f3348b;
     private static volatile q c;
     private Context d;
     private a e;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes14.dex */
     public interface a {
         void a(String str);
     }
@@ -38,7 +38,7 @@ public class q implements Thread.UncaughtExceptionHandler {
 
     private q(Context context) {
         this.d = context.getApplicationContext();
-        f3386b = Thread.getDefaultUncaughtExceptionHandler();
+        f3348b = Thread.getDefaultUncaughtExceptionHandler();
         new Thread(new r(this)).start();
     }
 
@@ -59,8 +59,8 @@ public class q implements Thread.UncaughtExceptionHandler {
                     this.e.a(a2);
                 }
             }
-            if (f3386b != null) {
-                f3386b.uncaughtException(thread, th);
+            if (f3348b != null) {
+                f3348b.uncaughtException(thread, th);
             }
         } catch (Exception e) {
             XAdSDKFoundationFacade.getInstance().getAdLogger().e(e);
@@ -116,7 +116,7 @@ public class q implements Thread.UncaughtExceptionHandler {
         SharedPreferences.Editor d = d();
         d.putString("key_crash_source", str);
         d.putString("key_crash_trace", str2);
-        d.putString("key_crash_ad", f3385a);
+        d.putString("key_crash_ad", f3347a);
         if (Build.VERSION.SDK_INT >= 9) {
             d.apply();
         } else {

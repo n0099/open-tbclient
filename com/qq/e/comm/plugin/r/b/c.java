@@ -1,16 +1,15 @@
 package com.qq.e.comm.plugin.r.b;
 
-import com.baidu.platform.comapi.map.MapBundleKey;
 import com.baidu.tbadk.core.atomData.ForumSquareActivityConfig;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f12679a;
+    private String f12379a;
 
     /* renamed from: b  reason: collision with root package name */
-    private String f12680b;
+    private String f12380b;
     private int c;
     private int d;
     private String e;
@@ -32,9 +31,9 @@ public class c {
         this.k = -1;
         this.m = false;
         this.n = false;
-        this.f12679a = jSONObject.optString("name");
-        this.f12680b = jSONObject.optString("identity");
-        this.c = jSONObject.optInt(MapBundleKey.MapObjKey.OBJ_BID);
+        this.f12379a = jSONObject.optString("name");
+        this.f12380b = jSONObject.optString("identity");
+        this.c = jSONObject.optInt("bid");
         this.d = jSONObject.optInt("priority");
         this.k = jSONObject.optInt("c_priority");
         this.e = jSONObject.optString(ForumSquareActivityConfig.FORUM_CLASS_NAME);
@@ -46,7 +45,7 @@ public class c {
     }
 
     public String a() {
-        return this.f12679a;
+        return this.f12379a;
     }
 
     public void a(int i) {
@@ -58,7 +57,7 @@ public class c {
     }
 
     public String b() {
-        return this.f12680b;
+        return this.f12380b;
     }
 
     public void b(int i) {

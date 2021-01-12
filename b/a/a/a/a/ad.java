@@ -1,20 +1,20 @@
 package b.a.a.a.a;
 
 import android.location.Location;
+import android.net.http.Headers;
 import android.os.Bundle;
 import android.os.SystemClock;
-import com.baidu.platform.comapi.map.MapBundleKey;
 import com.tencent.map.geoloclite.tsa.TencentLiteLocation;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public final class ad implements TencentLiteLocation {
-    public static final ad Bh = new ad(-1);
-    private o Bi;
-    private final Bundle Bj;
+    public static final ad Bg = new ad(-1);
+    private o Bh;
+    private final Bundle Bi;
 
     /* renamed from: b  reason: collision with root package name */
-    private Location f1052b;
+    private Location f1051b;
     private final long d;
     private long e;
     private int f;
@@ -25,7 +25,7 @@ public final class ad implements TencentLiteLocation {
     private ad(int i) {
         this.h = "network";
         this.i = "";
-        this.Bj = new Bundle();
+        this.Bi = new Bundle();
         this.f = i;
         this.d = SystemClock.elapsedRealtime();
         this.e = System.currentTimeMillis();
@@ -34,11 +34,11 @@ public final class ad implements TencentLiteLocation {
     private ad(String str) throws JSONException {
         this(0);
         JSONObject jSONObject = new JSONObject(str);
-        this.Bi = new o(jSONObject.getJSONObject("location"));
+        this.Bh = new o(jSONObject.getJSONObject(Headers.LOCATION));
         this.g = jSONObject.optString("bearing");
         this.e = jSONObject.optLong("timestamp", System.currentTimeMillis());
         try {
-            this.i = jSONObject.optJSONObject("indoorinfo").optString(MapBundleKey.MapObjKey.OBJ_BID, "");
+            this.i = jSONObject.optJSONObject("indoorinfo").optString("bid", "");
         } catch (Throwable th) {
             this.i = "";
         }
@@ -53,14 +53,14 @@ public final class ad implements TencentLiteLocation {
         double d;
         if (adVar != null) {
             try {
-                if (adVar.g != null && adVar.Bi != null) {
+                if (adVar.g != null && adVar.Bh != null) {
                     String str = adVar.g;
                     int i = 0;
                     if (str != null && str.split(",").length > 1) {
                         i = Integer.parseInt(str.split(",")[1]);
                     }
-                    o oVar = adVar.Bi;
-                    double d2 = adVar.Bi.d;
+                    o oVar = adVar.Bh;
+                    double d2 = adVar.Bh.d;
                     if (i >= 6) {
                         d = 40.0d;
                     } else if (i == 5) {
@@ -86,37 +86,37 @@ public final class ad implements TencentLiteLocation {
     public static /* synthetic */ ad b(ad adVar) {
         ad adVar2 = new ad(-1);
         if (adVar == null) {
-            adVar2.Bi = new o();
+            adVar2.Bh = new o();
         } else {
-            o oVar = adVar.Bi;
+            o oVar = adVar.Bh;
             o oVar2 = new o();
             if (oVar != null) {
-                oVar2.f1069a = oVar.f1069a;
-                oVar2.f1070b = oVar.f1070b;
+                oVar2.f1068a = oVar.f1068a;
+                oVar2.f1069b = oVar.f1069b;
                 oVar2.c = oVar.c;
                 oVar2.d = oVar.d;
             }
-            adVar2.Bi = oVar2;
+            adVar2.Bh = oVar2;
             adVar2.f = adVar.f;
             adVar2.g = adVar.g;
             adVar2.i = adVar.i;
-            if (adVar.Bj.size() > 0) {
-                adVar2.Bj.putAll(adVar.Bj);
+            if (adVar.Bi.size() > 0) {
+                adVar2.Bi.putAll(adVar.Bi);
             }
         }
         return adVar2;
     }
 
     public final void a(Location location) {
-        if (location == null || this.Bi == null) {
+        if (location == null || this.Bh == null) {
             return;
         }
         double latitude = location.getLatitude();
         double longitude = location.getLongitude();
-        this.Bi.f1069a = Math.round(latitude * 1000000.0d) / 1000000.0d;
-        this.Bi.f1070b = Math.round(longitude * 1000000.0d) / 1000000.0d;
-        this.Bi.c = location.getAltitude();
-        this.Bi.d = location.getAccuracy();
+        this.Bh.f1068a = Math.round(latitude * 1000000.0d) / 1000000.0d;
+        this.Bh.f1069b = Math.round(longitude * 1000000.0d) / 1000000.0d;
+        this.Bh.c = location.getAltitude();
+        this.Bh.d = location.getAccuracy();
     }
 
     public final boolean a() {
@@ -125,16 +125,16 @@ public final class ad implements TencentLiteLocation {
 
     @Override // com.tencent.map.geoloclite.tsa.TencentLiteLocation
     public final float getAccuracy() {
-        if (this.Bi != null) {
-            return this.Bi.d;
+        if (this.Bh != null) {
+            return this.Bh.d;
         }
         return 0.0f;
     }
 
     @Override // com.tencent.map.geoloclite.tsa.TencentLiteLocation
     public final double getAltitude() {
-        if (this.Bi != null) {
-            return this.Bi.c;
+        if (this.Bh != null) {
+            return this.Bh.c;
         }
         return 0.0d;
     }
@@ -146,21 +146,21 @@ public final class ad implements TencentLiteLocation {
 
     @Override // com.tencent.map.geoloclite.tsa.TencentLiteLocation
     public final Bundle getExtra() {
-        return this.Bj;
+        return this.Bi;
     }
 
     @Override // com.tencent.map.geoloclite.tsa.TencentLiteLocation
     public final double getLatitude() {
-        if (this.Bi != null) {
-            return this.Bi.f1069a;
+        if (this.Bh != null) {
+            return this.Bh.f1068a;
         }
         return 0.0d;
     }
 
     @Override // com.tencent.map.geoloclite.tsa.TencentLiteLocation
     public final double getLongitude() {
-        if (this.Bi != null) {
-            return this.Bi.f1070b;
+        if (this.Bh != null) {
+            return this.Bh.f1069b;
         }
         return 0.0d;
     }
@@ -172,8 +172,8 @@ public final class ad implements TencentLiteLocation {
 
     @Override // com.tencent.map.geoloclite.tsa.TencentLiteLocation
     public final float getSpeed() {
-        if (this.f1052b != null) {
-            return this.f1052b.getSpeed();
+        if (this.f1051b != null) {
+            return this.f1051b.getSpeed();
         }
         return 0.0f;
     }

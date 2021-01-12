@@ -6,7 +6,7 @@ import android.os.PowerManager;
 import android.util.DisplayMetrics;
 import android.view.View;
 import com.baidu.mobads.interfaces.utils.IXAdViewUtils;
-/* loaded from: classes3.dex */
+/* loaded from: classes14.dex */
 public class u implements IXAdViewUtils {
     @Override // com.baidu.mobads.interfaces.utils.IXAdViewUtils
     public boolean isAdViewOutsideScreen(View view) {

@@ -1,15 +1,16 @@
 package com.bytedance.sdk.openadsdk.core.d;
 
+import com.baidu.live.tbadk.core.util.TiebaInitialize;
 import com.baidu.tieba.recapp.activity.newstyle.AdWebVideoActivityConfig;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class s {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f6827a;
+    private int f6527a;
 
     /* renamed from: b  reason: collision with root package name */
-    private int f6828b;
+    private int f6528b;
     private long c;
     private double d;
     private String e;
@@ -31,19 +32,19 @@ public class s {
     }
 
     public int b() {
-        return this.f6827a;
+        return this.f6527a;
     }
 
     public void b(int i) {
-        this.f6827a = i;
+        this.f6527a = i;
     }
 
     public int c() {
-        return this.f6828b;
+        return this.f6528b;
     }
 
     public void c(int i) {
-        this.f6828b = i;
+        this.f6528b = i;
     }
 
     public long d() {
@@ -119,7 +120,7 @@ public class s {
             jSONObject.put("endcard", i());
             jSONObject.put("file_hash", k());
             jSONObject.put("resolution", f());
-            jSONObject.put("size", d());
+            jSONObject.put(TiebaInitialize.LogFields.SIZE, d());
             jSONObject.put(AdWebVideoActivityConfig.KEY_VIDEO_DURATION, e());
             jSONObject.put("video_url", h());
             jSONObject.put("playable_download_url", j());

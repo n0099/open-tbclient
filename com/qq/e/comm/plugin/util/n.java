@@ -12,7 +12,7 @@ import com.qq.e.comm.managers.status.SDKStatus;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class n {
     public static int a() {
         return SDKStatus.getSDKVersionCode() >= 20 ? 1 : 0;

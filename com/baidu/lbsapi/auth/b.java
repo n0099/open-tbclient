@@ -3,6 +3,10 @@ package com.baidu.lbsapi.auth;
 import android.content.Context;
 import android.content.pm.PackageManager;
 import android.content.pm.Signature;
+import android.net.wifi.WifiInfo;
+import android.net.wifi.WifiManager;
+import android.text.TextUtils;
+import android.util.Base64;
 import com.baidu.adp.plugin.proxy.ContentProviderProxy;
 import java.io.ByteArrayInputStream;
 import java.security.MessageDigest;
@@ -12,11 +16,11 @@ import java.security.cert.CertificateException;
 import java.security.cert.CertificateFactory;
 import java.security.cert.X509Certificate;
 import java.util.Locale;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 class b {
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public static class a {
         public static String a(byte[] bArr) {
             char[] cArr = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
@@ -41,14 +45,13 @@ class b {
     }
 
     private static String a(Context context, String str) {
-        String str2 = "";
+        String str2;
         try {
             str2 = a((X509Certificate) CertificateFactory.getInstance("X.509").generateCertificate(new ByteArrayInputStream(context.getPackageManager().getPackageInfo(str, 64).signatures[0].toByteArray())));
         } catch (PackageManager.NameNotFoundException e) {
+            str2 = "";
         } catch (CertificateException e2) {
-        }
-        if (str2 == null) {
-            return "";
+            str2 = "";
         }
         StringBuffer stringBuffer = new StringBuffer();
         for (int i = 0; i < str2.length(); i++) {
@@ -86,7 +89,7 @@ class b {
         String[] strArr = new String[b2.length];
         for (int i = 0; i < strArr.length; i++) {
             strArr[i] = b2[i] + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR + packageName;
-            if (com.baidu.lbsapi.auth.a.f2533a) {
+            if (com.baidu.lbsapi.auth.a.f2483a) {
                 com.baidu.lbsapi.auth.a.a("mcode" + strArr[i]);
             }
         }
@@ -139,18 +142,78 @@ class b {
         if (strArr2 != null && strArr2.length > 0) {
             strArr4 = new String[strArr2.length];
             for (i = 0; i < strArr2.length; i++) {
-                if (strArr2[i] != null && strArr2[i].length() != 0) {
-                    StringBuffer stringBuffer = new StringBuffer();
-                    for (int i3 = 0; i3 < strArr2[i].length(); i3++) {
-                        stringBuffer.append(strArr2[i].charAt(i3));
-                        if (i3 > 0 && i3 % 2 == 1 && i3 < strArr2[i].length() - 1) {
-                            stringBuffer.append(":");
-                        }
+                StringBuffer stringBuffer = new StringBuffer();
+                for (int i3 = 0; i3 < strArr2[i].length(); i3++) {
+                    stringBuffer.append(strArr2[i].charAt(i3));
+                    if (i3 > 0 && i3 % 2 == 1 && i3 < strArr2[i].length() - 1) {
+                        stringBuffer.append(":");
                     }
-                    strArr4[i] = stringBuffer.toString();
                 }
+                strArr4[i] = stringBuffer.toString();
             }
         }
         return strArr4;
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public static String c(Context context) {
+        String str = null;
+        if ((0 == 0 || "".equals(null)) && (str = context.getSharedPreferences("mac", 0).getString("macaddr", null)) == null) {
+            String d = d(context);
+            if (d != null) {
+                str = Base64.encodeToString(d.getBytes(), 0);
+                if (!TextUtils.isEmpty(str)) {
+                    context.getSharedPreferences("mac", 0).edit().putString("macaddr", str).commit();
+                }
+            } else {
+                str = "";
+            }
+        }
+        if (com.baidu.lbsapi.auth.a.f2483a) {
+            com.baidu.lbsapi.auth.a.a("getMacID mac_adress: " + str);
+        }
+        return str;
+    }
+
+    private static boolean c(Context context, String str) {
+        boolean z = context.checkCallingOrSelfPermission(str) != -1;
+        if (com.baidu.lbsapi.auth.a.f2483a) {
+            com.baidu.lbsapi.auth.a.a("hasPermission " + z + " | " + str);
+        }
+        return z;
+    }
+
+    static String d(Context context) {
+        String str;
+        try {
+            if (!c(context, "android.permission.ACCESS_WIFI_STATE")) {
+                if (com.baidu.lbsapi.auth.a.f2483a) {
+                    com.baidu.lbsapi.auth.a.a("You need the android.Manifest.permission.ACCESS_WIFI_STATE permission. Open AndroidManifest.xml and just before the final </manifest> tag add:android.permission.ACCESS_WIFI_STATE");
+                }
+                return null;
+            }
+            WifiInfo connectionInfo = ((WifiManager) context.getSystemService("wifi")).getConnectionInfo();
+            str = connectionInfo.getMacAddress();
+            try {
+                if (!TextUtils.isEmpty(str)) {
+                    Base64.encode(str.getBytes(), 0);
+                }
+                if (com.baidu.lbsapi.auth.a.f2483a) {
+                    com.baidu.lbsapi.auth.a.a(String.format("ssid=%s mac=%s", connectionInfo.getSSID(), connectionInfo.getMacAddress()));
+                    return str;
+                }
+                return str;
+            } catch (Exception e) {
+                e = e;
+                if (com.baidu.lbsapi.auth.a.f2483a) {
+                    com.baidu.lbsapi.auth.a.a(e.toString());
+                    return str;
+                }
+                return str;
+            }
+        } catch (Exception e2) {
+            e = e2;
+            str = null;
+        }
     }
 }

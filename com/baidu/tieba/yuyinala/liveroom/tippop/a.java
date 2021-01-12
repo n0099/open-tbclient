@@ -7,22 +7,22 @@ import com.baidu.live.tbadk.TbPageContext;
 import com.baidu.tieba.yuyinala.liveroom.tippop.AlaTopTipView;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class a extends com.baidu.tieba.yuyinala.liveroom.a {
-    private final List<AlaTopTipView> hOM;
-    private com.baidu.live.liveroom.a.a hOO;
-    private final AlaTopTipView.a owR;
+    private final List<AlaTopTipView> hKg;
+    private com.baidu.live.liveroom.a.a hKi;
+    private final AlaTopTipView.a osl;
 
     public a(TbPageContext tbPageContext, com.baidu.live.liveroom.a.a aVar) {
         super(tbPageContext);
-        this.hOM = new LinkedList();
-        this.owR = new AlaTopTipView.a() { // from class: com.baidu.tieba.yuyinala.liveroom.tippop.a.1
+        this.hKg = new LinkedList();
+        this.osl = new AlaTopTipView.a() { // from class: com.baidu.tieba.yuyinala.liveroom.tippop.a.1
             @Override // com.baidu.tieba.yuyinala.liveroom.tippop.AlaTopTipView.a
             public void cC(View view) {
-                a.this.hOM.remove(view);
+                a.this.hKg.remove(view);
             }
         };
-        this.hOO = aVar;
+        this.hKi = aVar;
     }
 
     public void a(ViewGroup viewGroup, String str, int i, boolean z) {
@@ -33,30 +33,30 @@ public class a extends com.baidu.tieba.yuyinala.liveroom.a {
             }
             alaTopTipView.setType(i);
             alaTopTipView.setText(str);
-            alaTopTipView.setOnTipCompletedCallback(this.owR);
+            alaTopTipView.setOnTipCompletedCallback(this.osl);
             alaTopTipView.v(viewGroup, 0);
-            this.hOM.add(alaTopTipView);
+            this.hKg.add(alaTopTipView);
         }
     }
 
     public void c(ViewGroup viewGroup, String str, int i) {
         if (viewGroup != null && !StringUtils.isNull(str)) {
-            if (i != 1 || this.hOO == null || this.hOO.ff(9)) {
+            if (i != 1 || this.hKi == null || this.hKi.dz(9)) {
                 AlaTopTipView alaTopTipView = new AlaTopTipView(viewGroup.getContext());
                 alaTopTipView.setType(i);
                 alaTopTipView.setText(str);
-                alaTopTipView.setOnTipCompletedCallback(this.owR);
+                alaTopTipView.setOnTipCompletedCallback(this.osl);
                 alaTopTipView.v(viewGroup, 0);
-                this.hOM.add(alaTopTipView);
+                this.hKg.add(alaTopTipView);
             }
         }
     }
 
-    public boolean xA(int i) {
-        if (this.hOM.isEmpty()) {
+    public boolean vU(int i) {
+        if (this.hKg.isEmpty()) {
             return false;
         }
-        for (AlaTopTipView alaTopTipView : this.hOM) {
+        for (AlaTopTipView alaTopTipView : this.hKg) {
             if (alaTopTipView.getType() == i) {
                 return true;
             }
@@ -64,28 +64,28 @@ public class a extends com.baidu.tieba.yuyinala.liveroom.a {
         return false;
     }
 
-    public void xB(int i) {
-        for (AlaTopTipView alaTopTipView : this.hOM) {
+    public void vV(int i) {
+        for (AlaTopTipView alaTopTipView : this.hKg) {
             if (alaTopTipView.getType() == i) {
-                alaTopTipView.gI(true);
+                alaTopTipView.gE(true);
             }
         }
     }
 
     @Override // com.baidu.tieba.yuyinala.liveroom.a
-    public void DC() {
-        super.DC();
-        for (AlaTopTipView alaTopTipView : this.hOM) {
-            alaTopTipView.gI(false);
+    public void zH() {
+        super.zH();
+        for (AlaTopTipView alaTopTipView : this.hKg) {
+            alaTopTipView.gE(false);
         }
-        this.hOM.clear();
+        this.hKg.clear();
     }
 
     @Override // com.baidu.tieba.yuyinala.liveroom.a
     public void onDestroy() {
-        for (AlaTopTipView alaTopTipView : this.hOM) {
-            alaTopTipView.gI(false);
+        for (AlaTopTipView alaTopTipView : this.hKg) {
+            alaTopTipView.gE(false);
         }
-        this.hOM.clear();
+        this.hKg.clear();
     }
 }

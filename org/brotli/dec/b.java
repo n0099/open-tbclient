@@ -2,19 +2,19 @@ package org.brotli.dec;
 
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class b extends InputStream {
     private byte[] buffer;
-    private int qpA;
-    private int qpB;
-    private final j qpC;
+    private int qkY;
+    private int qkZ;
+    private final j qla;
 
     public b(InputStream inputStream) throws IOException {
         this(inputStream, 16384, null);
     }
 
     public b(InputStream inputStream, int i, byte[] bArr) throws IOException {
-        this.qpC = new j();
+        this.qla = new j();
         if (i <= 0) {
             throw new IllegalArgumentException("Bad buffer size:" + i);
         }
@@ -22,12 +22,12 @@ public class b extends InputStream {
             throw new IllegalArgumentException("source is null");
         }
         this.buffer = new byte[i];
-        this.qpA = 0;
-        this.qpB = 0;
+        this.qkY = 0;
+        this.qkZ = 0;
         try {
-            j.a(this.qpC, inputStream);
+            j.a(this.qla, inputStream);
             if (bArr != null) {
-                d.a(this.qpC, bArr);
+                d.a(this.qla, bArr);
             }
         } catch (BrotliRuntimeException e) {
             throw new IOException("Brotli decoder initialization failed", e);
@@ -36,21 +36,21 @@ public class b extends InputStream {
 
     @Override // java.io.InputStream, java.io.Closeable, java.lang.AutoCloseable
     public void close() throws IOException {
-        j.j(this.qpC);
+        j.j(this.qla);
     }
 
     @Override // java.io.InputStream
     public int read() throws IOException {
-        if (this.qpB >= this.qpA) {
-            this.qpA = read(this.buffer, 0, this.buffer.length);
-            this.qpB = 0;
-            if (this.qpA == -1) {
+        if (this.qkZ >= this.qkY) {
+            this.qkY = read(this.buffer, 0, this.buffer.length);
+            this.qkZ = 0;
+            if (this.qkY == -1) {
                 return -1;
             }
         }
         byte[] bArr = this.buffer;
-        int i = this.qpB;
-        this.qpB = i + 1;
+        int i = this.qkZ;
+        this.qkZ = i + 1;
         return bArr[i] & 255;
     }
 
@@ -68,11 +68,11 @@ public class b extends InputStream {
         if (i2 == 0) {
             return 0;
         }
-        int max = Math.max(this.qpA - this.qpB, 0);
+        int max = Math.max(this.qkY - this.qkZ, 0);
         if (max != 0) {
             max = Math.min(max, i2);
-            System.arraycopy(this.buffer, this.qpB, bArr, i, max);
-            this.qpB += max;
+            System.arraycopy(this.buffer, this.qkZ, bArr, i, max);
+            this.qkZ += max;
             i += max;
             i2 -= max;
             if (i2 == 0) {
@@ -80,15 +80,15 @@ public class b extends InputStream {
             }
         }
         try {
-            this.qpC.output = bArr;
-            this.qpC.qqN = i;
-            this.qpC.qqO = i2;
-            this.qpC.qqP = 0;
-            d.i(this.qpC);
-            if (this.qpC.qqP == 0) {
+            this.qla.output = bArr;
+            this.qla.qml = i;
+            this.qla.qmm = i2;
+            this.qla.qmn = 0;
+            d.i(this.qla);
+            if (this.qla.qmn == 0) {
                 return -1;
             }
-            return max + this.qpC.qqP;
+            return max + this.qla.qmn;
         } catch (BrotliRuntimeException e) {
             throw new IOException("Brotli stream decoding failed", e);
         }

@@ -5,7 +5,7 @@ import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public final class JsonArray extends JsonElement implements Iterable<JsonElement> {
     private final List<JsonElement> elements;
 

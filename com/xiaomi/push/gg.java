@@ -10,41 +10,41 @@ import java.util.Set;
 public class gg implements gk {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f14343a;
+    private String f14043a;
 
     /* renamed from: a  reason: collision with other field name */
-    private List<gg> f467a;
+    private List<gg> f466a;
 
     /* renamed from: a  reason: collision with other field name */
-    private String[] f468a;
+    private String[] f467a;
 
     /* renamed from: b  reason: collision with root package name */
-    private String f14344b;
+    private String f14044b;
 
     /* renamed from: b  reason: collision with other field name */
-    private String[] f469b;
+    private String[] f468b;
     private String c;
 
     public gg(String str, String str2, String[] strArr, String[] strArr2) {
-        this.f468a = null;
-        this.f469b = null;
         this.f467a = null;
-        this.f14343a = str;
-        this.f14344b = str2;
-        this.f468a = strArr;
-        this.f469b = strArr2;
+        this.f468b = null;
+        this.f466a = null;
+        this.f14043a = str;
+        this.f14044b = str2;
+        this.f467a = strArr;
+        this.f468b = strArr2;
     }
 
     public gg(String str, String str2, String[] strArr, String[] strArr2, String str3, List<gg> list) {
-        this.f468a = null;
-        this.f469b = null;
         this.f467a = null;
-        this.f14343a = str;
-        this.f14344b = str2;
-        this.f468a = strArr;
-        this.f469b = strArr2;
+        this.f468b = null;
+        this.f466a = null;
+        this.f14043a = str;
+        this.f14044b = str2;
+        this.f467a = strArr;
+        this.f468b = strArr2;
         this.c = str3;
-        this.f467a = list;
+        this.f466a = list;
     }
 
     public static gg a(Bundle bundle) {
@@ -84,47 +84,47 @@ public class gg implements gk {
         }
         Parcelable[] parcelableArr = new Parcelable[ggVarArr.length];
         for (int i = 0; i < ggVarArr.length; i++) {
-            parcelableArr[i] = ggVarArr[i].m341a();
+            parcelableArr[i] = ggVarArr[i].m337a();
         }
         return parcelableArr;
     }
 
     public Bundle a() {
         Bundle bundle = new Bundle();
-        bundle.putString("ext_ele_name", this.f14343a);
-        bundle.putString("ext_ns", this.f14344b);
+        bundle.putString("ext_ele_name", this.f14043a);
+        bundle.putString("ext_ns", this.f14044b);
         bundle.putString("ext_text", this.c);
         Bundle bundle2 = new Bundle();
-        if (this.f468a != null && this.f468a.length > 0) {
-            for (int i = 0; i < this.f468a.length; i++) {
-                bundle2.putString(this.f468a[i], this.f469b[i]);
+        if (this.f467a != null && this.f467a.length > 0) {
+            for (int i = 0; i < this.f467a.length; i++) {
+                bundle2.putString(this.f467a[i], this.f468b[i]);
             }
         }
         bundle.putBundle("attributes", bundle2);
-        if (this.f467a != null && this.f467a.size() > 0) {
-            bundle.putParcelableArray("children", a(this.f467a));
+        if (this.f466a != null && this.f466a.size() > 0) {
+            bundle.putParcelableArray("children", a(this.f466a));
         }
         return bundle;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public Parcelable m341a() {
+    public Parcelable m337a() {
         return a();
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public String m342a() {
-        return this.f14343a;
+    public String m338a() {
+        return this.f14043a;
     }
 
     public String a(String str) {
         if (str == null) {
             throw new IllegalArgumentException();
         }
-        if (this.f468a != null) {
-            for (int i = 0; i < this.f468a.length; i++) {
-                if (str.equals(this.f468a[i])) {
-                    return this.f469b[i];
+        if (this.f467a != null) {
+            for (int i = 0; i < this.f467a.length; i++) {
+                if (str.equals(this.f467a[i])) {
+                    return this.f468b[i];
                 }
             }
         }
@@ -132,7 +132,7 @@ public class gg implements gk {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m343a(String str) {
+    public void m339a(String str) {
         if (TextUtils.isEmpty(str)) {
             this.c = str;
         } else {
@@ -141,7 +141,7 @@ public class gg implements gk {
     }
 
     public String b() {
-        return this.f14344b;
+        return this.f14044b;
     }
 
     public String c() {
@@ -151,27 +151,27 @@ public class gg implements gk {
     @Override // com.xiaomi.push.gk
     public String d() {
         StringBuilder sb = new StringBuilder();
-        sb.append("<").append(this.f14343a);
-        if (!TextUtils.isEmpty(this.f14344b)) {
-            sb.append(" ").append("xmlns=").append("\"").append(this.f14344b).append("\"");
+        sb.append("<").append(this.f14043a);
+        if (!TextUtils.isEmpty(this.f14044b)) {
+            sb.append(" ").append("xmlns=").append("\"").append(this.f14044b).append("\"");
         }
-        if (this.f468a != null && this.f468a.length > 0) {
-            for (int i = 0; i < this.f468a.length; i++) {
-                if (!TextUtils.isEmpty(this.f469b[i])) {
-                    sb.append(" ").append(this.f468a[i]).append("=\"").append(gu.a(this.f469b[i])).append("\"");
+        if (this.f467a != null && this.f467a.length > 0) {
+            for (int i = 0; i < this.f467a.length; i++) {
+                if (!TextUtils.isEmpty(this.f468b[i])) {
+                    sb.append(" ").append(this.f467a[i]).append("=\"").append(gu.a(this.f468b[i])).append("\"");
                 }
             }
         }
         if (!TextUtils.isEmpty(this.c)) {
-            sb.append(">").append(this.c).append("</").append(this.f14343a).append(">");
-        } else if (this.f467a == null || this.f467a.size() <= 0) {
+            sb.append(">").append(this.c).append("</").append(this.f14043a).append(">");
+        } else if (this.f466a == null || this.f466a.size() <= 0) {
             sb.append("/>");
         } else {
             sb.append(">");
-            for (gg ggVar : this.f467a) {
+            for (gg ggVar : this.f466a) {
                 sb.append(ggVar.d());
             }
-            sb.append("</").append(this.f14343a).append(">");
+            sb.append("</").append(this.f14043a).append(">");
         }
         return sb.toString();
     }

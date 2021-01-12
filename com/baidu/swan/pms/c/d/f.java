@@ -1,63 +1,63 @@
 package com.baidu.swan.pms.c.d;
 /* loaded from: classes6.dex */
 public class f extends g {
-    private String exJ;
-    private String exM;
-    private String exN;
-    private int exO;
-    private String exQ;
-    private int exT;
+    private String esV;
+    private String esY;
+    private String esZ;
+    private int eta;
+    private String etd;
+    private int etg;
 
     public f(String str, int i, String str2, int i2) {
         super(i2);
-        this.exO = -1;
-        this.exJ = str;
-        this.exQ = str2;
-        this.exT = i;
+        this.eta = -1;
+        this.esV = str;
+        this.etd = str2;
+        this.etg = i;
     }
 
     public f(String str, String str2, String str3, int i) {
         super(i);
-        this.exO = -1;
-        this.exJ = str;
-        this.exQ = str3;
+        this.eta = -1;
+        this.esV = str;
+        this.etd = str3;
         try {
-            this.exT = Integer.valueOf(str2).intValue();
+            this.etg = Integer.valueOf(str2).intValue();
         } catch (NumberFormatException e) {
-            this.exT = 0;
+            this.etg = 0;
         }
     }
 
-    public f yZ(String str) {
-        this.exM = str;
+    public f xO(String str) {
+        this.esY = str;
         return this;
     }
 
-    public int bgU() {
-        return this.exO;
+    public int bda() {
+        return this.eta;
     }
 
-    public void za(String str) {
-        this.exN = str;
+    public void xP(String str) {
+        this.esZ = str;
     }
 
     public String getBundleId() {
-        return this.exJ;
+        return this.esV;
     }
 
-    public String bgZ() {
-        return this.exQ;
+    public String bdf() {
+        return this.etd;
     }
 
-    public int bhb() {
-        return this.exT;
+    public int bdh() {
+        return this.etg;
     }
 
-    public String bgV() {
-        return this.exM;
+    public String bdb() {
+        return this.esY;
     }
 
-    public String bgW() {
-        return this.exN;
+    public String bdc() {
+        return this.esZ;
     }
 }

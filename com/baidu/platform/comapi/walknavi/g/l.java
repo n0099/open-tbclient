@@ -1,17 +1,20 @@
 package com.baidu.platform.comapi.walknavi.g;
-/* loaded from: classes3.dex */
-class l implements Runnable {
+
+import com.baidu.tieba.R;
+/* JADX INFO: Access modifiers changed from: package-private */
+/* loaded from: classes6.dex */
+public class l implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ a f4566a;
+    final /* synthetic */ a f4342a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public l(a aVar) {
-        this.f4566a = aVar;
+        this.f4342a = aVar;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        com.baidu.platform.comapi.walknavi.b.a().I().runEntryState();
+        this.f4342a.a(true, R.drawable.res_0x7f080002_avd_hide_password__2);
     }
 }

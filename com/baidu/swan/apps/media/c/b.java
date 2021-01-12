@@ -4,45 +4,45 @@ import android.text.TextUtils;
 import com.baidu.ar.face.algo.FAUEnum;
 import java.util.HashMap;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class b {
-    private static final HashMap<String, Integer> dpI = new HashMap<>(16);
-    private static final HashMap<String, Integer> dpJ;
-    private static final HashMap<String, Integer> dpK;
-    private int dpL = 201;
-    private int dpM = 101;
+    private static final HashMap<String, Integer> dkS = new HashMap<>(16);
+    private static final HashMap<String, Integer> dkT;
+    private static final HashMap<String, Integer> dkU;
+    private int dkV = 201;
+    private int dkW = 101;
     private int mInteractiveMode = 3;
-    private int dpN = -1;
-    private int dpO = -1;
-    private int dpP = -1;
-    private boolean dpQ = true;
+    private int dkX = -1;
+    private int dkY = -1;
+    private int dkZ = -1;
+    private boolean dla = true;
 
     static {
-        dpI.put("VRModeProjectionSphere", 201);
-        dpI.put("VRModeProjectionDome180", 202);
-        dpI.put("VRModeProjectionDome230", 203);
-        dpI.put("VRModeProjectionDome180Upper", 204);
-        dpI.put("VRModeProjectionDome230Upper", 205);
-        dpI.put("VRModeProjectionPlaneFit", 207);
-        dpI.put("VRModeProjectionPlaneCrop", 208);
-        dpI.put("VRModeProjectionPlaneFull", Integer.valueOf((int) FAUEnum.PR_TIMEOUT));
-        dpI.put("VRModeProjectionMultiFishEyeHorizontal", 210);
-        dpI.put("VRModeProjectionMultiFishEyeVertical", 211);
-        dpI.put("VRModeProjectionStereoSphereHorizontal", 212);
-        dpI.put("VRModeProjectionStereoSphereVertical", 213);
-        dpI.put("VRModeProjectionStereoPlaneFitHorizontal", 214);
-        dpI.put("VRModeProjectionStereoPlaneFitVertical", 215);
-        dpI.put("VRModeProjectionPlaneFullHorizontal", 216);
-        dpI.put("VRModeProjectionPlaneFullVertical", 217);
-        dpJ = new HashMap<>(2);
-        dpJ.put("VRModeDisplayNormal", 101);
-        dpJ.put("VRModeDisplayGlass", 102);
-        dpK = new HashMap<>(5);
-        dpK.put("VRModeInteractiveMotion", 1);
-        dpK.put("VRModeInteractiveTouch", 2);
-        dpK.put("VRModeInteractiveMotionWithTouch", 3);
-        dpK.put("VRModeInteractiveGVRMotion", 4);
-        dpK.put("VRModeInteractiveGVRMotionWithTouch", 5);
+        dkS.put("VRModeProjectionSphere", 201);
+        dkS.put("VRModeProjectionDome180", 202);
+        dkS.put("VRModeProjectionDome230", 203);
+        dkS.put("VRModeProjectionDome180Upper", 204);
+        dkS.put("VRModeProjectionDome230Upper", 205);
+        dkS.put("VRModeProjectionPlaneFit", 207);
+        dkS.put("VRModeProjectionPlaneCrop", 208);
+        dkS.put("VRModeProjectionPlaneFull", Integer.valueOf((int) FAUEnum.PR_TIMEOUT));
+        dkS.put("VRModeProjectionMultiFishEyeHorizontal", 210);
+        dkS.put("VRModeProjectionMultiFishEyeVertical", 211);
+        dkS.put("VRModeProjectionStereoSphereHorizontal", 212);
+        dkS.put("VRModeProjectionStereoSphereVertical", 213);
+        dkS.put("VRModeProjectionStereoPlaneFitHorizontal", 214);
+        dkS.put("VRModeProjectionStereoPlaneFitVertical", 215);
+        dkS.put("VRModeProjectionPlaneFullHorizontal", 216);
+        dkS.put("VRModeProjectionPlaneFullVertical", 217);
+        dkT = new HashMap<>(2);
+        dkT.put("VRModeDisplayNormal", 101);
+        dkT.put("VRModeDisplayGlass", 102);
+        dkU = new HashMap<>(5);
+        dkU.put("VRModeInteractiveMotion", 1);
+        dkU.put("VRModeInteractiveTouch", 2);
+        dkU.put("VRModeInteractiveMotionWithTouch", 3);
+        dkU.put("VRModeInteractiveGVRMotion", 4);
+        dkU.put("VRModeInteractiveGVRMotionWithTouch", 5);
     }
 
     public b br(JSONObject jSONObject) {
@@ -51,21 +51,21 @@ public class b {
             return bVar;
         }
         String optString = jSONObject.optString("projectionMode");
-        if (!TextUtils.isEmpty(optString) && dpI.containsKey(optString)) {
-            bVar.dpL = dpI.get(optString).intValue();
+        if (!TextUtils.isEmpty(optString) && dkS.containsKey(optString)) {
+            bVar.dkV = dkS.get(optString).intValue();
         }
         String optString2 = jSONObject.optString("displayMode");
-        if (!TextUtils.isEmpty(optString2) && dpJ.containsKey(optString2)) {
-            bVar.dpM = dpJ.get(optString2).intValue();
+        if (!TextUtils.isEmpty(optString2) && dkT.containsKey(optString2)) {
+            bVar.dkW = dkT.get(optString2).intValue();
         }
         String optString3 = jSONObject.optString("interactiveMode");
-        if (!TextUtils.isEmpty(optString3) && dpK.containsKey(optString3)) {
-            bVar.mInteractiveMode = dpK.get(optString3).intValue();
+        if (!TextUtils.isEmpty(optString3) && dkU.containsKey(optString3)) {
+            bVar.mInteractiveMode = dkU.get(optString3).intValue();
         }
-        bVar.dpN = jSONObject.optInt("fov", -1);
-        bVar.dpO = jSONObject.optInt("minFov", -1);
-        bVar.dpP = jSONObject.optInt("maxFov", -1);
-        bVar.dpQ = jSONObject.optBoolean("pinchEnable", true);
+        bVar.dkX = jSONObject.optInt("fov", -1);
+        bVar.dkY = jSONObject.optInt("minFov", -1);
+        bVar.dkZ = jSONObject.optInt("maxFov", -1);
+        bVar.dla = jSONObject.optBoolean("pinchEnable", true);
         return bVar;
     }
 }

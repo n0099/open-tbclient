@@ -1,6 +1,7 @@
 package rx.internal.util.a;
 
 import java.util.AbstractQueue;
-/* loaded from: classes15.dex */
-abstract class g<E> extends AbstractQueue<E> {
+/* JADX INFO: Access modifiers changed from: package-private */
+/* loaded from: classes14.dex */
+public abstract class g<E> extends AbstractQueue<E> {
 }

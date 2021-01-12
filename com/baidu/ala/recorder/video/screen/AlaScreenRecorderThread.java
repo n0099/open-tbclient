@@ -30,7 +30,7 @@ import com.baidu.ala.recorder.video.gles.Texture2dProgram;
 import com.baidu.ala.tbadk.core.TbadkCoreApplicationProxy;
 import java.io.IOException;
 import java.nio.ByteBuffer;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class AlaScreenRecorderThread extends Thread {
     private static final String TAG = "ScreenRecorder";
     private volatile Handler mDataThreadHandler;
@@ -200,7 +200,7 @@ public class AlaScreenRecorderThread extends Thread {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public static class RenderWindow {
         private static final int MAX_FPS = 30;
         private AFullFrameRect mFullScreen;

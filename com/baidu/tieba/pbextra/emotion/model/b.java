@@ -5,88 +5,88 @@ import java.io.IOException;
 import java.io.OutputStream;
 /* loaded from: classes2.dex */
 class b {
-    private int mlM;
-    private int mlN;
-    private byte[] mlO;
-    private int mlP;
-    private int mlQ;
-    private int mlR;
-    int mlS;
-    int mlU;
-    int mmb;
-    int mmc;
-    int mmd;
-    int mmh;
-    int mlT = 12;
-    int mlV = 4096;
-    int[] mlW = new int[5003];
-    int[] mlX = new int[5003];
-    int mlY = 5003;
-    int mlZ = 0;
-    boolean mma = false;
-    int mme = 0;
-    int mmf = 0;
-    int[] mmg = {0, 1, 3, 7, 15, 31, 63, 127, 255, 511, 1023, 2047, 4095, 8191, 16383, 32767, SupportMenu.USER_MASK};
-    byte[] mmi = new byte[256];
+    int mhB;
+    private int mhg;
+    private int mhh;
+    private byte[] mhi;
+    private int mhj;
+    private int mhk;
+    private int mhl;
+    int mhm;
+    int mho;
+    int mhv;
+    int mhw;
+    int mhx;
+    int mhn = 12;
+    int mhp = 4096;
+    int[] mhq = new int[5003];
+    int[] mhr = new int[5003];
+    int mhs = 5003;
+    int mht = 0;
+    boolean mhu = false;
+    int mhy = 0;
+    int mhz = 0;
+    int[] mhA = {0, 1, 3, 7, 15, 31, 63, 127, 255, 511, 1023, 2047, 4095, 8191, 16383, 32767, SupportMenu.USER_MASK};
+    byte[] mhC = new byte[256];
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(int i, int i2, byte[] bArr, int i3) {
-        this.mlM = i;
-        this.mlN = i2;
-        this.mlO = bArr;
-        this.mlP = Math.max(2, i3);
+        this.mhg = i;
+        this.mhh = i2;
+        this.mhi = bArr;
+        this.mhj = Math.max(2, i3);
     }
 
     void a(byte b2, OutputStream outputStream) throws IOException {
-        byte[] bArr = this.mmi;
-        int i = this.mmh;
-        this.mmh = i + 1;
+        byte[] bArr = this.mhC;
+        int i = this.mhB;
+        this.mhB = i + 1;
         bArr[i] = b2;
-        if (this.mmh >= 254) {
+        if (this.mhB >= 254) {
             d(outputStream);
         }
     }
 
     void c(OutputStream outputStream) throws IOException {
-        HT(this.mlY);
-        this.mlZ = this.mmc + 2;
-        this.mma = true;
-        b(this.mmc, outputStream);
+        Gn(this.mhs);
+        this.mht = this.mhw + 2;
+        this.mhu = true;
+        b(this.mhw, outputStream);
     }
 
-    void HT(int i) {
+    void Gn(int i) {
         for (int i2 = 0; i2 < i; i2++) {
-            this.mlW[i2] = -1;
+            this.mhq[i2] = -1;
         }
     }
 
     void a(int i, OutputStream outputStream) throws IOException {
         int i2 = 0;
-        this.mmb = i;
-        this.mma = false;
-        this.mlS = this.mmb;
-        this.mlU = HU(this.mlS);
-        this.mmc = 1 << (i - 1);
-        this.mmd = this.mmc + 1;
-        this.mlZ = this.mmc + 2;
-        this.mmh = 0;
-        int dxB = dxB();
-        for (int i3 = this.mlY; i3 < 65536; i3 *= 2) {
+        this.mhv = i;
+        this.mhu = false;
+        this.mhm = this.mhv;
+        this.mho = Go(this.mhm);
+        this.mhw = 1 << (i - 1);
+        this.mhx = this.mhw + 1;
+        this.mht = this.mhw + 2;
+        this.mhB = 0;
+        int dtJ = dtJ();
+        for (int i3 = this.mhs; i3 < 65536; i3 *= 2) {
             i2++;
         }
         int i4 = 8 - i2;
-        int i5 = this.mlY;
-        HT(i5);
-        b(this.mmc, outputStream);
+        int i5 = this.mhs;
+        Gn(i5);
+        b(this.mhw, outputStream);
         while (true) {
-            int dxB2 = dxB();
-            if (dxB2 != -1) {
-                int i6 = (dxB2 << this.mlT) + dxB;
-                int i7 = (dxB2 << i4) ^ dxB;
-                if (this.mlW[i7] == i6) {
-                    dxB = this.mlX[i7];
+            int dtJ2 = dtJ();
+            if (dtJ2 != -1) {
+                int i6 = (dtJ2 << this.mhn) + dtJ;
+                int i7 = (dtJ2 << i4) ^ dtJ;
+                if (this.mhq[i7] == i6) {
+                    dtJ = this.mhr[i7];
                 } else {
-                    if (this.mlW[i7] >= 0) {
+                    if (this.mhq[i7] >= 0) {
                         int i8 = i5 - i7;
                         if (i7 == 0) {
                             i8 = 1;
@@ -96,28 +96,28 @@ class b {
                             if (i7 < 0) {
                                 i7 += i5;
                             }
-                            if (this.mlW[i7] == i6) {
-                                dxB = this.mlX[i7];
+                            if (this.mhq[i7] == i6) {
+                                dtJ = this.mhr[i7];
                                 break;
                             }
-                        } while (this.mlW[i7] >= 0);
+                        } while (this.mhq[i7] >= 0);
                     }
-                    b(dxB, outputStream);
-                    if (this.mlZ < this.mlV) {
-                        int[] iArr = this.mlX;
-                        int i9 = this.mlZ;
-                        this.mlZ = i9 + 1;
+                    b(dtJ, outputStream);
+                    if (this.mht < this.mhp) {
+                        int[] iArr = this.mhr;
+                        int i9 = this.mht;
+                        this.mht = i9 + 1;
                         iArr[i7] = i9;
-                        this.mlW[i7] = i6;
-                        dxB = dxB2;
+                        this.mhq[i7] = i6;
+                        dtJ = dtJ2;
                     } else {
                         c(outputStream);
-                        dxB = dxB2;
+                        dtJ = dtJ2;
                     }
                 }
             } else {
-                b(dxB, outputStream);
-                b(this.mmd, outputStream);
+                b(dtJ, outputStream);
+                b(this.mhx, outputStream);
                 return;
             }
         }
@@ -125,69 +125,69 @@ class b {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void encode(OutputStream outputStream) throws IOException {
-        outputStream.write(this.mlP);
-        this.mlQ = this.mlM * this.mlN;
-        this.mlR = 0;
-        a(this.mlP + 1, outputStream);
+        outputStream.write(this.mhj);
+        this.mhk = this.mhg * this.mhh;
+        this.mhl = 0;
+        a(this.mhj + 1, outputStream);
         outputStream.write(0);
     }
 
     void d(OutputStream outputStream) throws IOException {
-        if (this.mmh > 0) {
-            outputStream.write(this.mmh);
-            outputStream.write(this.mmi, 0, this.mmh);
-            this.mmh = 0;
+        if (this.mhB > 0) {
+            outputStream.write(this.mhB);
+            outputStream.write(this.mhC, 0, this.mhB);
+            this.mhB = 0;
         }
     }
 
-    final int HU(int i) {
+    final int Go(int i) {
         return (1 << i) - 1;
     }
 
-    private int dxB() {
-        if (this.mlQ == 0) {
+    private int dtJ() {
+        if (this.mhk == 0) {
             return -1;
         }
-        this.mlQ--;
-        byte[] bArr = this.mlO;
-        int i = this.mlR;
-        this.mlR = i + 1;
+        this.mhk--;
+        byte[] bArr = this.mhi;
+        int i = this.mhl;
+        this.mhl = i + 1;
         return bArr[i] & 255;
     }
 
     void b(int i, OutputStream outputStream) throws IOException {
-        this.mme &= this.mmg[this.mmf];
-        if (this.mmf > 0) {
-            this.mme |= i << this.mmf;
+        this.mhy &= this.mhA[this.mhz];
+        if (this.mhz > 0) {
+            this.mhy |= i << this.mhz;
         } else {
-            this.mme = i;
+            this.mhy = i;
         }
-        this.mmf += this.mlS;
-        while (this.mmf >= 8) {
-            a((byte) (this.mme & 255), outputStream);
-            this.mme >>= 8;
-            this.mmf -= 8;
+        this.mhz += this.mhm;
+        while (this.mhz >= 8) {
+            a((byte) (this.mhy & 255), outputStream);
+            this.mhy >>= 8;
+            this.mhz -= 8;
         }
-        if (this.mlZ > this.mlU || this.mma) {
-            if (this.mma) {
-                int i2 = this.mmb;
-                this.mlS = i2;
-                this.mlU = HU(i2);
-                this.mma = false;
+        if (this.mht > this.mho || this.mhu) {
+            if (this.mhu) {
+                int i2 = this.mhv;
+                this.mhm = i2;
+                this.mho = Go(i2);
+                this.mhu = false;
             } else {
-                this.mlS++;
-                if (this.mlS == this.mlT) {
-                    this.mlU = this.mlV;
+                this.mhm++;
+                if (this.mhm == this.mhn) {
+                    this.mho = this.mhp;
                 } else {
-                    this.mlU = HU(this.mlS);
+                    this.mho = Go(this.mhm);
                 }
             }
         }
-        if (i == this.mmd) {
-            while (this.mmf > 0) {
-                a((byte) (this.mme & 255), outputStream);
-                this.mme >>= 8;
-                this.mmf -= 8;
+        if (i == this.mhx) {
+            while (this.mhz > 0) {
+                a((byte) (this.mhy & 255), outputStream);
+                this.mhy >>= 8;
+                this.mhz -= 8;
             }
             d(outputStream);
         }

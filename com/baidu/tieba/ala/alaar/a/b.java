@@ -7,87 +7,88 @@ import com.baidu.ar.constants.HttpConstants;
 import com.baidu.live.adp.framework.MessageManager;
 import com.baidu.live.adp.framework.message.HttpMessage;
 import com.baidu.live.d;
+import com.baidu.searchbox.config.DefaultSharedPrefsWrapper;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public final class b {
-    private static b guE = new b();
-    public static boolean guH = false;
-    private JSONObject guF;
-    private int guG = 3;
+    private static b gpX = new b();
+    public static boolean gqa = false;
+    private JSONObject gpY;
+    private int gpZ = 3;
 
-    public static b bSQ() {
-        return guE;
+    public static b bOY() {
+        return gpX;
     }
 
     public void init() {
         loadData();
     }
 
-    public void bSR() {
+    public void bOZ() {
         HttpMessage httpMessage = new HttpMessage(1021204);
         httpMessage.setTag(null);
-        httpMessage.addParam("classification_id", bST());
+        httpMessage.addParam("classification_id", bPb());
         httpMessage.addParam(HttpConstants.HTTP_HARDWARE, Build.HARDWARE);
         httpMessage.addParam("live_model", Build.MODEL);
         httpMessage.addParam("manufacture", Build.MANUFACTURER);
-        httpMessage.addParam("quality_sign", bSS());
+        httpMessage.addParam("quality_sign", bPa());
         httpMessage.addParam("submodule", "live");
         httpMessage.addParam(HttpConstants.HTTP_BOARD, Build.BOARD);
         httpMessage.addParam("arsdk_version", String.valueOf(com.baidu.minivideo.arface.a.getVersion()));
         MessageManager.getInstance().sendMessage(httpMessage);
     }
 
-    private String bSS() {
+    private String bPa() {
         String str = null;
         if (!isEmpty()) {
-            str = this.guF.optString("quality_sign");
+            str = this.gpY.optString("quality_sign");
         }
         if (TextUtils.isEmpty(str)) {
-            return "default";
+            return DefaultSharedPrefsWrapper.SP_FILE_DEFAULT;
         }
         return str;
     }
 
-    private String bST() {
+    private String bPb() {
         String str = null;
         if (!isEmpty()) {
-            str = this.guF.optString("classification_id");
+            str = this.gpY.optString("classification_id");
         }
         if (TextUtils.isEmpty(str)) {
-            return "default";
+            return DefaultSharedPrefsWrapper.SP_FILE_DEFAULT;
         }
         return str;
     }
 
-    public JSONObject bSU() {
+    public JSONObject bPc() {
         if (isEmpty()) {
             return null;
         }
-        return this.guF.optJSONObject("classification");
+        return this.gpY.optJSONObject("classification");
     }
 
-    public JSONObject bSV() {
+    public JSONObject bPd() {
         if (isEmpty()) {
             return null;
         }
-        return this.guF.optJSONObject("quality");
+        return this.gpY.optJSONObject("quality");
     }
 
     /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:59:0x0104 -> B:69:0x00cf). Please submit an issue!!! */
     public JSONObject dE(JSONObject jSONObject) {
         JSONObject jSONObject2 = new JSONObject();
         if (jSONObject == null) {
-            return this.guF;
+            return this.gpY;
         }
-        if (this.guF == null) {
+        if (this.gpY == null) {
             if (jSONObject.has("quality") && com.baidu.live.ar.b.w(jSONObject.optJSONObject("quality")) == null) {
                 return null;
             }
             return jSONObject;
         }
-        String optString = this.guF.optString("classification_id");
-        JSONObject optJSONObject = this.guF.optJSONObject("classification");
+        String optString = this.gpY.optString("classification_id");
+        JSONObject optJSONObject = this.gpY.optJSONObject("classification");
         String jSONObject3 = optJSONObject != null ? optJSONObject.toString() : null;
         if (jSONObject.has("classification_id")) {
             String optString2 = jSONObject.optString("classification_id");
@@ -111,8 +112,8 @@ public final class b {
             } catch (JSONException e2) {
             }
         }
-        String optString3 = this.guF.optString("quality_sign");
-        JSONObject optJSONObject3 = this.guF.optJSONObject("quality");
+        String optString3 = this.gpY.optString("quality_sign");
+        JSONObject optJSONObject3 = this.gpY.optJSONObject("quality");
         String jSONObject5 = optJSONObject3 != null ? optJSONObject3.toString() : null;
         if (jSONObject.has("quality_sign")) {
             String optString4 = jSONObject.optString("quality_sign");
@@ -144,18 +145,18 @@ public final class b {
             if (z) {
                 dF(jSONObject);
             }
-            this.guF = jSONObject;
-            com.baidu.minivideo.arface.b.setGradingConfig(bSU());
-            com.baidu.minivideo.arface.b.at(bSV());
+            this.gpY = jSONObject;
+            com.baidu.minivideo.arface.b.setGradingConfig(bPc());
+            com.baidu.minivideo.arface.b.at(bPd());
         }
     }
 
     private void dF(JSONObject jSONObject) {
         if (jSONObject != null && jSONObject.length() > 0) {
             String jSONObject2 = jSONObject.toString();
-            d.Ba().putString("ar_grading_quality_config", jSONObject2);
-            if (com.baidu.live.ar.b.c(this.guF, jSONObject)) {
-                d.Ba().putBoolean("ar_grading_quality_config_need_update", true);
+            d.xf().putString("ar_grading_quality_config", jSONObject2);
+            if (com.baidu.live.ar.b.c(this.gpY, jSONObject)) {
+                d.xf().putBoolean("ar_grading_quality_config_need_update", true);
                 if (isDebug()) {
                     Log.d("GradingQualityConfig", "saveCache: need update quality value ");
                 }
@@ -166,8 +167,8 @@ public final class b {
         }
     }
 
-    private void bSW() {
-        String string = d.Ba().getString("ar_grading_quality_config", "");
+    private void bPe() {
+        String string = d.xf().getString("ar_grading_quality_config", "");
         if (isDebug()) {
             Log.d("GradingQualityConfig", "readCache: " + string);
         }
@@ -181,12 +182,12 @@ public final class b {
     }
 
     protected void loadData() {
-        bSW();
-        bSR();
+        bPe();
+        bOZ();
     }
 
     public boolean isEmpty() {
-        return this.guF == null || this.guF.length() == 0;
+        return this.gpY == null || this.gpY.length() == 0;
     }
 
     public static boolean isDebug() {

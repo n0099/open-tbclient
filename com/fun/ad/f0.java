@@ -15,14 +15,14 @@ import com.bytedance.sdk.openadsdk.TTNativeAd;
 import com.fun.ad.ap;
 import com.fun.ad.sdk.R;
 import java.util.ArrayList;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class f0 extends LinearLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    public TextView f8077a;
+    public TextView f7777a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ImageView f8078b;
+    public ImageView f7778b;
     public TextView c;
     public ImageView d;
     public Button e;
@@ -45,10 +45,10 @@ public class f0 extends LinearLayout {
     }
 
     public void a(Activity activity, TTNativeAd tTNativeAd, TTNativeAd.AdInteractionListener adInteractionListener) {
-        this.f8077a.setText(tTNativeAd.getDescription());
+        this.f7777a.setText(tTNativeAd.getDescription());
         TTImage icon = tTNativeAd.getIcon();
         if (icon != null && icon.isValid()) {
-            ap.a.pJL.a(getContext(), icon.getImageUrl(), this.f8078b);
+            ap.a.pFk.a(getContext(), icon.getImageUrl(), this.f7778b);
         }
         this.c.setText(TextUtils.isEmpty(tTNativeAd.getSource()) ? tTNativeAd.getTitle() : tTNativeAd.getSource());
         this.d.setImageResource(R.drawable.csj_ad_logo);
@@ -82,9 +82,9 @@ public class f0 extends LinearLayout {
     @Override // android.view.View
     public void onFinishInflate() {
         super.onFinishInflate();
-        this.f8077a = (TextView) findViewById(R.id.ad_description);
+        this.f7777a = (TextView) findViewById(R.id.ad_description);
         this.d = (ImageView) findViewById(R.id.ad_logo);
-        this.f8078b = (ImageView) findViewById(R.id.ad_icon);
+        this.f7778b = (ImageView) findViewById(R.id.ad_icon);
         this.c = (TextView) findViewById(R.id.ad_source);
         this.e = (Button) findViewById(R.id.ad_creative);
     }

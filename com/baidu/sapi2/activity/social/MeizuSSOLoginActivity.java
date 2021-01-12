@@ -3,7 +3,7 @@ package com.baidu.sapi2.activity.social;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.widget.RelativeLayout;
-import com.baidu.l.a.a.a;
+import com.baidu.j.a.a.a;
 import com.baidu.sapi2.social.SocialLoginBase;
 import com.baidu.sapi2.utils.ParamsUtil;
 import com.baidu.sapi2.utils.enums.SocialType;
@@ -11,7 +11,7 @@ import sdk.meizu.auth.MzAuthenticator;
 import sdk.meizu.auth.OAuthError;
 import sdk.meizu.auth.OAuthToken;
 import sdk.meizu.auth.callback.ImplictCallback;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class MeizuSSOLoginActivity extends BaseSSOLoginActivity {
     @Override // com.baidu.sapi2.activity.social.BaseSSOLoginActivity, com.baidu.sapi2.activity.BaseActivity, com.baidu.sapi2.activity.TitleActivity, android.app.Activity
     public void onCreate(Bundle bundle) {

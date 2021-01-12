@@ -3,8 +3,8 @@ package com.baidu.adp.lib.stats.c;
 public class f extends com.baidu.adp.lib.stats.base.a {
     public f(j jVar) {
         super(jVar);
-        this.Po = 10;
-        this.Pp = "stat";
+        this.Pm = 10;
+        this.Pn = "stat";
         this.mMustSuccess = true;
         this.mUseSdCard = false;
     }

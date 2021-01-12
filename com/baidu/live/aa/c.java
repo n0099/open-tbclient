@@ -1,5 +1,5 @@
 package com.baidu.live.aa;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public interface c {
-    void cK(boolean z);
+    void cG(boolean z);
 }

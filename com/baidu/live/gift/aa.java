@@ -2,23 +2,23 @@ package com.baidu.live.gift;
 
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class aa extends g {
-    public List<a> aZG;
+    public List<a> aUT;
 
-    public boolean HP() {
-        return "30".equals(GE());
+    public boolean DU() {
+        return "30".equals(CJ());
     }
 
     @Override // com.baidu.live.gift.g
-    public boolean GF() {
-        return super.GF() && !HP();
+    public boolean CK() {
+        return super.CK() && !DU();
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public static class a {
-        public boolean aZH;
-        public String aZI;
+        public boolean aUU;
+        public String aUV;
         public String name;
         public int num;
         public String pic;
@@ -28,8 +28,8 @@ public class aa extends g {
                 this.name = jSONObject.optString("fragment_name");
                 this.pic = jSONObject.optString("pic");
                 this.num = jSONObject.optInt("num");
-                this.aZH = jSONObject.optInt("is_rare") == 1;
-                this.aZI = jSONObject.optString("get_method");
+                this.aUU = jSONObject.optInt("is_rare") == 1;
+                this.aUV = jSONObject.optString("get_method");
             }
         }
     }

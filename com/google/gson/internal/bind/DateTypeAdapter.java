@@ -15,12 +15,12 @@ import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Locale;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public final class DateTypeAdapter extends TypeAdapter<Date> {
-    public static final TypeAdapterFactory pNm = new TypeAdapterFactory() { // from class: com.google.gson.internal.bind.DateTypeAdapter.1
+    public static final TypeAdapterFactory pIL = new TypeAdapterFactory() { // from class: com.google.gson.internal.bind.DateTypeAdapter.1
         @Override // com.google.gson.TypeAdapterFactory
         public <T> TypeAdapter<T> create(Gson gson, com.google.gson.b.a<T> aVar) {
-            if (aVar.eDm() == Date.class) {
+            if (aVar.ezu() == Date.class) {
                 return new DateTypeAdapter();
             }
             return null;
@@ -33,7 +33,7 @@ public final class DateTypeAdapter extends TypeAdapter<Date> {
         if (!Locale.getDefault().equals(Locale.US)) {
             this.dateFormats.add(DateFormat.getDateTimeInstance(2, 2));
         }
-        if (c.eCD()) {
+        if (c.eyL()) {
             this.dateFormats.add(f.ei(2, 2));
         }
     }
@@ -41,11 +41,11 @@ public final class DateTypeAdapter extends TypeAdapter<Date> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.google.gson.TypeAdapter
     public Date read(com.google.gson.stream.a aVar) throws IOException {
-        if (aVar.eCP() == JsonToken.NULL) {
-            aVar.eCV();
+        if (aVar.eyX() == JsonToken.NULL) {
+            aVar.ezd();
             return null;
         }
-        return deserializeToDate(aVar.eCT());
+        return deserializeToDate(aVar.ezb());
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:10:0x0019, code lost:
@@ -79,9 +79,9 @@ public final class DateTypeAdapter extends TypeAdapter<Date> {
     @Override // com.google.gson.TypeAdapter
     public synchronized void write(com.google.gson.stream.b bVar, Date date) throws IOException {
         if (date == null) {
-            bVar.eDi();
+            bVar.ezq();
         } else {
-            bVar.ZR(this.dateFormats.get(0).format(date));
+            bVar.YJ(this.dateFormats.get(0).format(date));
         }
     }
 }

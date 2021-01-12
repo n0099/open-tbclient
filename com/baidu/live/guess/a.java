@@ -2,13 +2,13 @@ package com.baidu.live.guess;
 
 import android.app.Activity;
 import com.baidu.live.data.x;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public interface a {
-    void LE();
+    void HJ();
 
     void b(x xVar);
 
-    void eW(int i);
+    void dq(int i);
 
     void f(x xVar);
 

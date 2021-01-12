@@ -4,7 +4,7 @@ import com.baidu.tbadk.core.util.AbstractImageProvider;
 import com.baidu.tbadk.core.util.at;
 import java.io.Serializable;
 import java.util.ArrayList;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class FacePackageData extends AbstractImageProvider implements Serializable {
     private static final long serialVersionUID = 0;
     public String banner_url;

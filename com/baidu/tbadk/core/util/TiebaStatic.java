@@ -45,7 +45,7 @@ public class TiebaStatic {
 
     /* loaded from: classes.dex */
     public interface a {
-        void Cd(String str);
+        void AS(String str);
 
         void b(aq aqVar);
     }
@@ -63,34 +63,34 @@ public class TiebaStatic {
         try {
             com.baidu.adp.lib.stats.c cVar = new com.baidu.adp.lib.stats.c();
             cVar.mProduct = "tieba";
-            cVar.Ol = SUB_PRODUCT;
+            cVar.Oj = SUB_PRODUCT;
             cVar.mAppVersion = TbConfig.getVersion();
             cVar.mChannel = TbConfig.getFrom();
-            cVar.Om = TbConfig.getCurrentFrom();
-            cVar.Oo = TbadkCoreApplication.getClientId();
+            cVar.Ok = TbConfig.getCurrentFrom();
+            cVar.Ol = TbadkCoreApplication.getClientId();
             cVar.mCuid = TbadkCoreApplication.getInst().getCuid();
-            cVar.Op = TbadkCoreApplication.getInst().getCuidGalaxy2();
-            cVar.Oq = TbadkCoreApplication.getInst().getCuidGid();
+            cVar.Om = TbadkCoreApplication.getInst().getCuidGalaxy2();
+            cVar.Oo = TbadkCoreApplication.getInst().getCuidGid();
             cVar.mIMEI = TbadkCoreApplication.getInst().getImei();
-            cVar.Or = TbConfig.getSubappType();
-            cVar.Ow = com.baidu.tbadk.util.f.bIK().fA(context) + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + com.baidu.tbadk.util.f.bIK().fB(context);
+            cVar.Op = TbConfig.getSubappType();
+            cVar.Ou = com.baidu.tbadk.util.f.bES().fy(context) + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + com.baidu.tbadk.util.f.bES().fz(context);
             cVar.mAndroidId = TbadkCoreApplication.getInst().getAndroidId();
-            cVar.Ox = getCua(context);
-            cVar.Oy = com.baidu.helios.b.ak(context).yA();
-            cVar.Oz = com.baidu.tbadk.util.f.bIK().getLocalMacAddress(context);
-            cVar.OA = com.baidu.tbadk.util.f.bIK().getDeviceBrand();
-            cVar.OB = com.baidu.tbadk.util.f.bIK().bIM() + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + com.baidu.tbadk.util.f.bIK().bIL();
-            cVar.OD = TbSingleton.getInstance().getBaiduIdForAnti();
-            cVar.OE = String.valueOf(TbSingleton.getInstance().getActiveTimeStamp());
-            cVar.OF = String.valueOf(TbSingleton.getInstance().getAppFirstInstallTime());
-            cVar.OG = String.valueOf(TbSingleton.getInstance().getAppLastUpdateTime());
-            cVar.OH = TbSingleton.getInstance().getData();
-            if (com.baidu.tbadk.core.sharedPref.b.bvr().getInt(SharedPrefConfig.KEY_LOG_REAL_TIME_UPLOAD_SWITCH, 1) == 1) {
-                j = com.baidu.tbadk.core.sharedPref.b.bvr().getLong("KEY_UPLOAD_LOG_INTERVAL", 120000L);
+            cVar.Ov = getCua(context);
+            cVar.Ow = com.baidu.helios.b.aj(context).uF();
+            cVar.Ox = com.baidu.tbadk.util.f.bES().getLocalMacAddress(context);
+            cVar.Oy = com.baidu.tbadk.util.f.bES().getDeviceBrand();
+            cVar.Oz = com.baidu.tbadk.util.f.bES().bEU() + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + com.baidu.tbadk.util.f.bES().bET();
+            cVar.OB = TbSingleton.getInstance().getBaiduIdForAnti();
+            cVar.OC = String.valueOf(TbSingleton.getInstance().getActiveTimeStamp());
+            cVar.OD = String.valueOf(TbSingleton.getInstance().getAppFirstInstallTime());
+            cVar.OE = String.valueOf(TbSingleton.getInstance().getAppLastUpdateTime());
+            cVar.OF = TbSingleton.getInstance().getData();
+            if (com.baidu.tbadk.core.sharedPref.b.brx().getInt(SharedPrefConfig.KEY_LOG_REAL_TIME_UPLOAD_SWITCH, 1) == 1) {
+                j = com.baidu.tbadk.core.sharedPref.b.brx().getLong("KEY_UPLOAD_LOG_INTERVAL", 120000L);
             } else {
                 j = BdKVCache.MILLS_1Hour;
             }
-            BdStatisticsManager.getInstance().init(context, z, TbConfig.LOG_SYNC_SWITCH, TbConfig.getTempDirName(), "newStat", TbConfig.SERVER_ADDRESS + TbConfig.LOG_UPLOAD_URL, cVar, com.baidu.tbadk.core.util.a.bvx(), j, TbConfig.SERVER_ADDRESS + TbConfig.TRACK_LOG_UPLOAD_URL);
+            BdStatisticsManager.getInstance().init(context, z, TbConfig.LOG_SYNC_SWITCH, TbConfig.getTempDirName(), "newStat", TbConfig.SERVER_ADDRESS + TbConfig.LOG_UPLOAD_URL, cVar, com.baidu.tbadk.core.util.a.brD(), j, TbConfig.SERVER_ADDRESS + TbConfig.TRACK_LOG_UPLOAD_URL);
         } catch (Exception e) {
             BdLog.e(e.toString());
         }
@@ -109,22 +109,22 @@ public class TiebaStatic {
     }
 
     public static void net(com.baidu.tbadk.core.util.b.a aVar) {
-        if (aVar != null && aVar.bwC().fej.Mf <= 180000) {
+        if (aVar != null && aVar.bsI().eZA.Md <= 180000) {
             try {
-                if (aVar.bwC().fej.Mf >= 0 && aVar.bwC().fej.connectTime >= 0 && aVar.bwC().fej.Me >= 0) {
-                    int i = aVar.bwB().mServerErrorCode;
-                    if (!aVar.bwB().isNetSuccess()) {
-                        i = aVar.bwB().mNetErrorCode;
+                if (aVar.bsI().eZA.Md >= 0 && aVar.bsI().eZA.connectTime >= 0 && aVar.bsI().eZA.Mc >= 0) {
+                    int i = aVar.bsH().mServerErrorCode;
+                    if (!aVar.bsH().isNetSuccess()) {
+                        i = aVar.bsH().mNetErrorCode;
                     }
                     String str = null;
                     String currentActivity = bc.getCurrentActivity();
                     if (i != 0) {
-                        str = aVar.bwB().mErrorString;
+                        str = aVar.bsH().mErrorString;
                     }
-                    if (aVar.bwA().mIsRequestImage) {
-                        BdStatisticsManager.getInstance().imgNet(i == 0 ? null : aVar.bwA().getApiName(), currentActivity, aVar.bwC().fej.downloadSize, aVar.bwC().fej.Md, aVar.bwC().fej.Mf, aVar.bwC().fej.connectTime, aVar.bwC().fej.Me, aVar.bwC().fej.retry, i, str, new Object[0]);
+                    if (aVar.bsG().mIsRequestImage) {
+                        BdStatisticsManager.getInstance().imgNet(i == 0 ? null : aVar.bsG().getApiName(), currentActivity, aVar.bsI().eZA.downloadSize, aVar.bsI().eZA.Mb, aVar.bsI().eZA.Md, aVar.bsI().eZA.connectTime, aVar.bsI().eZA.Mc, aVar.bsI().eZA.retry, i, str, new Object[0]);
                     } else {
-                        BdStatisticsManager.getInstance().net(aVar.bwA().getApiName(), currentActivity, aVar.bwC().fej.downloadSize, aVar.bwC().fej.Md, aVar.bwC().fej.Mf, aVar.bwC().fej.connectTime, aVar.bwC().fej.Me, aVar.bwC().fej.retry, i, str, new Object[0]);
+                        BdStatisticsManager.getInstance().net(aVar.bsG().getApiName(), currentActivity, aVar.bsI().eZA.downloadSize, aVar.bsI().eZA.Mb, aVar.bsI().eZA.Md, aVar.bsI().eZA.connectTime, aVar.bsI().eZA.Mc, aVar.bsI().eZA.retry, i, str, new Object[0]);
                     }
                 }
             } catch (Exception e) {
@@ -141,12 +141,12 @@ public class TiebaStatic {
         synchronized (lock) {
             long currentTimeMillis = System.currentTimeMillis();
             if (0 == lastLogOperateMsgTime) {
-                lastLogOperateMsgTime = com.baidu.tbadk.core.sharedPref.b.bvr().getLong(SharedPrefConfig.OPERATE_MSG_ARRIVE_CLICK_DATE, 0L);
-                operateMsgUploadCount = com.baidu.tbadk.core.sharedPref.b.bvr().getInt(SharedPrefConfig.OPERATE_MSG_ARRIVE_CLICK_COUNT, 0);
+                lastLogOperateMsgTime = com.baidu.tbadk.core.sharedPref.b.brx().getLong(SharedPrefConfig.OPERATE_MSG_ARRIVE_CLICK_DATE, 0L);
+                operateMsgUploadCount = com.baidu.tbadk.core.sharedPref.b.brx().getInt(SharedPrefConfig.OPERATE_MSG_ARRIVE_CLICK_COUNT, 0);
             }
             if (lastLogOperateMsgTime > 0) {
                 if (currentTimeMillis - lastLogOperateMsgTime >= 86400000 || operateMsgUploadCount <= 3) {
-                    com.baidu.tbadk.core.sharedPref.b.bvr().putLong(SharedPrefConfig.OPERATE_MSG_ARRIVE_CLICK_DATE, currentTimeMillis);
+                    com.baidu.tbadk.core.sharedPref.b.brx().putLong(SharedPrefConfig.OPERATE_MSG_ARRIVE_CLICK_DATE, currentTimeMillis);
                     if (currentTimeMillis - lastLogOperateMsgTime >= 86400000) {
                         operateMsgUploadCount = 0;
                     }
@@ -156,7 +156,7 @@ public class TiebaStatic {
             }
             lastLogOperateMsgTime = currentTimeMillis;
             operateMsgUploadCount++;
-            com.baidu.tbadk.core.sharedPref.b.bvr().putInt(SharedPrefConfig.OPERATE_MSG_ARRIVE_CLICK_COUNT, operateMsgUploadCount);
+            com.baidu.tbadk.core.sharedPref.b.brx().putInt(SharedPrefConfig.OPERATE_MSG_ARRIVE_CLICK_COUNT, operateMsgUploadCount);
             BdStatisticsManager.getInstance().saveAndUploadlog("msg");
         }
     }
@@ -218,8 +218,8 @@ public class TiebaStatic {
 
     public static void liveStreamError(int i, String str, String str2) {
         try {
-            BdStatisticsManager.getInstance().liveErr(TiebaInitialize.OpKey.OP_LIVE, bc.getCurrentActivity(), i, str, BdStatsConstant.StatsKey.LIVE_INF, str2, "is_host", Integer.valueOf(com.baidu.tbadk.core.sharedPref.b.bvr().getBoolean("live_is_host", false) ? 1 : 0), BdStatsConstant.StatsKey.STREAM_ID, com.baidu.tbadk.core.sharedPref.b.bvr().getString(SharedPrefConfig.LIVE_STREAM_ID, ""), BdStatsConstant.StatsKey.ERR_INTERVAL, Integer.valueOf(com.baidu.tbadk.core.sharedPref.b.bvr().getInt(SharedPrefConfig.LIVE_NO_ERROR_TIME, 0)));
-            com.baidu.tbadk.core.sharedPref.b.bvr().putInt(SharedPrefConfig.LIVE_NO_ERROR_TIME, 0);
+            BdStatisticsManager.getInstance().liveErr(TiebaInitialize.OpKey.OP_LIVE, bc.getCurrentActivity(), i, str, BdStatsConstant.StatsKey.LIVE_INF, str2, "is_host", Integer.valueOf(com.baidu.tbadk.core.sharedPref.b.brx().getBoolean("live_is_host", false) ? 1 : 0), BdStatsConstant.StatsKey.STREAM_ID, com.baidu.tbadk.core.sharedPref.b.brx().getString(SharedPrefConfig.LIVE_STREAM_ID, ""), BdStatsConstant.StatsKey.ERR_INTERVAL, Integer.valueOf(com.baidu.tbadk.core.sharedPref.b.brx().getInt(SharedPrefConfig.LIVE_NO_ERROR_TIME, 0)));
+            com.baidu.tbadk.core.sharedPref.b.brx().putInt(SharedPrefConfig.LIVE_NO_ERROR_TIME, 0);
         } catch (Exception e) {
             BdLog.e(e.toString());
         }
@@ -227,7 +227,7 @@ public class TiebaStatic {
 
     public static void liveError(int i, String str, String str2) {
         try {
-            BdStatisticsManager.getInstance().liveErr(TiebaInitialize.OpKey.OP_LIVE, bc.getCurrentActivity(), i, str, BdStatsConstant.StatsKey.LIVE_INF, str2, "is_host", Integer.valueOf(com.baidu.tbadk.core.sharedPref.b.bvr().getBoolean("live_is_host", false) ? 1 : 0), BdStatsConstant.StatsKey.STREAM_ID, com.baidu.tbadk.core.sharedPref.b.bvr().getString(SharedPrefConfig.LIVE_STREAM_ID, ""));
+            BdStatisticsManager.getInstance().liveErr(TiebaInitialize.OpKey.OP_LIVE, bc.getCurrentActivity(), i, str, BdStatsConstant.StatsKey.LIVE_INF, str2, "is_host", Integer.valueOf(com.baidu.tbadk.core.sharedPref.b.brx().getBoolean("live_is_host", false) ? 1 : 0), BdStatsConstant.StatsKey.STREAM_ID, com.baidu.tbadk.core.sharedPref.b.brx().getString(SharedPrefConfig.LIVE_STREAM_ID, ""));
         } catch (Exception e) {
             BdLog.e(e.toString());
         }
@@ -306,7 +306,7 @@ public class TiebaStatic {
         try {
             com.baidu.adp.plugin.b.a.pg().ph();
             com.baidu.adp.lib.e.a.mq();
-            com.baidu.tbadk.n.i.bHE();
+            com.baidu.tbadk.n.i.bDM();
             BdStatisticsManager.getInstance().save();
             sendMultiProcessBroadcast();
         } catch (Exception e) {
@@ -338,16 +338,16 @@ public class TiebaStatic {
     public static synchronized void netImg(String str, com.baidu.adp.lib.network.http.d dVar) {
         synchronized (TiebaStatic.class) {
             if (dVar != null) {
-                if (dVar.Mf <= 180000) {
+                if (dVar.Md <= 180000) {
                     try {
-                        if (dVar.Mf >= 0 && dVar.connectTime >= 0 && dVar.Me >= 0) {
-                            int i = dVar.Mg;
+                        if (dVar.Md >= 0 && dVar.connectTime >= 0 && dVar.Mc >= 0) {
+                            int i = dVar.Me;
                             String str2 = null;
                             String currentActivity = bc.getCurrentActivity();
                             if (i != 0 && i != 200) {
                                 str2 = dVar.exception;
                             }
-                            BdStatisticsManager.getInstance().imgNet(str, currentActivity, dVar.downloadSize, dVar.Md, dVar.Mf, dVar.connectTime, dVar.Me, dVar.retry, i, str2, new Object[0]);
+                            BdStatisticsManager.getInstance().imgNet(str, currentActivity, dVar.downloadSize, dVar.Mb, dVar.Md, dVar.connectTime, dVar.Mc, dVar.retry, i, str2, new Object[0]);
                         }
                     } catch (Exception e) {
                         BdLog.e(e.toString());
@@ -372,10 +372,10 @@ public class TiebaStatic {
     public static synchronized void netJson(String str, String str2, com.baidu.adp.lib.network.http.d dVar, int i, String str3) {
         synchronized (TiebaStatic.class) {
             if (dVar != null) {
-                if (dVar.Mf <= 180000) {
+                if (dVar.Md <= 180000) {
                     try {
-                        if (dVar.Mf >= 0 && dVar.connectTime >= 0 && dVar.Me >= 0) {
-                            int i2 = dVar.Mg;
+                        if (dVar.Md >= 0 && dVar.connectTime >= 0 && dVar.Mc >= 0) {
+                            int i2 = dVar.Me;
                             if (i2 == 200 || i2 / 100 == 3) {
                                 i2 = 0;
                                 if (i != 0) {
@@ -390,7 +390,7 @@ public class TiebaStatic {
                                     str4 = str4 + str3;
                                 }
                             }
-                            BdStatisticsManager.getInstance().net(getApiName(str2), str, currentActivity, dVar.downloadSize, dVar.Md, dVar.Mf, dVar.connectTime, dVar.Me, dVar.retry, i2, str4, new Object[0]);
+                            BdStatisticsManager.getInstance().net(getApiName(str2), str, currentActivity, dVar.downloadSize, dVar.Mb, dVar.Md, dVar.connectTime, dVar.Mc, dVar.retry, i2, str4, new Object[0]);
                         }
                     } catch (Exception e) {
                         BdLog.e(e.toString());
@@ -448,13 +448,13 @@ public class TiebaStatic {
         if (aqVar != null) {
             String sampleId = TbSingleton.getInstance().getSampleId();
             if (!StringUtils.isNull(sampleId)) {
-                aqVar.dX("sample_id", sampleId);
+                aqVar.dW("sample_id", sampleId);
             }
-            String bIs = com.baidu.tbadk.util.a.bIr().bIs();
-            if (!StringUtils.isNull(bIs)) {
-                aqVar.dX("newabtest_result", bIs);
+            String bEA = com.baidu.tbadk.util.a.bEz().bEA();
+            if (!StringUtils.isNull(bEA)) {
+                aqVar.dW("newabtest_result", bEA);
             }
-            com.baidu.tbadk.pageExtra.f.bHp().c(aqVar);
+            com.baidu.tbadk.pageExtra.f.bDw().c(aqVar);
         }
     }
 
@@ -501,7 +501,7 @@ public class TiebaStatic {
     public static void logPagePV(aq aqVar) {
         if (aqVar != null) {
             try {
-                aqVar.dX("ispv", "1");
+                aqVar.dW("ispv", "1");
                 BdStatisticsManager.getInstance().eventStat(null, aqVar.getKey(), "", 1, aqVar.getParams().toArray());
                 if (isDebugMode()) {
                     BdLog.d(getStatLog(aqVar));
@@ -547,7 +547,7 @@ public class TiebaStatic {
         if (!statisticCallbacks.isEmpty()) {
             for (a aVar : statisticCallbacks) {
                 if (aVar != null) {
-                    aVar.Cd(str);
+                    aVar.AS(str);
                 }
             }
         }

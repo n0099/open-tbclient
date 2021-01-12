@@ -3,7 +3,7 @@ package com.baidu.tieba.lego;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.lego.card.adapter.LegoDelegateAdapter;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class l implements com.baidu.tieba.lego.d.a {
     @Override // com.baidu.tieba.lego.d.a
     public com.baidu.tieba.lego.model.a b(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {

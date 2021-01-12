@@ -13,38 +13,37 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.IBinder;
 import android.util.Log;
-import com.baidu.platform.comapi.map.NodeType;
 import com.google.ar.core.ArCoreApk;
 import com.google.ar.core.exceptions.FatalException;
 import java.util.ArrayDeque;
 import java.util.Queue;
 import java.util.concurrent.atomic.AtomicReference;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class w {
 
     /* renamed from: a  reason: collision with root package name */
-    private final Queue<Runnable> f8169a;
+    private final Queue<Runnable> f7869a;
 
     /* renamed from: b  reason: collision with root package name */
-    private Context f8170b;
+    private Context f7870b;
     private volatile int c;
     private BroadcastReceiver e;
     private Context f;
     private final ServiceConnection g;
-    private com.google.a.b.a.a.a.a pMg;
-    private final AtomicReference<l> pMh;
+    private com.google.a.b.a.a.a.a pHF;
+    private final AtomicReference<l> pHG;
 
     w() {
     }
 
     public synchronized void a(Context context) {
-        this.f8170b = context;
+        this.f7870b = context;
         if (context.bindService(new Intent("com.google.android.play.core.install.BIND_INSTALL_SERVICE").setPackage("com.android.vending"), this.g, 1)) {
-            this.c = al.f8159b;
+            this.c = al.f7859b;
         } else {
-            this.c = al.f8158a;
-            this.f8170b = null;
+            this.c = al.f7858a;
+            this.f7870b = null;
             Log.w("ARCore-InstallService", "bindService returned false.");
             context.unbindService(this.g);
         }
@@ -55,9 +54,9 @@ public class w {
         switch (this.c - 1) {
             case 1:
             case 2:
-                this.f8170b.unbindService(this.g);
-                this.f8170b = null;
-                this.c = al.f8158a;
+                this.f7870b.unbindService(this.g);
+                this.f7870b = null;
+                this.c = al.f7858a;
                 break;
         }
         if (this.e != null) {
@@ -76,7 +75,7 @@ public class w {
 
     public void a(Activity activity, y yVar) {
         l lVar = new l(activity, yVar);
-        l andSet = this.pMh.getAndSet(lVar);
+        l andSet = this.pHG.getAndSet(lVar);
         if (andSet != null) {
             andSet.a();
         }
@@ -97,10 +96,10 @@ public class w {
     /* JADX INFO: Access modifiers changed from: package-private */
     public w(byte b2) {
         this();
-        this.f8169a = new ArrayDeque();
-        this.c = al.f8158a;
+        this.f7869a = new ArrayDeque();
+        this.c = al.f7858a;
         this.g = new z(this);
-        this.pMh = new AtomicReference<>();
+        this.pHG = new AtomicReference<>();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -117,7 +116,7 @@ public class w {
         PendingIntent pendingIntent = (PendingIntent) bundle.getParcelable("resolution.intent");
         if (pendingIntent != null) {
             try {
-                activity.startIntentSenderForResult(pendingIntent.getIntentSender(), NodeType.E_STREET_POI, new Intent(activity, activity.getClass()), 0, 0, 0);
+                activity.startIntentSenderForResult(pendingIntent.getIntentSender(), 1234, new Intent(activity, activity.getClass()), 0, 0, 0);
                 return;
             } catch (IntentSender.SendIntentException e) {
                 yVar.a(new FatalException("Installation Intent failed", e));
@@ -137,7 +136,7 @@ public class w {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void c() {
-        l andSet = this.pMh.getAndSet(null);
+        l andSet = this.pHG.getAndSet(null);
         if (andSet != null) {
             andSet.a();
         }
@@ -147,9 +146,9 @@ public class w {
     public synchronized void a(IBinder iBinder) {
         com.google.a.b.a.a.a.a a2 = com.google.a.b.a.a.a.b.a(iBinder);
         Log.i("ARCore-InstallService", "Install service connected");
-        this.pMg = a2;
+        this.pHF = a2;
         this.c = al.c;
-        for (Runnable runnable : this.f8169a) {
+        for (Runnable runnable : this.f7869a) {
             runnable.run();
         }
     }
@@ -157,8 +156,8 @@ public class w {
     /* JADX INFO: Access modifiers changed from: private */
     public synchronized void d() {
         Log.i("ARCore-InstallService", "Install service disconnected");
-        this.c = al.f8158a;
-        this.pMg = null;
+        this.c = al.f7858a;
+        this.pHF = null;
         c();
     }
 
@@ -167,7 +166,7 @@ public class w {
             case 0:
                 throw new ab();
             case 1:
-                this.f8169a.offer(runnable);
+                this.f7869a.offer(runnable);
                 break;
             case 2:
                 runnable.run();

@@ -3,9 +3,9 @@ package com.baidu.tieba.ala.charm;
 import android.content.Context;
 import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.statics.SdkStaticKeys;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class g {
-    public static String vI(int i) {
+    public static String uc(int i) {
         if (i == 2) {
             return SdkStaticKeys.CHARM_TYPE_WEEK;
         }

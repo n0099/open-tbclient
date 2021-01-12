@@ -16,10 +16,10 @@ import com.tencent.open.SocialConstants;
 import java.util.HashSet;
 import java.util.List;
 import org.json.JSONArray;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class UserCollectModel extends FaceBaseModel {
     public static final String ALL_DELETE = "all_delete";
-    private final HttpMessageListener gKJ = new HttpMessageListener(1003339) { // from class: com.baidu.tieba.faceshop.UserCollectModel.2
+    private final HttpMessageListener gGd = new HttpMessageListener(1003339) { // from class: com.baidu.tieba.faceshop.UserCollectModel.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
@@ -42,9 +42,9 @@ public class UserCollectModel extends FaceBaseModel {
     public UserCollectModel() {
         setUniqueId(BdUniqueId.gen());
         registerTask();
-        this.gKJ.setTag(getUniqueId());
-        this.gKJ.setSelfListener(true);
-        registerListener(this.gKJ);
+        this.gGd.setTag(getUniqueId());
+        this.gGd.setSelfListener(true);
+        registerListener(this.gGd);
     }
 
     private void registerTask() {
@@ -60,7 +60,7 @@ public class UserCollectModel extends FaceBaseModel {
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
-        MessageManager.getInstance().unRegisterListener(this.gKJ);
+        MessageManager.getInstance().unRegisterListener(this.gGd);
         MessageManager.getInstance().unRegisterTask(1003339);
         return true;
     }
@@ -69,12 +69,12 @@ public class UserCollectModel extends FaceBaseModel {
         new Thread(new Runnable() { // from class: com.baidu.tieba.faceshop.UserCollectModel.1
             @Override // java.lang.Runnable
             public void run() {
-                List<CollectEmotionData> Kf = i.cBl().Kf(TbadkCoreApplication.getCurrentAccount());
+                List<CollectEmotionData> IU = i.cxt().IU(TbadkCoreApplication.getCurrentAccount());
                 HashSet hashSet = new HashSet();
-                if (Kf != null) {
+                if (IU != null) {
                     JSONArray jSONArray = new JSONArray();
                     try {
-                        for (CollectEmotionData collectEmotionData : Kf) {
+                        for (CollectEmotionData collectEmotionData : IU) {
                             if (!com.baidu.tbadk.imageManager.d.SETTING_SHARP_TEXT.equals(collectEmotionData.sharpText) && !hashSet.contains(collectEmotionData.sharpText)) {
                                 jSONArray.put(collectEmotionData.toJSON());
                                 hashSet.add(collectEmotionData.sharpText);
@@ -86,7 +86,7 @@ public class UserCollectModel extends FaceBaseModel {
                     long currentTimeMillis = System.currentTimeMillis();
                     HttpMessage httpMessage = new HttpMessage(1003339);
                     if (jSONArray.length() > 0) {
-                        httpMessage.addParam(SocialConstants.PARAM_IMAGE, com.baidu.tbadk.browser.c.At(jSONArray.toString()));
+                        httpMessage.addParam(SocialConstants.PARAM_IMAGE, com.baidu.tbadk.browser.c.zi(jSONArray.toString()));
                     } else {
                         httpMessage.addParam(SocialConstants.PARAM_IMAGE, UserCollectModel.ALL_DELETE);
                     }

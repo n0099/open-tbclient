@@ -16,8 +16,8 @@ public class a {
         String str;
         int i2;
         if (bzVar != null) {
-            if (bzVar.eWm) {
-                str = bzVar.eWn;
+            if (bzVar.eRB) {
+                str = bzVar.eRC;
                 i2 = 20;
                 z = true;
             } else {
@@ -28,21 +28,21 @@ public class a {
             String a2 = com.baidu.tieba.s.a.a(bzVar.getTid(), str, "", bzVar.getBaijiahaoData());
             aq a3 = com.baidu.tieba.s.a.a(bzVar, PageStayDurationConstants.PageName.HOMEPAGE_PERSONALIZE, "common_exp", i, z, str, (String) null, i2);
             if (a3 != null) {
-                if (bzVar.eWm) {
+                if (bzVar.eRB) {
                     a3.delete("thread_type");
                     a3.an("thread_type", bzVar.getThreadType());
                 }
-                if (bzVar.btD()) {
+                if (bzVar.bpJ()) {
                     a3.an("gua_type", 1);
-                } else if (bzVar.bty() != null) {
+                } else if (bzVar.bpE() != null) {
                     a3.an("gua_type", 2);
                 } else {
                     a3.an("gua_type", 0);
                 }
-                c.dNY().a(bdUniqueId, a2, a3);
+                c.dKg().a(bdUniqueId, a2, a3);
                 if (g.isEnabled()) {
-                    g.My(a2);
-                    if (g.cTk() >= 10) {
+                    g.Lq(a2);
+                    if (g.cPs() >= 10) {
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921482));
                         g.setEnabled(false);
                     }
@@ -56,8 +56,8 @@ public class a {
         String str;
         int i3;
         if (bzVar != null) {
-            if (bzVar.eWm) {
-                str = bzVar.eWn;
+            if (bzVar.eRB) {
+                str = bzVar.eRC;
                 i3 = 20;
                 z = true;
             } else {
@@ -67,9 +67,9 @@ public class a {
             }
             aq a2 = com.baidu.tieba.s.a.a(bzVar, PageStayDurationConstants.PageName.HOMEPAGE_PERSONALIZE, "common_click", i2, i, z, str, (String) null, i3);
             if (a2 != null) {
-                if (bzVar.btD()) {
+                if (bzVar.bpJ()) {
                     a2.an("gua_type", 1);
-                } else if (bzVar.bty() != null) {
+                } else if (bzVar.bpE() != null) {
                     a2.an("gua_type", 2);
                     int indexOf = a2.getParams().indexOf("obj_locate");
                     if (indexOf >= 0) {
@@ -81,11 +81,11 @@ public class a {
                 } else {
                     a2.an("gua_type", 0);
                 }
-                if (bzVar.eWm) {
+                if (bzVar.eRB) {
                     a2.delete("thread_type");
                     a2.an("thread_type", bzVar.getThreadType());
                 }
-                c.dNY().b(bdUniqueId, a2);
+                c.dKg().b(bdUniqueId, a2);
                 d(bzVar, i2);
             }
         }

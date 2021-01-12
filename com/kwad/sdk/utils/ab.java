@@ -6,7 +6,7 @@ import android.graphics.drawable.Drawable;
 import com.kwad.sdk.api.core.ResContext;
 import com.kwad.sdk.api.loader.Loader;
 import com.kwad.sdk.api.loader.Wrapper;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class ab {
     public static int a(Context context, String str) {
         if (context instanceof ResContext) {

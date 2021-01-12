@@ -3,7 +3,7 @@ package com.kwai.sodler.lib;
 import android.content.Context;
 import com.kwai.sodler.lib.ext.PluginError;
 import java.io.File;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class g extends com.kwai.sodler.lib.a.a {
     public g(String str) {
         super(str);

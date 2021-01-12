@@ -1,7 +1,7 @@
 package com.baidu.adp.framework.d;
 /* loaded from: classes.dex */
 public class d {
-    protected e JP = null;
+    protected e JN = null;
     protected int mRetryCount = 1;
 
     public int getRetryCount() {
@@ -9,6 +9,6 @@ public class d {
     }
 
     public e lc() {
-        return this.JP;
+        return this.JN;
     }
 }

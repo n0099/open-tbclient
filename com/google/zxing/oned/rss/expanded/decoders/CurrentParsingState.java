@@ -1,10 +1,10 @@
 package com.google.zxing.oned.rss.expanded.decoders;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 final class CurrentParsingState {
     private int position = 0;
     private State encoding = State.NUMERIC;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     private enum State {
         NUMERIC,
         ALPHA,

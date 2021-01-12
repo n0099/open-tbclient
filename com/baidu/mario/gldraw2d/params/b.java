@@ -1,10 +1,10 @@
 package com.baidu.mario.gldraw2d.params;
 
 import android.opengl.Matrix;
-/* loaded from: classes3.dex */
+/* loaded from: classes14.dex */
 public class b implements Cloneable {
-    private boolean cgH;
-    private boolean cgI;
+    private boolean cbS;
+    private boolean cbT;
     private float[] mMVPMatrix = new float[16];
     private float[] mTexMatrix;
     private long mTimestamp;
@@ -13,8 +13,8 @@ public class b implements Cloneable {
         Matrix.setIdentityM(this.mMVPMatrix, 0);
         this.mTexMatrix = new float[16];
         Matrix.setIdentityM(this.mTexMatrix, 0);
-        this.cgH = false;
-        this.cgI = false;
+        this.cbS = false;
+        this.cbT = false;
     }
 
     public float[] getMVPMatrix() {
@@ -25,7 +25,7 @@ public class b implements Cloneable {
         this.mMVPMatrix = fArr;
     }
 
-    public float[] acs() {
+    public float[] Yz() {
         return this.mTexMatrix;
     }
 
@@ -33,12 +33,12 @@ public class b implements Cloneable {
         this.mTexMatrix = fArr;
     }
 
-    public boolean act() {
-        return this.cgH;
+    public boolean YA() {
+        return this.cbS;
     }
 
-    public boolean acu() {
-        return this.cgI;
+    public boolean YB() {
+        return this.cbT;
     }
 
     public void setTimestamp(long j) {
@@ -46,7 +46,7 @@ public class b implements Cloneable {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* renamed from: acv */
+    /* renamed from: YC */
     public b clone() {
         b bVar = null;
         try {

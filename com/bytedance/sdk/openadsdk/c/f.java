@@ -14,17 +14,17 @@ import org.json.JSONObject;
 public class f implements e<a> {
 
     /* renamed from: a  reason: collision with root package name */
-    private final Context f6523a;
+    private final Context f6223a;
 
     /* renamed from: b  reason: collision with root package name */
-    private final com.bytedance.sdk.openadsdk.core.d f6524b = com.bytedance.sdk.openadsdk.core.d.a(d());
+    private final com.bytedance.sdk.openadsdk.core.d f6224b = com.bytedance.sdk.openadsdk.core.d.a(d());
 
     public f(Context context) {
-        this.f6523a = context;
+        this.f6223a = context;
     }
 
     public Context d() {
-        return this.f6523a == null ? com.bytedance.sdk.openadsdk.core.p.a() : this.f6523a;
+        return this.f6223a == null ? com.bytedance.sdk.openadsdk.core.p.a() : this.f6223a;
     }
 
     @Override // com.bytedance.sdk.openadsdk.c.e
@@ -59,8 +59,8 @@ public class f implements e<a> {
     @Override // com.bytedance.sdk.openadsdk.c.e
     public synchronized void a(a aVar) {
         ContentValues contentValues = new ContentValues();
-        contentValues.put("id", aVar.f6516a);
-        contentValues.put("value", aVar.f6517b != null ? aVar.f6517b.toString() : "");
+        contentValues.put("id", aVar.f6216a);
+        contentValues.put("value", aVar.f6217b != null ? aVar.f6217b.toString() : "");
         contentValues.put("gen_time", Long.valueOf(System.currentTimeMillis()));
         contentValues.put("retry", (Integer) 0);
         com.bytedance.sdk.openadsdk.multipro.a.a.a(d(), "adevent", contentValues);
@@ -71,7 +71,7 @@ public class f implements e<a> {
         if (!s.a(list)) {
             LinkedList linkedList = new LinkedList();
             for (a aVar : list) {
-                linkedList.add(aVar.f6516a);
+                linkedList.add(aVar.f6216a);
             }
             com.bytedance.sdk.openadsdk.multipro.a.a.a(d(), "DELETE FROM adevent WHERE " + a("id", linkedList, 1000, true));
         }
@@ -101,29 +101,29 @@ public class f implements e<a> {
     private synchronized void b(List<a> list) {
         LinkedList linkedList = new LinkedList();
         for (a aVar : list) {
-            linkedList.add(aVar.f6516a);
+            linkedList.add(aVar.f6216a);
         }
         com.bytedance.sdk.openadsdk.multipro.a.a.a(d(), "UPDATE adevent SET retry = retry+1 WHERE " + a("id", linkedList, 1000, true));
     }
 
     @Override // com.bytedance.sdk.openadsdk.c.e
     public void a(boolean z) {
-        this.f6524b.a("serverbusy_flag", z);
+        this.f6224b.a("serverbusy_flag", z);
     }
 
     @Override // com.bytedance.sdk.openadsdk.c.e
     public boolean b() {
-        return this.f6524b.b("serverbusy_flag", false);
+        return this.f6224b.b("serverbusy_flag", false);
     }
 
     @Override // com.bytedance.sdk.openadsdk.c.e
     public int c() {
-        return this.f6524b.b("serverbusy_retrycount", 0);
+        return this.f6224b.b("serverbusy_retrycount", 0);
     }
 
     @Override // com.bytedance.sdk.openadsdk.c.e
     public void a(int i) {
-        this.f6524b.a("serverbusy_retrycount", i);
+        this.f6224b.a("serverbusy_retrycount", i);
     }
 
     public static String e() {

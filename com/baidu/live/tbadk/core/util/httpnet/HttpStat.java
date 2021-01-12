@@ -1,4 +1,4 @@
 package com.baidu.live.tbadk.core.util.httpnet;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class HttpStat {
 }

@@ -8,14 +8,14 @@ import java.util.HashSet;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.regex.Pattern;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class Utils {
 
     /* renamed from: a  reason: collision with root package name */
-    static final Object[] f2057a = new Object[0];
+    static final Object[] f2007a = new Object[0];
 
     /* renamed from: b  reason: collision with root package name */
-    static final Class<?>[] f2058b = new Class[0];
+    static final Class<?>[] f2008b = new Class[0];
     private static final String c = "(\\p{javaJavaIdentifierStart}\\p{javaJavaIdentifierPart}*\\.)*\\p{javaJavaIdentifierStart}\\p{javaJavaIdentifierPart}*";
     private static final Pattern d = Pattern.compile(c);
 
@@ -30,7 +30,7 @@ public class Utils {
             return null;
         }
         if (objArr.length == 0) {
-            return f2058b;
+            return f2008b;
         }
         Class<?>[] clsArr = new Class[objArr.length];
         for (int i = 0; i < objArr.length; i++) {
@@ -42,7 +42,7 @@ public class Utils {
     /* JADX INFO: Access modifiers changed from: package-private */
     public static Class<?>[] a(Class<?>[] clsArr) {
         if (clsArr == null || clsArr.length == 0) {
-            return f2058b;
+            return f2008b;
         }
         return clsArr;
     }
@@ -50,7 +50,7 @@ public class Utils {
     /* JADX INFO: Access modifiers changed from: package-private */
     public static Object[] b(Object[] objArr) {
         if (objArr == null || objArr.length == 0) {
-            return f2057a;
+            return f2007a;
         }
         return objArr;
     }

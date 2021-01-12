@@ -7,14 +7,14 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class a implements IAdapterData {
-    public static final BdUniqueId oQz = BdUniqueId.gen();
+    public static final BdUniqueId oLX = BdUniqueId.gen();
     private String mId;
     private String mName;
-    private String oQA;
-    private List<String> oQB;
-    private String oQa;
+    private String oLY;
+    private List<String> oLZ;
+    private String oLy;
 
     public String getId() {
         return this.mId;
@@ -25,20 +25,20 @@ public class a implements IAdapterData {
     }
 
     public String getThumbnailUrl() {
-        return this.oQa;
+        return this.oLy;
     }
 
     public void parse(JSONObject jSONObject) {
         if (jSONObject != null) {
             this.mId = jSONObject.optString("img_id");
             this.mName = jSONObject.optString("img_name");
-            this.oQa = jSONObject.optString("compression_img");
-            this.oQA = jSONObject.optString("prototype_img");
+            this.oLy = jSONObject.optString("compression_img");
+            this.oLY = jSONObject.optString("prototype_img");
             JSONArray optJSONArray = jSONObject.optJSONArray("results_img");
             if (optJSONArray != null && optJSONArray.length() > 0) {
-                this.oQB = new ArrayList();
+                this.oLZ = new ArrayList();
                 for (int i = 0; i < optJSONArray.length(); i++) {
-                    this.oQB.add(optJSONArray.optString(i));
+                    this.oLZ.add(optJSONArray.optString(i));
                 }
             }
         }
@@ -46,7 +46,7 @@ public class a implements IAdapterData {
 
     @Override // com.baidu.live.adp.widget.listview.IAdapterData
     public BdUniqueId getType() {
-        return oQz;
+        return oLX;
     }
 
     public boolean equals(Object obj) {

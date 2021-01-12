@@ -1,9 +1,9 @@
 package com.baidu.cyberplayer.sdk.extractor;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static a f1813a = null;
+    private static a f1763a = null;
 
     private a() {
     }
@@ -12,10 +12,10 @@ public class a {
     public static synchronized a a() {
         a aVar;
         synchronized (a.class) {
-            if (f1813a == null) {
-                f1813a = new a();
+            if (f1763a == null) {
+                f1763a = new a();
             }
-            aVar = f1813a;
+            aVar = f1763a;
         }
         return aVar;
     }

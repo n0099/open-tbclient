@@ -25,7 +25,7 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.hottopic.controller.HotRanklistActivity;
 import com.baidu.tieba.hottopic.holder.HotRankListNormaItemHolder;
 @SuppressLint({"DefaultLocale"})
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.hottopic.data.c, HotRankListNormaItemHolder> {
     private TbPageContext mPageContext;
     protected int mSkinType;
@@ -58,67 +58,67 @@ public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.hottopic.
 
     private void a(int i, HotRankListNormaItemHolder hotRankListNormaItemHolder, final com.baidu.tieba.hottopic.data.c cVar) {
         if (hotRankListNormaItemHolder != null && cVar != null) {
-            hotRankListNormaItemHolder.ksd.setVisibility(8);
-            if (cVar.cUZ() == 1) {
-                hotRankListNormaItemHolder.ksa.setText("");
-                ao.setBackgroundResource(hotRankListNormaItemHolder.ksa, R.drawable.icon_grade_shaitu1);
-                hotRankListNormaItemHolder.ksd.setVisibility(0);
-                hotRankListNormaItemHolder.kse.setText(fq(StringUtils.isNull(cVar.cUW()) ? this.mContext.getResources().getString(R.string.hot_topic_hot_list) : cVar.cUW(), StringUtils.isNull(cVar.getTips()) ? this.mContext.getResources().getString(R.string.hot_topic_update_time) : cVar.getTips()));
-                hotRankListNormaItemHolder.krW.setVisibility(0);
-                ao.setBackgroundResource(hotRankListNormaItemHolder.ksh, R.drawable.hot_topic_ranklist_bg);
-                hotRankListNormaItemHolder.ksh.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.hottopic.adapter.c.1
+            hotRankListNormaItemHolder.kny.setVisibility(8);
+            if (cVar.cRh() == 1) {
+                hotRankListNormaItemHolder.knv.setText("");
+                ao.setBackgroundResource(hotRankListNormaItemHolder.knv, R.drawable.icon_grade_shaitu1);
+                hotRankListNormaItemHolder.kny.setVisibility(0);
+                hotRankListNormaItemHolder.knz.setText(fp(StringUtils.isNull(cVar.cRe()) ? this.mContext.getResources().getString(R.string.hot_topic_hot_list) : cVar.cRe(), StringUtils.isNull(cVar.getTips()) ? this.mContext.getResources().getString(R.string.hot_topic_update_time) : cVar.getTips()));
+                hotRankListNormaItemHolder.knr.setVisibility(0);
+                ao.setBackgroundResource(hotRankListNormaItemHolder.knC, R.drawable.hot_topic_ranklist_bg);
+                hotRankListNormaItemHolder.knC.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.hottopic.adapter.c.1
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
                         if (c.this.mPageContext != null) {
-                            String cUX = cVar.cUX();
-                            if (!StringUtils.isNull(cUX)) {
-                                be.bwv().b(c.this.mPageContext, new String[]{cUX});
+                            String cRf = cVar.cRf();
+                            if (!StringUtils.isNull(cRf)) {
+                                be.bsB().b(c.this.mPageContext, new String[]{cRf});
                             }
                         }
                         TiebaStatic.log("c10820");
                     }
                 });
-            } else if (cVar.cUZ() == 2) {
-                hotRankListNormaItemHolder.ksa.setText("");
-                hotRankListNormaItemHolder.krW.setVisibility(8);
-                ao.setBackgroundResource(hotRankListNormaItemHolder.ksa, R.drawable.icon_grade_shaitu2);
-            } else if (cVar.cUZ() == 3) {
-                hotRankListNormaItemHolder.ksa.setText("");
-                hotRankListNormaItemHolder.krW.setVisibility(8);
-                ao.setBackgroundResource(hotRankListNormaItemHolder.ksa, R.drawable.icon_grade_shaitu3);
+            } else if (cVar.cRh() == 2) {
+                hotRankListNormaItemHolder.knv.setText("");
+                hotRankListNormaItemHolder.knr.setVisibility(8);
+                ao.setBackgroundResource(hotRankListNormaItemHolder.knv, R.drawable.icon_grade_shaitu2);
+            } else if (cVar.cRh() == 3) {
+                hotRankListNormaItemHolder.knv.setText("");
+                hotRankListNormaItemHolder.knr.setVisibility(8);
+                ao.setBackgroundResource(hotRankListNormaItemHolder.knv, R.drawable.icon_grade_shaitu3);
             } else {
-                String str = "" + cVar.cUZ();
-                if (cVar.cUZ() < 10) {
+                String str = "" + cVar.cRh();
+                if (cVar.cRh() < 10) {
                     str = "0" + str;
                 }
-                hotRankListNormaItemHolder.ksa.setText(str);
-                hotRankListNormaItemHolder.krW.setVisibility(8);
-                hotRankListNormaItemHolder.ksa.setBackgroundDrawable(null);
+                hotRankListNormaItemHolder.knv.setText(str);
+                hotRankListNormaItemHolder.knr.setVisibility(8);
+                hotRankListNormaItemHolder.knv.setBackgroundDrawable(null);
             }
             if (cVar.getTag() == 1) {
-                hotRankListNormaItemHolder.ksc.setVisibility(0);
-                ao.setBackgroundResource(hotRankListNormaItemHolder.ksc, R.drawable.icon_topic_ranklist_new);
+                hotRankListNormaItemHolder.knx.setVisibility(0);
+                ao.setBackgroundResource(hotRankListNormaItemHolder.knx, R.drawable.icon_topic_ranklist_new);
             } else if (cVar.getTag() == 2) {
-                hotRankListNormaItemHolder.ksc.setVisibility(0);
-                ao.setBackgroundResource(hotRankListNormaItemHolder.ksc, R.drawable.icon_topic_ranklist_hot);
+                hotRankListNormaItemHolder.knx.setVisibility(0);
+                ao.setBackgroundResource(hotRankListNormaItemHolder.knx, R.drawable.icon_topic_ranklist_hot);
             } else if (cVar.getTag() == 3) {
-                hotRankListNormaItemHolder.ksc.setVisibility(0);
-                ao.setBackgroundResource(hotRankListNormaItemHolder.ksc, R.drawable.icon_topic_ranklist_tuijian);
+                hotRankListNormaItemHolder.knx.setVisibility(0);
+                ao.setBackgroundResource(hotRankListNormaItemHolder.knx, R.drawable.icon_topic_ranklist_tuijian);
             } else {
-                hotRankListNormaItemHolder.ksc.setVisibility(8);
+                hotRankListNormaItemHolder.knx.setVisibility(8);
             }
-            String numFormat9999W = at.numFormat9999W(cVar.cUY());
+            String numFormat9999W = at.numFormat9999W(cVar.cRg());
             String str2 = "";
             if (!TextUtils.isEmpty(cVar.getName())) {
                 str2 = UtilHelper.getFixedText(cVar.getName(), 10);
             }
-            hotRankListNormaItemHolder.krT.setText(str2);
-            hotRankListNormaItemHolder.ksb.setText(numFormat9999W);
-            hotRankListNormaItemHolder.ksg.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.hottopic.adapter.c.2
+            hotRankListNormaItemHolder.kno.setText(str2);
+            hotRankListNormaItemHolder.knw.setText(numFormat9999W);
+            hotRankListNormaItemHolder.knB.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.hottopic.adapter.c.2
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new HotTopicActivityConfig(view.getContext()).createNormalConfig(String.valueOf(cVar.getId()), cVar.getName(), "5")));
-                    TiebaStatic.log(new aq("c11237").dX("obj_id", String.valueOf(cVar.getId())).dX("obj_locate", c.this.type));
+                    TiebaStatic.log(new aq("c11237").dW("obj_id", String.valueOf(cVar.getId())).dW("obj_locate", c.this.type));
                 }
             });
         }
@@ -127,26 +127,26 @@ public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.hottopic.
     private void a(HotRankListNormaItemHolder hotRankListNormaItemHolder) {
         if (hotRankListNormaItemHolder != null) {
             this.mSkinType = TbadkCoreApplication.getInst().getSkinType();
-            if (hotRankListNormaItemHolder.akW != this.mSkinType) {
-                hotRankListNormaItemHolder.akW = this.mSkinType;
+            if (hotRankListNormaItemHolder.akf != this.mSkinType) {
+                hotRankListNormaItemHolder.akf = this.mSkinType;
                 ao.setBackgroundColor(hotRankListNormaItemHolder.getView(), R.color.CAM_X0201);
-                ao.setViewTextColor(hotRankListNormaItemHolder.ksa, R.color.CAM_X0110, 1);
-                ao.setViewTextColor(hotRankListNormaItemHolder.krT, R.color.CAM_X0105, 1);
-                ao.setViewTextColor(hotRankListNormaItemHolder.ksb, R.color.CAM_X0110, 1);
-                ao.setBackgroundColor(hotRankListNormaItemHolder.krW, R.color.CAM_X0204);
-                ao.setBackgroundColor(hotRankListNormaItemHolder.krX, R.color.CAM_X0204);
-                ao.setBackgroundResource(hotRankListNormaItemHolder.ksg, R.drawable.hot_topic_ranklist_bg);
-                ao.setViewTextColor(hotRankListNormaItemHolder.ksf, R.color.CAM_X0302, 1);
-                ao.setViewTextColor(hotRankListNormaItemHolder.kse, R.color.CAM_X0109, 1);
+                ao.setViewTextColor(hotRankListNormaItemHolder.knv, R.color.CAM_X0110, 1);
+                ao.setViewTextColor(hotRankListNormaItemHolder.kno, R.color.CAM_X0105, 1);
+                ao.setViewTextColor(hotRankListNormaItemHolder.knw, R.color.CAM_X0110, 1);
+                ao.setBackgroundColor(hotRankListNormaItemHolder.knr, R.color.CAM_X0204);
+                ao.setBackgroundColor(hotRankListNormaItemHolder.kns, R.color.CAM_X0204);
+                ao.setBackgroundResource(hotRankListNormaItemHolder.knB, R.drawable.hot_topic_ranklist_bg);
+                ao.setViewTextColor(hotRankListNormaItemHolder.knA, R.color.CAM_X0302, 1);
+                ao.setViewTextColor(hotRankListNormaItemHolder.knz, R.color.CAM_X0109, 1);
             }
         }
     }
 
-    public void MB(String str) {
+    public void Lt(String str) {
         this.type = str;
     }
 
-    private SpannableString fq(String str, String str2) {
+    private SpannableString fp(String str, String str2) {
         int length = !StringUtils.isNull(str) ? str.length() : 0;
         int length2 = !StringUtils.isNull(str2) ? str2.length() : 0;
         SpannableString spannableString = new SpannableString("" + str + str2);

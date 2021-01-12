@@ -5,31 +5,31 @@ import android.util.AttributeSet;
 import org.webrtc.SurfaceViewRenderer;
 import org.webrtc.VideoFrame;
 import org.webrtc.VideoSink;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class RTCVideoView extends SurfaceViewRenderer {
-    private volatile boolean cyd;
-    private VideoSink cye;
-    private Runnable cyf;
+    private volatile boolean ctm;
+    private VideoSink ctn;
+    private Runnable cto;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public interface a extends VideoSink {
     }
 
     public RTCVideoView(Context context) {
         super(context);
-        this.cyd = false;
-        this.cyf = null;
-        this.cye = null;
+        this.ctm = false;
+        this.cto = null;
+        this.ctn = null;
     }
 
     public RTCVideoView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.cyd = false;
-        this.cyf = null;
-        this.cye = null;
+        this.ctm = false;
+        this.cto = null;
+        this.ctn = null;
     }
 
-    public boolean aiq() {
+    public boolean aew() {
         return false;
     }
 
@@ -38,7 +38,7 @@ public class RTCVideoView extends SurfaceViewRenderer {
 
     @Override // org.webrtc.SurfaceViewRenderer
     public void clearImage() {
-        if (this.cye != null) {
+        if (this.ctn != null) {
             return;
         }
         super.clearImage();
@@ -46,18 +46,18 @@ public class RTCVideoView extends SurfaceViewRenderer {
 
     @Override // org.webrtc.SurfaceViewRenderer, org.webrtc.VideoSink
     public void onFrame(VideoFrame videoFrame) {
-        if (this.cyf != null) {
-            this.cyf.run();
-            this.cyf = null;
+        if (this.cto != null) {
+            this.cto.run();
+            this.cto = null;
         }
-        if (this.cye != null) {
-            if (!this.cyd) {
-                this.cye.onFrame(videoFrame);
+        if (this.ctn != null) {
+            if (!this.ctm) {
+                this.ctn.onFrame(videoFrame);
                 return;
             }
-            this.cye.onFrame(l.a(videoFrame));
+            this.ctn.onFrame(l.a(videoFrame));
         }
-        if (aiq()) {
+        if (aew()) {
             b(l.a(videoFrame));
         } else {
             super.onFrame(videoFrame);
@@ -66,28 +66,28 @@ public class RTCVideoView extends SurfaceViewRenderer {
 
     @Override // org.webrtc.SurfaceViewRenderer
     public void setEnableHardwareScaler(boolean z) {
-        if (this.cye != null) {
+        if (this.ctn != null) {
             return;
         }
         super.setEnableHardwareScaler(z);
     }
 
     public void setExtVideoSink(a aVar) {
-        this.cye = aVar;
+        this.ctn = aVar;
     }
 
     public void setExtVideoSink(VideoSink videoSink, boolean z) {
-        this.cye = videoSink;
-        this.cyd = z;
+        this.ctn = videoSink;
+        this.ctm = z;
     }
 
     public void setFirstFrameEventListener(Runnable runnable) {
-        this.cyf = runnable;
+        this.cto = runnable;
     }
 
     @Override // org.webrtc.SurfaceViewRenderer
     public void setMirror(boolean z) {
-        if (this.cye != null) {
+        if (this.ctn != null) {
             return;
         }
         super.setMirror(z);

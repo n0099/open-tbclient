@@ -2,14 +2,14 @@ package com.meizu.cloud.pushsdk.b.g;
 
 import com.baidu.live.tbadk.log.LogConfig;
 import java.io.IOException;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 final class h implements c {
 
     /* renamed from: a  reason: collision with root package name */
-    public final b f11503a;
+    public final b f11203a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final l f11504b;
+    public final l f11204b;
     private boolean c;
 
     public h(l lVar) {
@@ -20,8 +20,8 @@ final class h implements c {
         if (lVar == null) {
             throw new IllegalArgumentException("sink == null");
         }
-        this.f11503a = bVar;
-        this.f11504b = lVar;
+        this.f11203a = bVar;
+        this.f11204b = lVar;
     }
 
     @Override // com.meizu.cloud.pushsdk.b.g.c
@@ -31,7 +31,7 @@ final class h implements c {
         }
         long j = 0;
         while (true) {
-            long b2 = mVar.b(this.f11503a, 2048L);
+            long b2 = mVar.b(this.f11203a, 2048L);
             if (b2 == -1) {
                 return j;
             }
@@ -44,9 +44,9 @@ final class h implements c {
         if (this.c) {
             throw new IllegalStateException(LogConfig.TYPE_CLOSED);
         }
-        long e = this.f11503a.e();
+        long e = this.f11203a.e();
         if (e > 0) {
-            this.f11504b.a(this.f11503a, e);
+            this.f11204b.a(this.f11203a, e);
         }
         return this;
     }
@@ -56,13 +56,13 @@ final class h implements c {
         if (this.c) {
             throw new IllegalStateException(LogConfig.TYPE_CLOSED);
         }
-        this.f11503a.a(bVar, j);
+        this.f11203a.a(bVar, j);
         a();
     }
 
     @Override // com.meizu.cloud.pushsdk.b.g.c
     public b b() {
-        return this.f11503a;
+        return this.f11203a;
     }
 
     @Override // com.meizu.cloud.pushsdk.b.g.c
@@ -70,7 +70,7 @@ final class h implements c {
         if (this.c) {
             throw new IllegalStateException(LogConfig.TYPE_CLOSED);
         }
-        this.f11503a.b(eVar);
+        this.f11203a.b(eVar);
         return a();
     }
 
@@ -79,7 +79,7 @@ final class h implements c {
         if (this.c) {
             throw new IllegalStateException(LogConfig.TYPE_CLOSED);
         }
-        this.f11503a.b(str);
+        this.f11203a.b(str);
         return a();
     }
 
@@ -88,7 +88,7 @@ final class h implements c {
         if (this.c) {
             throw new IllegalStateException(LogConfig.TYPE_CLOSED);
         }
-        this.f11503a.c(bArr);
+        this.f11203a.c(bArr);
         return a();
     }
 
@@ -97,7 +97,7 @@ final class h implements c {
         if (this.c) {
             throw new IllegalStateException(LogConfig.TYPE_CLOSED);
         }
-        this.f11503a.c(bArr, i, i2);
+        this.f11203a.c(bArr, i, i2);
         return a();
     }
 
@@ -108,14 +108,14 @@ final class h implements c {
         }
         Throwable th = null;
         try {
-            if (this.f11503a.f11493b > 0) {
-                this.f11504b.a(this.f11503a, this.f11503a.f11493b);
+            if (this.f11203a.f11193b > 0) {
+                this.f11204b.a(this.f11203a, this.f11203a.f11193b);
             }
         } catch (Throwable th2) {
             th = th2;
         }
         try {
-            this.f11504b.close();
+            this.f11204b.close();
         } catch (Throwable th3) {
             if (th == null) {
                 th = th3;
@@ -132,7 +132,7 @@ final class h implements c {
         if (this.c) {
             throw new IllegalStateException(LogConfig.TYPE_CLOSED);
         }
-        this.f11503a.e(j);
+        this.f11203a.e(j);
         return a();
     }
 
@@ -141,13 +141,13 @@ final class h implements c {
         if (this.c) {
             throw new IllegalStateException(LogConfig.TYPE_CLOSED);
         }
-        if (this.f11503a.f11493b > 0) {
-            this.f11504b.a(this.f11503a, this.f11503a.f11493b);
+        if (this.f11203a.f11193b > 0) {
+            this.f11204b.a(this.f11203a, this.f11203a.f11193b);
         }
-        this.f11504b.flush();
+        this.f11204b.flush();
     }
 
     public String toString() {
-        return "buffer(" + this.f11504b + ")";
+        return "buffer(" + this.f11204b + ")";
     }
 }

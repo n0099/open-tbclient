@@ -3,9 +3,9 @@ package com.baidu.tieba.barselect.a;
 import android.graphics.BitmapFactory;
 import android.util.Log;
 import com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class c {
-    public static int yr(int i) {
+    public static int wK(int i) {
         if (i == 6) {
             return 90;
         }
@@ -18,7 +18,7 @@ public class c {
         return 0;
     }
 
-    public static int ac(byte[] bArr) {
+    public static int ab(byte[] bArr) {
         int i;
         int i2;
         if (bArr == null) {

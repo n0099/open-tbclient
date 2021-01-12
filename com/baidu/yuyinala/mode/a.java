@@ -6,39 +6,39 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class a {
-    private static a oQJ;
+    private static a oMh;
     private TbPageContext mPageContext;
-    private b oQK;
+    private b oMi;
 
-    public static a ekE() {
-        if (oQJ == null) {
+    public static a egK() {
+        if (oMh == null) {
             synchronized (a.class) {
-                if (oQJ == null) {
-                    oQJ = new a();
+                if (oMh == null) {
+                    oMh = new a();
                 }
             }
         }
-        return oQJ;
+        return oMh;
     }
 
     public void b(TbPageContext tbPageContext, x xVar) {
         if (this.mPageContext != tbPageContext) {
             this.mPageContext = tbPageContext;
-            this.oQK = null;
+            this.oMi = null;
         }
         AlaAudioModeDialogData alaAudioModeDialogData = new AlaAudioModeDialogData();
-        alaAudioModeDialogData.setModeList(Yc(xVar == null ? "" : xVar.aLk));
-        if (this.oQK == null) {
-            this.oQK = new b(tbPageContext, xVar, alaAudioModeDialogData);
+        alaAudioModeDialogData.setModeList(WU(xVar == null ? "" : xVar.aGx));
+        if (this.oMi == null) {
+            this.oMi = new b(tbPageContext, xVar, alaAudioModeDialogData);
         } else {
-            this.oQK.a(xVar, alaAudioModeDialogData);
+            this.oMi.a(xVar, alaAudioModeDialogData);
         }
-        this.oQK.show();
+        this.oMi.show();
     }
 
-    private List<com.baidu.yuyinala.mode.b.a> Yc(String str) {
+    private List<com.baidu.yuyinala.mode.b.a> WU(String str) {
         try {
             JSONArray optJSONArray = new JSONObject(str).optJSONArray("mode_list");
             int length = optJSONArray.length();
@@ -56,9 +56,9 @@ public class a {
         }
     }
 
-    public void If() {
-        if (this.oQK != null && this.oQK.isShowing()) {
-            this.oQK.dismiss();
+    public void Ek() {
+        if (this.oMi != null && this.oMi.isShowing()) {
+            this.oMi.dismiss();
         }
     }
 }

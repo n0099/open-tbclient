@@ -12,7 +12,7 @@ import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.log.LogConfig;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class a {
     private static Handler handler = new Handler(Looper.getMainLooper()) { // from class: com.baidu.live.r.a.1
         @Override // android.os.Handler
@@ -61,7 +61,7 @@ public class a {
         MessageManager.getInstance().sendMessage(httpMessage);
     }
 
-    public static void aE(String str, String str2) {
+    public static void aD(String str, String str2) {
         Message message = new Message();
         message.what = 1;
         message.obj = new String[]{str, str2};

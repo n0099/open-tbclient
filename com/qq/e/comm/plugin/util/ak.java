@@ -3,7 +3,7 @@ package com.qq.e.comm.plugin.util;
 import android.content.Context;
 import android.util.TypedValue;
 import com.qq.e.comm.util.GDTLogger;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class ak {
     public static float a(Context context, float f) {
         return TypedValue.applyDimension(1, f, context.getApplicationContext().getResources().getDisplayMetrics());

@@ -3,6 +3,7 @@ package com.baidu.searchbox.player.utils;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 import android.text.TextUtils;
+import com.baidu.searchbox.config.DefaultSharedPrefsWrapper;
 import com.baidu.searchbox.player.BDPlayerConfig;
 import java.util.Map;
 import java.util.Set;
@@ -12,7 +13,7 @@ public class SharedPrefsWrapper implements SharedPreferences {
     private SharedPreferences mSp;
 
     public SharedPrefsWrapper(String str) {
-        if (!TextUtils.isEmpty(str) && !"default".equals(str)) {
+        if (!TextUtils.isEmpty(str) && !DefaultSharedPrefsWrapper.SP_FILE_DEFAULT.equals(str)) {
             this.mSp = BDPlayerConfig.getAppContext().getSharedPreferences(str, 0);
         } else {
             this.mSp = PreferenceManager.getDefaultSharedPreferences(BDPlayerConfig.getAppContext());

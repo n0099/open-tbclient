@@ -5,20 +5,20 @@ import android.graphics.Canvas;
 import android.graphics.Path;
 import android.graphics.RectF;
 import android.widget.ImageView;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class j extends ImageView {
 
     /* renamed from: a  reason: collision with root package name */
-    private RectF f12162a;
+    private RectF f11862a;
 
     /* renamed from: b  reason: collision with root package name */
-    private Path f12163b;
+    private Path f11863b;
     private float[] c;
 
     public j(Context context) {
         super(context);
-        this.f12162a = new RectF();
-        this.f12163b = new Path();
+        this.f11862a = new RectF();
+        this.f11863b = new Path();
         this.c = new float[]{0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f};
     }
 
@@ -42,10 +42,10 @@ public class j extends ImageView {
 
     @Override // android.widget.ImageView, android.view.View
     public void onDraw(Canvas canvas) {
-        this.f12162a.set(0.0f, 0.0f, getWidth(), getHeight());
-        this.f12163b.addRoundRect(this.f12162a, this.c, Path.Direction.CW);
-        canvas.clipPath(this.f12163b);
+        this.f11862a.set(0.0f, 0.0f, getWidth(), getHeight());
+        this.f11863b.addRoundRect(this.f11862a, this.c, Path.Direction.CW);
+        canvas.clipPath(this.f11863b);
         super.onDraw(canvas);
-        this.f12163b.reset();
+        this.f11863b.reset();
     }
 }

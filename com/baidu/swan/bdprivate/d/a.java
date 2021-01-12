@@ -14,15 +14,15 @@ import com.baidu.swan.apps.res.widget.b.d;
 import com.baidu.swan.bdprivate.b;
 import okhttp3.Response;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class a extends ActivityDelegation {
 
     /* renamed from: com.baidu.swan.bdprivate.d.a$a  reason: collision with other inner class name */
-    /* loaded from: classes9.dex */
-    public interface InterfaceC0507a {
-        void aTa();
+    /* loaded from: classes8.dex */
+    public interface InterfaceC0490a {
+        void aPg();
 
-        void cR(String str, String str2);
+        void cQ(String str, String str2);
     }
 
     @Override // com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation
@@ -32,7 +32,7 @@ public class a extends ActivityDelegation {
                 @Override // com.baidu.swan.apps.a.a
                 public void onResult(int i) {
                     if (i == 0) {
-                        a.this.aTA();
+                        a.this.aPG();
                         return;
                     }
                     a.this.mResult.putString(TiebaInitialize.LogFields.ERROR_MESSAGE, "login failed");
@@ -41,24 +41,24 @@ public class a extends ActivityDelegation {
             });
             return false;
         }
-        aTA();
+        aPG();
         return false;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aTA() {
-        com.baidu.swan.bdprivate.a.a.a(getAgent(), new InterfaceC0507a() { // from class: com.baidu.swan.bdprivate.d.a.2
-            @Override // com.baidu.swan.bdprivate.d.a.InterfaceC0507a
-            public void cR(String str, String str2) {
+    public void aPG() {
+        com.baidu.swan.bdprivate.a.a.a(getAgent(), new InterfaceC0490a() { // from class: com.baidu.swan.bdprivate.d.a.2
+            @Override // com.baidu.swan.bdprivate.d.a.InterfaceC0490a
+            public void cQ(String str, String str2) {
                 if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
                     a.this.mResult.putString(TiebaInitialize.LogFields.ERROR_MESSAGE, "invoiceId == null or invoiceType == null");
                     a.this.finish();
                 }
-                a.this.cQ(str, str2);
+                a.this.cP(str, str2);
             }
 
-            @Override // com.baidu.swan.bdprivate.d.a.InterfaceC0507a
-            public void aTa() {
+            @Override // com.baidu.swan.bdprivate.d.a.InterfaceC0490a
+            public void aPg() {
                 a.this.mResult.putString(TiebaInitialize.LogFields.ERROR_MESSAGE, "choose invoiceId failed");
                 a.this.finish();
             }
@@ -66,11 +66,11 @@ public class a extends ActivityDelegation {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cQ(String str, String str2) {
+    public void cP(String str, String str2) {
         if (!SwanAppNetworkUtils.isNetworkConnected(getAgent())) {
             d.u(getAgent(), b.g.invoice_network_none);
         } else {
-            com.baidu.swan.a.c.a.eK(AppRuntime.getAppContext()).getRequest().url(com.baidu.swan.apps.i.c.processCommonParams(aTB())).addUrlParam(InvoiceBuildResult.KEY_INVOICE_ID, str).addUrlParam("invoice_type", str2).cookieManager(com.baidu.swan.apps.t.a.aAR().alU()).build().executeAsync(new ResponseCallback<JSONObject>() { // from class: com.baidu.swan.bdprivate.d.a.3
+            com.baidu.swan.a.c.a.eJ(AppRuntime.getAppContext()).getRequest().url(com.baidu.swan.apps.i.c.processCommonParams(aPH())).addUrlParam(InvoiceBuildResult.KEY_INVOICE_ID, str).addUrlParam("invoice_type", str2).cookieManager(com.baidu.swan.apps.t.a.awX().aia()).build().executeAsync(new ResponseCallback<JSONObject>() { // from class: com.baidu.swan.bdprivate.d.a.3
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.searchbox.http.callback.ResponseCallback
                 /* renamed from: a */
@@ -109,7 +109,7 @@ public class a extends ActivityDelegation {
         }
     }
 
-    private static String aTB() {
+    private static String aPH() {
         return String.format("%s/ma/invoice/detail", BaseUrlManager.ONLINE_URL);
     }
 }

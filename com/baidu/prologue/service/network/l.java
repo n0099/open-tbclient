@@ -1,7 +1,7 @@
 package com.baidu.prologue.service.network;
 
 import java.io.InputStream;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public interface l {
     void a(long j, InputStream inputStream);
 

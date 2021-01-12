@@ -6,11 +6,11 @@ import android.net.Uri;
 import androidx.annotation.NonNull;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class n extends l<InputStream> {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final UriMatcher f10356a = new UriMatcher(-1);
+    private static final UriMatcher f10056a = new UriMatcher(-1);
 
     public n(ContentResolver contentResolver, Uri uri) {
         super(contentResolver, uri);

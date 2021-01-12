@@ -74,14 +74,14 @@ public final class SapiContext implements NoProguard {
     private static final String z = "touchid_login_record";
 
     /* renamed from: a  reason: collision with root package name */
-    private SharedPreferences f4851a;
+    private SharedPreferences f4568a;
 
     /* renamed from: b  reason: collision with root package name */
-    private Context f4852b;
+    private Context f4569b;
 
     private SapiContext(Context context) {
-        this.f4852b = context;
-        this.f4851a = context.getSharedPreferences("sapi_system", 0);
+        this.f4569b = context;
+        this.f4568a = context.getSharedPreferences("sapi_system", 0);
     }
 
     private void a(List<SapiAccount> list) {
@@ -153,7 +153,7 @@ public final class SapiContext implements NoProguard {
     }
 
     public boolean getBoolean(String str, boolean z2) {
-        return this.f4851a.getBoolean(str, z2);
+        return this.f4568a.getBoolean(str, z2);
     }
 
     public String getContactsVersionByUid() {
@@ -244,7 +244,7 @@ public final class SapiContext implements NoProguard {
     }
 
     public int getInt(String str, int i2) {
-        return this.f4851a.getInt(str, i2);
+        return this.f4568a.getInt(str, i2);
     }
 
     public String getIqiyiAccesstoken() {
@@ -288,7 +288,7 @@ public final class SapiContext implements NoProguard {
     }
 
     public long getLong(String str, long j2) {
-        return this.f4851a.getLong(str, j2);
+        return this.f4568a.getLong(str, j2);
     }
 
     public boolean getModifiedDirExecPer() {
@@ -384,7 +384,7 @@ public final class SapiContext implements NoProguard {
     }
 
     public String getString(String str) {
-        return this.f4851a.getString(str, "");
+        return this.f4568a.getString(str, "");
     }
 
     public String getTid() {
@@ -496,9 +496,9 @@ public final class SapiContext implements NoProguard {
 
     public void put(String str, String str2) {
         if (Build.VERSION.SDK_INT > 8) {
-            this.f4851a.edit().putString(str, str2).apply();
+            this.f4568a.edit().putString(str, str2).apply();
         } else {
-            this.f4851a.edit().putString(str, str2).commit();
+            this.f4568a.edit().putString(str, str2).commit();
         }
     }
 
@@ -538,13 +538,13 @@ public final class SapiContext implements NoProguard {
     public void setCurrentAccount(SapiAccount sapiAccount) {
         if (sapiAccount == null) {
             put(n, "");
-            SapiUtils.webLogout(this.f4852b);
+            SapiUtils.webLogout(this.f4569b);
             return;
         }
         JSONObject jSONObject = sapiAccount.toJSONObject();
         if (jSONObject != null) {
             put(n, SapiDataEncryptor.encryptAccountInfo(jSONObject.toString(), a()));
-            SapiUtils.webLogin(this.f4852b, sapiAccount.bduss, sapiAccount.ptoken);
+            SapiUtils.webLogin(this.f4569b, sapiAccount.bduss, sapiAccount.ptoken);
             if (!isLoginStatusChanged()) {
                 c();
             }
@@ -656,9 +656,9 @@ public final class SapiContext implements NoProguard {
 
     public void put(String str, int i2) {
         if (Build.VERSION.SDK_INT > 8) {
-            this.f4851a.edit().putInt(str, i2).apply();
+            this.f4568a.edit().putInt(str, i2).apply();
         } else {
-            this.f4851a.edit().putInt(str, i2).commit();
+            this.f4568a.edit().putInt(str, i2).commit();
         }
     }
 
@@ -676,7 +676,7 @@ public final class SapiContext implements NoProguard {
     private String a() {
         if (TextUtils.isEmpty(G)) {
             try {
-                G = SecurityUtil.md5((this.f4852b.getPackageName() + SapiUtils.getPackageSign(this.f4852b, this.f4852b.getPackageName())).getBytes("UTF-8"), false).substring(0, 16);
+                G = SecurityUtil.md5((this.f4569b.getPackageName() + SapiUtils.getPackageSign(this.f4569b, this.f4569b.getPackageName())).getBytes("UTF-8"), false).substring(0, 16);
             } catch (UnsupportedEncodingException e2) {
                 Log.e(e2);
             }
@@ -699,9 +699,9 @@ public final class SapiContext implements NoProguard {
 
     public void put(String str, long j2) {
         if (Build.VERSION.SDK_INT > 8) {
-            this.f4851a.edit().putLong(str, j2).apply();
+            this.f4568a.edit().putLong(str, j2).apply();
         } else {
-            this.f4851a.edit().putLong(str, j2).commit();
+            this.f4568a.edit().putLong(str, j2).commit();
         }
     }
 
@@ -728,9 +728,9 @@ public final class SapiContext implements NoProguard {
 
     public void put(String str, boolean z2) {
         if (Build.VERSION.SDK_INT > 8) {
-            this.f4851a.edit().putBoolean(str, z2).apply();
+            this.f4568a.edit().putBoolean(str, z2).apply();
         } else {
-            this.f4851a.edit().putBoolean(str, z2).commit();
+            this.f4568a.edit().putBoolean(str, z2).commit();
         }
     }
 

@@ -14,34 +14,34 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class a {
-    private ViewPager Zk;
-    private ViewPager.OnPageChangeListener cDO;
-    private TextView frf;
-    private IndicatorView frg;
-    private BdBaseViewPagerAdapter frj;
-    private c frk;
-    private boolean frl;
-    private boolean frm;
-    private int frn;
-    private List<n> fro;
-    private long frp;
-    private ViewPager.OnPageChangeListener frq;
+    private ViewPager Zi;
+    private ViewPager.OnPageChangeListener czc;
+    private c fmA;
+    private boolean fmB;
+    private boolean fmC;
+    private int fmD;
+    private List<n> fmE;
+    private long fmF;
+    private ViewPager.OnPageChangeListener fmG;
+    private TextView fmv;
+    private IndicatorView fmw;
+    private BdBaseViewPagerAdapter fmz;
     private final Handler.Callback mCallback;
     private Context mContext;
     private final Handler mHandler;
 
     public a(Context context, ViewPager viewPager, IndicatorView indicatorView, TextView textView) {
-        this.frl = false;
-        this.frm = true;
-        this.frn = 2;
-        this.fro = new ArrayList();
-        this.frp = 5000L;
+        this.fmB = false;
+        this.fmC = true;
+        this.fmD = 2;
+        this.fmE = new ArrayList();
+        this.fmF = 5000L;
         this.mCallback = new Handler.Callback() { // from class: com.baidu.tbadk.core.view.viewpager.a.1
             @Override // android.os.Handler.Callback
             public boolean handleMessage(Message message) {
                 switch (message.what) {
                     case 1:
-                        a.this.byU();
+                        a.this.bva();
                         return false;
                     default:
                         return false;
@@ -49,42 +49,42 @@ public class a {
             }
         };
         this.mHandler = new Handler(this.mCallback);
-        this.frq = new ViewPager.OnPageChangeListener() { // from class: com.baidu.tbadk.core.view.viewpager.a.2
+        this.fmG = new ViewPager.OnPageChangeListener() { // from class: com.baidu.tbadk.core.view.viewpager.a.2
             @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
             public void onPageScrollStateChanged(int i) {
                 int count;
-                if (a.this.cDO != null) {
-                    a.this.cDO.onPageScrollStateChanged(i);
+                if (a.this.czc != null) {
+                    a.this.czc.onPageScrollStateChanged(i);
                 }
                 if (i == 1) {
-                    a.this.byW();
-                } else if (i == 0 && (count = a.this.frj.getCount()) >= 2) {
-                    int currentItem = a.this.Zk.getCurrentItem();
+                    a.this.bvc();
+                } else if (i == 0 && (count = a.this.fmz.getCount()) >= 2) {
+                    int currentItem = a.this.Zi.getCurrentItem();
                     int i2 = count - 2;
                     if (currentItem < 1) {
-                        a.this.Zk.setCurrentItem(i2, false);
+                        a.this.Zi.setCurrentItem(i2, false);
                     } else if (currentItem > i2) {
-                        a.this.Zk.setCurrentItem(1, false);
+                        a.this.Zi.setCurrentItem(1, false);
                     }
-                    a.this.byV();
+                    a.this.bvb();
                 }
             }
 
             @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
             public void onPageScrolled(int i, float f, int i2) {
-                if (a.this.cDO != null) {
-                    a.this.cDO.onPageScrolled(i, f, i2);
+                if (a.this.czc != null) {
+                    a.this.czc.onPageScrolled(i, f, i2);
                 }
             }
 
             @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
             public void onPageSelected(int i) {
-                if (a.this.frk != null && a.this.frk.rG(i) == i) {
-                    if (a.this.frg != null) {
-                        a.this.frg.setPosition(a.this.frk.rH(i));
+                if (a.this.fmA != null && a.this.fmA.qa(i) == i) {
+                    if (a.this.fmw != null) {
+                        a.this.fmw.setPosition(a.this.fmA.qb(i));
                     }
-                    if (a.this.cDO != null) {
-                        a.this.cDO.onPageSelected(a.this.frk.rH(i));
+                    if (a.this.czc != null) {
+                        a.this.czc.onPageSelected(a.this.fmA.qb(i));
                     }
                 }
             }
@@ -93,17 +93,17 @@ public class a {
     }
 
     public a(Context context, ViewPager viewPager, IndicatorView indicatorView, TextView textView, int i, boolean z, boolean z2) {
-        this.frl = false;
-        this.frm = true;
-        this.frn = 2;
-        this.fro = new ArrayList();
-        this.frp = 5000L;
+        this.fmB = false;
+        this.fmC = true;
+        this.fmD = 2;
+        this.fmE = new ArrayList();
+        this.fmF = 5000L;
         this.mCallback = new Handler.Callback() { // from class: com.baidu.tbadk.core.view.viewpager.a.1
             @Override // android.os.Handler.Callback
             public boolean handleMessage(Message message) {
                 switch (message.what) {
                     case 1:
-                        a.this.byU();
+                        a.this.bva();
                         return false;
                     default:
                         return false;
@@ -111,149 +111,149 @@ public class a {
             }
         };
         this.mHandler = new Handler(this.mCallback);
-        this.frq = new ViewPager.OnPageChangeListener() { // from class: com.baidu.tbadk.core.view.viewpager.a.2
+        this.fmG = new ViewPager.OnPageChangeListener() { // from class: com.baidu.tbadk.core.view.viewpager.a.2
             @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
             public void onPageScrollStateChanged(int i2) {
                 int count;
-                if (a.this.cDO != null) {
-                    a.this.cDO.onPageScrollStateChanged(i2);
+                if (a.this.czc != null) {
+                    a.this.czc.onPageScrollStateChanged(i2);
                 }
                 if (i2 == 1) {
-                    a.this.byW();
-                } else if (i2 == 0 && (count = a.this.frj.getCount()) >= 2) {
-                    int currentItem = a.this.Zk.getCurrentItem();
+                    a.this.bvc();
+                } else if (i2 == 0 && (count = a.this.fmz.getCount()) >= 2) {
+                    int currentItem = a.this.Zi.getCurrentItem();
                     int i22 = count - 2;
                     if (currentItem < 1) {
-                        a.this.Zk.setCurrentItem(i22, false);
+                        a.this.Zi.setCurrentItem(i22, false);
                     } else if (currentItem > i22) {
-                        a.this.Zk.setCurrentItem(1, false);
+                        a.this.Zi.setCurrentItem(1, false);
                     }
-                    a.this.byV();
+                    a.this.bvb();
                 }
             }
 
             @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
             public void onPageScrolled(int i2, float f, int i22) {
-                if (a.this.cDO != null) {
-                    a.this.cDO.onPageScrolled(i2, f, i22);
+                if (a.this.czc != null) {
+                    a.this.czc.onPageScrolled(i2, f, i22);
                 }
             }
 
             @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
             public void onPageSelected(int i2) {
-                if (a.this.frk != null && a.this.frk.rG(i2) == i2) {
-                    if (a.this.frg != null) {
-                        a.this.frg.setPosition(a.this.frk.rH(i2));
+                if (a.this.fmA != null && a.this.fmA.qa(i2) == i2) {
+                    if (a.this.fmw != null) {
+                        a.this.fmw.setPosition(a.this.fmA.qb(i2));
                     }
-                    if (a.this.cDO != null) {
-                        a.this.cDO.onPageSelected(a.this.frk.rH(i2));
+                    if (a.this.czc != null) {
+                        a.this.czc.onPageSelected(a.this.fmA.qb(i2));
                     }
                 }
             }
         };
-        this.frl = z;
-        this.frm = z2;
+        this.fmB = z;
+        this.fmC = z2;
         setMaxScrollCountLimit(i);
         a(context, viewPager, indicatorView, textView);
     }
 
     private void a(Context context, ViewPager viewPager, IndicatorView indicatorView, TextView textView) {
-        this.Zk = viewPager;
-        this.frg = indicatorView;
-        this.frf = textView;
+        this.Zi = viewPager;
+        this.fmw = indicatorView;
+        this.fmv = textView;
         this.mContext = context;
-        this.frj = new BdBaseViewPagerAdapter(context);
-        if (this.Zk != null) {
-            this.Zk.setAdapter(this.frj);
-            this.Zk.setOnPageChangeListener(this.frq);
+        this.fmz = new BdBaseViewPagerAdapter(context);
+        if (this.Zi != null) {
+            this.Zi.setAdapter(this.fmz);
+            this.Zi.setOnPageChangeListener(this.fmG);
         }
     }
 
     public void setMaxScrollCountLimit(int i) {
-        this.frn = i;
-        if (this.frk != null) {
-            this.frk.rI(i);
+        this.fmD = i;
+        if (this.fmA != null) {
+            this.fmA.qc(i);
         }
     }
 
     public void setIsMaxScrollEnabled(boolean z) {
-        this.frl = z;
+        this.fmB = z;
     }
 
-    public void kj(boolean z) {
-        this.frm = z;
+    public void kf(boolean z) {
+        this.fmC = z;
     }
 
     public void a(Context context, b<?, ?> bVar) {
-        if (this.frj != null) {
-            this.frj.a(context, bVar);
+        if (this.fmz != null) {
+            this.fmz.a(context, bVar);
         }
     }
 
     public void setDatas(List<n> list) {
         if (x.getCount(list) != 0) {
-            this.fro = list;
-            this.frk = new c(this.fro, this.frl, this.frn);
-            this.frk.rJ(2);
-            this.frk.rK(1);
-            this.frj.setDatas(this.frk.bzb());
-            this.frj.notifyDataSetChanged();
-            this.Zk.setCurrentItem(this.frk.bza(), false);
-            if (this.frk.byZ() > 0) {
-                if (this.frk.byZ() > this.frn) {
-                    if (this.frf != null) {
-                        this.frf.setVisibility(0);
-                        this.frf.setOnClickListener(null);
-                        if (this.frg != null) {
-                            this.frg.setVisibility(8);
+            this.fmE = list;
+            this.fmA = new c(this.fmE, this.fmB, this.fmD);
+            this.fmA.qd(2);
+            this.fmA.qe(1);
+            this.fmz.setDatas(this.fmA.bvh());
+            this.fmz.notifyDataSetChanged();
+            this.Zi.setCurrentItem(this.fmA.bvg(), false);
+            if (this.fmA.bvf() > 0) {
+                if (this.fmA.bvf() > this.fmD) {
+                    if (this.fmv != null) {
+                        this.fmv.setVisibility(0);
+                        this.fmv.setOnClickListener(null);
+                        if (this.fmw != null) {
+                            this.fmw.setVisibility(8);
                         }
-                    } else if (this.frg != null && !this.frl) {
-                        this.frg.setVisibility(8);
+                    } else if (this.fmw != null && !this.fmB) {
+                        this.fmw.setVisibility(8);
                     }
-                    if (this.frg != null && this.frg.getVisibility() == 0 && this.frg.getCount() != this.frn) {
-                        this.frg.setCount(this.frn);
+                    if (this.fmw != null && this.fmw.getVisibility() == 0 && this.fmw.getCount() != this.fmD) {
+                        this.fmw.setCount(this.fmD);
                     }
-                    byV();
+                    bvb();
                 }
-                if (this.frk.byZ() >= 2 && this.frk.byZ() <= this.frn) {
-                    if (this.frf != null) {
-                        this.frf.setVisibility(8);
+                if (this.fmA.bvf() >= 2 && this.fmA.bvf() <= this.fmD) {
+                    if (this.fmv != null) {
+                        this.fmv.setVisibility(8);
                     }
-                    if (this.frg != null) {
-                        this.frg.setVisibility(0);
-                        if (this.frg.getCount() != this.frk.byZ()) {
-                            this.frg.setCount(this.frk.byZ());
+                    if (this.fmw != null) {
+                        this.fmw.setVisibility(0);
+                        if (this.fmw.getCount() != this.fmA.bvf()) {
+                            this.fmw.setCount(this.fmA.bvf());
                         }
                     }
-                    byV();
+                    bvb();
                 }
-                if (this.frk.byZ() < 2) {
-                    if (this.frf != null) {
-                        this.frf.setVisibility(8);
+                if (this.fmA.bvf() < 2) {
+                    if (this.fmv != null) {
+                        this.fmv.setVisibility(8);
                     }
-                    if (this.frg != null) {
-                        this.frg.setVisibility(8);
+                    if (this.fmw != null) {
+                        this.fmw.setVisibility(8);
                     }
-                    byW();
+                    bvc();
                 }
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void byU() {
+    public void bva() {
         int count;
-        if (this.Zk != null && this.frj != null) {
+        if (this.Zi != null && this.fmz != null) {
             i I = j.I(this.mContext);
-            if ((I == null || !I.isScroll()) && (count = this.frj.getCount()) >= 2) {
-                int currentItem = this.Zk.getCurrentItem();
+            if ((I == null || !I.isScroll()) && (count = this.fmz.getCount()) >= 2) {
+                int currentItem = this.Zi.getCurrentItem();
                 int i = count - 2;
                 if (currentItem < 1) {
-                    this.Zk.setCurrentItem(i, false);
+                    this.Zi.setCurrentItem(i, false);
                 } else if (currentItem > i) {
-                    this.Zk.setCurrentItem(1, false);
+                    this.Zi.setCurrentItem(1, false);
                 } else {
-                    this.Zk.setCurrentItem(currentItem + 1);
+                    this.Zi.setCurrentItem(currentItem + 1);
                 }
             }
         }
@@ -263,19 +263,19 @@ public class a {
         if (j < 0) {
             j = 0;
         }
-        this.frp = j;
+        this.fmF = j;
     }
 
-    public void byV() {
-        if (this.frm) {
+    public void bvb() {
+        if (this.fmC) {
             this.mHandler.removeMessages(1);
-            this.mHandler.sendEmptyMessageDelayed(1, this.frp);
+            this.mHandler.sendEmptyMessageDelayed(1, this.fmF);
             return;
         }
         this.mHandler.removeMessages(1);
     }
 
-    public void byW() {
+    public void bvc() {
         this.mHandler.removeMessages(1);
     }
 }

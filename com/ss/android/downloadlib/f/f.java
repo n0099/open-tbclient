@@ -70,11 +70,11 @@ public class f {
         }
     }
 
-    public static com.ss.android.downloadlib.a.b.e aaQ(String str) {
+    public static com.ss.android.downloadlib.a.b.e ZI(String str) {
         return bC(com.ss.android.downloadlib.a.j.a(), str);
     }
 
-    public static com.ss.android.downloadlib.a.b.e aaR(String str) {
+    public static com.ss.android.downloadlib.a.b.e ZJ(String str) {
         if (TextUtils.isEmpty(str)) {
             return new com.ss.android.downloadlib.a.b.e(2, 21);
         }
@@ -84,7 +84,7 @@ public class f {
         intent.setData(parse);
         intent.addFlags(268435456);
         if (i.j(a2, intent)) {
-            if (com.ss.android.downloadlib.a.j.i().optInt("open_url_mode") == 0 && com.ss.android.downloadlib.a.j.eGm() != null && com.ss.android.downloadlib.a.j.eGm().a() && Build.VERSION.SDK_INT < 29) {
+            if (com.ss.android.downloadlib.a.j.i().optInt("open_url_mode") == 0 && com.ss.android.downloadlib.a.j.eCv() != null && com.ss.android.downloadlib.a.j.eCv().a() && Build.VERSION.SDK_INT < 29) {
                 TTDelegateActivity.a(str);
             } else if (com.ss.android.downloadlib.a.j.i().optInt("open_url_mode") == 1 && Build.VERSION.SDK_INT >= 26 && Build.VERSION.SDK_INT < 29) {
                 TTDelegateActivity.a(str);

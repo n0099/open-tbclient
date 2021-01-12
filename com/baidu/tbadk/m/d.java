@@ -6,9 +6,9 @@ import java.util.List;
 public class d {
     private String abTag;
     private String currentPageKey;
-    public String fLh;
-    private String fLi;
-    public String fLj;
+    public String fGA;
+    private String fGB;
+    public String fGC;
     private long fid;
     public boolean isRouteStat = false;
     public String isVertical;
@@ -63,7 +63,7 @@ public class d {
         this.tid = j;
     }
 
-    public String bpP() {
+    public String blV() {
         return this.nid;
     }
 
@@ -95,20 +95,20 @@ public class d {
         return this.task_id;
     }
 
-    public String bHr() {
+    public String bDy() {
         return this.abTag;
     }
 
-    public void Eq(String str) {
+    public void Df(String str) {
         this.abTag = str;
     }
 
-    public String bHs() {
-        return this.fLi;
+    public String bDz() {
+        return this.fGB;
     }
 
-    public void Er(String str) {
-        this.fLi = str;
+    public void Dg(String str) {
+        this.fGB = str;
     }
 
     public boolean isDirtyData() {

@@ -17,10 +17,10 @@ import com.bytedance.sdk.openadsdk.utils.ak;
 public class n extends Dialog {
 
     /* renamed from: a  reason: collision with root package name */
-    private View f6911a;
+    private View f6611a;
 
     /* renamed from: b  reason: collision with root package name */
-    private Context f6912b;
+    private Context f6612b;
     private ImageView c;
     private ImageView d;
     private ImageView e;
@@ -45,7 +45,7 @@ public class n extends Dialog {
     public n(@NonNull Context context, @StyleRes int i) {
         super(context, i == 0 ? ac.g(context, "tt_wg_insert_dialog") : i);
         this.i = false;
-        this.f6912b = context;
+        this.f6612b = context;
     }
 
     public void a(boolean z, a aVar) {
@@ -59,14 +59,14 @@ public class n extends Dialog {
 
     private void a() {
         setCancelable(false);
-        this.f6911a = LayoutInflater.from(this.f6912b).inflate(ac.f(this.f6912b, "tt_insert_ad_layout"), (ViewGroup) null);
-        setContentView(this.f6911a);
-        this.c = (ImageView) this.f6911a.findViewById(ac.e(this.f6912b, "tt_insert_ad_img"));
-        this.d = (ImageView) this.f6911a.findViewById(ac.e(this.f6912b, "tt_insert_dislike_icon_img"));
-        this.e = (ImageView) this.f6911a.findViewById(ac.e(this.f6912b, "tt_insert_ad_logo"));
-        this.f = (TextView) this.f6911a.findViewById(ac.e(this.f6912b, "tt_insert_ad_text"));
-        this.g = (FrameLayout) this.f6911a.findViewById(ac.e(this.f6912b, "tt_insert_express_ad_fl"));
-        int c = ak.c(this.f6912b);
+        this.f6611a = LayoutInflater.from(this.f6612b).inflate(ac.f(this.f6612b, "tt_insert_ad_layout"), (ViewGroup) null);
+        setContentView(this.f6611a);
+        this.c = (ImageView) this.f6611a.findViewById(ac.e(this.f6612b, "tt_insert_ad_img"));
+        this.d = (ImageView) this.f6611a.findViewById(ac.e(this.f6612b, "tt_insert_dislike_icon_img"));
+        this.e = (ImageView) this.f6611a.findViewById(ac.e(this.f6612b, "tt_insert_ad_logo"));
+        this.f = (TextView) this.f6611a.findViewById(ac.e(this.f6612b, "tt_insert_ad_text"));
+        this.g = (FrameLayout) this.f6611a.findViewById(ac.e(this.f6612b, "tt_insert_express_ad_fl"));
+        int c = ak.c(this.f6612b);
         int i = c / 3;
         this.c.setMaxWidth(c);
         this.c.setMinimumWidth(i);
@@ -78,7 +78,7 @@ public class n extends Dialog {
         this.e.setVisibility(this.i ? 8 : 0);
         this.f.setVisibility(this.i ? 8 : 0);
         this.g.setVisibility(this.i ? 0 : 8);
-        int a2 = (int) ak.a(this.f6912b, 15.0f);
+        int a2 = (int) ak.a(this.f6612b, 15.0f);
         ak.a(this.d, a2, a2, a2, a2);
         this.d.setOnClickListener(new View.OnClickListener() { // from class: com.bytedance.sdk.openadsdk.core.n.1
             @Override // android.view.View.OnClickListener
@@ -120,7 +120,7 @@ public class n extends Dialog {
                         this.d.setVisibility(8);
                         this.e.setVisibility(8);
                         this.f.setVisibility(8);
-                        View findViewById = nativeExpressView.findViewById(ac.e(this.f6912b, "tt_bu_close"));
+                        View findViewById = nativeExpressView.findViewById(ac.e(this.f6612b, "tt_bu_close"));
                         if (findViewById != null && this.h != null) {
                             this.h.a(findViewById);
                         }

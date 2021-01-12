@@ -13,12 +13,12 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.atomData.MemberExchangeActivityConfig;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.R;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class MemberExchangeActivity extends BaseActivity<MemberExchangeActivity> implements View.OnClickListener {
     private String descStr;
     private String dueDate;
-    private a ljX;
-    public HttpMessageListener ljY = new HttpMessageListener(1003320) { // from class: com.baidu.tieba.memberCenter.memberExchange.MemberExchangeActivity.1
+    private a lfs;
+    public HttpMessageListener lft = new HttpMessageListener(1003320) { // from class: com.baidu.tieba.memberCenter.memberExchange.MemberExchangeActivity.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
@@ -63,36 +63,36 @@ public class MemberExchangeActivity extends BaseActivity<MemberExchangeActivity>
             this.dueDate = getIntent().getStringExtra(MemberExchangeActivityConfig.DUE_DATE);
             this.descStr = getIntent().getStringExtra(MemberExchangeActivityConfig.DESC_STR);
         }
-        aed();
+        aak();
         initListener();
-        this.ljX = new a(this);
-        this.ljX.l(this.memberImage, this.memberName, this.memberLevelIcon, this.dueDate, this.descStr);
+        this.lfs = new a(this);
+        this.lfs.l(this.memberImage, this.memberName, this.memberLevelIcon, this.dueDate, this.descStr);
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
         if (view != null) {
             if (view.getId() == R.id.go_to_exchange) {
-                dgZ();
+                ddh();
             } else {
-                l.hideSoftKeyPad(getPageContext().getPageActivity(), this.ljX.getEditText());
+                l.hideSoftKeyPad(getPageContext().getPageActivity(), this.lfs.getEditText());
             }
         }
     }
 
-    private void aed() {
+    private void aak() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1003320, TbConfig.SERVER_ADDRESS + TbConfig.GET_T_CODE_INFO);
         tbHttpMessageTask.setResponsedClass(GetTCodeResMessage.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
     private void initListener() {
-        registerListener(this.ljY);
+        registerListener(this.lft);
     }
 
-    private void dgZ() {
+    private void ddh() {
         HttpMessage httpMessage = new HttpMessage(1003320);
-        httpMessage.addParam(GetTCodeResMessage.ACTIVATION_CODE, this.ljX.getEditText().getText().toString());
+        httpMessage.addParam(GetTCodeResMessage.ACTIVATION_CODE, this.lfs.getEditText().getText().toString());
         sendMessage(httpMessage);
     }
 }

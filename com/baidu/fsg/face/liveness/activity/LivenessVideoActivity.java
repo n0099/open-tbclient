@@ -60,11 +60,11 @@ import java.util.HashMap;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class LivenessVideoActivity extends LivenessCameraBaseActivity {
 
     /* renamed from: b  reason: collision with root package name */
-    private static final String f2252b = "CONSTRASTBEANTAG";
+    private static final String f2202b = "CONSTRASTBEANTAG";
     private static final String c = "LivenessVideoActivity";
     private static final int d = -1;
     private static final int e = 0;
@@ -267,7 +267,7 @@ public class LivenessVideoActivity extends LivenessCameraBaseActivity {
         rect.top = iArr[1];
         rect.right = this.j.getWidth() - rect.left;
         rect.bottom = rect.top + rect.width();
-        this.faceRectGroup.f2137a = rect;
+        this.faceRectGroup.f2087a = rect;
         this.j.setFocusViewRect(rect);
         ViewGroup.LayoutParams layoutParams = this.m.getLayoutParams();
         layoutParams.width = rect.width();
@@ -449,7 +449,7 @@ public class LivenessVideoActivity extends LivenessCameraBaseActivity {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     private class a extends AsyncTask<Void, Void, String> {
         private a() {
         }
@@ -760,7 +760,7 @@ public class LivenessVideoActivity extends LivenessCameraBaseActivity {
     private void m() {
         RimStatisticsUtil.onEventStart(com.baidu.fsg.face.liveness.d.O);
         LogUtil.d("hello", "onEventStart(StatServiceEvent.FACEMATCH):  对比接口开始");
-        n nVar = (n) FaceSDKBeansFactory.getInstance().getBean(getActivity(), 10, f2252b);
+        n nVar = (n) FaceSDKBeansFactory.getInstance().getBean(getActivity(), 10, f2202b);
         if (this.livenessRecogDTO != null) {
             nVar.a(this.livenessRecogDTO);
         }
@@ -1145,6 +1145,6 @@ public class LivenessVideoActivity extends LivenessCameraBaseActivity {
             this.j.release();
         }
         BeanManager.getInstance().removeAllBeans(c);
-        BeanManager.getInstance().removeAllBeans(f2252b);
+        BeanManager.getInstance().removeAllBeans(f2202b);
     }
 }

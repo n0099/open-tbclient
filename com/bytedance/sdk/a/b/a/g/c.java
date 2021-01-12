@@ -13,17 +13,17 @@ import javax.net.ssl.SSLSocket;
 public class c extends e {
 
     /* renamed from: a  reason: collision with root package name */
-    private final Method f6236a;
+    private final Method f5936a;
 
     /* renamed from: b  reason: collision with root package name */
-    private final Method f6237b;
+    private final Method f5937b;
     private final Method c;
     private final Class<?> d;
     private final Class<?> e;
 
     c(Method method, Method method2, Method method3, Class<?> cls, Class<?> cls2) {
-        this.f6236a = method;
-        this.f6237b = method2;
+        this.f5936a = method;
+        this.f5937b = method2;
         this.c = method3;
         this.d = cls;
         this.e = cls2;
@@ -32,7 +32,7 @@ public class c extends e {
     @Override // com.bytedance.sdk.a.b.a.g.e
     public void a(SSLSocket sSLSocket, String str, List<w> list) {
         try {
-            this.f6236a.invoke(null, sSLSocket, Proxy.newProxyInstance(e.class.getClassLoader(), new Class[]{this.d, this.e}, new a(a(list))));
+            this.f5936a.invoke(null, sSLSocket, Proxy.newProxyInstance(e.class.getClassLoader(), new Class[]{this.d, this.e}, new a(a(list))));
         } catch (IllegalAccessException | InvocationTargetException e) {
             throw com.bytedance.sdk.a.b.a.c.f("unable to set alpn", e);
         }
@@ -50,18 +50,18 @@ public class c extends e {
     @Override // com.bytedance.sdk.a.b.a.g.e
     public String c(SSLSocket sSLSocket) {
         try {
-            a aVar = (a) Proxy.getInvocationHandler(this.f6237b.invoke(null, sSLSocket));
-            if (aVar.f6238a || aVar.f6239b != null) {
-                return aVar.f6238a ? null : aVar.f6239b;
+            a aVar = (a) Proxy.getInvocationHandler(this.f5937b.invoke(null, sSLSocket));
+            if (aVar.f5938a || aVar.f5939b != null) {
+                return aVar.f5938a ? null : aVar.f5939b;
             }
-            e.erb().a(4, "ALPN callback dropped: HTTP/2 is disabled. Is alpn-boot on the boot class path?", (Throwable) null);
+            e.eng().a(4, "ALPN callback dropped: HTTP/2 is disabled. Is alpn-boot on the boot class path?", (Throwable) null);
             return null;
         } catch (IllegalAccessException | InvocationTargetException e) {
             throw com.bytedance.sdk.a.b.a.c.f("unable to get selected protocol", e);
         }
     }
 
-    public static e eqY() {
+    public static e enc() {
         try {
             Class<?> cls = Class.forName("org.eclipse.jetty.alpn.ALPN");
             Class<?> cls2 = Class.forName("org.eclipse.jetty.alpn.ALPN$Provider");
@@ -75,10 +75,10 @@ public class c extends e {
     private static class a implements InvocationHandler {
 
         /* renamed from: a  reason: collision with root package name */
-        boolean f6238a;
+        boolean f5938a;
 
         /* renamed from: b  reason: collision with root package name */
-        String f6239b;
+        String f5939b;
         private final List<String> c;
 
         a(List<String> list) {
@@ -90,13 +90,13 @@ public class c extends e {
             String name = method.getName();
             Class<?> returnType = method.getReturnType();
             if (objArr == null) {
-                objArr = com.bytedance.sdk.a.b.a.c.f6171b;
+                objArr = com.bytedance.sdk.a.b.a.c.f5871b;
             }
             if (name.equals("supports") && Boolean.TYPE == returnType) {
                 return true;
             }
             if (name.equals("unsupported") && Void.TYPE == returnType) {
-                this.f6238a = true;
+                this.f5938a = true;
                 return null;
             } else if (name.equals(WebSocketRequest.PARAM_KEY_PROTOCOLS) && objArr.length == 0) {
                 return this.c;
@@ -107,15 +107,15 @@ public class c extends e {
                     for (int i = 0; i < size; i++) {
                         if (this.c.contains(list.get(i))) {
                             String str = (String) list.get(i);
-                            this.f6239b = str;
+                            this.f5939b = str;
                             return str;
                         }
                     }
                     String str2 = this.c.get(0);
-                    this.f6239b = str2;
+                    this.f5939b = str2;
                     return str2;
                 } else if ((name.equals("protocolSelected") || name.equals("selected")) && objArr.length == 1) {
-                    this.f6239b = (String) objArr[0];
+                    this.f5939b = (String) objArr[0];
                     return null;
                 } else {
                     return method.invoke(this, objArr);

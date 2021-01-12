@@ -6,7 +6,7 @@ import com.baidu.searchbox.track.Track;
 import com.github.a.a.b;
 import com.github.a.a.c;
 import com.github.a.a.d;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class LooperMonitor implements ILooperMonitor {
     private static volatile boolean sIsStartTrack = false;
     private static LooperContextDispatcher sLooperContextDispatcher;
@@ -32,7 +32,7 @@ public class LooperMonitor implements ILooperMonitor {
         }
         b.init(context, sLooperContextDispatcher, i);
         c.a(b.get());
-        this.mBlockCanaryCore = c.eBY();
+        this.mBlockCanaryCore = c.eyg();
         this.mBlockCanaryCore.addBlockInterceptor(b.get());
         startLooperPrint();
         startTrack(context);
@@ -42,16 +42,16 @@ public class LooperMonitor implements ILooperMonitor {
     public void stopLooperMonitor() {
         if (this.mMonitorStarted) {
             this.mMonitorStarted = false;
-            sLooperContextDispatcher.removeLooperPrinter(this.mBlockCanaryCore.eBV());
-            this.mBlockCanaryCore.eBW().stop();
-            this.mBlockCanaryCore.eBX().stop();
+            sLooperContextDispatcher.removeLooperPrinter(this.mBlockCanaryCore.eyd());
+            this.mBlockCanaryCore.eye().stop();
+            this.mBlockCanaryCore.eyf().stop();
         }
     }
 
     private void startLooperPrint() {
         if (!this.mMonitorStarted) {
             this.mMonitorStarted = true;
-            sLooperContextDispatcher.addLooperPrinter(this.mBlockCanaryCore.eBV());
+            sLooperContextDispatcher.addLooperPrinter(this.mBlockCanaryCore.eyd());
         }
     }
 

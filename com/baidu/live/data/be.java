@@ -2,10 +2,10 @@ package com.baidu.live.data;
 
 import com.baidu.tbadk.core.atomData.FrsActivityConfig;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class be {
-    public String aQJ;
-    public String aQK;
+    public String aLW;
+    public String aLX;
     public long endTime;
     public int flag;
     public long serverTime;
@@ -15,11 +15,11 @@ public class be {
     public void parseJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             this.type = jSONObject.optInt("type");
-            this.aQJ = jSONObject.optString(AlaLiveStickerInfo.STICKER_ID);
+            this.aLW = jSONObject.optString(AlaLiveStickerInfo.STICKER_ID);
             this.startTime = jSONObject.optLong("start_time");
             this.endTime = jSONObject.optLong("end_time");
             this.serverTime = jSONObject.optLong("server_time");
-            this.aQK = jSONObject.optString("punish_key");
+            this.aLX = jSONObject.optString("punish_key");
             this.flag = jSONObject.optInt(FrsActivityConfig.FLAG);
         }
     }

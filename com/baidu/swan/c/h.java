@@ -9,7 +9,7 @@ import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes3.dex */
 public class h {
-    public static String zL(String str) {
+    public static String yA(String str) {
         int displayWidth = a.getDisplayWidth();
         int displayHeight = a.getDisplayHeight();
         int densityDpi = a.getDensityDpi();
@@ -72,7 +72,7 @@ public class h {
     }
 
     @NonNull
-    public static Map<String, String> yw(@NonNull String str) {
+    public static Map<String, String> xl(@NonNull String str) {
         String[] split;
         HashMap hashMap = new HashMap();
         for (String str2 : str.split(ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR)) {

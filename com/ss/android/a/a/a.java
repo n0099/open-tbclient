@@ -9,6 +9,8 @@ import com.ss.android.a.a.a.i;
 import com.ss.android.a.a.a.k;
 /* loaded from: classes4.dex */
 public interface a {
+    a YY(String str);
+
     a a(@NonNull b bVar);
 
     a a(@NonNull f fVar);
@@ -24,6 +26,4 @@ public interface a {
     a a(@NonNull com.ss.android.a.a.d.a aVar);
 
     a a(com.ss.android.socialbase.downloader.downloader.g gVar);
-
-    a aag(String str);
 }

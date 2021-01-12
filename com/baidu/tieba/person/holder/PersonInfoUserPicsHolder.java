@@ -16,30 +16,30 @@ import com.baidu.tieba.person.a.f;
 import com.baidu.tieba.person.d;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class PersonInfoUserPicsHolder extends TypeAdapter.ViewHolder {
-    public int akW;
-    public TextView eKc;
-    public View jQM;
+    public int akf;
+    public TextView eFr;
+    public View jMh;
     public TbPageContext mPageContext;
-    public HTypeListView moj;
-    public e mok;
+    public HTypeListView mjF;
+    public e mjG;
     public View rootView;
 
     public PersonInfoUserPicsHolder(View view, TbPageContext tbPageContext) {
         super(view);
-        this.akW = 3;
+        this.akf = 3;
         this.rootView = view;
         this.mPageContext = tbPageContext;
-        this.jQM = view.findViewById(R.id.divider_view_under_photo_album);
-        this.eKc = (TextView) view.findViewById(R.id.text_view_photo_album);
-        this.moj = (HTypeListView) view.findViewById(R.id.listview_photo_album);
-        this.mok = new e(this.mPageContext, this.moj);
+        this.jMh = view.findViewById(R.id.divider_view_under_photo_album);
+        this.eFr = (TextView) view.findViewById(R.id.text_view_photo_album);
+        this.mjF = (HTypeListView) view.findViewById(R.id.listview_photo_album);
+        this.mjG = new e(this.mPageContext, this.mjF);
     }
 
     public void a(f fVar) {
         if (fVar != null) {
-            this.mok.setDatas(fu(fVar.getPhotoAlbum()));
+            this.mjG.setDatas(fu(fVar.getPhotoAlbum()));
         }
     }
 
@@ -54,13 +54,13 @@ public class PersonInfoUserPicsHolder extends TypeAdapter.ViewHolder {
         return list;
     }
 
-    public void dxZ() {
-        if (this.akW != TbadkCoreApplication.getInst().getSkinType()) {
-            this.akW = TbadkCoreApplication.getInst().getSkinType();
+    public void duh() {
+        if (this.akf != TbadkCoreApplication.getInst().getSkinType()) {
+            this.akf = TbadkCoreApplication.getInst().getSkinType();
             ao.setBackgroundColor(this.rootView, R.color.CAM_X0201);
-            ao.setBackgroundColor(this.jQM, R.color.CAM_X0204);
-            ao.setViewTextColor(this.eKc, R.color.CAM_X0109, 1);
-            this.mok.notifyDataSetChanged();
+            ao.setBackgroundColor(this.jMh, R.color.CAM_X0204);
+            ao.setViewTextColor(this.eFr, R.color.CAM_X0109, 1);
+            this.mjG.notifyDataSetChanged();
         }
     }
 }

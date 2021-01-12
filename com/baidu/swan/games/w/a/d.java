@@ -5,7 +5,7 @@ import androidx.annotation.Nullable;
 import com.baidu.searchbox.v8engine.JSExceptionType;
 import com.baidu.searchbox.v8engine.JsObject;
 import com.baidu.webkit.internal.monitor.SessionMonitorEngine;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class d {
     private final Object data;
     private final String error;
@@ -19,14 +19,15 @@ public class d {
         return this.error == null;
     }
 
-    public String dp(String str, String str2) {
+    /* renamed from: do  reason: not valid java name */
+    public String m29do(String str, String str2) {
         if (isSuccess()) {
-            return a.yi(str);
+            return a.wX(str);
         }
-        return a.ah(str, str2, bce());
+        return a.ag(str, str2, aYk());
     }
 
-    public String bce() {
+    public String aYk() {
         return this.error;
     }
 
@@ -34,11 +35,11 @@ public class d {
         return this.data;
     }
 
-    public static Object bcf() {
+    public static Object aYl() {
         return new JsObject();
     }
 
-    public static String mM(int i) {
+    public static String lg(int i) {
         switch (i) {
             case 1:
                 return "boolean";
@@ -70,7 +71,7 @@ public class d {
         return new d(null, obj);
     }
 
-    public static d yj(@NonNull String str) {
+    public static d wY(@NonNull String str) {
         return new d(str, null);
     }
 
@@ -78,8 +79,8 @@ public class d {
         if (dVar.isSuccess()) {
             return dVar.getData();
         }
-        String ah = a.ah(str, str2, dVar.bce());
-        bVar.throwJSException(JSExceptionType.Error, ah);
-        return ah;
+        String ag = a.ag(str, str2, dVar.aYk());
+        bVar.throwJSException(JSExceptionType.Error, ag);
+        return ag;
     }
 }

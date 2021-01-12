@@ -7,7 +7,7 @@ import android.os.Parcelable;
 import android.text.TextUtils;
 import com.baidu.fsg.base.utils.LogUtil;
 import com.kwai.video.player.misc.IMediaFormat;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class VideoInfo implements Parcelable {
     public static final Parcelable.Creator<VideoInfo> CREATOR = new Parcelable.Creator<VideoInfo>() { // from class: com.baidu.fsg.face.liveness.video.VideoInfo.1
         /* JADX DEBUG: Method merged with bridge method */
@@ -26,29 +26,29 @@ public class VideoInfo implements Parcelable {
     };
 
     /* renamed from: a  reason: collision with root package name */
-    private String f2357a;
+    private String f2307a;
 
     /* renamed from: b  reason: collision with root package name */
-    private int f2358b;
+    private int f2308b;
     private int c;
     private int d;
     private long e;
     private int f;
 
     public String a() {
-        return this.f2357a;
+        return this.f2307a;
     }
 
     public void a(String str) {
-        this.f2357a = str;
+        this.f2307a = str;
     }
 
     public int b() {
-        return this.f2358b;
+        return this.f2308b;
     }
 
     public void a(int i) {
-        this.f2358b = i;
+        this.f2308b = i;
     }
 
     public int c() {
@@ -69,8 +69,8 @@ public class VideoInfo implements Parcelable {
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeString(this.f2357a);
-        parcel.writeInt(this.f2358b);
+        parcel.writeString(this.f2307a);
+        parcel.writeInt(this.f2308b);
         parcel.writeInt(this.c);
         parcel.writeLong(this.e);
         parcel.writeFloat(this.d);
@@ -78,8 +78,8 @@ public class VideoInfo implements Parcelable {
     }
 
     protected VideoInfo(Parcel parcel) {
-        this.f2357a = parcel.readString();
-        this.f2358b = parcel.readInt();
+        this.f2307a = parcel.readString();
+        this.f2308b = parcel.readInt();
         this.c = parcel.readInt();
         this.e = parcel.readLong();
         this.d = parcel.readInt();
@@ -118,8 +118,8 @@ public class VideoInfo implements Parcelable {
         videoInfo.d = this.d;
         videoInfo.e = this.e;
         videoInfo.c = this.c;
-        videoInfo.f2358b = this.f2358b;
-        videoInfo.f2357a = this.f2357a;
+        videoInfo.f2308b = this.f2308b;
+        videoInfo.f2307a = this.f2307a;
         return videoInfo;
     }
 
@@ -159,6 +159,6 @@ public class VideoInfo implements Parcelable {
     }
 
     public String toString() {
-        return "VideoInfo{videoPath='" + this.f2357a + "', videoWidth=" + this.f2358b + ", videoHeight=" + this.c + ", frameRate=" + this.d + ", duration=" + this.e + ", videoRotation=" + this.f + '}';
+        return "VideoInfo{videoPath='" + this.f2307a + "', videoWidth=" + this.f2308b + ", videoHeight=" + this.c + ", frameRate=" + this.d + ", duration=" + this.e + ", videoRotation=" + this.f + '}';
     }
 }

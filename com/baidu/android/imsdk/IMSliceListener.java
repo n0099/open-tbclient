@@ -1,7 +1,7 @@
 package com.baidu.android.imsdk;
 
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public interface IMSliceListener<T> extends IMListener {
     List<T> getResult();
 

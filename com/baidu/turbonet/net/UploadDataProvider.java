@@ -3,7 +3,7 @@ package com.baidu.turbonet.net;
 import java.io.Closeable;
 import java.io.IOException;
 import java.nio.ByteBuffer;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public abstract class UploadDataProvider implements Closeable {
     public abstract void a(UploadDataSink uploadDataSink) throws IOException;
 

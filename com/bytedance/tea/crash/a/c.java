@@ -26,31 +26,31 @@ import org.json.JSONObject;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    static volatile boolean f7912a = true;
+    static volatile boolean f7612a = true;
     private final Context d;
     private volatile long e;
     private volatile boolean f = false;
-    private final SharedPreferences pgI;
-    private a ppM;
-    private d ppN;
+    private final SharedPreferences pcf;
+    private a plg;
+    private d plh;
 
     public c(Context context) {
         if (context == null || !(context instanceof Application)) {
             throw new IllegalArgumentException("context must not be null or not application");
         }
         this.d = context;
-        this.pgI = this.d.getSharedPreferences("anr_monitor_table", 0);
-        this.e = this.pgI.getLong("trace_anr_happen_time", 0L);
+        this.pcf = this.d.getSharedPreferences("anr_monitor_table", 0);
+        this.e = this.pcf.getLong("trace_anr_happen_time", 0L);
         g.a(100, 100);
     }
 
     public void a() {
         if (!this.f) {
             if (Build.VERSION.SDK_INT < 21) {
-                this.ppM = new a(this, "/data/anr/", 8);
-                this.ppM.startWatching();
+                this.plg = new a(this, "/data/anr/", 8);
+                this.plg.startWatching();
             } else {
-                this.ppN = new d(this);
+                this.plh = new d(this);
             }
             this.f = true;
         }
@@ -65,7 +65,7 @@ public class c {
         JSONObject it = g.it(uptimeMillis);
         JSONArray C = g.C(100, uptimeMillis);
         try {
-            jSONObject = e.AP(f7912a);
+            jSONObject = e.AL(f7612a);
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -93,9 +93,9 @@ public class c {
                 aVar.a("crash_time", Long.valueOf(System.currentTimeMillis()));
                 aVar.a("anr_info", a2);
                 aVar.a("all_thread_stacks", m.a((String) null));
-                com.bytedance.tea.crash.c.a a3 = com.bytedance.tea.crash.e.a.e.esA().a(com.bytedance.tea.crash.c.ANR, aVar);
+                com.bytedance.tea.crash.c.a a3 = com.bytedance.tea.crash.e.a.e.eoG().a(com.bytedance.tea.crash.c.ANR, aVar);
                 com.bytedance.tea.crash.g.d.a(this.d, com.bytedance.tea.crash.c.ANR.a(), null);
-                com.bytedance.tea.crash.upload.a.esK().b(a3.a());
+                com.bytedance.tea.crash.upload.a.eoQ().b(a3.a());
                 a(a2);
             } catch (Throwable th) {
                 j.b(th);
@@ -105,7 +105,7 @@ public class c {
     }
 
     private static void a(String str) {
-        for (com.bytedance.tea.crash.e eVar : h.esG().c()) {
+        for (com.bytedance.tea.crash.e eVar : h.eoM().c()) {
             eVar.a(com.bytedance.tea.crash.c.ANR, str, null);
         }
     }
@@ -150,8 +150,8 @@ public class c {
                         return null;
                     } else {
                         this.e = time;
-                        if (this.pgI != null) {
-                            this.pgI.edit().putLong("trace_anr_happen_time", this.e).apply();
+                        if (this.pcf != null) {
+                            this.pcf.edit().putLong("trace_anr_happen_time", this.e).apply();
                         }
                         JSONObject jSONObject = new JSONObject();
                         jSONObject.put("anrTime", time);

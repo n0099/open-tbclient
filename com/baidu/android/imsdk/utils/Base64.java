@@ -3,7 +3,7 @@ package com.baidu.android.imsdk.utils;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class Base64 {
     private static final char[] legalChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/".toCharArray();
 

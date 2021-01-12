@@ -1,19 +1,19 @@
 package com.baidu.platform.comapi.walknavi.fsm;
 
 import com.baidu.platform.comapi.walknavi.b;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class RGStateSeg extends RGState {
     @Override // com.baidu.platform.comapi.walknavi.fsm.RGState
     protected void onActionUI() {
-        b.a().T().c(2130837817);
-        if (b.a().M() != 4) {
-            b.a().T().a(false);
+        b.a().Q().c(2130837751);
+        if (b.a().J() != 4) {
+            b.a().Q().a(false);
         }
     }
 
     @Override // com.baidu.platform.comapi.walknavi.fsm.RGState
     protected void onActionNaviEngine() {
-        b.a().G().a(true);
+        b.a().D().a(true);
     }
 
     @Override // com.baidu.platform.comapi.walknavi.fsm.RGState
@@ -22,8 +22,8 @@ public class RGStateSeg extends RGState {
 
     @Override // com.baidu.platform.comapi.walknavi.fsm.RGState
     protected void onActionMapStatus() {
-        b.a().T().o();
-        b.a().J().b(true);
+        b.a().Q().o();
+        b.a().G().b(true);
     }
 
     @Override // com.baidu.platform.comapi.walknavi.fsm.RGState

@@ -5,7 +5,7 @@ import android.content.res.Configuration;
 import android.view.KeyEvent;
 import androidx.annotation.NonNull;
 import com.baidu.live.tbadk.TbPageContext;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public interface b {
     void a(TbPageContext tbPageContext, a aVar);
 

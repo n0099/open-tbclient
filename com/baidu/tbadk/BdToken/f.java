@@ -17,141 +17,142 @@ import com.baidu.tieba.forumMember.tbtitle.TbTitleActivityConfig;
 import java.util.HashMap;
 /* loaded from: classes.dex */
 public class f {
-    public static String eGb = "com.baidu.tieba";
+    public static String eBp = "com.baidu.tieba";
     public static String HOST = "unidispatch";
-    public static String eGc = "/homepage";
-    public static String eGd = "/enterforum";
-    public static String eGe = "/recommendforum";
-    public static String eGf = "/frs";
-    public static String eGg = "/pb";
-    public static String eGh = "/tbwebview";
-    public static String eGi = "/usercenter";
-    public static String eGj = "/topicdetail";
-    public static String eGk = "/tiebachushou";
-    public static String eGl = "/activitypage";
-    public static String eGm = "/minapp";
-    public static String eGn = "/onekeysign";
-    public static String eGo = "/hotuserrank";
-    public static String eGp = "/forumRuleDetail";
-    public static String eGq = "extdata";
-    public static String eGr = "kw";
-    public static String eGs = "tid";
-    public static String eGt = "ori_ugc_nid";
-    public static String eGu = "ori_ugc_tid";
-    public static String eGv = "ori_ugc_type";
-    public static String eGw = "ori_ugc_vid";
-    public static String eGx = "portrait";
-    public static String eGy = "topic_id";
+    public static String eBq = "/homepage";
+    public static String eBr = "/enterforum";
+    public static String eBs = "/recommendforum";
+    public static String eBt = "/frs";
+    public static String eBu = "/pb";
+    public static String eBv = "/tbwebview";
+    public static String eBw = "/usercenter";
+    public static String eBx = "/topicdetail";
+    public static String eBy = "/tiebachushou";
+    public static String eBz = "/activitypage";
+    public static String eBA = "/minapp";
+    public static String eBB = "/onekeysign";
+    public static String eBC = "/hotuserrank";
+    public static String eBD = "/forumRuleDetail";
+    public static String eBE = "extdata";
+    public static String eBF = "kw";
+    public static String eBG = "tid";
+    public static String eBH = "ori_ugc_nid";
+    public static String eBI = "ori_ugc_tid";
+    public static String eBJ = "ori_ugc_type";
+    public static String eBK = "ori_ugc_vid";
+    public static String eBL = "portrait";
+    public static String eBM = "topic_id";
     public static String PARAM_URL = "url";
-    public static String eGz = "schemefrom";
+    public static String eBN = "schemefrom";
     public static String PARAM_FROM = "from";
-    public static String eGA = "token";
-    public static String eGB = "tab_name";
-    public static String eGC = "maintablocate";
-    public static String eGD = "maintab_subtab";
-    public static String eGE = "newgod_from";
-    public static String eGF = "field_id";
-    public static String eGG = "chushou_third_live_type";
-    public static String eGH = "chuchou_third_room_id";
-    public static String eGI = "hotTrend";
-    public static String eGJ = "tab_id";
-    public static String eGK = "param_uri";
-    public static String eGL = TbTitleActivityConfig.FORUM_ID;
-    public static String eGM = "from_h5";
-    public static String eGN = "from_tb_token";
+    public static String eBO = "token";
+    public static String eBP = "tab_name";
+    public static String eBQ = "maintablocate";
+    public static String eBR = "maintab_subtab";
+    public static String eBS = "newgod_from";
+    public static String eBT = "field_id";
+    public static String eBU = "chushou_third_live_type";
+    public static String eBV = "chuchou_third_room_id";
+    public static String eBW = "hotTrend";
+    public static String eBX = "tab_id";
+    public static String eBY = "param_uri";
+    public static String eBZ = TbTitleActivityConfig.FORUM_ID;
+    public static String eCa = "from_h5";
+    public static String eCb = "from_tb_token";
 
     /* loaded from: classes.dex */
     public interface a {
         void onCallBack(HashMap<String, Object> hashMap);
     }
 
-    public static final f blo() {
-        return b.eGO;
+    public static final f bhu() {
+        return b.eCc;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static class b {
-        private static final f eGO = new f();
+        private static final f eCc = new f();
     }
 
     private f() {
     }
 
     public static boolean r(Uri uri) {
-        return uri != null && eGb.equals(uri.getScheme()) && HOST.equals(uri.getHost());
+        return uri != null && eBp.equals(uri.getScheme()) && HOST.equals(uri.getHost());
     }
 
     public void a(Uri uri, a aVar) {
         if (uri != null && r(uri)) {
             HashMap<String, Object> hashMap = new HashMap<>();
-            String queryParameter = uri.getQueryParameter(eGq);
-            String queryParameter2 = uri.getQueryParameter(eGz);
-            String queryParameter3 = uri.getQueryParameter(eGA);
-            String queryParameter4 = uri.getQueryParameter(eGB);
+            String queryParameter = uri.getQueryParameter(eBE);
+            String queryParameter2 = uri.getQueryParameter(eBN);
+            String queryParameter3 = uri.getQueryParameter(eBO);
+            String queryParameter4 = uri.getQueryParameter(eBP);
             a(queryParameter, queryParameter2, queryParameter3, uri);
-            Ad(uri.getQueryParameter(PARAM_FROM));
+            yS(uri.getQueryParameter(PARAM_FROM));
             a("", uri, queryParameter2);
-            if (eGc.equals(uri.getPath())) {
-                hashMap.put(eGC, 2);
-                hashMap.put(eGE, uri.getQueryParameter(eGE));
-                hashMap.put(eGF, uri.getQueryParameter(eGF));
-                hashMap.put(eGB, queryParameter4);
-            } else if (eGd.equals(uri.getPath())) {
-                hashMap.put(eGC, 1);
-                hashMap.put(eGD, queryParameter4);
-            } else if (eGe.equals(uri.getPath())) {
-                hashMap.put(eGC, 1);
-                hashMap.put(eGD, "1_recommend");
-            } else if (eGl.equals(uri.getPath())) {
-                hashMap.put(eGC, 2);
-                hashMap.put(eGB, queryParameter4);
+            v.u(uri);
+            if (eBq.equals(uri.getPath())) {
+                hashMap.put(eBQ, 2);
+                hashMap.put(eBS, uri.getQueryParameter(eBS));
+                hashMap.put(eBT, uri.getQueryParameter(eBT));
+                hashMap.put(eBP, queryParameter4);
+            } else if (eBr.equals(uri.getPath())) {
+                hashMap.put(eBQ, 1);
+                hashMap.put(eBR, queryParameter4);
+            } else if (eBs.equals(uri.getPath())) {
+                hashMap.put(eBQ, 1);
+                hashMap.put(eBR, "1_recommend");
+            } else if (eBz.equals(uri.getPath())) {
+                hashMap.put(eBQ, 2);
+                hashMap.put(eBP, queryParameter4);
             }
             aVar.onCallBack(hashMap);
         }
     }
 
     public void b(Uri uri, a aVar) {
-        if (uri != null && r(uri) && eGf.equals(uri.getPath())) {
+        if (uri != null && r(uri) && eBt.equals(uri.getPath())) {
             HashMap<String, Object> hashMap = new HashMap<>();
-            hashMap.put(eGr, uri.getQueryParameter(eGr));
-            hashMap.put(eGJ, uri.getQueryParameter(eGJ));
-            hashMap.put(eGs, uri.getQueryParameter(eGs));
-            Ad(uri.getQueryParameter(PARAM_FROM));
-            String queryParameter = uri.getQueryParameter(eGq);
-            String queryParameter2 = uri.getQueryParameter(eGz);
-            a(queryParameter, queryParameter2, uri.getQueryParameter(eGA), uri);
+            hashMap.put(eBF, uri.getQueryParameter(eBF));
+            hashMap.put(eBX, uri.getQueryParameter(eBX));
+            hashMap.put(eBG, uri.getQueryParameter(eBG));
+            yS(uri.getQueryParameter(PARAM_FROM));
+            String queryParameter = uri.getQueryParameter(eBE);
+            String queryParameter2 = uri.getQueryParameter(eBN);
+            a(queryParameter, queryParameter2, uri.getQueryParameter(eBO), uri);
             a("", uri, queryParameter2);
             aVar.onCallBack(hashMap);
         }
     }
 
     public void c(Uri uri, a aVar) {
-        if (uri != null && r(uri) && eGg.equals(uri.getPath())) {
+        if (uri != null && r(uri) && eBu.equals(uri.getPath())) {
             HashMap<String, Object> hashMap = new HashMap<>();
-            hashMap.put(eGs, uri.getQueryParameter(eGs));
-            hashMap.put(eGt, uri.getQueryParameter(eGt));
-            hashMap.put(eGu, uri.getQueryParameter(eGu));
-            hashMap.put(eGv, uri.getQueryParameter(eGv));
-            hashMap.put(eGw, uri.getQueryParameter(eGw));
-            Ad(uri.getQueryParameter(PARAM_FROM));
-            String queryParameter = uri.getQueryParameter(eGq);
-            String queryParameter2 = uri.getQueryParameter(eGz);
-            a(queryParameter, queryParameter2, uri.getQueryParameter(eGA), uri);
+            hashMap.put(eBG, uri.getQueryParameter(eBG));
+            hashMap.put(eBH, uri.getQueryParameter(eBH));
+            hashMap.put(eBI, uri.getQueryParameter(eBI));
+            hashMap.put(eBJ, uri.getQueryParameter(eBJ));
+            hashMap.put(eBK, uri.getQueryParameter(eBK));
+            yS(uri.getQueryParameter(PARAM_FROM));
+            String queryParameter = uri.getQueryParameter(eBE);
+            String queryParameter2 = uri.getQueryParameter(eBN);
+            a(queryParameter, queryParameter2, uri.getQueryParameter(eBO), uri);
             a("", uri, queryParameter2);
             aVar.onCallBack(hashMap);
         }
     }
 
     public void a(String str, Uri uri, a aVar) {
-        if (uri != null && r(uri) && eGh.equals(uri.getPath())) {
+        if (uri != null && r(uri) && eBv.equals(uri.getPath())) {
             HashMap<String, Object> hashMap = new HashMap<>();
             hashMap.put(PARAM_URL, uri.getQueryParameter(PARAM_URL));
-            hashMap.put(eGK, uri);
-            Ad(uri.getQueryParameter(PARAM_FROM));
-            String queryParameter = uri.getQueryParameter(eGq);
-            String queryParameter2 = uri.getQueryParameter(eGz);
-            a(queryParameter, queryParameter2, uri.getQueryParameter(eGA), uri);
+            hashMap.put(eBY, uri);
+            yS(uri.getQueryParameter(PARAM_FROM));
+            String queryParameter = uri.getQueryParameter(eBE);
+            String queryParameter2 = uri.getQueryParameter(eBN);
+            a(queryParameter, queryParameter2, uri.getQueryParameter(eBO), uri);
             a(str, uri, queryParameter2);
             aVar.onCallBack(hashMap);
         }
@@ -167,20 +168,20 @@ public class f {
     }
 
     public void d(Uri uri, a aVar) {
-        if (uri != null && r(uri) && eGi.equals(uri.getPath())) {
+        if (uri != null && r(uri) && eBw.equals(uri.getPath())) {
             HashMap<String, Object> hashMap = new HashMap<>();
-            hashMap.put(eGx, uri.getQueryParameter(eGx));
-            a(uri.getQueryParameter(eGq), uri.getQueryParameter(eGz), uri.getQueryParameter(eGA), uri);
+            hashMap.put(eBL, uri.getQueryParameter(eBL));
+            a(uri.getQueryParameter(eBE), uri.getQueryParameter(eBN), uri.getQueryParameter(eBO), uri);
             aVar.onCallBack(hashMap);
         }
     }
 
     public void e(Uri uri, a aVar) {
-        if (uri != null && r(uri) && eGj.equals(uri.getPath())) {
+        if (uri != null && r(uri) && eBx.equals(uri.getPath())) {
             HashMap<String, Object> hashMap = new HashMap<>();
-            hashMap.put(eGy, uri.getQueryParameter(eGy));
-            Ad(uri.getQueryParameter(PARAM_FROM));
-            a(uri.getQueryParameter(eGq), uri.getQueryParameter(eGz), uri.getQueryParameter(eGA), uri);
+            hashMap.put(eBM, uri.getQueryParameter(eBM));
+            yS(uri.getQueryParameter(PARAM_FROM));
+            a(uri.getQueryParameter(eBE), uri.getQueryParameter(eBN), uri.getQueryParameter(eBO), uri);
             aVar.onCallBack(hashMap);
         }
     }
@@ -191,17 +192,17 @@ public class f {
         if (!at.isEmpty(str)) {
             com.baidu.tbadk.BdToken.b bVar = new com.baidu.tbadk.BdToken.b(str);
             bVar.setToken(str3);
-            if (bVar.getActivityId() != 0 && bVar.bkE() != 0) {
-                TbSingleton.getInstance().setInvokeSource(bVar.bkF());
+            if (bVar.getActivityId() != 0 && bVar.bgK() != 0) {
+                TbSingleton.getInstance().setInvokeSource(bVar.bgL());
                 com.baidu.adp.lib.stats.f.setActivityId(String.valueOf(bVar.getActivityId()));
-                com.baidu.adp.lib.stats.f.bV(String.valueOf(bVar.bkE()));
-                int i = at.equals(str2, eGN) ? 2 : 1;
+                com.baidu.adp.lib.stats.f.bV(String.valueOf(bVar.bgK()));
+                int i = at.equals(str2, eCb) ? 2 : 1;
                 String str5 = "";
                 if (uri == null) {
                     str4 = "";
                 } else {
-                    str5 = uri.getQueryParameter(eGr);
-                    str4 = uri.getQueryParameter(eGs);
+                    str5 = uri.getQueryParameter(eBF);
+                    str4 = uri.getQueryParameter(eBG);
                 }
                 if (bVar.getActivityId() == 1111 && (currentActivity = TbadkCoreApplication.getInst().getCurrentActivity()) != null) {
                     if (currentActivity instanceof BaseFragmentActivity) {
@@ -210,15 +211,15 @@ public class f {
                         ((BaseActivity) currentActivity).showFloatingWindow();
                     }
                 }
-                TiebaStatic.log(new aq("c13321").dX("obj_source", bVar.bkF()).an("obj_type", bVar.getActivityId()).an("obj_param1", bVar.bkE()).an(TiebaInitialize.Params.OBJ_PARAM2, i).dX(TiebaInitialize.Params.OBJ_PARAM3, bVar.getSource()).dX("extra", bVar.bkG()).w("uid", TbadkCoreApplication.getCurrentAccountId()).dX("fname", str5).dX("tid", str4).an("obj_locate", TbadkCoreApplication.getInst().getStartType()).an("obj_name", 1));
-                c.bkU().l(bVar);
+                TiebaStatic.log(new aq("c13321").dW("obj_source", bVar.bgL()).an("obj_type", bVar.getActivityId()).an("obj_param1", bVar.bgK()).an(TiebaInitialize.Params.OBJ_PARAM2, i).dW(TiebaInitialize.Params.OBJ_PARAM3, bVar.getSource()).dW("extra", bVar.bgM()).w("uid", TbadkCoreApplication.getCurrentAccountId()).dW("fname", str5).dW("tid", str4).an("obj_locate", TbadkCoreApplication.getInst().getStartType()).an("obj_name", 1));
+                c.bha().l(bVar);
             }
         }
     }
 
     private void a(String str, Uri uri, String str2) {
-        if (uri != null && uri.getQueryParameter("obj_source") != null && uri.getQueryParameter("obj_type") != null && !at.equals(str2, eGN)) {
-            TiebaStatic.log(new aq("c13391").dX("obj_type", uri.getQueryParameter("obj_type")).dX("obj_source", uri.getQueryParameter("obj_source")));
+        if (uri != null && uri.getQueryParameter("obj_source") != null && uri.getQueryParameter("obj_type") != null && !at.equals(str2, eCb)) {
+            TiebaStatic.log(new aq("c13391").dW("obj_type", uri.getQueryParameter("obj_type")).dW("obj_source", uri.getQueryParameter("obj_source")));
         }
         if (str != null && !str.contains("tbwebview") && uri != null) {
             String queryParameter = uri.getQueryParameter("is_new_schema");
@@ -228,10 +229,10 @@ public class f {
         }
     }
 
-    private void Ad(String str) {
+    private void yS(String str) {
         if (!TextUtils.isEmpty(str) && UbcStatConstant.ContentSource.SHOUBAI.equals(str)) {
-            com.baidu.tbadk.util.d.bIF().lw(true);
-            com.baidu.tbadk.util.d.bIF().bIG();
+            com.baidu.tbadk.util.d.bEN().ls(true);
+            com.baidu.tbadk.util.d.bEN().bEO();
         }
     }
 }

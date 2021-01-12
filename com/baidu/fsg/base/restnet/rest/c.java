@@ -6,14 +6,14 @@ import com.baidu.fsg.base.utils.LogUtil;
 import java.io.IOException;
 import java.net.UnknownHostException;
 import java.util.concurrent.TimeoutException;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class c implements b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final int f1963a = 30000;
+    public static final int f1913a = 30000;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int f1964b = 30000;
+    public static final int f1914b = 30000;
     public static final int c = 10;
     public static final int d = 10;
     public static final int e = 8192;

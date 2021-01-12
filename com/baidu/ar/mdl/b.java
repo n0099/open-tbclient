@@ -4,7 +4,6 @@ import android.content.Context;
 import android.text.TextUtils;
 import android.util.SparseArray;
 import com.baidu.ar.arplay.core.message.ARPMessageType;
-import com.baidu.platform.comapi.map.MapBundleKey;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -106,12 +105,12 @@ public class b {
                 int length2 = jSONArray2.length();
                 a aVar = new a();
                 aVar.type = i2;
-                aVar.f1487tv = z;
+                aVar.f1493tv = z;
                 aVar.tw = new String[length2];
                 for (int i3 = 0; i3 < length2; i3++) {
                     JSONObject jSONObject2 = jSONArray2.getJSONObject(i3);
                     int optInt = jSONObject2.optInt(ARPMessageType.ARPMessageParamKeys.MODEL_TYPE_KEY, i3);
-                    File file = new File(str2, jSONObject2.getString(MapBundleKey.MapObjKey.OBJ_DIR));
+                    File file = new File(str2, jSONObject2.getString("dir"));
                     String optString = jSONObject2.optString("design_model", "");
                     String absolutePath = (!TextUtils.isEmpty(optString) ? new File(file, optString) : file).getAbsolutePath();
                     if (z) {

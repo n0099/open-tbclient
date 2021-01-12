@@ -5,7 +5,7 @@ import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.core.content.ContextCompat;
 import com.kwad.sdk.glide.c.c;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class f implements d {
     @Override // com.kwad.sdk.glide.c.d
     @NonNull

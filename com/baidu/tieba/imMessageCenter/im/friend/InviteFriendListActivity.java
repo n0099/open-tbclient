@@ -31,33 +31,33 @@ import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes2.dex */
 public class InviteFriendListActivity extends BaseActivity<InviteFriendListActivity> implements View.OnClickListener, AdapterView.OnItemClickListener {
     private boolean isFromInviteChat;
-    private boolean kLB;
-    private d kLw;
-    private e kLx;
-    private boolean kLy = false;
-    public List<com.baidu.tbadk.coreExtra.relationship.a> kLz = null;
-    private LinkedList<com.baidu.tbadk.coreExtra.relationship.a> kLA = new LinkedList<>();
-    private final AtomicBoolean kLC = new AtomicBoolean(false);
-    private CustomMessageListener kLD = new CustomMessageListener(CmdConfigCustom.CMD_QUERY_CONTACT_LIST) { // from class: com.baidu.tieba.imMessageCenter.im.friend.InviteFriendListActivity.2
+    private d kGR;
+    private e kGS;
+    private boolean kGW;
+    private boolean kGT = false;
+    public List<com.baidu.tbadk.coreExtra.relationship.a> kGU = null;
+    private LinkedList<com.baidu.tbadk.coreExtra.relationship.a> kGV = new LinkedList<>();
+    private final AtomicBoolean kGX = new AtomicBoolean(false);
+    private CustomMessageListener kGY = new CustomMessageListener(CmdConfigCustom.CMD_QUERY_CONTACT_LIST) { // from class: com.baidu.tieba.imMessageCenter.im.friend.InviteFriendListActivity.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage instanceof GetContactListResponsedMessage) {
-                InviteFriendListActivity.this.kLy = true;
-                InviteFriendListActivity.this.kLC.set(false);
-                InviteFriendListActivity.this.hideLoadingView(InviteFriendListActivity.this.kLw.getRootView());
+                InviteFriendListActivity.this.kGT = true;
+                InviteFriendListActivity.this.kGX.set(false);
+                InviteFriendListActivity.this.hideLoadingView(InviteFriendListActivity.this.kGR.getRootView());
                 List<com.baidu.tbadk.coreExtra.relationship.a> contacts = ((GetContactListResponsedMessage) customResponsedMessage).getContacts();
                 if (contacts == null) {
                     contacts = new LinkedList<>();
                 }
-                InviteFriendListActivity.this.kLz = contacts;
-                if (InviteFriendListActivity.this.kLw != null) {
-                    InviteFriendListActivity.this.dax();
+                InviteFriendListActivity.this.kGU = contacts;
+                if (InviteFriendListActivity.this.kGR != null) {
+                    InviteFriendListActivity.this.cWF();
                 }
             }
         }
     };
-    private final com.baidu.adp.framework.listener.c kwr = new com.baidu.adp.framework.listener.c(CmdConfigSocket.CMD_COMMIT_INVITE) { // from class: com.baidu.tieba.imMessageCenter.im.friend.InviteFriendListActivity.4
+    private final com.baidu.adp.framework.listener.c krM = new com.baidu.adp.framework.listener.c(CmdConfigSocket.CMD_COMMIT_INVITE) { // from class: com.baidu.tieba.imMessageCenter.im.friend.InviteFriendListActivity.4
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(SocketResponsedMessage socketResponsedMessage) {
@@ -86,26 +86,26 @@ public class InviteFriendListActivity extends BaseActivity<InviteFriendListActiv
     public void onCreate(Bundle bundle) {
         boolean z = false;
         super.onCreate(bundle);
-        registerListener(this.kwr);
-        registerListener(this.kLD);
+        registerListener(this.krM);
+        registerListener(this.kGY);
         Intent intent = getIntent();
         initModel();
         if (intent != null) {
             this.isFromInviteChat = intent.getBooleanExtra(InviteFriendListActivityConfig.IS_FROM_INVITE_CHAT, false);
             z = intent.getBooleanExtra(InviteFriendListActivityConfig.KEY_FINISH_ACTIVITY, false);
-            this.kLx.initWithIntent(intent);
+            this.kGS.initWithIntent(intent);
         } else {
             this.isFromInviteChat = bundle.getBoolean(InviteFriendListActivityConfig.IS_FROM_INVITE_CHAT, false);
-            this.kLx.initWithBundle(bundle);
+            this.kGS.initWithBundle(bundle);
         }
         initView();
         loadData();
         if (z) {
-            daw();
+            cWE();
         }
     }
 
-    private void daw() {
+    private void cWE() {
         registerListener(new CustomMessageListener(CmdConfigCustom.CMD_PERSONAL_CHAT_INITED) { // from class: com.baidu.tieba.imMessageCenter.im.friend.InviteFriendListActivity.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
@@ -120,98 +120,98 @@ public class InviteFriendListActivity extends BaseActivity<InviteFriendListActiv
     @Override // android.app.Activity
     protected void onSaveInstanceState(Bundle bundle) {
         super.onSaveInstanceState(bundle);
-        this.kLx.ay(bundle);
+        this.kGS.ay(bundle);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity
     public void onStart() {
         super.onStart();
-        this.kLw.daG();
+        this.kGR.cWO();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onStop() {
         super.onStop();
-        this.kLw.daH();
+        this.kGR.cWP();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        this.kLx.cancelLoadData();
-        if (this.kLw != null) {
-            this.kLw.onDestroy();
+        this.kGS.cancelLoadData();
+        if (this.kGR != null) {
+            this.kGR.onDestroy();
         }
     }
 
     private void initModel() {
-        this.kLx = new e(this);
+        this.kGS = new e(this);
     }
 
     private void initView() {
-        this.kLw = new d(this, this.isFromInviteChat);
-        this.kLw.EG(100);
+        this.kGR = new d(this, this.isFromInviteChat);
+        this.kGR.Da(100);
     }
 
     private void loadData() {
-        dax();
+        cWF();
     }
 
     @Override // android.app.Activity, android.view.Window.Callback
     public void onWindowFocusChanged(boolean z) {
         super.onWindowFocusChanged(z);
-        if (z && !this.kLy) {
-            showLoadingView(this.kLw.getRootView(), true);
+        if (z && !this.kGT) {
+            showLoadingView(this.kGR.getRootView(), true);
         }
     }
 
-    public void dax() {
+    public void cWF() {
         String trim;
         if (!isFinishing()) {
-            if (this.kLz == null) {
-                if (!this.kLC.get()) {
-                    this.kLC.set(true);
+            if (this.kGU == null) {
+                if (!this.kGX.get()) {
+                    this.kGX.set(true);
                     super.sendMessage(new GetContactListRequestMessage());
                     return;
                 }
                 return;
             }
-            String daE = this.kLw.daE();
-            if (daE == null) {
+            String cWM = this.kGR.cWM();
+            if (cWM == null) {
                 trim = "";
             } else {
-                trim = daE.trim();
+                trim = cWM.trim();
             }
-            if (this.kLz.isEmpty() && trim.length() > 0) {
+            if (this.kGU.isEmpty() && trim.length() > 0) {
                 showToast(getPageContext().getString(R.string.invite_friend_no_data_now));
             }
             if (trim.length() == 0) {
-                this.kLB = false;
-                this.kLw.t(this.kLz, false);
+                this.kGW = false;
+                this.kGR.t(this.kGU, false);
                 return;
             }
-            this.kLA.clear();
-            for (com.baidu.tbadk.coreExtra.relationship.a aVar : this.kLz) {
-                String bCA = aVar.bCA();
-                if (bCA != null && bCA.contains(trim)) {
-                    this.kLA.add(aVar);
+            this.kGV.clear();
+            for (com.baidu.tbadk.coreExtra.relationship.a aVar : this.kGU) {
+                String byG = aVar.byG();
+                if (byG != null && byG.contains(trim)) {
+                    this.kGV.add(aVar);
                 }
             }
-            this.kLB = true;
-            this.kLw.t(this.kLA, true);
+            this.kGW = true;
+            this.kGR.t(this.kGV, true);
         }
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.kLw != null) {
-            this.kLw.hideKeyboard();
-            if (view.getId() == this.kLw.daD()) {
+        if (this.kGR != null) {
+            this.kGR.hideKeyboard();
+            if (view.getId() == this.kGR.cWL()) {
                 showLoadingDialog();
-                this.kLx.NG(this.kLw.daF());
+                this.kGS.My(this.kGR.cWN());
             }
         }
     }
@@ -222,30 +222,30 @@ public class InviteFriendListActivity extends BaseActivity<InviteFriendListActiv
         com.baidu.tbadk.coreExtra.relationship.a aVar;
         super.onItemClick(adapterView, view, i, j);
         if (this.isFromInviteChat) {
-            if (this.kLB) {
-                if (this.kLA != null && i < this.kLA.size()) {
-                    aVar = this.kLA.get(i);
+            if (this.kGW) {
+                if (this.kGV != null && i < this.kGV.size()) {
+                    aVar = this.kGV.get(i);
                 }
                 aVar = null;
             } else {
-                if (this.kLz != null && i < this.kLz.size()) {
-                    aVar = this.kLz.get(i);
+                if (this.kGU != null && i < this.kGU.size()) {
+                    aVar = this.kGU.get(i);
                 }
                 aVar = null;
             }
             if (aVar != null) {
-                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSONAL_CHAT, new PersonalChatActivityConfig(getPageContext().getPageActivity(), aVar.getUserId(), aVar.getUserName(), aVar.bCC(), aVar.getUserPortrait(), 0)));
+                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSONAL_CHAT, new PersonalChatActivityConfig(getPageContext().getPageActivity(), aVar.getUserId(), aVar.getUserName(), aVar.byI(), aVar.getUserPortrait(), 0)));
             }
         } else if (view != null && (tag = view.getTag()) != null && (tag instanceof c.a)) {
-            TbCheckBox tbCheckBox = ((c.a) tag).kLJ;
+            TbCheckBox tbCheckBox = ((c.a) tag).kHe;
             tbCheckBox.setChecked(tbCheckBox.isChecked() ? false : true);
         }
     }
 
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
-        if (i == 4 && this.kLw.daC()) {
-            this.kLw.daB();
+        if (i == 4 && this.kGR.cWK()) {
+            this.kGR.cWJ();
             return true;
         }
         return super.onKeyDown(i, keyEvent);
@@ -255,8 +255,8 @@ public class InviteFriendListActivity extends BaseActivity<InviteFriendListActiv
         showLoadingDialog((String) null, new DialogInterface.OnCancelListener() { // from class: com.baidu.tieba.imMessageCenter.im.friend.InviteFriendListActivity.3
             @Override // android.content.DialogInterface.OnCancelListener
             public void onCancel(DialogInterface dialogInterface) {
-                if (InviteFriendListActivity.this.kLx != null) {
-                    InviteFriendListActivity.this.kLx.cancelLoadData();
+                if (InviteFriendListActivity.this.kGS != null) {
+                    InviteFriendListActivity.this.kGS.cancelLoadData();
                 }
             }
         });
@@ -265,6 +265,6 @@ public class InviteFriendListActivity extends BaseActivity<InviteFriendListActiv
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
-        this.kLw.bxP();
+        this.kGR.btV();
     }
 }

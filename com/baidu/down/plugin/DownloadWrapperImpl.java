@@ -8,7 +8,7 @@ import com.baidu.down.common.TaskManagerConfiguration;
 import com.baidu.down.common.TaskObserver;
 import com.baidu.down.request.taskmanager.BinaryTaskMng;
 import com.baidu.down.request.taskmanager.TaskFacade;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class DownloadWrapperImpl implements IDownloadWrapper {
     private static final boolean DEBUG = false;
     private static final String TAG = "DownloadWrapperImpl";

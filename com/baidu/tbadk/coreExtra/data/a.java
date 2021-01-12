@@ -3,10 +3,10 @@ package com.baidu.tbadk.coreExtra.data;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class a {
-    private boolean fsu = false;
+    private boolean fnJ = false;
 
-    public boolean bzv() {
-        return this.fsu;
+    public boolean bvB() {
+        return this.fnJ;
     }
 
     public void parseJson(JSONObject jSONObject) {
@@ -23,15 +23,15 @@ public class a {
 
     private void dt(JSONObject jSONObject) {
         if (jSONObject != null) {
-            this.fsu = true;
+            this.fnJ = true;
         }
     }
 
     public void du(JSONObject jSONObject) {
         if (jSONObject != null) {
-            com.baidu.tbadk.core.sharedPref.b.bvr().putString("praise_abtest_switch_json", jSONObject.toString());
+            com.baidu.tbadk.core.sharedPref.b.brx().putString("praise_abtest_switch_json", jSONObject.toString());
         } else {
-            com.baidu.tbadk.core.sharedPref.b.bvr().putString("praise_abtest_switch_json", "");
+            com.baidu.tbadk.core.sharedPref.b.brx().putString("praise_abtest_switch_json", "");
         }
     }
 }

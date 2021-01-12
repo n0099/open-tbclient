@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class t {
     public static com.baidu.live.lottie.e i(JsonReader jsonReader) throws IOException {
         float kA = com.baidu.live.lottie.d.f.kA();
@@ -117,7 +117,7 @@ public class t {
                         break;
                     case 5:
                         String[] split = jsonReader.nextString().split("\\.");
-                        if (!com.baidu.live.lottie.d.f.b(Integer.parseInt(split[0]), Integer.parseInt(split[1]), Integer.parseInt(split[2]), 4, 4, 0)) {
+                        if (!com.baidu.live.lottie.d.f.c(Integer.parseInt(split[0]), Integer.parseInt(split[1]), Integer.parseInt(split[2]), 4, 4, 0)) {
                             eVar.bc("Lottie only supports bodymovin >= 4.4.0");
                             break;
                         } else {
@@ -157,7 +157,7 @@ public class t {
         jsonReader.beginArray();
         while (jsonReader.hasNext()) {
             Layer q = s.q(jsonReader, eVar);
-            if (q.QA() == Layer.LayerType.Image) {
+            if (q.MF() == Layer.LayerType.Image) {
                 i++;
             }
             list.add(q);

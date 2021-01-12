@@ -7,18 +7,18 @@ import com.bun.miitmdid.utils.SupplierListener;
 public class a implements InnerIdSupplier, com.bun.miitmdid.supplier.c.a {
 
     /* renamed from: a  reason: collision with root package name */
-    public SupplierListener f6063a;
-    private SumsungCore pgs;
+    public SupplierListener f5763a;
+    private SumsungCore pbP;
 
     public a(Context context, SupplierListener supplierListener) {
-        this.f6063a = supplierListener;
-        this.pgs = new SumsungCore(context, this);
+        this.f5763a = supplierListener;
+        this.pbP = new SumsungCore(context, this);
     }
 
     @Override // com.bun.miitmdid.supplier.c.a
     public void a() {
-        if (this.f6063a != null) {
-            this.f6063a.OnSupport(isSupported(), this);
+        if (this.f5763a != null) {
+            this.f5763a.OnSupport(isSupported(), this);
         }
     }
 
@@ -28,8 +28,8 @@ public class a implements InnerIdSupplier, com.bun.miitmdid.supplier.c.a {
 
     @Override // com.bun.miitmdid.supplier.c.a
     public void a(boolean z) {
-        if (this.f6063a != null) {
-            this.f6063a.OnSupport(isSupported(), this);
+        if (this.f5763a != null) {
+            this.f5763a.OnSupport(isSupported(), this);
         }
     }
 
@@ -41,39 +41,39 @@ public class a implements InnerIdSupplier, com.bun.miitmdid.supplier.c.a {
     @Override // com.bun.miitmdid.supplier.IdSupplier
     public String getAAID() {
         String aaid;
-        return (isSupported() && (aaid = this.pgs.getAAID()) != null) ? aaid : "";
+        return (isSupported() && (aaid = this.pbP.getAAID()) != null) ? aaid : "";
     }
 
     @Override // com.bun.miitmdid.supplier.IdSupplier
     public String getOAID() {
         String oaid;
-        return (isSupported() && (oaid = this.pgs.getOAID()) != null) ? oaid : "";
+        return (isSupported() && (oaid = this.pbP.getOAID()) != null) ? oaid : "";
     }
 
     @Override // com.bun.miitmdid.supplier.InnerIdSupplier
     public String getUDID() {
         String udid;
-        return (isSupported() && (udid = this.pgs.getUDID()) != null) ? udid : "";
+        return (isSupported() && (udid = this.pbP.getUDID()) != null) ? udid : "";
     }
 
     @Override // com.bun.miitmdid.supplier.IdSupplier
     public String getVAID() {
         String vaid;
-        return (isSupported() && (vaid = this.pgs.getVAID()) != null) ? vaid : "";
+        return (isSupported() && (vaid = this.pbP.getVAID()) != null) ? vaid : "";
     }
 
     @Override // com.bun.miitmdid.supplier.IdSupplier
     public boolean isSupported() {
-        if (this.pgs != null) {
-            return this.pgs.isSupported();
+        if (this.pbP != null) {
+            return this.pbP.isSupported();
         }
         return false;
     }
 
     @Override // com.bun.miitmdid.supplier.InnerIdSupplier
     public void shutDown() {
-        if (this.pgs != null) {
-            this.pgs.shutdown();
+        if (this.pbP != null) {
+            this.pbP.shutdown();
         }
     }
 }

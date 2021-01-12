@@ -10,17 +10,17 @@ import java.util.concurrent.atomic.AtomicReference;
 import org.a.d;
 /* loaded from: classes5.dex */
 public final class FlowableSamplePublisher<T> extends g<T> {
-    final org.a.b<?> qiN;
-    final boolean qjd;
+    final boolean qeB;
+    final org.a.b<?> qel;
     final org.a.b<T> source;
 
     @Override // io.reactivex.g
     protected void a(org.a.c<? super T> cVar) {
         io.reactivex.subscribers.b bVar = new io.reactivex.subscribers.b(cVar);
-        if (this.qjd) {
-            this.source.subscribe(new SampleMainEmitLast(bVar, this.qiN));
+        if (this.qeB) {
+            this.source.subscribe(new SampleMainEmitLast(bVar, this.qel));
         } else {
-            this.source.subscribe(new SampleMainNoLast(bVar, this.qiN));
+            this.source.subscribe(new SampleMainNoLast(bVar, this.qel));
         }
     }
 
@@ -116,32 +116,32 @@ public final class FlowableSamplePublisher<T> extends g<T> {
 
     /* loaded from: classes5.dex */
     static final class a<T> implements j<Object> {
-        final SamplePublisherSubscriber<T> qje;
+        final SamplePublisherSubscriber<T> qeC;
 
         a(SamplePublisherSubscriber<T> samplePublisherSubscriber) {
-            this.qje = samplePublisherSubscriber;
+            this.qeC = samplePublisherSubscriber;
         }
 
         @Override // io.reactivex.j, org.a.c
         public void onSubscribe(d dVar) {
-            if (this.qje.setOther(dVar)) {
+            if (this.qeC.setOther(dVar)) {
                 dVar.request(Long.MAX_VALUE);
             }
         }
 
         @Override // org.a.c
         public void onNext(Object obj) {
-            this.qje.run();
+            this.qeC.run();
         }
 
         @Override // org.a.c
         public void onError(Throwable th) {
-            this.qje.error(th);
+            this.qeC.error(th);
         }
 
         @Override // org.a.c
         public void onComplete() {
-            this.qje.complete();
+            this.qeC.complete();
         }
     }
 

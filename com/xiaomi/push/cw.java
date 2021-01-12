@@ -10,10 +10,10 @@ import org.json.JSONObject;
 public class cw {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f14225a;
+    private String f13925a;
 
     /* renamed from: a  reason: collision with other field name */
-    private final ArrayList<cv> f265a = new ArrayList<>();
+    private final ArrayList<cv> f264a = new ArrayList<>();
 
     public cw() {
     }
@@ -22,25 +22,25 @@ public class cw {
         if (TextUtils.isEmpty(str)) {
             throw new IllegalArgumentException("the host is empty");
         }
-        this.f14225a = str;
+        this.f13925a = str;
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:7:0x001a, code lost:
-        com.xiaomi.push.cz.a().m249a(r0.a());
+        com.xiaomi.push.cz.a().m245a(r0.a());
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public synchronized cv a() {
         cv cvVar;
-        int size = this.f265a.size() - 1;
+        int size = this.f264a.size() - 1;
         while (true) {
             if (size < 0) {
                 cvVar = null;
                 break;
             }
-            cvVar = this.f265a.get(size);
-            if (cvVar.m239a()) {
+            cvVar = this.f264a.get(size);
+            if (cvVar.m235a()) {
                 break;
             }
             size--;
@@ -49,33 +49,33 @@ public class cw {
     }
 
     public synchronized cw a(JSONObject jSONObject) {
-        this.f14225a = jSONObject.getString("host");
+        this.f13925a = jSONObject.getString("host");
         JSONArray jSONArray = jSONObject.getJSONArray("fbs");
         for (int i = 0; i < jSONArray.length(); i++) {
-            this.f265a.add(new cv(this.f14225a).a(jSONArray.getJSONObject(i)));
+            this.f264a.add(new cv(this.f13925a).a(jSONArray.getJSONObject(i)));
         }
         return this;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public String m240a() {
-        return this.f14225a;
+    public String m236a() {
+        return this.f13925a;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public ArrayList<cv> m241a() {
-        return this.f265a;
+    public ArrayList<cv> m237a() {
+        return this.f264a;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public synchronized JSONObject m242a() {
+    public synchronized JSONObject m238a() {
         JSONObject jSONObject;
         jSONObject = new JSONObject();
-        jSONObject.put("host", this.f14225a);
+        jSONObject.put("host", this.f13925a);
         JSONArray jSONArray = new JSONArray();
-        Iterator<cv> it = this.f265a.iterator();
+        Iterator<cv> it = this.f264a.iterator();
         while (it.hasNext()) {
-            jSONArray.put(it.next().m237a());
+            jSONArray.put(it.next().m233a());
         }
         jSONObject.put("fbs", jSONArray);
         return jSONObject;
@@ -86,38 +86,38 @@ public class cw {
         int i2 = 0;
         while (true) {
             i = i2;
-            if (i >= this.f265a.size()) {
+            if (i >= this.f264a.size()) {
                 break;
-            } else if (this.f265a.get(i).a(cvVar)) {
-                this.f265a.set(i, cvVar);
+            } else if (this.f264a.get(i).a(cvVar)) {
+                this.f264a.set(i, cvVar);
                 break;
             } else {
                 i2 = i + 1;
             }
         }
-        if (i >= this.f265a.size()) {
-            this.f265a.add(cvVar);
+        if (i >= this.f264a.size()) {
+            this.f264a.add(cvVar);
         }
     }
 
     public synchronized void a(boolean z) {
-        for (int size = this.f265a.size() - 1; size >= 0; size--) {
-            cv cvVar = this.f265a.get(size);
+        for (int size = this.f264a.size() - 1; size >= 0; size--) {
+            cv cvVar = this.f264a.get(size);
             if (z) {
                 if (cvVar.c()) {
-                    this.f265a.remove(size);
+                    this.f264a.remove(size);
                 }
             } else if (!cvVar.b()) {
-                this.f265a.remove(size);
+                this.f264a.remove(size);
             }
         }
     }
 
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append(this.f14225a);
+        sb.append(this.f13925a);
         sb.append("\n");
-        Iterator<cv> it = this.f265a.iterator();
+        Iterator<cv> it = this.f264a.iterator();
         while (it.hasNext()) {
             sb.append(it.next());
         }

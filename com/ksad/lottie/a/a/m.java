@@ -7,14 +7,14 @@ import com.ksad.lottie.a.b.a;
 import com.ksad.lottie.model.content.PolystarShape;
 import com.ksad.lottie.model.content.ShapeTrimPath;
 import java.util.List;
-/* loaded from: classes5.dex */
-public class m implements j, l, a.InterfaceC1078a {
+/* loaded from: classes4.dex */
+public class m implements j, l, a.InterfaceC1061a {
 
     /* renamed from: a  reason: collision with root package name */
-    private final Path f8245a = new Path();
+    private final Path f7945a = new Path();
 
     /* renamed from: b  reason: collision with root package name */
-    private final String f8246b;
+    private final String f7946b;
     private final com.ksad.lottie.f c;
     private final PolystarShape.Type d;
     private final com.ksad.lottie.a.b.a<?, Float> e;
@@ -32,7 +32,7 @@ public class m implements j, l, a.InterfaceC1078a {
 
     public m(com.ksad.lottie.f fVar, com.ksad.lottie.model.layer.a aVar, PolystarShape polystarShape) {
         this.c = fVar;
-        this.f8246b = polystarShape.a();
+        this.f7946b = polystarShape.a();
         this.d = polystarShape.b();
         this.e = polystarShape.c().a();
         this.f = polystarShape.d().a();
@@ -92,14 +92,14 @@ public class m implements j, l, a.InterfaceC1078a {
             float f8 = ((floatValue2 - floatValue3) * f7) + floatValue3;
             float cos = (float) (f8 * Math.cos(d2));
             sin = (float) (f8 * Math.sin(d2));
-            this.f8245a.moveTo(cos, sin);
+            this.f7945a.moveTo(cos, sin);
             d = d2 + ((f5 * f7) / 2.0f);
             f = f8;
             f2 = cos;
         } else {
             float cos2 = (float) (floatValue2 * Math.cos(d2));
             sin = (float) (floatValue2 * Math.sin(d2));
-            this.f8245a.moveTo(cos2, sin);
+            this.f7945a.moveTo(cos2, sin);
             d = d2 + f6;
             f = 0.0f;
             f2 = cos2;
@@ -113,8 +113,8 @@ public class m implements j, l, a.InterfaceC1078a {
             double d3 = d;
             if (i >= ceil) {
                 PointF e = this.f.e();
-                this.f8245a.offset(e.x, e.y);
-                this.f8245a.close();
+                this.f7945a.offset(e.x, e.y);
+                this.f7945a.close();
                 return;
             }
             float f11 = z ? floatValue2 : floatValue3;
@@ -125,7 +125,7 @@ public class m implements j, l, a.InterfaceC1078a {
             float cos3 = (float) (f11 * Math.cos(d3));
             float sin2 = (float) (f11 * Math.sin(d3));
             if (floatValue4 == 0.0f && floatValue5 == 0.0f) {
-                this.f8245a.lineTo(cos3, sin2);
+                this.f7945a.lineTo(cos3, sin2);
             } else {
                 float atan2 = (float) (Math.atan2(f9, f10) - 1.5707963267948966d);
                 float cos4 = (float) Math.cos(atan2);
@@ -151,11 +151,11 @@ public class m implements j, l, a.InterfaceC1078a {
                         f3 = f20 * f7;
                         f4 = f19 * f7;
                     }
-                    this.f8245a.cubicTo(f10 - f17, f9 - f18, f4 + cos3, f3 + sin2, cos3, sin2);
+                    this.f7945a.cubicTo(f10 - f17, f9 - f18, f4 + cos3, f3 + sin2, cos3, sin2);
                 }
                 f3 = f20;
                 f4 = f19;
-                this.f8245a.cubicTo(f10 - f17, f9 - f18, f4 + cos3, f3 + sin2, cos3, sin2);
+                this.f7945a.cubicTo(f10 - f17, f9 - f18, f4 + cos3, f3 + sin2, cos3, sin2);
             }
             d = d3 + f12;
             i++;
@@ -173,7 +173,7 @@ public class m implements j, l, a.InterfaceC1078a {
         float floatValue2 = this.i.e().floatValue();
         float cos = (float) (floatValue2 * Math.cos(radians));
         float sin = (float) (floatValue2 * Math.sin(radians));
-        this.f8245a.moveTo(cos, sin);
+        this.f7945a.moveTo(cos, sin);
         double d = radians + f;
         double ceil = Math.ceil(floor);
         int i = 0;
@@ -183,8 +183,8 @@ public class m implements j, l, a.InterfaceC1078a {
             float f3 = cos;
             if (i2 >= ceil) {
                 PointF e = this.f.e();
-                this.f8245a.offset(e.x, e.y);
-                this.f8245a.close();
+                this.f7945a.offset(e.x, e.y);
+                this.f7945a.close();
                 return;
             }
             cos = (float) (floatValue2 * Math.cos(d));
@@ -194,16 +194,16 @@ public class m implements j, l, a.InterfaceC1078a {
                 float cos2 = (float) Math.cos(atan2);
                 float sin2 = (float) Math.sin(atan2);
                 float atan22 = (float) (Math.atan2(sin, cos) - 1.5707963267948966d);
-                this.f8245a.cubicTo(f3 - (cos2 * ((floatValue2 * floatValue) * 0.25f)), f2 - (((floatValue2 * floatValue) * 0.25f) * sin2), cos + (((float) Math.cos(atan22)) * floatValue2 * floatValue * 0.25f), (((float) Math.sin(atan22)) * floatValue2 * floatValue * 0.25f) + sin, cos, sin);
+                this.f7945a.cubicTo(f3 - (cos2 * ((floatValue2 * floatValue) * 0.25f)), f2 - (((floatValue2 * floatValue) * 0.25f) * sin2), cos + (((float) Math.cos(atan22)) * floatValue2 * floatValue * 0.25f), (((float) Math.sin(atan22)) * floatValue2 * floatValue * 0.25f) + sin, cos, sin);
             } else {
-                this.f8245a.lineTo(cos, sin);
+                this.f7945a.lineTo(cos, sin);
             }
             d += f;
             i = i2 + 1;
         }
     }
 
-    @Override // com.ksad.lottie.a.b.a.InterfaceC1078a
+    @Override // com.ksad.lottie.a.b.a.InterfaceC1061a
     public void a() {
         b();
     }
@@ -228,9 +228,9 @@ public class m implements j, l, a.InterfaceC1078a {
     @Override // com.ksad.lottie.a.a.l
     public Path d() {
         if (this.m) {
-            return this.f8245a;
+            return this.f7945a;
         }
-        this.f8245a.reset();
+        this.f7945a.reset();
         switch (this.d) {
             case Star:
                 c();
@@ -239,9 +239,9 @@ public class m implements j, l, a.InterfaceC1078a {
                 e();
                 break;
         }
-        this.f8245a.close();
-        com.ksad.lottie.d.f.a(this.f8245a, this.l);
+        this.f7945a.close();
+        com.ksad.lottie.d.f.a(this.f7945a, this.l);
         this.m = true;
-        return this.f8245a;
+        return this.f7945a;
     }
 }

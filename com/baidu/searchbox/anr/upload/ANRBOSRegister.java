@@ -11,7 +11,7 @@ import com.baidu.searchbox.config.AppConfig;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class ANRBOSRegister implements IANRRegister {
     private String uploadType = "anr";
     private FileUploadStrategy fileUploadStrategy = new FileUploadStrategy();

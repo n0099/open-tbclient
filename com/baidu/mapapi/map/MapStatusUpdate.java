@@ -2,178 +2,137 @@ package com.baidu.mapapi.map;
 
 import android.graphics.Point;
 import android.util.Log;
-import com.baidu.mapapi.common.SysOSUtil;
 import com.baidu.mapapi.model.CoordUtil;
 import com.baidu.mapapi.model.LatLng;
 import com.baidu.mapapi.model.LatLngBounds;
-import com.baidu.platform.comapi.basestruct.GeoPoint;
-/* loaded from: classes3.dex */
+import com.baidu.mapapi.model.inner.GeoPoint;
+/* loaded from: classes6.dex */
 public final class MapStatusUpdate {
-    private static final String o = MapStatusUpdate.class.getSimpleName();
+    private static final String p = MapStatusUpdate.class.getSimpleName();
 
     /* renamed from: a  reason: collision with root package name */
-    MapStatus f2843a;
+    int f2736a;
 
     /* renamed from: b  reason: collision with root package name */
-    LatLng f2844b;
-    LatLngBounds c;
-    int d;
+    MapStatus f2737b;
+    LatLng c;
+    LatLngBounds d;
     int e;
-    float f;
-    int g;
+    int f;
+    float g;
     int h;
-    float i;
-    Point j;
-    int k = 0;
+    int i;
+    float j;
+    Point k;
     int l = 0;
     int m = 0;
     int n = 0;
-    private int p;
+    int o = 0;
 
-    private MapStatusUpdate() {
+    MapStatusUpdate() {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public MapStatusUpdate(int i) {
-        this.p = i;
+        this.f2736a = i;
     }
 
-    private float a(float f) {
-        return (float) (Math.pow(2.0d, 18.0f - f) / (SysOSUtil.getDensityDpi() / 310.0f));
-    }
-
-    private float a(LatLngBounds latLngBounds, com.baidu.mapsdkplatform.comapi.map.d dVar, int i, int i2) {
+    private float a(LatLngBounds latLngBounds, com.baidu.mapsdkplatform.comapi.map.e eVar, int i, int i2) {
         GeoPoint ll2mc = CoordUtil.ll2mc(latLngBounds.southwest);
         GeoPoint ll2mc2 = CoordUtil.ll2mc(latLngBounds.northeast);
-        int longitudeE6 = (int) ll2mc2.getLongitudeE6();
-        return dVar.a((int) ll2mc.getLongitudeE6(), (int) ll2mc2.getLatitudeE6(), longitudeE6, (int) ll2mc.getLatitudeE6(), i, i2);
+        Point a2 = eVar.a(ll2mc);
+        Point a3 = eVar.a(ll2mc2);
+        Point point = new Point(a2.x - Math.abs(this.l), a2.y + Math.abs(this.o));
+        Point point2 = new Point(a3.x + Math.abs(this.n), a3.y - Math.abs(this.m));
+        GeoPoint b2 = eVar.b(point.x, point.y);
+        GeoPoint b3 = eVar.b(point2.x, point2.y);
+        return eVar.a((int) b2.getLongitudeE6(), (int) b2.getLatitudeE6(), (int) b3.getLongitudeE6(), (int) b3.getLatitudeE6(), i, i2);
     }
 
-    private MapStatusUpdate a(MapStatus mapStatus) {
-        MapStatusUpdate mapStatusUpdate = new MapStatusUpdate();
-        synchronized (this) {
-            mapStatusUpdate.f2843a = mapStatus;
-            mapStatusUpdate.c = this.c;
-            mapStatusUpdate.k = this.k;
-            mapStatusUpdate.l = this.l;
-            mapStatusUpdate.m = this.m;
-            mapStatusUpdate.n = this.n;
-        }
-        return mapStatusUpdate;
-    }
-
-    private LatLng a(LatLngBounds latLngBounds, com.baidu.mapsdkplatform.comapi.map.d dVar, float f) {
-        if (latLngBounds == null || dVar == null) {
-            return null;
-        }
-        GeoPoint ll2mc = CoordUtil.ll2mc(latLngBounds.getCenter());
-        double d = this.k * f;
-        double d2 = this.m * f;
-        double d3 = this.l * f;
-        double d4 = this.n * f;
-        return CoordUtil.mc2ll(new GeoPoint(this.l < this.n ? (ll2mc.getLatitudeE6() - ((d4 - d3) / 2.0d)) + (d3 / 2.0d) : this.l > this.n ? ll2mc.getLatitudeE6() + ((d3 - d4) / 2.0d) : ll2mc.getLatitudeE6(), this.k > this.m ? ll2mc.getLongitudeE6() - ((d - d2) / 2.0d) : this.k < this.m ? ((d2 - d) / 2.0d) + ll2mc.getLongitudeE6() : ll2mc.getLongitudeE6()));
-    }
-
-    private boolean a(int i, int i2, int i3, int i4, com.baidu.mapsdkplatform.comapi.map.d dVar) {
-        MapStatusUpdate D = dVar.D();
-        return (D != null && i == D.k && i2 == D.l && i3 == D.m && i4 == D.n) ? false : true;
-    }
-
-    private boolean a(LatLngBounds latLngBounds, com.baidu.mapsdkplatform.comapi.map.d dVar) {
-        MapStatusUpdate D = dVar.D();
-        if (D == null) {
+    private boolean a(LatLngBounds latLngBounds, com.baidu.mapsdkplatform.comapi.map.e eVar) {
+        if (eVar.q == null) {
             return true;
         }
-        return (latLngBounds.southwest.latitude == D.c.southwest.latitude && latLngBounds.southwest.longitude == D.c.southwest.longitude && latLngBounds.northeast.latitude == D.c.northeast.latitude && latLngBounds.northeast.longitude == D.c.northeast.longitude) ? false : true;
+        return (latLngBounds.southwest.latitude == eVar.q.southwest.latitude && latLngBounds.southwest.longitude == eVar.q.southwest.longitude && latLngBounds.northeast.latitude == eVar.q.northeast.latitude && latLngBounds.northeast.longitude == eVar.q.northeast.longitude) ? false : true;
+    }
+
+    private LatLng b(LatLngBounds latLngBounds, com.baidu.mapsdkplatform.comapi.map.e eVar) {
+        if (latLngBounds == null || eVar == null) {
+            return null;
+        }
+        Point a2 = eVar.a(CoordUtil.ll2mc(latLngBounds.getCenter()));
+        GeoPoint b2 = eVar.b(this.l > this.n ? a2.x - (this.l - this.n) : this.l < this.n ? a2.x + (this.n - this.l) : a2.x, this.m < this.o ? a2.y - (this.m - this.o) : this.m > this.o ? a2.y + (this.o - this.m) : a2.y);
+        if (b2 == null) {
+            Log.e(p, "New center geopoint is null");
+            return null;
+        }
+        return CoordUtil.mc2ll(b2);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public MapStatus a(com.baidu.mapsdkplatform.comapi.map.d dVar, MapStatus mapStatus) {
-        if (dVar == null || mapStatus == null) {
+    public MapStatus a(com.baidu.mapsdkplatform.comapi.map.e eVar, MapStatus mapStatus) {
+        if (eVar == null || mapStatus == null) {
             return null;
         }
-        switch (this.p) {
+        switch (this.f2736a) {
             case 1:
-                return this.f2843a;
+                return this.f2737b;
             case 2:
-                return new MapStatus(mapStatus.rotate, this.f2844b, mapStatus.overlook, mapStatus.zoom, mapStatus.targetScreen, null);
+                return new MapStatus(mapStatus.rotate, this.c, mapStatus.overlook, mapStatus.zoom, mapStatus.targetScreen, null);
             case 3:
-                if (this.c == null) {
+                if (this.d == null) {
                     return null;
                 }
-                GeoPoint ll2mc = CoordUtil.ll2mc(this.c.southwest);
-                GeoPoint ll2mc2 = CoordUtil.ll2mc(this.c.northeast);
-                float a2 = dVar.a((int) ll2mc.getLongitudeE6(), (int) ll2mc2.getLatitudeE6(), (int) ll2mc2.getLongitudeE6(), (int) ll2mc.getLatitudeE6(), mapStatus.f2839a.j.right - mapStatus.f2839a.j.left, mapStatus.f2839a.j.bottom - mapStatus.f2839a.j.top);
-                return new MapStatus(mapStatus.rotate, this.c.getCenter(), mapStatus.overlook, a2, mapStatus.targetScreen, null);
+                GeoPoint ll2mc = CoordUtil.ll2mc(this.d.southwest);
+                GeoPoint ll2mc2 = CoordUtil.ll2mc(this.d.northeast);
+                float a2 = eVar.a((int) ll2mc.getLongitudeE6(), (int) ll2mc2.getLatitudeE6(), (int) ll2mc2.getLongitudeE6(), (int) ll2mc.getLatitudeE6(), mapStatus.f2732a.j.right - mapStatus.f2732a.j.left, mapStatus.f2732a.j.bottom - mapStatus.f2732a.j.top);
+                return new MapStatus(mapStatus.rotate, this.d.getCenter(), mapStatus.overlook, a2, mapStatus.targetScreen, null);
             case 4:
-                return new MapStatus(mapStatus.rotate, this.f2844b, mapStatus.overlook, this.f, mapStatus.targetScreen, null);
+                return new MapStatus(mapStatus.rotate, this.c, mapStatus.overlook, this.g, mapStatus.targetScreen, null);
             case 5:
-                GeoPoint b2 = dVar.b((dVar.E() / 2) + this.g, (dVar.F() / 2) + this.h);
+                GeoPoint b2 = eVar.b((eVar.G() / 2) + this.h, (eVar.H() / 2) + this.i);
                 return new MapStatus(mapStatus.rotate, CoordUtil.mc2ll(b2), mapStatus.overlook, mapStatus.zoom, mapStatus.targetScreen, b2.getLongitudeE6(), b2.getLatitudeE6(), null);
             case 6:
-                return new MapStatus(mapStatus.rotate, mapStatus.target, mapStatus.overlook, mapStatus.zoom + this.i, mapStatus.targetScreen, mapStatus.a(), mapStatus.b(), null);
+                return new MapStatus(mapStatus.rotate, mapStatus.target, mapStatus.overlook, mapStatus.zoom + this.j, mapStatus.targetScreen, mapStatus.a(), mapStatus.b(), null);
             case 7:
-                return new MapStatus(mapStatus.rotate, CoordUtil.mc2ll(dVar.b(this.j.x, this.j.y)), mapStatus.overlook, mapStatus.zoom + this.i, this.j, null);
+                return new MapStatus(mapStatus.rotate, CoordUtil.mc2ll(eVar.b(this.k.x, this.k.y)), mapStatus.overlook, mapStatus.zoom + this.j, this.k, null);
             case 8:
-                return new MapStatus(mapStatus.rotate, mapStatus.target, mapStatus.overlook, this.f, mapStatus.targetScreen, mapStatus.a(), mapStatus.b(), null);
+                return new MapStatus(mapStatus.rotate, mapStatus.target, mapStatus.overlook, this.g, mapStatus.targetScreen, mapStatus.a(), mapStatus.b(), null);
             case 9:
-                if (this.c == null) {
+                if (this.d == null) {
                     return null;
                 }
-                GeoPoint ll2mc3 = CoordUtil.ll2mc(this.c.southwest);
-                GeoPoint ll2mc4 = CoordUtil.ll2mc(this.c.northeast);
-                float a3 = dVar.a((int) ll2mc3.getLongitudeE6(), (int) ll2mc4.getLatitudeE6(), (int) ll2mc4.getLongitudeE6(), (int) ll2mc3.getLatitudeE6(), this.d, this.e);
-                return new MapStatus(mapStatus.rotate, this.c.getCenter(), mapStatus.overlook, a3, mapStatus.targetScreen, null);
+                GeoPoint ll2mc3 = CoordUtil.ll2mc(this.d.southwest);
+                GeoPoint ll2mc4 = CoordUtil.ll2mc(this.d.northeast);
+                float a3 = eVar.a((int) ll2mc3.getLongitudeE6(), (int) ll2mc4.getLatitudeE6(), (int) ll2mc4.getLongitudeE6(), (int) ll2mc3.getLatitudeE6(), this.e, this.f);
+                return new MapStatus(mapStatus.rotate, this.d.getCenter(), mapStatus.overlook, a3, mapStatus.targetScreen, null);
             case 10:
-                if (this.c == null) {
+                if (this.d == null) {
                     return null;
                 }
-                int E = (dVar.E() - this.k) - this.m;
-                if (E < 0) {
-                    E = dVar.E();
-                    Log.e(o, "Bound paddingLeft or paddingRight too larger, please check");
+                int G = (eVar.G() - this.l) - this.n;
+                if (G < 0) {
+                    G = eVar.G();
+                    Log.e(p, "Bound paddingLeft or paddingRight too larger, please check");
                 }
-                int F = (dVar.F() - this.l) - this.n;
-                if (F < 0) {
-                    F = dVar.F();
-                    Log.e(o, "Bound paddingTop or paddingBottom too larger, please check");
+                int H = (eVar.H() - this.m) - this.o;
+                if (H < 0) {
+                    H = eVar.H();
+                    Log.e(p, "Bound paddingTop or paddingBottom too larger, please check");
                 }
-                float a4 = a(this.c, dVar, E, F);
-                LatLng a5 = a(this.c, dVar, a(a4));
-                if (a5 == null) {
-                    Log.e(o, "Bound center error");
+                LatLng b3 = b(this.d, eVar);
+                if (b3 == null) {
+                    Log.e(p, "Bound center error");
                     return null;
                 }
-                boolean a6 = a(this.c, dVar);
-                boolean a7 = a(this.k, this.l, this.m, this.n, dVar);
-                if (a6 || a7) {
-                    MapStatus mapStatus2 = new MapStatus(mapStatus.rotate, a5, mapStatus.overlook, a4, null, null);
-                    dVar.a(a(mapStatus2));
+                float a4 = a(this.d, eVar, G, H);
+                if (a(this.d, eVar)) {
+                    MapStatus mapStatus2 = new MapStatus(mapStatus.rotate, b3, mapStatus.overlook, a4, mapStatus.targetScreen, null);
+                    eVar.r = mapStatus2;
+                    eVar.q = this.d;
                     return mapStatus2;
-                } else if (dVar.D() != null) {
-                    return dVar.D().f2843a;
-                } else {
-                    return null;
                 }
-            case 11:
-                if (this.c == null) {
-                    return null;
-                }
-                int E2 = (dVar.E() - this.k) - this.m;
-                if (E2 < 0) {
-                    E2 = dVar.E();
-                    Log.e(o, "Bound paddingLeft or paddingRight too larger, please check");
-                }
-                int F2 = (dVar.F() - this.l) - this.n;
-                if (F2 < 0) {
-                    F2 = dVar.F();
-                    Log.e(o, "Bound paddingTop or paddingBottom too larger, please check");
-                }
-                GeoPoint ll2mc5 = CoordUtil.ll2mc(this.c.southwest);
-                GeoPoint ll2mc6 = CoordUtil.ll2mc(this.c.northeast);
-                float a8 = dVar.a((int) ll2mc5.getLongitudeE6(), (int) ll2mc6.getLatitudeE6(), (int) ll2mc6.getLongitudeE6(), (int) ll2mc5.getLatitudeE6(), E2, F2);
-                Point point = new Point(this.k + (E2 / 2), this.l + (F2 / 2));
-                return new MapStatus(mapStatus.rotate, this.c.getCenter(), mapStatus.overlook, a8, point, null);
+                return eVar.r;
             default:
                 return null;
         }

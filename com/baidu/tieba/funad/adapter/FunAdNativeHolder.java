@@ -14,23 +14,23 @@ import com.baidu.tieba.h.a;
 import com.baidu.tieba.tbadkCore.data.n;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class FunAdNativeHolder extends TypeAdapter.ViewHolder {
-    public ImageView jQJ;
-    public CardView jQK;
-    public TextView jQL;
-    public View jQM;
-    public View jQN;
-    public a.C0758a jQX;
-    public ViewGroup jQp;
-    public List<View> jQq;
-    public List<View> jQr;
-    public ImageView jQs;
-    public ImageView jQt;
-    public TextView jQu;
-    public TextView jQv;
-    public FrameLayout jQw;
-    public Button jQx;
+    public ViewGroup jLJ;
+    public List<View> jLK;
+    public List<View> jLL;
+    public ImageView jLM;
+    public ImageView jLN;
+    public TextView jLO;
+    public TextView jLP;
+    public FrameLayout jLQ;
+    public Button jLR;
+    public ImageView jMe;
+    public CardView jMf;
+    public TextView jMg;
+    public View jMh;
+    public View jMi;
+    public a.C0741a jMs;
 
     public FunAdNativeHolder(View view) {
         super(view);
@@ -38,40 +38,40 @@ public class FunAdNativeHolder extends TypeAdapter.ViewHolder {
     }
 
     private void ap(View view) {
-        this.jQp = (ViewGroup) view;
-        this.jQu = (TextView) view.findViewById(R.id.fun_ad_name);
-        this.jQv = (TextView) view.findViewById(R.id.fun_card_title);
-        this.jQw = (FrameLayout) view.findViewById(R.id.fun_card_content);
-        this.jQx = (Button) view.findViewById(R.id.fun_ad_button);
-        this.jQJ = (ImageView) view.findViewById(R.id.fun_ad_feedback);
-        this.jQM = view.findViewById(R.id.divider_with_reply_title);
-        this.jQL = (TextView) view.findViewById(R.id.fun_ad_lable);
-        this.jQK = (CardView) view.findViewById(R.id.media_bg);
-        this.jQN = view.findViewById(R.id.media_mask);
-        this.jQq = new ArrayList(6);
-        this.jQq.add(this.jQp);
-        this.jQq.add(this.jQK);
-        this.jQq.add(this.jQw);
-        this.jQq.add(this.jQx);
-        this.jQq.add(this.jQN);
-        this.jQq.add((RelativeLayout) view.findViewById(R.id.fun_card_layout));
-        this.jQr = new ArrayList(1);
-        this.jQr.add(this.jQx);
+        this.jLJ = (ViewGroup) view;
+        this.jLO = (TextView) view.findViewById(R.id.fun_ad_name);
+        this.jLP = (TextView) view.findViewById(R.id.fun_card_title);
+        this.jLQ = (FrameLayout) view.findViewById(R.id.fun_card_content);
+        this.jLR = (Button) view.findViewById(R.id.fun_ad_button);
+        this.jMe = (ImageView) view.findViewById(R.id.fun_ad_feedback);
+        this.jMh = view.findViewById(R.id.divider_with_reply_title);
+        this.jMg = (TextView) view.findViewById(R.id.fun_ad_lable);
+        this.jMf = (CardView) view.findViewById(R.id.media_bg);
+        this.jMi = view.findViewById(R.id.media_mask);
+        this.jLK = new ArrayList(6);
+        this.jLK.add(this.jLJ);
+        this.jLK.add(this.jMf);
+        this.jLK.add(this.jLQ);
+        this.jLK.add(this.jLR);
+        this.jLK.add(this.jMi);
+        this.jLK.add((RelativeLayout) view.findViewById(R.id.fun_card_layout));
+        this.jLL = new ArrayList(1);
+        this.jLL.add(this.jLR);
     }
 
     public void b(n nVar) {
-        if (this.jQX == null) {
-            this.jQX = new a.C0758a();
-            this.jQX.eWF = nVar;
-            this.jQX.jQp = this.jQp;
-            this.jQX.jQq = this.jQq;
-            this.jQX.jQr = this.jQr;
-            this.jQX.jQs = this.jQs;
-            this.jQX.jQt = this.jQt;
-            this.jQX.jQu = this.jQu;
-            this.jQX.jQv = this.jQv;
-            this.jQX.jQw = this.jQw;
-            this.jQX.jQx = this.jQx;
+        if (this.jMs == null) {
+            this.jMs = new a.C0741a();
+            this.jMs.eRU = nVar;
+            this.jMs.jLJ = this.jLJ;
+            this.jMs.jLK = this.jLK;
+            this.jMs.jLL = this.jLL;
+            this.jMs.jLM = this.jLM;
+            this.jMs.jLN = this.jLN;
+            this.jMs.jLO = this.jLO;
+            this.jMs.jLP = this.jLP;
+            this.jMs.jLQ = this.jLQ;
+            this.jMs.jLR = this.jLR;
         }
     }
 }

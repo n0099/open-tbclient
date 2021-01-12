@@ -11,7 +11,7 @@ import com.baidu.android.imsdk.shield.ShieldAndTopManager;
 import com.baidu.android.imsdk.shield.model.GetShieldAndTopResult;
 import com.baidu.android.imsdk.utils.LogUtils;
 import java.util.ArrayList;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class GetGroupfoForRecordHandler extends GetChatObjectInfoForRecordHandler {
     public GetGroupfoForRecordHandler(Context context) {
         super(context);

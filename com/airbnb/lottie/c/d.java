@@ -11,37 +11,37 @@ public class d {
     }
 
     public static com.airbnb.lottie.model.a.b a(JsonReader jsonReader, com.airbnb.lottie.d dVar, boolean z) throws IOException {
-        return new com.airbnb.lottie.model.a.b(a(jsonReader, z ? com.airbnb.lottie.d.f.kA() : 1.0f, dVar, i.Ht));
+        return new com.airbnb.lottie.model.a.b(a(jsonReader, z ? com.airbnb.lottie.d.f.kA() : 1.0f, dVar, i.Hr));
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static com.airbnb.lottie.model.a.d g(JsonReader jsonReader, com.airbnb.lottie.d dVar) throws IOException {
-        return new com.airbnb.lottie.model.a.d(a(jsonReader, dVar, o.Hv));
+        return new com.airbnb.lottie.model.a.d(a(jsonReader, dVar, o.Ht));
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static com.airbnb.lottie.model.a.f h(JsonReader jsonReader, com.airbnb.lottie.d dVar) throws IOException {
-        return new com.airbnb.lottie.model.a.f(a(jsonReader, com.airbnb.lottie.d.f.kA(), dVar, y.Hz));
+        return new com.airbnb.lottie.model.a.f(a(jsonReader, com.airbnb.lottie.d.f.kA(), dVar, y.Hx));
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static com.airbnb.lottie.model.a.g i(JsonReader jsonReader, com.airbnb.lottie.d dVar) throws IOException {
-        return new com.airbnb.lottie.model.a.g(a(jsonReader, dVar, ac.HA));
+        return new com.airbnb.lottie.model.a.g(a(jsonReader, dVar, ac.Hy));
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static com.airbnb.lottie.model.a.h j(JsonReader jsonReader, com.airbnb.lottie.d dVar) throws IOException {
-        return new com.airbnb.lottie.model.a.h(a(jsonReader, com.airbnb.lottie.d.f.kA(), dVar, ad.HB));
+        return new com.airbnb.lottie.model.a.h(a(jsonReader, com.airbnb.lottie.d.f.kA(), dVar, ad.Hz));
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static com.airbnb.lottie.model.a.j k(JsonReader jsonReader, com.airbnb.lottie.d dVar) throws IOException {
-        return new com.airbnb.lottie.model.a.j(a(jsonReader, dVar, h.Hs));
+        return new com.airbnb.lottie.model.a.j(a(jsonReader, dVar, h.Hq));
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static com.airbnb.lottie.model.a.a l(JsonReader jsonReader, com.airbnb.lottie.d dVar) throws IOException {
-        return new com.airbnb.lottie.model.a.a(a(jsonReader, dVar, f.Hr));
+        return new com.airbnb.lottie.model.a.a(a(jsonReader, dVar, f.Hp));
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */

@@ -9,31 +9,31 @@ import java.util.Locale;
 public class r {
 
     /* renamed from: b  reason: collision with root package name */
-    private static String f6347b = "VNetLog";
+    private static String f6047b = "VNetLog";
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f6346a = Log.isLoggable(f6347b, 2);
+    public static boolean f6046a = Log.isLoggable(f6047b, 2);
 
     public static void a(String str, Object... objArr) {
-        if (f6346a) {
-            Log.v(f6347b, k(str, objArr));
+        if (f6046a) {
+            Log.v(f6047b, k(str, objArr));
         }
     }
 
     public static void b(String str, Object... objArr) {
-        Log.d(f6347b, k(str, objArr));
+        Log.d(f6047b, k(str, objArr));
     }
 
     public static void c(String str, Object... objArr) {
-        Log.e(f6347b, k(str, objArr));
+        Log.e(f6047b, k(str, objArr));
     }
 
     public static void a(Throwable th, String str, Object... objArr) {
-        Log.e(f6347b, k(str, objArr), th);
+        Log.e(f6047b, k(str, objArr), th);
     }
 
     public static void d(String str, Object... objArr) {
-        Log.wtf(f6347b, k(str, objArr));
+        Log.wtf(f6047b, k(str, objArr));
     }
 
     private static String k(String str, Object... objArr) {
@@ -64,27 +64,27 @@ public class r {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final boolean f6348a = r.f6346a;
+        public static final boolean f6048a = r.f6046a;
 
         /* renamed from: b  reason: collision with root package name */
-        private final List<C1011a> f6349b = new ArrayList();
+        private final List<C0994a> f6049b = new ArrayList();
         private boolean c = false;
 
         /* JADX INFO: Access modifiers changed from: private */
         /* renamed from: com.bytedance.sdk.adnet.core.r$a$a  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        public static class C1011a {
+        public static class C0994a {
 
             /* renamed from: a  reason: collision with root package name */
-            public final String f6350a;
+            public final String f6050a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final long f6351b;
+            public final long f6051b;
             public final long c;
 
-            public C1011a(String str, long j, long j2) {
-                this.f6350a = str;
-                this.f6351b = j;
+            public C0994a(String str, long j, long j2) {
+                this.f6050a = str;
+                this.f6051b = j;
                 this.c = j2;
             }
         }
@@ -93,19 +93,19 @@ public class r {
             if (this.c) {
                 throw new IllegalStateException("Marker added to finished log");
             }
-            this.f6349b.add(new C1011a(str, j, SystemClock.elapsedRealtime()));
+            this.f6049b.add(new C0994a(str, j, SystemClock.elapsedRealtime()));
         }
 
         public synchronized void a(String str) {
             this.c = true;
             long a2 = a();
             if (a2 > 0) {
-                long j = this.f6349b.get(0).c;
+                long j = this.f6049b.get(0).c;
                 r.b("(%-4d ms) %s", Long.valueOf(a2), str);
                 long j2 = j;
-                for (C1011a c1011a : this.f6349b) {
-                    long j3 = c1011a.c;
-                    r.b("(+%-4d) [%2d] %s", Long.valueOf(j3 - j2), Long.valueOf(c1011a.f6351b), c1011a.f6350a);
+                for (C0994a c0994a : this.f6049b) {
+                    long j3 = c0994a.c;
+                    r.b("(+%-4d) [%2d] %s", Long.valueOf(j3 - j2), Long.valueOf(c0994a.f6051b), c0994a.f6050a);
                     j2 = j3;
                 }
             }
@@ -119,10 +119,10 @@ public class r {
         }
 
         private long a() {
-            if (this.f6349b.size() == 0) {
+            if (this.f6049b.size() == 0) {
                 return 0L;
             }
-            return this.f6349b.get(this.f6349b.size() - 1).c - this.f6349b.get(0).c;
+            return this.f6049b.get(this.f6049b.size() - 1).c - this.f6049b.get(0).c;
         }
     }
 }

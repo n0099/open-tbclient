@@ -2,7 +2,7 @@ package org.chromium.support_lib_boundary;
 
 import android.net.Uri;
 import java.lang.reflect.InvocationHandler;
-/* loaded from: classes3.dex */
+/* loaded from: classes14.dex */
 public interface WebViewProviderBoundaryInterface {
     InvocationHandler[] createWebMessageChannel();
 

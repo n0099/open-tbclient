@@ -1,23 +1,23 @@
 package com.baidu.tieba.pbextra.praise;
 /* loaded from: classes2.dex */
 public class a {
-    private String gyC;
+    private String gtV;
     private String mPortrait;
     private String mUserId;
     private String mUserName;
-    private long mmR;
+    private long mim;
 
     public a(String str, String str2, String str3, String str4, long j) {
         this.mUserId = null;
         this.mUserName = null;
         this.mPortrait = null;
-        this.gyC = null;
-        this.mmR = 0L;
+        this.gtV = null;
+        this.mim = 0L;
         this.mUserId = str;
         this.mUserName = str2;
         this.mPortrait = str3;
-        this.gyC = str4;
-        this.mmR = j;
+        this.gtV = str4;
+        this.mim = j;
     }
 
     public String getUserId() {
@@ -33,10 +33,10 @@ public class a {
     }
 
     public String getShowName() {
-        return this.gyC;
+        return this.gtV;
     }
 
-    public long dxM() {
-        return this.mmR;
+    public long dtU() {
+        return this.mim;
     }
 }

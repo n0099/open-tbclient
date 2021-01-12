@@ -13,58 +13,58 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class a {
-    private BdTypeListView gAY;
+    private BdTypeListView gwr;
     private String mForumId;
     private String mForumName;
     private TbPageContext mPageContext;
-    private aa jyb = new aa() { // from class: com.baidu.tieba.frs.gamerecommend.adapter.a.1
+    private aa jtv = new aa() { // from class: com.baidu.tieba.frs.gamerecommend.adapter.a.1
         @Override // com.baidu.tieba.card.aa
         public void a(View view, BaseCardInfo baseCardInfo) {
             super.a(view, baseCardInfo);
             a.this.notifyDataSetChanged();
         }
     };
-    private List<com.baidu.adp.widget.ListView.a> boM = new ArrayList();
+    private List<com.baidu.adp.widget.ListView.a> bjZ = new ArrayList();
 
     public a(TbPageContext<?> tbPageContext, BdTypeListView bdTypeListView, String str, String str2) {
         this.mPageContext = tbPageContext;
-        this.gAY = bdTypeListView;
+        this.gwr = bdTypeListView;
         this.mForumId = str;
         this.mForumName = str2;
-        MT();
+        IY();
     }
 
-    private void MT() {
+    private void IY() {
         b bVar = new b(this.mPageContext, this.mForumId, this.mForumName);
-        bVar.d(this.jyb);
-        this.boM.add(bVar);
+        bVar.d(this.jtv);
+        this.bjZ.add(bVar);
         c cVar = new c(this.mPageContext, this.mForumId);
-        cVar.d(this.jyb);
-        this.boM.add(cVar);
-        this.boM.add(new f(this.mPageContext, this.mForumId));
-        this.boM.add(new e(this.mPageContext, this.mForumId));
-        this.boM.add(new GameSpecialTopicAdapter(this.mPageContext, h.iDd, this.mPageContext.getUniqueId(), this.mForumId));
+        cVar.d(this.jtv);
+        this.bjZ.add(cVar);
+        this.bjZ.add(new f(this.mPageContext, this.mForumId));
+        this.bjZ.add(new e(this.mPageContext, this.mForumId));
+        this.bjZ.add(new GameSpecialTopicAdapter(this.mPageContext, h.iyw, this.mPageContext.getUniqueId(), this.mForumId));
         d dVar = new d(this.mPageContext, this.mForumId);
-        dVar.d(this.jyb);
-        this.boM.add(dVar);
-        this.boM.add(new GameCompetitionAdapter(this.mPageContext, com.baidu.tieba.e.c.iCR, this.mPageContext.getUniqueId(), this.mForumId));
-        this.boM.add(new GameRecommendGameAdapter(this.mPageContext, com.baidu.tieba.e.f.iCZ, this.mPageContext.getUniqueId(), this.mForumId));
-        FrsUserRecommendAdapter frsUserRecommendAdapter = new FrsUserRecommendAdapter(this.mPageContext, w.jjg, this.mPageContext.getUniqueId());
-        frsUserRecommendAdapter.cJe();
+        dVar.d(this.jtv);
+        this.bjZ.add(dVar);
+        this.bjZ.add(new GameCompetitionAdapter(this.mPageContext, com.baidu.tieba.e.c.iyk, this.mPageContext.getUniqueId(), this.mForumId));
+        this.bjZ.add(new GameRecommendGameAdapter(this.mPageContext, com.baidu.tieba.e.f.iys, this.mPageContext.getUniqueId(), this.mForumId));
+        FrsUserRecommendAdapter frsUserRecommendAdapter = new FrsUserRecommendAdapter(this.mPageContext, w.jey, this.mPageContext.getUniqueId());
+        frsUserRecommendAdapter.cFm();
         frsUserRecommendAdapter.setForumId(this.mForumId);
-        this.boM.add(frsUserRecommendAdapter);
-        this.gAY.addAdapters(this.boM);
+        this.bjZ.add(frsUserRecommendAdapter);
+        this.gwr.addAdapters(this.bjZ);
     }
 
     public void setData(List<n> list) {
-        if (this.gAY != null) {
-            this.gAY.setData(list);
+        if (this.gwr != null) {
+            this.gwr.setData(list);
         }
     }
 
     public void notifyDataSetChanged() {
-        if (this.gAY.getAdapter() instanceof com.baidu.adp.widget.ListView.e) {
-            this.gAY.getAdapter().notifyDataSetChanged();
+        if (this.gwr.getAdapter() instanceof com.baidu.adp.widget.ListView.e) {
+            this.gwr.getAdapter().notifyDataSetChanged();
         }
     }
 }

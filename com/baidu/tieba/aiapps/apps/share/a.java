@@ -6,10 +6,10 @@ import com.baidu.tbadk.coreExtra.share.ShareItem;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class a extends ShareItem {
     public void dB(JSONObject jSONObject) throws JSONException {
-        this.fxE = true;
+        this.fsV = true;
         this.title = jSONObject.getString("title");
         this.linkUrl = jSONObject.getString("linkUrl");
         this.content = jSONObject.optString("content");
@@ -19,34 +19,34 @@ public class a extends ShareItem {
         this.imageUri = Uri.parse(this.imageUrl);
         JSONObject optJSONObject = jSONObject.optJSONObject("categoryInfo");
         if (optJSONObject != null) {
-            this.fxF = optJSONObject.optString("source2");
-            this.fxH = optJSONObject.optString("source3");
+            this.fsW = optJSONObject.optString("source2");
+            this.fsY = optJSONObject.optString("source3");
         }
         JSONObject optJSONObject2 = jSONObject.optJSONObject("command");
         if (optJSONObject2 != null) {
-            this.fxG = 2;
-            this.fxL = optJSONObject2.optJSONArray("cmd_pannel");
-            this.fxM = optJSONObject2.optJSONObject("info");
-            if (this.fxM != null) {
-                this.fxJ = this.fxM.optString("key");
-                this.fxK = this.fxM.optString("content");
+            this.fsX = 2;
+            this.ftc = optJSONObject2.optJSONArray("cmd_pannel");
+            this.ftd = optJSONObject2.optJSONObject("info");
+            if (this.ftd != null) {
+                this.fta = this.ftd.optString("key");
+                this.ftb = this.ftd.optString("content");
                 return;
             }
             return;
         }
-        this.fxG = "url".equals(jSONObject.optString("type")) ? 1 : 3;
+        this.fsX = "url".equals(jSONObject.optString("type")) ? 1 : 3;
     }
 
-    public JSONArray bQQ() {
-        return this.fxL;
+    public JSONArray bMY() {
+        return this.ftc;
     }
 
-    public String bQR() {
-        return this.fxJ;
+    public String bMZ() {
+        return this.fta;
     }
 
-    public String bQS() {
-        return this.fxK;
+    public String bNa() {
+        return this.ftb;
     }
 
     public String getMediaType() {

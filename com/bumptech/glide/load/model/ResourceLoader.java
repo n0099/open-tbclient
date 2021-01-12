@@ -10,7 +10,7 @@ import androidx.annotation.Nullable;
 import com.bumptech.glide.load.Options;
 import com.bumptech.glide.load.model.ModelLoader;
 import java.io.InputStream;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class ResourceLoader<Data> implements ModelLoader<Integer, Data> {
     private static final String TAG = "ResourceLoader";
     private final Resources resources;
@@ -49,7 +49,7 @@ public class ResourceLoader<Data> implements ModelLoader<Integer, Data> {
         return true;
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class StreamFactory implements ModelLoaderFactory<Integer, InputStream> {
         private final Resources resources;
 
@@ -68,7 +68,7 @@ public class ResourceLoader<Data> implements ModelLoader<Integer, Data> {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class FileDescriptorFactory implements ModelLoaderFactory<Integer, ParcelFileDescriptor> {
         private final Resources resources;
 
@@ -87,7 +87,7 @@ public class ResourceLoader<Data> implements ModelLoader<Integer, Data> {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static final class AssetFileDescriptorFactory implements ModelLoaderFactory<Integer, AssetFileDescriptor> {
         private final Resources resources;
 
@@ -105,7 +105,7 @@ public class ResourceLoader<Data> implements ModelLoader<Integer, Data> {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class UriFactory implements ModelLoaderFactory<Integer, Uri> {
         private final Resources resources;
 

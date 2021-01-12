@@ -18,14 +18,14 @@ import com.kwad.sdk.core.report.e;
 import com.kwad.sdk.utils.ao;
 import com.kwad.sdk.utils.d;
 import java.io.Serializable;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class a extends IFragmentActivityProxy implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    private FeedSlideParam f10152a;
+    private FeedSlideParam f9852a;
 
     /* renamed from: b  reason: collision with root package name */
-    private ImageView f10153b;
+    private ImageView f9853b;
     private g c;
 
     public static void a(KsFragment ksFragment, FeedSlideParam feedSlideParam) {
@@ -40,24 +40,24 @@ public class a extends IFragmentActivityProxy implements View.OnClickListener {
     private boolean a() {
         Serializable serializableExtra = getIntent().getSerializableExtra("KEY_FEED_SLIDE_PARAM");
         if (serializableExtra instanceof FeedSlideParam) {
-            this.f10152a = (FeedSlideParam) serializableExtra;
+            this.f9852a = (FeedSlideParam) serializableExtra;
         }
-        return (this.f10152a == null || this.f10152a.mEntryScene == 0) ? false : true;
+        return (this.f9852a == null || this.f9852a.mEntryScene == 0) ? false : true;
     }
 
     private void b() {
-        this.f10153b = (ImageView) findViewById(R.id.ksad_back_btn);
+        this.f9853b = (ImageView) findViewById(R.id.ksad_back_btn);
         if (d.a(getActivity())) {
-            ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.f10153b.getLayoutParams();
+            ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.f9853b.getLayoutParams();
             marginLayoutParams.topMargin = ao.a((Context) getActivity());
-            this.f10153b.setLayoutParams(marginLayoutParams);
+            this.f9853b.setLayoutParams(marginLayoutParams);
         }
-        this.f10153b.setOnClickListener(this);
+        this.f9853b.setOnClickListener(this);
     }
 
     private void c() {
-        this.c = g.a(new KsScene.Builder(this.f10152a.mEntryScene).build());
-        this.c.getArguments().putSerializable("KEY_FEED_SLIDE_PARAM", this.f10152a);
+        this.c = g.a(new KsScene.Builder(this.f9852a.mEntryScene).build());
+        this.c.getArguments().putSerializable("KEY_FEED_SLIDE_PARAM", this.f9852a);
         getSupportFragmentManager().beginTransaction().replace(R.id.ksad_fragment_container, this.c).commitAllowingStateLoss();
     }
 
@@ -83,7 +83,7 @@ public class a extends IFragmentActivityProxy implements View.OnClickListener {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.f10153b == view) {
+        if (this.f9853b == view) {
             onBackPressed();
         }
     }

@@ -2,11 +2,11 @@ package com.ksad.lottie.c;
 
 import android.graphics.PointF;
 import android.util.JsonReader;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class x implements aj<PointF> {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final x f8279a = new x();
+    public static final x f7979a = new x();
 
     private x() {
     }

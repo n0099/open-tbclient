@@ -22,10 +22,10 @@ public class c {
     private static String g;
 
     /* renamed from: a  reason: collision with root package name */
-    private final b f5454a;
+    private final b f5171a;
 
     /* renamed from: b  reason: collision with root package name */
-    private boolean f5455b;
+    private boolean f5172b;
     private boolean c;
     private View d;
     private View e;
@@ -39,10 +39,10 @@ public class c {
         private static final String k = "config_showNavigationBar";
 
         /* renamed from: a  reason: collision with root package name */
-        private final int f5456a;
+        private final int f5173a;
 
         /* renamed from: b  reason: collision with root package name */
-        private final boolean f5457b;
+        private final boolean f5174b;
         private final int c;
         private final int d;
         private final boolean e;
@@ -84,7 +84,7 @@ public class c {
         }
 
         public boolean d() {
-            return this.f5457b;
+            return this.f5174b;
         }
 
         public boolean e() {
@@ -95,10 +95,10 @@ public class c {
             Resources resources = activity.getResources();
             this.e = resources.getConfiguration().orientation == 1;
             this.f = a(activity);
-            this.f5456a = a(resources, g);
+            this.f5173a = a(resources, g);
             this.c = a((Context) activity);
             this.d = b(activity);
-            this.f5457b = this.c > 0;
+            this.f5174b = this.c > 0;
         }
 
         public int b() {
@@ -118,7 +118,7 @@ public class c {
         }
 
         public int c() {
-            return this.f5456a;
+            return this.f5173a;
         }
 
         @SuppressLint({"NewApi"})
@@ -153,12 +153,12 @@ public class c {
         if (Build.VERSION.SDK_INT >= 19) {
             TypedArray obtainStyledAttributes = activity.obtainStyledAttributes(new int[]{16843759, 16843760});
             try {
-                this.f5455b = obtainStyledAttributes.getBoolean(0, false);
+                this.f5172b = obtainStyledAttributes.getBoolean(0, false);
                 this.c = obtainStyledAttributes.getBoolean(1, false);
                 obtainStyledAttributes.recycle();
                 WindowManager.LayoutParams attributes = window.getAttributes();
                 if ((attributes.flags & 67108864) != 0) {
-                    this.f5455b = true;
+                    this.f5172b = true;
                 }
                 if ((attributes.flags & 134217728) != 0) {
                     this.c = true;
@@ -168,11 +168,11 @@ public class c {
                 throw th;
             }
         }
-        this.f5454a = new b(activity, this.f5455b, this.c);
-        if (!this.f5454a.d()) {
+        this.f5171a = new b(activity, this.f5172b, this.c);
+        if (!this.f5171a.d()) {
             this.c = false;
         }
-        if (this.f5455b) {
+        if (this.f5172b) {
             b(activity, viewGroup);
         }
         if (this.c) {
@@ -187,7 +187,7 @@ public class c {
     }
 
     public void b(boolean z) {
-        if (this.f5455b) {
+        if (this.f5172b) {
             this.d.setVisibility(z ? 0 : 8);
         }
     }
@@ -199,23 +199,23 @@ public class c {
     }
 
     public void b(int i) {
-        if (this.f5455b) {
+        if (this.f5172b) {
             this.d.setBackgroundColor(i);
         }
     }
 
     public b a() {
-        return this.f5454a;
+        return this.f5171a;
     }
 
     private void a(Context context, ViewGroup viewGroup) {
         FrameLayout.LayoutParams layoutParams;
         this.e = new View(context);
-        if (this.f5454a.e()) {
-            layoutParams = new FrameLayout.LayoutParams(-1, this.f5454a.a());
+        if (this.f5171a.e()) {
+            layoutParams = new FrameLayout.LayoutParams(-1, this.f5171a.a());
             layoutParams.gravity = 80;
         } else {
-            layoutParams = new FrameLayout.LayoutParams(this.f5454a.b(), -1);
+            layoutParams = new FrameLayout.LayoutParams(this.f5171a.b(), -1);
             layoutParams.gravity = 5;
         }
         this.e.setLayoutParams(layoutParams);
@@ -226,10 +226,10 @@ public class c {
 
     private void b(Context context, ViewGroup viewGroup) {
         this.d = new View(context);
-        FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, this.f5454a.c());
+        FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, this.f5171a.c());
         layoutParams.gravity = 48;
-        if (this.c && !this.f5454a.e()) {
-            layoutParams.rightMargin = this.f5454a.b();
+        if (this.c && !this.f5171a.e()) {
+            layoutParams.rightMargin = this.f5171a.b();
         }
         this.d.setLayoutParams(layoutParams);
         this.d.setBackgroundColor(-1728053248);

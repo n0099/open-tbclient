@@ -13,19 +13,19 @@ import java.util.concurrent.atomic.AtomicInteger;
 public class o {
 
     /* renamed from: a  reason: collision with root package name */
-    private final AtomicInteger f6343a;
+    private final AtomicInteger f6043a;
 
     /* renamed from: b  reason: collision with root package name */
-    private final Set<Request<?>> f6344b;
+    private final Set<Request<?>> f6044b;
     private final PriorityBlockingQueue<Request<?>> c;
     private final PriorityBlockingQueue<Request<?>> d;
     private final List<b> j;
     private final List<a> k;
-    private final com.bytedance.sdk.adnet.e.c ppA;
-    private final com.bytedance.sdk.adnet.e.d ppB;
-    private final k[] ppC;
-    private f ppD;
-    private final com.bytedance.sdk.adnet.e.b ppz;
+    private final com.bytedance.sdk.adnet.e.b pkT;
+    private final com.bytedance.sdk.adnet.e.c pkU;
+    private final com.bytedance.sdk.adnet.e.d pkV;
+    private final k[] pkW;
+    private f pkX;
 
     /* loaded from: classes4.dex */
     public interface a {
@@ -39,16 +39,16 @@ public class o {
     }
 
     public o(com.bytedance.sdk.adnet.e.b bVar, com.bytedance.sdk.adnet.e.c cVar, int i, com.bytedance.sdk.adnet.e.d dVar) {
-        this.f6343a = new AtomicInteger();
-        this.f6344b = new HashSet();
+        this.f6043a = new AtomicInteger();
+        this.f6044b = new HashSet();
         this.c = new PriorityBlockingQueue<>();
         this.d = new PriorityBlockingQueue<>();
         this.j = new ArrayList();
         this.k = new ArrayList();
-        this.ppz = bVar;
-        this.ppA = cVar;
-        this.ppC = new k[i];
-        this.ppB = dVar;
+        this.pkT = bVar;
+        this.pkU = cVar;
+        this.pkW = new k[i];
+        this.pkV = dVar;
     }
 
     public o(com.bytedance.sdk.adnet.e.b bVar, com.bytedance.sdk.adnet.e.c cVar, int i) {
@@ -61,21 +61,21 @@ public class o {
 
     public void a() {
         b();
-        this.ppD = new f(this.c, this.d, this.ppz, this.ppB);
-        this.ppD.start();
-        for (int i = 0; i < this.ppC.length; i++) {
-            k kVar = new k(this.d, this.ppA, this.ppz, this.ppB);
-            this.ppC[i] = kVar;
+        this.pkX = new f(this.c, this.d, this.pkT, this.pkV);
+        this.pkX.start();
+        for (int i = 0; i < this.pkW.length; i++) {
+            k kVar = new k(this.d, this.pkU, this.pkT, this.pkV);
+            this.pkW[i] = kVar;
             kVar.start();
         }
     }
 
     public void b() {
         k[] kVarArr;
-        if (this.ppD != null) {
-            this.ppD.a();
+        if (this.pkX != null) {
+            this.pkX.a();
         }
-        for (k kVar : this.ppC) {
+        for (k kVar : this.pkW) {
             if (kVar != null) {
                 kVar.a();
             }
@@ -83,15 +83,15 @@ public class o {
     }
 
     public int c() {
-        return this.f6343a.incrementAndGet();
+        return this.f6043a.incrementAndGet();
     }
 
     public <T> Request<T> j(Request<T> request) {
         g(request);
         request.setStartTime();
         request.setRequestQueue(this);
-        synchronized (this.f6344b) {
-            this.f6344b.add(request);
+        synchronized (this.f6044b) {
+            this.f6044b.add(request);
         }
         request.setSequence(c());
         request.addMarker("add-to-queue");
@@ -107,8 +107,8 @@ public class o {
     public <T> void g(Request<T> request) {
         if (request != null && !TextUtils.isEmpty(request.getUrl())) {
             String url = request.getUrl();
-            if (com.bytedance.sdk.adnet.a.esf() != null) {
-                String a2 = com.bytedance.sdk.adnet.a.esf().a(url);
+            if (com.bytedance.sdk.adnet.a.eol() != null) {
+                String a2 = com.bytedance.sdk.adnet.a.eol().a(url);
                 if (!TextUtils.isEmpty(a2)) {
                     request.setUrl(a2);
                 }
@@ -118,8 +118,8 @@ public class o {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public <T> void k(Request<T> request) {
-        synchronized (this.f6344b) {
-            this.f6344b.remove(request);
+        synchronized (this.f6044b) {
+            this.f6044b.remove(request);
         }
         synchronized (this.j) {
             for (b bVar : this.j) {

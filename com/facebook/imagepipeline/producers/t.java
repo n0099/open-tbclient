@@ -4,52 +4,52 @@ import android.net.Uri;
 import javax.annotation.Nullable;
 /* loaded from: classes3.dex */
 public class t {
-    private final k<com.facebook.imagepipeline.f.e> pGe;
-    private final ak pGl;
-    private long pGm = 0;
-    private int pGn;
+    private final k<com.facebook.imagepipeline.f.e> pBD;
+    private final ak pBK;
+    private long pBL = 0;
+    private int pBM;
     @Nullable
-    private com.facebook.imagepipeline.common.a pGo;
+    private com.facebook.imagepipeline.common.a pBN;
 
     public t(k<com.facebook.imagepipeline.f.e> kVar, ak akVar) {
-        this.pGe = kVar;
-        this.pGl = akVar;
+        this.pBD = kVar;
+        this.pBK = akVar;
     }
 
-    public k<com.facebook.imagepipeline.f.e> eAU() {
-        return this.pGe;
+    public k<com.facebook.imagepipeline.f.e> exc() {
+        return this.pBD;
     }
 
-    public ak eAV() {
-        return this.pGl;
+    public ak exd() {
+        return this.pBK;
     }
 
     public String getId() {
-        return this.pGl.getId();
+        return this.pBK.getId();
     }
 
-    public am eAI() {
-        return this.pGl.eAI();
+    public am ewQ() {
+        return this.pBK.ewQ();
     }
 
     public Uri getUri() {
-        return this.pGl.eAH().eBx();
+        return this.pBK.ewP().exF();
     }
 
-    public long eAW() {
-        return this.pGm;
+    public long exe() {
+        return this.pBL;
     }
 
     public void iL(long j) {
-        this.pGm = j;
+        this.pBL = j;
     }
 
-    public int eAX() {
-        return this.pGn;
+    public int exf() {
+        return this.pBM;
     }
 
     @Nullable
-    public com.facebook.imagepipeline.common.a eAY() {
-        return this.pGo;
+    public com.facebook.imagepipeline.common.a exg() {
+        return this.pBN;
     }
 }

@@ -2,24 +2,24 @@ package com.baidu.swan.games.network.websocket;
 
 import androidx.annotation.NonNull;
 import com.baidu.searchbox.v8engine.JsObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class a {
-    private com.baidu.swan.games.f.b efi;
-    private b elW;
+    private com.baidu.swan.games.f.b eaw;
+    private b ehk;
 
     public a(com.baidu.swan.games.f.b bVar) {
-        this.efi = bVar;
+        this.eaw = bVar;
     }
 
     public c connectSocket(JsObject jsObject) {
-        return new c(bbo(), this.efi).j(jsObject);
+        return new c(aXu(), this.eaw).j(jsObject);
     }
 
     @NonNull
-    private b bbo() {
-        if (this.elW == null) {
-            this.elW = new b();
+    private b aXu() {
+        if (this.ehk == null) {
+            this.ehk = new b();
         }
-        return this.elW;
+        return this.ehk;
     }
 }

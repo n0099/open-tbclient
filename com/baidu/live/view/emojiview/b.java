@@ -12,70 +12,70 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public final class b {
-    public static final String[] bVQ = new String[20];
-    public static final String[] bVR = new String[20];
-    public static final String[] bVS = new String[20];
-    public static final String[] bVT = new String[20];
-    public static final String[] bVU = new String[20];
-    public static final String[] bVV = new String[20];
-    public static final String[] bVW = new String[20];
-    public static final String[] bVX = new String[20];
-    public static final String[] bVY = new String[20];
-    public static final String[] bVZ = new String[20];
+    public static final String[] bRe = new String[20];
+    public static final String[] bRf = new String[20];
+    public static final String[] bRg = new String[20];
+    public static final String[] bRh = new String[20];
+    public static final String[] bRi = new String[20];
+    public static final String[] bRj = new String[20];
+    public static final String[] bRk = new String[20];
+    public static final String[] bRl = new String[20];
+    public static final String[] bRm = new String[20];
+    public static final String[] bRn = new String[20];
     private static final HashMap<String, Integer> mMap = new HashMap<>();
-    private static final HashMap<String, String> bWa = new HashMap<>();
+    private static final HashMap<String, String> bRo = new HashMap<>();
 
     public static String O(Context context, String str) {
-        return bWa.get(str);
+        return bRo.get(str);
     }
 
-    public static void bu(Context context) {
+    public static void bt(Context context) {
         if (mMap != null && mMap.size() == 0) {
-            bv(context);
+            bu(context);
         }
     }
 
-    public static HashMap<String, Integer> ZZ() {
+    public static HashMap<String, Integer> Wg() {
         return mMap;
     }
 
-    private static void bv(Context context) {
-        List<com.baidu.live.view.emojiview.a.a> bw = bw(context);
-        for (int i = 0; i < bw.size(); i++) {
-            com.baidu.live.view.emojiview.a.a aVar = bw.get(i);
+    private static void bu(Context context) {
+        List<com.baidu.live.view.emojiview.a.a> bv = bv(context);
+        for (int i = 0; i < bv.size(); i++) {
+            com.baidu.live.view.emojiview.a.a aVar = bv.get(i);
             mMap.put(aVar.text, Integer.valueOf(P(context, aVar.icon.split("\\.")[0])));
-            bWa.put(aVar.text, aVar.id);
+            bRo.put(aVar.text, aVar.id);
             if (i < 20) {
-                bVQ[i] = aVar.text;
+                bRe[i] = aVar.text;
             } else if (i >= 20 && i < 40) {
-                bVR[i - 20] = aVar.text;
+                bRf[i - 20] = aVar.text;
             } else if (i >= 40 && i < 60) {
-                bVS[i - 40] = aVar.text;
+                bRg[i - 40] = aVar.text;
             } else if (i >= 60 && i < 80) {
-                bVT[i - 60] = aVar.text;
+                bRh[i - 60] = aVar.text;
             } else if (i >= 80 && i < 100) {
-                bVU[i - 80] = aVar.text;
+                bRi[i - 80] = aVar.text;
             } else if (i >= 100 && i < 120) {
-                bVV[i - 100] = aVar.text;
+                bRj[i - 100] = aVar.text;
             } else if (i >= 120 && i < 140) {
-                bVW[i - 120] = aVar.text;
+                bRk[i - 120] = aVar.text;
             } else if (i >= 140 && i < 160) {
-                bVX[i - 140] = aVar.text;
+                bRl[i - 140] = aVar.text;
             } else if (i >= 160 && i < 180) {
-                bVY[i - 160] = aVar.text;
+                bRm[i - 160] = aVar.text;
             } else if (i >= 180 && i < 200) {
-                bVZ[i - 180] = aVar.text;
+                bRn[i - 180] = aVar.text;
             }
         }
     }
 
     private static int P(Context context, String str) {
-        return d.jd(str);
+        return d.hS(str);
     }
 
-    public static List<com.baidu.live.view.emojiview.a.a> bw(Context context) {
+    public static List<com.baidu.live.view.emojiview.a.a> bv(Context context) {
         String Q = Q(context, "audio_emotion_info.json");
         Log.e("hyder", Q);
         try {

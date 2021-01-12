@@ -5,33 +5,33 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import com.qq.e.comm.plugin.util.ai;
 import com.qq.e.comm.util.GDTLogger;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 class f extends WebViewClient {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f12076a = f.class.getSimpleName();
+    private static final String f11776a = f.class.getSimpleName();
 
     @Override // android.webkit.WebViewClient
     public void onLoadResource(WebView webView, String str) {
-        ai.a(f12076a, "LoadingResource:" + str);
+        ai.a(f11776a, "LoadingResource:" + str);
         super.onLoadResource(webView, str);
     }
 
     @Override // android.webkit.WebViewClient
     public void onPageFinished(WebView webView, String str) {
-        ai.a(f12076a, "onPageFinished====>" + str);
+        ai.a(f11776a, "onPageFinished====>" + str);
         super.onPageFinished(webView, str);
     }
 
     @Override // android.webkit.WebViewClient
     public void onPageStarted(WebView webView, String str, Bitmap bitmap) {
-        ai.a(f12076a, "onPageStarted====>" + str);
+        ai.a(f11776a, "onPageStarted====>" + str);
         super.onPageStarted(webView, str, bitmap);
     }
 
     @Override // android.webkit.WebViewClient
     public void onReceivedError(WebView webView, int i, String str, String str2) {
-        ai.a(f12076a, "onReceivedError. errorCode:" + i + ".description:" + str + "failingUrl:" + str2);
+        ai.a(f11776a, "onReceivedError. errorCode:" + i + ".description:" + str + "failingUrl:" + str2);
         if (webView instanceof d) {
             ((d) webView).a(new com.qq.e.comm.plugin.ab.a.a(com.qq.e.comm.plugin.ab.a.c.ResourceLoadFail, null));
         }

@@ -2,12 +2,12 @@ package com.baidu.tieba.setting.model;
 
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.tbadk.coreExtra.data.PersonChangeData;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class MoreModel extends BdBaseModel {
-    private boolean mZH;
-    private PersonChangeData mwn;
+    private boolean mVc;
+    private PersonChangeData mrI;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public enum TaskType {
         DO_CACHE_CLEAR,
         GET_SIZE
@@ -15,24 +15,24 @@ public class MoreModel extends BdBaseModel {
 
     public MoreModel(PersonChangeData personChangeData) {
         super(null);
-        this.mwn = null;
-        this.mZH = false;
-        this.mwn = personChangeData;
-        if (this.mwn == null) {
-            this.mwn = new PersonChangeData();
+        this.mrI = null;
+        this.mVc = false;
+        this.mrI = personChangeData;
+        if (this.mrI == null) {
+            this.mrI = new PersonChangeData();
         }
     }
 
     public void b(PersonChangeData personChangeData) {
-        this.mwn = personChangeData;
+        this.mrI = personChangeData;
     }
 
-    public void xy(boolean z) {
-        this.mZH = z;
+    public void xu(boolean z) {
+        this.mVc = z;
     }
 
-    public boolean dHZ() {
-        return this.mZH;
+    public boolean dEh() {
+        return this.mVc;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -45,7 +45,7 @@ public class MoreModel extends BdBaseModel {
         return false;
     }
 
-    public PersonChangeData dIa() {
-        return this.mwn;
+    public PersonChangeData dEi() {
+        return this.mrI;
     }
 }

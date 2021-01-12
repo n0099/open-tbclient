@@ -3,9 +3,9 @@ package com.baidu.live.lottie.c;
 import android.util.JsonReader;
 import android.util.JsonToken;
 import java.io.IOException;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class ac implements aj<com.baidu.live.lottie.e.d> {
-    public static final ac bvP = new ac();
+    public static final ac brb = new ac();
 
     private ac() {
     }

@@ -1,140 +1,29 @@
 package com.baidu.mapapi.map;
 
-import android.util.SparseIntArray;
-import android.view.MotionEvent;
-import android.widget.ImageView;
-import android.widget.TextView;
-import com.baidu.platform.comapi.basestruct.GeoPoint;
-import com.baidu.platform.comapi.map.MapSurfaceView;
-import javax.microedition.khronos.opengles.GL10;
+import android.animation.ValueAnimator;
+import android.view.View;
+import android.view.ViewGroup;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes3.dex */
-public class q implements com.baidu.platform.comapi.map.ag {
+/* loaded from: classes6.dex */
+public class q implements ValueAnimator.AnimatorUpdateListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ MapView f2930a;
+    final /* synthetic */ ViewGroup.LayoutParams f2809a;
+
+    /* renamed from: b  reason: collision with root package name */
+    final /* synthetic */ SwipeDismissTouchListener f2810b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public q(MapView mapView) {
-        this.f2930a = mapView;
+    public q(SwipeDismissTouchListener swipeDismissTouchListener, ViewGroup.LayoutParams layoutParams) {
+        this.f2810b = swipeDismissTouchListener;
+        this.f2809a = layoutParams;
     }
 
-    @Override // com.baidu.platform.comapi.map.ag
-    public void a() {
-        MapSurfaceView mapSurfaceView;
-        MapSurfaceView mapSurfaceView2;
-        MapSurfaceView mapSurfaceView3;
-        MapSurfaceView mapSurfaceView4;
-        MapSurfaceView mapSurfaceView5;
-        MapSurfaceView mapSurfaceView6;
-        float f;
-        SparseIntArray sparseIntArray;
-        MapSurfaceView mapSurfaceView7;
-        ImageView imageView;
-        TextView textView;
-        TextView textView2;
-        MapSurfaceView mapSurfaceView8;
-        mapSurfaceView = this.f2930a.e;
-        if (mapSurfaceView != null) {
-            mapSurfaceView2 = this.f2930a.e;
-            if (mapSurfaceView2.getController() == null) {
-                return;
-            }
-            mapSurfaceView3 = this.f2930a.e;
-            float zoomLevel = mapSurfaceView3.getZoomLevel();
-            mapSurfaceView4 = this.f2930a.e;
-            if (zoomLevel < mapSurfaceView4.getController().mMinZoomLevel) {
-                mapSurfaceView8 = this.f2930a.e;
-                zoomLevel = mapSurfaceView8.getController().mMinZoomLevel;
-            } else {
-                mapSurfaceView5 = this.f2930a.e;
-                if (zoomLevel > mapSurfaceView5.getController().mMaxZoomLevel) {
-                    mapSurfaceView6 = this.f2930a.e;
-                    zoomLevel = mapSurfaceView6.getController().mMaxZoomLevel;
-                }
-            }
-            f = this.f2930a.u;
-            if (Math.abs(f - zoomLevel) > 0.0f) {
-                sparseIntArray = MapView.q;
-                int i = sparseIntArray.get(Math.round(zoomLevel));
-                mapSurfaceView7 = this.f2930a.e;
-                int zoomUnitsInMeter = (int) (i / mapSurfaceView7.getController().getZoomUnitsInMeter());
-                imageView = this.f2930a.o;
-                imageView.setPadding(zoomUnitsInMeter / 2, 0, zoomUnitsInMeter / 2, 0);
-                String format = i >= 1000 ? String.format(" %d公里 ", Integer.valueOf(i / 1000)) : String.format(" %d米 ", Integer.valueOf(i));
-                textView = this.f2930a.m;
-                textView.setText(format);
-                textView2 = this.f2930a.n;
-                textView2.setText(format);
-                this.f2930a.u = zoomLevel;
-            }
-            this.f2930a.b();
-            this.f2930a.requestLayout();
-        }
-    }
-
-    @Override // com.baidu.platform.comapi.map.ag
-    public void a(MotionEvent motionEvent) {
-    }
-
-    @Override // com.baidu.platform.comapi.map.ag
-    public void a(com.baidu.mapsdkplatform.comapi.map.w wVar) {
-    }
-
-    @Override // com.baidu.platform.comapi.map.ag
-    public void a(GeoPoint geoPoint) {
-    }
-
-    @Override // com.baidu.platform.comapi.map.ag
-    public void a(String str) {
-    }
-
-    @Override // com.baidu.platform.comapi.map.ag
-    public void a(GL10 gl10, com.baidu.mapsdkplatform.comapi.map.w wVar) {
-    }
-
-    @Override // com.baidu.platform.comapi.map.ag
-    public void a(boolean z) {
-    }
-
-    @Override // com.baidu.platform.comapi.map.ag
-    public void b() {
-    }
-
-    @Override // com.baidu.platform.comapi.map.ag
-    public void b(com.baidu.mapsdkplatform.comapi.map.w wVar) {
-    }
-
-    @Override // com.baidu.platform.comapi.map.ag
-    public void b(GeoPoint geoPoint) {
-    }
-
-    @Override // com.baidu.platform.comapi.map.ag
-    public boolean b(String str) {
-        return false;
-    }
-
-    @Override // com.baidu.platform.comapi.map.ag
-    public void c() {
-    }
-
-    @Override // com.baidu.platform.comapi.map.ag
-    public void c(com.baidu.mapsdkplatform.comapi.map.w wVar) {
-    }
-
-    @Override // com.baidu.platform.comapi.map.ag
-    public void c(GeoPoint geoPoint) {
-    }
-
-    @Override // com.baidu.platform.comapi.map.ag
-    public void d() {
-    }
-
-    @Override // com.baidu.platform.comapi.map.ag
-    public void d(GeoPoint geoPoint) {
-    }
-
-    @Override // com.baidu.platform.comapi.map.ag
-    public void e(GeoPoint geoPoint) {
+    @Override // android.animation.ValueAnimator.AnimatorUpdateListener
+    public void onAnimationUpdate(ValueAnimator valueAnimator) {
+        View view;
+        this.f2809a.height = ((Integer) valueAnimator.getAnimatedValue()).intValue();
+        view = this.f2810b.e;
+        view.setLayoutParams(this.f2809a);
     }
 }

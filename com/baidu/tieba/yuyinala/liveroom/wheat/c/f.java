@@ -5,20 +5,20 @@ import com.baidu.live.tbadk.core.util.ListUtils;
 import com.baidu.tieba.yuyinala.liveroom.wheat.view.ConnectionLineView;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class f {
-    private RelativeLayout ltF;
-    private final ConcurrentHashMap<String, ConnectionLineView> oBl = new ConcurrentHashMap<>();
-    private final ConcurrentHashMap<String, Boolean> oBm = new ConcurrentHashMap<>();
-    private a oBn;
+    private RelativeLayout loZ;
+    private final ConcurrentHashMap<String, ConnectionLineView> owG = new ConcurrentHashMap<>();
+    private final ConcurrentHashMap<String, Boolean> owH = new ConcurrentHashMap<>();
+    private a owI;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public interface a {
-        void Wt(String str);
+        void Vl(String str);
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:14:0x0032, code lost:
-        if (r8.ltF.indexOfChild(r8.oBl.get(r1)) == (-1)) goto L16;
+        if (r8.loZ.indexOfChild(r8.owG.get(r1)) == (-1)) goto L16;
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -26,42 +26,42 @@ public class f {
     public synchronized void a(int[] iArr, RelativeLayout relativeLayout, double[] dArr, double[] dArr2, int i) {
         if (dArr[0] != dArr2[0] || dArr[1] != dArr2[1]) {
             String o = o(iArr);
-            if (this.oBl.containsKey(o)) {
+            if (this.owG.containsKey(o)) {
             }
-            this.ltF = relativeLayout;
+            this.loZ = relativeLayout;
             ConnectionLineView connectionLineView = new ConnectionLineView(relativeLayout.getContext());
             int a2 = (int) a(dArr, dArr2);
-            connectionLineView.setLayoutParams(new RelativeLayout.LayoutParams(a2 - com.baidu.tieba.yuyinala.liveroom.wheat.e.e.c(52.0f, relativeLayout.getContext()), -2));
+            connectionLineView.setLayoutParams(new RelativeLayout.LayoutParams(a2 - com.baidu.tieba.yuyinala.liveroom.wheat.e.e.d(52.0f, relativeLayout.getContext()), -2));
             float b2 = (float) b(dArr, dArr2);
             double[] a3 = a(a2, dArr, dArr2);
-            connectionLineView.setX((float) (a3[0] + (com.baidu.tieba.yuyinala.liveroom.wheat.e.e.c(52.0f, relativeLayout.getContext()) / 2)));
+            connectionLineView.setX((float) (a3[0] + (com.baidu.tieba.yuyinala.liveroom.wheat.e.e.d(52.0f, relativeLayout.getContext()) / 2)));
             connectionLineView.setY((float) a3[1]);
             if (dArr[1] > dArr2[1]) {
                 b2 = 180.0f - b2;
             }
             connectionLineView.setRotation(b2);
             relativeLayout.addView(connectionLineView, i + 1);
-            this.oBl.put(o, connectionLineView);
-            if (this.oBn != null) {
-                this.oBn.Wt(o);
+            this.owG.put(o, connectionLineView);
+            if (this.owI != null) {
+                this.owI.Vl(o);
             }
         }
     }
 
-    public synchronized void Wr(String str) {
-        if (!ListUtils.isEmpty(this.oBl) && this.oBl.containsKey(str)) {
-            ConnectionLineView connectionLineView = this.oBl.get(str);
-            if (connectionLineView != null && this.ltF.indexOfChild(connectionLineView) != -1) {
-                this.ltF.removeView(connectionLineView);
+    public synchronized void Vj(String str) {
+        if (!ListUtils.isEmpty(this.owG) && this.owG.containsKey(str)) {
+            ConnectionLineView connectionLineView = this.owG.get(str);
+            if (connectionLineView != null && this.loZ.indexOfChild(connectionLineView) != -1) {
+                this.loZ.removeView(connectionLineView);
             }
-            this.oBl.remove(str);
+            this.owG.remove(str);
         }
     }
 
-    public synchronized void eeS() {
-        if (!ListUtils.isEmpty(this.oBl)) {
-            for (Map.Entry<String, ConnectionLineView> entry : this.oBl.entrySet()) {
-                Wr(entry.getKey());
+    public synchronized void eba() {
+        if (!ListUtils.isEmpty(this.owG)) {
+            for (Map.Entry<String, ConnectionLineView> entry : this.owG.entrySet()) {
+                Vj(entry.getKey());
             }
         }
     }
@@ -81,40 +81,40 @@ public class f {
     }
 
     private double[] a(int i, double[] dArr, double[] dArr2) {
-        return new double[]{((dArr[0] + dArr2[0]) - i) / 2.0d, ((dArr[1] + dArr2[1]) / 2.0d) - com.baidu.tieba.yuyinala.liveroom.wheat.e.e.c(11.0f, this.ltF.getContext())};
+        return new double[]{((dArr[0] + dArr2[0]) - i) / 2.0d, ((dArr[1] + dArr2[1]) / 2.0d) - com.baidu.tieba.yuyinala.liveroom.wheat.e.e.d(11.0f, this.loZ.getContext())};
     }
 
     public void a(a aVar) {
-        this.oBn = aVar;
+        this.owI = aVar;
     }
 
     public synchronized void p(int[] iArr) {
         ConnectionLineView connectionLineView;
-        if (!ListUtils.isEmpty(this.oBl) && (connectionLineView = this.oBl.get(o(iArr))) != null) {
-            connectionLineView.egA();
+        if (!ListUtils.isEmpty(this.owG) && (connectionLineView = this.owG.get(o(iArr))) != null) {
+            connectionLineView.ecI();
         }
     }
 
-    public ConcurrentHashMap<String, ConnectionLineView> eeT() {
-        return this.oBl;
+    public ConcurrentHashMap<String, ConnectionLineView> ebb() {
+        return this.owG;
     }
 
     public synchronized void bh(String str, boolean z) {
-        if (this.oBm != null) {
-            if (this.oBm.containsKey(str)) {
-                this.oBm.remove(str);
+        if (this.owH != null) {
+            if (this.owH.containsKey(str)) {
+                this.owH.remove(str);
             }
-            this.oBm.put(str, Boolean.valueOf(z));
+            this.owH.put(str, Boolean.valueOf(z));
         }
     }
 
-    public synchronized boolean Ws(String str) {
-        return (this.oBm == null || !this.oBm.containsKey(str)) ? false : this.oBm.get(str).booleanValue();
+    public synchronized boolean Vk(String str) {
+        return (this.owH == null || !this.owH.containsKey(str)) ? false : this.owH.get(str).booleanValue();
     }
 
-    public synchronized void eeU() {
-        if (this.oBm != null) {
-            this.oBm.clear();
+    public synchronized void ebc() {
+        if (this.owH != null) {
+            this.owH.clear();
         }
     }
 }

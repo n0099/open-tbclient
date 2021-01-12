@@ -4,7 +4,7 @@ import android.content.Context;
 import com.baidu.live.tbadk.ar.ArFaceSdkInit;
 import com.baidu.live.tbadk.ar.LoadARSDKCallBack;
 import com.baidu.minivideo.arface.b;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class a implements ArFaceSdkInit {
     @Override // com.baidu.live.tbadk.ar.ArFaceSdkInit
     public void init(Context context) {

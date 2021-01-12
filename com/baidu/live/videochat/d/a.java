@@ -5,23 +5,23 @@ import android.view.View;
 import com.baidu.ala.recorder.AlaLiveRecorder;
 import com.baidu.live.data.x;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public interface a {
-    View Pp();
+    View Lu();
 
-    int Vh();
+    int Ro();
 
-    void XL();
+    void TS();
 
-    void XM();
+    void TT();
 
-    void YH();
+    void UO();
 
-    com.baidu.live.alablmsdk.module.c YI();
+    com.baidu.live.alablmsdk.module.c UP();
 
-    JSONObject YJ();
+    JSONObject UQ();
 
-    String YK();
+    String UR();
 
     void a(AlaLiveRecorder alaLiveRecorder);
 
@@ -33,7 +33,7 @@ public interface a {
 
     boolean b(com.baidu.live.alablmsdk.module.c cVar, JSONObject jSONObject);
 
-    void dv(boolean z);
+    void dr(boolean z);
 
     void init(Context context);
 

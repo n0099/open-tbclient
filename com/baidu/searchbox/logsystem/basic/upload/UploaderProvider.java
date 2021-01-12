@@ -1,7 +1,7 @@
 package com.baidu.searchbox.logsystem.basic.upload;
 
 import com.baidu.searchbox.logsystem.uploadfile.BOSAttachFileUploader_Factory;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class UploaderProvider {
     private static final BaseContentUploader DEFAULT_CONTENT_UPLOADER = new DefaultContentUploader();
     private static final BaseAttachFileUploader DEFAULT_FILE_UPLOADER = new DefaultAttachFileUploader();

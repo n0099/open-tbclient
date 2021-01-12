@@ -2,48 +2,48 @@ package com.baidu.tieba.ala.liveroom.master.panel;
 
 import android.content.Context;
 import com.baidu.live.sdk.a;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class AlaMasterOperationSwitchItemView extends AlaMasterOperationBaseItemView {
-    private short hJs;
-    private int hJt;
-    private int hJu;
+    private short hEM;
+    private int hEN;
+    private int hEO;
 
     public AlaMasterOperationSwitchItemView(Context context, int i) {
         super(context, i);
-        this.hJs = (short) 1;
+        this.hEM = (short) 1;
     }
 
     public void setTextResIdAndOnIconIdAndOffIconId(int i, int i2, int i3) {
         setTextResId(i);
-        this.hJt = i2;
-        this.hJu = i3;
+        this.hEN = i2;
+        this.hEO = i3;
         updateIcon();
     }
 
     public void i(short s) {
-        this.hJs = s;
+        this.hEM = s;
         updateIcon();
-        ZX();
+        We();
     }
 
     private void updateIcon() {
-        if (this.hJs == 1) {
-            setIconResId(this.hJt);
+        if (this.hEM == 1) {
+            setIconResId(this.hEN);
             setEnabled(true);
-        } else if (this.hJs == 2) {
-            setIconResId(this.hJu);
+        } else if (this.hEM == 2) {
+            setIconResId(this.hEO);
             setEnabled(true);
         } else {
-            setIconResId(this.hJt);
+            setIconResId(this.hEN);
             setEnabled(false);
         }
     }
 
-    private void ZX() {
+    private void We() {
         if (this.mId == 3) {
-            if (this.hJs == 1) {
+            if (this.hEM == 1) {
                 setTextResId(a.h.ala_operation_panel_text_mirror_on);
-            } else if (this.hJs == 2) {
+            } else if (this.hEM == 2) {
                 setTextResId(a.h.ala_operation_panel_text_mirror_off);
             }
         }

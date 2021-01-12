@@ -9,17 +9,17 @@ import java.io.File;
 import java.io.FileInputStream;
 /* loaded from: classes.dex */
 public class b implements Runnable {
-    private static Object QJ = new Object();
-    private String QG;
-    private Amrnb QI;
-    private int QL;
+    private static Object QH = new Object();
+    private String QE;
+    private Amrnb QG;
+    private int QJ;
     private AudioTrack mAudioTrack;
     private final Handler mHandler;
-    private volatile int QD = 0;
-    private final short[] QH = {12, 13, 15, 17, 19, 20, 26, 31, 5, 0, 0, 0, 0, 0, 0, 0};
+    private volatile int QB = 0;
+    private final short[] QF = {12, 13, 15, 17, 19, 20, 26, 31, 5, 0, 0, 0, 0, 0, 0, 0};
     private final int mCurBeginSecond = 0;
     private int mElapsedTime = 0;
-    private final Handler QK = new Handler();
+    private final Handler QI = new Handler();
     private final Runnable mPlayTimeThread = new Runnable() { // from class: com.baidu.adp.lib.voice.b.1
         @Override // java.lang.Runnable
         public void run() {
@@ -37,11 +37,11 @@ public class b implements Runnable {
                     obtainMessage.arg1 = b.this.mElapsedTime;
                     b.this.mHandler.sendMessage(obtainMessage);
                 }
-                b.this.QK.postDelayed(b.this.mPlayTimeThread, 100L);
+                b.this.QI.postDelayed(b.this.mPlayTimeThread, 100L);
             }
         }
     };
-    private final Runnable QM = new Runnable() { // from class: com.baidu.adp.lib.voice.b.2
+    private final Runnable QK = new Runnable() { // from class: com.baidu.adp.lib.voice.b.2
         @Override // java.lang.Runnable
         public void run() {
             b.this.release();
@@ -68,12 +68,12 @@ public class b implements Runnable {
     }
 
     public b(Handler handler, int i) {
-        this.QL = 0;
-        this.QL = i;
+        this.QJ = 0;
+        this.QJ = i;
         this.mHandler = handler;
         try {
-            this.QI = new Amrnb();
-            if (this.QI == null && this.mHandler != null) {
+            this.QG = new Amrnb();
+            if (this.QG == null && this.mHandler != null) {
                 this.mHandler.sendMessage(this.mHandler.obtainMessage(2));
             }
         } catch (Exception e) {
@@ -84,25 +84,25 @@ public class b implements Runnable {
     }
 
     public void aD(int i) {
-        this.QL = i;
+        this.QJ = i;
     }
 
     private void init() {
         try {
-            this.mAudioTrack = new AudioTrack(h.QR, 8000, 2, 2, Math.min(AudioTrack.getMinBufferSize(8000, 2, 2) * 8, 4096), 1);
+            this.mAudioTrack = new AudioTrack(h.QO, 8000, 2, 2, Math.min(AudioTrack.getMinBufferSize(8000, 2, 2) * 8, 4096), 1);
         } catch (IllegalArgumentException e) {
             this.mAudioTrack = null;
             BdLog.e(e.getMessage());
         }
-        this.QD = 1;
+        this.QB = 1;
     }
 
     public void release() {
         int i;
         if (this.mHandler != null) {
-            this.mHandler.removeCallbacks(this.QM);
+            this.mHandler.removeCallbacks(this.QK);
         }
-        synchronized (QJ) {
+        synchronized (QH) {
             if (this.mAudioTrack != null) {
                 try {
                     i = this.mAudioTrack.getPlaybackHeadPosition();
@@ -114,13 +114,13 @@ public class b implements Runnable {
                 } catch (Exception e2) {
                     i = 0;
                 }
-                this.QL = 0;
+                this.QJ = 0;
                 this.mAudioTrack = null;
             } else {
                 i = 0;
             }
-            if (this.QK != null) {
-                this.QK.removeCallbacks(this.mPlayTimeThread);
+            if (this.QI != null) {
+                this.QI.removeCallbacks(this.mPlayTimeThread);
             }
             if (this.mHandler != null) {
                 Message obtainMessage = this.mHandler.obtainMessage(0);
@@ -128,7 +128,7 @@ public class b implements Runnable {
                 this.mHandler.sendMessage(obtainMessage);
             }
         }
-        this.QD = 0;
+        this.QB = 0;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:44:0x00c7  */
@@ -141,16 +141,16 @@ public class b implements Runnable {
         FileInputStream fileInputStream;
         boolean z = true;
         Process.setThreadPriority(-19);
-        if (this.QI == null) {
+        if (this.QG == null) {
             if (this.mHandler != null) {
                 this.mHandler.sendMessage(this.mHandler.obtainMessage(2));
             }
-        } else if (this.QG == null) {
+        } else if (this.QE == null) {
             if (this.mHandler != null) {
                 this.mHandler.sendMessage(this.mHandler.obtainMessage(1));
             }
         } else {
-            File file = new File(this.QG);
+            File file = new File(this.QE);
             if (file == null || !file.exists()) {
                 if (this.mHandler != null) {
                     this.mHandler.sendMessage(this.mHandler.obtainMessage(1));
@@ -166,21 +166,21 @@ public class b implements Runnable {
                 }
                 return;
             }
-            if (this.QL > 0) {
+            if (this.QJ > 0) {
                 this.mAudioTrack.reloadStaticData();
-                this.mAudioTrack.setPlaybackHeadPosition(this.QL);
+                this.mAudioTrack.setPlaybackHeadPosition(this.QJ);
             }
             try {
                 this.mAudioTrack.play();
-                this.QD = 2;
-                this.QK.post(this.mPlayTimeThread);
+                this.QB = 2;
+                this.QI.post(this.mPlayTimeThread);
                 fileInputStream = new FileInputStream(file);
                 try {
                     Boolean bool = true;
                     byte[] bArr = new byte[32];
-                    this.QI.decoderInit();
+                    this.QG.decoderInit();
                     short[] sArr = new short[160];
-                    while (this.QD == 2) {
+                    while (this.QB == 2) {
                         if (bool.booleanValue()) {
                             if (fileInputStream.read(bArr, 0, 6) == 6) {
                                 if (bArr[0] != 35 || bArr[1] != 33 || bArr[2] != 65 || bArr[3] != 77 || bArr[4] != 82) {
@@ -197,11 +197,11 @@ public class b implements Runnable {
                             }
                         }
                         if (fileInputStream.read(bArr, 0, 1) > 0) {
-                            short s = this.QH[(bArr[0] >> 3) & 15];
+                            short s = this.QF[(bArr[0] >> 3) & 15];
                             if (fileInputStream.read(bArr, 1, s) == s) {
-                                synchronized (QJ) {
+                                synchronized (QH) {
                                     if (this.mAudioTrack != null && this.mAudioTrack.getPlayState() == 3) {
-                                        this.QI.decoderDecode(bArr, sArr);
+                                        this.QG.decoderDecode(bArr, sArr);
                                         this.mAudioTrack.write(sArr, 0, sArr.length);
                                     }
                                 }
@@ -211,7 +211,7 @@ public class b implements Runnable {
                     z = false;
                     try {
                         fileInputStream.close();
-                        this.QI.decoderDeinit();
+                        this.QG.decoderDeinit();
                     } catch (Exception e) {
                         if (this.mHandler != null) {
                             this.mHandler.sendMessage(this.mHandler.obtainMessage(5));
@@ -223,7 +223,7 @@ public class b implements Runnable {
                                 BdLog.e(e2.getMessage());
                             }
                         }
-                        this.QD = 3;
+                        this.QB = 3;
                         if (!z) {
                         }
                     }
@@ -234,9 +234,9 @@ public class b implements Runnable {
                 z = false;
                 fileInputStream = null;
             }
-            this.QD = 3;
+            this.QB = 3;
             if (!z) {
-                this.mHandler.postDelayed(this.QM, 500L);
+                this.mHandler.postDelayed(this.QK, 500L);
             } else {
                 release();
             }
@@ -244,11 +244,11 @@ public class b implements Runnable {
     }
 
     public void cg(String str) {
-        this.QG = str;
+        this.QE = str;
     }
 
     public void stop() {
-        this.QD = 3;
+        this.QB = 3;
         release();
     }
 }

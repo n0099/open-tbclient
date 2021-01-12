@@ -17,7 +17,7 @@ import com.baidu.live.adp.framework.task.SocketMessageTask;
 import com.baidu.live.adp.lib.util.BdLog;
 import com.baidu.live.adp.lib.util.BdUtilHelper;
 import java.util.LinkedList;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class RuleController {
     private final LinkedList<HttpRule> mHttpMessageRules = new LinkedList<>();
     private final LinkedList<SocketRule> mSocketMessageRules = new LinkedList<>();

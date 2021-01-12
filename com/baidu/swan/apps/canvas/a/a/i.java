@@ -6,10 +6,11 @@ import android.graphics.RadialGradient;
 import android.graphics.Shader;
 import android.text.TextUtils;
 import com.baidu.ar.gesture.GestureAR;
+import com.baidu.mobstat.Config;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class i {
     private int mColor;
     private Shader mShader;
@@ -27,7 +28,7 @@ public class i {
         return !TextUtils.isEmpty(this.mType);
     }
 
-    public boolean aol() {
+    public boolean akr() {
         return TextUtils.equals(this.mType, "linearGradient") || TextUtils.equals(this.mType, "circularGradient");
     }
 
@@ -72,7 +73,7 @@ public class i {
                         this.mType = "linearGradient";
                         return;
                     }
-                    this.mShader = new RadialGradient(com.baidu.swan.apps.ao.ah.O(optJSONObject2.optInt("x")), com.baidu.swan.apps.ao.ah.O(optJSONObject2.optInt("y")), com.baidu.swan.apps.ao.ah.O(optJSONObject2.optInt("r")), iArr, fArr, Shader.TileMode.CLAMP);
+                    this.mShader = new RadialGradient(com.baidu.swan.apps.ao.ah.O(optJSONObject2.optInt(Config.EVENT_HEAT_X)), com.baidu.swan.apps.ao.ah.O(optJSONObject2.optInt("y")), com.baidu.swan.apps.ao.ah.O(optJSONObject2.optInt("r")), iArr, fArr, Shader.TileMode.CLAMP);
                     this.mType = "circularGradient";
                 }
             }

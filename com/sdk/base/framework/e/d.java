@@ -3,7 +3,7 @@ package com.sdk.base.framework.e;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.io.PushbackInputStream;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public abstract class d {
     public final void a(InputStream inputStream, OutputStream outputStream) {
         PushbackInputStream pushbackInputStream = new PushbackInputStream(inputStream);

@@ -2,6 +2,7 @@ package com.baidu.tieba.location;
 
 import android.content.Context;
 import android.location.Address;
+import android.net.http.Headers;
 import android.os.Build;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -15,20 +16,20 @@ import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.live.tbadk.core.sharedpref.SharedPrefConfig;
 import com.baidu.location.BDLocation;
 import com.baidu.location.LocationClient;
-import com.baidu.platform.comapi.location.CoordinateType;
+import com.baidu.mapsdkplatform.comapi.location.CoordinateType;
 import com.baidu.tbadk.TbadkSettings;
 import com.baidu.tbadk.editortools.EditorTools;
 import com.baidu.tbadk.editortools.m;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class LocationProvidersStatic {
     static {
-        com.baidu.adp.lib.c.a.lI().a(b.dfx());
+        com.baidu.adp.lib.c.a.lI().a(b.dbF());
         boolean loadBoolean = TbadkSettings.getInst().loadBoolean(SharedPrefConfig.PREFS_BD_LOC_SWITCHER, true);
         if (Build.VERSION.SDK_INT <= 4) {
             loadBoolean = false;
         }
         if (loadBoolean) {
-            com.baidu.adp.lib.c.a.lI().a(a.dfw());
+            com.baidu.adp.lib.c.a.lI().a(a.dbE());
         }
         MessageManager.getInstance().registerListener(new CustomMessageListener(CmdConfigCustom.EDITOR_COLLECT_TOOL) { // from class: com.baidu.tieba.location.LocationProvidersStatic.1
             /* JADX DEBUG: Method merged with bridge method */
@@ -40,7 +41,7 @@ public class LocationProvidersStatic {
                     editorTools.b(new com.baidu.tieba.location.editortool.b(editorTools.getContext(), indexOf + 1));
                 }
                 if (editorTools.getCollectTools().indexOf(8) != -1) {
-                    if (editorTools.bER()) {
+                    if (editorTools.bAX()) {
                         editorTools.b(new com.baidu.tieba.location.editortool.a(editorTools.getContext(), true));
                     } else {
                         editorTools.b(new com.baidu.tieba.location.editortool.a(editorTools.getContext()));
@@ -63,7 +64,7 @@ public class LocationProvidersStatic {
                     return null;
                 }
                 Bundle data = customMessage.getData();
-                Address address = (Address) data.getParcelable("location");
+                Address address = (Address) data.getParcelable(Headers.LOCATION);
                 String string = data.getString("coorType");
                 if (address == null || StringUtils.isNULL(string)) {
                     return null;

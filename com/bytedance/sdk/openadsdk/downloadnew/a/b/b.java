@@ -21,12 +21,12 @@ public class b {
             jSONObject2.put("open_ad_sdk_download_extra", a.a().a(str2).b(jSONObject).a(lVar).b());
         } catch (Exception e) {
         }
-        c.a BD = new c.a().iV(Long.valueOf(lVar.T()).longValue()).aaG(lVar.I() == null ? null : lVar.I().a()).BE(i.c().k()).BG(!i.c().k()).aaE(lVar.W()).fa(jSONObject2).aaH(str).BD(true);
+        c.a Bz = new c.a().iV(Long.valueOf(lVar.T()).longValue()).Zy(lVar.I() == null ? null : lVar.I().a()).BA(i.c().k()).BC(!i.c().k()).Zw(lVar.W()).fa(jSONObject2).Zz(str).Bz(true);
         if (com.bytedance.sdk.openadsdk.multipro.b.b()) {
-            BD.BF(true);
-            return BD;
+            Bz.BB(true);
+            return Bz;
         }
-        return BD;
+        return Bz;
     }
 
     public static c.a a(String str, l lVar, JSONObject jSONObject) {
@@ -38,13 +38,13 @@ public class b {
             jSONObject2.put("open_ad_sdk_download_extra", a.a().a(str).b(jSONObject).a(lVar).b());
         } catch (Exception e) {
         }
-        c.a BD = new c.a().iV(Long.valueOf(lVar.T()).longValue()).aaG(lVar.I() == null ? null : lVar.I().a()).BE(i.c().k()).BG(!i.c().k()).aaE(lVar.W()).fa(jSONObject2).BD(true);
+        c.a Bz = new c.a().iV(Long.valueOf(lVar.T()).longValue()).Zy(lVar.I() == null ? null : lVar.I().a()).BA(i.c().k()).BC(!i.c().k()).Zw(lVar.W()).fa(jSONObject2).Bz(true);
         com.bytedance.sdk.openadsdk.core.d.b U = lVar.U();
         if (U != null) {
-            BD.aaH(U.b()).aaI(U.c()).aaF(U.d());
+            Bz.Zz(U.b()).ZA(U.c()).Zx(U.d());
         }
         if (com.bytedance.sdk.openadsdk.multipro.b.b()) {
-            BD.BF(true);
+            Bz.BB(true);
         }
         if (lVar.V() != null) {
             com.ss.android.a.a.d.b bVar = new com.ss.android.a.a.d.b();
@@ -58,22 +58,22 @@ public class b {
                     bVar.a(lVar.K());
                 }
             }
-            BD.a(bVar);
-            return BD;
+            Bz.a(bVar);
+            return Bz;
         }
-        return BD;
+        return Bz;
     }
 
-    public static a.C1231a a(l lVar) {
+    public static a.C1214a a(l lVar) {
         int w = lVar == null ? 0 : lVar.w();
         int x = lVar == null ? 0 : lVar.x();
         if (lVar != null && !TextUtils.isEmpty(lVar.ag())) {
             x = 2;
         }
-        return new a.C1231a().RZ(w).Sa(x).Bw(true).Bx(false).bG(lVar);
+        return new a.C1214a().Qs(w).Qt(x).Bs(true).Bt(false).bG(lVar);
     }
 
     public static b.a a(l lVar, String str) {
-        return new b.a().aat(str).aau(str).aav("click_start").aax("click_continue").aaw("click_pause").aaA("download_failed").aay("click_install").BA(true).BC(false);
+        return new b.a().Zl(str).Zm(str).Zn("click_start").Zp("click_continue").Zo("click_pause").Zs("download_failed").Zq("click_install").Bw(true).By(false);
     }
 }

@@ -7,7 +7,7 @@ import androidx.annotation.ColorInt;
 import androidx.annotation.NonNull;
 import com.baidu.live.adp.widget.VerticalTranslateLayout;
 import com.baidu.searchbox.v8engine.V8JavascriptField;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class a {
     @V8JavascriptField
     public String backgroundColor;
@@ -19,7 +19,7 @@ public class a {
     public int borderWidth;
     @V8JavascriptField
     public String color;
-    private InterfaceC0549a eoP;
+    private InterfaceC0532a eka;
     @V8JavascriptField
     public String fontWeight;
     @V8JavascriptField
@@ -42,9 +42,9 @@ public class a {
     public double opacity = 1.0d;
 
     /* renamed from: com.baidu.swan.games.view.button.base.a$a  reason: collision with other inner class name */
-    /* loaded from: classes9.dex */
-    public interface InterfaceC0549a {
-        void bdl();
+    /* loaded from: classes8.dex */
+    public interface InterfaceC0532a {
+        void aZr();
     }
 
     public a(@NonNull com.baidu.swan.games.binding.model.c cVar) {
@@ -77,16 +77,16 @@ public class a {
         if (com.baidu.swan.apps.b.DEBUG) {
             Log.d("ApiButtonStyle", "onFieldChangedCallback fieldName=" + str);
         }
-        if (this.eoP != null) {
-            this.eoP.bdl();
+        if (this.eka != null) {
+            this.eka.aZr();
         }
     }
 
-    public void a(InterfaceC0549a interfaceC0549a) {
-        this.eoP = interfaceC0549a;
+    public void a(InterfaceC0532a interfaceC0532a) {
+        this.eka = interfaceC0532a;
     }
 
-    public static int mQ(@ColorInt int i) {
+    public static int lk(@ColorInt int i) {
         int i2 = (16711680 & i) >> 16;
         int i3 = (65280 & i) >> 8;
         int i4 = i & 255;

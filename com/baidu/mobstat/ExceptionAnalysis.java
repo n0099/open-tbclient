@@ -10,26 +10,26 @@ import java.io.PrintWriter;
 import java.io.StringWriter;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class ExceptionAnalysis {
 
     /* renamed from: a  reason: collision with root package name */
-    private static ExceptionAnalysis f3634a = new ExceptionAnalysis();
+    private static ExceptionAnalysis f3596a = new ExceptionAnalysis();
     private Context c;
     private String e;
     public Callback mCallback;
 
     /* renamed from: b  reason: collision with root package name */
-    private boolean f3635b = false;
+    private boolean f3597b = false;
     private HeadObject d = new HeadObject();
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public interface Callback {
         void onCallback(JSONObject jSONObject);
     }
 
     public static ExceptionAnalysis getInstance() {
-        return f3634a;
+        return f3596a;
     }
 
     private ExceptionAnalysis() {
@@ -43,8 +43,8 @@ public class ExceptionAnalysis {
         if (context != null) {
             this.c = context.getApplicationContext();
         }
-        if (this.c != null && !this.f3635b) {
-            this.f3635b = true;
+        if (this.c != null && !this.f3597b) {
+            this.f3597b = true;
             ad.a().a(this.c);
             if (!z) {
                 NativeCrashHandler.init(this.c);
@@ -103,7 +103,7 @@ public class ExceptionAnalysis {
                 jSONObject.put("v", appVersionName);
                 jSONObject.put(Config.EXCEPTION_CRASH_TYPE, i);
                 jSONObject.put("mem", a(context));
-                jSONObject.put("ty", i2);
+                jSONObject.put(Config.EXCEPTION_CRASH_CHANNEL, i2);
                 JSONArray jSONArray = new JSONArray();
                 jSONArray.put(jSONObject);
                 JSONObject jSONObject2 = new JSONObject();

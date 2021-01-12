@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public abstract class a<T> extends b {
-    protected e<T> alN;
+    protected e<T> akV;
     protected Context mContext;
     protected List<T> mData;
     protected LayoutInflater mInflater;
@@ -18,7 +18,7 @@ public abstract class a<T> extends b {
     public abstract void a(c cVar, T t, int i);
 
     public void a(e<T> eVar) {
-        this.alN = eVar;
+        this.akV = eVar;
     }
 
     public a(Context context, List<T> list, int i) {
@@ -43,25 +43,25 @@ public abstract class a<T> extends b {
         c cVar = new c(inflate);
         T t = this.mData.get(i);
         a(cVar, t, i);
-        cVar.k(new View$OnClickListenerC0604a(t, i));
+        cVar.k(new View$OnClickListenerC0587a(t, i));
         return inflate;
     }
 
     /* renamed from: com.baidu.tbadk.widget.extend.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    private class View$OnClickListenerC0604a implements View.OnClickListener {
-        private T fUC;
+    private class View$OnClickListenerC0587a implements View.OnClickListener {
+        private T fPV;
         private int position;
 
-        public View$OnClickListenerC0604a(T t, int i) {
-            this.fUC = t;
+        public View$OnClickListenerC0587a(T t, int i) {
+            this.fPV = t;
             this.position = i;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (a.this.alN != null) {
-                a.this.alN.a(view, this.fUC, this.position, this.position);
+            if (a.this.akV != null) {
+                a.this.akV.a(view, this.fPV, this.position, this.position);
             }
         }
     }

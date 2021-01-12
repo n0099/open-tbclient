@@ -3,12 +3,12 @@ package com.baidu.tieba.enterForum.data;
 import com.baidu.tbadk.core.data.v;
 /* loaded from: classes2.dex */
 public class e extends v {
-    public boolean iGB;
+    public boolean iBU;
     public String mTitle;
 
     public e(String str, boolean z) {
         this.mTitle = str;
-        this.iGB = z;
-        ox(0);
+        this.iBU = z;
+        mR(0);
     }
 }

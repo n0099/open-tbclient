@@ -10,11 +10,11 @@ import com.baidu.turbonet.net.TurbonetEngine;
 import java.util.ArrayList;
 import java.util.List;
 @JNINamespace
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 class CronetLibraryLoader {
     static final /* synthetic */ boolean $assertionsDisabled;
-    private static volatile boolean oJH;
-    private static List<Runnable> oJI;
+    private static volatile boolean oFc;
+    private static List<Runnable> oFd;
     private static final HandlerThread sInitThread;
     private static boolean sInitThreadInitDone;
     private static final Object sLoadLock;
@@ -31,16 +31,16 @@ class CronetLibraryLoader {
         $assertionsDisabled = !CronetLibraryLoader.class.desiredAssertionStatus();
         sLoadLock = new Object();
         sInitThread = new HandlerThread("TurboNetInit");
-        oJH = false;
+        oFc = false;
         sInitThreadInitDone = false;
-        oJI = new ArrayList();
+        oFd = new ArrayList();
     }
 
     CronetLibraryLoader() {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static long ehA() {
+    public static long edI() {
         if (sInitThreadInitDone) {
             return nativeGetTurboNetHandler();
         }
@@ -50,11 +50,11 @@ class CronetLibraryLoader {
     /* JADX INFO: Access modifiers changed from: package-private */
     public static void a(final Context context, TurbonetEngine.Builder builder) {
         synchronized (sLoadLock) {
-            if (!oJH) {
-                oJH = true;
+            if (!oFc) {
+                oFc = true;
                 ContextUtils.initApplicationContext(context.getApplicationContext());
-                builder.eih();
-                ContextUtils.ehr();
+                builder.eep();
+                ContextUtils.edz();
                 com.baidu.turbonet.base.a.i("TurboNetLibraryLoader", "TurboNet version: %s, arch: %s", nativeGetTurboNetVersion(), System.getProperty("os.arch"));
                 ContextUtils.initApplicationContext(context.getApplicationContext());
                 if (!sInitThread.isAlive()) {
@@ -63,40 +63,40 @@ class CronetLibraryLoader {
                 postToInitThread(new Runnable() { // from class: com.baidu.turbonet.net.CronetLibraryLoader.1
                     @Override // java.lang.Runnable
                     public void run() {
-                        CronetLibraryLoader.hl(context);
+                        CronetLibraryLoader.hj(context);
                     }
                 });
             }
         }
     }
 
-    private static boolean ehB() {
+    private static boolean edJ() {
         return sInitThread.getLooper() == Looper.myLooper();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static void hl(Context context) {
-        if (!$assertionsDisabled && !oJH) {
+    public static void hj(Context context) {
+        if (!$assertionsDisabled && !oFc) {
             throw new AssertionError();
         }
-        if (!$assertionsDisabled && !ehB()) {
+        if (!$assertionsDisabled && !edJ()) {
             throw new AssertionError();
         }
         if (!sInitThreadInitDone) {
             NetworkChangeNotifier.init(context);
-            NetworkChangeNotifier.ehN();
+            NetworkChangeNotifier.edV();
             nativeCronetInitOnInitThread();
-            for (Runnable runnable : oJI) {
+            for (Runnable runnable : oFd) {
                 runnable.run();
             }
-            oJI.clear();
+            oFd.clear();
             sInitThreadInitDone = true;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static void postToInitThread(Runnable runnable) {
-        if (ehB()) {
+        if (edJ()) {
             runnable.run();
         } else {
             new Handler(sInitThread.getLooper()).post(runnable);

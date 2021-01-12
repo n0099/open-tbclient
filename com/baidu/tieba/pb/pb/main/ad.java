@@ -1,22 +1,22 @@
 package com.baidu.tieba.pb.pb.main;
 /* loaded from: classes2.dex */
 public class ad {
-    public boolean lSK;
-    public boolean lSz;
-    public boolean lSw = false;
-    public boolean lSx = false;
-    public boolean lSy = false;
-    public boolean lSA = false;
-    public boolean lSB = false;
-    public boolean lSC = false;
-    public boolean lSD = false;
-    public boolean lSE = false;
-    public boolean lSF = false;
-    public boolean lSG = false;
+    public boolean lNV;
+    public boolean lOg;
+    public boolean lNS = false;
+    public boolean lNT = false;
+    public boolean lNU = false;
+    public boolean lNW = false;
+    public boolean lNX = false;
+    public boolean lNY = false;
+    public boolean lNZ = false;
+    public boolean lOa = false;
+    public boolean lOb = false;
+    public boolean lOc = false;
     public boolean isHostOnly = false;
-    public boolean lSH = false;
-    public boolean FF = false;
-    public boolean lSI = false;
-    public boolean lSJ = false;
-    public boolean lSL = false;
+    public boolean lOd = false;
+    public boolean FD = false;
+    public boolean lOe = false;
+    public boolean lOf = false;
+    public boolean lOh = false;
 }

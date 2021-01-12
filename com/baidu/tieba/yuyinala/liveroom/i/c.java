@@ -1,6 +1,6 @@
 package com.baidu.tieba.yuyinala.liveroom.i;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class c {
-    public long bqF;
+    public long blS;
     public long liveId;
 }

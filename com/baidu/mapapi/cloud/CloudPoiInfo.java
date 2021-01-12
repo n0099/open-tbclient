@@ -1,5 +1,6 @@
 package com.baidu.mapapi.cloud;
 
+import android.net.http.Headers;
 import com.baidu.mapapi.CoordType;
 import com.baidu.mapapi.SDKInitializer;
 import com.baidu.mapapi.model.LatLng;
@@ -11,7 +12,7 @@ import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class CloudPoiInfo {
     public String address;
     public String city;
@@ -49,7 +50,7 @@ public class CloudPoiInfo {
         jSONObject.remove("city");
         this.district = jSONObject.optString("district");
         jSONObject.remove("district");
-        JSONArray optJSONArray = jSONObject.optJSONArray("location");
+        JSONArray optJSONArray = jSONObject.optJSONArray(Headers.LOCATION);
         if (optJSONArray != null) {
             this.longitude = optJSONArray.optDouble(0);
             this.latitude = optJSONArray.optDouble(1);
@@ -59,7 +60,7 @@ public class CloudPoiInfo {
                 this.latitude = baiduToGcj.latitude;
             }
         }
-        jSONObject.remove("location");
+        jSONObject.remove(Headers.LOCATION);
         this.tags = jSONObject.optString(CommandMessage.TYPE_TAGS);
         jSONObject.remove(CommandMessage.TYPE_TAGS);
         this.distance = jSONObject.optInt("distance");
@@ -82,7 +83,7 @@ public class CloudPoiInfo {
         this.title = jSONObject.optString("name");
         this.address = jSONObject.optString("address");
         this.tags = jSONObject.optString("tag");
-        JSONObject optJSONObject = jSONObject.optJSONObject("location");
+        JSONObject optJSONObject = jSONObject.optJSONObject(Headers.LOCATION);
         if (optJSONObject != null) {
             this.longitude = optJSONObject.optDouble("lng");
             this.latitude = optJSONObject.optDouble("lat");

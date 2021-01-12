@@ -15,45 +15,45 @@ import java.util.regex.Pattern;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class PanoramaRequest {
 
     /* renamed from: b  reason: collision with root package name */
-    private static PanoramaRequest f2559b;
+    private static PanoramaRequest f2509b;
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f2560a;
+    private Context f2510a;
 
     private PanoramaRequest(Context context) {
-        this.f2560a = context;
+        this.f2510a = context;
     }
 
     public static PanoramaRequest getInstance(Context context) {
-        if (f2559b == null) {
-            f2559b = new PanoramaRequest(context);
+        if (f2509b == null) {
+            f2509b = new PanoramaRequest(context);
         }
-        return f2559b;
+        return f2509b;
     }
 
     public String getPanoramaByIIdWithJson(String str) {
         if (TextUtils.isEmpty(str)) {
             throw new IllegalArgumentException("The parameter iid can't be null or empty string!");
         }
-        return c(c.a(this.f2560a).b(i.f3955a + "&iid=" + str + ETAG.ITEM_SEPARATOR + f.a(this.f2560a).toString()));
+        return c(c.a(this.f2510a).b(i.f3917a + "&iid=" + str + ETAG.ITEM_SEPARATOR + f.a(this.f2510a).toString()));
     }
 
     public String getPanoramaRecommendInfo(String str) {
         if (TextUtils.isEmpty(str)) {
             throw new IllegalArgumentException("The parameter pid can't be null or empty string!");
         }
-        return c.a(this.f2560a).b(i.f3956b + "&sid=" + str + ETAG.ITEM_SEPARATOR + f.a(this.f2560a).toString());
+        return c.a(this.f2510a).b(i.f3918b + "&sid=" + str + ETAG.ITEM_SEPARATOR + f.a(this.f2510a).toString());
     }
 
     public String getPoiInfoByUidWithJson(String str) {
         if (TextUtils.isEmpty(str)) {
             throw new IllegalArgumentException("The parameter uid can't be null or empty string!");
         }
-        return c.a(this.f2560a).b(i.e + "&action=1&uid=" + str + ETAG.ITEM_SEPARATOR + f.a(this.f2560a).toString());
+        return c.a(this.f2510a).b(i.e + "&action=1&uid=" + str + ETAG.ITEM_SEPARATOR + f.a(this.f2510a).toString());
     }
 
     public BaiduPanoData getPanoramaInfoByLatLon(double d, double d2) {
@@ -61,14 +61,14 @@ public class PanoramaRequest {
     }
 
     public BaiduPanoData getPanoramaInfoByMercator(int i, int i2) {
-        return a(c.a(this.f2560a).b(i.d + "&x=" + i + "&y=" + i2 + "&action=1&" + f.a(this.f2560a).toString()));
+        return a(c.a(this.f2510a).b(i.d + "&x=" + i + "&y=" + i2 + "&action=1&" + f.a(this.f2510a).toString()));
     }
 
     public BaiduPoiPanoData getPanoramaInfoByUid(String str) {
         if (TextUtils.isEmpty(str)) {
             throw new IllegalArgumentException("The parameter uid can't be null or empty string!");
         }
-        return b(c.a(this.f2560a).b(i.e + "&uid=" + str + "&action=1&" + f.a(this.f2560a).toString()));
+        return b(c.a(this.f2510a).b(i.e + "&uid=" + str + "&action=1&" + f.a(this.f2510a).toString()));
     }
 
     private BaiduPanoData a(String str) {

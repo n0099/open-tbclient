@@ -47,7 +47,7 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.WeakHashMap;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class ViewCompat {
     public static final int ACCESSIBILITY_LIVE_REGION_ASSERTIVE = 2;
     public static final int ACCESSIBILITY_LIVE_REGION_NONE = 0;
@@ -109,42 +109,42 @@ public class ViewCompat {
 
     @Retention(RetentionPolicy.SOURCE)
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public @interface FocusDirection {
     }
 
     @Retention(RetentionPolicy.SOURCE)
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public @interface FocusRealDirection {
     }
 
     @Retention(RetentionPolicy.SOURCE)
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public @interface FocusRelativeDirection {
     }
 
     @Retention(RetentionPolicy.SOURCE)
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public @interface NestedScrollType {
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public interface OnUnhandledKeyEventListenerCompat {
         boolean onUnhandledKeyEvent(View view, KeyEvent keyEvent);
     }
 
     @Retention(RetentionPolicy.SOURCE)
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public @interface ScrollAxis {
     }
 
     @Retention(RetentionPolicy.SOURCE)
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public @interface ScrollIndicators {
     }
 
@@ -1363,7 +1363,7 @@ public class ViewCompat {
     }
 
     @RequiresApi(28)
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     private static class OnUnhandledKeyEventListenerWrapper implements View.OnUnhandledKeyEventListener {
         private OnUnhandledKeyEventListenerCompat mCompatListener;
 
@@ -1395,7 +1395,7 @@ public class ViewCompat {
         return UnhandledKeyEventManager.at(view).dispatch(view, keyEvent);
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     static class UnhandledKeyEventManager {
         private static final ArrayList<WeakReference<View>> sViewsWithListeners = new ArrayList<>();
         @Nullable

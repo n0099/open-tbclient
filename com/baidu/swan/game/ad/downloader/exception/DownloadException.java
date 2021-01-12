@@ -1,5 +1,5 @@
 package com.baidu.swan.game.ad.downloader.exception;
-/* loaded from: classes3.dex */
+/* loaded from: classes14.dex */
 public class DownloadException extends RuntimeException {
     public static final int EXCEPTION_FILE_SIZE_ZERO = 6;
     public static final int EXCEPTION_IO_EXCEPTION = 5;

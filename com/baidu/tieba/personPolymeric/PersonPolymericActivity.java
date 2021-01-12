@@ -15,18 +15,18 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.at;
 import com.baidu.tbadk.core.voice.VoiceManager;
 import com.baidu.tieba.R;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class PersonPolymericActivity extends BaseFragmentActivity implements VoiceManager.c {
     private boolean mIsFromSchema = false;
-    private PersonPolymericFragment muz;
+    private PersonPolymericFragment mpU;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, androidx.core.app.ComponentActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(R.layout.person_new_fragment_view);
-        this.muz = new PersonPolymericFragment();
-        getSupportFragmentManager().beginTransaction().add(R.id.fragment_container, this.muz).commit();
+        this.mpU = new PersonPolymericFragment();
+        getSupportFragmentManager().beginTransaction().add(R.id.fragment_container, this.mpU).commit();
         if (getIntent() != null && getIntent().getParcelableExtra(IntentConfig.KEY_URI) != null && !com.baidu.adp.base.b.kC().bo("MainTabActivity")) {
             this.mIsFromSchema = true;
         }
@@ -44,8 +44,8 @@ public class PersonPolymericActivity extends BaseFragmentActivity implements Voi
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
     protected void onChangeSkinType(int i) {
-        if (this.muz != null) {
-            this.muz.onChangeSkinType(i);
+        if (this.mpU != null) {
+            this.mpU.onChangeSkinType(i);
         }
     }
 
@@ -58,15 +58,15 @@ public class PersonPolymericActivity extends BaseFragmentActivity implements Voi
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onActivityResult(int i, int i2, Intent intent) {
         super.onActivityResult(i, i2, intent);
-        if (this.muz != null) {
-            this.muz.onActivityResult(i, i2, intent);
+        if (this.mpU != null) {
+            this.mpU.onActivityResult(i, i2, intent);
         }
     }
 
     @Override // com.baidu.tbadk.core.voice.VoiceManager.c
     public VoiceManager getVoiceManager() {
-        if (this.muz != null) {
-            return this.muz.getVoiceManager();
+        if (this.mpU != null) {
+            return this.mpU.getVoiceManager();
         }
         return null;
     }

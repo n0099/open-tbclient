@@ -3,6 +3,7 @@ package com.baidu.swan.apps.storage.a;
 import android.content.Context;
 import android.text.TextUtils;
 import android.util.Log;
+import com.baidu.live.tbadk.core.util.TiebaInitialize;
 import com.baidu.minivideo.plugin.capture.utils.EncryptUtils;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
@@ -12,7 +13,7 @@ import com.baidu.swan.apps.storage.PathType;
 import java.io.File;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class c extends aa {
     public c(com.baidu.swan.apps.scheme.j jVar) {
         super(jVar, "/swanAPI/file/getInfo");
@@ -20,7 +21,7 @@ public class c extends aa {
 
     @Override // com.baidu.swan.apps.scheme.actions.aa
     public boolean a(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, com.baidu.swan.apps.runtime.e eVar) {
-        if (context == null || callbackHandler == null || eVar == null || eVar.aMw() == null) {
+        if (context == null || callbackHandler == null || eVar == null || eVar.aIC() == null) {
             com.baidu.swan.apps.console.c.e("fileInfo", "execute fail");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
@@ -33,9 +34,9 @@ public class c extends aa {
         }
         String optString = optParamsAsJo.optString("filePath");
         String str = "";
-        if (com.baidu.swan.apps.storage.b.tW(optString) == PathType.BD_FILE) {
-            str = com.baidu.swan.apps.storage.b.cE(optString, com.baidu.swan.apps.runtime.e.aMn());
-        } else if (com.baidu.swan.apps.storage.b.tW(optString) == PathType.RELATIVE) {
+        if (com.baidu.swan.apps.storage.b.sL(optString) == PathType.BD_FILE) {
+            str = com.baidu.swan.apps.storage.b.cD(optString, com.baidu.swan.apps.runtime.e.aIt());
+        } else if (com.baidu.swan.apps.storage.b.sL(optString) == PathType.RELATIVE) {
             str = com.baidu.swan.apps.storage.b.a(optString, eVar, eVar.getVersion());
         }
         if (DEBUG) {
@@ -60,7 +61,7 @@ public class c extends aa {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("digest", encrypt);
-            jSONObject.put("size", file.length());
+            jSONObject.put(TiebaInitialize.LogFields.SIZE, file.length());
             UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0));
             return true;
         } catch (JSONException e) {

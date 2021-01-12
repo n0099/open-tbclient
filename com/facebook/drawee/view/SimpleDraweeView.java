@@ -13,14 +13,14 @@ import com.facebook.drawee.controller.AbstractDraweeControllerBuilder;
 import com.facebook.imagepipeline.request.ImageRequest;
 import java.util.Map;
 import javax.annotation.Nullable;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class SimpleDraweeView extends GenericDraweeView {
-    private static j<? extends AbstractDraweeControllerBuilder> pyO;
-    private static j<j<? extends AbstractDraweeControllerBuilder>> pyP;
-    private AbstractDraweeControllerBuilder pyQ;
+    private static j<? extends AbstractDraweeControllerBuilder> pun;
+    private static j<j<? extends AbstractDraweeControllerBuilder>> puo;
+    private AbstractDraweeControllerBuilder pup;
 
     public static void b(j<j<? extends AbstractDraweeControllerBuilder>> jVar) {
-        pyP = jVar;
+        puo = jVar;
     }
 
     public SimpleDraweeView(Context context) {
@@ -41,23 +41,23 @@ public class SimpleDraweeView extends GenericDraweeView {
     private void init(Context context, @Nullable AttributeSet attributeSet) {
         int resourceId;
         if (!isInEditMode()) {
-            if (pyO == null) {
-                pyO = pyP.get();
+            if (pun == null) {
+                pun = puo.get();
             }
-            g.checkNotNull(pyO, "SimpleDraweeView was not initialized!");
-            this.pyQ = pyO.get();
+            g.checkNotNull(pun, "SimpleDraweeView was not initialized!");
+            this.pup = pun.get();
             if (attributeSet != null) {
-                TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, a.C1057a.SimpleDraweeView);
+                TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, a.C1040a.SimpleDraweeView);
                 try {
-                    if (obtainStyledAttributes.hasValue(a.C1057a.SimpleDraweeView_actualImageUri)) {
-                        setImageURI(Uri.parse(obtainStyledAttributes.getString(a.C1057a.SimpleDraweeView_actualImageUri)), (Object) null);
-                    } else if (obtainStyledAttributes.hasValue(a.C1057a.SimpleDraweeView_actualImageResource)) {
-                        int resourceId2 = obtainStyledAttributes.getResourceId(a.C1057a.SimpleDraweeView_actualImageResource, -1);
+                    if (obtainStyledAttributes.hasValue(a.C1040a.SimpleDraweeView_actualImageUri)) {
+                        setImageURI(Uri.parse(obtainStyledAttributes.getString(a.C1040a.SimpleDraweeView_actualImageUri)), (Object) null);
+                    } else if (obtainStyledAttributes.hasValue(a.C1040a.SimpleDraweeView_actualImageResource)) {
+                        int resourceId2 = obtainStyledAttributes.getResourceId(a.C1040a.SimpleDraweeView_actualImageResource, -1);
                         if (resourceId2 != -1) {
                             setActualImageResource(resourceId2);
                         }
-                    } else if (obtainStyledAttributes.hasValue(a.C1057a.SimpleDraweeView_svgImage) && (resourceId = obtainStyledAttributes.getResourceId(a.C1057a.SimpleDraweeView_svgImage, -1)) != -1) {
-                        setImageURI(d.Qi(resourceId), (Object) null);
+                    } else if (obtainStyledAttributes.hasValue(a.C1040a.SimpleDraweeView_svgImage) && (resourceId = obtainStyledAttributes.getResourceId(a.C1040a.SimpleDraweeView_svgImage, -1)) != -1) {
+                        setImageURI(d.OB(resourceId), (Object) null);
                     }
                 } finally {
                     obtainStyledAttributes.recycle();
@@ -67,11 +67,11 @@ public class SimpleDraweeView extends GenericDraweeView {
     }
 
     protected AbstractDraweeControllerBuilder getControllerBuilder() {
-        return this.pyQ;
+        return this.pup;
     }
 
     public void setImageRequest(ImageRequest imageRequest) {
-        setController(this.pyQ.bo(imageRequest).c(getController()).evG());
+        setController(this.pup.bo(imageRequest).c(getController()).erN());
     }
 
     @Override // com.facebook.drawee.view.DraweeView, android.widget.ImageView
@@ -84,7 +84,7 @@ public class SimpleDraweeView extends GenericDraweeView {
     }
 
     public void setImageURI(Uri uri, @Nullable Object obj) {
-        setController(this.pyQ.bp(obj).Y(uri).c(getController()).evG());
+        setController(this.pup.bp(obj).V(uri).c(getController()).erN());
     }
 
     public void setImageURI(@Nullable String str, @Nullable Object obj) {
@@ -96,7 +96,7 @@ public class SimpleDraweeView extends GenericDraweeView {
     }
 
     public void setActualImageResource(@DrawableRes int i, @Nullable Object obj) {
-        setImageURI(d.Qi(i), obj);
+        setImageURI(d.OB(i), obj);
     }
 
     @Override // com.facebook.drawee.view.DraweeView, android.widget.ImageView
@@ -105,7 +105,7 @@ public class SimpleDraweeView extends GenericDraweeView {
     }
 
     public void setImageURIWithHeader(Uri uri, Map<String, String> map, @Nullable Object obj) {
-        setController(getControllerBuilder().c(uri, map).bp(obj).c(getController()).evG());
+        setController(getControllerBuilder().c(uri, map).bp(obj).c(getController()).erN());
     }
 
     public void setImageURIWithHeader(Uri uri, Map<String, String> map) {

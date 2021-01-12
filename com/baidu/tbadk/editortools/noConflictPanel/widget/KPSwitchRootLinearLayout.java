@@ -8,7 +8,7 @@ import android.widget.LinearLayout;
 import com.baidu.tbadk.editortools.noConflictPanel.a.c;
 /* loaded from: classes.dex */
 public class KPSwitchRootLinearLayout extends LinearLayout {
-    private c fFR;
+    private c fBj;
 
     public KPSwitchRootLinearLayout(Context context) {
         super(context);
@@ -27,12 +27,12 @@ public class KPSwitchRootLinearLayout extends LinearLayout {
     }
 
     private void init() {
-        this.fFR = new c(this);
+        this.fBj = new c(this);
     }
 
     @Override // android.widget.LinearLayout, android.view.View
     protected void onMeasure(int i, int i2) {
-        this.fFR.Z(View.MeasureSpec.getSize(i), View.MeasureSpec.getSize(i2));
+        this.fBj.Z(View.MeasureSpec.getSize(i), View.MeasureSpec.getSize(i2));
         super.onMeasure(i, i2);
     }
 }

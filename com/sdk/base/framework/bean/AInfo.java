@@ -1,7 +1,7 @@
 package com.sdk.base.framework.bean;
 
 import com.sdk.base.framework.f.d.a;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class AInfo {
     private int c;
     private String md5;

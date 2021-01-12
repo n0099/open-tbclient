@@ -6,13 +6,13 @@ import android.view.View;
 import android.widget.FrameLayout;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class PBBannerView extends FrameLayout implements PBBannerListener {
     private String java;
-    private Context qdj;
-    private ah qdk;
-    private PBBannerListener qdl;
-    private boolean qdm;
+    private Context pYI;
+    private ah pYJ;
+    private PBBannerListener pYK;
+    private boolean pYL;
 
     public PBBannerView(@NonNull Context context) {
         this(context, null);
@@ -24,7 +24,7 @@ public class PBBannerView extends FrameLayout implements PBBannerListener {
 
     public PBBannerView(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.qdj = context;
+        this.pYI = context;
     }
 
     public PBBannerView setPid(String str) {
@@ -33,7 +33,7 @@ public class PBBannerView extends FrameLayout implements PBBannerListener {
     }
 
     public PBBannerView setListener(PBBannerListener pBBannerListener) {
-        this.qdl = pBBannerListener;
+        this.pYK = pBBannerListener;
         return this;
     }
 
@@ -42,21 +42,21 @@ public class PBBannerView extends FrameLayout implements PBBannerListener {
     }
 
     public void load() {
-        if (this.qdk == null) {
-            this.qdk = new ah(this.qdj, this, this.java);
+        if (this.pYJ == null) {
+            this.pYJ = new ah(this.pYI, this, this.java);
         }
-        this.qdk.qdl = this;
-        ah ahVar = this.qdk;
+        this.pYJ.pYK = this;
+        ah ahVar = this.pYJ;
         try {
-            ahVar.qev.set(0);
-            ahVar.qdm = false;
+            ahVar.pZU.set(0);
+            ahVar.pYL = false;
         } catch (Exception e) {
         }
-        ahVar.eKp();
+        ahVar.eGz();
     }
 
     public boolean isVisible() {
-        return this.qdm;
+        return this.pYL;
     }
 
     @Override // android.view.View
@@ -80,66 +80,66 @@ public class PBBannerView extends FrameLayout implements PBBannerListener {
     private void ej(int i, int i2) {
         if (i == 0) {
             if ((i2 == 0) & hasWindowFocus()) {
-                this.qdm = true;
+                this.pYL = true;
                 return;
             }
         }
-        this.qdm = false;
+        this.pYL = false;
     }
 
     @Override // com.win.opensdk.PBListener
     public void onFail(PBError pBError) {
-        if (this.qdl != null) {
-            this.qdl.onFail(pBError);
+        if (this.pYK != null) {
+            this.pYK.onFail(pBError);
         }
     }
 
     @Override // com.win.opensdk.PBListener
     public void onLoaded() {
-        if (this.qdl != null) {
-            this.qdl.onLoaded();
+        if (this.pYK != null) {
+            this.pYK.onLoaded();
         }
     }
 
     @Override // com.win.opensdk.PBListener
     public void onClicked() {
-        if (this.qdl != null) {
-            this.qdl.onClicked();
+        if (this.pYK != null) {
+            this.pYK.onClicked();
         }
     }
 
     @Override // com.win.opensdk.PBBannerListener
     public void onClosed() {
-        if (this.qdl != null) {
-            this.qdl.onClosed();
+        if (this.pYK != null) {
+            this.pYK.onClosed();
         }
     }
 
     public void destroy() {
         try {
             removeAllViews();
-            if (this.qdk != null) {
-                ah ahVar = this.qdk;
+            if (this.pYJ != null) {
+                ah ahVar = this.pYJ;
                 try {
-                    if (ahVar.qdq != null) {
-                        ahVar.qdq.eKp();
+                    if (ahVar.pYP != null) {
+                        ahVar.pYP.eGz();
                     }
-                    if (ahVar.qdA != null) {
-                        ahVar.qdA.eKp();
+                    if (ahVar.pYZ != null) {
+                        ahVar.pYZ.eGz();
                     }
-                    if (ahVar.qer != null) {
-                        ahVar.qer.removeCallbacksAndMessages(null);
+                    if (ahVar.pZQ != null) {
+                        ahVar.pZQ.removeCallbacksAndMessages(null);
                     }
-                    if (ahVar.qes != null) {
-                        ahVar.qes.eKq();
-                        ahVar.qes = null;
+                    if (ahVar.pZR != null) {
+                        ahVar.pZR.eGA();
+                        ahVar.pZR = null;
                     }
-                    if (ahVar.qdl != null) {
-                        ahVar.qdl = null;
+                    if (ahVar.pYK != null) {
+                        ahVar.pYK = null;
                     }
                 } catch (Exception e) {
                 }
-                this.qdk = null;
+                this.pYJ = null;
             }
         } catch (Exception e2) {
         }

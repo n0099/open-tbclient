@@ -3,7 +3,7 @@ package com.kwai.player.vr;
 import android.graphics.SurfaceTexture;
 import android.util.Log;
 import android.view.Surface;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class SurfaceUtil {
     private static final String TAG = "SurfaceUtil";
 

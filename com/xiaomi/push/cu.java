@@ -1,21 +1,23 @@
 package com.xiaomi.push;
 
 import com.baidu.live.adp.lib.stats.BdStatsConstant;
+import com.baidu.live.tbadk.core.util.TiebaInitialize;
+import com.meizu.cloud.pushsdk.notification.model.TimeDisplaySetting;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class cu {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f14221a;
+    private int f13921a;
 
     /* renamed from: a  reason: collision with other field name */
-    private long f259a;
+    private long f258a;
 
     /* renamed from: a  reason: collision with other field name */
-    private String f260a;
+    private String f259a;
 
     /* renamed from: b  reason: collision with root package name */
-    private long f14222b;
+    private long f13922b;
     private long c;
 
     public cu() {
@@ -23,36 +25,36 @@ public class cu {
     }
 
     public cu(int i, long j, long j2, Exception exc) {
-        this.f14221a = i;
-        this.f259a = j;
+        this.f13921a = i;
+        this.f258a = j;
         this.c = j2;
-        this.f14222b = System.currentTimeMillis();
+        this.f13922b = System.currentTimeMillis();
         if (exc != null) {
-            this.f260a = exc.getClass().getSimpleName();
+            this.f259a = exc.getClass().getSimpleName();
         }
     }
 
     public int a() {
-        return this.f14221a;
+        return this.f13921a;
     }
 
     public cu a(JSONObject jSONObject) {
-        this.f259a = jSONObject.getLong(BdStatsConstant.StatsKey.COST);
-        this.c = jSONObject.getLong("size");
-        this.f14222b = jSONObject.getLong("ts");
-        this.f14221a = jSONObject.getInt("wt");
-        this.f260a = jSONObject.optString("expt");
+        this.f258a = jSONObject.getLong(BdStatsConstant.StatsKey.COST);
+        this.c = jSONObject.getLong(TiebaInitialize.LogFields.SIZE);
+        this.f13922b = jSONObject.getLong(TimeDisplaySetting.TIME_DISPLAY_SETTING);
+        this.f13921a = jSONObject.getInt("wt");
+        this.f259a = jSONObject.optString("expt");
         return this;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public JSONObject m235a() {
+    public JSONObject m231a() {
         JSONObject jSONObject = new JSONObject();
-        jSONObject.put(BdStatsConstant.StatsKey.COST, this.f259a);
-        jSONObject.put("size", this.c);
-        jSONObject.put("ts", this.f14222b);
-        jSONObject.put("wt", this.f14221a);
-        jSONObject.put("expt", this.f260a);
+        jSONObject.put(BdStatsConstant.StatsKey.COST, this.f258a);
+        jSONObject.put(TiebaInitialize.LogFields.SIZE, this.c);
+        jSONObject.put(TimeDisplaySetting.TIME_DISPLAY_SETTING, this.f13922b);
+        jSONObject.put("wt", this.f13921a);
+        jSONObject.put("expt", this.f259a);
         return jSONObject;
     }
 }

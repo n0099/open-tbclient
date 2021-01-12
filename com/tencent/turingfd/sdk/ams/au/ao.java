@@ -8,17 +8,17 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public final class ao {
 
     /* renamed from: a  reason: collision with root package name */
-    public ByteBuffer f13781a;
+    public ByteBuffer f13481a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f13782b = "GBK";
+    public String f13482b = "GBK";
 
     public ao(byte[] bArr) {
-        this.f13781a = ByteBuffer.wrap(bArr);
+        this.f13481a = ByteBuffer.wrap(bArr);
     }
 
     public byte a(byte b2, int i, boolean z) {
@@ -28,7 +28,7 @@ public final class ao {
             }
             return b2;
         }
-        ByteBuffer byteBuffer = this.f13781a;
+        ByteBuffer byteBuffer = this.f13481a;
         byte b3 = byteBuffer.get();
         byte b4 = (byte) (b3 & 15);
         if (((b3 & 240) >> 4) == 15) {
@@ -43,7 +43,7 @@ public final class ao {
             }
             return b2;
         }
-        return this.f13781a.get();
+        return this.f13481a.get();
     }
 
     public double a(double d, int i, boolean z) {
@@ -53,7 +53,7 @@ public final class ao {
             }
             return d;
         }
-        ByteBuffer byteBuffer = this.f13781a;
+        ByteBuffer byteBuffer = this.f13481a;
         byte b2 = byteBuffer.get();
         byte b3 = (byte) (b2 & 15);
         if (((b2 & 240) >> 4) == 15) {
@@ -69,9 +69,9 @@ public final class ao {
                 }
                 return d;
             }
-            return this.f13781a.getDouble();
+            return this.f13481a.getDouble();
         }
-        return this.f13781a.getFloat();
+        return this.f13481a.getFloat();
     }
 
     public float a(float f, int i, boolean z) {
@@ -81,7 +81,7 @@ public final class ao {
             }
             return f;
         }
-        ByteBuffer byteBuffer = this.f13781a;
+        ByteBuffer byteBuffer = this.f13481a;
         byte b2 = byteBuffer.get();
         byte b3 = (byte) (b2 & 15);
         if (((b2 & 240) >> 4) == 15) {
@@ -96,7 +96,7 @@ public final class ao {
             }
             return f;
         }
-        return this.f13781a.getFloat();
+        return this.f13481a.getFloat();
     }
 
     public int a(int i, int i2, boolean z) {
@@ -106,7 +106,7 @@ public final class ao {
             }
             return i;
         }
-        ByteBuffer byteBuffer = this.f13781a;
+        ByteBuffer byteBuffer = this.f13481a;
         byte b2 = byteBuffer.get();
         byte b3 = (byte) (b2 & 15);
         if (((b2 & 240) >> 4) == 15) {
@@ -123,11 +123,11 @@ public final class ao {
                     }
                     return i;
                 }
-                return this.f13781a.getInt();
+                return this.f13481a.getInt();
             }
-            return this.f13781a.getShort();
+            return this.f13481a.getShort();
         }
-        return this.f13781a.get();
+        return this.f13481a.get();
     }
 
     public long a(long j, int i, boolean z) {
@@ -137,7 +137,7 @@ public final class ao {
             }
             return j;
         }
-        ByteBuffer byteBuffer = this.f13781a;
+        ByteBuffer byteBuffer = this.f13481a;
         byte b2 = byteBuffer.get();
         byte b3 = (byte) (b2 & 15);
         if (((b2 & 240) >> 4) == 15) {
@@ -147,13 +147,13 @@ public final class ao {
             if (b3 != 12) {
                 switch (b3) {
                     case 0:
-                        return this.f13781a.get();
+                        return this.f13481a.get();
                     case 1:
-                        return this.f13781a.getShort();
+                        return this.f13481a.getShort();
                     case 2:
-                        return this.f13781a.getInt();
+                        return this.f13481a.getInt();
                     case 3:
-                        return this.f13781a.getLong();
+                        return this.f13481a.getLong();
                     default:
                         throw new ak("type mismatch.");
                 }
@@ -168,7 +168,7 @@ public final class ao {
         if (a(i)) {
             try {
                 bfVar2 = (bf) bfVar.getClass().newInstance();
-                ByteBuffer byteBuffer = this.f13781a;
+                ByteBuffer byteBuffer = this.f13481a;
                 byte b2 = byteBuffer.get();
                 byte b3 = (byte) (b2 & 15);
                 if (((b2 & 240) >> 4) == 15) {
@@ -230,7 +230,7 @@ public final class ao {
                 }
                 return hashMap;
             }
-            ByteBuffer byteBuffer = this.f13781a;
+            ByteBuffer byteBuffer = this.f13481a;
             byte b2 = byteBuffer.get();
             byte b3 = (byte) (b2 & 15);
             if (((b2 & 240) >> 4) == 15) {
@@ -272,7 +272,7 @@ public final class ao {
             }
             if ((t instanceof byte[]) || (t instanceof Byte[])) {
                 if (a(i)) {
-                    ByteBuffer byteBuffer2 = this.f13781a;
+                    ByteBuffer byteBuffer2 = this.f13481a;
                     byte b5 = byteBuffer2.get();
                     byte b6 = (byte) (b5 & 15);
                     if (((b5 & 240) >> 4) == 15) {
@@ -290,7 +290,7 @@ public final class ao {
                         throw new ak(ab.a("size invalid: ", a3));
                     } else if (b6 != 11) {
                         if (b6 == 13) {
-                            ByteBuffer byteBuffer3 = this.f13781a;
+                            ByteBuffer byteBuffer3 = this.f13481a;
                             byte b7 = byteBuffer3.get();
                             byte b8 = (byte) (b7 & 15);
                             if (((b7 & 240) >> 4) == 15) {
@@ -300,7 +300,7 @@ public final class ao {
                                 int a4 = a(0, 0, true);
                                 if (a4 >= 0) {
                                     byte[] bArr2 = new byte[a4];
-                                    this.f13781a.get(bArr2);
+                                    this.f13481a.get(bArr2);
                                     return bArr2;
                                 }
                                 throw new ak("invalid size, tag: " + i + ", type: " + ((int) b6) + ", " + ((int) b8) + ", size: " + a4);
@@ -314,7 +314,7 @@ public final class ao {
                 }
             } else if (t instanceof boolean[]) {
                 if (a(i)) {
-                    ByteBuffer byteBuffer4 = this.f13781a;
+                    ByteBuffer byteBuffer4 = this.f13481a;
                     byte b9 = byteBuffer4.get();
                     byte b10 = (byte) (b9 & 15);
                     if (((b9 & 240) >> 4) == 15) {
@@ -338,7 +338,7 @@ public final class ao {
                 }
             } else if (t instanceof short[]) {
                 if (a(i)) {
-                    ByteBuffer byteBuffer5 = this.f13781a;
+                    ByteBuffer byteBuffer5 = this.f13481a;
                     byte b11 = byteBuffer5.get();
                     byte b12 = (byte) (b11 & 15);
                     if (((b11 & 240) >> 4) == 15) {
@@ -362,7 +362,7 @@ public final class ao {
                 }
             } else if (t instanceof int[]) {
                 if (a(i)) {
-                    ByteBuffer byteBuffer6 = this.f13781a;
+                    ByteBuffer byteBuffer6 = this.f13481a;
                     byte b13 = byteBuffer6.get();
                     byte b14 = (byte) (b13 & 15);
                     if (((b13 & 240) >> 4) == 15) {
@@ -386,7 +386,7 @@ public final class ao {
                 }
             } else if (t instanceof long[]) {
                 if (a(i)) {
-                    ByteBuffer byteBuffer7 = this.f13781a;
+                    ByteBuffer byteBuffer7 = this.f13481a;
                     byte b15 = byteBuffer7.get();
                     byte b16 = (byte) (b15 & 15);
                     if (((b15 & 240) >> 4) == 15) {
@@ -410,7 +410,7 @@ public final class ao {
                 }
             } else if (t instanceof float[]) {
                 if (a(i)) {
-                    ByteBuffer byteBuffer8 = this.f13781a;
+                    ByteBuffer byteBuffer8 = this.f13481a;
                     byte b17 = byteBuffer8.get();
                     byte b18 = (byte) (b17 & 15);
                     if (((b17 & 240) >> 4) == 15) {
@@ -439,7 +439,7 @@ public final class ao {
                 }
                 throw new ak("unable to get type of key and value.");
             } else if (a(i)) {
-                ByteBuffer byteBuffer9 = this.f13781a;
+                ByteBuffer byteBuffer9 = this.f13481a;
                 byte b19 = byteBuffer9.get();
                 byte b20 = (byte) (b19 & 15);
                 if (((b19 & 240) >> 4) == 15) {
@@ -472,21 +472,21 @@ public final class ao {
             }
             return null;
         }
-        ByteBuffer byteBuffer = this.f13781a;
+        ByteBuffer byteBuffer = this.f13481a;
         byte b2 = byteBuffer.get();
         byte b3 = (byte) (b2 & 15);
         if (((b2 & 240) >> 4) == 15) {
             byteBuffer.get();
         }
         if (b3 == 6) {
-            int i2 = this.f13781a.get();
+            int i2 = this.f13481a.get();
             if (i2 < 0) {
                 i2 += 256;
             }
             byte[] bArr = new byte[i2];
-            this.f13781a.get(bArr);
+            this.f13481a.get(bArr);
             try {
-                return new String(bArr, this.f13782b);
+                return new String(bArr, this.f13482b);
             } catch (UnsupportedEncodingException e) {
                 return new String(bArr);
             }
@@ -496,14 +496,14 @@ public final class ao {
             }
             throw new ak("type mismatch.");
         } else {
-            int i3 = this.f13781a.getInt();
+            int i3 = this.f13481a.getInt();
             if (i3 > 104857600 || i3 < 0) {
                 throw new ak(ab.a("String too long: ", i3));
             }
             byte[] bArr2 = new byte[i3];
-            this.f13781a.get(bArr2);
+            this.f13481a.get(bArr2);
             try {
-                return new String(bArr2, this.f13782b);
+                return new String(bArr2, this.f13482b);
             } catch (UnsupportedEncodingException e2) {
                 return new String(bArr2);
             }
@@ -517,7 +517,7 @@ public final class ao {
             }
             return s;
         }
-        ByteBuffer byteBuffer = this.f13781a;
+        ByteBuffer byteBuffer = this.f13481a;
         byte b2 = byteBuffer.get();
         byte b3 = (byte) (b2 & 15);
         if (((b2 & 240) >> 4) == 15) {
@@ -533,14 +533,14 @@ public final class ao {
                 }
                 return s;
             }
-            return this.f13781a.getShort();
+            return this.f13481a.getShort();
         }
-        return this.f13781a.get();
+        return this.f13481a.get();
     }
 
     public void a() {
-        while (this.f13781a.remaining() != 0) {
-            ByteBuffer byteBuffer = this.f13781a;
+        while (this.f13481a.remaining() != 0) {
+            ByteBuffer byteBuffer = this.f13481a;
             byte b2 = byteBuffer.get();
             byte b3 = (byte) (b2 & 15);
             if (((b2 & 240) >> 4) == 15) {
@@ -575,14 +575,14 @@ public final class ao {
                 b(8);
                 return;
             case 6:
-                int i2 = this.f13781a.get();
+                int i2 = this.f13481a.get();
                 if (i2 < 0) {
                     i2 += 256;
                 }
                 b(i2);
                 return;
             case 7:
-                b(this.f13781a.getInt());
+                b(this.f13481a.getInt());
                 return;
             case 8:
                 int a2 = a(0, 0, true);
@@ -605,7 +605,7 @@ public final class ao {
             case 12:
                 return;
             case 13:
-                ByteBuffer byteBuffer = this.f13781a;
+                ByteBuffer byteBuffer = this.f13481a;
                 byte b3 = byteBuffer.get();
                 byte b4 = (byte) (b3 & 15);
                 if (((b3 & 240) >> 4) == 15) {
@@ -626,7 +626,7 @@ public final class ao {
         int i3;
         while (true) {
             try {
-                ByteBuffer duplicate = this.f13781a.duplicate();
+                ByteBuffer duplicate = this.f13481a.duplicate();
                 byte b2 = duplicate.get();
                 byte b3 = (byte) (b2 & 15);
                 i2 = (b2 & 240) >> 4;
@@ -655,7 +655,7 @@ public final class ao {
     }
 
     public final void b() {
-        ByteBuffer byteBuffer = this.f13781a;
+        ByteBuffer byteBuffer = this.f13481a;
         byte b2 = byteBuffer.get();
         byte b3 = (byte) (b2 & 15);
         if (((b2 & 240) >> 4) == 15) {
@@ -665,7 +665,7 @@ public final class ao {
     }
 
     public final void b(int i) {
-        ByteBuffer byteBuffer = this.f13781a;
+        ByteBuffer byteBuffer = this.f13481a;
         byteBuffer.position(byteBuffer.position() + i);
     }
 
@@ -673,7 +673,7 @@ public final class ao {
     /* JADX WARN: Multi-variable type inference failed */
     public final <T> T[] b(T t, int i, boolean z) {
         if (a(i)) {
-            ByteBuffer byteBuffer = this.f13781a;
+            ByteBuffer byteBuffer = this.f13481a;
             byte b2 = byteBuffer.get();
             byte b3 = (byte) (b2 & 15);
             if (((b2 & 240) >> 4) == 15) {

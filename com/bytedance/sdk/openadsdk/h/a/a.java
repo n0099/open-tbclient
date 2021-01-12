@@ -6,12 +6,12 @@ import org.json.JSONObject;
 public class a extends d<a> {
 
     /* renamed from: a  reason: collision with root package name */
-    private JSONObject f7472a = new JSONObject();
+    private JSONObject f7172a = new JSONObject();
 
     public a a(String str, Object obj) {
         if (!TextUtils.isEmpty(str) && obj != null) {
             try {
-                this.f7472a.put(str, obj);
+                this.f7172a.put(str, obj);
             } catch (Throwable th) {
             }
         }
@@ -29,7 +29,7 @@ public class a extends d<a> {
             } else {
                 jSONObject = new JSONObject(optString);
             }
-            jSONObject.put("dns_info", this.f7472a);
+            jSONObject.put("dns_info", this.f7172a);
             a2.put("event_extra", jSONObject.toString());
         } catch (Exception e) {
         }

@@ -16,20 +16,20 @@ public class b {
     private TbPageContext context;
     public String fid;
     public String fname;
-    public String jkQ;
-    public String jkR;
-    public String jkS;
-    public String jkT;
-    public String jkU;
-    public String jkV;
-    public String jkW;
-    public String jkX;
-    public String jkY;
-    public String jkZ;
-    public String jla;
-    public String jlb;
-    public String jlc;
-    public String jld;
+    public String jgj;
+    public String jgk;
+    public String jgl;
+    public String jgm;
+    public String jgn;
+    public String jgo;
+    public String jgp;
+    public String jgq;
+    public String jgr;
+    public String jgs;
+    public String jgt;
+    public String jgu;
+    public String jgv;
+    public String jgw;
     public String nickName;
     public String shareUrl;
     public String url;
@@ -38,7 +38,7 @@ public class b {
         this.context = tbPageContext;
     }
 
-    public void cHA() {
+    public void cDI() {
         Uri parse;
         if (this.context.getPageActivity() != null && this.context.getPageActivity().getIntent() != null) {
             this.url = this.context.getPageActivity().getIntent().getStringExtra("key_url");
@@ -47,37 +47,37 @@ public class b {
                 this.nickName = parse.getQueryParameter("nickname");
                 this.fid = parse.getQueryParameter("fid");
                 this.fname = parse.getQueryParameter("fname");
-                this.jkQ = parse.getQueryParameter("subcribe-num");
-                this.jkR = parse.getQueryParameter("bazhu-days");
-                this.jkS = parse.getQueryParameter("goods-num");
-                this.jkT = parse.getQueryParameter("tid-num");
-                this.jkU = parse.getQueryParameter("most-hot-name");
-                this.jkU = at.cutStringWithSuffix(this.jkU, 20, StringHelper.STRING_MORE);
-                this.jkV = parse.getQueryParameter("most-hot-floors");
-                this.jkW = parse.getQueryParameter("achievement");
-                this.jkX = parse.getQueryParameter("join-days");
-                this.jkY = parse.getQueryParameter("send-tids");
-                this.jkZ = parse.getQueryParameter("reply-num");
-                this.jla = parse.getQueryParameter("zan-num");
-                this.jlb = parse.getQueryParameter("sign-days");
-                this.jlc = parse.getQueryParameter("join-topicnum");
-                this.jld = parse.getQueryParameter("write-num");
+                this.jgj = parse.getQueryParameter("subcribe-num");
+                this.jgk = parse.getQueryParameter("bazhu-days");
+                this.jgl = parse.getQueryParameter("goods-num");
+                this.jgm = parse.getQueryParameter("tid-num");
+                this.jgn = parse.getQueryParameter("most-hot-name");
+                this.jgn = at.cutStringWithSuffix(this.jgn, 20, StringHelper.STRING_MORE);
+                this.jgo = parse.getQueryParameter("most-hot-floors");
+                this.jgp = parse.getQueryParameter("achievement");
+                this.jgq = parse.getQueryParameter("join-days");
+                this.jgr = parse.getQueryParameter("send-tids");
+                this.jgs = parse.getQueryParameter("reply-num");
+                this.jgt = parse.getQueryParameter("zan-num");
+                this.jgu = parse.getQueryParameter("sign-days");
+                this.jgv = parse.getQueryParameter("join-topicnum");
+                this.jgw = parse.getQueryParameter("write-num");
             }
         }
     }
 
-    public SpannableStringBuilder cHB() {
-        if (this.jkW == null) {
+    public SpannableStringBuilder cDJ() {
+        if (this.jgp == null) {
             return null;
         }
-        if (this.jkW.equals("bazhu")) {
-            return a(this.fname, this.jkQ, this.jkR, this.jkS, this.jkT, this.jkU, this.jkV);
+        if (this.jgp.equals("bazhu")) {
+            return a(this.fname, this.jgj, this.jgk, this.jgl, this.jgm, this.jgn, this.jgo);
         }
-        if (this.jkW.equals("active-a")) {
-            return c(this.fname, this.jkQ, this.jkX, this.jkY, this.jkT, this.jkU, this.jkZ, this.jla, this.jlb);
+        if (this.jgp.equals("active-a")) {
+            return c(this.fname, this.jgj, this.jgq, this.jgr, this.jgm, this.jgn, this.jgs, this.jgt, this.jgu);
         }
-        if (this.jkW.equals("active-b")) {
-            return g(this.fname, this.jkQ, this.jkX, this.jlc, this.jld, this.jlb);
+        if (this.jgp.equals("active-b")) {
+            return g(this.fname, this.jgj, this.jgq, this.jgv, this.jgw, this.jgu);
         }
         return null;
     }
@@ -85,22 +85,22 @@ public class b {
     private SpannableStringBuilder a(String str, String str2, String str3, String str4, String str5, String str6, String str7) {
         SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
         spannableStringBuilder.append((CharSequence) ("恭喜！" + str + "吧成员数突破"));
-        spannableStringBuilder.append((CharSequence) KK(str2 + "人"));
+        spannableStringBuilder.append((CharSequence) Jz(str2 + "人"));
         spannableStringBuilder.append((CharSequence) "！\n\n");
         spannableStringBuilder.append((CharSequence) "感谢你在过去");
-        spannableStringBuilder.append((CharSequence) KK(str3 + "天"));
+        spannableStringBuilder.append((CharSequence) Jz(str3 + "天"));
         spannableStringBuilder.append((CharSequence) "的辛勤付出，火眼金睛的你最近挑选出了");
-        spannableStringBuilder.append((CharSequence) str4);
+        spannableStringBuilder.append((CharSequence) JA(str4));
         spannableStringBuilder.append((CharSequence) "篇精品贴子，处理了大量违规内容。\n\n衷心感谢你为吧友提供了和谐快乐的社区氛围。截止目前");
-        spannableStringBuilder.append((CharSequence) str);
+        spannableStringBuilder.append((CharSequence) JA(str));
         spannableStringBuilder.append((CharSequence) "吧共有");
-        spannableStringBuilder.append((CharSequence) KK(str5 + "篇"));
+        spannableStringBuilder.append((CharSequence) Jz(str5 + "篇"));
         spannableStringBuilder.append((CharSequence) "贴子，最火热的一篇贴子");
-        spannableStringBuilder.append((CharSequence) KK("《" + str6 + "》"));
+        spannableStringBuilder.append((CharSequence) Jz("《" + str6 + "》"));
         spannableStringBuilder.append((CharSequence) "竟然盖了");
-        spannableStringBuilder.append((CharSequence) KK(str7 + "层"));
+        spannableStringBuilder.append((CharSequence) Jz(str7 + "层"));
         spannableStringBuilder.append((CharSequence) "楼。\n\n继续加油吧！期望你能带领");
-        spannableStringBuilder.append((CharSequence) str);
+        spannableStringBuilder.append((CharSequence) JA(str));
         spannableStringBuilder.append((CharSequence) "吧走得更远！");
         return spannableStringBuilder;
     }
@@ -108,18 +108,18 @@ public class b {
     private SpannableStringBuilder c(String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8, String str9) {
         SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
         spannableStringBuilder.append((CharSequence) (str + "吧成员数突破了"));
-        spannableStringBuilder.append((CharSequence) KK(str2 + "人"));
+        spannableStringBuilder.append((CharSequence) Jz(str2 + "人"));
         spannableStringBuilder.append((CharSequence) "！感谢你的一路相伴，见证了这个特别的时刻。\n\n你加入");
         spannableStringBuilder.append((CharSequence) (str + "吧已经"));
-        spannableStringBuilder.append((CharSequence) KK(str3 + "天"));
+        spannableStringBuilder.append((CharSequence) Jz(str3 + "天"));
         spannableStringBuilder.append((CharSequence) "了，最近发表了");
-        spannableStringBuilder.append((CharSequence) str4);
+        spannableStringBuilder.append((CharSequence) JA(str4));
         spannableStringBuilder.append((CharSequence) "篇贴子，最火的一篇");
-        spannableStringBuilder.append((CharSequence) KK("《" + str6 + "》"));
+        spannableStringBuilder.append((CharSequence) Jz("《" + str6 + "》"));
         spannableStringBuilder.append((CharSequence) "收到了");
-        spannableStringBuilder.append((CharSequence) KK(str7 + "条"));
+        spannableStringBuilder.append((CharSequence) Jz(str7 + "条"));
         spannableStringBuilder.append((CharSequence) "回复、");
-        spannableStringBuilder.append((CharSequence) KK(str8 + "个"));
+        spannableStringBuilder.append((CharSequence) Jz(str8 + "个"));
         spannableStringBuilder.append((CharSequence) "赞！近一个月累计签到了");
         spannableStringBuilder.append((CharSequence) (str9 + "天"));
         spannableStringBuilder.append((CharSequence) "。\n\n");
@@ -130,32 +130,32 @@ public class b {
     private SpannableStringBuilder g(String str, String str2, String str3, String str4, String str5, String str6) {
         SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
         spannableStringBuilder.append((CharSequence) (str + "吧成员数突破了"));
-        spannableStringBuilder.append((CharSequence) KK(str2 + "人"));
+        spannableStringBuilder.append((CharSequence) Jz(str2 + "人"));
         spannableStringBuilder.append((CharSequence) "！感谢你的一路相伴，见证了这个特别的时刻。\n\n你加入");
         spannableStringBuilder.append((CharSequence) (str + "吧已经"));
-        spannableStringBuilder.append((CharSequence) KK(str3 + "天"));
+        spannableStringBuilder.append((CharSequence) Jz(str3 + "天"));
         spannableStringBuilder.append((CharSequence) "了，近期参与了");
-        spannableStringBuilder.append((CharSequence) str4);
+        spannableStringBuilder.append((CharSequence) JA(str4));
         spannableStringBuilder.append((CharSequence) "个主题贴的讨论，写了");
-        spannableStringBuilder.append((CharSequence) KK(str5 + "条"));
+        spannableStringBuilder.append((CharSequence) Jz(str5 + "条"));
         spannableStringBuilder.append((CharSequence) "评论。近一个月累计签到了");
         spannableStringBuilder.append((CharSequence) (str6 + "天。\n\n"));
         spannableStringBuilder.append((CharSequence) (str + "吧因为有你而精彩！"));
         return spannableStringBuilder;
     }
 
-    public SpannableStringBuilder cHC() {
-        if (this.jkW == null) {
+    public SpannableStringBuilder cDK() {
+        if (this.jgp == null) {
             return null;
         }
-        if (this.jkW.equals("bazhu")) {
-            return b(this.fname, this.jkQ, this.jkR, this.jkS, this.jkT, this.jkU, this.jkV);
+        if (this.jgp.equals("bazhu")) {
+            return b(this.fname, this.jgj, this.jgk, this.jgl, this.jgm, this.jgn, this.jgo);
         }
-        if (this.jkW.equals("active-a")) {
-            return d(this.fname, this.jkQ, this.jkX, this.jkY, this.jkT, this.jkU, this.jkZ, this.jla, this.jlb);
+        if (this.jgp.equals("active-a")) {
+            return d(this.fname, this.jgj, this.jgq, this.jgr, this.jgm, this.jgn, this.jgs, this.jgt, this.jgu);
         }
-        if (this.jkW.equals("active-b")) {
-            return h(this.fname, this.jkQ, this.jkX, this.jlc, this.jld, this.jlb);
+        if (this.jgp.equals("active-b")) {
+            return h(this.fname, this.jgj, this.jgq, this.jgv, this.jgw, this.jgu);
         }
         return null;
     }
@@ -163,19 +163,19 @@ public class b {
     private SpannableStringBuilder b(String str, String str2, String str3, String str4, String str5, String str6, String str7) {
         SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
         spannableStringBuilder.append((CharSequence) ("忍不住想告诉你个好消息，" + str + "吧的成员数量突破了"));
-        spannableStringBuilder.append((CharSequence) KK(str2 + "人"));
+        spannableStringBuilder.append((CharSequence) Jz(str2 + "人"));
         spannableStringBuilder.append((CharSequence) ("！作为吧主，我邀请你加入" + str + "吧！\n\n"));
         spannableStringBuilder.append((CharSequence) "在我担任吧主的这");
-        spannableStringBuilder.append((CharSequence) KK(str3 + "天"));
+        spannableStringBuilder.append((CharSequence) Jz(str3 + "天"));
         spannableStringBuilder.append((CharSequence) ("，为" + str + "吧创造了良好的社区氛围，近期发现了"));
-        spannableStringBuilder.append((CharSequence) str4);
+        spannableStringBuilder.append((CharSequence) JA(str4));
         spannableStringBuilder.append((CharSequence) "篇优质贴子，最火热的一篇");
-        spannableStringBuilder.append((CharSequence) KK("《" + str6 + "》"));
+        spannableStringBuilder.append((CharSequence) Jz("《" + str6 + "》"));
         spannableStringBuilder.append((CharSequence) "竟然盖了");
-        spannableStringBuilder.append((CharSequence) KK(str7 + "层"));
+        spannableStringBuilder.append((CharSequence) Jz(str7 + "层"));
         spannableStringBuilder.append((CharSequence) "楼。\n\n");
         spannableStringBuilder.append((CharSequence) "我很喜欢");
-        spannableStringBuilder.append((CharSequence) str);
+        spannableStringBuilder.append((CharSequence) JA(str));
         spannableStringBuilder.append((CharSequence) "吧，我觉得你也会喜欢！加入我们吧，有你一定更精彩！");
         return spannableStringBuilder;
     }
@@ -184,22 +184,22 @@ public class b {
         SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
         spannableStringBuilder.append((CharSequence) "给你安利一个有趣的社区——");
         spannableStringBuilder.append((CharSequence) (str + "吧！现在成员数已经突破"));
-        spannableStringBuilder.append((CharSequence) KK(str2 + "人"));
+        spannableStringBuilder.append((CharSequence) Jz(str2 + "人"));
         spannableStringBuilder.append((CharSequence) "了！\n\n");
         spannableStringBuilder.append((CharSequence) "我加入");
         spannableStringBuilder.append((CharSequence) (str + "吧已经"));
-        spannableStringBuilder.append((CharSequence) KK(str3 + "天"));
+        spannableStringBuilder.append((CharSequence) Jz(str3 + "天"));
         spannableStringBuilder.append((CharSequence) "了，近期发表了");
-        spannableStringBuilder.append((CharSequence) str4);
+        spannableStringBuilder.append((CharSequence) JA(str4));
         spannableStringBuilder.append((CharSequence) "篇贴子，最火的一篇");
-        spannableStringBuilder.append((CharSequence) KK("《" + str6 + "》"));
+        spannableStringBuilder.append((CharSequence) Jz("《" + str6 + "》"));
         spannableStringBuilder.append((CharSequence) "收到了");
-        spannableStringBuilder.append((CharSequence) KK(str7 + "条"));
+        spannableStringBuilder.append((CharSequence) Jz(str7 + "条"));
         spannableStringBuilder.append((CharSequence) "回复、");
-        spannableStringBuilder.append((CharSequence) KK(str8 + "个"));
+        spannableStringBuilder.append((CharSequence) Jz(str8 + "个"));
         spannableStringBuilder.append((CharSequence) "赞！\n\n");
         spannableStringBuilder.append((CharSequence) "我很喜欢");
-        spannableStringBuilder.append((CharSequence) str);
+        spannableStringBuilder.append((CharSequence) JA(str));
         spannableStringBuilder.append((CharSequence) "吧，我觉得你也会喜欢！加入我们吧，有你一定更精彩！");
         return spannableStringBuilder;
     }
@@ -208,25 +208,29 @@ public class b {
         SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
         spannableStringBuilder.append((CharSequence) "给你安利一个有趣的社区——");
         spannableStringBuilder.append((CharSequence) (str + "吧！现在成员数已经突破"));
-        spannableStringBuilder.append((CharSequence) KK(str2 + "人"));
+        spannableStringBuilder.append((CharSequence) Jz(str2 + "人"));
         spannableStringBuilder.append((CharSequence) "了！\n\n");
         spannableStringBuilder.append((CharSequence) "我加入");
         spannableStringBuilder.append((CharSequence) (str + "吧已经"));
-        spannableStringBuilder.append((CharSequence) KK(str3 + "天"));
+        spannableStringBuilder.append((CharSequence) Jz(str3 + "天"));
         spannableStringBuilder.append((CharSequence) "了，近期参与了");
-        spannableStringBuilder.append((CharSequence) str4);
+        spannableStringBuilder.append((CharSequence) JA(str4));
         spannableStringBuilder.append((CharSequence) "主题贴的讨论，写了");
-        spannableStringBuilder.append((CharSequence) KK(str5 + "条"));
+        spannableStringBuilder.append((CharSequence) Jz(str5 + "条"));
         spannableStringBuilder.append((CharSequence) "评论。\n\n");
         spannableStringBuilder.append((CharSequence) "我很喜欢");
-        spannableStringBuilder.append((CharSequence) str);
+        spannableStringBuilder.append((CharSequence) JA(str));
         spannableStringBuilder.append((CharSequence) "吧，我觉得你也会喜欢！加入我们吧，有你一定更精彩！");
         return spannableStringBuilder;
     }
 
-    private SpannableString KK(String str) {
+    private SpannableString Jz(String str) {
         SpannableString spannableString = new SpannableString(str);
         spannableString.setSpan(new ForegroundColorSpan(ao.getColor(R.color.CAM_X0305)), 0, spannableString.length(), 33);
         return spannableString;
+    }
+
+    private String JA(String str) {
+        return str == null ? "" : str;
     }
 }

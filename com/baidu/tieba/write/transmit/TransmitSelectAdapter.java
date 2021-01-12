@@ -29,20 +29,20 @@ import com.baidu.tieba.likedForum.a;
 import java.util.ArrayList;
 import java.util.List;
 import tbclient.RecommendForumListForBottle.ForumInfo;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class TransmitSelectAdapter extends com.baidu.adp.widget.ListView.a<c, TransmitSelectViewHolder> {
     private ArrayList<HotTopicBussinessData> mForumList;
-    private List<TransmitForumData> nWQ;
-    private com.baidu.tieba.likedForum.a obk;
-    private w obl;
-    private a.InterfaceC0793a obm;
+    private List<TransmitForumData> nSl;
+    private com.baidu.tieba.likedForum.a nWE;
+    private w nWF;
+    private a.InterfaceC0776a nWG;
 
     /* JADX INFO: Access modifiers changed from: private */
     public boolean gc(long j) {
-        if (this.nWQ == null) {
+        if (this.nSl == null) {
             return false;
         }
-        for (TransmitForumData transmitForumData : this.nWQ) {
+        for (TransmitForumData transmitForumData : this.nSl) {
             if (transmitForumData != null && transmitForumData.forumId == j) {
                 return true;
             }
@@ -51,13 +51,13 @@ public class TransmitSelectAdapter extends com.baidu.adp.widget.ListView.a<c, Tr
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void dSY() {
+    public void dPg() {
         HotTopicChangeActivityConfig hotTopicChangeActivityConfig = new HotTopicChangeActivityConfig(this.mContext, RequestResponseCode.REQUEST_HOT_TOPIC_CHANGE_FOURM, this.mForumList);
         hotTopicChangeActivityConfig.setUseOriginList(true);
         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, hotTopicChangeActivityConfig));
     }
 
-    public HotTopicBussinessData MD(int i) {
+    public HotTopicBussinessData KW(int i) {
         if (x.isEmpty(this.mForumList)) {
             return null;
         }
@@ -67,7 +67,7 @@ public class TransmitSelectAdapter extends com.baidu.adp.widget.ListView.a<c, Tr
     /* JADX INFO: Access modifiers changed from: protected */
     public TransmitSelectAdapter(Context context, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2, List<TransmitForumData> list) {
         super(context, bdUniqueId, bdUniqueId2);
-        this.obl = new w() { // from class: com.baidu.tieba.write.transmit.TransmitSelectAdapter.1
+        this.nWF = new w() { // from class: com.baidu.tieba.write.transmit.TransmitSelectAdapter.1
             @Override // com.baidu.adp.widget.ListView.w
             public void a(View view, n nVar, BdUniqueId bdUniqueId3, ViewGroup viewGroup, int i, long j) {
                 if (!j.isNetWorkAvailable()) {
@@ -75,16 +75,16 @@ public class TransmitSelectAdapter extends com.baidu.adp.widget.ListView.a<c, Tr
                 }
                 TiebaStatic.log(new aq("c12053"));
                 if (!x.isEmpty(TransmitSelectAdapter.this.mForumList)) {
-                    TransmitSelectAdapter.this.dSY();
+                    TransmitSelectAdapter.this.dPg();
                     return;
                 }
-                TransmitSelectAdapter.this.obk = new com.baidu.tieba.likedForum.a(TransmitSelectAdapter.this.mPageId);
-                TransmitSelectAdapter.this.obk.a(TransmitSelectAdapter.this.obm);
-                TransmitSelectAdapter.this.obk.loadData();
+                TransmitSelectAdapter.this.nWE = new com.baidu.tieba.likedForum.a(TransmitSelectAdapter.this.mPageId);
+                TransmitSelectAdapter.this.nWE.a(TransmitSelectAdapter.this.nWG);
+                TransmitSelectAdapter.this.nWE.loadData();
             }
         };
-        this.obm = new a.InterfaceC0793a() { // from class: com.baidu.tieba.write.transmit.TransmitSelectAdapter.2
-            @Override // com.baidu.tieba.likedForum.a.InterfaceC0793a
+        this.nWG = new a.InterfaceC0776a() { // from class: com.baidu.tieba.write.transmit.TransmitSelectAdapter.2
+            @Override // com.baidu.tieba.likedForum.a.InterfaceC0776a
             public void a(boolean z, int i, String str, List<ForumInfo> list2) {
                 ArrayList arrayList = new ArrayList();
                 if (x.getCount(list2) > 0) {
@@ -103,13 +103,13 @@ public class TransmitSelectAdapter extends com.baidu.adp.widget.ListView.a<c, Tr
                     }
                     if (TransmitSelectAdapter.this.mForumList == null) {
                         TransmitSelectAdapter.this.mForumList = arrayList;
-                        TransmitSelectAdapter.this.dSY();
+                        TransmitSelectAdapter.this.dPg();
                     }
                 }
             }
         };
-        a(this.obl);
-        this.nWQ = list;
+        a(this.nWF);
+        this.nSl = list;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -124,26 +124,26 @@ public class TransmitSelectAdapter extends com.baidu.adp.widget.ListView.a<c, Tr
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, c cVar, TransmitSelectViewHolder transmitSelectViewHolder) {
-        ao.setViewTextColor(transmitSelectViewHolder.obo, R.color.CAM_X0302);
-        ao.setImageResource(transmitSelectViewHolder.iXO, R.drawable.icon_post_add_ba_n);
+        ao.setViewTextColor(transmitSelectViewHolder.nWI, R.color.CAM_X0302);
+        ao.setImageResource(transmitSelectViewHolder.iTh, R.drawable.icon_post_add_ba_n);
         return view;
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static class TransmitSelectViewHolder extends TypeAdapter.ViewHolder {
-        public ImageView iXO;
-        public TextView obo;
+        public ImageView iTh;
+        public TextView nWI;
 
         public TransmitSelectViewHolder(View view) {
             super(view);
-            this.obo = (TextView) view.findViewById(R.id.select_by_self);
-            this.iXO = (ImageView) view.findViewById(R.id.add_icon);
+            this.nWI = (TextView) view.findViewById(R.id.select_by_self);
+            this.iTh = (ImageView) view.findViewById(R.id.add_icon);
         }
     }
 
     public void destroy() {
-        if (this.obk != null) {
-            this.obk.destroy();
+        if (this.nWE != null) {
+            this.nWE.destroy();
         }
     }
 }

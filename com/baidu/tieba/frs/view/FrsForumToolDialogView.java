@@ -9,10 +9,10 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 /* loaded from: classes2.dex */
 public class FrsForumToolDialogView extends LinearLayout {
-    private TextView iFV;
-    private TextView jOg;
-    private TbImageView jOh;
-    private TextView jiT;
+    private TextView iBo;
+    private TextView jJA;
+    private TbImageView jJB;
+    private TextView jel;
 
     public FrsForumToolDialogView(Context context) {
         super(context);
@@ -21,44 +21,44 @@ public class FrsForumToolDialogView extends LinearLayout {
 
     public void setConfirmButtonListener(View.OnClickListener onClickListener) {
         if (onClickListener != null) {
-            this.jiT.setOnClickListener(onClickListener);
+            this.jel.setOnClickListener(onClickListener);
         }
     }
 
     public void setCancleButtonListener(View.OnClickListener onClickListener) {
         if (onClickListener != null) {
-            this.jOg.setOnClickListener(onClickListener);
+            this.jJA.setOnClickListener(onClickListener);
         }
     }
 
     private void initUI(Context context) {
         LayoutInflater.from(context).inflate(R.layout.frs_forum_tool_dialog, this);
-        this.jOh = (TbImageView) findViewById(R.id.iv_image);
-        this.iFV = (TextView) findViewById(R.id.tv_content);
-        this.jOg = (TextView) findViewById(R.id.btn_cancle);
-        this.jiT = (TextView) findViewById(R.id.btn_more);
-        this.jOg.setText(R.string.cancel);
-        this.jiT.setText(R.string.know_more);
-        this.jOh.setPlaceHolder(3);
-        this.jOh.setDrawCorner(true);
-        this.jOh.setAutoChangeStyle(true);
-        this.jOh.setConrers(3);
-        this.jOh.setRadiusById(R.string.J_X06);
-        com.baidu.tbadk.core.elementsMaven.c.bv(this.iFV).pC(R.color.CAM_X0107).pF(R.dimen.M_T_X001).pD(R.dimen.T_X06);
-        com.baidu.tbadk.core.elementsMaven.c.bv(this.jOg).pC(R.color.CAM_X0105).pK(R.string.J_X07).pN(R.dimen.L_X02).pD(R.dimen.T_X08).pM(R.color.CAM_X0902).setBackGroundColor(R.color.CAM_X0201);
-        com.baidu.tbadk.core.elementsMaven.c.bv(this.jiT).pC(R.color.CAM_X0302).pK(R.string.J_X07).pD(R.dimen.T_X08).pN(R.dimen.L_X02).pO(R.string.A_X07).pM(R.color.CAM_X0302).setBackGroundColor(R.color.CAM_X0201);
-        com.baidu.tbadk.core.elementsMaven.c.bv(this).pK(R.string.J_X06).pJ(0).setBackGroundColor(R.color.CAM_X0201);
+        this.jJB = (TbImageView) findViewById(R.id.iv_image);
+        this.iBo = (TextView) findViewById(R.id.tv_content);
+        this.jJA = (TextView) findViewById(R.id.btn_cancle);
+        this.jel = (TextView) findViewById(R.id.btn_more);
+        this.jJA.setText(R.string.cancel);
+        this.jel.setText(R.string.know_more);
+        this.jJB.setPlaceHolder(3);
+        this.jJB.setDrawCorner(true);
+        this.jJB.setAutoChangeStyle(true);
+        this.jJB.setConrers(3);
+        this.jJB.setRadiusById(R.string.J_X06);
+        com.baidu.tbadk.core.elementsMaven.c.bv(this.iBo).nV(R.color.CAM_X0107).nY(R.dimen.M_T_X001).nW(R.dimen.T_X06);
+        com.baidu.tbadk.core.elementsMaven.c.bv(this.jJA).nV(R.color.CAM_X0105).od(R.string.J_X07).og(R.dimen.L_X02).nW(R.dimen.T_X08).of(R.color.CAM_X0902).setBackGroundColor(R.color.CAM_X0201);
+        com.baidu.tbadk.core.elementsMaven.c.bv(this.jel).nV(R.color.CAM_X0302).od(R.string.J_X07).nW(R.dimen.T_X08).og(R.dimen.L_X02).oh(R.string.A_X07).of(R.color.CAM_X0302).setBackGroundColor(R.color.CAM_X0201);
+        com.baidu.tbadk.core.elementsMaven.c.bv(this).od(R.string.J_X06).oc(0).setBackGroundColor(R.color.CAM_X0201);
     }
 
     public void setContent(String str) {
-        this.iFV.setText(str);
+        this.iBo.setText(str);
     }
 
     public void setStartLoadUrl(int i, String str) {
         if (i == 1 || i == 2) {
-            this.jOh.startLoad(str, 24, false);
+            this.jJB.startLoad(str, 24, false);
         } else {
-            this.jOh.startLoad(str, 10, false);
+            this.jJB.startLoad(str, 10, false);
         }
     }
 }

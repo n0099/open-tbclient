@@ -4,8 +4,8 @@ import com.baidu.adp.lib.util.BdLog;
 import tbclient.RecommendForumInfo;
 /* loaded from: classes.dex */
 public class bl extends v implements com.baidu.tbadk.mvc.b.a {
-    private String eRJ;
-    private boolean eRK;
+    private String eMY;
+    private boolean eMZ;
     private long mForumId;
     private String mForumName;
     private int member_count;
@@ -13,11 +13,11 @@ public class bl extends v implements com.baidu.tbadk.mvc.b.a {
     private int thread_count;
 
     public bl() {
-        ox(8);
+        mR(8);
     }
 
     public String getAvatar() {
-        return this.eRJ;
+        return this.eMY;
     }
 
     public String getForumName() {
@@ -29,26 +29,26 @@ public class bl extends v implements com.baidu.tbadk.mvc.b.a {
     }
 
     public boolean isLike() {
-        return this.eRK;
+        return this.eMZ;
     }
 
     public void setLike(boolean z) {
-        this.eRK = z;
+        this.eMZ = z;
     }
 
-    public int bqv() {
+    public int bmB() {
         return this.member_count;
     }
 
-    public void oI(int i) {
+    public void nc(int i) {
         this.member_count = i;
     }
 
-    public int bqw() {
+    public int bmC() {
         return this.thread_count;
     }
 
-    public void oJ(int i) {
+    public void nd(int i) {
         this.thread_count = i;
     }
 
@@ -56,9 +56,9 @@ public class bl extends v implements com.baidu.tbadk.mvc.b.a {
         if (recommendForumInfo != null) {
             try {
                 this.mForumId = recommendForumInfo.forum_id.longValue();
-                this.eRJ = recommendForumInfo.avatar;
+                this.eMY = recommendForumInfo.avatar;
                 this.mForumName = recommendForumInfo.forum_name;
-                this.eRK = recommendForumInfo.is_like.intValue() == 1;
+                this.eMZ = recommendForumInfo.is_like.intValue() == 1;
                 this.member_count = recommendForumInfo.member_count.intValue();
                 this.thread_count = recommendForumInfo.thread_count.intValue();
                 this.recom_reason = recommendForumInfo.recom_reason;
@@ -72,20 +72,20 @@ public class bl extends v implements com.baidu.tbadk.mvc.b.a {
         this.mForumId = j;
     }
 
-    public void AU(String str) {
-        this.eRJ = str;
+    public void zJ(String str) {
+        this.eMY = str;
     }
 
-    public void AV(String str) {
+    public void zK(String str) {
         this.mForumName = str;
     }
 
     @Override // com.baidu.tbadk.core.data.a
-    public String boQ() {
+    public String bkW() {
         return this.recom_reason;
     }
 
-    public void AW(String str) {
+    public void zL(String str) {
         this.recom_reason = str;
     }
 }

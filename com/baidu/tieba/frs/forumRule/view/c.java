@@ -30,19 +30,19 @@ import java.util.HashMap;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class c extends d<ForumRulesShowActivity> implements View.OnClickListener {
-    private BdTypeRecyclerView Yc;
-    private ImageView aiG;
-    public View fOs;
-    private h gDQ;
-    private ForumRulesShowActivity jtU;
-    private int jvN;
-    public View jvO;
-    private com.baidu.tieba.frs.forumRule.adapter.a jvP;
-    private com.baidu.tieba.frs.forumRule.c.b jvQ;
-    private com.baidu.tieba.frs.forumRule.c.a jvR;
-    private View jvS;
-    private int jvT;
-    private int jvU;
+    private BdTypeRecyclerView Ya;
+    private ImageView ahO;
+    public View fJL;
+    private h gzj;
+    private ForumRulesShowActivity jpo;
+    private int jrh;
+    public View jri;
+    private com.baidu.tieba.frs.forumRule.adapter.a jrj;
+    private com.baidu.tieba.frs.forumRule.c.b jrk;
+    private com.baidu.tieba.frs.forumRule.c.a jrl;
+    private View jrm;
+    private int jrn;
+    private int jro;
     private ImageView mBackImageView;
     public List<n> mData;
     private com.baidu.tieba.frs.forumRule.b.b mForumRuleDetailData;
@@ -52,17 +52,17 @@ public class c extends d<ForumRulesShowActivity> implements View.OnClickListener
 
     public c(ForumRulesShowActivity forumRulesShowActivity, String str) {
         super(forumRulesShowActivity.getPageContext());
-        this.jvN = 3;
+        this.jrh = 3;
         this.mData = new ArrayList();
-        this.jvT = 0;
-        this.jvU = 0;
-        this.jtU = forumRulesShowActivity;
+        this.jrn = 0;
+        this.jro = 0;
+        this.jpo = forumRulesShowActivity;
         this.mFrom = str;
         forumRulesShowActivity.setContentView(R.layout.activity_forum_rules_show);
-        this.jvQ = new com.baidu.tieba.frs.forumRule.c.b(forumRulesShowActivity);
-        this.jvR = new com.baidu.tieba.frs.forumRule.c.a(forumRulesShowActivity);
-        this.jvT = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.ds88);
-        this.jvU = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.ds14);
+        this.jrk = new com.baidu.tieba.frs.forumRule.c.b(forumRulesShowActivity);
+        this.jrl = new com.baidu.tieba.frs.forumRule.c.a(forumRulesShowActivity);
+        this.jrn = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.ds88);
+        this.jro = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.ds14);
         b(forumRulesShowActivity);
     }
 
@@ -70,131 +70,131 @@ public class c extends d<ForumRulesShowActivity> implements View.OnClickListener
         this.mRootView = (ViewGroup) forumRulesShowActivity.findViewById(R.id.forum_rule_rootview);
         this.mNavigationBar = (NavigationBar) forumRulesShowActivity.findViewById(R.id.navigationbar);
         a(this.mNavigationBar);
-        this.Yc = (BdTypeRecyclerView) forumRulesShowActivity.findViewById(R.id.forum_rules_list_info);
-        this.Yc.setLayoutManager(new LinearLayoutManager(forumRulesShowActivity));
-        this.jvP = new com.baidu.tieba.frs.forumRule.adapter.a(forumRulesShowActivity, this.Yc);
-        this.jvS = forumRulesShowActivity.findViewById(R.id.forum_rules_net_refresh_layout);
+        this.Ya = (BdTypeRecyclerView) forumRulesShowActivity.findViewById(R.id.forum_rules_list_info);
+        this.Ya.setLayoutManager(new LinearLayoutManager(forumRulesShowActivity));
+        this.jrj = new com.baidu.tieba.frs.forumRule.adapter.a(forumRulesShowActivity, this.Ya);
+        this.jrm = forumRulesShowActivity.findViewById(R.id.forum_rules_net_refresh_layout);
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
     }
 
-    public View cKj() {
-        return this.jvS;
+    public View cGr() {
+        return this.jrm;
     }
 
-    public void cKk() {
-        if (this.jvS != null) {
-            this.jvS.setVisibility(0);
+    public void cGs() {
+        if (this.jrm != null) {
+            this.jrm.setVisibility(0);
         }
     }
 
-    public void cKl() {
-        if (this.jvS != null) {
-            this.jvS.setVisibility(8);
+    public void cGt() {
+        if (this.jrm != null) {
+            this.jrm.setVisibility(8);
         }
     }
 
     public void setFrom(String str) {
         this.mFrom = str;
-        if (this.jvP != null) {
-            this.jvP.setFrom(str);
+        if (this.jrj != null) {
+            this.jrj.setFrom(str);
         }
     }
 
-    public void cKm() {
-        if (this.jvP != null) {
-            this.jvP.setData(this.mData);
+    public void cGu() {
+        if (this.jrj != null) {
+            this.jrj.setData(this.mData);
         }
     }
 
-    public void cKn() {
-        if (this.Yc != null) {
-            this.Yc.setVisibility(0);
+    public void cGv() {
+        if (this.Ya != null) {
+            this.Ya.setVisibility(0);
         }
     }
 
-    public void cKo() {
-        if (this.Yc != null) {
-            this.Yc.setVisibility(8);
+    public void cGw() {
+        if (this.Ya != null) {
+            this.Ya.setVisibility(8);
         }
     }
 
     public void a(h hVar) {
-        this.gDQ = hVar;
-        hVar.bGu().setOnClickListener(this);
+        this.gzj = hVar;
+        hVar.bCB().setOnClickListener(this);
     }
 
     private void a(NavigationBar navigationBar) {
-        this.fOs = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, this);
-        this.mBackImageView = (ImageView) this.fOs.findViewById(R.id.widget_navi_back_button);
-        this.mNavigationBar.setCenterTextTitle(this.jtU.getResources().getString(R.string.forum_rules_local));
-        this.jvO = navigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.nb_item_floor_more, this);
-        this.aiG = (ImageView) this.jvO.findViewById(R.id.navigationBarBtnMore);
-        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(this.jvT, this.jvT);
-        layoutParams.rightMargin = this.jvU;
-        this.jvO.setLayoutParams(layoutParams);
-        SvgManager.bwr().a(this.aiG, R.drawable.icon_pure_topbar_more44_svg, R.color.CAM_X0106, SvgManager.SvgResourceStateType.NORMAL_PRESS);
-        cKp();
+        this.fJL = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, this);
+        this.mBackImageView = (ImageView) this.fJL.findViewById(R.id.widget_navi_back_button);
+        this.mNavigationBar.setCenterTextTitle(this.jpo.getResources().getString(R.string.forum_rules_local));
+        this.jri = navigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.nb_item_floor_more, this);
+        this.ahO = (ImageView) this.jri.findViewById(R.id.navigationBarBtnMore);
+        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(this.jrn, this.jrn);
+        layoutParams.rightMargin = this.jro;
+        this.jri.setLayoutParams(layoutParams);
+        SvgManager.bsx().a(this.ahO, R.drawable.icon_pure_topbar_more44_svg, R.color.CAM_X0106, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+        cGx();
     }
 
-    private void cKp() {
+    private void cGx() {
         int i = -1;
         HashMap<String, Integer> baseSwitchs = SwitchManager.getInstance().getBaseSwitchs();
         if (baseSwitchs != null && baseSwitchs.containsKey("is_disable_forumrule_share")) {
             i = baseSwitchs.get("is_disable_forumrule_share").intValue();
         }
         if (i == 0 && !ForumRulesShowActivityConfig.FORUM_RULE_EDIT_FROM_SHOW.equals(this.mFrom)) {
-            this.jvO.setVisibility(0);
+            this.jri.setVisibility(0);
         } else {
-            this.jvO.setVisibility(8);
+            this.jri.setVisibility(8);
         }
     }
 
     public void onChangeSkinType(int i) {
-        this.mNavigationBar.onChangeSkinType(this.jtU.getPageContext(), i);
-        if (this.jvN == i) {
+        this.mNavigationBar.onChangeSkinType(this.jpo.getPageContext(), i);
+        if (this.jrh == i) {
             this.mNavigationBar.getCenterText().setTextSize(R.dimen.L_X06);
             ao.setNavbarTitleColor(this.mNavigationBar.getCenterText(), R.color.CAM_X0611, R.color.CAM_X0611);
             WebPManager.a(this.mBackImageView, R.drawable.icon_pure_topbar_return40, R.color.CAM_X0105, WebPManager.ResourceStateType.NORMAL_PRESS);
-            WebPManager.a(this.aiG, R.drawable.icon_pure_topbar_more40, R.color.CAM_X0105, WebPManager.ResourceStateType.NORMAL_PRESS);
-            this.jvQ.onChangeSkinType(i);
-            this.jvR.onChangeSkinType(i);
-            this.jvP.onChangeSkinType(i);
-            this.jvN = i;
+            WebPManager.a(this.ahO, R.drawable.icon_pure_topbar_more40, R.color.CAM_X0105, WebPManager.ResourceStateType.NORMAL_PRESS);
+            this.jrk.onChangeSkinType(i);
+            this.jrl.onChangeSkinType(i);
+            this.jrj.onChangeSkinType(i);
+            this.jrh = i;
         }
     }
 
     public void destory() {
-        this.jtU = null;
+        this.jpo = null;
     }
 
-    public void Le(String str) {
-        if (this.jvQ != null && !StringUtils.isNull(str)) {
-            this.jvQ.d(this.Yc);
-            this.jvQ.setTitle(str);
+    public void JU(String str) {
+        if (this.jrk != null && !StringUtils.isNull(str)) {
+            this.jrk.d(this.Ya);
+            this.jrk.setTitle(str);
         }
     }
 
     public void hideTitle() {
-        if (this.jvQ != null) {
-            this.jvQ.e(this.Yc);
+        if (this.jrk != null) {
+            this.jrk.e(this.Ya);
         }
     }
 
-    public void Lf(String str) {
-        if (this.jvR != null) {
-            this.jvR.b(this.Yc);
-            this.jvR.KZ(str);
+    public void JV(String str) {
+        if (this.jrl != null) {
+            this.jrl.b(this.Ya);
+            this.jrl.JP(str);
         }
     }
 
-    public void cKq() {
-        if (this.jvR != null) {
-            this.jvR.c(this.Yc);
+    public void cGy() {
+        if (this.jrl != null) {
+            this.jrl.c(this.Ya);
         }
     }
 
     public void addTitle(String str) {
-        Le(str);
+        JU(str);
     }
 
     public void c(com.baidu.tieba.frs.forumRule.b.b bVar) {
@@ -211,7 +211,7 @@ public class c extends d<ForumRulesShowActivity> implements View.OnClickListener
     }
 
     public void remove() {
-        cKq();
+        cGy();
         hideTitle();
     }
 
@@ -221,14 +221,14 @@ public class c extends d<ForumRulesShowActivity> implements View.OnClickListener
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.jtU != null) {
+        if (this.jpo != null) {
             if (view.getId() == R.id.root_pb_more) {
                 int i = -1;
                 String str = "";
                 String str2 = "";
-                if (this.mForumRuleDetailData != null && this.mForumRuleDetailData.cJD() != null) {
-                    i = this.mForumRuleDetailData.cJD().forum_id.intValue();
-                    str2 = this.mForumRuleDetailData.cJD().forum_name;
+                if (this.mForumRuleDetailData != null && this.mForumRuleDetailData.cFL() != null) {
+                    i = this.mForumRuleDetailData.cFL().forum_id.intValue();
+                    str2 = this.mForumRuleDetailData.cFL().forum_name;
                 }
                 if (this.mForumRuleDetailData != null) {
                     str = this.mForumRuleDetailData.getTitle();
@@ -236,29 +236,29 @@ public class c extends d<ForumRulesShowActivity> implements View.OnClickListener
                 String str3 = "http://tieba.baidu.com/mo/q/wise-bawu-core/forumRuleShare?fid=" + i;
                 final ShareItem shareItem = new ShareItem();
                 shareItem.title = str;
-                shareItem.content = String.format(this.jtU.getResources().getString(R.string.forum_rules_share_text), str2);
+                shareItem.content = String.format(this.jpo.getResources().getString(R.string.forum_rules_share_text), str2);
                 shareItem.linkUrl = str3;
-                shareItem.fxA = false;
-                if (this.mForumRuleDetailData != null && !StringUtils.isNull(this.mForumRuleDetailData.cJD().avatar)) {
-                    shareItem.imageUri = Uri.parse(this.mForumRuleDetailData.cJD().avatar);
-                    shareItem.bCH();
+                shareItem.fsR = false;
+                if (this.mForumRuleDetailData != null && !StringUtils.isNull(this.mForumRuleDetailData.cFL().avatar)) {
+                    shareItem.imageUri = Uri.parse(this.mForumRuleDetailData.cFL().avatar);
+                    shareItem.byN();
                 }
-                shareItem.fxu = str;
-                shareItem.fxv = str3;
-                ShareDialogConfig shareDialogConfig = new ShareDialogConfig(this.jtU, shareItem, true);
+                shareItem.fsL = str;
+                shareItem.fsM = str3;
+                ShareDialogConfig shareDialogConfig = new ShareDialogConfig(this.jpo, shareItem, true);
                 shareDialogConfig.setIsCopyLink(true);
                 shareDialogConfig.setCopyLinkListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.forumRule.view.c.1
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view2) {
                         com.baidu.adp.lib.util.a.copyToClipboard(shareItem.linkUrl);
-                        l.showToast(c.this.jtU, c.this.jtU.getResources().getString(R.string.copy_pb_url_success));
+                        l.showToast(c.this.jpo, c.this.jpo.getResources().getString(R.string.copy_pb_url_success));
                     }
                 });
-                this.jtU.sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_SHARE_DIALOG_SHOW, shareDialogConfig));
+                this.jpo.sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_SHARE_DIALOG_SHOW, shareDialogConfig));
             } else if (view.getId() == R.id.navigationBarGoBack) {
-                this.jtU.finish();
-            } else if (this.gDQ != null && view.getId() == this.gDQ.bGu().getId()) {
-                this.jtU.cJz();
+                this.jpo.finish();
+            } else if (this.gzj != null && view.getId() == this.gzj.bCB().getId()) {
+                this.jpo.cFH();
             }
         }
     }

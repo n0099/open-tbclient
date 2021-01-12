@@ -1,5 +1,6 @@
 package com.baidu.platform.core.c;
 
+import android.net.http.Headers;
 import android.util.Log;
 import com.baidu.mapapi.CoordType;
 import com.baidu.mapapi.SDKInitializer;
@@ -15,11 +16,11 @@ import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class d extends com.baidu.platform.base.d {
 
     /* renamed from: b  reason: collision with root package name */
-    private static final String f4769b = d.class.getSimpleName();
+    private static final String f4486b = d.class.getSimpleName();
     private boolean c = false;
 
     private LatLng a(JSONObject jSONObject) {
@@ -40,7 +41,7 @@ public class d extends com.baidu.platform.base.d {
             }
             return this.c ? a(optJSONArray, (PoiDetailSearchResult) searchResult) : a(optJSONArray, (PoiDetailResult) searchResult);
         } catch (JSONException e) {
-            Log.e(f4769b, "Parse detail search result error", e);
+            Log.e(f4486b, "Parse detail search result error", e);
             return false;
         }
     }
@@ -51,7 +52,7 @@ public class d extends com.baidu.platform.base.d {
             return false;
         }
         poiDetailResult.setName(jSONObject.optString("name"));
-        poiDetailResult.setLocation(a(jSONObject.optJSONObject("location")));
+        poiDetailResult.setLocation(a(jSONObject.optJSONObject(Headers.LOCATION)));
         poiDetailResult.setAddress(jSONObject.optString("address"));
         poiDetailResult.setTelephone(jSONObject.optString("telephone"));
         poiDetailResult.setUid(jSONObject.optString("uid"));
@@ -87,7 +88,7 @@ public class d extends com.baidu.platform.base.d {
             if (jSONObject != null && jSONObject.length() != 0) {
                 PoiDetailInfo poiDetailInfo = new PoiDetailInfo();
                 poiDetailInfo.setName(jSONObject.optString("name"));
-                poiDetailInfo.setLocation(a(jSONObject.optJSONObject("location")));
+                poiDetailInfo.setLocation(a(jSONObject.optJSONObject(Headers.LOCATION)));
                 poiDetailInfo.setAddress(jSONObject.optString("address"));
                 poiDetailInfo.setProvince(jSONObject.optString("province"));
                 poiDetailInfo.setCity(jSONObject.optString("city"));
@@ -181,7 +182,7 @@ public class d extends com.baidu.platform.base.d {
                     poiDetailSearchResult.error = SearchResult.ERRORNO.RESULT_NOT_FOUND;
                 }
             } catch (JSONException e) {
-                Log.e(f4769b, "Parse detail search result failed", e);
+                Log.e(f4486b, "Parse detail search result failed", e);
                 poiDetailSearchResult.error = SearchResult.ERRORNO.RESULT_NOT_FOUND;
             }
         }

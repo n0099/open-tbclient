@@ -4,7 +4,7 @@ import android.content.Intent;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 /* loaded from: classes.dex */
 public class bi {
-    private String eRF;
+    private String eMU;
     private String recomExtra;
     private String recomSource;
     private String recomWeight;
@@ -13,7 +13,7 @@ public class bi {
         if (bzVar != null) {
             this.recomWeight = bzVar.mRecomWeight;
             this.recomSource = bzVar.mRecomSource;
-            this.eRF = bzVar.mRecomAbTag;
+            this.eMU = bzVar.mRecomAbTag;
             this.recomExtra = bzVar.mRecomExtra;
         }
     }
@@ -22,7 +22,7 @@ public class bi {
         if (intent != null) {
             this.recomWeight = intent.getStringExtra("recom_weight");
             this.recomSource = intent.getStringExtra(IntentConfig.RECOM_SOURCE);
-            this.eRF = intent.getStringExtra("recom_abtag");
+            this.eMU = intent.getStringExtra("recom_abtag");
             this.recomExtra = intent.getStringExtra("recom_extra");
         }
     }
@@ -31,16 +31,16 @@ public class bi {
         if (intent != null) {
             intent.putExtra("recom_weight", this.recomWeight);
             intent.putExtra(IntentConfig.RECOM_SOURCE, this.recomSource);
-            intent.putExtra("recom_abtag", this.eRF);
+            intent.putExtra("recom_abtag", this.eMU);
             intent.putExtra("recom_extra", this.recomExtra);
         }
     }
 
     public void a(com.baidu.tieba.play.o oVar) {
         if (oVar != null) {
-            oVar.mDG = this.recomWeight;
+            oVar.myX = this.recomWeight;
             oVar.mSource = this.recomSource;
-            oVar.mDK = this.eRF;
+            oVar.mzb = this.eMU;
             oVar.mExtra = this.recomExtra;
         }
     }

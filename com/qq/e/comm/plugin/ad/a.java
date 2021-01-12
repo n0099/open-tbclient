@@ -10,6 +10,7 @@ import android.os.Build;
 import android.util.Pair;
 import android.view.MotionEvent;
 import android.view.View;
+import com.baidu.mapapi.synchronization.histroytrace.HistoryTraceConstant;
 import com.qq.e.comm.plugin.util.ai;
 import com.qq.e.comm.plugin.util.as;
 import com.qq.e.comm.plugin.util.bd;
@@ -18,41 +19,41 @@ import java.util.Collections;
 import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static volatile a f12168a = null;
+    private static volatile a f11868a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    private final Map<Integer, Pair<Float, Float>> f12169b = new ConcurrentHashMap();
+    private final Map<Integer, Pair<Float, Float>> f11869b = new ConcurrentHashMap();
     private final Map<Integer, Pair<Integer, Integer>> c = new ConcurrentHashMap();
     private final Map<Integer, Pair<Integer, Integer>> d = new ConcurrentHashMap();
     private final Map<Integer, Pair<Float, Integer>> e = new ConcurrentHashMap();
-    private volatile C1205a f = null;
+    private volatile C1188a f = null;
     private Set<Integer> g = Collections.newSetFromMap(new ConcurrentHashMap());
     private View.OnAttachStateChangeListener h;
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.qq.e.comm.plugin.ad.a$a  reason: collision with other inner class name */
-    /* loaded from: classes4.dex */
-    public static class C1205a {
+    /* loaded from: classes3.dex */
+    public static class C1188a {
 
         /* renamed from: a  reason: collision with root package name */
-        private SensorManager f12173a;
+        private SensorManager f11873a;
 
         /* renamed from: b  reason: collision with root package name */
-        private Sensor f12174b;
+        private Sensor f11874b;
         private Sensor c;
-        private C1206a d;
+        private C1189a d;
         private float[] e = new float[3];
         private float[] f = new float[3];
 
         /* JADX INFO: Access modifiers changed from: private */
         /* renamed from: com.qq.e.comm.plugin.ad.a$a$a  reason: collision with other inner class name */
-        /* loaded from: classes4.dex */
-        public class C1206a implements SensorEventListener {
-            private C1206a() {
+        /* loaded from: classes3.dex */
+        public class C1189a implements SensorEventListener {
+            private C1189a() {
             }
 
             @Override // android.hardware.SensorEventListener
@@ -63,10 +64,10 @@ public class a {
             public void onSensorChanged(SensorEvent sensorEvent) {
                 switch (sensorEvent.sensor.getType()) {
                     case 1:
-                        C1205a.this.e = sensorEvent.values;
+                        C1188a.this.e = sensorEvent.values;
                         return;
                     case 2:
-                        C1205a.this.f = sensorEvent.values;
+                        C1188a.this.f = sensorEvent.values;
                         return;
                     default:
                         return;
@@ -74,10 +75,10 @@ public class a {
             }
         }
 
-        C1205a(Context context) {
-            this.f12173a = (SensorManager) context.getSystemService("sensor");
-            this.f12174b = this.f12173a.getDefaultSensor(1);
-            this.c = this.f12173a.getDefaultSensor(2);
+        C1188a(Context context) {
+            this.f11873a = (SensorManager) context.getSystemService("sensor");
+            this.f11874b = this.f11873a.getDefaultSensor(1);
+            this.c = this.f11873a.getDefaultSensor(2);
         }
 
         private int[] e() {
@@ -94,16 +95,16 @@ public class a {
 
         public void a() {
             if (this.d == null) {
-                this.d = new C1206a();
-                this.f12173a.registerListener(this.d, this.f12174b, 1);
-                this.f12173a.registerListener(this.d, this.c, 2);
+                this.d = new C1189a();
+                this.f11873a.registerListener(this.d, this.f11874b, 1);
+                this.f11873a.registerListener(this.d, this.c, 2);
                 ai.a("gdt_tag_p", "ADMonitor.SensorDetector start");
             }
         }
 
         public void b() {
             if (this.d != null) {
-                this.f12173a.unregisterListener(this.d);
+                this.f11873a.unregisterListener(this.d);
                 this.d = null;
                 ai.a("gdt_tag_p", "ADMonitor.SensorDetector stop");
             }
@@ -122,28 +123,28 @@ public class a {
     }
 
     public static a a() {
-        if (f12168a == null) {
+        if (f11868a == null) {
             synchronized (a.class) {
                 try {
-                    if (f12168a == null) {
-                        f12168a = new a();
+                    if (f11868a == null) {
+                        f11868a = new a();
                     }
                 } catch (Throwable th) {
                     throw th;
                 }
             }
         }
-        return f12168a;
+        return f11868a;
     }
 
     private void c() {
         if (this.c.size() > 100000) {
             this.c.clear();
-            u.a(100012, 4, null);
+            u.a(HistoryTraceConstant.LBS_HISTORY_TRACE_CODE_REQUEST_PARAMETER_ERROR, 4, null);
         }
         if (this.d.size() > 100000) {
             this.d.clear();
-            u.a(100012, 3, null);
+            u.a(HistoryTraceConstant.LBS_HISTORY_TRACE_CODE_REQUEST_PARAMETER_ERROR, 3, null);
         }
     }
 
@@ -168,7 +169,7 @@ public class a {
     }
 
     public Pair<Float, Float> a(int i) {
-        return this.f12169b.get(Integer.valueOf(i));
+        return this.f11869b.get(Integer.valueOf(i));
     }
 
     public void a(final View view) {
@@ -176,7 +177,7 @@ public class a {
             return;
         }
         if (this.f == null) {
-            this.f = new C1205a(view.getContext().getApplicationContext());
+            this.f = new C1188a(view.getContext().getApplicationContext());
         }
         int b2 = b(view);
         if (!this.g.contains(Integer.valueOf(b2))) {
@@ -194,7 +195,7 @@ public class a {
                         Integer valueOf = Integer.valueOf(a.this.b(view2));
                         ai.b("gdt_tag_p", "ADMonitor.onViewDetachedFromWindow : (%d) %s", valueOf, view2);
                         a.this.g.remove(valueOf);
-                        a.this.f12169b.remove(valueOf);
+                        a.this.f11869b.remove(valueOf);
                         if (a.this.f == null || a.this.g.size() > 0) {
                             return;
                         }
@@ -205,7 +206,7 @@ public class a {
             view.addOnAttachStateChangeListener(this.h);
             if (this.g.size() > 100000) {
                 this.g.clear();
-                u.a(100012, 2, null);
+                u.a(HistoryTraceConstant.LBS_HISTORY_TRACE_CODE_REQUEST_PARAMETER_ERROR, 2, null);
             }
             this.g.add(Integer.valueOf(b2));
             if (this.f != null && !this.f.c()) {
@@ -228,11 +229,11 @@ public class a {
         float size = motionEvent.getSize();
         int b2 = b(view);
         ai.b("gdt_tag_p", "ADMonitor.onTouchUp (%d) : %f , %f", Integer.valueOf(b2), Float.valueOf(pressure), Float.valueOf(size));
-        if (this.f12169b.size() > 100000) {
-            this.f12169b.clear();
-            u.a(100012, 1, null);
+        if (this.f11869b.size() > 100000) {
+            this.f11869b.clear();
+            u.a(HistoryTraceConstant.LBS_HISTORY_TRACE_CODE_REQUEST_PARAMETER_ERROR, 1, null);
         }
-        this.f12169b.put(Integer.valueOf(b2), new Pair<>(Float.valueOf(pressure), Float.valueOf(size)));
+        this.f11869b.put(Integer.valueOf(b2), new Pair<>(Float.valueOf(pressure), Float.valueOf(size)));
         c(view);
     }
 

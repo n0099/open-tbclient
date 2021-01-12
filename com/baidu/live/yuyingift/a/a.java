@@ -1,18 +1,18 @@
 package com.baidu.live.yuyingift.a;
 
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class a {
-    public String beo;
-    public String bep;
-    public String beq;
-    public String ber;
+    public String aZA;
+    public String aZB;
+    public String aZC;
+    public String aZz;
 
     public a(String str, String str2, String str3, String str4) {
-        this.beo = str;
-        this.bep = str2;
-        this.beq = str3;
-        this.ber = str4;
+        this.aZz = str;
+        this.aZA = str2;
+        this.aZB = str3;
+        this.aZC = str4;
     }
 
     public static a ao(JSONObject jSONObject) {

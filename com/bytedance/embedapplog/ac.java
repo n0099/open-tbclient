@@ -12,13 +12,13 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public abstract class ac implements Cloneable {
-    private static final SimpleDateFormat pgM = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.US);
+    private static final SimpleDateFormat pcj = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.US);
 
     /* renamed from: a  reason: collision with root package name */
-    public long f6074a = System.currentTimeMillis();
+    public long f5774a = System.currentTimeMillis();
 
     /* renamed from: b  reason: collision with root package name */
-    public long f6075b;
+    public long f5775b;
     public String c;
     public String d;
     public String e;
@@ -43,7 +43,7 @@ public abstract class ac implements Cloneable {
     protected abstract ac eQ(@NonNull JSONObject jSONObject);
 
     public static String a(long j) {
-        return pgM.format(new Date(j));
+        return pcj.format(new Date(j));
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -89,7 +89,7 @@ public abstract class ac implements Cloneable {
     @NonNull
     public final JSONObject f() {
         try {
-            this.g = a(this.f6074a);
+            this.g = a(this.f5774a);
             return b();
         } catch (JSONException e) {
             au.a(e);
@@ -97,10 +97,10 @@ public abstract class ac implements Cloneable {
         }
     }
 
-    public static ac YC(String str) {
+    public static ac Xu(String str) {
         try {
             JSONObject jSONObject = new JSONObject(str);
-            return ad.f6076a.get(jSONObject.optString("k_cls", "")).clone().eQ(jSONObject);
+            return ad.f5776a.get(jSONObject.optString("k_cls", "")).clone().eQ(jSONObject);
         } catch (Throwable th) {
             au.a(th);
             return null;
@@ -108,7 +108,7 @@ public abstract class ac implements Cloneable {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* renamed from: epu */
+    /* renamed from: ely */
     public ac clone() {
         try {
             return (ac) super.clone();
@@ -120,7 +120,7 @@ public abstract class ac implements Cloneable {
 
     @NonNull
     public String toString() {
-        if (au.f6086b) {
+        if (au.f5786b) {
             String d = d();
             if (!getClass().getSimpleName().equalsIgnoreCase(d)) {
                 d = d + ", " + getClass().getSimpleName();
@@ -134,7 +134,7 @@ public abstract class ac implements Cloneable {
             } else {
                 str = Constants.ACCEPT_TIME_SEPARATOR_SERVER;
             }
-            return "{" + d + ", " + h() + ", " + str + ", " + this.f6074a + "}";
+            return "{" + d + ", " + h() + ", " + str + ", " + this.f5774a + "}";
         }
         return super.toString();
     }

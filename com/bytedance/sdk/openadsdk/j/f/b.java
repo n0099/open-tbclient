@@ -5,20 +5,20 @@ import java.io.Serializable;
 public class b implements Serializable {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f7579a;
+    public String f7279a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f7580b = com.baidu.fsg.base.statistics.b.f1985b;
+    public int f7280b = com.baidu.fsg.base.statistics.b.f1935b;
     public String c;
 
     public b a(String str) {
-        this.f7579a = str;
+        this.f7279a = str;
         return this;
     }
 
     public b a(int i) {
         if (i > 0) {
-            this.f7580b = i;
+            this.f7280b = i;
         }
         return this;
     }
@@ -29,6 +29,6 @@ public class b implements Serializable {
     }
 
     public String toString() {
-        return "VideoUrlModel{url='" + this.f7579a + "', maxPreloadSize=" + this.f7580b + ", fileNameKey='" + this.c + "'}";
+        return "VideoUrlModel{url='" + this.f7279a + "', maxPreloadSize=" + this.f7280b + ", fileNameKey='" + this.c + "'}";
     }
 }

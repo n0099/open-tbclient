@@ -21,49 +21,49 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 /* loaded from: classes2.dex */
 public class ForumRuleDetailSelfVH extends TypeAdapter.ViewHolder {
-    public TextView eLt;
-    public HeadImageView fio;
-    public TextView gFk;
-    public TextView jtZ;
-    public ImageView jua;
-    public TextView jub;
-    public TBSpecificationBtn juc;
-    public LinearLayout jud;
-    public EMTextView jue;
-    public EMTextView juf;
-    public EMTextView jug;
-    private final int juh;
+    public TextView eGI;
+    public HeadImageView fdF;
+    public TextView gAE;
+    public EMTextView jpA;
+    private final int jpB;
+    public TextView jpt;
+    public ImageView jpu;
+    public TextView jpv;
+    public TBSpecificationBtn jpw;
+    public LinearLayout jpx;
+    public EMTextView jpy;
+    public EMTextView jpz;
     private View mRootView;
 
     public ForumRuleDetailSelfVH(View view) {
         super(view);
-        this.juh = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds6);
+        this.jpB = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds6);
         this.mRootView = view;
         ap(view);
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
     }
 
     private void ap(View view) {
-        this.fio = (HeadImageView) view.findViewById(R.id.forum_rules_head_view_info_item);
-        this.fio.setRadius(R.dimen.tbds47);
-        this.fio.setConrers(15);
-        this.eLt = (TextView) view.findViewById(R.id.forum_rules_user_name_info_item);
-        this.jtZ = (TextView) view.findViewById(R.id.forum_rules_user_identity_info_item);
-        this.jua = (ImageView) view.findViewById(R.id.forum_rules_user_forum_level_info_item);
-        this.jub = (TextView) view.findViewById(R.id.forum_rules_bjh_author_auth_info_item);
-        this.gFk = (TextView) view.findViewById(R.id.forum_rules_revise);
-        this.juc = (TBSpecificationBtn) view.findViewById(R.id.forum_rules_edit_status);
-        this.juc.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.forum_rules_compile));
-        this.jug = (EMTextView) view.findViewById(R.id.forum_rules_check_status);
-        this.jug.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.forum_rules_review));
-        this.jud = (LinearLayout) view.findViewById(R.id.forum_rules_preface_layout);
-        this.jue = (EMTextView) view.findViewById(R.id.forum_rules_preface_title);
-        this.juf = (EMTextView) view.findViewById(R.id.forum_rules_preface);
+        this.fdF = (HeadImageView) view.findViewById(R.id.forum_rules_head_view_info_item);
+        this.fdF.setRadius(R.dimen.tbds47);
+        this.fdF.setConrers(15);
+        this.eGI = (TextView) view.findViewById(R.id.forum_rules_user_name_info_item);
+        this.jpt = (TextView) view.findViewById(R.id.forum_rules_user_identity_info_item);
+        this.jpu = (ImageView) view.findViewById(R.id.forum_rules_user_forum_level_info_item);
+        this.jpv = (TextView) view.findViewById(R.id.forum_rules_bjh_author_auth_info_item);
+        this.gAE = (TextView) view.findViewById(R.id.forum_rules_revise);
+        this.jpw = (TBSpecificationBtn) view.findViewById(R.id.forum_rules_edit_status);
+        this.jpw.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.forum_rules_compile));
+        this.jpA = (EMTextView) view.findViewById(R.id.forum_rules_check_status);
+        this.jpA.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.forum_rules_review));
+        this.jpx = (LinearLayout) view.findViewById(R.id.forum_rules_preface_layout);
+        this.jpy = (EMTextView) view.findViewById(R.id.forum_rules_preface_title);
+        this.jpz = (EMTextView) view.findViewById(R.id.forum_rules_preface);
     }
 
-    public void KV(String str) {
+    public void JL(String str) {
         if (Config.BAWU_TYPE_MANAGER.equals(str) || Config.BAWU_TYPE_ASSIST.equals(str)) {
-            LayerDrawable layerDrawable = new LayerDrawable(new Drawable[]{com.baidu.tbadk.core.util.f.a.b.bwW().qq(0).ae(this.juh).b("TL_BR", R.color.CAM_X0303, R.color.CAM_X0303).bwY(), com.baidu.tbadk.core.util.f.a.b.bwW().qq(0).ae(this.juh).Cq("#4D000000").bwY()});
+            LayerDrawable layerDrawable = new LayerDrawable(new Drawable[]{com.baidu.tbadk.core.util.f.a.b.btc().oJ(0).ae(this.jpB).b("TL_BR", R.color.CAM_X0303, R.color.CAM_X0303).bte(), com.baidu.tbadk.core.util.f.a.b.btc().oJ(0).ae(this.jpB).Bf("#4D000000").bte()});
             if (TbadkCoreApplication.getInst().getSkinType() == 1) {
                 if (layerDrawable.getDrawable(1) != null) {
                     layerDrawable.getDrawable(1).setAlpha(255);
@@ -71,62 +71,62 @@ public class ForumRuleDetailSelfVH extends TypeAdapter.ViewHolder {
             } else if (layerDrawable.getDrawable(1) != null) {
                 layerDrawable.getDrawable(1).setAlpha(0);
             }
-            this.jtZ.setBackgroundDrawable(layerDrawable);
-            ao.setViewTextColor(this.jtZ, R.color.CAM_X0101);
+            this.jpt.setBackgroundDrawable(layerDrawable);
+            ao.setViewTextColor(this.jpt, R.color.CAM_X0101);
         }
     }
 
-    public void AQ(int i) {
+    public void zk(int i) {
         if (i > 0) {
-            ao.setImageResource(this.jua, BitmapHelper.getGradeResourceIdInEnterForum(i));
+            ao.setImageResource(this.jpu, BitmapHelper.getGradeResourceIdInEnterForum(i));
         }
     }
 
-    public void KW(String str) {
+    public void JM(String str) {
         if (str == null || str.isEmpty() || str.equals("null")) {
-            this.gFk.setVisibility(8);
+            this.gAE.setVisibility(8);
         } else {
-            this.gFk.setText(KU(str));
+            this.gAE.setText(JK(str));
         }
     }
 
-    public void KX(String str) {
-        if (this.juf != null && this.jud != null) {
+    public void JN(String str) {
+        if (this.jpz != null && this.jpx != null) {
             if (StringUtils.isNull(str)) {
-                this.jud.setVisibility(8);
+                this.jpx.setVisibility(8);
                 return;
             }
-            this.juf.setText(str);
-            this.jud.setVisibility(0);
+            this.jpz.setText(str);
+            this.jpx.setVisibility(0);
         }
     }
 
-    public String KU(String str) {
+    public String JK(String str) {
         return new SimpleDateFormat("yyyy-MM-dd").format(new Date(Long.valueOf(str + "000").longValue()));
     }
 
-    public void AR(int i) {
+    public void zl(int i) {
         if (i == 1) {
-            this.juc.setVisibility(8);
-            this.jug.setVisibility(0);
+            this.jpw.setVisibility(8);
+            this.jpA.setVisibility(0);
             return;
         }
-        this.jug.setVisibility(8);
-        this.juc.setVisibility(0);
+        this.jpA.setVisibility(8);
+        this.jpw.setVisibility(0);
     }
 
     public void onChangeSkinType(int i) {
-        com.baidu.tbadk.core.elementsMaven.c.bv(this.eLt).pE(R.string.F_X01).pC(R.color.CAM_X0105);
-        com.baidu.tbadk.core.elementsMaven.c.bv(this.gFk).pE(R.string.F_X01).pC(R.color.CAM_X0109);
-        com.baidu.tbadk.core.elementsMaven.c.bv(this.jug).pE(R.string.F_X01).pC(R.color.CAM_X0107);
-        com.baidu.tbadk.core.elementsMaven.c.bv(this.juf).pC(R.color.CAM_X0105);
-        com.baidu.tbadk.core.elementsMaven.c.bv(this.jue).pE(R.string.F_X02).pC(R.color.CAM_X0105);
-        ao.setViewTextColor(this.jub, R.color.CAM_X0109);
+        com.baidu.tbadk.core.elementsMaven.c.bv(this.eGI).nX(R.string.F_X01).nV(R.color.CAM_X0105);
+        com.baidu.tbadk.core.elementsMaven.c.bv(this.gAE).nX(R.string.F_X01).nV(R.color.CAM_X0109);
+        com.baidu.tbadk.core.elementsMaven.c.bv(this.jpA).nX(R.string.F_X01).nV(R.color.CAM_X0107);
+        com.baidu.tbadk.core.elementsMaven.c.bv(this.jpz).nV(R.color.CAM_X0105);
+        com.baidu.tbadk.core.elementsMaven.c.bv(this.jpy).nX(R.string.F_X02).nV(R.color.CAM_X0105);
+        ao.setViewTextColor(this.jpv, R.color.CAM_X0109);
         if (i == 1 || i == 4) {
-            this.fio.setIsNight(true);
+            this.fdF.setIsNight(true);
         } else {
-            this.fio.setIsNight(false);
+            this.fdF.setIsNight(false);
         }
-        this.juc.setTextSize(R.dimen.T_X08);
+        this.jpw.setTextSize(R.dimen.T_X08);
     }
 }

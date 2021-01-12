@@ -3,7 +3,7 @@ package com.kwai.player.debuginfo.model;
 import android.os.Bundle;
 import androidx.annotation.Keep;
 @Keep
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class AppLiveQosDebugInfo {
     private static final String LiveQosDebugInfo_acType = "acType";
     private static final String LiveQosDebugInfo_aencInit = "aencInit";

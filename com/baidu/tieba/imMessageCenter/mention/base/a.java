@@ -15,11 +15,16 @@ import com.baidu.tieba.imMessageCenter.mention.FeedData;
 import tbclient.AgreeList;
 /* loaded from: classes2.dex */
 public class a extends BaseCardInfo {
-    private boolean eWD;
+    public static final BdUniqueId kKS = BdUniqueId.gen();
+    public static final BdUniqueId kKT = BdUniqueId.gen();
+    public static final BdUniqueId kKU = BdUniqueId.gen();
+    public static final BdUniqueId kKV = BdUniqueId.gen();
+    public static final BdUniqueId kKW = BdUniqueId.gen();
+    private boolean eRS;
     private String fname;
     private boolean isNew;
-    private BdUniqueId kPC;
-    private String kPD;
+    private BdUniqueId kKX;
+    private String kKY;
     private BaijiahaoData mBaijiahao;
     private long msgId;
     private OriginalThreadInfo originalThreadInfo;
@@ -32,17 +37,12 @@ public class a extends BaseCardInfo {
     private String thread_id;
     private long time;
     private String title;
-    public static final BdUniqueId kPx = BdUniqueId.gen();
-    public static final BdUniqueId kPy = BdUniqueId.gen();
-    public static final BdUniqueId kPz = BdUniqueId.gen();
-    public static final BdUniqueId kPA = BdUniqueId.gen();
-    public static final BdUniqueId kPB = BdUniqueId.gen();
     private MetaData replyer = new MetaData();
     private boolean isBjh = false;
 
     @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.adp.widget.ListView.n
     public BdUniqueId getType() {
-        return this.kPC;
+        return this.kKX;
     }
 
     public void a(AgreeList agreeList) {
@@ -65,15 +65,15 @@ public class a extends BaseCardInfo {
             bz bzVar = new bz();
             bzVar.a(agreeList.thread_info);
             this.originalThreadInfo = OriginalThreadInfo.t(bzVar);
-            this.threadAuthor = bzVar.brr();
-            this.fname = bzVar.brv();
+            this.threadAuthor = bzVar.bnx();
+            this.fname = bzVar.bnB();
             this.thread_id = bzVar.getId();
             this.threadType = bzVar.threadType;
-            this.isBjh = bzVar.bqa();
+            this.isBjh = bzVar.bmg();
             this.mBaijiahao = bzVar.getBaijiahaoData();
-            this.kPD = "c12927";
+            this.kKY = "c12927";
             if (agreeList.type.intValue() == 3) {
-                this.kPC = kPx;
+                this.kKX = kKS;
                 this.title = TbadkCoreApplication.getInst().getResources().getString(R.string.agree_my_thread);
                 if (this.isBjh) {
                     this.title = TbadkCoreApplication.getInst().getResources().getString(R.string.agree_my_dynamic);
@@ -81,7 +81,7 @@ public class a extends BaseCardInfo {
                 }
                 return;
             }
-            this.kPC = kPy;
+            this.kKX = kKT;
             this.title = TbadkCoreApplication.getInst().getResources().getString(R.string.agree_my_post);
         }
     }
@@ -97,7 +97,7 @@ public class a extends BaseCardInfo {
             this.thread_id = feedData.getThread_id();
             this.threadType = feedData.getThread_Type();
             this.title = feedData.getContent();
-            this.eWD = feedData.getIsFloor();
+            this.eRS = feedData.getIsFloor();
             this.postFrom = feedData.getPostFrom();
             this.quote_pid = feedData.getQuote_pid();
             this.isNew = feedData.isNew();
@@ -108,9 +108,9 @@ public class a extends BaseCardInfo {
             this.originalThreadInfo.threadId = this.thread_id;
             this.originalThreadInfo.threadType = this.threadType;
             this.originalThreadInfo.showPicUrl = feedData.getThreadImgUrl();
-            this.originalThreadInfo.eQV = this.isBjh;
+            this.originalThreadInfo.eMk = this.isBjh;
             this.originalThreadInfo.oriUgcInfo = this.mBaijiahao;
-            this.kPD = "c12928";
+            this.kKY = "c12928";
             if (feedData.getType() == 1) {
                 this.originalThreadInfo.postId = feedData.getQuote_pid();
                 String str = "";
@@ -126,9 +126,9 @@ public class a extends BaseCardInfo {
                     this.originalThreadInfo.title = this.originalThreadInfo.title.replace("\n", " ");
                 }
                 if (feedData.getIsFloor()) {
-                    this.kPC = kPz;
+                    this.kKX = kKU;
                 } else {
-                    this.kPC = kPA;
+                    this.kKX = kKV;
                 }
             } else {
                 this.originalThreadInfo.postId = "0";
@@ -137,9 +137,9 @@ public class a extends BaseCardInfo {
                 } else {
                     this.originalThreadInfo.title = feedData.getTitle();
                 }
-                this.kPC = kPB;
+                this.kKX = kKW;
             }
-            this.originalThreadInfo.bpU();
+            this.originalThreadInfo.bma();
         }
     }
 
@@ -183,11 +183,11 @@ public class a extends BaseCardInfo {
         return this.msgId;
     }
 
-    public boolean dbu() {
-        return this.eWD;
+    public boolean cXC() {
+        return this.eRS;
     }
 
-    public String dbv() {
+    public String cXD() {
         return this.quote_pid;
     }
 
@@ -195,12 +195,12 @@ public class a extends BaseCardInfo {
         return this.isNew;
     }
 
-    public void tk(boolean z) {
+    public void tg(boolean z) {
         this.isNew = z;
     }
 
-    public String dbw() {
-        return this.kPD;
+    public String cXE() {
+        return this.kKY;
     }
 
     public MetaData getThreadAuthor() {

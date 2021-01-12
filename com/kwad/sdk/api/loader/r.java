@@ -4,7 +4,7 @@ import android.content.Context;
 import android.util.Log;
 import com.kwad.sdk.api.loader.k;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class r {
     /* JADX INFO: Access modifiers changed from: package-private */
     public static void a(Context context) {

@@ -11,14 +11,14 @@ import com.kwad.sdk.utils.w;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class a implements b, ap.a {
 
     /* renamed from: a  reason: collision with root package name */
-    private final AtomicBoolean f9609a = new AtomicBoolean(false);
+    private final AtomicBoolean f9309a = new AtomicBoolean(false);
 
     /* renamed from: b  reason: collision with root package name */
-    private final ap f9610b = new ap(this);
+    private final ap f9310b = new ap(this);
     private Set<c> c;
     private KsFragment d;
     private View e;
@@ -55,7 +55,7 @@ public class a implements b, ap.a {
     }
 
     private void h() {
-        if (this.f9609a.getAndSet(true)) {
+        if (this.f9309a.getAndSet(true)) {
             return;
         }
         com.kwad.sdk.core.d.a.b("FragmentPageVisibleHelper", "start notifyPageVisible by " + this.g);
@@ -63,14 +63,14 @@ public class a implements b, ap.a {
     }
 
     private void i() {
-        if (this.f9609a.getAndSet(false)) {
+        if (this.f9309a.getAndSet(false)) {
             com.kwad.sdk.core.d.a.b("FragmentPageVisibleHelper", "start notifyPageInVisible by " + this.g);
             c(false);
         }
     }
 
     public void a() {
-        this.f9610b.sendEmptyMessage(666);
+        this.f9310b.sendEmptyMessage(666);
     }
 
     @Override // com.kwad.sdk.utils.ap.a
@@ -91,7 +91,7 @@ public class a implements b, ap.a {
                     i();
                 }
             }
-            this.f9610b.sendEmptyMessageDelayed(666, 500L);
+            this.f9310b.sendEmptyMessageDelayed(666, 500L);
         }
     }
 
@@ -105,7 +105,7 @@ public class a implements b, ap.a {
         if (this.c == null) {
             this.c = new HashSet();
         }
-        if (this.f9609a.get()) {
+        if (this.f9309a.get()) {
             cVar.c_();
         } else {
             cVar.b();
@@ -117,7 +117,7 @@ public class a implements b, ap.a {
     }
 
     public void b() {
-        this.f9610b.removeCallbacksAndMessages(null);
+        this.f9310b.removeCallbacksAndMessages(null);
     }
 
     @Override // com.kwad.sdk.core.i.b
@@ -144,7 +144,7 @@ public class a implements b, ap.a {
 
     @MainThread
     public boolean e() {
-        return this.f9609a.get();
+        return this.f9309a.get();
     }
 
     public void f() {

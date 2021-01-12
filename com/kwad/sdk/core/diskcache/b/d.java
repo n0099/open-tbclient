@@ -6,7 +6,7 @@ import java.io.Closeable;
 import java.io.IOException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 class d {
     /* JADX INFO: Access modifiers changed from: package-private */
     public static String a(String str) {

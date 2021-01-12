@@ -42,7 +42,7 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 import java.util.regex.Pattern;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class BdUtilHelper {
     private static final double EARTH_RADIUS = 6378.137d;
     private static final int TOAST_LONG = 3500;
@@ -54,7 +54,7 @@ public class BdUtilHelper {
     private static ICustomToast mToast = null;
     private static Handler mHandler = new Handler(Looper.getMainLooper());
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public interface ICustomToastView {
         View getToastContentView();
 

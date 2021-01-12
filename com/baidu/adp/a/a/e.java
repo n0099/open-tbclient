@@ -7,23 +7,23 @@ import java.io.InputStreamReader;
 import java.io.Reader;
 /* loaded from: classes.dex */
 public class e extends com.baidu.adp.a.a.a implements Runnable {
-    private a IE;
+    private a IB;
     private int mUid;
 
     public a kI() throws IOException {
         a aVar = new a();
-        aVar.IG = bp("/proc/uid_stat/" + this.mUid + "/tcp_rcv");
-        aVar.IH = bp("/proc/uid_stat/" + this.mUid + "/tcp_snd");
-        aVar.IF = d.g(aVar.IG + aVar.IH);
+        aVar.IE = bp("/proc/uid_stat/" + this.mUid + "/tcp_rcv");
+        aVar.IF = bp("/proc/uid_stat/" + this.mUid + "/tcp_snd");
+        aVar.IC = d.g(aVar.IE + aVar.IF);
         return aVar;
     }
 
     public a kJ() throws IOException {
         a kI = kI();
-        this.IE.IG = d.g(kI.IG - d.kH().IG);
-        this.IE.IH = d.g(kI.IH - d.kH().IH);
-        this.IE.IF = d.g(kI.IF - d.kH().IF);
-        return this.IE;
+        this.IB.IE = d.g(kI.IE - d.kH().IE);
+        this.IB.IF = d.g(kI.IF - d.kH().IF);
+        this.IB.IC = d.g(kI.IC - d.kH().IC);
+        return this.IB;
     }
 
     public double bp(String str) {
@@ -72,9 +72,9 @@ public class e extends com.baidu.adp.a.a.a implements Runnable {
 
     /* loaded from: classes.dex */
     public class a {
+        double IC = 0.0d;
+        double IE = 0.0d;
         double IF = 0.0d;
-        double IG = 0.0d;
-        double IH = 0.0d;
 
         public a() {
         }

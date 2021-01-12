@@ -3,6 +3,7 @@ package com.ss.android.socialbase.downloader.k;
 import android.content.Context;
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
+import com.baidu.searchbox.config.DefaultSharedPrefsWrapper;
 import com.ss.android.socialbase.downloader.downloader.b;
 import com.ss.android.socialbase.downloader.g.c;
 import com.ss.android.socialbase.downloader.m.f;
@@ -16,26 +17,26 @@ public class a {
     private static JSONObject d;
     private static Boolean e;
     private static boolean f;
-    private static final f<Integer, a> qbN = new f<>(8, 8);
-    private static final a qbO = new a(null);
-    private static a qbP;
+    private static final f<Integer, a> pXm = new f<>(8, 8);
+    private static final a pXn = new a(null);
+    private static a pXo;
     private final JSONObject h;
     private final JSONObject i;
     private int k;
-    private final Boolean qbQ;
+    private final Boolean pXp;
 
     static {
         a();
     }
 
     public static void a() {
-        JSONObject eFx = b.eFx();
-        f = eFx.optInt("disable_task_setting", 0) == 1;
-        c = eFx.optJSONObject("disabled_task_keys");
-        JSONObject optJSONObject = eFx.optJSONObject("bugfix");
+        JSONObject eBG = b.eBG();
+        f = eBG.optInt("disable_task_setting", 0) == 1;
+        c = eBG.optJSONObject("disabled_task_keys");
+        JSONObject optJSONObject = eBG.optJSONObject("bugfix");
         Boolean bool = null;
-        if (optJSONObject != null && optJSONObject.has("default")) {
-            bool = Boolean.valueOf(optJSONObject.optInt("default", 0) == 1);
+        if (optJSONObject != null && optJSONObject.has(DefaultSharedPrefsWrapper.SP_FILE_DEFAULT)) {
+            bool = Boolean.valueOf(optJSONObject.optInt(DefaultSharedPrefsWrapper.SP_FILE_DEFAULT, 0) == 1);
         }
         d = optJSONObject;
         e = bool;
@@ -50,21 +51,21 @@ public class a {
             jSONObject2 = null;
         } else {
             JSONObject optJSONObject = jSONObject.optJSONObject("bugfix");
-            if (optJSONObject == null || !optJSONObject.has("default") || g("default")) {
+            if (optJSONObject == null || !optJSONObject.has(DefaultSharedPrefsWrapper.SP_FILE_DEFAULT) || g(DefaultSharedPrefsWrapper.SP_FILE_DEFAULT)) {
                 bool = null;
                 jSONObject2 = optJSONObject;
             } else {
-                bool = Boolean.valueOf(optJSONObject.optInt("default", 0) == 1);
+                bool = Boolean.valueOf(optJSONObject.optInt(DefaultSharedPrefsWrapper.SP_FILE_DEFAULT, 0) == 1);
                 jSONObject2 = optJSONObject;
             }
         }
         this.i = jSONObject2;
-        this.qbQ = bool;
+        this.pXp = bool;
     }
 
     @NonNull
     public static JSONObject b() {
-        return b.eFx();
+        return b.eBG();
     }
 
     public static void a(String str, boolean z) {
@@ -78,29 +79,29 @@ public class a {
     }
 
     @NonNull
-    public static a eJW() {
-        return qbO;
+    public static a eGg() {
+        return pXn;
     }
 
     @NonNull
-    public static a Th(int i) {
+    public static a RA(int i) {
         return a(i, (c) null);
     }
 
     private static a a(int i, c cVar) {
-        a aVar = qbP;
+        a aVar = pXo;
         if (aVar == null || aVar.k != i) {
-            synchronized (qbN) {
-                aVar = qbN.get(Integer.valueOf(i));
+            synchronized (pXm) {
+                aVar = pXm.get(Integer.valueOf(i));
             }
             if (aVar == null) {
-                aVar = cVar == null ? Ti(i) : s(cVar);
-                synchronized (qbN) {
-                    qbN.put(Integer.valueOf(i), aVar);
+                aVar = cVar == null ? RB(i) : s(cVar);
+                synchronized (pXm) {
+                    pXm.put(Integer.valueOf(i), aVar);
                 }
             }
             aVar.k = i;
-            qbP = aVar;
+            pXo = aVar;
         }
         return aVar;
     }
@@ -113,8 +114,8 @@ public class a {
         if (this.i != null && !g(str)) {
             if (this.i.has(str)) {
                 return this.i.optInt(str, z ? 1 : 0) == 1;
-            } else if (this.qbQ != null) {
-                return this.qbQ.booleanValue();
+            } else if (this.pXp != null) {
+                return this.pXp.booleanValue();
             }
         }
         if (d != null) {
@@ -159,11 +160,11 @@ public class a {
         return (this.h == null || !this.h.has(str) || g(str)) ? b().optString(str, str2) : this.h.optString(str, str2);
     }
 
-    public JSONObject abB(String str) {
+    public JSONObject aat(String str) {
         return (this.h == null || !this.h.has(str) || g(str)) ? b().optJSONObject(str) : this.h.optJSONObject(str);
     }
 
-    public JSONArray abC(String str) {
+    public JSONArray aau(String str) {
         return (this.h == null || !this.h.has(str) || g(str)) ? b().optJSONArray(str) : this.h.optJSONArray(str);
     }
 
@@ -175,22 +176,22 @@ public class a {
     public static a fl(JSONObject jSONObject) {
         a aVar;
         if (jSONObject == null || jSONObject == b() || f) {
-            return qbO;
+            return pXn;
         }
-        a aVar2 = qbP;
+        a aVar2 = pXo;
         if (aVar2 == null || aVar2.h != jSONObject) {
-            synchronized (qbN) {
-                Iterator<a> it = qbN.values().iterator();
+            synchronized (pXm) {
+                Iterator<a> it = pXm.values().iterator();
                 while (true) {
                     if (it.hasNext()) {
                         aVar = it.next();
                         if (aVar.h == jSONObject) {
-                            qbP = aVar;
+                            pXo = aVar;
                             break;
                         }
                     } else {
                         aVar = new a(jSONObject);
-                        qbP = aVar;
+                        pXo = aVar;
                         break;
                     }
                 }
@@ -202,12 +203,12 @@ public class a {
 
     public static void a(int i, JSONObject jSONObject) {
         if (jSONObject != null && jSONObject != b() && !f) {
-            synchronized (qbN) {
-                a aVar = qbP;
+            synchronized (pXm) {
+                a aVar = pXo;
                 if (aVar != null && aVar.h == jSONObject) {
                     aVar.k = i;
                 } else {
-                    Iterator<a> it = qbN.values().iterator();
+                    Iterator<a> it = pXm.values().iterator();
                     while (true) {
                         if (!it.hasNext()) {
                             aVar = null;
@@ -223,38 +224,38 @@ public class a {
                         aVar = new a(jSONObject);
                         aVar.k = i;
                     }
-                    qbP = aVar;
+                    pXo = aVar;
                 }
-                qbN.put(Integer.valueOf(i), aVar);
+                pXm.put(Integer.valueOf(i), aVar);
             }
         }
     }
 
     public static void b(int i) {
-        a aVar = qbP;
+        a aVar = pXo;
         if (aVar != null && aVar.k == i) {
-            qbP = null;
+            pXo = null;
         }
-        synchronized (qbN) {
-            qbN.remove(Integer.valueOf(i));
+        synchronized (pXm) {
+            pXm.remove(Integer.valueOf(i));
         }
     }
 
-    private static a Ti(int i) {
+    private static a RB(int i) {
         c h;
         if (f) {
-            return qbO;
+            return pXn;
         }
-        Context eHT = b.eHT();
-        if (eHT != null && (h = com.ss.android.socialbase.downloader.downloader.f.iA(eHT).h(i)) != null) {
+        Context eEd = b.eEd();
+        if (eEd != null && (h = com.ss.android.socialbase.downloader.downloader.f.iy(eEd).h(i)) != null) {
             return s(h);
         }
-        return qbO;
+        return pXn;
     }
 
     private static a s(c cVar) {
         if (f) {
-            return qbO;
+            return pXn;
         }
         try {
             String R = cVar.R();
@@ -264,6 +265,6 @@ public class a {
         } catch (Throwable th) {
             th.printStackTrace();
         }
-        return qbO;
+        return pXn;
     }
 }

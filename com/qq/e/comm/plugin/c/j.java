@@ -5,27 +5,27 @@ import yaq.gdtadv;
 /* JADX WARN: Classes with same name are omitted:
   assets/yaqgdtadv0.sec
  */
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 class j implements k {
 
     /* renamed from: com.qq.e.comm.plugin.c.j$1  reason: invalid class name */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     class AnonymousClass1 implements Runnable {
 
         /* renamed from: a  reason: collision with root package name */
-        final /* synthetic */ com.qq.e.comm.plugin.c.a.a f12262a;
+        final /* synthetic */ com.qq.e.comm.plugin.c.a.a f11962a;
 
         /* renamed from: b  reason: collision with root package name */
-        final /* synthetic */ boolean f12263b;
+        final /* synthetic */ boolean f11963b;
 
         AnonymousClass1(com.qq.e.comm.plugin.c.a.a aVar, boolean z) {
-            this.f12262a = aVar;
-            this.f12263b = z;
+            this.f11962a = aVar;
+            this.f11963b = z;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            this.f12262a.a(this.f12263b);
+            this.f11962a.a(this.f11963b);
         }
     }
 

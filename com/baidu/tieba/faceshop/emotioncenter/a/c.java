@@ -1,7 +1,7 @@
 package com.baidu.tieba.faceshop.emotioncenter.a;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public interface c {
-    void cCx();
+    void cyF();
 
-    void cCy();
+    void cyG();
 }

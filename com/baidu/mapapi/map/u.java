@@ -1,20 +1,36 @@
 package com.baidu.mapapi.map;
 
-import android.animation.Animator;
-import android.animation.AnimatorListenerAdapter;
-/* loaded from: classes3.dex */
-class u extends AnimatorListenerAdapter {
+import android.view.View;
+import com.baidu.mapsdkplatform.comapi.map.ab;
+import com.baidu.mapsdkplatform.comapi.map.ac;
+/* JADX INFO: Access modifiers changed from: package-private */
+/* loaded from: classes6.dex */
+public class u implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ SwipeDismissTouchListener f2935a;
+    final /* synthetic */ TextureMapView f2814a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public u(SwipeDismissTouchListener swipeDismissTouchListener) {
-        this.f2935a = swipeDismissTouchListener;
+    public u(TextureMapView textureMapView) {
+        this.f2814a = textureMapView;
     }
 
-    @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
-    public void onAnimationEnd(Animator animator) {
-        this.f2935a.a();
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        ac acVar;
+        ac acVar2;
+        ac acVar3;
+        acVar = this.f2814a.f2773b;
+        float f = acVar.b().f3052a;
+        acVar2 = this.f2814a.f2773b;
+        ab E = acVar2.b().E();
+        E.f3040a += 1.0f;
+        if (E.f3040a <= f) {
+            f = E.f3040a;
+        }
+        E.f3040a = f;
+        BaiduMap.mapStatusReason |= 16;
+        acVar3 = this.f2814a.f2773b;
+        acVar3.b().a(E, 300);
     }
 }

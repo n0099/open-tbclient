@@ -7,7 +7,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class CommandMessage extends Message {
     public static final String APP_KEY = "appKey";
     public static final String APP_SECRET = "appSecret";

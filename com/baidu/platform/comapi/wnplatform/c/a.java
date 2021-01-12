@@ -1,7 +1,7 @@
 package com.baidu.platform.comapi.wnplatform.c;
 
 import android.os.Message;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public interface a {
     void a(Message message);
 

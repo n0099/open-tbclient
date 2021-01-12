@@ -11,31 +11,31 @@ import com.kwai.filedownloader.services.c;
 import java.io.File;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class d {
     private c c;
 
     /* renamed from: a  reason: collision with root package name */
-    private final Map<Integer, DownloadTask> f8214a = new ConcurrentHashMap();
+    private final Map<Integer, DownloadTask> f7914a = new ConcurrentHashMap();
 
     /* renamed from: b  reason: collision with root package name */
-    private final Map<String, Integer> f8215b = new ConcurrentHashMap();
+    private final Map<String, Integer> f7915b = new ConcurrentHashMap();
     private boolean d = false;
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static final class a {
 
         /* renamed from: a  reason: collision with root package name */
-        private static final d f8216a = new d();
+        private static final d f7916a = new d();
     }
 
     public static d a() {
-        return a.f8216a;
+        return a.f7916a;
     }
 
     private void a(int i, DownloadTask.DownloadRequest downloadRequest) {
-        DownloadTask downloadTask = this.f8214a.get(Integer.valueOf(i));
+        DownloadTask downloadTask = this.f7914a.get(Integer.valueOf(i));
         if (downloadTask != null) {
             downloadTask.resume(downloadRequest);
         }
@@ -65,13 +65,13 @@ public class d {
         } else if (this.d) {
             c();
         }
-        if (this.f8214a.get(Integer.valueOf(downloadTask.getId())) != null) {
+        if (this.f7914a.get(Integer.valueOf(downloadTask.getId())) != null) {
             a(downloadTask.getId(), downloadRequest);
             b(downloadTask.getId());
             a(downloadTask.getId(), cVar, this.c);
         } else {
-            this.f8214a.put(Integer.valueOf(downloadTask.getId()), downloadTask);
-            this.f8215b.put(downloadTask.getUrl(), Integer.valueOf(downloadTask.getId()));
+            this.f7914a.put(Integer.valueOf(downloadTask.getId()), downloadTask);
+            this.f7915b.put(downloadTask.getUrl(), Integer.valueOf(downloadTask.getId()));
             downloadTask.submit();
             a(downloadTask.getId(), cVar, this.c);
         }
@@ -79,11 +79,11 @@ public class d {
     }
 
     public DownloadTask a(int i) {
-        return this.f8214a.get(Integer.valueOf(i));
+        return this.f7914a.get(Integer.valueOf(i));
     }
 
     public void a(int i, c... cVarArr) {
-        DownloadTask downloadTask = this.f8214a.get(Integer.valueOf(i));
+        DownloadTask downloadTask = this.f7914a.get(Integer.valueOf(i));
         if (downloadTask == null || cVarArr == null) {
             return;
         }
@@ -96,8 +96,8 @@ public class d {
     }
 
     void a(@NonNull DownloadTask downloadTask) {
-        this.f8214a.remove(Integer.valueOf(downloadTask.getId()));
-        this.f8215b.remove(downloadTask.getUrl());
+        this.f7914a.remove(Integer.valueOf(downloadTask.getId()));
+        this.f7915b.remove(downloadTask.getUrl());
     }
 
     public void a(c cVar) {
@@ -119,7 +119,7 @@ public class d {
     }
 
     public void b(int i) {
-        DownloadTask downloadTask = this.f8214a.get(Integer.valueOf(i));
+        DownloadTask downloadTask = this.f7914a.get(Integer.valueOf(i));
         if (downloadTask != null) {
             downloadTask.clearListener();
         }
@@ -139,7 +139,7 @@ public class d {
     }
 
     public void c(int i) {
-        DownloadTask downloadTask = this.f8214a.get(Integer.valueOf(i));
+        DownloadTask downloadTask = this.f7914a.get(Integer.valueOf(i));
         if (downloadTask != null) {
             downloadTask.cancel();
             a(downloadTask);
@@ -147,7 +147,7 @@ public class d {
     }
 
     public void d(int i) {
-        DownloadTask downloadTask = this.f8214a.get(Integer.valueOf(i));
+        DownloadTask downloadTask = this.f7914a.get(Integer.valueOf(i));
         if (downloadTask != null) {
             downloadTask.userPause();
         }
@@ -156,7 +156,7 @@ public class d {
     public boolean d() {
         boolean z;
         boolean z2 = false;
-        for (Map.Entry<Integer, DownloadTask> entry : this.f8214a.entrySet()) {
+        for (Map.Entry<Integer, DownloadTask> entry : this.f7914a.entrySet()) {
             DownloadTask value = entry.getValue();
             if (value != null) {
                 switch (value.getStatus()) {

@@ -36,7 +36,7 @@ public class FaceAR extends com.baidu.ar.c implements IFace {
     private FaceDetector np;
     private FaceListener nq;
     private int[] nv;
-    private a.C0078a nz;
+    private a.C0079a nz;
     private List<String> nr = new ArrayList();
     private String ns = null;
     private String nt = null;
@@ -201,7 +201,7 @@ public class FaceAR extends com.baidu.ar.c implements IFace {
             String str2 = this.ny.pY;
             String str3 = this.ny.pZ;
             com.baidu.ar.h.b.c(TAG, "classification result：" + this.ny.qg);
-            a.C0078a a2 = this.nx.a(this.ny);
+            a.C0079a a2 = this.nx.a(this.ny);
             if (a2 != null) {
                 this.nz = a2;
                 this.nw = c.a(a2.pO, str, str2, str3);

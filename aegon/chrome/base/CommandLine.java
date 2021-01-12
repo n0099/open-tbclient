@@ -1,7 +1,7 @@
 package aegon.chrome.base;
 
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public abstract class CommandLine {
     public static final /* synthetic */ boolean $assertionsDisabled = !CommandLine.class.desiredAssertionStatus();
     public static final AtomicReference<CommandLine> sCommandLine = new AtomicReference<>();

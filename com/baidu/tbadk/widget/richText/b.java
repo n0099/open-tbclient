@@ -10,8 +10,8 @@ public class b {
     public int radius = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds5);
     public int height = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds44);
     public int padding = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds11);
-    public int ahu = 0;
-    public int fYU = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds12);
+    public int agD = 0;
+    public int fUn = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds12);
     public int offset = 0;
     public int textSize = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds26);
 

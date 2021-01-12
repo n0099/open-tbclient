@@ -10,14 +10,14 @@ import com.kwai.video.player.KsMediaMeta;
 import java.nio.ByteBuffer;
 import org.aspectj.a.b.b;
 import org.aspectj.lang.a;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class DescriptionBox extends AbstractFullBox {
     public static final String TYPE = "dscp";
-    private static final /* synthetic */ a.InterfaceC1315a ajc$tjp_0 = null;
-    private static final /* synthetic */ a.InterfaceC1315a ajc$tjp_1 = null;
-    private static final /* synthetic */ a.InterfaceC1315a ajc$tjp_2 = null;
-    private static final /* synthetic */ a.InterfaceC1315a ajc$tjp_3 = null;
-    private static final /* synthetic */ a.InterfaceC1315a ajc$tjp_4 = null;
+    private static final /* synthetic */ a.InterfaceC1298a ajc$tjp_0 = null;
+    private static final /* synthetic */ a.InterfaceC1298a ajc$tjp_1 = null;
+    private static final /* synthetic */ a.InterfaceC1298a ajc$tjp_2 = null;
+    private static final /* synthetic */ a.InterfaceC1298a ajc$tjp_3 = null;
+    private static final /* synthetic */ a.InterfaceC1298a ajc$tjp_4 = null;
     private String description;
     private String language;
 

@@ -5,45 +5,41 @@ import android.location.LocationListener;
 import android.os.Bundle;
 import com.baidu.platform.comapi.wnplatform.model.datastruct.WLocData;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class f implements LocationListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ d f4618a;
+    final /* synthetic */ d f4400a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(d dVar) {
-        this.f4618a = dVar;
+        this.f4400a = dVar;
     }
 
     @Override // android.location.LocationListener
     public void onLocationChanged(Location location) {
-        boolean z;
         Location location2;
         WLocData wLocData;
         Location location3;
         Location location4;
-        if (location != null && !com.baidu.platform.comapi.wnplatform.a.a().d()) {
-            z = this.f4618a.i;
-            if (!z) {
-                location2 = this.f4618a.v;
-                if (location2 == null) {
-                    this.f4618a.a(location);
-                } else {
-                    d dVar = this.f4618a;
-                    location3 = this.f4618a.v;
-                    if (dVar.a(location, location3)) {
-                        this.f4618a.v = location;
-                    }
-                    d dVar2 = this.f4618a;
-                    location4 = this.f4618a.v;
-                    dVar2.a(location4);
+        if (location != null) {
+            location2 = this.f4400a.u;
+            if (location2 == null) {
+                this.f4400a.a(location);
+            } else {
+                d dVar = this.f4400a;
+                location3 = this.f4400a.u;
+                if (dVar.a(location, location3)) {
+                    this.f4400a.u = location;
                 }
-                d dVar3 = this.f4618a;
-                wLocData = this.f4618a.c;
-                dVar3.a(wLocData, "gps");
-                this.f4618a.h = true;
+                d dVar2 = this.f4400a;
+                location4 = this.f4400a.u;
+                dVar2.a(location4);
             }
+            d dVar3 = this.f4400a;
+            wLocData = this.f4400a.c;
+            dVar3.a(wLocData, "gps");
+            this.f4400a.h = true;
         }
     }
 
@@ -53,7 +49,7 @@ public class f implements LocationListener {
 
     @Override // android.location.LocationListener
     public void onProviderEnabled(String str) {
-        for (a aVar : this.f4618a.f) {
+        for (a aVar : this.f4400a.f) {
             if (aVar != null) {
                 aVar.d(4);
             }
@@ -62,7 +58,7 @@ public class f implements LocationListener {
 
     @Override // android.location.LocationListener
     public void onProviderDisabled(String str) {
-        for (a aVar : this.f4618a.f) {
+        for (a aVar : this.f4400a.f) {
             if (aVar != null) {
                 aVar.d(5);
             }

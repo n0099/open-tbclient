@@ -2,36 +2,36 @@ package com.baidu.cyberplayer.sdk.rtc;
 
 import com.baidu.cyberplayer.sdk.Keep;
 @Keep
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class CyberRTCAudioSamples {
 
     /* renamed from: a  reason: collision with root package name */
-    private final int f1866a;
+    private final int f1816a;
 
     /* renamed from: b  reason: collision with root package name */
-    private final int f1867b;
+    private final int f1817b;
     private final int c;
     private final byte[] d;
 
     @Keep
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public interface CyberRTCSamplesReadyCallback {
         void onRtcAudioRecordSamplesReady(CyberRTCAudioSamples cyberRTCAudioSamples);
     }
 
     public CyberRTCAudioSamples(int i, int i2, int i3, byte[] bArr) {
-        this.f1866a = i;
-        this.f1867b = i2;
+        this.f1816a = i;
+        this.f1817b = i2;
         this.c = i3;
         this.d = bArr;
     }
 
     public int getAudioFormat() {
-        return this.f1866a;
+        return this.f1816a;
     }
 
     public int getChannelCount() {
-        return this.f1867b;
+        return this.f1817b;
     }
 
     public byte[] getData() {

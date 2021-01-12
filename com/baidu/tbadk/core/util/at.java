@@ -38,19 +38,19 @@ public class at extends com.baidu.adp.lib.util.k {
     private static String TIME_HOUR = TbadkCoreApplication.getInst().getApp().getString(R.string.time_hour);
     private static String TIME_MINUTE = TbadkCoreApplication.getInst().getApp().getString(R.string.time_minute);
     private static String TIME_SECOND = TbadkCoreApplication.getInst().getApp().getString(R.string.time_second);
-    private static String fdr = TbadkCoreApplication.getInst().getApp().getString(R.string.ala_card_create_day);
-    private static String fds = TbadkCoreApplication.getInst().getApp().getString(R.string.ala_card_create_hour);
-    private static String fdt = TbadkCoreApplication.getInst().getApp().getString(R.string.ala_card_create_min);
+    private static String eYI = TbadkCoreApplication.getInst().getApp().getString(R.string.ala_card_create_day);
+    private static String eYJ = TbadkCoreApplication.getInst().getApp().getString(R.string.ala_card_create_hour);
+    private static String eYK = TbadkCoreApplication.getInst().getApp().getString(R.string.ala_card_create_min);
     private static final SimpleDateFormat FORMATE_DATE_SECOND = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
     private static final SimpleDateFormat FORMATE_DATE_SECOND_CHINESE = new SimpleDateFormat("yyyy年MM月dd HH时mm分ss秒");
-    private static final SimpleDateFormat fdu = new SimpleDateFormat("dd日HH:mm");
-    private static final SimpleDateFormat fdv = new SimpleDateFormat("HH:mm");
-    private static final SimpleDateFormat fdw = new SimpleDateFormat("yyyy-MM-dd");
-    private static final SimpleDateFormat fdx = new SimpleDateFormat("MM-dd HH:mm");
-    private static final SimpleDateFormat fdy = new SimpleDateFormat("MM-dd");
-    private static final SimpleDateFormat fdz = new SimpleDateFormat("MM月dd日");
-    private static final SimpleDateFormat fdA = new SimpleDateFormat("yyyy-MM-dd HH:mm");
-    private static final SimpleDateFormat fdB = new SimpleDateFormat("MM-dd HH:mm");
+    private static final SimpleDateFormat eYL = new SimpleDateFormat("dd日HH:mm");
+    private static final SimpleDateFormat eYM = new SimpleDateFormat("HH:mm");
+    private static final SimpleDateFormat eYN = new SimpleDateFormat("yyyy-MM-dd");
+    private static final SimpleDateFormat eYO = new SimpleDateFormat("MM-dd HH:mm");
+    private static final SimpleDateFormat eYP = new SimpleDateFormat("MM-dd");
+    private static final SimpleDateFormat eYQ = new SimpleDateFormat("MM月dd日");
+    private static final SimpleDateFormat eYR = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+    private static final SimpleDateFormat eYS = new SimpleDateFormat("MM-dd HH:mm");
     private static Date date = new Date();
 
     static {
@@ -72,8 +72,8 @@ public class at extends com.baidu.adp.lib.util.k {
     public static String dM(long j) {
         String format;
         Date date2 = new Date(j);
-        synchronized (fdB) {
-            format = fdB.format(date2);
+        synchronized (eYS) {
+            format = eYS.format(date2);
         }
         return format;
     }
@@ -81,8 +81,8 @@ public class at extends com.baidu.adp.lib.util.k {
     public static String dN(long j) {
         String format;
         Date date2 = new Date(j);
-        synchronized (fdA) {
-            format = fdA.format(date2);
+        synchronized (eYR) {
+            format = eYR.format(date2);
         }
         return format;
     }
@@ -90,8 +90,8 @@ public class at extends com.baidu.adp.lib.util.k {
     public static String dO(long j) {
         String format;
         Date date2 = new Date(j);
-        synchronized (fdx) {
-            format = fdx.format(date2);
+        synchronized (eYO) {
+            format = eYO.format(date2);
         }
         return format;
     }
@@ -99,8 +99,8 @@ public class at extends com.baidu.adp.lib.util.k {
     public static String dP(long j) {
         String format;
         Date date2 = new Date(j);
-        synchronized (fdy) {
-            format = fdy.format(date2);
+        synchronized (eYP) {
+            format = eYP.format(date2);
         }
         return format;
     }
@@ -108,8 +108,8 @@ public class at extends com.baidu.adp.lib.util.k {
     public static String dQ(long j) {
         String format;
         Date date2 = new Date(j);
-        synchronized (fdz) {
-            format = fdz.format(date2);
+        synchronized (eYQ) {
+            format = eYQ.format(date2);
         }
         return format;
     }
@@ -409,26 +409,26 @@ public class at extends com.baidu.adp.lib.util.k {
         if (time < MS_TO_DAY) {
             if (time < MS_TO_HOUR) {
                 if (time < MS_TO_MIN) {
-                    return "1" + fdt;
+                    return "1" + eYK;
                 }
-                return String.valueOf(time / MS_TO_MIN) + fdt;
+                return String.valueOf(time / MS_TO_MIN) + eYK;
             }
-            return String.valueOf(time / MS_TO_HOUR) + fds;
+            return String.valueOf(time / MS_TO_HOUR) + eYJ;
         }
-        return String.valueOf(time / MS_TO_DAY) + fdr;
+        return String.valueOf(time / MS_TO_DAY) + eYI;
     }
 
-    public static boolean BZ(String str) {
+    public static boolean AO(String str) {
         if (str.length() != 10) {
             return false;
         }
-        return fdw.format(new Date()).substring(0, 4).equals(str.substring(0, 4));
+        return eYN.format(new Date()).substring(0, 4).equals(str.substring(0, 4));
     }
 
     public static String o(Date date2) {
         String format;
-        synchronized (fdw) {
-            format = fdw.format(date2);
+        synchronized (eYN) {
+            format = eYN.format(date2);
         }
         return format;
     }
@@ -838,7 +838,7 @@ public class at extends com.baidu.adp.lib.util.k {
         return String.valueOf(j);
     }
 
-    public static String v(double d) {
+    public static String p(double d) {
         String format = String.format(Locale.getDefault(), "%.1f", Double.valueOf(d));
         if (format.endsWith(".0")) {
             format = format.substring(0, format.length() - 2);
@@ -1278,22 +1278,22 @@ public class at extends com.baidu.adp.lib.util.k {
         return sb.toString();
     }
 
-    public static boolean Ca(String str) {
+    public static boolean AP(String str) {
         if (str == null || str.length() == 0) {
             return false;
         }
-        return Cb(str) || uQ(str);
+        return AQ(str) || tF(str);
     }
 
-    public static boolean Cb(String str) {
+    public static boolean AQ(String str) {
         return str != null && str.length() > 6 && str.substring(0, 7).equalsIgnoreCase("http://");
     }
 
-    public static boolean uQ(String str) {
+    public static boolean tF(String str) {
         return str != null && str.length() > 7 && str.substring(0, 8).equalsIgnoreCase(SapiUtils.COOKIE_HTTPS_URL_PREFIX);
     }
 
-    public static boolean Cc(String str) {
+    public static boolean AR(String str) {
         if (isEmpty(str)) {
             return false;
         }

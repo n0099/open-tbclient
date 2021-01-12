@@ -5,7 +5,7 @@ import android.util.AttributeSet;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.kwad.sdk.R;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class EntryScrollGifView extends EntryScrollView {
     public EntryScrollGifView(@NonNull Context context) {
         super(context);

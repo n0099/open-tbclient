@@ -1,7 +1,7 @@
 package com.baidu.ala.helper;
 
 import java.security.MessageDigest;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class authpack {
     public static int sha1_32(byte[] bArr) {
         try {

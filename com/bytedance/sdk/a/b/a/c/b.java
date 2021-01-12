@@ -11,76 +11,76 @@ import org.apache.http.protocol.HTTP;
 public final class b implements x {
 
     /* renamed from: a  reason: collision with root package name */
-    private final boolean f6174a;
+    private final boolean f5874a;
 
     public b(boolean z) {
-        this.f6174a = z;
+        this.f5874a = z;
     }
 
     @Override // com.bytedance.sdk.a.b.x
     public com.bytedance.sdk.a.b.b a(x.a aVar) throws IOException {
         b.a aVar2;
-        com.bytedance.sdk.a.b.b erl;
+        com.bytedance.sdk.a.b.b enq;
         g gVar = (g) aVar;
-        c eqL = gVar.eqL();
-        com.bytedance.sdk.a.b.a.b.g eqK = gVar.eqK();
-        com.bytedance.sdk.a.b.a.b.c cVar = (com.bytedance.sdk.a.b.a.b.c) gVar.eqJ();
-        ab eqO = gVar.eqO();
+        c emP = gVar.emP();
+        com.bytedance.sdk.a.b.a.b.g emO = gVar.emO();
+        com.bytedance.sdk.a.b.a.b.c cVar = (com.bytedance.sdk.a.b.a.b.c) gVar.emN();
+        ab emS = gVar.emS();
         long currentTimeMillis = System.currentTimeMillis();
-        gVar.eqN().c(gVar.eqM());
-        eqL.d(eqO);
-        gVar.eqN().a(gVar.eqM(), eqO);
+        gVar.emR().c(gVar.emQ());
+        emP.d(emS);
+        gVar.emR().a(gVar.emQ(), emS);
         b.a aVar3 = null;
-        if (!f.c(eqO.b()) || eqO.erX() == null) {
+        if (!f.c(emS.b()) || emS.eoc() == null) {
             aVar2 = null;
         } else {
-            if (HTTP.EXPECT_CONTINUE.equalsIgnoreCase(eqO.a(HTTP.EXPECT_DIRECTIVE))) {
-                eqL.a();
-                gVar.eqN().e(gVar.eqM());
-                aVar3 = eqL.AL(true);
+            if (HTTP.EXPECT_CONTINUE.equalsIgnoreCase(emS.a(HTTP.EXPECT_DIRECTIVE))) {
+                emP.a();
+                gVar.emR().e(gVar.emQ());
+                aVar3 = emP.AH(true);
             }
             if (aVar3 == null) {
-                gVar.eqN().d(gVar.eqM());
-                a aVar4 = new a(eqL.a(eqO, eqO.erX().b()));
+                gVar.emR().d(gVar.emQ());
+                a aVar4 = new a(emP.a(emS, emS.eoc().b()));
                 com.bytedance.sdk.a.a.d b2 = com.bytedance.sdk.a.a.l.b(aVar4);
-                eqO.erX().a(b2);
+                emS.eoc().a(b2);
                 b2.close();
-                gVar.eqN().a(gVar.eqM(), aVar4.f6175a);
+                gVar.emR().a(gVar.emQ(), aVar4.f5875a);
                 aVar2 = aVar3;
             } else {
                 if (!cVar.d()) {
-                    eqK.d();
+                    emO.d();
                 }
                 aVar2 = aVar3;
             }
         }
-        eqL.b();
+        emP.b();
         if (aVar2 == null) {
-            gVar.eqN().e(gVar.eqM());
-            aVar2 = eqL.AL(false);
+            gVar.emR().e(gVar.emQ());
+            aVar2 = emP.AH(false);
         }
-        com.bytedance.sdk.a.b.b erl2 = aVar2.f(eqO).a(eqK.eqH().eqA()).ip(currentTimeMillis).iq(System.currentTimeMillis()).erl();
-        gVar.eqN().a(gVar.eqM(), erl2);
-        int c = erl2.c();
-        if (this.f6174a && c == 101) {
-            erl = erl2.eri().a(com.bytedance.sdk.a.b.a.c.pjf).erl();
+        com.bytedance.sdk.a.b.b enq2 = aVar2.f(emS).a(emO.emL().emE()).ip(currentTimeMillis).iq(System.currentTimeMillis()).enq();
+        gVar.emR().a(gVar.emQ(), enq2);
+        int c = enq2.c();
+        if (this.f5874a && c == 101) {
+            enq = enq2.enn().a(com.bytedance.sdk.a.b.a.c.peA).enq();
         } else {
-            erl = erl2.eri().a(eqL.c(erl2)).erl();
+            enq = enq2.enn().a(emP.c(enq2)).enq();
         }
-        if ("close".equalsIgnoreCase(erl.eqO().a(HTTP.CONN_DIRECTIVE)) || "close".equalsIgnoreCase(erl.a(HTTP.CONN_DIRECTIVE))) {
-            eqK.d();
+        if ("close".equalsIgnoreCase(enq.emS().a(HTTP.CONN_DIRECTIVE)) || "close".equalsIgnoreCase(enq.a(HTTP.CONN_DIRECTIVE))) {
+            emO.d();
         }
-        if ((c == 204 || c == 205) && erl.erh().b() > 0) {
-            throw new ProtocolException("HTTP " + c + " had non-zero Content-Length: " + erl.erh().b());
+        if ((c == 204 || c == 205) && enq.enm().b() > 0) {
+            throw new ProtocolException("HTTP " + c + " had non-zero Content-Length: " + enq.enm().b());
         }
-        return erl;
+        return enq;
     }
 
     /* loaded from: classes4.dex */
     static final class a extends com.bytedance.sdk.a.a.g {
 
         /* renamed from: a  reason: collision with root package name */
-        long f6175a;
+        long f5875a;
 
         a(r rVar) {
             super(rVar);
@@ -89,7 +89,7 @@ public final class b implements x {
         @Override // com.bytedance.sdk.a.a.g, com.bytedance.sdk.a.a.r
         public void a(com.bytedance.sdk.a.a.c cVar, long j) throws IOException {
             super.a(cVar, j);
-            this.f6175a += j;
+            this.f5875a += j;
         }
     }
 }

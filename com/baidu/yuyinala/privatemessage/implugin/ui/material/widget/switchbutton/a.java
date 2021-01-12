@@ -3,25 +3,25 @@ package com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.switchbutt
 import android.os.Handler;
 import android.os.Message;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class a {
-    private static int pan = 256;
-    private static int pao = 7;
-    private static int pap = 16;
+    private static int oVK = 256;
+    private static int oVL = 7;
+    private static int oVM = 16;
     private int mFrom;
-    private b par;
-    private int pas;
-    private int pat;
+    private b oVO;
+    private int oVP;
+    private int oVQ;
     private boolean isAnimating = false;
-    private int bKi = pao;
-    private HandlerC0986a paq = new HandlerC0986a();
+    private int bFw = oVL;
+    private HandlerC0969a oVN = new HandlerC0969a();
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public interface b {
-        boolean enm();
+        boolean ejr();
 
-        void enn();
+        void ejs();
 
         void onAnimationStart();
 
@@ -32,7 +32,7 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static a enl() {
+    public static a ejq() {
         return new a();
     }
 
@@ -41,21 +41,21 @@ public class a {
         if (bVar == null) {
             com.baidu.yuyinala.privatemessage.implugin.util.c.e("SwitchButtonAnimationController", "onAnimateListener can not be null");
         } else {
-            this.par = bVar;
+            this.oVO = bVar;
         }
         return this;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.switchbutton.a$a  reason: collision with other inner class name */
-    /* loaded from: classes11.dex */
-    public static class HandlerC0986a extends Handler {
-        private HandlerC0986a() {
+    /* loaded from: classes10.dex */
+    public static class HandlerC0969a extends Handler {
+        private HandlerC0969a() {
         }
 
         @Override // android.os.Handler
         public void handleMessage(Message message) {
-            if (message.what == a.pan && message.obj != null) {
+            if (message.what == a.oVK && message.obj != null) {
                 ((Runnable) message.obj).run();
             }
         }
@@ -65,18 +65,18 @@ public class a {
     public void dS(int i, int i2) {
         this.isAnimating = true;
         this.mFrom = i;
-        this.pat = i2;
-        this.pas = this.bKi;
-        if (this.pat > this.mFrom) {
-            this.pas = Math.abs(this.bKi);
-        } else if (this.pat < this.mFrom) {
-            this.pas = -Math.abs(this.bKi);
+        this.oVQ = i2;
+        this.oVP = this.bFw;
+        if (this.oVQ > this.mFrom) {
+            this.oVP = Math.abs(this.bFw);
+        } else if (this.oVQ < this.mFrom) {
+            this.oVP = -Math.abs(this.bFw);
         } else {
             this.isAnimating = false;
-            this.par.enn();
+            this.oVO.ejs();
             return;
         }
-        this.par.onAnimationStart();
+        this.oVO.onAnimationStart();
         new c().run();
     }
 
@@ -84,15 +84,15 @@ public class a {
         this.isAnimating = false;
     }
 
-    public void Pd(int i) {
+    public void Nw(int i) {
         if (i <= 0) {
-            this.bKi = pao;
+            this.bFw = oVL;
         } else {
-            this.bKi = i;
+            this.bFw = i;
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     class c implements Runnable {
         c() {
         }
@@ -100,25 +100,25 @@ public class a {
         @Override // java.lang.Runnable
         public void run() {
             if (a.this.isAnimating) {
-                eno();
-                a.this.par.onFrameUpdate(a.this.pas);
-                if (a.this.par.enm()) {
-                    enp();
+                ejt();
+                a.this.oVO.onFrameUpdate(a.this.oVP);
+                if (a.this.oVO.ejr()) {
+                    eju();
                     return;
                 }
                 a.this.stopAnimation();
-                a.this.par.enn();
+                a.this.oVO.ejs();
             }
         }
 
-        private void eno() {
+        private void ejt() {
         }
 
-        private void enp() {
-            Message obtainMessage = a.this.paq.obtainMessage();
-            obtainMessage.what = a.pan;
+        private void eju() {
+            Message obtainMessage = a.this.oVN.obtainMessage();
+            obtainMessage.what = a.oVK;
             obtainMessage.obj = this;
-            a.this.paq.sendMessageDelayed(obtainMessage, a.pap);
+            a.this.oVN.sendMessageDelayed(obtainMessage, a.oVM);
         }
     }
 }

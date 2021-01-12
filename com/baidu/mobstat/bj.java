@@ -45,7 +45,7 @@ import java.util.List;
 import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class bj {
     public static View a(Activity activity) {
         Window window;
@@ -667,7 +667,7 @@ public class bj {
     private static String b(String str) {
         String a2 = ay.a().a(str);
         if (TextUtils.isEmpty(a2)) {
-            a2 = au.a().a(str, au.a.f3751a);
+            a2 = au.a().a(str, au.a.f3713a);
         }
         if (a2 == null) {
             return "";
@@ -676,7 +676,7 @@ public class bj {
     }
 
     public static String a(String str) {
-        String a2 = au.a().a(str, au.a.f3752b);
+        String a2 = au.a().a(str, au.a.f3714b);
         if (a2 == null) {
             return "";
         }

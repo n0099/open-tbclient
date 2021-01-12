@@ -20,7 +20,7 @@ public interface cl extends IInterface {
             if (queryLocalInterface != null && (queryLocalInterface instanceof cl)) {
                 return (cl) queryLocalInterface;
             }
-            return new C1002a(iBinder);
+            return new C0985a(iBinder);
         }
 
         @Override // android.os.Binder
@@ -48,18 +48,18 @@ public interface cl extends IInterface {
 
         /* renamed from: com.bytedance.embedapplog.cl$a$a  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        static class C1002a implements cl {
+        static class C0985a implements cl {
 
             /* renamed from: a  reason: collision with root package name */
-            private IBinder f6125a;
+            private IBinder f5825a;
 
-            C1002a(IBinder iBinder) {
-                this.f6125a = iBinder;
+            C0985a(IBinder iBinder) {
+                this.f5825a = iBinder;
             }
 
             @Override // android.os.IInterface
             public IBinder asBinder() {
-                return this.f6125a;
+                return this.f5825a;
             }
 
             @Override // com.bytedance.embedapplog.cl
@@ -68,7 +68,7 @@ public interface cl extends IInterface {
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken("com.uodis.opendevice.aidl.OpenDeviceIdentifierService");
-                    this.f6125a.transact(1, obtain, obtain2, 0);
+                    this.f5825a.transact(1, obtain, obtain2, 0);
                     obtain2.readException();
                     return obtain2.readString();
                 } finally {
@@ -83,7 +83,7 @@ public interface cl extends IInterface {
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken("com.uodis.opendevice.aidl.OpenDeviceIdentifierService");
-                    this.f6125a.transact(2, obtain, obtain2, 0);
+                    this.f5825a.transact(2, obtain, obtain2, 0);
                     obtain2.readException();
                     return obtain2.readInt() != 0;
                 } finally {

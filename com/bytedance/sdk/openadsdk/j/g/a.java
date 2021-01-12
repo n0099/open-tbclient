@@ -11,18 +11,18 @@ import java.io.InputStreamReader;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    static Context f7586a;
+    static Context f7286a;
 
     public static void a(Context context) {
         if (context == null) {
             throw new NullPointerException();
         }
-        f7586a = context;
+        f7286a = context;
     }
 
     @Deprecated
     public static File a() {
-        return b(f7586a);
+        return b(f7286a);
     }
 
     public static File b(Context context) {

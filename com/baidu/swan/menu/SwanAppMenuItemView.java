@@ -11,26 +11,26 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.android.imsdk.internal.IMConnection;
 import com.baidu.swan.menu.f;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class SwanAppMenuItemView extends RelativeLayout {
-    private int WX;
-    private Runnable dVA;
-    private int dVw;
-    private boolean dVx;
-    private TextView evD;
-    private ImageView evE;
-    private h evF;
+    private int WV;
+    private int dQK;
+    private boolean dQL;
+    private Runnable dQO;
+    private TextView eqP;
+    private ImageView eqQ;
+    private h eqR;
     private ImageView mIconView;
     private TextView mTitleView;
 
     public SwanAppMenuItemView(Context context) {
         super(context);
-        this.dVx = false;
-        this.dVA = new Runnable() { // from class: com.baidu.swan.menu.SwanAppMenuItemView.1
+        this.dQL = false;
+        this.dQO = new Runnable() { // from class: com.baidu.swan.menu.SwanAppMenuItemView.1
             @Override // java.lang.Runnable
             public void run() {
-                if (SwanAppMenuItemView.this.evF != null && SwanAppMenuItemView.this.evF.bfs() != null) {
-                    SwanAppMenuItemView.this.dVx = SwanAppMenuItemView.this.evF.bfs().c(SwanAppMenuItemView.this.evF);
+                if (SwanAppMenuItemView.this.eqR != null && SwanAppMenuItemView.this.eqR.bby() != null) {
+                    SwanAppMenuItemView.this.dQL = SwanAppMenuItemView.this.eqR.bby().c(SwanAppMenuItemView.this.eqR);
                 }
             }
         };
@@ -39,12 +39,12 @@ public class SwanAppMenuItemView extends RelativeLayout {
 
     public SwanAppMenuItemView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.dVx = false;
-        this.dVA = new Runnable() { // from class: com.baidu.swan.menu.SwanAppMenuItemView.1
+        this.dQL = false;
+        this.dQO = new Runnable() { // from class: com.baidu.swan.menu.SwanAppMenuItemView.1
             @Override // java.lang.Runnable
             public void run() {
-                if (SwanAppMenuItemView.this.evF != null && SwanAppMenuItemView.this.evF.bfs() != null) {
-                    SwanAppMenuItemView.this.dVx = SwanAppMenuItemView.this.evF.bfs().c(SwanAppMenuItemView.this.evF);
+                if (SwanAppMenuItemView.this.eqR != null && SwanAppMenuItemView.this.eqR.bby() != null) {
+                    SwanAppMenuItemView.this.dQL = SwanAppMenuItemView.this.eqR.bby().c(SwanAppMenuItemView.this.eqR);
                 }
             }
         };
@@ -53,12 +53,12 @@ public class SwanAppMenuItemView extends RelativeLayout {
 
     public SwanAppMenuItemView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.dVx = false;
-        this.dVA = new Runnable() { // from class: com.baidu.swan.menu.SwanAppMenuItemView.1
+        this.dQL = false;
+        this.dQO = new Runnable() { // from class: com.baidu.swan.menu.SwanAppMenuItemView.1
             @Override // java.lang.Runnable
             public void run() {
-                if (SwanAppMenuItemView.this.evF != null && SwanAppMenuItemView.this.evF.bfs() != null) {
-                    SwanAppMenuItemView.this.dVx = SwanAppMenuItemView.this.evF.bfs().c(SwanAppMenuItemView.this.evF);
+                if (SwanAppMenuItemView.this.eqR != null && SwanAppMenuItemView.this.eqR.bby() != null) {
+                    SwanAppMenuItemView.this.dQL = SwanAppMenuItemView.this.eqR.bby().c(SwanAppMenuItemView.this.eqR);
                 }
             }
         };
@@ -70,8 +70,8 @@ public class SwanAppMenuItemView extends RelativeLayout {
         LayoutInflater.from(getContext()).inflate(f.e.aiapp_menu_item_view_layout, this);
         this.mIconView = (ImageView) findViewById(f.d.aiapp_menu_item_icon);
         this.mTitleView = (TextView) findViewById(f.d.aiapp_menu_item_title);
-        this.evD = (TextView) findViewById(f.d.aiapp_menu_item_new_tips);
-        this.evE = (ImageView) findViewById(f.d.aiapp_menu_item_new_dot);
+        this.eqP = (TextView) findViewById(f.d.aiapp_menu_item_new_tips);
+        this.eqQ = (ImageView) findViewById(f.d.aiapp_menu_item_new_dot);
         setBackgroundResource(0);
     }
 
@@ -79,7 +79,7 @@ public class SwanAppMenuItemView extends RelativeLayout {
     public void f(h hVar) {
         if (hVar != null) {
             setItemView(hVar);
-            this.evF = hVar;
+            this.eqR = hVar;
         }
     }
 
@@ -97,11 +97,11 @@ public class SwanAppMenuItemView extends RelativeLayout {
     private void g(h hVar) {
         if (hVar != null) {
             setAlpha(1.0f);
-            this.mTitleView.setText(hVar.eF(getContext()));
+            this.mTitleView.setText(hVar.eE(getContext()));
             Drawable i = i(hVar);
             if (i != null) {
                 this.mIconView.setImageDrawable(i);
-                this.mIconView.setImageLevel(hVar.bfq());
+                this.mIconView.setImageLevel(hVar.bbw());
             }
             this.mTitleView.setTextColor(getResources().getColor(hVar.getTitleColor()));
         }
@@ -109,26 +109,26 @@ public class SwanAppMenuItemView extends RelativeLayout {
 
     private void h(h hVar) {
         if (hVar != null) {
-            switch (hVar.bfo()) {
+            switch (hVar.bbu()) {
                 case 0:
-                    this.evD.setVisibility(8);
-                    this.evD.setVisibility(8);
+                    this.eqP.setVisibility(8);
+                    this.eqP.setVisibility(8);
                     return;
                 case 1:
-                    this.evE.setVisibility(8);
-                    this.evD.setText(dl(hVar.bfp()));
-                    this.evD.setTextColor(getResources().getColor(f.a.swan_app_menu_item_tip_text));
-                    this.evD.setBackground(getResources().getDrawable(f.c.swan_app_menu_new_bg));
-                    this.evD.setVisibility(0);
+                    this.eqQ.setVisibility(8);
+                    this.eqP.setText(dl(hVar.bbv()));
+                    this.eqP.setTextColor(getResources().getColor(f.a.swan_app_menu_item_tip_text));
+                    this.eqP.setBackground(getResources().getDrawable(f.c.swan_app_menu_new_bg));
+                    this.eqP.setVisibility(0);
                     return;
                 case 2:
-                    this.evD.setVisibility(8);
-                    this.evE.setImageDrawable(getResources().getDrawable(f.c.swan_app_menu_new_dot));
-                    this.evE.setVisibility(0);
+                    this.eqP.setVisibility(8);
+                    this.eqQ.setImageDrawable(getResources().getDrawable(f.c.swan_app_menu_new_dot));
+                    this.eqQ.setVisibility(0);
                     return;
                 default:
-                    this.evD.setVisibility(8);
-                    this.evE.setVisibility(8);
+                    this.eqP.setVisibility(8);
+                    this.eqQ.setVisibility(8);
                     return;
             }
         }
@@ -139,7 +139,7 @@ public class SwanAppMenuItemView extends RelativeLayout {
     }
 
     private Drawable i(h hVar) {
-        return hVar.eG(getContext());
+        return hVar.eF(getContext());
     }
 
     @Override // android.view.View
@@ -148,34 +148,34 @@ public class SwanAppMenuItemView extends RelativeLayout {
         int y = (int) motionEvent.getY();
         switch (motionEvent.getAction()) {
             case 0:
-                if (this.evF == null || this.evF.bfs() == null) {
+                if (this.eqR == null || this.eqR.bby() == null) {
                     return super.onTouchEvent(motionEvent);
                 }
-                removeCallbacks(this.dVA);
-                this.dVx = false;
-                this.dVw = x;
-                this.WX = y;
-                postDelayed(this.dVA, IMConnection.RETRY_DELAY_TIMES);
+                removeCallbacks(this.dQO);
+                this.dQL = false;
+                this.dQK = x;
+                this.WV = y;
+                postDelayed(this.dQO, IMConnection.RETRY_DELAY_TIMES);
                 setPressed(true);
                 return true;
             case 1:
-                removeCallbacks(this.dVA);
-                if (!this.dVx && this.evF.bfr() != null) {
-                    this.evF.bfr().a(this, this.evF);
+                removeCallbacks(this.dQO);
+                if (!this.dQL && this.eqR.bbx() != null) {
+                    this.eqR.bbx().a(this, this.eqR);
                 }
-                this.dVx = false;
+                this.dQL = false;
                 setPressed(false);
                 return super.onTouchEvent(motionEvent);
             case 2:
-                if (Math.abs(this.dVw - x) > 10 || Math.abs(this.WX - y) > 10) {
-                    removeCallbacks(this.dVA);
-                    this.dVx = false;
+                if (Math.abs(this.dQK - x) > 10 || Math.abs(this.WV - y) > 10) {
+                    removeCallbacks(this.dQO);
+                    this.dQL = false;
                     return true;
                 }
                 return true;
             case 3:
-                removeCallbacks(this.dVA);
-                this.dVx = false;
+                removeCallbacks(this.dQO);
+                this.dQL = false;
                 setPressed(false);
                 return super.onTouchEvent(motionEvent);
             default:

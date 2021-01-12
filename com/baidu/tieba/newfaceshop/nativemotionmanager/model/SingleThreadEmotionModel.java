@@ -19,35 +19,35 @@ import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class SingleThreadEmotionModel extends NativeManageEmotionModel implements com.baidu.tieba.newfaceshop.nativemotionmanager.model.a.a {
-    private a.InterfaceC0830a lzL;
-    private final HttpMessageListener lzP = new HttpMessageListener(1003386) { // from class: com.baidu.tieba.newfaceshop.nativemotionmanager.model.SingleThreadEmotionModel.1
+    private a.InterfaceC0813a lvf;
+    private final HttpMessageListener lvj = new HttpMessageListener(1003386) { // from class: com.baidu.tieba.newfaceshop.nativemotionmanager.model.SingleThreadEmotionModel.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003386 && (httpResponsedMessage instanceof SingleThreadEmotionResponseMessage)) {
                 SingleThreadEmotionResponseMessage singleThreadEmotionResponseMessage = (SingleThreadEmotionResponseMessage) httpResponsedMessage;
-                if (SingleThreadEmotionModel.this.lzL != null) {
+                if (SingleThreadEmotionModel.this.lvf != null) {
                     if (singleThreadEmotionResponseMessage.data != null) {
-                        SingleThreadEmotionModel.this.lzL.onSuccess(SingleThreadEmotionModel.this.fe(singleThreadEmotionResponseMessage.data.pkg_list));
+                        SingleThreadEmotionModel.this.lvf.onSuccess(SingleThreadEmotionModel.this.fe(singleThreadEmotionResponseMessage.data.pkg_list));
                     } else {
-                        SingleThreadEmotionModel.this.lzL.onFail();
+                        SingleThreadEmotionModel.this.lvf.onFail();
                     }
                 }
             }
         }
     };
-    private List<String> lzM = new ArrayList();
+    private List<String> lvg = new ArrayList();
 
     /* JADX INFO: Access modifiers changed from: private */
     public List<EmotionPackageData> fe(List<EmotionPackageData> list) {
         ArrayList arrayList = new ArrayList();
         if (list != null) {
-            List<String> dkS = dkS();
+            List<String> dha = dha();
             for (EmotionPackageData emotionPackageData : list) {
                 if (emotionPackageData.status == 5 || emotionPackageData.status == 1) {
-                    if (emotionPackageData.status == 1 && dkS.contains(String.valueOf(emotionPackageData.id))) {
+                    if (emotionPackageData.status == 1 && dha.contains(String.valueOf(emotionPackageData.id))) {
                         emotionPackageData.ishasdownload = true;
                     }
                     arrayList.add(emotionPackageData);
@@ -69,45 +69,45 @@ public class SingleThreadEmotionModel extends NativeManageEmotionModel implement
 
     public SingleThreadEmotionModel() {
         registerTask();
-        this.lzP.setTag(getUniqueId());
-        this.lzP.setSelfListener(true);
-        registerListener(this.lzP);
+        this.lvj.setTag(getUniqueId());
+        this.lvj.setSelfListener(true);
+        registerListener(this.lvj);
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public class a implements Runnable {
-        private WeakReference<SingleThreadEmotionModel> lzU;
+        private WeakReference<SingleThreadEmotionModel> lvo;
 
         public a(SingleThreadEmotionModel singleThreadEmotionModel) {
-            this.lzU = new WeakReference<>(singleThreadEmotionModel);
+            this.lvo = new WeakReference<>(singleThreadEmotionModel);
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            SingleThreadEmotionModel singleThreadEmotionModel = this.lzU.get();
+            SingleThreadEmotionModel singleThreadEmotionModel = this.lvo.get();
             if (singleThreadEmotionModel != null) {
                 singleThreadEmotionModel.sendMessage(new HttpMessage(1003386));
             }
         }
     }
 
-    public void a(a.InterfaceC0830a interfaceC0830a) {
-        this.lzL = interfaceC0830a;
+    public void a(a.InterfaceC0813a interfaceC0813a) {
+        this.lvf = interfaceC0813a;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
     protected boolean LoadData() {
-        com.baidu.tieba.newfaceshop.a.dka().execute(new Runnable() { // from class: com.baidu.tieba.newfaceshop.nativemotionmanager.model.SingleThreadEmotionModel.2
+        com.baidu.tieba.newfaceshop.a.dgi().execute(new Runnable() { // from class: com.baidu.tieba.newfaceshop.nativemotionmanager.model.SingleThreadEmotionModel.2
             @Override // java.lang.Runnable
             public void run() {
-                SingleThreadEmotionModel.this.dkR();
-                List<MyEmotionGroupData> dkd = c.dkc().dkd();
+                SingleThreadEmotionModel.this.dgZ();
+                List<MyEmotionGroupData> dgl = c.dgk().dgl();
                 JSONArray jSONArray = new JSONArray();
-                if (dkd != null && !dkd.isEmpty()) {
-                    for (MyEmotionGroupData myEmotionGroupData : dkd) {
+                if (dgl != null && !dgl.isEmpty()) {
+                    for (MyEmotionGroupData myEmotionGroupData : dgl) {
                         if (myEmotionGroupData != null) {
                             jSONArray.put(myEmotionGroupData.getGroupId());
-                            SingleThreadEmotionModel.this.Pm(myEmotionGroupData.getGroupId());
+                            SingleThreadEmotionModel.this.Oe(myEmotionGroupData.getGroupId());
                         }
                     }
                 }
@@ -126,23 +126,23 @@ public class SingleThreadEmotionModel extends NativeManageEmotionModel implement
         return false;
     }
 
-    private synchronized List<String> dkS() {
-        return new ArrayList(this.lzM);
+    private synchronized List<String> dha() {
+        return new ArrayList(this.lvg);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public synchronized void dkR() {
-        this.lzM.clear();
+    public synchronized void dgZ() {
+        this.lvg.clear();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public synchronized void Pm(String str) {
-        this.lzM.add(str);
+    public synchronized void Oe(String str) {
+        this.lvg.add(str);
     }
 
-    public void dkT() {
-        if (this.lzP != null) {
-            MessageManager.getInstance().unRegisterListener(this.lzP);
+    public void dhb() {
+        if (this.lvj != null) {
+            MessageManager.getInstance().unRegisterListener(this.lvj);
         }
     }
 }

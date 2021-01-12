@@ -1,15 +1,15 @@
 package com.baidu.tieba.ala.alaar.makeup.c;
 
 import android.text.TextUtils;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public abstract class b<T> {
-    private T dje;
-    private String gun;
-    private Long guo;
+    private T deo;
+    private String gpG;
+    private Long gpH;
     private String mKey;
     private T mValue;
 
-    protected abstract T bSM();
+    protected abstract T bOU();
 
     protected abstract long x(String str, long j);
 
@@ -17,7 +17,7 @@ public abstract class b<T> {
     }
 
     public b(String str, T t, String str2) {
-        this.gun = str2;
+        this.gpG = str2;
         aE(t);
         setKey(str);
     }
@@ -32,19 +32,19 @@ public abstract class b<T> {
 
     public T getValue() {
         if (this.mValue == null && !TextUtils.isEmpty(this.mKey)) {
-            this.mValue = bSM();
-            if (!TextUtils.isEmpty(this.gun)) {
-                this.guo = Long.valueOf(x(this.gun, 0L));
+            this.mValue = bOU();
+            if (!TextUtils.isEmpty(this.gpG)) {
+                this.gpH = Long.valueOf(x(this.gpG, 0L));
             }
         }
         return this.mValue;
     }
 
     public void aE(T t) {
-        this.dje = t;
+        this.deo = t;
     }
 
     public T getDefaultValue() {
-        return this.dje;
+        return this.deo;
     }
 }

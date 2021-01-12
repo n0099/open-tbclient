@@ -18,12 +18,12 @@ import kotlin.e;
 import kotlin.jvm.internal.o;
 import kotlin.jvm.internal.p;
 @e
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class ProgresshudPlugin implements FlutterPlugin, MethodChannel.MethodCallHandler {
     public static final Companion Companion = new Companion(null);
 
     @e
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static final class Companion {
         private Companion() {
         }
@@ -87,7 +87,7 @@ public final class ProgresshudPlugin implements FlutterPlugin, MethodChannel.Met
                 p.n(inst4, "BdBaseApplication.getInst()");
                 int identifier = resources.getIdentifier(androidNameFromIos, "drawable", inst4.getPackageName());
                 activity5 = ProgresshudPluginKt.mCurrentActivity;
-                BdToast.b(activity5, valueOf2, identifier, l).bue();
+                BdToast.b(activity5, valueOf2, identifier, l).bqk();
             }
         } else if (p.l(methodCall.method, "showWithStatus")) {
             ProgresshudPluginKt.getDialog().showWithStatus(methodCall.arguments.toString(), ProgresshudPluginKt.getMaskType());
@@ -103,7 +103,7 @@ public final class ProgresshudPlugin implements FlutterPlugin, MethodChannel.Met
             String str = (String) methodCall.argument("status");
             Object argument = methodCall.argument("time");
             if (argument == null) {
-                p.eMM();
+                p.eIW();
             }
             double doubleValue = ((Number) argument).doubleValue();
             activity2 = ProgresshudPluginKt.mCurrentActivity;

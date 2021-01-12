@@ -11,7 +11,7 @@ import com.bumptech.glide.load.Key;
 import java.util.UUID;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class ApplicationVersionSignature {
     private static final ConcurrentMap<String, Key> PACKAGE_NAME_TO_KEY = new ConcurrentHashMap();
     private static final String TAG = "AppVersionSignature";

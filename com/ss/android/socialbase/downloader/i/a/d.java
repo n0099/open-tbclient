@@ -9,19 +9,19 @@ import java.util.List;
 public class d implements g {
 
     /* renamed from: a  reason: collision with root package name */
-    protected final Object f13469a;
+    protected final Object f13169a;
 
     /* renamed from: b  reason: collision with root package name */
-    private final List<e> f13470b;
+    private final List<e> f13170b;
     private boolean d;
     private long e;
     private InputStream f;
-    private g qaH;
+    private g pWg;
 
     public void e() throws InterruptedException {
-        synchronized (this.f13469a) {
-            if (this.d && this.qaH == null) {
-                this.f13469a.wait();
+        synchronized (this.f13169a) {
+            if (this.d && this.pWg == null) {
+                this.f13169a.wait();
             }
         }
     }
@@ -36,42 +36,42 @@ public class d implements g {
 
     @Override // com.ss.android.socialbase.downloader.i.g
     public void d() {
-        if (this.qaH != null) {
-            this.qaH.d();
+        if (this.pWg != null) {
+            this.pWg.d();
         }
     }
 
     @Override // com.ss.android.socialbase.downloader.i.e
     public String a(String str) {
-        if (this.qaH != null) {
-            return this.qaH.a(str);
+        if (this.pWg != null) {
+            return this.pWg.a(str);
         }
         return null;
     }
 
     @Override // com.ss.android.socialbase.downloader.i.e
     public int b() throws IOException {
-        if (this.qaH != null) {
-            return this.qaH.b();
+        if (this.pWg != null) {
+            return this.pWg.b();
         }
         return 0;
     }
 
     public List<e> f() {
-        return this.f13470b;
+        return this.f13170b;
     }
 
     @Override // com.ss.android.socialbase.downloader.i.e
     public void c() {
-        if (this.qaH != null) {
-            this.qaH.c();
+        if (this.pWg != null) {
+            this.pWg.c();
         }
     }
 
     public boolean g() {
         try {
-            if (this.qaH != null) {
-                return a(this.qaH.b());
+            if (this.pWg != null) {
+                return a(this.pWg.b());
             }
             return false;
         } catch (IOException e) {
@@ -85,6 +85,6 @@ public class d implements g {
     }
 
     public boolean h() {
-        return System.currentTimeMillis() - this.e < b.f13464a;
+        return System.currentTimeMillis() - this.e < b.f13164a;
     }
 }

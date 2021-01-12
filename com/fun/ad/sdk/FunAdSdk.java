@@ -8,7 +8,7 @@ import com.fun.ad.bc;
 import com.fun.ad.bq;
 import com.fun.ad.d;
 import com.fun.ad.g;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public final class FunAdSdk {
     public static final String PLATFORM_CSJ = "csj";
     public static final String PLATFORM_GDT = "gdt";
@@ -19,21 +19,21 @@ public final class FunAdSdk {
     public static FunAdCallback funAdCallback;
     public static FunAdPluginCallback funAdPluginCallback;
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public static class a implements bq.a {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ FunAdConfig f8089a;
+        public final /* synthetic */ FunAdConfig f7789a;
 
         public a(FunAdConfig funAdConfig) {
-            this.f8089a = funAdConfig;
+            this.f7789a = funAdConfig;
         }
 
         public void a(String str) {
             com.fun.ad.a aVar = new com.fun.ad.a();
             aVar.a(str);
-            g.a(this.f8089a, aVar.f8040a);
-            FunAdFactory.getInstance().setSlotIds(aVar.f8041b);
+            g.a(this.f7789a, aVar.f7740a);
+            FunAdFactory.getInstance().setSlotIds(aVar.f7741b);
         }
     }
 
@@ -70,16 +70,16 @@ public final class FunAdSdk {
         if (a2 != null) {
             com.fun.ad.a aVar = new com.fun.ad.a();
             aVar.a(a2);
-            g.a(funAdConfig, aVar.f8040a);
+            g.a(funAdConfig, aVar.f7740a);
             FunAdFactory.getInstance().init(funAdConfig.getAppContext());
-            FunAdFactory.getInstance().setSlotIds(aVar.f8041b);
+            FunAdFactory.getInstance().setSlotIds(aVar.f7741b);
         } else {
             Log.e("FunAdSdk", "未在assets目录下读取到 " + funAdConfig.getAppId() + ".json 配置文件");
         }
         if (funAdConfig.isUseCloudAdConfiguration()) {
             Context context = appContext;
             String appId = funAdConfig.getAppId();
-            bq.pKo = new a(funAdConfig);
+            bq.pFN = new a(funAdConfig);
             HandlerThread handlerThread = new HandlerThread("fun_ad_sdk_config");
             handlerThread.start();
             new Handler(handlerThread.getLooper()).postDelayed(new bc(context, appId), 10000L);

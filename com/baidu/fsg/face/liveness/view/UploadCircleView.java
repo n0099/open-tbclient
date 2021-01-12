@@ -10,14 +10,14 @@ import android.util.AttributeSet;
 import android.view.View;
 import com.baidu.ala.recorder.video.drawer.EncoderTextureDrawer;
 import com.baidu.fsg.face.base.d.h;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class UploadCircleView extends View {
 
     /* renamed from: a  reason: collision with root package name */
-    private Paint f2433a;
+    private Paint f2383a;
 
     /* renamed from: b  reason: collision with root package name */
-    private Paint f2434b;
+    private Paint f2384b;
     private Paint c;
     private RectF d;
     private int e;
@@ -42,20 +42,20 @@ public class UploadCircleView extends View {
         this.h = h.a(context, 24.0f);
         this.e = Color.parseColor("#E1DDDD");
         this.f = Color.parseColor("#3C76FF");
-        this.f2433a = new Paint();
-        this.f2434b = new Paint();
+        this.f2383a = new Paint();
+        this.f2384b = new Paint();
         this.c = new Paint();
         this.d = new RectF();
-        this.f2433a.setColor(this.e);
-        this.f2433a.setStyle(Paint.Style.STROKE);
-        this.f2433a.setStrokeWidth(this.g);
-        this.f2433a.setAntiAlias(true);
-        this.f2433a.setStrokeCap(Paint.Cap.ROUND);
-        this.f2434b.setColor(this.f);
-        this.f2434b.setStyle(Paint.Style.STROKE);
-        this.f2434b.setStrokeWidth(this.g);
-        this.f2434b.setAntiAlias(true);
-        this.f2434b.setStrokeCap(Paint.Cap.ROUND);
+        this.f2383a.setColor(this.e);
+        this.f2383a.setStyle(Paint.Style.STROKE);
+        this.f2383a.setStrokeWidth(this.g);
+        this.f2383a.setAntiAlias(true);
+        this.f2383a.setStrokeCap(Paint.Cap.ROUND);
+        this.f2384b.setColor(this.f);
+        this.f2384b.setStyle(Paint.Style.STROKE);
+        this.f2384b.setStrokeWidth(this.g);
+        this.f2384b.setAntiAlias(true);
+        this.f2384b.setStrokeCap(Paint.Cap.ROUND);
         this.c.setStrokeWidth(0.0f);
         this.c.setColor(this.f);
         this.c.setTextSize(this.h);
@@ -66,9 +66,9 @@ public class UploadCircleView extends View {
     protected void onDraw(Canvas canvas) {
         float width = getWidth() / 2;
         float f = width - (this.g / 2);
-        canvas.drawCircle(width, width, f, this.f2433a);
+        canvas.drawCircle(width, width, f, this.f2383a);
         this.d.set(width - f, width - f, width + f, f + width);
-        canvas.drawArc(this.d, -90.0f, this.i, false, this.f2434b);
+        canvas.drawArc(this.d, -90.0f, this.i, false, this.f2384b);
         canvas.drawText(this.j, width - (this.c.measureText(this.j) / 2.0f), width, this.c);
     }
 

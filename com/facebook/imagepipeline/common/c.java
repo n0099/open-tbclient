@@ -4,46 +4,46 @@ import android.graphics.Bitmap;
 import javax.annotation.Nullable;
 /* loaded from: classes5.dex */
 public class c {
-    private boolean pCj;
-    private boolean pCk;
-    private boolean pCl;
-    private boolean pCm;
+    private boolean pxI;
+    private boolean pxJ;
+    private boolean pxK;
+    private boolean pxL;
     @Nullable
-    private com.facebook.imagepipeline.decoder.b pCn;
-    private int pCi = 100;
+    private com.facebook.imagepipeline.decoder.b pxM;
+    private int pxH = 100;
     private Bitmap.Config mBitmapConfig = Bitmap.Config.ARGB_8888;
 
-    public int exE() {
-        return this.pCi;
+    public int etM() {
+        return this.pxH;
     }
 
-    public boolean exF() {
-        return this.pCj;
+    public boolean etN() {
+        return this.pxI;
     }
 
-    public boolean exG() {
-        return this.pCk;
+    public boolean etO() {
+        return this.pxJ;
     }
 
-    public boolean exH() {
-        return this.pCl;
+    public boolean etP() {
+        return this.pxK;
     }
 
-    public c Bd(boolean z) {
-        this.pCm = z;
+    public c AZ(boolean z) {
+        this.pxL = z;
         return this;
     }
 
     @Nullable
-    public com.facebook.imagepipeline.decoder.b exI() {
-        return this.pCn;
+    public com.facebook.imagepipeline.decoder.b etQ() {
+        return this.pxM;
     }
 
-    public boolean exJ() {
-        return this.pCm;
+    public boolean etR() {
+        return this.pxL;
     }
 
-    public Bitmap.Config exK() {
+    public Bitmap.Config etS() {
         return this.mBitmapConfig;
     }
 
@@ -52,7 +52,7 @@ public class c {
         return this;
     }
 
-    public b exL() {
+    public b etT() {
         return new b(this);
     }
 }

@@ -4,11 +4,11 @@ import com.baidu.adp.lib.util.BdLog;
 import java.util.HashMap;
 /* loaded from: classes.dex */
 public class aj {
-    private static final aj fcQ = new aj();
+    private static final aj eYh = new aj();
     private final HashMap<Class<?>, Class<?>> mActicyConfig = new HashMap<>();
 
-    public static final aj bwd() {
-        return fcQ;
+    public static final aj bsj() {
+        return eYh;
     }
 
     private aj() {

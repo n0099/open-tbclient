@@ -2,35 +2,35 @@ package com.win.opensdk;
 
 import com.win.opensdk.core.Info;
 import java.util.concurrent.ConcurrentHashMap;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class br {
-    private static br qeU;
-    private ConcurrentHashMap<String, Info> qeT = new ConcurrentHashMap<>();
+    private static br qat;
+    private ConcurrentHashMap<String, Info> qas = new ConcurrentHashMap<>();
 
     private br() {
     }
 
-    public static br eKP() {
-        if (qeU == null) {
+    public static br eGZ() {
+        if (qat == null) {
             synchronized (br.class) {
-                if (qeU == null) {
-                    qeU = new br();
+                if (qat == null) {
+                    qat = new br();
                 }
             }
         }
-        return qeU;
+        return qat;
     }
 
     public final void a(String str, Info info) {
         synchronized (br.class) {
-            this.qeT.put(str, info);
+            this.qas.put(str, info);
         }
     }
 
-    public final Info abT(String str) {
+    public final Info aaL(String str) {
         Info remove;
         synchronized (br.class) {
-            remove = this.qeT.remove(str);
+            remove = this.qas.remove(str);
         }
         return remove;
     }

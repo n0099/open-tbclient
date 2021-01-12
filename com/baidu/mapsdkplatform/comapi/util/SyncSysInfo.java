@@ -1,27 +1,11 @@
 package com.baidu.mapsdkplatform.comapi.util;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class SyncSysInfo {
     public static String getAuthToken() {
-        return h.d;
-    }
-
-    public static String getCid() {
-        return h.p();
+        return f.z;
     }
 
     public static String getPhoneInfo() {
-        return h.d();
-    }
-
-    public static String getPhoneInfoCache() {
-        return h.c();
-    }
-
-    public static String getSoftWareVer() {
-        return h.j();
-    }
-
-    public static String initPhoneInfo() {
-        return h.b();
+        return f.c();
     }
 }

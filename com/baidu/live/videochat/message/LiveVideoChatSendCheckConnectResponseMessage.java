@@ -5,12 +5,12 @@ import com.baidu.live.data.AlaLiveInfoData;
 import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.live.videochat.b.c;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class LiveVideoChatSendCheckConnectResponseMessage extends JsonHttpResponsedMessage {
-    private String bPY;
-    private com.baidu.live.videochat.b.a bRq;
-    private c bRr;
-    private AlaLiveInfoData brX;
+    private String bLm;
+    private com.baidu.live.videochat.b.a bME;
+    private c bMF;
+    private AlaLiveInfoData bnl;
     private long mInterval;
     private int status;
 
@@ -25,36 +25,36 @@ public class LiveVideoChatSendCheckConnectResponseMessage extends JsonHttpRespon
         super.decodeLogicInBackGround(i, jSONObject);
         if (jSONObject != null && (optJSONObject = jSONObject.optJSONObject("data")) != null) {
             this.status = optJSONObject.optInt("get_status");
-            this.bPY = optJSONObject.optString("get_text");
+            this.bLm = optJSONObject.optString("get_text");
             this.mInterval = optJSONObject.optInt("interval", 3000);
             JSONObject optJSONObject2 = optJSONObject.optJSONObject("user_info");
             if (optJSONObject2 != null) {
-                this.bRr = new c();
-                this.bRr.parserJson(optJSONObject2);
+                this.bMF = new c();
+                this.bMF.parserJson(optJSONObject2);
             }
             JSONObject optJSONObject3 = optJSONObject.optJSONObject("match_info");
             if (optJSONObject3 != null) {
-                this.bRq = new com.baidu.live.videochat.b.a();
-                this.bRq.parserJson(optJSONObject3);
+                this.bME = new com.baidu.live.videochat.b.a();
+                this.bME.parserJson(optJSONObject3);
             }
             JSONObject optJSONObject4 = optJSONObject.optJSONObject("live_info");
             if (optJSONObject4 != null) {
-                this.brX = new AlaLiveInfoData();
-                this.brX.parserJson(optJSONObject4);
+                this.bnl = new AlaLiveInfoData();
+                this.bnl.parserJson(optJSONObject4);
             }
         }
     }
 
-    public com.baidu.live.videochat.b.a YU() {
-        return this.bRq;
+    public com.baidu.live.videochat.b.a Vb() {
+        return this.bME;
     }
 
-    public c YV() {
-        return this.bRr;
+    public c Vc() {
+        return this.bMF;
     }
 
-    public AlaLiveInfoData YW() {
-        return this.brX;
+    public AlaLiveInfoData Vd() {
+        return this.bnl;
     }
 
     public int getStatus() {
@@ -62,7 +62,7 @@ public class LiveVideoChatSendCheckConnectResponseMessage extends JsonHttpRespon
     }
 
     public String getStatusText() {
-        return this.bPY;
+        return this.bLm;
     }
 
     public long getInterval() {

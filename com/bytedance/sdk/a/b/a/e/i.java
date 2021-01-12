@@ -14,20 +14,20 @@ public final class i {
     static final /* synthetic */ boolean i;
 
     /* renamed from: b  reason: collision with root package name */
-    long f6214b;
+    long f5914b;
     final int c;
     private final List<com.bytedance.sdk.a.b.a.e.c> j;
     private List<com.bytedance.sdk.a.b.a.e.c> k;
     private boolean l;
-    private final b pkC;
-    final a pkD;
-    final g pkl;
+    final g pfF;
+    private final b pfW;
+    final a pfX;
 
     /* renamed from: a  reason: collision with root package name */
-    long f6213a = 0;
-    final c pkE = new c();
-    final c pkF = new c();
-    com.bytedance.sdk.a.b.a.e.b pkG = null;
+    long f5913a = 0;
+    final c pfY = new c();
+    final c pfZ = new c();
+    com.bytedance.sdk.a.b.a.e.b pga = null;
 
     static {
         i = !i.class.desiredAssertionStatus();
@@ -42,12 +42,12 @@ public final class i {
             throw new NullPointerException("requestHeaders == null");
         }
         this.c = i2;
-        this.pkl = gVar;
-        this.f6214b = gVar.pkf.d();
-        this.pkC = new b(gVar.pke.d());
-        this.pkD = new a();
-        this.pkC.f6218b = z2;
-        this.pkD.f6216b = z;
+        this.pfF = gVar;
+        this.f5914b = gVar.pfA.d();
+        this.pfW = new b(gVar.pfz.d());
+        this.pfX = new a();
+        this.pfW.f5918b = z2;
+        this.pfX.f5916b = z;
         this.j = list;
     }
 
@@ -64,8 +64,8 @@ public final class i {
     public synchronized boolean b() {
         boolean z = false;
         synchronized (this) {
-            if (this.pkG == null) {
-                if ((this.pkC.f6218b || this.pkC.f6217a) && (this.pkD.f6216b || this.pkD.f6215a)) {
+            if (this.pga == null) {
+                if ((this.pfW.f5918b || this.pfW.f5917a) && (this.pfX.f5916b || this.pfX.f5915a)) {
                 }
                 z = true;
             }
@@ -74,7 +74,7 @@ public final class i {
     }
 
     public boolean c() {
-        return this.pkl.f6200b == ((this.c & 1) == 1);
+        return this.pfF.f5900b == ((this.c & 1) == 1);
     }
 
     public synchronized List<com.bytedance.sdk.a.b.a.e.c> d() throws IOException {
@@ -82,65 +82,65 @@ public final class i {
         if (!c()) {
             throw new IllegalStateException("servers cannot read response headers");
         }
-        this.pkE.a();
-        while (this.k == null && this.pkG == null) {
+        this.pfY.a();
+        while (this.k == null && this.pga == null) {
             l();
         }
-        this.pkE.h();
+        this.pfY.h();
         list = this.k;
         if (list != null) {
             this.k = null;
         } else {
-            throw new o(this.pkG);
+            throw new o(this.pga);
         }
         return list;
     }
 
-    public t eqg() {
-        return this.pkE;
+    public t emk() {
+        return this.pfY;
     }
 
-    public t eqh() {
-        return this.pkF;
+    public t eml() {
+        return this.pfZ;
     }
 
-    public s eqV() {
-        return this.pkC;
+    public s emZ() {
+        return this.pfW;
     }
 
-    public r eqW() {
+    public r ena() {
         synchronized (this) {
             if (!this.l && !c()) {
                 throw new IllegalStateException("reply before requesting the sink");
             }
         }
-        return this.pkD;
+        return this.pfX;
     }
 
     public void a(com.bytedance.sdk.a.b.a.e.b bVar) throws IOException {
         if (c(bVar)) {
-            this.pkl.b(this.c, bVar);
+            this.pfF.b(this.c, bVar);
         }
     }
 
     public void b(com.bytedance.sdk.a.b.a.e.b bVar) {
         if (c(bVar)) {
-            this.pkl.a(this.c, bVar);
+            this.pfF.a(this.c, bVar);
         }
     }
 
     private boolean c(com.bytedance.sdk.a.b.a.e.b bVar) {
         if (i || !Thread.holdsLock(this)) {
             synchronized (this) {
-                if (this.pkG != null) {
+                if (this.pga != null) {
                     return false;
                 }
-                if (this.pkC.f6218b && this.pkD.f6216b) {
+                if (this.pfW.f5918b && this.pfX.f5916b) {
                     return false;
                 }
-                this.pkG = bVar;
+                this.pga = bVar;
                 notifyAll();
-                this.pkl.PP(this.c);
+                this.pfF.Oi(this.c);
                 return true;
             }
         }
@@ -168,7 +168,7 @@ public final class i {
             }
         }
         if (!z) {
-            this.pkl.PP(this.c);
+            this.pfF.Oi(this.c);
         }
     }
 
@@ -177,7 +177,7 @@ public final class i {
         if (!i && Thread.holdsLock(this)) {
             throw new AssertionError();
         }
-        this.pkC.a(eVar, i2);
+        this.pfW.a(eVar, i2);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -187,19 +187,19 @@ public final class i {
             throw new AssertionError();
         }
         synchronized (this) {
-            this.pkC.f6218b = true;
+            this.pfW.f5918b = true;
             b2 = b();
             notifyAll();
         }
         if (!b2) {
-            this.pkl.PP(this.c);
+            this.pfF.Oi(this.c);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public synchronized void d(com.bytedance.sdk.a.b.a.e.b bVar) {
-        if (this.pkG == null) {
-            this.pkG = bVar;
+        if (this.pga == null) {
+            this.pga = bVar;
             notifyAll();
         }
     }
@@ -210,13 +210,13 @@ public final class i {
         static final /* synthetic */ boolean c;
 
         /* renamed from: a  reason: collision with root package name */
-        boolean f6217a;
+        boolean f5917a;
 
         /* renamed from: b  reason: collision with root package name */
-        boolean f6218b;
+        boolean f5918b;
         private final long g;
-        private final com.bytedance.sdk.a.a.c pkH = new com.bytedance.sdk.a.a.c();
-        private final com.bytedance.sdk.a.a.c pkJ = new com.bytedance.sdk.a.a.c();
+        private final com.bytedance.sdk.a.a.c pgb = new com.bytedance.sdk.a.a.c();
+        private final com.bytedance.sdk.a.a.c pgd = new com.bytedance.sdk.a.a.c();
 
         static {
             c = !i.class.desiredAssertionStatus();
@@ -235,20 +235,20 @@ public final class i {
             synchronized (i.this) {
                 b();
                 c();
-                if (this.pkJ.b() == 0) {
+                if (this.pgd.b() == 0) {
                     b2 = -1;
                 } else {
-                    b2 = this.pkJ.b(cVar, Math.min(j, this.pkJ.b()));
-                    i.this.f6213a += b2;
-                    if (i.this.f6213a >= i.this.pkl.pke.d() / 2) {
-                        i.this.pkl.a(i.this.c, i.this.f6213a);
-                        i.this.f6213a = 0L;
+                    b2 = this.pgd.b(cVar, Math.min(j, this.pgd.b()));
+                    i.this.f5913a += b2;
+                    if (i.this.f5913a >= i.this.pfF.pfz.d() / 2) {
+                        i.this.pfF.a(i.this.c, i.this.f5913a);
+                        i.this.f5913a = 0L;
                     }
-                    synchronized (i.this.pkl) {
-                        i.this.pkl.j += b2;
-                        if (i.this.pkl.j >= i.this.pkl.pke.d() / 2) {
-                            i.this.pkl.a(0, i.this.pkl.j);
-                            i.this.pkl.j = 0L;
+                    synchronized (i.this.pfF) {
+                        i.this.pfF.j += b2;
+                        if (i.this.pfF.j >= i.this.pfF.pfz.d() / 2) {
+                            i.this.pfF.a(0, i.this.pfF.j);
+                            i.this.pfF.j = 0L;
                         }
                     }
                 }
@@ -257,12 +257,12 @@ public final class i {
         }
 
         private void b() throws IOException {
-            i.this.pkE.a();
-            while (this.pkJ.b() == 0 && !this.f6218b && !this.f6217a && i.this.pkG == null) {
+            i.this.pfY.a();
+            while (this.pgd.b() == 0 && !this.f5918b && !this.f5917a && i.this.pga == null) {
                 try {
                     i.this.l();
                 } finally {
-                    i.this.pkE.h();
+                    i.this.pfY.h();
                 }
             }
         }
@@ -275,8 +275,8 @@ public final class i {
             }
             while (j > 0) {
                 synchronized (i.this) {
-                    z = this.f6218b;
-                    z2 = this.pkJ.b() + j > this.g;
+                    z = this.f5918b;
+                    z2 = this.pgd.b() + j > this.g;
                 }
                 if (z2) {
                     eVar.h(j);
@@ -286,14 +286,14 @@ public final class i {
                     eVar.h(j);
                     return;
                 } else {
-                    long b2 = eVar.b(this.pkH, j);
+                    long b2 = eVar.b(this.pgb, j);
                     if (b2 == -1) {
                         throw new EOFException();
                     }
                     j -= b2;
                     synchronized (i.this) {
-                        boolean z3 = this.pkJ.b() == 0;
-                        this.pkJ.b(this.pkH);
+                        boolean z3 = this.pgd.b() == 0;
+                        this.pgd.b(this.pgb);
                         if (z3) {
                             i.this.notifyAll();
                         }
@@ -303,26 +303,26 @@ public final class i {
         }
 
         @Override // com.bytedance.sdk.a.a.s
-        public t epS() {
-            return i.this.pkE;
+        public t elW() {
+            return i.this.pfY;
         }
 
         @Override // com.bytedance.sdk.a.a.s, java.io.Closeable, java.lang.AutoCloseable
         public void close() throws IOException {
             synchronized (i.this) {
-                this.f6217a = true;
-                this.pkJ.r();
+                this.f5917a = true;
+                this.pgd.r();
                 i.this.notifyAll();
             }
             i.this.j();
         }
 
         private void c() throws IOException {
-            if (this.f6217a) {
+            if (this.f5917a) {
                 throw new IOException("stream closed");
             }
-            if (i.this.pkG != null) {
-                throw new o(i.this.pkG);
+            if (i.this.pga != null) {
+                throw new o(i.this.pga);
             }
         }
     }
@@ -334,13 +334,13 @@ public final class i {
             throw new AssertionError();
         }
         synchronized (this) {
-            z = !this.pkC.f6218b && this.pkC.f6217a && (this.pkD.f6216b || this.pkD.f6215a);
+            z = !this.pfW.f5918b && this.pfW.f5917a && (this.pfX.f5916b || this.pfX.f5915a);
             b2 = b();
         }
         if (z) {
             a(com.bytedance.sdk.a.b.a.e.b.CANCEL);
         } else if (!b2) {
-            this.pkl.PP(this.c);
+            this.pfF.Oi(this.c);
         }
     }
 
@@ -350,11 +350,11 @@ public final class i {
         static final /* synthetic */ boolean c;
 
         /* renamed from: a  reason: collision with root package name */
-        boolean f6215a;
+        boolean f5915a;
 
         /* renamed from: b  reason: collision with root package name */
-        boolean f6216b;
-        private final com.bytedance.sdk.a.a.c pkH = new com.bytedance.sdk.a.a.c();
+        boolean f5916b;
+        private final com.bytedance.sdk.a.a.c pgb = new com.bytedance.sdk.a.a.c();
 
         static {
             c = !i.class.desiredAssertionStatus();
@@ -368,8 +368,8 @@ public final class i {
             if (!c && Thread.holdsLock(i.this)) {
                 throw new AssertionError();
             }
-            this.pkH.a(cVar, j);
-            while (this.pkH.b() >= 16384) {
+            this.pgb.a(cVar, j);
+            while (this.pgb.b() >= 16384) {
                 a(false);
             }
         }
@@ -377,20 +377,20 @@ public final class i {
         private void a(boolean z) throws IOException {
             long min;
             synchronized (i.this) {
-                i.this.pkF.a();
-                while (i.this.f6214b <= 0 && !this.f6216b && !this.f6215a && i.this.pkG == null) {
+                i.this.pfZ.a();
+                while (i.this.f5914b <= 0 && !this.f5916b && !this.f5915a && i.this.pga == null) {
                     i.this.l();
                 }
-                i.this.pkF.h();
+                i.this.pfZ.h();
                 i.this.k();
-                min = Math.min(i.this.f6214b, this.pkH.b());
-                i.this.f6214b -= min;
+                min = Math.min(i.this.f5914b, this.pgb.b());
+                i.this.f5914b -= min;
             }
-            i.this.pkF.a();
+            i.this.pfZ.a();
             try {
-                i.this.pkl.a(i.this.c, z && min == this.pkH.b(), this.pkH, min);
+                i.this.pfF.a(i.this.c, z && min == this.pgb.b(), this.pgb, min);
             } finally {
-                i.this.pkF.h();
+                i.this.pfZ.h();
             }
         }
 
@@ -402,15 +402,15 @@ public final class i {
             synchronized (i.this) {
                 i.this.k();
             }
-            while (this.pkH.b() > 0) {
+            while (this.pgb.b() > 0) {
                 a(false);
-                i.this.pkl.b();
+                i.this.pfF.b();
             }
         }
 
         @Override // com.bytedance.sdk.a.a.r
-        public t epS() {
-            return i.this.pkF;
+        public t elW() {
+            return i.this.pfZ;
         }
 
         @Override // com.bytedance.sdk.a.a.r, java.io.Closeable, java.lang.AutoCloseable
@@ -419,20 +419,20 @@ public final class i {
                 throw new AssertionError();
             }
             synchronized (i.this) {
-                if (!this.f6215a) {
-                    if (!i.this.pkD.f6216b) {
-                        if (this.pkH.b() > 0) {
-                            while (this.pkH.b() > 0) {
+                if (!this.f5915a) {
+                    if (!i.this.pfX.f5916b) {
+                        if (this.pgb.b() > 0) {
+                            while (this.pgb.b() > 0) {
                                 a(true);
                             }
                         } else {
-                            i.this.pkl.a(i.this.c, true, (com.bytedance.sdk.a.a.c) null, 0L);
+                            i.this.pfF.a(i.this.c, true, (com.bytedance.sdk.a.a.c) null, 0L);
                         }
                     }
                     synchronized (i.this) {
-                        this.f6215a = true;
+                        this.f5915a = true;
                     }
-                    i.this.pkl.b();
+                    i.this.pfF.b();
                     i.this.j();
                 }
             }
@@ -441,21 +441,21 @@ public final class i {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(long j) {
-        this.f6214b += j;
+        this.f5914b += j;
         if (j > 0) {
             notifyAll();
         }
     }
 
     void k() throws IOException {
-        if (this.pkD.f6215a) {
+        if (this.pfX.f5915a) {
             throw new IOException("stream closed");
         }
-        if (this.pkD.f6216b) {
+        if (this.pfX.f5916b) {
             throw new IOException("stream finished");
         }
-        if (this.pkG != null) {
-            throw new o(this.pkG);
+        if (this.pga != null) {
+            throw new o(this.pga);
         }
     }
 
@@ -474,7 +474,7 @@ public final class i {
         }
 
         @Override // com.bytedance.sdk.a.a.a
-        protected void epQ() {
+        protected void elU() {
             i.this.b(com.bytedance.sdk.a.b.a.e.b.CANCEL);
         }
 

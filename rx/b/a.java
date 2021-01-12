@@ -1,9 +1,9 @@
 package rx.b;
 
 import rx.exceptions.OnErrorNotImplementedException;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public final class a {
-    private static final rx.e<Object> qxZ = new rx.e<Object>() { // from class: rx.b.a.1
+    private static final rx.e<Object> qtx = new rx.e<Object>() { // from class: rx.b.a.1
         @Override // rx.e
         public final void onCompleted() {
         }
@@ -18,7 +18,7 @@ public final class a {
         }
     };
 
-    public static <T> rx.e<T> ePe() {
-        return (rx.e<T>) qxZ;
+    public static <T> rx.e<T> eLo() {
+        return (rx.e<T>) qtx;
     }
 }

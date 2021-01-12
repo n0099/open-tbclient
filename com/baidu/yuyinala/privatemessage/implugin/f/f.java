@@ -4,11 +4,11 @@ import android.content.Context;
 import com.baidu.android.imsdk.internal.ListenerManager;
 import com.baidu.live.tbadk.extraparams.ExtraParamsManager;
 import java.security.NoSuchAlgorithmException;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class f extends i {
     private String mKey;
     private long mUid;
-    private final String oUC = "http://ext.baidu.com/";
+    private final String oQa = "http://ext.baidu.com/";
 
     public f(Context context, long j, String str) {
         this.mKey = "";
@@ -19,13 +19,13 @@ public class f extends i {
 
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.Request
     public String getHost() {
-        return Ym("http://ext.baidu.com/") + "api/subscribe/v1/relation/get";
+        return Xe("http://ext.baidu.com/") + "api/subscribe/v1/relation/get";
     }
 
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
     public void onSuccess(int i, byte[] bArr) {
         if (i == 200) {
-            k.hB(this.mContext).a(i, new String(bArr), this.mUid, this.mKey);
+            k.hz(this.mContext).a(i, new String(bArr), this.mUid, this.mKey);
         } else {
             ListenerManager.getInstance().removeListener(this.mKey);
         }

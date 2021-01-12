@@ -7,27 +7,27 @@ import java.util.concurrent.TimeUnit;
 import rx.g;
 import rx.k;
 import rx.subscriptions.e;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class TestScheduler extends g {
-    static long qyL;
+    static long quj;
     final Queue<c> queue = new PriorityQueue(11, new a());
     long time;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public static final class c {
         final rx.functions.a action;
         private final long count;
-        final g.a qyQ;
+        final g.a quo;
         final long time;
 
         c(g.a aVar, long j, rx.functions.a aVar2) {
-            long j2 = TestScheduler.qyL;
-            TestScheduler.qyL = 1 + j2;
+            long j2 = TestScheduler.quj;
+            TestScheduler.quj = 1 + j2;
             this.count = j2;
             this.time = j;
             this.action = aVar2;
-            this.qyQ = aVar;
+            this.quo = aVar;
         }
 
         public String toString() {
@@ -35,7 +35,7 @@ public class TestScheduler extends g {
         }
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     static final class a implements Comparator<c> {
         a() {
         }
@@ -82,7 +82,7 @@ public class TestScheduler extends g {
             }
             this.time = peek.time == 0 ? this.time : peek.time;
             this.queue.remove();
-            if (!peek.qyQ.isUnsubscribed()) {
+            if (!peek.quo.isUnsubscribed()) {
                 peek.action.call();
             }
         }
@@ -94,21 +94,21 @@ public class TestScheduler extends g {
         return new b();
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     final class b extends g.a {
-        private final rx.subscriptions.a qyM = new rx.subscriptions.a();
+        private final rx.subscriptions.a quk = new rx.subscriptions.a();
 
         b() {
         }
 
         @Override // rx.k
         public void unsubscribe() {
-            this.qyM.unsubscribe();
+            this.quk.unsubscribe();
         }
 
         @Override // rx.k
         public boolean isUnsubscribed() {
-            return this.qyM.isUnsubscribed();
+            return this.quk.isUnsubscribed();
         }
 
         @Override // rx.g.a

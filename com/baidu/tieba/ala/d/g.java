@@ -16,44 +16,44 @@ import com.baidu.tbadk.core.atomData.CameraActivityConfig;
 import com.baidu.tieba.ala.view.PkRankView;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class g implements com.baidu.live.u.a {
-    x aMh;
-    private boolean aSw;
-    protected PkRankView gTH;
-    private PendantParentView gqh;
-    private PendantChildView gqi;
+    x aHu;
+    private boolean aNJ;
+    protected PkRankView gPb;
+    private PendantParentView glA;
+    private PendantChildView glB;
     private boolean isHost = false;
     private Context mContext;
 
     public g(Context context) {
-        this.aSw = false;
+        this.aNJ = false;
         this.mContext = context;
-        if (com.baidu.live.af.a.SE().bwi.aPn != null) {
-            this.aSw = com.baidu.live.af.a.SE().bwi.aPn.aSw;
+        if (com.baidu.live.af.a.OJ().bru.aKA != null) {
+            this.aNJ = com.baidu.live.af.a.OJ().bru.aKA.aNJ;
         } else {
-            this.aSw = false;
+            this.aNJ = false;
         }
     }
 
     @Override // com.baidu.live.u.a
     public void a(ViewGroup viewGroup, x xVar) {
-        this.aMh = xVar;
+        this.aHu = xVar;
         if (viewGroup != null) {
             if (viewGroup instanceof PendantParentView) {
-                this.gqh = (PendantParentView) viewGroup;
-                bRj();
+                this.glA = (PendantParentView) viewGroup;
+                bNr();
             }
-            if (this.gTH == null || (this.gqi != null && this.gqi.indexOfChild(this.gTH) < 0)) {
-                this.gTH = new PkRankView(this.gqi.getContext(), this.isHost, xVar);
-                this.gqi.addView(this.gTH, new FrameLayout.LayoutParams(-2, -2));
+            if (this.gPb == null || (this.glB != null && this.glB.indexOfChild(this.gPb) < 0)) {
+                this.gPb = new PkRankView(this.glB.getContext(), this.isHost, xVar);
+                this.glB.addView(this.gPb, new FrameLayout.LayoutParams(-2, -2));
             }
-            if (this.aSw) {
-                this.gTH.ctc();
-                if (xVar.aKX) {
-                    this.gTH.setInSeason(true);
+            if (this.aNJ) {
+                this.gPb.cpk();
+                if (xVar.aGk) {
+                    this.gPb.setInSeason(true);
                 } else {
-                    this.gTH.setInSeason(false);
+                    this.gPb.setInSeason(false);
                 }
                 if (this.isHost) {
                     JSONObject jSONObject = new JSONObject();
@@ -68,8 +68,8 @@ public class g implements com.baidu.live.u.a {
         }
     }
 
-    private void bRj() {
-        this.gqi = new PendantChildView(this.mContext) { // from class: com.baidu.tieba.ala.d.g.1
+    private void bNr() {
+        this.glB = new PendantChildView(this.mContext) { // from class: com.baidu.tieba.ala.d.g.1
             @Override // com.baidu.live.pendantview.PendantChildView
             public PendantParentView.Position getVerticalPosition() {
                 return PendantParentView.Position.LEFT;
@@ -100,16 +100,16 @@ public class g implements com.baidu.live.u.a {
                 return 31;
             }
         };
-        this.gqi.setBackgroundColor(0);
-        if (this.gqh != null) {
-            this.gqh.a(this.gqi, new LinearLayout.LayoutParams(-2, -2));
+        this.glB.setBackgroundColor(0);
+        if (this.glA != null) {
+            this.glA.a(this.glB, new LinearLayout.LayoutParams(-2, -2));
         }
     }
 
     @Override // com.baidu.live.u.a
     public void a(x xVar) {
-        if (this.aSw) {
-            if (this.isHost && xVar != null && xVar.mLiveInfo != null && this.aMh != null && this.aMh.mLiveInfo != null && xVar.mLiveInfo.pkId != this.aMh.mLiveInfo.pkId) {
+        if (this.aNJ) {
+            if (this.isHost && xVar != null && xVar.mLiveInfo != null && this.aHu != null && this.aHu.mLiveInfo != null && xVar.mLiveInfo.pkId != this.aHu.mLiveInfo.pkId) {
                 JSONObject jSONObject = new JSONObject();
                 try {
                     jSONObject.putOpt("pkId", Long.valueOf(xVar.mLiveInfo.pkId));
@@ -118,15 +118,15 @@ public class g implements com.baidu.live.u.a {
                 }
                 UbcStatisticManager.getInstance().logEvent(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_PK_RANK, "pk_competition_start_pk", "author_liveroom", "live_info").setContentExt(jSONObject));
             }
-            this.aMh = xVar;
+            this.aHu = xVar;
             if (xVar != null && xVar.mLiveInfo != null) {
                 if (!this.isHost) {
-                    this.gTH.ctc();
+                    this.gPb.cpk();
                 }
-                if (xVar.aKX) {
-                    this.gTH.setInSeason(true);
+                if (xVar.aGk) {
+                    this.gPb.setInSeason(true);
                 } else {
-                    this.gTH.setInSeason(false);
+                    this.gPb.setInSeason(false);
                 }
             }
         }
@@ -135,8 +135,8 @@ public class g implements com.baidu.live.u.a {
     @Override // com.baidu.live.u.a
     public boolean V(JSONObject jSONObject) {
         int dH;
-        if (this.aSw && (dH = dH(jSONObject)) != -1) {
-            this.gTH.f(jSONObject, dH);
+        if (this.aNJ && (dH = dH(jSONObject)) != -1) {
+            this.gPb.f(jSONObject, dH);
             return true;
         }
         return false;
@@ -211,7 +211,7 @@ public class g implements com.baidu.live.u.a {
                 i = 16;
                 break;
             case 1:
-                if (this.aMh.mLiveInfo.room_id == jSONObject.optJSONObject("first_blood_info").optLong("room_id")) {
+                if (this.aHu.mLiveInfo.room_id == jSONObject.optJSONObject("first_blood_info").optLong("room_id")) {
                     i = 11;
                     break;
                 } else {
@@ -226,7 +226,7 @@ public class g implements com.baidu.live.u.a {
             case 4:
                 long optLong = jSONObject.optLong("props_type");
                 if (optLong == 1) {
-                    if (this.aMh.mLiveInfo.room_id == jSONObject.optLong("send_room_id")) {
+                    if (this.aHu.mLiveInfo.room_id == jSONObject.optLong("send_room_id")) {
                         i = 14;
                         break;
                     } else {
@@ -235,7 +235,7 @@ public class g implements com.baidu.live.u.a {
                     }
                 } else {
                     if (optLong == 2) {
-                        if (this.aMh.mLiveInfo.room_id == jSONObject.optLong("send_room_id")) {
+                        if (this.aHu.mLiveInfo.room_id == jSONObject.optLong("send_room_id")) {
                             i = 12;
                             break;
                         } else {
@@ -286,14 +286,14 @@ public class g implements com.baidu.live.u.a {
 
     @Override // com.baidu.live.u.a
     public void setCanVisible(boolean z) {
-        if (this.gTH != null) {
-            this.gTH.setCanVisible(z);
+        if (this.gPb != null) {
+            this.gPb.setCanVisible(z);
         }
     }
 
     @Override // com.baidu.live.u.a
-    public void Bf() {
-        mv(true);
+    public void xk() {
+        mr(true);
         onDestroy();
     }
 
@@ -302,28 +302,28 @@ public class g implements com.baidu.live.u.a {
         this.isHost = z;
     }
 
-    private void mv(boolean z) {
-        if (this.gTH != null && (this.gTH.getParent() instanceof ViewGroup)) {
-            ((ViewGroup) this.gTH.getParent()).removeView(this.gTH);
+    private void mr(boolean z) {
+        if (this.gPb != null && (this.gPb.getParent() instanceof ViewGroup)) {
+            ((ViewGroup) this.gPb.getParent()).removeView(this.gPb);
         }
-        if (z && this.gqi != null && (this.gqi.getParent() instanceof ViewGroup)) {
-            ((ViewGroup) this.gqi.getParent()).removeView(this.gqi);
+        if (z && this.glB != null && (this.glB.getParent() instanceof ViewGroup)) {
+            ((ViewGroup) this.glB.getParent()).removeView(this.glB);
         }
     }
 
     @Override // com.baidu.live.u.a
-    public boolean DB() {
-        return this.gTH.imp >= 10 && this.gTH.imp <= 30;
+    public boolean zG() {
+        return this.gPb.ihH >= 10 && this.gPb.ihH <= 30;
     }
 
     @Override // com.baidu.live.u.a
-    public boolean RB() {
-        return this.gTH.imp == 2;
+    public boolean NG() {
+        return this.gPb.ihH == 2;
     }
 
     @Override // com.baidu.live.u.a
     public void onDestroy() {
-        mv(true);
-        this.gTH.onDestroy();
+        mr(true);
+        this.gPb.onDestroy();
     }
 }

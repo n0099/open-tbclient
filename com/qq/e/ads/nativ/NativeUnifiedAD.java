@@ -19,11 +19,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class NativeUnifiedAD extends AbstractAD<NUADI> {
 
     /* renamed from: a  reason: collision with root package name */
-    private AdListenerAdapter f11783a;
+    private AdListenerAdapter f11483a;
     private List<String> c;
     private String d;
     private volatile int e;
@@ -32,24 +32,24 @@ public class NativeUnifiedAD extends AbstractAD<NUADI> {
     private LoadAdParams j;
 
     /* renamed from: b  reason: collision with root package name */
-    private List<Integer> f11784b = new ArrayList();
+    private List<Integer> f11484b = new ArrayList();
     private int g = 0;
     private int h = 0;
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class AdListenerAdapter implements ADListener {
 
         /* renamed from: a  reason: collision with root package name */
-        private NativeADUnifiedListener f11787a;
+        private NativeADUnifiedListener f11487a;
 
         public AdListenerAdapter(NativeADUnifiedListener nativeADUnifiedListener) {
-            this.f11787a = nativeADUnifiedListener;
+            this.f11487a = nativeADUnifiedListener;
         }
 
         @Override // com.qq.e.comm.adevent.ADListener
         public void onADEvent(ADEvent aDEvent) {
-            if (this.f11787a == null) {
+            if (this.f11487a == null) {
                 GDTLogger.i("not bind NativeADUnifiedListener");
                 return;
             }
@@ -64,7 +64,7 @@ public class NativeUnifiedAD extends AbstractAD<NUADI> {
                                 arrayList.add(new NativeUnifiedADDataAdapter(nativeUnifiedADData));
                             }
                         }
-                        this.f11787a.onADLoaded(arrayList);
+                        this.f11487a.onADLoaded(arrayList);
                         return;
                     }
                     return;
@@ -72,7 +72,7 @@ public class NativeUnifiedAD extends AbstractAD<NUADI> {
                     if (paras.length <= 0 || !(paras[0] instanceof Integer)) {
                         return;
                     }
-                    this.f11787a.onNoAD(a.a(((Integer) aDEvent.getParas()[0]).intValue()));
+                    this.f11487a.onNoAD(a.a(((Integer) aDEvent.getParas()[0]).intValue()));
                     return;
                 default:
                     return;
@@ -100,7 +100,7 @@ public class NativeUnifiedAD extends AbstractAD<NUADI> {
             GDTLogger.e("Parameters or context error, details in init NativeUnifiedAD log");
         } else if (!b()) {
             if (z) {
-                this.f11784b.add(Integer.valueOf(i));
+                this.f11484b.add(Integer.valueOf(i));
             }
         } else {
             NUADI a2 = a();
@@ -120,7 +120,7 @@ public class NativeUnifiedAD extends AbstractAD<NUADI> {
             a(nativeADUnifiedListener, 4002);
             return;
         }
-        this.f11783a = new AdListenerAdapter(nativeADUnifiedListener);
+        this.f11483a = new AdListenerAdapter(nativeADUnifiedListener);
         this.d = str2;
         a(context, str, str2, (AbstractAD.BasicADListener) nativeADUnifiedListener);
     }
@@ -128,7 +128,7 @@ public class NativeUnifiedAD extends AbstractAD<NUADI> {
     /* JADX DEBUG: Return type fixed from 'com.qq.e.comm.pi.ADI' to match base method */
     @Override // com.qq.e.ads.AbstractAD
     protected final /* synthetic */ NUADI a(Context context, POFactory pOFactory, String str, String str2) {
-        return pOFactory.getNativeAdManagerDelegate(context, str, str2, this.f11783a);
+        return pOFactory.getNativeAdManagerDelegate(context, str, str2, this.f11483a);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -154,7 +154,7 @@ public class NativeUnifiedAD extends AbstractAD<NUADI> {
         if (this.c != null) {
             setCategories(this.c);
         }
-        for (Integer num : this.f11784b) {
+        for (Integer num : this.f11484b) {
             a(num.intValue(), false);
         }
     }

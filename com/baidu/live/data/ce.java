@@ -1,30 +1,30 @@
 package com.baidu.live.data;
 
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class ce {
-    public long aSO = 2000;
-    public float aSP = 1.0f;
-    public long aSQ = 2000;
-    public long aSR = 500;
-    public cd aSS;
-    public String aST;
-    public long aSU;
-    public long aSV;
-    public long aSW;
+    public long aOb = 2000;
+    public float aOc = 1.0f;
+    public long aOd = 2000;
+    public long aOe = 500;
+    public cd aOf;
+    public String aOg;
+    public long aOh;
+    public long aOi;
+    public long aOj;
 
     public void parse(JSONObject jSONObject) {
         if (jSONObject != null) {
-            this.aSO = jSONObject.optLong("player_cache_duration", 2000L);
-            this.aSP = (float) jSONObject.optDouble("player_speed", 1.0d);
-            this.aSQ = jSONObject.optLong("change_speed_cache_duration", 2000L);
-            this.aSR = jSONObject.optLong("player_max_analyze_duration", 500L);
-            this.aSS = new cd();
-            this.aSS.parse(jSONObject.optJSONObject("dating_anim"));
-            this.aST = jSONObject.optString("live_notice");
-            this.aSU = jSONObject.optLong("im_num_p1", 10L);
-            this.aSV = jSONObject.optLong("im_num_p2", 30L);
-            this.aSW = jSONObject.optLong("im_num_p3", 5000L);
+            this.aOb = jSONObject.optLong("player_cache_duration", 2000L);
+            this.aOc = (float) jSONObject.optDouble("player_speed", 1.0d);
+            this.aOd = jSONObject.optLong("change_speed_cache_duration", 2000L);
+            this.aOe = jSONObject.optLong("player_max_analyze_duration", 500L);
+            this.aOf = new cd();
+            this.aOf.parse(jSONObject.optJSONObject("dating_anim"));
+            this.aOg = jSONObject.optString("live_notice");
+            this.aOh = jSONObject.optLong("im_num_p1", 10L);
+            this.aOi = jSONObject.optLong("im_num_p2", 30L);
+            this.aOj = jSONObject.optLong("im_num_p3", 5000L);
         }
     }
 }

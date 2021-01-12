@@ -3,7 +3,7 @@ package com.baidu.live.data;
 import com.baidu.live.tbadk.core.data.BaseData;
 import java.io.Serializable;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class AlaGuessQuesData extends BaseData implements Serializable {
     public static final String ANSWER_INFO = "answer_mi_info";
     public static final long LNON = 0;

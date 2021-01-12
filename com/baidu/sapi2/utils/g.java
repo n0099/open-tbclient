@@ -12,7 +12,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-import com.baidu.l.a.a;
+import com.baidu.j.a.a;
 import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.sapi2.SapiWebView;
 /* loaded from: classes3.dex */
@@ -23,32 +23,32 @@ public class g {
     public static class a implements View.OnClickListener {
 
         /* renamed from: a  reason: collision with root package name */
-        final /* synthetic */ WebView f5415a;
+        final /* synthetic */ WebView f5132a;
 
         /* renamed from: b  reason: collision with root package name */
-        final /* synthetic */ View f5416b;
+        final /* synthetic */ View f5133b;
 
         /* renamed from: com.baidu.sapi2.utils.g$a$a  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        class RunnableC0352a implements Runnable {
-            RunnableC0352a() {
+        class RunnableC0335a implements Runnable {
+            RunnableC0335a() {
             }
 
             @Override // java.lang.Runnable
             public void run() {
-                a.this.f5416b.setVisibility(4);
-                a.this.f5415a.reload();
+                a.this.f5133b.setVisibility(4);
+                a.this.f5132a.reload();
             }
         }
 
         a(WebView webView, View view) {
-            this.f5415a = webView;
-            this.f5416b = view;
+            this.f5132a = webView;
+            this.f5133b = view;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            this.f5415a.post(new RunnableC0352a());
+            this.f5132a.post(new RunnableC0335a());
         }
     }
 

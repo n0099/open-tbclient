@@ -5,25 +5,25 @@ import java.util.ArrayList;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class d {
-    private static b pVG;
-    private static c pVH;
+    private static b pRf;
+    private static c pRg;
 
-    public static com.ss.android.socialbase.downloader.downloader.i aaO(String str) {
-        if (pVG == null) {
-            pVG = new b(j.i());
+    public static com.ss.android.socialbase.downloader.downloader.i ZG(String str) {
+        if (pRf == null) {
+            pRf = new b(j.i());
         }
-        return new a(pVG, str);
+        return new a(pRf, str);
     }
 
-    public static com.ss.android.socialbase.downloader.downloader.h eFZ() {
-        if (pVH == null) {
-            pVH = new c(j.i());
+    public static com.ss.android.socialbase.downloader.downloader.h eCi() {
+        if (pRg == null) {
+            pRg = new c(j.i());
         }
-        return pVH;
+        return pRg;
     }
 
     public static com.ss.android.socialbase.downloader.downloader.i B(String str, JSONObject jSONObject) {
-        return (jSONObject == null || !jSONObject.has("download_chunk_config") || com.ss.android.socialbase.downloader.k.a.g("download_chunk_config")) ? aaO(str) : fe(jSONObject);
+        return (jSONObject == null || !jSONObject.has("download_chunk_config") || com.ss.android.socialbase.downloader.k.a.g("download_chunk_config")) ? ZG(str) : fe(jSONObject);
     }
 
     public static com.ss.android.socialbase.downloader.downloader.h fd(JSONObject jSONObject) {
@@ -46,17 +46,17 @@ public class d {
     public static class c implements com.ss.android.socialbase.downloader.downloader.h {
 
         /* renamed from: a  reason: collision with root package name */
-        private int f13251a;
+        private int f12951a;
 
         /* renamed from: b  reason: collision with root package name */
-        private ArrayList<int[]> f13252b = new ArrayList<>();
+        private ArrayList<int[]> f12952b = new ArrayList<>();
 
         public c(JSONObject jSONObject) {
             a(jSONObject);
         }
 
         private void a(JSONObject jSONObject) {
-            this.f13251a = jSONObject.optInt("is_open_exp", 0);
+            this.f12951a = jSONObject.optInt("is_open_exp", 0);
             b(jSONObject);
         }
 
@@ -80,7 +80,7 @@ public class d {
                                 String[] split2 = optString2.split(",");
                                 if (split.length >= 5 && split2.length >= 5) {
                                     for (int i = 0; i < 5; i++) {
-                                        this.f13252b.add(new int[]{Integer.parseInt(split[i]), Integer.parseInt(split2[i])});
+                                        this.f12952b.add(new int[]{Integer.parseInt(split[i]), Integer.parseInt(split2[i])});
                                     }
                                 }
                             } catch (Throwable th) {
@@ -100,28 +100,28 @@ public class d {
         }
 
         boolean a() {
-            return this.f13251a == 2 || this.f13251a == 3;
+            return this.f12951a == 2 || this.f12951a == 3;
         }
 
         private int b(int i, com.ss.android.socialbase.downloader.i.k kVar) {
             int i2;
-            if (this.f13252b.size() >= 5) {
+            if (this.f12952b.size() >= 5) {
                 int[] iArr = null;
                 switch (kVar) {
                     case POOR:
-                        iArr = this.f13252b.get(0);
+                        iArr = this.f12952b.get(0);
                         break;
                     case MODERATE:
-                        iArr = this.f13252b.get(1);
+                        iArr = this.f12952b.get(1);
                         break;
                     case GOOD:
-                        iArr = this.f13252b.get(2);
+                        iArr = this.f12952b.get(2);
                         break;
                     case EXCELLENT:
-                        iArr = this.f13252b.get(3);
+                        iArr = this.f12952b.get(3);
                         break;
                     case UNKNOWN:
-                        iArr = this.f13252b.get(4);
+                        iArr = this.f12952b.get(4);
                         break;
                 }
                 if (iArr != null && iArr.length >= 2) {
@@ -155,17 +155,17 @@ public class d {
     public static class b implements com.ss.android.socialbase.downloader.downloader.i {
 
         /* renamed from: a  reason: collision with root package name */
-        private int f13249a;
+        private int f12949a;
 
         /* renamed from: b  reason: collision with root package name */
-        private ArrayList<int[]> f13250b = new ArrayList<>();
+        private ArrayList<int[]> f12950b = new ArrayList<>();
 
         public b(JSONObject jSONObject) {
             a(jSONObject);
         }
 
         private void a(JSONObject jSONObject) {
-            this.f13249a = jSONObject.optInt("is_open_exp", 0);
+            this.f12949a = jSONObject.optInt("is_open_exp", 0);
             b(jSONObject);
         }
 
@@ -182,7 +182,7 @@ public class d {
         }
 
         public boolean a() {
-            return this.f13249a == 1 || this.f13249a == 3;
+            return this.f12949a == 1 || this.f12949a == 3;
         }
 
         private void b(JSONObject jSONObject) {
@@ -212,7 +212,7 @@ public class d {
                                 }
                                 for (int i2 = 0; i2 < strArr2[i].length - 1; i2 += 2) {
                                     try {
-                                        this.f13250b.add(new int[]{i, Integer.parseInt(strArr2[i][i2]), Integer.parseInt(strArr2[i][i2 + 1])});
+                                        this.f12950b.add(new int[]{i, Integer.parseInt(strArr2[i][i2]), Integer.parseInt(strArr2[i][i2 + 1])});
                                     } catch (Throwable th2) {
                                         th2.printStackTrace();
                                     }
@@ -225,8 +225,8 @@ public class d {
         }
 
         private int a(int i) {
-            for (int i2 = 0; i2 < this.f13250b.size(); i2++) {
-                int[] iArr = this.f13250b.get(i2);
+            for (int i2 = 0; i2 < this.f12950b.size(); i2++) {
+                int[] iArr = this.f12950b.get(i2);
                 if (i >= iArr[1] && i < iArr[2]) {
                     return iArr[0];
                 }
@@ -240,20 +240,20 @@ public class d {
     public static class a implements com.ss.android.socialbase.downloader.downloader.i {
 
         /* renamed from: a  reason: collision with root package name */
-        private final String f13247a;
-        private b pVI;
+        private final String f12947a;
+        private b pRh;
 
         public a(b bVar, String str) {
-            this.pVI = bVar;
-            this.f13247a = str;
+            this.pRh = bVar;
+            this.f12947a = str;
         }
 
         @Override // com.ss.android.socialbase.downloader.downloader.i
         public int a(long j) {
-            if (!com.ss.android.downloadlib.f.i.c(this.f13247a) || this.pVI == null) {
+            if (!com.ss.android.downloadlib.f.i.c(this.f12947a) || this.pRh == null) {
                 return 1;
             }
-            return this.pVI.a(j);
+            return this.pRh.a(j);
         }
     }
 }

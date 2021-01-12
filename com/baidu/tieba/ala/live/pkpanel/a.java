@@ -36,28 +36,28 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class a implements com.baidu.live.t.a {
-    private x bzc;
-    private CustomMessageListener hmA;
-    private CustomMessageListener hmB;
-    private CustomMessageListener hmC;
-    private ViewGroup hmr;
-    private View hms;
-    private AlaDragContainerView hmt;
-    private AlaPkPanelWebView hmu;
-    private com.baidu.tieba.ala.live.pkpanel.a.a hmv;
-    private ae hmw;
-    private HandlerC0668a hmx;
-    private List<String> hmy;
-    private CustomMessageListener hmz;
+    private x buq;
+    private ViewGroup hhK;
+    private View hhL;
+    private AlaDragContainerView hhM;
+    private AlaPkPanelWebView hhN;
+    private com.baidu.tieba.ala.live.pkpanel.a.a hhO;
+    private ae hhP;
+    private HandlerC0651a hhQ;
+    private List<String> hhR;
+    private CustomMessageListener hhS;
+    private CustomMessageListener hhT;
+    private CustomMessageListener hhU;
+    private CustomMessageListener hhV;
     private Context mContext;
     private int mScreenHeight;
     private int mScreenWidth;
     private int mOrientation = 1;
-    private h bWS = new h() { // from class: com.baidu.tieba.ala.live.pkpanel.a.2
+    private h bSg = new h() { // from class: com.baidu.tieba.ala.live.pkpanel.a.2
         @Override // com.baidu.live.view.web.h
-        public void jk(String str) {
+        public void hZ(String str) {
             if (TextUtils.isEmpty(str)) {
             }
         }
@@ -70,51 +70,51 @@ public class a implements com.baidu.live.t.a {
         registerListener();
     }
 
-    private void cbu() {
-        if (this.hmy != null) {
-            this.hmy.clear();
+    private void bXC() {
+        if (this.hhR != null) {
+            this.hhR.clear();
         }
-        if (this.hmx != null) {
-            this.hmx.removeMessages(1000);
+        if (this.hhQ != null) {
+            this.hhQ.removeMessages(1000);
         }
-        cbv();
+        bXD();
     }
 
-    private void cbv() {
-        if (this.hmz != null) {
-            MessageManager.getInstance().unRegisterListener(this.hmz);
-            this.hmz = null;
+    private void bXD() {
+        if (this.hhS != null) {
+            MessageManager.getInstance().unRegisterListener(this.hhS);
+            this.hhS = null;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cbw() {
+    public void bXE() {
         if (Build.VERSION.SDK_INT >= 19) {
-            cby();
-            if (this.hmx == null) {
-                this.hmx = new HandlerC0668a(this);
+            bXG();
+            if (this.hhQ == null) {
+                this.hhQ = new HandlerC0651a(this);
             }
-            if (!this.hmx.hasMessages(1000)) {
-                this.hmx.sendEmptyMessageDelayed(1000, 1000L);
+            if (!this.hhQ.hasMessages(1000)) {
+                this.hhQ.sendEmptyMessageDelayed(1000, 1000L);
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.tieba.ala.live.pkpanel.a$a  reason: collision with other inner class name */
-    /* loaded from: classes11.dex */
-    public static class HandlerC0668a extends Handler {
-        private final WeakReference<a> hmE;
+    /* loaded from: classes10.dex */
+    public static class HandlerC0651a extends Handler {
+        private final WeakReference<a> hhX;
 
-        HandlerC0668a(a aVar) {
-            this.hmE = new WeakReference<>(aVar);
+        HandlerC0651a(a aVar) {
+            this.hhX = new WeakReference<>(aVar);
         }
 
         @Override // android.os.Handler
         public void handleMessage(Message message) {
             super.handleMessage(message);
-            if (this.hmE.get() != null && message.what == 1000) {
-                this.hmE.get().cbx();
+            if (this.hhX.get() != null && message.what == 1000) {
+                this.hhX.get().bXF();
             }
         }
     }
@@ -125,37 +125,37 @@ public class a implements com.baidu.live.t.a {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public void cbx() {
+    public void bXF() {
         String str;
         boolean z;
         int size;
         boolean z2 = false;
-        if (this.hmu != null) {
-            if (this.hmy == null || (size = this.hmy.size()) <= 0) {
+        if (this.hhN != null) {
+            if (this.hhR == null || (size = this.hhR.size()) <= 0) {
                 str = null;
             } else {
                 JSONArray jSONArray = new JSONArray();
                 for (int i = 0; i < size; i++) {
-                    jSONArray.put(this.hmy.get(i));
+                    jSONArray.put(this.hhR.get(i));
                 }
                 str = jSONArray.toString();
-                this.hmy.clear();
+                this.hhR.clear();
             }
-            if (this.hmu.cbE()) {
+            if (this.hhN.bXM()) {
                 z2 = true;
                 if (!TextUtils.isEmpty(str)) {
                     if (Build.VERSION.SDK_INT >= 19) {
-                        this.hmu.evaluateJavascript("javascript:getClientInfo(" + str + ")", null);
+                        this.hhN.evaluateJavascript("javascript:getClientInfo(" + str + ")", null);
                         z = true;
                         if (!z) {
-                            this.hmx.sendEmptyMessageDelayed(1000, 1000L);
+                            this.hhQ.sendEmptyMessageDelayed(1000, 1000L);
                             return;
                         } else {
-                            cbu();
+                            bXC();
                             return;
                         }
                     }
-                    this.hmu.loadUrl("javascript:getClientInfo(" + str + ")");
+                    this.hhN.loadUrl("javascript:getClientInfo(" + str + ")");
                 }
             }
             z = z2;
@@ -164,92 +164,92 @@ public class a implements com.baidu.live.t.a {
         }
     }
 
-    private void cby() {
-        if (this.hmy == null) {
-            this.hmy = new ArrayList();
+    private void bXG() {
+        if (this.hhR == null) {
+            this.hhR = new ArrayList();
         }
-        this.hmy.clear();
-        this.hmz = new CustomMessageListener(2913107) { // from class: com.baidu.tieba.ala.live.pkpanel.a.1
+        this.hhR.clear();
+        this.hhS = new CustomMessageListener(2913107) { // from class: com.baidu.tieba.ala.live.pkpanel.a.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof List)) {
-                    a.this.hmy.addAll((List) customResponsedMessage.getData());
+                    a.this.hhR.addAll((List) customResponsedMessage.getData());
                 }
             }
         };
-        MessageManager.getInstance().registerListener(this.hmz);
+        MessageManager.getInstance().registerListener(this.hhS);
     }
 
     private void registerListener() {
-        if (this.hmA == null) {
-            this.hmA = new CustomMessageListener(2913259) { // from class: com.baidu.tieba.ala.live.pkpanel.a.3
+        if (this.hhT == null) {
+            this.hhT = new CustomMessageListener(2913259) { // from class: com.baidu.tieba.ala.live.pkpanel.a.3
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.live.adp.framework.listener.MessageListener
                 public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                     JSONObject jSONObject;
                     if (customResponsedMessage != null && customResponsedMessage.getData() != null && (jSONObject = (JSONObject) customResponsedMessage.getData()) != null) {
-                        if (a.this.hmv == null && a.this.mContext != null) {
-                            a.this.hmv = new com.baidu.tieba.ala.live.pkpanel.a.a(a.this.mContext, a.this.mOrientation, jSONObject);
+                        if (a.this.hhO == null && a.this.mContext != null) {
+                            a.this.hhO = new com.baidu.tieba.ala.live.pkpanel.a.a(a.this.mContext, a.this.mOrientation, jSONObject);
                         }
-                        a.this.hmv.SY();
-                        a.this.av("10603", "h5_live", "rulepop_show");
+                        a.this.hhO.Pd();
+                        a.this.au("10603", "h5_live", "rulepop_show");
                     }
                 }
             };
-            MessageManager.getInstance().registerListener(this.hmA);
+            MessageManager.getInstance().registerListener(this.hhT);
         }
-        if (this.hmB == null) {
-            this.hmB = new CustomMessageListener(2913257) { // from class: com.baidu.tieba.ala.live.pkpanel.a.4
+        if (this.hhU == null) {
+            this.hhU = new CustomMessageListener(2913257) { // from class: com.baidu.tieba.ala.live.pkpanel.a.4
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.live.adp.framework.listener.MessageListener
                 public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                     if (customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof ae)) {
-                        a.this.hmw = (ae) customResponsedMessage.getData();
-                        if (a.this.hmw != null) {
-                            BdLog.e("AlaPkPanel:  pkPanelInfo.isOpenAction(): \t" + a.this.hmw.EJ());
-                            if (a.this.hmw.EJ()) {
-                                a.this.a(a.this.hmw);
+                        a.this.hhP = (ae) customResponsedMessage.getData();
+                        if (a.this.hhP != null) {
+                            BdLog.e("AlaPkPanel:  pkPanelInfo.isOpenAction(): \t" + a.this.hhP.AO());
+                            if (a.this.hhP.AO()) {
+                                a.this.a(a.this.hhP);
                             } else {
-                                a.this.cbz();
+                                a.this.bXH();
                             }
                         }
                     }
                 }
             };
-            MessageManager.getInstance().registerListener(this.hmB);
+            MessageManager.getInstance().registerListener(this.hhU);
             BdLog.e("AlaPkPanel:  registerListener ==> mLivePkPanelShowListener");
         }
-        if (this.hmC == null) {
-            this.hmC = new CustomMessageListener(2913258) { // from class: com.baidu.tieba.ala.live.pkpanel.a.5
+        if (this.hhV == null) {
+            this.hhV = new CustomMessageListener(2913258) { // from class: com.baidu.tieba.ala.live.pkpanel.a.5
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.live.adp.framework.listener.MessageListener
                 public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                     JSONObject jSONObject;
-                    if (customResponsedMessage != null && customResponsedMessage.getData() != null && (jSONObject = (JSONObject) customResponsedMessage.getData()) != null && a.this.hmu != null && a.this.hmu.getSchemeCallback() != null) {
-                        a.this.hmu.getSchemeCallback().doJsCallback(0, "", jSONObject, "followCallback ");
+                    if (customResponsedMessage != null && customResponsedMessage.getData() != null && (jSONObject = (JSONObject) customResponsedMessage.getData()) != null && a.this.hhN != null && a.this.hhN.getSchemeCallback() != null) {
+                        a.this.hhN.getSchemeCallback().doJsCallback(0, "", jSONObject, "followCallback ");
                     }
                 }
             };
-            MessageManager.getInstance().registerListener(this.hmC);
+            MessageManager.getInstance().registerListener(this.hhV);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cbz() {
-        if (this.hms != null && this.hmr != null && this.hmr.indexOfChild(this.hms) >= 0) {
+    public void bXH() {
+        if (this.hhL != null && this.hhK != null && this.hhK.indexOfChild(this.hhL) >= 0) {
             getSafeHandler().post(new Runnable() { // from class: com.baidu.tieba.ala.live.pkpanel.a.6
                 @Override // java.lang.Runnable
                 public void run() {
-                    if (a.this.hmr != null) {
-                        a.this.hmr.removeView(a.this.hms);
+                    if (a.this.hhK != null) {
+                        a.this.hhK.removeView(a.this.hhL);
                     }
-                    if (a.this.hmu != null) {
-                        a.this.hmu.release();
+                    if (a.this.hhN != null) {
+                        a.this.hhN.release();
                     }
-                    a.this.hmu = null;
-                    a.this.hmt = null;
-                    a.this.hms = null;
+                    a.this.hhN = null;
+                    a.this.hhM = null;
+                    a.this.hhL = null;
                     BdLog.e("AlaPkPanel:   closePkPanelView ==> mRootLiveView.removeView(contain)");
                 }
             });
@@ -259,16 +259,16 @@ public class a implements com.baidu.live.t.a {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(ae aeVar) {
         b(aeVar);
-        if (this.hms != null && this.hmr != null && this.hmr.indexOfChild(this.hms) < 0) {
+        if (this.hhL != null && this.hhK != null && this.hhK.indexOfChild(this.hhL) < 0) {
             getSafeHandler().post(new Runnable() { // from class: com.baidu.tieba.ala.live.pkpanel.a.7
                 @Override // java.lang.Runnable
                 public void run() {
-                    if (a.this.hms.getParent() != null && (a.this.hms.getParent() instanceof ViewGroup)) {
-                        ((ViewGroup) a.this.hms.getParent()).removeView(a.this.hms);
+                    if (a.this.hhL.getParent() != null && (a.this.hhL.getParent() instanceof ViewGroup)) {
+                        ((ViewGroup) a.this.hhL.getParent()).removeView(a.this.hhL);
                         BdLog.e("AlaPkPanel:  openPkPanelView ==> contain has  Parent ==> parent.removeView(contain)");
                     }
-                    if (a.this.hmr != null) {
-                        a.this.hmr.addView(a.this.hms, new RelativeLayout.LayoutParams(-1, -1));
+                    if (a.this.hhK != null) {
+                        a.this.hhK.addView(a.this.hhL, new RelativeLayout.LayoutParams(-1, -1));
                         BdLog.e("AlaPkPanel:   openPkPanelView ==> mRootLiveView.addView(contain, llp)");
                     }
                 }
@@ -277,143 +277,143 @@ public class a implements com.baidu.live.t.a {
     }
 
     private void b(ae aeVar) {
-        if (aeVar != null && this.hms == null) {
-            this.hms = LayoutInflater.from(this.mContext).inflate(a.g.ala_pk_panel_container, (ViewGroup) null);
-            this.hmt = (AlaDragContainerView) this.hms.findViewById(a.f.ala_pkpanel_dragview);
-            this.hmt.setLayoutParams(cbC());
-            HT(c(aeVar));
-            this.hmt.addView(this.hmu, d(aeVar));
+        if (aeVar != null && this.hhL == null) {
+            this.hhL = LayoutInflater.from(this.mContext).inflate(a.g.ala_pk_panel_container, (ViewGroup) null);
+            this.hhM = (AlaDragContainerView) this.hhL.findViewById(a.f.ala_pkpanel_dragview);
+            this.hhM.setLayoutParams(bXK());
+            GI(c(aeVar));
+            this.hhM.addView(this.hhN, d(aeVar));
         }
     }
 
     private Handler getSafeHandler() {
-        if (this.hmx == null) {
-            this.hmx = new HandlerC0668a(this);
+        if (this.hhQ == null) {
+            this.hhQ = new HandlerC0651a(this);
         }
-        return this.hmx;
+        return this.hhQ;
     }
 
     @Override // com.baidu.live.t.a
     public void f(x xVar) {
-        this.bzc = xVar;
+        this.buq = xVar;
     }
 
     @Override // com.baidu.live.t.a
     public void b(x xVar) {
-        this.bzc = xVar;
+        this.buq = xVar;
     }
 
     @Override // com.baidu.live.t.a
-    public void LE() {
-        this.hmv = null;
-        if (this.hmA != null) {
-            MessageManager.getInstance().unRegisterListener(this.hmA);
-            this.hmA = null;
+    public void HJ() {
+        this.hhO = null;
+        if (this.hhT != null) {
+            MessageManager.getInstance().unRegisterListener(this.hhT);
+            this.hhT = null;
         }
-        if (this.hmC != null) {
-            MessageManager.getInstance().unRegisterListener(this.hmC);
-            this.hmC = null;
+        if (this.hhV != null) {
+            MessageManager.getInstance().unRegisterListener(this.hhV);
+            this.hhV = null;
         }
-        if (this.hmB != null) {
-            MessageManager.getInstance().unRegisterListener(this.hmB);
-            this.hmB = null;
+        if (this.hhU != null) {
+            MessageManager.getInstance().unRegisterListener(this.hhU);
+            this.hhU = null;
             BdLog.e("AlaPkPanel : onQuitRoom ==> unRegisterListener ==> mLivePkPanelShowListener");
         }
-        cbA();
+        bXI();
     }
 
     @Override // com.baidu.live.t.a
     public void onDestory() {
-        LE();
+        HJ();
     }
 
-    private void cbA() {
-        cbz();
-        if (this.hmu != null) {
-            this.hmu.release();
+    private void bXI() {
+        bXH();
+        if (this.hhN != null) {
+            this.hhN.release();
         }
-        this.hmu = null;
-        this.hmt = null;
-        this.hms = null;
-        this.hmw = null;
-        this.hmr = null;
+        this.hhN = null;
+        this.hhM = null;
+        this.hhL = null;
+        this.hhP = null;
+        this.hhK = null;
         BdLog.e("AlaPkPanel:  onQuitRoom() ==> quitRoomAndRelease ==>  clear webView Container");
     }
 
     @Override // com.baidu.live.t.a
     public void p(ViewGroup viewGroup) {
-        this.hmr = viewGroup;
+        this.hhK = viewGroup;
     }
 
     private String c(ae aeVar) {
         String str = "";
-        if (aeVar.EI() != null) {
-            str = URLEncoder.encode(aeVar.EI());
+        if (aeVar.AN() != null) {
+            str = URLEncoder.encode(aeVar.AN());
         }
-        return aeVar.EH() + "?jsonData=" + str + "&room_id=" + getRoomId() + "&live_id=" + getLiveId() + "&subapp_type=" + TbConfig.getSubappType();
+        return aeVar.AM() + "?jsonData=" + str + "&room_id=" + getRoomId() + "&live_id=" + getLiveId() + "&subapp_type=" + TbConfig.getSubappType();
     }
 
     private String getLiveId() {
-        return (this.bzc == null || this.bzc.mLiveInfo == null) ? "" : String.valueOf(this.bzc.mLiveInfo.getLiveID());
+        return (this.buq == null || this.buq.mLiveInfo == null) ? "" : String.valueOf(this.buq.mLiveInfo.getLiveID());
     }
 
     private String getRoomId() {
-        return (this.bzc == null || this.bzc.mLiveInfo == null) ? "" : String.valueOf(this.bzc.mLiveInfo.room_id);
+        return (this.buq == null || this.buq.mLiveInfo == null) ? "" : String.valueOf(this.buq.mLiveInfo.room_id);
     }
 
-    private void HT(String str) {
-        com.baidu.live.view.web.a[] aaf;
-        this.hmu = new AlaPkPanelWebView(this.mContext);
-        this.hmu.setCallback(new AlaPkPanelWebView.a() { // from class: com.baidu.tieba.ala.live.pkpanel.a.8
+    private void GI(String str) {
+        com.baidu.live.view.web.a[] Wm;
+        this.hhN = new AlaPkPanelWebView(this.mContext);
+        this.hhN.setCallback(new AlaPkPanelWebView.a() { // from class: com.baidu.tieba.ala.live.pkpanel.a.8
             @Override // com.baidu.tieba.ala.live.pkpanel.web.AlaPkPanelWebView.a
-            public void nz(boolean z) {
+            public void nv(boolean z) {
                 if (z) {
-                    a.this.cbw();
+                    a.this.bXE();
                 }
             }
         });
         g gVar = new g();
         gVar.w((Activity) this.mContext).a(new f() { // from class: com.baidu.tieba.ala.live.pkpanel.a.9
             @Override // com.baidu.live.view.web.f
-            public void fr(int i) {
+            public void dL(int i) {
             }
-        }).a(this.hmu.getSchemeCallback()).b(this.bWS);
-        for (com.baidu.live.view.web.a aVar : gVar.aaf()) {
-            this.hmu.addJavascriptInterface(aVar, aVar.getName());
+        }).a(this.hhN.getSchemeCallback()).b(this.bSg);
+        for (com.baidu.live.view.web.a aVar : gVar.Wm()) {
+            this.hhN.addJavascriptInterface(aVar, aVar.getName());
         }
-        this.hmu.loadUrl(str);
+        this.hhN.loadUrl(str);
     }
 
     @Override // com.baidu.live.t.a
-    public void dU(int i) {
+    public void co(int i) {
         this.mOrientation = i;
-        if (this.hmw != null && this.hmt != null) {
-            this.hmt.setLayoutParams(cbC());
+        if (this.hhP != null && this.hhM != null) {
+            this.hhM.setLayoutParams(bXK());
             BdLog.e("AlaPkPanel:   onScreenOrientationChanged ==> mOrientation: " + this.mOrientation);
         }
-        if (this.hmv != null) {
-            this.hmv.wr(this.mOrientation);
+        if (this.hhO != null) {
+            this.hhO.uL(this.mOrientation);
         }
     }
 
     @Override // com.baidu.live.t.a
     public void onKeyboardVisibilityChanged(boolean z) {
-        if (this.hmt != null) {
-            this.hmt.cbF();
+        if (this.hhM != null) {
+            this.hhM.bXN();
             BdLog.e("AlaPkPanel:   onKeyboardVisibilityChanged ==> isVisibility: " + z);
         }
     }
 
-    private String cbB() {
-        return (this.bzc == null || this.bzc.mLiveInfo == null) ? "" : String.valueOf(this.bzc.mLiveInfo.feed_id);
+    private String bXJ() {
+        return (this.buq == null || this.buq.mLiveInfo == null) ? "" : String.valueOf(this.buq.mLiveInfo.feed_id);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void av(String str, String str2, String str3) {
+    public void au(String str, String str2, String str3) {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.putOpt("live_id", getLiveId());
-            jSONObject.putOpt("vid", cbB());
+            jSONObject.putOpt("vid", bXJ());
             jSONObject.putOpt(UbcStatConstant.KEY_CONTENT_EXT_SID, ExtraParamsManager.getBaiduSid());
             jSONObject.putOpt(UbcStatConstant.KEY_CONTENT_EXT_LIVESDK, TbConfig.SDK_VERSION);
             jSONObject.put("inbox", 1);
@@ -427,7 +427,7 @@ public class a implements com.baidu.live.t.a {
         return new FrameLayout.LayoutParams((int) ((aeVar.getWidth() / 375.0f) * this.mScreenWidth), (int) ((aeVar.getHeight() / 375.0f) * this.mScreenWidth));
     }
 
-    private FrameLayout.LayoutParams cbC() {
+    private FrameLayout.LayoutParams bXK() {
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
         if (this.mOrientation == 1) {
             layoutParams.bottomMargin = (int) (this.mScreenHeight * 0.2d);

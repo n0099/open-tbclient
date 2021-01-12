@@ -1,5 +1,5 @@
 package com.baidu.live.tbadk.statics;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public interface IAlaBdStaticsBuilder {
     IAlaBdStatics build();
 }

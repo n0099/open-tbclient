@@ -1,7 +1,7 @@
 package com.baidu.ala.adp.lib.util;
 
 import java.io.Serializable;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class NetworkState implements Serializable {
     private static final long serialVersionUID = 6342610950738914764L;
     public long mCurChangedTime;

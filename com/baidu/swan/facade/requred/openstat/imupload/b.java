@@ -27,14 +27,14 @@ import okio.Okio;
 import org.apache.http.protocol.HTTP;
 /* loaded from: classes6.dex */
 public class b {
-    private static b dYz;
+    private static b dTN;
     private OkHttpClient mOkHttpClient = createOkHttpClient();
 
-    public static b aUd() {
-        if (dYz == null) {
-            dYz = new b();
+    public static b aQj() {
+        if (dTN == null) {
+            dTN = new b();
         }
-        return dYz;
+        return dTN;
     }
 
     private b() {
@@ -93,9 +93,9 @@ public class b {
         if (TextUtils.isEmpty(str)) {
             str = "";
         }
-        Bimlog.LogRequest.AuthInfo build = newBuilder.vM(str).build();
+        Bimlog.LogRequest.AuthInfo build = newBuilder.uB(str).build();
         long currentTimeMillis = System.currentTimeMillis();
-        return Bimlog.LogRequest.newBuilder().da(1L).vN("smart_app").b(build).db(currentTimeMillis).vO(com.baidu.swan.facade.requred.openstat.imupload.a.u("smart_app", currentTimeMillis)).c(ByteString.copyFrom(bArr)).build().toByteArray();
+        return Bimlog.LogRequest.newBuilder().da(1L).uC("smart_app").b(build).db(currentTimeMillis).uD(com.baidu.swan.facade.requred.openstat.imupload.a.u("smart_app", currentTimeMillis)).c(ByteString.copyFrom(bArr)).build().toByteArray();
     }
 
     @NonNull

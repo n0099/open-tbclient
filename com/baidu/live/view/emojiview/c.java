@@ -6,7 +6,7 @@ import android.graphics.Paint;
 import android.graphics.drawable.Drawable;
 import android.text.style.DynamicDrawableSpan;
 import java.lang.ref.WeakReference;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class c extends DynamicDrawableSpan {
     private final Context mContext;
     private Drawable mDrawable;

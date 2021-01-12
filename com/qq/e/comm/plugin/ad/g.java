@@ -9,17 +9,17 @@ import yaq.gdtadv;
 /* JADX WARN: Classes with same name are omitted:
   assets/yaqgdtadv0.sec
  */
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class g {
 
     /* renamed from: a  reason: collision with root package name */
-    private h f12187a = new h();
+    private h f11887a = new h();
 
     /* renamed from: b  reason: collision with root package name */
-    private View f12188b;
+    private View f11888b;
 
     /* renamed from: com.qq.e.comm.plugin.ad.g$1  reason: invalid class name */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     class AnonymousClass1 implements View.OnTouchListener {
         AnonymousClass1() {
         }

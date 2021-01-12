@@ -7,14 +7,14 @@ import com.qq.e.comm.plugin.c.f;
 import com.qq.e.comm.plugin.util.az;
 import com.qq.e.comm.plugin.w.a.d;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class f {
 
     /* renamed from: a  reason: collision with root package name */
-    private com.qq.e.comm.plugin.c.a.c f12693a;
+    private com.qq.e.comm.plugin.c.a.c f12393a;
 
     public f(com.qq.e.comm.plugin.c.a.c cVar) {
-        this.f12693a = cVar;
+        this.f12393a = cVar;
     }
 
     private void a(d dVar, String str, View view, int i, boolean z) {
@@ -22,7 +22,7 @@ public class f {
         int i2 = (!z || com.qq.e.comm.plugin.util.b.g(dVar.E())) ? 0 : 1;
         d.a a2 = com.qq.e.comm.plugin.w.i.a(dVar);
         d.e eVar = new d.e(dVar.D(), com.qq.e.comm.plugin.ad.e.REWARDVIDEOAD, dVar.B());
-        d.b a3 = new d.b(i2, d.c.InnerBrowser).a(az.b(com.qq.e.comm.plugin.util.b.e(a2.f12939a)) ? 5 : 1).a(str).b(integerForPlacement).c(5).a(true);
+        d.b a3 = new d.b(i2, d.c.InnerBrowser).a(az.b(com.qq.e.comm.plugin.util.b.e(a2.f12639a)) ? 5 : 1).a(str).b(integerForPlacement).c(5).a(true);
         a3.i = com.qq.e.comm.plugin.ad.a.a().b(view);
         a3.k = false;
         com.qq.e.comm.plugin.w.a.d.a(view, a2, eVar, a3);
@@ -42,7 +42,7 @@ public class f {
 
     void a(d dVar, int i, View view, String str) {
         if (com.qq.e.comm.plugin.c.e.a(dVar)) {
-            com.qq.e.comm.plugin.c.e.a(new f.a(dVar, view).a(str).a(i).d(com.qq.e.comm.plugin.intersitial2.fullscreen.a.a(i)).b(false).e(true).a(), this.f12693a);
+            com.qq.e.comm.plugin.c.e.a(new f.a(dVar, view).a(str).a(i).d(com.qq.e.comm.plugin.intersitial2.fullscreen.a.a(i)).b(false).e(true).a(), this.f12393a);
         } else {
             b(dVar, i, view, str);
         }
@@ -52,7 +52,7 @@ public class f {
     public void a(d dVar, String str, View view) {
         boolean a2 = com.qq.e.comm.plugin.util.d.a(dVar);
         if (com.qq.e.comm.plugin.c.e.a(dVar)) {
-            com.qq.e.comm.plugin.c.e.a(new f.a(dVar, view).a(str).a(5).b(false).e(true).a(), this.f12693a);
+            com.qq.e.comm.plugin.c.e.a(new f.a(dVar, view).a(str).a(5).b(false).e(true).a(), this.f12393a);
         } else {
             a(dVar, str, view, 5, a2);
         }

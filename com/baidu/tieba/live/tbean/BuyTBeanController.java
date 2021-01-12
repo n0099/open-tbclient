@@ -33,6 +33,7 @@ import com.baidu.live.tbadk.log.LogManager;
 import com.baidu.live.tbadk.pay.PayHelper;
 import com.baidu.live.tbadk.pay.PayManager;
 import com.baidu.live.tbadk.pay.channel.interfaces.PayChannelType;
+import com.baidu.live.tbadk.ubc.UbcStatConstant;
 import com.baidu.live.tbadk.ubc.UbcStatisticItem;
 import com.baidu.live.tbadk.ubc.UbcStatisticLiveKey;
 import com.baidu.live.tbadk.ubc.UbcStatisticManager;
@@ -46,7 +47,7 @@ import com.baidu.tieba.live.tbean.data.IconInfoWrapperData;
 import com.baidu.tieba.live.tbean.data.UserInfoData;
 import com.baidu.webkit.sdk.performance.ZeusPerformanceTiming;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class BuyTBeanController implements View.OnClickListener, BuyTBeanModel.CallBack {
     public static final String ACTION_CALLBACK_LIVE_BUYTBEAN_RESULT = "action_callback_live_buytbean_result";
     public static final String GIFT_TBEAN = "gift_tbean";
@@ -268,7 +269,7 @@ public class BuyTBeanController implements View.OnClickListener, BuyTBeanModel.C
             String valueOf = String.valueOf(i);
             String valueOf2 = String.valueOf(i2);
             String valueOf3 = String.valueOf(i3);
-            if (!TbadkCoreApplication.getInst().isMobileBaidu() && Build.VERSION.SDK_INT >= 28 && !d.bl(this.activity)) {
+            if (!TbadkCoreApplication.getInst().isMobileBaidu() && Build.VERSION.SDK_INT >= 28 && !d.bk(this.activity)) {
                 payWalletActivityConfig = new PayWalletActivityOpaqueConfig(this.activity, 2, "0", str2, valueOf, valueOf2, true, valueOf3, false, PageDialogHelper.PayForm.NOT_SET, getReferPage(), getClickZone(), RequestResponseCode.REQUEST_DO_PAY);
                 if (!TextUtils.isEmpty(this.from)) {
                     ((PayWalletActivityOpaqueConfig) payWalletActivityConfig).setFrom(this.from);
@@ -328,7 +329,7 @@ public class BuyTBeanController implements View.OnClickListener, BuyTBeanModel.C
                     jSONObject.putOpt("td_num", this.tdouNum);
                 } catch (Exception e) {
                 }
-                UbcStatisticManager.getInstance().logEvent(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_1396, "click", "liveroom", "chargesucc").setContentExt(null, "popup", jSONObject));
+                UbcStatisticManager.getInstance().logEvent(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_1396, "click", "liveroom", "chargesucc").setContentExt(null, UbcStatConstant.SubPage.POPUP, jSONObject));
                 this.mPayStatus = 0;
                 this.mView.showPayResultView(true, this.mLastPayItemTbeanCount, this.mLastPayDataInfo);
                 JSONObject jSONObject2 = new JSONObject();
@@ -359,7 +360,7 @@ public class BuyTBeanController implements View.OnClickListener, BuyTBeanModel.C
                     jSONObject3.putOpt("td_num", this.tdouNum);
                 } catch (Exception e3) {
                 }
-                UbcStatisticManager.getInstance().logEvent(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_1396, "click", "liveroom", "chargesucc").setContentExt(null, "popup", jSONObject3));
+                UbcStatisticManager.getInstance().logEvent(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_1396, "click", "liveroom", "chargesucc").setContentExt(null, UbcStatConstant.SubPage.POPUP, jSONObject3));
                 JSONObject jSONObject4 = new JSONObject();
                 try {
                     jSONObject4.putOpt("charge_mode", this.isTBeanNotEnough ? "0" : "1");
@@ -393,7 +394,7 @@ public class BuyTBeanController implements View.OnClickListener, BuyTBeanModel.C
                     jSONObject5.putOpt("td_num", this.tdouNum);
                 } catch (Exception e5) {
                 }
-                UbcStatisticManager.getInstance().logEvent(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_1396, "click", "liveroom", "chargesucc").setContentExt(null, "popup", jSONObject5));
+                UbcStatisticManager.getInstance().logEvent(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_1396, "click", "liveroom", "chargesucc").setContentExt(null, UbcStatConstant.SubPage.POPUP, jSONObject5));
                 JSONObject jSONObject6 = new JSONObject();
                 try {
                     jSONObject6.putOpt("charge_mode", this.isTBeanNotEnough ? "0" : "1");

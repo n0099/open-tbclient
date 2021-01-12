@@ -4,7 +4,7 @@ import com.kwad.sdk.core.imageloader.utils.L;
 import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class Md5FileNameGenerator implements FileNameGenerator {
     private static final String HASH_ALGORITHM = "MD5";
     private static final int RADIX = 36;

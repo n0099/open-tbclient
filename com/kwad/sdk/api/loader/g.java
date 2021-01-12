@@ -5,17 +5,17 @@ import android.text.TextUtils;
 import com.xiaomi.mipush.sdk.Constants;
 import java.io.File;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class g {
 
     /* renamed from: a  reason: collision with root package name */
-    private static File f8501a;
+    private static File f8201a;
 
     private static File a(Context context) {
-        if (f8501a == null) {
-            f8501a = c(new File(context.getApplicationInfo().dataDir, "ksad_dynamic"));
+        if (f8201a == null) {
+            f8201a = c(new File(context.getApplicationInfo().dataDir, "ksad_dynamic"));
         }
-        return f8501a;
+        return f8201a;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */

@@ -1,15 +1,15 @@
 package com.baidu.tieba.hottopic.data;
 
 import com.baidu.adp.BdUniqueId;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class m implements com.baidu.adp.widget.ListView.n {
-    public static final BdUniqueId krz = BdUniqueId.gen();
-    public String eQh;
+    public static final BdUniqueId kmU = BdUniqueId.gen();
+    public String eLw;
     public long fid;
     public String fname;
-    public String kqq;
-    private boolean krA = false;
-    public long krB;
+    public String klL;
+    private boolean kmV = false;
+    public long kmW;
     public long postId;
     public long replyNum;
     public String summary;
@@ -18,10 +18,10 @@ public class m implements com.baidu.adp.widget.ListView.n {
 
     @Override // com.baidu.adp.widget.ListView.n
     public BdUniqueId getType() {
-        return krz;
+        return kmU;
     }
 
-    public boolean cVm() {
-        return this.krA;
+    public boolean cRu() {
+        return this.kmV;
     }
 }

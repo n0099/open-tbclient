@@ -1,7 +1,7 @@
 package com.baidu.live.adp.framework.controller;
 
 import com.baidu.live.adp.BdUniqueId;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public abstract class MessageRemovedRule extends Rule<byte[]> {
     public abstract void process(int i, BdUniqueId bdUniqueId);
 

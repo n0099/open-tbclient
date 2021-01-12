@@ -4,12 +4,12 @@ import com.baidu.ala.AlaCmdConfigHttp;
 import com.baidu.live.data.an;
 import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class AlaSyncHttpResponseMessage extends JsonHttpResponsedMessage {
-    private an bwi;
+    private an bru;
 
-    public an QQ() {
-        return this.bwi;
+    public an MV() {
+        return this.bru;
     }
 
     public AlaSyncHttpResponseMessage() {
@@ -20,8 +20,8 @@ public class AlaSyncHttpResponseMessage extends JsonHttpResponsedMessage {
     public void decodeLogicInBackGround(int i, JSONObject jSONObject) throws Exception {
         super.decodeLogicInBackGround(i, jSONObject);
         if (jSONObject != null) {
-            this.bwi = new an(false);
-            this.bwi.parserJson(jSONObject);
+            this.bru = new an(false);
+            this.bru.parserJson(jSONObject);
         }
     }
 }

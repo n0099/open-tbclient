@@ -1,14 +1,14 @@
 package com.baidu.fsg.face.base.d;
 
 import android.util.Log;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class d {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f2139a = "SAPI_BIOMETRIC";
+    private static final String f2089a = "SAPI_BIOMETRIC";
 
     /* renamed from: b  reason: collision with root package name */
-    private static final String f2140b = "%1$s\n%2$s";
+    private static final String f2090b = "%1$s\n%2$s";
     private static boolean c = false;
 
     private d() {
@@ -49,9 +49,9 @@ public final class d {
                 if (format == null) {
                     format = th.getMessage();
                 }
-                format = String.format(f2140b, format, Log.getStackTraceString(th));
+                format = String.format(f2090b, format, Log.getStackTraceString(th));
             }
-            Log.println(i, f2139a, format);
+            Log.println(i, f2089a, format);
         }
     }
 }

@@ -24,7 +24,7 @@ public interface w extends IInterface {
             if (queryLocalInterface != null && (queryLocalInterface instanceof w)) {
                 return (w) queryLocalInterface;
             }
-            return new C1261a(iBinder);
+            return new C1244a(iBinder);
         }
 
         @Override // android.os.IInterface
@@ -51,18 +51,18 @@ public interface w extends IInterface {
 
         /* renamed from: com.ss.android.socialbase.downloader.d.w$a$a  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        private static class C1261a implements w {
+        private static class C1244a implements w {
 
             /* renamed from: a  reason: collision with root package name */
-            private IBinder f13421a;
+            private IBinder f13121a;
 
-            C1261a(IBinder iBinder) {
-                this.f13421a = iBinder;
+            C1244a(IBinder iBinder) {
+                this.f13121a = iBinder;
             }
 
             @Override // android.os.IInterface
             public IBinder asBinder() {
-                return this.f13421a;
+                return this.f13121a;
             }
 
             @Override // com.ss.android.socialbase.downloader.d.w
@@ -72,7 +72,7 @@ public interface w extends IInterface {
                 try {
                     obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.depend.IDownloadForbiddenAidlHandler");
                     obtain.writeStrongBinder(vVar != null ? vVar.asBinder() : null);
-                    this.f13421a.transact(1, obtain, obtain2, 0);
+                    this.f13121a.transact(1, obtain, obtain2, 0);
                     obtain2.readException();
                     return obtain2.readInt() != 0;
                 } finally {

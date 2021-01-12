@@ -1,7 +1,7 @@
 package com.baidu.live.lottie.a.b;
 
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class b extends f<Integer> {
     public b(List<com.baidu.live.lottie.e.a<Integer>> list) {
         super(list);
@@ -12,11 +12,11 @@ public class b extends f<Integer> {
     /* renamed from: b */
     public Integer a(com.baidu.live.lottie.e.a<Integer> aVar, float f) {
         Integer num;
-        if (aVar.HN == null || aVar.HO == null) {
+        if (aVar.HL == null || aVar.HM == null) {
             throw new IllegalStateException("Missing values for keyframe.");
         }
-        int intValue = aVar.HN.intValue();
-        int intValue2 = aVar.HO.intValue();
-        return (this.buh == null || (num = (Integer) this.buh.c(aVar.BU, aVar.HQ.floatValue(), Integer.valueOf(intValue), Integer.valueOf(intValue2), f, iI(), getProgress())) == null) ? Integer.valueOf(com.baidu.live.lottie.d.b.b(f, intValue, intValue2)) : num;
+        int intValue = aVar.HL.intValue();
+        int intValue2 = aVar.HM.intValue();
+        return (this.bpt == null || (num = (Integer) this.bpt.c(aVar.BS, aVar.HO.floatValue(), Integer.valueOf(intValue), Integer.valueOf(intValue2), f, iI(), getProgress())) == null) ? Integer.valueOf(com.baidu.live.lottie.d.b.b(f, intValue, intValue2)) : num;
     }
 }

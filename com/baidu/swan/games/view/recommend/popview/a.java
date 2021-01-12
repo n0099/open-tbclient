@@ -5,20 +5,20 @@ import com.baidu.swan.apps.runtime.e;
 import okhttp3.Callback;
 import okhttp3.HttpUrl;
 import okhttp3.Request;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class a {
     public static void a(Callback callback) {
         a(callback, "6");
     }
 
     public static void a(Callback callback, String str) {
-        if (e.aMl() != null) {
-            com.baidu.swan.games.network.b aMA = e.aMl().aMA();
+        if (e.aIr() != null) {
+            com.baidu.swan.games.network.b aIG = e.aIr().aIG();
             HttpUrl.Builder newBuilder = HttpUrl.parse("https://gamecenter.baidu.com/api/exchange/list").newBuilder();
             newBuilder.addQueryParameter(Constants.EXTRA_CONFIG_LIMIT, str);
-            newBuilder.addQueryParameter("app_key", e.aMl().getAppKey());
+            newBuilder.addQueryParameter("app_key", e.aIr().getAppKey());
             newBuilder.addQueryParameter("source", "4");
-            aMA.a(new Request.Builder().url(newBuilder.build()).build(), callback);
+            aIG.a(new Request.Builder().url(newBuilder.build()).build(), callback);
         }
     }
 }

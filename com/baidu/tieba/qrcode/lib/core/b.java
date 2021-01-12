@@ -10,13 +10,13 @@ import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
 import java.util.regex.Pattern;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 final class b {
-    private static final Pattern mJQ = Pattern.compile(",");
+    private static final Pattern mFg = Pattern.compile(",");
     private final Context mContext;
-    private Point mJR;
-    private Point mJS;
-    private Point mJT;
+    private Point mFh;
+    private Point mFi;
+    private Point mFj;
 
     public b(Context context) {
         this.mContext = context;
@@ -27,20 +27,20 @@ final class b {
         if (c(camera)) {
             parameters.setFocusMode("auto");
         }
-        this.mJR = a.gM(this.mContext);
+        this.mFh = a.gK(this.mContext);
         Point point = new Point();
-        point.x = this.mJR.x;
-        point.y = this.mJR.y;
-        int gL = a.gL(this.mContext);
-        if (gL == 0) {
-            point.x = this.mJR.y;
-            point.y = this.mJR.x;
+        point.x = this.mFh.x;
+        point.y = this.mFh.y;
+        int gJ = a.gJ(this.mContext);
+        if (gJ == 0) {
+            point.x = this.mFh.y;
+            point.y = this.mFh.x;
         }
-        this.mJT = a(parameters, point);
-        if (gL == 0) {
-            this.mJS = new Point(this.mJT.y, this.mJT.x);
+        this.mFj = a(parameters, point);
+        if (gJ == 0) {
+            this.mFi = new Point(this.mFj.y, this.mFj.x);
         } else {
-            this.mJS = this.mJT;
+            this.mFi = this.mFj;
         }
     }
 
@@ -48,15 +48,15 @@ final class b {
         return a(camera.getParameters().getSupportedFocusModes(), "auto") != null;
     }
 
-    public Point dDZ() {
-        return this.mJS;
+    public Point dAh() {
+        return this.mFi;
     }
 
     public void d(Camera camera) {
         Camera.Parameters parameters = camera.getParameters();
-        parameters.setPreviewSize(this.mJT.x, this.mJT.y);
+        parameters.setPreviewSize(this.mFj.x, this.mFj.y);
         c(parameters);
-        camera.setDisplayOrientation(dEa());
+        camera.setDisplayOrientation(dAi());
         camera.setParameters(parameters);
     }
 
@@ -71,7 +71,7 @@ final class b {
         return null;
     }
 
-    public int dEa() {
+    public int dAi() {
         int i;
         Camera.CameraInfo cameraInfo = new Camera.CameraInfo();
         Camera.getCameraInfo(0, cameraInfo);
@@ -141,7 +141,7 @@ final class b {
     }
 
     private static int c(CharSequence charSequence, int i) {
-        String[] split = mJQ.split(charSequence);
+        String[] split = mFg.split(charSequence);
         int length = split.length;
         int i2 = 0;
         int i3 = 0;

@@ -4,7 +4,7 @@ import android.graphics.PointF;
 import android.util.JsonReader;
 import com.ksad.lottie.model.content.PolystarShape;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class z {
     /* JADX INFO: Access modifiers changed from: package-private */
     public static PolystarShape a(JsonReader jsonReader, com.ksad.lottie.d dVar) {

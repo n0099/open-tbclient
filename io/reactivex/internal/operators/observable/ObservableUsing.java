@@ -14,15 +14,15 @@ import java.util.concurrent.atomic.AtomicBoolean;
 public final class ObservableUsing<T, D> extends q<T> {
     final g<? super D> disposer;
     final boolean eager;
-    final Callable<? extends D> qir;
-    final h<? super D, ? extends t<? extends T>> qjn;
+    final Callable<? extends D> qdP;
+    final h<? super D, ? extends t<? extends T>> qeL;
 
     @Override // io.reactivex.q
     public void a(u<? super T> uVar) {
         try {
-            D call = this.qir.call();
+            D call = this.qdP.call();
             try {
-                ((t) io.reactivex.internal.functions.a.m(this.qjn.apply(call), "The sourceSupplier returned a null ObservableSource")).subscribe(new UsingObserver(uVar, call, this.disposer, this.eager));
+                ((t) io.reactivex.internal.functions.a.m(this.qeL.apply(call), "The sourceSupplier returned a null ObservableSource")).subscribe(new UsingObserver(uVar, call, this.disposer, this.eager));
             } catch (Throwable th) {
                 io.reactivex.exceptions.a.O(th);
                 try {

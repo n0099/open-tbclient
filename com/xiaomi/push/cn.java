@@ -7,26 +7,26 @@ import java.io.IOException;
 class cn {
 
     /* renamed from: a  reason: collision with root package name */
-    private File f14216a;
+    private File f13916a;
 
     /* renamed from: a  reason: collision with other field name */
-    private StringBuilder f249a;
+    private StringBuilder f248a;
 
     public void a() {
         try {
-            FileWriter fileWriter = new FileWriter(this.f14216a, true);
-            fileWriter.write(this.f249a.toString());
+            FileWriter fileWriter = new FileWriter(this.f13916a, true);
+            fileWriter.write(this.f248a.toString());
             fileWriter.flush();
             fileWriter.close();
-            this.f249a.delete(0, this.f249a.length());
+            this.f248a.delete(0, this.f248a.length());
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
     public void a(cm cmVar) {
-        this.f249a.append(cmVar.f14214a + "\t");
-        this.f249a.append(cmVar.f248a + "\t" + cmVar.f14215b);
-        this.f249a.append("\r\n");
+        this.f248a.append(cmVar.f13914a + "\t");
+        this.f248a.append(cmVar.f247a + "\t" + cmVar.f13915b);
+        this.f248a.append("\r\n");
     }
 }

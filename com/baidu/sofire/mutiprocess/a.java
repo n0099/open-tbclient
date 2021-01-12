@@ -6,7 +6,7 @@ import android.os.IBinder;
 import android.os.IInterface;
 import android.os.Parcel;
 import android.os.RemoteException;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public interface a extends IInterface {
     Bundle a(Bundle bundle) throws RemoteException;
 
@@ -15,9 +15,9 @@ public interface a extends IInterface {
     Bundle b(Bundle bundle) throws RemoteException;
 
     /* renamed from: com.baidu.sofire.mutiprocess.a$a  reason: collision with other inner class name */
-    /* loaded from: classes15.dex */
-    public static abstract class AbstractBinderC0366a extends Binder implements a {
-        public AbstractBinderC0366a() {
+    /* loaded from: classes14.dex */
+    public static abstract class AbstractBinderC0349a extends Binder implements a {
+        public AbstractBinderC0349a() {
             attachInterface(this, "com.baidu.sofire.mutiprocess.IMutiProcessHandler");
         }
 
@@ -29,7 +29,7 @@ public interface a extends IInterface {
             if (queryLocalInterface != null && (queryLocalInterface instanceof a)) {
                 return (a) queryLocalInterface;
             }
-            return new C0367a(iBinder);
+            return new C0350a(iBinder);
         }
 
         @Override // android.os.IInterface
@@ -83,22 +83,22 @@ public interface a extends IInterface {
 
         /* JADX INFO: Access modifiers changed from: private */
         /* renamed from: com.baidu.sofire.mutiprocess.a$a$a  reason: collision with other inner class name */
-        /* loaded from: classes15.dex */
-        public static class C0367a implements a {
+        /* loaded from: classes14.dex */
+        public static class C0350a implements a {
 
             /* renamed from: a  reason: collision with root package name */
-            public static a f5591a;
+            public static a f5308a;
 
             /* renamed from: b  reason: collision with root package name */
-            private IBinder f5592b;
+            private IBinder f5309b;
 
-            C0367a(IBinder iBinder) {
-                this.f5592b = iBinder;
+            C0350a(IBinder iBinder) {
+                this.f5309b = iBinder;
             }
 
             @Override // android.os.IInterface
             public final IBinder asBinder() {
-                return this.f5592b;
+                return this.f5309b;
             }
 
             @Override // com.baidu.sofire.mutiprocess.a
@@ -114,8 +114,8 @@ public interface a extends IInterface {
                     } else {
                         obtain.writeInt(0);
                     }
-                    if (!this.f5592b.transact(1, obtain, obtain2, 0) && AbstractBinderC0366a.a() != null) {
-                        bundle2 = AbstractBinderC0366a.a().a(bundle);
+                    if (!this.f5309b.transact(1, obtain, obtain2, 0) && AbstractBinderC0349a.a() != null) {
+                        bundle2 = AbstractBinderC0349a.a().a(bundle);
                     } else {
                         obtain2.readException();
                         if (obtain2.readInt() != 0) {
@@ -144,8 +144,8 @@ public interface a extends IInterface {
                     } else {
                         obtain.writeInt(0);
                     }
-                    if (!this.f5592b.transact(2, obtain, obtain2, 0) && AbstractBinderC0366a.a() != null) {
-                        bundle2 = AbstractBinderC0366a.a().b(bundle);
+                    if (!this.f5309b.transact(2, obtain, obtain2, 0) && AbstractBinderC0349a.a() != null) {
+                        bundle2 = AbstractBinderC0349a.a().b(bundle);
                     } else {
                         obtain2.readException();
                         if (obtain2.readInt() != 0) {
@@ -169,8 +169,8 @@ public interface a extends IInterface {
                 try {
                     obtain.writeInterfaceToken("com.baidu.sofire.mutiprocess.IMutiProcessHandler");
                     obtain.writeString(str);
-                    if (!this.f5592b.transact(3, obtain, obtain2, 0) && AbstractBinderC0366a.a() != null) {
-                        bundle = AbstractBinderC0366a.a().a(str);
+                    if (!this.f5309b.transact(3, obtain, obtain2, 0) && AbstractBinderC0349a.a() != null) {
+                        bundle = AbstractBinderC0349a.a().a(str);
                     } else {
                         obtain2.readException();
                         if (obtain2.readInt() != 0) {
@@ -188,7 +188,7 @@ public interface a extends IInterface {
         }
 
         public static a a() {
-            return C0367a.f5591a;
+            return C0350a.f5308a;
         }
     }
 }

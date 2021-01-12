@@ -12,16 +12,16 @@ import android.view.View;
 import androidx.annotation.Nullable;
 import androidx.viewpager.widget.ViewPager;
 import com.baidu.live.sdk.a;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class RoundRectPageIndicator extends View implements ViewPager.OnPageChangeListener {
-    private Paint bUW;
-    private Paint bUX;
-    private RectF bUY;
-    private RectF bUZ;
-    private float bVa;
-    private float bVb;
-    private boolean bVc;
-    private float bVd;
+    private Paint bQk;
+    private Paint bQl;
+    private RectF bQm;
+    private RectF bQn;
+    private float bQo;
+    private float bQp;
+    private boolean bQq;
+    private float bQr;
     private int mCount;
     private int mCurrentPosition;
 
@@ -37,27 +37,27 @@ public class RoundRectPageIndicator extends View implements ViewPager.OnPageChan
     }
 
     public void setItemWidth(float f) {
-        this.bVa = f;
+        this.bQo = f;
         invalidate();
     }
 
     public void setItemRadius(float f) {
-        this.bVb = f;
+        this.bQp = f;
         invalidate();
     }
 
     public void setTrackColor(int i) {
-        this.bUW.setColor(i);
+        this.bQk.setColor(i);
         invalidate();
     }
 
     public void setSlideColor(int i) {
-        this.bUX.setColor(i);
+        this.bQl.setColor(i);
         invalidate();
     }
 
     public void setSingleShow(boolean z) {
-        this.bVc = z;
+        this.bQq = z;
         if (this.mCount == 1) {
             invalidate();
         }
@@ -75,7 +75,7 @@ public class RoundRectPageIndicator extends View implements ViewPager.OnPageChan
 
     @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
     public void onPageSelected(int i) {
-        this.bVd = 0.0f;
+        this.bQr = 0.0f;
         this.mCurrentPosition = i;
         invalidate();
     }
@@ -94,11 +94,11 @@ public class RoundRectPageIndicator extends View implements ViewPager.OnPageChan
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
         if (this.mCount > 0) {
-            if (this.mCount != 1 || this.bVc) {
-                this.bUY.set(getPaddingLeft(), getPaddingTop(), getPaddingLeft() + (this.bVa * this.mCount), getHeight() - getPaddingBottom());
-                canvas.drawRoundRect(this.bUY, this.bVb, this.bVb, this.bUW);
-                this.bUZ.set(getPaddingLeft() + (this.bVa * (this.mCurrentPosition + this.bVd)), getPaddingTop(), getPaddingLeft() + (this.bVa * (this.mCurrentPosition + 1 + this.bVd)), getHeight() - getPaddingBottom());
-                canvas.drawRoundRect(this.bUZ, this.bVb, this.bVb, this.bUX);
+            if (this.mCount != 1 || this.bQq) {
+                this.bQm.set(getPaddingLeft(), getPaddingTop(), getPaddingLeft() + (this.bQo * this.mCount), getHeight() - getPaddingBottom());
+                canvas.drawRoundRect(this.bQm, this.bQp, this.bQp, this.bQk);
+                this.bQn.set(getPaddingLeft() + (this.bQo * (this.mCurrentPosition + this.bQr)), getPaddingTop(), getPaddingLeft() + (this.bQo * (this.mCurrentPosition + 1 + this.bQr)), getHeight() - getPaddingBottom());
+                canvas.drawRoundRect(this.bQn, this.bQp, this.bQp, this.bQl);
             }
         }
     }
@@ -124,31 +124,31 @@ public class RoundRectPageIndicator extends View implements ViewPager.OnPageChan
 
     private void init(Context context, AttributeSet attributeSet) {
         sa();
-        ZO();
+        VV();
         c(context, attributeSet);
     }
 
     private void sa() {
-        this.bUW = new Paint(1);
-        this.bUW.setStyle(Paint.Style.FILL);
-        this.bUX = new Paint(1);
-        this.bUX.setStyle(Paint.Style.FILL);
+        this.bQk = new Paint(1);
+        this.bQk.setStyle(Paint.Style.FILL);
+        this.bQl = new Paint(1);
+        this.bQl.setStyle(Paint.Style.FILL);
     }
 
-    private void ZO() {
-        this.bUY = new RectF();
-        this.bUZ = new RectF();
+    private void VV() {
+        this.bQm = new RectF();
+        this.bQn = new RectF();
     }
 
     private void c(Context context, AttributeSet attributeSet) {
         if (!isInEditMode()) {
             TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, a.j.sdk_RoundRectPageIndicator);
             this.mCount = obtainStyledAttributes.getInteger(a.j.sdk_RoundRectPageIndicator_sdk_rrpi_item_count, 0);
-            this.bVa = obtainStyledAttributes.getDimensionPixelOffset(a.j.sdk_RoundRectPageIndicator_sdk_rrpi_item_width, 0);
-            this.bVb = obtainStyledAttributes.getDimensionPixelOffset(a.j.sdk_RoundRectPageIndicator_sdk_rrpi_item_radius, 0);
-            this.bUW.setColor(obtainStyledAttributes.getColor(a.j.sdk_RoundRectPageIndicator_sdk_rrpi_track_color, 0));
-            this.bUX.setColor(obtainStyledAttributes.getColor(a.j.sdk_RoundRectPageIndicator_sdk_rrpi_slide_color, 0));
-            this.bVc = obtainStyledAttributes.getBoolean(a.j.sdk_RoundRectPageIndicator_sdk_rrpi_single_show, false);
+            this.bQo = obtainStyledAttributes.getDimensionPixelOffset(a.j.sdk_RoundRectPageIndicator_sdk_rrpi_item_width, 0);
+            this.bQp = obtainStyledAttributes.getDimensionPixelOffset(a.j.sdk_RoundRectPageIndicator_sdk_rrpi_item_radius, 0);
+            this.bQk.setColor(obtainStyledAttributes.getColor(a.j.sdk_RoundRectPageIndicator_sdk_rrpi_track_color, 0));
+            this.bQl.setColor(obtainStyledAttributes.getColor(a.j.sdk_RoundRectPageIndicator_sdk_rrpi_slide_color, 0));
+            this.bQq = obtainStyledAttributes.getBoolean(a.j.sdk_RoundRectPageIndicator_sdk_rrpi_single_show, false);
             obtainStyledAttributes.recycle();
         }
     }
@@ -157,7 +157,7 @@ public class RoundRectPageIndicator extends View implements ViewPager.OnPageChan
         int mode = View.MeasureSpec.getMode(i);
         int size = View.MeasureSpec.getSize(i);
         if (mode != 1073741824) {
-            int paddingLeft = (int) (getPaddingLeft() + (this.bVa * this.mCount) + getPaddingRight());
+            int paddingLeft = (int) (getPaddingLeft() + (this.bQo * this.mCount) + getPaddingRight());
             return mode == Integer.MIN_VALUE ? Math.min(paddingLeft, size) : paddingLeft;
         }
         return size;
@@ -175,7 +175,7 @@ public class RoundRectPageIndicator extends View implements ViewPager.OnPageChan
 
     private void c(int i, float f) {
         this.mCurrentPosition = i;
-        this.bVd = f;
+        this.bQr = f;
         invalidate();
     }
 }

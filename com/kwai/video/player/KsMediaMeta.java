@@ -6,7 +6,7 @@ import com.baidu.searchbox.v8engine.util.TimeUtils;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Locale;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class KsMediaMeta {
     public static final long AV_CH_BACK_CENTER = 256;
     public static final long AV_CH_BACK_LEFT = 16;
@@ -114,7 +114,7 @@ public class KsMediaMeta {
     public int mHttpConnectTime = 0;
     public int mHttpFirstDataTime = 0;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class KSYStreamMeta {
         public long mBitrate;
         public long mChannelLayout;

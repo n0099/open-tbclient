@@ -1,9 +1,9 @@
 package com.baidu.yuyinala.privatemessage.session.b;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class a {
-    protected String dVg;
+    protected String dQu;
 
-    public void Yx(String str) {
-        this.dVg = str;
+    public void Xp(String str) {
+        this.dQu = str;
     }
 }

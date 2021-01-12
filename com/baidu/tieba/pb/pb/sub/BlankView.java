@@ -8,16 +8,16 @@ import android.view.ViewGroup;
 import android.widget.Scroller;
 /* loaded from: classes2.dex */
 public class BlankView extends View {
+    private a lWN;
     private Scroller mScroller;
-    private a mbu;
 
     /* loaded from: classes2.dex */
     public interface a {
-        void bIo();
+        void bEw();
     }
 
     public void setScrollCallBack(a aVar) {
-        this.mbu = aVar;
+        this.lWN = aVar;
     }
 
     public BlankView(Context context) {
@@ -48,8 +48,8 @@ public class BlankView extends View {
                     layoutParams.height = currY;
                     setLayoutParams(layoutParams);
                 }
-            } else if (this.mbu != null) {
-                this.mbu.bIo();
+            } else if (this.lWN != null) {
+                this.lWN.bEw();
             }
         }
     }

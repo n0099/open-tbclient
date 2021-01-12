@@ -1,66 +1,66 @@
 package com.baidu.live.liveroom.e;
 
 import android.content.Context;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class i {
-    private static volatile i bsR = null;
-    private e bsS;
-    private e bsT;
-    private c bsU;
-    private com.baidu.live.v.d bsV;
+    private static volatile i bof = null;
+    private e bog;
+    private e boh;
+    private c boi;
+    private com.baidu.live.v.d boj;
 
     private i() {
     }
 
-    public static i Pq() {
-        if (bsR == null) {
+    public static i Lv() {
+        if (bof == null) {
             synchronized (i.class) {
-                if (bsR == null) {
-                    bsR = new i();
+                if (bof == null) {
+                    bof = new i();
                 }
             }
         }
-        return bsR;
+        return bof;
     }
 
     public void a(e eVar) {
-        this.bsS = eVar;
+        this.bog = eVar;
     }
 
     public void b(e eVar) {
-        this.bsT = eVar;
+        this.boh = eVar;
     }
 
-    public boolean Pr() {
-        return this.bsS != null;
+    public boolean Lw() {
+        return this.bog != null;
     }
 
-    public d bb(Context context) {
-        if (this.bsS != null) {
-            return this.bsS.ba(context);
+    public d ba(Context context) {
+        if (this.bog != null) {
+            return this.bog.aZ(context);
         }
         return null;
     }
 
-    public d bc(Context context) {
-        if (this.bsT != null) {
-            return this.bsT.ba(context);
+    public d bb(Context context) {
+        if (this.boh != null) {
+            return this.boh.aZ(context);
         }
         return null;
     }
 
     public void a(c cVar) {
-        this.bsU = cVar;
+        this.boi = cVar;
     }
 
-    public b Ps() {
-        if (this.bsU != null) {
-            return this.bsU.Po();
+    public b Lx() {
+        if (this.boi != null) {
+            return this.boi.Lt();
         }
         return null;
     }
 
-    public com.baidu.live.v.d Pt() {
-        return this.bsV;
+    public com.baidu.live.v.d Ly() {
+        return this.boj;
     }
 }

@@ -1,7 +1,7 @@
 package com.baidu.tieba.yuyinala.liveroom.o;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class a {
-    public String giS;
+    public String gej;
     public long mUserId;
 
     public a() {
@@ -9,6 +9,6 @@ public class a {
 
     public a(long j, String str) {
         this.mUserId = j;
-        this.giS = str;
+        this.gej = str;
     }
 }

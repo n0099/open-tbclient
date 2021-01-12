@@ -22,32 +22,32 @@ import com.baidu.tieba.yuyinala.liveroom.teamfighttimeset.indicatorseekbar.Indic
 import com.baidu.tieba.yuyinala.liveroom.teamfighttimeset.indicatorseekbar.d;
 import com.baidu.tieba.yuyinala.liveroom.teamfighttimeset.indicatorseekbar.e;
 import io.flutter.plugin.platform.PlatformPlugin;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class a extends Dialog {
-    private x aGe;
-    private View bYQ;
-    private TextView lYu;
+    private x aBr;
+    private View bUe;
+    private TextView lTQ;
     private Activity mActivity;
-    private TextView ooF;
-    public CustomMessageListener ooI;
-    private b oug;
-    private InterfaceC0948a ouh;
-    private IndicatorSeekBar oui;
-    private IndicatorSeekBar ouj;
+    private TextView ojZ;
+    public CustomMessageListener okc;
+    private b opA;
+    private InterfaceC0931a opB;
+    private IndicatorSeekBar opC;
+    private IndicatorSeekBar opD;
 
     /* renamed from: com.baidu.tieba.yuyinala.liveroom.teamfighttimeset.a$a  reason: collision with other inner class name */
-    /* loaded from: classes11.dex */
-    public interface InterfaceC0948a {
+    /* loaded from: classes10.dex */
+    public interface InterfaceC0931a {
         void onDismiss();
     }
 
     public a(Activity activity) {
         super(activity, a.i.DialogRoomcardStyle);
-        this.ooI = new CustomMessageListener(2501014) { // from class: com.baidu.tieba.yuyinala.liveroom.teamfighttimeset.a.7
+        this.okc = new CustomMessageListener(2501014) { // from class: com.baidu.tieba.yuyinala.liveroom.teamfighttimeset.a.7
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2501014 && (customResponsedMessage.getData() instanceof g) && ((g) customResponsedMessage.getData()).Ex() != 2 && a.this.isShowing()) {
+                if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2501014 && (customResponsedMessage.getData() instanceof g) && ((g) customResponsedMessage.getData()).AC() != 2 && a.this.isShowing()) {
                     a.this.dismiss();
                 }
             }
@@ -58,10 +58,10 @@ public class a extends Dialog {
 
     private void init() {
         initView();
-        aaE();
+        WL();
     }
 
-    private void aaE() {
+    private void WL() {
         Window window = getWindow();
         if (window != null) {
             window.setFlags(262144, 262144);
@@ -78,13 +78,13 @@ public class a extends Dialog {
 
     private void initView() {
         setContentView(a.g.yuyin_layout_dialog_teamfight_time_setting);
-        this.bYQ = findViewById(a.f.view);
-        this.lYu = (TextView) findViewById(a.f.tv_cancel);
-        this.ooF = (TextView) findViewById(a.f.tv_confirm);
-        this.oui = (IndicatorSeekBar) findViewById(a.f.sb_pk_time);
-        this.ouj = (IndicatorSeekBar) findViewById(a.f.sb_punish_time);
-        this.oug = new b(this.mActivity);
-        this.oui.setOnSeekChangeListener(new d() { // from class: com.baidu.tieba.yuyinala.liveroom.teamfighttimeset.a.1
+        this.bUe = findViewById(a.f.view);
+        this.lTQ = (TextView) findViewById(a.f.tv_cancel);
+        this.ojZ = (TextView) findViewById(a.f.tv_confirm);
+        this.opC = (IndicatorSeekBar) findViewById(a.f.sb_pk_time);
+        this.opD = (IndicatorSeekBar) findViewById(a.f.sb_punish_time);
+        this.opA = new b(this.mActivity);
+        this.opC.setOnSeekChangeListener(new d() { // from class: com.baidu.tieba.yuyinala.liveroom.teamfighttimeset.a.1
             @Override // com.baidu.tieba.yuyinala.liveroom.teamfighttimeset.indicatorseekbar.d
             public void a(e eVar) {
             }
@@ -98,7 +98,7 @@ public class a extends Dialog {
             public void b(IndicatorSeekBar indicatorSeekBar) {
             }
         });
-        this.ouj.setOnSeekChangeListener(new d() { // from class: com.baidu.tieba.yuyinala.liveroom.teamfighttimeset.a.2
+        this.opD.setOnSeekChangeListener(new d() { // from class: com.baidu.tieba.yuyinala.liveroom.teamfighttimeset.a.2
             @Override // com.baidu.tieba.yuyinala.liveroom.teamfighttimeset.indicatorseekbar.d
             public void a(e eVar) {
             }
@@ -112,33 +112,33 @@ public class a extends Dialog {
             public void b(IndicatorSeekBar indicatorSeekBar) {
             }
         });
-        this.bYQ.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.liveroom.teamfighttimeset.a.3
+        this.bUe.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.liveroom.teamfighttimeset.a.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 a.this.dismiss();
             }
         });
-        this.lYu.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.liveroom.teamfighttimeset.a.4
+        this.lTQ.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.liveroom.teamfighttimeset.a.4
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 a.this.dismiss();
             }
         });
-        this.ooF.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.liveroom.teamfighttimeset.a.5
+        this.ojZ.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.liveroom.teamfighttimeset.a.5
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (a.this.oug != null) {
-                    a.this.oug.d(com.baidu.tieba.yuyinala.liveroom.wheat.e.g.av(a.this.aGe), 0, 1, 0, a.this.oui.getProgress() + "", a.this.ouj.getProgress() + "");
+                if (a.this.opA != null) {
+                    a.this.opA.d(com.baidu.tieba.yuyinala.liveroom.wheat.e.g.av(a.this.aBr), 0, 1, 0, a.this.opC.getProgress() + "", a.this.opD.getProgress() + "");
                 }
                 UbcStatisticManager.getInstance().logEvent(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_1396, "click", UbcStatConstant.Page.VOICE_ROOM, "startbattle_clk"));
             }
         });
-        this.oug.a(new b.a() { // from class: com.baidu.tieba.yuyinala.liveroom.teamfighttimeset.a.6
+        this.opA.a(new b.a() { // from class: com.baidu.tieba.yuyinala.liveroom.teamfighttimeset.a.6
             @Override // com.baidu.tieba.yuyinala.liveroom.teamfighttimeset.b.a
             public void a(TimeSettingResponseMessage timeSettingResponseMessage) {
-                if (a.this.oui != null && a.this.ouj != null) {
-                    com.baidu.live.d.Ba().putInt("audio_live_pk_time", a.this.oui.getProgress());
-                    com.baidu.live.d.Ba().putInt("audio_live_punish_time", a.this.ouj.getProgress());
+                if (a.this.opC != null && a.this.opD != null) {
+                    com.baidu.live.d.xf().putInt("audio_live_pk_time", a.this.opC.getProgress());
+                    com.baidu.live.d.xf().putInt("audio_live_punish_time", a.this.opD.getProgress());
                 }
                 a.this.dismiss();
                 BdUtilHelper.showToast(a.this.getContext(), "设置成功，团战即将开始");
@@ -153,18 +153,18 @@ public class a extends Dialog {
     }
 
     public void ac(x xVar) {
-        this.aGe = xVar;
+        this.aBr = xVar;
         try {
             show();
-            if (this.oui != null) {
-                this.oui.setMin(com.baidu.tieba.yuyinala.liveroom.wheat.e.g.ay(xVar));
-                this.oui.setMax(com.baidu.tieba.yuyinala.liveroom.wheat.e.g.az(xVar));
-                this.oui.setProgress(com.baidu.tieba.yuyinala.liveroom.wheat.e.g.aA(xVar));
+            if (this.opC != null) {
+                this.opC.setMin(com.baidu.tieba.yuyinala.liveroom.wheat.e.g.ay(xVar));
+                this.opC.setMax(com.baidu.tieba.yuyinala.liveroom.wheat.e.g.az(xVar));
+                this.opC.setProgress(com.baidu.tieba.yuyinala.liveroom.wheat.e.g.aA(xVar));
             }
-            if (this.ouj != null) {
-                this.ouj.setMin(com.baidu.tieba.yuyinala.liveroom.wheat.e.g.aB(xVar));
-                this.ouj.setMax(com.baidu.tieba.yuyinala.liveroom.wheat.e.g.aC(xVar));
-                this.ouj.setProgress(com.baidu.tieba.yuyinala.liveroom.wheat.e.g.aD(xVar));
+            if (this.opD != null) {
+                this.opD.setMin(com.baidu.tieba.yuyinala.liveroom.wheat.e.g.aB(xVar));
+                this.opD.setMax(com.baidu.tieba.yuyinala.liveroom.wheat.e.g.aC(xVar));
+                this.opD.setProgress(com.baidu.tieba.yuyinala.liveroom.wheat.e.g.aD(xVar));
             }
         } catch (Exception e) {
         }
@@ -173,11 +173,11 @@ public class a extends Dialog {
     @Override // android.app.Dialog, android.content.DialogInterface
     public void dismiss() {
         try {
-            if (this.ouh != null) {
-                this.ouh.onDismiss();
+            if (this.opB != null) {
+                this.opB.onDismiss();
             }
             super.dismiss();
-            MessageManager.getInstance().unRegisterListener(this.ooI);
+            MessageManager.getInstance().unRegisterListener(this.okc);
         } catch (Throwable th) {
         }
     }
@@ -186,7 +186,7 @@ public class a extends Dialog {
     public void show() {
         try {
             super.show();
-            MessageManager.getInstance().registerListener(this.ooI);
+            MessageManager.getInstance().registerListener(this.okc);
         } catch (Throwable th) {
         }
     }

@@ -6,10 +6,10 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class a {
-    public C0656a heB;
-    public b heC;
+    public C0639a gZV;
+    public b gZW;
     public int status;
 
     public void parserJson(JSONObject jSONObject) {
@@ -17,35 +17,35 @@ public class a {
             this.status = jSONObject.optInt("status");
             JSONObject optJSONObject = jSONObject.optJSONObject("config");
             if (optJSONObject != null) {
-                this.heB = new C0656a();
-                this.heB.dO(optJSONObject);
+                this.gZV = new C0639a();
+                this.gZV.dO(optJSONObject);
             }
             JSONObject optJSONObject2 = jSONObject.optJSONObject("rank");
             if (optJSONObject2 != null) {
-                this.heC = new b();
-                this.heC.dQ(optJSONObject2);
+                this.gZW = new b();
+                this.gZW.dQ(optJSONObject2);
             }
         }
     }
 
     /* renamed from: com.baidu.tieba.ala.guardthrone.b.a$a  reason: collision with other inner class name */
-    /* loaded from: classes11.dex */
-    public static class C0656a {
+    /* loaded from: classes10.dex */
+    public static class C0639a {
         public long countdown;
-        public String heD;
-        public String heE;
-        public String heF;
-        public String heG;
-        public String heH;
-        public long heI;
-        public long heJ;
-        public List<C0657a> heK;
+        public String gZX;
+        public String gZY;
+        public String gZZ;
+        public String haa;
+        public String hab;
+        public long hac;
+        public long had;
+        public List<C0640a> hae;
         public long startTime;
         public String username;
 
         /* renamed from: com.baidu.tieba.ala.guardthrone.b.a$a$a  reason: collision with other inner class name */
-        /* loaded from: classes11.dex */
-        public static class C0657a {
+        /* loaded from: classes10.dex */
+        public static class C0640a {
             public String pic;
             public String text;
 
@@ -58,40 +58,40 @@ public class a {
         public void dO(JSONObject jSONObject) {
             JSONArray optJSONArray = jSONObject.optJSONArray(AlaStaticKeys.ALA_STATIC_VALUE_ICON);
             if (optJSONArray != null && optJSONArray.length() > 0) {
-                this.heK = new ArrayList();
+                this.hae = new ArrayList();
                 for (int i = 0; i < optJSONArray.length(); i++) {
-                    C0657a c0657a = new C0657a();
-                    c0657a.dP(optJSONArray.optJSONObject(i));
-                    this.heK.add(c0657a);
+                    C0640a c0640a = new C0640a();
+                    c0640a.dP(optJSONArray.optJSONObject(i));
+                    this.hae.add(c0640a);
                 }
             }
             if (!jSONObject.isNull("portrait")) {
-                this.heD = jSONObject.optString("portrait");
+                this.gZX = jSONObject.optString("portrait");
             }
             if (!jSONObject.isNull("user_name")) {
                 this.username = jSONObject.optString("user_name");
             }
             if (!jSONObject.isNull("guard_seat_user")) {
-                this.heH = jSONObject.optString("guard_seat_user");
+                this.hab = jSONObject.optString("guard_seat_user");
             }
-            this.heE = jSONObject.optString("frame_pic");
-            this.heF = jSONObject.optString("time_text");
-            this.heG = jSONObject.optString("rule_url");
+            this.gZY = jSONObject.optString("frame_pic");
+            this.gZZ = jSONObject.optString("time_text");
+            this.haa = jSONObject.optString("rule_url");
             this.startTime = jSONObject.optLong("start_time");
             this.countdown = jSONObject.optLong("count_down");
-            this.heI = jSONObject.optLong("effect_time");
-            this.heJ = jSONObject.optLong("polling_time");
+            this.hac = jSONObject.optLong("effect_time");
+            this.had = jSONObject.optLong("polling_time");
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public static class b {
-        public List<C0659b> aJx;
-        public C0658a heL;
+        public List<C0642b> aEK;
+        public C0641a haf;
 
         /* renamed from: com.baidu.tieba.ala.guardthrone.b.a$b$b  reason: collision with other inner class name */
-        /* loaded from: classes11.dex */
-        public static class C0659b {
+        /* loaded from: classes10.dex */
+        public static class C0642b {
             public String nickname;
             public String portrait;
             public String rank;
@@ -106,8 +106,8 @@ public class a {
         }
 
         /* renamed from: com.baidu.tieba.ala.guardthrone.b.a$b$a  reason: collision with other inner class name */
-        /* loaded from: classes11.dex */
-        public static class C0658a {
+        /* loaded from: classes10.dex */
+        public static class C0641a {
             public int rank;
             public String text;
 
@@ -121,17 +121,17 @@ public class a {
             if (jSONObject != null) {
                 JSONArray optJSONArray = jSONObject.optJSONArray("list");
                 if (optJSONArray != null && optJSONArray.length() > 0) {
-                    this.aJx = new ArrayList();
+                    this.aEK = new ArrayList();
                     for (int i = 0; i < optJSONArray.length(); i++) {
-                        C0659b c0659b = new C0659b();
-                        c0659b.dS(optJSONArray.optJSONObject(i));
-                        this.aJx.add(c0659b);
+                        C0642b c0642b = new C0642b();
+                        c0642b.dS(optJSONArray.optJSONObject(i));
+                        this.aEK.add(c0642b);
                     }
                 }
                 JSONObject optJSONObject = jSONObject.optJSONObject("info");
                 if (optJSONObject != null) {
-                    this.heL = new C0658a();
-                    this.heL.dR(optJSONObject);
+                    this.haf = new C0641a();
+                    this.haf.dR(optJSONObject);
                 }
             }
         }

@@ -18,25 +18,25 @@ public class d implements b {
     private long mFileLength;
     private String mFileMd5;
     private String mFileName;
-    private final int nvb;
-    private int nvc;
-    private e nvd;
-    private boolean nve;
-    private com.baidu.tieba.tbadkCore.videoupload.a.a.a nvf;
-    private g nvg;
+    private g nqA;
+    private final int nqv;
+    private int nqw;
+    private e nqx;
+    private boolean nqy;
+    private com.baidu.tieba.tbadkCore.videoupload.a.a.a nqz;
 
     public d(String str, int i, g gVar) {
         this.mFileName = str;
-        this.nvb = i;
-        this.nvg = gVar;
+        this.nqv = i;
+        this.nqA = gVar;
         File file = new File(str);
         if (file.exists()) {
             this.mFileLength = file.length();
             this.mFileMd5 = s.toMd5(n.GetStreamFromFile(file));
-            if (this.mFileLength % this.nvb == 0) {
-                this.nvc = (int) (this.mFileLength / this.nvb);
+            if (this.mFileLength % this.nqv == 0) {
+                this.nqw = (int) (this.mFileLength / this.nqv);
             } else {
-                this.nvc = ((int) (this.mFileLength / this.nvb)) + 1;
+                this.nqw = ((int) (this.mFileLength / this.nqv)) + 1;
             }
         }
     }
@@ -44,12 +44,12 @@ public class d implements b {
     @Override // com.baidu.tieba.tbadkCore.videoupload.a.b
     public VideoFinishResult bV(String str, int i) {
         a a2;
-        if (StringUtils.isNull(str) || this.mFileLength <= 0 || StringUtils.isNull(this.mFileMd5) || i <= 0 || this.nve) {
+        if (StringUtils.isNull(str) || this.mFileLength <= 0 || StringUtils.isNull(this.mFileMd5) || i <= 0 || this.nqy) {
             return null;
         }
-        Li(10);
-        a a3 = a(this.nvc, i, false, null);
-        if (a3 == null || this.nve) {
+        JB(10);
+        a a3 = a(this.nqw, i, false, null);
+        if (a3 == null || this.nqy) {
             return null;
         }
         if (a3.mErrorNo != 0) {
@@ -59,26 +59,26 @@ public class d implements b {
             q(302, a3.mErrorNo, a3.mErrorMessage);
             return videoFinishResult;
         }
-        Li(30);
+        JB(30);
         if (!StringUtils.isNull(a3.mVideoUrl)) {
             VideoFinishResult videoFinishResult2 = new VideoFinishResult();
             videoFinishResult2.setVideoMd5(this.mFileMd5);
             videoFinishResult2.setVideoUrl(a3.mVideoUrl);
-            dQw();
+            dME();
             return videoFinishResult2;
-        } else if (this.nve) {
+        } else if (this.nqy) {
             return null;
         } else {
-            ArrayList<Integer> arrayList = a3.nuW;
+            ArrayList<Integer> arrayList = a3.nqq;
             if (x.isEmpty(arrayList)) {
                 arrayList = new ArrayList<>();
-                for (int i2 = 0; i2 < this.nvc; i2++) {
+                for (int i2 = 0; i2 < this.nqw; i2++) {
                     arrayList.add(Integer.valueOf(i2 + 1));
                 }
             }
-            String str2 = a3.nuX;
+            String str2 = a3.nqr;
             com.baidu.tieba.tbadkCore.videoupload.a.a.d d = d(arrayList, str2, i);
-            if (d == null || this.nve) {
+            if (d == null || this.nqy) {
                 return null;
             }
             if (d.errorNo != 0) {
@@ -88,36 +88,36 @@ public class d implements b {
                 q(303, d.errorNo, d.errorMessage);
                 return videoFinishResult3;
             }
-            Li(85);
+            JB(85);
             if (!StringUtils.isNull(d.videoUrl)) {
                 VideoFinishResult videoFinishResult4 = new VideoFinishResult();
                 videoFinishResult4.setVideoUrl(d.videoUrl);
                 videoFinishResult4.setVideoMd5(this.mFileMd5);
-                dQw();
+                dME();
                 return videoFinishResult4;
-            } else if (this.nve || (a2 = a(this.nvc, i, true, str2)) == null) {
+            } else if (this.nqy || (a2 = a(this.nqw, i, true, str2)) == null) {
                 return null;
             } else {
                 VideoFinishResult videoFinishResult5 = new VideoFinishResult();
                 if (a2.mErrorNo == 0) {
                     videoFinishResult5.setVideoUrl(a2.mVideoUrl);
                     videoFinishResult5.setVideoMd5(this.mFileMd5);
-                    dQw();
+                    dME();
                 } else {
                     videoFinishResult5.setErrorNo(a2.mErrorNo);
                     videoFinishResult5.setUserMessage(a2.mErrorMessage);
                     q(304, a2.mErrorNo, a2.mErrorMessage);
-                    TiebaStatic.log(new aq("c12024").dX("params", a2.mErrorMessage));
+                    TiebaStatic.log(new aq("c12024").dW("params", a2.mErrorMessage));
                 }
-                Li(100);
+                JB(100);
                 return videoFinishResult5;
             }
         }
     }
 
-    private void Li(int i) {
-        if (this.nvd != null) {
-            this.nvd.aX(i / 100.0f);
+    private void JB(int i) {
+        if (this.nqx != null) {
+            this.nqx.aX(i / 100.0f);
         }
     }
 
@@ -125,7 +125,7 @@ public class d implements b {
         z zVar = new z(TbConfig.SERVER_ADDRESS + TbConfig.URL_CHECK_VIDEO_STATUS);
         zVar.addPostData("chunk_sum", String.valueOf(i));
         zVar.addPostData("video_size", String.valueOf(this.mFileLength));
-        zVar.addPostData("chunk_size", String.valueOf(this.nvb));
+        zVar.addPostData("chunk_size", String.valueOf(this.nqv));
         zVar.addPostData("is_merge", String.valueOf(z ? 1 : 0));
         zVar.addPostData("video_md5", this.mFileMd5);
         zVar.addPostData("video_len", String.valueOf(j));
@@ -134,7 +134,7 @@ public class d implements b {
             zVar.addPostData("upload_id", str);
         }
         String postNetData = zVar.postNetData();
-        if (zVar.bvR().bwB().isRequestSuccess()) {
+        if (zVar.brX().bsH().isRequestSuccess()) {
             if (StringUtils.isNull(postNetData)) {
                 return null;
             }
@@ -143,12 +143,12 @@ public class d implements b {
             return aVar;
         }
         a aVar2 = new a();
-        if (zVar.bvR().bwB().isNetSuccess()) {
-            aVar2.mErrorNo = zVar.bvR().bwB().mServerErrorCode;
+        if (zVar.brX().bsH().isNetSuccess()) {
+            aVar2.mErrorNo = zVar.brX().bsH().mServerErrorCode;
         } else {
-            aVar2.mErrorNo = zVar.bvR().bwB().mNetErrorCode;
+            aVar2.mErrorNo = zVar.brX().bsH().mNetErrorCode;
         }
-        aVar2.mErrorMessage = zVar.bvR().bwB().mErrorString;
+        aVar2.mErrorMessage = zVar.brX().bsH().mErrorString;
         return aVar2;
     }
 
@@ -157,38 +157,38 @@ public class d implements b {
             return null;
         }
         if (arrayList.size() > 3) {
-            this.nvf = new com.baidu.tieba.tbadkCore.videoupload.a.a.b(this.mFileName, this.nvb, this.nvc, this.mFileLength, this.mFileMd5);
+            this.nqz = new com.baidu.tieba.tbadkCore.videoupload.a.a.b(this.mFileName, this.nqv, this.nqw, this.mFileLength, this.mFileMd5);
         } else {
-            this.nvf = new com.baidu.tieba.tbadkCore.videoupload.a.a.c(this.mFileName, this.nvb, this.nvc, this.mFileLength, this.mFileMd5);
+            this.nqz = new com.baidu.tieba.tbadkCore.videoupload.a.a.c(this.mFileName, this.nqv, this.nqw, this.mFileLength, this.mFileMd5);
         }
-        this.nvf.a(this.nvd);
-        com.baidu.tieba.tbadkCore.videoupload.a.a.d d = this.nvf.d(arrayList, str, i);
-        this.nvf = null;
+        this.nqz.a(this.nqx);
+        com.baidu.tieba.tbadkCore.videoupload.a.a.d d = this.nqz.d(arrayList, str, i);
+        this.nqz = null;
         return d;
     }
 
     @Override // com.baidu.tieba.tbadkCore.videoupload.a.b
     public void cancel() {
-        this.nve = true;
-        if (this.nvf != null) {
-            this.nvf.cancel();
+        this.nqy = true;
+        if (this.nqz != null) {
+            this.nqz.cancel();
         }
     }
 
     @Override // com.baidu.tieba.tbadkCore.videoupload.a.b
     public void a(e eVar) {
-        this.nvd = eVar;
+        this.nqx = eVar;
     }
 
     private void q(int i, int i2, String str) {
-        if (this.nvg != null) {
-            this.nvg.p(i, i2, str);
+        if (this.nqA != null) {
+            this.nqA.p(i, i2, str);
         }
     }
 
-    private void dQw() {
-        if (this.nvg != null) {
-            this.nvg.diA();
+    private void dME() {
+        if (this.nqA != null) {
+            this.nqA.deI();
         }
     }
 }

@@ -6,14 +6,14 @@ import android.os.Message;
 import android.util.Log;
 import com.baidu.platform.comjni.bikenavi.JNIEngineManager;
 import com.baidu.platform.comjni.jninative.EngineCommonConfig;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class b extends com.baidu.platform.comapi.walknavi.a {
 
     /* renamed from: a  reason: collision with root package name */
-    private JNIEngineManager f4409a = null;
+    private JNIEngineManager f4192a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    private long f4410b = 0;
+    private long f4193b = 0;
     private long c = 0;
     private long d = 0;
     private com.baidu.platform.comapi.walknavi.c.a e = null;
@@ -34,24 +34,24 @@ public class b extends com.baidu.platform.comapi.walknavi.a {
             return;
         }
         EngineCommonConfig engineCommonConfig = new EngineCommonConfig();
-        int min = Math.min(com.baidu.platform.comapi.wnplatform.p.b.b.a().b(), 800);
+        int min = Math.min(com.baidu.platform.comapi.wnplatform.o.b.b.a().b(), 800);
         engineCommonConfig.mStreetPicWidth = min;
         engineCommonConfig.mStreetPicHeight = (min * 3) / 5;
         engineCommonConfig.mStreetPicQuality = 80;
-        engineCommonConfig.mNoExistSensor = !com.baidu.platform.comapi.walknavi.b.a().f();
-        this.f4409a = new JNIEngineManager();
+        engineCommonConfig.mNoExistSensor = !com.baidu.platform.comapi.walknavi.b.a().e();
+        this.f4192a = new JNIEngineManager();
         new a(j, engineCommonConfig).start();
-        new C0295b(context).start();
+        new C0278b(context).start();
     }
 
     @Override // com.baidu.platform.comapi.walknavi.a
     public synchronized void release() {
         d();
-        this.f4409a = null;
+        this.f4192a = null;
         this.c = 0L;
         this.d = 0L;
         this.f = 0;
-        this.f4410b = 0L;
+        this.f4193b = 0L;
         this.e = null;
     }
 
@@ -61,25 +61,25 @@ public class b extends com.baidu.platform.comapi.walknavi.a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public class a extends Thread {
 
         /* renamed from: b  reason: collision with root package name */
-        private EngineCommonConfig f4412b;
+        private EngineCommonConfig f4195b;
         private long c;
 
         public a(long j, EngineCommonConfig engineCommonConfig) {
             this.c = j;
-            this.f4412b = engineCommonConfig;
+            this.f4195b = engineCommonConfig;
         }
 
         @Override // java.lang.Thread, java.lang.Runnable
         public void run() {
             long[] jArr = {0};
-            int initBaseManager = b.this.f4409a.initBaseManager(this.f4412b, this.c, jArr);
+            int initBaseManager = b.this.f4192a.initBaseManager(this.f4195b, this.c, jArr);
             Log.d("ret====", "ret：" + initBaseManager);
             if (initBaseManager == 0) {
-                b.this.f4410b = jArr[0];
+                b.this.f4193b = jArr[0];
                 Message.obtain(b.this.g, 16).sendToTarget();
                 return;
             }
@@ -102,12 +102,12 @@ public class b extends com.baidu.platform.comapi.walknavi.a {
     }
 
     private long a(int i) {
-        if (this.f4409a == null || this.f4410b == 0) {
+        if (this.f4192a == null || this.f4193b == 0) {
             return 0L;
         }
         long[] jArr = {0};
         try {
-            this.f4409a.getSubSysHandle(this.f4410b, i, jArr);
+            this.f4192a.getSubSysHandle(this.f4193b, i, jArr);
         } catch (Exception e) {
             com.baidu.platform.comapi.wnplatform.d.a.b(e.getMessage());
         }
@@ -115,27 +115,27 @@ public class b extends com.baidu.platform.comapi.walknavi.a {
     }
 
     private synchronized void d() {
-        if (this.f4409a != null) {
-            this.f4409a.uninitBaseManager(this.f4410b);
+        if (this.f4192a != null) {
+            this.f4192a.uninitBaseManager(this.f4193b);
             this.c = 0L;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.platform.comapi.walknavi.c.b$b  reason: collision with other inner class name */
-    /* loaded from: classes3.dex */
-    public class C0295b extends Thread {
+    /* loaded from: classes6.dex */
+    public class C0278b extends Thread {
 
         /* renamed from: b  reason: collision with root package name */
-        private Context f4414b;
+        private Context f4197b;
 
-        public C0295b(Context context) {
-            this.f4414b = context;
+        public C0278b(Context context) {
+            this.f4197b = context;
         }
 
         @Override // java.lang.Thread, java.lang.Runnable
         public void run() {
-            if (com.baidu.platform.comapi.wnplatform.p.a.a.a(this.f4414b)) {
+            if (com.baidu.platform.comapi.wnplatform.o.a.a.a(this.f4197b)) {
                 Message.obtain(b.this.g, 32).sendToTarget();
                 return;
             }

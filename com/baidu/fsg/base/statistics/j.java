@@ -12,14 +12,14 @@ import java.util.regex.Pattern;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class j {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f2001a = "cu";
+    public static final String f1951a = "cu";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f2002b = "cu2";
+    public static final String f1952b = "cu2";
     public static final String c = "ua";
     public static final String d = "op";
     public static final String e = "bs";
@@ -30,11 +30,11 @@ public class j {
     private Pattern j;
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        private static j f2003a = new j();
+        private static j f1953a = new j();
 
         private a() {
         }
@@ -44,8 +44,8 @@ public class j {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.putOpt(c, e(RimStatisticsUtil.getAppContext()));
-            jSONObject.putOpt(f2001a, c(RimStatisticsUtil.getAppContext()));
-            jSONObject.put(f2002b, d(RimStatisticsUtil.getAppContext()));
+            jSONObject.putOpt(f1951a, c(RimStatisticsUtil.getAppContext()));
+            jSONObject.put(f1952b, d(RimStatisticsUtil.getAppContext()));
             jSONObject.putOpt("op", f(RimStatisticsUtil.getAppContext()));
             jSONObject.putOpt("bs", g(RimStatisticsUtil.getAppContext()));
             jSONObject.putOpt(f, h(RimStatisticsUtil.getAppContext()));
@@ -71,7 +71,7 @@ public class j {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static j c() {
-        return a.f2003a;
+        return a.f1953a;
     }
 
     private String c(Context context) {

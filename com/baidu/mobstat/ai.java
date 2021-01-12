@@ -13,7 +13,7 @@ import android.widget.FrameLayout;
 import android.widget.TextView;
 import com.baidu.live.tbadk.pay.PayHelper;
 import com.kwai.video.player.NativeErrorCode;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class ai {
     public static boolean a(View view) {
         Object tag = view.getTag(NativeErrorCode.EKS_FFMPEG_ERROR_BASE);
@@ -85,10 +85,10 @@ public class ai {
         textView.setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.mobstat.ai.2
 
             /* renamed from: a  reason: collision with root package name */
-            int f3691a = 0;
+            int f3653a = 0;
 
             /* renamed from: b  reason: collision with root package name */
-            int f3692b = 0;
+            int f3654b = 0;
             int c = 0;
             int d = 0;
 
@@ -98,13 +98,13 @@ public class ai {
                 int rawY = (int) motionEvent.getRawY();
                 switch (motionEvent.getAction()) {
                     case 0:
-                        this.f3691a = rawX;
-                        this.f3692b = rawY;
+                        this.f3653a = rawX;
+                        this.f3654b = rawY;
                         this.c = rawX - view2.getLeft();
                         this.d = rawY - view2.getTop();
                         return true;
                     case 1:
-                        if (ai.b(this.f3691a, (int) motionEvent.getRawX(), this.f3692b, (int) motionEvent.getRawY())) {
+                        if (ai.b(this.f3653a, (int) motionEvent.getRawX(), this.f3654b, (int) motionEvent.getRawY())) {
                             ai.b((Context) activity);
                             return true;
                         }

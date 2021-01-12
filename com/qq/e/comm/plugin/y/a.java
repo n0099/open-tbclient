@@ -15,18 +15,18 @@ import yaq.gdtadv;
 /* JADX WARN: Classes with same name are omitted:
   assets/yaqgdtadv0.sec
  */
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 abstract class a<T extends n> {
 
     /* renamed from: a  reason: collision with root package name */
-    Context f12994a;
+    Context f12694a;
 
     /* renamed from: b  reason: collision with root package name */
-    List<T> f12995b = new LinkedList();
+    List<T> f12695b = new LinkedList();
     private long c = 0;
 
     public a(Context context) {
-        this.f12994a = context;
+        this.f12694a = context;
     }
 
     private void e(List<T> list) {
@@ -35,8 +35,8 @@ abstract class a<T extends n> {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a() {
-        ArrayList arrayList = new ArrayList(this.f12995b);
-        this.f12995b.clear();
+        ArrayList arrayList = new ArrayList(this.f12695b);
+        this.f12695b.clear();
         d(arrayList);
     }
 
@@ -45,15 +45,15 @@ abstract class a<T extends n> {
         if (t == null) {
             return;
         }
-        if (this.f12995b.size() >= 1000) {
-            Iterator<T> it = this.f12995b.iterator();
-            for (int size = (this.f12995b.size() - 1000) + 1; size > 0 && it.hasNext(); size--) {
+        if (this.f12695b.size() >= 1000) {
+            Iterator<T> it = this.f12695b.iterator();
+            for (int size = (this.f12695b.size() - 1000) + 1; size > 0 && it.hasNext(); size--) {
                 it.next();
                 it.remove();
             }
         }
-        this.f12995b.add(t);
-        GDTLogger.d("Add stat data: " + t + ", total: " + this.f12995b.size());
+        this.f12695b.add(t);
+        GDTLogger.d("Add stat data: " + t + ", total: " + this.f12695b.size());
     }
 
     void a(List<T> list) {
@@ -65,7 +65,7 @@ abstract class a<T extends n> {
                 if (t.a() >= 0) {
                     hashSet.add(Integer.valueOf(t.a()));
                 }
-                this.f12995b.remove(t);
+                this.f12695b.remove(t);
             }
         }
         a(hashSet);
@@ -76,7 +76,7 @@ abstract class a<T extends n> {
     /* JADX INFO: Access modifiers changed from: package-private */
     public void b() {
         ai.a("Start commit stat data", new Object[0]);
-        List<T> arrayList = new ArrayList<>(this.f12995b);
+        List<T> arrayList = new ArrayList<>(this.f12695b);
         List<T> f = f();
         if (f != null && f.size() > 0) {
             arrayList.addAll(f);

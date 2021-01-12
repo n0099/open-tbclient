@@ -11,99 +11,99 @@ import com.baidu.live.data.x;
 import com.baidu.live.tbadk.TbConfig;
 import com.baidu.live.tbadk.TbPageContext;
 import com.baidu.live.tbadk.task.TbHttpMessageTask;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class c extends BdBaseModel implements com.baidu.live.talentshow.c.e {
-    private TbPageContext bFa;
-    private x bFb;
-    private com.baidu.live.talentshow.c.c bHq;
-    private com.baidu.live.talentshow.c.d bHr;
-    private HttpMessageListener bHs = new HttpMessageListener(1021222) { // from class: com.baidu.live.talentshow.model.c.1
+    private TbPageContext bAo;
+    private x bAp;
+    private com.baidu.live.talentshow.c.c bCE;
+    private com.baidu.live.talentshow.c.d bCF;
+    private HttpMessageListener bCG = new HttpMessageListener(1021222) { // from class: com.baidu.live.talentshow.model.c.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             LiveBCVideoApplyChatResponse liveBCVideoApplyChatResponse = (LiveBCVideoApplyChatResponse) httpResponsedMessage;
             if (!liveBCVideoApplyChatResponse.isSuccess() || liveBCVideoApplyChatResponse.getError() != 0) {
-                if (c.this.bHq != null) {
-                    c.this.bHq.z(liveBCVideoApplyChatResponse.getError(), liveBCVideoApplyChatResponse.getErrorString());
+                if (c.this.bCE != null) {
+                    c.this.bCE.A(liveBCVideoApplyChatResponse.getError(), liveBCVideoApplyChatResponse.getErrorString());
                 }
-            } else if (c.this.bHq != null) {
-                c.this.bHq.a(c.this.a(liveBCVideoApplyChatResponse));
+            } else if (c.this.bCE != null) {
+                c.this.bCE.a(c.this.a(liveBCVideoApplyChatResponse));
             }
         }
     };
-    private HttpMessageListener bHt = new HttpMessageListener(1021223) { // from class: com.baidu.live.talentshow.model.c.2
+    private HttpMessageListener bCH = new HttpMessageListener(1021223) { // from class: com.baidu.live.talentshow.model.c.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             LiveBCVideoCancelChatResponse liveBCVideoCancelChatResponse = (LiveBCVideoCancelChatResponse) httpResponsedMessage;
             if (!liveBCVideoCancelChatResponse.isSuccess() || liveBCVideoCancelChatResponse.getError() != 0) {
-                if (c.this.bHr != null) {
-                    c.this.bHr.A(liveBCVideoCancelChatResponse.getError(), liveBCVideoCancelChatResponse.getErrorString());
+                if (c.this.bCF != null) {
+                    c.this.bCF.B(liveBCVideoCancelChatResponse.getError(), liveBCVideoCancelChatResponse.getErrorString());
                 }
-            } else if (c.this.bHr != null) {
-                c.this.bHr.Ua();
+            } else if (c.this.bCF != null) {
+                c.this.bCF.Qf();
             }
         }
     };
 
     public c(TbPageContext tbPageContext) {
-        this.bFa = tbPageContext;
-        Vs();
-        Vt();
+        this.bAo = tbPageContext;
+        Rz();
+        RA();
     }
 
     @Override // com.baidu.live.talentshow.c.e
     public void a(com.baidu.live.talentshow.c.c cVar) {
         if (cVar != null) {
-            this.bHq = cVar;
+            this.bCE = cVar;
         }
     }
 
     @Override // com.baidu.live.talentshow.c.e
     public void a(com.baidu.live.talentshow.c.d dVar) {
         if (dVar != null) {
-            this.bHr = dVar;
+            this.bCF = dVar;
         }
     }
 
     @Override // com.baidu.live.talentshow.c.e
     public void t(x xVar) {
-        this.bFb = xVar;
+        this.bAp = xVar;
     }
 
     @Override // com.baidu.live.talentshow.c.e
-    public void UU() {
-        if (this.bFb != null) {
-            MessageManager.getInstance().sendMessage(x(this.bFb));
+    public void QZ() {
+        if (this.bAp != null) {
+            MessageManager.getInstance().sendMessage(x(this.bAp));
         }
     }
 
     @Override // com.baidu.live.talentshow.c.e
-    public void UV() {
-        if (this.bFb != null) {
+    public void Ra() {
+        if (this.bAp != null) {
             b bVar = new b();
-            bVar.setLiveId(this.bFb.mLiveInfo.live_id);
-            bVar.setRoomId(this.bFb.mLiveInfo.room_id);
+            bVar.setLiveId(this.bAp.mLiveInfo.live_id);
+            bVar.setRoomId(this.bAp.mLiveInfo.room_id);
             MessageManager.getInstance().sendMessage(bVar);
         }
     }
 
-    private void Vs() {
+    private void Rz() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1021222, TbConfig.SERVER_ADDRESS + "liveconnect/show/apply");
         tbHttpMessageTask.setMethod(HttpMessageTask.HTTP_METHOD.POST);
         tbHttpMessageTask.setResponsedClass(LiveBCVideoApplyChatResponse.class);
         tbHttpMessageTask.setTimeOut(new TimeOutData(5000));
         tbHttpMessageTask.setRetry(2);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
-        MessageManager.getInstance().registerListener(this.bHs);
+        MessageManager.getInstance().registerListener(this.bCG);
     }
 
     private a x(x xVar) {
         a aVar = new a();
         aVar.setRoomId(xVar.mLiveInfo.room_id);
-        aVar.setImUK(AccountManager.getUK(this.bFa.getPageActivity()));
+        aVar.setImUK(AccountManager.getUK(this.bAo.getPageActivity()));
         aVar.setLiveId(xVar.mLiveInfo.live_id);
-        aVar.iG(TbConfig.getSubappType());
+        aVar.hv(TbConfig.getSubappType());
         aVar.setSource("show_pub_v2");
         return aVar;
     }
@@ -111,19 +111,19 @@ public class c extends BdBaseModel implements com.baidu.live.talentshow.c.e {
     /* JADX INFO: Access modifiers changed from: private */
     public com.baidu.live.talentshow.b.a a(LiveBCVideoApplyChatResponse liveBCVideoApplyChatResponse) {
         com.baidu.live.talentshow.b.a aVar = new com.baidu.live.talentshow.b.a();
-        aVar.iB(liveBCVideoApplyChatResponse.getStatus());
-        aVar.iC(liveBCVideoApplyChatResponse.US());
+        aVar.hq(liveBCVideoApplyChatResponse.getStatus());
+        aVar.hr(liveBCVideoApplyChatResponse.QX());
         return aVar;
     }
 
-    private void Vt() {
+    private void RA() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1021223, TbConfig.SERVER_ADDRESS + "liveconnect/show/cancel");
         tbHttpMessageTask.setMethod(HttpMessageTask.HTTP_METHOD.POST);
         tbHttpMessageTask.setResponsedClass(LiveBCVideoCancelChatResponse.class);
         tbHttpMessageTask.setRetry(2);
         tbHttpMessageTask.setTimeOut(new TimeOutData(5000));
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
-        MessageManager.getInstance().registerListener(this.bHt);
+        MessageManager.getInstance().registerListener(this.bCH);
     }
 
     @Override // com.baidu.live.adp.base.BdBaseModel
@@ -139,11 +139,11 @@ public class c extends BdBaseModel implements com.baidu.live.talentshow.c.e {
     @Override // com.baidu.live.talentshow.c.e
     public void onDestroy() {
         MessageManager.getInstance().unRegisterTask(1021222);
-        MessageManager.getInstance().unRegisterListener(this.bHs);
+        MessageManager.getInstance().unRegisterListener(this.bCG);
         MessageManager.getInstance().unRegisterTask(1021223);
-        MessageManager.getInstance().unRegisterListener(this.bHt);
-        this.bFb = null;
-        this.bHr = null;
-        this.bHq = null;
+        MessageManager.getInstance().unRegisterListener(this.bCH);
+        this.bAp = null;
+        this.bCF = null;
+        this.bCE = null;
     }
 }

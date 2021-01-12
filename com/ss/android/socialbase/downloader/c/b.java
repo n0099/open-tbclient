@@ -24,7 +24,7 @@ public interface b extends IInterface {
             if (queryLocalInterface != null && (queryLocalInterface instanceof b)) {
                 return (b) queryLocalInterface;
             }
-            return new C1245a(iBinder);
+            return new C1228a(iBinder);
         }
 
         @Override // android.os.IInterface
@@ -51,18 +51,18 @@ public interface b extends IInterface {
 
         /* renamed from: com.ss.android.socialbase.downloader.c.b$a$a  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        private static class C1245a implements b {
+        private static class C1228a implements b {
 
             /* renamed from: a  reason: collision with root package name */
-            private IBinder f13383a;
+            private IBinder f13083a;
 
-            C1245a(IBinder iBinder) {
-                this.f13383a = iBinder;
+            C1228a(IBinder iBinder) {
+                this.f13083a = iBinder;
             }
 
             @Override // android.os.IInterface
             public IBinder asBinder() {
-                return this.f13383a;
+                return this.f13083a;
             }
 
             @Override // com.ss.android.socialbase.downloader.c.b
@@ -73,7 +73,7 @@ public interface b extends IInterface {
                     obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.db.ISqlCacheLoadCompleteCallbackAidl");
                     obtain.writeMap(map);
                     obtain.writeMap(map2);
-                    this.f13383a.transact(1, obtain, obtain2, 0);
+                    this.f13083a.transact(1, obtain, obtain2, 0);
                     obtain2.readException();
                 } finally {
                     obtain2.recycle();

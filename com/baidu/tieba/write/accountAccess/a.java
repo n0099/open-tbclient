@@ -21,129 +21,129 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.tbadkCore.writeModel.NewWriteModel;
 import com.baidu.tieba.tbadkCore.writeModel.PostWriteCallBackData;
 import com.baidu.tieba.tbadkCore.writeModel.g;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class a {
-    private final b nXW;
-    private final NewWriteModel nXZ;
-    private boolean nYa = false;
-    private final NewWriteModel.d fGo = new NewWriteModel.d() { // from class: com.baidu.tieba.write.accountAccess.a.1
+    private final b nTr;
+    private final NewWriteModel nTu;
+    private boolean nTv = false;
+    private final NewWriteModel.d fBH = new NewWriteModel.d() { // from class: com.baidu.tieba.write.accountAccess.a.1
         @Override // com.baidu.tieba.tbadkCore.writeModel.NewWriteModel.d
         public void callback(boolean z, PostWriteCallBackData postWriteCallBackData, ah ahVar, WriteData writeData, AntiData antiData) {
-            if (a.this.nXW != null && a.this.nXZ != null && a.this.nXZ.dcp() != null) {
-                a.this.nXW.showPostThreadLoadingView(false);
-                WriteData dcp = writeData == null ? a.this.nXZ.dcp() : writeData;
+            if (a.this.nTr != null && a.this.nTu != null && a.this.nTu.cYx() != null) {
+                a.this.nTr.showPostThreadLoadingView(false);
+                WriteData cYx = writeData == null ? a.this.nTu.cYx() : writeData;
                 if (z) {
-                    a.this.nYa = true;
-                    if (dcp.getType() != 0 || dcp.isUserFeedback()) {
+                    a.this.nTv = true;
+                    if (cYx.getType() != 0 || cYx.isUserFeedback()) {
                         if (postWriteCallBackData == null) {
-                            g.i(a.this.nXW.getContext().getActivity(), a.this.nXW.getContext().getResources().getString(R.string.send_success), null, null);
+                            g.i(a.this.nTr.getContext().getActivity(), a.this.nTr.getContext().getResources().getString(R.string.send_success), null, null);
                         } else {
-                            g.i(a.this.nXW.getContext().getActivity(), postWriteCallBackData.getErrorString(), postWriteCallBackData.getPreMsg(), postWriteCallBackData.getColorMsg());
+                            g.i(a.this.nTr.getContext().getActivity(), postWriteCallBackData.getErrorString(), postWriteCallBackData.getPreMsg(), postWriteCallBackData.getColorMsg());
                         }
                     }
                     Intent intent = new Intent();
                     Bundle bundle = new Bundle();
                     bundle.putSerializable("post_write_callback_data", postWriteCallBackData);
                     intent.putExtras(bundle);
-                    BaseActivity context = a.this.nXW.getContext();
-                    a.this.nXW.getContext();
+                    BaseActivity context = a.this.nTr.getContext();
+                    a.this.nTr.getContext();
                     context.setResult(-1, intent);
-                    a.this.nXW.getContext().finish();
-                } else if (dcp != null && ahVar != null && !TextUtils.isEmpty(ahVar.bAg())) {
-                    dcp.setVcodeMD5(ahVar.getVcode_md5());
-                    dcp.setVcodeUrl(ahVar.getVcode_pic_url());
-                    dcp.setVcodeExtra(ahVar.bAh());
-                    a.this.nXW.getContext().setVisible(false);
-                    if (com.baidu.tbadk.t.a.EP(ahVar.bAg())) {
-                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new NewVcodeActivityConfig(a.this.nXW.getContext().getActivity(), RequestResponseCode.REQUEST_VCODE, dcp, false, ahVar.bAg())));
+                    a.this.nTr.getContext().finish();
+                } else if (cYx != null && ahVar != null && !TextUtils.isEmpty(ahVar.bwm())) {
+                    cYx.setVcodeMD5(ahVar.getVcode_md5());
+                    cYx.setVcodeUrl(ahVar.getVcode_pic_url());
+                    cYx.setVcodeExtra(ahVar.bwn());
+                    a.this.nTr.getContext().setVisible(false);
+                    if (com.baidu.tbadk.t.a.DE(ahVar.bwm())) {
+                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new NewVcodeActivityConfig(a.this.nTr.getContext().getActivity(), RequestResponseCode.REQUEST_VCODE, cYx, false, ahVar.bwm())));
                     } else {
-                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new VcodeActivityConfig(a.this.nXW.getContext().getActivity(), dcp, RequestResponseCode.REQUEST_VCODE)));
+                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new VcodeActivityConfig(a.this.nTr.getContext().getActivity(), cYx, RequestResponseCode.REQUEST_VCODE)));
                     }
                 } else if (postWriteCallBackData != null && postWriteCallBackData.isSensitiveError()) {
                     Intent intent2 = new Intent();
                     Bundle bundle2 = new Bundle();
                     bundle2.putSerializable("post_write_callback_data", postWriteCallBackData);
                     intent2.putExtras(bundle2);
-                    BaseActivity context2 = a.this.nXW.getContext();
-                    a.this.nXW.getContext();
+                    BaseActivity context2 = a.this.nTr.getContext();
+                    a.this.nTr.getContext();
                     context2.setResult(0, intent2);
-                    a.this.nXW.getContext().finish();
+                    a.this.nTr.getContext().finish();
                 } else {
                     if (postWriteCallBackData != null) {
-                        g.i(a.this.nXW.getContext().getActivity(), postWriteCallBackData.getErrorString(), postWriteCallBackData.getPreMsg(), postWriteCallBackData.getColorMsg());
-                        BaseActivity context3 = a.this.nXW.getContext();
-                        a.this.nXW.getContext();
+                        g.i(a.this.nTr.getContext().getActivity(), postWriteCallBackData.getErrorString(), postWriteCallBackData.getPreMsg(), postWriteCallBackData.getColorMsg());
+                        BaseActivity context3 = a.this.nTr.getContext();
+                        a.this.nTr.getContext();
                         context3.setResult(0, null);
                     }
-                    a.this.nXW.getContext().finish();
+                    a.this.nTr.getContext().finish();
                 }
             }
         }
     };
 
     public a(b bVar, NewWriteModel newWriteModel) {
-        this.nXW = bVar;
-        this.nXZ = newWriteModel;
-        newWriteModel.b(this.fGo);
+        this.nTr = bVar;
+        this.nTu = newWriteModel;
+        newWriteModel.b(this.fBH);
     }
 
-    public boolean Vj(String str) {
-        if (this.nXW == null || str == null) {
+    public boolean Ub(String str) {
+        if (this.nTr == null || str == null) {
             return false;
         }
         if (str.equals("http://tieba.baidu.com/account/access/cancel")) {
-            this.nXW.getContext().finish();
+            this.nTr.getContext().finish();
             return true;
         } else if (str.equals("http://tieba.baidu.com/account/access/input_focus")) {
-            this.nXW.setWebViewMargin(0, UtilHelper.getImmersiveStickyBarHeight(), 0, 0);
-            if (this.nXW.dYm() != this.nXW.getRatio()) {
-                this.nXW.setRatio(this.nXW.dYm());
-                this.nXW.dYn();
+            this.nTr.setWebViewMargin(0, UtilHelper.getImmersiveStickyBarHeight(), 0, 0);
+            if (this.nTr.dUu() != this.nTr.getRatio()) {
+                this.nTr.setRatio(this.nTr.dUu());
+                this.nTr.dUv();
             }
-            this.nXW.getWebView().setVisibility(0);
+            this.nTr.getWebView().setVisibility(0);
             return true;
         } else if (str.equals("http://tieba.baidu.com/account/access/valid_success")) {
-            dYl();
+            dUt();
             return true;
         } else if (str.equals("http://tieba.baidu.com/account/access/feedback") || str.equals("https://tieba.baidu.com/account/access/feedback")) {
-            this.nXW.getContext().finish();
-            be.bwv().b(this.nXW.getContext().getPageContext(), new String[]{UrlSchemaHelper.SCHEMA_TYPE_FEED_BACK});
+            this.nTr.getContext().finish();
+            be.bsB().b(this.nTr.getContext().getPageContext(), new String[]{UrlSchemaHelper.SCHEMA_TYPE_FEED_BACK});
             return true;
         } else {
             return true;
         }
     }
 
-    public void dYj() {
-        if (this.nXW != null) {
-            this.nXW.showWebViewDelay(500);
+    public void dUr() {
+        if (this.nTr != null) {
+            this.nTr.showWebViewDelay(500);
         }
     }
 
     public void start(String str) {
-        if (this.nXW != null) {
-            this.nXW.zi(true);
-            this.nXW.showWebView(false);
-            this.nXW.getWebView().loadUrl(str);
+        if (this.nTr != null) {
+            this.nTr.ze(true);
+            this.nTr.showWebView(false);
+            this.nTr.getWebView().loadUrl(str);
         }
     }
 
-    public void dYk() {
-        if (this.nXW != null) {
-            this.nXW.showPostThreadLoadingView(false);
+    public void dUs() {
+        if (this.nTr != null) {
+            this.nTr.showPostThreadLoadingView(false);
         }
     }
 
-    private void dYl() {
-        this.nYa = false;
-        if (this.nXW != null && this.nXZ != null) {
+    private void dUt() {
+        this.nTv = false;
+        if (this.nTr != null && this.nTu != null) {
             if (!l.isNetOk()) {
-                this.nXW.getContext().showToast(R.string.neterror);
-                this.nXW.getContext().finish();
+                this.nTr.getContext().showToast(R.string.neterror);
+                this.nTr.getContext().finish();
                 return;
             }
-            this.nXW.showPostThreadLoadingView(true);
-            this.nXZ.dQC();
+            this.nTr.showPostThreadLoadingView(true);
+            this.nTu.dMK();
         }
     }
 }

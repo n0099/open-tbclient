@@ -7,18 +7,18 @@ import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.core.atomdata.AlaMasterLiveRoomActivityConfig;
 import com.baidu.live.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.ala.liveroom.messages.GuardClubInfoRenameResponseMessage;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class MasterLiveInitialize {
     static {
-        clu();
-        clv();
+        chC();
+        chD();
     }
 
-    private static void clu() {
+    private static void chC() {
         TbadkCoreApplication.getInst().RegisterIntent(AlaMasterLiveRoomActivityConfig.class, AlaMasterLiveRoomActivity.class);
     }
 
-    private static void clv() {
+    private static void chD() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1021231, TbConfig.SERVER_HOST + "liveserver/guardClub/updateClubName");
         tbHttpMessageTask.setIsNeedLogin(true);
         tbHttpMessageTask.setIsNeedTbs(true);

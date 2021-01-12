@@ -7,7 +7,7 @@ import android.net.Uri;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import java.util.Locale;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class a {
     public static boolean a(Context context) {
         boolean z;

@@ -1,7 +1,7 @@
 package com.google.zxing.qrcode.decoder;
 
 import com.google.zxing.common.BitMatrix;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 enum DataMask {
     DATA_MASK_000 { // from class: com.google.zxing.qrcode.decoder.DataMask.1
         @Override // com.google.zxing.qrcode.decoder.DataMask

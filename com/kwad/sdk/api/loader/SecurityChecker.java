@@ -3,13 +3,13 @@ package com.kwad.sdk.api.loader;
 import android.text.TextUtils;
 import com.kwad.sdk.api.loader.a;
 import java.io.File;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 class SecurityChecker {
 
     /* renamed from: a  reason: collision with root package name */
-    private static volatile State f8486a;
+    private static volatile State f8186a;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public enum State {
         INIT,
         DATA_VALID,
@@ -17,7 +17,7 @@ class SecurityChecker {
         SUCCESS
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public interface a {
         void a(Exception exc);
 
@@ -25,18 +25,18 @@ class SecurityChecker {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static void a(final File file, final a.C1081a c1081a, final a aVar) {
+    public static void a(final File file, final a.C1064a c1064a, final a aVar) {
         i.a(new Runnable() { // from class: com.kwad.sdk.api.loader.SecurityChecker.1
             @Override // java.lang.Runnable
             public void run() {
-                State unused = SecurityChecker.f8486a = State.INIT;
+                State unused = SecurityChecker.f8186a = State.INIT;
                 try {
-                    boolean z = a.C1081a.this != null && SecurityChecker.b(file) && SecurityChecker.b(file, a.C1081a.this.c);
+                    boolean z = a.C1064a.this != null && SecurityChecker.b(file) && SecurityChecker.b(file, a.C1064a.this.c);
                     if (z) {
-                        State unused2 = SecurityChecker.f8486a = State.SUCCESS;
+                        State unused2 = SecurityChecker.f8186a = State.SUCCESS;
                     }
                     if (aVar != null) {
-                        aVar.a(z, SecurityChecker.f8486a);
+                        aVar.a(z, SecurityChecker.f8186a);
                     }
                 } catch (Exception e) {
                     if (aVar != null) {
@@ -49,13 +49,13 @@ class SecurityChecker {
 
     /* JADX INFO: Access modifiers changed from: private */
     public static boolean b(File file) {
-        f8486a = State.DATA_VALID;
+        f8186a = State.DATA_VALID;
         return file != null && file.exists() && file.getName().endsWith(".apk") && file.length() > 0;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public static boolean b(File file, String str) {
-        f8486a = State.MD5;
+        f8186a = State.MD5;
         if (TextUtils.isEmpty(str)) {
             return false;
         }

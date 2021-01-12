@@ -22,29 +22,29 @@ import com.baidu.tbadk.core.util.at;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ala.alasquare.special_forum.data.f;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class ConcernTabLiveItemView extends com.baidu.tieba.card.b<f> {
-    private ViewHolder gJU;
-    private int gJV;
+    private ViewHolder gFo;
+    private int gFp;
     private TbPageContext mTbPageContext;
 
     public ConcernTabLiveItemView(TbPageContext<?> tbPageContext, ViewGroup viewGroup) {
         super(tbPageContext, viewGroup);
-        this.gJV = 28;
+        this.gFp = 28;
         this.mTbPageContext = tbPageContext;
-        this.gJU = new ViewHolder(this);
+        this.gFo = new ViewHolder(this);
     }
 
     @Override // com.baidu.tieba.card.b
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
-        ao.setViewTextColor(this.gJU.gJY, R.color.CAM_X0105);
-        ao.setViewTextColor(this.gJU.gJZ, R.color.CAM_X0109);
-        ao.setViewTextColor(this.gJU.gKa, R.color.CAM_X0109);
-        ao.setViewTextColor(this.gJU.gHD, R.color.common_color_10140);
-        ao.setViewTextColor(this.gJU.gHv, R.color.CAM_X0109);
+        ao.setViewTextColor(this.gFo.gFs, R.color.CAM_X0105);
+        ao.setViewTextColor(this.gFo.gFt, R.color.CAM_X0109);
+        ao.setViewTextColor(this.gFo.gFu, R.color.CAM_X0109);
+        ao.setViewTextColor(this.gFo.gCX, R.color.common_color_10140);
+        ao.setViewTextColor(this.gFo.gCP, R.color.CAM_X0109);
         ao.getDrawable(this.mContext.getResources(), R.drawable.icon_video_direct_seeding).setBounds(0, 0, this.mContext.getResources().getDimensionPixelOffset(R.dimen.tbds8), this.mContext.getResources().getDimensionPixelOffset(R.dimen.tbds8));
-        this.gJU.gHv.setCompoundDrawablesWithIntrinsicBounds(ao.getDrawable(this.mContext.getResources(), R.drawable.icon_living_seeding), (Drawable) null, (Drawable) null, (Drawable) null);
-        ao.setBackgroundColor(this.gJU.bUk, R.color.CAM_X0204);
+        this.gFo.gCP.setCompoundDrawablesWithIntrinsicBounds(ao.getDrawable(this.mContext.getResources(), R.drawable.icon_living_seeding), (Drawable) null, (Drawable) null, (Drawable) null);
+        ao.setBackgroundColor(this.gFo.bPy, R.color.CAM_X0204);
     }
 
     @Override // com.baidu.tieba.card.b
@@ -57,42 +57,42 @@ public class ConcernTabLiveItemView extends com.baidu.tieba.card.b<f> {
     public void a(f fVar) {
         if (fVar.mUserData != null) {
             if (!StringUtils.isNull(fVar.mUserData.getPortrait())) {
-                this.gJU.gJX.startLoad(fVar.mUserData.getPortrait(), 12, false);
+                this.gFo.gFr.startLoad(fVar.mUserData.getPortrait(), 12, false);
             }
             if (!StringUtils.isNull(fVar.mUserData.getName_show())) {
-                this.gJU.gJY.setText(fVar.mUserData.getName_show());
+                this.gFo.gFs.setText(fVar.mUserData.getName_show());
             }
-            if (fVar.gIG) {
+            if (fVar.gEa) {
                 if (fVar.mUserData.hadConcerned()) {
-                    this.gJU.gHD.setVisibility(8);
-                    this.gJU.gKa.setVisibility(0);
+                    this.gFo.gCX.setVisibility(8);
+                    this.gFo.gFu.setVisibility(0);
                 } else {
-                    this.gJU.gHD.setVisibility(0);
-                    this.gJU.gKa.setVisibility(8);
+                    this.gFo.gCX.setVisibility(0);
+                    this.gFo.gFu.setVisibility(8);
                 }
             } else {
-                this.gJU.gHD.setVisibility(8);
-                this.gJU.gKa.setVisibility(8);
+                this.gFo.gCX.setVisibility(8);
+                this.gFo.gFu.setVisibility(8);
             }
-            this.gJU.gHD.setTag(fVar.mUserData);
+            this.gFo.gCX.setTag(fVar.mUserData);
         }
-        if (fVar.gIF != null) {
-            this.gJU.epV.setTag(fVar.gIF);
-            if (!StringUtils.isNull(fVar.gIF.description)) {
-                String str = fVar.gIF.description;
-                int i = this.gJV;
-                if (fVar.gIG) {
+        if (fVar.gDZ != null) {
+            this.gFo.elg.setTag(fVar.gDZ);
+            if (!StringUtils.isNull(fVar.gDZ.description)) {
+                String str = fVar.gDZ.description;
+                int i = this.gFp;
+                if (fVar.gEa) {
                     i -= 9;
                 }
-                this.gJU.gJZ.setText(k.byteLength(str) > i ? at.cutChineseAndEnglishWithSuffix(str, i, StringHelper.STRING_MORE) : str);
+                this.gFo.gFt.setText(k.byteLength(str) > i ? at.cutChineseAndEnglishWithSuffix(str, i, StringHelper.STRING_MORE) : str);
             }
         }
-        if (fVar.gIG) {
+        if (fVar.gEa) {
             TiebaStatic.log(new aq("c12895"));
         } else {
             TiebaStatic.log(new aq("c12893"));
         }
-        this.gJU.gHD.setTag(fVar.mUserData);
+        this.gFo.gCX.setTag(fVar.mUserData);
         onChangeSkinType(getTbPageContext(), TbadkCoreApplication.getInst().getSkinType());
     }
 
@@ -100,17 +100,17 @@ public class ConcernTabLiveItemView extends com.baidu.tieba.card.b<f> {
     public void onClick(View view) {
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public class ViewHolder extends TypeAdapter.ViewHolder {
-        public View bUk;
-        public View epV;
-        public TextView gHD;
-        public TextView gHv;
-        public ConcernTabLiveItemView gJW;
-        public TbImageView gJX;
-        public TextView gJY;
-        public TextView gJZ;
-        public TextView gKa;
+        public View bPy;
+        public View elg;
+        public TextView gCP;
+        public TextView gCX;
+        public ConcernTabLiveItemView gFq;
+        public TbImageView gFr;
+        public TextView gFs;
+        public TextView gFt;
+        public TextView gFu;
         private View.OnClickListener mOnClickListener;
 
         public ViewHolder(ConcernTabLiveItemView concernTabLiveItemView) {
@@ -125,29 +125,29 @@ public class ConcernTabLiveItemView extends com.baidu.tieba.card.b<f> {
                         }
                         UserData userData = (UserData) view.getTag();
                         AlaAttentionManager.getInstance().updateAttention(String.valueOf(userData.getUserId()), new AlaAttentionData(userData.getPortrait(), String.valueOf(userData.getUserId()), "1", true, null));
-                        ConcernTabLiveItemView.this.gJU.gHD.setVisibility(8);
-                        ConcernTabLiveItemView.this.gJU.gKa.setVisibility(0);
+                        ConcernTabLiveItemView.this.gFo.gCX.setVisibility(8);
+                        ConcernTabLiveItemView.this.gFo.gFu.setVisibility(0);
                         TiebaStatic.log(new aq("c12897"));
                     }
                 }
             };
-            this.gJW = concernTabLiveItemView;
-            this.epV = concernTabLiveItemView.getView();
-            this.gJX = (TbImageView) this.epV.findViewById(R.id.protrait);
-            this.gJX.setDefaultResource(R.drawable.icon_default_avatar100_bg);
-            this.gJX.setIsRound(true);
-            this.gJX.setAutoChangeStyle(false);
-            this.gJX.setScaleType(ImageView.ScaleType.CENTER_CROP);
-            this.gJY = (TextView) this.epV.findViewById(R.id.live_title);
-            this.gHv = (TextView) this.epV.findViewById(R.id.living_tag);
-            this.bUk = this.epV.findViewById(R.id.devider_line);
+            this.gFq = concernTabLiveItemView;
+            this.elg = concernTabLiveItemView.getView();
+            this.gFr = (TbImageView) this.elg.findViewById(R.id.protrait);
+            this.gFr.setDefaultResource(R.drawable.icon_default_avatar100_bg);
+            this.gFr.setIsRound(true);
+            this.gFr.setAutoChangeStyle(false);
+            this.gFr.setScaleType(ImageView.ScaleType.CENTER_CROP);
+            this.gFs = (TextView) this.elg.findViewById(R.id.live_title);
+            this.gCP = (TextView) this.elg.findViewById(R.id.living_tag);
+            this.bPy = this.elg.findViewById(R.id.devider_line);
             Drawable drawable = ao.getDrawable(ConcernTabLiveItemView.this.mContext.getResources(), R.drawable.icon_living_seeding);
             drawable.setBounds(0, 0, ConcernTabLiveItemView.this.mContext.getResources().getDimensionPixelOffset(R.dimen.tbds8), ConcernTabLiveItemView.this.mContext.getResources().getDimensionPixelOffset(R.dimen.tbds8));
-            this.gHv.setCompoundDrawablesWithIntrinsicBounds(drawable, (Drawable) null, (Drawable) null, (Drawable) null);
-            this.gJZ = (TextView) this.epV.findViewById(R.id.user_name);
-            this.gHD = (TextView) this.epV.findViewById(R.id.follow_btn);
-            this.gKa = (TextView) this.epV.findViewById(R.id.followed_btn);
-            this.gHD.setOnClickListener(this.mOnClickListener);
+            this.gCP.setCompoundDrawablesWithIntrinsicBounds(drawable, (Drawable) null, (Drawable) null, (Drawable) null);
+            this.gFt = (TextView) this.elg.findViewById(R.id.user_name);
+            this.gCX = (TextView) this.elg.findViewById(R.id.follow_btn);
+            this.gFu = (TextView) this.elg.findViewById(R.id.followed_btn);
+            this.gCX.setOnClickListener(this.mOnClickListener);
         }
     }
 }

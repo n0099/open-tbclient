@@ -2,10 +2,10 @@ package com.baidu.swan.support.v4.a;
 
 import java.io.FileDescriptor;
 import java.io.PrintWriter;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class d<D> {
-    a<D> eAa;
-    b<D> ezZ;
+    b<D> evk;
+    a<D> evl;
     boolean mAbandoned;
     boolean mContentChanged;
     int mId;
@@ -13,47 +13,47 @@ public class d<D> {
     boolean mReset;
     boolean mStarted;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public interface a<D> {
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public interface b<D> {
     }
 
     public void a(int i, b<D> bVar) {
-        if (this.ezZ != null) {
+        if (this.evk != null) {
             throw new IllegalStateException("There is already a listener registered");
         }
-        this.ezZ = bVar;
+        this.evk = bVar;
         this.mId = i;
     }
 
     public void a(b<D> bVar) {
-        if (this.ezZ == null) {
+        if (this.evk == null) {
             throw new IllegalStateException("No listener register");
         }
-        if (this.ezZ != bVar) {
+        if (this.evk != bVar) {
             throw new IllegalArgumentException("Attempting to unregister the wrong listener");
         }
-        this.ezZ = null;
+        this.evk = null;
     }
 
     public void a(a<D> aVar) {
-        if (this.eAa != null) {
+        if (this.evl != null) {
             throw new IllegalStateException("There is already a listener registered");
         }
-        this.eAa = aVar;
+        this.evl = aVar;
     }
 
     public void b(a<D> aVar) {
-        if (this.eAa == null) {
+        if (this.evl == null) {
             throw new IllegalStateException("No listener register");
         }
-        if (this.eAa != aVar) {
+        if (this.evl != aVar) {
             throw new IllegalArgumentException("Attempting to unregister the wrong listener");
         }
-        this.eAa = null;
+        this.evl = null;
     }
 
     public final void startLoading() {
@@ -107,7 +107,7 @@ public class d<D> {
         printWriter.print("mId=");
         printWriter.print(this.mId);
         printWriter.print(" mListener=");
-        printWriter.println(this.ezZ);
+        printWriter.println(this.evk);
         if (this.mStarted || this.mContentChanged || this.mProcessingChange) {
             printWriter.print(str);
             printWriter.print("mStarted=");

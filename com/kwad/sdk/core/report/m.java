@@ -4,20 +4,20 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import androidx.annotation.WorkerThread;
 import java.util.UUID;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class m {
 
     /* renamed from: a  reason: collision with root package name */
-    private static String f9725a = g();
+    private static String f9425a = g();
 
     /* renamed from: b  reason: collision with root package name */
-    private static long f9726b = 0;
+    private static long f9426b = 0;
     private static Context c;
 
     public static String a() {
         com.kwad.sdk.core.d.a.a("ReportIdManager", ">> updateSessionId");
-        f9725a = g();
-        return f9725a;
+        f9425a = g();
+        return f9425a;
     }
 
     public static void a(Context context) {
@@ -44,7 +44,7 @@ public class m {
     }
 
     public static String b() {
-        return f9725a;
+        return f9425a;
     }
 
     @WorkerThread
@@ -85,12 +85,12 @@ public class m {
 
     public static long e() {
         com.kwad.sdk.core.d.a.a("ReportIdManager", ">> updateListId");
-        f9726b = System.currentTimeMillis();
-        return f9726b;
+        f9426b = System.currentTimeMillis();
+        return f9426b;
     }
 
     public static long f() {
-        return f9726b;
+        return f9426b;
     }
 
     private static String g() {

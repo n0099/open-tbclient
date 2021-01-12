@@ -28,7 +28,7 @@ public abstract class AbsFragmentStatePagerAdapter extends PagerAdapter {
     public void startUpdate(ViewGroup viewGroup) {
     }
 
-    public final ArrayList<Fragment> byT() {
+    public final ArrayList<Fragment> buZ() {
         return this.mFragments;
     }
 

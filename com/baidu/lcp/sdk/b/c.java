@@ -26,7 +26,7 @@ import okhttp3.RequestBody;
 import okhttp3.Response;
 /* loaded from: classes3.dex */
 public class c {
-    private static b aAB;
+    private static b avO;
 
     /* loaded from: classes3.dex */
     public interface a {
@@ -43,13 +43,13 @@ public class c {
 
     /* renamed from: com.baidu.lcp.sdk.b.c$c  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public interface InterfaceC0159c {
+    public interface InterfaceC0150c {
         void onFailure(int i, String str);
 
         void onSuccess(byte[] bArr);
     }
 
-    public static void a(@NonNull a aVar, @NonNull final InterfaceC0159c interfaceC0159c) {
+    public static void a(@NonNull a aVar, @NonNull final InterfaceC0150c interfaceC0150c) {
         Request build;
         String str;
         OkHttpClient okHttpClient;
@@ -57,7 +57,7 @@ public class c {
             String host = aVar.getHost();
             byte[] requestParameter = aVar.getRequestParameter();
             if (requestParameter == null || requestParameter.length <= 0) {
-                a(interfaceC0159c, 10000, "request args exception");
+                a(interfaceC0150c, 10000, "request args exception");
                 return;
             }
             OkHttpClient build2 = new OkHttpClient.Builder().connectTimeout(30L, TimeUnit.SECONDS).readTimeout(30L, TimeUnit.SECONDS).writeTimeout(30L, TimeUnit.SECONDS).build();
@@ -77,7 +77,7 @@ public class c {
                 build = build.newBuilder().headers(headers2).build();
                 String str2 = headers.get("Host");
                 if (!TextUtils.isEmpty(str2) && str2.contains(IMHttpDnsUrlRequest.HTTP_DNS_HOST)) {
-                    okHttpClient = build2.newBuilder().sslSocketFactory(createSSLSocketFactory(), aAB).hostnameVerifier(new d()).build();
+                    okHttpClient = build2.newBuilder().sslSocketFactory(createSSLSocketFactory(), avO).hostnameVerifier(new d()).build();
                     com.baidu.lcp.sdk.d.d.d("HttpExecutor", "request url :" + str + " , method :" + aVar.getMethod() + " , body :" + new String(aVar.getRequestParameter()));
                     okHttpClient.newCall(build).enqueue(new Callback() { // from class: com.baidu.lcp.sdk.b.c.1
                         @Override // okhttp3.Callback
@@ -86,23 +86,23 @@ public class c {
                             if (iOException instanceof SocketException) {
                                 str3 = "HttpRequest SocketException :" + iOException.toString();
                             }
-                            c.a(InterfaceC0159c.this, 10003, str3);
+                            c.a(InterfaceC0150c.this, 10003, str3);
                         }
 
                         @Override // okhttp3.Callback
                         public void onResponse(@NonNull Call call, @NonNull Response response) {
                             try {
                                 if (response.code() != 200) {
-                                    c.a(InterfaceC0159c.this, response.code(), response.message());
+                                    c.a(InterfaceC0150c.this, response.code(), response.message());
                                 } else if (response.body() == null) {
-                                    c.a(InterfaceC0159c.this, 10004, "response body empty");
+                                    c.a(InterfaceC0150c.this, 10004, "response body empty");
                                 } else {
                                     byte[] bytes = response.body().bytes();
                                     com.baidu.lcp.sdk.d.d.e("HttpExecutor", "onSuccess errorCode ：" + response.code() + ", errorMsg :" + new String(bytes));
-                                    InterfaceC0159c.this.onSuccess(bytes);
+                                    InterfaceC0150c.this.onSuccess(bytes);
                                 }
                             } catch (IOException e) {
-                                c.a(InterfaceC0159c.this, 10001, "parse response exception ：" + e);
+                                c.a(InterfaceC0150c.this, 10001, "parse response exception ：" + e);
                             }
                         }
                     });
@@ -117,42 +117,42 @@ public class c {
                     if (iOException instanceof SocketException) {
                         str3 = "HttpRequest SocketException :" + iOException.toString();
                     }
-                    c.a(InterfaceC0159c.this, 10003, str3);
+                    c.a(InterfaceC0150c.this, 10003, str3);
                 }
 
                 @Override // okhttp3.Callback
                 public void onResponse(@NonNull Call call, @NonNull Response response) {
                     try {
                         if (response.code() != 200) {
-                            c.a(InterfaceC0159c.this, response.code(), response.message());
+                            c.a(InterfaceC0150c.this, response.code(), response.message());
                         } else if (response.body() == null) {
-                            c.a(InterfaceC0159c.this, 10004, "response body empty");
+                            c.a(InterfaceC0150c.this, 10004, "response body empty");
                         } else {
                             byte[] bytes = response.body().bytes();
                             com.baidu.lcp.sdk.d.d.e("HttpExecutor", "onSuccess errorCode ：" + response.code() + ", errorMsg :" + new String(bytes));
-                            InterfaceC0159c.this.onSuccess(bytes);
+                            InterfaceC0150c.this.onSuccess(bytes);
                         }
                     } catch (IOException e) {
-                        c.a(InterfaceC0159c.this, 10001, "parse response exception ：" + e);
+                        c.a(InterfaceC0150c.this, 10001, "parse response exception ：" + e);
                     }
                 }
             });
         } catch (Exception e) {
-            a(interfaceC0159c, 10004, "request exception :" + e);
+            a(interfaceC0150c, 10004, "request exception :" + e);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static void a(@NonNull InterfaceC0159c interfaceC0159c, int i, String str) {
-        interfaceC0159c.onFailure(i, str);
+    public static void a(@NonNull InterfaceC0150c interfaceC0150c, int i, String str) {
+        interfaceC0150c.onFailure(i, str);
         com.baidu.lcp.sdk.d.d.e("HttpExecutor", "failedResponse errorCode ：" + i + ", errorMsg :" + str);
     }
 
     private static SSLSocketFactory createSSLSocketFactory() {
         try {
-            aAB = new b();
+            avO = new b();
             SSLContext sSLContext = SSLContext.getInstance("TLS");
-            sSLContext.init(null, new TrustManager[]{aAB}, new SecureRandom());
+            sSLContext.init(null, new TrustManager[]{avO}, new SecureRandom());
             return sSLContext.getSocketFactory();
         } catch (Exception e) {
             e.printStackTrace();

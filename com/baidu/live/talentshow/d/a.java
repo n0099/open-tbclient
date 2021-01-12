@@ -4,13 +4,17 @@ import android.content.Context;
 import android.view.View;
 import com.baidu.ala.recorder.AlaLiveRecorder;
 import com.baidu.live.data.x;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public interface a {
-    boolean UW();
+    boolean Rb();
 
-    boolean UX();
+    boolean Rc();
 
-    boolean UY();
+    boolean Rd();
+
+    void Re();
+
+    void Rf();
 
     int a(com.baidu.live.talentshow.d.a.b bVar);
 
@@ -26,17 +30,13 @@ public interface a {
 
     String bk(long j);
 
-    long fJ(int i);
+    long ed(int i);
 
     void init(Context context);
 
     boolean isFull();
 
-    void onBackground();
-
     void onDestroy();
-
-    void onForeground();
 
     void setLiveShowData(x xVar);
 

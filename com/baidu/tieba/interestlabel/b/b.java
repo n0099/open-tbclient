@@ -6,22 +6,22 @@ import java.util.ArrayList;
 import java.util.List;
 import tbclient.GetTagList.DataRes;
 import tbclient.GetTagList.ResponseTagInfo;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class b {
-    private List<a> kUn;
-    private List<Integer> kUo;
-    private List<a> kUr;
+    private List<a> kPI;
+    private List<Integer> kPJ;
+    private List<a> kPM;
 
     public void a(DataRes dataRes) {
         if (dataRes != null) {
             if (!x.isEmpty(dataRes.sex_taglist)) {
-                this.kUr = new ArrayList();
-                D(this.kUr, dataRes.sex_taglist);
+                this.kPM = new ArrayList();
+                D(this.kPM, dataRes.sex_taglist);
             }
             if (!x.isEmpty(dataRes.taglist)) {
-                this.kUn = new ArrayList();
-                this.kUo = new ArrayList();
-                D(this.kUn, dataRes.taglist);
+                this.kPI = new ArrayList();
+                this.kPJ = new ArrayList();
+                D(this.kPI, dataRes.taglist);
             }
         }
     }
@@ -33,23 +33,23 @@ public class b {
                     a aVar = new a();
                     aVar.a(responseTagInfo);
                     list.add(aVar);
-                    if (this.kUo != null && aVar.isFollow) {
-                        this.kUo.add(Integer.valueOf(aVar.labelId));
+                    if (this.kPJ != null && aVar.isFollow) {
+                        this.kPJ.add(Integer.valueOf(aVar.labelId));
                     }
                 }
             }
         }
     }
 
-    public List<a> dcz() {
-        return this.kUr;
+    public List<a> cYH() {
+        return this.kPM;
     }
 
-    public List<a> dcA() {
-        return this.kUn;
+    public List<a> cYI() {
+        return this.kPI;
     }
 
-    public List<Integer> dcB() {
-        return this.kUo;
+    public List<Integer> cYJ() {
+        return this.kPJ;
     }
 }

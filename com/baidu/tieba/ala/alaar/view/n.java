@@ -12,56 +12,56 @@ import com.baidu.live.sdk.a;
 import com.baidu.live.tieba.horizonallist.widget.AbsHListView;
 import com.baidu.live.tieba.horizonallist.widget.HListView;
 import com.baidu.tieba.ala.alaar.view.a;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class n extends l {
-    private TextView gzA;
-    private TextView gzB;
-    a gzx;
-    private int gzy = -1;
-    private int gzz = -1;
+    a guQ;
+    private int guR = -1;
+    private int guS = -1;
+    private TextView guT;
+    private TextView guU;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void cn(View view) {
         this.view = view;
-        this.gzf = new HListView(view.getContext());
-        this.gzf.setVisibility(4);
-        this.gzf.setDividerWidth(view.getResources().getDimensionPixelSize(a.d.sdk_ds20));
-        this.gzf.setSelector(view.getResources().getDrawable(a.e.sdk_transparent_bg));
-        this.gzf.setOnScrollListener(new AbsHListView.g() { // from class: com.baidu.tieba.ala.alaar.view.n.1
+        this.guy = new HListView(view.getContext());
+        this.guy.setVisibility(4);
+        this.guy.setDividerWidth(view.getResources().getDimensionPixelSize(a.d.sdk_ds20));
+        this.guy.setSelector(view.getResources().getDrawable(a.e.sdk_transparent_bg));
+        this.guy.setOnScrollListener(new AbsHListView.g() { // from class: com.baidu.tieba.ala.alaar.view.n.1
             @Override // com.baidu.live.tieba.horizonallist.widget.AbsHListView.g
             public void a(AbsHListView absHListView, int i) {
             }
 
             @Override // com.baidu.live.tieba.horizonallist.widget.AbsHListView.g
             public void a(AbsHListView absHListView, int i, int i2, int i3) {
-                n.this.gzy = i;
-                n.this.gzz = i2;
+                n.this.guR = i;
+                n.this.guS = i2;
             }
         });
-        this.gzd = (FrameLayout) view.findViewById(a.f.filter_rl_progress);
-        this.gzB = (TextView) view.findViewById(a.f.filter_progress_tv);
-        this.gze = (TopTipSeekBar) view.findViewById(a.f.filter_value_seekbar);
-        this.gze.setMax(100);
-        this.gze.setTipView(this.gzB);
-        this.gzA = (TextView) view.findViewById(a.f.filter_def_thumb_tv);
-        this.gze.setDefThumb(this.gzA);
-        this.gze.setDefThumbPos(100);
-        this.gze.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() { // from class: com.baidu.tieba.ala.alaar.view.n.2
+        this.guw = (FrameLayout) view.findViewById(a.f.filter_rl_progress);
+        this.guU = (TextView) view.findViewById(a.f.filter_progress_tv);
+        this.gux = (TopTipSeekBar) view.findViewById(a.f.filter_value_seekbar);
+        this.gux.setMax(100);
+        this.gux.setTipView(this.guU);
+        this.guT = (TextView) view.findViewById(a.f.filter_def_thumb_tv);
+        this.gux.setDefThumb(this.guT);
+        this.gux.setDefThumbPos(100);
+        this.gux.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() { // from class: com.baidu.tieba.ala.alaar.view.n.2
             @Override // android.widget.SeekBar.OnSeekBarChangeListener
             public void onProgressChanged(SeekBar seekBar, int i, boolean z) {
-                com.baidu.live.ar.i iVar = n.this.gzx.getDatas().get(n.this.itemPosition);
-                if (n.this.gzg != null) {
-                    n.this.gzg.a(iVar, seekBar, i, z);
+                com.baidu.live.ar.i iVar = n.this.guQ.getDatas().get(n.this.itemPosition);
+                if (n.this.guz != null) {
+                    n.this.guz.a(iVar, seekBar, i, z);
                 }
                 if (z) {
-                    com.baidu.live.d.Ba().putBoolean("ala_beauty_changed_by_user", true);
+                    com.baidu.live.d.xf().putBoolean("ala_beauty_changed_by_user", true);
                 }
             }
 
             @Override // android.widget.SeekBar.OnSeekBarChangeListener
             public void onStartTrackingTouch(SeekBar seekBar) {
-                if (n.this.gzg != null) {
-                    n.this.gzg.onStartTrackingTouch(seekBar);
+                if (n.this.guz != null) {
+                    n.this.guz.onStartTrackingTouch(seekBar);
                 }
             }
 
@@ -69,40 +69,40 @@ public class n extends l {
             public void onStopTrackingTouch(SeekBar seekBar) {
             }
         });
-        this.gze.setDefThumbPos(100);
+        this.gux.setDefThumbPos(100);
     }
 
     public void c(a aVar) {
-        if (this.gzf != null) {
-            this.gzx = aVar;
-            this.gzx.uW(this.view.getResources().getDimensionPixelSize(a.d.sdk_ds28));
-            this.gzx.a(new a.InterfaceC0631a() { // from class: com.baidu.tieba.ala.alaar.view.n.3
-                @Override // com.baidu.tieba.ala.alaar.view.a.InterfaceC0631a
+        if (this.guy != null) {
+            this.guQ = aVar;
+            this.guQ.tq(this.view.getResources().getDimensionPixelSize(a.d.sdk_ds28));
+            this.guQ.a(new a.InterfaceC0614a() { // from class: com.baidu.tieba.ala.alaar.view.n.3
+                @Override // com.baidu.tieba.ala.alaar.view.a.InterfaceC0614a
                 public void a(final int i, final int[] iArr, boolean z) {
                     n.this.itemPosition = i;
                     new Handler().postDelayed(new Runnable() { // from class: com.baidu.tieba.ala.alaar.view.n.3.1
                         @Override // java.lang.Runnable
                         public void run() {
-                            if (n.this.gzz > 0) {
-                                n.this.gzf.smoothScrollBy(AlaLiveMultiBeautyArView.a(i, n.this.gzy, n.this.gzz, iArr, n.this.gzx.getCount(), false), 300);
+                            if (n.this.guS > 0) {
+                                n.this.guy.smoothScrollBy(AlaLiveMultiBeautyArView.a(i, n.this.guR, n.this.guS, iArr, n.this.guQ.getCount(), false), 300);
                             }
                         }
                     }, iArr == null ? 300 : 0);
-                    com.baidu.live.ar.i iVar = n.this.gzx.getDatas().get(i);
-                    if (n.this.gzg != null) {
-                        n.this.gzg.b(i, iVar, z);
+                    com.baidu.live.ar.i iVar = n.this.guQ.getDatas().get(i);
+                    if (n.this.guz != null) {
+                        n.this.guz.b(i, iVar, z);
                     }
                 }
             });
-            this.gzf.setAdapter((ListAdapter) this.gzx);
+            this.guy.setAdapter((ListAdapter) this.guQ);
         }
     }
 
-    public void vf(int i) {
+    public void tz(int i) {
         if (Build.VERSION.SDK_INT >= 24) {
-            this.gze.setProgress(i, true);
+            this.gux.setProgress(i, true);
         } else {
-            this.gze.setProgress(i);
+            this.gux.setProgress(i);
         }
         Log.d("ArUpdate", "View -- updateFilterSeekbar--value:" + i);
     }
@@ -110,9 +110,9 @@ public class n extends l {
     @Override // com.baidu.tieba.ala.alaar.view.l
     public void setSelected(boolean z) {
         super.setSelected(z);
-        if (this.gzf != null) {
-            this.gzf.setVisibility(z ? 0 : 4);
-            mq(z);
+        if (this.guy != null) {
+            this.guy.setVisibility(z ? 0 : 4);
+            mm(z);
         }
     }
 }

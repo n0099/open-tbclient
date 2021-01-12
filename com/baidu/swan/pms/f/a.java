@@ -6,10 +6,10 @@ import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class a {
     public static void a(int i, String str, String str2, int i2, JSONObject jSONObject) {
-        d.bfW().a(nA(i), str, str2, i2, jSONObject);
+        d.bcc().a(lU(i), str, str2, i2, jSONObject);
     }
 
-    private static String nA(int i) {
+    private static String lU(int i) {
         switch (i) {
             case 0:
                 return GameWebViewJavascriptInterface.JAVASCRIPT_INTERFACE_NAME;

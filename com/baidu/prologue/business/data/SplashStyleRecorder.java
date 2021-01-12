@@ -6,7 +6,7 @@ import com.baidu.prologue.a.c.k;
 import com.coremedia.iso.boxes.FreeSpaceBox;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class SplashStyleRecorder {
     public static void aA(JSONObject jSONObject) {
         if (jSONObject != null) {
@@ -108,7 +108,7 @@ public class SplashStyleRecorder {
         return null;
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public enum SplashElements {
         LOGO("logo"),
         SKIP(FreeSpaceBox.TYPE),

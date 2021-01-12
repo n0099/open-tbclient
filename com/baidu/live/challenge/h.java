@@ -3,23 +3,19 @@ package com.baidu.live.challenge;
 import android.view.ViewGroup;
 import com.baidu.live.challenge.i;
 import com.baidu.live.data.x;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public interface h extends i.c, i.d, i.n {
-    void DC();
-
-    void DJ();
-
     void a(g gVar);
 
     void a(i iVar);
 
     void a(x xVar);
 
-    int br(boolean z);
+    int bn(boolean z);
 
     void c(boolean z, boolean z2, boolean z3);
 
-    void dY(int i);
+    void cs(int i);
 
     void f(int i, long j);
 
@@ -30,4 +26,8 @@ public interface h extends i.c, i.d, i.n {
     void onDestroy();
 
     void setNeedCloseRecommendFloat(boolean z);
+
+    void zH();
+
+    void zO();
 }

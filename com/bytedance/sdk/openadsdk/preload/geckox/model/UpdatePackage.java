@@ -1,6 +1,7 @@
 package com.bytedance.sdk.openadsdk.preload.geckox.model;
 
 import androidx.annotation.Keep;
+import com.baidu.live.tbadk.core.util.TiebaInitialize;
 import com.bytedance.sdk.openadsdk.d.a.c;
 import java.util.List;
 @Keep
@@ -133,7 +134,7 @@ public class UpdatePackage {
     public static class Package {
         @c(a = "id")
         long id;
-        @c(a = "size")
+        @c(a = TiebaInitialize.LogFields.SIZE)
         long length;
         @c(a = "md5")
         String md5;

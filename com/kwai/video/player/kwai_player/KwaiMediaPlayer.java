@@ -63,7 +63,7 @@ import java.util.Iterator;
 import java.util.Map;
 import org.json.JSONObject;
 @Keep
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public final class KwaiMediaPlayer extends AbstractNativeMediaPlayer implements IKwaiMediaPlayer {
     private static final int AUDIO_CHANNEL_MODE_FOA = 2;
     static final int INPUT_DATA_TYPE_HLS_CUSTOME_MANIFEST = 3;
@@ -105,18 +105,18 @@ public final class KwaiMediaPlayer extends AbstractNativeMediaPlayer implements 
     private ByteBuffer mProcessPCMBuffer = null;
     private KwaiPlayerDebugInfo mKwaiPlayerDebugInfo = new KwaiPlayerDebugInfo();
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public interface IHeadTrackerListener {
         void onHeadTracker(float f, float f2, float f3);
     }
 
     @Deprecated
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public interface OnControlMessageListener {
         String onControlResolveSegmentUrl(int i);
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     interface OnNativeInvokeListener {
         public static final String ARG_RETRY_COUNTER = "retry_counter";
         public static final String ARG_SEGMENT_INDEX = "segment_index";

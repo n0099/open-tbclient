@@ -24,9 +24,9 @@ public class n extends com.ss.android.socialbase.downloader.downloader.a impleme
     private int h = -1;
     private Handler k = new Handler(Looper.getMainLooper());
     private boolean l;
-    private com.ss.android.socialbase.downloader.downloader.j qbl;
-    private com.ss.android.socialbase.downloader.downloader.o qbm;
-    private ServiceConnection qbn;
+    private com.ss.android.socialbase.downloader.downloader.j pWK;
+    private com.ss.android.socialbase.downloader.downloader.o pWL;
+    private ServiceConnection pWM;
 
     static /* synthetic */ int k() {
         int i2 = i;
@@ -40,12 +40,12 @@ public class n extends com.ss.android.socialbase.downloader.downloader.a impleme
             com.ss.android.socialbase.downloader.f.a.b(e, "bindService");
             Intent intent = new Intent(context, IndependentProcessDownloadService.class);
             if (com.ss.android.socialbase.downloader.m.d.a()) {
-                intent.putExtra("fix_downloader_db_sigbus", com.ss.android.socialbase.downloader.k.a.eJW().a("fix_sigbus_downloader_db"));
+                intent.putExtra("fix_downloader_db_sigbus", com.ss.android.socialbase.downloader.k.a.eGg().a("fix_sigbus_downloader_db"));
             }
             if (serviceConnection != null) {
                 context.bindService(intent, serviceConnection, 1);
             }
-            this.qbn = serviceConnection;
+            this.pWM = serviceConnection;
             context.startService(intent);
         } catch (Throwable th) {
             th.printStackTrace();
@@ -65,32 +65,32 @@ public class n extends com.ss.android.socialbase.downloader.downloader.a impleme
     @Override // com.ss.android.socialbase.downloader.downloader.a, com.ss.android.socialbase.downloader.downloader.p
     public void b(com.ss.android.socialbase.downloader.g.d dVar) {
         if (dVar != null) {
-            com.ss.android.socialbase.downloader.f.a.b(e, "tryDownload aidlService == null:" + (this.qbl == null));
-            if (this.qbl == null) {
+            com.ss.android.socialbase.downloader.f.a.b(e, "tryDownload aidlService == null:" + (this.pWK == null));
+            if (this.pWK == null) {
                 a(dVar);
-                a(com.ss.android.socialbase.downloader.downloader.b.eHT(), this);
+                a(com.ss.android.socialbase.downloader.downloader.b.eEd(), this);
                 return;
             }
-            if (this.f13430a.get(dVar.o()) != null) {
-                synchronized (this.f13430a) {
-                    if (this.f13430a.get(dVar.o()) != null) {
-                        this.f13430a.remove(dVar.o());
+            if (this.f13130a.get(dVar.o()) != null) {
+                synchronized (this.f13130a) {
+                    if (this.f13130a.get(dVar.o()) != null) {
+                        this.f13130a.remove(dVar.o());
                     }
                 }
             }
             try {
-                this.qbl.a(com.ss.android.socialbase.downloader.m.e.f(dVar));
+                this.pWK.a(com.ss.android.socialbase.downloader.m.e.f(dVar));
             } catch (RemoteException e2) {
                 e2.printStackTrace();
             }
-            synchronized (this.f13430a) {
-                SparseArray<com.ss.android.socialbase.downloader.g.d> clone = this.f13430a.clone();
-                this.f13430a.clear();
-                if (com.ss.android.socialbase.downloader.downloader.b.eHO() != null) {
+            synchronized (this.f13130a) {
+                SparseArray<com.ss.android.socialbase.downloader.g.d> clone = this.f13130a.clone();
+                this.f13130a.clear();
+                if (com.ss.android.socialbase.downloader.downloader.b.eDY() != null) {
                     for (int i2 = 0; i2 < clone.size(); i2++) {
                         if (clone.get(clone.keyAt(i2)) != null) {
                             try {
-                                this.qbl.a(com.ss.android.socialbase.downloader.m.e.f(dVar));
+                                this.pWK.a(com.ss.android.socialbase.downloader.m.e.f(dVar));
                             } catch (RemoteException e3) {
                                 e3.printStackTrace();
                             }
@@ -104,10 +104,10 @@ public class n extends com.ss.android.socialbase.downloader.downloader.a impleme
     @Override // com.ss.android.socialbase.downloader.downloader.a, com.ss.android.socialbase.downloader.downloader.p
     public void c(com.ss.android.socialbase.downloader.g.d dVar) {
         if (dVar != null) {
-            com.ss.android.socialbase.downloader.downloader.c.eHX().a(dVar.o(), true);
-            a eHO = com.ss.android.socialbase.downloader.downloader.b.eHO();
-            if (eHO != null) {
-                eHO.a(dVar);
+            com.ss.android.socialbase.downloader.downloader.c.eEh().a(dVar.o(), true);
+            a eDY = com.ss.android.socialbase.downloader.downloader.b.eDY();
+            if (eDY != null) {
+                eDY.a(dVar);
             }
         }
     }
@@ -115,14 +115,14 @@ public class n extends com.ss.android.socialbase.downloader.downloader.a impleme
     @Override // android.content.ServiceConnection
     public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
         com.ss.android.socialbase.downloader.f.a.b(e, "onServiceConnected ");
-        this.qbl = j.a.a(iBinder);
-        com.ss.android.socialbase.downloader.downloader.b.eHT();
+        this.pWK = j.a.a(iBinder);
+        com.ss.android.socialbase.downloader.downloader.b.eEd();
         if (Build.VERSION.SDK_INT < 26 && com.ss.android.socialbase.downloader.m.a.a(512) && com.ss.android.socialbase.downloader.m.d.a()) {
             try {
                 iBinder.linkToDeath(new IBinder.DeathRecipient() { // from class: com.ss.android.socialbase.downloader.impls.n.1
                     @Override // android.os.IBinder.DeathRecipient
                     public void binderDied() {
-                        com.ss.android.socialbase.downloader.f.a.d(n.e, "binderDied: mServiceConnection = " + n.this.qbn);
+                        com.ss.android.socialbase.downloader.f.a.d(n.e, "binderDied: mServiceConnection = " + n.this.pWM);
                         if (n.i < 5 && System.currentTimeMillis() - n.j > 15000) {
                             n.this.k.postDelayed(new Runnable() { // from class: com.ss.android.socialbase.downloader.impls.n.1.1
                                 @Override // java.lang.Runnable
@@ -130,7 +130,7 @@ public class n extends com.ss.android.socialbase.downloader.downloader.a impleme
                                     com.ss.android.socialbase.downloader.f.a.b(n.e, "run: restart downloader process !!");
                                     n.this.l = true;
                                     try {
-                                        n.this.a(com.ss.android.socialbase.downloader.downloader.b.eHT(), n.this);
+                                        n.this.a(com.ss.android.socialbase.downloader.downloader.b.eEd(), n.this);
                                     } catch (Throwable th) {
                                         th.printStackTrace();
                                     }
@@ -148,7 +148,7 @@ public class n extends com.ss.android.socialbase.downloader.downloader.a impleme
                 this.k.postDelayed(new Runnable() { // from class: com.ss.android.socialbase.downloader.impls.n.2
                     @Override // java.lang.Runnable
                     public void run() {
-                        com.ss.android.socialbase.downloader.downloader.b.eHB().execute(new Runnable() { // from class: com.ss.android.socialbase.downloader.impls.n.2.1
+                        com.ss.android.socialbase.downloader.downloader.b.eDL().execute(new Runnable() { // from class: com.ss.android.socialbase.downloader.impls.n.2.1
                             @Override // java.lang.Runnable
                             public void run() {
                                 try {
@@ -163,30 +163,30 @@ public class n extends com.ss.android.socialbase.downloader.downloader.a impleme
                 this.l = false;
             }
         }
-        if (this.qbm != null) {
-            this.qbm.a(iBinder);
+        if (this.pWL != null) {
+            this.pWL.a(iBinder);
         }
-        com.ss.android.socialbase.downloader.f.a.b(e, "onServiceConnected aidlService!=null" + (this.qbl != null) + " pendingTasks.size:" + this.f13430a.size());
-        if (this.qbl != null) {
-            com.ss.android.socialbase.downloader.downloader.c.eHX().b();
-            this.f13431b = true;
+        com.ss.android.socialbase.downloader.f.a.b(e, "onServiceConnected aidlService!=null" + (this.pWK != null) + " pendingTasks.size:" + this.f13130a.size());
+        if (this.pWK != null) {
+            com.ss.android.socialbase.downloader.downloader.c.eEh().b();
+            this.f13131b = true;
             this.d = false;
             if (this.h != -1) {
                 try {
-                    this.qbl.l(this.h);
+                    this.pWK.l(this.h);
                 } catch (RemoteException e3) {
                     e3.printStackTrace();
                 }
             }
-            synchronized (this.f13430a) {
-                if (this.qbl != null) {
-                    SparseArray<com.ss.android.socialbase.downloader.g.d> clone = this.f13430a.clone();
-                    this.f13430a.clear();
+            synchronized (this.f13130a) {
+                if (this.pWK != null) {
+                    SparseArray<com.ss.android.socialbase.downloader.g.d> clone = this.f13130a.clone();
+                    this.f13130a.clear();
                     for (int i2 = 0; i2 < clone.size(); i2++) {
                         com.ss.android.socialbase.downloader.g.d dVar = clone.get(clone.keyAt(i2));
                         if (dVar != null) {
                             try {
-                                this.qbl.a(com.ss.android.socialbase.downloader.m.e.f(dVar));
+                                this.pWK.a(com.ss.android.socialbase.downloader.m.e.f(dVar));
                             } catch (RemoteException e4) {
                                 e4.printStackTrace();
                             }
@@ -200,34 +200,34 @@ public class n extends com.ss.android.socialbase.downloader.downloader.a impleme
     @Override // android.content.ServiceConnection
     public void onServiceDisconnected(ComponentName componentName) {
         com.ss.android.socialbase.downloader.f.a.b(e, "onServiceDisconnected ");
-        this.qbl = null;
-        this.f13431b = false;
-        if (this.qbm != null) {
-            this.qbm.h();
+        this.pWK = null;
+        this.f13131b = false;
+        if (this.pWL != null) {
+            this.pWL.h();
         }
     }
 
     @Override // android.content.ServiceConnection
     public void onBindingDied(ComponentName componentName) {
-        this.qbl = null;
-        if (this.qbm != null) {
-            this.qbm.h();
+        this.pWK = null;
+        if (this.pWL != null) {
+            this.pWL.h();
         }
     }
 
     @Override // com.ss.android.socialbase.downloader.downloader.a, com.ss.android.socialbase.downloader.downloader.p
     public void a(com.ss.android.socialbase.downloader.downloader.o oVar) {
-        this.qbm = oVar;
+        this.pWL = oVar;
     }
 
     @Override // com.ss.android.socialbase.downloader.downloader.a, com.ss.android.socialbase.downloader.downloader.p
     public void a(int i2) {
-        if (this.qbl == null) {
+        if (this.pWK == null) {
             this.h = i2;
             return;
         }
         try {
-            this.qbl.l(i2);
+            this.pWK.l(i2);
         } catch (RemoteException e2) {
             e2.printStackTrace();
         }
@@ -235,18 +235,18 @@ public class n extends com.ss.android.socialbase.downloader.downloader.a impleme
 
     @Override // com.ss.android.socialbase.downloader.downloader.a, com.ss.android.socialbase.downloader.downloader.p
     public void f() {
-        if (this.qbl == null) {
-            a(com.ss.android.socialbase.downloader.downloader.b.eHT(), this);
+        if (this.pWK == null) {
+            a(com.ss.android.socialbase.downloader.downloader.b.eEd(), this);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void l() {
-        com.ss.android.socialbase.downloader.downloader.m eHI;
-        com.ss.android.socialbase.downloader.downloader.n Cy;
+        com.ss.android.socialbase.downloader.downloader.m eDS;
+        com.ss.android.socialbase.downloader.downloader.n Cu;
         List<com.ss.android.socialbase.downloader.g.c> d;
         com.ss.android.socialbase.downloader.f.a.b(e, "resumeDownloaderProcessTaskForDied: ");
-        if (com.ss.android.socialbase.downloader.downloader.b.eHT() != null && !TextUtils.isEmpty(com.ss.android.socialbase.downloader.b.e.f13372a) && (eHI = com.ss.android.socialbase.downloader.downloader.b.eHI()) != null && (Cy = l.Cy(true)) != null && (d = Cy.d(com.ss.android.socialbase.downloader.b.e.f13372a)) != null && !d.isEmpty()) {
+        if (com.ss.android.socialbase.downloader.downloader.b.eEd() != null && !TextUtils.isEmpty(com.ss.android.socialbase.downloader.b.e.f13072a) && (eDS = com.ss.android.socialbase.downloader.downloader.b.eDS()) != null && (Cu = l.Cu(true)) != null && (d = Cu.d(com.ss.android.socialbase.downloader.b.e.f13072a)) != null && !d.isEmpty()) {
             ArrayList arrayList = new ArrayList();
             for (com.ss.android.socialbase.downloader.g.c cVar : d) {
                 if (cVar != null && cVar.ae() && cVar.w() == -5) {
@@ -255,7 +255,7 @@ public class n extends com.ss.android.socialbase.downloader.downloader.a impleme
             }
             if (!arrayList.isEmpty()) {
                 com.ss.android.socialbase.downloader.f.a.b(e, "resumeDownloaderProcessTaskForDied: resume size =" + arrayList.size());
-                eHI.a(arrayList, 1);
+                eDS.a(arrayList, 1);
             }
         }
     }

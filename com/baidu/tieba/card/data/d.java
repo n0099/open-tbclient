@@ -5,40 +5,40 @@ import com.baidu.tbadk.core.data.AdvertAppInfo;
 import com.baidu.tbadk.core.data.al;
 /* loaded from: classes.dex */
 public class d extends BaseCardInfo implements al, p {
-    private boolean eOk;
-    public String fPy;
-    public AdvertAppInfo izk;
+    private boolean eJz;
+    public String fKR;
+    public AdvertAppInfo iuD;
     public String mPageType;
     public int mPn;
 
     public d(AdvertAppInfo advertAppInfo) {
-        this.fPy = "";
+        this.fKR = "";
         this.mPn = 0;
         this.mPageType = "";
-        this.eOk = false;
-        this.izk = advertAppInfo;
+        this.eJz = false;
+        this.iuD = advertAppInfo;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public d() {
-        this.fPy = "";
+        this.fKR = "";
         this.mPn = 0;
         this.mPageType = "";
-        this.eOk = false;
-        this.izk = null;
+        this.eJz = false;
+        this.iuD = null;
     }
 
     @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.adp.widget.ListView.n
     public BdUniqueId getType() {
-        if (this.izk != null && this.izk.getType() == AdvertAppInfo.eNz) {
-            return AdvertAppInfo.eNF;
+        if (this.iuD != null && this.iuD.getType() == AdvertAppInfo.eIO) {
+            return AdvertAppInfo.eIU;
         }
-        if (this.izk != null && this.izk.legoCard != null) {
-            BdUniqueId bdUniqueId = AdvertAppInfo.eNI;
-            switch (this.izk.legoCard.getGoodsStyle()) {
+        if (this.iuD != null && this.iuD.legoCard != null) {
+            BdUniqueId bdUniqueId = AdvertAppInfo.eIX;
+            switch (this.iuD.legoCard.getGoodsStyle()) {
                 case 2:
                 case 8:
-                    return AdvertAppInfo.eNM;
+                    return AdvertAppInfo.eJb;
                 case 3:
                 case 4:
                 case 5:
@@ -48,14 +48,14 @@ public class d extends BaseCardInfo implements al, p {
                 default:
                     return bdUniqueId;
                 case 6:
-                    return AdvertAppInfo.eNN;
+                    return AdvertAppInfo.eJc;
                 case 7:
                 case 14:
-                    return AdvertAppInfo.eNO;
+                    return AdvertAppInfo.eJd;
                 case 12:
-                    return AdvertAppInfo.eNQ;
+                    return AdvertAppInfo.eJf;
                 case 13:
-                    return AdvertAppInfo.eNP;
+                    return AdvertAppInfo.eJe;
             }
         }
         return null;
@@ -63,45 +63,45 @@ public class d extends BaseCardInfo implements al, p {
 
     @Override // com.baidu.tieba.card.data.p
     public int getPosition() {
-        return com.baidu.adp.lib.f.b.toInt(this.izk != null ? this.izk.adPosition : "-1", -1);
+        return com.baidu.adp.lib.f.b.toInt(this.iuD != null ? this.iuD.adPosition : "-1", -1);
     }
 
     @Override // com.baidu.tieba.card.data.p
-    public boolean cvx() {
+    public boolean crF() {
         return false;
     }
 
     @Override // com.baidu.tieba.card.data.p
-    public void py(boolean z) {
+    public void pu(boolean z) {
     }
 
     @Override // com.baidu.tieba.card.data.p
-    public void pz(boolean z) {
+    public void pv(boolean z) {
     }
 
-    public AdvertAppInfo cvy() {
-        return this.izk;
+    public AdvertAppInfo crG() {
+        return this.iuD;
     }
 
     @Override // com.baidu.tbadk.core.data.al
-    public AdvertAppInfo bpj() {
-        return this.izk;
+    public AdvertAppInfo blp() {
+        return this.iuD;
     }
 
     @Override // com.baidu.tbadk.core.data.al
     public void setPosition(int i) {
         this.position = i;
-        this.izk.position = i;
-        this.eOk = true;
+        this.iuD.position = i;
+        this.eJz = true;
     }
 
     @Override // com.baidu.tbadk.core.data.al
-    public int bpk() {
+    public int blq() {
         return this.position;
     }
 
     @Override // com.baidu.tbadk.core.data.al
-    public boolean bpl() {
-        return this.eOk;
+    public boolean blr() {
+        return this.eJz;
     }
 }

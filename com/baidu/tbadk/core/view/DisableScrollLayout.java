@@ -6,42 +6,42 @@ import android.view.MotionEvent;
 import android.widget.FrameLayout;
 /* loaded from: classes.dex */
 public class DisableScrollLayout extends FrameLayout {
-    private int dBv;
-    private double fic;
-    private double fie;
-    private boolean fif;
+    private int dwJ;
+    private double fdu;
+    private double fdv;
+    private boolean fdw;
 
     public DisableScrollLayout(Context context) {
         super(context);
-        this.fic = 0.0d;
-        this.fie = 0.0d;
-        this.fif = true;
+        this.fdu = 0.0d;
+        this.fdv = 0.0d;
+        this.fdw = true;
     }
 
     public DisableScrollLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.fic = 0.0d;
-        this.fie = 0.0d;
-        this.fif = true;
+        this.fdu = 0.0d;
+        this.fdv = 0.0d;
+        this.fdw = true;
     }
 
     public void setHeaderViewHeight(int i) {
-        this.dBv = i;
+        this.dwJ = i;
     }
 
-    public void jY(boolean z) {
-        this.fif = z;
+    public void jU(boolean z) {
+        this.fdw = z;
     }
 
     @Override // android.view.ViewGroup, android.view.View
     public boolean dispatchTouchEvent(MotionEvent motionEvent) {
         if (motionEvent.getAction() == 0) {
-            this.fic = motionEvent.getX();
-            this.fie = motionEvent.getY();
+            this.fdu = motionEvent.getX();
+            this.fdv = motionEvent.getY();
         }
-        if (motionEvent.getAction() == 2 && motionEvent.getY() <= this.dBv) {
+        if (motionEvent.getAction() == 2 && motionEvent.getY() <= this.dwJ) {
             double y = motionEvent.getY();
-            if (Math.abs(motionEvent.getX() - this.fic) > Math.abs(y - this.fie) || (y > this.fie && !this.fif)) {
+            if (Math.abs(motionEvent.getX() - this.fdu) > Math.abs(y - this.fdv) || (y > this.fdv && !this.fdw)) {
                 return true;
             }
             return super.dispatchTouchEvent(motionEvent);

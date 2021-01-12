@@ -18,34 +18,36 @@ import java.util.List;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class a {
-    private static a jQn;
-    private final Map<String, List<bz>> jQm = new HashMap();
-    private b jQo = cPm();
+    private static a jLH;
+    private final Map<String, List<bz>> jLG = new HashMap();
+    private b jLI = cLu();
 
     /* renamed from: com.baidu.tieba.h.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0758a {
-        public n eWF;
-        public ViewGroup jQp;
-        public List<View> jQq;
-        public List<View> jQr;
-        public ImageView jQs;
-        public ImageView jQt;
-        public TextView jQu;
-        public TextView jQv;
-        public FrameLayout jQw;
-        public Button jQx;
+    public static class C0741a {
+        public n eRU;
+        public ViewGroup jLJ;
+        public List<View> jLK;
+        public List<View> jLL;
+        public ImageView jLM;
+        public ImageView jLN;
+        public TextView jLO;
+        public TextView jLP;
+        public FrameLayout jLQ;
+        public Button jLR;
     }
 
     /* loaded from: classes.dex */
     public interface b {
+        void KE(String str);
+
         View a(Activity activity, String str, View view, c cVar);
 
         void a(Activity activity, String str, d dVar);
 
-        void a(C0758a c0758a);
+        void a(C0741a c0741a);
 
-        void a(C0758a c0758a, e eVar);
+        void a(C0741a c0741a, e eVar);
 
         void b(Activity activity, String str, d dVar);
 
@@ -102,7 +104,7 @@ public class a {
         }
     }
 
-    private b cPm() {
+    private b cLu() {
         CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2921525, b.class);
         if (runTask != null) {
             return (b) runTask.getData();
@@ -113,83 +115,89 @@ public class a {
     private a() {
     }
 
-    public static a cPn() {
-        if (jQn == null) {
+    public static a cLv() {
+        if (jLH == null) {
             synchronized (a.class) {
-                if (jQn == null) {
-                    jQn = new a();
+                if (jLH == null) {
+                    jLH = new a();
                 }
             }
         }
-        return jQn;
+        return jLH;
     }
 
     public View g(Activity activity, String str) {
-        if (this.jQo != null) {
-            return this.jQo.g(activity, str);
+        if (this.jLI != null) {
+            return this.jLI.g(activity, str);
         }
         return null;
     }
 
     public boolean isAdReady(String str) {
-        return this.jQo != null && this.jQo.isAdReady(str);
+        return this.jLI != null && this.jLI.isAdReady(str);
     }
 
     public View a(Activity activity, String str, View view, c cVar) {
-        if (this.jQo != null) {
-            return this.jQo.a(activity, str, view, cVar);
+        if (this.jLI != null) {
+            return this.jLI.a(activity, str, view, cVar);
         }
         return null;
     }
 
     public void a(Activity activity, String str, d dVar) {
-        if (this.jQo != null) {
-            this.jQo.a(activity, str, dVar);
+        if (this.jLI != null) {
+            this.jLI.a(activity, str, dVar);
         }
     }
 
     public void destroyAd(String str) {
-        if (this.jQo != null) {
-            this.jQo.destroyAd(str);
+        if (this.jLI != null) {
+            this.jLI.destroyAd(str);
         }
     }
 
     public void b(Activity activity, String str, d dVar) {
-        if (this.jQo != null) {
-            this.jQo.b(activity, str, dVar);
+        if (this.jLI != null) {
+            this.jLI.b(activity, str, dVar);
         }
     }
 
-    public void a(C0758a c0758a, e eVar) {
-        if (this.jQo != null) {
-            this.jQo.a(c0758a, eVar);
+    public void KC(String str) {
+        if (this.jLI != null) {
+            this.jLI.KE(str);
         }
     }
 
-    public void a(C0758a c0758a) {
-        if (this.jQo != null) {
-            this.jQo.a(c0758a);
+    public void a(C0741a c0741a, e eVar) {
+        if (this.jLI != null) {
+            this.jLI.a(c0741a, eVar);
         }
     }
 
-    public int cPo() {
-        return com.baidu.tbadk.coreExtra.data.e.bzG();
+    public void a(C0741a c0741a) {
+        if (this.jLI != null) {
+            this.jLI.a(c0741a);
+        }
     }
 
-    public int cPp() {
-        return com.baidu.tbadk.coreExtra.data.e.bzH();
+    public int cLw() {
+        return com.baidu.tbadk.coreExtra.data.e.bvM();
+    }
+
+    public int cLx() {
+        return com.baidu.tbadk.coreExtra.data.e.bvN();
     }
 
     @Nullable
-    public List<bz> LM(String str) {
-        return this.jQm.get(str);
+    public List<bz> KD(String str) {
+        return this.jLG.get(str);
     }
 
     public void A(String str, Object obj) {
-        List<bz> list = this.jQm.get(str);
+        List<bz> list = this.jLG.get(str);
         if (list != null && list.size() > 0) {
             for (bz bzVar : list) {
-                if (bzVar != null && bzVar.eWF != null && bzVar.eWF.dOO() == obj) {
+                if (bzVar != null && bzVar.eRU != null && bzVar.eRU.dKW() == obj) {
                     list.remove(bzVar);
                     return;
                 }
@@ -198,10 +206,10 @@ public class a {
     }
 
     public void c(String str, bz bzVar) {
-        List<bz> list = this.jQm.get(str);
+        List<bz> list = this.jLG.get(str);
         if (list == null) {
             list = new LinkedList<>();
-            this.jQm.put(str, list);
+            this.jLG.put(str, list);
         }
         list.add(bzVar);
     }

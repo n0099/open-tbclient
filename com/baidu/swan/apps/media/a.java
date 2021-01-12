@@ -1,15 +1,15 @@
 package com.baidu.swan.apps.media;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public interface a {
-    String aEa();
+    String aAg();
 
-    Object aEb();
+    Object aAh();
 
-    String azY();
+    String awe();
 
-    void fZ(boolean z);
+    void fV(boolean z);
 
-    void ga(boolean z);
+    void fW(boolean z);
 
     String getSlaveId();
 

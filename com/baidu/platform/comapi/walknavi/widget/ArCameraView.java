@@ -9,39 +9,39 @@ import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 import android.widget.Toast;
 import com.baidu.ala.recorder.video.drawer.EncoderTextureDrawer;
-import com.baidu.platform.comapi.wnplatform.p.h;
+import com.baidu.platform.comapi.wnplatform.o.g;
 import com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class ArCameraView extends SurfaceView implements SurfaceHolder.Callback {
     public static final int WALK_AR_PERMISSION = 3001;
 
     /* renamed from: a  reason: collision with root package name */
-    SurfaceHolder f4599a;
+    SurfaceHolder f4381a;
 
     /* renamed from: b  reason: collision with root package name */
-    Camera f4600b;
+    Camera f4382b;
     private Context c;
 
     public ArCameraView(Context context) {
         super(context);
-        a(context);
+        initCameraView(context);
     }
 
     public ArCameraView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        a(context);
+        initCameraView(context);
     }
 
-    private void a(Context context) {
+    private void initCameraView(Context context) {
         try {
             this.c = context;
-            this.f4599a = getHolder();
-            this.f4599a.addCallback(this);
-            this.f4599a.setType(3);
+            this.f4381a = getHolder();
+            this.f4381a.addCallback(this);
+            this.f4381a.setType(3);
         } catch (Exception e) {
             e.printStackTrace();
-            Toast.makeText(com.baidu.platform.comapi.wnplatform.p.b.a.a(), "相机出现错误", 0).show();
+            Toast.makeText(com.baidu.platform.comapi.wnplatform.o.b.a.a(), "相机出现错误", 0).show();
         }
     }
 
@@ -49,20 +49,20 @@ public class ArCameraView extends SurfaceView implements SurfaceHolder.Callback 
     public void surfaceCreated(SurfaceHolder surfaceHolder) {
         Log.e("CameraView", "surfaceCreated");
         try {
-            if (this.f4600b == null) {
-                this.f4600b = Camera.open();
+            if (this.f4382b == null) {
+                this.f4382b = Camera.open();
             }
-            Camera.Parameters parameters = this.f4600b.getParameters();
-            Camera.Size bestPreSize = getBestPreSize(h.c(this.c), h.b(this.c), parameters.getSupportedPreviewSizes());
+            Camera.Parameters parameters = this.f4382b.getParameters();
+            Camera.Size bestPreSize = getBestPreSize(g.c(this.c), g.b(this.c), parameters.getSupportedPreviewSizes());
             parameters.setPreviewSize(bestPreSize.width, bestPreSize.height);
-            if (this.f4600b != null) {
-                this.f4600b.setParameters(parameters);
-                this.f4600b.setPreviewDisplay(surfaceHolder);
+            if (this.f4382b != null) {
+                this.f4382b.setParameters(parameters);
+                this.f4382b.setPreviewDisplay(surfaceHolder);
             }
             resumeCamera();
         } catch (Exception e) {
             e.printStackTrace();
-            Toast.makeText(com.baidu.platform.comapi.wnplatform.p.b.a.a(), "相机出现错误", 0).show();
+            Toast.makeText(com.baidu.platform.comapi.wnplatform.o.b.a.a(), "相机出现错误", 0).show();
         }
     }
 
@@ -98,8 +98,8 @@ public class ArCameraView extends SurfaceView implements SurfaceHolder.Callback 
 
     @Override // android.view.SurfaceHolder.Callback
     public void surfaceChanged(SurfaceHolder surfaceHolder, int i, int i2, int i3) {
-        if (!setCameraDisplayOrientation((Activity) this.c, getBackCameraId(), this.f4600b)) {
-            a(90);
+        if (!setCameraDisplayOrientation((Activity) this.c, getBackCameraId(), this.f4382b)) {
+            setDisplayOrientation(90);
         }
         resumeCamera();
     }
@@ -161,10 +161,10 @@ public class ArCameraView extends SurfaceView implements SurfaceHolder.Callback 
         return -1;
     }
 
-    private void a(int i) {
+    private void setDisplayOrientation(int i) {
         try {
-            if (this.f4600b != null) {
-                this.f4600b.setDisplayOrientation(i);
+            if (this.f4382b != null) {
+                this.f4382b.setDisplayOrientation(i);
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -179,19 +179,19 @@ public class ArCameraView extends SurfaceView implements SurfaceHolder.Callback 
 
     public void resumeCamera() {
         try {
-            if (this.f4600b != null) {
-                this.f4600b.startPreview();
+            if (this.f4382b != null) {
+                this.f4382b.startPreview();
             }
         } catch (Exception e) {
             e.printStackTrace();
-            Toast.makeText(com.baidu.platform.comapi.wnplatform.p.b.a.a(), "相机出现错误", 0).show();
+            Toast.makeText(com.baidu.platform.comapi.wnplatform.o.b.a.a(), "相机出现错误", 0).show();
         }
     }
 
     public void pauseCamera() {
         try {
-            if (this.f4600b != null) {
-                this.f4600b.stopPreview();
+            if (this.f4382b != null) {
+                this.f4382b.stopPreview();
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -200,17 +200,17 @@ public class ArCameraView extends SurfaceView implements SurfaceHolder.Callback 
 
     public void releaseCamera() {
         try {
-            if (this.f4600b != null) {
+            if (this.f4382b != null) {
                 try {
-                    this.f4600b.setPreviewCallback(null);
-                    this.f4600b.stopPreview();
+                    this.f4382b.setPreviewCallback(null);
+                    this.f4382b.stopPreview();
                 } catch (Exception e) {
                 }
                 try {
-                    this.f4600b.release();
+                    this.f4382b.release();
                 } catch (Exception e2) {
                 }
-                this.f4600b = null;
+                this.f4382b = null;
             }
         } catch (Exception e3) {
             e3.printStackTrace();

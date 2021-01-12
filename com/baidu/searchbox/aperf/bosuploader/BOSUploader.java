@@ -4,7 +4,7 @@ import android.text.TextUtils;
 import android.util.Log;
 import androidx.annotation.NonNull;
 import com.baidu.android.util.io.Closeables;
-import com.baidu.e.b.a;
+import com.baidu.d.b.a;
 import com.baidu.searchbox.config.AppConfig;
 import com.baidubce.BceClientException;
 import com.baidubce.BceServiceException;
@@ -24,7 +24,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.ArrayList;
 import org.json.JSONException;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class BOSUploader {
     private static final String OS_ANDROID = "android";
     private static final long PART_SIZE = 5242880;
@@ -188,6 +188,6 @@ public class BOSUploader {
     }
 
     public String createObjectKey(@NonNull String str, @NonNull String str2) {
-        return a.um().getAppName() + "/android/" + str + "/" + str2;
+        return a.uf().getAppName() + "/android/" + str + "/" + str2;
     }
 }

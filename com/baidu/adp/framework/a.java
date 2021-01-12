@@ -6,18 +6,18 @@ import java.lang.reflect.Field;
 import java.util.List;
 /* loaded from: classes.dex */
 public class a {
-    private static volatile a IJ;
+    private static volatile a IH;
     private SparseArray<String> mCmdMap;
 
     public static a kK() {
-        if (IJ == null) {
+        if (IH == null) {
             synchronized (a.class) {
-                if (IJ == null) {
-                    IJ = new a();
+                if (IH == null) {
+                    IH = new a();
                 }
             }
         }
-        return IJ;
+        return IH;
     }
 
     private a() {

@@ -9,7 +9,7 @@ import com.baidu.tbadk.browser.WebViewBroadcastReceiver;
 import com.baidu.tbadk.core.util.be;
 import com.baidu.tieba.sdk.b.f;
 import com.baidu.webkit.internal.ETAG;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class a implements f {
     public void openScheme(String str) {
         if (!StringUtils.isNull(str)) {
@@ -25,13 +25,13 @@ public class a implements f {
             sb.append("&page_from=live");
             Activity currentActivity = b.kC().currentActivity();
             if (currentActivity != null) {
-                be.bwv().a((TbPageContext) j.K(currentActivity), new String[]{sb.toString()}, true);
+                be.bsB().a((TbPageContext) j.K(currentActivity), new String[]{sb.toString()}, true);
             }
         }
     }
 
     @Override // com.baidu.tieba.sdk.b.f
-    public void Og(String str) {
+    public void MY(String str) {
         openScheme(str);
     }
 }

@@ -2,12 +2,12 @@ package com.baidu.swan.apps.performance.c;
 
 import com.baidu.swan.apps.performance.HybridUbcFlow;
 import com.baidu.swan.games.view.webview.GameWebViewJavascriptInterface;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class d implements com.baidu.swan.apps.ao.e.b<HybridUbcFlow> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.swan.apps.ao.e.b
     /* renamed from: a */
     public void L(HybridUbcFlow hybridUbcFlow) {
-        hybridUbcFlow.rh("1641").a(HybridUbcFlow.SubmitStrategy.VIDEO_NA).q("from", GameWebViewJavascriptInterface.JAVASCRIPT_INTERFACE_NAME);
+        hybridUbcFlow.pW("1641").a(HybridUbcFlow.SubmitStrategy.VIDEO_NA).q("from", GameWebViewJavascriptInterface.JAVASCRIPT_INTERFACE_NAME);
     }
 }

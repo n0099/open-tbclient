@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class AlaFrsStoryLiveGatherRespMessage extends JsonHttpResponsedMessage {
     private boolean hasMore;
     private int liveCount;

@@ -6,10 +6,10 @@ import com.bytedance.sdk.openadsdk.TTFeedAd;
 import com.fun.ad.au;
 import com.fun.ad.sdk.AdRipper;
 import java.util.List;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class n extends bt {
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public class a implements TTAdNative.FeedAdListener {
         public a() {
         }
@@ -18,26 +18,26 @@ public class n extends bt {
         public void onError(int i, String str) {
             m.a("CSJNative onError code: " + i + ", message: " + str);
             n nVar = n.this;
-            nVar.f8065b = false;
-            ba baVar = nVar.pJV;
+            nVar.f7765b = false;
+            ba baVar = nVar.pFu;
             if (baVar != null) {
-                ((aj) baVar).a(nVar.f8064a.f8060a, i, str);
+                ((aj) baVar).a(nVar.f7764a.f7760a, i, str);
             }
         }
 
         @Override // com.bytedance.sdk.openadsdk.TTAdNative.FeedAdListener
         public void onFeedAdLoad(List<TTFeedAd> list) {
             m.a("CSJNative onFeedAdLoad");
-            n.this.f8065b = false;
+            n.this.f7765b = false;
             if (list != null && !list.isEmpty()) {
-                n.this.pKr = list.get(0);
-                m.a("CSJNative onFeedAdLoad imageMode: " + n.this.pKr.getImageMode());
+                n.this.pFQ = list.get(0);
+                m.a("CSJNative onFeedAdLoad imageMode: " + n.this.pFQ.getImageMode());
                 n nVar = n.this;
-                ba baVar = nVar.pJV;
+                ba baVar = nVar.pFu;
                 if (baVar != null) {
-                    ((aj) baVar).b(nVar.f8064a.f8060a);
+                    ((aj) baVar).b(nVar.f7764a.f7760a);
                 }
-                AdRipper.ripCSJ(n.this.pKr);
+                AdRipper.ripCSJ(n.this.pFQ);
                 return;
             }
             m.a("CSJNative onFeedAdLoad error: adList is null or empty");
@@ -50,12 +50,12 @@ public class n extends bt {
 
     @Override // com.fun.ad.bt
     public void c() {
-        AdSlot.Builder supportDeepLink = new AdSlot.Builder().setCodeId(this.f8064a.f8060a).setSupportDeepLink(true);
-        au.a aVar = this.f8064a;
-        this.pJX.loadFeedAd(supportDeepLink.setImageAcceptedSize(aVar.c, aVar.d).setAdCount(1).build(), new a());
-        ba baVar = this.pJV;
+        AdSlot.Builder supportDeepLink = new AdSlot.Builder().setCodeId(this.f7764a.f7760a).setSupportDeepLink(true);
+        au.a aVar = this.f7764a;
+        this.pFw.loadFeedAd(supportDeepLink.setImageAcceptedSize(aVar.c, aVar.d).setAdCount(1).build(), new a());
+        ba baVar = this.pFu;
         if (baVar != null) {
-            ((aj) baVar).a(this.f8064a.f8060a);
+            ((aj) baVar).a(this.f7764a.f7760a);
         }
     }
 }

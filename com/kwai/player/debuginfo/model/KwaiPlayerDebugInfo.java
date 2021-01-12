@@ -1,5 +1,5 @@
 package com.kwai.player.debuginfo.model;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class KwaiPlayerDebugInfo {
     public AppLiveQosDebugInfo mAppLiveQosDebugInfo;
     public AppLiveQosDebugInfoNew mAppLiveQosDebugInfoNew;

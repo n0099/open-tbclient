@@ -14,16 +14,16 @@ import com.baidu.tieba.card.aa;
 import com.baidu.tieba.card.y;
 import com.baidu.tieba.frs.j;
 import com.baidu.tieba.frs.k;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class FrsSplitAlaShareItemAdapter extends k<by, FrsPageAlaShareHolder> implements com.baidu.tieba.a.f, y {
-    private String aji;
-    private com.baidu.tieba.ala.livecard.a.c hnk;
-    private aa<bz> hnl;
+    private String air;
+    private com.baidu.tieba.ala.livecard.a.c hiE;
+    private aa<bz> hiF;
     private String mForumName;
 
     public FrsSplitAlaShareItemAdapter(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
         super(tbPageContext, bdUniqueId, bdUniqueId2);
-        this.hnl = new aa<bz>() { // from class: com.baidu.tieba.ala.livecard.adapters.FrsSplitAlaShareItemAdapter.1
+        this.hiF = new aa<bz>() { // from class: com.baidu.tieba.ala.livecard.adapters.FrsSplitAlaShareItemAdapter.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.card.aa
             /* renamed from: b */
@@ -52,11 +52,11 @@ public class FrsSplitAlaShareItemAdapter extends k<by, FrsPageAlaShareHolder> im
         if (this.mPageContext == null) {
             return null;
         }
-        this.hnk = new com.baidu.tieba.ala.livecard.a.c(this.mPageContext, this.mPageId);
-        this.hnk.o(this.mPageId);
-        this.hnk.setForumName(this.mForumName);
-        this.hnk.c(this.hnl);
-        return new FrsPageAlaShareHolder(this.hnk);
+        this.hiE = new com.baidu.tieba.ala.livecard.a.c(this.mPageContext, this.mPageId);
+        this.hiE.o(this.mPageId);
+        this.hiE.setForumName(this.mForumName);
+        this.hiE.c(this.hiF);
+        return new FrsPageAlaShareHolder(this.hiE);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -65,21 +65,21 @@ public class FrsSplitAlaShareItemAdapter extends k<by, FrsPageAlaShareHolder> im
     public View a(int i, View view, ViewGroup viewGroup, by byVar, FrsPageAlaShareHolder frsPageAlaShareHolder) {
         CustomMessage customMessage = new CustomMessage(CmdConfigCustom.CMD_FRS_LIVE_CARD_SHOW);
         int i2 = 0;
-        if (this.jeH != null) {
-            i2 = this.jeH.getTopThreadSize();
+        if (this.jaa != null) {
+            i2 = this.jaa.getTopThreadSize();
         }
-        byVar.eMv.eQR = (byVar.position + 1) - i2;
-        customMessage.setData(byVar.eMv);
+        byVar.eHK.eMg = (byVar.position + 1) - i2;
+        customMessage.setData(byVar.eHK);
         this.mPageContext.sendMessage(customMessage);
         if (byVar != null) {
-            if (frsPageAlaShareHolder.hnn instanceof com.baidu.tieba.a.e) {
-                frsPageAlaShareHolder.hnn.setPage(this.aji);
+            if (frsPageAlaShareHolder.hiH instanceof com.baidu.tieba.a.e) {
+                frsPageAlaShareHolder.hiH.setPage(this.air);
             }
-            frsPageAlaShareHolder.hnn.setForumName(this.mForumName);
-            j.a(frsPageAlaShareHolder.hnn.cbK(), this.jeH);
-            j.a(frsPageAlaShareHolder.hnn.cbL(), this.jeH);
-            frsPageAlaShareHolder.hnn.a(byVar.eMv);
-            byVar.eMv.bsF();
+            frsPageAlaShareHolder.hiH.setForumName(this.mForumName);
+            j.a(frsPageAlaShareHolder.hiH.bXS(), this.jaa);
+            j.a(frsPageAlaShareHolder.hiH.bXT(), this.jaa);
+            frsPageAlaShareHolder.hiH.a(byVar.eHK);
+            byVar.eHK.boL();
         }
         return frsPageAlaShareHolder.getView();
     }
@@ -90,21 +90,21 @@ public class FrsSplitAlaShareItemAdapter extends k<by, FrsPageAlaShareHolder> im
     }
 
     @Override // com.baidu.tieba.card.y
-    public void wt(int i) {
+    public void uN(int i) {
     }
 
     @Override // com.baidu.tieba.a.f
-    public void Fl(String str) {
-        this.aji = str;
+    public void Ea(String str) {
+        this.air = str;
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static class FrsPageAlaShareHolder extends TypeAdapter.ViewHolder {
-        public com.baidu.tieba.ala.livecard.a.c hnn;
+        public com.baidu.tieba.ala.livecard.a.c hiH;
 
         public FrsPageAlaShareHolder(com.baidu.tieba.ala.livecard.a.c cVar) {
             super(cVar.getView());
-            this.hnn = cVar;
+            this.hiH = cVar;
         }
     }
 }

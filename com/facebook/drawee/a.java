@@ -6,7 +6,7 @@ public final class a {
 
     /* renamed from: com.facebook.drawee.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static final class C1057a {
+    public static final class C1040a {
         public static final int GenericDraweeHierarchy_actualImageScaleType = 0;
         public static final int GenericDraweeHierarchy_backgroundImage = 1;
         public static final int GenericDraweeHierarchy_fadeDuration = 2;

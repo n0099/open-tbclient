@@ -6,61 +6,61 @@ import com.baidu.adp.lib.stats.a;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.core.util.t;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class CDNLogSyncData {
-    private boolean ePc;
-    private int ePd;
-    private int ePe;
-    private int ePf = 25;
-    private int ePg = 25;
-    private int ePh = 10;
+    private boolean eKr;
+    private int eKs;
+    private int eKt;
+    private int eKu = 25;
+    private int eKv = 25;
+    private int eKw = 10;
     private int time;
 
     public int getSuccRank() {
-        return this.ePf;
+        return this.eKu;
     }
 
     public void setSuccRank(int i) {
-        this.ePf = i;
+        this.eKu = i;
     }
 
     public int getErrRank() {
-        return this.ePg;
+        return this.eKv;
     }
 
     public void setErrRank(int i) {
-        this.ePg = i;
+        this.eKv = i;
     }
 
     public int getSlowRank() {
-        return this.ePh;
+        return this.eKw;
     }
 
     public void setSlowRank(int i) {
-        this.ePh = i;
+        this.eKw = i;
     }
 
     public boolean ismSwitch() {
-        return this.ePc;
+        return this.eKr;
     }
 
     public void setmSwitch(boolean z) {
-        if (this.ePc != z) {
+        if (this.eKr != z) {
             a pi = t.pi();
             pi.append("act", "fallback");
             pi.append("result", z ? "1" : "0");
             pi.append("type", "switch");
             BdStatisticsManager.getInstance().debug("img", pi);
         }
-        this.ePc = z;
+        this.eKr = z;
     }
 
     public int getSlowNumber() {
-        return this.ePd;
+        return this.eKs;
     }
 
     public void setSlowNumber(int i) {
-        this.ePd = i;
+        this.eKs = i;
     }
 
     public int getTime() {
@@ -72,11 +72,11 @@ public class CDNLogSyncData {
     }
 
     public int getErrNumber() {
-        return this.ePe;
+        return this.eKt;
     }
 
     public void setErrNumber(int i) {
-        this.ePe = i;
+        this.eKt = i;
     }
 
     public void parseJson(String str) {
@@ -85,7 +85,7 @@ public class CDNLogSyncData {
                 parseJson(new JSONObject(str));
             }
         } catch (Exception e) {
-            this.ePc = false;
+            this.eKr = false;
             BdLog.e(e.getMessage());
         }
     }
@@ -94,30 +94,30 @@ public class CDNLogSyncData {
         if (jSONObject != null) {
             try {
                 if (jSONObject.optInt("switch") == 1) {
-                    this.ePc = true;
+                    this.eKr = true;
                 } else {
-                    this.ePc = false;
+                    this.eKr = false;
                 }
                 JSONObject optJSONObject = jSONObject.optJSONObject("err");
                 if (optJSONObject != null) {
-                    this.ePe = optJSONObject.optInt("num");
+                    this.eKt = optJSONObject.optInt("num");
                 }
                 JSONObject optJSONObject2 = jSONObject.optJSONObject("slow");
                 if (optJSONObject2 != null) {
                     this.time = optJSONObject2.optInt("time");
-                    this.ePd = optJSONObject2.optInt("num");
+                    this.eKs = optJSONObject2.optInt("num");
                 }
                 JSONObject optJSONObject3 = jSONObject.optJSONObject("rank");
                 if (optJSONObject3 != null) {
-                    this.ePf = optJSONObject3.optInt("succ");
-                    this.ePg = optJSONObject3.optInt("err");
-                    this.ePh = optJSONObject3.optInt("slow");
+                    this.eKu = optJSONObject3.optInt("succ");
+                    this.eKv = optJSONObject3.optInt("err");
+                    this.eKw = optJSONObject3.optInt("slow");
                 }
-                if (this.time <= 0 || this.ePd <= 0 || this.ePe <= 0) {
-                    this.ePc = false;
+                if (this.time <= 0 || this.eKs <= 0 || this.eKt <= 0) {
+                    this.eKr = false;
                 }
             } catch (Exception e) {
-                this.ePc = false;
+                this.eKr = false;
                 BdLog.e(e.getMessage());
             }
         }

@@ -2,19 +2,19 @@ package com.baidu.ufosdk.ui;
 
 import android.view.View;
 import java.util.Map;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 final class ck implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ int f5778a;
+    final /* synthetic */ int f5495a;
 
     /* renamed from: b  reason: collision with root package name */
-    final /* synthetic */ cg f5779b;
+    final /* synthetic */ cg f5496b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ck(cg cgVar, int i) {
-        this.f5779b = cgVar;
-        this.f5778a = i;
+        this.f5496b = cgVar;
+        this.f5495a = i;
     }
 
     /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: java.lang.Object : 0x0059: INVOKE  (r0v25 java.lang.Object A[REMOVE]) = 
@@ -30,13 +30,13 @@ final class ck implements View.OnClickListener {
      type: INTERFACE call: java.util.Map.get(java.lang.Object):java.lang.Object)] */
     @Override // android.view.View.OnClickListener
     public final void onClick(View view) {
-        this.f5779b.f5772a.aF = this.f5778a;
+        this.f5496b.f5489a.aF = this.f5495a;
         com.baidu.ufosdk.f.c.a("点击未解决！！！");
-        ((Map) this.f5779b.f5772a.h.get(this.f5778a)).put("ask", 3);
-        if (((Map) this.f5779b.f5772a.h.get(this.f5778a)).containsKey("chatId")) {
-            this.f5779b.f5772a.f = new StringBuilder().append(((Map) this.f5779b.f5772a.h.get(this.f5778a)).get("chatId")).toString();
+        ((Map) this.f5496b.f5489a.h.get(this.f5495a)).put("ask", 3);
+        if (((Map) this.f5496b.f5489a.h.get(this.f5495a)).containsKey("chatId")) {
+            this.f5496b.f5489a.f = new StringBuilder().append(((Map) this.f5496b.f5489a.h.get(this.f5495a)).get("chatId")).toString();
         }
-        this.f5779b.f5772a.l.execute(new cl(this));
-        FeedbackInputActivity.a(this.f5779b.f5772a, false, true);
+        this.f5496b.f5489a.l.execute(new cl(this));
+        FeedbackInputActivity.a(this.f5496b.f5489a, false, true);
     }
 }

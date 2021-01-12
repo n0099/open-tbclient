@@ -8,27 +8,27 @@ import com.baidu.live.adp.framework.message.HttpResponsedMessage;
 import com.baidu.live.tbadk.TbPageContext;
 import com.baidu.live.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.yuyinala.liveroom.wheat.message.AlaCancelApplyOrCancelInviteHttpResponseMessage;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class e extends BdBaseModel {
     private TbPageContext mPageContext;
-    private a oEA;
+    private a ozV;
     private HttpMessageListener messageListener = new HttpMessageListener(1031010) { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.model.e.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            if (httpResponsedMessage != null && (httpResponsedMessage instanceof AlaCancelApplyOrCancelInviteHttpResponseMessage) && httpResponsedMessage.getOrginalMessage().getTag() == e.this.bwz && e.this.oEA != null) {
+            if (httpResponsedMessage != null && (httpResponsedMessage instanceof AlaCancelApplyOrCancelInviteHttpResponseMessage) && httpResponsedMessage.getOrginalMessage().getTag() == e.this.brL && e.this.ozV != null) {
                 AlaCancelApplyOrCancelInviteHttpResponseMessage alaCancelApplyOrCancelInviteHttpResponseMessage = (AlaCancelApplyOrCancelInviteHttpResponseMessage) httpResponsedMessage;
                 if (alaCancelApplyOrCancelInviteHttpResponseMessage.getError() != 0 || !alaCancelApplyOrCancelInviteHttpResponseMessage.isSuccess()) {
-                    e.this.oEA.onFail(alaCancelApplyOrCancelInviteHttpResponseMessage.getError(), alaCancelApplyOrCancelInviteHttpResponseMessage.getErrorString());
+                    e.this.ozV.onFail(alaCancelApplyOrCancelInviteHttpResponseMessage.getError(), alaCancelApplyOrCancelInviteHttpResponseMessage.getErrorString());
                 } else {
-                    e.this.oEA.a(alaCancelApplyOrCancelInviteHttpResponseMessage);
+                    e.this.ozV.a(alaCancelApplyOrCancelInviteHttpResponseMessage);
                 }
             }
         }
     };
-    private BdUniqueId bwz = BdUniqueId.gen();
+    private BdUniqueId brL = BdUniqueId.gen();
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public interface a {
         void a(AlaCancelApplyOrCancelInviteHttpResponseMessage alaCancelApplyOrCancelInviteHttpResponseMessage);
 
@@ -36,22 +36,22 @@ public class e extends BdBaseModel {
     }
 
     public e(TbPageContext tbPageContext, a aVar) {
-        setUniqueId(this.bwz);
+        setUniqueId(this.brL);
         this.mPageContext = tbPageContext;
-        this.oEA = aVar;
-        bmg();
+        this.ozV = aVar;
+        bim();
         registerListener(this.messageListener);
     }
 
-    private void bmg() {
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1031010, com.baidu.live.a.aAH + "ala/audio/link/cancel");
+    private void bim() {
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1031010, com.baidu.live.a.avU + "ala/audio/link/cancel");
         tbHttpMessageTask.setIsNeedTbs(true);
         tbHttpMessageTask.setIsUseCurrentBDUSS(true);
         tbHttpMessageTask.setResponsedClass(AlaCancelApplyOrCancelInviteHttpResponseMessage.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    public void gS(String str, String str2) {
+    public void gR(String str, String str2) {
         sendMessage(new com.baidu.tieba.yuyinala.liveroom.wheat.message.d(str, str2));
     }
 

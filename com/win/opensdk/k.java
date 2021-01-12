@@ -1,7 +1,7 @@
 package com.win.opensdk;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public interface k {
-    boolean abK(String str);
+    boolean aaC(String str);
 
-    void eKq();
+    void eGA();
 }

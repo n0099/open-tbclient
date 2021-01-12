@@ -23,7 +23,7 @@ import com.baidu.webkit.internal.ETAG;
 import java.util.List;
 import java.util.Locale;
 import java.util.Random;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class BDLocManager implements Debug {
     private static final String TAG = "loc tiny String";
     private static final long WIFI_SCAN_SPAN_MIN = 10000;
@@ -44,7 +44,7 @@ public class BDLocManager implements Debug {
     private long time = System.currentTimeMillis();
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class BDCellInfo {
         public int mCid;
         public int mLac;
@@ -80,7 +80,7 @@ public class BDLocManager implements Debug {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     private class CellStateListener extends PhoneStateListener {
         public CellStateListener() {
         }
@@ -98,7 +98,7 @@ public class BDLocManager implements Debug {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class WifiList {
         public List<ScanResult> wifiList;
         private long wifiTime;

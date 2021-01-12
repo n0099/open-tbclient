@@ -9,16 +9,16 @@ import java.util.concurrent.LinkedBlockingQueue;
 public final class a implements ServiceConnection {
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f8204a = false;
+    public boolean f7904a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public final LinkedBlockingQueue<IBinder> f8205b = new LinkedBlockingQueue<>(1);
+    public final LinkedBlockingQueue<IBinder> f7905b = new LinkedBlockingQueue<>(1);
 
     @Override // android.content.ServiceConnection
     public final void onServiceConnected(ComponentName componentName, IBinder iBinder) {
         try {
             Log.d("PPSSerivceConnection", "onServiceConnected " + System.currentTimeMillis());
-            this.f8205b.put(iBinder);
+            this.f7905b.put(iBinder);
         } catch (InterruptedException e) {
             Log.w("PPSSerivceConnection", "onServiceConnected InterruptedException " + System.currentTimeMillis());
         }

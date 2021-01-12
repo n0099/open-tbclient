@@ -6,7 +6,7 @@ import android.util.AttributeSet;
 import android.widget.TextView;
 import androidx.annotation.Nullable;
 import com.baidu.live.sdk.a;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class AlaPersonTagView extends TextView {
     public AlaPersonTagView(Context context) {
         this(context, null);
@@ -18,10 +18,10 @@ public class AlaPersonTagView extends TextView {
 
     public AlaPersonTagView(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        eO(context);
+        initView(context);
     }
 
-    private void eO(Context context) {
+    private void initView(Context context) {
         setCompoundDrawablePadding(context.getResources().getDimensionPixelSize(a.d.sdk_ds4));
         setEllipsize(TextUtils.TruncateAt.END);
         setGravity(17);

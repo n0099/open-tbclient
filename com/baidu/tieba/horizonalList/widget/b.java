@@ -12,8 +12,8 @@ import java.util.List;
 /* loaded from: classes.dex */
 public class b extends BaseAdapter {
     private List<c> dataList;
-    public final ArrayList<ItemViewHolder> fUL = new ArrayList<>();
-    private ItemViewHolder koC;
+    public final ArrayList<ItemViewHolder> fQe = new ArrayList<>();
+    private ItemViewHolder kjX;
     private LayoutInflater mInflater;
     private View.OnClickListener mOnClickListener;
     private int mResourceId;
@@ -21,7 +21,7 @@ public class b extends BaseAdapter {
     public b(Context context, int i, ItemViewHolder itemViewHolder) {
         this.mInflater = LayoutInflater.from(context);
         this.mResourceId = i;
-        this.koC = itemViewHolder;
+        this.kjX = itemViewHolder;
     }
 
     public void setData(List<c> list) {
@@ -59,10 +59,10 @@ public class b extends BaseAdapter {
     public View getView(int i, View view, ViewGroup viewGroup) {
         if (view == null) {
             view = this.mInflater.inflate(this.mResourceId, viewGroup, false);
-            ItemViewHolder cK = this.koC.cK(view);
+            ItemViewHolder cK = this.kjX.cK(view);
             cK.setOnClickListener(this.mOnClickListener);
             view.setTag(cK);
-            this.fUL.add(cK);
+            this.fQe.add(cK);
         }
         ItemViewHolder itemViewHolder = (ItemViewHolder) view.getTag();
         if (x.getItem(this.dataList, i) != null) {
@@ -78,8 +78,8 @@ public class b extends BaseAdapter {
     }
 
     public void onSkinTypeChanged(int i) {
-        if (x.getCount(this.fUL) > 0) {
-            Iterator<ItemViewHolder> it = this.fUL.iterator();
+        if (x.getCount(this.fQe) > 0) {
+            Iterator<ItemViewHolder> it = this.fQe.iterator();
             while (it.hasNext()) {
                 it.next().onChangeSkinType(i);
             }

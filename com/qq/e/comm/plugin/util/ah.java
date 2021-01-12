@@ -11,7 +11,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class ah {
     public static long a(File file) {
         File[] listFiles;
@@ -46,7 +46,7 @@ public class ah {
         }
         try {
             FileOutputStream fileOutputStream = new FileOutputStream(file);
-            fileOutputStream.write(str.getBytes(com.qq.e.comm.plugin.f.a.f12290a));
+            fileOutputStream.write(str.getBytes(com.qq.e.comm.plugin.f.a.f11990a));
             fileOutputStream.flush();
             fileOutputStream.close();
         } catch (IOException e) {
@@ -114,7 +114,7 @@ public class ah {
             try {
                 byte[] bArr = new byte[fileInputStream.available()];
                 fileInputStream.read(bArr);
-                String str = new String(bArr, com.qq.e.comm.plugin.f.a.f12290a);
+                String str = new String(bArr, com.qq.e.comm.plugin.f.a.f11990a);
                 if (fileInputStream != null) {
                     try {
                         fileInputStream.close();

@@ -27,7 +27,7 @@ public class SpecialColumnListData extends com.baidu.tbadk.core.data.a implement
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: Dq */
+        /* renamed from: BK */
         public SpecialColumnListData[] newArray(int i) {
             return new SpecialColumnListData[i];
         }
@@ -78,16 +78,16 @@ public class SpecialColumnListData extends com.baidu.tbadk.core.data.a implement
     }
 
     @Override // com.baidu.tbadk.core.data.a
-    public bz boP() {
+    public bz bkV() {
         return null;
     }
 
     @Override // com.baidu.tbadk.core.data.a
-    public at boR() {
+    public at bkX() {
         return null;
     }
 
-    public List<SpecialColumnItemData> cTU() {
+    public List<SpecialColumnItemData> cQc() {
         return this.mListData;
     }
 
@@ -95,7 +95,7 @@ public class SpecialColumnListData extends com.baidu.tbadk.core.data.a implement
         return this.title;
     }
 
-    public List<SpecialColumnItemData> bUV() {
+    public List<SpecialColumnItemData> bRd() {
         return this.mResultListData;
     }
 

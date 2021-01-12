@@ -7,63 +7,63 @@ import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class c {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private Download eei;
-    private JSONObject eej;
-    private C0528c eek = new C0528c();
-    private com.baidu.swan.gamecenter.appmanager.b.b eel;
+    private Download dZw;
+    private JSONObject dZx;
+    private C0511c dZy = new C0511c();
+    private com.baidu.swan.gamecenter.appmanager.b.b dZz;
 
     public c(Download download, JSONObject jSONObject) {
-        this.eei = download;
-        this.eej = jSONObject;
+        this.dZw = download;
+        this.dZx = jSONObject;
     }
 
     public void b(com.baidu.swan.gamecenter.appmanager.b.b bVar) {
-        this.eel = bVar;
-        com.baidu.swan.gamecenter.appmanager.a.b.sExecutorService.execute(new b(this.eei, this.eej, this.eek));
+        this.dZz = bVar;
+        com.baidu.swan.gamecenter.appmanager.a.b.sExecutorService.execute(new b(this.dZw, this.dZx, this.dZy));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b(com.baidu.swan.gamecenter.appmanager.c.b bVar) {
-        if (this.eel != null) {
-            this.eel.a(bVar);
+        if (this.dZz != null) {
+            this.dZz.a(bVar);
         }
-        if (bVar != null && !bVar.aXi()) {
-            com.baidu.swan.gamecenter.appmanager.d.c.a(this.eei.getKeyByUser(), "installApp", com.baidu.pass.biometrics.face.liveness.c.a.p, String.valueOf(bVar.getStatus()), new com.baidu.swan.gamecenter.appmanager.d.a(this.eej));
+        if (bVar != null && !bVar.aTo()) {
+            com.baidu.swan.gamecenter.appmanager.d.c.a(this.dZw.getKeyByUser(), "installApp", com.baidu.pass.biometrics.face.liveness.c.a.p, String.valueOf(bVar.getStatus()), new com.baidu.swan.gamecenter.appmanager.d.a(this.dZx));
         }
-        if (this.eek != null) {
-            com.baidu.swan.gamecenter.appmanager.a.aWH().e(this.eei.getKeyByUser(), this.eek);
-            this.eek = null;
+        if (this.dZy != null) {
+            com.baidu.swan.gamecenter.appmanager.a.aSN().e(this.dZw.getKeyByUser(), this.dZy);
+            this.dZy = null;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes3.dex */
     public static class b implements Runnable {
-        private JSONObject edN;
-        private com.baidu.swan.gamecenter.appmanager.b.a eeg;
-        private Download eei;
+        private JSONObject dZb;
+        private com.baidu.swan.gamecenter.appmanager.b.a dZu;
+        private Download dZw;
 
         private b(@NonNull Download download, JSONObject jSONObject, @NonNull com.baidu.swan.gamecenter.appmanager.b.a aVar) {
-            this.eei = download;
-            this.edN = jSONObject;
-            this.eeg = aVar;
+            this.dZw = download;
+            this.dZb = jSONObject;
+            this.dZu = aVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            com.baidu.swan.gamecenter.appmanager.a.aWH().cp(this.edN);
-            com.baidu.swan.gamecenter.appmanager.d.c.a(this.eei.getKeyByUser(), "installApp", null, null, new com.baidu.swan.gamecenter.appmanager.d.a(this.edN));
-            com.baidu.swan.gamecenter.appmanager.a.aWH().a(this.eei.getUrl(), this.eeg);
+            com.baidu.swan.gamecenter.appmanager.a.aSN().cp(this.dZb);
+            com.baidu.swan.gamecenter.appmanager.d.c.a(this.dZw.getKeyByUser(), "installApp", null, null, new com.baidu.swan.gamecenter.appmanager.d.a(this.dZb));
+            com.baidu.swan.gamecenter.appmanager.a.aSN().a(this.dZw.getUrl(), this.dZu);
         }
     }
 
     /* renamed from: com.baidu.swan.gamecenter.appmanager.install.c$c  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C0528c implements com.baidu.swan.gamecenter.appmanager.b.a {
+    public class C0511c implements com.baidu.swan.gamecenter.appmanager.b.a {
         private String mFilePath;
         private String mPackageName;
 
-        public C0528c() {
+        public C0511c() {
         }
 
         @Override // com.baidu.swan.gamecenter.appmanager.b.b
@@ -96,8 +96,8 @@ public class c {
 
         @Override // java.lang.Runnable
         public void run() {
-            com.baidu.swan.gamecenter.appmanager.a.aWH().wu(this.mFilePath);
-            com.baidu.swan.gamecenter.appmanager.a.aWH().aWL();
+            com.baidu.swan.gamecenter.appmanager.a.aSN().vj(this.mFilePath);
+            com.baidu.swan.gamecenter.appmanager.a.aSN().aSR();
         }
     }
 }

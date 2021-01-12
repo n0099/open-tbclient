@@ -6,9 +6,9 @@ import android.graphics.Paint;
 import android.util.AttributeSet;
 import android.view.View;
 import com.baidu.tbadk.core.view.BdGridView;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class TableLineGridView extends BdGridView {
-    private int bei;
+    private int aZt;
     private int columnCount;
     private int rowCount;
 
@@ -32,7 +32,7 @@ public class TableLineGridView extends BdGridView {
         if (getChildCount() > 0 && (childAt = getChildAt(0)) != null) {
             Paint paint = new Paint();
             paint.setStyle(Paint.Style.STROKE);
-            paint.setColor(this.bei);
+            paint.setColor(this.aZt);
             int width = childAt.getWidth() * this.columnCount;
             int height = childAt.getHeight() * this.rowCount;
             int width2 = childAt.getWidth();
@@ -70,10 +70,10 @@ public class TableLineGridView extends BdGridView {
     }
 
     public int getBackgroundLineResource() {
-        return this.bei;
+        return this.aZt;
     }
 
     public void setBackgroundLineResource(int i) {
-        this.bei = i;
+        this.aZt = i;
     }
 }

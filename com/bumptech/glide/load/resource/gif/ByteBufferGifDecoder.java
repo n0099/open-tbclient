@@ -6,6 +6,7 @@ import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.VisibleForTesting;
+import com.baidu.mobstat.Config;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.gifdecoder.GifDecoder;
 import com.bumptech.glide.gifdecoder.GifHeader;
@@ -25,7 +26,7 @@ import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.util.List;
 import java.util.Queue;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class ByteBufferGifDecoder implements ResourceDecoder<ByteBuffer, GifDrawable> {
     private static final GifDecoderFactory GIF_DECODER_FACTORY = new GifDecoderFactory();
     private static final GifHeaderParserPool PARSER_POOL = new GifHeaderParserPool();
@@ -107,14 +108,14 @@ public class ByteBufferGifDecoder implements ResourceDecoder<ByteBuffer, GifDraw
         int min = Math.min(gifHeader.getHeight() / i2, gifHeader.getWidth() / i);
         int max = Math.max(1, min == 0 ? 0 : Integer.highestOneBit(min));
         if (Log.isLoggable(TAG, 2) && max > 1) {
-            Log.v(TAG, "Downsampling GIF, sampleSize: " + max + ", target dimens: [" + i + "x" + i2 + "], actual dimens: [" + gifHeader.getWidth() + "x" + gifHeader.getHeight() + "]");
+            Log.v(TAG, "Downsampling GIF, sampleSize: " + max + ", target dimens: [" + i + Config.EVENT_HEAT_X + i2 + "], actual dimens: [" + gifHeader.getWidth() + Config.EVENT_HEAT_X + gifHeader.getHeight() + "]");
         }
         return max;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     @VisibleForTesting
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class GifDecoderFactory {
         GifDecoderFactory() {
         }
@@ -126,7 +127,7 @@ public class ByteBufferGifDecoder implements ResourceDecoder<ByteBuffer, GifDraw
 
     /* JADX INFO: Access modifiers changed from: package-private */
     @VisibleForTesting
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class GifHeaderParserPool {
         private final Queue<GifHeaderParser> pool = Util.createQueue(0);
 

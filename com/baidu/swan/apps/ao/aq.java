@@ -2,14 +2,14 @@ package com.baidu.swan.apps.ao;
 
 import java.util.ArrayDeque;
 import java.util.Queue;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class aq {
-    private final Queue<Runnable> dGB = new ArrayDeque();
-    private Runnable dSh = null;
-    private boolean dSi = false;
+    private final Queue<Runnable> dBP = new ArrayDeque();
+    private Runnable dNv = null;
+    private boolean dNw = false;
 
     /* JADX WARN: Code restructure failed: missing block: B:10:0x0013, code lost:
-        if (aSg() != false) goto L9;
+        if (aOm() != false) goto L9;
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -19,7 +19,7 @@ public class aq {
         synchronized (this) {
             boolean z2 = runnable == null;
             if (!z2) {
-                this.dGB.offer(runnable);
+                this.dBP.offer(runnable);
             }
             if (!z2) {
             }
@@ -28,34 +28,34 @@ public class aq {
         return z;
     }
 
-    public synchronized boolean aSd() {
-        boolean aSf;
-        aSf = aSf();
-        this.dSi = true;
-        return aSf;
+    public synchronized boolean aOj() {
+        boolean aOl;
+        aOl = aOl();
+        this.dNw = true;
+        return aOl;
     }
 
-    public synchronized void aSe() {
-        this.dSi = false;
-        aSg();
+    public synchronized void aOk() {
+        this.dNw = false;
+        aOm();
     }
 
-    private boolean aSf() {
-        return !this.dSi && this.dSh == null;
+    private boolean aOl() {
+        return !this.dNw && this.dNv == null;
     }
 
-    private synchronized boolean aSg() {
-        boolean aSf;
-        aSf = aSf();
-        if (aSf) {
-            while (!this.dGB.isEmpty()) {
-                this.dSh = this.dGB.poll();
-                if (this.dSh != null) {
-                    this.dSh.run();
+    private synchronized boolean aOm() {
+        boolean aOl;
+        aOl = aOl();
+        if (aOl) {
+            while (!this.dBP.isEmpty()) {
+                this.dNv = this.dBP.poll();
+                if (this.dNv != null) {
+                    this.dNv.run();
                 }
             }
-            this.dSh = null;
+            this.dNv = null;
         }
-        return aSf;
+        return aOl;
     }
 }

@@ -30,27 +30,27 @@ import com.baidu.live.tbadk.core.atomdata.AlaLiveRoomActivityConfig;
 import com.baidu.live.tbadk.core.view.HeadImageView;
 import com.baidu.live.view.b;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class AlaShowHeadlineView extends RelativeLayout {
-    x aGe;
-    private TextView hfV;
-    public long hfX;
-    public RelativeLayout hgO;
-    public RelativeLayout hgP;
-    private Button hgQ;
-    private Button hgR;
-    private RelativeLayout hgS;
-    private TextView hgT;
-    private TextView hgU;
-    private TextView hgV;
-    private TextView hgW;
-    public TextView hgX;
-    private HeadImageView hgY;
-    private HeadImageView hgZ;
-    private TextView hha;
-    private Bitmap hhb;
-    AlaLiveMarkData hhc;
-    public Button hhd;
+    x aBr;
+    private TextView hbp;
+    public long hbr;
+    public RelativeLayout hci;
+    public RelativeLayout hcj;
+    private Button hck;
+    private Button hcl;
+    private RelativeLayout hcm;
+    private TextView hcn;
+    private TextView hco;
+    private TextView hcp;
+    private TextView hcq;
+    public TextView hcr;
+    private HeadImageView hcs;
+    private HeadImageView hct;
+    private TextView hcu;
+    private Bitmap hcv;
+    AlaLiveMarkData hcw;
+    public Button hcx;
     private Activity mActivity;
     Context mContext;
     private View mView;
@@ -74,59 +74,59 @@ public class AlaShowHeadlineView extends RelativeLayout {
 
     private void initView() {
         this.mView = LayoutInflater.from(getContext()).inflate(a.g.sdk_show_headline_dialog, (ViewGroup) this, true);
-        this.hgO = (RelativeLayout) this.mView.findViewById(a.f.show_view_nobody_layout);
-        this.hgP = (RelativeLayout) this.mView.findViewById(a.f.show_view_richer_view);
-        this.hgQ = (Button) this.mView.findViewById(a.f.show_view_go_look);
-        this.hfV = (TextView) this.mView.findViewById(a.f.show_view_get_headline_support);
-        this.hhd = (Button) this.mView.findViewById(a.f.show_view_horizontal_close_button);
-        this.hhd.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.headline.view.AlaShowHeadlineView.1
+        this.hci = (RelativeLayout) this.mView.findViewById(a.f.show_view_nobody_layout);
+        this.hcj = (RelativeLayout) this.mView.findViewById(a.f.show_view_richer_view);
+        this.hck = (Button) this.mView.findViewById(a.f.show_view_go_look);
+        this.hbp = (TextView) this.mView.findViewById(a.f.show_view_get_headline_support);
+        this.hcx = (Button) this.mView.findViewById(a.f.show_view_horizontal_close_button);
+        this.hcx.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.headline.view.AlaShowHeadlineView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 AlaShowHeadlineView.this.mActivity.finish();
             }
         });
-        this.hgS = (RelativeLayout) this.mView.findViewById(a.f.show_view_nobody_gifts_tip);
-        this.hgT = (TextView) this.mView.findViewById(a.f.show_view_nobody_score);
-        this.hgU = (TextView) this.mView.findViewById(a.f.show_view_got_gifts_tip);
-        this.hgY = (HeadImageView) this.mView.findViewById(a.f.show_view_live_head);
-        this.hgZ = (HeadImageView) this.mView.findViewById(a.f.show_view_richer_head);
-        this.hgW = (TextView) this.mView.findViewById(a.f.show_view_richer_head_name);
-        this.hgV = (TextView) this.mView.findViewById(a.f.show_view_live_head_name);
-        this.hgX = (TextView) this.mView.findViewById(a.f.show_view_timer);
-        this.hha = (TextView) this.mView.findViewById(a.f.show_view_tip);
-        this.hgR = (Button) this.mView.findViewById(a.f.show_view_get_headline);
-        this.hgQ.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.headline.view.AlaShowHeadlineView.2
+        this.hcm = (RelativeLayout) this.mView.findViewById(a.f.show_view_nobody_gifts_tip);
+        this.hcn = (TextView) this.mView.findViewById(a.f.show_view_nobody_score);
+        this.hco = (TextView) this.mView.findViewById(a.f.show_view_got_gifts_tip);
+        this.hcs = (HeadImageView) this.mView.findViewById(a.f.show_view_live_head);
+        this.hct = (HeadImageView) this.mView.findViewById(a.f.show_view_richer_head);
+        this.hcq = (TextView) this.mView.findViewById(a.f.show_view_richer_head_name);
+        this.hcp = (TextView) this.mView.findViewById(a.f.show_view_live_head_name);
+        this.hcr = (TextView) this.mView.findViewById(a.f.show_view_timer);
+        this.hcu = (TextView) this.mView.findViewById(a.f.show_view_tip);
+        this.hcl = (Button) this.mView.findViewById(a.f.show_view_get_headline);
+        this.hck.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.headline.view.AlaShowHeadlineView.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                AlaShowHeadlineView.this.A(AlaShowHeadlineView.this.aGe);
+                AlaShowHeadlineView.this.A(AlaShowHeadlineView.this.aBr);
                 AlaShowHeadlineView.this.mActivity.finish();
             }
         });
-        this.hfV.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.headline.view.AlaShowHeadlineView.3
+        this.hbp.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.headline.view.AlaShowHeadlineView.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 c cVar = new c();
-                cVar.url = AlaShowHeadlineView.this.aGe.aKS.aJT;
-                cVar.bXf = 0.8f;
+                cVar.url = AlaShowHeadlineView.this.aBr.aGf.aFg;
+                cVar.bSt = 0.8f;
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913244, cVar));
             }
         });
-        this.hgY.setDefaultBgResource(a.e.sdk_default_avatar);
-        this.hgY.setIsRound(true);
-        this.hgY.setAutoChangeStyle(false);
-        this.hgY.setScaleType(ImageView.ScaleType.CENTER_CROP);
-        this.hgZ.setDefaultBgResource(a.e.sdk_default_avatar);
-        this.hgZ.setIsRound(true);
-        this.hgZ.setAutoChangeStyle(false);
-        this.hgZ.setScaleType(ImageView.ScaleType.CENTER_CROP);
+        this.hcs.setDefaultBgResource(a.e.sdk_default_avatar);
+        this.hcs.setIsRound(true);
+        this.hcs.setAutoChangeStyle(false);
+        this.hcs.setScaleType(ImageView.ScaleType.CENTER_CROP);
+        this.hct.setDefaultBgResource(a.e.sdk_default_avatar);
+        this.hct.setIsRound(true);
+        this.hct.setAutoChangeStyle(false);
+        this.hct.setScaleType(ImageView.ScaleType.CENTER_CROP);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void A(x xVar) {
         JSONObject jSONObject;
-        com.baidu.live.liveroom.a.OO().a(com.baidu.live.liveroom.a.OO().OP().hW(String.valueOf(xVar.aKS.liveId)));
+        com.baidu.live.liveroom.a.KT().a(com.baidu.live.liveroom.a.KT().KU().gL(String.valueOf(xVar.aGf.liveId)));
         AlaLiveRoomActivityConfig alaLiveRoomActivityConfig = new AlaLiveRoomActivityConfig(TbadkCoreApplication.getInst().getApplicationContext());
-        alaLiveRoomActivityConfig.addExtraByLiveId(xVar.aKS.liveId, "", "live_sdk");
+        alaLiveRoomActivityConfig.addExtraByLiveId(xVar.aGf.liveId, "", "live_sdk");
         try {
             String flvUrl = xVar.mLiveInfo.session_info.getFlvUrl(AlaLiveStreamSessionInfo.STREAM_LEVEL_DEFAULT);
             String str = xVar.mLiveInfo.cover;
@@ -148,12 +148,12 @@ public class AlaShowHeadlineView extends RelativeLayout {
         }
         alaLiveRoomActivityConfig.addExtraByParams(this.otherParams);
         alaLiveRoomActivityConfig.setNeedStopImWhenClose(true);
-        com.baidu.live.liveroom.a.OO().a(alaLiveRoomActivityConfig);
+        com.baidu.live.liveroom.a.KT().a(alaLiveRoomActivityConfig);
     }
 
     public void setData(x xVar, String str) {
         this.otherParams = str;
-        if (this.hfX > 0 && xVar.aKS.aJJ > 0 && xVar.aKS.aJL > xVar.aKS.aJJ) {
+        if (this.hbr > 0 && xVar.aGf.aEW > 0 && xVar.aGf.aEY > xVar.aGf.aEW) {
             setGetLineView(xVar);
         } else {
             setNobodyLayout(xVar);
@@ -162,59 +162,59 @@ public class AlaShowHeadlineView extends RelativeLayout {
     }
 
     public void setGetLineView(x xVar) {
-        this.hgO.setVisibility(8);
-        this.hgQ.setVisibility(0);
-        this.hgP.setVisibility(0);
-        this.hgS.setVisibility(8);
-        this.hgU.setVisibility(0);
+        this.hci.setVisibility(8);
+        this.hck.setVisibility(0);
+        this.hcj.setVisibility(0);
+        this.hcm.setVisibility(8);
+        this.hco.setVisibility(0);
         setGiftTipString(xVar);
-        this.hgY.startLoad(xVar.aKS.aJQ, 12, false);
-        this.hgZ.startLoad(xVar.aKS.aJR, 12, false);
-        this.hgW.setText(xVar.aKS.userName);
-        this.hgV.setText(xVar.aKS.aJP);
-        this.hha.setText(this.mContext.getString(a.h.sdk_get_headline_show_view_get_tip));
-        this.hgR.setBackgroundResource(a.e.sdk_get_headline_button_small);
+        this.hcs.startLoad(xVar.aGf.aFd, 12, false);
+        this.hct.startLoad(xVar.aGf.aFe, 12, false);
+        this.hcq.setText(xVar.aGf.userName);
+        this.hcp.setText(xVar.aGf.aFc);
+        this.hcu.setText(this.mContext.getString(a.h.sdk_get_headline_show_view_get_tip));
+        this.hcl.setBackgroundResource(a.e.sdk_get_headline_button_small);
     }
 
     public void setNobodyLayout(x xVar) {
-        this.hgO.setVisibility(0);
-        this.hgQ.setVisibility(8);
-        this.hgP.setVisibility(8);
-        this.hgS.setVisibility(0);
-        this.hgU.setVisibility(8);
-        this.hgT.setText(com.baidu.tieba.ala.headline.a.fm(xVar.aKS.aJJ));
-        this.hha.setText(this.mContext.getString(a.h.sdk_get_headline_show_view_tip));
-        this.hgR.setBackgroundResource(a.e.sdk_get_headline);
+        this.hci.setVisibility(0);
+        this.hck.setVisibility(8);
+        this.hcj.setVisibility(8);
+        this.hcm.setVisibility(0);
+        this.hco.setVisibility(8);
+        this.hcn.setText(com.baidu.tieba.ala.headline.a.fm(xVar.aGf.aEW));
+        this.hcu.setText(this.mContext.getString(a.h.sdk_get_headline_show_view_tip));
+        this.hcl.setBackgroundResource(a.e.sdk_get_headline);
     }
 
     private void B(x xVar) {
         if (xVar.isHost) {
-            this.hgQ.setVisibility(8);
-            this.hgR.setVisibility(8);
-            ((RelativeLayout.LayoutParams) this.hfV.getLayoutParams()).topMargin = getContext().getResources().getDimensionPixelSize(a.d.sdk_ds40);
+            this.hck.setVisibility(8);
+            this.hcl.setVisibility(8);
+            ((RelativeLayout.LayoutParams) this.hbp.getLayoutParams()).topMargin = getContext().getResources().getDimensionPixelSize(a.d.sdk_ds40);
         }
-        if (xVar.mLiveInfo.live_id == xVar.aKS.liveId) {
-            this.hgQ.setVisibility(8);
-            this.hgR.setBackgroundResource(a.e.sdk_get_headline);
+        if (xVar.mLiveInfo.live_id == xVar.aGf.liveId) {
+            this.hck.setVisibility(8);
+            this.hcl.setBackgroundResource(a.e.sdk_get_headline);
         }
-        this.aGe = xVar;
+        this.aBr = xVar;
     }
 
     private void setGiftTipString(x xVar) {
-        if (this.hhc == null || this.hhc.mark_id != xVar.aKS.aJL) {
+        if (this.hcw == null || this.hcw.mark_id != xVar.aGf.aEY) {
             SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
-            SpannableString spannableString = new SpannableString(" " + this.mContext.getString(a.h.sdk_get_headline_send, xVar.aKS.giftName));
+            SpannableString spannableString = new SpannableString(" " + this.mContext.getString(a.h.sdk_get_headline_send, xVar.aGf.giftName));
             spannableString.setSpan(new ForegroundColorSpan(Color.parseColor("#FFFFFFFF")), 0, spannableString.length(), 33);
             spannableStringBuilder.append((CharSequence) spannableString);
-            if (this.hhc == null || !this.hhc.mark_pic.equals(xVar.aKS.aJO)) {
-                this.hhc = new AlaLiveMarkData();
-                this.hhc.mark_pic = xVar.aKS.aJO;
-                this.hhc.isWidthAutoFit = true;
-                com.baidu.live.view.b bVar = new com.baidu.live.view.b(this.mContext, this.hhc, false, new b.a() { // from class: com.baidu.tieba.ala.headline.view.AlaShowHeadlineView.4
+            if (this.hcw == null || !this.hcw.mark_pic.equals(xVar.aGf.aFb)) {
+                this.hcw = new AlaLiveMarkData();
+                this.hcw.mark_pic = xVar.aGf.aFb;
+                this.hcw.isWidthAutoFit = true;
+                com.baidu.live.view.b bVar = new com.baidu.live.view.b(this.mContext, this.hcw, false, new b.a() { // from class: com.baidu.tieba.ala.headline.view.AlaShowHeadlineView.4
                     @Override // com.baidu.live.view.b.a
                     public void e(Bitmap bitmap) {
-                        AlaShowHeadlineView.this.hgU.setText(AlaShowHeadlineView.this.hgU.getText());
-                        AlaShowHeadlineView.this.hhb = bitmap;
+                        AlaShowHeadlineView.this.hco.setText(AlaShowHeadlineView.this.hco.getText());
+                        AlaShowHeadlineView.this.hcv = bitmap;
                     }
 
                     @Override // com.baidu.live.view.b.a
@@ -225,23 +225,23 @@ public class AlaShowHeadlineView extends RelativeLayout {
                 spannableStringBuilder2.setSpan(bVar, 1, spannableStringBuilder2.length(), 33);
                 spannableStringBuilder.append((CharSequence) spannableStringBuilder2);
             } else {
-                CenteredImageSpan centeredImageSpan = new CenteredImageSpan(getContext(), this.hhb);
+                CenteredImageSpan centeredImageSpan = new CenteredImageSpan(getContext(), this.hcv);
                 SpannableStringBuilder spannableStringBuilder3 = new SpannableStringBuilder(" [img]");
                 spannableStringBuilder3.setSpan(centeredImageSpan, 1, spannableStringBuilder3.length(), 33);
                 spannableStringBuilder.append((CharSequence) spannableStringBuilder3);
             }
-            this.hhc.mark_id = xVar.aKS.aJL;
-            SpannableString spannableString2 = new SpannableString(this.mContext.getString(a.h.sdk_get_headline_worth, xVar.aKS.giftNum + ""));
+            this.hcw.mark_id = xVar.aGf.aEY;
+            SpannableString spannableString2 = new SpannableString(this.mContext.getString(a.h.sdk_get_headline_worth, xVar.aGf.giftNum + ""));
             spannableString2.setSpan(new ForegroundColorSpan(Color.parseColor("#FFFFFFFF")), 0, spannableString2.length(), 33);
             spannableStringBuilder.append((CharSequence) spannableString2);
             CenteredImageSpan centeredImageSpan2 = new CenteredImageSpan(getContext(), BitmapFactory.decodeResource(getContext().getResources(), a.e.sdk_icon_huobi_tdou));
             SpannableStringBuilder spannableStringBuilder4 = new SpannableStringBuilder(" [img]");
             spannableStringBuilder4.setSpan(centeredImageSpan2, 1, spannableStringBuilder4.length(), 33);
             spannableStringBuilder.append((CharSequence) spannableStringBuilder4);
-            SpannableString spannableString3 = new SpannableString(com.baidu.tieba.ala.headline.a.fm(xVar.aKS.aJN));
+            SpannableString spannableString3 = new SpannableString(com.baidu.tieba.ala.headline.a.fm(xVar.aGf.aFa));
             spannableString3.setSpan(new ForegroundColorSpan(Color.parseColor("#FFFACA21")), 0, spannableString3.length(), 33);
             spannableStringBuilder.append((CharSequence) spannableString3);
-            this.hgU.setText(spannableStringBuilder);
+            this.hco.setText(spannableStringBuilder);
         }
     }
 

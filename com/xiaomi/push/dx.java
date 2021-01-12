@@ -11,13 +11,13 @@ import com.xiaomi.push.ai;
 public class dx {
 
     /* renamed from: a  reason: collision with root package name */
-    private static volatile dx f14257a;
+    private static volatile dx f13957a;
 
     /* renamed from: a  reason: collision with other field name */
-    private Context f310a;
+    private Context f309a;
 
     private dx(Context context) {
-        this.f310a = context;
+        this.f309a = context;
     }
 
     private int a(int i) {
@@ -25,23 +25,23 @@ public class dx {
     }
 
     public static dx a(Context context) {
-        if (f14257a == null) {
+        if (f13957a == null) {
             synchronized (dx.class) {
-                if (f14257a == null) {
-                    f14257a = new dx(context);
+                if (f13957a == null) {
+                    f13957a = new dx(context);
                 }
             }
         }
-        return f14257a;
+        return f13957a;
     }
 
     private void a(com.xiaomi.push.service.ak akVar, ai aiVar, boolean z) {
         if (akVar.a(hr.UploadSwitch.a(), true)) {
-            ei eiVar = new ei(this.f310a);
+            ei eiVar = new ei(this.f309a);
             if (z) {
                 aiVar.a((ai.a) eiVar, a(akVar.a(hr.UploadFrequency.a(), 86400)));
             } else {
-                aiVar.m159a((ai.a) eiVar);
+                aiVar.m155a((ai.a) eiVar);
             }
         }
     }
@@ -49,7 +49,7 @@ public class dx {
     private boolean a() {
         if (Build.VERSION.SDK_INT >= 14) {
             try {
-                (this.f310a instanceof Application ? (Application) this.f310a : (Application) this.f310a.getApplicationContext()).registerActivityLifecycleCallbacks(new Cdo(this.f310a, String.valueOf(System.currentTimeMillis() / 1000)));
+                (this.f309a instanceof Application ? (Application) this.f309a : (Application) this.f309a.getApplicationContext()).registerActivityLifecycleCallbacks(new Cdo(this.f309a, String.valueOf(System.currentTimeMillis() / 1000)));
                 return true;
             } catch (Exception e) {
                 com.xiaomi.channel.commonutils.logger.b.a(e);
@@ -61,9 +61,9 @@ public class dx {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b() {
-        ai a2 = ai.a(this.f310a);
-        com.xiaomi.push.service.ak a3 = com.xiaomi.push.service.ak.a(this.f310a);
-        SharedPreferences sharedPreferences = this.f310a.getSharedPreferences("mipush_extra", 0);
+        ai a2 = ai.a(this.f309a);
+        com.xiaomi.push.service.ak a3 = com.xiaomi.push.service.ak.a(this.f309a);
+        SharedPreferences sharedPreferences = this.f309a.getSharedPreferences("mipush_extra", 0);
         long currentTimeMillis = System.currentTimeMillis();
         long j = sharedPreferences.getLong("first_try_ts", currentTimeMillis);
         if (j == currentTimeMillis) {
@@ -75,13 +75,13 @@ public class dx {
         a(a3, a2, false);
         if (a3.a(hr.StorageCollectionSwitch.a(), true)) {
             int a4 = a(a3.a(hr.StorageCollectionFrequency.a(), 86400));
-            a2.a(new eg(this.f310a, a4), a4, 0);
+            a2.a(new eg(this.f309a, a4), a4, 0);
         }
         boolean a5 = a3.a(hr.AppIsInstalledCollectionSwitch.a(), false);
         String a6 = a3.a(hr.AppIsInstalledList.a(), (String) null);
         if (a5 && !TextUtils.isEmpty(a6)) {
             int a7 = a(a3.a(hr.AppIsInstalledCollectionFrequency.a(), 86400));
-            a2.a(new ea(this.f310a, a7, a6), a7, 0);
+            a2.a(new ea(this.f309a, a7, a6), a7, 0);
         }
         boolean a8 = a3.a(hr.ScreenSizeCollectionSwitch.a(), true);
         boolean a9 = a3.a(hr.AndroidVnCollectionSwitch.a(), true);
@@ -90,7 +90,7 @@ public class dx {
         boolean a12 = a3.a(hr.OperatorSwitch.a(), true);
         if (a8 || a9 || a10 || a11 || a12) {
             int a13 = a(a3.a(hr.DeviceInfoCollectionFrequency.a(), 1209600));
-            a2.a(new ef(this.f310a, a13, a8, a9, a10, a11, a12), a13, 0);
+            a2.a(new ef(this.f309a, a13, a8, a9, a10, a11, a12), a13, 0);
         }
         boolean a14 = a3.a(hr.MacCollectionSwitch.a(), false);
         boolean a15 = a3.a(hr.IMSICollectionSwitch.a(), false);
@@ -98,32 +98,32 @@ public class dx {
         boolean a17 = a3.a(hr.DeviceIdSwitch.a(), false);
         if (a14 || a15 || a16 || a17) {
             int a18 = a(a3.a(hr.DeviceBaseInfoCollectionFrequency.a(), 1209600));
-            a2.a(new ee(this.f310a, a18, a14, a15, a16, a17), a18, 0);
+            a2.a(new ee(this.f309a, a18, a14, a15, a16, a17), a18, 0);
         }
         if (Build.VERSION.SDK_INT < 21 && a3.a(hr.AppActiveListCollectionSwitch.a(), false)) {
             int a19 = a(a3.a(hr.AppActiveListCollectionFrequency.a(), 900));
-            a2.a(new dz(this.f310a, a19), a19, 0);
+            a2.a(new dz(this.f309a, a19), a19, 0);
         }
         if (a3.a(hr.TopAppCollectionSwitch.a(), false)) {
             int a20 = a(a3.a(hr.TopAppCollectionFrequency.a(), 300));
-            a2.a(new eh(this.f310a, a20), a20, 0);
+            a2.a(new eh(this.f309a, a20), a20, 0);
         }
         if (a3.a(hr.BroadcastActionCollectionSwitch.a(), true)) {
             int a21 = a(a3.a(hr.BroadcastActionCollectionFrequency.a(), 900));
-            a2.a(new ec(this.f310a, a21), a21, 0);
+            a2.a(new ec(this.f309a, a21), a21, 0);
         }
         if (a3.a(hr.ActivityTSSwitch.a(), false)) {
             a();
         }
         if (a3.a(hr.BatteryCollectionSwitch.a(), false)) {
             int a22 = a(a3.a(hr.BatteryCollectionFrequency.a(), SdkConfigData.DEFAULT_REQUEST_INTERVAL));
-            a2.a(new eb(this.f310a, a22), a22, 0);
+            a2.a(new eb(this.f309a, a22), a22, 0);
         }
         a(a3, a2, true);
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m264a() {
-        ai.a(this.f310a).a(new dy(this));
+    public void m260a() {
+        ai.a(this.f309a).a(new dy(this));
     }
 }

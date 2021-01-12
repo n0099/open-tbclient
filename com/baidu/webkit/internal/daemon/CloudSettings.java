@@ -24,7 +24,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class CloudSettings implements INoProGuard, INetListener {
     private static final String CLOUD_SETTING_URL = "https://browserkernel.baidu.com/config/t5config?cmd=1&";
     private static final String CLOUD_SETTING_URL_HTTP = "http://browserkernel.baidu.com/config/t5config?cmd=1&";
@@ -40,14 +40,14 @@ public class CloudSettings implements INoProGuard, INetListener {
     private int mNetres = -1;
     private ByteArrayOutputStream mData = null;
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public long f5967a;
+        public long f5667a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f5968b = -1;
+        public int f5668b = -1;
         public boolean c;
 
         public a() {
@@ -55,12 +55,12 @@ public class CloudSettings implements INoProGuard, INetListener {
 
         final void a(int i) {
             Log.w(CloudSettings.LOG_TAG, "setNetRes " + i);
-            this.f5968b = i;
+            this.f5668b = i;
         }
 
         final void a(long j) {
             Log.w(CloudSettings.LOG_TAG, "setNetTime " + j);
-            this.f5967a = j;
+            this.f5667a = j;
         }
 
         final void a(boolean z) {

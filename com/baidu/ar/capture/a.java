@@ -7,13 +7,13 @@ import android.os.Message;
 /* loaded from: classes6.dex */
 class a {
     private HandlerThread kY;
-    private HandlerC0075a kZ;
+    private HandlerC0076a kZ;
     private String mTag;
 
     /* renamed from: com.baidu.ar.capture.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    private static final class HandlerC0075a extends Handler {
-        public HandlerC0075a(Looper looper) {
+    private static final class HandlerC0076a extends Handler {
+        public HandlerC0076a(Looper looper) {
             super(looper);
         }
 
@@ -50,7 +50,7 @@ class a {
     public void start() {
         this.kY = new HandlerThread(this.mTag);
         this.kY.start();
-        this.kZ = new HandlerC0075a(this.kY.getLooper());
+        this.kZ = new HandlerC0076a(this.kY.getLooper());
     }
 
     public void stop() {

@@ -2,7 +2,7 @@ package com.baidu.android.common.others.lang;
 
 import android.text.TextUtils;
 import java.util.regex.Pattern;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public final class EmojionUtils {
     private EmojionUtils() {
     }

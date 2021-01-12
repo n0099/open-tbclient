@@ -15,96 +15,96 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.lego.card.view.l;
 import com.baidu.tieba.lego.view.a;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class BannerFlowView extends FrameLayout {
-    private IndicatorView frg;
-    private ListViewPager lcJ;
-    private View lcK;
-    private b lcL;
-    private com.baidu.tieba.lego.view.a lcM;
-    private a lcN;
+    private IndicatorView fmw;
+    private ListViewPager kYc;
+    private View kYd;
+    private b kYe;
+    private com.baidu.tieba.lego.view.a kYf;
+    private a kYg;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public interface a extends l {
         void onPageSelected(int i);
     }
 
     public void setOnPageSelected(a aVar) {
-        this.lcN = aVar;
+        this.kYg = aVar;
     }
 
     public BannerFlowView(Context context) {
         super(context);
-        eO(context);
+        initView(context);
     }
 
     public BannerFlowView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        eO(context);
+        initView(context);
     }
 
     public void setSwipeControlInterface(SwipeBackLayout.c cVar) {
-        this.lcJ.setSwipeControlInterface(cVar);
+        this.kYc.setSwipeControlInterface(cVar);
         if (cVar != null) {
-            this.lcJ.setDisableParentEvent(false);
+            this.kYc.setDisableParentEvent(false);
         }
     }
 
     public void setDisableParentEvent(boolean z) {
-        this.lcJ.setDisableParentEvent(z);
+        this.kYc.setDisableParentEvent(z);
     }
 
     public void setDescOnPic(boolean z, boolean z2) {
         if (z) {
-            if (this.lcK != null) {
+            if (this.kYd != null) {
                 if (z2) {
-                    this.lcK.setVisibility(0);
+                    this.kYd.setVisibility(0);
                 } else {
-                    this.lcK.setVisibility(4);
+                    this.kYd.setVisibility(4);
                 }
             }
-            this.lcL.a((l) null);
+            this.kYe.a((l) null);
             return;
         }
-        if (this.lcK != null) {
-            this.lcK.setVisibility(8);
+        if (this.kYd != null) {
+            this.kYd.setVisibility(8);
         }
-        this.lcL.a(new l() { // from class: com.baidu.tieba.lego.view.BannerFlowView.1
+        this.kYe.a(new l() { // from class: com.baidu.tieba.lego.view.BannerFlowView.1
             @Override // com.baidu.tieba.lego.card.view.l
             public void aP(float f) {
-                if (BannerFlowView.this.lcN != null) {
-                    BannerFlowView.this.lcN.aP(f);
+                if (BannerFlowView.this.kYg != null) {
+                    BannerFlowView.this.kYg.aP(f);
                 }
             }
 
             @Override // com.baidu.tieba.lego.card.view.l
-            public void Fr(int i) {
-                if (BannerFlowView.this.lcN != null) {
-                    BannerFlowView.this.lcN.Fr(i);
+            public void DL(int i) {
+                if (BannerFlowView.this.kYg != null) {
+                    BannerFlowView.this.kYg.DL(i);
                 }
             }
         });
     }
 
-    private void eO(Context context) {
-        this.lcJ = new ListViewPager(context);
-        this.lcK = new View(context);
-        this.frg = new IndicatorView(context);
-        this.frg.setSpacing(0);
-        bzd();
-        this.lcL = new b(context, this.lcJ, this.frg, null);
-        this.lcM = new com.baidu.tieba.lego.view.a(context, com.baidu.tbadk.core.view.viewpager.bannerflow.a.frA);
-        this.lcL.setAutoScrollIntervalTime(5000L);
-        this.lcL.a(context, this.lcM);
-        this.lcL.setOnPageChangeListener(new ViewPager.OnPageChangeListener() { // from class: com.baidu.tieba.lego.view.BannerFlowView.2
+    private void initView(Context context) {
+        this.kYc = new ListViewPager(context);
+        this.kYd = new View(context);
+        this.fmw = new IndicatorView(context);
+        this.fmw.setSpacing(0);
+        bvj();
+        this.kYe = new b(context, this.kYc, this.fmw, null);
+        this.kYf = new com.baidu.tieba.lego.view.a(context, com.baidu.tbadk.core.view.viewpager.bannerflow.a.fmP);
+        this.kYe.setAutoScrollIntervalTime(5000L);
+        this.kYe.a(context, this.kYf);
+        this.kYe.setOnPageChangeListener(new ViewPager.OnPageChangeListener() { // from class: com.baidu.tieba.lego.view.BannerFlowView.2
             @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
             public void onPageScrolled(int i, float f, int i2) {
             }
 
             @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
             public void onPageSelected(int i) {
-                if (BannerFlowView.this.lcN != null) {
-                    BannerFlowView.this.lcN.onPageSelected(i);
+                if (BannerFlowView.this.kYg != null) {
+                    BannerFlowView.this.kYg.onPageSelected(i);
                 }
             }
 
@@ -112,63 +112,63 @@ public class BannerFlowView extends FrameLayout {
             public void onPageScrollStateChanged(int i) {
             }
         });
-        addView(this.lcJ, new FrameLayout.LayoutParams(-1, -1));
+        addView(this.kYc, new FrameLayout.LayoutParams(-1, -1));
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, com.baidu.adp.lib.util.l.getDimens(context, R.dimen.ds80));
         layoutParams.gravity = 80;
-        addView(this.lcK, layoutParams);
+        addView(this.kYd, layoutParams);
         FrameLayout.LayoutParams layoutParams2 = new FrameLayout.LayoutParams(-2, -2);
         layoutParams2.gravity = 85;
         layoutParams2.setMargins(0, 0, com.baidu.adp.lib.util.l.getDimens(context, R.dimen.ds20), com.baidu.adp.lib.util.l.getDimens(context, R.dimen.ds16));
-        addView(this.frg, layoutParams2);
+        addView(this.fmw, layoutParams2);
     }
 
     public void setAutoScrollIntervalTime(long j) {
-        this.lcL.setAutoScrollIntervalTime(j);
+        this.kYe.setAutoScrollIntervalTime(j);
     }
 
     public void setMaxScrollCountLimit(int i) {
-        this.lcL.setMaxScrollCountLimit(i);
+        this.kYe.setMaxScrollCountLimit(i);
     }
 
     public void setData(List<n> list) {
-        this.lcJ.removeAllViews();
-        this.lcL.setDatas(list);
+        this.kYc.removeAllViews();
+        this.kYe.setDatas(list);
     }
 
-    private void bzd() {
-        ao.setBackgroundResource(this.lcK, R.drawable.bg_pic_shadow);
-        this.frg.setSelector(ao.getDrawable(R.drawable.icon_diandian_white_s));
-        this.frg.setDrawable(ao.getDrawable(R.drawable.icon_diandian_white_n));
+    private void bvj() {
+        ao.setBackgroundResource(this.kYd, R.drawable.bg_pic_shadow);
+        this.fmw.setSelector(ao.getDrawable(R.drawable.icon_diandian_white_s));
+        this.fmw.setDrawable(ao.getDrawable(R.drawable.icon_diandian_white_n));
     }
 
-    public void setOnItemClickListener(b.a<com.baidu.tbadk.core.view.viewpager.bannerflow.a, a.C0792a> aVar) {
-        if (this.lcM != null) {
-            this.lcM.setOnItemClickListener(aVar);
+    public void setOnItemClickListener(b.a<com.baidu.tbadk.core.view.viewpager.bannerflow.a, a.C0775a> aVar) {
+        if (this.kYf != null) {
+            this.kYf.setOnItemClickListener(aVar);
         }
     }
 
     public void setIndicatorViewPosition(int i) {
-        if (this.frg != null) {
+        if (this.fmw != null) {
             switch (i) {
                 case 0:
-                    this.frg.setVisibility(8);
+                    this.fmw.setVisibility(8);
                     return;
                 case 1:
-                    FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.frg.getLayoutParams();
+                    FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.fmw.getLayoutParams();
                     layoutParams.gravity = 85;
-                    this.frg.setLayoutParams(layoutParams);
-                    this.frg.setVisibility(0);
+                    this.fmw.setLayoutParams(layoutParams);
+                    this.fmw.setVisibility(0);
                     return;
                 case 2:
-                    FrameLayout.LayoutParams layoutParams2 = (FrameLayout.LayoutParams) this.frg.getLayoutParams();
+                    FrameLayout.LayoutParams layoutParams2 = (FrameLayout.LayoutParams) this.fmw.getLayoutParams();
                     layoutParams2.gravity = 81;
                     layoutParams2.rightMargin = 0;
                     layoutParams2.rightMargin = 0;
-                    this.frg.setLayoutParams(layoutParams2);
-                    this.frg.setVisibility(0);
+                    this.fmw.setLayoutParams(layoutParams2);
+                    this.fmw.setVisibility(0);
                     return;
                 default:
-                    this.frg.setVisibility(8);
+                    this.fmw.setVisibility(8);
                     return;
             }
         }

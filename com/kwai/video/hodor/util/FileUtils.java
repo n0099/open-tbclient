@@ -7,7 +7,7 @@ import android.os.StatFs;
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import java.io.File;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class FileUtils {
     public static long getAvailableBytes(String str) {
         if (TextUtils.isEmpty(str)) {

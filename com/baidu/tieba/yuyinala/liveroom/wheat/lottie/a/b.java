@@ -12,12 +12,12 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class b {
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public interface a {
-        void zZ(boolean z);
+        void zV(boolean z);
     }
 
     public static void a(String str, final String str2, final a aVar) {
@@ -26,10 +26,10 @@ public class b {
         } else if (TextUtils.isEmpty(str)) {
             BdLog.w("warning!! download illegal name");
         } else {
-            String it = com.baidu.live.ah.b.it(str2);
-            final String iv = com.baidu.live.ah.b.iv(str2);
-            if (!TextUtils.isEmpty(it)) {
-                final String str3 = it + "/" + str2 + ".zip";
+            String hi = com.baidu.live.ah.b.hi(str2);
+            final String hk = com.baidu.live.ah.b.hk(str2);
+            if (!TextUtils.isEmpty(hi)) {
+                final String str3 = hi + "/" + str2 + ".zip";
                 if (!str3.startsWith(TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath())) {
                     BdLog.w("warning!! download illegal dir=" + str3 + " name=" + str2);
                     return;
@@ -48,7 +48,7 @@ public class b {
 
                     @Override // com.baidu.live.tbadk.download.FileDownloadCallBack
                     public boolean onPreDownload(DownloadData downloadData2) {
-                        return com.baidu.live.ah.a.b.Tq().G(downloadData2);
+                        return com.baidu.live.ah.a.b.Pv().G(downloadData2);
                     }
 
                     @Override // com.baidu.live.tbadk.download.FileDownloadCallBack
@@ -58,13 +58,13 @@ public class b {
 
                     @Override // com.baidu.live.tbadk.download.FileDownloadCallBack
                     public void onFileDownloadSucceed(DownloadData downloadData2) {
-                        b.a(str3, iv, str2, aVar);
+                        b.a(str3, hk, str2, aVar);
                     }
 
                     @Override // com.baidu.live.tbadk.download.FileDownloadCallBack
                     public void onFileDownloadFailed(DownloadData downloadData2, int i, String str4) {
                         if (aVar != null) {
-                            aVar.zZ(false);
+                            aVar.zV(false);
                         }
                     }
                 });
@@ -73,7 +73,7 @@ public class b {
                     /* JADX INFO: Access modifiers changed from: protected */
                     @Override // com.baidu.live.adp.lib.asynctask.BdAsyncTask
                     public Boolean doInBackground(Void... voidArr) {
-                        FileHelper.deleteFileOrDir(new File(com.baidu.live.ah.b.it(str2)));
+                        FileHelper.deleteFileOrDir(new File(com.baidu.live.ah.b.hi(str2)));
                         return true;
                     }
 
@@ -98,7 +98,7 @@ public class b {
                 public Boolean doInBackground(Void... voidArr) {
                     boolean unZip = b.unZip(str, str2);
                     if (unZip) {
-                        c.gR(str3, str2);
+                        c.gQ(str3, str2);
                     }
                     return Boolean.valueOf(unZip);
                 }
@@ -109,7 +109,7 @@ public class b {
                 public void onPostExecute(Boolean bool) {
                     super.onPostExecute((AnonymousClass3) bool);
                     if (aVar != null) {
-                        aVar.zZ(bool.booleanValue());
+                        aVar.zV(bool.booleanValue());
                     }
                 }
             }.execute(new Void[0]);

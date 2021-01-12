@@ -7,14 +7,14 @@ import com.kwad.sdk.contentalliance.tube.profile.e;
 import com.kwad.sdk.internal.api.SceneImpl;
 import java.util.LinkedHashSet;
 import java.util.Set;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class b extends com.kwad.sdk.core.e.b {
 
     /* renamed from: a  reason: collision with root package name */
-    public c f9254a;
+    public c f8954a;
 
     /* renamed from: b  reason: collision with root package name */
-    public RecyclerView f9255b;
+    public RecyclerView f8955b;
     public TubeProfileParam c;
     public com.kwad.sdk.core.i.a d;
     public Set<e> e = new LinkedHashSet();

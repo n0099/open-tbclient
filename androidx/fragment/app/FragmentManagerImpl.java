@@ -54,7 +54,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class FragmentManagerImpl extends FragmentManager implements LayoutInflater.Factory2 {
     static final int ANIM_DUR = 220;
     public static final int ANIM_STYLE_CLOSE_ENTER = 3;
@@ -112,13 +112,13 @@ public final class FragmentManagerImpl extends FragmentManager implements Layout
     };
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public interface OpGenerator {
         boolean generateOps(ArrayList<BackStackRecord> arrayList, ArrayList<Boolean> arrayList2);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static final class FragmentLifecycleCallbacksHolder {
         final FragmentManager.FragmentLifecycleCallbacks mCallback;
         final boolean mRecursive;
@@ -2777,7 +2777,7 @@ public final class FragmentManagerImpl extends FragmentManager implements Layout
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class FragmentTag {
         public static final int[] Fragment = {16842755, 16842960, 16842961};
         public static final int Fragment_id = 1;
@@ -2788,7 +2788,7 @@ public final class FragmentManagerImpl extends FragmentManager implements Layout
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     private class PopBackStackState implements OpGenerator {
         final int mFlags;
         final int mId;
@@ -2811,7 +2811,7 @@ public final class FragmentManagerImpl extends FragmentManager implements Layout
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class StartEnterTransitionListener implements Fragment.OnStartEnterTransitionListener {
         final boolean mIsBack;
         private int mNumPostponed;
@@ -2859,7 +2859,7 @@ public final class FragmentManagerImpl extends FragmentManager implements Layout
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class AnimationOrAnimator {
         public final Animation animation;
         public final Animator animator;
@@ -2881,7 +2881,7 @@ public final class FragmentManagerImpl extends FragmentManager implements Layout
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     private static class AnimationListenerWrapper implements Animation.AnimationListener {
         private final Animation.AnimationListener mWrapped;
 
@@ -2915,7 +2915,7 @@ public final class FragmentManagerImpl extends FragmentManager implements Layout
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class AnimateOnHWLayerIfNeededListener extends AnimationListenerWrapper {
         View mView;
 
@@ -2942,7 +2942,7 @@ public final class FragmentManagerImpl extends FragmentManager implements Layout
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class AnimatorOnHWLayerIfNeededListener extends AnimatorListenerAdapter {
         View mView;
 
@@ -2963,7 +2963,7 @@ public final class FragmentManagerImpl extends FragmentManager implements Layout
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class EndViewTransitionAnimator extends AnimationSet implements Runnable {
         private boolean mAnimating;
         private final View mChild;

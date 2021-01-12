@@ -1,12 +1,12 @@
 package com.kwai.video.cache;
 
 import com.kwai.video.hodor.anotations.CalledByNative;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class OfflineCacheTask {
     private long nativeTask = 0;
     private OfflineCacheTaskListener taskListener;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public interface OfflineCacheTaskListener {
         void onCancelled();
 

@@ -1,9 +1,9 @@
 package com.baidu.poly.a.a;
 
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public abstract class d<K, V> {
-    private Map<K, V> map = com.baidu.poly.util.e.afL();
+    private Map<K, V> map = com.baidu.poly.util.e.abS();
 
     public void b(Map<K, V> map) {
         this.map = map;

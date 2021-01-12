@@ -8,12 +8,12 @@ import androidx.annotation.Nullable;
 import com.baidu.live.lottie.a.b.a;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes10.dex */
-public class c implements d, l, a.InterfaceC0194a, com.baidu.live.lottie.model.f {
+/* loaded from: classes9.dex */
+public class c implements d, l, a.InterfaceC0185a, com.baidu.live.lottie.model.f {
     @Nullable
-    private List<l> DG;
+    private List<l> DD;
     @Nullable
-    private com.baidu.live.lottie.a.b.o btG;
+    private com.baidu.live.lottie.a.b.o boT;
     private final List<b> contents;
     private final com.baidu.live.lottie.h lottieDrawable;
     private final Matrix matrix;
@@ -69,9 +69,9 @@ public class c implements d, l, a.InterfaceC0194a, com.baidu.live.lottie.model.f
         this.lottieDrawable = hVar;
         this.contents = list;
         if (lVar != null) {
-            this.btG = lVar.PY();
-            this.btG.a(aVar);
-            this.btG.a(this);
+            this.boT = lVar.Md();
+            this.boT.a(aVar);
+            this.boT.a(this);
         }
         ArrayList arrayList = new ArrayList();
         for (int size = list.size() - 1; size >= 0; size--) {
@@ -85,7 +85,7 @@ public class c implements d, l, a.InterfaceC0194a, com.baidu.live.lottie.model.f
         }
     }
 
-    @Override // com.baidu.live.lottie.a.b.a.InterfaceC0194a
+    @Override // com.baidu.live.lottie.a.b.a.InterfaceC0185a
     public void is() {
         this.lottieDrawable.invalidateSelf();
     }
@@ -108,8 +108,8 @@ public class c implements d, l, a.InterfaceC0194a, com.baidu.live.lottie.model.f
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public List<l> it() {
-        if (this.DG == null) {
-            this.DG = new ArrayList();
+        if (this.DD == null) {
+            this.DD = new ArrayList();
             int i = 0;
             while (true) {
                 int i2 = i;
@@ -118,18 +118,18 @@ public class c implements d, l, a.InterfaceC0194a, com.baidu.live.lottie.model.f
                 }
                 b bVar = this.contents.get(i2);
                 if (bVar instanceof l) {
-                    this.DG.add((l) bVar);
+                    this.DD.add((l) bVar);
                 }
                 i = i2 + 1;
             }
         }
-        return this.DG;
+        return this.DD;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public Matrix iu() {
-        if (this.btG != null) {
-            return this.btG.getMatrix();
+        if (this.boT != null) {
+            return this.boT.getMatrix();
         }
         this.matrix.reset();
         return this.matrix;
@@ -138,8 +138,8 @@ public class c implements d, l, a.InterfaceC0194a, com.baidu.live.lottie.model.f
     @Override // com.baidu.live.lottie.a.a.l
     public Path iv() {
         this.matrix.reset();
-        if (this.btG != null) {
-            this.matrix.set(this.btG.getMatrix());
+        if (this.boT != null) {
+            this.matrix.set(this.boT.getMatrix());
         }
         this.path.reset();
         for (int size = this.contents.size() - 1; size >= 0; size--) {
@@ -154,9 +154,9 @@ public class c implements d, l, a.InterfaceC0194a, com.baidu.live.lottie.model.f
     @Override // com.baidu.live.lottie.a.a.d
     public void c(Canvas canvas, Matrix matrix, int i) {
         this.matrix.set(matrix);
-        if (this.btG != null) {
-            this.matrix.preConcat(this.btG.getMatrix());
-            i = (int) ((((this.btG.PK().getValue().intValue() / 100.0f) * i) / 255.0f) * 255.0f);
+        if (this.boT != null) {
+            this.matrix.preConcat(this.boT.getMatrix());
+            i = (int) ((((this.boT.LP().getValue().intValue() / 100.0f) * i) / 255.0f) * 255.0f);
         }
         for (int size = this.contents.size() - 1; size >= 0; size--) {
             b bVar = this.contents.get(size);
@@ -169,8 +169,8 @@ public class c implements d, l, a.InterfaceC0194a, com.baidu.live.lottie.model.f
     @Override // com.baidu.live.lottie.a.a.d
     public void d(RectF rectF, Matrix matrix) {
         this.matrix.set(matrix);
-        if (this.btG != null) {
-            this.matrix.preConcat(this.btG.getMatrix());
+        if (this.boT != null) {
+            this.matrix.preConcat(this.boT.getMatrix());
         }
         this.rect.set(0.0f, 0.0f, 0.0f, 0.0f);
         for (int size = this.contents.size() - 1; size >= 0; size--) {
@@ -190,7 +190,7 @@ public class c implements d, l, a.InterfaceC0194a, com.baidu.live.lottie.model.f
     public void a(com.baidu.live.lottie.model.e eVar, int i, List<com.baidu.live.lottie.model.e> list, com.baidu.live.lottie.model.e eVar2) {
         if (eVar.h(getName(), i)) {
             if (!"__container".equals(getName())) {
-                eVar2 = eVar2.hZ(getName());
+                eVar2 = eVar2.gO(getName());
                 if (eVar.j(getName(), i)) {
                     list.add(eVar2.a(this));
                 }
@@ -216,8 +216,8 @@ public class c implements d, l, a.InterfaceC0194a, com.baidu.live.lottie.model.f
 
     @Override // com.baidu.live.lottie.model.f
     public <T> void a(T t, @Nullable com.baidu.live.lottie.e.c<T> cVar) {
-        if (this.btG != null) {
-            this.btG.b(t, cVar);
+        if (this.boT != null) {
+            this.boT.b(t, cVar);
         }
     }
 }

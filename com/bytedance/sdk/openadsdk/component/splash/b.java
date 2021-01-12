@@ -44,10 +44,10 @@ public class b implements am.a {
     private a A;
 
     /* renamed from: a  reason: collision with root package name */
-    private AdSlot f6700a;
+    private AdSlot f6400a;
 
     /* renamed from: b  reason: collision with root package name */
-    private m f6701b;
+    private m f6401b;
     private final q d;
     private Context e;
     private final am f;
@@ -88,7 +88,7 @@ public class b implements am.a {
     }
 
     public void a(AdSlot adSlot, @NonNull TTAdNative.SplashAdListener splashAdListener, int i) {
-        this.f6700a = adSlot;
+        this.f6400a = adSlot;
         this.c = splashAdListener;
         this.g.set(false);
         this.h = null;
@@ -108,21 +108,21 @@ public class b implements am.a {
             i = i2;
         }
         this.f.sendEmptyMessageDelayed(3, i);
-        this.f6701b = new m();
-        this.f6701b.f = System.currentTimeMillis();
+        this.f6401b = new m();
+        this.f6401b.f = System.currentTimeMillis();
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("publisher_timeout_control", j2);
         } catch (Throwable th) {
         }
-        com.bytedance.sdk.openadsdk.h.a.a().b(com.bytedance.sdk.openadsdk.h.a.d.b().a(3).c(this.f6700a.getCodeId()).f(this.f6701b.f6813a).b(jSONObject.toString()));
+        com.bytedance.sdk.openadsdk.h.a.a().b(com.bytedance.sdk.openadsdk.h.a.d.b().a(3).c(this.f6400a.getCodeId()).f(this.f6401b.f6513a).b(jSONObject.toString()));
         b();
         a();
     }
 
     private void a() {
         if (this.k != null) {
-            this.k.b(this.f6700a, this.f6701b);
+            this.k.b(this.f6400a, this.f6401b);
         }
     }
 
@@ -133,7 +133,7 @@ public class b implements am.a {
                     this.s.set(false);
                     this.t.set(false);
                     u.b("splashLoadAd", "splash_type_real_time=====只走实时");
-                    a(this.f6700a);
+                    a(this.f6400a);
                     return;
                 case 1:
                     this.s.set(false);
@@ -141,7 +141,7 @@ public class b implements am.a {
                     u.b("splashLoadAd", "splash_type_priorrity_cache_defualt=====优先缓存");
                     if (!c()) {
                         u.c("splashLoadAd", "splash_type_priorrity_cache_defualt=====优先缓存--->执行缓存失败，进行网络请求");
-                        a(this.f6700a);
+                        a(this.f6400a);
                         return;
                     }
                     u.c("splashLoadAd", "splash_type_priorrity_cache_defualt=====优先缓存--->执行缓存成功！！");
@@ -150,14 +150,14 @@ public class b implements am.a {
                     u.b("splashLoadAd", "splash_type_concurrent_priority_real_time=====并发请求广告和check缓存，优先使用实时");
                     this.s.set(true);
                     this.t.set(false);
-                    a(this.f6700a);
+                    a(this.f6400a);
                     c();
                     return;
                 case 3:
                     this.s.set(false);
                     this.t.set(true);
                     u.b("splashLoadAd", "splash_type_concurrent_first_come_first_use=====并发请求广告和check缓存，谁先到用谁");
-                    a(this.f6700a);
+                    a(this.f6400a);
                     c();
                     return;
                 default:
@@ -177,14 +177,14 @@ public class b implements am.a {
     private boolean d() {
         u.f("splashLoadAd", "try checkSpashAdCacheIsValidAndTryShowAd......");
         com.bytedance.sdk.openadsdk.h.a.d a2 = a(15001, (o) null);
-        if (!this.k.b(this.f6700a.getCodeId()) && !this.k.a(this.f6700a.getCodeId())) {
+        if (!this.k.b(this.f6400a.getCodeId()) && !this.k.a(this.f6400a.getCodeId())) {
             u.f("splashLoadAd", "没有缓存数据..........");
             if (this.s.get() || this.t.get()) {
                 a(15001, new a(2, -12, h.a(-12), null, a2), (o) null, (e) null, (String) null);
             }
             return false;
-        } else if (this.k.a(this.f6700a, true)) {
-            c.a(this.e, this.f6700a);
+        } else if (this.k.a(this.f6400a, true)) {
+            c.a(this.e, this.f6400a);
             u.b("splashLoadAd", "======== 缓存过期 ========");
             if (this.s.get() || this.t.get()) {
                 a(15001, new a(2, -11, h.a(-11), null, a2), (o) null, (e) null, (String) null);
@@ -204,8 +204,8 @@ public class b implements am.a {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(final int i) {
         u.f("splashLoadAd", "tryDisplaySplashAdFromCache");
-        if (this.k.b(this.f6700a.getCodeId())) {
-            this.k.a(this.f6700a.getCodeId(), new a.c() { // from class: com.bytedance.sdk.openadsdk.component.splash.b.1
+        if (this.k.b(this.f6400a.getCodeId())) {
+            this.k.a(this.f6400a.getCodeId(), new a.c() { // from class: com.bytedance.sdk.openadsdk.component.splash.b.1
                 @Override // com.bytedance.sdk.openadsdk.component.splash.a.c
                 public void a(@NonNull o oVar) {
                     if (oVar.a() != null && oVar.a().F() != null && oVar.a().F().h() != null) {
@@ -270,9 +270,9 @@ public class b implements am.a {
             }
         }
         if (str == null) {
-            str = this.f6701b.f6813a;
+            str = this.f6401b.f6513a;
         }
-        com.bytedance.sdk.openadsdk.h.a.d c = com.bytedance.sdk.openadsdk.h.a.d.b().f(str).a(i).c(this.f6700a.getCodeId());
+        com.bytedance.sdk.openadsdk.h.a.d c = com.bytedance.sdk.openadsdk.h.a.d.b().f(str).a(i).c(this.f6400a.getCodeId());
         if (str3 != null) {
             c.d(str3);
         }
@@ -284,7 +284,7 @@ public class b implements am.a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void f() {
-        this.k.b(this.f6700a.getCodeId(), new a.c() { // from class: com.bytedance.sdk.openadsdk.component.splash.b.4
+        this.k.b(this.f6400a.getCodeId(), new a.c() { // from class: com.bytedance.sdk.openadsdk.component.splash.b.4
             @Override // com.bytedance.sdk.openadsdk.component.splash.a.c
             public void a(@NonNull o oVar) {
                 com.bytedance.sdk.openadsdk.h.a.d a2 = b.this.a(4, oVar);
@@ -294,7 +294,7 @@ public class b implements am.a {
                         return;
                     }
                     u.b("SplashAdLoadManager", "缓存广告素材解析出错");
-                    b.this.a(b.this.f6700a);
+                    b.this.a(b.this.f6400a);
                     return;
                 }
                 oVar.a().c(true);
@@ -317,7 +317,7 @@ public class b implements am.a {
             public void a() {
                 u.b("splashLoadAd", "缓存广告对象解析出错");
                 if (b.this.e()) {
-                    b.this.a(b.this.f6700a);
+                    b.this.a(b.this.f6400a);
                     return;
                 }
                 b.this.a(15001, new a(2, 0, null, null, b.this.a(4, (o) null)), (o) null, (e) null, (String) null);
@@ -330,9 +330,9 @@ public class b implements am.a {
         u.f("splashLoadAd", "try LoadSplashAdFromNetwork......");
         final com.bytedance.sdk.openadsdk.h.a.d a2 = a(3, (o) null);
         if (p.h().i(adSlot.getCodeId()) || adSlot.getExpressViewAcceptedWidth() > 0.0f) {
-            this.f6701b.e = 2;
+            this.f6401b.e = 2;
         }
-        this.d.a(adSlot, this.f6701b, 3, new q.b() { // from class: com.bytedance.sdk.openadsdk.component.splash.b.5
+        this.d.a(adSlot, this.f6401b, 3, new q.b() { // from class: com.bytedance.sdk.openadsdk.component.splash.b.5
             @Override // com.bytedance.sdk.openadsdk.core.q.b
             public void a(int i, String str) {
                 a2.b(i).g(str);
@@ -437,7 +437,7 @@ public class b implements am.a {
                         return;
                     }
                     lVar.d(false);
-                    e eVar = new e(b.this.e, lVar, b.this.f6700a, "splash_ad");
+                    e eVar = new e(b.this.e, lVar, b.this.f6400a, "splash_ad");
                     b.this.i = eVar;
                     eVar.a(bArr);
                     b.this.m.set(lVar.B() == null);
@@ -536,7 +536,7 @@ public class b implements am.a {
 
                     @Override // com.bytedance.sdk.adnet.core.p.a
                     public void a(com.bytedance.sdk.adnet.core.p<File> pVar) {
-                        if (pVar == null || pVar.f6345a == null) {
+                        if (pVar == null || pVar.f6045a == null) {
                             b.this.x = 3;
                             dVar.b(-14).g(h.a(-14));
                             a aVar2 = new a(2, -14, h.a(-14), null, dVar);
@@ -642,11 +642,11 @@ public class b implements am.a {
             p.f().a(a2.T(), a2.W(), new q.a() { // from class: com.bytedance.sdk.openadsdk.component.splash.b.10
                 @Override // com.bytedance.sdk.openadsdk.core.q.a
                 public void a(boolean z, long j2, long j3) {
-                    c.a(b.this.f6700a, z, j2, j3);
+                    c.a(b.this.f6400a, z, j2, j3);
                     if (!z || b.this.g.get()) {
                         if (b.this.e()) {
                             u.b("SplashAdLoadManager", "开屏视频缓存广告不在投放期或本次调用已回调出去");
-                            b.this.a(b.this.f6700a);
+                            b.this.a(b.this.f6400a);
                             return;
                         }
                         u.b("splashLoadAd", "并发请求开屏视频check 失败 无需再网络请求");
@@ -664,7 +664,7 @@ public class b implements am.a {
         u.b("splashLoadAd", "checkAdFromServer check fail !!!!");
         if (e()) {
             u.b("splashLoadAd", "checkAdFromServer check fail !!!! ---> tryLoadSplashAdFromNetwork !!!");
-            a(this.f6700a);
+            a(this.f6400a);
             return;
         }
         com.bytedance.sdk.openadsdk.h.a.d a4 = a(4, (com.bytedance.sdk.openadsdk.core.d.o) null);
@@ -767,7 +767,7 @@ public class b implements am.a {
             if (str != null) {
                 oVar.a().d(true);
             }
-            e eVar = new e(this.e, oVar.a(), str, this.f6700a, "splash_ad");
+            e eVar = new e(this.e, oVar.a(), str, this.f6400a, "splash_ad");
             this.h = eVar;
             return eVar;
         }
@@ -779,17 +779,17 @@ public class b implements am.a {
     public class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public int f6724a;
+        public int f6424a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f6725b;
+        public int f6425b;
         public String c;
         public TTSplashAd d;
         public com.bytedance.sdk.openadsdk.h.a.d e;
 
         public a(int i, int i2, String str, TTSplashAd tTSplashAd, com.bytedance.sdk.openadsdk.h.a.d dVar) {
-            this.f6724a = i;
-            this.f6725b = i2;
+            this.f6424a = i;
+            this.f6425b = i2;
             this.c = str;
             this.d = tTSplashAd;
             this.e = dVar;
@@ -798,7 +798,7 @@ public class b implements am.a {
 
     private void g() {
         if (this.k != null) {
-            this.k.a(this.f6700a, this.f6701b);
+            this.k.a(this.f6400a, this.f6401b);
         }
     }
 
@@ -810,13 +810,13 @@ public class b implements am.a {
             j.remove(this);
         } else if (this.c == null) {
             u.a("splashAdListener is null, then return");
-            if (aVar.f6724a == 3) {
+            if (aVar.f6424a == 3) {
                 a(aVar.e);
             }
             j.remove(this);
         } else if (!this.g.get()) {
             this.g.set(true);
-            switch (aVar.f6724a) {
+            switch (aVar.f6424a) {
                 case 1:
                     c(aVar.e);
                     this.c.onSplashAdLoad(aVar.d);
@@ -824,7 +824,7 @@ public class b implements am.a {
                 case 2:
                     u.f("splashLoadAd", "onCallback CALLBACK_RESULT_FAILED");
                     b(aVar.e);
-                    this.c.onError(aVar.f6725b, aVar.c);
+                    this.c.onError(aVar.f6425b, aVar.c);
                     break;
                 case 3:
                     u.f("splashLoadAd", "onCallback CALLBACK_RESULT_TIMEOUT");
@@ -843,7 +843,7 @@ public class b implements am.a {
             j.remove(this);
         } else {
             this.c = null;
-            if (aVar.f6724a == 3) {
+            if (aVar.f6424a == 3) {
                 a(aVar.e);
             }
             j.remove(this);
@@ -1011,9 +1011,9 @@ public class b implements am.a {
         u.f("splashLoadAd", "reportMarkAtRespSucc outer_call_send");
         if (dVar != null) {
             JSONObject jSONObject = new JSONObject();
-            u.f("splashLoadAd", "reportMarkAtRespSucc sSplashLoadImageSource " + com.bytedance.sdk.openadsdk.i.a.b.f7490a);
+            u.f("splashLoadAd", "reportMarkAtRespSucc sSplashLoadImageSource " + com.bytedance.sdk.openadsdk.i.a.b.f7190a);
             try {
-                jSONObject.put("image_CacheType", com.bytedance.sdk.openadsdk.i.a.b.f7490a);
+                jSONObject.put("image_CacheType", com.bytedance.sdk.openadsdk.i.a.b.f7190a);
             } catch (Throwable th) {
             }
             com.bytedance.sdk.openadsdk.h.a.a().c(dVar.b(jSONObject.toString()));

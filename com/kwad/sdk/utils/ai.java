@@ -2,7 +2,7 @@ package com.kwad.sdk.utils;
 
 import java.util.Formatter;
 import java.util.Locale;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class ai {
     public static String a(long j) {
         if (j <= 0 || j >= 86400000) {

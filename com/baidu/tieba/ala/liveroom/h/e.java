@@ -30,75 +30,75 @@ import com.baidu.live.tbadk.task.TbHttpMessageTask;
 import com.baidu.live.tbadk.timer.LiveTimerManager;
 import com.baidu.live.tbadk.timer.OnLiveTimerListener;
 import com.baidu.tieba.ala.liveroom.data.LiveTaskResponseMessage;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class e {
-    private long hBH;
-    private int hBI;
-    private int hBJ;
-    private HttpMessageListener hBK = new HttpMessageListener(1021152) { // from class: com.baidu.tieba.ala.liveroom.h.e.2
+    private br hnH;
+    private long hxb;
+    private int hxc;
+    private int hxd;
+    private TbPageContext pageContext;
+    private HttpMessageListener hxe = new HttpMessageListener(1021152) { // from class: com.baidu.tieba.ala.liveroom.h.e.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             if (httpResponsedMessage == null || httpResponsedMessage.hasError()) {
-                if (e.this.hBJ < 2) {
-                    e.this.hBJ++;
-                    e.this.od(false);
+                if (e.this.hxd < 2) {
+                    e.this.hxd++;
+                    e.this.nZ(false);
                 } else {
                     return;
                 }
             }
             if (httpResponsedMessage instanceof LiveTaskResponseMessage) {
                 LiveTaskResponseMessage liveTaskResponseMessage = (LiveTaskResponseMessage) httpResponsedMessage;
-                e.this.a(e.this.pageContext.getPageActivity(), liveTaskResponseMessage.message, liveTaskResponseMessage.btnText, TextUtils.isEmpty(liveTaskResponseMessage.scheme) ? liveTaskResponseMessage.url : liveTaskResponseMessage.scheme, liveTaskResponseMessage.hCr);
+                e.this.a(e.this.pageContext.getPageActivity(), liveTaskResponseMessage.message, liveTaskResponseMessage.btnText, TextUtils.isEmpty(liveTaskResponseMessage.scheme) ? liveTaskResponseMessage.url : liveTaskResponseMessage.scheme, liveTaskResponseMessage.hxL);
             }
         }
     };
-    private CustomMessageListener hBL = new CustomMessageListener(2913124) { // from class: com.baidu.tieba.ala.liveroom.h.e.3
+    private CustomMessageListener hxf = new CustomMessageListener(2913124) { // from class: com.baidu.tieba.ala.liveroom.h.e.3
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (e.this.hso.aRR == 1) {
-                e.this.hBI++;
-                if (e.this.hso.aRS <= e.this.hBI) {
-                    e.this.od(true);
+            if (e.this.hnH.aNe == 1) {
+                e.this.hxc++;
+                if (e.this.hnH.aNf <= e.this.hxc) {
+                    e.this.nZ(true);
                 }
             }
         }
     };
-    private CustomMessageListener hBM = new CustomMessageListener(2913126) { // from class: com.baidu.tieba.ala.liveroom.h.e.4
+    private CustomMessageListener hxg = new CustomMessageListener(2913126) { // from class: com.baidu.tieba.ala.liveroom.h.e.4
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (e.this.hso.aRR == 2 && (customResponsedMessage.getData() instanceof Long)) {
+            if (e.this.hnH.aNe == 2 && (customResponsedMessage.getData() instanceof Long)) {
                 long longValue = ((Long) customResponsedMessage.getData()).longValue();
-                e.this.hBH = longValue + e.this.hBH;
-                if (e.this.hso.aRT <= e.this.hBH) {
-                    e.this.od(true);
+                e.this.hxb = longValue + e.this.hxb;
+                if (e.this.hnH.aNg <= e.this.hxb) {
+                    e.this.nZ(true);
                 }
             }
         }
     };
     private Handler handler = new Handler(Looper.getMainLooper());
-    private br hso;
-    private TbPageContext pageContext;
 
     public e(TbPageContext tbPageContext, br brVar) {
         this.pageContext = tbPageContext;
-        this.hso = brVar;
-        chw();
+        this.hnH = brVar;
+        cdE();
     }
 
     public void J(x xVar) {
-        if (this.hso != null && this.hso.aRO && xVar.mLiveInfo != null) {
-            MessageManager.getInstance().registerListener(this.hBL);
-            MessageManager.getInstance().registerListener(this.hBM);
-            MessageManager.getInstance().registerListener(this.hBK);
-            if (this.hso.aRR == 3) {
-                long j = this.hso.aRU;
+        if (this.hnH != null && this.hnH.aNb && xVar.mLiveInfo != null) {
+            MessageManager.getInstance().registerListener(this.hxf);
+            MessageManager.getInstance().registerListener(this.hxg);
+            MessageManager.getInstance().registerListener(this.hxe);
+            if (this.hnH.aNe == 3) {
+                long j = this.hnH.aNh;
                 LiveTimerManager.getInstance().addLiveTimerTask("live_task", xVar.mLiveInfo.live_id, new OnLiveTimerListener() { // from class: com.baidu.tieba.ala.liveroom.h.e.1
                     @Override // com.baidu.live.tbadk.timer.OnLiveTimerListener
                     public void onComplete(boolean z) {
-                        e.this.od(true);
+                        e.this.nZ(true);
                     }
 
                     @Override // com.baidu.live.tbadk.timer.OnLiveTimerListener
@@ -111,19 +111,19 @@ public class e {
 
     public void onDestroy() {
         LiveTimerManager.getInstance().removeLiveTimerTask("live_task", true);
-        MessageManager.getInstance().unRegisterListener(this.hBL);
-        MessageManager.getInstance().unRegisterListener(this.hBM);
-        MessageManager.getInstance().unRegisterListener(this.hBK);
+        MessageManager.getInstance().unRegisterListener(this.hxf);
+        MessageManager.getInstance().unRegisterListener(this.hxg);
+        MessageManager.getInstance().unRegisterListener(this.hxe);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void od(boolean z) {
-        if (this.hso != null) {
+    public void nZ(boolean z) {
+        if (this.hnH != null) {
             if (z) {
-                this.hBJ = 0;
+                this.hxd = 0;
             }
             HttpMessage httpMessage = new HttpMessage(1021152);
-            httpMessage.addParam("task", this.hso.aRQ);
+            httpMessage.addParam("task", this.hnH.aNd);
             httpMessage.addParam("zid", ExtraParamsManager.getBaiduzid());
             MessageManager.getInstance().sendMessage(httpMessage);
         }
@@ -187,7 +187,7 @@ public class e {
         }
     }
 
-    private static void chw() {
+    private static void cdE() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1021152, TbConfig.SERVER_ADDRESS + "ala/task/complete");
         tbHttpMessageTask.setIsNeedTbs(true);
         tbHttpMessageTask.setIsUseCurrentBDUSS(true);

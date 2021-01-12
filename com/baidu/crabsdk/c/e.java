@@ -7,13 +7,13 @@ import java.security.KeyFactory;
 import java.security.PublicKey;
 import java.security.spec.X509EncodedKeySpec;
 import javax.crypto.Cipher;
-/* loaded from: classes3.dex */
+/* loaded from: classes14.dex */
 public final class e {
-    private static String aqq = "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDcNo7OFl4AMWXHXHQ/Uyr5Qwmi1EJXbxtkWHQPiT3tBxAgCApZyZXI8Sc0L+g2e3csrK+Mi/uD0W7AFmxdqSunmbiCEP4N8o5+X8NyREPRofM8cfFtIY/kHemCWR65V69FLv++/tPp5DlJQaHERWIvWL5aJXNGhUNzqUQMjRzEPwIDAQAB";
+    private static String apD = "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDcNo7OFl4AMWXHXHQ/Uyr5Qwmi1EJXbxtkWHQPiT3tBxAgCApZyZXI8Sc0L+g2e3csrK+Mi/uD0W7AFmxdqSunmbiCEP4N8o5+X8NyREPRofM8cfFtIY/kHemCWR65V69FLv++/tPp5DlJQaHERWIvWL5aJXNGhUNzqUQMjRzEPwIDAQAB";
 
-    public static String dE(String str) {
+    public static String dz(String str) {
         byte[] bytes = str.getBytes();
-        X509EncodedKeySpec x509EncodedKeySpec = new X509EncodedKeySpec(Base64.decode(aqq, 0));
+        X509EncodedKeySpec x509EncodedKeySpec = new X509EncodedKeySpec(Base64.decode(apD, 0));
         KeyFactory keyFactory = KeyFactory.getInstance(RSAUtil.ALGORITHM_RSA);
         a.w(keyFactory.getProvider().toString());
         PublicKey generatePublic = keyFactory.generatePublic(x509EncodedKeySpec);

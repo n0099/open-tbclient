@@ -63,7 +63,7 @@ import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class WebView extends AbsoluteLayout implements View.OnLongClickListener, ViewGroup.OnHierarchyChangeListener, ViewTreeObserver.OnGlobalFocusChangeListener {
     public static final String DATA_REDUCTION_PROXY_SETTING_CHANGED = "com.baidu.webkit.sdk.DATA_REDUCTION_PROXY_SETTING_CHANGED";
     private static final String JAVASCTIPT_URL = "javascript:";
@@ -93,7 +93,7 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
     private WebViewDelegate mViewDelegate;
     private final Looper mWebViewThread;
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public final class DelegateAdapter implements WebViewProvider.ScrollDelegate, WebViewProvider.ViewDelegate {
         private final WebViewImpl mChildView;
 
@@ -379,13 +379,13 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
         }
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public interface FindListener {
         void onFindResultReceived(int i, int i2, boolean z);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public class FindListenerDistributor implements FindListener {
         private FindListener mFindDialogFindListener;
         private FindListener mUserFindListener;
@@ -404,7 +404,7 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
         }
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public static class HitTestResult {
         @Deprecated
         public static final int ANCHOR_TYPE = 1;
@@ -522,13 +522,13 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
         }
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public interface IVirtualMemoryListener {
         void onVirtualMemoryPressure(int i);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public class JSInterfaceStatistics implements Statistics.Record {
         protected HashMap<String, String> mJSInfo;
 
@@ -568,32 +568,32 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
         }
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public interface MainResourcePrefetchListener {
         void onPrefetchFinished(String str, long j, boolean z, String str2, int i);
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public interface OnDragListener {
         boolean onDrag(View view, DragEvent dragEvent);
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public interface OnGenericMotionListener {
         boolean onGenericMotion(View view, MotionEvent motionEvent);
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public interface OnHoverListener {
         boolean onHover(View view, MotionEvent motionEvent);
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public interface OnSystemUiVisibilityChangeListener {
         void onSystemUiVisibilityChange(int i);
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public class PageInfo {
         public PageInfo() {
         }
@@ -620,13 +620,13 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
     }
 
     @Deprecated
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public interface PictureListener {
         @Deprecated
         void onNewPicture(WebView webView, Picture picture);
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public enum PrerenderStatus {
         STARTED,
         FAILED,
@@ -634,7 +634,7 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
         FINISHED
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public class PrivateAccess {
         public PrivateAccess() {
         }
@@ -748,23 +748,23 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
     }
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public @interface RendererPriority {
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public enum SaveAsType {
         SAVE_AS_WEB_ARCHIVE,
         SAVE_AS_HTML_FOLDER,
         SAVE_AS_HTML_ONLY
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public static abstract class VisualStateCallback {
         public abstract void onComplete(long j);
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public class WebPageInfoList {
         public WebPageInfoList() {
         }
@@ -774,14 +774,14 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
         }
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public enum WebViewState {
         NORMAL_WEBVIEW_STATE,
         SINGLE_WEBVIEW_STATE,
         MULTIPLE_WEBVIEW_STATE
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public class WebViewTransport {
         private final Object lockObject = new Object();
         private WebView mWebview;
@@ -804,7 +804,7 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
         }
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public enum WebViewType {
         NORMAL,
         BIGPLUGIN
@@ -1529,9 +1529,9 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
     public void destroy() {
         e secureProcessor = getSecureProcessor();
         if (secureProcessor.c.getContext().getPackageName().contains(GlobalConstants.SEARCHBOX_PACKAGE_NAME)) {
-            if (secureProcessor.f5970b != null) {
-                secureProcessor.f5970b.clear();
-                secureProcessor.f5970b = null;
+            if (secureProcessor.f5670b != null) {
+                secureProcessor.f5670b.clear();
+                secureProcessor.f5670b = null;
             }
             if (secureProcessor.c.getWebViewClient() != null) {
                 secureProcessor.d = null;

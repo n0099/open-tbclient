@@ -2,16 +2,16 @@ package com.baidu.live.yuyingift.yuyinhousegift;
 
 import android.content.Context;
 import com.baidu.live.yuyingift.yuyinhousegift.view.YuyinAlaRoomNormalGiftView;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class c extends d {
-    private YuyinAlaRoomNormalGiftView ccv;
-    protected a ccw;
+    private YuyinAlaRoomNormalGiftView bXH;
+    protected a bXI;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public interface a {
-        void a(YuyinAlaRoomNormalGiftView yuyinAlaRoomNormalGiftView);
+        void XC();
 
-        void abv();
+        void a(YuyinAlaRoomNormalGiftView yuyinAlaRoomNormalGiftView);
 
         void b(YuyinAlaRoomNormalGiftView yuyinAlaRoomNormalGiftView);
     }
@@ -23,59 +23,59 @@ public class c extends d {
     }
 
     public void q(com.baidu.live.yuyingift.a.c cVar) {
-        if (this.ccv != null) {
-            this.ccv.q(cVar);
+        if (this.bXH != null) {
+            this.bXH.q(cVar);
         }
     }
 
     public com.baidu.live.yuyingift.a.c getLastShowGift() {
-        return this.ccv.getLastShowGift();
+        return this.bXH.getLastShowGift();
     }
 
     public boolean isRunning() {
-        return this.ccv != null && this.ccv.abC();
+        return this.bXH != null && this.bXH.XJ();
     }
 
     public void r(com.baidu.live.yuyingift.a.c cVar) {
-        if (this.ccv != null) {
-            this.ccv.b(cVar, x(cVar), true);
+        if (this.bXH != null) {
+            this.bXH.b(cVar, x(cVar), true);
         }
     }
 
     private void init() {
-        this.ccv = new YuyinAlaRoomNormalGiftView(this.mContext);
-        this.ccv.setAnimCallback(new YuyinAlaRoomNormalGiftView.a() { // from class: com.baidu.live.yuyingift.yuyinhousegift.c.1
+        this.bXH = new YuyinAlaRoomNormalGiftView(this.mContext);
+        this.bXH.setAnimCallback(new YuyinAlaRoomNormalGiftView.a() { // from class: com.baidu.live.yuyingift.yuyinhousegift.c.1
             @Override // com.baidu.live.yuyingift.yuyinhousegift.view.YuyinAlaRoomNormalGiftView.a
             public void s(com.baidu.live.yuyingift.a.c cVar) {
-                if (c.this.ccw != null) {
-                    c.this.ccw.a(c.this.ccv);
+                if (c.this.bXI != null) {
+                    c.this.bXI.a(c.this.bXH);
                 }
             }
 
             @Override // com.baidu.live.yuyingift.yuyinhousegift.view.YuyinAlaRoomNormalGiftView.a
             public void t(com.baidu.live.yuyingift.a.c cVar) {
-                if (c.this.ccw != null) {
-                    c.this.ccw.abv();
+                if (c.this.bXI != null) {
+                    c.this.bXI.XC();
                 }
             }
 
             @Override // com.baidu.live.yuyingift.yuyinhousegift.view.YuyinAlaRoomNormalGiftView.a
             public void u(com.baidu.live.yuyingift.a.c cVar) {
-                if (c.this.ccw != null) {
-                    c.this.ccw.b(c.this.ccv);
-                    c.this.ccw.abv();
+                if (c.this.bXI != null) {
+                    c.this.bXI.b(c.this.bXH);
+                    c.this.bXI.XC();
                 }
             }
         });
     }
 
     public void a(a aVar) {
-        this.ccw = aVar;
+        this.bXI = aVar;
     }
 
     public void onDestory() {
-        if (this.ccv != null) {
-            this.ccv.onDestory();
+        if (this.bXH != null) {
+            this.bXH.onDestory();
         }
     }
 }

@@ -7,9 +7,9 @@ public class d extends com.baidu.swan.pms.node.a {
     @Override // com.baidu.swan.pms.node.a, com.baidu.swan.pms.node.d
     public void a(JSONObject jSONObject, com.baidu.swan.pms.a.g gVar, @Nullable com.baidu.swan.pms.a.g gVar2, @Nullable com.baidu.swan.pms.a.g gVar3) {
         if (jSONObject != null) {
-            e.bhm().cW(jSONObject.optJSONObject("tipmsgs"));
-            b.bhk().cW(jSONObject.optJSONObject("pkg_clean_strategy"));
-            g.bho().cW(jSONObject.optJSONObject("pkg_preload"));
+            e.bds().cW(jSONObject.optJSONObject("tipmsgs"));
+            b.bdq().cW(jSONObject.optJSONObject("pkg_clean_strategy"));
+            g.bdu().cW(jSONObject.optJSONObject("pkg_preload"));
         }
     }
 }

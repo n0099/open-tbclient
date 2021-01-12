@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Map;
 /* loaded from: classes6.dex */
 public class b {
-    private a anP;
+    private a amZ;
     private Map<String, com.baidu.cesium.b.a> f = new HashMap();
 
     /* loaded from: classes6.dex */
@@ -15,7 +15,7 @@ public class b {
     }
 
     public b(a aVar) {
-        this.anP = aVar;
+        this.amZ = aVar;
         for (com.baidu.cesium.b.a aVar2 : aVar.a()) {
             this.f.put(aVar2.a(), aVar2);
         }
@@ -25,7 +25,7 @@ public class b {
         return new ArrayList(this.f.values());
     }
 
-    public com.baidu.cesium.b.a dl(String str) {
+    public com.baidu.cesium.b.a dg(String str) {
         return this.f.get(str);
     }
 }

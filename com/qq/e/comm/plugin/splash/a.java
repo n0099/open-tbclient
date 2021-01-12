@@ -3,7 +3,7 @@ package com.qq.e.comm.plugin.splash;
 import android.content.Context;
 import com.qq.e.mediation.interfaces.BaseSplashAd;
 import java.lang.reflect.Constructor;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 class a {
     public static BaseSplashAd a(String str, Context context, String str2, String str3) throws Exception {
         Constructor declaredConstructor = Class.forName(str).asSubclass(BaseSplashAd.class).getDeclaredConstructor(Context.class, String.class, String.class);

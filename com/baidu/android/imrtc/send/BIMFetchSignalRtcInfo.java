@@ -6,7 +6,7 @@ import com.baidu.android.imrtc.utils.LogUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationConstants;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class BIMFetchSignalRtcInfo extends BIMRtcInfo {
     private static final String TAG = "BIMFetchSignalRtcInfo";
     private long mFetchTime;

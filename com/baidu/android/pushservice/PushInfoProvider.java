@@ -10,14 +10,14 @@ import android.net.Uri;
 import android.util.Log;
 import com.baidu.android.pushservice.h.a.b;
 import com.baidu.android.pushservice.i.m;
-/* loaded from: classes3.dex */
+/* loaded from: classes14.dex */
 public class PushInfoProvider extends ContentProvider {
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f1146a;
+    private Context f1152a;
 
     /* renamed from: b  reason: collision with root package name */
-    private UriMatcher f1147b = new UriMatcher(-1);
+    private UriMatcher f1153b = new UriMatcher(-1);
 
     @Override // android.content.ContentProvider
     public int delete(Uri uri, String str, String[] strArr) {
@@ -36,18 +36,18 @@ public class PushInfoProvider extends ContentProvider {
 
     @Override // android.content.ContentProvider
     public boolean onCreate() {
-        this.f1146a = getContext();
-        String str = m.o(this.f1146a) ? "pushinfo_v3" : "pushinfo";
-        if (this.f1147b == null) {
-            this.f1147b = new UriMatcher(-1);
+        this.f1152a = getContext();
+        String str = m.o(this.f1152a) ? "pushinfo_v3" : "pushinfo";
+        if (this.f1153b == null) {
+            this.f1153b = new UriMatcher(-1);
         }
         try {
-            this.f1147b.addURI(this.f1146a.getPackageName() + ".bdpush", str, 1);
-            this.f1147b.addURI(this.f1146a.getPackageName() + ".bdpush", "verif", 2);
-            this.f1147b.addURI(this.f1146a.getPackageName() + ".bdpush", "msgInfo", 3);
-            this.f1147b.addURI(this.f1146a.getPackageName() + ".bdpush", "appstatus", 4);
+            this.f1153b.addURI(this.f1152a.getPackageName() + ".bdpush", str, 1);
+            this.f1153b.addURI(this.f1152a.getPackageName() + ".bdpush", "verif", 2);
+            this.f1153b.addURI(this.f1152a.getPackageName() + ".bdpush", "msgInfo", 3);
+            this.f1153b.addURI(this.f1152a.getPackageName() + ".bdpush", "appstatus", 4);
         } catch (Throwable th) {
-            new b.c(this.f1146a).a(Log.getStackTraceString(th)).a();
+            new b.c(this.f1152a).a(Log.getStackTraceString(th)).a();
         }
         return true;
     }
@@ -58,32 +58,32 @@ public class PushInfoProvider extends ContentProvider {
         synchronized (com.baidu.android.pushservice.c.c.a()) {
             try {
             } catch (Exception e) {
-                new b.c(this.f1146a).a(Log.getStackTraceString(e)).a();
+                new b.c(this.f1152a).a(Log.getStackTraceString(e)).a();
             }
-            switch (this.f1147b.match(uri)) {
+            switch (this.f1153b.match(uri)) {
                 case 1:
-                    SQLiteDatabase a2 = com.baidu.android.pushservice.c.c.a(this.f1146a);
+                    SQLiteDatabase a2 = com.baidu.android.pushservice.c.c.a(this.f1152a);
                     cursor = a2 != null ? a2.query("PushShareInfo", null, null, null, null, null, null) : null;
                     if (cursor != null) {
                         break;
                     }
                     break;
                 case 2:
-                    SQLiteDatabase a3 = com.baidu.android.pushservice.c.c.a(this.f1146a);
+                    SQLiteDatabase a3 = com.baidu.android.pushservice.c.c.a(this.f1152a);
                     cursor = a3 != null ? a3.query("PushVerifInfo", strArr, str, strArr2, null, null, str2) : null;
                     if (cursor != null) {
                         break;
                     }
                     break;
                 case 3:
-                    SQLiteDatabase a4 = com.baidu.android.pushservice.c.c.a(this.f1146a);
+                    SQLiteDatabase a4 = com.baidu.android.pushservice.c.c.a(this.f1152a);
                     cursor = a4 != null ? a4.query("PushMsgInfos", strArr, str, strArr2, null, null, str2) : null;
                     if (cursor != null) {
                         break;
                     }
                     break;
                 case 4:
-                    SQLiteDatabase a5 = com.baidu.android.pushservice.c.c.a(this.f1146a);
+                    SQLiteDatabase a5 = com.baidu.android.pushservice.c.c.a(this.f1152a);
                     cursor = a5 != null ? a5.query("PushAppStatus", strArr, str, strArr2, null, null, str2) : null;
                     if (cursor != null) {
                     }
@@ -116,9 +116,9 @@ public class PushInfoProvider extends ContentProvider {
         synchronized (com.baidu.android.pushservice.c.c.a()) {
             SQLiteDatabase sQLiteDatabase = null;
             try {
-                switch (this.f1147b.match(uri)) {
+                switch (this.f1153b.match(uri)) {
                     case 1:
-                        a2 = com.baidu.android.pushservice.c.c.a(this.f1146a);
+                        a2 = com.baidu.android.pushservice.c.c.a(this.f1152a);
                         if (a2 != null) {
                             try {
                                 cursor = a2.query("PushShareInfo", null, null, null, null, null, null);
@@ -132,7 +132,7 @@ public class PushInfoProvider extends ContentProvider {
                                         e = e2;
                                         sQLiteDatabase = a2;
                                         try {
-                                            new b.c(this.f1146a).a(Log.getStackTraceString(e)).a();
+                                            new b.c(this.f1152a).a(Log.getStackTraceString(e)).a();
                                             if (cursor != null) {
                                                 cursor.close();
                                             }

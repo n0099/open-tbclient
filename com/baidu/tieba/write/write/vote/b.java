@@ -33,35 +33,35 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class b implements View.OnClickListener, com.baidu.tbadk.suspended.a {
-    private LinearLayout ceJ;
-    private Intent ghm;
-    private ForumWriteData jst;
+    private LinearLayout bZT;
+    private Intent gcE;
+    private ForumWriteData jnN;
     private LinearLayout mContentView;
     private List<WriteVoteItemData> mData;
     private NavigationBar mNavigationBar;
     private TbPageContext<WriteVoteActivity> mPageContext;
     private String mTitle;
     private WriteVoteData mWriteVoteData;
-    private BdRecyclerView oiD;
-    private WriteVoteViewAdapter oiE;
-    private LinearLayout oiF;
-    private TextView oiG;
-    private EditText oiH;
-    private TextView oiI;
-    private TextView oiJ;
-    private TextView oiK;
-    private TextView oiL;
-    private TextView oiM;
-    private TextView oiN;
-    private TextView oiO;
-    private TextView oiP;
-    private TextView oiQ;
-    private int oiR = 0;
+    private BdRecyclerView odX;
+    private WriteVoteViewAdapter odY;
+    private LinearLayout odZ;
+    private TextView oea;
+    private EditText oeb;
+    private TextView oec;
+    private TextView oed;
+    private TextView oee;
+    private TextView oef;
+    private TextView oeg;
+    private TextView oeh;
+    private TextView oei;
+    private TextView oej;
+    private TextView oek;
+    private int oel = 0;
     private int expireType = -1;
-    private boolean oiS = false;
-    private boolean oiT = false;
+    private boolean oem = false;
+    private boolean oen = false;
 
     public b(TbPageContext tbPageContext, LinearLayout linearLayout, NavigationBar navigationBar) {
         this.mPageContext = tbPageContext;
@@ -73,7 +73,7 @@ public class b implements View.OnClickListener, com.baidu.tbadk.suspended.a {
             if (serializableExtra instanceof WriteVoteData) {
                 this.mWriteVoteData = (WriteVoteData) serializableExtra;
             } else if (serializableExtra instanceof ForumWriteData) {
-                this.jst = (ForumWriteData) serializableExtra;
+                this.jnN = (ForumWriteData) serializableExtra;
             }
             this.mTitle = intent.getStringExtra("title");
         }
@@ -88,75 +88,75 @@ public class b implements View.OnClickListener, com.baidu.tbadk.suspended.a {
     }
 
     private void init() {
-        this.oiD = new BdRecyclerView(this.mPageContext.getPageActivity());
-        this.oiD.setLayoutManager(new LinearLayoutManager(this.mPageContext.getPageActivity()));
+        this.odX = new BdRecyclerView(this.mPageContext.getPageActivity());
+        this.odX.setLayoutManager(new LinearLayoutManager(this.mPageContext.getPageActivity()));
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -1);
         layoutParams.topMargin = l.getDimens(this.mPageContext.getPageActivity(), R.dimen.tbds27);
-        this.mContentView.addView(this.oiD, layoutParams);
-        this.oiE = new WriteVoteViewAdapter(this.mPageContext);
-        this.oiD.setAdapter(this.oiE);
-        bIl();
-        bZD();
-        dGO();
-        cbY();
-        this.oiD.addHeaderView(this.oiF);
-        this.oiD.addFooterView(this.ceJ);
-        this.oiE.setData(this.mData);
-        ebA();
-        this.oiH.requestFocus();
-        this.oiH.postDelayed(new Runnable() { // from class: com.baidu.tieba.write.write.vote.b.1
+        this.mContentView.addView(this.odX, layoutParams);
+        this.odY = new WriteVoteViewAdapter(this.mPageContext);
+        this.odX.setAdapter(this.odY);
+        bEt();
+        bVL();
+        dCW();
+        bYg();
+        this.odX.addHeaderView(this.odZ);
+        this.odX.addFooterView(this.bZT);
+        this.odY.setData(this.mData);
+        dXI();
+        this.oeb.requestFocus();
+        this.oeb.postDelayed(new Runnable() { // from class: com.baidu.tieba.write.write.vote.b.1
             @Override // java.lang.Runnable
             public void run() {
-                l.showSoftKeyPad(b.this.mPageContext.getPageActivity(), b.this.oiH);
+                l.showSoftKeyPad(b.this.mPageContext.getPageActivity(), b.this.oeb);
             }
         }, 150L);
     }
 
-    private void bIl() {
+    private void bEt() {
         this.mNavigationBar.setCenterTextTitle(this.mPageContext.getResources().getString(R.string.write_add_vote));
-        this.oiQ = this.mNavigationBar.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, this.mPageContext.getResources().getString(R.string.done));
-        this.oiQ.setTextSize(0, l.getDimens(this.mPageContext.getPageActivity(), R.dimen.tbds44));
-        this.oiQ.setEnabled(false);
+        this.oek = this.mNavigationBar.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, this.mPageContext.getResources().getString(R.string.done));
+        this.oek.setTextSize(0, l.getDimens(this.mPageContext.getPageActivity(), R.dimen.tbds44));
+        this.oek.setEnabled(false);
     }
 
-    private void bZD() {
-        this.oiF = (LinearLayout) LayoutInflater.from(this.mPageContext.getPageActivity()).inflate(R.layout.view_vote_header, (ViewGroup) null);
-        this.oiG = (TextView) this.oiF.findViewById(R.id.vote_item_tip);
-        this.oiH = (EditText) this.oiF.findViewById(R.id.vote_title);
+    private void bVL() {
+        this.odZ = (LinearLayout) LayoutInflater.from(this.mPageContext.getPageActivity()).inflate(R.layout.view_vote_header, (ViewGroup) null);
+        this.oea = (TextView) this.odZ.findViewById(R.id.vote_item_tip);
+        this.oeb = (EditText) this.odZ.findViewById(R.id.vote_title);
     }
 
-    private void dGO() {
-        this.ceJ = (LinearLayout) LayoutInflater.from(this.mPageContext.getPageActivity()).inflate(R.layout.view_vote_footer, (ViewGroup) null);
-        this.oiI = (TextView) this.ceJ.findViewById(R.id.write_vote_type);
-        this.oiJ = (TextView) this.ceJ.findViewById(R.id.vote_type_single);
-        this.oiK = (TextView) this.ceJ.findViewById(R.id.vote_type_multiple);
-        this.oiL = (TextView) this.ceJ.findViewById(R.id.write_vote_time);
-        this.oiM = (TextView) this.ceJ.findViewById(R.id.vote_time_forever);
-        this.oiN = (TextView) this.ceJ.findViewById(R.id.vote_time_1_day);
-        this.oiO = (TextView) this.ceJ.findViewById(R.id.vote_time_7_days);
-        this.oiP = (TextView) this.ceJ.findViewById(R.id.vote_time_30_days);
+    private void dCW() {
+        this.bZT = (LinearLayout) LayoutInflater.from(this.mPageContext.getPageActivity()).inflate(R.layout.view_vote_footer, (ViewGroup) null);
+        this.oec = (TextView) this.bZT.findViewById(R.id.write_vote_type);
+        this.oed = (TextView) this.bZT.findViewById(R.id.vote_type_single);
+        this.oee = (TextView) this.bZT.findViewById(R.id.vote_type_multiple);
+        this.oef = (TextView) this.bZT.findViewById(R.id.write_vote_time);
+        this.oeg = (TextView) this.bZT.findViewById(R.id.vote_time_forever);
+        this.oeh = (TextView) this.bZT.findViewById(R.id.vote_time_1_day);
+        this.oei = (TextView) this.bZT.findViewById(R.id.vote_time_7_days);
+        this.oej = (TextView) this.bZT.findViewById(R.id.vote_time_30_days);
     }
 
-    private void ebA() {
+    private void dXI() {
         if (this.mWriteVoteData != null) {
-            this.oiH.setText(this.mWriteVoteData.getTitle());
-            this.oiR = this.mWriteVoteData.getIsMulti();
+            this.oeb.setText(this.mWriteVoteData.getTitle());
+            this.oel = this.mWriteVoteData.getIsMulti();
             this.expireType = this.mWriteVoteData.getExpireType();
-            ebD();
-            ebE();
-            this.oiT = ebC();
-            zx(this.oiS && this.oiT);
+            dXL();
+            dXM();
+            this.oen = dXK();
+            zt(this.oem && this.oen);
         }
     }
 
-    private void cbY() {
-        this.oiJ.setOnClickListener(this);
-        this.oiK.setOnClickListener(this);
-        this.oiM.setOnClickListener(this);
-        this.oiN.setOnClickListener(this);
-        this.oiO.setOnClickListener(this);
-        this.oiP.setOnClickListener(this);
-        this.oiH.addTextChangedListener(new TextWatcher() { // from class: com.baidu.tieba.write.write.vote.b.2
+    private void bYg() {
+        this.oed.setOnClickListener(this);
+        this.oee.setOnClickListener(this);
+        this.oeg.setOnClickListener(this);
+        this.oeh.setOnClickListener(this);
+        this.oei.setOnClickListener(this);
+        this.oej.setOnClickListener(this);
+        this.oeb.addTextChangedListener(new TextWatcher() { // from class: com.baidu.tieba.write.write.vote.b.2
             @Override // android.text.TextWatcher
             public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
             }
@@ -170,9 +170,9 @@ public class b implements View.OnClickListener, com.baidu.tbadk.suspended.a {
                 if (editable != null) {
                     String obj = editable.toString();
                     if (StringUtils.isNull(obj)) {
-                        b.this.oiH.setTypeface(Typeface.defaultFromStyle(0));
-                        b.this.oiS = false;
-                        b.this.zx(false);
+                        b.this.oeb.setTypeface(Typeface.defaultFromStyle(0));
+                        b.this.oem = false;
+                        b.this.zt(false);
                         return;
                     }
                     String replace = obj.replace(" ", "");
@@ -181,50 +181,50 @@ public class b implements View.OnClickListener, com.baidu.tbadk.suspended.a {
                     }
                     String subStringWithEmoji = ad.subStringWithEmoji(replace, 40);
                     if (!subStringWithEmoji.equals(editable.toString())) {
-                        b.this.oiH.setText(subStringWithEmoji);
-                        b.this.oiH.setSelection(subStringWithEmoji.length());
+                        b.this.oeb.setText(subStringWithEmoji);
+                        b.this.oeb.setSelection(subStringWithEmoji.length());
                     }
-                    b.this.oiH.setTypeface(Typeface.defaultFromStyle(1));
-                    b.this.oiS = true;
-                    b.this.zx(b.this.oiT);
+                    b.this.oeb.setTypeface(Typeface.defaultFromStyle(1));
+                    b.this.oem = true;
+                    b.this.zt(b.this.oen);
                 }
             }
         });
-        this.oiE.a(new WriteVoteViewAdapter.c() { // from class: com.baidu.tieba.write.write.vote.b.3
+        this.odY.a(new WriteVoteViewAdapter.c() { // from class: com.baidu.tieba.write.write.vote.b.3
             @Override // com.baidu.tieba.write.write.vote.WriteVoteViewAdapter.c
-            public void ebF() {
+            public void dXN() {
                 b.this.mData.add(new WriteVoteItemData());
-                b.this.oiD.post(new Runnable() { // from class: com.baidu.tieba.write.write.vote.b.3.1
+                b.this.odX.post(new Runnable() { // from class: com.baidu.tieba.write.write.vote.b.3.1
                     @Override // java.lang.Runnable
                     public void run() {
-                        b.this.oiE.setData(b.this.mData);
+                        b.this.odY.setData(b.this.mData);
                     }
                 });
-                b.this.oiT = b.this.ebC();
-                b.this.zx(b.this.oiS && b.this.oiT);
+                b.this.oen = b.this.dXK();
+                b.this.zt(b.this.oem && b.this.oen);
             }
 
             @Override // com.baidu.tieba.write.write.vote.WriteVoteViewAdapter.c
-            public void MS(int i) {
+            public void Ll(int i) {
                 b.this.mData.remove(i);
-                b.this.oiD.post(new Runnable() { // from class: com.baidu.tieba.write.write.vote.b.3.2
+                b.this.odX.post(new Runnable() { // from class: com.baidu.tieba.write.write.vote.b.3.2
                     @Override // java.lang.Runnable
                     public void run() {
-                        b.this.oiE.setData(b.this.mData);
+                        b.this.odY.setData(b.this.mData);
                     }
                 });
-                b.this.oiT = b.this.ebC();
-                b.this.zx(b.this.oiS && b.this.oiT);
+                b.this.oen = b.this.dXK();
+                b.this.zt(b.this.oem && b.this.oen);
             }
 
             @Override // com.baidu.tieba.write.write.vote.WriteVoteViewAdapter.c
             public void a(WriteVoteItemData writeVoteItemData, int i) {
                 b.this.mData.set(i, writeVoteItemData);
-                b.this.oiT = b.this.ebC();
-                b.this.zx(b.this.oiS && b.this.oiT);
+                b.this.oen = b.this.dXK();
+                b.this.zt(b.this.oem && b.this.oen);
             }
         });
-        this.oiD.addOnScrollListener(new RecyclerView.OnScrollListener() { // from class: com.baidu.tieba.write.write.vote.b.4
+        this.odX.addOnScrollListener(new RecyclerView.OnScrollListener() { // from class: com.baidu.tieba.write.write.vote.b.4
             @Override // androidx.recyclerview.widget.RecyclerView.OnScrollListener
             public void onScrollStateChanged(RecyclerView recyclerView, int i) {
                 super.onScrollStateChanged(recyclerView, i);
@@ -233,14 +233,14 @@ public class b implements View.OnClickListener, com.baidu.tbadk.suspended.a {
                 }
             }
         });
-        this.oiQ.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.write.vote.b.5
+        this.oek.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.write.vote.b.5
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                List<WriteVoteItemData> ebB = b.this.ebB();
+                List<WriteVoteItemData> dXJ = b.this.dXJ();
                 HashMap hashMap = new HashMap();
-                int size = ebB.size();
+                int size = dXJ.size();
                 for (int i = 0; i < size; i++) {
-                    WriteVoteItemData writeVoteItemData = ebB.get(i);
+                    WriteVoteItemData writeVoteItemData = dXJ.get(i);
                     if (hashMap.containsKey(writeVoteItemData.getText())) {
                         b.this.mPageContext.showToast(String.format(b.this.mPageContext.getString(R.string.write_vote_repeat_toast), Integer.valueOf(((Integer) hashMap.get(writeVoteItemData.getText())).intValue() + 1), Integer.valueOf(i + 1)));
                         return;
@@ -248,46 +248,46 @@ public class b implements View.OnClickListener, com.baidu.tbadk.suspended.a {
                     hashMap.put(writeVoteItemData.getText(), Integer.valueOf(i));
                 }
                 b.this.mWriteVoteData = new WriteVoteData();
-                b.this.mWriteVoteData.setTitle(b.this.oiH.getText().toString());
+                b.this.mWriteVoteData.setTitle(b.this.oeb.getText().toString());
                 b.this.mWriteVoteData.setExpireType(b.this.expireType);
-                b.this.mWriteVoteData.setIsMulti(b.this.oiR);
-                b.this.mWriteVoteData.setOptions(ebB);
-                b.this.ghm = new Intent();
-                b.this.ghm.putExtra(IntentConfig.WRITE_VOTE_DATA, b.this.mWriteVoteData);
+                b.this.mWriteVoteData.setIsMulti(b.this.oel);
+                b.this.mWriteVoteData.setOptions(dXJ);
+                b.this.gcE = new Intent();
+                b.this.gcE.putExtra(IntentConfig.WRITE_VOTE_DATA, b.this.mWriteVoteData);
                 b.this.mPageContext.getPageActivity().finish();
-                b.this.VD(b.this.mTitle);
+                b.this.Uv(b.this.mTitle);
             }
         });
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void VD(String str) {
-        if (this.jst != null && !WriteActivityConfig.isAsyncWriting()) {
-            WriteActivityConfig.newInstance(this.mPageContext.getPageActivity()).setType(9).setForumWriteData(this.jst).setShowVoteData(this.mWriteVoteData).setTitle(str).send();
+    public void Uv(String str) {
+        if (this.jnN != null && !WriteActivityConfig.isAsyncWriting()) {
+            WriteActivityConfig.newInstance(this.mPageContext.getPageActivity()).setType(9).setForumWriteData(this.jnN).setShowVoteData(this.mWriteVoteData).setTitle(str).send();
         }
     }
 
     @Override // com.baidu.tbadk.suspended.a
-    public void sY(int i) {
-        ao.setViewTextColor(this.oiG, R.color.CAM_X0109);
-        this.oiH.setHintTextColor(ao.getColor(R.color.CAM_X0109));
-        this.oiH.setTextColor(ao.getColor(R.color.CAM_X0105));
-        this.oiI.setTextColor(ao.getColor(R.color.CAM_X0105));
-        this.oiL.setTextColor(ao.getColor(R.color.CAM_X0105));
-        if (this.oiS && this.oiT) {
-            this.oiQ.setTextColor(ao.getColor(R.color.CAM_X0302));
+    public void rs(int i) {
+        ao.setViewTextColor(this.oea, R.color.CAM_X0109);
+        this.oeb.setHintTextColor(ao.getColor(R.color.CAM_X0109));
+        this.oeb.setTextColor(ao.getColor(R.color.CAM_X0105));
+        this.oec.setTextColor(ao.getColor(R.color.CAM_X0105));
+        this.oef.setTextColor(ao.getColor(R.color.CAM_X0105));
+        if (this.oem && this.oen) {
+            this.oek.setTextColor(ao.getColor(R.color.CAM_X0302));
         } else {
-            this.oiQ.setTextColor(c.m(ao.getColor(R.color.CAM_X0302), 0.5f));
+            this.oek.setTextColor(c.m(ao.getColor(R.color.CAM_X0302), 0.5f));
         }
-        ebD();
-        ebE();
-        if (this.oiE != null) {
-            this.oiE.notifyDataSetChanged();
+        dXL();
+        dXM();
+        if (this.odY != null) {
+            this.odY.notifyDataSetChanged();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public List<WriteVoteItemData> ebB() {
+    public List<WriteVoteItemData> dXJ() {
         ArrayList arrayList = new ArrayList();
         if (this.mData == null) {
             return arrayList;
@@ -303,7 +303,7 @@ public class b implements View.OnClickListener, com.baidu.tbadk.suspended.a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean ebC() {
+    public boolean dXK() {
         int size = this.mData.size();
         for (int i = 0; i < size; i++) {
             if (StringUtils.isNull(this.mData.get(i).getText())) {
@@ -314,25 +314,25 @@ public class b implements View.OnClickListener, com.baidu.tbadk.suspended.a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void zx(boolean z) {
-        this.oiQ.setEnabled(z);
+    public void zt(boolean z) {
+        this.oek.setEnabled(z);
         if (z) {
-            this.oiQ.setTextColor(ao.getColor(R.color.CAM_X0302));
+            this.oek.setTextColor(ao.getColor(R.color.CAM_X0302));
         } else {
-            this.oiQ.setTextColor(c.m(ao.getColor(R.color.CAM_X0302), 0.5f));
+            this.oek.setTextColor(c.m(ao.getColor(R.color.CAM_X0302), 0.5f));
         }
     }
 
-    private void ebD() {
-        e(this.oiJ, this.oiR != 1);
-        e(this.oiK, this.oiR == 1);
+    private void dXL() {
+        e(this.oed, this.oel != 1);
+        e(this.oee, this.oel == 1);
     }
 
-    private void ebE() {
-        e(this.oiM, this.expireType == -1);
-        e(this.oiN, this.expireType == 1);
-        e(this.oiO, this.expireType == 7);
-        e(this.oiP, this.expireType == 30);
+    private void dXM() {
+        e(this.oeg, this.expireType == -1);
+        e(this.oeh, this.expireType == 1);
+        e(this.oei, this.expireType == 7);
+        e(this.oej, this.expireType == 30);
     }
 
     private void e(TextView textView, boolean z) {
@@ -350,40 +350,40 @@ public class b implements View.OnClickListener, com.baidu.tbadk.suspended.a {
     }
 
     @Override // com.baidu.tbadk.suspended.a
-    public boolean bIh() {
-        return this.oiF != null && this.oiD != null && this.oiF.getTop() == 0 && this.oiD.getFirstVisiblePosition() == 0;
+    public boolean bEp() {
+        return this.odZ != null && this.odX != null && this.odZ.getTop() == 0 && this.odX.getFirstVisiblePosition() == 0;
     }
 
     @Override // com.baidu.tbadk.suspended.a
-    public boolean bIi() {
+    public boolean bEq() {
         return true;
     }
 
     @Override // com.baidu.tbadk.suspended.a
-    public Intent bIj() {
-        return this.ghm;
+    public Intent bEr() {
+        return this.gcE;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         if (view.getId() == R.id.vote_type_single) {
-            this.oiR = 0;
-            ebD();
+            this.oel = 0;
+            dXL();
         } else if (view.getId() == R.id.vote_type_multiple) {
-            this.oiR = 1;
-            ebD();
+            this.oel = 1;
+            dXL();
         } else if (view.getId() == R.id.vote_time_forever) {
             this.expireType = -1;
-            ebE();
+            dXM();
         } else if (view.getId() == R.id.vote_time_1_day) {
             this.expireType = 1;
-            ebE();
+            dXM();
         } else if (view.getId() == R.id.vote_time_7_days) {
             this.expireType = 7;
-            ebE();
+            dXM();
         } else if (view.getId() == R.id.vote_time_30_days) {
             this.expireType = 30;
-            ebE();
+            dXM();
         }
     }
 }

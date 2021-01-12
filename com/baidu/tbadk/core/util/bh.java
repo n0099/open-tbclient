@@ -8,8 +8,8 @@ import android.widget.FrameLayout;
 import androidx.annotation.NonNull;
 /* loaded from: classes.dex */
 public class bh {
-    private View fdY;
-    private ViewTreeObserver fdZ;
+    private View eZp;
+    private ViewTreeObserver eZq;
     private final ViewTreeObserver.OnGlobalLayoutListener mOnGlobalLayoutListener = new ViewTreeObserver.OnGlobalLayoutListener() { // from class: com.baidu.tbadk.core.util.bh.1
         @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
         public void onGlobalLayout() {
@@ -20,63 +20,63 @@ public class bh {
 
     public static bh ad(@NonNull Activity activity) {
         bh bhVar = new bh(activity);
-        bhVar.avs();
+        bhVar.arx();
         UtilHelper.setTranslucentVirtualNavigation(activity);
         return bhVar;
     }
 
     private bh(@NonNull Activity activity) {
-        this.fdY = ((FrameLayout) activity.findViewById(16908290)).getChildAt(0);
+        this.eZp = ((FrameLayout) activity.findViewById(16908290)).getChildAt(0);
     }
 
-    private void bwx() {
-        if ((this.fdZ == null || !this.fdZ.isAlive()) && this.fdY != null) {
-            this.fdZ = this.fdY.getViewTreeObserver();
+    private void bsD() {
+        if ((this.eZq == null || !this.eZq.isAlive()) && this.eZp != null) {
+            this.eZq = this.eZp.getViewTreeObserver();
         }
     }
 
-    private void avs() {
-        bwx();
-        if (this.fdZ != null && this.fdZ.isAlive()) {
-            this.fdZ.addOnGlobalLayoutListener(this.mOnGlobalLayoutListener);
+    private void arx() {
+        bsD();
+        if (this.eZq != null && this.eZq.isAlive()) {
+            this.eZq.addOnGlobalLayoutListener(this.mOnGlobalLayoutListener);
         }
     }
 
-    private void bwy() {
-        bwx();
-        if (this.fdZ != null && this.fdZ.isAlive()) {
-            this.fdZ.removeOnGlobalLayoutListener(this.mOnGlobalLayoutListener);
+    private void bsE() {
+        bsD();
+        if (this.eZq != null && this.eZq.isAlive()) {
+            this.eZq.removeOnGlobalLayoutListener(this.mOnGlobalLayoutListener);
         }
     }
 
     public void onPause() {
-        bwy();
+        bsE();
     }
 
     public void onResume() {
-        avs();
+        arx();
     }
 
     public void onDestroy() {
-        bwy();
+        bsE();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void possiblyResizeChildOfContent() {
-        if (this.fdY != null) {
+        if (this.eZp != null) {
             Rect rect = new Rect();
-            this.fdY.getWindowVisibleDisplayFrame(rect);
+            this.eZp.getWindowVisibleDisplayFrame(rect);
             int i = rect.bottom - rect.top;
             if (i != this.usableHeightPrevious) {
-                int height = this.fdY.getRootView().getHeight();
+                int height = this.eZp.getRootView().getHeight();
                 int i2 = height - rect.bottom;
                 int i3 = (height - i) - i2;
                 if (i3 > height / 4) {
-                    this.fdY.getLayoutParams().height = height - i3;
+                    this.eZp.getLayoutParams().height = height - i3;
                 } else {
-                    this.fdY.getLayoutParams().height = height - i2;
+                    this.eZp.getLayoutParams().height = height - i2;
                 }
-                this.fdY.requestLayout();
+                this.eZp.requestLayout();
                 this.usableHeightPrevious = i;
             }
         }

@@ -1,27 +1,27 @@
 package com.qq.e.comm.plugin.j.b;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 class i implements c {
 
     /* renamed from: a  reason: collision with root package name */
-    private final long f12471a;
+    private final long f12171a;
 
     /* renamed from: b  reason: collision with root package name */
-    private volatile long f12472b;
+    private volatile long f12172b;
     private com.qq.e.comm.plugin.j.f c;
 
     public i(long j, long j2) {
-        this.f12471a = j;
-        this.f12472b = j2;
+        this.f12171a = j;
+        this.f12172b = j2;
     }
 
     @Override // com.qq.e.comm.plugin.j.b.d
     public long a() {
-        return this.f12472b;
+        return this.f12172b;
     }
 
     @Override // com.qq.e.comm.plugin.j.b.c
     public void a(long j) {
-        this.f12472b = j;
+        this.f12172b = j;
         if (this.c != null) {
             this.c.a(a(), b());
         }
@@ -33,6 +33,6 @@ class i implements c {
     }
 
     public long b() {
-        return this.f12471a;
+        return this.f12171a;
     }
 }

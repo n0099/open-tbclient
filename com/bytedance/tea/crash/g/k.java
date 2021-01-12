@@ -12,7 +12,7 @@ public final class k {
             JSONObject a2 = aVar.a();
             long optLong = a2.optLong("crash_time");
             int b2 = b(a("aid"));
-            String a3 = com.bytedance.tea.crash.h.esH().a();
+            String a3 = com.bytedance.tea.crash.h.eoN().a();
             if (optLong > 0 && b2 > 0 && !TextUtils.isEmpty(a3) && !"0".equals(a3) && !TextUtils.isEmpty(cVar.a())) {
                 try {
                     String str = "android_" + b2 + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + a3 + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + optLong + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + cVar;
@@ -33,7 +33,7 @@ public final class k {
 
     public static String a(String str) {
         Map<String, Object> a2;
-        if (com.bytedance.tea.crash.h.esF() != null && (a2 = com.bytedance.tea.crash.h.esF().a()) != null) {
+        if (com.bytedance.tea.crash.h.eoL() != null && (a2 = com.bytedance.tea.crash.h.eoL().a()) != null) {
             Object obj = a2.get(str);
             if (obj instanceof String) {
                 return (String) obj;

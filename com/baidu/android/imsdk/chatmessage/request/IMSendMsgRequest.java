@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 import org.apache.http.cookie.SM;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class IMSendMsgRequest extends BaseHttpRequest {
     private static final String TAG = "IMSendMsgRequest";
     private String key;

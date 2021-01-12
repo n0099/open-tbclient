@@ -1,7 +1,7 @@
 package com.kwai.video.ksvodplayerkit.b;
 
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public final class d {
     public static c a(String str) {
         JSONObject jSONObject;
@@ -14,8 +14,8 @@ public final class d {
             return null;
         }
         c cVar = new c();
-        cVar.f11343a = jSONObject.optString("version", cVar.f11343a);
-        cVar.f11344b = jSONObject.optString("type", cVar.f11344b);
+        cVar.f11043a = jSONObject.optString("version", cVar.f11043a);
+        cVar.f11044b = jSONObject.optString("type", cVar.f11044b);
         cVar.c = e.a(jSONObject.optJSONObject("adaptationSet"));
         return cVar;
     }
@@ -23,11 +23,11 @@ public final class d {
     public static String a(c cVar) {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("version", cVar.f11343a);
+            jSONObject.put("version", cVar.f11043a);
         } catch (Exception e) {
         }
         try {
-            jSONObject.put("type", cVar.f11344b);
+            jSONObject.put("type", cVar.f11044b);
         } catch (Exception e2) {
         }
         try {

@@ -3,27 +3,27 @@ package com.baidu.live.v;
 import android.content.Context;
 import android.media.AudioManager;
 import android.util.Log;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class g {
-    private AudioManager byK;
-    private a byL;
-    private boolean byM;
-    private boolean byN;
-    private AudioManager.OnAudioFocusChangeListener byO = new AudioManager.OnAudioFocusChangeListener() { // from class: com.baidu.live.v.g.1
+    private AudioManager btX;
+    private a btY;
+    private boolean btZ;
+    private boolean bua;
+    private AudioManager.OnAudioFocusChangeListener bub = new AudioManager.OnAudioFocusChangeListener() { // from class: com.baidu.live.v.g.1
         @Override // android.media.AudioManager.OnAudioFocusChangeListener
         public void onAudioFocusChange(int i) {
             switch (i) {
                 case -3:
                 case -2:
-                    if (g.this.byL != null) {
-                        g.this.byL.cG(false);
+                    if (g.this.btY != null) {
+                        g.this.btY.cC(false);
                         return;
                     }
                     return;
                 case -1:
                     g.this.setFocus(false);
-                    if (g.this.byL != null) {
-                        g.this.byL.cG(false);
+                    if (g.this.btY != null) {
+                        g.this.btY.cC(false);
                         return;
                     }
                     return;
@@ -35,8 +35,8 @@ public class g {
                 case 3:
                 case 4:
                     g.this.setFocus(true);
-                    if (g.this.byL != null) {
-                        g.this.byL.cG(true);
+                    if (g.this.btY != null) {
+                        g.this.btY.cC(true);
                         return;
                     }
                     return;
@@ -51,13 +51,13 @@ public class g {
 
     public void requestAudioFocus() {
         if (this.mContext != null) {
-            if (this.byK == null) {
-                this.byK = (AudioManager) this.mContext.getSystemService("audio");
+            if (this.btX == null) {
+                this.btX = (AudioManager) this.mContext.getSystemService("audio");
             }
-            if (this.byK != null) {
+            if (this.btX != null) {
                 try {
-                    setFocus(this.byK.requestAudioFocus(this.byO, 3, 1) == 1);
-                    cI(true);
+                    setFocus(this.btX.requestAudioFocus(this.bub, 3, 1) == 1);
+                    cE(true);
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -66,7 +66,7 @@ public class g {
     }
 
     public boolean hasFocus() {
-        return this.byM;
+        return this.btZ;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -74,29 +74,29 @@ public class g {
         if (com.baidu.live.liveroom.e.h.isDebug()) {
             Log.d("LiveAudioFocus", "setFocus=" + z);
         }
-        this.byM = z;
+        this.btZ = z;
     }
 
-    private void cI(boolean z) {
+    private void cE(boolean z) {
         if (com.baidu.live.liveroom.e.h.isDebug()) {
             Log.d("LiveAudioFocus", "setIsAudioRequest=" + z);
         }
-        this.byN = z;
+        this.bua = z;
     }
 
     public void abandonAudioFocus() {
         if (com.baidu.live.liveroom.e.h.isDebug()) {
-            Log.d("LiveAudioFocus", "abandonAudioFocus mContext=" + this.mContext + "mIsAudioRequest=" + this.byN + "focus=" + hasFocus());
+            Log.d("LiveAudioFocus", "abandonAudioFocus mContext=" + this.mContext + "mIsAudioRequest=" + this.bua + "focus=" + hasFocus());
         }
         if (this.mContext != null) {
-            if (this.byK == null) {
-                this.byK = (AudioManager) this.mContext.getSystemService("audio");
+            if (this.btX == null) {
+                this.btX = (AudioManager) this.mContext.getSystemService("audio");
             }
-            if (this.byK != null) {
-                cI(false);
+            if (this.btX != null) {
+                cE(false);
                 try {
                     setFocus(false);
-                    this.byK.abandonAudioFocus(this.byO);
+                    this.btX.abandonAudioFocus(this.bub);
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -105,6 +105,6 @@ public class g {
     }
 
     public void setIPlayerAudioFocusCallBack(a aVar) {
-        this.byL = aVar;
+        this.btY = aVar;
     }
 }

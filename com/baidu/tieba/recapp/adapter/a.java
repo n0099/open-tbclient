@@ -6,7 +6,7 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.data.AdvertAppInfo;
 import com.baidu.tieba.recapp.o;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class a extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data.d, CardAdvertAppEmptyHolder> implements o {
     private TbPageContext<?> mPageContext;
 
@@ -29,9 +29,9 @@ public class a extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.card.data.d dVar, CardAdvertAppEmptyHolder cardAdvertAppEmptyHolder) {
-        AdvertAppInfo cvy = dVar.cvy();
-        if (cvy != null) {
-            com.baidu.tbadk.core.data.c.c(cvy.advertAppContext, cvy.eNX, cvy.eOc.eOq == -1001);
+        AdvertAppInfo crG = dVar.crG();
+        if (crG != null) {
+            com.baidu.tbadk.core.data.c.c(crG.advertAppContext, crG.eJm, crG.eJr.eJF == -1001);
         }
         return cardAdvertAppEmptyHolder.getView();
     }

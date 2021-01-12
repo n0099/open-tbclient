@@ -8,15 +8,15 @@ import android.util.Log;
 import com.google.ar.core.ArCoreApk;
 import com.google.ar.core.exceptions.UnavailableDeviceNotCompatibleException;
 import com.google.ar.core.exceptions.UnavailableUserDeclinedInstallationException;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 class n implements ArCoreApk.a {
-    final /* synthetic */ o pMa;
+    final /* synthetic */ o pHz;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static ArCoreApk.Availability iq(Context context) {
+    public static ArCoreApk.Availability io(Context context) {
         ArCoreApk.Availability availability;
         try {
-            if (ir(context) != null) {
+            if (ip(context) != null) {
                 availability = ArCoreApk.Availability.SUPPORTED_APK_TOO_OLD;
             } else {
                 availability = ArCoreApk.Availability.SUPPORTED_INSTALLED;
@@ -31,9 +31,9 @@ class n implements ArCoreApk.a {
         }
     }
 
-    static PendingIntent ir(Context context) throws UnavailableDeviceNotCompatibleException, UnavailableUserDeclinedInstallationException {
+    static PendingIntent ip(Context context) throws UnavailableDeviceNotCompatibleException, UnavailableUserDeclinedInstallationException {
         try {
-            Bundle call = context.getContentResolver().call(ZM(""), "getSetupIntent", context.getPackageName(), (Bundle) null);
+            Bundle call = context.getContentResolver().call(YE(""), "getSetupIntent", context.getPackageName(), (Bundle) null);
             if (call == null) {
                 return null;
             }
@@ -68,20 +68,20 @@ class n implements ArCoreApk.a {
         }
     }
 
-    public static Uri ZM(String str) {
+    public static Uri YE(String str) {
         return new Uri.Builder().scheme("content").authority("com.google.ar.core.services.arcorecontentprovider").path(str).build();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public n(o oVar) {
-        this.pMa = oVar;
+        this.pHz = oVar;
     }
 
     @Override // com.google.ar.core.ArCoreApk.a
     public void a(ArCoreApk.Availability availability) {
-        synchronized (this.pMa) {
-            o.a(this.pMa, availability);
-            o.a(this.pMa, false);
+        synchronized (this.pHz) {
+            o.a(this.pHz, availability);
+            o.a(this.pHz, false);
         }
     }
 }

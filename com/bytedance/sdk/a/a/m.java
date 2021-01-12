@@ -7,20 +7,20 @@ import java.nio.ByteBuffer;
 /* loaded from: classes4.dex */
 public final class m implements d {
     boolean c;
-    public final c phR = new c();
-    public final r phZ;
+    public final c pdp = new c();
+    public final r pdx;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public m(r rVar) {
         if (rVar == null) {
             throw new NullPointerException("sink == null");
         }
-        this.phZ = rVar;
+        this.pdx = rVar;
     }
 
     @Override // com.bytedance.sdk.a.a.d, com.bytedance.sdk.a.a.e
-    public c epT() {
-        return this.phR;
+    public c elX() {
+        return this.pdp;
     }
 
     @Override // com.bytedance.sdk.a.a.r
@@ -28,35 +28,35 @@ public final class m implements d {
         if (this.c) {
             throw new IllegalStateException(LogConfig.TYPE_CLOSED);
         }
-        this.phR.a(cVar, j);
-        eqc();
+        this.pdp.a(cVar, j);
+        emg();
     }
 
     @Override // com.bytedance.sdk.a.a.d
-    public d YG(String str) throws IOException {
+    public d Xy(String str) throws IOException {
         if (this.c) {
             throw new IllegalStateException(LogConfig.TYPE_CLOSED);
         }
-        this.phR.YG(str);
-        return eqc();
+        this.pdp.Xy(str);
+        return emg();
     }
 
     @Override // com.bytedance.sdk.a.a.d
-    public d aj(byte[] bArr) throws IOException {
+    public d ai(byte[] bArr) throws IOException {
         if (this.c) {
             throw new IllegalStateException(LogConfig.TYPE_CLOSED);
         }
-        this.phR.aj(bArr);
-        return eqc();
+        this.pdp.ai(bArr);
+        return emg();
     }
 
     @Override // com.bytedance.sdk.a.a.d
-    public d x(byte[] bArr, int i, int i2) throws IOException {
+    public d w(byte[] bArr, int i, int i2) throws IOException {
         if (this.c) {
             throw new IllegalStateException(LogConfig.TYPE_CLOSED);
         }
-        this.phR.x(bArr, i, i2);
-        return eqc();
+        this.pdp.w(bArr, i, i2);
+        return emg();
     }
 
     @Override // java.nio.channels.WritableByteChannel
@@ -64,36 +64,36 @@ public final class m implements d {
         if (this.c) {
             throw new IllegalStateException(LogConfig.TYPE_CLOSED);
         }
-        int write = this.phR.write(byteBuffer);
-        eqc();
+        int write = this.pdp.write(byteBuffer);
+        emg();
         return write;
     }
 
     @Override // com.bytedance.sdk.a.a.d
-    public d PM(int i) throws IOException {
+    public d Of(int i) throws IOException {
         if (this.c) {
             throw new IllegalStateException(LogConfig.TYPE_CLOSED);
         }
-        this.phR.PM(i);
-        return eqc();
+        this.pdp.Of(i);
+        return emg();
     }
 
     @Override // com.bytedance.sdk.a.a.d
-    public d PL(int i) throws IOException {
+    public d Oe(int i) throws IOException {
         if (this.c) {
             throw new IllegalStateException(LogConfig.TYPE_CLOSED);
         }
-        this.phR.PL(i);
-        return eqc();
+        this.pdp.Oe(i);
+        return emg();
     }
 
     @Override // com.bytedance.sdk.a.a.d
-    public d PK(int i) throws IOException {
+    public d Od(int i) throws IOException {
         if (this.c) {
             throw new IllegalStateException(LogConfig.TYPE_CLOSED);
         }
-        this.phR.PK(i);
-        return eqc();
+        this.pdp.Od(i);
+        return emg();
     }
 
     @Override // com.bytedance.sdk.a.a.d
@@ -101,8 +101,8 @@ public final class m implements d {
         if (this.c) {
             throw new IllegalStateException(LogConfig.TYPE_CLOSED);
         }
-        this.phR.il(j);
-        return eqc();
+        this.pdp.il(j);
+        return emg();
     }
 
     @Override // com.bytedance.sdk.a.a.d
@@ -110,18 +110,18 @@ public final class m implements d {
         if (this.c) {
             throw new IllegalStateException(LogConfig.TYPE_CLOSED);
         }
-        this.phR.ik(j);
-        return eqc();
+        this.pdp.ik(j);
+        return emg();
     }
 
     @Override // com.bytedance.sdk.a.a.d
-    public d eqc() throws IOException {
+    public d emg() throws IOException {
         if (this.c) {
             throw new IllegalStateException(LogConfig.TYPE_CLOSED);
         }
-        long g = this.phR.g();
+        long g = this.pdp.g();
         if (g > 0) {
-            this.phZ.a(this.phR, g);
+            this.pdx.a(this.pdp, g);
         }
         return this;
     }
@@ -131,10 +131,10 @@ public final class m implements d {
         if (this.c) {
             throw new IllegalStateException(LogConfig.TYPE_CLOSED);
         }
-        if (this.phR.f6140b > 0) {
-            this.phZ.a(this.phR, this.phR.f6140b);
+        if (this.pdp.f5840b > 0) {
+            this.pdx.a(this.pdp, this.pdp.f5840b);
         }
-        this.phZ.flush();
+        this.pdx.flush();
     }
 
     @Override // java.nio.channels.Channel
@@ -147,14 +147,14 @@ public final class m implements d {
         if (!this.c) {
             Throwable th = null;
             try {
-                if (this.phR.f6140b > 0) {
-                    this.phZ.a(this.phR, this.phR.f6140b);
+                if (this.pdp.f5840b > 0) {
+                    this.pdx.a(this.pdp, this.pdp.f5840b);
                 }
             } catch (Throwable th2) {
                 th = th2;
             }
             try {
-                this.phZ.close();
+                this.pdx.close();
             } catch (Throwable th3) {
                 if (th == null) {
                     th = th3;
@@ -168,11 +168,11 @@ public final class m implements d {
     }
 
     @Override // com.bytedance.sdk.a.a.r
-    public t epS() {
-        return this.phZ.epS();
+    public t elW() {
+        return this.pdx.elW();
     }
 
     public String toString() {
-        return "buffer(" + this.phZ + ")";
+        return "buffer(" + this.pdx + ")";
     }
 }

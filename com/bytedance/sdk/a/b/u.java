@@ -9,14 +9,14 @@ import javax.net.ssl.SSLSession;
 public final class u {
 
     /* renamed from: a  reason: collision with root package name */
-    private final ad f6277a;
+    private final ad f5977a;
     private final List<Certificate> c;
     private final List<Certificate> d;
-    private final k plt;
+    private final k pgN;
 
     private u(ad adVar, k kVar, List<Certificate> list, List<Certificate> list2) {
-        this.f6277a = adVar;
-        this.plt = kVar;
+        this.f5977a = adVar;
+        this.pgN = kVar;
         this.c = list;
         this.d = list2;
     }
@@ -29,7 +29,7 @@ public final class u {
         if (cipherSuite == null) {
             throw new IllegalStateException("cipherSuite == null");
         }
-        k YJ = k.YJ(cipherSuite);
+        k XB = k.XB(cipherSuite);
         String protocol = sSLSession.getProtocol();
         if (protocol == null) {
             throw new IllegalStateException("tlsVersion == null");
@@ -51,11 +51,11 @@ public final class u {
         } else {
             emptyList2 = Collections.emptyList();
         }
-        return new u(a2, YJ, emptyList, emptyList2);
+        return new u(a2, XB, emptyList, emptyList2);
     }
 
-    public k erw() {
-        return this.plt;
+    public k enA() {
+        return this.pgN;
     }
 
     public List<Certificate> b() {
@@ -65,12 +65,12 @@ public final class u {
     public boolean equals(Object obj) {
         if (obj instanceof u) {
             u uVar = (u) obj;
-            return this.f6277a.equals(uVar.f6277a) && this.plt.equals(uVar.plt) && this.c.equals(uVar.c) && this.d.equals(uVar.d);
+            return this.f5977a.equals(uVar.f5977a) && this.pgN.equals(uVar.pgN) && this.c.equals(uVar.c) && this.d.equals(uVar.d);
         }
         return false;
     }
 
     public int hashCode() {
-        return ((((((this.f6277a.hashCode() + 527) * 31) + this.plt.hashCode()) * 31) + this.c.hashCode()) * 31) + this.d.hashCode();
+        return ((((((this.f5977a.hashCode() + 527) * 31) + this.pgN.hashCode()) * 31) + this.c.hashCode()) * 31) + this.d.hashCode();
     }
 }

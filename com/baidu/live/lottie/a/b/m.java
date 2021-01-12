@@ -2,25 +2,25 @@ package com.baidu.live.lottie.a.b;
 
 import android.graphics.PointF;
 import java.util.Collections;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class m extends a<PointF, PointF> {
-    private final PointF EB;
-    private final a<Float, Float> bum;
-    private final a<Float, Float> bun;
+    private final PointF Ez;
+    private final a<Float, Float> bpy;
+    private final a<Float, Float> bpz;
 
     public m(a<Float, Float> aVar, a<Float, Float> aVar2) {
         super(Collections.emptyList());
-        this.EB = new PointF();
-        this.bum = aVar;
-        this.bun = aVar2;
+        this.Ez = new PointF();
+        this.bpy = aVar;
+        this.bpz = aVar2;
         setProgress(getProgress());
     }
 
     @Override // com.baidu.live.lottie.a.b.a
     public void setProgress(float f) {
-        this.bum.setProgress(f);
-        this.bun.setProgress(f);
-        this.EB.set(this.bum.getValue().floatValue(), this.bun.getValue().floatValue());
+        this.bpy.setProgress(f);
+        this.bpz.setProgress(f);
+        this.Ez.set(this.bpy.getValue().floatValue(), this.bpz.getValue().floatValue());
         int i = 0;
         while (true) {
             int i2 = i;
@@ -45,6 +45,6 @@ public class m extends a<PointF, PointF> {
     @Override // com.baidu.live.lottie.a.b.a
     /* renamed from: e */
     public PointF a(com.baidu.live.lottie.e.a<PointF> aVar, float f) {
-        return this.EB;
+        return this.Ez;
     }
 }

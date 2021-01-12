@@ -1,22 +1,22 @@
 package com.win.opensdk;
 
 import android.content.Context;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class ao {
-    private static ao qeA;
-    public Context qdj;
+    private static ao pZZ;
+    public Context pYI;
 
     private ao() {
     }
 
-    public static ao eKD() {
-        if (qeA == null) {
+    public static ao eGN() {
+        if (pZZ == null) {
             synchronized (ao.class) {
-                if (qeA == null) {
-                    qeA = new ao();
+                if (pZZ == null) {
+                    pZZ = new ao();
                 }
             }
         }
-        return qeA;
+        return pZZ;
     }
 }

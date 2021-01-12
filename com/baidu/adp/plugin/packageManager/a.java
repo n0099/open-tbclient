@@ -8,10 +8,10 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public class a {
-    private static a Ue;
-    private c Uf;
-    private ArrayList<b> Ug = new ArrayList<>();
-    private C0021a Uh;
+    private static a Uc;
+    private c Ud;
+    private ArrayList<b> Ue = new ArrayList<>();
+    private C0021a Uf;
 
     /* loaded from: classes.dex */
     public interface c {
@@ -22,25 +22,25 @@ public class a {
     }
 
     public static a pq() {
-        if (Ue == null) {
+        if (Uc == null) {
             synchronized (a.class) {
-                if (Ue == null) {
-                    Ue = new a();
+                if (Uc == null) {
+                    Uc = new a();
                 }
             }
         }
-        return Ue;
+        return Uc;
     }
 
     public void a(ArrayList<b> arrayList, c cVar) {
         boolean z;
         if (arrayList != null && arrayList.size() != 0) {
-            this.Uf = cVar;
+            this.Ud = cVar;
             Iterator<b> it = arrayList.iterator();
             while (it.hasNext()) {
                 b next = it.next();
                 if (next != null && !TextUtils.isEmpty(next.apkPath) && !TextUtils.isEmpty(next.packageName)) {
-                    Iterator<b> it2 = this.Ug.iterator();
+                    Iterator<b> it2 = this.Ue.iterator();
                     while (true) {
                         if (!it2.hasNext()) {
                             z = false;
@@ -51,7 +51,7 @@ public class a {
                         }
                     }
                     if (!z) {
-                        this.Ug.add(next);
+                        this.Ue.add(next);
                     }
                 }
             }
@@ -61,9 +61,9 @@ public class a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void pr() {
-        if (this.Ug.size() != 0 && this.Uh == null) {
-            this.Uh = new C0021a(this.Ug.get(0));
-            this.Uh.execute(new String[0]);
+        if (this.Ue.size() != 0 && this.Uf == null) {
+            this.Uf = new C0021a(this.Ue.get(0));
+            this.Uf.execute(new String[0]);
         }
     }
 
@@ -71,18 +71,18 @@ public class a {
     /* renamed from: com.baidu.adp.plugin.packageManager.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
     public class C0021a extends BdAsyncTask<String, Integer, Boolean> {
-        private b Ui;
+        private b Ug;
 
         public C0021a(b bVar) {
-            this.Ui = bVar;
+            this.Ug = bVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public Boolean doInBackground(String... strArr) {
-            if (this.Ui != null) {
-                return Boolean.valueOf(ct(this.Ui.apkPath));
+            if (this.Ug != null) {
+                return Boolean.valueOf(ct(this.Ug.apkPath));
             }
             return false;
         }
@@ -92,22 +92,22 @@ public class a {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(Boolean bool) {
             super.onPostExecute((C0021a) bool);
-            a.this.Uh = null;
-            if (a.this.Ug.size() > 0) {
-                Iterator it = a.this.Ug.iterator();
+            a.this.Uf = null;
+            if (a.this.Ue.size() > 0) {
+                Iterator it = a.this.Ue.iterator();
                 while (true) {
                     if (!it.hasNext()) {
                         break;
                     }
                     b bVar = (b) it.next();
-                    if (a.this.a(this.Ui, bVar)) {
-                        a.this.Ug.remove(bVar);
+                    if (a.this.a(this.Ug, bVar)) {
+                        a.this.Ue.remove(bVar);
                         break;
                     }
                 }
             }
-            if (bool != null && bool.booleanValue() && a.this.Uf != null) {
-                a.this.Uf.F(this.Ui.packageName, this.Ui.apkPath);
+            if (bool != null && bool.booleanValue() && a.this.Ud != null) {
+                a.this.Ud.F(this.Ug.packageName, this.Ug.apkPath);
             }
             a.this.pr();
         }

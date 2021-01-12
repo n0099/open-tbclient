@@ -1,22 +1,22 @@
 package com.qq.e.comm.plugin.i;
 
 import com.qq.e.ads.dfa.GDTApk;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 class a implements GDTApk {
 
     /* renamed from: a  reason: collision with root package name */
-    private final String f12385a;
+    private final String f12085a;
 
     /* renamed from: b  reason: collision with root package name */
-    private final String f12386b;
+    private final String f12086b;
     private final String c;
     private final String d;
     private final String e;
     private final com.qq.e.comm.plugin.a.c f;
 
     public a(String str, String str2, String str3, String str4, String str5, com.qq.e.comm.plugin.a.c cVar) {
-        this.f12385a = str;
-        this.f12386b = str2;
+        this.f12085a = str;
+        this.f12086b = str2;
         this.c = str3;
         this.d = str4;
         this.e = str5;
@@ -44,15 +44,15 @@ class a implements GDTApk {
 
     @Override // com.qq.e.ads.dfa.GDTApk
     public String getPackageName() {
-        return this.f12385a;
+        return this.f12085a;
     }
 
     @Override // com.qq.e.ads.dfa.GDTApk
     public String getTitle() {
-        return this.f12386b;
+        return this.f12086b;
     }
 
     public String toString() {
-        return "Apk{packageName='" + this.f12385a + "', title='" + this.f12386b + "', desc='" + this.c + "', appName='" + this.d + "', logoUrl='" + this.e + "'}";
+        return "Apk{packageName='" + this.f12085a + "', title='" + this.f12086b + "', desc='" + this.c + "', appName='" + this.d + "', logoUrl='" + this.e + "'}";
     }
 }

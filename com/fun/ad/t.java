@@ -9,42 +9,42 @@ import com.fun.ad.sdk.FunAdSlot;
 import com.fun.ad.sdk.FunAdView;
 import com.fun.ad.sdk.FunRippedAd;
 import com.win.opensdk.PBError;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class t extends i {
-    public com.win.opensdk.b pJt;
+    public com.win.opensdk.b pES;
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public class a implements com.win.opensdk.c {
         public a() {
         }
 
         @Override // com.win.opensdk.c
-        public void ZJ(String str) {
+        public void YB(String str) {
             m.a("jyRewardVideoAd onRewardedShowFail: errorCode: 0, , errorMessage: " + str);
             t tVar = t.this;
-            c cVar = tVar.pJa;
+            c cVar = tVar.pEz;
             if (cVar != null) {
-                ((u) cVar).a(tVar.f8081a.f8060a, 0, str);
+                ((u) cVar).a(tVar.f7781a.f7760a, 0, str);
             }
         }
 
         @Override // com.win.opensdk.c
-        public void eBQ() {
+        public void exY() {
             m.a("jyRewardVideoAd onRewardedAdClosed");
             t tVar = t.this;
-            c cVar = tVar.pJa;
+            c cVar = tVar.pEz;
             if (cVar != null) {
-                ((u) cVar).b(tVar.f8081a.f8060a);
+                ((u) cVar).b(tVar.f7781a.f7760a);
             }
         }
 
         @Override // com.win.opensdk.c
-        public void eBR() {
+        public void exZ() {
             m.a("jyRewardVideoAd onRewardedAdOpened");
             t tVar = t.this;
-            c cVar = tVar.pJa;
+            c cVar = tVar.pEz;
             if (cVar != null) {
-                ((u) cVar).c(tVar.f8081a.f8060a);
+                ((u) cVar).c(tVar.f7781a.f7760a);
             }
         }
 
@@ -52,9 +52,9 @@ public class t extends i {
         public void onClicked() {
             m.a("jyRewardVideoAd onClicked");
             t tVar = t.this;
-            c cVar = tVar.pJa;
+            c cVar = tVar.pEz;
             if (cVar != null) {
-                ((u) cVar).a(tVar.f8081a.f8060a);
+                ((u) cVar).a(tVar.f7781a.f7760a);
             }
         }
 
@@ -62,9 +62,9 @@ public class t extends i {
         public void onFail(PBError pBError) {
             m.a("jyRewardVideoAd onFail errorCode: " + pBError.getCode() + ", errorMessage: " + pBError.getMsg());
             t tVar = t.this;
-            f fVar = tVar.pIZ;
+            f fVar = tVar.pEy;
             if (fVar != null) {
-                ((r) fVar).a(tVar.f8081a.f8060a, pBError.getCode(), pBError.getMsg());
+                ((r) fVar).a(tVar.f7781a.f7760a, pBError.getCode(), pBError.getMsg());
             }
         }
 
@@ -72,9 +72,9 @@ public class t extends i {
         public void onLoaded() {
             m.a("jyRewardVideoAd onLoaded");
             t tVar = t.this;
-            f fVar = tVar.pIZ;
+            f fVar = tVar.pEy;
             if (fVar != null) {
-                ((r) fVar).b(tVar.f8081a.f8060a);
+                ((r) fVar).b(tVar.f7781a.f7760a);
             }
         }
 
@@ -82,20 +82,20 @@ public class t extends i {
         public void r(boolean z, long j) {
             m.a("jyRewardVideoAd onUserEarnedReward");
             t tVar = t.this;
-            c cVar = tVar.pJa;
+            c cVar = tVar.pEz;
             if (cVar != null) {
-                String str = tVar.f8081a.f8060a;
+                String str = tVar.f7781a.f7760a;
                 u uVar = (u) cVar;
                 if (uVar == null) {
                     throw null;
                 }
                 m.a("FunAdLoader 巨赢互联广告 onRewardedVideo，广告ID：" + str);
-                FunAdInteractionListener funAdInteractionListener = uVar.pJv;
+                FunAdInteractionListener funAdInteractionListener = uVar.pEU;
                 if (funAdInteractionListener != null) {
-                    funAdInteractionListener.onRewardedVideo(uVar.pJx.pJf.f8058a);
+                    funAdInteractionListener.onRewardedVideo(uVar.pEW.pEE.f7758a);
                 }
-                d.b bVar = d.pIU;
-                ((d.a) bVar).e(uVar.f8137b, uVar.pJw.f8061b, str);
+                d.b bVar = d.pEt;
+                ((d.a) bVar).e(uVar.f7837b, uVar.pEV.f7761b, str);
             }
         }
     }
@@ -107,30 +107,30 @@ public class t extends i {
     @Override // com.fun.ad.i
     public void a() {
         super.a();
-        com.win.opensdk.b bVar = this.pJt;
+        com.win.opensdk.b bVar = this.pES;
         if (bVar != null) {
             bVar.destroy();
-            this.pJt = null;
+            this.pES = null;
         }
     }
 
     @Override // com.fun.ad.i
-    public FunRippedAd eBP() {
+    public FunRippedAd exX() {
         return null;
     }
 
     @Override // com.fun.ad.i
     public void a(Context context, FunAdSlot funAdSlot, f fVar) {
         super.a(context, funAdSlot, fVar);
-        if (!this.f8082b) {
-            this.f8082b = true;
-            com.win.opensdk.b bVar = new com.win.opensdk.b(context, this.f8081a.f8060a);
-            this.pJt = bVar;
+        if (!this.f7782b) {
+            this.f7782b = true;
+            com.win.opensdk.b bVar = new com.win.opensdk.b(context, this.f7781a.f7760a);
+            this.pES = bVar;
             bVar.a(new a());
-            this.pJt.load();
-            f fVar2 = this.pIZ;
+            this.pES.load();
+            f fVar2 = this.pEy;
             if (fVar2 != null) {
-                ((r) fVar2).a(this.f8081a.f8060a);
+                ((r) fVar2).a(this.f7781a.f7760a);
             }
         }
     }
@@ -138,14 +138,14 @@ public class t extends i {
     @Override // com.fun.ad.i
     public void a(Activity activity, FunAdView funAdView, c cVar) {
         super.a(activity, funAdView, cVar);
-        com.win.opensdk.b bVar = this.pJt;
+        com.win.opensdk.b bVar = this.pES;
         if (bVar != null && bVar.isReady()) {
-            this.pJt.show();
+            this.pES.show();
             return;
         }
-        c cVar2 = this.pJa;
+        c cVar2 = this.pEz;
         if (cVar2 != null) {
-            ((u) cVar2).a(this.f8081a.f8060a, 0, "Custom error message: mPBVideo is null or not ready");
+            ((u) cVar2).a(this.f7781a.f7760a, 0, "Custom error message: mPBVideo is null or not ready");
         }
     }
 }

@@ -9,31 +9,31 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.live.sdk.a;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class g extends b implements View.OnClickListener {
-    private TextView hiX;
-    private LinearLayout hiY;
+    private TextView heq;
+    private LinearLayout her;
 
     public g(Context context) {
         super(context);
     }
 
     @Override // com.baidu.tieba.ala.live.guess.a.b
-    public void Hi() {
-        this.hiX.setOnClickListener(this);
-        this.hiY.setOnClickListener(this);
+    public void Dn() {
+        this.heq.setOnClickListener(this);
+        this.her.setOnClickListener(this);
     }
 
     @Override // com.baidu.tieba.ala.live.guess.a.b
-    void caH() {
+    void bWP() {
         this.mRootView = LayoutInflater.from(this.mDialog.getContext()).inflate(a.g.ala_guess_not_choice, (ViewGroup) null);
     }
 
     @Override // com.baidu.tieba.ala.live.guess.a.b
     public void initView() {
         this.mDialog.setContentView(this.mRootView);
-        this.hiX = (TextView) this.mRootView.findViewById(a.f.tv_guess_ok);
-        this.hiY = (LinearLayout) this.mRootView.findViewById(a.f.frame_exit);
+        this.heq = (TextView) this.mRootView.findViewById(a.f.tv_guess_ok);
+        this.her = (LinearLayout) this.mRootView.findViewById(a.f.frame_exit);
         this.mDialog.setOnKeyListener(new DialogInterface.OnKeyListener() { // from class: com.baidu.tieba.ala.live.guess.a.g.1
             @Override // android.content.DialogInterface.OnKeyListener
             public boolean onKey(DialogInterface dialogInterface, int i, KeyEvent keyEvent) {
@@ -44,9 +44,9 @@ public class g extends b implements View.OnClickListener {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.hiX) {
+        if (view == this.heq) {
             dismiss();
-        } else if (view == this.hiY) {
+        } else if (view == this.her) {
             dismiss();
         }
     }

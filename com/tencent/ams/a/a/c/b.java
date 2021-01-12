@@ -13,17 +13,18 @@ import android.text.TextUtils;
 import android.util.DisplayMetrics;
 import android.view.WindowManager;
 import com.baidu.media.duplayer.LibsInfoDef;
+import com.baidu.mobstat.Config;
 import com.qq.e.comm.plugin.util.aa;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    private static String f13576a;
+    private static String f13276a;
 
     /* renamed from: b  reason: collision with root package name */
-    private static String f13577b;
+    private static String f13277b;
     private static String c;
     private static HashMap<String, String> d = new HashMap<>();
 
@@ -45,7 +46,7 @@ public class b {
         } else {
             DisplayMetrics displayMetrics = new DisplayMetrics();
             windowManager.getDefaultDisplay().getMetrics(displayMetrics);
-            c = displayMetrics.widthPixels + "x" + displayMetrics.heightPixels;
+            c = displayMetrics.widthPixels + Config.EVENT_HEAT_X + displayMetrics.heightPixels;
         }
         return c;
     }
@@ -98,15 +99,15 @@ public class b {
     }
 
     public static String c(Context context) {
-        if (f13576a != null) {
-            return f13576a;
+        if (f13276a != null) {
+            return f13276a;
         }
         PackageManager packageManager = context.getPackageManager();
         try {
-            f13576a = packageManager.getApplicationInfo(context.getPackageName(), 128).loadLabel(packageManager).toString();
+            f13276a = packageManager.getApplicationInfo(context.getPackageName(), 128).loadLabel(packageManager).toString();
         } catch (PackageManager.NameNotFoundException e) {
         }
-        return f13576a;
+        return f13276a;
     }
 
     private static String c(Context context, String str, int i) {
@@ -137,10 +138,10 @@ public class b {
     }
 
     public static String d(Context context) {
-        if (f13577b == null && context != null) {
-            f13577b = context.getPackageName();
+        if (f13277b == null && context != null) {
+            f13277b = context.getPackageName();
         }
-        return f13577b;
+        return f13277b;
     }
 
     private static String d(Context context, String str, int i) {

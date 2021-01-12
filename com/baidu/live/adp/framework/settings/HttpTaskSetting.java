@@ -1,7 +1,7 @@
 package com.baidu.live.adp.framework.settings;
 
 import com.baidu.live.adp.framework.MessageConfig;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class HttpTaskSetting extends TaskSetting {
     private static volatile HttpTaskSetting sInstance = null;
     private TimeOutData mConnectTimeOutData;

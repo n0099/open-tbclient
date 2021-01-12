@@ -28,7 +28,7 @@ import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 import java.util.concurrent.FutureTask;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class PrecomputedTextCompat implements Spannable {
     private static final char LINE_FEED = '\n';
     @NonNull
@@ -44,7 +44,7 @@ public class PrecomputedTextCompat implements Spannable {
     @GuardedBy("sLock")
     private static Executor sExecutor = null;
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public static final class Params {
         private final int mBreakStrategy;
         private final int mHyphenationFrequency;
@@ -54,7 +54,7 @@ public class PrecomputedTextCompat implements Spannable {
         private final TextDirectionHeuristic mTextDir;
         final PrecomputedText.Params mWrapped;
 
-        /* loaded from: classes15.dex */
+        /* loaded from: classes14.dex */
         public static class Builder {
             private int mBreakStrategy;
             private int mHyphenationFrequency;
@@ -312,10 +312,10 @@ public class PrecomputedTextCompat implements Spannable {
         throw new IndexOutOfBoundsException("pos must be less than " + this.mParagraphEnds[this.mParagraphEnds.length - 1] + ", gave " + i);
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     private static class PrecomputedTextFutureTask extends FutureTask<PrecomputedTextCompat> {
 
-        /* loaded from: classes15.dex */
+        /* loaded from: classes14.dex */
         private static class PrecomputedTextCallback implements Callable<PrecomputedTextCompat> {
             private Params mParams;
             private CharSequence mText;

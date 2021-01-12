@@ -12,17 +12,17 @@ import com.baidu.tbadk.core.util.UtilHelper;
 public class a {
     public static Domain PASS_LOGIN_ADDRESS = Domain.DOMAIN_ONLINE;
     private static boolean mIsUseOldLogin = true;
-    public static c fsq = null;
+    public static c fnF = null;
 
     public static void init() {
         CustomResponsedMessage runTask;
-        if (fsq == null && (runTask = MessageManager.getInstance().runTask(CmdConfigCustom.CMD_PASS_MANAGER, c.class)) != null && runTask.getData() != null) {
-            fsq = (c) runTask.getData();
+        if (fnF == null && (runTask = MessageManager.getInstance().runTask(CmdConfigCustom.CMD_PASS_MANAGER, c.class)) != null && runTask.getData() != null) {
+            fnF = (c) runTask.getData();
         }
     }
 
-    public static c bzq() {
-        return fsq;
+    public static c bvw() {
+        return fnF;
     }
 
     public static void checkPassV6Switch() {

@@ -2,13 +2,14 @@ package com.kwad.sdk.core.response.model;
 
 import androidx.annotation.Nullable;
 import com.baidu.ala.helper.AlaConstants;
+import com.baidu.live.tbadk.core.util.TiebaInitialize;
 import com.baidu.live.tbadk.ubc.UbcStatConstant;
 import com.kwad.sdk.core.scene.URLPackage;
 import com.kwad.sdk.live.mode.LiveInfo;
 import com.kwad.sdk.utils.o;
 import java.io.Serializable;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class PhotoInfo implements com.kwad.sdk.core.b, Serializable {
     private static final long serialVersionUID = -4483350806354759008L;
     public BaseInfo baseInfo = new BaseInfo();
@@ -20,7 +21,7 @@ public class PhotoInfo implements com.kwad.sdk.core.b, Serializable {
     public LiveInfo liveInfo = new LiveInfo();
     public TubeEpisode tubeEpisode = new TubeEpisode();
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class AuthorInfo implements com.kwad.sdk.core.b, Serializable {
         private static final long serialVersionUID = 3647144332352243129L;
         public String authorGender;
@@ -58,7 +59,7 @@ public class PhotoInfo implements com.kwad.sdk.core.b, Serializable {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class BaseInfo implements com.kwad.sdk.core.b, Serializable {
         private static final long serialVersionUID = 2257669583403371065L;
         public long commentCount;
@@ -108,7 +109,7 @@ public class PhotoInfo implements com.kwad.sdk.core.b, Serializable {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class CoverInfo implements com.kwad.sdk.core.b, Serializable {
         private static final long serialVersionUID = 9136122984250063738L;
         public String blurBackgroundUrl;
@@ -143,7 +144,7 @@ public class PhotoInfo implements com.kwad.sdk.core.b, Serializable {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class PhotoAd implements com.kwad.sdk.core.b, Serializable {
         private static final long serialVersionUID = 3907193550069150451L;
         public boolean requestPatchAd;
@@ -163,7 +164,7 @@ public class PhotoInfo implements com.kwad.sdk.core.b, Serializable {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class TubeEpisode implements com.kwad.sdk.core.b, Serializable {
         private static final long serialVersionUID = -2087412525733788061L;
         public String episodeName;
@@ -194,7 +195,7 @@ public class PhotoInfo implements com.kwad.sdk.core.b, Serializable {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class VideoInfo implements com.kwad.sdk.core.b, Serializable {
         private static final long serialVersionUID = 1395696168725754442L;
         public long duration;
@@ -215,7 +216,7 @@ public class PhotoInfo implements com.kwad.sdk.core.b, Serializable {
             this.videoUrl = jSONObject.optString("videoUrl");
             this.firstFrame = jSONObject.optString("firstFrame");
             this.duration = jSONObject.optLong("duration");
-            this.size = jSONObject.optInt("size");
+            this.size = jSONObject.optInt(TiebaInitialize.LogFields.SIZE);
             this.width = jSONObject.optInt("width");
             this.height = jSONObject.optInt("height");
             this.leftRatio = jSONObject.optDouble("leftRatio", 0.0d);
@@ -230,7 +231,7 @@ public class PhotoInfo implements com.kwad.sdk.core.b, Serializable {
             o.a(jSONObject, "videoUrl", this.videoUrl);
             o.a(jSONObject, "firstFrame", this.firstFrame);
             o.a(jSONObject, "duration", this.duration);
-            o.a(jSONObject, "size", this.size);
+            o.a(jSONObject, TiebaInitialize.LogFields.SIZE, this.size);
             o.a(jSONObject, "width", this.width);
             o.a(jSONObject, "height", this.height);
             o.a(jSONObject, "leftRatio", this.leftRatio);

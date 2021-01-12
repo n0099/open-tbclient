@@ -6,7 +6,7 @@ import java.io.Serializable;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class Info implements Serializable {
     private String btndesc;
     private int cache;

@@ -16,15 +16,15 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class SusPendedView extends LinearLayout {
-    private float bHV;
-    private float bHX;
-    private boolean fAF;
-    private LinearLayout fOd;
-    private TranView fOe;
-    private a fOf;
-    private ValueAnimator fOg;
-    private int fOh;
-    private int fOi;
+    private float bDj;
+    private float bDl;
+    private int fJA;
+    private int fJB;
+    private LinearLayout fJw;
+    private TranView fJx;
+    private a fJy;
+    private ValueAnimator fJz;
+    private boolean fvX;
     private LinearLayout mContentView;
     private boolean mIsFinish;
     private float mRatio;
@@ -40,19 +40,19 @@ public class SusPendedView extends LinearLayout {
     public SusPendedView(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         this.mRatio = 0.0f;
-        this.fOi = (l.getEquipmentHeight(context) / 3) - l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds153);
-        this.fOh = l.getEquipmentHeight(context);
-        this.fOg = ValueAnimator.ofInt(l.getEquipmentHeight(context), 0);
-        this.fOg.setDuration(300L);
-        this.fOg.setInterpolator(new LinearInterpolator());
-        this.fOg.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tbadk.suspended.SusPendedView.1
+        this.fJB = (l.getEquipmentHeight(context) / 3) - l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds153);
+        this.fJA = l.getEquipmentHeight(context);
+        this.fJz = ValueAnimator.ofInt(l.getEquipmentHeight(context), 0);
+        this.fJz.setDuration(300L);
+        this.fJz.setInterpolator(new LinearInterpolator());
+        this.fJz.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tbadk.suspended.SusPendedView.1
             @Override // android.animation.ValueAnimator.AnimatorUpdateListener
             public void onAnimationUpdate(ValueAnimator valueAnimator) {
-                SusPendedView.this.fOh = ((Integer) valueAnimator.getAnimatedValue()).intValue();
-                SusPendedView.this.mRatio = 1.0f - (SusPendedView.this.fOh / l.getEquipmentHeight(SusPendedView.this.getContext()));
-                if (SusPendedView.this.fOh == 0) {
+                SusPendedView.this.fJA = ((Integer) valueAnimator.getAnimatedValue()).intValue();
+                SusPendedView.this.mRatio = 1.0f - (SusPendedView.this.fJA / l.getEquipmentHeight(SusPendedView.this.getContext()));
+                if (SusPendedView.this.fJA == 0) {
                     SusPendedView.this.mRatio = 1.0f;
-                } else if (SusPendedView.this.fOh == l.getEquipmentHeight(SusPendedView.this.getContext())) {
+                } else if (SusPendedView.this.fJA == l.getEquipmentHeight(SusPendedView.this.getContext())) {
                     SusPendedView.this.mRatio = 0.0f;
                     if (SusPendedView.this.mIsFinish && (SusPendedView.this.getContext() instanceof Activity)) {
                         ((Activity) SusPendedView.this.getContext()).finish();
@@ -65,29 +65,29 @@ public class SusPendedView extends LinearLayout {
 
     public void show() {
         if (this.mRatio == 0.0f) {
-            this.fOg.start();
+            this.fJz.start();
         }
     }
 
     @Override // android.widget.LinearLayout, android.view.ViewGroup, android.view.View
     protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
-        if (this.fOg == null) {
+        if (this.fJz == null) {
             super.onLayout(z, i, i2, i3, i4);
-        } else if (this.fOh == 0) {
+        } else if (this.fJA == 0) {
             super.onLayout(z, i, i2, i3, i4);
-            if (this.bHV > this.bHX && this.fAF) {
-                this.fOd.layout(i, (int) (this.bHV - this.bHX), i3, ((int) (this.bHV - this.bHX)) + this.fOd.getHeight());
-                this.mContentView.layout(i, ((int) (this.bHV - this.bHX)) + this.fOd.getHeight(), i3, i4);
+            if (this.bDj > this.bDl && this.fvX) {
+                this.fJw.layout(i, (int) (this.bDj - this.bDl), i3, ((int) (this.bDj - this.bDl)) + this.fJw.getHeight());
+                this.mContentView.layout(i, ((int) (this.bDj - this.bDl)) + this.fJw.getHeight(), i3, i4);
             }
         } else {
-            this.fOd.layout(i, this.fOh, i3, this.fOh + this.fOd.getMeasuredHeight());
-            this.mContentView.layout(i, this.fOh + this.fOd.getMeasuredHeight(), i3, i4);
+            this.fJw.layout(i, this.fJA, i3, this.fJA + this.fJw.getMeasuredHeight());
+            this.mContentView.layout(i, this.fJA + this.fJw.getMeasuredHeight(), i3, i4);
         }
     }
 
     @Override // android.widget.LinearLayout, android.view.View
     protected void onDraw(Canvas canvas) {
-        if (this.mRatio >= 0.0f && this.fOe != null) {
+        if (this.mRatio >= 0.0f && this.fJx != null) {
             canvas.drawColor(Color.argb((int) (168.0f * this.mRatio), 0, 0, 0), PorterDuff.Mode.SRC);
         }
         super.onDraw(canvas);
@@ -96,95 +96,95 @@ public class SusPendedView extends LinearLayout {
     @Override // android.view.ViewGroup, android.view.View
     public boolean dispatchTouchEvent(MotionEvent motionEvent) {
         boolean z;
-        if (this.fOe == null) {
+        if (this.fJx == null) {
             return super.dispatchTouchEvent(motionEvent);
         }
-        if (this.fOg.isRunning()) {
-            this.fOg.end();
+        if (this.fJz.isRunning()) {
+            this.fJz.end();
             return true;
         }
         switch (motionEvent.getAction()) {
             case 0:
-                this.bHV = motionEvent.getRawY();
-                if (bIh()) {
-                    this.bHX = motionEvent.getRawY();
+                this.bDj = motionEvent.getRawY();
+                if (bEp()) {
+                    this.bDl = motionEvent.getRawY();
                     z = false;
                     break;
                 } else {
-                    this.bHX = 0.0f;
+                    this.bDl = 0.0f;
                     z = false;
                     break;
                 }
             case 1:
             case 3:
-                z = this.bHV > this.bHX && bIh();
-                this.mIsFinish = this.bHV - this.bHX > ((float) this.fOi) && bIh();
+                z = this.bDj > this.bDl && bEp();
+                this.mIsFinish = this.bDj - this.bDl > ((float) this.fJB) && bEp();
                 if (this.mIsFinish) {
-                    this.fOg.setIntValues((int) (this.bHV - this.bHX), l.getEquipmentHeight(getContext()));
-                    this.fOg.start();
+                    this.fJz.setIntValues((int) (this.bDj - this.bDl), l.getEquipmentHeight(getContext()));
+                    this.fJz.start();
                     break;
                 } else {
                     this.mRatio = 1.0f;
-                    this.bHX = 0.0f;
-                    this.bHV = this.bHX;
+                    this.bDl = 0.0f;
+                    this.bDj = this.bDl;
                     requestLayout();
                     break;
                 }
                 break;
             case 2:
-                this.bHV = motionEvent.getRawY();
-                if (this.bHX == 0.0f && bIh()) {
-                    this.bHX = motionEvent.getRawY();
+                this.bDj = motionEvent.getRawY();
+                if (this.bDl == 0.0f && bEp()) {
+                    this.bDl = motionEvent.getRawY();
                 }
-                this.mRatio = 1.0f - ((this.bHV - this.bHX) / l.getEquipmentHeight(getContext()));
+                this.mRatio = 1.0f - ((this.bDj - this.bDl) / l.getEquipmentHeight(getContext()));
                 z = false;
                 break;
             default:
                 z = false;
                 break;
         }
-        if (this.bHV > this.bHX && bIh()) {
-            this.fAF = true;
+        if (this.bDj > this.bDl && bEp()) {
+            this.fvX = true;
             requestLayout();
             return true;
         } else if (z) {
-            this.fAF = true;
+            this.fvX = true;
             return true;
         } else {
-            this.fAF = false;
+            this.fvX = false;
             return super.dispatchTouchEvent(motionEvent);
         }
     }
 
     public void onFinish() {
         this.mIsFinish = true;
-        this.fOg.setIntValues(0, l.getEquipmentHeight(getContext()));
-        this.fOg.start();
+        this.fJz.setIntValues(0, l.getEquipmentHeight(getContext()));
+        this.fJz.start();
     }
 
     public void onDestroy() {
-        this.fOg.cancel();
-        this.fOg.removeAllUpdateListeners();
+        this.fJz.cancel();
+        this.fJz.removeAllUpdateListeners();
         clearAnimation();
     }
 
     public void setNavigationBar(LinearLayout linearLayout) {
-        this.fOd = linearLayout;
+        this.fJw = linearLayout;
     }
 
     public void setContentViewTop(a aVar) {
-        this.fOf = aVar;
+        this.fJy = aVar;
     }
 
-    public boolean bIh() {
-        if (this.fOf == null) {
+    public boolean bEp() {
+        if (this.fJy == null) {
             return false;
         }
-        return this.fOf.bIh();
+        return this.fJy.bEp();
     }
 
     public void setTranView(TranView tranView) {
-        this.fOe = tranView;
+        this.fJx = tranView;
     }
 
     public void setContentView(LinearLayout linearLayout) {

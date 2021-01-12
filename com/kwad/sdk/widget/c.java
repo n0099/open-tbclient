@@ -4,7 +4,7 @@ import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.drawable.Drawable;
 import android.widget.TextView;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class c extends TextView {
     public c(Context context) {
         super(context);

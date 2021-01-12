@@ -4,11 +4,11 @@ import android.content.Context;
 import com.meizu.cloud.pushsdk.a.c;
 import com.meizu.cloud.pushsdk.base.f;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f11408a = a.class.getSimpleName();
+    private static final String f11108a = a.class.getSimpleName();
 
     public static com.meizu.cloud.pushsdk.c.a.c a(Context context) {
         com.meizu.cloud.pushsdk.c.a.c cVar = new com.meizu.cloud.pushsdk.c.a.c();
@@ -18,7 +18,7 @@ public class a {
         Map<String, Object> c2 = c.c();
         Map<String, Object> d = c.d();
         if (a2.size() > 0) {
-            cVar.a(b.f11417a, a2);
+            cVar.a(b.f11117a, a2);
         }
         if (b2.size() > 0) {
             cVar.a(b.f, b2);

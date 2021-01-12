@@ -10,12 +10,12 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class CircleView extends View {
-    private static int fXj = 20;
-    private static int fXk = 13;
+    private static int fSC = 20;
+    private static int fSD = 13;
     private static final int strokeWidth = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds3);
-    private float fXl;
-    private float fXm;
-    private float fXn;
+    private float fSE;
+    private float fSF;
+    private float fSG;
     private Paint paint;
 
     public CircleView(Context context) {
@@ -34,8 +34,8 @@ public class CircleView extends View {
     }
 
     private void init(Context context) {
-        fXj = l.getDimens(context, R.dimen.tbds94);
-        fXk = l.getDimens(context, R.dimen.tbds94);
+        fSC = l.getDimens(context, R.dimen.tbds94);
+        fSD = l.getDimens(context, R.dimen.tbds94);
         this.paint = new Paint();
         this.paint.setColor(context.getResources().getColor(R.color.CAM_X0314));
         this.paint.setAntiAlias(true);
@@ -51,26 +51,26 @@ public class CircleView extends View {
         int mode2 = View.MeasureSpec.getMode(i2);
         int size2 = View.MeasureSpec.getSize(i2);
         if (mode == Integer.MIN_VALUE && mode2 == Integer.MIN_VALUE) {
-            setMeasuredDimension(fXj, fXk);
+            setMeasuredDimension(fSC, fSD);
         } else if (mode == Integer.MIN_VALUE) {
-            setMeasuredDimension(fXj, size2);
+            setMeasuredDimension(fSC, size2);
         } else if (mode2 == Integer.MIN_VALUE) {
-            setMeasuredDimension(size, fXk);
+            setMeasuredDimension(size, fSD);
         }
     }
 
     @Override // android.view.View
     protected void onSizeChanged(int i, int i2, int i3, int i4) {
         super.onSizeChanged(i, i2, i3, i4);
-        this.fXl = i / 2.0f;
-        this.fXm = i2 / 2.0f;
-        this.fXn = (Math.min(i, i2) / 2.0f) - strokeWidth;
+        this.fSE = i / 2.0f;
+        this.fSF = i2 / 2.0f;
+        this.fSG = (Math.min(i, i2) / 2.0f) - strokeWidth;
     }
 
     @Override // android.view.View
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        canvas.drawCircle(this.fXl, this.fXm, this.fXn, this.paint);
+        canvas.drawCircle(this.fSE, this.fSF, this.fSG, this.paint);
     }
 
     public void onChangeSkinType() {

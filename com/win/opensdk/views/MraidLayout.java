@@ -6,10 +6,10 @@ import android.util.AttributeSet;
 import android.widget.FrameLayout;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class MraidLayout extends FrameLayout {
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public enum java {
         TOP_LEFT,
         TOP_RIGHT,

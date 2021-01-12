@@ -2,9 +2,9 @@ package com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.photoview.
 
 import android.content.Context;
 import android.os.Build;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public abstract class d {
-    public abstract void AF(boolean z);
+    public abstract void AB(boolean z);
 
     public abstract boolean computeScrollOffset();
 
@@ -16,7 +16,7 @@ public abstract class d {
 
     public abstract boolean isFinished();
 
-    public static d hD(Context context) {
+    public static d hB(Context context) {
         if (Build.VERSION.SDK_INT < 9) {
             return new c(context);
         }

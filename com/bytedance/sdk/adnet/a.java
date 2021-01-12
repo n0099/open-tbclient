@@ -18,14 +18,14 @@ import java.io.File;
 public class a {
 
     /* renamed from: b  reason: collision with root package name */
-    private static String f6287b;
+    private static String f5987b;
     private static boolean d = true;
-    public static q poD;
-    private static b poE;
-    private static com.bytedance.sdk.adnet.c.a poF;
+    public static q pjX;
+    private static b pjY;
+    private static com.bytedance.sdk.adnet.c.a pjZ;
 
-    public static o hW(Context context) {
-        return n.hW(context);
+    public static o hU(Context context) {
+        return n.hU(context);
     }
 
     public static o a(Context context, com.bytedance.sdk.adnet.e.a aVar) {
@@ -34,30 +34,30 @@ public class a {
 
     public static String b(Context context) {
         try {
-            if (TextUtils.isEmpty(f6287b)) {
+            if (TextUtils.isEmpty(f5987b)) {
                 File file = new File(context.getCacheDir(), "VAdNetSdk");
                 file.mkdirs();
-                f6287b = file.getAbsolutePath();
+                f5987b = file.getAbsolutePath();
             }
         } catch (Throwable th) {
             r.a(th, "init adnetsdk default directory error ", new Object[0]);
         }
-        return f6287b;
+        return f5987b;
     }
 
     public static void a(q qVar) {
-        poD = qVar;
+        pjX = qVar;
     }
 
     public static void a(b bVar) {
-        poE = bVar;
+        pjY = bVar;
     }
 
-    public static b ese() {
-        if (poE == null) {
+    public static b eok() {
+        if (pjY == null) {
             throw new IllegalArgumentException("sITTNetDepend is null");
         }
-        return poE;
+        return pjY;
     }
 
     public static void a(boolean z) {
@@ -73,24 +73,24 @@ public class a {
     }
 
     public static void a(com.bytedance.sdk.adnet.c.a aVar) {
-        poF = aVar;
+        pjZ = aVar;
     }
 
-    public static com.bytedance.sdk.adnet.c.a esf() {
-        return poF;
+    public static com.bytedance.sdk.adnet.c.a eol() {
+        return pjZ;
     }
 
     public static void a(Context context, Application application, boolean z) {
         if (context == null) {
             throw new IllegalArgumentException("tryInitAdTTNet context is null");
         }
-        f.esl().a(context, g.b(context));
+        f.eor().a(context, g.b(context));
         if (g.a(context) || (!g.b(context) && z)) {
-            com.bytedance.sdk.adnet.a.a.hX(context).c();
-            com.bytedance.sdk.adnet.a.a.hX(context).a();
+            com.bytedance.sdk.adnet.a.a.hV(context).c();
+            com.bytedance.sdk.adnet.a.a.hV(context).a();
         }
         if (g.b(context)) {
-            com.bytedance.sdk.adnet.a.a.hX(context);
+            com.bytedance.sdk.adnet.a.a.hV(context);
             if (application != null) {
                 application.registerActivityLifecycleCallbacks(new Application.ActivityLifecycleCallbacks() { // from class: com.bytedance.sdk.adnet.a.1
                     @Override // android.app.Application.ActivityLifecycleCallbacks
@@ -133,8 +133,8 @@ public class a {
             new Thread("load_config") { // from class: com.bytedance.sdk.adnet.a.2
                 @Override // java.lang.Thread, java.lang.Runnable
                 public void run() {
-                    com.bytedance.sdk.adnet.a.a.hX(applicationContext).c();
-                    com.bytedance.sdk.adnet.a.a.hX(applicationContext);
+                    com.bytedance.sdk.adnet.a.a.hV(applicationContext).c();
+                    com.bytedance.sdk.adnet.a.a.hV(applicationContext);
                     com.bytedance.sdk.adnet.a.a.b(applicationContext);
                 }
             }.start();

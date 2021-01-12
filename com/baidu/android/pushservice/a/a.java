@@ -1,16 +1,16 @@
 package com.baidu.android.pushservice.a;
-/* loaded from: classes3.dex */
+/* loaded from: classes14.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    protected String f1167a = "";
+    protected String f1173a = "";
 
     /* renamed from: b  reason: collision with root package name */
-    protected String f1168b;
+    protected String f1174b;
     protected int c;
 
     public String a() {
-        return this.f1167a;
+        return this.f1173a;
     }
 
     public void a(int i) {
@@ -18,15 +18,15 @@ public class a {
     }
 
     public void a(String str) {
-        this.f1167a = str;
+        this.f1173a = str;
     }
 
     public String b() {
-        return this.f1168b;
+        return this.f1174b;
     }
 
     public void b(String str) {
-        this.f1168b = str;
+        this.f1174b = str;
     }
 
     public int c() {

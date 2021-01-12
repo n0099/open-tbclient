@@ -5,7 +5,7 @@ import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.ubc.UbcStatConstant;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class e {
     public static JSONObject a(x xVar, com.baidu.live.alablmsdk.module.c cVar, int i) {
         JSONObject jSONObject = new JSONObject();
@@ -13,8 +13,8 @@ public class e {
             jSONObject.putOpt("line", Integer.valueOf(i));
             jSONObject.putOpt(UbcStatConstant.KEY_LIVE_TYPE, "show_pub_v2");
             if (xVar != null) {
-                if (xVar.aKu != null) {
-                    jSONObject.putOpt("anchor_id", Long.valueOf(xVar.aKu.userId));
+                if (xVar.aFH != null) {
+                    jSONObject.putOpt("anchor_id", Long.valueOf(xVar.aFH.userId));
                 }
                 if (xVar.mLiveInfo != null) {
                     jSONObject.putOpt("room_id", Long.valueOf(xVar.mLiveInfo.room_id));
@@ -34,8 +34,8 @@ public class e {
             jSONObject.putOpt("line", Integer.valueOf(i));
             jSONObject.putOpt(UbcStatConstant.KEY_LIVE_TYPE, "show_pub_v2");
             if (xVar != null) {
-                if (xVar.aKu != null) {
-                    jSONObject.putOpt("anchor_id", Long.valueOf(xVar.aKu.userId));
+                if (xVar.aFH != null) {
+                    jSONObject.putOpt("anchor_id", Long.valueOf(xVar.aFH.userId));
                 }
                 if (xVar.mLiveInfo != null) {
                     jSONObject.putOpt("room_id", Long.valueOf(xVar.mLiveInfo.room_id));
@@ -54,8 +54,8 @@ public class e {
         try {
             jSONObject.putOpt(UbcStatConstant.KEY_LIVE_TYPE, "show_pub_v2");
             if (xVar != null) {
-                if (xVar.aKu != null) {
-                    jSONObject.putOpt("anchor_id", Long.valueOf(xVar.aKu.userId));
+                if (xVar.aFH != null) {
+                    jSONObject.putOpt("anchor_id", Long.valueOf(xVar.aFH.userId));
                 }
                 if (xVar.mLiveInfo != null) {
                     jSONObject.putOpt("room_id", Long.valueOf(xVar.mLiveInfo.room_id));
@@ -77,8 +77,8 @@ public class e {
             jSONObject.putOpt(UbcStatConstant.KEY_LIVE_TYPE, "show_pub_v2");
             jSONObject.putOpt("user_id", str);
             if (xVar != null) {
-                if (xVar.aKu != null) {
-                    jSONObject.putOpt("anchor_id", Long.valueOf(xVar.aKu.userId));
+                if (xVar.aFH != null) {
+                    jSONObject.putOpt("anchor_id", Long.valueOf(xVar.aFH.userId));
                 }
                 if (xVar.mLiveInfo != null) {
                     jSONObject.putOpt("room_id", Long.valueOf(xVar.mLiveInfo.room_id));
@@ -116,8 +116,8 @@ public class e {
                 jSONObject.put("room_id", xVar.mLiveInfo.room_id);
                 jSONObject.put("anchor_id", xVar.mLiveInfo.user_id);
             }
-            if (xVar != null && xVar.aKQ != null) {
-                jSONObject.put("user_id", xVar.aKQ.userId);
+            if (xVar != null && xVar.aGd != null) {
+                jSONObject.put("user_id", xVar.aGd.userId);
             }
         } catch (JSONException e) {
         }
@@ -134,8 +134,8 @@ public class e {
                 jSONObject.put("room_id", xVar.mLiveInfo.room_id);
                 jSONObject.put("anchor_id", xVar.mLiveInfo.user_id);
             }
-            if (xVar != null && xVar.aKQ != null) {
-                jSONObject.put("user_id", xVar.aKQ.userId);
+            if (xVar != null && xVar.aGd != null) {
+                jSONObject.put("user_id", xVar.aGd.userId);
             }
         } catch (JSONException e) {
         }

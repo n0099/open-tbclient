@@ -3,12 +3,12 @@ package com.kwai.player.vr;
 import javax.microedition.khronos.egl.EGL10;
 import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.egl.EGLDisplay;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public abstract class BaseConfigChooser implements EGLConfigChooser {
     protected int[] mConfigSpec;
     private int mEGLContextClientVersion;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class ComponentSizeChooser extends BaseConfigChooser {
         protected int mAlphaSize;
         protected int mBlueSize;
@@ -52,7 +52,7 @@ public abstract class BaseConfigChooser implements EGLConfigChooser {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class SimpleEGLConfigChooser extends ComponentSizeChooser {
         public SimpleEGLConfigChooser(boolean z, int i) {
             super(8, 8, 8, 0, z ? 16 : 0, 0, i);

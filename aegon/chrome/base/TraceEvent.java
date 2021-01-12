@@ -6,13 +6,13 @@ import android.os.MessageQueue;
 import android.os.SystemClock;
 import android.util.Printer;
 import com.baidu.android.imsdk.internal.Constants;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class TraceEvent implements AutoCloseable {
     public static volatile boolean sEnabled;
     public final String mName;
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class BasicLooperMonitor implements Printer {
         public static final /* synthetic */ boolean $assertionsDisabled = !TraceEvent.class.desiredAssertionStatus();
         public static final int SHORTEST_LOG_PREFIX_LENGTH = 18;
@@ -66,7 +66,7 @@ public class TraceEvent implements AutoCloseable {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     private static final class IdleTracingLooperMonitor extends BasicLooperMonitor implements MessageQueue.IdleHandler {
         public boolean mIdleMonitorAttached;
         public long mLastIdleStartedAt;
@@ -166,7 +166,7 @@ public class TraceEvent implements AutoCloseable {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     private static final class LooperMonitorHolder {
         public static final BasicLooperMonitor sInstance;
 

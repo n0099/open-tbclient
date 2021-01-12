@@ -11,9 +11,9 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes.dex */
 public final class b {
-    private static b Id;
+    private static b Ib;
     private static ArrayList<SoftReference<Activity>> sActivityStack;
-    private a Ie;
+    private a Ic;
     private int mActivityStackMaxSize = 0;
 
     /* loaded from: classes.dex */
@@ -22,7 +22,7 @@ public final class b {
     }
 
     public void a(a aVar) {
-        this.Ie = aVar;
+        this.Ic = aVar;
     }
 
     private b() {
@@ -32,10 +32,10 @@ public final class b {
     }
 
     public static b kC() {
-        if (Id == null) {
-            Id = new b();
+        if (Ib == null) {
+            Ib = new b();
         }
-        return Id;
+        return Ib;
     }
 
     public int getSize() {
@@ -116,8 +116,8 @@ public final class b {
         if (activity != null) {
             int size = sActivityStack.size();
             if (size == 0) {
-                if (this.Ie != null) {
-                    this.Ie.onActivityClosed();
+                if (this.Ic != null) {
+                    this.Ic.onActivityClosed();
                     return;
                 }
                 return;
@@ -128,13 +128,13 @@ public final class b {
                     sActivityStack.remove(i);
                 } else if (activity.equals(softReference.get())) {
                     sActivityStack.remove(i);
-                    if (sActivityStack.size() == 0 && this.Ie != null) {
-                        this.Ie.onActivityClosed();
+                    if (sActivityStack.size() == 0 && this.Ic != null) {
+                        this.Ic.onActivityClosed();
                         return;
                     }
                     return;
-                } else if (sActivityStack.size() == 0 && this.Ie != null) {
-                    this.Ie.onActivityClosed();
+                } else if (sActivityStack.size() == 0 && this.Ic != null) {
+                    this.Ic.onActivityClosed();
                 }
             }
         }
@@ -183,8 +183,8 @@ public final class b {
                 }
             }
         }
-        if (this.Ie != null) {
-            this.Ie.onActivityClosed();
+        if (this.Ic != null) {
+            this.Ic.onActivityClosed();
         }
     }
 

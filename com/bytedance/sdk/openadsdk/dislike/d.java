@@ -23,10 +23,10 @@ import java.util.List;
 public class d extends TTDislikeDialogAbstract {
 
     /* renamed from: a  reason: collision with root package name */
-    private TextView f7344a;
+    private TextView f7044a;
 
     /* renamed from: b  reason: collision with root package name */
-    private TTDislikeListView f7345b;
+    private TTDislikeListView f7045b;
     private b c;
     private l d;
     private a e;
@@ -126,12 +126,12 @@ public class d extends TTDislikeDialogAbstract {
             }
         });
         this.c = new b(getLayoutInflater(), this.d.Y());
-        this.f7345b.setAdapter((ListAdapter) this.c);
+        this.f7045b.setAdapter((ListAdapter) this.c);
     }
 
     private void a(Context context) {
-        this.f7344a = (TextView) findViewById(ac.e(getContext(), "tt_edit_suggestion"));
-        this.f7344a.setOnClickListener(new View.OnClickListener() { // from class: com.bytedance.sdk.openadsdk.dislike.d.3
+        this.f7044a = (TextView) findViewById(ac.e(getContext(), "tt_edit_suggestion"));
+        this.f7044a.setOnClickListener(new View.OnClickListener() { // from class: com.bytedance.sdk.openadsdk.dislike.d.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (d.this.e != null) {
@@ -140,8 +140,8 @@ public class d extends TTDislikeDialogAbstract {
                 }
             }
         });
-        this.f7345b = (TTDislikeListView) findViewById(ac.e(getContext(), "tt_filer_words_lv"));
-        this.f7345b.setOnItemClickListener(new AdapterView.OnItemClickListener() { // from class: com.bytedance.sdk.openadsdk.dislike.d.4
+        this.f7045b = (TTDislikeListView) findViewById(ac.e(getContext(), "tt_filer_words_lv"));
+        this.f7045b.setOnItemClickListener(new AdapterView.OnItemClickListener() { // from class: com.bytedance.sdk.openadsdk.dislike.d.4
             @Override // android.widget.AdapterView.OnItemClickListener
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
                 if (d.this.e != null) {
@@ -156,8 +156,8 @@ public class d extends TTDislikeDialogAbstract {
     }
 
     private void c() {
-        if (this.f7345b != null) {
-            this.f7345b.setVisibility(0);
+        if (this.f7045b != null) {
+            this.f7045b.setVisibility(0);
         }
     }
 
@@ -165,7 +165,7 @@ public class d extends TTDislikeDialogAbstract {
     public class b extends BaseAdapter {
 
         /* renamed from: b  reason: collision with root package name */
-        private boolean f7351b = true;
+        private boolean f7051b = true;
         private final List<FilterWord> c;
         private final LayoutInflater d;
 
@@ -198,36 +198,36 @@ public class d extends TTDislikeDialogAbstract {
             if (view == null) {
                 a aVar2 = new a();
                 view = this.d.inflate(ac.f(this.d.getContext(), "tt_dialog_listview_item"), viewGroup, false);
-                aVar2.f7352a = (TextView) view.findViewById(ac.e(this.d.getContext(), "tt_item_tv"));
-                aVar2.f7353b = (FlowLayout) view.findViewById(ac.e(this.d.getContext(), "tt_item_tv_son"));
+                aVar2.f7052a = (TextView) view.findViewById(ac.e(this.d.getContext(), "tt_item_tv"));
+                aVar2.f7053b = (FlowLayout) view.findViewById(ac.e(this.d.getContext(), "tt_item_tv_son"));
                 view.setTag(aVar2);
                 aVar = aVar2;
             } else {
                 aVar = (a) view.getTag();
             }
             FilterWord filterWord = this.c.get(i);
-            aVar.f7352a.setText(filterWord.getName());
+            aVar.f7052a.setText(filterWord.getName());
             if (!filterWord.hasSecondOptions()) {
                 if (i != this.c.size() - 1) {
-                    aVar.f7352a.setBackgroundResource(ac.d(this.d.getContext(), "tt_dislike_middle_seletor"));
+                    aVar.f7052a.setBackgroundResource(ac.d(this.d.getContext(), "tt_dislike_middle_seletor"));
                 } else {
-                    aVar.f7352a.setBackgroundResource(ac.d(this.d.getContext(), "tt_dislike_bottom_seletor"));
+                    aVar.f7052a.setBackgroundResource(ac.d(this.d.getContext(), "tt_dislike_bottom_seletor"));
                 }
             }
-            if (this.f7351b && i == 0) {
-                aVar.f7352a.setBackgroundResource(ac.d(this.d.getContext(), "tt_dislike_top_seletor"));
+            if (this.f7051b && i == 0) {
+                aVar.f7052a.setBackgroundResource(ac.d(this.d.getContext(), "tt_dislike_top_seletor"));
             }
             if (filterWord.hasSecondOptions()) {
-                aVar.f7353b.removeAllViews();
+                aVar.f7053b.removeAllViews();
                 for (int i2 = 0; i2 < filterWord.getOptions().size(); i2++) {
-                    TextView textView = (TextView) this.d.inflate(ac.f(this.d.getContext(), "tt_dislike_flowlayout_tv"), (ViewGroup) aVar.f7353b, false);
+                    TextView textView = (TextView) this.d.inflate(ac.f(this.d.getContext(), "tt_dislike_flowlayout_tv"), (ViewGroup) aVar.f7053b, false);
                     textView.setText(filterWord.getOptions().get(i2).getName());
                     textView.setOnClickListener(new c(filterWord.getOptions().get(i2), i2));
-                    aVar.f7353b.addView(textView);
+                    aVar.f7053b.addView(textView);
                 }
-                aVar.f7353b.setVisibility(0);
+                aVar.f7053b.setVisibility(0);
             } else {
-                aVar.f7353b.setVisibility(8);
+                aVar.f7053b.setVisibility(8);
             }
             return view;
         }
@@ -244,10 +244,10 @@ public class d extends TTDislikeDialogAbstract {
         private class a {
 
             /* renamed from: a  reason: collision with root package name */
-            TextView f7352a;
+            TextView f7052a;
 
             /* renamed from: b  reason: collision with root package name */
-            FlowLayout f7353b;
+            FlowLayout f7053b;
 
             private a() {
             }
@@ -258,19 +258,19 @@ public class d extends TTDislikeDialogAbstract {
     private class c implements View.OnClickListener {
 
         /* renamed from: b  reason: collision with root package name */
-        private FilterWord f7355b;
+        private FilterWord f7055b;
         private int c;
 
         public c(FilterWord filterWord, int i) {
-            this.f7355b = filterWord;
+            this.f7055b = filterWord;
             this.c = i;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            d.this.e.a(this.c, this.f7355b);
+            d.this.e.a(this.c, this.f7055b);
             ArrayList arrayList = new ArrayList();
-            arrayList.add(this.f7355b);
+            arrayList.add(this.f7055b);
             com.bytedance.sdk.openadsdk.c.d.a(d.this.d, arrayList);
             d.this.dismiss();
         }

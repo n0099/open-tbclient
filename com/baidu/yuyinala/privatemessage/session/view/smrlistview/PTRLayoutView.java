@@ -16,42 +16,42 @@ import android.widget.TextView;
 import com.baidu.live.sdk.a;
 import java.util.Timer;
 import java.util.TimerTask;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class PTRLayoutView extends RelativeLayout {
-    private float brm;
-    private float brn;
-    private View fVe;
-    private float gda;
+    private float bmA;
+    private float bmB;
+    private View fQx;
+    private float fYr;
     private Context mContext;
-    public float nto;
-    private b peH;
-    public float peI;
-    private float peJ;
-    private float peK;
-    private float peL;
-    private a peM;
-    private boolean peN;
-    private boolean peO;
-    private float peP;
-    private RotateAnimation peQ;
-    private RotateAnimation peR;
-    private View peS;
-    private View peT;
-    private View peU;
-    private TextView peV;
-    private View peW;
-    private View peX;
-    private View peY;
-    private View peZ;
-    private TextView pfa;
-    private View pfb;
-    private int pfc;
-    private boolean pfd;
-    private boolean pfe;
-    Handler pff;
+    public float noJ;
+    private boolean paA;
+    private boolean paB;
+    Handler paC;
+    private b pac;
+    public float pae;
+    private float paf;
+    private float pag;
+    private float pah;
+    private a pai;
+    private boolean paj;
+    private boolean pak;
+    private float pal;
+    private RotateAnimation pam;
+    private RotateAnimation pan;
+    private View pao;
+    private View pap;
+    private View paq;
+    private TextView par;
+    private View pas;
+    private View pat;
+    private View pau;
+    private View pav;
+    private TextView paw;
+    private View pax;
+    private int paz;
     private int state;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public interface b {
         void a(PTRLayoutView pTRLayoutView);
 
@@ -59,418 +59,418 @@ public class PTRLayoutView extends RelativeLayout {
     }
 
     public void setOnRefreshListener(b bVar) {
-        this.peH = bVar;
+        this.pac = bVar;
     }
 
     public PTRLayoutView(Context context) {
         super(context);
         this.state = 0;
-        this.peI = 0.0f;
-        this.peJ = 0.0f;
-        this.peK = 200.0f;
-        this.peL = 200.0f;
-        this.nto = 8.0f;
-        this.peN = false;
-        this.peO = false;
-        this.peP = 2.0f;
-        this.pfd = true;
-        this.pfe = true;
-        this.pff = new Handler() { // from class: com.baidu.yuyinala.privatemessage.session.view.smrlistview.PTRLayoutView.1
+        this.pae = 0.0f;
+        this.paf = 0.0f;
+        this.pag = 200.0f;
+        this.pah = 200.0f;
+        this.noJ = 8.0f;
+        this.paj = false;
+        this.pak = false;
+        this.pal = 2.0f;
+        this.paA = true;
+        this.paB = true;
+        this.paC = new Handler() { // from class: com.baidu.yuyinala.privatemessage.session.view.smrlistview.PTRLayoutView.1
             @Override // android.os.Handler
             public void handleMessage(Message message) {
-                PTRLayoutView.this.nto = (float) (8.0d + (5.0d * Math.tan((1.5707963267948966d / PTRLayoutView.this.getMeasuredHeight()) * (PTRLayoutView.this.peI + Math.abs(PTRLayoutView.this.peJ)))));
-                if (!PTRLayoutView.this.peO) {
-                    if (PTRLayoutView.this.state != 2 || PTRLayoutView.this.peI > PTRLayoutView.this.peK) {
-                        if (PTRLayoutView.this.state == 4 && (-PTRLayoutView.this.peJ) <= PTRLayoutView.this.peL) {
-                            PTRLayoutView.this.peJ = -PTRLayoutView.this.peL;
-                            PTRLayoutView.this.peM.cancel();
+                PTRLayoutView.this.noJ = (float) (8.0d + (5.0d * Math.tan((1.5707963267948966d / PTRLayoutView.this.getMeasuredHeight()) * (PTRLayoutView.this.pae + Math.abs(PTRLayoutView.this.paf)))));
+                if (!PTRLayoutView.this.pak) {
+                    if (PTRLayoutView.this.state != 2 || PTRLayoutView.this.pae > PTRLayoutView.this.pag) {
+                        if (PTRLayoutView.this.state == 4 && (-PTRLayoutView.this.paf) <= PTRLayoutView.this.pah) {
+                            PTRLayoutView.this.paf = -PTRLayoutView.this.pah;
+                            PTRLayoutView.this.pai.cancel();
                         }
                     } else {
-                        PTRLayoutView.this.peI = PTRLayoutView.this.peK;
-                        Log.i("heyn", "pullDownY: " + PTRLayoutView.this.peI);
-                        PTRLayoutView.this.peM.cancel();
+                        PTRLayoutView.this.pae = PTRLayoutView.this.pag;
+                        Log.i("heyn", "pullDownY: " + PTRLayoutView.this.pae);
+                        PTRLayoutView.this.pai.cancel();
                     }
                 }
-                if (PTRLayoutView.this.peI <= 0.0f) {
-                    if (PTRLayoutView.this.peJ < 0.0f) {
-                        PTRLayoutView.this.peJ += PTRLayoutView.this.nto;
+                if (PTRLayoutView.this.pae <= 0.0f) {
+                    if (PTRLayoutView.this.paf < 0.0f) {
+                        PTRLayoutView.this.paf += PTRLayoutView.this.noJ;
                     }
                 } else {
-                    PTRLayoutView.this.peI -= PTRLayoutView.this.nto;
+                    PTRLayoutView.this.pae -= PTRLayoutView.this.noJ;
                 }
-                if (PTRLayoutView.this.peI < 0.0f) {
-                    PTRLayoutView.this.peI = 0.0f;
-                    PTRLayoutView.this.peS.clearAnimation();
+                if (PTRLayoutView.this.pae < 0.0f) {
+                    PTRLayoutView.this.pae = 0.0f;
+                    PTRLayoutView.this.pao.clearAnimation();
                     if (PTRLayoutView.this.state != 2 && PTRLayoutView.this.state != 4) {
-                        PTRLayoutView.this.ki(0);
+                        PTRLayoutView.this.iC(0);
                     }
-                    PTRLayoutView.this.peM.cancel();
+                    PTRLayoutView.this.pai.cancel();
                     PTRLayoutView.this.requestLayout();
                 }
-                if (PTRLayoutView.this.peJ > 0.0f) {
-                    PTRLayoutView.this.peJ = 0.0f;
-                    PTRLayoutView.this.peX.clearAnimation();
+                if (PTRLayoutView.this.paf > 0.0f) {
+                    PTRLayoutView.this.paf = 0.0f;
+                    PTRLayoutView.this.pat.clearAnimation();
                     if (PTRLayoutView.this.state != 2 && PTRLayoutView.this.state != 4) {
-                        PTRLayoutView.this.ki(0);
+                        PTRLayoutView.this.iC(0);
                     }
-                    PTRLayoutView.this.peM.cancel();
+                    PTRLayoutView.this.pai.cancel();
                     PTRLayoutView.this.requestLayout();
                 }
                 Log.d("handle", "handle");
                 PTRLayoutView.this.requestLayout();
-                if (PTRLayoutView.this.peI + Math.abs(PTRLayoutView.this.peJ) == 0.0f) {
-                    PTRLayoutView.this.peM.cancel();
+                if (PTRLayoutView.this.pae + Math.abs(PTRLayoutView.this.paf) == 0.0f) {
+                    PTRLayoutView.this.pai.cancel();
                 }
             }
         };
-        eO(context);
+        initView(context);
     }
 
     public PTRLayoutView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.state = 0;
-        this.peI = 0.0f;
-        this.peJ = 0.0f;
-        this.peK = 200.0f;
-        this.peL = 200.0f;
-        this.nto = 8.0f;
-        this.peN = false;
-        this.peO = false;
-        this.peP = 2.0f;
-        this.pfd = true;
-        this.pfe = true;
-        this.pff = new Handler() { // from class: com.baidu.yuyinala.privatemessage.session.view.smrlistview.PTRLayoutView.1
+        this.pae = 0.0f;
+        this.paf = 0.0f;
+        this.pag = 200.0f;
+        this.pah = 200.0f;
+        this.noJ = 8.0f;
+        this.paj = false;
+        this.pak = false;
+        this.pal = 2.0f;
+        this.paA = true;
+        this.paB = true;
+        this.paC = new Handler() { // from class: com.baidu.yuyinala.privatemessage.session.view.smrlistview.PTRLayoutView.1
             @Override // android.os.Handler
             public void handleMessage(Message message) {
-                PTRLayoutView.this.nto = (float) (8.0d + (5.0d * Math.tan((1.5707963267948966d / PTRLayoutView.this.getMeasuredHeight()) * (PTRLayoutView.this.peI + Math.abs(PTRLayoutView.this.peJ)))));
-                if (!PTRLayoutView.this.peO) {
-                    if (PTRLayoutView.this.state != 2 || PTRLayoutView.this.peI > PTRLayoutView.this.peK) {
-                        if (PTRLayoutView.this.state == 4 && (-PTRLayoutView.this.peJ) <= PTRLayoutView.this.peL) {
-                            PTRLayoutView.this.peJ = -PTRLayoutView.this.peL;
-                            PTRLayoutView.this.peM.cancel();
+                PTRLayoutView.this.noJ = (float) (8.0d + (5.0d * Math.tan((1.5707963267948966d / PTRLayoutView.this.getMeasuredHeight()) * (PTRLayoutView.this.pae + Math.abs(PTRLayoutView.this.paf)))));
+                if (!PTRLayoutView.this.pak) {
+                    if (PTRLayoutView.this.state != 2 || PTRLayoutView.this.pae > PTRLayoutView.this.pag) {
+                        if (PTRLayoutView.this.state == 4 && (-PTRLayoutView.this.paf) <= PTRLayoutView.this.pah) {
+                            PTRLayoutView.this.paf = -PTRLayoutView.this.pah;
+                            PTRLayoutView.this.pai.cancel();
                         }
                     } else {
-                        PTRLayoutView.this.peI = PTRLayoutView.this.peK;
-                        Log.i("heyn", "pullDownY: " + PTRLayoutView.this.peI);
-                        PTRLayoutView.this.peM.cancel();
+                        PTRLayoutView.this.pae = PTRLayoutView.this.pag;
+                        Log.i("heyn", "pullDownY: " + PTRLayoutView.this.pae);
+                        PTRLayoutView.this.pai.cancel();
                     }
                 }
-                if (PTRLayoutView.this.peI <= 0.0f) {
-                    if (PTRLayoutView.this.peJ < 0.0f) {
-                        PTRLayoutView.this.peJ += PTRLayoutView.this.nto;
+                if (PTRLayoutView.this.pae <= 0.0f) {
+                    if (PTRLayoutView.this.paf < 0.0f) {
+                        PTRLayoutView.this.paf += PTRLayoutView.this.noJ;
                     }
                 } else {
-                    PTRLayoutView.this.peI -= PTRLayoutView.this.nto;
+                    PTRLayoutView.this.pae -= PTRLayoutView.this.noJ;
                 }
-                if (PTRLayoutView.this.peI < 0.0f) {
-                    PTRLayoutView.this.peI = 0.0f;
-                    PTRLayoutView.this.peS.clearAnimation();
+                if (PTRLayoutView.this.pae < 0.0f) {
+                    PTRLayoutView.this.pae = 0.0f;
+                    PTRLayoutView.this.pao.clearAnimation();
                     if (PTRLayoutView.this.state != 2 && PTRLayoutView.this.state != 4) {
-                        PTRLayoutView.this.ki(0);
+                        PTRLayoutView.this.iC(0);
                     }
-                    PTRLayoutView.this.peM.cancel();
+                    PTRLayoutView.this.pai.cancel();
                     PTRLayoutView.this.requestLayout();
                 }
-                if (PTRLayoutView.this.peJ > 0.0f) {
-                    PTRLayoutView.this.peJ = 0.0f;
-                    PTRLayoutView.this.peX.clearAnimation();
+                if (PTRLayoutView.this.paf > 0.0f) {
+                    PTRLayoutView.this.paf = 0.0f;
+                    PTRLayoutView.this.pat.clearAnimation();
                     if (PTRLayoutView.this.state != 2 && PTRLayoutView.this.state != 4) {
-                        PTRLayoutView.this.ki(0);
+                        PTRLayoutView.this.iC(0);
                     }
-                    PTRLayoutView.this.peM.cancel();
+                    PTRLayoutView.this.pai.cancel();
                     PTRLayoutView.this.requestLayout();
                 }
                 Log.d("handle", "handle");
                 PTRLayoutView.this.requestLayout();
-                if (PTRLayoutView.this.peI + Math.abs(PTRLayoutView.this.peJ) == 0.0f) {
-                    PTRLayoutView.this.peM.cancel();
+                if (PTRLayoutView.this.pae + Math.abs(PTRLayoutView.this.paf) == 0.0f) {
+                    PTRLayoutView.this.pai.cancel();
                 }
             }
         };
-        eO(context);
+        initView(context);
     }
 
     public PTRLayoutView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         this.state = 0;
-        this.peI = 0.0f;
-        this.peJ = 0.0f;
-        this.peK = 200.0f;
-        this.peL = 200.0f;
-        this.nto = 8.0f;
-        this.peN = false;
-        this.peO = false;
-        this.peP = 2.0f;
-        this.pfd = true;
-        this.pfe = true;
-        this.pff = new Handler() { // from class: com.baidu.yuyinala.privatemessage.session.view.smrlistview.PTRLayoutView.1
+        this.pae = 0.0f;
+        this.paf = 0.0f;
+        this.pag = 200.0f;
+        this.pah = 200.0f;
+        this.noJ = 8.0f;
+        this.paj = false;
+        this.pak = false;
+        this.pal = 2.0f;
+        this.paA = true;
+        this.paB = true;
+        this.paC = new Handler() { // from class: com.baidu.yuyinala.privatemessage.session.view.smrlistview.PTRLayoutView.1
             @Override // android.os.Handler
             public void handleMessage(Message message) {
-                PTRLayoutView.this.nto = (float) (8.0d + (5.0d * Math.tan((1.5707963267948966d / PTRLayoutView.this.getMeasuredHeight()) * (PTRLayoutView.this.peI + Math.abs(PTRLayoutView.this.peJ)))));
-                if (!PTRLayoutView.this.peO) {
-                    if (PTRLayoutView.this.state != 2 || PTRLayoutView.this.peI > PTRLayoutView.this.peK) {
-                        if (PTRLayoutView.this.state == 4 && (-PTRLayoutView.this.peJ) <= PTRLayoutView.this.peL) {
-                            PTRLayoutView.this.peJ = -PTRLayoutView.this.peL;
-                            PTRLayoutView.this.peM.cancel();
+                PTRLayoutView.this.noJ = (float) (8.0d + (5.0d * Math.tan((1.5707963267948966d / PTRLayoutView.this.getMeasuredHeight()) * (PTRLayoutView.this.pae + Math.abs(PTRLayoutView.this.paf)))));
+                if (!PTRLayoutView.this.pak) {
+                    if (PTRLayoutView.this.state != 2 || PTRLayoutView.this.pae > PTRLayoutView.this.pag) {
+                        if (PTRLayoutView.this.state == 4 && (-PTRLayoutView.this.paf) <= PTRLayoutView.this.pah) {
+                            PTRLayoutView.this.paf = -PTRLayoutView.this.pah;
+                            PTRLayoutView.this.pai.cancel();
                         }
                     } else {
-                        PTRLayoutView.this.peI = PTRLayoutView.this.peK;
-                        Log.i("heyn", "pullDownY: " + PTRLayoutView.this.peI);
-                        PTRLayoutView.this.peM.cancel();
+                        PTRLayoutView.this.pae = PTRLayoutView.this.pag;
+                        Log.i("heyn", "pullDownY: " + PTRLayoutView.this.pae);
+                        PTRLayoutView.this.pai.cancel();
                     }
                 }
-                if (PTRLayoutView.this.peI <= 0.0f) {
-                    if (PTRLayoutView.this.peJ < 0.0f) {
-                        PTRLayoutView.this.peJ += PTRLayoutView.this.nto;
+                if (PTRLayoutView.this.pae <= 0.0f) {
+                    if (PTRLayoutView.this.paf < 0.0f) {
+                        PTRLayoutView.this.paf += PTRLayoutView.this.noJ;
                     }
                 } else {
-                    PTRLayoutView.this.peI -= PTRLayoutView.this.nto;
+                    PTRLayoutView.this.pae -= PTRLayoutView.this.noJ;
                 }
-                if (PTRLayoutView.this.peI < 0.0f) {
-                    PTRLayoutView.this.peI = 0.0f;
-                    PTRLayoutView.this.peS.clearAnimation();
+                if (PTRLayoutView.this.pae < 0.0f) {
+                    PTRLayoutView.this.pae = 0.0f;
+                    PTRLayoutView.this.pao.clearAnimation();
                     if (PTRLayoutView.this.state != 2 && PTRLayoutView.this.state != 4) {
-                        PTRLayoutView.this.ki(0);
+                        PTRLayoutView.this.iC(0);
                     }
-                    PTRLayoutView.this.peM.cancel();
+                    PTRLayoutView.this.pai.cancel();
                     PTRLayoutView.this.requestLayout();
                 }
-                if (PTRLayoutView.this.peJ > 0.0f) {
-                    PTRLayoutView.this.peJ = 0.0f;
-                    PTRLayoutView.this.peX.clearAnimation();
+                if (PTRLayoutView.this.paf > 0.0f) {
+                    PTRLayoutView.this.paf = 0.0f;
+                    PTRLayoutView.this.pat.clearAnimation();
                     if (PTRLayoutView.this.state != 2 && PTRLayoutView.this.state != 4) {
-                        PTRLayoutView.this.ki(0);
+                        PTRLayoutView.this.iC(0);
                     }
-                    PTRLayoutView.this.peM.cancel();
+                    PTRLayoutView.this.pai.cancel();
                     PTRLayoutView.this.requestLayout();
                 }
                 Log.d("handle", "handle");
                 PTRLayoutView.this.requestLayout();
-                if (PTRLayoutView.this.peI + Math.abs(PTRLayoutView.this.peJ) == 0.0f) {
-                    PTRLayoutView.this.peM.cancel();
+                if (PTRLayoutView.this.pae + Math.abs(PTRLayoutView.this.paf) == 0.0f) {
+                    PTRLayoutView.this.pai.cancel();
                 }
             }
         };
-        eO(context);
+        initView(context);
     }
 
-    private void eO(Context context) {
+    private void initView(Context context) {
         this.mContext = context;
-        this.peM = new a(this.pff);
-        this.peQ = (RotateAnimation) AnimationUtils.loadAnimation(context, a.C0203a.reverse_anim);
-        this.peR = (RotateAnimation) AnimationUtils.loadAnimation(context, a.C0203a.rotating);
+        this.pai = new a(this.paC);
+        this.pam = (RotateAnimation) AnimationUtils.loadAnimation(context, a.C0194a.reverse_anim);
+        this.pan = (RotateAnimation) AnimationUtils.loadAnimation(context, a.C0194a.rotating);
         LinearInterpolator linearInterpolator = new LinearInterpolator();
-        this.peQ.setInterpolator(linearInterpolator);
-        this.peR.setInterpolator(linearInterpolator);
+        this.pam.setInterpolator(linearInterpolator);
+        this.pan.setInterpolator(linearInterpolator);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void hide() {
-        this.peM.ic(5L);
+        this.pai.ic(5L);
     }
 
     /* JADX WARN: Type inference failed for: r0v7, types: [com.baidu.yuyinala.privatemessage.session.view.smrlistview.PTRLayoutView$2] */
-    public void Pv(int i) {
-        this.peT.clearAnimation();
-        this.peT.setVisibility(8);
+    public void NO(int i) {
+        this.pap.clearAnimation();
+        this.pap.setVisibility(8);
         switch (i) {
             case 0:
-                this.peU.setVisibility(0);
-                this.peV.setText(a.h.refresh_succeed);
+                this.paq.setVisibility(0);
+                this.par.setText(a.h.refresh_succeed);
                 break;
             default:
-                this.peU.setVisibility(0);
-                this.peV.setText(a.h.refresh_fail);
+                this.paq.setVisibility(0);
+                this.par.setText(a.h.refresh_fail);
                 break;
         }
-        if (this.peI > 0.0f) {
+        if (this.pae > 0.0f) {
             new Handler() { // from class: com.baidu.yuyinala.privatemessage.session.view.smrlistview.PTRLayoutView.2
                 @Override // android.os.Handler
                 public void handleMessage(Message message) {
-                    PTRLayoutView.this.ki(5);
+                    PTRLayoutView.this.iC(5);
                     PTRLayoutView.this.hide();
                 }
             }.sendEmptyMessageDelayed(0, 500L);
             return;
         }
-        ki(5);
+        iC(5);
         hide();
     }
 
     /* JADX WARN: Type inference failed for: r0v11, types: [com.baidu.yuyinala.privatemessage.session.view.smrlistview.PTRLayoutView$3] */
-    public void Pw(int i) {
-        this.peY.clearAnimation();
-        this.peY.setVisibility(8);
+    public void NP(int i) {
+        this.pau.clearAnimation();
+        this.pau.setVisibility(8);
         switch (i) {
             case 0:
-                this.peZ.setVisibility(0);
-                this.pfa.setText(a.h.load_succeed);
-                this.peZ.setBackgroundResource(a.e.load_succeed);
+                this.pav.setVisibility(0);
+                this.paw.setText(a.h.load_succeed);
+                this.pav.setBackgroundResource(a.e.load_succeed);
                 break;
             case 1:
             default:
-                this.peZ.setVisibility(0);
-                this.pfa.setText(a.h.load_fail);
-                this.peZ.setBackgroundResource(a.e.load_failed);
+                this.pav.setVisibility(0);
+                this.paw.setText(a.h.load_fail);
+                this.pav.setBackgroundResource(a.e.load_failed);
                 break;
             case 2:
-                this.peZ.setVisibility(0);
-                this.pfa.setText("没有更多数据");
-                this.peZ.setBackgroundResource(a.e.load_failed);
+                this.pav.setVisibility(0);
+                this.paw.setText("没有更多数据");
+                this.pav.setBackgroundResource(a.e.load_failed);
                 break;
         }
-        if (this.peJ < 0.0f) {
+        if (this.paf < 0.0f) {
             new Handler() { // from class: com.baidu.yuyinala.privatemessage.session.view.smrlistview.PTRLayoutView.3
                 @Override // android.os.Handler
                 public void handleMessage(Message message) {
-                    PTRLayoutView.this.ki(5);
+                    PTRLayoutView.this.iC(5);
                     PTRLayoutView.this.hide();
                 }
             }.sendEmptyMessageDelayed(0, 500L);
             return;
         }
-        ki(5);
+        iC(5);
         hide();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void ki(int i) {
+    public void iC(int i) {
         this.state = i;
         switch (this.state) {
             case 0:
-                this.peU.setVisibility(8);
-                this.peV.setText(a.h.pull_to_refresh);
-                this.peS.clearAnimation();
-                this.peS.setVisibility(0);
-                this.peZ.setVisibility(8);
-                this.pfa.setText(a.h.pullup_to_load);
-                this.peX.clearAnimation();
-                this.peX.setVisibility(0);
+                this.paq.setVisibility(8);
+                this.par.setText(a.h.pull_to_refresh);
+                this.pao.clearAnimation();
+                this.pao.setVisibility(0);
+                this.pav.setVisibility(8);
+                this.paw.setText(a.h.pullup_to_load);
+                this.pat.clearAnimation();
+                this.pat.setVisibility(0);
                 return;
             case 1:
-                this.peV.setText(a.h.release_to_refresh);
-                this.peS.startAnimation(this.peQ);
+                this.par.setText(a.h.release_to_refresh);
+                this.pao.startAnimation(this.pam);
                 return;
             case 2:
-                this.peS.clearAnimation();
-                this.peT.setVisibility(0);
-                this.peS.setVisibility(4);
-                this.peT.startAnimation(this.peR);
-                this.peV.setText(a.h.refreshing);
+                this.pao.clearAnimation();
+                this.pap.setVisibility(0);
+                this.pao.setVisibility(4);
+                this.pap.startAnimation(this.pan);
+                this.par.setText(a.h.refreshing);
                 return;
             case 3:
-                this.pfa.setText(a.h.release_to_load);
-                this.peX.startAnimation(this.peQ);
+                this.paw.setText(a.h.release_to_load);
+                this.pat.startAnimation(this.pam);
                 return;
             case 4:
-                this.peX.clearAnimation();
-                this.peY.setVisibility(0);
-                this.peX.setVisibility(4);
-                this.peY.startAnimation(this.peR);
-                this.pfa.setText(a.h.loading);
+                this.pat.clearAnimation();
+                this.pau.setVisibility(0);
+                this.pat.setVisibility(4);
+                this.pau.startAnimation(this.pan);
+                this.paw.setText(a.h.loading);
                 return;
             default:
                 return;
         }
     }
 
-    private void eoA() {
-        this.pfd = true;
-        this.pfe = true;
+    private void ekE() {
+        this.paA = true;
+        this.paB = true;
     }
 
     @Override // android.view.ViewGroup, android.view.View
     public boolean dispatchTouchEvent(MotionEvent motionEvent) {
         switch (motionEvent.getActionMasked()) {
             case 0:
-                this.brn = motionEvent.getY();
-                this.brm = motionEvent.getX();
-                this.gda = this.brn;
-                this.peM.cancel();
-                this.pfc = 0;
-                eoA();
+                this.bmB = motionEvent.getY();
+                this.bmA = motionEvent.getX();
+                this.fYr = this.bmB;
+                this.pai.cancel();
+                this.paz = 0;
+                ekE();
                 break;
             case 1:
-                if (this.peI > this.peK || (-this.peJ) > this.peL) {
-                    this.peO = false;
+                if (this.pae > this.pag || (-this.paf) > this.pah) {
+                    this.pak = false;
                 }
                 if (this.state == 1) {
-                    ki(2);
-                    if (this.peH != null) {
-                        this.peH.a(this);
+                    iC(2);
+                    if (this.pac != null) {
+                        this.pac.a(this);
                     }
                 } else if (this.state == 3) {
-                    ki(4);
-                    if (this.peH != null) {
-                        this.peH.b(this);
+                    iC(4);
+                    if (this.pac != null) {
+                        this.pac.b(this);
                     }
                 }
                 hide();
                 break;
             case 2:
-                float abs = Math.abs(motionEvent.getY() - this.brn);
-                float abs2 = Math.abs(motionEvent.getX() - this.brm);
-                if (this.pfc == 0 && Math.pow(abs2, 2.0d) / Math.pow(abs, 2.0d) <= 3.0d) {
-                    if (this.peI > 0.0f || (((com.baidu.yuyinala.privatemessage.session.view.smrlistview.a) this.pfb).eoB() && this.pfd && this.state != 4)) {
-                        this.peI += (motionEvent.getY() - this.gda) / this.peP;
-                        if (this.peI < 0.0f) {
-                            this.peI = 0.0f;
-                            this.pfd = false;
-                            this.pfe = true;
+                float abs = Math.abs(motionEvent.getY() - this.bmB);
+                float abs2 = Math.abs(motionEvent.getX() - this.bmA);
+                if (this.paz == 0 && Math.pow(abs2, 2.0d) / Math.pow(abs, 2.0d) <= 3.0d) {
+                    if (this.pae > 0.0f || (((com.baidu.yuyinala.privatemessage.session.view.smrlistview.a) this.pax).ekF() && this.paA && this.state != 4)) {
+                        this.pae += (motionEvent.getY() - this.fYr) / this.pal;
+                        if (this.pae < 0.0f) {
+                            this.pae = 0.0f;
+                            this.paA = false;
+                            this.paB = true;
                         }
-                        if (this.peI > getMeasuredHeight()) {
-                            this.peI = getMeasuredHeight();
+                        if (this.pae > getMeasuredHeight()) {
+                            this.pae = getMeasuredHeight();
                         }
                         if (this.state == 2) {
-                            this.peO = true;
+                            this.pak = true;
                         }
-                    } else if (this.peJ < 0.0f || (((com.baidu.yuyinala.privatemessage.session.view.smrlistview.a) this.pfb).eoC() && this.pfe && this.state != 2)) {
-                        this.peJ += (motionEvent.getY() - this.gda) / this.peP;
-                        if (this.peJ > 0.0f) {
-                            this.peJ = 0.0f;
-                            this.pfd = true;
-                            this.pfe = false;
+                    } else if (this.paf < 0.0f || (((com.baidu.yuyinala.privatemessage.session.view.smrlistview.a) this.pax).ekG() && this.paB && this.state != 2)) {
+                        this.paf += (motionEvent.getY() - this.fYr) / this.pal;
+                        if (this.paf > 0.0f) {
+                            this.paf = 0.0f;
+                            this.paA = true;
+                            this.paB = false;
                         }
-                        if (this.peJ < (-getMeasuredHeight())) {
-                            this.peJ = -getMeasuredHeight();
+                        if (this.paf < (-getMeasuredHeight())) {
+                            this.paf = -getMeasuredHeight();
                         }
                         if (this.state == 4) {
-                            this.peO = true;
+                            this.pak = true;
                         }
                     } else {
-                        eoA();
+                        ekE();
                     }
                 } else {
-                    this.pfc = 0;
+                    this.paz = 0;
                 }
-                this.gda = motionEvent.getY();
-                this.peP = (float) ((Math.tan((1.5707963267948966d / getMeasuredHeight()) * (this.peI + Math.abs(this.peJ))) * 2.0d) + 2.0d);
-                if (this.peI > 0.0f || this.peJ < 0.0f) {
+                this.fYr = motionEvent.getY();
+                this.pal = (float) ((Math.tan((1.5707963267948966d / getMeasuredHeight()) * (this.pae + Math.abs(this.paf))) * 2.0d) + 2.0d);
+                if (this.pae > 0.0f || this.paf < 0.0f) {
                     requestLayout();
                 }
-                if (this.peI > 0.0f) {
-                    if (this.peI <= this.peK && (this.state == 1 || this.state == 5)) {
-                        ki(0);
+                if (this.pae > 0.0f) {
+                    if (this.pae <= this.pag && (this.state == 1 || this.state == 5)) {
+                        iC(0);
                     }
-                    if (this.peI >= this.peK && this.state == 0) {
-                        ki(1);
+                    if (this.pae >= this.pag && this.state == 0) {
+                        iC(1);
                     }
-                } else if (this.peJ < 0.0f) {
-                    if ((-this.peJ) <= this.peL && (this.state == 3 || this.state == 5)) {
-                        ki(0);
+                } else if (this.paf < 0.0f) {
+                    if ((-this.paf) <= this.pah && (this.state == 3 || this.state == 5)) {
+                        iC(0);
                     }
-                    if ((-this.peJ) >= this.peL && this.state == 0) {
-                        ki(3);
+                    if ((-this.paf) >= this.pah && this.state == 0) {
+                        iC(3);
                     }
                 }
-                if (this.peI + Math.abs(this.peJ) > 8.0f) {
+                if (this.pae + Math.abs(this.paf) > 8.0f) {
                     motionEvent.setAction(3);
                     break;
                 }
                 break;
             case 5:
             case 6:
-                this.pfc = -1;
+                this.paz = -1;
                 break;
         }
         super.dispatchTouchEvent(motionEvent);
@@ -478,38 +478,38 @@ public class PTRLayoutView extends RelativeLayout {
     }
 
     private void initView() {
-        this.peS = this.fVe.findViewById(a.f.pull_icon);
-        this.peV = (TextView) this.fVe.findViewById(a.f.state_tv);
-        this.peT = this.fVe.findViewById(a.f.refreshing_icon);
-        this.peU = this.fVe.findViewById(a.f.state_iv);
-        this.peX = this.peW.findViewById(a.f.pullup_icon);
-        this.pfa = (TextView) this.peW.findViewById(a.f.loadstate_tv);
-        this.peY = this.peW.findViewById(a.f.loading_icon);
-        this.peZ = this.peW.findViewById(a.f.loadstate_iv);
+        this.pao = this.fQx.findViewById(a.f.pull_icon);
+        this.par = (TextView) this.fQx.findViewById(a.f.state_tv);
+        this.pap = this.fQx.findViewById(a.f.refreshing_icon);
+        this.paq = this.fQx.findViewById(a.f.state_iv);
+        this.pat = this.pas.findViewById(a.f.pullup_icon);
+        this.paw = (TextView) this.pas.findViewById(a.f.loadstate_tv);
+        this.pau = this.pas.findViewById(a.f.loading_icon);
+        this.pav = this.pas.findViewById(a.f.loadstate_iv);
     }
 
     @Override // android.widget.RelativeLayout, android.view.ViewGroup, android.view.View
     protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
         Log.d("Test", "Test");
-        if (!this.peN) {
-            this.fVe = getChildAt(0);
-            this.pfb = getChildAt(1);
-            this.peW = getChildAt(2);
-            this.peN = true;
+        if (!this.paj) {
+            this.fQx = getChildAt(0);
+            this.pax = getChildAt(1);
+            this.pas = getChildAt(2);
+            this.paj = true;
             initView();
-            this.peK = ((ViewGroup) this.fVe).getChildAt(0).getMeasuredHeight();
-            this.peL = ((ViewGroup) this.peW).getChildAt(0).getMeasuredHeight();
+            this.pag = ((ViewGroup) this.fQx).getChildAt(0).getMeasuredHeight();
+            this.pah = ((ViewGroup) this.pas).getChildAt(0).getMeasuredHeight();
         }
-        this.fVe.layout(0, ((int) (this.peI + this.peJ)) - this.fVe.getMeasuredHeight(), this.fVe.getMeasuredWidth(), (int) (this.peI + this.peJ));
-        this.pfb.layout(0, (int) (this.peI + this.peJ), this.pfb.getMeasuredWidth(), ((int) (this.peI + this.peJ)) + this.pfb.getMeasuredHeight());
-        this.peW.layout(0, ((int) (this.peI + this.peJ)) + this.pfb.getMeasuredHeight(), this.peW.getMeasuredWidth(), ((int) (this.peI + this.peJ)) + this.pfb.getMeasuredHeight() + this.peW.getMeasuredHeight());
+        this.fQx.layout(0, ((int) (this.pae + this.paf)) - this.fQx.getMeasuredHeight(), this.fQx.getMeasuredWidth(), (int) (this.pae + this.paf));
+        this.pax.layout(0, (int) (this.pae + this.paf), this.pax.getMeasuredWidth(), ((int) (this.pae + this.paf)) + this.pax.getMeasuredHeight());
+        this.pas.layout(0, ((int) (this.pae + this.paf)) + this.pax.getMeasuredHeight(), this.pas.getMeasuredWidth(), ((int) (this.pae + this.paf)) + this.pax.getMeasuredHeight() + this.pas.getMeasuredHeight());
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public class a {
         private Handler handler;
-        private C0994a pfh;
+        private C0977a paE;
         private Timer timer = new Timer();
 
         public a(Handler handler) {
@@ -517,28 +517,28 @@ public class PTRLayoutView extends RelativeLayout {
         }
 
         public void ic(long j) {
-            if (this.pfh != null) {
-                this.pfh.cancel();
-                this.pfh = null;
+            if (this.paE != null) {
+                this.paE.cancel();
+                this.paE = null;
             }
-            this.pfh = new C0994a(this.handler);
-            this.timer.schedule(this.pfh, 0L, j);
+            this.paE = new C0977a(this.handler);
+            this.timer.schedule(this.paE, 0L, j);
         }
 
         public void cancel() {
-            if (this.pfh != null) {
-                this.pfh.cancel();
-                this.pfh = null;
+            if (this.paE != null) {
+                this.paE.cancel();
+                this.paE = null;
             }
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
         /* renamed from: com.baidu.yuyinala.privatemessage.session.view.smrlistview.PTRLayoutView$a$a  reason: collision with other inner class name */
-        /* loaded from: classes11.dex */
-        public class C0994a extends TimerTask {
+        /* loaded from: classes10.dex */
+        public class C0977a extends TimerTask {
             private Handler handler;
 
-            public C0994a(Handler handler) {
+            public C0977a(Handler handler) {
                 this.handler = handler;
             }
 

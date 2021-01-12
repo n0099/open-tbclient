@@ -46,34 +46,34 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class ChatListActivity extends BaseFragmentActivity {
-    public static long pdf = 0;
-    public static long pdg = 0;
-    private CommonEmptyView bxT;
-    private AlaLoadingView ceG;
+    public static long oYA = 0;
+    public static long oYB = 0;
+    private AlaLoadingView bZQ;
+    private CommonEmptyView btf;
     private String mGroupId;
     private String mLiveId;
-    private PTRLayoutView pda;
-    private SMRListView pdb;
-    private com.baidu.yuyinala.privatemessage.session.a.a pdc;
-    private com.baidu.yuyinala.privatemessage.model.a pdd;
-    private long pde = 0;
-    private View bNO = null;
-    private boolean pdh = true;
-    private String pdi = "privateletter";
-    private b pdj = new b() { // from class: com.baidu.yuyinala.privatemessage.session.activity.ChatListActivity.1
+    private PTRLayoutView oYv;
+    private SMRListView oYw;
+    private com.baidu.yuyinala.privatemessage.session.a.a oYx;
+    private com.baidu.yuyinala.privatemessage.model.a oYy;
+    private long oYz = 0;
+    private View bJc = null;
+    private boolean oYC = true;
+    private String oYD = "privateletter";
+    private b oYE = new b() { // from class: com.baidu.yuyinala.privatemessage.session.activity.ChatListActivity.1
         @Override // com.baidu.yuyinala.privatemessage.session.b
-        public void Pp(int i) {
-            if (ChatListActivity.this.pdd != null) {
-                if (ListUtils.isEmpty(ChatListActivity.this.pdd.getDataList())) {
-                    ChatListActivity.this.bUM();
+        public void NI(int i) {
+            if (ChatListActivity.this.oYy != null) {
+                if (ListUtils.isEmpty(ChatListActivity.this.oYy.getDataList())) {
+                    ChatListActivity.this.bQU();
                 } else {
-                    ChatListActivity.this.pdc.setData(ChatListActivity.this.pdd.getDataList());
-                    ChatListActivity.this.pda.Pv(0);
-                    ChatListActivity.this.bxT.setVisibility(8);
-                    if (ChatListActivity.this.bNO != null) {
-                        ChatListActivity.this.pdb.removeFooterView(ChatListActivity.this.bNO);
+                    ChatListActivity.this.oYx.setData(ChatListActivity.this.oYy.getDataList());
+                    ChatListActivity.this.oYv.NO(0);
+                    ChatListActivity.this.btf.setVisibility(8);
+                    if (ChatListActivity.this.bJc != null) {
+                        ChatListActivity.this.oYw.removeFooterView(ChatListActivity.this.bJc);
                     }
                 }
             }
@@ -82,12 +82,12 @@ public class ChatListActivity extends BaseFragmentActivity {
 
         @Override // com.baidu.yuyinala.privatemessage.session.b
         public void x(String str, int i, String str2) {
-            ChatListActivity.this.eoo();
+            ChatListActivity.this.eks();
             ChatListActivity.this.hideLoadingView();
         }
     };
-    private b pdk = new AnonymousClass4();
-    private CustomMessageListener pdl = new CustomMessageListener(2501070) { // from class: com.baidu.yuyinala.privatemessage.session.activity.ChatListActivity.6
+    private b oYF = new AnonymousClass4();
+    private CustomMessageListener oYG = new CustomMessageListener(2501070) { // from class: com.baidu.yuyinala.privatemessage.session.activity.ChatListActivity.6
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -96,16 +96,16 @@ public class ChatListActivity extends BaseFragmentActivity {
             }
         }
     };
-    IChatSessionChangeListener pdm = new IChatSessionChangeListener() { // from class: com.baidu.yuyinala.privatemessage.session.activity.ChatListActivity.2
+    IChatSessionChangeListener oYH = new IChatSessionChangeListener() { // from class: com.baidu.yuyinala.privatemessage.session.activity.ChatListActivity.2
         @Override // com.baidu.android.imsdk.chatmessage.IChatSessionChangeListener
         public void onChatSessionUpdate(ChatSession chatSession, boolean z) {
-            if (ChatListActivity.this.eos() && chatSession != null) {
+            if (ChatListActivity.this.ekw() && chatSession != null) {
                 if (chatSession.getChatType() == 0 || chatSession.getChatType() == 3 || chatSession.getChatType() == 4) {
-                    ChatListActivity.this.pdn.removeMessages(0);
-                    Message obtainMessage = ChatListActivity.this.pdn.obtainMessage();
+                    ChatListActivity.this.oYI.removeMessages(0);
+                    Message obtainMessage = ChatListActivity.this.oYI.obtainMessage();
                     obtainMessage.what = 0;
                     obtainMessage.obj = chatSession;
-                    ChatListActivity.this.pdn.sendMessageDelayed(obtainMessage, 100L);
+                    ChatListActivity.this.oYI.sendMessageDelayed(obtainMessage, 100L);
                 }
             }
         }
@@ -113,13 +113,13 @@ public class ChatListActivity extends BaseFragmentActivity {
         @Override // com.baidu.android.imsdk.chatmessage.IChatSessionChangeListener
         public void onChatRecordDelete(int i, long j) {
             if (BIMManager.CATEGORY.SINGLEPERSON.getValue() == i || BIMManager.CATEGORY.GROUP.getValue() == i) {
-                ChatListActivity.this.pdn.removeMessages(1);
-                ChatListActivity.this.pdn.sendEmptyMessageDelayed(1, 500L);
+                ChatListActivity.this.oYI.removeMessages(1);
+                ChatListActivity.this.oYI.sendEmptyMessageDelayed(1, 500L);
             }
         }
     };
-    private a pdn = new a(this);
-    public CustomMessageListener bih = new CustomMessageListener(2913097) { // from class: com.baidu.yuyinala.privatemessage.session.activity.ChatListActivity.3
+    private a oYI = new a(this);
+    public CustomMessageListener bdo = new CustomMessageListener(2913097) { // from class: com.baidu.yuyinala.privatemessage.session.activity.ChatListActivity.3
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -130,25 +130,25 @@ public class ChatListActivity extends BaseFragmentActivity {
     };
 
     /* renamed from: com.baidu.yuyinala.privatemessage.session.activity.ChatListActivity$4  reason: invalid class name */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     class AnonymousClass4 implements b {
         AnonymousClass4() {
         }
 
         @Override // com.baidu.yuyinala.privatemessage.session.b
-        public void Pp(int i) {
-            BIMManager.mediaGetChatSessions(ChatListActivity.this.getPageContext().getPageActivity(), 0L, ChatListActivity.pdf, 21, new IMediaGetChatSessionListener() { // from class: com.baidu.yuyinala.privatemessage.session.activity.ChatListActivity.4.1
+        public void NI(int i) {
+            BIMManager.mediaGetChatSessions(ChatListActivity.this.getPageContext().getPageActivity(), 0L, ChatListActivity.oYA, 21, new IMediaGetChatSessionListener() { // from class: com.baidu.yuyinala.privatemessage.session.activity.ChatListActivity.4.1
                 @Override // com.baidu.android.imsdk.chatmessage.IMediaGetChatSessionListener
                 public void onMediaGetChatSessionResult(int i2, int i3, boolean z, List<ChatSession> list) {
-                    ChatListActivity.pdg = ChatListActivity.pdf;
+                    ChatListActivity.oYB = ChatListActivity.oYA;
                     if (list == null || list.size() <= 0 || !z) {
                         new Handler(Looper.getMainLooper()).post(new Runnable() { // from class: com.baidu.yuyinala.privatemessage.session.activity.ChatListActivity.4.1.1
                             @Override // java.lang.Runnable
                             public void run() {
-                                ChatListActivity.this.pda.Pw(0);
-                                if (ChatListActivity.this.pdb.getFooterViewsCount() == 0) {
-                                    ChatListActivity.this.bNO = LayoutInflater.from(ChatListActivity.this).inflate(a.g.yuyin_msg_list_footview, (ViewGroup) ChatListActivity.this.pdb, false);
-                                    ChatListActivity.this.pdb.addFooterView(ChatListActivity.this.bNO);
+                                ChatListActivity.this.oYv.NP(0);
+                                if (ChatListActivity.this.oYw.getFooterViewsCount() == 0) {
+                                    ChatListActivity.this.bJc = LayoutInflater.from(ChatListActivity.this).inflate(a.g.yuyin_msg_list_footview, (ViewGroup) ChatListActivity.this.oYw, false);
+                                    ChatListActivity.this.oYw.addFooterView(ChatListActivity.this.bJc);
                                 }
                             }
                         });
@@ -176,13 +176,13 @@ public class ChatListActivity extends BaseFragmentActivity {
     /* JADX INFO: Access modifiers changed from: private */
     public void gE(List<ChatSession> list) {
         final ArrayList arrayList = new ArrayList();
-        pdf = list.get(list.size() - 1).getLastMsgTime();
+        oYA = list.get(list.size() - 1).getLastMsgTime();
         int i = 0;
         while (true) {
             int i2 = i;
             if (i2 < list.size()) {
                 ChatSession chatSession = list.get(i2);
-                if (pdg != chatSession.getLastMsgTime()) {
+                if (oYB != chatSession.getLastMsgTime()) {
                     chatSession.setLastMsgTime(chatSession.getLastMsgTime() / 1000);
                     arrayList.add(new i().aW(chatSession));
                 }
@@ -191,10 +191,10 @@ public class ChatListActivity extends BaseFragmentActivity {
                 new Handler(Looper.getMainLooper()).post(new Runnable() { // from class: com.baidu.yuyinala.privatemessage.session.activity.ChatListActivity.5
                     @Override // java.lang.Runnable
                     public void run() {
-                        ChatListActivity.this.pdc.cA(arrayList);
-                        ChatListActivity.this.pda.Pw(0);
-                        if (ChatListActivity.this.bNO != null) {
-                            ChatListActivity.this.pdb.removeFooterView(ChatListActivity.this.bNO);
+                        ChatListActivity.this.oYx.cA(arrayList);
+                        ChatListActivity.this.oYv.NP(0);
+                        if (ChatListActivity.this.bJc != null) {
+                            ChatListActivity.this.oYw.removeFooterView(ChatListActivity.this.bJc);
                         }
                     }
                 });
@@ -206,20 +206,20 @@ public class ChatListActivity extends BaseFragmentActivity {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.live.tbadk.core.BaseFragmentActivity, com.baidu.live.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, androidx.core.app.ComponentActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
-        MessageManager.getInstance().registerListener(this.pdl);
+        MessageManager.getInstance().registerListener(this.oYG);
         BIMManager.mediaSetRole(getActivity(), true);
         setIsAddSwipeBackLayout(false);
         setUseStyleImmersiveSticky(true);
         super.onCreate(bundle);
         setContentView(a.g.yuyin_activity_chat_list);
-        eon();
+        ekr();
         N(getIntent());
-        abo();
-        emd();
-        MessageManager.getInstance().registerListener(this.bih);
+        Xv();
+        eij();
+        MessageManager.getInstance().registerListener(this.bdo);
     }
 
-    private void eon() {
+    private void ekr() {
         findViewById(a.f.yuyin_chatlist_view_top).setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.yuyinala.privatemessage.session.activity.ChatListActivity.7
             @Override // android.view.View.OnTouchListener
             public boolean onTouch(View view, MotionEvent motionEvent) {
@@ -236,40 +236,40 @@ public class ChatListActivity extends BaseFragmentActivity {
         }
     }
 
-    private void abo() {
-        this.bxT = (CommonEmptyView) findViewById(a.f.yuyin_ala_empty_view);
-        this.ceG = (AlaLoadingView) findViewById(a.f.yuyin_ala_loading_view);
-        this.pdd = new com.baidu.yuyinala.privatemessage.session.c.a();
-        this.pdb = (SMRListView) findViewById(a.f.news_inner_listview);
-        this.pda = (PTRLayoutView) findViewById(a.f.refresh_view);
-        if (this.pdd != null) {
-            this.pdc = new com.baidu.yuyinala.privatemessage.session.a.a(this, this.pdd.getDataList());
+    private void Xv() {
+        this.btf = (CommonEmptyView) findViewById(a.f.yuyin_ala_empty_view);
+        this.bZQ = (AlaLoadingView) findViewById(a.f.yuyin_ala_loading_view);
+        this.oYy = new com.baidu.yuyinala.privatemessage.session.c.a();
+        this.oYw = (SMRListView) findViewById(a.f.news_inner_listview);
+        this.oYv = (PTRLayoutView) findViewById(a.f.refresh_view);
+        if (this.oYy != null) {
+            this.oYx = new com.baidu.yuyinala.privatemessage.session.a.a(this, this.oYy.getDataList());
         }
-        this.pdb.setAdapter((ListAdapter) this.pdc);
-        this.pdb.setMenuCreator(new d() { // from class: com.baidu.yuyinala.privatemessage.session.activity.ChatListActivity.8
+        this.oYw.setAdapter((ListAdapter) this.oYx);
+        this.oYw.setMenuCreator(new d() { // from class: com.baidu.yuyinala.privatemessage.session.activity.ChatListActivity.8
             @Override // com.baidu.yuyinala.privatemessage.session.view.smrlistview.d
             public void a(c cVar) {
                 e eVar = new e(ChatListActivity.this.getPageContext().getPageActivity());
                 eVar.setBackground(new ColorDrawable(Color.rgb(249, 63, 37)));
-                eVar.setWidth(ChatListActivity.this.wT(60));
+                eVar.setWidth(ChatListActivity.this.vn(60));
                 eVar.setTitle("删除");
                 eVar.setTitleColor(Color.rgb(255, 255, 255));
                 eVar.setTitleSize(15);
                 cVar.c(eVar);
             }
         });
-        this.pdb.setOnMenuItemClickListener(new SMListView.a() { // from class: com.baidu.yuyinala.privatemessage.session.activity.ChatListActivity.9
+        this.oYw.setOnMenuItemClickListener(new SMListView.a() { // from class: com.baidu.yuyinala.privatemessage.session.activity.ChatListActivity.9
             @Override // com.baidu.yuyinala.privatemessage.session.view.smrlistview.SMListView.a
             public boolean a(int i, c cVar, int i2) {
-                com.baidu.yuyinala.privatemessage.session.b.a item = ChatListActivity.this.pdc.getItem(i);
+                com.baidu.yuyinala.privatemessage.session.b.a item = ChatListActivity.this.oYx.getItem(i);
                 if (item != null && (item instanceof j)) {
-                    ChatListActivity.this.pdd.a(ChatListActivity.this, (j) item, new IMediaDeleteChatSessionListener() { // from class: com.baidu.yuyinala.privatemessage.session.activity.ChatListActivity.9.1
+                    ChatListActivity.this.oYy.a(ChatListActivity.this, (j) item, new IMediaDeleteChatSessionListener() { // from class: com.baidu.yuyinala.privatemessage.session.activity.ChatListActivity.9.1
                         @Override // com.baidu.android.imsdk.chatmessage.IMediaDeleteChatSessionListener
                         public void onMediaDeleteChatSessionResult(int i3, String str) {
                             if (i3 == 0) {
-                                ChatListActivity.this.pdc.Ps(i3);
-                                if (ChatListActivity.this.pdc.getCount() == 0) {
-                                    ChatListActivity.this.bUM();
+                                ChatListActivity.this.oYx.NL(i3);
+                                if (ChatListActivity.this.oYx.getCount() == 0) {
+                                    ChatListActivity.this.bQU();
                                     return;
                                 }
                                 return;
@@ -282,97 +282,97 @@ public class ChatListActivity extends BaseFragmentActivity {
                 return false;
             }
         });
-        this.pdb.setOnItemClickListener(new AdapterView.OnItemClickListener() { // from class: com.baidu.yuyinala.privatemessage.session.activity.ChatListActivity.10
+        this.oYw.setOnItemClickListener(new AdapterView.OnItemClickListener() { // from class: com.baidu.yuyinala.privatemessage.session.activity.ChatListActivity.10
             @Override // android.widget.AdapterView.OnItemClickListener
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-                if (ChatListActivity.this.pdc.getCount() > 0 && ChatListActivity.this.pdc.getCount() > i) {
-                    com.baidu.yuyinala.privatemessage.session.b.a item = ChatListActivity.this.pdc.getItem(i);
+                if (ChatListActivity.this.oYx.getCount() > 0 && ChatListActivity.this.oYx.getCount() > i) {
+                    com.baidu.yuyinala.privatemessage.session.b.a item = ChatListActivity.this.oYx.getItem(i);
                     if (item != null && (item instanceof j)) {
                         j jVar = (j) item;
-                        com.baidu.yuyinala.privatemessage.session.util.a.a(ChatListActivity.this, jVar.name, jVar.pdK, jVar.isMediaRole, ChatListActivity.this.mLiveId, ChatListActivity.this.mGroupId, jVar.paid > 0 ? "80" : "0", jVar.paid, jVar.iconUrl);
+                        com.baidu.yuyinala.privatemessage.session.util.a.a(ChatListActivity.this, jVar.name, jVar.oZf, jVar.isMediaRole, ChatListActivity.this.mLiveId, ChatListActivity.this.mGroupId, jVar.paid > 0 ? "80" : "0", jVar.paid, jVar.iconUrl);
                         LogUtils.d("miliao", "entity.isMediaRole：" + jVar.isMediaRole);
                     }
                     if (item instanceof j) {
-                        ((j) item).pdM = null;
-                        ChatListActivity.this.pdc.notifyDataSetChanged();
+                        ((j) item).oZh = null;
+                        ChatListActivity.this.oYx.notifyDataSetChanged();
                     }
                 }
             }
         });
-        this.pda.setOnRefreshListener(new PTRLayoutView.b() { // from class: com.baidu.yuyinala.privatemessage.session.activity.ChatListActivity.11
+        this.oYv.setOnRefreshListener(new PTRLayoutView.b() { // from class: com.baidu.yuyinala.privatemessage.session.activity.ChatListActivity.11
             @Override // com.baidu.yuyinala.privatemessage.session.view.smrlistview.PTRLayoutView.b
             public void a(PTRLayoutView pTRLayoutView) {
-                ChatListActivity.this.eoq();
+                ChatListActivity.this.eku();
             }
 
             @Override // com.baidu.yuyinala.privatemessage.session.view.smrlistview.PTRLayoutView.b
             public void b(PTRLayoutView pTRLayoutView) {
-                ChatListActivity.this.eor();
+                ChatListActivity.this.ekv();
             }
         });
-        eoq();
-        eop();
+        eku();
+        ekt();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bUM() {
-        if (this.bxT != null && this.pdc != null) {
-            this.bxT.setVisibility(0);
-            this.bxT.setup(CommonEmptyView.ImgType.NO_DATA, CommonEmptyView.StyleType.DARK).setTextColor(Color.parseColor("#525252")).setTitle(a.h.yuyin_sdk_privatemsg_list_empty);
+    public void bQU() {
+        if (this.btf != null && this.oYx != null) {
+            this.btf.setVisibility(0);
+            this.btf.setup(CommonEmptyView.ImgType.NO_DATA, CommonEmptyView.StyleType.DARK).setTextColor(Color.parseColor("#525252")).setTitle(a.h.yuyin_sdk_privatemsg_list_empty);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void eoo() {
-        if (this.pdc != null && this.bxT != null) {
-            this.pdc.setData(null);
-            this.pdc.notifyDataSetChanged();
-            this.bxT.setVisibility(0);
-            this.bxT.setup(CommonEmptyView.ImgType.NO_NET, CommonEmptyView.StyleType.DARK).setTextColor(Color.parseColor("#525252")).setTitle(a.h.yuyin_sdk_privatemsg_network_error);
+    public void eks() {
+        if (this.oYx != null && this.btf != null) {
+            this.oYx.setData(null);
+            this.oYx.notifyDataSetChanged();
+            this.btf.setVisibility(0);
+            this.btf.setup(CommonEmptyView.ImgType.NO_NET, CommonEmptyView.StyleType.DARK).setTextColor(Color.parseColor("#525252")).setTitle(a.h.yuyin_sdk_privatemsg_network_error);
         }
     }
 
-    private void eop() {
-        if (this.ceG != null && this.bxT != null) {
-            this.bxT.setVisibility(8);
-            this.ceG.setVisibility(0);
+    private void ekt() {
+        if (this.bZQ != null && this.btf != null) {
+            this.btf.setVisibility(8);
+            this.bZQ.setVisibility(0);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void hideLoadingView() {
-        if (this.ceG != null) {
-            this.ceG.setVisibility(8);
+        if (this.bZQ != null) {
+            this.bZQ.setVisibility(8);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void eoq() {
-        this.pdd.a(this, this.pdj, 2);
+    public void eku() {
+        this.oYy.a(this, this.oYE, 2);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void eor() {
-        this.pdd.a(this, this.pdk, 4);
+    public void ekv() {
+        this.oYy.a(this, this.oYF, 4);
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     private static class a extends Handler {
-        private final WeakReference<ChatListActivity> pds;
+        private final WeakReference<ChatListActivity> oYN;
 
         a(ChatListActivity chatListActivity) {
-            this.pds = new WeakReference<>(chatListActivity);
+            this.oYN = new WeakReference<>(chatListActivity);
         }
 
         @Override // android.os.Handler
         public void handleMessage(Message message) {
-            ChatListActivity chatListActivity = this.pds.get();
+            ChatListActivity chatListActivity = this.oYN.get();
             if (chatListActivity != null) {
                 switch (message.what) {
                     case 0:
                         ChatSession chatSession = (ChatSession) message.obj;
                         if (chatSession != null) {
-                            chatListActivity.pdc.a(new i().aW(chatSession));
+                            chatListActivity.oYx.a(new i().aW(chatSession));
                             return;
                         }
                         return;
@@ -385,21 +385,21 @@ public class ChatListActivity extends BaseFragmentActivity {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean eos() {
+    public boolean ekw() {
         long currentTimeMillis = System.currentTimeMillis();
-        if (this.pde <= 0 || currentTimeMillis - this.pde > 500) {
-            this.pde = currentTimeMillis;
+        if (this.oYz <= 0 || currentTimeMillis - this.oYz > 500) {
+            this.oYz = currentTimeMillis;
             return true;
         }
         return false;
     }
 
-    private void emd() {
-        BIMManager.registerChatSessionChangeListener(this, this.pdm);
+    private void eij() {
+        BIMManager.registerChatSessionChangeListener(this, this.oYH);
     }
 
-    private void eme() {
-        BIMManager.unregisterChatSessionChangeListener(this, this.pdm);
+    private void eik() {
+        BIMManager.unregisterChatSessionChangeListener(this, this.oYH);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -412,13 +412,13 @@ public class ChatListActivity extends BaseFragmentActivity {
     @Override // com.baidu.live.tbadk.core.BaseFragmentActivity, com.baidu.live.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        MessageManager.getInstance().unRegisterListener(this.pdl);
-        MessageManager.getInstance().unRegisterListener(this.bih);
-        com.baidu.yuyinala.privatemessage.model.c.eoe();
-        if ("privateletter".equals(this.pdi)) {
-            eme();
-            if (this.pdd != null) {
-                this.pdd.destroy();
+        MessageManager.getInstance().unRegisterListener(this.oYG);
+        MessageManager.getInstance().unRegisterListener(this.bdo);
+        com.baidu.yuyinala.privatemessage.model.c.ekj();
+        if ("privateletter".equals(this.oYD)) {
+            eik();
+            if (this.oYy != null) {
+                this.oYy.destroy();
             }
         }
     }
@@ -426,10 +426,10 @@ public class ChatListActivity extends BaseFragmentActivity {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.live.tbadk.core.BaseFragmentActivity, com.baidu.live.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onResume() {
-        if (this.pdh) {
-            eoq();
+        if (this.oYC) {
+            eku();
         }
-        this.pdh = false;
+        this.oYC = false;
         super.onResume();
         UtilHelper.changeStatusBarIconAndTextColor(true, getPageContext().getPageActivity());
     }
@@ -453,7 +453,7 @@ public class ChatListActivity extends BaseFragmentActivity {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public int wT(int i) {
+    public int vn(int i) {
         return (int) TypedValue.applyDimension(1, i, getResources().getDisplayMetrics());
     }
 }

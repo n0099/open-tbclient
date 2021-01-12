@@ -12,7 +12,7 @@ public class u extends a<v, NoDataItemViewHolder> {
     private int mSkinType;
 
     public u(TbPageContext<?> tbPageContext) {
-        super(tbPageContext.getPageActivity(), v.Yr);
+        super(tbPageContext.getPageActivity(), v.Yp);
         this.mSkinType = 3;
     }
 

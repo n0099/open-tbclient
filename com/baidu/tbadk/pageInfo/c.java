@@ -13,7 +13,7 @@ import com.baidu.tbadk.core.util.aq;
 import com.baidu.tbadk.core.util.at;
 /* loaded from: classes.dex */
 public class c {
-    public static b fu(Context context) {
+    public static b fs(Context context) {
         if (context != null) {
             g<?> J = j.J(context);
             if (J instanceof a) {
@@ -24,15 +24,15 @@ public class c {
         return null;
     }
 
-    public static TbPageTag fv(Context context) {
-        b fu = fu(context);
-        if (fu == null) {
+    public static TbPageTag ft(Context context) {
+        b fs = fs(context);
+        if (fs == null) {
             return null;
         }
-        return fu.bHq();
+        return fs.bDx();
     }
 
-    public static TbPageTag fw(Context context) {
+    public static TbPageTag fu(Context context) {
         g<?> J;
         if (context == null || (J = j.J(context)) == null || J.getPageContext() == null || J.getPageContext().getPageActivity() == null) {
             return null;
@@ -48,19 +48,19 @@ public class c {
     }
 
     public static aq a(Context context, aq aqVar) {
-        return (context == null || aqVar == null) ? aqVar : a(aqVar, fu(context));
+        return (context == null || aqVar == null) ? aqVar : a(aqVar, fs(context));
     }
 
     public static aq b(Context context, aq aqVar) {
-        return (context == null || aqVar == null) ? aqVar : b(aqVar, fu(context));
+        return (context == null || aqVar == null) ? aqVar : b(aqVar, fs(context));
     }
 
     public static aq a(aq aqVar, b bVar) {
-        return (bVar == null || aqVar == null) ? aqVar : a(aqVar, bVar.getPrePageTag(), bVar.bHq());
+        return (bVar == null || aqVar == null) ? aqVar : a(aqVar, bVar.getPrePageTag(), bVar.bDx());
     }
 
     public static aq b(aq aqVar, b bVar) {
-        return (bVar == null || aqVar == null) ? aqVar : b(aqVar, bVar.getPrePageTag(), bVar.bHq());
+        return (bVar == null || aqVar == null) ? aqVar : b(aqVar, bVar.getPrePageTag(), bVar.bDx());
     }
 
     public static aq a(aq aqVar, TbPageTag tbPageTag, TbPageTag tbPageTag2) {
@@ -69,12 +69,12 @@ public class c {
         }
         if (tbPageTag2 != null) {
             if (!TextUtils.isEmpty(tbPageTag2.locatePage)) {
-                aqVar.dX("obj_tab", tbPageTag2.locatePage);
+                aqVar.dW("obj_tab", tbPageTag2.locatePage);
             }
             aqVar.an("sort_tab", tbPageTag2.sortType);
         }
         if (tbPageTag != null && !TextUtils.isEmpty(tbPageTag.locatePage)) {
-            aqVar.dX(GuildActivityConfig.FROM_PAGE, tbPageTag.locatePage);
+            aqVar.dW(GuildActivityConfig.FROM_PAGE, tbPageTag.locatePage);
             return aqVar;
         }
         return aqVar;
@@ -86,12 +86,12 @@ public class c {
         }
         if (tbPageTag2 != null) {
             if (!TextUtils.isEmpty(tbPageTag2.locatePage)) {
-                aqVar.dX("obj_page", tbPageTag2.locatePage);
+                aqVar.dW("obj_page", tbPageTag2.locatePage);
             }
             aqVar.an("sort_tab", tbPageTag2.sortType);
         }
         if (tbPageTag != null && !TextUtils.isEmpty(tbPageTag.locatePage)) {
-            aqVar.dX("obj_tab", tbPageTag.locatePage);
+            aqVar.dW("obj_tab", tbPageTag.locatePage);
             return aqVar;
         }
         return aqVar;
@@ -102,7 +102,7 @@ public class c {
             return null;
         }
         if (!TextUtils.isEmpty(tbPageTag.locatePage)) {
-            aqVar.dX("obj_tab", tbPageTag.locatePage);
+            aqVar.dW("obj_tab", tbPageTag.locatePage);
         }
         aqVar.an("sort_tab", tbPageTag.sortType);
         return aqVar;
@@ -112,12 +112,12 @@ public class c {
         if (context == null || aqVar == null) {
             return null;
         }
-        TbPageTag fw = fw(context);
-        if (fw != null) {
-            if (!TextUtils.isEmpty(fw.locatePage)) {
-                aqVar.dX("obj_tab", fw.locatePage);
+        TbPageTag fu = fu(context);
+        if (fu != null) {
+            if (!TextUtils.isEmpty(fu.locatePage)) {
+                aqVar.dW("obj_tab", fu.locatePage);
             }
-            aqVar.an("sort_tab", fw.sortType);
+            aqVar.an("sort_tab", fu.sortType);
             return aqVar;
         }
         return aqVar;
@@ -128,11 +128,11 @@ public class c {
             return null;
         }
         aq aqVar = new aq(str);
-        aqVar.dX("tid", bzVar.getId()).w("fid", bzVar.getFid()).an(IntentConfig.CARD_TYPE, bzVar.btt()).dX(IntentConfig.NID, bzVar.bpP());
+        aqVar.dW("tid", bzVar.getId()).w("fid", bzVar.getFid()).an(IntentConfig.CARD_TYPE, bzVar.bpz()).dW(IntentConfig.NID, bzVar.blV());
         if (bzVar.getBaijiahaoData() != null && !at.isEmpty(bzVar.getBaijiahaoData().oriUgcVid)) {
-            aqVar.dX("obj_param6", bzVar.getBaijiahaoData().oriUgcVid);
+            aqVar.dW("obj_param6", bzVar.getBaijiahaoData().oriUgcVid);
         }
-        aqVar.dX("weight", bzVar.mRecomWeight).dX("ab_tag", bzVar.mRecomAbTag).dX("extra", bzVar.mRecomExtra).dX("obj_type", bzVar.eWD ? "2" : "1").dX("source", bzVar.mRecomSource);
+        aqVar.dW("weight", bzVar.mRecomWeight).dW("ab_tag", bzVar.mRecomAbTag).dW("extra", bzVar.mRecomExtra).dW("obj_type", bzVar.eRS ? "2" : "1").dW("source", bzVar.mRecomSource);
         c(context, aqVar);
         return aqVar;
     }

@@ -6,39 +6,37 @@ import android.widget.RelativeLayout;
 import com.baidu.live.data.x;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public interface k {
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public interface a {
-        boolean ME();
+        boolean IJ();
 
-        void MF();
+        void IK();
 
-        void MG();
+        void IL();
 
-        void MH();
+        void IM();
 
-        void MI();
+        void IN();
 
-        boolean MJ();
+        boolean IO();
 
-        int MK();
+        int IP();
 
-        boolean ML();
+        boolean IQ();
 
-        void hO(String str);
+        void gD(String str);
     }
 
-    void Dc();
+    j IF();
 
-    j MA();
+    com.baidu.live.view.input.a IG();
 
-    com.baidu.live.view.input.a MB();
+    com.baidu.live.view.input.b IH();
 
-    com.baidu.live.view.input.b MC();
-
-    int MD();
+    int II();
 
     void a(ViewGroup viewGroup, x xVar, List<String> list, RelativeLayout.LayoutParams layoutParams);
 
@@ -61,4 +59,6 @@ public interface k {
     void setFromMaster(boolean z);
 
     void setLogData(String str, String str2);
+
+    void zh();
 }

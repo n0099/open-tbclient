@@ -6,10 +6,10 @@ import org.json.JSONObject;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f13305a;
+    public String f13005a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f13306b = -1;
+    public int f13006b = -1;
     public String c;
     public String d;
     public String e;
@@ -27,8 +27,8 @@ public class a {
     public void a(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                jSONObject.put("anti_plan_type", this.f13305a);
-                jSONObject.put("error_code", String.valueOf(this.f13306b));
+                jSONObject.put("anti_plan_type", this.f13005a);
+                jSONObject.put("error_code", String.valueOf(this.f13006b));
                 jSONObject.put("error_msg", this.c);
                 jSONObject.put("real_device_plan", this.d);
                 jSONObject.put("device_plans", this.e);
@@ -37,7 +37,7 @@ public class a {
         }
     }
 
-    public static a aaU(String str) {
+    public static a ZM(String str) {
         a aVar = null;
         if (!TextUtils.isEmpty(str)) {
             aVar = new a();
@@ -46,12 +46,12 @@ public class a {
                 aVar.e = jSONObject.optString("device_plans", null);
                 aVar.d = jSONObject.optString("real_device_plan", null);
                 aVar.c = jSONObject.optString("error_msg", null);
-                aVar.f13305a = jSONObject.optString("anti_plan_type", null);
+                aVar.f13005a = jSONObject.optString("anti_plan_type", null);
                 String optString = jSONObject.optString("error_code");
                 if (TextUtils.isEmpty(optString)) {
-                    aVar.f13306b = -1;
+                    aVar.f13006b = -1;
                 } else {
-                    aVar.f13306b = Integer.parseInt(optString);
+                    aVar.f13006b = Integer.parseInt(optString);
                 }
             } catch (Throwable th) {
                 th.printStackTrace();
@@ -61,6 +61,6 @@ public class a {
     }
 
     public String toString() {
-        return "AntiHijackAttempt{anti_plan_type='" + this.f13305a + "', error_code=" + this.f13306b + ", error_msg='" + this.c + "', real_device_plan='" + this.d + "', device_plans='" + this.e + "'}";
+        return "AntiHijackAttempt{anti_plan_type='" + this.f13005a + "', error_code=" + this.f13006b + ", error_msg='" + this.c + "', real_device_plan='" + this.d + "', device_plans='" + this.e + "'}";
     }
 }

@@ -11,16 +11,16 @@ import android.widget.ListAdapter;
 import android.widget.TextView;
 import com.baidu.live.sdk.a;
 import com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.emojicon.emoji.Emojicon;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class a implements AdapterView.OnItemClickListener {
-    private static b oYX;
-    private static b oYY;
-    private View bVM;
+    private static b oUv;
+    private static b oUw;
+    private View bRa;
     private Context mContext;
-    private Emojicon[] oYZ;
-    private Emojicon[] oZa;
+    private Emojicon[] oUx;
+    private Emojicon[] oUy;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public interface b {
         void a(Emojicon emojicon);
 
@@ -32,27 +32,27 @@ public class a implements AdapterView.OnItemClickListener {
     }
 
     public a(Context context, Emojicon[] emojiconArr) {
-        this.oYZ = emojiconArr;
+        this.oUx = emojiconArr;
         this.mContext = context;
         com.baidu.yuyinala.privatemessage.implugin.util.c.d("EmojiconGridFragment", "EmojiconGridFragment is creating, emojicons.length = " + emojiconArr.length);
     }
 
-    public GridView ZY() {
-        this.bVM = LayoutInflater.from(this.mContext).inflate(a.g.bd_im_emojicon_grid, (ViewGroup) null);
-        GridView gridView = (GridView) this.bVM.findViewById(a.f.Emoji_GridView);
-        this.oZa = new Emojicon[this.oYZ.length + 1];
-        for (int i = 0; i < this.oYZ.length; i++) {
-            this.oZa[i] = this.oYZ[i];
+    public GridView Wf() {
+        this.bRa = LayoutInflater.from(this.mContext).inflate(a.g.bd_im_emojicon_grid, (ViewGroup) null);
+        GridView gridView = (GridView) this.bRa.findViewById(a.f.Emoji_GridView);
+        this.oUy = new Emojicon[this.oUx.length + 1];
+        for (int i = 0; i < this.oUx.length; i++) {
+            this.oUy[i] = this.oUx[i];
         }
         c(gridView);
-        gridView.setAdapter((ListAdapter) new C0983a(this.mContext, this.oZa));
+        gridView.setAdapter((ListAdapter) new C0966a(this.mContext, this.oUy));
         gridView.setOnItemClickListener(this);
         com.baidu.yuyinala.privatemessage.implugin.util.c.d("EmojiconGridFragment", "onViewCreated, gridView.count = " + gridView.getCount());
         return gridView;
     }
 
     private void c(GridView gridView) {
-        int k = com.baidu.yuyinala.privatemessage.implugin.util.c.b.k(this.mContext, com.baidu.yuyinala.privatemessage.implugin.util.c.a.pbX, 0);
+        int k = com.baidu.yuyinala.privatemessage.implugin.util.c.b.k(this.mContext, com.baidu.yuyinala.privatemessage.implugin.util.c.a.oXt, 0);
         if (k > 100) {
             int dimension = (int) this.mContext.getResources().getDimension(a.d.bd_im_emoji_bar_height);
             int dimension2 = ((int) this.mContext.getResources().getDimension(a.d.bd_im_emoji_pager_dot_height)) * 4;
@@ -69,37 +69,37 @@ public class a implements AdapterView.OnItemClickListener {
 
     public static void a(b bVar) {
         if (bVar instanceof b) {
-            oYY = bVar;
-            oYX = bVar;
+            oUw = bVar;
+            oUv = bVar;
             return;
         }
         throw new IllegalArgumentException(bVar + " must implement interface " + b.class.getSimpleName());
     }
 
-    public static void emU() {
-        oYX = null;
-        oYY = null;
+    public static void eja() {
+        oUv = null;
+        oUw = null;
     }
 
     @Override // android.widget.AdapterView.OnItemClickListener
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-        if (oYX != null) {
-            if (i != this.oZa.length - 1) {
-                oYX.a((Emojicon) adapterView.getItemAtPosition(i));
+        if (oUv != null) {
+            if (i != this.oUy.length - 1) {
+                oUv.a((Emojicon) adapterView.getItemAtPosition(i));
                 return;
             } else {
-                oYX.al(view);
+                oUv.al(view);
                 return;
             }
         }
-        oYX = oYY;
+        oUv = oUw;
         com.baidu.yuyinala.privatemessage.implugin.util.c.e("EmojiconGridFragment", "mOnEmojiconClickedListener is null");
     }
 
     /* renamed from: com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.emojicon.a$a  reason: collision with other inner class name */
-    /* loaded from: classes11.dex */
-    class C0983a extends ArrayAdapter<Emojicon> {
-        public C0983a(Context context, Emojicon[] emojiconArr) {
+    /* loaded from: classes10.dex */
+    class C0966a extends ArrayAdapter<Emojicon> {
+        public C0966a(Context context, Emojicon[] emojiconArr) {
             super(context, a.g.bd_im_emojicon_item, emojiconArr);
         }
 
@@ -107,28 +107,28 @@ public class a implements AdapterView.OnItemClickListener {
         public View getView(int i, View view, ViewGroup viewGroup) {
             if (view == null) {
                 view = View.inflate(getContext(), a.g.bd_im_emojicon_item, null);
-                C0984a c0984a = new C0984a();
-                c0984a.icon = (TextView) view.findViewById(a.f.emojicon_icon);
-                view.setTag(c0984a);
+                C0967a c0967a = new C0967a();
+                c0967a.icon = (TextView) view.findViewById(a.f.emojicon_icon);
+                view.setTag(c0967a);
             }
             if (i == getCount() - 1) {
                 return View.inflate(getContext(), a.g.bd_im_emojicon_backspace, null);
             }
             Emojicon item = getItem(i);
-            C0984a c0984a2 = (C0984a) view.getTag();
-            if (c0984a2 != null && c0984a2.icon != null && item != null) {
-                c0984a2.icon.setText(item.getEmoji());
+            C0967a c0967a2 = (C0967a) view.getTag();
+            if (c0967a2 != null && c0967a2.icon != null && item != null) {
+                c0967a2.icon.setText(item.getEmoji());
                 return view;
             }
             return view;
         }
 
         /* renamed from: com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.emojicon.a$a$a  reason: collision with other inner class name */
-        /* loaded from: classes11.dex */
-        class C0984a {
+        /* loaded from: classes10.dex */
+        class C0967a {
             TextView icon;
 
-            C0984a() {
+            C0967a() {
             }
         }
     }

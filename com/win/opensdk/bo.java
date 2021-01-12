@@ -1,7 +1,7 @@
 package com.win.opensdk;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public interface bo {
-    void abL(String str);
+    void aaD(String str);
 
-    boolean hu(String str, String str2);
+    boolean ht(String str, String str2);
 }

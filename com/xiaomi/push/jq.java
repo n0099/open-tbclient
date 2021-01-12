@@ -3,34 +3,34 @@ package com.xiaomi.push;
 public class jq extends js {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f14482a;
+    private int f14182a;
 
     /* renamed from: a  reason: collision with other field name */
-    private ja f863a;
+    private ja f862a;
 
     public jq(int i) {
-        this.f863a = new ja(i);
+        this.f862a = new ja(i);
     }
 
     @Override // com.xiaomi.push.js
     public int a(byte[] bArr, int i, int i2) {
-        byte[] m511a = this.f863a.m511a();
-        if (i2 > this.f863a.a() - this.f14482a) {
-            i2 = this.f863a.a() - this.f14482a;
+        byte[] m507a = this.f862a.m507a();
+        if (i2 > this.f862a.a() - this.f14182a) {
+            i2 = this.f862a.a() - this.f14182a;
         }
         if (i2 > 0) {
-            System.arraycopy(m511a, this.f14482a, bArr, i, i2);
-            this.f14482a += i2;
+            System.arraycopy(m507a, this.f14182a, bArr, i, i2);
+            this.f14182a += i2;
         }
         return i2;
     }
 
     @Override // com.xiaomi.push.js
     public void a(byte[] bArr, int i, int i2) {
-        this.f863a.write(bArr, i, i2);
+        this.f862a.write(bArr, i, i2);
     }
 
     public int a_() {
-        return this.f863a.size();
+        return this.f862a.size();
     }
 }

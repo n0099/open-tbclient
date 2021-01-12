@@ -31,7 +31,7 @@ import org.json.JSONObject;
 public class TTDelegateActivity extends Activity implements ActivityCompat.OnRequestPermissionsResultCallback {
 
     /* renamed from: a  reason: collision with root package name */
-    protected Intent f13264a = null;
+    protected Intent f12964a = null;
 
     public static void a(String str, String[] strArr) {
         Intent intent = new Intent(j.a(), TTDelegateActivity.class);
@@ -78,7 +78,7 @@ public class TTDelegateActivity extends Activity implements ActivityCompat.OnReq
     protected void onCreate(@Nullable Bundle bundle) {
         super.onCreate(bundle);
         b();
-        this.f13264a = getIntent();
+        this.f12964a = getIntent();
         j.b(this);
         a();
     }
@@ -94,7 +94,7 @@ public class TTDelegateActivity extends Activity implements ActivityCompat.OnReq
     protected void onNewIntent(Intent intent) {
         super.onNewIntent(intent);
         setIntent(intent);
-        this.f13264a = intent;
+        this.f12964a = intent;
         j.b(this);
         a();
     }
@@ -102,53 +102,53 @@ public class TTDelegateActivity extends Activity implements ActivityCompat.OnReq
     @Override // android.app.Activity, androidx.core.app.ActivityCompat.OnRequestPermissionsResultCallback
     public void onRequestPermissionsResult(int i, @NonNull String[] strArr, @NonNull int[] iArr) {
         super.onRequestPermissionsResult(i, strArr, iArr);
-        j.eGh().a(this, i, strArr, iArr);
+        j.eCq().a(this, i, strArr, iArr);
     }
 
     protected void a() {
-        if (this.f13264a != null) {
-            switch (this.f13264a.getIntExtra("type", 0)) {
+        if (this.f12964a != null) {
+            switch (this.f12964a.getIntExtra("type", 0)) {
                 case 1:
-                    b(this.f13264a.getStringExtra("permission_id_key"), this.f13264a.getStringArrayExtra("permission_content_key"));
+                    b(this.f12964a.getStringExtra("permission_id_key"), this.f12964a.getStringArrayExtra("permission_content_key"));
                     break;
                 case 2:
-                    b(this.f13264a.getStringExtra("open_url"));
+                    b(this.f12964a.getStringExtra("open_url"));
                     break;
                 case 3:
                 default:
                     i.a((Activity) this);
                     break;
                 case 4:
-                    d(this.f13264a.getLongExtra("model_id", 0L));
+                    d(this.f12964a.getLongExtra("model_id", 0L));
                     break;
                 case 5:
-                    c(this.f13264a.getLongExtra("model_id", 0L));
+                    c(this.f12964a.getLongExtra("model_id", 0L));
                     break;
             }
-            this.f13264a = null;
+            this.f12964a = null;
         }
     }
 
     private void c(long j) {
-        if (l.eGu() != null) {
-            a jb = d.eFT().jb(j);
+        if (l.eCD() != null) {
+            a jb = d.eCc().jb(j);
             if (jb != null) {
-                c h = f.iA(j.a()).h(jb.t());
+                c h = f.iy(j.a()).h(jb.t());
                 JSONObject jSONObject = new JSONObject();
                 try {
-                    jSONObject.putOpt("time_after_click", Long.valueOf(System.currentTimeMillis() - jb.eFI()));
-                    jSONObject.putOpt("click_download_size", Long.valueOf(jb.eFJ()));
+                    jSONObject.putOpt("time_after_click", Long.valueOf(System.currentTimeMillis() - jb.eBR()));
+                    jSONObject.putOpt("click_download_size", Long.valueOf(jb.eBS()));
                     if (h != null) {
-                        jSONObject.putOpt("download_length", Long.valueOf(h.eIz()));
-                        jSONObject.putOpt("download_percent", Long.valueOf(h.eIz() / h.ejL()));
-                        jSONObject.putOpt("download_apk_size", Long.valueOf(h.ejL()));
+                        jSONObject.putOpt("download_length", Long.valueOf(h.eEJ()));
+                        jSONObject.putOpt("download_percent", Long.valueOf(h.eEJ() / h.efR()));
+                        jSONObject.putOpt("download_apk_size", Long.valueOf(h.efR()));
                     }
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
-                com.ss.android.downloadlib.e.a.eGB().a("pause_reserve_wifi_dialog_show", jSONObject, jb);
+                com.ss.android.downloadlib.e.a.eCL().a("pause_reserve_wifi_dialog_show", jSONObject, jb);
             }
-            new e(this, l.eGu()).show();
+            new e(this, l.eCD()).show();
         }
     }
 
@@ -178,7 +178,7 @@ public class TTDelegateActivity extends Activity implements ActivityCompat.OnReq
         };
         if (Build.VERSION.SDK_INT >= 23) {
             try {
-                j.eGh().a(this, strArr, qVar);
+                j.eCq().a(this, strArr, qVar);
                 return;
             } catch (Exception e) {
                 qVar.a();
@@ -206,17 +206,17 @@ public class TTDelegateActivity extends Activity implements ActivityCompat.OnReq
     }
 
     private void d(long j) {
-        final a jb = d.eFT().jb(j);
+        final a jb = d.eCc().jb(j);
         if (jb == null) {
             i.b();
             i.a((Activity) this);
             return;
         }
-        k eGf = j.eGf();
-        c.a aal = new c.a(this).aal("已安装完成");
+        k eCo = j.eCo();
+        c.a Zd = new c.a(this).Zd("已安装完成");
         Object[] objArr = new Object[1];
         objArr[0] = TextUtils.isEmpty(jb.C()) ? "刚刚下载的应用" : jb.C();
-        eGf.b(aal.aam(String.format("%1$s已安装完成，是否立即打开？", objArr)).aan("打开").aao(PayHelper.STATUS_CANCEL_DESC).Bt(false).I(i.c(this, jb.m())).a(new c.b() { // from class: com.ss.android.downloadlib.activity.TTDelegateActivity.2
+        eCo.b(Zd.Ze(String.format("%1$s已安装完成，是否立即打开？", objArr)).Zf("打开").Zg(PayHelper.STATUS_CANCEL_DESC).Bp(false).I(i.c(this, jb.m())).a(new c.b() { // from class: com.ss.android.downloadlib.activity.TTDelegateActivity.2
             @Override // com.ss.android.a.a.d.c.b
             public void a(DialogInterface dialogInterface) {
                 com.ss.android.downloadlib.b.a.a(jb);
@@ -226,7 +226,7 @@ public class TTDelegateActivity extends Activity implements ActivityCompat.OnReq
 
             @Override // com.ss.android.a.a.d.c.b
             public void b(DialogInterface dialogInterface) {
-                com.ss.android.downloadlib.e.a.eGB().a("market_openapp_cancel", jb);
+                com.ss.android.downloadlib.e.a.eCL().a("market_openapp_cancel", jb);
                 dialogInterface.dismiss();
                 i.a((Activity) TTDelegateActivity.this);
             }
@@ -235,7 +235,7 @@ public class TTDelegateActivity extends Activity implements ActivityCompat.OnReq
             public void c(DialogInterface dialogInterface) {
                 i.a((Activity) TTDelegateActivity.this);
             }
-        }).RX(2).eFC());
-        com.ss.android.downloadlib.e.a.eGB().a("market_openapp_window_show", jb);
+        }).Qq(2).eBL());
+        com.ss.android.downloadlib.e.a.eCL().a("market_openapp_window_show", jb);
     }
 }

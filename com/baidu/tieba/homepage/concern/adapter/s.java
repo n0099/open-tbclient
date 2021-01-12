@@ -24,15 +24,15 @@ import com.baidu.tieba.card.data.BaseCardInfo;
 import java.util.ArrayList;
 /* loaded from: classes2.dex */
 public class s extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.concern.a.a, ThreadCardViewHolder<com.baidu.tieba.homepage.concern.a.a>> implements com.baidu.tieba.a.f {
-    private String aji;
-    private com.baidu.adp.widget.ListView.s anl;
-    public BdUniqueId fJu;
-    private NEGFeedBackView.a hnM;
+    private String air;
+    private com.baidu.adp.widget.ListView.s amu;
+    public BdUniqueId fEN;
+    private NEGFeedBackView.a hjg;
     private TbPageContext<?> mPageContext;
 
     public s(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
-        this.hnM = new NEGFeedBackView.a() { // from class: com.baidu.tieba.homepage.concern.adapter.s.1
+        this.hjg = new NEGFeedBackView.a() { // from class: com.baidu.tieba.homepage.concern.adapter.s.1
             @Override // com.baidu.tieba.NEGFeedBack.NEGFeedBackView.a
             public void onNEGFeedbackWindowShow(at atVar) {
             }
@@ -57,7 +57,7 @@ public class s extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
     }
 
     public void a(com.baidu.adp.widget.ListView.s sVar) {
-        this.anl = sVar;
+        this.amu = sVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -66,21 +66,21 @@ public class s extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
     /* renamed from: bd */
     public ThreadCardViewHolder e(ViewGroup viewGroup) {
         ak.a aVar = new ak.a(this.mPageContext.getPageActivity(), false);
-        com.baidu.tieba.homepage.concern.view.a aVar2 = new com.baidu.tieba.homepage.concern.view.a(this.mPageContext, this.fJu);
+        com.baidu.tieba.homepage.concern.view.a aVar2 = new com.baidu.tieba.homepage.concern.view.a(this.mPageContext, this.fEN);
         aVar2.setHasBorder(true);
         aVar.c(aVar2);
-        aVar.tx().bB(0);
-        aVar.tx().bD(0);
-        aVar.tx().bC(0);
-        aVar.tx().bz(0);
-        ThreadCardViewHolder threadCardViewHolder = new ThreadCardViewHolder(aVar.a(BaseCardInfo.SupportType.FULL, viewGroup, this.anl));
-        threadCardViewHolder.setPageId(this.fJu);
+        aVar.tl().bz(0);
+        aVar.tl().bB(0);
+        aVar.tl().bA(0);
+        aVar.tl().bx(0);
+        ThreadCardViewHolder threadCardViewHolder = new ThreadCardViewHolder(aVar.a(BaseCardInfo.SupportType.FULL, viewGroup, this.amu));
+        threadCardViewHolder.setPageId(this.fEN);
         ab aK = threadCardViewHolder.aK(false);
-        aK.a(this.hnM);
+        aK.a(this.hjg);
         aK.setAutoProcess(false);
         aK.setHeadText(this.mContext.getString(R.string.concern_recommend_dialog_title));
         aK.aI(true);
-        aK.aiE = true;
+        aK.ahM = true;
         return threadCardViewHolder;
     }
 
@@ -92,14 +92,14 @@ public class s extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
             return null;
         }
         aq aqVar = new aq("c13565");
-        aqVar.an("obj_source", aVar.bqF() ? 1 : 2);
-        com.baidu.tieba.card.s.cvb().e(aqVar);
-        threadCardViewHolder.ty().setPosition(i);
-        if (threadCardViewHolder.ty() instanceof com.baidu.tieba.a.e) {
-            threadCardViewHolder.ty().setPage(this.aji);
+        aqVar.an("obj_source", aVar.bmL() ? 1 : 2);
+        com.baidu.tieba.card.s.crj().e(aqVar);
+        threadCardViewHolder.tm().setPosition(i);
+        if (threadCardViewHolder.tm() instanceof com.baidu.tieba.a.e) {
+            threadCardViewHolder.tm().setPage(this.air);
         }
         threadCardViewHolder.b((ThreadCardViewHolder<com.baidu.tieba.homepage.concern.a.a>) aVar);
-        threadCardViewHolder.ty().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
+        threadCardViewHolder.tm().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
         return threadCardViewHolder.getView();
     }
 
@@ -120,7 +120,7 @@ public class s extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
                 this.mNetwork.setUrl(TbConfig.SERVER_ADDRESS + TbConfig.CONCERN_RECOMMEND_FEEDBACK);
                 this.mNetwork.addPostData("dislike_from", "concernpage");
                 this.mNetwork.addPostData("dislike_type", "1");
-                this.mNetwork.bvR().bwA().mIsNeedTbs = true;
+                this.mNetwork.brX().bsG().mIsNeedTbs = true;
                 return this.mNetwork.postNetData();
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
@@ -146,7 +146,7 @@ public class s extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
     }
 
     @Override // com.baidu.tieba.a.f
-    public void Fl(String str) {
-        this.aji = str;
+    public void Ea(String str) {
+        this.air = str;
     }
 }

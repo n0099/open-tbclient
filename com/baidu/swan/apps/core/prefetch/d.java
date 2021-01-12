@@ -4,19 +4,19 @@ import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.swan.apps.core.prefetch.a;
 import com.baidu.swan.pms.model.PMSAppInfo;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public final class d {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private com.baidu.swan.apps.core.prefetch.a cYA;
-    private b cYB;
+    private com.baidu.swan.apps.core.prefetch.a cTO;
+    private b cTP;
 
     private d() {
-        this.cYA = new com.baidu.swan.apps.core.prefetch.a();
-        this.cYB = new b();
+        this.cTO = new com.baidu.swan.apps.core.prefetch.a();
+        this.cTP = new b();
     }
 
-    public static d auH() {
-        return a.cYD;
+    public static d aqM() {
+        return a.cTR;
     }
 
     public void d(final PrefetchEvent prefetchEvent) {
@@ -28,14 +28,14 @@ public final class d {
                 Log.d("SwanAppPrefetchManager", "firePrefetchEvent event: " + prefetchEvent);
             }
             if (TextUtils.equals("show", prefetchEvent.state)) {
-                this.cYA.a(prefetchEvent, new a.b() { // from class: com.baidu.swan.apps.core.prefetch.d.1
+                this.cTO.a(prefetchEvent, new a.b() { // from class: com.baidu.swan.apps.core.prefetch.d.1
                     @Override // com.baidu.swan.apps.core.prefetch.a.b
                     public void a(com.baidu.swan.apps.process.messaging.service.c cVar, PMSAppInfo pMSAppInfo) {
-                        d.this.cYB.a(prefetchEvent, cVar, pMSAppInfo);
+                        d.this.cTP.a(prefetchEvent, cVar, pMSAppInfo);
                     }
                 });
             } else {
-                this.cYB.d(prefetchEvent);
+                this.cTP.d(prefetchEvent);
             }
         }
     }
@@ -44,8 +44,8 @@ public final class d {
         return (com.baidu.swan.apps.core.prefetch.a.a.isOn() && prefetchEvent != null && prefetchEvent.isValid()) ? false : true;
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     private static class a {
-        private static final d cYD = new d();
+        private static final d cTR = new d();
     }
 }

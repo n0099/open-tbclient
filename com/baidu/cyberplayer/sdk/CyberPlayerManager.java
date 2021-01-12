@@ -9,7 +9,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 @Keep
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class CyberPlayerManager {
     public static final int CLARITY_MODE_AUTO = -1;
     public static final int COMMAND_ADD_STAGE_INFO = 1001;
@@ -165,10 +165,10 @@ public class CyberPlayerManager {
     private static Class<?> i;
 
     /* renamed from: a  reason: collision with root package name */
-    private static boolean f1754a = false;
+    private static boolean f1704a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    private static OnDeleteListener f1755b = null;
+    private static OnDeleteListener f1705b = null;
     private static OnVideoFlowListener c = null;
     private static final Object d = new Object();
     public static String VIDEO_FLOW_URL = "video_flow_url";
@@ -178,13 +178,13 @@ public class CyberPlayerManager {
     private static Map<String, String> j = new HashMap();
 
     @Keep
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public interface HttpDNS {
         List<String> getIpList(String str);
     }
 
     @Keep
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public interface InstallListener {
         void onInstallError(int i, int i2, String str);
 
@@ -194,61 +194,61 @@ public class CyberPlayerManager {
     }
 
     @Keep
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public interface OnBufferingUpdateListener {
         void onBufferingUpdate(int i);
     }
 
     @Keep
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public interface OnCompletionListener {
         void onCompletion();
     }
 
     @Keep
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public interface OnDeleteListener {
         void onDeleteComplete(int i, long j);
     }
 
     @Keep
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public interface OnErrorListener {
         boolean onError(int i, int i2, Object obj);
     }
 
     @Keep
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public interface OnInfoListener {
         boolean onInfo(int i, int i2, Object obj);
     }
 
     @Keep
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public interface OnMediaSourceChangedListener {
         boolean onMediaSourceChanged(int i, int i2, Object obj);
     }
 
     @Keep
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public interface OnPreparedListener {
         void onPrepared();
     }
 
     @Keep
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public interface OnSeekCompleteListener {
         void onSeekComplete();
     }
 
     @Keep
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public interface OnVideoFlowListener {
         void onRecordFlow(HashMap<String, String> hashMap);
     }
 
     @Keep
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public interface OnVideoSizeChangedListener {
         void onVideoSizeChanged(int i, int i2, int i3, int i4);
     }
@@ -284,29 +284,29 @@ public class CyberPlayerManager {
     }
 
     public static void deleteVideoCache(OnDeleteListener onDeleteListener) {
-        if (f1754a) {
+        if (f1704a) {
             if (onDeleteListener != null) {
                 onDeleteListener.onDeleteComplete(-2, 0L);
                 return;
             }
             return;
         }
-        f1754a = true;
-        f1755b = onDeleteListener;
+        f1704a = true;
+        f1705b = onDeleteListener;
         CyberTaskExcutor.getInstance().executeSingleThread(new Runnable() { // from class: com.baidu.cyberplayer.sdk.CyberPlayerManager.1
             @Override // java.lang.Runnable
             public void run() {
                 synchronized (CyberPlayerManager.d) {
                     long a2 = n.a((Boolean) true);
-                    if (CyberPlayerManager.f1755b != null) {
+                    if (CyberPlayerManager.f1705b != null) {
                         if (a2 < 0) {
-                            CyberPlayerManager.f1755b.onDeleteComplete((int) a2, 0L);
+                            CyberPlayerManager.f1705b.onDeleteComplete((int) a2, 0L);
                         } else {
-                            CyberPlayerManager.f1755b.onDeleteComplete(0, a2);
+                            CyberPlayerManager.f1705b.onDeleteComplete(0, a2);
                         }
                     }
-                    boolean unused = CyberPlayerManager.f1754a = false;
-                    OnDeleteListener unused2 = CyberPlayerManager.f1755b = null;
+                    boolean unused = CyberPlayerManager.f1704a = false;
+                    OnDeleteListener unused2 = CyberPlayerManager.f1705b = null;
                 }
             }
         });

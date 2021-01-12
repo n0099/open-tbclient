@@ -5,7 +5,7 @@ import android.graphics.Matrix;
 import android.view.WindowManager;
 import com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView;
 import org.webrtc.VideoFrame;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public final /* synthetic */ class CameraSession_CC {
     public static VideoFrame.TextureBuffer createTextureBufferWithModifiedTransformMatrix(TextureBufferImpl textureBufferImpl, boolean z, int i) {
         Matrix matrix = new Matrix();

@@ -7,7 +7,7 @@ import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.text.TextUtils;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class BuildInfo {
     public static PackageInfo sBrowserPackageInfo;
     public static String sFirebaseAppId;
@@ -24,7 +24,7 @@ public class BuildInfo {
     public final long versionCode;
     public final String versionName;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     private static class Holder {
         public static BuildInfo sInstance = new BuildInfo(null);
     }

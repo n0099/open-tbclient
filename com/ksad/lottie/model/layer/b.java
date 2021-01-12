@@ -8,7 +8,7 @@ import androidx.annotation.Nullable;
 import androidx.collection.LongSparseArray;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class b extends a {
     @Nullable
     private com.ksad.lottie.a.b.a<Float, Float> e;
@@ -71,7 +71,7 @@ public class b extends a {
     public void a(@FloatRange(from = 0.0d, to = 1.0d) float f) {
         super.a(f);
         if (this.e != null) {
-            f = (this.e.e().floatValue() * 1000.0f) / this.f8394b.r().c();
+            f = (this.e.e().floatValue() * 1000.0f) / this.f8094b.r().c();
         }
         if (this.c.b() != 0.0f) {
             f /= this.c.b();
@@ -87,7 +87,7 @@ public class b extends a {
         super.a(rectF, matrix);
         this.g.set(0.0f, 0.0f, 0.0f, 0.0f);
         for (int size = this.f.size() - 1; size >= 0; size--) {
-            this.f.get(size).a(this.g, this.f8393a);
+            this.f.get(size).a(this.g, this.f8093a);
             if (rectF.isEmpty()) {
                 rectF.set(this.g);
             } else {

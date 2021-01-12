@@ -49,21 +49,21 @@ import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class OfficialBarFeedMsglistView extends com.baidu.adp.base.d<OfficialBarFeedActivity> implements OfficialBarFeedMsglistAdapter.c {
-    private NoDataView fKO;
-    private RecyclerView hmG;
-    private TbPageContext<OfficialBarFeedActivity> kab;
-    private boolean kyq;
-    private ImageView kzb;
-    private OfficialBarFeedMsglistAdapter kzc;
-    private TextView kzd;
-    private View kze;
-    private ViewGroup kzf;
-    private g kzg;
-    private String kzh;
-    private TextView kzi;
-    private FrameLayout kzj;
+    private NoDataView fGh;
+    private RecyclerView hhZ;
+    private TbPageContext<OfficialBarFeedActivity> jVw;
+    private boolean ktL;
+    private ViewGroup kuA;
+    private g kuB;
+    private String kuC;
+    private TextView kuD;
+    private FrameLayout kuE;
+    private ImageView kuw;
+    private OfficialBarFeedMsglistAdapter kux;
+    private TextView kuy;
+    private View kuz;
     private BaseActivity<OfficialBarFeedActivity> mActivity;
     private View mBtnGroupInfo;
     private View mImgBack;
@@ -82,21 +82,21 @@ public class OfficialBarFeedMsglistView extends com.baidu.adp.base.d<OfficialBar
         this.mBtnGroupInfo = null;
         this.mImgBack = null;
         this.rootView = null;
-        this.kzf = null;
-        this.kzg = null;
+        this.kuA = null;
+        this.kuB = null;
         this.mLisMsg = null;
         this.onClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.im.chat.officialBar.OfficialBarFeedMsglistView.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                OfficialBarFeedMsglistView.this.b(view, OfficialBarFeedMsglistView.this.kab.getPageActivity());
+                OfficialBarFeedMsglistView.this.b(view, OfficialBarFeedMsglistView.this.jVw.getPageActivity());
             }
         };
         this.mActivity = baseActivity;
-        this.kyq = z;
-        this.kab = baseActivity.getPageContext();
+        this.ktL = z;
+        this.jVw = baseActivity.getPageContext();
         baseActivity.setContentView(R.layout.msg_msglist_activity);
-        this.kzf = (ViewGroup) baseActivity.findViewById(R.id.msg_root_view);
-        baseActivity.showLoadingView(this.kzf);
+        this.kuA = (ViewGroup) baseActivity.findViewById(R.id.msg_root_view);
+        baseActivity.showLoadingView(this.kuA);
         b(baseActivity);
         c(baseActivity);
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
@@ -106,45 +106,45 @@ public class OfficialBarFeedMsglistView extends com.baidu.adp.base.d<OfficialBar
         this.mNavigationBar = (NavigationBar) baseActivity.findViewById(R.id.lay_title_bar);
         this.mImgBack = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, this.onClickListener);
         this.mImgBack.setOnClickListener(this.onClickListener);
-        this.kzh = baseActivity.getIntent() != null ? baseActivity.getIntent().getStringExtra("forum_name") : "";
-        this.mNavigationBar.setCenterTextTitle(this.kyq ? this.kzh + baseActivity.getString(R.string.forum) : baseActivity.getPageContext().getString(R.string.subscribe_bar_title));
+        this.kuC = baseActivity.getIntent() != null ? baseActivity.getIntent().getStringExtra("forum_name") : "";
+        this.mNavigationBar.setCenterTextTitle(this.ktL ? this.kuC + baseActivity.getString(R.string.forum) : baseActivity.getPageContext().getString(R.string.subscribe_bar_title));
         this.mNavigationBar.showBottomLine();
-        if (this.kyq) {
-            this.kzi = this.mNavigationBar.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, baseActivity.getString(R.string.enter_forum));
-            this.kzi.setOnClickListener(this.onClickListener);
+        if (this.ktL) {
+            this.kuD = this.mNavigationBar.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, baseActivity.getString(R.string.enter_forum));
+            this.kuD.setOnClickListener(this.onClickListener);
             return;
         }
         this.mBtnGroupInfo = this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.official_bar_feed_natigation_icon, this.onClickListener);
-        this.kzb = (ImageView) this.mBtnGroupInfo.findViewById(R.id.feed_header_icon);
-        this.kzb.setClickable(true);
-        this.kzb.setOnClickListener(this.onClickListener);
+        this.kuw = (ImageView) this.mBtnGroupInfo.findViewById(R.id.feed_header_icon);
+        this.kuw.setClickable(true);
+        this.kuw.setOnClickListener(this.onClickListener);
     }
 
     private void c(BaseActivity baseActivity) {
-        this.kzj = (FrameLayout) baseActivity.findViewById(R.id.layout_main);
+        this.kuE = (FrameLayout) baseActivity.findViewById(R.id.layout_main);
         this.mLisMsg = (BdTypeListView) baseActivity.findViewById(R.id.lis_msg);
-        if (this.kyq) {
+        if (this.ktL) {
             FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.mLisMsg.getLayoutParams();
             layoutParams.topMargin = l.getDimens(this.mContext.getPageActivity(), R.dimen.tbds_7);
             this.mLisMsg.setLayoutParams(layoutParams);
         }
-        this.kzg = new g(this.kab, this.mLisMsg, this);
-        this.kzg.sC(this.kyq);
+        this.kuB = new g(this.jVw, this.mLisMsg, this);
+        this.kuB.sy(this.ktL);
         ((ProgressBar) baseActivity.findViewById(R.id.msg_progress)).setVisibility(8);
         this.mLisMsg.setItemsCanFocus(true);
         this.mLisMsg.setFocusable(false);
         this.mLisMsg.setFocusableInTouchMode(false);
         this.mLisMsg.setClickable(false);
-        if (!this.kyq) {
+        if (!this.ktL) {
             this.rootView = View.inflate(baseActivity, R.layout.official_bar_feed_header, null);
-            this.kze = this.rootView.findViewById(R.id.official_bar_feed_header_view);
-            this.kzd = (TextView) this.rootView.findViewById(R.id.official_feed_recent);
-            this.hmG = (RecyclerView) this.rootView.findViewById(R.id.official_feed_recent_recyclerview);
-            this.hmG.setLayoutManager(new LinearLayoutManager(baseActivity, 0, false));
-            this.kzc = new OfficialBarFeedMsglistAdapter(baseActivity.getPageContext(), this);
-            this.hmG.setAdapter(this.kzc);
-            this.hmG.setClipChildren(false);
-            this.hmG.addItemDecoration(new RecyclerView.ItemDecoration() { // from class: com.baidu.tieba.im.chat.officialBar.OfficialBarFeedMsglistView.1
+            this.kuz = this.rootView.findViewById(R.id.official_bar_feed_header_view);
+            this.kuy = (TextView) this.rootView.findViewById(R.id.official_feed_recent);
+            this.hhZ = (RecyclerView) this.rootView.findViewById(R.id.official_feed_recent_recyclerview);
+            this.hhZ.setLayoutManager(new LinearLayoutManager(baseActivity, 0, false));
+            this.kux = new OfficialBarFeedMsglistAdapter(baseActivity.getPageContext(), this);
+            this.hhZ.setAdapter(this.kux);
+            this.hhZ.setClipChildren(false);
+            this.hhZ.addItemDecoration(new RecyclerView.ItemDecoration() { // from class: com.baidu.tieba.im.chat.officialBar.OfficialBarFeedMsglistView.1
                 @Override // androidx.recyclerview.widget.RecyclerView.ItemDecoration
                 public void getItemOffsets(Rect rect, View view, RecyclerView recyclerView, RecyclerView.State state) {
                     super.getItemOffsets(rect, view, recyclerView, state);
@@ -154,16 +154,16 @@ public class OfficialBarFeedMsglistView extends com.baidu.adp.base.d<OfficialBar
                 }
             }, 0);
         }
-        this.mLisMsg.setAdapter((ListAdapter) this.kzg);
+        this.mLisMsg.setAdapter((ListAdapter) this.kuB);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void B(List<com.baidu.tieba.im.message.chat.b> list, List<com.baidu.tieba.im.db.pojo.a> list2) {
-        this.kzg.setData(list);
-        if (this.kyq) {
+        this.kuB.setData(list);
+        if (this.ktL) {
             this.mLisMsg.setSelection(this.mLisMsg.getBottom());
         }
-        this.mActivity.hideLoadingView(this.kzf);
+        this.mActivity.hideLoadingView(this.kuA);
         if (list != null && list.size() > 0) {
             hideNoDataView();
         } else {
@@ -174,15 +174,15 @@ public class OfficialBarFeedMsglistView extends com.baidu.adp.base.d<OfficialBar
             for (int i = 0; i < 10 && i < list2.size(); i++) {
                 com.baidu.tieba.im.db.pojo.a aVar = list2.get(i);
                 OfficialBarFeedMsglistAdapter.a aVar2 = new OfficialBarFeedMsglistAdapter.a();
-                aVar2.ML(aVar.cXL());
-                aVar2.MM(aVar.getForumName());
+                aVar2.LD(aVar.cTT());
+                aVar2.LE(aVar.getForumName());
                 aVar2.setUnReadCount(aVar.getUnReadCount());
                 aVar2.setUserType(aVar.getUserType());
                 aVar2.setGroupId(Long.parseLong(aVar.getGid()));
-                aVar2.gK(aVar.cWM());
+                aVar2.gK(aVar.cSU());
                 arrayList.add(aVar2);
             }
-            this.kzc.setData(arrayList);
+            this.kux.setData(arrayList);
             if (this.rootView != null && this.mLisMsg.getHeaderViewsCount() <= 0) {
                 this.mLisMsg.addHeaderView(this.rootView);
             }
@@ -192,119 +192,119 @@ public class OfficialBarFeedMsglistView extends com.baidu.adp.base.d<OfficialBar
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(LongSparseArray<com.baidu.tieba.im.forum.broadcast.data.b> longSparseArray) {
         if (longSparseArray != null && longSparseArray.size() > 0) {
-            this.kzg.b(longSparseArray);
+            this.kuB.b(longSparseArray);
         }
     }
 
     public void onChangeSkinType(int i) {
         this.mNavigationBar.onChangeSkinType(getPageContext(), i);
         this.mNavigationBar.onBackBtnOnChangeSkin();
-        ao.setViewTextColor(this.kzb, R.color.CAM_X0302, 1);
-        ao.setViewTextColor(this.kzd, R.color.CAM_X0105);
-        ao.setViewTextColor(this.kzi, R.color.CAM_X0105);
-        ao.setBackgroundColor(this.kzj, R.color.CAM_X0204);
-        if (this.kze != null) {
-            com.baidu.tbadk.core.util.f.a.bwU().qI(R.color.CAM_X0205).qD(l.getDimens(this.kab.getPageActivity(), R.dimen.tbds31)).qE(R.color.CAM_X0804).qC(4369).qF(l.getDimens(this.kab.getPageActivity(), R.dimen.tbds10)).qG(0).qH(l.getDimens(this.kab.getPageActivity(), R.dimen.tbds5)).bz(this.kze);
+        ao.setViewTextColor(this.kuw, R.color.CAM_X0302, 1);
+        ao.setViewTextColor(this.kuy, R.color.CAM_X0105);
+        ao.setViewTextColor(this.kuD, R.color.CAM_X0105);
+        ao.setBackgroundColor(this.kuE, R.color.CAM_X0204);
+        if (this.kuz != null) {
+            com.baidu.tbadk.core.util.f.a.bta().pb(R.color.CAM_X0205).oW(l.getDimens(this.jVw.getPageActivity(), R.dimen.tbds31)).oX(R.color.CAM_X0804).oV(4369).oY(l.getDimens(this.jVw.getPageActivity(), R.dimen.tbds10)).oZ(0).pa(l.getDimens(this.jVw.getPageActivity(), R.dimen.tbds5)).bz(this.kuz);
         }
-        if (this.fKO != null) {
-            this.fKO.onChangeSkinType(this.kab, i);
+        if (this.fGh != null) {
+            this.fGh.onChangeSkinType(this.jVw, i);
         }
-        if (this.kzb != null) {
-            SvgManager.bwr().a(this.kzb, R.drawable.icon_pure_more_administration44_svg, R.color.CAM_X0105, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+        if (this.kuw != null) {
+            SvgManager.bsx().a(this.kuw, R.drawable.icon_pure_more_administration44_svg, R.color.CAM_X0105, SvgManager.SvgResourceStateType.NORMAL_PRESS);
         }
-        if (this.kzg != null) {
-            this.kzg.notifyDataSetChanged();
+        if (this.kuB != null) {
+            this.kuB.notifyDataSetChanged();
         }
     }
 
     public void b(View view, Activity activity) {
-        if (view == this.kzb) {
+        if (view == this.kuw) {
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.IM_OFFICIALBARTIP_ACTIVITY_START, new OfficialBarTipActivityConfig(getPageContext().getPageActivity())));
         } else if (view == this.mImgBack) {
             activity.finish();
-        } else if (view == this.kzi) {
-            this.mContext.sendMessage(new CustomMessage<>((int) CmdConfigCustom.ACTIVITY_START_NORMAL, new FrsActivityConfig(this.mContext.getPageActivity()).createNormalCfg(this.kzh, FrsActivityConfig.FRS_FROM_ENTERFORUM_RECOMMEND).setCallFrom(3)));
+        } else if (view == this.kuD) {
+            this.mContext.sendMessage(new CustomMessage<>((int) CmdConfigCustom.ACTIVITY_START_NORMAL, new FrsActivityConfig(this.mContext.getPageActivity()).createNormalCfg(this.kuC, FrsActivityConfig.FRS_FROM_ENTERFORUM_RECOMMEND).setCallFrom(3)));
             if (activity.getIntent() != null) {
                 aq aqVar = new aq("c13867");
-                aqVar.dX("uid", TbadkCoreApplication.getCurrentAccount());
-                aqVar.dX("fid", activity.getIntent().getStringExtra("key_uid"));
+                aqVar.dW("uid", TbadkCoreApplication.getCurrentAccount());
+                aqVar.dW("fid", activity.getIntent().getStringExtra("key_uid"));
                 TiebaStatic.log(aqVar);
             }
         }
     }
 
     public void showTipToast(boolean z, String str) {
-        new BdTopToast(this.mActivity).yW(z).UX(str).aR(this.kzf);
+        new BdTopToast(this.mActivity).yS(z).TP(str).aR(this.kuA);
     }
 
     @Override // com.baidu.tieba.im.chat.officialBar.OfficialBarFeedMsglistAdapter.c
     public void a(View view, Object obj, int i, long j) {
         if (obj instanceof OfficialBarFeedMsglistAdapter.a) {
             OfficialBarFeedMsglistAdapter.a aVar = (OfficialBarFeedMsglistAdapter.a) obj;
-            SingleForumBroadcastFeedActivityConfig singleForumBroadcastFeedActivityConfig = new SingleForumBroadcastFeedActivityConfig(this.kab.getPageActivity(), String.valueOf(aVar.getGroupId()), aVar.cRc());
+            SingleForumBroadcastFeedActivityConfig singleForumBroadcastFeedActivityConfig = new SingleForumBroadcastFeedActivityConfig(this.jVw.getPageActivity(), String.valueOf(aVar.getGroupId()), aVar.cNk());
             singleForumBroadcastFeedActivityConfig.setSource((byte) 1);
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, singleForumBroadcastFeedActivityConfig));
             aq aqVar = new aq("c13862");
-            aqVar.dX("uid", TbadkCoreApplication.getCurrentAccount());
+            aqVar.dW("uid", TbadkCoreApplication.getCurrentAccount());
             aqVar.w("fid", aVar.getGroupId());
             TiebaStatic.log(aqVar);
-        } else if (obj instanceof a.C0775a) {
-            a((a.C0775a) obj, this.kab.getPageActivity());
+        } else if (obj instanceof a.C0758a) {
+            a((a.C0758a) obj, this.jVw.getPageActivity());
         }
     }
 
-    private void a(a.C0775a c0775a, Context context) {
-        if (c0775a != null) {
-            K(c0775a.fid, System.currentTimeMillis());
-            if (!StringUtils.isNull(c0775a.url)) {
-                if (c0775a.url.startsWith("web:http")) {
-                    c0775a.url = c0775a.url.replaceFirst(UrlSchemaHelper.SCHEMA_TYPE_WEB, "");
+    private void a(a.C0758a c0758a, Context context) {
+        if (c0758a != null) {
+            K(c0758a.fid, System.currentTimeMillis());
+            if (!StringUtils.isNull(c0758a.url)) {
+                if (c0758a.url.startsWith("web:http")) {
+                    c0758a.url = c0758a.url.replaceFirst(UrlSchemaHelper.SCHEMA_TYPE_WEB, "");
                 }
-                if (c0775a.url.contains("?")) {
-                    c0775a.url = String.format(Locale.US, "%s&broadcast_id=%d", c0775a.url, Long.valueOf(c0775a.kFM));
+                if (c0758a.url.contains("?")) {
+                    c0758a.url = String.format(Locale.US, "%s&broadcast_id=%d", c0758a.url, Long.valueOf(c0758a.kBh));
                 } else {
-                    c0775a.url = String.format(Locale.US, "%s?broadcast_id=%d", c0775a.url, Long.valueOf(c0775a.kFM));
+                    c0758a.url = String.format(Locale.US, "%s?broadcast_id=%d", c0758a.url, Long.valueOf(c0758a.kBh));
                 }
-                if (c0775a.url.contains("com.baidu.tieba://deeplink?jump=new_hot_topic_list")) {
+                if (c0758a.url.contains("com.baidu.tieba://deeplink?jump=new_hot_topic_list")) {
                     try {
-                        context.startActivity(Intent.parseUri(c0775a.url, 1));
+                        context.startActivity(Intent.parseUri(c0758a.url, 1));
                     } catch (URISyntaxException e) {
                         e.printStackTrace();
                     }
                 }
-                if (URLUtil.isHttpUrl(c0775a.url) || URLUtil.isHttpsUrl(c0775a.url) || c0775a.url.startsWith("flt://")) {
-                    be.bwv().b(this.kab, new String[]{c0775a.url});
+                if (URLUtil.isHttpUrl(c0758a.url) || URLUtil.isHttpsUrl(c0758a.url) || c0758a.url.startsWith("flt://")) {
+                    be.bsB().b(this.jVw, new String[]{c0758a.url});
                 } else {
-                    Uri parse = Uri.parse(c0775a.url);
+                    Uri parse = Uri.parse(c0758a.url);
                     if (parse != null) {
                         UtilHelper.dealOneScheme(context, parse.toString());
                     }
                 }
-                aq aqVar = new aq(this.kyq ? "c13866" : "c13864");
-                aqVar.dX("uid", TbadkCoreApplication.getCurrentAccount());
-                aqVar.dX("fid", c0775a.fid);
-                aqVar.dX("tid", c0775a.tid == null ? "" : c0775a.tid);
+                aq aqVar = new aq(this.ktL ? "c13866" : "c13864");
+                aqVar.dW("uid", TbadkCoreApplication.getCurrentAccount());
+                aqVar.dW("fid", c0758a.fid);
+                aqVar.dW("tid", c0758a.tid == null ? "" : c0758a.tid);
                 TiebaStatic.log(aqVar);
             }
         }
     }
 
     private void hideNoDataView() {
-        if (this.fKO != null && this.fKO.getVisibility() == 0) {
-            this.fKO.setVisibility(8);
+        if (this.fGh != null && this.fGh.getVisibility() == 0) {
+            this.fGh.setVisibility(8);
         }
     }
 
     private void showNoDataView() {
-        if (this.fKO == null) {
-            this.fKO = NoDataViewFactory.a(this.kab.getPageActivity(), this.kzf, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, 454), NoDataViewFactory.d.ra(R.string.official_feed_no_data), null);
+        if (this.fGh == null) {
+            this.fGh = NoDataViewFactory.a(this.jVw.getPageActivity(), this.kuA, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, 454), NoDataViewFactory.d.pu(R.string.official_feed_no_data), null);
             NoDataViewFactory.c.a aVar = new NoDataViewFactory.c.a();
             aVar.b(NoDataViewFactory.ImgType.CREATE);
-            this.fKO.setImgOption(aVar.bxA());
+            this.fGh.setImgOption(aVar.btG());
         }
-        if (this.fKO.getVisibility() != 0) {
-            this.fKO.onChangeSkinType(this.kab, TbadkApplication.getInst().getSkinType());
-            this.fKO.setVisibility(0);
+        if (this.fGh.getVisibility() != 0) {
+            this.fGh.onChangeSkinType(this.jVw, TbadkApplication.getInst().getSkinType());
+            this.fGh.setVisibility(0);
         }
     }
 
@@ -312,10 +312,10 @@ public class OfficialBarFeedMsglistView extends com.baidu.adp.base.d<OfficialBar
         ac.b(new ab<Void>() { // from class: com.baidu.tieba.im.chat.officialBar.OfficialBarFeedMsglistView.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tbadk.util.ab
-            /* renamed from: bPn */
+            /* renamed from: bLv */
             public Void doInBackground() {
                 if (!StringUtils.isNull(str)) {
-                    com.baidu.tieba.im.db.l.cXD().D(Long.parseLong(str), j);
+                    com.baidu.tieba.im.db.l.cTL().D(Long.parseLong(str), j);
                     return null;
                 }
                 return null;

@@ -1,5 +1,5 @@
 package com.baidu.mapsdkplatform.comapi.map;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class VersionInfo {
     public static final String KIT_NAME = "BaiduMapSDK_map_for_bikenavi_v";
     public static final String VERSION_DESC = "baidumapapi_map";
@@ -9,7 +9,7 @@ public class VersionInfo {
     }
 
     public static String getKitName() {
-        return "BaiduMapSDK_map_for_bikenavi_v7_0_0";
+        return "BaiduMapSDK_map_for_bikenavi_v5_2_1";
     }
 
     public static String getVersionDesc() {

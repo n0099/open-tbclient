@@ -1,10 +1,10 @@
 package com.win.opensdk;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public final class aa {
     public String java;
-    public long qdF;
+    public long pZe;
 
     public final String toString() {
-        return this.java + ":" + this.qdF;
+        return this.java + ":" + this.pZe;
     }
 }

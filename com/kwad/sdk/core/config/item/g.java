@@ -3,7 +3,7 @@ package com.kwad.sdk.core.config.item;
 import android.content.SharedPreferences;
 import androidx.annotation.NonNull;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class g extends a<Long> {
     public g(String str, Long l) {
         super(str, l);

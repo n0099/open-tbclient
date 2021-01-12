@@ -5,11 +5,11 @@ import com.baidu.fsg.base.restnet.RestMultipartEntity;
 import com.baidu.fsg.base.restnet.RestNameValuePair;
 import com.baidu.fsg.base.restnet.http.HttpDefines;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    private static d f1947a;
+    private static d f1897a;
 
     private d() {
     }
@@ -17,10 +17,10 @@ public class d {
     public static synchronized d a() {
         d dVar;
         synchronized (d.class) {
-            if (f1947a == null) {
-                f1947a = new d();
+            if (f1897a == null) {
+                f1897a = new d();
             }
-            dVar = f1947a;
+            dVar = f1897a;
         }
         return dVar;
     }

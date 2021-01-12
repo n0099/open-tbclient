@@ -2,7 +2,7 @@ package com.kwad.sdk.core.c.a;
 
 import com.kwad.sdk.core.preload.SplashPreloadManager;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class z implements com.kwad.sdk.core.c<SplashPreloadManager.PreLoadItem> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.kwad.sdk.core.c

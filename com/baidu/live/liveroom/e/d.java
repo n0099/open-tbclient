@@ -5,9 +5,9 @@ import android.net.Uri;
 import android.view.View;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public interface d {
-    View Pp();
+    View Lu();
 
     void b(int i, Map<String, String> map);
 
@@ -15,9 +15,9 @@ public interface d {
 
     void d(Context context, Uri uri);
 
-    void e(Uri uri);
+    void dB(int i);
 
-    void fh(int i);
+    void e(Uri uri);
 
     boolean isPlaying();
 

@@ -45,14 +45,14 @@ import java.util.List;
 import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class ChatMessageDBManager extends DBBase {
     private static final long CAST_RELIABLE_MSG_EXPIRED_TIME = 172800;
     private static final String TAG = ChatMessageDBManager.class.getSimpleName();
     private static ChatMessageDBManager mInstance = null;
     private List<ChatMessageDbOberser> mObservers = null;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public interface ChatMessageDbOberser {
         void notifyDbChange(int i, ChatSession chatSession);
     }
@@ -2340,7 +2340,7 @@ public class ChatMessageDBManager extends DBBase {
                         }
                         int length = jArr.length;
                         while (i2 < length) {
-                            openDatabase.execSQL("delete from message where msgid=? and type in (?, ?, ?)", new Object[]{Long.valueOf(jArr[i2] + 1), 2012, 2001, Integer.valueOf((int) IMConstants.IM_MSG_TYPE_UNSUBSCRIBE_ME_SEND_FAIL)});
+                            openDatabase.execSQL("delete from message where msgid=? and type in (?, ?, ?)", new Object[]{Long.valueOf(jArr[i2] + 1), Integer.valueOf((int) IMConstants.IM_MSG_TYPE_SHIELD_ME), 2001, Integer.valueOf((int) IMConstants.IM_MSG_TYPE_UNSUBSCRIBE_ME_SEND_FAIL)});
                             LogUtils.e(TAG, "delete notSendButShowTipMsg :delete from message where msgid=? and type in (?, ?, ?), msgId :" + (j + 1));
                             i2++;
                         }
@@ -2944,7 +2944,7 @@ public class ChatMessageDBManager extends DBBase {
             } else {
                 try {
                     i2 = openDatabase.delete("message", "_id = ? ", new String[]{String.valueOf(j)});
-                    openDatabase.execSQL("delete from message where _id=? and type in (?, ?, ?)", new Object[]{Long.valueOf(j + 1), 2012, 2001, Integer.valueOf((int) IMConstants.IM_MSG_TYPE_UNSUBSCRIBE_ME_SEND_FAIL)});
+                    openDatabase.execSQL("delete from message where _id=? and type in (?, ?, ?)", new Object[]{Long.valueOf(j + 1), Integer.valueOf((int) IMConstants.IM_MSG_TYPE_SHIELD_ME), 2001, Integer.valueOf((int) IMConstants.IM_MSG_TYPE_UNSUBSCRIBE_ME_SEND_FAIL)});
                     LogUtils.e(TAG, "deleteChatMsg notSendButShowTipMsg :delete from message where _id=? and type in (?, ?, ?), rowId :" + (j + 1));
                     i = i2;
                 } catch (Exception e) {

@@ -6,7 +6,7 @@ import android.location.LocationManager;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.HandlerThread;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public final class f extends ag implements LocationListener, Runnable {
     public long c;
     private HandlerThread d;
@@ -32,9 +32,9 @@ public final class f extends ag implements LocationListener, Runnable {
 
     @Override // b.a.a.a.a.ah
     public final void c() {
-        if (this.Bm.c()) {
+        if (this.Bk.c()) {
             try {
-                this.Bm.AZ.removeUpdates(this);
+                this.Bk.AY.removeUpdates(this);
             } catch (Throwable th) {
             }
         }
@@ -51,7 +51,7 @@ public final class f extends ag implements LocationListener, Runnable {
     }
 
     public final boolean f() {
-        LocationManager locationManager = this.Bm.AZ;
+        LocationManager locationManager = this.Bk.AY;
         if (locationManager == null) {
             return false;
         }
@@ -65,12 +65,12 @@ public final class f extends ag implements LocationListener, Runnable {
     public final Location hJ() {
         Location location = null;
         try {
-            if (this.Bm.c()) {
-                location = this.Bm.AZ.getLastKnownLocation("network");
+            if (this.Bk.c()) {
+                location = this.Bk.AY.getLastKnownLocation("network");
             }
         } catch (Throwable th) {
         }
-        return location == null ? aa.f1049a : location;
+        return location == null ? aa.f1048a : location;
     }
 
     @Override // android.location.LocationListener
@@ -108,9 +108,9 @@ public final class f extends ag implements LocationListener, Runnable {
 
     @Override // java.lang.Runnable
     public final void run() {
-        if (this.Bm.c()) {
+        if (this.Bk.c()) {
             try {
-                this.Bm.AZ.requestLocationUpdates("passive", 1000L, 0.0f, this, this.d.getLooper());
+                this.Bk.AY.requestLocationUpdates("passive", 1000L, 0.0f, this, this.d.getLooper());
             } catch (Throwable th) {
             }
         }

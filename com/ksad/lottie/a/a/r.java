@@ -4,21 +4,21 @@ import com.ksad.lottie.a.b.a;
 import com.ksad.lottie.model.content.ShapeTrimPath;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes5.dex */
-public class r implements b, a.InterfaceC1078a {
+/* loaded from: classes4.dex */
+public class r implements b, a.InterfaceC1061a {
 
     /* renamed from: a  reason: collision with root package name */
-    private final String f8255a;
+    private final String f7955a;
 
     /* renamed from: b  reason: collision with root package name */
-    private final List<a.InterfaceC1078a> f8256b = new ArrayList();
+    private final List<a.InterfaceC1061a> f7956b = new ArrayList();
     private final ShapeTrimPath.Type c;
     private final com.ksad.lottie.a.b.a<?, Float> d;
     private final com.ksad.lottie.a.b.a<?, Float> e;
     private final com.ksad.lottie.a.b.a<?, Float> f;
 
     public r(com.ksad.lottie.model.layer.a aVar, ShapeTrimPath shapeTrimPath) {
-        this.f8255a = shapeTrimPath.a();
+        this.f7955a = shapeTrimPath.a();
         this.c = shapeTrimPath.b();
         this.d = shapeTrimPath.d().a();
         this.e = shapeTrimPath.c().a();
@@ -31,22 +31,22 @@ public class r implements b, a.InterfaceC1078a {
         this.f.a(this);
     }
 
-    @Override // com.ksad.lottie.a.b.a.InterfaceC1078a
+    @Override // com.ksad.lottie.a.b.a.InterfaceC1061a
     public void a() {
         int i = 0;
         while (true) {
             int i2 = i;
-            if (i2 >= this.f8256b.size()) {
+            if (i2 >= this.f7956b.size()) {
                 return;
             }
-            this.f8256b.get(i2).a();
+            this.f7956b.get(i2).a();
             i = i2 + 1;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void a(a.InterfaceC1078a interfaceC1078a) {
-        this.f8256b.add(interfaceC1078a);
+    public void a(a.InterfaceC1061a interfaceC1061a) {
+        this.f7956b.add(interfaceC1061a);
     }
 
     @Override // com.ksad.lottie.a.a.b

@@ -35,7 +35,6 @@ import androidx.core.content.res.ResourcesCompat;
 import androidx.core.content.res.TypedArrayUtils;
 import androidx.core.graphics.PathParser;
 import androidx.core.graphics.drawable.DrawableCompat;
-import com.baidu.platform.comapi.map.MapBundleKey;
 import java.io.IOException;
 import java.util.ArrayDeque;
 import java.util.ArrayList;
@@ -1140,7 +1139,7 @@ public class VectorDrawableCompat extends VectorDrawableCommon {
 
         private void updateStateFromTypedArray(TypedArray typedArray, XmlPullParser xmlPullParser) {
             this.mThemeAttrs = null;
-            this.mRotate = TypedArrayUtils.getNamedFloat(typedArray, xmlPullParser, MapBundleKey.MapObjKey.OBJ_SS_ARROW_ROTATION, 5, this.mRotate);
+            this.mRotate = TypedArrayUtils.getNamedFloat(typedArray, xmlPullParser, "rotation", 5, this.mRotate);
             this.mPivotX = typedArray.getFloat(1, this.mPivotX);
             this.mPivotY = typedArray.getFloat(2, this.mPivotY);
             this.mScaleX = TypedArrayUtils.getNamedFloat(typedArray, xmlPullParser, "scaleX", 3, this.mScaleX);

@@ -8,7 +8,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class r {
-    public static void biS() {
+    public static void beY() {
         IPCServiceManager.addService("open_log", new IRemoteUBCService.Stub() { // from class: com.baidu.swan.ubc.OpenStatisticIPCManager$1
             @Override // com.baidu.swan.ubc.IRemoteUBCService
             public void ubcOnEvent(String str, String str2, int i) throws RemoteException {

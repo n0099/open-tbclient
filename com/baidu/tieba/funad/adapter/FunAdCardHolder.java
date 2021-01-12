@@ -17,33 +17,33 @@ import com.baidu.tieba.h.a;
 import com.baidu.tieba.tbadkCore.data.n;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class FunAdCardHolder extends TypeAdapter.ViewHolder {
     public Context context;
-    public ImageView jQJ;
-    public CardView jQK;
-    public TextView jQL;
-    public View jQM;
-    public View jQN;
-    public TextView jQO;
-    public TextView jQP;
-    public FunAdAgreeView jQQ;
-    public ImageView jQR;
-    public TextView jQS;
-    public ImageView jQT;
-    public TextView jQU;
-    public ViewGroup jQV;
-    public ViewGroup jQW;
-    public a.C0758a jQX;
-    public ViewGroup jQp;
-    public List<View> jQq;
-    public List<View> jQr;
-    public ImageView jQs;
-    public ImageView jQt;
-    public TextView jQu;
-    public TextView jQv;
-    public FrameLayout jQw;
-    public Button jQx;
+    public ViewGroup jLJ;
+    public List<View> jLK;
+    public List<View> jLL;
+    public ImageView jLM;
+    public ImageView jLN;
+    public TextView jLO;
+    public TextView jLP;
+    public FrameLayout jLQ;
+    public Button jLR;
+    public ImageView jMe;
+    public CardView jMf;
+    public TextView jMg;
+    public View jMh;
+    public View jMi;
+    public TextView jMj;
+    public TextView jMk;
+    public FunAdAgreeView jMl;
+    public ImageView jMm;
+    public TextView jMn;
+    public ImageView jMo;
+    public TextView jMp;
+    public ViewGroup jMq;
+    public ViewGroup jMr;
+    public a.C0741a jMs;
 
     public FunAdCardHolder(View view) {
         super(view);
@@ -52,61 +52,61 @@ public class FunAdCardHolder extends TypeAdapter.ViewHolder {
 
     private void ap(View view) {
         this.context = view.getContext();
-        this.jQp = (ViewGroup) view;
-        this.jQu = (TextView) view.findViewById(R.id.fun_ad_name);
-        this.jQv = (TextView) view.findViewById(R.id.fun_card_title);
-        this.jQw = (FrameLayout) view.findViewById(R.id.fun_card_content);
-        this.jQx = (Button) view.findViewById(R.id.fun_ad_button);
-        this.jQJ = (ImageView) view.findViewById(R.id.fun_ad_feedback);
-        this.jQM = view.findViewById(R.id.divider_with_reply_title);
-        this.jQL = (TextView) view.findViewById(R.id.fun_ad_lable);
-        this.jQK = (CardView) view.findViewById(R.id.media_bg);
-        this.jQN = view.findViewById(R.id.media_mask);
-        this.jQs = (ImageView) view.findViewById(R.id.top_ad_logo);
-        this.jQP = (TextView) view.findViewById(R.id.top_ad_name);
-        this.jQO = (TextView) view.findViewById(R.id.top_ad_justnow);
-        this.jQQ = (FunAdAgreeView) view.findViewById(R.id.ad_agree_view);
-        this.jQT = (ImageView) view.findViewById(R.id.thread_info_commont_img);
-        this.jQU = (TextView) view.findViewById(R.id.thread_info_commont_num);
-        this.jQR = (ImageView) view.findViewById(R.id.share_num_img);
-        this.jQS = (TextView) view.findViewById(R.id.share_num);
-        this.jQV = (ViewGroup) view.findViewById(R.id.layout_card_top);
-        this.jQW = (ViewGroup) view.findViewById(R.id.layout_card);
-        this.jQq = new ArrayList();
-        this.jQq.add(this.jQV);
-        this.jQq.add(this.jQw);
-        this.jQq.add(this.jQx);
-        this.jQq.add(this.jQW);
-        this.jQr = new ArrayList(1);
-        this.jQr.add(this.jQx);
-        cPv();
+        this.jLJ = (ViewGroup) view;
+        this.jLO = (TextView) view.findViewById(R.id.fun_ad_name);
+        this.jLP = (TextView) view.findViewById(R.id.fun_card_title);
+        this.jLQ = (FrameLayout) view.findViewById(R.id.fun_card_content);
+        this.jLR = (Button) view.findViewById(R.id.fun_ad_button);
+        this.jMe = (ImageView) view.findViewById(R.id.fun_ad_feedback);
+        this.jMh = view.findViewById(R.id.divider_with_reply_title);
+        this.jMg = (TextView) view.findViewById(R.id.fun_ad_lable);
+        this.jMf = (CardView) view.findViewById(R.id.media_bg);
+        this.jMi = view.findViewById(R.id.media_mask);
+        this.jLM = (ImageView) view.findViewById(R.id.top_ad_logo);
+        this.jMk = (TextView) view.findViewById(R.id.top_ad_name);
+        this.jMj = (TextView) view.findViewById(R.id.top_ad_justnow);
+        this.jMl = (FunAdAgreeView) view.findViewById(R.id.ad_agree_view);
+        this.jMo = (ImageView) view.findViewById(R.id.thread_info_commont_img);
+        this.jMp = (TextView) view.findViewById(R.id.thread_info_commont_num);
+        this.jMm = (ImageView) view.findViewById(R.id.share_num_img);
+        this.jMn = (TextView) view.findViewById(R.id.share_num);
+        this.jMq = (ViewGroup) view.findViewById(R.id.layout_card_top);
+        this.jMr = (ViewGroup) view.findViewById(R.id.layout_card);
+        this.jLK = new ArrayList();
+        this.jLK.add(this.jMq);
+        this.jLK.add(this.jLQ);
+        this.jLK.add(this.jLR);
+        this.jLK.add(this.jMr);
+        this.jLL = new ArrayList(1);
+        this.jLL.add(this.jLR);
+        cLD();
     }
 
-    public void cPu() {
-        if (this.jQw != null) {
-            this.jQw.removeAllViews();
+    public void cLC() {
+        if (this.jLQ != null) {
+            this.jLQ.removeAllViews();
         }
     }
 
-    public a.C0758a a(n nVar) {
+    public a.C0741a a(n nVar) {
         if (nVar == null) {
             return null;
         }
-        this.jQX = new a.C0758a();
-        this.jQX.eWF = nVar;
-        this.jQX.jQp = this.jQp;
-        this.jQX.jQq = this.jQq;
-        this.jQX.jQr = this.jQr;
-        this.jQX.jQs = this.jQs;
-        this.jQX.jQt = this.jQt;
-        this.jQX.jQu = this.jQu;
-        this.jQX.jQv = this.jQv;
-        this.jQX.jQw = this.jQw;
-        this.jQX.jQx = this.jQx;
-        return this.jQX;
+        this.jMs = new a.C0741a();
+        this.jMs.eRU = nVar;
+        this.jMs.jLJ = this.jLJ;
+        this.jMs.jLK = this.jLK;
+        this.jMs.jLL = this.jLL;
+        this.jMs.jLM = this.jLM;
+        this.jMs.jLN = this.jLN;
+        this.jMs.jLO = this.jLO;
+        this.jMs.jLP = this.jLP;
+        this.jMs.jLQ = this.jLQ;
+        this.jMs.jLR = this.jLR;
+        return this.jMs;
     }
 
-    public void cPv() {
+    public void cLD() {
         a(0, -1, 0, 1.0f, true, true);
     }
 
@@ -115,7 +115,7 @@ public class FunAdCardHolder extends TypeAdapter.ViewHolder {
     }
 
     private void D(boolean z, boolean z2) {
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.jQQ.getLayoutParams();
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.jMl.getLayoutParams();
         int i = layoutParams.width;
         float f = layoutParams.weight;
         if (z) {
@@ -125,14 +125,14 @@ public class FunAdCardHolder extends TypeAdapter.ViewHolder {
                 layoutParams.weight = f2;
                 layoutParams.leftMargin = 0;
                 layoutParams.rightMargin = 0;
-                this.jQQ.setLayoutParams(layoutParams);
+                this.jMl.setLayoutParams(layoutParams);
             }
         } else if (f != 0.0f || i != -2) {
             layoutParams.width = -2;
             layoutParams.weight = 0.0f;
             layoutParams.leftMargin = l.getDimens(this.context, R.dimen.tbds50);
             layoutParams.rightMargin = 0;
-            this.jQQ.setLayoutParams(layoutParams);
+            this.jMl.setLayoutParams(layoutParams);
         }
     }
 }

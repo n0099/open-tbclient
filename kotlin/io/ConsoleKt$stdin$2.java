@@ -31,7 +31,7 @@ final class ConsoleKt$stdin$2 extends Lambda implements kotlin.jvm.a.a<BufferedR
 
             @Override // java.io.InputStream
             public int read(byte[] bArr) {
-                p.o(bArr, com.baidu.pass.biometrics.face.liveness.d.b.f4081a);
+                p.o(bArr, com.baidu.pass.biometrics.face.liveness.d.b.f4043a);
                 return System.in.read(bArr);
             }
 
@@ -62,7 +62,7 @@ final class ConsoleKt$stdin$2 extends Lambda implements kotlin.jvm.a.a<BufferedR
 
             @Override // java.io.InputStream
             public int read(byte[] bArr, int i, int i2) {
-                p.o(bArr, com.baidu.pass.biometrics.face.liveness.d.b.f4081a);
+                p.o(bArr, com.baidu.pass.biometrics.face.liveness.d.b.f4043a);
                 return System.in.read(bArr, i, i2);
             }
         }));

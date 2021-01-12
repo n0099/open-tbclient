@@ -3,7 +3,7 @@ package com.kwai.player.qos;
 import android.os.SystemClock;
 import java.io.IOException;
 import java.io.RandomAccessFile;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class CpuStatReader {
     private static final String TAG = CpuStatReader.class.getName();
     private long lastGuestNicTime;

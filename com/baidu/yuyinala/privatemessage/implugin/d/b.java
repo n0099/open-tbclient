@@ -26,46 +26,46 @@ import com.baidu.sapi2.SapiAccountManager;
 import java.util.ArrayList;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class b {
-    private static volatile b oUu;
+    private static volatile b oPS;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public interface a<T> extends BIMValueCallBack<T> {
     }
 
     /* renamed from: com.baidu.yuyinala.privatemessage.implugin.d.b$b  reason: collision with other inner class name */
-    /* loaded from: classes11.dex */
-    public interface InterfaceC0979b extends IGetUserStatusListener {
+    /* loaded from: classes10.dex */
+    public interface InterfaceC0962b extends IGetUserStatusListener {
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public interface c extends ILoginListener {
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public interface d extends com.baidu.yuyinala.privatemessage.implugin.ma.a {
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public interface e extends ILoginStateChangedListener {
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public interface f extends ISendMessageListener {
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public interface g extends IGetUsersProfileBatchListener {
     }
 
-    public static synchronized b elm() {
+    public static synchronized b ehs() {
         b bVar;
         synchronized (b.class) {
-            if (oUu == null) {
-                oUu = new b();
+            if (oPS == null) {
+                oPS = new b();
             }
-            bVar = oUu;
+            bVar = oPS;
         }
         return bVar;
     }
@@ -83,7 +83,7 @@ public class b {
         }
     }
 
-    public Long hw(Context context) {
+    public Long hu(Context context) {
         return Long.valueOf(AccountManager.getUK(context));
     }
 
@@ -127,7 +127,7 @@ public class b {
         return BIMManager.getCuid(context);
     }
 
-    public int hx(Context context) {
+    public int hv(Context context) {
         return Utility.readIntData(context, Constants.KEY_ENV, 0);
     }
 
@@ -141,7 +141,7 @@ public class b {
         com.baidu.yuyinala.privatemessage.implugin.util.c.d("PluginHostFactory", "sendAPSBroadcast: action=" + str + ", data=" + str2);
     }
 
-    public String hy(Context context) {
+    public String hw(Context context) {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("displayName", com.baidu.yuyinala.privatemessage.implugin.d.a.getDisplayName());
@@ -176,14 +176,14 @@ public class b {
         }
     }
 
-    public void a(Context context, ArrayList<Long> arrayList, InterfaceC0979b interfaceC0979b) {
-        ChatUserManagerImpl.getInstance(context).getUsersStatus(arrayList, interfaceC0979b);
+    public void a(Context context, ArrayList<Long> arrayList, InterfaceC0962b interfaceC0962b) {
+        ChatUserManagerImpl.getInstance(context).getUsersStatus(arrayList, interfaceC0962b);
     }
 
     public void a(boolean z, String str, String str2, String str3, String str4, String str5, String str6, String str7) {
     }
 
-    public void hz(Context context) {
+    public void hx(Context context) {
     }
 
     public int getLoginState(Context context) {
@@ -198,7 +198,7 @@ public class b {
         return AccountManager.isCuidLogin(context);
     }
 
-    public boolean eln() {
+    public boolean eht() {
         return false;
     }
 
@@ -206,7 +206,7 @@ public class b {
         AccountManager.retryLogin(context, cVar);
     }
 
-    public void Au(boolean z) {
+    public void Aq(boolean z) {
     }
 
     public void ch(String str, int i) {

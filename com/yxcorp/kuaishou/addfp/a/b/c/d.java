@@ -4,14 +4,14 @@ import android.content.Context;
 import android.os.IBinder;
 import android.os.IInterface;
 import android.text.TextUtils;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public final class d implements com.yxcorp.kuaishou.addfp.a.b.a, com.yxcorp.kuaishou.addfp.a.b.b {
 
     /* renamed from: a  reason: collision with root package name */
-    private e f14648a;
+    private e f14348a;
 
     /* renamed from: b  reason: collision with root package name */
-    private com.yxcorp.kuaishou.addfp.a.a.a f14649b;
+    private com.yxcorp.kuaishou.addfp.a.a.a f14349b;
     private Context c;
     private String d = "";
     private String e = "";
@@ -20,7 +20,7 @@ public final class d implements com.yxcorp.kuaishou.addfp.a.b.a, com.yxcorp.kuai
     private boolean h = false;
 
     public d(Context context, com.yxcorp.kuaishou.addfp.a.a.a aVar) {
-        this.f14649b = aVar;
+        this.f14349b = aVar;
         this.c = context;
     }
 
@@ -29,29 +29,29 @@ public final class d implements com.yxcorp.kuaishou.addfp.a.b.a, com.yxcorp.kuai
         try {
             this.h = c();
             if (this.h) {
-                this.d = this.f14648a.a();
+                this.d = this.f14348a.a();
                 if (TextUtils.isEmpty(this.d)) {
                     this.d = "";
                 }
-                this.g = this.f14648a.e();
+                this.g = this.f14348a.e();
                 if (TextUtils.isEmpty(this.g)) {
                     this.g = "";
                 }
-                this.f = this.f14648a.d();
+                this.f = this.f14348a.d();
                 if (TextUtils.isEmpty(this.f)) {
                     this.f = "";
                 }
-                this.e = this.f14648a.b();
+                this.e = this.f14348a.b();
                 if (TextUtils.isEmpty(this.e)) {
                     this.e = "";
                 }
                 if (TextUtils.isEmpty(this.d)) {
-                    this.f14649b.a(false, null);
+                    this.f14349b.a(false, null);
                 } else {
-                    this.f14649b.a(true, this);
+                    this.f14349b.a(true, this);
                 }
             } else {
-                this.f14649b.a(false, null);
+                this.f14349b.a(false, null);
             }
         } catch (Throwable th) {
             try {
@@ -64,7 +64,7 @@ public final class d implements com.yxcorp.kuaishou.addfp.a.b.a, com.yxcorp.kuai
 
     @Override // com.yxcorp.kuaishou.addfp.a.b.a
     public final void a(com.yxcorp.kuaishou.addfp.a.a.a aVar) {
-        this.f14648a = new e(this.c, this);
+        this.f14348a = new e(this.c, this);
     }
 
     @Override // com.yxcorp.kuaishou.addfp.a.b.a
@@ -84,23 +84,23 @@ public final class d implements com.yxcorp.kuaishou.addfp.a.b.a, com.yxcorp.kuai
 
     @Override // com.yxcorp.kuaishou.addfp.a.b.a
     public final boolean c() {
-        if (this.f14648a != null) {
-            return this.f14648a.c();
+        if (this.f14348a != null) {
+            return this.f14348a.c();
         }
         return false;
     }
 
     @Override // com.yxcorp.kuaishou.addfp.a.b.a
     public final void d() {
-        if (this.f14648a != null) {
-            this.f14648a.f();
+        if (this.f14348a != null) {
+            this.f14348a.f();
         }
     }
 
     @Override // com.yxcorp.kuaishou.addfp.a.b.b
     public final void e() {
-        if (this.f14649b != null) {
-            this.f14649b.a(false, this);
+        if (this.f14349b != null) {
+            this.f14349b.a(false, this);
         }
     }
 }

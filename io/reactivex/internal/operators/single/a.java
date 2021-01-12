@@ -11,30 +11,30 @@ public final class a<T, R> extends w<R> {
 
     @Override // io.reactivex.w
     protected void b(y<? super R> yVar) {
-        this.source.a(new C1308a(yVar, this.mapper));
+        this.source.a(new C1291a(yVar, this.mapper));
     }
 
     /* renamed from: io.reactivex.internal.operators.single.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    static final class C1308a<T, R> implements y<T> {
+    static final class C1291a<T, R> implements y<T> {
         final h<? super T, ? extends R> mapper;
-        final y<? super R> qkD;
+        final y<? super R> qgb;
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        public C1308a(y<? super R> yVar, h<? super T, ? extends R> hVar) {
-            this.qkD = yVar;
+        public C1291a(y<? super R> yVar, h<? super T, ? extends R> hVar) {
+            this.qgb = yVar;
             this.mapper = hVar;
         }
 
         @Override // io.reactivex.y
         public void onSubscribe(io.reactivex.disposables.b bVar) {
-            this.qkD.onSubscribe(bVar);
+            this.qgb.onSubscribe(bVar);
         }
 
         @Override // io.reactivex.y
         public void onSuccess(T t) {
             try {
-                this.qkD.onSuccess(io.reactivex.internal.functions.a.m(this.mapper.apply(t), "The mapper function returned a null value."));
+                this.qgb.onSuccess(io.reactivex.internal.functions.a.m(this.mapper.apply(t), "The mapper function returned a null value."));
             } catch (Throwable th) {
                 io.reactivex.exceptions.a.O(th);
                 onError(th);
@@ -43,7 +43,7 @@ public final class a<T, R> extends w<R> {
 
         @Override // io.reactivex.y
         public void onError(Throwable th) {
-            this.qkD.onError(th);
+            this.qgb.onError(th);
         }
     }
 }

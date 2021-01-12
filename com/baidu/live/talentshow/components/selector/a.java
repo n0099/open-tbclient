@@ -14,48 +14,48 @@ import com.baidu.live.tbadk.core.view.HeadImageView;
 import com.baidu.live.tbadk.widget.lottie.TBLottieAnimationView;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class a extends BaseAdapter {
-    private List<com.baidu.live.talentshow.b.d> bEL = new ArrayList();
-    private InterfaceC0209a bEM;
+    private InterfaceC0200a bAa;
+    private List<com.baidu.live.talentshow.b.d> bzZ = new ArrayList();
 
     /* renamed from: com.baidu.live.talentshow.components.selector.a$a  reason: collision with other inner class name */
-    /* loaded from: classes11.dex */
-    public interface InterfaceC0209a {
+    /* loaded from: classes10.dex */
+    public interface InterfaceC0200a {
         void c(com.baidu.live.talentshow.b.d dVar);
     }
 
     public void setDatas(List<com.baidu.live.talentshow.b.d> list) {
         if (list != null) {
-            this.bEL.clear();
-            this.bEL.addAll(list);
+            this.bzZ.clear();
+            this.bzZ.addAll(list);
             notifyDataSetChanged();
         }
     }
 
     public void clearData() {
-        if (!ListUtils.isEmpty(this.bEL)) {
-            this.bEL.clear();
+        if (!ListUtils.isEmpty(this.bzZ)) {
+            this.bzZ.clear();
             notifyDataSetChanged();
         }
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.bEL == null) {
+        if (this.bzZ == null) {
             return 0;
         }
-        return this.bEL.size();
+        return this.bzZ.size();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: fI */
+    /* renamed from: ec */
     public com.baidu.live.talentshow.b.d getItem(int i) {
-        if (this.bEL == null) {
+        if (this.bzZ == null) {
             return null;
         }
-        return this.bEL.get(i);
+        return this.bzZ.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -69,14 +69,14 @@ public class a extends BaseAdapter {
         if (view == null) {
             view = LayoutInflater.from(viewGroup.getContext()).inflate(a.g.talent_apply_chat_user_item, viewGroup, false);
             b bVar2 = new b();
-            bVar2.bEQ = (HeadImageView) view.findViewById(a.f.talent_item_user_head);
-            bVar2.bEQ.setIsRound(true);
-            bVar2.bEQ.setScaleType(ImageView.ScaleType.CENTER_CROP);
-            bVar2.bEP = (TBLottieAnimationView) view.findViewById(a.f.lottie_loading);
-            bVar2.bER = (TextView) view.findViewById(a.f.tv_user_nickname);
-            bVar2.bES = (TextView) view.findViewById(a.f.tv_confirm);
-            bVar2.bEP.setRepeatCount(-1);
-            bVar2.bEP.setAnimation("live_rtc_connect.json");
+            bVar2.bAe = (HeadImageView) view.findViewById(a.f.talent_item_user_head);
+            bVar2.bAe.setIsRound(true);
+            bVar2.bAe.setScaleType(ImageView.ScaleType.CENTER_CROP);
+            bVar2.bAd = (TBLottieAnimationView) view.findViewById(a.f.lottie_loading);
+            bVar2.bAf = (TextView) view.findViewById(a.f.tv_user_nickname);
+            bVar2.bAg = (TextView) view.findViewById(a.f.tv_confirm);
+            bVar2.bAd.setRepeatCount(-1);
+            bVar2.bAd.setAnimation("live_rtc_connect.json");
             view.setTag(bVar2);
             bVar = bVar2;
         } else {
@@ -84,40 +84,40 @@ public class a extends BaseAdapter {
         }
         final com.baidu.live.talentshow.b.d item = getItem(i);
         item.itemPosition = i;
-        bVar.bER.setText(com.baidu.live.videochat.d.J(item.nickName, 16));
-        bVar.bEQ.startLoad(item.portrait, 12, false);
-        a(item.status, bVar.bES, bVar.bEP);
-        bVar.bES.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.live.talentshow.components.selector.a.1
+        bVar.bAf.setText(com.baidu.live.videochat.d.J(item.nickName, 16));
+        bVar.bAe.startLoad(item.portrait, 12, false);
+        a(item.status, bVar.bAg, bVar.bAd);
+        bVar.bAg.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.live.talentshow.components.selector.a.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
-                if (!UtilHelper.isFastDoubleClick() && a.this.bEM != null) {
-                    a.this.bEM.c(item);
+                if (!UtilHelper.isFastDoubleClick() && a.this.bAa != null) {
+                    a.this.bAa.c(item);
                 }
             }
         });
         return view;
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public static class b {
-        private TBLottieAnimationView bEP;
-        private HeadImageView bEQ;
-        private TextView bER;
-        private TextView bES;
+        private TBLottieAnimationView bAd;
+        private HeadImageView bAe;
+        private TextView bAf;
+        private TextView bAg;
     }
 
     private void a(int i, TextView textView, TBLottieAnimationView tBLottieAnimationView) {
         if (textView != null && tBLottieAnimationView != null) {
-            if (i == com.baidu.live.talentshow.d.d.bGJ) {
+            if (i == com.baidu.live.talentshow.d.d.bBX) {
                 b(tBLottieAnimationView);
                 c(textView);
-            } else if (i == com.baidu.live.talentshow.d.d.bGN || i == com.baidu.live.talentshow.d.d.bGM) {
+            } else if (i == com.baidu.live.talentshow.d.d.bCb || i == com.baidu.live.talentshow.d.d.bCa) {
                 a(tBLottieAnimationView);
                 d(textView);
             } else if (i == 5) {
                 b(tBLottieAnimationView);
                 e(textView);
-            } else if (i == com.baidu.live.talentshow.d.d.bGK || i == com.baidu.live.talentshow.d.d.bGL) {
+            } else if (i == com.baidu.live.talentshow.d.d.bBY || i == com.baidu.live.talentshow.d.d.bBZ) {
                 b(tBLottieAnimationView);
                 f(textView);
             }
@@ -168,7 +168,7 @@ public class a extends BaseAdapter {
         }
     }
 
-    public void a(InterfaceC0209a interfaceC0209a) {
-        this.bEM = interfaceC0209a;
+    public void a(InterfaceC0200a interfaceC0200a) {
+        this.bAa = interfaceC0200a;
     }
 }

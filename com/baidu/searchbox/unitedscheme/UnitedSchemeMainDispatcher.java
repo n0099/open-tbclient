@@ -19,7 +19,7 @@ import rx.d;
 import rx.e;
 import rx.functions.f;
 import rx.j;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class UnitedSchemeMainDispatcher extends UnitedSchemeBaseDispatcher {
     public static final String CONTENT_KEY_EXT = "ext";
     public static final String CONTENT_KEY_FROM = "from";
@@ -99,10 +99,10 @@ public class UnitedSchemeMainDispatcher extends UnitedSchemeBaseDispatcher {
             unitedSchemeEntity2 = null;
         } else {
             String param = unitedSchemeEntity.getParam(UnitedSchemeConstants.UNITED_SCHEME_SENIOR);
-            UnitedSchemeEntity m30clone = unitedSchemeEntity.m30clone();
-            m30clone.removeParam(UnitedSchemeConstants.UNITED_SCHEME_SENIOR);
+            UnitedSchemeEntity m25clone = unitedSchemeEntity.m25clone();
+            m25clone.removeParam(UnitedSchemeConstants.UNITED_SCHEME_SENIOR);
             UnitedSchemeEntity unitedSchemeEntity3 = new UnitedSchemeEntity(Uri.parse(param), unitedSchemeEntity.getSource());
-            unitedSchemeEntity2 = m30clone;
+            unitedSchemeEntity2 = m25clone;
             unitedSchemeEntity = unitedSchemeEntity3;
         }
         String allPath = unitedSchemeEntity.getAllPath();
@@ -118,18 +118,18 @@ public class UnitedSchemeMainDispatcher extends UnitedSchemeBaseDispatcher {
             }
             return true;
         }
-        UnitedSchemeEntity m30clone2 = unitedSchemeEntity.m30clone();
-        String path = m30clone2.getPath(true);
+        UnitedSchemeEntity m25clone2 = unitedSchemeEntity.m25clone();
+        String path = m25clone2.getPath(true);
         if (!TextUtils.isEmpty(path) && (unitedSchemeBaseDispatcher = this.mDynamicDispatchers.get(path)) != null) {
-            boolean dispatch = unitedSchemeBaseDispatcher.dispatch(context, m30clone2, callbackHandler);
-            if (m30clone2.result != null) {
-                int optInt = m30clone2.result.optInt("status", -1);
+            boolean dispatch = unitedSchemeBaseDispatcher.dispatch(context, m25clone2, callbackHandler);
+            if (m25clone2.result != null) {
+                int optInt = m25clone2.result.optInt("status", -1);
                 if (optInt != 301 && optInt != 302) {
                     doUBCForOutsideAndInside(unitedSchemeEntity, optInt);
                     if (optInt != 0) {
-                        UnitedSchemeUtility.callCallback(callbackHandler, m30clone2, m30clone2.result);
+                        UnitedSchemeUtility.callCallback(callbackHandler, m25clone2, m25clone2.result);
                     }
-                    unitedSchemeEntity.result = m30clone2.result;
+                    unitedSchemeEntity.result = m25clone2.result;
                     return dispatch;
                 }
             } else if (dispatch) {
@@ -139,10 +139,10 @@ public class UnitedSchemeMainDispatcher extends UnitedSchemeBaseDispatcher {
         }
         boolean dispatch2 = super.dispatch(context, unitedSchemeEntity, callbackHandler);
         if (!dispatch2 && unitedSchemeEntity.getParam(UnitedSchemeConstants.UNITED_SCHEME_BACKUP) != null) {
-            unitedSchemeEntity = new UnitedSchemeEntity(Uri.parse(unitedSchemeEntity.getParam(UnitedSchemeConstants.UNITED_SCHEME_BACKUP)), m30clone2.getSource());
+            unitedSchemeEntity = new UnitedSchemeEntity(Uri.parse(unitedSchemeEntity.getParam(UnitedSchemeConstants.UNITED_SCHEME_BACKUP)), m25clone2.getSource());
             dispatch2 = dispatch(context, unitedSchemeEntity, callbackHandler);
         }
-        JSONObject selectResult = selectResult(m30clone2, unitedSchemeEntity);
+        JSONObject selectResult = selectResult(m25clone2, unitedSchemeEntity);
         if (dispatch2 && unitedSchemeEntity.result == null) {
             doUBCForOutsideAndInside(unitedSchemeEntity, dispatch2 ? 0 : -2);
         } else if (selectResult != null) {

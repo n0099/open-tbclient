@@ -1,7 +1,7 @@
 package com.baidu.live.x;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public interface a {
-    void ie(String str);
+    void gT(String str);
 
     void pause();
 

@@ -3,36 +3,36 @@ package com.baidu.swan.game.ad.b;
 import android.content.Context;
 import com.baidu.mobads.interfaces.IXAdRequestInfo;
 import java.util.HashMap;
-/* loaded from: classes3.dex */
+/* loaded from: classes14.dex */
 public class c extends d {
-    private String ebA;
-    private String ebB;
-    private String ebC;
-    private String ebD;
+    private String dWO;
+    private String dWP;
+    private String dWQ;
+    private String dWR;
 
     public c(Context context, b bVar) {
         super(context, bVar);
-        this.ebA = "banner";
-        this.ebB = "32";
-        this.ebC = "MSSP,ANTI,NMON";
-        this.ebD = "LP,DL";
+        this.dWO = "banner";
+        this.dWP = "32";
+        this.dWQ = "MSSP,ANTI,NMON";
+        this.dWR = "LP,DL";
     }
 
     @Override // com.baidu.swan.game.ad.b.d
-    protected String aVO() {
+    protected String aRU() {
         return "";
     }
 
     @Override // com.baidu.swan.game.ad.b.d
-    protected HashMap<String, String> aVP() {
+    protected HashMap<String, String> aRV() {
         HashMap<String, String> hashMap = new HashMap<>();
-        hashMap.put("act", this.ebD);
-        hashMap.put("prod", this.ebA);
-        hashMap.put("at", this.ebB);
-        hashMap.put(IXAdRequestInfo.FET, this.ebC);
-        if (this.ebR != null) {
-            hashMap.put("w", "" + this.ebR.aVJ());
-            hashMap.put("h", "" + this.ebR.aVK());
+        hashMap.put("act", this.dWR);
+        hashMap.put("prod", this.dWO);
+        hashMap.put("at", this.dWP);
+        hashMap.put(IXAdRequestInfo.FET, this.dWQ);
+        if (this.dXf != null) {
+            hashMap.put("w", "" + this.dXf.aRP());
+            hashMap.put("h", "" + this.dXf.aRQ());
         }
         return hashMap;
     }

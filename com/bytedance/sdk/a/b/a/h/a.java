@@ -15,19 +15,19 @@ import okhttp3.internal.publicsuffix.PublicSuffixDatabase;
 public final class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final byte[] f6242a = {42};
+    private static final byte[] f5942a = {42};
 
     /* renamed from: b  reason: collision with root package name */
-    private static final String[] f6243b = new String[0];
+    private static final String[] f5943b = new String[0];
     private static final String[] c = {"*"};
-    private static final a pkZ = new a();
+    private static final a pgt = new a();
     private final AtomicBoolean e = new AtomicBoolean(false);
     private final CountDownLatch f = new CountDownLatch(1);
     private byte[] g;
     private byte[] h;
 
-    public static a erc() {
-        return pkZ;
+    public static a enh() {
+        return pgt;
     }
 
     public String a(String str) {
@@ -75,7 +75,7 @@ public final class a {
         }
         byte[][] bArr = new byte[strArr.length];
         for (int i2 = 0; i2 < strArr.length; i2++) {
-            bArr[i2] = strArr[i2].getBytes(c.pjm);
+            bArr[i2] = strArr[i2].getBytes(c.peH);
         }
         int i3 = 0;
         while (true) {
@@ -92,7 +92,7 @@ public final class a {
         if (bArr.length > 1) {
             byte[][] bArr2 = (byte[][]) bArr.clone();
             for (int i4 = 0; i4 < bArr2.length - 1; i4++) {
-                bArr2[i4] = f6242a;
+                bArr2[i4] = f5942a;
                 String a2 = a(this.g, bArr2, i4);
                 if (a2 != null) {
                     str2 = a2;
@@ -120,8 +120,8 @@ public final class a {
         if (str == null && str2 == null) {
             return c;
         }
-        String[] split = str != null ? str.split("\\.") : f6243b;
-        String[] split2 = str2 != null ? str2.split("\\.") : f6243b;
+        String[] split = str != null ? str.split("\\.") : f5943b;
+        String[] split2 = str2 != null ? str2.split("\\.") : f5943b;
         return split.length > split2.length ? split : split2;
     }
 
@@ -198,7 +198,7 @@ public final class a {
                     i6 = i11 + i10 + 1;
                     i7 = length;
                 } else {
-                    return new String(bArr, i10, i12, c.pjm);
+                    return new String(bArr, i10, i12, c.peH);
                 }
             }
             length = i7;
@@ -219,7 +219,7 @@ public final class a {
                 } catch (InterruptedIOException e) {
                     z2 = true;
                 } catch (IOException e2) {
-                    e.erb().a(5, "Failed to read public suffix list", e2);
+                    e.eng().a(5, "Failed to read public suffix list", e2);
                     if (!z) {
                         return;
                     }

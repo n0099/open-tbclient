@@ -23,17 +23,17 @@ import com.baidu.tieba.R;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class AtMessageActivity extends BaseActivity<AtMessageActivity> implements f.c, com.baidu.tbadk.mvc.c.a {
-    private d kNh;
-    private AtMeModelController kNi;
-    private ViewEventCenter kNj;
-    private CustomMessageListener kNk = new CustomMessageListener(CmdConfigCustom.CMD_MESSAGE_CENTER_NOTIFY) { // from class: com.baidu.tieba.imMessageCenter.mention.AtMessageActivity.1
+    private d kIC;
+    private AtMeModelController kID;
+    private ViewEventCenter kIE;
+    private CustomMessageListener kIF = new CustomMessageListener(CmdConfigCustom.CMD_MESSAGE_CENTER_NOTIFY) { // from class: com.baidu.tieba.imMessageCenter.mention.AtMessageActivity.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2016321 && (customResponsedMessage.getData() instanceof Intent)) {
                 Intent intent = (Intent) customResponsedMessage.getData();
-                if (AtMessageActivity.this.kNi != null) {
-                    AtMessageActivity.this.kNi.cvK();
+                if (AtMessageActivity.this.kID != null) {
+                    AtMessageActivity.this.kID.crS();
                 }
             }
         }
@@ -43,31 +43,31 @@ public class AtMessageActivity extends BaseActivity<AtMessageActivity> implement
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.kNi = new AtMeModelController(this);
-        registerListener(this.kNk);
-        this.kNi.setUniqueId(getUniqueId());
-        this.kNh = new d(this);
+        this.kID = new AtMeModelController(this);
+        registerListener(this.kIF);
+        this.kID.setUniqueId(getUniqueId());
+        this.kIC = new d(this);
         if (bundle != null) {
-            this.kNi.aj(bundle);
+            this.kID.aj(bundle);
         } else {
-            this.kNi.aj(null);
+            this.kID.aj(null);
         }
-        this.kNh.bYn();
-        bHj().addEventDelegate(this);
-        this.kNi.cvK();
+        this.kIC.bUv();
+        bDq().addEventDelegate(this);
+        this.kID.crS();
     }
 
     @Override // com.baidu.tbadk.core.view.f.c
     public void onListPullRefresh(boolean z) {
-        this.kNi.cLF();
+        this.kID.cHN();
     }
 
-    public void cId() {
-        this.kNi.cvL();
+    public void cEl() {
+        this.kID.crT();
     }
 
     @Override // com.baidu.tbadk.mvc.c.a
-    public boolean bGN() {
+    public boolean bCU() {
         return false;
     }
 
@@ -76,20 +76,20 @@ public class AtMessageActivity extends BaseActivity<AtMessageActivity> implement
         if (bVar == null) {
             return true;
         }
-        if (bVar.bGO() == 9484) {
-            com.baidu.tbadk.mvc.b.a bGP = bVar.bGP();
-            if (bGP instanceof FeedData) {
-                return d((FeedData) bGP);
+        if (bVar.bCV() == 9484) {
+            com.baidu.tbadk.mvc.b.a bCW = bVar.bCW();
+            if (bCW instanceof FeedData) {
+                return d((FeedData) bCW);
             }
-        } else if (bVar.bGO() == 9483) {
-            com.baidu.tbadk.mvc.b.a bGP2 = bVar.bGP();
-            if (bGP2 instanceof FeedData) {
-                return c((FeedData) bGP2);
+        } else if (bVar.bCV() == 9483) {
+            com.baidu.tbadk.mvc.b.a bCW2 = bVar.bCW();
+            if (bCW2 instanceof FeedData) {
+                return c((FeedData) bCW2);
             }
-        } else if (bVar.bGO() == 9489) {
-            com.baidu.tbadk.mvc.b.a bGP3 = bVar.bGP();
-            if (bGP3 instanceof FeedData) {
-                this.kNh.b((FeedData) bGP3);
+        } else if (bVar.bCV() == 9489) {
+            com.baidu.tbadk.mvc.b.a bCW3 = bVar.bCW();
+            if (bCW3 instanceof FeedData) {
+                this.kIC.b((FeedData) bCW3);
                 return true;
             }
         }
@@ -154,27 +154,27 @@ public class AtMessageActivity extends BaseActivity<AtMessageActivity> implement
         return false;
     }
 
-    public ViewEventCenter bHj() {
-        if (this.kNj == null) {
-            this.kNj = new ViewEventCenter();
+    public ViewEventCenter bDq() {
+        if (this.kIE == null) {
+            this.kIE = new ViewEventCenter();
         }
-        return this.kNj;
+        return this.kIE;
     }
 
-    public void daV() {
-        this.kNh.daV();
+    public void cXd() {
+        this.kIC.cXd();
     }
 
     public void c(com.baidu.tbadk.mvc.d.b bVar) {
-        this.kNh.c(bVar);
+        this.kIC.c(bVar);
     }
 
     public void a(com.baidu.tbadk.mvc.b.a aVar) {
-        this.kNh.a(aVar);
+        this.kIC.a(aVar);
     }
 
-    public void daW() {
-        this.kNh.daW();
+    public void cXe() {
+        this.kIC.cXe();
     }
 
     public void a(ErrorData errorData) {
@@ -182,10 +182,10 @@ public class AtMessageActivity extends BaseActivity<AtMessageActivity> implement
             if (!StringUtils.isNull(errorData.error_msg)) {
                 showToast(errorData.error_msg);
             }
-            if (this.kNh.kNd != null) {
-                this.kNh.kNd.setVisibility(8);
+            if (this.kIC.kIy != null) {
+                this.kIC.kIy.setVisibility(8);
             }
-            showNetRefreshView(this.kNh.rootView, getString(R.string.refresh_view_title_text), null, getString(R.string.refresh_view_button_text), true, getNetRefreshListener());
+            showNetRefreshView(this.kIC.rootView, getString(R.string.refresh_view_title_text), null, getString(R.string.refresh_view_button_text), true, getNetRefreshListener());
             setNetRefreshViewEmotionMarginTop(com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds530));
         }
     }
@@ -194,24 +194,24 @@ public class AtMessageActivity extends BaseActivity<AtMessageActivity> implement
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        this.kNh.onChangeSkinType(getPageContext(), i);
+        this.kIC.onChangeSkinType(getPageContext(), i);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity
     public void onNetRefreshButtonClicked() {
         super.onNetRefreshButtonClicked();
-        if (com.baidu.adp.lib.util.l.isNetOk() && this.kNi != null) {
-            this.kNi.cLF();
+        if (com.baidu.adp.lib.util.l.isNetOk() && this.kID != null) {
+            this.kID.cHN();
         }
     }
 
-    public void Zj() {
-        if (this.kNh != null) {
-            if (this.kNh.kNd != null) {
-                this.kNh.kNd.setVisibility(0);
+    public void Vq() {
+        if (this.kIC != null) {
+            if (this.kIC.kIy != null) {
+                this.kIC.kIy.setVisibility(0);
             }
-            hideNetRefreshView(this.kNh.rootView);
+            hideNetRefreshView(this.kIC.rootView);
         }
     }
 

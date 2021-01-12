@@ -3,7 +3,7 @@ package com.kwai.video.player;
 import com.kwai.video.hodor.util.Timber;
 import com.kwai.video.player.IMediaPlayer;
 import com.kwai.video.player.misc.IMediaDataSource;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public abstract class AbstractMediaPlayer implements IMediaPlayer {
     private IMediaPlayer.OnBufferingUpdateListener mOnBufferingUpdateListener;
     private IMediaPlayer.OnCompletionListener mOnCompletionListener;

@@ -15,7 +15,7 @@ import java.util.concurrent.CancellationException;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class RequestFutureTarget<R> implements FutureTarget<R>, RequestListener<R>, Runnable {
     private static final Waiter DEFAULT_WAITER = new Waiter();
     private final boolean assertBackgroundThread;
@@ -209,7 +209,7 @@ public class RequestFutureTarget<R> implements FutureTarget<R>, RequestListener<
 
     /* JADX INFO: Access modifiers changed from: package-private */
     @VisibleForTesting
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class Waiter {
         Waiter() {
         }

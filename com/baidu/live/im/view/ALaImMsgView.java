@@ -28,99 +28,99 @@ import com.baidu.live.tbadk.ubc.UbcStatisticManager;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class ALaImMsgView extends RelativeLayout implements j {
-    private boolean boU;
-    private a bqf;
-    public boolean bqi;
-    private ALAImEnterView bsl;
-    private ALAImMsgListView bsm;
-    private ALAImMsgMoreChatView bsn;
-    private TextView bso;
-    public boolean bsp;
-    private boolean bsq;
-    private boolean bsr;
-    private int bss;
-    private int bst;
+    private boolean bkh;
+    private a bls;
+    public boolean blv;
+    private ALAImMsgListView bnA;
+    private ALAImMsgMoreChatView bnB;
+    private TextView bnC;
+    public boolean bnD;
+    private boolean bnE;
+    private boolean bnF;
+    private int bnG;
+    private int bnH;
+    private ALAImEnterView bnz;
     private TbPageContext mTbPageContext;
     private String mVid;
 
     public ALaImMsgView(Context context) {
         super(context);
-        this.bqi = false;
-        this.bsp = false;
-        this.bsq = false;
-        this.bsr = false;
-        this.bss = 0;
+        this.blv = false;
+        this.bnD = false;
+        this.bnE = false;
+        this.bnF = false;
+        this.bnG = 0;
         init(context);
     }
 
     public ALaImMsgView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.bqi = false;
-        this.bsp = false;
-        this.bsq = false;
-        this.bsr = false;
-        this.bss = 0;
+        this.blv = false;
+        this.bnD = false;
+        this.bnE = false;
+        this.bnF = false;
+        this.bnG = 0;
         init(context);
     }
 
     public ALaImMsgView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.bqi = false;
-        this.bsp = false;
-        this.bsq = false;
-        this.bsr = false;
-        this.bss = 0;
+        this.blv = false;
+        this.bnD = false;
+        this.bnE = false;
+        this.bnF = false;
+        this.bnG = 0;
         init(context);
     }
 
     public void setPageContext(TbPageContext tbPageContext) {
         this.mTbPageContext = tbPageContext;
-        this.bsm.setPageContext(tbPageContext);
+        this.bnA.setPageContext(tbPageContext);
     }
 
     public void setView(a aVar) {
-        this.bqf = aVar;
+        this.bls = aVar;
     }
 
-    public void ct(boolean z) {
-        this.bqi = z;
+    public void cp(boolean z) {
+        this.blv = z;
     }
 
     private void init(Context context) {
-        this.bsl = new ALAImEnterView(context);
+        this.bnz = new ALAImEnterView(context);
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, getResources().getDimensionPixelSize(a.d.sdk_im_entereffect_height));
         layoutParams.leftMargin = context.getResources().getDimensionPixelSize(a.d.sdk_tbds26);
-        addView(this.bsl, layoutParams);
-        this.bsm = new ALAImMsgListView(context);
-        this.bsm.setOnUserMoveToBottomIMCallBack(new ALAImMsgListView.a() { // from class: com.baidu.live.im.view.ALaImMsgView.1
+        addView(this.bnz, layoutParams);
+        this.bnA = new ALAImMsgListView(context);
+        this.bnA.setOnUserMoveToBottomIMCallBack(new ALAImMsgListView.a() { // from class: com.baidu.live.im.view.ALaImMsgView.1
             @Override // com.baidu.live.im.view.ALAImMsgListView.a
-            public void Oo() {
-                ALaImMsgView.this.bss = 0;
-                ALaImMsgView.this.bsn.setVisibility(8);
+            public void Kt() {
+                ALaImMsgView.this.bnG = 0;
+                ALaImMsgView.this.bnB.setVisibility(8);
             }
         });
-        this.bsm.setId(a.f.ala_im_normal_panel);
+        this.bnA.setId(a.f.ala_im_normal_panel);
         RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams(-1, -2);
         layoutParams2.topMargin = layoutParams.height + getResources().getDimensionPixelOffset(a.d.sdk_ds16);
         layoutParams2.leftMargin = context.getResources().getDimensionPixelSize(a.d.sdk_tbds26);
         layoutParams2.addRule(12);
-        addView(this.bsm, layoutParams2);
-        this.bsn = new ALAImMsgMoreChatView(context);
+        addView(this.bnA, layoutParams2);
+        this.bnB = new ALAImMsgMoreChatView(context);
         RelativeLayout.LayoutParams layoutParams3 = new RelativeLayout.LayoutParams(-2, context.getResources().getDimensionPixelSize(a.d.sdk_ds48));
         layoutParams3.leftMargin = context.getResources().getDimensionPixelSize(a.d.sdk_ds20);
-        layoutParams3.addRule(8, this.bsm.getId());
-        addView(this.bsn, layoutParams3);
-        this.bsn.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.live.im.view.ALaImMsgView.2
+        layoutParams3.addRule(8, this.bnA.getId());
+        addView(this.bnB, layoutParams3);
+        this.bnB.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.live.im.view.ALaImMsgView.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (!ALaImMsgView.this.bsq) {
-                    ALaImMsgView.this.bss = 0;
-                    if (!ALaImMsgView.this.bsr) {
-                        ALaImMsgView.this.bsr = false;
-                        ALaImMsgView.this.bsn.setVisibility(8);
-                        ALaImMsgView.this.bsm.On();
+                if (!ALaImMsgView.this.bnE) {
+                    ALaImMsgView.this.bnG = 0;
+                    if (!ALaImMsgView.this.bnF) {
+                        ALaImMsgView.this.bnF = false;
+                        ALaImMsgView.this.bnB.setVisibility(8);
+                        ALaImMsgView.this.bnA.Ks();
                         return;
                     }
                     return;
@@ -131,7 +131,7 @@ public class ALaImMsgView extends RelativeLayout implements j {
     }
 
     public void setMode(boolean z) {
-        this.bsm.setMode(z);
+        this.bnA.setMode(z);
     }
 
     @Override // android.view.View
@@ -139,9 +139,9 @@ public class ALaImMsgView extends RelativeLayout implements j {
         super.onConfigurationChanged(configuration);
         if (configuration != null) {
             if (configuration.orientation == 2) {
-                this.bsm.setMaxHeight(ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED);
+                this.bnA.setMaxHeight(ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED);
             } else if (configuration.orientation == 1) {
-                this.bsm.setMaxHeight(ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED);
+                this.bnA.setMaxHeight(ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED);
             }
         }
     }
@@ -154,91 +154,91 @@ public class ALaImMsgView extends RelativeLayout implements j {
     @Override // com.baidu.live.im.j
     public void setMsgData(List<com.baidu.live.im.data.b> list) {
         if (list != null) {
-            this.bst = Math.max(this.bsm.getLastVisiblePosition(), this.bst);
-            this.bss = Math.max(list.size() - this.bst, 0);
-            this.bsm.setMsgData(list);
+            this.bnH = Math.max(this.bnA.getLastVisiblePosition(), this.bnH);
+            this.bnG = Math.max(list.size() - this.bnH, 0);
+            this.bnA.setMsgData(list);
         }
     }
 
     public boolean Z(List<com.baidu.live.im.data.b> list) {
-        return (list.size() == this.bsm.getData().size() && list.get(list.size() + (-1)) == this.bsm.getData().get(this.bsm.getData().size() + (-1))) ? false : true;
+        return (list.size() == this.bnA.getData().size() && list.get(list.size() + (-1)) == this.bnA.getData().get(this.bnA.getData().size() + (-1))) ? false : true;
     }
 
     public void B(com.baidu.live.im.data.b bVar) {
-        this.bsl.A(bVar);
+        this.bnz.A(bVar);
     }
 
     @Override // com.baidu.live.im.j
-    public void Mz() {
-        this.bsm.Mz();
+    public void IE() {
+        this.bnA.IE();
     }
 
-    public void LI() {
-        setListAlignBottom(this.bqi);
-        this.bsl.LI();
-        this.bsm.LI();
+    public void HN() {
+        setListAlignBottom(this.blv);
+        this.bnz.HN();
+        this.bnA.HN();
     }
 
-    public void Ng() {
-        this.bsl.release();
-        this.bsm.Ng();
-        this.bsn.setVisibility(8);
+    public void Jl() {
+        this.bnz.release();
+        this.bnA.Jl();
+        this.bnB.setVisibility(8);
     }
 
     @Override // com.baidu.live.im.j
     public void a(String str, String str2, boolean z, String str3, String str4) {
-        this.bsm.a(str, str2, z, str3, str4);
+        this.bnA.a(str, str2, z, str3, str4);
     }
 
     @Override // com.baidu.live.im.j
     public void setNeedTopAlphaShade(boolean z) {
-        this.bsm.setNeedTopAlphaShade(z);
+        this.bnA.setNeedTopAlphaShade(z);
     }
 
     @Override // com.baidu.live.im.j
     public void onKeyboardVisibilityChanged(boolean z) {
-        this.bsq = z;
+        this.bnE = z;
     }
 
     public void setLogData(String str, String str2) {
         this.mVid = str != null ? str : "";
-        this.bsm.setLogData(str, str2);
+        this.bnA.setLogData(str, str2);
     }
 
     public void setFromMaster(boolean z) {
-        this.boU = z;
-        if (this.bsm != null) {
-            this.bsm.setFromMaster(this.boU);
+        this.bkh = z;
+        if (this.bnA != null) {
+            this.bnA.setFromMaster(this.bkh);
         }
     }
 
     @Override // android.view.ViewGroup, android.view.View
     public boolean dispatchTouchEvent(MotionEvent motionEvent) {
         if (motionEvent.getAction() == 0) {
-            if (this.bsq) {
-                this.bsr = true;
+            if (this.bnE) {
+                this.bnF = true;
                 BdUtilHelper.hideSoftKeyPad(getContext(), getRootView());
             } else {
-                this.bsr = false;
+                this.bnF = false;
             }
         }
         return super.dispatchTouchEvent(motionEvent);
     }
 
-    public void OK() {
-        if (this.bsm.Ol() && this.bss > 0) {
-            this.bsn.setVisibility(0);
-            this.bsn.setNewMessageSize(this.bss);
+    public void KP() {
+        if (this.bnA.Kq() && this.bnG > 0) {
+            this.bnB.setVisibility(0);
+            this.bnB.setNewMessageSize(this.bnG);
         }
     }
 
-    public void aA(final String str, final String str2) {
+    public void az(final String str, final String str2) {
         RelativeLayout.LayoutParams layoutParams;
         RelativeLayout.LayoutParams layoutParams2;
-        if (this.bso == null) {
-            this.bso = new AlaImAddTagTextView(getContext());
-            this.bso.setId(a.f.ala_im_add_tag);
-            this.bso.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.live.im.view.ALaImMsgView.3
+        if (this.bnC == null) {
+            this.bnC = new AlaImAddTagTextView(getContext());
+            this.bnC.setId(a.f.ala_im_add_tag);
+            this.bnC.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.live.im.view.ALaImMsgView.3
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     if (!TbadkCoreApplication.isLogin()) {
@@ -256,144 +256,144 @@ public class ALaImMsgView extends RelativeLayout implements j {
                     MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AlaLiveTagActivityConfig(ALaImMsgView.this.mTbPageContext.getPageActivity(), str2, str)));
                 }
             });
-            addView(this.bso);
+            addView(this.bnC);
         }
-        if (this.bqi) {
-            if (this.bso.getLayoutParams() instanceof RelativeLayout.LayoutParams) {
-                layoutParams2 = (RelativeLayout.LayoutParams) this.bso.getLayoutParams();
+        if (this.blv) {
+            if (this.bnC.getLayoutParams() instanceof RelativeLayout.LayoutParams) {
+                layoutParams2 = (RelativeLayout.LayoutParams) this.bnC.getLayoutParams();
             } else {
                 layoutParams2 = new RelativeLayout.LayoutParams(-2, -2);
             }
             layoutParams2.addRule(12);
-            layoutParams2.addRule(5, this.bsm.getId());
+            layoutParams2.addRule(5, this.bnA.getId());
             layoutParams2.topMargin = getResources().getDimensionPixelSize(a.d.sdk_ds8);
             layoutParams2.bottomMargin = getContext().getResources().getDimensionPixelSize(a.d.sdk_ds80);
-            this.bso.setLayoutParams(layoutParams2);
-            RelativeLayout.LayoutParams layoutParams3 = (RelativeLayout.LayoutParams) this.bsm.getLayoutParams();
+            this.bnC.setLayoutParams(layoutParams2);
+            RelativeLayout.LayoutParams layoutParams3 = (RelativeLayout.LayoutParams) this.bnA.getLayoutParams();
             if (Build.VERSION.SDK_INT >= 17) {
                 layoutParams3.removeRule(12);
             } else {
                 layoutParams3.addRule(12, 0);
             }
-            if (this.bso != null && this.bso.getVisibility() == 0) {
+            if (this.bnC != null && this.bnC.getVisibility() == 0) {
                 layoutParams3.bottomMargin = getContext().getResources().getDimensionPixelSize(a.d.sdk_ds6);
             } else {
                 layoutParams3.bottomMargin = getContext().getResources().getDimensionPixelSize(a.d.sdk_ds80);
             }
-            layoutParams3.addRule(2, this.bso.getId());
-            this.bsm.setLayoutParams(layoutParams3);
+            layoutParams3.addRule(2, this.bnC.getId());
+            this.bnA.setLayoutParams(layoutParams3);
             return;
         }
-        if (this.bso.getLayoutParams() instanceof RelativeLayout.LayoutParams) {
-            layoutParams = (RelativeLayout.LayoutParams) this.bso.getLayoutParams();
+        if (this.bnC.getLayoutParams() instanceof RelativeLayout.LayoutParams) {
+            layoutParams = (RelativeLayout.LayoutParams) this.bnC.getLayoutParams();
         } else {
             layoutParams = new RelativeLayout.LayoutParams(-2, -2);
         }
         layoutParams.addRule(12);
-        layoutParams.addRule(5, this.bsm.getId());
+        layoutParams.addRule(5, this.bnA.getId());
         layoutParams.topMargin = getResources().getDimensionPixelSize(a.d.sdk_ds8);
         layoutParams.bottomMargin = getContext().getResources().getDimensionPixelSize(a.d.sdk_ds6);
-        this.bso.setLayoutParams(layoutParams);
-        RelativeLayout.LayoutParams layoutParams4 = (RelativeLayout.LayoutParams) this.bsm.getLayoutParams();
+        this.bnC.setLayoutParams(layoutParams);
+        RelativeLayout.LayoutParams layoutParams4 = (RelativeLayout.LayoutParams) this.bnA.getLayoutParams();
         if (Build.VERSION.SDK_INT >= 17) {
             layoutParams4.removeRule(12);
         } else {
             layoutParams4.addRule(12, 0);
         }
-        layoutParams4.addRule(2, this.bso.getId());
-        this.bsm.setLayoutParams(layoutParams4);
+        layoutParams4.addRule(2, this.bnC.getId());
+        this.bnA.setLayoutParams(layoutParams4);
     }
 
-    private boolean OL() {
-        if (this.bso != null) {
-            this.bsp = this.bso.getVisibility() == 0;
+    private boolean KQ() {
+        if (this.bnC != null) {
+            this.bnD = this.bnC.getVisibility() == 0;
         } else {
-            this.bsp = false;
+            this.bnD = false;
         }
-        return this.bsp;
+        return this.bnD;
     }
 
-    public void cu(boolean z) {
+    public void cq(boolean z) {
         RelativeLayout.LayoutParams layoutParams;
-        if (OL()) {
+        if (KQ()) {
             if (z) {
-                if (this.bso.getLayoutParams() instanceof RelativeLayout.LayoutParams) {
-                    layoutParams = (RelativeLayout.LayoutParams) this.bso.getLayoutParams();
+                if (this.bnC.getLayoutParams() instanceof RelativeLayout.LayoutParams) {
+                    layoutParams = (RelativeLayout.LayoutParams) this.bnC.getLayoutParams();
                 } else {
                     layoutParams = new RelativeLayout.LayoutParams(-2, -2);
                 }
                 layoutParams.addRule(12);
-                layoutParams.addRule(5, this.bsm.getId());
+                layoutParams.addRule(5, this.bnA.getId());
                 layoutParams.topMargin = getResources().getDimensionPixelSize(a.d.sdk_ds8);
                 layoutParams.bottomMargin = getContext().getResources().getDimensionPixelSize(a.d.sdk_ds80);
-                this.bso.setLayoutParams(layoutParams);
-                RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.bsm.getLayoutParams();
+                this.bnC.setLayoutParams(layoutParams);
+                RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.bnA.getLayoutParams();
                 if (Build.VERSION.SDK_INT >= 17) {
                     layoutParams2.removeRule(12);
                 } else {
                     layoutParams2.addRule(12, 0);
                 }
                 layoutParams2.bottomMargin = getContext().getResources().getDimensionPixelSize(a.d.sdk_ds6);
-                layoutParams2.addRule(2, this.bso.getId());
-                this.bsm.setLayoutParams(layoutParams2);
+                layoutParams2.addRule(2, this.bnC.getId());
+                this.bnA.setLayoutParams(layoutParams2);
                 return;
             }
             setTagViewBottom();
         }
     }
 
-    public void cv(boolean z) {
-        if (this.bso != null) {
-            this.bso.setVisibility(8);
+    public void cr(boolean z) {
+        if (this.bnC != null) {
+            this.bnC.setVisibility(8);
         }
         setListAlignBottom(!z);
     }
 
     public int getImMsgListViewTop() {
-        return getTop() + this.bsm.getTop();
+        return getTop() + this.bnA.getTop();
     }
 
     public int getImMsgListViewHeight() {
-        return this.bsm.getHeight();
+        return this.bnA.getHeight();
     }
 
     public void setListAlignBottom(boolean z) {
-        if (this.bsm != null) {
-            ViewGroup.LayoutParams layoutParams = this.bsm.getLayoutParams();
+        if (this.bnA != null) {
+            ViewGroup.LayoutParams layoutParams = this.bnA.getLayoutParams();
             if (z) {
                 if (layoutParams instanceof RelativeLayout.LayoutParams) {
                     ((RelativeLayout.LayoutParams) layoutParams).addRule(12);
-                    this.bsm.setLayoutParams(layoutParams);
+                    this.bnA.setLayoutParams(layoutParams);
                     ((RelativeLayout.LayoutParams) layoutParams).bottomMargin = getContext().getResources().getDimensionPixelSize(a.d.sdk_ds6);
                 }
             } else if (layoutParams instanceof RelativeLayout.LayoutParams) {
                 ((RelativeLayout.LayoutParams) layoutParams).addRule(12);
                 ((RelativeLayout.LayoutParams) layoutParams).bottomMargin = getContext().getResources().getDimensionPixelSize(a.d.sdk_ds80);
-                this.bsm.setLayoutParams(layoutParams);
+                this.bnA.setLayoutParams(layoutParams);
             }
         }
     }
 
     public void setTagViewBottom() {
         RelativeLayout.LayoutParams layoutParams;
-        if (this.bso != null) {
-            if (this.bso.getLayoutParams() instanceof RelativeLayout.LayoutParams) {
-                layoutParams = (RelativeLayout.LayoutParams) this.bso.getLayoutParams();
+        if (this.bnC != null) {
+            if (this.bnC.getLayoutParams() instanceof RelativeLayout.LayoutParams) {
+                layoutParams = (RelativeLayout.LayoutParams) this.bnC.getLayoutParams();
             } else {
                 layoutParams = new RelativeLayout.LayoutParams(-2, -2);
             }
-            layoutParams.addRule(5, this.bsm.getId());
+            layoutParams.addRule(5, this.bnA.getId());
             layoutParams.topMargin = getResources().getDimensionPixelSize(a.d.sdk_ds8);
             layoutParams.bottomMargin = getResources().getDimensionPixelSize(a.d.sdk_ds6);
-            this.bso.setLayoutParams(layoutParams);
-            RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.bsm.getLayoutParams();
+            this.bnC.setLayoutParams(layoutParams);
+            RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.bnA.getLayoutParams();
             if (Build.VERSION.SDK_INT >= 17) {
                 layoutParams2.removeRule(12);
             } else {
                 layoutParams2.addRule(12, 0);
             }
-            layoutParams2.addRule(2, this.bso.getId());
-            this.bsm.setLayoutParams(layoutParams2);
+            layoutParams2.addRule(2, this.bnC.getId());
+            this.bnA.setLayoutParams(layoutParams2);
         }
     }
 }

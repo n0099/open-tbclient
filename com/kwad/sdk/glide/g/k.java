@@ -6,48 +6,49 @@ import android.os.Build;
 import android.os.Looper;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import com.baidu.mobstat.Config;
 import com.kwad.sdk.glide.load.b.l;
 import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import java.util.Queue;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public final class k {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final char[] f10329a = "0123456789abcdef".toCharArray();
+    private static final char[] f10029a = "0123456789abcdef".toCharArray();
 
     /* renamed from: b  reason: collision with root package name */
-    private static final char[] f10330b = new char[64];
+    private static final char[] f10030b = new char[64];
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.kwad.sdk.glide.g.k$1  reason: invalid class name */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static /* synthetic */ class AnonymousClass1 {
 
         /* renamed from: a  reason: collision with root package name */
-        static final /* synthetic */ int[] f10331a = new int[Bitmap.Config.values().length];
+        static final /* synthetic */ int[] f10031a = new int[Bitmap.Config.values().length];
 
         static {
             try {
-                f10331a[Bitmap.Config.ALPHA_8.ordinal()] = 1;
+                f10031a[Bitmap.Config.ALPHA_8.ordinal()] = 1;
             } catch (NoSuchFieldError e) {
             }
             try {
-                f10331a[Bitmap.Config.RGB_565.ordinal()] = 2;
+                f10031a[Bitmap.Config.RGB_565.ordinal()] = 2;
             } catch (NoSuchFieldError e2) {
             }
             try {
-                f10331a[Bitmap.Config.ARGB_4444.ordinal()] = 3;
+                f10031a[Bitmap.Config.ARGB_4444.ordinal()] = 3;
             } catch (NoSuchFieldError e3) {
             }
             try {
-                f10331a[Bitmap.Config.RGBA_F16.ordinal()] = 4;
+                f10031a[Bitmap.Config.RGBA_F16.ordinal()] = 4;
             } catch (NoSuchFieldError e4) {
             }
             try {
-                f10331a[Bitmap.Config.ARGB_8888.ordinal()] = 5;
+                f10031a[Bitmap.Config.ARGB_8888.ordinal()] = 5;
             } catch (NoSuchFieldError e5) {
             }
         }
@@ -69,7 +70,7 @@ public final class k {
         if (config == null) {
             config = Bitmap.Config.ARGB_8888;
         }
-        switch (AnonymousClass1.f10331a[config.ordinal()]) {
+        switch (AnonymousClass1.f10031a[config.ordinal()]) {
             case 1:
                 return 1;
             case 2:
@@ -85,7 +86,7 @@ public final class k {
     @TargetApi(19)
     public static int a(@NonNull Bitmap bitmap) {
         if (bitmap.isRecycled()) {
-            throw new IllegalStateException("Cannot obtain size for recycled Bitmap: " + bitmap + "[" + bitmap.getWidth() + "x" + bitmap.getHeight() + "] " + bitmap.getConfig());
+            throw new IllegalStateException("Cannot obtain size for recycled Bitmap: " + bitmap + "[" + bitmap.getWidth() + Config.EVENT_HEAT_X + bitmap.getHeight() + "] " + bitmap.getConfig());
         }
         if (Build.VERSION.SDK_INT >= 19) {
             try {
@@ -107,8 +108,8 @@ public final class k {
     @NonNull
     public static String a(@NonNull byte[] bArr) {
         String a2;
-        synchronized (f10330b) {
-            a2 = a(bArr, f10330b);
+        synchronized (f10030b) {
+            a2 = a(bArr, f10030b);
         }
         return a2;
     }
@@ -117,8 +118,8 @@ public final class k {
     private static String a(@NonNull byte[] bArr, @NonNull char[] cArr) {
         for (int i = 0; i < bArr.length; i++) {
             int i2 = bArr[i] & 255;
-            cArr[i * 2] = f10329a[i2 >>> 4];
-            cArr[(i * 2) + 1] = f10329a[i2 & 15];
+            cArr[i * 2] = f10029a[i2 >>> 4];
+            cArr[(i * 2) + 1] = f10029a[i2 & 15];
         }
         return new String(cArr);
     }

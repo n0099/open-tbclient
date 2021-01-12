@@ -7,6 +7,7 @@ import android.os.Build;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import androidx.annotation.Nullable;
+import com.baidu.mobstat.Config;
 import com.bumptech.glide.load.DecodeFormat;
 import com.bumptech.glide.load.ImageHeaderParser;
 import com.bumptech.glide.load.ImageHeaderParserUtils;
@@ -29,7 +30,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Queue;
 import java.util.Set;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class Downsampler {
     private static final int MARK_POSITION = 10485760;
     static final String TAG = "Downsampler";
@@ -58,7 +59,7 @@ public final class Downsampler {
     private static final Set<ImageHeaderParser.ImageType> TYPES_THAT_USE_POOL_PRE_KITKAT = Collections.unmodifiableSet(EnumSet.of(ImageHeaderParser.ImageType.JPEG, ImageHeaderParser.ImageType.PNG_A, ImageHeaderParser.ImageType.PNG));
     private static final Queue<BitmapFactory.Options> OPTIONS_QUEUE = Util.createQueue(0);
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public interface DecodeCallbacks {
         void onDecodeComplete(BitmapPool bitmapPool, Bitmap bitmap) throws IOException;
 
@@ -121,7 +122,7 @@ public final class Downsampler {
                 i5 = Math.round(((int) Math.ceil(i3 / i7)) * f);
                 i6 = Math.round(((int) Math.ceil(i4 / i7)) * f);
                 if (Log.isLoggable(TAG, 2)) {
-                    Log.v(TAG, "Calculated target [" + i5 + "x" + i6 + "] for source [" + i3 + "x" + i4 + "], sampleSize: " + i7 + ", targetDensity: " + options.inTargetDensity + ", density: " + options.inDensity + ", density multiplier: " + f);
+                    Log.v(TAG, "Calculated target [" + i5 + Config.EVENT_HEAT_X + i6 + "] for source [" + i3 + Config.EVENT_HEAT_X + i4 + "], sampleSize: " + i7 + ", targetDensity: " + options.inTargetDensity + ", density: " + options.inDensity + ", density multiplier: " + f);
                 }
             }
             if (i5 > 0 && i6 > 0) {
@@ -152,7 +153,7 @@ public final class Downsampler {
         int floor2;
         if (i2 <= 0 || i3 <= 0) {
             if (Log.isLoggable(TAG, 3)) {
-                Log.d(TAG, "Unable to determine dimensions for: " + imageType + " with target [" + i4 + "x" + i5 + "]");
+                Log.d(TAG, "Unable to determine dimensions for: " + imageType + " with target [" + i4 + Config.EVENT_HEAT_X + i5 + "]");
                 return;
             }
             return;
@@ -163,7 +164,7 @@ public final class Downsampler {
             scaleFactor = downsampleStrategy.getScaleFactor(i2, i3, i4, i5);
         }
         if (scaleFactor <= 0.0f) {
-            throw new IllegalArgumentException("Cannot scale with factor: " + scaleFactor + " from: " + downsampleStrategy + ", source: [" + i2 + "x" + i3 + "], target: [" + i4 + "x" + i5 + "]");
+            throw new IllegalArgumentException("Cannot scale with factor: " + scaleFactor + " from: " + downsampleStrategy + ", source: [" + i2 + Config.EVENT_HEAT_X + i3 + "], target: [" + i4 + Config.EVENT_HEAT_X + i5 + "]");
         }
         DownsampleStrategy.SampleSizeRounding sampleSizeRounding = downsampleStrategy.getSampleSizeRounding(i2, i3, i4, i5);
         if (sampleSizeRounding == null) {
@@ -225,7 +226,7 @@ public final class Downsampler {
             options.inDensity = 0;
         }
         if (Log.isLoggable(TAG, 2)) {
-            Log.v(TAG, "Calculate scaling, source: [" + i2 + "x" + i3 + "], target: [" + i4 + "x" + i5 + "], power of two scaled: [" + floor + "x" + floor2 + "], exact scale factor: " + scaleFactor + ", power of 2 sample size: " + max + ", adjusted scale factor: " + scaleFactor2 + ", target density: " + options.inTargetDensity + ", density: " + options.inDensity);
+            Log.v(TAG, "Calculate scaling, source: [" + i2 + Config.EVENT_HEAT_X + i3 + "], target: [" + i4 + Config.EVENT_HEAT_X + i5 + "], power of two scaled: [" + floor + Config.EVENT_HEAT_X + floor2 + "], exact scale factor: " + scaleFactor + ", power of 2 sample size: " + max + ", adjusted scale factor: " + scaleFactor2 + ", target density: " + options.inTargetDensity + ", density: " + options.inDensity);
         }
     }
 
@@ -331,7 +332,7 @@ public final class Downsampler {
     }
 
     private static void logDecode(int i, int i2, String str, BitmapFactory.Options options, Bitmap bitmap, int i3, int i4, long j) {
-        Log.v(TAG, "Decoded " + getBitmapString(bitmap) + " from [" + i + "x" + i2 + "] " + str + " with inBitmap " + getInBitmapString(options) + " for [" + i3 + "x" + i4 + "], sample size: " + options.inSampleSize + ", density: " + options.inDensity + ", target density: " + options.inTargetDensity + ", thread: " + Thread.currentThread().getName() + ", duration: " + LogTime.getElapsedMillis(j));
+        Log.v(TAG, "Decoded " + getBitmapString(bitmap) + " from [" + i + Config.EVENT_HEAT_X + i2 + "] " + str + " with inBitmap " + getInBitmapString(options) + " for [" + i3 + Config.EVENT_HEAT_X + i4 + "], sample size: " + options.inSampleSize + ", density: " + options.inDensity + ", target density: " + options.inTargetDensity + ", thread: " + Thread.currentThread().getName() + ", duration: " + LogTime.getElapsedMillis(j));
     }
 
     private static String getInBitmapString(BitmapFactory.Options options) {
@@ -344,7 +345,7 @@ public final class Downsampler {
         if (bitmap == null) {
             return null;
         }
-        return "[" + bitmap.getWidth() + "x" + bitmap.getHeight() + "] " + bitmap.getConfig() + (Build.VERSION.SDK_INT >= 19 ? " (" + bitmap.getAllocationByteCount() + ")" : "");
+        return "[" + bitmap.getWidth() + Config.EVENT_HEAT_X + bitmap.getHeight() + "] " + bitmap.getConfig() + (Build.VERSION.SDK_INT >= 19 ? " (" + bitmap.getAllocationByteCount() + ")" : "");
     }
 
     private static IOException newIoExceptionForInBitmapAssertion(IllegalArgumentException illegalArgumentException, int i, int i2, String str, BitmapFactory.Options options) {

@@ -5,7 +5,7 @@ import com.baidu.android.util.io.BaseJsonData;
 import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class c {
     public static boolean e(byte[] bArr, String str) {
         if (bArr == null) {

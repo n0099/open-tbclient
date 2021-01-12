@@ -17,18 +17,18 @@ import java.util.List;
 import org.apache.http.HttpHost;
 import org.json.JSONArray;
 import org.json.JSONException;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public final class be {
     public static String java;
 
-    public static boolean abK(String str) {
+    public static boolean aaC(String str) {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
         return str.startsWith(HttpHost.DEFAULT_SCHEME_NAME) || str.startsWith("https");
     }
 
-    public static String iR(Context context) {
+    public static String iP(Context context) {
         if (context == null) {
             return null;
         }
@@ -71,12 +71,12 @@ public final class be {
         return linkedList;
     }
 
-    private static List<String> iY(Context context) {
+    private static List<String> iW(Context context) {
         ArrayList arrayList = new ArrayList();
-        String m71d = az.m71d(context);
-        if (!TextUtils.isEmpty(m71d)) {
+        String m67d = az.m67d(context);
+        if (!TextUtils.isEmpty(m67d)) {
             try {
-                JSONArray jSONArray = new JSONArray(m71d);
+                JSONArray jSONArray = new JSONArray(m67d);
                 if (jSONArray.length() > 0) {
                     for (int i = 0; i < jSONArray.length(); i++) {
                         arrayList.add(jSONArray.optString(i));
@@ -92,12 +92,12 @@ public final class be {
         Intent intent = new Intent("android.intent.action.VIEW", uri);
         intent.addFlags(268435456);
         uri.getScheme();
-        if (bf.al(uri)) {
+        if (bf.ai(uri)) {
             intent.setPackage("com.huawei.appmarket");
-        } else if (bf.am(uri)) {
+        } else if (bf.aj(uri)) {
             intent.setPackage("com.android.vending");
         } else {
-            intent = bs.abU(uri.toString());
+            intent = bs.aaM(uri.toString());
             intent.addFlags(268435456);
         }
         context.startActivity(intent);
@@ -139,9 +139,9 @@ public final class be {
         if (n.size() == 1) {
             return n.get(0);
         }
-        List<String> iY = iY(context);
-        if (iY.size() > 0) {
-            Iterator<String> it = iY.iterator();
+        List<String> iW = iW(context);
+        if (iW.size() > 0) {
+            Iterator<String> it = iW.iterator();
             while (it.hasNext()) {
                 str = it.next();
                 if (n.contains(str)) {

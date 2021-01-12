@@ -9,49 +9,49 @@ public class a {
         return C0011a.isSupported();
     }
 
-    public static String cg(Context context) {
-        return C0011a.cg(context.getApplicationContext());
+    public static String cf(Context context) {
+        return C0011a.cf(context.getApplicationContext());
     }
 
     /* renamed from: com.b.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
     static class C0011a {
-        private static Method pSA;
-        private static Method pSB;
-        private static Method pSC;
-        private static Method pSD;
-        private static Object pSz;
+        private static Object pNZ;
+        private static Method pOa;
+        private static Method pOb;
+        private static Method pOc;
+        private static Method pOd;
         private static Class<?> sClass;
 
         static {
-            pSA = null;
-            pSB = null;
-            pSC = null;
-            pSD = null;
+            pOa = null;
+            pOb = null;
+            pOc = null;
+            pOd = null;
             try {
                 sClass = Class.forName("com.android.id.impl.IdProviderImpl");
-                pSz = sClass.newInstance();
-                pSA = sClass.getMethod("getUDID", Context.class);
-                pSB = sClass.getMethod("getOAID", Context.class);
-                pSC = sClass.getMethod("getVAID", Context.class);
-                pSD = sClass.getMethod("getAAID", Context.class);
+                pNZ = sClass.newInstance();
+                pOa = sClass.getMethod("getUDID", Context.class);
+                pOb = sClass.getMethod("getOAID", Context.class);
+                pOc = sClass.getMethod("getVAID", Context.class);
+                pOd = sClass.getMethod("getAAID", Context.class);
             } catch (Throwable th) {
                 Log.e("XiaomiId", "xiaomi init error", th);
             }
         }
 
         public static boolean isSupported() {
-            return (sClass == null || pSz == null) ? false : true;
+            return (sClass == null || pNZ == null) ? false : true;
         }
 
-        public static String cg(Context context) {
-            return b(context, pSB);
+        public static String cf(Context context) {
+            return b(context, pOb);
         }
 
         private static String b(Context context, Method method) {
-            if (pSz != null && method != null) {
+            if (pNZ != null && method != null) {
                 try {
-                    Object invoke = method.invoke(pSz, context);
+                    Object invoke = method.invoke(pNZ, context);
                     if (invoke != null) {
                         return (String) invoke;
                     }

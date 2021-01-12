@@ -13,14 +13,14 @@ import java.util.Date;
 import java.util.LinkedList;
 import protobuf.QueryHistoryMsg.MsgInfo;
 import protobuf.QueryHistoryMsg.QueryHistoryMsgResIdl;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class k implements CustomMessageTask.CustomRunnable<String> {
     @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
     public CustomResponsedMessage<?> run(CustomMessage<String> customMessage) {
         if (customMessage == null || !(customMessage instanceof RequestLocalHistoryMessage)) {
             return null;
         }
-        byte[] bArr = com.baidu.tbadk.core.c.a.btT().Bl("tb.im_official_history").get(TbadkApplication.getCurrentAccount() + "@" + ((RequestLocalHistoryMessage) customMessage).getData());
+        byte[] bArr = com.baidu.tbadk.core.c.a.bpZ().Aa("tb.im_official_history").get(TbadkApplication.getCurrentAccount() + "@" + ((RequestLocalHistoryMessage) customMessage).getData());
         if (bArr == null) {
             return null;
         }

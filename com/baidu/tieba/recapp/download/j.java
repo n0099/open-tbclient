@@ -12,7 +12,7 @@ import com.baidu.tbadk.core.util.NotificationHelper;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.download.DownloadData;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class j implements com.baidu.tbadk.download.c {
     @Override // com.baidu.tbadk.download.c
     public void onFileUpdateProgress(DownloadData downloadData) {
@@ -24,8 +24,8 @@ public class j implements com.baidu.tbadk.download.c {
                 edit.putLong(downloadData.getId(), downloadData.getSize());
                 edit.commit();
             }
-            i.dFi().c(downloadData);
-            i.dFi().b(downloadData);
+            i.dBq().c(downloadData);
+            i.dBq().b(downloadData);
         }
     }
 
@@ -55,9 +55,9 @@ public class j implements com.baidu.tbadk.download.c {
                 TiebaStatic.eventStat(TbadkCoreApplication.getInst().getApp(), "dl_game_success", "click", 1, "dev_id", downloadData.getId(), "ref_id", tag[0], "is_detail", tag[2], "ref_type", tag[1]);
             }
             NotificationHelper.cancelNotification(TbadkCoreApplication.getInst().getApp(), downloadData.getNotifyId());
-            i.dFi().b(downloadData);
+            i.dBq().b(downloadData);
             String path = downloadData.getPath();
-            com.baidu.tieba.ad.download.b.a.ctd.get().bPa().onSuccess(downloadData.getId(), TextUtils.isEmpty(path) ? i.dFi().RE(downloadData.getId()) : path);
+            com.baidu.tieba.ad.download.b.a.cop.get().bLi().onSuccess(downloadData.getId(), TextUtils.isEmpty(path) ? i.dBq().Qw(downloadData.getId()) : path);
             if (downloadData.isNeedInvokeApk()) {
                 UtilHelper.install_apk(TbadkCoreApplication.getInst().getApp(), downloadData.getId().replace(".", PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS) + ".apk");
             }
@@ -66,13 +66,13 @@ public class j implements com.baidu.tbadk.download.c {
 
     @Override // com.baidu.tbadk.download.c
     public void onFileDownloadFailed(DownloadData downloadData, int i, String str) {
-        i dFi = i.dFi();
+        i dBq = i.dBq();
         if (i == 3) {
-            dFi.k(downloadData);
+            dBq.k(downloadData);
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_APP_DOWNLOAD_MSG, downloadData));
         } else {
-            dFi.l(downloadData);
+            dBq.l(downloadData);
         }
-        i.dFi().b(downloadData);
+        i.dBq().b(downloadData);
     }
 }

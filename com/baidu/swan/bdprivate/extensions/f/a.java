@@ -11,25 +11,25 @@ import com.baidu.swan.c.d;
 import java.io.File;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class a implements ak {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private com.baidu.m.a dsE = new com.baidu.m.a();
+    private com.baidu.k.a dnN = new com.baidu.k.a();
 
     @Override // com.baidu.swan.apps.adaptation.a.ak
-    public boolean J(String str, String str2, String str3) {
-        e aMm;
-        b.a aMp;
-        if (!c.aNJ() || (aMm = e.aMm()) == null || (aMp = aMm.aMp()) == null) {
+    public boolean I(String str, String str2, String str3) {
+        e aIs;
+        b.a aIv;
+        if (!c.aJP() || (aIs = e.aIs()) == null || (aIv = aIs.aIv()) == null) {
             return false;
         }
-        b(str, com.baidu.swan.ubc.e.bio().getUserId(AppRuntime.getAppContext()), com.baidu.swan.apps.t.a.aAx().cd(com.baidu.swan.apps.t.a.aAs()), com.baidu.swan.bdprivate.a.a.dX(aMm.getApplicationContext()), str2, str3, com.baidu.swan.apps.t.a.aBe().getHostName(), aMp.aCw());
+        b(str, com.baidu.swan.ubc.e.beu().getUserId(AppRuntime.getAppContext()), com.baidu.swan.apps.t.a.awD().cc(com.baidu.swan.apps.t.a.awy()), com.baidu.swan.bdprivate.a.a.dW(aIs.getApplicationContext()), str2, str3, com.baidu.swan.apps.t.a.axk().getHostName(), aIv.ayC());
         return true;
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.ak
-    public void amc() {
-        String readFileData = d.readFileData(aTx());
+    public void aii() {
+        String readFileData = d.readFileData(aPD());
         final long currentTimeMillis = System.currentTimeMillis() / 1000;
         if (!TextUtils.isEmpty(readFileData)) {
             try {
@@ -48,14 +48,14 @@ public class a implements ak {
                 return;
             }
         }
-        this.dsE.a(new com.baidu.poly.b.a() { // from class: com.baidu.swan.bdprivate.extensions.f.a.1
+        this.dnN.a(new com.baidu.poly.b.a() { // from class: com.baidu.swan.bdprivate.extensions.f.a.1
             @Override // com.baidu.poly.b.a
             public void onResult(int i, String str) {
                 if (a.DEBUG) {
                     Log.d("RebateInfoManager", "requestBatchRebateInfo onResult: " + i + " " + str);
                 }
-                d.deleteFile(a.aTx());
-                d.saveFile(String.valueOf(currentTimeMillis), a.aTx());
+                d.deleteFile(a.aPD());
+                d.saveFile(String.valueOf(currentTimeMillis), a.aPD());
             }
         });
     }
@@ -73,7 +73,7 @@ public class a implements ak {
             jSONObject.put("businessId", str6);
             jSONObject.put("naid", str7);
             jSONObject.put("scene", str8);
-            this.dsE.a(jSONObject, new com.baidu.poly.b.a() { // from class: com.baidu.swan.bdprivate.extensions.f.a.2
+            this.dnN.a(jSONObject, new com.baidu.poly.b.a() { // from class: com.baidu.swan.bdprivate.extensions.f.a.2
                 @Override // com.baidu.poly.b.a
                 public void onResult(int i, String str9) {
                     if (a.DEBUG) {
@@ -89,7 +89,7 @@ public class a implements ak {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static File aTx() {
+    public static File aPD() {
         return new File(AppRuntime.getAppContext().getFilesDir().getPath(), "rebate_info_timestamp");
     }
 }

@@ -1,12 +1,14 @@
 package com.baidu.mapapi;
-/* loaded from: classes3.dex */
+
+import com.baidu.mapsdkplatform.comjni.tools.a;
+/* loaded from: classes6.dex */
 public class OpenLogUtil {
 
     /* renamed from: a  reason: collision with root package name */
-    private static ModuleName f2739a;
+    private static ModuleName f2649a;
 
     public static void setModuleLogEnable(ModuleName moduleName, boolean z) {
-        f2739a = moduleName;
-        com.baidu.mapsdkplatform.comjni.tools.a.a(z, f2739a.ordinal());
+        f2649a = moduleName;
+        a.a(z, f2649a.ordinal());
     }
 }

@@ -9,14 +9,14 @@ import com.kwad.sdk.core.download.DownloadParams;
 import com.kwad.sdk.export.proxy.AdDownloadProxy;
 import com.kwad.sdk.utils.t;
 import java.io.File;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class a implements AdDownloadProxy {
 
     /* renamed from: a  reason: collision with root package name */
-    private boolean f9419a;
+    private boolean f9119a;
 
     public a(boolean z) {
-        this.f9419a = z;
+        this.f9119a = z;
     }
 
     private String a(String str) {
@@ -51,7 +51,7 @@ public class a implements AdDownloadProxy {
         DownloadTask.DownloadRequest downloadRequest = new DownloadTask.DownloadRequest(downloadParams.mFileUrl);
         downloadRequest.setDestinationFileName(a(downloadParams.mFileUrl));
         downloadRequest.setTag(downloadParams);
-        if (this.f9419a) {
+        if (this.f9119a) {
             downloadRequest.setNotificationVisibility(3);
         } else {
             downloadRequest.setNotificationVisibility(0);

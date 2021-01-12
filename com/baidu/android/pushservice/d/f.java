@@ -1,27 +1,27 @@
 package com.baidu.android.pushservice.d;
-/* loaded from: classes3.dex */
+/* loaded from: classes14.dex */
 public class f {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f1261a;
+    private String f1267a;
 
     /* renamed from: b  reason: collision with root package name */
-    private String f1262b;
+    private String f1268b;
 
     public f(String str, String str2) {
-        this.f1261a = str;
-        this.f1262b = str2;
+        this.f1267a = str;
+        this.f1268b = str2;
     }
 
     public String a() {
-        return this.f1261a;
+        return this.f1267a;
     }
 
     public String b() {
-        return this.f1262b;
+        return this.f1268b;
     }
 
     public String toString() {
-        return "BindCache [mApiKey=" + this.f1261a + ", mContent=" + this.f1262b + "]";
+        return "BindCache [mApiKey=" + this.f1267a + ", mContent=" + this.f1268b + "]";
     }
 }

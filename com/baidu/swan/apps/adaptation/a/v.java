@@ -1,7 +1,7 @@
 package com.baidu.swan.apps.adaptation.a;
 
 import java.util.Map;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public interface v {
     void a(com.baidu.swan.apps.commonsync.a.a aVar);
 

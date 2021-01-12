@@ -6,14 +6,14 @@ import com.baidu.mobstat.Config;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class m implements i {
-    private a axt;
+    private a asH;
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     private class a {
-        private a.C0141a axu;
-        private JSONObject axv;
+        private a.C0133a asI;
+        private JSONObject asJ;
         private Context i;
         private boolean k;
         private boolean l;
@@ -26,7 +26,7 @@ public class m implements i {
             if (context == null) {
                 throw new NullPointerException("context should not be null");
             }
-            this.axu = new com.baidu.helios.common.c.a(context.getApplicationContext()).zf().fm("cloud").fm("cstore");
+            this.asI = new com.baidu.helios.common.c.a(context.getApplicationContext()).vk().ea("cloud").ea("cstore");
         }
 
         private boolean a(JSONObject jSONObject, JSONObject jSONObject2) {
@@ -48,10 +48,10 @@ public class m implements i {
             boolean a2;
             if (this.o == null) {
                 a2 = true;
-            } else if (this.axv == null) {
+            } else if (this.asJ == null) {
                 throw new IllegalArgumentException("you forgot invoke methond :IMatchConditions.setComparedCStoreParams before ");
             } else {
-                a2 = a(this.o, this.axv);
+                a2 = a(this.o, this.asJ);
             }
             return a2;
         }
@@ -69,7 +69,7 @@ public class m implements i {
 
         private void e() {
             try {
-                this.o = l.a(this.axu.p("cs.dat", true));
+                this.o = l.a(this.asI.p("cs.dat", true));
                 this.q = d();
             } catch (Exception e) {
                 this.q = 0L;
@@ -78,7 +78,7 @@ public class m implements i {
 
         private void f() {
             try {
-                JSONObject a2 = l.a(this.axu.p("ct.dat", true));
+                JSONObject a2 = l.a(this.asI.p("ct.dat", true));
                 if (a2 == null) {
                     this.n = 172800L;
                 } else {
@@ -91,7 +91,7 @@ public class m implements i {
 
         private void g() {
             try {
-                JSONObject a2 = l.a(this.axu.p("ci.dat", true));
+                JSONObject a2 = l.a(this.asI.p("ci.dat", true));
                 if (a2 == null) {
                     this.k = true;
                 } else {
@@ -104,7 +104,7 @@ public class m implements i {
 
         private boolean h() {
             try {
-                this.axu.c("cs.dat", this.o.toString(), true);
+                this.asI.c("cs.dat", this.o.toString(), true);
                 return true;
             } catch (Exception e) {
                 return false;
@@ -115,7 +115,7 @@ public class m implements i {
             try {
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("isOn", this.k);
-                this.axu.c("ci.dat", jSONObject.toString(), true);
+                this.asI.c("ci.dat", jSONObject.toString(), true);
                 return true;
             } catch (Exception e) {
                 return false;
@@ -126,7 +126,7 @@ public class m implements i {
             try {
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("TIME_OUT", this.n);
-                this.axu.c("ct.dat", jSONObject.toString(), true);
+                this.asI.c("ct.dat", jSONObject.toString(), true);
                 return true;
             } catch (Exception e) {
                 return false;
@@ -157,7 +157,7 @@ public class m implements i {
         }
 
         public void a(JSONObject jSONObject) {
-            this.axv = jSONObject;
+            this.asJ = jSONObject;
         }
 
         /* JADX WARN: Code restructure failed: missing block: B:15:0x002a, code lost:
@@ -171,8 +171,8 @@ public class m implements i {
             synchronized (this) {
                 k();
                 m();
-                boolean yB = com.baidu.helios.b.ak(this.i).yB();
-                if (this.k && yB) {
+                boolean uG = com.baidu.helios.b.aj(this.i).uG();
+                if (this.k && uG) {
                     if (this.o == null) {
                         z = true;
                     } else {
@@ -195,8 +195,8 @@ public class m implements i {
         if (context == null) {
             throw new NullPointerException("context should not be null");
         }
-        if (this.axt == null) {
-            this.axt = new a(context.getApplicationContext());
+        if (this.asH == null) {
+            this.asH = new a(context.getApplicationContext());
         }
     }
 
@@ -217,22 +217,22 @@ public class m implements i {
 
     @Override // com.baidu.helios.a.a.i
     public boolean a() {
-        return this.axt.a();
+        return this.asH.a();
     }
 
     @Override // com.baidu.helios.a.a.i
     public void b() {
-        this.axt.l();
+        this.asH.l();
     }
 
     @Override // com.baidu.helios.a.a.i
     public void b(JSONObject jSONObject) {
-        this.axt.b(jSONObject);
+        this.asH.b(jSONObject);
     }
 
     @Override // com.baidu.helios.a.a.i
     public i s(JSONObject jSONObject) {
-        this.axt.a(jSONObject);
+        this.asH.a(jSONObject);
         return this;
     }
 }

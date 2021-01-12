@@ -4,7 +4,7 @@ import android.app.Notification;
 import android.content.Context;
 import com.meizu.cloud.pushsdk.handler.MessageV3;
 import com.meizu.cloud.pushsdk.util.MinSdkChecker;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class d extends a {
     public d(Context context, PushNotificationBuilder pushNotificationBuilder) {
         super(context, pushNotificationBuilder);

@@ -4,7 +4,7 @@ import android.content.Context;
 import com.baidu.searchbox.http.request.HttpRequest;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class e extends h<JSONObject> {
     protected final Context mContext;
 
@@ -13,16 +13,16 @@ public class e extends h<JSONObject> {
     }
 
     @Override // com.baidu.swan.apps.setting.oauth.b
-    protected boolean aOa() {
-        com.baidu.swan.apps.runtime.e aMl = com.baidu.swan.apps.runtime.e.aMl();
-        if (aMl != null) {
+    protected boolean aKg() {
+        com.baidu.swan.apps.runtime.e aIr = com.baidu.swan.apps.runtime.e.aIr();
+        if (aIr != null) {
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put("ma_id", aMl.id);
+                jSONObject.put("ma_id", aIr.id);
             } catch (JSONException e) {
                 e.printStackTrace();
             }
-            cA("data", jSONObject.toString());
+            cz("data", jSONObject.toString());
             return true;
         }
         return true;
@@ -38,6 +38,6 @@ public class e extends h<JSONObject> {
 
     @Override // com.baidu.swan.apps.setting.oauth.a.h
     protected HttpRequest a(h hVar) {
-        return com.baidu.swan.apps.t.a.aAE().i(this.mContext, hVar.aOB());
+        return com.baidu.swan.apps.t.a.awK().i(this.mContext, hVar.aKH());
     }
 }

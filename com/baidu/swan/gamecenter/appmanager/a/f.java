@@ -6,7 +6,7 @@ import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class f extends com.baidu.swan.gamecenter.c.a {
     public static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private AppDownloadNetworkStateReceiver edW;
+    private AppDownloadNetworkStateReceiver dZk;
 
     public f() {
         super("resumeAllDownloadWhileWifi");
@@ -17,12 +17,12 @@ public class f extends com.baidu.swan.gamecenter.c.a {
         if (jSONObject == null) {
             bVar.onFail(202, "params may be error");
         } else {
-            if (this.edW == null) {
-                this.edW = new AppDownloadNetworkStateReceiver();
+            if (this.dZk == null) {
+                this.dZk = new AppDownloadNetworkStateReceiver();
             }
             IntentFilter intentFilter = new IntentFilter();
             intentFilter.addAction("android.net.conn.CONNECTIVITY_CHANGE");
-            com.baidu.swan.apps.t.a.aAs().registerReceiver(this.edW, intentFilter);
+            com.baidu.swan.apps.t.a.awy().registerReceiver(this.dZk, intentFilter);
             bVar.aI(null);
         }
         return null;

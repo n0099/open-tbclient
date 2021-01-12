@@ -1,7 +1,7 @@
 package androidx.recyclerview.widget;
 
 import androidx.annotation.Nullable;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public interface ListUpdateCallback {
     void onChanged(int i, int i2, @Nullable Object obj);
 

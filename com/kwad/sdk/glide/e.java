@@ -10,15 +10,15 @@ import com.kwad.sdk.glide.request.a.k;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class e extends ContextWrapper {
     @VisibleForTesting
 
     /* renamed from: a  reason: collision with root package name */
-    static final h<?, ?> f10261a = new b();
+    static final h<?, ?> f9961a = new b();
 
     /* renamed from: b  reason: collision with root package name */
-    private final com.kwad.sdk.glide.load.engine.bitmap_recycle.b f10262b;
+    private final com.kwad.sdk.glide.load.engine.bitmap_recycle.b f9962b;
     private final Registry c;
     private final com.kwad.sdk.glide.request.a.f d;
     private final com.kwad.sdk.glide.request.f e;
@@ -30,7 +30,7 @@ public class e extends ContextWrapper {
 
     public e(@NonNull Context context, @NonNull com.kwad.sdk.glide.load.engine.bitmap_recycle.b bVar, @NonNull Registry registry, @NonNull com.kwad.sdk.glide.request.a.f fVar, @NonNull com.kwad.sdk.glide.request.f fVar2, @NonNull Map<Class<?>, h<?, ?>> map, @NonNull List<com.kwad.sdk.glide.request.e<Object>> list, @NonNull i iVar, boolean z, int i) {
         super(context.getApplicationContext());
-        this.f10262b = bVar;
+        this.f9962b = bVar;
         this.c = registry;
         this.d = fVar;
         this.e = fVar2;
@@ -57,7 +57,7 @@ public class e extends ContextWrapper {
             }
             hVar2 = hVar;
         }
-        return hVar2 == null ? (h<?, T>) f10261a : hVar2;
+        return hVar2 == null ? (h<?, T>) f9961a : hVar2;
     }
 
     @NonNull
@@ -89,7 +89,7 @@ public class e extends ContextWrapper {
 
     @NonNull
     public com.kwad.sdk.glide.load.engine.bitmap_recycle.b f() {
-        return this.f10262b;
+        return this.f9962b;
     }
 
     public boolean g() {

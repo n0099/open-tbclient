@@ -10,10 +10,10 @@ import com.meizu.cloud.pushsdk.constants.PushConstants;
 public final class Util {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final boolean f1142a = false;
+    private static final boolean f1148a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    private static final String f1143b = "Util";
+    private static final String f1149b = "Util";
 
     private Util() {
     }

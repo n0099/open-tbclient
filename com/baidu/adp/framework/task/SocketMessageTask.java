@@ -4,7 +4,7 @@ import com.baidu.adp.framework.FrameHelper;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 /* loaded from: classes.dex */
 public class SocketMessageTask extends MessageTask {
-    private DupLicateMode JQ;
+    private DupLicateMode JO;
     private boolean mCanRetry;
     private boolean mNeedAck;
     private boolean mNeedCompress;
@@ -23,7 +23,7 @@ public class SocketMessageTask extends MessageTask {
         this.mNeedAck = false;
         this.mNeedCompress = false;
         this.mCanRetry = true;
-        this.JQ = DupLicateMode.NONE;
+        this.JO = DupLicateMode.NONE;
     }
 
     @Override // com.baidu.adp.framework.task.MessageTask
@@ -64,10 +64,10 @@ public class SocketMessageTask extends MessageTask {
     }
 
     public DupLicateMode ld() {
-        return this.JQ;
+        return this.JO;
     }
 
     public void a(DupLicateMode dupLicateMode) {
-        this.JQ = dupLicateMode;
+        this.JO = dupLicateMode;
     }
 }

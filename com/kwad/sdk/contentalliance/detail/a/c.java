@@ -6,11 +6,11 @@ import com.kwad.sdk.contentalliance.detail.video.f;
 import com.kwad.sdk.contentalliance.home.h;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.utils.t;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class c extends com.kwad.sdk.contentalliance.detail.b {
 
     /* renamed from: b  reason: collision with root package name */
-    private static boolean f8608b = false;
+    private static boolean f8308b = false;
     @Nullable
     private com.kwad.sdk.core.i.a c;
     @Nullable
@@ -97,7 +97,7 @@ public class c extends com.kwad.sdk.contentalliance.detail.b {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(int i, int i2) {
-        if (f8608b) {
+        if (f8308b) {
             com.kwad.sdk.core.d.a.a("DetailOpenListener", "position: " + this.g + " onVideoPlayError");
         }
         if (this.e != null) {
@@ -111,7 +111,7 @@ public class c extends com.kwad.sdk.contentalliance.detail.b {
             return;
         }
         this.i = true;
-        if (f8608b) {
+        if (f8308b) {
             com.kwad.sdk.core.d.a.a("DetailOpenListener", "position: " + this.g + " onPageEnter");
         }
         if (this.d != null) {
@@ -122,7 +122,7 @@ public class c extends com.kwad.sdk.contentalliance.detail.b {
     /* JADX INFO: Access modifiers changed from: private */
     public void f() {
         if (this.i) {
-            if (f8608b) {
+            if (f8308b) {
                 com.kwad.sdk.core.d.a.a("DetailOpenListener", "position: " + this.g + " onPageLeave");
             }
             if (this.d != null) {
@@ -134,7 +134,7 @@ public class c extends com.kwad.sdk.contentalliance.detail.b {
     /* JADX INFO: Access modifiers changed from: private */
     public void g() {
         if (!this.j) {
-            if (f8608b) {
+            if (f8308b) {
                 com.kwad.sdk.core.d.a.a("DetailOpenListener", "position: " + this.g + " onPageResume");
             }
             if (this.d != null) {
@@ -147,7 +147,7 @@ public class c extends com.kwad.sdk.contentalliance.detail.b {
     /* JADX INFO: Access modifiers changed from: private */
     public void h() {
         if (this.j) {
-            if (f8608b) {
+            if (f8308b) {
                 com.kwad.sdk.core.d.a.a("DetailOpenListener", "position: " + this.g + " onPagePause");
             }
             if (this.d != null) {
@@ -159,7 +159,7 @@ public class c extends com.kwad.sdk.contentalliance.detail.b {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void p() {
-        if (f8608b) {
+        if (f8308b) {
             com.kwad.sdk.core.d.a.a("DetailOpenListener", "position: " + this.g + " onVideoPlayStart");
         }
         if (this.e != null) {
@@ -170,7 +170,7 @@ public class c extends com.kwad.sdk.contentalliance.detail.b {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void q() {
-        if (f8608b) {
+        if (f8308b) {
             com.kwad.sdk.core.d.a.a("DetailOpenListener", "position: " + this.g + " onVideoPlayPaused");
         }
         this.k = true;
@@ -182,7 +182,7 @@ public class c extends com.kwad.sdk.contentalliance.detail.b {
     /* JADX INFO: Access modifiers changed from: private */
     public void r() {
         if (this.k) {
-            if (f8608b) {
+            if (f8308b) {
                 com.kwad.sdk.core.d.a.a("DetailOpenListener", "position: " + this.g + " onVideoPlayResume");
             }
             if (this.e != null) {
@@ -194,7 +194,7 @@ public class c extends com.kwad.sdk.contentalliance.detail.b {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void s() {
-        if (f8608b) {
+        if (f8308b) {
             com.kwad.sdk.core.d.a.a("DetailOpenListener", "position: " + this.g + " onVideoPlayCompleted");
         }
         if (this.e != null) {
@@ -206,16 +206,16 @@ public class c extends com.kwad.sdk.contentalliance.detail.b {
     @Override // com.kwad.sdk.contentalliance.detail.b, com.kwad.sdk.mvp.Presenter
     public void a() {
         super.a();
-        h hVar = this.f8693a.f8702a;
+        h hVar = this.f8393a.f8402a;
         if (hVar == null) {
             com.kwad.sdk.core.d.a.c("DetailOpenListener", "homePageHelper is null");
             return;
         }
-        this.c = hVar.f9042a;
-        this.d = hVar.f9043b;
+        this.c = hVar.f8742a;
+        this.d = hVar.f8743b;
         this.e = hVar.c;
-        AdTemplate adTemplate = this.f8693a.j;
-        this.g = this.f8693a.i;
+        AdTemplate adTemplate = this.f8393a.j;
+        this.g = this.f8393a.i;
         this.f = new KsContentPage.ContentItem();
         this.f.id = t.a(String.valueOf(com.kwad.sdk.core.response.b.c.z(adTemplate)));
         this.f.position = this.g;
@@ -228,17 +228,17 @@ public class c extends com.kwad.sdk.contentalliance.detail.b {
         } else {
             this.f.materialType = 0;
         }
-        this.f8693a.f8703b.add(0, this.l);
-        this.h = this.f8693a.m;
+        this.f8393a.f8403b.add(0, this.l);
+        this.h = this.f8393a.m;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.kwad.sdk.mvp.Presenter
     public void b_() {
         super.b_();
-        if (this.f8693a.f8702a == null) {
+        if (this.f8393a.f8402a == null) {
             return;
         }
-        this.f8693a.f8703b.remove(this.l);
+        this.f8393a.f8403b.remove(this.l);
     }
 }

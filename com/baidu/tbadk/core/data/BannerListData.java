@@ -32,8 +32,8 @@ public class BannerListData implements Serializable {
         StringBuilder sb = new StringBuilder();
         int size = this.advertAppList.size();
         for (int i = 0; i < size; i++) {
-            if (!TextUtils.isEmpty(this.advertAppList.get(i).eNT)) {
-                sb.append(this.advertAppList.get(i).eNT);
+            if (!TextUtils.isEmpty(this.advertAppList.get(i).eJi)) {
+                sb.append(this.advertAppList.get(i).eJi);
                 if (i != size - 1) {
                     sb.append(",");
                 }
@@ -65,9 +65,9 @@ public class BannerListData implements Serializable {
     }
 
     public void parserProtobuf(BannerList bannerList) {
-        List<AppData> dEU = com.baidu.tieba.recapp.r.dEW().dEU();
-        if (dEU != null) {
-            dEU.clear();
+        List<AppData> dBc = com.baidu.tieba.recapp.r.dBe().dBc();
+        if (dBc != null) {
+            dBc.clear();
         }
         if (bannerList != null) {
             List<App> list = bannerList.app;
@@ -77,13 +77,13 @@ public class BannerListData implements Serializable {
                         AdvertAppInfo advertAppInfo = new AdvertAppInfo();
                         advertAppInfo.a(list.get(i));
                         this.advertAppList.add(advertAppInfo);
-                        if (dEU != null) {
-                            dEU.add(advertAppInfo.eOj);
+                        if (dBc != null) {
+                            dBc.add(advertAppInfo.eJy);
                         }
                     }
                 }
             }
-            com.baidu.tieba.recapp.r.dEW().dEV();
+            com.baidu.tieba.recapp.r.dBe().dBd();
             Collections.sort(this.advertAppList, new Comparator<AdvertAppInfo>() { // from class: com.baidu.tbadk.core.data.BannerListData.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // java.util.Comparator
@@ -105,7 +105,7 @@ public class BannerListData implements Serializable {
             if (bannerList.hot_topic != null) {
                 bp bpVar = new bp();
                 bpVar.a(bannerList.hot_topic);
-                this.recomTopicData = bpVar.bqA();
+                this.recomTopicData = bpVar.bmG();
             }
         }
     }

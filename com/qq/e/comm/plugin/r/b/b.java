@@ -1,19 +1,20 @@
 package com.qq.e.comm.plugin.r.b;
 
 import android.text.TextUtils;
+import com.meizu.cloud.pushsdk.notification.model.TimeDisplaySetting;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f12677a;
+    private int f12377a;
 
     /* renamed from: b  reason: collision with root package name */
-    private String f12678b;
+    private String f12378b;
     private String c;
     private int d;
     private int e;
@@ -27,10 +28,10 @@ public class b {
         }
         try {
             JSONObject jSONObject = new JSONObject(str);
-            this.f12677a = jSONObject.optInt("ret_code");
-            this.f12678b = jSONObject.optString("config_version");
+            this.f12377a = jSONObject.optInt("ret_code");
+            this.f12378b = jSONObject.optString("config_version");
             this.c = jSONObject.optString("country");
-            this.d = jSONObject.optInt("ts");
+            this.d = jSONObject.optInt(TimeDisplaySetting.TIME_DISPLAY_SETTING);
             this.e = jSONObject.optInt("update_interval");
             this.f = jSONObject.optString("report_url");
             this.g = jSONObject.optString("app_view_id");
@@ -48,7 +49,7 @@ public class b {
     }
 
     public String a() {
-        return this.f12678b;
+        return this.f12378b;
     }
 
     public int b() {

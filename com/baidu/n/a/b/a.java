@@ -1,0 +1,57 @@
+package com.baidu.n.a.b;
+
+import android.content.Context;
+import com.b.a.a;
+import com.baidu.n.a.a.d;
+import java.util.concurrent.atomic.AtomicBoolean;
+/* loaded from: classes4.dex */
+public class a extends d {
+    public a(Context context) {
+        super(context);
+        this.oKB = "";
+        this.oKz = false;
+        this.oLb = false;
+        this.mStatusCode = -200;
+    }
+
+    public com.baidu.n.a.a.c egm() {
+        final Object obj = new Object();
+        final AtomicBoolean atomicBoolean = new AtomicBoolean(false);
+        com.b.a.a.a(this.mCtx, new a.b() { // from class: com.baidu.n.a.b.a.1
+            @Override // com.b.a.a.b
+            public void bl(String str, boolean z) {
+                a.this.oKB = str;
+                a.this.oKz = z;
+                a.this.oLb = true;
+                a.this.mStatusCode = 0;
+                atomicBoolean.set(true);
+                synchronized (obj) {
+                    obj.notifyAll();
+                }
+            }
+
+            @Override // com.b.a.a.b
+            public void g(int i, Exception exc) {
+                a.this.mStatusCode = i;
+                atomicBoolean.set(true);
+                synchronized (obj) {
+                    obj.notifyAll();
+                }
+            }
+        });
+        synchronized (obj) {
+            if (!atomicBoolean.get()) {
+                try {
+                    obj.wait(4000L);
+                } catch (InterruptedException e) {
+                }
+            }
+        }
+        return this;
+    }
+
+    @Override // com.baidu.n.a.a.c
+    public com.baidu.n.a.a.c egk() {
+        return egm();
+    }
+}

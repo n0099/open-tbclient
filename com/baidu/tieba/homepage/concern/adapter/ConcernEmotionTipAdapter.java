@@ -14,7 +14,7 @@ import com.baidu.tieba.R;
 /* loaded from: classes2.dex */
 public class ConcernEmotionTipAdapter extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.concern.a.b, ConcernEmotionTipViewHolder> {
     public ConcernEmotionTipAdapter(Context context) {
-        super(context, com.baidu.tieba.homepage.concern.a.b.jYC);
+        super(context, com.baidu.tieba.homepage.concern.a.b.jTX);
     }
 
     public ConcernEmotionTipAdapter(Context context, BdUniqueId bdUniqueId) {
@@ -36,14 +36,14 @@ public class ConcernEmotionTipAdapter extends com.baidu.adp.widget.ListView.a<co
         if (bVar.tipString != null) {
             concernEmotionTipViewHolder.tipText.setText(bVar.tipString);
         }
-        if (bVar.getType() == com.baidu.tieba.homepage.concern.a.b.jYB) {
-            if (bVar.jYD == 2) {
+        if (bVar.getType() == com.baidu.tieba.homepage.concern.a.b.jTW) {
+            if (bVar.jTY == 2) {
                 concernEmotionTipViewHolder.tipText.setText(TbadkCoreApplication.getInst().getString(R.string.concern_person_no_data_title));
             } else {
                 concernEmotionTipViewHolder.tipText.setText(TbadkCoreApplication.getInst().getString(R.string.concern_no_data_title));
             }
         }
-        switch (bVar.jYD) {
+        switch (bVar.jTY) {
             case 2:
                 concernEmotionTipViewHolder.cE(TbadkCoreApplication.getInst().getSkinType(), R.drawable.new_pic_emotion_07);
                 break;
@@ -56,25 +56,25 @@ public class ConcernEmotionTipAdapter extends com.baidu.adp.widget.ListView.a<co
 
     /* loaded from: classes2.dex */
     public static class ConcernEmotionTipViewHolder extends TypeAdapter.ViewHolder {
-        private int akW;
-        public ViewGroup jXN;
-        public ImageView jXO;
+        private int akf;
+        public ViewGroup jTi;
+        public ImageView jTj;
         public TextView tipText;
 
         public ConcernEmotionTipViewHolder(View view) {
             super(view);
-            this.akW = 3;
-            this.jXN = (ViewGroup) view.findViewById(R.id.ll_concern_emotion_tip);
-            this.jXO = (ImageView) view.findViewById(R.id.iv_concern_emotion_tip_pic);
+            this.akf = 3;
+            this.jTi = (ViewGroup) view.findViewById(R.id.ll_concern_emotion_tip);
+            this.jTj = (ImageView) view.findViewById(R.id.iv_concern_emotion_tip_pic);
             this.tipText = (TextView) view.findViewById(R.id.tv_concern_emotion_tip);
         }
 
         protected void cE(int i, int i2) {
-            if (this.akW != i) {
+            if (this.akf != i) {
                 ao.setViewTextColor(this.tipText, R.color.CAM_X0107);
             }
-            ao.setImageResource(this.jXO, i2);
-            this.akW = i;
+            ao.setImageResource(this.jTj, i2);
+            this.akf = i;
         }
     }
 }

@@ -1,7 +1,7 @@
 package com.kwai.video.cache;
 
 import com.kwai.video.cache.AwesomeCache;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class OfflineCacheTaskBuilderBase {
     private static final int DEFAULT_CONNECT_TIMEOUT_MS = 3000;
     private static final int DEFAULT_READ_TIMEOUT_MS = 5000;

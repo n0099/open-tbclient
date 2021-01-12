@@ -13,12 +13,12 @@ import com.baidu.tbadk.core.view.ClickableHeaderImageView;
 import com.baidu.tieba.R;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class MyForbiddenFansListAdapter extends RecyclerView.Adapter<FansViewHolder> {
     private ArrayList<a> fansList;
     private Context mContext;
-    private View.OnClickListener jaa = null;
-    private View.OnClickListener hmh = null;
+    private View.OnClickListener iVt = null;
+    private View.OnClickListener hhA = null;
 
     public MyForbiddenFansListAdapter(Context context) {
         this.mContext = context;
@@ -35,14 +35,14 @@ public class MyForbiddenFansListAdapter extends RecyclerView.Adapter<FansViewHol
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     /* renamed from: a */
     public void onBindViewHolder(FansViewHolder fansViewHolder, int i) {
-        a zC;
-        if (fansViewHolder != null && (zC = zC(i)) != null) {
-            fansViewHolder.jab.startLoad(zC.portrait, 12, false);
-            fansViewHolder.gko.setText(zC.nameShow);
-            fansViewHolder.jac.setOnClickListener(this.jaa);
-            fansViewHolder.jac.setTag(zC);
-            fansViewHolder.containerView.setOnClickListener(this.hmh);
-            fansViewHolder.containerView.setTag(zC);
+        a xW;
+        if (fansViewHolder != null && (xW = xW(i)) != null) {
+            fansViewHolder.iVu.startLoad(xW.portrait, 12, false);
+            fansViewHolder.gfG.setText(xW.nameShow);
+            fansViewHolder.iVv.setOnClickListener(this.iVt);
+            fansViewHolder.iVv.setTag(xW);
+            fansViewHolder.containerView.setOnClickListener(this.hhA);
+            fansViewHolder.containerView.setTag(xW);
             a(fansViewHolder);
         }
     }
@@ -52,11 +52,11 @@ public class MyForbiddenFansListAdapter extends RecyclerView.Adapter<FansViewHol
         return x.getCount(this.fansList);
     }
 
-    private a zC(int i) {
+    private a xW(int i) {
         return (a) x.getItem(this.fansList, i);
     }
 
-    public void aw(ArrayList<a> arrayList) {
+    public void ar(ArrayList<a> arrayList) {
         this.fansList = arrayList;
     }
 
@@ -79,43 +79,43 @@ public class MyForbiddenFansListAdapter extends RecyclerView.Adapter<FansViewHol
         return false;
     }
 
-    public boolean cDf() {
+    public boolean czn() {
         return x.isEmpty(this.fansList);
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static class FansViewHolder extends RecyclerView.ViewHolder {
         public View containerView;
         public View dividerLine;
-        public TextView gko;
-        public ClickableHeaderImageView jab;
-        public TextView jac;
+        public TextView gfG;
+        public ClickableHeaderImageView iVu;
+        public TextView iVv;
 
         public FansViewHolder(View view) {
             super(view);
             this.containerView = view.findViewById(R.id.container_forbidden_item);
-            this.jab = (ClickableHeaderImageView) view.findViewById(R.id.view_fans_photo);
-            this.jab.setRadius(l.getDimens(view.getContext(), R.dimen.ds90));
-            this.jab.setAutoChangeStyle(true);
-            this.jab.setClickable(false);
-            this.gko = (TextView) view.findViewById(R.id.view_fans_name);
-            this.jac = (TextView) view.findViewById(R.id.view_fans_remove);
+            this.iVu = (ClickableHeaderImageView) view.findViewById(R.id.view_fans_photo);
+            this.iVu.setRadius(l.getDimens(view.getContext(), R.dimen.ds90));
+            this.iVu.setAutoChangeStyle(true);
+            this.iVu.setClickable(false);
+            this.gfG = (TextView) view.findViewById(R.id.view_fans_name);
+            this.iVv = (TextView) view.findViewById(R.id.view_fans_remove);
             this.dividerLine = view.findViewById(R.id.line_divider);
         }
     }
 
     private void a(FansViewHolder fansViewHolder) {
-        ao.setViewTextColor(fansViewHolder.gko, R.color.CAM_X0105);
+        ao.setViewTextColor(fansViewHolder.gfG, R.color.CAM_X0105);
         ao.setBackgroundColor(fansViewHolder.dividerLine, R.color.CAM_X0204);
-        ao.setViewTextColor(fansViewHolder.jac, R.color.btn_color_remove);
-        ao.setBackgroundResource(fansViewHolder.jac, R.drawable.btn_transparent_focus_border_bg);
+        ao.setViewTextColor(fansViewHolder.iVv, R.color.btn_color_remove);
+        ao.setBackgroundResource(fansViewHolder.iVv, R.drawable.btn_transparent_focus_border_bg);
     }
 
     public void z(View.OnClickListener onClickListener) {
-        this.jaa = onClickListener;
+        this.iVt = onClickListener;
     }
 
     public void p(View.OnClickListener onClickListener) {
-        this.hmh = onClickListener;
+        this.hhA = onClickListener;
     }
 }

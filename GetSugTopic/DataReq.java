@@ -3,7 +3,7 @@ package GetSugTopic;
 import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
 import tbclient.CommonReq;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class DataReq extends Message {
     public static final Long DEFAULT_FID = 0L;
     public static final String DEFAULT_FIRST_DIR = "";
@@ -12,7 +12,7 @@ public final class DataReq extends Message {
     @ProtoField(tag = 1)
 
     /* renamed from: common  reason: collision with root package name */
-    public final CommonReq f1027common;
+    public final CommonReq f1026common;
     @ProtoField(tag = 3, type = Message.Datatype.INT64)
     public final Long fid;
     @ProtoField(tag = 4, type = Message.Datatype.STRING)
@@ -25,7 +25,7 @@ public final class DataReq extends Message {
     private DataReq(Builder builder, boolean z) {
         super(builder);
         if (z) {
-            this.f1027common = builder.f1028common;
+            this.f1026common = builder.f1027common;
             if (builder.prefix == null) {
                 this.prefix = "";
             } else {
@@ -49,18 +49,18 @@ public final class DataReq extends Message {
                 return;
             }
         }
-        this.f1027common = builder.f1028common;
+        this.f1026common = builder.f1027common;
         this.prefix = builder.prefix;
         this.fid = builder.fid;
         this.first_dir = builder.first_dir;
         this.second_dir = builder.second_dir;
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static final class Builder extends Message.Builder<DataReq> {
 
         /* renamed from: common  reason: collision with root package name */
-        public CommonReq f1028common;
+        public CommonReq f1027common;
         public Long fid;
         public String first_dir;
         public String prefix;
@@ -72,7 +72,7 @@ public final class DataReq extends Message {
         public Builder(DataReq dataReq) {
             super(dataReq);
             if (dataReq != null) {
-                this.f1028common = dataReq.f1027common;
+                this.f1027common = dataReq.f1026common;
                 this.prefix = dataReq.prefix;
                 this.fid = dataReq.fid;
                 this.first_dir = dataReq.first_dir;

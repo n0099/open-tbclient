@@ -1,5 +1,5 @@
 package com.baidu.android.imsdk;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public final class BuildConfig {
     public static final String APPLICATION_ID = "com.baidu.android.imsdk";
     public static final String BUILD_TYPE = "release";

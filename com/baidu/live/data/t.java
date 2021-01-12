@@ -2,7 +2,7 @@ package com.baidu.live.data;
 
 import com.baidu.live.tbadk.core.data.BaseData;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class t extends BaseData {
     public AlaLiveInfoData mLiveInfo;
 

@@ -10,18 +10,18 @@ public class d {
     }
 
     public static void a(o oVar, int i, int i2, int i3) {
-        if (oVar != null && oVar.dOS() != null && oVar.dOS().goods != null && oVar.dOS().goods.goods_style != 1001 && oVar.dOS().goods.goods_style != -1001) {
+        if (oVar != null && oVar.dLa() != null && oVar.dLa().goods != null && oVar.dLa().goods.goods_style != 1001 && oVar.dLa().goods.goods_style != -1001) {
             c b2 = h.b(oVar, 5);
-            b2.Jm(i);
+            b2.HF(i);
             if (i2 != -999) {
-                b2.Jn(i2);
+                b2.HG(i2);
             }
             if (i3 != -999) {
-                b2.Jo(i3);
+                b2.HH(i3);
             }
-            e.dFW().a(b2);
-            if (oVar != null && oVar.dOS() != null) {
-                oVar.dOS().mDiscardReason = i;
+            e.dCe().a(b2);
+            if (oVar != null && oVar.dLa() != null) {
+                oVar.dLa().mDiscardReason = i;
             }
         }
     }
@@ -31,17 +31,17 @@ public class d {
     }
 
     public static void a(AdvertAppInfo advertAppInfo, int i, int i2, int i3, int i4) {
-        if (advertAppInfo != null && advertAppInfo.eOc != null && advertAppInfo.eOc.eOq != 1001 && advertAppInfo.eOc.eOq != -1001) {
+        if (advertAppInfo != null && advertAppInfo.eJr != null && advertAppInfo.eJr.eJF != 1001 && advertAppInfo.eJr.eJF != -1001) {
             c a2 = h.a(advertAppInfo, 5, i, i2);
             if (i3 != -999) {
-                a2.Jn(i3);
+                a2.HG(i3);
             }
             if (i4 != -999) {
-                a2.Jo(i4);
+                a2.HH(i4);
             }
-            e.dFW().a(a2);
-            if (advertAppInfo.eOj != null) {
-                advertAppInfo.eOj.mDiscardReason = 2;
+            e.dCe().a(a2);
+            if (advertAppInfo.eJy != null) {
+                advertAppInfo.eJy.mDiscardReason = 2;
             }
         }
     }

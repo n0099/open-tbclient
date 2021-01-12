@@ -3,9 +3,9 @@ package com.baidu.tieba.yuyinala.liveroom.messages;
 import com.baidu.live.data.r;
 import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class AlaGetAudienceHttpResponseMessage extends JsonHttpResponsedMessage {
-    private r gQH;
+    private r gMb;
 
     public AlaGetAudienceHttpResponseMessage() {
         super(1031042);
@@ -16,12 +16,12 @@ public class AlaGetAudienceHttpResponseMessage extends JsonHttpResponsedMessage 
         JSONObject optJSONObject;
         super.decodeLogicInBackGround(i, jSONObject);
         if (getError() == 0 && (optJSONObject = jSONObject.optJSONObject("data")) != null) {
-            this.gQH = new r();
-            this.gQH.parserJson(optJSONObject);
+            this.gMb = new r();
+            this.gMb.parserJson(optJSONObject);
         }
     }
 
-    public r bWZ() {
-        return this.gQH;
+    public r bTh() {
+        return this.gMb;
     }
 }

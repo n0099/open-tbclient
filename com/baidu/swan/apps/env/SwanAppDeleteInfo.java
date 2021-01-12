@@ -3,7 +3,7 @@ package com.baidu.swan.apps.env;
 import android.os.Parcel;
 import android.os.Parcelable;
 import com.baidu.swan.apps.process.SwanAppIPCData;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class SwanAppDeleteInfo extends SwanAppIPCData {
     public static final Parcelable.Creator<SwanAppDeleteInfo> CREATOR = new Parcelable.Creator<SwanAppDeleteInfo>() { // from class: com.baidu.swan.apps.env.SwanAppDeleteInfo.1
         /* JADX DEBUG: Method merged with bridge method */
@@ -15,7 +15,7 @@ public class SwanAppDeleteInfo extends SwanAppIPCData {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: iJ */
+        /* renamed from: hd */
         public SwanAppDeleteInfo[] newArray(int i) {
             return new SwanAppDeleteInfo[i];
         }
@@ -61,12 +61,12 @@ public class SwanAppDeleteInfo extends SwanAppIPCData {
         return "mAppId:" + this.mAppId + ",mCheckHisAndFavor:" + this.mCheckHisAndFavor + ",mPurgerScenes:" + this.mPurgerScenes;
     }
 
-    public SwanAppDeleteInfo iI(int i) {
+    public SwanAppDeleteInfo hc(int i) {
         this.mPurgerScenes = i;
         return this;
     }
 
-    public int axa() {
+    public int atg() {
         return this.mPurgerScenes;
     }
 }

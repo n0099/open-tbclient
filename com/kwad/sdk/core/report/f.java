@@ -1,7 +1,7 @@
 package com.kwad.sdk.core.report;
 
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class f extends com.kwad.sdk.core.network.d {
     public f(List<ReportAction> list) {
         a("actionList", list);

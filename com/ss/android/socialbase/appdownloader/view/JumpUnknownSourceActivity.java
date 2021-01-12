@@ -20,11 +20,11 @@ import org.json.JSONObject;
 public class JumpUnknownSourceActivity extends Activity {
 
     /* renamed from: b  reason: collision with root package name */
-    private Intent f13361b;
+    private Intent f13061b;
     @Nullable
     private Intent c;
     private JSONObject d;
-    private j pYz;
+    private j pTZ;
 
     @Override // android.app.Activity
     protected void onNewIntent(Intent intent) {
@@ -49,7 +49,7 @@ public class JumpUnknownSourceActivity extends Activity {
     protected void onResume() {
         super.onResume();
         Intent intent = getIntent();
-        this.f13361b = intent;
+        this.f13061b = intent;
         if (intent != null) {
             this.c = (Intent) intent.getParcelableExtra("intent");
             try {
@@ -59,20 +59,20 @@ public class JumpUnknownSourceActivity extends Activity {
             }
         }
         b();
-        if (this.pYz != null && !this.pYz.b()) {
-            this.pYz.a();
-        } else if (this.pYz == null) {
+        if (this.pTZ != null && !this.pTZ.b()) {
+            this.pTZ.a();
+        } else if (this.pTZ == null) {
             finish();
         }
     }
 
     private void b() {
-        if (this.pYz == null && this.f13361b != null) {
+        if (this.pTZ == null && this.f13061b != null) {
             try {
-                c eGH = d.eGM().eGH();
+                c eCR = d.eCW().eCR();
                 k kVar = null;
-                if (eGH != null) {
-                    kVar = eGH.iy(this);
+                if (eCR != null) {
+                    kVar = eCR.iw(this);
                 }
                 com.ss.android.socialbase.appdownloader.d.a aVar = kVar == null ? new com.ss.android.socialbase.appdownloader.d.a(this) : kVar;
                 int a2 = i.a(this, "appdownloader_tip");
@@ -82,7 +82,7 @@ public class JumpUnknownSourceActivity extends Activity {
                 if (TextUtils.isEmpty(optString)) {
                     optString = getString(i.a(this, "appdownloader_jump_unknown_source_tips"));
                 }
-                aVar.Sh(a2).aaP(optString).h(a3, new DialogInterface.OnClickListener() { // from class: com.ss.android.socialbase.appdownloader.view.JumpUnknownSourceActivity.3
+                aVar.QA(a2).ZH(optString).h(a3, new DialogInterface.OnClickListener() { // from class: com.ss.android.socialbase.appdownloader.view.JumpUnknownSourceActivity.3
                     @Override // android.content.DialogInterface.OnClickListener
                     public void onClick(DialogInterface dialogInterface, int i) {
                         if (!b.a(JumpUnknownSourceActivity.this, JumpUnknownSourceActivity.this.c, JumpUnknownSourceActivity.this.d)) {
@@ -106,8 +106,8 @@ public class JumpUnknownSourceActivity extends Activity {
                         }
                         JumpUnknownSourceActivity.this.finish();
                     }
-                }).BI(false);
-                this.pYz = aVar.eGy();
+                }).BE(false);
+                this.pTZ = aVar.eCH();
             } catch (Exception e) {
                 e.printStackTrace();
             }

@@ -32,6 +32,7 @@ import com.baidu.mobads.interfaces.utils.IXAdSystemUtils;
 import com.baidu.mobads.interfaces.utils.IXAdURIUitls;
 import com.baidu.webkit.internal.ETAG;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
+import com.meizu.cloud.pushsdk.notification.model.TimeDisplaySetting;
 import com.xiaomi.mipush.sdk.Constants;
 import java.io.File;
 import java.io.UnsupportedEncodingException;
@@ -49,14 +50,14 @@ import java.util.concurrent.atomic.AtomicLong;
 import org.json.JSONArray;
 import org.json.JSONObject;
 @SuppressLint({"NewApi"})
-/* loaded from: classes3.dex */
+/* loaded from: classes14.dex */
 public class e implements IXAdCommonUtils {
 
     /* renamed from: a  reason: collision with root package name */
-    private static String f3530a;
+    private static String f3492a;
 
     /* renamed from: b  reason: collision with root package name */
-    private static String f3531b;
+    private static String f3493b;
     private static String c;
     private static String d;
     private final String e = "_cpr";
@@ -252,10 +253,10 @@ public class e implements IXAdCommonUtils {
     @Override // com.baidu.mobads.interfaces.utils.IXAdCommonUtils
     public String getDebugToken(Context context) {
         try {
-            if (f3531b == null) {
-                f3531b = d(context, IXAdCommonUtils.DEBUG_TOKEN);
+            if (f3493b == null) {
+                f3493b = d(context, IXAdCommonUtils.DEBUG_TOKEN);
             }
-            return f3531b;
+            return f3493b;
         } catch (Exception e) {
             return "";
         }
@@ -264,10 +265,10 @@ public class e implements IXAdCommonUtils {
     @Override // com.baidu.mobads.interfaces.utils.IXAdCommonUtils
     public String getAppId(Context context) {
         try {
-            if (f3530a == null) {
-                f3530a = d(context, IXAdCommonUtils.APPSID);
+            if (f3492a == null) {
+                f3492a = d(context, IXAdCommonUtils.APPSID);
             }
-            return f3530a;
+            return f3492a;
         } catch (Exception e) {
             return "";
         }
@@ -493,7 +494,7 @@ public class e implements IXAdCommonUtils {
             }
         } catch (Exception e3) {
         }
-        treeMap.put("ts", System.currentTimeMillis() + "");
+        treeMap.put(TimeDisplaySetting.TIME_DISPLAY_SETTING, System.currentTimeMillis() + "");
         for (String str3 : treeMap.keySet()) {
             String str4 = (String) treeMap.get(str3);
             if (str3 != null && str4 != null) {
@@ -566,7 +567,7 @@ public class e implements IXAdCommonUtils {
 
     @Override // com.baidu.mobads.interfaces.utils.IXAdCommonUtils
     public void setAppId(String str) {
-        f3530a = str;
+        f3492a = str;
     }
 
     /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:51:0x010a -> B:13:0x004f). Please submit an issue!!! */

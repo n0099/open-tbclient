@@ -10,14 +10,14 @@ import com.ksad.lottie.model.layer.Layer;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    private final l f8281a = new l();
+    private final l f7981a = new l();
 
     /* renamed from: b  reason: collision with root package name */
-    private final HashSet<String> f8282b = new HashSet<>();
+    private final HashSet<String> f7982b = new HashSet<>();
     private Map<String, List<Layer>> c;
     private Map<String, g> d;
     private Map<String, com.ksad.lottie.model.c> e;
@@ -30,7 +30,7 @@ public class d {
     private float l;
 
     public l a() {
-        return this.f8281a;
+        return this.f7981a;
     }
 
     @RestrictTo({RestrictTo.Scope.LIBRARY})
@@ -54,11 +54,11 @@ public class d {
     @RestrictTo({RestrictTo.Scope.LIBRARY})
     public void a(String str) {
         Log.w("LOTTIE", str);
-        this.f8282b.add(str);
+        this.f7982b.add(str);
     }
 
     public void a(boolean z) {
-        this.f8281a.a(z);
+        this.f7981a.a(z);
     }
 
     public Rect b() {

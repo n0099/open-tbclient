@@ -15,12 +15,12 @@ import com.baidu.tbadk.core.util.aq;
 import com.baidu.tieba.card.s;
 /* loaded from: classes2.dex */
 public class ReadProgessDelegetAdapter extends com.baidu.adp.widget.ListView.a<b, ViewHolder> {
-    private w kiu;
+    private w kdN;
     private final TbPageContext<?> mPageContext;
 
     public ReadProgessDelegetAdapter(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
-        this.kiu = new w() { // from class: com.baidu.tieba.homepage.personalize.readProgressBar.ReadProgessDelegetAdapter.1
+        this.kdN = new w() { // from class: com.baidu.tieba.homepage.personalize.readProgressBar.ReadProgessDelegetAdapter.1
             @Override // com.baidu.adp.widget.ListView.w
             public void a(View view, n nVar, BdUniqueId bdUniqueId2, ViewGroup viewGroup, int i, long j) {
                 TiebaStatic.log(new aq("c11273"));
@@ -28,7 +28,7 @@ public class ReadProgessDelegetAdapter extends com.baidu.adp.widget.ListView.a<b
             }
         };
         this.mPageContext = tbPageContext;
-        a(this.kiu);
+        a(this.kdN);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -43,18 +43,18 @@ public class ReadProgessDelegetAdapter extends com.baidu.adp.widget.ListView.a<b
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, b bVar, ViewHolder viewHolder) {
-        s.cvb().e(new aq("c11272"));
-        viewHolder.kiw.a(bVar);
+        s.crj().e(new aq("c11272"));
+        viewHolder.kdP.a(bVar);
         return viewHolder.getView();
     }
 
     /* loaded from: classes2.dex */
     public static class ViewHolder extends TypeAdapter.ViewHolder {
-        public a kiw;
+        public a kdP;
 
         public ViewHolder(a aVar) {
             super(aVar.getView());
-            this.kiw = aVar;
+            this.kdP = aVar;
         }
     }
 }

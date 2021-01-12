@@ -9,11 +9,11 @@ import com.baidu.android.imsdk.IMConstants;
 import com.kwad.sdk.core.videocache.j;
 import com.kwad.sdk.core.videocache.n;
 import com.kwai.video.player.misc.IMediaFormat;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 class a extends SQLiteOpenHelper implements b {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String[] f9784a = {IMConstants.MSG_ROW_ID, "url", "length", IMediaFormat.KEY_MIME};
+    private static final String[] f9484a = {IMConstants.MSG_ROW_ID, "url", "length", IMediaFormat.KEY_MIME};
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(Context context) {
@@ -23,8 +23,8 @@ class a extends SQLiteOpenHelper implements b {
 
     private ContentValues a(n nVar) {
         ContentValues contentValues = new ContentValues();
-        contentValues.put("url", nVar.f9806a);
-        contentValues.put("length", Long.valueOf(nVar.f9807b));
+        contentValues.put("url", nVar.f9506a);
+        contentValues.put("length", Long.valueOf(nVar.f9507b));
         contentValues.put(IMediaFormat.KEY_MIME, nVar.c);
         return contentValues;
     }
@@ -43,7 +43,7 @@ class a extends SQLiteOpenHelper implements b {
         Cursor cursor = null;
         j.a(str);
         try {
-            Cursor query = getReadableDatabase().query("SourceInfo", f9784a, "url=?", new String[]{str}, null, null, null);
+            Cursor query = getReadableDatabase().query("SourceInfo", f9484a, "url=?", new String[]{str}, null, null, null);
             if (query != null) {
                 try {
                     if (query.moveToFirst()) {

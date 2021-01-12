@@ -11,20 +11,20 @@ import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.plugin.DevelopMangerPlugin;
 import com.kwad.sdk.plugin.g;
 import com.kwad.sdk.reward.f;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class b implements KsFullScreenVideoAd {
     @NonNull
 
     /* renamed from: a  reason: collision with root package name */
-    private AdTemplate f10218a;
+    private AdTemplate f9918a;
 
     /* renamed from: b  reason: collision with root package name */
-    private AdInfo f10219b;
+    private AdInfo f9919b;
     private KsFullScreenVideoAd.FullScreenVideoAdInteractionListener c;
 
     public b(@NonNull AdTemplate adTemplate) {
-        this.f10218a = adTemplate;
-        this.f10219b = c.j(adTemplate);
+        this.f9918a = adTemplate;
+        this.f9919b = c.j(adTemplate);
     }
 
     private void a(Context context, KsVideoPlayConfig ksVideoPlayConfig) {
@@ -39,12 +39,12 @@ public class b implements KsFullScreenVideoAd {
         if (a2 != null) {
             ksVideoPlayConfig.setVideoSoundEnable(((Boolean) a2.getValue()).booleanValue());
         }
-        KsFullScreenVideoActivityProxy.launch(context, this.f10218a, ksVideoPlayConfig, this.c);
+        KsFullScreenVideoActivityProxy.launch(context, this.f9918a, ksVideoPlayConfig, this.c);
     }
 
     @Override // com.kwad.sdk.api.KsFullScreenVideoAd
     public int getECPM() {
-        return com.kwad.sdk.core.response.b.a.A(this.f10219b);
+        return com.kwad.sdk.core.response.b.a.A(this.f9919b);
     }
 
     @Override // com.kwad.sdk.api.KsFullScreenVideoAd
@@ -52,13 +52,13 @@ public class b implements KsFullScreenVideoAd {
         if (com.kwad.sdk.core.config.c.ae() >= 0) {
             return true;
         }
-        return f.b(this.f10218a);
+        return f.b(this.f9918a);
     }
 
     @Override // com.kwad.sdk.api.KsFullScreenVideoAd
     public void setBidEcpm(int i) {
-        this.f10218a.mBidEcpm = i;
-        com.kwad.sdk.core.report.b.m(this.f10218a);
+        this.f9918a.mBidEcpm = i;
+        com.kwad.sdk.core.report.b.m(this.f9918a);
     }
 
     @Override // com.kwad.sdk.api.KsFullScreenVideoAd

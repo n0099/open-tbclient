@@ -7,67 +7,67 @@ import android.widget.FrameLayout;
 import com.win.opensdk.core.Info;
 import com.win.opensdk.views.MraidLayout;
 import org.apache.http.HttpHost;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public final class q implements bn, k {
-    private y qdL;
-    private MraidLayout qdV;
-    public bq qdW;
-    public bo qdX;
+    private y pZk;
+    private MraidLayout pZu;
+    public bq pZv;
+    public bo pZw;
 
     public q(Context context, af afVar) {
-        this.qdL = new y(context, afVar);
-        this.qdL.qdA = this;
-        this.qdV = new MraidLayout(context);
-        this.qdV.addView(this.qdL, new FrameLayout.LayoutParams(-1, -1));
-        this.qdL.setMraidListener(this);
+        this.pZk = new y(context, afVar);
+        this.pZk.pYZ = this;
+        this.pZu = new MraidLayout(context);
+        this.pZu.addView(this.pZk, new FrameLayout.LayoutParams(-1, -1));
+        this.pZk.setMraidListener(this);
     }
 
     @Override // com.win.opensdk.bn
     public final void a(String str, Info info) {
         if (!TextUtils.isEmpty(str)) {
-            if (this.qdW != null) {
-                this.qdW.eKp();
+            if (this.pZv != null) {
+                this.pZv.eGz();
             }
             if (!str.startsWith(HttpHost.DEFAULT_SCHEME_NAME)) {
-                this.qdL.abL(str);
+                this.pZk.aaD(str);
             } else {
-                this.qdL.loadUrl(str);
+                this.pZk.loadUrl(str);
             }
         }
     }
 
     @Override // com.win.opensdk.bn
     public final void a(bo boVar) {
-        this.qdX = boVar;
+        this.pZw = boVar;
     }
 
     @Override // com.win.opensdk.bn
-    public final View eKs() {
-        return this.qdV;
+    public final View eGC() {
+        return this.pZu;
     }
 
     @Override // com.win.opensdk.bn
-    public final void eKp() {
-        if (this.qdV != null) {
-            this.qdV.removeAllViews();
+    public final void eGz() {
+        if (this.pZu != null) {
+            this.pZu.removeAllViews();
         }
-        if (this.qdL != null) {
-            this.qdL.eKq();
-            this.qdL.destroy();
+        if (this.pZk != null) {
+            this.pZk.eGA();
+            this.pZk.destroy();
         }
     }
 
     @Override // com.win.opensdk.k
-    public final void eKq() {
-        if (this.qdW != null) {
-            this.qdW.eKq();
+    public final void eGA() {
+        if (this.pZv != null) {
+            this.pZv.eGA();
         }
     }
 
     @Override // com.win.opensdk.k
-    public final boolean abK(String str) {
-        if (this.qdX != null) {
-            return this.qdX.hu(str, "");
+    public final boolean aaC(String str) {
+        if (this.pZw != null) {
+            return this.pZw.ht(str, "");
         }
         return false;
     }

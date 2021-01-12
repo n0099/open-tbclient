@@ -2,14 +2,14 @@ package com.vivo.push.b;
 
 import android.text.TextUtils;
 import com.baidu.sapi2.SapiContext;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class c extends com.vivo.push.y {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f13872a;
+    private String f13572a;
 
     /* renamed from: b  reason: collision with root package name */
-    private String f13873b;
+    private String f13573b;
     private long c;
     private int d;
     private int e;
@@ -19,8 +19,8 @@ public class c extends com.vivo.push.y {
         super(i);
         this.c = -1L;
         this.d = -1;
-        this.f13872a = str;
-        this.f13873b = str2;
+        this.f13572a = str;
+        this.f13573b = str2;
     }
 
     public final int f() {
@@ -36,18 +36,18 @@ public class c extends com.vivo.push.y {
     }
 
     public final String h() {
-        return this.f13872a;
+        return this.f13572a;
     }
 
     public final void b(String str) {
-        this.f13872a = str;
+        this.f13572a = str;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.vivo.push.y
     public void c(com.vivo.push.a aVar) {
-        aVar.a("req_id", this.f13872a);
-        aVar.a("package_name", this.f13873b);
+        aVar.a("req_id", this.f13572a);
+        aVar.a("package_name", this.f13573b);
         aVar.a(SapiContext.KEY_SDK_VERSION, 293L);
         aVar.a("PUSH_APP_STATUS", this.d);
         if (!TextUtils.isEmpty(this.f)) {
@@ -58,8 +58,8 @@ public class c extends com.vivo.push.y {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.vivo.push.y
     public void d(com.vivo.push.a aVar) {
-        this.f13872a = aVar.a("req_id");
-        this.f13873b = aVar.a("package_name");
+        this.f13572a = aVar.a("req_id");
+        this.f13573b = aVar.a("package_name");
         this.c = aVar.b(SapiContext.KEY_SDK_VERSION, 0L);
         this.d = aVar.b("PUSH_APP_STATUS", 0);
         this.f = aVar.a("BaseAppCommand.EXTRA__HYBRIDVERSION");

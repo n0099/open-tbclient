@@ -22,7 +22,7 @@ public class a implements f {
     private String liveId = "";
     private String userName = "";
     private String description = "";
-    private boolean luc = true;
+    private boolean lpw = true;
 
     public boolean equals(Object obj) {
         if (obj == null || !(obj instanceof a)) {
@@ -178,7 +178,7 @@ public class a implements f {
         return this.threadId;
     }
 
-    public String djD() {
+    public String dfL() {
         return this.threadName;
     }
 
@@ -202,27 +202,27 @@ public class a implements f {
         this.forumName = str;
     }
 
-    public String bFl() {
+    public String bBr() {
         return this.postID;
     }
 
-    public void Pf(String str) {
+    public void NX(String str) {
         this.postID = str;
     }
 
-    public boolean djE() {
+    public boolean dfM() {
         return this.isHostOnly;
     }
 
-    public void uc(boolean z) {
+    public void tY(boolean z) {
         this.isHostOnly = z;
     }
 
-    public boolean djF() {
+    public boolean dfN() {
         return this.isSquence;
     }
 
-    public void ud(boolean z) {
+    public void tZ(boolean z) {
         this.isSquence = z;
     }
 
@@ -251,11 +251,11 @@ public class a implements f {
     }
 
     public boolean isLive() {
-        return this.luc;
+        return this.lpw;
     }
 
-    public void ue(boolean z) {
-        this.luc = z;
+    public void ua(boolean z) {
+        this.lpw = z;
     }
 
     @Override // com.baidu.tbadk.mvc.b.d
@@ -264,12 +264,12 @@ public class a implements f {
     }
 
     @Override // com.baidu.tbadk.mvc.b.f
-    public String bGK() {
+    public String bCR() {
         return toJsonObject().toString();
     }
 
     @Override // com.baidu.tbadk.mvc.b.f
-    public boolean Ei(String str) {
+    public boolean CX(String str) {
         if (str != null) {
             try {
                 return eE(new JSONObject(str));

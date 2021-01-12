@@ -13,10 +13,10 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes5.dex */
 public final class i {
-    public static final int qlA;
-    static final AtomicReference<ScheduledExecutorService> qlB = new AtomicReference<>();
-    static final Map<ScheduledThreadPoolExecutor, Object> qlC = new ConcurrentHashMap();
-    public static final boolean qlz;
+    public static final boolean qgX;
+    public static final int qgY;
+    static final AtomicReference<ScheduledExecutorService> qgZ = new AtomicReference<>();
+    static final Map<ScheduledThreadPoolExecutor, Object> qha = new ConcurrentHashMap();
 
     static {
         int i = 1;
@@ -25,21 +25,21 @@ public final class i {
         if (z && properties.containsKey("rx2.purge-period-seconds")) {
             i = Integer.getInteger("rx2.purge-period-seconds", 1).intValue();
         }
-        qlz = z;
-        qlA = i;
+        qgX = z;
+        qgY = i;
         start();
     }
 
     public static void start() {
-        if (!qlz) {
+        if (!qgX) {
             return;
         }
         while (true) {
-            ScheduledExecutorService scheduledExecutorService = qlB.get();
+            ScheduledExecutorService scheduledExecutorService = qgZ.get();
             if (scheduledExecutorService == null || scheduledExecutorService.isShutdown()) {
                 ScheduledExecutorService newScheduledThreadPool = Executors.newScheduledThreadPool(1, new RxThreadFactory("RxSchedulerPurge"));
-                if (qlB.compareAndSet(scheduledExecutorService, newScheduledThreadPool)) {
-                    newScheduledThreadPool.scheduleAtFixedRate(new a(), qlA, qlA, TimeUnit.SECONDS);
+                if (qgZ.compareAndSet(scheduledExecutorService, newScheduledThreadPool)) {
+                    newScheduledThreadPool.scheduleAtFixedRate(new a(), qgY, qgY, TimeUnit.SECONDS);
                     return;
                 }
                 newScheduledThreadPool.shutdownNow();
@@ -51,8 +51,8 @@ public final class i {
 
     public static ScheduledExecutorService a(ThreadFactory threadFactory) {
         ScheduledExecutorService newScheduledThreadPool = Executors.newScheduledThreadPool(1, threadFactory);
-        if (qlz && (newScheduledThreadPool instanceof ScheduledThreadPoolExecutor)) {
-            qlC.put((ScheduledThreadPoolExecutor) newScheduledThreadPool, newScheduledThreadPool);
+        if (qgX && (newScheduledThreadPool instanceof ScheduledThreadPoolExecutor)) {
+            qha.put((ScheduledThreadPoolExecutor) newScheduledThreadPool, newScheduledThreadPool);
         }
         return newScheduledThreadPool;
     }
@@ -66,11 +66,11 @@ public final class i {
         @Override // java.lang.Runnable
         public void run() {
             try {
-                Iterator it = new ArrayList(i.qlC.keySet()).iterator();
+                Iterator it = new ArrayList(i.qha.keySet()).iterator();
                 while (it.hasNext()) {
                     ScheduledThreadPoolExecutor scheduledThreadPoolExecutor = (ScheduledThreadPoolExecutor) it.next();
                     if (scheduledThreadPoolExecutor.isShutdown()) {
-                        i.qlC.remove(scheduledThreadPoolExecutor);
+                        i.qha.remove(scheduledThreadPoolExecutor);
                     } else {
                         scheduledThreadPoolExecutor.purge();
                     }

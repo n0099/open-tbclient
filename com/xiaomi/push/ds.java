@@ -40,18 +40,18 @@ final class ds implements dw {
                 if (du.a(context, String.valueOf(12), 1L) || !a2) {
                     return;
                 }
-                if (TextUtils.isEmpty(ec.f14260a)) {
-                    ec.f14260a += dv.f309a + ":";
+                if (TextUtils.isEmpty(ec.f13960a)) {
+                    ec.f13960a += dv.f308a + ":";
                 }
-                ec.f14260a += str + "(" + currentTimeMillis + "),";
+                ec.f13960a += str + "(" + currentTimeMillis + "),";
             } else if (TextUtils.equals("android.intent.action.PACKAGE_CHANGED", intent.getAction())) {
                 if (du.a(context, String.valueOf(12), 1L) || !a2) {
                     return;
                 }
-                if (TextUtils.isEmpty(ec.f14261b)) {
-                    ec.f14261b += dv.f14256b + ":";
+                if (TextUtils.isEmpty(ec.f13961b)) {
+                    ec.f13961b += dv.f13956b + ":";
                 }
-                ec.f14261b += str + "(" + currentTimeMillis + "),";
+                ec.f13961b += str + "(" + currentTimeMillis + "),";
             } else if (TextUtils.equals("android.intent.action.PACKAGE_ADDED", intent.getAction())) {
                 if (intent.getExtras().getBoolean("android.intent.extra.REPLACING") || !a2) {
                     return;

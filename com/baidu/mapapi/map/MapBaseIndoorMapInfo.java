@@ -1,18 +1,18 @@
 package com.baidu.mapapi.map;
 
 import java.util.ArrayList;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public final class MapBaseIndoorMapInfo {
     private static final String d = MapBaseIndoorMapInfo.class.getSimpleName();
 
     /* renamed from: a  reason: collision with root package name */
-    String f2829a;
+    String f2725a;
 
     /* renamed from: b  reason: collision with root package name */
-    String f2830b;
+    String f2726b;
     ArrayList<String> c;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public enum SwitchFloorError {
         SWITCH_OK,
         FLOOR_INFO_ERROR,
@@ -25,19 +25,19 @@ public final class MapBaseIndoorMapInfo {
     }
 
     public MapBaseIndoorMapInfo(MapBaseIndoorMapInfo mapBaseIndoorMapInfo) {
-        this.f2829a = mapBaseIndoorMapInfo.f2829a;
-        this.f2830b = mapBaseIndoorMapInfo.f2830b;
+        this.f2725a = mapBaseIndoorMapInfo.f2725a;
+        this.f2726b = mapBaseIndoorMapInfo.f2726b;
         this.c = mapBaseIndoorMapInfo.c;
     }
 
     public MapBaseIndoorMapInfo(String str, String str2, ArrayList<String> arrayList) {
-        this.f2829a = str;
-        this.f2830b = str2;
+        this.f2725a = str;
+        this.f2726b = str2;
         this.c = arrayList;
     }
 
     public String getCurFloor() {
-        return this.f2830b;
+        return this.f2726b;
     }
 
     public ArrayList<String> getFloors() {
@@ -45,6 +45,6 @@ public final class MapBaseIndoorMapInfo {
     }
 
     public String getID() {
-        return this.f2829a;
+        return this.f2725a;
     }
 }

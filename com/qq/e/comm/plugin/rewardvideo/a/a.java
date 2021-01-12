@@ -10,14 +10,14 @@ import com.qq.e.comm.plugin.rewardvideo.g;
 import com.qq.e.comm.util.GDTLogger;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class a extends c {
 
     /* renamed from: a  reason: collision with root package name */
-    private g f12682a;
+    private g f12382a;
 
     public a(g gVar) {
-        this.f12682a = gVar;
+        this.f12382a = gVar;
     }
 
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
@@ -92,15 +92,15 @@ public class a extends c {
         }
         switch (c) {
             case 0:
-                this.f12682a.c();
+                this.f12382a.c();
                 eVar.a(eVar22);
                 break;
             case 1:
-                this.f12682a.d();
+                this.f12382a.d();
                 eVar.a(eVar22);
                 break;
             case 2:
-                this.f12682a.b();
+                this.f12382a.b();
                 eVar.a(eVar22);
                 break;
             default:

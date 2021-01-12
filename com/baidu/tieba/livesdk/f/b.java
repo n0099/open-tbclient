@@ -5,7 +5,7 @@ import com.baidu.adp.lib.c.a;
 import com.baidu.live.tbadk.location.LocationInfo;
 import com.baidu.live.tbadk.location.interfaces.ILocation;
 import com.baidu.live.tbadk.location.interfaces.LocationCallback;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class b implements ILocation {
     @Override // com.baidu.live.tbadk.location.interfaces.ILocation
     public LocationInfo getLocationInfo() {

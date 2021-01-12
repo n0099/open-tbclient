@@ -30,19 +30,22 @@ import com.baidu.tbadk.editortools.EditorTools;
 import com.baidu.tbadk.editortools.n;
 import com.baidu.tieba.R;
 import com.baidu.tieba.tbadkCore.voice.VoiceButton;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class VoiceRecordButton extends ViewGroup implements View.OnClickListener, com.baidu.adp.lib.voice.f, VoiceManager.b, n {
-    private int acR;
-    private long acS;
-    private EditorTools acZ;
-    private final int[] adF;
-    private int adG;
-    private int adH;
+    private int acP;
+    private long acQ;
+    private EditorTools acX;
+    private int acY;
+    private final int[] adD;
+    private int adE;
+    private int adF;
+    private final int adG;
+    private final int adH;
     private final int adI;
     private final int adJ;
     private final int adK;
-    private final int adL;
-    private final int adM;
+    private int adL;
+    private int adM;
     private int adN;
     private int adO;
     private int adP;
@@ -51,52 +54,49 @@ public class VoiceRecordButton extends ViewGroup implements View.OnClickListener
     private int adS;
     private int adT;
     private int adU;
-    private int adV;
-    private int adW;
+    private Paint adV;
+    private Paint adW;
     private Paint adX;
     private Paint adY;
-    private Paint adZ;
-    private int ada;
-    private com.baidu.tbadk.core.dialog.a adc;
-    private final int[] aeA;
-    private final a aeB;
-    private SweepGradient aeC;
-    private int aeD;
-    private Paint aea;
+    private int adZ;
+    private com.baidu.tbadk.core.dialog.a ada;
+    private SweepGradient aeA;
+    private int aeB;
+    private int aea;
     private int aeb;
     private int aed;
     private int aee;
     private int aef;
     private int aeg;
     private int aeh;
-    private int aei;
-    private int aej;
-    private final BitmapDrawable aek;
-    private final Paint ael;
-    private final Rect aem;
-    private final RectF aen;
+    private final BitmapDrawable aei;
+    private final Paint aej;
+    private final Rect aek;
+    private final RectF ael;
+    private TextView aem;
+    private TextView aen;
     private TextView aeo;
     private TextView aep;
-    private TextView aeq;
-    private TextView aer;
-    private VoiceButton aes;
-    private ImageView aet;
-    private TextView aeu;
-    private float aev;
-    private float aew;
-    private f aex;
-    private long aey;
-    private long aez;
+    private VoiceButton aeq;
+    private ImageView aer;
+    private TextView aes;
+    private float aet;
+    private float aeu;
+    private f aev;
+    private long aew;
+    private long aex;
+    private final int[] aey;
+    private final a aez;
     VoiceData.VoiceModel mModel;
 
     static /* synthetic */ int e(VoiceRecordButton voiceRecordButton) {
-        int i = voiceRecordButton.adO;
-        voiceRecordButton.adO = i + 1;
+        int i = voiceRecordButton.adM;
+        voiceRecordButton.adM = i + 1;
         return i;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public class a extends Handler {
         private a() {
         }
@@ -104,18 +104,18 @@ public class VoiceRecordButton extends ViewGroup implements View.OnClickListener
         @Override // android.os.Handler
         public void handleMessage(Message message) {
             if (message.what == 1) {
-                if (VoiceRecordButton.this.aew >= 360.0f) {
-                    VoiceRecordButton.this.aew = 360.0f;
-                    VoiceRecordButton.this.adO = 0;
+                if (VoiceRecordButton.this.aeu >= 360.0f) {
+                    VoiceRecordButton.this.aeu = 360.0f;
+                    VoiceRecordButton.this.adM = 0;
                 } else {
                     long uptimeMillis = SystemClock.uptimeMillis();
-                    VoiceRecordButton.this.aey = uptimeMillis;
-                    VoiceRecordButton.this.aez = uptimeMillis + 200;
-                    VoiceRecordButton.this.aew += (((float) (uptimeMillis - VoiceRecordButton.this.aey)) / 1000.0f) * VoiceRecordButton.this.aev;
-                    sendEmptyMessageAtTime(1, VoiceRecordButton.this.aez);
+                    VoiceRecordButton.this.aew = uptimeMillis;
+                    VoiceRecordButton.this.aex = uptimeMillis + 200;
+                    VoiceRecordButton.this.aeu += (((float) (uptimeMillis - VoiceRecordButton.this.aew)) / 1000.0f) * VoiceRecordButton.this.aet;
+                    sendEmptyMessageAtTime(1, VoiceRecordButton.this.aex);
                     VoiceRecordButton.e(VoiceRecordButton.this);
                 }
-                VoiceRecordButton.this.adN = VoiceRecordButton.this.adO % 6;
+                VoiceRecordButton.this.adL = VoiceRecordButton.this.adM % 6;
                 VoiceRecordButton.this.invalidate();
             }
         }
@@ -131,8 +131,10 @@ public class VoiceRecordButton extends ViewGroup implements View.OnClickListener
 
     public VoiceRecordButton(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.acS = 0L;
-        this.adF = new int[4];
+        this.acQ = 0L;
+        this.adD = new int[4];
+        this.adL = 0;
+        this.adM = 0;
         this.adN = 0;
         this.adO = 0;
         this.adP = 0;
@@ -141,58 +143,56 @@ public class VoiceRecordButton extends ViewGroup implements View.OnClickListener
         this.adS = 0;
         this.adT = 0;
         this.adU = 0;
-        this.adV = 0;
-        this.adW = 0;
-        this.aeb = -1724676609;
-        this.aed = 1546880511;
-        this.aee = 674465279;
-        this.aef = 255034879;
-        this.aeg = -1725669966;
-        this.aeh = 1545887154;
-        this.aei = 673471922;
-        this.aej = 254041522;
-        this.ael = new Paint(1);
-        this.aem = new Rect();
-        this.aen = new RectF();
-        this.ada = 0;
-        this.aeA = new int[2];
-        this.aeB = new a();
-        this.acR = 0;
-        this.aeD = 0;
-        this.adF[0] = context.getResources().getDimensionPixelSize(R.dimen.ds24);
-        this.adF[1] = context.getResources().getDimensionPixelSize(R.dimen.ds8);
-        this.adF[2] = context.getResources().getDimensionPixelSize(R.dimen.ds22);
-        this.adF[3] = context.getResources().getDimensionPixelSize(R.dimen.ds36);
-        this.adR = context.getResources().getDimensionPixelSize(R.dimen.ds134);
-        this.adS = this.adR + context.getResources().getDimensionPixelSize(R.dimen.ds14);
-        this.adT = this.adS + context.getResources().getDimensionPixelSize(R.dimen.ds16);
-        this.adU = this.adT + context.getResources().getDimensionPixelSize(R.dimen.ds18);
+        this.adZ = -1724676609;
+        this.aea = 1546880511;
+        this.aeb = 674465279;
+        this.aed = 255034879;
+        this.aee = -1725669966;
+        this.aef = 1545887154;
+        this.aeg = 673471922;
+        this.aeh = 254041522;
+        this.aej = new Paint(1);
+        this.aek = new Rect();
+        this.ael = new RectF();
+        this.acY = 0;
+        this.aey = new int[2];
+        this.aez = new a();
+        this.acP = 0;
+        this.aeB = 0;
+        this.adD[0] = context.getResources().getDimensionPixelSize(R.dimen.ds24);
+        this.adD[1] = context.getResources().getDimensionPixelSize(R.dimen.ds8);
+        this.adD[2] = context.getResources().getDimensionPixelSize(R.dimen.ds22);
+        this.adD[3] = context.getResources().getDimensionPixelSize(R.dimen.ds36);
+        this.adP = context.getResources().getDimensionPixelSize(R.dimen.ds134);
+        this.adQ = this.adP + context.getResources().getDimensionPixelSize(R.dimen.ds14);
+        this.adR = this.adQ + context.getResources().getDimensionPixelSize(R.dimen.ds16);
+        this.adS = this.adR + context.getResources().getDimensionPixelSize(R.dimen.ds18);
         DisplayMetrics displayMetrics = context.getResources().getDisplayMetrics();
         if (displayMetrics.heightPixels == 960 && displayMetrics.widthPixels == 540 && displayMetrics.densityDpi == 240) {
-            this.adV = (int) TypedValue.applyDimension(1, 31.0f, displayMetrics);
-            this.adW = (int) TypedValue.applyDimension(1, 93.0f, displayMetrics);
+            this.adT = (int) TypedValue.applyDimension(1, 31.0f, displayMetrics);
+            this.adU = (int) TypedValue.applyDimension(1, 93.0f, displayMetrics);
         } else {
-            this.adV = context.getResources().getDimensionPixelSize(R.dimen.ds70);
-            this.adW = context.getResources().getDimensionPixelSize(R.dimen.ds210);
+            this.adT = context.getResources().getDimensionPixelSize(R.dimen.ds70);
+            this.adU = context.getResources().getDimensionPixelSize(R.dimen.ds210);
         }
-        this.adG = context.getResources().getDimensionPixelSize(R.dimen.ds26);
-        this.adH = context.getResources().getDimensionPixelSize(R.dimen.ds10);
-        this.adI = context.getResources().getDimensionPixelSize(R.dimen.ds14);
-        this.adJ = context.getResources().getDimensionPixelSize(R.dimen.ds4);
-        this.adK = context.getResources().getDimensionPixelSize(R.dimen.ds4);
-        this.adL = context.getResources().getDimensionPixelSize(R.dimen.ds12);
-        this.adM = context.getResources().getDimensionPixelSize(R.dimen.ds2);
-        this.ael.setStyle(Paint.Style.STROKE);
-        this.ael.setStrokeWidth(this.adL);
-        this.aek = (BitmapDrawable) getResources().getDrawable(R.drawable.dot_play_schedule);
+        this.adE = context.getResources().getDimensionPixelSize(R.dimen.ds26);
+        this.adF = context.getResources().getDimensionPixelSize(R.dimen.ds10);
+        this.adG = context.getResources().getDimensionPixelSize(R.dimen.ds14);
+        this.adH = context.getResources().getDimensionPixelSize(R.dimen.ds4);
+        this.adI = context.getResources().getDimensionPixelSize(R.dimen.ds4);
+        this.adJ = context.getResources().getDimensionPixelSize(R.dimen.ds12);
+        this.adK = context.getResources().getDimensionPixelSize(R.dimen.ds2);
+        this.aej.setStyle(Paint.Style.STROKE);
+        this.aej.setStrokeWidth(this.adJ);
+        this.aei = (BitmapDrawable) getResources().getDrawable(R.drawable.dot_play_schedule);
         init(context);
     }
 
     public void init(Context context) {
         O(context);
         si();
-        this.aeA[0] = ao.getColor(R.color.common_color_10151);
-        this.aeA[1] = ao.getColor(R.color.common_color_10152);
+        this.aey[0] = ao.getColor(R.color.common_color_10151);
+        this.aey[1] = ao.getColor(R.color.common_color_10152);
         VoiceManager voiceManager = getVoiceManager();
         if (voiceManager != null) {
             voiceManager.setAllowChangeVoiceMode(false);
@@ -211,50 +211,50 @@ public class VoiceRecordButton extends ViewGroup implements View.OnClickListener
             }
         }
         setMeasuredDimension(i3, i4);
-        this.adG = ((i4 - getContext().getResources().getDimensionPixelSize(R.dimen.ds460)) / 2) + getContext().getResources().getDimensionPixelSize(R.dimen.ds6);
+        this.adE = ((i4 - getContext().getResources().getDimensionPixelSize(R.dimen.ds460)) / 2) + getContext().getResources().getDimensionPixelSize(R.dimen.ds6);
     }
 
     @Override // android.view.ViewGroup, android.view.View
     protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
         int i5 = i3 - i;
-        int measuredWidth = this.aes.getMeasuredWidth();
-        int measuredHeight = this.aes.getMeasuredHeight();
-        int measuredWidth2 = this.aep.getMeasuredWidth();
-        this.aep.layout((i5 - measuredWidth2) >> 1, this.adG + i2, (measuredWidth2 + i5) >> 1, this.aep.getMeasuredHeight() + this.adG + i2);
-        int bottom = this.aep.getBottom();
-        this.aes.layout((i5 - measuredWidth) >> 1, bottom, (i5 + measuredWidth) >> 1, bottom + measuredHeight);
+        int measuredWidth = this.aeq.getMeasuredWidth();
+        int measuredHeight = this.aeq.getMeasuredHeight();
+        int measuredWidth2 = this.aen.getMeasuredWidth();
+        this.aen.layout((i5 - measuredWidth2) >> 1, this.adE + i2, (measuredWidth2 + i5) >> 1, this.aen.getMeasuredHeight() + this.adE + i2);
+        int bottom = this.aen.getBottom();
+        this.aeq.layout((i5 - measuredWidth) >> 1, bottom, (i5 + measuredWidth) >> 1, bottom + measuredHeight);
         int i6 = (i5 - measuredWidth) >> 1;
-        this.adP = (measuredWidth / 2) + i6;
-        this.adQ = bottom + (measuredHeight / 2);
-        int measuredWidth3 = this.aer.getMeasuredWidth();
-        int measuredHeight2 = this.aer.getMeasuredHeight();
-        int top = this.aes.getTop();
-        this.aer.layout((i5 - measuredWidth3) >> 1, top - measuredHeight2, (measuredWidth3 + i5) >> 1, top);
-        int measuredWidth4 = this.aeo.getMeasuredWidth();
-        int measuredHeight3 = this.aeo.getMeasuredHeight();
-        int right = this.aes.getRight() - this.adH;
-        int bottom2 = this.aes.getBottom() - this.adI;
-        this.aeo.layout(this.adV + i6, this.adW + bottom, measuredWidth4 + i6 + this.adV, measuredHeight3 + this.adW + bottom);
-        int measuredWidth5 = this.aet.getMeasuredWidth();
-        this.aet.layout((i5 - measuredWidth5) >> 1, bottom, (measuredWidth5 + i5) >> 1, this.aet.getMeasuredHeight() + bottom);
-        int measuredWidth6 = this.aeu.getMeasuredWidth();
-        this.aeu.layout((i5 - measuredWidth6) >> 1, (this.aeo.getTop() - this.aeu.getMeasuredHeight()) - this.adJ, (measuredWidth6 + i5) >> 1, (this.aeo.getTop() + i2) - this.adJ);
-        this.aes.getLeft();
-        this.aes.getRight();
-        int measuredWidth7 = this.aeq.getMeasuredWidth();
-        int measuredHeight4 = this.aeq.getMeasuredHeight();
-        int bottom3 = this.aes.getBottom();
-        this.aeq.layout((i5 - measuredWidth7) >> 1, this.adF[3] + bottom3, (measuredWidth7 + i5) >> 1, measuredHeight4 + bottom3 + this.adF[3]);
-        this.aem.set((i5 - this.aek.getIntrinsicWidth()) >> 1, this.aet.getTop() - this.adK, (i5 + this.aek.getIntrinsicHeight()) >> 1, (this.aet.getTop() + this.aek.getIntrinsicHeight()) - this.adK);
-        this.aek.setBounds(this.aem);
-        this.aen.set(this.aet.getLeft() + (this.adL >> 1) + this.adM, this.aet.getTop() + (this.adL >> 1) + this.adM, (this.aet.getRight() - (this.adL >> 1)) - this.adM, (this.aet.getBottom() - (this.adL >> 1)) - this.adM);
-        if (this.aeC == null) {
-            this.aeC = new SweepGradient(this.aen.centerX(), this.aen.centerY(), this.aeA, new float[]{0.0f, 0.7f});
+        this.adN = (measuredWidth / 2) + i6;
+        this.adO = bottom + (measuredHeight / 2);
+        int measuredWidth3 = this.aep.getMeasuredWidth();
+        int measuredHeight2 = this.aep.getMeasuredHeight();
+        int top = this.aeq.getTop();
+        this.aep.layout((i5 - measuredWidth3) >> 1, top - measuredHeight2, (measuredWidth3 + i5) >> 1, top);
+        int measuredWidth4 = this.aem.getMeasuredWidth();
+        int measuredHeight3 = this.aem.getMeasuredHeight();
+        int right = this.aeq.getRight() - this.adF;
+        int bottom2 = this.aeq.getBottom() - this.adG;
+        this.aem.layout(this.adT + i6, this.adU + bottom, measuredWidth4 + i6 + this.adT, measuredHeight3 + this.adU + bottom);
+        int measuredWidth5 = this.aer.getMeasuredWidth();
+        this.aer.layout((i5 - measuredWidth5) >> 1, bottom, (measuredWidth5 + i5) >> 1, this.aer.getMeasuredHeight() + bottom);
+        int measuredWidth6 = this.aes.getMeasuredWidth();
+        this.aes.layout((i5 - measuredWidth6) >> 1, (this.aem.getTop() - this.aes.getMeasuredHeight()) - this.adH, (measuredWidth6 + i5) >> 1, (this.aem.getTop() + i2) - this.adH);
+        this.aeq.getLeft();
+        this.aeq.getRight();
+        int measuredWidth7 = this.aeo.getMeasuredWidth();
+        int measuredHeight4 = this.aeo.getMeasuredHeight();
+        int bottom3 = this.aeq.getBottom();
+        this.aeo.layout((i5 - measuredWidth7) >> 1, this.adD[3] + bottom3, (measuredWidth7 + i5) >> 1, measuredHeight4 + bottom3 + this.adD[3]);
+        this.aek.set((i5 - this.aei.getIntrinsicWidth()) >> 1, this.aer.getTop() - this.adI, (i5 + this.aei.getIntrinsicHeight()) >> 1, (this.aer.getTop() + this.aei.getIntrinsicHeight()) - this.adI);
+        this.aei.setBounds(this.aek);
+        this.ael.set(this.aer.getLeft() + (this.adJ >> 1) + this.adK, this.aer.getTop() + (this.adJ >> 1) + this.adK, (this.aer.getRight() - (this.adJ >> 1)) - this.adK, (this.aer.getBottom() - (this.adJ >> 1)) - this.adK);
+        if (this.aeA == null) {
+            this.aeA = new SweepGradient(this.ael.centerX(), this.ael.centerY(), this.aey, new float[]{0.0f, 0.7f});
             Matrix matrix = new Matrix();
-            this.aeC.getLocalMatrix(matrix);
-            matrix.postRotate(-90.0f, this.aen.centerX(), this.aen.centerY());
-            this.aeC.setLocalMatrix(matrix);
-            this.ael.setShader(this.aeC);
+            this.aeA.getLocalMatrix(matrix);
+            matrix.postRotate(-90.0f, this.ael.centerX(), this.ael.centerY());
+            this.aeA.setLocalMatrix(matrix);
+            this.aej.setShader(this.aeA);
         }
     }
 
@@ -266,9 +266,9 @@ public class VoiceRecordButton extends ViewGroup implements View.OnClickListener
 
     private void rU() {
         final com.baidu.tieba.tbadkCore.voice.a recorderManager = getRecorderManager();
-        if (this.adc == null) {
-            this.adc = new com.baidu.tbadk.core.dialog.a(j.K(getContext()).getPageActivity());
-            this.adc.Bo(getContext().getString(R.string.voice_restart_tip)).a(getContext().getString(R.string.voice_restart), new a.b() { // from class: com.baidu.audiorecorder.lib.voice.VoiceRecordButton.2
+        if (this.ada == null) {
+            this.ada = new com.baidu.tbadk.core.dialog.a(j.K(getContext()).getPageActivity());
+            this.ada.Ad(getContext().getString(R.string.voice_restart_tip)).a(getContext().getString(R.string.voice_restart), new a.b() { // from class: com.baidu.audiorecorder.lib.voice.VoiceRecordButton.2
                 @Override // com.baidu.tbadk.core.dialog.a.b
                 public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
                     aVar.dismiss();
@@ -288,7 +288,7 @@ public class VoiceRecordButton extends ViewGroup implements View.OnClickListener
             }).b(j.K(getContext()));
         }
         try {
-            this.adc.btY();
+            this.ada.bqe();
         } catch (Exception e) {
             if (getVoiceManager() != null && this.mModel != null) {
                 if (recorderManager != null) {
@@ -302,62 +302,62 @@ public class VoiceRecordButton extends ViewGroup implements View.OnClickListener
     private void O(Context context) {
         LayoutInflater.from(context).inflate(R.layout.record_voice_area, (ViewGroup) this, true);
         setClickable(true);
-        this.aep = (TextView) findViewById(R.id.tip_error);
-        ao.setViewTextColor(this.aep, R.color.CAM_X0101, 1);
-        this.aeq = (TextView) findViewById(R.id.tip_operator);
-        this.aer = (TextView) findViewById(R.id.tip_time_out);
-        this.aes = (VoiceButton) findViewById(R.id.voice_bnt);
-        this.aeo = (TextView) findViewById(R.id.restart);
-        this.aet = (ImageView) findViewById(R.id.play_img);
-        this.aeu = (TextView) findViewById(R.id.play_time);
-        this.aeu.setClickable(false);
-        this.aeo.setOnClickListener(this);
-        this.aet.setOnClickListener(this);
-        this.aes.setRecorderView(this);
+        this.aen = (TextView) findViewById(R.id.tip_error);
+        ao.setViewTextColor(this.aen, R.color.CAM_X0101, 1);
+        this.aeo = (TextView) findViewById(R.id.tip_operator);
+        this.aep = (TextView) findViewById(R.id.tip_time_out);
+        this.aeq = (VoiceButton) findViewById(R.id.voice_bnt);
+        this.aem = (TextView) findViewById(R.id.restart);
+        this.aer = (ImageView) findViewById(R.id.play_img);
+        this.aes = (TextView) findViewById(R.id.play_time);
+        this.aes.setClickable(false);
+        this.aem.setOnClickListener(this);
+        this.aer.setOnClickListener(this);
+        this.aeq.setRecorderView(this);
         sf();
     }
 
     private void se() {
-        this.aes.setVisibility(4);
-        this.aeu.setVisibility(0);
-        this.aeo.setVisibility(0);
-        ao.setViewTextColor(this.aeu, R.color.CAM_X0106, 1);
-        ao.setViewTextColor(this.aeo, R.color.CAM_X0106, 1);
-        ao.setBackgroundResource(this.aeo, R.drawable.but_posts_record_again_selector);
-        this.aet.setVisibility(0);
+        this.aeq.setVisibility(4);
+        this.aes.setVisibility(0);
+        this.aem.setVisibility(0);
+        ao.setViewTextColor(this.aes, R.color.CAM_X0106, 1);
+        ao.setViewTextColor(this.aem, R.color.CAM_X0106, 1);
+        ao.setBackgroundResource(this.aem, R.drawable.but_posts_record_again_selector);
+        this.aer.setVisibility(0);
         if (this.mModel != null) {
-            this.aeu.setText(VoiceManager.formatVoiceTime(this.mModel.duration));
-            this.aet.setContentDescription(String.format(getContext().getString(R.string.listen_time), Integer.valueOf(this.mModel.duration)));
-            ao.setImageResource(this.aet, R.drawable.but_posts_record_play_selector);
+            this.aes.setText(VoiceManager.formatVoiceTime(this.mModel.duration));
+            this.aer.setContentDescription(String.format(getContext().getString(R.string.listen_time), Integer.valueOf(this.mModel.duration)));
+            ao.setImageResource(this.aer, R.drawable.but_posts_record_play_selector);
         }
-        ao.setViewTextColor(this.aeq, R.color.CAM_X0108, 1);
-        this.aeq.setText(getContext().getString(R.string.voice_play_tip));
+        ao.setViewTextColor(this.aeo, R.color.CAM_X0108, 1);
+        this.aeo.setText(getContext().getString(R.string.voice_play_tip));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void sf() {
-        ao.setImageResource(this.aes, R.drawable.but_posts_record_zero_selector);
-        this.aes.setVisibility(0);
-        this.adN = 0;
-        this.aet.setVisibility(4);
-        this.aeu.setVisibility(4);
-        this.aeo.setVisibility(4);
+        ao.setImageResource(this.aeq, R.drawable.but_posts_record_zero_selector);
+        this.aeq.setVisibility(0);
+        this.adL = 0;
         this.aer.setVisibility(4);
-        ao.setViewTextColor(this.aeq, R.color.CAM_X0301, 1);
-        this.aeq.setText(getContext().getString(R.string.voice_record_press_to_record));
+        this.aes.setVisibility(4);
+        this.aem.setVisibility(4);
+        this.aep.setVisibility(4);
+        ao.setViewTextColor(this.aeo, R.color.CAM_X0301, 1);
+        this.aeo.setText(getContext().getString(R.string.voice_record_press_to_record));
     }
 
     public void reset() {
         sf();
         this.mModel = null;
-        this.adN = 0;
+        this.adL = 0;
     }
 
     public void c(VoiceData.VoiceModel voiceModel) {
         this.mModel = voiceModel;
-        this.aep.setText("");
-        this.aep.setVisibility(4);
-        this.adN = 0;
+        this.aen.setText("");
+        this.aen.setVisibility(4);
+        this.adL = 0;
         se();
         b(new com.baidu.tbadk.editortools.a(10, -1, voiceModel));
         b(new com.baidu.tbadk.editortools.a(2, 6, " "));
@@ -367,7 +367,7 @@ public class VoiceRecordButton extends ViewGroup implements View.OnClickListener
     public void onStartedRecorder(boolean z) {
         if (z) {
             sf();
-            this.aeq.setText(getContext().getString(R.string.voice_record_release_to_stop));
+            this.aeo.setText(getContext().getString(R.string.voice_record_release_to_stop));
         }
     }
 
@@ -381,24 +381,24 @@ public class VoiceRecordButton extends ViewGroup implements View.OnClickListener
 
     @Override // com.baidu.tbadk.core.voice.VoiceManager.b
     public void b(VoiceData.VoiceModel voiceModel) {
-        if (this.aet != null && this.aeu != null) {
+        if (this.aer != null && this.aes != null) {
             switch (voiceModel.voice_status.intValue()) {
                 case 1:
-                    ao.setViewTextColor(this.aeu, R.color.CAM_X0106, 1);
-                    this.aeu.setText(VoiceManager.formatVoiceTime(voiceModel.duration));
-                    ao.setImageResource(this.aet, R.drawable.but_posts_record_play_selector);
-                    this.aet.setContentDescription(String.format(getContext().getString(R.string.listen_time), Integer.valueOf(voiceModel.duration)));
-                    this.aeq.setText(getContext().getString(R.string.voice_play_tip));
+                    ao.setViewTextColor(this.aes, R.color.CAM_X0106, 1);
+                    this.aes.setText(VoiceManager.formatVoiceTime(voiceModel.duration));
+                    ao.setImageResource(this.aer, R.drawable.but_posts_record_play_selector);
+                    this.aer.setContentDescription(String.format(getContext().getString(R.string.listen_time), Integer.valueOf(voiceModel.duration)));
+                    this.aeo.setText(getContext().getString(R.string.voice_play_tip));
                     sh();
                     return;
                 case 2:
                 default:
                     return;
                 case 3:
-                    ao.setViewTextColor(this.aeu, R.color.CAM_X0106, 1);
-                    ao.setImageResource(this.aet, R.drawable.but_posts_record_stop_selector);
-                    this.aet.setContentDescription(getContext().getString(R.string.pause_load));
-                    this.aeq.setText(getContext().getString(R.string.voice_stop_tip));
+                    ao.setViewTextColor(this.aes, R.color.CAM_X0106, 1);
+                    ao.setImageResource(this.aer, R.drawable.but_posts_record_stop_selector);
+                    this.aer.setContentDescription(getContext().getString(R.string.pause_load));
+                    this.aeo.setText(getContext().getString(R.string.voice_stop_tip));
                     sg();
                     return;
             }
@@ -407,57 +407,57 @@ public class VoiceRecordButton extends ViewGroup implements View.OnClickListener
 
     @Override // com.baidu.adp.lib.voice.f
     public void onShowErr(int i, String str) {
-        ao.setViewTextColor(this.aer, R.color.CAM_X0101, 1);
         ao.setViewTextColor(this.aep, R.color.CAM_X0101, 1);
-        ao.setViewTextColor(this.aeq, R.color.CAM_X0108, 1);
+        ao.setViewTextColor(this.aen, R.color.CAM_X0101, 1);
+        ao.setViewTextColor(this.aeo, R.color.CAM_X0108, 1);
         if (!StringUtils.isNull(str)) {
             if (i == 3) {
-                this.aer.setVisibility(0);
-                this.aer.setText(str);
+                this.aep.setVisibility(0);
+                this.aep.setText(str);
                 postDelayed(new Runnable() { // from class: com.baidu.audiorecorder.lib.voice.VoiceRecordButton.3
                     @Override // java.lang.Runnable
                     public void run() {
-                        if (VoiceRecordButton.this.aer != null) {
-                            VoiceRecordButton.this.aer.setVisibility(4);
-                            VoiceRecordButton.this.aer.setText("");
+                        if (VoiceRecordButton.this.aep != null) {
+                            VoiceRecordButton.this.aep.setVisibility(4);
+                            VoiceRecordButton.this.aep.setText("");
                         }
                     }
                 }, 2000L);
             } else if (i == 2) {
-                this.aep.setVisibility(0);
-                this.aep.setText(str);
-                this.aeq.setText(R.string.voice_record_press_to_record);
+                this.aen.setVisibility(0);
+                this.aen.setText(str);
+                this.aeo.setText(R.string.voice_record_press_to_record);
                 postDelayed(new Runnable() { // from class: com.baidu.audiorecorder.lib.voice.VoiceRecordButton.4
                     @Override // java.lang.Runnable
                     public void run() {
-                        if (VoiceRecordButton.this.aep != null) {
-                            VoiceRecordButton.this.aep.setVisibility(4);
-                            VoiceRecordButton.this.aep.setText("");
+                        if (VoiceRecordButton.this.aen != null) {
+                            VoiceRecordButton.this.aen.setVisibility(4);
+                            VoiceRecordButton.this.aen.setText("");
                         }
                     }
                 }, 2000L);
             } else if (i == 5) {
-                this.aep.setVisibility(0);
-                this.aep.setText(str);
+                this.aen.setVisibility(0);
+                this.aen.setText(str);
                 postDelayed(new Runnable() { // from class: com.baidu.audiorecorder.lib.voice.VoiceRecordButton.5
                     @Override // java.lang.Runnable
                     public void run() {
-                        if (VoiceRecordButton.this.aep != null) {
-                            VoiceRecordButton.this.aep.setVisibility(4);
-                            VoiceRecordButton.this.aep.setText("");
+                        if (VoiceRecordButton.this.aen != null) {
+                            VoiceRecordButton.this.aen.setVisibility(4);
+                            VoiceRecordButton.this.aen.setText("");
                         }
                     }
                 }, 2000L);
             } else {
                 sf();
-                this.aep.setVisibility(0);
-                this.aep.setText(str);
+                this.aen.setVisibility(0);
+                this.aen.setText(str);
                 postDelayed(new Runnable() { // from class: com.baidu.audiorecorder.lib.voice.VoiceRecordButton.6
                     @Override // java.lang.Runnable
                     public void run() {
-                        if (VoiceRecordButton.this.aep != null) {
-                            VoiceRecordButton.this.aep.setVisibility(4);
-                            VoiceRecordButton.this.aep.setText("");
+                        if (VoiceRecordButton.this.aen != null) {
+                            VoiceRecordButton.this.aen.setVisibility(4);
+                            VoiceRecordButton.this.aen.setText("");
                         }
                     }
                 }, 2000L);
@@ -467,7 +467,7 @@ public class VoiceRecordButton extends ViewGroup implements View.OnClickListener
 
     @Override // com.baidu.adp.lib.voice.f
     public void onSendVoice(String str, int i) {
-        this.aep.setVisibility(4);
+        this.aen.setVisibility(4);
         VoiceData.VoiceModel voiceModel = new VoiceData.VoiceModel();
         voiceModel.duration = i;
         voiceModel.isLocal = true;
@@ -485,65 +485,65 @@ public class VoiceRecordButton extends ViewGroup implements View.OnClickListener
 
     @Override // com.baidu.adp.lib.voice.f
     public void onShowRecordTime(int i) {
-        ao.setViewTextColor(this.aep, R.color.CAM_X0101, 1);
-        this.aep.setVisibility(0);
-        this.aep.setText(VoiceManager.formatVoiceTime(i));
+        ao.setViewTextColor(this.aen, R.color.CAM_X0101, 1);
+        this.aen.setVisibility(0);
+        this.aen.setText(VoiceManager.formatVoiceTime(i));
     }
 
     @Override // com.baidu.adp.lib.voice.f
     public void onShowRecording(int i) {
-        this.acR = Math.max(i, this.acR);
+        this.acP = Math.max(i, this.acP);
         long uptimeMillis = SystemClock.uptimeMillis();
-        if (uptimeMillis - this.acS > 200) {
-            this.acR = 0;
-            this.acS = uptimeMillis;
+        if (uptimeMillis - this.acQ > 200) {
+            this.acP = 0;
+            this.acQ = uptimeMillis;
         }
-        if (this.acR < 10) {
-            this.adN = 1;
+        if (this.acP < 10) {
+            this.adL = 1;
             invalidate();
-        } else if (this.acR < 20) {
-            this.adN = 2;
+        } else if (this.acP < 20) {
+            this.adL = 2;
             invalidate();
-        } else if (this.acR < 30) {
-            this.adN = 3;
+        } else if (this.acP < 30) {
+            this.adL = 3;
             invalidate();
-        } else if (this.acR < 40) {
-            this.adN = 4;
+        } else if (this.acP < 40) {
+            this.adL = 4;
             invalidate();
         } else {
-            this.adN = 5;
+            this.adL = 5;
             invalidate();
         }
     }
 
     @Override // com.baidu.tbadk.core.voice.VoiceManager.b
     public void bj(int i) {
-        if (this.mModel != null && this.aeu != null) {
+        if (this.mModel != null && this.aes != null) {
             int i2 = i / 1000;
-            if (this.aeD != i2) {
-                this.aeu.setText(VoiceManager.formatVoiceTime(this.mModel.duration - i2));
+            if (this.aeB != i2) {
+                this.aes.setText(VoiceManager.formatVoiceTime(this.mModel.duration - i2));
             }
-            this.aeD = i2;
+            this.aeB = i2;
         }
     }
 
     private void sg() {
         if (this.mModel != null) {
-            this.adN = 0;
-            this.aev = 360.0f / (this.mModel.duration2 > 0 ? this.mModel.duration2 / 1000.0f : this.mModel.duration);
-            this.aey = SystemClock.uptimeMillis();
-            this.aez = this.aey + 200;
-            this.aeB.sendEmptyMessageAtTime(1, this.aez);
+            this.adL = 0;
+            this.aet = 360.0f / (this.mModel.duration2 > 0 ? this.mModel.duration2 / 1000.0f : this.mModel.duration);
+            this.aew = SystemClock.uptimeMillis();
+            this.aex = this.aew + 200;
+            this.aez.sendEmptyMessageAtTime(1, this.aex);
             invalidate();
         }
     }
 
     private void sh() {
-        this.adN = 0;
-        this.adO = 0;
-        this.aev = 0.0f;
-        this.aew = 0.0f;
-        this.aeB.removeMessages(1);
+        this.adL = 0;
+        this.adM = 0;
+        this.aet = 0.0f;
+        this.aeu = 0.0f;
+        this.aez.removeMessages(1);
         ((ViewGroup) getParent()).invalidate();
     }
 
@@ -608,7 +608,7 @@ public class VoiceRecordButton extends ViewGroup implements View.OnClickListener
     }
 
     public void setCallback(f fVar) {
-        this.aex = fVar;
+        this.aev = fVar;
     }
 
     @Override // com.baidu.tbadk.core.voice.VoiceManager.b
@@ -621,6 +621,14 @@ public class VoiceRecordButton extends ViewGroup implements View.OnClickListener
     }
 
     public void si() {
+        this.adV = new Paint();
+        this.adV.setAntiAlias(true);
+        this.adV.setStyle(Paint.Style.STROKE);
+        this.adV.setStrokeWidth(2.0f);
+        this.adW = new Paint();
+        this.adW.setAntiAlias(true);
+        this.adW.setStyle(Paint.Style.STROKE);
+        this.adW.setStrokeWidth(2.0f);
         this.adX = new Paint();
         this.adX.setAntiAlias(true);
         this.adX.setStyle(Paint.Style.STROKE);
@@ -629,42 +637,34 @@ public class VoiceRecordButton extends ViewGroup implements View.OnClickListener
         this.adY.setAntiAlias(true);
         this.adY.setStyle(Paint.Style.STROKE);
         this.adY.setStrokeWidth(2.0f);
-        this.adZ = new Paint();
-        this.adZ.setAntiAlias(true);
-        this.adZ.setStyle(Paint.Style.STROKE);
-        this.adZ.setStrokeWidth(2.0f);
-        this.aea = new Paint();
-        this.aea.setAntiAlias(true);
-        this.aea.setStyle(Paint.Style.STROKE);
-        this.aea.setStrokeWidth(2.0f);
     }
 
     public void g(Canvas canvas) {
         if (TbadkCoreApplication.getInst().getSkinType() == 1) {
+            this.adV.setColor(this.aee);
+            this.adW.setColor(this.aef);
             this.adX.setColor(this.aeg);
             this.adY.setColor(this.aeh);
-            this.adZ.setColor(this.aei);
-            this.aea.setColor(this.aej);
         } else {
+            this.adV.setColor(this.adZ);
+            this.adW.setColor(this.aea);
             this.adX.setColor(this.aeb);
             this.adY.setColor(this.aed);
-            this.adZ.setColor(this.aee);
-            this.aea.setColor(this.aef);
         }
-        if (this.adN == 2) {
-            canvas.drawCircle(this.adP, this.adQ, this.adR, this.adX);
-        } else if (this.adN == 3) {
-            canvas.drawCircle(this.adP, this.adQ, this.adR, this.adX);
-            canvas.drawCircle(this.adP, this.adQ, this.adS, this.adY);
-        } else if (this.adN == 4) {
-            canvas.drawCircle(this.adP, this.adQ, this.adR, this.adX);
-            canvas.drawCircle(this.adP, this.adQ, this.adS, this.adY);
-            canvas.drawCircle(this.adP, this.adQ, this.adT, this.adZ);
-        } else if (this.adN == 5) {
-            canvas.drawCircle(this.adP, this.adQ, this.adR, this.adX);
-            canvas.drawCircle(this.adP, this.adQ, this.adS, this.adY);
-            canvas.drawCircle(this.adP, this.adQ, this.adT, this.adZ);
-            canvas.drawCircle(this.adP, this.adQ, this.adU, this.aea);
+        if (this.adL == 2) {
+            canvas.drawCircle(this.adN, this.adO, this.adP, this.adV);
+        } else if (this.adL == 3) {
+            canvas.drawCircle(this.adN, this.adO, this.adP, this.adV);
+            canvas.drawCircle(this.adN, this.adO, this.adQ, this.adW);
+        } else if (this.adL == 4) {
+            canvas.drawCircle(this.adN, this.adO, this.adP, this.adV);
+            canvas.drawCircle(this.adN, this.adO, this.adQ, this.adW);
+            canvas.drawCircle(this.adN, this.adO, this.adR, this.adX);
+        } else if (this.adL == 5) {
+            canvas.drawCircle(this.adN, this.adO, this.adP, this.adV);
+            canvas.drawCircle(this.adN, this.adO, this.adQ, this.adW);
+            canvas.drawCircle(this.adN, this.adO, this.adR, this.adX);
+            canvas.drawCircle(this.adN, this.adO, this.adS, this.adY);
         }
     }
 
@@ -695,7 +695,7 @@ public class VoiceRecordButton extends ViewGroup implements View.OnClickListener
 
     @Override // com.baidu.tbadk.editortools.n
     public int getToolId() {
-        return this.ada;
+        return this.acY;
     }
 
     @Override // com.baidu.tbadk.editortools.n
@@ -709,19 +709,19 @@ public class VoiceRecordButton extends ViewGroup implements View.OnClickListener
 
     @Override // com.baidu.tbadk.editortools.n
     public void b(com.baidu.tbadk.editortools.a aVar) {
-        if (this.acZ != null) {
-            this.acZ.b(aVar);
+        if (this.acX != null) {
+            this.acX.b(aVar);
         }
     }
 
     @Override // com.baidu.tbadk.editortools.n
     public void setEditorTools(EditorTools editorTools) {
-        this.acZ = editorTools;
+        this.acX = editorTools;
     }
 
     @Override // com.baidu.tbadk.editortools.n
     public void setToolId(int i) {
-        this.ada = i;
+        this.acY = i;
     }
 
     @Override // com.baidu.tbadk.editortools.n

@@ -3,7 +3,7 @@ package com.win.opensdk;
 import android.os.Build;
 import android.text.TextUtils;
 import android.webkit.WebView;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public final class g {
     /* JADX INFO: Access modifiers changed from: package-private */
     public static void e(WebView webView, String str) {

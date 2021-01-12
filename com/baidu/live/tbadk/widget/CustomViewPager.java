@@ -4,7 +4,7 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import androidx.viewpager.widget.ViewPager;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class CustomViewPager extends TbViewPager {
     public static final int IDLE = 0;
     public static final int LEFT = 1;

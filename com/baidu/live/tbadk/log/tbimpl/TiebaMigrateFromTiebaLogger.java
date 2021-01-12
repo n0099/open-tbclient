@@ -3,7 +3,7 @@ package com.baidu.live.tbadk.log.tbimpl;
 import com.baidu.live.tbadk.extraparams.ExtraParamsManager;
 import com.baidu.live.tbadk.log.IMigrateFromTiebaLogger;
 import java.util.HashMap;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class TiebaMigrateFromTiebaLogger implements IMigrateFromTiebaLogger {
     @Override // com.baidu.live.tbadk.log.IMigrateFromTiebaLogger
     public void doDisplayAttentionLog() {

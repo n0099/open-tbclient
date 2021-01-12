@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class OnePicInfoCard extends BaseCardInfo {
     private final String desc;
     private final List<b> iconList;
@@ -44,8 +44,8 @@ public class OnePicInfoCard extends BaseCardInfo {
         this.desc = jSONObject.optString("desc", "");
         this.pic = jSONObject.optString("pic");
         this.tag = jSONObject.optString("tag", "");
-        this.tBgColor = com.baidu.tieba.lego.card.c.b.sF(jSONObject.optString("tBgColor", ""));
-        this.tBgColorN = com.baidu.tieba.lego.card.c.b.sF(jSONObject.optString("tBgColorN", ""));
+        this.tBgColor = com.baidu.tieba.lego.card.c.b.rt(jSONObject.optString("tBgColor", ""));
+        this.tBgColorN = com.baidu.tieba.lego.card.c.b.rt(jSONObject.optString("tBgColorN", ""));
         JSONArray optJSONArray = jSONObject.optJSONArray("icons");
         int length = optJSONArray == null ? 0 : optJSONArray.length();
         this.iconList = new ArrayList(length);
@@ -55,7 +55,7 @@ public class OnePicInfoCard extends BaseCardInfo {
                 b bVar = new b();
                 bVar.type = optJSONObject.optInt("type");
                 bVar.url = optJSONObject.optString("url");
-                bVar.kYp = optJSONObject.optString("urlNight");
+                bVar.kTK = optJSONObject.optString("urlNight");
                 bVar.content = optJSONObject.optString("content", "");
                 this.iconList.add(bVar);
             }

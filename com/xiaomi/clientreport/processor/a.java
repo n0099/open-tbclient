@@ -33,10 +33,10 @@ import javax.crypto.NoSuchPaddingException;
 public class a implements IEventProcessor {
 
     /* renamed from: a  reason: collision with root package name */
-    protected Context f14082a;
+    protected Context f13782a;
 
     /* renamed from: a  reason: collision with other field name */
-    private HashMap<String, ArrayList<com.xiaomi.clientreport.data.a>> f102a;
+    private HashMap<String, ArrayList<com.xiaomi.clientreport.data.a>> f101a;
 
     public a(Context context) {
         a(context);
@@ -125,7 +125,7 @@ public class a implements IEventProcessor {
     }
 
     private void a(String str, String str2) {
-        EventClientReport a2 = com.xiaomi.clientreport.manager.a.a(this.f14082a).a(ARPMessageType.MSG_TYPE_RES_REQUEST, "24:" + str + "," + str2);
+        EventClientReport a2 = com.xiaomi.clientreport.manager.a.a(this.f13782a).a(ARPMessageType.MSG_TYPE_RES_REQUEST, "24:" + str + "," + str2);
         ArrayList arrayList = new ArrayList();
         arrayList.add(a2.toJsonString());
         a(arrayList);
@@ -142,7 +142,7 @@ public class a implements IEventProcessor {
         }
         try {
             File file = new File(b2 + ".lock");
-            y.m620a(file);
+            y.m616a(file);
             randomAccessFile = new RandomAccessFile(file, "rw");
             try {
                 fileLock = randomAccessFile.getChannel().lock();
@@ -155,7 +155,7 @@ public class a implements IEventProcessor {
                                 byte[] stringToBytes = stringToBytes(aVar.toJsonString());
                                 if (stringToBytes == null || stringToBytes.length < 1 || stringToBytes.length > 4096) {
                                     com.xiaomi.channel.commonutils.logger.b.d("event data throw a invalid item ");
-                                } else if (!bj.m198a(this.f14082a, b2)) {
+                                } else if (!bj.m194a(this.f13782a, b2)) {
                                     int length = aVarArr.length - i;
                                     com.xiaomi.clientreport.data.a[] aVarArr2 = new com.xiaomi.clientreport.data.a[length];
                                     System.arraycopy(aVarArr, i, aVarArr2, 0, length);
@@ -226,7 +226,7 @@ public class a implements IEventProcessor {
 
     private String b(com.xiaomi.clientreport.data.a aVar) {
         String str;
-        File externalFilesDir = this.f14082a.getExternalFilesDir("event");
+        File externalFilesDir = this.f13782a.getExternalFilesDir("event");
         String a2 = a(aVar);
         if (externalFilesDir == null) {
             return null;
@@ -240,7 +240,7 @@ public class a implements IEventProcessor {
                 break;
             }
             str = str2 + i2;
-            if (bj.m198a(this.f14082a, str)) {
+            if (bj.m194a(this.f13782a, str)) {
                 break;
             }
             i = i2 + 1;
@@ -253,15 +253,15 @@ public class a implements IEventProcessor {
         Throwable th;
         File file;
         Exception e;
-        bj.a(this.f14082a, "event", "eventUploading");
-        File[] m199a = bj.m199a(this.f14082a, "eventUploading");
-        if (m199a == null || m199a.length <= 0) {
+        bj.a(this.f13782a, "event", "eventUploading");
+        File[] m195a = bj.m195a(this.f13782a, "eventUploading");
+        if (m195a == null || m195a.length <= 0) {
             return;
         }
         File file2 = null;
         FileLock fileLock = null;
         RandomAccessFile randomAccessFile = null;
-        for (File file3 : m199a) {
+        for (File file3 : m195a) {
             if (file3 == null) {
                 if (fileLock != null && fileLock.isValid()) {
                     try {
@@ -279,7 +279,7 @@ public class a implements IEventProcessor {
                     try {
                         if (file3.length() > ImageUploadStrategy.FILE_SIZE_5M) {
                             com.xiaomi.channel.commonutils.logger.b.d("eventData read from cache file failed because " + file3.getName() + " is too big, length " + file3.length());
-                            a(file3.getName(), Formatter.formatFileSize(this.f14082a, file3.length()));
+                            a(file3.getName(), Formatter.formatFileSize(this.f13782a, file3.length()));
                             file3.delete();
                             if (fileLock != null && fileLock.isValid()) {
                                 try {
@@ -296,7 +296,7 @@ public class a implements IEventProcessor {
                             String absolutePath = file3.getAbsolutePath();
                             File file4 = new File(absolutePath + ".lock");
                             try {
-                                y.m620a(file4);
+                                y.m616a(file4);
                                 RandomAccessFile randomAccessFile2 = new RandomAccessFile(file4, "rw");
                                 try {
                                     fileLock = randomAccessFile2.getChannel().lock();
@@ -371,32 +371,32 @@ public class a implements IEventProcessor {
     }
 
     public void a(Context context) {
-        this.f14082a = context;
+        this.f13782a = context;
     }
 
     @Override // com.xiaomi.clientreport.processor.d
     /* renamed from: a  reason: collision with other method in class */
-    public void mo91a(com.xiaomi.clientreport.data.a aVar) {
-        if ((aVar instanceof EventClientReport) && this.f102a != null) {
+    public void mo87a(com.xiaomi.clientreport.data.a aVar) {
+        if ((aVar instanceof EventClientReport) && this.f101a != null) {
             EventClientReport eventClientReport = (EventClientReport) aVar;
             String a2 = a((com.xiaomi.clientreport.data.a) eventClientReport);
-            ArrayList<com.xiaomi.clientreport.data.a> arrayList = this.f102a.get(a2);
+            ArrayList<com.xiaomi.clientreport.data.a> arrayList = this.f101a.get(a2);
             if (arrayList == null) {
                 arrayList = new ArrayList<>();
             }
             arrayList.add(eventClientReport);
-            this.f102a.put(a2, arrayList);
+            this.f101a.put(a2, arrayList);
         }
     }
 
     public void a(List<String> list) {
-        bj.a(this.f14082a, list);
+        bj.a(this.f13782a, list);
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m92a(com.xiaomi.clientreport.data.a[] aVarArr) {
+    public void m88a(com.xiaomi.clientreport.data.a[] aVarArr) {
         if (aVarArr == null || aVarArr.length == 0 || aVarArr[0] == null) {
-            com.xiaomi.channel.commonutils.logger.b.m84a("event data write to cache file failed because data null");
+            com.xiaomi.channel.commonutils.logger.b.m80a("event data write to cache file failed because data null");
             return;
         }
         do {
@@ -409,20 +409,20 @@ public class a implements IEventProcessor {
 
     @Override // com.xiaomi.clientreport.processor.d
     public void b() {
-        if (this.f102a == null) {
+        if (this.f101a == null) {
             return;
         }
-        if (this.f102a.size() > 0) {
-            for (String str : this.f102a.keySet()) {
-                ArrayList<com.xiaomi.clientreport.data.a> arrayList = this.f102a.get(str);
+        if (this.f101a.size() > 0) {
+            for (String str : this.f101a.keySet()) {
+                ArrayList<com.xiaomi.clientreport.data.a> arrayList = this.f101a.get(str);
                 if (arrayList != null && arrayList.size() > 0) {
                     com.xiaomi.clientreport.data.a[] aVarArr = new com.xiaomi.clientreport.data.a[arrayList.size()];
                     arrayList.toArray(aVarArr);
-                    m92a(aVarArr);
+                    m88a(aVarArr);
                 }
             }
         }
-        this.f102a.clear();
+        this.f101a.clear();
     }
 
     @Override // com.xiaomi.clientreport.processor.IEventProcessor
@@ -431,8 +431,8 @@ public class a implements IEventProcessor {
         if (bArr == null || bArr.length < 1) {
             return null;
         }
-        if (com.xiaomi.clientreport.manager.a.a(this.f14082a).m88a().isEventEncrypted()) {
-            String a3 = bj.a(this.f14082a);
+        if (com.xiaomi.clientreport.manager.a.a(this.f13782a).m84a().isEventEncrypted()) {
+            String a3 = bj.a(this.f13782a);
             if (TextUtils.isEmpty(a3) || (a2 = bj.a(a3)) == null || a2.length <= 0) {
                 return null;
             }
@@ -463,7 +463,7 @@ public class a implements IEventProcessor {
 
     @Override // com.xiaomi.clientreport.processor.IEventProcessor
     public void setEventMap(HashMap<String, ArrayList<com.xiaomi.clientreport.data.a>> hashMap) {
-        this.f102a = hashMap;
+        this.f101a = hashMap;
     }
 
     @Override // com.xiaomi.clientreport.processor.IEventProcessor
@@ -472,15 +472,15 @@ public class a implements IEventProcessor {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
-        if (com.xiaomi.clientreport.manager.a.a(this.f14082a).m88a().isEventEncrypted()) {
-            String a3 = bj.a(this.f14082a);
-            byte[] m194a = bf.m194a(str);
-            if (TextUtils.isEmpty(a3) || m194a == null || m194a.length <= 1 || (a2 = bj.a(a3)) == null) {
+        if (com.xiaomi.clientreport.manager.a.a(this.f13782a).m84a().isEventEncrypted()) {
+            String a3 = bj.a(this.f13782a);
+            byte[] m190a = bf.m190a(str);
+            if (TextUtils.isEmpty(a3) || m190a == null || m190a.length <= 1 || (a2 = bj.a(a3)) == null) {
                 return null;
             }
             try {
                 if (a2.length > 1) {
-                    return h.b(a2, Base64.encode(m194a, 2));
+                    return h.b(a2, Base64.encode(m190a, 2));
                 }
                 return null;
             } catch (Exception e) {
@@ -488,6 +488,6 @@ public class a implements IEventProcessor {
                 return null;
             }
         }
-        return bf.m194a(str);
+        return bf.m190a(str);
     }
 }

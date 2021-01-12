@@ -4,20 +4,20 @@ package com.bytedance.sdk.a.a;
 public final class p {
 
     /* renamed from: b  reason: collision with root package name */
-    static long f6150b;
-    static o phQ;
+    static long f5850b;
+    static o pdo;
 
     private p() {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static o eqi() {
+    public static o emm() {
         synchronized (p.class) {
-            if (phQ != null) {
-                o oVar = phQ;
-                phQ = oVar.pie;
-                oVar.pie = null;
-                f6150b -= 8192;
+            if (pdo != null) {
+                o oVar = pdo;
+                pdo = oVar.pdA;
+                oVar.pdA = null;
+                f5850b -= 8192;
                 return oVar;
             }
             return new o();
@@ -26,17 +26,17 @@ public final class p {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static void b(o oVar) {
-        if (oVar.pie != null || oVar.pif != null) {
+        if (oVar.pdA != null || oVar.pdB != null) {
             throw new IllegalArgumentException();
         }
         if (!oVar.d) {
             synchronized (p.class) {
-                if (f6150b + 8192 <= 65536) {
-                    f6150b += 8192;
-                    oVar.pie = phQ;
+                if (f5850b + 8192 <= 65536) {
+                    f5850b += 8192;
+                    oVar.pdA = pdo;
                     oVar.c = 0;
-                    oVar.f6149b = 0;
-                    phQ = oVar;
+                    oVar.f5849b = 0;
+                    pdo = oVar;
                 }
             }
         }

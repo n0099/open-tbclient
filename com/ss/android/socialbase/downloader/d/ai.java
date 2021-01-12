@@ -27,7 +27,7 @@ public interface ai extends IInterface {
             if (queryLocalInterface != null && (queryLocalInterface instanceof ai)) {
                 return (ai) queryLocalInterface;
             }
-            return new C1248a(iBinder);
+            return new C1231a(iBinder);
         }
 
         @Override // android.os.IInterface
@@ -66,18 +66,18 @@ public interface ai extends IInterface {
 
         /* renamed from: com.ss.android.socialbase.downloader.d.ai$a$a  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        private static class C1248a implements ai {
+        private static class C1231a implements ai {
 
             /* renamed from: a  reason: collision with root package name */
-            private IBinder f13407a;
+            private IBinder f13107a;
 
-            C1248a(IBinder iBinder) {
-                this.f13407a = iBinder;
+            C1231a(IBinder iBinder) {
+                this.f13107a = iBinder;
             }
 
             @Override // android.os.IInterface
             public IBinder asBinder() {
-                return this.f13407a;
+                return this.f13107a;
             }
 
             @Override // com.ss.android.socialbase.downloader.d.ai
@@ -92,7 +92,7 @@ public interface ai extends IInterface {
                     } else {
                         obtain.writeInt(0);
                     }
-                    this.f13407a.transact(1, obtain, obtain2, 0);
+                    this.f13107a.transact(1, obtain, obtain2, 0);
                     obtain2.readException();
                     return obtain2.readInt() != 0;
                 } finally {
@@ -113,7 +113,7 @@ public interface ai extends IInterface {
                     } else {
                         obtain.writeInt(0);
                     }
-                    this.f13407a.transact(2, obtain, obtain2, 0);
+                    this.f13107a.transact(2, obtain, obtain2, 0);
                     obtain2.readException();
                     return obtain2.readInt() != 0;
                 } finally {
@@ -134,7 +134,7 @@ public interface ai extends IInterface {
                     } else {
                         obtain.writeInt(0);
                     }
-                    this.f13407a.transact(3, obtain, obtain2, 0);
+                    this.f13107a.transact(3, obtain, obtain2, 0);
                     obtain2.readException();
                     return obtain2.readInt() != 0;
                 } finally {

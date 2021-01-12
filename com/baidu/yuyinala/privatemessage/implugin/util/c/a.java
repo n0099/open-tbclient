@@ -1,30 +1,30 @@
 package com.baidu.yuyinala.privatemessage.implugin.util.c;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class a {
-    public static String pbL = "loginUid";
-    public static String pbM = "loginToken";
-    public static String pbN = "loginStatus";
-    public static String pbO = "current_state";
-    public static String pbP = "passportindex";
-    public static String pbQ = "passportstatus";
-    public static String pbR = "keyActionTime";
-    public static String pbS = "keyMenuTime";
-    public static String pbT = "keyMenuRefreshTs";
-    public static String pbU = "keyZhidaTime";
-    public static String pbV = "keyUidTime";
-    public static String pbW = "userVersionInfo";
-    public static String pbX = "currentKeyboardHeight";
-    public static String pbY = "firtTimeEnterGroupChat";
-    public static String pbZ = "firstTimeShowMore";
-    public static String pca = "firstTimeRedPacket";
-    public static String pcb = "pa_sb_click_";
-    public static String pcc = "user_sb_click_";
-    public static String pcd = "smart_reject_infos";
-    public static String pce = "smart_pa_rej_infos";
-    public static String pcf = "store_game_infos";
-    public static String pcg = "store_game_time";
-    public static String pch = "show_game_enter";
-    public static String pci = "show_game_enter_time";
-    public static String pcj = "count_game_enter_prompt";
-    public static String pck = "time_game_enter_prompt";
+    public static String oXh = "loginUid";
+    public static String oXi = "loginToken";
+    public static String oXj = "loginStatus";
+    public static String oXk = "current_state";
+    public static String oXl = "passportindex";
+    public static String oXm = "passportstatus";
+    public static String oXn = "keyActionTime";
+    public static String oXo = "keyMenuTime";
+    public static String oXp = "keyMenuRefreshTs";
+    public static String oXq = "keyZhidaTime";
+    public static String oXr = "keyUidTime";
+    public static String oXs = "userVersionInfo";
+    public static String oXt = "currentKeyboardHeight";
+    public static String oXu = "firtTimeEnterGroupChat";
+    public static String oXv = "firstTimeShowMore";
+    public static String oXw = "firstTimeRedPacket";
+    public static String oXx = "pa_sb_click_";
+    public static String oXy = "user_sb_click_";
+    public static String oXz = "smart_reject_infos";
+    public static String oXA = "smart_pa_rej_infos";
+    public static String oXB = "store_game_infos";
+    public static String oXC = "store_game_time";
+    public static String oXD = "show_game_enter";
+    public static String oXE = "show_game_enter_time";
+    public static String oXF = "count_game_enter_prompt";
+    public static String oXG = "time_game_enter_prompt";
 }

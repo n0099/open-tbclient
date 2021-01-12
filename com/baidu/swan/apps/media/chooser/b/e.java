@@ -2,42 +2,42 @@ package com.baidu.swan.apps.media.chooser.b;
 
 import com.baidu.swan.apps.media.chooser.model.MediaModel;
 import java.util.ArrayList;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class e {
-    private static ArrayList<MediaModel> dnL;
+    private static ArrayList<MediaModel> diY;
 
-    public static ArrayList<MediaModel> aEP() {
-        return dnL;
+    public static ArrayList<MediaModel> aAV() {
+        return diY;
     }
 
-    public static int aEQ() {
-        if (dnL == null) {
+    public static int aAW() {
+        if (diY == null) {
             return 0;
         }
-        return dnL.size();
+        return diY.size();
     }
 
-    public static String aER() {
-        if (dnL == null || dnL.size() == 0 || dnL.get(0) == null) {
+    public static String aAX() {
+        if (diY == null || diY.size() == 0 || diY.get(0) == null) {
             return null;
         }
-        return dnL.get(0).getType();
+        return diY.get(0).getType();
     }
 
     public static boolean c(MediaModel mediaModel) {
-        if (dnL == null || dnL.size() == 0) {
+        if (diY == null || diY.size() == 0) {
             return false;
         }
-        return dnL.contains(mediaModel);
+        return diY.contains(mediaModel);
     }
 
     public static int d(MediaModel mediaModel) {
-        if (mediaModel == null || dnL == null) {
+        if (mediaModel == null || diY == null) {
             return -1;
         }
-        int size = dnL.size();
+        int size = diY.size();
         for (int i = 0; i < size; i++) {
-            if (mediaModel.equals(dnL.get(i))) {
+            if (mediaModel.equals(diY.get(i))) {
                 return i;
             }
         }
@@ -45,31 +45,31 @@ public class e {
     }
 
     public static void clear() {
-        if (dnL != null) {
-            dnL.clear();
-            dnL = null;
+        if (diY != null) {
+            diY.clear();
+            diY = null;
         }
     }
 
     public static void e(MediaModel mediaModel) {
         if (mediaModel != null) {
-            if (dnL == null) {
-                dnL = new ArrayList<>();
+            if (diY == null) {
+                diY = new ArrayList<>();
             }
-            dnL.add(mediaModel);
+            diY.add(mediaModel);
         }
     }
 
     public static void f(MediaModel mediaModel) {
-        if (dnL != null) {
-            dnL.remove(mediaModel);
+        if (diY != null) {
+            diY.remove(mediaModel);
         }
     }
 
     public static boolean g(MediaModel mediaModel) {
-        if (dnL == null) {
+        if (diY == null) {
             return false;
         }
-        return dnL.contains(mediaModel);
+        return diY.contains(mediaModel);
     }
 }

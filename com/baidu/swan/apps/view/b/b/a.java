@@ -5,20 +5,20 @@ import com.baidu.swan.apps.event.a.g;
 import com.baidu.swan.apps.v.f;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class a {
     /* JADX WARN: Type inference failed for: r1v0, types: [org.json.JSONObject, T] */
     public static void c(String str, String str2, String str3, String str4, JSONObject jSONObject) {
         g gVar = new g();
         gVar.mData = e(str, str2, str3, str4, jSONObject);
-        f.aDH().a(str, gVar);
+        f.azN().a(str, gVar);
     }
 
     /* JADX WARN: Type inference failed for: r1v0, types: [org.json.JSONObject, T] */
     public static void d(String str, String str2, String str3, String str4, JSONObject jSONObject) {
         g gVar = new g();
         gVar.mData = e(str, str2, str3, str4, jSONObject);
-        f.aDH().b(gVar);
+        f.azN().b(gVar);
     }
 
     public static JSONObject e(String str, String str2, String str3, String str4, JSONObject jSONObject) {
@@ -42,7 +42,7 @@ public class a {
         return jSONObject2;
     }
 
-    public static JSONObject cP(String str, String str2) {
+    public static JSONObject cO(String str, String str2) {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("slaveId", str);

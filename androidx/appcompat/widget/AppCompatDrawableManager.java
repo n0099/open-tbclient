@@ -36,7 +36,7 @@ import java.util.WeakHashMap;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public final class AppCompatDrawableManager {
     private static final boolean DEBUG = false;
     private static AppCompatDrawableManager INSTANCE = null;
@@ -59,7 +59,7 @@ public final class AppCompatDrawableManager {
     private static final int[] TINT_CHECKABLE_BUTTON_LIST = {R.drawable.abc_btn_check_material, R.drawable.abc_btn_radio_material};
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public interface InflateDelegate {
         Drawable createFromXmlInner(@NonNull Context context, @NonNull XmlPullParser xmlPullParser, @NonNull AttributeSet attributeSet, @Nullable Resources.Theme theme);
     }
@@ -458,7 +458,7 @@ public final class AppCompatDrawableManager {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public static class ColorFilterLruCache extends LruCache<Integer, PorterDuffColorFilter> {
         public ColorFilterLruCache(int i) {
             super(i);
@@ -538,7 +538,7 @@ public final class AppCompatDrawableManager {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public static class VdcInflateDelegate implements InflateDelegate {
         VdcInflateDelegate() {
         }
@@ -555,7 +555,7 @@ public final class AppCompatDrawableManager {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public static class AvdcInflateDelegate implements InflateDelegate {
         AvdcInflateDelegate() {
         }
@@ -573,7 +573,7 @@ public final class AppCompatDrawableManager {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     @RequiresApi(11)
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public static class AsldcInflateDelegate implements InflateDelegate {
         AsldcInflateDelegate() {
         }

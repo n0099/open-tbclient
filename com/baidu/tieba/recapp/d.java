@@ -1,10 +1,10 @@
 package com.baidu.tieba.recapp;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class d implements com.baidu.tieba.InjectPlugin.a.d<c> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.InjectPlugin.a.d
-    /* renamed from: dEO */
-    public c bMT() {
+    /* renamed from: dAW */
+    public c bJb() {
         return new c();
     }
 }

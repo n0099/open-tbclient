@@ -7,7 +7,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
-import com.baidu.l.a.a;
+import com.baidu.j.a.a;
 import com.baidu.sapi2.NoProguard;
 import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.sapi2.utils.Log;
@@ -20,10 +20,10 @@ public class ViewUtility implements NoProguard {
     static class a implements View.OnTouchListener {
 
         /* renamed from: a  reason: collision with root package name */
-        final /* synthetic */ float f5443a;
+        final /* synthetic */ float f5160a;
 
         a(float f) {
-            this.f5443a = f;
+            this.f5160a = f;
         }
 
         @Override // android.view.View.OnTouchListener
@@ -31,7 +31,7 @@ public class ViewUtility implements NoProguard {
             int action = motionEvent.getAction();
             if (action == 0) {
                 if (Build.VERSION.SDK_INT >= 11) {
-                    view.setAlpha(this.f5443a);
+                    view.setAlpha(this.f5160a);
                     return false;
                 }
                 return false;

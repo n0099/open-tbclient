@@ -16,8 +16,8 @@ import javax.crypto.spec.PSource;
 /* loaded from: classes6.dex */
 public final class f {
     private static final Map<String, byte[]> l = Collections.synchronizedMap(new HashMap());
-    private MessageDigest aon;
-    private MessageDigest aoo;
+    private MessageDigest anA;
+    private MessageDigest anB;
     private final int e;
     private final int f;
     private SecureRandom g;
@@ -61,9 +61,9 @@ public final class f {
                         throw new InvalidKeyException("Digest SHA-1 not available", e);
                     }
                 }
-                this.aon = MessageDigest.getInstance(str);
-                this.aoo = MessageDigest.getInstance(str2);
-                this.k = c(this.aon, bArr);
+                this.anA = MessageDigest.getInstance(str);
+                this.anB = MessageDigest.getInstance(str2);
+                this.k = c(this.anA, bArr);
                 this.h = (i2 - 2) - (this.k.length * 2);
                 if (this.h <= 0) {
                     throw new InvalidKeyException("Key is too short for encryption using OAEPPadding with " + str + " and MGF1" + str2);
@@ -74,11 +74,11 @@ public final class f {
         }
     }
 
-    public static f b(int i, int i2, SecureRandom secureRandom) {
+    public static f a(int i, int i2, SecureRandom secureRandom) {
         return new f(i, i2, secureRandom, null);
     }
 
-    public static f b(int i, int i2, SecureRandom secureRandom, OAEPParameterSpec oAEPParameterSpec) {
+    public static f a(int i, int i2, SecureRandom secureRandom, OAEPParameterSpec oAEPParameterSpec) {
         return new f(i, i2, secureRandom, oAEPParameterSpec);
     }
 
@@ -88,10 +88,10 @@ public final class f {
         int i5 = i4;
         int i6 = i3;
         while (i5 > 0) {
-            this.aoo.update(bArr, i, i2);
-            this.aoo.update(bArr3);
+            this.anB.update(bArr, i, i2);
+            this.anB.update(bArr3);
             try {
-                this.aoo.digest(bArr4, 0, bArr4.length);
+                this.anB.digest(bArr4, 0, bArr4.length);
                 int i7 = 0;
                 int i8 = i5;
                 while (i7 < bArr4.length && i8 > 0) {
@@ -146,7 +146,7 @@ public final class f {
         bArr2[1] = (byte) this.e;
         if (this.e != 1) {
             if (this.g == null) {
-                this.g = b.afc;
+                this.g = b.ano;
             }
             byte[] bArr3 = new byte[64];
             int i5 = 2;
@@ -219,7 +219,7 @@ public final class f {
 
     private byte[] e(byte[] bArr) {
         if (this.g == null) {
-            this.g = b.afc;
+            this.g = b.ano;
         }
         int length = this.k.length;
         byte[] bArr2 = new byte[length];
@@ -306,7 +306,7 @@ public final class f {
         }
     }
 
-    public byte[] k(byte[] bArr, int i, int i2) {
-        return a(b.k(bArr, i, i2));
+    public byte[] l(byte[] bArr, int i, int i2) {
+        return a(b.l(bArr, i, i2));
     }
 }

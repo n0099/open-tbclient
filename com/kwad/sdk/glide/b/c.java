@@ -3,7 +3,7 @@ package com.kwad.sdk.glide.b;
 import androidx.annotation.ColorInt;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class c {
     b d;
     int f;
@@ -17,10 +17,10 @@ public class c {
     @ColorInt
 
     /* renamed from: a  reason: collision with root package name */
-    int[] f10238a = null;
+    int[] f9938a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    int f10239b = 0;
+    int f9939b = 0;
     int c = 0;
     final List<b> e = new ArrayList();
     int m = -1;
@@ -38,6 +38,6 @@ public class c {
     }
 
     public int d() {
-        return this.f10239b;
+        return this.f9939b;
     }
 }

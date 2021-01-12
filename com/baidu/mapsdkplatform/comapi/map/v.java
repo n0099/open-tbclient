@@ -1,12 +1,5 @@
 package com.baidu.mapsdkplatform.comapi.map;
-/* loaded from: classes3.dex */
-public enum v {
-    GLSurfaceView(1),
-    TextureView(2);
-    
-    private final int c;
-
-    v(int i) {
-        this.c = i;
-    }
+/* loaded from: classes6.dex */
+public interface v {
+    void a(int i, int i2);
 }

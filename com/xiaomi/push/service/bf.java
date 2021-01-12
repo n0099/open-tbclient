@@ -11,46 +11,46 @@ import java.util.List;
 public class bf extends al.b {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ be f14570a;
+    final /* synthetic */ be f14270a;
 
     /* renamed from: a  reason: collision with other field name */
-    boolean f967a = false;
+    boolean f966a = false;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bf(be beVar) {
-        this.f14570a = beVar;
+        this.f14270a = beVar;
     }
 
     @Override // com.xiaomi.push.al.b
     public void b() {
         try {
-            ej.a a2 = ej.a.a(Base64.decode(dd.a(com.xiaomi.push.t.m613a(), "http://resolver.msg.xiaomi.net/psc/?t=a", (List<com.xiaomi.push.ay>) null), 10));
+            ej.a a2 = ej.a.a(Base64.decode(dd.a(com.xiaomi.push.t.m609a(), "http://resolver.msg.xiaomi.net/psc/?t=a", (List<com.xiaomi.push.ay>) null), 10));
             if (a2 != null) {
-                this.f14570a.f965a = a2;
-                this.f967a = true;
-                this.f14570a.e();
+                this.f14270a.f964a = a2;
+                this.f966a = true;
+                this.f14270a.e();
             }
         } catch (Exception e) {
-            com.xiaomi.channel.commonutils.logger.b.m84a("fetch config failure: " + e.getMessage());
+            com.xiaomi.channel.commonutils.logger.b.m80a("fetch config failure: " + e.getMessage());
         }
     }
 
     @Override // com.xiaomi.push.al.b
     /* renamed from: c */
-    public void mo259c() {
+    public void mo255c() {
         List list;
         List list2;
         be.a[] aVarArr;
         ej.a aVar;
-        this.f14570a.f964a = null;
-        if (this.f967a) {
-            synchronized (this.f14570a) {
-                list = this.f14570a.f966a;
-                list2 = this.f14570a.f966a;
+        this.f14270a.f963a = null;
+        if (this.f966a) {
+            synchronized (this.f14270a) {
+                list = this.f14270a.f965a;
+                list2 = this.f14270a.f965a;
                 aVarArr = (be.a[]) list.toArray(new be.a[list2.size()]);
             }
             for (be.a aVar2 : aVarArr) {
-                aVar = this.f14570a.f965a;
+                aVar = this.f14270a.f964a;
                 aVar2.a(aVar);
             }
         }

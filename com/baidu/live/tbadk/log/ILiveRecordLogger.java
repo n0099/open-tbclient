@@ -1,5 +1,5 @@
 package com.baidu.live.tbadk.log;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public interface ILiveRecordLogger {
     void doClickFunctionButtonLog(String str, String str2, String str3);
 

@@ -1,9 +1,9 @@
 package com.baidu.live.ai;
 
 import android.content.Context;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public interface c {
-    void If();
+    void Ek();
 
     void a(Context context, long j, int[] iArr);
 

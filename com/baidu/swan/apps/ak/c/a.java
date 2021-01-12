@@ -5,26 +5,25 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import com.baidu.platform.comapi.map.MapBundleKey;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class a {
 
     /* renamed from: com.baidu.swan.apps.ak.c.a$a  reason: collision with other inner class name */
-    /* loaded from: classes9.dex */
-    public static class C0378a {
-        public boolean dPy;
+    /* loaded from: classes8.dex */
+    public static class C0361a {
+        public boolean dKM;
         public int level;
     }
 
     @Nullable
-    public static C0378a dw(@NonNull Context context) {
+    public static C0361a dv(@NonNull Context context) {
         Intent registerReceiver = context.registerReceiver(null, new IntentFilter("android.intent.action.BATTERY_CHANGED"));
         if (registerReceiver == null) {
             return null;
         }
-        C0378a c0378a = new C0378a();
-        c0378a.level = registerReceiver.getIntExtra(MapBundleKey.MapObjKey.OBJ_LEVEL, -1);
-        c0378a.dPy = registerReceiver.getIntExtra("plugged", 0) != 0;
-        return c0378a;
+        C0361a c0361a = new C0361a();
+        c0361a.level = registerReceiver.getIntExtra("level", -1);
+        c0361a.dKM = registerReceiver.getIntExtra("plugged", 0) != 0;
+        return c0361a;
     }
 }

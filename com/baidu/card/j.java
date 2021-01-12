@@ -10,14 +10,14 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.view.FollowUserButton;
 /* loaded from: classes.dex */
 public class j extends c implements p<bz>, q {
-    private FollowUserDecorView ahJ;
-    private boolean ahK = true;
+    private FollowUserDecorView agS;
+    private boolean agT = true;
     private int mWidth = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds166);
     private int mHeight = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds78);
 
     public j(TbPageContext tbPageContext, boolean z) {
-        this.ahJ = new FollowUserDecorView(tbPageContext.getPageActivity());
-        this.ahJ.setUseNewStyle(z);
+        this.agS = new FollowUserDecorView(tbPageContext.getPageActivity());
+        this.agS.setUseNewStyle(z);
         setInsertIndex(-1);
         aE(z);
     }
@@ -35,32 +35,32 @@ public class j extends c implements p<bz>, q {
             layoutParams.topMargin = getDimens(R.dimen.tbds52);
         }
         a(layoutParams);
-        H(this.ahJ);
+        H(this.agS);
     }
 
     public void setMarginRight(int i) {
-        if (te() != null) {
-            te().rightMargin = i;
+        if (sT() != null) {
+            sT().rightMargin = i;
         }
-        this.ahJ.setLayoutParams(te());
+        this.agS.setLayoutParams(sT());
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.card.p
     /* renamed from: a */
-    public void D(bz bzVar) {
-        if (bzVar == null || bzVar.brr() == null) {
-            this.ahJ.setVisibility(8);
+    public void C(bz bzVar) {
+        if (bzVar == null || bzVar.bnx() == null) {
+            this.agS.setVisibility(8);
             return;
         }
-        setMarginRight(getDimens(this.ahK ? R.dimen.tbds120 : R.dimen.tbds44));
-        this.ahJ.setVisibility(0);
-        this.ahJ.setData(bzVar);
-        this.ahJ.setTag(bzVar);
+        setMarginRight(getDimens(this.agT ? R.dimen.tbds120 : R.dimen.tbds44));
+        this.agS.setVisibility(0);
+        this.agS.setData(bzVar);
+        this.agS.setTag(bzVar);
     }
 
     public void a(com.baidu.tbadk.core.data.a aVar, boolean z) {
-        this.ahK = z;
+        this.agT = z;
         setSvgIconResId(0);
         setClickableUnLike(true);
     }
@@ -71,22 +71,22 @@ public class j extends c implements p<bz>, q {
 
     @Override // com.baidu.card.q
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
-        this.ahJ.onChangeSkinType(i);
+        this.agS.onChangeSkinType(i);
     }
 
     public void setPageUniqueId(BdUniqueId bdUniqueId) {
-        this.ahJ.setPageUniqueId(bdUniqueId);
+        this.agS.setPageUniqueId(bdUniqueId);
     }
 
     public void setOnClickEvent(FollowUserButton.a aVar) {
-        this.ahJ.setOnClickEvent(aVar);
+        this.agS.setOnClickEvent(aVar);
     }
 
     public void setSvgIconResId(int i) {
-        this.ahJ.setSvgIconResId(i);
+        this.agS.setSvgIconResId(i);
     }
 
     public void setClickableUnLike(boolean z) {
-        this.ahJ.setClickableUnLike(z);
+        this.agS.setClickableUnLike(z);
     }
 }

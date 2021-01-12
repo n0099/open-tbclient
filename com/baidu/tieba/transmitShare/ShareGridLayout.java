@@ -7,14 +7,14 @@ import android.view.ViewGroup;
 import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class ShareGridLayout extends ViewGroup {
-    public static final int nDQ = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.M_W_X007);
-    private int dmK;
-    private int fVR;
+    public static final int nzl = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.M_W_X007);
+    private int dhV;
+    private int fRk;
     private Context mContext;
     private int mItemWidth;
-    private int nDR;
+    private int nzm;
 
     public ShareGridLayout(Context context) {
         super(context);
@@ -33,70 +33,70 @@ public class ShareGridLayout extends ViewGroup {
 
     public void setItemParams(int i, int i2) {
         this.mItemWidth = i;
-        this.dmK = i2;
+        this.dhV = i2;
         requestLayout();
     }
 
     private void init(Context context) {
         this.mContext = context;
-        dz(0, l.getEquipmentWidth(this.mContext) - (nDQ * 2));
+        dz(0, l.getEquipmentWidth(this.mContext) - (nzl * 2));
     }
 
     @Override // android.view.View
     protected void onMeasure(int i, int i2) {
         int makeMeasureSpec = View.MeasureSpec.makeMeasureSpec(this.mItemWidth, Integer.MIN_VALUE);
-        int makeMeasureSpec2 = View.MeasureSpec.makeMeasureSpec(this.dmK, Integer.MIN_VALUE);
+        int makeMeasureSpec2 = View.MeasureSpec.makeMeasureSpec(this.dhV, Integer.MIN_VALUE);
         int childCount = getChildCount();
         for (int i3 = 0; i3 < childCount; i3++) {
             getChildAt(i3).measure(makeMeasureSpec, makeMeasureSpec2);
         }
-        if (childCount <= this.nDR) {
-            setMeasuredDimension(resolveSize((this.mItemWidth * this.nDR) + (this.fVR * 2 * this.nDR), i), resolveSize(this.dmK, i2));
+        if (childCount <= this.nzm) {
+            setMeasuredDimension(resolveSize((this.mItemWidth * this.nzm) + (this.fRk * 2 * this.nzm), i), resolveSize(this.dhV, i2));
             return;
         }
-        int i4 = childCount / this.nDR;
-        if (childCount % this.nDR > 0) {
+        int i4 = childCount / this.nzm;
+        if (childCount % this.nzm > 0) {
             i4++;
         }
-        setMeasuredDimension(resolveSize((this.mItemWidth * this.nDR) + (this.fVR * 2 * this.nDR), i), resolveSize(i4 * this.dmK, i2));
+        setMeasuredDimension(resolveSize((this.mItemWidth * this.nzm) + (this.fRk * 2 * this.nzm), i), resolveSize(i4 * this.dhV, i2));
     }
 
     @Override // android.view.ViewGroup, android.view.View
     protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
         dz(i, i3);
-        int i5 = this.fVR;
+        int i5 = this.fRk;
         int childCount = getChildCount();
         int i6 = 0;
         int i7 = 0;
         for (int i8 = 0; i8 < childCount; i8++) {
-            getChildAt(i8).layout(i5, i7, this.mItemWidth + i5, this.dmK + i7);
+            getChildAt(i8).layout(i5, i7, this.mItemWidth + i5, this.dhV + i7);
             i6++;
-            i5 = i5 + this.mItemWidth + (this.fVR * 2);
-            if (i6 >= this.nDR) {
-                i5 = this.fVR;
+            i5 = i5 + this.mItemWidth + (this.fRk * 2);
+            if (i6 >= this.nzm) {
+                i5 = this.fRk;
                 i6 = 0;
             }
-            i7 = ((i8 + 1) / this.nDR) * this.dmK;
+            i7 = ((i8 + 1) / this.nzm) * this.dhV;
         }
     }
 
     private void dz(int i, int i2) {
         int i3 = i2 - i;
         if (l.getEquipmentWidth(TbadkCoreApplication.getInst()) > 800 && this.mItemWidth * 5 <= i3) {
-            this.nDR = 5;
+            this.nzm = 5;
         } else {
-            this.nDR = 4;
+            this.nzm = 4;
         }
-        double d = i3 - (this.mItemWidth * this.nDR);
+        double d = i3 - (this.mItemWidth * this.nzm);
         if (d > 0.0d) {
-            if (this.nDR == 5) {
-                this.fVR = (int) Math.floor(d / 10.0d);
+            if (this.nzm == 5) {
+                this.fRk = (int) Math.floor(d / 10.0d);
                 return;
             } else {
-                this.fVR = (int) Math.floor(d / 8.0d);
+                this.fRk = (int) Math.floor(d / 8.0d);
                 return;
             }
         }
-        this.fVR = 0;
+        this.fRk = 0;
     }
 }

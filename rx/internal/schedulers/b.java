@@ -6,13 +6,13 @@ import java.util.concurrent.atomic.AtomicReference;
 import rx.g;
 import rx.internal.util.RxThreadFactory;
 import rx.k;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public final class b extends rx.g implements h {
-    static final int qkR;
-    static final C1333b qwA;
-    static final c qwz;
-    final ThreadFactory qkT;
-    final AtomicReference<C1333b> qkU = new AtomicReference<>(qwA);
+    static final int qgp;
+    static final c qrX;
+    static final C1316b qrY;
+    final ThreadFactory qgr;
+    final AtomicReference<C1316b> qgs = new AtomicReference<>(qrY);
 
     static {
         int intValue = Integer.getInteger("rx.scheduler.max-computation-threads", 0).intValue();
@@ -20,128 +20,128 @@ public final class b extends rx.g implements h {
         if (intValue <= 0 || intValue > availableProcessors) {
             intValue = availableProcessors;
         }
-        qkR = intValue;
-        qwz = new c(RxThreadFactory.NONE);
-        qwz.unsubscribe();
-        qwA = new C1333b(null, 0);
+        qgp = intValue;
+        qrX = new c(RxThreadFactory.NONE);
+        qrX.unsubscribe();
+        qrY = new C1316b(null, 0);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: rx.internal.schedulers.b$b  reason: collision with other inner class name */
-    /* loaded from: classes15.dex */
-    public static final class C1333b {
+    /* loaded from: classes14.dex */
+    public static final class C1316b {
         long n;
-        final int qkZ;
-        final c[] qwG;
+        final int qgx;
+        final c[] qse;
 
-        C1333b(ThreadFactory threadFactory, int i) {
-            this.qkZ = i;
-            this.qwG = new c[i];
+        C1316b(ThreadFactory threadFactory, int i) {
+            this.qgx = i;
+            this.qse = new c[i];
             for (int i2 = 0; i2 < i; i2++) {
-                this.qwG[i2] = new c(threadFactory);
+                this.qse[i2] = new c(threadFactory);
             }
         }
 
-        public c eOH() {
-            int i = this.qkZ;
+        public c eKR() {
+            int i = this.qgx;
             if (i == 0) {
-                return b.qwz;
+                return b.qrX;
             }
-            c[] cVarArr = this.qwG;
+            c[] cVarArr = this.qse;
             long j = this.n;
             this.n = 1 + j;
             return cVarArr[(int) (j % i)];
         }
 
         public void shutdown() {
-            for (c cVar : this.qwG) {
+            for (c cVar : this.qse) {
                 cVar.unsubscribe();
             }
         }
     }
 
     public b(ThreadFactory threadFactory) {
-        this.qkT = threadFactory;
+        this.qgr = threadFactory;
         start();
     }
 
     @Override // rx.g
     public g.a createWorker() {
-        return new a(this.qkU.get().eOH());
+        return new a(this.qgs.get().eKR());
     }
 
     @Override // rx.internal.schedulers.h
     public void start() {
-        C1333b c1333b = new C1333b(this.qkT, qkR);
-        if (!this.qkU.compareAndSet(qwA, c1333b)) {
-            c1333b.shutdown();
+        C1316b c1316b = new C1316b(this.qgr, qgp);
+        if (!this.qgs.compareAndSet(qrY, c1316b)) {
+            c1316b.shutdown();
         }
     }
 
     @Override // rx.internal.schedulers.h
     public void shutdown() {
-        C1333b c1333b;
+        C1316b c1316b;
         do {
-            c1333b = this.qkU.get();
-            if (c1333b == qwA) {
+            c1316b = this.qgs.get();
+            if (c1316b == qrY) {
                 return;
             }
-        } while (!this.qkU.compareAndSet(c1333b, qwA));
-        c1333b.shutdown();
+        } while (!this.qgs.compareAndSet(c1316b, qrY));
+        c1316b.shutdown();
     }
 
     public k g(rx.functions.a aVar) {
-        return this.qkU.get().eOH().b(aVar, -1L, TimeUnit.NANOSECONDS);
+        return this.qgs.get().eKR().b(aVar, -1L, TimeUnit.NANOSECONDS);
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     static final class a extends g.a {
-        private final rx.internal.util.i qwB = new rx.internal.util.i();
-        private final rx.subscriptions.b qwC = new rx.subscriptions.b();
-        private final rx.internal.util.i qwD = new rx.internal.util.i(this.qwB, this.qwC);
-        private final c qwE;
+        private final rx.internal.util.i qrZ = new rx.internal.util.i();
+        private final rx.subscriptions.b qsa = new rx.subscriptions.b();
+        private final rx.internal.util.i qsb = new rx.internal.util.i(this.qrZ, this.qsa);
+        private final c qsc;
 
         a(c cVar) {
-            this.qwE = cVar;
+            this.qsc = cVar;
         }
 
         @Override // rx.k
         public void unsubscribe() {
-            this.qwD.unsubscribe();
+            this.qsb.unsubscribe();
         }
 
         @Override // rx.k
         public boolean isUnsubscribed() {
-            return this.qwD.isUnsubscribed();
+            return this.qsb.isUnsubscribed();
         }
 
         @Override // rx.g.a
         public k c(final rx.functions.a aVar) {
-            return isUnsubscribed() ? rx.subscriptions.e.ePN() : this.qwE.a(new rx.functions.a() { // from class: rx.internal.schedulers.b.a.1
+            return isUnsubscribed() ? rx.subscriptions.e.eLX() : this.qsc.a(new rx.functions.a() { // from class: rx.internal.schedulers.b.a.1
                 @Override // rx.functions.a
                 public void call() {
                     if (!a.this.isUnsubscribed()) {
                         aVar.call();
                     }
                 }
-            }, 0L, (TimeUnit) null, this.qwB);
+            }, 0L, (TimeUnit) null, this.qrZ);
         }
 
         @Override // rx.g.a
         public k a(final rx.functions.a aVar, long j, TimeUnit timeUnit) {
-            return isUnsubscribed() ? rx.subscriptions.e.ePN() : this.qwE.a(new rx.functions.a() { // from class: rx.internal.schedulers.b.a.2
+            return isUnsubscribed() ? rx.subscriptions.e.eLX() : this.qsc.a(new rx.functions.a() { // from class: rx.internal.schedulers.b.a.2
                 @Override // rx.functions.a
                 public void call() {
                     if (!a.this.isUnsubscribed()) {
                         aVar.call();
                     }
                 }
-            }, j, timeUnit, this.qwC);
+            }, j, timeUnit, this.qsa);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public static final class c extends g {
         c(ThreadFactory threadFactory) {
             super(threadFactory);

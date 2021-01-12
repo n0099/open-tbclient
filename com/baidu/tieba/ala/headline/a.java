@@ -2,7 +2,7 @@ package com.baidu.tieba.ala.headline;
 
 import java.math.RoundingMode;
 import java.text.NumberFormat;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class a {
     public static String fm(long j) {
         if (j >= 100000000) {

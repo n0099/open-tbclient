@@ -10,10 +10,10 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class s {
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public static class a {
         public String name;
         public String uk;
@@ -24,7 +24,7 @@ public class s {
         }
     }
 
-    public static List<a> iV(String str) {
+    public static List<a> hK(String str) {
         ArrayList arrayList = new ArrayList();
         if (!TextUtils.isEmpty(str)) {
             try {
@@ -63,7 +63,7 @@ public class s {
         return "" + j + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + str + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + str2 + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + str3;
     }
 
-    public static final String iW(String str) {
+    public static final String hL(String str) {
         return !TextUtils.isEmpty(str) ? Base64.encodeBytes(str.getBytes()).replace("+", Constants.ACCEPT_TIME_SEPARATOR_SERVER).replace("/", PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS).replace("=", "") : "";
     }
 }

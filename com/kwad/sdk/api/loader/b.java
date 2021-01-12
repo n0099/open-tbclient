@@ -10,7 +10,7 @@ import java.io.OutputStream;
 import java.util.Enumeration;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 class b {
     private static void a(File file) {
         if (file.isFile()) {

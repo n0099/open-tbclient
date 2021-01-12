@@ -3,14 +3,14 @@ package com.baidu.mobads;
 import com.baidu.mobads.interfaces.IXAdResponseInfo;
 import com.baidu.mobads.utils.XAdSDKFoundationFacade;
 import java.lang.ref.WeakReference;
-/* loaded from: classes3.dex */
+/* loaded from: classes14.dex */
 public class BaiduNativeAdPlacement {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f3313a;
+    private String f3275a;
 
     /* renamed from: b  reason: collision with root package name */
-    private IXAdResponseInfo f3314b;
+    private IXAdResponseInfo f3276b;
     private boolean c;
     private boolean d;
     private boolean e = false;
@@ -43,11 +43,11 @@ public class BaiduNativeAdPlacement {
     }
 
     public void setApId(String str) {
-        this.f3313a = str;
+        this.f3275a = str;
     }
 
     public String getApId() {
-        return this.f3313a;
+        return this.f3275a;
     }
 
     public static void setAppSid(String str) {
@@ -56,24 +56,24 @@ public class BaiduNativeAdPlacement {
 
     public void setAdResponse(IXAdResponseInfo iXAdResponseInfo) {
         this.d = false;
-        this.f3314b = iXAdResponseInfo;
+        this.f3276b = iXAdResponseInfo;
     }
 
     public boolean hasValidResponse() {
-        return this.f3314b != null && isAdAvailable();
+        return this.f3276b != null && isAdAvailable();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public IXAdResponseInfo getAdResponse() {
-        return this.f3314b;
+        return this.f3276b;
     }
 
     protected boolean isAdAvailable() {
         boolean z;
-        if (this.f3314b == null || this.f3314b.getPrimaryAdInstanceInfo() == null) {
+        if (this.f3276b == null || this.f3276b.getPrimaryAdInstanceInfo() == null) {
             z = false;
         } else {
-            z = System.currentTimeMillis() - this.f3314b.getPrimaryAdInstanceInfo().getCreateTime() <= 1800000;
+            z = System.currentTimeMillis() - this.f3276b.getPrimaryAdInstanceInfo().getCreateTime() <= 1800000;
         }
         return z && !this.c;
     }

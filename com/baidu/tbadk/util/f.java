@@ -14,13 +14,13 @@ public class f {
     private f() {
     }
 
-    public static f bIK() {
-        return a.fOY;
+    public static f bES() {
+        return a.fKr;
     }
 
     /* loaded from: classes.dex */
     private static class a {
-        private static f fOY = new f();
+        private static f fKr = new f();
     }
 
     public String getLocalMacAddress(Context context) {
@@ -62,11 +62,11 @@ public class f {
         }
     }
 
-    public String bIL() {
+    public String bET() {
         return Build.MODEL;
     }
 
-    public String bIM() {
+    public String bEU() {
         return Build.DEVICE;
     }
 
@@ -75,12 +75,12 @@ public class f {
     }
 
     @RequiresApi(api = 17)
-    public String fA(Context context) {
+    public String fy(Context context) {
         return String.valueOf(getDisplayMetrics(context).widthPixels);
     }
 
     @RequiresApi(api = 17)
-    public String fB(Context context) {
+    public String fz(Context context) {
         return String.valueOf(getDisplayMetrics(context).heightPixels);
     }
 

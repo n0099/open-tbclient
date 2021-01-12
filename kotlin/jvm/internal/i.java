@@ -7,7 +7,7 @@ import kotlin.collections.z;
 @kotlin.e
 /* loaded from: classes5.dex */
 public final class i {
-    public static final kotlin.collections.l ay(byte[] bArr) {
+    public static final kotlin.collections.l ax(byte[] bArr) {
         p.o(bArr, com.baidu.fsg.base.statistics.b.j);
         return new b(bArr);
     }
@@ -37,7 +37,7 @@ public final class i {
         return new e(fArr);
     }
 
-    public static final kotlin.collections.u k(double[] dArr) {
+    public static final kotlin.collections.u j(double[] dArr) {
         p.o(dArr, com.baidu.fsg.base.statistics.b.j);
         return new d(dArr);
     }

@@ -5,7 +5,7 @@ import com.bytedance.sdk.adnet.core.l;
 public class VAdError extends Exception {
 
     /* renamed from: a  reason: collision with root package name */
-    private long f6363a;
+    private long f6063a;
     public final l networkResponse;
 
     public VAdError() {
@@ -32,10 +32,10 @@ public class VAdError extends Exception {
     }
 
     public void setNetworkTimeMs(long j) {
-        this.f6363a = j;
+        this.f6063a = j;
     }
 
     public long getNetworkTimeMs() {
-        return this.f6363a;
+        return this.f6063a;
     }
 }

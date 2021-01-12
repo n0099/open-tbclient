@@ -12,16 +12,16 @@ import com.baidu.smallgame.sdk.delegate.AREngineDelegate;
 import java.util.ArrayList;
 import java.util.List;
 @NotProguard
-/* loaded from: classes3.dex */
+/* loaded from: classes14.dex */
 public class MarioSDK {
     private static final String TAG = "MarioSDK";
     private AREngineDelegate mAREngineDelegate;
     private b mMarioInitListener;
     private V8Engine mV8Engine;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes14.dex */
     public interface b {
-        void aiV();
+        void afb();
     }
 
     public void setMarioInitListener(b bVar) {
@@ -74,7 +74,7 @@ public class MarioSDK {
         }
         MarioSDK marioSDK = new MarioSDK(v8Engine, aREngineDelegate);
         if (bVar != null) {
-            bVar.aiV();
+            bVar.afb();
         }
         return marioSDK;
     }
@@ -125,21 +125,21 @@ public class MarioSDK {
         if (aVar.mContext != null) {
             aVar2.setContext(aVar.mContext);
         }
-        if (aVar.cCm != null) {
-            aVar2.setRenderer(aVar.cCm);
+        if (aVar.cxA != null) {
+            aVar2.setRenderer(aVar.cxA);
         }
-        if (aVar.aiU() != null) {
-            for (DebugConsole debugConsole : aVar.aiU()) {
+        if (aVar.afa() != null) {
+            for (DebugConsole debugConsole : aVar.afa()) {
                 aVar2.addDebugConsole(debugConsole);
             }
         }
         return aVar2;
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes14.dex */
     public static class a {
-        private List<DebugConsole> cCL = new ArrayList();
-        private GLSurfaceView.Renderer cCm;
+        private GLSurfaceView.Renderer cxA;
+        private List<DebugConsole> cxZ = new ArrayList();
         private Context mContext;
         private ArBridge.FirstFrameListener mFirstFrameListener;
         private int mRenderMode;
@@ -154,17 +154,17 @@ public class MarioSDK {
         }
 
         public void setRenderer(GLSurfaceView.Renderer renderer) {
-            this.cCm = renderer;
+            this.cxA = renderer;
         }
 
         public void addDebugConsole(DebugConsole debugConsole) {
             if (debugConsole != null) {
-                this.cCL.add(debugConsole);
+                this.cxZ.add(debugConsole);
             }
         }
 
-        public List<DebugConsole> aiU() {
-            return this.cCL;
+        public List<DebugConsole> afa() {
+            return this.cxZ;
         }
 
         public void setFirstFrameListener(ArBridge.FirstFrameListener firstFrameListener) {

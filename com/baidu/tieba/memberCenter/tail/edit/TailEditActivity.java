@@ -16,11 +16,11 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.memberCenter.tail.data.TailData;
 import com.baidu.tieba.memberCenter.tail.data.TailEditActivityConfig;
 import com.baidu.tieba.memberCenter.tail.data.e;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class TailEditActivity extends BaseActivity<TailEditActivity> {
-    private a lox;
-    private b loy;
-    com.baidu.tieba.memberCenter.tail.a.a<Integer> loz = new com.baidu.tieba.memberCenter.tail.a.a<Integer>() { // from class: com.baidu.tieba.memberCenter.tail.edit.TailEditActivity.1
+    private a ljN;
+    private b ljO;
+    com.baidu.tieba.memberCenter.tail.a.a<Integer> ljP = new com.baidu.tieba.memberCenter.tail.a.a<Integer>() { // from class: com.baidu.tieba.memberCenter.tail.edit.TailEditActivity.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.tieba.memberCenter.tail.a.a
         /* renamed from: a */
@@ -28,7 +28,7 @@ public class TailEditActivity extends BaseActivity<TailEditActivity> {
             TailEditActivity.this.a(true, z, str, num);
         }
     };
-    com.baidu.tieba.memberCenter.tail.a.a<Integer> loA = new com.baidu.tieba.memberCenter.tail.a.a<Integer>() { // from class: com.baidu.tieba.memberCenter.tail.edit.TailEditActivity.2
+    com.baidu.tieba.memberCenter.tail.a.a<Integer> ljQ = new com.baidu.tieba.memberCenter.tail.a.a<Integer>() { // from class: com.baidu.tieba.memberCenter.tail.edit.TailEditActivity.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.tieba.memberCenter.tail.a.a
         /* renamed from: a */
@@ -36,40 +36,40 @@ public class TailEditActivity extends BaseActivity<TailEditActivity> {
             TailEditActivity.this.a(false, z, str, num);
         }
     };
-    private View.OnClickListener loB = new View.OnClickListener() { // from class: com.baidu.tieba.memberCenter.tail.edit.TailEditActivity.3
+    private View.OnClickListener ljR = new View.OnClickListener() { // from class: com.baidu.tieba.memberCenter.tail.edit.TailEditActivity.3
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (TailEditActivity.this.loy.getEditText().length() != 0) {
-                TailEditActivity.this.loy.showProgressBar();
-                TailEditActivity.this.lox.OB(TailEditActivity.this.loy.getEditText().getText().toString());
+            if (TailEditActivity.this.ljO.getEditText().length() != 0) {
+                TailEditActivity.this.ljO.showProgressBar();
+                TailEditActivity.this.ljN.Nt(TailEditActivity.this.ljO.getEditText().getText().toString());
                 return;
             }
             TailEditActivity.this.showToast(TailEditActivity.this.getResources().getString(R.string.tail_submit_empty_toast));
         }
     };
-    private View.OnClickListener loC = new View.OnClickListener() { // from class: com.baidu.tieba.memberCenter.tail.edit.TailEditActivity.4
+    private View.OnClickListener ljS = new View.OnClickListener() { // from class: com.baidu.tieba.memberCenter.tail.edit.TailEditActivity.4
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            TailEditActivity.this.lox.dhL().setContent(TailEditActivity.this.loy.getContent());
-            if (TailEditActivity.this.lox.dhJ()) {
-                TailEditActivity.this.dhI();
+            TailEditActivity.this.ljN.ddT().setContent(TailEditActivity.this.ljO.getContent());
+            if (TailEditActivity.this.ljN.ddR()) {
+                TailEditActivity.this.ddQ();
                 return;
             }
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_TAIL_EDIT_CLOSE, null));
             TailEditActivity.this.finish();
         }
     };
-    private View.OnTouchListener loD = new View.OnTouchListener() { // from class: com.baidu.tieba.memberCenter.tail.edit.TailEditActivity.5
+    private View.OnTouchListener ljT = new View.OnTouchListener() { // from class: com.baidu.tieba.memberCenter.tail.edit.TailEditActivity.5
         @Override // android.view.View.OnTouchListener
         public boolean onTouch(View view, MotionEvent motionEvent) {
             if (motionEvent.getAction() == 1) {
-                TailEditActivity.this.loy.bDf();
+                TailEditActivity.this.ljO.bzl();
                 return false;
             }
             return false;
         }
     };
-    private TextWatcher loE = new TextWatcher() { // from class: com.baidu.tieba.memberCenter.tail.edit.TailEditActivity.6
+    private TextWatcher ljU = new TextWatcher() { // from class: com.baidu.tieba.memberCenter.tail.edit.TailEditActivity.6
         @Override // android.text.TextWatcher
         public void afterTextChanged(Editable editable) {
         }
@@ -80,10 +80,10 @@ public class TailEditActivity extends BaseActivity<TailEditActivity> {
 
         @Override // android.text.TextWatcher
         public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-            TailEditActivity.this.Oz(charSequence.toString());
+            TailEditActivity.this.Nr(charSequence.toString());
         }
     };
-    private com.baidu.tbadk.editortools.b loF = new com.baidu.tbadk.editortools.b() { // from class: com.baidu.tieba.memberCenter.tail.edit.TailEditActivity.7
+    private com.baidu.tbadk.editortools.b ljV = new com.baidu.tbadk.editortools.b() { // from class: com.baidu.tieba.memberCenter.tail.edit.TailEditActivity.7
         @Override // com.baidu.tbadk.editortools.b
         public void a(com.baidu.tbadk.editortools.a aVar) {
             if (aVar != null) {
@@ -92,7 +92,7 @@ public class TailEditActivity extends BaseActivity<TailEditActivity> {
                 } else if (aVar.code == 26) {
                     TailEditActivity.this.aO(aVar.data);
                 } else if (aVar.code == 3) {
-                    TailEditActivity.this.loy.dhN();
+                    TailEditActivity.this.ljO.ddV();
                 }
             }
         }
@@ -105,54 +105,54 @@ public class TailEditActivity extends BaseActivity<TailEditActivity> {
         setContentView(R.layout.tail_edit_activity);
         setActivityBgTransparent();
         setSwipeBackEnabled(false);
-        this.loy = new b(this, this.loB, this.loC);
-        this.lox = new a(getPageContext());
+        this.ljO = new b(this, this.ljR, this.ljS);
+        this.ljN = new a(getPageContext());
         initListener();
-        dhG();
-        dbR();
-        this.loy.dhO();
+        ddO();
+        cXZ();
+        this.ljO.ddW();
         adjustResizeForSoftInput(R.color.common_color_10022, true);
     }
 
     private void initListener() {
-        this.lox.a(this.loz);
-        this.lox.b(this.loA);
-        this.loy.getEditText().addTextChangedListener(this.loE);
-        this.loy.getEditText().setOnTouchListener(this.loD);
+        this.ljN.a(this.ljP);
+        this.ljN.b(this.ljQ);
+        this.ljO.getEditText().addTextChangedListener(this.ljU);
+        this.ljO.getEditText().setOnTouchListener(this.ljT);
     }
 
-    private void dhG() {
-        this.lox.b(getIntent().getIntExtra(TailEditActivityConfig.TAIL_ID, 0), getIntent().getStringExtra(TailEditActivityConfig.TAIL_CONTENT), getIntent().getStringExtra(TailEditActivityConfig.TAIL_COLOR), getIntent().getBooleanExtra(TailEditActivityConfig.IS_NO_TAIL, false));
-        this.loy.a(this.lox.dhL());
+    private void ddO() {
+        this.ljN.b(getIntent().getIntExtra(TailEditActivityConfig.TAIL_ID, 0), getIntent().getStringExtra(TailEditActivityConfig.TAIL_CONTENT), getIntent().getStringExtra(TailEditActivityConfig.TAIL_COLOR), getIntent().getBooleanExtra(TailEditActivityConfig.IS_NO_TAIL, false));
+        this.ljO.a(this.ljN.ddT());
     }
 
     @Override // com.baidu.tbadk.BaseActivity
     public void enterExitAnimation() {
-        dhH();
+        ddP();
     }
 
     @Override // com.baidu.tbadk.BaseActivity
     public void closeAnimation() {
-        dhH();
+        ddP();
     }
 
-    private void dhH() {
+    private void ddP() {
         overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(boolean z, boolean z2, String str, Integer num) {
-        this.loy.hideProgressBar();
+        this.ljO.hideProgressBar();
         if (z2) {
             showToast(str);
         } else if (num != null) {
             TailData tailData = new TailData();
             tailData.setId(num.intValue());
-            tailData.setContent(this.lox.dhL().getContent());
-            tailData.setFontColor(this.lox.dhK());
+            tailData.setContent(this.ljN.ddT().getContent());
+            tailData.setFontColor(this.ljN.ddS());
             e eVar = new e(1, tailData);
             if (!z) {
-                eVar.lou = 2;
+                eVar.ljL = 2;
             }
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_TAIL_EDIT_CLOSE, null));
             finish();
@@ -161,53 +161,53 @@ public class TailEditActivity extends BaseActivity<TailEditActivity> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Oz(String str) {
-        String OA = OA(str);
-        this.lox.dhL().setContent(OA);
-        this.loy.cW(this.lox.OD(OA), 50);
-        this.loy.tM(this.lox.dhM());
+    public void Nr(String str) {
+        String Ns = Ns(str);
+        this.ljN.ddT().setContent(Ns);
+        this.ljO.cW(this.ljN.Nv(Ns), 50);
+        this.ljO.tI(this.ljN.ddU());
     }
 
-    private String OA(String str) {
-        if (this.lox.FT(this.lox.OD(str))) {
-            String OE = this.lox.OE(str);
-            this.loy.setContent(OE);
-            this.loy.dhP();
-            return OE;
+    private String Ns(String str) {
+        if (this.ljN.En(this.ljN.Nv(str))) {
+            String Nw = this.ljN.Nw(str);
+            this.ljO.setContent(Nw);
+            this.ljO.ddX();
+            return Nw;
         }
         return str;
     }
 
-    private void dbR() {
-        this.loy.a(this.loF, this.lox.dhK());
+    private void cXZ() {
+        this.ljO.a(this.ljV, this.ljN.ddS());
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void aO(Object obj) {
         if (obj != null) {
             String obj2 = obj.toString();
-            this.loy.setColor(obj2);
-            this.lox.OC(obj2);
-            this.loy.tM(this.lox.dhM());
+            this.ljO.setColor(obj2);
+            this.ljN.Nu(obj2);
+            this.ljO.tI(this.ljN.ddU());
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void aP(Object obj) {
-        this.lox.dhL().setContent(this.loy.getContent());
-        if (this.lox.FS(this.lox.OD(this.lox.dhL().getContent()))) {
+        this.ljN.ddT().setContent(this.ljO.getContent());
+        if (this.ljN.Em(this.ljN.Nv(this.ljN.ddT().getContent()))) {
             showToast(R.string.over_limit_tip);
         } else if (obj != null && (obj instanceof u)) {
-            new com.baidu.tieba.memberCenter.tail.a.b().a(this, this.loy.getEditText(), (u) obj);
+            new com.baidu.tieba.memberCenter.tail.a.b().a(this, this.ljO.getEditText(), (u) obj);
         }
     }
 
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
         if (i == 4) {
-            this.lox.dhL().setContent(this.loy.getContent());
-            if (this.lox.dhJ()) {
-                dhI();
+            this.ljN.ddT().setContent(this.ljO.getContent());
+            if (this.ljN.ddR()) {
+                ddQ();
                 return true;
             }
         }
@@ -215,9 +215,9 @@ public class TailEditActivity extends BaseActivity<TailEditActivity> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void dhI() {
+    public void ddQ() {
         final com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(getActivity());
-        aVar.Bo(getResources().getString(R.string.tail_cancel_modified_toast));
+        aVar.Ad(getResources().getString(R.string.tail_cancel_modified_toast));
         aVar.b(R.string.cancel, new a.b() { // from class: com.baidu.tieba.memberCenter.tail.edit.TailEditActivity.8
             @Override // com.baidu.tbadk.core.dialog.a.b
             public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
@@ -233,12 +233,12 @@ public class TailEditActivity extends BaseActivity<TailEditActivity> {
             }
         });
         aVar.b(getPageContext());
-        aVar.btY();
+        aVar.bqe();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
-        this.loy.onChangeSkinType(i);
+        this.ljO.onChangeSkinType(i);
     }
 }

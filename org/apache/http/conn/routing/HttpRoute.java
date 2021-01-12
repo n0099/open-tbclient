@@ -4,7 +4,7 @@ import java.net.InetAddress;
 import org.apache.http.HttpHost;
 import org.apache.http.conn.routing.RouteInfo;
 @Deprecated
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class HttpRoute implements RouteInfo {
     public HttpRoute(HttpHost httpHost, InetAddress inetAddress, HttpHost[] httpHostArr, boolean z, RouteInfo.TunnelType tunnelType, RouteInfo.LayerType layerType) {
         throw new RuntimeException("Stub!");

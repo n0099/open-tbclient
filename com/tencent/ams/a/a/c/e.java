@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.regex.Pattern;
 import org.xmlpull.v1.XmlPullParser;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class e {
     public static g a(InputStream inputStream) {
         g gVar;
@@ -40,30 +40,30 @@ public class e {
                     case 2:
                         String name = newPullParser.getName();
                         if ("offlineCache".equals(name)) {
-                            gVar.f13570a = new f();
+                            gVar.f13270a = new f();
                         }
-                        if (gVar.f13570a != null) {
+                        if (gVar.f13270a != null) {
                             if ("length".equals(name)) {
-                                gVar.f13570a.f13568a = newPullParser.nextText();
+                                gVar.f13270a.f13268a = newPullParser.nextText();
                             }
                             if ("queueExpirationSecs".equals(name)) {
-                                gVar.f13570a.f13569b = newPullParser.nextText();
+                                gVar.f13270a.f13269b = newPullParser.nextText();
                             }
                             if ("timeout".equals(name)) {
-                                gVar.f13570a.c = newPullParser.nextText();
+                                gVar.f13270a.c = newPullParser.nextText();
                             }
                         }
                         if ("companies".equals(name)) {
-                            gVar.f13571b = new ArrayList();
+                            gVar.f13271b = new ArrayList();
                         }
-                        if (gVar.f13571b != null && "company".equals(name)) {
+                        if (gVar.f13271b != null && "company".equals(name)) {
                             bVar = new com.tencent.ams.a.a.b.b();
                         }
                         if (bVar == null) {
                             continue;
                         } else {
-                            if ("name".equals(name) && bVar.f13561a == null) {
-                                bVar.f13561a = newPullParser.nextText();
+                            if ("name".equals(name) && bVar.f13261a == null) {
+                                bVar.f13261a = newPullParser.nextText();
                             }
                             if ("encryptType".equals(name)) {
                                 String nextText = newPullParser.nextText();
@@ -72,20 +72,20 @@ public class e {
                                 }
                             }
                             if ("domain".equals(name)) {
-                                bVar.f13562b = new com.tencent.ams.a.a.b.d();
+                                bVar.f13262b = new com.tencent.ams.a.a.b.d();
                             }
-                            if (bVar.f13562b != null && "url".equals(name)) {
-                                bVar.f13562b.f13565a = newPullParser.nextText();
+                            if (bVar.f13262b != null && "url".equals(name)) {
+                                bVar.f13262b.f13265a = newPullParser.nextText();
                             }
                             if (SocialOperation.GAME_SIGNATURE.equals(name)) {
                                 bVar.c = new h();
                             }
                             if (bVar.c != null) {
                                 if ("publicKey".equals(name)) {
-                                    bVar.c.f13572a = newPullParser.nextText();
+                                    bVar.c.f13272a = newPullParser.nextText();
                                 }
                                 if ("paramKey".equals(name)) {
-                                    bVar.c.f13573b = newPullParser.nextText();
+                                    bVar.c.f13273b = newPullParser.nextText();
                                 }
                             }
                             if ("switch".equals(name)) {
@@ -93,10 +93,10 @@ public class e {
                             }
                             if (bVar.d != null) {
                                 if ("isTrackLocation".equals(name)) {
-                                    bVar.d.f13574a = Boolean.parseBoolean(newPullParser.nextText());
+                                    bVar.d.f13274a = Boolean.parseBoolean(newPullParser.nextText());
                                 }
                                 if ("offlineCacheExpiration".equals(name)) {
-                                    bVar.d.f13575b = newPullParser.nextText();
+                                    bVar.d.f13275b = newPullParser.nextText();
                                 }
                                 if ("encrypt".equals(name)) {
                                     bVar.d.c = new HashMap();
@@ -110,17 +110,17 @@ public class e {
                             }
                             if (bVar.e != null) {
                                 if ("arguments".equals(name)) {
-                                    bVar.e.f13563a = new ArrayList();
+                                    bVar.e.f13263a = new ArrayList();
                                 }
-                                if (bVar.e.f13563a != null && "argument".equals(name)) {
+                                if (bVar.e.f13263a != null && "argument".equals(name)) {
                                     aVar = new com.tencent.ams.a.a.b.a();
                                 }
                                 if (aVar != null) {
                                     if ("key".equals(name)) {
-                                        aVar.f13559a = newPullParser.nextText();
+                                        aVar.f13259a = newPullParser.nextText();
                                     }
                                     if ("value".equals(name)) {
-                                        aVar.f13560b = newPullParser.nextText();
+                                        aVar.f13260b = newPullParser.nextText();
                                     }
                                     if ("urlEncode".equals(name)) {
                                         aVar.c = Boolean.parseBoolean(newPullParser.nextText());
@@ -130,17 +130,17 @@ public class e {
                                     }
                                 }
                                 if ("events".equals(name)) {
-                                    bVar.e.f13564b = new ArrayList();
+                                    bVar.e.f13264b = new ArrayList();
                                 }
-                                if (bVar.e.f13564b != null && "event".equals(name)) {
+                                if (bVar.e.f13264b != null && "event".equals(name)) {
                                     eVar = new com.tencent.ams.a.a.b.e();
                                 }
                                 if (eVar != null) {
                                     if ("key".equals(name)) {
-                                        eVar.f13566a = newPullParser.nextText();
+                                        eVar.f13266a = newPullParser.nextText();
                                     }
                                     if ("value".equals(name)) {
-                                        eVar.f13567b = newPullParser.nextText();
+                                        eVar.f13267b = newPullParser.nextText();
                                     }
                                     if ("urlEncode".equals(name)) {
                                         eVar.c = Boolean.parseBoolean(newPullParser.nextText());
@@ -163,15 +163,15 @@ public class e {
                     case 3:
                         String name2 = newPullParser.getName();
                         if ("company".equals(name2)) {
-                            gVar.f13571b.add(bVar);
+                            gVar.f13271b.add(bVar);
                             bVar = null;
                             continue;
                         } else if ("argument".equals(name2)) {
-                            bVar.e.f13563a.add(aVar);
+                            bVar.e.f13263a.add(aVar);
                             aVar = null;
                             continue;
                         } else if ("event".equals(name2)) {
-                            bVar.e.f13564b.add(eVar);
+                            bVar.e.f13264b.add(eVar);
                             eVar = null;
                             continue;
                         } else {

@@ -20,7 +20,7 @@ public class h extends com.ss.android.socialbase.downloader.downloader.a {
     @Override // com.ss.android.socialbase.downloader.downloader.a, com.ss.android.socialbase.downloader.downloader.p
     public void c() {
         if (com.ss.android.socialbase.downloader.m.a.a(262144)) {
-            this.f13431b = true;
+            this.f13131b = true;
             this.d = false;
             if (com.ss.android.socialbase.downloader.f.a.a()) {
                 com.ss.android.socialbase.downloader.f.a.b(e, "onStartCommandOnMainThread");
@@ -34,7 +34,7 @@ public class h extends com.ss.android.socialbase.downloader.downloader.a {
             com.ss.android.socialbase.downloader.f.a.b(e, "onStartCommand");
         }
         if (!com.ss.android.socialbase.downloader.m.a.a(262144)) {
-            this.f13431b = true;
+            this.f13131b = true;
         }
         e();
     }

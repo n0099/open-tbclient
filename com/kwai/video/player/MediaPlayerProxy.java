@@ -10,7 +10,7 @@ import com.kwai.video.player.misc.IMediaDataSource;
 import com.kwai.video.player.misc.ITrackInfo;
 import java.io.FileDescriptor;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class MediaPlayerProxy implements IMediaPlayer {
     protected final IMediaPlayer mBackEndMediaPlayer;
 

@@ -6,7 +6,7 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import android.util.Log;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class FragmentState implements Parcelable {
     public static final Parcelable.Creator<FragmentState> CREATOR = new Parcelable.Creator<FragmentState>() { // from class: com.baidu.swan.support.v4.app.FragmentState.1
         /* JADX DEBUG: Method merged with bridge method */
@@ -18,12 +18,12 @@ public final class FragmentState implements Parcelable {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: nI */
+        /* renamed from: mc */
         public FragmentState[] newArray(int i) {
             return new FragmentState[i];
         }
     };
-    Fragment ezE;
+    Fragment euP;
     final Bundle mArguments;
     final String mClassName;
     final int mContainerId;
@@ -61,31 +61,31 @@ public final class FragmentState implements Parcelable {
     }
 
     public Fragment a(j jVar, Fragment fragment) {
-        if (this.ezE != null) {
-            return this.ezE;
+        if (this.euP != null) {
+            return this.euP;
         }
         Context context = jVar.getContext();
         if (this.mArguments != null) {
             this.mArguments.setClassLoader(context.getClassLoader());
         }
-        this.ezE = Fragment.b(context, this.mClassName, this.mArguments);
+        this.euP = Fragment.b(context, this.mClassName, this.mArguments);
         if (this.mSavedFragmentState != null) {
             this.mSavedFragmentState.setClassLoader(context.getClassLoader());
-            this.ezE.mSavedFragmentState = this.mSavedFragmentState;
+            this.euP.mSavedFragmentState = this.mSavedFragmentState;
         }
-        this.ezE.b(this.mIndex, fragment);
-        this.ezE.mFromLayout = this.mFromLayout;
-        this.ezE.mRestored = true;
-        this.ezE.mFragmentId = this.mFragmentId;
-        this.ezE.mContainerId = this.mContainerId;
-        this.ezE.mTag = this.mTag;
-        this.ezE.mRetainInstance = this.mRetainInstance;
-        this.ezE.mDetached = this.mDetached;
-        this.ezE.ezb = jVar.ezb;
+        this.euP.b(this.mIndex, fragment);
+        this.euP.mFromLayout = this.mFromLayout;
+        this.euP.mRestored = true;
+        this.euP.mFragmentId = this.mFragmentId;
+        this.euP.mContainerId = this.mContainerId;
+        this.euP.mTag = this.mTag;
+        this.euP.mRetainInstance = this.mRetainInstance;
+        this.euP.mDetached = this.mDetached;
+        this.euP.eum = jVar.eum;
         if (l.DEBUG) {
-            Log.v("FragmentManager", "Instantiated fragment " + this.ezE);
+            Log.v("FragmentManager", "Instantiated fragment " + this.euP);
         }
-        return this.ezE;
+        return this.euP;
     }
 
     @Override // android.os.Parcelable

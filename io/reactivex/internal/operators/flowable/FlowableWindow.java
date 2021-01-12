@@ -19,11 +19,11 @@ public final class FlowableWindow<T> extends a<T, g<T>> {
     @Override // io.reactivex.g
     public void a(org.a.c<? super g<T>> cVar) {
         if (this.skip == this.size) {
-            this.qit.a((j) new WindowExactSubscriber(cVar, this.size, this.bufferSize));
+            this.qdR.a((j) new WindowExactSubscriber(cVar, this.size, this.bufferSize));
         } else if (this.skip > this.size) {
-            this.qit.a((j) new WindowSkipSubscriber(cVar, this.size, this.skip, this.bufferSize));
+            this.qdR.a((j) new WindowSkipSubscriber(cVar, this.size, this.skip, this.bufferSize));
         } else {
-            this.qit.a((j) new WindowOverlapSubscriber(cVar, this.size, this.skip, this.bufferSize));
+            this.qdR.a((j) new WindowOverlapSubscriber(cVar, this.size, this.skip, this.bufferSize));
         }
     }
 

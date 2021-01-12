@@ -12,17 +12,17 @@ import java.io.IOException;
 import java.lang.ref.WeakReference;
 /* loaded from: classes3.dex */
 class q {
-    private static SparseArrayCompat<WeakReference<Interpolator>> Hx;
+    private static SparseArrayCompat<WeakReference<Interpolator>> Hv;
     private static final Interpolator LINEAR_INTERPOLATOR = new LinearInterpolator();
 
     q() {
     }
 
     private static SparseArrayCompat<WeakReference<Interpolator>> kq() {
-        if (Hx == null) {
-            Hx = new SparseArrayCompat<>();
+        if (Hv == null) {
+            Hv = new SparseArrayCompat<>();
         }
-        return Hx;
+        return Hv;
     }
 
     @Nullable
@@ -36,7 +36,7 @@ class q {
 
     private static void b(int i, WeakReference<Interpolator> weakReference) {
         synchronized (q.class) {
-            Hx.put(i, weakReference);
+            Hv.put(i, weakReference);
         }
     }
 
@@ -201,8 +201,8 @@ class q {
             t = t4;
         }
         com.airbnb.lottie.e.a<T> aVar = new com.airbnb.lottie.e.a<>(dVar, t3, t, interpolator, f2, null);
-        aVar.HU = pointF4;
-        aVar.HV = pointF5;
+        aVar.HR = pointF4;
+        aVar.HS = pointF5;
         return aVar;
     }
 

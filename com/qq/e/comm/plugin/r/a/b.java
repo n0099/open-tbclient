@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 class b {
     private static int a(com.qq.e.comm.plugin.r.b.c cVar) {
         GDTLogger.d("BiddingUtils " + cVar.a() + " Priority config, isEnableRtPriority: " + cVar.j() + "  getRtPriority: " + cVar.l() + "  isContractAd: " + cVar.m() + "  getContractPriority(): " + cVar.n() + "  getPriority: " + cVar.d());

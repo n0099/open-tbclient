@@ -1,28 +1,28 @@
 package com.baidu.mobads;
 
 import com.baidu.mobads.VideoAdView;
-/* loaded from: classes3.dex */
+/* loaded from: classes14.dex */
 public class VideoAdRequest {
 
     /* renamed from: a  reason: collision with root package name */
-    private VideoAdView.VideoDuration f3325a;
+    private VideoAdView.VideoDuration f3287a;
 
     /* renamed from: b  reason: collision with root package name */
-    private boolean f3326b;
+    private boolean f3288b;
     private VideoAdView.VideoSize c;
 
     private VideoAdRequest(Builder builder) {
-        this.f3325a = builder.f3327a;
-        this.f3326b = builder.f3328b;
+        this.f3287a = builder.f3289a;
+        this.f3288b = builder.f3290b;
         this.c = builder.c;
     }
 
     protected int getVideoDuration() {
-        return this.f3325a == null ? VideoAdView.VideoDuration.DURATION_15_SECONDS.getValue() : this.f3325a.getValue();
+        return this.f3287a == null ? VideoAdView.VideoDuration.DURATION_15_SECONDS.getValue() : this.f3287a.getValue();
     }
 
     protected boolean isShowCountdown() {
-        return this.f3326b;
+        return this.f3288b;
     }
 
     protected int getVideoWidth() {
@@ -39,23 +39,23 @@ public class VideoAdRequest {
         return this.c.getHeight();
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes14.dex */
     public static class Builder {
 
         /* renamed from: a  reason: collision with root package name */
-        private VideoAdView.VideoDuration f3327a;
+        private VideoAdView.VideoDuration f3289a;
 
         /* renamed from: b  reason: collision with root package name */
-        private boolean f3328b = false;
+        private boolean f3290b = false;
         private VideoAdView.VideoSize c;
 
         public Builder setVideoDuration(VideoAdView.VideoDuration videoDuration) {
-            this.f3327a = videoDuration;
+            this.f3289a = videoDuration;
             return this;
         }
 
         public Builder isShowCountdown(boolean z) {
-            this.f3328b = z;
+            this.f3290b = z;
             return this;
         }
 

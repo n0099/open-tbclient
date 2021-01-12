@@ -4,29 +4,29 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class c {
-    private String ibv;
-    private int ibx;
+    private String hWO;
+    private int hWQ;
     private List<b> list = new ArrayList();
 
     public void parserJson(JSONObject jSONObject) {
-        this.ibv = jSONObject.optString("mark_type_name");
-        this.ibx = jSONObject.optInt("mark_type_wear");
+        this.hWO = jSONObject.optString("mark_type_name");
+        this.hWQ = jSONObject.optInt("mark_type_wear");
         JSONArray optJSONArray = jSONObject.optJSONArray("mark_list");
         if (optJSONArray != null) {
             for (int i = 0; i < optJSONArray.length(); i++) {
                 b bVar = new b();
                 bVar.parserJson(optJSONArray.optJSONObject(i));
-                bVar.IU(this.ibv);
-                bVar.xO(this.ibx);
+                bVar.HJ(this.hWO);
+                bVar.wi(this.hWQ);
                 this.list.add(bVar);
             }
         }
     }
 
-    public String cpQ() {
-        return this.ibv;
+    public String clY() {
+        return this.hWO;
     }
 
     public List<b> getList() {

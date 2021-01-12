@@ -9,27 +9,27 @@ import android.widget.TextView;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class b {
-    private ImageView lpo;
-    private TextView lpp;
+    private ImageView lkE;
+    private TextView lkF;
     private Context mContext;
     private View mRootView;
 
-    public void FU(int i) {
-        this.lpp.setText(String.format(this.mContext.getString(R.string.tail_management_available), Integer.valueOf(i)));
+    public void Eo(int i) {
+        this.lkF.setText(String.format(this.mContext.getString(R.string.tail_management_available), Integer.valueOf(i)));
     }
 
     public void I(View.OnClickListener onClickListener) {
-        this.lpo.setOnClickListener(onClickListener);
+        this.lkE.setOnClickListener(onClickListener);
     }
 
-    public View gC(Context context) {
+    public View gA(Context context) {
         this.mContext = context;
         this.mRootView = LayoutInflater.from(context).inflate(R.layout.tail_management_add_item, (ViewGroup) null);
         this.mRootView.setTag(this);
-        this.lpp = (TextView) this.mRootView.findViewById(R.id.tail_management_new_text);
-        this.lpo = (ImageView) this.mRootView.findViewById(R.id.tail_management_new_button);
+        this.lkF = (TextView) this.mRootView.findViewById(R.id.tail_management_new_text);
+        this.lkE = (ImageView) this.mRootView.findViewById(R.id.tail_management_new_button);
         return this.mRootView;
     }
 

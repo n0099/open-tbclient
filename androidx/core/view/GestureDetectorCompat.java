@@ -8,11 +8,11 @@ import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.VelocityTracker;
 import android.view.ViewConfiguration;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public final class GestureDetectorCompat {
     private final GestureDetectorCompatImpl mImpl;
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     interface GestureDetectorCompatImpl {
         boolean isLongpressEnabled();
 
@@ -23,7 +23,7 @@ public final class GestureDetectorCompat {
         void setOnDoubleTapListener(GestureDetector.OnDoubleTapListener onDoubleTapListener);
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     static class GestureDetectorCompatImplBase implements GestureDetectorCompatImpl {
         private static final int LONG_PRESS = 2;
         private static final int SHOW_PRESS = 1;
@@ -53,7 +53,7 @@ public final class GestureDetectorCompat {
         private static final int TAP_TIMEOUT = ViewConfiguration.getTapTimeout();
         private static final int DOUBLE_TAP_TIMEOUT = ViewConfiguration.getDoubleTapTimeout();
 
-        /* loaded from: classes15.dex */
+        /* loaded from: classes14.dex */
         private class GestureHandler extends Handler {
             GestureHandler() {
             }
@@ -364,7 +364,7 @@ public final class GestureDetectorCompat {
         }
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     static class GestureDetectorCompatImplJellybeanMr2 implements GestureDetectorCompatImpl {
         private final GestureDetector mDetector;
 

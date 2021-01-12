@@ -40,7 +40,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes12.dex */
+/* loaded from: classes11.dex */
 public class OpenFlutter {
     public static final String ACTIVITY_CONCERN_FORUM = "ConcernForum";
     public static final String ACTIVITY_FANS = "PersonFansList";
@@ -150,11 +150,11 @@ public class OpenFlutter {
         if (ACTIVITY_PERSON_CENTER.equals(str)) {
             String uri2 = uri.toString();
             if (f.r(uri)) {
-                f.blo().d(uri, new f.a() { // from class: com.baidu.tieba.flutter.util.OpenFlutter.1
+                f.bhu().d(uri, new f.a() { // from class: com.baidu.tieba.flutter.util.OpenFlutter.1
                     @Override // com.baidu.tbadk.BdToken.f.a
                     public void onCallBack(HashMap<String, Object> hashMap2) {
-                        if (hashMap2 != null && (hashMap2.get(f.eGx) instanceof String)) {
-                            String str2 = (String) hashMap2.get(f.eGx);
+                        if (hashMap2 != null && (hashMap2.get(f.eBL) instanceof String)) {
+                            String str2 = (String) hashMap2.get(f.eBL);
                             if (!StringUtils.isNull(str2)) {
                                 hashMap.put("portrait", str2);
                             }
@@ -199,7 +199,7 @@ public class OpenFlutter {
 
     public static boolean checkSwitch(String str) {
         if (str.contains(ACTIVITY_SIGN_TOGETHER)) {
-            return !b.Ai("flutter_page_test") && FlutterSignAllEnableSwitch.isOn();
+            return !b.yX("flutter_page_test") && FlutterSignAllEnableSwitch.isOn();
         } else if (str.contains(ACTIVITY_FANS)) {
             return FlutterPersonAttentionEnableSwitch.isOn();
         } else {
@@ -237,7 +237,7 @@ public class OpenFlutter {
             e.mB().postDelayed(new Runnable() { // from class: com.baidu.tieba.flutter.util.OpenFlutter.2
                 @Override // java.lang.Runnable
                 public void run() {
-                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921521, d.bHn()));
+                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921521, d.bDu()));
                 }
             }, 100L);
         } else {

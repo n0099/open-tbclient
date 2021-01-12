@@ -2,11 +2,11 @@ package com.kwad.sdk.crash.utils;
 
 import com.kwad.sdk.collector.AppStatusRules;
 import java.text.SimpleDateFormat;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class j {
 
     /* renamed from: a  reason: collision with root package name */
-    private static SimpleDateFormat f9968a = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+    private static SimpleDateFormat f9668a = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
     public static String a(long j) {
         long j2 = j / AppStatusRules.DEFAULT_GRANULARITY;

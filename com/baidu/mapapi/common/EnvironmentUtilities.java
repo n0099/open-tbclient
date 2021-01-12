@@ -1,30 +1,29 @@
 package com.baidu.mapapi.common;
 
 import android.content.Context;
-import com.baidu.mapsdkplatform.comapi.util.g;
+import com.baidu.mapsdkplatform.comapi.util.e;
 import com.baidubce.services.bos.BosClientConfiguration;
 import java.io.File;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class EnvironmentUtilities {
 
     /* renamed from: a  reason: collision with root package name */
-    static String f2777a;
+    static String f2677a;
 
     /* renamed from: b  reason: collision with root package name */
-    static String f2778b;
+    static String f2678b;
     static String c;
     static int d;
     static int e;
     static int f;
-    static int g;
-    private static g h = null;
+    private static e g = null;
 
     public static String getAppCachePath() {
-        return f2778b;
+        return f2678b;
     }
 
     public static String getAppSDCardPath() {
-        String str = f2777a + "/BaiduMapSDKNew";
+        String str = f2677a + "/BaiduMapSDKNew";
         if (str.length() != 0) {
             File file = new File(str);
             if (!file.exists()) {
@@ -51,32 +50,27 @@ public class EnvironmentUtilities {
     }
 
     public static String getSDCardPath() {
-        return f2777a;
-    }
-
-    public static int getSsgTmpStgMax() {
-        return g;
+        return f2677a;
     }
 
     public static void initAppDirectory(Context context) {
-        if (h == null) {
-            h = g.a();
-            h.a(context);
+        if (g == null) {
+            g = e.a();
+            g.a(context);
         }
-        if (f2777a == null || f2777a.length() <= 0) {
-            f2777a = h.b().a();
-            f2778b = h.b().c();
+        if (f2677a == null || f2677a.length() <= 0) {
+            f2677a = g.b().a();
+            f2678b = g.b().c();
         } else {
-            f2778b = f2777a + File.separator + "BaiduMapSDKNew" + File.separator + "cache";
+            f2678b = f2677a + File.separator + "BaiduMapSDKNew" + File.separator + "cache";
         }
-        c = h.b().d();
-        d = 52428800;
+        c = g.b().d();
+        d = 20971520;
         e = 52428800;
         f = BosClientConfiguration.DEFAULT_STREAM_BUFFER_SIZE;
-        g = 52428800;
     }
 
     public static void setSDCardPath(String str) {
-        f2777a = str;
+        f2677a = str;
     }
 }

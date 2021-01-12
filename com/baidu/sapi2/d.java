@@ -39,10 +39,10 @@ public final class d {
     private static final Map<String, SoftReference<String>> d = new ConcurrentHashMap();
 
     /* renamed from: a  reason: collision with root package name */
-    private final List<String> f5212a = new ArrayList();
+    private final List<String> f4929a = new ArrayList();
 
     /* renamed from: b  reason: collision with root package name */
-    private final List<String> f5213b = new ArrayList();
+    private final List<String> f4930b = new ArrayList();
     private Context c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -50,20 +50,20 @@ public final class d {
     public class a implements f {
 
         /* renamed from: a  reason: collision with root package name */
-        final /* synthetic */ Context f5214a;
+        final /* synthetic */ Context f4931a;
 
         a(Context context) {
-            this.f5214a = context;
+            this.f4931a = context;
         }
 
         @Override // com.baidu.sapi2.d.f
-        public void a(e.a.C0341a c0341a, String str) {
-            d.this.a(c0341a.f5228a, str);
+        public void a(e.a.C0324a c0324a, String str) {
+            d.this.a(c0324a.f4945a, str);
         }
 
         @Override // com.baidu.sapi2.d.f
-        public void a(e.a.C0341a c0341a) {
-            d.this.a(this.f5214a, c0341a);
+        public void a(e.a.C0324a c0324a) {
+            d.this.a(this.f4931a, c0324a);
         }
     }
 
@@ -74,14 +74,14 @@ public final class d {
         }
 
         @Override // com.baidu.sapi2.d.f
-        public void a(e.a.C0341a c0341a, String str) {
-            d.this.a(c0341a.f5228a, str);
+        public void a(e.a.C0324a c0324a, String str) {
+            d.this.a(c0324a.f4945a, str);
         }
 
         @Override // com.baidu.sapi2.d.f
-        public void a(e.a.C0341a c0341a) {
+        public void a(e.a.C0324a c0324a) {
             d dVar = d.this;
-            dVar.a(dVar.c, c0341a);
+            dVar.a(dVar.c, c0324a);
         }
     }
 
@@ -92,9 +92,9 @@ public final class d {
         }
 
         @Override // com.baidu.sapi2.d.f
-        public void a(e.a.C0341a c0341a) {
-            String c = e.a.C0341a.c(c0341a.f5228a);
-            String b2 = e.a.C0341a.b(c0341a.f5228a);
+        public void a(e.a.C0324a c0324a) {
+            String c = e.a.C0324a.c(c0324a.f4945a);
+            String b2 = e.a.C0324a.b(c0324a.f4945a);
             if (new File(d.this.c.getFilesDir(), c).exists()) {
                 try {
                     String d = d.this.d(d.this.c, c);
@@ -108,16 +108,16 @@ public final class d {
         }
 
         @Override // com.baidu.sapi2.d.f
-        public void a(e.a.C0341a c0341a, String str) {
+        public void a(e.a.C0324a c0324a, String str) {
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes3.dex */
     public interface f {
-        void a(e.a.C0341a c0341a);
+        void a(e.a.C0324a c0324a);
 
-        void a(e.a.C0341a c0341a, String str);
+        void a(e.a.C0324a c0324a, String str);
     }
 
     String c(String str) {
@@ -156,7 +156,7 @@ public final class d {
         if (SapiContext.getInstance().getSapiOptions().e().c()) {
             String c2 = c(str);
             if (TextUtils.isEmpty(c2)) {
-                e.a.C0341a c3 = c(context, str);
+                e.a.C0324a c3 = c(context, str);
                 if (c3 != null) {
                     a(c3, new a(context));
                 }
@@ -168,10 +168,10 @@ public final class d {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public e.a.C0341a c(Context context, String str) {
-        for (e.a.C0341a c0341a : SapiContext.getInstance().getSapiOptions().e().a()) {
-            if (c0341a.f5228a.equals(str)) {
-                return c0341a;
+    public e.a.C0324a c(Context context, String str) {
+        for (e.a.C0324a c0324a : SapiContext.getInstance().getSapiOptions().e().a()) {
+            if (c0324a.f4945a.equals(str)) {
+                return c0324a;
             }
         }
         return null;
@@ -182,18 +182,18 @@ public final class d {
     public class c extends HttpHandlerWrap {
 
         /* renamed from: a  reason: collision with root package name */
-        final /* synthetic */ com.baidu.sapi2.e f5217a;
+        final /* synthetic */ com.baidu.sapi2.e f4934a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         c(boolean z, com.baidu.sapi2.e eVar) {
             super(z);
-            this.f5217a = eVar;
+            this.f4934a = eVar;
         }
 
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.sapi2.httpwrap.HttpHandlerWrap
         public void onFailure(Throwable th, int i, String str) {
-            d.this.c(this.f5217a);
+            d.this.c(this.f4934a);
             d.this.b();
         }
 
@@ -201,7 +201,7 @@ public final class d {
         @Override // com.baidu.sapi2.httpwrap.HttpHandlerWrap
         public void onSuccess(int i, String str, HashMap<String, String> hashMap) {
             if (str != null) {
-                d.this.a(str, this.f5217a);
+                d.this.a(str, this.f4934a);
                 if (hashMap != null) {
                     SapiContext.getInstance().put(SapiContext.KEY_CONFIG_FILE_ETAG, hashMap.get(Headers.ETAG));
                 }
@@ -213,13 +213,13 @@ public final class d {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.baidu.sapi2.d$d  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C0340d implements f {
+    public class C0323d implements f {
 
         /* renamed from: a  reason: collision with root package name */
-        final /* synthetic */ e.a.C0341a f5219a;
+        final /* synthetic */ e.a.C0324a f4936a;
 
         /* renamed from: b  reason: collision with root package name */
-        final /* synthetic */ com.baidu.sapi2.e f5220b;
+        final /* synthetic */ com.baidu.sapi2.e f4937b;
         final /* synthetic */ e.a c;
 
         /* renamed from: com.baidu.sapi2.d$d$a */
@@ -231,38 +231,38 @@ public final class d {
 
             @Override // com.baidu.sapi2.httpwrap.HttpHandlerWrap
             public void onFailure(Throwable th, int i, String str) {
-                C0340d c0340d = C0340d.this;
-                c0340d.f5220b.a(c0340d.c);
-                SapiContext.getInstance().setSapiOptions(C0340d.this.f5220b);
+                C0323d c0323d = C0323d.this;
+                c0323d.f4937b.a(c0323d.c);
+                SapiContext.getInstance().setSapiOptions(C0323d.this.f4937b);
             }
 
             /* JADX INFO: Access modifiers changed from: protected */
             @Override // com.baidu.sapi2.httpwrap.HttpHandlerWrap
             public void onSuccess(int i, String str) {
-                C0340d c0340d = C0340d.this;
-                d.this.a(str, c0340d.f5219a);
+                C0323d c0323d = C0323d.this;
+                d.this.a(str, c0323d.f4936a);
             }
         }
 
-        C0340d(e.a.C0341a c0341a, com.baidu.sapi2.e eVar, e.a aVar) {
-            this.f5219a = c0341a;
-            this.f5220b = eVar;
+        C0323d(e.a.C0324a c0324a, com.baidu.sapi2.e eVar, e.a aVar) {
+            this.f4936a = c0324a;
+            this.f4937b = eVar;
             this.c = aVar;
         }
 
         @Override // com.baidu.sapi2.d.f
-        public void a(e.a.C0341a c0341a, String str) {
-            if (TextUtils.isEmpty(this.f5219a.f5228a) || TextUtils.isEmpty(str)) {
+        public void a(e.a.C0324a c0324a, String str) {
+            if (TextUtils.isEmpty(this.f4936a.f4945a) || TextUtils.isEmpty(str)) {
                 return;
             }
-            d.this.a(this.f5219a.f5228a, str);
+            d.this.a(this.f4936a.f4945a, str);
             d dVar = d.this;
-            dVar.a(dVar.c, e.a.C0341a.c(this.f5219a.f5228a), str.getBytes());
+            dVar.a(dVar.c, e.a.C0324a.c(this.f4936a.f4945a), str.getBytes());
         }
 
         @Override // com.baidu.sapi2.d.f
-        public void a(e.a.C0341a c0341a) {
-            new HttpClientWrap().get(this.f5219a.f5229b, new HttpHashMapWrap(), null, null, new a(true));
+        public void a(e.a.C0324a c0324a) {
+            new HttpClientWrap().get(this.f4936a.f4946b, new HttpHashMapWrap(), null, null, new a(true));
         }
     }
 
@@ -300,12 +300,12 @@ public final class d {
     void a(com.baidu.sapi2.e eVar) {
         e.a e2 = eVar.e();
         if (e2.c()) {
-            for (e.a.C0341a c0341a : e2.a()) {
-                this.f5212a.add(c0341a.f5228a);
+            for (e.a.C0324a c0324a : e2.a()) {
+                this.f4929a.add(c0324a.f4945a);
             }
-            this.f5213b.addAll(this.f5212a);
-            for (e.a.C0341a c0341a2 : e2.a()) {
-                a(c0341a2, new b());
+            this.f4930b.addAll(this.f4929a);
+            for (e.a.C0324a c0324a2 : e2.a()) {
+                a(c0324a2, new b());
             }
         }
     }
@@ -319,23 +319,23 @@ public final class d {
         k.a("dvif_interface", Collections.singletonMap(AppIconSetting.DEFAULT_LARGE_ICON, deviceInfo));
     }
 
-    void a(e.a.C0341a c0341a, f fVar) {
+    void a(e.a.C0324a c0324a, f fVar) {
         if (fVar != null) {
-            String b2 = e.a.C0341a.b(c0341a.f5228a);
+            String b2 = e.a.C0324a.b(c0324a.f4945a);
             try {
                 if ("mounted".equals(Environment.getExternalStorageState()) && new File(Environment.getExternalStorageDirectory(), b2).exists()) {
                     String b3 = b(b2);
-                    if (SecurityUtil.md5(b3.getBytes(), false).equals(c0341a.c)) {
-                        fVar.a(c0341a, b3);
+                    if (SecurityUtil.md5(b3.getBytes(), false).equals(c0324a.c)) {
+                        fVar.a(c0324a, b3);
                     } else {
-                        fVar.a(c0341a);
+                        fVar.a(c0324a);
                     }
                 } else {
-                    fVar.a(c0341a);
+                    fVar.a(c0324a);
                 }
                 return;
             } catch (Throwable th) {
-                fVar.a(c0341a);
+                fVar.a(c0324a);
                 return;
             }
         }
@@ -346,11 +346,11 @@ public final class d {
         return com.baidu.sapi2.utils.a.b(new File(Environment.getExternalStorageDirectory(), str).getAbsolutePath());
     }
 
-    void a(Context context, e.a.C0341a c0341a) {
-        String c2 = e.a.C0341a.c(c0341a.f5228a);
+    void a(Context context, e.a.C0324a c0324a) {
+        String c2 = e.a.C0324a.c(c0324a.f4945a);
         if (new File(context.getFilesDir(), c2).exists()) {
             try {
-                a(c0341a.f5228a, d(context, c2));
+                a(c0324a.f4945a, d(context, c2));
             } catch (Throwable th) {
                 Log.e(th);
             }
@@ -365,7 +365,7 @@ public final class d {
     }
 
     void a(String str, com.baidu.sapi2.e eVar) {
-        e.a.C0341a c0341a;
+        e.a.C0324a c0324a;
         try {
             JSONObject jSONObject = new JSONObject(str);
             com.baidu.sapi2.e a2 = com.baidu.sapi2.e.a(jSONObject);
@@ -374,29 +374,29 @@ public final class d {
             e.a e2 = a2.e();
             e.a e3 = eVar.e();
             c(a2);
-            this.f5213b.clear();
+            this.f4930b.clear();
             if (e2.c()) {
-                for (e.a.C0341a c0341a2 : e2.a()) {
-                    this.f5213b.add(c0341a2.f5228a);
+                for (e.a.C0324a c0324a2 : e2.a()) {
+                    this.f4930b.add(c0324a2.f4945a);
                 }
-                for (e.a.C0341a c0341a3 : e2.a()) {
-                    e.a.C0341a c0341a4 = null;
-                    Iterator<e.a.C0341a> it = e3.a().iterator();
+                for (e.a.C0324a c0324a3 : e2.a()) {
+                    e.a.C0324a c0324a4 = null;
+                    Iterator<e.a.C0324a> it = e3.a().iterator();
                     while (true) {
-                        c0341a = c0341a4;
+                        c0324a = c0324a4;
                         if (!it.hasNext()) {
                             break;
                         }
-                        c0341a4 = it.next();
-                        if (!c0341a4.f5228a.equals(c0341a3.f5228a)) {
-                            c0341a4 = c0341a;
+                        c0324a4 = it.next();
+                        if (!c0324a4.f4945a.equals(c0324a3.f4945a)) {
+                            c0324a4 = c0324a;
                         }
                     }
-                    if (a(c0341a3, c0341a)) {
-                        a(c0341a3, new C0340d(c0341a3, a2, e3));
+                    if (a(c0324a3, c0324a)) {
+                        a(c0324a3, new C0323d(c0324a3, a2, e3));
                     } else {
                         SapiContext.getInstance().put(SapiContext.KEY_LOGIN_PAGE_IS_CACHED, true);
-                        a(c0341a3, new e());
+                        a(c0324a3, new e());
                     }
                 }
             }
@@ -404,14 +404,14 @@ public final class d {
         }
     }
 
-    void a(String str, e.a.C0341a c0341a) {
-        if (TextUtils.isEmpty(c0341a.f5228a) || TextUtils.isEmpty(str) || !c0341a.c.equals(SecurityUtil.md5(str.getBytes(), false))) {
+    void a(String str, e.a.C0324a c0324a) {
+        if (TextUtils.isEmpty(c0324a.f4945a) || TextUtils.isEmpty(str) || !c0324a.c.equals(SecurityUtil.md5(str.getBytes(), false))) {
             return;
         }
-        a(c0341a.f5228a, str);
-        a(this.c, e.a.C0341a.c(c0341a.f5228a), str.getBytes());
+        a(c0324a.f4945a, str);
+        a(this.c, e.a.C0324a.c(c0324a.f4945a), str.getBytes());
         if (SapiUtils.checkRequestPermission("android.permission.WRITE_EXTERNAL_STORAGE", this.c)) {
-            a(e.a.C0341a.b(c0341a.f5228a), str.getBytes());
+            a(e.a.C0324a.b(c0324a.f4945a), str.getBytes());
         }
     }
 
@@ -471,21 +471,21 @@ public final class d {
         }
     }
 
-    boolean a(e.a.C0341a c0341a, e.a.C0341a c0341a2) {
-        return !TextUtils.isEmpty(c0341a.c) && (c0341a2 == null || !c0341a.c.equals(c0341a2.c));
+    boolean a(e.a.C0324a c0324a, e.a.C0324a c0324a2) {
+        return !TextUtils.isEmpty(c0324a.c) && (c0324a2 == null || !c0324a.c.equals(c0324a2.c));
     }
 
     void a() {
         ArrayList<String> arrayList = new ArrayList();
-        for (String str : this.f5212a) {
-            if (!this.f5213b.contains(str)) {
+        for (String str : this.f4929a) {
+            if (!this.f4930b.contains(str)) {
                 arrayList.add(str);
                 d(str);
             }
         }
         for (String str2 : arrayList) {
-            if (this.f5212a.contains(str2)) {
-                this.f5212a.remove(str2);
+            if (this.f4929a.contains(str2)) {
+                this.f4929a.remove(str2);
             }
         }
     }

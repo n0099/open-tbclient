@@ -2,11 +2,11 @@ package com.baidu.tieba.ala.liveroom.data;
 
 import android.os.Bundle;
 import com.baidu.live.data.AlaLivePersonData;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class f {
     public String forumId;
     public String forumName;
-    public AlaLivePersonData hCp;
-    public Bundle hCq;
+    public AlaLivePersonData hxJ;
+    public Bundle hxK;
     public String specialForumType;
 }

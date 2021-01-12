@@ -10,9 +10,9 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.atomData.EmotionDetailActivityConfig;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.faceshop.emotiondetail.message.EmotionDetailResponseMessage;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class EmotionDetailModel extends BdBaseModel {
-    private HttpMessageListener iYJ = new HttpMessageListener(1003361) { // from class: com.baidu.tieba.faceshop.emotiondetail.model.EmotionDetailModel.1
+    private HttpMessageListener iUc = new HttpMessageListener(1003361) { // from class: com.baidu.tieba.faceshop.emotiondetail.model.EmotionDetailModel.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
@@ -27,9 +27,9 @@ public class EmotionDetailModel extends BdBaseModel {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1003361, TbConfig.SERVER_ADDRESS + TbConfig.EMOTION_DETAIL);
         tbHttpMessageTask.setResponsedClass(EmotionDetailResponseMessage.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
-        this.iYJ.setTag(getUniqueId());
-        this.iYJ.setSelfListener(true);
-        registerListener(this.iYJ);
+        this.iUc.setTag(getUniqueId());
+        this.iUc.setSelfListener(true);
+        registerListener(this.iUc);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -49,7 +49,7 @@ public class EmotionDetailModel extends BdBaseModel {
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
         MessageManager.getInstance().unRegisterTask(1003361);
-        MessageManager.getInstance().unRegisterListener(this.iYJ);
+        MessageManager.getInstance().unRegisterListener(this.iUc);
         return true;
     }
 }

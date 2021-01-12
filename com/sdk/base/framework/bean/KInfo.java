@@ -1,11 +1,11 @@
 package com.sdk.base.framework.bean;
 
 import com.sdk.base.framework.f.d.a;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class KInfo {
 
     /* renamed from: cn  reason: collision with root package name */
-    private String f13108cn;
+    private String f12808cn;
     private String ic;
     private boolean idfd;
     private boolean idfs;
@@ -15,7 +15,7 @@ public class KInfo {
     private int sid;
 
     public String getCn() {
-        return this.f13108cn;
+        return this.f12808cn;
     }
 
     public String getIc() {
@@ -47,7 +47,7 @@ public class KInfo {
     }
 
     public void setCn(String str) {
-        this.f13108cn = str;
+        this.f12808cn = str;
     }
 
     public void setIc(String str) {

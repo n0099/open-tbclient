@@ -10,11 +10,11 @@ import com.baidu.tbadk.core.util.aq;
 public class b {
     public static void log() {
         aq aqVar = new aq("c13395");
-        aqVar.dX("uid", TbadkCoreApplication.getCurrentAccount());
-        aqVar.dX("obj_id", TbadkCoreApplication.getInst().getCuidGalaxy2());
+        aqVar.dW("uid", TbadkCoreApplication.getCurrentAccount());
+        aqVar.dW("obj_id", TbadkCoreApplication.getInst().getCuidGalaxy2());
         aqVar.w("obj_duration", System.currentTimeMillis());
-        aqVar.dX("obj_type", Build.MODEL);
-        aqVar.dX("resource_id", Build.VERSION.RELEASE);
+        aqVar.dW("obj_type", Build.MODEL);
+        aqVar.dW("resource_id", Build.VERSION.RELEASE);
         aqVar.an("aid", TbSingleton.getInstance().getCpuFlopsDuration());
         aqVar.an("obj_param1", TbSingleton.getInstance().getAnimComputedFps("anim_switch_slide"));
         aqVar.an(TiebaInitialize.Params.OBJ_PARAM2, TbSingleton.getInstance().getAnimComputedFps("anim_switch_trans_frs"));

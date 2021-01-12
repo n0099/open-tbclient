@@ -8,7 +8,7 @@ import com.bumptech.glide.request.transition.ViewAnimationFactory;
 import com.bumptech.glide.request.transition.ViewPropertyAnimationFactory;
 import com.bumptech.glide.request.transition.ViewPropertyTransition;
 import com.bumptech.glide.util.Preconditions;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public abstract class TransitionOptions<CHILD extends TransitionOptions<CHILD, TranscodeType>, TranscodeType> implements Cloneable {
     private TransitionFactory<? super TranscodeType> transitionFactory = NoTransition.getFactory();
 
@@ -35,7 +35,7 @@ public abstract class TransitionOptions<CHILD extends TransitionOptions<CHILD, T
 
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: clone */
-    public final CHILD m56clone() {
+    public final CHILD m52clone() {
         try {
             return (CHILD) super.clone();
         } catch (CloneNotSupportedException e) {

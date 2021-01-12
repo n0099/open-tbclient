@@ -8,15 +8,15 @@ import com.baidu.mobads.openad.interfaces.event.IOAdEventListener;
 import com.baidu.mobads.utils.XAdSDKFoundationFacade;
 import java.util.ArrayList;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes3.dex */
+/* loaded from: classes14.dex */
 public class e implements IOAdEventListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ d f3442a;
+    final /* synthetic */ d f3404a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(d dVar) {
-        this.f3442a = dVar;
+        this.f3404a = dVar;
     }
 
     @Override // com.baidu.mobads.openad.interfaces.event.IOAdEventListener
@@ -25,7 +25,7 @@ public class e implements IOAdEventListener {
         com.baidu.mobads.command.a a2;
         try {
             XAdSDKFoundationFacade.getInstance().getAdLogger().d("OAdDownloadManager", "网络状态已经改变");
-            activeNetworkInfo = ((ConnectivityManager) this.f3442a.f3441a.getSystemService("connectivity")).getActiveNetworkInfo();
+            activeNetworkInfo = ((ConnectivityManager) this.f3404a.f3403a.getSystemService("connectivity")).getActiveNetworkInfo();
         } catch (Exception e) {
             XAdSDKFoundationFacade.getInstance().getAdLogger().d("OAdDownloadManager", e);
             com.baidu.mobads.c.a.a().a("create apk downloader failed: " + e.toString());
@@ -35,7 +35,7 @@ public class e implements IOAdEventListener {
             String typeName = activeNetworkInfo.getTypeName();
             int type = activeNetworkInfo.getType();
             XAdSDKFoundationFacade.getInstance().getAdLogger().d("OAdDownloadManager", "当前网络名称：" + typeName + "; 网络类型：" + type);
-            ArrayList<IOAdDownloader> allAdsApkDownloaderes = this.f3442a.getAllAdsApkDownloaderes();
+            ArrayList<IOAdDownloader> allAdsApkDownloaderes = this.f3404a.getAllAdsApkDownloaderes();
             if (allAdsApkDownloaderes != null) {
                 for (IOAdDownloader iOAdDownloader : allAdsApkDownloaderes) {
                     if (type == 1) {

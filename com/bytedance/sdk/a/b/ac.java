@@ -6,17 +6,17 @@ import java.nio.charset.Charset;
 public abstract class ac {
     public abstract void a(com.bytedance.sdk.a.a.d dVar) throws IOException;
 
-    public abstract y eqP();
+    public abstract y emT();
 
     public long b() throws IOException {
         return -1L;
     }
 
     public static ac a(y yVar, String str) {
-        Charset charset = com.bytedance.sdk.a.b.a.c.pjm;
-        if (yVar != null && (charset = yVar.erD()) == null) {
-            charset = com.bytedance.sdk.a.b.a.c.pjm;
-            yVar = y.YT(yVar + "; charset=utf-8");
+        Charset charset = com.bytedance.sdk.a.b.a.c.peH;
+        if (yVar != null && (charset = yVar.enI()) == null) {
+            charset = com.bytedance.sdk.a.b.a.c.peH;
+            yVar = y.XL(yVar + "; charset=utf-8");
         }
         return b(yVar, str.getBytes(charset));
     }
@@ -32,7 +32,7 @@ public abstract class ac {
         com.bytedance.sdk.a.b.a.c.a(bArr.length, i, i2);
         return new ac() { // from class: com.bytedance.sdk.a.b.ac.1
             @Override // com.bytedance.sdk.a.b.ac
-            public y eqP() {
+            public y emT() {
                 return y.this;
             }
 
@@ -43,7 +43,7 @@ public abstract class ac {
 
             @Override // com.bytedance.sdk.a.b.ac
             public void a(com.bytedance.sdk.a.a.d dVar) throws IOException {
-                dVar.x(bArr, i, i2);
+                dVar.w(bArr, i, i2);
             }
         };
     }

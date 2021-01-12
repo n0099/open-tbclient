@@ -2,34 +2,34 @@ package com.baidu.live.a;
 
 import android.view.ViewGroup;
 import com.baidu.live.data.x;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public interface a {
 
     /* renamed from: com.baidu.live.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes11.dex */
-    public interface InterfaceC0163a {
-        void Bg();
+    /* loaded from: classes10.dex */
+    public interface InterfaceC0154a {
+        void xl();
 
-        void Bh();
+        void xm();
     }
-
-    void Bf();
 
     void a(ViewGroup viewGroup, x xVar);
 
-    void a(InterfaceC0163a interfaceC0163a);
+    void a(InterfaceC0154a interfaceC0154a);
 
     void a(x xVar);
 
-    void ba(boolean z);
+    void aW(boolean z);
 
-    void bb(boolean z);
+    void aX(boolean z);
 
-    void bc(boolean z);
+    void aY(boolean z);
 
     void onDestroy();
 
     void setCanVisible(boolean z);
 
     void setIsHost(boolean z);
+
+    void xk();
 }

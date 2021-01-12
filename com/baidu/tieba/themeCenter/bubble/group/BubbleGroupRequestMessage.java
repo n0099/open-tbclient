@@ -5,7 +5,7 @@ import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.util.t;
 import tbclient.GetBubbleByCategory.DataReq;
 import tbclient.GetBubbleByCategory.GetBubbleByCategoryReqIdl;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class BubbleGroupRequestMessage extends NetMessage {
     public BubbleGroupRequestMessage() {
         super(1003039, CmdConfigSocket.CMD_BUBBLE_CATEGORY);

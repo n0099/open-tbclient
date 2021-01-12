@@ -2,7 +2,7 @@ package io.flutter.plugins.pathprovider;
 
 import android.os.Build;
 import android.os.Environment;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 class StorageDirectoryMapper {
     StorageDirectoryMapper() {
     }

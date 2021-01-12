@@ -11,7 +11,7 @@ import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.util.zip.ZipFile;
 @Deprecated
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class CommentUtils {
     public static String readComment(File file) {
         try {

@@ -15,30 +15,30 @@ import com.baidu.tieba.im.chat.officialBar.OfficialBarFeedMsglistAdapter;
 import com.baidu.tieba.im.message.chat.a;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class g extends BaseAdapter {
-    private BdTypeListView kAi;
-    private OfficialBarFeedMsglistAdapter.c kyp;
-    private boolean kyq;
+    private OfficialBarFeedMsglistAdapter.c ktK;
+    private boolean ktL;
+    private BdTypeListView kvD;
     private TbPageContext<OfficialBarFeedActivity> pageContext;
     private List<com.baidu.tieba.im.message.chat.b> mList = null;
-    private LongSparseArray<com.baidu.tieba.im.forum.broadcast.data.b> kAh = null;
+    private LongSparseArray<com.baidu.tieba.im.forum.broadcast.data.b> kvC = null;
 
     public g(TbPageContext<OfficialBarFeedActivity> tbPageContext, BdTypeListView bdTypeListView, OfficialBarFeedMsglistAdapter.c cVar) {
         this.pageContext = tbPageContext;
-        this.kyp = cVar;
-        this.kAi = bdTypeListView;
+        this.ktK = cVar;
+        this.kvD = bdTypeListView;
     }
 
     private View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.im.message.chat.b bVar, MsgCommonItemAdapter.MsgViewHolder<b> msgViewHolder) {
-        b cWz = msgViewHolder.cWz();
-        a.C0775a cYO = bVar.cYO();
-        cYO.createTime = bVar.getCreateTime();
-        cWz.a(this.pageContext.getPageActivity().getBaseContext(), cYO, bVar.cYP(), this.kAh == null ? null : this.kAh.get(cYO.kFM), bVar.cYQ(), bVar.cYN(), i);
-        aq aqVar = new aq(this.kyq ? "c13865" : "c13863");
-        aqVar.dX("uid", TbadkCoreApplication.getCurrentAccount());
-        aqVar.dX("tid", cYO.tid == null ? "" : cYO.tid);
-        aqVar.dX("fid", cYO.fid);
+        b cSH = msgViewHolder.cSH();
+        a.C0758a cUW = bVar.cUW();
+        cUW.createTime = bVar.getCreateTime();
+        cSH.a(this.pageContext.getPageActivity().getBaseContext(), cUW, bVar.cUX(), this.kvC == null ? null : this.kvC.get(cUW.kBh), bVar.cUY(), bVar.cUV(), i);
+        aq aqVar = new aq(this.ktL ? "c13865" : "c13863");
+        aqVar.dW("uid", TbadkCoreApplication.getCurrentAccount());
+        aqVar.dW("tid", cUW.tid == null ? "" : cUW.tid);
+        aqVar.dW("fid", cUW.fid);
         TiebaStatic.log(aqVar);
         return view;
     }
@@ -53,7 +53,7 @@ public class g extends BaseAdapter {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: Ea */
+    /* renamed from: Cu */
     public com.baidu.tieba.im.message.chat.b getItem(int i) {
         if (this.mList == null || this.mList.size() == 0 || i < 0 || i >= getCount()) {
             return null;
@@ -74,8 +74,8 @@ public class g extends BaseAdapter {
             aVar = (a) view.getTag();
         }
         if (aVar == null) {
-            b bVar = new b(this.pageContext, this.kyq);
-            bVar.a(this.kyp);
+            b bVar = new b(this.pageContext, this.ktL);
+            bVar.a(this.ktK);
             view2 = bVar.getConvertView();
             aVar = new a(bVar.getConvertView(), bVar);
             view2.setTag(aVar);
@@ -96,24 +96,24 @@ public class g extends BaseAdapter {
 
     @RequiresApi(api = 16)
     public void b(LongSparseArray<com.baidu.tieba.im.forum.broadcast.data.b> longSparseArray) {
-        if (this.kAh == null) {
-            this.kAh = new LongSparseArray<>();
+        if (this.kvC == null) {
+            this.kvC = new LongSparseArray<>();
         }
-        this.kAh.clear();
+        this.kvC.clear();
         for (int i = 0; i < longSparseArray.size(); i++) {
-            this.kAh.put(longSparseArray.keyAt(i), longSparseArray.valueAt(i));
+            this.kvC.put(longSparseArray.keyAt(i), longSparseArray.valueAt(i));
         }
         notifyDataSetChanged();
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     private class a extends MsgCommonItemAdapter.MsgViewHolder<b> {
         public a(View view, b bVar) {
             super(view, bVar);
         }
     }
 
-    public void sC(boolean z) {
-        this.kyq = z;
+    public void sy(boolean z) {
+        this.ktL = z;
     }
 }

@@ -14,25 +14,25 @@ import com.baidu.tieba.im.model.AddMsgRecordModel;
 import com.baidu.tieba.im.util.c;
 import java.util.HashSet;
 import java.util.Iterator;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class a {
-    private static a kIM = new a();
-    private HashSet<String> kIN = new HashSet<>();
-    private StringBuilder kIO = new StringBuilder();
+    private static a kEh = new a();
+    private HashSet<String> kEi = new HashSet<>();
+    private StringBuilder kEj = new StringBuilder();
 
     private a() {
     }
 
-    public static a cZQ() {
-        return kIM;
+    public static a cVY() {
+        return kEh;
     }
 
-    public void cZR() {
+    public void cVZ() {
         String str;
         String str2 = null;
-        if (this.kIN != null) {
+        if (this.kEi != null) {
             StringBuilder sb = new StringBuilder();
-            Iterator<String> it = this.kIN.iterator();
+            Iterator<String> it = this.kEi.iterator();
             while (it.hasNext()) {
                 String next = it.next();
                 if (next != null && next.length() > 0) {
@@ -43,37 +43,37 @@ public class a {
                 sb.deleteCharAt(sb.length() - 1);
                 if (sb.length() > 0) {
                     str = sb.toString();
-                    if (this.kIO != null && this.kIO.length() > 0) {
-                        this.kIO.deleteCharAt(this.kIO.length() - 1);
-                        str2 = this.kIO.toString();
+                    if (this.kEj != null && this.kEj.length() > 0) {
+                        this.kEj.deleteCharAt(this.kEj.length() - 1);
+                        str2 = this.kEj.toString();
                     }
                     new AddMsgRecordModel().reqViewAndClick(str, str2);
                 }
             }
         }
         str = null;
-        if (this.kIO != null) {
-            this.kIO.deleteCharAt(this.kIO.length() - 1);
-            str2 = this.kIO.toString();
+        if (this.kEj != null) {
+            this.kEj.deleteCharAt(this.kEj.length() - 1);
+            str2 = this.kEj.toString();
         }
         new AddMsgRecordModel().reqViewAndClick(str, str2);
     }
 
-    public void cZS() {
-        if (this.kIO != null && this.kIO.length() > 0) {
-            this.kIO.delete(0, this.kIO.length());
+    public void cWa() {
+        if (this.kEj != null && this.kEj.length() > 0) {
+            this.kEj.delete(0, this.kEj.length());
         }
-        if (this.kIN != null) {
-            this.kIN.clear();
+        if (this.kEi != null) {
+            this.kEi.clear();
         }
     }
 
     public void a(ChatMessage chatMessage, Context context) {
         UserData userInfo;
-        d NB;
+        d Mt;
         if (chatMessage != null && !StringUtils.isNull(chatMessage.getContent()) && (userInfo = chatMessage.getUserInfo()) != null) {
-            if ((userInfo.getUserType() == 1 || userInfo.getUserType() == 3) && (NB = c.NB(chatMessage.getContent())) != null && !TextUtils.isEmpty(NB.taskId) && this.kIN.add(NB.taskId)) {
-                TiebaStatic.eventStat(context, "message_open", "click", 1, "task_type", NB.kBb, "task_id", NB.taskId);
+            if ((userInfo.getUserType() == 1 || userInfo.getUserType() == 3) && (Mt = c.Mt(chatMessage.getContent())) != null && !TextUtils.isEmpty(Mt.taskId) && this.kEi.add(Mt.taskId)) {
+                TiebaStatic.eventStat(context, "message_open", "click", 1, "task_type", Mt.kww, "task_id", Mt.taskId);
             }
         }
     }
@@ -89,9 +89,9 @@ public class a {
         }
     }
 
-    public void Nx(String str) {
+    public void Mp(String str) {
         if (str != null && str.length() > 0) {
-            this.kIO.append(str).append(",");
+            this.kEj.append(str).append(",");
         }
     }
 }

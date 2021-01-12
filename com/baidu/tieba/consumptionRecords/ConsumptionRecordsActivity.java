@@ -11,12 +11,12 @@ import com.baidu.tbadk.core.tabHost.FragmentTabHost;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.mainTab.FragmentTabIndicator;
 import com.baidu.tieba.R;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class ConsumptionRecordsActivity extends BaseFragmentActivity {
-    private SigleRecordsFragment iBA;
-    private SigleRecordsFragment iBB;
-    private NavigationBar iBy;
-    private SigleRecordsFragment iBz;
+    private NavigationBar iwR;
+    private SigleRecordsFragment iwS;
+    private SigleRecordsFragment iwT;
+    private SigleRecordsFragment iwU;
     private FragmentTabHost mTabHost;
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -24,39 +24,39 @@ public class ConsumptionRecordsActivity extends BaseFragmentActivity {
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(R.layout.consumption_records_activity_layout);
-        this.iBy = (NavigationBar) findViewById(R.id.navigation_bar);
-        this.iBy.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.iBy.setCenterTextTitle(getResources().getString(R.string.consumption_records));
-        cvR();
+        this.iwR = (NavigationBar) findViewById(R.id.navigation_bar);
+        this.iwR.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        this.iwR.setCenterTextTitle(getResources().getString(R.string.consumption_records));
+        crZ();
     }
 
-    private void cvR() {
+    private void crZ() {
         this.mTabHost = (FragmentTabHost) findViewById(R.id.records_tab_host);
         this.mTabHost.setup(getSupportFragmentManager());
         this.mTabHost.setTabWidgetViewHeight((int) getResources().getDimension(R.dimen.ds80));
-        this.iBz = new SigleRecordsFragment();
-        this.iBz.setType(1);
+        this.iwS = new SigleRecordsFragment();
+        this.iwS.setType(1);
         com.baidu.tbadk.mainTab.c cVar = new com.baidu.tbadk.mainTab.c();
-        cVar.frag = this.iBz;
+        cVar.frag = this.iwS;
         cVar.textResId = R.string.expenditure_records;
-        a(cVar, gg(getPageContext().getPageActivity()), null);
-        this.iBA = new SigleRecordsFragment();
-        this.iBA.setType(2);
+        a(cVar, ge(getPageContext().getPageActivity()), null);
+        this.iwT = new SigleRecordsFragment();
+        this.iwT.setType(2);
         com.baidu.tbadk.mainTab.c cVar2 = new com.baidu.tbadk.mainTab.c();
-        cVar2.frag = this.iBA;
+        cVar2.frag = this.iwT;
         cVar2.textResId = R.string.income_records;
-        a(cVar2, gg(getPageContext().getPageActivity()), null);
-        this.iBB = new SigleRecordsFragment();
-        this.iBB.setType(3);
+        a(cVar2, ge(getPageContext().getPageActivity()), null);
+        this.iwU = new SigleRecordsFragment();
+        this.iwU.setType(3);
         com.baidu.tbadk.mainTab.c cVar3 = new com.baidu.tbadk.mainTab.c();
-        cVar3.frag = this.iBB;
+        cVar3.frag = this.iwU;
         cVar3.textResId = R.string.recharge_records;
-        a(cVar3, gg(getPageContext().getPageActivity()), null);
+        a(cVar3, ge(getPageContext().getPageActivity()), null);
         this.mTabHost.initViewPager(3);
-        this.mTabHost.setCurrentTab(yC(getIntent().getIntExtra(ConsumptionRecordsActivityConfig.JUMP_FRAGMENT_TYPE, 1)));
+        this.mTabHost.setCurrentTab(wV(getIntent().getIntExtra(ConsumptionRecordsActivityConfig.JUMP_FRAGMENT_TYPE, 1)));
     }
 
-    private int yC(int i) {
+    private int wV(int i) {
         if (i == 1) {
             return 0;
         }
@@ -66,7 +66,7 @@ public class ConsumptionRecordsActivity extends BaseFragmentActivity {
         return i == 3 ? 2 : 0;
     }
 
-    private FragmentTabIndicator gg(Context context) {
+    private FragmentTabIndicator ge(Context context) {
         return (FragmentTabIndicator) LayoutInflater.from(context).inflate(R.layout.fragmenttabindicator, (ViewGroup) null);
     }
 
@@ -80,14 +80,14 @@ public class ConsumptionRecordsActivity extends BaseFragmentActivity {
             }
             fragmentTabIndicator.setTextSize(0, getResources().getDimension(R.dimen.ds32));
             fragmentTabIndicator.dayTextColorResId = R.color.s_actionbar_text_color;
-            bVar.fbC = fragmentTabIndicator;
+            bVar.eWU = fragmentTabIndicator;
             this.mTabHost.a(bVar);
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
     protected void onChangeSkinType(int i) {
-        this.iBy.onChangeSkinType(getPageContext(), i);
+        this.iwR.onChangeSkinType(getPageContext(), i);
         this.mTabHost.setNeedShowThemeStyle(false);
         this.mTabHost.getFragmentTabWidget().setBackGroundDrawableResId(R.color.CAM_X0201);
         this.mTabHost.onChangeSkinType(i);

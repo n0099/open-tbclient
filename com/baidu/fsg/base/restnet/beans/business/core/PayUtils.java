@@ -23,7 +23,7 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
 @SuppressLint({"UseSparseArrays"})
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class PayUtils {
     private static final String API_SECRET = "";
     public static final String KEY_CARD_NO = "card_no";
@@ -205,7 +205,7 @@ public final class PayUtils {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class ParamComparator implements Comparator<String> {
         private ParamComparator() {
         }

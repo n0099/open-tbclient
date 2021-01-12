@@ -5,7 +5,7 @@ import java.util.Collections;
 import java.util.List;
 /* loaded from: classes3.dex */
 abstract class n<V, O> implements m<V, O> {
-    final List<com.airbnb.lottie.e.a<V>> Eu;
+    final List<com.airbnb.lottie.e.a<V>> Es;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public n(V v) {
@@ -14,13 +14,13 @@ abstract class n<V, O> implements m<V, O> {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public n(List<com.airbnb.lottie.e.a<V>> list) {
-        this.Eu = list;
+        this.Es = list;
     }
 
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        if (!this.Eu.isEmpty()) {
-            sb.append("values=").append(Arrays.toString(this.Eu.toArray()));
+        if (!this.Es.isEmpty()) {
+            sb.append("values=").append(Arrays.toString(this.Es.toArray()));
         }
         return sb.toString();
     }

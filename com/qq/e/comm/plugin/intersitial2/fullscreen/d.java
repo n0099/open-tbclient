@@ -3,6 +3,7 @@ package com.qq.e.comm.plugin.intersitial2.fullscreen;
 import android.content.Context;
 import android.text.TextUtils;
 import android.util.Pair;
+import com.baidu.android.imsdk.chatmessage.sync.SyncStrategy;
 import com.baidu.mobstat.Config;
 import com.qq.e.ads.nativ.ADSize;
 import com.qq.e.comm.adevent.ADEvent;
@@ -15,7 +16,7 @@ import com.qq.e.comm.plugin.util.w;
 import java.io.File;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class d extends g {
     private String g;
     private JSONObject h;
@@ -60,8 +61,8 @@ public class d extends g {
     protected void a(JSONObject jSONObject) {
         Pair<Object, Object> b2 = b(jSONObject);
         if (b2 == null || b2.first == null || b2.second == null) {
-            c(6000);
-            com.qq.e.comm.plugin.intersitial2.c.a(this.f, 6000);
+            c(SyncStrategy.DEFAULT_LOGIN_FETCH_SLEEP_TIME);
+            com.qq.e.comm.plugin.intersitial2.c.a(this.f, (int) SyncStrategy.DEFAULT_LOGIN_FETCH_SLEEP_TIME);
         } else if (b2.first instanceof Integer) {
             c(((Integer) b2.first).intValue());
             com.qq.e.comm.plugin.intersitial2.c.a(this.f, ((Integer) b2.second).intValue());
@@ -80,7 +81,7 @@ public class d extends g {
                             @Override // java.lang.Runnable
                             public void run() {
                                 if (d.this.d != null) {
-                                    com.qq.e.comm.plugin.intersitial2.c.a(d.this.f12316a, d.this.f);
+                                    com.qq.e.comm.plugin.intersitial2.c.a(d.this.f12016a, d.this.f);
                                     d.this.d.onADEvent(new ADEvent(2, new Object[]{d.this.c(d.this.h)}));
                                 }
                             }

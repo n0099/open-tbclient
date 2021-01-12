@@ -4,57 +4,57 @@ import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.baseEditMark.MarkData;
 import com.baidu.tbadk.baseEditMark.a;
 import com.baidu.tbadk.core.BaseFragmentActivity;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class b extends com.baidu.tbadk.baseEditMark.a {
-    private MarkModel ltW;
+    private MarkModel lpq;
 
     public b(BaseActivity baseActivity) {
-        this.ltW = null;
-        this.ltW = new MarkModel(baseActivity);
+        this.lpq = null;
+        this.lpq = new MarkModel(baseActivity);
     }
 
     public b(BaseFragmentActivity baseFragmentActivity) {
-        this.ltW = null;
-        this.ltW = new MarkModel(baseFragmentActivity);
+        this.lpq = null;
+        this.lpq = new MarkModel(baseFragmentActivity);
     }
 
     @Override // com.baidu.tbadk.baseEditMark.a
-    public void jc(boolean z) {
-        this.ltW.jc(z);
+    public void iY(boolean z) {
+        this.lpq.iY(z);
     }
 
     @Override // com.baidu.tbadk.baseEditMark.a
-    public String bnx() {
-        return this.ltW.bnx();
+    public String bjD() {
+        return this.lpq.bjD();
     }
 
     @Override // com.baidu.tbadk.baseEditMark.a
-    public void a(a.InterfaceC0574a interfaceC0574a) {
-        this.ltW.a(interfaceC0574a);
+    public void a(a.InterfaceC0557a interfaceC0557a) {
+        this.lpq.a(interfaceC0557a);
     }
 
     @Override // com.baidu.tbadk.baseEditMark.a
-    public void bnz() {
-        this.ltW.bnz();
+    public void bjF() {
+        this.lpq.bjF();
     }
 
     @Override // com.baidu.tbadk.baseEditMark.a
-    public void bnA() {
-        this.ltW.bnA();
+    public void bjG() {
+        this.lpq.bjG();
     }
 
     @Override // com.baidu.tbadk.baseEditMark.a
-    public MarkData bnB() {
-        return this.ltW.bnB();
+    public MarkData bjH() {
+        return this.lpq.bjH();
     }
 
     @Override // com.baidu.tbadk.baseEditMark.a
     public void a(MarkData markData) {
-        this.ltW.a(markData);
+        this.lpq.a(markData);
     }
 
     @Override // com.baidu.tbadk.baseEditMark.a
-    public boolean bny() {
-        return this.ltW.bny();
+    public boolean bjE() {
+        return this.lpq.bjE();
     }
 }

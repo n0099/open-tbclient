@@ -11,7 +11,7 @@ import com.baidu.live.adp.lib.util.StringUtils;
 import com.baidu.live.tbadk.core.TbImgSetting;
 import com.baidu.live.tbadk.core.util.SkinManager;
 @Deprecated
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class ForeDrawableImageView extends TbImageView {
     private String bottomText;
     private int bottomTextPadding;

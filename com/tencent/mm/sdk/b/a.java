@@ -3,16 +3,16 @@ package com.tencent.mm.sdk.b;
 import android.os.Build;
 import android.os.Looper;
 import android.os.Process;
-/* loaded from: classes3.dex */
+/* loaded from: classes14.dex */
 public final class a {
     private static int level = 6;
-    private static InterfaceC1278a n;
-    private static InterfaceC1278a o;
+    private static InterfaceC1261a n;
+    private static InterfaceC1261a o;
     private static final String p;
 
     /* renamed from: com.tencent.mm.sdk.b.a$a  reason: collision with other inner class name */
-    /* loaded from: classes3.dex */
-    public interface InterfaceC1278a {
+    /* loaded from: classes14.dex */
+    public interface InterfaceC1261a {
         int b();
 
         void d(String str, String str2);
@@ -56,11 +56,11 @@ public final class a {
         if (format == null) {
             format = "";
         }
-        InterfaceC1278a interfaceC1278a = o;
+        InterfaceC1261a interfaceC1261a = o;
         Process.myPid();
         Thread.currentThread().getId();
         Looper.getMainLooper().getThread().getId();
-        interfaceC1278a.f(str, format);
+        interfaceC1261a.f(str, format);
     }
 
     public static void b(String str, String str2) {
@@ -70,11 +70,11 @@ public final class a {
         if (str2 == null) {
             str2 = "";
         }
-        InterfaceC1278a interfaceC1278a = o;
+        InterfaceC1261a interfaceC1261a = o;
         Process.myPid();
         Thread.currentThread().getId();
         Looper.getMainLooper().getThread().getId();
-        interfaceC1278a.d(str, str2);
+        interfaceC1261a.d(str, str2);
     }
 
     public static void c(String str, String str2) {
@@ -84,10 +84,10 @@ public final class a {
         if (str2 == null) {
             str2 = "";
         }
-        InterfaceC1278a interfaceC1278a = o;
+        InterfaceC1261a interfaceC1261a = o;
         Process.myPid();
         Thread.currentThread().getId();
         Looper.getMainLooper().getThread().getId();
-        interfaceC1278a.e(str, str2);
+        interfaceC1261a.e(str, str2);
     }
 }

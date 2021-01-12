@@ -2,7 +2,7 @@ package com.kwai.sodler.lib.ext;
 
 import androidx.annotation.Nullable;
 import com.kwai.sodler.lib.a.f;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class a {
     @Nullable
     protected b a(f fVar) {

@@ -6,7 +6,7 @@ import android.view.View;
 import android.widget.RelativeLayout;
 import com.baidu.android.app.event.EventBusWrapper;
 import com.baidu.swan.apps.a;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class NetworkErrorView extends CommonEmptyView {
     public NetworkErrorView(Context context) {
         super(context);
@@ -24,7 +24,7 @@ public class NetworkErrorView extends CommonEmptyView {
     }
 
     private void init() {
-        this.dxV.setVisibility(0);
+        this.dti.setVisibility(0);
         setTitle(getContext().getString(a.h.aiapps_common_emptyview_detail_text));
     }
 
@@ -33,27 +33,27 @@ public class NetworkErrorView extends CommonEmptyView {
     }
 
     public void setEmptyViewVisiblity(int i) {
-        this.dxS.setVisibility(i);
+        this.dtf.setVisibility(i);
     }
 
     public void setEmptyButtonVisiblity(int i) {
-        this.dxV.setVisibility(i);
+        this.dti.setVisibility(i);
     }
 
     public void setNetworkButtonShow(boolean z) {
-        if (this.dxU != null) {
-            this.dxU.setVisibility(z ? 0 : 4);
+        if (this.dth != null) {
+            this.dth.setVisibility(z ? 0 : 4);
         }
     }
 
     public void setBottomLayout(View.OnClickListener onClickListener, View view, RelativeLayout.LayoutParams layoutParams) {
-        if (this.dxW != null && view != null) {
-            this.dxW.setVisibility(0);
-            this.dxW.addView(view);
+        if (this.dtj != null && view != null) {
+            this.dtj.setVisibility(0);
+            this.dtj.addView(view);
             if (layoutParams != null) {
-                this.dxW.setLayoutParams(layoutParams);
+                this.dtj.setLayoutParams(layoutParams);
             }
-            this.dxW.setOnClickListener(onClickListener);
+            this.dtj.setOnClickListener(onClickListener);
         }
     }
 
@@ -72,7 +72,7 @@ public class NetworkErrorView extends CommonEmptyView {
         EventBusWrapper.post(aVar);
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public static class a {
         public int arg0;
         public int messageId;

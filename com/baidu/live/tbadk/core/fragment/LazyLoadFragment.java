@@ -4,7 +4,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public abstract class LazyLoadFragment extends SupportXFragment {
     private ILazyLoadFragmentController mController;
     protected boolean mInitialed;

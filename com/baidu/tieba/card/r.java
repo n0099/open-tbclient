@@ -14,59 +14,59 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 /* loaded from: classes2.dex */
 public class r extends b<com.baidu.tieba.card.data.o> {
-    private View iwu;
-    private String iwx;
-    private TextView ixA;
-    private TbImageView ixB;
-    private TextView ixC;
-    private com.baidu.tieba.card.data.o ixD;
-    private int ixE;
-    private String ixF;
-    private String ixG;
-    private HeadImageView ixy;
-    private TextView ixz;
+    private View irN;
+    private String irQ;
+    private HeadImageView isR;
+    private TextView isS;
+    private TextView isT;
+    private TbImageView isU;
+    private TextView isV;
+    private com.baidu.tieba.card.data.o isW;
+    private int isX;
+    private String isY;
+    private String isZ;
     private View mRootView;
 
     public r(TbPageContext<?> tbPageContext) {
         super(tbPageContext);
-        this.ixE = tbPageContext.getResources().getDimensionPixelSize(R.dimen.ds70);
+        this.isX = tbPageContext.getResources().getDimensionPixelSize(R.dimen.ds70);
         init(getView());
     }
 
-    public void aC(String str, String str2, String str3) {
-        this.iwx = str;
-        this.ixF = str2;
-        this.ixG = str3;
+    public void aB(String str, String str2, String str3) {
+        this.irQ = str;
+        this.isY = str2;
+        this.isZ = str3;
     }
 
     private void init(View view) {
         this.mRootView = view.findViewById(R.id.root_view);
-        this.ixy = (HeadImageView) view.findViewById(R.id.promotion_head_img);
-        this.ixz = (TextView) view.findViewById(R.id.promotion_name);
-        this.ixA = (TextView) view.findViewById(R.id.promotion_desc);
-        this.ixB = (TbImageView) view.findViewById(R.id.promotion_img);
-        this.ixC = (TextView) view.findViewById(R.id.promotion_icon);
-        this.iwu = view.findViewById(R.id.top_line);
-        this.ixy.setOnClickListener(this);
-        this.ixz.setOnClickListener(this);
-        this.ixC.setOnClickListener(this);
+        this.isR = (HeadImageView) view.findViewById(R.id.promotion_head_img);
+        this.isS = (TextView) view.findViewById(R.id.promotion_name);
+        this.isT = (TextView) view.findViewById(R.id.promotion_desc);
+        this.isU = (TbImageView) view.findViewById(R.id.promotion_img);
+        this.isV = (TextView) view.findViewById(R.id.promotion_icon);
+        this.irN = view.findViewById(R.id.top_line);
+        this.isR.setOnClickListener(this);
+        this.isS.setOnClickListener(this);
+        this.isV.setOnClickListener(this);
         this.mRootView.setOnClickListener(this);
-        this.ixy.setDefaultResource(17170445);
-        this.ixy.setPlaceHolder(1);
-        this.ixy.setRadius(this.ixE);
-        this.ixB.setDrawBorder(true);
-        this.ixB.setBorderWidth(1);
-        this.ixB.setPlaceHolder(2);
+        this.isR.setDefaultResource(17170445);
+        this.isR.setPlaceHolder(1);
+        this.isR.setRadius(this.isX);
+        this.isU.setDrawBorder(true);
+        this.isU.setBorderWidth(1);
+        this.isU.setPlaceHolder(2);
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if ((view == this.ixy || view == this.ixz || view == this.ixC) && !StringUtils.isNull(this.ixD.iAC)) {
-            TiebaStatic.log(new aq(this.ixF).dX("obj_id", String.valueOf(this.ixD.iAA)));
-            be.bwv().b(getTbPageContext(), new String[]{this.ixD.iAC});
-        } else if ((view == this.mRootView || view == this.ixA || view == this.ixB) && !StringUtils.isNull(this.ixD.iAF)) {
-            TiebaStatic.log(new aq(this.ixG).dX("obj_id", String.valueOf(this.ixD.iAA)));
-            be.bwv().b(getTbPageContext(), new String[]{this.ixD.iAF});
+        if ((view == this.isR || view == this.isS || view == this.isV) && !StringUtils.isNull(this.isW.ivV)) {
+            TiebaStatic.log(new aq(this.isY).dW("obj_id", String.valueOf(this.isW.ivT)));
+            be.bsB().b(getTbPageContext(), new String[]{this.isW.ivV});
+        } else if ((view == this.mRootView || view == this.isT || view == this.isU) && !StringUtils.isNull(this.isW.ivY)) {
+            TiebaStatic.log(new aq(this.isZ).dW("obj_id", String.valueOf(this.isW.ivT)));
+            be.bsB().b(getTbPageContext(), new String[]{this.isW.ivY});
         }
     }
 
@@ -74,13 +74,13 @@ public class r extends b<com.baidu.tieba.card.data.o> {
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
         if (this.mSkinType != i) {
             ao.setBackgroundResource(this.mRootView, R.drawable.addresslist_item_bg);
-            ao.setBackgroundResource(this.ixC, R.drawable.label_bg_gray);
-            ao.setBackgroundResource(this.iwu, R.color.CAM_X0204);
-            ao.setViewTextColor(this.ixz, R.color.CAM_X0105, 1);
-            ao.setViewTextColor(this.ixC, R.color.CAM_X0109, 1);
-            ao.setViewTextColor(this.ixA, R.color.CAM_X0105, 1);
-            this.ixy.setPlaceHolder(1);
-            this.ixB.setPlaceHolder(2);
+            ao.setBackgroundResource(this.isV, R.drawable.label_bg_gray);
+            ao.setBackgroundResource(this.irN, R.color.CAM_X0204);
+            ao.setViewTextColor(this.isS, R.color.CAM_X0105, 1);
+            ao.setViewTextColor(this.isV, R.color.CAM_X0109, 1);
+            ao.setViewTextColor(this.isT, R.color.CAM_X0105, 1);
+            this.isR.setPlaceHolder(1);
+            this.isU.setPlaceHolder(2);
         }
         this.mSkinType = i;
     }
@@ -100,21 +100,21 @@ public class r extends b<com.baidu.tieba.card.data.o> {
         if (this.mRootView.getVisibility() != 0) {
             this.mRootView.setVisibility(0);
         }
-        this.ixD = oVar;
-        this.ixy.startLoad(oVar.iAB, 10, false);
-        this.ixz.setText(UtilHelper.getFixedText(oVar.userName, 7, true));
-        if (StringUtils.isNull(oVar.iAH)) {
-            this.ixC.setVisibility(8);
+        this.isW = oVar;
+        this.isR.startLoad(oVar.ivU, 10, false);
+        this.isS.setText(UtilHelper.getFixedText(oVar.userName, 7, true));
+        if (StringUtils.isNull(oVar.iwa)) {
+            this.isV.setVisibility(8);
         } else {
-            this.ixC.setVisibility(0);
-            this.ixC.setText(oVar.iAH);
+            this.isV.setVisibility(0);
+            this.isV.setText(oVar.iwa);
         }
-        this.ixA.setText(oVar.iAD);
-        if (com.baidu.tbadk.core.k.bov().isShowImages()) {
-            this.ixB.setVisibility(0);
-            this.ixB.startLoad(oVar.iAE, 10, false);
+        this.isT.setText(oVar.ivW);
+        if (com.baidu.tbadk.core.k.bkB().isShowImages()) {
+            this.isU.setVisibility(0);
+            this.isU.startLoad(oVar.ivX, 10, false);
             return;
         }
-        this.ixB.setVisibility(8);
+        this.isU.setVisibility(8);
     }
 }

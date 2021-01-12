@@ -15,7 +15,7 @@ import androidx.annotation.RestrictTo;
 import java.io.IOException;
 import org.xmlpull.v1.XmlPullParserException;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public final class ComplexColorCompat {
     private static final String LOG_TAG = "ComplexColorCompat";
     private int mColor;

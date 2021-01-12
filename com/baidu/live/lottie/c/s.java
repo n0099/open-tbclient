@@ -12,7 +12,7 @@ import com.meizu.cloud.pushsdk.constants.PushConstants;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class s {
     public static Layer d(com.baidu.live.lottie.e eVar) {
         Rect hR = eVar.hR();
@@ -160,7 +160,7 @@ public class s {
                     }
                     break;
                 case 3717:
-                    if (nextName.equals("ty")) {
+                    if (nextName.equals(Config.EXCEPTION_CRASH_CHANNEL)) {
                         c = 3;
                         break;
                     }

@@ -1,5 +1,5 @@
 package com.baidu.live.tbadk.core.atomdata;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class BDxdConfig {
     public static final String EXTRA_BDXD = "bdxd";
     private static final BDxdConfig con = new BDxdConfig();

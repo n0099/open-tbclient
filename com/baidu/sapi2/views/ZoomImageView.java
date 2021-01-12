@@ -23,10 +23,10 @@ public class ZoomImageView extends ImageView implements ScaleGestureDetector.OnS
     private static ZoomImageView p;
 
     /* renamed from: a  reason: collision with root package name */
-    public float f5444a;
+    public float f5161a;
 
     /* renamed from: b  reason: collision with root package name */
-    private final float[] f5445b;
+    private final float[] f5162b;
     private boolean c;
     private ScaleGestureDetector d;
     public final Matrix e;
@@ -144,8 +144,8 @@ public class ZoomImageView extends ImageView implements ScaleGestureDetector.OnS
     }
 
     public final float getScale() {
-        this.e.getValues(this.f5445b);
-        return this.f5445b[0];
+        this.e.getValues(this.f5162b);
+        return this.f5162b[0];
     }
 
     @Override // android.widget.ImageView, android.view.View
@@ -178,7 +178,7 @@ public class ZoomImageView extends ImageView implements ScaleGestureDetector.OnS
             } else {
                 max = Math.max(((getWidth() * 1.0f) - (this.m * 2)) / intrinsicWidth, ((getHeight() * 1.0f) - (this.n * 2)) / intrinsicHeight);
             }
-            this.f5444a = max;
+            this.f5161a = max;
             this.e.postTranslate((width - intrinsicWidth) / 2, (height - intrinsicHeight) / 2);
             this.e.postScale(max, max, width / 2, height / 2);
             setImageMatrix(this.e);
@@ -278,8 +278,8 @@ public class ZoomImageView extends ImageView implements ScaleGestureDetector.OnS
 
     public ZoomImageView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f5444a = 1.0f;
-        this.f5445b = new float[9];
+        this.f5161a = 1.0f;
+        this.f5162b = new float[9];
         this.c = true;
         this.e = new Matrix();
         this.f = 0;

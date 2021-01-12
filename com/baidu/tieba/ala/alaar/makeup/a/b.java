@@ -7,10 +7,10 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class b extends com.baidu.tieba.ala.alaar.makeup.b.a {
-    public String gui;
-    private int guj;
+    public String gpB;
+    private int gpC;
     private List<d> mData;
     private File mFolder;
     private int mPosition;
@@ -45,7 +45,7 @@ public class b extends com.baidu.tieba.ala.alaar.makeup.b.a {
         return this.mSign;
     }
 
-    public void Z(File file) {
+    public void Y(File file) {
         this.mFolder = file;
     }
 
@@ -54,15 +54,15 @@ public class b extends com.baidu.tieba.ala.alaar.makeup.b.a {
         if (jSONObject == null) {
             return false;
         }
-        this.guj = jSONObject.optInt("ar_version");
-        this.gui = jSONObject.optString("version");
+        this.gpC = jSONObject.optInt("ar_version");
+        this.gpB = jSONObject.optString("version");
         this.mPosition = jSONObject.optInt("position");
         JSONArray optJSONArray = jSONObject.optJSONArray("makeup_category");
         this.mData = new ArrayList();
         for (int i = 0; i < optJSONArray.length(); i++) {
             JSONObject optJSONObject = optJSONArray.optJSONObject(i);
             d dVar = new d();
-            dVar.Z(this.mFolder);
+            dVar.Y(this.mFolder);
             if (dVar.dD(optJSONObject)) {
                 this.mData.add(dVar);
             }
@@ -74,8 +74,8 @@ public class b extends com.baidu.tieba.ala.alaar.makeup.b.a {
         JSONObject json;
         try {
             JSONObject jSONObject = new JSONObject();
-            jSONObject.put("ar_version", this.guj);
-            jSONObject.put("version", this.gui);
+            jSONObject.put("ar_version", this.gpC);
+            jSONObject.put("version", this.gpB);
             jSONObject.put("position", this.mPosition);
             JSONArray jSONArray = new JSONArray();
             if (this.mData != null && this.mData.size() > 0) {

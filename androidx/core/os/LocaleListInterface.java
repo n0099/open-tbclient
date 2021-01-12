@@ -6,7 +6,7 @@ import androidx.annotation.Nullable;
 import androidx.annotation.RestrictTo;
 import java.util.Locale;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 interface LocaleListInterface {
     boolean equals(Object obj);
 

@@ -2,22 +2,22 @@ package com.baidu.live.lottie.model.content;
 
 import android.graphics.Path;
 import androidx.annotation.Nullable;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class i implements b {
-    private final Path.FillType FJ;
-    private final boolean Gk;
+    private final Path.FillType FH;
+    private final boolean Gi;
     @Nullable
-    private final com.baidu.live.lottie.model.a.a buD;
+    private final com.baidu.live.lottie.model.a.a bpP;
     @Nullable
-    private final com.baidu.live.lottie.model.a.d buL;
+    private final com.baidu.live.lottie.model.a.d bpX;
     private final String name;
 
     public i(String str, boolean z, Path.FillType fillType, @Nullable com.baidu.live.lottie.model.a.a aVar, @Nullable com.baidu.live.lottie.model.a.d dVar) {
         this.name = str;
-        this.Gk = z;
-        this.FJ = fillType;
-        this.buD = aVar;
-        this.buL = dVar;
+        this.Gi = z;
+        this.FH = fillType;
+        this.bpP = aVar;
+        this.bpX = dVar;
     }
 
     public String getName() {
@@ -25,17 +25,17 @@ public class i implements b {
     }
 
     @Nullable
-    public com.baidu.live.lottie.model.a.a Qv() {
-        return this.buD;
+    public com.baidu.live.lottie.model.a.a MA() {
+        return this.bpP;
     }
 
     @Nullable
-    public com.baidu.live.lottie.model.a.d PV() {
-        return this.buL;
+    public com.baidu.live.lottie.model.a.d Ma() {
+        return this.bpX;
     }
 
     public Path.FillType jp() {
-        return this.FJ;
+        return this.FH;
     }
 
     @Override // com.baidu.live.lottie.model.content.b
@@ -44,6 +44,6 @@ public class i implements b {
     }
 
     public String toString() {
-        return "ShapeFill{color=, fillEnabled=" + this.Gk + '}';
+        return "ShapeFill{color=, fillEnabled=" + this.Gi + '}';
     }
 }

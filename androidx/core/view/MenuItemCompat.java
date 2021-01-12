@@ -7,7 +7,7 @@ import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import androidx.core.internal.view.SupportMenuItem;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public final class MenuItemCompat {
     @Deprecated
     public static final int SHOW_AS_ACTION_ALWAYS = 2;
@@ -22,7 +22,7 @@ public final class MenuItemCompat {
     private static final String TAG = "MenuItemCompat";
 
     @Deprecated
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public interface OnActionExpandListener {
         boolean onMenuItemActionCollapse(MenuItem menuItem);
 

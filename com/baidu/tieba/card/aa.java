@@ -4,7 +4,7 @@ import android.view.View;
 import com.baidu.tieba.card.data.BaseCardInfo;
 /* loaded from: classes.dex */
 public class aa<T extends BaseCardInfo> {
-    public Object akp;
+    public Object ajy;
 
     public void a(View view, T t) {
     }

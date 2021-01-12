@@ -8,7 +8,7 @@ import com.kwai.video.hodor.HodorConfig;
 import com.kwai.video.hodor.NetworkMonitor;
 import com.kwai.video.hodor.util.OnceReadyBarrier;
 import com.kwai.video.hodor.util.Timber;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class AwesomeCacheInitConfig {
     private static volatile AwesomeCacheSoLoader sAwesomeCacheSoLoader;
     private static boolean mInited = false;

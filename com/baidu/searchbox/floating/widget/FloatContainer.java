@@ -13,7 +13,7 @@ import kotlin.e;
 import kotlin.jvm.internal.o;
 import kotlin.jvm.internal.p;
 @e
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public final class FloatContainer extends FrameLayout {
     private HashMap _$_findViewCache;
     private ClickListener clickListener;
@@ -24,19 +24,19 @@ public final class FloatContainer extends FrameLayout {
     private TouchListener touchListener;
 
     @e
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public interface ClickListener {
         void onClick();
     }
 
     @e
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public interface LayoutListener {
         void onLayout();
     }
 
     @e
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public interface TouchListener {
         void onTouch(MotionEvent motionEvent);
     }

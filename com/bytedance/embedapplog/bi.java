@@ -8,11 +8,11 @@ public interface bi {
     public static class a {
 
         /* renamed from: b  reason: collision with root package name */
-        public String f6101b;
+        public String f5801b;
         boolean c;
     }
 
     boolean a(Context context);
 
-    a hR(Context context);
+    a hP(Context context);
 }

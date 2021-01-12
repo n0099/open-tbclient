@@ -19,52 +19,52 @@ import io.reactivex.y;
 import java.util.concurrent.Callable;
 /* loaded from: classes5.dex */
 public final class a {
-    static volatile g<? super Throwable> qmi;
-    static volatile h<? super Runnable, ? extends Runnable> qmj;
-    static volatile h<? super Callable<v>, ? extends v> qmk;
-    static volatile h<? super Callable<v>, ? extends v> qml;
-    static volatile h<? super Callable<v>, ? extends v> qmm;
-    static volatile h<? super Callable<v>, ? extends v> qmn;
-    static volatile h<? super v, ? extends v> qmo;
-    static volatile h<? super io.reactivex.g, ? extends io.reactivex.g> qmp;
-    static volatile c<? super io.reactivex.g, ? super org.a.c, ? extends org.a.c> qmq;
-    static volatile c<? super k, ? super m, ? extends m> qmr;
-    static volatile c<? super q, ? super u, ? extends u> qms;
-    static volatile c<? super w, ? super y, ? extends y> qmt;
-    static volatile c<? super io.reactivex.a, ? super io.reactivex.c, ? extends io.reactivex.c> qmu;
-    static volatile e qmv;
-    static volatile boolean qmw;
+    static volatile g<? super Throwable> qhG;
+    static volatile h<? super Runnable, ? extends Runnable> qhH;
+    static volatile h<? super Callable<v>, ? extends v> qhI;
+    static volatile h<? super Callable<v>, ? extends v> qhJ;
+    static volatile h<? super Callable<v>, ? extends v> qhK;
+    static volatile h<? super Callable<v>, ? extends v> qhL;
+    static volatile h<? super v, ? extends v> qhM;
+    static volatile h<? super io.reactivex.g, ? extends io.reactivex.g> qhN;
+    static volatile c<? super io.reactivex.g, ? super org.a.c, ? extends org.a.c> qhO;
+    static volatile c<? super k, ? super m, ? extends m> qhP;
+    static volatile c<? super q, ? super u, ? extends u> qhQ;
+    static volatile c<? super w, ? super y, ? extends y> qhR;
+    static volatile c<? super io.reactivex.a, ? super io.reactivex.c, ? extends io.reactivex.c> qhS;
+    static volatile e qhT;
+    static volatile boolean qhU;
 
-    public static boolean eMg() {
-        return qmw;
+    public static boolean eIq() {
+        return qhU;
     }
 
     public static v d(Callable<v> callable) {
         io.reactivex.internal.functions.a.m(callable, "Scheduler Callable can't be null");
-        h<? super Callable<v>, ? extends v> hVar = qmk;
+        h<? super Callable<v>, ? extends v> hVar = qhI;
         return hVar == null ? h(callable) : a(hVar, callable);
     }
 
     public static v e(Callable<v> callable) {
         io.reactivex.internal.functions.a.m(callable, "Scheduler Callable can't be null");
-        h<? super Callable<v>, ? extends v> hVar = qmm;
+        h<? super Callable<v>, ? extends v> hVar = qhK;
         return hVar == null ? h(callable) : a(hVar, callable);
     }
 
     public static v f(Callable<v> callable) {
         io.reactivex.internal.functions.a.m(callable, "Scheduler Callable can't be null");
-        h<? super Callable<v>, ? extends v> hVar = qmn;
+        h<? super Callable<v>, ? extends v> hVar = qhL;
         return hVar == null ? h(callable) : a(hVar, callable);
     }
 
     public static v g(Callable<v> callable) {
         io.reactivex.internal.functions.a.m(callable, "Scheduler Callable can't be null");
-        h<? super Callable<v>, ? extends v> hVar = qml;
+        h<? super Callable<v>, ? extends v> hVar = qhJ;
         return hVar == null ? h(callable) : a(hVar, callable);
     }
 
     public static void onError(Throwable th) {
-        g<? super Throwable> gVar = qmi;
+        g<? super Throwable> gVar = qhG;
         if (th == null) {
             th = new NullPointerException("onError called with null. Null values are generally not allowed in 2.x operators and sources.");
         } else if (!R(th)) {
@@ -94,47 +94,47 @@ public final class a {
 
     public static Runnable H(Runnable runnable) {
         io.reactivex.internal.functions.a.m(runnable, "run is null");
-        h<? super Runnable, ? extends Runnable> hVar = qmj;
+        h<? super Runnable, ? extends Runnable> hVar = qhH;
         return hVar == null ? runnable : (Runnable) a((h<Runnable, Object>) hVar, runnable);
     }
 
     public static v a(v vVar) {
-        h<? super v, ? extends v> hVar = qmo;
+        h<? super v, ? extends v> hVar = qhM;
         return hVar == null ? vVar : (v) a((h<v, Object>) hVar, vVar);
     }
 
     public static <T> org.a.c<? super T> a(io.reactivex.g<T> gVar, org.a.c<? super T> cVar) {
-        c<? super io.reactivex.g, ? super org.a.c, ? extends org.a.c> cVar2 = qmq;
+        c<? super io.reactivex.g, ? super org.a.c, ? extends org.a.c> cVar2 = qhO;
         return cVar2 != null ? (org.a.c) a(cVar2, gVar, cVar) : cVar;
     }
 
     public static <T> u<? super T> a(q<T> qVar, u<? super T> uVar) {
-        c<? super q, ? super u, ? extends u> cVar = qms;
+        c<? super q, ? super u, ? extends u> cVar = qhQ;
         return cVar != null ? (u) a(cVar, qVar, uVar) : uVar;
     }
 
     public static <T> y<? super T> a(w<T> wVar, y<? super T> yVar) {
-        c<? super w, ? super y, ? extends y> cVar = qmt;
+        c<? super w, ? super y, ? extends y> cVar = qhR;
         return cVar != null ? (y) a(cVar, wVar, yVar) : yVar;
     }
 
     public static io.reactivex.c a(io.reactivex.a aVar, io.reactivex.c cVar) {
-        c<? super io.reactivex.a, ? super io.reactivex.c, ? extends io.reactivex.c> cVar2 = qmu;
+        c<? super io.reactivex.a, ? super io.reactivex.c, ? extends io.reactivex.c> cVar2 = qhS;
         return cVar2 != null ? (io.reactivex.c) a(cVar2, aVar, cVar) : cVar;
     }
 
     public static <T> m<? super T> a(k<T> kVar, m<? super T> mVar) {
-        c<? super k, ? super m, ? extends m> cVar = qmr;
+        c<? super k, ? super m, ? extends m> cVar = qhP;
         return cVar != null ? (m) a(cVar, kVar, mVar) : mVar;
     }
 
     public static <T> io.reactivex.g<T> a(io.reactivex.g<T> gVar) {
-        h<? super io.reactivex.g, ? extends io.reactivex.g> hVar = qmp;
+        h<? super io.reactivex.g, ? extends io.reactivex.g> hVar = qhN;
         return hVar != null ? (io.reactivex.g) a((h<io.reactivex.g<T>, Object>) hVar, gVar) : gVar;
     }
 
-    public static boolean eMh() {
-        e eVar = qmv;
+    public static boolean eIr() {
+        e eVar = qhT;
         if (eVar != null) {
             try {
                 return eVar.getAsBoolean();

@@ -1,70 +1,70 @@
 package com.baidu.swan.games.b;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class a {
 
     /* renamed from: com.baidu.swan.games.b.a$a  reason: collision with other inner class name */
-    /* loaded from: classes9.dex */
-    public interface InterfaceC0531a {
+    /* loaded from: classes8.dex */
+    public interface InterfaceC0514a {
         void onFail(String str);
 
         void onSuccess();
     }
 
-    public static void a(final InterfaceC0531a interfaceC0531a) {
-        com.baidu.swan.games.m.a.baY().a(new InterfaceC0531a() { // from class: com.baidu.swan.games.b.a.1
-            @Override // com.baidu.swan.games.b.a.InterfaceC0531a
+    public static void a(final InterfaceC0514a interfaceC0514a) {
+        com.baidu.swan.games.m.a.aXe().a(new InterfaceC0514a() { // from class: com.baidu.swan.games.b.a.1
+            @Override // com.baidu.swan.games.b.a.InterfaceC0514a
             public void onSuccess() {
-                InterfaceC0531a.this.onSuccess();
+                InterfaceC0514a.this.onSuccess();
             }
 
-            @Override // com.baidu.swan.games.b.a.InterfaceC0531a
+            @Override // com.baidu.swan.games.b.a.InterfaceC0514a
             public void onFail(String str) {
-                InterfaceC0531a.this.onFail(str);
+                InterfaceC0514a.this.onFail(str);
             }
         });
     }
 
-    private static void a(com.baidu.swan.apps.runtime.e eVar, final InterfaceC0531a interfaceC0531a) {
-        if (eVar.aMy().isLogin(eVar.aMf())) {
-            interfaceC0531a.onSuccess();
+    private static void a(com.baidu.swan.apps.runtime.e eVar, final InterfaceC0514a interfaceC0514a) {
+        if (eVar.aIE().isLogin(eVar.aIl())) {
+            interfaceC0514a.onSuccess();
         } else {
-            eVar.aMy().a(eVar.aMf(), null, new com.baidu.swan.apps.a.a() { // from class: com.baidu.swan.games.b.a.2
+            eVar.aIE().a(eVar.aIl(), null, new com.baidu.swan.apps.a.a() { // from class: com.baidu.swan.games.b.a.2
                 @Override // com.baidu.swan.apps.a.a
                 public void onResult(int i) {
                     if (i == 0) {
-                        InterfaceC0531a.this.onSuccess();
+                        InterfaceC0514a.this.onSuccess();
                     } else {
-                        InterfaceC0531a.this.onFail("login error");
+                        InterfaceC0514a.this.onFail("login error");
                     }
                 }
             });
         }
     }
 
-    public static void b(final InterfaceC0531a interfaceC0531a) {
-        com.baidu.swan.apps.runtime.e aMm = com.baidu.swan.apps.runtime.e.aMm();
-        if (aMm == null || aMm.aMf() == null) {
-            interfaceC0531a.onFail("SwanApp is null or SwanActivity is null");
+    public static void b(final InterfaceC0514a interfaceC0514a) {
+        com.baidu.swan.apps.runtime.e aIs = com.baidu.swan.apps.runtime.e.aIs();
+        if (aIs == null || aIs.aIl() == null) {
+            interfaceC0514a.onFail("SwanApp is null or SwanActivity is null");
         } else {
-            a(aMm, new InterfaceC0531a() { // from class: com.baidu.swan.games.b.a.3
-                @Override // com.baidu.swan.games.b.a.InterfaceC0531a
+            a(aIs, new InterfaceC0514a() { // from class: com.baidu.swan.games.b.a.3
+                @Override // com.baidu.swan.games.b.a.InterfaceC0514a
                 public void onSuccess() {
-                    a.a(new InterfaceC0531a() { // from class: com.baidu.swan.games.b.a.3.1
-                        @Override // com.baidu.swan.games.b.a.InterfaceC0531a
+                    a.a(new InterfaceC0514a() { // from class: com.baidu.swan.games.b.a.3.1
+                        @Override // com.baidu.swan.games.b.a.InterfaceC0514a
                         public void onSuccess() {
-                            InterfaceC0531a.this.onSuccess();
+                            InterfaceC0514a.this.onSuccess();
                         }
 
-                        @Override // com.baidu.swan.games.b.a.InterfaceC0531a
+                        @Override // com.baidu.swan.games.b.a.InterfaceC0514a
                         public void onFail(String str) {
-                            InterfaceC0531a.this.onFail(str);
+                            InterfaceC0514a.this.onFail(str);
                         }
                     });
                 }
 
-                @Override // com.baidu.swan.games.b.a.InterfaceC0531a
+                @Override // com.baidu.swan.games.b.a.InterfaceC0514a
                 public void onFail(String str) {
-                    InterfaceC0531a.this.onFail(str);
+                    InterfaceC0514a.this.onFail(str);
                 }
             });
         }

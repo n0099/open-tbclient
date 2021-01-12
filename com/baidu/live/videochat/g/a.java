@@ -8,7 +8,7 @@ import com.baidu.live.data.AlaAvtsConfigInfo;
 import com.baidu.live.data.AlaAvtsData;
 import com.baidu.live.recorder.helper.LiveRecorderConfigHelper;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class a {
     public static AlaLiveRtcConfig b(AlaAvtsData alaAvtsData, AlaAvtsConfigInfo alaAvtsConfigInfo) {
         AlaLiveRtcConfig alaLiveRtcConfig = new AlaLiveRtcConfig();
@@ -29,12 +29,12 @@ public class a {
 
     public static void a(AlaLiveRecorder alaLiveRecorder, AlaLiveRtcConfig alaLiveRtcConfig) {
         if (alaLiveRecorder != null && alaLiveRtcConfig != null) {
-            LiveRecorderConfigHelper.Sb().Sc();
+            LiveRecorderConfigHelper.Og().Oh();
             alaLiveRecorder.setRtcConfig(alaLiveRtcConfig);
-            LiveRecorderConfigHelper.VideoResolution f = LiveRecorderConfigHelper.Sb().f(true, true);
+            LiveRecorderConfigHelper.VideoResolution f = LiveRecorderConfigHelper.Og().f(true, true);
             AlaLiveVideoConfig videoConfig = alaLiveRecorder.getVideoConfig();
             if (videoConfig != null) {
-                LiveRecorderConfigHelper.Sb().a(true, videoConfig);
+                LiveRecorderConfigHelper.Og().a(true, videoConfig);
             }
             alaLiveRecorder.switchToRtcMode(f.getWidth(), f.getHeight());
         }
@@ -44,11 +44,11 @@ public class a {
         if (alaLiveRecorder == null || alaLiveRtcConfig == null) {
             return false;
         }
-        LiveRecorderConfigHelper.Sb().Sc();
+        LiveRecorderConfigHelper.Og().Oh();
         alaLiveRtcConfig.mPushUrl = str;
         alaLiveRecorder.setRtcConfig(alaLiveRtcConfig);
-        LiveRecorderConfigHelper.Sb().a(false, alaLiveRecorder.getVideoConfig());
-        LiveRecorderConfigHelper.VideoResolution f = LiveRecorderConfigHelper.Sb().f(false, true);
+        LiveRecorderConfigHelper.Og().a(false, alaLiveRecorder.getVideoConfig());
+        LiveRecorderConfigHelper.VideoResolution f = LiveRecorderConfigHelper.Og().f(false, true);
         alaLiveRecorder.getVideoConfig().setOutputWidth(f.getWidth());
         alaLiveRecorder.getVideoConfig().setOutputHeight(f.getHeight());
         if (!alaLiveRecorder.setDefaultRtcMode()) {

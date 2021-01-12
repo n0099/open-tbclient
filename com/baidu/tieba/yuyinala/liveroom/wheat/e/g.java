@@ -12,9 +12,9 @@ import com.baidu.live.tbadk.core.util.ListUtils;
 import com.baidu.live.tbadk.extraparams.ExtraParamsManager;
 import com.baidu.live.tbadk.pay.PayHelper;
 import com.baidu.tieba.yuyinala.liveroom.wheat.dialog.g;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class g {
-    public static String aas() {
+    public static String Wz() {
         AccountData currentAccountInfo = TbadkCoreApplication.getCurrentAccountInfo();
         if (currentAccountInfo != null) {
             return ExtraParamsManager.getEncryptionUserId(currentAccountInfo.getID());
@@ -23,49 +23,49 @@ public class g {
     }
 
     public static int as(x xVar) {
-        if (xVar == null || xVar.aLq == null) {
+        if (xVar == null || xVar.aGD == null) {
             return 0;
         }
-        return xVar.aLq.getRoomMode();
+        return xVar.aGD.getRoomMode();
     }
 
     public static int at(x xVar) {
-        if (xVar == null || xVar.aLq == null) {
+        if (xVar == null || xVar.aGD == null) {
             return 0;
         }
-        return xVar.aLq.getActivityStage();
+        return xVar.aGD.getActivityStage();
     }
 
-    public static boolean egk() {
-        String aas = aas();
-        return aas != null && com.baidu.live.aq.a.aan().jo(aas);
+    public static boolean ecs() {
+        String Wz = Wz();
+        return Wz != null && com.baidu.live.aq.a.Wu().id(Wz);
     }
 
     public static String d(x xVar, int i) {
         switch (i) {
             case 0:
-                if (xVar != null && xVar.aLm != null && xVar.aLm.aUQ != null && xVar.aLm.aUQ.size() >= 5) {
-                    return xVar.aLm.aUQ.get(0);
+                if (xVar != null && xVar.aGz != null && xVar.aGz.aQd != null && xVar.aGz.aQd.size() >= 5) {
+                    return xVar.aGz.aQd.get(0);
                 }
                 return "欢迎来到约会现场，快来上麦寻找心动的TA吧~";
             case 1:
-                if (xVar != null && xVar.aLm != null && xVar.aLm.aUQ != null && xVar.aLm.aUQ.size() >= 5) {
-                    return xVar.aLm.aUQ.get(1);
+                if (xVar != null && xVar.aGz != null && xVar.aGz.aQd != null && xVar.aGz.aQd.size() >= 5) {
+                    return xVar.aGz.aQd.get(1);
                 }
                 return "约会开始，和你心仪的TA甜蜜互动吧~";
             case 2:
-                if (xVar != null && xVar.aLm != null && xVar.aLm.aUQ != null && xVar.aLm.aUQ.size() >= 5) {
-                    return xVar.aLm.aUQ.get(2);
+                if (xVar != null && xVar.aGz != null && xVar.aGz.aQd != null && xVar.aGz.aQd.size() >= 5) {
+                    return xVar.aGz.aQd.get(2);
                 }
                 return "等待麦上用户选择心动嘉宾...";
             case 3:
-                if (xVar != null && xVar.aLm != null && xVar.aLm.aUQ != null && xVar.aLm.aUQ.size() >= 5) {
-                    return xVar.aLm.aUQ.get(3);
+                if (xVar != null && xVar.aGz != null && xVar.aGz.aQd != null && xVar.aGz.aQd.size() >= 5) {
+                    return xVar.aGz.aQd.get(3);
                 }
                 return "等待主持公布匹配结果...";
             case 4:
-                if (xVar != null && xVar.aLm != null && xVar.aLm.aUQ != null && xVar.aLm.aUQ.size() >= 5) {
-                    return xVar.aLm.aUQ.get(4);
+                if (xVar != null && xVar.aGz != null && xVar.aGz.aQd != null && xVar.aGz.aQd.size() >= 5) {
+                    return xVar.aGz.aQd.get(4);
                 }
                 return "甜蜜值达到3399时将触发甜蜜时刻，跟你心仪的TA甜蜜告白吧";
             default:
@@ -77,9 +77,9 @@ public class g {
         com.baidu.tieba.yuyinala.liveroom.wheat.dialog.g gVar = new com.baidu.tieba.yuyinala.liveroom.wheat.dialog.g(activity);
         gVar.show();
         gVar.setText(str);
-        gVar.VM(PayHelper.STATUS_CANCEL_DESC);
+        gVar.UE(PayHelper.STATUS_CANCEL_DESC);
         gVar.cd("确认", a.c.sdk_black_alpha100);
-        gVar.efH();
+        gVar.ebP();
         gVar.a(new g.a() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.e.g.1
             @Override // com.baidu.tieba.yuyinala.liveroom.wheat.dialog.g.a
             public void onCancel() {
@@ -99,24 +99,24 @@ public class g {
     }
 
     public static int au(x xVar) {
-        if (xVar == null || xVar.aLm == null) {
+        if (xVar == null || xVar.aGz == null) {
             return 0;
         }
-        return xVar.aLm.aUO;
+        return xVar.aGz.aQb;
     }
 
     public static String av(x xVar) {
-        if (xVar == null || xVar.aLl == null) {
+        if (xVar == null || xVar.aGy == null) {
             return "";
         }
-        return xVar.aLl.aVu;
+        return xVar.aGy.aQH;
     }
 
     public static String aw(x xVar) {
-        if (xVar == null || xVar.aLl == null) {
+        if (xVar == null || xVar.aGy == null) {
             return "";
         }
-        return xVar.aLl.croom_id;
+        return xVar.aGy.croom_id;
     }
 
     public static long ax(x xVar) {
@@ -134,18 +134,18 @@ public class g {
 
     public static int ay(x xVar) {
         db dbVar;
-        if (xVar == null || (dbVar = (db) ListUtils.getItem(xVar.aLG, xVar.aLq.getRoomMode())) == null || dbVar.aVl <= 0) {
+        if (xVar == null || (dbVar = (db) ListUtils.getItem(xVar.aGT, xVar.aGD.getRoomMode())) == null || dbVar.aQy <= 0) {
             return 5;
         }
-        return dbVar.aVl;
+        return dbVar.aQy;
     }
 
     public static int az(x xVar) {
         db dbVar;
-        if (xVar == null || (dbVar = (db) ListUtils.getItem(xVar.aLG, xVar.aLq.getRoomMode())) == null || dbVar.aVk <= 0) {
+        if (xVar == null || (dbVar = (db) ListUtils.getItem(xVar.aGT, xVar.aGD.getRoomMode())) == null || dbVar.aQx <= 0) {
             return 30;
         }
-        return dbVar.aVk;
+        return dbVar.aQx;
     }
 
     public static int aA(x xVar) {
@@ -153,30 +153,30 @@ public class g {
         if (xVar == null) {
             return 20;
         }
-        db dbVar = (db) ListUtils.getItem(xVar.aLG, xVar.aLq.getRoomMode());
-        if (dbVar == null || dbVar.aVj <= 0) {
+        db dbVar = (db) ListUtils.getItem(xVar.aGT, xVar.aGD.getRoomMode());
+        if (dbVar == null || dbVar.aQw <= 0) {
             i = 20;
         } else {
-            i = dbVar.aVj;
+            i = dbVar.aQw;
         }
-        int i2 = com.baidu.live.d.Ba().getInt("audio_live_pk_time", 0);
+        int i2 = com.baidu.live.d.xf().getInt("audio_live_pk_time", 0);
         return (i2 == 0 || i2 < ay(xVar) || i2 > az(xVar)) ? i : i2;
     }
 
     public static int aB(x xVar) {
         db dbVar;
-        if (xVar == null || (dbVar = (db) ListUtils.getItem(xVar.aLG, xVar.aLq.getRoomMode())) == null || dbVar.aVq <= 0) {
+        if (xVar == null || (dbVar = (db) ListUtils.getItem(xVar.aGT, xVar.aGD.getRoomMode())) == null || dbVar.aQD <= 0) {
             return 5;
         }
-        return dbVar.aVq;
+        return dbVar.aQD;
     }
 
     public static int aC(x xVar) {
         db dbVar;
-        if (xVar == null || (dbVar = (db) ListUtils.getItem(xVar.aLG, xVar.aLq.getRoomMode())) == null || dbVar.aVp <= 0) {
+        if (xVar == null || (dbVar = (db) ListUtils.getItem(xVar.aGT, xVar.aGD.getRoomMode())) == null || dbVar.aQC <= 0) {
             return 20;
         }
-        return dbVar.aVp;
+        return dbVar.aQC;
     }
 
     public static int aD(x xVar) {
@@ -184,13 +184,13 @@ public class g {
         if (xVar == null) {
             return 10;
         }
-        db dbVar = (db) ListUtils.getItem(xVar.aLG, xVar.aLq.getRoomMode());
-        if (dbVar == null || dbVar.aVo <= 0) {
+        db dbVar = (db) ListUtils.getItem(xVar.aGT, xVar.aGD.getRoomMode());
+        if (dbVar == null || dbVar.aQB <= 0) {
             i = 10;
         } else {
-            i = dbVar.aVo;
+            i = dbVar.aQB;
         }
-        int i2 = com.baidu.live.d.Ba().getInt("audio_live_punish_time", 0);
+        int i2 = com.baidu.live.d.xf().getInt("audio_live_punish_time", 0);
         return (i2 == 0 || i2 < aB(xVar) || i2 > aC(xVar)) ? i : i2;
     }
 }

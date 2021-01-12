@@ -3,10 +3,10 @@ package com.baidu.pass.biometrics.base.debug;
 public final class Log {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f3978a = "SAPI_BIOMETRIC";
+    private static final String f3940a = "SAPI_BIOMETRIC";
 
     /* renamed from: b  reason: collision with root package name */
-    private static boolean f3979b;
+    private static boolean f3941b;
 
     private Log() {
     }
@@ -44,29 +44,29 @@ public final class Log {
     }
 
     public static void d(String str, Object... objArr) {
-        if (!f3979b) {
+        if (!f3941b) {
             return;
         }
         android.util.Log.d(str, a(str, objArr));
     }
 
     public static void e(Throwable th) {
-        e(f3978a, th);
+        e(f3940a, th);
     }
 
     public static void enable(boolean z) {
-        f3979b = z;
+        f3941b = z;
     }
 
     public static void i(String str, Object... objArr) {
-        if (!f3979b) {
+        if (!f3941b) {
             return;
         }
         android.util.Log.i(str, a(str, objArr));
     }
 
     public static void w(String str, Object... objArr) {
-        if (!f3979b) {
+        if (!f3941b) {
             return;
         }
         android.util.Log.w(str, a(str, objArr));
@@ -77,21 +77,21 @@ public final class Log {
     }
 
     public static void d(Object... objArr) {
-        d(f3978a, objArr);
+        d(f3940a, objArr);
     }
 
     public static void e(String str, Object... objArr) {
-        if (!f3979b) {
+        if (!f3941b) {
             return;
         }
         android.util.Log.e(str, a(str, objArr));
     }
 
     public static void i(Object... objArr) {
-        i(f3978a, objArr);
+        i(f3940a, objArr);
     }
 
     public static void w(Object... objArr) {
-        w(f3978a, objArr);
+        w(f3940a, objArr);
     }
 }

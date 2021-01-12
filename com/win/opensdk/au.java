@@ -4,17 +4,18 @@ import android.content.Context;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
+import android.net.http.Headers;
 import android.os.Bundle;
 import android.text.TextUtils;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class au {
     public static final String java = au.class.getSimpleName();
 
-    public static void iK(Context context) {
+    public static void iI(Context context) {
         b bVar = new b((byte) 0);
         try {
-            LocationManager locationManager = (LocationManager) context.getSystemService("location");
+            LocationManager locationManager = (LocationManager) context.getSystemService(Headers.LOCATION);
             String str = null;
             List<String> providers = locationManager.getProviders(true);
             if (providers.contains("network")) {
@@ -35,7 +36,7 @@ public class au {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     static class b implements LocationListener {
         private b() {
         }
@@ -46,8 +47,8 @@ public class au {
 
         @Override // android.location.LocationListener
         public final void onLocationChanged(Location location) {
-            a.eKE().qeG = location.getLatitude();
-            a.eKE().qeH = location.getLongitude();
+            a.eGO().qaf = location.getLatitude();
+            a.eGO().qag = location.getLongitude();
         }
 
         @Override // android.location.LocationListener
@@ -63,14 +64,14 @@ public class au {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class a {
-        private static final a qeF = new a();
-        public double qeG;
-        public double qeH;
+        private static final a qae = new a();
+        public double qaf;
+        public double qag;
 
-        public static a eKE() {
-            return qeF;
+        public static a eGO() {
+            return qae;
         }
     }
 }

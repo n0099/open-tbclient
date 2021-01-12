@@ -5,9 +5,9 @@ import com.baidu.live.data.by;
 import com.baidu.tbadk.core.atomData.VrPlayerActivityConfig;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class b {
-    public static by Ja(String str) {
+    public static by HP(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
@@ -15,7 +15,7 @@ public class b {
             JSONObject jSONObject = new JSONObject(str);
             by byVar = new by();
             byVar.downloadUrl = jSONObject.optString("download_url");
-            byVar.aSv = jSONObject.optString("download_md5");
+            byVar.aNI = jSONObject.optString("download_md5");
             byVar.videoPath = jSONObject.optString(VrPlayerActivityConfig.RES_PATH);
             byVar.videoMd5 = jSONObject.optString("video_md5");
             return byVar;
@@ -32,7 +32,7 @@ public class b {
         try {
             JSONObject jSONObject = new JSONObject();
             jSONObject.put("download_url", byVar.downloadUrl);
-            jSONObject.put("download_md5", byVar.aSv);
+            jSONObject.put("download_md5", byVar.aNI);
             jSONObject.put(VrPlayerActivityConfig.RES_PATH, byVar.videoPath);
             jSONObject.put("video_md5", byVar.videoMd5);
             return jSONObject.toString();

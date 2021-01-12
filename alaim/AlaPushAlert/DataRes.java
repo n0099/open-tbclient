@@ -3,7 +3,7 @@ package alaim.AlaPushAlert;
 import alaim.MsgInfo;
 import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public final class DataRes extends Message {
     public static final String DEFAULT_EXT = "";
     @ProtoField(tag = 2, type = Message.Datatype.INT32)
@@ -45,7 +45,7 @@ public final class DataRes extends Message {
         this.ext = builder.ext;
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static final class Builder extends Message.Builder<DataRes> {
         public Integer cmd;
         public String ext;

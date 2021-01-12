@@ -1,12 +1,14 @@
 package com.baidu.live.lottie.e;
-/* loaded from: classes10.dex */
+
+import com.baidu.mobstat.Config;
+/* loaded from: classes9.dex */
 public class d {
-    private final float Ia;
-    private final float Ib;
+    private final float HY;
+    private final float HZ;
 
     public d(float f, float f2) {
-        this.Ia = f;
-        this.Ib = f2;
+        this.HY = f;
+        this.HZ = f2;
     }
 
     public d() {
@@ -14,14 +16,14 @@ public class d {
     }
 
     public float getScaleX() {
-        return this.Ia;
+        return this.HY;
     }
 
     public float getScaleY() {
-        return this.Ib;
+        return this.HZ;
     }
 
     public String toString() {
-        return getScaleX() + "x" + getScaleY();
+        return getScaleX() + Config.EVENT_HEAT_X + getScaleY();
     }
 }

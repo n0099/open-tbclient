@@ -11,7 +11,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class FileUtil {
     private static final String TAG = FileUtil.class.getSimpleName();
 

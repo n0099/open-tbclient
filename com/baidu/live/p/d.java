@@ -7,16 +7,16 @@ import com.baidu.live.adp.framework.message.HttpMessage;
 import com.baidu.live.adp.framework.message.HttpResponsedMessage;
 import com.baidu.live.message.DailyTaskFinishResponseMessage;
 import com.baidu.live.tbadk.task.TbHttpMessageTask;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class d extends BdBaseModel {
-    int bwK = -1;
+    int brW = -1;
     private HttpMessageListener messageListener;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public interface a {
-        void OE();
+        void KJ();
 
-        void t(int i, String str);
+        void u(int i, String str);
     }
 
     @Override // com.baidu.live.adp.base.BdBaseModel
@@ -29,21 +29,21 @@ public class d extends BdBaseModel {
         return false;
     }
 
-    public void fk(int i) {
+    public void dE(int i) {
         HttpMessage httpMessage = new HttpMessage(1021067);
         httpMessage.addParam("task_id", i);
         sendMessage(httpMessage);
     }
 
-    public void Ra() {
-        Rb();
+    public void Nf() {
+        Ng();
         b(new a() { // from class: com.baidu.live.p.d.1
             @Override // com.baidu.live.p.d.a
-            public void OE() {
+            public void KJ() {
             }
 
             @Override // com.baidu.live.p.d.a
-            public void t(int i, String str) {
+            public void u(int i, String str) {
             }
         });
     }
@@ -53,7 +53,7 @@ public class d extends BdBaseModel {
     }
 
     public void setTaskId(int i) {
-        this.bwK = i;
+        this.brW = i;
     }
 
     private void b(final a aVar) {
@@ -64,9 +64,9 @@ public class d extends BdBaseModel {
                 if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1021067 && (httpResponsedMessage instanceof DailyTaskFinishResponseMessage)) {
                     DailyTaskFinishResponseMessage dailyTaskFinishResponseMessage = (DailyTaskFinishResponseMessage) httpResponsedMessage;
                     if (dailyTaskFinishResponseMessage.getError() != 0 || !dailyTaskFinishResponseMessage.isSuccess()) {
-                        aVar.t(dailyTaskFinishResponseMessage.getError(), dailyTaskFinishResponseMessage.getErrorString());
-                    } else if (d.this.bwK == 8) {
-                        aVar.OE();
+                        aVar.u(dailyTaskFinishResponseMessage.getError(), dailyTaskFinishResponseMessage.getErrorString());
+                    } else if (d.this.brW == 8) {
+                        aVar.KJ();
                     }
                 }
             }
@@ -74,8 +74,8 @@ public class d extends BdBaseModel {
         registerListener(this.messageListener);
     }
 
-    private void Rb() {
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1021067, com.baidu.live.b.aAU);
+    private void Ng() {
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1021067, com.baidu.live.b.awh);
         tbHttpMessageTask.setIsNeedLogin(true);
         tbHttpMessageTask.setIsNeedTbs(true);
         tbHttpMessageTask.setIsUseCurrentBDUSS(true);
@@ -83,12 +83,12 @@ public class d extends BdBaseModel {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    public void Rc() {
+    public void Nh() {
         MessageManager.getInstance().unRegisterListener(this.messageListener);
         MessageManager.getInstance().unRegisterTask(1021067);
     }
 
-    public void Rd() {
+    public void Ni() {
         MessageManager.getInstance().unRegisterListener(this.messageListener);
     }
 }

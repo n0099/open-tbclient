@@ -18,10 +18,10 @@ import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.core.util.ao;
 import com.baidu.tieba.R;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class ForumSelectedView extends RelativeLayout implements View.OnClickListener {
-    private ImageView fjN;
-    private TextView jnJ;
+    private ImageView ffc;
+    private TextView jjc;
     private ImageView mIconView;
     private View mLineView;
     private int mSkinType;
@@ -44,9 +44,9 @@ public class ForumSelectedView extends RelativeLayout implements View.OnClickLis
     private void init() {
         LayoutInflater.from(getContext()).inflate(R.layout.cell_forum_selected_layout, (ViewGroup) this, true);
         this.mIconView = (ImageView) findViewById(R.id.cell_forum_selected_icon);
-        this.jnJ = (TextView) findViewById(R.id.cell_forum_selected_name);
+        this.jjc = (TextView) findViewById(R.id.cell_forum_selected_name);
         this.mTipView = (TextView) findViewById(R.id.cell_forum_selected_tip);
-        this.fjN = (ImageView) findViewById(R.id.cell_forum_selected_arrow);
+        this.ffc = (ImageView) findViewById(R.id.cell_forum_selected_arrow);
         this.mLineView = findViewById(R.id.cell_forum_selected_line);
         setOnClickListener(this);
         onChangeSkinType();
@@ -54,7 +54,7 @@ public class ForumSelectedView extends RelativeLayout implements View.OnClickLis
 
     public void setSelectedForum(String str) {
         this.mTipView.setVisibility(8);
-        this.jnJ.setText(str);
+        this.jjc.setText(str);
     }
 
     @Override // android.view.View.OnClickListener
@@ -68,10 +68,10 @@ public class ForumSelectedView extends RelativeLayout implements View.OnClickLis
             this.mSkinType = skinType;
             ao.setBackgroundResource(this, R.drawable.forum_selected_view_bg);
             this.mIconView.setImageDrawable(WebPManager.a(R.drawable.icon_pure_ba16, ao.getColor(R.color.CAM_X0105), WebPManager.ResourceStateType.NORMAL));
-            ao.setViewTextColor(this.jnJ, R.color.CAM_X0105);
+            ao.setViewTextColor(this.jjc, R.color.CAM_X0105);
             ao.setViewTextColor(this.mTipView, R.color.CAM_X0109);
-            c.bv(this.mTipView).pK(R.string.J_X06).setBackGroundColor(R.color.CAM_X0206);
-            SvgManager.bwr().a(this.fjN, R.drawable.icon_pure_list_arrow16_right_svg, R.color.CAM_X0107, SvgManager.SvgResourceStateType.NORMAL);
+            c.bv(this.mTipView).od(R.string.J_X06).setBackGroundColor(R.color.CAM_X0206);
+            SvgManager.bsx().a(this.ffc, R.drawable.icon_pure_list_arrow16_right_svg, R.color.CAM_X0107, SvgManager.SvgResourceStateType.NORMAL);
             ao.setBackgroundColor(this.mLineView, R.color.CAM_X0210);
         }
     }

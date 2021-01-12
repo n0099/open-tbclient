@@ -8,7 +8,7 @@ public class a extends com.baidu.swan.apps.adaptation.implementation.b {
     public JSONObject getRawSwitch() {
         JSONObject jSONObject = new JSONObject();
         try {
-            if (com.baidu.swan.d.a.bkf()) {
+            if (com.baidu.swan.d.a.bgl()) {
                 jSONObject.put("swanswitch_android_setdata", 1);
             }
             jSONObject.put("swanswitch_ab_inline_video", 1);

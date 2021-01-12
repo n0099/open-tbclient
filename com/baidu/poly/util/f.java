@@ -4,14 +4,14 @@ import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.text.TextUtils;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class f {
     public static boolean J() {
         NetworkInfo activeNetworkInfo = getActiveNetworkInfo();
         return activeNetworkInfo != null && activeNetworkInfo.isConnected();
     }
 
-    private static String af(int i, String str) {
+    private static String ag(int i, String str) {
         switch (i) {
             case 1:
             case 2:
@@ -42,8 +42,8 @@ public class f {
 
     private static NetworkInfo getActiveNetworkInfo() {
         ConnectivityManager connectivityManager;
-        Context afM = g.afM();
-        if (afM != null && (connectivityManager = (ConnectivityManager) afM.getSystemService("connectivity")) != null) {
+        Context abT = g.abT();
+        if (abT != null && (connectivityManager = (ConnectivityManager) abT.getSystemService("connectivity")) != null) {
             return connectivityManager.getActiveNetworkInfo();
         }
         return null;
@@ -54,6 +54,6 @@ public class f {
         if (activeNetworkInfo == null || !activeNetworkInfo.isConnected()) {
             return "0";
         }
-        return activeNetworkInfo.getType() == 1 ? "4" : activeNetworkInfo.getType() == 0 ? af(activeNetworkInfo.getSubtype(), activeNetworkInfo.getSubtypeName()) : "unknown";
+        return activeNetworkInfo.getType() == 1 ? "4" : activeNetworkInfo.getType() == 0 ? ag(activeNetworkInfo.getSubtype(), activeNetworkInfo.getSubtypeName()) : "unknown";
     }
 }

@@ -5,7 +5,7 @@ import org.chromium.support_lib_boundary.ServiceWorkerControllerBoundaryInterfac
 import org.chromium.support_lib_boundary.StaticsBoundaryInterface;
 import org.chromium.support_lib_boundary.WebViewProviderBoundaryInterface;
 import org.chromium.support_lib_boundary.WebkitToCompatConverterBoundaryInterface;
-/* loaded from: classes3.dex */
+/* loaded from: classes14.dex */
 public interface WebViewProviderFactory {
     WebViewProviderBoundaryInterface createWebView(WebView webView);
 

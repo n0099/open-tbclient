@@ -10,9 +10,9 @@ import androidx.annotation.Nullable;
 import com.baidu.tbadk.core.util.ao;
 import com.baidu.tbadk.widget.lottie.TBLottieAnimationView;
 import com.baidu.tieba.R;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class ScanLoadingView extends LinearLayout {
-    private TBLottieAnimationView mFi;
+    private TBLottieAnimationView mAz;
 
     public ScanLoadingView(Context context) {
         this(context, null);
@@ -29,27 +29,27 @@ public class ScanLoadingView extends LinearLayout {
 
     private void init(Context context) {
         LayoutInflater.from(context).inflate(R.layout.layout_scan_loading, (ViewGroup) this, true);
-        this.mFi = (TBLottieAnimationView) findViewById(R.id.loading_anim);
-        this.mFi.loop(true);
-        this.mFi.setFrame(0);
-        ao.a(this.mFi, R.raw.scan_refresh);
+        this.mAz = (TBLottieAnimationView) findViewById(R.id.loading_anim);
+        this.mAz.loop(true);
+        this.mAz.setFrame(0);
+        ao.a(this.mAz, R.raw.scan_refresh);
         ao.setViewTextColor((TextView) findViewById(R.id.loading_text), R.color.CAM_X0108, 1);
         setVisibility(8);
     }
 
     public void showLoading() {
         setVisibility(0);
-        if (this.mFi != null) {
-            if (this.mFi.isAnimating()) {
-                this.mFi.cancelAnimation();
+        if (this.mAz != null) {
+            if (this.mAz.isAnimating()) {
+                this.mAz.cancelAnimation();
             }
-            this.mFi.playAnimation();
+            this.mAz.playAnimation();
         }
     }
 
     public void hideLoading() {
-        if (this.mFi != null) {
-            this.mFi.cancelAnimation();
+        if (this.mAz != null) {
+            this.mAz.cancelAnimation();
         }
         setVisibility(8);
     }

@@ -1,8 +1,8 @@
 package com.qq.e.comm.pi;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public interface AdData {
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public interface VideoPlayer {
         int getCurrentPosition();
 

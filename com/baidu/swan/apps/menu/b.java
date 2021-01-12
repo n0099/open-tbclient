@@ -15,7 +15,7 @@ import com.baidu.swan.apps.setting.oauth.h;
 import com.baidu.swan.apps.v.f;
 import com.baidu.swan.apps.view.SwanAppActionBar;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class b extends aa {
     public b(j jVar) {
         super(jVar, "/swanAPI/menu");
@@ -44,27 +44,27 @@ public class b extends aa {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "empty cb");
             return false;
         }
-        f aDH = f.aDH();
-        if (aDH == null) {
+        f azN = f.azN();
+        if (azN == null) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
         }
-        com.baidu.swan.apps.core.d.f ajt = aDH.ajt();
-        if (ajt == null) {
+        com.baidu.swan.apps.core.d.f afz = azN.afz();
+        if (afz == null) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
         }
-        com.baidu.swan.apps.core.d.c asU = ajt.asU();
-        if (asU == null) {
+        com.baidu.swan.apps.core.d.c aoY = afz.aoY();
+        if (aoY == null) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
         }
-        SwanAppActionBar arW = asU.arW();
-        if (arW == null) {
+        SwanAppActionBar aob = aoY.aob();
+        if (aob == null) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
         }
-        a(eVar, context, callbackHandler, optString, arW, optParamsAsJo, str);
+        a(eVar, context, callbackHandler, optString, aob, optParamsAsJo, str);
         UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
         return true;
     }
@@ -88,7 +88,7 @@ public class b extends aa {
     }
 
     private void a(e eVar, Context context, final CallbackHandler callbackHandler, final String str, final SwanAppActionBar swanAppActionBar, final float f) {
-        eVar.aMx().b(context, "mapp_change_menu_appearance", new com.baidu.swan.apps.ao.e.b<h<b.d>>() { // from class: com.baidu.swan.apps.menu.b.1
+        eVar.aID().b(context, "mapp_change_menu_appearance", new com.baidu.swan.apps.ao.e.b<h<b.d>>() { // from class: com.baidu.swan.apps.menu.b.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.swan.apps.ao.e.b
             /* renamed from: a */
@@ -106,7 +106,7 @@ public class b extends aa {
     }
 
     private void a(e eVar, Context context, final CallbackHandler callbackHandler, final String str, final SwanAppActionBar swanAppActionBar, final boolean z) {
-        eVar.aMx().b(context, "scope_hide_menu", new com.baidu.swan.apps.ao.e.b<h<b.d>>() { // from class: com.baidu.swan.apps.menu.b.2
+        eVar.aID().b(context, "scope_hide_menu", new com.baidu.swan.apps.ao.e.b<h<b.d>>() { // from class: com.baidu.swan.apps.menu.b.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.swan.apps.ao.e.b
             /* renamed from: a */

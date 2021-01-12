@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.lib.widget.recycler.d;
 import com.kwad.sdk.lib.widget.recycler.e;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class a extends com.kwad.sdk.feed.a.b.a {
     private RecyclerView c;
     private com.kwad.sdk.lib.widget.recycler.c<AdTemplate, ?> d;
@@ -52,7 +52,7 @@ public class a extends com.kwad.sdk.feed.a.b.a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(AdTemplate adTemplate, float f) {
-        e.a aVar = this.f10134a.c.get(adTemplate.mUniqueId);
+        e.a aVar = this.f9834a.c.get(adTemplate.mUniqueId);
         if (aVar != null) {
             aVar.a(adTemplate, f);
         }
@@ -68,8 +68,8 @@ public class a extends com.kwad.sdk.feed.a.b.a {
     @Override // com.kwad.sdk.feed.a.b.a, com.kwad.sdk.lib.a.a.a, com.kwad.sdk.mvp.Presenter
     public void a() {
         super.a();
-        this.d = this.f10134a.h;
-        this.c = this.f10134a.f;
+        this.d = this.f9834a.h;
+        this.c = this.f9834a.f;
         this.c.addOnScrollListener(this.e);
     }
 

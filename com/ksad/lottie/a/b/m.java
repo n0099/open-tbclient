@@ -2,7 +2,7 @@ package com.ksad.lottie.a.b;
 
 import android.graphics.PointF;
 import java.util.Collections;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class m extends a<PointF, PointF> {
     private final PointF c;
     private final a<Float, Float> d;
@@ -24,10 +24,10 @@ public class m extends a<PointF, PointF> {
         int i = 0;
         while (true) {
             int i2 = i;
-            if (i2 >= this.f8257a.size()) {
+            if (i2 >= this.f7957a.size()) {
                 return;
             }
-            this.f8257a.get(i2).a();
+            this.f7957a.get(i2).a();
             i = i2 + 1;
         }
     }

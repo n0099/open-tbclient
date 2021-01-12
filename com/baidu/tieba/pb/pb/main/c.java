@@ -9,23 +9,23 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 /* loaded from: classes2.dex */
 public class c extends com.baidu.tbadk.widget.richText.a {
-    private static double lIU = 0.5d;
+    private static double lEp = 0.5d;
 
     public c(com.baidu.tbadk.widget.richText.a aVar) {
         super(aVar);
-        lK(true);
+        lG(true);
         setSupportNoImage();
         setLineSpacing(TbConfig.getPostLineSpace(), 1.0f);
-        tF(0);
-        tG(com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds30));
-        tH(com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds12));
+        rZ(0);
+        sa(com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds30));
+        sb(com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds12));
         br(com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds48), com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds48));
         bs(com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.M_H_X004), com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.M_H_X004));
-        tI(com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.M_H_X004));
-        this.fYR = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds749);
-        this.fYS = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds10);
-        this.fYT = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds26);
-        this.alY = new TbImageView.c() { // from class: com.baidu.tieba.pb.pb.main.c.1
+        sc(com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.M_H_X004));
+        this.fUk = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds749);
+        this.fUl = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds10);
+        this.fUm = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds26);
+        this.alg = new TbImageView.c() { // from class: com.baidu.tieba.pb.pb.main.c.1
             @Override // com.baidu.tbadk.widget.TbImageView.c
             public void a(TbImageView tbImageView, Canvas canvas) {
                 int i;
@@ -33,10 +33,10 @@ public class c extends com.baidu.tbadk.widget.richText.a {
                 float f;
                 if (tbImageView != null && tbImageView.getImageMatrix() != null && tbImageView.getScaleType() == ImageView.ScaleType.MATRIX) {
                     Matrix imageMatrix = tbImageView.getImageMatrix();
-                    com.baidu.adp.widget.ImageView.a Ee = com.baidu.tbadk.imageManager.c.bGq().Ee(com.baidu.adp.lib.e.d.mx().genCacheKey(tbImageView.getUrl(), c.this.mIsFromCDN ? 17 : 18));
-                    if (Ee != null) {
-                        int width = Ee.getWidth();
-                        i = Ee.getHeight();
+                    com.baidu.adp.widget.ImageView.a CT = com.baidu.tbadk.imageManager.c.bCx().CT(com.baidu.adp.lib.e.d.mx().genCacheKey(tbImageView.getUrl(), c.this.mIsFromCDN ? 17 : 18));
+                    if (CT != null) {
+                        int width = CT.getWidth();
+                        i = CT.getHeight();
                         i2 = width;
                     } else {
                         i = 0;
@@ -67,18 +67,18 @@ public class c extends com.baidu.tbadk.widget.richText.a {
         if (i2 <= 0 || i <= 0 || i3 <= 0 || i4 <= 0) {
             return null;
         }
-        if (!this.fYG || fYr <= 1.0f) {
+        if (!this.fTZ || fTK <= 1.0f) {
             i3 = i;
         } else {
-            if (i * fYr <= i3 * lIU) {
-                i3 = (int) (i * fYr);
+            if (i * fTK <= i3 * lEp) {
+                i3 = (int) (i * fTK);
             }
             i2 = (i3 * i2) / i;
             if (i2 > 4096) {
-                this.fYE = ImageView.ScaleType.MATRIX;
+                this.fTX = ImageView.ScaleType.MATRIX;
                 i2 = 4096;
             } else {
-                this.fYE = ImageView.ScaleType.CENTER_CROP;
+                this.fTX = ImageView.ScaleType.CENTER_CROP;
             }
         }
         return new int[]{i3, i2};

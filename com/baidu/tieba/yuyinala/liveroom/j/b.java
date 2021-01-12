@@ -2,10 +2,10 @@ package com.baidu.tieba.yuyinala.liveroom.j;
 
 import com.baidu.live.adp.lib.safe.JavaTypesHelper;
 import com.baidu.live.gift.aj;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class b extends a {
     @Override // com.baidu.tieba.yuyinala.liveroom.j.a
-    protected void ecZ() {
-        aj.b(this.giftId, JavaTypesHelper.toInt(this.bpq, 1), this.giftName, this.aYy, this.oqy.userId, this.oqy.portrait, this.oqy.getNameShow(), String.valueOf(this.liveId), String.valueOf(this.groupId), false, String.valueOf(this.hAS), this.appId, this.beQ, "", "", this.msgId, this.boI, this.isDynamic, this.bZN, this.aZQ, this.bZO, this.bZP);
+    protected void dZh() {
+        aj.b(this.giftId, JavaTypesHelper.toInt(this.bkD, 1), this.giftName, this.aTL, this.olR.userId, this.olR.portrait, this.olR.getNameShow(), String.valueOf(this.liveId), String.valueOf(this.groupId), false, String.valueOf(this.hwm), this.appId, this.baa, "", "", this.msgId, this.bjV, this.isDynamic, this.bVb, this.aVd, this.bVc, this.bVd);
     }
 }

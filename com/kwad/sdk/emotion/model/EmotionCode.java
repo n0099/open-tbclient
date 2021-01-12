@@ -3,7 +3,7 @@ package com.kwad.sdk.emotion.model;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class EmotionCode extends com.kwad.sdk.core.response.a.a implements com.kwad.sdk.core.b, Serializable {
     private static final long serialVersionUID = 4165432184464884891L;
     public List<String> codes = new ArrayList();

@@ -4,7 +4,7 @@ import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public final class g extends Handler {
     private g() {
         super(Looper.getMainLooper());
@@ -20,12 +20,12 @@ public final class g extends Handler {
         f fVar = (f) message.obj;
         switch (message.what) {
             case 1:
-                c cVar = fVar.f13082a;
-                Object obj = fVar.f13083b[0];
+                c cVar = fVar.f12782a;
+                Object obj = fVar.f12783b[0];
                 cVar.f.get();
                 return;
             case 2:
-                fVar.f13082a.a((Object[]) fVar.f13083b);
+                fVar.f12782a.a((Object[]) fVar.f12783b);
                 return;
             default:
                 return;

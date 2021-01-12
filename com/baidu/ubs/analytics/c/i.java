@@ -22,7 +22,7 @@ import java.io.InputStreamReader;
 import java.io.StringWriter;
 import java.net.NetworkInterface;
 import java.util.Collections;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public final class i {
     private static String A;
     private static String B;
@@ -201,21 +201,21 @@ public final class i {
 
     public static String y() {
         if (TextUtils.isEmpty(z)) {
-            p(com.baidu.ubs.analytics.d.ejz().getContext());
+            p(com.baidu.ubs.analytics.d.efH().getContext());
         }
         return z;
     }
 
     public static String z() {
         if (TextUtils.isEmpty(A)) {
-            p(com.baidu.ubs.analytics.d.ejz().getContext());
+            p(com.baidu.ubs.analytics.d.efH().getContext());
         }
         return A;
     }
 
     public static String A() {
         if (TextUtils.isEmpty(B)) {
-            p(com.baidu.ubs.analytics.d.ejz().getContext());
+            p(com.baidu.ubs.analytics.d.efH().getContext());
         }
         return B;
     }

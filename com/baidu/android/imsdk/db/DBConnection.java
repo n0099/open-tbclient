@@ -9,7 +9,7 @@ import android.util.Log;
 import com.baidu.android.imsdk.db.DBVersionManager;
 import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.android.imsdk.utils.LogUtils;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class DBConnection extends SQLiteOpenHelper {
     private static final String TAG = "DBConnection";
     private Context mContext;
@@ -53,7 +53,7 @@ public class DBConnection extends SQLiteOpenHelper {
     public void onDowngrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class Version27And28Handler implements DBVersionManager.VersionHandler {
         public Version27And28Handler() {
         }
@@ -74,7 +74,7 @@ public class DBConnection extends SQLiteOpenHelper {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class Version47And48Handler implements DBVersionManager.VersionHandler {
         public Version47And48Handler() {
         }

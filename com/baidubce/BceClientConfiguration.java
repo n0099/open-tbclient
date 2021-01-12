@@ -5,7 +5,7 @@ import com.baidubce.http.RetryPolicy;
 import com.baidubce.util.CheckUtils;
 import com.baidubce.util.JoinerUtils;
 import java.net.InetAddress;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class BceClientConfiguration {
     public static final int DEFAULT_CONNECTION_TIMEOUT_IN_MILLIS = 30000;
     public static final int DEFAULT_MAX_CONNECTIONS = 5;

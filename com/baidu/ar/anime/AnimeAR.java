@@ -62,8 +62,8 @@ public class AnimeAR extends c {
         if (TextUtils.isEmpty(str2) && p.A(getContext())) {
             aVar.an();
         }
-        aVar.a(new a.InterfaceC0065a() { // from class: com.baidu.ar.anime.AnimeAR.3
-            @Override // com.baidu.ar.anime.a.InterfaceC0065a
+        aVar.a(new a.InterfaceC0066a() { // from class: com.baidu.ar.anime.AnimeAR.3
+            @Override // com.baidu.ar.anime.a.InterfaceC0066a
             public void b(FramePixels framePixels) {
                 AnimeAR.this.a(framePixels);
                 if (z && AnimeAR.this.cd != null) {
@@ -175,8 +175,8 @@ public class AnimeAR extends c {
             com.baidu.ar.h.b.b(TAG, "mAbilityName error: " + this.bD);
         }
         if (this.cd == null) {
-            this.cd = new b(new b.InterfaceC0067b() { // from class: com.baidu.ar.anime.AnimeAR.1
-                @Override // com.baidu.ar.anime.b.InterfaceC0067b
+            this.cd = new b(new b.InterfaceC0068b() { // from class: com.baidu.ar.anime.AnimeAR.1
+                @Override // com.baidu.ar.anime.b.InterfaceC0068b
                 public void a(int i, String str, long j) {
                     if (i != 200) {
                         com.baidu.ar.h.b.b(AnimeAR.TAG, "request error! code:" + i + " msg:" + str);

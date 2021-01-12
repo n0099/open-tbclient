@@ -22,16 +22,16 @@ public class d extends com.bytedance.sdk.openadsdk.core.video.b.a {
 
     @Override // com.bytedance.sdk.openadsdk.core.video.b.a
     protected void a(int i, int i2) {
-        if (this.f6990b != null && i != 308) {
+        if (this.f6690b != null && i != 308) {
             boolean z = z();
             String str = z ? "play_error" : "play_start_error";
-            Map<String, Object> a2 = aj.a(this.f6990b, i, i2, t());
+            Map<String, Object> a2 = aj.a(this.f6690b, i, i2, t());
             if (z) {
                 a2.put("duration", Long.valueOf(o()));
                 a2.put("percent", Integer.valueOf(q()));
                 a2.put("buffers_time", Long.valueOf(n()));
             }
-            com.bytedance.sdk.openadsdk.c.d.d(this.f6989a.get(), this.f6990b, "splash_ad", str, a2);
+            com.bytedance.sdk.openadsdk.c.d.d(this.f6689a.get(), this.f6690b, "splash_ad", str, a2);
         }
     }
 
@@ -40,7 +40,7 @@ public class d extends com.bytedance.sdk.openadsdk.core.video.b.a {
     public void b() {
         if (!this.i) {
             this.i = true;
-            com.bytedance.sdk.openadsdk.c.d.a(this.f6989a.get(), this.f6990b, "splash_ad", "feed_over", this.c, 100, B());
+            com.bytedance.sdk.openadsdk.c.d.a(this.f6689a.get(), this.f6690b, "splash_ad", "feed_over", this.c, 100, B());
         }
     }
 
@@ -54,11 +54,11 @@ public class d extends com.bytedance.sdk.openadsdk.core.video.b.a {
 
     @Override // com.bytedance.sdk.openadsdk.core.video.b.a
     protected void e() {
-        com.bytedance.sdk.openadsdk.c.d.c(this.f6989a.get(), this.f6990b, "splash_ad", "feed_play", A());
+        com.bytedance.sdk.openadsdk.c.d.c(this.f6689a.get(), this.f6690b, "splash_ad", "feed_play", A());
     }
 
     @Override // com.bytedance.sdk.openadsdk.core.video.b.a
     protected void f() {
-        com.bytedance.sdk.openadsdk.c.d.c(this.f6989a.get(), this.f6990b, "splash_ad", "feed_play", A());
+        com.bytedance.sdk.openadsdk.c.d.c(this.f6689a.get(), this.f6690b, "splash_ad", "feed_play", A());
     }
 }

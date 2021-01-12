@@ -1,5 +1,5 @@
 package com.kwad.sdk.contentalliance.home.swipe;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public abstract class b implements a {
     @Override // com.kwad.sdk.contentalliance.home.swipe.a
     public void a(float f) {

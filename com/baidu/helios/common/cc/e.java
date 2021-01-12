@@ -1,9 +1,9 @@
 package com.baidu.helios.common.cc;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 abstract class e {
 
     /* renamed from: b  reason: collision with root package name */
-    protected long f2491b;
+    protected long f2441b;
     protected int c;
     protected int d;
     protected int e;
@@ -21,5 +21,5 @@ abstract class e {
         return this.f;
     }
 
-    public abstract a n(byte[] bArr, int i, int i2);
+    public abstract a m(byte[] bArr, int i, int i2);
 }

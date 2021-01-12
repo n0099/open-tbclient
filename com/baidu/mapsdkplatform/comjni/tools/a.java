@@ -2,11 +2,9 @@ package com.baidu.mapsdkplatform.comjni.tools;
 
 import android.os.Bundle;
 import com.baidu.ar.gesture.GestureAR;
-import com.baidu.platform.comapi.basestruct.Point;
-import com.baidu.platform.comapi.map.MapBundleKey;
-import com.baidu.platform.comjni.tools.ParcelItem;
+import com.baidu.mapapi.model.inner.Point;
 import java.util.ArrayList;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class a {
     public static double a(Point point, Point point2) {
         Bundle bundle = new Bundle();
@@ -18,23 +16,23 @@ public class a {
         return bundle.getDouble("distance");
     }
 
-    public static com.baidu.platform.comapi.basestruct.a a(String str) {
+    public static com.baidu.mapapi.model.inner.a a(String str) {
         if (str == null || str.equals("")) {
             return null;
         }
         Bundle bundle = new Bundle();
         bundle.putString("strkey", str);
         JNITools.TransGeoStr2ComplexPt(bundle);
-        com.baidu.platform.comapi.basestruct.a aVar = new com.baidu.platform.comapi.basestruct.a();
+        com.baidu.mapapi.model.inner.a aVar = new com.baidu.mapapi.model.inner.a();
         Bundle bundle2 = bundle.getBundle("map_bound");
         if (bundle2 != null) {
             Bundle bundle3 = bundle2.getBundle("ll");
             if (bundle3 != null) {
-                aVar.f4194b = new Point((int) bundle3.getDouble(MapBundleKey.MapObjKey.OBJ_SL_PTX), (int) bundle3.getDouble(MapBundleKey.MapObjKey.OBJ_SL_PTY));
+                aVar.f2829b = new Point((int) bundle3.getDouble("ptx"), (int) bundle3.getDouble("pty"));
             }
             Bundle bundle4 = bundle2.getBundle("ru");
             if (bundle4 != null) {
-                aVar.c = new Point((int) bundle4.getDouble(MapBundleKey.MapObjKey.OBJ_SL_PTX), (int) bundle4.getDouble(MapBundleKey.MapObjKey.OBJ_SL_PTY));
+                aVar.c = new Point((int) bundle4.getDouble("ptx"), (int) bundle4.getDouble("pty"));
             }
         }
         for (ParcelItem parcelItem : (ParcelItem[]) bundle.getParcelableArray("poly_line")) {
@@ -48,7 +46,7 @@ public class a {
                 for (ParcelItem parcelItem2 : parcelItemArr) {
                     Bundle bundle6 = parcelItem2.getBundle();
                     if (bundle6 != null) {
-                        arrayList.add(new Point((int) bundle6.getDouble(MapBundleKey.MapObjKey.OBJ_SL_PTX), (int) bundle6.getDouble(MapBundleKey.MapObjKey.OBJ_SL_PTY)));
+                        arrayList.add(new Point((int) bundle6.getDouble("ptx"), (int) bundle6.getDouble("pty")));
                     }
                 }
                 arrayList.trimToSize();
@@ -56,7 +54,7 @@ public class a {
             }
         }
         aVar.d.trimToSize();
-        aVar.f4193a = (int) bundle.getDouble("type");
+        aVar.f2828a = (int) bundle.getDouble("type");
         return aVar;
     }
 

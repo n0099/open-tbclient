@@ -9,16 +9,16 @@ import com.baidu.adp.plugin.proxy.ContentProviderProxy;
 public class ea extends ed {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f14259a;
+    private String f13959a;
 
     public ea(Context context, int i, String str) {
         super(context, i);
-        this.f14259a = str;
+        this.f13959a = str;
     }
 
     private String[] a() {
-        if (!TextUtils.isEmpty(this.f14259a)) {
-            String b2 = bc.b(this.f14259a);
+        if (!TextUtils.isEmpty(this.f13959a)) {
+            String b2 = bc.b(this.f13959a);
             if (!TextUtils.isEmpty(b2)) {
                 return b2.contains(",") ? b2.split(",") : new String[]{b2};
             }
@@ -28,24 +28,24 @@ public class ea extends ed {
 
     @Override // com.xiaomi.push.ed, com.xiaomi.push.ai.a
     /* renamed from: a */
-    public int mo196a() {
+    public int mo192a() {
         return 24;
     }
 
     @Override // com.xiaomi.push.ed, com.xiaomi.push.ai.a
     /* renamed from: a */
-    public ho mo196a() {
+    public ho mo192a() {
         return ho.AppIsInstalled;
     }
 
     @Override // com.xiaomi.push.ed, com.xiaomi.push.ai.a
     /* renamed from: a */
-    public String mo196a() {
+    public String mo192a() {
         String[] a2 = a();
         if (a2 == null || a2.length <= 0) {
             return null;
         }
-        PackageManager packageManager = this.f311a.getPackageManager();
+        PackageManager packageManager = this.f310a.getPackageManager();
         StringBuilder sb = new StringBuilder();
         for (String str : a2) {
             try {

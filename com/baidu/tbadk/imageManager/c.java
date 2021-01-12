@@ -9,22 +9,22 @@ import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 /* loaded from: classes.dex */
 public class c {
-    private static c fIt = new c();
-    private com.baidu.adp.lib.d.a<String, com.baidu.adp.widget.ImageView.a> fIu;
-    private com.baidu.adp.lib.d.a<String, com.baidu.adp.widget.ImageView.a> fIv;
-    private com.baidu.adp.lib.d.a<String, Bitmap> fIw;
-    private com.baidu.adp.lib.d.b<com.baidu.tbadk.widget.largeImage.a.a> fIx;
-    private com.baidu.tbadk.widget.largeImage.b.b fIy;
+    private static c fDM = new c();
+    private com.baidu.adp.lib.d.a<String, com.baidu.adp.widget.ImageView.a> fDN;
+    private com.baidu.adp.lib.d.a<String, com.baidu.adp.widget.ImageView.a> fDO;
+    private com.baidu.adp.lib.d.a<String, Bitmap> fDP;
+    private com.baidu.adp.lib.d.b<com.baidu.tbadk.widget.largeImage.a.a> fDQ;
+    private com.baidu.tbadk.widget.largeImage.b.b fDR;
 
-    public static c bGq() {
-        return fIt;
+    public static c bCx() {
+        return fDM;
     }
 
     private c() {
-        this.fIu = null;
-        this.fIv = null;
-        this.fIw = null;
-        this.fIu = new com.baidu.adp.lib.d.a<String, com.baidu.adp.widget.ImageView.a>(0) { // from class: com.baidu.tbadk.imageManager.c.1
+        this.fDN = null;
+        this.fDO = null;
+        this.fDP = null;
+        this.fDN = new com.baidu.adp.lib.d.a<String, com.baidu.adp.widget.ImageView.a>(0) { // from class: com.baidu.tbadk.imageManager.c.1
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: protected */
             @Override // com.baidu.adp.lib.d.a
@@ -35,7 +35,7 @@ public class c {
                 }
             }
         };
-        this.fIv = new com.baidu.adp.lib.d.a<String, com.baidu.adp.widget.ImageView.a>(0) { // from class: com.baidu.tbadk.imageManager.c.2
+        this.fDO = new com.baidu.adp.lib.d.a<String, com.baidu.adp.widget.ImageView.a>(0) { // from class: com.baidu.tbadk.imageManager.c.2
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: protected */
             @Override // com.baidu.adp.lib.d.a
@@ -60,7 +60,7 @@ public class c {
                 }
             }
         };
-        this.fIw = new com.baidu.adp.lib.d.a<String, Bitmap>(0) { // from class: com.baidu.tbadk.imageManager.c.3
+        this.fDP = new com.baidu.adp.lib.d.a<String, Bitmap>(0) { // from class: com.baidu.tbadk.imageManager.c.3
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: protected */
             @Override // com.baidu.adp.lib.d.a
@@ -72,34 +72,34 @@ public class c {
         };
     }
 
-    public com.baidu.adp.lib.d.b<com.baidu.tbadk.widget.largeImage.a.a> sK(int i) {
-        if (this.fIx != null && this.fIy != null) {
-            if (this.fIy.getBlockSize() == i) {
-                return this.fIx;
+    public com.baidu.adp.lib.d.b<com.baidu.tbadk.widget.largeImage.a.a> re(int i) {
+        if (this.fDQ != null && this.fDR != null) {
+            if (this.fDR.getBlockSize() == i) {
+                return this.fDQ;
             }
-            this.fIy.setBlockSize(i);
-            this.fIx.clear();
+            this.fDR.setBlockSize(i);
+            this.fDQ.clear();
         }
-        if (this.fIy == null) {
-            this.fIy = new com.baidu.tbadk.widget.largeImage.b.b(i);
+        if (this.fDR == null) {
+            this.fDR = new com.baidu.tbadk.widget.largeImage.b.b(i);
         }
-        if (this.fIx == null) {
-            this.fIx = new com.baidu.adp.lib.d.b<>(this.fIy, 6, 0);
+        if (this.fDQ == null) {
+            this.fDQ = new com.baidu.adp.lib.d.b<>(this.fDR, 6, 0);
         }
-        return this.fIx;
+        return this.fDQ;
     }
 
     public void releaseBlockBitmapPool() {
-        if (this.fIx != null) {
-            this.fIx.setMinIdle(0);
-            this.fIx.setMaxIdle(0);
-            this.fIx.clear();
-            this.fIx = null;
+        if (this.fDQ != null) {
+            this.fDQ.setMinIdle(0);
+            this.fDQ.setMaxIdle(0);
+            this.fDQ.clear();
+            this.fDQ = null;
         }
     }
 
     public int getPicCacheSize() {
-        return this.fIv.getMaxSize();
+        return this.fDO.getMaxSize();
     }
 
     public void initial(int i, int i2) {
@@ -109,20 +109,20 @@ public class c {
     }
 
     public void setPhotoMaxNum(int i) {
-        this.fIu.setMaxSize(i);
+        this.fDN.setMaxSize(i);
     }
 
     public void setPicMaxSize(int i) {
-        this.fIv.setMaxSize(i);
+        this.fDO.setMaxSize(i);
     }
 
     public void setBitmapMaxNum(int i) {
-        this.fIw.setMaxSize(i);
+        this.fDP.setMaxSize(i);
     }
 
     public void addBitmap(String str, Bitmap bitmap) {
         if (!StringUtils.isNull(str) && bitmap != null) {
-            this.fIw.put(str, bitmap);
+            this.fDP.put(str, bitmap);
         }
     }
 
@@ -130,7 +130,7 @@ public class c {
         if (StringUtils.isNull(str)) {
             return null;
         }
-        return this.fIw.get(str);
+        return this.fDP.get(str);
     }
 
     public void a(String str, com.baidu.adp.widget.ImageView.a aVar) {
@@ -138,20 +138,20 @@ public class c {
     }
 
     public void a(String str, com.baidu.adp.widget.ImageView.a aVar, boolean z) {
-        if (aVar != null && this.fIu != null) {
-            this.fIu.put(str, aVar);
+        if (aVar != null && this.fDN != null) {
+            this.fDN.put(str, aVar);
         }
     }
 
     public boolean freePicCache(int i) {
-        return this.fIv.freeMemory(i);
+        return this.fDO.freeMemory(i);
     }
 
     public void b(String str, com.baidu.adp.widget.ImageView.a aVar, boolean z) {
-        if (aVar != null && this.fIv != null) {
+        if (aVar != null && this.fDO != null) {
             if (BdLog.isDebugMode()) {
             }
-            this.fIv.put(str, aVar);
+            this.fDO.put(str, aVar);
         }
     }
 
@@ -160,26 +160,26 @@ public class c {
     }
 
     public void deletePhoto(String str) {
-        this.fIu.remove(str);
+        this.fDN.remove(str);
     }
 
     public void deletePic(String str) {
-        this.fIv.remove(str);
+        this.fDO.remove(str);
     }
 
-    public com.baidu.adp.widget.ImageView.a Ed(String str) {
-        return this.fIu.get(str);
+    public com.baidu.adp.widget.ImageView.a CS(String str) {
+        return this.fDN.get(str);
     }
 
-    public com.baidu.adp.widget.ImageView.a Ee(String str) {
-        return this.fIv.get(str);
+    public com.baidu.adp.widget.ImageView.a CT(String str) {
+        return this.fDO.get(str);
     }
 
     public String toString() {
-        return "pic:" + this.fIv.toString() + "  photo:" + this.fIu.toString();
+        return "pic:" + this.fDO.toString() + "  photo:" + this.fDN.toString();
     }
 
     public String toLogString() {
-        return this.fIv.size() + "/" + this.fIv.getMaxSize() + "/" + this.fIv.evictionCount() + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + this.fIu.size() + "/" + this.fIu.getMaxSize() + "/" + this.fIu.evictionCount();
+        return this.fDO.size() + "/" + this.fDO.getMaxSize() + "/" + this.fDO.evictionCount() + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + this.fDN.size() + "/" + this.fDN.getMaxSize() + "/" + this.fDN.evictionCount();
     }
 }

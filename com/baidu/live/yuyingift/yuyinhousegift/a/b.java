@@ -5,14 +5,14 @@ import android.animation.ObjectAnimator;
 import android.animation.PropertyValuesHolder;
 import android.view.View;
 import android.view.animation.LinearInterpolator;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class b extends a {
     public b(View view) {
         super(view);
     }
 
     @Override // com.baidu.live.yuyingift.yuyinhousegift.a.a
-    protected AnimatorSet abz() {
+    protected AnimatorSet XG() {
         AnimatorSet animatorSet = new AnimatorSet();
         PropertyValuesHolder ofFloat = PropertyValuesHolder.ofFloat("scaleX", 1.0f, 0.0f);
         PropertyValuesHolder ofFloat2 = PropertyValuesHolder.ofFloat("scaleY", 1.0f, 0.0f);

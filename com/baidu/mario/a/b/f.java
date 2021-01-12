@@ -1,7 +1,7 @@
 package com.baidu.mario.a.b;
-/* loaded from: classes3.dex */
+/* loaded from: classes14.dex */
 public interface f {
-    void dT(boolean z);
+    void dP(boolean z);
 
-    void dU(boolean z);
+    void dQ(boolean z);
 }

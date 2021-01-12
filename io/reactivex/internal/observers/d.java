@@ -6,16 +6,16 @@ import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes5.dex */
 public final class d<T> implements y<T> {
     final y<? super T> actual;
-    final AtomicReference<io.reactivex.disposables.b> qil;
+    final AtomicReference<io.reactivex.disposables.b> qdJ;
 
     public d(AtomicReference<io.reactivex.disposables.b> atomicReference, y<? super T> yVar) {
-        this.qil = atomicReference;
+        this.qdJ = atomicReference;
         this.actual = yVar;
     }
 
     @Override // io.reactivex.y
     public void onSubscribe(io.reactivex.disposables.b bVar) {
-        DisposableHelper.replace(this.qil, bVar);
+        DisposableHelper.replace(this.qdJ, bVar);
     }
 
     @Override // io.reactivex.y

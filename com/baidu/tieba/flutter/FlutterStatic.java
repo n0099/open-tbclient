@@ -2,6 +2,7 @@ package com.baidu.tieba.flutter;
 
 import android.content.Context;
 import android.net.Uri;
+import android.os.Build;
 import android.text.TextUtils;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.framework.MessageManager;
@@ -26,35 +27,41 @@ import com.idlefish.flutterboost.interfaces.INativeRouter;
 import io.flutter.embedding.android.FlutterView;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes12.dex */
+/* loaded from: classes11.dex */
 public class FlutterStatic {
     static {
-        registerFlutterRule();
-        FlutterDelegateStatic.registerFlutterFragment();
-        FlutterNewCategoryDelegateStatic.registerFlutterFragment();
-        FlutterEnterForumDelegateStatic.registerFlutterFragment();
-        INativeRouter iNativeRouter = new INativeRouter() { // from class: com.baidu.tieba.flutter.FlutterStatic.1
-            @Override // com.idlefish.flutterboost.interfaces.INativeRouter
-            public void openContainer(Context context, String str, Map<String, Object> map, int i, Map<String, Object> map2) {
-                PageRouter.openPageByUrl(context, Utils.assembleUrl(str, map), map);
-            }
-        };
-        FlutterBoost.instance().init(new FlutterBoost.ConfigBuilder(TbadkCoreApplication.getInst(), iNativeRouter).isDebug(isDebugMode()).whenEngineStart(FlutterBoost.ConfigBuilder.FLUTTER_ACTIVITY_CREATED).renderMode(FlutterView.RenderMode.texture).lifecycleListener(new FlutterBoost.BoostLifecycleListener() { // from class: com.baidu.tieba.flutter.FlutterStatic.2
-            @Override // com.idlefish.flutterboost.FlutterBoost.BoostLifecycleListener
-            public void beforeCreateEngine() {
-            }
+        initFlutter();
+    }
 
-            @Override // com.idlefish.flutterboost.FlutterBoost.BoostLifecycleListener
-            public void onEngineCreated() {
-            }
+    public static void initFlutter() {
+        if (!"MuMu".equals(Build.MODEL) || !"Netease".equals(Build.MANUFACTURER)) {
+            registerFlutterRule();
+            FlutterDelegateStatic.registerFlutterFragment();
+            FlutterNewCategoryDelegateStatic.registerFlutterFragment();
+            FlutterEnterForumDelegateStatic.registerFlutterFragment();
+            INativeRouter iNativeRouter = new INativeRouter() { // from class: com.baidu.tieba.flutter.FlutterStatic.1
+                @Override // com.idlefish.flutterboost.interfaces.INativeRouter
+                public void openContainer(Context context, String str, Map<String, Object> map, int i, Map<String, Object> map2) {
+                    PageRouter.openPageByUrl(context, Utils.assembleUrl(str, map), map);
+                }
+            };
+            FlutterBoost.instance().init(new FlutterBoost.ConfigBuilder(TbadkCoreApplication.getInst(), iNativeRouter).isDebug(isDebugMode()).whenEngineStart(FlutterBoost.ConfigBuilder.FLUTTER_ACTIVITY_CREATED).renderMode(FlutterView.RenderMode.texture).lifecycleListener(new FlutterBoost.BoostLifecycleListener() { // from class: com.baidu.tieba.flutter.FlutterStatic.2
+                @Override // com.idlefish.flutterboost.FlutterBoost.BoostLifecycleListener
+                public void beforeCreateEngine() {
+                }
 
-            public void onPluginsRegistered() {
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921485));
-            }
+                @Override // com.idlefish.flutterboost.FlutterBoost.BoostLifecycleListener
+                public void onEngineCreated() {
+                }
 
-            public void onEngineDestroy() {
-            }
-        }).build());
+                public void onPluginsRegistered() {
+                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921485));
+                }
+
+                public void onEngineDestroy() {
+                }
+            }).build());
+        }
     }
 
     public static boolean isDebugMode() {
@@ -92,7 +99,7 @@ public class FlutterStatic {
                 return null;
             }
         }));
-        be.bwv().a(new be.a() { // from class: com.baidu.tieba.flutter.FlutterStatic.5
+        be.bsB().a(new be.a() { // from class: com.baidu.tieba.flutter.FlutterStatic.5
             @Override // com.baidu.tbadk.core.util.be.a
             public int deal(TbPageContext<?> tbPageContext, String[] strArr) {
                 if (strArr == null || strArr[0] == null) {

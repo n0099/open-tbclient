@@ -7,45 +7,45 @@ import com.baidu.minivideo.arface.b.j;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class b {
-    private static String ckO = "def";
-    private i ckP;
-    private String ckQ;
-    private List<j> ckR;
-    private List<j> ckS;
-    d ckT;
-    d ckU;
-    private j ckV;
-    private j.b ckW;
-    private Boolean ckX;
-    private j.b ckY;
+    private static String cgb = "def";
+    private i cgc;
+    private String cgd;
+    private List<j> cge;
+    private List<j> cgf;
+    d cgg;
+    d cgh;
+    private j cgi;
+    private j.b cgj;
+    private Boolean cgk;
+    private j.b cgl;
     private Context mContext;
     private boolean mIsLoading;
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static final class a {
-        private static final b cla = new b();
+        private static final b cgn = new b();
     }
 
-    public static final b jH(String str) {
-        ckO = str;
-        return a.cla;
+    public static final b iw(String str) {
+        cgb = str;
+        return a.cgn;
     }
 
     private b() {
-        this.ckR = new ArrayList();
-        this.ckS = null;
-        this.ckY = new j.b<j>() { // from class: com.baidu.minivideo.arface.b.b.1
+        this.cge = new ArrayList();
+        this.cgf = null;
+        this.cgl = new j.b<j>() { // from class: com.baidu.minivideo.arface.b.b.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.minivideo.arface.b.j.b
             /* renamed from: a */
             public void e(j jVar, String str) {
-                b.this.ckS.remove(jVar);
-                b.this.ckR.add(jVar);
-                if (jVar == b.this.ckV) {
-                    b.this.ckP.d(b.ckO, b.this.ckV.getLocalFile());
+                b.this.cgf.remove(jVar);
+                b.this.cge.add(jVar);
+                if (jVar == b.this.cgi) {
+                    b.this.cgc.d(b.cgb, b.this.cgi.getLocalFile());
                 }
                 if (b.this.isLoaded()) {
                     b.this.onCompleted();
@@ -65,41 +65,41 @@ public class b {
             public void a(j jVar, long j, long j2, int i) {
                 super.a((AnonymousClass1) jVar, j, j2, i);
                 int progress = b.this.getProgress();
-                if (b.this.ckW != null) {
-                    b.this.ckW.a(b.this, 0L, 100L, progress);
+                if (b.this.cgj != null) {
+                    b.this.cgj.a(b.this, 0L, 100L, progress);
                 }
             }
         };
-        this.ckP = new i(e.ael().aen());
-        this.ckP.jL(ckO);
-        aed();
+        this.cgc = new i(e.aas().aau());
+        this.cgc.iA(cgb);
+        aak();
     }
 
     public boolean isLoaded() {
-        return this.ckR.size() > 0 && (this.ckS == null || this.ckS.size() == 0);
+        return this.cge.size() > 0 && (this.cgf == null || this.cgf.size() == 0);
     }
 
-    public boolean bB(Context context) {
-        if (this.ckX != null && this.ckX.booleanValue()) {
-            return this.ckX.booleanValue();
+    public boolean bA(Context context) {
+        if (this.cgk != null && this.cgk.booleanValue()) {
+            return this.cgk.booleanValue();
         }
-        this.ckX = false;
+        this.cgk = false;
         long currentTimeMillis = System.currentTimeMillis();
-        boolean bC = bC(context);
+        boolean bB = bB(context);
         if (isDebug()) {
-            d("loadSo " + bC);
+            d("loadSo " + bB);
         }
-        if (!bC) {
-            return this.ckX.booleanValue();
+        if (!bB) {
+            return this.cgk.booleanValue();
         }
-        boolean adD = com.baidu.minivideo.arface.a.adD();
+        boolean ZK = com.baidu.minivideo.arface.a.ZK();
         if (isDebug()) {
-            d("ARControllerProxy.loadSoFile " + adD);
+            d("ARControllerProxy.loadSoFile " + ZK);
         }
-        if (!adD) {
-            return this.ckX.booleanValue();
+        if (!ZK) {
+            return this.cgk.booleanValue();
         }
-        File file = this.ckU.cld;
+        File file = this.cgh.cgq;
         if (isDebug()) {
             d("setResConfig " + file);
         }
@@ -109,29 +109,29 @@ public class b {
         if (isDebug()) {
             d("initRecource costMS: " + (System.currentTimeMillis() - currentTimeMillis));
         }
-        this.ckX = true;
-        return this.ckX.booleanValue();
+        this.cgk = true;
+        return this.cgk.booleanValue();
     }
 
-    public File aeb() {
-        return this.ckU.cld;
+    public File aai() {
+        return this.cgh.cgq;
     }
 
-    public File aec() {
-        return this.ckT.cld;
+    public File aaj() {
+        return this.cgg.cgq;
     }
 
-    public boolean bC(Context context) {
-        if (SysSoLoaderUtils.containsNativeDir(context, this.ckT.cld)) {
+    public boolean bB(Context context) {
+        if (SysSoLoaderUtils.containsNativeDir(context, this.cgg.cgq)) {
             return true;
         }
-        SysSoLoaderUtils.addNativeDir(context, this.ckT.cld);
-        return SysSoLoaderUtils.containsNativeDir(context, this.ckT.cld);
+        SysSoLoaderUtils.addNativeDir(context, this.cgg.cgq);
+        return SysSoLoaderUtils.containsNativeDir(context, this.cgg.cgq);
     }
 
     public void a(Context context, j.b<b> bVar) {
         this.mContext = context;
-        this.ckW = bVar;
+        this.cgj = bVar;
         synchronized (this) {
             if (this.mIsLoading) {
                 if (isDebug()) {
@@ -140,21 +140,21 @@ public class b {
                 return;
             }
             this.mIsLoading = true;
-            aed();
+            aak();
             onStart();
         }
     }
 
-    private void aed() {
-        this.ckR.clear();
-        if (this.ckS != null) {
-            this.ckS.clear();
+    private void aak() {
+        this.cge.clear();
+        if (this.cgf != null) {
+            this.cgf.clear();
         }
-        this.ckT = d.aef();
-        this.ckU = d.aeg();
-        this.ckV = new c(this.ckU);
-        a(this.ckV);
-        a(new c(this.ckT));
+        this.cgg = d.aam();
+        this.cgh = d.aan();
+        this.cgi = new c(this.cgh);
+        a(this.cgi);
+        a(new c(this.cgg));
     }
 
     private void a(j jVar) {
@@ -163,13 +163,13 @@ public class b {
             d("isLoaded " + isLoaded + ", " + jVar.getUrl() + " to " + jVar.getLocalFile());
         }
         if (jVar.isLoaded()) {
-            this.ckR.add(jVar);
+            this.cge.add(jVar);
             return;
         }
-        if (this.ckS == null) {
-            this.ckS = new ArrayList();
+        if (this.cgf == null) {
+            this.cgf = new ArrayList();
         }
-        this.ckS.add(jVar);
+        this.cgf.add(jVar);
     }
 
     private boolean isDebug() {
@@ -177,10 +177,10 @@ public class b {
     }
 
     private void onStart() {
-        this.ckQ = this.ckP.jJ(ckO);
-        if (this.ckS != null && this.ckS.size() > 0) {
-            for (j jVar : this.ckS) {
-                jVar.a(this.ckY);
+        this.cgd = this.cgc.iy(cgb);
+        if (this.cgf != null && this.cgf.size() > 0) {
+            for (j jVar : this.cgf) {
+                jVar.a(this.cgl);
             }
             return;
         }
@@ -188,21 +188,21 @@ public class b {
     }
 
     protected void onCompleted() {
-        boolean bB = bB(this.mContext);
-        this.ckP.jK(this.ckQ);
-        this.ckP.aev();
+        boolean bA = bA(this.mContext);
+        this.cgc.iz(this.cgd);
+        this.cgc.aaC();
         if (isDebug()) {
-            d("all onCompleted " + bB);
+            d("all onCompleted " + bA);
         }
         synchronized (this) {
             this.mIsLoading = false;
         }
-        if (this.ckW != null && bB) {
+        if (this.cgj != null && bA) {
             String str = null;
-            if (this.ckU != null && this.ckU.cld != null) {
-                str = this.ckU.cld.getAbsolutePath();
+            if (this.cgh != null && this.cgh.cgq != null) {
+                str = this.cgh.cgq.getAbsolutePath();
             }
-            this.ckW.e(this, str);
+            this.cgj.e(this, str);
         }
     }
 
@@ -219,20 +219,20 @@ public class b {
     public int getProgress() {
         float f;
         float f2 = 0.0f;
-        if (this.ckS == null || this.ckS.size() == 0) {
+        if (this.cgf == null || this.cgf.size() == 0) {
             f = 100.0f;
         } else {
-            float size = 100.0f / (this.ckR.size() + this.ckS.size());
+            float size = 100.0f / (this.cge.size() + this.cgf.size());
             int i = 0;
             while (true) {
                 int i2 = i;
-                if (i2 >= this.ckS.size()) {
+                if (i2 >= this.cgf.size()) {
                     break;
                 }
-                f2 += (this.ckS.get(i2).getProgress() / 100.0f) * size;
+                f2 += (this.cgf.get(i2).getProgress() / 100.0f) * size;
                 i = i2 + 1;
             }
-            f = (this.ckR.size() * size) + f2;
+            f = (this.cge.size() * size) + f2;
         }
         return (int) f;
     }

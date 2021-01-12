@@ -6,15 +6,15 @@ import android.view.ViewGroup;
 import com.baidu.tbadk.mainTab.FragmentTabIndicator;
 import com.baidu.tbadk.mainTab.TbFragmentTabIndicator;
 import com.baidu.tieba.R;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class a extends com.baidu.tbadk.mainTab.b {
-    private boolean gXg;
-    private AlaFrsLiveFragment gXq = new AlaFrsLiveFragment();
+    private boolean gSA;
+    private AlaFrsLiveFragment gSK = new AlaFrsLiveFragment();
 
     public a(boolean z) {
-        this.gXg = z;
-        this.gXq.ni(z);
-        getFragmentTabStructure().frag = this.gXq;
+        this.gSA = z;
+        this.gSK.ne(z);
+        getFragmentTabStructure().frag = this.gSK;
     }
 
     @Override // com.baidu.tbadk.mainTab.b
@@ -39,32 +39,32 @@ public class a extends com.baidu.tbadk.mainTab.b {
     }
 
     public void setForumId(String str) {
-        if (this.gXq != null) {
-            this.gXq.setForumId(str);
+        if (this.gSK != null) {
+            this.gSK.setForumId(str);
         }
     }
 
     public void setForumName(String str) {
-        if (this.gXq != null) {
-            this.gXq.setForumName(str);
+        if (this.gSK != null) {
+            this.gSK.setForumName(str);
         }
     }
 
     public void setForumGameLabel(String str) {
-        if (this.gXq != null) {
-            this.gXq.setForumGameLabel(str);
+        if (this.gSK != null) {
+            this.gSK.setForumGameLabel(str);
         }
     }
 
     public void setFromType(int i) {
-        if (this.gXq != null) {
-            this.gXq.setFromType(i);
+        if (this.gSK != null) {
+            this.gSK.setFromType(i);
         }
     }
 
-    public void nj(boolean z) {
-        if (this.gXq != null) {
-            this.gXq.nj(z);
+    public void nf(boolean z) {
+        if (this.gSK != null) {
+            this.gSK.nf(z);
         }
     }
 }

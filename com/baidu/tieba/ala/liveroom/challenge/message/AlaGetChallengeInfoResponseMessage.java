@@ -7,14 +7,14 @@ import com.baidu.live.data.bf;
 import com.baidu.live.data.bg;
 import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class AlaGetChallengeInfoResponseMessage extends JsonHttpResponsedMessage {
-    private bc aQv;
-    private bg aQw;
-    private bg aQx;
-    private ay hvD;
-    private be hvE;
-    private bf hvF;
+    private bc aLI;
+    private bg aLJ;
+    private bg aLK;
+    private ay hqX;
+    private be hqY;
+    private bf hqZ;
 
     public AlaGetChallengeInfoResponseMessage() {
         super(1021112);
@@ -27,70 +27,70 @@ public class AlaGetChallengeInfoResponseMessage extends JsonHttpResponsedMessage
         if (jSONObject != null && (optJSONObject = jSONObject.optJSONObject("data")) != null && getError() == 0) {
             JSONObject optJSONObject2 = optJSONObject.optJSONObject("challenge_info");
             if (optJSONObject2 != null) {
-                this.aQv = new bc();
-                this.aQv.parseJson(optJSONObject2);
+                this.aLI = new bc();
+                this.aLI.parseJson(optJSONObject2);
             }
             JSONObject optJSONObject3 = optJSONObject.optJSONObject("anchor_info");
             if (optJSONObject3 != null) {
-                this.aQw = new bg();
-                this.aQw.parseJson(optJSONObject3);
+                this.aLJ = new bg();
+                this.aLJ.parseJson(optJSONObject3);
             }
             JSONObject optJSONObject4 = optJSONObject.optJSONObject("rival_info");
             if (optJSONObject4 != null) {
-                this.aQx = new bg();
-                this.aQx.parseJson(optJSONObject4);
+                this.aLK = new bg();
+                this.aLK.parseJson(optJSONObject4);
             }
             JSONObject optJSONObject5 = optJSONObject.optJSONObject("challenge_conf");
             if (optJSONObject5 != null) {
-                this.hvD = new ay();
-                this.hvD.parseJson(optJSONObject5);
+                this.hqX = new ay();
+                this.hqX.parseJson(optJSONObject5);
             }
             JSONObject optJSONObject6 = optJSONObject.optJSONObject("punish_info");
             if (optJSONObject6 != null) {
-                this.hvE = new be();
-                this.hvE.parseJson(optJSONObject6);
+                this.hqY = new be();
+                this.hqY.parseJson(optJSONObject6);
             }
             JSONObject optJSONObject7 = optJSONObject.optJSONObject("punishStickerInfo");
             if (optJSONObject7 != null) {
-                this.hvF = new bf();
-                this.hvF.parseJson(optJSONObject7);
+                this.hqZ = new bf();
+                this.hqZ.parseJson(optJSONObject7);
             }
         }
     }
 
     public void a(bc bcVar) {
-        this.aQv = bcVar;
+        this.aLI = bcVar;
     }
 
     public void a(bg bgVar) {
-        this.aQw = bgVar;
+        this.aLJ = bgVar;
     }
 
     public void b(bg bgVar) {
-        this.aQx = bgVar;
+        this.aLK = bgVar;
     }
 
-    public bc cfO() {
-        return this.aQv;
+    public bc cbW() {
+        return this.aLI;
     }
 
-    public bg cfP() {
-        return this.aQw;
+    public bg cbX() {
+        return this.aLJ;
     }
 
-    public bg cfQ() {
-        return this.aQx;
+    public bg cbY() {
+        return this.aLK;
     }
 
-    public ay cfR() {
-        return this.hvD;
+    public ay cbZ() {
+        return this.hqX;
     }
 
-    public be cfS() {
-        return this.hvE;
+    public be cca() {
+        return this.hqY;
     }
 
-    public bf cfT() {
-        return this.hvF;
+    public bf ccb() {
+        return this.hqZ;
     }
 }

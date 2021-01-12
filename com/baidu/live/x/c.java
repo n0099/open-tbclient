@@ -11,55 +11,55 @@ import com.baidu.live.adp.framework.message.CustomResponsedMessage;
 import com.baidu.live.tbadk.core.util.UtilHelper;
 import com.baidu.live.view.web.g;
 import com.baidu.webkit.internal.ETAG;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class c implements a {
-    private CustomMessageListener bih;
-    private b byV;
+    private CustomMessageListener bdo;
+    private b buj;
     private Activity mActivity;
 
     public c(Activity activity) {
         this.mActivity = activity;
-        Ku();
+        Gz();
     }
 
     @Override // com.baidu.live.x.a
-    public void ie(String str) {
+    public void gT(String str) {
         if (this.mActivity != null && !this.mActivity.isFinishing()) {
-            this.byV = new b(this.mActivity);
+            this.buj = new b(this.mActivity);
             g gVar = new g();
-            gVar.w(this.mActivity).a(this.byV).a(this.byV.RE());
-            com.baidu.live.view.web.a[] aaf = gVar.aaf();
-            for (com.baidu.live.view.web.a aVar : aaf) {
-                this.byV.a(aVar, aVar.getName());
+            gVar.w(this.mActivity).a(this.buj).a(this.buj.NJ());
+            com.baidu.live.view.web.a[] Wm = gVar.Wm();
+            for (com.baidu.live.view.web.a aVar : Wm) {
+                this.buj.a(aVar, aVar.getName());
             }
-            this.byV.h(UtilHelper.getRealScreenOrientation(this.mActivity), ih(str), str);
+            this.buj.h(UtilHelper.getRealScreenOrientation(this.mActivity), gW(str), str);
         }
     }
 
     @Override // com.baidu.live.x.a
     public void resume() {
-        if (this.byV != null && this.byV.isShowing()) {
-            this.byV.fs(UtilHelper.getRealScreenOrientation(this.mActivity));
+        if (this.buj != null && this.buj.isShowing()) {
+            this.buj.dM(UtilHelper.getRealScreenOrientation(this.mActivity));
         }
     }
 
     @Override // com.baidu.live.x.a
     public void pause() {
-        if (this.byV != null && this.byV.isShowing()) {
-            this.byV.pause();
+        if (this.buj != null && this.buj.isShowing()) {
+            this.buj.pause();
         }
     }
 
     @Override // com.baidu.live.x.a
     public void release() {
-        if (this.byV != null) {
-            this.byV.dismiss();
+        if (this.buj != null) {
+            this.buj.dismiss();
         }
-        RG();
+        NL();
     }
 
-    private void Ku() {
-        this.bih = new CustomMessageListener(2913097) { // from class: com.baidu.live.x.c.1
+    private void Gz() {
+        this.bdo = new CustomMessageListener(2913097) { // from class: com.baidu.live.x.c.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -68,14 +68,14 @@ public class c implements a {
                 }
             }
         };
-        MessageManager.getInstance().registerListener(this.bih);
+        MessageManager.getInstance().registerListener(this.bdo);
     }
 
-    private void RG() {
-        MessageManager.getInstance().unRegisterListener(this.bih);
+    private void NL() {
+        MessageManager.getInstance().unRegisterListener(this.bdo);
     }
 
-    private int ih(String str) {
+    private int gW(String str) {
         String str2 = null;
         try {
             str2 = Uri.parse(str).getQueryParameter("background");

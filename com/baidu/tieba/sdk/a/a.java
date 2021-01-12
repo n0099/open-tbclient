@@ -7,7 +7,7 @@ import com.baidu.live.adp.lib.util.Md5;
 import java.net.URLEncoder;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class a extends HttpRule {
     public a(int i) {
         super(i);

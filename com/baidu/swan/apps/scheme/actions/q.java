@@ -9,7 +9,7 @@ import com.baidu.swan.apps.u.c.b;
 import com.baidu.swan.games.view.webview.GameWebViewJavascriptInterface;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class q extends aa {
     public q(com.baidu.swan.apps.scheme.j jVar) {
         super(jVar, "/swanAPI/openStatisticEvent");
@@ -30,7 +30,7 @@ public class q extends aa {
         try {
             optParamsAsJo.putOpt("timestamp", Long.valueOf(System.currentTimeMillis()));
             optParamsAsJo.putOpt("eventType", "0");
-            optParamsAsJo.putOpt("propagation", com.baidu.swan.apps.ao.v.b(optParamsAsJo.optJSONObject("propagation"), "source", com.baidu.swan.apps.runtime.d.aMh().aMd().aMp().aCw()));
+            optParamsAsJo.putOpt("propagation", com.baidu.swan.apps.ao.v.b(optParamsAsJo.optJSONObject("propagation"), "source", com.baidu.swan.apps.runtime.d.aIn().aIj().aIv().ayC()));
         } catch (JSONException e) {
             if (DEBUG) {
                 e.printStackTrace();
@@ -53,12 +53,12 @@ public class q extends aa {
 
     public static void bU(JSONObject jSONObject) {
         if (jSONObject != null) {
-            b.a aMp = com.baidu.swan.apps.runtime.d.aMh().aMd().aMp();
-            com.baidu.swan.apps.ao.v.b(jSONObject, "launchId", aMp.aCP());
-            com.baidu.swan.apps.ao.v.b(jSONObject, "scheme", aMp.aCy());
-            com.baidu.swan.apps.ao.v.b(jSONObject, "appid", aMp.getAppId());
-            com.baidu.swan.apps.ao.v.b(jSONObject, GameWebViewJavascriptInterface.JAVASCRIPT_INTERFACE_NAME, com.baidu.swan.apps.swancore.b.a(aMp.avW(), aMp.getAppFrameType()));
-            com.baidu.swan.apps.ao.v.b(jSONObject, "packageVersion", aMp.getVersion());
+            b.a aIv = com.baidu.swan.apps.runtime.d.aIn().aIj().aIv();
+            com.baidu.swan.apps.ao.v.b(jSONObject, "launchId", aIv.ayV());
+            com.baidu.swan.apps.ao.v.b(jSONObject, "scheme", aIv.ayE());
+            com.baidu.swan.apps.ao.v.b(jSONObject, "appid", aIv.getAppId());
+            com.baidu.swan.apps.ao.v.b(jSONObject, GameWebViewJavascriptInterface.JAVASCRIPT_INTERFACE_NAME, com.baidu.swan.apps.swancore.b.a(aIv.asb(), aIv.getAppFrameType()));
+            com.baidu.swan.apps.ao.v.b(jSONObject, "packageVersion", aIv.getVersion());
         }
     }
 }

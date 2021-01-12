@@ -11,42 +11,42 @@ import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
 import com.baidu.tieba.R;
 /* loaded from: classes2.dex */
 public class b {
-    private EMTextView jtR;
-    private View juw;
+    private View jpQ;
+    private EMTextView jpl;
     private Context mContext;
 
     public b(Context context) {
         this.mContext = context;
-        eO(context);
+        initView(context);
     }
 
-    private void eO(Context context) {
-        if (this.juw == null) {
-            this.juw = LayoutInflater.from(context).inflate(R.layout.forum_rules_title_area, (ViewGroup) null);
-            this.jtR = (EMTextView) this.juw.findViewById(R.id.forum_rules_title);
+    private void initView(Context context) {
+        if (this.jpQ == null) {
+            this.jpQ = LayoutInflater.from(context).inflate(R.layout.forum_rules_title_area, (ViewGroup) null);
+            this.jpl = (EMTextView) this.jpQ.findViewById(R.id.forum_rules_title);
             onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         }
     }
 
     public void d(BdTypeRecyclerView bdTypeRecyclerView) {
-        if (bdTypeRecyclerView != null && this.juw != null) {
-            this.juw.setVisibility(0);
-            bdTypeRecyclerView.addHeaderView(this.juw);
+        if (bdTypeRecyclerView != null && this.jpQ != null) {
+            this.jpQ.setVisibility(0);
+            bdTypeRecyclerView.addHeaderView(this.jpQ);
         }
     }
 
     public void e(BdTypeRecyclerView bdTypeRecyclerView) {
-        if (bdTypeRecyclerView != null && this.juw != null) {
-            this.juw.setVisibility(8);
-            bdTypeRecyclerView.removeHeaderView(this.juw);
+        if (bdTypeRecyclerView != null && this.jpQ != null) {
+            this.jpQ.setVisibility(8);
+            bdTypeRecyclerView.removeHeaderView(this.jpQ);
         }
     }
 
     public void setTitle(String str) {
-        this.jtR.setText(str);
+        this.jpl.setText(str);
     }
 
     public void onChangeSkinType(int i) {
-        c.bv(this.jtR).pE(R.string.F_X02).pC(R.color.CAM_X0105);
+        c.bv(this.jpl).nX(R.string.F_X02).nV(R.color.CAM_X0105);
     }
 }

@@ -10,7 +10,7 @@ import org.apache.http.io.SessionInputBuffer;
 import org.apache.http.message.LineParser;
 import org.apache.http.params.HttpParams;
 @Deprecated
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public abstract class AbstractMessageParser implements HttpMessageParser {
     protected final LineParser lineParser;
 

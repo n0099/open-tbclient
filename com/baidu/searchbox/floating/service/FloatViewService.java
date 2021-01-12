@@ -16,7 +16,7 @@ import kotlin.e;
 import kotlin.jvm.internal.o;
 import kotlin.jvm.internal.p;
 @e
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public final class FloatViewService extends Service {
     public static final Companion Companion = new Companion(null);
     private static final String FLOAT_ACTION = "com.baidu.searchbox.floating.action.FLOATING";
@@ -77,7 +77,7 @@ public final class FloatViewService extends Service {
     private ViewManager viewManager;
 
     @e
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public static final class Companion {
         private Companion() {
         }
@@ -166,19 +166,19 @@ public final class FloatViewService extends Service {
             p.n(applicationContext, "applicationContext");
             Config config3 = Companion.getConfig();
             if (config3 == null) {
-                p.eMM();
+                p.eIW();
             }
             ViewManager viewManager2 = new ViewManager(applicationContext, config3);
             viewManager2.createView();
             this.viewManager = viewManager2;
             Config config4 = Companion.getConfig();
             if (config4 == null) {
-                p.eMM();
+                p.eIW();
             }
             if (config4.isForeground()) {
                 Config config5 = Companion.getConfig();
                 if (config5 == null) {
-                    p.eMM();
+                    p.eIW();
                 }
                 startForeground(1, config5.getNotification());
             }

@@ -6,7 +6,7 @@ import android.widget.TextView;
 import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.core.util.ao;
 import com.baidu.tieba.R;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class JumpButton extends TextView {
     public JumpButton(Context context) {
         super(context);

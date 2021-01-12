@@ -1,7 +1,7 @@
 package com.baidu.searchbox;
 
 import android.text.TextUtils;
-import com.baidu.h.a.b;
+import com.baidu.f.a.b;
 import com.baidu.pyramid.a.a;
 import com.baidu.pyramid.a.a.d;
 import com.baidu.searchbox.anr.ubc.ANRPerfSampleCallback;
@@ -9,7 +9,7 @@ import com.baidu.searchbox.ruka.ubc.LooperPerfSampleCallback;
 import com.baidu.tieba.q.p;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class PerfSampleManager {
     private d<IPerfSampleCallback> mCallbackList;
 
@@ -18,7 +18,7 @@ public class PerfSampleManager {
         String getSampleFlag();
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public class IPerfSampleCallback_PerfSampleManager_ListProvider implements a {
         @Override // com.baidu.pyramid.a.a
         public Object get() {
@@ -32,7 +32,7 @@ public class PerfSampleManager {
     }
 
     public void initmCallbackList() {
-        this.mCallbackList = com.baidu.pyramid.a.a.b.ahB();
+        this.mCallbackList = com.baidu.pyramid.a.a.b.adH();
         this.mCallbackList.b(new IPerfSampleCallback_PerfSampleManager_ListProvider());
     }
 

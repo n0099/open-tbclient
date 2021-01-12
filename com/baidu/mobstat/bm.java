@@ -8,17 +8,17 @@ import javax.crypto.Cipher;
 import javax.crypto.KeyGenerator;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public final class bm {
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public static class b {
         public static byte[] a(int i, byte[] bArr) throws Exception {
             int i2 = i - 1;
-            if (i2 < 0 || br.f3811a.length <= i2) {
+            if (i2 < 0 || br.f3773a.length <= i2) {
                 return new byte[0];
             }
-            SecretKeySpec secretKeySpec = new SecretKeySpec(br.f3811a[i2].getBytes(), com.baidu.sapi2.utils.e.q);
+            SecretKeySpec secretKeySpec = new SecretKeySpec(br.f3773a[i2].getBytes(), com.baidu.sapi2.utils.e.q);
             Cipher cipher = Cipher.getInstance(SecureHelper.CIPHER_TRIPLE_AES);
             cipher.init(1, secretKeySpec);
             return cipher.doFinal(bArr);
@@ -26,10 +26,10 @@ public final class bm {
 
         public static byte[] b(int i, byte[] bArr) throws Exception {
             int i2 = i - 1;
-            if (i2 < 0 || br.f3811a.length <= i2) {
+            if (i2 < 0 || br.f3773a.length <= i2) {
                 return new byte[0];
             }
-            SecretKeySpec secretKeySpec = new SecretKeySpec(br.f3811a[i2].getBytes(), com.baidu.sapi2.utils.e.q);
+            SecretKeySpec secretKeySpec = new SecretKeySpec(br.f3773a[i2].getBytes(), com.baidu.sapi2.utils.e.q);
             Cipher cipher = Cipher.getInstance(SecureHelper.CIPHER_TRIPLE_AES);
             cipher.init(2, secretKeySpec);
             return cipher.doFinal(bArr);
@@ -49,7 +49,7 @@ public final class bm {
         }
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public static class a {
         @SuppressLint({"TrulyRandom"})
         public static byte[] a(byte[] bArr, byte[] bArr2, byte[] bArr3) throws Exception {

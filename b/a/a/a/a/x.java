@@ -13,18 +13,18 @@ import java.security.MessageDigest;
 import java.util.Enumeration;
 import java.util.Locale;
 import java.util.regex.Pattern;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public final class x implements Runnable {
+    private static final Pattern Ba;
     private static final Pattern Bb;
     private static final Pattern Bc;
-    private static final Pattern Bd;
     private final w AA;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f1083a;
+    public String f1082a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f1084b;
+    public int f1083b;
     public String c;
     public String d;
     public long e;
@@ -38,9 +38,9 @@ public final class x implements Runnable {
 
     static {
         Pattern compile = Pattern.compile("[0-9a-zA-Z+-]*");
+        Ba = compile;
         Bb = compile;
-        Bc = compile;
-        Bd = Pattern.compile("[a-zA-Z0-9]{12}");
+        Bc = Pattern.compile("[a-zA-Z0-9]{12}");
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -91,7 +91,7 @@ public final class x implements Runnable {
         byte[] hardwareAddress;
         String str = "";
         try {
-            SharedPreferences sharedPreferences = this.AA.Ba;
+            SharedPreferences sharedPreferences = this.AA.AZ;
             String string = sharedPreferences == null ? "" : sharedPreferences.getString("mac_addr", "");
             try {
                 if (TextUtils.isEmpty(string)) {
@@ -160,13 +160,13 @@ public final class x implements Runnable {
     @Override // java.lang.Runnable
     public final void run() {
         try {
-            Context context = this.AA.f1082a;
+            Context context = this.AA.f1081a;
             this.d = context.getPackageName();
             try {
                 PackageInfo packageInfo = this.AA.d.getPackageInfo(this.d, 0);
                 if (packageInfo != null) {
-                    this.f1084b = packageInfo.versionCode;
-                    this.f1083a = packageInfo.versionName;
+                    this.f1083b = packageInfo.versionCode;
+                    this.f1082a = packageInfo.versionName;
                 }
             } catch (Throwable th) {
             }
@@ -181,14 +181,14 @@ public final class x implements Runnable {
                 this.m = iArr[1];
                 this.k = telephonyManager.getPhoneType();
                 try {
-                    this.i = a(telephonyManager.getDeviceId(), Bb).toUpperCase(Locale.ENGLISH);
-                    this.j = a(telephonyManager.getSubscriberId(), Bc);
+                    this.i = a(telephonyManager.getDeviceId(), Ba).toUpperCase(Locale.ENGLISH);
+                    this.j = a(telephonyManager.getSubscriberId(), Bb);
                 } catch (Throwable th2) {
                 }
             }
-            this.h = a(j().replaceAll(":", "").toUpperCase(Locale.ENGLISH), Bd);
-            new StringBuilder("os:[").append(Build.MODEL).append(",").append(Build.VERSION.RELEASE).append(",").append(f()).append("],net:[").append(this.l).append(",").append(this.m).append(",").append(this.AA.d()).append("],app:[").append(this.c).append(",").append(this.f1084b).append(",").append(this.f1083a).append("],sdk:[lite.1.1.1,200214]");
-            al.a(this.AA.f1082a, "lite.1.1.1-200214");
+            this.h = a(j().replaceAll(":", "").toUpperCase(Locale.ENGLISH), Bc);
+            new StringBuilder("os:[").append(Build.MODEL).append(",").append(Build.VERSION.RELEASE).append(",").append(f()).append("],net:[").append(this.l).append(",").append(this.m).append(",").append(this.AA.d()).append("],app:[").append(this.c).append(",").append(this.f1083b).append(",").append(this.f1082a).append("],sdk:[lite.1.1.1,200214]");
+            al.a(this.AA.f1081a, "lite.1.1.1-200214");
         } catch (Throwable th3) {
         }
     }

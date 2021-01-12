@@ -1,48 +1,18 @@
 package com.baidu.platform.comapi.bikenavi.widget;
-
-import android.widget.ImageView;
-import com.baidu.platform.comapi.bikenavi.widget.CustomScrollView;
-/* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes3.dex */
-public class e implements CustomScrollView.b {
+/* loaded from: classes6.dex */
+/* synthetic */ class e {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ a f4225a;
+    static final /* synthetic */ int[] f4172a = new int[com.baidu.platform.comapi.wnplatform.n.b.values().length];
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public e(a aVar) {
-        this.f4225a = aVar;
-    }
-
-    @Override // com.baidu.platform.comapi.bikenavi.widget.CustomScrollView.b
-    public void a(com.baidu.platform.comapi.wnplatform.o.b bVar, com.baidu.platform.comapi.wnplatform.o.b bVar2) {
-        ImageView imageView;
-        ImageView imageView2;
-        ImageView imageView3;
-        ImageView imageView4;
-        if (bVar != bVar2) {
-            switch (bVar2) {
-                case TOP:
-                    imageView3 = this.f4225a.t;
-                    imageView3.setVisibility(8);
-                    imageView4 = this.f4225a.u;
-                    imageView4.setVisibility(0);
-                    this.f4225a.b(true);
-                    return;
-                case BOTTOM:
-                    imageView = this.f4225a.t;
-                    imageView.setVisibility(0);
-                    imageView2 = this.f4225a.u;
-                    imageView2.setVisibility(8);
-                    this.f4225a.b(false);
-                    return;
-                default:
-                    return;
-            }
+    static {
+        try {
+            f4172a[com.baidu.platform.comapi.wnplatform.n.b.TOP.ordinal()] = 1;
+        } catch (NoSuchFieldError e) {
         }
-    }
-
-    @Override // com.baidu.platform.comapi.bikenavi.widget.CustomScrollView.b
-    public void a(int i) {
+        try {
+            f4172a[com.baidu.platform.comapi.wnplatform.n.b.BOTTOM.ordinal()] = 2;
+        } catch (NoSuchFieldError e2) {
+        }
     }
 }

@@ -1,7 +1,7 @@
 package com.kwad.sdk.contentalliance.profile.home;
 
 import java.io.Serializable;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class ProfileHomeParam implements Serializable {
     private static final long serialVersionUID = -6152648276167879373L;
     public String mAuthorIcon;

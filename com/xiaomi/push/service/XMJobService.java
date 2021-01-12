@@ -15,31 +15,31 @@ import com.xiaomi.push.fc;
 public class XMJobService extends Service {
 
     /* renamed from: a  reason: collision with root package name */
-    static Service f14496a = null;
+    static Service f14196a = null;
 
     /* renamed from: a  reason: collision with other field name */
-    private IBinder f875a = null;
+    private IBinder f874a = null;
 
     @TargetApi(21)
     /* loaded from: classes6.dex */
     static class a extends JobService {
 
         /* renamed from: a  reason: collision with root package name */
-        Binder f14497a;
+        Binder f14197a;
 
         /* renamed from: a  reason: collision with other field name */
-        private Handler f876a;
+        private Handler f875a;
 
         /* renamed from: com.xiaomi.push.service.XMJobService$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        private static class HandlerC1295a extends Handler {
+        private static class HandlerC1278a extends Handler {
 
             /* renamed from: a  reason: collision with root package name */
-            JobService f14498a;
+            JobService f14198a;
 
-            HandlerC1295a(JobService jobService) {
+            HandlerC1278a(JobService jobService) {
                 super(jobService.getMainLooper());
-                this.f14498a = jobService;
+                this.f14198a = jobService;
             }
 
             @Override // android.os.Handler
@@ -47,8 +47,8 @@ public class XMJobService extends Service {
                 switch (message.what) {
                     case 1:
                         JobParameters jobParameters = (JobParameters) message.obj;
-                        com.xiaomi.channel.commonutils.logger.b.m84a("Job finished " + jobParameters.getJobId());
-                        this.f14498a.jobFinished(jobParameters, false);
+                        com.xiaomi.channel.commonutils.logger.b.m80a("Job finished " + jobParameters.getJobId());
+                        this.f14198a.jobFinished(jobParameters, false);
                         if (jobParameters.getJobId() == 1) {
                             fc.a(false);
                             return;
@@ -61,54 +61,54 @@ public class XMJobService extends Service {
         }
 
         a(Service service) {
-            this.f14497a = null;
-            this.f14497a = (Binder) com.xiaomi.push.ba.a(this, "onBind", new Intent());
+            this.f14197a = null;
+            this.f14197a = (Binder) com.xiaomi.push.ba.a(this, "onBind", new Intent());
             com.xiaomi.push.ba.a(this, "attachBaseContext", service);
         }
 
         @Override // android.app.job.JobService
         public boolean onStartJob(JobParameters jobParameters) {
-            com.xiaomi.channel.commonutils.logger.b.m84a("Job started " + jobParameters.getJobId());
+            com.xiaomi.channel.commonutils.logger.b.m80a("Job started " + jobParameters.getJobId());
             Intent intent = new Intent(this, XMPushService.class);
             intent.setAction("com.xiaomi.push.timer");
             intent.setPackage(getPackageName());
             startService(intent);
-            if (this.f876a == null) {
-                this.f876a = new HandlerC1295a(this);
+            if (this.f875a == null) {
+                this.f875a = new HandlerC1278a(this);
             }
-            this.f876a.sendMessage(Message.obtain(this.f876a, 1, jobParameters));
+            this.f875a.sendMessage(Message.obtain(this.f875a, 1, jobParameters));
             return true;
         }
 
         @Override // android.app.job.JobService
         public boolean onStopJob(JobParameters jobParameters) {
-            com.xiaomi.channel.commonutils.logger.b.m84a("Job stop " + jobParameters.getJobId());
+            com.xiaomi.channel.commonutils.logger.b.m80a("Job stop " + jobParameters.getJobId());
             return false;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static Service a() {
-        return f14496a;
+        return f14196a;
     }
 
     @Override // android.app.Service
     public IBinder onBind(Intent intent) {
-        return this.f875a != null ? this.f875a : new Binder();
+        return this.f874a != null ? this.f874a : new Binder();
     }
 
     @Override // android.app.Service
     public void onCreate() {
         super.onCreate();
         if (Build.VERSION.SDK_INT >= 21) {
-            this.f875a = new a(this).f14497a;
+            this.f874a = new a(this).f14197a;
         }
-        f14496a = this;
+        f14196a = this;
     }
 
     @Override // android.app.Service
     public void onDestroy() {
         super.onDestroy();
-        f14496a = null;
+        f14196a = null;
     }
 }

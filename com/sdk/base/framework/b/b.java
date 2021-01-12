@@ -1,17 +1,17 @@
 package com.sdk.base.framework.b;
 
 import com.sdk.base.framework.a.k;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public abstract class b<T> {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f13107a = 1000;
+    private int f12807a = 1000;
 
     public final int a() {
-        if (this.f13107a < 200) {
+        if (this.f12807a < 200) {
             return 200;
         }
-        return this.f13107a;
+        return this.f12807a;
     }
 
     public abstract void a(int i, Object obj);

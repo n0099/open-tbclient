@@ -9,7 +9,7 @@ import android.graphics.drawable.Drawable;
 import android.text.style.ImageSpan;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class f extends ImageSpan {
     public f(@NonNull Context context, Bitmap bitmap) {
         super(context, bitmap);

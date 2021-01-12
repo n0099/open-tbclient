@@ -2,7 +2,7 @@ package com.kwad.sdk.core.download;
 
 import com.kwad.sdk.core.response.model.AdInfo;
 import java.io.Serializable;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class DownloadParams extends com.kwad.sdk.core.response.a.a implements Serializable {
     private static final long serialVersionUID = -4966891183505507851L;
     public int downloadPlace = 1;

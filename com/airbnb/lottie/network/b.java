@@ -22,7 +22,7 @@ import java.util.concurrent.Callable;
 import java.util.zip.ZipInputStream;
 /* loaded from: classes3.dex */
 public class b {
-    private final a Hp;
+    private final a Hn;
     private final Context appContext;
     private final String url;
 
@@ -33,7 +33,7 @@ public class b {
     private b(Context context, String str) {
         this.appContext = context.getApplicationContext();
         this.url = str;
-        this.Hp = new a(this.appContext, str);
+        this.Hn = new a(this.appContext, str);
     }
 
     private l<d> kl() {
@@ -61,7 +61,7 @@ public class b {
     @WorkerThread
     private d kn() {
         k<d> c;
-        Pair<FileExtension, InputStream> kk = this.Hp.kk();
+        Pair<FileExtension, InputStream> kk = this.Hn.kk();
         if (kk == null) {
             return null;
         }
@@ -127,16 +127,16 @@ public class b {
                 case 0:
                     c.debug("Handling zip response.");
                     fileExtension = FileExtension.Zip;
-                    c = e.c(new ZipInputStream(new FileInputStream(this.Hp.a(httpURLConnection.getInputStream(), fileExtension))), this.url);
+                    c = e.c(new ZipInputStream(new FileInputStream(this.Hn.a(httpURLConnection.getInputStream(), fileExtension))), this.url);
                     break;
                 default:
                     c.debug("Received json response.");
                     fileExtension = FileExtension.Json;
-                    c = e.c(new FileInputStream(new File(this.Hp.a(httpURLConnection.getInputStream(), fileExtension).getAbsolutePath())), this.url);
+                    c = e.c(new FileInputStream(new File(this.Hn.a(httpURLConnection.getInputStream(), fileExtension).getAbsolutePath())), this.url);
                     break;
             }
             if (c.getValue() != null) {
-                this.Hp.a(fileExtension);
+                this.Hn.a(fileExtension);
             }
             c.debug("Completed fetch from network. Success: " + (c.getValue() != null));
             return c;

@@ -24,119 +24,119 @@ import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class an extends BaseData {
-    public String aMB;
-    public String aMC;
-    public String aMD;
-    public String aME;
-    public Integer[] aMH;
-    public Integer[] aMI;
-    public int aMJ;
-    public int aML;
-    public int aMM;
-    public int aMN;
-    public String aMO;
-    public int aMP;
-    public boolean aMQ;
-    public boolean aMR;
-    public boolean aMS;
-    public boolean aMT;
-    public boolean aMV;
-    public String aMW;
-    public int aMX;
-    public boolean aMY;
-    public int aMZ;
-    public boolean aMr;
-    public boolean aMs;
-    public boolean aMt;
-    public boolean aMu;
-    public boolean aMv;
-    public String aMw;
-    public String aMx;
-    public int aNE;
-    public String aNG;
-    public String aNH;
-    private String aNI;
-    private String aNJ;
-    public int aNK;
-    public String aNM;
-    public String aNN;
-    public String aNO;
-    public String aNP;
-    public String aNQ;
-    public boolean aNR;
-    public long aNS;
-    public long aNT;
-    public String aNU;
-    public String aNV;
-    public String aNW;
-    public String aNX;
-    public long aNY;
-    public long aNZ;
-    public int aNa;
-    public boolean aNb;
-    public boolean aNc;
-    public String aNd;
-    public String aNe;
-    public String aNf;
-    public String aNg;
-    public String aNh;
-    public int aNi;
-    public int aNj;
-    public String aNk;
-    public boolean aNl;
-    public boolean aNm;
-    public boolean aNn;
-    public boolean aNo;
-    public boolean aNp;
-    public boolean aNq;
-    public boolean aNr;
-    public String aNv;
-    public String aNx;
-    public String aNy;
-    public int aOA;
-    public int aOB;
-    public String[] aOC;
-    public int aOD;
-    public String aOE;
-    public String aOF;
-    public QuickImInputData aOG;
-    public QuickImInputData aOH;
-    public List<YuanPackageData> aOL;
-    public bj aOM;
-    public List<String> aON;
-    public List<String> aOO;
-    public List<String> aOP;
-    public ax aOY;
-    public boolean aOZ;
-    public long aOa;
-    public String aOb;
-    public String aOc;
-    public String aOd;
-    public int aOe;
-    public int aOf;
-    public int aOg;
-    public String aOn;
-    public String aOo;
-    public String aOp;
-    public String aOq;
-    public int aOr;
-    public String aOv;
-    public String aPa;
-    public AlaFeedDiversionData aPb;
-    public s aPc;
-    public boolean aPd;
-    public int aPe;
-    public int aPf;
-    public ao aPl;
-    public ca aPm;
-    public bw aPn;
-    public by aPo;
-    public bs aPp;
-    public ce aPq;
-    public ah aPr;
-    public boolean aPs;
+    public boolean aHE;
+    public boolean aHF;
+    public boolean aHG;
+    public boolean aHH;
+    public boolean aHI;
+    public String aHJ;
+    public String aHK;
+    public String aHO;
+    public String aHP;
+    public String aHQ;
+    public String aHR;
+    public Integer[] aHU;
+    public Integer[] aHV;
+    public int aHW;
+    public int aHY;
+    public int aHZ;
+    public boolean aIA;
+    public boolean aIB;
+    public boolean aIC;
+    public boolean aID;
+    public boolean aIE;
+    public String aII;
+    public String aIK;
+    public String aIL;
+    public int aIR;
+    public String aIT;
+    public String aIU;
+    private String aIV;
+    private String aIW;
+    public int aIX;
+    public String aIZ;
+    public int aIa;
+    public String aIb;
+    public int aIc;
+    public boolean aId;
+    public boolean aIe;
+    public boolean aIf;
+    public boolean aIg;
+    public boolean aIi;
+    public String aIj;
+    public int aIk;
+    public boolean aIl;
+    public int aIm;
+    public int aIn;
+    public boolean aIo;
+    public boolean aIp;
+    public String aIq;
+    public String aIr;
+    public String aIs;
+    public String aIt;
+    public String aIu;
+    public int aIv;
+    public int aIw;
+    public String aIx;
+    public boolean aIy;
+    public boolean aIz;
+    public String aJA;
+    public String aJB;
+    public String aJC;
+    public String aJD;
+    public int aJE;
+    public String aJI;
+    public int aJN;
+    public int aJO;
+    public String[] aJP;
+    public int aJQ;
+    public String aJR;
+    public String aJS;
+    public QuickImInputData aJT;
+    public QuickImInputData aJU;
+    public List<YuanPackageData> aJY;
+    public bj aJZ;
+    public String aJa;
+    public String aJb;
+    public String aJc;
+    public String aJd;
+    public boolean aJe;
+    public long aJf;
+    public long aJg;
+    public String aJh;
+    public String aJi;
+    public String aJj;
+    public String aJk;
+    public long aJl;
+    public long aJm;
+    public long aJn;
+    public String aJo;
+    public String aJp;
+    public String aJq;
+    public int aJr;
+    public int aJs;
+    public int aJt;
+    public bw aKA;
+    public by aKB;
+    public bs aKC;
+    public ce aKD;
+    public ah aKE;
+    public boolean aKF;
+    public List<String> aKa;
+    public List<String> aKb;
+    public List<String> aKc;
+    public ax aKl;
+    public boolean aKm;
+    public String aKn;
+    public AlaFeedDiversionData aKo;
+    public s aKp;
+    public boolean aKq;
+    public int aKr;
+    public int aKs;
+    public ao aKy;
+    public ca aKz;
     public String clientIP;
     public int continuousFailCount;
     public double decreaseThreshold;
@@ -145,70 +145,70 @@ public class an extends BaseData {
     public String mBigHeaderPhotoUrlPrefix;
     public String mSmallHeaderPhotoUrlPrefix;
     public int restartTimeInterval;
-    public int aMp = -1;
-    public String aMq = null;
-    public int aMU = 1;
-    public boolean aNs = true;
-    public boolean aNt = false;
-    public boolean aNu = false;
-    public boolean aNw = false;
-    public String aNz = "";
-    private int aNA = 2;
-    public String aNB = "";
-    public int aNC = 1;
-    public int aND = 0;
-    public int aNF = 1;
-    public List<String> aNL = new ArrayList();
-    public int aOh = 10;
-    public int aOi = 60;
-    public long aOj = 10000;
-    public int aOk = 11;
-    public int aOl = 4;
-    public boolean aOm = false;
-    public boolean aOs = false;
+    public int aHC = -1;
+    public String aHD = null;
+    public int aIh = 1;
+    public boolean aIF = true;
+    public boolean aIG = false;
+    public boolean aIH = false;
+    public boolean aIJ = false;
+    public String aIM = "";
+    private int aIN = 2;
+    public String aIO = "";
+    public int aIP = 1;
+    public int aIQ = 0;
+    public int aIS = 1;
+    public List<String> aIY = new ArrayList();
+    public int aJu = 10;
+    public int aJv = 60;
+    public long aJw = 10000;
+    public int aJx = 11;
+    public int aJy = 4;
+    public boolean aJz = false;
+    public boolean aJF = false;
     private HashMap<Long, String> liveForumMap = new HashMap<>();
-    public boolean aOt = false;
-    public boolean aOu = false;
-    public boolean aOw = false;
-    public boolean aOx = false;
-    public boolean aOy = false;
-    public boolean aOz = false;
-    public boolean aOI = false;
-    public int aOJ = 50;
-    public int aOK = 0;
-    public int aOQ = 200;
-    public int aOR = 100;
-    public int aOS = 10;
-    public int aOT = 10;
-    public int aOU = 10;
-    public int aOV = 15;
-    public int aOW = 50;
-    public int aOX = 5;
-    public int aPg = 20;
-    public int aPh = 70;
-    public int aPi = 10000;
-    public int aPj = 5000;
-    public int aPk = 55000;
-    public cq aPt = cq.aUy;
-    public cr aPu = cr.aUD;
-    public Map<Integer, String> aPv = new HashMap();
-    public List<String> aMA = new ArrayList();
-    public List<String> aMK = new ArrayList();
-    public List<String> aMF = new ArrayList();
-    public List<Integer> aMG = new ArrayList();
-    public ArrayList<p> aMy = new ArrayList<>();
-    public ArrayList<p> aMz = new ArrayList<>();
+    public boolean aJG = false;
+    public boolean aJH = false;
+    public boolean aJJ = false;
+    public boolean aJK = false;
+    public boolean aJL = false;
+    public boolean aJM = false;
+    public boolean aJV = false;
+    public int aJW = 50;
+    public int aJX = 0;
+    public int aKd = 200;
+    public int aKe = 100;
+    public int aKf = 10;
+    public int aKg = 10;
+    public int aKh = 10;
+    public int aKi = 15;
+    public int aKj = 50;
+    public int aKk = 5;
+    public int aKt = 20;
+    public int aKu = 70;
+    public int aKv = 10000;
+    public int aKw = 5000;
+    public int aKx = 55000;
+    public cq aKG = cq.aPL;
+    public cr aKH = cr.aPQ;
+    public Map<Integer, String> aKI = new HashMap();
+    public List<String> aHN = new ArrayList();
+    public List<String> aHX = new ArrayList();
+    public List<String> aHS = new ArrayList();
+    public List<Integer> aHT = new ArrayList();
+    public ArrayList<p> aHL = new ArrayList<>();
+    public ArrayList<p> aHM = new ArrayList<>();
 
     public an(boolean z) {
         if (z) {
-            EM();
-            this.aMJ = com.baidu.live.d.Ba().getInt("conn_conf", 0);
-            this.continuousFailCount = com.baidu.live.d.Ba().getInt("continuous_fail_count", 3);
-            this.restartTimeInterval = com.baidu.live.d.Ba().getInt("restart_time_interval", 300);
-            EN();
-            EL();
-            EO();
-            EP();
+            AR();
+            this.aHW = com.baidu.live.d.xf().getInt("conn_conf", 0);
+            this.continuousFailCount = com.baidu.live.d.xf().getInt("continuous_fail_count", 3);
+            this.restartTimeInterval = com.baidu.live.d.xf().getInt("restart_time_interval", 300);
+            AS();
+            AQ();
+            AT();
+            AU();
         }
         SharedPrefHelper.getInstance().remove(SharedPrefConfig.KEY_SYNC_CLIENT_IP);
     }
@@ -227,22 +227,22 @@ public class an extends BaseData {
                 }
                 JSONObject optJSONObject3 = jSONObject.optJSONObject("lcs_strategy");
                 if (optJSONObject3 != null) {
-                    this.aMJ = optJSONObject3.optInt("conn_conf");
-                    com.baidu.live.d.Ba().putInt("conn_conf", this.aMJ);
+                    this.aHW = optJSONObject3.optInt("conn_conf");
+                    com.baidu.live.d.xf().putInt("conn_conf", this.aHW);
                     JSONArray optJSONArray2 = optJSONObject3.optJSONArray("android_conn_black_list");
                     if (optJSONArray2 != null) {
                         int length = optJSONArray2.length();
                         for (int i = 0; i < length; i++) {
                             String optString = optJSONArray2.optString(i);
                             if (!optString.isEmpty()) {
-                                this.aMK.add(i, optString);
+                                this.aHX.add(i, optString);
                             }
                         }
                     }
                     this.continuousFailCount = optJSONObject3.optInt("continuous_fail_count");
-                    com.baidu.live.d.Ba().putInt("continuous_fail_count", this.continuousFailCount);
+                    com.baidu.live.d.xf().putInt("continuous_fail_count", this.continuousFailCount);
                     this.restartTimeInterval = optJSONObject3.optInt("restart_time_interval");
-                    com.baidu.live.d.Ba().putInt("restart_time_interval", this.restartTimeInterval);
+                    com.baidu.live.d.xf().putInt("restart_time_interval", this.restartTimeInterval);
                 }
                 JSONObject optJSONObject4 = jSONObject.optJSONObject("config");
                 if (optJSONObject4 != null) {
@@ -252,12 +252,12 @@ public class an extends BaseData {
                 if (optJSONObject5 != null) {
                     C(optJSONObject5);
                 }
-                this.aNx = jSONObject.optString("client_id");
-                com.baidu.live.d.Ba().putString("client_id", this.aNx);
+                this.aIK = jSONObject.optString("client_id");
+                com.baidu.live.d.xf().putString("client_id", this.aIK);
                 JSONObject optJSONObject6 = jSONObject.optJSONObject("live_activity");
                 if (optJSONObject6 != null) {
-                    this.aMw = optJSONObject6.optString("pic_url");
-                    this.aMx = optJSONObject6.optString(BigdayActivityConfig.JUMP_URL);
+                    this.aHJ = optJSONObject6.optString("pic_url");
+                    this.aHK = optJSONObject6.optString(BigdayActivityConfig.JUMP_URL);
                 }
                 JSONObject optJSONObject7 = jSONObject.optJSONObject("live_activity_new");
                 if (optJSONObject7 != null && (optJSONArray = optJSONObject7.optJSONArray("activity_info")) != null && optJSONArray.length() > 0) {
@@ -266,7 +266,7 @@ public class an extends BaseData {
                         if (optJSONObject8 != null) {
                             p pVar = new p();
                             pVar.parseJson(optJSONObject8);
-                            this.aMy.add(pVar);
+                            this.aHL.add(pVar);
                         }
                     }
                 }
@@ -275,76 +275,76 @@ public class an extends BaseData {
                     f(optJSONArray3);
                     e(optJSONArray3);
                 }
-                com.baidu.live.d.Ba().putString("pic_url", this.aMw);
-                com.baidu.live.d.Ba().putString(BigdayActivityConfig.JUMP_URL, this.aMx);
+                com.baidu.live.d.xf().putString("pic_url", this.aHJ);
+                com.baidu.live.d.xf().putString(BigdayActivityConfig.JUMP_URL, this.aHK);
                 JSONObject optJSONObject9 = jSONObject.optJSONObject("guide_speak");
                 if (optJSONObject9 != null) {
                     D(optJSONObject9);
                 }
                 JSONObject optJSONObject10 = jSONObject.optJSONObject("charge_board_resource_location");
                 if (optJSONObject10 != null) {
-                    this.aOD = optJSONObject10.optInt("resource_switch");
-                    this.aOF = optJSONObject10.optString("photo_url");
-                    this.aOE = optJSONObject10.optString("resource_url");
+                    this.aJQ = optJSONObject10.optInt("resource_switch");
+                    this.aJS = optJSONObject10.optString("photo_url");
+                    this.aJR = optJSONObject10.optString("resource_url");
                 }
-                this.aOG = new QuickImInputData();
-                this.aOG.parseJson(jSONObject.optJSONArray("fast_reply_word"));
-                this.aOH = new QuickImInputData();
-                this.aOH.parseJson(jSONObject.getJSONArray("fast_reply_word_audio"));
-                this.aOM = bj.E(jSONObject.optJSONObject("guide_follow"));
+                this.aJT = new QuickImInputData();
+                this.aJT.parseJson(jSONObject.optJSONArray("fast_reply_word"));
+                this.aJU = new QuickImInputData();
+                this.aJU.parseJson(jSONObject.getJSONArray("fast_reply_word_audio"));
+                this.aJZ = bj.E(jSONObject.optJSONObject("guide_follow"));
                 JSONArray optJSONArray4 = jSONObject.optJSONArray("yuan_package");
                 if (optJSONArray4 != null) {
                     h(optJSONArray4);
-                    com.baidu.live.d.Ba().putString("yuan_package_data", optJSONArray4.toString());
+                    com.baidu.live.d.xf().putString("yuan_package_data", optJSONArray4.toString());
                 }
                 JSONObject optJSONObject11 = jSONObject.optJSONObject("rmb_conf");
                 if (optJSONObject11 != null) {
                     JSONObject optJSONObject12 = optJSONObject11.optJSONObject("rank");
                     if (optJSONObject12 != null && (optJSONObject = optJSONObject12.optJSONObject("hour")) != null) {
                         if (!TextUtils.isEmpty(optJSONObject.optString("haokan_url"))) {
-                            com.baidu.live.d.Ba().putString("hour_rank_rule_hk_190808", optJSONObject.optString("haokan_url"));
+                            com.baidu.live.d.xf().putString("hour_rank_rule_hk_190808", optJSONObject.optString("haokan_url"));
                         }
                         if (!TextUtils.isEmpty(optJSONObject.optString("quanmin_url"))) {
-                            com.baidu.live.d.Ba().putString("hour_rank_rule_qm_190808", optJSONObject.optString("quanmin_url"));
+                            com.baidu.live.d.xf().putString("hour_rank_rule_qm_190808", optJSONObject.optString("quanmin_url"));
                         }
                         if (!TextUtils.isEmpty(optJSONObject.optString("default_url"))) {
-                            com.baidu.live.d.Ba().putString("hour_rank_rule_default", optJSONObject.optString("default_url"));
+                            com.baidu.live.d.xf().putString("hour_rank_rule_default", optJSONObject.optString("default_url"));
                         }
                     }
                     JSONObject optJSONObject13 = optJSONObject11.optJSONObject("guard_seat");
                     if (optJSONObject13 != null) {
-                        this.aPa = optJSONObject13.optString(LogConfig.LOG_GIFT_ID);
+                        this.aKn = optJSONObject13.optString(LogConfig.LOG_GIFT_ID);
                     }
                 }
                 JSONObject optJSONObject14 = jSONObject.optJSONObject("certify_info");
                 if (optJSONObject14 != null) {
-                    this.aOY = new ax();
-                    this.aOY.aQt = optJSONObject14.optString("certify_refuse_url");
-                    com.baidu.live.d.Ba().putString("ala_certify_refuse_url", this.aOY.aQt);
+                    this.aKl = new ax();
+                    this.aKl.aLG = optJSONObject14.optString("certify_refuse_url");
+                    com.baidu.live.d.xf().putString("ala_certify_refuse_url", this.aKl.aLG);
                 }
-                this.aPl = new ao();
-                this.aPl.parseJson(jSONObject.optJSONObject("tags_conf"));
+                this.aKy = new ao();
+                this.aKy.parseJson(jSONObject.optJSONObject("tags_conf"));
                 JSONObject optJSONObject15 = jSONObject.optJSONObject("authority_info");
                 if (optJSONObject15 != null) {
-                    this.aPc = new s();
-                    this.aPc.parserJson(optJSONObject15);
+                    this.aKp = new s();
+                    this.aKp.parserJson(optJSONObject15);
                 }
                 JSONObject optJSONObject16 = jSONObject.optJSONObject("recommend_conf");
                 if (optJSONObject16 != null) {
-                    this.aPm = new ca(optJSONObject16);
+                    this.aKz = new ca(optJSONObject16);
                 }
-                com.baidu.live.guardclub.g.Ly().O(jSONObject.optJSONObject("old_club_member_level_icons"));
-                this.aPs = jSONObject.optInt("disc_optimize_switch") == 1;
+                com.baidu.live.guardclub.g.HD().O(jSONObject.optJSONObject("old_club_member_level_icons"));
+                this.aKF = jSONObject.optInt("disc_optimize_switch") == 1;
                 JSONObject optJSONObject17 = jSONObject.optJSONObject("new_level_icon_urls");
                 if (optJSONObject17 != null) {
                     int length2 = optJSONObject17.length();
                     for (int i3 = 1; i3 <= length2; i3++) {
-                        this.aPv.put(Integer.valueOf(i3), optJSONObject17.optString(i3 + ""));
+                        this.aKI.put(Integer.valueOf(i3), optJSONObject17.optString(i3 + ""));
                     }
                 }
                 JSONObject optJSONObject18 = jSONObject.optJSONObject("collection_guide_config");
                 if (optJSONObject18 != null) {
-                    com.baidu.live.d.Ba().putString("guide_follow_float_config", optJSONObject18.toString());
+                    com.baidu.live.d.xf().putString("guide_follow_float_config", optJSONObject18.toString());
                 }
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
@@ -354,12 +354,12 @@ public class an extends BaseData {
 
     private void e(JSONArray jSONArray) {
         if (jSONArray != null) {
-            com.baidu.live.d.Ba().putString("ala_prepare_random_title_list", jSONArray.toString());
+            com.baidu.live.d.xf().putString("ala_prepare_random_title_list", jSONArray.toString());
         }
     }
 
-    private void EL() {
-        String string = com.baidu.live.d.Ba().getString("ala_prepare_random_title_list", "");
+    private void AQ() {
+        String string = com.baidu.live.d.xf().getString("ala_prepare_random_title_list", "");
         try {
             if (!TextUtils.isEmpty(string)) {
                 f(new JSONArray(string));
@@ -371,43 +371,43 @@ public class an extends BaseData {
 
     private void f(JSONArray jSONArray) {
         if (jSONArray != null) {
-            this.aOP = new ArrayList();
+            this.aKc = new ArrayList();
             for (int i = 0; i < jSONArray.length(); i++) {
-                this.aOP.add(jSONArray.optString(i));
+                this.aKc.add(jSONArray.optString(i));
             }
         }
     }
 
-    private void EM() {
-        this.aMr = com.baidu.live.d.Ba().getBoolean("map_around_map", false);
-        this.aMY = com.baidu.live.d.Ba().getBoolean("withdraw_switch", true);
-        this.aNv = com.baidu.live.d.Ba().getString("withdraw_text", "");
-        this.aNo = com.baidu.live.d.Ba().getBoolean("use_internal_player_switch", true);
-        this.aNl = com.baidu.live.d.Ba().getBoolean("use_http_dns_switch", true);
-        this.aNm = com.baidu.live.d.Ba().getBoolean("use_encode_bframe_switch", false);
-        this.aNn = com.baidu.live.d.Ba().getBoolean("enable_opt_timestamp_switch", true);
-        this.aNp = com.baidu.live.d.Ba().getBoolean("live_beauty_open_switch", false);
-        this.aNq = com.baidu.live.d.Ba().getBoolean("live_unity_beauty_switch", true);
-        this.aNr = com.baidu.live.d.Ba().getBoolean("live_unity_beauty_face_style_switch", true);
-        this.aNs = com.baidu.live.d.Ba().getBoolean("sp_key_live_game_hard_encode", true);
-        this.aNt = com.baidu.live.d.Ba().getBoolean("sp_key_live_play_transcode_support", false);
-        this.aNu = com.baidu.live.d.Ba().getBoolean("sp_key_live_play_attention_guide_support", false);
-        this.aNw = com.baidu.live.d.Ba().getBoolean("ala_enable_graffiti_str", false);
-        this.aMs = com.baidu.live.d.Ba().getBoolean("enter_live", false);
-        this.aMt = com.baidu.live.d.Ba().getBoolean("sync_to_forum", true);
-        this.aMu = com.baidu.live.d.Ba().getBoolean("show_water_mark", false);
-        this.aMv = com.baidu.live.d.Ba().getBoolean("show_third_part_water_mark_switch", false);
-        this.aMQ = com.baidu.live.d.Ba().getBoolean("stream_error_log", true);
-        this.aMR = com.baidu.live.d.Ba().getBoolean("disable_channel_in", true);
-        this.aMS = com.baidu.live.d.Ba().getBoolean("shoubai_yanzhi_tab_tip", false);
-        this.aMT = com.baidu.live.d.Ba().getBoolean(ActionJsonData.TAG_SIGN_IN, false);
-        this.aMV = com.baidu.live.d.Ba().getBoolean("follow_default_push_switch", true);
-        this.aNE = com.baidu.live.d.Ba().getInt("to_tb_some_switch", 0);
-        this.aNC = com.baidu.live.d.Ba().getInt("enable_live_stat", 1);
-        this.aND = com.baidu.live.d.Ba().getInt("ala_free_gift_task_switch", 0);
-        this.aOm = com.baidu.live.d.Ba().getBoolean("live_challenge_switch", false);
-        this.aOn = com.baidu.live.d.Ba().getString("live_challenge_tip", null);
-        this.aOo = com.baidu.live.d.Ba().getString("live_challenge_url", null);
+    private void AR() {
+        this.aHE = com.baidu.live.d.xf().getBoolean("map_around_map", false);
+        this.aIl = com.baidu.live.d.xf().getBoolean("withdraw_switch", true);
+        this.aII = com.baidu.live.d.xf().getString("withdraw_text", "");
+        this.aIB = com.baidu.live.d.xf().getBoolean("use_internal_player_switch", true);
+        this.aIy = com.baidu.live.d.xf().getBoolean("use_http_dns_switch", true);
+        this.aIz = com.baidu.live.d.xf().getBoolean("use_encode_bframe_switch", false);
+        this.aIA = com.baidu.live.d.xf().getBoolean("enable_opt_timestamp_switch", true);
+        this.aIC = com.baidu.live.d.xf().getBoolean("live_beauty_open_switch", false);
+        this.aID = com.baidu.live.d.xf().getBoolean("live_unity_beauty_switch", true);
+        this.aIE = com.baidu.live.d.xf().getBoolean("live_unity_beauty_face_style_switch", true);
+        this.aIF = com.baidu.live.d.xf().getBoolean("sp_key_live_game_hard_encode", true);
+        this.aIG = com.baidu.live.d.xf().getBoolean("sp_key_live_play_transcode_support", false);
+        this.aIH = com.baidu.live.d.xf().getBoolean("sp_key_live_play_attention_guide_support", false);
+        this.aIJ = com.baidu.live.d.xf().getBoolean("ala_enable_graffiti_str", false);
+        this.aHF = com.baidu.live.d.xf().getBoolean("enter_live", false);
+        this.aHG = com.baidu.live.d.xf().getBoolean("sync_to_forum", true);
+        this.aHH = com.baidu.live.d.xf().getBoolean("show_water_mark", false);
+        this.aHI = com.baidu.live.d.xf().getBoolean("show_third_part_water_mark_switch", false);
+        this.aId = com.baidu.live.d.xf().getBoolean("stream_error_log", true);
+        this.aIe = com.baidu.live.d.xf().getBoolean("disable_channel_in", true);
+        this.aIf = com.baidu.live.d.xf().getBoolean("shoubai_yanzhi_tab_tip", false);
+        this.aIg = com.baidu.live.d.xf().getBoolean(ActionJsonData.TAG_SIGN_IN, false);
+        this.aIi = com.baidu.live.d.xf().getBoolean("follow_default_push_switch", true);
+        this.aIR = com.baidu.live.d.xf().getInt("to_tb_some_switch", 0);
+        this.aIP = com.baidu.live.d.xf().getInt("enable_live_stat", 1);
+        this.aIQ = com.baidu.live.d.xf().getInt("ala_free_gift_task_switch", 0);
+        this.aJz = com.baidu.live.d.xf().getBoolean("live_challenge_switch", false);
+        this.aJA = com.baidu.live.d.xf().getString("live_challenge_tip", null);
+        this.aJB = com.baidu.live.d.xf().getString("live_challenge_url", null);
     }
 
     private void A(JSONObject jSONObject) {
@@ -416,184 +416,184 @@ public class an extends BaseData {
         try {
             JSONObject optJSONObject = jSONObject.optJSONObject("map_around_map");
             if (optJSONObject != null) {
-                this.aMr = optJSONObject.optInt("switch") != 1;
-                com.baidu.live.d.Ba().putBoolean("map_around_map", this.aMr);
+                this.aHE = optJSONObject.optInt("switch") != 1;
+                com.baidu.live.d.xf().putBoolean("map_around_map", this.aHE);
             }
             JSONObject optJSONObject2 = jSONObject.optJSONObject("withdraw");
             if (optJSONObject2 != null) {
-                this.aMY = optJSONObject2.optInt("switch") == 1;
-                com.baidu.live.d.Ba().putBoolean("withdraw_switch", this.aMY);
-                this.aNv = optJSONObject2.optString("text");
-                com.baidu.live.d.Ba().putString("withdraw_text", this.aNv);
+                this.aIl = optJSONObject2.optInt("switch") == 1;
+                com.baidu.live.d.xf().putBoolean("withdraw_switch", this.aIl);
+                this.aII = optJSONObject2.optString("text");
+                com.baidu.live.d.xf().putString("withdraw_text", this.aII);
             }
             JSONObject optJSONObject3 = jSONObject.optJSONObject("use_internal_player");
             if (optJSONObject3 != null) {
-                this.aNo = optJSONObject3.optInt("switch") == 1;
-                com.baidu.live.d.Ba().putBoolean("use_internal_player_switch", this.aNo);
+                this.aIB = optJSONObject3.optInt("switch") == 1;
+                com.baidu.live.d.xf().putBoolean("use_internal_player_switch", this.aIB);
             }
             JSONObject optJSONObject4 = jSONObject.optJSONObject("useHttpDns");
             if (optJSONObject4 != null) {
-                this.aNl = optJSONObject4.optInt("switch") == 1;
-                com.baidu.live.d.Ba().putBoolean("use_http_dns_switch", this.aNl);
+                this.aIy = optJSONObject4.optInt("switch") == 1;
+                com.baidu.live.d.xf().putBoolean("use_http_dns_switch", this.aIy);
             }
             JSONObject optJSONObject5 = jSONObject.optJSONObject("useBFrame");
             if (optJSONObject5 != null) {
-                this.aNm = optJSONObject5.optInt("switch") == 1;
-                com.baidu.live.d.Ba().putBoolean("use_encode_bframe_switch", this.aNm);
+                this.aIz = optJSONObject5.optInt("switch") == 1;
+                com.baidu.live.d.xf().putBoolean("use_encode_bframe_switch", this.aIz);
             }
             JSONObject optJSONObject6 = jSONObject.optJSONObject("enable_opt_timestamp");
             if (optJSONObject6 != null) {
-                this.aNn = optJSONObject6.optInt("switch") == 1;
-                com.baidu.live.d.Ba().putBoolean("enable_opt_timestamp_switch", this.aNn);
+                this.aIA = optJSONObject6.optInt("switch") == 1;
+                com.baidu.live.d.xf().putBoolean("enable_opt_timestamp_switch", this.aIA);
             }
             JSONObject optJSONObject7 = jSONObject.optJSONObject("use_face_beauty");
             if (optJSONObject7 != null) {
-                this.aNp = optJSONObject7.optInt("switch") == 1;
-                com.baidu.live.d.Ba().putBoolean("live_beauty_open_switch", this.aNp);
+                this.aIC = optJSONObject7.optInt("switch") == 1;
+                com.baidu.live.d.xf().putBoolean("live_beauty_open_switch", this.aIC);
             }
             JSONObject optJSONObject8 = jSONObject.optJSONObject("use_fulive_beauty_and");
             if (optJSONObject8 != null) {
-                this.aNq = optJSONObject8.optInt("switch") == 1;
-                com.baidu.live.d.Ba().putBoolean("live_unity_beauty_switch", this.aNq);
+                this.aID = optJSONObject8.optInt("switch") == 1;
+                com.baidu.live.d.xf().putBoolean("live_unity_beauty_switch", this.aID);
             }
             JSONObject optJSONObject9 = jSONObject.optJSONObject("use_fulive_face_shape_and");
             if (optJSONObject9 != null) {
-                this.aNr = optJSONObject9.optInt("switch") == 1;
-                com.baidu.live.d.Ba().putBoolean("live_unity_beauty_face_style_switch", this.aNr);
+                this.aIE = optJSONObject9.optInt("switch") == 1;
+                com.baidu.live.d.xf().putBoolean("live_unity_beauty_face_style_switch", this.aIE);
             }
             JSONObject optJSONObject10 = jSONObject.optJSONObject("use_hw_game_encoder");
             if (optJSONObject10 != null) {
-                this.aNs = optJSONObject10.optInt("switch") == 1;
-                com.baidu.live.d.Ba().putBoolean("sp_key_live_game_hard_encode", this.aNs);
+                this.aIF = optJSONObject10.optInt("switch") == 1;
+                com.baidu.live.d.xf().putBoolean("sp_key_live_game_hard_encode", this.aIF);
             }
             JSONObject optJSONObject11 = jSONObject.optJSONObject("audience_transcode");
             if (optJSONObject11 != null) {
-                this.aNt = optJSONObject11.optInt("switch") == 1;
-                com.baidu.live.d.Ba().putBoolean("sp_key_live_play_transcode_support", this.aNt);
+                this.aIG = optJSONObject11.optInt("switch") == 1;
+                com.baidu.live.d.xf().putBoolean("sp_key_live_play_transcode_support", this.aIG);
             }
             JSONObject optJSONObject12 = jSONObject.optJSONObject("anchor_follow_tip");
             if (optJSONObject12 != null) {
-                this.aNu = optJSONObject12.optInt("switch") == 1;
-                com.baidu.live.d.Ba().putBoolean("sp_key_live_play_attention_guide_support", this.aNu);
+                this.aIH = optJSONObject12.optInt("switch") == 1;
+                com.baidu.live.d.xf().putBoolean("sp_key_live_play_attention_guide_support", this.aIH);
             }
             JSONObject optJSONObject13 = jSONObject.optJSONObject("enter_live");
             if (optJSONObject13 != null) {
-                this.aMs = optJSONObject13.optInt("switch") == 1;
-                com.baidu.live.d.Ba().putBoolean("enter_live", this.aMs);
+                this.aHF = optJSONObject13.optInt("switch") == 1;
+                com.baidu.live.d.xf().putBoolean("enter_live", this.aHF);
             }
             JSONObject optJSONObject14 = jSONObject.optJSONObject("sync_to_forum");
             if (optJSONObject14 != null) {
-                this.aMt = optJSONObject14.optString("switch").equals("1");
-                com.baidu.live.d.Ba().putBoolean("sync_to_forum", this.aMt);
+                this.aHG = optJSONObject14.optString("switch").equals("1");
+                com.baidu.live.d.xf().putBoolean("sync_to_forum", this.aHG);
             }
             JSONObject optJSONObject15 = jSONObject.optJSONObject("show_water_mark");
             if (optJSONObject15 != null) {
-                this.aMu = optJSONObject15.optString("switch").equals("1");
-                com.baidu.live.d.Ba().putBoolean("show_water_mark", this.aMu);
+                this.aHH = optJSONObject15.optString("switch").equals("1");
+                com.baidu.live.d.xf().putBoolean("show_water_mark", this.aHH);
             }
             JSONObject optJSONObject16 = jSONObject.optJSONObject("show_chushou_water_mark");
             if (optJSONObject16 != null) {
-                this.aMv = optJSONObject16.optString("switch").equals("1");
-                com.baidu.live.d.Ba().putBoolean("show_third_part_water_mark_switch", this.aMv);
+                this.aHI = optJSONObject16.optString("switch").equals("1");
+                com.baidu.live.d.xf().putBoolean("show_third_part_water_mark_switch", this.aHI);
             }
             JSONObject optJSONObject17 = jSONObject.optJSONObject("enable_live_sta");
             if (optJSONObject17 != null) {
-                this.aNC = optJSONObject17.optInt("switch");
-                com.baidu.live.d.Ba().putInt("enable_live_stat", this.aNC);
+                this.aIP = optJSONObject17.optInt("switch");
+                com.baidu.live.d.xf().putInt("enable_live_stat", this.aIP);
             }
             JSONObject optJSONObject18 = jSONObject.optJSONObject("stream_error_log");
             if (optJSONObject18 != null) {
-                this.aMQ = optJSONObject18.optInt("switch") == 1;
-                com.baidu.live.d.Ba().putBoolean("stream_error_log", this.aMQ);
+                this.aId = optJSONObject18.optInt("switch") == 1;
+                com.baidu.live.d.xf().putBoolean("stream_error_log", this.aId);
             }
             JSONObject optJSONObject19 = jSONObject.optJSONObject("disable_channel_in");
             if (optJSONObject19 != null) {
-                this.aMR = optJSONObject19.optString("switch").equals("1");
-                com.baidu.live.d.Ba().putBoolean("disable_channel_in", this.aMR);
+                this.aIe = optJSONObject19.optString("switch").equals("1");
+                com.baidu.live.d.xf().putBoolean("disable_channel_in", this.aIe);
             }
             JSONObject optJSONObject20 = jSONObject.optJSONObject("shoubai_yanzhi_tab_tip");
             if (optJSONObject20 != null) {
-                this.aMS = optJSONObject20.optString("switch").equals("1");
-                com.baidu.live.d.Ba().putBoolean("shoubai_yanzhi_tab_tip", this.aMS);
+                this.aIf = optJSONObject20.optString("switch").equals("1");
+                com.baidu.live.d.xf().putBoolean("shoubai_yanzhi_tab_tip", this.aIf);
             }
             JSONObject optJSONObject21 = jSONObject.optJSONObject(ActionJsonData.TAG_SIGN_IN);
             if (optJSONObject21 != null) {
-                this.aMT = optJSONObject21.optString("switch").equals("1");
-                com.baidu.live.d.Ba().putBoolean(ActionJsonData.TAG_SIGN_IN, this.aMT);
+                this.aIg = optJSONObject21.optString("switch").equals("1");
+                com.baidu.live.d.xf().putBoolean(ActionJsonData.TAG_SIGN_IN, this.aIg);
             }
             JSONObject optJSONObject22 = jSONObject.optJSONObject("follow_default_push_switch");
             if (optJSONObject22 != null) {
-                this.aMV = optJSONObject22.optString("switch").equals("2");
-                com.baidu.live.d.Ba().putBoolean("follow_default_push_switch", this.aMV);
+                this.aIi = optJSONObject22.optString("switch").equals("2");
+                com.baidu.live.d.xf().putBoolean("follow_default_push_switch", this.aIi);
             }
             JSONObject optJSONObject23 = jSONObject.optJSONObject("to_tb_some");
             if (optJSONObject23 != null) {
-                this.aNE = optJSONObject23.optInt("switch");
-                com.baidu.live.d.Ba().putInt("to_tb_some_switch", this.aNE);
+                this.aIR = optJSONObject23.optInt("switch");
+                com.baidu.live.d.xf().putInt("to_tb_some_switch", this.aIR);
             }
             JSONObject optJSONObject24 = jSONObject.optJSONObject("task_config");
             if (optJSONObject24 != null) {
-                this.aND = optJSONObject24.optInt("switch");
-                com.baidu.live.d.Ba().putInt("ala_free_gift_task_switch", this.aNE);
+                this.aIQ = optJSONObject24.optInt("switch");
+                com.baidu.live.d.xf().putInt("ala_free_gift_task_switch", this.aIR);
             }
             JSONObject optJSONObject25 = jSONObject.optJSONObject("enable_graffiti");
             if (optJSONObject25 != null) {
-                this.aNw = optJSONObject25.optInt("switch") == 1;
-                com.baidu.live.d.Ba().putBoolean("ala_enable_graffiti_str", this.aNw);
+                this.aIJ = optJSONObject25.optInt("switch") == 1;
+                com.baidu.live.d.xf().putBoolean("ala_enable_graffiti_str", this.aIJ);
             }
             JSONObject optJSONObject26 = jSONObject.optJSONObject("live_challenge_activity");
             if (optJSONObject26 != null) {
-                this.aOm = optJSONObject26.optInt("switch") == 1;
-                this.aOn = optJSONObject26.optString("title");
-                this.aOo = optJSONObject26.optString("url");
-                com.baidu.live.d.Ba().putBoolean("live_challenge_switch", this.aOm);
-                com.baidu.live.d.Ba().putString("live_challenge_tip", this.aOn);
-                com.baidu.live.d.Ba().putString("live_challenge_url", this.aOo);
+                this.aJz = optJSONObject26.optInt("switch") == 1;
+                this.aJA = optJSONObject26.optString("title");
+                this.aJB = optJSONObject26.optString("url");
+                com.baidu.live.d.xf().putBoolean("live_challenge_switch", this.aJz);
+                com.baidu.live.d.xf().putString("live_challenge_tip", this.aJA);
+                com.baidu.live.d.xf().putString("live_challenge_url", this.aJB);
             }
             JSONObject optJSONObject27 = jSONObject.optJSONObject("new_gift_t_dou_strategy");
             if (optJSONObject27 != null) {
-                this.aOu = optJSONObject27.optInt("switch") == 1;
-                com.baidu.live.d.Ba().putBoolean("is_new_gift_t_dou_strategy", this.aOu);
+                this.aJH = optJSONObject27.optInt("switch") == 1;
+                com.baidu.live.d.xf().putBoolean("is_new_gift_t_dou_strategy", this.aJH);
             }
             JSONObject optJSONObject28 = jSONObject.optJSONObject("liveapp_day_rank");
             if (optJSONObject28 != null) {
-                this.aOy = optJSONObject28.optInt("switch") == 1;
+                this.aJL = optJSONObject28.optInt("switch") == 1;
             }
             JSONObject optJSONObject29 = jSONObject.optJSONObject("login_prove");
             if (optJSONObject29 != null) {
-                this.aOw = optJSONObject29.optInt("switch") == 1;
-                com.baidu.live.d.Ba().putBoolean("key_is_open_login_prove", this.aOw);
+                this.aJJ = optJSONObject29.optInt("switch") == 1;
+                com.baidu.live.d.xf().putBoolean("key_is_open_login_prove", this.aJJ);
             }
             JSONObject optJSONObject30 = jSONObject.optJSONObject("diamond_entry");
             if (optJSONObject30 != null) {
-                this.aOx = optJSONObject30.optInt("switch") == 1;
-                com.baidu.live.d.Ba().putBoolean("key_is_open_diamond", this.aOx);
+                this.aJK = optJSONObject30.optInt("switch") == 1;
+                com.baidu.live.d.xf().putBoolean("key_is_open_diamond", this.aJK);
             }
             JSONObject optJSONObject31 = jSONObject.optJSONObject("challenge_jump_rival");
             if (optJSONObject31 != null) {
-                this.aOz = optJSONObject31.optInt("switch") == 1;
-                com.baidu.live.d.Ba().putBoolean("key_is_jump_to_live_room", this.aOz);
+                this.aJM = optJSONObject31.optInt("switch") == 1;
+                com.baidu.live.d.xf().putBoolean("key_is_jump_to_live_room", this.aJM);
             }
             JSONObject optJSONObject32 = jSONObject.optJSONObject("guard_seat");
             if (optJSONObject32 != null && (optInt2 = optJSONObject32.optInt("switch", -1)) >= 0) {
-                this.aOZ = optInt2 == 1;
+                this.aKm = optInt2 == 1;
             }
             JSONObject optJSONObject33 = jSONObject.optJSONObject("errorcode_display");
             if (optJSONObject33 != null && (optInt = optJSONObject33.optInt("switch", -1)) >= 0) {
-                this.aPd = optInt == 1;
+                this.aKq = optInt == 1;
             }
         } catch (Exception e) {
             BdLog.e(e.getMessage());
         }
     }
 
-    private void EN() {
+    private void AS() {
         JSONArray jSONArray;
-        this.aMO = com.baidu.live.d.Ba().getString("bluediamond_url", "");
-        this.aMC = com.baidu.live.d.Ba().getString("verify_content", this.aMC);
-        this.aMB = com.baidu.live.d.Ba().getString("live_notice", "");
-        this.aMD = com.baidu.live.d.Ba().getString("activity_notice", "");
-        String string = com.baidu.live.d.Ba().getString("imNotice", "");
+        this.aIb = com.baidu.live.d.xf().getString("bluediamond_url", "");
+        this.aHP = com.baidu.live.d.xf().getString("verify_content", this.aHP);
+        this.aHO = com.baidu.live.d.xf().getString("live_notice", "");
+        this.aHQ = com.baidu.live.d.xf().getString("activity_notice", "");
+        String string = com.baidu.live.d.xf().getString("imNotice", "");
         if (!TextUtils.isEmpty(string)) {
             try {
                 jSONArray = new JSONArray(string);
@@ -606,99 +606,99 @@ public class an extends BaseData {
                 for (int i = 0; i < length; i++) {
                     String optString = jSONArray.optString(i);
                     if (!optString.isEmpty()) {
-                        this.aMA.add(i, optString);
+                        this.aHN.add(i, optString);
                     } else {
-                        this.aMA.add(i, "");
+                        this.aHN.add(i, "");
                     }
                 }
             }
         }
-        this.aNy = com.baidu.live.d.Ba().getString("share_host", "");
-        this.aNz = com.baidu.live.d.Ba().getString("ala_share_in_bar_notice_text", "");
-        this.aNB = com.baidu.live.d.Ba().getString("ala_share_reward_rank_notice_text", "");
-        this.aNA = com.baidu.live.d.Ba().getInt("ala_share_in_bar_notice_tip_switch", 2);
-        this.aMP = com.baidu.live.d.Ba().getInt("recommend_refresh", 60);
-        this.aMW = com.baidu.live.d.Ba().getString("strategy_conf", ABTestConstants.PREFETCH_REUSE_AGE_DEFAULT_VALUE);
-        this.aMX = com.baidu.live.d.Ba().getInt("strategy_exception_interval", 1);
-        this.aMU = com.baidu.live.d.Ba().getInt("liveStartAuthLevel", 1);
-        this.aML = com.baidu.live.d.Ba().getInt("2gTo", 5);
-        this.aMM = com.baidu.live.d.Ba().getInt("3gTo", 3);
-        this.aMN = com.baidu.live.d.Ba().getInt("wifiTo", 3);
-        String string2 = com.baidu.live.d.Ba().getString("ala_live_stream_config_normal", null);
+        this.aIL = com.baidu.live.d.xf().getString("share_host", "");
+        this.aIM = com.baidu.live.d.xf().getString("ala_share_in_bar_notice_text", "");
+        this.aIO = com.baidu.live.d.xf().getString("ala_share_reward_rank_notice_text", "");
+        this.aIN = com.baidu.live.d.xf().getInt("ala_share_in_bar_notice_tip_switch", 2);
+        this.aIc = com.baidu.live.d.xf().getInt("recommend_refresh", 60);
+        this.aIj = com.baidu.live.d.xf().getString("strategy_conf", ABTestConstants.PREFETCH_REUSE_AGE_DEFAULT_VALUE);
+        this.aIk = com.baidu.live.d.xf().getInt("strategy_exception_interval", 1);
+        this.aIh = com.baidu.live.d.xf().getInt("liveStartAuthLevel", 1);
+        this.aHY = com.baidu.live.d.xf().getInt("2gTo", 5);
+        this.aHZ = com.baidu.live.d.xf().getInt("3gTo", 3);
+        this.aIa = com.baidu.live.d.xf().getInt("wifiTo", 3);
+        String string2 = com.baidu.live.d.xf().getString("ala_live_stream_config_normal", null);
         try {
             if (!TextUtils.isEmpty(string2)) {
-                this.aMH = g(new JSONArray(string2));
+                this.aHU = g(new JSONArray(string2));
             }
-            String string3 = com.baidu.live.d.Ba().getString("ala_live_stream_config_high_level", null);
+            String string3 = com.baidu.live.d.xf().getString("ala_live_stream_config_high_level", null);
             if (!TextUtils.isEmpty(string3)) {
-                this.aMI = g(new JSONArray(string3));
+                this.aHV = g(new JSONArray(string3));
             }
         } catch (Throwable th) {
             th.printStackTrace();
         }
-        this.aNF = com.baidu.live.d.Ba().getInt("square_tab_strategy", 1);
-        this.aNG = com.baidu.live.d.Ba().getString("ala_live_ranklist_url", null);
-        this.aNH = com.baidu.live.d.Ba().getString("new_flower_rank_list_description_url", "");
-        this.aNI = com.baidu.live.d.Ba().getString("ala_game_player_signup_url", null);
-        this.aNJ = com.baidu.live.d.Ba().getString("ala_game_frs_live_tab_video_url", null);
-        ER();
-        this.aNQ = com.baidu.live.d.Ba().getString("ala_personal_income_detail_url", null);
-        this.aOr = com.baidu.live.d.Ba().getInt("ala_custom_gift_category_id", -1);
-        this.aNR = com.baidu.live.d.Ba().getInt("ala_live_pk_switch", 0) == 1;
-        this.aNS = com.baidu.live.d.Ba().getLong("ala_live_pk_check_interval", 1000L);
-        this.aNT = com.baidu.live.d.Ba().getLong("ala_live_pk_match_timeout", AppStatusRules.DEFAULT_GRANULARITY);
-        this.aNU = com.baidu.live.d.Ba().getString("ala_live_pk_pic_url", "");
-        this.aNV = com.baidu.live.d.Ba().getString("ala_live_pk_pic_jump_url", "");
-        this.aNW = com.baidu.live.d.Ba().getString("ala_live_pk_history_link", "");
-        this.aNX = com.baidu.live.d.Ba().getString("show_live_forum_url", "");
-        this.aNY = com.baidu.live.d.Ba().getLong("ala_challenge_random_interval", 1000L);
-        this.aNZ = com.baidu.live.d.Ba().getLong("ala_challenge_direct_interval", 1000L);
-        this.aOa = com.baidu.live.d.Ba().getLong("ala_get_challenge_info_interval", 1000L);
-        this.aOc = com.baidu.live.d.Ba().getString("ala_challenge_pk_entry_icon_url", "");
-        this.aOd = com.baidu.live.d.Ba().getString("ala_challenge_pk_entry_icon_url", "");
-        this.aOb = com.baidu.live.d.Ba().getString("ala_challenge_pk_entry_icon_url", "");
-        this.aOe = com.baidu.live.d.Ba().getInt("punish_stage_button_switch", 0);
-        this.aOf = com.baidu.live.d.Ba().getInt("receive_challenge_im_show_time", 0);
-        this.aOg = com.baidu.live.d.Ba().getInt("mvpPunishSwitch", 0);
-        this.aOh = com.baidu.live.d.Ba().getInt("toastLifeTime", 10);
-        this.aOi = com.baidu.live.d.Ba().getInt("punishLifeTime", 60);
-        this.aOs = com.baidu.live.d.Ba().getBoolean("ala_guess_use_https", false);
-        gq(com.baidu.live.d.Ba().getString("ala_live_bar_map_str", ""));
-        this.aOt = com.baidu.live.d.Ba().getBoolean("is_new_live_close_strategy", false);
-        this.aOu = com.baidu.live.d.Ba().getBoolean("is_new_gift_t_dou_strategy", false);
-        this.aOv = com.baidu.live.d.Ba().getString("ala_feedback_url", null);
-        this.aMZ = com.baidu.live.d.Ba().getInt("ala_video_resolution_level", 3);
-        this.aNa = com.baidu.live.d.Ba().getInt("ala_video_encoder_gop", 2);
-        this.aNb = com.baidu.live.d.Ba().getBoolean("ala_live_hard_encode_switch", true);
-        this.aNc = com.baidu.live.d.Ba().getBoolean("ala_dynamic_bitrate_switch", true);
-        this.increaseThreshold = com.baidu.live.d.Ba().getFloat("ala_video_increase_threshold", 0.006f);
-        this.decreaseThreshold = com.baidu.live.d.Ba().getFloat("ala_video_decrease_threshold", 0.3f);
-        this.increaseCount = com.baidu.live.d.Ba().getInt("ala_video_increase_count", 3);
-        this.aNd = com.baidu.live.d.Ba().getString("ala_video_soft_bitrate_config", null);
-        this.aNe = com.baidu.live.d.Ba().getString("ala_video_hard_bitrate_config", null);
-        this.aNi = com.baidu.live.d.Ba().getInt("ala_master_chat_video_resolution_level", 3);
-        this.aNj = com.baidu.live.d.Ba().getInt("ala_slave_chat_video_resolution_level", 4);
-        this.aNf = com.baidu.live.d.Ba().getString("ala_avts_stream_server_domain_config", null);
-        this.aNg = com.baidu.live.d.Ba().getString("ala_master_chat_video_bitrate_config", null);
-        this.aNh = com.baidu.live.d.Ba().getString("ala_slave_chat_video_bitrate_config", null);
-        this.aNk = com.baidu.live.d.Ba().getString("ala_video_encoder_reset_config", null);
-        this.mBigHeaderPhotoUrlPrefix = com.baidu.live.d.Ba().getString("ala_big_header_photo_prefix", TbConfig.PHOTO_BIG_ADDRESS);
-        this.mSmallHeaderPhotoUrlPrefix = com.baidu.live.d.Ba().getString("ala_small_header_photo_prefix", TbConfig.PHOTO_SMALL_ADDRESS);
+        this.aIS = com.baidu.live.d.xf().getInt("square_tab_strategy", 1);
+        this.aIT = com.baidu.live.d.xf().getString("ala_live_ranklist_url", null);
+        this.aIU = com.baidu.live.d.xf().getString("new_flower_rank_list_description_url", "");
+        this.aIV = com.baidu.live.d.xf().getString("ala_game_player_signup_url", null);
+        this.aIW = com.baidu.live.d.xf().getString("ala_game_frs_live_tab_video_url", null);
+        AW();
+        this.aJd = com.baidu.live.d.xf().getString("ala_personal_income_detail_url", null);
+        this.aJE = com.baidu.live.d.xf().getInt("ala_custom_gift_category_id", -1);
+        this.aJe = com.baidu.live.d.xf().getInt("ala_live_pk_switch", 0) == 1;
+        this.aJf = com.baidu.live.d.xf().getLong("ala_live_pk_check_interval", 1000L);
+        this.aJg = com.baidu.live.d.xf().getLong("ala_live_pk_match_timeout", AppStatusRules.DEFAULT_GRANULARITY);
+        this.aJh = com.baidu.live.d.xf().getString("ala_live_pk_pic_url", "");
+        this.aJi = com.baidu.live.d.xf().getString("ala_live_pk_pic_jump_url", "");
+        this.aJj = com.baidu.live.d.xf().getString("ala_live_pk_history_link", "");
+        this.aJk = com.baidu.live.d.xf().getString("show_live_forum_url", "");
+        this.aJl = com.baidu.live.d.xf().getLong("ala_challenge_random_interval", 1000L);
+        this.aJm = com.baidu.live.d.xf().getLong("ala_challenge_direct_interval", 1000L);
+        this.aJn = com.baidu.live.d.xf().getLong("ala_get_challenge_info_interval", 1000L);
+        this.aJp = com.baidu.live.d.xf().getString("ala_challenge_pk_entry_icon_url", "");
+        this.aJq = com.baidu.live.d.xf().getString("ala_challenge_pk_entry_icon_url", "");
+        this.aJo = com.baidu.live.d.xf().getString("ala_challenge_pk_entry_icon_url", "");
+        this.aJr = com.baidu.live.d.xf().getInt("punish_stage_button_switch", 0);
+        this.aJs = com.baidu.live.d.xf().getInt("receive_challenge_im_show_time", 0);
+        this.aJt = com.baidu.live.d.xf().getInt("mvpPunishSwitch", 0);
+        this.aJu = com.baidu.live.d.xf().getInt("toastLifeTime", 10);
+        this.aJv = com.baidu.live.d.xf().getInt("punishLifeTime", 60);
+        this.aJF = com.baidu.live.d.xf().getBoolean("ala_guess_use_https", false);
+        ff(com.baidu.live.d.xf().getString("ala_live_bar_map_str", ""));
+        this.aJG = com.baidu.live.d.xf().getBoolean("is_new_live_close_strategy", false);
+        this.aJH = com.baidu.live.d.xf().getBoolean("is_new_gift_t_dou_strategy", false);
+        this.aJI = com.baidu.live.d.xf().getString("ala_feedback_url", null);
+        this.aIm = com.baidu.live.d.xf().getInt("ala_video_resolution_level", 3);
+        this.aIn = com.baidu.live.d.xf().getInt("ala_video_encoder_gop", 2);
+        this.aIo = com.baidu.live.d.xf().getBoolean("ala_live_hard_encode_switch", true);
+        this.aIp = com.baidu.live.d.xf().getBoolean("ala_dynamic_bitrate_switch", true);
+        this.increaseThreshold = com.baidu.live.d.xf().getFloat("ala_video_increase_threshold", 0.006f);
+        this.decreaseThreshold = com.baidu.live.d.xf().getFloat("ala_video_decrease_threshold", 0.3f);
+        this.increaseCount = com.baidu.live.d.xf().getInt("ala_video_increase_count", 3);
+        this.aIq = com.baidu.live.d.xf().getString("ala_video_soft_bitrate_config", null);
+        this.aIr = com.baidu.live.d.xf().getString("ala_video_hard_bitrate_config", null);
+        this.aIv = com.baidu.live.d.xf().getInt("ala_master_chat_video_resolution_level", 3);
+        this.aIw = com.baidu.live.d.xf().getInt("ala_slave_chat_video_resolution_level", 4);
+        this.aIs = com.baidu.live.d.xf().getString("ala_avts_stream_server_domain_config", null);
+        this.aIt = com.baidu.live.d.xf().getString("ala_master_chat_video_bitrate_config", null);
+        this.aIu = com.baidu.live.d.xf().getString("ala_slave_chat_video_bitrate_config", null);
+        this.aIx = com.baidu.live.d.xf().getString("ala_video_encoder_reset_config", null);
+        this.mBigHeaderPhotoUrlPrefix = com.baidu.live.d.xf().getString("ala_big_header_photo_prefix", TbConfig.PHOTO_BIG_ADDRESS);
+        this.mSmallHeaderPhotoUrlPrefix = com.baidu.live.d.xf().getString("ala_small_header_photo_prefix", TbConfig.PHOTO_SMALL_ADDRESS);
         TbadkCoreApplication.getInst().setBigHeaderPhotoUrlPrefix(this.mBigHeaderPhotoUrlPrefix);
         TbadkCoreApplication.getInst().setSmallHeaderPhotoUrlPrefix(this.mSmallHeaderPhotoUrlPrefix);
-        this.aOw = com.baidu.live.d.Ba().getBoolean("key_is_open_login_prove", false);
-        this.aOx = com.baidu.live.d.Ba().getBoolean("key_is_open_diamond", false);
-        this.aOz = com.baidu.live.d.Ba().getBoolean("key_is_jump_to_live_room", false);
-        go(com.baidu.live.d.Ba().getString("feed_diversion", ""));
-        EQ();
+        this.aJJ = com.baidu.live.d.xf().getBoolean("key_is_open_login_prove", false);
+        this.aJK = com.baidu.live.d.xf().getBoolean("key_is_open_diamond", false);
+        this.aJM = com.baidu.live.d.xf().getBoolean("key_is_jump_to_live_room", false);
+        fd(com.baidu.live.d.xf().getString("feed_diversion", ""));
+        AV();
     }
 
-    private void go(String str) {
+    private void fd(String str) {
         try {
             if (!TextUtils.isEmpty(str)) {
                 JSONObject jSONObject = new JSONObject(str);
-                this.aPb = new AlaFeedDiversionData();
-                this.aPb.parserJson(jSONObject);
+                this.aKo = new AlaFeedDiversionData();
+                this.aKo.parserJson(jSONObject);
             }
         } catch (JSONException e) {
             e.printStackTrace();
@@ -722,53 +722,53 @@ public class an extends BaseData {
         try {
             JSONObject optJSONObject2 = jSONObject.optJSONObject("tying_gift_conf");
             if (optJSONObject2 != null) {
-                this.aOk = optJSONObject2.optInt("pendant_details_show_times");
-                this.aOl = optJSONObject2.optInt("pendant_inform_show_times");
+                this.aJx = optJSONObject2.optInt("pendant_details_show_times");
+                this.aJy = optJSONObject2.optInt("pendant_inform_show_times");
             }
             JSONObject optJSONObject3 = jSONObject.optJSONObject("quick_im_conf");
             if (optJSONObject3 != null) {
-                this.aOI = optJSONObject3.optInt("switch", 1) == 1;
-                this.aOJ = optJSONObject3.optInt("show_times");
-                this.aOK = optJSONObject3.optInt("delay_seconds");
+                this.aJV = optJSONObject3.optInt("switch", 1) == 1;
+                this.aJW = optJSONObject3.optInt("show_times");
+                this.aJX = optJSONObject3.optInt("delay_seconds");
             }
             JSONObject optJSONObject4 = jSONObject.optJSONObject("pksolo");
             if (optJSONObject4 != null) {
-                this.aME = optJSONObject4.toString();
-                this.aPn = new bw();
-                this.aPn.parse(optJSONObject4);
+                this.aHR = optJSONObject4.toString();
+                this.aKA = new bw();
+                this.aKA.parse(optJSONObject4);
             }
             JSONObject optJSONObject5 = jSONObject.optJSONObject("poke");
-            this.aPo = new by();
+            this.aKB = new by();
             if (optJSONObject5 != null) {
-                this.aPo.parse(optJSONObject5);
+                this.aKB.parse(optJSONObject5);
             }
             JSONObject optJSONObject6 = jSONObject.optJSONObject("tb_ala_toast_config");
             if (optJSONObject6 != null) {
-                this.aMq = optJSONObject6.optString(TipsConfigItem.TipConfigData.TOAST);
-                this.aMp = optJSONObject6.optInt("remind_type");
+                this.aHD = optJSONObject6.optString(TipsConfigItem.TipConfigData.TOAST);
+                this.aHC = optJSONObject6.optInt("remind_type");
             }
-            this.aMO = jSONObject.optString("bluediamond_url");
-            com.baidu.live.d.Ba().putString("bluediamond_url", this.aMO);
-            this.aMC = jSONObject.optString("verify_content");
-            com.baidu.live.d.Ba().putString("verify_content", this.aMC);
-            this.aMB = jSONObject.optString("live_notice");
-            com.baidu.live.d.Ba().putString("live_notice", this.aMB);
-            this.aMD = jSONObject.optString("activityNotice");
-            com.baidu.live.d.Ba().putString("activity_notice", this.aMD);
+            this.aIb = jSONObject.optString("bluediamond_url");
+            com.baidu.live.d.xf().putString("bluediamond_url", this.aIb);
+            this.aHP = jSONObject.optString("verify_content");
+            com.baidu.live.d.xf().putString("verify_content", this.aHP);
+            this.aHO = jSONObject.optString("live_notice");
+            com.baidu.live.d.xf().putString("live_notice", this.aHO);
+            this.aHQ = jSONObject.optString("activityNotice");
+            com.baidu.live.d.xf().putString("activity_notice", this.aHQ);
             JSONArray optJSONArray2 = jSONObject.optJSONArray("imNotice");
             if (optJSONArray2 != null) {
                 int length = optJSONArray2.length();
                 for (int i = 0; i < length; i++) {
                     String optString = optJSONArray2.optString(i);
                     if (!optString.isEmpty()) {
-                        this.aMA.add(i, optString);
+                        this.aHN.add(i, optString);
                     } else {
-                        this.aMA.add(i, "");
+                        this.aHN.add(i, "");
                     }
                 }
-                com.baidu.live.d.Ba().putString("imNotice", optJSONArray2.toString());
+                com.baidu.live.d.xf().putString("imNotice", optJSONArray2.toString());
             } else {
-                com.baidu.live.d.Ba().putString("imNotice", "");
+                com.baidu.live.d.xf().putString("imNotice", "");
             }
             JSONArray optJSONArray3 = jSONObject.optJSONArray("imGetMsgStrategy");
             if (optJSONArray3 != null) {
@@ -776,7 +776,7 @@ public class an extends BaseData {
                 for (int i2 = 0; i2 < length2; i2++) {
                     String optString2 = optJSONArray3.optString(i2);
                     if (!optString2.isEmpty()) {
-                        this.aMF.add(i2, optString2);
+                        this.aHS.add(i2, optString2);
                     }
                 }
             }
@@ -787,7 +787,7 @@ public class an extends BaseData {
                     if (optJSONObject8 != null) {
                         p pVar = new p();
                         pVar.parseJson(optJSONObject8);
-                        this.aMz.add(pVar);
+                        this.aHM.add(pVar);
                     }
                 }
             }
@@ -795,224 +795,224 @@ public class an extends BaseData {
             if (optJSONArray4 != null) {
                 int length3 = optJSONArray4.length();
                 for (int i4 = 0; i4 < length3; i4++) {
-                    this.aMG.add(i4, Integer.valueOf(optJSONArray4.optInt(i4)));
+                    this.aHT.add(i4, Integer.valueOf(optJSONArray4.optInt(i4)));
                 }
             }
             JSONObject optJSONObject9 = jSONObject.optJSONObject("share_host");
             if (optJSONObject9 != null) {
-                this.aNy = optJSONObject9.optString("url");
+                this.aIL = optJSONObject9.optString("url");
             } else {
-                this.aNy = "http://tieba.baidu.com/ala/share/live";
+                this.aIL = "http://tieba.baidu.com/ala/share/live";
             }
             JSONObject optJSONObject10 = jSONObject.optJSONObject("share_reward");
             if (optJSONObject10 != null) {
-                this.aNz = optJSONObject10.optString("reward_notice");
-                this.aNB = optJSONObject10.optString("reward_rank_notice");
-                this.aNA = optJSONObject10.optInt("reward_switch", 2);
+                this.aIM = optJSONObject10.optString("reward_notice");
+                this.aIO = optJSONObject10.optString("reward_rank_notice");
+                this.aIN = optJSONObject10.optInt("reward_switch", 2);
             } else {
-                this.aNz = "";
-                this.aNB = "";
-                this.aNA = 2;
+                this.aIM = "";
+                this.aIO = "";
+                this.aIN = 2;
             }
-            com.baidu.live.d.Ba().putString("share_host", this.aNy);
-            com.baidu.live.d.Ba().putString("ala_share_in_bar_notice_text", this.aNz);
-            com.baidu.live.d.Ba().putString("ala_share_reward_rank_notice_text", this.aNB);
-            com.baidu.live.d.Ba().putInt("ala_share_in_bar_notice_tip_switch", this.aNA);
+            com.baidu.live.d.xf().putString("share_host", this.aIL);
+            com.baidu.live.d.xf().putString("ala_share_in_bar_notice_text", this.aIM);
+            com.baidu.live.d.xf().putString("ala_share_reward_rank_notice_text", this.aIO);
+            com.baidu.live.d.xf().putInt("ala_share_in_bar_notice_tip_switch", this.aIN);
             JSONObject optJSONObject11 = jSONObject.optJSONObject("recommend_refresh");
             if (optJSONObject11 != null) {
-                this.aMP = optJSONObject11.optInt("value");
+                this.aIc = optJSONObject11.optInt("value");
             } else {
-                this.aMP = 60;
+                this.aIc = 60;
             }
-            com.baidu.live.d.Ba().putInt("recommend_refresh", this.aMP);
+            com.baidu.live.d.xf().putInt("recommend_refresh", this.aIc);
             JSONObject optJSONObject12 = jSONObject.optJSONObject("stream_config");
             if (optJSONObject12 != null) {
                 JSONArray optJSONArray5 = optJSONObject12.optJSONArray("configs");
                 if (optJSONArray5 != null) {
-                    com.baidu.live.d.Ba().putString("ala_live_stream_config_normal", optJSONArray5.toString());
+                    com.baidu.live.d.xf().putString("ala_live_stream_config_normal", optJSONArray5.toString());
                 }
-                this.aMH = g(optJSONArray5);
+                this.aHU = g(optJSONArray5);
             }
             JSONObject optJSONObject13 = jSONObject.optJSONObject("stream_level_high");
             if (optJSONObject13 != null) {
                 JSONArray optJSONArray6 = optJSONObject13.optJSONArray("configs");
                 if (optJSONArray6 != null) {
-                    com.baidu.live.d.Ba().putString("ala_live_stream_config_high_level", optJSONArray6.toString());
+                    com.baidu.live.d.xf().putString("ala_live_stream_config_high_level", optJSONArray6.toString());
                 }
-                this.aMI = g(optJSONArray6);
+                this.aHV = g(optJSONArray6);
             }
             JSONObject optJSONObject14 = jSONObject.optJSONObject("strategy_conf");
             if (optJSONObject14 != null) {
-                this.aMW = optJSONObject14.optString("time_interval");
-                this.aMX = optJSONObject14.optInt("exception_interval");
+                this.aIj = optJSONObject14.optString("time_interval");
+                this.aIk = optJSONObject14.optInt("exception_interval");
             } else {
-                this.aMW = ABTestConstants.PREFETCH_REUSE_AGE_DEFAULT_VALUE;
-                this.aMX = 1;
+                this.aIj = ABTestConstants.PREFETCH_REUSE_AGE_DEFAULT_VALUE;
+                this.aIk = 1;
             }
-            com.baidu.live.d.Ba().putString("strategy_conf", this.aMW);
-            com.baidu.live.d.Ba().putInt("strategy_exception_interval", this.aMX);
-            this.aMU = jSONObject.optInt("liveStartAuthLevel");
-            com.baidu.live.d.Ba().putInt("liveStartAuthLevel", this.aMU);
+            com.baidu.live.d.xf().putString("strategy_conf", this.aIj);
+            com.baidu.live.d.xf().putInt("strategy_exception_interval", this.aIk);
+            this.aIh = jSONObject.optInt("liveStartAuthLevel");
+            com.baidu.live.d.xf().putInt("liveStartAuthLevel", this.aIh);
             JSONObject optJSONObject15 = jSONObject.optJSONObject("imNetworkTimeOut");
             if (optJSONObject15 != null) {
-                this.aML = optJSONObject15.optInt("2gTo");
-                if (this.aML < 3) {
-                    this.aML = 3;
+                this.aHY = optJSONObject15.optInt("2gTo");
+                if (this.aHY < 3) {
+                    this.aHY = 3;
                 }
-                this.aMM = optJSONObject15.optInt("3gTo");
-                if (this.aMM < 3) {
-                    this.aMM = 3;
+                this.aHZ = optJSONObject15.optInt("3gTo");
+                if (this.aHZ < 3) {
+                    this.aHZ = 3;
                 }
-                this.aMN = optJSONObject15.optInt("wifiTo");
-                if (this.aMN < 3) {
-                    this.aMN = 3;
+                this.aIa = optJSONObject15.optInt("wifiTo");
+                if (this.aIa < 3) {
+                    this.aIa = 3;
                 }
-                com.baidu.live.d.Ba().putInt("2gTo", this.aML);
-                com.baidu.live.d.Ba().putInt("3gTo", this.aMM);
-                com.baidu.live.d.Ba().putInt("wifiTo", this.aMN);
+                com.baidu.live.d.xf().putInt("2gTo", this.aHY);
+                com.baidu.live.d.xf().putInt("3gTo", this.aHZ);
+                com.baidu.live.d.xf().putInt("wifiTo", this.aIa);
             }
-            this.aNF = jSONObject.optInt("square_tab_strategy", 1);
-            com.baidu.live.d.Ba().putInt("square_tab_strategy", this.aNF);
+            this.aIS = jSONObject.optInt("square_tab_strategy", 1);
+            com.baidu.live.d.xf().putInt("square_tab_strategy", this.aIS);
             JSONObject optJSONObject16 = jSONObject.optJSONObject("livesquare_rank");
             if (optJSONObject16 != null) {
-                this.aNG = optJSONObject16.optString(BigdayActivityConfig.JUMP_URL);
-                this.aNH = optJSONObject16.optString("flower_rank_rule");
+                this.aIT = optJSONObject16.optString(BigdayActivityConfig.JUMP_URL);
+                this.aIU = optJSONObject16.optString("flower_rank_rule");
             }
-            com.baidu.live.d.Ba().putString("ala_live_ranklist_url", this.aNG);
-            com.baidu.live.d.Ba().putString("new_flower_rank_list_description_url", this.aNH);
+            com.baidu.live.d.xf().putString("ala_live_ranklist_url", this.aIT);
+            com.baidu.live.d.xf().putString("new_flower_rank_list_description_url", this.aIU);
             JSONObject optJSONObject17 = jSONObject.optJSONObject("game_player_sign_up_h5");
             if (optJSONObject17 != null) {
-                this.aNI = optJSONObject17.optString(BigdayActivityConfig.JUMP_URL);
+                this.aIV = optJSONObject17.optString(BigdayActivityConfig.JUMP_URL);
             }
-            com.baidu.live.d.Ba().putString("ala_game_player_signup_url", this.aNI);
+            com.baidu.live.d.xf().putString("ala_game_player_signup_url", this.aIV);
             JSONObject optJSONObject18 = jSONObject.optJSONObject("frs_new_live_tab_video_h5");
             if (optJSONObject18 != null) {
-                this.aNJ = optJSONObject18.optString(BigdayActivityConfig.JUMP_URL);
-                com.baidu.live.d.Ba().putString("ala_game_frs_live_tab_video_url", this.aNJ);
+                this.aIW = optJSONObject18.optString(BigdayActivityConfig.JUMP_URL);
+                com.baidu.live.d.xf().putString("ala_game_frs_live_tab_video_url", this.aIW);
             }
             JSONObject optJSONObject19 = jSONObject.optJSONObject("session_backup");
             if (optJSONObject19 != null) {
-                this.aNK = optJSONObject19.optInt("session_default");
+                this.aIX = optJSONObject19.optInt("session_default");
             }
             JSONArray optJSONArray7 = jSONObject.optJSONArray("stream_domain");
             if (optJSONArray7 != null && optJSONArray7.length() > 0) {
-                com.baidu.live.d.Ba().putString("ala_live_session_domains_key", optJSONArray7.toString());
+                com.baidu.live.d.xf().putString("ala_live_session_domains_key", optJSONArray7.toString());
                 for (int i5 = 0; i5 < optJSONArray7.length(); i5++) {
                     String string = optJSONArray7.getString(i5);
                     if (!TextUtils.isEmpty(string)) {
-                        this.aNL.add(string.trim());
+                        this.aIY.add(string.trim());
                     }
                 }
             }
             JSONObject optJSONObject20 = jSONObject.optJSONObject("stream_backup_replace");
             if (optJSONObject20 != null) {
-                com.baidu.live.d.Ba().putString("ala_live_session_replace_key", optJSONObject20.toString());
-                this.aNO = optJSONObject20.optString("hlsUrl");
-                this.aNM = optJSONObject20.optString("rtmpUrl");
-                this.aNN = optJSONObject20.optString("flvUrl");
-                this.aNP = optJSONObject20.optString(".m3u8");
+                com.baidu.live.d.xf().putString("ala_live_session_replace_key", optJSONObject20.toString());
+                this.aJb = optJSONObject20.optString("hlsUrl");
+                this.aIZ = optJSONObject20.optString("rtmpUrl");
+                this.aJa = optJSONObject20.optString("flvUrl");
+                this.aJc = optJSONObject20.optString(".m3u8");
             }
-            b(true, this.aNK);
+            b(true, this.aIX);
             JSONObject optJSONObject21 = jSONObject.optJSONObject("ala_personal_income_detail_url");
             if (optJSONObject21 != null) {
-                this.aNQ = optJSONObject21.optString(BigdayActivityConfig.JUMP_URL);
-                com.baidu.live.d.Ba().putString("ala_personal_income_detail_url", this.aNQ);
+                this.aJd = optJSONObject21.optString(BigdayActivityConfig.JUMP_URL);
+                com.baidu.live.d.xf().putString("ala_personal_income_detail_url", this.aJd);
             }
             JSONObject optJSONObject22 = jSONObject.optJSONObject("live_gift_flower_scene_id_to_category_id");
             if (optJSONObject22 != null) {
-                this.aOr = optJSONObject22.optInt("android_show");
-                com.baidu.live.d.Ba().putInt("ala_custom_gift_category_id", this.aOr);
+                this.aJE = optJSONObject22.optInt("android_show");
+                com.baidu.live.d.xf().putInt("ala_custom_gift_category_id", this.aJE);
             }
             JSONObject optJSONObject23 = jSONObject.optJSONObject("pub_show_conf");
             if (optJSONObject23 != null) {
-                this.aPt = new cq();
-                this.aPt.parserJson(optJSONObject23);
+                this.aKG = new cq();
+                this.aKG.parserJson(optJSONObject23);
             }
             JSONObject optJSONObject24 = jSONObject.optJSONObject("pub_show_two_conf");
             if (optJSONObject24 != null) {
-                this.aPu = new cr();
-                this.aPu.parserJson(optJSONObject24);
+                this.aKH = new cr();
+                this.aKH.parserJson(optJSONObject24);
             }
             JSONObject optJSONObject25 = jSONObject.optJSONObject("pk_conf");
             if (optJSONObject25 != null) {
                 int optInt = optJSONObject25.optInt("open", 0);
-                this.aNR = optInt == 1;
-                com.baidu.live.d.Ba().putInt("ala_live_pk_switch", optInt);
-                this.aNS = optJSONObject25.optLong("interval");
-                if (this.aNS < 1000) {
-                    this.aNS = 1000L;
+                this.aJe = optInt == 1;
+                com.baidu.live.d.xf().putInt("ala_live_pk_switch", optInt);
+                this.aJf = optJSONObject25.optLong("interval");
+                if (this.aJf < 1000) {
+                    this.aJf = 1000L;
                 }
-                com.baidu.live.d.Ba().putLong("ala_live_pk_check_interval", this.aNS);
-                this.aNT = optJSONObject25.optLong("match_timeout");
-                if (this.aNT < AppStatusRules.DEFAULT_GRANULARITY) {
-                    this.aNT = AppStatusRules.DEFAULT_GRANULARITY;
+                com.baidu.live.d.xf().putLong("ala_live_pk_check_interval", this.aJf);
+                this.aJg = optJSONObject25.optLong("match_timeout");
+                if (this.aJg < AppStatusRules.DEFAULT_GRANULARITY) {
+                    this.aJg = AppStatusRules.DEFAULT_GRANULARITY;
                 }
-                com.baidu.live.d.Ba().putLong("ala_live_pk_match_timeout", this.aNT);
-                this.aNU = optJSONObject25.optString(AlaStaticKeys.ALA_STATIC_VALUE_ICON);
-                com.baidu.live.d.Ba().putString("ala_live_pk_pic_url", this.aNU);
-                this.aNV = optJSONObject25.optString("rank_link");
-                com.baidu.live.d.Ba().putString("ala_live_pk_pic_jump_url", this.aNV);
-                this.aNW = optJSONObject25.optString("history_link");
-                com.baidu.live.d.Ba().putString("ala_live_pk_history_link", this.aNW);
+                com.baidu.live.d.xf().putLong("ala_live_pk_match_timeout", this.aJg);
+                this.aJh = optJSONObject25.optString(AlaStaticKeys.ALA_STATIC_VALUE_ICON);
+                com.baidu.live.d.xf().putString("ala_live_pk_pic_url", this.aJh);
+                this.aJi = optJSONObject25.optString("rank_link");
+                com.baidu.live.d.xf().putString("ala_live_pk_pic_jump_url", this.aJi);
+                this.aJj = optJSONObject25.optString("history_link");
+                com.baidu.live.d.xf().putString("ala_live_pk_history_link", this.aJj);
             }
             JSONObject optJSONObject26 = jSONObject.optJSONObject("challenge_conf");
             if (optJSONObject26 != null) {
-                this.aNY = optJSONObject26.optLong("random_interval");
-                if (this.aNY < 1000) {
-                    this.aNY = 1000L;
+                this.aJl = optJSONObject26.optLong("random_interval");
+                if (this.aJl < 1000) {
+                    this.aJl = 1000L;
                 }
-                com.baidu.live.d.Ba().putLong("ala_challenge_random_interval", this.aNY);
-                this.aNZ = optJSONObject26.optLong("direct_interval");
-                if (this.aNZ < 1000) {
-                    this.aNZ = 1000L;
+                com.baidu.live.d.xf().putLong("ala_challenge_random_interval", this.aJl);
+                this.aJm = optJSONObject26.optLong("direct_interval");
+                if (this.aJm < 1000) {
+                    this.aJm = 1000L;
                 }
-                com.baidu.live.d.Ba().putLong("ala_challenge_direct_interval", this.aNZ);
-                this.aOa = optJSONObject26.optLong("challenge_info_interval");
-                if (this.aOa < 1000) {
-                    this.aOa = 1000L;
+                com.baidu.live.d.xf().putLong("ala_challenge_direct_interval", this.aJm);
+                this.aJn = optJSONObject26.optLong("challenge_info_interval");
+                if (this.aJn < 1000) {
+                    this.aJn = 1000L;
                 }
-                com.baidu.live.d.Ba().putLong("ala_get_challenge_info_interval", this.aOa);
-                this.aOc = optJSONObject26.optString("pk_icon_url");
-                com.baidu.live.d.Ba().putString("ala_challenge_pk_entry_icon_url", this.aOc);
-                this.aOd = optJSONObject26.optString("icon_url");
-                com.baidu.live.d.Ba().putString("ala_challenge_pk_entry_icon_url", this.aOd);
-                this.aOb = optJSONObject26.optString("rule_url");
-                com.baidu.live.d.Ba().putString("ala_challenge_pk_entry_icon_url", this.aOb);
-                this.aOe = optJSONObject26.optInt("punish_stage_button_switch");
-                com.baidu.live.d.Ba().putInt("punish_stage_button_switch", this.aOe);
-                this.aOf = optJSONObject26.optInt("receive_challenge_im_show_time");
-                com.baidu.live.d.Ba().putInt("receive_challenge_im_show_time", this.aOf);
-                this.aOg = optJSONObject26.optInt("mvpPunishSwitch");
-                com.baidu.live.d.Ba().putInt("mvpPunishSwitch", this.aOg);
-                this.aOh = optJSONObject26.optInt("toastLifeTime");
-                com.baidu.live.d.Ba().putInt("toastLifeTime", this.aOh);
-                this.aOi = optJSONObject26.optInt("punishLifeTime");
-                com.baidu.live.d.Ba().putInt("punishLifeTime", this.aOi);
-                this.aOj = optJSONObject26.optLong("challenge_dynamic_effect", 10000L);
+                com.baidu.live.d.xf().putLong("ala_get_challenge_info_interval", this.aJn);
+                this.aJp = optJSONObject26.optString("pk_icon_url");
+                com.baidu.live.d.xf().putString("ala_challenge_pk_entry_icon_url", this.aJp);
+                this.aJq = optJSONObject26.optString("icon_url");
+                com.baidu.live.d.xf().putString("ala_challenge_pk_entry_icon_url", this.aJq);
+                this.aJo = optJSONObject26.optString("rule_url");
+                com.baidu.live.d.xf().putString("ala_challenge_pk_entry_icon_url", this.aJo);
+                this.aJr = optJSONObject26.optInt("punish_stage_button_switch");
+                com.baidu.live.d.xf().putInt("punish_stage_button_switch", this.aJr);
+                this.aJs = optJSONObject26.optInt("receive_challenge_im_show_time");
+                com.baidu.live.d.xf().putInt("receive_challenge_im_show_time", this.aJs);
+                this.aJt = optJSONObject26.optInt("mvpPunishSwitch");
+                com.baidu.live.d.xf().putInt("mvpPunishSwitch", this.aJt);
+                this.aJu = optJSONObject26.optInt("toastLifeTime");
+                com.baidu.live.d.xf().putInt("toastLifeTime", this.aJu);
+                this.aJv = optJSONObject26.optInt("punishLifeTime");
+                com.baidu.live.d.xf().putInt("punishLifeTime", this.aJv);
+                this.aJw = optJSONObject26.optLong("challenge_dynamic_effect", 10000L);
             }
             JSONObject optJSONObject27 = jSONObject.optJSONObject("showlive_forum");
             if (optJSONObject27 != null) {
-                this.aNX = optJSONObject27.optString("go_url");
-                com.baidu.live.d.Ba().putString("show_live_forum_url", this.aNX);
+                this.aJk = optJSONObject27.optString("go_url");
+                com.baidu.live.d.xf().putString("show_live_forum_url", this.aJk);
             }
             JSONObject optJSONObject28 = jSONObject.optJSONObject("guess_conf");
             if (optJSONObject28 != null) {
-                this.aOs = optJSONObject28.optInt("use_https", 0) == 1;
-                com.baidu.live.d.Ba().putBoolean("ala_guess_use_https", this.aOs);
+                this.aJF = optJSONObject28.optInt("use_https", 0) == 1;
+                com.baidu.live.d.xf().putBoolean("ala_guess_use_https", this.aJF);
             }
             String optString3 = jSONObject.optString("live_bar");
-            gq(optString3);
-            com.baidu.live.d.Ba().putString("ala_live_bar_map_str", optString3);
-            this.aOt = jSONObject.optInt("new_live_close_strategy_value", 0) == 1;
-            com.baidu.live.d.Ba().putBoolean("is_new_live_close_strategy", this.aOt);
-            this.aOu = jSONObject.optInt("new_gift_t_dou_strategy", 0) == 1;
-            com.baidu.live.d.Ba().putBoolean("is_new_gift_t_dou_strategy", this.aOu);
-            this.aOv = jSONObject.optString("feedback_url");
-            com.baidu.live.d.Ba().putString("ala_feedback_url", this.aOv);
+            ff(optString3);
+            com.baidu.live.d.xf().putString("ala_live_bar_map_str", optString3);
+            this.aJG = jSONObject.optInt("new_live_close_strategy_value", 0) == 1;
+            com.baidu.live.d.xf().putBoolean("is_new_live_close_strategy", this.aJG);
+            this.aJH = jSONObject.optInt("new_gift_t_dou_strategy", 0) == 1;
+            com.baidu.live.d.xf().putBoolean("is_new_gift_t_dou_strategy", this.aJH);
+            this.aJI = jSONObject.optString("feedback_url");
+            com.baidu.live.d.xf().putString("ala_feedback_url", this.aJI);
             JSONObject optJSONObject29 = jSONObject.optJSONObject("challenge_and_ar_zip_config_android");
             if (optJSONObject29 != null && (optJSONObject = optJSONObject29.optJSONObject("challenge_related_zip")) != null) {
-                this.aOp = optJSONObject.optString("zip_md5");
-                this.aOq = optJSONObject.optString("zip_url");
+                this.aJC = optJSONObject.optString("zip_md5");
+                this.aJD = optJSONObject.optString("zip_url");
             }
             JSONObject optJSONObject30 = jSONObject.optJSONObject("avatar_host");
             if (optJSONObject30 != null) {
@@ -1020,99 +1020,99 @@ public class an extends BaseData {
                 this.mSmallHeaderPhotoUrlPrefix = optJSONObject30.optString("small", TbConfig.PHOTO_SMALL_ADDRESS);
                 TbadkCoreApplication.getInst().setBigHeaderPhotoUrlPrefix(this.mBigHeaderPhotoUrlPrefix);
                 TbadkCoreApplication.getInst().setSmallHeaderPhotoUrlPrefix(this.mSmallHeaderPhotoUrlPrefix);
-                com.baidu.live.d.Ba().putString("ala_big_header_photo_prefix", this.mBigHeaderPhotoUrlPrefix);
-                com.baidu.live.d.Ba().putString("ala_small_header_photo_prefix", this.mSmallHeaderPhotoUrlPrefix);
+                com.baidu.live.d.xf().putString("ala_big_header_photo_prefix", this.mBigHeaderPhotoUrlPrefix);
+                com.baidu.live.d.xf().putString("ala_small_header_photo_prefix", this.mSmallHeaderPhotoUrlPrefix);
             }
             JSONObject optJSONObject31 = jSONObject.optJSONObject("open_live");
             if (optJSONObject31 != null) {
                 this.increaseThreshold = optJSONObject31.optDouble("thi", 0.05999999865889549d);
-                com.baidu.live.d.Ba().putFloat("ala_video_increase_threshold", (float) this.increaseThreshold);
+                com.baidu.live.d.xf().putFloat("ala_video_increase_threshold", (float) this.increaseThreshold);
                 this.decreaseThreshold = optJSONObject31.optDouble("thd", 0.30000001192092896d);
-                com.baidu.live.d.Ba().putFloat("ala_video_decrease_threshold", (float) this.decreaseThreshold);
+                com.baidu.live.d.xf().putFloat("ala_video_decrease_threshold", (float) this.decreaseThreshold);
                 this.increaseCount = optJSONObject31.optInt("thi_count", 3);
-                com.baidu.live.d.Ba().putInt("ala_video_increase_count", this.increaseCount);
-                this.aNb = optJSONObject31.optInt("encoder", 1) == 1;
-                com.baidu.live.d.Ba().putBoolean("ala_live_hard_encode_switch", this.aNb);
-                this.aNa = optJSONObject31.optInt("video_gop", 2);
-                com.baidu.live.d.Ba().putInt("ala_video_encoder_gop", this.aNa);
-                this.aNc = optJSONObject31.optInt("dynamic", 1) == 1;
-                com.baidu.live.d.Ba().putBoolean("ala_dynamic_bitrate_switch", this.aNc);
-                this.aMZ = optJSONObject31.optInt("resolution", 3);
-                com.baidu.live.d.Ba().putInt("ala_video_resolution_level", this.aMZ);
+                com.baidu.live.d.xf().putInt("ala_video_increase_count", this.increaseCount);
+                this.aIo = optJSONObject31.optInt("encoder", 1) == 1;
+                com.baidu.live.d.xf().putBoolean("ala_live_hard_encode_switch", this.aIo);
+                this.aIn = optJSONObject31.optInt("video_gop", 2);
+                com.baidu.live.d.xf().putInt("ala_video_encoder_gop", this.aIn);
+                this.aIp = optJSONObject31.optInt("dynamic", 1) == 1;
+                com.baidu.live.d.xf().putBoolean("ala_dynamic_bitrate_switch", this.aIp);
+                this.aIm = optJSONObject31.optInt("resolution", 3);
+                com.baidu.live.d.xf().putInt("ala_video_resolution_level", this.aIm);
                 JSONArray optJSONArray8 = optJSONObject31.optJSONArray("soft_configs");
                 if (optJSONArray8 != null) {
-                    this.aNd = optJSONArray8.toString();
-                    com.baidu.live.d.Ba().putString("ala_video_soft_bitrate_config", this.aNd);
+                    this.aIq = optJSONArray8.toString();
+                    com.baidu.live.d.xf().putString("ala_video_soft_bitrate_config", this.aIq);
                 }
                 JSONArray optJSONArray9 = optJSONObject31.optJSONArray("hard_configs");
                 if (optJSONArray9 != null) {
-                    this.aNe = optJSONArray9.toString();
-                    com.baidu.live.d.Ba().putString("ala_video_hard_bitrate_config", this.aNe);
+                    this.aIr = optJSONArray9.toString();
+                    com.baidu.live.d.xf().putString("ala_video_hard_bitrate_config", this.aIr);
                 }
             }
             JSONObject optJSONObject32 = jSONObject.optJSONObject("avts_domain_conf");
             if (optJSONObject32 != null) {
-                this.aNf = optJSONObject32.toString();
-                com.baidu.live.d.Ba().putString("ala_avts_stream_server_domain_config", this.aNf);
+                this.aIs = optJSONObject32.toString();
+                com.baidu.live.d.xf().putString("ala_avts_stream_server_domain_config", this.aIs);
             }
             JSONObject optJSONObject33 = jSONObject.optJSONObject("encoder_auto_reset");
             if (optJSONObject33 != null) {
-                this.aNk = optJSONObject33.toString();
-                com.baidu.live.d.Ba().putString("ala_video_encoder_reset_config", this.aNk);
+                this.aIx = optJSONObject33.toString();
+                com.baidu.live.d.xf().putString("ala_video_encoder_reset_config", this.aIx);
             }
             JSONObject optJSONObject34 = jSONObject.optJSONObject("live_chat_conf");
             if (optJSONObject34 != null) {
-                this.aNi = optJSONObject34.optInt("host_rtc_resolution", 3);
-                com.baidu.live.d.Ba().putInt("ala_master_chat_video_resolution_level", this.aNi);
-                this.aNj = optJSONObject34.optInt("rtc_resolution", 4);
-                com.baidu.live.d.Ba().putInt("ala_slave_chat_video_resolution_level", this.aNj);
+                this.aIv = optJSONObject34.optInt("host_rtc_resolution", 3);
+                com.baidu.live.d.xf().putInt("ala_master_chat_video_resolution_level", this.aIv);
+                this.aIw = optJSONObject34.optInt("rtc_resolution", 4);
+                com.baidu.live.d.xf().putInt("ala_slave_chat_video_resolution_level", this.aIw);
                 JSONArray optJSONArray10 = optJSONObject34.optJSONArray("host_rtc_configs");
                 if (optJSONArray10 != null) {
-                    this.aNg = optJSONArray10.toString();
-                    com.baidu.live.d.Ba().putString("ala_master_chat_video_bitrate_config", this.aNg);
+                    this.aIt = optJSONArray10.toString();
+                    com.baidu.live.d.xf().putString("ala_master_chat_video_bitrate_config", this.aIt);
                 }
                 JSONArray optJSONArray11 = optJSONObject34.optJSONArray("rtc_configs");
                 if (optJSONArray11 != null) {
-                    this.aNh = optJSONArray11.toString();
-                    com.baidu.live.d.Ba().putString("ala_slave_chat_video_bitrate_config", this.aNh);
+                    this.aIu = optJSONArray11.toString();
+                    com.baidu.live.d.xf().putString("ala_slave_chat_video_bitrate_config", this.aIu);
                 }
             }
             JSONObject optJSONObject35 = jSONObject.optJSONObject("im_conf");
             if (optJSONObject35 != null) {
-                this.aPg = optJSONObject35.optInt("enter_live_msg_audience_num_p1");
-                this.aPh = optJSONObject35.optInt("enter_live_msg_audience_num_p2");
-                this.aPi = optJSONObject35.optInt("enter_live_msg_audience_num_p3");
-                this.aPe = optJSONObject35.optInt("im_intercept_switch");
-                this.aPf = optJSONObject35.optInt("is_check_im_content");
+                this.aKt = optJSONObject35.optInt("enter_live_msg_audience_num_p1");
+                this.aKu = optJSONObject35.optInt("enter_live_msg_audience_num_p2");
+                this.aKv = optJSONObject35.optInt("enter_live_msg_audience_num_p3");
+                this.aKr = optJSONObject35.optInt("im_intercept_switch");
+                this.aKs = optJSONObject35.optInt("is_check_im_content");
             }
             JSONObject optJSONObject36 = jSONObject.optJSONObject("feed_diversion");
             if (optJSONObject36 != null) {
-                this.aPb = new AlaFeedDiversionData();
-                this.aPb.parserJson(optJSONObject36);
-                com.baidu.live.d.Ba().putString("feed_diversion", optJSONObject36.toString());
+                this.aKo = new AlaFeedDiversionData();
+                this.aKo.parserJson(optJSONObject36);
+                com.baidu.live.d.xf().putString("feed_diversion", optJSONObject36.toString());
             }
             JSONObject optJSONObject37 = jSONObject.optJSONObject("stat_switch");
             if (optJSONObject37 != null) {
-                com.baidu.live.d.Ba().putString("key_stat_switch", optJSONObject37.toString());
+                com.baidu.live.d.xf().putString("key_stat_switch", optJSONObject37.toString());
             }
             JSONObject optJSONObject38 = jSONObject.optJSONObject("goback_last_live");
             if (optJSONObject38 != null) {
-                this.aPj = optJSONObject38.optInt("unfold_interval", 5000);
-                this.aPk = optJSONObject38.optInt("fold_interval", 55000);
+                this.aKw = optJSONObject38.optInt("unfold_interval", 5000);
+                this.aKx = optJSONObject38.optInt("fold_interval", 55000);
             }
             JSONObject optJSONObject39 = jSONObject.optJSONObject("modify_default_name_conf");
             if (optJSONObject39 != null) {
-                this.aPp = new bs();
-                this.aPp.parserJson(optJSONObject39);
+                this.aKC = new bs();
+                this.aKC.parserJson(optJSONObject39);
             }
             JSONObject optJSONObject40 = jSONObject.optJSONObject("audio_live_conf");
             if (optJSONObject40 != null) {
-                this.aPq = new ce();
-                this.aPq.parse(optJSONObject40);
+                this.aKD = new ce();
+                this.aKD.parse(optJSONObject40);
             }
             JSONObject optJSONObject41 = jSONObject.optJSONObject("quit_live_rec_conf");
-            this.aPr = new ah();
-            this.aPr.parse(optJSONObject41);
+            this.aKE = new ah();
+            this.aKE.parse(optJSONObject41);
         } catch (Exception e) {
             BdLog.e(e.getMessage());
         }
@@ -1120,53 +1120,53 @@ public class an extends BaseData {
 
     private void C(JSONObject jSONObject) {
         if (jSONObject != null) {
-            this.aOQ = jSONObject.optInt("im_max", 200);
-            if (this.aOQ <= 0) {
-                this.aOQ = 200;
+            this.aKd = jSONObject.optInt("im_max", 200);
+            if (this.aKd <= 0) {
+                this.aKd = 200;
             }
-            this.aOR = jSONObject.optInt("barrage_max", 100);
-            if (this.aOR <= 0) {
-                this.aOR = 100;
+            this.aKe = jSONObject.optInt("barrage_max", 100);
+            if (this.aKe <= 0) {
+                this.aKe = 100;
             }
-            this.aOS = jSONObject.optInt("pay_barrage_max", 10);
-            if (this.aOS <= 0) {
-                this.aOS = 10;
+            this.aKf = jSONObject.optInt("pay_barrage_max", 10);
+            if (this.aKf <= 0) {
+                this.aKf = 10;
             }
-            this.aOT = jSONObject.optInt("enter_effect_max", 10);
-            if (this.aOT <= 0) {
-                this.aOT = 10;
+            this.aKg = jSONObject.optInt("enter_effect_max", 10);
+            if (this.aKg <= 0) {
+                this.aKg = 10;
             }
-            this.aOU = jSONObject.optInt("gift_big_max", 10);
-            if (this.aOU <= 0) {
-                this.aOU = 10;
+            this.aKh = jSONObject.optInt("gift_big_max", 10);
+            if (this.aKh <= 0) {
+                this.aKh = 10;
             }
-            this.aOV = jSONObject.optInt("audio_gift_big_max", 15);
-            if (this.aOV <= 0) {
-                this.aOV = 15;
+            this.aKi = jSONObject.optInt("audio_gift_big_max", 15);
+            if (this.aKi <= 0) {
+                this.aKi = 15;
             }
-            this.aOW = jSONObject.optInt("gift_small_max", 50);
-            if (this.aOW <= 0) {
-                this.aOW = 50;
+            this.aKj = jSONObject.optInt("gift_small_max", 50);
+            if (this.aKj <= 0) {
+                this.aKj = 50;
             }
-            this.aOX = jSONObject.optInt("gift_graffiti_max", 5);
-            if (this.aOX <= 0) {
-                this.aOX = 5;
+            this.aKk = jSONObject.optInt("gift_graffiti_max", 5);
+            if (this.aKk <= 0) {
+                this.aKk = 5;
             }
         }
     }
 
-    private void EO() {
-        this.aOA = com.baidu.live.d.Ba().getInt("guide_speak_watch_time", BdStatisticsManager.INIT_UPLOAD_TIME_INTERVAL);
-        this.aOB = com.baidu.live.d.Ba().getInt("guide_speak_show_times_max", 3);
-        String string = com.baidu.live.d.Ba().getString("guide_speak_texts", "");
+    private void AT() {
+        this.aJN = com.baidu.live.d.xf().getInt("guide_speak_watch_time", BdStatisticsManager.INIT_UPLOAD_TIME_INTERVAL);
+        this.aJO = com.baidu.live.d.xf().getInt("guide_speak_show_times_max", 3);
+        String string = com.baidu.live.d.xf().getString("guide_speak_texts", "");
         if (!TextUtils.isEmpty(string)) {
             try {
                 JSONArray jSONArray = new JSONArray(string);
                 int length = jSONArray.length();
                 if (length != 0) {
-                    this.aOC = new String[length];
+                    this.aJP = new String[length];
                     for (int i = 0; i < length; i++) {
-                        this.aOC[i] = jSONArray.optString(i);
+                        this.aJP[i] = jSONArray.optString(i);
                     }
                 }
             } catch (JSONException e) {
@@ -1177,22 +1177,22 @@ public class an extends BaseData {
 
     private void D(JSONObject jSONObject) {
         int length;
-        this.aOA = jSONObject.optInt("rule_watch_time", BdStatisticsManager.INIT_UPLOAD_TIME_INTERVAL) * 1000;
-        com.baidu.live.d.Ba().putInt("guide_speak_watch_time", this.aOA);
-        this.aOB = jSONObject.optInt("rule_show_times", 3);
-        com.baidu.live.d.Ba().putInt("guide_speak_show_times_max", this.aOB);
+        this.aJN = jSONObject.optInt("rule_watch_time", BdStatisticsManager.INIT_UPLOAD_TIME_INTERVAL) * 1000;
+        com.baidu.live.d.xf().putInt("guide_speak_watch_time", this.aJN);
+        this.aJO = jSONObject.optInt("rule_show_times", 3);
+        com.baidu.live.d.xf().putInt("guide_speak_show_times_max", this.aJO);
         JSONArray optJSONArray = jSONObject.optJSONArray("speak_txt");
         if (optJSONArray != null && (length = optJSONArray.length()) != 0) {
-            this.aOC = new String[length];
+            this.aJP = new String[length];
             for (int i = 0; i < length; i++) {
-                this.aOC[i] = optJSONArray.optString(i);
+                this.aJP[i] = optJSONArray.optString(i);
             }
-            com.baidu.live.d.Ba().putString("guide_speak_texts", optJSONArray.toString());
+            com.baidu.live.d.xf().putString("guide_speak_texts", optJSONArray.toString());
         }
     }
 
-    private void EP() {
-        String string = com.baidu.live.d.Ba().getString("yuan_package_data", "");
+    private void AU() {
+        String string = com.baidu.live.d.xf().getString("yuan_package_data", "");
         if (!TextUtils.isEmpty(string)) {
             try {
                 h(new JSONArray(string));
@@ -1204,12 +1204,12 @@ public class an extends BaseData {
 
     private void h(JSONArray jSONArray) {
         if (jSONArray != null && jSONArray.length() > 0) {
-            this.aOL = new ArrayList();
+            this.aJY = new ArrayList();
             for (int i = 0; i < jSONArray.length(); i++) {
                 try {
                     YuanPackageData yuanPackageData = new YuanPackageData();
                     yuanPackageData.parseJson(jSONArray.getJSONObject(i));
-                    this.aOL.add(yuanPackageData);
+                    this.aJY.add(yuanPackageData);
                 } catch (JSONException e) {
                     e.printStackTrace();
                     return;
@@ -1218,32 +1218,32 @@ public class an extends BaseData {
         }
     }
 
-    private void gp(String str) {
+    private void fe(String str) {
         if (!StringUtils.isNull(str)) {
             try {
                 JSONObject jSONObject = new JSONObject(str);
                 if (jSONObject != null) {
                     JSONArray optJSONArray = jSONObject.optJSONArray("static_im_info");
                     if (optJSONArray != null && optJSONArray.length() > 0) {
-                        this.aON = new ArrayList(optJSONArray.length());
+                        this.aKa = new ArrayList(optJSONArray.length());
                         for (int i = 0; i < optJSONArray.length(); i++) {
                             String str2 = (String) optJSONArray.opt(i);
                             if (!StringUtils.isNull(str2)) {
-                                this.aON.add(str2);
+                                this.aKa.add(str2);
                             }
                         }
                     }
                     JSONArray optJSONArray2 = jSONObject.optJSONArray("what_im_info");
                     if (optJSONArray2 != null && optJSONArray2.length() > 0) {
-                        this.aOO = new ArrayList(optJSONArray2.length());
+                        this.aKb = new ArrayList(optJSONArray2.length());
                         for (int i2 = 0; i2 < optJSONArray2.length(); i2++) {
                             String str3 = (String) optJSONArray2.opt(i2);
                             if (!StringUtils.isNull(str3)) {
-                                this.aOO.add(str3);
+                                this.aKb.add(str3);
                             }
                         }
                     }
-                    com.baidu.live.d.Ba().putString("ala_quick_send_im_list", str);
+                    com.baidu.live.d.xf().putString("ala_quick_send_im_list", str);
                 }
             } catch (JSONException e) {
                 e.printStackTrace();
@@ -1251,11 +1251,11 @@ public class an extends BaseData {
         }
     }
 
-    private void EQ() {
-        gp(com.baidu.live.d.Ba().getString("ala_quick_send_im_list", null));
+    private void AV() {
+        fe(com.baidu.live.d.xf().getString("ala_quick_send_im_list", null));
     }
 
-    private void gq(String str) {
+    private void ff(String str) {
         if (!StringUtils.isNull(str)) {
             JSONArray jSONArray = null;
             try {
@@ -1278,18 +1278,18 @@ public class an extends BaseData {
 
     public void b(boolean z, int i) {
         boolean z2 = false;
-        if (i != this.aNK) {
+        if (i != this.aIX) {
             z2 = true;
         }
-        this.aNK = i;
+        this.aIX = i;
         if (z || z2) {
-            com.baidu.live.d.Ba().putInt("ala_live_session_default_key", i);
+            com.baidu.live.d.xf().putInt("ala_live_session_default_key", i);
         }
     }
 
-    private void ER() {
-        this.aNK = com.baidu.live.d.Ba().getInt("ala_live_session_default_key", 0);
-        String string = com.baidu.live.d.Ba().getString("ala_live_session_domains_key", null);
+    private void AW() {
+        this.aIX = com.baidu.live.d.xf().getInt("ala_live_session_default_key", 0);
+        String string = com.baidu.live.d.xf().getString("ala_live_session_domains_key", null);
         if (!TextUtils.isEmpty(string)) {
             try {
                 JSONArray jSONArray = new JSONArray(string);
@@ -1297,7 +1297,7 @@ public class an extends BaseData {
                     for (int i = 0; i < jSONArray.length(); i++) {
                         String string2 = jSONArray.getString(i);
                         if (!TextUtils.isEmpty(string2)) {
-                            this.aNL.add(string2.trim());
+                            this.aIY.add(string2.trim());
                         }
                     }
                 }
@@ -1305,18 +1305,18 @@ public class an extends BaseData {
             }
         }
         try {
-            JSONObject jSONObject = new JSONObject(com.baidu.live.d.Ba().getString("ala_live_session_replace_key", null));
+            JSONObject jSONObject = new JSONObject(com.baidu.live.d.xf().getString("ala_live_session_replace_key", null));
             if (jSONObject != null) {
-                this.aNO = jSONObject.optString("hlsUrl");
-                this.aNM = jSONObject.optString("rtmpUrl");
-                this.aNN = jSONObject.optString("flvUrl");
-                this.aNP = jSONObject.optString(".m3u8");
+                this.aJb = jSONObject.optString("hlsUrl");
+                this.aIZ = jSONObject.optString("rtmpUrl");
+                this.aJa = jSONObject.optString("flvUrl");
+                this.aJc = jSONObject.optString(".m3u8");
             }
         } catch (Exception e2) {
         }
     }
 
-    public boolean ES() {
-        return this.aND == 1;
+    public boolean AX() {
+        return this.aIQ == 1;
     }
 }

@@ -8,69 +8,69 @@ import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import android.view.View;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class PointPageIndicator extends View {
-    protected Drawable evU;
-    protected Drawable evV;
-    protected Rect evW;
-    protected Rect evX;
-    private int evY;
-    private int evZ;
+    protected Drawable erg;
+    protected Drawable erh;
+    protected Rect eri;
+    protected Rect erj;
+    private int erk;
+    private int erl;
     private int mPosition;
 
     public PointPageIndicator(Context context) {
         super(context);
-        this.evU = null;
-        this.evV = null;
-        this.evW = new Rect();
-        this.evX = new Rect();
-        this.evY = 0;
+        this.erg = null;
+        this.erh = null;
+        this.eri = new Rect();
+        this.erj = new Rect();
+        this.erk = 0;
         this.mPosition = 0;
-        this.evZ = 0;
+        this.erl = 0;
         init(context);
     }
 
     public PointPageIndicator(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.evU = null;
-        this.evV = null;
-        this.evW = new Rect();
-        this.evX = new Rect();
-        this.evY = 0;
+        this.erg = null;
+        this.erh = null;
+        this.eri = new Rect();
+        this.erj = new Rect();
+        this.erk = 0;
         this.mPosition = 0;
-        this.evZ = 0;
+        this.erl = 0;
         init(context);
     }
 
     public PointPageIndicator(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.evU = null;
-        this.evV = null;
-        this.evW = new Rect();
-        this.evX = new Rect();
-        this.evY = 0;
+        this.erg = null;
+        this.erh = null;
+        this.eri = new Rect();
+        this.erj = new Rect();
+        this.erk = 0;
         this.mPosition = 0;
-        this.evZ = 0;
+        this.erl = 0;
         init(context);
     }
 
     private void init(Context context) {
     }
 
-    public PointPageIndicator no(int i) {
-        if (this.evZ != i) {
-            this.evZ = i;
+    public PointPageIndicator lI(int i) {
+        if (this.erl != i) {
+            this.erl = i;
             invalidate();
         }
         return this;
     }
 
-    public PointPageIndicator np(int i) {
-        this.evY = i;
+    public PointPageIndicator lJ(int i) {
+        this.erk = i;
         return this;
     }
 
-    public PointPageIndicator nq(int i) {
+    public PointPageIndicator lK(int i) {
         this.mPosition = i;
         invalidate();
         return this;
@@ -82,13 +82,13 @@ public class PointPageIndicator extends View {
     }
 
     public PointPageIndicator b(Drawable drawable, Drawable drawable2) {
-        this.evU = drawable;
-        this.evV = drawable2;
+        this.erg = drawable;
+        this.erh = drawable2;
         if (drawable instanceof BitmapDrawable) {
-            this.evW.set(0, 0, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
+            this.eri.set(0, 0, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
         }
         if (drawable2 instanceof BitmapDrawable) {
-            this.evX.set(0, 0, drawable2.getIntrinsicWidth(), drawable2.getIntrinsicHeight());
+            this.erj.set(0, 0, drawable2.getIntrinsicWidth(), drawable2.getIntrinsicHeight());
         }
         return this;
     }
@@ -97,16 +97,16 @@ public class PointPageIndicator extends View {
     protected void onDraw(Canvas canvas) {
         int width;
         super.onDraw(canvas);
-        if (this.evZ > 0) {
-            int i = this.evZ;
-            int i2 = this.evY;
+        if (this.erl > 0) {
+            int i = this.erl;
+            int i2 = this.erk;
             int height = getHeight();
             int width2 = getWidth();
             int i3 = this.mPosition;
-            Rect rect = this.evW;
-            Rect rect2 = this.evX;
-            Drawable drawable = this.evU;
-            Drawable drawable2 = this.evV;
+            Rect rect = this.eri;
+            Rect rect2 = this.erj;
+            Drawable drawable = this.erg;
+            Drawable drawable2 = this.erh;
             int width3 = (width2 - ((((i - 1) * i2) + (rect.width() * (i - 1))) + rect2.width())) / 2;
             int i4 = 0;
             while (i4 < i) {

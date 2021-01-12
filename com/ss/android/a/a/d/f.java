@@ -3,9 +3,9 @@ package com.ss.android.a.a.d;
 public class f {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f13207a;
+    private String f12907a;
 
     public String a() {
-        return this.f13207a;
+        return this.f12907a;
     }
 }

@@ -3,61 +3,61 @@ package com.baidu.mapapi.bikenavi.params;
 import com.baidu.mapapi.model.LatLng;
 import com.baidu.platform.comapi.walknavi.e.a;
 import com.baidu.platform.comapi.walknavi.e.b;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class BikeNaviLaunchParam {
 
     /* renamed from: a  reason: collision with root package name */
-    private LatLng f2768a;
+    private LatLng f2669a;
 
     /* renamed from: b  reason: collision with root package name */
-    private LatLng f2769b;
-    private BikeRouteNodeInfo c;
-    private BikeRouteNodeInfo d;
-    private int e = 0;
+    private LatLng f2670b;
+    private int c;
+    private int d = 0;
+    private int e;
+
+    public int getEndCityCode() {
+        return this.e;
+    }
 
     public LatLng getStartPt() {
-        return this.f2768a;
+        return this.f2669a;
     }
 
     public LatLng getEndPt() {
-        return this.f2769b;
+        return this.f2670b;
     }
 
-    public BikeRouteNodeInfo getStartNodeInfo() {
+    public int getStartCityCode() {
         return this.c;
     }
 
-    public BikeRouteNodeInfo getEndNodeInfo() {
-        return this.d;
-    }
-
     public BikeNaviLaunchParam stPt(LatLng latLng) {
-        this.f2768a = latLng;
+        this.f2669a = latLng;
         return this;
     }
 
     public BikeNaviLaunchParam endPt(LatLng latLng) {
-        this.f2769b = latLng;
-        return this;
-    }
-
-    public BikeNaviLaunchParam startNodeInfo(BikeRouteNodeInfo bikeRouteNodeInfo) {
-        this.c = bikeRouteNodeInfo;
-        return this;
-    }
-
-    public BikeNaviLaunchParam endNodeInfo(BikeRouteNodeInfo bikeRouteNodeInfo) {
-        this.d = bikeRouteNodeInfo;
+        this.f2670b = latLng;
         return this;
     }
 
     public BikeNaviLaunchParam vehicle(int i) {
-        this.e = i;
+        this.d = i;
         return this;
     }
 
     public int getVehicle() {
-        return this.e;
+        return this.d;
+    }
+
+    public BikeNaviLaunchParam stCityCode(int i) {
+        this.c = i;
+        return this;
+    }
+
+    public BikeNaviLaunchParam endCityCode(int i) {
+        this.e = i;
+        return this;
     }
 
     public static a create() {

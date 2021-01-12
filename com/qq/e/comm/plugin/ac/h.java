@@ -9,14 +9,14 @@ import android.graphics.Path;
 import android.graphics.RectF;
 import android.graphics.Shader;
 import android.view.View;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class h extends View {
 
     /* renamed from: a  reason: collision with root package name */
-    private Paint f12154a;
+    private Paint f11854a;
 
     /* renamed from: b  reason: collision with root package name */
-    private int f12155b;
+    private int f11855b;
     private int c;
     private boolean d;
     private int e;
@@ -41,7 +41,7 @@ public class h extends View {
     }
 
     private void a() {
-        this.f12154a = new Paint();
+        this.f11854a = new Paint();
         this.h = new Paint();
         this.k = new RectF();
     }
@@ -62,11 +62,11 @@ public class h extends View {
 
     public void a(int i) {
         if (i <= 0) {
-            this.f12155b = 0;
+            this.f11855b = 0;
         } else if (i >= 100) {
-            this.f12155b = 100;
+            this.f11855b = 100;
         } else {
-            this.f12155b = i;
+            this.f11855b = i;
         }
         postInvalidate();
     }
@@ -90,26 +90,26 @@ public class h extends View {
         this.i.addRoundRect(this.k, this.j, Path.Direction.CW);
         canvas.clipPath(this.i);
         super.onDraw(canvas);
-        if (this.f12155b >= 0) {
+        if (this.f11855b >= 0) {
             int measuredWidth = getMeasuredWidth();
             int measuredHeight = getMeasuredHeight();
             float f = measuredHeight / 2.0f;
-            float f2 = (this.f12155b / this.c) * measuredWidth;
+            float f2 = (this.f11855b / this.c) * measuredWidth;
             if (!this.d) {
                 this.h.setColor(Color.parseColor("#40000000"));
                 a(canvas, 0.0f, 0.0f, measuredWidth, measuredHeight, this.h);
-                this.f12154a.setColor(Color.parseColor("#BFFFFFFF"));
-                a(canvas, 0.0f, 0.0f, f2, measuredHeight, this.f12154a);
-            } else if (this.f12155b <= 0 || this.f12155b >= 100) {
+                this.f11854a.setColor(Color.parseColor("#BFFFFFFF"));
+                a(canvas, 0.0f, 0.0f, f2, measuredHeight, this.f11854a);
+            } else if (this.f11855b <= 0 || this.f11855b >= 100) {
                 this.h.setColor(this.f);
-                this.f12154a.setStyle(Paint.Style.FILL);
+                this.f11854a.setStyle(Paint.Style.FILL);
                 a(canvas, 0.0f, 0.0f, measuredWidth, measuredHeight, this.h);
             } else {
                 this.h.setColor(this.g);
                 a(canvas, 0.0f, 0.0f, measuredWidth, measuredHeight, this.h);
-                this.f12154a.setShader(new LinearGradient(0.0f, f, f2, f, this.e, this.f, Shader.TileMode.CLAMP));
-                this.f12154a.setStyle(Paint.Style.FILL);
-                a(canvas, 0.0f, 0.0f, f2, measuredHeight, this.f12154a);
+                this.f11854a.setShader(new LinearGradient(0.0f, f, f2, f, this.e, this.f, Shader.TileMode.CLAMP));
+                this.f11854a.setStyle(Paint.Style.FILL);
+                a(canvas, 0.0f, 0.0f, f2, measuredHeight, this.f11854a);
             }
         }
         this.i.reset();

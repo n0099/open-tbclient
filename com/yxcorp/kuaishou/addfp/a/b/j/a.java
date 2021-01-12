@@ -1,7 +1,7 @@
 package com.yxcorp.kuaishou.addfp.a.b.j;
 
 import android.os.IInterface;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public interface a extends IInterface {
     String a();
 

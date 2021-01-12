@@ -6,39 +6,39 @@ import com.baidu.live.tbadk.core.util.ListUtils;
 import java.util.Iterator;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public final class g extends com.baidu.tieba.ala.alaar.makeup.a<com.baidu.tieba.ala.alaar.makeup.a.c> {
-    private static f gub = new f();
-    private boolean ckH;
-    private i gtX;
-    private com.baidu.tieba.ala.alaar.makeup.c.a gtY;
-    private com.baidu.tieba.ala.alaar.makeup.a.c gtZ;
-    private boolean gua;
-    private BdLoadDataCallBack guc;
+    private static f gpu = new f();
+    private boolean cfU;
+    private i gpq;
+    private com.baidu.tieba.ala.alaar.makeup.c.a gpr;
+    private com.baidu.tieba.ala.alaar.makeup.a.c gps;
+    private boolean gpt;
+    private BdLoadDataCallBack gpv;
 
     static {
-        gub.register();
+        gpu.register();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bSz() {
+    public void bOH() {
         if (h.isDebug()) {
             h.d("MakeupDM", "updateGender ...");
         }
-        bSg();
-        bSh();
+        bOo();
+        bOp();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public static class a {
-        private static g gue = new g();
+        private static g gpx = new g();
     }
 
     private g() {
-        this.gtX = new i();
-        this.gua = true;
-        this.guc = new BdLoadDataCallBack() { // from class: com.baidu.tieba.ala.alaar.makeup.g.1
+        this.gpq = new i();
+        this.gpt = true;
+        this.gpv = new BdLoadDataCallBack() { // from class: com.baidu.tieba.ala.alaar.makeup.g.1
             @Override // com.baidu.live.adp.base.BdLoadDataCallBack
             public void callback(Object obj) {
                 if (obj instanceof com.baidu.tieba.ala.alaar.makeup.a.c) {
@@ -46,18 +46,18 @@ public final class g extends com.baidu.tieba.ala.alaar.makeup.a<com.baidu.tieba.
                 } else if (obj == null) {
                     g.this.a((com.baidu.tieba.ala.alaar.makeup.a.c) null);
                 }
-                g.this.bSz();
+                g.this.bOH();
             }
         };
-        this.ckH = true;
+        this.cfU = true;
     }
 
-    public static g bSA() {
-        return a.gue;
+    public static g bOI() {
+        return a.gpx;
     }
 
-    public boolean bSB() {
-        boolean z = this.gtZ != null && this.gtZ.CJ();
+    public boolean bOJ() {
+        boolean z = this.gps != null && this.gps.yO();
         if (h.isDebug()) {
             d("shouldShowMakeup: " + z);
         }
@@ -65,24 +65,24 @@ public final class g extends com.baidu.tieba.ala.alaar.makeup.a<com.baidu.tieba.
     }
 
     @Override // com.baidu.tieba.ala.alaar.makeup.a
-    protected boolean bSe() {
-        return this.gtZ == null || this.gtZ.bSI() == null || this.gtZ.bSI().size() <= 0;
+    protected boolean bOm() {
+        return this.gps == null || this.gps.bOQ() == null || this.gps.bOQ().size() <= 0;
     }
 
     @Override // com.baidu.tieba.ala.alaar.makeup.a
-    protected boolean bSf() {
+    protected boolean bOn() {
         long currentTimeMillis = System.currentTimeMillis();
         if (isEmpty()) {
         }
         if (isEmpty()) {
-            this.gtZ = bSE();
+            this.gps = bOM();
         }
-        this.gtX.setLoadDataCallBack(this.guc);
-        this.gtX.loadData();
+        this.gpq.setLoadDataCallBack(this.gpv);
+        this.gpq.loadData();
         if (isEmpty()) {
             return true;
         }
-        bSz();
+        bOH();
         long currentTimeMillis2 = System.currentTimeMillis();
         if (h.isDebug()) {
             d("getAllData: cost time = " + (currentTimeMillis2 - currentTimeMillis));
@@ -91,47 +91,47 @@ public final class g extends com.baidu.tieba.ala.alaar.makeup.a<com.baidu.tieba.
     }
 
     private boolean isEmpty() {
-        return this.gtZ == null || this.gtZ.bSI() == null || this.gtZ.bSI().size() <= 0;
+        return this.gps == null || this.gps.bOQ() == null || this.gps.bOQ().size() <= 0;
     }
 
-    public com.baidu.tieba.ala.alaar.makeup.a.c bSC() {
-        return this.gtZ;
+    public com.baidu.tieba.ala.alaar.makeup.a.c bOK() {
+        return this.gps;
     }
 
-    public List<d> bSD() {
-        com.baidu.tieba.ala.alaar.makeup.a.b bSI;
-        if (this.gtZ == null || !this.gtZ.CJ() || (bSI = this.gtZ.bSI()) == null || bSI.getData() == null) {
+    public List<d> bOL() {
+        com.baidu.tieba.ala.alaar.makeup.a.b bOQ;
+        if (this.gps == null || !this.gps.yO() || (bOQ = this.gps.bOQ()) == null || bOQ.getData() == null) {
             return null;
         }
-        return bSI.getData();
+        return bOQ.getData();
     }
 
     public void init() {
-        this.gtX.init();
+        this.gpq.init();
     }
 
     public void onDestroy() {
-        bSF();
-        this.gtX.onDestroy();
+        bON();
+        this.gpq.onDestroy();
     }
 
     private void d(String str) {
         h.d("MakeupDM", str);
     }
 
-    private com.baidu.tieba.ala.alaar.makeup.a.c bSE() {
+    private com.baidu.tieba.ala.alaar.makeup.a.c bOM() {
         com.baidu.tieba.ala.alaar.makeup.a.c cVar;
         JSONObject json;
         String str = null;
-        if (this.gtY == null) {
-            this.gtY = new com.baidu.tieba.ala.alaar.makeup.c.a("AR_user_makeup_net_data_ver", 0);
+        if (this.gpr == null) {
+            this.gpr = new com.baidu.tieba.ala.alaar.makeup.c.a("AR_user_makeup_net_data_ver", 0);
         }
         com.baidu.tieba.ala.alaar.makeup.a.c cVar2 = new com.baidu.tieba.ala.alaar.makeup.a.c();
-        if (this.gtY.getValue().intValue() < 0) {
-            com.baidu.live.d.Ba().putString("AR_user_makeup_net_data", null);
+        if (this.gpr.getValue().intValue() < 0) {
+            com.baidu.live.d.xf().putString("AR_user_makeup_net_data", null);
             cVar = null;
         } else {
-            cVar = cVar2.parse(com.baidu.live.d.Ba().getString("AR_user_makeup_net_data", null)) ? cVar2 : null;
+            cVar = cVar2.parse(com.baidu.live.d.xf().getString("AR_user_makeup_net_data", null)) ? cVar2 : null;
         }
         if (h.isDebug()) {
             if (cVar2 != null && (json = cVar2.toJson()) != null) {
@@ -142,16 +142,16 @@ public final class g extends com.baidu.tieba.ala.alaar.makeup.a<com.baidu.tieba.
         return cVar;
     }
 
-    public void bSF() {
+    public void bON() {
         JSONObject json;
-        if (this.gtY == null) {
-            this.gtY = new com.baidu.tieba.ala.alaar.makeup.c.a("AR_user_makeup_net_data_ver", 0);
+        if (this.gpr == null) {
+            this.gpr = new com.baidu.tieba.ala.alaar.makeup.c.a("AR_user_makeup_net_data_ver", 0);
         }
         String str = null;
-        if (this.gtZ != null && (json = this.gtZ.toJson()) != null) {
+        if (this.gps != null && (json = this.gps.toJson()) != null) {
             str = json.toString();
         }
-        com.baidu.live.d.Ba().putString("AR_user_makeup_net_data", str);
+        com.baidu.live.d.xf().putString("AR_user_makeup_net_data", str);
         if (h.isDebug()) {
             h.d("MakeupDM", "saveUserMakeup " + str);
         }
@@ -163,23 +163,23 @@ public final class g extends com.baidu.tieba.ala.alaar.makeup.a<com.baidu.tieba.
             h.d("MakeupDM", "onMakeupNetDataUpdate: null");
             return false;
         }
-        if (this.gtZ == null) {
-            this.gtZ = cVar;
+        if (this.gps == null) {
+            this.gps = cVar;
             if (h.isDebug()) {
                 h.d("MakeupDM", "onMakeupNetDataUpdate first: " + cVar.toJson());
             }
-        } else if (!TextUtils.equals(this.gtZ.getSign(), cVar.getSign())) {
+        } else if (!TextUtils.equals(this.gps.getSign(), cVar.getSign())) {
             if (h.isDebug()) {
                 h.d("MakeupDM", "onMakeupNetDataUpdate update: " + cVar.toJson());
             }
-            if (this.gtZ.getPosition() != 0) {
-                cVar.setPosition(this.gtZ.getPosition());
+            if (this.gps.getPosition() != 0) {
+                cVar.setPosition(this.gps.getPosition());
             }
-            cVar.ml(this.gtZ.bSK());
-            com.baidu.tieba.ala.alaar.makeup.a.b bSI = cVar.bSI();
-            cVar.ml(this.gtZ.bSK());
-            cVar.setData(r(bSI.getData(), this.gtZ.bSI().getData()));
-            this.gtZ = cVar;
+            cVar.mh(this.gps.bOS());
+            com.baidu.tieba.ala.alaar.makeup.a.b bOQ = cVar.bOQ();
+            cVar.mh(this.gps.bOS());
+            cVar.setData(r(bOQ.getData(), this.gps.bOQ().getData()));
+            this.gps = cVar;
         }
         return true;
     }
@@ -200,12 +200,12 @@ public final class g extends com.baidu.tieba.ala.alaar.makeup.a<com.baidu.tieba.
                 }
             }
             if (ut2 != null) {
-                if (ut2.getValue() != ut2.bSn()) {
+                if (ut2.getValue() != ut2.bOv()) {
                     ut.setValue(ut2.getValue());
                 }
                 if ((ut instanceof d) && (ut2 instanceof d)) {
                     ((d) ut).setPosition(ut2.getPosition());
-                    ((d) ut).cf(r(((d) ut).bSw(), ut2.bSw()));
+                    ((d) ut).cf(r(((d) ut).bOE(), ut2.bOE()));
                 }
             }
         }

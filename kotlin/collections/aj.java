@@ -4,7 +4,7 @@ import java.util.Iterator;
 @kotlin.e
 /* loaded from: classes5.dex */
 public abstract class aj implements Iterator<Short> {
-    public abstract short eMG();
+    public abstract short eIQ();
 
     @Override // java.util.Iterator
     public void remove() {
@@ -13,8 +13,8 @@ public abstract class aj implements Iterator<Short> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // java.util.Iterator
-    /* renamed from: eMF */
+    /* renamed from: eIP */
     public final Short next() {
-        return Short.valueOf(eMG());
+        return Short.valueOf(eIQ());
     }
 }

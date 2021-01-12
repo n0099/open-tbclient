@@ -2,7 +2,7 @@ package com.baidu.fsg.base.utils;
 
 import java.util.Collection;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public abstract class Assert {
     public static void isTrue(boolean z, String str) {
         if (!z) {

@@ -8,21 +8,21 @@ import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.TbPageContext;
 import com.baidu.live.tbadk.core.view.HeadImageView;
 import com.baidu.live.tbadk.widget.lottie.TBLottieAnimationView;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class c extends com.baidu.live.tieba.pb.interactionpopupwindow.b<LiveVideoBCPanelData> implements View.OnClickListener {
-    private TextView bDM;
-    private LiveVideoBCPanelData bFm;
-    private HeadImageView bFn;
-    private HeadImageView bFo;
-    private TBLottieAnimationView bFp;
-    private Button bFq;
-    private com.baidu.live.tieba.pb.interactionpopupwindow.c bFr;
-    private a bFs;
-    private TextView bFt;
-    private TextView bFu;
+    private LiveVideoBCPanelData bAA;
+    private HeadImageView bAB;
+    private HeadImageView bAC;
+    private TBLottieAnimationView bAD;
+    private Button bAE;
+    private com.baidu.live.tieba.pb.interactionpopupwindow.c bAF;
+    private a bAG;
+    private TextView bAH;
+    private TextView bAI;
+    private TextView bza;
     private Context mContext;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public interface a {
         void c(LiveVideoBCPanelData liveVideoBCPanelData);
     }
@@ -43,59 +43,59 @@ public class c extends com.baidu.live.tieba.pb.interactionpopupwindow.b<LiveVide
     /* renamed from: d */
     public void a(LiveVideoBCPanelData liveVideoBCPanelData) {
         if (liveVideoBCPanelData != null) {
-            this.bFm = liveVideoBCPanelData;
-            this.bDM.setText(this.mContext.getString(a.h.talent_count_down) + liveVideoBCPanelData.getDownTime() + "s");
-            this.bFo.startLoad(liveVideoBCPanelData.getAnchorPortrait(), 12, false);
-            this.bFo.setIsRound(true);
-            this.bFu.setText(com.baidu.live.videochat.d.J(liveVideoBCPanelData.getAnchorNickName(), 16));
-            this.bFn.startLoad(liveVideoBCPanelData.getUserPortrait(), 12, false);
-            this.bFn.setIsRound(true);
-            this.bFt.setText(com.baidu.live.videochat.d.J(liveVideoBCPanelData.getUserNickName(), 16));
+            this.bAA = liveVideoBCPanelData;
+            this.bza.setText(this.mContext.getString(a.h.talent_count_down) + liveVideoBCPanelData.getDownTime() + "s");
+            this.bAC.startLoad(liveVideoBCPanelData.getAnchorPortrait(), 12, false);
+            this.bAC.setIsRound(true);
+            this.bAI.setText(com.baidu.live.videochat.d.J(liveVideoBCPanelData.getAnchorNickName(), 16));
+            this.bAB.startLoad(liveVideoBCPanelData.getUserPortrait(), 12, false);
+            this.bAB.setIsRound(true);
+            this.bAH.setText(com.baidu.live.videochat.d.J(liveVideoBCPanelData.getUserNickName(), 16));
         }
     }
 
     public void startLoading() {
-        this.bFp.playAnimation();
+        this.bAD.playAnimation();
     }
 
     public void stopLoading() {
-        this.bFp.cancelAnimation();
+        this.bAD.cancelAnimation();
     }
 
     @Override // com.baidu.live.tieba.pb.interactionpopupwindow.d
     public void initView() {
-        this.bDM = (TextView) getViewGroup().findViewById(a.f.tv_count_down);
-        this.bFn = (HeadImageView) getViewGroup().findViewById(a.f.head_user);
-        this.bFo = (HeadImageView) getViewGroup().findViewById(a.f.head_anchor);
-        this.bFq = (Button) getViewGroup().findViewById(a.f.btn_cancel_apply);
-        this.bFp = (TBLottieAnimationView) getViewGroup().findViewById(a.f.loading);
-        this.bFu = (TextView) getViewGroup().findViewById(a.f.tv_anchor_name);
-        this.bFt = (TextView) getViewGroup().findViewById(a.f.tv_user_name);
-        this.bFp.setAnimation("apply_connecting.json");
-        this.bFp.loop(true);
+        this.bza = (TextView) getViewGroup().findViewById(a.f.tv_count_down);
+        this.bAB = (HeadImageView) getViewGroup().findViewById(a.f.head_user);
+        this.bAC = (HeadImageView) getViewGroup().findViewById(a.f.head_anchor);
+        this.bAE = (Button) getViewGroup().findViewById(a.f.btn_cancel_apply);
+        this.bAD = (TBLottieAnimationView) getViewGroup().findViewById(a.f.loading);
+        this.bAI = (TextView) getViewGroup().findViewById(a.f.tv_anchor_name);
+        this.bAH = (TextView) getViewGroup().findViewById(a.f.tv_user_name);
+        this.bAD.setAnimation("apply_connecting.json");
+        this.bAD.loop(true);
     }
 
     public void a(com.baidu.live.tieba.pb.interactionpopupwindow.c cVar) {
         if (cVar != null) {
-            this.bFr = cVar;
+            this.bAF = cVar;
         }
     }
 
     private void registerListener() {
-        this.bFq.setOnClickListener(this);
+        this.bAE.setOnClickListener(this);
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.bFq && this.bFr != null) {
-            if (this.bFs != null) {
-                this.bFs.c(this.bFm);
+        if (view == this.bAE && this.bAF != null) {
+            if (this.bAG != null) {
+                this.bAG.c(this.bAA);
             }
-            this.bFr.dismiss();
+            this.bAF.dismiss();
         }
     }
 
     public void a(a aVar) {
-        this.bFs = aVar;
+        this.bAG = aVar;
     }
 }

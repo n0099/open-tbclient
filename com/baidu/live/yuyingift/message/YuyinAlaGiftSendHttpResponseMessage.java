@@ -2,24 +2,24 @@ package com.baidu.live.yuyingift.message;
 
 import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class YuyinAlaGiftSendHttpResponseMessage extends JsonHttpResponsedMessage {
-    private long bhT;
-    private long bhU;
-    private com.baidu.live.yuyingift.a.a caI;
+    private com.baidu.live.yuyingift.a.a bVW;
+    private long bdc;
+    private long bdd;
     private long mLogId;
 
     public YuyinAlaGiftSendHttpResponseMessage() {
         super(1031055);
-        this.bhT = 0L;
+        this.bdc = 0L;
     }
 
-    public long Kl() {
-        return this.bhT;
+    public long Gq() {
+        return this.bdc;
     }
 
-    public long Km() {
-        return this.bhU;
+    public long Gr() {
+        return this.bdd;
     }
 
     @Override // com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage
@@ -27,20 +27,20 @@ public class YuyinAlaGiftSendHttpResponseMessage extends JsonHttpResponsedMessag
         return this.mLogId;
     }
 
-    public com.baidu.live.yuyingift.a.a abb() {
-        return this.caI;
+    public com.baidu.live.yuyingift.a.a Xi() {
+        return this.bVW;
     }
 
     @Override // com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage
     public void decodeLogicInBackGround(int i, JSONObject jSONObject) throws Exception {
         if (jSONObject != null && i == 1031055) {
             super.decodeLogicInBackGround(i, jSONObject);
-            this.bhT = jSONObject.optLong("left_scores");
-            this.bhU = jSONObject.optLong("tdou_num");
+            this.bdc = jSONObject.optLong("left_scores");
+            this.bdd = jSONObject.optLong("tdou_num");
             this.mLogId = jSONObject.optLong("logid");
             JSONObject optJSONObject = jSONObject.optJSONObject("system_luck_window");
             if (optJSONObject != null) {
-                this.caI = com.baidu.live.yuyingift.a.a.ao(optJSONObject);
+                this.bVW = com.baidu.live.yuyingift.a.a.ao(optJSONObject);
             }
         }
     }

@@ -9,7 +9,7 @@ import com.qq.e.comm.managers.GDTADManager;
 import com.qq.e.comm.util.GDTLogger;
 import java.io.File;
 import java.io.FileInputStream;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class k {
     public static int a(BitmapFactory.Options options, ImageView imageView) {
         int i = options.outWidth;

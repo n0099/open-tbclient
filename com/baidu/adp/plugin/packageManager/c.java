@@ -11,19 +11,19 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public class c {
-    private static volatile c Up;
-    private ArrayList<String> Ug = new ArrayList<>();
-    private a Uq;
+    private static volatile c Un;
+    private ArrayList<String> Ue = new ArrayList<>();
+    private a Uo;
 
     public static c pv() {
-        if (Up == null) {
+        if (Un == null) {
             synchronized (c.class) {
-                if (Up == null) {
-                    Up = new c();
+                if (Un == null) {
+                    Un = new c();
                 }
             }
         }
-        return Up;
+        return Un;
     }
 
     private c() {
@@ -32,7 +32,7 @@ public class c {
     public void a(PluginSetting pluginSetting) {
         boolean z;
         if (pluginSetting != null && !TextUtils.isEmpty(pluginSetting.packageName)) {
-            Iterator<String> it = this.Ug.iterator();
+            Iterator<String> it = this.Ue.iterator();
             while (true) {
                 if (!it.hasNext()) {
                     z = false;
@@ -45,7 +45,7 @@ public class c {
                 }
             }
             if (!z) {
-                this.Ug.add(pluginSetting.packageName);
+                this.Ue.add(pluginSetting.packageName);
             }
             pr();
         }
@@ -53,9 +53,9 @@ public class c {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void pr() {
-        if (this.Ug.size() > 0 && this.Uq == null) {
-            this.Uq = new a(this.Ug.get(0));
-            this.Uq.execute(new String[0]);
+        if (this.Ue.size() > 0 && this.Uo == null) {
+            this.Uo = new a(this.Ue.get(0));
+            this.Uo.execute(new String[0]);
         }
     }
 
@@ -83,16 +83,16 @@ public class c {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(Boolean bool) {
             super.onPostExecute((a) bool);
-            c.this.Uq = null;
-            if (c.this.Ug.size() > 0) {
-                Iterator it = c.this.Ug.iterator();
+            c.this.Uo = null;
+            if (c.this.Ue.size() > 0) {
+                Iterator it = c.this.Ue.iterator();
                 while (true) {
                     if (!it.hasNext()) {
                         break;
                     }
                     String str = (String) it.next();
                     if (str != null && str.equals(this.packageName)) {
-                        c.this.Ug.remove(str);
+                        c.this.Ue.remove(str);
                         break;
                     }
                 }

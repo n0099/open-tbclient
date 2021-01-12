@@ -10,7 +10,7 @@ import com.baidu.webkit.net.INetListener;
 import com.baidu.webkit.sdk.Log;
 import com.baidu.webkit.sdk.WebKitFactory;
 import java.io.ByteArrayOutputStream;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class HttpDnsCacheForHost implements INetListener {
     private static final String JSON_KEY_DATA = "data";
     private static final String JSON_KEY_EXTINFO = "ext-info";

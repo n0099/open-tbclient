@@ -2,11 +2,11 @@ package com.baidu.cyberplayer.sdk;
 
 import com.baidu.cyberplayer.sdk.CyberPlayerManager;
 import com.baidu.cyberplayer.sdk.config.CyberCfgManager;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class l {
 
     /* renamed from: a  reason: collision with root package name */
-    private static l f1832a = null;
+    private static l f1782a = null;
 
     private l() {
     }
@@ -15,10 +15,10 @@ public class l {
     public static synchronized l a() {
         l lVar;
         synchronized (l.class) {
-            if (f1832a == null) {
-                f1832a = new l();
+            if (f1782a == null) {
+                f1782a = new l();
             }
-            lVar = f1832a;
+            lVar = f1782a;
         }
         return lVar;
     }

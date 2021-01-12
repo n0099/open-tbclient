@@ -117,7 +117,7 @@ public class t {
                         break;
                     case 5:
                         String[] split = jsonReader.nextString().split("\\.");
-                        if (!com.airbnb.lottie.d.f.b(Integer.parseInt(split[0]), Integer.parseInt(split[1]), Integer.parseInt(split[2]), 4, 4, 0)) {
+                        if (!com.airbnb.lottie.d.f.c(Integer.parseInt(split[0]), Integer.parseInt(split[1]), Integer.parseInt(split[2]), 4, 4, 0)) {
                             dVar.bc("Lottie only supports bodymovin >= 4.4.0");
                             break;
                         } else {

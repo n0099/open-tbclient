@@ -18,7 +18,7 @@ public final class l {
             throw new t(e);
         } catch (EOFException e2) {
             if (z) {
-                return com.bytedance.sdk.openadsdk.d.n.f7298a;
+                return com.bytedance.sdk.openadsdk.d.n.f6998a;
             }
             throw new t(e2);
         } catch (IOException e3) {
@@ -40,24 +40,24 @@ public final class l {
     private static final class a extends Writer {
 
         /* renamed from: a  reason: collision with root package name */
-        private final Appendable f7269a;
+        private final Appendable f6969a;
 
         /* renamed from: b  reason: collision with root package name */
-        private final C1029a f7270b = new C1029a();
+        private final C1012a f6970b = new C1012a();
 
         a(Appendable appendable) {
-            this.f7269a = appendable;
+            this.f6969a = appendable;
         }
 
         @Override // java.io.Writer
         public void write(char[] cArr, int i, int i2) throws IOException {
-            this.f7270b.f7271a = cArr;
-            this.f7269a.append(this.f7270b, i, i + i2);
+            this.f6970b.f6971a = cArr;
+            this.f6969a.append(this.f6970b, i, i + i2);
         }
 
         @Override // java.io.Writer
         public void write(int i) throws IOException {
-            this.f7269a.append((char) i);
+            this.f6969a.append((char) i);
         }
 
         @Override // java.io.Writer, java.io.Flushable
@@ -70,27 +70,27 @@ public final class l {
 
         /* renamed from: com.bytedance.sdk.openadsdk.d.b.l$a$a  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        static class C1029a implements CharSequence {
+        static class C1012a implements CharSequence {
 
             /* renamed from: a  reason: collision with root package name */
-            char[] f7271a;
+            char[] f6971a;
 
-            C1029a() {
+            C1012a() {
             }
 
             @Override // java.lang.CharSequence
             public int length() {
-                return this.f7271a.length;
+                return this.f6971a.length;
             }
 
             @Override // java.lang.CharSequence
             public char charAt(int i) {
-                return this.f7271a[i];
+                return this.f6971a[i];
             }
 
             @Override // java.lang.CharSequence
             public CharSequence subSequence(int i, int i2) {
-                return new String(this.f7271a, i, i2 - i);
+                return new String(this.f6971a, i, i2 - i);
             }
         }
     }

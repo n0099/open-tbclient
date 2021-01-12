@@ -6,13 +6,13 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class c {
-    private static String coB = "https://etrade.baidu.com/sgw/common/pingd/trace";
+    private static String cjM = "https://etrade.baidu.com/sgw/common/pingd/trace";
 
     static {
         if (com.baidu.poly.a.b.a.q() != 1) {
-            coB = "http://sandbox.y.nuomi.com/c/uniongw/o/common/pingd/trace";
+            cjM = "http://sandbox.y.nuomi.com/c/uniongw/o/common/pingd/trace";
         }
     }
 
@@ -20,7 +20,7 @@ public class c {
     public void a(com.baidu.poly.a.a.c cVar, com.baidu.poly.a.a.b bVar, com.baidu.poly.a.a.a aVar) {
         DataOutputStream dataOutputStream;
         try {
-            HttpURLConnection httpURLConnection = (HttpURLConnection) new URL(coB).openConnection();
+            HttpURLConnection httpURLConnection = (HttpURLConnection) new URL(cjM).openConnection();
             for (Map.Entry<String, String> entry : cVar.p().entrySet()) {
                 httpURLConnection.setRequestProperty(entry.getKey(), entry.getValue());
             }

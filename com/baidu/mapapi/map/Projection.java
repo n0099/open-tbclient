@@ -4,31 +4,31 @@ import android.graphics.Point;
 import android.graphics.PointF;
 import com.baidu.mapapi.model.CoordUtil;
 import com.baidu.mapapi.model.LatLng;
-import com.baidu.mapsdkplatform.comapi.map.w;
-import com.baidu.platform.comapi.basestruct.GeoPoint;
-/* loaded from: classes3.dex */
+import com.baidu.mapapi.model.inner.GeoPoint;
+import com.baidu.mapsdkplatform.comapi.map.ab;
+/* loaded from: classes6.dex */
 public final class Projection {
 
     /* renamed from: a  reason: collision with root package name */
-    private com.baidu.mapsdkplatform.comapi.map.d f2873a;
+    private com.baidu.mapsdkplatform.comapi.map.e f2760a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public Projection(com.baidu.mapsdkplatform.comapi.map.d dVar) {
-        this.f2873a = dVar;
+    public Projection(com.baidu.mapsdkplatform.comapi.map.e eVar) {
+        this.f2760a = eVar;
     }
 
     public LatLng fromScreenLocation(Point point) {
-        if (point == null || this.f2873a == null) {
+        if (point == null || this.f2760a == null) {
             return null;
         }
-        return CoordUtil.mc2ll(this.f2873a.b(point.x, point.y));
+        return CoordUtil.mc2ll(this.f2760a.b(point.x, point.y));
     }
 
     public float metersToEquatorPixels(float f) {
         if (f <= 0.0f) {
             return 0.0f;
         }
-        return (float) (f / this.f2873a.H());
+        return (float) (f / this.f2760a.J());
     }
 
     public PointF toOpenGLLocation(LatLng latLng, MapStatus mapStatus) {
@@ -36,8 +36,8 @@ public final class Projection {
             return null;
         }
         GeoPoint ll2mc = CoordUtil.ll2mc(latLng);
-        com.baidu.mapsdkplatform.comapi.map.w wVar = mapStatus.f2839a;
-        return new PointF((float) (ll2mc.getLongitudeE6() - wVar.d), (float) (ll2mc.getLatitudeE6() - wVar.e));
+        ab abVar = mapStatus.f2732a;
+        return new PointF((float) (ll2mc.getLongitudeE6() - abVar.d), (float) (ll2mc.getLatitudeE6() - abVar.e));
     }
 
     public PointF toOpenGLNormalization(LatLng latLng, MapStatus mapStatus) {
@@ -45,14 +45,14 @@ public final class Projection {
             return null;
         }
         GeoPoint ll2mc = CoordUtil.ll2mc(latLng);
-        w.a aVar = mapStatus.f2839a.k;
-        return new PointF((float) (((2.0d * (ll2mc.getLongitudeE6() - aVar.f3205a)) / Math.abs(aVar.f3206b - aVar.f3205a)) - 1.0d), (float) ((((ll2mc.getLatitudeE6() - aVar.d) * 2.0d) / Math.abs(aVar.c - aVar.d)) - 1.0d));
+        ab.a aVar = mapStatus.f2732a.k;
+        return new PointF((float) (((2.0d * (ll2mc.getLongitudeE6() - aVar.f3042a)) / Math.abs(aVar.f3043b - aVar.f3042a)) - 1.0d), (float) ((((ll2mc.getLatitudeE6() - aVar.d) * 2.0d) / Math.abs(aVar.c - aVar.d)) - 1.0d));
     }
 
     public Point toScreenLocation(LatLng latLng) {
-        if (latLng == null || this.f2873a == null) {
+        if (latLng == null || this.f2760a == null) {
             return null;
         }
-        return this.f2873a.a(CoordUtil.ll2mc(latLng));
+        return this.f2760a.a(CoordUtil.ll2mc(latLng));
     }
 }

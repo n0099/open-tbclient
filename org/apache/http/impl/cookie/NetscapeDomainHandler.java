@@ -4,7 +4,7 @@ import org.apache.http.cookie.Cookie;
 import org.apache.http.cookie.CookieOrigin;
 import org.apache.http.cookie.MalformedCookieException;
 @Deprecated
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class NetscapeDomainHandler extends BasicDomainHandler {
     public NetscapeDomainHandler() {
         throw new RuntimeException("Stub!");

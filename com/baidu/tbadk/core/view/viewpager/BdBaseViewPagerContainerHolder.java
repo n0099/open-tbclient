@@ -9,27 +9,27 @@ import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class BdBaseViewPagerContainerHolder extends TypeAdapter.ViewHolder {
-    public int akW;
-    public RelativeLayout fre;
-    public TextView frf;
-    public IndicatorView frg;
-    public View frh;
-    public BdBaseViewPager fri;
+    public int akf;
+    public RelativeLayout fmu;
+    public TextView fmv;
+    public IndicatorView fmw;
+    public View fmx;
+    public BdBaseViewPager fmy;
     public TextView title;
 
     public BdBaseViewPagerContainerHolder(View view, Context context) {
         super(view);
-        this.akW = 3;
+        this.akf = 3;
         this.title = null;
-        this.frf = null;
-        this.frg = null;
-        this.frh = null;
-        this.fri = null;
-        this.fre = (RelativeLayout) view.findViewById(R.id.top_area);
+        this.fmv = null;
+        this.fmw = null;
+        this.fmx = null;
+        this.fmy = null;
+        this.fmu = (RelativeLayout) view.findViewById(R.id.top_area);
         this.title = (TextView) view.findViewById(R.id.theme_title);
-        this.frf = (TextView) view.findViewById(R.id.more_textview);
-        this.frg = (IndicatorView) view.findViewById(R.id.tab_indicator);
-        this.frh = view.findViewById(R.id.bottom_divider_line);
-        this.fri = (BdBaseViewPager) view.findViewById(R.id.bd_base_view_pager);
+        this.fmv = (TextView) view.findViewById(R.id.more_textview);
+        this.fmw = (IndicatorView) view.findViewById(R.id.tab_indicator);
+        this.fmx = view.findViewById(R.id.bottom_divider_line);
+        this.fmy = (BdBaseViewPager) view.findViewById(R.id.bd_base_view_pager);
     }
 }

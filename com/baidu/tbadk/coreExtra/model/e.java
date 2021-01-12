@@ -25,31 +25,31 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class e {
-    private int fwl;
-    private int fwm;
-    private JSONArray fwq;
-    private JSONArray fwr;
-    private JSONArray fws;
+    private int frC;
+    private int frD;
+    private JSONArray frH;
+    private JSONArray frI;
+    private JSONArray frJ;
     private String mConfigVersion;
     private int mFaceShopVersion;
-    private int fwj = 0;
-    private int fwk = 0;
-    private VersionData fwc = new VersionData();
-    private r fwd = new r();
-    private s fwe = new s();
-    private CombineDownload fwf = new CombineDownload();
-    private aa fwg = new aa();
-    private aj fwh = new aj();
-    private t fwn = new t();
-    private com.baidu.tbadk.coreExtra.data.f fwi = new com.baidu.tbadk.coreExtra.data.f();
+    private int frA = 0;
+    private int frB = 0;
+    private VersionData frt = new VersionData();
+    private r fru = new r();
+    private s frv = new s();
+    private CombineDownload frw = new CombineDownload();
+    private aa frx = new aa();
+    private aj fry = new aj();
+    private t frE = new t();
+    private com.baidu.tbadk.coreExtra.data.f frz = new com.baidu.tbadk.coreExtra.data.f();
     private com.baidu.tbadk.coreExtra.data.d mAdAdSense = new com.baidu.tbadk.coreExtra.data.d();
     private final com.baidu.tbadk.coreExtra.data.c mActivitySwitch = new com.baidu.tbadk.coreExtra.data.c();
-    private com.baidu.tbadk.coreExtra.data.a fwo = new com.baidu.tbadk.coreExtra.data.a();
+    private com.baidu.tbadk.coreExtra.data.a frF = new com.baidu.tbadk.coreExtra.data.a();
     private ac mProfileData = new ac();
-    private ABTestExtraData fwp = new ABTestExtraData();
-    private NewGodData fwt = new NewGodData();
-    private w fwu = new w();
-    private com.baidu.tbadk.coreExtra.data.e fwv = new com.baidu.tbadk.coreExtra.data.e();
+    private ABTestExtraData frG = new ABTestExtraData();
+    private NewGodData frK = new NewGodData();
+    private w frL = new w();
+    private com.baidu.tbadk.coreExtra.data.e frM = new com.baidu.tbadk.coreExtra.data.e();
 
     public void parserJson(String str) {
         try {
@@ -62,27 +62,27 @@ public class e {
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.fwu.W(z(jSONObject, "index_tab_info"));
-                this.fwc.parserJson(jSONObject.optJSONObject("version"));
-                this.fwd.parserJson(jSONObject.optJSONObject("client"));
+                this.frL.W(z(jSONObject, "index_tab_info"));
+                this.frt.parserJson(jSONObject.optJSONObject("version"));
+                this.fru.parserJson(jSONObject.optJSONObject("client"));
                 com.baidu.tbadk.core.util.d.setIp(jSONObject.optString("client_ip", null));
                 com.baidu.adp.lib.stats.f.bU(jSONObject.optString("client_ip", null));
-                this.fwe.parserJson(jSONObject.optJSONObject("config"));
-                this.fwh.parserJson(jSONObject.optJSONObject("wl_config"));
+                this.frv.parserJson(jSONObject.optJSONObject("config"));
+                this.fry.parserJson(jSONObject.optJSONObject("wl_config"));
                 jSONObject.optJSONObject("channel_icon_config");
                 String optString = jSONObject.optString("new_god_data", "");
                 if (!StringUtils.isNull(optString)) {
-                    this.fwt.parserJson(optString);
+                    this.frK.parserJson(optString);
                 }
-                this.fwn.parserJson(jSONObject.optJSONObject("consume_path"));
-                TbadkCoreApplication.getInst().setConsumePathData(this.fwn);
+                this.frE.parserJson(jSONObject.optJSONObject("consume_path"));
+                TbadkCoreApplication.getInst().setConsumePathData(this.frE);
                 this.mConfigVersion = jSONObject.optString("config_version");
-                this.fwk = jSONObject.optInt("is_uninterest");
-                this.fwl = jSONObject.optInt("first_time_motivate");
-                this.fwm = jSONObject.optInt("needNewUserLead");
-                this.fwf.parserJson(jSONObject.optJSONObject("combine_download"));
-                this.fwg.parserJson(jSONObject.optJSONObject("mainbar"));
-                this.fwj = jSONObject.optInt(TbConfig.SYNC_ACTIVE, 0);
+                this.frB = jSONObject.optInt("is_uninterest");
+                this.frC = jSONObject.optInt("first_time_motivate");
+                this.frD = jSONObject.optInt("needNewUserLead");
+                this.frw.parserJson(jSONObject.optJSONObject("combine_download"));
+                this.frx.parserJson(jSONObject.optJSONObject("mainbar"));
+                this.frA = jSONObject.optInt(TbConfig.SYNC_ACTIVE, 0);
                 MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(CmdConfigCustom.CMD_ADS_EMOTION, jSONObject));
                 this.mFaceShopVersion = jSONObject.optInt(SharedPrefConfig.FACESHAOP_VERSION);
                 if (this.mFaceShopVersion > TbadkCoreApplication.getInst().getFaceShopVersion()) {
@@ -98,21 +98,21 @@ public class e {
                 whiteListData.saveJson(jSONObject.optJSONArray("whitelist"));
                 TbSingleton.getInstance().setHostWhiteList(whiteListData);
                 com.baidu.tbadk.coreExtra.data.g.U(jSONObject.optJSONArray("scheme_whitelist"));
-                this.fwi.parserJson(jSONObject.optJSONObject("app_entrance"));
+                this.frz.parserJson(jSONObject.optJSONObject("app_entrance"));
                 this.mAdAdSense.parserJson(jSONObject.optJSONObject("ad_adsense"));
                 TbadkCoreApplication.getInst().saveKeepLiveSwitch(jSONObject.optInt("android_keepalive") == 0);
                 g.parserJson(jSONObject.optJSONObject("video_report_config"));
                 this.mActivitySwitch.parseJson(jSONObject.optJSONObject("activity_switch"));
-                this.fwo.parseJson(y(jSONObject, "abtest_config"));
-                this.fwp.parseJson(y(jSONObject, "new_abtest_entra"));
-                this.fwq = z(jSONObject, "new_abtest_config");
-                this.fwr = z(jSONObject, "ubs_abtest_config");
-                this.fws = jSONObject.optJSONArray("windowStrategyList");
-                this.fwv.parserJson(y(jSONObject, "ad_density"));
-                com.baidu.tbadk.core.business.b.boJ().O(this.fws);
+                this.frF.parseJson(y(jSONObject, "abtest_config"));
+                this.frG.parseJson(y(jSONObject, "new_abtest_entra"));
+                this.frH = z(jSONObject, "new_abtest_config");
+                this.frI = z(jSONObject, "ubs_abtest_config");
+                this.frJ = jSONObject.optJSONArray("windowStrategyList");
+                this.frM.parserJson(y(jSONObject, "ad_density"));
+                com.baidu.tbadk.core.business.b.bkP().O(this.frJ);
                 this.mProfileData.parseJson(jSONObject.optJSONObject("profile_icon"));
                 TbSingleton.getInstance().setNewUser(jSONObject.optInt("recommend_userstatus", 0) == 1);
-                com.baidu.tbadk.core.sharedPref.b.bvr().putBoolean("key_live_forum_enter_switch", jSONObject.optInt("ala_channel_white", 0) == 1);
+                com.baidu.tbadk.core.sharedPref.b.brx().putBoolean("key_live_forum_enter_switch", jSONObject.optInt("ala_channel_white", 0) == 1);
                 TbSingleton.getInstance().setPcdnConfigData(jSONObject.optJSONObject("pcdn_config"));
                 String optString2 = jSONObject.optString("proxy_ip");
                 String optString3 = jSONObject.optString("proxy_port");
@@ -142,52 +142,52 @@ public class e {
         }
     }
 
-    public s bCi() {
-        return this.fwe;
+    public s byo() {
+        return this.frv;
     }
 
-    public String bCj() {
+    public String byp() {
         return this.mConfigVersion;
     }
 
-    public CombineDownload bCk() {
-        return this.fwf;
+    public CombineDownload byq() {
+        return this.frw;
     }
 
-    public VersionData bCl() {
-        return this.fwc;
+    public VersionData byr() {
+        return this.frt;
     }
 
-    public r bCm() {
-        return this.fwd;
+    public r bys() {
+        return this.fru;
     }
 
-    public aj bCn() {
-        return this.fwh;
+    public aj byt() {
+        return this.fry;
     }
 
-    public NewGodData bCo() {
-        return this.fwt;
+    public NewGodData byu() {
+        return this.frK;
     }
 
-    public com.baidu.tbadk.coreExtra.data.f bCp() {
-        return this.fwi;
+    public com.baidu.tbadk.coreExtra.data.f byv() {
+        return this.frz;
     }
 
     public com.baidu.tbadk.coreExtra.data.d getAdAdSense() {
         return this.mAdAdSense;
     }
 
-    public int bCq() {
-        return this.fwk;
+    public int byw() {
+        return this.frB;
     }
 
-    public boolean bCr() {
-        return this.fwl == 1;
+    public boolean byx() {
+        return this.frC == 1;
     }
 
-    public int bCs() {
-        return this.fwm;
+    public int byy() {
+        return this.frD;
     }
 
     public com.baidu.tbadk.coreExtra.data.c getActivitySwitch() {
@@ -198,19 +198,19 @@ public class e {
         return this.mProfileData;
     }
 
-    public com.baidu.tbadk.coreExtra.data.a bCt() {
-        return this.fwo;
+    public com.baidu.tbadk.coreExtra.data.a byz() {
+        return this.frF;
     }
 
-    public ABTestExtraData bCu() {
-        return this.fwp;
+    public ABTestExtraData byA() {
+        return this.frG;
     }
 
-    public JSONArray bCv() {
-        return this.fwq;
+    public JSONArray byB() {
+        return this.frH;
     }
 
-    public JSONArray bCw() {
-        return this.fwr;
+    public JSONArray byC() {
+        return this.frI;
     }
 }

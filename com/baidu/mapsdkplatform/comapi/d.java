@@ -1,24 +1,33 @@
 package com.baidu.mapsdkplatform.comapi;
 
-import java.io.File;
-import java.io.FilenameFilter;
-/* loaded from: classes3.dex */
-class d implements FilenameFilter {
+import com.baidu.mapsdkplatform.comapi.NativeLoader;
+/* JADX INFO: Access modifiers changed from: package-private */
+/* loaded from: classes6.dex */
+public /* synthetic */ class d {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ String f3155a;
+    static final /* synthetic */ int[] f3025a = new int[NativeLoader.a.values().length];
 
-    /* renamed from: b  reason: collision with root package name */
-    final /* synthetic */ NativeLoader f3156b;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public d(NativeLoader nativeLoader, String str) {
-        this.f3156b = nativeLoader;
-        this.f3155a = str;
-    }
-
-    @Override // java.io.FilenameFilter
-    public boolean accept(File file, String str) {
-        return (str == null || !str.contains("libBaiduMapSDK_") || str.contains(this.f3155a)) ? false : true;
+    static {
+        try {
+            f3025a[NativeLoader.a.ARM64.ordinal()] = 1;
+        } catch (NoSuchFieldError e) {
+        }
+        try {
+            f3025a[NativeLoader.a.ARMV7.ordinal()] = 2;
+        } catch (NoSuchFieldError e2) {
+        }
+        try {
+            f3025a[NativeLoader.a.ARMEABI.ordinal()] = 3;
+        } catch (NoSuchFieldError e3) {
+        }
+        try {
+            f3025a[NativeLoader.a.X86_64.ordinal()] = 4;
+        } catch (NoSuchFieldError e4) {
+        }
+        try {
+            f3025a[NativeLoader.a.X86.ordinal()] = 5;
+        } catch (NoSuchFieldError e5) {
+        }
     }
 }

@@ -2,8 +2,8 @@ package io.flutter.plugins;
 
 import androidx.annotation.Keep;
 import androidx.annotation.NonNull;
-import com.baidu.d.a;
-import com.baidu.f.c;
+import com.baidu.c.a;
+import com.baidu.e.c;
 import com.baidu.network_service_plugin.b;
 import com.baidu.performance_monitor.PerformanceMonitorPlugin;
 import com.example.flutter_lottie.FlutterLottiePlugin;
@@ -27,12 +27,12 @@ public final class GeneratedPluginRegistrant {
         flutterEngine.getPlugins().add(new a());
         flutterEngine.getPlugins().add(new c());
         flutterEngine.getPlugins().add(new FlutterBoostPlugin());
-        flutterEngine.getPlugins().add(new com.baidu.h.a.a());
+        flutterEngine.getPlugins().add(new com.baidu.f.a.a());
         FlutterLottiePlugin.registerWith(shimPluginRegistry.registrarFor("com.example.flutter_lottie.FlutterLottiePlugin"));
         flutterEngine.getPlugins().add(new GlobalStateSyncPlugin());
         flutterEngine.getPlugins().add(new ImageLoaderPlugin());
         flutterEngine.getPlugins().add(new ImagePickerPlugin());
-        flutterEngine.getPlugins().add(new com.baidu.k.a());
+        flutterEngine.getPlugins().add(new com.baidu.i.a());
         flutterEngine.getPlugins().add(new b());
         flutterEngine.getPlugins().add(new ProgresshudPlugin());
         flutterEngine.getPlugins().add(new PathProviderPlugin());

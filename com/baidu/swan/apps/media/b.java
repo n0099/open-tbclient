@@ -4,48 +4,48 @@ import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import java.util.ArrayList;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public final class b {
-    private static ArrayList<a> dkS = new ArrayList<>();
+    private static ArrayList<a> dgd = new ArrayList<>();
 
-    public static void gb(boolean z) {
-        for (int size = dkS.size() - 1; size >= 0; size--) {
-            a aVar = dkS.get(size);
+    public static void fX(boolean z) {
+        for (int size = dgd.size() - 1; size >= 0; size--) {
+            a aVar = dgd.get(size);
             if (aVar != null) {
-                aVar.fZ(z);
+                aVar.fV(z);
             }
         }
     }
 
-    public static void ga(boolean z) {
-        for (int size = dkS.size() - 1; size >= 0; size--) {
-            a aVar = dkS.get(size);
+    public static void fW(boolean z) {
+        for (int size = dgd.size() - 1; size >= 0; size--) {
+            a aVar = dgd.get(size);
             if (aVar != null) {
-                aVar.ga(z);
+                aVar.fW(z);
             }
         }
     }
 
-    public static a qi(String str) {
+    public static a oX(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
-        for (int size = dkS.size() - 1; size >= 0; size--) {
-            a aVar = dkS.get(size);
-            if (aVar != null && TextUtils.equals(str, aVar.azY())) {
+        for (int size = dgd.size() - 1; size >= 0; size--) {
+            a aVar = dgd.get(size);
+            if (aVar != null && TextUtils.equals(str, aVar.awe())) {
                 return aVar;
             }
         }
         return null;
     }
 
-    public static a U(@Nullable String str, @Nullable String str2, @NonNull String str3) {
+    public static a T(@Nullable String str, @Nullable String str2, @NonNull String str3) {
         if (TextUtils.isEmpty(str3)) {
             return null;
         }
-        for (int size = dkS.size() - 1; size >= 0; size--) {
-            a aVar = dkS.get(size);
-            if (aVar != null && ((TextUtils.isEmpty(str) || TextUtils.equals(str, aVar.getSlaveId())) && ((!TextUtils.isEmpty(str2) && TextUtils.equals(str2, aVar.aEa())) || TextUtils.equals(str3, aVar.azY())))) {
+        for (int size = dgd.size() - 1; size >= 0; size--) {
+            a aVar = dgd.get(size);
+            if (aVar != null && ((TextUtils.isEmpty(str) || TextUtils.equals(str, aVar.getSlaveId())) && ((!TextUtils.isEmpty(str2) && TextUtils.equals(str2, aVar.aAg())) || TextUtils.equals(str3, aVar.awe())))) {
                 return aVar;
             }
         }
@@ -53,27 +53,27 @@ public final class b {
     }
 
     public static void a(a aVar) {
-        if (aVar != null && !dkS.contains(aVar)) {
-            dkS.add(aVar);
+        if (aVar != null && !dgd.contains(aVar)) {
+            dgd.add(aVar);
         }
     }
 
     public static void b(a aVar) {
         if (aVar != null) {
-            dkS.remove(aVar);
+            dgd.remove(aVar);
         }
     }
 
-    public static void aEc() {
-        dkS.clear();
+    public static void aAi() {
+        dgd.clear();
     }
 
-    public static boolean qj(String str) {
+    public static boolean oY(String str) {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
-        for (int size = dkS.size() - 1; size >= 0; size--) {
-            a aVar = dkS.get(size);
+        for (int size = dgd.size() - 1; size >= 0; size--) {
+            a aVar = dgd.get(size);
             if (aVar != null && TextUtils.equals(str, aVar.getSlaveId()) && aVar.onBackPressed()) {
                 return true;
             }
@@ -81,10 +81,10 @@ public final class b {
         return false;
     }
 
-    public static void hP(String str) {
+    public static void gE(String str) {
         if (!TextUtils.isEmpty(str)) {
-            for (int size = dkS.size() - 1; size >= 0; size--) {
-                a aVar = dkS.get(size);
+            for (int size = dgd.size() - 1; size >= 0; size--) {
+                a aVar = dgd.get(size);
                 if (aVar != null && TextUtils.equals(str, aVar.getSlaveId())) {
                     aVar.onDestroy();
                 }
@@ -93,8 +93,8 @@ public final class b {
     }
 
     public static void destroy() {
-        for (int size = dkS.size() - 1; size >= 0; size--) {
-            a aVar = dkS.get(size);
+        for (int size = dgd.size() - 1; size >= 0; size--) {
+            a aVar = dgd.get(size);
             if (aVar != null) {
                 aVar.onDestroy();
             }

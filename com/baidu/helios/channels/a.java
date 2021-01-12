@@ -9,7 +9,7 @@ import java.util.Comparator;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public abstract class a {
-    public static Comparator<a> awK = new Comparator<a>() { // from class: com.baidu.helios.channels.a.1
+    public static Comparator<a> arY = new Comparator<a>() { // from class: com.baidu.helios.channels.a.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.Comparator
         /* renamed from: a */
@@ -18,37 +18,37 @@ public abstract class a {
             return priority != 0 ? priority > 0 ? -1 : 1 : aVar.getName().compareTo(aVar2.getName());
         }
     };
-    protected C0136a awI;
-    protected a.C0141a awJ;
+    protected C0128a arW;
+    protected a.C0133a arX;
 
     /* renamed from: b  reason: collision with root package name */
-    private final String f2466b;
+    private final String f2416b;
     private long c;
 
     /* renamed from: com.baidu.helios.channels.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public static class C0136a {
+    public static class C0128a {
         public Context applicationContext;
-        public com.baidu.helios.common.c.a awL;
-        public com.baidu.helios.ids.b awM;
+        public com.baidu.helios.common.c.a arZ;
+        public com.baidu.helios.ids.b asa;
     }
 
     /* loaded from: classes6.dex */
     public static abstract class b {
-        private a.C0141a awu;
+        private a.C0133a arI;
 
         /* renamed from: b  reason: collision with root package name */
-        private String f2467b;
+        private String f2417b;
         private String c;
         private boolean d = true;
 
-        public b(a.C0141a c0141a, String str) {
-            this.awu = c0141a;
-            this.f2467b = str;
+        public b(a.C0133a c0133a, String str) {
+            this.arI = c0133a;
+            this.f2417b = str;
             this.c = "target-pkg-" + Base64.encodeToString(str.getBytes(), 3);
         }
 
-        public void aV(boolean z) {
+        public void aR(boolean z) {
             this.d = z;
         }
 
@@ -56,12 +56,12 @@ public abstract class a {
 
         public abstract void r(JSONObject jSONObject);
 
-        public boolean yH() {
-            String p = this.awu.p(this.c, true);
+        public boolean uM() {
+            String p = this.arI.p(this.c, true);
             if (!TextUtils.isEmpty(p)) {
                 try {
                     q(new JSONObject(p));
-                    aV(false);
+                    aR(false);
                     return true;
                 } catch (Exception e) {
                 }
@@ -69,13 +69,13 @@ public abstract class a {
             return false;
         }
 
-        public boolean yI() {
+        public boolean uN() {
             if (this.d) {
                 try {
                     JSONObject jSONObject = new JSONObject();
                     r(jSONObject);
-                    this.awu.c(this.c, jSONObject.toString(), true);
-                    aV(false);
+                    this.arI.c(this.c, jSONObject.toString(), true);
+                    aR(false);
                     return true;
                 } catch (Exception e) {
                 }
@@ -96,19 +96,19 @@ public abstract class a {
     public static class e {
 
         /* renamed from: a  reason: collision with root package name */
-        private int f2468a;
+        private int f2418a;
 
         /* renamed from: b  reason: collision with root package name */
-        private int f2469b;
+        private int f2419b;
         public Exception exception;
 
         public e(int i, int i2, Exception exc) {
-            this.f2468a = i;
-            this.f2469b = i2;
+            this.f2418a = i;
+            this.f2419b = i2;
             this.exception = exc;
         }
 
-        public static e dq(int i) {
+        public static e bK(int i) {
             return new e(-1, i, null);
         }
 
@@ -116,12 +116,12 @@ public abstract class a {
             return new e(-1, 0, exc);
         }
 
-        public static e yJ() {
+        public static e uO() {
             return new e(0, 0, null);
         }
 
-        public static e yK() {
-            return dq(0);
+        public static e uP() {
+            return bK(0);
         }
     }
 
@@ -142,16 +142,16 @@ public abstract class a {
             this.exception = exc;
         }
 
-        public static g dr(int i) {
+        public static g bL(int i) {
             return new g(i, null, null);
+        }
+
+        public static g dY(String str) {
+            return new g(0, str, null);
         }
 
         public static g e(int i, Exception exc) {
             return new g(i, null, exc);
-        }
-
-        public static g fk(String str) {
-            return new g(0, str, null);
         }
 
         public static g j(Exception exc) {
@@ -164,7 +164,7 @@ public abstract class a {
     }
 
     public a(String str, long j) {
-        this.f2466b = str;
+        this.f2416b = str;
         this.c = j;
     }
 
@@ -172,15 +172,15 @@ public abstract class a {
 
     public abstract g a(String str, f fVar);
 
-    public final void a(C0136a c0136a) {
-        this.awI = c0136a;
-        this.awJ = c0136a.awL.zf().fm(IXAdRequestInfo.CS);
+    public final void a(C0128a c0128a) {
+        this.arW = c0128a;
+        this.arX = c0128a.arZ.vk().ea(IXAdRequestInfo.CS);
     }
 
     public abstract void a(c cVar);
 
     public String getName() {
-        return this.f2466b;
+        return this.f2416b;
     }
 
     public long getPriority() {

@@ -6,13 +6,13 @@ import java.util.Collections;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class a {
-    public static <T> List<T> eFr() {
+    public static <T> List<T> eBA() {
         return new MutableOnWriteList(Collections.emptyList());
     }
 
-    public static <K, V> Map<K, V> eFs() {
+    public static <K, V> Map<K, V> eBB() {
         return new LinkedHashMap();
     }
 

@@ -6,7 +6,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.RestrictTo;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public final class ServiceCompat {
     public static final int START_STICKY = 1;
     public static final int STOP_FOREGROUND_DETACH = 2;
@@ -14,7 +14,7 @@ public final class ServiceCompat {
 
     @Retention(RetentionPolicy.SOURCE)
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public @interface StopForegroundFlags {
     }
 

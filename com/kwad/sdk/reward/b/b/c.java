@@ -23,11 +23,11 @@ import com.kwad.sdk.reward.widget.actionbar.ActionBarPortraitHorizontal;
 import com.kwad.sdk.utils.ah;
 import com.kwad.sdk.utils.aq;
 import com.kwad.sdk.utils.ar;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class c extends d {
 
     /* renamed from: b  reason: collision with root package name */
-    private ActionBarLandscapeVertical f10892b;
+    private ActionBarLandscapeVertical f10592b;
     private ActionBarPortraitHorizontal c;
     private n d;
     private AdTemplate e;
@@ -60,7 +60,7 @@ public class c extends d {
         public void b() {
             super.b();
             if (c.this.l) {
-                c.this.a(c.this.f10950a.i.i(), c.this.f10950a.i.j());
+                c.this.a(c.this.f10650a.i.i(), c.this.f10650a.i.j());
             }
             c.this.k = true;
         }
@@ -79,7 +79,7 @@ public class c extends d {
         @Override // com.kwad.sdk.core.webview.jshandler.a.b
         public void a() {
             com.kwad.sdk.core.d.a.a("NewStylePresenter", "onAdClicked");
-            c.this.f10950a.f10825b.a();
+            c.this.f10650a.f10525b.a();
         }
     };
     private Runnable r = new Runnable() { // from class: com.kwad.sdk.reward.b.b.c.8
@@ -88,7 +88,7 @@ public class c extends d {
             c.this.l = true;
             c.this.h.setVisibility(4);
             if (c.this.k) {
-                c.this.a(c.this.f10950a.i.i(), c.this.f10950a.i.j());
+                c.this.a(c.this.f10650a.i.i(), c.this.f10650a.i.j());
             }
         }
     };
@@ -123,19 +123,19 @@ public class c extends d {
     };
 
     private void a(int i) {
-        this.f10892b.a(this.e, this.f, new ActionBarLandscapeVertical.a() { // from class: com.kwad.sdk.reward.b.b.c.5
+        this.f10592b.a(this.e, this.f, new ActionBarLandscapeVertical.a() { // from class: com.kwad.sdk.reward.b.b.c.5
             @Override // com.kwad.sdk.reward.widget.actionbar.ActionBarLandscapeVertical.a
             public void a() {
                 c.this.e();
             }
         }, i);
-        this.f10892b.setVisibility(0);
+        this.f10592b.setVisibility(0);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(int i, int i2) {
         int min = Math.min(ah.h(o()), ah.g(o()));
-        if (this.f10950a.e == 1) {
+        if (this.f10650a.e == 1) {
             if (i <= i2) {
                 a((int) (min * (i / (i2 * 1.0f))));
             }
@@ -170,8 +170,8 @@ public class c extends d {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void e() {
-        com.kwad.sdk.core.report.b.a(this.e, 1, this.f10950a.h.getTouchCoords(), this.f10950a.d);
-        this.f10950a.f10825b.a();
+        com.kwad.sdk.core.report.b.a(this.e, 1, this.f10650a.h.getTouchCoords(), this.f10650a.d);
+        this.f10650a.f10525b.a();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -187,16 +187,16 @@ public class c extends d {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void g() {
-        this.f10892b.setVisibility(8);
+        this.f10592b.setVisibility(8);
         this.c.setVisibility(8);
     }
 
     private void h() {
         this.j = new com.kwad.sdk.core.webview.a();
-        this.j.f9837b = this.f10950a.f;
-        this.j.f9836a = this.f10950a.e;
-        this.j.c = this.f10950a.h;
-        this.j.e = this.f10950a.h;
+        this.j.f9537b = this.f10650a.f;
+        this.j.f9536a = this.f10650a.e;
+        this.j.c = this.f10650a.h;
+        this.j.e = this.f10650a.h;
         this.j.f = this.h;
     }
 
@@ -233,21 +233,21 @@ public class c extends d {
     @Override // com.kwad.sdk.reward.d, com.kwad.sdk.mvp.Presenter
     public void a() {
         super.a();
-        this.e = this.f10950a.f;
-        this.f = this.f10950a.j;
+        this.e = this.f10650a.f;
+        this.f = this.f10650a.j;
         this.h.setHttpErrorListener(this.m);
         h();
         p();
-        this.f10950a.n.add(this.o);
-        this.f10950a.i.a(this.n);
-        this.f10950a.n.add(this.o);
+        this.f10650a.n.add(this.o);
+        this.f10650a.i.a(this.n);
+        this.f10650a.n.add(this.o);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.kwad.sdk.mvp.Presenter
     public void b_() {
         super.b_();
-        this.f10950a.n.remove(this.o);
+        this.f10650a.n.remove(this.o);
         f();
     }
 
@@ -258,7 +258,7 @@ public class c extends d {
         this.h = (KsAdWebView) b(R.id.ksad_actionbar_black_style_h5);
         this.h.setBackgroundColor(0);
         this.h.getBackground().setAlpha(0);
-        this.f10892b = (ActionBarLandscapeVertical) b(R.id.ksad_actionbar_landscape_vertical);
+        this.f10592b = (ActionBarLandscapeVertical) b(R.id.ksad_actionbar_landscape_vertical);
         this.c = (ActionBarPortraitHorizontal) b(R.id.ksad_actionbar_portrait_horizontal);
         this.d = new n();
         this.g = new Handler(Looper.getMainLooper());

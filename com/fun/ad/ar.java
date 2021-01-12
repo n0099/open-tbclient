@@ -1,18 +1,18 @@
 package com.fun.ad;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public final class ar {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f8055a;
+    public String f7755a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f8056b;
+    public String f7756b;
 
     public ar() {
     }
 
     public ar(String str, String str2) {
-        this.f8055a = str;
-        this.f8056b = str2;
+        this.f7755a = str;
+        this.f7756b = str2;
     }
 }

@@ -27,24 +27,24 @@ import com.baidu.tbadk.coreExtra.view.BaseWebView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.quickWebView.QuickWebView;
 @SuppressLint({"ResourceAsColor"})
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class MemberCenterFragment extends BaseFragment {
-    private NoNetworkView jBY;
-    private View jVC;
-    private QuickWebView liA;
-    private String liB;
-    private boolean liC = false;
+    private View jQX;
+    private NoNetworkView jxs;
+    private QuickWebView ldU;
+    private String ldV;
+    private boolean ldW = false;
     private NavigationBar mNavigationBar;
     private View mRoot;
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
         this.mRoot = LayoutInflater.from(getPageContext().getPageActivity()).inflate(R.layout.index, (ViewGroup) null);
-        this.jBY = (NoNetworkView) this.mRoot.findViewById(R.id.view_no_network);
+        this.jxs = (NoNetworkView) this.mRoot.findViewById(R.id.view_no_network);
         this.mNavigationBar = (NavigationBar) this.mRoot.findViewById(R.id.view_navigation_bar);
-        dgT();
-        this.jVC = this.mRoot.findViewById(R.id.member_content_layout);
-        this.liA = (QuickWebView) this.mRoot.findViewById(R.id.webview);
+        ddb();
+        this.jQX = this.mRoot.findViewById(R.id.member_content_layout);
+        this.ldU = (QuickWebView) this.mRoot.findViewById(R.id.webview);
         initWebView();
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         TiebaStatic.log(TbadkCoreStatisticKey.FRS_LIVE_TAB_LIST_ITEM);
@@ -56,23 +56,23 @@ public class MemberCenterFragment extends BaseFragment {
         super.onCreate(bundle);
     }
 
-    public void dgT() {
+    public void ddb() {
         this.mNavigationBar = (NavigationBar) this.mRoot.findViewById(R.id.view_navigation_bar);
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         this.mNavigationBar.setTitleText(R.string.member_center);
         ao.setNavbarTitleColor(this.mNavigationBar.mTextTitle, R.color.CAM_X0105, R.color.s_navbar_title_color);
         if (this.mNavigationBar.getBackImageView() != null) {
-            SvgManager.bwr().a(this.mNavigationBar.getBackImageView(), R.drawable.ic_icon_pure_topbar_return40_svg, R.color.CAM_X0106, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+            SvgManager.bsx().a(this.mNavigationBar.getBackImageView(), R.drawable.ic_icon_pure_topbar_return40_svg, R.color.CAM_X0106, SvgManager.SvgResourceStateType.NORMAL_PRESS);
         }
         this.mNavigationBar.showBottomLine(false);
     }
 
     public void setUrl(String str) {
-        this.liB = str;
+        this.ldV = str;
     }
 
     public void loadData() {
-        if (this.liA != null && !this.liC) {
+        if (this.ldU != null && !this.ldW) {
             refresh();
         }
     }
@@ -86,25 +86,25 @@ public class MemberCenterFragment extends BaseFragment {
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onPrimary() {
         super.onPrimary();
-        if (this.liA != null && !this.liC) {
+        if (this.ldU != null && !this.ldW) {
             refresh();
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onDestroy() {
-        if (this.liA != null) {
-            this.liA.destroy();
+        if (this.ldU != null) {
+            this.ldU.destroy();
         }
         super.onDestroy();
     }
 
     private void refresh() {
-        this.liC = true;
-        if (StringUtils.isNull(this.liB)) {
-            Or(TbConfig.HTTPS_QUICK_WEBVIEW_PREFIX + "n/apage-runtime/page/tb_vip");
+        this.ldW = true;
+        if (StringUtils.isNull(this.ldV)) {
+            Nj(TbConfig.HTTPS_QUICK_WEBVIEW_PREFIX + "n/apage-runtime/page/tb_vip");
         } else {
-            Or(this.liB);
+            Nj(this.ldV);
         }
     }
 
@@ -113,34 +113,34 @@ public class MemberCenterFragment extends BaseFragment {
         super.onChangeSkinType(i);
         if (this.mSkinType != i) {
             this.mSkinType = i;
-            if (this.liA != null) {
-                if (StringUtils.isNull(this.liB)) {
-                    Or(TbConfig.HTTPS_QUICK_WEBVIEW_PREFIX + "n/apage-runtime/page/tb_vip");
+            if (this.ldU != null) {
+                if (StringUtils.isNull(this.ldV)) {
+                    Nj(TbConfig.HTTPS_QUICK_WEBVIEW_PREFIX + "n/apage-runtime/page/tb_vip");
                 } else {
-                    Or(this.liB);
+                    Nj(this.ldV);
                 }
             }
             this.mNavigationBar.onChangeSkinType(getPageContext(), i);
-            this.jBY.onChangeSkinType(getPageContext(), i);
+            this.jxs.onChangeSkinType(getPageContext(), i);
         }
     }
 
-    private void Or(String str) {
-        if (this.liA != null) {
+    private void Nj(String str) {
+        if (this.ldU != null) {
             if (j.isNetworkAvailableForImmediately()) {
-                bXg();
-                this.liA.loadUrl(str);
+                bTo();
+                this.ldU.loadUrl(str);
                 return;
             }
-            bUI();
+            bQQ();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bXg() {
-        if (this.liA != null && this.mNavigationBar != null) {
-            hideNetRefreshView(this.jVC);
-            this.liA.setVisibility(0);
+    public void bTo() {
+        if (this.ldU != null && this.mNavigationBar != null) {
+            hideNetRefreshView(this.jQX);
+            this.ldU.setVisibility(0);
             this.mNavigationBar.setVisibility(8);
         }
     }
@@ -152,28 +152,28 @@ public class MemberCenterFragment extends BaseFragment {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bUI() {
-        if (this.liA != null && this.mNavigationBar != null) {
-            this.liA.setVisibility(8);
+    public void bQQ() {
+        if (this.ldU != null && this.mNavigationBar != null) {
+            this.ldU.setVisibility(8);
             this.mNavigationBar.setVisibility(0);
-            showNetRefreshView(this.jVC, TbadkCoreApplication.getInst().getString(R.string.neterror), true);
+            showNetRefreshView(this.jQX, TbadkCoreApplication.getInst().getString(R.string.neterror), true);
         }
     }
 
     private void initWebView() {
-        this.liA.setHorizontalScrollBarEnabled(false);
-        this.liA.requestDisallowInterceptTouchEvent(true);
-        this.liA.setOnLoadUrlListener(new BaseWebView.b() { // from class: com.baidu.tieba.memberCenter.index.MemberCenterFragment.1
+        this.ldU.setHorizontalScrollBarEnabled(false);
+        this.ldU.requestDisallowInterceptTouchEvent(true);
+        this.ldU.setOnLoadUrlListener(new BaseWebView.b() { // from class: com.baidu.tieba.memberCenter.index.MemberCenterFragment.1
             @Override // com.baidu.tbadk.coreExtra.view.BaseWebView.b
             public boolean shouldOverrideUrlLoading(WebView webView, String str) {
                 if (StringUtils.isNull(str) || !str.contains("page/tb_vip")) {
-                    if (be.bwv().a(MemberCenterFragment.this.getPageContext(), new String[]{str}) == 3) {
+                    if (be.bsB().a(MemberCenterFragment.this.getPageContext(), new String[]{str}) == 3) {
                         if (StringUtils.isNull(str) || !str.contains(UrlSchemaHelper.JUMP_TO_THIS_PAGE)) {
                             if (!StringUtils.isNull(str) && str.contains(UrlSchemaHelper.JUMP_TO_NEW_PAGE)) {
                                 a.startWebActivity(MemberCenterFragment.this.getPageContext().getContext(), null, str, false, true, false, false, false);
                                 return true;
                             }
-                            be.bwv().a((TbPageContext<?>) MemberCenterFragment.this.getPageContext(), new String[]{str}, true);
+                            be.bsB().a((TbPageContext<?>) MemberCenterFragment.this.getPageContext(), new String[]{str}, true);
                             return true;
                         }
                         return false;
@@ -183,32 +183,32 @@ public class MemberCenterFragment extends BaseFragment {
                 return false;
             }
         });
-        this.liA.setOnPageStartedListener(new BaseWebView.d() { // from class: com.baidu.tieba.memberCenter.index.MemberCenterFragment.2
+        this.ldU.setOnPageStartedListener(new BaseWebView.d() { // from class: com.baidu.tieba.memberCenter.index.MemberCenterFragment.2
             @Override // com.baidu.tbadk.coreExtra.view.BaseWebView.d
             public void onPageStarted(WebView webView, String str) {
-                MemberCenterFragment.this.bXg();
+                MemberCenterFragment.this.bTo();
             }
         });
-        this.liA.setOnPageFinishedListener(new BaseWebView.c() { // from class: com.baidu.tieba.memberCenter.index.MemberCenterFragment.3
+        this.ldU.setOnPageFinishedListener(new BaseWebView.c() { // from class: com.baidu.tieba.memberCenter.index.MemberCenterFragment.3
             @Override // com.baidu.tbadk.coreExtra.view.BaseWebView.c
             public void onPageFinished(WebView webView, String str) {
                 if (j.isNetWorkAvailable()) {
-                    MemberCenterFragment.this.bXg();
+                    MemberCenterFragment.this.bTo();
                 } else {
-                    MemberCenterFragment.this.bUI();
+                    MemberCenterFragment.this.bQQ();
                 }
             }
         });
-        this.liA.setOnReceivedErrorListener(new BaseWebView.f() { // from class: com.baidu.tieba.memberCenter.index.MemberCenterFragment.4
+        this.ldU.setOnReceivedErrorListener(new BaseWebView.f() { // from class: com.baidu.tieba.memberCenter.index.MemberCenterFragment.4
             @Override // com.baidu.tbadk.coreExtra.view.BaseWebView.f
             public void onReceivedError(WebView webView, int i, String str, String str2) {
-                MemberCenterFragment.this.bUI();
+                MemberCenterFragment.this.bQQ();
             }
         });
-        this.liA.setOnReceivedSslErrorListener(new BaseWebView.g() { // from class: com.baidu.tieba.memberCenter.index.MemberCenterFragment.5
+        this.ldU.setOnReceivedSslErrorListener(new BaseWebView.g() { // from class: com.baidu.tieba.memberCenter.index.MemberCenterFragment.5
             @Override // com.baidu.tbadk.coreExtra.view.BaseWebView.g
             public void onReceivedSslError(WebView webView, SslErrorHandler sslErrorHandler, SslError sslError) {
-                MemberCenterFragment.this.bUI();
+                MemberCenterFragment.this.bQQ();
             }
         });
     }

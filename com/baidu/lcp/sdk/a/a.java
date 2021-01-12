@@ -9,11 +9,11 @@ public class a {
 
     /* renamed from: com.baidu.lcp.sdk.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static final class C0158a {
+    public static final class C0149a {
         private Connection connection = new Connection();
         private Context context;
 
-        public C0158a(Context context) {
+        public C0149a(Context context) {
             this.context = context;
             this.connection.startTime = -1L;
             this.connection.stopTime = -1L;
@@ -24,32 +24,32 @@ public class a {
             this.connection.aliasId = -1L;
         }
 
-        public C0158a S(long j) {
+        public C0149a S(long j) {
             this.connection.startTime = j;
             return this;
         }
 
-        public C0158a T(long j) {
+        public C0149a T(long j) {
             this.connection.stopTime = j;
             return this;
         }
 
-        public C0158a fp(String str) {
+        public C0149a ed(String str) {
             this.connection.reason = str;
             return this;
         }
 
-        public C0158a U(long j) {
+        public C0149a U(long j) {
             this.connection.retryCount = j;
             return this;
         }
 
-        public C0158a fq(String str) {
+        public C0149a ee(String str) {
             this.connection.ext = str;
             return this;
         }
 
-        public C0158a V(long j) {
+        public C0149a V(long j) {
             this.connection.aliasId = j;
             return this;
         }
@@ -75,12 +75,12 @@ public class a {
             this.request.aliasId = -1L;
         }
 
-        public b fr(String str) {
+        public b ef(String str) {
             this.request.method = str;
             return this;
         }
 
-        public b fs(String str) {
+        public b eg(String str) {
             this.request.requestId = str;
             return this;
         }
@@ -100,7 +100,7 @@ public class a {
             return this;
         }
 
-        public b ft(String str) {
+        public b eh(String str) {
             this.request.ext = str;
             return this;
         }
@@ -118,8 +118,8 @@ public class a {
     /* JADX INFO: Access modifiers changed from: private */
     public static void reportTracker(Context context, final IMPushPb.ActionType actionType, final Object obj) {
         final Context applicationContext = context.getApplicationContext();
-        if (d.ax(applicationContext)) {
-            com.baidu.lcp.sdk.c.a.aG(applicationContext).submitForNetWork(new Runnable() { // from class: com.baidu.lcp.sdk.a.a.1
+        if (d.aw(applicationContext)) {
+            com.baidu.lcp.sdk.c.a.aF(applicationContext).submitForNetWork(new Runnable() { // from class: com.baidu.lcp.sdk.a.a.1
                 @Override // java.lang.Runnable
                 public void run() {
                     switch (AnonymousClass2.$SwitchMap$com$baidu$android$imsdk$upload$action$pb$IMPushPb$ActionType[IMPushPb.ActionType.this.ordinal()]) {

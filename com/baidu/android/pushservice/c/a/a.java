@@ -1,12 +1,12 @@
 package com.baidu.android.pushservice.c.a;
-/* loaded from: classes3.dex */
+/* loaded from: classes14.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f1200a;
+    public String f1206a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f1201b;
+    public String f1207b;
     public long c;
     public String d;
     public long e;

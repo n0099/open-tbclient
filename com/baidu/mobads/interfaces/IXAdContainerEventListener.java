@@ -1,7 +1,7 @@
 package com.baidu.mobads.interfaces;
 
 import java.util.HashMap;
-/* loaded from: classes3.dex */
+/* loaded from: classes14.dex */
 public interface IXAdContainerEventListener {
     void onAdClicked(IXAdContainer iXAdContainer, IXAdInstanceInfo iXAdInstanceInfo, Boolean bool, HashMap<String, Object> hashMap);
 

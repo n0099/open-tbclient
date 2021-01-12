@@ -4,78 +4,78 @@ import android.content.Context;
 import androidx.annotation.Nullable;
 import com.baidu.searchbox.http.request.HttpRequest;
 import java.util.Map;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public interface r {
-    boolean akM();
+    boolean agS();
 
-    String akN();
+    String agT();
 
-    String akO();
+    String agU();
 
-    String akP();
+    String agV();
 
-    String akQ();
+    String agW();
 
-    String akR();
+    String agX();
 
-    String akS();
+    String agY();
 
-    String akT();
+    String agZ();
 
-    String akU();
+    void ahP();
 
-    String akV();
+    void ahQ();
 
-    String akW();
+    String ahR();
 
-    String akX();
+    String ahS();
 
-    String akY();
+    boolean ahT();
 
-    String akZ();
+    int ahU();
 
-    void alJ();
+    String ahV();
 
-    void alK();
+    String ahW();
 
-    String alL();
+    String ahX();
 
-    String alM();
+    String ahY();
 
-    boolean alN();
+    String ahZ();
 
-    int alO();
+    String aha();
 
-    String alP();
+    String ahb();
 
-    String alQ();
+    String ahc();
 
-    String alR();
+    String ahd();
 
-    String alS();
+    String ahe();
 
-    String alT();
+    String ahf();
 
-    String ala();
+    String ahg();
 
-    String alb();
+    String ahh();
 
-    String alc();
+    String ahi();
 
-    String ald();
+    String ahj();
 
     @Nullable
-    String ale();
+    String ahk();
 
-    long alf();
+    long ahl();
 
-    String alg();
+    String ahm();
 
-    String alh();
+    String ahn();
 
-    String ali();
+    String aho();
 
-    String cf(Context context);
+    String ce(Context context);
 
     HttpRequest e(Context context, Map<String, String> map);
 
@@ -91,7 +91,7 @@ public interface r {
 
     HttpRequest j(Context context, Map<String, String> map);
 
-    HttpRequest k(Context context, Map<String, String> map);
+    String jE(String str);
 
-    String kP(String str);
+    HttpRequest k(Context context, Map<String, String> map);
 }

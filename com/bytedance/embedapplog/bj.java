@@ -6,7 +6,7 @@ import android.os.Build;
 /* loaded from: classes4.dex */
 public final class bj {
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static bi hV(Context context) {
+    public static bi hT(Context context) {
         if (o.b()) {
             return new bn(new al());
         }

@@ -11,9 +11,9 @@ import tbclient.User;
 import tbclient.Userlike.ConcernData;
 /* loaded from: classes2.dex */
 public class a extends br {
-    public static final Integer jYA = 6;
-    private boolean eRW;
-    private List<MetaData> eRX = new ArrayList();
+    public static final Integer jTV = 6;
+    private boolean eNl;
+    private List<MetaData> eNm = new ArrayList();
 
     @Override // com.baidu.tbadk.core.data.br
     public void bu(List<User> list) {
@@ -22,7 +22,7 @@ public class a extends br {
             for (int i = 0; i < min; i++) {
                 MetaData metaData = new MetaData();
                 metaData.parserProtobuf(list.get(i));
-                this.eRX.add(metaData);
+                this.eNm.add(metaData);
             }
         }
     }
@@ -31,36 +31,36 @@ public class a extends br {
         if (concernData == null) {
             return false;
         }
-        return concernData.recom_type.equals(jYA);
+        return concernData.recom_type.equals(jTV);
     }
 
     @Override // com.baidu.tbadk.core.data.br, com.baidu.tieba.card.data.BaseCardInfo, com.baidu.adp.widget.ListView.n
     public BdUniqueId getType() {
-        return ePu;
+        return eKJ;
     }
 
     @Override // com.baidu.tbadk.core.data.br
-    public List<MetaData> bqE() {
-        return this.eRX;
+    public List<MetaData> bmK() {
+        return this.eNm;
     }
 
     @Override // com.baidu.tbadk.core.data.br, com.baidu.tbadk.core.data.a
-    public bz boP() {
+    public bz bkV() {
         return null;
     }
 
     @Override // com.baidu.tbadk.core.data.br, com.baidu.tbadk.core.data.a
-    public at boR() {
+    public at bkX() {
         return new at();
     }
 
     @Override // com.baidu.tbadk.core.data.br
-    public boolean bqF() {
-        return this.eRW;
+    public boolean bmL() {
+        return this.eNl;
     }
 
     @Override // com.baidu.tbadk.core.data.br
-    public void jx(boolean z) {
-        this.eRW = z;
+    public void jt(boolean z) {
+        this.eNl = z;
     }
 }

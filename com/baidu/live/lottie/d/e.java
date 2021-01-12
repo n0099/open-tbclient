@@ -6,7 +6,7 @@ import androidx.annotation.FloatRange;
 import com.baidu.live.lottie.a.a.j;
 import com.baidu.live.lottie.model.content.h;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class e {
     public static PointF b(PointF pointF, PointF pointF2) {
         return new PointF(pointF.x + pointF2.x, pointF.y + pointF2.y);
@@ -53,7 +53,7 @@ public class e {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static int i(float f, float f2) {
+    public static int j(float f, float f2) {
         return m((int) f, (int) f2);
     }
 
@@ -80,7 +80,7 @@ public class e {
 
     public static void a(com.baidu.live.lottie.model.e eVar, int i, List<com.baidu.live.lottie.model.e> list, com.baidu.live.lottie.model.e eVar2, j jVar) {
         if (eVar.j(jVar.getName(), i)) {
-            list.add(eVar2.hZ(jVar.getName()).a(jVar));
+            list.add(eVar2.gO(jVar.getName()).a(jVar));
         }
     }
 }

@@ -1,21 +1,21 @@
 package com.facebook.imagepipeline.producers;
 /* loaded from: classes3.dex */
 public class a implements aj<com.facebook.imagepipeline.f.e> {
-    private final aj<com.facebook.imagepipeline.f.e> pFG;
+    private final aj<com.facebook.imagepipeline.f.e> pBf;
 
     public a(aj<com.facebook.imagepipeline.f.e> ajVar) {
-        this.pFG = ajVar;
+        this.pBf = ajVar;
     }
 
     @Override // com.facebook.imagepipeline.producers.aj
     public void a(k<com.facebook.imagepipeline.f.e> kVar, ak akVar) {
-        this.pFG.a(new C1066a(kVar), akVar);
+        this.pBf.a(new C1049a(kVar), akVar);
     }
 
     /* renamed from: com.facebook.imagepipeline.producers.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    private static class C1066a extends n<com.facebook.imagepipeline.f.e, com.facebook.imagepipeline.f.e> {
-        private C1066a(k<com.facebook.imagepipeline.f.e> kVar) {
+    private static class C1049a extends n<com.facebook.imagepipeline.f.e, com.facebook.imagepipeline.f.e> {
+        private C1049a(k<com.facebook.imagepipeline.f.e> kVar) {
             super(kVar);
         }
 
@@ -25,13 +25,13 @@ public class a implements aj<com.facebook.imagepipeline.f.e> {
         /* renamed from: a */
         public void f(com.facebook.imagepipeline.f.e eVar, int i) {
             if (eVar == null) {
-                eAU().g(null, i);
+                exc().g(null, i);
                 return;
             }
             if (!com.facebook.imagepipeline.f.e.d(eVar)) {
-                eVar.ezP();
+                eVar.evX();
             }
-            eAU().g(eVar, i);
+            exc().g(eVar, i);
         }
     }
 }

@@ -21,8 +21,8 @@ public class ah extends ac {
     @Override // com.bytedance.embedapplog.ac
     @NonNull
     public ac B(@NonNull Cursor cursor) {
-        this.f6074a = cursor.getLong(0);
-        this.f6075b = cursor.getLong(1);
+        this.f5774a = cursor.getLong(0);
+        this.f5775b = cursor.getLong(1);
         this.c = cursor.getString(2);
         this.i = cursor.getString(3);
         this.h = cursor.getInt(4);
@@ -33,8 +33,8 @@ public class ah extends ac {
 
     @Override // com.bytedance.embedapplog.ac
     protected void d(@NonNull ContentValues contentValues) {
-        contentValues.put("local_time_ms", Long.valueOf(this.f6074a));
-        contentValues.put("tea_event_index", Long.valueOf(this.f6075b));
+        contentValues.put("local_time_ms", Long.valueOf(this.f5774a));
+        contentValues.put("tea_event_index", Long.valueOf(this.f5775b));
         contentValues.put("session_id", this.c);
         contentValues.put("ver_name", this.i);
         contentValues.put("ver_code", Integer.valueOf(this.h));
@@ -44,8 +44,8 @@ public class ah extends ac {
 
     @Override // com.bytedance.embedapplog.ac
     protected void a(@NonNull JSONObject jSONObject) {
-        jSONObject.put("local_time_ms", this.f6074a);
-        jSONObject.put("tea_event_index", this.f6075b);
+        jSONObject.put("local_time_ms", this.f5774a);
+        jSONObject.put("tea_event_index", this.f5775b);
         jSONObject.put("session_id", this.c);
         jSONObject.put("ab_version", this.e);
         jSONObject.put("ab_sdk_version", this.f);
@@ -54,8 +54,8 @@ public class ah extends ac {
     @Override // com.bytedance.embedapplog.ac
     protected JSONObject b() {
         JSONObject jSONObject = new JSONObject();
-        jSONObject.put("local_time_ms", this.f6074a);
-        jSONObject.put("tea_event_index", this.f6075b);
+        jSONObject.put("local_time_ms", this.f5774a);
+        jSONObject.put("tea_event_index", this.f5775b);
         jSONObject.put("session_id", this.c);
         if (this.j) {
             jSONObject.put("is_background", this.j);
@@ -72,8 +72,8 @@ public class ah extends ac {
 
     @Override // com.bytedance.embedapplog.ac
     protected ac eQ(@NonNull JSONObject jSONObject) {
-        this.f6074a = jSONObject.optLong("local_time_ms", 0L);
-        this.f6075b = jSONObject.optLong("tea_event_index", 0L);
+        this.f5774a = jSONObject.optLong("local_time_ms", 0L);
+        this.f5775b = jSONObject.optLong("tea_event_index", 0L);
         this.c = jSONObject.optString("session_id", null);
         this.e = jSONObject.optString("ab_version", null);
         this.f = jSONObject.optString("ab_sdk_version", null);

@@ -16,10 +16,10 @@ import java.util.ArrayList;
 /* loaded from: classes2.dex */
 public class ShutDownValidateTipView extends FrameLayout {
     private boolean isVisible;
-    private TextView kMM;
-    private ImageView kMN;
-    private TextView kMO;
-    private TextView kMP;
+    private TextView kIh;
+    private ImageView kIi;
+    private TextView kIj;
+    private TextView kIk;
     private ArrayList<a> networkChangeListeners;
 
     /* loaded from: classes2.dex */
@@ -47,15 +47,15 @@ public class ShutDownValidateTipView extends FrameLayout {
 
     public void init(Context context) {
         addView(LayoutInflater.from(context).inflate(R.layout.shut_down_validate_tip, (ViewGroup) null));
-        this.kMN = (ImageView) findViewById(R.id.no_network_icon);
-        this.kMO = (TextView) findViewById(R.id.no_network_guide1);
-        this.kMP = (TextView) findViewById(R.id.no_network_guide2);
-        this.kMM = (TextView) findViewById(R.id.no_network_showmore);
+        this.kIi = (ImageView) findViewById(R.id.no_network_icon);
+        this.kIj = (TextView) findViewById(R.id.no_network_guide1);
+        this.kIk = (TextView) findViewById(R.id.no_network_guide2);
+        this.kIh = (TextView) findViewById(R.id.no_network_showmore);
     }
 
     public void setShutDownClickListener(View.OnClickListener onClickListener) {
-        if (this.kMM != null) {
-            this.kMM.setOnClickListener(onClickListener);
+        if (this.kIh != null) {
+            this.kIh.setOnClickListener(onClickListener);
         }
     }
 
@@ -122,16 +122,16 @@ public class ShutDownValidateTipView extends FrameLayout {
     }
 
     public void onChangeSkinType(int i) {
-        ao.setImageResource(this.kMN, R.drawable.icon_error);
+        ao.setImageResource(this.kIi, R.drawable.icon_error);
         ao.setBackgroundResource(findViewById(R.id.no_network_parent), R.drawable.bg_no_network);
         if (i == 1 || i == 4) {
-            this.kMO.setTextColor(-10523526);
-            this.kMP.setTextColor(-8682095);
-            this.kMM.setTextColor(-10523526);
+            this.kIj.setTextColor(-10523526);
+            this.kIk.setTextColor(-8682095);
+            this.kIh.setTextColor(-10523526);
             return;
         }
-        this.kMO.setTextColor(-14277082);
-        this.kMP.setTextColor(-5065030);
-        this.kMM.setTextColor(-14277082);
+        this.kIj.setTextColor(-14277082);
+        this.kIk.setTextColor(-5065030);
+        this.kIh.setTextColor(-14277082);
     }
 }

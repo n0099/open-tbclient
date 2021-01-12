@@ -8,14 +8,14 @@ import com.sdk.base.framework.bean.PInfo;
 import com.sdk.base.framework.bean.SInfo;
 import com.sdk.base.module.config.BaseConfig;
 import java.util.ArrayList;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public final class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static boolean f13110a = false;
+    private static boolean f12810a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    private static String f13111b = "";
+    private static String f12811b = "";
     private static String c = "";
 
     public static AInfo a(Context context) {

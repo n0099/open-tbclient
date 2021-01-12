@@ -26,14 +26,14 @@ public class WebAuthResult extends SapiResult {
         
 
         /* renamed from: a  reason: collision with root package name */
-        private String f5362a;
+        private String f5079a;
 
         LoginType(String str) {
-            this.f5362a = str;
+            this.f5079a = str;
         }
 
         public String getLoginType() {
-            return this.f5362a;
+            return this.f5079a;
         }
     }
 

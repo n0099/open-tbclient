@@ -10,14 +10,14 @@ import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.net.UnknownHostException;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class e implements com.yxcorp.kuaishou.addfp.a.b.a {
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f14690a;
+    private Context f14390a;
 
     public e(Context context) {
-        this.f14690a = context;
+        this.f14390a = context;
     }
 
     public static String a(int i) {
@@ -52,11 +52,11 @@ public class e implements com.yxcorp.kuaishou.addfp.a.b.a {
         String str2 = "KWE_OTHER";
         try {
             d a2 = c.a(new String[]{str}, false, true);
-            if (!TextUtils.isEmpty(a2.f14688a)) {
-                str2 = a2.f14688a;
-            } else if (!TextUtils.isEmpty(a2.f14689b) && a2.f14689b.contains("denied")) {
+            if (!TextUtils.isEmpty(a2.f14388a)) {
+                str2 = a2.f14388a;
+            } else if (!TextUtils.isEmpty(a2.f14389b) && a2.f14389b.contains("denied")) {
                 str2 = "KWE_PN";
-            } else if (TextUtils.isEmpty(a2.f14688a)) {
+            } else if (TextUtils.isEmpty(a2.f14388a)) {
                 str2 = "KWE_N";
             }
             return str2;
@@ -173,13 +173,13 @@ public class e implements com.yxcorp.kuaishou.addfp.a.b.a {
 
     @Override // com.yxcorp.kuaishou.addfp.a.b.a
     public String b() {
-        String b2 = com.yxcorp.kuaishou.addfp.a.b.d.a.a.jb(this.f14690a).b();
+        String b2 = com.yxcorp.kuaishou.addfp.a.b.d.a.a.iZ(this.f14390a).b();
         return TextUtils.isEmpty(b2) ? "" : b2;
     }
 
     @Override // com.yxcorp.kuaishou.addfp.a.b.a
     public boolean c() {
-        return com.yxcorp.kuaishou.addfp.a.b.d.a.a.jb(this.f14690a).a();
+        return com.yxcorp.kuaishou.addfp.a.b.d.a.a.iZ(this.f14390a).a();
     }
 
     @Override // com.yxcorp.kuaishou.addfp.a.b.a

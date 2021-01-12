@@ -2,7 +2,7 @@ package com.baidu.searchbox.player.stat;
 
 import android.graphics.Point;
 import com.baidu.searchbox.player.ubc.IPlayerStatisticsDispatcher;
-/* loaded from: classes3.dex */
+/* loaded from: classes14.dex */
 public interface IUniversalPlayerStatDispatcher extends IPlayerStatisticsDispatcher {
     void onFloatingClick(String str, Point point);
 
@@ -12,7 +12,7 @@ public interface IUniversalPlayerStatDispatcher extends IPlayerStatisticsDispatc
 
     void onFloatingShow(String str, Point point);
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes14.dex */
     public static final class SimpleStatDispatcher implements IUniversalPlayerStatDispatcher {
         @Override // com.baidu.searchbox.player.stat.IUniversalPlayerStatDispatcher
         public void onFloatingShow(String str, Point point) {

@@ -5,7 +5,7 @@ import org.apache.http.HttpException;
 import org.apache.http.HttpResponse;
 import org.apache.http.HttpResponseInterceptor;
 @Deprecated
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class ResponseDate implements HttpResponseInterceptor {
     public ResponseDate() {
         throw new RuntimeException("Stub!");

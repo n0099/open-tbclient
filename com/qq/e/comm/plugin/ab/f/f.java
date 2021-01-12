@@ -11,17 +11,17 @@ import java.util.regex.Pattern;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class f {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final Pattern f12103a = Pattern.compile("/*(\\w+)/*(\\w+)/*(\\w+)/*");
+    private static final Pattern f11803a = Pattern.compile("/*(\\w+)/*(\\w+)/*(\\w+)/*");
 
     /* renamed from: b  reason: collision with root package name */
-    private a f12104b;
+    private a f11804b;
 
     public f(a aVar) {
-        this.f12104b = aVar;
+        this.f11804b = aVar;
     }
 
     public static boolean a(Uri uri) {
@@ -30,7 +30,7 @@ public class f {
 
     private com.qq.e.comm.plugin.ab.b.d b(Uri uri) {
         if (uri != null) {
-            Matcher matcher = f12103a.matcher(uri.getPath());
+            Matcher matcher = f11803a.matcher(uri.getPath());
             if (matcher.matches()) {
                 String group = matcher.group(1);
                 String group2 = matcher.group(2);
@@ -71,7 +71,7 @@ public class f {
                 @Override // java.lang.Runnable
                 public void run() {
                     try {
-                        f.this.f12104b.b(cVar.a());
+                        f.this.f11804b.b(cVar.a());
                     } catch (Throwable th) {
                         GDTLogger.report("Exception while sending JSResponse");
                     }

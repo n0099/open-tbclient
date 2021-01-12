@@ -17,12 +17,12 @@ import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class a {
     public static void a(c cVar, long j, String str, String str2) {
-        if (cVar != null && j.eGg() != null) {
+        if (cVar != null && j.eCp() != null) {
             String optString = j.i().optString("upload_secret_key");
             if (!TextUtils.isEmpty(optString)) {
                 try {
                     final HashMap hashMap = new HashMap();
-                    String str3 = j.eGk().f13192b;
+                    String str3 = j.eCt().f12892b;
                     hashMap.put("from", str3);
                     String valueOf = String.valueOf(System.currentTimeMillis());
                     hashMap.put("timestamp", valueOf);
@@ -34,10 +34,10 @@ public class a {
                     JSONObject jSONObject2 = new JSONObject();
                     jSONObject2.put("app_name", cVar.i());
                     jSONObject2.put("package_name", str2);
-                    jSONObject2.put("package_size", cVar.ejL());
-                    List<e> eIs = cVar.eIs();
-                    if (eIs != null && !eIs.isEmpty()) {
-                        Iterator<e> it = eIs.iterator();
+                    jSONObject2.put("package_size", cVar.efR());
+                    List<e> eEC = cVar.eEC();
+                    if (eEC != null && !eEC.isEmpty()) {
+                        Iterator<e> it = eEC.iterator();
                         while (true) {
                             if (!it.hasNext()) {
                                 break;
@@ -51,10 +51,10 @@ public class a {
                     }
                     jSONObject.put("request_info", jSONObject2.toString());
                     hashMap.put("info", jSONObject.toString());
-                    f.eGz().b(new Runnable() { // from class: com.ss.android.downloadlib.a.d.a.1
+                    f.eCI().b(new Runnable() { // from class: com.ss.android.downloadlib.a.d.a.1
                         @Override // java.lang.Runnable
                         public void run() {
-                            j.eGg().a("POST", "https://i.snssdk.com/inspect/aegis/client/app/resend/", hashMap, null);
+                            j.eCp().a("POST", "https://i.snssdk.com/inspect/aegis/client/app/resend/", hashMap, null);
                         }
                     });
                 } catch (Exception e) {

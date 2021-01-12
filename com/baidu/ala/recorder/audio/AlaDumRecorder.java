@@ -5,7 +5,7 @@ import com.baidu.ala.adp.lib.util.BdLog;
 import com.baidu.ala.ndk.AlaAudioFrame;
 import com.baidu.ala.recorder.audio.IAudioService;
 import java.util.Arrays;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 class AlaDumRecorder implements IAudioService {
     private AlaAudioConfig mAudioConfig = null;
     private byte[] mBuffer = null;

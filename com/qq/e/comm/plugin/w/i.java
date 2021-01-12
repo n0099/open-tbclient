@@ -8,7 +8,7 @@ import com.qq.e.comm.plugin.w.a.d;
 import com.qq.e.comm.plugin.w.d;
 import com.qq.e.comm.util.GDTLogger;
 import com.qq.e.comm.util.StringUtil;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class i {
     public static d.a a(com.qq.e.comm.plugin.s.a aVar) {
         if (aVar == null) {

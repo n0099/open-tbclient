@@ -3,9 +3,9 @@ package com.baidu.tieba.ala.liveroom.challenge.a;
 import com.baidu.ar.gesture.GestureAR;
 import com.baidu.live.data.AlaLiveUserInfoData;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class a {
-    public AlaLiveUserInfoData aQy;
+    public AlaLiveUserInfoData aLL;
     public int rank;
     public String score;
 
@@ -13,8 +13,8 @@ public class a {
         if (jSONObject != null) {
             JSONObject optJSONObject = jSONObject.optJSONObject("user_info");
             if (optJSONObject != null) {
-                this.aQy = new AlaLiveUserInfoData();
-                this.aQy.parserJson(optJSONObject);
+                this.aLL = new AlaLiveUserInfoData();
+                this.aLL.parserJson(optJSONObject);
             }
             this.rank = jSONObject.optInt("rank");
             this.score = jSONObject.optString(GestureAR.SDK_TO_LUA_GESTURE_RESULT_SCORE);

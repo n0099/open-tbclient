@@ -4,10 +4,10 @@ import androidx.annotation.NonNull;
 import com.kwad.sdk.contentalliance.profile.tabvideo.ProfileTabVideoParam;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.lib.widget.recycler.b.a;
-/* loaded from: classes5.dex */
-public class b extends a.C1154a<AdTemplate> {
+/* loaded from: classes4.dex */
+public class b extends a.C1137a<AdTemplate> {
     @NonNull
 
     /* renamed from: a  reason: collision with root package name */
-    public ProfileTabVideoParam f9097a;
+    public ProfileTabVideoParam f8797a;
 }

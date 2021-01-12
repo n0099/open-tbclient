@@ -1,33 +1,33 @@
 package com.google.b.a.a.a;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class f {
-    private static g pQI = new g();
-    private static g pQJ = new g();
-    private static g pPM = new g();
-    private static g pPI = new g();
-    private static g pPJ = new g();
-    private static c pPR = new c();
-    private static c pPS = new c();
-    private static g pQK = new g();
-    private static g pQL = new g();
+    private static g pMh = new g();
+    private static g pMi = new g();
+    private static g pLl = new g();
+    private static g pLh = new g();
+    private static g pLi = new g();
+    private static c pLq = new c();
+    private static c pLr = new c();
+    private static g pMj = new g();
+    private static g pMk = new g();
 
     private static void a(g gVar, double d, double d2, c cVar) {
-        double d3 = gVar.f8181a * gVar.f8181a;
-        double d4 = gVar.f8182b * gVar.f8182b;
+        double d3 = gVar.f7881a * gVar.f7881a;
+        double d4 = gVar.f7882b * gVar.f7882b;
         double d5 = gVar.c * gVar.c;
         cVar.a(0, 0, 1.0d - ((d4 + d5) * d2));
         cVar.a(1, 1, 1.0d - ((d5 + d3) * d2));
         cVar.a(2, 2, 1.0d - ((d3 + d4) * d2));
         double d6 = gVar.c * d;
-        double d7 = gVar.f8181a * gVar.f8182b * d2;
+        double d7 = gVar.f7881a * gVar.f7882b * d2;
         cVar.a(0, 1, d7 - d6);
         cVar.a(1, 0, d6 + d7);
-        double d8 = gVar.f8182b * d;
-        double d9 = gVar.f8181a * gVar.c * d2;
+        double d8 = gVar.f7882b * d;
+        double d9 = gVar.f7881a * gVar.c * d2;
         cVar.a(0, 2, d9 + d8);
         cVar.a(2, 0, d9 - d8);
-        double d10 = gVar.f8181a * d;
-        double d11 = gVar.f8182b * gVar.c * d2;
+        double d10 = gVar.f7881a * d;
+        double d11 = gVar.f7882b * gVar.c * d2;
         cVar.a(1, 2, d11 - d10);
         cVar.a(2, 1, d10 + d11);
     }

@@ -9,7 +9,7 @@ import com.baidu.swan.apps.runtime.j;
 import com.baidu.swan.pms.c.f;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public final class b extends com.baidu.swan.apps.core.pms.b.a implements f {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
@@ -39,15 +39,15 @@ public final class b extends com.baidu.swan.apps.core.pms.b.a implements f {
         }
         String jSONObject2 = jSONObject == null ? "" : jSONObject.toString();
         final a aVar2 = new a(aVar);
-        com.baidu.swan.apps.process.b.b ca = com.baidu.swan.apps.process.b.c.rO("pms_http_with_ipc").ca("pms_http_with_ipc_key_action", str);
+        com.baidu.swan.apps.process.b.b bZ = com.baidu.swan.apps.process.b.c.qD("pms_http_with_ipc").bZ("pms_http_with_ipc_key_action", str);
         if (TextUtils.isEmpty(str2)) {
             str2 = "";
         }
-        com.baidu.swan.apps.process.b.b ca2 = ca.ca("pms_http_with_ipc_key_url", str2);
+        com.baidu.swan.apps.process.b.b bZ2 = bZ.bZ("pms_http_with_ipc_key_url", str2);
         if (TextUtils.isEmpty(jSONObject2)) {
             jSONObject2 = "";
         }
-        com.baidu.swan.apps.process.b.b t = ca2.ca("pms_http_with_ipc_keyjson_body", jSONObject2).d("pms_http_with_ipc_key_url_param_map", A(map)).d("pms_http_with_ipc_key_header_param_map", A(map2)).gF(true).u(aVar2).t(new com.baidu.swan.apps.ao.e.b<com.baidu.swan.apps.process.b.b>() { // from class: com.baidu.swan.apps.core.pms.b.b.1
+        com.baidu.swan.apps.process.b.b t = bZ2.bZ("pms_http_with_ipc_keyjson_body", jSONObject2).e("pms_http_with_ipc_key_url_param_map", A(map)).e("pms_http_with_ipc_key_header_param_map", A(map2)).gB(true).u(aVar2).t(new com.baidu.swan.apps.ao.e.b<com.baidu.swan.apps.process.b.b>() { // from class: com.baidu.swan.apps.core.pms.b.b.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.swan.apps.ao.e.b
             /* renamed from: a */
@@ -58,19 +58,19 @@ public final class b extends com.baidu.swan.apps.core.pms.b.a implements f {
         if (DEBUG) {
             D("ipcHttp", "session=" + t);
         }
-        t.cH(cXX);
+        t.cH(cTl);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public class a implements com.baidu.swan.apps.ao.e.b<i.a>, f.a {
-        final f.a cXS;
-        final boolean cXT;
+        final f.a cTg;
+        final boolean cTh;
         boolean finished = false;
 
         public a(f.a aVar) {
-            this.cXS = aVar;
-            this.cXT = aVar != null;
+            this.cTg = aVar;
+            this.cTh = aVar != null;
             if (b.DEBUG) {
                 b.this.D("IpcHttpCallbackWrapper", "wrappedCallback=" + aVar);
             }
@@ -131,7 +131,7 @@ public final class b extends com.baidu.swan.apps.core.pms.b.a implements f {
                     b.this.D("IpcHttpCallbackWrapper#onStatRecord", "valid=" + valid + " url=" + str + " statRecord=" + jSONObject);
                 }
                 if (valid) {
-                    this.cXS.b(str, str2, jSONObject);
+                    this.cTg.b(str, str2, jSONObject);
                 }
             }
         }
@@ -145,7 +145,7 @@ public final class b extends com.baidu.swan.apps.core.pms.b.a implements f {
                 }
                 if (valid) {
                     finish();
-                    this.cXS.S(str, i);
+                    this.cTg.S(str, i);
                 }
             }
         }
@@ -159,7 +159,7 @@ public final class b extends com.baidu.swan.apps.core.pms.b.a implements f {
                 }
                 if (valid) {
                     finish();
-                    f.a aVar = this.cXS;
+                    f.a aVar = this.cTg;
                     if (exc == null) {
                         exc = new Exception("onFail");
                     }
@@ -174,7 +174,7 @@ public final class b extends com.baidu.swan.apps.core.pms.b.a implements f {
 
         synchronized boolean valid() {
             boolean z;
-            if (this.cXT) {
+            if (this.cTh) {
                 z = this.finished ? false : true;
             }
             return z;

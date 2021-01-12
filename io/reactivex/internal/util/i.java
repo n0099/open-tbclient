@@ -5,7 +5,7 @@ import java.util.Queue;
 import java.util.concurrent.atomic.AtomicLong;
 /* loaded from: classes5.dex */
 public final class i {
-    public static <T> io.reactivex.internal.a.f<T> TB(int i) {
+    public static <T> io.reactivex.internal.a.f<T> RU(int i) {
         return i < 0 ? new io.reactivex.internal.queue.a(-i) : new SpscArrayQueue(i);
     }
 

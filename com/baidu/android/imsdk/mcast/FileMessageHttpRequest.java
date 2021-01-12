@@ -5,7 +5,7 @@ import com.baidu.android.imsdk.utils.BaseHttpRequest;
 import java.util.HashMap;
 import java.util.Map;
 import org.apache.http.cookie.SM;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public abstract class FileMessageHttpRequest extends BaseHttpRequest {
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.Request
     public Map<String, String> getHeaders() {

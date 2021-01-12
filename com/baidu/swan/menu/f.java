@@ -1,10 +1,10 @@
 package com.baidu.swan.menu;
 
 import com.baidu.tieba.R;
-/* loaded from: classes13.dex */
+/* loaded from: classes12.dex */
 public final class f {
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes12.dex */
     public static final class a {
         public static final int abc_background_cache_hint_selector_material_dark = 2131099922;
         public static final int abc_background_cache_hint_selector_material_light = 2131099923;
@@ -100,7 +100,7 @@ public final class f {
         public static final int tooltip_background_light = 2131102658;
     }
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes12.dex */
     public static final class b {
         public static final int abc_action_bar_content_inset_material = 2131165243;
         public static final int abc_action_bar_content_inset_with_nav = 2131165244;
@@ -232,7 +232,7 @@ public final class f {
         public static final int tooltip_y_offset_touch = 2131167736;
     }
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes12.dex */
     public static final class c {
         public static final int abc_ab_share_pack_mtrl_alpha = 2131230856;
         public static final int abc_action_bar_item_background_material = 2131230857;
@@ -383,7 +383,7 @@ public final class f {
         public static final int tooltip_frame_light = 2131238986;
     }
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes12.dex */
     public static final class d {
         public static final int action0 = 2131296304;
         public static final int action_bar = 2131296305;
@@ -427,81 +427,81 @@ public final class f {
         public static final int decor_content_parent = 2131299444;
         public static final int default_activity_button = 2131299448;
         public static final int divider = 2131299588;
-        public static final int edit_query = 2131299789;
-        public static final int end_padder = 2131299941;
-        public static final int expand_activities_button = 2131300036;
-        public static final int expanded_menu = 2131300047;
-        public static final int first_line_menu_item_view = 2131300228;
-        public static final int forever = 2131300335;
-        public static final int home = 2131301262;
-        public static final int icon = 2131301458;
-        public static final int icon_group = 2131301479;
-        public static final int image = 2131301618;
-        public static final int immersion_custom_statusbar_view = 2131301776;
-        public static final int immersion_fragment_root_view = 2131301777;
-        public static final int info = 2131301793;
-        public static final int italic = 2131301887;
-        public static final int item_touch_helper_previous_elevation = 2131301986;
-        public static final int line1 = 2131302891;
-        public static final int line3 = 2131302893;
-        public static final int listMode = 2131302928;
-        public static final int list_item = 2131302936;
-        public static final int mask = 2131303304;
-        public static final int media_actions = 2131303319;
-        public static final int message = 2131303388;
-        public static final int multiply = 2131303511;
-        public static final int none = 2131303769;
-        public static final int normal = 2131303778;
-        public static final int notification_background = 2131303793;
-        public static final int notification_main_column = 2131303794;
-        public static final int notification_main_column_container = 2131303795;
-        public static final int parentPanel = 2131303933;
-        public static final int progress_circular = 2131304802;
-        public static final int progress_horizontal = 2131304804;
-        public static final int radio = 2131304980;
-        public static final int right_icon = 2131305263;
-        public static final int right_side = 2131305274;
-        public static final int screen = 2131305551;
-        public static final int scrollIndicatorDown = 2131305562;
-        public static final int scrollIndicatorUp = 2131305563;
-        public static final int scrollView = 2131305564;
-        public static final int search_badge = 2131305616;
-        public static final int search_bar = 2131305617;
-        public static final int search_button = 2131305627;
-        public static final int search_close_btn = 2131305628;
-        public static final int search_edit_frame = 2131305631;
-        public static final int search_go_btn = 2131305637;
-        public static final int search_mag_icon = 2131305647;
-        public static final int search_plate = 2131305649;
-        public static final int search_src_text = 2131305654;
-        public static final int search_voice_btn = 2131305663;
-        public static final int second_line_menu_item_view = 2131305674;
-        public static final int select_dialog_listview = 2131305726;
-        public static final int shortcut = 2131305846;
-        public static final int spacer = 2131305998;
-        public static final int split_action_bar = 2131306023;
-        public static final int src_atop = 2131306071;
-        public static final int src_in = 2131306072;
-        public static final int src_over = 2131306073;
-        public static final int status_bar_latest_event_content = 2131306100;
-        public static final int submenuarrow = 2131306159;
-        public static final int submit_area = 2131306160;
-        public static final int tabMode = 2131306236;
-        public static final int text = 2131306486;
-        public static final int text2 = 2131306487;
-        public static final int textSpacerNoButtons = 2131306492;
-        public static final int textSpacerNoTitle = 2131306493;
-        public static final int time = 2131306704;
-        public static final int title = 2131306761;
-        public static final int titleDividerNoCustom = 2131306767;
-        public static final int title_template = 2131306832;
-        public static final int topPanel = 2131306915;
-        public static final int uniform = 2131307761;
-        public static final int up = 2131307786;
-        public static final int wrap_content = 2131308499;
+        public static final int edit_query = 2131299790;
+        public static final int end_padder = 2131299942;
+        public static final int expand_activities_button = 2131300037;
+        public static final int expanded_menu = 2131300048;
+        public static final int first_line_menu_item_view = 2131300229;
+        public static final int forever = 2131300336;
+        public static final int home = 2131301263;
+        public static final int icon = 2131301459;
+        public static final int icon_group = 2131301480;
+        public static final int image = 2131301619;
+        public static final int immersion_custom_statusbar_view = 2131301777;
+        public static final int immersion_fragment_root_view = 2131301778;
+        public static final int info = 2131301794;
+        public static final int italic = 2131301888;
+        public static final int item_touch_helper_previous_elevation = 2131301987;
+        public static final int line1 = 2131302892;
+        public static final int line3 = 2131302894;
+        public static final int listMode = 2131302929;
+        public static final int list_item = 2131302937;
+        public static final int mask = 2131303305;
+        public static final int media_actions = 2131303320;
+        public static final int message = 2131303389;
+        public static final int multiply = 2131303512;
+        public static final int none = 2131303770;
+        public static final int normal = 2131303779;
+        public static final int notification_background = 2131303794;
+        public static final int notification_main_column = 2131303795;
+        public static final int notification_main_column_container = 2131303796;
+        public static final int parentPanel = 2131303934;
+        public static final int progress_circular = 2131304803;
+        public static final int progress_horizontal = 2131304805;
+        public static final int radio = 2131304981;
+        public static final int right_icon = 2131305264;
+        public static final int right_side = 2131305275;
+        public static final int screen = 2131305552;
+        public static final int scrollIndicatorDown = 2131305563;
+        public static final int scrollIndicatorUp = 2131305564;
+        public static final int scrollView = 2131305565;
+        public static final int search_badge = 2131305617;
+        public static final int search_bar = 2131305618;
+        public static final int search_button = 2131305628;
+        public static final int search_close_btn = 2131305629;
+        public static final int search_edit_frame = 2131305632;
+        public static final int search_go_btn = 2131305638;
+        public static final int search_mag_icon = 2131305648;
+        public static final int search_plate = 2131305650;
+        public static final int search_src_text = 2131305655;
+        public static final int search_voice_btn = 2131305664;
+        public static final int second_line_menu_item_view = 2131305675;
+        public static final int select_dialog_listview = 2131305727;
+        public static final int shortcut = 2131305847;
+        public static final int spacer = 2131305999;
+        public static final int split_action_bar = 2131306024;
+        public static final int src_atop = 2131306072;
+        public static final int src_in = 2131306073;
+        public static final int src_over = 2131306074;
+        public static final int status_bar_latest_event_content = 2131306101;
+        public static final int submenuarrow = 2131306160;
+        public static final int submit_area = 2131306161;
+        public static final int tabMode = 2131306237;
+        public static final int text = 2131306487;
+        public static final int text2 = 2131306488;
+        public static final int textSpacerNoButtons = 2131306493;
+        public static final int textSpacerNoTitle = 2131306494;
+        public static final int time = 2131306705;
+        public static final int title = 2131306762;
+        public static final int titleDividerNoCustom = 2131306768;
+        public static final int title_template = 2131306833;
+        public static final int topPanel = 2131306916;
+        public static final int uniform = 2131307762;
+        public static final int up = 2131307787;
+        public static final int wrap_content = 2131308500;
     }
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes12.dex */
     public static final class e {
         public static final int abc_action_bar_title_item = 2131492864;
         public static final int abc_action_bar_up_container = 2131492865;
@@ -555,8 +555,8 @@ public final class f {
     }
 
     /* renamed from: com.baidu.swan.menu.f$f  reason: collision with other inner class name */
-    /* loaded from: classes13.dex */
-    public static final class C0558f {
+    /* loaded from: classes12.dex */
+    public static final class C0541f {
         public static final int abc_action_bar_home_description = 2131689507;
         public static final int abc_action_bar_up_description = 2131689508;
         public static final int abc_action_menu_overflow_description = 2131689509;
@@ -607,13 +607,13 @@ public final class f {
         public static final int aiapp_menu_text_night_mode = 2131689715;
         public static final int aiapp_menu_text_share = 2131689716;
         public static final int app_name = 2131690668;
-        public static final int search_menu_title = 2131695161;
-        public static final int status_bar_notification_info_overflow = 2131695452;
-        public static final int swan_app_menu_setting = 2131695507;
-        public static final int swanapp_menu_font_setting = 2131695598;
+        public static final int search_menu_title = 2131695167;
+        public static final int status_bar_notification_info_overflow = 2131695458;
+        public static final int swan_app_menu_setting = 2131695513;
+        public static final int swanapp_menu_font_setting = 2131695604;
     }
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes12.dex */
     public static final class g {
         public static final int AlertDialog_AppCompat = 2131755009;
         public static final int AlertDialog_AppCompat_Light = 2131755010;
@@ -964,7 +964,7 @@ public final class f {
         public static final int Widget_Compat_NotificationActionText = 2131755599;
     }
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes12.dex */
     public static final class h {
         public static final int ActionBarLayout_android_layout_gravity = 0;
         public static final int ActionBar_background = 0;

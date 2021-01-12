@@ -11,7 +11,7 @@ import android.webkit.WebView;
 import com.win.opensdk.downloader.WinDReceiver;
 import com.win.opensdk.poseidon.PoseidonReceiver;
 import java.io.UnsupportedEncodingException;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class PBInitialize {
     private static String java = PBInitialize.class.getSimpleName();
 
@@ -35,11 +35,11 @@ public class PBInitialize {
         } catch (Exception e2) {
             e2.printStackTrace();
         }
-        final ao eKD = ao.eKD();
+        final ao eGN = ao.eGN();
         if (context == null) {
             throw new RuntimeException("Error:Context is not allowed to be null");
         }
-        eKD.qdj = context.getApplicationContext();
+        eGN.pYI = context.getApplicationContext();
         if (!TextUtils.isEmpty(str)) {
             az.bL(context, str);
         }
@@ -51,9 +51,9 @@ public class PBInitialize {
                     if (Build.VERSION.SDK_INT >= 28) {
                         try {
                             Process.myPid();
-                            String iR = be.iR(context2);
-                            if (!TextUtils.equals(context2.getPackageName(), iR)) {
-                                WebView.setDataDirectorySuffix(iR);
+                            String iP = be.iP(context2);
+                            if (!TextUtils.equals(context2.getPackageName(), iP)) {
+                                WebView.setDataDirectorySuffix(iP);
                             }
                         } catch (Exception e3) {
                         }
@@ -75,15 +75,15 @@ public class PBInitialize {
                 }
             }
         });
-        final ab iN = ab.iN(context);
-        if (iN.m63java()) {
-            iN.qdF = System.currentTimeMillis();
+        final ab iL = ab.iL(context);
+        if (iL.m59java()) {
+            iL.pZe = System.currentTimeMillis();
             ba.D(new Runnable() { // from class: com.win.opensdk.ab.1
                 @Override // java.lang.Runnable
                 public final void run() {
                     String str2 = "";
                     try {
-                        str2 = ab.f8case + ak.R(ak.iO(iN.qdj));
+                        str2 = ab.f7case + ak.R(ak.iM(iL.pYI));
                     } catch (UnsupportedEncodingException e3) {
                     }
                     ai.a(str2, new r<am>() { // from class: com.win.opensdk.ab.1.1
@@ -93,24 +93,24 @@ public class PBInitialize {
 
                         @Override // com.win.opensdk.r
                         public final /* synthetic */ void bH(am amVar) {
-                            iN.qel = System.currentTimeMillis() - iN.qdF;
-                            ab.a(iN, amVar);
+                            iL.pZK = System.currentTimeMillis() - iL.pZe;
+                            ab.a(iL, amVar);
                         }
 
                         @Override // com.win.opensdk.r
-                        public final void eKp() {
+                        public final void eGz() {
                         }
 
                         @Override // com.win.opensdk.r
-                        public final void cc(int i, String str3) {
-                            iN.qel = System.currentTimeMillis() - iN.qdF;
-                            w.iM(iN.qdj).F(i, iN.qel).eKp();
+                        public final void cd(int i, String str3) {
+                            iL.pZK = System.currentTimeMillis() - iL.pZe;
+                            w.iK(iL.pYI).F(i, iL.pZK).eGz();
                         }
                     });
                 }
             });
         }
-        v.iK(context);
-        au.iK(context);
+        v.iI(context);
+        au.iI(context);
     }
 }

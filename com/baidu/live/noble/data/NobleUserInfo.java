@@ -4,7 +4,7 @@ import com.baidu.android.imsdk.db.TableDefine;
 import com.baidu.live.tbadk.core.data.BaseData;
 import java.io.Serializable;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class NobleUserInfo extends BaseData implements Serializable {
     public String detailUrl;
     public a tip;
@@ -27,7 +27,7 @@ public class NobleUserInfo extends BaseData implements Serializable {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public class b {
         public String id;
 
@@ -41,10 +41,10 @@ public class NobleUserInfo extends BaseData implements Serializable {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public class a {
-        public String bxx;
-        public String bxy;
+        public String bsJ;
+        public String bsK;
         public String iconUrl;
         public String price;
         public int typeId;
@@ -57,8 +57,8 @@ public class NobleUserInfo extends BaseData implements Serializable {
                 this.typeId = jSONObject.optInt("type_id");
                 this.iconUrl = jSONObject.optString("icon_url");
                 this.price = jSONObject.optString("price");
-                this.bxx = jSONObject.optString("days");
-                this.bxy = jSONObject.optString("give_score");
+                this.bsJ = jSONObject.optString("days");
+                this.bsK = jSONObject.optString("give_score");
             }
         }
     }

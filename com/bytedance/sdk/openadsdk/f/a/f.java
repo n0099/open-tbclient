@@ -5,10 +5,10 @@ import android.content.Context;
 public class f {
 
     /* renamed from: a  reason: collision with root package name */
-    Context f7416a;
+    Context f7116a;
 
     /* renamed from: b  reason: collision with root package name */
-    String f7417b;
+    String f7117b;
     g c;
     w d;
 }

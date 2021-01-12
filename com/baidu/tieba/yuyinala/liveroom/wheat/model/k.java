@@ -8,27 +8,27 @@ import com.baidu.live.adp.framework.message.HttpResponsedMessage;
 import com.baidu.live.tbadk.TbPageContext;
 import com.baidu.live.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.yuyinala.liveroom.wheat.message.AlaOnLineHttpResponseMessage;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class k extends BdBaseModel {
     private TbPageContext mPageContext;
-    private a oEM;
+    private a oAh;
     private HttpMessageListener messageListener = new HttpMessageListener(1031036) { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.model.k.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            if (httpResponsedMessage != null && (httpResponsedMessage instanceof AlaOnLineHttpResponseMessage) && httpResponsedMessage.getOrginalMessage().getTag() == k.this.bwz && k.this.oEM != null) {
+            if (httpResponsedMessage != null && (httpResponsedMessage instanceof AlaOnLineHttpResponseMessage) && httpResponsedMessage.getOrginalMessage().getTag() == k.this.brL && k.this.oAh != null) {
                 AlaOnLineHttpResponseMessage alaOnLineHttpResponseMessage = (AlaOnLineHttpResponseMessage) httpResponsedMessage;
                 if (alaOnLineHttpResponseMessage.getError() != 0 || !alaOnLineHttpResponseMessage.isSuccess()) {
-                    k.this.oEM.onFail(alaOnLineHttpResponseMessage.getError(), alaOnLineHttpResponseMessage.getErrorString());
+                    k.this.oAh.onFail(alaOnLineHttpResponseMessage.getError(), alaOnLineHttpResponseMessage.getErrorString());
                 } else {
-                    k.this.oEM.a(alaOnLineHttpResponseMessage);
+                    k.this.oAh.a(alaOnLineHttpResponseMessage);
                 }
             }
         }
     };
-    private BdUniqueId bwz = BdUniqueId.gen();
+    private BdUniqueId brL = BdUniqueId.gen();
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public interface a {
         void a(AlaOnLineHttpResponseMessage alaOnLineHttpResponseMessage);
 
@@ -36,15 +36,15 @@ public class k extends BdBaseModel {
     }
 
     public k(TbPageContext tbPageContext, a aVar) {
-        setUniqueId(this.bwz);
+        setUniqueId(this.brL);
         this.mPageContext = tbPageContext;
-        this.oEM = aVar;
-        bmg();
+        this.oAh = aVar;
+        bim();
         registerListener(this.messageListener);
     }
 
-    private void bmg() {
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1031036, com.baidu.live.a.aAH + "ala/audio/link/isOnLine");
+    private void bim() {
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1031036, com.baidu.live.a.avU + "ala/audio/link/isOnLine");
         tbHttpMessageTask.setIsNeedTbs(true);
         tbHttpMessageTask.setIsUseCurrentBDUSS(true);
         tbHttpMessageTask.setResponsedClass(AlaOnLineHttpResponseMessage.class);

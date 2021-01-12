@@ -2,7 +2,7 @@ package com.baidu.tieba.memberCenter.memberExchange;
 
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class GetTCodeResMessage extends JsonHttpResponsedMessage {
     public static final String ACTIVATION_CODE = "activation_code";
     private b mData;

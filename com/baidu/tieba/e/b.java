@@ -5,19 +5,19 @@ import com.baidu.tbadk.core.data.bz;
 import com.baidu.tieba.card.data.BaseCardInfo;
 /* loaded from: classes2.dex */
 public class b extends BaseCardInfo {
-    public static final BdUniqueId iCQ = BdUniqueId.gen();
-    private bz alW;
+    public static final BdUniqueId iyj = BdUniqueId.gen();
+    private bz ale;
 
     public void setData(bz bzVar) {
-        this.alW = bzVar;
+        this.ale = bzVar;
     }
 
-    public bz boP() {
-        return this.alW;
+    public bz bkV() {
+        return this.ale;
     }
 
     @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.adp.widget.ListView.n
     public BdUniqueId getType() {
-        return iCQ;
+        return iyj;
     }
 }

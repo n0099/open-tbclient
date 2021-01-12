@@ -1,5 +1,5 @@
 package com.baidu.mobads;
-/* loaded from: classes3.dex */
+/* loaded from: classes14.dex */
 public interface InterstitialAdListener {
     void onAdClick(InterstitialAd interstitialAd);
 

@@ -2,7 +2,7 @@ package androidx.core.view;
 
 import android.os.Build;
 import android.view.ScaleGestureDetector;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public final class ScaleGestureDetectorCompat {
     private ScaleGestureDetectorCompat() {
     }

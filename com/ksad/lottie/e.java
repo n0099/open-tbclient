@@ -18,11 +18,11 @@ import java.util.Map;
 import java.util.concurrent.Callable;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final Map<String, k<d>> f8291a = new HashMap();
+    private static final Map<String, k<d>> f7991a = new HashMap();
 
     @Nullable
     private static g a(d dVar, String str) {
@@ -99,8 +99,8 @@ public class e {
                 }
             });
         }
-        if (f8291a.containsKey(str)) {
-            return f8291a.get(str);
+        if (f7991a.containsKey(str)) {
+            return f7991a.get(str);
         }
         k<d> kVar = new k<>(callable);
         kVar.a(new h<d>() { // from class: com.ksad.lottie.e.6
@@ -110,17 +110,17 @@ public class e {
                 if (str != null) {
                     com.ksad.lottie.model.e.a().a(str, dVar);
                 }
-                e.f8291a.remove(str);
+                e.f7991a.remove(str);
             }
         });
         kVar.c(new h<Throwable>() { // from class: com.ksad.lottie.e.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.ksad.lottie.h
             public void a(Throwable th) {
-                e.f8291a.remove(str);
+                e.f7991a.remove(str);
             }
         });
-        f8291a.put(str, kVar);
+        f7991a.put(str, kVar);
         return kVar;
     }
 

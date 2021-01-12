@@ -2,7 +2,7 @@ package com.baidu.searchbox.widget;
 
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class TranslucentInvocationHandler implements InvocationHandler {
     private OnTranslucentListener listener;
 

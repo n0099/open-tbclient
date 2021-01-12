@@ -15,23 +15,23 @@ import com.baidu.tbadk.core.util.at;
 import com.baidu.tbadk.mvc.core.ViewEventCenter;
 import com.baidu.tieba.R;
 import tbclient.HotThread.tinfo;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class b extends com.baidu.tbadk.mvc.f.a<tinfo, com.baidu.tbadk.mvc.d.b> {
-    private TextView eKc;
-    private TextView iBk;
-    private TextView iBl;
-    private TextView iBp;
-    private LinearLayout iBq;
+    private TextView eFr;
+    private TextView iwD;
+    private TextView iwE;
+    private TextView iwI;
+    private LinearLayout iwJ;
     private TextView subTextView;
 
     public b(TbPageContext<?> tbPageContext, View view, ViewEventCenter viewEventCenter) {
         super(tbPageContext, view, viewEventCenter);
-        this.eKc = (TextView) view.findViewById(R.id.chosen_no_picture_title);
-        this.iBk = (TextView) view.findViewById(R.id.chosen_no_picture_praise);
-        this.iBl = (TextView) view.findViewById(R.id.chosen_no_picture_comment);
-        this.iBp = (TextView) view.findViewById(R.id.chosen_no_picture_head);
+        this.eFr = (TextView) view.findViewById(R.id.chosen_no_picture_title);
+        this.iwD = (TextView) view.findViewById(R.id.chosen_no_picture_praise);
+        this.iwE = (TextView) view.findViewById(R.id.chosen_no_picture_comment);
+        this.iwI = (TextView) view.findViewById(R.id.chosen_no_picture_head);
         this.subTextView = (TextView) view.findViewById(R.id.chosen_no_picture_sub);
-        this.iBq = (LinearLayout) view.findViewById(R.id.chosen_no_picture_comment_line);
+        this.iwJ = (LinearLayout) view.findViewById(R.id.chosen_no_picture_comment_line);
     }
 
     @Override // com.baidu.tieba.tbadkCore.t
@@ -48,18 +48,18 @@ public class b extends com.baidu.tbadk.mvc.f.a<tinfo, com.baidu.tbadk.mvc.d.b> {
     public void aw(final tinfo tinfoVar) {
         super.aw(tinfoVar);
         if (StringUtils.isNull(tinfoVar.title)) {
-            this.iBp.setVisibility(8);
+            this.iwI.setVisibility(8);
         } else {
-            this.iBp.setVisibility(0);
-            this.iBp.setText(tinfoVar.title);
+            this.iwI.setVisibility(0);
+            this.iwI.setText(tinfoVar.title);
         }
         if (StringUtils.isNull(tinfoVar.forum_name)) {
-            this.iBq.setVisibility(8);
+            this.iwJ.setVisibility(8);
         } else {
-            this.iBq.setVisibility(0);
-            this.eKc.setVisibility(0);
-            this.eKc.setText(UtilHelper.getFixedText(getContext().getString(R.string.chosen_pb_original_bar, tinfoVar.forum_name), 7, false));
-            this.eKc.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.chosen.posts.a.b.1
+            this.iwJ.setVisibility(0);
+            this.eFr.setVisibility(0);
+            this.eFr.setText(UtilHelper.getFixedText(getContext().getString(R.string.chosen_pb_original_bar, tinfoVar.forum_name), 7, false));
+            this.eFr.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.chosen.posts.a.b.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     String str = tinfoVar.forum_name;
@@ -70,16 +70,16 @@ public class b extends com.baidu.tbadk.mvc.f.a<tinfo, com.baidu.tbadk.mvc.d.b> {
                 }
             });
             if (tinfoVar.zan_num == null) {
-                this.iBk.setVisibility(8);
+                this.iwD.setVisibility(8);
             } else {
-                this.iBk.setVisibility(0);
-                this.iBk.setText(tinfoVar.zan_num + "");
+                this.iwD.setVisibility(0);
+                this.iwD.setText(tinfoVar.zan_num + "");
             }
             if (tinfoVar.reply_num == null) {
-                this.iBl.setVisibility(8);
+                this.iwE.setVisibility(8);
             } else {
-                this.iBl.setVisibility(0);
-                this.iBl.setText(tinfoVar.reply_num + "");
+                this.iwE.setVisibility(0);
+                this.iwE.setText(tinfoVar.reply_num + "");
             }
         }
         if (StringUtils.isNull(tinfoVar._abstract)) {

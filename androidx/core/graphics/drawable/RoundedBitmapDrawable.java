@@ -14,7 +14,7 @@ import android.graphics.drawable.Drawable;
 import android.util.DisplayMetrics;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public abstract class RoundedBitmapDrawable extends Drawable {
     private static final int DEFAULT_PAINT_FLAGS = 3;
     final Bitmap mBitmap;

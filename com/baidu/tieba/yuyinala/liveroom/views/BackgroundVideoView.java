@@ -9,14 +9,14 @@ import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 import java.io.IOException;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class BackgroundVideoView extends SurfaceView {
-    private int cvb;
-    MediaPlayer.OnPreparedListener eCI;
-    MediaPlayer.OnVideoSizeChangedListener eCK;
-    private MediaPlayer.OnErrorListener eCL;
-    private MediaPlayer.OnPreparedListener efH;
-    private MediaPlayer.OnErrorListener efJ;
+    private int cqj;
+    private MediaPlayer.OnPreparedListener eaV;
+    private MediaPlayer.OnErrorListener eaX;
+    MediaPlayer.OnPreparedListener exU;
+    MediaPlayer.OnVideoSizeChangedListener exW;
+    private MediaPlayer.OnErrorListener exX;
     private MediaPlayer mMediaPlayer;
     private int mSurfaceHeight;
     private SurfaceHolder mSurfaceHolder;
@@ -24,11 +24,11 @@ public class BackgroundVideoView extends SurfaceView {
     private Uri mUri;
     private int mVideoHeight;
     private int mVideoWidth;
-    MediaPlayer.OnInfoListener nOT;
-    private int oxs;
-    private MediaPlayer.OnVideoSizeChangedListener oxt;
-    private MediaPlayer.OnInfoListener oxu;
-    SurfaceHolder.Callback oxv;
+    MediaPlayer.OnInfoListener nKo;
+    private int osM;
+    private MediaPlayer.OnVideoSizeChangedListener osN;
+    private MediaPlayer.OnInfoListener osO;
+    SurfaceHolder.Callback osP;
 
     public BackgroundVideoView(Context context) {
         this(context, null);
@@ -40,17 +40,17 @@ public class BackgroundVideoView extends SurfaceView {
 
     public BackgroundVideoView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.cvb = 0;
-        this.oxs = 0;
+        this.cqj = 0;
+        this.osM = 0;
         this.mSurfaceHolder = null;
         this.mMediaPlayer = null;
-        this.oxv = new SurfaceHolder.Callback() { // from class: com.baidu.tieba.yuyinala.liveroom.views.BackgroundVideoView.1
+        this.osP = new SurfaceHolder.Callback() { // from class: com.baidu.tieba.yuyinala.liveroom.views.BackgroundVideoView.1
             @Override // android.view.SurfaceHolder.Callback
             public void surfaceChanged(SurfaceHolder surfaceHolder, int i2, int i3, int i4) {
                 boolean z = true;
                 BackgroundVideoView.this.mSurfaceWidth = i3;
                 BackgroundVideoView.this.mSurfaceHeight = i4;
-                boolean z2 = BackgroundVideoView.this.oxs == 3;
+                boolean z2 = BackgroundVideoView.this.osM == 3;
                 if (BackgroundVideoView.this.mVideoWidth != i3 || BackgroundVideoView.this.mVideoHeight != i4) {
                     z = false;
                 }
@@ -62,7 +62,7 @@ public class BackgroundVideoView extends SurfaceView {
             @Override // android.view.SurfaceHolder.Callback
             public void surfaceCreated(SurfaceHolder surfaceHolder) {
                 BackgroundVideoView.this.mSurfaceHolder = surfaceHolder;
-                BackgroundVideoView.this.bjy();
+                BackgroundVideoView.this.bfE();
             }
 
             @Override // android.view.SurfaceHolder.Callback
@@ -71,7 +71,7 @@ public class BackgroundVideoView extends SurfaceView {
                 BackgroundVideoView.this.release(true);
             }
         };
-        this.eCK = new MediaPlayer.OnVideoSizeChangedListener() { // from class: com.baidu.tieba.yuyinala.liveroom.views.BackgroundVideoView.2
+        this.exW = new MediaPlayer.OnVideoSizeChangedListener() { // from class: com.baidu.tieba.yuyinala.liveroom.views.BackgroundVideoView.2
             @Override // android.media.MediaPlayer.OnVideoSizeChangedListener
             public void onVideoSizeChanged(MediaPlayer mediaPlayer, int i2, int i3) {
                 BackgroundVideoView.this.mVideoWidth = mediaPlayer.getVideoWidth();
@@ -80,17 +80,17 @@ public class BackgroundVideoView extends SurfaceView {
                     BackgroundVideoView.this.getHolder().setFixedSize(BackgroundVideoView.this.mVideoWidth, BackgroundVideoView.this.mVideoHeight);
                     BackgroundVideoView.this.requestLayout();
                 }
-                if (BackgroundVideoView.this.oxt != null) {
-                    BackgroundVideoView.this.oxt.onVideoSizeChanged(mediaPlayer, i2, i3);
+                if (BackgroundVideoView.this.osN != null) {
+                    BackgroundVideoView.this.osN.onVideoSizeChanged(mediaPlayer, i2, i3);
                 }
             }
         };
-        this.eCI = new MediaPlayer.OnPreparedListener() { // from class: com.baidu.tieba.yuyinala.liveroom.views.BackgroundVideoView.3
+        this.exU = new MediaPlayer.OnPreparedListener() { // from class: com.baidu.tieba.yuyinala.liveroom.views.BackgroundVideoView.3
             @Override // android.media.MediaPlayer.OnPreparedListener
             public void onPrepared(MediaPlayer mediaPlayer) {
-                BackgroundVideoView.this.cvb = 2;
-                if (BackgroundVideoView.this.efH != null) {
-                    BackgroundVideoView.this.efH.onPrepared(BackgroundVideoView.this.mMediaPlayer);
+                BackgroundVideoView.this.cqj = 2;
+                if (BackgroundVideoView.this.eaV != null) {
+                    BackgroundVideoView.this.eaV.onPrepared(BackgroundVideoView.this.mMediaPlayer);
                 }
                 BackgroundVideoView.this.mVideoWidth = mediaPlayer.getVideoWidth();
                 BackgroundVideoView.this.mVideoHeight = mediaPlayer.getVideoHeight();
@@ -100,22 +100,22 @@ public class BackgroundVideoView extends SurfaceView {
                 BackgroundVideoView.this.start();
             }
         };
-        this.eCL = new MediaPlayer.OnErrorListener() { // from class: com.baidu.tieba.yuyinala.liveroom.views.BackgroundVideoView.4
+        this.exX = new MediaPlayer.OnErrorListener() { // from class: com.baidu.tieba.yuyinala.liveroom.views.BackgroundVideoView.4
             @Override // android.media.MediaPlayer.OnErrorListener
             public boolean onError(MediaPlayer mediaPlayer, int i2, int i3) {
                 Log.d("BackgroundVideoView", "Error: " + i2 + "," + i3);
-                BackgroundVideoView.this.cvb = -1;
-                BackgroundVideoView.this.oxs = -1;
-                if (BackgroundVideoView.this.efJ == null || BackgroundVideoView.this.efJ.onError(BackgroundVideoView.this.mMediaPlayer, i2, i3)) {
+                BackgroundVideoView.this.cqj = -1;
+                BackgroundVideoView.this.osM = -1;
+                if (BackgroundVideoView.this.eaX == null || BackgroundVideoView.this.eaX.onError(BackgroundVideoView.this.mMediaPlayer, i2, i3)) {
                 }
                 return true;
             }
         };
-        this.nOT = new MediaPlayer.OnInfoListener() { // from class: com.baidu.tieba.yuyinala.liveroom.views.BackgroundVideoView.5
+        this.nKo = new MediaPlayer.OnInfoListener() { // from class: com.baidu.tieba.yuyinala.liveroom.views.BackgroundVideoView.5
             @Override // android.media.MediaPlayer.OnInfoListener
             public boolean onInfo(MediaPlayer mediaPlayer, int i2, int i3) {
-                if (BackgroundVideoView.this.oxu != null) {
-                    BackgroundVideoView.this.oxu.onInfo(mediaPlayer, i2, i3);
+                if (BackgroundVideoView.this.osO != null) {
+                    BackgroundVideoView.this.osO.onInfo(mediaPlayer, i2, i3);
                     return false;
                 }
                 return false;
@@ -127,7 +127,7 @@ public class BackgroundVideoView extends SurfaceView {
     private void init() {
         this.mVideoWidth = 0;
         this.mVideoHeight = 0;
-        getHolder().addCallback(this.oxv);
+        getHolder().addCallback(this.osP);
         getHolder().setType(3);
         setFocusable(false);
         setFocusableInTouchMode(false);
@@ -139,7 +139,7 @@ public class BackgroundVideoView extends SurfaceView {
 
     public void setVideoURI(Uri uri) {
         this.mUri = uri;
-        bjy();
+        bfE();
         requestLayout();
         invalidate();
     }
@@ -147,25 +147,25 @@ public class BackgroundVideoView extends SurfaceView {
     public void start() {
         if (isInPlaybackState()) {
             this.mMediaPlayer.start();
-            this.cvb = 3;
+            this.cqj = 3;
         }
-        this.oxs = 3;
+        this.osM = 3;
     }
 
     public void pause() {
         if (isInPlaybackState() && this.mMediaPlayer.isPlaying()) {
             this.mMediaPlayer.pause();
-            this.cvb = 4;
+            this.cqj = 4;
         }
-        this.oxs = 4;
+        this.osM = 4;
     }
 
-    public void edV() {
+    public void ead() {
         release(false);
     }
 
     private boolean isInPlaybackState() {
-        return (this.mMediaPlayer == null || this.cvb == -1 || this.cvb == 0 || this.cvb == 1) ? false : true;
+        return (this.mMediaPlayer == null || this.cqj == -1 || this.cqj == 0 || this.cqj == 1) ? false : true;
     }
 
     public boolean isPlaying() {
@@ -177,13 +177,13 @@ public class BackgroundVideoView extends SurfaceView {
             this.mMediaPlayer.stop();
             this.mMediaPlayer.release();
             this.mMediaPlayer = null;
-            this.cvb = 0;
-            this.oxs = 0;
+            this.cqj = 0;
+            this.osM = 0;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bjy() {
+    public void bfE() {
         if (this.mUri != null && this.mSurfaceHolder != null) {
             release(false);
             try {
@@ -192,22 +192,22 @@ public class BackgroundVideoView extends SurfaceView {
                 this.mMediaPlayer.setDisplay(this.mSurfaceHolder);
                 this.mMediaPlayer.setScreenOnWhilePlaying(true);
                 this.mMediaPlayer.setLooping(true);
-                this.mMediaPlayer.setOnPreparedListener(this.eCI);
-                this.mMediaPlayer.setOnVideoSizeChangedListener(this.eCK);
-                this.mMediaPlayer.setOnErrorListener(this.eCL);
-                this.mMediaPlayer.setOnInfoListener(this.nOT);
+                this.mMediaPlayer.setOnPreparedListener(this.exU);
+                this.mMediaPlayer.setOnVideoSizeChangedListener(this.exW);
+                this.mMediaPlayer.setOnErrorListener(this.exX);
+                this.mMediaPlayer.setOnInfoListener(this.nKo);
                 this.mMediaPlayer.prepareAsync();
-                this.cvb = 1;
+                this.cqj = 1;
             } catch (IOException e) {
                 Log.w("BackgroundVideoView", "Unable to open content: " + this.mUri, e);
-                this.cvb = -1;
-                this.oxs = -1;
-                this.eCL.onError(this.mMediaPlayer, 1, 0);
+                this.cqj = -1;
+                this.osM = -1;
+                this.exX.onError(this.mMediaPlayer, 1, 0);
             } catch (IllegalArgumentException e2) {
                 Log.w("BackgroundVideoView", "Unable to open content: " + this.mUri, e2);
-                this.cvb = -1;
-                this.oxs = -1;
-                this.eCL.onError(this.mMediaPlayer, 1, 0);
+                this.cqj = -1;
+                this.osM = -1;
+                this.exX.onError(this.mMediaPlayer, 1, 0);
             }
         }
     }
@@ -218,18 +218,18 @@ public class BackgroundVideoView extends SurfaceView {
             this.mMediaPlayer.reset();
             this.mMediaPlayer.release();
             this.mMediaPlayer = null;
-            this.cvb = 0;
+            this.cqj = 0;
             if (z) {
-                this.oxs = 0;
+                this.osM = 0;
             }
         }
     }
 
     public void setOnErrorListener(MediaPlayer.OnErrorListener onErrorListener) {
-        this.efJ = onErrorListener;
+        this.eaX = onErrorListener;
     }
 
     public void setOnInfoListener(MediaPlayer.OnInfoListener onInfoListener) {
-        this.oxu = onInfoListener;
+        this.osO = onInfoListener;
     }
 }

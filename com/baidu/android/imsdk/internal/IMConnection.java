@@ -21,7 +21,7 @@ import com.baidu.android.imsdk.upload.action.pb.IMPushPb;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.RequsetNetworkUtils;
 import com.baidu.android.imsdk.utils.Utility;
-import com.baidu.i.a;
+import com.baidu.g.a;
 import com.kwad.sdk.collector.AppStatusRules;
 import java.io.IOException;
 import java.util.HashMap;
@@ -30,7 +30,7 @@ import java.util.Random;
 import java.util.TreeMap;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public final class IMConnection {
     public static final int ERROR_LOGIN_FAIL = 20;
     private static final int MAX_RETRY_TIMES = 10;
@@ -58,7 +58,7 @@ public final class IMConnection {
     private Runnable mReconnectRunnable = new Runnable() { // from class: com.baidu.android.imsdk.internal.IMConnection.2
         @Override // java.lang.Runnable
         public void run() {
-            if (!a.aze) {
+            if (!a.aur) {
                 IMConnection.this.internalConnect(false);
             }
         }
@@ -119,7 +119,7 @@ public final class IMConnection {
     }
 
     private void connectImpl(final boolean z) {
-        if (!a.aze) {
+        if (!a.aur) {
             if (this.mConnected.get() || this.mConnectting.get()) {
                 LogUtils.i(TAG, "Connect return. mConnected:" + this.mConnected.get() + " mConnectting:" + this.mConnectting.get());
             } else if (!AccountManager.isLogin(this.mContext)) {
@@ -188,7 +188,7 @@ public final class IMConnection {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     private final class ConnectTask implements Runnable {
         Integer mConnectTaskId;
         String mIp;
@@ -377,7 +377,7 @@ public final class IMConnection {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class ReadThread extends Thread {
         ReadThread() {
             setName("IM-IMConnection-readThread");
@@ -425,7 +425,7 @@ public final class IMConnection {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class SendThread extends Thread {
         SendThread() {
             setName("IM-IMConnection-SendThread");
@@ -583,7 +583,7 @@ public final class IMConnection {
     }
 
     public void disconnectedByPeer() {
-        if (!a.aze) {
+        if (!a.aur) {
             LogUtils.i(TAG, "disconnectedByPeer, mStoped == " + this.mStoped);
             fatalAllMessage();
             if (!this.mStoped) {
@@ -607,7 +607,7 @@ public final class IMConnection {
     }
 
     private void destroy() {
-        if (!a.aze) {
+        if (!a.aur) {
             LogUtils.i(TAG, "destroy");
             Utility.sendConnectionStateBroadCast(this.mContext, 2);
             this.mHandler.removeCallbacks(this.mSocketTimeoutRunnable);
@@ -630,7 +630,7 @@ public final class IMConnection {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     private class ConnectTimeOutTask implements Runnable {
         Integer mConnectTaskId;
         boolean mTaskStoped = false;
@@ -664,7 +664,7 @@ public final class IMConnection {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     private class MyHandler extends Handler {
         public MyHandler(Looper looper) {
             super(looper);

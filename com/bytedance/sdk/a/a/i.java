@@ -4,64 +4,64 @@ import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 /* loaded from: classes4.dex */
 public class i extends t {
-    private t phS;
+    private t pdq;
 
     public i(t tVar) {
         if (tVar == null) {
             throw new IllegalArgumentException("delegate == null");
         }
-        this.phS = tVar;
+        this.pdq = tVar;
     }
 
-    public final t epS() {
-        return this.phS;
+    public final t elW() {
+        return this.pdq;
     }
 
     public final i a(t tVar) {
         if (tVar == null) {
             throw new IllegalArgumentException("delegate == null");
         }
-        this.phS = tVar;
+        this.pdq = tVar;
         return this;
     }
 
     @Override // com.bytedance.sdk.a.a.t
     public t c(long j, TimeUnit timeUnit) {
-        return this.phS.c(j, timeUnit);
+        return this.pdq.c(j, timeUnit);
     }
 
     @Override // com.bytedance.sdk.a.a.t
-    public long eqe() {
-        return this.phS.eqe();
+    public long emi() {
+        return this.pdq.emi();
     }
 
     @Override // com.bytedance.sdk.a.a.t
     public boolean c() {
-        return this.phS.c();
+        return this.pdq.c();
     }
 
     @Override // com.bytedance.sdk.a.a.t
-    public long eqf() {
-        return this.phS.eqf();
+    public long emj() {
+        return this.pdq.emj();
     }
 
     @Override // com.bytedance.sdk.a.a.t
     public t im(long j) {
-        return this.phS.im(j);
+        return this.pdq.im(j);
     }
 
     @Override // com.bytedance.sdk.a.a.t
-    public t eqg() {
-        return this.phS.eqg();
+    public t emk() {
+        return this.pdq.emk();
     }
 
     @Override // com.bytedance.sdk.a.a.t
-    public t eqh() {
-        return this.phS.eqh();
+    public t eml() {
+        return this.pdq.eml();
     }
 
     @Override // com.bytedance.sdk.a.a.t
     public void g() throws IOException {
-        this.phS.g();
+        this.pdq.g();
     }
 }

@@ -7,13 +7,13 @@ import java.util.Random;
 import javax.crypto.Cipher;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
-/* loaded from: classes3.dex */
+/* loaded from: classes14.dex */
 public final class d {
-    private static byte[] V(String str, String str2) {
+    private static byte[] U(String str, String str2) {
         try {
             String substring = str2.substring(0, 16);
             String substring2 = str2.substring(str2.length() - 16, str2.length());
-            Key dB = dB(substring);
+            Key dw = dw(substring);
             Cipher cipher = Cipher.getInstance("AES/CBC/NoPadding");
             int blockSize = cipher.getBlockSize();
             byte[] bytes = str.getBytes();
@@ -23,7 +23,7 @@ public final class d {
             }
             byte[] bArr = new byte[length];
             System.arraycopy(bytes, 0, bArr, 0, bytes.length);
-            cipher.init(1, dB, new IvParameterSpec(substring2.getBytes()));
+            cipher.init(1, dw, new IvParameterSpec(substring2.getBytes()));
             return cipher.doFinal(bArr);
         } catch (Exception e) {
             e.printStackTrace();
@@ -66,7 +66,7 @@ public final class d {
         try {
             String substring = str.substring(0, 16);
             String substring2 = str.substring(str.length() - 16, str.length());
-            Key dB = dB(substring);
+            Key dw = dw(substring);
             Cipher cipher = Cipher.getInstance("AES/CBC/NoPadding");
             int blockSize = cipher.getBlockSize();
             int length = bArr.length;
@@ -75,7 +75,7 @@ public final class d {
             }
             byte[] bArr2 = new byte[length];
             System.arraycopy(bArr, 0, bArr2, 0, bArr.length);
-            cipher.init(1, dB, new IvParameterSpec(substring2.getBytes()));
+            cipher.init(1, dw, new IvParameterSpec(substring2.getBytes()));
             return cipher.doFinal(bArr2);
         } catch (Exception e) {
             e.printStackTrace();
@@ -87,7 +87,7 @@ public final class d {
         return h.a(str + str2);
     }
 
-    private static Key dB(String str) {
+    private static Key dw(String str) {
         try {
             return new SecretKeySpec(str.getBytes(), com.baidu.sapi2.utils.e.q);
         } catch (Exception e) {
@@ -96,9 +96,9 @@ public final class d {
         }
     }
 
-    public static String dC(String str) {
+    public static String dx(String str) {
         try {
-            Key dB = dB(al());
+            Key dw = dw(al());
             Cipher cipher = Cipher.getInstance("AES/CBC/NoPadding");
             int blockSize = cipher.getBlockSize();
             byte[] bytes = str.getBytes();
@@ -108,7 +108,7 @@ public final class d {
             }
             byte[] bArr = new byte[length];
             System.arraycopy(bytes, 0, bArr, 0, bytes.length);
-            cipher.init(1, dB, new IvParameterSpec(am().getBytes()));
+            cipher.init(1, dw, new IvParameterSpec(am().getBytes()));
             return new String(Base64.encodeToString(cipher.doFinal(bArr), 0));
         } catch (Exception e) {
             e.printStackTrace();
@@ -116,11 +116,11 @@ public final class d {
         }
     }
 
-    public static String dD(String str) {
+    public static String dy(String str) {
         try {
-            Key dB = dB(al());
+            Key dw = dw(al());
             Cipher cipher = Cipher.getInstance("AES/CBC/NoPadding");
-            cipher.init(2, dB, new IvParameterSpec(am().getBytes()));
+            cipher.init(2, dw, new IvParameterSpec(am().getBytes()));
             return new String(cipher.doFinal(Base64.decode(str, 0))).trim();
         } catch (Exception e) {
             return null;
@@ -128,6 +128,6 @@ public final class d {
     }
 
     public static String e(String str, String str2) {
-        return Base64.encodeToString(V(str, str2), 0);
+        return Base64.encodeToString(U(str, str2), 0);
     }
 }

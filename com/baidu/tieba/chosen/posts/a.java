@@ -4,14 +4,14 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.mvc.core.ViewEventCenter;
 import java.util.List;
 import tbclient.HotThread.tinfo;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class a extends com.baidu.tbadk.mvc.f.b<tinfo, com.baidu.tbadk.mvc.d.b, com.baidu.tbadk.mvc.f.a<tinfo, com.baidu.tbadk.mvc.d.b>> {
     public a(TbPageContext<?> tbPageContext, Class<?>[] clsArr, int[] iArr, ViewEventCenter viewEventCenter) {
         super(tbPageContext, clsArr, iArr, viewEventCenter);
     }
 
     @Override // com.baidu.tbadk.mvc.f.b
-    public int sR(int i) {
+    public int rl(int i) {
         tinfo item = getItem(i);
         if (item == null) {
             return -1;

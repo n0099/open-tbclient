@@ -3,27 +3,27 @@ package com.baidu.live.view.input;
 import com.baidu.live.data.x;
 import com.baidu.live.tbadk.TbPageContext;
 import java.util.List;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public interface d {
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public interface a {
-        boolean ME();
+        boolean IJ();
 
-        int MK();
+        int IP();
 
-        boolean ML();
+        boolean IQ();
 
-        boolean Nt();
+        boolean Jy();
 
-        void aaa();
+        void Wh();
 
-        void aab();
+        void Wi();
     }
 
-    void Id();
+    void Ei();
 
-    List<String> RH();
+    List<String> NM();
 
     void a(a aVar);
 
@@ -31,11 +31,11 @@ public interface d {
 
     void b(boolean z, int i, int i2, String str);
 
+    void co(int i);
+
     void d(TbPageContext tbPageContext);
 
-    void dU(int i);
-
-    void hn(String str);
+    void gb(String str);
 
     void release();
 }

@@ -6,16 +6,16 @@ import com.baidu.live.tbadk.core.util.TbEnum;
 import com.tencent.connect.share.QzonePublish;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class SingleGraphicTextMsgExt {
     public String groupId;
-    public SignleGraphicTextMsg pcu;
-    public String pcv;
-    public double pcw;
-    public String pcx;
+    public SignleGraphicTextMsg oXP;
+    public String oXQ;
+    public double oXR;
+    public String oXS;
     public String vid;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public enum SingleGraphicTextType {
         DEFAULT,
         VIDEOSHARE,
@@ -23,21 +23,21 @@ public class SingleGraphicTextMsgExt {
     }
 
     public SingleGraphicTextMsgExt(SignleGraphicTextMsg signleGraphicTextMsg) {
-        this.pcu = signleGraphicTextMsg;
+        this.oXP = signleGraphicTextMsg;
         try {
             JSONObject jSONObject = new JSONObject(signleGraphicTextMsg.getMsgContent());
-            this.pcv = jSONObject.optString("quanminUrl");
+            this.oXQ = jSONObject.optString("quanminUrl");
             this.groupId = jSONObject.optString(TbEnum.SystemMessage.KEY_GROUP_ID);
-            this.pcw = jSONObject.optDouble("coverHW");
-            this.pcx = jSONObject.optString(QzonePublish.PUBLISH_TO_QZONE_VIDEO_DURATION, "0:00");
+            this.oXR = jSONObject.optDouble("coverHW");
+            this.oXS = jSONObject.optString(QzonePublish.PUBLISH_TO_QZONE_VIDEO_DURATION, "0:00");
             this.vid = jSONObject.optString("vid");
         } catch (JSONException e) {
             e.printStackTrace();
         }
     }
 
-    public SingleGraphicTextType eoh() {
-        if (!TextUtils.isEmpty(this.pcv)) {
+    public SingleGraphicTextType ekl() {
+        if (!TextUtils.isEmpty(this.oXQ)) {
             return SingleGraphicTextType.VIDEOSHARE;
         }
         if (!TextUtils.isEmpty(this.groupId)) {

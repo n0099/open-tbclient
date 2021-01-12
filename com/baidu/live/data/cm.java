@@ -1,16 +1,16 @@
 package com.baidu.live.data;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class cm {
-    public boolean aUc;
-    public boolean aUd = false;
-    public boolean aUe;
-    public boolean aUf;
-    public boolean aUg;
-    public boolean aUh;
-    public boolean aUi;
-    public boolean aUj;
-    public boolean aUk;
-    public boolean aUl;
-    public boolean aUm;
-    public boolean aUn;
+    public boolean aPA;
+    public boolean aPp;
+    public boolean aPq = false;
+    public boolean aPr;
+    public boolean aPs;
+    public boolean aPt;
+    public boolean aPu;
+    public boolean aPv;
+    public boolean aPw;
+    public boolean aPx;
+    public boolean aPy;
+    public boolean aPz;
 }

@@ -14,7 +14,7 @@ import android.widget.ListAdapter;
 import com.baidu.adp.widget.ListView.BdListView;
 /* loaded from: classes.dex */
 public class PinnedHeaderListView extends BdListView implements AbsListView.OnScrollListener {
-    private a Yt;
+    private a Yr;
     private int mCurrentPinnedPosition;
     private AbsListView.OnScrollListener mInnerOnScrollListener;
     private boolean mIsPulling;
@@ -78,16 +78,16 @@ public class PinnedHeaderListView extends BdListView implements AbsListView.OnSc
             throw new RuntimeException("Adapter must extended from PinnedHeaderListAdapter");
         }
         super.setAdapter(listAdapter);
-        this.Yt = (a) listAdapter;
-        this.mPinnedHeaderItemType = this.Yt.getPinnedHeaderViewType();
-        this.mPinnedHeaderView = this.Yt.getPinnedHeaderView();
+        this.Yr = (a) listAdapter;
+        this.mPinnedHeaderItemType = this.Yr.getPinnedHeaderViewType();
+        this.mPinnedHeaderView = this.Yr.getPinnedHeaderView();
         if (this.mPinnedHeaderView != null) {
             if (this.mPinnedHeaderView.getLayoutParams() == null) {
                 this.mPinnedHeaderView.setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
             }
             setFadingEdgeLength(0);
         }
-        this.Yt.registerDataSetObserver(this.mObserver);
+        this.Yr.registerDataSetObserver(this.mObserver);
     }
 
     private void measurePinnedHeader(int i, int i2) {
@@ -150,7 +150,7 @@ public class PinnedHeaderListView extends BdListView implements AbsListView.OnSc
 
     private void computeHeaderView() {
         if (this.mPinnedHeaderView != null) {
-            a aVar = this.Yt;
+            a aVar = this.Yr;
             int firstVisiblePosition = getFirstVisiblePosition();
             if (firstVisiblePosition > 0) {
                 firstVisiblePosition--;
@@ -202,7 +202,7 @@ public class PinnedHeaderListView extends BdListView implements AbsListView.OnSc
     }
 
     private int getPreviousHeaderPosition(int i) {
-        a aVar = this.Yt;
+        a aVar = this.Yr;
         for (int i2 = i - 1; i2 >= 0; i2--) {
             if (aVar.getItemViewType(i2) == this.mPinnedHeaderItemType) {
                 return i2;

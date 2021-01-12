@@ -9,7 +9,7 @@ import com.baidu.android.imsdk.utils.NoProGuard;
 import com.kwai.video.player.KsMediaMeta;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class VideoMsg extends RichMediaMsg implements Parcelable, NoProGuard {
     public static final Parcelable.Creator<VideoMsg> CREATOR = new Parcelable.Creator<VideoMsg>() { // from class: com.baidu.android.imsdk.chatmessage.messages.VideoMsg.1
         /* JADX DEBUG: Method merged with bridge method */

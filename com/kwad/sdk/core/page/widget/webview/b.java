@@ -9,7 +9,6 @@ import android.view.accessibility.AccessibilityManager;
 import android.webkit.JsPromptResult;
 import android.webkit.ValueCallback;
 import android.webkit.WebView;
-import com.baidu.platform.comapi.map.MapBundleKey;
 import com.coremedia.iso.boxes.DataEntryUrlBox;
 import com.kwad.sdk.utils.as;
 import java.lang.reflect.InvocationTargetException;
@@ -18,14 +17,14 @@ import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class b extends KSApiWebView {
 
     /* renamed from: b  reason: collision with root package name */
-    private static final String[] f9675b = {"getClass", "hashCode", "notify", "notifyAll", "equals", "toString", "wait"};
+    private static final String[] f9375b = {"getClass", "hashCode", "notify", "notifyAll", "equals", "toString", "wait"};
 
     /* renamed from: a  reason: collision with root package name */
-    private Boolean f9676a;
+    private Boolean f9376a;
     private final HashMap<String, Object> c;
     private String d;
 
@@ -93,7 +92,7 @@ public class b extends KSApiWebView {
                     sb.append("            prompt('").append("MyApp:").append("'+");
                 }
                 sb.append("JSON.stringify({");
-                sb.append(MapBundleKey.MapObjKey.OBJ_SL_OBJ).append(":'").append(str).append("',");
+                sb.append("obj").append(":'").append(str).append("',");
                 sb.append("func").append(":'").append(name).append("',");
                 sb.append("args").append(":[");
                 if (length > 0) {
@@ -158,7 +157,7 @@ public class b extends KSApiWebView {
     }
 
     private boolean a(String str) {
-        for (String str2 : f9675b) {
+        for (String str2 : f9375b) {
             if (str2.equals(str)) {
                 return true;
             }
@@ -216,8 +215,8 @@ public class b extends KSApiWebView {
     }
 
     public void a() {
-        if (Build.VERSION.SDK_INT == 17 && this.f9676a == null && f()) {
-            this.f9676a = true;
+        if (Build.VERSION.SDK_INT == 17 && this.f9376a == null && f()) {
+            this.f9376a = true;
             setAccessibilityEnabled(false);
         }
     }
@@ -250,7 +249,7 @@ public class b extends KSApiWebView {
         if (str2.startsWith("MyApp:")) {
             try {
                 JSONObject jSONObject = new JSONObject(str2.substring("MyApp:".length()));
-                String string = jSONObject.getString(MapBundleKey.MapObjKey.OBJ_SL_OBJ);
+                String string = jSONObject.getString("obj");
                 String string2 = jSONObject.getString("func");
                 JSONArray jSONArray = jSONObject.getJSONArray("args");
                 Object[] objArr = null;

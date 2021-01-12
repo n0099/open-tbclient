@@ -3,7 +3,7 @@ package com.kwad.sdk.glide.load.resource.bitmap;
 import android.content.Context;
 import android.graphics.Bitmap;
 import androidx.annotation.NonNull;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public abstract class e implements com.kwad.sdk.glide.load.h<Bitmap> {
     protected abstract Bitmap a(@NonNull com.kwad.sdk.glide.load.engine.bitmap_recycle.e eVar, @NonNull Bitmap bitmap, int i, int i2);
 

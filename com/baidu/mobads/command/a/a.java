@@ -19,7 +19,7 @@ import com.baidu.mobads.utils.e;
 import com.baidu.mobads.utils.l;
 import java.io.File;
 import java.net.URL;
-/* loaded from: classes3.dex */
+/* loaded from: classes14.dex */
 public class a extends b {
     public a(IXNonLinearAdSlot iXNonLinearAdSlot, IXAdInstanceInfo iXAdInstanceInfo, IXAdResource iXAdResource) {
         super(iXNonLinearAdSlot, iXAdInstanceInfo, iXAdResource);
@@ -37,7 +37,7 @@ public class a extends b {
                 this.e.i("XAdDownloadAPKCommand", "start to download but package is empty");
                 appPackageName = commonUtils.getMD5(this.c.getOriginClickUrl());
             }
-            IOAdDownloader adsApkDownloader = d.a(this.f3352a).getAdsApkDownloader(appPackageName);
+            IOAdDownloader adsApkDownloader = d.a(this.f3314a).getAdsApkDownloader(appPackageName);
             com.baidu.mobads.openad.b.b a2 = com.baidu.mobads.openad.b.b.a(appPackageName);
             if (a2 != null && adsApkDownloader != null) {
                 com.baidu.mobads.command.a a3 = a2.a();
@@ -48,7 +48,7 @@ public class a extends b {
                     uRIUitls.pintHttpInNewThread(this.c.getClickThroughUrl());
                     return;
                 } else if (state == IOAdDownloader.DownloadStatus.COMPLETED) {
-                    if (a(this.f3352a, a3)) {
+                    if (a(this.f3314a, a3)) {
                         uRIUitls.pintHttpInNewThread(this.c.getClickThroughUrl());
                         b(a3);
                         return;
@@ -56,10 +56,10 @@ public class a extends b {
                     adsApkDownloader.cancel();
                     adsApkDownloader.removeObservers();
                     com.baidu.mobads.openad.b.b.b(appPackageName);
-                    d.a(this.f3352a).removeAdsApkDownloader(appPackageName);
+                    d.a(this.f3314a).removeAdsApkDownloader(appPackageName);
                 } else if (state == IOAdDownloader.DownloadStatus.DOWNLOADING || state == IOAdDownloader.DownloadStatus.INITING) {
-                    commonUtils.sendDownloadAdLog(this.f3352a, 529, "downloading", this.f3353b != null ? this.f3353b.getProdInfo().getProdType() : "", appPackageName, commonUtils.getAppId(this.f3352a), this.f3353b != null ? this.f3353b.getAdRequestInfo().getApid() : "", systemUtils.getPhoneOSBrand(), Build.MODEL, Build.VERSION.RELEASE, Build.VERSION.SDK_INT);
-                    a(this.f3352a, adsApkDownloader.getTitle() + adsApkDownloader.getState().getMessage(), 0, Boolean.valueOf(this.c.isPopNotif()));
+                    commonUtils.sendDownloadAdLog(this.f3314a, 529, "downloading", this.f3315b != null ? this.f3315b.getProdInfo().getProdType() : "", appPackageName, commonUtils.getAppId(this.f3314a), this.f3315b != null ? this.f3315b.getAdRequestInfo().getApid() : "", systemUtils.getPhoneOSBrand(), Build.MODEL, Build.VERSION.RELEASE, Build.VERSION.SDK_INT);
+                    a(this.f3314a, adsApkDownloader.getTitle() + adsApkDownloader.getState().getMessage(), 0, Boolean.valueOf(this.c.isPopNotif()));
                     return;
                 }
             } else {
@@ -68,29 +68,29 @@ public class a extends b {
                     adsApkDownloader.removeObservers();
                 }
                 com.baidu.mobads.openad.b.b.b(appPackageName);
-                d.a(this.f3352a).removeAdsApkDownloader(appPackageName);
+                d.a(this.f3314a).removeAdsApkDownloader(appPackageName);
             }
-            com.baidu.mobads.command.a a4 = com.baidu.mobads.command.a.a(this.f3352a, appPackageName);
+            com.baidu.mobads.command.a a4 = com.baidu.mobads.command.a.a(this.f3314a, appPackageName);
             if (a4 != null) {
-                if (a4.g == IOAdDownloader.DownloadStatus.COMPLETED && a(this.f3352a, a4)) {
+                if (a4.g == IOAdDownloader.DownloadStatus.COMPLETED && a(this.f3314a, a4)) {
                     b(a4);
                     return;
                 }
                 uRIUitls.pintHttpInNewThread(this.c.getClickThroughUrl());
             } else if (b()) {
-                commonUtils.sendDownloadAdLog(this.f3352a, 529, "alreadyinstalled1", this.f3353b != null ? this.f3353b.getProdInfo().getProdType() : "", appPackageName, commonUtils.getAppId(this.f3352a), this.f3353b != null ? this.f3353b.getAdRequestInfo().getApid() : "", systemUtils.getPhoneOSBrand(), Build.MODEL, Build.VERSION.RELEASE, Build.VERSION.SDK_INT);
-                XAdSDKFoundationFacade.getInstance().getPackageUtils().openApp(this.f3352a, this.c.getAppPackageName());
+                commonUtils.sendDownloadAdLog(this.f3314a, 529, "alreadyinstalled1", this.f3315b != null ? this.f3315b.getProdInfo().getProdType() : "", appPackageName, commonUtils.getAppId(this.f3314a), this.f3315b != null ? this.f3315b.getAdRequestInfo().getApid() : "", systemUtils.getPhoneOSBrand(), Build.MODEL, Build.VERSION.RELEASE, Build.VERSION.SDK_INT);
+                XAdSDKFoundationFacade.getInstance().getPackageUtils().openApp(this.f3314a, this.c.getAppPackageName());
                 uRIUitls.pintHttpInNewThread(this.c.getClickThroughUrl());
-                com.baidu.mobads.production.b.f().getXMonitorActivation(this.f3352a, this.e).startMonitor();
+                com.baidu.mobads.production.b.f().getXMonitorActivation(this.f3314a, this.e).startMonitor();
                 return;
             } else {
                 String appName = this.c.getAppName();
                 a4 = new com.baidu.mobads.command.a(appPackageName, ((appName == null || appName.equals("")) && ((appName = this.c.getTitle()) == null || appName.equals(""))) ? "您点击的应用" : appName);
                 a4.a(this.c.getQueryKey(), this.c.getAdId(), this.c.getClickThroughUrl(), this.c.isAutoOpen());
                 a4.m = this.c.isPopNotif();
-                a4.a(commonUtils.getMD5(a4.j) + ".apk", l.a(this.f3352a));
-                if (this.f3353b != null) {
-                    a4.b(this.f3353b.getAdRequestInfo().getApid(), this.f3353b.getProdInfo().getProdType());
+                a4.a(commonUtils.getMD5(a4.j) + ".apk", l.a(this.f3314a));
+                if (this.f3315b != null) {
+                    a4.b(this.f3315b.getAdRequestInfo().getApid(), this.f3315b.getProdInfo().getProdType());
                 }
                 a4.f = com.baidu.mobads.openad.b.b.c(appPackageName);
                 a4.s = this.c.isActionOnlyWifi() ? false : true;
@@ -99,19 +99,19 @@ public class a extends b {
                 a4.a(this.c.isTooLarge());
             }
             a4.t = System.currentTimeMillis();
-            IOAdDownloader createAdsApkDownloader = XAdSDKFoundationFacade.getInstance().getDownloaderManager(this.f3352a).createAdsApkDownloader(new URL(a4.j), a4.c, a4.f3351b, 3, a4.f3350a, a4.i);
+            IOAdDownloader createAdsApkDownloader = XAdSDKFoundationFacade.getInstance().getDownloaderManager(this.f3314a).createAdsApkDownloader(new URL(a4.j), a4.c, a4.f3313b, 3, a4.f3312a, a4.i);
             if (this.c.getAPOOpen() && this.c.getPage() != null && !this.c.getPage().equals("")) {
                 a4.w = true;
                 a4.x = this.c.getPage();
             }
-            createAdsApkDownloader.addObserver(new com.baidu.mobads.openad.b.b(this.f3352a, a4));
-            if (!a4.s && systemUtils.is3GConnected(this.f3352a).booleanValue()) {
-                commonUtils.sendDownloadAdLog(this.f3352a, 529, "waitwifi", this.f3353b != null ? this.f3353b.getProdInfo().getProdType() : "", appPackageName, commonUtils.getAppId(this.f3352a), this.f3353b != null ? this.f3353b.getAdRequestInfo().getApid() : "", systemUtils.getPhoneOSBrand(), Build.MODEL, Build.VERSION.RELEASE, Build.VERSION.SDK_INT);
+            createAdsApkDownloader.addObserver(new com.baidu.mobads.openad.b.b(this.f3314a, a4));
+            if (!a4.s && systemUtils.is3GConnected(this.f3314a).booleanValue()) {
+                commonUtils.sendDownloadAdLog(this.f3314a, 529, "waitwifi", this.f3315b != null ? this.f3315b.getProdInfo().getProdType() : "", appPackageName, commonUtils.getAppId(this.f3314a), this.f3315b != null ? this.f3315b.getAdRequestInfo().getApid() : "", systemUtils.getPhoneOSBrand(), Build.MODEL, Build.VERSION.RELEASE, Build.VERSION.SDK_INT);
                 createAdsApkDownloader.pause();
-                a(this.f3352a, createAdsApkDownloader.getTitle() + " 将在连入Wifi后开始下载", 0, Boolean.valueOf(this.c.isPopNotif()));
+                a(this.f3314a, createAdsApkDownloader.getTitle() + " 将在连入Wifi后开始下载", 0, Boolean.valueOf(this.c.isPopNotif()));
                 return;
             }
-            commonUtils.sendDownloadAdLog(this.f3352a, 527, "realstart", this.f3353b != null ? this.f3353b.getProdInfo().getProdType() : "", appPackageName, commonUtils.getAppId(this.f3352a), this.f3353b != null ? this.f3353b.getAdRequestInfo().getApid() : "", systemUtils.getPhoneOSBrand(), Build.MODEL, Build.VERSION.RELEASE, Build.VERSION.SDK_INT);
+            commonUtils.sendDownloadAdLog(this.f3314a, 527, "realstart", this.f3315b != null ? this.f3315b.getProdInfo().getProdType() : "", appPackageName, commonUtils.getAppId(this.f3314a), this.f3315b != null ? this.f3315b.getAdRequestInfo().getApid() : "", systemUtils.getPhoneOSBrand(), Build.MODEL, Build.VERSION.RELEASE, Build.VERSION.SDK_INT);
             createAdsApkDownloader.start();
         } catch (Exception e) {
             this.e.e("XAdDownloadAPKCommand", e);
@@ -126,7 +126,7 @@ public class a extends b {
     }
 
     private boolean b() {
-        return XAdSDKFoundationFacade.getInstance().getPackageUtils().isInstalled(this.f3352a, this.c.getAppPackageName());
+        return XAdSDKFoundationFacade.getInstance().getPackageUtils().isInstalled(this.f3314a, this.c.getAppPackageName());
     }
 
     protected boolean a(Context context, com.baidu.mobads.command.a aVar) {
@@ -134,12 +134,12 @@ public class a extends b {
         e commonUtils = XAdSDKFoundationFacade.getInstance().getCommonUtils();
         IXAdSystemUtils systemUtils = XAdSDKFoundationFacade.getInstance().getSystemUtils();
         if (isInstalled) {
-            commonUtils.sendDownloadAdLog(this.f3352a, 529, "alreadyinstalled", this.f3353b != null ? this.f3353b.getProdInfo().getProdType() : "", aVar.i, commonUtils.getAppId(this.f3352a), this.f3353b != null ? this.f3353b.getAdRequestInfo().getApid() : "", systemUtils.getPhoneOSBrand(), Build.MODEL, Build.VERSION.RELEASE, Build.VERSION.SDK_INT);
+            commonUtils.sendDownloadAdLog(this.f3314a, 529, "alreadyinstalled", this.f3315b != null ? this.f3315b.getProdInfo().getProdType() : "", aVar.i, commonUtils.getAppId(this.f3314a), this.f3315b != null ? this.f3315b.getAdRequestInfo().getApid() : "", systemUtils.getPhoneOSBrand(), Build.MODEL, Build.VERSION.RELEASE, Build.VERSION.SDK_INT);
             XAdSDKFoundationFacade.getInstance().getPackageUtils().openApp(context, aVar.i);
             return true;
         }
-        commonUtils.sendDownloadAdLog(this.f3352a, 529, "alreadydownloaded", this.f3353b != null ? this.f3353b.getProdInfo().getProdType() : "", aVar.i, commonUtils.getAppId(this.f3352a), this.f3353b != null ? this.f3353b.getAdRequestInfo().getApid() : "", systemUtils.getPhoneOSBrand(), Build.MODEL, Build.VERSION.RELEASE, Build.VERSION.SDK_INT);
-        String str = aVar.c + aVar.f3351b;
+        commonUtils.sendDownloadAdLog(this.f3314a, 529, "alreadydownloaded", this.f3315b != null ? this.f3315b.getProdInfo().getProdType() : "", aVar.i, commonUtils.getAppId(this.f3314a), this.f3315b != null ? this.f3315b.getAdRequestInfo().getApid() : "", systemUtils.getPhoneOSBrand(), Build.MODEL, Build.VERSION.RELEASE, Build.VERSION.SDK_INT);
+        String str = aVar.c + aVar.f3313b;
         File file = new File(str);
         if (file.exists() && file.length() > 0) {
             XAdSDKFoundationFacade.getInstance().getPackageUtils().b(context, str);
@@ -152,7 +152,7 @@ public class a extends b {
         if (com.baidu.mobads.production.b.f() != null) {
             IXAppInfo a2 = a(aVar);
             if (a2 != null) {
-                com.baidu.mobads.production.b.f().getXMonitorActivation(this.f3352a, this.e).addAppInfoForMonitor(a2);
+                com.baidu.mobads.production.b.f().getXMonitorActivation(this.f3314a, this.e).addAppInfoForMonitor(a2);
             } else {
                 this.e.e("addAppInfoForMonitor error, appInfo is null");
             }

@@ -18,106 +18,106 @@ import com.baidu.live.tbadk.widget.TbImageView;
 import com.baidu.live.tieba.view.AlaEmoticonView;
 import com.baidu.live.view.f;
 import com.baidu.live.yuyinim.b.b;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class a extends TypeAdapter.ViewHolder {
-    public int aQl;
-    public int aQm;
-    public int aQn;
-    public int aQo;
-    public int aQp;
-    private final int ama;
-    private final int blA;
-    private final int blB;
-    private final int blC;
-    private final int blD;
-    private final int blE;
-    private final int blF;
-    private final int blG;
-    private final int blH;
-    private ViewGroup blI;
-    public TextView blJ;
-    public ImageView blK;
-    public View blL;
-    public TbImageView blN;
-    private boolean blO;
-    public boolean blP;
-    public boolean blQ;
-    private final int blz;
-    public HeadImageView cbK;
-    public LinearLayout cdr;
-    public TextView cds;
-    public AlaEmoticonView cdu;
+    public int aLA;
+    public int aLB;
+    public int aLC;
+    public int aLy;
+    public int aLz;
+    private final int ali;
+    public HeadImageView bWX;
+    public LinearLayout bYC;
+    public TextView bYD;
+    public AlaEmoticonView bYE;
+    private final int bgK;
+    private final int bgL;
+    private final int bgM;
+    private final int bgN;
+    private final int bgO;
+    private final int bgP;
+    private final int bgQ;
+    private final int bgR;
+    private final int bgS;
+    private ViewGroup bgT;
+    public TextView bgU;
+    public ImageView bgV;
+    public View bgW;
+    public TbImageView bgY;
+    private boolean bgZ;
+    public boolean bha;
+    public boolean bhb;
 
     public a(Context context, boolean z) {
         super(LayoutInflater.from(context).inflate(a.g.yuyinala_msg_item_layout, (ViewGroup) null));
-        this.blz = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(a.d.sdk_ds4);
-        this.blA = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(a.d.sdk_ds6);
-        this.blB = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(a.d.sdk_ds12);
-        this.blC = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(a.d.sdk_ds36);
-        this.blD = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(a.d.sdk_ds26);
-        this.blE = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(a.d.sdk_tbds10);
-        this.ama = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(a.d.sdk_tbds26);
-        this.blF = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(a.d.sdk_tbds48);
-        this.blG = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(a.d.sdk_ds56);
-        this.blH = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(a.d.sdk_ds45);
-        this.blO = z;
-        this.blI = (ViewGroup) getView().findViewById(a.f.ala_msg_root_layout);
-        this.cdr = (LinearLayout) getView().findViewById(a.f.ll_yuyinala_content);
-        this.blJ = (TextView) getView().findViewById(a.f.ala_msg_content);
-        this.cds = (TextView) getView().findViewById(a.f.tv_room_name);
-        this.blK = (ImageView) getView().findViewById(a.f.iv_tail);
-        this.blL = getView().findViewById(a.f.head_layout);
-        this.cbK = (HeadImageView) getView().findViewById(a.f.head_imageView);
-        this.blN = (TbImageView) getView().findViewById(a.f.headBorder_imageView);
-        this.cdu = (AlaEmoticonView) getView().findViewById(a.f.aev_ala_Emoticon);
-        this.cbK.setIsRound(true);
-        this.cbK.setBorderColor(context.getResources().getColor(a.c.sdk_black_alpha10));
-        this.cbK.setAutoChangeStyle(false);
-        if (this.blO) {
-            this.blJ.setShadowLayer(0.0f, 0.0f, 0.0f, 0);
-            this.blI.setBackgroundDrawable(null);
-            this.blI.setPadding(0, 0, 0, 0);
+        this.bgK = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(a.d.sdk_ds4);
+        this.bgL = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(a.d.sdk_ds6);
+        this.bgM = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(a.d.sdk_ds12);
+        this.bgN = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(a.d.sdk_ds36);
+        this.bgO = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(a.d.sdk_ds26);
+        this.bgP = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(a.d.sdk_tbds10);
+        this.ali = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(a.d.sdk_tbds26);
+        this.bgQ = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(a.d.sdk_tbds48);
+        this.bgR = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(a.d.sdk_ds56);
+        this.bgS = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(a.d.sdk_ds45);
+        this.bgZ = z;
+        this.bgT = (ViewGroup) getView().findViewById(a.f.ala_msg_root_layout);
+        this.bYC = (LinearLayout) getView().findViewById(a.f.ll_yuyinala_content);
+        this.bgU = (TextView) getView().findViewById(a.f.ala_msg_content);
+        this.bYD = (TextView) getView().findViewById(a.f.tv_room_name);
+        this.bgV = (ImageView) getView().findViewById(a.f.iv_tail);
+        this.bgW = getView().findViewById(a.f.head_layout);
+        this.bWX = (HeadImageView) getView().findViewById(a.f.head_imageView);
+        this.bgY = (TbImageView) getView().findViewById(a.f.headBorder_imageView);
+        this.bYE = (AlaEmoticonView) getView().findViewById(a.f.aev_ala_Emoticon);
+        this.bWX.setIsRound(true);
+        this.bWX.setBorderColor(context.getResources().getColor(a.c.sdk_black_alpha10));
+        this.bWX.setAutoChangeStyle(false);
+        if (this.bgZ) {
+            this.bgU.setShadowLayer(0.0f, 0.0f, 0.0f, 0);
+            this.bgT.setBackgroundDrawable(null);
+            this.bgT.setPadding(0, 0, 0, 0);
         }
     }
 
     public void a(Context context, b bVar) {
-        boolean z = bVar.bra;
+        boolean z = bVar.bmn;
         boolean z2 = bVar.isNormal;
-        boolean z3 = bVar.brc;
-        boolean z4 = bVar.brd;
-        boolean z5 = bVar.bre;
-        boolean z6 = bVar.brf;
-        if (!this.blO) {
-            this.blK.setVisibility(8);
+        boolean z3 = bVar.bmq;
+        boolean z4 = bVar.bmr;
+        boolean z5 = bVar.bms;
+        boolean z6 = bVar.bmt;
+        if (!this.bgZ) {
+            this.bgV.setVisibility(8);
             if (z) {
-                int i = this.ama;
-                if (this.blP) {
-                    if (this.blQ) {
-                        i = this.blz + this.blB + this.blC;
-                        this.blK.setVisibility(0);
+                int i = this.ali;
+                if (this.bha) {
+                    if (this.bhb) {
+                        i = this.bgK + this.bgM + this.bgN;
+                        this.bgV.setVisibility(0);
                     }
-                    aV(context);
+                    aU(context);
                 } else if (z3) {
-                    this.cdr.setBackgroundResource(a.e.ala_im_msg_redpacket_bg);
+                    this.bYC.setBackgroundResource(a.e.ala_im_msg_redpacket_bg);
                 } else if (z4) {
-                    aW(context);
+                    aV(context);
                 } else if (z5) {
-                    this.cdr.setBackgroundResource(a.e.ala_im_msg_guardclub_join_bg);
+                    this.bYC.setBackgroundResource(a.e.ala_im_msg_guardclub_join_bg);
                 } else if (z6) {
-                    this.cdr.setBackgroundResource(a.e.ala_im_msg_goods_tips_bg);
+                    this.bYC.setBackgroundResource(a.e.ala_im_msg_goods_tips_bg);
                 } else {
-                    this.cdr.setBackgroundResource(a.e.ala_im_msg_normal_bg);
+                    this.bYC.setBackgroundResource(a.e.ala_im_msg_normal_bg);
                 }
-                this.blJ.setPadding(this.ama, this.blz, i, this.blA);
-                this.cds.setPadding(this.ama, 0, 0, 0);
+                this.bgU.setPadding(this.ali, this.bgK, i, this.bgL);
+                this.bYD.setPadding(this.ali, 0, 0, 0);
             } else if (z2) {
-                int i2 = this.blE;
-                this.cdr.setBackgroundDrawable(null);
-                this.blJ.setPadding(this.blE, 0, i2, 0);
-                this.cds.setPadding(this.blE, 0, 0, 0);
+                int i2 = this.bgP;
+                this.bYC.setBackgroundDrawable(null);
+                this.bgU.setPadding(this.bgP, 0, i2, 0);
+                this.bYD.setPadding(this.bgP, 0, 0, 0);
             } else {
-                this.cdr.setBackgroundDrawable(null);
-                this.blJ.setPadding(0, 0, 0, 0);
+                this.bYC.setBackgroundDrawable(null);
+                this.bgU.setPadding(0, 0, 0, 0);
             }
         }
     }
@@ -127,82 +127,82 @@ public class a extends TypeAdapter.ViewHolder {
         boolean z2 = true;
         if (z) {
             if (i == 4) {
-                this.blN.setImageResource(a.e.sdk_pic_noble_avatar_box_earl);
+                this.bgY.setImageResource(a.e.sdk_pic_noble_avatar_box_earl);
             } else if (i == 5) {
-                this.blN.setImageResource(a.e.sdk_pic_noble_avatar_box_marquis);
+                this.bgY.setImageResource(a.e.sdk_pic_noble_avatar_box_marquis);
             } else if (i == 6) {
-                this.blN.setImageResource(a.e.sdk_pic_noble_avatar_box_duke);
+                this.bgY.setImageResource(a.e.sdk_pic_noble_avatar_box_duke);
             } else if (i == 7) {
-                this.blN.setImageResource(a.e.sdk_pic_noble_avatar_box_king);
+                this.bgY.setImageResource(a.e.sdk_pic_noble_avatar_box_king);
             } else {
                 z2 = false;
             }
-            int i3 = this.blH;
+            int i3 = this.bgS;
             if (z2) {
-                this.blN.setVisibility(0);
-                i2 = this.blH;
+                this.bgY.setVisibility(0);
+                i2 = this.bgS;
             } else {
-                this.blN.setVisibility(8);
-                i2 = this.blG;
+                this.bgY.setVisibility(8);
+                i2 = this.bgR;
             }
-            this.cbK.getLayoutParams().width = i2;
-            this.cbK.getLayoutParams().height = i2;
-            this.cbK.stopLoad();
-            this.cbK.startLoad(str, 12, false, false);
-            this.blL.setVisibility(0);
+            this.bWX.getLayoutParams().width = i2;
+            this.bWX.getLayoutParams().height = i2;
+            this.bWX.stopLoad();
+            this.bWX.startLoad(str, 12, false, false);
+            this.bgW.setVisibility(0);
             return;
         }
-        this.blL.setVisibility(8);
+        this.bgW.setVisibility(8);
     }
 
     public void m(Context context, boolean z) {
-        if (!this.blO) {
+        if (!this.bgZ) {
             if (z) {
-                this.blJ.setShadowLayer(1.0f, 2.0f, 2.0f, context.getResources().getColor(a.c.sdk_black_alpha30));
+                this.bgU.setShadowLayer(1.0f, 2.0f, 2.0f, context.getResources().getColor(a.c.sdk_black_alpha30));
             } else {
-                this.blJ.setShadowLayer(0.0f, 0.0f, 0.0f, 0);
+                this.bgU.setShadowLayer(0.0f, 0.0f, 0.0f, 0);
             }
         }
     }
 
-    public void ce(boolean z) {
+    public void ca(boolean z) {
         if (z) {
-            if (this.blJ != null) {
-                this.blJ.setTextSize(0, this.blF);
-                this.blJ.setTypeface(Typeface.defaultFromStyle(1));
+            if (this.bgU != null) {
+                this.bgU.setTextSize(0, this.bgQ);
+                this.bgU.setTypeface(Typeface.defaultFromStyle(1));
             }
-        } else if (this.blJ != null) {
-            this.blJ.setTextSize(0, this.blD);
+        } else if (this.bgU != null) {
+            this.bgU.setTextSize(0, this.bgO);
         }
+    }
+
+    private void aU(Context context) {
+        f fVar = new f();
+        fVar.setAlpha(this.aLC);
+        fVar.setCornerRadius(context.getResources().getDimensionPixelOffset(a.d.sdk_tbds39));
+        if (this.aLA != 0 || this.aLB != 0) {
+            fVar.setColors(this.aLy, this.aLz, this.aLA, this.aLB);
+            fVar.setStrokeWidth(TypedValue.applyDimension(1, 0.5f, context.getResources().getDisplayMetrics()));
+        } else {
+            fVar.N(this.aLy, this.aLz);
+        }
+        this.bYC.setBackgroundDrawable(fVar);
     }
 
     private void aV(Context context) {
         f fVar = new f();
-        fVar.setAlpha(this.aQp);
-        fVar.setCornerRadius(context.getResources().getDimensionPixelOffset(a.d.sdk_tbds39));
-        if (this.aQn != 0 || this.aQo != 0) {
-            fVar.setColors(this.aQl, this.aQm, this.aQn, this.aQo);
-            fVar.setStrokeWidth(TypedValue.applyDimension(1, 0.5f, context.getResources().getDisplayMetrics()));
-        } else {
-            fVar.N(this.aQl, this.aQm);
-        }
-        this.cdr.setBackgroundDrawable(fVar);
-    }
-
-    private void aW(Context context) {
-        f fVar = new f();
         fVar.setCornerRadius(context.getResources().getDimensionPixelOffset(a.d.sdk_tbds39));
         fVar.setColors(Color.parseColor("#66d87100"), Color.parseColor("#66ecb721"), Color.parseColor("#ffac51"), Color.parseColor("#ffdb76"));
         fVar.setStrokeWidth(1.0f);
-        this.cdr.setBackgroundDrawable(fVar);
+        this.bYC.setBackgroundDrawable(fVar);
     }
 
     public void reset() {
-        this.aQl = 0;
-        this.aQm = 0;
-        this.aQn = 0;
-        this.aQo = 0;
-        this.aQp = 255;
-        this.blQ = false;
+        this.aLy = 0;
+        this.aLz = 0;
+        this.aLA = 0;
+        this.aLB = 0;
+        this.aLC = 255;
+        this.bhb = false;
     }
 }

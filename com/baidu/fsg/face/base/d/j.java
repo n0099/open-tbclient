@@ -16,14 +16,14 @@ import android.view.WindowManager;
 import android.widget.FrameLayout;
 import com.baidu.ar.constants.HttpConstants;
 import java.lang.reflect.Method;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class j {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final int f2151a = -1728053248;
+    public static final int f2101a = -1728053248;
 
     /* renamed from: b  reason: collision with root package name */
-    private static String f2152b;
+    private static String f2102b;
     private final a c;
     private boolean d;
     private boolean e;
@@ -35,9 +35,9 @@ public class j {
             try {
                 Method declaredMethod = Class.forName("android.os.SystemProperties").getDeclaredMethod("get", String.class);
                 declaredMethod.setAccessible(true);
-                f2152b = (String) declaredMethod.invoke(null, "qemu.hw.mainkeys");
+                f2102b = (String) declaredMethod.invoke(null, "qemu.hw.mainkeys");
             } catch (Throwable th) {
-                f2152b = null;
+                f2102b = null;
             }
         }
     }
@@ -133,14 +133,14 @@ public class j {
         viewGroup.addView(this.g);
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        private static final String f2153a = "status_bar_height";
+        private static final String f2103a = "status_bar_height";
 
         /* renamed from: b  reason: collision with root package name */
-        private static final String f2154b = "navigation_bar_height";
+        private static final String f2104b = "navigation_bar_height";
         private static final String c = "navigation_bar_height_landscape";
         private static final String d = "navigation_bar_width";
         private static final String e = "config_showNavigationBar";
@@ -155,7 +155,7 @@ public class j {
             Resources resources = activity.getResources();
             this.j = resources.getConfiguration().orientation == 1;
             this.k = a(activity);
-            this.f = a(resources, f2153a);
+            this.f = a(resources, f2103a);
             this.h = a((Context) activity);
             this.i = b(activity);
             this.g = this.h > 0;
@@ -169,7 +169,7 @@ public class j {
                 return 0;
             }
             if (this.j) {
-                str = f2154b;
+                str = f2104b;
             } else {
                 str = c;
             }
@@ -199,10 +199,10 @@ public class j {
             int identifier = resources.getIdentifier(e, "bool", HttpConstants.OS_TYPE_VALUE);
             if (identifier != 0) {
                 boolean z = resources.getBoolean(identifier);
-                if ("1".equals(j.f2152b)) {
+                if ("1".equals(j.f2102b)) {
                     return false;
                 }
-                if ("0".equals(j.f2152b)) {
+                if ("0".equals(j.f2102b)) {
                     return true;
                 }
                 return z;

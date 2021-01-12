@@ -7,13 +7,13 @@ import java.util.List;
 /* loaded from: classes2.dex */
 public class a {
     public boolean hasMore;
-    public int jyD;
-    public ScoreCardInfo jyF;
-    public List<bz> jyE = new ArrayList();
-    public List<FeatureCardHot> jyG = new ArrayList();
-    public List<FeatureCardTopic> jyH = new ArrayList();
-    public List<b> jyI = new ArrayList();
-    public List<FeatureCardCompetition> jyJ = new ArrayList();
-    public List<FeatureCardGod> jyK = new ArrayList();
-    public List<FeatureCardGame> jyL = new ArrayList();
+    public int jtX;
+    public ScoreCardInfo jtZ;
+    public List<bz> jtY = new ArrayList();
+    public List<FeatureCardHot> jua = new ArrayList();
+    public List<FeatureCardTopic> jub = new ArrayList();
+    public List<b> juc = new ArrayList();
+    public List<FeatureCardCompetition> jud = new ArrayList();
+    public List<FeatureCardGod> jue = new ArrayList();
+    public List<FeatureCardGame> juf = new ArrayList();
 }

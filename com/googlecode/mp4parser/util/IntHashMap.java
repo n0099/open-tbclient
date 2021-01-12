@@ -1,7 +1,7 @@
 package com.googlecode.mp4parser.util;
 
 import androidx.appcompat.widget.ActivityChooserView;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class IntHashMap {
     private transient int count;
     private float loadFactor;
@@ -9,18 +9,18 @@ public class IntHashMap {
     private int threshold;
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class a {
         int hash;
         int key;
-        a pRH;
+        a pNh;
         Object value;
 
         protected a(int i, int i2, Object obj, a aVar) {
             this.hash = i;
             this.key = i2;
             this.value = obj;
-            this.pRH = aVar;
+            this.pNh = aVar;
         }
     }
 
@@ -62,7 +62,7 @@ public class IntHashMap {
         while (true) {
             int i = length - 1;
             if (length > 0) {
-                for (a aVar = aVarArr[i]; aVar != null; aVar = aVar.pRH) {
+                for (a aVar = aVarArr[i]; aVar != null; aVar = aVar.pNh) {
                     if (aVar.value.equals(obj)) {
                         return true;
                     }
@@ -80,7 +80,7 @@ public class IntHashMap {
 
     public boolean containsKey(int i) {
         a[] aVarArr = this.table;
-        for (a aVar = aVarArr[(Integer.MAX_VALUE & i) % aVarArr.length]; aVar != null; aVar = aVar.pRH) {
+        for (a aVar = aVarArr[(Integer.MAX_VALUE & i) % aVarArr.length]; aVar != null; aVar = aVar.pNh) {
             if (aVar.hash == i) {
                 return true;
             }
@@ -90,7 +90,7 @@ public class IntHashMap {
 
     public Object get(int i) {
         a[] aVarArr = this.table;
-        for (a aVar = aVarArr[(Integer.MAX_VALUE & i) % aVarArr.length]; aVar != null; aVar = aVar.pRH) {
+        for (a aVar = aVarArr[(Integer.MAX_VALUE & i) % aVarArr.length]; aVar != null; aVar = aVar.pNh) {
             if (aVar.hash == i) {
                 return aVar.value;
             }
@@ -110,9 +110,9 @@ public class IntHashMap {
             if (length > 0) {
                 a aVar = aVarArr[i2];
                 while (aVar != null) {
-                    a aVar2 = aVar.pRH;
+                    a aVar2 = aVar.pNh;
                     int i3 = (aVar.hash & ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED) % i;
-                    aVar.pRH = aVarArr2[i3];
+                    aVar.pNh = aVarArr2[i3];
                     aVarArr2[i3] = aVar;
                     aVar = aVar2;
                 }
@@ -126,7 +126,7 @@ public class IntHashMap {
     public Object put(int i, Object obj) {
         a[] aVarArr = this.table;
         int length = (i & ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED) % aVarArr.length;
-        for (a aVar = aVarArr[length]; aVar != null; aVar = aVar.pRH) {
+        for (a aVar = aVarArr[length]; aVar != null; aVar = aVar.pNh) {
             if (aVar.hash == i) {
                 Object obj2 = aVar.value;
                 aVar.value = obj;
@@ -147,14 +147,14 @@ public class IntHashMap {
         a[] aVarArr = this.table;
         int length = (Integer.MAX_VALUE & i) % aVarArr.length;
         a aVar = null;
-        for (a aVar2 = aVarArr[length]; aVar2 != null; aVar2 = aVar2.pRH) {
+        for (a aVar2 = aVarArr[length]; aVar2 != null; aVar2 = aVar2.pNh) {
             if (aVar2.hash != i) {
                 aVar = aVar2;
             } else {
                 if (aVar != null) {
-                    aVar.pRH = aVar2.pRH;
+                    aVar.pNh = aVar2.pNh;
                 } else {
-                    aVarArr[length] = aVar2.pRH;
+                    aVarArr[length] = aVar2.pNh;
                 }
                 this.count--;
                 Object obj = aVar2.value;

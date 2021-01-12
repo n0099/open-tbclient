@@ -7,22 +7,22 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.a.a;
 import com.baidu.tbadk.core.data.AccountData;
 import com.baidu.tbadk.core.relogin.ReloginManager;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class a extends com.baidu.tbadk.core.a.a {
-    private static a lCH = null;
-    private final a.InterfaceC0575a lCI = new a.InterfaceC0575a() { // from class: com.baidu.tieba.passaccount.a.a.1
-        @Override // com.baidu.tbadk.core.a.a.InterfaceC0575a
+    private static a lyb = null;
+    private final a.InterfaceC0558a lyc = new a.InterfaceC0558a() { // from class: com.baidu.tieba.passaccount.a.a.1
+        @Override // com.baidu.tbadk.core.a.a.InterfaceC0558a
         public void onBeforeLogin(String str) {
         }
 
-        @Override // com.baidu.tbadk.core.a.a.InterfaceC0575a
+        @Override // com.baidu.tbadk.core.a.a.InterfaceC0558a
         public void a(AccountData accountData) {
         }
 
-        @Override // com.baidu.tbadk.core.a.a.InterfaceC0575a
+        @Override // com.baidu.tbadk.core.a.a.InterfaceC0558a
         public void onFailure(String str, int i, String str2) {
             if (i == 1) {
-                ReloginManager.bvj().e(null);
+                ReloginManager.brp().e(null);
             }
         }
     };
@@ -30,15 +30,15 @@ public class a extends com.baidu.tbadk.core.a.a {
     private a() {
     }
 
-    public static a dlJ() {
-        if (lCH == null) {
-            lCH = new a();
+    public static a dhR() {
+        if (lyb == null) {
+            lyb = new a();
         }
-        return lCH;
+        return lyb;
     }
 
     @Override // com.baidu.tbadk.core.a.a
-    public a.b AB(String str) {
+    public a.b zq(String str) {
         a.b bVar;
         if (str != null) {
             try {
@@ -71,9 +71,9 @@ public class a extends com.baidu.tbadk.core.a.a {
         if (j.isNetWorkAvailable()) {
             AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
             if (currentAccountObj != null) {
-                a.b AB = AB(currentAccountObj.getBDUSS());
-                if (AB != null) {
-                    com.baidu.tieba.model.b.a(currentAccountObj.getAccount(), AB.mBduss, AB.mPtoken, currentAccountObj.getStoken(), this.lCI);
+                a.b zq = zq(currentAccountObj.getBDUSS());
+                if (zq != null) {
+                    com.baidu.tieba.model.b.a(currentAccountObj.getAccount(), zq.mBduss, zq.mPtoken, currentAccountObj.getStoken(), this.lyc);
                     return;
                 }
                 return;
@@ -83,7 +83,7 @@ public class a extends com.baidu.tbadk.core.a.a {
     }
 
     @Override // com.baidu.tbadk.core.a.a
-    public BdAsyncTask<?, ?, ?> a(String str, String str2, String str3, String str4, a.InterfaceC0575a interfaceC0575a) {
-        return com.baidu.tieba.model.b.a(str, str2, str3, str4, interfaceC0575a);
+    public BdAsyncTask<?, ?, ?> a(String str, String str2, String str3, String str4, a.InterfaceC0558a interfaceC0558a) {
+        return com.baidu.tieba.model.b.a(str, str2, str3, str4, interfaceC0558a);
     }
 }

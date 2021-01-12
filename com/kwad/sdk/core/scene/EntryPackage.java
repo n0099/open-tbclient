@@ -4,7 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.kwad.sdk.utils.o;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class EntryPackage extends URLPackage {
     private static final long serialVersionUID = 8251709184937662571L;
     public String entryId;

@@ -4,17 +4,17 @@ import com.baidu.live.adp.lib.util.StringUtils;
 import com.baidu.live.tbadk.statics.SdkStaticKeys;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class cd {
-    private av aSH;
-    private av aSI;
-    private av aSJ;
-    private av aSK;
-    private av aSL;
-    private av aSM;
-    private av aSN;
+    private av aNU;
+    private av aNV;
+    private av aNW;
+    private av aNX;
+    private av aNY;
+    private av aNZ;
+    private av aOa;
 
-    public static cd gr(String str) {
+    public static cd fg(String str) {
         if (StringUtils.isNull(str)) {
             return null;
         }
@@ -35,26 +35,26 @@ public class cd {
         }
         JSONObject jSONObject = new JSONObject();
         try {
-            if (cdVar.aSH != null) {
-                jSONObject.put("change_mode", cdVar.aSH.toJson());
+            if (cdVar.aNU != null) {
+                jSONObject.put("change_mode", cdVar.aNU.toJson());
             }
-            if (cdVar.aSI != null) {
-                jSONObject.put("match_success", cdVar.aSI.toJson());
+            if (cdVar.aNV != null) {
+                jSONObject.put("match_success", cdVar.aNV.toJson());
             }
-            if (cdVar.aSJ != null) {
-                jSONObject.put(SdkStaticKeys.RANK_TYPE_CHARM, cdVar.aSJ.toJson());
+            if (cdVar.aNW != null) {
+                jSONObject.put(SdkStaticKeys.RANK_TYPE_CHARM, cdVar.aNW.toJson());
             }
-            if (cdVar.aSK != null) {
-                jSONObject.put("red_package_rain", cdVar.aSK.toJson());
+            if (cdVar.aNX != null) {
+                jSONObject.put("red_package_rain", cdVar.aNX.toJson());
             }
-            if (cdVar.aSL != null) {
-                jSONObject.put("pk_start", cdVar.aSL.toJson());
+            if (cdVar.aNY != null) {
+                jSONObject.put("pk_start", cdVar.aNY.toJson());
             }
-            if (cdVar.aSM != null) {
-                jSONObject.put("pk_red_win", cdVar.aSM.toJson());
+            if (cdVar.aNZ != null) {
+                jSONObject.put("pk_red_win", cdVar.aNZ.toJson());
             }
-            if (cdVar.aSN != null) {
-                jSONObject.put("pk_blue_win", cdVar.aSN.toJson());
+            if (cdVar.aOa != null) {
+                jSONObject.put("pk_blue_win", cdVar.aOa.toJson());
             }
         } catch (JSONException e) {
             e.printStackTrace();
@@ -64,48 +64,48 @@ public class cd {
 
     public void parse(JSONObject jSONObject) {
         if (jSONObject != null) {
-            this.aSH = new av();
-            this.aSH.parse(jSONObject.optJSONObject("change_mode"));
-            this.aSI = new av();
-            this.aSI.parse(jSONObject.optJSONObject("match_success"));
-            this.aSJ = new av();
-            this.aSJ.parse(jSONObject.optJSONObject(SdkStaticKeys.RANK_TYPE_CHARM));
-            this.aSK = new av();
-            this.aSK.parse(jSONObject.optJSONObject("red_package_rain"));
-            this.aSL = new av();
-            this.aSL.parse(jSONObject.optJSONObject("pk_start"));
-            this.aSM = new av();
-            this.aSM.parse(jSONObject.optJSONObject("pk_red_win"));
-            this.aSN = new av();
-            this.aSN.parse(jSONObject.optJSONObject("pk_blue_win"));
+            this.aNU = new av();
+            this.aNU.parse(jSONObject.optJSONObject("change_mode"));
+            this.aNV = new av();
+            this.aNV.parse(jSONObject.optJSONObject("match_success"));
+            this.aNW = new av();
+            this.aNW.parse(jSONObject.optJSONObject(SdkStaticKeys.RANK_TYPE_CHARM));
+            this.aNX = new av();
+            this.aNX.parse(jSONObject.optJSONObject("red_package_rain"));
+            this.aNY = new av();
+            this.aNY.parse(jSONObject.optJSONObject("pk_start"));
+            this.aNZ = new av();
+            this.aNZ.parse(jSONObject.optJSONObject("pk_red_win"));
+            this.aOa = new av();
+            this.aOa.parse(jSONObject.optJSONObject("pk_blue_win"));
         }
     }
 
-    public av Fk() {
-        return this.aSH;
+    public av Bp() {
+        return this.aNU;
     }
 
-    public av Fl() {
-        return this.aSI;
+    public av Bq() {
+        return this.aNV;
     }
 
-    public av Fm() {
-        return this.aSJ;
+    public av Br() {
+        return this.aNW;
     }
 
-    public av Fn() {
-        return this.aSK;
+    public av Bs() {
+        return this.aNX;
     }
 
-    public av Fo() {
-        return this.aSL;
+    public av Bt() {
+        return this.aNY;
     }
 
-    public av Fp() {
-        return this.aSM;
+    public av Bu() {
+        return this.aNZ;
     }
 
-    public av Fq() {
-        return this.aSN;
+    public av Bv() {
+        return this.aOa;
     }
 }

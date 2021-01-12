@@ -1,7 +1,6 @@
 package com.baidu.ar.vo.a;
 
 import com.baidu.ar.h.i;
-import com.baidu.platform.comapi.map.MapBundleKey;
 import java.io.File;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -43,8 +42,8 @@ public class a {
             if (jSONObject.has("pitch_angle")) {
                 bVar.V(jSONObject.getInt("pitch_angle"));
             }
-            if (jSONObject.has(MapBundleKey.MapObjKey.OBJ_SS_ARROW_ROTATION)) {
-                bVar.aY(jSONObject.getString(MapBundleKey.MapObjKey.OBJ_SS_ARROW_ROTATION));
+            if (jSONObject.has("rotation")) {
+                bVar.aY(jSONObject.getString("rotation"));
             }
             if (jSONObject.has("immediately_place_model")) {
                 bVar.V(jSONObject.getInt("immediately_place_model") == 1);

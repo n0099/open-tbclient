@@ -14,12 +14,13 @@ import com.meizu.cloud.pushsdk.c.f.e;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import com.meizu.cloud.pushsdk.notification.MPushMessage;
 import com.meizu.cloud.pushsdk.notification.model.AppIconSetting;
+import com.meizu.cloud.pushsdk.notification.model.TimeDisplaySetting;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class d {
     private static int a(Context context) {
         if (MzSystemUtils.isMeizu(context)) {
@@ -98,13 +99,13 @@ public class d {
 
     public static void a(Context context, boolean z, String str, String str2, String str3, String str4, String str5, String str6) {
         HashMap hashMap = new HashMap();
-        hashMap.put(h.f1997a, str5);
+        hashMap.put(h.f1947a, str5);
         hashMap.put(Config.FEED_LIST_PART, str3);
         hashMap.put(AppIconSetting.DEFAULT_LARGE_ICON, str2);
         if (TextUtils.isEmpty(str6)) {
             str6 = String.valueOf(System.currentTimeMillis() / 1000);
         }
-        hashMap.put("ts", str6);
+        hashMap.put(TimeDisplaySetting.TIME_DISPLAY_SETTING, str6);
         hashMap.put(Config.PACKAGE_NAME, str);
         hashMap.put("pv", PushManager.TAG);
         if (!TextUtils.isEmpty(str4)) {
@@ -122,7 +123,7 @@ public class d {
         if ("notification_service_message".equals(str)) {
             return;
         }
-        com.meizu.cloud.pushsdk.c.a.a(context, (f) null).a(((b.a) com.meizu.cloud.pushsdk.c.c.b.d().a(str).a(a(context)).a(Long.valueOf(map.get("ts")).longValue())).h(String.valueOf(System.currentTimeMillis() / 1000)).c(map.get(AppIconSetting.DEFAULT_LARGE_ICON)).e(map.get(Config.PACKAGE_NAME)).d(map.get("pv")).b(map.get(Config.FEED_LIST_PART)).f(TextUtils.isEmpty(map.get("si")) ? "" : map.get("si")).g(String.valueOf(b.j(context, map.get(Config.PACKAGE_NAME)))).b(), z);
+        com.meizu.cloud.pushsdk.c.a.a(context, (f) null).a(((b.a) com.meizu.cloud.pushsdk.c.c.b.d().a(str).a(a(context)).a(Long.valueOf(map.get(TimeDisplaySetting.TIME_DISPLAY_SETTING)).longValue())).h(String.valueOf(System.currentTimeMillis() / 1000)).c(map.get(AppIconSetting.DEFAULT_LARGE_ICON)).e(map.get(Config.PACKAGE_NAME)).d(map.get("pv")).b(map.get(Config.FEED_LIST_PART)).f(TextUtils.isEmpty(map.get("si")) ? "" : map.get("si")).g(String.valueOf(b.j(context, map.get(Config.PACKAGE_NAME)))).b(), z);
     }
 
     private static boolean a(Context context, Map<String, String> map) {

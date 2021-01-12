@@ -9,6 +9,7 @@ import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import com.baidu.live.tbadk.statics.AlaStaticKeys;
 import com.baidu.mobads.interfaces.IXAdInstanceInfo;
 import com.baidu.mobads.utils.XAdSDKFoundationFacade;
+import com.baidu.searchbox.account.data.UserAccountActionItem;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Iterator;
@@ -18,7 +19,7 @@ import java.util.Random;
 import java.util.Set;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes14.dex */
 public class XAdInstanceInfo implements Parcelable, IXAdInstanceInfo, Cloneable {
     public static final Parcelable.Creator<XAdInstanceInfo> CREATOR = new a();
     public static final String TAG = "XAdInstanceInfo";
@@ -51,7 +52,7 @@ public class XAdInstanceInfo implements Parcelable, IXAdInstanceInfo, Cloneable 
     private long Z;
 
     /* renamed from: a  reason: collision with root package name */
-    private String f3552a;
+    private String f3514a;
     private IXAdInstanceInfo.CreativeType aa;
     private String ab;
     private int ac;
@@ -75,7 +76,7 @@ public class XAdInstanceInfo implements Parcelable, IXAdInstanceInfo, Cloneable 
     private String au;
 
     /* renamed from: b  reason: collision with root package name */
-    private String f3553b;
+    private String f3515b;
     private String c;
     private String d;
     private String e;
@@ -220,22 +221,22 @@ public class XAdInstanceInfo implements Parcelable, IXAdInstanceInfo, Cloneable 
 
     @Override // com.baidu.mobads.interfaces.IXAdInstanceInfo
     public String getFwt() {
-        return this.f3552a;
+        return this.f3514a;
     }
 
     @Override // com.baidu.mobads.interfaces.IXAdInstanceInfo
     public void setFwt(String str) {
-        this.f3552a = str;
+        this.f3514a = str;
     }
 
     @Override // com.baidu.mobads.interfaces.IXAdInstanceInfo
     public String getAdId() {
-        return this.f3553b;
+        return this.f3515b;
     }
 
     @Override // com.baidu.mobads.interfaces.IXAdInstanceInfo
     public void setAdId(String str) {
-        this.f3553b = str;
+        this.f3515b = str;
     }
 
     @Override // com.baidu.mobads.interfaces.IXAdInstanceInfo
@@ -650,7 +651,7 @@ public class XAdInstanceInfo implements Parcelable, IXAdInstanceInfo, Cloneable 
 
     @SuppressLint({"DefaultLocale"})
     public XAdInstanceInfo(JSONObject jSONObject) {
-        this.f3553b = "-1";
+        this.f3515b = "-1";
         this.q = "";
         this.r = "";
         this.s = 0;
@@ -678,8 +679,8 @@ public class XAdInstanceInfo implements Parcelable, IXAdInstanceInfo, Cloneable 
             this.Z = System.currentTimeMillis();
             this.N = jSONObject.optInt("act");
             this.z = jSONObject.optString("html", null);
-            this.f3553b = jSONObject.optString("id", "-1");
-            this.c = jSONObject.optString("src", "");
+            this.f3515b = jSONObject.optString("id", "-1");
+            this.c = jSONObject.optString(UserAccountActionItem.KEY_SRC, "");
             this.d = jSONObject.optString("tit", "");
             this.e = jSONObject.optString("desc", "");
             this.f = jSONObject.optString("surl", "");
@@ -980,7 +981,7 @@ public class XAdInstanceInfo implements Parcelable, IXAdInstanceInfo, Cloneable 
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeString(this.f3553b);
+        parcel.writeString(this.f3515b);
         parcel.writeString(this.c);
         parcel.writeString(this.T);
         parcel.writeString(this.W);
@@ -991,7 +992,7 @@ public class XAdInstanceInfo implements Parcelable, IXAdInstanceInfo, Cloneable 
         parcel.writeString(this.e);
         parcel.writeString(this.d);
         parcel.writeString(this.k);
-        parcel.writeString(this.f3552a);
+        parcel.writeString(this.f3514a);
         parcel.writeString(this.z);
         parcel.writeString(this.j);
         parcel.writeString(this.i);
@@ -1019,7 +1020,7 @@ public class XAdInstanceInfo implements Parcelable, IXAdInstanceInfo, Cloneable 
     }
 
     private XAdInstanceInfo(Parcel parcel) {
-        this.f3553b = "-1";
+        this.f3515b = "-1";
         this.q = "";
         this.r = "";
         this.s = 0;
@@ -1042,7 +1043,7 @@ public class XAdInstanceInfo implements Parcelable, IXAdInstanceInfo, Cloneable 
         this.ap = false;
         this.at = false;
         this.au = null;
-        this.f3553b = parcel.readString();
+        this.f3515b = parcel.readString();
         this.c = parcel.readString();
         this.T = parcel.readString();
         this.W = parcel.readString();
@@ -1053,7 +1054,7 @@ public class XAdInstanceInfo implements Parcelable, IXAdInstanceInfo, Cloneable 
         this.e = parcel.readString();
         this.d = parcel.readString();
         this.k = parcel.readString();
-        this.f3552a = parcel.readString();
+        this.f3514a = parcel.readString();
         this.z = parcel.readString();
         this.j = parcel.readString();
         this.i = parcel.readString();

@@ -1,14 +1,14 @@
 package com.baidu.mobads;
 
 import java.util.HashMap;
-/* loaded from: classes3.dex */
+/* loaded from: classes14.dex */
 public class g {
 
     /* renamed from: a  reason: collision with root package name */
-    private static g f3360a;
+    private static g f3322a;
 
     /* renamed from: b  reason: collision with root package name */
-    private static HashMap<String, String> f3361b = new HashMap<>();
+    private static HashMap<String, String> f3323b = new HashMap<>();
 
     private g() {
     }
@@ -16,10 +16,10 @@ public class g {
     public static synchronized g a() {
         g gVar;
         synchronized (g.class) {
-            if (f3360a == null) {
-                f3360a = new g();
+            if (f3322a == null) {
+                f3322a = new g();
             }
-            gVar = f3360a;
+            gVar = f3322a;
         }
         return gVar;
     }
@@ -35,13 +35,13 @@ public class g {
             return 1;
         }
         try {
-            if (f3361b.containsKey(i + "")) {
-                i2 = Integer.parseInt(f3361b.get(i + "")) + 1;
+            if (f3323b.containsKey(i + "")) {
+                i2 = Integer.parseInt(f3323b.get(i + "")) + 1;
                 if (i2 < 1) {
                     i2 = 1;
                 }
                 try {
-                    ?? r1 = f3361b;
+                    ?? r1 = f3323b;
                     r1.put(i + "", i2 + "");
                     i3 = r1;
                 } catch (Exception e) {
@@ -50,7 +50,7 @@ public class g {
                     return i2;
                 }
             } else {
-                f3361b.put(i + "", "1");
+                f3323b.put(i + "", "1");
                 i2 = 1;
             }
         } catch (Exception e2) {

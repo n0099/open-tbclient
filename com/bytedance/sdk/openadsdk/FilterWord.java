@@ -7,35 +7,35 @@ import java.util.List;
 public class FilterWord {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f6369a;
+    private String f6069a;
 
     /* renamed from: b  reason: collision with root package name */
-    private String f6370b;
+    private String f6070b;
     private boolean c;
     private List<FilterWord> d;
 
     public FilterWord(String str, String str2) {
-        this.f6369a = str;
-        this.f6370b = str2;
+        this.f6069a = str;
+        this.f6070b = str2;
     }
 
     public FilterWord() {
     }
 
     public String getId() {
-        return this.f6369a;
+        return this.f6069a;
     }
 
     public void setId(String str) {
-        this.f6369a = str;
+        this.f6069a = str;
     }
 
     public String getName() {
-        return this.f6370b;
+        return this.f6070b;
     }
 
     public void setName(String str) {
-        this.f6370b = str;
+        this.f6070b = str;
     }
 
     public boolean getIsSelected() {
@@ -60,7 +60,7 @@ public class FilterWord {
     }
 
     public boolean isValid() {
-        return (TextUtils.isEmpty(this.f6369a) || TextUtils.isEmpty(this.f6370b)) ? false : true;
+        return (TextUtils.isEmpty(this.f6069a) || TextUtils.isEmpty(this.f6070b)) ? false : true;
     }
 
     public boolean hasSecondOptions() {

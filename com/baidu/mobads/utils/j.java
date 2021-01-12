@@ -4,26 +4,26 @@ import com.baidu.live.adp.lib.cache.BdKVCache;
 import java.io.File;
 import java.util.Arrays;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes3.dex */
+/* loaded from: classes14.dex */
 public class j implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ String f3541a;
+    final /* synthetic */ String f3503a;
 
     /* renamed from: b  reason: collision with root package name */
-    final /* synthetic */ i f3542b;
+    final /* synthetic */ i f3504b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public j(i iVar, String str) {
-        this.f3542b = iVar;
-        this.f3541a = str;
+        this.f3504b = iVar;
+        this.f3503a = str;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         long j;
         try {
-            File file = new File(this.f3541a);
+            File file = new File(this.f3503a);
             if (!file.exists()) {
                 file.mkdirs();
             }
@@ -35,7 +35,7 @@ public class j implements Runnable {
                     File file2 = listFiles[length];
                     if (file2.exists()) {
                         if (System.currentTimeMillis() - file2.lastModified() <= BdKVCache.MILLS_30Days) {
-                            j = i.f3537a;
+                            j = i.f3499a;
                             if (file2.length() + j2 > j) {
                                 file2.delete();
                             } else {

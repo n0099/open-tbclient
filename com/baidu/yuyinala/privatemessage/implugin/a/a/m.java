@@ -12,55 +12,55 @@ import com.baidu.android.imsdk.chatmessage.messages.AudioMsg;
 import com.baidu.android.imsdk.chatmessage.messages.ChatMsg;
 import com.baidu.live.sdk.a;
 import com.baidu.yuyinala.privatemessage.implugin.ui.theme.ThemeManager;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class m extends d {
     public View mContentView;
     private Context mContext;
     public View mConvertView;
-    public ImageView oTr;
-    public TextView oTs;
-    AnimationDrawable oTt;
-    public ImageView oTu;
+    public ImageView oOP;
+    public TextView oOQ;
+    AnimationDrawable oOR;
+    public ImageView oOS;
 
     @SuppressLint({"InflateParams"})
     public m(Context context, LayoutInflater layoutInflater, boolean z) {
         this.mContext = context;
         this.mConvertView = layoutInflater.inflate(a.g.bd_im_chating_receive_audio_item, (ViewGroup) null);
-        this.oTs = (TextView) this.mConvertView.findViewById(a.f.bd_im_chating_msg_audio_length);
-        this.oTr = (ImageView) this.mConvertView.findViewById(a.f.bd_im_chating_msg_content_audio);
+        this.oOQ = (TextView) this.mConvertView.findViewById(a.f.bd_im_chating_msg_audio_length);
+        this.oOP = (ImageView) this.mConvertView.findViewById(a.f.bd_im_chating_msg_content_audio);
         this.mContentView = this.mConvertView.findViewById(a.f.bd_im_chating_msg_content_layout);
-        this.oTu = (ImageView) this.mConvertView.findViewById(a.f.bd_im_chating_msg_audio_status);
-        this.mtw = (TextView) this.mConvertView.findViewById(a.f.bd_im_user_agetime);
-        this.oSo = (TextView) this.mConvertView.findViewById(a.f.bd_im_user_constellation);
+        this.oOS = (ImageView) this.mConvertView.findViewById(a.f.bd_im_chating_msg_audio_status);
+        this.moR = (TextView) this.mConvertView.findViewById(a.f.bd_im_user_agetime);
+        this.oNM = (TextView) this.mConvertView.findViewById(a.f.bd_im_user_constellation);
         if (true == z) {
-            this.oTu.setVisibility(4);
+            this.oOS.setVisibility(4);
         } else {
-            this.oTu.setVisibility(0);
+            this.oOS.setVisibility(0);
         }
-        this.oSk = (TextView) this.mConvertView.findViewById(a.f.bd_im_chating_time_txt);
-        this.oSn = (ImageView) this.mConvertView.findViewById(a.f.bd_im_headview);
-        this.jnJ = (TextView) this.mConvertView.findViewById(a.f.bd_im_user_name);
+        this.oNI = (TextView) this.mConvertView.findViewById(a.f.bd_im_chating_time_txt);
+        this.oNL = (ImageView) this.mConvertView.findViewById(a.f.bd_im_headview);
+        this.jjc = (TextView) this.mConvertView.findViewById(a.f.bd_im_user_name);
         this.mContentView.setTag(this);
         this.mConvertView.setTag(this);
     }
 
     public void startAnim() {
-        this.oTu.setVisibility(4);
-        this.oTr.setImageDrawable(null);
-        this.oTr.setBackgroundResource(ThemeManager.U(this.mContext, a.C0203a.bd_im_anim_playing_left));
-        this.oTt = (AnimationDrawable) this.oTr.getBackground();
-        this.oTt.setOneShot(false);
-        if (!this.oTt.isRunning()) {
-            this.oTt.start();
+        this.oOS.setVisibility(4);
+        this.oOP.setImageDrawable(null);
+        this.oOP.setBackgroundResource(ThemeManager.U(this.mContext, a.C0194a.bd_im_anim_playing_left));
+        this.oOR = (AnimationDrawable) this.oOP.getBackground();
+        this.oOR.setOneShot(false);
+        if (!this.oOR.isRunning()) {
+            this.oOR.start();
         }
     }
 
     public void stopAnim() {
-        if (this.oTt != null && this.oTt.isRunning()) {
-            this.oTt.stop();
+        if (this.oOR != null && this.oOR.isRunning()) {
+            this.oOR.stop();
         }
-        this.oTr.setImageResource(ThemeManager.U(this.mContext, a.e.bd_im_speck_left_3));
-        this.oTr.setBackgroundResource(0);
+        this.oOP.setImageResource(ThemeManager.U(this.mContext, a.e.bd_im_speck_left_3));
+        this.oOP.setBackgroundResource(0);
     }
 
     @Override // com.baidu.yuyinala.privatemessage.implugin.a.a.d
@@ -80,16 +80,16 @@ public class m extends d {
     @Override // com.baidu.yuyinala.privatemessage.implugin.a.a.d
     public void b(Context context, ChatMsg chatMsg) {
         AudioMsg audioMsg = (AudioMsg) chatMsg;
-        this.oTs.setText(String.format(context.getString(a.h.bd_im_audio_length), Integer.valueOf(audioMsg.getDuration())));
+        this.oOQ.setText(String.format(context.getString(a.h.bd_im_audio_length), Integer.valueOf(audioMsg.getDuration())));
         this.mContentView.setMinimumWidth(a.c(context.getResources().getDimension(a.d.bd_im_audio_msg_min_width), audioMsg.getDuration()));
         if (chatMsg.isClicked()) {
-            this.oTu.setVisibility(4);
+            this.oOS.setVisibility(4);
         } else {
-            this.oTu.setVisibility(0);
+            this.oOS.setVisibility(0);
         }
-        ele();
+        ehk();
     }
 
-    private void ele() {
+    private void ehk() {
     }
 }

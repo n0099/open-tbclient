@@ -17,11 +17,11 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    private static AtomicBoolean f8969a = new AtomicBoolean(false);
+    private static AtomicBoolean f8669a = new AtomicBoolean(false);
 
     @Nullable
     private static com.kwai.video.ksvodplayerkit.d.b a(AdTemplate adTemplate, int i) {
@@ -36,15 +36,15 @@ public class b {
     }
 
     public static void a(List<KsScene> list) {
-        if (list == null || list.isEmpty() || f8969a.get()) {
+        if (list == null || list.isEmpty() || f8669a.get()) {
             return;
         }
-        f8969a.set(true);
+        f8669a.set(true);
         h.a aVar = new h.a();
         for (KsScene ksScene : list) {
-            aVar.f9561a.add(new com.kwad.sdk.core.g.a.f(ksScene));
+            aVar.f9261a.add(new com.kwad.sdk.core.g.a.f(ksScene));
         }
-        aVar.f9562b = new com.kwad.sdk.core.g.a.c();
+        aVar.f9262b = new com.kwad.sdk.core.g.a.c();
         aVar.d = new j(1);
         i.a(aVar, new e.a() { // from class: com.kwad.sdk.contentalliance.home.b.1
             @Override // com.kwad.sdk.core.g.e.a

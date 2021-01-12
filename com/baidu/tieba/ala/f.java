@@ -5,10 +5,10 @@ import com.baidu.live.adp.framework.listener.CustomMessageListener;
 import com.baidu.live.adp.framework.message.CustomResponsedMessage;
 import com.baidu.live.data.x;
 import com.baidu.live.tbadk.TbPageContext;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class f implements com.baidu.live.ai.d {
-    x gsQ;
-    private CustomMessageListener gsR = new CustomMessageListener(2913220) { // from class: com.baidu.tieba.ala.f.1
+    x goj;
+    private CustomMessageListener gok = new CustomMessageListener(2913220) { // from class: com.baidu.tieba.ala.f.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -22,18 +22,18 @@ public class f implements com.baidu.live.ai.d {
 
     @Override // com.baidu.live.ai.d
     public void f(x xVar) {
-        this.gsQ = xVar;
-        this.gsR.setTag(this.mTbPageContext.getUniqueId());
-        MessageManager.getInstance().registerListener(this.gsR);
+        this.goj = xVar;
+        this.gok.setTag(this.mTbPageContext.getUniqueId());
+        MessageManager.getInstance().registerListener(this.gok);
     }
 
     @Override // com.baidu.live.ai.d
-    public void LE() {
-        MessageManager.getInstance().unRegisterListener(this.gsR);
+    public void HJ() {
+        MessageManager.getInstance().unRegisterListener(this.gok);
     }
 
     @Override // com.baidu.live.ai.d
     public void onDestroy() {
-        MessageManager.getInstance().unRegisterListener(this.gsR);
+        MessageManager.getInstance().unRegisterListener(this.gok);
     }
 }

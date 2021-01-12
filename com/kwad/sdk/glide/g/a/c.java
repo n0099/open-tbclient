@@ -1,14 +1,14 @@
 package com.kwad.sdk.glide.g.a;
 
 import androidx.annotation.NonNull;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public abstract class c {
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     private static class a extends c {
 
         /* renamed from: a  reason: collision with root package name */
-        private volatile boolean f10314a;
+        private volatile boolean f10014a;
 
         a() {
             super();
@@ -16,12 +16,12 @@ public abstract class c {
 
         @Override // com.kwad.sdk.glide.g.a.c
         public void a(boolean z) {
-            this.f10314a = z;
+            this.f10014a = z;
         }
 
         @Override // com.kwad.sdk.glide.g.a.c
         public void b() {
-            if (this.f10314a) {
+            if (this.f10014a) {
                 throw new IllegalStateException("Already released");
             }
         }

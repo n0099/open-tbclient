@@ -1,6 +1,6 @@
 package org.apache.http.auth;
 @Deprecated
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class AuthState {
     public AuthState() {
         throw new RuntimeException("Stub!");

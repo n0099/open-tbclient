@@ -73,17 +73,17 @@ public abstract class b implements com.bytedance.sdk.openadsdk.b.a {
     private class a implements Callable<Void> {
 
         /* renamed from: b  reason: collision with root package name */
-        private final File f6511b;
+        private final File f6211b;
 
         private a(File file) {
-            this.f6511b = file;
+            this.f6211b = file;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.concurrent.Callable
         /* renamed from: a */
         public Void call() throws Exception {
-            b.this.b(this.f6511b);
+            b.this.b(this.f6211b);
             return null;
         }
     }

@@ -1,15 +1,15 @@
 package com.kuaishou.aegon.netcheck;
 
 import java.util.EnumSet;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 final /* synthetic */ class c implements Runnable {
     private final String c;
-    private final NetcheckTaskListenerWrapper pSq;
-    private final EnumSet pSr;
+    private final NetcheckTaskListenerWrapper pNQ;
+    private final EnumSet pNR;
 
     private c(NetcheckTaskListenerWrapper netcheckTaskListenerWrapper, EnumSet enumSet, String str) {
-        this.pSq = netcheckTaskListenerWrapper;
-        this.pSr = enumSet;
+        this.pNQ = netcheckTaskListenerWrapper;
+        this.pNR = enumSet;
         this.c = str;
     }
 
@@ -19,6 +19,6 @@ final /* synthetic */ class c implements Runnable {
 
     @Override // java.lang.Runnable
     public void run() {
-        this.pSq.pSp.a(this.pSr, this.c);
+        this.pNQ.pNP.a(this.pNR, this.c);
     }
 }

@@ -2,37 +2,38 @@ package com.baidu.live.data;
 
 import com.baidu.ala.recorder.video.AlaRecorderLog;
 import com.baidu.ar.auth.FeatureCodes;
+import com.baidu.mobstat.Config;
 import io.flutter.plugin.platform.PlatformPlugin;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class cq {
-    public static cq aUy = new cq();
-    public int aUv;
-    public int aUw;
-    public int aUx;
+    public static cq aPL = new cq();
+    public int aPI;
+    public int aPJ;
+    public int aPK;
     public List<a> dataList;
     public int fps;
     public int maxBitrate;
 
     static {
-        aUy.fps = 15;
-        aUy.aUv = 720;
-        aUy.aUw = PlatformPlugin.DEFAULT_SYSTEM_UI;
-        aUy.maxBitrate = FeatureCodes.ADVANCE_BEAUTY;
-        aUy.aUx = 1100;
-        aUy.dataList = a.aUz;
+        aPL.fps = 15;
+        aPL.aPI = 720;
+        aPL.aPJ = PlatformPlugin.DEFAULT_SYSTEM_UI;
+        aPL.maxBitrate = FeatureCodes.ADVANCE_BEAUTY;
+        aPL.aPK = 1100;
+        aPL.dataList = a.aPM;
     }
 
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             this.fps = jSONObject.optInt(AlaRecorderLog.KEY_CANERA_START_FPS);
-            this.aUv = jSONObject.optInt("video_w");
-            this.aUw = jSONObject.optInt("video_h");
+            this.aPI = jSONObject.optInt("video_w");
+            this.aPJ = jSONObject.optInt("video_h");
             this.maxBitrate = jSONObject.optInt("max_bitrate");
-            this.aUx = jSONObject.optInt("min_bitrate");
+            this.aPK = jSONObject.optInt("min_bitrate");
             JSONArray optJSONArray = jSONObject.optJSONArray("list");
             if (optJSONArray != null && optJSONArray.length() == 2) {
                 this.dataList = new ArrayList();
@@ -46,13 +47,13 @@ public class cq {
                 }
                 return;
             }
-            this.dataList = a.aUz;
+            this.dataList = a.aPM;
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public static class a {
-        public static List<a> aUz = new ArrayList();
+        public static List<a> aPM = new ArrayList();
         public int height;
         public int width;
         public int x;
@@ -64,17 +65,17 @@ public class cq {
             aVar.y = 0;
             aVar.width = 720;
             aVar.height = PlatformPlugin.DEFAULT_SYSTEM_UI;
-            aUz.add(aVar);
+            aPM.add(aVar);
             aVar.x = 10;
             aVar.y = 152;
             aVar.width = 110;
             aVar.height = 196;
-            aUz.add(aVar);
+            aPM.add(aVar);
         }
 
         public void parserJson(JSONObject jSONObject) {
             if (jSONObject != null) {
-                this.x = jSONObject.optInt("x");
+                this.x = jSONObject.optInt(Config.EVENT_HEAT_X);
                 this.y = jSONObject.optInt("y");
                 this.width = jSONObject.optInt("width");
                 this.height = jSONObject.optInt("height");

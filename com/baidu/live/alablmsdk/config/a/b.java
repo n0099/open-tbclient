@@ -1,5 +1,5 @@
 package com.baidu.live.alablmsdk.config.a;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class b {
     private int mHeight;
     private int mWidth;
@@ -35,7 +35,7 @@ public class b {
         return false;
     }
 
-    public boolean BJ() {
+    public boolean xO() {
         return this.mWidth == 0 || this.mHeight == 0;
     }
 }

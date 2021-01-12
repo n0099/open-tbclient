@@ -29,47 +29,47 @@ public class b {
     private static int P;
 
     /* renamed from: a  reason: collision with root package name */
-    private static volatile Context f13432a;
-    private static volatile ExecutorService cjn;
+    private static volatile Context f13132a;
+    private static volatile ExecutorService ceA;
     private static volatile ExecutorService p;
-    private static volatile AlarmManager pZA;
-    private static com.ss.android.socialbase.downloader.h.c pZC;
-    private static r pZD;
-    private static com.ss.android.socialbase.downloader.h.b pZE;
-    private static volatile k pZc;
-    private static volatile l pZd;
-    private static volatile i pZe;
-    private static volatile com.ss.android.socialbase.downloader.d.r pZf;
-    private static volatile com.ss.android.socialbase.downloader.impls.a pZg;
-    private static volatile p pZh;
-    private static volatile ab pZi;
-    private static volatile p pZj;
-    private static volatile com.ss.android.socialbase.downloader.i.h pZk;
-    private static volatile com.ss.android.socialbase.downloader.i.f pZl;
-    private static volatile com.ss.android.socialbase.downloader.i.h pZm;
-    private static volatile com.ss.android.socialbase.downloader.i.f pZn;
-    private static volatile m pZo;
-    private static volatile ExecutorService pZp;
-    private static volatile ExecutorService pZq;
-    private static volatile ExecutorService pZr;
-    private static volatile ExecutorService pZs;
-    private static volatile ExecutorService pZt;
-    private static volatile h pZu;
-    private static volatile DownloadReceiver pZv;
-    private static volatile s pZw;
-    private static volatile q pZx;
-    private static volatile com.ss.android.socialbase.downloader.d.e pZy;
-    private static volatile ExecutorService pkc;
+    private static volatile k pUC;
+    private static volatile l pUD;
+    private static volatile i pUE;
+    private static volatile com.ss.android.socialbase.downloader.d.r pUF;
+    private static volatile com.ss.android.socialbase.downloader.impls.a pUG;
+    private static volatile p pUH;
+    private static volatile ab pUI;
+    private static volatile p pUJ;
+    private static volatile com.ss.android.socialbase.downloader.i.h pUK;
+    private static volatile com.ss.android.socialbase.downloader.i.f pUL;
+    private static volatile com.ss.android.socialbase.downloader.i.h pUM;
+    private static volatile com.ss.android.socialbase.downloader.i.f pUN;
+    private static volatile m pUO;
+    private static volatile ExecutorService pUP;
+    private static volatile ExecutorService pUQ;
+    private static volatile ExecutorService pUR;
+    private static volatile ExecutorService pUS;
+    private static volatile ExecutorService pUT;
+    private static volatile h pUU;
+    private static volatile DownloadReceiver pUV;
+    private static volatile s pUW;
+    private static volatile q pUX;
+    private static volatile com.ss.android.socialbase.downloader.d.e pUY;
+    private static volatile AlarmManager pVa;
+    private static com.ss.android.socialbase.downloader.h.c pVb;
+    private static r pVc;
+    private static com.ss.android.socialbase.downloader.h.b pVd;
+    private static volatile ExecutorService pfx;
     private static volatile List<com.ss.android.socialbase.downloader.d.t> B = new ArrayList();
     private static volatile boolean C = false;
-    private static volatile OkHttpClient pZz = null;
+    private static volatile OkHttpClient pUZ = null;
     private static boolean F = false;
     private static final int H = Runtime.getRuntime().availableProcessors() + 1;
     private static final int I = (Runtime.getRuntime().availableProcessors() * 2) + 1;
     private static final int J = H;
     private static final int K = H;
     private static int L = 8192;
-    private static final List<aa> pZB = new ArrayList();
+    private static final List<aa> N = new ArrayList();
     private static final List<com.ss.android.socialbase.downloader.d.l> O = new ArrayList();
     private static boolean Q = true;
     private static volatile boolean U = false;
@@ -86,84 +86,84 @@ public class b {
                 boolean z = C;
                 if (gVar != null) {
                     a(gVar.a());
-                    a(gVar.eHZ());
-                    a(gVar.eIa());
-                    b(gVar.eGY());
-                    a(gVar.eIh());
+                    a(gVar.eEj());
+                    a(gVar.eEk());
+                    b(gVar.eDi());
+                    a(gVar.eEr());
                     b(gVar.p());
-                    a(gVar.eIb());
-                    a(gVar.eHw());
-                    a(gVar.eIc());
-                    c(gVar.eId());
-                    d(gVar.eIe());
+                    a(gVar.eEl());
+                    a(gVar.eDG());
+                    a(gVar.eEm());
+                    c(gVar.eEn());
+                    d(gVar.eEo());
                     e(gVar.i());
-                    f(gVar.eHB());
-                    g(gVar.ut());
-                    h(gVar.eHC());
-                    a(gVar.eHD());
-                    i(gVar.eHE());
-                    b(gVar.eIf());
-                    if (gVar.eIg() != null) {
-                        pZx = gVar.eIg();
+                    f(gVar.eDL());
+                    g(gVar.um());
+                    h(gVar.eDM());
+                    i(gVar.eDN());
+                    j(gVar.eDO());
+                    b(gVar.eEp());
+                    if (gVar.eEq() != null) {
+                        pUX = gVar.eEq();
                     }
                     if (gVar.s() > 1024) {
                         L = gVar.s();
                     }
-                    b(gVar.eGZ());
+                    b(gVar.eDj());
                     if (gVar.t()) {
                         C = true;
                     }
                     P = gVar.v();
-                    a(gVar.eIi());
+                    a(gVar.eEs());
                     a(gVar.w());
                 }
-                if (pZc == null) {
-                    pZc = new com.ss.android.socialbase.downloader.impls.d();
+                if (pUC == null) {
+                    pUC = new com.ss.android.socialbase.downloader.impls.d();
                 }
-                if (pZh == null) {
-                    pZh = new com.ss.android.socialbase.downloader.impls.h();
+                if (pUH == null) {
+                    pUH = new com.ss.android.socialbase.downloader.impls.h();
                 }
-                if (pZj == null) {
-                    pZj = new com.ss.android.socialbase.downloader.impls.n();
+                if (pUJ == null) {
+                    pUJ = new com.ss.android.socialbase.downloader.impls.n();
                 }
-                if (pZd == null) {
-                    pZd = new com.ss.android.socialbase.downloader.impls.i();
+                if (pUD == null) {
+                    pUD = new com.ss.android.socialbase.downloader.impls.i();
                 }
-                if (pZg == null) {
-                    pZg = new com.ss.android.socialbase.downloader.impls.e();
+                if (pUG == null) {
+                    pUG = new com.ss.android.socialbase.downloader.impls.e();
                 }
-                if (pZe == null) {
-                    pZe = new com.ss.android.socialbase.downloader.impls.c();
+                if (pUE == null) {
+                    pUE = new com.ss.android.socialbase.downloader.impls.c();
                 }
-                if (pZu == null) {
-                    pZu = new com.ss.android.socialbase.downloader.impls.b();
+                if (pUU == null) {
+                    pUU = new com.ss.android.socialbase.downloader.impls.b();
                 }
-                if (pZw == null) {
-                    pZw = new com.ss.android.socialbase.downloader.impls.j();
+                if (pUW == null) {
+                    pUW = new com.ss.android.socialbase.downloader.impls.j();
                 }
                 if (G <= 0 || G > H) {
                     G = H;
                 }
                 L();
                 if (C && !z && !com.ss.android.socialbase.downloader.m.d.c()) {
-                    com.ss.android.socialbase.downloader.impls.l.Cy(true).d();
+                    com.ss.android.socialbase.downloader.impls.l.Cu(true).d();
                 } else if (com.ss.android.socialbase.downloader.m.d.d()) {
-                    ExecutorService ut = ut();
-                    if (ut != null) {
-                        ut.execute(new Runnable() { // from class: com.ss.android.socialbase.downloader.downloader.b.1
+                    ExecutorService um = um();
+                    if (um != null) {
+                        um.execute(new Runnable() { // from class: com.ss.android.socialbase.downloader.downloader.b.1
                             @Override // java.lang.Runnable
                             public void run() {
-                                Context eHT = b.eHT();
-                                if (eHT != null) {
-                                    com.ss.android.socialbase.downloader.m.d.c(eHT);
+                                Context eEd = b.eEd();
+                                if (eEd != null) {
+                                    com.ss.android.socialbase.downloader.m.d.c(eEd);
                                 }
                             }
                         });
                     }
                 } else {
-                    Context eHT = eHT();
-                    if (eHT != null) {
-                        com.ss.android.socialbase.downloader.m.d.c(eHT);
+                    Context eEd = eEd();
+                    if (eEd != null) {
+                        com.ss.android.socialbase.downloader.m.d.c(eEd);
                     }
                 }
                 U = true;
@@ -172,14 +172,14 @@ public class b {
     }
 
     private static void L() {
-        if (pZv == null) {
-            pZv = new DownloadReceiver();
+        if (pUV == null) {
+            pUV = new DownloadReceiver();
         }
         if (!F) {
             try {
                 IntentFilter intentFilter = new IntentFilter();
                 intentFilter.addAction("android.net.conn.CONNECTIVITY_CHANGE");
-                f13432a.registerReceiver(pZv, intentFilter);
+                f13132a.registerReceiver(pUV, intentFilter);
                 F = true;
             } catch (Throwable th) {
                 th.printStackTrace();
@@ -191,11 +191,11 @@ public class b {
         synchronized (b.class) {
             if (!C) {
                 C = true;
-                Intent intent = new Intent(eHT(), DownloadHandleService.class);
+                Intent intent = new Intent(eEd(), DownloadHandleService.class);
                 intent.setAction("com.ss.android.downloader.action.MULTI_PROCESS_NOTIFY");
-                eHT().startService(intent);
+                eEd().startService(intent);
                 if (!com.ss.android.socialbase.downloader.m.d.c()) {
-                    com.ss.android.socialbase.downloader.impls.l.Cy(true).d();
+                    com.ss.android.socialbase.downloader.impls.l.Cu(true).d();
                 }
             }
         }
@@ -209,8 +209,8 @@ public class b {
         return z;
     }
 
-    public static com.ss.android.socialbase.downloader.i.h eHv() {
-        return pZk;
+    public static com.ss.android.socialbase.downloader.i.h eDF() {
+        return pUK;
     }
 
     public static void a(com.ss.android.socialbase.downloader.d.t tVar) {
@@ -230,9 +230,9 @@ public class b {
     }
 
     public static void a(com.ss.android.socialbase.downloader.b.d dVar) {
-        synchronized (pZB) {
-            if (pZB != null) {
-                for (aa aaVar : pZB) {
+        synchronized (N) {
+            if (N != null) {
+                for (aa aaVar : N) {
                     if (aaVar != null) {
                         if (dVar == com.ss.android.socialbase.downloader.b.d.SYNC_START) {
                             aaVar.a();
@@ -241,7 +241,7 @@ public class b {
                         }
                     }
                 }
-                pZB.clear();
+                N.clear();
             }
         }
     }
@@ -266,8 +266,8 @@ public class b {
         }
     }
 
-    public static com.ss.android.socialbase.downloader.i.f eHw() {
-        return pZl;
+    public static com.ss.android.socialbase.downloader.i.f eDG() {
+        return pUL;
     }
 
     public static com.ss.android.socialbase.downloader.i.g b(boolean z, int i, String str, List<com.ss.android.socialbase.downloader.g.e> list) throws Exception {
@@ -280,12 +280,12 @@ public class b {
             i2 = 2;
         }
         Exception exc = null;
-        int[] Sy = Sy(i2);
-        int length = Sy.length;
+        int[] QR = QR(i2);
+        int length = QR.length;
         int i3 = 0;
         while (i3 < length) {
             try {
-                a2 = a(i, str, list, Sy[i3], z2, cVar);
+                a2 = a(i, str, list, QR[i3], z2, cVar);
             } catch (Exception e) {
                 e = e;
             }
@@ -309,8 +309,8 @@ public class b {
     */
     private static com.ss.android.socialbase.downloader.i.g a(int i, String str, List<com.ss.android.socialbase.downloader.g.e> list, int i2, boolean z, com.ss.android.socialbase.downloader.g.c cVar) throws com.ss.android.socialbase.downloader.e.a, IOException {
         Throwable th;
-        com.ss.android.socialbase.downloader.i.h eHv = i2 == 1 ? eHv() : eHx();
-        if (eHv == null) {
+        com.ss.android.socialbase.downloader.i.h eDF = i2 == 1 ? eDF() : eDH();
+        if (eDF == null) {
             throw new com.ss.android.socialbase.downloader.e.a(1022, new IOException("httpService not exist, netLib = " + i2));
         }
         IOException iOException = null;
@@ -336,7 +336,7 @@ public class b {
                 throw th;
             }
         }
-        com.ss.android.socialbase.downloader.i.g a2 = eHv.a(i, str, list);
+        com.ss.android.socialbase.downloader.i.g a2 = eDF.a(i, str, list);
         if (z) {
             com.ss.android.socialbase.downloader.h.a.a(a2, str, System.currentTimeMillis() - j, "get", i2, null, cVar);
         }
@@ -350,7 +350,7 @@ public class b {
     public static com.ss.android.socialbase.downloader.i.e a(String str, List<com.ss.android.socialbase.downloader.g.e> list, int i, boolean z, com.ss.android.socialbase.downloader.g.c cVar) throws Exception {
         com.ss.android.socialbase.downloader.i.e b2;
         Exception e = null;
-        for (int i2 : Sy(i)) {
+        for (int i2 : QR(i)) {
             try {
                 b2 = b(str, list, i2, z, cVar);
             } catch (Exception e2) {
@@ -372,8 +372,8 @@ public class b {
     */
     private static com.ss.android.socialbase.downloader.i.e b(String str, List<com.ss.android.socialbase.downloader.g.e> list, int i, boolean z, com.ss.android.socialbase.downloader.g.c cVar) throws com.ss.android.socialbase.downloader.e.a, IOException {
         Throwable th;
-        com.ss.android.socialbase.downloader.i.f eHw = i == 1 ? eHw() : eHy();
-        if (eHw == null) {
+        com.ss.android.socialbase.downloader.i.f eDG = i == 1 ? eDG() : eDI();
+        if (eDG == null) {
             throw new com.ss.android.socialbase.downloader.e.a(1022, new IOException("httpService not exist, netLib = " + i));
         }
         IOException iOException = null;
@@ -399,14 +399,14 @@ public class b {
                 throw th;
             }
         }
-        com.ss.android.socialbase.downloader.i.e v = eHw.v(str, list);
+        com.ss.android.socialbase.downloader.i.e v = eDG.v(str, list);
         if (z) {
             com.ss.android.socialbase.downloader.h.a.a(v, str, System.currentTimeMillis() - j, "head", i, null, cVar);
         }
         return v;
     }
 
-    private static int[] Sy(int i) {
+    private static int[] QR(int i) {
         switch (i) {
             case 1:
                 return new int[]{0};
@@ -419,45 +419,45 @@ public class b {
         }
     }
 
-    public static com.ss.android.socialbase.downloader.i.h eHx() {
-        if (pZm == null) {
+    public static com.ss.android.socialbase.downloader.i.h eDH() {
+        if (pUM == null) {
             synchronized (b.class) {
-                if (pZm == null) {
-                    pZm = new com.ss.android.socialbase.downloader.impls.g();
+                if (pUM == null) {
+                    pUM = new com.ss.android.socialbase.downloader.impls.g();
                 }
             }
         }
-        return pZm;
+        return pUM;
     }
 
-    public static com.ss.android.socialbase.downloader.i.f eHy() {
-        if (pZn == null) {
+    public static com.ss.android.socialbase.downloader.i.f eDI() {
+        if (pUN == null) {
             synchronized (b.class) {
-                if (pZn == null) {
-                    pZn = new com.ss.android.socialbase.downloader.impls.f();
+                if (pUN == null) {
+                    pUN = new com.ss.android.socialbase.downloader.impls.f();
                 }
             }
         }
-        return pZn;
+        return pUN;
     }
 
-    public static AlarmManager eHz() {
-        if (pZA == null) {
+    public static AlarmManager eDJ() {
+        if (pVa == null) {
             synchronized (b.class) {
-                if (pZA == null && f13432a != null) {
-                    pZA = (AlarmManager) f13432a.getSystemService(NotificationCompat.CATEGORY_ALARM);
+                if (pVa == null && f13132a != null) {
+                    pVa = (AlarmManager) f13132a.getSystemService(NotificationCompat.CATEGORY_ALARM);
                 }
             }
         }
-        return pZA;
+        return pVa;
     }
 
     public static synchronized void a(m mVar) {
         synchronized (b.class) {
             if (mVar != null) {
-                pZo = mVar;
-                if (pZc instanceof com.ss.android.socialbase.downloader.impls.d) {
-                    ((com.ss.android.socialbase.downloader.impls.d) pZc).g();
+                pUO = mVar;
+                if (pUC instanceof com.ss.android.socialbase.downloader.impls.d) {
+                    ((com.ss.android.socialbase.downloader.impls.d) pUC).g();
                 }
             }
         }
@@ -465,7 +465,7 @@ public class b {
 
     private static void c(ExecutorService executorService) {
         if (executorService != null) {
-            cjn = executorService;
+            ceA = executorService;
         }
     }
 
@@ -477,50 +477,50 @@ public class b {
 
     private static void e(ExecutorService executorService) {
         if (executorService != null) {
-            pZp = executorService;
+            pUP = executorService;
         }
     }
 
     private static void f(ExecutorService executorService) {
         if (executorService != null) {
-            pZq = executorService;
+            pUQ = executorService;
         }
     }
 
     private static void g(ExecutorService executorService) {
         if (executorService != null) {
-            pZr = executorService;
+            pUR = executorService;
         }
     }
 
     private static void h(ExecutorService executorService) {
         if (executorService != null) {
-            pkc = executorService;
-        }
-    }
-
-    public static void a(ExecutorService executorService) {
-        if (executorService != null) {
-            pZs = executorService;
+            pfx = executorService;
         }
     }
 
     public static void i(ExecutorService executorService) {
         if (executorService != null) {
-            pZt = executorService;
+            pUS = executorService;
+        }
+    }
+
+    public static void j(ExecutorService executorService) {
+        if (executorService != null) {
+            pUT = executorService;
         }
     }
 
     private static void b(ab abVar) {
-        if (pZi == null) {
-            pZi = abVar;
+        if (pUI == null) {
+            pUI = abVar;
         }
     }
 
-    public static synchronized q eHA() {
+    public static synchronized q eDK() {
         q qVar;
         synchronized (b.class) {
-            qVar = pZx;
+            qVar = pUX;
         }
         return qVar;
     }
@@ -534,7 +534,7 @@ public class b {
             if (z && !com.ss.android.socialbase.downloader.m.d.d()) {
                 runnable.run();
             } else {
-                eHB().execute(runnable);
+                eDL().execute(runnable);
             }
         }
     }
@@ -544,7 +544,7 @@ public class b {
             if (z && !com.ss.android.socialbase.downloader.m.d.d()) {
                 runnable.run();
             } else {
-                ut().execute(runnable);
+                um().execute(runnable);
             }
         }
     }
@@ -554,180 +554,180 @@ public class b {
             if (!com.ss.android.socialbase.downloader.m.d.d()) {
                 runnable.run();
             } else {
-                eHG().execute(runnable);
+                eDQ().execute(runnable);
             }
         }
     }
 
-    public static ExecutorService eHB() {
-        if (cjn == null) {
+    public static ExecutorService eDL() {
+        if (ceA == null) {
             synchronized (b.class) {
-                if (cjn == null) {
+                if (ceA == null) {
                     ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(H, H, 15L, TimeUnit.SECONDS, new LinkedBlockingQueue(), new com.ss.android.socialbase.downloader.l.a("DownloadThreadPool-cpu-fixed", true));
                     threadPoolExecutor.allowCoreThreadTimeOut(true);
-                    cjn = threadPoolExecutor;
+                    ceA = threadPoolExecutor;
                 }
             }
         }
-        return cjn;
+        return ceA;
     }
 
-    public static ExecutorService ut() {
-        return p != null ? p : eHB();
+    public static ExecutorService um() {
+        return p != null ? p : eDL();
     }
 
-    public static ExecutorService eHC() {
-        return pZq != null ? pZq : eHE();
+    public static ExecutorService eDM() {
+        return pUQ != null ? pUQ : eDO();
     }
 
-    public static ExecutorService eHD() {
-        return pZr != null ? pZr : eHE();
+    public static ExecutorService eDN() {
+        return pUR != null ? pUR : eDO();
     }
 
-    public static ExecutorService eHE() {
-        if (pZp == null) {
+    public static ExecutorService eDO() {
+        if (pUP == null) {
             synchronized (b.class) {
-                if (pZp == null) {
+                if (pUP == null) {
                     ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(J, J, 15L, TimeUnit.SECONDS, new LinkedBlockingQueue(), new com.ss.android.socialbase.downloader.l.a("DownloadThreadPool-mix-fixed", true));
                     threadPoolExecutor.allowCoreThreadTimeOut(true);
-                    pZp = threadPoolExecutor;
+                    pUP = threadPoolExecutor;
                 }
             }
         }
-        return pZp;
+        return pUP;
     }
 
-    public static ExecutorService eHF() {
-        if (pZs == null) {
+    public static ExecutorService eDP() {
+        if (pUS == null) {
             synchronized (b.class) {
-                if (pZs == null) {
+                if (pUS == null) {
                     ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(I, I, 15L, TimeUnit.SECONDS, new LinkedBlockingQueue(), new com.ss.android.socialbase.downloader.l.a("DownloadThreadPool-chunk-fixed", true));
                     threadPoolExecutor.allowCoreThreadTimeOut(true);
-                    pZs = threadPoolExecutor;
+                    pUS = threadPoolExecutor;
                 }
             }
         }
-        return pZs;
+        return pUS;
     }
 
-    public static ExecutorService eHG() {
-        if (pkc == null) {
+    public static ExecutorService eDQ() {
+        if (pfx == null) {
             synchronized (b.class) {
-                if (pkc == null) {
+                if (pfx == null) {
                     ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(K, K, 15L, TimeUnit.SECONDS, new LinkedBlockingQueue(), new com.ss.android.socialbase.downloader.l.a("DownloadThreadPool-db-fixed", true));
                     threadPoolExecutor.allowCoreThreadTimeOut(true);
-                    pkc = threadPoolExecutor;
+                    pfx = threadPoolExecutor;
                 }
             }
         }
-        return pkc;
+        return pfx;
     }
 
-    public static OkHttpClient eHH() {
-        if (pZz == null) {
+    public static OkHttpClient eDR() {
+        if (pUZ == null) {
             synchronized (b.class) {
-                if (pZz == null) {
+                if (pUZ == null) {
                     OkHttpClient.Builder builder = new OkHttpClient.Builder();
                     builder.connectTimeout(30000L, TimeUnit.MILLISECONDS).readTimeout(30000L, TimeUnit.MILLISECONDS).writeTimeout(30000L, TimeUnit.MILLISECONDS).retryOnConnectionFailure(true).followRedirects(true).protocols(Collections.singletonList(Protocol.HTTP_1_1));
-                    if (pZt != null) {
-                        builder.dispatcher(new Dispatcher(pZt));
+                    if (pUT != null) {
+                        builder.dispatcher(new Dispatcher(pUT));
                     }
-                    pZz = builder.build();
+                    pUZ = builder.build();
                 }
             }
         }
-        return pZz;
+        return pUZ;
     }
 
-    public static synchronized m eHI() {
+    public static synchronized m eDS() {
         m mVar;
         synchronized (b.class) {
-            mVar = pZo;
+            mVar = pUO;
         }
         return mVar;
     }
 
     private static void a(com.ss.android.socialbase.downloader.i.h hVar) {
         if (hVar != null) {
-            pZk = hVar;
+            pUK = hVar;
         }
-        M = pZk != null;
+        M = pUK != null;
     }
 
     private static void a(com.ss.android.socialbase.downloader.i.f fVar) {
         if (fVar != null) {
-            pZl = fVar;
+            pUL = fVar;
         }
     }
 
-    public static k eHJ() {
-        if (pZc == null) {
+    public static k eDT() {
+        if (pUC == null) {
             synchronized (b.class) {
-                if (pZc == null) {
-                    pZc = new com.ss.android.socialbase.downloader.impls.d();
+                if (pUC == null) {
+                    pUC = new com.ss.android.socialbase.downloader.impls.d();
                 }
             }
         }
-        return pZc;
+        return pUC;
     }
 
     private static void a(k kVar) {
         if (kVar != null) {
-            pZc = kVar;
+            pUC = kVar;
         }
     }
 
-    public static p eHK() {
-        if (pZh == null) {
+    public static p eDU() {
+        if (pUH == null) {
             synchronized (b.class) {
-                if (pZh == null) {
-                    pZh = new com.ss.android.socialbase.downloader.impls.h();
+                if (pUH == null) {
+                    pUH = new com.ss.android.socialbase.downloader.impls.h();
                 }
             }
         }
-        return pZh;
+        return pUH;
     }
 
-    public static p eHL() {
-        if (pZj == null) {
+    public static p eDV() {
+        if (pUJ == null) {
             synchronized (b.class) {
-                if (pZj == null) {
-                    pZj = new com.ss.android.socialbase.downloader.impls.n();
+                if (pUJ == null) {
+                    pUJ = new com.ss.android.socialbase.downloader.impls.n();
                 }
             }
         }
-        return pZj;
+        return pUJ;
     }
 
-    public static ab eHM() {
-        return pZi;
+    public static ab eDW() {
+        return pUI;
     }
 
-    public static l eHN() {
-        if (pZd == null) {
+    public static l eDX() {
+        if (pUD == null) {
             synchronized (b.class) {
-                if (pZd == null) {
-                    pZd = new com.ss.android.socialbase.downloader.impls.i();
+                if (pUD == null) {
+                    pUD = new com.ss.android.socialbase.downloader.impls.i();
                 }
             }
         }
-        return pZd;
+        return pUD;
     }
 
-    public static com.ss.android.socialbase.downloader.impls.a eHO() {
-        if (pZg == null) {
+    public static com.ss.android.socialbase.downloader.impls.a eDY() {
+        if (pUG == null) {
             synchronized (b.class) {
-                if (pZg == null) {
-                    pZg = new com.ss.android.socialbase.downloader.impls.e();
+                if (pUG == null) {
+                    pUG = new com.ss.android.socialbase.downloader.impls.e();
                 }
             }
         }
-        return pZg;
+        return pUG;
     }
 
     private static void a(l lVar) {
         if (lVar != null) {
-            pZd = lVar;
+            pUD = lVar;
         }
     }
 
@@ -742,11 +742,11 @@ public class b {
     }
 
     @NonNull
-    public static JSONObject eFx() {
-        if (pZy == null || pZy.a() == null) {
+    public static JSONObject eBG() {
+        if (pUY == null || pUY.a() == null) {
             return com.ss.android.socialbase.downloader.b.e.g;
         }
-        JSONObject a2 = pZy.a();
+        JSONObject a2 = pUY.a();
         a(a2);
         return a2;
     }
@@ -755,13 +755,13 @@ public class b {
         if (jSONObject != null && TextUtils.isEmpty(com.ss.android.socialbase.downloader.b.e.c)) {
             com.ss.android.socialbase.downloader.b.e.c = jSONObject.optString("kllk");
             if (!TextUtils.isEmpty(com.ss.android.socialbase.downloader.b.e.c)) {
-                com.ss.android.socialbase.downloader.b.e.f13373b = com.ss.android.socialbase.downloader.b.e.c.toUpperCase();
+                com.ss.android.socialbase.downloader.b.e.f13073b = com.ss.android.socialbase.downloader.b.e.c.toUpperCase();
             }
         }
     }
 
     public static void a(com.ss.android.socialbase.downloader.d.e eVar) {
-        pZy = eVar;
+        pUY = eVar;
         com.ss.android.socialbase.downloader.k.a.a();
         a(eVar.a());
     }
@@ -782,65 +782,65 @@ public class b {
         return i;
     }
 
-    public static i eHP() {
-        if (pZe == null) {
+    public static i eDZ() {
+        if (pUE == null) {
             synchronized (b.class) {
-                if (pZe == null) {
-                    pZe = new com.ss.android.socialbase.downloader.impls.c();
+                if (pUE == null) {
+                    pUE = new com.ss.android.socialbase.downloader.impls.c();
                 }
             }
         }
-        return pZe;
+        return pUE;
     }
 
     private static void b(i iVar) {
         if (iVar != null) {
-            pZe = iVar;
+            pUE = iVar;
         }
     }
 
     public static void a(com.ss.android.socialbase.downloader.d.r rVar) {
         if (rVar != null) {
-            pZf = rVar;
+            pUF = rVar;
         }
     }
 
-    public static com.ss.android.socialbase.downloader.d.r eHQ() {
-        return pZf;
+    public static com.ss.android.socialbase.downloader.d.r eEa() {
+        return pUF;
     }
 
-    public static h eHR() {
-        if (pZu == null) {
+    public static h eEb() {
+        if (pUU == null) {
             synchronized (b.class) {
-                if (pZu == null) {
-                    pZu = new com.ss.android.socialbase.downloader.impls.b();
+                if (pUU == null) {
+                    pUU = new com.ss.android.socialbase.downloader.impls.b();
                 }
             }
         }
-        return pZu;
+        return pUU;
     }
 
     private static void b(h hVar) {
         if (hVar != null) {
-            pZu = hVar;
+            pUU = hVar;
         }
     }
 
-    public static s eHS() {
-        if (pZw == null) {
+    public static s eEc() {
+        if (pUW == null) {
             synchronized (b.class) {
-                if (pZw == null) {
-                    pZw = new com.ss.android.socialbase.downloader.impls.j();
+                if (pUW == null) {
+                    pUW = new com.ss.android.socialbase.downloader.impls.j();
                 }
             }
         }
-        return pZw;
+        return pUW;
     }
 
-    public static synchronized Context eHT() {
+    public static synchronized Context eEd() {
         Context context;
         synchronized (b.class) {
-            context = f13432a;
+            context = f13132a;
         }
         return context;
     }
@@ -848,9 +848,9 @@ public class b {
     public static synchronized void a(Context context) {
         synchronized (b.class) {
             if (context != null) {
-                if (f13432a == null) {
-                    f13432a = context.getApplicationContext();
-                    com.ss.android.socialbase.downloader.a.a.eHp().a(f13432a);
+                if (f13132a == null) {
+                    f13132a = context.getApplicationContext();
+                    com.ss.android.socialbase.downloader.a.a.eDz().a(f13132a);
                 }
             }
         }
@@ -864,11 +864,11 @@ public class b {
     }
 
     public static int a(String str, String str2) {
-        l eHN = eHN();
-        if (eHN == null) {
+        l eDX = eDX();
+        if (eDX == null) {
             return 0;
         }
-        return eHN.a(str, str2);
+        return eDX.a(str, str2);
     }
 
     public static synchronized boolean H() {
@@ -879,20 +879,20 @@ public class b {
         return z;
     }
 
-    public static com.ss.android.socialbase.downloader.h.c eHU() {
-        return pZC;
+    public static com.ss.android.socialbase.downloader.h.c eEe() {
+        return pVb;
     }
 
-    public static com.ss.android.socialbase.downloader.h.b eHV() {
-        return pZE;
+    public static com.ss.android.socialbase.downloader.h.b eEf() {
+        return pVd;
     }
 
-    public static r eHW() {
-        return pZD;
+    public static r eEg() {
+        return pVc;
     }
 
     public static void a(com.ss.android.socialbase.downloader.h.b bVar) {
-        pZE = bVar;
+        pVd = bVar;
     }
 
     public static void a(r rVar) {

@@ -93,7 +93,7 @@ public interface c extends IInterface {
             if (queryLocalInterface != null && (queryLocalInterface instanceof c)) {
                 return (c) queryLocalInterface;
             }
-            return new C1246a(iBinder);
+            return new C1229a(iBinder);
         }
 
         @Override // android.os.IInterface
@@ -372,18 +372,18 @@ public interface c extends IInterface {
 
         /* renamed from: com.ss.android.socialbase.downloader.c.c$a$a  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        private static class C1246a implements c {
+        private static class C1229a implements c {
 
             /* renamed from: a  reason: collision with root package name */
-            private IBinder f13384a;
+            private IBinder f13084a;
 
-            C1246a(IBinder iBinder) {
-                this.f13384a = iBinder;
+            C1229a(IBinder iBinder) {
+                this.f13084a = iBinder;
             }
 
             @Override // android.os.IInterface
             public IBinder asBinder() {
-                return this.f13384a;
+                return this.f13084a;
             }
 
             @Override // com.ss.android.socialbase.downloader.c.c
@@ -392,7 +392,7 @@ public interface c extends IInterface {
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.db.ISqlDownloadCacheAidl");
-                    this.f13384a.transact(1, obtain, obtain2, 0);
+                    this.f13084a.transact(1, obtain, obtain2, 0);
                     obtain2.readException();
                 } finally {
                     obtain2.recycle();
@@ -407,7 +407,7 @@ public interface c extends IInterface {
                 try {
                     obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.db.ISqlDownloadCacheAidl");
                     obtain.writeInt(i);
-                    this.f13384a.transact(2, obtain, obtain2, 0);
+                    this.f13084a.transact(2, obtain, obtain2, 0);
                     obtain2.readException();
                     return obtain2.readInt() != 0;
                 } finally {
@@ -424,7 +424,7 @@ public interface c extends IInterface {
                 try {
                     obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.db.ISqlDownloadCacheAidl");
                     obtain.writeInt(i);
-                    this.f13384a.transact(3, obtain, obtain2, 0);
+                    this.f13084a.transact(3, obtain, obtain2, 0);
                     obtain2.readException();
                     if (obtain2.readInt() != 0) {
                         cVar = com.ss.android.socialbase.downloader.g.c.CREATOR.createFromParcel(obtain2);
@@ -445,7 +445,7 @@ public interface c extends IInterface {
                 try {
                     obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.db.ISqlDownloadCacheAidl");
                     obtain.writeString(str);
-                    this.f13384a.transact(4, obtain, obtain2, 0);
+                    this.f13084a.transact(4, obtain, obtain2, 0);
                     obtain2.readException();
                     return obtain2.createTypedArrayList(com.ss.android.socialbase.downloader.g.c.CREATOR);
                 } finally {
@@ -461,7 +461,7 @@ public interface c extends IInterface {
                 try {
                     obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.db.ISqlDownloadCacheAidl");
                     obtain.writeString(str);
-                    this.f13384a.transact(5, obtain, obtain2, 0);
+                    this.f13084a.transact(5, obtain, obtain2, 0);
                     obtain2.readException();
                     return obtain2.createTypedArrayList(com.ss.android.socialbase.downloader.g.c.CREATOR);
                 } finally {
@@ -477,7 +477,7 @@ public interface c extends IInterface {
                 try {
                     obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.db.ISqlDownloadCacheAidl");
                     obtain.writeString(str);
-                    this.f13384a.transact(6, obtain, obtain2, 0);
+                    this.f13084a.transact(6, obtain, obtain2, 0);
                     obtain2.readException();
                     return obtain2.createTypedArrayList(com.ss.android.socialbase.downloader.g.c.CREATOR);
                 } finally {
@@ -493,7 +493,7 @@ public interface c extends IInterface {
                 try {
                     obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.db.ISqlDownloadCacheAidl");
                     obtain.writeString(str);
-                    this.f13384a.transact(7, obtain, obtain2, 0);
+                    this.f13084a.transact(7, obtain, obtain2, 0);
                     obtain2.readException();
                     return obtain2.createTypedArrayList(com.ss.android.socialbase.downloader.g.c.CREATOR);
                 } finally {
@@ -509,7 +509,7 @@ public interface c extends IInterface {
                 try {
                     obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.db.ISqlDownloadCacheAidl");
                     obtain.writeInt(i);
-                    this.f13384a.transact(8, obtain, obtain2, 0);
+                    this.f13084a.transact(8, obtain, obtain2, 0);
                     obtain2.readException();
                     return obtain2.createTypedArrayList(com.ss.android.socialbase.downloader.g.b.CREATOR);
                 } finally {
@@ -525,7 +525,7 @@ public interface c extends IInterface {
                 try {
                     obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.db.ISqlDownloadCacheAidl");
                     obtain.writeInt(i);
-                    this.f13384a.transact(9, obtain, obtain2, 0);
+                    this.f13084a.transact(9, obtain, obtain2, 0);
                     obtain2.readException();
                 } finally {
                     obtain2.recycle();
@@ -545,7 +545,7 @@ public interface c extends IInterface {
                     } else {
                         obtain.writeInt(0);
                     }
-                    this.f13384a.transact(10, obtain, obtain2, 0);
+                    this.f13084a.transact(10, obtain, obtain2, 0);
                     obtain2.readException();
                 } finally {
                     obtain2.recycle();
@@ -565,7 +565,7 @@ public interface c extends IInterface {
                     } else {
                         obtain.writeInt(0);
                     }
-                    this.f13384a.transact(11, obtain, obtain2, 0);
+                    this.f13084a.transact(11, obtain, obtain2, 0);
                     obtain2.readException();
                 } finally {
                     obtain2.recycle();
@@ -582,7 +582,7 @@ public interface c extends IInterface {
                     obtain.writeInt(i);
                     obtain.writeInt(i2);
                     obtain.writeLong(j);
-                    this.f13384a.transact(12, obtain, obtain2, 0);
+                    this.f13084a.transact(12, obtain, obtain2, 0);
                     obtain2.readException();
                 } finally {
                     obtain2.recycle();
@@ -600,7 +600,7 @@ public interface c extends IInterface {
                     obtain.writeInt(i2);
                     obtain.writeInt(i3);
                     obtain.writeLong(j);
-                    this.f13384a.transact(13, obtain, obtain2, 0);
+                    this.f13084a.transact(13, obtain, obtain2, 0);
                     obtain2.readException();
                 } finally {
                     obtain2.recycle();
@@ -618,7 +618,7 @@ public interface c extends IInterface {
                     obtain.writeInt(i2);
                     obtain.writeInt(i3);
                     obtain.writeInt(i4);
-                    this.f13384a.transact(14, obtain, obtain2, 0);
+                    this.f13084a.transact(14, obtain, obtain2, 0);
                     obtain2.readException();
                 } finally {
                     obtain2.recycle();
@@ -635,7 +635,7 @@ public interface c extends IInterface {
                     obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.db.ISqlDownloadCacheAidl");
                     obtain.writeInt(i);
                     obtain.writeInt(i2);
-                    this.f13384a.transact(15, obtain, obtain2, 0);
+                    this.f13084a.transact(15, obtain, obtain2, 0);
                     obtain2.readException();
                     if (obtain2.readInt() != 0) {
                         cVar = com.ss.android.socialbase.downloader.g.c.CREATOR.createFromParcel(obtain2);
@@ -661,7 +661,7 @@ public interface c extends IInterface {
                     } else {
                         obtain.writeInt(0);
                     }
-                    this.f13384a.transact(16, obtain, obtain2, 0);
+                    this.f13084a.transact(16, obtain, obtain2, 0);
                     obtain2.readException();
                     return obtain2.readInt() != 0;
                 } finally {
@@ -677,7 +677,7 @@ public interface c extends IInterface {
                 try {
                     obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.db.ISqlDownloadCacheAidl");
                     obtain.writeInt(i);
-                    this.f13384a.transact(17, obtain, obtain2, 0);
+                    this.f13084a.transact(17, obtain, obtain2, 0);
                     obtain2.readException();
                     return obtain2.readInt() != 0;
                 } finally {
@@ -693,7 +693,7 @@ public interface c extends IInterface {
                 try {
                     obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.db.ISqlDownloadCacheAidl");
                     obtain.writeInt(i);
-                    this.f13384a.transact(18, obtain, obtain2, 0);
+                    this.f13084a.transact(18, obtain, obtain2, 0);
                     obtain2.readException();
                     return obtain2.readInt() != 0;
                 } finally {
@@ -708,7 +708,7 @@ public interface c extends IInterface {
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.db.ISqlDownloadCacheAidl");
-                    this.f13384a.transact(19, obtain, obtain2, 0);
+                    this.f13084a.transact(19, obtain, obtain2, 0);
                     obtain2.readException();
                 } finally {
                     obtain2.recycle();
@@ -724,7 +724,7 @@ public interface c extends IInterface {
                 try {
                     obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.db.ISqlDownloadCacheAidl");
                     obtain.writeInt(i);
-                    this.f13384a.transact(20, obtain, obtain2, 0);
+                    this.f13084a.transact(20, obtain, obtain2, 0);
                     obtain2.readException();
                     if (obtain2.readInt() != 0) {
                         cVar = com.ss.android.socialbase.downloader.g.c.CREATOR.createFromParcel(obtain2);
@@ -749,7 +749,7 @@ public interface c extends IInterface {
                     obtain.writeLong(j);
                     obtain.writeString(str);
                     obtain.writeString(str2);
-                    this.f13384a.transact(21, obtain, obtain2, 0);
+                    this.f13084a.transact(21, obtain, obtain2, 0);
                     obtain2.readException();
                     if (obtain2.readInt() != 0) {
                         cVar = com.ss.android.socialbase.downloader.g.c.CREATOR.createFromParcel(obtain2);
@@ -772,7 +772,7 @@ public interface c extends IInterface {
                     obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.db.ISqlDownloadCacheAidl");
                     obtain.writeInt(i);
                     obtain.writeLong(j);
-                    this.f13384a.transact(22, obtain, obtain2, 0);
+                    this.f13084a.transact(22, obtain, obtain2, 0);
                     obtain2.readException();
                     if (obtain2.readInt() != 0) {
                         cVar = com.ss.android.socialbase.downloader.g.c.CREATOR.createFromParcel(obtain2);
@@ -795,7 +795,7 @@ public interface c extends IInterface {
                     obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.db.ISqlDownloadCacheAidl");
                     obtain.writeInt(i);
                     obtain.writeLong(j);
-                    this.f13384a.transact(23, obtain, obtain2, 0);
+                    this.f13084a.transact(23, obtain, obtain2, 0);
                     obtain2.readException();
                     if (obtain2.readInt() != 0) {
                         cVar = com.ss.android.socialbase.downloader.g.c.CREATOR.createFromParcel(obtain2);
@@ -817,7 +817,7 @@ public interface c extends IInterface {
                 try {
                     obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.db.ISqlDownloadCacheAidl");
                     obtain.writeInt(i);
-                    this.f13384a.transact(24, obtain, obtain2, 0);
+                    this.f13084a.transact(24, obtain, obtain2, 0);
                     obtain2.readException();
                     if (obtain2.readInt() != 0) {
                         cVar = com.ss.android.socialbase.downloader.g.c.CREATOR.createFromParcel(obtain2);
@@ -840,7 +840,7 @@ public interface c extends IInterface {
                     obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.db.ISqlDownloadCacheAidl");
                     obtain.writeInt(i);
                     obtain.writeLong(j);
-                    this.f13384a.transact(25, obtain, obtain2, 0);
+                    this.f13084a.transact(25, obtain, obtain2, 0);
                     obtain2.readException();
                     if (obtain2.readInt() != 0) {
                         cVar = com.ss.android.socialbase.downloader.g.c.CREATOR.createFromParcel(obtain2);
@@ -863,7 +863,7 @@ public interface c extends IInterface {
                     obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.db.ISqlDownloadCacheAidl");
                     obtain.writeInt(i);
                     obtain.writeLong(j);
-                    this.f13384a.transact(26, obtain, obtain2, 0);
+                    this.f13084a.transact(26, obtain, obtain2, 0);
                     obtain2.readException();
                     if (obtain2.readInt() != 0) {
                         cVar = com.ss.android.socialbase.downloader.g.c.CREATOR.createFromParcel(obtain2);
@@ -886,7 +886,7 @@ public interface c extends IInterface {
                     obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.db.ISqlDownloadCacheAidl");
                     obtain.writeInt(i);
                     obtain.writeLong(j);
-                    this.f13384a.transact(27, obtain, obtain2, 0);
+                    this.f13084a.transact(27, obtain, obtain2, 0);
                     obtain2.readException();
                     if (obtain2.readInt() != 0) {
                         cVar = com.ss.android.socialbase.downloader.g.c.CREATOR.createFromParcel(obtain2);
@@ -908,7 +908,7 @@ public interface c extends IInterface {
                 try {
                     obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.db.ISqlDownloadCacheAidl");
                     obtain.writeInt(i);
-                    this.f13384a.transact(28, obtain, obtain2, 0);
+                    this.f13084a.transact(28, obtain, obtain2, 0);
                     obtain2.readException();
                     if (obtain2.readInt() != 0) {
                         cVar = com.ss.android.socialbase.downloader.g.c.CREATOR.createFromParcel(obtain2);
@@ -930,7 +930,7 @@ public interface c extends IInterface {
                 try {
                     obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.db.ISqlDownloadCacheAidl");
                     obtain.writeInt(i);
-                    this.f13384a.transact(29, obtain, obtain2, 0);
+                    this.f13084a.transact(29, obtain, obtain2, 0);
                     obtain2.readException();
                     if (obtain2.readInt() != 0) {
                         cVar = com.ss.android.socialbase.downloader.g.c.CREATOR.createFromParcel(obtain2);
@@ -950,7 +950,7 @@ public interface c extends IInterface {
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.db.ISqlDownloadCacheAidl");
-                    this.f13384a.transact(30, obtain, obtain2, 0);
+                    this.f13084a.transact(30, obtain, obtain2, 0);
                     obtain2.readException();
                     return obtain2.readInt() != 0;
                 } finally {
@@ -965,7 +965,7 @@ public interface c extends IInterface {
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.db.ISqlDownloadCacheAidl");
-                    this.f13384a.transact(31, obtain, obtain2, 0);
+                    this.f13084a.transact(31, obtain, obtain2, 0);
                     obtain2.readException();
                     return obtain2.readInt() != 0;
                 } finally {
@@ -986,7 +986,7 @@ public interface c extends IInterface {
                     } else {
                         obtain.writeInt(0);
                     }
-                    this.f13384a.transact(32, obtain, obtain2, 0);
+                    this.f13084a.transact(32, obtain, obtain2, 0);
                     obtain2.readException();
                 } finally {
                     obtain2.recycle();
@@ -1002,7 +1002,7 @@ public interface c extends IInterface {
                     obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.db.ISqlDownloadCacheAidl");
                     obtain.writeInt(i);
                     obtain.writeTypedList(list);
-                    this.f13384a.transact(33, obtain, obtain2, 0);
+                    this.f13084a.transact(33, obtain, obtain2, 0);
                     obtain2.readException();
                 } finally {
                     obtain2.recycle();
@@ -1018,7 +1018,7 @@ public interface c extends IInterface {
                     obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.db.ISqlDownloadCacheAidl");
                     obtain.writeInt(i);
                     obtain.writeTypedList(list);
-                    this.f13384a.transact(34, obtain, obtain2, 0);
+                    this.f13084a.transact(34, obtain, obtain2, 0);
                     obtain2.readException();
                 } finally {
                     obtain2.recycle();
@@ -1033,7 +1033,7 @@ public interface c extends IInterface {
                 try {
                     obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.db.ISqlDownloadCacheAidl");
                     obtain.writeStrongBinder(bVar != null ? bVar.asBinder() : null);
-                    this.f13384a.transact(35, obtain, obtain2, 0);
+                    this.f13084a.transact(35, obtain, obtain2, 0);
                     obtain2.readException();
                 } finally {
                     obtain2.recycle();

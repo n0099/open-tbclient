@@ -12,45 +12,45 @@ import java.util.Iterator;
 import java.util.Locale;
 /* loaded from: classes6.dex */
 public class a {
-    public static String pLp;
-    public static int pLq;
+    public static String pGO;
+    public static int pGP;
     public String model;
     public String network;
-    public long nsZ;
-    public String pLA;
-    public String pLr;
-    public String pLu;
-    public String pLv;
-    public long pLw;
-    public String pLx;
-    public String pLy;
-    public boolean pLz;
+    public long nos;
+    public String pGQ;
+    public String pGT;
+    public String pGU;
+    public long pGV;
+    public String pGW;
+    public String pGX;
+    public boolean pGY;
+    public String pGZ;
     public String processName;
     public String uid;
     public int versionCode;
-    public static final SimpleDateFormat pLa = new SimpleDateFormat("MM-dd HH:mm:ss.SSS", Locale.US);
+    public static final SimpleDateFormat pGz = new SimpleDateFormat("MM-dd HH:mm:ss.SSS", Locale.US);
     public static String sModel = Build.MODEL;
-    public static String pLo = com.github.a.a.c.eBZ().provideQualifier();
-    public String pLs = "";
-    public int pLt = -1;
+    public static String pGN = com.github.a.a.c.eyh().provideQualifier();
+    public String pGR = "";
+    public int pGS = -1;
     public String versionName = "";
     public String duration = "-1";
-    public ArrayList<String> pLB = new ArrayList<>();
-    private StringBuilder pLC = new StringBuilder();
-    private StringBuilder pLD = new StringBuilder();
-    private StringBuilder pLE = new StringBuilder();
-    public StringBuilder pLF = new StringBuilder();
+    public ArrayList<String> pHa = new ArrayList<>();
+    private StringBuilder pHb = new StringBuilder();
+    private StringBuilder pHc = new StringBuilder();
+    private StringBuilder pHd = new StringBuilder();
+    public StringBuilder pHe = new StringBuilder();
 
     static {
-        pLp = "";
-        pLq = -1;
-        pLq = b.getNumCores();
-        pLp = Build.VERSION.SDK_INT + " " + Build.VERSION.RELEASE;
+        pGO = "";
+        pGP = -1;
+        pGP = b.getNumCores();
+        pGO = Build.VERSION.SDK_INT + " " + Build.VERSION.RELEASE;
     }
 
-    public static a eCh() {
+    public static a eyp() {
         a aVar = new a();
-        Context provideContext = com.github.a.a.c.eBZ().provideContext();
+        Context provideContext = com.github.a.a.c.eyh().provideContext();
         if (aVar.versionName == null || aVar.versionName.length() == 0) {
             try {
                 PackageInfo packageInfo = provideContext.getPackageManager().getPackageInfo(provideContext.getPackageName(), 0);
@@ -60,70 +60,70 @@ public class a {
                 Log.e("BlockInfo", "newInstance: ", th);
             }
         }
-        aVar.pLt = pLq;
+        aVar.pGS = pGP;
         aVar.model = sModel;
-        aVar.pLs = pLp;
-        aVar.pLr = pLo;
-        aVar.uid = com.github.a.a.c.eBZ().provideUid();
-        aVar.processName = c.eCj();
-        aVar.network = com.github.a.a.c.eBZ().provideNetworkType();
-        aVar.pLu = String.valueOf(b.getFreeMemory());
-        aVar.pLv = String.valueOf(b.getTotalMemory());
+        aVar.pGR = pGO;
+        aVar.pGQ = pGN;
+        aVar.uid = com.github.a.a.c.eyh().provideUid();
+        aVar.processName = c.eyr();
+        aVar.network = com.github.a.a.c.eyh().provideNetworkType();
+        aVar.pGT = String.valueOf(b.getFreeMemory());
+        aVar.pGU = String.valueOf(b.getTotalMemory());
         if (Build.VERSION.SDK_INT >= 24) {
             aVar.duration = Long.toString(SystemClock.elapsedRealtime() - Process.getStartElapsedRealtime());
         }
         return aVar;
     }
 
-    public a ZL(String str) {
-        this.pLA = str;
+    public a YD(String str) {
+        this.pGZ = str;
         return this;
     }
 
-    public a bu(ArrayList<String> arrayList) {
-        this.pLB = arrayList;
+    public a bp(ArrayList<String> arrayList) {
+        this.pHa = arrayList;
         return this;
     }
 
     public a e(long j, long j2, long j3, long j4) {
-        this.nsZ = j2 - j;
-        this.pLw = j4 - j3;
-        this.pLx = Long.toString(j);
-        this.pLy = Long.toString(j2);
+        this.nos = j2 - j;
+        this.pGV = j4 - j3;
+        this.pGW = Long.toString(j);
+        this.pGX = Long.toString(j2);
         return this;
     }
 
-    public a eCi() {
-        this.pLC.append("qua").append(" = ").append(this.pLr).append("\r\n");
-        this.pLC.append("versionName").append(" = ").append(this.versionName).append("\r\n");
-        this.pLC.append("versionCode").append(" = ").append(this.versionCode).append("\r\n");
-        this.pLC.append("uid").append(" = ").append(this.uid).append("\r\n");
-        this.pLC.append("network").append(" = ").append(this.network).append("\r\n");
-        this.pLC.append("model").append(" = ").append(this.model).append("\r\n");
-        this.pLC.append("api-level").append(" = ").append(this.pLs).append("\r\n");
-        this.pLC.append("cpu-core").append(" = ").append(this.pLt).append("\r\n");
-        this.pLC.append("process").append(" = ").append(this.processName).append("\r\n");
-        this.pLC.append("freeMemory").append(" = ").append(this.pLu).append("\r\n");
-        this.pLC.append("totalMemory").append(" = ").append(this.pLv).append("\r\n");
-        this.pLE.append("time").append(" = ").append(this.nsZ).append("\r\n");
-        this.pLE.append("thread-time").append(" = ").append(this.pLw).append("\r\n");
-        this.pLE.append("time-start").append(" = ").append(this.pLx).append("\r\n");
-        this.pLE.append("time-end").append(" = ").append(this.pLy).append("\r\n");
-        this.pLD.append("cpu-busy").append(" = ").append(this.pLz).append("\r\n");
-        this.pLD.append("cpu-rate").append(" = ").append(this.pLA).append("\r\n");
-        if (this.pLB != null && !this.pLB.isEmpty()) {
+    public a eyq() {
+        this.pHb.append("qua").append(" = ").append(this.pGQ).append("\r\n");
+        this.pHb.append("versionName").append(" = ").append(this.versionName).append("\r\n");
+        this.pHb.append("versionCode").append(" = ").append(this.versionCode).append("\r\n");
+        this.pHb.append("uid").append(" = ").append(this.uid).append("\r\n");
+        this.pHb.append("network").append(" = ").append(this.network).append("\r\n");
+        this.pHb.append("model").append(" = ").append(this.model).append("\r\n");
+        this.pHb.append("api-level").append(" = ").append(this.pGR).append("\r\n");
+        this.pHb.append("cpu-core").append(" = ").append(this.pGS).append("\r\n");
+        this.pHb.append("process").append(" = ").append(this.processName).append("\r\n");
+        this.pHb.append("freeMemory").append(" = ").append(this.pGT).append("\r\n");
+        this.pHb.append("totalMemory").append(" = ").append(this.pGU).append("\r\n");
+        this.pHd.append("time").append(" = ").append(this.nos).append("\r\n");
+        this.pHd.append("thread-time").append(" = ").append(this.pGV).append("\r\n");
+        this.pHd.append("time-start").append(" = ").append(this.pGW).append("\r\n");
+        this.pHd.append("time-end").append(" = ").append(this.pGX).append("\r\n");
+        this.pHc.append("cpu-busy").append(" = ").append(this.pGY).append("\r\n");
+        this.pHc.append("cpu-rate").append(" = ").append(this.pGZ).append("\r\n");
+        if (this.pHa != null && !this.pHa.isEmpty()) {
             StringBuilder sb = new StringBuilder();
-            Iterator<String> it = this.pLB.iterator();
+            Iterator<String> it = this.pHa.iterator();
             while (it.hasNext()) {
                 sb.append(it.next());
                 sb.append("\r\n");
             }
-            this.pLF.append("stack").append(" = ").append(sb.toString()).append("\r\n");
+            this.pHe.append("stack").append(" = ").append(sb.toString()).append("\r\n");
         }
         return this;
     }
 
     public String toString() {
-        return String.valueOf(this.pLC) + ((Object) this.pLE) + ((Object) this.pLD) + ((Object) this.pLF);
+        return String.valueOf(this.pHb) + ((Object) this.pHd) + ((Object) this.pHc) + ((Object) this.pHe);
     }
 }

@@ -2,7 +2,7 @@ package com.baidu.swan.menu.viewpager;
 
 import android.content.Context;
 import android.graphics.drawable.Drawable;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 class a extends PointPageIndicator {
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(Context context) {
@@ -13,10 +13,10 @@ class a extends PointPageIndicator {
     @Override // com.baidu.swan.menu.viewpager.PointPageIndicator
     /* renamed from: a */
     public a b(Drawable drawable, Drawable drawable2) {
-        this.evU = drawable;
-        this.evV = drawable2;
-        this.evW.set(0, 0, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
-        this.evX.set(0, 0, drawable2.getIntrinsicWidth(), drawable2.getIntrinsicHeight());
+        this.erg = drawable;
+        this.erh = drawable2;
+        this.eri.set(0, 0, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
+        this.erj.set(0, 0, drawable2.getIntrinsicWidth(), drawable2.getIntrinsicHeight());
         return this;
     }
 }

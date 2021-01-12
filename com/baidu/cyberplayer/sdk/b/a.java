@@ -17,7 +17,7 @@ import com.baidu.cyberplayer.sdk.n;
 import com.baidu.sapi2.ecommerce.callback.AddressManageCallback;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class a extends FrameLayout implements ICyberVideoView {
     protected g A;
     protected CyberPlayerManager.OnVideoSizeChangedListener B;
@@ -44,14 +44,14 @@ public class a extends FrameLayout implements ICyberVideoView {
     private int W;
 
     /* renamed from: a  reason: collision with root package name */
-    private int f1782a;
+    private int f1732a;
     private int aa;
     private boolean ab;
     private float ac;
     private HashMap<String, String> ad;
 
     /* renamed from: b  reason: collision with root package name */
-    protected Context f1783b;
+    protected Context f1733b;
     protected Surface c;
     protected View d;
     protected boolean e;
@@ -74,45 +74,45 @@ public class a extends FrameLayout implements ICyberVideoView {
     protected CyberPlayerManager.OnSeekCompleteListener v;
     protected CyberPlayerManager.OnInfoListener w;
     protected b x;
-    protected InterfaceC0102a y;
+    protected InterfaceC0101a y;
     protected e z;
 
     /* renamed from: com.baidu.cyberplayer.sdk.b.a$a  reason: collision with other inner class name */
-    /* loaded from: classes6.dex */
-    public interface InterfaceC0102a {
+    /* loaded from: classes5.dex */
+    public interface InterfaceC0101a {
         void a();
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public interface b {
         void a();
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public interface c {
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public interface d {
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public interface e {
         void a();
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public interface f {
         void a();
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public interface g {
         void a();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public enum h {
         ERROR,
         IDLE,
@@ -123,7 +123,7 @@ public class a extends FrameLayout implements ICyberVideoView {
         PLAYBACK_COMPLETED
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     protected enum i {
         PAUSED,
         RESUMED
@@ -138,7 +138,7 @@ public class a extends FrameLayout implements ICyberVideoView {
         this.m = null;
         this.n = null;
         this.p = false;
-        this.f1782a = 0;
+        this.f1732a = 0;
         this.T = "0.0.0.0";
         this.U = true;
         this.V = 0;
@@ -166,7 +166,7 @@ public class a extends FrameLayout implements ICyberVideoView {
         this.m = null;
         this.n = null;
         this.p = false;
-        this.f1782a = 0;
+        this.f1732a = 0;
         this.T = "0.0.0.0";
         this.U = true;
         this.V = 0;
@@ -191,7 +191,7 @@ public class a extends FrameLayout implements ICyberVideoView {
         this.m = null;
         this.n = null;
         this.p = false;
-        this.f1782a = 0;
+        this.f1732a = 0;
         this.T = "0.0.0.0";
         this.U = true;
         this.V = 0;
@@ -230,7 +230,7 @@ public class a extends FrameLayout implements ICyberVideoView {
     /* JADX INFO: Access modifiers changed from: protected */
     public void a(Context context) {
         if (context != null) {
-            this.f1783b = context.getApplicationContext();
+            this.f1733b = context.getApplicationContext();
         } else {
             CyberLog.e("VrMovieView", "Context not be null");
         }
@@ -250,7 +250,7 @@ public class a extends FrameLayout implements ICyberVideoView {
         if (z2) {
             this.H = h.IDLE;
         }
-        ((AudioManager) this.f1783b.getSystemService("audio")).abandonAudioFocus(null);
+        ((AudioManager) this.f1733b.getSystemService("audio")).abandonAudioFocus(null);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -280,7 +280,7 @@ public class a extends FrameLayout implements ICyberVideoView {
 
     protected void c(int i2) {
         a(this.n != null, false);
-        ((AudioManager) this.f1783b.getSystemService("audio")).requestAudioFocus(null, 3, 1);
+        ((AudioManager) this.f1733b.getSystemService("audio")).requestAudioFocus(null, 3, 1);
         this.h = d(i2);
         if (this.ad != null) {
             for (String str : this.ad.keySet()) {
@@ -468,7 +468,7 @@ public class a extends FrameLayout implements ICyberVideoView {
         c();
         try {
             if (Build.VERSION.SDK_INT >= 14) {
-                this.h.setDataSource(this.f1783b, this.m, this.o);
+                this.h.setDataSource(this.f1733b, this.m, this.o);
             } else {
                 this.h.setDataSource(this.m.toString());
             }
@@ -728,8 +728,8 @@ public class a extends FrameLayout implements ICyberVideoView {
         this.J = z;
     }
 
-    public void setOnBufferingEndListener(InterfaceC0102a interfaceC0102a) {
-        this.y = interfaceC0102a;
+    public void setOnBufferingEndListener(InterfaceC0101a interfaceC0101a) {
+        this.y = interfaceC0101a;
     }
 
     public void setOnBufferingStartListener(b bVar) {
@@ -834,7 +834,7 @@ public class a extends FrameLayout implements ICyberVideoView {
     }
 
     public void setScaleType(int i2) {
-        this.f1782a = i2;
+        this.f1732a = i2;
     }
 
     @Override // com.baidu.cyberplayer.sdk.ICyberVideoView

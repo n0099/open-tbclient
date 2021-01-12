@@ -2,11 +2,11 @@ package com.baidu.live.data;
 
 import com.baidu.live.tbadk.core.atomdata.GuardClubInfoActivityConfig;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class bd {
-    public String aQG;
-    public String aQH;
-    public long aQI;
+    public String aLT;
+    public String aLU;
+    public long aLV;
     public String mNickName;
     public String mPortrait;
 
@@ -14,9 +14,9 @@ public class bd {
         if (jSONObject != null) {
             this.mNickName = jSONObject.optString("nickname");
             this.mPortrait = jSONObject.optString("mvp_user_portrait");
-            this.aQG = jSONObject.optString("anchor_nickname");
-            this.aQH = jSONObject.optString(GuardClubInfoActivityConfig.ANCHOR_PORTRAIT);
-            this.aQI = jSONObject.optLong("win_score");
+            this.aLT = jSONObject.optString("anchor_nickname");
+            this.aLU = jSONObject.optString(GuardClubInfoActivityConfig.ANCHOR_PORTRAIT);
+            this.aLV = jSONObject.optLong("win_score");
         }
     }
 }

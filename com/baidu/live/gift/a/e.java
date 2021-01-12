@@ -1,21 +1,21 @@
 package com.baidu.live.gift.a;
 
 import com.baidu.live.data.AlaLiveGiftUIInfo;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class e {
-    public boolean bcJ;
-    public int bdr;
-    public int bds;
-    public int bdt;
-    public String beR;
-    public String beS;
-    public int beT;
-    public String beU;
-    public boolean beW;
-    public int beX;
-    public AlaLiveGiftUIInfo beY;
-    public boolean beZ;
-    public String bfa;
+    public boolean aXV;
+    public int aYD;
+    public int aYE;
+    public int aYF;
+    public String bab;
+    public String bac;
+    public int bad;
+    public String bae;
+    public boolean bag;
+    public int bah;
+    public AlaLiveGiftUIInfo bai;
+    public boolean baj;
+    public String bak;
     public boolean isNewUser;
     public String mAppId;
     public String mLiveId;
@@ -24,10 +24,10 @@ public class e {
     public String mUserId;
     public String mUserName;
     public String otherParams;
-    public boolean aVQ = false;
-    public boolean beV = true;
-    public boolean bbn = false;
-    public int bbl = -1;
-    public boolean bdF = false;
-    public boolean bbt = false;
+    public boolean aRd = false;
+    public boolean baf = true;
+    public boolean aWz = false;
+    public int aWx = -1;
+    public boolean aYR = false;
+    public boolean aWF = false;
 }

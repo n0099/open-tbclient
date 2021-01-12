@@ -1,7 +1,7 @@
 package com.baidu.live.adp.lib.safe;
 
 import android.view.animation.Animation;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public abstract class SafeAnimationListener implements Animation.AnimationListener {
     @Override // android.view.animation.Animation.AnimationListener
     public void onAnimationStart(final Animation animation) {

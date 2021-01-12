@@ -4,7 +4,7 @@ import android.content.Context;
 import android.net.Uri;
 import com.baidu.live.tbadk.core.frameworkdata.IntentAction;
 import com.baidu.live.tbadk.core.frameworkdata.IntentConfig;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class EditHeadActivityConfig extends IntentConfig {
     public static final int ALA_PERSON_TYPE = 3;
     public static final int CHANNEL_AVATAR = 4;

@@ -8,17 +8,17 @@ import com.baidu.swan.config.c;
 import com.baidu.swan.pms.c.e;
 import okhttp3.Response;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class b {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public interface a {
         void a(com.baidu.swan.apps.relateswans.a aVar);
     }
 
     public static void a(final a aVar) {
-        com.baidu.swan.a.c.a.bfF().getRequest().url(e.processUrl(com.baidu.swan.apps.t.a.aAE().alh())).addUrlParam("appkey", d.aMh().getAppId()).addUrlParam("swan_core_ver", com.baidu.swan.apps.swancore.b.a(f.aDH().aDj(), d.aMh().ajl())).addUrlParam("swan_game_ver", com.baidu.swan.apps.swancore.b.le(1)).addUrlParam("uid", com.baidu.swan.apps.t.a.aAx().cd(com.baidu.swan.apps.t.a.aAs())).cookieManager(c.aTH().aBJ()).build().executeAsync(new ResponseCallback<com.baidu.swan.apps.relateswans.a>() { // from class: com.baidu.swan.apps.relateswans.b.1
+        com.baidu.swan.a.c.a.bbL().getRequest().url(e.processUrl(com.baidu.swan.apps.t.a.awK().ahn())).addUrlParam("appkey", d.aIn().getAppId()).addUrlParam("swan_core_ver", com.baidu.swan.apps.swancore.b.a(f.azN().azp(), d.aIn().afr())).addUrlParam("swan_game_ver", com.baidu.swan.apps.swancore.b.jy(1)).addUrlParam("uid", com.baidu.swan.apps.t.a.awD().cc(com.baidu.swan.apps.t.a.awy())).cookieManager(c.aPN().axP()).build().executeAsync(new ResponseCallback<com.baidu.swan.apps.relateswans.a>() { // from class: com.baidu.swan.apps.relateswans.b.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.searchbox.http.callback.ResponseCallback
             /* renamed from: b */

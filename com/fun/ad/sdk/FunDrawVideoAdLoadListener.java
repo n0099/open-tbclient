@@ -1,7 +1,7 @@
 package com.fun.ad.sdk;
 
 import java.util.List;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public interface FunDrawVideoAdLoadListener {
     void onAdLoaded(String str, List<FunDrawVideoAd> list);
 

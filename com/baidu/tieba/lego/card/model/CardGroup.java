@@ -6,7 +6,7 @@ import java.util.Iterator;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class CardGroup extends BaseCardInfo {
     private final List<BaseCardInfo> mCards;
     private final int showSep;

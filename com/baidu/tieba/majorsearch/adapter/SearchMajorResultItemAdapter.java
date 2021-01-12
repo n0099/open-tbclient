@@ -14,16 +14,16 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.util.ao;
 import com.baidu.tieba.R;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class SearchMajorResultItemAdapter extends RecyclerView.Adapter<ViewHolder> {
-    private String esI;
-    private a lgY;
+    private String enU;
+    private a lcr;
     private Context mContext;
     private List<String> mDataList;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public interface a {
-        void Oq(String str);
+        void Ni(String str);
     }
 
     public SearchMajorResultItemAdapter(Context context) {
@@ -45,15 +45,15 @@ public class SearchMajorResultItemAdapter extends RecyclerView.Adapter<ViewHolde
         if (this.mDataList != null) {
             final String str = this.mDataList.get(i);
             if (!StringUtils.isNull(str)) {
-                viewHolder.lhb.setText(str);
-                ao.setViewTextColor(viewHolder.lhb, R.color.CAM_X0105);
+                viewHolder.lcv.setText(str);
+                ao.setViewTextColor(viewHolder.lcv, R.color.CAM_X0105);
                 ao.setBackgroundResource(viewHolder.itemView, R.drawable.more_pop_item_bg_selector);
-                e(viewHolder.lhb, str);
+                e(viewHolder.lcv, str);
                 viewHolder.itemView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.majorsearch.adapter.SearchMajorResultItemAdapter.1
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
-                        if (SearchMajorResultItemAdapter.this.lgY != null) {
-                            SearchMajorResultItemAdapter.this.lgY.Oq(str);
+                        if (SearchMajorResultItemAdapter.this.lcr != null) {
+                            SearchMajorResultItemAdapter.this.lcr.Ni(str);
                         }
                     }
                 });
@@ -70,7 +70,7 @@ public class SearchMajorResultItemAdapter extends RecyclerView.Adapter<ViewHolde
     }
 
     public void b(a aVar) {
-        this.lgY = aVar;
+        this.lcr = aVar;
     }
 
     public void setData(List<String> list) {
@@ -78,31 +78,31 @@ public class SearchMajorResultItemAdapter extends RecyclerView.Adapter<ViewHolde
         notifyDataSetChanged();
     }
 
-    public void dgG() {
+    public void dcO() {
         if (this.mDataList != null) {
             this.mDataList.clear();
             notifyDataSetChanged();
         }
     }
 
-    public void Oi(String str) {
-        this.esI = str;
+    public void Na(String str) {
+        this.enU = str;
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public class ViewHolder extends RecyclerView.ViewHolder {
-        TextView lhb;
+        TextView lcv;
 
         public ViewHolder(View view) {
             super(view);
-            this.lhb = (TextView) view.findViewById(R.id.tv_major_name);
+            this.lcv = (TextView) view.findViewById(R.id.tv_major_name);
         }
     }
 
     private void e(TextView textView, String str) {
-        if (textView != null && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(this.esI)) {
+        if (textView != null && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(this.enU)) {
             String lowerCase = str.toLowerCase();
-            String lowerCase2 = this.esI.toLowerCase();
+            String lowerCase2 = this.enU.toLowerCase();
             if (!lowerCase.contains(lowerCase2)) {
                 textView.setText(str);
                 return;
@@ -110,7 +110,7 @@ public class SearchMajorResultItemAdapter extends RecyclerView.Adapter<ViewHolde
             int indexOf = lowerCase.indexOf(lowerCase2);
             ForegroundColorSpan foregroundColorSpan = new ForegroundColorSpan(ao.getColor(R.color.CAM_X0301));
             SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(str);
-            spannableStringBuilder.setSpan(foregroundColorSpan, indexOf, this.esI.length() + indexOf, 33);
+            spannableStringBuilder.setSpan(foregroundColorSpan, indexOf, this.enU.length() + indexOf, 33);
             textView.setText(spannableStringBuilder);
         }
     }

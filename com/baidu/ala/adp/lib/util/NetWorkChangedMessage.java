@@ -1,5 +1,5 @@
 package com.baidu.ala.adp.lib.util;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class NetWorkChangedMessage {
     public final long mCurChangedTime;
     public final int mCurNetState;

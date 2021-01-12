@@ -7,25 +7,25 @@ import java.util.Map;
 public class au implements ar {
 
     /* renamed from: a  reason: collision with root package name */
-    private static volatile au f14165a;
+    private static volatile au f13865a;
 
     /* renamed from: a  reason: collision with other field name */
-    private ar f194a;
+    private ar f193a;
 
     private au(Context context) {
-        this.f194a = at.a(context);
-        com.xiaomi.channel.commonutils.logger.b.m84a("create id manager is: " + this.f194a);
+        this.f193a = at.a(context);
+        com.xiaomi.channel.commonutils.logger.b.m80a("create id manager is: " + this.f193a);
     }
 
     public static au a(Context context) {
-        if (f14165a == null) {
+        if (f13865a == null) {
             synchronized (au.class) {
-                if (f14165a == null) {
-                    f14165a = new au(context.getApplicationContext());
+                if (f13865a == null) {
+                    f13865a = new au(context.getApplicationContext());
                 }
             }
         }
-        return f14165a;
+        return f13865a;
     }
 
     private String a(String str) {
@@ -34,7 +34,7 @@ public class au implements ar {
 
     @Override // com.xiaomi.push.ar
     public String a() {
-        return a(this.f194a.a());
+        return a(this.f193a.a());
     }
 
     public void a(Map<String, String> map) {
@@ -45,9 +45,9 @@ public class au implements ar {
         if (!TextUtils.isEmpty(a2)) {
             map.put("udid", a2);
         }
-        String mo165b = mo165b();
-        if (!TextUtils.isEmpty(mo165b)) {
-            map.put("oaid", mo165b);
+        String mo161b = mo161b();
+        if (!TextUtils.isEmpty(mo161b)) {
+            map.put("oaid", mo161b);
         }
         String c = c();
         if (!TextUtils.isEmpty(c)) {
@@ -62,22 +62,22 @@ public class au implements ar {
 
     @Override // com.xiaomi.push.ar
     public boolean a() {
-        return this.f194a.m167a();
+        return this.f193a.m163a();
     }
 
     @Override // com.xiaomi.push.ar
     /* renamed from: b */
-    public String mo165b() {
-        return a(this.f194a.mo165b());
+    public String mo161b() {
+        return a(this.f193a.mo161b());
     }
 
     @Override // com.xiaomi.push.ar
     public String c() {
-        return a(this.f194a.c());
+        return a(this.f193a.c());
     }
 
     @Override // com.xiaomi.push.ar
     public String d() {
-        return a(this.f194a.d());
+        return a(this.f193a.d());
     }
 }

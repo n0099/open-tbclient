@@ -6,14 +6,14 @@ import java.util.List;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class e<K, V> implements g<K, V> {
-    protected Map<K, List<V>> Jz = new LinkedHashMap();
+    protected Map<K, List<V>> Jx = new LinkedHashMap();
 
     public void add(K k, V v) {
         if (k != null) {
-            if (!this.Jz.containsKey(k)) {
-                this.Jz.put(k, new ArrayList(2));
+            if (!this.Jx.containsKey(k)) {
+                this.Jx.put(k, new ArrayList(2));
             }
-            this.Jz.get(k).add(v);
+            this.Jx.get(k).add(v);
         }
     }
 
@@ -26,16 +26,16 @@ public class e<K, V> implements g<K, V> {
 
     @Override // com.baidu.adp.framework.a.g
     public List<V> p(K k) {
-        return this.Jz.remove(k);
+        return this.Jx.remove(k);
     }
 
     @Override // com.baidu.adp.framework.a.g
     public List<V> q(K k) {
-        return this.Jz.get(k);
+        return this.Jx.get(k);
     }
 
     @Override // com.baidu.adp.framework.a.g
     public boolean containsKey(K k) {
-        return this.Jz.containsKey(k);
+        return this.Jx.containsKey(k);
     }
 }

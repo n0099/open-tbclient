@@ -6,22 +6,22 @@ import kotlin.collections.aj;
 /* loaded from: classes5.dex */
 final class k extends aj {
     private int index;
-    private final short[] qnN;
+    private final short[] qjl;
 
     public k(short[] sArr) {
         p.o(sArr, com.baidu.fsg.base.statistics.b.j);
-        this.qnN = sArr;
+        this.qjl = sArr;
     }
 
     @Override // java.util.Iterator
     public boolean hasNext() {
-        return this.index < this.qnN.length;
+        return this.index < this.qjl.length;
     }
 
     @Override // kotlin.collections.aj
-    public short eMG() {
+    public short eIQ() {
         try {
-            short[] sArr = this.qnN;
+            short[] sArr = this.qjl;
             int i = this.index;
             this.index = i + 1;
             return sArr[i];

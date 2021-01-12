@@ -2,7 +2,7 @@ package kotlin.text;
 @kotlin.e
 /* loaded from: classes5.dex */
 public interface i {
-    kotlin.b.h eNe();
+    kotlin.b.h eJo();
 
-    i eNf();
+    i eJp();
 }

@@ -1,23 +1,23 @@
 package b.a.a.a.a;
 
 import android.os.Bundle;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 final class b implements Runnable {
     private /* synthetic */ al Ag;
 
     /* renamed from: a  reason: collision with root package name */
-    private String f1060a;
+    private String f1059a;
 
     /* renamed from: b  reason: collision with root package name */
-    private boolean f1061b;
+    private boolean f1060b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(al alVar, String str, boolean z) {
         this.Ag = alVar;
-        this.f1060a = "";
-        this.f1061b = false;
-        this.f1060a = str;
-        this.f1061b = z;
+        this.f1059a = "";
+        this.f1060b = false;
+        this.f1059a = str;
+        this.f1060b = z;
     }
 
     private static boolean a(byte[] bArr) {
@@ -46,9 +46,9 @@ final class b implements Runnable {
 
     @Override // java.lang.Runnable
     public final void run() {
-        if (o.a(this.f1060a)) {
+        if (o.a(this.f1059a)) {
             return;
         }
-        a(this.f1060a.getBytes());
+        a(this.f1059a.getBytes());
     }
 }

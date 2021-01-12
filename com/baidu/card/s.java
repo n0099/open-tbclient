@@ -10,37 +10,37 @@ import com.baidu.tbadk.core.view.ItemCardView;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class s extends h {
-    private static final int aic = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.M_H_X003);
-    private ItemCardView aib;
+    private static final int ahl = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.M_H_X003);
+    private ItemCardView ahk;
 
     public s(Context context) {
         super(context);
-        this.aib = new ItemCardView(context);
+        this.ahk = new ItemCardView(context);
         setTopMargin(UtilHelper.getDimenPixelSize(R.dimen.M_H_X003));
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.card.a
     public View getView() {
-        return this.aib;
+        return this.ahk;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.card.p
     /* renamed from: b */
-    public void D(com.baidu.tbadk.core.data.a aVar) {
-        if (aVar != null && aVar.boP() != null && aVar.boP().bty() != null) {
-            this.aib.setVisibility(0);
-            this.aib.setData(aVar.boP().bty(), 13);
+    public void C(com.baidu.tbadk.core.data.a aVar) {
+        if (aVar != null && aVar.bkV() != null && aVar.bkV().bpE() != null) {
+            this.ahk.setVisibility(0);
+            this.ahk.setData(aVar.bkV().bpE(), 13);
             return;
         }
-        this.aib.setVisibility(8);
+        this.ahk.setVisibility(8);
     }
 
-    public void tm() {
-        setTopMargin(aic);
-        bv(0);
-        e(this.aib, aic, 0);
+    public void tb() {
+        setTopMargin(ahl);
+        bt(0);
+        e(this.ahk, ahl, 0);
     }
 
     private void e(View view, int i, int i2) {
@@ -56,6 +56,6 @@ public class s extends h {
 
     @Override // com.baidu.card.q
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
-        this.aib.onChangeSkinType();
+        this.ahk.onChangeSkinType();
     }
 }

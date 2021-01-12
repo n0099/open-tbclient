@@ -16,7 +16,7 @@ import com.baidu.tbadk.core.util.ao;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class RefreshView extends FrameLayout implements a {
-    private int akW;
+    private int akf;
     private ImageView icon;
     private int status;
     private TextView textView;
@@ -31,7 +31,7 @@ public class RefreshView extends FrameLayout implements a {
 
     public RefreshView(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.akW = 3;
+        this.akf = 3;
         init(context);
     }
 
@@ -46,7 +46,7 @@ public class RefreshView extends FrameLayout implements a {
         if (this.status != 1) {
             this.status = 1;
             this.textView.setText("查看更多");
-            SvgManager.bwr().a(this.icon, R.drawable.ic_icon_pure_jump_more24, R.color.CAM_X0109, (SvgManager.SvgResourceStateType) null);
+            SvgManager.bsx().a(this.icon, R.drawable.ic_icon_pure_jump_more24, R.color.CAM_X0109, (SvgManager.SvgResourceStateType) null);
         }
     }
 
@@ -55,7 +55,7 @@ public class RefreshView extends FrameLayout implements a {
         if (this.status != 2) {
             this.status = 2;
             this.textView.setText("释放跳转");
-            SvgManager.bwr().a(this.icon, R.drawable.ic_icon_pure_jump24, R.color.CAM_X0109, (SvgManager.SvgResourceStateType) null);
+            SvgManager.bsx().a(this.icon, R.drawable.ic_icon_pure_jump24, R.color.CAM_X0109, (SvgManager.SvgResourceStateType) null);
         }
     }
 
@@ -66,9 +66,9 @@ public class RefreshView extends FrameLayout implements a {
 
     public void onChangeSkinType() {
         int skinType = TbadkCoreApplication.getInst().getSkinType();
-        if (skinType != this.akW) {
+        if (skinType != this.akf) {
             this.status = 0;
-            this.akW = skinType;
+            this.akf = skinType;
             ao.setViewTextColor(this.textView, R.color.CAM_X0109);
         }
     }

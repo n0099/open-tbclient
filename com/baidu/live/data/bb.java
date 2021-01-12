@@ -4,9 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class bb {
-    public List<ba> aQz;
+    public List<ba> aLM;
     public String liveId;
 
     public void parserJson(JSONObject jSONObject) {
@@ -14,13 +14,13 @@ public class bb {
             this.liveId = jSONObject.optString("live_id");
             JSONArray optJSONArray = jSONObject.optJSONArray("list");
             if (optJSONArray != null && optJSONArray.length() > 0) {
-                this.aQz = new ArrayList();
+                this.aLM = new ArrayList();
                 for (int i = 0; i < optJSONArray.length(); i++) {
                     JSONObject optJSONObject = optJSONArray.optJSONObject(i);
                     if (optJSONObject != null) {
                         ba baVar = new ba();
                         baVar.parserJson(optJSONObject);
-                        this.aQz.add(baVar);
+                        this.aLM.add(baVar);
                     }
                 }
             }

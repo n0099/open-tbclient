@@ -12,10 +12,10 @@ import java.util.List;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f5341a = "extra_trace_id";
+    public static final String f5058a = "extra_trace_id";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f5342b = "extra_session_id";
+    public static final String f5059b = "extra_session_id";
     public static final String c = "login_type_share";
     public static final String d = "V2_FACE_LOGIN_UIDS_TIMES";
     public static final String e = "FACE_LOGIN_MODEL";
@@ -32,15 +32,15 @@ public class b {
     public class a implements Runnable {
 
         /* renamed from: a  reason: collision with root package name */
-        final /* synthetic */ int f5343a;
+        final /* synthetic */ int f5060a;
 
         a(int i) {
-            this.f5343a = i;
+            this.f5060a = i;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            new ShareStorage().a(this.f5343a);
+            new ShareStorage().a(this.f5060a);
             e.c();
             SapiAccountManager.getInstance().getAccountService().refreshOpenidToUid();
         }
@@ -48,7 +48,7 @@ public class b {
 
     /* renamed from: com.baidu.sapi2.share.b$b  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static abstract class AbstractC0349b {
+    public static abstract class AbstractC0332b {
         public void onFailed(int i, String str) {
         }
 
@@ -63,10 +63,10 @@ public class b {
         public static final String h = "share_version";
 
         /* renamed from: a  reason: collision with root package name */
-        public int f5345a;
+        public int f5062a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f5346b;
+        public String f5063b;
         public String c;
         public String d;
     }
@@ -87,7 +87,7 @@ public class b {
         e.a(activity, str, str2, str3, str4, list, str5);
     }
 
-    public void a(AbstractC0349b abstractC0349b, int i2, int i3, Intent intent, List<PassNameValuePair> list) {
-        e.a(abstractC0349b, i2, i3, intent, this, list);
+    public void a(AbstractC0332b abstractC0332b, int i2, int i3, Intent intent, List<PassNameValuePair> list) {
+        e.a(abstractC0332b, i2, i3, intent, this, list);
     }
 }

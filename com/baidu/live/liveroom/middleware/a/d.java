@@ -1,24 +1,24 @@
 package com.baidu.live.liveroom.middleware.a;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class d {
-    private c bsJ;
+    private c bnX;
 
-    public static d Pg() {
-        return a.bsK;
+    public static d Ll() {
+        return a.bnY;
     }
 
     private d() {
     }
 
-    public com.baidu.live.liveroom.middleware.a.a Ph() {
-        if (this.bsJ == null) {
+    public com.baidu.live.liveroom.middleware.a.a Lm() {
+        if (this.bnX == null) {
             throw new RuntimeException("IMasterEndViewControllerBuilder must not be null! should invoke MasterEndViewControllerManager.init() first~");
         }
-        return this.bsJ.Pf();
+        return this.bnX.Lk();
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public static class a {
-        private static final d bsK = new d();
+        private static final d bnY = new d();
     }
 }

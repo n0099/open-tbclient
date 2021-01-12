@@ -14,10 +14,10 @@ import com.baidu.tbadk.core.util.ao;
 import com.baidu.tbadk.core.util.at;
 import com.baidu.tbadk.core.util.be;
 import com.baidu.tieba.R;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class m extends com.baidu.tieba.frs.k<n, PrivateMgrApplyViewHolder> {
-    private static final int jcg = R.id.private_apply_tip;
-    private com.baidu.tbadk.coreExtra.view.b fso;
+    private static final int iXz = R.id.private_apply_tip;
+    private com.baidu.tbadk.coreExtra.view.b fnD;
     private View.OnClickListener mClickListener;
 
     public m(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
@@ -26,9 +26,9 @@ public class m extends com.baidu.tieba.frs.k<n, PrivateMgrApplyViewHolder> {
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (!TbadkCoreApplication.isLogin() || !StringUtils.isNull(TbadkCoreApplication.getCurrentAccountName())) {
-                    Object tag = view.getTag(m.jcg);
+                    Object tag = view.getTag(m.iXz);
                     if (tag != null && !tag.toString().equals("")) {
-                        be.bwv().b((TbPageContext) com.baidu.adp.base.j.K(m.this.mContext), new String[]{tag.toString()});
+                        be.bsB().b((TbPageContext) com.baidu.adp.base.j.K(m.this.mContext), new String[]{tag.toString()});
                         return;
                     }
                     return;
@@ -58,50 +58,50 @@ public class m extends com.baidu.tieba.frs.k<n, PrivateMgrApplyViewHolder> {
             } else {
                 if (privateMgrApplyViewHolder.mSkinType != this.mSkinType) {
                     ao.setBackgroundColor(privateMgrApplyViewHolder.mLineView, R.color.CAM_X0204);
-                    ao.setViewTextColor(privateMgrApplyViewHolder.jce, R.color.CAM_X0109, 1);
-                    ao.setViewTextColor(privateMgrApplyViewHolder.jcd, R.color.CAM_X0105, 1);
-                    ao.setBackgroundResource(privateMgrApplyViewHolder.jcf, R.drawable.frs_member_manito_bg);
+                    ao.setViewTextColor(privateMgrApplyViewHolder.iXx, R.color.CAM_X0109, 1);
+                    ao.setViewTextColor(privateMgrApplyViewHolder.iXw, R.color.CAM_X0105, 1);
+                    ao.setBackgroundResource(privateMgrApplyViewHolder.iXy, R.drawable.frs_member_manito_bg);
                 }
-                int cDx = nVar.cDx();
+                int czF = nVar.czF();
                 String string = this.mContext.getResources().getString(R.string.tbtitle_quota_is_full);
-                if (cDx == -1) {
-                    int cDv = nVar.cDv();
-                    String numberUniformFormat = at.numberUniformFormat(cDv);
-                    if (cDv > 0) {
+                if (czF == -1) {
+                    int czD = nVar.czD();
+                    String numberUniformFormat = at.numberUniformFormat(czD);
+                    if (czD > 0) {
                         string = String.format(this.mContext.getResources().getString(R.string.tbtitle_apply_assist_left_num_tip), numberUniformFormat);
-                        privateMgrApplyViewHolder.jcf.setOnClickListener(this.mClickListener);
-                        privateMgrApplyViewHolder.jce.setText(string);
-                        privateMgrApplyViewHolder.jcf.setTag(jcg, nVar.cDw());
-                        privateMgrApplyViewHolder.jcf.setEnabled(z);
-                        privateMgrApplyViewHolder.jcf.setClickable(z);
-                        privateMgrApplyViewHolder.jce.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, ao.getDrawable(R.drawable.icon_arrow12_gray66_right), (Drawable) null);
+                        privateMgrApplyViewHolder.iXy.setOnClickListener(this.mClickListener);
+                        privateMgrApplyViewHolder.iXx.setText(string);
+                        privateMgrApplyViewHolder.iXy.setTag(iXz, nVar.czE());
+                        privateMgrApplyViewHolder.iXy.setEnabled(z);
+                        privateMgrApplyViewHolder.iXy.setClickable(z);
+                        privateMgrApplyViewHolder.iXx.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, ao.getDrawable(R.drawable.icon_arrow12_gray66_right), (Drawable) null);
                         privateMgrApplyViewHolder.mSkinType = this.mSkinType;
                     }
                     z = false;
-                    privateMgrApplyViewHolder.jcf.setOnClickListener(this.mClickListener);
-                    privateMgrApplyViewHolder.jce.setText(string);
-                    privateMgrApplyViewHolder.jcf.setTag(jcg, nVar.cDw());
-                    privateMgrApplyViewHolder.jcf.setEnabled(z);
-                    privateMgrApplyViewHolder.jcf.setClickable(z);
-                    privateMgrApplyViewHolder.jce.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, ao.getDrawable(R.drawable.icon_arrow12_gray66_right), (Drawable) null);
+                    privateMgrApplyViewHolder.iXy.setOnClickListener(this.mClickListener);
+                    privateMgrApplyViewHolder.iXx.setText(string);
+                    privateMgrApplyViewHolder.iXy.setTag(iXz, nVar.czE());
+                    privateMgrApplyViewHolder.iXy.setEnabled(z);
+                    privateMgrApplyViewHolder.iXy.setClickable(z);
+                    privateMgrApplyViewHolder.iXx.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, ao.getDrawable(R.drawable.icon_arrow12_gray66_right), (Drawable) null);
                     privateMgrApplyViewHolder.mSkinType = this.mSkinType;
                 } else {
-                    if (cDx == 0) {
+                    if (czF == 0) {
                         string = this.mContext.getResources().getString(R.string.tbtitle_is_assist);
-                    } else if (cDx == 1) {
+                    } else if (czF == 1) {
                         string = this.mContext.getResources().getString(R.string.tbtitle_assist_applying);
                     } else {
-                        if (cDx == 2) {
+                        if (czF == 2) {
                             string = this.mContext.getResources().getString(R.string.tbtitle_assist_apply_failed);
                         }
                         z = false;
                     }
-                    privateMgrApplyViewHolder.jcf.setOnClickListener(this.mClickListener);
-                    privateMgrApplyViewHolder.jce.setText(string);
-                    privateMgrApplyViewHolder.jcf.setTag(jcg, nVar.cDw());
-                    privateMgrApplyViewHolder.jcf.setEnabled(z);
-                    privateMgrApplyViewHolder.jcf.setClickable(z);
-                    privateMgrApplyViewHolder.jce.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, ao.getDrawable(R.drawable.icon_arrow12_gray66_right), (Drawable) null);
+                    privateMgrApplyViewHolder.iXy.setOnClickListener(this.mClickListener);
+                    privateMgrApplyViewHolder.iXx.setText(string);
+                    privateMgrApplyViewHolder.iXy.setTag(iXz, nVar.czE());
+                    privateMgrApplyViewHolder.iXy.setEnabled(z);
+                    privateMgrApplyViewHolder.iXy.setClickable(z);
+                    privateMgrApplyViewHolder.iXx.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, ao.getDrawable(R.drawable.icon_arrow12_gray66_right), (Drawable) null);
                     privateMgrApplyViewHolder.mSkinType = this.mSkinType;
                 }
             }
@@ -118,17 +118,17 @@ public class m extends com.baidu.tieba.frs.k<n, PrivateMgrApplyViewHolder> {
         } else {
             activity = ((TbPageContext) K).getPageActivity();
         }
-        if (this.fso == null) {
-            this.fso = new com.baidu.tbadk.coreExtra.view.b(activity);
+        if (this.fnD == null) {
+            this.fnD = new com.baidu.tbadk.coreExtra.view.b(activity);
         }
-        this.fso.bDc();
-        this.fso.setAccountData(accountData);
-        this.fso.se(1);
+        this.fnD.bzi();
+        this.fnD.setAccountData(accountData);
+        this.fnD.qy(1);
     }
 
     public void onDestroy() {
-        if (this.fso != null) {
-            this.fso.onDestroy();
+        if (this.fnD != null) {
+            this.fnD.onDestroy();
         }
     }
 }

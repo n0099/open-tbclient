@@ -7,12 +7,12 @@ import androidx.annotation.Nullable;
 import com.kwad.sdk.api.core.KsAdSdkApi;
 @KsAdSdkApi
 @Keep
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public interface KsDrawAd {
 
     @KsAdSdkApi
     @Keep
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public interface AdInteractionListener {
         @KsAdSdkApi
         @Keep

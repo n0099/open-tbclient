@@ -6,17 +6,18 @@ import android.graphics.Paint;
 import android.graphics.Rect;
 import android.text.TextUtils;
 import android.view.View;
+import com.baidu.mobstat.Config;
 import com.baidu.swan.apps.ao.ah;
 import java.io.File;
 import java.io.FileOutputStream;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class f extends a {
-    private int cMY;
-    private int cMZ;
-    private int cMr;
-    private int cMs;
-    private float cNa;
+    private int cHF;
+    private int cHG;
+    private int cIm;
+    private int cIn;
+    private float cIo;
     private String mFileType;
     public int mHeight;
     private int mWidth;
@@ -24,17 +25,17 @@ public class f extends a {
     public f(String str) {
         super(str);
         this.mFileType = "png";
-        this.cNa = 1.0f;
+        this.cIo = 1.0f;
         try {
             JSONObject jSONObject = new JSONObject(str);
-            this.cMr = ah.O((float) jSONObject.optDouble("x"));
-            this.cMs = ah.O((float) jSONObject.optDouble("y"));
+            this.cHF = ah.O((float) jSONObject.optDouble(Config.EVENT_HEAT_X));
+            this.cHG = ah.O((float) jSONObject.optDouble("y"));
             this.mWidth = ah.O((float) jSONObject.optDouble("width"));
             this.mHeight = ah.O((float) jSONObject.optDouble("height"));
-            this.cMY = ah.O((float) jSONObject.optDouble("destWidth"));
-            this.cMZ = ah.O((float) jSONObject.optDouble("destHeight"));
+            this.cIm = ah.O((float) jSONObject.optDouble("destWidth"));
+            this.cIn = ah.O((float) jSONObject.optDouble("destHeight"));
             this.mFileType = jSONObject.optString("fileType");
-            this.cNa = (float) jSONObject.optDouble("quality");
+            this.cIo = (float) jSONObject.optDouble("quality");
         } catch (Exception e) {
             if (com.baidu.swan.apps.b.DEBUG) {
                 e.printStackTrace();
@@ -51,15 +52,15 @@ public class f extends a {
             Bitmap g = ah.g(view, view.getWidth(), view.getHeight());
             int width = g.getWidth();
             int height = g.getHeight();
-            this.cMr = (this.cMr < 0 || this.cMr >= width) ? 0 : this.cMr;
-            this.cMs = (this.cMs < 0 || this.cMs >= height) ? 0 : this.cMs;
-            this.mWidth = (this.mWidth <= 0 || this.cMr + this.mWidth > width) ? width - this.cMr : this.mWidth;
-            this.mHeight = (this.mHeight <= 0 || this.cMs + this.mHeight > height) ? height - this.cMs : this.mHeight;
-            this.cMY = this.cMY <= 0 ? this.mWidth : this.cMY;
-            this.cMZ = this.cMZ <= 0 ? this.mHeight : this.cMZ;
-            Bitmap createBitmap = Bitmap.createBitmap(this.cMY, this.cMZ, g.getConfig());
-            new Canvas(createBitmap).drawBitmap(g, new Rect(this.cMr, this.cMs, this.cMr + this.mWidth, this.cMs + this.mHeight), new Rect(0, 0, this.cMY, this.cMZ), new Paint());
-            Bitmap.CompressFormat compressFormat = aop() ? Bitmap.CompressFormat.JPEG : Bitmap.CompressFormat.PNG;
+            this.cHF = (this.cHF < 0 || this.cHF >= width) ? 0 : this.cHF;
+            this.cHG = (this.cHG < 0 || this.cHG >= height) ? 0 : this.cHG;
+            this.mWidth = (this.mWidth <= 0 || this.cHF + this.mWidth > width) ? width - this.cHF : this.mWidth;
+            this.mHeight = (this.mHeight <= 0 || this.cHG + this.mHeight > height) ? height - this.cHG : this.mHeight;
+            this.cIm = this.cIm <= 0 ? this.mWidth : this.cIm;
+            this.cIn = this.cIn <= 0 ? this.mHeight : this.cIn;
+            Bitmap createBitmap = Bitmap.createBitmap(this.cIm, this.cIn, g.getConfig());
+            new Canvas(createBitmap).drawBitmap(g, new Rect(this.cHF, this.cHG, this.cHF + this.mWidth, this.cHG + this.mHeight), new Rect(0, 0, this.cIm, this.cIn), new Paint());
+            Bitmap.CompressFormat compressFormat = akv() ? Bitmap.CompressFormat.JPEG : Bitmap.CompressFormat.PNG;
             File file = new File(str);
             if (file.exists()) {
                 file.delete();
@@ -69,7 +70,7 @@ public class f extends a {
             }
             file.createNewFile();
             FileOutputStream fileOutputStream = new FileOutputStream(file);
-            createBitmap.compress(compressFormat, (int) (this.cNa * 100.0f), fileOutputStream);
+            createBitmap.compress(compressFormat, (int) (this.cIo * 100.0f), fileOutputStream);
             fileOutputStream.flush();
             com.baidu.swan.c.d.closeSafely(fileOutputStream);
             z = true;
@@ -89,7 +90,7 @@ public class f extends a {
         }
     }
 
-    public boolean aop() {
+    public boolean akv() {
         return TextUtils.equals(this.mFileType, "jpg");
     }
 

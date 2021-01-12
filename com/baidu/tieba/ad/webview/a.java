@@ -10,18 +10,19 @@ import com.baidu.down.utils.Utils;
 import com.baidu.live.tbadk.ubc.UbcStatConstant;
 import com.baidu.mobads.interfaces.utils.IXAdCommonUtils;
 import com.baidu.mobstat.Config;
-import com.baidu.platform.comapi.map.MapBundleKey;
+import com.baidu.searchbox.account.data.UserAccountActionItem;
+import com.meizu.cloud.pushsdk.notification.model.TimeDisplaySetting;
 import java.io.File;
 import java.util.HashMap;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /* loaded from: classes.dex */
 public final class a {
-    private static HashMap<String, Integer> dRI = new HashMap<>();
-    private static HashMap<String, Integer> dRJ = new HashMap<>();
-    private static HashMap<String, String> dRK = new HashMap<>();
-    private static HashMap<String, String> dRL = new HashMap<>();
-    private static final Pattern dRM;
+    private static HashMap<String, Integer> dMW = new HashMap<>();
+    private static HashMap<String, Integer> dMX = new HashMap<>();
+    private static HashMap<String, String> dMY = new HashMap<>();
+    private static HashMap<String, String> dMZ = new HashMap<>();
+    private static final Pattern dNa;
 
     static {
         k("application/andrew-inset", "ez", 5);
@@ -104,7 +105,7 @@ public final class a {
         k("application/x-debian-package", "deb", 5);
         k("application/x-debian-package", "udeb", 5);
         k("application/x-director", "dcr", 5);
-        k("application/x-director", MapBundleKey.MapObjKey.OBJ_DIR, 5);
+        k("application/x-director", "dir", 5);
         k("application/x-director", "dxr", 5);
         k("application/x-dms", "dms", 5);
         k("application/x-doom", "wad", 5);
@@ -176,7 +177,7 @@ public final class a {
         k("application/x-troff", "roff", 5);
         k("application/x-troff-man", "man", 5);
         k("application/x-ustar", "ustar", 5);
-        k("application/x-wais-source", "src", 5);
+        k("application/x-wais-source", UserAccountActionItem.KEY_SRC, 5);
         k("application/x-wingz", "wz", 5);
         k("application/x-webarchive", "webarchive", 5);
         k("application/x-webarchive-xml", "webarchivexml", 5);
@@ -273,7 +274,7 @@ public final class a {
         k("text/plain", "po", 4);
         k("text/richtext", "rtx", 4);
         k("text/rtf", "rtf", 4);
-        k("text/texmacs", "ts", 5);
+        k("text/texmacs", TimeDisplaySetting.TIME_DISPLAY_SETTING, 5);
         k("text/text", "phps", 5);
         k("text/tab-separated-values", "tsv", 5);
         k("text/xml", "xml", 4);
@@ -342,26 +343,26 @@ public final class a {
         k("audio/aac", "aac", 1);
         k("application/vnd.rn-realmedia", "rm", 0);
         k("message/rfc822", "mht", 11);
-        dRM = Pattern.compile("attachment;\\s*filename\\s*=\\s*(\"?)([^\"]*)\\1\\s*$", 2);
+        dNa = Pattern.compile("attachment;\\s*filename\\s*=\\s*(\"?)([^\"]*)\\1\\s*$", 2);
     }
 
     private static void k(String str, String str2, int i) {
-        dRI.put(str2, Integer.valueOf(i));
-        dRJ.put(str, Integer.valueOf(i));
-        dRK.put(str2, str);
-        if (!dRL.containsKey(str)) {
-            dRL.put(str, str2);
+        dMW.put(str2, Integer.valueOf(i));
+        dMX.put(str, Integer.valueOf(i));
+        dMY.put(str2, str);
+        if (!dMZ.containsKey(str)) {
+            dMZ.put(str, str2);
         }
     }
 
-    public static int en(String str, String str2) {
+    public static int em(String str, String str2) {
         return A(!TextUtils.isEmpty(str) ? str.toLowerCase() : "", str2, true);
     }
 
     public static int A(String str, String str2, boolean z) {
-        Integer num = dRJ.get(str2);
+        Integer num = dMX.get(str2);
         if (num == null) {
-            num = dRI.get(str);
+            num = dMW.get(str);
             if (num == null) {
                 num = 5;
             } else if (z && num.intValue() == 8) {
@@ -373,7 +374,7 @@ public final class a {
         return num.intValue();
     }
 
-    public static String uJ(String str) {
+    public static String ty(String str) {
         int lastIndexOf;
         if (TextUtils.isEmpty(str) || (lastIndexOf = str.lastIndexOf(".")) == -1 || lastIndexOf == str.length()) {
             return "";
@@ -381,21 +382,21 @@ public final class a {
         return str.substring(lastIndexOf + 1);
     }
 
-    public static String uL(String str) {
+    public static String tA(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
-        return dRK.get(str);
+        return dMY.get(str);
     }
 
-    public static String FC(String str) {
+    public static String Er(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
-        return dRL.get(str);
+        return dMZ.get(str);
     }
 
-    public static String at(String str, String str2, String str3) {
+    public static String as(String str, String str2, String str3) {
         String str4;
         String str5;
         int lastIndexOf;
@@ -404,7 +405,7 @@ public final class a {
         if (0 != 0 || str2 == null) {
             str4 = null;
         } else {
-            str4 = FD(str2);
+            str4 = Es(str2);
             if (str4 != null && (lastIndexOf2 = str4.lastIndexOf(File.separator) + 1) > 0) {
                 str4 = str4.substring(lastIndexOf2);
             }
@@ -451,14 +452,14 @@ public final class a {
         } else {
             if (str3 != null) {
                 String substring = str4.substring(str4.lastIndexOf(".") + 1);
-                String FC = FC(str3);
+                String Er = Er(str3);
                 String extensionFromMimeType = MimeTypeMap.getSingleton().getExtensionFromMimeType(str3);
                 String lowerCase = !TextUtils.isEmpty(substring) ? substring.toLowerCase() : "";
-                String lowerCase2 = !TextUtils.isEmpty(FC) ? FC.toLowerCase() : "";
+                String lowerCase2 = !TextUtils.isEmpty(Er) ? Er.toLowerCase() : "";
                 String lowerCase3 = !TextUtils.isEmpty(extensionFromMimeType) ? extensionFromMimeType.toLowerCase() : "";
-                String uL = uL(lowerCase);
+                String tA = tA(lowerCase);
                 String mimeTypeFromExtension = MimeTypeMap.getSingleton().getMimeTypeFromExtension(lowerCase);
-                String lowerCase4 = !TextUtils.isEmpty(uL) ? uL.toLowerCase() : "";
+                String lowerCase4 = !TextUtils.isEmpty(tA) ? tA.toLowerCase() : "";
                 String lowerCase5 = !TextUtils.isEmpty(mimeTypeFromExtension) ? mimeTypeFromExtension.toLowerCase() : "";
                 if (TextUtils.equals(lowerCase4, lowerCase5)) {
                     if (!TextUtils.isEmpty(lowerCase2) && TextUtils.equals(lowerCase2, lowerCase3)) {
@@ -502,9 +503,9 @@ public final class a {
         return null;
     }
 
-    static String FD(String str) {
+    static String Es(String str) {
         try {
-            Matcher matcher = dRM.matcher(str);
+            Matcher matcher = dNa.matcher(str);
             if (matcher.find()) {
                 return matcher.group(2);
             }

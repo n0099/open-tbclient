@@ -2,7 +2,7 @@ package androidx.core.view;
 
 import android.view.View;
 import androidx.annotation.NonNull;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public interface NestedScrollingParent {
     int getNestedScrollAxes();
 

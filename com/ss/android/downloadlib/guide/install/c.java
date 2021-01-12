@@ -66,7 +66,7 @@ public class c {
     }
 
     private static boolean c(int i) {
-        return System.currentTimeMillis() - j.a().getSharedPreferences("sp_install_guide", 0).getLong("guide_last_show_time", 0L) >= ((long) (com.ss.android.downloadlib.f.d.hj(i) * 86400000));
+        return System.currentTimeMillis() - j.a().getSharedPreferences("sp_install_guide", 0).getLong("guide_last_show_time", 0L) >= ((long) (com.ss.android.downloadlib.f.d.fC(i) * 86400000));
     }
 
     private static boolean d(int i) {
@@ -74,13 +74,13 @@ public class c {
         calendar.setTimeInMillis(System.currentTimeMillis());
         int i2 = 0;
         int i3 = 0;
-        for (int hk = com.ss.android.downloadlib.f.d.hk(i); hk > 0; hk--) {
+        for (int fD = com.ss.android.downloadlib.f.d.fD(i); fD > 0; fD--) {
             Pair<Integer, Integer> jd = jd(calendar.getTimeInMillis());
             i3 += ((Integer) jd.first).intValue();
             i2 += ((Integer) jd.second).intValue();
             calendar.setTimeInMillis(calendar.getTimeInMillis() - 86400000);
         }
-        return ((double) i2) >= ((double) i3) * com.ss.android.downloadlib.f.d.Sj(i);
+        return ((double) i2) >= ((double) i3) * com.ss.android.downloadlib.f.d.QC(i);
     }
 
     private static Pair<Integer, Integer> jd(long j) {

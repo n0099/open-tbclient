@@ -5,12 +5,13 @@ import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.IMConstants;
 import com.baidu.live.tbadk.core.sharedpref.SharedPrefConfig;
+import com.baidu.live.tbadk.core.util.TiebaInitialize;
 /* loaded from: classes6.dex */
 public class a {
     private String appId;
     private String downloadUrl;
-    private String ewI;
-    private long ewJ = 0;
+    private String erV;
+    private long erW = 0;
     private String md5;
     private String sign;
     private long size;
@@ -27,14 +28,14 @@ public class a {
         int columnIndex2 = cursor.getColumnIndex("bundle_id");
         int columnIndex3 = cursor.getColumnIndex(SharedPrefConfig.VERSION_NAME);
         int columnIndex4 = cursor.getColumnIndex("version_code");
-        int columnIndex5 = cursor.getColumnIndex("size");
+        int columnIndex5 = cursor.getColumnIndex(TiebaInitialize.LogFields.SIZE);
         int columnIndex6 = cursor.getColumnIndex("md5");
         int columnIndex7 = cursor.getColumnIndex("sign");
         int columnIndex8 = cursor.getColumnIndex("downloadUrl");
         int columnIndex9 = cursor.getColumnIndex(IMConstants.MSG_ROW_ID);
         String string = cursor.getString(columnIndex2);
         if (!TextUtils.isEmpty(string)) {
-            aVar.ewI = string;
+            aVar.erV = string;
             aVar.appId = cursor.getString(columnIndex);
             aVar.versionName = cursor.getString(columnIndex3);
             aVar.versionCode = cursor.getInt(columnIndex4);
@@ -42,14 +43,14 @@ public class a {
             aVar.md5 = cursor.getString(columnIndex6);
             aVar.sign = cursor.getString(columnIndex7);
             aVar.downloadUrl = cursor.getString(columnIndex8);
-            aVar.ewJ = cursor.getLong(columnIndex9);
+            aVar.erW = cursor.getLong(columnIndex9);
         }
         return aVar;
     }
 
     @NonNull
     public String toString() {
-        return "SwanMiniPackageInfo{appId='" + this.appId + "', bundleId='" + this.ewI + "', versionCode=" + this.versionCode + ", versionName='" + this.versionName + "', size=" + this.size + ", md5='" + this.md5 + "', sign='" + this.sign + "', downloadUrl='" + this.downloadUrl + "', rawid=" + this.ewJ + '}';
+        return "SwanMiniPackageInfo{appId='" + this.appId + "', bundleId='" + this.erV + "', versionCode=" + this.versionCode + ", versionName='" + this.versionName + "', size=" + this.size + ", md5='" + this.md5 + "', sign='" + this.sign + "', downloadUrl='" + this.downloadUrl + "', rawid=" + this.erW + '}';
     }
 
     public String getAppId() {
@@ -57,7 +58,7 @@ public class a {
     }
 
     public String getBundleId() {
-        return this.ewI;
+        return this.erV;
     }
 
     public int getVersionCode() {

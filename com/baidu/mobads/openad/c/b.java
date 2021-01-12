@@ -2,16 +2,16 @@ package com.baidu.mobads.openad.c;
 
 import com.baidu.mobads.openad.interfaces.event.IOAdEvent;
 import java.util.HashMap;
-/* loaded from: classes3.dex */
+/* loaded from: classes14.dex */
 public class b implements IOAdEvent {
     public static final String COMPLETE = "complete";
     public static final String EVENT_MESSAGE = "message";
 
     /* renamed from: a  reason: collision with root package name */
-    private final String f3449a;
+    private final String f3411a;
 
     /* renamed from: b  reason: collision with root package name */
-    private final HashMap<String, Object> f3450b;
+    private final HashMap<String, Object> f3412b;
     private final int c;
     private Object d;
 
@@ -32,19 +32,19 @@ public class b implements IOAdEvent {
     }
 
     public b(String str, int i, HashMap<String, Object> hashMap) {
-        this.f3449a = str;
+        this.f3411a = str;
         this.c = i;
-        this.f3450b = hashMap;
+        this.f3412b = hashMap;
     }
 
     public b(String str, int i, String str2) {
         this(str, i, new HashMap());
-        this.f3450b.put("message", str2);
+        this.f3412b.put("message", str2);
     }
 
     @Override // com.baidu.mobads.openad.interfaces.event.IOAdEvent
     public String getType() {
-        return this.f3449a;
+        return this.f3411a;
     }
 
     @Override // com.baidu.mobads.openad.interfaces.event.IOAdEvent
@@ -55,7 +55,7 @@ public class b implements IOAdEvent {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.mobads.openad.interfaces.event.IOAdEvent
     public HashMap<String, Object> getData() {
-        return this.f3450b;
+        return this.f3412b;
     }
 
     @Override // com.baidu.mobads.openad.interfaces.event.IOAdEvent
@@ -71,7 +71,7 @@ public class b implements IOAdEvent {
     @Override // com.baidu.mobads.openad.interfaces.event.IOAdEvent
     public String getMessage() {
         try {
-            return (String) this.f3450b.get("message");
+            return (String) this.f3412b.get("message");
         } catch (Exception e) {
             return "";
         }

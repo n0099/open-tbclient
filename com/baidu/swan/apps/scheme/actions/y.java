@@ -20,7 +20,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.net.URI;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class y extends aa {
     public y(com.baidu.swan.apps.scheme.j jVar) {
         super(jVar, "/swanAPI/saveImageToPhotosAlbum");
@@ -53,7 +53,7 @@ public class y extends aa {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "empty cb");
                 return false;
             }
-            eVar.aMx().b(context, "mapp_images", new com.baidu.swan.apps.ao.e.b<com.baidu.swan.apps.setting.oauth.h<b.d>>() { // from class: com.baidu.swan.apps.scheme.actions.y.1
+            eVar.aID().b(context, "mapp_images", new com.baidu.swan.apps.ao.e.b<com.baidu.swan.apps.setting.oauth.h<b.d>>() { // from class: com.baidu.swan.apps.scheme.actions.y.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.swan.apps.ao.e.b
                 /* renamed from: a */
@@ -87,8 +87,8 @@ public class y extends aa {
     public void a(@NonNull final Context context, final File file, @NonNull final UnitedSchemeEntity unitedSchemeEntity, @NonNull final CallbackHandler callbackHandler, final String str) {
         com.baidu.swan.apps.ab.a.a("android.permission.WRITE_EXTERNAL_STORAGE", new String[]{"android.permission.WRITE_EXTERNAL_STORAGE"}, 3, context, new com.baidu.swan.apps.ab.b() { // from class: com.baidu.swan.apps.scheme.actions.y.2
             @Override // com.baidu.swan.apps.ab.b
-            public void kN(String str2) {
-                boolean f = com.baidu.swan.apps.ao.c.aQW() ? y.this.f(context, file) : y.this.g(context, file);
+            public void jC(String str2) {
+                boolean f = com.baidu.swan.apps.ao.c.aNc() ? y.this.f(context, file) : y.this.g(context, file);
                 int i = f ? 0 : 1001;
                 String str3 = f ? "save success" : "can not save to album : " + file;
                 com.baidu.swan.apps.console.c.i("SaveImage", str3);
@@ -96,7 +96,7 @@ public class y extends aa {
             }
 
             @Override // com.baidu.swan.apps.ab.b
-            public void ah(int i, String str2) {
+            public void ai(int i, String str2) {
                 com.baidu.swan.apps.console.c.i("SaveImage", str2 + "");
                 UnitedSchemeUtility.safeCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(10005, str2).toString(), str);
             }
@@ -104,19 +104,19 @@ public class y extends aa {
     }
 
     private File a(com.baidu.swan.apps.runtime.e eVar, String str, URI uri) {
-        String uf;
-        com.baidu.swan.apps.storage.b.c aDn = com.baidu.swan.apps.v.f.aDH().aDn();
+        String sU;
+        com.baidu.swan.apps.storage.b.c azt = com.baidu.swan.apps.v.f.azN().azt();
         if ("bdfile".equalsIgnoreCase(uri.getScheme())) {
-            uf = aDn.ug(str);
-        } else if (com.baidu.swan.apps.ad.a.a.j(eVar.ajv())) {
-            uf = aDn.tV(str);
+            sU = azt.sV(str);
+        } else if (com.baidu.swan.apps.ad.a.a.j(eVar.afB())) {
+            sU = azt.sK(str);
         } else {
-            uf = aDn.uf(str);
+            sU = azt.sU(str);
         }
-        if (TextUtils.isEmpty(uf)) {
+        if (TextUtils.isEmpty(sU)) {
             return null;
         }
-        return new File(uf);
+        return new File(sU);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -193,7 +193,7 @@ public class y extends aa {
         decodeFile.recycle();
         File externalStoragePublicDirectory = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES);
         com.baidu.swan.c.d.ensureDirectoryExist(externalStoragePublicDirectory);
-        File file2 = new File(externalStoragePublicDirectory, L(file));
+        File file2 = new File(externalStoragePublicDirectory, K(file));
         if (com.baidu.swan.c.d.copyFile(file, file2) != 0) {
             h(context, file2);
             return true;
@@ -201,10 +201,10 @@ public class y extends aa {
         return false;
     }
 
-    private String L(File file) {
-        String zI = com.baidu.swan.c.d.zI(file.getPath());
+    private String K(File file) {
+        String yx = com.baidu.swan.c.d.yx(file.getPath());
         String valueOf = String.valueOf(System.currentTimeMillis());
-        return TextUtils.isEmpty(zI) ? valueOf : valueOf + "." + zI;
+        return TextUtils.isEmpty(yx) ? valueOf : valueOf + "." + yx;
     }
 
     private void h(Context context, File file) {

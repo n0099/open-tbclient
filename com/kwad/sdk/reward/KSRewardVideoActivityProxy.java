@@ -25,7 +25,7 @@ import java.io.Serializable;
 import org.json.JSONObject;
 @KsAdSdkDynamicImpl(KsRewardVideoActivity.class)
 @Keep
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class KSRewardVideoActivityProxy extends com.kwad.sdk.core.e.a<a> {
     public static final String KEY_TEMPLATE = "key_template";
     public static final String KEY_VIDEO_PLAY_CONFIG = "key_video_play_config";
@@ -205,7 +205,7 @@ public class KSRewardVideoActivityProxy extends com.kwad.sdk.core.e.a<a> {
     protected a onCreateCallerContext() {
         a aVar = new a();
         aVar.g = this.mContext;
-        aVar.f10825b = this.mAdOpenInteractionListener;
+        aVar.f10525b = this.mAdOpenInteractionListener;
         aVar.e = this.mScreenOrientation;
         aVar.c = this.mVideoPlayConfig;
         aVar.d = this.mReportExtData;
@@ -213,7 +213,7 @@ public class KSRewardVideoActivityProxy extends com.kwad.sdk.core.e.a<a> {
         aVar.f = this.mAdTemplate;
         com.kwad.sdk.reward.c.a aVar2 = new com.kwad.sdk.reward.c.a(this.mAdTemplate, this.mDetailVideoView, this.mVideoPlayConfig);
         aVar.i = aVar2;
-        aVar.f10824a.add(aVar2);
+        aVar.f10524a.add(aVar2);
         if (com.kwad.sdk.core.response.b.a.y(this.mAdInfo)) {
             aVar.j = new com.kwad.sdk.core.download.b.b(this.mAdTemplate, this.mReportExtData);
         }

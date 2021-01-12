@@ -28,16 +28,16 @@ public class c {
     @SuppressLint({"StaticFieldLeak"})
 
     /* renamed from: a  reason: collision with root package name */
-    private static volatile c f6601a;
+    private static volatile c f6301a;
 
     /* renamed from: b  reason: collision with root package name */
-    private Context f6602b;
+    private Context f6302b;
     private AtomicBoolean d = new AtomicBoolean(false);
     private List<a> e = Collections.synchronizedList(new ArrayList());
     private final BroadcastReceiver f = new BroadcastReceiver() { // from class: com.bytedance.sdk.openadsdk.component.reward.c.3
         @Override // android.content.BroadcastReceiver
         public void onReceive(Context context, Intent intent) {
-            if ("android.net.conn.CONNECTIVITY_CHANGE".equals(intent.getAction()) && x.c(c.this.f6602b) != 0) {
+            if ("android.net.conn.CONNECTIVITY_CHANGE".equals(intent.getAction()) && x.c(c.this.f6302b) != 0) {
                 Iterator it = c.this.e.iterator();
                 while (it.hasNext()) {
                     com.bytedance.sdk.openadsdk.k.a.a().c((Runnable) it.next(), 1);
@@ -49,42 +49,42 @@ public class c {
     private final q c = p.f();
 
     public static c a(Context context) {
-        if (f6601a == null) {
+        if (f6301a == null) {
             synchronized (c.class) {
-                if (f6601a == null) {
-                    f6601a = new c(context);
+                if (f6301a == null) {
+                    f6301a = new c(context);
                 }
             }
         }
-        return f6601a;
+        return f6301a;
     }
 
     private c(Context context) {
-        this.f6602b = context == null ? p.a() : context.getApplicationContext();
+        this.f6302b = context == null ? p.a() : context.getApplicationContext();
         c();
     }
 
     public void a() {
         try {
-            com.bytedance.sdk.openadsdk.component.reward.a.a(this.f6602b).a();
+            com.bytedance.sdk.openadsdk.component.reward.a.a(this.f6302b).a();
         } catch (Throwable th) {
         }
     }
 
     public void b() {
-        AdSlot b2 = com.bytedance.sdk.openadsdk.component.reward.a.a(this.f6602b).b();
-        if (b2 != null && !TextUtils.isEmpty(b2.getCodeId()) && com.bytedance.sdk.openadsdk.component.reward.a.a(this.f6602b).c(b2.getCodeId()) == null) {
+        AdSlot b2 = com.bytedance.sdk.openadsdk.component.reward.a.a(this.f6302b).b();
+        if (b2 != null && !TextUtils.isEmpty(b2.getCodeId()) && com.bytedance.sdk.openadsdk.component.reward.a.a(this.f6302b).c(b2.getCodeId()) == null) {
             b(b2);
         }
     }
 
     public void a(AdSlot adSlot) {
-        com.bytedance.sdk.openadsdk.component.reward.a.a(this.f6602b).b(adSlot);
+        com.bytedance.sdk.openadsdk.component.reward.a.a(this.f6302b).b(adSlot);
     }
 
     public void a(AdSlot adSlot, TTAdNative.FullScreenVideoAdListener fullScreenVideoAdListener) {
         u.b("FullScreenVideoLoadManager", "load full screen video: " + String.valueOf(adSlot));
-        com.bytedance.sdk.openadsdk.component.reward.a.a(this.f6602b).a(adSlot);
+        com.bytedance.sdk.openadsdk.component.reward.a.a(this.f6302b).a(adSlot);
         a(adSlot, false, fullScreenVideoAdListener);
     }
 
@@ -98,11 +98,11 @@ public class c {
             b(adSlot, true, fullScreenVideoAdListener);
             return;
         }
-        final l c = com.bytedance.sdk.openadsdk.component.reward.a.a(this.f6602b).c(adSlot.getCodeId());
+        final l c = com.bytedance.sdk.openadsdk.component.reward.a.a(this.f6302b).c(adSlot.getCodeId());
         if (c != null) {
-            i iVar = new i(this.f6602b, c, adSlot);
+            i iVar = new i(this.f6302b, c, adSlot);
             if (!c.t()) {
-                iVar.a(com.bytedance.sdk.openadsdk.component.reward.a.a(this.f6602b).a(c));
+                iVar.a(com.bytedance.sdk.openadsdk.component.reward.a.a(this.f6302b).a(c));
             }
             com.bytedance.sdk.openadsdk.c.d.a(c);
             if (fullScreenVideoAdListener != null) {
@@ -111,8 +111,8 @@ public class c {
                     fullScreenVideoAdListener.onFullScreenVideoCached();
                 }
             }
-            com.bytedance.sdk.openadsdk.core.g.a.a().a(c, new a.InterfaceC1020a() { // from class: com.bytedance.sdk.openadsdk.component.reward.c.1
-                @Override // com.bytedance.sdk.openadsdk.core.g.a.InterfaceC1020a
+            com.bytedance.sdk.openadsdk.core.g.a.a().a(c, new a.InterfaceC1003a() { // from class: com.bytedance.sdk.openadsdk.component.reward.c.1
+                @Override // com.bytedance.sdk.openadsdk.core.g.a.InterfaceC1003a
                 public void a(boolean z2) {
                     if (fullScreenVideoAdListener != null && c.t()) {
                         fullScreenVideoAdListener.onFullScreenVideoCached();
@@ -153,16 +153,16 @@ public class c {
                             bVar.c(lVar.T());
                             bVar.d(lVar.W());
                             bVar.b(aj.h(lVar.W()));
-                            com.bytedance.sdk.openadsdk.i.e.a(c.this.f6602b).g().a(a2, bVar);
+                            com.bytedance.sdk.openadsdk.i.e.a(c.this.f6302b).g().a(a2, bVar);
                         }
                     } catch (Throwable th) {
                     }
-                    final i iVar = new i(c.this.f6602b, lVar, adSlot);
+                    final i iVar = new i(c.this.f6302b, lVar, adSlot);
                     if (!z && fullScreenVideoAdListener != null) {
                         fullScreenVideoAdListener.onFullScreenVideoAdLoad(iVar);
                     }
-                    com.bytedance.sdk.openadsdk.core.g.a.a().a(lVar, new a.InterfaceC1020a() { // from class: com.bytedance.sdk.openadsdk.component.reward.c.2.1
-                        @Override // com.bytedance.sdk.openadsdk.core.g.a.InterfaceC1020a
+                    com.bytedance.sdk.openadsdk.core.g.a.a().a(lVar, new a.InterfaceC1003a() { // from class: com.bytedance.sdk.openadsdk.component.reward.c.2.1
+                        @Override // com.bytedance.sdk.openadsdk.core.g.a.InterfaceC1003a
                         public void a(boolean z2) {
                             if (!z && fullScreenVideoAdListener != null && lVar != null && lVar.t()) {
                                 fullScreenVideoAdListener.onFullScreenVideoCached();
@@ -171,16 +171,16 @@ public class c {
                     });
                     if (lVar.ai()) {
                         if (z && !lVar.t() && p.h().r(adSlot.getCodeId()).d == 1) {
-                            if (!x.d(c.this.f6602b)) {
+                            if (!x.d(c.this.f6302b)) {
                                 c.this.a(new a(lVar, adSlot));
                             }
                         } else if (!lVar.t()) {
-                            com.bytedance.sdk.openadsdk.component.reward.a.a(c.this.f6602b).a(lVar, new a.InterfaceC1014a<Object>() { // from class: com.bytedance.sdk.openadsdk.component.reward.c.2.2
-                                @Override // com.bytedance.sdk.openadsdk.component.reward.a.InterfaceC1014a
+                            com.bytedance.sdk.openadsdk.component.reward.a.a(c.this.f6302b).a(lVar, new a.InterfaceC0997a<Object>() { // from class: com.bytedance.sdk.openadsdk.component.reward.c.2.2
+                                @Override // com.bytedance.sdk.openadsdk.component.reward.a.InterfaceC0997a
                                 public void a(boolean z2, Object obj) {
                                     u.b("FullScreenVideoLoadManager", "download video file: " + z2 + ", preload: " + z);
                                     if (z2) {
-                                        iVar.a(com.bytedance.sdk.openadsdk.component.reward.a.a(c.this.f6602b).a(lVar));
+                                        iVar.a(com.bytedance.sdk.openadsdk.component.reward.a.a(c.this.f6302b).a(lVar));
                                     }
                                     if (!z) {
                                         com.bytedance.sdk.openadsdk.c.d.a(lVar);
@@ -188,12 +188,12 @@ public class c {
                                             fullScreenVideoAdListener.onFullScreenVideoCached();
                                         }
                                     } else if (z2) {
-                                        com.bytedance.sdk.openadsdk.component.reward.a.a(c.this.f6602b).a(adSlot, lVar);
+                                        com.bytedance.sdk.openadsdk.component.reward.a.a(c.this.f6302b).a(adSlot, lVar);
                                     }
                                 }
                             });
                         } else {
-                            com.bytedance.sdk.openadsdk.component.reward.a.a(c.this.f6602b).a(adSlot, lVar);
+                            com.bytedance.sdk.openadsdk.component.reward.a.a(c.this.f6302b).a(adSlot, lVar);
                         }
                     } else if (!z && fullScreenVideoAdListener != null) {
                         fullScreenVideoAdListener.onError(-4, com.bytedance.sdk.openadsdk.core.h.a(-4));
@@ -206,12 +206,12 @@ public class c {
     }
 
     public void a(String str) {
-        com.bytedance.sdk.openadsdk.component.reward.a.a(this.f6602b).a(str);
+        com.bytedance.sdk.openadsdk.component.reward.a.a(this.f6302b).a(str);
     }
 
     @Nullable
     public AdSlot b(String str) {
-        return com.bytedance.sdk.openadsdk.component.reward.a.a(this.f6602b).b(str);
+        return com.bytedance.sdk.openadsdk.component.reward.a.a(this.f6302b).b(str);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -230,7 +230,7 @@ public class c {
             IntentFilter intentFilter = new IntentFilter();
             intentFilter.addAction("android.net.conn.CONNECTIVITY_CHANGE");
             try {
-                this.f6602b.registerReceiver(this.f, intentFilter);
+                this.f6302b.registerReceiver(this.f, intentFilter);
             } catch (Exception e) {
             }
         }
@@ -240,7 +240,7 @@ public class c {
         if (this.d.get()) {
             this.d.set(false);
             try {
-                this.f6602b.unregisterReceiver(this.f);
+                this.f6302b.unregisterReceiver(this.f);
             } catch (Exception e) {
             }
         }
@@ -256,23 +256,23 @@ public class c {
     public class a implements Runnable {
 
         /* renamed from: a  reason: collision with root package name */
-        l f6612a;
+        l f6312a;
 
         /* renamed from: b  reason: collision with root package name */
-        AdSlot f6613b;
+        AdSlot f6313b;
 
         a(l lVar, AdSlot adSlot) {
-            this.f6612a = lVar;
-            this.f6613b = adSlot;
+            this.f6312a = lVar;
+            this.f6313b = adSlot;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            com.bytedance.sdk.openadsdk.component.reward.a.a(c.this.f6602b).a(this.f6612a, new a.InterfaceC1014a<Object>() { // from class: com.bytedance.sdk.openadsdk.component.reward.c.a.1
-                @Override // com.bytedance.sdk.openadsdk.component.reward.a.InterfaceC1014a
+            com.bytedance.sdk.openadsdk.component.reward.a.a(c.this.f6302b).a(this.f6312a, new a.InterfaceC0997a<Object>() { // from class: com.bytedance.sdk.openadsdk.component.reward.c.a.1
+                @Override // com.bytedance.sdk.openadsdk.component.reward.a.InterfaceC0997a
                 public void a(boolean z, Object obj) {
                     if (z) {
-                        com.bytedance.sdk.openadsdk.component.reward.a.a(c.this.f6602b).a(a.this.f6613b, a.this.f6612a);
+                        com.bytedance.sdk.openadsdk.component.reward.a.a(c.this.f6302b).a(a.this.f6313b, a.this.f6312a);
                     }
                 }
             });

@@ -2,11 +2,11 @@ package cn.mmachina;
 
 import android.content.Context;
 import com.tencent.ams.a.b.a;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class JniClient {
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f1127a = 1;
+    public static int f1126a = 1;
 
     static {
         try {

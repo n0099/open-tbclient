@@ -3,9 +3,9 @@ package com.baidu.lcp.sdk.client.bean;
 public class BLCPRequest {
     public long serviceId = -1;
     public long methodId = -1;
-    public byte[] azt = new byte[0];
+    public byte[] auG = new byte[0];
     public long msgId = -1;
-    public SendTimeoutSecond azu = SendTimeoutSecond.TIMEOUT_120s;
+    public SendTimeoutSecond auH = SendTimeoutSecond.TIMEOUT_120s;
 
     /* loaded from: classes3.dex */
     public enum SendTimeoutSecond {

@@ -39,14 +39,14 @@ import com.baidu.android.imsdk.utils.HttpHelper;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
 import com.baidu.cyberplayer.sdk.dlna.DlnaManager;
-import com.baidu.i.a;
+import com.baidu.g.a;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class ChatSessionManagerImpl {
     private static final String TAG = "SessionManagerImpl";
     private static Context mContext;
@@ -462,7 +462,7 @@ public class ChatSessionManagerImpl {
             creatMethodIntent.putExtra(Constants.EXTRA_CLIENT_MAX_MSGID, maxMsgid);
             creatMethodIntent.putExtra(Constants.EXTRA_LISTENER_ID, addListener);
             try {
-                a.ap(mContext).e(mContext, creatMethodIntent);
+                a.ao(mContext).e(mContext, creatMethodIntent);
             } catch (Exception e) {
                 onSyncDialogResult(1003, Constants.ERROR_MSG_SERVICE_ERROR, addListener, maxMsgid, null);
                 LogUtils.e(TAG, "Exception ", e);

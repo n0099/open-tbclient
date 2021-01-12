@@ -2,7 +2,7 @@ package com.kwad.sdk.feed.a.c;
 
 import com.kwad.sdk.core.report.e;
 import com.kwad.sdk.internal.api.SceneImpl;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class c extends com.kwad.sdk.feed.a.b.a {
     private boolean c;
     private long d;
@@ -34,13 +34,13 @@ public class c extends com.kwad.sdk.feed.a.b.a {
     @Override // com.kwad.sdk.feed.a.b.a, com.kwad.sdk.lib.a.a.a, com.kwad.sdk.mvp.Presenter
     public void a() {
         super.a();
-        this.g = this.f10134a.f10136b;
+        this.g = this.f9834a.f9836b;
         if (this.g == null) {
             return;
         }
         this.g.a(this.h);
-        this.f = this.f10134a.f10135a;
-        this.e = String.valueOf(this.f10134a.e.hashCode());
+        this.f = this.f9834a.f9835a;
+        this.e = String.valueOf(this.f9834a.e.hashCode());
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

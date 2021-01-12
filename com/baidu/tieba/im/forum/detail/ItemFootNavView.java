@@ -34,25 +34,25 @@ import com.baidu.tieba.tbadkCore.ae;
 import com.baidu.tieba.tbadkCore.util.AntiHelper;
 import com.baidu.tieba.tbadkCore.w;
 import tbclient.RecommendForumInfo;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class ItemFootNavView extends LinearLayout {
-    private LikeModel fpO;
-    private AntiHelper.a jJo;
-    private RecommendForumInfo kCH;
-    private ForumDetailActivity kCO;
-    private ViewGroup kDc;
-    private TextView kDd;
-    private ImageView kDe;
-    private ViewGroup kDf;
-    private View kDg;
-    private boolean kDh;
-    private com.baidu.tbadk.core.dialog.a kDi;
+    private LikeModel fle;
+    private AntiHelper.a jEI;
+    private ViewGroup kyA;
+    private View kyB;
+    private boolean kyC;
+    private com.baidu.tbadk.core.dialog.a kyD;
+    private RecommendForumInfo kyc;
+    private ForumDetailActivity kyj;
+    private ViewGroup kyx;
+    private TextView kyy;
+    private ImageView kyz;
     private Context mContext;
 
     public ItemFootNavView(Context context) {
         super(context);
-        this.kDh = false;
-        this.jJo = new AntiHelper.a() { // from class: com.baidu.tieba.im.forum.detail.ItemFootNavView.1
+        this.kyC = false;
+        this.jEI = new AntiHelper.a() { // from class: com.baidu.tieba.im.forum.detail.ItemFootNavView.1
             @Override // com.baidu.tieba.tbadkCore.util.AntiHelper.a
             public void onPositiveButtonClick(com.baidu.tbadk.core.dialog.a aVar) {
                 TiebaStatic.log(new aq(TbadkCoreStatisticKey.KEY_ANTI_DIALOG_POS_CLICK).an("obj_locate", ax.a.LOCATE_LIKE_BAR));
@@ -68,8 +68,8 @@ public class ItemFootNavView extends LinearLayout {
 
     public ItemFootNavView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.kDh = false;
-        this.jJo = new AntiHelper.a() { // from class: com.baidu.tieba.im.forum.detail.ItemFootNavView.1
+        this.kyC = false;
+        this.jEI = new AntiHelper.a() { // from class: com.baidu.tieba.im.forum.detail.ItemFootNavView.1
             @Override // com.baidu.tieba.tbadkCore.util.AntiHelper.a
             public void onPositiveButtonClick(com.baidu.tbadk.core.dialog.a aVar) {
                 TiebaStatic.log(new aq(TbadkCoreStatisticKey.KEY_ANTI_DIALOG_POS_CLICK).an("obj_locate", ax.a.LOCATE_LIKE_BAR));
@@ -88,37 +88,37 @@ public class ItemFootNavView extends LinearLayout {
         LayoutInflater.from(context).inflate(R.layout.forum_detail_foot_nav, (ViewGroup) this, true);
         setOrientation(1);
         setVisibility(8);
-        this.kDc = (ViewGroup) findViewById(R.id.fn_care_box);
-        this.kDd = (TextView) findViewById(R.id.fn_care_btn);
-        this.kDe = (ImageView) findViewById(R.id.icon_brief_care);
-        this.kDf = (ViewGroup) findViewById(R.id.fn_enter_box);
-        this.kDg = findViewById(R.id.foot_line);
+        this.kyx = (ViewGroup) findViewById(R.id.fn_care_box);
+        this.kyy = (TextView) findViewById(R.id.fn_care_btn);
+        this.kyz = (ImageView) findViewById(R.id.icon_brief_care);
+        this.kyA = (ViewGroup) findViewById(R.id.fn_enter_box);
+        this.kyB = findViewById(R.id.foot_line);
     }
 
     public void setData(RecommendForumInfo recommendForumInfo, final ForumDetailActivity forumDetailActivity) {
-        this.kCO = forumDetailActivity;
+        this.kyj = forumDetailActivity;
         if (recommendForumInfo != null) {
-            this.kDh = ForumDetailActivityConfig.isFromFrs(forumDetailActivity.getIntent().getStringExtra("from_type"));
-            this.kCH = recommendForumInfo;
+            this.kyC = ForumDetailActivityConfig.isFromFrs(forumDetailActivity.getIntent().getStringExtra("from_type"));
+            this.kyc = recommendForumInfo;
             final String str = recommendForumInfo.forum_name;
-            sK(recommendForumInfo.is_like.intValue() == 1);
-            this.kDc.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.im.forum.detail.ItemFootNavView.2
+            sG(recommendForumInfo.is_like.intValue() == 1);
+            this.kyx.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.im.forum.detail.ItemFootNavView.2
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     ItemFootNavView.this.d(forumDetailActivity);
                 }
             });
-            this.kDf.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.im.forum.detail.ItemFootNavView.3
+            this.kyA.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.im.forum.detail.ItemFootNavView.3
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     TiebaStatic.eventStat(ItemFootNavView.this.mContext, "detail_enter_forum", "click", 1, new Object[0]);
-                    if (ItemFootNavView.this.kDh) {
+                    if (ItemFootNavView.this.kyC) {
                         forumDetailActivity.finish();
                         return;
                     }
                     forumDetailActivity.sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_START_NORMAL, new FrsActivityConfig(forumDetailActivity.getPageContext().getPageActivity()).createNormalCfg(str, BarDetailForDirSwitch.BAR_DETAIL_DIR)));
-                    if (forumDetailActivity != null && ForumDetailActivityConfig.FromType.BAR_SQUARE.toString().equals(forumDetailActivity.brd())) {
-                        TiebaStatic.eventStat(ItemFootNavView.this.kCO.getPageContext().getPageActivity(), "squae_introduce_entry", "click", 1, new Object[0]);
+                    if (forumDetailActivity != null && ForumDetailActivityConfig.FromType.BAR_SQUARE.toString().equals(forumDetailActivity.bnj())) {
+                        TiebaStatic.eventStat(ItemFootNavView.this.kyj.getPageContext().getPageActivity(), "squae_introduce_entry", "click", 1, new Object[0]);
                     }
                 }
             });
@@ -129,21 +129,21 @@ public class ItemFootNavView extends LinearLayout {
     /* JADX INFO: Access modifiers changed from: private */
     public void d(ForumDetailActivity forumDetailActivity) {
         if (forumDetailActivity == null || forumDetailActivity.checkUpIsLogin()) {
-            int intValue = ((Integer) this.kDc.getTag()).intValue();
+            int intValue = ((Integer) this.kyx.getTag()).intValue();
             if (intValue == 0) {
-                a((BaseActivity<ForumDetailActivity>) forumDetailActivity, this.kDh);
+                a((BaseActivity<ForumDetailActivity>) forumDetailActivity, this.kyC);
             } else if (intValue == 1) {
-                if (forumDetailActivity != null && ForumDetailActivityConfig.FromType.BAR_SQUARE.toString().equals(forumDetailActivity.brd())) {
-                    TiebaStatic.eventStat(this.kCO.getPageContext().getPageActivity(), "squae_introduce_focus", "click", 1, new Object[0]);
+                if (forumDetailActivity != null && ForumDetailActivityConfig.FromType.BAR_SQUARE.toString().equals(forumDetailActivity.bnj())) {
+                    TiebaStatic.eventStat(this.kyj.getPageContext().getPageActivity(), "squae_introduce_focus", "click", 1, new Object[0]);
                 }
-                a(forumDetailActivity, this.kDh);
+                a(forumDetailActivity, this.kyC);
             }
             TiebaStatic.eventStat(this.mContext, intValue == 1 ? "detail_care_add" : "detail_care_cancel", "click", 1, new Object[0]);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void sJ(boolean z) {
+    public void sF(boolean z) {
         View inflate = LayoutInflater.from(this.mContext).inflate(R.layout.forum_detail_attention_toast, (ViewGroup) null);
         ImageView imageView = (ImageView) inflate.findViewById(R.id.attention_icon);
         TextView textView = (TextView) inflate.findViewById(R.id.attention_title);
@@ -161,77 +161,77 @@ public class ItemFootNavView extends LinearLayout {
         toast.setDuration(1000);
         toast.show();
         if (z) {
-            this.kCO.sG(true);
+            this.kyj.sC(true);
         } else {
-            this.kCO.sG(false);
+            this.kyj.sC(false);
         }
-        this.kCO.setSwitch(z);
-        this.kCO.sH(z);
+        this.kyj.setSwitch(z);
+        this.kyj.sD(z);
     }
 
     private void a(final ForumDetailActivity forumDetailActivity, boolean z) {
-        if (this.fpO == null) {
-            this.fpO = new LikeModel(forumDetailActivity.getPageContext());
+        if (this.fle == null) {
+            this.fle = new LikeModel(forumDetailActivity.getPageContext());
         }
-        this.fpO.setFrom("detail_follow");
-        this.fpO.setLoadDataCallBack(new e() { // from class: com.baidu.tieba.im.forum.detail.ItemFootNavView.4
+        this.fle.setFrom("detail_follow");
+        this.fle.setLoadDataCallBack(new e() { // from class: com.baidu.tieba.im.forum.detail.ItemFootNavView.4
             @Override // com.baidu.adp.base.e
             public void callback(Object obj) {
-                if (ItemFootNavView.this.fpO.getErrorCode() == 22) {
-                    ItemFootNavView.this.sJ(true);
-                    ItemFootNavView.this.sK(true);
-                } else if (!AntiHelper.bP(ItemFootNavView.this.fpO.getErrorCode(), ItemFootNavView.this.fpO.getErrorString())) {
-                    if (ItemFootNavView.this.fpO.getErrorCode() != 0) {
-                        forumDetailActivity.showToast(ItemFootNavView.this.fpO.getErrorString());
+                if (ItemFootNavView.this.fle.getErrorCode() == 22) {
+                    ItemFootNavView.this.sF(true);
+                    ItemFootNavView.this.sG(true);
+                } else if (!AntiHelper.bQ(ItemFootNavView.this.fle.getErrorCode(), ItemFootNavView.this.fle.getErrorString())) {
+                    if (ItemFootNavView.this.fle.getErrorCode() != 0) {
+                        forumDetailActivity.showToast(ItemFootNavView.this.fle.getErrorString());
                         return;
                     }
                     w wVar = (w) obj;
                     if (wVar != null) {
                         if (wVar.getErrorCode() == 3250013) {
-                            BdToast.a(TbadkCoreApplication.getInst().getContext(), wVar.getErrorMsg(), R.drawable.icon_pure_toast_mistake40_svg, 3000, true).bue();
+                            BdToast.a(TbadkCoreApplication.getInst().getContext(), wVar.getErrorMsg(), R.drawable.icon_pure_toast_mistake40_svg, 3000, true).bqk();
                             return;
-                        } else if (!AntiHelper.La(wVar.getErrorCode())) {
-                            ItemFootNavView.this.sJ(true);
-                            TbadkApplication.getInst().addLikeForum(ItemFootNavView.this.kCH.forum_name);
-                            ItemFootNavView.this.sK(true);
+                        } else if (!AntiHelper.Jt(wVar.getErrorCode())) {
+                            ItemFootNavView.this.sF(true);
+                            TbadkApplication.getInst().addLikeForum(ItemFootNavView.this.kyc.forum_name);
+                            ItemFootNavView.this.sG(true);
                             wVar.setLike(1);
                             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_UPDATE_FRS_LIKE_STATUS, wVar));
                             return;
                         } else {
-                            AntiHelper.a(forumDetailActivity.getPageContext().getPageActivity(), ItemFootNavView.this.fpO.getBlockPopInfoData(), ItemFootNavView.this.jJo);
+                            AntiHelper.a(forumDetailActivity.getPageContext().getPageActivity(), ItemFootNavView.this.fle.getBlockPopInfoData(), ItemFootNavView.this.jEI);
                             return;
                         }
                     }
                     forumDetailActivity.showToast(forumDetailActivity.getPageContext().getString(R.string.neterror));
-                } else if (AntiHelper.a(forumDetailActivity.getPageContext().getPageActivity(), ItemFootNavView.this.fpO.getBlockPopInfoData(), ItemFootNavView.this.jJo) != null) {
+                } else if (AntiHelper.a(forumDetailActivity.getPageContext().getPageActivity(), ItemFootNavView.this.fle.getBlockPopInfoData(), ItemFootNavView.this.jEI) != null) {
                     TiebaStatic.log(new aq(TbadkCoreStatisticKey.KEY_ANTI_DIALOG_SHOW).an("obj_locate", ax.a.LOCATE_LIKE_BAR));
                 }
             }
         });
-        this.fpO.gr(this.kCH.forum_name, String.valueOf(this.kCH.forum_id));
+        this.fle.gq(this.kyc.forum_name, String.valueOf(this.kyc.forum_id));
     }
 
     private void a(final BaseActivity<ForumDetailActivity> baseActivity, boolean z) {
-        if (this.kDi == null) {
-            this.kDi = new com.baidu.tbadk.core.dialog.a(baseActivity.getPageContext().getPageActivity());
-            this.kDi.pa(R.string.forum_info_unlike_msg);
-            this.kDi.a(R.string.alert_yes_button, new a.b() { // from class: com.baidu.tieba.im.forum.detail.ItemFootNavView.5
+        if (this.kyD == null) {
+            this.kyD = new com.baidu.tbadk.core.dialog.a(baseActivity.getPageContext().getPageActivity());
+            this.kyD.nu(R.string.forum_info_unlike_msg);
+            this.kyD.a(R.string.alert_yes_button, new a.b() { // from class: com.baidu.tieba.im.forum.detail.ItemFootNavView.5
                 @Override // com.baidu.tbadk.core.dialog.a.b
                 public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
-                    ItemFootNavView.this.kDi.dismiss();
+                    ItemFootNavView.this.kyD.dismiss();
                     ae aeVar = new ae();
                     aeVar.setFrom(BarDetailForDirSwitch.BAR_DETAIL_DIR);
                     aeVar.a(new ae.a() { // from class: com.baidu.tieba.im.forum.detail.ItemFootNavView.5.1
                         @Override // com.baidu.tieba.tbadkCore.ae.a
                         public void C(String str, long j) {
-                            ItemFootNavView.this.sJ(false);
-                            ItemFootNavView.this.sK(false);
-                            if (ItemFootNavView.this.kCH != null && ItemFootNavView.this.kCH.forum_id.longValue() != 0) {
+                            ItemFootNavView.this.sF(false);
+                            ItemFootNavView.this.sG(false);
+                            if (ItemFootNavView.this.kyc != null && ItemFootNavView.this.kyc.forum_id.longValue() != 0) {
                                 w wVar = new w();
                                 wVar.setFid(j + "");
                                 wVar.setLike(0);
                                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_UPDATE_FRS_LIKE_STATUS, wVar));
-                                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_CANCLE_LIKE_FRS, ItemFootNavView.this.kCH.forum_id + ""));
+                                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_CANCLE_LIKE_FRS, ItemFootNavView.this.kyc.forum_id + ""));
                             }
                         }
 
@@ -241,38 +241,38 @@ public class ItemFootNavView extends LinearLayout {
                                 if (at.isEmpty(str)) {
                                     str = TbadkCoreApplication.getInst().getContext().getString(R.string.anti_account_exception_appealing);
                                 }
-                                BdToast.a(TbadkCoreApplication.getInst().getContext(), str, R.drawable.icon_pure_toast_mistake40_svg, 3000, true).bue();
+                                BdToast.a(TbadkCoreApplication.getInst().getContext(), str, R.drawable.icon_pure_toast_mistake40_svg, 3000, true).bqk();
                                 return;
                             }
                             baseActivity.showToast(baseActivity.getPageContext().getString(R.string.unlike_failure));
                         }
                     });
-                    aeVar.P(ItemFootNavView.this.kCH.forum_name, ItemFootNavView.this.kCH.forum_id.longValue());
+                    aeVar.P(ItemFootNavView.this.kyc.forum_name, ItemFootNavView.this.kyc.forum_id.longValue());
                 }
             });
-            this.kDi.b(R.string.cancel, new a.b() { // from class: com.baidu.tieba.im.forum.detail.ItemFootNavView.6
+            this.kyD.b(R.string.cancel, new a.b() { // from class: com.baidu.tieba.im.forum.detail.ItemFootNavView.6
                 @Override // com.baidu.tbadk.core.dialog.a.b
                 public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
-                    ItemFootNavView.this.kDi.dismiss();
+                    ItemFootNavView.this.kyD.dismiss();
                 }
             });
-            this.kDi.jI(true);
+            this.kyD.jE(true);
         }
-        this.kDi.b(baseActivity.getPageContext()).btY();
+        this.kyD.b(baseActivity.getPageContext()).bqe();
     }
 
-    public void sK(boolean z) {
+    public void sG(boolean z) {
         int i;
         if (z) {
-            ao.setImageResource(this.kDe, R.drawable.icon_pop_pass);
+            ao.setImageResource(this.kyz, R.drawable.icon_pop_pass);
             i = R.string.relate_forum_is_followed;
-            this.kDc.setTag(0);
+            this.kyx.setTag(0);
         } else {
-            ao.setImageResource(this.kDe, R.drawable.icon_brief_attention);
+            ao.setImageResource(this.kyz, R.drawable.icon_brief_attention);
             i = R.string.attention;
-            this.kDc.setTag(1);
+            this.kyx.setTag(1);
         }
-        this.kDd.setText(this.mContext.getResources().getString(i));
+        this.kyy.setText(this.mContext.getResources().getString(i));
     }
 
     public void a(ForumDetailActivity forumDetailActivity, int i) {
@@ -283,11 +283,11 @@ public class ItemFootNavView extends LinearLayout {
     public void e(ForumDetailActivity forumDetailActivity) {
     }
 
-    public void sL(boolean z) {
+    public void sH(boolean z) {
         if (z) {
-            this.kDg.setVisibility(0);
+            this.kyB.setVisibility(0);
         } else {
-            this.kDg.setVisibility(8);
+            this.kyB.setVisibility(8);
         }
     }
 }

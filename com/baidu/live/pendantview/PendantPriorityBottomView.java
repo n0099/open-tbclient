@@ -5,7 +5,7 @@ import android.util.AttributeSet;
 import android.util.Log;
 import android.view.View;
 import android.widget.LinearLayout;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class PendantPriorityBottomView extends PendantPriorityView {
     public PendantPriorityBottomView(Context context) {
         this(context, null);
@@ -23,11 +23,11 @@ public class PendantPriorityBottomView extends PendantPriorityView {
     protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
         super.onLayout(z, i, i2, i3, i4);
         if (getOrientation() == 1) {
-            fq(i4 - i2);
+            dK(i4 - i2);
         }
     }
 
-    private void fq(int i) {
+    private void dK(int i) {
         boolean z;
         int paddingBottom = i - getPaddingBottom();
         int paddingTop = getPaddingTop();

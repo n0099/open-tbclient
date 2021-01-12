@@ -8,7 +8,7 @@ import yaq.gdtadv;
 /* JADX WARN: Classes with same name are omitted:
   assets/yaqgdtadv0.sec
  */
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class be {
     public static int a() {
         return gdtadv.getIresult(RtcConstants.METHOD_IM_RTC_MSG, 1, new Object[0]);

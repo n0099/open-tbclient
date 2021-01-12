@@ -14,7 +14,7 @@ import com.baidu.live.tbadk.ubc.UbcStatisticManager;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class l {
     public static void c(int i, long j, long j2) {
         UbcStatisticItem ubcStatisticItem = new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_SCROLL_SWITCH, UbcStatConstant.ContentType.UBC_TYPE_SCROLL_PAGE, "liveroom", UbcStatConstant.Value.EFFECT_SWITCH_ROOM);
@@ -32,7 +32,7 @@ public class l {
         UbcStatisticManager.getInstance().logEvent(ubcStatisticItem);
     }
 
-    public static void iS(String str) {
+    public static void hH(String str) {
         UbcStatisticItem ubcStatisticItem = new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_SCROLL_SWITCH, UbcStatConstant.ContentType.UBC_TYPE_SCROLL_PAGE, "liveroom", UbcStatConstant.Value.EFFECT_SWITCH_ROOM_EXCEP);
         JSONObject jSONObject = new JSONObject();
         JSONObject jSONObject2 = new JSONObject();
@@ -176,7 +176,7 @@ public class l {
         UbcStatisticManager.getInstance().logEvent(ubcStatisticItem);
     }
 
-    public static void F(String str, String str2, String str3) {
+    public static void E(String str, String str2, String str3) {
         UbcStatisticItem ubcStatisticItem = new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_ENTER_EFFECT, UbcStatConstant.ContentType.UBC_TYPE_ENTER_EFFECT, "liveroom", UbcStatConstant.Value.EFFECT_ARCHIVE_ERROR);
         JSONObject jSONObject = new JSONObject();
         JSONObject jSONObject2 = new JSONObject();
@@ -192,7 +192,7 @@ public class l {
         UbcStatisticManager.getInstance().logEvent(ubcStatisticItem);
     }
 
-    public static void G(String str, String str2, String str3) {
+    public static void F(String str, String str2, String str3) {
         UbcStatisticItem ubcStatisticItem = new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_ENTER_EFFECT, UbcStatConstant.ContentType.UBC_TYPE_ENTER_EFFECT, "liveroom", UbcStatConstant.Value.EFFECT_FILE_ERROR);
         JSONObject jSONObject = new JSONObject();
         JSONObject jSONObject2 = new JSONObject();

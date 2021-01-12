@@ -13,10 +13,10 @@ public final class g {
     private String h;
 
     /* renamed from: a  reason: collision with root package name */
-    private com.bytedance.sdk.openadsdk.d.b.d f7295a = com.bytedance.sdk.openadsdk.d.b.d.f7253a;
+    private com.bytedance.sdk.openadsdk.d.b.d f6995a = com.bytedance.sdk.openadsdk.d.b.d.f6953a;
 
     /* renamed from: b  reason: collision with root package name */
-    private u f7296b = u.DEFAULT;
+    private u f6996b = u.DEFAULT;
     private e c = d.IDENTITY;
     private final Map<Type, h<?>> d = new HashMap();
     private final List<w> e = new ArrayList();
@@ -53,7 +53,7 @@ public final class g {
         Collections.reverse(arrayList2);
         arrayList.addAll(arrayList2);
         a(this.h, this.i, this.j, arrayList);
-        return new f(this.f7295a, this.c, this.d, this.g, this.k, this.o, this.m, this.n, this.p, this.l, this.f7296b, this.h, this.i, this.j, this.e, this.f, arrayList);
+        return new f(this.f6995a, this.c, this.d, this.g, this.k, this.o, this.m, this.n, this.p, this.l, this.f6996b, this.h, this.i, this.j, this.e, this.f, arrayList);
     }
 
     private void a(String str, int i, int i2, List<w> list) {

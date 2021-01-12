@@ -7,28 +7,29 @@ import android.graphics.Matrix;
 import android.text.TextUtils;
 import android.util.Base64;
 import androidx.annotation.NonNull;
+import com.baidu.mobstat.Config;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class j extends a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private String cMk;
+    private String cHy;
     private Bitmap mBitmap;
     private Matrix mMatrix;
 
     public j(String str) {
-        this.cMk = str;
+        this.cHy = str;
     }
 
     @Override // com.baidu.swan.apps.canvas.a.a.a
     public void parseJson(JSONArray jSONArray) {
     }
 
-    public int aom() {
+    public int aks() {
         try {
-            JSONObject jSONObject = new JSONObject(this.cMk);
-            int O = com.baidu.swan.apps.ao.ah.O((float) jSONObject.optDouble("x"));
+            JSONObject jSONObject = new JSONObject(this.cHy);
+            int O = com.baidu.swan.apps.ao.ah.O((float) jSONObject.optDouble(Config.EVENT_HEAT_X));
             int O2 = com.baidu.swan.apps.ao.ah.O((float) jSONObject.optDouble("y"));
             int optInt = jSONObject.optInt("width");
             int optInt2 = jSONObject.optInt("height");
@@ -47,7 +48,7 @@ public class j extends a {
                 if (decode == null || decode.length != i) {
                     return 2001;
                 }
-                this.mBitmap = b(q(decode, optInt, optInt2), O3, O4);
+                this.mBitmap = b(p(decode, optInt, optInt2), O3, O4);
                 this.mMatrix = new Matrix();
                 this.mMatrix.postTranslate(O, O2);
                 return 0;
@@ -67,7 +68,7 @@ public class j extends a {
     }
 
     @NonNull
-    private Bitmap q(@NonNull byte[] bArr, int i, int i2) {
+    private Bitmap p(@NonNull byte[] bArr, int i, int i2) {
         int[] iArr = new int[i * i2];
         int length = iArr.length;
         for (int i3 = 0; i3 < length; i3++) {

@@ -7,44 +7,44 @@ import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class au {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final au f3748a = new au();
+    private static final au f3710a = new au();
 
     /* renamed from: b  reason: collision with root package name */
-    private HashMap<String, String> f3749b = new HashMap<>();
+    private HashMap<String, String> f3711b = new HashMap<>();
     private HashMap<Character, Integer> c = new HashMap<>();
     private HashMap<String, String> d = new HashMap<>();
     private HashMap<Character, Integer> e = new HashMap<>();
     private HashMap<String, String> f = new HashMap<>();
     private HashMap<Character, Integer> g = new HashMap<>();
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static int f3751a = 0;
+        public static int f3713a = 0;
 
         /* renamed from: b  reason: collision with root package name */
-        public static int f3752b = 1;
+        public static int f3714b = 1;
         public static int c = 2;
     }
 
     public static au a() {
-        return f3748a;
+        return f3710a;
     }
 
     public String a(String str, int i) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
-        if (i == a.f3751a) {
-            String str2 = this.f3749b.get(str);
+        if (i == a.f3713a) {
+            String str2 = this.f3711b.get(str);
             if (TextUtils.isEmpty(str2)) {
-                a(str, this.c, this.f3749b);
-                return this.f3749b.get(str);
+                a(str, this.c, this.f3711b);
+                return this.f3711b.get(str);
             }
             return str2;
         } else if (i == a.c) {
@@ -74,8 +74,8 @@ public class au {
 
     public JSONObject a(int i) {
         HashMap<String, String> hashMap;
-        if (i == a.f3751a) {
-            hashMap = this.f3749b;
+        if (i == a.f3713a) {
+            hashMap = this.f3711b;
         } else if (i == a.c) {
             hashMap = this.f;
         } else {
@@ -107,9 +107,9 @@ public class au {
     }
 
     public void b(int i) {
-        if (i == a.f3751a) {
+        if (i == a.f3713a) {
             this.c.clear();
-            this.f3749b.clear();
+            this.f3711b.clear();
         } else if (i == a.c) {
             this.g.clear();
             this.f.clear();
@@ -120,8 +120,8 @@ public class au {
     }
 
     public void b() {
-        b(a.f3751a);
+        b(a.f3713a);
         b(a.c);
-        b(a.f3752b);
+        b(a.f3714b);
     }
 }

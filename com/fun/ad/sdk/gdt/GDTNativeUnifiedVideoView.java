@@ -19,32 +19,32 @@ import com.qq.e.ads.nativ.MediaView;
 import com.qq.e.ads.nativ.NativeADMediaListener;
 import com.qq.e.ads.nativ.NativeUnifiedADData;
 import com.qq.e.comm.util.AdError;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class GDTNativeUnifiedVideoView extends v0 {
     public MediaView d;
     public ImageView e;
     public float f;
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public class a implements NativeADMediaListener {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ ah f8121a;
+        public final /* synthetic */ ah f7821a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ au.a f8122b;
+        public final /* synthetic */ au.a f7822b;
 
         public a(GDTNativeUnifiedVideoView gDTNativeUnifiedVideoView, ah ahVar, au.a aVar) {
-            this.f8121a = ahVar;
-            this.f8122b = aVar;
+            this.f7821a = ahVar;
+            this.f7822b = aVar;
         }
 
         @Override // com.qq.e.ads.nativ.NativeADMediaListener
         public void onVideoClicked() {
             m.a("GDTNativeUnifiedAd video onVideoClicked");
-            ah ahVar = this.f8121a;
+            ah ahVar = this.f7821a;
             if (ahVar != null) {
-                ((aa) ahVar).c(this.f8122b.f8060a);
+                ((aa) ahVar).c(this.f7822b.f7760a);
             }
         }
 
@@ -115,10 +115,10 @@ public class GDTNativeUnifiedVideoView extends v0 {
     @Override // com.fun.ad.v0
     public void a(Activity activity, au.a aVar, NativeUnifiedADData nativeUnifiedADData, ah ahVar) {
         super.a(activity, aVar, nativeUnifiedADData, ahVar);
-        ap.a.pJL.a(getContext(), nativeUnifiedADData.getIconUrl(), this.e);
+        ap.a.pFk.a(getContext(), nativeUnifiedADData.getIconUrl(), this.e);
         m.a("GDTNativeUnifiedAd image width: " + nativeUnifiedADData.getPictureWidth() + ", height: " + nativeUnifiedADData.getPictureHeight());
         this.f = (nativeUnifiedADData.getPictureWidth() * 1.0f) / (nativeUnifiedADData.getPictureHeight() * 1.0f);
-        nativeUnifiedADData.bindMediaView(this.d, new VideoOption.Builder().setAutoPlayPolicy(d.c ? 1 : 0).setAutoPlayMuted(!d.f8076b).setDetailPageMuted(false).setNeedCoverImage(true).setNeedProgressBar(true).setEnableDetailPage(false).setEnableUserControl(false).build(), new a(this, ahVar, aVar));
+        nativeUnifiedADData.bindMediaView(this.d, new VideoOption.Builder().setAutoPlayPolicy(d.c ? 1 : 0).setAutoPlayMuted(!d.f7776b).setDetailPageMuted(false).setNeedCoverImage(true).setNeedProgressBar(true).setEnableDetailPage(false).setEnableUserControl(false).build(), new a(this, ahVar, aVar));
     }
 
     @Override // com.fun.ad.v0, android.view.View

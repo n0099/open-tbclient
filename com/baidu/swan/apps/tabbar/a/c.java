@@ -6,7 +6,7 @@ import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.swan.apps.scheme.j;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class c extends a {
     public c(j jVar) {
         super(jVar, "/swanAPI/closeTabBarBadge");
@@ -21,17 +21,17 @@ public class c extends a {
             return false;
         }
         int optInt = optParamsAsJo.optInt("index");
-        if (anv()) {
+        if (ajB()) {
             com.baidu.swan.apps.console.c.e("CloseTabBarBadgeAction", "fail not TabBar page");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "fail not TabBar page");
             return false;
         }
-        com.baidu.swan.apps.tabbar.b.a anu = anu();
-        if (anu == null) {
+        com.baidu.swan.apps.tabbar.b.a ajA = ajA();
+        if (ajA == null) {
             com.baidu.swan.apps.console.c.e("CloseTabBarBadgeAction", "tabBarViewController is null");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
-        } else if (!anu.lJ(optInt)) {
+        } else if (!ajA.kd(optInt)) {
             com.baidu.swan.apps.console.c.e("closeTabBarBadge", "close bottom badge fail");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;

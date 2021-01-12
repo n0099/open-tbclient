@@ -13,7 +13,7 @@ import com.kwad.sdk.feed.FeedDownloadActivityProxy;
 import com.kwad.sdk.feed.widget.base.RatioFrameLayout;
 import com.kwad.sdk.widget.KsLogoView;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class b extends com.kwad.sdk.feed.widget.base.a implements View.OnClickListener {
     private TextView f;
     private ImageView g;
@@ -29,13 +29,13 @@ public class b extends com.kwad.sdk.feed.widget.base.a implements View.OnClickLi
     @Override // com.kwad.sdk.feed.widget.base.a
     public void a(@NonNull AdTemplate adTemplate) {
         super.a(adTemplate);
-        this.f.setText(com.kwad.sdk.core.response.b.a.n(this.f10161b));
+        this.f.setText(com.kwad.sdk.core.response.b.a.n(this.f9861b));
         this.k.a(adTemplate);
-        List<String> I = com.kwad.sdk.core.response.b.a.I(this.f10161b);
+        List<String> I = com.kwad.sdk.core.response.b.a.I(this.f9861b);
         if (I.size() >= 3) {
-            KSImageLoader.loadFeeImage(this.g, I.get(0), this.f10160a);
-            KSImageLoader.loadFeeImage(this.h, I.get(1), this.f10160a);
-            KSImageLoader.loadFeeImage(this.i, I.get(2), this.f10160a);
+            KSImageLoader.loadFeeImage(this.g, I.get(0), this.f9860a);
+            KSImageLoader.loadFeeImage(this.h, I.get(1), this.f9860a);
+            KSImageLoader.loadFeeImage(this.i, I.get(2), this.f9860a);
         } else {
             com.kwad.sdk.core.d.a.d("FeedTextAboveGroupImageView", "getImageUrlList size less than three");
         }
@@ -63,14 +63,14 @@ public class b extends com.kwad.sdk.feed.widget.base.a implements View.OnClickLi
     public void onClick(View view) {
         if (view == this.j) {
             l();
-        } else if (com.kwad.sdk.core.download.b.d.a(getContext(), this.f10160a, 1) == 1) {
+        } else if (com.kwad.sdk.core.download.b.d.a(getContext(), this.f9860a, 1) == 1) {
             k();
-        } else if (com.kwad.sdk.core.response.b.a.y(this.f10161b)) {
+        } else if (com.kwad.sdk.core.response.b.a.y(this.f9861b)) {
             k();
-            FeedDownloadActivityProxy.launch(this.d, this.f10160a, this.c);
+            FeedDownloadActivityProxy.launch(this.d, this.f9860a, this.c);
         } else {
             k();
-            AdWebViewActivityProxy.launch(getContext(), this.f10160a);
+            AdWebViewActivityProxy.launch(getContext(), this.f9860a);
         }
     }
 }
