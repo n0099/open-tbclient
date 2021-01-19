@@ -536,15 +536,15 @@ public class a {
     }
 
     public com.ss.android.b.a.a.c eBU() {
-        c.a ZA = new c.a().iV(this.c).iW(this.d).Zw(this.e).Zx(this.g).fa(this.r).Bz(this.p).Qw(this.m).ZC(this.n).Zz(this.h).Qv(this.j).ZB(this.I).ZA(this.o);
+        c.a ZB = new c.a().iV(this.c).iW(this.d).Zx(this.e).Zy(this.g).fa(this.r).Bz(this.p).Qw(this.m).ZD(this.n).ZA(this.h).Qv(this.j).ZC(this.I).ZB(this.o);
         if (!TextUtils.isEmpty(this.i)) {
-            ZA.a(new com.ss.android.a.a.d.b(this.i, null, null));
+            ZB.a(new com.ss.android.a.a.d.b(this.i, null, null));
         }
-        return ZA.eBP();
+        return ZB.eBP();
     }
 
     public com.ss.android.b.a.a.b eBV() {
-        return new b.a().Zl(this.F).Zt(this.G).By(this.H).eBO();
+        return new b.a().Zm(this.F).Zu(this.G).By(this.H).eBO();
     }
 
     public com.ss.android.b.a.a.a eBW() {

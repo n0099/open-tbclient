@@ -22,7 +22,7 @@ public class i {
         @Override // com.baidu.adp.lib.e.c
         public void onLoaded(com.baidu.adp.widget.ImageView.a aVar, String str, int i) {
             if (aVar != null) {
-                aVar.drawImageTo(i.this.nxw);
+                aVar.drawImageTo(i.this.nxx);
             }
         }
 
@@ -41,28 +41,28 @@ public class i {
     private TextView jjc;
     private View mRootView;
     private TextView moR;
-    private BackgroundPreviewActivity nxv;
-    private BdExpandImageView nxw;
-    private TbImageView nxx;
+    private ImageView nxA;
+    private BackgroundPreviewActivity nxw;
+    private BdExpandImageView nxx;
     private TbImageView nxy;
-    private ImageView nxz;
+    private TbImageView nxz;
 
     public i(BackgroundPreviewActivity backgroundPreviewActivity) {
-        this.nxv = backgroundPreviewActivity;
-        this.mRootView = LayoutInflater.from(this.nxv.getPageContext().getPageActivity()).inflate(R.layout.background_preview_header, (ViewGroup) null);
-        this.mRootView.setLayoutParams(new AbsListView.LayoutParams(-1, this.nxv.getResources().getDimensionPixelSize(R.dimen.ds450)));
+        this.nxw = backgroundPreviewActivity;
+        this.mRootView = LayoutInflater.from(this.nxw.getPageContext().getPageActivity()).inflate(R.layout.background_preview_header, (ViewGroup) null);
+        this.mRootView.setLayoutParams(new AbsListView.LayoutParams(-1, this.nxw.getResources().getDimensionPixelSize(R.dimen.ds450)));
         initView();
     }
 
     private void initView() {
-        this.nxw = (BdExpandImageView) this.mRootView.findViewById(R.id.expand_image);
-        this.nxx = (TbImageView) this.mRootView.findViewById(R.id.user_head);
-        this.nxy = (TbImageView) this.mRootView.findViewById(R.id.vip_icon);
-        this.nxy.setAutoChangeStyle(false);
+        this.nxx = (BdExpandImageView) this.mRootView.findViewById(R.id.expand_image);
+        this.nxy = (TbImageView) this.mRootView.findViewById(R.id.user_head);
+        this.nxz = (TbImageView) this.mRootView.findViewById(R.id.vip_icon);
+        this.nxz.setAutoChangeStyle(false);
         this.jjc = (TextView) this.mRootView.findViewById(R.id.user_name);
-        this.nxz = (ImageView) this.mRootView.findViewById(R.id.user_sex);
+        this.nxA = (ImageView) this.mRootView.findViewById(R.id.user_sex);
         this.moR = (TextView) this.mRootView.findViewById(R.id.user_bar_age_num);
-        this.nxx.setDefaultResource(R.drawable.icon_default_avatar100);
+        this.nxy.setDefaultResource(R.drawable.icon_default_avatar100);
     }
 
     public void f(DressItemData dressItemData) {
@@ -77,35 +77,35 @@ public class i {
             if (currentAccountInfo == null) {
                 ao.setViewTextColor(this.moR, R.color.CAM_X0308, 1);
                 this.jjc.setText(R.string.default_user_name);
-                this.nxz.setImageResource(R.drawable.icon_pop_boy);
-                this.nxy.setVisibility(8);
+                this.nxA.setImageResource(R.drawable.icon_pop_boy);
+                this.nxz.setVisibility(8);
                 return;
             }
             String avatar = currentAccountInfo.getAvatar();
             int memberType = currentAccountInfo.getMemberType();
             if (!TextUtils.isEmpty(avatar)) {
-                this.nxx.startLoad(avatar, 25, false);
+                this.nxy.startLoad(avatar, 25, false);
             }
             String memberIconUrl = currentAccountInfo.getMemberIconUrl();
             if (StringUtils.isNull(memberIconUrl)) {
-                this.nxy.setVisibility(8);
+                this.nxz.setVisibility(8);
             } else {
-                this.nxy.startLoad(memberIconUrl, 10, false);
-                this.nxy.setVisibility(0);
+                this.nxz.startLoad(memberIconUrl, 10, false);
+                this.nxz.setVisibility(0);
             }
             if (memberType > 0) {
-                this.jjc.setTextColor(this.nxv.getResources().getColor(R.color.CAM_X0308));
+                this.jjc.setTextColor(this.nxw.getResources().getColor(R.color.CAM_X0308));
             } else {
-                this.jjc.setTextColor(this.nxv.getResources().getColor(R.color.CAM_X0111));
+                this.jjc.setTextColor(this.nxw.getResources().getColor(R.color.CAM_X0111));
             }
             this.jjc.setText(currentAccountInfo.getAccountNameShow());
             int sex = currentAccountInfo.getSex();
             if (sex == 1) {
-                this.nxz.setImageResource(R.drawable.icon_pop_boy);
+                this.nxA.setImageResource(R.drawable.icon_pop_boy);
             } else if (sex == 2) {
-                this.nxz.setImageResource(R.drawable.icon_pop_girl);
+                this.nxA.setImageResource(R.drawable.icon_pop_girl);
             } else {
-                this.nxz.setVisibility(8);
+                this.nxA.setVisibility(8);
             }
         }
     }
@@ -115,8 +115,8 @@ public class i {
     }
 
     public void byV() {
-        if (this.nxv.getPageContext() != null) {
-            com.baidu.tbadk.r.a.a(this.nxv.getPageContext(), this.mRootView);
+        if (this.nxw.getPageContext() != null) {
+            com.baidu.tbadk.r.a.a(this.nxw.getPageContext(), this.mRootView);
         }
     }
 }

@@ -153,9 +153,9 @@ public class c extends com.baidu.adp.base.d<PaymentConfirmActivity> {
 
     private SpannableStringBuilder hl(long j) {
         String str = "" + j;
-        String Ol = Ol(str);
-        SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(Ol);
-        int indexOf = Ol.indexOf(str);
+        String Om = Om(str);
+        SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(Om);
+        int indexOf = Om.indexOf(str);
         if (indexOf >= 0) {
             spannableStringBuilder.insert(indexOf, (CharSequence) " ");
             ForegroundColorSpan foregroundColorSpan = new ForegroundColorSpan(ao.getColor(R.color.CAM_X0305));
@@ -165,7 +165,7 @@ public class c extends com.baidu.adp.base.d<PaymentConfirmActivity> {
         return spannableStringBuilder;
     }
 
-    private String Ol(String str) {
+    private String Om(String str) {
         return this.lzl ? this.lyS.getResources().getString(R.string.payment_confirm_goods_price_buy_tip, str) : this.lyS.getResources().getString(R.string.payment_confirm_goods_price_tip, str);
     }
 

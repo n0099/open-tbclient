@@ -106,7 +106,7 @@ public final class EmptySet implements Serializable, Set {
 
     @Override // java.util.Set, java.util.Collection, java.lang.Iterable
     public Iterator iterator() {
-        return v.qiT;
+        return v.qiU;
     }
 
     private final Object readResolve() {

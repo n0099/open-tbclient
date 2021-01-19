@@ -93,7 +93,7 @@ public class HorRankCardView extends BaseCardView<HorRankCard> {
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     if (!TextUtils.isEmpty(horRankCard.getScheme())) {
-                        com.baidu.tieba.lego.i.a((BaseLegoCardInfo) horRankCard).fF(TiebaInitialize.Params.OBJ_URL, horRankCard.getScheme()).bz("obj_locate", HorRankCardView.this.getStatPosition()).a(horRankCard);
+                        com.baidu.tieba.lego.i.a((BaseLegoCardInfo) horRankCard).fF(TiebaInitialize.Params.OBJ_URL, horRankCard.getScheme()).bA("obj_locate", HorRankCardView.this.getStatPosition()).a(horRankCard);
                         v.h(HorRankCardView.this.eSJ, horRankCard.getScheme());
                     }
                 }

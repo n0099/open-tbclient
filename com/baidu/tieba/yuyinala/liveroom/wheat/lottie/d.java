@@ -3,7 +3,7 @@ package com.baidu.tieba.yuyinala.liveroom.wheat.lottie;
 public interface d {
     void Eo(String str);
 
-    void Vw(String str);
+    void Vx(String str);
 
     void onFail(String str);
 }

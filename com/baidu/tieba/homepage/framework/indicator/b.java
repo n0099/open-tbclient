@@ -10,14 +10,14 @@ public class b {
     public void a(e eVar) {
         this.jXa = true;
         if (this.jWZ != -1 && this.jXb) {
-            eVar.Bo(this.jWZ);
+            eVar.Bn(this.jWZ);
         }
     }
 
     public void a(int i, e eVar) {
         this.jWZ = i;
         if (this.jXa && this.jXb) {
-            eVar.Bo(this.jWZ);
+            eVar.Bn(this.jWZ);
         }
     }
 }

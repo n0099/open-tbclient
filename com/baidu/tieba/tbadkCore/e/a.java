@@ -18,15 +18,15 @@ import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class a {
     private ArrayList<b> iCA = new ArrayList<>();
-    private f npk = new f();
+    private f npl = new f();
 
     public void a(b bVar) {
         if (bVar != null) {
             this.iCA.add(bVar);
         }
-        if (this.npk != null && bVar != null && bVar.getClass().getAnnotation(com.baidu.b.a.a.class) != null) {
+        if (this.npl != null && bVar != null && bVar.getClass().getAnnotation(com.baidu.b.a.a.class) != null) {
             try {
-                this.npk.a((com.baidu.tieba.tbadkCore.e.a.a) Class.forName("com.baidu.tieba.h5power." + bVar.getClass().getSimpleName() + com.baidu.tieba.tbadkCore.e.a.a.PROXY_CLASS_NAME_SUFFIX).getConstructor(bVar.getClass()).newInstance(bVar));
+                this.npl.a((com.baidu.tieba.tbadkCore.e.a.a) Class.forName("com.baidu.tieba.h5power." + bVar.getClass().getSimpleName() + com.baidu.tieba.tbadkCore.e.a.a.PROXY_CLASS_NAME_SUFFIX).getConstructor(bVar.getClass()).newInstance(bVar));
             } catch (Exception e) {
                 BdLog.e(e);
             }
@@ -70,35 +70,35 @@ public class a {
     }
 
     public void a(WebView webView, String str, @Nullable HashMap hashMap) {
-        if (this.npk != null) {
-            this.npk.a(webView, this.npk.f(str, hashMap));
+        if (this.npl != null) {
+            this.npl.a(webView, this.npl.f(str, hashMap));
         }
     }
 
     private void b(WebView webView, String str) {
-        if (this.npk != null) {
+        if (this.npl != null) {
             e eVar = new e();
             com.baidu.tieba.tbadkCore.e.a.c cVar = new com.baidu.tieba.tbadkCore.e.a.c();
-            String So = g.So(str);
-            eVar.setAction(So);
             String Sp = g.Sp(str);
-            eVar.bW(Sp);
+            eVar.setAction(Sp);
             String Sq = g.Sq(str);
-            cVar.Sj(Sq);
-            if (at.isEmpty(So) || at.isEmpty(Sp) || at.isEmpty(Sq)) {
+            eVar.bW(Sq);
+            String Sr = g.Sr(str);
+            cVar.Sk(Sr);
+            if (at.isEmpty(Sp) || at.isEmpty(Sq) || at.isEmpty(Sr)) {
                 cVar.Js(101);
             }
             try {
-                eVar.eK(g.St(str));
+                eVar.eK(g.Su(str));
             } catch (JSONException e) {
                 eVar.eK(new JSONObject());
                 cVar.Js(101);
             }
-            eVar.Sm(g.Sr(str));
             eVar.Sn(g.Ss(str));
-            com.baidu.tieba.tbadkCore.e.a.c a2 = this.npk.a(eVar, cVar);
+            eVar.So(g.St(str));
+            com.baidu.tieba.tbadkCore.e.a.c a2 = this.npl.a(eVar, cVar);
             if (a2.dLT()) {
-                this.npk.a(webView, a2);
+                this.npl.a(webView, a2);
             }
         }
     }

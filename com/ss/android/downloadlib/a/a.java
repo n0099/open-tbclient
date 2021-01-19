@@ -10,19 +10,19 @@ public class a implements j.a {
 
     /* renamed from: a  reason: collision with root package name */
     private static final String f12922a = a.class.getSimpleName();
-    private static a pQG;
+    private static a pQH;
     private long d;
-    private com.ss.android.downloadlib.f.j pQH = new com.ss.android.downloadlib.f.j(Looper.getMainLooper(), this);
+    private com.ss.android.downloadlib.f.j pQI = new com.ss.android.downloadlib.f.j(Looper.getMainLooper(), this);
 
     public static a eBY() {
-        if (pQG == null) {
+        if (pQH == null) {
             synchronized (a.class) {
-                if (pQG == null) {
-                    pQG = new a();
+                if (pQH == null) {
+                    pQH = new a();
                 }
             }
         }
-        return pQG;
+        return pQH;
     }
 
     private a() {
@@ -33,9 +33,9 @@ public class a implements j.a {
         com.ss.android.socialbase.downloader.k.a RA = com.ss.android.socialbase.downloader.k.a.RA(cVar.g());
         if (RA.a("back_miui_silent_install", 1) == 0 && ((com.ss.android.socialbase.downloader.m.g.j() || com.ss.android.socialbase.downloader.m.g.k()) && com.ss.android.socialbase.downloader.m.i.a(j.a(), "com.miui.securitycore", "com.miui.enterprise.service.EntInstallService"))) {
             if (cVar.eFG().getBoolean("extra_silent_install_succeed", false)) {
-                Message obtainMessage = this.pQH.obtainMessage(200, aVar);
+                Message obtainMessage = this.pQI.obtainMessage(200, aVar);
                 obtainMessage.arg1 = 2;
-                this.pQH.sendMessageDelayed(obtainMessage, RA.a("check_silent_install_interval", 60000));
+                this.pQI.sendMessageDelayed(obtainMessage, RA.a("check_silent_install_interval", 60000));
                 return;
             }
             com.ss.android.b.a.b.a jb = com.ss.android.downloadlib.a.b.d.eCc().jb(aVar.f12930b);
@@ -60,7 +60,7 @@ public class a implements j.a {
             } else {
                 this.d = System.currentTimeMillis();
             }
-            this.pQH.sendMessageDelayed(this.pQH.obtainMessage(200, aVar), w);
+            this.pQI.sendMessageDelayed(this.pQI.obtainMessage(200, aVar), w);
         }
     }
 

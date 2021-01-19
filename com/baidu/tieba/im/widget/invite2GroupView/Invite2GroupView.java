@@ -89,7 +89,7 @@ public final class Invite2GroupView extends LinearLayout {
                 }
             }
         });
-        if (b.cUG().br(String.valueOf(this.kFs.getGroupId()), 1) != null) {
+        if (b.cUG().bs(String.valueOf(this.kFs.getGroupId()), 1) != null) {
             if (String.valueOf(this.kFs.getGroupId()).equals(this.kFr.getTag())) {
                 this.kFr.setText(R.string.i_want_talk);
                 this.kFr.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.im.widget.invite2GroupView.Invite2GroupView.3

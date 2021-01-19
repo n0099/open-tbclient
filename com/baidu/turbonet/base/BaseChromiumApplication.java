@@ -12,8 +12,8 @@ import java.lang.reflect.Proxy;
 import java.util.Iterator;
 /* loaded from: classes4.dex */
 public class BaseChromiumApplication extends Application {
-    private final boolean oEm;
-    private com.baidu.turbonet.base.b<b> oEn;
+    private final boolean oEn;
+    private com.baidu.turbonet.base.b<b> oEo;
 
     /* loaded from: classes4.dex */
     public interface b {
@@ -25,8 +25,8 @@ public class BaseChromiumApplication extends Application {
     }
 
     protected BaseChromiumApplication(boolean z) {
-        this.oEn = new com.baidu.turbonet.base.b<>();
-        this.oEm = z;
+        this.oEo = new com.baidu.turbonet.base.b<>();
+        this.oEn = z;
     }
 
     @Override // android.content.ContextWrapper
@@ -38,10 +38,10 @@ public class BaseChromiumApplication extends Application {
     /* loaded from: classes4.dex */
     private class a implements InvocationHandler {
         private final Activity mActivity;
-        private final Window.Callback oEp;
+        private final Window.Callback oEq;
 
         public a(Activity activity, Window.Callback callback) {
-            this.oEp = callback;
+            this.oEq = callback;
             this.mActivity = activity;
         }
 
@@ -52,7 +52,7 @@ public class BaseChromiumApplication extends Application {
                 return null;
             }
             try {
-                return method.invoke(this.oEp, objArr);
+                return method.invoke(this.oEq, objArr);
             } catch (InvocationTargetException e) {
                 if (e.getCause() instanceof AbstractMethodError) {
                     throw e.getCause();
@@ -62,8 +62,8 @@ public class BaseChromiumApplication extends Application {
         }
 
         public void onWindowFocusChanged(boolean z) {
-            this.oEp.onWindowFocusChanged(z);
-            Iterator it = BaseChromiumApplication.this.oEn.iterator();
+            this.oEq.onWindowFocusChanged(z);
+            Iterator it = BaseChromiumApplication.this.oEo.iterator();
             while (it.hasNext()) {
                 ((b) it.next()).m(this.mActivity, z);
             }
@@ -73,13 +73,13 @@ public class BaseChromiumApplication extends Application {
     @Override // android.app.Application
     public void onCreate() {
         super.onCreate();
-        if (this.oEm) {
+        if (this.oEn) {
             edx();
         }
     }
 
     public void a(b bVar) {
-        this.oEn.addObserver(bVar);
+        this.oEo.addObserver(bVar);
     }
 
     private void edx() {

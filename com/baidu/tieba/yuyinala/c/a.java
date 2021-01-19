@@ -13,7 +13,7 @@ import com.baidu.tieba.yuyinala.message.AlaLootRedPacketResultResponseMessage;
 /* loaded from: classes10.dex */
 public class a extends BdBaseModel {
     private HttpMessageListener hPu;
-    private f oeO;
+    private f oeP;
 
     public a(BdPageContext<?> bdPageContext, f fVar) {
         super(bdPageContext);
@@ -23,17 +23,17 @@ public class a extends BdBaseModel {
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
                 if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1031075 && (httpResponsedMessage instanceof AlaLootRedPacketResultResponseMessage)) {
                     AlaLootRedPacketResultResponseMessage alaLootRedPacketResultResponseMessage = (AlaLootRedPacketResultResponseMessage) httpResponsedMessage;
-                    if (a.this.oeO != null) {
+                    if (a.this.oeP != null) {
                         if (alaLootRedPacketResultResponseMessage.getError() != 0 || !alaLootRedPacketResultResponseMessage.isSuccess()) {
-                            a.this.oeO.w(alaLootRedPacketResultResponseMessage.getError(), alaLootRedPacketResultResponseMessage.getErrorString());
+                            a.this.oeP.w(alaLootRedPacketResultResponseMessage.getError(), alaLootRedPacketResultResponseMessage.getErrorString());
                         } else {
-                            a.this.oeO.b(alaLootRedPacketResultResponseMessage.edh());
+                            a.this.oeP.b(alaLootRedPacketResultResponseMessage.edh());
                         }
                     }
                 }
             }
         };
-        this.oeO = fVar;
+        this.oeP = fVar;
         initTasks();
         registerListener(this.hPu);
     }

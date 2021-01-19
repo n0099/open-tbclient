@@ -493,7 +493,7 @@ public class HotTopicView extends FrameLayout {
         this.kkw = aVar;
     }
 
-    public void Cf(int i) {
+    public void Ce(int i) {
         ViewGroup.LayoutParams layoutParams = this.kpy.getLayoutParams();
         layoutParams.height = i;
         this.kpy.setLayoutParams(layoutParams);
@@ -527,7 +527,7 @@ public class HotTopicView extends FrameLayout {
         }
     }
 
-    public void Cg(int i) {
+    public void Cf(int i) {
         if (this.gwr != null) {
             this.gwr.smoothScrollBy(i, 1);
             cRK();

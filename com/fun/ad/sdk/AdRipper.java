@@ -109,7 +109,7 @@ public final class AdRipper {
     public static RippedKSAd getRippedKSAd(AdInfo adInfo, boolean z) {
         String a2 = m.a(adInfo);
         if (z) {
-            ((d.a) d.pEt).a(FunAdSdk.PLATFORM_KS, a2);
+            ((d.a) d.pEu).a(FunAdSdk.PLATFORM_KS, a2);
         }
         RippedKSAd rippedKSAd = new RippedKSAd();
         AdInfo.AdBaseInfo adBaseInfo = adInfo.adBaseInfo;
@@ -205,7 +205,7 @@ public final class AdRipper {
     public static void rip(String str, Object obj) {
         String a2 = m.a(obj);
         m.a("AdRipper platform: " + str + ", adRippedJson: " + a2);
-        d.b bVar = d.pEt;
+        d.b bVar = d.pEu;
         FunAdPluginCallback adPluginCallback = FunAdSdk.getAdPluginCallback();
         if (adPluginCallback != null) {
             adPluginCallback.onAdRipped(str, a2);
@@ -347,7 +347,7 @@ public final class AdRipper {
             return null;
         }
         if (z) {
-            ((d.a) d.pEt).a(FunAdSdk.PLATFORM_CSJ, a2);
+            ((d.a) d.pEu).a(FunAdSdk.PLATFORM_CSJ, a2);
         }
         try {
             JSONObject jSONObject = new JSONObject(a2);
@@ -423,7 +423,7 @@ public final class AdRipper {
                 String jSONObject2 = jSONObject.toString();
                 m.a("GDT AdRipper, adOriginJson: " + jSONObject2);
                 if (z) {
-                    ((d.a) d.pEt).a(FunAdSdk.PLATFORM_GDT, jSONObject2);
+                    ((d.a) d.pEu).a(FunAdSdk.PLATFORM_GDT, jSONObject2);
                 }
                 RippedGDTAd rippedGDTAd = new RippedGDTAd();
                 rippedGDTAd.videoUrl = jSONObject.optString("video");
@@ -479,7 +479,7 @@ public final class AdRipper {
         if (E != null) {
             m.a("GDT AdRipper, adOriginJson: " + E.toString());
             if (z) {
-                ((d.a) d.pEt).a(FunAdSdk.PLATFORM_GDT, E.toString());
+                ((d.a) d.pEu).a(FunAdSdk.PLATFORM_GDT, E.toString());
             }
             RippedGDTAd rippedGDTAd = new RippedGDTAd();
             rippedGDTAd.videoUrl = E.optString("video");
@@ -540,7 +540,7 @@ public final class AdRipper {
             JSONObject jSONObject = new JSONObject(strArr[0]);
             m.a("GDT AdRipper, adOriginJson: " + jSONObject.toString());
             if (z) {
-                ((d.a) d.pEt).a(FunAdSdk.PLATFORM_GDT, jSONObject.toString());
+                ((d.a) d.pEu).a(FunAdSdk.PLATFORM_GDT, jSONObject.toString());
             }
             RippedGDTAd rippedGDTAd = new RippedGDTAd();
             rippedGDTAd.videoUrl = jSONObject.optString("video");
@@ -595,7 +595,7 @@ public final class AdRipper {
         if (E != null) {
             m.a("GDT AdRipper, adOriginJson: " + E.toString());
             if (z) {
-                ((d.a) d.pEt).a(FunAdSdk.PLATFORM_GDT, E.toString());
+                ((d.a) d.pEu).a(FunAdSdk.PLATFORM_GDT, E.toString());
             }
             RippedGDTAd rippedGDTAd = new RippedGDTAd();
             rippedGDTAd.videoUrl = E.optString("video");
@@ -654,7 +654,7 @@ public final class AdRipper {
                 String jSONObject2 = jSONObject.toString();
                 m.a("GDT AdRipper, adOriginJson: " + jSONObject2);
                 if (z) {
-                    ((d.a) d.pEt).a(FunAdSdk.PLATFORM_GDT, jSONObject2);
+                    ((d.a) d.pEu).a(FunAdSdk.PLATFORM_GDT, jSONObject2);
                 }
                 RippedGDTAd rippedGDTAd = new RippedGDTAd();
                 rippedGDTAd.videoUrl = jSONObject.optString("video");
@@ -713,7 +713,7 @@ public final class AdRipper {
                 String jSONObject2 = jSONObject.toString();
                 m.a("GDT AdRipper, adOriginJson: " + jSONObject2);
                 if (z) {
-                    ((d.a) d.pEt).a(FunAdSdk.PLATFORM_GDT, jSONObject2);
+                    ((d.a) d.pEu).a(FunAdSdk.PLATFORM_GDT, jSONObject2);
                 }
                 RippedGDTAd rippedGDTAd = new RippedGDTAd();
                 rippedGDTAd.videoUrl = jSONObject.optString("video");

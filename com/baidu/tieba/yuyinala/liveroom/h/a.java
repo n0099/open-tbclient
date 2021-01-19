@@ -10,7 +10,7 @@ import com.baidu.live.sdk.a;
 /* loaded from: classes10.dex */
 public abstract class a extends Dialog {
     public String hAg;
-    public InterfaceC0920a olu;
+    public InterfaceC0920a olv;
 
     /* renamed from: com.baidu.tieba.yuyinala.liveroom.h.a$a  reason: collision with other inner class name */
     /* loaded from: classes10.dex */
@@ -57,7 +57,7 @@ public abstract class a extends Dialog {
     }
 
     public void a(InterfaceC0920a interfaceC0920a) {
-        this.olu = interfaceC0920a;
+        this.olv = interfaceC0920a;
     }
 
     public void LB(int i) {

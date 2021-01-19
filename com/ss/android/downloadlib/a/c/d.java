@@ -11,7 +11,7 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.CopyOnWriteArrayList;
 /* loaded from: classes4.dex */
 public class d {
-    private static volatile d pRe;
+    private static volatile d pRf;
 
     /* renamed from: b  reason: collision with root package name */
     private long f12945b = 0;
@@ -20,14 +20,14 @@ public class d {
     private List<String> e = new CopyOnWriteArrayList();
 
     public static d eCh() {
-        if (pRe == null) {
+        if (pRf == null) {
             synchronized (d.class) {
-                if (pRe == null) {
-                    pRe = new d();
+                if (pRf == null) {
+                    pRf = new d();
                 }
             }
         }
-        return pRe;
+        return pRf;
     }
 
     public void a(String str, e eVar) {

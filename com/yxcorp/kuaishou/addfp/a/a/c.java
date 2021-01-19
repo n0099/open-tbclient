@@ -13,11 +13,11 @@ public final class c implements Runnable {
 
     /* renamed from: b  reason: collision with root package name */
     private /* synthetic */ Context f14338b;
-    private /* synthetic */ b qbu;
+    private /* synthetic */ b qbv;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(b bVar, a aVar, Context context) {
-        this.qbu = bVar;
+        this.qbv = bVar;
         this.f14337a = aVar;
         this.f14338b = context;
     }
@@ -33,8 +33,8 @@ public final class c implements Runnable {
         com.yxcorp.kuaishou.addfp.a.b.a aVar6;
         char c = 0;
         try {
-            this.qbu.f14336a = this.f14337a;
-            String a2 = b.a(this.qbu);
+            this.qbv.f14336a = this.f14337a;
+            String a2 = b.a(this.qbv);
             switch (a2.hashCode()) {
                 case -1619859642:
                     if (a2.equals("blackshark")) {
@@ -147,60 +147,60 @@ public final class c implements Runnable {
             switch (c) {
                 case 0:
                 case 1:
-                    this.qbu.qbt = new com.yxcorp.kuaishou.addfp.a.b.i.b(this.f14338b);
+                    this.qbv.qbu = new com.yxcorp.kuaishou.addfp.a.b.i.b(this.f14338b);
                     break;
                 case 2:
-                    this.qbu.qbt = new e(this.f14338b);
+                    this.qbv.qbu = new e(this.f14338b);
                     break;
                 case 3:
-                    this.qbu.qbt = new com.yxcorp.kuaishou.addfp.a.b.h.a(this.f14338b);
-                    aVar = this.qbu.qbt;
+                    this.qbv.qbu = new com.yxcorp.kuaishou.addfp.a.b.h.a(this.f14338b);
+                    aVar = this.qbv.qbu;
                     ((com.yxcorp.kuaishou.addfp.a.b.h.a) aVar).a("100215079");
                     break;
                 case 4:
-                    this.qbu.qbt = new com.yxcorp.kuaishou.addfp.a.b.b.c(this.f14338b, b.eHf());
+                    this.qbv.qbu = new com.yxcorp.kuaishou.addfp.a.b.b.c(this.f14338b, b.eHf());
                     break;
                 case 5:
                 case 6:
-                    this.qbu.qbt = new g(this.f14338b, b.eHf());
+                    this.qbv.qbu = new g(this.f14338b, b.eHf());
                     break;
                 case 7:
                 case '\b':
-                    this.qbu.qbt = new com.yxcorp.kuaishou.addfp.a.b.c.d(this.f14338b, b.eHf());
+                    this.qbv.qbu = new com.yxcorp.kuaishou.addfp.a.b.c.d(this.f14338b, b.eHf());
                     break;
                 case '\t':
-                    this.qbu.qbt = new com.yxcorp.kuaishou.addfp.a.b.a.a(this.f14338b, b.eHf());
+                    this.qbv.qbu = new com.yxcorp.kuaishou.addfp.a.b.a.a(this.f14338b, b.eHf());
                     break;
                 case '\n':
-                    this.qbu.qbt = new com.yxcorp.kuaishou.addfp.a.b.g.g(this.f14338b, b.eHf());
+                    this.qbv.qbu = new com.yxcorp.kuaishou.addfp.a.b.g.g(this.f14338b, b.eHf());
                     break;
                 case 11:
-                    this.qbu.qbt = new com.yxcorp.kuaishou.addfp.a.b.e.b(this.f14338b);
+                    this.qbv.qbu = new com.yxcorp.kuaishou.addfp.a.b.e.b(this.f14338b);
                     break;
                 case '\f':
                 case '\r':
                 case 14:
-                    this.qbu.qbt = new com.yxcorp.kuaishou.addfp.a.b.j.g(this.f14338b, b.eHf());
+                    this.qbv.qbu = new com.yxcorp.kuaishou.addfp.a.b.j.g(this.f14338b, b.eHf());
                     break;
             }
-            aVar2 = this.qbu.qbt;
+            aVar2 = this.qbv.qbu;
             if (aVar2 == null) {
-                this.qbu.a(false, (com.yxcorp.kuaishou.addfp.a.b.a) null);
+                this.qbv.a(false, (com.yxcorp.kuaishou.addfp.a.b.a) null);
                 return;
             }
-            aVar3 = this.qbu.qbt;
+            aVar3 = this.qbv.qbu;
             if (!aVar3.a()) {
-                aVar6 = this.qbu.qbt;
+                aVar6 = this.qbv.qbu;
                 aVar6.a(b.eHf());
                 return;
             }
-            aVar4 = this.qbu.qbt;
+            aVar4 = this.qbv.qbu;
             if (!aVar4.c()) {
-                this.qbu.a(false, (com.yxcorp.kuaishou.addfp.a.b.a) null);
+                this.qbv.a(false, (com.yxcorp.kuaishou.addfp.a.b.a) null);
                 return;
             }
-            b bVar = this.qbu;
-            aVar5 = this.qbu.qbt;
+            b bVar = this.qbv;
+            aVar5 = this.qbv.qbu;
             bVar.a(true, aVar5);
         } catch (Throwable th) {
             com.yxcorp.kuaishou.addfp.android.b.b.a(th);

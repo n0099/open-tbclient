@@ -549,7 +549,7 @@ public class VideoMiddlePageAdView extends BaseLegoCardView<VideoMiddlePageAdCar
         if (this.eSJ != null && this.eSJ.getPageActivity() != null && this.mLF != null && this.mLF.getAdFacadeData() != null && !TextUtils.isEmpty(this.mLF.getScheme())) {
             String scheme = this.mLF.getScheme();
             AdvertAppInfo qU = this.mLF.getAdFacadeData().qU();
-            boolean bf = s.Qq(this.mLF.getScheme()) ? s.bf(this.eSJ.getPageActivity(), scheme) : false;
+            boolean bf = s.Qr(this.mLF.getScheme()) ? s.bf(this.eSJ.getPageActivity(), scheme) : false;
             if (this.kUi != null) {
                 this.kUi.d(bf ? 1 : 2, null);
             }
@@ -557,7 +557,7 @@ public class VideoMiddlePageAdView extends BaseLegoCardView<VideoMiddlePageAdCar
                 this.mLK.xk(false);
             }
             if (!bf) {
-                String Qr = s.Qr(scheme);
+                String Qs = s.Qs(scheme);
                 AdWebVideoActivity.a(qU, this.mLF.getAdFacadeData().aav != null ? this.mLF.getAdFacadeData().aav.qQ() : 0, "DETAIL");
                 Bundle bundle = new Bundle();
                 bundle.putString("video_url", this.mLF.video.video_url);
@@ -566,7 +566,7 @@ public class VideoMiddlePageAdView extends BaseLegoCardView<VideoMiddlePageAdCar
                 bundle.putInt(AdWebVideoActivityConfig.KEY_VIDEO_DURATION, this.mLM);
                 bundle.putString(AdWebVideoActivityConfig.KEY_TAIL_FRAME, this.mLF.tailFrame.toJsonString());
                 bundle.putString(WebViewActivityConfig.TAG_DOWNLOAD_AD_ID, d(this.mLF.getAdFacadeData().qU()));
-                AdWebVideoActivity.a(new AdWebVideoActivityConfig(this.eSJ.getPageActivity(), "", Qr, true, true, true, bundle));
+                AdWebVideoActivity.a(new AdWebVideoActivityConfig(this.eSJ.getPageActivity(), "", Qs, true, true, true, bundle));
             }
         }
     }

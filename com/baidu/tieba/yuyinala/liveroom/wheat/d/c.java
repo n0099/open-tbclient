@@ -8,9 +8,9 @@ import com.baidu.tieba.yuyinala.liveroom.wheat.view.WheatDatingLayout;
 public class c extends a {
     @Override // com.baidu.tieba.yuyinala.liveroom.wheat.d.a
     public View ecn() {
-        this.ozK = new WheatDatingLayout(this.mActivity);
-        this.ozK.setTbPageContext(this.ovz);
-        return this.ozK;
+        this.ozL = new WheatDatingLayout(this.mActivity);
+        this.ozL.setTbPageContext(this.ovA);
+        return this.ozL;
     }
 
     @Override // com.baidu.tieba.yuyinala.liveroom.wheat.d.a
@@ -20,8 +20,8 @@ public class c extends a {
 
     @Override // com.baidu.tieba.yuyinala.liveroom.wheat.d.a
     public void KM() {
-        if (this.ozK != null) {
-            this.ozK.a(this.ozz, this.ozA, this.ozB, this.buq);
+        if (this.ozL != null) {
+            this.ozL.a(this.ozA, this.ozB, this.ozC, this.buq);
         }
     }
 

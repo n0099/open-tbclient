@@ -43,11 +43,11 @@ public class PluginCenterActivity extends BaseActivity<PluginCenterActivity> imp
     private d UC = new d() { // from class: com.baidu.tieba.pluginCenter.PluginCenterActivity.4
         @Override // com.baidu.adp.plugin.packageManager.d
         public void a(BdFileDownloadData bdFileDownloadData) {
-            PluginConfigWrapper PP;
-            if (bdFileDownloadData != null && bdFileDownloadData.getId() != null && bdFileDownloadData.getStatus() != 2 && (PP = PluginCenterActivity.this.PP(bdFileDownloadData.getId())) != null) {
-                PP.setDownLoadPercent((int) ((bdFileDownloadData.getLength() * 100) / bdFileDownloadData.getSize()));
-                PP.setDownLoadStatus(3);
-                PluginCenterActivity.this.mBG.av(PP);
+            PluginConfigWrapper PQ;
+            if (bdFileDownloadData != null && bdFileDownloadData.getId() != null && bdFileDownloadData.getStatus() != 2 && (PQ = PluginCenterActivity.this.PQ(bdFileDownloadData.getId())) != null) {
+                PQ.setDownLoadPercent((int) ((bdFileDownloadData.getLength() * 100) / bdFileDownloadData.getSize()));
+                PQ.setDownLoadStatus(3);
+                PluginCenterActivity.this.mBG.av(PQ);
             }
         }
 
@@ -57,21 +57,21 @@ public class PluginCenterActivity extends BaseActivity<PluginCenterActivity> imp
 
         @Override // com.baidu.adp.plugin.packageManager.d
         public void c(BdFileDownloadData bdFileDownloadData) {
-            PluginConfigWrapper PP;
-            if (bdFileDownloadData != null && bdFileDownloadData.getId() != null && (PP = PluginCenterActivity.this.PP(bdFileDownloadData.getId())) != null) {
+            PluginConfigWrapper PQ;
+            if (bdFileDownloadData != null && bdFileDownloadData.getId() != null && (PQ = PluginCenterActivity.this.PQ(bdFileDownloadData.getId())) != null) {
                 PluginCenterActivity.this.showToast(R.string.download_fail_tip);
-                PP.setDownLoadStatus(0);
-                PluginCenterActivity.this.mBG.av(PP);
+                PQ.setDownLoadStatus(0);
+                PluginCenterActivity.this.mBG.av(PQ);
             }
         }
 
         @Override // com.baidu.adp.plugin.packageManager.d
         public void a(BdFileDownloadData bdFileDownloadData, int i, String str) {
-            PluginConfigWrapper PP;
-            if (bdFileDownloadData != null && bdFileDownloadData.getId() != null && (PP = PluginCenterActivity.this.PP(bdFileDownloadData.getId())) != null) {
+            PluginConfigWrapper PQ;
+            if (bdFileDownloadData != null && bdFileDownloadData.getId() != null && (PQ = PluginCenterActivity.this.PQ(bdFileDownloadData.getId())) != null) {
                 if (i == 0) {
                     PluginCenterActivity.this.showToast(R.string.plugin_installation_finished);
-                    PluginCenterActivity.this.iBc.dispatchMvcEvent(new b(1, PP, null, null));
+                    PluginCenterActivity.this.iBc.dispatchMvcEvent(new b(1, PQ, null, null));
                     return;
                 }
                 PluginCenterActivity.this.showToast(PluginCenterActivity.this.getPageContext().getString(R.string.plugin_installation_failed) + str);
@@ -207,7 +207,7 @@ public class PluginCenterActivity extends BaseActivity<PluginCenterActivity> imp
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public PluginConfigWrapper PP(String str) {
+    public PluginConfigWrapper PQ(String str) {
         if (str == null) {
             return null;
         }

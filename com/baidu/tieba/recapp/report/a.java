@@ -12,7 +12,7 @@ public class a {
         mND.put(str, set);
     }
 
-    public static Set<n> QK(String str) {
+    public static Set<n> QL(String str) {
         return mND.get(str);
     }
 

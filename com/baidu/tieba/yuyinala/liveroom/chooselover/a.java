@@ -12,7 +12,7 @@ public class a extends BdBaseModel {
     private Context bJM;
     private BdUniqueId brL = BdUniqueId.gen();
     private final HttpMessageListener bxB;
-    private InterfaceC0919a ojV;
+    private InterfaceC0919a ojW;
 
     /* renamed from: com.baidu.tieba.yuyinala.liveroom.chooselover.a$a  reason: collision with other inner class name */
     /* loaded from: classes10.dex */
@@ -23,7 +23,7 @@ public class a extends BdBaseModel {
     }
 
     public void a(InterfaceC0919a interfaceC0919a) {
-        this.ojV = interfaceC0919a;
+        this.ojW = interfaceC0919a;
     }
 
     public a(Context context) {
@@ -38,12 +38,12 @@ public class a extends BdBaseModel {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-                if (httpResponsedMessage != null && (httpResponsedMessage instanceof ChooseLoverHttpResponseMessage) && httpResponsedMessage.getOrginalMessage().getTag() == a.this.getUniqueId() && a.this.ojV != null) {
+                if (httpResponsedMessage != null && (httpResponsedMessage instanceof ChooseLoverHttpResponseMessage) && httpResponsedMessage.getOrginalMessage().getTag() == a.this.getUniqueId() && a.this.ojW != null) {
                     ChooseLoverHttpResponseMessage chooseLoverHttpResponseMessage = (ChooseLoverHttpResponseMessage) httpResponsedMessage;
                     if (chooseLoverHttpResponseMessage.getError() != 0 || !chooseLoverHttpResponseMessage.isSuccess()) {
-                        a.this.ojV.onFail(chooseLoverHttpResponseMessage.getError(), chooseLoverHttpResponseMessage.getErrorString());
+                        a.this.ojW.onFail(chooseLoverHttpResponseMessage.getError(), chooseLoverHttpResponseMessage.getErrorString());
                     } else {
-                        a.this.ojV.a(chooseLoverHttpResponseMessage);
+                        a.this.ojW.a(chooseLoverHttpResponseMessage);
                     }
                 }
             }

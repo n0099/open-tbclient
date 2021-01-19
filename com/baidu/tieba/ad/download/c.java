@@ -19,8 +19,8 @@ public class c {
         if (TextUtils.isEmpty(str)) {
             str = "DOWNLOAD_PAGE";
         }
-        cVar.QV(str);
-        cVar.QW("DOWNLOAD_BUTTON");
+        cVar.QW(str);
+        cVar.QX("DOWNLOAD_BUTTON");
         if (!TextUtils.isEmpty(str2)) {
             DownloadStaticsData downloadStaticsData = new DownloadStaticsData();
             downloadStaticsData.setApk_name(str2);

@@ -12,21 +12,21 @@ public class d implements com.baidu.live.liveroom.d.d {
     private int gKL;
     private String mLiveId;
     private int mUserType;
-    private String oeF;
-    private c ogC;
-    private b ogD;
-    b.a ogE = new b.a() { // from class: com.baidu.tieba.yuyinala.charm.charmrank.d.1
+    private String oeG;
+    private c ogD;
+    private b ogE;
+    b.a ogF = new b.a() { // from class: com.baidu.tieba.yuyinala.charm.charmrank.d.1
         @Override // com.baidu.tieba.yuyinala.charm.charmrank.b.a
         public void a(j jVar) {
-            if (d.this.ogC != null) {
-                d.this.ogC.ip(false);
+            if (d.this.ogD != null) {
+                d.this.ogD.ip(false);
                 if (jVar == null) {
-                    d.this.ogC.dI(true);
-                    d.this.ogC.zw(false);
+                    d.this.ogD.dI(true);
+                    d.this.ogD.zw(false);
                     return;
                 }
-                d.this.ogC.Vq();
-                d.this.ogC.gp(jVar.aEK);
+                d.this.ogD.Vq();
+                d.this.ogD.gp(jVar.aEK);
                 int size = jVar.aEK.size();
                 if (size > 0) {
                     j.a aVar = jVar.aEJ;
@@ -36,82 +36,82 @@ public class d implements com.baidu.live.liveroom.d.d {
                             aVar.aK(jVar.aEK.get(i).aER);
                         }
                     }
-                    if (d.this.ogC != null) {
-                        d.this.ogC.b(aVar);
+                    if (d.this.ogD != null) {
+                        d.this.ogD.b(aVar);
                     }
                 }
                 if (size <= 0) {
-                    d.this.ogC.dI(true);
-                    d.this.ogC.zw(false);
-                    if (d.this.ogC != null) {
+                    d.this.ogD.dI(true);
+                    d.this.ogD.zw(false);
+                    if (d.this.ogD != null) {
                         j.a aVar2 = new j.a();
                         aVar2.aEM = 0L;
                         aVar2.bd_portrait = TbadkCoreApplication.getCurrentPortrait();
                         aVar2.user_name = TbadkCoreApplication.getCurrentAccountName();
-                        d.this.ogC.b(aVar2);
+                        d.this.ogD.b(aVar2);
                     }
                 } else if (size >= 100) {
-                    d.this.ogC.Ga(d.this.ogk.getPageContext().getResources().getString(a.h.yuyin_charm_show_100));
+                    d.this.ogD.Ga(d.this.ogl.getPageContext().getResources().getString(a.h.yuyin_charm_show_100));
                 }
-                d.this.BV(size);
+                d.this.BU(size);
             }
         }
 
         @Override // com.baidu.tieba.yuyinala.charm.charmrank.b.a
         public void w(int i, String str) {
-            if (d.this.ogC != null) {
-                d.this.ogC.ip(false);
-                d.this.ogC.dI(false);
-                d.this.ogC.n(new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.charm.charmrank.d.1.1
+            if (d.this.ogD != null) {
+                d.this.ogD.ip(false);
+                d.this.ogD.dI(false);
+                d.this.ogD.n(new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.charm.charmrank.d.1.1
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
                         if (BdNetTypeUtil.isNetWorkAvailable()) {
                             d.this.mD(true);
                         } else {
-                            d.this.ogk.getPageContext().showToast(d.this.ogk.getResources().getString(a.h.sdk_no_network_guide));
+                            d.this.ogl.getPageContext().showToast(d.this.ogl.getResources().getString(a.h.sdk_no_network_guide));
                         }
                     }
                 });
             }
         }
     };
-    private YuyinCharmRankTotalActivity ogk;
+    private YuyinCharmRankTotalActivity ogl;
 
     public d(YuyinCharmRankTotalActivity yuyinCharmRankTotalActivity, int i, String str, String str2, int i2) {
-        this.ogk = yuyinCharmRankTotalActivity;
+        this.ogl = yuyinCharmRankTotalActivity;
         this.gKL = i;
-        this.oeF = str;
+        this.oeG = str;
         this.mLiveId = str2;
         this.mUserType = i2;
     }
 
     public void createView() {
-        this.ogC = new c(this.ogk, this.gKL, this.oeF, this.mLiveId, this.mUserType);
+        this.ogD = new c(this.ogl, this.gKL, this.oeG, this.mLiveId, this.mUserType);
         mD(true);
     }
 
     public void mD(boolean z) {
-        if (this.ogD == null) {
-            this.ogD = new b(this.ogk.getPageContext(), this.ogE);
+        if (this.ogE == null) {
+            this.ogE = new b(this.ogl.getPageContext(), this.ogF);
         }
         if (this.gKL == 0) {
-            this.ogD.gI("contribution", this.oeF);
+            this.ogE.gI("contribution", this.oeG);
         } else {
-            this.ogD.gI(SdkStaticKeys.RANK_TYPE_CHARM, this.oeF);
+            this.ogE.gI(SdkStaticKeys.RANK_TYPE_CHARM, this.oeG);
         }
-        if (this.ogC != null) {
-            this.ogC.ip(z);
+        if (this.ogD != null) {
+            this.ogD.ip(z);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void BV(final int i) {
-        if (this.ogC != null && this.ogC.getListView() != null) {
-            this.ogC.getListView().post(new Runnable() { // from class: com.baidu.tieba.yuyinala.charm.charmrank.d.2
+    public void BU(final int i) {
+        if (this.ogD != null && this.ogD.getListView() != null) {
+            this.ogD.getListView().post(new Runnable() { // from class: com.baidu.tieba.yuyinala.charm.charmrank.d.2
                 @Override // java.lang.Runnable
                 public void run() {
-                    if (d.this.ogC.getListView().getHeight() < d.this.ogk.getResources().getDimensionPixelSize(a.d.sdk_ds164) * i && i < 100) {
-                        d.this.ogC.Ga(d.this.ogk.getPageContext().getResources().getString(a.h.yuyin_charm_list_no_more));
+                    if (d.this.ogD.getListView().getHeight() < d.this.ogl.getResources().getDimensionPixelSize(a.d.sdk_ds164) * i && i < 100) {
+                        d.this.ogD.Ga(d.this.ogl.getPageContext().getResources().getString(a.h.yuyin_charm_list_no_more));
                     }
                 }
             });
@@ -120,10 +120,10 @@ public class d implements com.baidu.live.liveroom.d.d {
 
     @Override // com.baidu.live.liveroom.d.d
     public View getPanelView() {
-        if (this.ogC == null) {
+        if (this.ogD == null) {
             return null;
         }
-        return this.ogC.getRootView();
+        return this.ogD.getRootView();
     }
 
     @Override // com.baidu.live.liveroom.d.d
@@ -151,8 +151,8 @@ public class d implements com.baidu.live.liveroom.d.d {
 
     @Override // com.baidu.live.liveroom.d.d
     public void onDestroy() {
-        if (this.ogD != null) {
-            this.ogD.onDestroy();
+        if (this.ogE != null) {
+            this.ogE.onDestroy();
         }
     }
 

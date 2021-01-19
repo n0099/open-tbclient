@@ -1398,7 +1398,7 @@ public class PersonalizePageView extends FrameLayout {
         this.mSkinType = i;
     }
 
-    public void bc(String str, int i) {
+    public void bd(String str, int i) {
         if (this.gxy != null) {
             this.gxy.setText(getContext().getString(R.string.pb_load_more));
             this.gxy.endLoadData();
@@ -1622,15 +1622,15 @@ public class PersonalizePageView extends FrameLayout {
     /* JADX INFO: Access modifiers changed from: private */
     public void cOY() {
         if (!this.kab) {
-            long Bl = com.baidu.tieba.homepage.framework.a.cNr().Bl(1) + com.baidu.tieba.homepage.framework.a.cNr().getCreateTime();
-            long Bj = com.baidu.tieba.homepage.framework.a.cNr().Bj(1);
-            if (Bj > 0) {
-                Bl = System.currentTimeMillis() - Bj;
+            long Bk = com.baidu.tieba.homepage.framework.a.cNr().Bk(1) + com.baidu.tieba.homepage.framework.a.cNr().getCreateTime();
+            long Bi = com.baidu.tieba.homepage.framework.a.cNr().Bi(1);
+            if (Bi > 0) {
+                Bk = System.currentTimeMillis() - Bi;
             }
             com.baidu.tbadk.n.n nVar = new com.baidu.tbadk.n.n();
             nVar.bDW();
             nVar.bDX();
-            com.baidu.tbadk.n.l.bDT().eE(Bl);
+            com.baidu.tbadk.n.l.bDT().eE(Bk);
             if (this.kaa > 0) {
                 com.baidu.tbadk.n.l.bDT().eI(System.currentTimeMillis() - this.kaa);
             }

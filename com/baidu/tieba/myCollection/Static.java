@@ -49,7 +49,7 @@ public class Static {
                     aVar.setThreadId(historyMessage.threadId);
                     aVar.setForumName(historyMessage.forumName);
                     aVar.setThreadName(historyMessage.threadName);
-                    aVar.NX(historyMessage.postID);
+                    aVar.NY(historyMessage.postID);
                     aVar.tY(historyMessage.isHostOnly);
                     aVar.tZ(historyMessage.isSquence);
                     aVar.setThreadType(historyMessage.threadType);

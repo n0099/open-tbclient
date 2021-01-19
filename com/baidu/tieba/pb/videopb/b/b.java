@@ -117,10 +117,10 @@ public class b {
                 PbActivity.a aVar3 = new PbActivity.a();
                 b.this.a(str, i, aVar3);
                 if (aVar3.lEH) {
-                    TbRichText bG = b.this.bG(str, i);
-                    if (bG != null && b.this.lJO >= 0 && b.this.lJO < bG.bHf().size()) {
+                    TbRichText bH = b.this.bH(str, i);
+                    if (bH != null && b.this.lJO >= 0 && b.this.lJO < bH.bHf().size()) {
                         ArrayList<String> arrayList2 = new ArrayList<>();
-                        String c = g.c(bG.bHf().get(b.this.lJO));
+                        String c = g.c(bH.bHf().get(b.this.lJO));
                         int i4 = 0;
                         while (true) {
                             if (i4 >= aVar3.lEG.size()) {
@@ -133,7 +133,7 @@ public class b {
                                 break;
                             }
                         }
-                        if (bG.getPostId() != 0 && (dsC = b.this.mcP.dsC()) != null) {
+                        if (bH.getPostId() != 0 && (dsC = b.this.mcP.dsC()) != null) {
                             ArrayList<n> dataList = dsC.getDataList();
                             if (x.getCount(dataList) > 0) {
                                 Iterator<n> it = dataList.iterator();
@@ -142,7 +142,7 @@ public class b {
                                         break;
                                     }
                                     n next = it.next();
-                                    if ((next instanceof PostData) && bG.getPostId() == com.baidu.adp.lib.f.b.toLong(((PostData) next).getId(), 0L)) {
+                                    if ((next instanceof PostData) && bH.getPostId() == com.baidu.adp.lib.f.b.toLong(((PostData) next).getId(), 0L)) {
                                         com.baidu.tieba.pb.c.a.a(b.this.mcP.dkd().getPbData(), (PostData) next, ((PostData) next).locate, 8, 3);
                                         break;
                                     }
@@ -252,9 +252,9 @@ public class b {
             String dme = this.mcP.dkd().dme();
             String id = postData.getId();
             int djc = this.mcP.dkd().getPbData() != null ? this.mcP.dkd().getPbData().djc() : 0;
-            PbActivity.a OE = OE(id);
-            if (OE != null) {
-                SubPbActivityConfig addBigImageData = new SubPbActivityConfig(this.mcP.getPageContext().getPageActivity()).createSubPbActivityConfig(dme, id, "pb", true, null, false, null, djc, postData.dqX(), this.mcP.dkd().getPbData().getAnti(), false, postData.bnx() != null ? postData.bnx().getIconInfo() : null).addBigImageData(OE.lEG, OE.eHG, OE.eHE, OE.index);
+            PbActivity.a OF = OF(id);
+            if (OF != null) {
+                SubPbActivityConfig addBigImageData = new SubPbActivityConfig(this.mcP.getPageContext().getPageActivity()).createSubPbActivityConfig(dme, id, "pb", true, null, false, null, djc, postData.dqX(), this.mcP.dkd().getPbData().getAnti(), false, postData.bnx() != null ? postData.bnx().getIconInfo() : null).addBigImageData(OF.lEG, OF.eHG, OF.eHE, OF.index);
                 addBigImageData.setKeyPageStartFrom(this.mcP.dkd().dmP());
                 addBigImageData.setFromFrsForumId(this.mcP.dkd().getFromForumId());
                 addBigImageData.setKeyFromForumId(this.mcP.dkd().getForumId());
@@ -264,7 +264,7 @@ public class b {
         }
     }
 
-    public PbActivity.a OE(String str) {
+    public PbActivity.a OF(String str) {
         String str2;
         if (this.mcP.dkd() == null || this.mcP.dkd().getPbData() == null || this.mcP.dkd().getPbData().diP() == null || this.mcP.dkd().getPbData().diP().size() == 0 || StringUtils.isNull(str)) {
             return null;
@@ -304,7 +304,7 @@ public class b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public TbRichText bG(String str, int i) {
+    public TbRichText bH(String str, int i) {
         TbRichText tbRichText = null;
         if (this.mcP.dkd() == null || this.mcP.dkd().getPbData() == null || str == null || i < 0) {
             return null;
@@ -392,9 +392,9 @@ public class b {
         TbRichTextData tbRichTextData;
         if (aVar != null) {
             f pbData = this.mcP.dkd().getPbData();
-            TbRichText bG = bG(str, i);
-            if (bG != null && (tbRichTextData = bG.bHf().get(this.lJO)) != null) {
-                aVar.postId = String.valueOf(bG.getPostId());
+            TbRichText bH = bH(str, i);
+            if (bH != null && (tbRichTextData = bH.bHf().get(this.lJO)) != null) {
+                aVar.postId = String.valueOf(bH.getPostId());
                 aVar.lEG = new ArrayList<>();
                 aVar.eHG = new ConcurrentHashMap<>();
                 if (!tbRichTextData.bHl().bHw()) {
@@ -413,7 +413,7 @@ public class b {
                     imageUrlData.originalSize = e(tbRichTextData);
                     imageUrlData.mIsShowOrigonButton = f(tbRichTextData);
                     imageUrlData.isLongPic = g(tbRichTextData);
-                    imageUrlData.postId = bG.getPostId();
+                    imageUrlData.postId = bH.getPostId();
                     imageUrlData.mIsReserver = this.mcP.dkd().dmx();
                     imageUrlData.mIsSeeHost = this.mcP.dkd().getHostMode();
                     aVar.eHG.put(c, imageUrlData);
@@ -434,11 +434,11 @@ public class b {
                 int size = pbData.diP().size();
                 this.lJP = false;
                 aVar.index = -1;
-                int a2 = pbData.diW() != null ? a(pbData.diW().dLo(), bG, i, i, aVar.lEG, aVar.eHG) : i;
+                int a2 = pbData.diW() != null ? a(pbData.diW().dLo(), bH, i, i, aVar.lEG, aVar.eHG) : i;
                 for (int i2 = 0; i2 < size; i2++) {
                     PostData postData = pbData.diP().get(i2);
                     if (postData.getId() == null || pbData.diW() == null || pbData.diW().getId() == null || !postData.getId().equals(pbData.diW().getId())) {
-                        a2 = a(postData.dLo(), bG, a2, i, aVar.lEG, aVar.eHG);
+                        a2 = a(postData.dLo(), bH, a2, i, aVar.lEG, aVar.eHG);
                     }
                 }
                 if (aVar.lEG.size() > 0) {

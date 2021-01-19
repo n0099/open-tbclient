@@ -10,18 +10,18 @@ import java.util.List;
 /* loaded from: classes8.dex */
 public class e extends BaseAdapter {
     private TbPageContext<?> eSJ;
-    private List<List<DressItemData>> nwF;
-    d nwG;
+    private List<List<DressItemData>> nwG;
+    d nwH;
 
     public e(TbPageContext<?> tbPageContext, d dVar) {
         this.eSJ = tbPageContext;
-        this.nwG = dVar;
+        this.nwH = dVar;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.nwF != null) {
-            return this.nwF.size();
+        if (this.nwG != null) {
+            return this.nwG.size();
         }
         return 0;
     }
@@ -30,10 +30,10 @@ public class e extends BaseAdapter {
     @Override // android.widget.Adapter
     /* renamed from: xM */
     public List<DressItemData> getItem(int i) {
-        if (this.nwF == null || this.nwF.size() <= 0 || i < 0 || i >= this.nwF.size()) {
+        if (this.nwG == null || this.nwG.size() <= 0 || i < 0 || i >= this.nwG.size()) {
             return null;
         }
-        return this.nwF.get(i);
+        return this.nwG.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -51,9 +51,9 @@ public class e extends BaseAdapter {
             view = LayoutInflater.from(this.eSJ.getPageActivity()).inflate(R.layout.background_row, viewGroup, false);
             aVar = new a();
             aVar.mEmptyView = view.findViewById(R.id.top_white_line);
-            aVar.nwI = (BackgroundItemView) view.findViewById(R.id.bg_view1);
-            aVar.nwJ = (BackgroundItemView) view.findViewById(R.id.bg_view2);
-            aVar.nwK = (BackgroundItemView) view.findViewById(R.id.bg_view3);
+            aVar.nwJ = (BackgroundItemView) view.findViewById(R.id.bg_view1);
+            aVar.nwK = (BackgroundItemView) view.findViewById(R.id.bg_view2);
+            aVar.nwL = (BackgroundItemView) view.findViewById(R.id.bg_view3);
             view.setTag(aVar);
         }
         if (item != null) {
@@ -62,20 +62,20 @@ public class e extends BaseAdapter {
             } else {
                 aVar.mEmptyView.setVisibility(8);
             }
-            aVar.nwI.d(item.get(0));
-            aVar.nwI.setController(this.nwG);
+            aVar.nwJ.d(item.get(0));
+            aVar.nwJ.setController(this.nwH);
             if (item.size() > 2) {
-                aVar.nwJ.d(item.get(1));
-                aVar.nwK.d(item.get(2));
-                aVar.nwJ.setController(this.nwG);
-                aVar.nwK.setController(this.nwG);
+                aVar.nwK.d(item.get(1));
+                aVar.nwL.d(item.get(2));
+                aVar.nwK.setController(this.nwH);
+                aVar.nwL.setController(this.nwH);
             } else if (item.size() > 1) {
-                aVar.nwJ.d(item.get(1));
-                aVar.nwJ.setController(this.nwG);
-                aVar.nwK.hide();
+                aVar.nwK.d(item.get(1));
+                aVar.nwK.setController(this.nwH);
+                aVar.nwL.hide();
             } else {
-                aVar.nwJ.hide();
                 aVar.nwK.hide();
+                aVar.nwL.hide();
             }
         }
         this.eSJ.getLayoutMode().onModeChanged(view);
@@ -85,15 +85,15 @@ public class e extends BaseAdapter {
     /* loaded from: classes8.dex */
     public class a {
         public View mEmptyView;
-        public BackgroundItemView nwI;
         public BackgroundItemView nwJ;
         public BackgroundItemView nwK;
+        public BackgroundItemView nwL;
 
         public a() {
         }
     }
 
     public void setData(List<List<DressItemData>> list) {
-        this.nwF = list;
+        this.nwG = list;
     }
 }

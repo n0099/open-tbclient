@@ -14,25 +14,25 @@ import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class c {
     @SuppressLint({"StaticFieldLeak"})
-    private static c pmi = null;
+    private static c pmj = null;
 
     /* renamed from: b  reason: collision with root package name */
     private Context f7695b;
-    private com.cmic.sso.sdk.c.c.a pmh = com.cmic.sso.sdk.c.c.a.eoW();
+    private com.cmic.sso.sdk.c.c.a pmi = com.cmic.sso.sdk.c.c.a.eoW();
 
     private c(Context context) {
         this.f7695b = context.getApplicationContext();
     }
 
     public static c ic(Context context) {
-        if (pmi == null) {
+        if (pmj == null) {
             synchronized (c.class) {
-                if (pmi == null) {
-                    pmi = new c(context);
+                if (pmj == null) {
+                    pmj = new c(context);
                 }
             }
         }
-        return pmi;
+        return pmj;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -72,7 +72,7 @@ public class c {
         }
         aVar.a(b.a.f7690a, bArr);
         aVar.a("authtype", "3");
-        this.pmh.a(aVar, new com.cmic.sso.sdk.c.c.d() { // from class: com.cmic.sso.sdk.b.c.1
+        this.pmi.a(aVar, new com.cmic.sso.sdk.c.c.d() { // from class: com.cmic.sso.sdk.b.c.1
             /* JADX WARN: Removed duplicated region for block: B:21:0x00ca  */
             /* JADX WARN: Removed duplicated region for block: B:32:0x011f  */
             @Override // com.cmic.sso.sdk.c.c.d
@@ -198,7 +198,7 @@ public class c {
         } else if (aVar.c("logintype") == 0) {
             aVar.a("userCapaid", "50");
         }
-        this.pmh.b(aVar, new com.cmic.sso.sdk.c.c.d() { // from class: com.cmic.sso.sdk.b.c.2
+        this.pmi.b(aVar, new com.cmic.sso.sdk.c.c.d() { // from class: com.cmic.sso.sdk.b.c.2
             @Override // com.cmic.sso.sdk.c.c.d
             public void i(String str, String str2, JSONObject jSONObject) {
                 com.cmic.sso.sdk.e.c.c("AuthnBusiness", "获取平台token 》》》》" + jSONObject.toString());

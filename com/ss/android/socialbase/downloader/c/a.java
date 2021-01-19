@@ -6,20 +6,20 @@ import android.database.sqlite.SQLiteOpenHelper;
 import java.io.File;
 /* loaded from: classes4.dex */
 public class a extends SQLiteOpenHelper {
-    private static volatile a pUf;
+    private static volatile a pUg;
 
     /* renamed from: b  reason: collision with root package name */
     private boolean f13082b;
 
     public static a eDB() {
-        if (pUf == null) {
+        if (pUg == null) {
             synchronized (a.class) {
-                if (pUf == null) {
-                    pUf = new a();
+                if (pUg == null) {
+                    pUg = new a();
                 }
             }
         }
-        return pUf;
+        return pUg;
     }
 
     private a() {

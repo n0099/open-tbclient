@@ -65,7 +65,7 @@ public class c extends com.baidu.tbadk.core.data.a {
                 dVar.aEU = discoverTabCard.jump_name;
                 for (int i2 = 0; i2 < discoverTabCard.forum_list.size() && i2 < 3; i2++) {
                     dVar.jUg[i2] = new d.a();
-                    dVar.jUg[i2].Le(discoverTabCard.forum_list.get(i2).forum_name).Ld(discoverTabCard.forum_list.get(i2).avatar).Lg(discoverTabCard.forum_list.get(i2).hot_text).Lf(discoverTabCard.forum_list.get(i2).slogan).Bh(discoverTabCard.forum_list.get(i2).member_count.intValue()).Bi(discoverTabCard.forum_list.get(i2).thread_count.intValue()).rM(discoverTabCard.forum_list.get(i2).is_like.intValue() == 1).g(discoverTabCard.forum_list.get(i2).forum_id).gy(discoverTabCard.forum_list.get(i2).hot_thread_id.longValue());
+                    dVar.jUg[i2].Lf(discoverTabCard.forum_list.get(i2).forum_name).Le(discoverTabCard.forum_list.get(i2).avatar).Lh(discoverTabCard.forum_list.get(i2).hot_text).Lg(discoverTabCard.forum_list.get(i2).slogan).Bg(discoverTabCard.forum_list.get(i2).member_count.intValue()).Bh(discoverTabCard.forum_list.get(i2).thread_count.intValue()).rM(discoverTabCard.forum_list.get(i2).is_like.intValue() == 1).g(discoverTabCard.forum_list.get(i2).forum_id).gy(discoverTabCard.forum_list.get(i2).hot_thread_id.longValue());
                 }
                 arrayList.add(dVar);
                 if (arrayList.size() >= 6) {

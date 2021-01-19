@@ -18,7 +18,7 @@ import com.qq.e.comm.util.AdError;
 import java.util.List;
 /* loaded from: classes14.dex */
 public class bh extends an {
-    public NativeUnifiedADData pFz;
+    public NativeUnifiedADData pFA;
 
     public bh(au.a aVar) {
         super(aVar);
@@ -27,17 +27,17 @@ public class bh extends an {
     @Override // com.fun.ad.an
     public void a() {
         super.a();
-        NativeUnifiedADData nativeUnifiedADData = this.pFz;
+        NativeUnifiedADData nativeUnifiedADData = this.pFA;
         if (nativeUnifiedADData != null) {
             nativeUnifiedADData.destroy();
-            this.pFz = null;
+            this.pFA = null;
         }
     }
 
     @Override // com.fun.ad.an
     public FunRippedAd exX() {
         AdRipper.RippedGDTAd rippedGDTNativeUnifiedAd;
-        NativeUnifiedADData nativeUnifiedADData = this.pFz;
+        NativeUnifiedADData nativeUnifiedADData = this.pFA;
         if (nativeUnifiedADData == null || (rippedGDTNativeUnifiedAd = AdRipper.getRippedGDTNativeUnifiedAd(nativeUnifiedADData, false)) == null) {
             return null;
         }
@@ -63,7 +63,7 @@ public class bh extends an {
             nativeUnifiedAD.setVideoPlayPolicy(1);
             nativeUnifiedAD.setVideoADContainerRender(1);
             nativeUnifiedAD.loadData(1);
-            ak akVar2 = this.pFg;
+            ak akVar2 = this.pFh;
             if (akVar2 != null) {
                 ((x) akVar2).a(this.f7752a.f7760a);
             }
@@ -74,16 +74,16 @@ public class bh extends an {
     public void a(Activity activity, FunAdView funAdView, ah ahVar) {
         int i;
         super.a(activity, funAdView, ahVar);
-        if (this.pFz == null) {
-            ah ahVar2 = this.pFh;
+        if (this.pFA == null) {
+            ah ahVar2 = this.pFi;
             if (ahVar2 != null) {
                 ((aa) ahVar2).a(this.f7752a.f7760a, 0, "Custom error message: mNativeUnifiedADData is null when show");
                 return;
             }
             return;
         }
-        m.a("GDTNativeUnifiedAd AdPatternType: " + this.pFz.getAdPatternType());
-        switch (this.pFz.getAdPatternType()) {
+        m.a("GDTNativeUnifiedAd AdPatternType: " + this.pFA.getAdPatternType());
+        switch (this.pFA.getAdPatternType()) {
             case 1:
                 i = R.layout.gdt_ad_native_unified_img2_view;
                 break;
@@ -91,7 +91,7 @@ public class bh extends an {
                 i = R.layout.gdt_ad_native_unified_video_view;
                 break;
             case 3:
-                if (this.pFz.getImgList().size() == 3) {
+                if (this.pFA.getImgList().size() == 3) {
                     i = R.layout.gdt_ad_native_unified_img3_view;
                     break;
                 }
@@ -104,7 +104,7 @@ public class bh extends an {
         v0 v0Var = (v0) LayoutInflater.from(activity).inflate(i, (ViewGroup) funAdView, false);
         funAdView.removeAllViews();
         funAdView.addView(v0Var);
-        v0Var.a(activity, this.f7752a, this.pFz, ahVar);
+        v0Var.a(activity, this.f7752a, this.pFA, ahVar);
     }
 
     /* loaded from: classes14.dex */
@@ -117,7 +117,7 @@ public class bh extends an {
             bh.this.f7753b = false;
             m.a("GDTNativeUnifiedAd onError code: " + adError.getErrorCode() + ", message: " + adError.getErrorMsg());
             bh bhVar = bh.this;
-            ak akVar = bhVar.pFg;
+            ak akVar = bhVar.pFh;
             if (akVar != null) {
                 ((x) akVar).a(bhVar.f7752a.f7760a, adError.getErrorCode(), adError.getErrorMsg());
             }
@@ -128,14 +128,14 @@ public class bh extends an {
             m.a("GDTNativeUnifiedAd onADLoaded");
             bh.this.f7753b = false;
             if (list != null && !list.isEmpty()) {
-                bh.this.pFz = list.get(0);
-                m.a("GDTNativeUnifiedAd onADLoaded adPatternType: " + bh.this.pFz.getAdPatternType());
+                bh.this.pFA = list.get(0);
+                m.a("GDTNativeUnifiedAd onADLoaded adPatternType: " + bh.this.pFA.getAdPatternType());
                 bh bhVar = bh.this;
-                ak akVar = bhVar.pFg;
+                ak akVar = bhVar.pFh;
                 if (akVar != null) {
                     ((x) akVar).b(bhVar.f7752a.f7760a);
                 }
-                AdRipper.ripGDTNativeUnified(bh.this.pFz);
+                AdRipper.ripGDTNativeUnified(bh.this.pFA);
                 return;
             }
             m.a("GDTNativeUnifiedAd onADLoaded error: adList is null or empty");

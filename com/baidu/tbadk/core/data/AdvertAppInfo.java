@@ -233,9 +233,9 @@ public class AdvertAppInfo extends bz implements al {
             }
             if (SwitchManager.getInstance().findType(AppLegoSwitch.APP_LEGO_KEY) == 1 && !TextUtils.isEmpty(this.eJr.lego_card)) {
                 try {
-                    ICardInfo MO = com.baidu.tieba.lego.card.b.MO(this.eJr.lego_card);
-                    if (MO != null) {
-                        ICardInfo viewItem = MO.getViewItem(0, 1);
+                    ICardInfo MP = com.baidu.tieba.lego.card.b.MP(this.eJr.lego_card);
+                    if (MP != null) {
+                        ICardInfo viewItem = MP.getViewItem(0, 1);
                         if (viewItem instanceof ILegoAdvert) {
                             this.legoCard = (ILegoAdvert) viewItem;
                             this.legoCard.setAdvertAppInfo(this);

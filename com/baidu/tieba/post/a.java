@@ -150,9 +150,9 @@ public class a implements View.OnClickListener {
             this.mua.setTag(strArr);
             this.fiz.setOnClickListener(this);
             if (postInfoList.mBaijiahaoInfo != null && !StringUtils.isNull(postInfoList.mBaijiahaoInfo.avatar)) {
-                PI(postInfoList.mBaijiahaoInfo.avatar);
+                PJ(postInfoList.mBaijiahaoInfo.avatar);
             } else {
-                PI(str);
+                PJ(str);
             }
             if (this.loO != null) {
                 this.loO.setTag(strArr);
@@ -162,7 +162,7 @@ public class a implements View.OnClickListener {
         }
     }
 
-    private void PI(String str) {
+    private void PJ(String str) {
         if (mtW != null && !mtW.equals(str)) {
             mtV = null;
         }

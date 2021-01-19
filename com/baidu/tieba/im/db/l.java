@@ -60,7 +60,7 @@ public class l extends a {
                                 com.baidu.tieba.im.db.pojo.a aVar = new com.baidu.tieba.im.db.pojo.a();
                                 aVar.setGid(cursor.getString(cursor.getColumnIndex("gid")));
                                 aVar.setUnReadCount(cursor.getInt(cursor.getColumnIndex("unread_count")));
-                                aVar.Me(cursor.getString(cursor.getColumnIndex("group_head")));
+                                aVar.Mf(cursor.getString(cursor.getColumnIndex("group_head")));
                                 aVar.setForumName(cursor.getString(cursor.getColumnIndex("group_name")));
                                 aVar.setUserType(cursor.getInt(cursor.getColumnIndex("user_type")));
                                 int columnIndex = cursor.getColumnIndex("visit_time");

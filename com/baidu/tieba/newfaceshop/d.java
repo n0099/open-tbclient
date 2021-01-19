@@ -57,7 +57,7 @@ public class d {
                     } else {
                         str = UserCollectModel.ALL_DELETE;
                     }
-                    d.this.lsj.Oa(str);
+                    d.this.lsj.Ob(str);
                 }
             }
         });

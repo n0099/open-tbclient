@@ -4,7 +4,7 @@ import com.facebook.cache.common.CacheErrorLogger;
 import javax.annotation.Nullable;
 /* loaded from: classes5.dex */
 public class e implements CacheErrorLogger {
-    private static e pnk = null;
+    private static e pnl = null;
 
     private e() {
     }
@@ -12,10 +12,10 @@ public class e implements CacheErrorLogger {
     public static synchronized e epu() {
         e eVar;
         synchronized (e.class) {
-            if (pnk == null) {
-                pnk = new e();
+            if (pnl == null) {
+                pnl = new e();
             }
-            eVar = pnk;
+            eVar = pnl;
         }
         return eVar;
     }

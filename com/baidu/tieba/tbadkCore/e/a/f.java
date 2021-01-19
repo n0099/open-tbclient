@@ -14,10 +14,10 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes.dex */
 public class f {
-    private ArrayList<a> npt = new ArrayList<>();
+    private ArrayList<a> npu = new ArrayList<>();
 
     public void a(a aVar) {
-        this.npt.add(aVar);
+        this.npu.add(aVar);
     }
 
     public c a(e eVar, c cVar) {
@@ -25,7 +25,7 @@ public class f {
             cVar = new c();
         }
         if (ActionJsonData.TAG_NOTIFICATION.equals(eVar.getModule()) && "addObserver".equals(eVar.getAction())) {
-            Iterator<a> it = this.npt.iterator();
+            Iterator<a> it = this.npu.iterator();
             while (true) {
                 if (it.hasNext()) {
                     cVar = it.next().addObserver(eVar.dLX(), cVar, true);
@@ -34,7 +34,7 @@ public class f {
                     }
                 } else if (!cVar.dLS()) {
                     cVar.Js(202);
-                    cVar.Sl(TbadkCoreApplication.getInst().getString(R.string.can_find_notification_name));
+                    cVar.Sm(TbadkCoreApplication.getInst().getString(R.string.can_find_notification_name));
                 }
             }
         } else {
@@ -42,7 +42,7 @@ public class f {
             if (!at.isEmpty(module) && DescriptionTableInfo.getModuleSet() != null && !DescriptionTableInfo.getModuleSet().contains(module)) {
                 cVar.Js(201);
             } else {
-                Iterator<a> it2 = this.npt.iterator();
+                Iterator<a> it2 = this.npu.iterator();
                 while (true) {
                     if (it2.hasNext()) {
                         cVar = it2.next().dispatch(eVar, cVar);
@@ -87,7 +87,7 @@ public class f {
     public List<c> f(String str, HashMap hashMap) {
         List<c> list = null;
         if (!at.isEmpty(str)) {
-            Iterator<a> it = this.npt.iterator();
+            Iterator<a> it = this.npu.iterator();
             while (it.hasNext()) {
                 list = it.next().processNotification(str, hashMap);
                 if (!x.isEmpty(list)) {

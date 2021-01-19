@@ -97,9 +97,9 @@ public class VideoPlayer implements CyberPlayerManager.OnCompletionListener, Cyb
     @Override // io.flutter.plugin.common.MethodChannel.MethodCallHandler
     public void onMethodCall(MethodCall methodCall, MethodChannel.Result result) {
         if (methodCall.method.equals(AlaStaticKeys.ALA_STATIC_VALUE_PLAY) || methodCall.method.equals("startAutoPlay")) {
-            int PL = n.dxY().PL(this.dataSource);
-            if (PL > 0) {
-                this.cyberVideoView.seekTo(PL);
+            int PM = n.dxY().PM(this.dataSource);
+            if (PM > 0) {
+                this.cyberVideoView.seekTo(PM);
             }
             startPlay();
         } else if (methodCall.method.equals("pause")) {

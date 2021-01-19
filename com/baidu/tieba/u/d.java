@@ -5,15 +5,15 @@ import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes7.dex */
 public class d {
-    public final List<String> nAd;
-    public final String nAe;
+    public final List<String> nAe;
+    public final String nAf;
 
     public d(List<String> list, String str) {
         if (list != null) {
-            this.nAd = new ArrayList(list);
+            this.nAe = new ArrayList(list);
         } else {
-            this.nAd = new ArrayList();
+            this.nAe = new ArrayList();
         }
-        this.nAe = str;
+        this.nAf = str;
     }
 }

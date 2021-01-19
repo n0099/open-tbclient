@@ -58,7 +58,7 @@ public class h {
         }
     }
 
-    public boolean Mb(String str) {
+    public boolean Mc(String str) {
         SQLiteDatabase cTz = g.cTz();
         if (cTz == null) {
             return false;
@@ -136,7 +136,7 @@ public class h {
         }
     }
 
-    public SQLiteStatement Mc(String str) {
+    public SQLiteStatement Md(String str) {
         SQLiteDatabase cTz;
         if (TextUtils.isEmpty(str) || (cTz = g.cTz()) == null) {
             return null;

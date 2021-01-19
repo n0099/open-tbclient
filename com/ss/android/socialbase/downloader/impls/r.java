@@ -17,10 +17,10 @@ import java.util.Collections;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class r implements Handler.Callback, a.InterfaceC1227a {
-    private static volatile r pWV;
+    private static volatile r pWW;
     private final boolean e;
     private long f;
-    private ConnectivityManager pWW;
+    private ConnectivityManager pWX;
     private final Handler c = new Handler(Looper.getMainLooper(), this);
     private final SparseArray<a> d = new SparseArray<>();
     private int g = 0;
@@ -35,14 +35,14 @@ public class r implements Handler.Callback, a.InterfaceC1227a {
     }
 
     public static r eGc() {
-        if (pWV == null) {
+        if (pWW == null) {
             synchronized (r.class) {
-                if (pWV == null) {
-                    pWV = new r();
+                if (pWW == null) {
+                    pWW = new r();
                 }
             }
         }
-        return pWV;
+        return pWW;
     }
 
     private void f() {
@@ -52,8 +52,8 @@ public class r implements Handler.Callback, a.InterfaceC1227a {
                 public void run() {
                     try {
                         if (r.this.f13196b != null && Build.VERSION.SDK_INT >= 21) {
-                            r.this.pWW = (ConnectivityManager) r.this.f13196b.getApplicationContext().getSystemService("connectivity");
-                            r.this.pWW.registerNetworkCallback(new NetworkRequest.Builder().build(), new ConnectivityManager.NetworkCallback() { // from class: com.ss.android.socialbase.downloader.impls.r.1.1
+                            r.this.pWX = (ConnectivityManager) r.this.f13196b.getApplicationContext().getSystemService("connectivity");
+                            r.this.pWX.registerNetworkCallback(new NetworkRequest.Builder().build(), new ConnectivityManager.NetworkCallback() { // from class: com.ss.android.socialbase.downloader.impls.r.1.1
                                 @Override // android.net.ConnectivityManager.NetworkCallback
                                 public void onAvailable(Network network) {
                                     com.ss.android.socialbase.downloader.f.a.b("RetryScheduler", "network onAvailable: ");
@@ -316,15 +316,15 @@ public class r implements Handler.Callback, a.InterfaceC1227a {
         boolean z2 = true;
         com.ss.android.socialbase.downloader.k.a RA = com.ss.android.socialbase.downloader.k.a.RA(i);
         int a2 = RA.a("retry_schedule", 0);
-        JSONObject aat = RA.aat("retry_schedule_config");
-        if (aat != null) {
-            i4 = aat.optInt("max_count", 60);
-            i3 = aat.optInt("interval_sec", 60);
-            int optInt = aat.optInt("interval_sec_acceleration", 60);
-            if (Build.VERSION.SDK_INT < 21 || aat.optInt("use_job_scheduler", 0) != 1) {
+        JSONObject aau = RA.aau("retry_schedule_config");
+        if (aau != null) {
+            i4 = aau.optInt("max_count", 60);
+            i3 = aau.optInt("interval_sec", 60);
+            int optInt = aau.optInt("interval_sec_acceleration", 60);
+            if (Build.VERSION.SDK_INT < 21 || aau.optInt("use_job_scheduler", 0) != 1) {
                 z2 = false;
             }
-            iArr = aas(aat.optString("white_error_code"));
+            iArr = aat(aau.optString("white_error_code"));
             z = z2;
             i2 = optInt;
         } else {
@@ -337,7 +337,7 @@ public class r implements Handler.Callback, a.InterfaceC1227a {
         return new a(i, a2, i4, i3 * 1000, i2 * 1000, z, iArr);
     }
 
-    private int[] aas(String str) {
+    private int[] aat(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
@@ -377,10 +377,10 @@ public class r implements Handler.Callback, a.InterfaceC1227a {
     /* JADX INFO: Access modifiers changed from: private */
     public int g() {
         try {
-            if (this.pWW == null) {
-                this.pWW = (ConnectivityManager) this.f13196b.getApplicationContext().getSystemService("connectivity");
+            if (this.pWX == null) {
+                this.pWX = (ConnectivityManager) this.f13196b.getApplicationContext().getSystemService("connectivity");
             }
-            NetworkInfo activeNetworkInfo = this.pWW.getActiveNetworkInfo();
+            NetworkInfo activeNetworkInfo = this.pWX.getActiveNetworkInfo();
             if (activeNetworkInfo == null || !activeNetworkInfo.isConnected()) {
                 return 0;
             }

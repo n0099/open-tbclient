@@ -26,13 +26,13 @@ public class b implements e {
 
     public void a(Object obj, String str, HashMap<String, String> hashMap, com.baidu.adp.base.e eVar) {
         if (str != null) {
-            a Qs = a.Qs(str);
-            f fVar = this.kSf.get(Qs.getKey());
-            if (fVar != null && Qs.isValid()) {
+            a Qt = a.Qt(str);
+            f fVar = this.kSf.get(Qt.getKey());
+            if (fVar != null && Qt.isValid()) {
                 if (hashMap != null && !hashMap.isEmpty()) {
-                    Qs.getParams().putAll(hashMap);
+                    Qt.getParams().putAll(hashMap);
                 }
-                fVar.a(obj, Qs.getParams(), str, eVar);
+                fVar.a(obj, Qt.getParams(), str, eVar);
             }
         }
     }
@@ -79,7 +79,7 @@ public class b implements e {
             this.eXq = new HashMap<>();
         }
 
-        public static a Qs(String str) {
+        public static a Qt(String str) {
             return new a(str);
         }
     }

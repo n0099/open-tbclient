@@ -1,7 +1,7 @@
 package com.win.opensdk;
 /* loaded from: classes3.dex */
 public interface c extends PBListener {
-    void YB(String str);
+    void YC(String str);
 
     void exY();
 

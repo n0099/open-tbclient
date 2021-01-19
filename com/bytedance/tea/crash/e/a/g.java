@@ -20,7 +20,7 @@ public class g extends c {
         com.bytedance.tea.crash.c.b hX = com.bytedance.tea.crash.c.b.hX(this.f7637b);
         hX.a(h.eoL().a());
         hX.a(h.eoN().a());
-        hX.b(this.plx.c());
+        hX.b(this.ply.c());
         a2.a(hX);
         k.a(a2, hX, this.f7636a);
         return a2;

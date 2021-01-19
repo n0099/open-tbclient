@@ -12,7 +12,7 @@ public class b {
 
     public static void a(com.baidu.afd.videopaster.b.a aVar, String str) {
         com.baidu.tieba.recapp.report.c o = h.o(aVar);
-        o.QW(str);
+        o.QX(str);
         o.HF(aVar.abD);
         e.dCe().a(o);
     }
@@ -40,7 +40,7 @@ public class b {
     public static void b(com.baidu.afd.videopaster.b.a aVar, String str) {
         com.baidu.tieba.recapp.report.c r = h.r(aVar);
         r.HD(706);
-        r.QW(str);
+        r.QX(str);
         e.dCe().a(r);
     }
 }

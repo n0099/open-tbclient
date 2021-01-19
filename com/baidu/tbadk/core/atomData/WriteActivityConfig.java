@@ -354,7 +354,7 @@ public class WriteActivityConfig extends IntentConfig {
     }
 
     public void send() {
-        c.nrc = new Intent(getIntent());
+        c.nrd = new Intent(getIntent());
         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, this));
     }
 }

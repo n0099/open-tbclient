@@ -14,7 +14,7 @@ import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public abstract class a implements u {
     private static final boolean DEBUG = AppConfig.isDebug();
-    protected af oHT = new af();
+    protected af oHU = new af();
 
     public abstract ad a(String str, byte[] bArr, Map<String, String> map) throws IOException;
 
@@ -25,7 +25,7 @@ public abstract class a implements u {
 
     public boolean b(String str, JSONObject jSONObject, boolean z) {
         String str2;
-        boolean efw = this.oHT.efw();
+        boolean efw = this.oHU.efw();
         if (efw) {
             str2 = "http://bjyz-mco-searchbox201609-m12xi3-044.bjyz.baidu.com:8080/ztbox?action=zubc";
         } else {
@@ -75,7 +75,7 @@ public abstract class a implements u {
                 if (DEBUG) {
                     Log.d("UploadManager", "body tostring fail:" + e.getMessage());
                 } else {
-                    ac.efx().Wt(Log.getStackTraceString(e));
+                    ac.efx().Wu(Log.getStackTraceString(e));
                 }
             }
             a2.close();

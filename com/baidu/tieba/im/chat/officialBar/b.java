@@ -124,7 +124,7 @@ public class b extends com.baidu.adp.base.c<OfficialBarFeedActivity> {
                 this.ktI = new OfficialFeedItemImage(context, this.ktL);
                 if (this.ktL) {
                     this.ktI.cTi();
-                    this.ktJ.Cv(l.getDimens(this.mContext.getPageActivity(), R.dimen.tbds29));
+                    this.ktJ.Cu(l.getDimens(this.mContext.getPageActivity(), R.dimen.tbds29));
                 }
                 this.fvH.addView(this.ktI);
                 this.fvH.addView(this.ktJ);
@@ -135,7 +135,7 @@ public class b extends com.baidu.adp.base.c<OfficialBarFeedActivity> {
                     int dimens6 = l.getDimens(this.mContext.getPageActivity(), R.dimen.tbds5);
                     int dimens7 = l.getDimens(this.mContext.getPageActivity(), R.dimen.tbds53);
                     this.fvH.setPadding(dimens5, dimens6 + dimens7, dimens5, dimens7 + dimens5);
-                    this.ktJ.Cv(l.getDimens(this.mContext.getPageActivity(), R.dimen.tbds26));
+                    this.ktJ.Cu(l.getDimens(this.mContext.getPageActivity(), R.dimen.tbds26));
                 }
                 this.fvH.addView(this.ktJ);
             }

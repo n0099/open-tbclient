@@ -21,8 +21,8 @@ public class q implements com.baidu.adp.widget.ListView.n {
             this.leo = new d();
             this.leo.Ea(3);
             this.leo.setCategoryName(vipTaskList.class_name);
-            this.leo.Nk(vipTaskList.class_url_name);
-            this.leo.Nl(vipTaskList.class_url);
+            this.leo.Nl(vipTaskList.class_url_name);
+            this.leo.Nm(vipTaskList.class_url);
             this.taskList = new ArrayList();
             for (VipTaskItem vipTaskItem : vipTaskList.item) {
                 this.taskList.add(new r(vipTaskItem));

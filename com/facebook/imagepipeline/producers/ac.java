@@ -55,7 +55,7 @@ public class ac implements aj<com.facebook.common.references.a<com.facebook.imag
                 if (ac.this.l(ewP) == null || (m = ac.this.m(ewP)) == null) {
                     return null;
                 }
-                return com.facebook.common.references.a.f(new com.facebook.imagepipeline.f.d(m, com.facebook.imagepipeline.a.g.etm(), com.facebook.imagepipeline.f.g.pAa, 0));
+                return com.facebook.common.references.a.f(new com.facebook.imagepipeline.f.d(m, com.facebook.imagepipeline.a.g.etm(), com.facebook.imagepipeline.f.g.pAb, 0));
             }
 
             /* JADX DEBUG: Method merged with bridge method */

@@ -115,7 +115,7 @@ public class d {
             String valueOf = String.valueOf(bzVar.getFid());
             boolean isCurrentAccount = UtilHelper.isCurrentAccount(userId);
             if (jSONArray != null) {
-                forumManageModel.Su(com.baidu.tbadk.core.util.at.S(jSONArray));
+                forumManageModel.Sv(com.baidu.tbadk.core.util.at.S(jSONArray));
             }
             forumManageModel.a(valueOf, bnB, id, null, 0, 1, isCurrentAccount, bzVar.getBaijiahaoData());
         }

@@ -34,7 +34,7 @@ public class j {
     private j() {
     }
 
-    public boolean bn(String str, int i) {
+    public boolean bo(String str, int i) {
         try {
             return h.cTB().b("tb_message_center", "gid=? AND custom_group_type=?", new String[]{str, String.valueOf(i)});
         } catch (Exception e) {
@@ -109,7 +109,7 @@ public class j {
         return linkedList;
     }
 
-    public ImMessageCenterPojo bo(String str, int i) {
+    public ImMessageCenterPojo bp(String str, int i) {
         Cursor cursor;
         ImMessageCenterPojo imMessageCenterPojo;
         try {
@@ -366,7 +366,7 @@ public class j {
         }
     }
 
-    public void bp(String str, int i) {
+    public void bq(String str, int i) {
         if (!TextUtils.isEmpty(str)) {
             ContentValues contentValues = new ContentValues();
             contentValues.put("unread_count", (Integer) 0);

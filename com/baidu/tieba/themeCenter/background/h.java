@@ -13,7 +13,7 @@ public class h {
     private TextView fej;
     private TbImageView ldO;
     private View mRootView;
-    private TextView nxu;
+    private TextView nxv;
 
     public h(TbPageContext<?> tbPageContext) {
         this.eSJ = tbPageContext;
@@ -22,7 +22,7 @@ public class h {
 
     private void initView() {
         this.mRootView = LayoutInflater.from(this.eSJ.getPageActivity()).inflate(R.layout.background_preview_bottom, (ViewGroup) null);
-        this.nxu = (TextView) this.mRootView.findViewById(R.id.text_bg_name);
+        this.nxv = (TextView) this.mRootView.findViewById(R.id.text_bg_name);
         this.ldO = (TbImageView) this.mRootView.findViewById(R.id.bg_permission_icon);
         this.fej = (TextView) this.mRootView.findViewById(R.id.text_bg_description);
         onChangeSkinType();
@@ -30,7 +30,7 @@ public class h {
 
     public void f(DressItemData dressItemData) {
         if (dressItemData != null) {
-            this.nxu.setText(dressItemData.getTitle());
+            this.nxv.setText(dressItemData.getTitle());
             this.ldO.startLoad(dressItemData.getPermissionImgUrl(), 10, false);
             this.fej.setText(dressItemData.getDescription());
         }

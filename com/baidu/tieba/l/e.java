@@ -1,13 +1,13 @@
 package com.baidu.tieba.l;
 /* loaded from: classes.dex */
 public interface e {
-    void NJ(String str);
-
     void NK(String str);
 
-    boolean NL(String str);
+    void NL(String str);
 
     boolean NM(String str);
+
+    boolean NN(String str);
 
     void e(String str, int i, int i2, String str2);
 

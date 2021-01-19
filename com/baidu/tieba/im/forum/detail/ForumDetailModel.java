@@ -30,7 +30,7 @@ public class ForumDetailModel extends BdBaseModel<ForumDetailActivity> {
 
     /* loaded from: classes7.dex */
     public interface a {
-        void Mf(String str);
+        void Mg(String str);
 
         void a(BarEmotionResponseMessage barEmotionResponseMessage);
 
@@ -73,11 +73,11 @@ public class ForumDetailModel extends BdBaseModel<ForumDetailActivity> {
             public void onMessage(ResponsedMessage<?> responsedMessage) {
                 if (responsedMessage == null) {
                     if (ForumDetailModel.this.kyk != null) {
-                        ForumDetailModel.this.kyk.Mf(null);
+                        ForumDetailModel.this.kyk.Mg(null);
                     }
                 } else if (responsedMessage.hasError()) {
                     if (ForumDetailModel.this.kyk != null) {
-                        ForumDetailModel.this.kyk.Mf(responsedMessage.getErrorString());
+                        ForumDetailModel.this.kyk.Mg(responsedMessage.getErrorString());
                     }
                 } else {
                     if (responsedMessage instanceof ForumDetailHttpResponse) {
@@ -145,7 +145,7 @@ public class ForumDetailModel extends BdBaseModel<ForumDetailActivity> {
         sendMessage(forumDetailRequestMessage);
     }
 
-    public void Mg(String str) {
+    public void Mh(String str) {
         if (!TextUtils.isEmpty(str)) {
             HttpMessage httpMessage = new HttpMessage(1002510);
             httpMessage.addParam("forum_id", str);
@@ -161,7 +161,7 @@ public class ForumDetailModel extends BdBaseModel<ForumDetailActivity> {
                 if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1002510 && (httpResponsedMessage instanceof BarEmotionResponseMessage)) {
                     if (httpResponsedMessage.hasError()) {
                         if (ForumDetailModel.this.kyk != null) {
-                            ForumDetailModel.this.kyk.Mf(httpResponsedMessage.getErrorString());
+                            ForumDetailModel.this.kyk.Mg(httpResponsedMessage.getErrorString());
                         }
                     } else if ((httpResponsedMessage instanceof BarEmotionResponseMessage) && httpResponsedMessage.getCmd() == 1002510) {
                         ForumDetailModel.this.kyk.a((BarEmotionResponseMessage) httpResponsedMessage);

@@ -20,7 +20,7 @@ public class d {
     /* renamed from: b  reason: collision with root package name */
     private static List<o> f13038b = new ArrayList();
     private static AlertDialog d;
-    private static com.ss.android.socialbase.appdownloader.view.a pTB;
+    private static com.ss.android.socialbase.appdownloader.view.a pTC;
 
     public static boolean a() {
         try {
@@ -107,13 +107,13 @@ public class d {
             try {
                 if (!activity.isFinishing()) {
                     FragmentManager fragmentManager = activity.getFragmentManager();
-                    pTB = (com.ss.android.socialbase.appdownloader.view.a) fragmentManager.findFragmentByTag(f13037a);
-                    if (pTB == null) {
-                        pTB = new com.ss.android.socialbase.appdownloader.view.a();
-                        fragmentManager.beginTransaction().add(pTB, f13037a).commitAllowingStateLoss();
+                    pTC = (com.ss.android.socialbase.appdownloader.view.a) fragmentManager.findFragmentByTag(f13037a);
+                    if (pTC == null) {
+                        pTC = new com.ss.android.socialbase.appdownloader.view.a();
+                        fragmentManager.beginTransaction().add(pTC, f13037a).commitAllowingStateLoss();
                         fragmentManager.executePendingTransactions();
                     }
-                    pTB.a();
+                    pTC.a();
                     return;
                 }
             } catch (Throwable th) {

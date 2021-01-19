@@ -21,7 +21,7 @@ public final class bk {
     final Long d;
     final Long e;
     final Long g;
-    final Integer pcE;
+    final Integer pcF;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bk(String str, String str2, Boolean bool, Long l, Long l2, Integer num, Long l3) {
@@ -30,7 +30,7 @@ public final class bk {
         this.c = bool;
         this.d = l;
         this.e = l2;
-        this.pcE = num;
+        this.pcF = num;
         this.g = l3;
     }
 
@@ -47,7 +47,7 @@ public final class bk {
         bh.a(hashMap, "is_track_limited", String.valueOf(this.c));
         bh.a(hashMap, "take_ms", String.valueOf(this.d));
         bh.a(hashMap, "time", String.valueOf(this.e));
-        bh.a(hashMap, "query_times", String.valueOf(this.pcE));
+        bh.a(hashMap, "query_times", String.valueOf(this.pcF));
         bh.a(hashMap, "hw_id_version_code", String.valueOf(this.g));
         return hashMap;
     }
@@ -61,7 +61,7 @@ public final class bk {
         bh.a(jSONObject, "is_track_limited", this.c);
         bh.a(jSONObject, "take_ms", this.d);
         bh.a(jSONObject, "time", this.e);
-        bh.a(jSONObject, "query_times", this.pcE);
+        bh.a(jSONObject, "query_times", this.pcF);
         bh.a(jSONObject, "hw_id_version_code", this.g);
         return jSONObject;
     }
@@ -69,7 +69,7 @@ public final class bk {
     /* JADX INFO: Access modifiers changed from: package-private */
     @Nullable
     @AnyThread
-    public static bk Xw(@Nullable String str) {
+    public static bk Xx(@Nullable String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }

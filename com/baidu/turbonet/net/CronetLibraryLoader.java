@@ -13,8 +13,8 @@ import java.util.List;
 /* loaded from: classes4.dex */
 class CronetLibraryLoader {
     static final /* synthetic */ boolean $assertionsDisabled;
-    private static volatile boolean oFc;
-    private static List<Runnable> oFd;
+    private static volatile boolean oFd;
+    private static List<Runnable> oFe;
     private static final HandlerThread sInitThread;
     private static boolean sInitThreadInitDone;
     private static final Object sLoadLock;
@@ -31,9 +31,9 @@ class CronetLibraryLoader {
         $assertionsDisabled = !CronetLibraryLoader.class.desiredAssertionStatus();
         sLoadLock = new Object();
         sInitThread = new HandlerThread("TurboNetInit");
-        oFc = false;
+        oFd = false;
         sInitThreadInitDone = false;
-        oFd = new ArrayList();
+        oFe = new ArrayList();
     }
 
     CronetLibraryLoader() {
@@ -50,8 +50,8 @@ class CronetLibraryLoader {
     /* JADX INFO: Access modifiers changed from: package-private */
     public static void a(final Context context, TurbonetEngine.Builder builder) {
         synchronized (sLoadLock) {
-            if (!oFc) {
-                oFc = true;
+            if (!oFd) {
+                oFd = true;
                 ContextUtils.initApplicationContext(context.getApplicationContext());
                 builder.eep();
                 ContextUtils.edz();
@@ -76,7 +76,7 @@ class CronetLibraryLoader {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static void hj(Context context) {
-        if (!$assertionsDisabled && !oFc) {
+        if (!$assertionsDisabled && !oFd) {
             throw new AssertionError();
         }
         if (!$assertionsDisabled && !edJ()) {
@@ -86,10 +86,10 @@ class CronetLibraryLoader {
             NetworkChangeNotifier.init(context);
             NetworkChangeNotifier.edV();
             nativeCronetInitOnInitThread();
-            for (Runnable runnable : oFd) {
+            for (Runnable runnable : oFe) {
                 runnable.run();
             }
-            oFd.clear();
+            oFe.clear();
             sInitThreadInitDone = true;
         }
     }

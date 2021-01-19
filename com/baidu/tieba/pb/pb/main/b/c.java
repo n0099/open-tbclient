@@ -46,7 +46,7 @@ public class c {
                 m mVar = new m();
                 mVar.setContent(bzVar.getAbstract());
                 if (!StringUtils.isNull(shareImageUrl)) {
-                    mVar.Ou(shareImageUrl);
+                    mVar.Ov(shareImageUrl);
                 }
                 mVar.setThreadType(bzVar.getThreadType());
                 mVar.b(aVar);
@@ -63,7 +63,7 @@ public class c {
                     tid = bzVar.getTid();
                     str = "?share=9105&fr=share";
                 }
-                mVar.F(c.this.Pb("http://tieba.baidu.com/p/" + tid + (str + "&post_id=" + postData.getId() + "&share_from=comment&post_sort=1")));
+                mVar.F(c.this.Pc("http://tieba.baidu.com/p/" + tid + (str + "&post_id=" + postData.getId() + "&share_from=comment&post_sort=1")));
                 ShareItem shareItem = new ShareItem();
                 shareItem.shareType = 1;
                 shareItem.fsw = true;
@@ -104,7 +104,7 @@ public class c {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public Bitmap Pb(String str) {
+    public Bitmap Pc(String str) {
         CustomResponsedMessage runTask;
         if (str == null || str.length() == 0 || (runTask = MessageManager.getInstance().runTask(2921388, Bitmap.class, str)) == null || runTask.getData() == null) {
             return null;

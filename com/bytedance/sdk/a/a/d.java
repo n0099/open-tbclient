@@ -10,7 +10,7 @@ public interface d extends r, WritableByteChannel {
 
     d Of(int i) throws IOException;
 
-    d Xy(String str) throws IOException;
+    d Xz(String str) throws IOException;
 
     d ai(byte[] bArr) throws IOException;
 

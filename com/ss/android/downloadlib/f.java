@@ -19,16 +19,16 @@ public class f {
 
     /* renamed from: b  reason: collision with root package name */
     private ExecutorService f12985b;
-    private ScheduledExecutorService pSs;
+    private ScheduledExecutorService pSt;
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes4.dex */
     public static class a {
-        private static f pSt = new f();
+        private static f pSu = new f();
     }
 
     public static f eCI() {
-        return a.pSt;
+        return a.pSu;
     }
 
     private f() {
@@ -93,14 +93,14 @@ public class f {
     }
 
     public ScheduledExecutorService eCK() {
-        if (this.pSs == null) {
+        if (this.pSt == null) {
             synchronized (f.class) {
-                if (this.pSs == null) {
-                    this.pSs = new ScheduledThreadPoolExecutor(0, new com.ss.android.socialbase.downloader.l.a(i.class.getName() + "-ScheduledThreadPool"));
+                if (this.pSt == null) {
+                    this.pSt = new ScheduledThreadPoolExecutor(0, new com.ss.android.socialbase.downloader.l.a(i.class.getName() + "-ScheduledThreadPool"));
                 }
             }
         }
-        return this.pSs;
+        return this.pSt;
     }
 
     public void e() {

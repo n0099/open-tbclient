@@ -26,7 +26,7 @@ public class c extends b {
                 if (aVar == null || aVar.faC == null || TextUtils.isEmpty(aVar.path)) {
                     c.this.dp(2, 4);
                 }
-                c.this.Rx(aVar.path);
+                c.this.Ry(aVar.path);
             }
 
             /* JADX INFO: Access modifiers changed from: protected */
@@ -63,16 +63,16 @@ public class c extends b {
 
     private void b(ShareEntity shareEntity) {
         if (BU(shareEntity.dGP())) {
-            Rx(shareEntity.dGP());
+            Ry(shareEntity.dGP());
         } else if (z(shareEntity.getImageUri())) {
-            Rx(shareEntity.getImageUri().getPath());
+            Ry(shareEntity.getImageUri().getPath());
         } else {
             com.baidu.adp.lib.e.d.mx().a(shareEntity.getImgUrl(), 34, this.naz, 0, 0, getPageId(), new Object[0]);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Rx(String str) {
+    public void Ry(String str) {
         Bundle bundle = new Bundle();
         bundle.putString("imageLocalUrl", str);
         bundle.putInt("req_type", 5);

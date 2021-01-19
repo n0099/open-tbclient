@@ -52,31 +52,31 @@ public class e {
     public void a(String str, int i, b bVar) {
         if (!TextUtils.isEmpty(str)) {
             if (1 == i) {
-                LZ(str);
+                Ma(str);
             } else if (-7 == i) {
                 a(bVar);
             } else if (-8 == i) {
                 b(bVar);
             } else if (2 == i) {
-                LX(str);
-            } else if (4 == i) {
                 LY(str);
+            } else if (4 == i) {
+                LZ(str);
             } else if (-3 == i) {
-                bk(str, i);
+                bl(str, i);
             } else if (-4 == i) {
-                bk(str, i);
+                bl(str, i);
             } else {
-                bk(str, i);
+                bl(str, i);
             }
         }
     }
 
-    public void LX(String str) {
+    public void LY(String str) {
         try {
             try {
                 h.cTB().cTC();
-                bl(str, 2);
-                m.cTO().LP(str);
+                bm(str, 2);
+                m.cTO().LQ(str);
                 h.cTB().cTD();
             } catch (Exception e) {
                 e.printStackTrace();
@@ -88,12 +88,12 @@ public class e {
         }
     }
 
-    public void LY(String str) {
+    public void LZ(String str) {
         try {
             try {
                 h.cTB().cTC();
-                bl(str, 4);
-                l.cTL().LP(str);
+                bm(str, 4);
+                l.cTL().LQ(str);
                 h.cTB().cTD();
             } catch (Exception e) {
                 e.printStackTrace();
@@ -165,8 +165,8 @@ public class e {
                         i = i2;
                     } else {
                         String friendId = imMessageCenterShowItemData.getFriendId();
-                        bl(friendId, 4);
-                        l.cTL().LP(friendId);
+                        bm(friendId, 4);
+                        l.cTL().LQ(friendId);
                         i = i2 + 1;
                         if (bVar != null) {
                             bVar.f((i * 100) / size, friendId, 4);
@@ -214,7 +214,7 @@ public class e {
             if (cTy()) {
                 return;
             }
-            bl(TbEnum.CustomGroupId.STRANGE_MERGE, -7);
+            bm(TbEnum.CustomGroupId.STRANGE_MERGE, -7);
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
@@ -224,10 +224,10 @@ public class e {
 
     private void a(List<String> list, b bVar, int i) {
         if (list != null && bVar != null) {
-            n.Md(ex(list));
+            n.Me(ex(list));
             ArrayList arrayList = new ArrayList();
             for (String str : list) {
-                m.cTO().LQ(str);
+                m.cTO().LR(str);
                 if (cTy()) {
                     c cVar = new c();
                     cVar.id = str;
@@ -273,8 +273,8 @@ public class e {
                 if (cTy()) {
                     break;
                 }
-                bl(str, 4);
-                l.cTL().LP(str);
+                bm(str, 4);
+                l.cTL().LQ(str);
                 i++;
                 if (bVar != null) {
                     bVar.f((i * 100) / size, str, 4);
@@ -283,7 +283,7 @@ public class e {
             if (cTy()) {
                 return;
             }
-            bl(TbEnum.CustomGroupId.OFFICIAL_MERGE, -8);
+            bm(TbEnum.CustomGroupId.OFFICIAL_MERGE, -8);
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
@@ -291,14 +291,14 @@ public class e {
         }
     }
 
-    public void bk(String str, int i) {
+    public void bl(String str, int i) {
         try {
             try {
                 h.cTB().cTC();
-                ImMessageCenterPojo br = com.baidu.tieba.im.memorycache.b.cUG().br(str, i);
-                br.setIs_hidden(1);
-                br.setUnread_count(0);
-                j.cTF().a(br, 2);
+                ImMessageCenterPojo bs = com.baidu.tieba.im.memorycache.b.cUG().bs(str, i);
+                bs.setIs_hidden(1);
+                bs.setUnread_count(0);
+                j.cTF().a(bs, 2);
                 h.cTB().cTD();
             } catch (Exception e) {
                 e.printStackTrace();
@@ -310,14 +310,14 @@ public class e {
         }
     }
 
-    public void LZ(String str) {
+    public void Ma(String str) {
         try {
             h.cTB().cTC();
-            ImMessageCenterPojo br = com.baidu.tieba.im.memorycache.b.cUG().br(str, 1);
-            br.setIs_hidden(1);
-            br.setUnread_count(0);
-            j.cTF().a(br, 2);
-            com.baidu.tieba.im.db.c.cTu().LQ(str);
+            ImMessageCenterPojo bs = com.baidu.tieba.im.memorycache.b.cUG().bs(str, 1);
+            bs.setIs_hidden(1);
+            bs.setUnread_count(0);
+            j.cTF().a(bs, 2);
+            com.baidu.tieba.im.db.c.cTu().LR(str);
         } catch (Exception e) {
             BdLog.detailException(e);
         } finally {
@@ -484,17 +484,17 @@ public class e {
         }
     }
 
-    public void bl(String str, int i) {
-        j.cTF().bn(str, i);
+    public void bm(String str, int i) {
+        j.cTF().bo(str, i);
     }
 
-    public void bm(String str, int i) {
-        com.baidu.tieba.im.memorycache.b.cUG().bm(str, i);
+    public void bn(String str, int i) {
+        com.baidu.tieba.im.memorycache.b.cUG().bn(str, i);
     }
 
     public void removeByKeyMemoryChangedWithBroadcast(String str, int i) {
-        ImMessageCenterPojo br = com.baidu.tieba.im.memorycache.b.cUG().br(str, i);
-        if (br != null) {
+        ImMessageCenterPojo bs = com.baidu.tieba.im.memorycache.b.cUG().bs(str, i);
+        if (bs != null) {
             if (i == 2) {
                 com.baidu.tbadk.coreExtra.messageCenter.b.bxj().BJ(str);
             } else if (i == 4) {
@@ -506,10 +506,10 @@ public class e {
             } else {
                 com.baidu.tbadk.coreExtra.messageCenter.b.bxj().BI(str);
             }
-            br.setIs_hidden(1);
-            br.setUnread_count(0);
+            bs.setIs_hidden(1);
+            bs.setUnread_count(0);
             if (i == 2 || i == 4 || i == -7 || i == -8) {
-                com.baidu.tieba.im.memorycache.b.cUG().bs(str, i);
+                com.baidu.tieba.im.memorycache.b.cUG().bt(str, i);
             } else if (i == 1) {
                 com.baidu.tieba.im.memorycache.b.cUG().e(str, i, false);
             } else {

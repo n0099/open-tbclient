@@ -396,7 +396,7 @@ public class a implements View.OnClickListener {
 
     private void JT(String str) {
         if (this.jqL == null || !this.jqL.isShown()) {
-            this.jqL = new BdTopToast(this.mPageContext.getPageActivity(), 2000).yS(false).TP(str);
+            this.jqL = new BdTopToast(this.mPageContext.getPageActivity(), 2000).yS(false).TQ(str);
             this.jqL.aR((ViewGroup) this.mRootView.findViewById(R.id.ll_forum_rule_all));
         }
     }

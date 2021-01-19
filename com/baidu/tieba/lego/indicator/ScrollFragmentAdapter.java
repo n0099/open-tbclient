@@ -89,13 +89,13 @@ public class ScrollFragmentAdapter extends PagerAdapter {
 
     public void c(long j, String str, String str2, int i) {
         if (j == this.kXD.getTagCode()) {
-            this.kXD.bc(str2, i);
+            this.kXD.bd(str2, i);
         } else if (this.gIg != null) {
             Iterator<LegoListView> it = this.gIg.iterator();
             while (it.hasNext()) {
                 LegoListView next = it.next();
                 if (next != null && next.t(j, str)) {
-                    next.MJ(str2);
+                    next.MK(str2);
                     return;
                 }
             }

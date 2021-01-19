@@ -7,16 +7,16 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.write.a;
 /* loaded from: classes.dex */
 public class f extends h {
-    private a.C0893a nST;
-    private Animation nSU;
+    private a.C0893a nSU;
     private Animation nSV;
+    private Animation nSW;
 
     public f(Context context, a.C0893a c0893a) {
         super(context, c0893a);
-        this.nST = c0893a;
-        this.nSU = AnimationUtils.loadAnimation(this.mContext, R.anim.ubs_test_in_anim);
-        this.nSV = AnimationUtils.loadAnimation(this.mContext, R.anim.ubs_test_out_anim);
-        this.nSU.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.write.f.1
+        this.nSU = c0893a;
+        this.nSV = AnimationUtils.loadAnimation(this.mContext, R.anim.ubs_test_in_anim);
+        this.nSW = AnimationUtils.loadAnimation(this.mContext, R.anim.ubs_test_out_anim);
+        this.nSV.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.write.f.1
             @Override // android.view.animation.Animation.AnimationListener
             public void onAnimationStart(Animation animation) {
             }
@@ -30,7 +30,7 @@ public class f extends h {
             public void onAnimationRepeat(Animation animation) {
             }
         });
-        this.nSV.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.write.f.2
+        this.nSW.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.write.f.2
             @Override // android.view.animation.Animation.AnimationListener
             public void onAnimationStart(Animation animation) {
             }
@@ -50,11 +50,11 @@ public class f extends h {
     public void dUf() {
         if (this.mState == 4) {
             this.mState = 1;
-            if (this.nTc != null) {
-                this.nTc.KM(this.mState);
+            if (this.nTd != null) {
+                this.nTd.KM(this.mState);
             }
             clearAnimation();
-            this.nST.nRd.startAnimation(this.nSU);
+            this.nSU.nRe.startAnimation(this.nSV);
         }
     }
 
@@ -62,11 +62,11 @@ public class f extends h {
     public void aAB() {
         if (this.mState == 2) {
             this.mState = 3;
-            if (this.nTc != null) {
-                this.nTc.KM(this.mState);
+            if (this.nTd != null) {
+                this.nTd.KM(this.mState);
             }
             clearAnimation();
-            this.nST.nRd.startAnimation(this.nSV);
+            this.nSU.nRe.startAnimation(this.nSW);
         }
     }
 
@@ -82,25 +82,25 @@ public class f extends h {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void Qu() {
-        this.nST.ely.setClickable(true);
+        this.nSU.ely.setClickable(true);
         this.mState = 2;
-        if (this.nTc != null) {
-            this.nTc.KM(this.mState);
+        if (this.nTd != null) {
+            this.nTd.KM(this.mState);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void Qv() {
-        this.nST.ely.setClickable(false);
+        this.nSU.ely.setClickable(false);
         this.mState = 4;
-        if (this.nTc != null) {
-            this.nTc.KM(this.mState);
+        if (this.nTd != null) {
+            this.nTd.KM(this.mState);
         }
     }
 
     private void clearAnimation() {
-        this.nSU.cancel();
         this.nSV.cancel();
-        this.nST.nRd.clearAnimation();
+        this.nSW.cancel();
+        this.nSU.nRe.clearAnimation();
     }
 }

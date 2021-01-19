@@ -23,7 +23,7 @@ public final class k {
         return new k(bVar.enj(), bVar.c(), bVar.d());
     }
 
-    public static k Xz(String str) throws IOException {
+    public static k XA(String str) throws IOException {
         w wVar;
         String str2;
         int i = 9;

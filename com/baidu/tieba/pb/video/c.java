@@ -217,7 +217,7 @@ public class c {
                     this.lZv.setVisibility(0);
                     this.lZu.setVisibility(0);
                     this.lZu.setOnClickListener(this.mOnClickListener);
-                    this.lZu.setText(ao.ON(str));
+                    this.lZu.setText(ao.OO(str));
                     this.lZu.setTag(str);
                 } else {
                     this.lZu.setVisibility(8);

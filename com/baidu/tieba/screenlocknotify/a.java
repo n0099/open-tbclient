@@ -319,8 +319,8 @@ public class a {
             return false;
         }
         long j = dVar.taskId;
-        String Ra = Ra(dVar.url);
-        if (j == 0 || StringUtils.isNull(Ra)) {
+        String Rb = Rb(dVar.url);
+        if (j == 0 || StringUtils.isNull(Rb)) {
             return false;
         }
         if (UtilHelper.getTodayZeroTime() < TbSingleton.getInstance().getLastResumeTime()) {
@@ -333,9 +333,9 @@ public class a {
             }
             chatMessage.setHasRead(true);
             NotificationHelper.cancelNotification(this.appContext, 19);
-            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PushDialogActivityConfig(this.appContext, j, Ra)));
+            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PushDialogActivityConfig(this.appContext, j, Rb)));
         }
-        TiebaStatic.log(new aq("c13196").an("obj_type", 1).an("obj_source", 2).dW("tid", Ra));
+        TiebaStatic.log(new aq("c13196").an("obj_type", 1).an("obj_source", 2).dW("tid", Rb));
         return true;
     }
 
@@ -343,7 +343,7 @@ public class a {
         return com.baidu.tbadk.coreExtra.messageCenter.d.bxM().bye() && com.baidu.tbadk.coreExtra.messageCenter.d.bxM().bxO() && SwitchManager.getInstance().findType(ScreenLockSyncSwitch.KEY) == 1;
     }
 
-    private String Ra(String str) {
+    private String Rb(String str) {
         if (StringUtils.isNull(str)) {
             return null;
         }
@@ -393,11 +393,11 @@ public class a {
         dVar.taskId = chatMessage.getStatTaskId();
         dVar.serviceId = chatMessage.getStatisticsServiceId();
         if (dVar.customGroupType == 1) {
-            ImMessageCenterPojo br = com.baidu.tieba.im.memorycache.b.cUG().br(chatMessage.getGroupId(), 1);
-            if (br != null) {
-                dVar.groupName = br.getGroup_name();
-                dVar.mSQ = br.getUnread_count();
-                dVar.lastTime = br.getLast_content_time();
+            ImMessageCenterPojo bs = com.baidu.tieba.im.memorycache.b.cUG().bs(chatMessage.getGroupId(), 1);
+            if (bs != null) {
+                dVar.groupName = bs.getGroup_name();
+                dVar.mSQ = bs.getUnread_count();
+                dVar.lastTime = bs.getLast_content_time();
             }
             dVar.content = dVar.userName + ":" + com.baidu.tieba.im.util.c.bz(chatMessage.getMsgType(), chatMessage.getContent());
             dVar.groupId = chatMessage.getGroupId();
@@ -408,12 +408,12 @@ public class a {
             }
         } else if (dVar.customGroupType == 2) {
             dVar.groupId = chatMessage.getUserInfo().getUserId();
-            ImMessageCenterPojo br2 = com.baidu.tieba.im.memorycache.b.cUG().br(dVar.groupId, 2);
-            if (br2 != null) {
-                dVar.mSQ = br2.getUnread_count();
-                dVar.lastTime = br2.getLast_content_time();
-                dVar.mrU = br2.getIsFriend() == 1;
-                dVar.followStatus = br2.getFollowStatus();
+            ImMessageCenterPojo bs2 = com.baidu.tieba.im.memorycache.b.cUG().bs(dVar.groupId, 2);
+            if (bs2 != null) {
+                dVar.mSQ = bs2.getUnread_count();
+                dVar.lastTime = bs2.getLast_content_time();
+                dVar.mrU = bs2.getIsFriend() == 1;
+                dVar.followStatus = bs2.getFollowStatus();
             }
             dVar.groupName = chatMessage.getUserInfo().getUserName();
             dVar.content = com.baidu.tieba.im.util.c.bz(chatMessage.getMsgType(), chatMessage.getContent());
@@ -435,12 +435,12 @@ public class a {
             if (!TbConfig.IM_USER_ID_TBJX.equals(dVar.groupId) && !"2807977073".equals(dVar.groupId)) {
                 return null;
             }
-            ImMessageCenterPojo br3 = com.baidu.tieba.im.memorycache.b.cUG().br(dVar.groupId, 4);
-            if (br3 != null) {
-                dVar.mSQ = br3.getUnread_count();
-                dVar.lastTime = br3.getLast_content_time();
-                dVar.mrU = br3.getIsFriend() == 1;
-                dVar.followStatus = br3.getFollowStatus();
+            ImMessageCenterPojo bs3 = com.baidu.tieba.im.memorycache.b.cUG().bs(dVar.groupId, 4);
+            if (bs3 != null) {
+                dVar.mSQ = bs3.getUnread_count();
+                dVar.lastTime = bs3.getLast_content_time();
+                dVar.mrU = bs3.getIsFriend() == 1;
+                dVar.followStatus = bs3.getFollowStatus();
             }
             dVar.groupName = chatMessage.getUserInfo().getUserName();
             if (chatMessage.getMsgType() == 7) {

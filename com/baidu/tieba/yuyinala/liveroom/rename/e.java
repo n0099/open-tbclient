@@ -12,7 +12,7 @@ public class e extends BdBaseModel {
     private Context bJM;
     private BdUniqueId brL = BdUniqueId.gen();
     private final HttpMessageListener bxB;
-    private a oow;
+    private a oox;
 
     /* loaded from: classes10.dex */
     public interface a {
@@ -22,7 +22,7 @@ public class e extends BdBaseModel {
     }
 
     public void a(a aVar) {
-        this.oow = aVar;
+        this.oox = aVar;
     }
 
     public e(Context context) {
@@ -37,12 +37,12 @@ public class e extends BdBaseModel {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-                if (httpResponsedMessage != null && (httpResponsedMessage instanceof AlaGetRoomNameRenameHttpResponseMessage) && httpResponsedMessage.getOrginalMessage().getTag() == e.this.getUniqueId() && e.this.oow != null) {
+                if (httpResponsedMessage != null && (httpResponsedMessage instanceof AlaGetRoomNameRenameHttpResponseMessage) && httpResponsedMessage.getOrginalMessage().getTag() == e.this.getUniqueId() && e.this.oox != null) {
                     AlaGetRoomNameRenameHttpResponseMessage alaGetRoomNameRenameHttpResponseMessage = (AlaGetRoomNameRenameHttpResponseMessage) httpResponsedMessage;
                     if (alaGetRoomNameRenameHttpResponseMessage.getError() != 0 || !alaGetRoomNameRenameHttpResponseMessage.isSuccess()) {
-                        e.this.oow.n(alaGetRoomNameRenameHttpResponseMessage.getError(), alaGetRoomNameRenameHttpResponseMessage.getErrorString(), alaGetRoomNameRenameHttpResponseMessage.dZt().usermsg);
+                        e.this.oox.n(alaGetRoomNameRenameHttpResponseMessage.getError(), alaGetRoomNameRenameHttpResponseMessage.getErrorString(), alaGetRoomNameRenameHttpResponseMessage.dZt().usermsg);
                     } else {
-                        e.this.oow.a(alaGetRoomNameRenameHttpResponseMessage);
+                        e.this.oox.a(alaGetRoomNameRenameHttpResponseMessage);
                     }
                 }
             }

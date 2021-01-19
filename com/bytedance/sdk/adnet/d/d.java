@@ -4,7 +4,7 @@ public class d {
 
     /* renamed from: a  reason: collision with root package name */
     private a f6052a;
-    private b pla;
+    private b plb;
 
     /* loaded from: classes4.dex */
     public enum a {
@@ -23,29 +23,29 @@ public class d {
 
     private d() {
         this.f6052a = a.OFF;
-        this.pla = new com.bytedance.sdk.adnet.d.a();
+        this.plb = new com.bytedance.sdk.adnet.d.a();
     }
 
     /* loaded from: classes4.dex */
     private static class c {
-        private static final d plb = new d();
+        private static final d plc = new d();
     }
 
     public static void a(a aVar) {
         synchronized (d.class) {
-            c.plb.f6052a = aVar;
+            c.plc.f6052a = aVar;
         }
     }
 
     public static void a(String str, String str2) {
-        if (c.plb.f6052a.compareTo(a.ERROR) <= 0) {
-            c.plb.pla.a(str, str2);
+        if (c.plc.f6052a.compareTo(a.ERROR) <= 0) {
+            c.plc.plb.a(str, str2);
         }
     }
 
     public static void b(String str, String str2) {
-        if (c.plb.f6052a.compareTo(a.DEBUG) <= 0) {
-            c.plb.pla.b(str, str2);
+        if (c.plc.f6052a.compareTo(a.DEBUG) <= 0) {
+            c.plc.plb.b(str, str2);
         }
     }
 }

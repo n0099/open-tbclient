@@ -4,14 +4,14 @@ import java.util.concurrent.ThreadFactory;
 import rx.g;
 /* loaded from: classes14.dex */
 public final class f extends rx.g {
-    private final ThreadFactory qgr;
+    private final ThreadFactory qgs;
 
     public f(ThreadFactory threadFactory) {
-        this.qgr = threadFactory;
+        this.qgs = threadFactory;
     }
 
     @Override // rx.g
     public g.a createWorker() {
-        return new g(this.qgr);
+        return new g(this.qgs);
     }
 }

@@ -18,26 +18,26 @@ import org.apache.http.auth.AUTH;
 import org.apache.http.protocol.HTTP;
 /* loaded from: classes4.dex */
 public final class a implements x {
-    final e pdN;
+    final e pdO;
 
     public a(e eVar) {
-        this.pdN = eVar;
+        this.pdO = eVar;
     }
 
     @Override // com.bytedance.sdk.a.b.x
     public com.bytedance.sdk.a.b.b a(x.a aVar) throws IOException {
-        com.bytedance.sdk.a.b.b b2 = this.pdN != null ? this.pdN.b(aVar.emS()) : null;
+        com.bytedance.sdk.a.b.b b2 = this.pdO != null ? this.pdO.b(aVar.emS()) : null;
         c emz = new c.a(System.currentTimeMillis(), aVar.emS(), b2).emz();
-        ab abVar = emz.pdR;
-        com.bytedance.sdk.a.b.b bVar = emz.pdS;
-        if (this.pdN != null) {
-            this.pdN.a(emz);
+        ab abVar = emz.pdS;
+        com.bytedance.sdk.a.b.b bVar = emz.pdT;
+        if (this.pdO != null) {
+            this.pdO.a(emz);
         }
         if (b2 != null && bVar == null) {
             com.bytedance.sdk.a.b.a.c.a(b2.enm());
         }
         if (abVar == null && bVar == null) {
-            return new b.a().f(aVar.emS()).a(w.HTTP_1_1).Ok(504).XA("Unsatisfiable Request (only-if-cached)").a(com.bytedance.sdk.a.b.a.c.peA).ip(-1L).iq(System.currentTimeMillis()).enq();
+            return new b.a().f(aVar.emS()).a(w.HTTP_1_1).Ok(504).XB("Unsatisfiable Request (only-if-cached)").a(com.bytedance.sdk.a.b.a.c.peB).ip(-1L).iq(System.currentTimeMillis()).enq();
         }
         if (abVar == null) {
             return bVar.enn().i(a(bVar)).enq();
@@ -51,20 +51,20 @@ public final class a implements x {
                 if (b3.c() == 304) {
                     com.bytedance.sdk.a.b.b enq = bVar.enn().c(a(bVar.enl(), b3.enl())).ip(b3.k()).iq(b3.l()).i(a(bVar)).h(a(b3)).enq();
                     b3.enm().close();
-                    this.pdN.a();
-                    this.pdN.a(bVar, enq);
+                    this.pdO.a();
+                    this.pdO.a(bVar, enq);
                     return enq;
                 }
                 com.bytedance.sdk.a.b.a.c.a(bVar.enm());
             }
             com.bytedance.sdk.a.b.b enq2 = b3.enn().i(a(bVar)).h(a(b3)).enq();
-            if (this.pdN != null) {
+            if (this.pdO != null) {
                 if (com.bytedance.sdk.a.b.a.c.e.e(enq2) && c.a(enq2, abVar)) {
-                    return a(this.pdN.b(enq2), enq2);
+                    return a(this.pdO.b(enq2), enq2);
                 }
                 if (f.a(abVar.b())) {
                     try {
-                        this.pdN.c(abVar);
+                        this.pdO.c(abVar);
                         return enq2;
                     } catch (IOException e) {
                         return enq2;
@@ -146,14 +146,14 @@ public final class a implements x {
             String a3 = vVar.a(i);
             String b2 = vVar.b(i);
             if ((!"Warning".equalsIgnoreCase(a3) || !b2.startsWith("1")) && (!a(a3) || vVar2.a(a3) == null)) {
-                com.bytedance.sdk.a.b.a.a.pdM.a(aVar, a3, b2);
+                com.bytedance.sdk.a.b.a.a.pdN.a(aVar, a3, b2);
             }
         }
         int a4 = vVar2.a();
         for (int i2 = 0; i2 < a4; i2++) {
             String a5 = vVar2.a(i2);
             if (!"Content-Length".equalsIgnoreCase(a5) && a(a5)) {
-                com.bytedance.sdk.a.b.a.a.pdM.a(aVar, a5, vVar2.b(i2));
+                com.bytedance.sdk.a.b.a.a.pdN.a(aVar, a5, vVar2.b(i2));
             }
         }
         return aVar.enC();

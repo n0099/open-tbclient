@@ -15,7 +15,7 @@ public class b implements com.baidu.tbadk.mvc.b.a {
             return bVar;
         }
         c0758a.kBh /= 100;
-        bVar.CM(chatMessage.getReadCountPv());
+        bVar.CL(chatMessage.getReadCountPv());
         bVar.a(c0758a);
         bVar.setCreateTime(chatMessage.getTime());
         if (chatMessage.getObjContent() instanceof com.baidu.tieba.im.db.pojo.a) {
@@ -60,7 +60,7 @@ public class b implements com.baidu.tbadk.mvc.b.a {
         return this.kBn;
     }
 
-    public void CM(int i) {
+    public void CL(int i) {
         this.kBn = i;
     }
 }

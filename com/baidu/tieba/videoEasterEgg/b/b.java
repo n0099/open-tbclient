@@ -18,20 +18,20 @@ import com.baidu.tieba.R;
 /* loaded from: classes2.dex */
 public class b implements a {
     private TbPageContext<?> mPageContext;
-    private com.baidu.tieba.videoEasterEgg.a.a nKr = new com.baidu.tieba.videoEasterEgg.a.b();
-    private com.baidu.tieba.videoEasterEgg.b nKs;
+    private com.baidu.tieba.videoEasterEgg.a.a nKs = new com.baidu.tieba.videoEasterEgg.a.b();
+    private com.baidu.tieba.videoEasterEgg.b nKt;
 
     public b(TbPageContext<?> tbPageContext, com.baidu.tieba.videoEasterEgg.b bVar, Intent intent) {
         this.mPageContext = tbPageContext;
-        this.nKs = bVar;
-        this.nKr.M(intent);
-        this.nKr.E(tbPageContext.getUniqueId());
+        this.nKt = bVar;
+        this.nKs.M(intent);
+        this.nKs.E(tbPageContext.getUniqueId());
     }
 
     @Override // com.baidu.tieba.videoEasterEgg.b.a
     public void onClose() {
-        if (this.nKs != null) {
-            this.nKs.finishActivity();
+        if (this.nKt != null) {
+            this.nKt.finishActivity();
         }
     }
 
@@ -46,29 +46,29 @@ public class b implements a {
 
     @Override // com.baidu.tieba.videoEasterEgg.b.a
     public void dSO() {
-        if (this.nKr != null && this.nKs != null) {
-            this.nKs.TG(this.nKr.getVideoUrl());
+        if (this.nKs != null && this.nKt != null) {
+            this.nKt.TH(this.nKs.getVideoUrl());
         }
     }
 
     @Override // com.baidu.tieba.videoEasterEgg.b.a
     public void dxI() {
-        if (this.nKs != null) {
-            this.nKs.arA();
+        if (this.nKt != null) {
+            this.nKt.arA();
         }
     }
 
     @Override // com.baidu.tieba.videoEasterEgg.b.a
     public void dSP() {
-        if (this.nKs != null && this.nKr != null) {
-            this.nKs.gD(this.nKr.getPopText(), this.nKr.getPopImageUrl());
+        if (this.nKt != null && this.nKs != null) {
+            this.nKt.gD(this.nKs.getPopText(), this.nKs.getPopImageUrl());
         }
     }
 
     @Override // com.baidu.tieba.videoEasterEgg.b.a
     public void dSQ() {
-        if (this.nKr != null) {
-            com.baidu.tbadk.core.sharedPref.b.brx().putBoolean(com.baidu.tbadk.core.sharedPref.b.getSharedPrefKeyWithAccount(this.nKr.getID()), false);
+        if (this.nKs != null) {
+            com.baidu.tbadk.core.sharedPref.b.brx().putBoolean(com.baidu.tbadk.core.sharedPref.b.getSharedPrefKeyWithAccount(this.nKs.getID()), false);
         }
     }
 
@@ -79,8 +79,8 @@ public class b implements a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void dSR() {
-        if (this.nKr != null && this.nKs != null) {
-            this.nKs.TF(this.nKr.getVideoUrl());
+        if (this.nKs != null && this.nKt != null) {
+            this.nKt.TG(this.nKs.getVideoUrl());
         }
     }
 
@@ -93,14 +93,14 @@ public class b implements a {
     }
 
     private void bul() {
-        if (this.nKr != null && this.mPageContext != null) {
+        if (this.nKs != null && this.mPageContext != null) {
             final ShareItem shareItem = new ShareItem();
-            shareItem.title = this.nKr.getShareTitle();
-            shareItem.content = this.nKr.getShareContent();
-            shareItem.linkUrl = this.nKr.getShareUrl();
-            shareItem.fsB = this.nKr.getShareUrl();
-            if (!at.isEmpty(this.nKr.getShareImageUrl())) {
-                shareItem.imageUri = Uri.parse(this.nKr.getShareImageUrl());
+            shareItem.title = this.nKs.getShareTitle();
+            shareItem.content = this.nKs.getShareContent();
+            shareItem.linkUrl = this.nKs.getShareUrl();
+            shareItem.fsB = this.nKs.getShareUrl();
+            if (!at.isEmpty(this.nKs.getShareImageUrl())) {
+                shareItem.imageUri = Uri.parse(this.nKs.getShareImageUrl());
             }
             ShareDialogConfig shareDialogConfig = new ShareDialogConfig((Context) this.mPageContext.getPageActivity(), shareItem, true, true);
             shareDialogConfig.setIsCopyLink(true);

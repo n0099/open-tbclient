@@ -107,7 +107,7 @@ public class b {
         this.jXR.clear();
     }
 
-    public void BC(int i) {
+    public void BB(int i) {
         int i2;
         if (!this.isLoading) {
             this.jXS = i;
@@ -137,7 +137,7 @@ public class b {
         }
     }
 
-    public void BD(int i) {
+    public void BC(int i) {
         int i2 = 1;
         if (!this.isLoading) {
             this.jXS = i;
@@ -182,7 +182,7 @@ public class b {
         }
     }
 
-    public void Lk(String str) {
+    public void Ll(String str) {
         if (this.jXV != null && !x.isEmpty(this.jXV.thread_list)) {
             long j = com.baidu.adp.lib.f.b.toLong(str, 0L);
             int i = 0;

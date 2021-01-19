@@ -29,10 +29,10 @@ public class CrashUploadService extends IntentService {
             if (!TextUtils.isEmpty(stringExtra2) && !TextUtils.isEmpty(stringExtra) && !com.bytedance.tea.crash.b.a.eoD().a(stringExtra3) && a(stringExtra, stringExtra2, stringExtra4, cVar).a()) {
                 if (cVar == com.bytedance.tea.crash.c.NATIVE) {
                     if (!com.bytedance.tea.crash.g.d.c(new File(stringExtra3).getParentFile(), true)) {
-                        com.bytedance.tea.crash.b.a.eoD().a(com.bytedance.tea.crash.b.a.a.XP(stringExtra3));
+                        com.bytedance.tea.crash.b.a.eoD().a(com.bytedance.tea.crash.b.a.a.XQ(stringExtra3));
                     }
                 } else if (!TextUtils.isEmpty(stringExtra3) && !com.bytedance.tea.crash.g.d.a(stringExtra3)) {
-                    com.bytedance.tea.crash.b.a.eoD().a(com.bytedance.tea.crash.b.a.a.XP(stringExtra3));
+                    com.bytedance.tea.crash.b.a.eoD().a(com.bytedance.tea.crash.b.a.a.XQ(stringExtra3));
                 }
             }
         }

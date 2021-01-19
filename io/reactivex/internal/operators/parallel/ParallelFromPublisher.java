@@ -14,12 +14,12 @@ import org.a.d;
 /* loaded from: classes5.dex */
 public final class ParallelFromPublisher<T> extends a<T> {
     final int prefetch;
-    final int qfS;
+    final int qfT;
     final b<? extends T> source;
 
     @Override // io.reactivex.parallel.a
     public int eIa() {
-        return this.qfS;
+        return this.qfT;
     }
 
     @Override // io.reactivex.parallel.a

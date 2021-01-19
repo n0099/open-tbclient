@@ -8,8 +8,8 @@ import com.facebook.imagepipeline.c.j;
 import javax.annotation.Nullable;
 /* loaded from: classes6.dex */
 public class c {
-    private static a pqd;
-    private static final Class<?> pnm = c.class;
+    private static a pqe;
+    private static final Class<?> pnn = c.class;
     private static volatile boolean sIsInitialized = false;
 
     private c() {
@@ -21,7 +21,7 @@ public class c {
 
     public static void a(Context context, @Nullable h hVar, @Nullable b bVar) {
         if (sIsInitialized) {
-            com.facebook.common.c.a.h(pnm, "Fresco has already been initialized! `Fresco.initialize(...)` should only be called 1 single time to avoid memory leaks!");
+            com.facebook.common.c.a.h(pnn, "Fresco has already been initialized! `Fresco.initialize(...)` should only be called 1 single time to avoid memory leaks!");
         } else {
             sIsInitialized = true;
         }
@@ -35,12 +35,12 @@ public class c {
     }
 
     private static void a(Context context, @Nullable b bVar) {
-        pqd = new a(context, bVar);
-        SimpleDraweeView.b(pqd);
+        pqe = new a(context, bVar);
+        SimpleDraweeView.b(pqe);
     }
 
     public static e eqV() {
-        return pqd.get().get();
+        return pqe.get().get();
     }
 
     public static j eqW() {
@@ -59,26 +59,26 @@ public class c {
     /* loaded from: classes6.dex */
     public static class a implements com.facebook.common.internal.j<com.facebook.common.internal.j<? extends AbstractDraweeControllerBuilder>> {
         private Context mContext;
-        private b pqe;
-        private volatile f pqf = null;
+        private b pqf;
+        private volatile f pqg = null;
 
         a(Context context, b bVar) {
             this.mContext = context;
-            this.pqe = bVar;
+            this.pqf = bVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.facebook.common.internal.j
         /* renamed from: eqZ */
         public com.facebook.common.internal.j<e> get() {
-            if (this.pqf == null) {
+            if (this.pqg == null) {
                 synchronized (this) {
-                    if (this.pqf == null) {
-                        this.pqf = new f(this.mContext, this.pqe);
+                    if (this.pqg == null) {
+                        this.pqg = new f(this.mContext, this.pqf);
                     }
                 }
             }
-            return this.pqf;
+            return this.pqg;
         }
     }
 }

@@ -98,12 +98,12 @@ public class a {
         com.baidu.tieba.sdk.a.setAppId("tieba");
         com.baidu.tieba.sdk.a.setPackageName("com.baidu.tieba");
         com.baidu.tieba.sdk.a.dDg().setCustomProtocol("bdtiebalive");
-        com.baidu.tieba.sdk.a.Rb("com.baidu.tieba.fileprovider");
-        com.baidu.tieba.sdk.a.Rc(TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath() + "/download");
+        com.baidu.tieba.sdk.a.Rc("com.baidu.tieba.fileprovider");
+        com.baidu.tieba.sdk.a.Rd(TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath() + "/download");
         com.baidu.tieba.sdk.a.dDg().setSubappVersionName(TbConfig.getVersion());
         com.baidu.tieba.sdk.a.dDg().setSubappVersionCode(TbadkCoreApplication.getInst().getVersionCode());
-        com.baidu.tieba.sdk.a.dDg().Re(TbConfig.getFrom());
-        com.baidu.tieba.sdk.a.dDg().Rf(TbConfig.getCurrentFrom());
+        com.baidu.tieba.sdk.a.dDg().Rf(TbConfig.getFrom());
+        com.baidu.tieba.sdk.a.dDg().Rg(TbConfig.getCurrentFrom());
         ArSoCheckerManager.getInstance().setArSoStatusChecker(new ArSoStatusChecker() { // from class: com.baidu.tieba.livesdk.a.1
             @Override // com.baidu.live.tbadk.ar.interfaces.ArSoStatusChecker
             public void checkArSoLoadStatus(final Context context, final ArSoStatusCheckResultCallBack arSoStatusCheckResultCallBack) {

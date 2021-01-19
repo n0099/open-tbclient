@@ -40,9 +40,9 @@ public class b implements View.OnClickListener {
     private ArrayList<TransmitForumData> mForumList;
     private int mPrivateThread;
     private ShareItem mShareItem;
-    private ShareGridLayout nzn;
-    private a nzo;
-    private boolean nzp = false;
+    private ShareGridLayout nzo;
+    private a nzp;
+    private boolean nzq = false;
     private CustomMessageListener kZy = new CustomMessageListener(CmdConfigCustom.CMD_SHARE_FORUM_DATA_LOADED) { // from class: com.baidu.tieba.transmitShare.b.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
@@ -59,15 +59,15 @@ public class b implements View.OnClickListener {
     }
 
     public ShareGridLayout dPf() {
-        if (this.nzn == null) {
+        if (this.nzo == null) {
             initView();
         }
-        return this.nzn;
+        return this.nzo;
     }
 
     private void initView() {
-        this.nzn = new ShareGridLayout(this.mContext);
-        this.nzn.setItemParams(hEs, hEt);
+        this.nzo = new ShareGridLayout(this.mContext);
+        this.nzo.setItemParams(hEs, hEt);
     }
 
     private void b(com.baidu.tbadk.core.util.e.a aVar, int i, int i2) {
@@ -76,7 +76,7 @@ public class b implements View.OnClickListener {
             shareDialogItemView.setItemIcon(aVar, i2);
             shareDialogItemView.setItemName(i);
             shareDialogItemView.setOnClickListener(this);
-            this.nzn.addView(shareDialogItemView.dHl());
+            this.nzo.addView(shareDialogItemView.dHl());
         }
     }
 
@@ -85,16 +85,16 @@ public class b implements View.OnClickListener {
         shareDialogItemView.setItemIcon(i2, ao.getColor(R.color.CAM_X0107), i3);
         shareDialogItemView.setItemName(i);
         shareDialogItemView.setOnClickListener(this);
-        this.nzn.addView(shareDialogItemView.dHl());
+        this.nzo.addView(shareDialogItemView.dHl());
     }
 
     public void a(ShareDialogConfig shareDialogConfig, boolean z) {
         this.mShareItem = shareDialogConfig.shareItem;
         this.mForumList = shareDialogConfig.mForumList;
         this.mPrivateThread = shareDialogConfig.mPrivateThread;
-        this.nzn.removeAllViews();
-        this.nzp = shareDialogConfig.mShowMoreForumShare;
-        if (this.nzp) {
+        this.nzo.removeAllViews();
+        this.nzq = shareDialogConfig.mShowMoreForumShare;
+        if (this.nzq) {
             b(new com.baidu.tbadk.core.util.e.b(R.drawable.icon_mask_share_wechat40_svg), R.string.share_weixin, 4);
             b(new com.baidu.tbadk.core.util.e.b(R.drawable.icon_mask_share_circle40_svg), R.string.share_weixin_timeline, 3);
             b(new com.baidu.tbadk.core.util.e.b(R.drawable.icon_mask_share_qq40_svg), R.string.share_qq_friends, 9);
@@ -117,13 +117,13 @@ public class b implements View.OnClickListener {
     }
 
     public void a(a aVar) {
-        this.nzo = aVar;
+        this.nzp = aVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.nzo != null) {
-            this.nzo.en(view);
+        if (this.nzp != null) {
+            this.nzp.en(view);
         }
         if (view.getTag() instanceof Integer) {
             Integer num = (Integer) view.getTag();
@@ -228,7 +228,7 @@ public class b implements View.OnClickListener {
     private void dPg() {
         SelectForumActivityConfig selectForumActivityConfig = new SelectForumActivityConfig(this.mContext, RequestResponseCode.REQUEST_SELECT_FORUM);
         selectForumActivityConfig.setForumList(this.mForumList);
-        if (this.nzp) {
+        if (this.nzq) {
             selectForumActivityConfig.setFrom(4);
             selectForumActivityConfig.setMoreForumImg(this.mShareItem.imageUrl);
             selectForumActivityConfig.setMoreForumUrl(this.mShareItem.linkUrl);

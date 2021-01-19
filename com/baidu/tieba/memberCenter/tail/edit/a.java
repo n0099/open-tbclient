@@ -73,20 +73,20 @@ public class a {
         this.lka = new TailData();
     }
 
-    public void Nt(String str) {
+    public void Nu(String str) {
         if (!this.ljX) {
-            String NC = d.NC(str);
-            if (!StringUtils.isNull(NC)) {
-                this.eSJ.showToast(NC);
+            String ND = d.ND(str);
+            if (!StringUtils.isNull(ND)) {
+                this.eSJ.showToast(ND);
                 return;
             }
-            String ND = d.ND(str);
-            this.lka.setContent(ND);
+            String NE = d.NE(str);
+            this.lka.setContent(NE);
             this.ljX = true;
             if (this.ljZ == null || this.ljZ.getId() <= 0) {
-                this.eSJ.sendMessage(new AddTailNetMessage(ND, this.lka.getFontColor(), this.eSJ.getString(R.string.tail_default_font)));
+                this.eSJ.sendMessage(new AddTailNetMessage(NE, this.lka.getFontColor(), this.eSJ.getString(R.string.tail_default_font)));
             } else {
-                this.eSJ.sendMessage(new UpdateTailNetMessage(this.ljZ.getId(), ND, this.lka.getFontColor(), this.eSJ.getString(R.string.tail_default_font)));
+                this.eSJ.sendMessage(new UpdateTailNetMessage(this.ljZ.getId(), NE, this.lka.getFontColor(), this.eSJ.getString(R.string.tail_default_font)));
             }
         }
     }
@@ -138,7 +138,7 @@ public class a {
         return i > 50;
     }
 
-    public void Nu(String str) {
+    public void Nv(String str) {
         this.lka.setFontColor(str);
     }
 
@@ -158,18 +158,18 @@ public class a {
         this.lkc = aVar;
     }
 
-    public int Nv(String str) {
+    public int Nw(String str) {
         return Pattern.compile("#\\([^#\\)\\(]+\\)").matcher(str).replaceAll(" ").length();
     }
 
-    public String Nw(String str) {
-        while (Nv(str) > 50) {
-            str = Nx(str);
+    public String Nx(String str) {
+        while (Nw(str) > 50) {
+            str = Ny(str);
         }
         return str;
     }
 
-    public String Nx(String str) {
+    public String Ny(String str) {
         if (str == null || str.length() <= 0) {
             return "";
         }
@@ -177,6 +177,6 @@ public class a {
     }
 
     public boolean ddU() {
-        return !StringUtils.isNull(this.lka.getContent()) && ddR() && StringUtils.isNull(d.NC(this.lka.getContent()));
+        return !StringUtils.isNull(this.lka.getContent()) && ddR() && StringUtils.isNull(d.ND(this.lka.getContent()));
     }
 }

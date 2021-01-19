@@ -28,7 +28,7 @@ public class a {
         return this.groupHead;
     }
 
-    public void Me(String str) {
+    public void Mf(String str) {
         this.groupHead = str;
     }
 

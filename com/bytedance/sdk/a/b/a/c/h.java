@@ -9,18 +9,18 @@ public final class h extends com.bytedance.sdk.a.b.c {
 
     /* renamed from: b  reason: collision with root package name */
     private final long f5881b;
-    private final com.bytedance.sdk.a.a.e peX;
+    private final com.bytedance.sdk.a.a.e peY;
 
     public h(String str, long j, com.bytedance.sdk.a.a.e eVar) {
         this.f5880a = str;
         this.f5881b = j;
-        this.peX = eVar;
+        this.peY = eVar;
     }
 
     @Override // com.bytedance.sdk.a.b.c
     public y emT() {
         if (this.f5880a != null) {
-            return y.XL(this.f5880a);
+            return y.XM(this.f5880a);
         }
         return null;
     }
@@ -32,6 +32,6 @@ public final class h extends com.bytedance.sdk.a.b.c {
 
     @Override // com.bytedance.sdk.a.b.c
     public com.bytedance.sdk.a.a.e emU() {
-        return this.peX;
+        return this.peY;
     }
 }

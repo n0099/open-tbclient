@@ -78,7 +78,7 @@ public class MsgrightView extends e {
             this.ksT.setVisibility(8);
             this.ksu.setVisibility(0);
             this.ksu.setText(null);
-            Cr(8);
+            Cq(8);
             this.ksB.getImage().setTag(null);
             this.ksv.setVisibility(8);
             this.ksv.setTag(null);
@@ -135,7 +135,7 @@ public class MsgrightView extends e {
                 });
             }
             this.ksu.setVisibility(8);
-            Cr(8);
+            Cq(8);
             this.ksv.setVisibility(8);
             this.ksw.setVisibility(8);
             this.ksz.setVisibility(8);

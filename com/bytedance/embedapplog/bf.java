@@ -7,7 +7,7 @@ import android.net.Uri;
 import com.bytedance.embedapplog.bi;
 /* loaded from: classes4.dex */
 final class bf implements bi {
-    private aw<Boolean> pcw = new aw<Boolean>() { // from class: com.bytedance.embedapplog.bf.1
+    private aw<Boolean> pcx = new aw<Boolean>() { // from class: com.bytedance.embedapplog.bf.1
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.bytedance.embedapplog.aw
@@ -29,7 +29,7 @@ final class bf implements bi {
         if (context == null) {
             return false;
         }
-        return this.pcw.b(context).booleanValue();
+        return this.pcx.b(context).booleanValue();
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, INVOKE] complete} */

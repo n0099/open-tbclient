@@ -7,7 +7,7 @@ public class Orange {
 
     /* renamed from: a  reason: collision with root package name */
     private static boolean f14380a = true;
-    private static volatile Orange qbS;
+    private static volatile Orange qbT;
 
     private Orange() {
         e();
@@ -26,14 +26,14 @@ public class Orange {
     }
 
     public static Orange eHk() {
-        if (qbS == null) {
+        if (qbT == null) {
             synchronized (Orange.class) {
-                if (qbS == null) {
-                    qbS = new Orange();
+                if (qbT == null) {
+                    qbT = new Orange();
                 }
             }
         }
-        return qbS;
+        return qbT;
     }
 
     private boolean f() {

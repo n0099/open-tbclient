@@ -64,7 +64,7 @@ public class ValidateModel {
                 /* JADX WARN: Can't rename method to resolve collision */
                 @Override // com.baidu.tbadk.util.ab
                 public Boolean doInBackground() {
-                    return Boolean.valueOf(d.cTv().LW(ValidateItemData.this.getNotice_id()));
+                    return Boolean.valueOf(d.cTv().LX(ValidateItemData.this.getNotice_id()));
                 }
             }, lVar);
         }
@@ -86,13 +86,13 @@ public class ValidateModel {
             /* JADX WARN: Can't rename method to resolve collision */
             @Override // com.baidu.tbadk.util.ab
             public Integer doInBackground() {
-                return Integer.valueOf(d.cTv().LU("apply_join_group"));
+                return Integer.valueOf(d.cTv().LV("apply_join_group"));
             }
         }, lVar);
     }
 
     public static ValidateItemData getByNoticeid(String str) {
-        return convertToValidateItemData(d.cTv().LV(str));
+        return convertToValidateItemData(d.cTv().LW(str));
     }
 
     public static List<ValidateItemData> convertToValidateItemDataList(LinkedList<GroupNewsPojo> linkedList) {
@@ -154,9 +154,9 @@ public class ValidateModel {
     private static void setGroupName(ValidateItemData validateItemData, String str) {
         if (!BdBaseApplication.getInst().isDebugMode() || com.baidu.adp.lib.util.l.isMainThread()) {
             String str2 = "";
-            ImMessageCenterPojo br = b.cUG().br(str, 1);
-            if (br != null) {
-                str2 = br.getGroup_name();
+            ImMessageCenterPojo bs = b.cUG().bs(str, 1);
+            if (bs != null) {
+                str2 = bs.getGroup_name();
             }
             validateItemData.setGroupName(str2);
         }

@@ -23,14 +23,14 @@ public class c {
     private c() {
     }
 
-    public com.baidu.tieba.quickWebView.data.a Ql(String str) {
+    public com.baidu.tieba.quickWebView.data.a Qm(String str) {
         if (this.mGX == null || !this.mGZ) {
             return null;
         }
         return this.mGX.get(str);
     }
 
-    public List<String> Qm(String str) {
+    public List<String> Qn(String str) {
         if (this.mGY == null || this.mGY.mHe == null || !this.mGZ) {
             return null;
         }

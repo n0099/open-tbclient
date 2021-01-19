@@ -45,9 +45,9 @@ public class b extends m {
         }
     }
 
-    public void bZ(String str, int i) {
+    public void ca(String str, int i) {
         if (this.fyZ instanceof EditorInfoContainer) {
-            ((EditorInfoContainer) this.fyZ).bZ(str, i);
+            ((EditorInfoContainer) this.fyZ).ca(str, i);
         }
     }
 

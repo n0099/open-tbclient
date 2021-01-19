@@ -73,7 +73,7 @@ public class a {
         return this;
     }
 
-    public a XQ(@NonNull String str) {
+    public a XR(@NonNull String str) {
         if (!TextUtils.isEmpty(str)) {
             a("session_id", str);
         }

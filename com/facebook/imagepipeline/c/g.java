@@ -16,36 +16,36 @@ import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
 /* loaded from: classes3.dex */
 public class g {
-    private static final CancellationException pxY = new CancellationException("Prefetching is not enabled");
-    private final m pxZ;
-    private final com.facebook.imagepipeline.g.c pya;
-    private final com.facebook.common.internal.j<Boolean> pyb;
-    private final p<com.facebook.cache.common.b, com.facebook.imagepipeline.f.c> pyc;
-    private final p<com.facebook.cache.common.b, PooledByteBuffer> pyd;
-    private final com.facebook.imagepipeline.b.e pye;
+    private static final CancellationException pxZ = new CancellationException("Prefetching is not enabled");
+    private final m pya;
+    private final com.facebook.imagepipeline.g.c pyb;
+    private final com.facebook.common.internal.j<Boolean> pyc;
+    private final p<com.facebook.cache.common.b, com.facebook.imagepipeline.f.c> pyd;
+    private final p<com.facebook.cache.common.b, PooledByteBuffer> pye;
     private final com.facebook.imagepipeline.b.e pyf;
-    private final com.facebook.imagepipeline.b.f pyg;
-    private final at pyh;
-    private final com.facebook.common.internal.j<Boolean> pyi;
-    private AtomicLong pyj = new AtomicLong();
-    private final com.facebook.common.internal.j<Boolean> pyk;
+    private final com.facebook.imagepipeline.b.e pyg;
+    private final com.facebook.imagepipeline.b.f pyh;
+    private final at pyi;
+    private final com.facebook.common.internal.j<Boolean> pyj;
+    private AtomicLong pyk = new AtomicLong();
+    private final com.facebook.common.internal.j<Boolean> pyl;
 
     public g(m mVar, Set<com.facebook.imagepipeline.g.c> set, com.facebook.common.internal.j<Boolean> jVar, p<com.facebook.cache.common.b, com.facebook.imagepipeline.f.c> pVar, p<com.facebook.cache.common.b, PooledByteBuffer> pVar2, com.facebook.imagepipeline.b.e eVar, com.facebook.imagepipeline.b.e eVar2, com.facebook.imagepipeline.b.f fVar, at atVar, com.facebook.common.internal.j<Boolean> jVar2, com.facebook.common.internal.j<Boolean> jVar3) {
-        this.pxZ = mVar;
-        this.pya = new com.facebook.imagepipeline.g.b(set);
-        this.pyb = jVar;
-        this.pyc = pVar;
-        this.pyd = pVar2;
-        this.pye = eVar;
-        this.pyf = eVar2;
-        this.pyg = fVar;
-        this.pyh = atVar;
-        this.pyi = jVar2;
-        this.pyk = jVar3;
+        this.pya = mVar;
+        this.pyb = new com.facebook.imagepipeline.g.b(set);
+        this.pyc = jVar;
+        this.pyd = pVar;
+        this.pye = pVar2;
+        this.pyf = eVar;
+        this.pyg = eVar2;
+        this.pyh = fVar;
+        this.pyi = atVar;
+        this.pyj = jVar2;
+        this.pyl = jVar3;
     }
 
     private String euf() {
-        return String.valueOf(this.pyj.getAndIncrement());
+        return String.valueOf(this.pyk.getAndIncrement());
     }
 
     public com.facebook.datasource.b<com.facebook.common.references.a<com.facebook.imagepipeline.f.c>> d(ImageRequest imageRequest, Object obj) {
@@ -62,7 +62,7 @@ public class g {
 
     public com.facebook.datasource.b<com.facebook.common.references.a<com.facebook.imagepipeline.f.c>> a(ImageRequest imageRequest, Object obj, ImageRequest.RequestLevel requestLevel, @Nullable com.facebook.imagepipeline.g.c cVar) {
         try {
-            return a(this.pxZ.d(imageRequest), imageRequest, requestLevel, obj, cVar);
+            return a(this.pya.d(imageRequest), imageRequest, requestLevel, obj, cVar);
         } catch (Exception e) {
             return com.facebook.datasource.c.y(e);
         }
@@ -70,14 +70,14 @@ public class g {
 
     public com.facebook.datasource.b<Void> f(ImageRequest imageRequest, Object obj) {
         aj<Void> e;
-        if (!this.pyb.get().booleanValue()) {
-            return com.facebook.datasource.c.y(pxY);
+        if (!this.pyc.get().booleanValue()) {
+            return com.facebook.datasource.c.y(pxZ);
         }
         try {
-            if (this.pyi.get().booleanValue()) {
-                e = this.pxZ.b(imageRequest);
+            if (this.pyj.get().booleanValue()) {
+                e = this.pya.b(imageRequest);
             } else {
-                e = this.pxZ.e(imageRequest);
+                e = this.pya.e(imageRequest);
             }
             return a(e, imageRequest, ImageRequest.RequestLevel.FULL_FETCH, obj, Priority.MEDIUM);
         } catch (Exception e2) {
@@ -89,11 +89,11 @@ public class g {
         if (uri == null) {
             return false;
         }
-        return this.pyc.b(Z(uri));
+        return this.pyd.b(Z(uri));
     }
 
     public p<com.facebook.cache.common.b, com.facebook.imagepipeline.f.c> eug() {
-        return this.pyc;
+        return this.pyd;
     }
 
     public com.facebook.datasource.b<Boolean> Y(Uri uri) {
@@ -102,15 +102,15 @@ public class g {
 
     /* JADX DEBUG: Type inference failed for r3v0. Raw type applied. Possible types: bolts.f<java.lang.Boolean, bolts.g<java.lang.Boolean>>, bolts.f<java.lang.Boolean, bolts.g<TContinuationResult>> */
     public com.facebook.datasource.b<Boolean> a(ImageRequest imageRequest) {
-        final com.facebook.cache.common.b c = this.pyg.c(imageRequest, null);
+        final com.facebook.cache.common.b c = this.pyh.c(imageRequest, null);
         final com.facebook.datasource.g eqQ = com.facebook.datasource.g.eqQ();
-        this.pye.k(c).b(new bolts.f<Boolean, bolts.g<Boolean>>() { // from class: com.facebook.imagepipeline.c.g.2
+        this.pyf.k(c).b(new bolts.f<Boolean, bolts.g<Boolean>>() { // from class: com.facebook.imagepipeline.c.g.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // bolts.f
             /* renamed from: c */
             public bolts.g<Boolean> a(bolts.g<Boolean> gVar) throws Exception {
                 if (gVar.isCancelled() || gVar.hC() || !gVar.getResult().booleanValue()) {
-                    return g.this.pyf.k(c);
+                    return g.this.pyg.k(c);
                 }
                 return bolts.g.i(true);
             }
@@ -148,13 +148,13 @@ public class g {
     private com.facebook.imagepipeline.g.c a(ImageRequest imageRequest, @Nullable com.facebook.imagepipeline.g.c cVar) {
         if (cVar == null) {
             if (imageRequest.erb() == null) {
-                return this.pya;
+                return this.pyb;
             }
-            return new com.facebook.imagepipeline.g.b(this.pya, imageRequest.erb());
+            return new com.facebook.imagepipeline.g.b(this.pyb, imageRequest.erb());
         } else if (imageRequest.erb() == null) {
-            return new com.facebook.imagepipeline.g.b(this.pya, cVar);
+            return new com.facebook.imagepipeline.g.b(this.pyb, cVar);
         } else {
-            return new com.facebook.imagepipeline.g.b(this.pya, cVar, imageRequest.erb());
+            return new com.facebook.imagepipeline.g.b(this.pyb, cVar, imageRequest.erb());
         }
     }
 
@@ -170,6 +170,6 @@ public class g {
     }
 
     public com.facebook.imagepipeline.b.f euh() {
-        return this.pyg;
+        return this.pyh;
     }
 }

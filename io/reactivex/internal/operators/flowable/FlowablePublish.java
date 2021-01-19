@@ -17,12 +17,12 @@ import org.a.d;
 public final class FlowablePublish<T> extends io.reactivex.a.a<T> {
     final int bufferSize;
     final AtomicReference<PublishSubscriber<T>> current;
-    final g<T> qdR;
-    final org.a.b<T> qen;
+    final g<T> qdS;
+    final org.a.b<T> qeo;
 
     @Override // io.reactivex.g
     protected void a(org.a.c<? super T> cVar) {
-        this.qen.subscribe(cVar);
+        this.qeo.subscribe(cVar);
     }
 
     @Override // io.reactivex.a.a
@@ -43,7 +43,7 @@ public final class FlowablePublish<T> extends io.reactivex.a.a<T> {
         try {
             gVar.accept(publishSubscriber);
             if (z) {
-                this.qdR.a((j) publishSubscriber);
+                this.qdS.a((j) publishSubscriber);
             }
         } catch (Throwable th) {
             io.reactivex.exceptions.a.O(th);

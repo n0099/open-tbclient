@@ -17,9 +17,9 @@ public class a extends BaseAdapter {
     private ArrayList<MetaData> eTF;
     private TbCheckBox.a kHb;
     private final Context mContext;
-    private AtListActivity nYC;
-    private boolean nYE;
-    private b nYD = null;
+    private AtListActivity nYD;
+    private boolean nYF;
+    private b nYE = null;
     private ViewGroup mParent = null;
 
     /* loaded from: classes7.dex */
@@ -29,14 +29,14 @@ public class a extends BaseAdapter {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(b bVar) {
-        this.nYD = bVar;
+        this.nYE = bVar;
     }
 
     public a(AtListActivity atListActivity, boolean z) {
-        this.nYE = true;
-        this.nYC = atListActivity;
-        this.mContext = this.nYC.getPageContext().getContext();
-        this.nYE = z;
+        this.nYF = true;
+        this.nYD = atListActivity;
+        this.mContext = this.nYD.getPageContext().getContext();
+        this.nYF = z;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -98,21 +98,21 @@ public class a extends BaseAdapter {
         } else {
             c0901a = (C0901a) obj;
         }
-        if (this.nYD != null) {
-            this.nYD.a(c0901a.rootView, metaData);
+        if (this.nYE != null) {
+            this.nYE.a(c0901a.rootView, metaData);
         }
         String avater = metaData.getAvater();
         c0901a.hTx.setText(metaData.getName_show());
         c0901a.kHe.setTagData(metaData);
         c0901a.kGJ.setTag(avater);
-        if (this.nYE) {
+        if (this.nYF) {
             c0901a.kHe.setVisibility(0);
         } else {
             c0901a.kHe.setVisibility(8);
         }
         c0901a.kGJ.startLoad(avater, 12, false);
-        this.nYC.getPageContext().getLayoutMode().setNightMode(skinType == 1);
-        this.nYC.getPageContext().getLayoutMode().onModeChanged(c0901a.rootView);
+        this.nYD.getPageContext().getLayoutMode().setNightMode(skinType == 1);
+        this.nYD.getPageContext().getLayoutMode().onModeChanged(c0901a.rootView);
         return c0901a;
     }
 

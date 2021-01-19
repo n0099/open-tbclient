@@ -7,8 +7,9 @@ import java.io.IOException;
 import java.io.RandomAccessFile;
 import java.nio.channels.FileLock;
 import org.json.JSONObject;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes4.dex */
-abstract class ch {
+public abstract class ch {
 
     /* renamed from: a  reason: collision with root package name */
     boolean f5823a;

@@ -7,11 +7,11 @@ import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
 /* loaded from: classes14.dex */
 public class e<T> implements j<b<T>> {
-    private final List<j<b<T>>> ppM;
+    private final List<j<b<T>>> ppN;
 
     private e(List<j<b<T>>> list) {
         com.facebook.common.internal.g.checkArgument(!list.isEmpty(), "List of suppliers is empty!");
-        this.ppM = list;
+        this.ppN = list;
     }
 
     public static <T> e<T> gK(List<j<b<T>>> list) {
@@ -26,7 +26,7 @@ public class e<T> implements j<b<T>> {
     }
 
     public int hashCode() {
-        return this.ppM.hashCode();
+        return this.ppN.hashCode();
     }
 
     public boolean equals(Object obj) {
@@ -36,11 +36,11 @@ public class e<T> implements j<b<T>> {
         if (!(obj instanceof e)) {
             return false;
         }
-        return com.facebook.common.internal.f.equal(this.ppM, ((e) obj).ppM);
+        return com.facebook.common.internal.f.equal(this.ppN, ((e) obj).ppN);
     }
 
     public String toString() {
-        return com.facebook.common.internal.f.bb(this).I("list", this.ppM).toString();
+        return com.facebook.common.internal.f.bb(this).I("list", this.ppN).toString();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -48,8 +48,8 @@ public class e<T> implements j<b<T>> {
     /* loaded from: classes14.dex */
     public class a extends AbstractDataSource<T> {
         private int mIndex = 0;
-        private b<T> ppN = null;
         private b<T> ppO = null;
+        private b<T> ppP = null;
 
         public a() {
             if (!eqL()) {
@@ -81,10 +81,10 @@ public class e<T> implements j<b<T>> {
                 if (!super.apn()) {
                     return false;
                 }
-                b<T> bVar = this.ppN;
-                this.ppN = null;
-                b<T> bVar2 = this.ppO;
+                b<T> bVar = this.ppO;
                 this.ppO = null;
+                b<T> bVar2 = this.ppP;
+                this.ppP = null;
                 l(bVar2);
                 l(bVar);
                 return true;
@@ -105,10 +105,10 @@ public class e<T> implements j<b<T>> {
         @Nullable
         private synchronized j<b<T>> eqM() {
             j<b<T>> jVar;
-            if (isClosed() || this.mIndex >= e.this.ppM.size()) {
+            if (isClosed() || this.mIndex >= e.this.ppN.size()) {
                 jVar = null;
             } else {
-                List list = e.this.ppM;
+                List list = e.this.ppN;
                 int i = this.mIndex;
                 this.mIndex = i + 1;
                 jVar = (j) list.get(i);
@@ -121,7 +121,7 @@ public class e<T> implements j<b<T>> {
             if (isClosed()) {
                 z = false;
             } else {
-                this.ppN = bVar;
+                this.ppO = bVar;
                 z = true;
             }
             return z;
@@ -129,10 +129,10 @@ public class e<T> implements j<b<T>> {
 
         private synchronized boolean i(b<T> bVar) {
             boolean z;
-            if (isClosed() || bVar != this.ppN) {
+            if (isClosed() || bVar != this.ppO) {
                 z = false;
             } else {
-                this.ppN = null;
+                this.ppO = null;
                 z = true;
             }
             return z;
@@ -140,16 +140,16 @@ public class e<T> implements j<b<T>> {
 
         @Nullable
         private synchronized b<T> eqN() {
-            return this.ppO;
+            return this.ppP;
         }
 
         private void a(b<T> bVar, boolean z) {
             b<T> bVar2 = null;
             synchronized (this) {
-                if (bVar == this.ppN && bVar != this.ppO) {
-                    if (this.ppO == null || z) {
-                        bVar2 = this.ppO;
-                        this.ppO = bVar;
+                if (bVar == this.ppO && bVar != this.ppP) {
+                    if (this.ppP == null || z) {
+                        bVar2 = this.ppP;
+                        this.ppP = bVar;
                     }
                     l(bVar2);
                 }

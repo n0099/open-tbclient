@@ -66,7 +66,7 @@ public class d extends j {
                     String str = eVar.threadId;
                     String str2 = eVar.forumId;
                     String str3 = eVar.forumName;
-                    if (eVar.npO == 4) {
+                    if (eVar.npP == 4) {
                         FrsViewData cBN = d.this.jzc.cBN();
                         bz threadDataById = cBN.getThreadDataById(str);
                         cBN.removeThreadData(threadDataById);

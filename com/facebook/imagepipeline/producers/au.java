@@ -7,23 +7,23 @@ import javax.annotation.concurrent.GuardedBy;
 /* loaded from: classes3.dex */
 public class au<T> implements aj<T> {
     private final Executor mExecutor;
-    private final aj<T> pBf;
-    private final int pCX;
+    private final aj<T> pBg;
+    private final int pCY;
     @GuardedBy("this")
-    private final ConcurrentLinkedQueue<Pair<k<T>, ak>> pCZ = new ConcurrentLinkedQueue<>();
+    private final ConcurrentLinkedQueue<Pair<k<T>, ak>> pDa = new ConcurrentLinkedQueue<>();
     @GuardedBy("this")
-    private int pCY = 0;
+    private int pCZ = 0;
 
     static /* synthetic */ int b(au auVar) {
-        int i = auVar.pCY;
-        auVar.pCY = i - 1;
+        int i = auVar.pCZ;
+        auVar.pCZ = i - 1;
         return i;
     }
 
     public au(int i, Executor executor, aj<T> ajVar) {
-        this.pCX = i;
+        this.pCY = i;
         this.mExecutor = (Executor) com.facebook.common.internal.g.checkNotNull(executor);
-        this.pBf = (aj) com.facebook.common.internal.g.checkNotNull(ajVar);
+        this.pBg = (aj) com.facebook.common.internal.g.checkNotNull(ajVar);
     }
 
     @Override // com.facebook.imagepipeline.producers.aj
@@ -31,11 +31,11 @@ public class au<T> implements aj<T> {
         boolean z;
         akVar.ewQ().hm(akVar.getId(), "ThrottlingProducer");
         synchronized (this) {
-            if (this.pCY >= this.pCX) {
-                this.pCZ.add(Pair.create(kVar, akVar));
+            if (this.pCZ >= this.pCY) {
+                this.pDa.add(Pair.create(kVar, akVar));
                 z = true;
             } else {
-                this.pCY++;
+                this.pCZ++;
                 z = false;
             }
         }
@@ -46,7 +46,7 @@ public class au<T> implements aj<T> {
 
     void f(k<T> kVar, ak akVar) {
         akVar.ewQ().b(akVar.getId(), "ThrottlingProducer", null);
-        this.pBf.a(new a(kVar), akVar);
+        this.pBg.a(new a(kVar), akVar);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -79,7 +79,7 @@ public class au<T> implements aj<T> {
         private void edN() {
             final Pair pair;
             synchronized (au.this) {
-                pair = (Pair) au.this.pCZ.poll();
+                pair = (Pair) au.this.pDa.poll();
                 if (pair == null) {
                     au.b(au.this);
                 }

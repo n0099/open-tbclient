@@ -802,8 +802,8 @@ public class d implements com.baidu.tieba.play.operableVideoView.a {
             }
             this.mAM = true;
             if (!this.gxn.isPlaying()) {
-                TbCyberVideoView PN = TbVideoViewSet.dym().PN(this.mVideoUrl);
-                if (PN == null) {
+                TbCyberVideoView PO = TbVideoViewSet.dym().PO(this.mVideoUrl);
+                if (PO == null) {
                     this.gxn.dyj();
                     if (!StringUtils.isNull(this.gxn.getOriginUrl())) {
                         this.gxn = new TbCyberVideoView(this.mContext);
@@ -820,15 +820,15 @@ public class d implements com.baidu.tieba.play.operableVideoView.a {
                         }
                     }
                 } else {
-                    if (this.gxn == PN) {
-                        if (this.gxn.getParent() == null || this.gxn.getParent() != PN.getParent()) {
+                    if (this.gxn == PO) {
+                        if (this.gxn.getParent() == null || this.gxn.getParent() != PO.getParent()) {
                             this.gxn.dyj();
                             dyu();
                         }
                     } else {
                         this.gxn.dyj();
-                        PN.dyj();
-                        this.gxn = PN;
+                        PO.dyj();
+                        this.gxn = PO;
                         this.gxn.setTryUseViewInSet(true);
                         dyu();
                     }

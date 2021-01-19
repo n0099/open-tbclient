@@ -79,7 +79,7 @@ public final class FunAdSdk {
         if (funAdConfig.isUseCloudAdConfiguration()) {
             Context context = appContext;
             String appId = funAdConfig.getAppId();
-            bq.pFN = new a(funAdConfig);
+            bq.pFO = new a(funAdConfig);
             HandlerThread handlerThread = new HandlerThread("fun_ad_sdk_config");
             handlerThread.start();
             new Handler(handlerThread.getLooper()).postDelayed(new bc(context, appId), 10000L);

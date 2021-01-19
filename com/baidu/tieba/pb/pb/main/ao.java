@@ -42,7 +42,7 @@ public class ao {
         return lPI[new Random().nextInt(lPI.length)];
     }
 
-    public static String ON(String str) {
+    public static String OO(String str) {
         return TbadkCoreApplication.getInst().getString(R.string.chosen_pb_original_bar, new Object[]{UtilHelper.getFixedBarText(str, 7, false)});
     }
 

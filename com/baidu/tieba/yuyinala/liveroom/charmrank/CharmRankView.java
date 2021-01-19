@@ -11,7 +11,7 @@ import com.baidu.live.sdk.a;
 /* loaded from: classes10.dex */
 public class CharmRankView extends LinearLayout {
     private TextView akG;
-    private ImageView nXQ;
+    private ImageView nXR;
 
     public CharmRankView(Context context) {
         super(context);
@@ -25,7 +25,7 @@ public class CharmRankView extends LinearLayout {
 
     private void initView() {
         LayoutInflater.from(getContext()).inflate(a.g.yuyin_ala_liveroom_charm_rank_layout, this);
-        this.nXQ = (ImageView) findViewById(a.f.iv_icon);
+        this.nXR = (ImageView) findViewById(a.f.iv_icon);
         this.akG = (TextView) findViewById(a.f.tv_text);
     }
 

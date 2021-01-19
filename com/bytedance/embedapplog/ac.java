@@ -12,7 +12,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public abstract class ac implements Cloneable {
-    private static final SimpleDateFormat pcj = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.US);
+    private static final SimpleDateFormat pck = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.US);
 
     /* renamed from: a  reason: collision with root package name */
     public long f5774a = System.currentTimeMillis();
@@ -43,7 +43,7 @@ public abstract class ac implements Cloneable {
     protected abstract ac eQ(@NonNull JSONObject jSONObject);
 
     public static String a(long j) {
-        return pcj.format(new Date(j));
+        return pck.format(new Date(j));
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -97,7 +97,7 @@ public abstract class ac implements Cloneable {
         }
     }
 
-    public static ac Xu(String str) {
+    public static ac Xv(String str) {
         try {
             JSONObject jSONObject = new JSONObject(str);
             return ad.f5776a.get(jSONObject.optString("k_cls", "")).clone().eQ(jSONObject);

@@ -16,7 +16,7 @@ public class b extends com.baidu.tbadk.mvc.f.a<String, com.baidu.tbadk.mvc.d.b> 
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tbadk.mvc.f.e
-    /* renamed from: PQ */
+    /* renamed from: PR */
     public void aw(String str) {
         super.aw(str);
         this.aWY.setText(str);

@@ -7,7 +7,7 @@ public class g {
     private static boolean enabled = true;
     private static HashMap<String, Integer> kbd = new HashMap<>();
 
-    public static void Lq(String str) {
+    public static void Lr(String str) {
         if (!TextUtils.isEmpty(str)) {
             kbd.put(str, 0);
         }

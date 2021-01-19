@@ -62,7 +62,7 @@ public class QueryMatchEmotionModel extends BdBaseModel {
     public void a(String str, a aVar) {
         this.lUh = aVar;
         if (this.lUh != null) {
-            if (!x.isEmpty(OY(str))) {
+            if (!x.isEmpty(OZ(str))) {
                 this.lUh.n(str, lUi.get(str));
                 return;
             }
@@ -93,7 +93,7 @@ public class QueryMatchEmotionModel extends BdBaseModel {
         }
     }
 
-    private List<EmotionImageData> OY(String str) {
+    private List<EmotionImageData> OZ(String str) {
         if (lUi == null || !lUi.containsKey(str)) {
             return null;
         }

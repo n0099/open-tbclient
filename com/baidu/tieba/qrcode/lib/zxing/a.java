@@ -27,8 +27,8 @@ public class a {
         mGw.put(DecodeHintType.CHARACTER_SET, "utf-8");
     }
 
-    public static String Qg(String str) {
-        return K(Qh(str));
+    public static String Qh(String str) {
+        return K(Qi(str));
     }
 
     public static String K(Bitmap bitmap) {
@@ -61,7 +61,7 @@ public class a {
         }
     }
 
-    private static Bitmap Qh(String str) {
+    private static Bitmap Qi(String str) {
         try {
             BitmapFactory.Options options = new BitmapFactory.Options();
             options.inJustDecodeBounds = true;

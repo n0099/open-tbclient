@@ -27,26 +27,26 @@ public class d implements View.OnTouchListener, ViewTreeObserver.OnGlobalLayoutL
     private float mMaxScale;
     private float mMinScale;
     private ImageView.ScaleType mScaleType;
-    private int oVa;
-    private float oVb;
-    private boolean oVc;
+    private int oVb;
+    private float oVc;
     private boolean oVd;
-    private WeakReference<ImageView> oVe;
-    private com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.photoview.a.d oVf;
-    private final Matrix oVg;
+    private boolean oVe;
+    private WeakReference<ImageView> oVf;
+    private com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.photoview.a.d oVg;
     private final Matrix oVh;
-    private final RectF oVi;
-    private c oVj;
-    private InterfaceC0968d oVk;
-    private f oVl;
-    private e oVm;
-    private int oVn;
+    private final Matrix oVi;
+    private final RectF oVj;
+    private c oVk;
+    private InterfaceC0968d oVl;
+    private f oVm;
+    private e oVn;
     private int oVo;
     private int oVp;
     private int oVq;
-    private b oVr;
-    private int oVs;
-    private boolean oVt;
+    private int oVr;
+    private b oVs;
+    private int oVt;
+    private boolean oVu;
 
     /* loaded from: classes10.dex */
     public interface c {
@@ -135,20 +135,20 @@ public class d implements View.OnTouchListener, ViewTreeObserver.OnGlobalLayoutL
     }
 
     public d(ImageView imageView, boolean z) {
-        this.oVa = 200;
+        this.oVb = 200;
         this.mMinScale = 1.0f;
-        this.oVb = 1.75f;
+        this.oVc = 1.75f;
         this.mMaxScale = 3.0f;
-        this.oVc = true;
-        this.oVd = false;
-        this.oVg = new Matrix();
-        this.mDrawMatrix = new Matrix();
+        this.oVd = true;
+        this.oVe = false;
         this.oVh = new Matrix();
-        this.oVi = new RectF();
+        this.mDrawMatrix = new Matrix();
+        this.oVi = new Matrix();
+        this.oVj = new RectF();
         this.mMatrixValues = new float[9];
-        this.oVs = 2;
+        this.oVt = 2;
         this.mScaleType = ImageView.ScaleType.FIT_CENTER;
-        this.oVe = new WeakReference<>(imageView);
+        this.oVf = new WeakReference<>(imageView);
         imageView.setDrawingCacheEnabled(true);
         imageView.setOnTouchListener(this);
         ViewTreeObserver viewTreeObserver = imageView.getViewTreeObserver();
@@ -157,7 +157,7 @@ public class d implements View.OnTouchListener, ViewTreeObserver.OnGlobalLayoutL
         }
         g(imageView);
         if (!imageView.isInEditMode()) {
-            this.oVf = com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.photoview.a.f.a(imageView.getContext(), this);
+            this.oVg = com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.photoview.a.f.a(imageView.getContext(), this);
             this.mGestureDetector = new GestureDetector(imageView.getContext(), new GestureDetector.SimpleOnGestureListener() { // from class: com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.photoview.d.1
                 @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnGestureListener
                 public void onLongPress(MotionEvent motionEvent) {
@@ -180,12 +180,12 @@ public class d implements View.OnTouchListener, ViewTreeObserver.OnGlobalLayoutL
     }
 
     public void setOnScaleChangeListener(e eVar) {
-        this.oVm = eVar;
+        this.oVn = eVar;
     }
 
     public void cleanup() {
-        if (this.oVe != null) {
-            ImageView imageView = this.oVe.get();
+        if (this.oVf != null) {
+            ImageView imageView = this.oVf.get();
             if (imageView != null) {
                 ViewTreeObserver viewTreeObserver = imageView.getViewTreeObserver();
                 if (viewTreeObserver != null && viewTreeObserver.isAlive()) {
@@ -197,10 +197,10 @@ public class d implements View.OnTouchListener, ViewTreeObserver.OnGlobalLayoutL
             if (this.mGestureDetector != null) {
                 this.mGestureDetector.setOnDoubleTapListener(null);
             }
-            this.oVj = null;
             this.oVk = null;
             this.oVl = null;
-            this.oVe = null;
+            this.oVm = null;
+            this.oVf = null;
         }
     }
 
@@ -215,25 +215,25 @@ public class d implements View.OnTouchListener, ViewTreeObserver.OnGlobalLayoutL
         if (ejg == null || (drawable = ejg.getDrawable()) == null) {
             return null;
         }
-        this.oVi.set(0.0f, 0.0f, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
-        matrix.mapRect(this.oVi);
-        return this.oVi;
+        this.oVj.set(0.0f, 0.0f, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
+        matrix.mapRect(this.oVj);
+        return this.oVj;
     }
 
     public void setRotationTo(float f2) {
-        this.oVh.setRotate(f2 % 360.0f);
+        this.oVi.setRotate(f2 % 360.0f);
         eji();
     }
 
     public void setRotationBy(float f2) {
-        this.oVh.postRotate(f2 % 360.0f);
+        this.oVi.postRotate(f2 % 360.0f);
         eji();
     }
 
     public ImageView ejg() {
         ImageView imageView = null;
-        if (this.oVe != null) {
-            imageView = this.oVe.get();
+        if (this.oVf != null) {
+            imageView = this.oVf.get();
         }
         if (imageView == null) {
             cleanup();
@@ -247,7 +247,7 @@ public class d implements View.OnTouchListener, ViewTreeObserver.OnGlobalLayoutL
     }
 
     public float getMediumScale() {
-        return this.oVb;
+        return this.oVc;
     }
 
     public float getMaximumScale() {
@@ -255,7 +255,7 @@ public class d implements View.OnTouchListener, ViewTreeObserver.OnGlobalLayoutL
     }
 
     public float getScale() {
-        return (float) Math.sqrt(((float) Math.pow(a(this.oVh, 0), 2.0d)) + ((float) Math.pow(a(this.oVh, 3), 2.0d)));
+        return (float) Math.sqrt(((float) Math.pow(a(this.oVi, 0), 2.0d)) + ((float) Math.pow(a(this.oVi, 3), 2.0d)));
     }
 
     public ImageView.ScaleType getScaleType() {
@@ -264,16 +264,16 @@ public class d implements View.OnTouchListener, ViewTreeObserver.OnGlobalLayoutL
 
     @Override // com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.photoview.a.e
     public void onDrag(float f2, float f3) {
-        if (!this.oVf.ejn()) {
+        if (!this.oVg.ejn()) {
             if (DEBUG) {
                 com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.photoview.b.a.ejo().d("PhotoViewAttacher", String.format("onDrag: dx: %.2f. dy: %.2f", Float.valueOf(f2), Float.valueOf(f3)));
             }
             ImageView ejg = ejg();
-            this.oVh.postTranslate(f2, f3);
+            this.oVi.postTranslate(f2, f3);
             eji();
             ViewParent parent = ejg.getParent();
-            if (this.oVc && !this.oVf.ejn() && !this.oVd) {
-                if ((this.oVs == 2 || ((this.oVs == 0 && f2 >= 1.0f) || (this.oVs == 1 && f2 <= -1.0f))) && parent != null) {
+            if (this.oVd && !this.oVg.ejn() && !this.oVe) {
+                if ((this.oVt == 2 || ((this.oVt == 0 && f2 >= 1.0f) || (this.oVt == 1 && f2 <= -1.0f))) && parent != null) {
                     parent.requestDisallowInterceptTouchEvent(false);
                 }
             } else if (parent != null) {
@@ -288,26 +288,26 @@ public class d implements View.OnTouchListener, ViewTreeObserver.OnGlobalLayoutL
             com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.photoview.b.a.ejo().d("PhotoViewAttacher", "onFling. sX: " + f2 + " sY: " + f3 + " Vx: " + f4 + " Vy: " + f5);
         }
         ImageView ejg = ejg();
-        this.oVr = new b(ejg.getContext());
-        this.oVr.O(h(ejg), i(ejg), (int) f4, (int) f5);
-        ejg.post(this.oVr);
+        this.oVs = new b(ejg.getContext());
+        this.oVs.O(h(ejg), i(ejg), (int) f4, (int) f5);
+        ejg.post(this.oVs);
     }
 
     @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
     public void onGlobalLayout() {
         ImageView ejg = ejg();
         if (ejg != null) {
-            if (this.oVt) {
+            if (this.oVu) {
                 int top = ejg.getTop();
                 int right = ejg.getRight();
                 int bottom = ejg.getBottom();
                 int left = ejg.getLeft();
-                if (top != this.oVn || bottom != this.oVp || left != this.oVq || right != this.oVo) {
+                if (top != this.oVo || bottom != this.oVq || left != this.oVr || right != this.oVp) {
                     q(ejg.getDrawable());
-                    this.oVn = top;
-                    this.oVo = right;
-                    this.oVp = bottom;
-                    this.oVq = left;
+                    this.oVo = top;
+                    this.oVp = right;
+                    this.oVq = bottom;
+                    this.oVr = left;
                     return;
                 }
                 return;
@@ -322,10 +322,10 @@ public class d implements View.OnTouchListener, ViewTreeObserver.OnGlobalLayoutL
             com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.photoview.b.a.ejo().d("PhotoViewAttacher", String.format("onScale: scale: %.2f. fX: %.2f. fY: %.2f", Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)));
         }
         if (getScale() < this.mMaxScale || f2 < 1.0f) {
-            if (this.oVm != null) {
-                this.oVm.j(f2, f3, f4);
+            if (this.oVn != null) {
+                this.oVn.j(f2, f3, f4);
             }
-            this.oVh.postScale(f2, f2, f3, f4);
+            this.oVi.postScale(f2, f2, f3, f4);
             eji();
         }
     }
@@ -336,7 +336,7 @@ public class d implements View.OnTouchListener, ViewTreeObserver.OnGlobalLayoutL
         RectF displayRect;
         boolean z;
         boolean z2 = false;
-        if (this.oVt && f((ImageView) view)) {
+        if (this.oVu && f((ImageView) view)) {
             ViewParent parent = view.getParent();
             switch (motionEvent.getAction()) {
                 case 0:
@@ -361,16 +361,16 @@ public class d implements View.OnTouchListener, ViewTreeObserver.OnGlobalLayoutL
                     z = false;
                     break;
             }
-            if (this.oVf != null) {
-                boolean ejn = this.oVf.ejn();
-                boolean isDragging = this.oVf.isDragging();
-                z = this.oVf.onTouchEvent(motionEvent);
-                boolean z3 = (ejn || this.oVf.ejn()) ? false : true;
-                boolean z4 = (isDragging || this.oVf.isDragging()) ? false : true;
+            if (this.oVg != null) {
+                boolean ejn = this.oVg.ejn();
+                boolean isDragging = this.oVg.isDragging();
+                z = this.oVg.onTouchEvent(motionEvent);
+                boolean z3 = (ejn || this.oVg.ejn()) ? false : true;
+                boolean z4 = (isDragging || this.oVg.isDragging()) ? false : true;
                 if (z3 && z4) {
                     z2 = true;
                 }
-                this.oVd = z2;
+                this.oVe = z2;
             }
             if (this.mGestureDetector == null || !this.mGestureDetector.onTouchEvent(motionEvent)) {
                 return z;
@@ -381,28 +381,28 @@ public class d implements View.OnTouchListener, ViewTreeObserver.OnGlobalLayoutL
     }
 
     public void setAllowParentInterceptOnEdge(boolean z) {
-        this.oVc = z;
+        this.oVd = z;
     }
 
     public void setMinimumScale(float f2) {
-        i(f2, this.oVb, this.mMaxScale);
+        i(f2, this.oVc, this.mMaxScale);
         this.mMinScale = f2;
     }
 
     public void setMediumScale(float f2) {
         i(this.mMinScale, f2, this.mMaxScale);
-        this.oVb = f2;
+        this.oVc = f2;
     }
 
     public void setMaximumScale(float f2) {
-        i(this.mMinScale, this.oVb, f2);
+        i(this.mMinScale, this.oVc, f2);
         this.mMaxScale = f2;
     }
 
     public void setScaleLevels(float f2, float f3, float f4) {
         i(f2, f3, f4);
         this.mMinScale = f2;
-        this.oVb = f3;
+        this.oVc = f3;
         this.mMaxScale = f4;
     }
 
@@ -411,23 +411,23 @@ public class d implements View.OnTouchListener, ViewTreeObserver.OnGlobalLayoutL
     }
 
     public void setOnMatrixChangeListener(c cVar) {
-        this.oVj = cVar;
+        this.oVk = cVar;
     }
 
     public void setOnPhotoTapListener(InterfaceC0968d interfaceC0968d) {
-        this.oVk = interfaceC0968d;
+        this.oVl = interfaceC0968d;
     }
 
     public InterfaceC0968d getOnPhotoTapListener() {
-        return this.oVk;
+        return this.oVl;
     }
 
     public void setOnViewTapListener(f fVar) {
-        this.oVl = fVar;
+        this.oVm = fVar;
     }
 
     public f getOnViewTapListener() {
-        return this.oVl;
+        return this.oVm;
     }
 
     public void setScale(float f2) {
@@ -449,7 +449,7 @@ public class d implements View.OnTouchListener, ViewTreeObserver.OnGlobalLayoutL
             } else if (z) {
                 ejg.post(new a(getScale(), f2, f3, f4));
             } else {
-                this.oVh.setScale(f2, f2, f3, f4);
+                this.oVi.setScale(f2, f2, f3, f4);
                 eji();
             }
         }
@@ -463,14 +463,14 @@ public class d implements View.OnTouchListener, ViewTreeObserver.OnGlobalLayoutL
     }
 
     public void setZoomable(boolean z) {
-        this.oVt = z;
+        this.oVu = z;
         update();
     }
 
     public void update() {
         ImageView ejg = ejg();
         if (ejg != null) {
-            if (this.oVt) {
+            if (this.oVu) {
                 g(ejg);
                 q(ejg.getDrawable());
                 return;
@@ -484,15 +484,15 @@ public class d implements View.OnTouchListener, ViewTreeObserver.OnGlobalLayoutL
     }
 
     public Matrix getDrawMatrix() {
-        this.mDrawMatrix.set(this.oVg);
-        this.mDrawMatrix.postConcat(this.oVh);
+        this.mDrawMatrix.set(this.oVh);
+        this.mDrawMatrix.postConcat(this.oVi);
         return this.mDrawMatrix;
     }
 
     private void ejh() {
-        if (this.oVr != null) {
-            this.oVr.ejh();
-            this.oVr = null;
+        if (this.oVs != null) {
+            this.oVs.ejh();
+            this.oVs = null;
         }
     }
 
@@ -548,17 +548,17 @@ public class d implements View.OnTouchListener, ViewTreeObserver.OnGlobalLayoutL
                         f3 = ((h - width) / 2.0f) - d.left;
                         break;
                 }
-                this.oVs = 2;
+                this.oVt = 2;
             } else if (d.left > 0.0f) {
-                this.oVs = 0;
+                this.oVt = 0;
                 f3 = -d.left;
             } else if (d.right < h) {
                 f3 = h - d.right;
-                this.oVs = 1;
+                this.oVt = 1;
             } else {
-                this.oVs = -1;
+                this.oVt = -1;
             }
-            this.oVh.postTranslate(f3, f2);
+            this.oVi.postTranslate(f3, f2);
             return true;
         }
         return false;
@@ -576,7 +576,7 @@ public class d implements View.OnTouchListener, ViewTreeObserver.OnGlobalLayoutL
         if (i < 0) {
             i = 200;
         }
-        this.oVa = i;
+        this.oVb = i;
     }
 
     private float a(Matrix matrix, int i) {
@@ -588,7 +588,7 @@ public class d implements View.OnTouchListener, ViewTreeObserver.OnGlobalLayoutL
     }
 
     private void ejl() {
-        this.oVh.reset();
+        this.oVi.reset();
         e(getDrawMatrix());
         ejk();
     }
@@ -600,8 +600,8 @@ public class d implements View.OnTouchListener, ViewTreeObserver.OnGlobalLayoutL
         if (ejg != null) {
             ejj();
             ejg.setImageMatrix(matrix);
-            if (this.oVj != null && (d = d(matrix)) != null) {
-                this.oVj.a(d);
+            if (this.oVk != null && (d = d(matrix)) != null) {
+                this.oVk.a(d);
             }
         }
     }
@@ -613,34 +613,34 @@ public class d implements View.OnTouchListener, ViewTreeObserver.OnGlobalLayoutL
             float i = i(ejg);
             int intrinsicWidth = drawable.getIntrinsicWidth();
             int intrinsicHeight = drawable.getIntrinsicHeight();
-            this.oVg.reset();
+            this.oVh.reset();
             float f2 = h / intrinsicWidth;
             float f3 = i / intrinsicHeight;
             if (this.mScaleType == ImageView.ScaleType.CENTER) {
-                this.oVg.postTranslate((h - intrinsicWidth) / 2.0f, (i - intrinsicHeight) / 2.0f);
+                this.oVh.postTranslate((h - intrinsicWidth) / 2.0f, (i - intrinsicHeight) / 2.0f);
             } else if (this.mScaleType == ImageView.ScaleType.CENTER_CROP) {
                 float max = Math.max(f2, f3);
-                this.oVg.postScale(max, max);
-                this.oVg.postTranslate((h - (intrinsicWidth * max)) / 2.0f, (i - (intrinsicHeight * max)) / 2.0f);
+                this.oVh.postScale(max, max);
+                this.oVh.postTranslate((h - (intrinsicWidth * max)) / 2.0f, (i - (intrinsicHeight * max)) / 2.0f);
             } else if (this.mScaleType == ImageView.ScaleType.CENTER_INSIDE) {
                 float min = Math.min(1.0f, Math.min(f2, f3));
-                this.oVg.postScale(min, min);
-                this.oVg.postTranslate((h - (intrinsicWidth * min)) / 2.0f, (i - (intrinsicHeight * min)) / 2.0f);
+                this.oVh.postScale(min, min);
+                this.oVh.postTranslate((h - (intrinsicWidth * min)) / 2.0f, (i - (intrinsicHeight * min)) / 2.0f);
             } else {
                 RectF rectF = new RectF(0.0f, 0.0f, intrinsicWidth, intrinsicHeight);
                 RectF rectF2 = new RectF(0.0f, 0.0f, h, i);
                 switch (AnonymousClass2.$SwitchMap$android$widget$ImageView$ScaleType[this.mScaleType.ordinal()]) {
                     case 2:
-                        this.oVg.setRectToRect(rectF, rectF2, Matrix.ScaleToFit.START);
+                        this.oVh.setRectToRect(rectF, rectF2, Matrix.ScaleToFit.START);
                         break;
                     case 3:
-                        this.oVg.setRectToRect(rectF, rectF2, Matrix.ScaleToFit.END);
+                        this.oVh.setRectToRect(rectF, rectF2, Matrix.ScaleToFit.END);
                         break;
                     case 4:
-                        this.oVg.setRectToRect(rectF, rectF2, Matrix.ScaleToFit.CENTER);
+                        this.oVh.setRectToRect(rectF, rectF2, Matrix.ScaleToFit.CENTER);
                         break;
                     case 5:
-                        this.oVg.setRectToRect(rectF, rectF2, Matrix.ScaleToFit.FILL);
+                        this.oVh.setRectToRect(rectF, rectF2, Matrix.ScaleToFit.FILL);
                         break;
                 }
             }
@@ -666,16 +666,16 @@ public class d implements View.OnTouchListener, ViewTreeObserver.OnGlobalLayoutL
     /* loaded from: classes10.dex */
     public class a implements Runnable {
         private final long mStartTime = System.currentTimeMillis();
-        private final float oVv;
         private final float oVw;
         private final float oVx;
         private final float oVy;
+        private final float oVz;
 
         public a(float f, float f2, float f3, float f4) {
-            this.oVv = f3;
-            this.oVw = f4;
-            this.oVx = f;
-            this.oVy = f2;
+            this.oVw = f3;
+            this.oVx = f4;
+            this.oVy = f;
+            this.oVz = f2;
         }
 
         @Override // java.lang.Runnable
@@ -683,9 +683,9 @@ public class d implements View.OnTouchListener, ViewTreeObserver.OnGlobalLayoutL
             ImageView ejg = d.this.ejg();
             if (ejg != null) {
                 float ejm = ejm();
-                float f = this.oVx + ((this.oVy - this.oVx) * ejm);
+                float f = this.oVy + ((this.oVz - this.oVy) * ejm);
                 if (d.this.getScale() > 0.0f) {
-                    d.this.onScale(f / d.this.getScale(), this.oVv, this.oVw);
+                    d.this.onScale(f / d.this.getScale(), this.oVw, this.oVx);
                     if (ejm < 1.0f) {
                         com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.photoview.a.postOnAnimation(ejg, this);
                     }
@@ -694,7 +694,7 @@ public class d implements View.OnTouchListener, ViewTreeObserver.OnGlobalLayoutL
         }
 
         private float ejm() {
-            return d.sInterpolator.getInterpolation(Math.min(1.0f, (((float) (System.currentTimeMillis() - this.mStartTime)) * 1.0f) / d.this.oVa));
+            return d.sInterpolator.getInterpolation(Math.min(1.0f, (((float) (System.currentTimeMillis() - this.mStartTime)) * 1.0f) / d.this.oVb));
         }
     }
 
@@ -703,17 +703,17 @@ public class d implements View.OnTouchListener, ViewTreeObserver.OnGlobalLayoutL
     public class b implements Runnable {
         private int bJa;
         private int mCurrentX;
-        private final com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.photoview.c.d oVz;
+        private final com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.photoview.c.d oVA;
 
         public b(Context context) {
-            this.oVz = com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.photoview.c.d.hB(context);
+            this.oVA = com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.photoview.c.d.hB(context);
         }
 
         public void ejh() {
             if (d.DEBUG) {
                 com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.photoview.b.a.ejo().d("PhotoViewAttacher", "Cancel Fling");
             }
-            this.oVz.AB(true);
+            this.oVA.AB(true);
         }
 
         public void O(int i, int i2, int i3, int i4) {
@@ -745,7 +745,7 @@ public class d implements View.OnTouchListener, ViewTreeObserver.OnGlobalLayoutL
                     com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.photoview.b.a.ejo().d("PhotoViewAttacher", "fling. StartX:" + round + " StartY:" + round2 + " MaxX:" + i5 + " MaxY:" + i7);
                 }
                 if (round != i5 || round2 != i7) {
-                    this.oVz.fling(round, round2, i3, i4, i6, i5, i8, i7, 0, 0);
+                    this.oVA.fling(round, round2, i3, i4, i6, i5, i8, i7, 0, 0);
                 }
             }
         }
@@ -753,13 +753,13 @@ public class d implements View.OnTouchListener, ViewTreeObserver.OnGlobalLayoutL
         @Override // java.lang.Runnable
         public void run() {
             ImageView ejg;
-            if (!this.oVz.isFinished() && (ejg = d.this.ejg()) != null && this.oVz.computeScrollOffset()) {
-                int currX = this.oVz.getCurrX();
-                int currY = this.oVz.getCurrY();
+            if (!this.oVA.isFinished() && (ejg = d.this.ejg()) != null && this.oVA.computeScrollOffset()) {
+                int currX = this.oVA.getCurrX();
+                int currY = this.oVA.getCurrY();
                 if (d.DEBUG) {
                     com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.photoview.b.a.ejo().d("PhotoViewAttacher", "fling run(). CurrentX:" + this.mCurrentX + " CurrentY:" + this.bJa + " NewX:" + currX + " NewY:" + currY);
                 }
-                d.this.oVh.postTranslate(this.mCurrentX - currX, this.bJa - currY);
+                d.this.oVi.postTranslate(this.mCurrentX - currX, this.bJa - currY);
                 d.this.e(d.this.getDrawMatrix());
                 this.mCurrentX = currX;
                 this.bJa = currY;

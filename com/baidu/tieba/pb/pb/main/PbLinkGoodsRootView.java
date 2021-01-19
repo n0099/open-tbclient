@@ -233,10 +233,10 @@ public class PbLinkGoodsRootView extends RelativeLayout {
                     });
                     if (!(PbLinkGoodsRootView.this.mData.get(i) instanceof PbLinkData) || PbLinkGoodsRootView.this.mData.get(i) == null) {
                         if (PbLinkGoodsRootView.this.mData.get(i) instanceof PbGoodsData) {
-                            PbLinkGoodsRootView.this.bH("c13961", 2);
+                            PbLinkGoodsRootView.this.bI("c13961", 2);
                         }
                     } else if (((PbLinkData) PbLinkGoodsRootView.this.mData.get(i)).urlType == 2) {
-                        PbLinkGoodsRootView.this.bH("c13961", 1);
+                        PbLinkGoodsRootView.this.bI("c13961", 1);
                     }
                 }
             }
@@ -260,7 +260,7 @@ public class PbLinkGoodsRootView extends RelativeLayout {
                     be.bsB().b(tbPageContextSupport.getPageContext(), new String[]{"http://tieba.baidu.com/mo/q/checkurl?url=" + com.baidu.adp.lib.util.k.getUrlEncode(pbLinkData.linkUrl)});
                 }
                 if (pbLinkData.urlType == 2) {
-                    bH("c13962", 1);
+                    bI("c13962", 1);
                 }
             }
         } else if (cVar instanceof PbGoodsData) {
@@ -282,7 +282,7 @@ public class PbLinkGoodsRootView extends RelativeLayout {
                 } else {
                     be.bsB().b(tbPageContextSupport2.getPageContext(), new String[]{"http://tieba.baidu.com/mo/q/checkurl?url=" + com.baidu.adp.lib.util.k.getUrlEncode(pbGoodsData.goodsUrlH5)});
                 }
-                bH("c13962", 2);
+                bI("c13962", 2);
             }
         }
     }
@@ -300,7 +300,7 @@ public class PbLinkGoodsRootView extends RelativeLayout {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bH(String str, int i) {
+    public void bI(String str, int i) {
         if (this.ale != null) {
             TiebaStatic.log(new com.baidu.tbadk.core.util.aq(str).an("obj_type", i).w("fid", this.ale.getFid()).dW("fname", this.ale.bnB()).dW("tid", this.ale.getTid()));
         }

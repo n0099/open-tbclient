@@ -68,7 +68,7 @@ public class UegTbJsBridge_Proxy extends a {
             while (it.hasNext()) {
                 b next = it.next();
                 c cVar2 = new c();
-                cVar2.Sj(next.getName());
+                cVar2.Sk(next.getName());
                 cVar2.setStatus(cVar.getStatus());
                 cVar2.setMessage(cVar.getMessage());
                 cVar2.setData(cVar.getData());

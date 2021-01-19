@@ -190,24 +190,24 @@ public class e extends com.baidu.adp.base.d<ChatAggregationFragment> implements 
             @Override // android.widget.AdapterView.OnItemClickListener
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
                 if (i >= 0) {
-                    ImMessageCenterShowItemData Cs = e.this.kIO.getItem(i);
+                    ImMessageCenterShowItemData Cr = e.this.kIO.getItem(i);
                     TiebaStatic.eventStat(e.this.kIJ.getPageContext().getPageActivity(), "list_to_chat", "chatlistclick", 1, new Object[0]);
                     aq aqVar = new aq("c13720");
                     aqVar.w("uid", TbadkApplication.getCurrentAccountId());
-                    String ownerName = Cs.getOwnerName();
+                    String ownerName = Cr.getOwnerName();
                     if (TextUtils.isEmpty(ownerName)) {
-                        e(Cs);
+                        e(Cr);
                         aqVar.an("obj_type", 6);
                     } else if (ownerName.equals("1")) {
                         if (com.baidu.tieba.imMessageCenter.im.chat.notify.a.a(e.this.kIJ.getPageContext().getOrignalPage(), GroupChatActivityConfig.class)) {
                             TiebaStatic.eventStat(e.this.kIJ.getPageContext().getContext(), "chat_list_to_group", "click", 1, new Object[0]);
-                            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new GroupChatActivityConfig(e.this.kIJ.getPageContext().getPageActivity(), com.baidu.adp.lib.f.b.toLong(Cs.getFriendId(), 0L), Cs.getFriendName(), 0L, "msg_lstb")));
+                            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new GroupChatActivityConfig(e.this.kIJ.getPageContext().getPageActivity(), com.baidu.adp.lib.f.b.toLong(Cr.getFriendId(), 0L), Cr.getFriendName(), 0L, "msg_lstb")));
                         } else {
                             return;
                         }
-                    } else if (Cs.getOwnerName().equals("2")) {
+                    } else if (Cr.getOwnerName().equals("2")) {
                         if (com.baidu.tieba.imMessageCenter.im.chat.notify.a.a(e.this.kIJ.getPageContext().getOrignalPage(), (int) CmdConfigCustom.IM_VALIDATE_ACTIVITY_START)) {
-                            d(Cs);
+                            d(Cr);
                             aqVar.an("obj_type", 7);
                             if (com.baidu.tbadk.coreExtra.messageCenter.b.bxj().bxF() != null) {
                                 com.baidu.tbadk.coreExtra.messageCenter.b.bxj().bxF().setUnReadGroupValidate(0);
@@ -216,9 +216,9 @@ public class e extends com.baidu.adp.base.d<ChatAggregationFragment> implements 
                         } else {
                             return;
                         }
-                    } else if (Cs.getOwnerName().equals("3")) {
+                    } else if (Cr.getOwnerName().equals("3")) {
                         if (com.baidu.tieba.imMessageCenter.im.chat.notify.a.a(e.this.kIJ.getPageContext().getOrignalPage(), (int) CmdConfigCustom.IM_UPDATES_ACTIVITY_START)) {
-                            d(Cs);
+                            d(Cr);
                             if (com.baidu.tbadk.coreExtra.messageCenter.b.bxj().bxF() != null) {
                                 com.baidu.tbadk.coreExtra.messageCenter.b.bxj().bxF().setUnReadGroupUpdates(0);
                             }
@@ -231,8 +231,8 @@ public class e extends com.baidu.adp.base.d<ChatAggregationFragment> implements 
                         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new OfficialBarFeedActivityConfig(e.this.kIJ.getPageContext().getPageActivity())));
                     } else if (ownerName.equals("8")) {
                         if (com.baidu.tieba.imMessageCenter.im.chat.notify.a.a(e.this.kIJ.getPageContext().getOrignalPage(), (int) CmdConfigCustom.START_OFFICIAL_BAR_CHAT)) {
-                            long j2 = com.baidu.adp.lib.f.b.toLong(Cs.getFriendId(), 0L);
-                            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_OFFICIAL_BAR_CHAT, new OfficalBarChatActivityConfig(e.this.kIJ.getPageContext().getPageActivity(), j2, Cs.getFriendNameShow(), Cs.getFriendPortrait(), 0, Cs.getUserType())));
+                            long j2 = com.baidu.adp.lib.f.b.toLong(Cr.getFriendId(), 0L);
+                            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_OFFICIAL_BAR_CHAT, new OfficalBarChatActivityConfig(e.this.kIJ.getPageContext().getPageActivity(), j2, Cr.getFriendNameShow(), Cr.getFriendPortrait(), 0, Cr.getUserType())));
                             if ("801001117".equals(String.valueOf(j2))) {
                                 TiebaStatic.log(new aq("c14049").dW("uid", TbadkCoreApplication.getCurrentAccount()));
                             } else if ("3222425470".equals(String.valueOf(j2))) {
@@ -247,19 +247,19 @@ public class e extends com.baidu.adp.base.d<ChatAggregationFragment> implements 
                         aqVar.an("obj_type", 6);
                         return;
                     } else {
-                        e(Cs);
+                        e(Cr);
                         aqVar.an("obj_type", 6);
                     }
-                    if (!TextUtils.isEmpty(Cs.getFriendName())) {
-                        if ("贴吧热榜".equals(Cs.getFriendName())) {
+                    if (!TextUtils.isEmpty(Cr.getFriendName())) {
+                        if ("贴吧热榜".equals(Cr.getFriendName())) {
                             aqVar.an("obj_type", 8);
-                        } else if ("贴吧荣誉墙".equals(Cs.getFriendName())) {
+                        } else if ("贴吧荣誉墙".equals(Cr.getFriendName())) {
                             aqVar.an("obj_type", 9);
-                        } else if ("贴吧精选".equals(Cs.getFriendName())) {
+                        } else if ("贴吧精选".equals(Cr.getFriendName())) {
                             aqVar.an("obj_type", 10);
-                        } else if ("贴吧活动".equals(Cs.getFriendName())) {
+                        } else if ("贴吧活动".equals(Cr.getFriendName())) {
                             aqVar.an("obj_type", 4);
-                        } else if ("吧广播".equals(Cs.getFriendName())) {
+                        } else if ("吧广播".equals(Cr.getFriendName())) {
                             aqVar.an("obj_type", 5);
                         }
                     }
@@ -274,15 +274,15 @@ public class e extends com.baidu.adp.base.d<ChatAggregationFragment> implements 
                         if (customMessage != null && imMessageCenterShowItemData != null) {
                             imMessageCenterShowItemData.setUnReadCount(0);
                             if (imMessageCenterShowItemData.getOwnerName().equals("2")) {
-                                com.baidu.tieba.im.db.d.cTv().LT("apply_join_group");
+                                com.baidu.tieba.im.db.d.cTv().LU("apply_join_group");
                             } else if (imMessageCenterShowItemData.getOwnerName().equals("3")) {
-                                com.baidu.tieba.im.db.d.cTv().LT("group_intro_change");
-                                com.baidu.tieba.im.db.d.cTv().LT("group_name_change");
-                                com.baidu.tieba.im.db.d.cTv().LT("group_notice_change");
-                                com.baidu.tieba.im.db.d.cTv().LT("group_level_up");
-                                com.baidu.tieba.im.db.d.cTv().LT("dismiss_group");
-                                com.baidu.tieba.im.db.d.cTv().LT("kick_out");
-                                com.baidu.tieba.im.db.d.cTv().LT("group_activitys_change");
+                                com.baidu.tieba.im.db.d.cTv().LU("group_intro_change");
+                                com.baidu.tieba.im.db.d.cTv().LU("group_name_change");
+                                com.baidu.tieba.im.db.d.cTv().LU("group_notice_change");
+                                com.baidu.tieba.im.db.d.cTv().LU("group_level_up");
+                                com.baidu.tieba.im.db.d.cTv().LU("dismiss_group");
+                                com.baidu.tieba.im.db.d.cTv().LU("kick_out");
+                                com.baidu.tieba.im.db.d.cTv().LU("group_activitys_change");
                             }
                         }
                         return null;
@@ -820,7 +820,7 @@ public class e extends com.baidu.adp.base.d<ChatAggregationFragment> implements 
             com.baidu.tbadk.coreExtra.messageCenter.b.bxj().bxx();
             com.baidu.tbadk.coreExtra.messageCenter.b.bxj().setMsgAtme(0);
             this.kJl = 0;
-            Dd(this.kJl);
+            Dc(this.kJl);
             TiebaStatic.log("c12925");
             TiebaStatic.eventStat(getPageContext().getPageActivity(), "msg_atme_tab_click", "click", 1, new Object[0]);
             aqVar.an("obj_type", 1);
@@ -829,21 +829,21 @@ public class e extends com.baidu.adp.base.d<ChatAggregationFragment> implements 
             com.baidu.tbadk.coreExtra.messageCenter.b.bxj().bxy();
             com.baidu.tbadk.coreExtra.messageCenter.b.bxj().qn(0);
             this.kJm = 0;
-            Dg(this.kJm);
+            Df(this.kJm);
             TiebaStatic.log("c12926");
             aqVar.an("obj_type", 2);
         } else if (view == this.kJd) {
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new ReplyMeActivityConfig(getPageContext().getPageActivity())));
             com.baidu.tbadk.coreExtra.messageCenter.b.bxj().bxw();
             com.baidu.tbadk.coreExtra.messageCenter.b.bxj().setMsgReplyme(0);
-            De(0);
+            Dd(0);
         } else if (view == this.kJh) {
             com.baidu.tieba.p.a.dCM().h(2, false, true);
             TiebaStatic.log(new aq("c12523").an("obj_locate", 6));
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PersonListActivityConfig(this.mContext.getPageActivity(), false, TbadkCoreApplication.getCurrentAccount(), 0)));
             com.baidu.tbadk.coreExtra.messageCenter.b.bxj().bxz();
             com.baidu.tbadk.coreExtra.messageCenter.b.bxj().setMsgFans(0);
-            Df(0);
+            De(0);
         }
         TiebaStatic.log(aqVar);
     }
@@ -852,14 +852,14 @@ public class e extends com.baidu.adp.base.d<ChatAggregationFragment> implements 
         if (newsNotifyMessage != null) {
             this.kJl = newsNotifyMessage.getMsgAtme();
             this.kJm = newsNotifyMessage.getMsgAgree();
-            Dd(this.kJl);
-            Dg(this.kJm);
-            Df(newsNotifyMessage.getMsgFans());
-            De(newsNotifyMessage.getMsgReplyme());
+            Dc(this.kJl);
+            Df(this.kJm);
+            De(newsNotifyMessage.getMsgFans());
+            Dd(newsNotifyMessage.getMsgReplyme());
         }
     }
 
-    private void Dd(int i) {
+    private void Dc(int i) {
         if (i > 0) {
             if (com.baidu.tbadk.coreExtra.messageCenter.d.bxM().bxP() == 0) {
                 i = 0;
@@ -876,7 +876,7 @@ public class e extends com.baidu.adp.base.d<ChatAggregationFragment> implements 
         this.kIY.setVisibility(8);
     }
 
-    private void De(int i) {
+    private void Dd(int i) {
         if (i > 0) {
             if (com.baidu.tbadk.coreExtra.messageCenter.d.bxM().bxP() == 0) {
                 i = 0;
@@ -893,7 +893,7 @@ public class e extends com.baidu.adp.base.d<ChatAggregationFragment> implements 
         this.kJg.setVisibility(8);
     }
 
-    private void Df(int i) {
+    private void De(int i) {
         if (i > 0) {
             if (com.baidu.tbadk.coreExtra.messageCenter.d.bxM().bxP() == 0) {
                 i = 0;
@@ -910,7 +910,7 @@ public class e extends com.baidu.adp.base.d<ChatAggregationFragment> implements 
         this.kJk.setVisibility(8);
     }
 
-    private void Dg(int i) {
+    private void Df(int i) {
         if (i > 0) {
             if (com.baidu.tbadk.coreExtra.messageCenter.d.bxM().bxP() == 0) {
                 i = 0;

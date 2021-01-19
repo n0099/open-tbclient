@@ -54,12 +54,12 @@ public class PersonCardActivity extends BaseFragmentActivity {
     private boolean hQn;
     private String liveId;
     private String metaKey;
-    private PersonCardViewNew oCm;
-    private Intent oCn;
-    private String oCo;
-    private bv oCp;
+    private PersonCardViewNew oCn;
+    private Intent oCo;
+    private String oCp;
     private bv oCq;
-    private a oCr;
+    private bv oCr;
+    private a oCs;
     private String otherParams;
     private String portrait;
     private String roomId;
@@ -77,8 +77,8 @@ public class PersonCardActivity extends BaseFragmentActivity {
                     str = "";
                 }
                 PersonCardActivity.this.otherParams = str;
-                if (PersonCardActivity.this.oCm != null) {
-                    PersonCardActivity.this.oCm.setOtherParams(PersonCardActivity.this.otherParams);
+                if (PersonCardActivity.this.oCn != null) {
+                    PersonCardActivity.this.oCn.setOtherParams(PersonCardActivity.this.otherParams);
                 }
             }
         }
@@ -100,19 +100,19 @@ public class PersonCardActivity extends BaseFragmentActivity {
                                 } else {
                                     PersonCardActivity.this.showToast(PersonCardActivity.this.getResources().getString(a.h.sdk_attention_success_toast));
                                 }
-                                PersonCardActivity.this.oCm.we(0);
+                                PersonCardActivity.this.oCn.we(0);
                                 return;
                             }
                             PersonCardActivity.this.showToast(PersonCardActivity.this.getResources().getString(a.h.sdk_unfollow_success_toast));
-                            PersonCardActivity.this.oCm.we(1);
+                            PersonCardActivity.this.oCn.we(1);
                             return;
                         }
                         return;
                     }
                     if (!updateAttentionMessage.isAttention()) {
-                        PersonCardActivity.this.oCm.we(0);
+                        PersonCardActivity.this.oCn.we(0);
                     } else {
-                        PersonCardActivity.this.oCm.we(1);
+                        PersonCardActivity.this.oCn.we(1);
                     }
                     Message<?> message2 = updateAttentionMessage.getmOrginalMessage();
                     if (message2 != null && message2.getTag() != null && message2.getTag().equals(PersonCardActivity.this.getUniqueId()) && !g.Wb().a(updateAttentionMessage.getData(), (BdPageContext<?>) PersonCardActivity.this.getPageContext(), false) && updateAttentionMessage.getData().errorString != null) {
@@ -161,14 +161,14 @@ public class PersonCardActivity extends BaseFragmentActivity {
             }
             clm();
             initView();
-            this.oCm.a(this.hQf, true);
-            setContentView(this.oCm.getRootView());
+            this.oCn.a(this.hQf, true);
+            setContentView(this.oCn.getRootView());
             initListener();
             initModel();
             if (!cln()) {
                 j(this.userId, this.liveId, this.groupId, "", this.showName);
             }
-            i.af(this.oCm.getRootView());
+            i.af(this.oCn.getRootView());
             TiebaInitialize.log("c11899");
         }
     }
@@ -177,15 +177,15 @@ public class PersonCardActivity extends BaseFragmentActivity {
     public void onConfigurationChanged(Configuration configuration) {
         super.onConfigurationChanged(configuration);
         if (!this.hQl) {
-            this.oCm.getRootView().setVisibility(0);
-            setContentView(this.oCm.getRootView());
-            i.af(this.oCm.getRootView());
+            this.oCn.getRootView().setVisibility(0);
+            setContentView(this.oCn.getRootView());
+            i.af(this.oCn.getRootView());
         }
     }
 
     private void clm() {
         this.userId = getIntent().getStringExtra("PERSON_USER_ID");
-        this.oCo = getIntent().getStringExtra(YuyinAlaPersonCardActivityConfig.PERSON_USER_KEY);
+        this.oCp = getIntent().getStringExtra(YuyinAlaPersonCardActivityConfig.PERSON_USER_KEY);
         this.portrait = getIntent().getStringExtra("PERSON_PORTRAIT_URL");
         this.showName = getIntent().getStringExtra(AlaPersonCardActivityConfig.PERSON_SHOW_NAME);
         this.groupId = getIntent().getStringExtra("PERSON_GROUP_ID");
@@ -207,7 +207,7 @@ public class PersonCardActivity extends BaseFragmentActivity {
         long longExtra2 = getIntent().getLongExtra("PERSON_FANS_COUNT", 0L);
         long longExtra3 = getIntent().getLongExtra("PERSON_FOLLOWS_COUNT", 0L);
         getIntent().getIntExtra("PERSON_FOLLOW_STATUS", 0);
-        this.oCn = (Intent) getIntent().getParcelableExtra(YuyinAlaPersonCardActivityConfig.PERSON_REENTER_GIFTCARD);
+        this.oCo = (Intent) getIntent().getParcelableExtra(YuyinAlaPersonCardActivityConfig.PERSON_REENTER_GIFTCARD);
         this.hQf = new PersonUserData();
         this.hQf.user_info = new at();
         this.hQf.location_info = new AlaLocationData();
@@ -230,14 +230,14 @@ public class PersonCardActivity extends BaseFragmentActivity {
         if (this.hQn && TbadkCoreApplication.getInst().isMobileBaidu()) {
             this.hQn = com.baidu.live.af.a.OJ().bru.aJM;
         }
-        this.oCm = new PersonCardViewNew(this, false);
-        this.oCm.aN(this.liveId, this.aZQ);
-        this.oCm.setOtherParams(this.otherParams);
-        this.oCm.oN(this.hQm);
-        this.oCm.oO(this.hQn);
-        this.oCm.at(this.oCn);
-        this.oCm.getRootView().setVisibility(0);
-        this.oCm.a(new PersonCardViewNew.a() { // from class: com.baidu.tieba.yuyinala.person.PersonCardActivity.1
+        this.oCn = new PersonCardViewNew(this, false);
+        this.oCn.aN(this.liveId, this.aZQ);
+        this.oCn.setOtherParams(this.otherParams);
+        this.oCn.oN(this.hQm);
+        this.oCn.oO(this.hQn);
+        this.oCn.at(this.oCo);
+        this.oCn.getRootView().setVisibility(0);
+        this.oCn.a(new PersonCardViewNew.a() { // from class: com.baidu.tieba.yuyinala.person.PersonCardActivity.1
             @Override // com.baidu.tieba.yuyinala.person.view.PersonCardViewNew.a
             public void clt() {
                 PersonCardActivity.this.cls();
@@ -267,18 +267,18 @@ public class PersonCardActivity extends BaseFragmentActivity {
                     if (personUserData.mYuyinAlaSdkData != null) {
                         PersonCardActivity.this.roomId = personUserData.mYuyinAlaSdkData.roomId;
                     }
-                    PersonCardActivity.this.oCm.a(personUserData, false);
+                    PersonCardActivity.this.oCn.a(personUserData, false);
                 }
             }
 
             @Override // com.baidu.live.personmanager.b.a
             public void b(bv bvVar) {
-                PersonCardActivity.this.oCp = bvVar;
+                PersonCardActivity.this.oCq = bvVar;
             }
 
             @Override // com.baidu.live.personmanager.b.a
             public void c(bv bvVar) {
-                PersonCardActivity.this.oCq = bvVar;
+                PersonCardActivity.this.oCr = bvVar;
             }
 
             @Override // com.baidu.live.personmanager.b.a
@@ -289,9 +289,9 @@ public class PersonCardActivity extends BaseFragmentActivity {
     }
 
     public void j(String str, String str2, String str3, String str4, String str5) {
-        this.oCp = null;
         this.oCq = null;
-        this.bWf.c(str, this.oCo, str2, str3, str4, str5);
+        this.oCr = null;
+        this.bWf.c(str, this.oCp, str2, str3, str4, str5);
     }
 
     public boolean cln() {
@@ -318,7 +318,7 @@ public class PersonCardActivity extends BaseFragmentActivity {
     public void onResume() {
         super.onResume();
         if (!this.hQk) {
-            this.oCm.onResume();
+            this.oCn.onResume();
         }
         this.hQk = false;
         UtilHelper.changeStatusBarIconAndTextColor(true, getPageContext().getPageActivity());
@@ -326,7 +326,7 @@ public class PersonCardActivity extends BaseFragmentActivity {
 
     @Override // com.baidu.live.tbadk.core.BaseFragmentActivity, android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
-        if (i != 4 || this.oCm == null) {
+        if (i != 4 || this.oCn == null) {
             return super.onKeyDown(i, keyEvent);
         }
         finish();
@@ -380,8 +380,8 @@ public class PersonCardActivity extends BaseFragmentActivity {
         if (this.bWf != null) {
             this.bWf.onDestroy();
         }
-        if (this.oCm != null) {
-            this.oCm.onDestroy();
+        if (this.oCn != null) {
+            this.oCn.onDestroy();
         }
         if (this.hQt != null) {
             MessageManager.getInstance().unRegisterListener(this.hQt);
@@ -396,8 +396,8 @@ public class PersonCardActivity extends BaseFragmentActivity {
         if (!this.hQl) {
             this.hQl = true;
             Animation animation = null;
-            if (this.oCm != null) {
-                animation = this.oCm.bVW();
+            if (this.oCn != null) {
+                animation = this.oCn.bVW();
             }
             if (animation == null) {
                 super.finish();
@@ -410,8 +410,8 @@ public class PersonCardActivity extends BaseFragmentActivity {
                     @Override // android.view.animation.Animation.AnimationListener
                     public void onAnimationEnd(Animation animation2) {
                         PersonCardActivity.super.finish();
-                        if (PersonCardActivity.this.oCr != null) {
-                            PersonCardActivity.this.oCr.cnx();
+                        if (PersonCardActivity.this.oCs != null) {
+                            PersonCardActivity.this.oCs.cnx();
                         }
                     }
 
@@ -424,7 +424,7 @@ public class PersonCardActivity extends BaseFragmentActivity {
     }
 
     public void a(a aVar) {
-        this.oCr = aVar;
+        this.oCs = aVar;
     }
 
     public void closeActivity() {

@@ -8,41 +8,41 @@ import kotlin.jvm.internal.p;
 @kotlin.e
 /* loaded from: classes5.dex */
 public final class b extends Drawable {
-    private boolean pOe;
-    private int pOf;
-    private final com.opensource.svgaplayer.a.b pOg;
-    private final f pOh;
-    private final c pOi;
+    private boolean pOf;
+    private int pOg;
+    private final com.opensource.svgaplayer.a.b pOh;
+    private final f pOi;
+    private final c pOj;
     private ImageView.ScaleType scaleType;
 
     public b(f fVar, c cVar) {
         p.o(fVar, "videoItem");
         p.o(cVar, "dynamicItem");
-        this.pOh = fVar;
-        this.pOi = cVar;
-        this.pOe = true;
+        this.pOi = fVar;
+        this.pOj = cVar;
+        this.pOf = true;
         this.scaleType = ImageView.ScaleType.MATRIX;
-        this.pOg = new com.opensource.svgaplayer.a.b(this.pOh, this.pOi);
+        this.pOh = new com.opensource.svgaplayer.a.b(this.pOi, this.pOj);
     }
 
     public final f eAf() {
-        return this.pOh;
+        return this.pOi;
     }
 
     public final void Bn(boolean z) {
-        if (this.pOe != z) {
-            this.pOe = z;
+        if (this.pOf != z) {
+            this.pOf = z;
             invalidateSelf();
         }
     }
 
     public final int eAe() {
-        return this.pOf;
+        return this.pOg;
     }
 
     public final void Qh(int i) {
-        if (this.pOf != i) {
-            this.pOf = i;
+        if (this.pOg != i) {
+            this.pOg = i;
             invalidateSelf();
         }
     }
@@ -54,8 +54,8 @@ public final class b extends Drawable {
 
     @Override // android.graphics.drawable.Drawable
     public void draw(Canvas canvas) {
-        if (!this.pOe && canvas != null) {
-            this.pOg.a(canvas, this.pOf, this.scaleType);
+        if (!this.pOf && canvas != null) {
+            this.pOh.a(canvas, this.pOg, this.scaleType);
         }
     }
 

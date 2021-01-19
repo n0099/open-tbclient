@@ -12,10 +12,10 @@ import com.baidu.tbadk.switchs.LimitLowQualityPicUploadSwitch;
 import com.baidu.tieba.write.view.TitleTipView;
 /* loaded from: classes7.dex */
 public class b {
-    private static boolean nWK = false;
+    private static boolean nWL = false;
 
     public static void dVb() {
-        nWK = true;
+        nWL = true;
     }
 
     public static boolean dVc() {
@@ -24,7 +24,7 @@ public class b {
 
     public static void a(TitleTipView titleTipView) {
         if (titleTipView != null) {
-            if (!dVc() || nWK || dVd() > 0) {
+            if (!dVc() || nWL || dVd() > 0) {
                 titleTipView.setVisibility(8);
                 return;
             }

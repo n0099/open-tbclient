@@ -27,8 +27,8 @@ public class b extends g {
     /* loaded from: classes14.dex */
     static class a extends g.a {
         private final Handler handler;
-        private final rx.a.a.b qoc = rx.a.a.a.eKr().eKs();
-        private volatile boolean qod;
+        private final rx.a.a.b qod = rx.a.a.a.eKr().eKs();
+        private volatile boolean qoe;
 
         a(Handler handler) {
             this.handler = handler;
@@ -36,25 +36,25 @@ public class b extends g {
 
         @Override // rx.k
         public void unsubscribe() {
-            this.qod = true;
+            this.qoe = true;
             this.handler.removeCallbacksAndMessages(this);
         }
 
         @Override // rx.k
         public boolean isUnsubscribed() {
-            return this.qod;
+            return this.qoe;
         }
 
         @Override // rx.g.a
         public k a(rx.functions.a aVar, long j, TimeUnit timeUnit) {
-            if (this.qod) {
+            if (this.qoe) {
                 return e.eLX();
             }
-            RunnableC1302b runnableC1302b = new RunnableC1302b(this.qoc.d(aVar), this.handler);
+            RunnableC1302b runnableC1302b = new RunnableC1302b(this.qod.d(aVar), this.handler);
             Message obtain = Message.obtain(this.handler, runnableC1302b);
             obtain.obj = this;
             this.handler.sendMessageDelayed(obtain, timeUnit.toMillis(j));
-            if (this.qod) {
+            if (this.qoe) {
                 this.handler.removeCallbacks(runnableC1302b);
                 return e.eLX();
             }
@@ -73,7 +73,7 @@ public class b extends g {
     public static final class RunnableC1302b implements Runnable, k {
         private final rx.functions.a action;
         private final Handler handler;
-        private volatile boolean qod;
+        private volatile boolean qoe;
 
         RunnableC1302b(rx.functions.a aVar, Handler handler) {
             this.action = aVar;
@@ -99,13 +99,13 @@ public class b extends g {
 
         @Override // rx.k
         public void unsubscribe() {
-            this.qod = true;
+            this.qoe = true;
             this.handler.removeCallbacks(this);
         }
 
         @Override // rx.k
         public boolean isUnsubscribed() {
-            return this.qod;
+            return this.qoe;
         }
     }
 }

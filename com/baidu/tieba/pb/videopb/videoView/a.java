@@ -503,7 +503,7 @@ public class a extends d {
             startPlay();
             return true;
         } else {
-            this.mAD.setCurrentDuration(n.dxY().PL(this.mVideoUrl), false);
+            this.mAD.setCurrentDuration(n.dxY().PM(this.mVideoUrl), false);
             Gf(this.mdM);
             return true;
         }

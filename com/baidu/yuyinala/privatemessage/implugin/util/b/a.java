@@ -9,11 +9,11 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 /* loaded from: classes10.dex */
 public class a {
-    private static DisplayMetrics oXc;
     private static DisplayMetrics oXd;
+    private static DisplayMetrics oXe;
 
     public static void a(DisplayMetrics displayMetrics) {
-        oXc = displayMetrics;
+        oXd = displayMetrics;
     }
 
     public static void hH(Context context) {
@@ -52,14 +52,14 @@ public class a {
 
     @Deprecated
     public static DisplayMetrics eke() {
-        return oXc;
+        return oXd;
     }
 
     public static void b(DisplayMetrics displayMetrics) {
-        oXd = displayMetrics;
+        oXe = displayMetrics;
     }
 
     public static DisplayMetrics ekf() {
-        return oXd;
+        return oXe;
     }
 }

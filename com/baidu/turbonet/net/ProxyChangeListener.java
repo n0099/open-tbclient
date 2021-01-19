@@ -23,8 +23,8 @@ public class ProxyChangeListener {
     private static boolean sEnabled;
     private Context mContext;
     private long mNativePtr;
-    private b oGK;
-    private Delegate oGL;
+    private b oGL;
+    private Delegate oGM;
     private final Looper mLooper = Looper.myLooper();
     private final Handler mHandler = new Handler(this.mLooper);
 
@@ -170,9 +170,9 @@ public class ProxyChangeListener {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(b bVar, a aVar) {
-        if (sEnabled && bVar == this.oGK) {
-            if (this.oGL != null) {
-                this.oGL.eej();
+        if (sEnabled && bVar == this.oGL) {
+            if (this.oGM != null) {
+                this.oGM.eej();
             }
             if (this.mNativePtr != 0) {
                 if (aVar != null) {
@@ -185,18 +185,18 @@ public class ProxyChangeListener {
     }
 
     private void registerReceiver() {
-        if (this.oGK == null) {
+        if (this.oGL == null) {
             IntentFilter intentFilter = new IntentFilter();
             intentFilter.addAction("android.intent.action.PROXY_CHANGE");
-            this.oGK = new b();
-            this.mContext.getApplicationContext().registerReceiver(this.oGK, intentFilter);
+            this.oGL = new b();
+            this.mContext.getApplicationContext().registerReceiver(this.oGL, intentFilter);
         }
     }
 
     private void unregisterReceiver() {
-        if (this.oGK != null) {
-            this.mContext.unregisterReceiver(this.oGK);
-            this.oGK = null;
+        if (this.oGL != null) {
+            this.mContext.unregisterReceiver(this.oGL);
+            this.oGL = null;
         }
     }
 

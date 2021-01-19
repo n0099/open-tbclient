@@ -126,7 +126,7 @@ public class LegoPageModel extends BdBaseModel {
     }
 
     private void bqN() {
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1003079, com.baidu.tieba.tbadkCore.a.a.bU(TbConfig.ENTERTAINMENT_ADDRESS, CmdConfigSocket.CMD_ENTERTAINMENT));
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1003079, com.baidu.tieba.tbadkCore.a.a.bV(TbConfig.ENTERTAINMENT_ADDRESS, CmdConfigSocket.CMD_ENTERTAINMENT));
         tbHttpMessageTask.setIsNeedAddCommenParam(true);
         tbHttpMessageTask.setResponsedClass(LegoHttpResponse.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);

@@ -21,37 +21,37 @@ import java.util.List;
 public class a {
     private BdUniqueId agN;
     private final String mCategory;
-    private InterfaceC0902a odf;
-    private List<String> odg;
+    private InterfaceC0902a odg;
+    private List<String> odh;
     private int mPageNum = 1;
     private HttpMessageListener mHttpMessageListener = new HttpMessageListener(CmdConfigHttp.CMD_RELEVANCE_ITEM_SEARCH) { // from class: com.baidu.tieba.write.write.relevance.list.a.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            if (httpResponsedMessage != null && a.this.odf != null) {
+            if (httpResponsedMessage != null && a.this.odg != null) {
                 if (httpResponsedMessage.getOrginalMessage() == null || httpResponsedMessage.getOrginalMessage().getTag() == a.this.agN) {
                     RelevanceItemSearchData responseData = httpResponsedMessage instanceof RelevanceItemSearchResponse ? ((RelevanceItemSearchResponse) httpResponsedMessage).getResponseData() : null;
                     if (responseData != null && responseData.getData() != null) {
-                        if (!x.equalList(a.this.odg, responseData.getData().getTab_option())) {
-                            a.this.odg = responseData.getData().getTab_option();
-                            MessageManager.getInstance().dispatchResponsedMessage(new EvaluateRelevanceItemUpdatedMessage(a.this.odg));
+                        if (!x.equalList(a.this.odh, responseData.getData().getTab_option())) {
+                            a.this.odh = responseData.getData().getTab_option();
+                            MessageManager.getInstance().dispatchResponsedMessage(new EvaluateRelevanceItemUpdatedMessage(a.this.odh));
                         }
                         if (httpResponsedMessage.getError() != 0) {
-                            a.this.odf.onError(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString());
+                            a.this.odg.onError(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString());
                             a.this.dXy();
                             return;
                         } else if (x.isEmpty(responseData.getData().getItem_list())) {
                             if (a.this.mPageNum == 1) {
-                                a.this.odf.dXv();
+                                a.this.odg.dXv();
                                 return;
                             } else {
-                                a.this.odf.dXw();
+                                a.this.odg.dXw();
                                 return;
                             }
                         } else if (responseData != null) {
-                            a.this.odf.a(responseData);
+                            a.this.odg.a(responseData);
                             if (a.this.mPageNum == 1 && responseData.getData().getItem_list().size() < 20) {
-                                a.this.odf.dXw();
+                                a.this.odg.dXw();
                             }
                             a.e(a.this);
                             return;
@@ -60,7 +60,7 @@ public class a {
                         }
                     }
                     MessageManager.getInstance().dispatchResponsedMessage(new EvaluateRelevanceItemUpdatedMessage(null));
-                    a.this.odf.onError(-1, TbadkCoreApplication.getInst().getString(R.string.neterror));
+                    a.this.odg.onError(-1, TbadkCoreApplication.getInst().getString(R.string.neterror));
                     a.this.dXy();
                 }
             }
@@ -111,15 +111,15 @@ public class a {
     }
 
     public void a(InterfaceC0902a interfaceC0902a) {
-        this.odf = interfaceC0902a;
+        this.odg = interfaceC0902a;
     }
 
-    public void Us(String str) {
+    public void Ut(String str) {
         dXy();
-        Ut(str);
+        Uu(str);
     }
 
-    private void Ut(String str) {
+    private void Uu(String str) {
         HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_RELEVANCE_ITEM_SEARCH);
         httpMessage.addParam("tab_name", this.mCategory);
         httpMessage.addParam("keyword", str);

@@ -12,17 +12,17 @@ public final class k {
         c.a(new d() { // from class: com.baidu.ubs.analytics.d.k.1
             @Override // com.baidu.ubs.analytics.d.d
             public final void a() {
-                if (g.WH(a.oKh)) {
-                    for (File file : k.WK(a.oKh)) {
+                if (g.WI(a.oKi)) {
+                    for (File file : k.WL(a.oKi)) {
                         if (com.baidu.ubs.analytics.b.b.a(com.baidu.ubs.analytics.b.b.a(file, "http://absample.baidu.com/appabapp/appapi/sdkerrorlog"), (b.a) null)) {
-                            g.WI(file.getPath());
+                            g.WJ(file.getPath());
                         }
                     }
                 }
-                if (g.WH(a.oKi)) {
-                    for (File file2 : k.WK(a.oKi)) {
+                if (g.WI(a.oKj)) {
+                    for (File file2 : k.WL(a.oKj)) {
                         if (!file2.getName().equals(b.efW()) && com.baidu.ubs.analytics.b.b.a(com.baidu.ubs.analytics.b.b.a(file2, "http://absample.baidu.com/appabapp/appapi/sdklog"), (b.a) null)) {
-                            g.WI(file2.getPath());
+                            g.WJ(file2.getPath());
                         }
                     }
                 }
@@ -30,7 +30,7 @@ public final class k {
         });
     }
 
-    static /* synthetic */ List WK(String str) {
+    static /* synthetic */ List WL(String str) {
         ArrayList arrayList = new ArrayList();
         File[] listFiles = new File(str).listFiles();
         if (listFiles != null) {

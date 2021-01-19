@@ -11,17 +11,17 @@ import com.baidu.tieba.yuyinala.liveroom.wheat.message.AlaInviteConnectionWheatH
 /* loaded from: classes10.dex */
 public class h extends BdBaseModel {
     private TbPageContext mPageContext;
-    private a oAb;
+    private a oAc;
     private HttpMessageListener messageListener = new HttpMessageListener(1031008) { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.model.h.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            if (httpResponsedMessage != null && (httpResponsedMessage instanceof AlaInviteConnectionWheatHttpResponseMessage) && httpResponsedMessage.getOrginalMessage().getTag() == h.this.brL && h.this.oAb != null) {
+            if (httpResponsedMessage != null && (httpResponsedMessage instanceof AlaInviteConnectionWheatHttpResponseMessage) && httpResponsedMessage.getOrginalMessage().getTag() == h.this.brL && h.this.oAc != null) {
                 AlaInviteConnectionWheatHttpResponseMessage alaInviteConnectionWheatHttpResponseMessage = (AlaInviteConnectionWheatHttpResponseMessage) httpResponsedMessage;
                 if (alaInviteConnectionWheatHttpResponseMessage.getError() != 0 || !alaInviteConnectionWheatHttpResponseMessage.isSuccess()) {
-                    h.this.oAb.b(alaInviteConnectionWheatHttpResponseMessage);
+                    h.this.oAc.b(alaInviteConnectionWheatHttpResponseMessage);
                 } else {
-                    h.this.oAb.a(alaInviteConnectionWheatHttpResponseMessage);
+                    h.this.oAc.a(alaInviteConnectionWheatHttpResponseMessage);
                 }
             }
         }
@@ -38,7 +38,7 @@ public class h extends BdBaseModel {
     public h(TbPageContext tbPageContext, a aVar) {
         setUniqueId(this.brL);
         this.mPageContext = tbPageContext;
-        this.oAb = aVar;
+        this.oAc = aVar;
         bim();
         registerListener(this.messageListener);
     }

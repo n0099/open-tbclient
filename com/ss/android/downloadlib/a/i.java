@@ -42,12 +42,12 @@ public class i {
     private static boolean a(com.ss.android.socialbase.appdownloader.f fVar, @NonNull com.ss.android.socialbase.downloader.k.a aVar) {
         JSONObject jSONObject;
         if (aVar.c("show_unknown_source_on_startup")) {
-            JSONArray aau = aVar.aau("anti_plans");
-            int length = aau.length();
+            JSONArray aav = aVar.aav("anti_plans");
+            int length = aav.length();
             int i = 0;
             while (true) {
                 if (i < length) {
-                    jSONObject = aau.optJSONObject(i);
+                    jSONObject = aav.optJSONObject(i);
                     if (jSONObject != null && "jump_unknown_source".equals(jSONObject.optString("type"))) {
                         break;
                     }

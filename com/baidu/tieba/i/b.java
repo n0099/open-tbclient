@@ -26,8 +26,8 @@ public class b implements n {
             this.aEK = new ArrayList();
             if (!StringUtils.isNull(this.jMB)) {
                 a aVar = new a();
-                aVar.KF(this.jMB);
-                aVar.KG(this.jMC);
+                aVar.KG(this.jMB);
+                aVar.KH(this.jMC);
                 this.aEK.add(aVar);
             }
             if (!x.isEmpty(esport.billboard)) {

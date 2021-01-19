@@ -70,7 +70,7 @@ public class AdWebVideoActivity extends AdWebViewActivity {
             String stringExtra = intent.getStringExtra(AdWebVideoActivityConfig.KEY_TAIL_FRAME);
             if (!TextUtils.isEmpty(stringExtra)) {
                 this.mIz = new AdCard.f();
-                this.mIz.Qx(stringExtra);
+                this.mIz.Qy(stringExtra);
             }
         } else if (bundle != null) {
             this.mVideoUrl = bundle.getString("video_url");

@@ -8,23 +8,23 @@ import java.util.HashSet;
 import java.util.Map;
 /* loaded from: classes10.dex */
 public class h {
-    private static h oZa = null;
-    private Map<String, String> oZb = new HashMap();
-    private HashSet<String> oZc = new HashSet<>();
+    private static h oZb = null;
+    private Map<String, String> oZc = new HashMap();
+    private HashSet<String> oZd = new HashSet<>();
 
     public static h ekz() {
-        if (oZa == null) {
+        if (oZb == null) {
             synchronized (h.class) {
-                if (oZa == null) {
-                    oZa = new h();
+                if (oZb == null) {
+                    oZb = new h();
                 }
             }
         }
-        return oZa;
+        return oZb;
     }
 
     public Map<String, String> ekA() {
-        return this.oZb;
+        return this.oZc;
     }
 
     public static String encode(String str) {
@@ -54,7 +54,7 @@ public class h {
     private void a(Context context, HashMap<String, String> hashMap, g gVar) {
     }
 
-    public String Xq(String str) {
-        return this.oZb.get(str);
+    public String Xr(String str) {
+        return this.oZc.get(str);
     }
 }

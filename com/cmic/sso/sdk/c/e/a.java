@@ -15,7 +15,7 @@ public class a {
 
     /* renamed from: a  reason: collision with root package name */
     private X509Certificate f7719a;
-    private SSLContext pmF;
+    private SSLContext pmG;
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [34=4] */
     /* JADX WARN: Removed duplicated region for block: B:38:0x003d A[EXC_TOP_SPLITTER, SYNTHETIC] */
@@ -81,14 +81,14 @@ public class a {
             keyStore.setCertificateEntry("cert", this.f7719a);
             TrustManagerFactory trustManagerFactory = TrustManagerFactory.getInstance(TrustManagerFactory.getDefaultAlgorithm());
             trustManagerFactory.init(keyStore);
-            this.pmF = SSLContext.getInstance(BdSailorConfig.SAILOR_BASE_SSL);
-            this.pmF.init(null, trustManagerFactory.getTrustManagers(), null);
+            this.pmG = SSLContext.getInstance(BdSailorConfig.SAILOR_BASE_SSL);
+            this.pmG.init(null, trustManagerFactory.getTrustManagers(), null);
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
     public SSLContext eoZ() {
-        return this.pmF;
+        return this.pmG;
     }
 }

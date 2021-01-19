@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
 public final class b extends com.google.gson.stream.b {
-    private static final Writer pIV = new Writer() { // from class: com.google.gson.internal.bind.b.1
+    private static final Writer pIW = new Writer() { // from class: com.google.gson.internal.bind.b.1
         @Override // java.io.Writer
         public void write(char[] cArr, int i, int i2) {
             throw new AssertionError();
@@ -28,22 +28,22 @@ public final class b extends com.google.gson.stream.b {
             throw new AssertionError();
         }
     };
-    private static final JsonPrimitive pIW = new JsonPrimitive(LogConfig.TYPE_CLOSED);
-    private String pIX;
-    private JsonElement pIY;
+    private static final JsonPrimitive pIX = new JsonPrimitive(LogConfig.TYPE_CLOSED);
+    private String pIY;
+    private JsonElement pIZ;
     private final List<JsonElement> stack;
 
     public b() {
-        super(pIV);
+        super(pIW);
         this.stack = new ArrayList();
-        this.pIY = JsonNull.INSTANCE;
+        this.pIZ = JsonNull.INSTANCE;
     }
 
     public JsonElement ezk() {
         if (!this.stack.isEmpty()) {
             throw new IllegalStateException("Expected one JSON element but was " + this.stack);
         }
-        return this.pIY;
+        return this.pIZ;
     }
 
     private JsonElement ezl() {
@@ -51,13 +51,13 @@ public final class b extends com.google.gson.stream.b {
     }
 
     private void a(JsonElement jsonElement) {
-        if (this.pIX != null) {
+        if (this.pIY != null) {
             if (!jsonElement.isJsonNull() || ezE()) {
-                ((JsonObject) ezl()).add(this.pIX, jsonElement);
+                ((JsonObject) ezl()).add(this.pIY, jsonElement);
             }
-            this.pIX = null;
+            this.pIY = null;
         } else if (this.stack.isEmpty()) {
-            this.pIY = jsonElement;
+            this.pIZ = jsonElement;
         } else {
             JsonElement ezl = ezl();
             if (ezl instanceof JsonArray) {
@@ -78,7 +78,7 @@ public final class b extends com.google.gson.stream.b {
 
     @Override // com.google.gson.stream.b
     public com.google.gson.stream.b ezn() throws IOException {
-        if (this.stack.isEmpty() || this.pIX != null) {
+        if (this.stack.isEmpty() || this.pIY != null) {
             throw new IllegalStateException();
         }
         if (ezl() instanceof JsonArray) {
@@ -98,7 +98,7 @@ public final class b extends com.google.gson.stream.b {
 
     @Override // com.google.gson.stream.b
     public com.google.gson.stream.b ezp() throws IOException {
-        if (this.stack.isEmpty() || this.pIX != null) {
+        if (this.stack.isEmpty() || this.pIY != null) {
             throw new IllegalStateException();
         }
         if (ezl() instanceof JsonObject) {
@@ -109,19 +109,19 @@ public final class b extends com.google.gson.stream.b {
     }
 
     @Override // com.google.gson.stream.b
-    public com.google.gson.stream.b YI(String str) throws IOException {
-        if (this.stack.isEmpty() || this.pIX != null) {
+    public com.google.gson.stream.b YJ(String str) throws IOException {
+        if (this.stack.isEmpty() || this.pIY != null) {
             throw new IllegalStateException();
         }
         if (ezl() instanceof JsonObject) {
-            this.pIX = str;
+            this.pIY = str;
             return this;
         }
         throw new IllegalStateException();
     }
 
     @Override // com.google.gson.stream.b
-    public com.google.gson.stream.b YJ(String str) throws IOException {
+    public com.google.gson.stream.b YK(String str) throws IOException {
         if (str == null) {
             return ezq();
         }
@@ -180,6 +180,6 @@ public final class b extends com.google.gson.stream.b {
         if (!this.stack.isEmpty()) {
             throw new IOException("Incomplete document");
         }
-        this.stack.add(pIW);
+        this.stack.add(pIX);
     }
 }

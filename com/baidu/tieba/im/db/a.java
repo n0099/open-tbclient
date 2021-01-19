@@ -31,7 +31,7 @@ public abstract class a {
         this.kwx = cls;
     }
 
-    public int LM(String str) {
+    public int LN(String str) {
         int i = 0;
         if (!TextUtils.isEmpty(str)) {
             Cursor cursor = null;
@@ -55,7 +55,7 @@ public abstract class a {
         return i;
     }
 
-    public long LN(String str) {
+    public long LO(String str) {
         long j = 0;
         Cursor cursor = null;
         if (!TextUtils.isEmpty(str)) {
@@ -69,7 +69,7 @@ public abstract class a {
             } catch (SQLiteException e) {
                 TiebaStatic.printDBExceptionLog(e, "PersonalMsgDao.getMaxLastMid", new Object[0]);
                 e.printStackTrace();
-                LS(str);
+                LT(str);
             } catch (Exception e2) {
                 TiebaStatic.printDBExceptionLog(e2, "PersonalMsgDao.getMaxLastMid", new Object[0]);
                 e2.printStackTrace();
@@ -89,7 +89,7 @@ public abstract class a {
     /* JADX WARN: Type inference failed for: r2v3 */
     /* JADX WARN: Type inference failed for: r2v4, types: [android.database.Cursor] */
     /* JADX WARN: Type inference failed for: r2v7, types: [android.database.Cursor] */
-    public CommonMsgPojo LO(String str) {
+    public CommonMsgPojo LP(String str) {
         ?? r2;
         Cursor cursor;
         CommonMsgPojo commonMsgPojo = null;
@@ -128,7 +128,7 @@ public abstract class a {
                         e = e;
                         TiebaStatic.printDBExceptionLog(e, "PersonalMsgDao.getNewestMsgContext", new Object[0]);
                         e.printStackTrace();
-                        LS(str);
+                        LT(str);
                         com.baidu.adp.lib.util.n.close((Cursor) cursor);
                         str2 = cursor;
                         return commonMsgPojo;
@@ -194,7 +194,7 @@ public abstract class a {
                             e = e;
                             TiebaStatic.printDBExceptionLog(e, "PersonalMsgDao.getAllByMsgType" + i, new Object[0]);
                             e.printStackTrace();
-                            LS(str);
+                            LT(str);
                             com.baidu.adp.lib.util.n.close(cursor);
                             return linkedHashMap;
                         } catch (Exception e2) {
@@ -286,7 +286,7 @@ public abstract class a {
                             e = e;
                             TiebaStatic.printDBExceptionLog(e, "PersonalMsgDao.getAll", new Object[0]);
                             e.printStackTrace();
-                            LS(valueOf);
+                            LT(valueOf);
                             com.baidu.adp.lib.util.n.close(cursor);
                             return linkedList;
                         } catch (Exception e2) {
@@ -369,12 +369,12 @@ public abstract class a {
             this.kwy = cTq();
         }
         if (!this.kwy.contains(valueOf)) {
-            LS(valueOf);
+            LT(valueOf);
             this.kwy.add(valueOf);
         }
         SQLiteStatement sQLiteStatement = null;
         try {
-            sQLiteStatement = h.cTB().Mc(" INSERT INTO " + str + "(content,create_time,ext,mid,uid,user_info,to_uid,to_user_info," + IMConstants.MSG_STATUS + ",msg_type,rid,read_flag,is_delete,is_friend) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?);");
+            sQLiteStatement = h.cTB().Md(" INSERT INTO " + str + "(content,create_time,ext,mid,uid,user_info,to_uid,to_user_info," + IMConstants.MSG_STATUS + ",msg_type,rid,read_flag,is_delete,is_friend) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?);");
             for (CommonMsgPojo commonMsgPojo : list) {
                 if (z && commonMsgPojo.isSelf() && commonMsgPojo.getRid() != 0) {
                     h.cTB().b(str, "mid=?", new String[]{String.valueOf(commonMsgPojo.getRid())});
@@ -473,7 +473,7 @@ public abstract class a {
             while (it.hasNext()) {
                 String next = it.next();
                 if (!TextUtils.isEmpty(next) && !linkedList2.contains(next)) {
-                    LS(next);
+                    LT(next);
                 }
             }
         }
@@ -508,29 +508,6 @@ public abstract class a {
         }
     }
 
-    public boolean LP(String str) {
-        if (TextUtils.isEmpty(str)) {
-            return false;
-        }
-        if (this.kwy == null) {
-            this.kwy = cTq();
-        }
-        if (this.kwy != null && this.kwy.contains(str)) {
-            Iterator<String> it = this.kwy.iterator();
-            while (true) {
-                if (!it.hasNext()) {
-                    break;
-                }
-                String next = it.next();
-                if (next.equals(str)) {
-                    this.kwy.remove(next);
-                    break;
-                }
-            }
-        }
-        return h.cTB().Mb("DROP TABLE IF EXISTS " + (this.HEAD + str));
-    }
-
     public boolean LQ(String str) {
         if (TextUtils.isEmpty(str)) {
             return false;
@@ -551,10 +528,33 @@ public abstract class a {
                 }
             }
         }
-        return h.cTB().Mb("delete from " + (this.HEAD + str));
+        return h.cTB().Mc("DROP TABLE IF EXISTS " + (this.HEAD + str));
     }
 
     public boolean LR(String str) {
+        if (TextUtils.isEmpty(str)) {
+            return false;
+        }
+        if (this.kwy == null) {
+            this.kwy = cTq();
+        }
+        if (this.kwy != null && this.kwy.contains(str)) {
+            Iterator<String> it = this.kwy.iterator();
+            while (true) {
+                if (!it.hasNext()) {
+                    break;
+                }
+                String next = it.next();
+                if (next.equals(str)) {
+                    this.kwy.remove(next);
+                    break;
+                }
+            }
+        }
+        return h.cTB().Mc("delete from " + (this.HEAD + str));
+    }
+
+    public boolean LS(String str) {
         try {
             o(Long.parseLong(str), true);
             return true;
@@ -564,9 +564,9 @@ public abstract class a {
         }
     }
 
-    public synchronized void LS(String str) {
+    public synchronized void LT(String str) {
         if (!TextUtils.isEmpty(str)) {
-            h.cTB().Mb("CREATE TABLE IF NOT EXISTS " + (this.HEAD + str) + "(mid BIGINT PRIMARY KEY, uid TEXT, user_info blob, to_uid TEXT, to_user_info blob, create_time BIGINT, msg_type int, " + IMConstants.MSG_STATUS + " int, content blob, ext blob, read_flag int default 0, is_delete int default 0, rid BIGINT, is_friend int default 1, read_count LONG default -1);");
+            h.cTB().Mc("CREATE TABLE IF NOT EXISTS " + (this.HEAD + str) + "(mid BIGINT PRIMARY KEY, uid TEXT, user_info blob, to_uid TEXT, to_user_info blob, create_time BIGINT, msg_type int, " + IMConstants.MSG_STATUS + " int, content blob, ext blob, read_flag int default 0, is_delete int default 0, rid BIGINT, is_friend int default 1, read_count LONG default -1);");
         }
     }
 
@@ -597,7 +597,7 @@ public abstract class a {
         this.kwy = null;
     }
 
-    public boolean bh(String str, int i) {
+    public boolean bi(String str, int i) {
         Cursor cursor;
         Cursor cursor2 = null;
         try {

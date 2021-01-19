@@ -321,7 +321,7 @@ public class n extends b<com.baidu.tieba.card.data.k> implements com.baidu.tieba
             this.alm.setTag(voiceModel);
             this.alm.btU();
             if (voiceModel != null) {
-                this.alm.CY(voiceModel.voice_status.intValue());
+                this.alm.CX(voiceModel.voice_status.intValue());
             }
             this.alm.cbz();
             z = true;

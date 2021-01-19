@@ -4,55 +4,55 @@ import android.text.TextUtils;
 import android.util.Log;
 /* loaded from: classes3.dex */
 public final class j {
-    private static int oKt = 1000;
-    private static boolean oKu = true;
+    private static int oKu = 1000;
+    private static boolean oKv = true;
 
     public static void c(boolean z) {
-        oKu = z;
+        oKv = z;
     }
 
     public static void I(String str) {
-        if (oKu) {
+        if (oKv) {
             a(5, "BaiDuAbSDK", str, null);
         }
     }
 
     public static void b(Throwable th) {
-        if (oKu) {
+        if (oKv) {
             a(4, "BaiDuAbSDK", "", th);
         }
     }
 
     public static void G(String str) {
-        if (oKu) {
+        if (oKv) {
             a(2, "BaiDuAbSDK", str, null);
         }
     }
 
     public static void a(Throwable th) {
-        if (oKu) {
+        if (oKv) {
             a(2, "BaiDuAbSDK", "", th);
         }
     }
 
     private static void a(int i, String str, String str2, Throwable th) {
         if (!TextUtils.isEmpty(str2)) {
-            if (str2.length() >= oKt) {
+            if (str2.length() >= oKu) {
                 switch (i) {
                     case 1:
-                        Log.v(str, str2.substring(0, oKt));
+                        Log.v(str, str2.substring(0, oKu));
                         break;
                     case 2:
-                        Log.d(str, str2.substring(0, oKt));
+                        Log.d(str, str2.substring(0, oKu));
                         break;
                     case 3:
-                        Log.i(str, str2.substring(0, oKt));
+                        Log.i(str, str2.substring(0, oKu));
                         break;
                     case 4:
-                        Log.w(str, str2.substring(0, oKt));
+                        Log.w(str, str2.substring(0, oKu));
                         break;
                     case 5:
-                        Log.e(str, str2.substring(0, oKt));
+                        Log.e(str, str2.substring(0, oKu));
                         break;
                 }
             } else {

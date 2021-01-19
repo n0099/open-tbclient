@@ -35,7 +35,7 @@ public class PlayVoiceBnt extends RelativeLayout implements View.OnClickListener
     private AnimationDrawable kpV;
     private Context mContext;
     private ProgressBar mProgress;
-    private TextView nqJ;
+    private TextView nqK;
     private int play_type;
 
     /* loaded from: classes.dex */
@@ -87,7 +87,7 @@ public class PlayVoiceBnt extends RelativeLayout implements View.OnClickListener
     public void O(Context context) {
         LayoutInflater.from(context).inflate(R.layout.play_voice_bnt, (ViewGroup) this, true);
         this.kFg = (ImageView) findViewById(R.id.playingImg);
-        this.nqJ = (TextView) findViewById(R.id.playTime);
+        this.nqK = (TextView) findViewById(R.id.playTime);
         this.mProgress = (ProgressBar) findViewById(R.id.progress);
         if (this.mProgress != null) {
             this.mProgress.setVisibility(4);
@@ -102,9 +102,9 @@ public class PlayVoiceBnt extends RelativeLayout implements View.OnClickListener
         if (this.play_type == 0) {
             int i = skinType != 1 ? -13553101 : -6574132;
             ao.setBackgroundResource(this, R.drawable.but_thread_voice_selector);
-            if (this.nqJ != null) {
-                this.nqJ.setTextSize(0, this.mContext.getResources().getDimension(R.dimen.ds36));
-                this.nqJ.setTextColor(i);
+            if (this.nqK != null) {
+                this.nqK.setTextSize(0, this.mContext.getResources().getDimension(R.dimen.ds36));
+                this.nqK.setTextColor(i);
             }
             if (this.kFg != null) {
                 ao.setImageResource(this.kFg, R.anim.voice_btn_play_anim);
@@ -113,9 +113,9 @@ public class PlayVoiceBnt extends RelativeLayout implements View.OnClickListener
         } else {
             int i2 = skinType != 1 ? ViewCompat.MEASURED_STATE_MASK : -8682095;
             ao.setBackgroundResource(this, R.drawable.but_thread_voice_reply_selector);
-            if (this.nqJ != null) {
-                this.nqJ.setTextSize(0, this.mContext.getResources().getDimension(R.dimen.ds28));
-                this.nqJ.setTextColor(i2);
+            if (this.nqK != null) {
+                this.nqK.setTextSize(0, this.mContext.getResources().getDimension(R.dimen.ds28));
+                this.nqK.setTextColor(i2);
             }
             if (this.kFg != null) {
                 ao.setImageResource(this.kFg, R.anim.voice_btn_play_anim);
@@ -132,31 +132,31 @@ public class PlayVoiceBnt extends RelativeLayout implements View.OnClickListener
             VoiceManager voiceManager = getVoiceManager();
             if (voiceManager != null && voiceManager.isPlayDoing(voiceModel)) {
                 voiceManager.resetPlayView(this);
-                CX(this.kFk.elapse);
+                CW(this.kFk.elapse);
                 return;
             }
-            CY(this.kFk.voice_status.intValue());
-            this.nqJ.setText(VoiceManager.formatVoiceTime(voiceModel.duration));
+            CX(this.kFk.voice_status.intValue());
+            this.nqK.setText(VoiceManager.formatVoiceTime(voiceModel.duration));
         }
     }
 
-    public void CX(int i) {
+    public void CW(int i) {
         String formatVoiceTime;
-        if (this.kFk != null && this.nqJ != null) {
+        if (this.kFk != null && this.nqK != null) {
             int i2 = i / 1000;
             if (i2 > 0 && i2 < this.kFk.duration) {
                 formatVoiceTime = VoiceManager.formatVoiceTime(this.kFk.duration - i2);
             } else {
                 formatVoiceTime = VoiceManager.formatVoiceTime(this.kFk.duration);
             }
-            String charSequence2String = k.charSequence2String(this.nqJ.getText(), null);
+            String charSequence2String = k.charSequence2String(this.nqK.getText(), null);
             if (charSequence2String == null || !charSequence2String.equals(formatVoiceTime)) {
-                this.nqJ.setText(formatVoiceTime);
+                this.nqK.setText(formatVoiceTime);
             }
         }
     }
 
-    public void CY(int i) {
+    public void CX(int i) {
         if (i == 3) {
             if (this.kFg != null) {
                 this.kFg.setVisibility(0);
@@ -171,12 +171,12 @@ public class PlayVoiceBnt extends RelativeLayout implements View.OnClickListener
                 this.kFg.setVisibility(0);
             }
             if (this.kFk != null) {
-                this.nqJ.setText(VoiceManager.formatVoiceTime(this.kFk.duration));
+                this.nqK.setText(VoiceManager.formatVoiceTime(this.kFk.duration));
             }
             this.mProgress.setVisibility(4);
         } else if (i == 2) {
             if (this.kFk != null) {
-                this.nqJ.setText(VoiceManager.formatVoiceTime(this.kFk.duration));
+                this.nqK.setText(VoiceManager.formatVoiceTime(this.kFk.duration));
             }
             this.mProgress.setVisibility(0);
         }
@@ -286,9 +286,9 @@ public class PlayVoiceBnt extends RelativeLayout implements View.OnClickListener
     public void b(VoiceData.VoiceModel voiceModel) {
         if (voiceModel != null) {
             if (this.kFk != voiceModel) {
-                CY(1);
+                CX(1);
             } else {
-                CY(voiceModel.voice_status.intValue());
+                CX(voiceModel.voice_status.intValue());
             }
         }
     }
@@ -296,13 +296,13 @@ public class PlayVoiceBnt extends RelativeLayout implements View.OnClickListener
     @Override // com.baidu.tbadk.core.voice.VoiceManager.b
     public void bj(int i) {
         if (!dMH()) {
-            CY(1);
+            CX(1);
             return;
         }
         if (this.kpV == null) {
-            CY(this.kFk.voice_status.intValue());
+            CX(this.kFk.voice_status.intValue());
         }
-        CX(i);
+        CW(i);
         if (this.kFk != null) {
             this.kFk.elapse = i;
         }
@@ -346,7 +346,7 @@ public class PlayVoiceBnt extends RelativeLayout implements View.OnClickListener
     public void reset() {
         this.kFk = null;
         setTag(null);
-        CY(1);
+        CX(1);
     }
 
     private int getBtnWidth() {

@@ -47,8 +47,8 @@ public class PostSearchActivity extends BaseFragmentActivity {
         this.mDn.showLoadingView();
     }
 
-    public void PT(String str) {
-        this.mDn.PT(str);
+    public void PU(String str) {
+        this.mDn.PU(str);
     }
 
     public void dzo() {

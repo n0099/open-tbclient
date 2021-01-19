@@ -836,7 +836,7 @@ public class ForumTestView extends FrameLayout implements com.baidu.tieba.enterF
         f fVar;
         aq a2;
         if (this.iGY != null && i >= 0 && i < this.iGY.size() && (fVar = this.iGY.get(i)) != null && (a2 = com.baidu.tieba.s.a.a(false, "a065", "common_exp", i + 1, i + 1, false, (String) null, String.valueOf(fVar.testId), 0)) != null) {
-            com.baidu.tieba.s.c.dKg().a(this.mPageId, com.baidu.tieba.s.a.RT("" + fVar.testId), a2);
+            com.baidu.tieba.s.c.dKg().a(this.mPageId, com.baidu.tieba.s.a.RU("" + fVar.testId), a2);
         }
     }
 }

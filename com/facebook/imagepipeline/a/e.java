@@ -9,30 +9,30 @@ import javax.annotation.concurrent.ThreadSafe;
 /* loaded from: classes3.dex */
 public class e extends f {
     private static final String TAG = e.class.getSimpleName();
-    private final b pwC;
-    private final com.facebook.imagepipeline.h.e pwE;
-    private boolean pwF;
+    private final b pwD;
+    private final com.facebook.imagepipeline.h.e pwF;
+    private boolean pwG;
 
     public e(b bVar, com.facebook.imagepipeline.h.e eVar) {
-        this.pwC = bVar;
-        this.pwE = eVar;
+        this.pwD = bVar;
+        this.pwF = eVar;
     }
 
     @Override // com.facebook.imagepipeline.a.f
     @TargetApi(12)
     public com.facebook.common.references.a<Bitmap> g(int i, int i2, Bitmap.Config config) {
         com.facebook.common.references.a<Bitmap> aVar;
-        if (this.pwF) {
+        if (this.pwG) {
             return h(i, i2, config);
         }
-        com.facebook.common.references.a<PooledByteBuffer> b2 = this.pwC.b((short) i, (short) i2);
+        com.facebook.common.references.a<PooledByteBuffer> b2 = this.pwD.b((short) i, (short) i2);
         try {
             com.facebook.imagepipeline.f.e eVar = new com.facebook.imagepipeline.f.e(b2);
-            eVar.c(com.facebook.c.b.pvF);
-            com.facebook.common.references.a<Bitmap> a2 = this.pwE.a(eVar, config, null, b2.get().size());
+            eVar.c(com.facebook.c.b.pvG);
+            com.facebook.common.references.a<Bitmap> a2 = this.pwF.a(eVar, config, null, b2.get().size());
             if (!a2.get().isMutable()) {
                 com.facebook.common.references.a.c(a2);
-                this.pwF = true;
+                this.pwG = true;
                 com.facebook.common.c.a.wtf(TAG, "Immutable bitmap returned by decoder");
                 aVar = h(i, i2, config);
                 com.facebook.imagepipeline.f.e.e(eVar);

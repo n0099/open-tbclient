@@ -6,7 +6,7 @@ public class b {
     public long aFE;
     public long expiredTime;
     public int hKF;
-    public a osr;
+    public a oss;
 
     public b(JSONObject jSONObject) {
         parseJson(jSONObject);
@@ -17,7 +17,7 @@ public class b {
             this.hKF = jSONObject.optInt("is_lucky_moment");
             this.aFE = jSONObject.optLong("current_time");
             this.expiredTime = jSONObject.optLong("expired_time");
-            this.osr = new a(jSONObject.optJSONObject("lucky_gift_info"));
+            this.oss = new a(jSONObject.optJSONObject("lucky_gift_info"));
         }
     }
 

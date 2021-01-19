@@ -6,11 +6,11 @@ import io.reactivex.o;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes5.dex */
 public final class MaybeCache<T> extends k<T> implements m<T> {
-    static final CacheDisposable[] qeR = new CacheDisposable[0];
     static final CacheDisposable[] qeS = new CacheDisposable[0];
+    static final CacheDisposable[] qeT = new CacheDisposable[0];
     Throwable error;
     final AtomicReference<CacheDisposable<T>[]> observers;
-    final AtomicReference<o<T>> qeT;
+    final AtomicReference<o<T>> qeU;
     T value;
 
     @Override // io.reactivex.k
@@ -22,7 +22,7 @@ public final class MaybeCache<T> extends k<T> implements m<T> {
                 b(cacheDisposable);
                 return;
             }
-            o<T> andSet = this.qeT.getAndSet(null);
+            o<T> andSet = this.qeU.getAndSet(null);
             if (andSet != null) {
                 andSet.a(this);
             }
@@ -49,7 +49,7 @@ public final class MaybeCache<T> extends k<T> implements m<T> {
     public void onSuccess(T t) {
         CacheDisposable<T>[] andSet;
         this.value = t;
-        for (CacheDisposable<T> cacheDisposable : this.observers.getAndSet(qeS)) {
+        for (CacheDisposable<T> cacheDisposable : this.observers.getAndSet(qeT)) {
             if (!cacheDisposable.isDisposed()) {
                 cacheDisposable.actual.onSuccess(t);
             }
@@ -60,7 +60,7 @@ public final class MaybeCache<T> extends k<T> implements m<T> {
     public void onError(Throwable th) {
         CacheDisposable<T>[] andSet;
         this.error = th;
-        for (CacheDisposable<T> cacheDisposable : this.observers.getAndSet(qeS)) {
+        for (CacheDisposable<T> cacheDisposable : this.observers.getAndSet(qeT)) {
             if (!cacheDisposable.isDisposed()) {
                 cacheDisposable.actual.onError(th);
             }
@@ -70,7 +70,7 @@ public final class MaybeCache<T> extends k<T> implements m<T> {
     @Override // io.reactivex.m
     public void onComplete() {
         CacheDisposable<T>[] andSet;
-        for (CacheDisposable<T> cacheDisposable : this.observers.getAndSet(qeS)) {
+        for (CacheDisposable<T> cacheDisposable : this.observers.getAndSet(qeT)) {
             if (!cacheDisposable.isDisposed()) {
                 cacheDisposable.actual.onComplete();
             }
@@ -82,7 +82,7 @@ public final class MaybeCache<T> extends k<T> implements m<T> {
         CacheDisposable<T>[] cacheDisposableArr2;
         do {
             cacheDisposableArr = this.observers.get();
-            if (cacheDisposableArr == qeS) {
+            if (cacheDisposableArr == qeT) {
                 return false;
             }
             int length = cacheDisposableArr.length;
@@ -114,7 +114,7 @@ public final class MaybeCache<T> extends k<T> implements m<T> {
                 }
                 if (i >= 0) {
                     if (length == 1) {
-                        cacheDisposableArr2 = qeR;
+                        cacheDisposableArr2 = qeS;
                     } else {
                         cacheDisposableArr2 = new CacheDisposable[length - 1];
                         System.arraycopy(cacheDisposableArr, 0, cacheDisposableArr2, 0, i);

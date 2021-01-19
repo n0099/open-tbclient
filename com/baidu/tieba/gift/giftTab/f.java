@@ -63,7 +63,7 @@ public class f {
             if (i == 0) {
                 f.this.freeChance = i2;
                 if (f.this.jNG != null) {
-                    f.this.jNG.AX(f.this.freeChance);
+                    f.this.jNG.AW(f.this.freeChance);
                 }
             }
         }
@@ -73,7 +73,7 @@ public class f {
 
     /* loaded from: classes8.dex */
     public interface a {
-        void AX(int i);
+        void AW(int i);
     }
 
     /* loaded from: classes8.dex */
@@ -99,7 +99,7 @@ public class f {
         this.jNM.I(str, j);
     }
 
-    public void AY(int i) {
+    public void AX(int i) {
         if (this.jNN == null) {
             this.jNN = new CategoryGiftListModel(this.mContext);
             this.jNN.a(this.jNR);
@@ -107,7 +107,7 @@ public class f {
         this.jNN.loadData(i);
     }
 
-    public void KH(String str) {
+    public void KI(String str) {
         if (this.jNO == null) {
             this.jNO = new FreeGiftChanceModel(this.mContext);
             this.jNO.a(this.jNS);

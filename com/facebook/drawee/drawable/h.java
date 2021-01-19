@@ -8,7 +8,7 @@ import android.graphics.drawable.Drawable;
 public class h extends g {
     private Matrix mDrawMatrix;
     private Matrix mMatrix;
-    private int psy;
+    private int psA;
     private int psz;
 
     @Override // com.facebook.drawee.drawable.g
@@ -40,7 +40,7 @@ public class h extends g {
     }
 
     private void erY() {
-        if (this.psy != getCurrent().getIntrinsicWidth() || this.psz != getCurrent().getIntrinsicHeight()) {
+        if (this.psz != getCurrent().getIntrinsicWidth() || this.psA != getCurrent().getIntrinsicHeight()) {
             erZ();
         }
     }
@@ -49,9 +49,9 @@ public class h extends g {
         Drawable current = getCurrent();
         Rect bounds = getBounds();
         int intrinsicWidth = current.getIntrinsicWidth();
-        this.psy = intrinsicWidth;
+        this.psz = intrinsicWidth;
         int intrinsicHeight = current.getIntrinsicHeight();
-        this.psz = intrinsicHeight;
+        this.psA = intrinsicHeight;
         if (intrinsicWidth <= 0 || intrinsicHeight <= 0) {
             current.setBounds(bounds);
             this.mDrawMatrix = null;

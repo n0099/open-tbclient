@@ -28,42 +28,42 @@ import java.util.List;
 public class c extends com.baidu.adp.base.d {
     private Resources mResources;
     private View mRootView;
-    private a nCe;
-    private CoverSeekBar nEJ;
-    private LinearLayout nEK;
-    private HListView nEL;
-    private com.baidu.tieba.video.editvideo.a.a nEM;
-    private CoverPendantDragView nEN;
+    private a nCf;
+    private CoverSeekBar nEK;
+    private LinearLayout nEL;
+    private HListView nEM;
+    private com.baidu.tieba.video.editvideo.a.a nEN;
+    private CoverPendantDragView nEO;
 
     public c(f fVar, a aVar) {
         super(fVar);
-        this.nCe = aVar;
+        this.nCf = aVar;
         this.mRootView = LayoutInflater.from(fVar.getPageActivity()).inflate(R.layout.edit_cover_layout, (ViewGroup) null);
         this.mResources = this.mRootView.getResources();
         initView();
     }
 
     private void initView() {
-        this.nEJ = (CoverSeekBar) this.mRootView.findViewById(R.id.cover_seek_bar);
-        this.nEL = (HListView) this.mRootView.findViewById(R.id.pendant_list_view);
-        this.nEM = new com.baidu.tieba.video.editvideo.a.a(getPageContext());
-        this.nEM.a(new a.InterfaceC0882a() { // from class: com.baidu.tieba.video.editvideo.view.c.1
+        this.nEK = (CoverSeekBar) this.mRootView.findViewById(R.id.cover_seek_bar);
+        this.nEM = (HListView) this.mRootView.findViewById(R.id.pendant_list_view);
+        this.nEN = new com.baidu.tieba.video.editvideo.a.a(getPageContext());
+        this.nEN.a(new a.InterfaceC0882a() { // from class: com.baidu.tieba.video.editvideo.view.c.1
             @Override // com.baidu.tieba.video.editvideo.a.a.InterfaceC0882a
             public void a(View view, int i, PendantData pendantData) {
-                c.this.nEN.a(view, pendantData);
+                c.this.nEO.a(view, pendantData);
                 aq aqVar = new aq("c12305");
                 aqVar.an("obj_locate", i + 1);
                 TiebaStatic.log(aqVar);
             }
         });
-        this.nEL.setAdapter((ListAdapter) this.nEM);
-        this.nEM.setData(dRd());
-        this.nEJ.setOnProgressChanged(new CoverSeekBar.a() { // from class: com.baidu.tieba.video.editvideo.view.c.2
+        this.nEM.setAdapter((ListAdapter) this.nEN);
+        this.nEN.setData(dRd());
+        this.nEK.setOnProgressChanged(new CoverSeekBar.a() { // from class: com.baidu.tieba.video.editvideo.view.c.2
             @Override // com.baidu.tieba.video.editvideo.view.CoverSeekBar.a
             public void onProgress(int i) {
-                long duration = (c.this.nCe.dQT().getDuration() * i) / 1000;
-                c.this.nEJ.setProgressImage(i, (int) duration);
-                c.this.nCe.dQT().seekTo((int) duration);
+                long duration = (c.this.nCf.dQT().getDuration() * i) / 1000;
+                c.this.nEK.setProgressImage(i, (int) duration);
+                c.this.nCf.dQT().seekTo((int) duration);
             }
 
             @Override // com.baidu.tieba.video.editvideo.view.CoverSeekBar.a
@@ -91,40 +91,40 @@ public class c extends com.baidu.adp.base.d {
             list = new ArrayList<>();
         }
         list.addAll(0, dRd());
-        this.nEM.setData(list);
+        this.nEN.setData(list);
     }
 
     public void dRe() {
-        this.nEN.setVideoSize(this.nCe.dQT().getWidth(), this.nCe.dQT().getHeight());
-        this.nEN.setVideoLocation(this.nCe.dQT().getLeft(), this.nCe.dQT().getTop(), this.nCe.dQT().getRight(), this.nCe.dQT().getBottom());
+        this.nEO.setVideoSize(this.nCf.dQT().getWidth(), this.nCf.dQT().getHeight());
+        this.nEO.setVideoLocation(this.nCf.dQT().getLeft(), this.nCf.dQT().getTop(), this.nCf.dQT().getRight(), this.nCf.dQT().getBottom());
     }
 
     public void hideSoftKeyPad() {
-        this.nEN.hideSoftKeyPad();
+        this.nEO.hideSoftKeyPad();
     }
 
     public String getText() {
-        return this.nEN.getText();
+        return this.nEO.getText();
     }
 
     public Bitmap G(Bitmap bitmap) {
-        this.nEN.hideSoftKeyPad();
-        String text = this.nEN.getText();
+        this.nEO.hideSoftKeyPad();
+        String text = this.nEO.getText();
         if (bitmap == null || TextUtils.isEmpty(text)) {
             return null;
         }
-        int width = this.nCe.dQT().getWidth();
-        int height = this.nCe.dQT().getHeight();
+        int width = this.nCf.dQT().getWidth();
+        int height = this.nCf.dQT().getHeight();
         int width2 = bitmap.getWidth();
         int height2 = bitmap.getHeight();
         Bitmap createBitmap = Bitmap.createBitmap(width2, height2, Bitmap.Config.ARGB_8888);
         Canvas canvas = new Canvas(createBitmap);
         canvas.drawBitmap(bitmap, 0.0f, 0.0f, (Paint) null);
-        Bitmap tempBitmap = this.nEN.getTempBitmap();
+        Bitmap tempBitmap = this.nEO.getTempBitmap();
         if (tempBitmap != null) {
             Matrix matrix = new Matrix();
             matrix.postScale(width2 / width, height2 / height);
-            Bitmap createBitmap2 = Bitmap.createBitmap(tempBitmap, this.nCe.dQT().getLeft(), this.nCe.dQT().getTop(), width, height, matrix, true);
+            Bitmap createBitmap2 = Bitmap.createBitmap(tempBitmap, this.nCf.dQT().getLeft(), this.nCf.dQT().getTop(), width, height, matrix, true);
             if (createBitmap2 != null) {
                 canvas.drawBitmap(createBitmap2, 0.0f, 0.0f, (Paint) null);
             }
@@ -135,12 +135,12 @@ public class c extends com.baidu.adp.base.d {
     }
 
     public int getCurrentPosition() {
-        return this.nEJ.getCurrentPosition();
+        return this.nEK.getCurrentPosition();
     }
 
     public void setData(String str) {
         if (!TextUtils.isEmpty(str)) {
-            this.nEJ.setData(str);
+            this.nEK.setData(str);
         }
     }
 
@@ -149,16 +149,16 @@ public class c extends com.baidu.adp.base.d {
     }
 
     public void eo(View view) {
-        this.nEN = (CoverPendantDragView) view.findViewById(R.id.cover_pendant_view);
-        this.nEN.setParentViewController(this);
-        this.nEK = (LinearLayout) view.findViewById(R.id.cover_tips);
+        this.nEO = (CoverPendantDragView) view.findViewById(R.id.cover_pendant_view);
+        this.nEO.setParentViewController(this);
+        this.nEL = (LinearLayout) view.findViewById(R.id.cover_tips);
         if (com.baidu.tbadk.core.sharedPref.b.brx().getBoolean("video_cover_first_in", true)) {
-            this.nEK.setVisibility(0);
-            this.nEK.animate().alphaBy(0.0f).alpha(1.0f).setDuration(500L).setListener(new AnimatorListenerAdapter() { // from class: com.baidu.tieba.video.editvideo.view.c.3
+            this.nEL.setVisibility(0);
+            this.nEL.animate().alphaBy(0.0f).alpha(1.0f).setDuration(500L).setListener(new AnimatorListenerAdapter() { // from class: com.baidu.tieba.video.editvideo.view.c.3
                 @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
                 public void onAnimationEnd(Animator animator) {
                     super.onAnimationEnd(animator);
-                    c.this.nEK.animate().alphaBy(1.0f).alpha(0.0f).setDuration(500L).setStartDelay(2000L).start();
+                    c.this.nEL.animate().alphaBy(1.0f).alpha(0.0f).setDuration(500L).setStartDelay(2000L).start();
                 }
             }).start();
             com.baidu.tbadk.core.sharedPref.b.brx().putBoolean("video_cover_first_in", false);
@@ -170,9 +170,9 @@ public class c extends com.baidu.adp.base.d {
     }
 
     public void yF(boolean z) {
-        this.nEN.yF(z);
+        this.nEO.yF(z);
         if (z) {
-            this.nEJ.seekTo(this.nEJ.getCurrentPosition());
+            this.nEK.seekTo(this.nEK.getCurrentPosition());
         }
     }
 
@@ -183,18 +183,18 @@ public class c extends com.baidu.adp.base.d {
         com.baidu.adp.lib.f.e.mB().postDelayed(new Runnable() { // from class: com.baidu.tieba.video.editvideo.view.c.4
             @Override // java.lang.Runnable
             public void run() {
-                c.this.nEJ.seekTo(c.this.nEJ.getCurrentPosition());
-                c.this.nCe.dQV();
+                c.this.nEK.seekTo(c.this.nEK.getCurrentPosition());
+                c.this.nCf.dQV();
             }
         }, 500L);
     }
 
     public void release() {
-        if (this.nEJ != null) {
-            this.nEJ.release();
+        if (this.nEK != null) {
+            this.nEK.release();
         }
-        if (this.nEN != null) {
-            this.nEN.onDestroy();
+        if (this.nEO != null) {
+            this.nEO.onDestroy();
         }
     }
 }

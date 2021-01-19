@@ -156,7 +156,7 @@ public class c extends d<SecretSettingActivity> {
         this.mUO.setVisibility(8);
     }
 
-    public void bS(String str, int i) {
+    public void bT(String str, int i) {
         int i2 = i - 1;
         if (this.mUS != null && i2 < this.mUS.length && i2 >= 0) {
             if (TextUtils.equals(str, "like")) {

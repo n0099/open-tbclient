@@ -11,10 +11,10 @@ import com.baidu.live.sdk.a;
 /* loaded from: classes10.dex */
 public class LoadingLayout extends LinearLayout {
     private ProgressBar dPh;
-    private LinearLayout oPw;
-    private TextView oPx;
-    private a oPy;
-    private boolean oPz;
+    private boolean oPA;
+    private LinearLayout oPx;
+    private TextView oPy;
+    private a oPz;
 
     /* loaded from: classes10.dex */
     public interface a {
@@ -24,19 +24,19 @@ public class LoadingLayout extends LinearLayout {
     public LoadingLayout(Context context) {
         super(context);
         this.dPh = null;
-        this.oPw = null;
         this.oPx = null;
         this.oPy = null;
-        this.oPz = true;
+        this.oPz = null;
+        this.oPA = true;
     }
 
     public LoadingLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.dPh = null;
-        this.oPw = null;
         this.oPx = null;
         this.oPy = null;
-        this.oPz = true;
+        this.oPz = null;
+        this.oPA = true;
     }
 
     @Override // android.view.View
@@ -47,23 +47,23 @@ public class LoadingLayout extends LinearLayout {
 
     private void initView() {
         this.dPh = (ProgressBar) findViewById(a.f.loading_pb);
-        this.oPw = (LinearLayout) findViewById(a.f.loading_fail_layout);
-        this.oPw.setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.yuyinala.privatemessage.implugin.imagechooser.LoadingLayout.1
+        this.oPx = (LinearLayout) findViewById(a.f.loading_fail_layout);
+        this.oPx.setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.yuyinala.privatemessage.implugin.imagechooser.LoadingLayout.1
             @Override // android.view.View.OnTouchListener
             public boolean onTouch(View view, MotionEvent motionEvent) {
-                if (!LoadingLayout.this.oPz) {
+                if (!LoadingLayout.this.oPA) {
                     return false;
                 }
-                if (motionEvent.getAction() == 0 && LoadingLayout.this.oPy != null) {
-                    LoadingLayout.this.oPy.ehp();
+                if (motionEvent.getAction() == 0 && LoadingLayout.this.oPz != null) {
+                    LoadingLayout.this.oPz.ehp();
                 }
                 return true;
             }
         });
-        this.oPx = (TextView) findViewById(a.f.loading_fail_tv);
+        this.oPy = (TextView) findViewById(a.f.loading_fail_tv);
     }
 
     public void setRetryListener(a aVar) {
-        this.oPy = aVar;
+        this.oPz = aVar;
     }
 }

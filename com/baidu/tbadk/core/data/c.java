@@ -19,11 +19,11 @@ public class c {
     public static void a(c cVar, int i, boolean z) {
         if (cVar != null && !cVar.aaw && !zA(cVar.extensionInfo)) {
             com.baidu.tieba.recapp.report.c ad = com.baidu.tieba.recapp.report.h.ad(z ? 13 : 3, i, cVar.pn);
-            ad.QV(cVar.page);
+            ad.QW(cVar.page);
             ad.gf("isCache", String.valueOf(cVar.eIJ));
-            ad.QS(cVar.eIK);
-            ad.QT(cVar.eIL);
-            ad.QU(cVar.fid);
+            ad.QT(cVar.eIK);
+            ad.QU(cVar.eIL);
+            ad.QV(cVar.fid);
             ad.gf("vc", cVar.eIM);
             ad.setExtInfo(cVar.extensionInfo);
             com.baidu.tieba.recapp.report.e.dCe().a(ad);
@@ -36,11 +36,11 @@ public class c {
         c cVar;
         if (advertAppInfo != null && (cVar = advertAppInfo.advertAppContext) != null && !cVar.aaw && !zA(cVar.extensionInfo)) {
             com.baidu.tieba.recapp.report.c b2 = com.baidu.tieba.recapp.report.h.b(advertAppInfo, 3, cVar.pn);
-            b2.QV(cVar.page);
+            b2.QW(cVar.page);
             b2.gf("isCache", cVar.eIJ);
-            b2.QS(cVar.eIK);
-            b2.QT(cVar.eIL);
-            b2.QU(cVar.fid);
+            b2.QT(cVar.eIK);
+            b2.QU(cVar.eIL);
+            b2.QV(cVar.fid);
             b2.gf("vc", cVar.eIM);
             b2.setExtInfo(cVar.extensionInfo);
             com.baidu.tieba.recapp.report.e.dCe().a(b2);
@@ -71,10 +71,10 @@ public class c {
                 cVar2.HE(i2);
                 cVar2.setPageNumber(cVar.pn);
             }
-            cVar2.QV(cVar.page);
-            cVar2.QS(cVar.eIK);
-            cVar2.QT(cVar.eIL);
-            cVar2.QU(cVar.fid);
+            cVar2.QW(cVar.page);
+            cVar2.QT(cVar.eIK);
+            cVar2.QU(cVar.eIL);
+            cVar2.QV(cVar.fid);
             cVar2.gf("vc", cVar.eIM);
             cVar2.setExtInfo(cVar.extensionInfo);
             com.baidu.tieba.recapp.report.e.dCe().a(cVar2);
@@ -105,7 +105,7 @@ public class c {
     public static void c(c cVar, int i, boolean z) {
         if (cVar != null && !cVar.aaw && !zA(cVar.extensionInfo)) {
             com.baidu.tieba.recapp.report.c ad = com.baidu.tieba.recapp.report.h.ad(z ? 13 : 3, i, cVar.pn);
-            ad.QV(cVar.page);
+            ad.QW(cVar.page);
             ad.setExtInfo(cVar.extensionInfo);
             com.baidu.tieba.recapp.report.e.dCe().a(ad);
             cVar.aaw = true;

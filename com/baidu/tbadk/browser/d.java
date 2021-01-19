@@ -74,7 +74,7 @@ public class d {
     }
 
     public void showTipToast(boolean z, String str) {
-        new BdTopToast(this.eFq).yS(z).TP(str).aR(this.aXW);
+        new BdTopToast(this.eFq).yS(z).TQ(str).aR(this.aXW);
     }
 
     private void initUI() {

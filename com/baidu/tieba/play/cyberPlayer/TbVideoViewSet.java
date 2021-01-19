@@ -45,7 +45,7 @@ public class TbVideoViewSet {
         return mzO;
     }
 
-    public TbCyberVideoView PN(String str) {
+    public TbCyberVideoView PO(String str) {
         if (at.isEmpty(str) || !this.mzN.containsKey(str)) {
             return null;
         }
@@ -79,7 +79,7 @@ public class TbVideoViewSet {
         this.mzN.put(str, tbCyberVideoView);
     }
 
-    public void PO(String str) {
+    public void PP(String str) {
         TbCyberVideoView tbCyberVideoView;
         if (!this.mzP && this.mzN.containsKey(str) && (tbCyberVideoView = (TbCyberVideoView) this.mzN.remove(str)) != null) {
             tbCyberVideoView.stopPlayback();

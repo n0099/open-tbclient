@@ -12,7 +12,7 @@ import javax.annotation.concurrent.ThreadSafe;
 @d
 /* loaded from: classes3.dex */
 public class GifImage implements c, b {
-    private static volatile boolean pni;
+    private static volatile boolean pnj;
     @d
     private long mNativeContext;
 
@@ -42,8 +42,8 @@ public class GifImage implements c, b {
 
     private static synchronized void epq() {
         synchronized (GifImage.class) {
-            if (!pni) {
-                pni = true;
+            if (!pnj) {
+                pnj = true;
                 SoLoaderShim.loadLibrary("gifimage");
             }
         }

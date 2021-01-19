@@ -1,8 +1,8 @@
 package com.facebook.imagepipeline.j;
 /* loaded from: classes5.dex */
 public class b {
-    public static final a pDt = new C1048b();
-    private static volatile c pDu = null;
+    public static final a pDu = new C1048b();
+    private static volatile c pDv = null;
 
     /* loaded from: classes5.dex */
     public interface a {
@@ -27,14 +27,14 @@ public class b {
     }
 
     private static c exR() {
-        if (pDu == null) {
+        if (pDv == null) {
             synchronized (b.class) {
-                if (pDu == null) {
-                    pDu = new com.facebook.imagepipeline.j.a();
+                if (pDv == null) {
+                    pDv = new com.facebook.imagepipeline.j.a();
                 }
             }
         }
-        return pDu;
+        return pDv;
     }
 
     /* renamed from: com.facebook.imagepipeline.j.b$b  reason: collision with other inner class name */

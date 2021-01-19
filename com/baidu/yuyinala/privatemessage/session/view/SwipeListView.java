@@ -7,25 +7,25 @@ import android.widget.ListView;
 import java.util.ArrayList;
 /* loaded from: classes10.dex */
 public class SwipeListView extends ListView {
-    private ArrayList<SwipeListViewScroll> oZR;
-    protected int[] oZS;
-    protected a oZT;
+    private ArrayList<SwipeListViewScroll> oZS;
+    protected int[] oZT;
+    protected a oZU;
 
     public SwipeListView(Context context) {
         super(context);
-        this.oZR = new ArrayList<>();
+        this.oZS = new ArrayList<>();
         setMotionEventSplittingEnabled(false);
     }
 
     public SwipeListView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.oZR = new ArrayList<>();
+        this.oZS = new ArrayList<>();
         setMotionEventSplittingEnabled(false);
     }
 
     public SwipeListView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.oZR = new ArrayList<>();
+        this.oZS = new ArrayList<>();
         setMotionEventSplittingEnabled(false);
     }
 
@@ -34,9 +34,9 @@ public class SwipeListView extends ListView {
         while (true) {
             try {
                 int i2 = i;
-                if (i2 < this.oZR.size()) {
-                    if (this.oZR.get(i2) != null) {
-                        this.oZR.get(i2).close();
+                if (i2 < this.oZS.size()) {
+                    if (this.oZS.get(i2) != null) {
+                        this.oZS.get(i2).close();
                     }
                     i = i2 + 1;
                 } else {
@@ -51,8 +51,8 @@ public class SwipeListView extends ListView {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void a(SwipeListViewScroll swipeListViewScroll) {
-        if (this.oZR.indexOf(swipeListViewScroll) == -1) {
-            this.oZR.add(swipeListViewScroll);
+        if (this.oZS.indexOf(swipeListViewScroll) == -1) {
+            this.oZS.add(swipeListViewScroll);
         }
     }
 
@@ -63,7 +63,7 @@ public class SwipeListView extends ListView {
     }
 
     public void setListener(a aVar, int[] iArr) {
-        this.oZS = iArr;
-        this.oZT = aVar;
+        this.oZT = iArr;
+        this.oZU = aVar;
     }
 }

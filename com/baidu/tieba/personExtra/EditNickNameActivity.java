@@ -101,7 +101,7 @@ public class EditNickNameActivity extends BaseActivity<EditNickNameActivity> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Pv(String str) {
+    public void Pw(String str) {
         if (this.mWebView != null && this.mWebView.canGoBack()) {
             this.mWebView.goBack();
             return;
@@ -117,7 +117,7 @@ public class EditNickNameActivity extends BaseActivity<EditNickNameActivity> {
         if (this.mLoadSuccess && this.mWebView != null && !TextUtils.isEmpty(this.mWebView.getUrl()) && this.mWebView.getUrl().contains("https://tieba.baidu.com/n/interact/modifyname")) {
             this.mWebView.loadUrl("javascript:__js_bridge_modify_name_back_action()");
         } else {
-            Pv(null);
+            Pw(null);
         }
     }
 
@@ -239,10 +239,10 @@ public class EditNickNameActivity extends BaseActivity<EditNickNameActivity> {
 
     /* JADX INFO: Access modifiers changed from: private */
     public boolean Gh(String str) {
-        return Pw(str);
+        return Px(str);
     }
 
-    private boolean Pw(String str) {
+    private boolean Px(String str) {
         String urlDecode = k.getUrlDecode(str);
         if (urlDecode.contains(UrlSchemaHelper.SCHEMA_TYPE_MODIFY_NAME) && urlDecode.contains("data=")) {
             try {
@@ -250,7 +250,7 @@ public class EditNickNameActivity extends BaseActivity<EditNickNameActivity> {
                 boolean z = jSONObject.optInt("isclose") == 1;
                 String optString = jSONObject.optString("nickname");
                 if (z) {
-                    Pv(optString);
+                    Pw(optString);
                 } else {
                     Pd();
                 }
@@ -277,7 +277,7 @@ public class EditNickNameActivity extends BaseActivity<EditNickNameActivity> {
                 @Override // com.baidu.tbadk.core.dialog.a.b
                 public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
                     aVar.dismiss();
-                    EditNickNameActivity.this.Pv(null);
+                    EditNickNameActivity.this.Pw(null);
                 }
             });
             this.ada.b(getPageContext());

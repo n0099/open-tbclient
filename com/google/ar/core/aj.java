@@ -14,14 +14,14 @@ public final class aj implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
     final /* synthetic */ Activity f7855a;
-    final /* synthetic */ w pHK;
-    final /* synthetic */ y pHy;
+    final /* synthetic */ w pHL;
+    final /* synthetic */ y pHz;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public aj(w wVar, Activity activity, y yVar) {
-        this.pHK = wVar;
+        this.pHL = wVar;
         this.f7855a = activity;
-        this.pHy = yVar;
+        this.pHz = yVar;
     }
 
     @Override // java.lang.Runnable
@@ -30,16 +30,16 @@ public final class aj implements Runnable {
         Bundle b2;
         try {
             AtomicBoolean atomicBoolean = new AtomicBoolean(false);
-            aVar = this.pHK.pHF;
+            aVar = this.pHL.pHG;
             String str = this.f7855a.getApplicationInfo().packageName;
-            w wVar = this.pHK;
+            w wVar = this.pHL;
             b2 = w.b();
             aVar.a(str, Collections.singletonList(b2), new Bundle(), new x(this, atomicBoolean));
             new Handler().postDelayed(new ak(this, atomicBoolean), IMConnection.RETRY_DELAY_TIMES);
         } catch (RemoteException e) {
             Log.w("ARCore-InstallService", "requestInstall threw, launching fullscreen.", e);
-            w wVar2 = this.pHK;
-            w.b(this.f7855a, this.pHy);
+            w wVar2 = this.pHL;
+            w.b(this.f7855a, this.pHz);
         }
     }
 }

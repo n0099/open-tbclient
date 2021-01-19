@@ -81,9 +81,9 @@ public class c {
         }
     }
 
-    public void Lh(String str) {
+    public void Li(String str) {
         if (this.jVy != null) {
-            this.jVy.Lh(str);
+            this.jVy.Li(str);
         }
     }
 

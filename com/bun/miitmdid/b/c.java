@@ -32,7 +32,7 @@ public class c {
             hJ.H(a());
             hJ.ha("support", String.valueOf(z ? 1 : 0));
             hJ.aX(a2);
-            hJ.Xr("http://sdk.api.bjshcw.com/stat");
+            hJ.Xs("http://sdk.api.bjshcw.com/stat");
             hJ.a(new b.a() { // from class: com.bun.miitmdid.b.c.1
                 @Override // com.bun.miitmdid.b.b.a
                 public void a(Exception exc, int i, String str5) {

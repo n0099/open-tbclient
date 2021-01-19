@@ -34,25 +34,25 @@ public class d {
     private int mFrom;
     private NavigationBar mNavigationBar;
     private PermissionJudgePolicy mPermissionJudgement;
-    private RelativeLayout nOD;
-    private ImageView nOE;
-    public ImageView nOF;
-    private RelativeLayout nOG;
-    private ImageView nOH;
-    public ImageView nOI;
-    private View nOJ;
-    private ImageView nOK;
-    private int nOC = TbadkCoreApplication.getInst().getContext().getResources().getDimensionPixelSize(R.dimen.ds28);
-    private boolean nOL = false;
+    private RelativeLayout nOE;
+    private ImageView nOF;
+    public ImageView nOG;
+    private RelativeLayout nOH;
+    private ImageView nOI;
+    public ImageView nOJ;
+    private View nOK;
+    private ImageView nOL;
+    private int nOD = TbadkCoreApplication.getInst().getContext().getResources().getDimensionPixelSize(R.dimen.ds28);
+    private boolean nOM = false;
     private Handler mHandler = new Handler();
     private Runnable jGy = new Runnable() { // from class: com.baidu.tieba.view.d.4
         @Override // java.lang.Runnable
         public void run() {
-            ImageView imageView = d.this.nOH;
+            ImageView imageView = d.this.nOI;
             if (imageView != null) {
                 com.baidu.adp.lib.f.g.showPopupWindowAsDropDown(d.this.lWp, imageView);
                 com.baidu.tbadk.core.sharedPref.b.brx().putBoolean(SharedPrefConfig.SHOW_PERSON_TAB_FEEDBACK_TIPS, true);
-                d.this.nOL = true;
+                d.this.nOM = true;
                 d.this.mHandler.postDelayed(d.this.jGz, IMConnection.RETRY_DELAY_TIMES);
             }
         }
@@ -77,34 +77,34 @@ public class d {
     public void a(Context context, NavigationBar navigationBar) {
         this.mContext = context;
         this.mNavigationBar = navigationBar;
-        this.nOD = (RelativeLayout) LayoutInflater.from(context).inflate(R.layout.item_person_host_navigation_dressup, (ViewGroup) null);
-        this.nOE = (ImageView) this.nOD.findViewById(R.id.person_navigation_dressup_img);
-        this.nOF = (ImageView) this.nOD.findViewById(R.id.person_navigation_dressup_red_tip);
-        this.nOG = (RelativeLayout) LayoutInflater.from(context).inflate(R.layout.item_person_host_navigation_setting, (ViewGroup) null);
-        this.nOH = (ImageView) this.nOG.findViewById(R.id.person_navigation_setting_img);
-        this.nOI = (ImageView) this.nOG.findViewById(R.id.person_navigation_setting_red_tip);
-        this.nOJ = LayoutInflater.from(this.mContext).inflate(R.layout.item_person_host_navigation_scan, (ViewGroup) null);
-        this.nOK = (ImageView) this.nOJ.findViewById(R.id.person_navigation_scan_img);
+        this.nOE = (RelativeLayout) LayoutInflater.from(context).inflate(R.layout.item_person_host_navigation_dressup, (ViewGroup) null);
+        this.nOF = (ImageView) this.nOE.findViewById(R.id.person_navigation_dressup_img);
+        this.nOG = (ImageView) this.nOE.findViewById(R.id.person_navigation_dressup_red_tip);
+        this.nOH = (RelativeLayout) LayoutInflater.from(context).inflate(R.layout.item_person_host_navigation_setting, (ViewGroup) null);
+        this.nOI = (ImageView) this.nOH.findViewById(R.id.person_navigation_setting_img);
+        this.nOJ = (ImageView) this.nOH.findViewById(R.id.person_navigation_setting_red_tip);
+        this.nOK = LayoutInflater.from(this.mContext).inflate(R.layout.item_person_host_navigation_scan, (ViewGroup) null);
+        this.nOL = (ImageView) this.nOK.findViewById(R.id.person_navigation_scan_img);
     }
 
     public void dTM() {
         this.mNavigationBar.removeAllViews(NavigationBar.ControlAlign.HORIZONTAL_RIGHT);
         if (this.mFrom == 1) {
-            if (this.nOD != null && this.nOD.getParent() == null) {
-                this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, this.nOD, (View.OnClickListener) null);
+            if (this.nOE != null && this.nOE.getParent() == null) {
+                this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, this.nOE, (View.OnClickListener) null);
             }
-            if (this.nOG != null && this.nOG.getParent() == null) {
-                this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, this.nOG, (View.OnClickListener) null);
+            if (this.nOH != null && this.nOH.getParent() == null) {
+                this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, this.nOH, (View.OnClickListener) null);
             }
-            if (this.nOJ != null && this.nOJ.getParent() == null) {
-                this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_LEFT, this.nOJ, (View.OnClickListener) null);
+            if (this.nOK != null && this.nOK.getParent() == null) {
+                this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_LEFT, this.nOK, (View.OnClickListener) null);
             }
         }
     }
 
     public void setOnViewResponseListener(f fVar) {
-        if (this.nOD != null) {
-            this.nOD.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.view.d.1
+        if (this.nOE != null) {
+            this.nOE.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.view.d.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     if (d.this.mFrom == 1) {
@@ -118,8 +118,8 @@ public class d {
                 }
             });
         }
-        if (this.nOG != null) {
-            this.nOG.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.view.d.2
+        if (this.nOH != null) {
+            this.nOH.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.view.d.2
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     if (d.this.mFrom == 1) {
@@ -139,8 +139,8 @@ public class d {
                 }
             });
         }
-        if (this.nOJ != null) {
-            this.nOJ.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.view.d.3
+        if (this.nOK != null) {
+            this.nOK.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.view.d.3
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     if (d.this.mContext instanceof Activity) {
@@ -165,39 +165,39 @@ public class d {
     }
 
     public void ae(int i, boolean z) {
-        if (i == 5 && this.nOI != null) {
-            this.nOI.setVisibility(z ? 0 : 8);
-        } else if (i == 6 && this.nOF != null) {
-            this.nOF.setVisibility(z ? 0 : 8);
+        if (i == 5 && this.nOJ != null) {
+            this.nOJ.setVisibility(z ? 0 : 8);
+        } else if (i == 6 && this.nOG != null) {
+            this.nOG.setVisibility(z ? 0 : 8);
         }
     }
 
     public void onChangeSkinType(int i) {
-        if (this.nOE != null) {
+        if (this.nOF != null) {
             if (2 == i) {
-                SvgManager.bsx().a(this.nOE, R.drawable.icon_pure_topbar_store44_svg, R.color.CAM_X0105, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+                SvgManager.bsx().a(this.nOF, R.drawable.icon_pure_topbar_store44_svg, R.color.CAM_X0105, SvgManager.SvgResourceStateType.NORMAL_PRESS);
             } else if (this.mNavigationBar.getBarBgView().getAlpha() < 0.5f) {
-                SvgManager.bsx().a(this.nOE, R.drawable.icon_pure_topbar_store44_svg, R.color.white_alpha100, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+                SvgManager.bsx().a(this.nOF, R.drawable.icon_pure_topbar_store44_svg, R.color.white_alpha100, SvgManager.SvgResourceStateType.NORMAL_PRESS);
             } else {
-                SvgManager.bsx().a(this.nOE, R.drawable.icon_pure_topbar_store44_svg, R.color.CAM_X0105, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+                SvgManager.bsx().a(this.nOF, R.drawable.icon_pure_topbar_store44_svg, R.color.CAM_X0105, SvgManager.SvgResourceStateType.NORMAL_PRESS);
             }
-            if (this.nOF != null) {
-                ao.setImageResource(this.nOF, R.drawable.icon_news_down_bar_one);
+            if (this.nOG != null) {
+                ao.setImageResource(this.nOG, R.drawable.icon_news_down_bar_one);
             }
         }
-        if (this.nOH != null) {
+        if (this.nOI != null) {
             if (2 == i) {
-                SvgManager.bsx().a(this.nOH, R.drawable.icon_pure_topbar_set44_svg, R.color.CAM_X0105, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+                SvgManager.bsx().a(this.nOI, R.drawable.icon_pure_topbar_set44_svg, R.color.CAM_X0105, SvgManager.SvgResourceStateType.NORMAL_PRESS);
             } else if (this.mNavigationBar.getBarBgView().getAlpha() < 0.5f) {
-                SvgManager.bsx().a(this.nOH, R.drawable.icon_pure_topbar_set44_svg, R.color.white_alpha100, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+                SvgManager.bsx().a(this.nOI, R.drawable.icon_pure_topbar_set44_svg, R.color.white_alpha100, SvgManager.SvgResourceStateType.NORMAL_PRESS);
             } else {
-                SvgManager.bsx().a(this.nOH, R.drawable.icon_pure_topbar_set44_svg, R.color.CAM_X0105, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+                SvgManager.bsx().a(this.nOI, R.drawable.icon_pure_topbar_set44_svg, R.color.CAM_X0105, SvgManager.SvgResourceStateType.NORMAL_PRESS);
             }
-            if (this.nOI != null) {
-                ao.setImageResource(this.nOI, R.drawable.icon_news_down_bar_one);
+            if (this.nOJ != null) {
+                ao.setImageResource(this.nOJ, R.drawable.icon_news_down_bar_one);
             }
         }
-        SvgManager.bsx().a(this.nOK, R.drawable.icon_pure_topbar_scan44_svg, R.color.CAM_X0105, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+        SvgManager.bsx().a(this.nOL, R.drawable.icon_pure_topbar_scan44_svg, R.color.CAM_X0105, SvgManager.SvgResourceStateType.NORMAL_PRESS);
     }
 
     public void dqd() {

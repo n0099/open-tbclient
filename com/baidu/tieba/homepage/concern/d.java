@@ -209,7 +209,7 @@ public class d {
 
     /* loaded from: classes2.dex */
     public interface a {
-        void KZ(String str);
+        void La(String str);
 
         void ah(boolean z, boolean z2);
 
@@ -287,7 +287,7 @@ public class d {
     public void bQy() {
         if (!isLoading() && this.hasMore && this.jSE != null) {
             setIsLoading(true);
-            this.jSE.KZ(this.pageTag);
+            this.jSE.La(this.pageTag);
         }
     }
 
@@ -397,7 +397,7 @@ public class d {
         this.pageTag = dataRes.page_tag;
         this.jSI = new DataRes.Builder(dataRes);
         if (cMZ()) {
-            Lb(this.pageTag);
+            Lc(this.pageTag);
         }
         LinkedList linkedList = new LinkedList();
         DataRes.Builder builder = new DataRes.Builder(dataRes);
@@ -529,7 +529,7 @@ public class d {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void dT(List<n> list) {
-        com.baidu.tieba.recapp.report.b.dCd().bN("CONCERN", com.baidu.tieba.recapp.a.fL(list));
+        com.baidu.tieba.recapp.report.b.dCd().bO("CONCERN", com.baidu.tieba.recapp.a.fL(list));
     }
 
     private void bkL() {
@@ -603,7 +603,7 @@ public class d {
                         DataRes build = builder2.build(true);
                         if (build != null && !com.baidu.tbadk.core.util.x.isEmpty(build.thread_info)) {
                             dK.setForever("0", build.toByteArray());
-                            d.Lc(d.this.pageTag);
+                            d.Ld(d.this.pageTag);
                             d.gx(System.currentTimeMillis());
                         }
                     } catch (Exception e) {
@@ -710,7 +710,7 @@ public class d {
         return com.baidu.tbadk.a.d.biU() && com.baidu.tbadk.core.sharedPref.b.brx().getInt("key_home_concern_all_status", 0) == 0;
     }
 
-    public static void Lb(String str) {
+    public static void Lc(String str) {
         com.baidu.tbadk.core.sharedPref.b.brx().putString(com.baidu.tbadk.core.sharedPref.b.getSharedPrefKeyWithAccount("key_home_concern_all_status_cache_nextpage_key"), str);
     }
 
@@ -718,7 +718,7 @@ public class d {
         return com.baidu.tbadk.core.sharedPref.b.brx().getString(com.baidu.tbadk.core.sharedPref.b.getSharedPrefKeyWithAccount("key_home_concern_all_status_cache_nextpage_key"), "");
     }
 
-    public static void Lc(String str) {
+    public static void Ld(String str) {
         com.baidu.tbadk.core.sharedPref.b.brx().putString(com.baidu.tbadk.core.sharedPref.b.getSharedPrefKeyWithAccount("key_home_concern_all_status_cache_nextpage_update_key"), str);
     }
 

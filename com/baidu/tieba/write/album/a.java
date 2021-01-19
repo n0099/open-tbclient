@@ -11,30 +11,30 @@ public class a extends com.baidu.adp.base.d<BaseFragmentActivity> {
     private String bHO;
     private Fragment[] bdx;
     private TbPageContext iPu;
-    private e nTF;
-    private String[] nTG;
-    private ImageListFragment nTH;
-    private AlbumImageBrowseFragment nTI;
+    private e nTG;
+    private String[] nTH;
+    private ImageListFragment nTI;
+    private AlbumImageBrowseFragment nTJ;
 
     public a(TbPageContext tbPageContext, e eVar) {
         super(tbPageContext);
         this.bHN = "tag_image";
         this.bHO = "tag_b_image";
         this.iPu = tbPageContext;
-        this.nTF = eVar;
+        this.nTG = eVar;
     }
 
     public void SN() {
         this.bdx = new Fragment[2];
-        this.nTG = new String[2];
-        this.nTH = new ImageListFragment();
-        this.nTH.a(this.nTF);
-        this.bdx[0] = this.nTH;
-        this.nTG[0] = this.bHN;
-        this.nTI = new AlbumImageBrowseFragment();
-        this.nTI.a(this.nTF);
-        this.bdx[1] = this.nTI;
-        this.nTG[1] = this.bHO;
+        this.nTH = new String[2];
+        this.nTI = new ImageListFragment();
+        this.nTI.a(this.nTG);
+        this.bdx[0] = this.nTI;
+        this.nTH[0] = this.bHN;
+        this.nTJ = new AlbumImageBrowseFragment();
+        this.nTJ.a(this.nTG);
+        this.bdx[1] = this.nTJ;
+        this.nTH[1] = this.bHO;
     }
 
     public Fragment KN(int i) {
@@ -48,11 +48,11 @@ public class a extends com.baidu.adp.base.d<BaseFragmentActivity> {
         if (i < 0 || i > 1) {
             return null;
         }
-        return this.nTG[i];
+        return this.nTH[i];
     }
 
     public void b(NavigationBar navigationBar) {
-        this.nTH.b(navigationBar);
+        this.nTI.b(navigationBar);
     }
 
     public void onChangeSkinType(int i) {
@@ -71,10 +71,10 @@ public class a extends com.baidu.adp.base.d<BaseFragmentActivity> {
     }
 
     public TbCameraView dUw() {
-        if (this.nTH == null) {
+        if (this.nTI == null) {
             return null;
         }
-        return this.nTH.dUw();
+        return this.nTI.dUw();
     }
 
     public void stopCamera() {
@@ -91,78 +91,78 @@ public class a extends com.baidu.adp.base.d<BaseFragmentActivity> {
             dUw.setVisibility(0);
             dUw.zg(false);
         }
-        if (this.nTH != null && this.nTH.dUH() != null) {
-            this.nTH.dUH().Tk();
+        if (this.nTI != null && this.nTI.dUH() != null) {
+            this.nTI.dUH().Tk();
         }
     }
 
     public void dUx() {
-        if (this.nTH != null) {
-            this.nTH.Ti();
+        if (this.nTI != null) {
+            this.nTI.Ti();
         }
     }
 
     public View SO() {
-        if (this.nTH == null) {
-            return null;
-        }
-        return this.nTH.Tf();
-    }
-
-    public View SP() {
-        if (this.nTH == null) {
-            return null;
-        }
-        return this.nTH.Tj();
-    }
-
-    public View SQ() {
         if (this.nTI == null) {
             return null;
         }
         return this.nTI.Tf();
     }
 
-    public View SR() {
+    public View SP() {
         if (this.nTI == null) {
             return null;
         }
-        return this.nTI.Tg();
+        return this.nTI.Tj();
+    }
+
+    public View SQ() {
+        if (this.nTJ == null) {
+            return null;
+        }
+        return this.nTJ.Tf();
+    }
+
+    public View SR() {
+        if (this.nTJ == null) {
+            return null;
+        }
+        return this.nTJ.Tg();
     }
 
     public View SS() {
+        if (this.nTJ == null) {
+            return null;
+        }
+        return this.nTJ.SS();
+    }
+
+    public View ST() {
         if (this.nTI == null) {
             return null;
         }
         return this.nTI.SS();
     }
 
-    public View ST() {
-        if (this.nTH == null) {
-            return null;
-        }
-        return this.nTH.SS();
-    }
-
     public void onDestroy() {
     }
 
     public ImageListFragment dUy() {
-        return this.nTH;
+        return this.nTI;
     }
 
     public void df(boolean z) {
+        if (this.nTJ != null) {
+            this.nTJ.df(z);
+        }
         if (this.nTI != null) {
             this.nTI.df(z);
-        }
-        if (this.nTH != null) {
-            this.nTH.df(z);
         }
     }
 
     public void a(j jVar) {
-        if (this.nTH != null) {
-            this.nTH.a(jVar);
+        if (this.nTI != null) {
+            this.nTI.a(jVar);
         }
     }
 }

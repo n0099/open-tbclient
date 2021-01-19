@@ -4,11 +4,11 @@ import rx.g;
 import rx.h;
 /* loaded from: classes14.dex */
 public final class u<T> implements h.a<T> {
-    final h.a<T> qrA;
+    final h.a<T> qrB;
     final rx.g scheduler;
 
     public u(h.a<T> aVar, rx.g gVar) {
-        this.qrA = aVar;
+        this.qrB = aVar;
         this.scheduler = gVar;
     }
 
@@ -20,7 +20,7 @@ public final class u<T> implements h.a<T> {
         a aVar = new a(iVar, createWorker);
         iVar.add(createWorker);
         iVar.add(aVar);
-        this.qrA.call(aVar);
+        this.qrB.call(aVar);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -28,24 +28,24 @@ public final class u<T> implements h.a<T> {
     public static final class a<T> extends rx.i<T> implements rx.functions.a {
         final rx.i<? super T> actual;
         Throwable error;
-        final g.a qrB;
+        final g.a qrC;
         T value;
 
         public a(rx.i<? super T> iVar, g.a aVar) {
             this.actual = iVar;
-            this.qrB = aVar;
+            this.qrC = aVar;
         }
 
         @Override // rx.i
         public void onSuccess(T t) {
             this.value = t;
-            this.qrB.c(this);
+            this.qrC.c(this);
         }
 
         @Override // rx.i
         public void onError(Throwable th) {
             this.error = th;
-            this.qrB.c(this);
+            this.qrC.c(this);
         }
 
         @Override // rx.functions.a
@@ -61,7 +61,7 @@ public final class u<T> implements h.a<T> {
                     this.actual.onSuccess(t);
                 }
             } finally {
-                this.qrB.unsubscribe();
+                this.qrC.unsubscribe();
             }
         }
     }

@@ -5,16 +5,16 @@ import android.os.Message;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes10.dex */
 public class a {
-    private static int oVK = 256;
-    private static int oVL = 7;
-    private static int oVM = 16;
+    private static int oVL = 256;
+    private static int oVM = 7;
+    private static int oVN = 16;
     private int mFrom;
-    private b oVO;
-    private int oVP;
+    private b oVP;
     private int oVQ;
+    private int oVR;
     private boolean isAnimating = false;
-    private int bFw = oVL;
-    private HandlerC0969a oVN = new HandlerC0969a();
+    private int bFw = oVM;
+    private HandlerC0969a oVO = new HandlerC0969a();
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes10.dex */
@@ -41,7 +41,7 @@ public class a {
         if (bVar == null) {
             com.baidu.yuyinala.privatemessage.implugin.util.c.e("SwitchButtonAnimationController", "onAnimateListener can not be null");
         } else {
-            this.oVO = bVar;
+            this.oVP = bVar;
         }
         return this;
     }
@@ -55,7 +55,7 @@ public class a {
 
         @Override // android.os.Handler
         public void handleMessage(Message message) {
-            if (message.what == a.oVK && message.obj != null) {
+            if (message.what == a.oVL && message.obj != null) {
                 ((Runnable) message.obj).run();
             }
         }
@@ -65,18 +65,18 @@ public class a {
     public void dS(int i, int i2) {
         this.isAnimating = true;
         this.mFrom = i;
-        this.oVQ = i2;
-        this.oVP = this.bFw;
-        if (this.oVQ > this.mFrom) {
-            this.oVP = Math.abs(this.bFw);
-        } else if (this.oVQ < this.mFrom) {
-            this.oVP = -Math.abs(this.bFw);
+        this.oVR = i2;
+        this.oVQ = this.bFw;
+        if (this.oVR > this.mFrom) {
+            this.oVQ = Math.abs(this.bFw);
+        } else if (this.oVR < this.mFrom) {
+            this.oVQ = -Math.abs(this.bFw);
         } else {
             this.isAnimating = false;
-            this.oVO.ejs();
+            this.oVP.ejs();
             return;
         }
-        this.oVO.onAnimationStart();
+        this.oVP.onAnimationStart();
         new c().run();
     }
 
@@ -86,7 +86,7 @@ public class a {
 
     public void Nw(int i) {
         if (i <= 0) {
-            this.bFw = oVL;
+            this.bFw = oVM;
         } else {
             this.bFw = i;
         }
@@ -101,13 +101,13 @@ public class a {
         public void run() {
             if (a.this.isAnimating) {
                 ejt();
-                a.this.oVO.onFrameUpdate(a.this.oVP);
-                if (a.this.oVO.ejr()) {
+                a.this.oVP.onFrameUpdate(a.this.oVQ);
+                if (a.this.oVP.ejr()) {
                     eju();
                     return;
                 }
                 a.this.stopAnimation();
-                a.this.oVO.ejs();
+                a.this.oVP.ejs();
             }
         }
 
@@ -115,10 +115,10 @@ public class a {
         }
 
         private void eju() {
-            Message obtainMessage = a.this.oVN.obtainMessage();
-            obtainMessage.what = a.oVK;
+            Message obtainMessage = a.this.oVO.obtainMessage();
+            obtainMessage.what = a.oVL;
             obtainMessage.obj = this;
-            a.this.oVN.sendMessageDelayed(obtainMessage, a.oVM);
+            a.this.oVO.sendMessageDelayed(obtainMessage, a.oVN);
         }
     }
 }

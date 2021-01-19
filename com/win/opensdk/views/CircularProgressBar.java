@@ -30,9 +30,9 @@ public class CircularProgressBar extends ProgressBar {
 
     /* renamed from: java  reason: collision with other field name */
     private String f78java;
-    private final Paint qaW;
-    private final RectF qaX;
-    private final Paint qbb;
+    private final Paint qaX;
+    private final RectF qaY;
+    private final Paint qbc;
 
     public CircularProgressBar(Context context) {
         super(context);
@@ -40,9 +40,9 @@ public class CircularProgressBar extends ProgressBar {
         this.f77case = Color.parseColor("#ffffff");
         this.f78java = "";
         this.f13761a = 0;
-        this.qaX = new RectF();
-        this.qaW = new Paint();
-        this.qbb = new Paint();
+        this.qaY = new RectF();
+        this.qaX = new Paint();
+        this.qbc = new Paint();
         this.f76a = new Paint();
         this.f13762b = new Paint();
         eGz();
@@ -54,9 +54,9 @@ public class CircularProgressBar extends ProgressBar {
         this.f77case = Color.parseColor("#ffffff");
         this.f78java = "";
         this.f13761a = 0;
-        this.qaX = new RectF();
-        this.qaW = new Paint();
-        this.qbb = new Paint();
+        this.qaY = new RectF();
+        this.qaX = new Paint();
+        this.qbc = new Paint();
         this.f76a = new Paint();
         this.f13762b = new Paint();
         eGz();
@@ -68,9 +68,9 @@ public class CircularProgressBar extends ProgressBar {
         this.f77case = Color.parseColor("#ffffff");
         this.f78java = "";
         this.f13761a = 0;
-        this.qaX = new RectF();
-        this.qaW = new Paint();
-        this.qbb = new Paint();
+        this.qaY = new RectF();
+        this.qaX = new Paint();
+        this.qbc = new Paint();
         this.f76a = new Paint();
         this.f13762b = new Paint();
         eGz();
@@ -81,16 +81,16 @@ public class CircularProgressBar extends ProgressBar {
             setLayerType(1, null);
         }
         this.f13761a = bi.k(getContext(), 2.5f) + 1;
-        this.qaW.setColor(this.f77case);
-        this.qbb.setColor(this.java);
+        this.qaX.setColor(this.f77case);
+        this.qbc.setColor(this.java);
         this.f76a.setColor(this.f77case);
         this.f13762b.setColor(this.java);
-        this.qaW.setAntiAlias(true);
-        this.qaW.setStyle(Paint.Style.STROKE);
-        this.qaW.setStrokeWidth(this.f13761a);
-        this.qbb.setAntiAlias(true);
-        this.qbb.setStyle(Paint.Style.STROKE);
-        this.qbb.setStrokeWidth(this.f13761a);
+        this.qaX.setAntiAlias(true);
+        this.qaX.setStyle(Paint.Style.STROKE);
+        this.qaX.setStrokeWidth(this.f13761a);
+        this.qbc.setAntiAlias(true);
+        this.qbc.setStyle(Paint.Style.STROKE);
+        this.qbc.setStrokeWidth(this.f13761a);
         this.f76a.setAntiAlias(true);
         this.f76a.setStyle(Paint.Style.FILL);
         this.f76a.setStrokeWidth(this.f13761a);
@@ -102,9 +102,9 @@ public class CircularProgressBar extends ProgressBar {
 
     @Override // android.widget.ProgressBar, android.view.View
     protected synchronized void onDraw(Canvas canvas) {
-        canvas.drawArc(this.qaX, 0.0f, 360.0f, false, this.f76a);
-        canvas.drawArc(this.qaX, 0.0f, 360.0f, false, this.qbb);
-        canvas.drawArc(this.qaX, 270.0f, -(getMax() > 0 ? (getProgress() / getMax()) * 360.0f : 0.0f), false, this.qaW);
+        canvas.drawArc(this.qaY, 0.0f, 360.0f, false, this.f76a);
+        canvas.drawArc(this.qaY, 0.0f, 360.0f, false, this.qbc);
+        canvas.drawArc(this.qaY, 270.0f, -(getMax() > 0 ? (getProgress() / getMax()) * 360.0f : 0.0f), false, this.qaX);
         if (!TextUtils.isEmpty(this.f78java)) {
             canvas.drawText(this.f78java, (int) ((getMeasuredWidth() / 2) - (this.f13762b.measureText(this.f78java) / 2.0f)), (int) ((getMeasuredHeight() / 2) + (Math.abs(this.f13762b.descent() + this.f13762b.ascent()) / 2.0f)), this.f13762b);
         }
@@ -115,7 +115,7 @@ public class CircularProgressBar extends ProgressBar {
     protected void onMeasure(int i, int i2) {
         int min = Math.min(getDefaultSize(getSuggestedMinimumWidth(), i), getDefaultSize(getSuggestedMinimumHeight(), i2));
         setMeasuredDimension((this.f13761a * 2) + min, (this.f13761a * 2) + min);
-        this.qaX.set(this.f13761a, this.f13761a, this.f13761a + min, min + this.f13761a);
+        this.qaY.set(this.f13761a, this.f13761a, this.f13761a + min, min + this.f13761a);
     }
 
     @Override // android.widget.ProgressBar

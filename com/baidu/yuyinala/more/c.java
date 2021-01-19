@@ -30,14 +30,14 @@ public class c extends com.baidu.live.tieba.pb.interactionpopupwindow.b<AlaMoreF
     private View epB;
     private com.baidu.live.tieba.pb.interactionpopupwindow.c htL;
     private TextView oMA;
-    private HListView oMB;
+    private TextView oMB;
     private HListView oMC;
-    private com.baidu.yuyinala.more.a.a oMD;
+    private HListView oMD;
     private com.baidu.yuyinala.more.a.a oME;
-    private com.baidu.yuyinala.more.c.a oMF;
-    private com.baidu.live.e.c oMG;
-    private AlaMoreFunctionDialogData oMx;
-    private TextView oMz;
+    private com.baidu.yuyinala.more.a.a oMF;
+    private com.baidu.yuyinala.more.c.a oMG;
+    private com.baidu.live.e.c oMH;
+    private AlaMoreFunctionDialogData oMy;
 
     public c(TbPageContext<?> tbPageContext) {
         super(tbPageContext);
@@ -51,38 +51,38 @@ public class c extends com.baidu.live.tieba.pb.interactionpopupwindow.b<AlaMoreF
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.live.tieba.pb.interactionpopupwindow.d
     public void a(AlaMoreFunctionDialogData alaMoreFunctionDialogData) {
-        this.oMx = alaMoreFunctionDialogData;
-        if (this.oMx != null) {
-            this.oMF.N(this.oMx.getLiveId(), this.oMx.getRoomId(), this.oMx.getCustomRoomId(), this.oMx.getGroupId());
-            gw(new ArrayList(this.oMx.getGroupList()));
+        this.oMy = alaMoreFunctionDialogData;
+        if (this.oMy != null) {
+            this.oMG.N(this.oMy.getLiveId(), this.oMy.getRoomId(), this.oMy.getCustomRoomId(), this.oMy.getGroupId());
+            gw(new ArrayList(this.oMy.getGroupList()));
         }
     }
 
     @Override // com.baidu.live.tieba.pb.interactionpopupwindow.d
     public void initView() {
-        this.oMz = (TextView) getViewGroup().findViewById(a.f.func_group_title1_tv);
-        this.oMA = (TextView) getViewGroup().findViewById(a.f.func_group_title2_tv);
-        this.oMB = (HListView) getViewGroup().findViewById(a.f.function_hlv1);
-        this.oMC = (HListView) getViewGroup().findViewById(a.f.function_hlv2);
+        this.oMA = (TextView) getViewGroup().findViewById(a.f.func_group_title1_tv);
+        this.oMB = (TextView) getViewGroup().findViewById(a.f.func_group_title2_tv);
+        this.oMC = (HListView) getViewGroup().findViewById(a.f.function_hlv1);
+        this.oMD = (HListView) getViewGroup().findViewById(a.f.function_hlv2);
         this.epB = getViewGroup().findViewById(a.f.group_divider_view);
-        this.oMD = new com.baidu.yuyinala.more.a.a(getTbPageContext());
         this.oME = new com.baidu.yuyinala.more.a.a(getTbPageContext());
-        this.oMF = new com.baidu.yuyinala.more.c.a(this);
-        this.oMB.setAdapter((ListAdapter) this.oMD);
+        this.oMF = new com.baidu.yuyinala.more.a.a(getTbPageContext());
+        this.oMG = new com.baidu.yuyinala.more.c.a(this);
         this.oMC.setAdapter((ListAdapter) this.oME);
-        this.oMD.a(this);
+        this.oMD.setAdapter((ListAdapter) this.oMF);
         this.oME.a(this);
+        this.oMF.a(this);
         int dimension = (int) this.mTbPageContext.getPageActivity().getResources().getDimension(a.d.sdk_ds138);
-        ViewGroup.LayoutParams layoutParams = this.oMB.getLayoutParams();
+        ViewGroup.LayoutParams layoutParams = this.oMC.getLayoutParams();
         layoutParams.height = dimension;
-        this.oMB.setLayoutParams(layoutParams);
-        ViewGroup.LayoutParams layoutParams2 = this.oMB.getLayoutParams();
+        this.oMC.setLayoutParams(layoutParams);
+        ViewGroup.LayoutParams layoutParams2 = this.oMC.getLayoutParams();
         layoutParams2.height = dimension;
-        this.oMC.setLayoutParams(layoutParams2);
+        this.oMD.setLayoutParams(layoutParams2);
     }
 
     public void b(com.baidu.live.e.c cVar) {
-        this.oMG = cVar;
+        this.oMH = cVar;
     }
 
     public void a(com.baidu.live.tieba.pb.interactionpopupwindow.c cVar) {
@@ -93,26 +93,26 @@ public class c extends com.baidu.live.tieba.pb.interactionpopupwindow.b<AlaMoreF
         int count = ListUtils.getCount(list);
         com.baidu.yuyinala.more.b.b bVar = (com.baidu.yuyinala.more.b.b) ListUtils.getItem(list, count - 2);
         if (bVar != null) {
-            this.oMz.setText(bVar.getTitle());
-            this.oMD.gx(bVar.ehe());
-            this.oMz.setVisibility(0);
-            this.oMB.setVisibility(0);
+            this.oMA.setText(bVar.getTitle());
+            this.oME.gx(bVar.ehe());
+            this.oMA.setVisibility(0);
+            this.oMC.setVisibility(0);
             this.epB.setVisibility(0);
         } else {
-            this.oMz.setVisibility(8);
-            this.oMB.setVisibility(8);
+            this.oMA.setVisibility(8);
+            this.oMC.setVisibility(8);
             this.epB.setVisibility(8);
         }
         com.baidu.yuyinala.more.b.b bVar2 = (com.baidu.yuyinala.more.b.b) ListUtils.getItem(list, count - 1);
         if (bVar2 != null) {
-            this.oMA.setText(bVar2.getTitle());
-            this.oME.gx(bVar2.ehe());
-            this.oMA.setVisibility(0);
-            this.oMC.setVisibility(0);
+            this.oMB.setText(bVar2.getTitle());
+            this.oMF.gx(bVar2.ehe());
+            this.oMB.setVisibility(0);
+            this.oMD.setVisibility(0);
             return;
         }
-        this.oMA.setVisibility(8);
-        this.oMC.setVisibility(8);
+        this.oMB.setVisibility(8);
+        this.oMD.setVisibility(8);
     }
 
     @Override // com.baidu.yuyinala.more.a.a.b
@@ -195,8 +195,8 @@ public class c extends com.baidu.live.tieba.pb.interactionpopupwindow.b<AlaMoreF
                     runnable = new Runnable() { // from class: com.baidu.yuyinala.more.c.1
                         @Override // java.lang.Runnable
                         public void run() {
-                            if (c.this.oMG != null) {
-                                c.this.oMG.za();
+                            if (c.this.oMH != null) {
+                                c.this.oMH.za();
                             }
                         }
                     };
@@ -205,8 +205,8 @@ public class c extends com.baidu.live.tieba.pb.interactionpopupwindow.b<AlaMoreF
                     runnable = new Runnable() { // from class: com.baidu.yuyinala.more.c.5
                         @Override // java.lang.Runnable
                         public void run() {
-                            if (c.this.oMG != null) {
-                                c.this.oMG.zb();
+                            if (c.this.oMH != null) {
+                                c.this.oMH.zb();
                             }
                         }
                     };
@@ -215,8 +215,8 @@ public class c extends com.baidu.live.tieba.pb.interactionpopupwindow.b<AlaMoreF
                     runnable = new Runnable() { // from class: com.baidu.yuyinala.more.c.6
                         @Override // java.lang.Runnable
                         public void run() {
-                            if (c.this.oMG != null) {
-                                c.this.oMG.zc();
+                            if (c.this.oMH != null) {
+                                c.this.oMH.zc();
                             }
                         }
                     };
@@ -225,8 +225,8 @@ public class c extends com.baidu.live.tieba.pb.interactionpopupwindow.b<AlaMoreF
                     runnable = new Runnable() { // from class: com.baidu.yuyinala.more.c.7
                         @Override // java.lang.Runnable
                         public void run() {
-                            if (c.this.oMG != null) {
-                                c.this.oMG.ze();
+                            if (c.this.oMH != null) {
+                                c.this.oMH.ze();
                             }
                         }
                     };
@@ -259,8 +259,8 @@ public class c extends com.baidu.live.tieba.pb.interactionpopupwindow.b<AlaMoreF
                     runnable = new Runnable() { // from class: com.baidu.yuyinala.more.c.11
                         @Override // java.lang.Runnable
                         public void run() {
-                            if (c.this.oMG != null) {
-                                c.this.oMG.zd();
+                            if (c.this.oMH != null) {
+                                c.this.oMH.zd();
                             }
                         }
                     };
@@ -302,10 +302,10 @@ public class c extends com.baidu.live.tieba.pb.interactionpopupwindow.b<AlaMoreF
     }
 
     private boolean egY() {
-        if (this.oMx == null || ListUtils.isEmpty(this.oMx.getGroupList())) {
+        if (this.oMy == null || ListUtils.isEmpty(this.oMy.getGroupList())) {
             return false;
         }
-        for (com.baidu.yuyinala.more.b.b bVar : this.oMx.getGroupList()) {
+        for (com.baidu.yuyinala.more.b.b bVar : this.oMy.getGroupList()) {
             if (bVar != null && !ListUtils.isEmpty(bVar.ehe())) {
                 for (com.baidu.yuyinala.more.b.a aVar : bVar.ehe()) {
                     if (aVar != null && aVar.ehd()) {
@@ -321,9 +321,9 @@ public class c extends com.baidu.live.tieba.pb.interactionpopupwindow.b<AlaMoreF
     /* JADX INFO: Access modifiers changed from: private */
     public void egZ() {
         AlaWheatMoreFunctionData alaWheatMoreFunctionData = new AlaWheatMoreFunctionData();
-        alaWheatMoreFunctionData.mLiveId = this.oMx.getLiveId();
-        alaWheatMoreFunctionData.mCustomRoomId = this.oMx.getCustomRoomId();
-        alaWheatMoreFunctionData.mRoomId = this.oMx.getRoomId();
+        alaWheatMoreFunctionData.mLiveId = this.oMy.getLiveId();
+        alaWheatMoreFunctionData.mCustomRoomId = this.oMy.getCustomRoomId();
+        alaWheatMoreFunctionData.mRoomId = this.oMy.getRoomId();
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2501076, alaWheatMoreFunctionData));
     }
 
@@ -344,10 +344,10 @@ public class c extends com.baidu.live.tieba.pb.interactionpopupwindow.b<AlaMoreF
         cVar.a(new c.a() { // from class: com.baidu.yuyinala.more.c.4
             @Override // com.baidu.live.view.c.a
             public void OB() {
-                c.this.oMF.ehf();
-                c.this.oMF.ehg();
+                c.this.oMG.ehf();
+                c.this.oMG.ehg();
                 cVar.dismiss();
-                c.this.WW("roomclose_cfm");
+                c.this.WX("roomclose_cfm");
             }
 
             @Override // com.baidu.live.view.c.a
@@ -363,8 +363,8 @@ public class c extends com.baidu.live.tieba.pb.interactionpopupwindow.b<AlaMoreF
         try {
             jSONObject.put(UbcStatConstant.KEY_CONTENT_EXT_SUBPAGE, "moretab");
             jSONObject.put(UbcStatConstant.KEY_LIVE_TYPE, UbcStatConstant.VALUE_LIVE_TYPE_AUDIO);
-            if (this.oMx != null) {
-                jSONObject.put(UbcStatConstant.KEY_CUSTOM_ROOM_ID, this.oMx.getCustomRoomId());
+            if (this.oMy != null) {
+                jSONObject.put(UbcStatConstant.KEY_CUSTOM_ROOM_ID, this.oMy.getCustomRoomId());
             }
             if (str == "first_recharge" || str == "super_recharge" || str == "transfer") {
                 jSONObject.put("cloudctl_id", str2);
@@ -372,10 +372,10 @@ public class c extends com.baidu.live.tieba.pb.interactionpopupwindow.b<AlaMoreF
         } catch (JSONException e) {
             BdLog.e(e);
         }
-        UbcStatisticManager.getInstance().logEvent(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_1396, "click", UbcStatConstant.Page.VOICE_ROOM, WV(str)).setContentExt(jSONObject));
+        UbcStatisticManager.getInstance().logEvent(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_1396, "click", UbcStatConstant.Page.VOICE_ROOM, WW(str)).setContentExt(jSONObject));
     }
 
-    private String WV(String str) {
+    private String WW(String str) {
         char c = 65535;
         switch (str.hashCode()) {
             case -2061609278:
@@ -464,13 +464,13 @@ public class c extends com.baidu.live.tieba.pb.interactionpopupwindow.b<AlaMoreF
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void WW(String str) {
+    public void WX(String str) {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put(UbcStatConstant.KEY_CONTENT_EXT_SUBPAGE, "moretab");
             jSONObject.put(UbcStatConstant.KEY_LIVE_TYPE, UbcStatConstant.VALUE_LIVE_TYPE_AUDIO);
-            if (this.oMx != null) {
-                jSONObject.put(UbcStatConstant.KEY_CUSTOM_ROOM_ID, this.oMx.getCustomRoomId());
+            if (this.oMy != null) {
+                jSONObject.put(UbcStatConstant.KEY_CUSTOM_ROOM_ID, this.oMy.getCustomRoomId());
             }
         } catch (JSONException e) {
             BdLog.e(e);

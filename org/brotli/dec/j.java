@@ -8,55 +8,55 @@ public final class j {
     int distance;
     int j;
     byte[] output;
-    int qlB;
-    boolean qlC;
+    int qlC;
     boolean qlD;
     boolean qlE;
-    int qlP;
+    boolean qlF;
     int qlQ;
-    byte[] qlR;
+    int qlR;
     byte[] qlS;
-    int qlT;
+    byte[] qlT;
     int qlU;
     int qlV;
     int qlW;
     int qlX;
     int qlY;
-    byte[] qlZ;
-    int qlw;
-    byte[] qly;
-    int qma;
+    int qlZ;
+    int qlx;
+    byte[] qlz;
+    byte[] qma;
     int qmb;
     int qmc;
     int qmd;
     int qme;
     int qmf;
     int qmg;
-    int qml;
+    int qmh;
     int qmm;
     int qmn;
     int qmo;
     int qmp;
-    int qlv = 0;
-    final a qlx = new a();
-    final int[] qlz = new int[3240];
+    int qmq;
+    int qlw = 0;
+    final a qly = new a();
     final int[] qlA = new int[3240];
-    final g qlF = new g();
+    final int[] qlB = new int[3240];
     final g qlG = new g();
     final g qlH = new g();
-    final int[] qlI = new int[3];
+    final g qlI = new g();
     final int[] qlJ = new int[3];
-    final int[] qlK = new int[6];
-    final int[] qlL = {16, 15, 11, 4};
+    final int[] qlK = new int[3];
+    final int[] qlL = new int[6];
+    final int[] qlM = {16, 15, 11, 4};
     int pos = 0;
     int hgg = 0;
-    int qlM = 0;
-    boolean qlN = false;
-    int qlO = 0;
-    int qmh = 0;
-    long qmi = 0;
-    byte[] qmj = new byte[0];
-    int qmk = 0;
+    int qlN = 0;
+    boolean qlO = false;
+    int qlP = 0;
+    int qmi = 0;
+    long qmj = 0;
+    byte[] qmk = new byte[0];
+    int qml = 0;
 
     private static int i(a aVar) {
         if (a.a(aVar, 1) == 0) {
@@ -75,27 +75,27 @@ public final class j {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static void a(j jVar, InputStream inputStream) {
-        if (jVar.qlv != 0) {
+        if (jVar.qlw != 0) {
             throw new IllegalStateException("State MUST be uninitialized");
         }
-        a.a(jVar.qlx, inputStream);
-        int i = i(jVar.qlx);
+        a.a(jVar.qly, inputStream);
+        int i = i(jVar.qly);
         if (i == 9) {
             throw new BrotliRuntimeException("Invalid 'windowBits' code");
         }
-        jVar.qmg = 1 << i;
-        jVar.qmf = jVar.qmg - 16;
-        jVar.qlv = 1;
+        jVar.qmh = 1 << i;
+        jVar.qmg = jVar.qmh - 16;
+        jVar.qlw = 1;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static void j(j jVar) throws IOException {
-        if (jVar.qlv == 0) {
+        if (jVar.qlw == 0) {
             throw new IllegalStateException("State MUST be initialized");
         }
-        if (jVar.qlv != 11) {
-            jVar.qlv = 11;
-            a.e(jVar.qlx);
+        if (jVar.qlw != 11) {
+            jVar.qlw = 11;
+            a.e(jVar.qly);
         }
     }
 }

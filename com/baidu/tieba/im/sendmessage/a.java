@@ -62,7 +62,7 @@ public class a {
                         com.baidu.tbadk.core.d.a.a("im", chatMessage.getClientLogID(), chatMessage.getCmd(), "up_voice_ret", 0, null, new Object[0]);
                         a.cVQ().m(chatMessage);
                         if (a.this.mSendCallback != null) {
-                            a.this.mSendCallback.CU(2);
+                            a.this.mSendCallback.CT(2);
                             return;
                         }
                         return;
@@ -220,7 +220,7 @@ public class a {
                         chatMessage.setContent(a.b(str3, str2, i2, i));
                         a.cVQ().m(chatMessage);
                         if (a.this.mSendCallback != null) {
-                            a.this.mSendCallback.CU(1);
+                            a.this.mSendCallback.CT(1);
                         }
                     }
                 }

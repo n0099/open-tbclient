@@ -4,7 +4,7 @@ public class e<T> {
     private String mName;
     private int mType;
     private T mValue;
-    private int nGe;
+    private int nGf;
 
     public e() {
     }
@@ -13,7 +13,7 @@ public class e<T> {
         this.mType = i;
         this.mName = str;
         this.mValue = t;
-        this.nGe = i2;
+        this.nGf = i2;
     }
 
     public String getName() {
@@ -25,11 +25,11 @@ public class e<T> {
     }
 
     public int dRt() {
-        return this.nGe;
+        return this.nGf;
     }
 
     public void Kp(int i) {
-        this.nGe = i;
+        this.nGf = i;
     }
 
     public T getValue() {

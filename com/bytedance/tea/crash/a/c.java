@@ -30,27 +30,27 @@ public class c {
     private final Context d;
     private volatile long e;
     private volatile boolean f = false;
-    private final SharedPreferences pcf;
-    private a plg;
-    private d plh;
+    private final SharedPreferences pcg;
+    private a plh;
+    private d pli;
 
     public c(Context context) {
         if (context == null || !(context instanceof Application)) {
             throw new IllegalArgumentException("context must not be null or not application");
         }
         this.d = context;
-        this.pcf = this.d.getSharedPreferences("anr_monitor_table", 0);
-        this.e = this.pcf.getLong("trace_anr_happen_time", 0L);
+        this.pcg = this.d.getSharedPreferences("anr_monitor_table", 0);
+        this.e = this.pcg.getLong("trace_anr_happen_time", 0L);
         g.a(100, 100);
     }
 
     public void a() {
         if (!this.f) {
             if (Build.VERSION.SDK_INT < 21) {
-                this.plg = new a(this, "/data/anr/", 8);
-                this.plg.startWatching();
+                this.plh = new a(this, "/data/anr/", 8);
+                this.plh.startWatching();
             } else {
-                this.plh = new d(this);
+                this.pli = new d(this);
             }
             this.f = true;
         }
@@ -150,8 +150,8 @@ public class c {
                         return null;
                     } else {
                         this.e = time;
-                        if (this.pcf != null) {
-                            this.pcf.edit().putLong("trace_anr_happen_time", this.e).apply();
+                        if (this.pcg != null) {
+                            this.pcg.edit().putLong("trace_anr_happen_time", this.e).apply();
                         }
                         JSONObject jSONObject = new JSONObject();
                         jSONObject.put("anrTime", time);

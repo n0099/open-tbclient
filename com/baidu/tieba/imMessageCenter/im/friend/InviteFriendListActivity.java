@@ -153,7 +153,7 @@ public class InviteFriendListActivity extends BaseActivity<InviteFriendListActiv
 
     private void initView() {
         this.kGR = new d(this, this.isFromInviteChat);
-        this.kGR.Da(100);
+        this.kGR.CZ(100);
     }
 
     private void loadData() {
@@ -211,7 +211,7 @@ public class InviteFriendListActivity extends BaseActivity<InviteFriendListActiv
             this.kGR.hideKeyboard();
             if (view.getId() == this.kGR.cWL()) {
                 showLoadingDialog();
-                this.kGS.My(this.kGR.cWN());
+                this.kGS.Mz(this.kGR.cWN());
             }
         }
     }

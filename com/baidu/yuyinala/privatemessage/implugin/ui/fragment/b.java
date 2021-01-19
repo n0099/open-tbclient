@@ -36,35 +36,35 @@ import java.lang.ref.SoftReference;
 /* loaded from: classes10.dex */
 public class b implements TextWatcher, View.OnTouchListener, com.baidu.yuyinala.privatemessage.implugin.ui.fragment.a.b, a.b {
     private static int mMode = 3;
-    private static int oST = 200;
+    private static int oSU = 200;
     private View bRa;
     private String mKey;
     private LinearLayout mRootLayout;
     private RelativeLayout mTb;
-    private ActivityChat oMV;
-    private c oRS;
-    private int oSD;
+    private ActivityChat oMW;
+    private c oRT;
     private int oSE;
-    private View oSF;
+    private int oSF;
     private View oSG;
-    private EmojiconEditText oSH;
-    private ImageButton oSI;
-    private ImageButtonText oSJ;
-    private RelativeLayout oSK;
-    private FrameLayout oSL;
-    private RelativeLayout oSM;
-    private LinearLayout oSN;
-    private EmojiconsFragment oSU;
-    private boolean oSV;
-    private ActivityChat.c oSW;
-    private boolean oSO = false;
-    private int oSP = 55;
-    private boolean oSQ = false;
-    private int oSR = 0;
+    private View oSH;
+    private EmojiconEditText oSI;
+    private ImageButton oSJ;
+    private ImageButtonText oSK;
+    private RelativeLayout oSL;
+    private FrameLayout oSM;
+    private RelativeLayout oSN;
+    private LinearLayout oSO;
+    private EmojiconsFragment oSV;
+    private boolean oSW;
+    private ActivityChat.c oSX;
+    private boolean oSP = false;
+    private int oSQ = 55;
+    private boolean oSR = false;
+    private int oSS = 0;
     private int cJF = 0;
-    private boolean oSS = false;
+    private boolean oST = false;
     @SuppressLint({"HandlerLeak"})
-    private a oSX = new a();
+    private a oSY = new a();
 
     public static b a(ActivityChat activityChat, View view, String str, ActivityChat.c cVar) {
         return new b(activityChat, cVar, str, view);
@@ -72,16 +72,16 @@ public class b implements TextWatcher, View.OnTouchListener, com.baidu.yuyinala.
 
     public b(ActivityChat activityChat, ActivityChat.c cVar, String str, View view) {
         this.mKey = "";
-        this.oSW = cVar;
+        this.oSX = cVar;
         this.mKey = str;
         d.eiJ().a(this);
-        this.oMV = activityChat;
-        this.oSD = (int) this.oMV.getResources().getDimension(a.d.bd_im_chat_bottom_bar);
+        this.oMW = activityChat;
+        this.oSE = (int) this.oMW.getResources().getDimension(a.d.bd_im_chat_bottom_bar);
         com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.emojicon.a.a(this);
         this.bRa = view.getRootView();
         o(this.bRa, eiC());
         ap(this.bRa);
-        this.oSH.addTextChangedListener(this);
+        this.oSI.addTextChangedListener(this);
         eiF();
         ew(this.bRa);
     }
@@ -90,65 +90,65 @@ public class b implements TextWatcher, View.OnTouchListener, com.baidu.yuyinala.
         view.getViewTreeObserver().addOnGlobalLayoutListener(new com.baidu.yuyinala.privatemessage.implugin.util.b.b(view, new com.baidu.yuyinala.privatemessage.implugin.util.b.c() { // from class: com.baidu.yuyinala.privatemessage.implugin.ui.fragment.b.1
             @Override // com.baidu.yuyinala.privatemessage.implugin.util.b.c
             public void a(boolean z, int i, int i2, int i3) {
-                if (b.this.oMV != null) {
-                    int i4 = b.this.oMV.getActivity().getWindow().getAttributes().softInputMode;
+                if (b.this.oMW != null) {
+                    int i4 = b.this.oMW.getActivity().getWindow().getAttributes().softInputMode;
                     if (!z || i4 == 16) {
-                        if (b.this.oSG != null) {
-                            b.this.oSG.setVisibility(8);
+                        if (b.this.oSH != null) {
+                            b.this.oSH.setVisibility(8);
                         }
-                        b.this.oSS = false;
+                        b.this.oST = false;
                         return;
                     }
-                    if (b.this.oSG != null) {
-                        ViewGroup.LayoutParams layoutParams = b.this.oSG.getLayoutParams();
+                    if (b.this.oSH != null) {
+                        ViewGroup.LayoutParams layoutParams = b.this.oSH.getLayoutParams();
                         layoutParams.width = -1;
                         layoutParams.height = b.this.cJF;
-                        b.this.oSG.setLayoutParams(layoutParams);
-                        b.this.oSG.setVisibility(0);
+                        b.this.oSH.setLayoutParams(layoutParams);
+                        b.this.oSH.setVisibility(0);
                     }
-                    b.this.oSS = true;
+                    b.this.oST = true;
                 }
             }
         }));
     }
 
     private void ap(View view) {
-        this.oSL = (FrameLayout) view.findViewById(a.f.bd_im_showemoji);
-        this.oSK = (RelativeLayout) view.findViewById(a.f.bd_im_chat_emoji_layout);
-        this.oSM = (RelativeLayout) view.findViewById(a.f.bd_im_chat_bottom_layout);
-        this.oSI = (ImageButton) view.findViewById(a.f.bd_im_chat_emoji_btn);
+        this.oSM = (FrameLayout) view.findViewById(a.f.bd_im_showemoji);
+        this.oSL = (RelativeLayout) view.findViewById(a.f.bd_im_chat_emoji_layout);
+        this.oSN = (RelativeLayout) view.findViewById(a.f.bd_im_chat_bottom_layout);
+        this.oSJ = (ImageButton) view.findViewById(a.f.bd_im_chat_emoji_btn);
         this.mRootLayout = (LinearLayout) view.findViewById(a.f.bd_im_input_root_layout);
-        this.oSJ = (ImageButtonText) view.findViewById(a.f.bd_im_chat_input_right_btn);
-        if (!com.baidu.yuyinala.privatemessage.implugin.util.c.b.i(this.oMV.getApplicationContext(), com.baidu.yuyinala.privatemessage.implugin.util.c.a.oXv, false) && ((ChatInfo.oPf != ChatInfo.ChatCategory.GROUP || ChatInfo.oPk != 2) && ChatInfo.oPf != ChatInfo.ChatCategory.DUZHAN)) {
-            this.oSJ.setTipOn(true);
+        this.oSK = (ImageButtonText) view.findViewById(a.f.bd_im_chat_input_right_btn);
+        if (!com.baidu.yuyinala.privatemessage.implugin.util.c.b.i(this.oMW.getApplicationContext(), com.baidu.yuyinala.privatemessage.implugin.util.c.a.oXw, false) && ((ChatInfo.oPg != ChatInfo.ChatCategory.GROUP || ChatInfo.oPl != 2) && ChatInfo.oPg != ChatInfo.ChatCategory.DUZHAN)) {
+            this.oSK.setTipOn(true);
         }
-        this.oSH = (EmojiconEditText) view.findViewById(a.f.bd_im_chat_input_txt);
-        this.oSH.clearFocus();
-        this.oSH.setOnTouchListener(this);
-        this.oSH.setBackgroundResource(a.e.bd_im_input_edit_bg);
+        this.oSI = (EmojiconEditText) view.findViewById(a.f.bd_im_chat_input_txt);
+        this.oSI.clearFocus();
+        this.oSI.setOnTouchListener(this);
+        this.oSI.setBackgroundResource(a.e.bd_im_input_edit_bg);
         this.mTb = (RelativeLayout) view.findViewById(a.f.bd_im_chat_input_background);
-        this.oSF = view.findViewById(a.f.bd_im_chat_showemoji_layout);
-        this.oSG = view.findViewById(a.f.bd_im_chat_keyborad_layout);
-        this.oSN = (LinearLayout) view.findViewById(a.f.bd_im_chat_input_layout);
-        if (ChatInfo.ChatCategory.SMART == ChatInfo.oPf) {
-            this.oSN.setVisibility(8);
+        this.oSG = view.findViewById(a.f.bd_im_chat_showemoji_layout);
+        this.oSH = view.findViewById(a.f.bd_im_chat_keyborad_layout);
+        this.oSO = (LinearLayout) view.findViewById(a.f.bd_im_chat_input_layout);
+        if (ChatInfo.ChatCategory.SMART == ChatInfo.oPg) {
+            this.oSO.setVisibility(8);
         } else {
-            this.oSN.setVisibility(0);
+            this.oSO.setVisibility(0);
         }
         try {
-            this.oSU = EmojiconsFragment.f(this.oMV, this.oSL);
+            this.oSV = EmojiconsFragment.f(this.oMW, this.oSM);
         } catch (Exception e) {
             LogUtils.e("InputFragment", e.getMessage());
-            com.baidu.yuyinala.privatemessage.implugin.d.b.ehs().c(this.oMV.getActivity(), e);
+            com.baidu.yuyinala.privatemessage.implugin.d.b.ehs().c(this.oMW.getActivity(), e);
         }
         eiA();
     }
 
     private void eiA() {
-        this.oSK.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.yuyinala.privatemessage.implugin.ui.fragment.b.2
+        this.oSL.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.yuyinala.privatemessage.implugin.ui.fragment.b.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (com.baidu.yuyinala.privatemessage.implugin.d.b.ehs().isCuidLogin(b.this.oMV.getActivity()) || com.baidu.yuyinala.privatemessage.implugin.d.b.ehs().eht()) {
+                if (com.baidu.yuyinala.privatemessage.implugin.d.b.ehs().isCuidLogin(b.this.oMW.getActivity()) || com.baidu.yuyinala.privatemessage.implugin.d.b.ehs().eht()) {
                     b.this.login();
                     return;
                 }
@@ -161,47 +161,47 @@ public class b implements TextWatcher, View.OnTouchListener, com.baidu.yuyinala.
                 b.this.eiF();
             }
         });
-        this.oSJ.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.yuyinala.privatemessage.implugin.ui.fragment.b.3
+        this.oSK.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.yuyinala.privatemessage.implugin.ui.fragment.b.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 String str;
-                if (!com.baidu.yuyinala.privatemessage.implugin.util.c.b.i(b.this.oMV.getActivity(), com.baidu.yuyinala.privatemessage.implugin.util.c.a.oXv, false)) {
-                    com.baidu.yuyinala.privatemessage.implugin.util.c.b.j((Context) b.this.oMV.getActivity(), com.baidu.yuyinala.privatemessage.implugin.util.c.a.oXv, true);
-                    b.this.oSJ.setTipOn(false);
+                if (!com.baidu.yuyinala.privatemessage.implugin.util.c.b.i(b.this.oMW.getActivity(), com.baidu.yuyinala.privatemessage.implugin.util.c.a.oXw, false)) {
+                    com.baidu.yuyinala.privatemessage.implugin.util.c.b.j((Context) b.this.oMW.getActivity(), com.baidu.yuyinala.privatemessage.implugin.util.c.a.oXw, true);
+                    b.this.oSK.setTipOn(false);
                 }
                 f.eiI();
-                String obj = b.this.oSH.getEditableText().toString();
+                String obj = b.this.oSI.getEditableText().toString();
                 if (!TextUtils.isEmpty(obj.trim())) {
-                    b.this.oSH.setText("");
+                    b.this.oSI.setText("");
                     TextMsg textMsg = new TextMsg();
                     textMsg.setContacter(ChatInfo.mContacter);
-                    textMsg.setFromUser(ChatInfo.oPh);
+                    textMsg.setFromUser(ChatInfo.oPi);
                     textMsg.setText(obj);
                     textMsg.setStatus(1);
-                    if (com.baidu.yuyinala.privatemessage.implugin.d.b.ehs().getUserId(b.this.oMV.getActivity()) != null) {
-                        str = com.baidu.yuyinala.privatemessage.implugin.d.b.ehs().getUserId(b.this.oMV.getActivity());
+                    if (com.baidu.yuyinala.privatemessage.implugin.d.b.ehs().getUserId(b.this.oMW.getActivity()) != null) {
+                        str = com.baidu.yuyinala.privatemessage.implugin.d.b.ehs().getUserId(b.this.oMW.getActivity());
                     } else {
                         str = "0";
                     }
                     textMsg.setSenderUid(str);
-                    if (ChatInfo.oPf == ChatInfo.ChatCategory.C2C) {
+                    if (ChatInfo.oPg == ChatInfo.ChatCategory.C2C) {
                         textMsg.setCategory(0);
                         textMsg.setChatType(0);
                         textMsg.setContacterBduid(ChatInfo.mUid + "");
-                    } else if (ChatInfo.oPf == ChatInfo.ChatCategory.GROUP) {
+                    } else if (ChatInfo.oPg == ChatInfo.ChatCategory.GROUP) {
                         textMsg.setCategory(1);
                         textMsg.setChatType(3);
                         textMsg.setContacterBduid(ChatInfo.mUid + "");
-                    } else if (ChatInfo.oPf == ChatInfo.ChatCategory.DUZHAN) {
+                    } else if (ChatInfo.oPg == ChatInfo.ChatCategory.DUZHAN) {
                         textMsg.setCategory(0);
                         textMsg.setChatType(7);
                         textMsg.setContacterBduid(ChatInfo.mUid + "");
                     }
                     textMsg.setMsgTime(System.currentTimeMillis() / 1000);
-                    com.baidu.yuyinala.privatemessage.model.message.a.ekk().c(b.this.oMV.getActivity(), textMsg);
-                    b.this.oRS = d.eiJ().Xl(b.this.mKey);
-                    if (b.this.oRS != null) {
-                        b.this.oRS.h(textMsg);
+                    com.baidu.yuyinala.privatemessage.model.message.a.ekk().c(b.this.oMW.getActivity(), textMsg);
+                    b.this.oRT = d.eiJ().Xm(b.this.mKey);
+                    if (b.this.oRT != null) {
+                        b.this.oRT.h(textMsg);
                         return;
                     }
                     return;
@@ -212,13 +212,13 @@ public class b implements TextWatcher, View.OnTouchListener, com.baidu.yuyinala.
     }
 
     public void onResume() {
-        LogUtils.d("InputFragment", "onResume " + this.oSO);
-        this.oSH.addTextChangedListener(this);
+        LogUtils.d("InputFragment", "onResume " + this.oSP);
+        this.oSI.addTextChangedListener(this);
         eiF();
     }
 
     public void onPause() {
-        this.oSH.removeTextChangedListener(this);
+        this.oSI.removeTextChangedListener(this);
         eiB();
     }
 
@@ -236,8 +236,8 @@ public class b implements TextWatcher, View.OnTouchListener, com.baidu.yuyinala.
 
     public void eiB() {
         try {
-            if (this.oSH != null) {
-                this.oSH.clearFocus();
+            if (this.oSI != null) {
+                this.oSI.clearFocus();
             }
             mMode = 3;
             LogUtils.e("InputFragment", "mMode : " + mMode);
@@ -254,21 +254,21 @@ public class b implements TextWatcher, View.OnTouchListener, com.baidu.yuyinala.
                 Rect rect = new Rect();
                 view.getWindowVisibleDisplayFrame(rect);
                 int height = view.getRootView().getHeight() - rect.bottom;
-                int dL = f.dL(b.this.oMV.getActivity());
-                if (height == dL || height - b.this.oSR == dL) {
-                    b.this.oSQ = true;
-                } else if (height == 0 || height - b.this.oSR == (-dL)) {
-                    b.this.oSQ = false;
+                int dL = f.dL(b.this.oMW.getActivity());
+                if (height == dL || height - b.this.oSS == dL) {
+                    b.this.oSR = true;
+                } else if (height == 0 || height - b.this.oSS == (-dL)) {
+                    b.this.oSR = false;
                 }
-                if (b.this.oSQ) {
+                if (b.this.oSR) {
                     height -= dL;
                 }
-                int i = z ? height - (b.this.oSP * 2) : height;
+                int i = z ? height - (b.this.oSQ * 2) : height;
                 if (i > 100) {
-                    if (b.this.oSR != i) {
-                        com.baidu.yuyinala.privatemessage.implugin.util.c.b.j(b.this.oMV.getActivity(), com.baidu.yuyinala.privatemessage.implugin.util.c.a.oXt, i);
+                    if (b.this.oSS != i) {
+                        com.baidu.yuyinala.privatemessage.implugin.util.c.b.j(b.this.oMW.getActivity(), com.baidu.yuyinala.privatemessage.implugin.util.c.a.oXu, i);
                         LogUtils.d("InputFragment", "difference write to xml:" + i);
-                        if (b.this.oSR > 100) {
+                        if (b.this.oSS > 100) {
                             LogUtils.d("InputFragment", "resize of Keyboard");
                             b.this.eiD();
                         }
@@ -276,18 +276,18 @@ public class b implements TextWatcher, View.OnTouchListener, com.baidu.yuyinala.
                         return;
                     }
                 }
-                b.this.oSR = i;
+                b.this.oSS = i;
                 if (b.mMode == 0 || b.mMode == 3) {
-                    b.this.cJF = com.baidu.yuyinala.privatemessage.implugin.util.c.b.k(b.this.oMV.getActivity(), com.baidu.yuyinala.privatemessage.implugin.util.c.a.oXt, 0);
-                    b.this.oSV = i <= 100;
-                    e.eiX().Nq((i > 100 ? i : b.this.cJF) + b.this.oSD);
-                    if (b.this.oSV && b.this.oSS && b.mMode == 0) {
-                        if (!b.this.oSX.hasMessages(1)) {
-                            b.this.oSX.sendEmptyMessageDelayed(1, b.oST);
+                    b.this.cJF = com.baidu.yuyinala.privatemessage.implugin.util.c.b.k(b.this.oMW.getActivity(), com.baidu.yuyinala.privatemessage.implugin.util.c.a.oXu, 0);
+                    b.this.oSW = i <= 100;
+                    e.eiX().Nq((i > 100 ? i : b.this.cJF) + b.this.oSE);
+                    if (b.this.oSW && b.this.oST && b.mMode == 0) {
+                        if (!b.this.oSY.hasMessages(1)) {
+                            b.this.oSY.sendEmptyMessageDelayed(1, b.oSU);
                             return;
                         }
-                        int unused = b.oST = 30;
-                        b.this.oSX.removeMessages(1);
+                        int unused = b.oSU = 30;
+                        b.this.oSY.removeMessages(1);
                     }
                 }
             }
@@ -298,7 +298,7 @@ public class b implements TextWatcher, View.OnTouchListener, com.baidu.yuyinala.
         if (this.bRa != null) {
             Rect rect = new Rect();
             this.bRa.getWindowVisibleDisplayFrame(rect);
-            if (this.bRa.getRootView().getHeight() - rect.bottom == this.oSP * 2) {
+            if (this.bRa.getRootView().getHeight() - rect.bottom == this.oSQ * 2) {
                 return true;
             }
         }
@@ -307,46 +307,46 @@ public class b implements TextWatcher, View.OnTouchListener, com.baidu.yuyinala.
 
     /* JADX INFO: Access modifiers changed from: private */
     public void eiD() {
-        this.oSU.XQ();
+        this.oSV.XQ();
     }
 
     private void Av(boolean z) {
-        if (this.oMV != null) {
-            int i = this.oMV.getActivity().getWindow().getAttributes().softInputMode;
+        if (this.oMW != null) {
+            int i = this.oMW.getActivity().getWindow().getAttributes().softInputMode;
             if (z && i != 16) {
-                if (this.oSG != null) {
-                    ViewGroup.LayoutParams layoutParams = this.oSG.getLayoutParams();
+                if (this.oSH != null) {
+                    ViewGroup.LayoutParams layoutParams = this.oSH.getLayoutParams();
                     layoutParams.width = -1;
                     layoutParams.height = this.cJF;
-                    this.oSG.setLayoutParams(layoutParams);
-                    this.oSG.setVisibility(0);
+                    this.oSH.setLayoutParams(layoutParams);
+                    this.oSH.setVisibility(0);
                 }
-                this.oSS = true;
+                this.oST = true;
                 return;
             }
-            if (this.oSG != null) {
-                this.oSG.setVisibility(8);
+            if (this.oSH != null) {
+                this.oSH.setVisibility(8);
             }
-            this.oSS = false;
+            this.oST = false;
         }
     }
 
     private void aH(boolean z, boolean z2) {
-        if (z && this.oSF != null) {
-            ViewGroup.LayoutParams layoutParams = this.oSF.getLayoutParams();
+        if (z && this.oSG != null) {
+            ViewGroup.LayoutParams layoutParams = this.oSG.getLayoutParams();
             layoutParams.width = -1;
-            this.cJF = com.baidu.yuyinala.privatemessage.implugin.util.c.b.k(this.oMV.getActivity(), com.baidu.yuyinala.privatemessage.implugin.util.c.a.oXt, 0);
-            int dimension = (int) this.oMV.getActivity().getResources().getDimension(a.d.bd_im_more_width);
+            this.cJF = com.baidu.yuyinala.privatemessage.implugin.util.c.b.k(this.oMW.getActivity(), com.baidu.yuyinala.privatemessage.implugin.util.c.a.oXu, 0);
+            int dimension = (int) this.oMW.getActivity().getResources().getDimension(a.d.bd_im_more_width);
             if (this.cJF > 100) {
                 layoutParams.height = Math.max(this.cJF, dimension);
             } else {
                 layoutParams.height = dimension;
             }
-            this.oSE = layoutParams.height;
-            this.oSF.setLayoutParams(layoutParams);
-            this.oSF.setVisibility(0);
-        } else if (this.oSF != null) {
-            this.oSF.setVisibility(8);
+            this.oSF = layoutParams.height;
+            this.oSG.setLayoutParams(layoutParams);
+            this.oSG.setVisibility(0);
+        } else if (this.oSG != null) {
+            this.oSG.setVisibility(8);
         }
     }
 
@@ -359,7 +359,7 @@ public class b implements TextWatcher, View.OnTouchListener, com.baidu.yuyinala.
     @SuppressLint({"ClickableViewAccessibility", "NewApi"})
     public boolean onTouch(View view, MotionEvent motionEvent) {
         if (view.getId() == a.f.bd_im_chat_input_txt && motionEvent.getAction() == 1) {
-            if (com.baidu.yuyinala.privatemessage.implugin.d.b.ehs().isCuidLogin(this.oMV) || com.baidu.yuyinala.privatemessage.implugin.d.b.ehs().eht()) {
+            if (com.baidu.yuyinala.privatemessage.implugin.d.b.ehs().isCuidLogin(this.oMW) || com.baidu.yuyinala.privatemessage.implugin.d.b.ehs().eht()) {
                 login();
                 return true;
             }
@@ -388,9 +388,9 @@ public class b implements TextWatcher, View.OnTouchListener, com.baidu.yuyinala.
         switch (mMode) {
             case 0:
                 Aw(true);
-                this.oRS = d.eiJ().Xl(this.mKey);
-                if (this.oRS != null) {
-                    this.oRS.eil();
+                this.oRT = d.eiJ().Xm(this.mKey);
+                if (this.oRT != null) {
+                    this.oRT.eil();
                     break;
                 }
                 break;
@@ -404,78 +404,78 @@ public class b implements TextWatcher, View.OnTouchListener, com.baidu.yuyinala.
                 break;
             case 4:
                 eiG();
-                this.oRS = d.eiJ().Xl(this.mKey);
-                if (this.oRS != null) {
-                    this.oRS.eil();
+                this.oRT = d.eiJ().Xm(this.mKey);
+                if (this.oRT != null) {
+                    this.oRT.eil();
                     break;
                 }
                 break;
         }
-        y(this.oSH.getText().toString());
+        y(this.oSI.getText().toString());
     }
 
     private void Aw(boolean z) {
-        if (this.oSI != null) {
-            this.oSI.setImageResource(a.e.bd_im_emoji_status);
+        if (this.oSJ != null) {
+            this.oSJ.setImageResource(a.e.bd_im_emoji_status);
         }
         if (z) {
-            f.h(this.oMV.getActivity(), this.oSH);
+            f.h(this.oMW.getActivity(), this.oSI);
             Av(true);
         } else {
-            f.g(this.oMV.getActivity(), this.oSH);
+            f.g(this.oMW.getActivity(), this.oSI);
             Av(false);
         }
         aH(false, false);
         if (this.mTb != null) {
             this.mTb.setVisibility(0);
         }
-        this.oSV = z;
+        this.oSW = z;
     }
 
     private void eiG() {
-        f.g(this.oMV.getActivity(), this.oSH);
+        f.g(this.oMW.getActivity(), this.oSI);
         Av(false);
         aH(true, false);
         this.mTb.setVisibility(0);
-        this.oSI.setImageResource(ThemeManager.U(this.oMV.getActivity(), a.e.bd_im_input_icon_status));
-        e.eiX().Nq(this.oSE + this.oSD);
+        this.oSJ.setImageResource(ThemeManager.U(this.oMW.getActivity(), a.e.bd_im_input_icon_status));
+        e.eiX().Nq(this.oSF + this.oSE);
     }
 
     private void y(CharSequence charSequence) {
-        if (this.oSJ != null) {
-            this.oSJ.setBackgroundResource(0);
+        if (this.oSK != null) {
+            this.oSK.setBackgroundResource(0);
             if (TextUtils.isEmpty(charSequence.toString().trim())) {
-                this.oSJ.setTipOn(false);
-                this.oSJ.setClickable(false);
-                this.oSJ.setImageDrawable(null);
-                this.oSJ.setBackgroundResource(a.e.bd_im_subscribe_button_disable);
-                this.oSJ.setTextSize(this.oMV.getActivity().getResources().getDimension(a.d.bd_im_right_btn_text_size));
-                this.oSJ.setColor(Color.parseColor("#77FF1E66"));
-                this.oSJ.setText(this.oMV.getActivity().getString(a.h.bd_im_conversation_send));
+                this.oSK.setTipOn(false);
+                this.oSK.setClickable(false);
+                this.oSK.setImageDrawable(null);
+                this.oSK.setBackgroundResource(a.e.bd_im_subscribe_button_disable);
+                this.oSK.setTextSize(this.oMW.getActivity().getResources().getDimension(a.d.bd_im_right_btn_text_size));
+                this.oSK.setColor(Color.parseColor("#77FF1E66"));
+                this.oSK.setText(this.oMW.getActivity().getString(a.h.bd_im_conversation_send));
                 return;
             }
-            this.oSJ.setClickable(true);
-            this.oSJ.setTipOn(false);
-            this.oSJ.setImageDrawable(null);
-            this.oSJ.setBackgroundResource(a.e.bd_im_subscribe_button_pressed);
-            this.oSJ.setTextSize(this.oMV.getActivity().getResources().getDimension(a.d.bd_im_right_btn_text_size));
-            this.oSJ.setColor(Color.parseColor("#FF1E66"));
-            this.oSJ.setText(this.oMV.getActivity().getString(a.h.bd_im_conversation_send));
+            this.oSK.setClickable(true);
+            this.oSK.setTipOn(false);
+            this.oSK.setImageDrawable(null);
+            this.oSK.setBackgroundResource(a.e.bd_im_subscribe_button_pressed);
+            this.oSK.setTextSize(this.oMW.getActivity().getResources().getDimension(a.d.bd_im_right_btn_text_size));
+            this.oSK.setColor(Color.parseColor("#FF1E66"));
+            this.oSK.setText(this.oMW.getActivity().getString(a.h.bd_im_conversation_send));
         }
     }
 
     /* loaded from: classes10.dex */
     private static class a extends Handler {
-        private final SoftReference<b> oTb;
+        private final SoftReference<b> oTc;
 
         private a(b bVar) {
-            this.oTb = new SoftReference<>(bVar);
+            this.oTc = new SoftReference<>(bVar);
         }
 
         @Override // android.os.Handler
         public void handleMessage(Message message) {
             super.handleMessage(message);
-            if (this.oTb.get() == null) {
+            if (this.oTc.get() == null) {
                 return;
             }
             try {
@@ -488,7 +488,7 @@ public class b implements TextWatcher, View.OnTouchListener, com.baidu.yuyinala.
                     case 3:
                         String str = (String) message.obj;
                         if (!TextUtils.isEmpty(str)) {
-                            e.eiX().bw(this.oTb.get().oMV, str);
+                            e.eiX().bw(this.oTc.get().oMW, str);
                             return;
                         }
                         return;
@@ -506,12 +506,12 @@ public class b implements TextWatcher, View.OnTouchListener, com.baidu.yuyinala.
 
     @Override // com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.emojicon.a.b
     public void a(Emojicon emojicon) {
-        EmojiconsFragment.a(this.oSH, emojicon);
+        EmojiconsFragment.a(this.oSI, emojicon);
     }
 
     @Override // com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.emojicon.a.b
     public void al(View view) {
-        EmojiconsFragment.o(this.oSH);
+        EmojiconsFragment.o(this.oSI);
     }
 
     public void login() {
@@ -523,7 +523,7 @@ public class b implements TextWatcher, View.OnTouchListener, com.baidu.yuyinala.
                     LogUtils.d("InputFragment", "bindPhone result code = " + i);
                 }
             });
-        } else if (com.baidu.yuyinala.privatemessage.implugin.d.b.ehs().isCuidLogin(this.oMV)) {
+        } else if (com.baidu.yuyinala.privatemessage.implugin.d.b.ehs().isCuidLogin(this.oMW)) {
             LogUtils.d("InputFragment", "will do bindPhone ");
             f.b(new b.d() { // from class: com.baidu.yuyinala.privatemessage.implugin.ui.fragment.b.6
                 @Override // com.baidu.yuyinala.privatemessage.implugin.ma.a

@@ -6,8 +6,8 @@ import io.reactivex.u;
 public class a<T> {
     final int capacity;
     int offset;
-    final Object[] qhw;
-    Object[] qhx;
+    final Object[] qhx;
+    Object[] qhy;
 
     /* renamed from: io.reactivex.internal.util.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
@@ -18,8 +18,8 @@ public class a<T> {
 
     public a(int i) {
         this.capacity = i;
-        this.qhw = new Object[i + 1];
-        this.qhx = this.qhw;
+        this.qhx = new Object[i + 1];
+        this.qhy = this.qhx;
     }
 
     public void add(T t) {
@@ -27,21 +27,21 @@ public class a<T> {
         int i2 = this.offset;
         if (i2 == i) {
             Object[] objArr = new Object[i + 1];
-            this.qhx[i] = objArr;
-            this.qhx = objArr;
+            this.qhy[i] = objArr;
+            this.qhy = objArr;
             i2 = 0;
         }
-        this.qhx[i2] = t;
+        this.qhy[i2] = t;
         this.offset = i2 + 1;
     }
 
     public void bN(T t) {
-        this.qhw[0] = t;
+        this.qhx[0] = t;
     }
 
     public void a(InterfaceC1294a<? super T> interfaceC1294a) {
         int i;
-        Object[] objArr = this.qhw;
+        Object[] objArr = this.qhx;
         int i2 = this.capacity;
         for (Object[] objArr2 = objArr; objArr2 != null; objArr2 = objArr2[i2]) {
             while (i < i2) {
@@ -58,7 +58,7 @@ public class a<T> {
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public <U> boolean b(org.a.c<? super U> cVar) {
-        Object[] objArr = this.qhw;
+        Object[] objArr = this.qhx;
         int i = this.capacity;
         for (Object[] objArr2 = objArr; objArr2 != null; objArr2 = objArr2[i]) {
             for (int i2 = 0; i2 < i; i2++) {
@@ -80,7 +80,7 @@ public class a<T> {
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public <U> boolean b(u<? super U> uVar) {
-        Object[] objArr = this.qhw;
+        Object[] objArr = this.qhx;
         int i = this.capacity;
         for (Object[] objArr2 = objArr; objArr2 != null; objArr2 = objArr2[i]) {
             for (int i2 = 0; i2 < i; i2++) {

@@ -15,45 +15,45 @@ import javax.annotation.concurrent.GuardedBy;
 /* loaded from: classes3.dex */
 public class m implements aj<com.facebook.common.references.a<com.facebook.imagepipeline.f.c>> {
     private final Executor mExecutor;
-    private final aj<com.facebook.imagepipeline.f.e> pBf;
-    private final boolean pBu;
-    private final com.facebook.common.memory.a poT;
-    private final boolean pyM;
-    private final boolean pyq;
-    private final com.facebook.imagepipeline.decoder.b pyt;
-    private final com.facebook.imagepipeline.decoder.d pyz;
+    private final aj<com.facebook.imagepipeline.f.e> pBg;
+    private final boolean pBv;
+    private final com.facebook.common.memory.a poU;
+    private final com.facebook.imagepipeline.decoder.d pyA;
+    private final boolean pyN;
+    private final boolean pyr;
+    private final com.facebook.imagepipeline.decoder.b pyu;
 
     public m(com.facebook.common.memory.a aVar, Executor executor, com.facebook.imagepipeline.decoder.b bVar, com.facebook.imagepipeline.decoder.d dVar, boolean z, boolean z2, boolean z3, aj<com.facebook.imagepipeline.f.e> ajVar) {
-        this.poT = (com.facebook.common.memory.a) com.facebook.common.internal.g.checkNotNull(aVar);
+        this.poU = (com.facebook.common.memory.a) com.facebook.common.internal.g.checkNotNull(aVar);
         this.mExecutor = (Executor) com.facebook.common.internal.g.checkNotNull(executor);
-        this.pyt = (com.facebook.imagepipeline.decoder.b) com.facebook.common.internal.g.checkNotNull(bVar);
-        this.pyz = (com.facebook.imagepipeline.decoder.d) com.facebook.common.internal.g.checkNotNull(dVar);
-        this.pyq = z;
-        this.pBu = z2;
-        this.pBf = (aj) com.facebook.common.internal.g.checkNotNull(ajVar);
-        this.pyM = z3;
+        this.pyu = (com.facebook.imagepipeline.decoder.b) com.facebook.common.internal.g.checkNotNull(bVar);
+        this.pyA = (com.facebook.imagepipeline.decoder.d) com.facebook.common.internal.g.checkNotNull(dVar);
+        this.pyr = z;
+        this.pBv = z2;
+        this.pBg = (aj) com.facebook.common.internal.g.checkNotNull(ajVar);
+        this.pyN = z3;
     }
 
     @Override // com.facebook.imagepipeline.producers.aj
     public void a(k<com.facebook.common.references.a<com.facebook.imagepipeline.f.c>> kVar, ak akVar) {
         k<com.facebook.imagepipeline.f.e> bVar;
         if (!com.facebook.common.util.d.K(akVar.ewP().exF())) {
-            bVar = new a(kVar, akVar, this.pyM);
+            bVar = new a(kVar, akVar, this.pyN);
         } else {
-            bVar = new b(kVar, akVar, new com.facebook.imagepipeline.decoder.e(this.poT), this.pyz, this.pyM);
+            bVar = new b(kVar, akVar, new com.facebook.imagepipeline.decoder.e(this.poU), this.pyA, this.pyN);
         }
-        this.pBf.a(bVar, akVar);
+        this.pBg.a(bVar, akVar);
     }
 
     /* loaded from: classes3.dex */
     private abstract class c extends n<com.facebook.imagepipeline.f.e, com.facebook.common.references.a<com.facebook.imagepipeline.f.c>> {
         private final String TAG;
         @GuardedBy("this")
-        private boolean pBg;
-        private final am pBh;
-        private final ak pBs;
-        private final JobScheduler pBy;
-        private final com.facebook.imagepipeline.common.b pwL;
+        private boolean pBh;
+        private final am pBi;
+        private final ak pBt;
+        private final JobScheduler pBz;
+        private final com.facebook.imagepipeline.common.b pwM;
 
         protected abstract com.facebook.imagepipeline.f.h evO();
 
@@ -62,29 +62,29 @@ public class m implements aj<com.facebook.common.references.a<com.facebook.image
         public c(k<com.facebook.common.references.a<com.facebook.imagepipeline.f.c>> kVar, final ak akVar, final boolean z) {
             super(kVar);
             this.TAG = "ProgressiveDecoder";
-            this.pBs = akVar;
-            this.pBh = akVar.ewQ();
-            this.pwL = akVar.ewP().exJ();
-            this.pBg = false;
-            this.pBy = new JobScheduler(m.this.mExecutor, new JobScheduler.a() { // from class: com.facebook.imagepipeline.producers.m.c.1
+            this.pBt = akVar;
+            this.pBi = akVar.ewQ();
+            this.pwM = akVar.ewP().exJ();
+            this.pBh = false;
+            this.pBz = new JobScheduler(m.this.mExecutor, new JobScheduler.a() { // from class: com.facebook.imagepipeline.producers.m.c.1
                 @Override // com.facebook.imagepipeline.producers.JobScheduler.a
                 public void d(com.facebook.imagepipeline.f.e eVar, int i) {
                     if (eVar != null) {
-                        if (m.this.pyq || !com.facebook.imagepipeline.producers.b.ef(i, 16)) {
+                        if (m.this.pyr || !com.facebook.imagepipeline.producers.b.ef(i, 16)) {
                             ImageRequest ewP = akVar.ewP();
-                            if (m.this.pBu || !com.facebook.common.util.d.K(ewP.exF())) {
+                            if (m.this.pBv || !com.facebook.common.util.d.K(ewP.exF())) {
                                 eVar.setSampleSize(q.a(ewP, eVar));
                             }
                         }
                         c.this.c(eVar, i);
                     }
                 }
-            }, this.pwL.pxB);
-            this.pBs.a(new e() { // from class: com.facebook.imagepipeline.producers.m.c.2
+            }, this.pwM.pxC);
+            this.pBt.a(new e() { // from class: com.facebook.imagepipeline.producers.m.c.2
                 @Override // com.facebook.imagepipeline.producers.e, com.facebook.imagepipeline.producers.al
                 public void ewY() {
-                    if (c.this.pBs.ewU()) {
-                        c.this.pBy.exi();
+                    if (c.this.pBt.ewU()) {
+                        c.this.pBz.exi();
                     }
                 }
 
@@ -106,8 +106,8 @@ public class m implements aj<com.facebook.common.references.a<com.facebook.image
                 E(new ExceptionWithNoStacktrace("Encoded image is not valid."));
             } else if (b(eVar, i)) {
                 boolean ef = ef(i, 4);
-                if (PO || ef || this.pBs.ewU()) {
-                    this.pBy.exi();
+                if (PO || ef || this.pBt.ewU()) {
+                    this.pBz.exi();
                 }
             }
         }
@@ -129,7 +129,7 @@ public class m implements aj<com.facebook.common.references.a<com.facebook.image
         }
 
         protected boolean b(com.facebook.imagepipeline.f.e eVar, int i) {
-            return this.pBy.e(eVar, i);
+            return this.pBz.e(eVar, i);
         }
 
         /* JADX INFO: Access modifiers changed from: private */
@@ -140,7 +140,7 @@ public class m implements aj<com.facebook.common.references.a<com.facebook.image
             long exm;
             int size;
             com.facebook.imagepipeline.f.h evO;
-            if ((eVar.evV() == com.facebook.c.b.pvF || !PP(i)) && !isFinished() && com.facebook.imagepipeline.f.e.f(eVar)) {
+            if ((eVar.evV() == com.facebook.c.b.pvG || !PP(i)) && !isFinished() && com.facebook.imagepipeline.f.e.f(eVar)) {
                 com.facebook.c.c evV = eVar.evV();
                 if (evV != null) {
                     str = evV.getName();
@@ -152,27 +152,27 @@ public class m implements aj<com.facebook.common.references.a<com.facebook.image
                 boolean PO = PO(i);
                 boolean z = PO && !ef(i, 8);
                 boolean ef = ef(i, 4);
-                if (this.pBs.ewP().exH() != null) {
+                if (this.pBt.ewP().exH() != null) {
                     str2 = exH.width + Config.EVENT_HEAT_X + exH.height;
                 } else {
                     str2 = "unknown";
                 }
                 try {
-                    exm = this.pBy.exm();
-                    String valueOf2 = String.valueOf(this.pBs.ewP().exF());
+                    exm = this.pBz.exm();
+                    String valueOf2 = String.valueOf(this.pBt.ewP().exF());
                     if (z || ef) {
                         size = eVar.getSize();
                     } else {
                         size = g(eVar);
                     }
-                    evO = (z || ef) ? com.facebook.imagepipeline.f.g.pAa : evO();
-                    this.pBh.hm(this.pBs.getId(), "DecodeProducer");
+                    evO = (z || ef) ? com.facebook.imagepipeline.f.g.pAb : evO();
+                    this.pBi.hm(this.pBt.getId(), "DecodeProducer");
                     try {
-                        com.facebook.imagepipeline.f.c a2 = m.this.pyt.a(eVar, size, evO, this.pwL);
+                        com.facebook.imagepipeline.f.c a2 = m.this.pyu.a(eVar, size, evO, this.pwM);
                         if (eVar.getSampleSize() != 1) {
                             i |= 16;
                         }
-                        this.pBh.b(this.pBs.getId(), "DecodeProducer", a(a2, exm, evO, PO, str, str3, str2, valueOf));
+                        this.pBi.b(this.pBt.getId(), "DecodeProducer", a(a2, exm, evO, PO, str, str3, str2, valueOf));
                         a(a2, i);
                     } catch (DecodeException e) {
                         com.facebook.imagepipeline.f.e encodedImage = e.getEncodedImage();
@@ -181,8 +181,8 @@ public class m implements aj<com.facebook.common.references.a<com.facebook.image
                     }
                 } catch (Exception e2) {
                     Map<String, String> a3 = a(null, exm, evO, PO, str, str3, str2, valueOf);
-                    this.pBh.a(this.pBs.getId(), "DecodeProducer", e2, a3);
-                    this.pBh.a(this.pBs.ewP(), eVar, e2, a3);
+                    this.pBi.a(this.pBt.getId(), "DecodeProducer", e2, a3);
+                    this.pBi.a(this.pBt.ewP(), eVar, e2, a3);
                     E(e2);
                 } finally {
                     com.facebook.imagepipeline.f.e.e(eVar);
@@ -191,7 +191,7 @@ public class m implements aj<com.facebook.common.references.a<com.facebook.image
         }
 
         private Map<String, String> a(@Nullable com.facebook.imagepipeline.f.c cVar, long j, com.facebook.imagepipeline.f.h hVar, boolean z, String str, String str2, String str3, String str4) {
-            if (!this.pBh.Ys(this.pBs.getId())) {
+            if (!this.pBi.Yt(this.pBt.getId())) {
                 return null;
             }
             String valueOf = String.valueOf(j);
@@ -222,16 +222,16 @@ public class m implements aj<com.facebook.common.references.a<com.facebook.image
         }
 
         private synchronized boolean isFinished() {
-            return this.pBg;
+            return this.pBh;
         }
 
         private void Bd(boolean z) {
             synchronized (this) {
                 if (z) {
-                    if (!this.pBg) {
+                    if (!this.pBh) {
                         exc().aX(1.0f);
-                        this.pBg = true;
-                        this.pBy.exh();
+                        this.pBh = true;
+                        this.pBz.exh();
                     }
                 }
             }
@@ -283,28 +283,28 @@ public class m implements aj<com.facebook.common.references.a<com.facebook.image
 
     /* loaded from: classes3.dex */
     private class b extends c {
-        private final com.facebook.imagepipeline.decoder.e pBw;
-        private int pBx;
-        private final com.facebook.imagepipeline.decoder.d pyz;
+        private final com.facebook.imagepipeline.decoder.e pBx;
+        private int pBy;
+        private final com.facebook.imagepipeline.decoder.d pyA;
 
         public b(k<com.facebook.common.references.a<com.facebook.imagepipeline.f.c>> kVar, ak akVar, com.facebook.imagepipeline.decoder.e eVar, com.facebook.imagepipeline.decoder.d dVar, boolean z) {
             super(kVar, akVar, z);
-            this.pBw = (com.facebook.imagepipeline.decoder.e) com.facebook.common.internal.g.checkNotNull(eVar);
-            this.pyz = (com.facebook.imagepipeline.decoder.d) com.facebook.common.internal.g.checkNotNull(dVar);
-            this.pBx = 0;
+            this.pBx = (com.facebook.imagepipeline.decoder.e) com.facebook.common.internal.g.checkNotNull(eVar);
+            this.pyA = (com.facebook.imagepipeline.decoder.d) com.facebook.common.internal.g.checkNotNull(dVar);
+            this.pBy = 0;
         }
 
         @Override // com.facebook.imagepipeline.producers.m.c
         protected synchronized boolean b(com.facebook.imagepipeline.f.e eVar, int i) {
             boolean b2;
             b2 = super.b(eVar, i);
-            if ((PP(i) || ef(i, 8)) && !ef(i, 4) && com.facebook.imagepipeline.f.e.f(eVar) && eVar.evV() == com.facebook.c.b.pvF) {
-                if (this.pBw.a(eVar)) {
-                    int evI = this.pBw.evI();
-                    if (evI <= this.pBx) {
+            if ((PP(i) || ef(i, 8)) && !ef(i, 4) && com.facebook.imagepipeline.f.e.f(eVar) && eVar.evV() == com.facebook.c.b.pvG) {
+                if (this.pBx.a(eVar)) {
+                    int evI = this.pBx.evI();
+                    if (evI <= this.pBy) {
                         b2 = false;
-                    } else if (evI >= this.pyz.Pm(this.pBx) || this.pBw.evJ()) {
-                        this.pBx = evI;
+                    } else if (evI >= this.pyA.Pm(this.pBy) || this.pBx.evJ()) {
+                        this.pBy = evI;
                     } else {
                         b2 = false;
                     }
@@ -317,12 +317,12 @@ public class m implements aj<com.facebook.common.references.a<com.facebook.image
 
         @Override // com.facebook.imagepipeline.producers.m.c
         protected int g(com.facebook.imagepipeline.f.e eVar) {
-            return this.pBw.evH();
+            return this.pBx.evH();
         }
 
         @Override // com.facebook.imagepipeline.producers.m.c
         protected com.facebook.imagepipeline.f.h evO() {
-            return this.pyz.Pn(this.pBw.evI());
+            return this.pyA.Pn(this.pBx.evI());
         }
     }
 }

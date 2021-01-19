@@ -157,8 +157,8 @@ public class a {
         if (com.baidu.tieba.lego.card.c.a.isEmpty(list)) {
             return hashSet;
         }
-        Set<com.baidu.adp.widget.ListView.n> QK = com.baidu.tieba.recapp.report.a.QK(str);
-        HashSet hashSet2 = QK == null ? new HashSet() : QK;
+        Set<com.baidu.adp.widget.ListView.n> QL = com.baidu.tieba.recapp.report.a.QL(str);
+        HashSet hashSet2 = QL == null ? new HashSet() : QL;
         for (com.baidu.adp.widget.ListView.n nVar : list) {
             if (nVar != null) {
                 for (com.baidu.adp.widget.ListView.n nVar2 : hashSet2) {

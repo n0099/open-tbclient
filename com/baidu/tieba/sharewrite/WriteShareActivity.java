@@ -304,7 +304,7 @@ public class WriteShareActivity extends BaseActivity<WriteShareActivity> {
     private void dHv() {
         this.nce.dHD();
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
-        this.ncf.RB(this.ncc.getForumName());
+        this.ncf.RC(this.ncc.getForumName());
     }
 
     /* JADX INFO: Access modifiers changed from: private */

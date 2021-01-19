@@ -11,8 +11,8 @@ import java.util.concurrent.TimeUnit;
 public final class d {
     private static String e = "com.mdid.msa";
     private Context d;
-    private com.yxcorp.kuaishou.addfp.a.b.b qbx;
-    public a qbQ = null;
+    private com.yxcorp.kuaishou.addfp.a.b.b qby;
+    public a qbR = null;
 
     /* renamed from: b  reason: collision with root package name */
     private String f14377b = null;
@@ -22,9 +22,9 @@ public final class d {
     private void a(boolean z) {
         try {
             if (z) {
-                this.qbx.a(this.qbQ);
+                this.qby.a(this.qbR);
             } else {
-                this.qbx.e();
+                this.qby.e();
             }
         } catch (Throwable th) {
             com.yxcorp.kuaishou.addfp.android.b.b.a(th);
@@ -42,14 +42,14 @@ public final class d {
 
     public static d eHi() {
         d dVar;
-        dVar = f.qbR;
+        dVar = f.qbS;
         return dVar;
     }
 
     public final String a() {
         try {
-            if (this.qbQ != null) {
-                return this.qbQ.a();
+            if (this.qbR != null) {
+                return this.qbR.a();
             }
         } catch (RemoteException e2) {
         }
@@ -61,8 +61,8 @@ public final class d {
             if (this.g != null && context != null) {
                 context.unbindService(this.g);
             }
-            if (this.qbQ != null) {
-                this.qbQ.c();
+            if (this.qbR != null) {
+                this.qbR.c();
             }
         } catch (Throwable th) {
             com.yxcorp.kuaishou.addfp.android.b.b.a(th);
@@ -71,7 +71,7 @@ public final class d {
 
     public final void a(Context context, com.yxcorp.kuaishou.addfp.a.b.b bVar) {
         try {
-            this.qbx = bVar;
+            this.qby = bVar;
             this.d = context;
             if (b(context)) {
                 String packageName = context.getPackageName();
@@ -97,7 +97,7 @@ public final class d {
                 return;
             }
             this.f.await(2000L, TimeUnit.MILLISECONDS);
-            if (this.qbQ != null) {
+            if (this.qbR != null) {
                 a(true);
             } else {
                 a(false);
@@ -110,10 +110,10 @@ public final class d {
 
     public final boolean c() {
         try {
-            if (this.qbQ == null) {
+            if (this.qbR == null) {
                 return false;
             }
-            return this.qbQ.b();
+            return this.qbR.b();
         } catch (Throwable th) {
             com.yxcorp.kuaishou.addfp.android.b.b.a(th);
             return false;

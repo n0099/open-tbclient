@@ -10,14 +10,14 @@ import io.reactivex.z;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes5.dex */
 public final class SingleCreate<T> extends w<T> {
-    final z<T> qfZ;
+    final z<T> qga;
 
     @Override // io.reactivex.w
     protected void b(y<? super T> yVar) {
         Emitter emitter = new Emitter(yVar);
         yVar.onSubscribe(emitter);
         try {
-            this.qfZ.a(emitter);
+            this.qga.a(emitter);
         } catch (Throwable th) {
             io.reactivex.exceptions.a.O(th);
             emitter.onError(th);

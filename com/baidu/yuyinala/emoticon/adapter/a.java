@@ -13,7 +13,7 @@ import java.util.List;
 /* loaded from: classes10.dex */
 public class a extends BaseAdapter {
     private Context mContext;
-    private List<com.baidu.yuyinala.emoticon.a.a> oLV;
+    private List<com.baidu.yuyinala.emoticon.a.a> oLW;
 
     public a(Context context) {
         this.mContext = context;
@@ -21,14 +21,14 @@ public class a extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public int getCount() {
-        return ListUtils.getCount(this.oLV);
+        return ListUtils.getCount(this.oLW);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
     /* renamed from: Na */
     public com.baidu.yuyinala.emoticon.a.a getItem(int i) {
-        return (com.baidu.yuyinala.emoticon.a.a) ListUtils.getItem(this.oLV, i);
+        return (com.baidu.yuyinala.emoticon.a.a) ListUtils.getItem(this.oLW, i);
     }
 
     @Override // android.widget.Adapter
@@ -64,7 +64,7 @@ public class a extends BaseAdapter {
     }
 
     public void gv(List<com.baidu.yuyinala.emoticon.a.a> list) {
-        this.oLV = list;
+        this.oLW = list;
         notifyDataSetChanged();
     }
 

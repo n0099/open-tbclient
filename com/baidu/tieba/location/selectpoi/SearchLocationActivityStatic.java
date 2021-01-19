@@ -36,7 +36,7 @@ public class SearchLocationActivityStatic {
     }
 
     public static void dbJ() {
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1003002, com.baidu.tieba.tbadkCore.a.a.bU(TbConfig.GET_SUGGEST_LOCATION_BY_NAME, CmdConfigSocket.CMD_GET_SUGGESTLOCSTION_BY_NAME));
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1003002, com.baidu.tieba.tbadkCore.a.a.bV(TbConfig.GET_SUGGEST_LOCATION_BY_NAME, CmdConfigSocket.CMD_GET_SUGGESTLOCSTION_BY_NAME));
         tbHttpMessageTask.setIsNeedLogin(false);
         tbHttpMessageTask.setIsNeedTbs(false);
         tbHttpMessageTask.setIsNeedAddCommenParam(false);

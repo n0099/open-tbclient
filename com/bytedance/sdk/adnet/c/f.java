@@ -16,9 +16,9 @@ import java.util.Random;
 import org.apache.http.HttpHost;
 /* loaded from: classes4.dex */
 public class f implements c {
-    private static f pkA;
+    private static f pkB;
     private Context e;
-    private e pkB;
+    private e pkC;
 
     /* renamed from: b  reason: collision with root package name */
     private long f6008b = 0;
@@ -32,7 +32,7 @@ public class f implements c {
     private HashMap<String, Integer> m = new HashMap<>();
     private HashMap<String, Integer> n = new HashMap<>();
     private boolean o = true;
-    private Map<String, Integer> pkC = new HashMap();
+    private Map<String, Integer> pkD = new HashMap();
 
     /* renamed from: a  reason: collision with root package name */
     Handler f6007a = new Handler(Looper.getMainLooper()) { // from class: com.bytedance.sdk.adnet.c.f.1
@@ -51,10 +51,10 @@ public class f implements c {
     public static synchronized f eor() {
         f fVar;
         synchronized (f.class) {
-            if (pkA == null) {
-                pkA = new f();
+            if (pkB == null) {
+                pkB = new f();
             }
-            fVar = pkA;
+            fVar = pkB;
         }
         return fVar;
     }
@@ -63,14 +63,14 @@ public class f implements c {
     }
 
     public void b() {
-        this.pkC.clear();
+        this.pkD.clear();
     }
 
     public synchronized void a(Context context, boolean z) {
         if (!this.d) {
             this.e = context;
             this.o = z;
-            this.pkB = new e(context, z);
+            this.pkC = new e(context, z);
             if (z) {
                 f();
             }
@@ -86,8 +86,8 @@ public class f implements c {
     }
 
     public d eoq() {
-        if (this.pkB != null) {
-            return this.pkB.eoq();
+        if (this.pkC != null) {
+            return this.pkC.eoq();
         }
         return null;
     }
@@ -101,7 +101,7 @@ public class f implements c {
     }
 
     public e eos() {
-        return this.pkB;
+        return this.pkC;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:24:0x0055  */
@@ -209,17 +209,17 @@ public class f implements c {
     private void b(String str) {
         Map<String, String> d;
         if (!TextUtils.isEmpty(str) && (d = d()) != null && d.containsValue(str)) {
-            if (this.pkC.get(str) == null) {
-                this.pkC.put(str, 1);
+            if (this.pkD.get(str) == null) {
+                this.pkD.put(str, 1);
             } else {
-                this.pkC.put(str, Integer.valueOf(this.pkC.get(str).intValue() + 1));
+                this.pkD.put(str, Integer.valueOf(this.pkD.get(str).intValue() + 1));
             }
         }
     }
 
     private void c(String str) {
-        if (!TextUtils.isEmpty(str) && this.pkC.containsKey(str)) {
-            this.pkC.put(str, 0);
+        if (!TextUtils.isEmpty(str) && this.pkD.containsKey(str)) {
+            this.pkD.put(str, 0);
         }
     }
 
@@ -229,10 +229,10 @@ public class f implements c {
             return false;
         }
         String str2 = d.get(str);
-        if (TextUtils.isEmpty(str2) || this.pkC.get(str2) == null) {
+        if (TextUtils.isEmpty(str2) || this.pkD.get(str2) == null) {
             return false;
         }
-        if (this.pkC.get(str2).intValue() >= 3) {
+        if (this.pkD.get(str2).intValue() >= 3) {
             com.bytedance.sdk.adnet.d.d.b("TNCManager", "handleHostMapping, TNC host faild num over limit: " + str);
             return true;
         }

@@ -185,7 +185,7 @@ public class a implements KeyboardEventLayout.a {
                 boolean z2 = a.this.uL(sparseArray.get(R.id.tag_del_post_is_self) instanceof Boolean ? ((Boolean) sparseArray.get(R.id.tag_del_post_is_self)).booleanValue() : false) && TbadkCoreApplication.isLogin();
                 aa aaVar = a.this.lWT;
                 int djc = a.this.lWQ.djc();
-                if (!a.this.lIB || postData2 == null || !postData2.nnK) {
+                if (!a.this.lIB || postData2 == null || !postData2.nnL) {
                     z = false;
                 }
                 aaVar.a(sparseArray, djc, z2, z);
@@ -808,7 +808,7 @@ public class a implements KeyboardEventLayout.a {
             }
             this.lWb = pVar;
             if (this.lWb.djF() != null) {
-                this.lWb.djF().nnK = true;
+                this.lWb.djF().nnL = true;
             }
             if (this.lXv != null) {
                 this.lXv.setVisibility(0);
@@ -1095,7 +1095,7 @@ public class a implements KeyboardEventLayout.a {
         this.mNoDataView.setVisibility(0);
     }
 
-    public void CH(int i) {
+    public void CG(int i) {
         b(NoDataViewFactory.d.dX(null, this.lXw.getResources().getString(R.string.refresh_view_title_text)));
         this.lXV.setVisibility(8);
     }

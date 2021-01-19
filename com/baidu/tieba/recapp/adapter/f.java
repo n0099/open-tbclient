@@ -147,7 +147,7 @@ public class f extends com.baidu.adp.widget.ListView.a<o, PbAppLegoViewHolder> i
             return null;
         }
         if (oVar.dLb() instanceof AdCard) {
-            ((AdCard) oVar.dLb()).isPBBanner = oVar.nmK;
+            ((AdCard) oVar.dLb()).isPBBanner = oVar.nmL;
         }
         pbAppLegoViewHolder.setIsRecyclable(false);
         AdvertAppInfo.ILegoAdvert dLb = oVar.dLb();
@@ -155,9 +155,9 @@ public class f extends com.baidu.adp.widget.ListView.a<o, PbAppLegoViewHolder> i
         this.iEK.getLayoutMode().setNightMode(TbadkCoreApplication.getInst().getSkinType() == 1);
         this.iEK.getLayoutMode().onModeChanged(view);
         com.baidu.tbadk.core.data.c.a(oVar);
-        if (!oVar.nmL) {
+        if (!oVar.nmM) {
             com.baidu.tbadk.distribute.a.bAC().a(oVar.qU(), oVar.forumId, oVar.threadId, oVar.dLd(), "show", oVar.pageNumber);
-            oVar.nmL = true;
+            oVar.nmM = true;
         }
         if (oVar != null) {
             com.baidu.tbadk.distribute.a.fyl = oVar.jyf;
@@ -237,7 +237,7 @@ public class f extends com.baidu.adp.widget.ListView.a<o, PbAppLegoViewHolder> i
             i2 = 102;
         }
         com.baidu.tieba.recapp.report.c a2 = com.baidu.tieba.recapp.report.h.a(advertAppInfo, str, i2, i);
-        a2.QR(str3);
+        a2.QS(str3);
         com.baidu.tieba.recapp.report.e.dCe().a(a2);
         com.baidu.tieba.lego.card.a.c.a(com.baidu.tieba.lego.card.a.c.c(advertAppInfo));
     }

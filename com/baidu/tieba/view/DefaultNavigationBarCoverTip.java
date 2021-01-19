@@ -21,8 +21,8 @@ public class DefaultNavigationBarCoverTip extends NavigationBarCoverTip {
     private final com.baidu.tbadk.h.g fFs;
     private View jfH;
     private Activity mActivity;
-    private View.OnClickListener nMZ;
-    private NavigationBarCoverTip.a nNa;
+    private View.OnClickListener nNa;
+    private NavigationBarCoverTip.a nNb;
 
     public static DefaultNavigationBarCoverTip d(Activity activity, String str, String str2) {
         if (activity == null) {
@@ -33,7 +33,7 @@ public class DefaultNavigationBarCoverTip extends NavigationBarCoverTip {
 
     private DefaultNavigationBarCoverTip(Activity activity) {
         super(activity);
-        this.nMZ = new View.OnClickListener() { // from class: com.baidu.tieba.view.DefaultNavigationBarCoverTip.1
+        this.nNa = new View.OnClickListener() { // from class: com.baidu.tieba.view.DefaultNavigationBarCoverTip.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 TbPageContext<?> tbPageContext;
@@ -52,7 +52,7 @@ public class DefaultNavigationBarCoverTip extends NavigationBarCoverTip {
                 }
             }
         };
-        this.nNa = new NavigationBarCoverTip.a() { // from class: com.baidu.tieba.view.DefaultNavigationBarCoverTip.3
+        this.nNb = new NavigationBarCoverTip.a() { // from class: com.baidu.tieba.view.DefaultNavigationBarCoverTip.3
             @Override // com.baidu.tieba.view.NavigationBarCoverTip.a
             public void onShow() {
             }
@@ -64,7 +64,7 @@ public class DefaultNavigationBarCoverTip extends NavigationBarCoverTip {
         };
         this.mActivity = activity;
         bNl();
-        setCoverTipListener(this.nNa);
+        setCoverTipListener(this.nNb);
     }
 
     public void show() {
@@ -89,7 +89,7 @@ public class DefaultNavigationBarCoverTip extends NavigationBarCoverTip {
             textView.setSingleLine();
             textView.setEllipsize(TextUtils.TruncateAt.END);
             textView.setText(str);
-            tBSpecificationBtn.setOnClickListener(this.nMZ);
+            tBSpecificationBtn.setOnClickListener(this.nNa);
             if (TextUtils.isEmpty(str2)) {
                 tBSpecificationBtn.setVisibility(8);
             } else {

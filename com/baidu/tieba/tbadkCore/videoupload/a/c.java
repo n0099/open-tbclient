@@ -20,26 +20,26 @@ import java.io.RandomAccessFile;
 public class c implements b {
     private boolean fnj = false;
     private final String forumId;
-    private g noh;
-    private final int nqk;
-    private z nqs;
-    private final int nqt;
-    private e nqu;
+    private g noi;
+    private final int nql;
+    private z nqt;
+    private final int nqu;
+    private e nqv;
 
     public c(String str, int i, int i2, g gVar) {
         this.forumId = str;
-        this.nqk = i;
-        this.nqt = i2 / i;
-        this.noh = gVar;
+        this.nql = i;
+        this.nqu = i2 / i;
+        this.noi = gVar;
     }
 
     @Override // com.baidu.tieba.tbadkCore.videoupload.a.b
     public void a(e eVar) {
-        this.nqu = eVar;
+        this.nqv = eVar;
     }
 
     @Override // com.baidu.tieba.tbadkCore.videoupload.a.b
-    public VideoFinishResult bV(String str, int i) throws IOException {
+    public VideoFinishResult bW(String str, int i) throws IOException {
         VideoBlockUploadResult videoBlockUploadResult;
         if (StringUtils.isNull(str)) {
             return null;
@@ -54,15 +54,15 @@ public class c implements b {
         if (!StringUtils.isNull(md5)) {
             md5 = md5.toLowerCase();
         }
-        com.baidu.tieba.tbadkCore.videoupload.c SF = com.baidu.tieba.tbadkCore.videoupload.b.SF(md5);
+        com.baidu.tieba.tbadkCore.videoupload.c SG = com.baidu.tieba.tbadkCore.videoupload.b.SG(md5);
         RandomAccessFile randomAccessFile = new RandomAccessFile(file, "r");
         long length = file.length();
-        int I = I(length, this.nqk);
-        int I2 = I(I, this.nqt);
-        String str2 = SF != null ? SF.nqo : null;
+        int I = I(length, this.nql);
+        int I2 = I(I, this.nqu);
+        String str2 = SG != null ? SG.nqp : null;
         VideoBlockUploadResult videoBlockUploadResult2 = null;
-        int i2 = SF != null ? SF.nqp : 0;
-        if (i2 < I && randomAccessFile.skipBytes(this.nqk * i2) < this.nqk * i2) {
+        int i2 = SG != null ? SG.nqq : 0;
+        if (i2 < I && randomAccessFile.skipBytes(this.nql * i2) < this.nql * i2) {
             randomAccessFile.close();
             return null;
         }
@@ -77,11 +77,11 @@ public class c implements b {
                 videoBlockUploadResult = videoBlockUploadResult2;
             } else {
                 ah(i2, I, 40);
-                this.nqs = c(md5, length, I2, str2);
+                this.nqt = c(md5, length, I2, str2);
                 ah(i2, I, 55);
                 if (i3 == I) {
                     videoBlockUploadResult = d(a2, i3, I2, I);
-                } else if (i3 % this.nqt == 0) {
+                } else if (i3 % this.nqu == 0) {
                     videoBlockUploadResult = c(a2, i3, I2, I);
                     str2 = videoBlockUploadResult.upload_id;
                 } else {
@@ -91,11 +91,11 @@ public class c implements b {
                 if (videoBlockUploadResult != null && !videoBlockUploadResult.isSuccess()) {
                     videoFinishResult.setUserMessage(videoBlockUploadResult.getErrorMessage());
                     videoFinishResult.setErrorNo(videoBlockUploadResult.getErrorCode());
-                    if (this.noh != null) {
-                        this.noh.p(305, videoBlockUploadResult.getErrorCode(), videoBlockUploadResult.getErrorMessage());
+                    if (this.noi != null) {
+                        this.noi.p(305, videoBlockUploadResult.getErrorCode(), videoBlockUploadResult.getErrorMessage());
                     }
                     if (videoFinishResult.getErrorNo() == 320033) {
-                        com.baidu.tieba.tbadkCore.videoupload.b.SE(md5);
+                        com.baidu.tieba.tbadkCore.videoupload.b.SF(md5);
                     }
                     randomAccessFile.close();
                     TiebaStatic.log(new aq("c12024").dW("params", videoBlockUploadResult.getErrorMessage()));
@@ -112,18 +112,18 @@ public class c implements b {
         if (videoBlockUploadResult2 != null) {
             videoFinishResult.setVideoUrl(videoBlockUploadResult2.video_url);
         }
-        com.baidu.tieba.tbadkCore.videoupload.b.SE(md5);
+        com.baidu.tieba.tbadkCore.videoupload.b.SF(md5);
         videoFinishResult.setVideoMd5(md5);
         randomAccessFile.close();
-        if (this.noh != null) {
-            this.noh.deI();
+        if (this.noi != null) {
+            this.noi.deI();
         }
         return videoFinishResult;
     }
 
     private void ah(int i, int i2, int i3) {
-        if (this.nqu != null) {
-            this.nqu.aX((i + (i3 / 100.0f)) / i2);
+        if (this.nqv != null) {
+            this.nqv.aX((i + (i3 / 100.0f)) / i2);
         }
     }
 
@@ -134,9 +134,9 @@ public class c implements b {
             return null;
         }
         if (i == i2 - 1) {
-            i3 = (int) (j - (this.nqk * i));
+            i3 = (int) (j - (this.nql * i));
         } else {
-            i3 = this.nqk;
+            i3 = this.nql;
         }
         byte[] bArr = new byte[i3];
         try {
@@ -157,58 +157,58 @@ public class c implements b {
     @Override // com.baidu.tieba.tbadkCore.videoupload.a.b
     public void cancel() {
         this.fnj = true;
-        if (this.nqs != null) {
-            this.nqs.cancelNetConnect();
+        if (this.nqt != null) {
+            this.nqt.cancelNetConnect();
         }
     }
 
     private VideoBlockUploadResult b(int i, byte[] bArr, int i2, int i3) {
         int i4;
-        int i5 = i % this.nqt;
+        int i5 = i % this.nqu;
         int length = bArr.length;
-        int i6 = (i / this.nqt) + 1;
+        int i6 = (i / this.nqu) + 1;
         if (i6 == i2) {
-            i4 = i3 - ((i6 - 1) * this.nqt);
+            i4 = i3 - ((i6 - 1) * this.nqu);
         } else {
-            i4 = this.nqt;
+            i4 = this.nqu;
         }
-        a(this.nqs, i5, length, i4, i6, bArr);
-        this.nqs.setUrl(TbConfig.SERVER_ADDRESS + TbConfig.VIDEO_UPLOAD_CHUNK);
-        return c(this.nqs);
+        a(this.nqt, i5, length, i4, i6, bArr);
+        this.nqt.setUrl(TbConfig.SERVER_ADDRESS + TbConfig.VIDEO_UPLOAD_CHUNK);
+        return c(this.nqt);
     }
 
     private VideoBlockUploadResult c(byte[] bArr, int i, int i2, int i3) {
         int i4;
-        int i5 = this.nqt;
+        int i5 = this.nqu;
         int length = bArr.length;
-        int i6 = i / this.nqt;
+        int i6 = i / this.nqu;
         if (i6 == i2) {
-            i4 = i3 - ((i6 - 1) * this.nqt);
+            i4 = i3 - ((i6 - 1) * this.nqu);
         } else {
-            i4 = this.nqt;
+            i4 = this.nqu;
         }
-        a(this.nqs, i5, length, i4, i6, bArr);
-        this.nqs.setUrl(TbConfig.SERVER_ADDRESS + TbConfig.VIDEO_UPLOAD_BLOCK);
-        return c(this.nqs);
+        a(this.nqt, i5, length, i4, i6, bArr);
+        this.nqt.setUrl(TbConfig.SERVER_ADDRESS + TbConfig.VIDEO_UPLOAD_BLOCK);
+        return c(this.nqt);
     }
 
     private VideoBlockUploadResult d(byte[] bArr, int i, int i2, int i3) {
         int i4;
         int i5;
         int length = bArr.length;
-        if (i % this.nqt == 0) {
-            i4 = i / this.nqt;
+        if (i % this.nqu == 0) {
+            i4 = i / this.nqu;
         } else {
-            i4 = (i / this.nqt) + 1;
+            i4 = (i / this.nqu) + 1;
         }
         if (i4 == i2) {
-            i5 = i3 - ((i4 - 1) * this.nqt);
+            i5 = i3 - ((i4 - 1) * this.nqu);
         } else {
-            i5 = this.nqt;
+            i5 = this.nqu;
         }
-        a(this.nqs, i5, length, i5, i4, bArr);
-        this.nqs.setUrl(TbConfig.SERVER_ADDRESS + TbConfig.VIDEO_UPLOAD_FILE);
-        return c(this.nqs);
+        a(this.nqt, i5, length, i5, i4, bArr);
+        this.nqt.setUrl(TbConfig.SERVER_ADDRESS + TbConfig.VIDEO_UPLOAD_FILE);
+        return c(this.nqt);
     }
 
     private VideoBlockUploadResult c(z zVar) {

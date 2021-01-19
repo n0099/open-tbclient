@@ -13,7 +13,7 @@ import com.baidu.live.tbadk.task.TbHttpMessageTask;
 import java.util.HashMap;
 /* loaded from: classes10.dex */
 public class AlaAudioModeInitialize {
-    private static int oMk = -1;
+    private static int oMl = -1;
 
     static {
         egN();

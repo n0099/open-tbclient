@@ -38,9 +38,9 @@ public class c implements h {
                         str3 = "image";
                     }
                 }
-                c.this.QD(str3);
+                c.this.QE(str3);
                 if (i2 == 1) {
-                    c.this.QE(c.this.kLE.blo() ? "image" : "video");
+                    c.this.QF(c.this.kLE.blo() ? "image" : "video");
                 }
             }
 
@@ -72,26 +72,26 @@ public class c implements h {
         this.mNg.onDestroy();
     }
 
-    public void QD(String str) {
-        QF("click");
+    public void QE(String str) {
+        QG("click");
         com.baidu.tieba.recapp.report.c b2 = com.baidu.tieba.recapp.report.h.b(this.kLE, 2, 0);
-        b2.QW(str);
+        b2.QX(str);
         e.dCe().a(b2);
     }
 
-    public void QE(String str) {
-        QF("click");
+    public void QF(String str) {
+        QG("click");
         com.baidu.tieba.recapp.report.c b2 = com.baidu.tieba.recapp.report.h.b(this.kLE, 706, 0);
-        b2.QW(str);
+        b2.QX(str);
         e.dCe().a(b2);
     }
 
     public void amN() {
-        QF("show");
+        QG("show");
         e.dCe().a(com.baidu.tieba.recapp.report.h.b(this.kLE, 3, 0));
     }
 
-    public void QF(String str) {
+    public void QG(String str) {
         com.baidu.tbadk.distribute.a.bAC().a(this.kLE, this.mForumId, com.baidu.adp.lib.f.b.toLong(this.mPostId, 0L), "PIC_PAGE", str, 1);
     }
 }

@@ -18,11 +18,11 @@ public class j implements CustomMessageTask.CustomRunnable<OfficialFeedHeadRespo
     @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
     public CustomResponsedMessage<?> run(CustomMessage<OfficialFeedHeadResponsedMessage.a> customMessage) {
         if (this.kEn == null) {
-            return CW(this.mCmd);
+            return CV(this.mCmd);
         }
         List<com.baidu.tieba.im.db.pojo.a> cTN = com.baidu.tieba.im.db.l.cTN();
         if (cTN == null || cTN.size() <= 0) {
-            return CW(this.mCmd);
+            return CV(this.mCmd);
         }
         HashMap hashMap = new HashMap(cTN.size());
         for (com.baidu.tieba.im.db.pojo.a aVar : cTN) {
@@ -30,7 +30,7 @@ public class j implements CustomMessageTask.CustomRunnable<OfficialFeedHeadRespo
         }
         LinkedList<ChatMessage> c = this.kEn.c(hashMap, 80);
         if (c == null) {
-            return CW(this.mCmd);
+            return CV(this.mCmd);
         }
         OfficialFeedHeadResponsedMessage.a aVar2 = new OfficialFeedHeadResponsedMessage.a();
         OfficialFeedHeadResponsedMessage officialFeedHeadResponsedMessage = new OfficialFeedHeadResponsedMessage(this.mCmd);
@@ -45,7 +45,7 @@ public class j implements CustomMessageTask.CustomRunnable<OfficialFeedHeadRespo
         }
     }
 
-    private LoadHistoryResponsedMessage CW(int i) {
+    private LoadHistoryResponsedMessage CV(int i) {
         LoadHistoryResponsedMessage loadHistoryResponsedMessage = new LoadHistoryResponsedMessage(i);
         loadHistoryResponsedMessage.setError(-18);
         return loadHistoryResponsedMessage;

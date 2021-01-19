@@ -4,19 +4,19 @@ import com.facebook.imagepipeline.a.f;
 import com.facebook.imagepipeline.b.h;
 /* loaded from: classes5.dex */
 public class b {
-    private static boolean pwd;
-    private static a pwe = null;
+    private static boolean pwe;
+    private static a pwf = null;
 
     public static a a(f fVar, com.facebook.imagepipeline.c.e eVar, h<com.facebook.cache.common.b, com.facebook.imagepipeline.f.c> hVar) {
-        if (!pwd) {
+        if (!pwe) {
             try {
-                pwe = (a) Class.forName("com.facebook.fresco.animation.factory.AnimatedFactoryV2Impl").getConstructor(f.class, com.facebook.imagepipeline.c.e.class, h.class).newInstance(fVar, eVar, hVar);
+                pwf = (a) Class.forName("com.facebook.fresco.animation.factory.AnimatedFactoryV2Impl").getConstructor(f.class, com.facebook.imagepipeline.c.e.class, h.class).newInstance(fVar, eVar, hVar);
             } catch (Throwable th) {
             }
-            if (pwe != null) {
-                pwd = true;
+            if (pwf != null) {
+                pwe = true;
             }
         }
-        return pwe;
+        return pwf;
     }
 }

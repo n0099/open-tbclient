@@ -142,7 +142,7 @@ public class EnterForumAdView extends FrameLayout {
             }
             setVisibility(0);
             if (this.iKh != cvn && (a2 = com.baidu.tieba.s.a.a(false, PageStayDurationConstants.PageName.ENTER_FORUM, "common_exp", 0, 1, true, String.valueOf(cvn.iBG), String.valueOf(cvn.iBG), 5)) != null) {
-                com.baidu.tieba.s.c.dKg().a(this.mTag, com.baidu.tieba.s.a.RS("" + cvn.iBG), a2);
+                com.baidu.tieba.s.c.dKg().a(this.mTag, com.baidu.tieba.s.a.RT("" + cvn.iBG), a2);
                 com.baidu.tieba.s.c.dKg().b(this.mTag, false);
             }
         } else {

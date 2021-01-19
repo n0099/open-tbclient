@@ -18,14 +18,14 @@ public final class d {
         public DateFormat initialValue() {
             SimpleDateFormat simpleDateFormat = new SimpleDateFormat("EEE, dd MMM yyyy HH:mm:ss 'GMT'", Locale.US);
             simpleDateFormat.setLenient(false);
-            simpleDateFormat.setTimeZone(com.bytedance.sdk.a.b.a.c.peM);
+            simpleDateFormat.setTimeZone(com.bytedance.sdk.a.b.a.c.peN);
             return simpleDateFormat;
         }
     };
 
     /* renamed from: b  reason: collision with root package name */
     private static final String[] f5877b = {"EEE, dd MMM yyyy HH:mm:ss zzz", DateUtils.PATTERN_RFC1036, DateUtils.PATTERN_ASCTIME, "EEE, dd-MMM-yyyy HH:mm:ss z", "EEE, dd-MMM-yyyy HH-mm-ss z", "EEE, dd MMM yy HH:mm:ss z", "EEE dd-MMM-yyyy HH:mm:ss z", "EEE dd MMM yyyy HH:mm:ss z", "EEE dd-MMM-yyyy HH-mm-ss z", "EEE dd-MMM-yy HH:mm:ss z", "EEE dd MMM yy HH:mm:ss z", "EEE,dd-MMM-yy HH:mm:ss z", "EEE,dd-MMM-yyyy HH:mm:ss z", "EEE, dd-MM-yyyy HH:mm:ss z", "EEE MMM d yyyy HH:mm:ss z"};
-    private static final DateFormat[] peQ = new DateFormat[f5877b.length];
+    private static final DateFormat[] peR = new DateFormat[f5877b.length];
 
     public static Date a(String str) {
         if (str.length() == 0) {
@@ -37,11 +37,11 @@ public final class d {
             synchronized (f5877b) {
                 int length = f5877b.length;
                 for (int i = 0; i < length; i++) {
-                    DateFormat dateFormat = peQ[i];
+                    DateFormat dateFormat = peR[i];
                     if (dateFormat == null) {
                         dateFormat = new SimpleDateFormat(f5877b[i], Locale.US);
-                        dateFormat.setTimeZone(com.bytedance.sdk.a.b.a.c.peM);
-                        peQ[i] = dateFormat;
+                        dateFormat.setTimeZone(com.bytedance.sdk.a.b.a.c.peN);
+                        peR[i] = dateFormat;
                     }
                     parsePosition.setIndex(0);
                     Date parse2 = dateFormat.parse(str, parsePosition);

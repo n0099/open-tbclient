@@ -9,14 +9,14 @@ import rx.exceptions.MissingBackpressureException;
 import rx.internal.util.BackpressureDrainManager;
 /* loaded from: classes14.dex */
 public class l<T> implements d.b<T, T> {
-    private final Long qqs = null;
-    private final rx.functions.a qqt = null;
-    private final a.d qqu = rx.a.qnr;
+    private final Long qqt = null;
+    private final rx.functions.a qqu = null;
+    private final a.d qqv = rx.a.qns;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes14.dex */
     public static final class b {
-        static final l<?> qqz = new l<>();
+        static final l<?> qqA = new l<>();
     }
 
     @Override // rx.functions.f
@@ -25,14 +25,14 @@ public class l<T> implements d.b<T, T> {
     }
 
     public static <T> l<T> eKL() {
-        return (l<T>) b.qqz;
+        return (l<T>) b.qqA;
     }
 
     l() {
     }
 
     public rx.j<? super T> call(rx.j<? super T> jVar) {
-        a aVar = new a(jVar, this.qqs, this.qqt, this.qqu);
+        a aVar = new a(jVar, this.qqt, this.qqu, this.qqv);
         jVar.add(aVar);
         jVar.setProducer(aVar.eKN());
         return aVar;
@@ -42,19 +42,19 @@ public class l<T> implements d.b<T, T> {
     /* loaded from: classes14.dex */
     public static final class a<T> extends rx.j<T> implements BackpressureDrainManager.a {
         private final rx.j<? super T> child;
-        private final rx.functions.a qqt;
-        private final a.d qqu;
-        private final AtomicLong qqw;
-        private final BackpressureDrainManager qqy;
-        private final ConcurrentLinkedQueue<Object> qqv = new ConcurrentLinkedQueue<>();
-        private final AtomicBoolean qqx = new AtomicBoolean(false);
+        private final rx.functions.a qqu;
+        private final a.d qqv;
+        private final AtomicLong qqx;
+        private final BackpressureDrainManager qqz;
+        private final ConcurrentLinkedQueue<Object> qqw = new ConcurrentLinkedQueue<>();
+        private final AtomicBoolean qqy = new AtomicBoolean(false);
 
         public a(rx.j<? super T> jVar, Long l, rx.functions.a aVar, a.d dVar) {
             this.child = jVar;
-            this.qqw = l != null ? new AtomicLong(l.longValue()) : null;
-            this.qqt = aVar;
-            this.qqy = new BackpressureDrainManager(this);
-            this.qqu = dVar;
+            this.qqx = l != null ? new AtomicLong(l.longValue()) : null;
+            this.qqu = aVar;
+            this.qqz = new BackpressureDrainManager(this);
+            this.qqv = dVar;
         }
 
         @Override // rx.j
@@ -64,23 +64,23 @@ public class l<T> implements d.b<T, T> {
 
         @Override // rx.e
         public void onCompleted() {
-            if (!this.qqx.get()) {
-                this.qqy.terminateAndDrain();
+            if (!this.qqy.get()) {
+                this.qqz.terminateAndDrain();
             }
         }
 
         @Override // rx.e
         public void onError(Throwable th) {
-            if (!this.qqx.get()) {
-                this.qqy.terminateAndDrain(th);
+            if (!this.qqy.get()) {
+                this.qqz.terminateAndDrain(th);
             }
         }
 
         @Override // rx.e
         public void onNext(T t) {
             if (eKM()) {
-                this.qqv.offer(NotificationLite.next(t));
-                this.qqy.drain();
+                this.qqw.offer(NotificationLite.next(t));
+                this.qqz.drain();
             }
         }
 
@@ -100,14 +100,14 @@ public class l<T> implements d.b<T, T> {
 
         @Override // rx.internal.util.BackpressureDrainManager.a
         public Object peek() {
-            return this.qqv.peek();
+            return this.qqw.peek();
         }
 
         @Override // rx.internal.util.BackpressureDrainManager.a
         public Object poll() {
-            Object poll = this.qqv.poll();
-            if (this.qqw != null && poll != null) {
-                this.qqw.incrementAndGet();
+            Object poll = this.qqw.poll();
+            if (this.qqx != null && poll != null) {
+                this.qqx.incrementAndGet();
             }
             return poll;
         }
@@ -115,27 +115,27 @@ public class l<T> implements d.b<T, T> {
         private boolean eKM() {
             long j;
             boolean z;
-            if (this.qqw == null) {
+            if (this.qqx == null) {
                 return true;
             }
             do {
-                j = this.qqw.get();
+                j = this.qqx.get();
                 if (j <= 0) {
                     try {
-                        z = this.qqu.eKd() && poll() != null;
+                        z = this.qqv.eKd() && poll() != null;
                     } catch (MissingBackpressureException e) {
-                        if (this.qqx.compareAndSet(false, true)) {
+                        if (this.qqy.compareAndSet(false, true)) {
                             unsubscribe();
                             this.child.onError(e);
                         }
                         z = false;
                     }
-                    if (this.qqt != null) {
+                    if (this.qqu != null) {
                         try {
-                            this.qqt.call();
+                            this.qqu.call();
                         } catch (Throwable th) {
                             rx.exceptions.a.O(th);
-                            this.qqy.terminateAndDrain(th);
+                            this.qqz.terminateAndDrain(th);
                             return false;
                         }
                     }
@@ -143,12 +143,12 @@ public class l<T> implements d.b<T, T> {
                         return false;
                     }
                 }
-            } while (!this.qqw.compareAndSet(j, j - 1));
+            } while (!this.qqx.compareAndSet(j, j - 1));
             return true;
         }
 
         protected rx.f eKN() {
-            return this.qqy;
+            return this.qqz;
         }
     }
 }

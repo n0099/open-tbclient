@@ -16,8 +16,8 @@ import java.util.concurrent.TimeUnit;
 /* loaded from: classes4.dex */
 public final class d {
     private Context e;
-    private com.yxcorp.kuaishou.addfp.a.b.b qbH;
-    public a qbG = null;
+    private com.yxcorp.kuaishou.addfp.a.b.b qbI;
+    public a qbH = null;
 
     /* renamed from: b  reason: collision with root package name */
     private String f14359b = null;
@@ -29,9 +29,9 @@ public final class d {
     private void a(boolean z) {
         try {
             if (z) {
-                this.qbH.a(this.qbG);
+                this.qbI.a(this.qbH);
             } else {
-                this.qbH.e();
+                this.qbI.e();
             }
         } catch (Throwable th) {
             com.yxcorp.kuaishou.addfp.android.b.b.a(th);
@@ -82,7 +82,7 @@ public final class d {
                 if (TextUtils.isEmpty(this.c) || TextUtils.isEmpty(str) || TextUtils.isEmpty(this.f14359b)) {
                     return "";
                 }
-                String a2 = this.qbG.a(this.f14359b, this.c, str);
+                String a2 = this.qbH.a(this.f14359b, this.c, str);
                 return TextUtils.isEmpty(a2) ? "" : a2;
             }
             return "";
@@ -101,7 +101,7 @@ public final class d {
 
     public final void a(Context context, com.yxcorp.kuaishou.addfp.a.b.b bVar) {
         try {
-            this.qbH = bVar;
+            this.qbI = bVar;
             this.e = context;
             this.h = b(context);
             if (this.h) {
@@ -110,7 +110,7 @@ public final class d {
                 intent.setAction("action.com.heytap.openid.OPEN_ID_SERVICE");
                 if (context.bindService(intent, this.g, 1)) {
                     this.f.await(IMConnection.RETRY_DELAY_TIMES, TimeUnit.MILLISECONDS);
-                    if (this.qbG != null) {
+                    if (this.qbH != null) {
                         a(true);
                     } else {
                         a(false);

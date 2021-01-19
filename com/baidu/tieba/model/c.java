@@ -70,7 +70,7 @@ public class c {
         MessageManager.getInstance().sendMessage(recommendGodReqMsg);
     }
 
-    public void bC(String str, int i) {
+    public void bD(String str, int i) {
         this.pageNum = i;
         request(str);
     }

@@ -20,11 +20,11 @@ public class a {
     /* renamed from: com.ss.android.downloadlib.e.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
     public static class C1219a {
-        private static a pSu = new a();
+        private static a pSv = new a();
     }
 
     public static a eCL() {
-        return C1219a.pSu;
+        return C1219a.pSv;
     }
 
     private a() {
@@ -34,9 +34,9 @@ public class a {
         d.a jc = d.eCc().jc(j);
         if (jc.a()) {
             i.b();
-        } else if (jc.pQW.l()) {
-            String c = i == 1 ? jc.pQW.c() : jc.pQW.b();
-            String a2 = i.a(jc.pQW.d(), "click");
+        } else if (jc.pQX.l()) {
+            String c = i == 1 ? jc.pQX.c() : jc.pQX.b();
+            String a2 = i.a(jc.pQX.d(), "click");
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.putOpt("click_type", Integer.valueOf(i));
@@ -45,7 +45,7 @@ public class a {
             } catch (JSONException e) {
                 e.printStackTrace();
             }
-            a(c, a2, jSONObject, jc.pQV, jc.pQW);
+            a(c, a2, jSONObject, jc.pQW, jc.pQX);
         }
     }
 
@@ -59,18 +59,18 @@ public class a {
         JSONObject jSONObject = new JSONObject();
         switch (i) {
             case 1:
-                str = i.a(jc.pQW.i(), "storage_deny");
+                str = i.a(jc.pQX.i(), "storage_deny");
                 break;
             case 2:
-                str = i.a(jc.pQW.e(), "click_start");
+                str = i.a(jc.pQX.e(), "click_start");
                 a(cVar, jSONObject);
                 break;
             case 3:
-                str = i.a(jc.pQW.f(), "click_pause");
+                str = i.a(jc.pQX.f(), "click_pause");
                 b(cVar, jSONObject);
                 break;
             case 4:
-                str = i.a(jc.pQW.g(), "click_continue");
+                str = i.a(jc.pQX.g(), "click_continue");
                 c(cVar, jSONObject);
                 break;
             case 5:
@@ -81,10 +81,10 @@ public class a {
                     } catch (Throwable th) {
                     }
                 }
-                str = i.a(jc.pQW.h(), "click_install");
+                str = i.a(jc.pQX.h(), "click_install");
                 break;
         }
-        a(jc.pQW.b(), str, jSONObject, jc.pQV.g(), 1, jc.pQV, jc.pQW);
+        a(jc.pQX.b(), str, jSONObject, jc.pQW.g(), 1, jc.pQW, jc.pQX);
     }
 
     public void b(long j, int i) {
@@ -105,29 +105,29 @@ public class a {
     }
 
     public void a(String str, @NonNull d.a aVar) {
-        a(aVar.pQW.b(), str, aVar.pQV.eBG(), aVar.pQV, aVar.pQW);
+        a(aVar.pQX.b(), str, aVar.pQW.eBG(), aVar.pQW, aVar.pQX);
     }
 
     public void a(String str, JSONObject jSONObject, @NonNull d.a aVar) {
-        a(aVar.pQW.b(), str, jSONObject, aVar.pQV, aVar.pQW);
+        a(aVar.pQX.b(), str, jSONObject, aVar.pQW, aVar.pQX);
     }
 
     public void a(String str, int i, d.a aVar) {
-        a(aVar.pQW.b(), str, null, i, 2, aVar.pQV, aVar.pQW);
+        a(aVar.pQX.b(), str, null, i, 2, aVar.pQW, aVar.pQX);
     }
 
     public void a(long j, boolean z, int i) {
         d.a jc = d.eCc().jc(j);
         if (jc.a()) {
             i.b();
-        } else if (jc.pQV.eBH() != null) {
+        } else if (jc.pQW.eBH() != null) {
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.putOpt("click_type", Integer.valueOf(i));
             } catch (JSONException e) {
                 e.printStackTrace();
             }
-            a(jc.pQW.b(), z ? "deeplink_quickapp_success" : "deeplink_quickapp_failed", jSONObject, jc.pQV, jc.pQW);
+            a(jc.pQX.b(), z ? "deeplink_quickapp_success" : "deeplink_quickapp_failed", jSONObject, jc.pQW, jc.pQX);
         }
     }
 
@@ -225,7 +225,7 @@ public class a {
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        a(jc.pQW.b(), "download_failed", jSONObject, jc.pQV, jc.pQW);
+        a(jc.pQX.b(), "download_failed", jSONObject, jc.pQW, jc.pQX);
     }
 
     public void a(String str, String str2, com.ss.android.b.a.b.a aVar) {
@@ -353,7 +353,7 @@ public class a {
 
     private void a(String str, String str2, JSONObject jSONObject, long j, int i, com.ss.android.a.a.b.c cVar, com.ss.android.a.a.b.b bVar) {
         try {
-            a(new d.a().Zh(i.a(str, "embeded_ad")).Zi(str2).Br(cVar.t()).iT(cVar.d()).Zj(cVar.u()).iU(j).Zk(bVar.a()).gW(cVar.eBF()).eZ(i.a(f(cVar), bVar.eBD(), jSONObject)).bF(bVar.eBC()).Qr(i).Bq(bVar.m()).eBM());
+            a(new d.a().Zi(i.a(str, "embeded_ad")).Zj(str2).Br(cVar.t()).iT(cVar.d()).Zk(cVar.u()).iU(j).Zl(bVar.a()).gW(cVar.eBF()).eZ(i.a(f(cVar), bVar.eBD(), jSONObject)).bF(bVar.eBC()).Qr(i).Bq(bVar.m()).eBM());
         } catch (Exception e) {
             i.a(e);
         }
@@ -361,7 +361,7 @@ public class a {
 
     private void b(String str, String str2, JSONObject jSONObject, com.ss.android.b.a.b.a aVar) {
         try {
-            a(new d.a().Zh(i.a(str, "embeded_ad")).Zi(str2).Br(aVar.p()).iT(aVar.j()).Zj(aVar.o()).iU(aVar.k()).Zk(aVar.y()).eZ(i.a(g(aVar), jSONObject)).Qr(2).Bq(aVar.u()).eBM());
+            a(new d.a().Zi(i.a(str, "embeded_ad")).Zj(str2).Br(aVar.p()).iT(aVar.j()).Zk(aVar.o()).iU(aVar.k()).Zl(aVar.y()).eZ(i.a(g(aVar), jSONObject)).Qr(2).Bq(aVar.u()).eBM());
         } catch (Exception e) {
             i.a(e);
         }

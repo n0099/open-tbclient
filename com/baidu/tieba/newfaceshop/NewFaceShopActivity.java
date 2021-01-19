@@ -667,7 +667,7 @@ public class NewFaceShopActivity extends BaseActivity {
             if (this.iOx == null) {
                 this.iOx = new NewFaceGroupShareModel();
             }
-            this.iOx.NY(str);
+            this.iOx.NZ(str);
         }
     }
 

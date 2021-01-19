@@ -10,18 +10,18 @@ public class a implements d {
     float bDj;
     final float iNa;
     private VelocityTracker mVelocityTracker;
-    protected e oVA;
-    final float oVB;
-    private boolean oVC;
+    protected e oVB;
+    final float oVC;
+    private boolean oVD;
 
     @Override // com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.photoview.a.d
     public void a(e eVar) {
-        this.oVA = eVar;
+        this.oVB = eVar;
     }
 
     public a(Context context) {
         ViewConfiguration viewConfiguration = ViewConfiguration.get(context);
-        this.oVB = viewConfiguration.getScaledMinimumFlingVelocity();
+        this.oVC = viewConfiguration.getScaledMinimumFlingVelocity();
         this.iNa = viewConfiguration.getScaledTouchSlop();
     }
 
@@ -40,7 +40,7 @@ public class a implements d {
 
     @Override // com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.photoview.a.d
     public boolean isDragging() {
-        return this.oVC;
+        return this.oVD;
     }
 
     @Override // com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.photoview.a.d
@@ -55,18 +55,18 @@ public class a implements d {
                 }
                 this.bDi = ar(motionEvent);
                 this.bDj = as(motionEvent);
-                this.oVC = false;
+                this.oVD = false;
                 break;
             case 1:
-                if (this.oVC && this.mVelocityTracker != null) {
+                if (this.oVD && this.mVelocityTracker != null) {
                     this.bDi = ar(motionEvent);
                     this.bDj = as(motionEvent);
                     this.mVelocityTracker.addMovement(motionEvent);
                     this.mVelocityTracker.computeCurrentVelocity(1000);
                     float xVelocity = this.mVelocityTracker.getXVelocity();
                     float yVelocity = this.mVelocityTracker.getYVelocity();
-                    if (Math.max(Math.abs(xVelocity), Math.abs(yVelocity)) >= this.oVB) {
-                        this.oVA.i(this.bDi, this.bDj, -xVelocity, -yVelocity);
+                    if (Math.max(Math.abs(xVelocity), Math.abs(yVelocity)) >= this.oVC) {
+                        this.oVB.i(this.bDi, this.bDj, -xVelocity, -yVelocity);
                     }
                 }
                 if (this.mVelocityTracker != null) {
@@ -80,11 +80,11 @@ public class a implements d {
                 float as = as(motionEvent);
                 float f = ar - this.bDi;
                 float f2 = as - this.bDj;
-                if (!this.oVC) {
-                    this.oVC = Math.sqrt((double) ((f * f) + (f2 * f2))) >= ((double) this.iNa);
+                if (!this.oVD) {
+                    this.oVD = Math.sqrt((double) ((f * f) + (f2 * f2))) >= ((double) this.iNa);
                 }
-                if (this.oVC) {
-                    this.oVA.onDrag(f, f2);
+                if (this.oVD) {
+                    this.oVB.onDrag(f, f2);
                     this.bDi = ar;
                     this.bDj = as;
                     if (this.mVelocityTracker != null) {

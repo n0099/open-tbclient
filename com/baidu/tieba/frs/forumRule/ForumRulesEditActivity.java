@@ -114,13 +114,13 @@ public class ForumRulesEditActivity extends BaseActivity<ForumRulesEditActivity>
         if (ForumRuleEditActivityConfig.FORUM_RULE_EDIT_FROM_SHOW.equals(this.joR)) {
             this.joP.b(this.joT, false);
         }
-        new BdTopToast(this, 2000).yS(false).TP(str).aR((ViewGroup) this.rootView.findViewById(R.id.ll_forum_rule_all));
+        new BdTopToast(this, 2000).yS(false).TQ(str).aR((ViewGroup) this.rootView.findViewById(R.id.ll_forum_rule_all));
     }
 
     @Override // com.baidu.tieba.frs.forumRule.a.b
     public void a(ForumRuleBaseData forumRuleBaseData, boolean z) {
         if (TextUtils.isEmpty(this.mForumId)) {
-            new BdTopToast(this, 2000).yS(false).TP(getString(R.string.forum_rule_defalt_commit_fail_no_forum)).aR((ViewGroup) this.rootView.findViewById(R.id.ll_forum_rule_all));
+            new BdTopToast(this, 2000).yS(false).TQ(getString(R.string.forum_rule_defalt_commit_fail_no_forum)).aR((ViewGroup) this.rootView.findViewById(R.id.ll_forum_rule_all));
         } else {
             this.joQ.a(this.mForumId, forumRuleBaseData, z);
         }
@@ -142,7 +142,7 @@ public class ForumRulesEditActivity extends BaseActivity<ForumRulesEditActivity>
             finish();
             return;
         }
-        new BdTopToast(this, 2000).yS(false).TP(str).aR((ViewGroup) this.rootView.findViewById(R.id.ll_forum_rule_all));
+        new BdTopToast(this, 2000).yS(false).TQ(str).aR((ViewGroup) this.rootView.findViewById(R.id.ll_forum_rule_all));
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

@@ -80,7 +80,7 @@ public class w extends com.baidu.tieba.frs.k<by, ThreadCardViewHolder<bz>> imple
                     } else if (view instanceof ThreadGodReplyLayout) {
                         int i = 6;
                         if (bzVar.bpd() != null && bzVar.bpd().dLo() != null && bzVar.bpd().dLo().bHf() != null && bzVar.bpd().dLo().bHf().size() > 0) {
-                            i = bzVar.bpd().nnt ? 9 : 8;
+                            i = bzVar.bpd().nnu ? 9 : 8;
                         }
                         com.baidu.tieba.frs.b.c.cIR().a(com.baidu.tieba.frs.b.d.jkJ, bzVar, i);
                     } else {

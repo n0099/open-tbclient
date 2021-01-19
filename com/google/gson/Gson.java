@@ -68,7 +68,7 @@ public final class Gson {
     private final Map<a<?>, TypeAdapter<?>> typeTokenCache;
 
     public Gson() {
-        this(Excluder.pHU, FieldNamingPolicy.IDENTITY, Collections.emptyMap(), false, false, false, true, false, false, false, LongSerializationPolicy.DEFAULT, null, 2, 2, Collections.emptyList(), Collections.emptyList(), Collections.emptyList());
+        this(Excluder.pHV, FieldNamingPolicy.IDENTITY, Collections.emptyMap(), false, false, false, true, false, false, false, LongSerializationPolicy.DEFAULT, null, 2, 2, Collections.emptyList(), Collections.emptyList(), Collections.emptyList());
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -93,49 +93,49 @@ public final class Gson {
         this.builderFactories = list;
         this.builderHierarchyFactories = list2;
         ArrayList arrayList = new ArrayList();
-        arrayList.add(TypeAdapters.pKw);
-        arrayList.add(ObjectTypeAdapter.pIL);
+        arrayList.add(TypeAdapters.pKx);
+        arrayList.add(ObjectTypeAdapter.pIM);
         arrayList.add(excluder);
         arrayList.addAll(list3);
-        arrayList.add(TypeAdapters.pKb);
-        arrayList.add(TypeAdapters.pJK);
-        arrayList.add(TypeAdapters.pJE);
-        arrayList.add(TypeAdapters.pJG);
-        arrayList.add(TypeAdapters.pJI);
+        arrayList.add(TypeAdapters.pKc);
+        arrayList.add(TypeAdapters.pJL);
+        arrayList.add(TypeAdapters.pJF);
+        arrayList.add(TypeAdapters.pJH);
+        arrayList.add(TypeAdapters.pJJ);
         TypeAdapter<Number> longAdapter = longAdapter(longSerializationPolicy);
         arrayList.add(TypeAdapters.a(Long.TYPE, Long.class, longAdapter));
         arrayList.add(TypeAdapters.a(Double.TYPE, Double.class, doubleAdapter(z7)));
         arrayList.add(TypeAdapters.a(Float.TYPE, Float.class, floatAdapter(z7)));
-        arrayList.add(TypeAdapters.pJV);
-        arrayList.add(TypeAdapters.pJM);
-        arrayList.add(TypeAdapters.pJO);
+        arrayList.add(TypeAdapters.pJW);
+        arrayList.add(TypeAdapters.pJN);
+        arrayList.add(TypeAdapters.pJP);
         arrayList.add(TypeAdapters.a(AtomicLong.class, atomicLongAdapter(longAdapter)));
         arrayList.add(TypeAdapters.a(AtomicLongArray.class, atomicLongArrayAdapter(longAdapter)));
-        arrayList.add(TypeAdapters.pJQ);
-        arrayList.add(TypeAdapters.pJX);
-        arrayList.add(TypeAdapters.pKd);
-        arrayList.add(TypeAdapters.pKf);
-        arrayList.add(TypeAdapters.a(BigDecimal.class, TypeAdapters.pJZ));
-        arrayList.add(TypeAdapters.a(BigInteger.class, TypeAdapters.pKa));
-        arrayList.add(TypeAdapters.pKh);
-        arrayList.add(TypeAdapters.pKj);
-        arrayList.add(TypeAdapters.pKn);
-        arrayList.add(TypeAdapters.pKp);
-        arrayList.add(TypeAdapters.pKu);
-        arrayList.add(TypeAdapters.pKl);
-        arrayList.add(TypeAdapters.pJB);
-        arrayList.add(DateTypeAdapter.pIL);
-        arrayList.add(TypeAdapters.pKs);
-        arrayList.add(TimeTypeAdapter.pIL);
-        arrayList.add(SqlDateTypeAdapter.pIL);
+        arrayList.add(TypeAdapters.pJR);
+        arrayList.add(TypeAdapters.pJY);
+        arrayList.add(TypeAdapters.pKe);
+        arrayList.add(TypeAdapters.pKg);
+        arrayList.add(TypeAdapters.a(BigDecimal.class, TypeAdapters.pKa));
+        arrayList.add(TypeAdapters.a(BigInteger.class, TypeAdapters.pKb));
+        arrayList.add(TypeAdapters.pKi);
+        arrayList.add(TypeAdapters.pKk);
+        arrayList.add(TypeAdapters.pKo);
         arrayList.add(TypeAdapters.pKq);
-        arrayList.add(ArrayTypeAdapter.pIL);
-        arrayList.add(TypeAdapters.pJz);
+        arrayList.add(TypeAdapters.pKv);
+        arrayList.add(TypeAdapters.pKm);
+        arrayList.add(TypeAdapters.pJC);
+        arrayList.add(DateTypeAdapter.pIM);
+        arrayList.add(TypeAdapters.pKt);
+        arrayList.add(TimeTypeAdapter.pIM);
+        arrayList.add(SqlDateTypeAdapter.pIM);
+        arrayList.add(TypeAdapters.pKr);
+        arrayList.add(ArrayTypeAdapter.pIM);
+        arrayList.add(TypeAdapters.pJA);
         arrayList.add(new CollectionTypeAdapterFactory(this.constructorConstructor));
         arrayList.add(new MapTypeAdapterFactory(this.constructorConstructor, z2));
         this.jsonAdapterFactory = new JsonAdapterAnnotationTypeAdapterFactory(this.constructorConstructor);
         arrayList.add(this.jsonAdapterFactory);
-        arrayList.add(TypeAdapters.pKx);
+        arrayList.add(TypeAdapters.pKy);
         arrayList.add(new ReflectiveTypeAdapterFactory(this.constructorConstructor, fieldNamingStrategy, excluder, this.jsonAdapterFactory));
         this.factories = Collections.unmodifiableList(arrayList);
     }
@@ -161,7 +161,7 @@ public final class Gson {
     }
 
     private TypeAdapter<Number> doubleAdapter(boolean z) {
-        return z ? TypeAdapters.pJT : new TypeAdapter<Number>() { // from class: com.google.gson.Gson.1
+        return z ? TypeAdapters.pJU : new TypeAdapter<Number>() { // from class: com.google.gson.Gson.1
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX DEBUG: Return type fixed from 'java.lang.Double' to match base method */
             @Override // com.google.gson.TypeAdapter
@@ -188,7 +188,7 @@ public final class Gson {
     }
 
     private TypeAdapter<Number> floatAdapter(boolean z) {
-        return z ? TypeAdapters.pJS : new TypeAdapter<Number>() { // from class: com.google.gson.Gson.2
+        return z ? TypeAdapters.pJT : new TypeAdapter<Number>() { // from class: com.google.gson.Gson.2
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX DEBUG: Return type fixed from 'java.lang.Float' to match base method */
             @Override // com.google.gson.TypeAdapter
@@ -221,7 +221,7 @@ public final class Gson {
     }
 
     private static TypeAdapter<Number> longAdapter(LongSerializationPolicy longSerializationPolicy) {
-        return longSerializationPolicy == LongSerializationPolicy.DEFAULT ? TypeAdapters.pJR : new TypeAdapter<Number>() { // from class: com.google.gson.Gson.3
+        return longSerializationPolicy == LongSerializationPolicy.DEFAULT ? TypeAdapters.pJS : new TypeAdapter<Number>() { // from class: com.google.gson.Gson.3
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
             @Override // com.google.gson.TypeAdapter
@@ -239,7 +239,7 @@ public final class Gson {
                 if (number == null) {
                     bVar.ezq();
                 } else {
-                    bVar.YJ(number.toString());
+                    bVar.YK(number.toString());
                 }
             }
         };
@@ -440,7 +440,7 @@ public final class Gson {
         }
         com.google.gson.stream.b bVar = new com.google.gson.stream.b(writer);
         if (this.prettyPrinting) {
-            bVar.YM("  ");
+            bVar.YN("  ");
         }
         bVar.Bk(this.serializeNulls);
         return bVar;

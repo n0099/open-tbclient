@@ -77,7 +77,7 @@ public class ShareHandlerActivity extends ShareBaseActivity implements com.baidu
         }
         if (this.nap != null) {
             this.nap.setTid(this.nao.getTid());
-            this.nap.Rs(this.nao.dGS());
+            this.nap.Rt(this.nao.dGS());
         }
         if (this.nao.dGV() && !TextUtils.isEmpty(this.nao.getImgUrl())) {
             if (this.mPermissionJudgement == null) {

@@ -8,7 +8,7 @@ import com.baidu.live.tbadk.task.TbHttpMessageTask;
 /* loaded from: classes10.dex */
 public class b extends BdBaseModel {
     private final HttpMessageListener bxB;
-    private a okS;
+    private a okT;
 
     /* loaded from: classes10.dex */
     public interface a {
@@ -27,12 +27,12 @@ public class b extends BdBaseModel {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-                if (httpResponsedMessage != null && (httpResponsedMessage instanceof LootGiftHttpResponseMessage) && httpResponsedMessage.getOrginalMessage().getTag() == b.this.getUniqueId() && b.this.okS != null) {
+                if (httpResponsedMessage != null && (httpResponsedMessage instanceof LootGiftHttpResponseMessage) && httpResponsedMessage.getOrginalMessage().getTag() == b.this.getUniqueId() && b.this.okT != null) {
                     LootGiftHttpResponseMessage lootGiftHttpResponseMessage = (LootGiftHttpResponseMessage) httpResponsedMessage;
                     if (lootGiftHttpResponseMessage.getError() != 0 || !lootGiftHttpResponseMessage.isSuccess()) {
-                        b.this.okS.onFail(lootGiftHttpResponseMessage.getError(), lootGiftHttpResponseMessage.getErrorString());
+                        b.this.okT.onFail(lootGiftHttpResponseMessage.getError(), lootGiftHttpResponseMessage.getErrorString());
                     } else {
-                        b.this.okS.a(lootGiftHttpResponseMessage);
+                        b.this.okT.a(lootGiftHttpResponseMessage);
                     }
                 }
             }
@@ -55,6 +55,6 @@ public class b extends BdBaseModel {
     }
 
     public void a(a aVar) {
-        this.okS = aVar;
+        this.okT = aVar;
     }
 }

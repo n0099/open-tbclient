@@ -43,15 +43,15 @@ import java.io.Serializable;
 import java.util.LinkedList;
 /* loaded from: classes7.dex */
 public class e implements View.OnClickListener, com.baidu.tbadk.suspended.a {
-    private c nTJ;
-    private int nTS;
+    private c nTK;
     private int nTT;
-    private BaseFragmentActivity nTU;
-    private com.baidu.tieba.write.album.a nTV;
-    private f nTW;
-    private j nTX;
-    private FrsTabInfoData nUa;
-    private Intent nUc;
+    private int nTU;
+    private BaseFragmentActivity nTV;
+    private com.baidu.tieba.write.album.a nTW;
+    private f nTX;
+    private j nTY;
+    private FrsTabInfoData nUb;
+    private Intent nUd;
     private int statisticFrom;
     private int aYr = 0;
     private boolean bHt = false;
@@ -61,12 +61,12 @@ public class e implements View.OnClickListener, com.baidu.tbadk.suspended.a {
     private String forumId = "0";
     private int requestFrom = 0;
     private int bHv = 0;
-    private boolean nTY = false;
-    private boolean nTZ = true;
+    private boolean nTZ = false;
+    private boolean nUa = true;
     private boolean bHw = false;
     private boolean bHx = false;
     private int bHy = 0;
-    private int nUb = -1;
+    private int nUc = -1;
     private PostPrefixData prefixData = null;
     private AntiData antiData = null;
     private String firstDir = "";
@@ -75,40 +75,40 @@ public class e implements View.OnClickListener, com.baidu.tbadk.suspended.a {
     public e(BaseFragmentActivity baseFragmentActivity, Bundle bundle, int i, int i2) {
         a(baseFragmentActivity, i, i2);
         if (bundle == null) {
-            an(this.nTU.getIntent());
+            an(this.nTV.getIntent());
         } else {
             initData(bundle);
         }
-        dE(0, this.nTS);
+        dE(0, this.nTT);
     }
 
     private void a(BaseFragmentActivity baseFragmentActivity, int i, int i2) {
-        this.nTU = baseFragmentActivity;
-        this.nTS = i;
-        this.nTT = i2;
-        this.nTV = new com.baidu.tieba.write.album.a(baseFragmentActivity.getPageContext(), this);
-        this.nTV.SN();
+        this.nTV = baseFragmentActivity;
+        this.nTT = i;
+        this.nTU = i2;
+        this.nTW = new com.baidu.tieba.write.album.a(baseFragmentActivity.getPageContext(), this);
+        this.nTW.SN();
     }
 
     private void initData(Bundle bundle) {
-        this.nTJ = new c(this.nTU.getPageContext());
+        this.nTK = new c(this.nTV.getPageContext());
         if (bundle != null) {
             WriteImagesInfo writeImagesInfo = new WriteImagesInfo();
             writeImagesInfo.parseJson(bundle.getString("write_images_info"));
-            this.nTJ.setWriteImagesInfo(writeImagesInfo);
+            this.nTK.setWriteImagesInfo(writeImagesInfo);
             this.bHw = bundle.getBoolean("use_original_img", false);
             this.requestFrom = bundle.getInt("camera_request_from", 0);
             this.forumId = bundle.getString("forum_id");
             this.forumName = bundle.getString("forum_name");
             this.bHv = bundle.getInt("album_thread");
-            this.nTY = bundle.getBoolean(IntentConfig.KEY_CAN_SELECT_VIDEO);
+            this.nTZ = bundle.getBoolean(IntentConfig.KEY_CAN_SELECT_VIDEO);
             this.bHx = bundle.getBoolean("from_write");
             this.callFrom = bundle.getString("KEY_CALL_FROM");
             this.statisticFrom = bundle.getInt(WriteActivityConfig.KEY_STATISTIS_FROM);
             this.bHy = bundle.getInt("from_type");
-            this.nUa = (FrsTabInfoData) bundle.getSerializable("tab_list");
+            this.nUb = (FrsTabInfoData) bundle.getSerializable("tab_list");
             this.from = bundle.getString("from");
-            this.nUb = bundle.getInt(WriteActivityConfig.KEY_PROFESSION_ZONE, -1);
+            this.nUc = bundle.getInt(WriteActivityConfig.KEY_PROFESSION_ZONE, -1);
             Serializable serializable = bundle.getSerializable("anti_data");
             if (serializable instanceof AntiData) {
                 this.antiData = (AntiData) serializable;
@@ -124,26 +124,26 @@ public class e implements View.OnClickListener, com.baidu.tbadk.suspended.a {
     }
 
     private void an(Intent intent) {
-        this.nTJ = new c(this.nTU.getPageContext());
+        this.nTK = new c(this.nTV.getPageContext());
         if (intent != null) {
             WriteImagesInfo writeImagesInfo = new WriteImagesInfo();
             writeImagesInfo.parseJson(intent.getStringExtra("write_images_info"));
-            this.nTJ.setWriteImagesInfo(writeImagesInfo);
-            this.nTJ.setOriginalImg(writeImagesInfo.isOriginalImg());
+            this.nTK.setWriteImagesInfo(writeImagesInfo);
+            this.nTK.setOriginalImg(writeImagesInfo.isOriginalImg());
             this.bHw = intent.getBooleanExtra("use_original_img", false);
             this.requestFrom = intent.getIntExtra("camera_request_from", 0);
             this.from = intent.getStringExtra("from");
             this.forumId = intent.getStringExtra("forum_id");
             this.forumName = intent.getStringExtra("forum_name");
             this.bHv = intent.getIntExtra("album_thread", 0);
-            this.nTY = intent.getBooleanExtra(IntentConfig.KEY_CAN_SELECT_VIDEO, false);
-            this.nTZ = intent.getBooleanExtra(IntentConfig.KEY_CAN_EDIT_IMAGE, true);
+            this.nTZ = intent.getBooleanExtra(IntentConfig.KEY_CAN_SELECT_VIDEO, false);
+            this.nUa = intent.getBooleanExtra(IntentConfig.KEY_CAN_EDIT_IMAGE, true);
             this.bHx = intent.getBooleanExtra("from_write", false);
             this.callFrom = intent.getStringExtra("KEY_CALL_FROM");
             this.statisticFrom = intent.getIntExtra(WriteActivityConfig.KEY_STATISTIS_FROM, 0);
             this.bHy = intent.getIntExtra("from_type", 0);
-            this.nUa = (FrsTabInfoData) intent.getSerializableExtra("tab_list");
-            this.nUb = intent.getIntExtra(WriteActivityConfig.KEY_PROFESSION_ZONE, -1);
+            this.nUb = (FrsTabInfoData) intent.getSerializableExtra("tab_list");
+            this.nUc = intent.getIntExtra(WriteActivityConfig.KEY_PROFESSION_ZONE, -1);
             Serializable serializableExtra = intent.getSerializableExtra("anti_data");
             if (serializableExtra instanceof AntiData) {
                 this.antiData = (AntiData) serializableExtra;
@@ -160,7 +160,7 @@ public class e implements View.OnClickListener, com.baidu.tbadk.suspended.a {
 
     private void SB() {
         if (this.requestFrom == 2) {
-            this.nTW = new f() { // from class: com.baidu.tieba.write.album.e.1
+            this.nTX = new f() { // from class: com.baidu.tieba.write.album.e.1
                 @Override // com.baidu.tieba.write.album.f
                 public boolean h(ImageFileInfo imageFileInfo) {
                     if (imageFileInfo != null) {
@@ -175,7 +175,7 @@ public class e implements View.OnClickListener, com.baidu.tbadk.suspended.a {
                             }
                         }
                     }
-                    BdToast.b(e.this.nTU, e.this.nTU.getString(R.string.uploade_attation), R.drawable.icon_toast_game_error, false).bqk();
+                    BdToast.b(e.this.nTV, e.this.nTV.getString(R.string.uploade_attation), R.drawable.icon_toast_game_error, false).bqk();
                     return false;
                 }
             };
@@ -184,33 +184,33 @@ public class e implements View.OnClickListener, com.baidu.tbadk.suspended.a {
 
     public void b(NavigationBar navigationBar) {
         if (navigationBar != null) {
-            this.nTV.b(navigationBar);
+            this.nTW.b(navigationBar);
         }
     }
 
     public void eL(int i) {
         if (i == 1) {
-            dE(i, this.nTT);
+            dE(i, this.nTU);
         } else {
-            dE(i, this.nTS);
+            dE(i, this.nTT);
         }
     }
 
     private void dE(int i, int i2) {
         if (!this.bHt) {
-            FragmentTransaction beginTransaction = this.nTU.getSupportFragmentManager().beginTransaction();
-            Fragment findFragmentByTag = this.nTU.getSupportFragmentManager().findFragmentByTag(this.nTV.KO(this.aYr));
+            FragmentTransaction beginTransaction = this.nTV.getSupportFragmentManager().beginTransaction();
+            Fragment findFragmentByTag = this.nTV.getSupportFragmentManager().findFragmentByTag(this.nTW.KO(this.aYr));
             if (findFragmentByTag != null) {
                 beginTransaction.hide(findFragmentByTag);
             }
             this.aYr = i;
-            if (this.nTU.getSupportFragmentManager().findFragmentByTag(this.nTV.KO(i)) != null) {
-                beginTransaction.show(this.nTV.KN(i));
+            if (this.nTV.getSupportFragmentManager().findFragmentByTag(this.nTW.KO(i)) != null) {
+                beginTransaction.show(this.nTW.KN(i));
             } else {
-                beginTransaction.add(i2, this.nTV.KN(i), this.nTV.KO(i));
+                beginTransaction.add(i2, this.nTW.KN(i), this.nTW.KO(i));
             }
             beginTransaction.commitAllowingStateLoss();
-            this.nTU.getSupportFragmentManager().executePendingTransactions();
+            this.nTV.getSupportFragmentManager().executePendingTransactions();
         }
     }
 
@@ -219,24 +219,24 @@ public class e implements View.OnClickListener, com.baidu.tbadk.suspended.a {
             TiebaStatic.log(TbadkCoreStatisticKey.UPGRADE_DIALOG_CHOOSE_IMAGE);
         }
         if (this.requestFrom == 5) {
-            this.nTU.showLoadingDialog("正在上传");
+            this.nTV.showLoadingDialog("正在上传");
             new a().execute(new String[0]);
-        } else if (this.nTJ != null) {
-            if (this.nTX == null || !this.nTX.dUP()) {
-                if (this.nTJ.SX()) {
-                    VideoFileInfo dUz = this.nTJ.dUz();
-                    if (this.nTX == null) {
-                        this.nTX = new j(this.nTU, this.forumName, this.forumId, "");
-                        this.nTX.b(this.nUa);
-                        this.nTX.setExtraData(this.antiData, this.prefixData, this.firstDir, this.secondDir);
-                        if (this.nTV != null) {
-                            this.nTV.a(this.nTX);
+        } else if (this.nTK != null) {
+            if (this.nTY == null || !this.nTY.dUP()) {
+                if (this.nTK.SX()) {
+                    VideoFileInfo dUz = this.nTK.dUz();
+                    if (this.nTY == null) {
+                        this.nTY = new j(this.nTV, this.forumName, this.forumId, "");
+                        this.nTY.b(this.nUb);
+                        this.nTY.setExtraData(this.antiData, this.prefixData, this.firstDir, this.secondDir);
+                        if (this.nTW != null) {
+                            this.nTW.a(this.nTY);
                         }
                     }
-                    this.nTX.setProfessionZone(this.nUb);
-                    this.nTX.setStatisticFrom(this.statisticFrom);
-                    this.nTX.a(dUz, this.callFrom, this.from);
-                } else if (this.nTZ && dUB()) {
+                    this.nTY.setProfessionZone(this.nUc);
+                    this.nTY.setStatisticFrom(this.statisticFrom);
+                    this.nTY.a(dUz, this.callFrom, this.from);
+                } else if (this.nUa && dUB()) {
                     SD();
                 } else {
                     n(null);
@@ -246,11 +246,11 @@ public class e implements View.OnClickListener, com.baidu.tbadk.suspended.a {
     }
 
     private boolean dUB() {
-        if (this.nTJ == null || x.getCount(this.nTJ.SZ()) == 0) {
+        if (this.nTK == null || x.getCount(this.nTK.SZ()) == 0) {
             return false;
         }
         int i = 0;
-        for (ImageFileInfo imageFileInfo : this.nTJ.SZ()) {
+        for (ImageFileInfo imageFileInfo : this.nTK.SZ()) {
             if (imageFileInfo != null && imageFileInfo.getImageType() == 0 && (i = i + 1) >= 2) {
                 return false;
             }
@@ -261,17 +261,17 @@ public class e implements View.OnClickListener, com.baidu.tbadk.suspended.a {
 
     private void SD() {
         WriteImagesInfo writeImagesInfo;
-        if (this.nTJ != null && (writeImagesInfo = this.nTJ.getWriteImagesInfo()) != null) {
-            this.nTU.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new WriteMulitImageActivityConfig(this.nTU, RequestResponseCode.REQUEST_MOTU_IMAGE, writeImagesInfo, dUC())));
+        if (this.nTK != null && (writeImagesInfo = this.nTK.getWriteImagesInfo()) != null) {
+            this.nTV.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new WriteMulitImageActivityConfig(this.nTV, RequestResponseCode.REQUEST_MOTU_IMAGE, writeImagesInfo, dUC())));
         }
     }
 
     private int dUC() {
-        if (this.nTJ == null || x.getCount(this.nTJ.SZ()) == 0) {
+        if (this.nTK == null || x.getCount(this.nTK.SZ()) == 0) {
             return 0;
         }
-        for (int i = 0; i < x.getCount(this.nTJ.SZ()); i++) {
-            ImageFileInfo imageFileInfo = this.nTJ.SZ().get(i);
+        for (int i = 0; i < x.getCount(this.nTK.SZ()); i++) {
+            ImageFileInfo imageFileInfo = this.nTK.SZ().get(i);
             if (imageFileInfo != null && imageFileInfo.getImageType() == 0) {
                 return i;
             }
@@ -281,14 +281,14 @@ public class e implements View.OnClickListener, com.baidu.tbadk.suspended.a {
 
     private void n(Intent intent) {
         Intent intent2 = new Intent();
-        intent2.putExtra("album_result", this.nTJ.getWriteImagesInfo().toJsonString());
+        intent2.putExtra("album_result", this.nTK.getWriteImagesInfo().toJsonString());
         intent2.putExtra("camera_request_from", this.requestFrom);
         intent2.putExtra("from_type", this.bHy);
         if (intent != null && !StringUtils.isNull(intent.getStringExtra("file_name"))) {
             intent2.putExtra("file_name", intent.getStringExtra("file_name"));
         }
-        this.nTU.setResult(-1, intent2);
-        this.nTU.finish();
+        this.nTV.setResult(-1, intent2);
+        this.nTV.finish();
         if (AlbumActivityConfig.FROM_FLUTTER.equals(this.from)) {
             MessageManager.getInstance().sendMessage(new CustomMessage(2921464, intent2));
         }
@@ -296,10 +296,10 @@ public class e implements View.OnClickListener, com.baidu.tbadk.suspended.a {
 
     @Override // com.baidu.tbadk.suspended.a
     public boolean bEp() {
-        if (this.nTV == null || this.nTV.dUy() == null || this.nTV.dUy().dUH() == null) {
+        if (this.nTW == null || this.nTW.dUy() == null || this.nTW.dUy().dUH() == null) {
             return true;
         }
-        return this.nTV.dUy().dUH().getFirstVisiblePosition() == 0 && !this.nTV.dUy().dUH().canScrollVertically(-1);
+        return this.nTW.dUy().dUH().getFirstVisiblePosition() == 0 && !this.nTW.dUy().dUH().canScrollVertically(-1);
     }
 
     @Override // com.baidu.tbadk.suspended.a
@@ -309,22 +309,22 @@ public class e implements View.OnClickListener, com.baidu.tbadk.suspended.a {
 
     @Override // com.baidu.tbadk.suspended.a
     public void rs(int i) {
-        if (this.nTV != null) {
-            this.nTV.onChangeSkinType(i);
+        if (this.nTW != null) {
+            this.nTW.onChangeSkinType(i);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void onSaveInstanceState(Bundle bundle) {
-        bundle.putString("write_images_info", this.nTJ.getWriteImagesInfo().toJsonString());
+        bundle.putString("write_images_info", this.nTK.getWriteImagesInfo().toJsonString());
         bundle.putBoolean("use_original_img", this.bHw);
         bundle.putInt("camera_request_from", this.requestFrom);
         bundle.putString("forum_id", this.forumId);
         bundle.putString("forum_name", this.forumName);
         bundle.putInt("album_thread", this.bHv);
-        bundle.putBoolean(IntentConfig.KEY_CAN_SELECT_VIDEO, this.nTY);
+        bundle.putBoolean(IntentConfig.KEY_CAN_SELECT_VIDEO, this.nTZ);
         bundle.putBoolean("from_write", this.bHx);
-        bundle.putSerializable("tab_list", this.nUa);
+        bundle.putSerializable("tab_list", this.nUb);
         bundle.putSerializable("anti_data", this.antiData);
         bundle.putSerializable("prefix_data", this.prefixData);
         bundle.putString("forum_first_dir", this.firstDir);
@@ -333,52 +333,52 @@ public class e implements View.OnClickListener, com.baidu.tbadk.suspended.a {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.nTV.SP()) {
+        if (view == this.nTW.SP()) {
             SC();
-        } else if (view == this.nTV.SR()) {
+        } else if (view == this.nTW.SR()) {
             SC();
-        } else if (view == this.nTV.SO()) {
-            if (this.nTJ != null) {
-                this.nTJ.setLastAlbumId(null);
+        } else if (view == this.nTW.SO()) {
+            if (this.nTK != null) {
+                this.nTK.setLastAlbumId(null);
             }
             SJ();
-        } else if (view == this.nTV.SQ()) {
-            dE(0, this.nTS);
-        } else if (view == this.nTV.SS()) {
+        } else if (view == this.nTW.SQ()) {
+            dE(0, this.nTT);
+        } else if (view == this.nTW.SS()) {
             eJ(2);
-        } else if (view == this.nTV.ST()) {
+        } else if (view == this.nTW.ST()) {
             eJ(1);
         }
     }
 
     private void SJ() {
         Intent intent = new Intent();
-        String lastAlbumId = this.nTJ.getLastAlbumId();
+        String lastAlbumId = this.nTK.getLastAlbumId();
         if (TextUtils.isEmpty(lastAlbumId)) {
             lastAlbumId = "";
         }
         intent.putExtra("last_album_id", lastAlbumId);
         intent.putExtra("camera_request_from", this.requestFrom);
-        this.nTU.setResult(0, intent);
-        this.nTU.finish();
+        this.nTV.setResult(0, intent);
+        this.nTV.finish();
     }
 
     private void eJ(int i) {
-        if (this.nTV != null && this.nTJ != null) {
-            this.nTJ.setOriginalImg(!this.nTJ.isOriginalImg());
+        if (this.nTW != null && this.nTK != null) {
+            this.nTK.setOriginalImg(!this.nTK.isOriginalImg());
             SE();
             eK(i);
         }
     }
 
     public void SE() {
-        if (this.nTJ != null && this.nTV != null) {
-            this.nTV.df(this.nTJ.isOriginalImg());
+        if (this.nTK != null && this.nTW != null) {
+            this.nTW.df(this.nTK.isOriginalImg());
         }
     }
 
     private void eK(int i) {
-        if (this.nTJ != null && this.nTJ.isOriginalImg() && !StringUtils.isNull(this.from, true) && !StringUtils.isNull(this.forumId, true)) {
+        if (this.nTK != null && this.nTK.isOriginalImg() && !StringUtils.isNull(this.from, true) && !StringUtils.isNull(this.forumId, true)) {
             TiebaStatic.log(new aq("c10349").dW("fid", this.forumId).dW("obj_type", this.from).an("obj_locate", i));
         }
     }
@@ -393,17 +393,17 @@ public class e implements View.OnClickListener, com.baidu.tbadk.suspended.a {
             Intent intent = new Intent();
             LinkedList<ImageFileInfo> linkedList = new LinkedList<>();
             linkedList.add(imageFileInfo);
-            this.nTJ.getWriteImagesInfo().setChosedFiles(linkedList);
-            intent.putExtra("album_result", this.nTJ.getWriteImagesInfo().toJsonString());
+            this.nTK.getWriteImagesInfo().setChosedFiles(linkedList);
+            intent.putExtra("album_result", this.nTK.getWriteImagesInfo().toJsonString());
             intent.putExtra("camera_request_from", this.requestFrom);
             intent.putExtra("from_type", this.bHy);
-            this.nTU.setResult(-1, intent);
-            this.nTU.finish();
+            this.nTV.setResult(-1, intent);
+            this.nTV.finish();
         }
     }
 
     public c dUD() {
-        return this.nTJ;
+        return this.nTK;
     }
 
     public void g(TbPageContext tbPageContext) {
@@ -414,27 +414,27 @@ public class e implements View.OnClickListener, com.baidu.tbadk.suspended.a {
         if (!cfN() && com.baidu.tieba.write.j.dUp()) {
             ForumWriteData forumWriteData = new ForumWriteData(this.forumId, this.forumName, null, null);
             forumWriteData.statisticFrom = this.statisticFrom;
-            RecordVideoActivityConfig recordVideoActivityConfig = new RecordVideoActivityConfig(tbPageContext.getPageActivity(), this.bHx ? 2 : 3, forumWriteData, this.nTJ.getWriteImagesInfo(), "", this.bHy);
-            recordVideoActivityConfig.setShowType(this.nTY ? 0 : 1);
-            if (this.nTY) {
-                if (this.nTU.getIntent() == null) {
+            RecordVideoActivityConfig recordVideoActivityConfig = new RecordVideoActivityConfig(tbPageContext.getPageActivity(), this.bHx ? 2 : 3, forumWriteData, this.nTK.getWriteImagesInfo(), "", this.bHy);
+            recordVideoActivityConfig.setShowType(this.nTZ ? 0 : 1);
+            if (this.nTZ) {
+                if (this.nTV.getIntent() == null) {
                     str = "";
                     str2 = "";
                     antiData = null;
                     postPrefixData = null;
                 } else {
-                    Serializable serializableExtra = this.nTU.getIntent().getSerializableExtra("anti_data");
+                    Serializable serializableExtra = this.nTV.getIntent().getSerializableExtra("anti_data");
                     AntiData antiData2 = serializableExtra instanceof AntiData ? (AntiData) serializableExtra : null;
-                    Serializable serializableExtra2 = this.nTU.getIntent().getSerializableExtra("prefix_data");
+                    Serializable serializableExtra2 = this.nTV.getIntent().getSerializableExtra("prefix_data");
                     PostPrefixData postPrefixData2 = serializableExtra2 instanceof PostPrefixData ? (PostPrefixData) serializableExtra2 : null;
-                    str2 = this.nTU.getIntent().getStringExtra("forum_first_dir");
-                    str = this.nTU.getIntent().getStringExtra("forum_second_dir");
+                    str2 = this.nTV.getIntent().getStringExtra("forum_first_dir");
+                    str = this.nTV.getIntent().getStringExtra("forum_second_dir");
                     antiData = antiData2;
                     postPrefixData = postPrefixData2;
                 }
                 recordVideoActivityConfig.setExtraData(antiData, postPrefixData, str2, str);
             }
-            this.nTU.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, recordVideoActivityConfig));
+            this.nTV.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, recordVideoActivityConfig));
             TiebaStatic.log(new aq(CommonStatisticKey.KEY_ENTRANCE_CLICKED).an("obj_locate", 5).an("obj_type", 2));
         }
     }
@@ -442,18 +442,18 @@ public class e implements View.OnClickListener, com.baidu.tbadk.suspended.a {
     private boolean cfN() {
         PermissionJudgePolicy permissionJudgePolicy = new PermissionJudgePolicy();
         permissionJudgePolicy.clearRequestPermissionList();
-        permissionJudgePolicy.appendRequestPermission(this.nTU, PermissionRequest.RESOURCE_VIDEO_CAPTURE);
-        permissionJudgePolicy.appendRequestPermission(this.nTU, PermissionRequest.RESOURCE_AUDIO_CAPTURE);
-        permissionJudgePolicy.appendRequestPermission(this.nTU, "android.permission.WRITE_EXTERNAL_STORAGE");
-        return permissionJudgePolicy.startRequestPermission(this.nTU);
+        permissionJudgePolicy.appendRequestPermission(this.nTV, PermissionRequest.RESOURCE_VIDEO_CAPTURE);
+        permissionJudgePolicy.appendRequestPermission(this.nTV, PermissionRequest.RESOURCE_AUDIO_CAPTURE);
+        permissionJudgePolicy.appendRequestPermission(this.nTV, "android.permission.WRITE_EXTERNAL_STORAGE");
+        return permissionJudgePolicy.startRequestPermission(this.nTV);
     }
 
     public boolean f(ImageFileInfo imageFileInfo) {
         if (imageFileInfo == null) {
             return false;
         }
-        this.nTJ.a(null);
-        this.nTJ.delChooseFile(imageFileInfo);
+        this.nTK.a(null);
+        this.nTK.delChooseFile(imageFileInfo);
         SE();
         return true;
     }
@@ -462,9 +462,9 @@ public class e implements View.OnClickListener, com.baidu.tbadk.suspended.a {
         if (imageFileInfo == null) {
             return false;
         }
-        int maxImagesAllowed = this.nTJ.getMaxImagesAllowed();
-        if (this.nTJ.size() < maxImagesAllowed) {
-            if (this.nTW == null || this.nTW.h(imageFileInfo)) {
+        int maxImagesAllowed = this.nTK.getMaxImagesAllowed();
+        if (this.nTK.size() < maxImagesAllowed) {
+            if (this.nTX == null || this.nTX.h(imageFileInfo)) {
                 ImageFileInfo imageFileInfo2 = new ImageFileInfo();
                 imageFileInfo2.setAlbumnId(imageFileInfo.getAlbumId());
                 imageFileInfo2.setContentUriStr(imageFileInfo.getContentUriStr());
@@ -472,8 +472,8 @@ public class e implements View.OnClickListener, com.baidu.tbadk.suspended.a {
                 imageFileInfo2.setModifyTime(imageFileInfo.getModifyTime());
                 imageFileInfo2.setIsGif(imageFileInfo.isGif());
                 imageFileInfo2.setIsLong(imageFileInfo.isLong());
-                this.nTJ.a(null);
-                this.nTJ.addChooseFile(imageFileInfo2);
+                this.nTK.a(null);
+                this.nTK.addChooseFile(imageFileInfo2);
                 SE();
                 return true;
             }
@@ -481,17 +481,17 @@ public class e implements View.OnClickListener, com.baidu.tbadk.suspended.a {
         } else if (SI()) {
             return g(imageFileInfo);
         } else {
-            this.nTU.showToast(String.format(this.nTU.getString(R.string.max_choose_image_count), Integer.valueOf(maxImagesAllowed)));
+            this.nTV.showToast(String.format(this.nTV.getString(R.string.max_choose_image_count), Integer.valueOf(maxImagesAllowed)));
             return false;
         }
     }
 
     private boolean SI() {
-        if (this.nTU.getIntent().getBooleanExtra("select_directly", false)) {
-            int maxImagesAllowed = this.nTJ.getMaxImagesAllowed();
-            if (this.nTJ.size() == maxImagesAllowed && maxImagesAllowed == 1) {
+        if (this.nTV.getIntent().getBooleanExtra("select_directly", false)) {
+            int maxImagesAllowed = this.nTK.getMaxImagesAllowed();
+            if (this.nTK.size() == maxImagesAllowed && maxImagesAllowed == 1) {
                 try {
-                    ImageFileInfo imageFileInfo = (ImageFileInfo) x.getItem(this.nTJ.SZ(), 0);
+                    ImageFileInfo imageFileInfo = (ImageFileInfo) x.getItem(this.nTK.SZ(), 0);
                     if (f(imageFileInfo)) {
                         g(imageFileInfo, false);
                         h(imageFileInfo, false);
@@ -507,28 +507,28 @@ public class e implements View.OnClickListener, com.baidu.tbadk.suspended.a {
 
     public void g(ImageFileInfo imageFileInfo, boolean z) {
         Fragment KN;
-        if (this.nTV != null && (KN = this.nTV.KN(0)) != null && (KN instanceof ImageListFragment)) {
+        if (this.nTW != null && (KN = this.nTW.KN(0)) != null && (KN instanceof ImageListFragment)) {
             ((ImageListFragment) KN).f(imageFileInfo, z);
         }
     }
 
     private void h(ImageFileInfo imageFileInfo, boolean z) {
         Fragment KN;
-        if (this.nTV != null && (KN = this.nTV.KN(1)) != null && (KN instanceof AlbumImageBrowseFragment)) {
+        if (this.nTW != null && (KN = this.nTW.KN(1)) != null && (KN instanceof AlbumImageBrowseFragment)) {
             ((AlbumImageBrowseFragment) KN).f(imageFileInfo, z);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void o(Intent intent) {
-        this.nUc = intent;
-        if (intent == null || this.nTJ == null) {
+        this.nUd = intent;
+        if (intent == null || this.nTK == null) {
             n(null);
             return;
         }
         String stringExtra = intent.getStringExtra("album_result");
         if (stringExtra != null) {
-            WriteImagesInfo writeImagesInfo = this.nTJ.getWriteImagesInfo();
+            WriteImagesInfo writeImagesInfo = this.nTK.getWriteImagesInfo();
             writeImagesInfo.parseJson(stringExtra);
             writeImagesInfo.updateQuality();
             n(intent);
@@ -537,10 +537,10 @@ public class e implements View.OnClickListener, com.baidu.tbadk.suspended.a {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void onBackClick() {
-        this.nTU.closeLoadingDialog();
+        this.nTV.closeLoadingDialog();
         if (this.aYr == 0) {
-            if (this.nTJ != null) {
-                this.nTJ.setLastAlbumId(null);
+            if (this.nTK != null) {
+                this.nTK.setLastAlbumId(null);
             }
             SJ();
         } else if (this.aYr == 1) {
@@ -555,40 +555,40 @@ public class e implements View.OnClickListener, com.baidu.tbadk.suspended.a {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public boolean dUE() {
-        return this.nTY;
+        return this.nTZ;
     }
 
     private void stopCamera() {
-        if (this.nTV != null) {
-            this.nTV.stopCamera();
+        if (this.nTW != null) {
+            this.nTW.stopCamera();
         }
     }
 
     private void openCamera() {
-        if (this.nTV != null) {
-            this.nTV.openCamera();
+        if (this.nTW != null) {
+            this.nTW.openCamera();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void onStart() {
-        if (this.nTX != null) {
-            this.nTX.onStart();
+        if (this.nTY != null) {
+            this.nTY.onStart();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void onResume() {
         openCamera();
-        if (this.nTX != null) {
-            this.nTX.onResume();
+        if (this.nTY != null) {
+            this.nTY.onResume();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void onStop() {
-        if (this.nTX != null) {
-            this.nTX.onStop();
+        if (this.nTY != null) {
+            this.nTY.onStop();
         }
     }
 
@@ -601,29 +601,29 @@ public class e implements View.OnClickListener, com.baidu.tbadk.suspended.a {
     public void onDestroy() {
         this.bHt = true;
         stopCamera();
-        this.nTU.closeLoadingDialog();
-        this.nTU.dismissAllDialog();
+        this.nTV.closeLoadingDialog();
+        this.nTV.dismissAllDialog();
         d.dUA().destory();
-        if (this.nTV != null) {
-            this.nTV.onDestroy();
+        if (this.nTW != null) {
+            this.nTW.onDestroy();
         }
-        if (this.nTX != null) {
-            this.nTX.onDestroy();
+        if (this.nTY != null) {
+            this.nTY.onDestroy();
         }
         Intent intent = new Intent();
         intent.setAction(AlbumActivityConfig.ACTION_SELECT_IMAGE_RESULT);
-        intent.putExtra("album_result", this.nTJ.getWriteImagesInfo().toJsonString());
+        intent.putExtra("album_result", this.nTK.getWriteImagesInfo().toJsonString());
         intent.putExtra("camera_request_from", this.requestFrom);
         intent.putExtra("from_type", this.bHy);
-        if (this.nUc != null && !StringUtils.isNull(this.nUc.getStringExtra("file_name"))) {
-            intent.putExtra("file_name", this.nUc.getStringExtra("file_name"));
+        if (this.nUd != null && !StringUtils.isNull(this.nUd.getStringExtra("file_name"))) {
+            intent.putExtra("file_name", this.nUd.getStringExtra("file_name"));
         }
         TbadkCoreApplication.getInst().sendBroadcast(intent);
     }
 
     public void onRequestPermissionsResult(int i, @NonNull String[] strArr, @NonNull int[] iArr) {
-        if (this.nTV != null) {
-            this.nTV.dUx();
+        if (this.nTW != null) {
+            this.nTW.dUx();
         }
     }
 
@@ -637,8 +637,8 @@ public class e implements View.OnClickListener, com.baidu.tbadk.suspended.a {
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public String doInBackground(String... strArr) {
-            new com.baidu.tbadk.img.f(null).c(e.this.nTJ.getWriteImagesInfo(), true);
-            return e.this.nTJ.getWriteImagesInfo().toJsonString();
+            new com.baidu.tbadk.img.f(null).c(e.this.nTK.getWriteImagesInfo(), true);
+            return e.this.nTK.getWriteImagesInfo().toJsonString();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -647,8 +647,8 @@ public class e implements View.OnClickListener, com.baidu.tbadk.suspended.a {
         public void onPostExecute(String str) {
             Intent intent = new Intent();
             intent.putExtra("album_result", str);
-            e.this.nTU.setResult(-1, intent);
-            e.this.nTU.finish();
+            e.this.nTV.setResult(-1, intent);
+            e.this.nTV.finish();
         }
     }
 }

@@ -5,12 +5,12 @@ import java.util.StringTokenizer;
 /* loaded from: classes3.dex */
 abstract class f implements org.aspectj.lang.c {
     String name;
-    int pHW;
-    Class qkA;
-    a qkB;
-    private String qkC;
-    ClassLoader qkq = null;
-    String qkz;
+    int pHX;
+    String qkA;
+    Class qkB;
+    a qkC;
+    private String qkD;
+    ClassLoader qkr = null;
     private static boolean useCache = true;
     static String[] EMPTY_STRING_ARRAY = new String[0];
     static Class[] EMPTY_CLASS_ARRAY = new Class[0];
@@ -27,44 +27,44 @@ abstract class f implements org.aspectj.lang.c {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(int i, String str, Class cls) {
-        this.pHW = -1;
-        this.pHW = i;
+        this.pHX = -1;
+        this.pHX = i;
         this.name = str;
-        this.qkA = cls;
+        this.qkB = cls;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public String a(h hVar) {
         String str = null;
         if (useCache) {
-            if (this.qkB == null) {
+            if (this.qkC == null) {
                 try {
-                    this.qkB = new b();
+                    this.qkC = new b();
                 } catch (Throwable th) {
                     useCache = false;
                 }
             } else {
-                str = this.qkB.get(hVar.qkN);
+                str = this.qkC.get(hVar.qkO);
             }
         }
         if (str == null) {
             str = b(hVar);
         }
         if (useCache) {
-            this.qkB.set(hVar.qkN, str);
+            this.qkC.set(hVar.qkO, str);
         }
         return str;
     }
 
     public final String toString() {
-        return a(h.qkP);
+        return a(h.qkQ);
     }
 
     public int eJv() {
-        if (this.pHW == -1) {
-            this.pHW = Sd(0);
+        if (this.pHX == -1) {
+            this.pHX = Sd(0);
         }
-        return this.pHW;
+        return this.pHX;
     }
 
     public String getName() {
@@ -75,42 +75,42 @@ abstract class f implements org.aspectj.lang.c {
     }
 
     public Class eJw() {
+        if (this.qkB == null) {
+            this.qkB = Se(2);
+        }
+        return this.qkB;
+    }
+
+    public String eJx() {
         if (this.qkA == null) {
-            this.qkA = Se(2);
+            this.qkA = eJw().getName();
         }
         return this.qkA;
     }
 
-    public String eJx() {
-        if (this.qkz == null) {
-            this.qkz = eJw().getName();
-        }
-        return this.qkz;
-    }
-
     private ClassLoader eJy() {
-        if (this.qkq == null) {
-            this.qkq = getClass().getClassLoader();
+        if (this.qkr == null) {
+            this.qkr = getClass().getClassLoader();
         }
-        return this.qkq;
+        return this.qkr;
     }
 
     String Sc(int i) {
         int i2 = 0;
-        int indexOf = this.qkC.indexOf(45);
+        int indexOf = this.qkD.indexOf(45);
         while (true) {
             int i3 = i - 1;
             if (i <= 0) {
                 break;
             }
             i2 = indexOf + 1;
-            indexOf = this.qkC.indexOf(45, i2);
+            indexOf = this.qkD.indexOf(45, i2);
             i = i3;
         }
         if (indexOf == -1) {
-            indexOf = this.qkC.length();
+            indexOf = this.qkD.length();
         }
-        return this.qkC.substring(i2, indexOf);
+        return this.qkD.substring(i2, indexOf);
     }
 
     int Sd(int i) {
@@ -136,7 +136,7 @@ abstract class f implements org.aspectj.lang.c {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes3.dex */
     public static final class b implements a {
-        private SoftReference qkD;
+        private SoftReference qkE;
 
         public b() {
             eJA();
@@ -161,12 +161,12 @@ abstract class f implements org.aspectj.lang.c {
         }
 
         private String[] eJz() {
-            return (String[]) this.qkD.get();
+            return (String[]) this.qkE.get();
         }
 
         private String[] eJA() {
             String[] strArr = new String[3];
-            this.qkD = new SoftReference(strArr);
+            this.qkE = new SoftReference(strArr);
             return strArr;
         }
     }

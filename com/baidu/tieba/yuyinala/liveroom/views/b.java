@@ -34,9 +34,9 @@ public class b extends a {
     private View.OnClickListener hND;
     private TbImageView hNc;
     private TextView hNd;
-    private d.a osH;
-    private CubicRoundRectRelativeLayout osI;
-    private LinearLayout osJ;
+    private d.a osI;
+    private CubicRoundRectRelativeLayout osJ;
+    private LinearLayout osK;
 
     public b(TbPageContext tbPageContext) {
         super(tbPageContext);
@@ -46,8 +46,8 @@ public class b extends a {
                 if (view.getId() == a.f.ala_live_prepare_start) {
                     if (!UtilHelper.isFastDoubleClick()) {
                         if (TbadkCoreApplication.getInst().isQuanmin() || TbadkCoreApplication.getInst().isYinbo() || TbadkCoreApplication.getInst().isTieba() || TbadkCoreApplication.getInst().isHaokan() || TbadkCoreApplication.getInst().isOther()) {
-                            if (b.this.osw != null) {
-                                b.this.osw.chq();
+                            if (b.this.osx != null) {
+                                b.this.osx.chq();
                             }
                         } else {
                             b.this.cjS();
@@ -62,8 +62,8 @@ public class b extends a {
                     }
                 } else if (view.getId() == a.f.ala_prepare_cover_frame_layout) {
                     b.this.cku();
-                } else if (view.getId() == a.f.ala_prepare_close && b.this.osw != null) {
-                    b.this.osw.onCloseClicked();
+                } else if (view.getId() == a.f.ala_prepare_close && b.this.osx != null) {
+                    b.this.osx.onCloseClicked();
                 }
             }
         };
@@ -81,7 +81,7 @@ public class b extends a {
         });
         cjN();
         this.hKP.setOnClickListener(this.hND);
-        this.osI = (CubicRoundRectRelativeLayout) this.mRootView.findViewById(a.f.ala_prepare_cover_frame_layout);
+        this.osJ = (CubicRoundRectRelativeLayout) this.mRootView.findViewById(a.f.ala_prepare_cover_frame_layout);
         this.hNc = (TbImageView) this.mRootView.findViewById(a.f.ala_prepare_portrait);
         this.hNd = (TextView) this.mRootView.findViewById(a.f.ala_prepare_photo_label);
         this.hNc.setIsRound(false);
@@ -97,18 +97,18 @@ public class b extends a {
             layoutParams.topMargin += this.mPageContext.getResources().getDimensionPixelSize(a.d.sdk_ds24);
             this.hMW.setLayoutParams(layoutParams);
         }
-        this.osJ = (LinearLayout) this.mRootView.findViewById(a.f.ala_prepare_bottom_view_container);
-        RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.osI.getLayoutParams();
+        this.osK = (LinearLayout) this.mRootView.findViewById(a.f.ala_prepare_bottom_view_container);
+        RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.osJ.getLayoutParams();
         layoutParams2.topMargin = (int) (ScreenHelper.getRealScreenHeight(this.mPageContext.getPageActivity()) * 0.145d);
-        this.osI.setLayoutParams(layoutParams2);
-        RelativeLayout.LayoutParams layoutParams3 = (RelativeLayout.LayoutParams) this.osJ.getLayoutParams();
+        this.osJ.setLayoutParams(layoutParams2);
+        RelativeLayout.LayoutParams layoutParams3 = (RelativeLayout.LayoutParams) this.osK.getLayoutParams();
         layoutParams3.bottomMargin = (int) (ScreenHelper.getRealScreenHeight(this.mPageContext.getPageActivity()) * 0.125d);
-        this.osJ.setLayoutParams(layoutParams3);
+        this.osK.setLayoutParams(layoutParams3);
         Dn();
     }
 
     private void Dn() {
-        this.osI.setOnClickListener(this.hND);
+        this.osJ.setOnClickListener(this.hND);
     }
 
     public void cdD() {
@@ -139,6 +139,6 @@ public class b extends a {
     }
 
     public void a(d.a aVar) {
-        this.osH = aVar;
+        this.osI = aVar;
     }
 }

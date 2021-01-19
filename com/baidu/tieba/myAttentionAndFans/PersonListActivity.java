@@ -181,7 +181,7 @@ public class PersonListActivity extends BaseActivity<PersonListActivity> {
         @Override // com.baidu.tieba.myAttentionAndFans.PersonListModel.a
         public be e(be beVar, boolean z) {
             if (beVar != null && beVar.eMI != PersonListActivity.this.lnO && PersonListActivity.this.mModel != null && PersonListActivity.this.mModel.bXt() && PersonListActivity.this.mModel.getLoadType() == 0) {
-                PersonListActivity.this.mModel.NU(PersonListActivity.this.mPortrait);
+                PersonListActivity.this.mModel.NV(PersonListActivity.this.mPortrait);
             }
             PersonListActivity.this.a(beVar, z);
             return null;
@@ -526,7 +526,7 @@ public class PersonListActivity extends BaseActivity<PersonListActivity> {
     private void b(be beVar) {
         if (beVar != null) {
             if (!beVar.hasMore && !StringUtils.isNull(beVar.eMJ) && !this.lnN) {
-                bD(beVar.eMJ, beVar.type);
+                bE(beVar.eMJ, beVar.type);
                 this.lnC.removeFooterView(this.lnS);
                 this.lnC.addFooterView(this.lnS);
                 this.lnC.removeFooterView(this.gxy.getView());
@@ -672,7 +672,7 @@ public class PersonListActivity extends BaseActivity<PersonListActivity> {
         this.lnF.setVisibility(8);
         if (this.mModel.getId() != null && this.mModel.getId().equals(TbadkCoreApplication.getCurrentAccount())) {
             if (beVar != null && !StringUtils.isNull(beVar.eMJ) && !this.lnN) {
-                this.mNoDataView.getSuTextView().setText(bE(beVar.eMJ, beVar.type));
+                this.mNoDataView.getSuTextView().setText(bF(beVar.eMJ, beVar.type));
                 this.mNoDataView.getSuTextView().setMovementMethod(LinkMovementMethod.getInstance());
                 this.mNoDataView.getSuTextView().setHighlightColor(getResources().getColor(R.color.transparent));
                 TiebaStatic.log(new aq("c13106").an("obj_locate", 1));
@@ -753,7 +753,7 @@ public class PersonListActivity extends BaseActivity<PersonListActivity> {
         return super.onKeyDown(i, keyEvent);
     }
 
-    private void bD(String str, int i) {
+    private void bE(String str, int i) {
         if (this.lnS == null) {
             this.lnS = LayoutInflater.from(getActivity()).inflate(R.layout.forbidden_tip_layout, (ViewGroup) null);
             this.lnT = (TextView) this.lnS.findViewById(R.id.view_forbidden_tip);
@@ -764,12 +764,12 @@ public class PersonListActivity extends BaseActivity<PersonListActivity> {
             this.lnS.setVisibility(8);
             return;
         }
-        this.lnT.setText(bE(str, i));
+        this.lnT.setText(bF(str, i));
         this.lnT.setMovementMethod(LinkMovementMethod.getInstance());
         this.lnT.setHighlightColor(getResources().getColor(R.color.transparent));
     }
 
-    private SpannableStringBuilder bE(String str, int i) {
+    private SpannableStringBuilder bF(String str, int i) {
         String string;
         String str2;
         if (StringUtils.isNull(str)) {

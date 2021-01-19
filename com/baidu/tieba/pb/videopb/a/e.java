@@ -379,7 +379,7 @@ public class e extends com.baidu.adp.widget.ListView.a<PostData, VideoPbVideoInf
     }
 
     private boolean x(PostData postData) {
-        return postData != null && x.getCount(postData.nnL) >= 2;
+        return postData != null && x.getCount(postData.nnM) >= 2;
     }
 
     private void a(VideoPbVideoInfoViewHolder videoPbVideoInfoViewHolder) {

@@ -194,7 +194,7 @@ public class SearchLocationActivity extends NavigationBarActivity {
                 } else {
                     a.C0783a c0783a = new a.C0783a();
                     c0783a.setName(nearByAddressData2.getName());
-                    c0783a.MZ(nearByAddressData2.getSn());
+                    c0783a.Na(nearByAddressData2.getSn());
                     arrayList.add(c0783a);
                 }
             }
@@ -202,12 +202,12 @@ public class SearchLocationActivity extends NavigationBarActivity {
         if (nearByAddressData != null) {
             a.C0783a c0783a2 = new a.C0783a();
             c0783a2.setName(nearByAddressData.getName());
-            c0783a2.MZ(nearByAddressData.getSn());
+            c0783a2.Na(nearByAddressData.getSn());
             arrayList.add(0, c0783a2);
         } else {
             a.C0783a c0783a3 = new a.C0783a();
             c0783a3.setName(str);
-            c0783a3.MZ(str2);
+            c0783a3.Na(str2);
             arrayList.add(0, c0783a3);
         }
         return arrayList;

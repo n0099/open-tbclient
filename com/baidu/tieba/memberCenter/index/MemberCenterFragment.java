@@ -102,9 +102,9 @@ public class MemberCenterFragment extends BaseFragment {
     private void refresh() {
         this.ldW = true;
         if (StringUtils.isNull(this.ldV)) {
-            Nj(TbConfig.HTTPS_QUICK_WEBVIEW_PREFIX + "n/apage-runtime/page/tb_vip");
+            Nk(TbConfig.HTTPS_QUICK_WEBVIEW_PREFIX + "n/apage-runtime/page/tb_vip");
         } else {
-            Nj(this.ldV);
+            Nk(this.ldV);
         }
     }
 
@@ -115,9 +115,9 @@ public class MemberCenterFragment extends BaseFragment {
             this.mSkinType = i;
             if (this.ldU != null) {
                 if (StringUtils.isNull(this.ldV)) {
-                    Nj(TbConfig.HTTPS_QUICK_WEBVIEW_PREFIX + "n/apage-runtime/page/tb_vip");
+                    Nk(TbConfig.HTTPS_QUICK_WEBVIEW_PREFIX + "n/apage-runtime/page/tb_vip");
                 } else {
-                    Nj(this.ldV);
+                    Nk(this.ldV);
                 }
             }
             this.mNavigationBar.onChangeSkinType(getPageContext(), i);
@@ -125,7 +125,7 @@ public class MemberCenterFragment extends BaseFragment {
         }
     }
 
-    private void Nj(String str) {
+    private void Nk(String str) {
         if (this.ldU != null) {
             if (j.isNetworkAvailableForImmediately()) {
                 bTo();

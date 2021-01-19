@@ -5,7 +5,7 @@ import com.baidu.tieba.yuyinala.liveroom.data.f;
 import org.json.JSONObject;
 /* loaded from: classes10.dex */
 public class LiveBackstageHttpResonpnseMessage extends JsonHttpResponsedMessage {
-    private f omM;
+    private f omN;
 
     public LiveBackstageHttpResonpnseMessage() {
         super(1021123);
@@ -16,8 +16,8 @@ public class LiveBackstageHttpResonpnseMessage extends JsonHttpResponsedMessage 
         super.decodeLogicInBackGround(i, jSONObject);
         if (jSONObject != null && jSONObject.optJSONObject("data") != null) {
             JSONObject optJSONObject = jSONObject.optJSONObject("data");
-            this.omM = new f();
-            this.omM.parserJson(optJSONObject);
+            this.omN = new f();
+            this.omN.parserJson(optJSONObject);
         }
     }
 }

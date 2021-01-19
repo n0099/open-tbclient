@@ -7,11 +7,11 @@ public interface c {
 
     void MX(int i);
 
-    void WN(String str);
-
     void WO(String str);
 
     void WP(String str);
+
+    void WQ(String str);
 
     c egk();
 

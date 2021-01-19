@@ -7,7 +7,7 @@ public class e {
     private Drawable icon;
     private Context mContext;
     private Drawable mEx;
-    private int pbj;
+    private int pbk;
     private String title;
     private int titleColor;
     private int width;
@@ -21,11 +21,11 @@ public class e {
     }
 
     public int getTitleSize() {
-        return this.pbj;
+        return this.pbk;
     }
 
     public void setTitleSize(int i) {
-        this.pbj = i;
+        this.pbk = i;
     }
 
     public void setTitleColor(int i) {

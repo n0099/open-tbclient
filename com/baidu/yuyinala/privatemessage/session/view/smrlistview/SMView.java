@@ -7,10 +7,10 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 /* loaded from: classes10.dex */
 public class SMView extends LinearLayout implements View.OnClickListener {
-    private SMListView pbf;
-    private SMLayout pbg;
-    private c pbh;
-    private a pbi;
+    private SMListView pbg;
+    private SMLayout pbh;
+    private c pbi;
+    private a pbj;
     private int position;
 
     /* loaded from: classes10.dex */
@@ -28,8 +28,8 @@ public class SMView extends LinearLayout implements View.OnClickListener {
 
     public SMView(c cVar, SMListView sMListView) {
         super(cVar.getContext());
-        this.pbf = sMListView;
-        this.pbh = cVar;
+        this.pbg = sMListView;
+        this.pbi = cVar;
         int i = 0;
         for (e eVar : cVar.ekL()) {
             a(eVar, i);
@@ -72,20 +72,20 @@ public class SMView extends LinearLayout implements View.OnClickListener {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.pbi != null && this.pbg.isOpen()) {
-            this.pbi.a(this, this.pbh, view.getId());
+        if (this.pbj != null && this.pbh.isOpen()) {
+            this.pbj.a(this, this.pbi, view.getId());
         }
     }
 
     public a getOnSwipeItemClickListener() {
-        return this.pbi;
+        return this.pbj;
     }
 
     public void setOnSwipeItemClickListener(a aVar) {
-        this.pbi = aVar;
+        this.pbj = aVar;
     }
 
     public void setLayout(SMLayout sMLayout) {
-        this.pbg = sMLayout;
+        this.pbh = sMLayout;
     }
 }

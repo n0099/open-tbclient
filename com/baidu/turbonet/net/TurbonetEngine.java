@@ -67,11 +67,11 @@ public abstract class TurbonetEngine {
         private boolean mQuicEnabled;
         private String mStoragePath;
         private String mUserAgent;
-        private String oGW;
-        private LibraryLoader oGX;
-        private String oGY;
-        private JSONObject oGZ;
-        private String oHa;
+        private String oGX;
+        private LibraryLoader oGY;
+        private String oGZ;
+        private JSONObject oHa;
+        private String oHb;
 
         @Retention(RetentionPolicy.SOURCE)
         /* loaded from: classes4.dex */
@@ -85,44 +85,44 @@ public abstract class TurbonetEngine {
 
         public Builder(Context context) {
             this.mContext = context;
-            VR("turbonet");
-            this.oGZ = new JSONObject();
+            VS("turbonet");
+            this.oHa = new JSONObject();
             Ag(false);
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
         public void eep() {
-            if (this.oGX == null) {
-                if (this.oGY.equals("turbonet")) {
-                    System.loadLibrary(this.oGY);
+            if (this.oGY == null) {
+                if (this.oGZ.equals("turbonet")) {
+                    System.loadLibrary(this.oGZ);
                     return;
                 } else {
-                    System.load(this.oGY);
+                    System.load(this.oGZ);
                     return;
                 }
             }
-            this.oGX.loadLibrary(this.oGY);
+            this.oGY.loadLibrary(this.oGZ);
         }
 
-        public Builder VR(String str) {
-            this.oGY = str;
+        public Builder VS(String str) {
+            this.oGZ = str;
             return this;
         }
 
         private void e(String str, String str2, Object obj) {
             try {
-                JSONObject optJSONObject = this.oGZ.optJSONObject(str);
+                JSONObject optJSONObject = this.oHa.optJSONObject(str);
                 if (optJSONObject == null) {
                     optJSONObject = new JSONObject();
                 }
                 optJSONObject.put(str2, obj);
-                this.oGZ.put(str, optJSONObject);
+                this.oHa.put(str, optJSONObject);
             } catch (JSONException e) {
                 throw new IllegalStateException("JSON expcetion:", e);
             }
         }
 
-        public Builder VS(String str) {
+        public Builder VT(String str) {
             e(SchemeCollecter.CLASSIFY_BASE, "user_agent", str);
             this.mUserAgent = str;
             return this;
@@ -149,7 +149,7 @@ public abstract class TurbonetEngine {
             return this.mQuicEnabled;
         }
 
-        public Builder VT(String str) {
+        public Builder VU(String str) {
             if (!new File(str).isDirectory()) {
                 throw new IllegalArgumentException("Storage path must be set to existing directory");
             }
@@ -193,31 +193,31 @@ public abstract class TurbonetEngine {
             return this.mNetworkQualityEstimatorEnabled;
         }
 
-        public Builder VU(String str) {
+        public Builder VV(String str) {
             e("app", "cuid", str);
-            this.oGW = str;
+            this.oGX = str;
             return this;
         }
 
-        public Builder VV(String str) {
+        public Builder VW(String str) {
             e("app", "app_name", str);
             this.mAppName = str;
             return this;
         }
 
-        public Builder VW(String str) {
-            this.oHa = str;
+        public Builder VX(String str) {
+            this.oHb = str;
             return this;
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
         public String eet() {
-            return this.oHa;
+            return this.oHb;
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
         public String eeu() {
-            return this.oGZ.toString();
+            return this.oHa.toString();
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
@@ -234,7 +234,7 @@ public abstract class TurbonetEngine {
             }
             e(SchemeCollecter.CLASSIFY_BASE, "config_path", str);
             if (getUserAgent() == null) {
-                VS(c.from(this.mContext));
+                VT(c.from(this.mContext));
             }
             return TurbonetEngine.a(this);
         }
@@ -258,19 +258,19 @@ public abstract class TurbonetEngine {
     /* loaded from: classes4.dex */
     public static final class UrlRequestMetrics {
         @Nullable
-        private final Long oFQ;
-        @Nullable
         private final Long oFR;
         @Nullable
-        private final Long oHb;
+        private final Long oFS;
         @Nullable
         private final Long oHc;
+        @Nullable
+        private final Long oHd;
 
         public UrlRequestMetrics(@Nullable Long l, @Nullable Long l2, @Nullable Long l3, @Nullable Long l4) {
-            this.oFQ = l;
-            this.oFR = l2;
-            this.oHb = l3;
-            this.oHc = l4;
+            this.oFR = l;
+            this.oFS = l2;
+            this.oHc = l3;
+            this.oHd = l4;
         }
     }
 

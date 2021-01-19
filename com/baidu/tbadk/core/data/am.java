@@ -15,7 +15,7 @@ public class am extends BaseCardInfo {
     }
 
     public void blL() {
-        this.aaH = com.baidu.tieba.lego.card.b.MN(this.card);
+        this.aaH = com.baidu.tieba.lego.card.b.MO(this.card);
         this.eLO = this.aaH != null;
     }
 

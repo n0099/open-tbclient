@@ -37,7 +37,7 @@ public class c implements View.OnClickListener, a {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001304 && (customResponsedMessage.getData() instanceof Integer)) {
                 c.this.dHi();
-                c.this.g(c.this.nzt);
+                c.this.g(c.this.nzu);
             }
         }
     };
@@ -48,47 +48,47 @@ public class c implements View.OnClickListener, a {
     private DialogInterface.OnDismissListener mOnDismissListener;
     private LinearLayout mRootView;
     private EMTextView nbA;
-    private b nzr;
-    private boolean nzs;
-    private ShareDialogConfig nzt;
-    private static final int nzu = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds130);
-    private static final int nzv = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds48);
-    private static final int nzw = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.M_H_X007);
-    private static final int nzx = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.M_H_X004);
-    private static final int nzy = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.M_H_X005);
-    private static final int nzz = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.T_X08);
-    private static final int nzA = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.T_X06);
-    private static final int nzB = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.M_H_X003);
+    private b nzs;
+    private boolean nzt;
+    private ShareDialogConfig nzu;
+    private static final int nzv = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds130);
+    private static final int nzw = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds48);
+    private static final int nzx = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.M_H_X007);
+    private static final int nzy = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.M_H_X004);
+    private static final int nzz = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.M_H_X005);
+    private static final int nzA = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.T_X08);
+    private static final int nzB = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.T_X06);
+    private static final int nzC = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.M_H_X003);
 
     public c(Context context) {
         this.mContext = context;
         this.mRootView = new LinearLayout(context);
         this.mRootView.setOrientation(1);
         this.jpl = new EMTextView(context);
-        this.jpl.setTextSize(0, nzz);
-        this.jpl.setPadding(nzv, nzw, nzv, nzx);
+        this.jpl.setTextSize(0, nzA);
+        this.jpl.setPadding(nzw, nzx, nzw, nzy);
         this.jpl.setGravity(1);
         this.jpl.setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
         this.mRootView.addView(this.jpl);
-        this.nzr = new b(context);
+        this.nzs = new b(context);
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -2);
-        layoutParams.leftMargin = ShareGridLayout.nzl;
-        layoutParams.rightMargin = ShareGridLayout.nzl;
-        this.mRootView.addView(this.nzr.dPf(), layoutParams);
+        layoutParams.leftMargin = ShareGridLayout.nzm;
+        layoutParams.rightMargin = ShareGridLayout.nzm;
+        this.mRootView.addView(this.nzs.dPf(), layoutParams);
         this.nbA = new EMTextView(context);
         this.nbA.setGravity(1);
-        this.nbA.setTextSize(0, nzA);
+        this.nbA.setTextSize(0, nzB);
         this.nbA.setText(R.string.cancel);
         LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(-1, -2);
-        layoutParams2.topMargin = nzB;
+        layoutParams2.topMargin = nzC;
         this.nbA.setLayoutParams(layoutParams2);
-        this.nbA.setPadding(0, nzy, 0, nzy);
+        this.nbA.setPadding(0, nzz, 0, nzz);
         this.nbA.setOnClickListener(this);
         this.mRootView.addView(this.nbA);
         this.lNP = new View(context);
         this.lNP.setLayoutParams(new LinearLayout.LayoutParams(-1, l.getDimens(TbadkCoreApplication.getInst(), R.dimen.bottom_enter_anim_place_holder_height)));
         this.mRootView.addView(this.lNP);
-        this.nzr.a(this);
+        this.nzs.a(this);
     }
 
     public void g(ShareDialogConfig shareDialogConfig) {
@@ -105,8 +105,8 @@ public class c implements View.OnClickListener, a {
                 this.jpl.setText(R.string.transmit_share_not_add_experience);
             }
         }
-        this.nzr.a(shareDialogConfig, this.nzs);
-        this.nzt = shareDialogConfig;
+        this.nzs.a(shareDialogConfig, this.nzt);
+        this.nzu = shareDialogConfig;
     }
 
     public void setOnDismissListener(DialogInterface.OnDismissListener onDismissListener) {
@@ -114,7 +114,7 @@ public class c implements View.OnClickListener, a {
     }
 
     public void yz(boolean z) {
-        this.nzs = z;
+        this.nzt = z;
     }
 
     public void show() {
@@ -128,8 +128,8 @@ public class c implements View.OnClickListener, a {
                     c.this.mOnDismissListener.onDismiss(dialogInterface);
                 }
                 MessageManager.getInstance().unRegisterTask(CmdConfigCustom.CMD_TRANSMIT_SHARE_DIALOG_DISMISS);
-                if (c.this.nzr != null) {
-                    c.this.nzr.release();
+                if (c.this.nzs != null) {
+                    c.this.nzs.release();
                 }
                 MessageManager.getInstance().dispatchResponsedMessage(new WindowSwitchMessage(false));
             }

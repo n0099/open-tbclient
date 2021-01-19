@@ -234,7 +234,7 @@ public class h implements View.OnClickListener {
             } else if (this.mru.due() != null && view.getId() == this.mru.due().getId()) {
                 if (this.kGj != null) {
                     TiebaStatic.log(new aq("c13063").an("obj_locate", 1));
-                    this.kGj.Pd(String.valueOf(this.mUserId));
+                    this.kGj.Pe(String.valueOf(this.mUserId));
                 }
             } else if (this.mru.duf() != null && view.getId() == this.mru.duf().getId()) {
                 if (!com.baidu.adp.lib.util.j.isNetWorkAvailable()) {

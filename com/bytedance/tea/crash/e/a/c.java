@@ -18,16 +18,16 @@ public abstract class c {
 
     /* renamed from: b  reason: collision with root package name */
     protected Context f7637b;
-    protected com.bytedance.tea.crash.d plx = h.eoL().eoF();
-    protected b ply;
-    protected d plz;
+    protected d plA;
+    protected com.bytedance.tea.crash.d ply = h.eoL().eoF();
+    protected b plz;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(com.bytedance.tea.crash.c cVar, Context context, b bVar, d dVar) {
         this.f7636a = cVar;
         this.f7637b = context;
-        this.ply = bVar;
-        this.plz = dVar;
+        this.plz = bVar;
+        this.plA = dVar;
     }
 
     public com.bytedance.tea.crash.c.a a(com.bytedance.tea.crash.c.a aVar) {
@@ -40,22 +40,22 @@ public abstract class c {
     }
 
     void b(com.bytedance.tea.crash.c.a aVar) {
-        if (b() && this.ply != null) {
-            aVar.a(this.ply);
+        if (b() && this.plz != null) {
+            aVar.a(this.plz);
         }
         aVar.iv(h.f());
         aVar.a("is_background", Boolean.valueOf(!com.bytedance.tea.crash.g.a.a(this.f7637b)));
         aVar.a("pid", Integer.valueOf(Process.myPid()));
-        aVar.a("battery", Integer.valueOf(this.plz.a()));
-        aVar.J(this.plx.e());
+        aVar.a("battery", Integer.valueOf(this.plA.a()));
+        aVar.J(this.ply.e());
         aVar.K(h.eoP());
         aVar.cb(h.j(), h.k());
-        aVar.gI(this.plx.f());
+        aVar.gI(this.ply.f());
         aVar.eS(n.a(this.f7637b));
         if (a()) {
             e(aVar);
         }
-        aVar.XQ(this.plx.d());
+        aVar.XR(this.ply.d());
         String g = h.g();
         if (g != null) {
             aVar.a(Constant.KEY_BUSINESS, g);

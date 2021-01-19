@@ -244,7 +244,7 @@ public class d extends k<AdvertAppInfo, FrsAppLegoViewHolder> {
                 Map.Entry<String, Object> next = it.next();
                 if (next != null && "da_area".equals(next.getKey())) {
                     if (next.getValue() instanceof String) {
-                        b2.QW((String) next.getValue());
+                        b2.QX((String) next.getValue());
                     }
                 }
             }
@@ -259,7 +259,7 @@ public class d extends k<AdvertAppInfo, FrsAppLegoViewHolder> {
     public void a(AdvertAppInfo advertAppInfo, boolean z, int i, String str, String str2, HashMap<String, Object> hashMap) {
         com.baidu.tbadk.distribute.a.bAC().a(advertAppInfo, str, 0L, advertAppInfo.page, "click", i);
         com.baidu.tieba.recapp.report.c b2 = com.baidu.tieba.recapp.report.h.b(advertAppInfo, 2, i);
-        b2.QR(str2);
+        b2.QS(str2);
         if (hashMap != null) {
             Iterator<Map.Entry<String, Object>> it = hashMap.entrySet().iterator();
             while (true) {
@@ -269,7 +269,7 @@ public class d extends k<AdvertAppInfo, FrsAppLegoViewHolder> {
                 Map.Entry<String, Object> next = it.next();
                 if (next != null && "da_area".equals(next.getKey())) {
                     if (next.getValue() instanceof String) {
-                        b2.QW((String) next.getValue());
+                        b2.QX((String) next.getValue());
                     }
                 }
             }

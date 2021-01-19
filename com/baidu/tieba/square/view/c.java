@@ -73,7 +73,7 @@ public class c extends com.baidu.tieba.card.b<com.baidu.tieba.square.data.b> {
             this.ajE.setText(forumName);
             this.jIC.setText(this.nka + " " + at.numberUniformFormatExtra(bVar.getMemberCount()));
             this.jID.setText(this.nkb + " " + at.numberUniformFormatExtra(bVar.dJu()));
-            RR(bVar.bkW());
+            RS(bVar.bkW());
             pO(this.nkc.isLike());
             this.mRootView.setOnClickListener(this);
             this.iLY.setOnClickListener(this);
@@ -81,7 +81,7 @@ public class c extends com.baidu.tieba.card.b<com.baidu.tieba.square.data.b> {
         }
     }
 
-    private void RR(String str) {
+    private void RS(String str) {
         if (at.isEmpty(str)) {
             if (this.ajF.getVisibility() != 8) {
                 this.ajF.setVisibility(8);

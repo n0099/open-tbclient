@@ -15,28 +15,28 @@ import javax.annotation.Nullable;
 public abstract class AbstractDraweeControllerBuilder<BUILDER extends AbstractDraweeControllerBuilder<BUILDER, REQUEST, IMAGE, INFO>, REQUEST, IMAGE, INFO> implements com.facebook.drawee.d.d {
     private final Context mContext;
     @Nullable
-    private j<com.facebook.datasource.b<IMAGE>> pqj;
-    private final Set<c> pqr;
+    private j<com.facebook.datasource.b<IMAGE>> pqk;
+    private final Set<c> pqs;
     @Nullable
-    private Object pqy;
+    private Object pqz;
     @Nullable
     private REQUEST prA;
     @Nullable
-    private REQUEST[] prB;
-    private boolean prC;
+    private REQUEST prB;
+    @Nullable
+    private REQUEST[] prC;
     private boolean prD;
+    private boolean prE;
     @Nullable
-    private com.facebook.drawee.d.a prE;
-    private boolean prc;
+    private com.facebook.drawee.d.a prF;
+    private boolean prd;
     @Nullable
-    private c<? super INFO> prj;
+    private c<? super INFO> prk;
     @Nullable
-    private d prk;
-    private boolean prq;
-    private String prr;
-    @Nullable
-    private REQUEST prz;
-    private static final c<Object> prx = new b<Object>() { // from class: com.facebook.drawee.controller.AbstractDraweeControllerBuilder.1
+    private d prl;
+    private boolean prr;
+    private String prs;
+    private static final c<Object> pry = new b<Object>() { // from class: com.facebook.drawee.controller.AbstractDraweeControllerBuilder.1
         @Override // com.facebook.drawee.controller.b, com.facebook.drawee.controller.c
         public void a(String str, @Nullable Object obj, @Nullable Animatable animatable) {
             if (animatable != null) {
@@ -44,8 +44,8 @@ public abstract class AbstractDraweeControllerBuilder<BUILDER extends AbstractDr
             }
         }
     };
-    private static final NullPointerException pry = new NullPointerException("No image request was specified!");
-    private static final AtomicLong prF = new AtomicLong();
+    private static final NullPointerException prz = new NullPointerException("No image request was specified!");
+    private static final AtomicLong prG = new AtomicLong();
 
     /* loaded from: classes3.dex */
     public enum CacheLevel {
@@ -62,82 +62,82 @@ public abstract class AbstractDraweeControllerBuilder<BUILDER extends AbstractDr
     /* JADX INFO: Access modifiers changed from: protected */
     public AbstractDraweeControllerBuilder(Context context, Set<c> set) {
         this.mContext = context;
-        this.pqr = set;
+        this.pqs = set;
         init();
     }
 
     private void init() {
-        this.pqy = null;
-        this.prz = null;
+        this.pqz = null;
         this.prA = null;
         this.prB = null;
-        this.prC = true;
-        this.prj = null;
+        this.prC = null;
+        this.prD = true;
         this.prk = null;
-        this.prc = false;
-        this.prD = false;
-        this.prE = null;
-        this.prr = null;
+        this.prl = null;
+        this.prd = false;
+        this.prE = false;
+        this.prF = null;
+        this.prs = null;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.facebook.drawee.d.d
     /* renamed from: bn */
     public BUILDER bp(Object obj) {
-        this.pqy = obj;
+        this.pqz = obj;
         return erM();
     }
 
     @Nullable
     public Object erD() {
-        return this.pqy;
+        return this.pqz;
     }
 
     public BUILDER bo(REQUEST request) {
-        this.prz = request;
+        this.prA = request;
         return erM();
     }
 
     @Nullable
     public REQUEST erE() {
-        return this.prz;
+        return this.prA;
     }
 
     public boolean erF() {
-        return this.prq;
+        return this.prr;
     }
 
     public BUILDER AT(boolean z) {
-        this.prD = z;
+        this.prE = z;
         return erM();
     }
 
     public BUILDER c(c<? super INFO> cVar) {
-        this.prj = cVar;
+        this.prk = cVar;
         return erM();
     }
 
     @Nullable
     public d erG() {
-        return this.prk;
+        return this.prl;
     }
 
     @Nullable
     public String erH() {
-        return this.prr;
+        return this.prs;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.facebook.drawee.d.d
     /* renamed from: b */
     public BUILDER c(@Nullable com.facebook.drawee.d.a aVar) {
-        this.prE = aVar;
+        this.prF = aVar;
         return erM();
     }
 
     @Nullable
     public com.facebook.drawee.d.a erI() {
-        return this.prE;
+        return this.prF;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -145,17 +145,17 @@ public abstract class AbstractDraweeControllerBuilder<BUILDER extends AbstractDr
     /* renamed from: erJ */
     public a erN() {
         validate();
-        if (this.prz == null && this.prB == null && this.prA != null) {
-            this.prz = this.prA;
-            this.prA = null;
+        if (this.prA == null && this.prC == null && this.prB != null) {
+            this.prA = this.prB;
+            this.prB = null;
         }
         return erK();
     }
 
     protected void validate() {
         boolean z = false;
-        g.checkState(this.prB == null || this.prz == null, "Cannot specify both ImageRequest and FirstAvailableImageRequests!");
-        if (this.pqj == null || (this.prB == null && this.prz == null && this.prA == null)) {
+        g.checkState(this.prC == null || this.prA == null, "Cannot specify both ImageRequest and FirstAvailableImageRequests!");
+        if (this.pqk == null || (this.prC == null && this.prA == null && this.prB == null)) {
             z = true;
         }
         g.checkState(z, "Cannot specify DataSourceSupplier with other ImageRequests! Use one or the other.");
@@ -164,7 +164,7 @@ public abstract class AbstractDraweeControllerBuilder<BUILDER extends AbstractDr
     protected a erK() {
         a erh = erh();
         erh.AS(erF());
-        erh.Yq(erH());
+        erh.Yr(erH());
         erh.a(erG());
         b(erh);
         a(erh);
@@ -173,28 +173,28 @@ public abstract class AbstractDraweeControllerBuilder<BUILDER extends AbstractDr
 
     /* JADX INFO: Access modifiers changed from: protected */
     public static String erL() {
-        return String.valueOf(prF.getAndIncrement());
+        return String.valueOf(prG.getAndIncrement());
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public j<com.facebook.datasource.b<IMAGE>> a(com.facebook.drawee.d.a aVar, String str) {
-        if (this.pqj != null) {
-            return this.pqj;
+        if (this.pqk != null) {
+            return this.pqk;
         }
         j<com.facebook.datasource.b<IMAGE>> jVar = null;
-        if (this.prz != null) {
-            jVar = a(aVar, str, this.prz);
-        } else if (this.prB != null) {
-            jVar = a(aVar, str, this.prB, this.prC);
+        if (this.prA != null) {
+            jVar = a(aVar, str, this.prA);
+        } else if (this.prC != null) {
+            jVar = a(aVar, str, this.prC, this.prD);
         }
-        if (jVar != null && this.prA != null) {
+        if (jVar != null && this.prB != null) {
             ArrayList arrayList = new ArrayList(2);
             arrayList.add(jVar);
-            arrayList.add(a(aVar, str, this.prA));
+            arrayList.add(a(aVar, str, this.prB));
             jVar = f.B(arrayList, false);
         }
         if (jVar == null) {
-            return com.facebook.datasource.c.z(pry);
+            return com.facebook.datasource.c.z(prz);
         }
         return jVar;
     }
@@ -235,22 +235,22 @@ public abstract class AbstractDraweeControllerBuilder<BUILDER extends AbstractDr
     }
 
     protected void a(a aVar) {
-        if (this.pqr != null) {
-            for (c cVar : this.pqr) {
+        if (this.pqs != null) {
+            for (c cVar : this.pqs) {
                 aVar.a(cVar);
             }
         }
-        if (this.prj != null) {
-            aVar.a(this.prj);
+        if (this.prk != null) {
+            aVar.a(this.prk);
         }
-        if (this.prD) {
-            aVar.a(prx);
+        if (this.prE) {
+            aVar.a(pry);
         }
     }
 
     protected void b(a aVar) {
-        if (this.prc) {
-            aVar.erw().AR(this.prc);
+        if (this.prd) {
+            aVar.erw().AR(this.prd);
             c(aVar);
         }
     }

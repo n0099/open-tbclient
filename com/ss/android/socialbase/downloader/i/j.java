@@ -12,11 +12,11 @@ public class j {
     private AtomicReference<k> e;
     private final ArrayList<b> f;
     private int g;
-    private final c pWl;
+    private final c pWm;
 
     /* loaded from: classes4.dex */
     private static class a {
-        public static final j pWm = new j();
+        public static final j pWn = new j();
     }
 
     /* loaded from: classes4.dex */
@@ -25,11 +25,11 @@ public class j {
     }
 
     public static j eFX() {
-        return a.pWm;
+        return a.pWn;
     }
 
     private j() {
-        this.pWl = new c(0.05d);
+        this.pWm = new c(0.05d);
         this.c = false;
         this.d = new AtomicReference<>(k.UNKNOWN);
         this.f = new ArrayList<>();
@@ -39,7 +39,7 @@ public class j {
         double d = ((j * 1.0d) / j2) * 8.0d;
         if (j2 != 0 && d >= 3.0d) {
             try {
-                this.pWl.a(d);
+                this.pWm.a(d);
                 k eFY = eFY();
                 if (this.c) {
                     this.g++;
@@ -65,7 +65,7 @@ public class j {
     private boolean c() {
         double d;
         double d2;
-        if (this.pWl == null) {
+        if (this.pWm == null) {
             return false;
         }
         try {
@@ -89,7 +89,7 @@ public class j {
                 default:
                     return true;
             }
-            double a2 = this.pWl.a();
+            double a2 = this.pWm.a();
             if (a2 > d) {
                 if (a2 > d * 1.25d) {
                     return true;
@@ -105,10 +105,10 @@ public class j {
 
     public synchronized k eFY() {
         k L;
-        if (this.pWl == null) {
+        if (this.pWm == null) {
             L = k.UNKNOWN;
         } else {
-            L = L(this.pWl.a());
+            L = L(this.pWm.a());
         }
         return L;
     }

@@ -145,7 +145,7 @@ public class a {
                 if (StringUtils.isNull(emotionImageData.getAuthorNameShow())) {
                     this.fBs.cYx().setContent(str);
                 } else {
-                    this.fBs.cYx().setContent(OZ(emotionImageData.getAuthorNameShow()) + str);
+                    this.fBs.cYx().setContent(Pa(emotionImageData.getAuthorNameShow()) + str);
                 }
                 if (!TextUtils.isEmpty(emotionImageData.getMemeContSign())) {
                     this.fBs.cYx().setMemeContSign(emotionImageData.getMemeContSign());
@@ -160,7 +160,7 @@ public class a {
         }
     }
 
-    private String OZ(String str) {
+    private String Pa(String str) {
         return "@" + str + " ";
     }
 

@@ -7,7 +7,7 @@ import java.util.GregorianCalendar;
 import java.util.TimeZone;
 /* loaded from: classes4.dex */
 public class a {
-    private static final TimeZone pKK = TimeZone.getTimeZone("UTC");
+    private static final TimeZone pKL = TimeZone.getTimeZone("UTC");
 
     /* JADX WARN: Removed duplicated region for block: B:45:0x00cc  */
     /* JADX WARN: Removed duplicated region for block: B:48:0x00d3  */
@@ -64,7 +64,7 @@ public class a {
                     }
                     if (b(str, i5, '.')) {
                         int i15 = i5 + 1;
-                        i5 = ck(str, i15 + 1);
+                        i5 = cl(str, i15 + 1);
                         int min = Math.min(i5, i15 + 3);
                         int H5 = H(str, i15, min);
                         switch (min - i15) {
@@ -94,7 +94,7 @@ public class a {
             }
             char charAt2 = str.charAt(i5);
             if (charAt2 == 'Z') {
-                timeZone = pKK;
+                timeZone = pKL;
                 length = i5 + 1;
             } else if (charAt2 == '+' || charAt2 == '-') {
                 String substring = str.substring(i5);
@@ -103,7 +103,7 @@ public class a {
                 }
                 length = substring.length() + i5;
                 if ("+0000".equals(substring) || "+00:00".equals(substring)) {
-                    timeZone = pKK;
+                    timeZone = pKL;
                 } else {
                     String str2 = "GMT" + substring;
                     timeZone = TimeZone.getTimeZone(str2);
@@ -193,7 +193,7 @@ public class a {
         return -i4;
     }
 
-    private static int ck(String str, int i) {
+    private static int cl(String str, int i) {
         while (i < str.length()) {
             char charAt = str.charAt(i);
             if (charAt >= '0' && charAt <= '9') {

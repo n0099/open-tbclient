@@ -5,27 +5,27 @@ import com.ss.android.downloadlib.a.j;
 import com.ss.android.downloadlib.a.k;
 /* loaded from: classes4.dex */
 public class i {
-    private static volatile i pSK;
-    private final com.ss.android.b.a.a pSM;
-    private com.ss.android.b.a.b pSN;
-    private final h pSE = h.eCM();
-    private final com.ss.android.a.a.a pSL = new g();
+    private static volatile i pSL;
+    private final com.ss.android.b.a.a pSN;
+    private com.ss.android.b.a.b pSO;
+    private final h pSF = h.eCM();
+    private final com.ss.android.a.a.a pSM = new g();
     private long f = System.currentTimeMillis();
 
     public static i ix(Context context) {
-        if (pSK == null) {
+        if (pSL == null) {
             synchronized (i.class) {
-                if (pSK == null) {
-                    pSK = new i(context);
+                if (pSL == null) {
+                    pSL = new i(context);
                 }
             }
         }
-        return pSK;
+        return pSL;
     }
 
     private i(Context context) {
         b(context);
-        this.pSM = b.eBX();
+        this.pSN = b.eBX();
     }
 
     private void b(Context context) {
@@ -40,7 +40,7 @@ public class i {
     }
 
     public com.ss.android.a.a.a eCN() {
-        return this.pSL;
+        return this.pSM;
     }
 
     public long b() {
@@ -52,18 +52,18 @@ public class i {
     }
 
     public com.ss.android.b.a.a eCO() {
-        return this.pSM;
-    }
-
-    public com.ss.android.b.a.b eCP() {
-        if (this.pSN == null) {
-            this.pSN = c.eCE();
-        }
         return this.pSN;
     }
 
+    public com.ss.android.b.a.b eCP() {
+        if (this.pSO == null) {
+            this.pSO = c.eCE();
+        }
+        return this.pSO;
+    }
+
     private h eCQ() {
-        return this.pSE;
+        return this.pSF;
     }
 
     public void a(Context context, int i, com.ss.android.a.a.b.d dVar, com.ss.android.a.a.b.c cVar) {

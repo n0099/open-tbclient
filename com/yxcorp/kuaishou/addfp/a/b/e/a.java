@@ -10,7 +10,7 @@ public class a {
 
     /* renamed from: a  reason: collision with root package name */
     private Context f14355a;
-    private static volatile a qbF = null;
+    private static volatile a qbG = null;
     private static Uri c = Uri.parse("content://cn.nubia.identity/identity");
 
     private a(Context context) {
@@ -43,14 +43,14 @@ public class a {
     }
 
     public static a ja(Context context) {
-        if (qbF == null) {
+        if (qbG == null) {
             synchronized (a.class) {
-                if (qbF == null) {
-                    qbF = new a(context);
+                if (qbG == null) {
+                    qbG = new a(context);
                 }
             }
         }
-        return qbF;
+        return qbG;
     }
 
     public final boolean a() {

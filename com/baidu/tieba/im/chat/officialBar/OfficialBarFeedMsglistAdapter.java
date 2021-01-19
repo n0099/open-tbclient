@@ -139,12 +139,12 @@ public class OfficialBarFeedMsglistAdapter extends RecyclerView.Adapter<Recycler
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        public void LD(String str) {
+        public void LE(String str) {
             this.kur = str;
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        public void LE(String str) {
+        public void LF(String str) {
             this.jUh = str;
         }
 

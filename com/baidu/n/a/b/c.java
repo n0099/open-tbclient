@@ -13,17 +13,17 @@ public class c extends d {
         if (DEBUG) {
             Log.e(TAG, "xiaomi XMUnionID !!");
         }
-        this.oKB = "";
-        this.oKz = false;
-        this.oLb = false;
+        this.oKC = "";
+        this.oKA = false;
+        this.oLc = false;
         this.mStatusCode = -200;
     }
 
     @Override // com.baidu.n.a.a.c
     public com.baidu.n.a.a.c egk() {
         try {
-            this.oLb = com.b.b.a.isSupported();
-            this.oKB = com.b.b.a.cf(this.mCtx);
+            this.oLc = com.b.b.a.isSupported();
+            this.oKC = com.b.b.a.cf(this.mCtx);
             this.mStatusCode = 0;
         } catch (Exception e) {
             if (DEBUG) {

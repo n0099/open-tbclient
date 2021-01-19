@@ -8,82 +8,82 @@ import javax.annotation.concurrent.NotThreadSafe;
 public class f extends InputStream {
     private final byte[] mByteArray;
     private final InputStream mInputStream;
-    private final com.facebook.common.references.c<byte[]> poN;
-    private int poO = 0;
+    private final com.facebook.common.references.c<byte[]> poO;
     private int poP = 0;
+    private int poQ = 0;
     private boolean mClosed = false;
 
     public f(InputStream inputStream, byte[] bArr, com.facebook.common.references.c<byte[]> cVar) {
         this.mInputStream = (InputStream) com.facebook.common.internal.g.checkNotNull(inputStream);
         this.mByteArray = (byte[]) com.facebook.common.internal.g.checkNotNull(bArr);
-        this.poN = (com.facebook.common.references.c) com.facebook.common.internal.g.checkNotNull(cVar);
+        this.poO = (com.facebook.common.references.c) com.facebook.common.internal.g.checkNotNull(cVar);
     }
 
     @Override // java.io.InputStream
     public int read() throws IOException {
-        com.facebook.common.internal.g.checkState(this.poP <= this.poO);
+        com.facebook.common.internal.g.checkState(this.poQ <= this.poP);
         eqm();
         if (!eql()) {
             return -1;
         }
         byte[] bArr = this.mByteArray;
-        int i = this.poP;
-        this.poP = i + 1;
+        int i = this.poQ;
+        this.poQ = i + 1;
         return bArr[i] & 255;
     }
 
     @Override // java.io.InputStream
     public int read(byte[] bArr, int i, int i2) throws IOException {
-        com.facebook.common.internal.g.checkState(this.poP <= this.poO);
+        com.facebook.common.internal.g.checkState(this.poQ <= this.poP);
         eqm();
         if (!eql()) {
             return -1;
         }
-        int min = Math.min(this.poO - this.poP, i2);
-        System.arraycopy(this.mByteArray, this.poP, bArr, i, min);
-        this.poP += min;
+        int min = Math.min(this.poP - this.poQ, i2);
+        System.arraycopy(this.mByteArray, this.poQ, bArr, i, min);
+        this.poQ += min;
         return min;
     }
 
     @Override // java.io.InputStream
     public int available() throws IOException {
-        com.facebook.common.internal.g.checkState(this.poP <= this.poO);
+        com.facebook.common.internal.g.checkState(this.poQ <= this.poP);
         eqm();
-        return (this.poO - this.poP) + this.mInputStream.available();
+        return (this.poP - this.poQ) + this.mInputStream.available();
     }
 
     @Override // java.io.InputStream, java.io.Closeable, java.lang.AutoCloseable
     public void close() throws IOException {
         if (!this.mClosed) {
             this.mClosed = true;
-            this.poN.release(this.mByteArray);
+            this.poO.release(this.mByteArray);
             super.close();
         }
     }
 
     @Override // java.io.InputStream
     public long skip(long j) throws IOException {
-        com.facebook.common.internal.g.checkState(this.poP <= this.poO);
+        com.facebook.common.internal.g.checkState(this.poQ <= this.poP);
         eqm();
-        int i = this.poO - this.poP;
+        int i = this.poP - this.poQ;
         if (i >= j) {
-            this.poP = (int) (this.poP + j);
+            this.poQ = (int) (this.poQ + j);
             return j;
         }
-        this.poP = this.poO;
+        this.poQ = this.poP;
         return i + this.mInputStream.skip(j - i);
     }
 
     private boolean eql() throws IOException {
-        if (this.poP < this.poO) {
+        if (this.poQ < this.poP) {
             return true;
         }
         int read = this.mInputStream.read(this.mByteArray);
         if (read <= 0) {
             return false;
         }
-        this.poO = read;
-        this.poP = 0;
+        this.poP = read;
+        this.poQ = 0;
         return true;
     }
 

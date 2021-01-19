@@ -64,7 +64,7 @@ public class AddExperiencedModel extends BdBaseModel {
         sendMessage(httpMessage);
     }
 
-    public static boolean Rq(String str) {
+    public static boolean Rr(String str) {
         return b.toLong(str, 0L) > 0 && !USELESS_FORUM_ID.equals(str);
     }
 

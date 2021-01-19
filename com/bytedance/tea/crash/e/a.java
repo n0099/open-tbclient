@@ -13,16 +13,16 @@ public class a {
     /* renamed from: a  reason: collision with root package name */
     private Context f7633a;
     private Map<String, Object> c;
-    private com.bytedance.tea.crash.d plu;
+    private com.bytedance.tea.crash.d plv;
 
     public a(@NonNull Context context, @NonNull com.bytedance.tea.crash.d dVar) {
         this.f7633a = context;
-        this.plu = dVar;
+        this.plv = dVar;
     }
 
     @Nullable
     public Map<String, Object> a() {
-        Map<String, Object> a2 = this.plu.a();
+        Map<String, Object> a2 = this.plv.a();
         if (a2 == null) {
             a2 = new HashMap<>(4);
         }
@@ -55,7 +55,7 @@ public class a {
     @Nullable
     public Map<String, Object> b() {
         if (this.c == null) {
-            this.c = this.plu.g();
+            this.c = this.plv.g();
         }
         return this.c;
     }
@@ -66,7 +66,7 @@ public class a {
 
     @NonNull
     public com.bytedance.tea.crash.d eoF() {
-        return this.plu;
+        return this.plv;
     }
 
     public String d() {
@@ -74,6 +74,6 @@ public class a {
     }
 
     public String e() {
-        return this.plu.b();
+        return this.plv.b();
     }
 }

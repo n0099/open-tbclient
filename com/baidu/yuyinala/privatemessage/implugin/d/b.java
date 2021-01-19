@@ -28,7 +28,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes10.dex */
 public class b {
-    private static volatile b oPS;
+    private static volatile b oPT;
 
     /* loaded from: classes10.dex */
     public interface a<T> extends BIMValueCallBack<T> {
@@ -62,10 +62,10 @@ public class b {
     public static synchronized b ehs() {
         b bVar;
         synchronized (b.class) {
-            if (oPS == null) {
-                oPS = new b();
+            if (oPT == null) {
+                oPT = new b();
             }
-            bVar = oPS;
+            bVar = oPT;
         }
         return bVar;
     }
@@ -209,7 +209,7 @@ public class b {
     public void Aq(boolean z) {
     }
 
-    public void ch(String str, int i) {
+    public void ci(String str, int i) {
     }
 
     public void onEvent(String str, String str2) {

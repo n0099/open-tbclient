@@ -28,12 +28,12 @@ public final class FlowableCache<T> extends io.reactivex.internal.operators.flow
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes5.dex */
     public static final class a<T> extends f implements j<T> {
-        static final ReplaySubscription[] qdW = new ReplaySubscription[0];
         static final ReplaySubscription[] qdX = new ReplaySubscription[0];
+        static final ReplaySubscription[] qdY = new ReplaySubscription[0];
         volatile boolean isConnected;
-        final g<T> qdR;
-        final AtomicReference<d> qdV;
-        boolean qdY;
+        final g<T> qdS;
+        final AtomicReference<d> qdW;
+        boolean qdZ;
         final AtomicReference<ReplaySubscription<T>[]> subscribers;
 
         public void a(ReplaySubscription<T> replaySubscription) {
@@ -41,7 +41,7 @@ public final class FlowableCache<T> extends io.reactivex.internal.operators.flow
             ReplaySubscription<T>[] replaySubscriptionArr2;
             do {
                 replaySubscriptionArr = this.subscribers.get();
-                if (replaySubscriptionArr != qdX) {
+                if (replaySubscriptionArr != qdY) {
                     int length = replaySubscriptionArr.length;
                     replaySubscriptionArr2 = new ReplaySubscription[length + 1];
                     System.arraycopy(replaySubscriptionArr, 0, replaySubscriptionArr2, 0, length);
@@ -73,7 +73,7 @@ public final class FlowableCache<T> extends io.reactivex.internal.operators.flow
                     }
                     if (i >= 0) {
                         if (length == 1) {
-                            replaySubscriptionArr2 = qdW;
+                            replaySubscriptionArr2 = qdX;
                         } else {
                             replaySubscriptionArr2 = new ReplaySubscription[length - 1];
                             System.arraycopy(replaySubscriptionArr, 0, replaySubscriptionArr2, 0, i);
@@ -90,19 +90,19 @@ public final class FlowableCache<T> extends io.reactivex.internal.operators.flow
 
         @Override // io.reactivex.j, org.a.c
         public void onSubscribe(d dVar) {
-            if (SubscriptionHelper.setOnce(this.qdV, dVar)) {
+            if (SubscriptionHelper.setOnce(this.qdW, dVar)) {
                 dVar.request(Long.MAX_VALUE);
             }
         }
 
         public void connect() {
-            this.qdR.a((j) this);
+            this.qdS.a((j) this);
             this.isConnected = true;
         }
 
         @Override // org.a.c
         public void onNext(T t) {
-            if (!this.qdY) {
+            if (!this.qdZ) {
                 add(NotificationLite.next(t));
                 for (ReplaySubscription<T> replaySubscription : this.subscribers.get()) {
                     replaySubscription.replay();
@@ -112,11 +112,11 @@ public final class FlowableCache<T> extends io.reactivex.internal.operators.flow
 
         @Override // org.a.c
         public void onError(Throwable th) {
-            if (!this.qdY) {
-                this.qdY = true;
+            if (!this.qdZ) {
+                this.qdZ = true;
                 add(NotificationLite.error(th));
-                SubscriptionHelper.cancel(this.qdV);
-                for (ReplaySubscription<T> replaySubscription : this.subscribers.getAndSet(qdX)) {
+                SubscriptionHelper.cancel(this.qdW);
+                for (ReplaySubscription<T> replaySubscription : this.subscribers.getAndSet(qdY)) {
                     replaySubscription.replay();
                 }
                 return;
@@ -126,11 +126,11 @@ public final class FlowableCache<T> extends io.reactivex.internal.operators.flow
 
         @Override // org.a.c
         public void onComplete() {
-            if (!this.qdY) {
-                this.qdY = true;
+            if (!this.qdZ) {
+                this.qdZ = true;
                 add(NotificationLite.complete());
-                SubscriptionHelper.cancel(this.qdV);
-                for (ReplaySubscription<T> replaySubscription : this.subscribers.getAndSet(qdX)) {
+                SubscriptionHelper.cancel(this.qdW);
+                for (ReplaySubscription<T> replaySubscription : this.subscribers.getAndSet(qdY)) {
                     replaySubscription.replay();
                 }
             }

@@ -33,13 +33,13 @@ public class CircleProgressbar extends TextView {
 
     /* renamed from: java  reason: collision with other field name */
     private Ccase f73java;
-    private long pZe;
-    private ColorStateList qaV;
-    private Paint qaW;
-    private RectF qaX;
-    final Rect qaY;
-    private a qaZ;
-    private Runnable qaj;
+    private long pZf;
+    private ColorStateList qaW;
+    private Paint qaX;
+    private RectF qaY;
+    final Rect qaZ;
+    private Runnable qak;
+    private a qba;
 
     /* loaded from: classes3.dex */
     public interface a {
@@ -65,17 +65,17 @@ public class CircleProgressbar extends TextView {
         super(context, attributeSet, i);
         this.java = ViewCompat.MEASURED_STATE_MASK;
         this.f72case = 2;
-        this.qaV = ColorStateList.valueOf(0);
+        this.qaW = ColorStateList.valueOf(0);
         this.f13760b = -16776961;
         this.c = 8;
-        this.qaW = new Paint();
-        this.qaX = new RectF();
+        this.qaX = new Paint();
+        this.qaY = new RectF();
         this.d = 100;
         this.f73java = Ccase.COUNT_BACK;
-        this.pZe = IMConnection.RETRY_DELAY_TIMES;
-        this.qaY = new Rect();
+        this.pZf = IMConnection.RETRY_DELAY_TIMES;
+        this.qaZ = new Rect();
         this.e = 0;
-        this.qaj = new Runnable() { // from class: com.win.opensdk.views.CircleProgressbar.1
+        this.qak = new Runnable() { // from class: com.win.opensdk.views.CircleProgressbar.1
             @Override // java.lang.Runnable
             public final void run() {
                 CircleProgressbar.this.removeCallbacks(this);
@@ -88,11 +88,11 @@ public class CircleProgressbar extends TextView {
                         break;
                 }
                 if (CircleProgressbar.this.d >= 0 && CircleProgressbar.this.d <= 100) {
-                    if (CircleProgressbar.this.qaZ != null) {
-                        CircleProgressbar.this.qaZ.ej(CircleProgressbar.this.e, CircleProgressbar.this.d);
+                    if (CircleProgressbar.this.qba != null) {
+                        CircleProgressbar.this.qba.ej(CircleProgressbar.this.e, CircleProgressbar.this.d);
                     }
                     CircleProgressbar.this.invalidate();
-                    CircleProgressbar.this.postDelayed(CircleProgressbar.this.qaj, CircleProgressbar.this.pZe / 100);
+                    CircleProgressbar.this.postDelayed(CircleProgressbar.this.qak, CircleProgressbar.this.pZf / 100);
                     return;
                 }
                 CircleProgressbar.this.d = CircleProgressbar.RM(CircleProgressbar.this.d);
@@ -102,14 +102,14 @@ public class CircleProgressbar extends TextView {
     }
 
     private void o(Context context, AttributeSet attributeSet) {
-        this.qaW.setAntiAlias(true);
+        this.qaX.setAntiAlias(true);
         TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, d.f.CircleProgressbar);
         if (obtainStyledAttributes.hasValue(d.f.CircleProgressbar_win_in_circle_color)) {
-            this.qaV = obtainStyledAttributes.getColorStateList(d.f.CircleProgressbar_win_in_circle_color);
+            this.qaW = obtainStyledAttributes.getColorStateList(d.f.CircleProgressbar_win_in_circle_color);
         } else {
-            this.qaV = ColorStateList.valueOf(0);
+            this.qaW = ColorStateList.valueOf(0);
         }
-        this.f13759a = this.qaV.getColorForState(getDrawableState(), 0);
+        this.f13759a = this.qaW.getColorForState(getDrawableState(), 0);
         obtainStyledAttributes.recycle();
     }
 
@@ -124,7 +124,7 @@ public class CircleProgressbar extends TextView {
     }
 
     public void setInCircleColor(@ColorInt int i) {
-        this.qaV = ColorStateList.valueOf(i);
+        this.qaW = ColorStateList.valueOf(i);
         invalidate();
     }
 
@@ -159,12 +159,12 @@ public class CircleProgressbar extends TextView {
     }
 
     public void setTimeMillis(long j) {
-        this.pZe = j;
+        this.pZf = j;
         invalidate();
     }
 
     public long getTimeMillis() {
-        return this.pZe;
+        return this.pZf;
     }
 
     public void setProgressType(Ccase ccase) {
@@ -192,29 +192,29 @@ public class CircleProgressbar extends TextView {
 
     public final void setCountdownProgressListener$6c60c32f(a aVar) {
         this.e = 1;
-        this.qaZ = aVar;
+        this.qba = aVar;
     }
 
     @Override // android.widget.TextView, android.view.View
     protected void onDraw(Canvas canvas) {
-        getDrawingRect(this.qaY);
-        int width = this.qaY.height() > this.qaY.width() ? this.qaY.width() : this.qaY.height();
-        int colorForState = this.qaV.getColorForState(getDrawableState(), 0);
-        this.qaW.setStyle(Paint.Style.FILL);
-        this.qaW.setColor(colorForState);
-        canvas.drawCircle(this.qaY.centerX(), this.qaY.centerY(), (width / 2) - this.f72case, this.qaW);
+        getDrawingRect(this.qaZ);
+        int width = this.qaZ.height() > this.qaZ.width() ? this.qaZ.width() : this.qaZ.height();
+        int colorForState = this.qaW.getColorForState(getDrawableState(), 0);
+        this.qaX.setStyle(Paint.Style.FILL);
+        this.qaX.setColor(colorForState);
+        canvas.drawCircle(this.qaZ.centerX(), this.qaZ.centerY(), (width / 2) - this.f72case, this.qaX);
         TextPaint paint = getPaint();
         paint.setColor(getCurrentTextColor());
         paint.setAntiAlias(true);
         paint.setTextAlign(Paint.Align.CENTER);
-        canvas.drawText(getText().toString(), this.qaY.centerX(), this.qaY.centerY() - ((paint.descent() + paint.ascent()) / 2.0f), paint);
-        this.qaW.setColor(this.f13760b);
-        this.qaW.setStyle(Paint.Style.STROKE);
-        this.qaW.setStrokeWidth(this.c);
-        this.qaW.setAntiAlias(true);
+        canvas.drawText(getText().toString(), this.qaZ.centerX(), this.qaZ.centerY() - ((paint.descent() + paint.ascent()) / 2.0f), paint);
+        this.qaX.setColor(this.f13760b);
+        this.qaX.setStyle(Paint.Style.STROKE);
+        this.qaX.setStrokeWidth(this.c);
+        this.qaX.setAntiAlias(true);
         int i = this.c + this.f72case;
-        this.qaX.set(this.qaY.left + (i / 2), (this.qaY.top - i) + this.f72case + this.c + bg.k(getContext(), 0.4f), this.qaY.right - (i / 2), (((i + this.qaY.bottom) - this.f72case) - this.c) - bg.k(getContext(), 0.5f));
-        canvas.drawArc(this.qaX, -90.0f, (this.d * (-360)) / 100, false, this.qaW);
+        this.qaY.set(this.qaZ.left + (i / 2), (this.qaZ.top - i) + this.f72case + this.c + bg.k(getContext(), 0.4f), this.qaZ.right - (i / 2), (((i + this.qaZ.bottom) - this.f72case) - this.c) - bg.k(getContext(), 0.5f));
+        canvas.drawArc(this.qaY, -90.0f, (this.d * (-360)) / 100, false, this.qaX);
     }
 
     @Override // android.widget.TextView, android.view.View
@@ -233,7 +233,7 @@ public class CircleProgressbar extends TextView {
     @Override // android.widget.TextView, android.view.View
     protected void drawableStateChanged() {
         super.drawableStateChanged();
-        int colorForState = this.qaV.getColorForState(getDrawableState(), 0);
+        int colorForState = this.qaW.getColorForState(getDrawableState(), 0);
         if (this.f13759a == colorForState) {
             return;
         }

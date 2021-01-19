@@ -9,45 +9,45 @@ import java.util.List;
 import javax.annotation.Nullable;
 /* loaded from: classes5.dex */
 public class d {
-    private static d pvR;
-    private int pvS;
+    private static d pvS;
+    private int pvT;
     @Nullable
-    private List<c.a> pvT;
-    private final c.a pvU = new a();
+    private List<c.a> pvU;
+    private final c.a pvV = new a();
 
     private d() {
         etb();
     }
 
     public void gL(@Nullable List<c.a> list) {
-        this.pvT = list;
+        this.pvU = list;
         etb();
     }
 
     public c w(InputStream inputStream) throws IOException {
         g.checkNotNull(inputStream);
-        byte[] bArr = new byte[this.pvS];
-        int a2 = a(this.pvS, inputStream, bArr);
-        c p = this.pvU.p(bArr, a2);
-        if (p == null || p == c.pvP) {
-            if (this.pvT != null) {
-                for (c.a aVar : this.pvT) {
+        byte[] bArr = new byte[this.pvT];
+        int a2 = a(this.pvT, inputStream, bArr);
+        c p = this.pvV.p(bArr, a2);
+        if (p == null || p == c.pvQ) {
+            if (this.pvU != null) {
+                for (c.a aVar : this.pvU) {
                     c p2 = aVar.p(bArr, a2);
-                    if (p2 != null && p2 != c.pvP) {
+                    if (p2 != null && p2 != c.pvQ) {
                         return p2;
                     }
                 }
             }
-            return c.pvP;
+            return c.pvQ;
         }
         return p;
     }
 
     private void etb() {
-        this.pvS = this.pvU.getHeaderSize();
-        if (this.pvT != null) {
-            for (c.a aVar : this.pvT) {
-                this.pvS = Math.max(this.pvS, aVar.getHeaderSize());
+        this.pvT = this.pvV.getHeaderSize();
+        if (this.pvU != null) {
+            for (c.a aVar : this.pvU) {
+                this.pvT = Math.max(this.pvT, aVar.getHeaderSize());
             }
         }
     }
@@ -70,10 +70,10 @@ public class d {
     public static synchronized d etc() {
         d dVar;
         synchronized (d.class) {
-            if (pvR == null) {
-                pvR = new d();
+            if (pvS == null) {
+                pvS = new d();
             }
-            dVar = pvR;
+            dVar = pvS;
         }
         return dVar;
     }

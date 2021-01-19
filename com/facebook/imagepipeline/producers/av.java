@@ -1,11 +1,11 @@
 package com.facebook.imagepipeline.producers;
 /* loaded from: classes3.dex */
 public class av implements aj<com.facebook.imagepipeline.f.e> {
-    private final aw<com.facebook.imagepipeline.f.e>[] pDd;
+    private final aw<com.facebook.imagepipeline.f.e>[] pDe;
 
     public av(aw<com.facebook.imagepipeline.f.e>... awVarArr) {
-        this.pDd = (aw[]) com.facebook.common.internal.g.checkNotNull(awVarArr);
-        com.facebook.common.internal.g.dY(0, this.pDd.length);
+        this.pDe = (aw[]) com.facebook.common.internal.g.checkNotNull(awVarArr);
+        com.facebook.common.internal.g.dY(0, this.pDe.length);
     }
 
     @Override // com.facebook.imagepipeline.producers.aj
@@ -20,15 +20,15 @@ public class av implements aj<com.facebook.imagepipeline.f.e> {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes3.dex */
     public class a extends n<com.facebook.imagepipeline.f.e, com.facebook.imagepipeline.f.e> {
-        private final ak pBs;
-        private final int pDe;
-        private final com.facebook.imagepipeline.common.d pwJ;
+        private final ak pBt;
+        private final int pDf;
+        private final com.facebook.imagepipeline.common.d pwK;
 
         public a(k<com.facebook.imagepipeline.f.e> kVar, ak akVar, int i) {
             super(kVar);
-            this.pBs = akVar;
-            this.pDe = i;
-            this.pwJ = this.pBs.ewP().exH();
+            this.pBt = akVar;
+            this.pDf = i;
+            this.pwK = this.pBt.ewP().exH();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -36,11 +36,11 @@ public class av implements aj<com.facebook.imagepipeline.f.e> {
         @Override // com.facebook.imagepipeline.producers.b
         /* renamed from: a */
         public void f(com.facebook.imagepipeline.f.e eVar, int i) {
-            if (eVar != null && (PP(i) || ax.a(eVar, this.pwJ))) {
+            if (eVar != null && (PP(i) || ax.a(eVar, this.pwK))) {
                 exc().g(eVar, i);
             } else if (PO(i)) {
                 com.facebook.imagepipeline.f.e.e(eVar);
-                if (!av.this.a(this.pDe + 1, exc(), this.pBs)) {
+                if (!av.this.a(this.pDf + 1, exc(), this.pBt)) {
                     exc().g(null, 1);
                 }
             }
@@ -48,7 +48,7 @@ public class av implements aj<com.facebook.imagepipeline.f.e> {
 
         @Override // com.facebook.imagepipeline.producers.n, com.facebook.imagepipeline.producers.b
         protected void C(Throwable th) {
-            if (!av.this.a(this.pDe + 1, exc(), this.pBs)) {
+            if (!av.this.a(this.pDf + 1, exc(), this.pBt)) {
                 exc().D(th);
             }
         }
@@ -60,13 +60,13 @@ public class av implements aj<com.facebook.imagepipeline.f.e> {
         if (a2 == -1) {
             return false;
         }
-        this.pDd[a2].a(new a(kVar, akVar, a2), akVar);
+        this.pDe[a2].a(new a(kVar, akVar, a2), akVar);
         return true;
     }
 
     private int a(int i, com.facebook.imagepipeline.common.d dVar) {
-        while (i < this.pDd.length) {
-            if (!this.pDd[i].a(dVar)) {
+        while (i < this.pDe.length) {
+            if (!this.pDe[i].a(dVar)) {
                 i++;
             } else {
                 return i;

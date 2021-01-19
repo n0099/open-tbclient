@@ -29,11 +29,11 @@ import java.util.List;
 public class LocationModel extends BdBaseModel {
     private c fFw;
     private f mContext;
-    private CustomMessageListener npA;
-    private a npw;
-    private b npx;
-    private HttpMessageListener npy;
-    private a.InterfaceC0015a npz;
+    private a.InterfaceC0015a npA;
+    private CustomMessageListener npB;
+    private a npx;
+    private b npy;
+    private HttpMessageListener npz;
 
     /* loaded from: classes.dex */
     public interface a {
@@ -52,17 +52,17 @@ public class LocationModel extends BdBaseModel {
     }
 
     private void dMb() {
-        this.npy = new HttpMessageListener(1001506) { // from class: com.baidu.tieba.tbadkCore.location.LocationModel.3
+        this.npz = new HttpMessageListener(1001506) { // from class: com.baidu.tieba.tbadkCore.location.LocationModel.3
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
                 if (httpResponsedMessage == null || httpResponsedMessage.getError() != 0) {
-                    if (LocationModel.this.npw != null) {
+                    if (LocationModel.this.npx != null) {
                         String str = null;
                         if (httpResponsedMessage != null && httpResponsedMessage.getError() > 0) {
                             str = httpResponsedMessage.getErrorString();
                         }
-                        LocationModel.this.npw.onFail(str);
+                        LocationModel.this.npx.onFail(str);
                         return;
                     }
                     return;
@@ -75,15 +75,15 @@ public class LocationModel extends BdBaseModel {
 
     public void dMc() {
         if (dMe()) {
-            if (this.npw != null) {
-                this.npw.a(com.baidu.tieba.tbadkCore.location.b.dLZ().getLocationData());
+            if (this.npx != null) {
+                this.npx.a(com.baidu.tieba.tbadkCore.location.b.dLZ().getLocationData());
             }
         } else if (j.isNetWorkAvailable()) {
             if (ad.checkLocationForGoogle(this.mContext.getPageActivity())) {
-                com.baidu.adp.lib.c.a.lI().a(true, this.npz);
+                com.baidu.adp.lib.c.a.lI().a(true, this.npA);
             }
-        } else if (this.npw != null) {
-            this.npw.bBP();
+        } else if (this.npx != null) {
+            this.npx.bBP();
         }
     }
 
@@ -94,12 +94,12 @@ public class LocationModel extends BdBaseModel {
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(SocketResponsedMessage socketResponsedMessage) {
                 if (socketResponsedMessage == null || socketResponsedMessage.getError() != 0 || !(socketResponsedMessage instanceof LocationSocketResponsedMessage)) {
-                    if (LocationModel.this.npw != null) {
+                    if (LocationModel.this.npx != null) {
                         String str = null;
                         if (socketResponsedMessage != null && socketResponsedMessage.getError() > 0) {
                             str = socketResponsedMessage.getErrorString();
                         }
-                        LocationModel.this.npw.onFail(str);
+                        LocationModel.this.npx.onFail(str);
                         return;
                     }
                     return;
@@ -107,12 +107,12 @@ public class LocationModel extends BdBaseModel {
                 LocationModel.this.b(((LocationSocketResponsedMessage) socketResponsedMessage).getLocationData());
             }
         };
-        this.npz = new a.InterfaceC0015a() { // from class: com.baidu.tieba.tbadkCore.location.LocationModel.2
+        this.npA = new a.InterfaceC0015a() { // from class: com.baidu.tieba.tbadkCore.location.LocationModel.2
             @Override // com.baidu.adp.lib.c.a.InterfaceC0015a
             public void onLocationGeted(int i, String str, Address address) {
                 if (i != 0 || address == null) {
-                    if (LocationModel.this.npw != null) {
-                        LocationModel.this.npw.onFail(str);
+                    if (LocationModel.this.npx != null) {
+                        LocationModel.this.npx.onFail(str);
                         return;
                     }
                     return;
@@ -120,7 +120,7 @@ public class LocationModel extends BdBaseModel {
                 LocationModel.this.gt(String.valueOf(address.getLongitude()), String.valueOf(address.getLatitude()));
             }
         };
-        this.npA = new CustomMessageListener(CmdConfigCustom.CMD_SELECT_LOCATION) { // from class: com.baidu.tieba.tbadkCore.location.LocationModel.4
+        this.npB = new CustomMessageListener(CmdConfigCustom.CMD_SELECT_LOCATION) { // from class: com.baidu.tieba.tbadkCore.location.LocationModel.4
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -129,15 +129,15 @@ public class LocationModel extends BdBaseModel {
                     if (responsedSelectLocation.isShowLocation()) {
                         LocationModel.this.yj(false);
                         LocationModel.this.gu(responsedSelectLocation.getName(), responsedSelectLocation.getScreatString());
-                        if (LocationModel.this.npx != null) {
-                            LocationModel.this.npx.CK(responsedSelectLocation.getName());
+                        if (LocationModel.this.npy != null) {
+                            LocationModel.this.npy.CK(responsedSelectLocation.getName());
                             return;
                         }
                         return;
                     }
                     LocationModel.this.yj(true);
-                    if (LocationModel.this.npx != null) {
-                        LocationModel.this.npx.bBQ();
+                    if (LocationModel.this.npy != null) {
+                        LocationModel.this.npy.bBQ();
                     }
                 }
             }
@@ -148,7 +148,7 @@ public class LocationModel extends BdBaseModel {
             this.fFw.setSelfListener(false);
         }
         registerListener(this.fFw);
-        registerListener(this.npA);
+        registerListener(this.npB);
     }
 
     public void gt(String str, String str2) {
@@ -173,8 +173,8 @@ public class LocationModel extends BdBaseModel {
     /* JADX INFO: Access modifiers changed from: private */
     public void b(LocationData locationData) {
         if (locationData == null) {
-            if (this.npw != null) {
-                this.npw.onFail(null);
+            if (this.npx != null) {
+                this.npx.onFail(null);
                 return;
             }
             return;
@@ -182,8 +182,8 @@ public class LocationModel extends BdBaseModel {
         c(locationData);
         com.baidu.tieba.tbadkCore.location.b.dLZ().setTimeStamp(System.currentTimeMillis());
         com.baidu.tieba.tbadkCore.location.b.dLZ().setLocationData(locationData);
-        if (this.npw != null) {
-            this.npw.a(locationData);
+        if (this.npx != null) {
+            this.npx.a(locationData);
         }
     }
 
@@ -268,9 +268,9 @@ public class LocationModel extends BdBaseModel {
     }
 
     public void dMg() {
-        if (this.npy == null) {
+        if (this.npz == null) {
             dMb();
-            registerListener(this.npy);
+            registerListener(this.npz);
         }
         HttpMessage httpMessage = new HttpMessage(1001506);
         httpMessage.addParam("opt", Headers.LOCATION);
@@ -279,11 +279,11 @@ public class LocationModel extends BdBaseModel {
     }
 
     public void a(a aVar) {
-        this.npw = aVar;
+        this.npx = aVar;
     }
 
     public void a(b bVar) {
-        this.npx = bVar;
+        this.npy = bVar;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel

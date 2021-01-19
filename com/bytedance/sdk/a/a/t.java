@@ -5,7 +5,7 @@ import java.io.InterruptedIOException;
 import java.util.concurrent.TimeUnit;
 /* loaded from: classes4.dex */
 public class t {
-    public static final t pdC = new t() { // from class: com.bytedance.sdk.a.a.t.1
+    public static final t pdD = new t() { // from class: com.bytedance.sdk.a.a.t.1
         @Override // com.bytedance.sdk.a.a.t
         public t c(long j, TimeUnit timeUnit) {
             return this;

@@ -448,7 +448,7 @@ public class d extends com.baidu.tieba.card.b<com.baidu.tieba.homepage.topic.top
                 } else {
                     byS();
                 }
-                Ls("1");
+                Lt("1");
             }
             if (view == this.khq || view == this.khr) {
                 if (this.khl.source == 1) {
@@ -456,12 +456,12 @@ public class d extends com.baidu.tieba.card.b<com.baidu.tieba.homepage.topic.top
                 } else {
                     byS();
                 }
-                Ls("3");
+                Lt("3");
             } else if (view == this.eGI) {
                 cQr();
             } else {
                 byS();
-                Ls("2");
+                Lt("2");
             }
         }
     }
@@ -485,7 +485,7 @@ public class d extends com.baidu.tieba.card.b<com.baidu.tieba.homepage.topic.top
         }
     }
 
-    private void Ls(String str) {
+    private void Lt(String str) {
         TiebaStatic.log(new aq("c13356").dW("obj_locate", str).dW("tid", this.khl.eHK.getTid()).w("topic_id", this.khl.topicId).dW("obj_type", String.valueOf(this.khl.source)));
     }
 }

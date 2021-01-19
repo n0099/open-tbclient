@@ -21,8 +21,8 @@ final class ak implements Runnable {
     public final void run() {
         if (!this.f7856a.getAndSet(true)) {
             Log.w("ARCore-InstallService", "requestInstall timed out, launching fullscreen.");
-            w wVar = this.f7857b.pHK;
-            w.b(this.f7857b.f7855a, this.f7857b.pHy);
+            w wVar = this.f7857b.pHL;
+            w.b(this.f7857b.f7855a, this.f7857b.pHz);
         }
     }
 }

@@ -20,11 +20,11 @@ public class b {
 
     /* renamed from: b  reason: collision with root package name */
     private Context f5735b;
-    private AsyncTask pbu;
+    private AsyncTask pbv;
 
     /* renamed from: a  reason: collision with root package name */
     private String f5734a = null;
-    private a pbt = null;
+    private a pbu = null;
     private Object d = null;
     private Map<String, String> e = new HashMap();
     private Map<String, String> f = new HashMap();
@@ -44,11 +44,11 @@ public class b {
         /* renamed from: b  reason: collision with root package name */
         private String f5736b;
         private int c;
-        private Exception pbx;
+        private Exception pby;
 
         public C0979b(String str, Exception exc, int i) {
             this.f5736b = str;
-            this.pbx = exc;
+            this.pby = exc;
             this.c = i;
         }
     }
@@ -202,14 +202,14 @@ public class b {
         return this;
     }
 
-    public b Xr(@NonNull String str) {
+    public b Xs(@NonNull String str) {
         this.f5734a = str;
         this.h = "POST";
         return this;
     }
 
     public b a(a aVar) {
-        this.pbt = aVar;
+        this.pbu = aVar;
         return this;
     }
 
@@ -220,11 +220,11 @@ public class b {
 
     /* JADX WARN: Type inference failed for: r0v0, types: [com.bun.miitmdid.b.b$1] */
     public b ekM() {
-        this.pbu = new AsyncTask<Void, Void, C0979b>() { // from class: com.bun.miitmdid.b.b.1
-            b pbv;
+        this.pbv = new AsyncTask<Void, Void, C0979b>() { // from class: com.bun.miitmdid.b.b.1
+            b pbw;
 
             {
-                this.pbv = b.this;
+                this.pbw = b.this;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -233,16 +233,16 @@ public class b {
             /* renamed from: a */
             public void onPostExecute(C0979b c0979b) {
                 super.onPostExecute(c0979b);
-                if (b.this.pbt != null) {
+                if (b.this.pbu != null) {
                     if (c0979b == null) {
-                        b.this.pbt.a(new Exception("Unknown Error"), -1, null);
-                    } else if (c0979b.pbx != null) {
-                        b.this.pbt.a(c0979b.pbx, -1, null);
+                        b.this.pbu.a(new Exception("Unknown Error"), -1, null);
+                    } else if (c0979b.pby != null) {
+                        b.this.pbu.a(c0979b.pby, -1, null);
                     } else {
                         try {
-                            b.this.pbt.a(null, c0979b.c, c0979b.f5736b);
+                            b.this.pbu.a(null, c0979b.c, c0979b.f5736b);
                         } catch (Exception e) {
-                            b.this.pbt.a(e, -1, null);
+                            b.this.pbu.a(e, -1, null);
                         }
                     }
                 }
@@ -253,7 +253,7 @@ public class b {
             @Override // android.os.AsyncTask
             /* renamed from: q */
             public C0979b doInBackground(Void... voidArr) {
-                return this.pbv.h.equalsIgnoreCase("GET") ? b.this.ekN() : b.this.ekO();
+                return this.pbw.h.equalsIgnoreCase("GET") ? b.this.ekN() : b.this.ekO();
             }
         }.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, new Void[0]);
         return this;

@@ -2,11 +2,11 @@ package com.baidu.tieba.video;
 /* loaded from: classes7.dex */
 public class a {
     public int level;
-    public float nAt;
     public float nAu;
     public float nAv;
     public float nAw;
     public float nAx;
+    public float nAy;
 
     public static a JZ(int i) {
         switch (i) {
@@ -30,11 +30,11 @@ public class a {
     private static a a(int i, float f, float f2, float f3, float f4, float f5) {
         a aVar = new a();
         aVar.level = i;
-        aVar.nAt = f;
-        aVar.nAu = f2;
-        aVar.nAv = f3;
-        aVar.nAw = f4;
-        aVar.nAx = f5;
+        aVar.nAu = f;
+        aVar.nAv = f2;
+        aVar.nAw = f3;
+        aVar.nAx = f4;
+        aVar.nAy = f5;
         return aVar;
     }
 }

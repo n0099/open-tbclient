@@ -18,11 +18,11 @@ public class bl {
 
     /* renamed from: java  reason: collision with other field name */
     public static final String f27java = bl.class.getSimpleName();
-    private static boolean pYL = true;
+    private static boolean pYM = true;
 
     public static void iI(Context context) {
         if (!bk.java()) {
-            pYL = false;
+            pYM = false;
             return;
         }
         try {
@@ -44,7 +44,7 @@ public class bl {
     }
 
     private static void RJ(int i) {
-        pYL = false;
+        pYM = false;
         java = i;
     }
 

@@ -529,7 +529,7 @@ public class ap {
         if (dob < 0) {
             dob = 0;
         }
-        if (this.lQa.Fh(dob) != null && this.lQa.Fh(dob) != PostData.nmM) {
+        if (this.lQa.Fh(dob) != null && this.lQa.Fh(dob) != PostData.nmN) {
             i = dob + 1;
         }
         return this.lQa.getItem(i) instanceof PostData ? (PostData) this.lQa.getItem(i) : null;
@@ -991,7 +991,7 @@ public class ap {
                             }
                             ap.this.lRt.c(ap.this.acX);
                         }
-                        ap.this.lRt.OW(substring);
+                        ap.this.lRt.OX(substring);
                     }
                 }
             }
@@ -1892,7 +1892,7 @@ public class ap {
             if (this.lRx == null) {
                 this.lRx = new ae(this.lEi.getPageContext(), this.jGC);
             }
-            this.lRx.OM(fVar.diU());
+            this.lRx.ON(fVar.diU());
             if (this.lEi.dlu()) {
                 if (this.lQe == null) {
                     this.lQe = new com.baidu.tieba.pb.view.e(this.lEi.getPageContext());
@@ -2342,13 +2342,13 @@ public class ap {
         return bottom > 0 && bottom <= rect.bottom;
     }
 
-    public void OO(String str) {
+    public void OP(String str) {
         if (this.jiy != null) {
             this.jiy.setText(str);
         }
     }
 
-    public void OP(String str) {
+    public void OQ(String str) {
         if (this.jiy != null) {
             int i = 0;
             if (this.lQW != null && this.lQW.lSe != null && this.lQW.lSe.getView() != null) {
@@ -2970,7 +2970,7 @@ public class ap {
         }
     }
 
-    public void OQ(String str) {
+    public void OR(String str) {
         if (str.contains(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS)) {
             str = str.replace(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS, "\n");
         }
@@ -3039,7 +3039,7 @@ public class ap {
         this.lPU.uA(z);
     }
 
-    public void OR(String str) {
+    public void OS(String str) {
         if (this.lPM != null) {
             this.lPM.setTitle(str);
         }
@@ -3068,7 +3068,7 @@ public class ap {
         return false;
     }
 
-    public void OS(String str) {
+    public void OT(String str) {
         this.kgY.performClick();
         if (!StringUtils.isNull(str) && this.lEi.dkR() != null && this.lEi.dkR().bBv() != null && this.lEi.dkR().bBv().getInputView() != null) {
             EditText inputView = this.lEi.dkR().bBv().getInputView();

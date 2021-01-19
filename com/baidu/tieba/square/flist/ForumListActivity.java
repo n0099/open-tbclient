@@ -152,7 +152,7 @@ public class ForumListActivity extends ProxyAdkBaseActivity<ForumListActivity> i
             eVar.niq.add(0, eVar);
             if (ForumListActivity.this.ngG.nhE != null) {
                 ForumListActivity.this.ngG.nhE.a(eVar);
-                ForumListActivity.this.RL(String.valueOf(ForumListActivity.this.ngG.bIw.getText()));
+                ForumListActivity.this.RM(String.valueOf(ForumListActivity.this.ngG.bIw.getText()));
                 ForumListActivity.this.ngG.mNavigationBar.onChangeSkinType(ForumListActivity.this.getPageContext(), TbadkCoreApplication.getInst().getSkinType());
                 ForumListActivity.this.ngG.nhE.notifyDataSetChanged();
             }
@@ -202,7 +202,7 @@ public class ForumListActivity extends ProxyAdkBaseActivity<ForumListActivity> i
     };
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void RL(String str) {
+    public void RM(String str) {
         e dJy = this.ngG.nhE.dJy();
         if (dJy != null) {
             ArrayList<e> arrayList = dJy.niq;

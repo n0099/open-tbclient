@@ -21,11 +21,11 @@ public class o {
     private final PriorityBlockingQueue<Request<?>> d;
     private final List<b> j;
     private final List<a> k;
-    private final com.bytedance.sdk.adnet.e.b pkT;
-    private final com.bytedance.sdk.adnet.e.c pkU;
-    private final com.bytedance.sdk.adnet.e.d pkV;
-    private final k[] pkW;
-    private f pkX;
+    private final com.bytedance.sdk.adnet.e.b pkU;
+    private final com.bytedance.sdk.adnet.e.c pkV;
+    private final com.bytedance.sdk.adnet.e.d pkW;
+    private final k[] pkX;
+    private f pkY;
 
     /* loaded from: classes4.dex */
     public interface a {
@@ -45,10 +45,10 @@ public class o {
         this.d = new PriorityBlockingQueue<>();
         this.j = new ArrayList();
         this.k = new ArrayList();
-        this.pkT = bVar;
-        this.pkU = cVar;
-        this.pkW = new k[i];
-        this.pkV = dVar;
+        this.pkU = bVar;
+        this.pkV = cVar;
+        this.pkX = new k[i];
+        this.pkW = dVar;
     }
 
     public o(com.bytedance.sdk.adnet.e.b bVar, com.bytedance.sdk.adnet.e.c cVar, int i) {
@@ -61,21 +61,21 @@ public class o {
 
     public void a() {
         b();
-        this.pkX = new f(this.c, this.d, this.pkT, this.pkV);
-        this.pkX.start();
-        for (int i = 0; i < this.pkW.length; i++) {
-            k kVar = new k(this.d, this.pkU, this.pkT, this.pkV);
-            this.pkW[i] = kVar;
+        this.pkY = new f(this.c, this.d, this.pkU, this.pkW);
+        this.pkY.start();
+        for (int i = 0; i < this.pkX.length; i++) {
+            k kVar = new k(this.d, this.pkV, this.pkU, this.pkW);
+            this.pkX[i] = kVar;
             kVar.start();
         }
     }
 
     public void b() {
         k[] kVarArr;
-        if (this.pkX != null) {
-            this.pkX.a();
+        if (this.pkY != null) {
+            this.pkY.a();
         }
-        for (k kVar : this.pkW) {
+        for (k kVar : this.pkX) {
             if (kVar != null) {
                 kVar.a();
             }

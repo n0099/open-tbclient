@@ -23,16 +23,16 @@ public class GetLoginTbsResponsedMessage extends JsonHttpResponsedMessage {
             a dDC = com.baidu.tieba.sdk.login.a.dDz().dDC();
             a.C0858a c0858a = new a.C0858a();
             if (dDC != null) {
-                c0858a.Rj(dDC.bduss);
-                c0858a.Rh(dDC.userName);
-                c0858a.Ri(dDC.nickName);
-                c0858a.Rg(dDC.userId);
-                c0858a.Rl(dDC.portrait);
+                c0858a.Rk(dDC.bduss);
+                c0858a.Ri(dDC.userName);
+                c0858a.Rj(dDC.nickName);
+                c0858a.Rh(dDC.userId);
+                c0858a.Rm(dDC.portrait);
                 c0858a.HX(dDC.sex);
             }
             c0858a.HY(1);
             if (jSONObject != null && (optJSONObject = jSONObject.optJSONObject(SubPbActivityConfig.KEY_ANTI)) != null) {
-                c0858a.Rk(optJSONObject.optString("tbs"));
+                c0858a.Rl(optJSONObject.optString("tbs"));
             }
             AccountData dDH = c0858a.dDH();
             TbadkCoreApplication.setCurrentAccount(dDH, TbadkCoreApplication.getInst().getApp().getApplicationContext());

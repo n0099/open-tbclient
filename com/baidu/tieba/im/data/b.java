@@ -31,7 +31,7 @@ public class b {
         this.level = i;
     }
 
-    public void CA(int i) {
+    public void Cz(int i) {
         this.kwt = i;
     }
 
@@ -47,7 +47,7 @@ public class b {
         return this.kwu;
     }
 
-    public void CB(int i) {
+    public void CA(int i) {
         this.kwu = i;
     }
 

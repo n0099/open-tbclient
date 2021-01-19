@@ -96,7 +96,7 @@ public class RecommendBarPageAdapter extends PagerAdapter {
         }
     }
 
-    public com.baidu.adp.widget.ListView.n Bg(int i) {
+    public com.baidu.adp.widget.ListView.n Bf(int i) {
         if (com.baidu.tbadk.core.util.x.isEmpty(this.jTT) || i >= this.jTT.size()) {
             return null;
         }

@@ -28,8 +28,8 @@ public class ImageOverlayView extends ViewGroup {
     private int mImageHeight;
     private int mImageWidth;
     private Paint mStrokePaint;
-    private int nOO;
-    private RectF nOP;
+    private int nOP;
+    private RectF nOQ;
 
     /* loaded from: classes.dex */
     public interface a {
@@ -58,12 +58,12 @@ public class ImageOverlayView extends ViewGroup {
             }
         };
         sa();
-        this.nOP = new RectF();
+        this.nOQ = new RectF();
     }
 
     public void l(int i, int i2, int i3, int i4, int i5, int i6) {
         this.iJP = i;
-        this.nOO = i;
+        this.nOP = i;
         this.mImageWidth = i2;
         this.mImageHeight = i3;
         this.iJQ = i4;
@@ -107,7 +107,7 @@ public class ImageOverlayView extends ViewGroup {
         if (this.iJW == 1) {
             i3 = this.iJQ * 2;
         }
-        setMeasuredDimension(resolveSize(((i3 + (getPaddingLeft() + getPaddingRight())) + (this.nOO * this.mImageWidth)) - ((this.nOO - 1) * this.iJS), i), resolveSize(getPaddingTop() + getPaddingBottom() + this.mImageHeight + (this.iJQ * 2), i2));
+        setMeasuredDimension(resolveSize(((i3 + (getPaddingLeft() + getPaddingRight())) + (this.nOP * this.mImageWidth)) - ((this.nOP - 1) * this.iJS), i), resolveSize(getPaddingTop() + getPaddingBottom() + this.mImageHeight + (this.iJQ * 2), i2));
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -120,11 +120,11 @@ public class ImageOverlayView extends ViewGroup {
             paddingLeft = this.iJQ + getPaddingLeft();
             paddingTop = getPaddingTop() + this.iJQ;
         } else {
-            paddingLeft = this.iJQ + getPaddingLeft() + ((this.nOO - 1) * (this.mImageWidth - this.iJS));
+            paddingLeft = this.iJQ + getPaddingLeft() + ((this.nOP - 1) * (this.mImageWidth - this.iJS));
             paddingTop = getPaddingTop() + this.iJQ;
         }
         int i5 = paddingLeft;
-        for (int i6 = 0; i6 < this.nOO; i6++) {
+        for (int i6 = 0; i6 < this.nOP; i6++) {
             if (i6 < getChildCount() && (childAt2 = getChildAt(i6)) != null) {
                 childAt2.setVisibility(0);
                 if (this.iJU) {
@@ -138,7 +138,7 @@ public class ImageOverlayView extends ViewGroup {
                 return;
             }
         }
-        for (int i7 = this.nOO; i7 < this.iJP && i7 < getChildCount() && (childAt = getChildAt(i7)) != null; i7++) {
+        for (int i7 = this.nOP; i7 < this.iJP && i7 < getChildCount() && (childAt = getChildAt(i7)) != null; i7++) {
             childAt.setVisibility(8);
         }
     }
@@ -158,17 +158,17 @@ public class ImageOverlayView extends ViewGroup {
                 float f2 = this.mImageWidth / 2.0f;
                 float acos = ((float) ((Math.acos((((f2 * 2.0f) - this.iJS) / 2.0f) / f2) / 3.141592653589793d) * 180.0d)) - 180.0f;
                 float abs = Math.abs(acos * 2.0f);
-                int i2 = this.iJU ? 0 : this.nOO - 1;
+                int i2 = this.iJU ? 0 : this.nOP - 1;
                 int i3 = 0;
-                while (i3 < this.nOO) {
+                while (i3 < this.nOP) {
                     if (getChildAt(i3) instanceof HeadImageView) {
-                        this.nOP.set(childAt2.getLeft() - f, childAt2.getTop() - f, childAt2.getRight() + f, childAt2.getBottom() + f);
+                        this.nOQ.set(childAt2.getLeft() - f, childAt2.getTop() - f, childAt2.getRight() + f, childAt2.getBottom() + f);
                         if (i3 == i2) {
                             this.mStrokePaint.setColor(ao.getColor(this.iJV));
                         } else {
                             this.mStrokePaint.setColor(ao.getColor(this.iJR));
                         }
-                        canvas.drawArc(this.nOP, i3 == i2 ? 0.0f : acos, i3 == i2 ? 360.0f : abs, false, this.mStrokePaint);
+                        canvas.drawArc(this.nOQ, i3 == i2 ? 0.0f : acos, i3 == i2 ? 360.0f : abs, false, this.mStrokePaint);
                     }
                     i3++;
                 }
@@ -178,11 +178,11 @@ public class ImageOverlayView extends ViewGroup {
         }
         while (true) {
             int i4 = i;
-            if (i4 < this.nOO && i4 < getChildCount() && (childAt = getChildAt(i4)) != null) {
+            if (i4 < this.nOP && i4 < getChildCount() && (childAt = getChildAt(i4)) != null) {
                 float f3 = this.iJQ * 0.5f;
                 if (childAt instanceof HeadImageView) {
-                    this.nOP.set(childAt.getLeft() - f3, childAt.getTop() - f3, childAt.getRight() + f3, childAt.getBottom() + f3);
-                    canvas.drawArc(this.nOP, -90.0f, 180.0f, false, this.mStrokePaint);
+                    this.nOQ.set(childAt.getLeft() - f3, childAt.getTop() - f3, childAt.getRight() + f3, childAt.getBottom() + f3);
+                    canvas.drawArc(this.nOQ, -90.0f, 180.0f, false, this.mStrokePaint);
                 }
                 i = i4 + 1;
             } else {
@@ -193,8 +193,8 @@ public class ImageOverlayView extends ViewGroup {
 
     public void setData(List<String> list) {
         String str;
-        this.nOO = Math.min(this.iJP, x.getCount(list));
-        for (int i = 0; i < this.nOO; i++) {
+        this.nOP = Math.min(this.iJP, x.getCount(list));
+        for (int i = 0; i < this.nOP; i++) {
             HeadImageView headImageView = (HeadImageView) getChildAt(i);
             if (headImageView != null && (str = (String) x.getItem(list, (list.size() - i) - 1)) != null) {
                 if (this.ikX == 12) {

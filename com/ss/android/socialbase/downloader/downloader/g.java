@@ -10,23 +10,23 @@ public class g {
     private final Context f13137a;
     private ExecutorService ceA;
     private ExecutorService p;
-    private k pUC;
-    private l pUD;
-    private i pUE;
-    private com.ss.android.socialbase.downloader.d.r pUF;
-    private ExecutorService pUP;
+    private k pUD;
+    private l pUE;
+    private i pUF;
+    private com.ss.android.socialbase.downloader.d.r pUG;
     private ExecutorService pUQ;
     private ExecutorService pUR;
-    private com.ss.android.socialbase.downloader.i.h pVC;
-    private com.ss.android.socialbase.downloader.i.f pVD;
-    private m pVE;
-    private h pVF;
-    private q pVG;
-    private ab pVH;
-    private com.ss.android.socialbase.downloader.d.e pVI;
-    private ExecutorService pVJ;
+    private ExecutorService pUS;
+    private com.ss.android.socialbase.downloader.i.h pVD;
+    private com.ss.android.socialbase.downloader.i.f pVE;
+    private m pVF;
+    private h pVG;
+    private q pVH;
+    private ab pVI;
+    private com.ss.android.socialbase.downloader.d.e pVJ;
     private ExecutorService pVK;
-    private ExecutorService pfx;
+    private ExecutorService pVL;
+    private ExecutorService pfy;
     private int u;
     private int v;
     private boolean w;
@@ -38,12 +38,12 @@ public class g {
     }
 
     public g c(h hVar) {
-        this.pVF = hVar;
+        this.pVG = hVar;
         return this;
     }
 
     public g b(com.ss.android.socialbase.downloader.i.h hVar) {
-        this.pVC = hVar;
+        this.pVD = hVar;
         return this;
     }
 
@@ -53,17 +53,17 @@ public class g {
     }
 
     public g c(ab abVar) {
-        this.pVH = abVar;
+        this.pVI = abVar;
         return this;
     }
 
     public g b(com.ss.android.socialbase.downloader.d.r rVar) {
-        this.pUF = rVar;
+        this.pUG = rVar;
         return this;
     }
 
     public g b(com.ss.android.socialbase.downloader.d.e eVar) {
-        this.pVI = eVar;
+        this.pVJ = eVar;
         return this;
     }
 
@@ -72,31 +72,31 @@ public class g {
     }
 
     public k eEj() {
-        return this.pUC;
-    }
-
-    public l eEk() {
         return this.pUD;
     }
 
-    public com.ss.android.socialbase.downloader.i.h eEl() {
-        return this.pVC;
+    public l eEk() {
+        return this.pUE;
     }
 
-    public com.ss.android.socialbase.downloader.i.f eDG() {
+    public com.ss.android.socialbase.downloader.i.h eEl() {
         return this.pVD;
     }
 
-    public m eEm() {
+    public com.ss.android.socialbase.downloader.i.f eDG() {
         return this.pVE;
     }
 
+    public m eEm() {
+        return this.pVF;
+    }
+
     public ExecutorService eEn() {
-        return this.pVJ;
+        return this.pVK;
     }
 
     public ExecutorService eEo() {
-        return this.pVK;
+        return this.pVL;
     }
 
     public ExecutorService i() {
@@ -108,23 +108,23 @@ public class g {
     }
 
     public ExecutorService um() {
-        return this.pUP;
-    }
-
-    public ExecutorService eDM() {
         return this.pUQ;
     }
 
-    public ExecutorService eDN() {
+    public ExecutorService eDM() {
         return this.pUR;
     }
 
+    public ExecutorService eDN() {
+        return this.pUS;
+    }
+
     public ExecutorService eDO() {
-        return this.pfx;
+        return this.pfy;
     }
 
     public ab eEp() {
-        return this.pVH;
+        return this.pVI;
     }
 
     public int p() {
@@ -132,11 +132,11 @@ public class g {
     }
 
     public i eDi() {
-        return this.pUE;
+        return this.pUF;
     }
 
     public h eDj() {
-        return this.pVF;
+        return this.pVG;
     }
 
     public int s() {
@@ -148,7 +148,7 @@ public class g {
     }
 
     public q eEq() {
-        return this.pVG;
+        return this.pVH;
     }
 
     public int v() {
@@ -160,11 +160,11 @@ public class g {
     }
 
     public com.ss.android.socialbase.downloader.d.r eEr() {
-        return this.pUF;
+        return this.pUG;
     }
 
     public com.ss.android.socialbase.downloader.d.e eEs() {
-        return this.pVI;
+        return this.pVJ;
     }
 
     public f eEt() {

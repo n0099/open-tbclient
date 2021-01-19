@@ -63,14 +63,14 @@ public class b extends BaseAdapter {
         public TextView fiz;
         public BarImageView luq;
         public int mSkinType = 3;
-        public View nWs;
+        public View nWt;
 
         public a(View view) {
             if (view != null) {
                 this.fiz = (TextView) view.findViewById(R.id.transmit_forum_name);
                 this.luq = (BarImageView) view.findViewById(R.id.forum_avatar);
                 this.luq.setShowOval(true);
-                this.nWs = view.findViewById(R.id.divider_line);
+                this.nWt = view.findViewById(R.id.divider_line);
             }
         }
 
@@ -84,7 +84,7 @@ public class b extends BaseAdapter {
         public void btV() {
             if (b.luo != this.mSkinType) {
                 ao.setViewTextColor(this.fiz, R.color.CAM_X0105);
-                ao.setBackgroundColor(this.nWs, R.color.CAM_X0204);
+                ao.setBackgroundColor(this.nWt, R.color.CAM_X0204);
             }
             this.mSkinType = b.luo;
         }

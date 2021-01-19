@@ -1,12 +1,12 @@
 package com.facebook.imagepipeline.producers;
 /* loaded from: classes3.dex */
 public class as<T> implements aj<T> {
-    private final aj<T> pBf;
-    private final at pyh;
+    private final aj<T> pBg;
+    private final at pyi;
 
     public as(aj<T> ajVar, at atVar) {
-        this.pBf = (aj) com.facebook.common.internal.g.checkNotNull(ajVar);
-        this.pyh = atVar;
+        this.pBg = (aj) com.facebook.common.internal.g.checkNotNull(ajVar);
+        this.pyi = atVar;
     }
 
     @Override // com.facebook.imagepipeline.producers.aj
@@ -18,7 +18,7 @@ public class as<T> implements aj<T> {
             @Override // com.facebook.imagepipeline.producers.aq, com.facebook.common.b.h
             public void onSuccess(T t) {
                 ewQ.b(id, "BackgroundThreadHandoffProducer", null);
-                as.this.pBf.a(kVar, akVar);
+                as.this.pBg.a(kVar, akVar);
             }
 
             @Override // com.facebook.imagepipeline.producers.aq, com.facebook.common.b.h
@@ -34,9 +34,9 @@ public class as<T> implements aj<T> {
             @Override // com.facebook.imagepipeline.producers.e, com.facebook.imagepipeline.producers.al
             public void ewW() {
                 aqVar.cancel();
-                as.this.pyh.C(aqVar);
+                as.this.pyi.C(aqVar);
             }
         });
-        this.pyh.B(aqVar);
+        this.pyi.B(aqVar);
     }
 }

@@ -18,10 +18,10 @@ public class BubbleGroupModel extends BdBaseModel<BubbleGroupActivity> {
     private final HttpMessageListener lcU;
     private List<b> mGroupList;
     private e mRecommand;
-    private boolean nwO;
-    private com.baidu.adp.framework.listener.a nwP;
-    private BubbleGroupActivity nxT;
-    private a nxU;
+    private boolean nwP;
+    private com.baidu.adp.framework.listener.a nwQ;
+    private BubbleGroupActivity nxU;
+    private a nxV;
 
     /* loaded from: classes8.dex */
     public interface a {
@@ -30,14 +30,14 @@ public class BubbleGroupModel extends BdBaseModel<BubbleGroupActivity> {
 
     public BubbleGroupModel(BubbleGroupActivity bubbleGroupActivity) {
         super(bubbleGroupActivity.getPageContext());
-        this.nwP = new com.baidu.adp.framework.listener.a(1003039, CmdConfigSocket.CMD_BUBBLE_CATEGORY) { // from class: com.baidu.tieba.themeCenter.bubble.group.BubbleGroupModel.1
+        this.nwQ = new com.baidu.adp.framework.listener.a(1003039, CmdConfigSocket.CMD_BUBBLE_CATEGORY) { // from class: com.baidu.tieba.themeCenter.bubble.group.BubbleGroupModel.1
             @Override // com.baidu.adp.framework.listener.a
             public void onMessage(ResponsedMessage<?> responsedMessage) {
                 if (responsedMessage != null) {
                     if ((responsedMessage instanceof BubbleGroupHttpResponseMessage) || (responsedMessage instanceof BubbleGroupSocketResponseMessage)) {
                         if (responsedMessage.getError() != 0) {
-                            if (BubbleGroupModel.this.nxU != null) {
-                                BubbleGroupModel.this.nxU.a(responsedMessage.getError(), responsedMessage.getErrorString(), BubbleGroupModel.this.mRecommand, BubbleGroupModel.this.mGroupList);
+                            if (BubbleGroupModel.this.nxV != null) {
+                                BubbleGroupModel.this.nxV.a(responsedMessage.getError(), responsedMessage.getErrorString(), BubbleGroupModel.this.mRecommand, BubbleGroupModel.this.mGroupList);
                                 return;
                             }
                             return;
@@ -51,8 +51,8 @@ public class BubbleGroupModel extends BdBaseModel<BubbleGroupActivity> {
                             BubbleGroupModel.this.mRecommand = bubbleGroupSocketResponseMessage.getRecommand();
                             BubbleGroupModel.this.mGroupList = bubbleGroupSocketResponseMessage.getGroupList();
                         }
-                        if (BubbleGroupModel.this.nxU != null) {
-                            BubbleGroupModel.this.nxU.a(responsedMessage.getError(), responsedMessage.getErrorString(), BubbleGroupModel.this.mRecommand, BubbleGroupModel.this.mGroupList);
+                        if (BubbleGroupModel.this.nxV != null) {
+                            BubbleGroupModel.this.nxV.a(responsedMessage.getError(), responsedMessage.getErrorString(), BubbleGroupModel.this.mRecommand, BubbleGroupModel.this.mGroupList);
                         }
                     }
                 }
@@ -65,18 +65,18 @@ public class BubbleGroupModel extends BdBaseModel<BubbleGroupActivity> {
                 if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003056) {
                     BubbleSetResponseMessage bubbleSetResponseMessage = (BubbleSetResponseMessage) httpResponsedMessage;
                     if (bubbleSetResponseMessage.getError() != 0) {
-                        BubbleGroupModel.this.nxT.showToast(bubbleSetResponseMessage.getErrorString());
+                        BubbleGroupModel.this.nxU.showToast(bubbleSetResponseMessage.getErrorString());
                         return;
                     }
                     BubbleGroupModel.this.JP(((Integer) ((HttpMessage) httpResponsedMessage.getmOrginalMessage()).getExtra()).intValue());
-                    BubbleGroupModel.this.nxU.a(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), BubbleGroupModel.this.mRecommand, BubbleGroupModel.this.mGroupList);
+                    BubbleGroupModel.this.nxV.a(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), BubbleGroupModel.this.mRecommand, BubbleGroupModel.this.mGroupList);
                 }
             }
         };
-        this.nxT = bubbleGroupActivity;
-        this.nwO = bubbleGroupActivity.getIntent().getBooleanExtra("member_buy_show", false);
+        this.nxU = bubbleGroupActivity;
+        this.nwP = bubbleGroupActivity.getIntent().getBooleanExtra("member_buy_show", false);
         dOR();
-        registerListener(this.nwP);
+        registerListener(this.nwQ);
         dOS();
         registerListener(this.lcU);
     }
@@ -105,11 +105,11 @@ public class BubbleGroupModel extends BdBaseModel<BubbleGroupActivity> {
     }
 
     public void a(a aVar) {
-        this.nxU = aVar;
+        this.nxV = aVar;
     }
 
     public boolean dIE() {
-        return this.nwO;
+        return this.nwP;
     }
 
     /* JADX INFO: Access modifiers changed from: private */

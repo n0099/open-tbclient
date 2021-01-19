@@ -45,7 +45,7 @@ public class g implements com.ss.android.a.a.a {
     }
 
     @Override // com.ss.android.a.a.a
-    public com.ss.android.a.a.a YY(String str) {
+    public com.ss.android.a.a.a YZ(String str) {
         j.a(str);
         return this;
     }
@@ -105,7 +105,7 @@ public class g implements com.ss.android.a.a.a {
                     if (j != null) {
                         com.ss.android.downloadlib.b.a.d(j);
                     } else {
-                        com.ss.android.downloadlib.f.f.ZI(cVar.D());
+                        com.ss.android.downloadlib.f.f.ZJ(cVar.D());
                     }
                     com.ss.android.socialbase.downloader.notification.b.eGk().f(cVar.g());
                     return true;

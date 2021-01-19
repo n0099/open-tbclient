@@ -7,7 +7,7 @@ import java.lang.reflect.Method;
 public class b {
     public static String a(Context context) {
         e eAb = e.eAb();
-        return eAb.a(context.getApplicationContext(), eAb.pNT);
+        return eAb.a(context.getApplicationContext(), eAb.pNU);
     }
 
     public static final boolean a() {
@@ -28,16 +28,16 @@ public class b {
 
     public static String b(Context context) {
         e eAb = e.eAb();
-        return eAb.a(context.getApplicationContext(), eAb.pNU);
+        return eAb.a(context.getApplicationContext(), eAb.pNV);
     }
 
     public static String c(Context context) {
         e eAb = e.eAb();
-        return eAb.a(context.getApplicationContext(), eAb.pNW);
+        return eAb.a(context.getApplicationContext(), eAb.pNX);
     }
 
     public static String d(Context context) {
         e eAb = e.eAb();
-        return eAb.a(context.getApplicationContext(), eAb.pNV);
+        return eAb.a(context.getApplicationContext(), eAb.pNW);
     }
 }

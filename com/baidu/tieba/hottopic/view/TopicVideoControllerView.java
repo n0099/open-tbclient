@@ -64,7 +64,7 @@ public class TopicVideoControllerView extends RelativeLayout {
                     long duration = (TopicVideoControllerView.this.gfn.getDuration() * i) / 10000;
                     TopicVideoControllerView.this.gfn.seekTo((int) duration);
                     if (TopicVideoControllerView.this.gfo != null) {
-                        TopicVideoControllerView.this.gfo.setText(TopicVideoControllerView.this.Cj((int) duration));
+                        TopicVideoControllerView.this.gfo.setText(TopicVideoControllerView.this.Ci((int) duration));
                     }
                 }
             }
@@ -112,7 +112,7 @@ public class TopicVideoControllerView extends RelativeLayout {
                     long duration = (TopicVideoControllerView.this.gfn.getDuration() * i) / 10000;
                     TopicVideoControllerView.this.gfn.seekTo((int) duration);
                     if (TopicVideoControllerView.this.gfo != null) {
-                        TopicVideoControllerView.this.gfo.setText(TopicVideoControllerView.this.Cj((int) duration));
+                        TopicVideoControllerView.this.gfo.setText(TopicVideoControllerView.this.Ci((int) duration));
                     }
                 }
             }
@@ -160,7 +160,7 @@ public class TopicVideoControllerView extends RelativeLayout {
                     long duration = (TopicVideoControllerView.this.gfn.getDuration() * i2) / 10000;
                     TopicVideoControllerView.this.gfn.seekTo((int) duration);
                     if (TopicVideoControllerView.this.gfo != null) {
-                        TopicVideoControllerView.this.gfo.setText(TopicVideoControllerView.this.Cj((int) duration));
+                        TopicVideoControllerView.this.gfo.setText(TopicVideoControllerView.this.Ci((int) duration));
                     }
                 }
             }
@@ -195,10 +195,10 @@ public class TopicVideoControllerView extends RelativeLayout {
         this.mHandler.removeMessages(1);
         this.gfq.setProgress(0);
         if (this.gfo != null) {
-            this.gfo.setText(Cj(i));
+            this.gfo.setText(Ci(i));
         }
         if (this.gfp != null) {
-            this.gfp.setText(Cj(Ci(i2)));
+            this.gfp.setText(Ci(Ch(i2)));
         }
     }
 
@@ -219,7 +219,7 @@ public class TopicVideoControllerView extends RelativeLayout {
         this.mHandler.removeMessages(1);
         this.gfq.setProgress(0);
         if (this.gfo != null) {
-            this.gfo.setText(Cj(0));
+            this.gfo.setText(Ci(0));
         }
     }
 
@@ -234,21 +234,21 @@ public class TopicVideoControllerView extends RelativeLayout {
             this.gfq.setProgress((int) ((10000 * currentPosition) / duration));
         }
         if (this.gfp != null && duration > 0) {
-            this.gfp.setText(Cj(Ci(duration)));
+            this.gfp.setText(Ci(Ch(duration)));
         }
         if (this.gfo != null) {
-            this.gfo.setText(Cj(currentPosition));
+            this.gfo.setText(Ci(currentPosition));
             return currentPosition;
         }
         return currentPosition;
     }
 
-    private int Ci(int i) {
+    private int Ch(int i) {
         return (int) (Math.ceil((1.0f * i) / 1000.0f) * 1000.0d);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public String Cj(int i) {
+    public String Ci(int i) {
         int i2 = i / 1000;
         int i3 = i2 % 60;
         int i4 = (i2 / 60) % 60;

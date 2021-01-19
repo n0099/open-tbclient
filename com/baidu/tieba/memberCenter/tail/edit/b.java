@@ -82,7 +82,7 @@ public class b {
     }
 
     public void setColor(String str) {
-        this.cyH.setTextColor(c.Nz(str));
+        this.cyH.setTextColor(c.NA(str));
     }
 
     public String getContent() {

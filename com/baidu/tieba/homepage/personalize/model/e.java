@@ -29,7 +29,7 @@ public class e {
     }
 
     private void bqN() {
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1003072, com.baidu.tieba.tbadkCore.a.a.bU(TbConfig.HOME_REALTIME_ADDRESS, CmdConfigSocket.CMD_REPORT_HOME_PIC_CLICK));
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1003072, com.baidu.tieba.tbadkCore.a.a.bV(TbConfig.HOME_REALTIME_ADDRESS, CmdConfigSocket.CMD_REPORT_HOME_PIC_CLICK));
         tbHttpMessageTask.setIsNeedAddCommenParam(true);
         tbHttpMessageTask.setResponsedClass(RealTimeHttpResponse.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);

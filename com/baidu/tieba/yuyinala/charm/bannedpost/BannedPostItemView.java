@@ -28,12 +28,12 @@ public class BannedPostItemView extends LinearLayout {
     private String mRoomId;
     private int mType;
     private String mUserName;
-    private a ofL;
-    private a.C0909a ofM;
+    private a ofM;
+    private a.C0909a ofN;
 
     /* loaded from: classes10.dex */
     public interface a {
-        void UD(String str);
+        void UE(String str);
     }
 
     public BannedPostItemView(Context context) {
@@ -51,7 +51,7 @@ public class BannedPostItemView extends LinearLayout {
         this.mRoomId = str3;
         this.mLiveId = str;
         this.mGroupId = str2;
-        this.ofM = c0909a;
+        this.ofN = c0909a;
         this.mUserName = c0909a.user_name;
         this.aBZ.setText(this.mUserName);
         m.a(this.gMN, c0909a.bd_portrait, true, false);
@@ -63,14 +63,14 @@ public class BannedPostItemView extends LinearLayout {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void dXV() {
-        if (this.ofM != null) {
+        if (this.ofN != null) {
             if (!TbadkCoreApplication.isLogin()) {
                 ViewHelper.skipToLoginActivity(getContext());
             } else if (this.mType == 1) {
                 g gVar = new g(getContext());
                 gVar.show();
                 gVar.setText("确定取消" + this.mUserName + "本场禁言吗？");
-                gVar.UE(PayHelper.STATUS_CANCEL_DESC);
+                gVar.UF(PayHelper.STATUS_CANCEL_DESC);
                 gVar.a(new g.a() { // from class: com.baidu.tieba.yuyinala.charm.bannedpost.BannedPostItemView.1
                     @Override // com.baidu.tieba.yuyinala.charm.bannedpost.g.a
                     public void onCancel() {
@@ -82,8 +82,8 @@ public class BannedPostItemView extends LinearLayout {
                         fVar.a(new f.a() { // from class: com.baidu.tieba.yuyinala.charm.bannedpost.BannedPostItemView.1.1
                             @Override // com.baidu.tieba.yuyinala.charm.bannedpost.f.a
                             public void a(com.baidu.tieba.yuyinala.charm.bannedpost.a aVar) {
-                                if (BannedPostItemView.this.ofL != null) {
-                                    BannedPostItemView.this.ofL.UD(BannedPostItemView.this.ofM.uk);
+                                if (BannedPostItemView.this.ofM != null) {
+                                    BannedPostItemView.this.ofM.UE(BannedPostItemView.this.ofN.uk);
                                 }
                                 BdUtilHelper.showToast(BannedPostItemView.this.getContext(), BannedPostItemView.this.mUserName + "已被取消本场禁言", 3000);
                             }
@@ -92,14 +92,14 @@ public class BannedPostItemView extends LinearLayout {
                             public void w(int i, String str) {
                             }
                         });
-                        fVar.l(BannedPostItemView.this.mLiveId, BannedPostItemView.this.mGroupId, BannedPostItemView.this.ofM.uk, 8);
+                        fVar.l(BannedPostItemView.this.mLiveId, BannedPostItemView.this.mGroupId, BannedPostItemView.this.ofN.uk, 8);
                     }
                 });
             } else if (this.mType == 2) {
                 g gVar2 = new g(getContext());
                 gVar2.show();
                 gVar2.setText("确定取消" + this.mUserName + "永久禁言吗？");
-                gVar2.UE(PayHelper.STATUS_CANCEL_DESC);
+                gVar2.UF(PayHelper.STATUS_CANCEL_DESC);
                 gVar2.a(new g.a() { // from class: com.baidu.tieba.yuyinala.charm.bannedpost.BannedPostItemView.2
                     @Override // com.baidu.tieba.yuyinala.charm.bannedpost.g.a
                     public void onCancel() {
@@ -111,8 +111,8 @@ public class BannedPostItemView extends LinearLayout {
                         fVar.a(new f.a() { // from class: com.baidu.tieba.yuyinala.charm.bannedpost.BannedPostItemView.2.1
                             @Override // com.baidu.tieba.yuyinala.charm.bannedpost.f.a
                             public void a(com.baidu.tieba.yuyinala.charm.bannedpost.a aVar) {
-                                if (BannedPostItemView.this.ofL != null) {
-                                    BannedPostItemView.this.ofL.UD(BannedPostItemView.this.ofM.uk);
+                                if (BannedPostItemView.this.ofM != null) {
+                                    BannedPostItemView.this.ofM.UE(BannedPostItemView.this.ofN.uk);
                                 }
                                 BdUtilHelper.showToast(BannedPostItemView.this.getContext(), BannedPostItemView.this.mUserName + "已被取消永久禁言", 3000);
                             }
@@ -121,7 +121,7 @@ public class BannedPostItemView extends LinearLayout {
                             public void w(int i, String str) {
                             }
                         });
-                        fVar.l(BannedPostItemView.this.mLiveId, BannedPostItemView.this.mGroupId, BannedPostItemView.this.ofM.uk, 9);
+                        fVar.l(BannedPostItemView.this.mLiveId, BannedPostItemView.this.mGroupId, BannedPostItemView.this.ofN.uk, 9);
                     }
                 });
             }
@@ -154,6 +154,6 @@ public class BannedPostItemView extends LinearLayout {
     }
 
     public void setCallBack(a aVar) {
-        this.ofL = aVar;
+        this.ofM = aVar;
     }
 }

@@ -55,7 +55,7 @@ public class d {
         this.Ya.getAdapter().notifyDataSetChanged();
     }
 
-    public void Dk(int i) {
+    public void Dj(int i) {
         if (this.Ya != null) {
             this.Ya.removeItem(i);
         }

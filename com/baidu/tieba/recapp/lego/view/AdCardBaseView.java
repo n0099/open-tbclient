@@ -202,7 +202,7 @@ public abstract class AdCardBaseView extends BaseLegoCardView<AdCard> implements
             b(adCard, bVar);
             this.mRootView.setOnClickListener(bVar);
             if (!TextUtils.isEmpty(adCard.getPreLoadData())) {
-                Qy(adCard.getPreLoadData());
+                Qz(adCard.getPreLoadData());
             }
             a(adCard);
             a(adCard, TbadkCoreApplication.getInst().getSkinType());
@@ -341,7 +341,7 @@ public abstract class AdCardBaseView extends BaseLegoCardView<AdCard> implements
             this.mKl.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.recapp.lego.view.AdCardBaseView.3
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    if (AdCardBaseView.this.kUi != null && adCard.buttonClick != null && !v.Qq(adCard.buttonClick.scheme)) {
+                    if (AdCardBaseView.this.kUi != null && adCard.buttonClick != null && !v.Qr(adCard.buttonClick.scheme)) {
                         AdCardBaseView.this.kUi.a(adCard.buttonClick.mJC, adCard.buttonClick.mJD, null);
                     }
                     if (!AdCardBaseView.this.b(adCard.buttonClick)) {
@@ -614,7 +614,7 @@ public abstract class AdCardBaseView extends BaseLegoCardView<AdCard> implements
 
     protected void a(AdCard.b bVar) {
         if (bVar != null) {
-            if (b(bVar) && !v.Qq(bVar.scheme)) {
+            if (b(bVar) && !v.Qr(bVar.scheme)) {
                 if (this.kUi != null) {
                     this.kUi.a(bVar.mJC, bVar.mJD, null);
                 }
@@ -692,7 +692,7 @@ public abstract class AdCardBaseView extends BaseLegoCardView<AdCard> implements
         this.kSI.rect = rect;
     }
 
-    private void Qy(String str) {
+    private void Qz(String str) {
         int i = 0;
         try {
             JSONArray optJSONArray = new JSONObject(str).optJSONArray(SocialConstants.PARAM_IMAGE);

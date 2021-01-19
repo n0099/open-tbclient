@@ -66,7 +66,7 @@ public class KSNativeAdVideoAppDownloadView extends o1 {
             this.c.setVisibility(8);
         } else {
             this.c.setVisibility(0);
-            ap.a.pFk.a(getContext(), ksNativeAd.getAppIconUrl(), this.c);
+            ap.a.pFl.a(getContext(), ksNativeAd.getAppIconUrl(), this.c);
         }
         this.d.setText(ksNativeAd.getAppName());
         this.e.setText(ksNativeAd.getActionDescription());

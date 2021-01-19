@@ -7,18 +7,18 @@ import com.facebook.imagepipeline.b.p;
 import com.facebook.imagepipeline.c.h;
 /* loaded from: classes3.dex */
 public class i {
-    private final boolean pyK;
-    private final b.a pyL;
-    private final boolean pyM;
-    private final com.facebook.common.g.b pyN;
-    private final boolean pyO;
+    private final boolean pyL;
+    private final b.a pyM;
+    private final boolean pyN;
+    private final com.facebook.common.g.b pyO;
     private final boolean pyP;
-    private final int pyQ;
+    private final boolean pyQ;
     private final int pyR;
-    private boolean pyS;
-    private final boolean pyT;
-    private final c pyU;
-    private final com.facebook.common.internal.j<Boolean> pyk;
+    private final int pyS;
+    private boolean pyT;
+    private final boolean pyU;
+    private final c pyV;
+    private final com.facebook.common.internal.j<Boolean> pyl;
 
     /* loaded from: classes3.dex */
     public interface c {
@@ -26,7 +26,6 @@ public class i {
     }
 
     private i(a aVar) {
-        this.pyK = aVar.pyK;
         this.pyL = aVar.pyL;
         this.pyM = aVar.pyM;
         this.pyN = aVar.pyN;
@@ -36,80 +35,81 @@ public class i {
         this.pyR = aVar.pyR;
         this.pyS = aVar.pyS;
         this.pyT = aVar.pyT;
-        if (aVar.pyU == null) {
-            this.pyU = new b();
+        this.pyU = aVar.pyU;
+        if (aVar.pyV == null) {
+            this.pyV = new b();
         } else {
-            this.pyU = aVar.pyU;
+            this.pyV = aVar.pyV;
         }
-        this.pyk = aVar.pyk;
+        this.pyl = aVar.pyl;
     }
 
     public boolean euF() {
-        return this.pyO;
-    }
-
-    public boolean euG() {
-        return this.pyK;
-    }
-
-    public boolean euH() {
-        return this.pyM;
-    }
-
-    public b.a euI() {
-        return this.pyL;
-    }
-
-    public com.facebook.common.g.b euJ() {
-        return this.pyN;
-    }
-
-    public boolean euK() {
         return this.pyP;
     }
 
-    public int euL() {
+    public boolean euG() {
+        return this.pyL;
+    }
+
+    public boolean euH() {
+        return this.pyN;
+    }
+
+    public b.a euI() {
+        return this.pyM;
+    }
+
+    public com.facebook.common.g.b euJ() {
+        return this.pyO;
+    }
+
+    public boolean euK() {
         return this.pyQ;
     }
 
-    public int euM() {
+    public int euL() {
         return this.pyR;
     }
 
-    public boolean euN() {
-        return this.pyT;
-    }
-
-    public c euO() {
-        return this.pyU;
-    }
-
-    public boolean euP() {
+    public int euM() {
         return this.pyS;
     }
 
+    public boolean euN() {
+        return this.pyU;
+    }
+
+    public c euO() {
+        return this.pyV;
+    }
+
+    public boolean euP() {
+        return this.pyT;
+    }
+
     public com.facebook.common.internal.j<Boolean> euQ() {
-        return this.pyk;
+        return this.pyl;
     }
 
     /* loaded from: classes3.dex */
     public static class a {
-        private b.a pyL;
-        private com.facebook.common.g.b pyN;
-        private c pyU;
-        private final h.a pyV;
-        public com.facebook.common.internal.j<Boolean> pyk;
-        private boolean pyK = false;
-        private boolean pyM = false;
-        private boolean pyO = false;
+        private b.a pyM;
+        private com.facebook.common.g.b pyO;
+        private c pyV;
+        private final h.a pyW;
+        public com.facebook.common.internal.j<Boolean> pyl;
+        private boolean pyL = false;
+        private boolean pyN = false;
         private boolean pyP = false;
-        private int pyQ = 0;
+        private boolean pyQ = false;
         private int pyR = 0;
-        public boolean pyS = false;
-        private boolean pyT = false;
+        private int pyS = 0;
+        public boolean pyT = false;
+        private boolean pyU = false;
 
         public a(h.a aVar) {
-            this.pyV = aVar;
+            this.pyW = aVar;
         }
 
         public i euR() {

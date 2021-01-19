@@ -178,18 +178,18 @@ public class a {
                 C0858a c0858a = new C0858a(currentAccountInfo);
                 String string3 = d.xf().getString("ala_account_user_bduss", "");
                 if (!StringUtils.isNull(string3)) {
-                    c0858a.Rj(string3);
+                    c0858a.Rk(string3);
                 } else {
-                    c0858a.Rj(dbs.bduss);
+                    c0858a.Rk(dbs.bduss);
                 }
                 String string4 = d.xf().getString("ala_account_user_tbs", "");
                 if (!StringUtils.isNull(string4)) {
-                    c0858a.Rk(string4);
+                    c0858a.Rl(string4);
                 }
-                c0858a.Rg(dbs.userId);
-                c0858a.Rh(dbs.userName);
-                c0858a.Ri(dbs.nickName);
-                c0858a.Rl(dbs.portrait);
+                c0858a.Rh(dbs.userId);
+                c0858a.Ri(dbs.userName);
+                c0858a.Rj(dbs.nickName);
+                c0858a.Rm(dbs.portrait);
                 if (currentAccountInfo == null) {
                     TbadkCoreApplication.setCurrentAccount(c0858a.dDH(), TbadkCoreApplication.getInst().getApp().getApplicationContext());
                     return;
@@ -201,11 +201,11 @@ public class a {
             this.mTM = 0;
             dDF();
             C0858a c0858a2 = new C0858a();
-            c0858a2.Rj(dbs.bduss);
-            c0858a2.Rh(dbs.userName);
-            c0858a2.Ri(dbs.nickName);
-            c0858a2.Rg(dbs.userId);
-            c0858a2.Rl(dbs.portrait);
+            c0858a2.Rk(dbs.bduss);
+            c0858a2.Ri(dbs.userName);
+            c0858a2.Rj(dbs.nickName);
+            c0858a2.Rh(dbs.userId);
+            c0858a2.Rm(dbs.portrait);
             d.xf().putString("ala_account_user_id", dbs.userId);
             d.xf().putString("ala_account_user_bduss", dbs.bduss);
             TbadkCoreApplication.setCurrentAccount(c0858a2.dDH(), TbadkCoreApplication.getInst().getApp().getApplicationContext());
@@ -261,32 +261,32 @@ public class a {
             }
         }
 
-        public C0858a Rg(String str) {
+        public C0858a Rh(String str) {
             this.userId = str;
             return this;
         }
 
-        public C0858a Rh(String str) {
+        public C0858a Ri(String str) {
             this.userName = str;
             return this;
         }
 
-        public C0858a Ri(String str) {
+        public C0858a Rj(String str) {
             this.nickName = str;
             return this;
         }
 
-        public C0858a Rj(String str) {
+        public C0858a Rk(String str) {
             this.BDUSS = str;
             return this;
         }
 
-        public C0858a Rk(String str) {
+        public C0858a Rl(String str) {
             this.tbs = str;
             return this;
         }
 
-        public C0858a Rl(String str) {
+        public C0858a Rm(String str) {
             this.portrait = str;
             return this;
         }

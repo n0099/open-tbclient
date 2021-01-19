@@ -26,7 +26,7 @@ public class AlaActiveWebView extends FrameLayout implements c {
     private SchemeCallback bRX;
     private String eKz;
     private boolean hil;
-    private a ohW;
+    private a ohX;
 
     /* loaded from: classes10.dex */
     public interface a {
@@ -54,7 +54,7 @@ public class AlaActiveWebView extends FrameLayout implements c {
     }
 
     public void setCallback(a aVar) {
-        this.ohW = aVar;
+        this.ohX = aVar;
     }
 
     public void addJavascriptInterface(Object obj, String str) {
@@ -105,7 +105,7 @@ public class AlaActiveWebView extends FrameLayout implements c {
 
     @Override // com.baidu.tieba.yuyinala.liveroom.activeview.c
     public void release() {
-        this.ohW = null;
+        this.ohX = null;
         this.hil = false;
         removeAllViews();
         if (this.bRU != null) {
@@ -139,8 +139,8 @@ public class AlaActiveWebView extends FrameLayout implements c {
                         @Override // android.webkit.ValueCallback
                         public void onReceiveValue(String str2) {
                             AlaActiveWebView.this.hil = Boolean.valueOf(str2).booleanValue();
-                            if (AlaActiveWebView.this.ohW != null) {
-                                AlaActiveWebView.this.ohW.nv(Boolean.valueOf(str2).booleanValue());
+                            if (AlaActiveWebView.this.ohX != null) {
+                                AlaActiveWebView.this.ohX.nv(Boolean.valueOf(str2).booleanValue());
                             }
                         }
                     });

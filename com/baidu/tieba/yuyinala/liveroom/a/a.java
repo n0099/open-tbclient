@@ -15,7 +15,7 @@ public class a implements c {
     private long brk;
     private long gmc;
     private Activity mActivity;
-    private b ohF;
+    private b ohG;
 
     public a(Activity activity) {
         this.mActivity = activity;
@@ -43,8 +43,8 @@ public class a implements c {
     }
 
     @Override // com.baidu.tieba.yuyinala.liveroom.a.c
-    public void cb(String str, int i) {
-        this.ohF = new b(this.mActivity);
+    public void cc(String str, int i) {
+        this.ohG = new b(this.mActivity);
         g gVar = new g();
         AlaLastLiveroomInfo alaLastLiveroomInfo = new AlaLastLiveroomInfo();
         alaLastLiveroomInfo.setLastLiveId(this.brk);
@@ -53,25 +53,25 @@ public class a implements c {
         alaLastLiveroomInfo.setLastAnchorPortrait(this.aLU);
         alaLastLiveroomInfo.setFrom(AlaLastLiveroomInfo.TYPE_FROM_HALF_WEBVIEW);
         alaLastLiveroomInfo.setIsAudio(1);
-        gVar.w(this.mActivity).a(this.ohF).a(this.ohF.getWebView().getSchemeCallback()).bA(this.gmc).hY(this.aLT).dz(this.aRd).bB(this.brk).a(alaLastLiveroomInfo);
+        gVar.w(this.mActivity).a(this.ohG).a(this.ohG.getWebView().getSchemeCallback()).bA(this.gmc).hY(this.aLT).dz(this.aRd).bB(this.brk).a(alaLastLiveroomInfo);
         com.baidu.live.view.web.a[] Wm = gVar.Wm();
         for (com.baidu.live.view.web.a aVar : Wm) {
-            this.ohF.getWebView().addJavascriptInterface(aVar, aVar.getName());
+            this.ohG.getWebView().addJavascriptInterface(aVar, aVar.getName());
         }
-        this.ohF.aJ(str, i);
+        this.ohG.aJ(str, i);
     }
 
     @Override // com.baidu.tieba.yuyinala.liveroom.a.c
     public void resume() {
-        if (this.ohF != null && this.ohF.isShowing() && this.ohF.getWebView() != null) {
-            this.ohF.getWebView().onResume();
+        if (this.ohG != null && this.ohG.isShowing() && this.ohG.getWebView() != null) {
+            this.ohG.getWebView().onResume();
         }
     }
 
     @Override // com.baidu.tieba.yuyinala.liveroom.a.c
     public void pause() {
-        if (this.ohF != null && this.ohF.isShowing() && this.ohF.getWebView() != null) {
-            this.ohF.getWebView().onPause();
+        if (this.ohG != null && this.ohG.isShowing() && this.ohG.getWebView() != null) {
+            this.ohG.getWebView().onPause();
         }
     }
 
@@ -80,10 +80,10 @@ public class a implements c {
         this.gmc = 0L;
         this.aLT = "";
         MessageManager.getInstance().unRegisterListener(this.bSr);
-        if (this.ohF != null) {
-            this.ohF.Wo();
-            if (this.ohF.getWebView() != null) {
-                this.ohF.getWebView().release();
+        if (this.ohG != null) {
+            this.ohG.Wo();
+            if (this.ohG.getWebView() != null) {
+                this.ohG.getWebView().release();
             }
         }
     }
@@ -93,8 +93,8 @@ public class a implements c {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                if (a.this.ohF != null && a.this.ohF.isShowing()) {
-                    a.this.ohF.dismiss();
+                if (a.this.ohG != null && a.this.ohG.isShowing()) {
+                    a.this.ohG.dismiss();
                 }
             }
         };

@@ -29,41 +29,41 @@ public class a {
     private LottieAnimationView ieH;
     private String mRoomId;
     private View mRootView;
-    private BarImageView oDx;
-    private b.a oDy;
-    private FrameLayout oDz;
-    private AlaRankListActivity ofc;
+    private FrameLayout oDA;
+    private BarImageView oDy;
+    private b.a oDz;
+    private AlaRankListActivity ofd;
 
     public a(AlaRankListActivity alaRankListActivity, String str) {
-        this.ofc = alaRankListActivity;
+        this.ofd = alaRankListActivity;
         this.mRoomId = str;
         initView();
     }
 
     private void initView() {
-        this.mRootView = LayoutInflater.from(this.ofc).inflate(a.g.yuyin_ala_rank_list_hot_bottom_layout, (ViewGroup) null);
+        this.mRootView = LayoutInflater.from(this.ofd).inflate(a.g.yuyin_ala_rank_list_hot_bottom_layout, (ViewGroup) null);
         this.contentView = this.mRootView.findViewById(a.f.content_view);
         this.idG = (TextView) this.mRootView.findViewById(a.f.ala_rank_list_user_rank);
-        this.oDx = (BarImageView) this.mRootView.findViewById(a.f.ala_rank_list_user_header);
+        this.oDy = (BarImageView) this.mRootView.findViewById(a.f.ala_rank_list_user_header);
         this.hXC = (TextView) this.mRootView.findViewById(a.f.ala_rank_list_user_name);
         this.idI = (TextView) this.mRootView.findViewById(a.f.ala_rank_list_info);
         this.idJ = (TextView) this.mRootView.findViewById(a.f.ala_rank_list_info_extra);
         this.idK = (TextView) this.mRootView.findViewById(a.f.ala_rank_list_support);
         this.ieH = (LottieAnimationView) this.mRootView.findViewById(a.f.rank_live_anim);
-        this.oDz = (FrameLayout) this.mRootView.findViewById(a.f.ll_living);
+        this.oDA = (FrameLayout) this.mRootView.findViewById(a.f.ll_living);
         this.idK.setOnTouchListener(new d());
         this.idK.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.view.a.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (a.this.oDy != null) {
-                    a.this.ofc.finish();
-                    a.this.oDy.ep(view);
+                if (a.this.oDz != null) {
+                    a.this.ofd.finish();
+                    a.this.oDz.ep(view);
                 }
             }
         });
-        if (this.oDx != null) {
-            this.oDx.setShowOval(true);
-            this.oDx.setAutoChangeStyle(false);
+        if (this.oDy != null) {
+            this.oDy.setShowOval(true);
+            this.oDy.setAutoChangeStyle(false);
         }
     }
 
@@ -72,16 +72,16 @@ public class a {
     }
 
     public void a(b.a aVar) {
-        this.oDy = aVar;
+        this.oDz = aVar;
     }
 
     public void a(g gVar) {
         int i = 10;
         if (gVar != null) {
             SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
-            this.oDz.setVisibility(8);
+            this.oDA.setVisibility(8);
             if (gVar.aEM <= 0) {
-                spannableStringBuilder.append((CharSequence) this.ofc.getString(a.h.yuyin_bottom_rank_list_bottom_no_money));
+                spannableStringBuilder.append((CharSequence) this.ofd.getString(a.h.yuyin_bottom_rank_list_bottom_no_money));
                 spannableStringBuilder.setSpan(new ForegroundColorSpan(Color.parseColor("#FD1E65")), 2, 5, 34);
                 this.idG.setText("未上榜");
                 this.idG.setTextSize(10.0f);
@@ -95,7 +95,7 @@ public class a {
                     if (gVar.aEP) {
                         this.idJ.setVisibility(8);
                     } else {
-                        String format = String.format(this.ofc.getString(a.h.yuyin_bottom_rank_list_bottom_1), StringHelper.formatYuyinValue(gVar.aEM - gVar.aEO) + "");
+                        String format = String.format(this.ofd.getString(a.h.yuyin_bottom_rank_list_bottom_1), StringHelper.formatYuyinValue(gVar.aEM - gVar.aEO) + "");
                         spannableStringBuilder.append((CharSequence) format);
                         spannableStringBuilder.setSpan(new ForegroundColorSpan(Color.parseColor("#FD1E65")), 6, format.length(), 34);
                         this.idJ.setVisibility(0);
@@ -103,12 +103,12 @@ public class a {
                     }
                 } else if (gVar.aEL >= 2 && gVar.aEL <= 10) {
                     String str = StringHelper.formatYuyinValue((gVar.aEN - gVar.aEM) + 1) + "";
-                    spannableStringBuilder.append((CharSequence) String.format(this.ofc.getString(a.h.yuyin_bottom_rank_list_bottom__in), str));
+                    spannableStringBuilder.append((CharSequence) String.format(this.ofd.getString(a.h.yuyin_bottom_rank_list_bottom__in), str));
                     spannableStringBuilder.setSpan(new ForegroundColorSpan(Color.parseColor("#FD1E65")), 2, str.length() + 4, 34);
                     this.idJ.setVisibility(0);
                     this.idJ.setText(spannableStringBuilder);
                 } else if (gVar.aEL > 10) {
-                    String format2 = String.format(this.ofc.getString(a.h.yuyin_bottom_rank_list_bottom_out), Constants.VIA_REPORT_TYPE_SHARE_TO_QQ, StringHelper.formatYuyinValue((gVar.aEQ - gVar.aEM) + 1) + "");
+                    String format2 = String.format(this.ofd.getString(a.h.yuyin_bottom_rank_list_bottom_out), Constants.VIA_REPORT_TYPE_SHARE_TO_QQ, StringHelper.formatYuyinValue((gVar.aEQ - gVar.aEM) + 1) + "");
                     spannableStringBuilder.append((CharSequence) format2);
                     spannableStringBuilder.setSpan(new ForegroundColorSpan(Color.parseColor("#FD1E65")), Constants.VIA_REPORT_TYPE_SHARE_TO_QQ.length() + 4, format2.length(), 34);
                     this.idJ.setVisibility(0);
@@ -116,14 +116,14 @@ public class a {
                 }
             }
             if (!StringUtils.isNull(gVar.cover)) {
-                this.oDx.startLoad(gVar.cover, 12, false);
+                this.oDy.startLoad(gVar.cover, 12, false);
             }
             if (!StringUtils.isNull(gVar.getNameShow())) {
                 String nameShow = gVar.getNameShow();
                 int textLengthWithEmoji = TextHelper.getTextLengthWithEmoji(gVar.getNameShow());
                 i = (this.idI == null || StringUtils.isNull(this.idI.getText().toString().trim())) ? 16 : 16;
                 if (textLengthWithEmoji > i) {
-                    nameShow = String.format(this.ofc.getString(a.h.yuyin_ala_rank_list_bottom_user_name_limit), TextHelper.subStringWithEmoji(gVar.getNameShow(), i));
+                    nameShow = String.format(this.ofd.getString(a.h.yuyin_ala_rank_list_bottom_user_name_limit), TextHelper.subStringWithEmoji(gVar.getNameShow(), i));
                 }
                 this.hXC.setText(nameShow);
             }

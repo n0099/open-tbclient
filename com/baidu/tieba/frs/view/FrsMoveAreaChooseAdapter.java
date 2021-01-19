@@ -85,10 +85,10 @@ public class FrsMoveAreaChooseAdapter extends RecyclerView.Adapter<a> implements
             if (this.jJH.get(intValue) != null) {
                 if (this.jJE != null && this.jJE.getContext() != null && this.jJE.getParent() != null) {
                     if (intValue == this.gcz) {
-                        new BdTopToast(this.jJE.getContext()).yS(false).TP(TbadkCoreApplication.getInst().getString(R.string.frs_move_area_move_cur_tip)).aR((ViewGroup) this.jJE.getParent());
+                        new BdTopToast(this.jJE.getContext()).yS(false).TQ(TbadkCoreApplication.getInst().getString(R.string.frs_move_area_move_cur_tip)).aR((ViewGroup) this.jJE.getParent());
                         return;
                     } else {
-                        new BdTopToast(this.jJE.getContext()).yS(false).TP(TbadkCoreApplication.getInst().getString(R.string.frs_move_area_move_no_tip)).aR((ViewGroup) this.jJE.getParent());
+                        new BdTopToast(this.jJE.getContext()).yS(false).TQ(TbadkCoreApplication.getInst().getString(R.string.frs_move_area_move_no_tip)).aR((ViewGroup) this.jJE.getParent());
                         return;
                     }
                 }

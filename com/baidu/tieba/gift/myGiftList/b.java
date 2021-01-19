@@ -60,7 +60,7 @@ public class b extends BaseAdapter {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: Ba */
+    /* renamed from: AZ */
     public a.C0740a getItem(int i) {
         if (this.jOO) {
             return null;

@@ -8,7 +8,7 @@ import java.util.UUID;
 /* loaded from: classes4.dex */
 public class ce {
     private static long f;
-    private static a pdg;
+    private static a pdh;
 
     /* renamed from: a  reason: collision with root package name */
     String f5820a;
@@ -19,28 +19,28 @@ public class ce {
     private long k;
     private int l;
     private String m;
-    private final m pcS;
-    private final cn pcT;
-    private aj pdd;
+    private final m pcT;
+    private final cn pcU;
     private aj pde;
-    private ah pdf;
+    private aj pdf;
+    private ah pdg;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ce(m mVar, cn cnVar) {
-        this.pcS = mVar;
-        this.pcT = cnVar;
+        this.pcT = mVar;
+        this.pcU = cnVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public synchronized ah elE() {
-        return this.pdf;
+        return this.pdg;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public synchronized Bundle L(long j, long j2) {
         Bundle bundle;
         bundle = null;
-        if (this.pcT.f() && c() && j - this.g > j2) {
+        if (this.pcU.f() && c() && j - this.g > j2) {
             bundle = new Bundle();
             bundle.putInt("session_no", this.l);
             int i = this.h + 1;
@@ -65,7 +65,7 @@ public class ce {
     private synchronized void a(ac acVar, ArrayList<ac> arrayList, boolean z) {
         long j = acVar instanceof a ? -1L : acVar.f5774a;
         this.f5820a = UUID.randomUUID().toString();
-        f = this.pcT.elR();
+        f = this.pcU.elR();
         this.i = j;
         this.j = z;
         this.k = 0L;
@@ -76,8 +76,8 @@ public class ce {
             Calendar calendar = Calendar.getInstance();
             String str = "" + calendar.get(1) + calendar.get(2) + calendar.get(5);
             if (TextUtils.isEmpty(this.m)) {
-                this.m = this.pcT.c();
-                this.l = this.pcT.d();
+                this.m = this.pcU.c();
+                this.l = this.pcU.d();
             }
             if (!str.equals(this.m)) {
                 this.m = str;
@@ -85,22 +85,22 @@ public class ce {
             } else {
                 this.l++;
             }
-            this.pcT.a(str, this.l);
+            this.pcU.a(str, this.l);
             this.h = 0;
         }
         if (j != -1) {
             ah ahVar = new ah();
             ahVar.c = this.f5820a;
-            ahVar.f5775b = a(this.pcT);
+            ahVar.f5775b = a(this.pcU);
             ahVar.f5774a = this.i;
-            ahVar.i = this.pcS.d();
-            ahVar.h = this.pcS.c();
-            if (this.pcT.v()) {
+            ahVar.i = this.pcT.d();
+            ahVar.h = this.pcT.c();
+            if (this.pcU.v()) {
                 ahVar.e = b.ekW();
                 ahVar.f = b.ekU();
             }
             arrayList.add(ahVar);
-            this.pdf = ahVar;
+            this.pdg = ahVar;
             if (au.f5786b) {
                 au.a("gen launch, " + ahVar.c + ", hadUi:" + z, null);
             }
@@ -125,7 +125,7 @@ public class ce {
         } else if (!this.j && b2) {
             a(acVar, arrayList, true);
             z = true;
-        } else if (this.k != 0 && acVar.f5774a > this.k + this.pcT.elP()) {
+        } else if (this.k != 0 && acVar.f5774a > this.k + this.pcU.elP()) {
             a(acVar, arrayList, b2);
             z = true;
         } else if (this.i > acVar.f5774a + 7200000) {
@@ -141,10 +141,10 @@ public class ce {
                 this.k = 0L;
                 arrayList.add(acVar);
                 if (TextUtils.isEmpty(ajVar.i)) {
-                    if (this.pde != null && (ajVar.f5774a - this.pde.f5774a) - this.pde.h < 500) {
+                    if (this.pdf != null && (ajVar.f5774a - this.pdf.f5774a) - this.pdf.h < 500) {
+                        ajVar.i = this.pdf.j;
+                    } else if (this.pde != null && (ajVar.f5774a - this.pde.f5774a) - this.pde.h < 500) {
                         ajVar.i = this.pde.j;
-                    } else if (this.pdd != null && (ajVar.f5774a - this.pdd.f5774a) - this.pdd.h < 500) {
-                        ajVar.i = this.pdd.j;
                     }
                 }
             } else {
@@ -156,10 +156,10 @@ public class ce {
                 this.k = ajVar.f5774a;
                 arrayList.add(acVar);
                 if (ajVar.j()) {
-                    this.pdd = ajVar;
-                } else {
                     this.pde = ajVar;
-                    this.pdd = null;
+                } else {
+                    this.pdf = ajVar;
+                    this.pde = null;
                 }
             }
         } else if (!(acVar instanceof a)) {
@@ -171,10 +171,10 @@ public class ce {
 
     public void c(ac acVar) {
         if (acVar != null) {
-            acVar.d = this.pcS.f();
+            acVar.d = this.pcT.f();
             acVar.c = this.f5820a;
-            acVar.f5775b = a(this.pcT);
-            if (this.pcT.v()) {
+            acVar.f5775b = a(this.pcU);
+            if (this.pcU.v()) {
                 acVar.e = b.ekW();
                 acVar.f = b.ekU();
             }
@@ -198,10 +198,10 @@ public class ce {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static a elF() {
-        if (pdg == null) {
-            pdg = new a();
+        if (pdh == null) {
+            pdh = new a();
         }
-        pdg.f5774a = System.currentTimeMillis();
-        return pdg;
+        pdh.f5774a = System.currentTimeMillis();
+        return pdh;
     }
 }

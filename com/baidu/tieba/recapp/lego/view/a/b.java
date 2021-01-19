@@ -321,7 +321,7 @@ public class b extends a implements j {
                 @Override // com.baidu.tieba.ad.download.mvp.b.a
                 public boolean ci(View view) {
                     com.baidu.tieba.lego.card.a.c.a(com.baidu.tieba.lego.card.a.c.c(b.this.kLE));
-                    if (b.this.mContext != null && s.Qq(b.this.mKu.getScheme()) && s.isInstalledPackage(b.this.mContext, b.this.kLE.eJl)) {
+                    if (b.this.mContext != null && s.Qr(b.this.mKu.getScheme()) && s.isInstalledPackage(b.this.mContext, b.this.kLE.eJl)) {
                         s.x(b.this.mContext, b.this.mKu.getScheme(), b.this.kLE.eJl);
                         return true;
                     }

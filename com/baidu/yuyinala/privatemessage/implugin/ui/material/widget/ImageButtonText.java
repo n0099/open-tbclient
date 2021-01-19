@@ -16,9 +16,9 @@ public class ImageButtonText extends ImageButton {
     private int mColor;
     Paint mPaint;
     private String mText;
-    private boolean oUd;
-    private a oUe;
-    private float oUf;
+    private boolean oUe;
+    private a oUf;
+    private float oUg;
 
     /* loaded from: classes10.dex */
     private class a {
@@ -41,35 +41,35 @@ public class ImageButtonText extends ImageButton {
 
     public ImageButtonText(Context context) {
         super(context);
-        this.oUd = false;
+        this.oUe = false;
         this.mText = "";
         this.mColor = 0;
-        this.oUf = 0.0f;
+        this.oUg = 0.0f;
         this.mPaint = new Paint();
         this.mBounds = new Rect();
-        this.oUe = new a();
+        this.oUf = new a();
     }
 
     public ImageButtonText(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.oUd = false;
+        this.oUe = false;
         this.mText = "";
         this.mColor = 0;
-        this.oUf = 0.0f;
+        this.oUg = 0.0f;
         this.mPaint = new Paint();
         this.mBounds = new Rect();
-        this.oUe = new a();
+        this.oUf = new a();
     }
 
     public ImageButtonText(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.oUd = false;
+        this.oUe = false;
         this.mText = "";
         this.mColor = 0;
-        this.oUf = 0.0f;
+        this.oUg = 0.0f;
         this.mPaint = new Paint();
         this.mBounds = new Rect();
-        this.oUe = new a();
+        this.oUf = new a();
     }
 
     public void setText(String str) {
@@ -86,36 +86,36 @@ public class ImageButtonText extends ImageButton {
     }
 
     public void setTextSize(float f) {
-        this.oUf = f;
+        this.oUg = f;
     }
 
     @Override // android.widget.ImageView, android.view.View
     protected void onDraw(Canvas canvas) {
         int intrinsicWidth;
         super.onDraw(canvas);
-        if (this.oUd) {
-            float width = (getWidth() - this.oUe.ftw) - this.oUe.radius;
-            float f = this.oUe.Yl + this.oUe.radius;
+        if (this.oUe) {
+            float width = (getWidth() - this.oUf.ftw) - this.oUf.radius;
+            float f = this.oUf.Yl + this.oUf.radius;
             Drawable drawable = getDrawable();
             if (drawable != null && (intrinsicWidth = drawable.getIntrinsicWidth()) > 0) {
-                width = (getWidth() / 2) + (intrinsicWidth / 2) + this.oUe.radius;
+                width = (getWidth() / 2) + (intrinsicWidth / 2) + this.oUf.radius;
             }
             int color = this.mPaint.getColor();
-            this.mPaint.setColor(this.oUe.color);
+            this.mPaint.setColor(this.oUf.color);
             this.mPaint.setStyle(Paint.Style.FILL);
-            canvas.drawCircle(width, f, this.oUe.radius, this.mPaint);
+            canvas.drawCircle(width, f, this.oUf.radius, this.mPaint);
             this.mPaint.setColor(color);
         }
         this.mPaint.setTextAlign(Paint.Align.CENTER);
         this.mPaint.setColor(this.mColor);
-        this.mPaint.setTextSize(this.oUf);
+        this.mPaint.setTextSize(this.oUg);
         this.mPaint.setTypeface(Typeface.DEFAULT_BOLD);
         this.mPaint.getTextBounds(this.mText, 0, this.mText.length(), this.mBounds);
         canvas.drawText(this.mText, getWidth() / 2.0f, ((this.mBounds.height() / 2.0f) + (getHeight() / 2.0f)) - 2.0f, this.mPaint);
     }
 
     public void setTipOn(boolean z) {
-        this.oUd = z;
+        this.oUe = z;
         invalidate();
     }
 }

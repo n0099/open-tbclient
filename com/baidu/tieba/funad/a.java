@@ -1,13 +1,13 @@
 package com.baidu.tieba.funad;
 
 import android.app.Activity;
+import com.baidu.adp.widget.ListView.n;
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationConstants;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.data.bz;
 import com.baidu.tbadk.core.util.aq;
 import com.baidu.tbadk.core.util.x;
 import com.baidu.tieba.h.a;
-import com.baidu.tieba.tbadkCore.data.n;
 import java.util.Iterator;
 import java.util.List;
 import tbclient.FrsTabInfo;
@@ -35,36 +35,31 @@ public class a {
             if (x.isEmpty(KD) || KD.size() < 3) {
                 com.baidu.tieba.h.a.cLv().b(activity, "6051001535-87847998", new a.d() { // from class: com.baidu.tieba.funad.a.1
                     @Override // com.baidu.tieba.h.a.d
-                    public void a(String str, n nVar) {
-                        a.AR(0);
+                    public void bb(String str, int i) {
+                        aq.AM("c14005").an("obj_source", 6).dW("obj_type", PageStayDurationConstants.PageName.FRS).an("obj_locate", 0).an("resource_id", i).bsu();
                     }
 
                     @Override // com.baidu.tieba.h.a.d
                     public void onError(String str) {
-                        a.AR(1);
+                        aq.AM("c14005").an("obj_source", 6).dW("obj_type", PageStayDurationConstants.PageName.FRS).an("obj_locate", 1).an("resource_id", 0).bsu();
                     }
                 });
             }
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public static void AR(int i) {
-        aq.AM("c14005").an("obj_source", 6).dW("obj_type", PageStayDurationConstants.PageName.FRS).an("obj_locate", i).bsu();
-    }
-
-    public void q(List<com.baidu.adp.widget.ListView.n> list, boolean z) {
+    public void q(List<n> list, boolean z) {
         int i;
         int cLx = com.baidu.tieba.h.a.cLv().cLx();
         if (z) {
             int cLw = com.baidu.tieba.h.a.cLv().cLw() - 1;
-            Iterator<com.baidu.adp.widget.ListView.n> it = list.iterator();
+            Iterator<n> it = list.iterator();
             while (true) {
                 i = cLw;
                 if (!it.hasNext()) {
                     break;
                 }
-                com.baidu.adp.widget.ListView.n next = it.next();
+                n next = it.next();
                 if (!(next instanceof bz)) {
                     cLw = i;
                 } else if (((bz) next).bns() != 1) {
@@ -79,13 +74,13 @@ public class a {
         this.jLU = a(i, cLx, list);
     }
 
-    private int a(int i, int i2, List<com.baidu.adp.widget.ListView.n> list) {
+    private int a(int i, int i2, List<n> list) {
         if (list == null || list.size() == 0 || i > list.size() - 1) {
             return 0;
         }
         for (int i3 = 0; i3 < list.size(); i3++) {
             bz bzVar = new bz();
-            n nVar = new n(null);
+            com.baidu.tieba.tbadkCore.data.n nVar = new com.baidu.tieba.tbadkCore.data.n(null);
             nVar.xX(true);
             bzVar.eRU = nVar;
             list.add(i, bzVar);

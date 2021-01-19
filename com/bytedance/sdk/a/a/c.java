@@ -14,7 +14,7 @@ public final class c implements d, e, Cloneable, ByteChannel {
 
     /* renamed from: b  reason: collision with root package name */
     long f5840b;
-    o pdo;
+    o pdp;
 
     public final long b() {
         return this.f5840b;
@@ -82,24 +82,24 @@ public final class c implements d, e, Cloneable, ByteChannel {
         u.a(this.f5840b, j, j2);
         if (j2 != 0) {
             cVar.f5840b += j2;
-            o oVar = this.pdo;
+            o oVar = this.pdp;
             while (j >= oVar.c - oVar.f5849b) {
                 j -= oVar.c - oVar.f5849b;
-                oVar = oVar.pdA;
+                oVar = oVar.pdB;
             }
             while (j2 > 0) {
                 o emm = oVar.emm();
                 emm.f5849b = (int) (emm.f5849b + j);
                 emm.c = Math.min(emm.f5849b + ((int) j2), emm.c);
-                if (cVar.pdo == null) {
+                if (cVar.pdp == null) {
+                    emm.pdC = emm;
                     emm.pdB = emm;
-                    emm.pdA = emm;
-                    cVar.pdo = emm;
+                    cVar.pdp = emm;
                 } else {
-                    cVar.pdo.pdB.a(emm);
+                    cVar.pdp.pdC.a(emm);
                 }
                 j2 -= emm.c - emm.f5849b;
-                oVar = oVar.pdA;
+                oVar = oVar.pdB;
                 j = 0;
             }
         }
@@ -111,7 +111,7 @@ public final class c implements d, e, Cloneable, ByteChannel {
         if (j == 0) {
             return 0L;
         }
-        o oVar = this.pdo.pdB;
+        o oVar = this.pdp.pdC;
         if (oVar.c < 8192 && oVar.e) {
             return j - (oVar.c - oVar.f5849b);
         }
@@ -123,14 +123,14 @@ public final class c implements d, e, Cloneable, ByteChannel {
         if (this.f5840b == 0) {
             throw new IllegalStateException("size == 0");
         }
-        o oVar = this.pdo;
+        o oVar = this.pdp;
         int i = oVar.f5849b;
         int i2 = oVar.c;
         int i3 = i + 1;
         byte b2 = oVar.f5848a[i];
         this.f5840b--;
         if (i3 == i2) {
-            this.pdo = oVar.emn();
+            this.pdp = oVar.emn();
             p.b(oVar);
         } else {
             oVar.f5849b = i3;
@@ -141,24 +141,24 @@ public final class c implements d, e, Cloneable, ByteChannel {
     public final byte ie(long j) {
         u.a(this.f5840b, j, 1L);
         if (this.f5840b - j > j) {
-            o oVar = this.pdo;
+            o oVar = this.pdp;
             while (true) {
                 int i = oVar.c - oVar.f5849b;
                 if (j < i) {
                     return oVar.f5848a[oVar.f5849b + ((int) j)];
                 }
                 j -= i;
-                oVar = oVar.pdA;
+                oVar = oVar.pdB;
             }
         } else {
             long j2 = j - this.f5840b;
-            o oVar2 = this.pdo.pdB;
+            o oVar2 = this.pdp.pdC;
             while (true) {
                 j2 += oVar2.c - oVar2.f5849b;
                 if (j2 >= 0) {
                     return oVar2.f5848a[oVar2.f5849b + ((int) j2)];
                 }
-                oVar2 = oVar2.pdB;
+                oVar2 = oVar2.pdC;
             }
         }
     }
@@ -168,7 +168,7 @@ public final class c implements d, e, Cloneable, ByteChannel {
         if (this.f5840b < 2) {
             throw new IllegalStateException("size < 2: " + this.f5840b);
         }
-        o oVar = this.pdo;
+        o oVar = this.pdp;
         int i = oVar.f5849b;
         int i2 = oVar.c;
         if (i2 - i < 2) {
@@ -180,7 +180,7 @@ public final class c implements d, e, Cloneable, ByteChannel {
         int i5 = ((bArr[i] & 255) << 8) | (bArr[i3] & 255);
         this.f5840b -= 2;
         if (i4 == i2) {
-            this.pdo = oVar.emn();
+            this.pdp = oVar.emn();
             p.b(oVar);
         } else {
             oVar.f5849b = i4;
@@ -193,7 +193,7 @@ public final class c implements d, e, Cloneable, ByteChannel {
         if (this.f5840b < 4) {
             throw new IllegalStateException("size < 4: " + this.f5840b);
         }
-        o oVar = this.pdo;
+        o oVar = this.pdp;
         int i = oVar.f5849b;
         int i2 = oVar.c;
         if (i2 - i < 4) {
@@ -209,7 +209,7 @@ public final class c implements d, e, Cloneable, ByteChannel {
         int i9 = i7 | (bArr[i6] & 255);
         this.f5840b -= 4;
         if (i8 == i2) {
-            this.pdo = oVar.emn();
+            this.pdp = oVar.emn();
             p.b(oVar);
             return i9;
         }
@@ -246,7 +246,7 @@ public final class c implements d, e, Cloneable, ByteChannel {
             int i2 = 0;
             long j = 0;
             while (true) {
-                o oVar = this.pdo;
+                o oVar = this.pdp;
                 byte[] bArr = oVar.f5848a;
                 int i3 = oVar.c;
                 int i4 = i2;
@@ -263,12 +263,12 @@ public final class c implements d, e, Cloneable, ByteChannel {
                     } else {
                         z = true;
                         if (i5 != i3) {
-                            this.pdo = oVar.emn();
+                            this.pdp = oVar.emn();
                             p.b(oVar);
                         } else {
                             oVar.f5849b = i5;
                         }
-                        if (!!z || this.pdo == null) {
+                        if (!!z || this.pdp == null) {
                             break;
                         }
                         i2 = i4;
@@ -332,7 +332,7 @@ public final class c implements d, e, Cloneable, ByteChannel {
         if (j == 0) {
             return "";
         }
-        o oVar = this.pdo;
+        o oVar = this.pdp;
         if (oVar.f5849b + j > oVar.c) {
             return new String(ih(j), charset);
         }
@@ -340,7 +340,7 @@ public final class c implements d, e, Cloneable, ByteChannel {
         oVar.f5849b = (int) (oVar.f5849b + j);
         this.f5840b -= j;
         if (oVar.f5849b == oVar.c) {
-            this.pdo = oVar.emn();
+            this.pdp = oVar.emn();
             p.b(oVar);
             return str;
         }
@@ -415,7 +415,7 @@ public final class c implements d, e, Cloneable, ByteChannel {
 
     public int a(byte[] bArr, int i, int i2) {
         u.a(bArr.length, i, i2);
-        o oVar = this.pdo;
+        o oVar = this.pdp;
         if (oVar == null) {
             return -1;
         }
@@ -424,7 +424,7 @@ public final class c implements d, e, Cloneable, ByteChannel {
         oVar.f5849b += min;
         this.f5840b -= min;
         if (oVar.f5849b == oVar.c) {
-            this.pdo = oVar.emn();
+            this.pdp = oVar.emn();
             p.b(oVar);
             return min;
         }
@@ -433,7 +433,7 @@ public final class c implements d, e, Cloneable, ByteChannel {
 
     @Override // java.nio.channels.ReadableByteChannel
     public int read(ByteBuffer byteBuffer) throws IOException {
-        o oVar = this.pdo;
+        o oVar = this.pdp;
         if (oVar == null) {
             return -1;
         }
@@ -442,7 +442,7 @@ public final class c implements d, e, Cloneable, ByteChannel {
         oVar.f5849b += min;
         this.f5840b -= min;
         if (oVar.f5849b == oVar.c) {
-            this.pdo = oVar.emn();
+            this.pdp = oVar.emn();
             p.b(oVar);
             return min;
         }
@@ -460,17 +460,17 @@ public final class c implements d, e, Cloneable, ByteChannel {
     @Override // com.bytedance.sdk.a.a.e
     public void h(long j) throws EOFException {
         while (j > 0) {
-            if (this.pdo == null) {
+            if (this.pdp == null) {
                 throw new EOFException();
             }
-            int min = (int) Math.min(j, this.pdo.c - this.pdo.f5849b);
+            int min = (int) Math.min(j, this.pdp.c - this.pdp.f5849b);
             this.f5840b -= min;
             j -= min;
-            o oVar = this.pdo;
+            o oVar = this.pdp;
             oVar.f5849b = min + oVar.f5849b;
-            if (this.pdo.f5849b == this.pdo.c) {
-                o oVar2 = this.pdo;
-                this.pdo = oVar2.emn();
+            if (this.pdp.f5849b == this.pdp.c) {
+                o oVar2 = this.pdp;
+                this.pdp = oVar2.emn();
                 p.b(oVar2);
             }
         }
@@ -486,8 +486,8 @@ public final class c implements d, e, Cloneable, ByteChannel {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.bytedance.sdk.a.a.d
-    /* renamed from: Xx */
-    public c Xy(String str) {
+    /* renamed from: Xy */
+    public c Xz(String str) {
         return B(str, 0, str.length());
     }
 
@@ -727,7 +727,7 @@ public final class c implements d, e, Cloneable, ByteChannel {
         } else {
             j2 = -j;
             if (j2 < 0) {
-                return Xy("-9223372036854775808");
+                return Xz("-9223372036854775808");
             }
             z = true;
         }
@@ -784,16 +784,16 @@ public final class c implements d, e, Cloneable, ByteChannel {
         if (i < 1 || i > 8192) {
             throw new IllegalArgumentException();
         }
-        if (this.pdo == null) {
-            this.pdo = p.emm();
-            o oVar = this.pdo;
-            o oVar2 = this.pdo;
-            o oVar3 = this.pdo;
-            oVar2.pdB = oVar3;
-            oVar.pdA = oVar3;
+        if (this.pdp == null) {
+            this.pdp = p.emm();
+            o oVar = this.pdp;
+            o oVar2 = this.pdp;
+            o oVar3 = this.pdp;
+            oVar2.pdC = oVar3;
+            oVar.pdB = oVar3;
             return oVar3;
         }
-        o oVar4 = this.pdo.pdB;
+        o oVar4 = this.pdp.pdC;
         if (oVar4.c + i > 8192 || !oVar4.e) {
             return oVar4.a(p.emm());
         }
@@ -810,30 +810,30 @@ public final class c implements d, e, Cloneable, ByteChannel {
         }
         u.a(cVar.f5840b, 0L, j);
         while (j > 0) {
-            if (j < cVar.pdo.c - cVar.pdo.f5849b) {
-                o oVar = this.pdo != null ? this.pdo.pdB : null;
+            if (j < cVar.pdp.c - cVar.pdp.f5849b) {
+                o oVar = this.pdp != null ? this.pdp.pdC : null;
                 if (oVar != null && oVar.e) {
                     if ((oVar.c + j) - (oVar.d ? 0 : oVar.f5849b) <= 8192) {
-                        cVar.pdo.a(oVar, (int) j);
+                        cVar.pdp.a(oVar, (int) j);
                         cVar.f5840b -= j;
                         this.f5840b += j;
                         return;
                     }
                 }
-                cVar.pdo = cVar.pdo.Og((int) j);
+                cVar.pdp = cVar.pdp.Og((int) j);
             }
-            o oVar2 = cVar.pdo;
+            o oVar2 = cVar.pdp;
             long j2 = oVar2.c - oVar2.f5849b;
-            cVar.pdo = oVar2.emn();
-            if (this.pdo == null) {
-                this.pdo = oVar2;
-                o oVar3 = this.pdo;
-                o oVar4 = this.pdo;
-                o oVar5 = this.pdo;
-                oVar4.pdB = oVar5;
-                oVar3.pdA = oVar5;
+            cVar.pdp = oVar2.emn();
+            if (this.pdp == null) {
+                this.pdp = oVar2;
+                o oVar3 = this.pdp;
+                o oVar4 = this.pdp;
+                o oVar5 = this.pdp;
+                oVar4.pdC = oVar5;
+                oVar3.pdB = oVar5;
             } else {
-                this.pdo.pdB.a(oVar2).c();
+                this.pdp.pdC.a(oVar2).c();
             }
             cVar.f5840b -= j2;
             this.f5840b += j2;
@@ -874,14 +874,14 @@ public final class c implements d, e, Cloneable, ByteChannel {
         if (j2 > this.f5840b) {
             j2 = this.f5840b;
         }
-        if (j == j2 || (oVar = this.pdo) == null) {
+        if (j == j2 || (oVar = this.pdp) == null) {
             return -1L;
         }
         if (this.f5840b - j < j) {
             j3 = this.f5840b;
             oVar2 = oVar;
             while (j3 > j) {
-                oVar2 = oVar2.pdB;
+                oVar2 = oVar2.pdC;
                 j3 -= oVar2.c - oVar2.f5849b;
             }
         } else {
@@ -892,7 +892,7 @@ public final class c implements d, e, Cloneable, ByteChannel {
                 if (j4 >= j) {
                     break;
                 }
-                oVar2 = oVar2.pdA;
+                oVar2 = oVar2.pdB;
                 j3 = j4;
             }
         }
@@ -906,7 +906,7 @@ public final class c implements d, e, Cloneable, ByteChannel {
                 }
             }
             long j6 = (oVar2.c - oVar2.f5849b) + j5;
-            oVar2 = oVar2.pdA;
+            oVar2 = oVar2.pdB;
             j5 = j6;
             j = j6;
         }
@@ -945,7 +945,7 @@ public final class c implements d, e, Cloneable, ByteChannel {
 
     @Override // com.bytedance.sdk.a.a.r
     public t elW() {
-        return t.pdC;
+        return t.pdD;
     }
 
     public boolean equals(Object obj) {
@@ -961,8 +961,8 @@ public final class c implements d, e, Cloneable, ByteChannel {
             if (this.f5840b == 0) {
                 return true;
             }
-            o oVar = this.pdo;
-            o oVar2 = cVar.pdo;
+            o oVar = this.pdp;
+            o oVar2 = cVar.pdp;
             int i = oVar.f5849b;
             int i2 = oVar2.f5849b;
             while (j < this.f5840b) {
@@ -979,11 +979,11 @@ public final class c implements d, e, Cloneable, ByteChannel {
                     i = i4;
                 }
                 if (i == oVar.c) {
-                    oVar = oVar.pdA;
+                    oVar = oVar.pdB;
                     i = oVar.f5849b;
                 }
                 if (i2 == oVar2.c) {
-                    oVar2 = oVar2.pdA;
+                    oVar2 = oVar2.pdB;
                     i2 = oVar2.f5849b;
                 }
                 j += min;
@@ -994,7 +994,7 @@ public final class c implements d, e, Cloneable, ByteChannel {
     }
 
     public int hashCode() {
-        o oVar = this.pdo;
+        o oVar = this.pdp;
         if (oVar == null) {
             return 0;
         }
@@ -1004,8 +1004,8 @@ public final class c implements d, e, Cloneable, ByteChannel {
             for (int i3 = oVar.f5849b; i3 < i2; i3++) {
                 i = (i * 31) + oVar.f5848a[i3];
             }
-            oVar = oVar.pdA;
-        } while (oVar != this.pdo);
+            oVar = oVar.pdB;
+        } while (oVar != this.pdp);
         return i;
     }
 
@@ -1020,14 +1020,14 @@ public final class c implements d, e, Cloneable, ByteChannel {
         if (this.f5840b == 0) {
             return cVar;
         }
-        cVar.pdo = this.pdo.emm();
-        o oVar = cVar.pdo;
-        o oVar2 = cVar.pdo;
-        o oVar3 = cVar.pdo;
-        oVar2.pdB = oVar3;
-        oVar.pdA = oVar3;
-        for (o oVar4 = this.pdo.pdA; oVar4 != this.pdo; oVar4 = oVar4.pdA) {
-            cVar.pdo.pdB.a(oVar4.emm());
+        cVar.pdp = this.pdp.emm();
+        o oVar = cVar.pdp;
+        o oVar2 = cVar.pdp;
+        o oVar3 = cVar.pdp;
+        oVar2.pdC = oVar3;
+        oVar.pdB = oVar3;
+        for (o oVar4 = this.pdp.pdB; oVar4 != this.pdp; oVar4 = oVar4.pdB) {
+            cVar.pdp.pdC.a(oVar4.emm());
         }
         cVar.f5840b = this.f5840b;
         return cVar;

@@ -21,8 +21,8 @@ public class a {
     private long mEndTime;
     private long mInterval;
     private long mStartTime;
-    private long nMb;
-    private ai nMc;
+    private long nMc;
+    private ai nMd;
 
     public a() {
         init();
@@ -30,7 +30,7 @@ public class a {
 
     private void init() {
         aiO();
-        this.nMb = com.baidu.tbadk.core.sharedPref.b.brx().getLong(SharedPrefConfig.KEY_VIDEO_SPLASH_LAST_SHOW_TIME, 0L);
+        this.nMc = com.baidu.tbadk.core.sharedPref.b.brx().getLong(SharedPrefConfig.KEY_VIDEO_SPLASH_LAST_SHOW_TIME, 0L);
         MessageManager.getInstance().registerListener(this.eHt);
     }
 
@@ -47,22 +47,22 @@ public class a {
     }
 
     private boolean t(Date date) {
-        return date != null && date.getTime() - this.nMb >= this.mInterval;
+        return date != null && date.getTime() - this.nMc >= this.mInterval;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void aiO() {
-        if (this.nMc == null) {
-            this.nMc = new ai();
+        if (this.nMd == null) {
+            this.nMd = new ai();
         }
-        this.nMc.parseJson(com.baidu.tbadk.core.sharedPref.b.brx().getString(SharedPrefConfig.KEY_VIDEO_SPLASH_CONFIG, ""));
-        this.mStartTime = this.nMc.bwp();
-        this.mEndTime = this.nMc.bwq();
-        this.mInterval = this.nMc.bwr();
+        this.nMd.parseJson(com.baidu.tbadk.core.sharedPref.b.brx().getString(SharedPrefConfig.KEY_VIDEO_SPLASH_CONFIG, ""));
+        this.mStartTime = this.nMd.bwp();
+        this.mEndTime = this.nMd.bwq();
+        this.mInterval = this.nMd.bwr();
     }
 
     public void hF(long j) {
-        this.nMb = j;
+        this.nMc = j;
         com.baidu.tbadk.core.sharedPref.b.brx().putLong(SharedPrefConfig.KEY_VIDEO_SPLASH_LAST_SHOW_TIME, j);
     }
 }

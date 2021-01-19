@@ -93,8 +93,8 @@ public class GiftTabActivity extends BaseActivity<GiftTabActivity> {
     };
     private GiftTabView.f jNE = new GiftTabView.f() { // from class: com.baidu.tieba.gift.giftTab.GiftTabActivity.7
         @Override // com.baidu.tieba.gift.giftTab.GiftTabView.f
-        public void AW(int i) {
-            GiftTabActivity.this.jNw.AY(i);
+        public void AV(int i) {
+            GiftTabActivity.this.jNw.AX(i);
             GiftTabActivity.this.jNv.cLV();
         }
     };
@@ -107,9 +107,9 @@ public class GiftTabActivity extends BaseActivity<GiftTabActivity> {
     };
     private f.a jNG = new f.a() { // from class: com.baidu.tieba.gift.giftTab.GiftTabActivity.9
         @Override // com.baidu.tieba.gift.giftTab.f.a
-        public void AX(int i) {
+        public void AW(int i) {
             GiftTabActivity.this.freeChance = i;
-            GiftTabActivity.this.jNv.AZ(i);
+            GiftTabActivity.this.jNv.AY(i);
             GiftTabActivity.this.jNC = false;
         }
     };
@@ -124,7 +124,7 @@ public class GiftTabActivity extends BaseActivity<GiftTabActivity> {
                 GiftTabActivity.this.jNv.currencyType = i2;
                 GiftTabActivity.this.jNv.urlTitleData = aiVar;
                 GiftTabActivity.this.jNv.a(z, arrayList, arrayList2, arrayList3);
-                GiftTabActivity.this.jNv.KI(str2);
+                GiftTabActivity.this.jNv.KJ(str2);
             }
         }
     };
@@ -224,7 +224,7 @@ public class GiftTabActivity extends BaseActivity<GiftTabActivity> {
     public void onResume() {
         super.onResume();
         if (this.jNC && this.jNw != null) {
-            this.jNw.KH(this.mFrom);
+            this.jNw.KI(this.mFrom);
         }
     }
 
@@ -285,7 +285,7 @@ public class GiftTabActivity extends BaseActivity<GiftTabActivity> {
             public void onAnimationEnd(Animation animation) {
                 GiftTabActivity.this.jNv.jMF.setVisibility(0);
                 GiftTabActivity.this.jNw.J(GiftTabActivity.this.mFrom, GiftTabActivity.this.mToUserId);
-                GiftTabActivity.this.jNw.KH(GiftTabActivity.this.mFrom);
+                GiftTabActivity.this.jNw.KI(GiftTabActivity.this.mFrom);
                 GiftTabActivity.this.jNv.cLV();
             }
         });

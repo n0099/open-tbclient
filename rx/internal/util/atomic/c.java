@@ -33,7 +33,7 @@ public final class c<E> extends a<E> {
         if (e == null) {
             throw new NullPointerException("Null is not a valid element");
         }
-        AtomicReferenceArray<E> atomicReferenceArray = this.qth;
+        AtomicReferenceArray<E> atomicReferenceArray = this.qti;
         int i = this.mask;
         long j = this.producerIndex.get();
         int calcElementOffset = calcElementOffset(j, i);
@@ -54,7 +54,7 @@ public final class c<E> extends a<E> {
     public E poll() {
         long j = this.consumerIndex.get();
         int calcElementOffset = calcElementOffset(j);
-        AtomicReferenceArray<E> atomicReferenceArray = this.qth;
+        AtomicReferenceArray<E> atomicReferenceArray = this.qti;
         E b2 = b(atomicReferenceArray, calcElementOffset);
         if (b2 == null) {
             return null;

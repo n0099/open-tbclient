@@ -3,7 +3,7 @@ package com.baidu.tieba.themeCenter;
 import tbclient.ThemeCardPropMain;
 /* loaded from: classes8.dex */
 public class a {
-    public static long nvD = 1350000;
+    public static long nvE = 1350000;
     private String activityUrl;
     private long cardId;
     private int dailyPrevilegeStatus = 0;
@@ -11,9 +11,9 @@ public class a {
     private int freeUserLevel;
     private int inUse;
     private String leJ;
-    private String nvE;
     private String nvF;
-    private int nvG;
+    private String nvG;
+    private int nvH;
     private String title;
 
     public void a(ThemeCardPropMain themeCardPropMain) {
@@ -21,13 +21,13 @@ public class a {
             this.cardId = themeCardPropMain.props_id.longValue();
             this.title = themeCardPropMain.title;
             this.description = themeCardPropMain.description;
-            this.nvE = themeCardPropMain.example_url;
+            this.nvF = themeCardPropMain.example_url;
             this.leJ = themeCardPropMain.permission;
-            this.nvF = themeCardPropMain.props_state_img;
+            this.nvG = themeCardPropMain.props_state_img;
             this.inUse = themeCardPropMain.in_use.intValue();
             this.freeUserLevel = themeCardPropMain.free_user_level.intValue();
             this.activityUrl = themeCardPropMain.activity_url;
-            this.nvG = themeCardPropMain.is_finished.intValue();
+            this.nvH = themeCardPropMain.is_finished.intValue();
         }
     }
 
@@ -56,27 +56,27 @@ public class a {
     }
 
     public String dOD() {
-        return this.nvE;
+        return this.nvF;
     }
 
-    public void ST(String str) {
-        this.nvE = str;
+    public void SU(String str) {
+        this.nvF = str;
     }
 
     public String dOE() {
         return this.leJ;
     }
 
-    public void SU(String str) {
+    public void SV(String str) {
         this.leJ = str;
     }
 
     public String dOF() {
-        return this.nvF;
+        return this.nvG;
     }
 
-    public void SV(String str) {
-        this.nvF = str;
+    public void SW(String str) {
+        this.nvG = str;
     }
 
     public int dOG() {
@@ -100,11 +100,11 @@ public class a {
     }
 
     public int dOH() {
-        return this.nvG;
+        return this.nvH;
     }
 
     public void JK(int i) {
-        this.nvG = i;
+        this.nvH = i;
     }
 
     public void setDailyPrevilegeStatus(int i) {

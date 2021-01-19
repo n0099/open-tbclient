@@ -156,7 +156,7 @@ public class MyGiftListModel extends BdBaseModel<MyGiftListActivity> {
         }
     }
 
-    private void KJ(String str) {
+    private void KK(String str) {
         if (str != null && str.length() > 0 && !str.equals("0") && !str.startsWith(Constants.ACCEPT_TIME_SEPARATOR_SERVER)) {
             if (TbadkApplication.getCurrentAccount() != null && TbadkApplication.getCurrentAccount().equals(str)) {
                 setIsSelf(true);
@@ -172,7 +172,7 @@ public class MyGiftListModel extends BdBaseModel<MyGiftListActivity> {
 
     public void setUid(long j) {
         this.mUid = j;
-        KJ(String.valueOf(this.mUid));
+        KK(String.valueOf(this.mUid));
     }
 
     public void setIsSelf(boolean z) {

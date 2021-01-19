@@ -12,10 +12,10 @@ import java.util.ArrayList;
 public class a extends BaseAdapter {
     private ArrayList<c> goH;
     private String mRoomId;
-    private AlaRankListActivity ofc;
+    private AlaRankListActivity ofd;
 
     public a(AlaRankListActivity alaRankListActivity, String str) {
-        this.ofc = alaRankListActivity;
+        this.ofd = alaRankListActivity;
         this.mRoomId = str;
     }
 
@@ -61,8 +61,8 @@ public class a extends BaseAdapter {
     public View getView(int i, View view, ViewGroup viewGroup) {
         com.baidu.tieba.yuyinala.view.c cVar;
         if (view == null) {
-            view = LayoutInflater.from(this.ofc).inflate(a.g.yuyin_ala_rank_list_item_view, (ViewGroup) null);
-            com.baidu.tieba.yuyinala.view.c cVar2 = new com.baidu.tieba.yuyinala.view.c(this.ofc, view);
+            view = LayoutInflater.from(this.ofd).inflate(a.g.yuyin_ala_rank_list_item_view, (ViewGroup) null);
+            com.baidu.tieba.yuyinala.view.c cVar2 = new com.baidu.tieba.yuyinala.view.c(this.ofd, view);
             view.setTag(cVar2);
             cVar = cVar2;
         } else {

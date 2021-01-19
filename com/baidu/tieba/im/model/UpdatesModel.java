@@ -43,7 +43,7 @@ public class UpdatesModel {
                 /* JADX WARN: Can't rename method to resolve collision */
                 @Override // com.baidu.tbadk.util.ab
                 public Boolean doInBackground() {
-                    return Boolean.valueOf(d.cTv().LW(UpdatesItemData.this.getNotice_id()));
+                    return Boolean.valueOf(d.cTv().LX(UpdatesItemData.this.getNotice_id()));
                 }
             }, lVar);
         }

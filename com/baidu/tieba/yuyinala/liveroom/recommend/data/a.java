@@ -5,8 +5,8 @@ import com.baidu.live.adp.widget.listview.IAdapterData;
 /* loaded from: classes10.dex */
 public class a implements IAdapterData {
     public static BdUniqueId mRo = BdUniqueId.gen();
-    public AlaRecommendLiveData ooj;
     public AlaRecommendLiveData ook;
+    public AlaRecommendLiveData ool;
     public int type;
 
     @Override // com.baidu.live.adp.widget.listview.IAdapterData

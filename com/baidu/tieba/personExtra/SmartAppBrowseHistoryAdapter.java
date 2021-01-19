@@ -29,7 +29,7 @@ public class SmartAppBrowseHistoryAdapter extends RecyclerView.Adapter<HistoryRe
         this.mDataList = list;
     }
 
-    public SmartApp PD(String str) {
+    public SmartApp PE(String str) {
         if (x.isEmpty(this.mDataList)) {
             return null;
         }
@@ -57,9 +57,9 @@ public class SmartAppBrowseHistoryAdapter extends RecyclerView.Adapter<HistoryRe
     }
 
     public void a(SmartApp smartApp) {
-        SmartApp PD = PD(smartApp.id);
-        if (PD != null && this.mDataList != null) {
-            x.add(this.mDataList, 0, PD);
+        SmartApp PE = PE(smartApp.id);
+        if (PE != null && this.mDataList != null) {
+            x.add(this.mDataList, 0, PE);
         }
     }
 

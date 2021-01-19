@@ -15,8 +15,8 @@ import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes8.dex */
 public class BuyTBeanGiftBagView extends LinearLayout {
-    private LinkedList<com.baidu.tieba.tbean.b.a> nsJ;
-    private a nsK;
+    private LinkedList<com.baidu.tieba.tbean.b.a> nsK;
+    private a nsL;
 
     /* loaded from: classes8.dex */
     public interface a {
@@ -25,19 +25,19 @@ public class BuyTBeanGiftBagView extends LinearLayout {
 
     public BuyTBeanGiftBagView(Context context) {
         super(context);
-        this.nsJ = new LinkedList<>();
+        this.nsK = new LinkedList<>();
         init();
     }
 
     public BuyTBeanGiftBagView(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.nsJ = new LinkedList<>();
+        this.nsK = new LinkedList<>();
         init();
     }
 
     public BuyTBeanGiftBagView(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.nsJ = new LinkedList<>();
+        this.nsK = new LinkedList<>();
         init();
     }
 
@@ -46,7 +46,7 @@ public class BuyTBeanGiftBagView extends LinearLayout {
     }
 
     public void setClickListener(a aVar) {
-        this.nsK = aVar;
+        this.nsL = aVar;
     }
 
     private void b(final com.baidu.tieba.tbean.b.a aVar) {
@@ -58,14 +58,14 @@ public class BuyTBeanGiftBagView extends LinearLayout {
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, getContext().getResources().getDimensionPixelSize(R.dimen.tbds182));
             layoutParams.bottomMargin = getContext().getResources().getDimensionPixelSize(R.dimen.tbds20);
             addView(tbImageView, layoutParams);
-            if (aVar.nsG != null && !StringUtils.isNull(aVar.nsG.package_pic)) {
-                tbImageView.startLoad(aVar.nsG.package_pic, 10, false);
+            if (aVar.nsH != null && !StringUtils.isNull(aVar.nsH.package_pic)) {
+                tbImageView.startLoad(aVar.nsH.package_pic, 10, false);
             }
             tbImageView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.tbean.view.BuyTBeanGiftBagView.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    if (BuyTBeanGiftBagView.this.nsK != null) {
-                        BuyTBeanGiftBagView.this.nsK.a(aVar);
+                    if (BuyTBeanGiftBagView.this.nsL != null) {
+                        BuyTBeanGiftBagView.this.nsL.a(aVar);
                     }
                 }
             });
@@ -74,10 +74,10 @@ public class BuyTBeanGiftBagView extends LinearLayout {
 
     public void fU(List<com.baidu.tieba.tbean.b.a> list) {
         if (!x.isEmpty(list)) {
-            this.nsJ.clear();
-            this.nsJ.addAll(list);
+            this.nsK.clear();
+            this.nsK.addAll(list);
             removeAllViews();
-            Iterator<com.baidu.tieba.tbean.b.a> it = this.nsJ.iterator();
+            Iterator<com.baidu.tieba.tbean.b.a> it = this.nsK.iterator();
             while (it.hasNext()) {
                 b(it.next());
             }

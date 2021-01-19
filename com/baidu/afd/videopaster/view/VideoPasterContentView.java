@@ -236,7 +236,7 @@ public class VideoPasterContentView extends FrameLayout {
                     this.abM.resume();
                 }
                 if (this.abL) {
-                    this.mStartPosition = n.dxY().PL(this.pasterData.videoUrl);
+                    this.mStartPosition = n.dxY().PM(this.pasterData.videoUrl);
                     if (this.mStartPosition > 100 && this.abS > this.mStartPosition) {
                         i = this.mStartPosition;
                     }
@@ -374,7 +374,7 @@ public class VideoPasterContentView extends FrameLayout {
         }
         if (this.pasterData != null && this.pasterData.isValid() && !this.pasterData.isEmpty() && this.abL && this.pasterData.rw() == 1) {
             this.abH.setVisibility(0);
-            this.mStartPosition = n.dxY().PL(this.pasterData.videoUrl);
+            this.mStartPosition = n.dxY().PM(this.pasterData.videoUrl);
             if (this.mStartPosition > 100 && this.abS > this.mStartPosition) {
                 i = this.mStartPosition;
             }

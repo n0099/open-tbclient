@@ -14,13 +14,13 @@ class n {
     private String mId;
     private int mOption;
     private long mTime;
-    private String oIU;
+    private String oIV;
 
     public n(String str, String str2, int i) {
         this.mContent = "";
         this.ewz = false;
         this.acr = "";
-        this.oIU = "0";
+        this.oIV = "0";
         this.mId = str;
         this.ewv = str;
         this.eww = -1;
@@ -35,7 +35,7 @@ class n {
         this.mContent = "";
         this.ewz = false;
         this.acr = "";
-        this.oIU = "0";
+        this.oIV = "0";
         this.mId = str;
         this.ewv = str;
         this.eww = -1;
@@ -50,7 +50,7 @@ class n {
         this.mContent = "";
         this.ewz = false;
         this.acr = "";
-        this.oIU = "0";
+        this.oIV = "0";
         this.mId = str2;
         this.ewv = str;
         this.eww = i;
@@ -65,7 +65,7 @@ class n {
         this.mContent = "";
         this.ewz = false;
         this.acr = "";
-        this.oIU = "0";
+        this.oIV = "0";
         this.mId = str2;
         this.ewv = str;
         this.eww = i;
@@ -142,11 +142,11 @@ class n {
         }
     }
 
-    public void Wm(String str) {
-        this.oIU = str;
+    public void Wn(String str) {
+        this.oIV = str;
     }
 
     public String efl() {
-        return this.oIU;
+        return this.oIV;
     }
 }

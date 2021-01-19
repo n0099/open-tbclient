@@ -29,7 +29,7 @@ public final class b {
 
     /* loaded from: classes3.dex */
     public interface a<T> {
-        void WD(String str);
+        void WE(String str);
 
         void a(T t);
     }
@@ -267,7 +267,7 @@ public final class b {
         }
         if (str == null) {
             if (aVar != null) {
-                aVar.WD("-1");
+                aVar.WE("-1");
                 return false;
             }
             return false;
@@ -285,7 +285,7 @@ public final class b {
             return true;
         } else if (jSONObject.getString("status").equals("1")) {
             if (aVar != null) {
-                aVar.WD(jSONObject.optString("status"));
+                aVar.WE(jSONObject.optString("status"));
             }
             com.baidu.ubs.analytics.d.b.I("net status  error ");
             return false;
@@ -296,7 +296,7 @@ public final class b {
                 return false;
             }
             if (aVar != null) {
-                aVar.WD("-1");
+                aVar.WE("-1");
                 return false;
             }
             return false;

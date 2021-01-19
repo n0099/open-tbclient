@@ -11,7 +11,7 @@ public final class e {
         efY().edit().putBoolean(str, true).apply();
     }
 
-    public static boolean WF(String str) {
+    public static boolean WG(String str) {
         return efY().getBoolean(str, false);
     }
 
@@ -23,7 +23,7 @@ public final class e {
         efY().edit().putLong(str, j).apply();
     }
 
-    public static long WG(String str) {
+    public static long WH(String str) {
         return efY().getLong(str, 0L);
     }
 

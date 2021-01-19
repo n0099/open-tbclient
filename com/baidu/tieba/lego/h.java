@@ -189,9 +189,9 @@ public class h {
                 if (i4 >= dataRes.cards.size()) {
                     break;
                 }
-                ICardInfo MN = com.baidu.tieba.lego.card.b.MN(dataRes.cards.get(i4));
-                if (MN != null && MN.isValid()) {
-                    this.mDataList.add(MN);
+                ICardInfo MO = com.baidu.tieba.lego.card.b.MO(dataRes.cards.get(i4));
+                if (MO != null && MO.isValid()) {
+                    this.mDataList.add(MO);
                 }
                 i3 = i4 + 1;
             }

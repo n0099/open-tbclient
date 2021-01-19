@@ -18,12 +18,12 @@ import java.nio.ByteBuffer;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes7.dex */
 public class a extends d {
-    private long nFo;
+    private long nFp;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(String str) {
         super(str);
-        this.nFo = 88200L;
+        this.nFp = 88200L;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:107:0x0200 A[SYNTHETIC] */
@@ -35,7 +35,7 @@ public class a extends d {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public void Tw(String str) {
+    public void Tx(String str) {
         FileOutputStream fileOutputStream;
         FileInputStream fileInputStream;
         int i;
@@ -52,8 +52,8 @@ public class a extends d {
             if (this.channelCount == 0) {
                 this.channelCount = 1;
             }
-            this.nFo = (this.sampleRate * 16) / 8;
-            fileInputStream = new FileInputStream(this.nFt);
+            this.nFp = (this.sampleRate * 16) / 8;
+            fileInputStream = new FileInputStream(this.nFu);
             try {
                 fileOutputStream = new FileOutputStream(str);
                 try {
@@ -101,7 +101,7 @@ public class a extends d {
                                 i3 = i2;
                                 bArr = bArr2;
                                 z3 = z;
-                                j2 = (long) ((1000000.0d * (i5 / 2.0d)) / this.nFo);
+                                j2 = (long) ((1000000.0d * (i5 / 2.0d)) / this.nFp);
                             }
                         }
                         int dequeueOutputBuffer = dRg.dequeueOutputBuffer(bufferInfo, 10000L);

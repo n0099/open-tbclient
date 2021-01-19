@@ -7,7 +7,7 @@ import io.reactivex.p;
 public final class FlowableMaterialize<T> extends a<T, p<T>> {
     @Override // io.reactivex.g
     protected void a(org.a.c<? super p<T>> cVar) {
-        this.qdR.a((j) new MaterializeSubscriber(cVar));
+        this.qdS.a((j) new MaterializeSubscriber(cVar));
     }
 
     /* loaded from: classes5.dex */

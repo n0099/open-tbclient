@@ -42,8 +42,8 @@ public class a extends e {
     private String mPostContent;
     private TextWatcher mTextWatcher;
     private String mThreadId;
-    private InterfaceC0891a nLW;
-    public VideoItemData nLe;
+    private InterfaceC0891a nLX;
+    public VideoItemData nLf;
 
     /* renamed from: com.baidu.tieba.videoplay.editor.a$a  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
@@ -64,12 +64,12 @@ public class a extends e {
                     if (a.this.bAP() != null) {
                         a.this.bAP().hide();
                     }
-                    if (a.this.nLW != null) {
-                        a.this.nLW.yQ(false);
+                    if (a.this.nLX != null) {
+                        a.this.nLX.yQ(false);
                     }
                     WriteData cYx = writeData == null ? a.this.fBs.cYx() : writeData;
                     if (z) {
-                        a.this.khc.TW(null);
+                        a.this.khc.TX(null);
                         a.this.khc.bh(null);
                         a.this.khc.yX(false);
                         a.this.dTt();
@@ -101,16 +101,16 @@ public class a extends e {
                     } else if (postWriteCallBackData != null && postWriteCallBackData.getErrorCode() == 227001) {
                         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AccountAccessActivityConfig(a.this.eSJ.getPageActivity(), RequestResponseCode.REQUEST_VCODE, cYx, postWriteCallBackData.getAccessState())));
                     } else if (postWriteCallBackData != null && postWriteCallBackData.getErrorCode() == 220015) {
-                        a.this.TM(postWriteCallBackData.getErrorString());
+                        a.this.TN(postWriteCallBackData.getErrorString());
                         a.this.khc.bh(postWriteCallBackData.getSensitiveWords());
-                        a.this.khc.TW(postWriteCallBackData.getErrorString());
+                        a.this.khc.TX(postWriteCallBackData.getErrorString());
                         if (!x.isEmpty(a.this.khc.dTZ())) {
                             a.this.sf(true);
                         }
                     } else if (postWriteCallBackData != null && (postWriteCallBackData.getErrorCode() == 230277 || postWriteCallBackData.getErrorCode() == 230278 || postWriteCallBackData.getErrorCode() == 340016 || postWriteCallBackData.getErrorCode() == 1990032 || AntiHelper.Jt(postWriteCallBackData.getErrorCode()))) {
                         a.this.aJ(postWriteCallBackData.getErrorCode(), postWriteCallBackData.getErrorString());
                     } else if (postWriteCallBackData != null) {
-                        a.this.TM(postWriteCallBackData.getErrorString());
+                        a.this.TN(postWriteCallBackData.getErrorString());
                     }
                 }
             }
@@ -164,7 +164,7 @@ public class a extends e {
     }
 
     public void c(VideoItemData videoItemData) {
-        this.nLe = videoItemData;
+        this.nLf = videoItemData;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -174,7 +174,7 @@ public class a extends e {
         } else if (i == 230277 || i == 230278) {
             CL(str);
         } else {
-            TM(str);
+            TN(str);
         }
     }
 
@@ -197,8 +197,8 @@ public class a extends e {
             bAP().b(new com.baidu.tbadk.editortools.a(4, -1, ""));
             bAP().hide();
         }
-        if (this.nLW != null) {
-            this.nLW.yQ(true);
+        if (this.nLX != null) {
+            this.nLX.yQ(true);
         }
     }
 
@@ -227,9 +227,9 @@ public class a extends e {
         writeData.setForumId(this.mForumId);
         writeData.setForumName(this.mForumName);
         writeData.setContent(this.mPostContent);
-        if (this.nLe != null && this.nLe.baijiahaoData != null) {
+        if (this.nLf != null && this.nLf.baijiahaoData != null) {
             writeData.setIsBJHPost(true);
-            writeData.setBaijiahaoData(this.nLe.baijiahaoData);
+            writeData.setBaijiahaoData(this.nLf.baijiahaoData);
         }
         this.fBs.f(writeData);
         this.fBs.dMK();
@@ -279,14 +279,14 @@ public class a extends e {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void TM(String str) {
+    public void TN(String str) {
         if (this.eSJ != null && !StringUtils.isNull(str)) {
             this.eSJ.showToast(str);
         }
     }
 
     public void a(InterfaceC0891a interfaceC0891a) {
-        this.nLW = interfaceC0891a;
+        this.nLX = interfaceC0891a;
     }
 
     public void dTu() {

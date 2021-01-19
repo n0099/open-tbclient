@@ -179,14 +179,14 @@ public class QuickWebView extends BaseWebView {
                 str2 = str + (str.contains("?") ? ETAG.ITEM_SEPARATOR : "?") + "_webview_time=" + System.currentTimeMillis();
                 com.baidu.tbadk.core.d.a.a("OfflineCache", -1L, -1, "readCache", -1, "", "type", "start", "url", str2);
                 if (QuickWebViewSwitch.getInOn()) {
-                    String Qi = Qi(str2);
-                    if (TextUtils.isEmpty(Qi)) {
+                    String Qj = Qj(str2);
+                    if (TextUtils.isEmpty(Qj)) {
                         z = false;
                         str3 = str2;
                     } else {
-                        com.baidu.tbadk.core.d.a.a("OfflineCache", -1L, -1, "readCache", -1, "", "type", "end", "url", Qi);
+                        com.baidu.tbadk.core.d.a.a("OfflineCache", -1L, -1, "readCache", -1, "", "type", "end", "url", Qj);
                         z = true;
-                        str3 = Qi;
+                        str3 = Qj;
                     }
                     str2 = str3;
                 } else {
@@ -202,22 +202,22 @@ public class QuickWebView extends BaseWebView {
         }
     }
 
-    private String Qi(String str) {
+    private String Qj(String str) {
         String str2;
         URL url;
         String path;
-        com.baidu.tieba.quickWebView.data.a Ql;
+        com.baidu.tieba.quickWebView.data.a Qm;
         boolean z;
         String[] split;
         HashMap hashMap = new HashMap();
         try {
             url = new URL(str);
             path = url.getPath();
-            Ql = c.dAG().Ql(path);
+            Qm = c.dAG().Qm(path);
         } catch (MalformedURLException e) {
             str2 = null;
         }
-        if (Ql == null) {
+        if (Qm == null) {
             if (!c.dAG().dAI()) {
                 this.mGD = 4;
                 com.baidu.tbadk.core.d.a.a("OfflineCache", -1L, -1, "readCache", -1, "processing bundle", "url", str);
@@ -225,22 +225,22 @@ public class QuickWebView extends BaseWebView {
                 this.mGD = 3;
             }
             return null;
-        } else if (Ql.mHc) {
+        } else if (Qm.mHc) {
             return null;
         } else {
             String cacheDir = b.dAy().getCacheDir();
             String str3 = cacheDir + path + DownloadDataConstants.DEFAULT_DL_HTML_EXTENSION;
             File file = new File(str3);
-            List<String> Qm = c.dAG().Qm(path);
+            List<String> Qn = c.dAG().Qn(path);
             if (!str3.contains("/android_asset/")) {
                 if (!file.exists()) {
                     this.mGD = 2;
                     com.baidu.tbadk.core.d.a.a("OfflineCache", -1L, -1, "readCache", -1, "path not found", new Object[0]);
                     return null;
-                } else if (x.isEmpty(Qm)) {
+                } else if (x.isEmpty(Qn)) {
                     return null;
                 } else {
-                    for (String str4 : Qm) {
+                    for (String str4 : Qn) {
                         if (StringUtils.isNull(str4)) {
                             com.baidu.tbadk.core.d.a.a("OfflineCache", -1L, -1, "readCache", -1, "static file path is null", new Object[0]);
                             this.mGD = 1;
@@ -262,7 +262,7 @@ public class QuickWebView extends BaseWebView {
             } catch (MalformedURLException e2) {
                 str2 = str5;
             }
-            if (Ql.mHb != null && Ql.mHb.size() != 0) {
+            if (Qm.mHb != null && Qm.mHb.size() != 0) {
                 if (!TextUtils.isEmpty(query) && (split = query.split(ETAG.ITEM_SEPARATOR)) != null) {
                     for (String str6 : split) {
                         String[] split2 = str6.split("=");
@@ -273,7 +273,7 @@ public class QuickWebView extends BaseWebView {
                 }
                 hashMap.put("{client_version}", TbConfig.getVersion());
                 hashMap.put("{client_type}", "2");
-                Iterator<String> it = Ql.mHb.iterator();
+                Iterator<String> it = Qm.mHb.iterator();
                 while (it.hasNext()) {
                     String next = it.next();
                     StringBuilder sb = new StringBuilder();

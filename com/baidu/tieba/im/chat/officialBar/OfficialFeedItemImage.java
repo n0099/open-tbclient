@@ -85,10 +85,10 @@ public class OfficialFeedItemImage extends RelativeLayout {
         if (bVar != null) {
             i = bVar.cTZ();
         }
-        Cw(i);
+        Cv(i);
     }
 
-    public void Cw(int i) {
+    public void Cv(int i) {
         if (i > 0) {
             this.kvJ.setText(this.mContext.getString(R.string.person_view_num, at.dV(i)));
             this.kvJ.setVisibility(0);

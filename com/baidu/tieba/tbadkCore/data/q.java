@@ -2,21 +2,21 @@ package com.baidu.tieba.tbadkCore.data;
 /* loaded from: classes.dex */
 public class q {
     private String lCG;
-    private int nnZ;
+    private int noa;
 
     public int dLz() {
-        return this.nnZ;
+        return this.noa;
     }
 
     public void Jl(int i) {
-        this.nnZ = i;
+        this.noa = i;
     }
 
     public String dLA() {
         return this.lCG;
     }
 
-    public void Sh(String str) {
+    public void Si(String str) {
         this.lCG = str;
     }
 }

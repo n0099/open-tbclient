@@ -134,7 +134,7 @@ public class VideoContainerManager extends a<VideoHolderWrapper, c> {
         private void bfS() {
             this.eyR = new SimpleDraweeView(getContext());
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -1);
-            this.eyR.getHierarchy().b(p.b.ptm);
+            this.eyR.getHierarchy().b(p.b.ptn);
             addView(this.eyR, layoutParams);
         }
 
@@ -167,7 +167,7 @@ public class VideoContainerManager extends a<VideoHolderWrapper, c> {
                 if (TextUtils.isEmpty(str2)) {
                     str2 = "cover";
                 }
-                p.b bVar = p.b.ptm;
+                p.b bVar = p.b.ptn;
                 char c = 65535;
                 switch (str2.hashCode()) {
                     case 3143043:
@@ -191,16 +191,16 @@ public class VideoContainerManager extends a<VideoHolderWrapper, c> {
                 }
                 switch (c) {
                     case 0:
-                        p.b bVar2 = p.b.ptl;
+                        p.b bVar2 = p.b.ptm;
                         break;
                     case 1:
-                        p.b bVar3 = p.b.ptm;
+                        p.b bVar3 = p.b.ptn;
                         break;
                     case 2:
-                        p.b bVar4 = p.b.ptg;
+                        p.b bVar4 = p.b.pth;
                         break;
                 }
-                this.eyR.getHierarchy().b(p.b.ptm);
+                this.eyR.getHierarchy().b(p.b.ptn);
                 a(str, this.eyR);
             }
         }

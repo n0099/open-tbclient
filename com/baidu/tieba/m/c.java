@@ -68,7 +68,7 @@ public class c {
                 this.lmY = new Runnable() { // from class: com.baidu.tieba.m.c.2
                     @Override // java.lang.Runnable
                     public void run() {
-                        c.this.NT(c.this.mContext.getString(R.string.data_init));
+                        c.this.NU(c.this.mContext.getString(R.string.data_init));
                     }
                 };
             }
@@ -108,7 +108,7 @@ public class c {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void NT(String str) {
+    public void NU(String str) {
         if (this.lmW == null) {
             this.lmW = new b(this.mContext);
             this.lmW.setTextSize(1, 18.0f);

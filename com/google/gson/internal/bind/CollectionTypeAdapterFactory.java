@@ -30,12 +30,12 @@ public final class CollectionTypeAdapterFactory implements TypeAdapterFactory {
 
     /* loaded from: classes4.dex */
     private static final class Adapter<E> extends TypeAdapter<Collection<E>> {
-        private final TypeAdapter<E> pIN;
-        private final e<? extends Collection<E>> pIO;
+        private final TypeAdapter<E> pIO;
+        private final e<? extends Collection<E>> pIP;
 
         public Adapter(Gson gson, Type type, TypeAdapter<E> typeAdapter, e<? extends Collection<E>> eVar) {
-            this.pIN = new TypeAdapterRuntimeTypeWrapper(gson, typeAdapter, type);
-            this.pIO = eVar;
+            this.pIO = new TypeAdapterRuntimeTypeWrapper(gson, typeAdapter, type);
+            this.pIP = eVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -46,10 +46,10 @@ public final class CollectionTypeAdapterFactory implements TypeAdapterFactory {
                 aVar.ezd();
                 return null;
             }
-            Collection<E> eyE = this.pIO.eyE();
+            Collection<E> eyE = this.pIP.eyE();
             aVar.eyV();
             while (aVar.hasNext()) {
-                eyE.add(this.pIN.read(aVar));
+                eyE.add(this.pIO.read(aVar));
             }
             aVar.endArray();
             return eyE;
@@ -65,7 +65,7 @@ public final class CollectionTypeAdapterFactory implements TypeAdapterFactory {
             }
             bVar.ezm();
             for (E e : collection) {
-                this.pIN.write(bVar, e);
+                this.pIO.write(bVar, e);
             }
             bVar.ezn();
         }

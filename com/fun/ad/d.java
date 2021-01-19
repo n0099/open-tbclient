@@ -18,7 +18,7 @@ public final class d {
     public static boolean g;
     public static boolean h;
     public static long i;
-    public static b pEt = new a();
+    public static b pEu = new a();
 
     /* loaded from: classes14.dex */
     public static class a implements b {

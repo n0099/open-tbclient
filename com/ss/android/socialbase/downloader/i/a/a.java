@@ -89,11 +89,11 @@ public class a {
     /* renamed from: com.ss.android.socialbase.downloader.i.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
     private static final class C1249a {
-        private static final a pWd = new a();
+        private static final a pWe = new a();
     }
 
     public static a eFV() {
-        return C1249a.pWd;
+        return C1249a.pWe;
     }
 
     private a() {

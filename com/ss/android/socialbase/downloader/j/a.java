@@ -15,17 +15,17 @@ public class a implements c {
     private volatile boolean l;
     private volatile boolean m;
     private int p;
-    private b pXa;
     private b pXb;
     private b pXc;
     private b pXd;
     private b pXe;
     private b pXf;
-    private volatile Throwable pXg;
-    private volatile Future pXh;
+    private b pXg;
+    private volatile Throwable pXh;
+    private volatile Future pXi;
     private final Object d = new Object();
     private final Object e = new Object();
-    private final Runnable pXi = new Runnable() { // from class: com.ss.android.socialbase.downloader.j.a.1
+    private final Runnable pXj = new Runnable() { // from class: com.ss.android.socialbase.downloader.j.a.1
         /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [114=6] */
         /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
         /* JADX DEBUG: Finally have unexpected throw blocks count: 3, expect 1 */
@@ -40,7 +40,7 @@ public class a implements c {
                     a.this.c(eGe);
                 } catch (Throwable th) {
                     try {
-                        a.this.pXg = th;
+                        a.this.pXh = th;
                         th.printStackTrace();
                         synchronized (a.this.e) {
                             a.this.m = true;
@@ -94,35 +94,35 @@ public class a implements c {
             this.l = true;
             this.d.notify();
         }
-        Future future = this.pXh;
+        Future future = this.pXi;
         if (future != null) {
             try {
                 future.cancel(true);
             } catch (Throwable th) {
             }
-            this.pXh = null;
+            this.pXi = null;
         }
     }
 
     private void c() throws Throwable {
-        this.pXh = com.ss.android.socialbase.downloader.downloader.b.eDP().submit(this.pXi);
+        this.pXi = com.ss.android.socialbase.downloader.downloader.b.eDP().submit(this.pXj);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public b eGe() throws d, InterruptedException {
-        b bVar = this.pXc;
+        b bVar = this.pXd;
         if (bVar != null) {
             if (this.l) {
                 throw new d();
             }
-            this.pXc = bVar.pXk;
-            bVar.pXk = null;
+            this.pXd = bVar.pXl;
+            bVar.pXl = null;
         } else {
             synchronized (this.d) {
                 if (this.l) {
                     throw new d();
                 }
-                bVar = this.pXa;
+                bVar = this.pXb;
                 if (bVar == null && this.p < this.c) {
                     this.p++;
                     bVar = new b(this.f13203b);
@@ -132,12 +132,12 @@ public class a implements c {
                         if (this.l) {
                             throw new d();
                         }
-                        bVar = this.pXa;
+                        bVar = this.pXb;
                     }
-                    this.pXc = bVar.pXk;
+                    this.pXd = bVar.pXl;
+                    this.pXc = null;
                     this.pXb = null;
-                    this.pXa = null;
-                    bVar.pXk = null;
+                    bVar.pXl = null;
                 }
             }
         }
@@ -146,43 +146,43 @@ public class a implements c {
 
     private void b(b bVar) {
         synchronized (this.d) {
-            b bVar2 = this.pXb;
+            b bVar2 = this.pXc;
             if (bVar2 == null) {
+                this.pXc = bVar;
                 this.pXb = bVar;
-                this.pXa = bVar;
                 this.d.notify();
             } else {
-                bVar2.pXk = bVar;
-                this.pXb = bVar;
+                bVar2.pXl = bVar;
+                this.pXc = bVar;
             }
         }
     }
 
     private b eGf() throws com.ss.android.socialbase.downloader.e.a, InterruptedException {
-        b bVar = this.pXf;
+        b bVar = this.pXg;
         if (bVar != null) {
-            this.pXf = bVar.pXk;
-            bVar.pXk = null;
+            this.pXg = bVar.pXl;
+            bVar.pXl = null;
         } else {
             synchronized (this.e) {
-                bVar = this.pXd;
+                bVar = this.pXe;
                 if (bVar == null) {
                     do {
                         if (this.m) {
                             f();
                         }
                         this.e.wait();
-                        bVar = this.pXd;
+                        bVar = this.pXe;
                     } while (bVar == null);
-                    this.pXf = bVar.pXk;
+                    this.pXg = bVar.pXl;
+                    this.pXf = null;
                     this.pXe = null;
-                    this.pXd = null;
-                    bVar.pXk = null;
+                    bVar.pXl = null;
                 } else {
-                    this.pXf = bVar.pXk;
+                    this.pXg = bVar.pXl;
+                    this.pXf = null;
                     this.pXe = null;
-                    this.pXd = null;
-                    bVar.pXk = null;
+                    bVar.pXl = null;
                 }
             }
         }
@@ -192,20 +192,20 @@ public class a implements c {
     /* JADX INFO: Access modifiers changed from: private */
     public void c(b bVar) {
         synchronized (this.e) {
-            b bVar2 = this.pXe;
+            b bVar2 = this.pXf;
             if (bVar2 == null) {
+                this.pXf = bVar;
                 this.pXe = bVar;
-                this.pXd = bVar;
                 this.e.notify();
             } else {
-                bVar2.pXk = bVar;
-                this.pXe = bVar;
+                bVar2.pXl = bVar;
+                this.pXf = bVar;
             }
         }
     }
 
     private void f() throws com.ss.android.socialbase.downloader.e.a {
-        Throwable th = this.pXg;
+        Throwable th = this.pXh;
         if (th != null) {
             if (th instanceof d) {
                 throw new com.ss.android.socialbase.downloader.e.a(1068, "async reader closed!");

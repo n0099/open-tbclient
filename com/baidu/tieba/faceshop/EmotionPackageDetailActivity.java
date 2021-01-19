@@ -644,7 +644,7 @@ public class EmotionPackageDetailActivity extends BaseActivity<EmotionPackageDet
                         if (this.iOx == null) {
                             this.iOx = new NewFaceGroupShareModel();
                         }
-                        this.iOx.NY(str);
+                        this.iOx.NZ(str);
                         return;
                     }
                     return;

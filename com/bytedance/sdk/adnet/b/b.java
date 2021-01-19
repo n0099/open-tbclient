@@ -112,7 +112,7 @@ public class b {
         String f5996b;
         List<a> c;
         boolean d;
-        c pkh;
+        c pki;
 
         C0992b(String str, String str2, a aVar, boolean z) {
             this.f5995a = str;
@@ -131,7 +131,7 @@ public class b {
         }
 
         void a() {
-            this.pkh = new c(this.f5996b, this.f5995a, new c.a() { // from class: com.bytedance.sdk.adnet.b.b.b.1
+            this.pki = new c(this.f5996b, this.f5995a, new c.a() { // from class: com.bytedance.sdk.adnet.b.b.b.1
                 @Override // com.bytedance.sdk.adnet.b.c.a
                 public void a(long j, long j2) {
                     if (C0992b.this.c != null) {
@@ -180,8 +180,8 @@ public class b {
                     b.this.f5992a.remove(C0992b.this.f5995a);
                 }
             });
-            this.pkh.setTag("FileLoader#" + this.f5995a);
-            b.this.c.j(this.pkh);
+            this.pki.setTag("FileLoader#" + this.f5995a);
+            b.this.c.j(this.pki);
         }
 
         public boolean equals(Object obj) {

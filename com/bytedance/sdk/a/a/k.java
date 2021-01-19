@@ -9,8 +9,8 @@ import java.util.zip.Inflater;
 public final class k implements s {
     private int c;
     private boolean d;
-    private final e pdv;
-    private final Inflater pdw;
+    private final e pdw;
+    private final Inflater pdx;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public k(e eVar, Inflater inflater) {
@@ -20,8 +20,8 @@ public final class k implements s {
         if (inflater == null) {
             throw new IllegalArgumentException("inflater == null");
         }
-        this.pdv = eVar;
-        this.pdw = inflater;
+        this.pdw = eVar;
+        this.pdx = inflater;
     }
 
     @Override // com.bytedance.sdk.a.a.s
@@ -40,15 +40,15 @@ public final class k implements s {
             b2 = b();
             try {
                 o Ob = cVar.Ob(1);
-                int inflate = this.pdw.inflate(Ob.f5848a, Ob.c, (int) Math.min(j, 8192 - Ob.c));
+                int inflate = this.pdx.inflate(Ob.f5848a, Ob.c, (int) Math.min(j, 8192 - Ob.c));
                 if (inflate > 0) {
                     Ob.c += inflate;
                     cVar.f5840b += inflate;
                     return inflate;
-                } else if (this.pdw.finished() || this.pdw.needsDictionary()) {
+                } else if (this.pdx.finished() || this.pdx.needsDictionary()) {
                     c();
                     if (Ob.f5849b == Ob.c) {
-                        cVar.pdo = Ob.emn();
+                        cVar.pdp = Ob.emn();
                         p.b(Ob);
                     }
                     return -1L;
@@ -61,17 +61,17 @@ public final class k implements s {
     }
 
     public final boolean b() throws IOException {
-        if (this.pdw.needsInput()) {
+        if (this.pdx.needsInput()) {
             c();
-            if (this.pdw.getRemaining() != 0) {
+            if (this.pdx.getRemaining() != 0) {
                 throw new IllegalStateException("?");
             }
-            if (this.pdv.e()) {
+            if (this.pdw.e()) {
                 return true;
             }
-            o oVar = this.pdv.elX().pdo;
+            o oVar = this.pdw.elX().pdp;
             this.c = oVar.c - oVar.f5849b;
-            this.pdw.setInput(oVar.f5848a, oVar.f5849b, this.c);
+            this.pdx.setInput(oVar.f5848a, oVar.f5849b, this.c);
             return false;
         }
         return false;
@@ -79,23 +79,23 @@ public final class k implements s {
 
     private void c() throws IOException {
         if (this.c != 0) {
-            int remaining = this.c - this.pdw.getRemaining();
+            int remaining = this.c - this.pdx.getRemaining();
             this.c -= remaining;
-            this.pdv.h(remaining);
+            this.pdw.h(remaining);
         }
     }
 
     @Override // com.bytedance.sdk.a.a.s
     public t elW() {
-        return this.pdv.elW();
+        return this.pdw.elW();
     }
 
     @Override // com.bytedance.sdk.a.a.s, java.io.Closeable, java.lang.AutoCloseable
     public void close() throws IOException {
         if (!this.d) {
-            this.pdw.end();
+            this.pdx.end();
             this.d = true;
-            this.pdv.close();
+            this.pdw.close();
         }
     }
 }

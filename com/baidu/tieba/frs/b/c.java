@@ -186,7 +186,7 @@ public class c {
                 }
                 boolean z = (bzVar.bpd() == null || (bzVar.bpd().dLo() == null && bzVar.bpd().bHn() == null)) ? false : true;
                 if (z && bzVar.bpd().dLo() != null && bzVar.bpd().dLo().bHf() != null && bzVar.bpd().dLo().bHf().size() > 0) {
-                    aqVar.an("obj_name", bzVar.bpd().nnt ? 3 : 2);
+                    aqVar.an("obj_name", bzVar.bpd().nnu ? 3 : 2);
                 } else {
                     aqVar.an("obj_name", z ? 1 : 0);
                 }

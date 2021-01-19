@@ -12,33 +12,33 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes10.dex */
 public class a {
-    private static a oMw;
+    private static a oMx;
     private TbPageContext mPageContext;
-    private AlaMoreFunctionDialogData oMx = new AlaMoreFunctionDialogData();
-    private b oMy;
+    private AlaMoreFunctionDialogData oMy = new AlaMoreFunctionDialogData();
+    private b oMz;
 
     private a() {
     }
 
     public static a egW() {
-        if (oMw == null) {
+        if (oMx == null) {
             synchronized (a.class) {
-                if (oMw == null) {
-                    oMw = new a();
+                if (oMx == null) {
+                    oMx = new a();
                 }
             }
         }
-        return oMw;
+        return oMx;
     }
 
     public void aP(x xVar) {
         if (xVar != null) {
-            if (this.oMy == null || !this.oMy.isShowing()) {
-                this.oMx.parseData(xVar.aGw);
-                this.oMx.setLiveId(xVar.mLiveInfo == null ? null : String.valueOf(xVar.mLiveInfo.live_id));
-                this.oMx.setRoomId(xVar.aGy == null ? null : xVar.aGy.aQH);
-                this.oMx.setCustomRoomId(xVar.aGy == null ? null : xVar.aGy.croom_id);
-                this.oMx.setGroupId(xVar.mLiveInfo != null ? String.valueOf(xVar.mLiveInfo.group_id) : null);
+            if (this.oMz == null || !this.oMz.isShowing()) {
+                this.oMy.parseData(xVar.aGw);
+                this.oMy.setLiveId(xVar.mLiveInfo == null ? null : String.valueOf(xVar.mLiveInfo.live_id));
+                this.oMy.setRoomId(xVar.aGy == null ? null : xVar.aGy.aQH);
+                this.oMy.setCustomRoomId(xVar.aGy == null ? null : xVar.aGy.croom_id);
+                this.oMy.setGroupId(xVar.mLiveInfo != null ? String.valueOf(xVar.mLiveInfo.group_id) : null);
             }
         }
     }
@@ -46,16 +46,16 @@ public class a {
     public void a(TbPageContext tbPageContext, com.baidu.live.e.c cVar) {
         if (this.mPageContext != tbPageContext) {
             this.mPageContext = tbPageContext;
-            this.oMy = null;
+            this.oMz = null;
         }
-        if (this.oMx != null && !ListUtils.isEmpty(this.oMx.getGroupList())) {
-            if (this.oMy == null) {
-                this.oMy = new b(tbPageContext, this.oMx);
-                this.oMy.a(cVar);
+        if (this.oMy != null && !ListUtils.isEmpty(this.oMy.getGroupList())) {
+            if (this.oMz == null) {
+                this.oMz = new b(tbPageContext, this.oMy);
+                this.oMz.a(cVar);
             } else {
-                this.oMy.a((b) this.oMx);
+                this.oMz.a((b) this.oMy);
             }
-            this.oMy.show();
+            this.oMz.show();
             egX();
         }
     }
@@ -65,8 +65,8 @@ public class a {
         try {
             jSONObject.put(UbcStatConstant.KEY_CONTENT_EXT_SUBPAGE, "moretab");
             jSONObject.put(UbcStatConstant.KEY_LIVE_TYPE, UbcStatConstant.VALUE_LIVE_TYPE_AUDIO);
-            if (this.oMx != null) {
-                jSONObject.put(UbcStatConstant.KEY_CUSTOM_ROOM_ID, this.oMx.getCustomRoomId());
+            if (this.oMy != null) {
+                jSONObject.put(UbcStatConstant.KEY_CUSTOM_ROOM_ID, this.oMy.getCustomRoomId());
             }
         } catch (JSONException e) {
             BdLog.e(e);
@@ -75,12 +75,12 @@ public class a {
     }
 
     public void aG(boolean z, boolean z2) {
-        this.oMx.setShowFirstCharge(z, z2);
+        this.oMy.setShowFirstCharge(z, z2);
     }
 
     public void Ek() {
-        if (this.oMy != null && this.oMy.isShowing()) {
-            this.oMy.dismiss();
+        if (this.oMz != null && this.oMz.isShowing()) {
+            this.oMz.dismiss();
         }
     }
 }

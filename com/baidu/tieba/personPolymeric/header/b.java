@@ -107,7 +107,7 @@ public class b {
                 if (z) {
                     b.this.mtn.setCouldStatistic(true);
                     if (b.this.mUserData != null) {
-                        b.this.mty.bC(b.this.mUserData.getPortrait(), 0);
+                        b.this.mty.bD(b.this.mUserData.getPortrait(), 0);
                     }
                 } else {
                     b.this.mtn.setCouldStatistic(false);
@@ -255,7 +255,7 @@ public class b {
                     layoutParams.height = (int) (b.mtA - floatValue);
                 }
                 if (b.this.mtF != null) {
-                    b.this.mtF.Cl(b.this.mtz ? (int) floatValue : (int) (-floatValue));
+                    b.this.mtF.Ck(b.this.mtz ? (int) floatValue : (int) (-floatValue));
                 }
                 b.this.mtn.setLayoutParams(layoutParams);
                 b.this.mtn.onChangeSkinType();
@@ -464,7 +464,7 @@ public class b {
         this.mtz = z;
     }
 
-    public void PH(String str) {
+    public void PI(String str) {
         this.mtl.Bi(str);
     }
 

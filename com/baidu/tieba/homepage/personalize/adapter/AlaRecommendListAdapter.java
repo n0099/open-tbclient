@@ -68,7 +68,7 @@ public class AlaRecommendListAdapter extends RecyclerView.Adapter<AlaUserInfoVie
                     jVar2.setLiveId(alaLiveInfo.live_id.longValue());
                     jVar2.setThreadId(alaLiveInfo.thread_id.longValue());
                     jVar2.gB(alaLiveInfo.user_info.ala_id.longValue());
-                    jVar2.BH(alaLiveInfo.live_type.intValue());
+                    jVar2.BG(alaLiveInfo.live_type.intValue());
                     this.mDatas.add(jVar2);
                 }
             }

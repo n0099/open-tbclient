@@ -15,7 +15,7 @@ import com.baidu.tieba.yuyinala.message.AlaSnatchRedPacketResponseMessage;
 public class c extends BdBaseModel {
     private HttpMessageListener hPw;
     private HttpMessageListener hPx;
-    private a ofa;
+    private a ofb;
 
     /* loaded from: classes10.dex */
     public interface a {
@@ -36,11 +36,11 @@ public class c extends BdBaseModel {
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
                 if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1031073 && (httpResponsedMessage instanceof AlaGetRedPacketInfoResponseMessage)) {
                     AlaGetRedPacketInfoResponseMessage alaGetRedPacketInfoResponseMessage = (AlaGetRedPacketInfoResponseMessage) httpResponsedMessage;
-                    if (c.this.ofa != null) {
+                    if (c.this.ofb != null) {
                         if (alaGetRedPacketInfoResponseMessage.getError() != 0 || !alaGetRedPacketInfoResponseMessage.isSuccess()) {
-                            c.this.ofa.aR(alaGetRedPacketInfoResponseMessage.getError(), alaGetRedPacketInfoResponseMessage.getErrorString());
+                            c.this.ofb.aR(alaGetRedPacketInfoResponseMessage.getError(), alaGetRedPacketInfoResponseMessage.getErrorString());
                         } else {
-                            c.this.ofa.b(alaGetRedPacketInfoResponseMessage.edf());
+                            c.this.ofb.b(alaGetRedPacketInfoResponseMessage.edf());
                         }
                     }
                 }
@@ -52,18 +52,18 @@ public class c extends BdBaseModel {
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
                 if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1031074 && (httpResponsedMessage instanceof AlaSnatchRedPacketResponseMessage)) {
                     AlaSnatchRedPacketResponseMessage alaSnatchRedPacketResponseMessage = (AlaSnatchRedPacketResponseMessage) httpResponsedMessage;
-                    if (c.this.ofa != null) {
+                    if (c.this.ofb != null) {
                         com.baidu.tieba.yuyinala.data.f edi = alaSnatchRedPacketResponseMessage.edi();
                         if (alaSnatchRedPacketResponseMessage.getError() != 0 || !alaSnatchRedPacketResponseMessage.isSuccess()) {
-                            c.this.ofa.aS(alaSnatchRedPacketResponseMessage.getError(), alaSnatchRedPacketResponseMessage.getErrorString());
+                            c.this.ofb.aS(alaSnatchRedPacketResponseMessage.getError(), alaSnatchRedPacketResponseMessage.getErrorString());
                         } else {
-                            c.this.ofa.b(edi);
+                            c.this.ofb.b(edi);
                         }
                     }
                 }
             }
         };
-        this.ofa = aVar;
+        this.ofb = aVar;
         initTasks();
         registerListener(this.hPw);
         registerListener(this.hPx);

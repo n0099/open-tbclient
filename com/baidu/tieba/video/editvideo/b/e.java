@@ -10,9 +10,9 @@ import java.nio.ByteBuffer;
 /* loaded from: classes7.dex */
 class e {
     private final MediaMuxer cdy;
-    private volatile boolean nCM;
     private volatile boolean nCN;
-    private int nCL = 2;
+    private volatile boolean nCO;
+    private int nCM = 2;
     private boolean mIsStarted = false;
 
     public e(String str) throws IOException {
@@ -20,20 +20,20 @@ class e {
     }
 
     public void dQy() {
-        this.nCM = true;
+        this.nCN = true;
     }
 
     public void dQz() {
-        this.nCN = true;
+        this.nCO = true;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public synchronized boolean start() {
         boolean z;
-        if (!this.nCN || !this.nCM) {
+        if (!this.nCO || !this.nCN) {
             z = false;
         } else {
-            if (this.nCL > 0 && this.nCN && this.nCM) {
+            if (this.nCM > 0 && this.nCO && this.nCN) {
                 this.cdy.start();
                 this.mIsStarted = true;
                 notifyAll();
@@ -45,7 +45,7 @@ class e {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public synchronized void stop() {
-        if (this.nCL > 0) {
+        if (this.nCM > 0) {
             try {
                 this.cdy.stop();
                 this.cdy.release();

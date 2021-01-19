@@ -96,7 +96,7 @@ public class CreateNewEmotionFragment extends BaseFragment {
             } else if (e.dgC().dgD() == null) {
                 this.luy.cyP();
             } else {
-                this.luy.Of(getString(R.string.emotion_draft_tip));
+                this.luy.Og(getString(R.string.emotion_draft_tip));
             }
         }
     }

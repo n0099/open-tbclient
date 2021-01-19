@@ -289,19 +289,19 @@ public class PbActivity extends BaseFragmentActivity implements VoiceManager.c, 
             if (this.lEA == null) {
                 this.lEA = new a.d() { // from class: com.baidu.tieba.pb.pb.main.PbActivity.4
                     @Override // com.baidu.tieba.h.a.d
-                    public void a(String str, com.baidu.tieba.tbadkCore.data.n nVar) {
+                    public void bb(String str, int i) {
                         if (PbActivity.this.bdw instanceof PbFragment) {
                             PbFragment pbFragment = (PbFragment) PbActivity.this.bdw;
                             if (pbFragment.dkW() != null && pbFragment.dkW().dop() != null) {
                                 pbFragment.dkW().dop().dkA();
                             }
                         }
-                        TiebaStatic.log(new com.baidu.tbadk.core.util.aq("c14005").an("obj_source", 6).dW("obj_type", PageStayDurationConstants.PageName.PB).an("obj_locate", 0));
+                        TiebaStatic.log(new com.baidu.tbadk.core.util.aq("c14005").an("obj_source", 6).dW("obj_type", PageStayDurationConstants.PageName.PB).an("obj_locate", 0).an("resource_id", i));
                     }
 
                     @Override // com.baidu.tieba.h.a.d
                     public void onError(String str) {
-                        TiebaStatic.log(new com.baidu.tbadk.core.util.aq("c14005").an("obj_source", 6).dW("obj_type", PageStayDurationConstants.PageName.PB).an("obj_locate", 1));
+                        TiebaStatic.log(new com.baidu.tbadk.core.util.aq("c14005").an("obj_source", 6).dW("obj_type", PageStayDurationConstants.PageName.PB).an("obj_locate", 1).an("resource_id", 0));
                     }
                 };
             }
@@ -318,7 +318,7 @@ public class PbActivity extends BaseFragmentActivity implements VoiceManager.c, 
         String d = d(fVar);
         FragmentManager supportFragmentManager = getSupportFragmentManager();
         if (supportFragmentManager.findFragmentByTag(d) == null) {
-            this.bdw = Ow(d);
+            this.bdw = Ox(d);
             supportFragmentManager.beginTransaction().add(R.id.container, this.bdw, d).commitAllowingStateLoss();
         }
     }
@@ -327,7 +327,7 @@ public class PbActivity extends BaseFragmentActivity implements VoiceManager.c, 
         return (fVar == null || !fVar.djn()) ? "pb_fragment_tag" : "video_pb_fragment_tag";
     }
 
-    private Fragment Ow(String str) {
+    private Fragment Ox(String str) {
         return "video_pb_fragment_tag".equals(str) ? VideoPbFragment.drA() : PbFragment.dkS();
     }
 
@@ -514,8 +514,8 @@ public class PbActivity extends BaseFragmentActivity implements VoiceManager.c, 
     }
 
     @Override // com.baidu.tieba.pb.pb.a
-    public boolean Ov(String str) {
-        return this.lEs != null && this.lEs.OH(str);
+    public boolean Ow(String str) {
+        return this.lEs != null && this.lEs.OI(str);
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.tbadk.m.a

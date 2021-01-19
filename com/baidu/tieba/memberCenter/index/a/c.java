@@ -24,8 +24,8 @@ public class c implements com.baidu.adp.widget.ListView.n {
             this.leo = new d();
             this.leo.Ea(5);
             this.leo.setCategoryName(vipBasicList.class_name);
-            this.leo.Nk(vipBasicList.class_url_name);
-            this.leo.Nl(vipBasicList.class_url);
+            this.leo.Nl(vipBasicList.class_url_name);
+            this.leo.Nm(vipBasicList.class_url);
             this.itemList = new ArrayList();
             for (VipSpecialItem vipSpecialItem : vipBasicList.item) {
                 this.itemList.add(vipSpecialItem);

@@ -10,11 +10,11 @@ public class b implements Runnable {
 
     /* renamed from: b  reason: collision with root package name */
     private Context f11391b;
-    private com.pgl.sys.a.a.a pPY;
+    private com.pgl.sys.a.a.a pPZ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(Context context, com.pgl.sys.a.a.a aVar) {
-        this.pPY = aVar;
+        this.pPZ = aVar;
         this.f11391b = context;
     }
 
@@ -68,8 +68,8 @@ public class b implements Runnable {
         }
         i = i3;
         a.f11389a = i;
-        if (this.pPY != null) {
-            this.pPY.a(a.a());
+        if (this.pPZ != null) {
+            this.pPZ.a(a.a());
         }
     }
 }

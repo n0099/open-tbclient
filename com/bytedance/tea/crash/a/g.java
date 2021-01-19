@@ -31,7 +31,7 @@ public class g {
     private static long l;
     private static int n;
     private static boolean o;
-    private static Handler pll;
+    private static Handler plm;
     private static boolean c = false;
     private static boolean d = true;
     private static volatile AtomicLong g = new AtomicLong(-1);
@@ -46,9 +46,9 @@ public class g {
     /* renamed from: b  reason: collision with root package name */
     public static long f7615b = -1;
     private static int s = -1;
-    private static MessageQueue plm = null;
-    private static Field pln = null;
+    private static MessageQueue pln = null;
     private static Field plo = null;
+    private static Field plp = null;
 
     static /* synthetic */ int j() {
         int i2 = n;
@@ -288,9 +288,9 @@ public class g {
     public static void u() {
         j = h.a();
         i = SystemClock.uptimeMillis();
-        pll = new Handler(j.getLooper());
+        plm = new Handler(j.getLooper());
         com.bytedance.tea.crash.e.g.a(8L);
-        pll.postDelayed(new Runnable() { // from class: com.bytedance.tea.crash.a.g.3
+        plm.postDelayed(new Runnable() { // from class: com.bytedance.tea.crash.a.g.3
             @Override // java.lang.Runnable
             public void run() {
                 long j2;
@@ -302,43 +302,43 @@ public class g {
                 } else {
                     j2 = g.h - uptimeMillis;
                 }
-                g.pll.postDelayed(this, j2);
+                g.plm.postDelayed(this, j2);
             }
         }, h);
     }
 
     public static MessageQueue eox() {
-        if (plm == null && Looper.getMainLooper() != null) {
+        if (pln == null && Looper.getMainLooper() != null) {
             Looper mainLooper = Looper.getMainLooper();
             if (mainLooper == Looper.myLooper()) {
-                plm = Looper.myQueue();
+                pln = Looper.myQueue();
             } else if (Build.VERSION.SDK_INT >= 23) {
-                plm = mainLooper.getQueue();
+                pln = mainLooper.getQueue();
             } else {
                 try {
                     Field declaredField = mainLooper.getClass().getDeclaredField("mQueue");
                     declaredField.setAccessible(true);
-                    plm = (MessageQueue) declaredField.get(mainLooper);
+                    pln = (MessageQueue) declaredField.get(mainLooper);
                 } catch (Throwable th) {
                     th.printStackTrace();
                 }
             }
         }
-        return plm;
+        return pln;
     }
 
     private static Message a(MessageQueue messageQueue) {
-        if (pln == null) {
+        if (plo == null) {
             try {
-                pln = Class.forName("android.os.MessageQueue").getDeclaredField("mMessages");
-                pln.setAccessible(true);
-                return (Message) pln.get(messageQueue);
+                plo = Class.forName("android.os.MessageQueue").getDeclaredField("mMessages");
+                plo.setAccessible(true);
+                return (Message) plo.get(messageQueue);
             } catch (Exception e2) {
                 return null;
             }
         }
         try {
-            return (Message) pln.get(messageQueue);
+            return (Message) plo.get(messageQueue);
         } catch (Exception e3) {
             return null;
         }
@@ -419,11 +419,11 @@ public class g {
     }
 
     private static Message W(Message message) {
-        if (plo == null) {
+        if (plp == null) {
             try {
-                plo = Class.forName("android.os.Message").getDeclaredField(UnitedSchemeConstants.UNITED_SCHEME_NEXT);
-                plo.setAccessible(true);
-                Message message2 = (Message) plo.get(message);
+                plp = Class.forName("android.os.Message").getDeclaredField(UnitedSchemeConstants.UNITED_SCHEME_NEXT);
+                plp.setAccessible(true);
+                Message message2 = (Message) plp.get(message);
                 if (c) {
                     Log.i("LooperMonitor", "[getNextMessage] success get next msg :" + message2);
                     return message2;
@@ -434,7 +434,7 @@ public class g {
             }
         }
         try {
-            return (Message) plo.get(message);
+            return (Message) plp.get(message);
         } catch (Exception e3) {
             return null;
         }

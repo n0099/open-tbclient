@@ -442,7 +442,7 @@ public class RelateForumHorizonalListView extends MyHorizontalScrollView {
             ItemViewHolder itemViewHolder = (ItemViewHolder) view.getTag();
             itemViewHolder.fQr.setTag(aVar.forumAvatar);
             itemViewHolder.fQr.startLoad(aVar.forumAvatar, 10, false);
-            itemViewHolder.fQs.setText(be(aVar.forumName, 8));
+            itemViewHolder.fQs.setText(bf(aVar.forumName, 8));
             itemViewHolder.fQs.setTag(R.id.tag_forum_id, Long.valueOf(aVar.forumId));
             itemViewHolder.kpJ.setTag(R.id.tag_forum_id, Long.valueOf(aVar.forumId));
             itemViewHolder.kpJ.setTag(R.id.tag_forum_name, aVar.forumName);
@@ -518,7 +518,7 @@ public class RelateForumHorizonalListView extends MyHorizontalScrollView {
         }
     }
 
-    private String be(String str, int i) {
+    private String bf(String str, int i) {
         if (StringUtils.isNull(str)) {
             return "";
         }

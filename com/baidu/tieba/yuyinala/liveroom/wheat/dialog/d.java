@@ -49,18 +49,18 @@ public class d extends a implements DialogInterface.OnDismissListener {
     private AlaLoadingView bZQ;
     public CustomMessageListener bdo;
     private CommonEmptyView btf;
-    private CustomMessageListener ovY;
-    private g owS;
-    private boolean oxJ;
-    private AlaConnectionWheatListView oxO;
-    private com.baidu.tieba.yuyinala.liveroom.wheat.adapter.a oxP;
-    private com.baidu.tieba.yuyinala.liveroom.wheat.model.c oxQ;
-    private TextView oxR;
-    private int oxS;
-    private ConnectionWheatButtonView oxT;
-    private boolean oxU;
-    private CustomMessageListener oxV;
-    private com.baidu.tieba.yuyinala.liveroom.wheat.model.e oxa;
+    private CustomMessageListener ovZ;
+    private g owT;
+    private boolean oxK;
+    private AlaConnectionWheatListView oxP;
+    private com.baidu.tieba.yuyinala.liveroom.wheat.adapter.a oxQ;
+    private com.baidu.tieba.yuyinala.liveroom.wheat.model.c oxR;
+    private TextView oxS;
+    private int oxT;
+    private ConnectionWheatButtonView oxU;
+    private boolean oxV;
+    private CustomMessageListener oxW;
+    private com.baidu.tieba.yuyinala.liveroom.wheat.model.e oxb;
 
     public d(TbPageContext tbPageContext, int i) {
         super(tbPageContext);
@@ -73,7 +73,7 @@ public class d extends a implements DialogInterface.OnDismissListener {
                 }
             }
         };
-        this.ovY = new CustomMessageListener(2501036) { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.dialog.d.2
+        this.ovZ = new CustomMessageListener(2501036) { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.dialog.d.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -82,7 +82,7 @@ public class d extends a implements DialogInterface.OnDismissListener {
                 }
             }
         };
-        this.oxV = new CustomMessageListener(2501012) { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.dialog.d.3
+        this.oxW = new CustomMessageListener(2501012) { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.dialog.d.3
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -104,38 +104,38 @@ public class d extends a implements DialogInterface.OnDismissListener {
         zP(true);
         zQ(true);
         g(this);
-        this.oxS = i;
+        this.oxT = i;
     }
 
     protected void initView() {
-        this.oxO = (AlaConnectionWheatListView) findViewById(a.f.listView);
-        this.oxR = (TextView) findViewById(a.f.tv_current_rank);
-        this.oxT = (ConnectionWheatButtonView) findViewById(a.f.connection_wheat_button_view);
+        this.oxP = (AlaConnectionWheatListView) findViewById(a.f.listView);
+        this.oxS = (TextView) findViewById(a.f.tv_current_rank);
+        this.oxU = (ConnectionWheatButtonView) findViewById(a.f.connection_wheat_button_view);
         this.bZQ = (AlaLoadingView) findViewById(a.f.loading_view);
         this.btf = (CommonEmptyView) findViewById(a.f.empty_view_2);
-        this.oxP = new com.baidu.tieba.yuyinala.liveroom.wheat.adapter.a(this.mContext);
-        this.oxO.setAdapter((ListAdapter) this.oxP);
+        this.oxQ = new com.baidu.tieba.yuyinala.liveroom.wheat.adapter.a(this.mContext);
+        this.oxP.setAdapter((ListAdapter) this.oxQ);
         showLoading();
-        this.oxP.a(new a.InterfaceC0936a() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.dialog.d.1
+        this.oxQ.a(new a.InterfaceC0936a() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.dialog.d.1
             @Override // com.baidu.tieba.yuyinala.liveroom.wheat.adapter.a.InterfaceC0936a
             public void a(com.baidu.live.data.e eVar) {
                 d.this.dismiss();
                 d.this.d(eVar.uk, eVar.mUserName, eVar.mPortrait, eVar.mSex, eVar.mUserName);
             }
         });
-        this.oxT.init();
-        this.oxT.setListener(new ConnectionWheatButtonView.a() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.dialog.d.5
+        this.oxU.init();
+        this.oxU.setListener(new ConnectionWheatButtonView.a() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.dialog.d.5
             @Override // com.baidu.tieba.yuyinala.liveroom.wheat.view.ConnectionWheatButtonView.a
             public void ebK() {
-                d.this.Mb(d.this.oxS);
+                d.this.Mb(d.this.oxT);
             }
 
             @Override // com.baidu.tieba.yuyinala.liveroom.wheat.view.ConnectionWheatButtonView.a
             public void ebL() {
                 int i;
                 d dVar = d.this;
-                if (d.this.oxS < 5) {
-                    i = d.this.oxS;
+                if (d.this.oxT < 5) {
+                    i = d.this.oxT;
                 } else {
                     i = 1;
                 }
@@ -144,7 +144,7 @@ public class d extends a implements DialogInterface.OnDismissListener {
 
             @Override // com.baidu.tieba.yuyinala.liveroom.wheat.view.ConnectionWheatButtonView.a
             public void ebM() {
-                d.this.Mb(d.this.oxS >= 5 ? d.this.oxS : 5);
+                d.this.Mb(d.this.oxT >= 5 ? d.this.oxT : 5);
             }
         });
     }
@@ -153,8 +153,8 @@ public class d extends a implements DialogInterface.OnDismissListener {
         if (z) {
             showLoading();
         }
-        if (this.oxQ == null) {
-            this.oxQ = new com.baidu.tieba.yuyinala.liveroom.wheat.model.c(this.ovz, new c.a() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.dialog.d.6
+        if (this.oxR == null) {
+            this.oxR = new com.baidu.tieba.yuyinala.liveroom.wheat.model.c(this.ovA, new c.a() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.dialog.d.6
                 @Override // com.baidu.tieba.yuyinala.liveroom.wheat.model.c.a
                 public void a(AlaGetApplyWheatListHttpResponseMessage alaGetApplyWheatListHttpResponseMessage) {
                     d.this.b(alaGetApplyWheatListHttpResponseMessage.eci(), alaGetApplyWheatListHttpResponseMessage.getCount(), alaGetApplyWheatListHttpResponseMessage.getPosition(), alaGetApplyWheatListHttpResponseMessage.eck());
@@ -169,7 +169,7 @@ public class d extends a implements DialogInterface.OnDismissListener {
                 }
             });
         }
-        this.oxQ.request();
+        this.oxR.request();
     }
 
     public void ebp() {
@@ -177,15 +177,15 @@ public class d extends a implements DialogInterface.OnDismissListener {
     }
 
     public void ebH() {
-        if (this.oxP != null && this.oxP.getCount() != 0) {
-            this.oxO.setVisibility(0);
+        if (this.oxQ != null && this.oxQ.getCount() != 0) {
+            this.oxP.setVisibility(0);
             this.btf.setVisibility(8);
-            this.oxT.init();
+            this.oxU.init();
             return;
         }
-        this.oxO.setVisibility(8);
+        this.oxP.setVisibility(8);
         this.btf.setVisibility(0);
-        this.oxT.init();
+        this.oxU.init();
         this.btf.reset();
         this.btf.setTitle(a.h.yuyin_ala_connection_wheat_empty_text);
         this.btf.setup(CommonEmptyView.ImgType.NO_DATA, CommonEmptyView.StyleType.DARK);
@@ -193,9 +193,9 @@ public class d extends a implements DialogInterface.OnDismissListener {
     }
 
     public void ebI() {
-        this.oxO.setVisibility(8);
+        this.oxP.setVisibility(8);
         this.btf.setVisibility(0);
-        this.oxT.setVisibility(8);
+        this.oxU.setVisibility(8);
         this.btf.reset();
         this.btf.setTextColor(TbadkCoreApplication.getInst().getResources().getColor(a.c.sdk_color_525252));
         this.btf.setRefreshButton(a.h.yuyin_ala_connection_wheat_refresh_load_text, new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.dialog.d.7
@@ -216,27 +216,27 @@ public class d extends a implements DialogInterface.OnDismissListener {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b(List<com.baidu.live.data.e> list, int i, int i2, int i3) {
-        this.oxJ = false;
+        this.oxK = false;
         final int i4 = -1;
-        this.oxT.aj(i, i2, i3);
+        this.oxU.aj(i, i2, i3);
         if (i > 0) {
             if (i2 > 0) {
                 i4 = i2 - 1;
-                this.oxJ = true;
-                this.oxR.setText(String.format(this.mContext.getString(a.h.yuyin_ala_connection_wheat_apply_current_rank_text), Integer.valueOf(i2)));
+                this.oxK = true;
+                this.oxS.setText(String.format(this.mContext.getString(a.h.yuyin_ala_connection_wheat_apply_current_rank_text), Integer.valueOf(i2)));
             } else {
-                this.oxR.setText(String.format(this.mContext.getString(a.h.yuyin_ala_connection_wheat_apply_current_person_wait_text), Integer.valueOf(i)));
+                this.oxS.setText(String.format(this.mContext.getString(a.h.yuyin_ala_connection_wheat_apply_current_person_wait_text), Integer.valueOf(i)));
             }
         } else {
-            this.oxR.setText(String.format(this.mContext.getString(a.h.yuyin_ala_connection_wheat_apply_current_person_wait_text), Integer.valueOf(i)));
+            this.oxS.setText(String.format(this.mContext.getString(a.h.yuyin_ala_connection_wheat_apply_current_person_wait_text), Integer.valueOf(i)));
         }
-        this.oxP.setData(list, i4);
-        if (this.oxU) {
-            this.oxU = false;
-            this.oxO.post(new Runnable() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.dialog.d.8
+        this.oxQ.setData(list, i4);
+        if (this.oxV) {
+            this.oxV = false;
+            this.oxP.post(new Runnable() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.dialog.d.8
                 @Override // java.lang.Runnable
                 public void run() {
-                    d.this.oxO.smoothScrollToPosition(i4);
+                    d.this.oxP.smoothScrollToPosition(i4);
                 }
             });
         }
@@ -279,9 +279,9 @@ public class d extends a implements DialogInterface.OnDismissListener {
             th.printStackTrace();
         }
         ebJ();
-        MessageManager.getInstance().registerListener(this.ovY);
+        MessageManager.getInstance().registerListener(this.ovZ);
         MessageManager.getInstance().registerListener(this.aTE);
-        MessageManager.getInstance().registerListener(this.oxV);
+        MessageManager.getInstance().registerListener(this.oxW);
         MessageManager.getInstance().registerListener(this.bdo);
     }
 
@@ -292,7 +292,7 @@ public class d extends a implements DialogInterface.OnDismissListener {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void Mb(int i) {
-        if (!this.oxJ) {
+        if (!this.oxK) {
             JSONObject jSONObject = new JSONObject();
             try {
                 x WA = com.baidu.tieba.yuyinala.liveroom.wheat.a.c.eax().WA();
@@ -314,45 +314,45 @@ public class d extends a implements DialogInterface.OnDismissListener {
                 public void eaQ() {
                     com.baidu.tieba.yuyinala.liveroom.wheat.a.c.eax().eaz().eaq();
                     o.ebo().zM(true);
-                    d.this.oxU = true;
+                    d.this.oxV = true;
                     d.this.zR(false);
                     BdToast.makeText(TbadkCoreApplication.getInst(), TbadkCoreApplication.getInst().getString(a.h.yuyin_ala_connection_wheat_apply_success_text)).show();
                 }
-            }).a(this.ovz.getPageActivity(), this.ovz.getPageActivity(), "2", String.valueOf(i));
+            }).a(this.ovA.getPageActivity(), this.ovA.getPageActivity(), "2", String.valueOf(i));
             return;
         }
         zS(false);
-        if (this.owS == null) {
-            this.owS = new g(this.ovz);
-            this.owS.a(new g.a() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.dialog.d.10
+        if (this.owT == null) {
+            this.owT = new g(this.ovA);
+            this.owT.a(new g.a() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.dialog.d.10
                 @Override // com.baidu.tieba.yuyinala.liveroom.wheat.dialog.g.a
                 public void onCancel() {
-                    d.this.owS.dismiss();
+                    d.this.owT.dismiss();
                 }
 
                 @Override // com.baidu.tieba.yuyinala.liveroom.wheat.dialog.g.a
                 public void onConfirm() {
                     d.this.ebg();
-                    d.this.owS.dismiss();
+                    d.this.owT.dismiss();
                 }
             });
         }
-        this.owS.show();
-        this.owS.setText(TbadkCoreApplication.getInst().getString(a.h.yuyin_ala_connection_wheat_cancel_apply_text));
+        this.owT.show();
+        this.owT.setText(TbadkCoreApplication.getInst().getString(a.h.yuyin_ala_connection_wheat_cancel_apply_text));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void d(String str, String str2, String str3, int i, String str4) {
         x WA = com.baidu.tieba.yuyinala.liveroom.wheat.a.c.eax().WA();
         if (WA != null && WA.aGd != null && WA.mLiveInfo != null) {
-            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new YuyinAlaPersonCardActivityConfig(this.ovz.getPageActivity(), ExtraParamsManager.getDecryptUserId(str), str2, str3, i, 0, null, null, 0L, 0L, 0L, 0, Long.toString(WA.mLiveInfo.group_id), Long.toString(WA.mLiveInfo.live_id), false, null, null, str4, "")));
+            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new YuyinAlaPersonCardActivityConfig(this.ovA.getPageActivity(), ExtraParamsManager.getDecryptUserId(str), str2, str3, i, 0, null, null, 0L, 0L, 0L, 0, Long.toString(WA.mLiveInfo.group_id), Long.toString(WA.mLiveInfo.live_id), false, null, null, str4, "")));
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void ebg() {
-        if (this.oxa == null) {
-            this.oxa = new com.baidu.tieba.yuyinala.liveroom.wheat.model.e(this.ovz, new e.a() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.dialog.d.11
+        if (this.oxb == null) {
+            this.oxb = new com.baidu.tieba.yuyinala.liveroom.wheat.model.e(this.ovA, new e.a() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.dialog.d.11
                 @Override // com.baidu.tieba.yuyinala.liveroom.wheat.model.e.a
                 public void a(AlaCancelApplyOrCancelInviteHttpResponseMessage alaCancelApplyOrCancelInviteHttpResponseMessage) {
                     if (!alaCancelApplyOrCancelInviteHttpResponseMessage.isError()) {
@@ -368,7 +368,7 @@ public class d extends a implements DialogInterface.OnDismissListener {
                 }
             });
         }
-        this.oxa.gR(com.baidu.tieba.yuyinala.liveroom.wheat.a.c.eax().yv(), "1");
+        this.oxb.gR(com.baidu.tieba.yuyinala.liveroom.wheat.a.c.eax().yv(), "1");
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -380,19 +380,19 @@ public class d extends a implements DialogInterface.OnDismissListener {
 
     @Override // android.content.DialogInterface.OnDismissListener
     public void onDismiss(DialogInterface dialogInterface) {
-        if (this.oxa != null) {
-            this.oxa.onDestroy();
-            this.oxa = null;
+        if (this.oxb != null) {
+            this.oxb.onDestroy();
+            this.oxb = null;
         }
-        if (this.oxQ != null) {
-            this.oxQ.onDestroy();
-            this.oxQ = null;
+        if (this.oxR != null) {
+            this.oxR.onDestroy();
+            this.oxR = null;
         }
         com.baidu.tieba.yuyinala.liveroom.wheat.c.c.eaV().onDestroy();
         hideLoading();
-        MessageManager.getInstance().unRegisterListener(this.ovY);
+        MessageManager.getInstance().unRegisterListener(this.ovZ);
         MessageManager.getInstance().unRegisterListener(this.aTE);
-        MessageManager.getInstance().unRegisterListener(this.oxV);
+        MessageManager.getInstance().unRegisterListener(this.oxW);
         MessageManager.getInstance().unRegisterListener(this.bdo);
     }
 

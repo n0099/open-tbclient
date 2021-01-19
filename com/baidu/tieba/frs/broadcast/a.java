@@ -77,7 +77,7 @@ public class a {
                 b.brx().putBoolean("key_forum_broadcast_no_tip_again", aVar.bqc());
                 aVar.dismiss();
                 if (i == 0) {
-                    new ScreenTopToast(a.this.context.getPageActivity()).TT(a.this.context.getPageActivity().getString(R.string.frs_forum_bawu_send_broadcast_none_tip)).TV(a.this.context.getString(R.string.frs_recommend_fail_tip_btn)).an(new View.OnClickListener() { // from class: com.baidu.tieba.frs.broadcast.a.1.1
+                    new ScreenTopToast(a.this.context.getPageActivity()).TU(a.this.context.getPageActivity().getString(R.string.frs_forum_bawu_send_broadcast_none_tip)).TW(a.this.context.getString(R.string.frs_recommend_fail_tip_btn)).an(new View.OnClickListener() { // from class: com.baidu.tieba.frs.broadcast.a.1.1
                         @Override // android.view.View.OnClickListener
                         public void onClick(View view) {
                             HashMap hashMap = new HashMap();

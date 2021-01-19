@@ -20,9 +20,9 @@ public final class e {
     private final ImageView ioX;
     private final LinearLayout mContentView;
     private final PopupWindow mPopupWindow;
-    private final View oDP;
-    private final int oDQ;
+    private final View oDQ;
     private final int oDR;
+    private final int oDS;
 
     /* loaded from: classes10.dex */
     public static final class a {
@@ -30,20 +30,20 @@ public final class e {
         private final Context context;
         private int width = -2;
         private int height = -2;
-        private float oDT = 0.0f;
-        private float oDU = 9.0f;
-        private float oDV = 4.0f;
+        private float oDU = 0.0f;
+        private float oDV = 9.0f;
+        private float oDW = 4.0f;
         @Nullable
         private CharSequence text = null;
         private int gravity = 16;
-        private float oDW = 5.0f;
         private float oDX = 5.0f;
         private float oDY = 5.0f;
         private float oDZ = 5.0f;
-        private float oEa = 11.0f;
-        private float oEb = 2.0f;
-        private boolean oEc = true;
+        private float oEa = 5.0f;
+        private float oEb = 11.0f;
+        private float oEc = 2.0f;
         private boolean oEd = true;
+        private boolean oEe = true;
 
         public a(@NonNull View view) {
             this.attachedView = view;
@@ -56,17 +56,17 @@ public final class e {
         }
 
         public a bn(float f) {
-            this.oDT = f;
-            return this;
-        }
-
-        public a bo(float f) {
             this.oDU = f;
             return this;
         }
 
-        public a bp(float f) {
+        public a bo(float f) {
             this.oDV = f;
+            return this;
+        }
+
+        public a bp(float f) {
+            this.oDW = f;
             return this;
         }
 
@@ -81,10 +81,10 @@ public final class e {
         }
 
         public a h(float f, float f2, float f3, float f4) {
-            this.oDW = f;
-            this.oDX = f2;
-            this.oDY = f3;
-            this.oDZ = f4;
+            this.oDX = f;
+            this.oDY = f2;
+            this.oDZ = f3;
+            this.oEa = f4;
             return this;
         }
 
@@ -93,22 +93,22 @@ public final class e {
         }
 
         public a br(float f) {
-            this.oEa = f;
-            return this;
-        }
-
-        public a bs(float f) {
             this.oEb = f;
             return this;
         }
 
+        public a bs(float f) {
+            this.oEc = f;
+            return this;
+        }
+
         public a zY(boolean z) {
-            this.oEc = z;
+            this.oEd = z;
             return this;
         }
 
         public a zZ(boolean z) {
-            this.oEd = z;
+            this.oEe = z;
             return this;
         }
 
@@ -118,23 +118,23 @@ public final class e {
     }
 
     private e(@NonNull a aVar) {
-        this.oDP = aVar.attachedView;
+        this.oDQ = aVar.attachedView;
         Context context = aVar.context;
         int[] iArr = new int[2];
-        this.oDP.getLocationInWindow(iArr);
-        int width = this.oDP.getWidth();
-        int height = this.oDP.getHeight();
+        this.oDQ.getLocationInWindow(iArr);
+        int width = this.oDQ.getWidth();
+        int height = this.oDQ.getHeight();
         int i = iArr[0];
         int i2 = iArr[1];
-        this.oDQ = ((width / 2) + i) - d(aVar.oDT, context);
-        this.oDR = i2 + height;
+        this.oDR = ((width / 2) + i) - d(aVar.oDU, context);
+        this.oDS = i2 + height;
         this.mContentView = (LinearLayout) LayoutInflater.from(context).inflate(a.g.yuyin_component_popup_layout, (ViewGroup) null);
         this.ioX = (ImageView) this.mContentView.findViewById(a.f.iv_arrow);
         this.hdz = (TextView) this.mContentView.findViewById(a.f.tv_content);
         LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.ioX.getLayoutParams();
-        layoutParams.width = d(aVar.oDU, context);
-        layoutParams.height = d(aVar.oDV, context);
-        layoutParams.leftMargin = d(aVar.oDT, context) - (d(aVar.oDU, context) / 2);
+        layoutParams.width = d(aVar.oDV, context);
+        layoutParams.height = d(aVar.oDW, context);
+        layoutParams.leftMargin = d(aVar.oDU, context) - (d(aVar.oDV, context) / 2);
         this.ioX.setLayoutParams(layoutParams);
         LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.hdz.getLayoutParams();
         layoutParams2.width = aVar.width;
@@ -142,18 +142,18 @@ public final class e {
         this.hdz.setLayoutParams(layoutParams2);
         this.hdz.setText(aVar.text);
         this.hdz.setGravity(aVar.gravity);
-        this.hdz.setPadding(d(aVar.oDW, context), d(aVar.oDX, context), d(aVar.oDY, context), d(aVar.oDZ, context));
-        this.hdz.setTextSize(aVar.oEa);
+        this.hdz.setPadding(d(aVar.oDX, context), d(aVar.oDY, context), d(aVar.oDZ, context), d(aVar.oEa, context));
+        this.hdz.setTextSize(aVar.oEb);
         GradientDrawable gradientDrawable = (GradientDrawable) this.hdz.getBackground();
-        gradientDrawable.setCornerRadius(d(aVar.oEb, context));
+        gradientDrawable.setCornerRadius(d(aVar.oEc, context));
         this.hdz.setBackground(gradientDrawable);
         this.mPopupWindow = new PopupWindow(context);
         this.mPopupWindow.setContentView(this.mContentView);
         this.mPopupWindow.setWidth(-2);
         this.mPopupWindow.setHeight(-2);
         this.mPopupWindow.setBackgroundDrawable(new BitmapDrawable());
-        this.mPopupWindow.setOutsideTouchable(aVar.oEc);
-        if (aVar.oEd) {
+        this.mPopupWindow.setOutsideTouchable(aVar.oEd);
+        if (aVar.oEe) {
             this.mContentView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.view.e.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
@@ -164,7 +164,7 @@ public final class e {
     }
 
     public void show() {
-        this.mPopupWindow.showAtLocation(this.oDP, 0, this.oDQ, this.oDR);
+        this.mPopupWindow.showAtLocation(this.oDQ, 0, this.oDR, this.oDS);
     }
 
     public void dismiss() {

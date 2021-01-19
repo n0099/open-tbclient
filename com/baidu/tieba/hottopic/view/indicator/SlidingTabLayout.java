@@ -168,7 +168,7 @@ public class SlidingTabLayout extends HorizontalScrollView {
             this.kqD.setDuration(300L);
         }
         int cO = cO(i2, 0);
-        this.kqD.Cn(i);
+        this.kqD.Cm(i);
         this.kqD.bo(getScrollX(), cO);
         startAnimation(this.kqD);
     }
@@ -208,7 +208,7 @@ public class SlidingTabLayout extends HorizontalScrollView {
         private b() {
         }
 
-        public void Cn(int i) {
+        public void Cm(int i) {
             this.kqH = i;
         }
 

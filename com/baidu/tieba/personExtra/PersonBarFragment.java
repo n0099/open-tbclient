@@ -144,7 +144,7 @@ public class PersonBarFragment extends BaseFragment implements View.OnClickListe
                     return;
                 }
                 PersonBarFragment.this.showToast(responseGetLivableForumList.getErrorString());
-                PersonBarFragment.this.mnv.Px(PersonBarFragment.this.mnC);
+                PersonBarFragment.this.mnv.Py(PersonBarFragment.this.mnC);
             }
         }
     };
@@ -227,7 +227,7 @@ public class PersonBarFragment extends BaseFragment implements View.OnClickListe
                                     @Override // com.baidu.tbadk.util.ab
                                     public Object doInBackground() {
                                         if (personBarModel != null) {
-                                            personBarModel.Pz(resultString);
+                                            personBarModel.PA(resultString);
                                             return null;
                                         }
                                         return null;
@@ -235,14 +235,14 @@ public class PersonBarFragment extends BaseFragment implements View.OnClickListe
                                 }, null);
                                 PersonBarFragment.this.a(personBarData, false);
                                 if (1 == PersonBarFragment.this.dvj().cVm() && PersonBarFragment.this.mnv != null) {
-                                    PersonBarFragment.this.mnv.Px(PersonBarFragment.this.mnC);
+                                    PersonBarFragment.this.mnv.Py(PersonBarFragment.this.mnC);
                                     return;
                                 }
                                 return;
                             }
                             PersonBarFragment.this.showToast(httpResponsedMessage.getErrorString());
                             if (PersonBarFragment.this.mnv != null) {
-                                PersonBarFragment.this.mnv.Px(PersonBarFragment.this.mnC);
+                                PersonBarFragment.this.mnv.Py(PersonBarFragment.this.mnC);
                                 return;
                             }
                             return;
@@ -250,14 +250,14 @@ public class PersonBarFragment extends BaseFragment implements View.OnClickListe
                         PersonBarFragment.this.showToast(StringUtils.isNull(httpResponsedMessage.getErrorString()) ? PersonBarFragment.this.getResources().getString(R.string.neterror) : httpResponsedMessage.getErrorString());
                         if (PersonBarFragment.this.mnE) {
                             if (PersonBarFragment.this.mnv != null) {
-                                PersonBarFragment.this.mnv.Px(PersonBarFragment.this.mnC);
+                                PersonBarFragment.this.mnv.Py(PersonBarFragment.this.mnC);
                             }
                         } else if (PersonBarFragment.this.mnv != null) {
-                            PersonBarFragment.this.mnv.Px("");
+                            PersonBarFragment.this.mnv.Py("");
                         }
                     }
                 } else if (PersonBarFragment.this.mnv != null) {
-                    PersonBarFragment.this.mnv.Px(PersonBarFragment.this.mnC);
+                    PersonBarFragment.this.mnv.Py(PersonBarFragment.this.mnC);
                 }
             }
         }
@@ -380,7 +380,7 @@ public class PersonBarFragment extends BaseFragment implements View.OnClickListe
             this.gdF.setVisibility(0);
         }
         this.mnw = new c(dvj(), this.mnj.dvn(), this.mIsHost, this.mmy);
-        this.mnw.Py(dvj().duP());
+        this.mnw.Pz(dvj().duP());
         this.mnw.O(new View.OnClickListener() { // from class: com.baidu.tieba.personExtra.PersonBarFragment.7
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
@@ -487,7 +487,7 @@ public class PersonBarFragment extends BaseFragment implements View.OnClickListe
                     }
                     return;
                 }
-                PersonBarFragment.this.mnv.Px(PersonBarFragment.this.mnC);
+                PersonBarFragment.this.mnv.Py(PersonBarFragment.this.mnC);
             }
         });
         this.WT.setPullRefresh(this.mPullView);
@@ -717,7 +717,7 @@ public class PersonBarFragment extends BaseFragment implements View.OnClickListe
             }
         }
 
-        public void Px(String str) {
+        public void Py(String str) {
             D(false, str);
         }
 

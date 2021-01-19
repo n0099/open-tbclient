@@ -111,7 +111,7 @@ public class PersonalChatActivity extends CommonPersonalChatActivity<PersonalCha
                 PersonalChatActivity.this.kFE = ((ResponsePersonalLbsInfoMessage) socketResponsedMessage).getLbsInfo();
                 if (PersonalChatActivity.this.kFE != null && (user = ((PersonalMsglistModel) PersonalChatActivity.this.ksY).getUser()) != null) {
                     PersonalChatActivity.this.ksX.refreshPersonalHeadFooter(user.getName_show(), PersonalChatActivity.this.kFE);
-                    PersonalChatActivity.this.kFD = PersonalChatActivity.this.Mw(at.getTimeInterval(PersonalChatActivity.this.kFE.getTime()));
+                    PersonalChatActivity.this.kFD = PersonalChatActivity.this.Mx(at.getTimeInterval(PersonalChatActivity.this.kFE.getTime()));
                     if (PersonalChatActivity.this.kFD != 0) {
                         PersonalChatActivity.this.mHandler.postDelayed(PersonalChatActivity.this.kFI, PersonalChatActivity.this.kFD);
                     }
@@ -207,7 +207,7 @@ public class PersonalChatActivity extends CommonPersonalChatActivity<PersonalCha
         }
     }
 
-    public long Mw(String str) {
+    public long Mx(String str) {
         if (TextUtils.isEmpty(str)) {
             return 0L;
         }
@@ -317,7 +317,7 @@ public class PersonalChatActivity extends CommonPersonalChatActivity<PersonalCha
                 cWl();
             }
             if (!TextUtils.isEmpty(this.kFG.cWU())) {
-                this.kFG.MA(this.kFG.cWU());
+                this.kFG.MB(this.kFG.cWU());
             }
         }
     }
@@ -389,7 +389,7 @@ public class PersonalChatActivity extends CommonPersonalChatActivity<PersonalCha
 
     @Override // com.baidu.tieba.im.chat.CommonPersonalChatActivity, com.baidu.tieba.im.chat.TalkableActivity, com.baidu.adp.lib.b.a
     public void onItemViewClick(View view, int i, int i2, long j) {
-        a.C0766a MB;
+        a.C0766a MC;
         ChatMessage msg;
         String aS;
         super.onItemViewClick(view, i, i2, j);
@@ -409,12 +409,12 @@ public class PersonalChatActivity extends CommonPersonalChatActivity<PersonalCha
                 return;
             case 14:
                 ChatMessage msg3 = this.ksY.getMsg(i2);
-                if (msg3 != null && msg3.getContent() != null && (MB = com.baidu.tieba.imMessageCenter.im.stranger.a.MB(msg3.getContent())) != null) {
-                    if (MB.type == 1) {
-                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new SubPbActivityConfig(getPageContext().getPageActivity()).createSubPbActivityConfig(MB.threadId, MB.postId, null, false)));
+                if (msg3 != null && msg3.getContent() != null && (MC = com.baidu.tieba.imMessageCenter.im.stranger.a.MC(msg3.getContent())) != null) {
+                    if (MC.type == 1) {
+                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new SubPbActivityConfig(getPageContext().getPageActivity()).createSubPbActivityConfig(MC.threadId, MC.postId, null, false)));
                         return;
                     } else {
-                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, new PbActivityConfig(getPageContext().getPageActivity()).createNormalCfg(MB.threadId, MB.postId, null)));
+                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, new PbActivityConfig(getPageContext().getPageActivity()).createNormalCfg(MC.threadId, MC.postId, null)));
                         return;
                     }
                 }
@@ -431,7 +431,7 @@ public class PersonalChatActivity extends CommonPersonalChatActivity<PersonalCha
         cSA();
         ((PersonalMsglistModel) this.ksY).setIsFriend(bundle.getInt(PersonalChatActivityConfig.KEY_IS_FRIEND));
         ((PersonalMsglistModel) this.ksY).setFollowStatus(bundle.getInt(PersonalChatActivityConfig.KEY_IS_FOLLOW));
-        ((PersonalMsglistModel) this.ksY).Mz(bundle.getString(PersonalChatActivityConfig.KEY_REPLY_CONTENT));
+        ((PersonalMsglistModel) this.ksY).MA(bundle.getString(PersonalChatActivityConfig.KEY_REPLY_CONTENT));
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -441,7 +441,7 @@ public class PersonalChatActivity extends CommonPersonalChatActivity<PersonalCha
         cSA();
         ((PersonalMsglistModel) this.ksY).setIsFriend(intent.getIntExtra(PersonalChatActivityConfig.KEY_IS_FRIEND, 1));
         ((PersonalMsglistModel) this.ksY).setFollowStatus(intent.getIntExtra(PersonalChatActivityConfig.KEY_IS_FOLLOW, 1));
-        ((PersonalMsglistModel) this.ksY).Mz(intent.getStringExtra(PersonalChatActivityConfig.KEY_REPLY_CONTENT));
+        ((PersonalMsglistModel) this.ksY).MA(intent.getStringExtra(PersonalChatActivityConfig.KEY_REPLY_CONTENT));
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

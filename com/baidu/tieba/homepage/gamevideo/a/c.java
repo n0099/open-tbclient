@@ -140,7 +140,7 @@ public class c extends com.baidu.adp.widget.ListView.a<l, AutoVideoCardViewHolde
         this.fEN = bdUniqueId;
     }
 
-    public void By(int i) {
+    public void Bx(int i) {
         this.fce = i;
     }
 

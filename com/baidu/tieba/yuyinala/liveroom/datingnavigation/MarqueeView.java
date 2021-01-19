@@ -15,11 +15,11 @@ import com.baidu.live.sdk.a;
 public class MarqueeView extends TextView {
     private boolean mPaused;
     private Scroller mScroller;
-    private int okL;
     private int okM;
-    private boolean okN;
-    private int okO;
+    private int okN;
+    private boolean okO;
     private int okP;
+    private int okQ;
 
     public MarqueeView(Context context) {
         this(context, null);
@@ -31,17 +31,17 @@ public class MarqueeView extends TextView {
 
     public MarqueeView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.okM = 0;
+        this.okN = 0;
         this.mPaused = true;
-        this.okN = true;
+        this.okO = true;
         b(context, attributeSet, i);
     }
 
     private void b(Context context, AttributeSet attributeSet, int i) {
         TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, a.j.MarqueeView);
-        this.okL = obtainStyledAttributes.getInt(a.j.MarqueeView_scroll_interval, 10000);
-        this.okO = obtainStyledAttributes.getInt(a.j.MarqueeView_scroll_mode, 100);
-        this.okP = obtainStyledAttributes.getInt(a.j.MarqueeView_scroll_first_delay, 1000);
+        this.okM = obtainStyledAttributes.getInt(a.j.MarqueeView_scroll_interval, 10000);
+        this.okP = obtainStyledAttributes.getInt(a.j.MarqueeView_scroll_mode, 100);
+        this.okQ = obtainStyledAttributes.getInt(a.j.MarqueeView_scroll_first_delay, 1000);
         obtainStyledAttributes.recycle();
         setSingleLine();
         setEllipsize(null);
@@ -55,9 +55,9 @@ public class MarqueeView extends TextView {
     }
 
     public void cDX() {
-        this.okM = 0;
+        this.okN = 0;
         this.mPaused = true;
-        this.okN = true;
+        this.okO = true;
         dYO();
     }
 
@@ -69,20 +69,20 @@ public class MarqueeView extends TextView {
                 setScroller(this.mScroller);
             }
             int dYP = dYP();
-            final int i = dYP - this.okM;
-            final int intValue = Double.valueOf(((this.okL * i) * 1.0d) / dYP).intValue();
-            if (this.okN) {
+            final int i = dYP - this.okN;
+            final int intValue = Double.valueOf(((this.okM * i) * 1.0d) / dYP).intValue();
+            if (this.okO) {
                 SafeHandler.getInst().postDelayed(new Runnable() { // from class: com.baidu.tieba.yuyinala.liveroom.datingnavigation.MarqueeView.1
                     @Override // java.lang.Runnable
                     public void run() {
-                        MarqueeView.this.mScroller.startScroll(MarqueeView.this.okM, 0, i, 0, intValue);
+                        MarqueeView.this.mScroller.startScroll(MarqueeView.this.okN, 0, i, 0, intValue);
                         MarqueeView.this.invalidate();
                         MarqueeView.this.mPaused = false;
                     }
-                }, this.okP);
+                }, this.okQ);
                 return;
             }
-            this.mScroller.startScroll(this.okM, 0, i, 0, intValue);
+            this.mScroller.startScroll(this.okN, 0, i, 0, intValue);
             invalidate();
             this.mPaused = false;
         }
@@ -107,38 +107,38 @@ public class MarqueeView extends TextView {
     public void computeScroll() {
         super.computeScroll();
         if (this.mScroller != null && this.mScroller.isFinished() && !this.mPaused) {
-            if (this.okO == 101) {
+            if (this.okP == 101) {
                 stopScroll();
                 return;
             }
             this.mPaused = true;
-            this.okM = getWidth() * (-1);
-            this.okN = false;
+            this.okN = getWidth() * (-1);
+            this.okO = false;
             dYO();
         }
     }
 
     public int getRndDuration() {
-        return this.okL;
+        return this.okM;
     }
 
     public void setRndDuration(int i) {
-        this.okL = i;
+        this.okM = i;
     }
 
     public void setScrollMode(int i) {
-        this.okO = i;
-    }
-
-    public int getScrollMode() {
-        return this.okO;
-    }
-
-    public void setScrollFirstDelay(int i) {
         this.okP = i;
     }
 
-    public int getScrollFirstDelay() {
+    public int getScrollMode() {
         return this.okP;
+    }
+
+    public void setScrollFirstDelay(int i) {
+        this.okQ = i;
+    }
+
+    public int getScrollFirstDelay() {
+        return this.okQ;
     }
 }

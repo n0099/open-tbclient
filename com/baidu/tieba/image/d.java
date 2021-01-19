@@ -88,7 +88,7 @@ public class d {
         Iterator<String> it = this.kLN.iterator();
         while (it.hasNext()) {
             String next = it.next();
-            this.kLO.put(com.baidu.tieba.image.b.MC(next), next);
+            this.kLO.put(com.baidu.tieba.image.b.MD(next), next);
         }
         this.amM = str3;
         this.eRn = str4;
@@ -112,7 +112,7 @@ public class d {
         this.kMa = str;
     }
 
-    public void ME(String str) {
+    public void MF(String str) {
         this.kMb = str;
     }
 
@@ -151,7 +151,7 @@ public class d {
         this.kLY = true;
         String str = this.kLN.get(0);
         if (StringUtils.isNull(this.kLQ)) {
-            this.kLQ = com.baidu.tieba.image.b.MC(str);
+            this.kLQ = com.baidu.tieba.image.b.MD(str);
         }
         c(this.amM, this.kLQ, 0, 10);
     }

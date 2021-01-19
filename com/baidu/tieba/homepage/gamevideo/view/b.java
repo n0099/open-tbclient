@@ -467,9 +467,9 @@ public class b {
         }
     }
 
-    public void By(int i) {
+    public void Bx(int i) {
         if (this.jYd != null) {
-            this.jYd.By(i);
+            this.jYd.Bx(i);
         }
     }
 
@@ -676,14 +676,14 @@ public class b {
         }
     }
 
-    public void Ll(String str) {
+    public void Lm(String str) {
         if (!StringUtils.isNull(str) && this.jYc != null) {
             this.jYc.setVisibility(0);
             this.jYc.setText(str);
         }
     }
 
-    public void Lm(String str) {
+    public void Ln(String str) {
         List<Integer> b2 = b(str, this.Ya);
         int intValue = b2.get(0).intValue();
         int intValue2 = b2.get(1).intValue();

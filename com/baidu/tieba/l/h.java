@@ -9,11 +9,11 @@ public interface h {
 
     void H(long j, int i);
 
-    void NP(String str);
+    void NQ(String str);
 
-    String NQ(String str);
+    String NR(String str);
 
-    boolean NR(String str);
+    boolean NS(String str);
 
     void ao(boolean z, boolean z2);
 

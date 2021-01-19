@@ -75,9 +75,9 @@ public class RecommendDetailActivity extends BaseActivity<RecommendDetailActivit
         }
         if (this.kCV != null && this.kCW != null && this.kCW.cVH() && !this.kCW.cVG()) {
             if (l.isNetOk()) {
-                this.kCV.CH(R.string.no_data_text);
+                this.kCV.CG(R.string.no_data_text);
             } else {
-                this.kCV.CH(R.string.game_index_no_network_text);
+                this.kCV.CG(R.string.game_index_no_network_text);
             }
         }
     }

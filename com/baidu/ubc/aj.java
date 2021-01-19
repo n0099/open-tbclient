@@ -11,8 +11,8 @@ import org.json.JSONObject;
 class aj {
     private static final boolean DEBUG = AppConfig.isDebug();
     private boolean exn = false;
-    private int oJl = 0;
-    private int oJm = 614400;
+    private int oJm = 0;
+    private int oJn = 614400;
     private JSONArray dsK = new JSONArray();
     private SparseArray<Integer> exj = new SparseArray<>();
     private ArrayList<String> exk = new ArrayList<>();
@@ -53,18 +53,18 @@ class aj {
 
     public void MQ(int i) {
         if (i >= 0) {
-            this.oJm = i;
+            this.oJn = i;
         }
     }
 
     public void MR(int i) {
         if (i > 0) {
-            this.oJl += i;
+            this.oJm += i;
         }
     }
 
     public boolean efD() {
-        return this.oJl >= this.oJm;
+        return this.oJm >= this.oJn;
     }
 
     public boolean mm(int i) {

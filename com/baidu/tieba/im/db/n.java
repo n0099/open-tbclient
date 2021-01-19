@@ -21,7 +21,7 @@ public class n {
             h.cTB().cTC();
             String cTR = cTR();
             if (!TextUtils.isEmpty(cTR)) {
-                com.baidu.tbadk.core.d.a.a("StrangeClean", -1L, -1, "cleanMessageCenter", -1, "clean suc " + Md(cTR), new Object[0]);
+                com.baidu.tbadk.core.d.a.a("StrangeClean", -1L, -1, "cleanMessageCenter", -1, "clean suc " + Me(cTR), new Object[0]);
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -30,7 +30,7 @@ public class n {
         }
     }
 
-    public static void CD(int i) {
+    public static void CC(int i) {
         if (i < kwX) {
             i = kwX;
         }
@@ -88,9 +88,9 @@ public class n {
         return arrayList;
     }
 
-    public static boolean Md(String str) {
+    public static boolean Me(String str) {
         try {
-            return h.cTB().Mb("DELETE FROM tb_message_center WHERE gid IN(" + str + ") AND custom_group_type= " + String.valueOf(2) + " AND is_friend!=" + String.valueOf(1));
+            return h.cTB().Mc("DELETE FROM tb_message_center WHERE gid IN(" + str + ") AND custom_group_type= " + String.valueOf(2) + " AND is_friend!=" + String.valueOf(1));
         } catch (Exception e) {
             e.printStackTrace();
             TiebaStatic.printDBExceptionLog(e, "ImMessageCenterDao.deleteStrange", new Object[0]);

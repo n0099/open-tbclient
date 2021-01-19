@@ -9,9 +9,9 @@ public final class z {
         try {
             a(info, 200);
             if (info != null && !TextUtils.isEmpty(info.getClick_urls())) {
-                aaD(info.getClick_urls());
+                aaE(info.getClick_urls());
             } else if (info != null && !TextUtils.isEmpty(info.getVv_click_urls())) {
-                aaD(info.getVv_click_urls());
+                aaE(info.getVv_click_urls());
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -22,9 +22,9 @@ public final class z {
         try {
             a(info, 100);
             if (info != null && !TextUtils.isEmpty(info.getImp_urls())) {
-                aaD(info.getImp_urls());
+                aaE(info.getImp_urls());
             } else if (info != null && !TextUtils.isEmpty(info.getVv_show_urls())) {
-                aaD(info.getVv_show_urls());
+                aaE(info.getVv_show_urls());
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -33,11 +33,11 @@ public final class z {
 
     public static void a(Info info, int i) {
         if (info != null) {
-            aaD(cm(info.getEvents().get(i, ""), i));
+            aaE(cn(info.getEvents().get(i, ""), i));
         }
     }
 
-    private static String cm(String str, int i) {
+    private static String cn(String str, int i) {
         if (i == 200 || i == 100) {
             try {
                 return str.replaceAll("__TIMESTAMP__", String.valueOf(System.currentTimeMillis()));
@@ -49,7 +49,7 @@ public final class z {
         return str;
     }
 
-    public static void aaD(String str) {
+    public static void aaE(String str) {
         if (!TextUtils.isEmpty(str)) {
             try {
                 JSONArray jSONArray = new JSONArray(str);

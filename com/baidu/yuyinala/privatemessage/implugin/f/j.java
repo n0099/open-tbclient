@@ -7,22 +7,22 @@ import org.json.JSONObject;
 public class j {
     private static JSONObject mData;
     private static String mType;
-    private static String oQc;
-    private static int oQd;
+    private static String oQd;
     private static int oQe;
-    private static int oQf = -1;
+    private static int oQf;
+    private static int oQg = -1;
 
-    public static void Xc(String str) {
+    public static void Xd(String str) {
         try {
             JSONObject jSONObject = new JSONObject(str);
-            oQf = jSONObject.optInt(BaseJsonData.TAG_ERRNO);
-            if (oQf == 0) {
+            oQg = jSONObject.optInt(BaseJsonData.TAG_ERRNO);
+            if (oQg == 0) {
                 mData = jSONObject.optJSONObject("data");
                 if (mData != null) {
                     mType = mData.optString("type");
-                    oQc = mData.optString("third_id");
-                    oQd = mData.optInt("has_sub");
-                    oQe = mData.optInt("notify");
+                    oQd = mData.optString("third_id");
+                    oQe = mData.optInt("has_sub");
+                    oQf = mData.optInt("notify");
                 }
             }
         } catch (JSONException e) {
@@ -35,9 +35,9 @@ public class j {
             try {
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("type", mType);
-                jSONObject.put("third_id", oQc);
-                jSONObject.put("has_sub", "" + oQd);
-                jSONObject.put("notify", "" + oQe);
+                jSONObject.put("third_id", oQd);
+                jSONObject.put("has_sub", "" + oQe);
+                jSONObject.put("notify", "" + oQf);
                 mData = jSONObject;
             } catch (JSONException e) {
                 e.printStackTrace();
@@ -46,28 +46,28 @@ public class j {
     }
 
     public static String getType() {
-        return Xd("type") ? mType : "";
+        return Xe("type") ? mType : "";
     }
 
     public static void Ar(boolean z) {
-        oQd = z ? 1 : 0;
+        oQe = z ? 1 : 0;
         KM();
     }
 
     public static boolean ehx() {
-        return Xd("has_sub") && oQd == 1;
+        return Xe("has_sub") && oQe == 1;
     }
 
     public static String ehw() {
-        return Xd("third_id") ? oQc : "";
+        return Xe("third_id") ? oQd : "";
     }
 
     public static boolean isNeedNotify() {
-        return Xd("notify") && oQe == 1;
+        return Xe("notify") && oQf == 1;
     }
 
     private static boolean isDataValid() {
-        return oQf == 0;
+        return oQg == 0;
     }
 
     public static JSONObject getData() {
@@ -77,7 +77,7 @@ public class j {
         return null;
     }
 
-    private static boolean Xd(String str) {
+    private static boolean Xe(String str) {
         return isDataValid() && mData != null && mData.has(str);
     }
 }

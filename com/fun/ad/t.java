@@ -11,7 +11,7 @@ import com.fun.ad.sdk.FunRippedAd;
 import com.win.opensdk.PBError;
 /* loaded from: classes14.dex */
 public class t extends i {
-    public com.win.opensdk.b pES;
+    public com.win.opensdk.b pET;
 
     /* loaded from: classes14.dex */
     public class a implements com.win.opensdk.c {
@@ -19,10 +19,10 @@ public class t extends i {
         }
 
         @Override // com.win.opensdk.c
-        public void YB(String str) {
+        public void YC(String str) {
             m.a("jyRewardVideoAd onRewardedShowFail: errorCode: 0, , errorMessage: " + str);
             t tVar = t.this;
-            c cVar = tVar.pEz;
+            c cVar = tVar.pEA;
             if (cVar != null) {
                 ((u) cVar).a(tVar.f7781a.f7760a, 0, str);
             }
@@ -32,7 +32,7 @@ public class t extends i {
         public void exY() {
             m.a("jyRewardVideoAd onRewardedAdClosed");
             t tVar = t.this;
-            c cVar = tVar.pEz;
+            c cVar = tVar.pEA;
             if (cVar != null) {
                 ((u) cVar).b(tVar.f7781a.f7760a);
             }
@@ -42,7 +42,7 @@ public class t extends i {
         public void exZ() {
             m.a("jyRewardVideoAd onRewardedAdOpened");
             t tVar = t.this;
-            c cVar = tVar.pEz;
+            c cVar = tVar.pEA;
             if (cVar != null) {
                 ((u) cVar).c(tVar.f7781a.f7760a);
             }
@@ -52,7 +52,7 @@ public class t extends i {
         public void onClicked() {
             m.a("jyRewardVideoAd onClicked");
             t tVar = t.this;
-            c cVar = tVar.pEz;
+            c cVar = tVar.pEA;
             if (cVar != null) {
                 ((u) cVar).a(tVar.f7781a.f7760a);
             }
@@ -62,7 +62,7 @@ public class t extends i {
         public void onFail(PBError pBError) {
             m.a("jyRewardVideoAd onFail errorCode: " + pBError.getCode() + ", errorMessage: " + pBError.getMsg());
             t tVar = t.this;
-            f fVar = tVar.pEy;
+            f fVar = tVar.pEz;
             if (fVar != null) {
                 ((r) fVar).a(tVar.f7781a.f7760a, pBError.getCode(), pBError.getMsg());
             }
@@ -72,7 +72,7 @@ public class t extends i {
         public void onLoaded() {
             m.a("jyRewardVideoAd onLoaded");
             t tVar = t.this;
-            f fVar = tVar.pEy;
+            f fVar = tVar.pEz;
             if (fVar != null) {
                 ((r) fVar).b(tVar.f7781a.f7760a);
             }
@@ -82,7 +82,7 @@ public class t extends i {
         public void r(boolean z, long j) {
             m.a("jyRewardVideoAd onUserEarnedReward");
             t tVar = t.this;
-            c cVar = tVar.pEz;
+            c cVar = tVar.pEA;
             if (cVar != null) {
                 String str = tVar.f7781a.f7760a;
                 u uVar = (u) cVar;
@@ -90,12 +90,12 @@ public class t extends i {
                     throw null;
                 }
                 m.a("FunAdLoader 巨赢互联广告 onRewardedVideo，广告ID：" + str);
-                FunAdInteractionListener funAdInteractionListener = uVar.pEU;
+                FunAdInteractionListener funAdInteractionListener = uVar.pEV;
                 if (funAdInteractionListener != null) {
-                    funAdInteractionListener.onRewardedVideo(uVar.pEW.pEE.f7758a);
+                    funAdInteractionListener.onRewardedVideo(uVar.pEX.pEF.f7758a);
                 }
-                d.b bVar = d.pEt;
-                ((d.a) bVar).e(uVar.f7837b, uVar.pEV.f7761b, str);
+                d.b bVar = d.pEu;
+                ((d.a) bVar).e(uVar.f7837b, uVar.pEW.f7761b, str);
             }
         }
     }
@@ -107,10 +107,10 @@ public class t extends i {
     @Override // com.fun.ad.i
     public void a() {
         super.a();
-        com.win.opensdk.b bVar = this.pES;
+        com.win.opensdk.b bVar = this.pET;
         if (bVar != null) {
             bVar.destroy();
-            this.pES = null;
+            this.pET = null;
         }
     }
 
@@ -125,10 +125,10 @@ public class t extends i {
         if (!this.f7782b) {
             this.f7782b = true;
             com.win.opensdk.b bVar = new com.win.opensdk.b(context, this.f7781a.f7760a);
-            this.pES = bVar;
+            this.pET = bVar;
             bVar.a(new a());
-            this.pES.load();
-            f fVar2 = this.pEy;
+            this.pET.load();
+            f fVar2 = this.pEz;
             if (fVar2 != null) {
                 ((r) fVar2).a(this.f7781a.f7760a);
             }
@@ -138,12 +138,12 @@ public class t extends i {
     @Override // com.fun.ad.i
     public void a(Activity activity, FunAdView funAdView, c cVar) {
         super.a(activity, funAdView, cVar);
-        com.win.opensdk.b bVar = this.pES;
+        com.win.opensdk.b bVar = this.pET;
         if (bVar != null && bVar.isReady()) {
-            this.pES.show();
+            this.pET.show();
             return;
         }
-        c cVar2 = this.pEz;
+        c cVar2 = this.pEA;
         if (cVar2 != null) {
             ((u) cVar2).a(this.f7781a.f7760a, 0, "Custom error message: mPBVideo is null or not ready");
         }

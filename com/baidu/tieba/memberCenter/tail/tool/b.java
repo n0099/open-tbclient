@@ -45,7 +45,7 @@ public class b extends BaseAdapter {
         public void onClick(View view) {
             if (view.getTag() != null) {
                 if (!b.this.lkX.deq()) {
-                    b.this.Ny(b.this.mContext.getString(R.string.become_member_to_use));
+                    b.this.Nz(b.this.mContext.getString(R.string.become_member_to_use));
                     return;
                 }
                 TailData ddT = ((e) view.getTag()).ddT();
@@ -96,7 +96,7 @@ public class b extends BaseAdapter {
 
     /* JADX INFO: Access modifiers changed from: private */
     @SuppressLint({"ResourceAsColor"})
-    public void Ny(String str) {
+    public void Nz(String str) {
         com.baidu.adp.base.f<?> K = j.K(this.mContext);
         if (K != null) {
             com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(K.getPageActivity());

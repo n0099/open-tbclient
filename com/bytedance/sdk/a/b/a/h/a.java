@@ -20,14 +20,14 @@ public final class a {
     /* renamed from: b  reason: collision with root package name */
     private static final String[] f5943b = new String[0];
     private static final String[] c = {"*"};
-    private static final a pgt = new a();
+    private static final a pgu = new a();
     private final AtomicBoolean e = new AtomicBoolean(false);
     private final CountDownLatch f = new CountDownLatch(1);
     private byte[] g;
     private byte[] h;
 
     public static a enh() {
-        return pgt;
+        return pgu;
     }
 
     public String a(String str) {
@@ -75,7 +75,7 @@ public final class a {
         }
         byte[][] bArr = new byte[strArr.length];
         for (int i2 = 0; i2 < strArr.length; i2++) {
-            bArr[i2] = strArr[i2].getBytes(c.peH);
+            bArr[i2] = strArr[i2].getBytes(c.peI);
         }
         int i3 = 0;
         while (true) {
@@ -198,7 +198,7 @@ public final class a {
                     i6 = i11 + i10 + 1;
                     i7 = length;
                 } else {
-                    return new String(bArr, i10, i12, c.peH);
+                    return new String(bArr, i10, i12, c.peI);
                 }
             }
             length = i7;

@@ -14,8 +14,8 @@ public class g {
     private final String[] c;
     private final String[] d;
     private SQLiteStatement e;
-    private SQLiteStatement pUw;
     private SQLiteStatement pUx;
+    private SQLiteStatement pUy;
 
     public g(SQLiteDatabase sQLiteDatabase, String str, String[] strArr, String[] strArr2) {
         this.f13103a = sQLiteDatabase;
@@ -40,8 +40,23 @@ public class g {
     }
 
     public SQLiteStatement eDD() {
-        if (this.pUx == null) {
+        if (this.pUy == null) {
             SQLiteStatement compileStatement = this.f13103a.compileStatement(h.a(this.f13104b, this.d));
+            synchronized (this) {
+                if (this.pUy == null) {
+                    this.pUy = compileStatement;
+                }
+            }
+            if (this.pUy != compileStatement) {
+                compileStatement.close();
+            }
+        }
+        return this.pUy;
+    }
+
+    public SQLiteStatement eDE() {
+        if (this.pUx == null) {
+            SQLiteStatement compileStatement = this.f13103a.compileStatement(h.a(this.f13104b, this.c, this.d));
             synchronized (this) {
                 if (this.pUx == null) {
                     this.pUx = compileStatement;
@@ -52,20 +67,5 @@ public class g {
             }
         }
         return this.pUx;
-    }
-
-    public SQLiteStatement eDE() {
-        if (this.pUw == null) {
-            SQLiteStatement compileStatement = this.f13103a.compileStatement(h.a(this.f13104b, this.c, this.d));
-            synchronized (this) {
-                if (this.pUw == null) {
-                    this.pUw = compileStatement;
-                }
-            }
-            if (this.pUw != compileStatement) {
-                compileStatement.close();
-            }
-        }
-        return this.pUw;
     }
 }

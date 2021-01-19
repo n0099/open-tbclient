@@ -3,14 +3,14 @@ package rx.subscriptions;
 import rx.k;
 /* loaded from: classes14.dex */
 public final class e {
-    private static final a quQ = new a();
+    private static final a quR = new a();
 
     public static k eLW() {
         return rx.subscriptions.a.eLQ();
     }
 
     public static k eLX() {
-        return quQ;
+        return quR;
     }
 
     public static k l(rx.functions.a aVar) {

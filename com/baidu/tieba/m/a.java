@@ -27,7 +27,7 @@ import java.util.zip.ZipFile;
 public final class a {
     private static final String SECONDARY_FOLDER_NAME = "code_cache" + File.separator + "secondary-dexes";
     private static final Set<String> lmR = new HashSet();
-    private static final boolean lmS = NS(System.getProperty("java.vm.version"));
+    private static final boolean lmS = NT(System.getProperty("java.vm.version"));
 
     public static void gC(Context context) {
         Log.i("MultiDex", Config.INPUT_INSTALLED_PKG);
@@ -94,7 +94,7 @@ public final class a {
         }
     }
 
-    static boolean NS(String str) {
+    static boolean NT(String str) {
         boolean z = false;
         if (str != null) {
             Matcher matcher = Pattern.compile("(\\d+)\\.(\\d+)(\\.\\d+)?").matcher(str);

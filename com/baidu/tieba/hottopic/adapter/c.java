@@ -142,7 +142,7 @@ public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.hottopic.
         }
     }
 
-    public void Lt(String str) {
+    public void Lu(String str) {
         this.type = str;
     }
 

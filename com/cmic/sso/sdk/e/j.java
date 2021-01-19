@@ -8,13 +8,13 @@ import com.cmic.sso.sdk.a.b;
 /* loaded from: classes6.dex */
 public class j {
     @SuppressLint({"StaticFieldLeak"})
-    private static j pmO;
+    private static j pmP;
 
     /* renamed from: a  reason: collision with root package name */
     private Context f7729a;
 
     public static void a(Context context) {
-        pmO = new j(context);
+        pmP = new j(context);
     }
 
     private j(Context context) {
@@ -22,7 +22,7 @@ public class j {
     }
 
     public static j epb() {
-        return pmO;
+        return pmP;
     }
 
     public String b() {

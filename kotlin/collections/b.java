@@ -5,8 +5,8 @@ import java.util.NoSuchElementException;
 @kotlin.e
 /* loaded from: classes5.dex */
 public abstract class b<T> implements Iterator<T> {
-    private State qiK = State.NotReady;
-    private T qiL;
+    private State qiL = State.NotReady;
+    private T qiM;
 
     protected abstract void eIC();
 
@@ -17,8 +17,8 @@ public abstract class b<T> implements Iterator<T> {
 
     @Override // java.util.Iterator
     public boolean hasNext() {
-        if (!kotlin.jvm.internal.p.l(this.qiK, State.Failed)) {
-            switch (this.qiK) {
+        if (!kotlin.jvm.internal.p.l(this.qiL, State.Failed)) {
+            switch (this.qiL) {
                 case Done:
                     return false;
                 case Ready:
@@ -33,26 +33,26 @@ public abstract class b<T> implements Iterator<T> {
     @Override // java.util.Iterator
     public T next() {
         if (hasNext()) {
-            this.qiK = State.NotReady;
-            return this.qiL;
+            this.qiL = State.NotReady;
+            return this.qiM;
         }
         throw new NoSuchElementException();
     }
 
     private final boolean eIB() {
-        this.qiK = State.Failed;
+        this.qiL = State.Failed;
         eIC();
-        return kotlin.jvm.internal.p.l(this.qiK, State.Ready);
+        return kotlin.jvm.internal.p.l(this.qiL, State.Ready);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public final void bR(T t) {
-        this.qiL = t;
-        this.qiK = State.Ready;
+        this.qiM = t;
+        this.qiL = State.Ready;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public final void done() {
-        this.qiK = State.Done;
+        this.qiL = State.Done;
     }
 }

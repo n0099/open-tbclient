@@ -551,14 +551,14 @@ public class b {
         if (aVar == null) {
             return null;
         }
-        ImMessageCenterPojo br = com.baidu.tieba.im.memorycache.b.cUG().br(aVar.gid, aVar.userType);
-        if (br == null || br.getLast_content() == null) {
+        ImMessageCenterPojo bs = com.baidu.tieba.im.memorycache.b.cUG().bs(aVar.gid, aVar.userType);
+        if (bs == null || bs.getLast_content() == null) {
             return null;
         }
         try {
-            lastTaskId = br.getLastTaskId();
-            lastServiceId = br.getLastServiceId();
-            jSONArray = new JSONArray(br.getLastContentRawData());
+            lastTaskId = bs.getLastTaskId();
+            lastServiceId = bs.getLastServiceId();
+            jSONArray = new JSONArray(bs.getLastContentRawData());
         } catch (Exception e) {
             BdLog.e(e);
         }

@@ -7,13 +7,13 @@ import java.io.InterruptedIOException;
 public class PipedInputStreamAndroid25 extends InputStream {
     static final /* synthetic */ boolean $assertionsDisabled;
     protected byte[] buffer;
-    Thread oGG;
     Thread oGH;
-    boolean oGE = false;
-    volatile boolean oGF = false;
+    Thread oGI;
+    boolean oGF = false;
+    volatile boolean oGG = false;
     boolean connected = false;
     protected int in = -1;
-    protected int oGI = 0;
+    protected int oGJ = 0;
 
     static {
         $assertionsDisabled = !PipedInputStreamAndroid25.class.desiredAssertionStatus();
@@ -33,13 +33,13 @@ public class PipedInputStreamAndroid25 extends InputStream {
     /* JADX INFO: Access modifiers changed from: protected */
     public synchronized void MB(int i) throws IOException {
         eeg();
-        this.oGH = Thread.currentThread();
-        if (this.in == this.oGI) {
+        this.oGI = Thread.currentThread();
+        if (this.in == this.oGJ) {
             eeh();
         }
         if (this.in < 0) {
             this.in = 0;
-            this.oGI = 0;
+            this.oGJ = 0;
         }
         byte[] bArr = this.buffer;
         int i2 = this.in;
@@ -54,22 +54,22 @@ public class PipedInputStreamAndroid25 extends InputStream {
     public synchronized void u(byte[] bArr, int i, int i2) throws IOException {
         int i3;
         eeg();
-        this.oGH = Thread.currentThread();
+        this.oGI = Thread.currentThread();
         int i4 = i2;
         while (i4 > 0) {
-            if (this.in == this.oGI) {
+            if (this.in == this.oGJ) {
                 eeh();
             }
-            if (this.oGI < this.in) {
+            if (this.oGJ < this.in) {
                 i3 = this.buffer.length - this.in;
-            } else if (this.in >= this.oGI) {
+            } else if (this.in >= this.oGJ) {
                 i3 = 0;
             } else if (this.in == -1) {
-                this.oGI = 0;
+                this.oGJ = 0;
                 this.in = 0;
                 i3 = this.buffer.length - this.in;
             } else {
-                i3 = this.oGI - this.in;
+                i3 = this.oGJ - this.in;
             }
             if (i3 > i4) {
                 i3 = i4;
@@ -91,16 +91,16 @@ public class PipedInputStreamAndroid25 extends InputStream {
         if (!this.connected) {
             throw new IOException("Pipe not connected");
         }
-        if (this.oGE || this.oGF) {
+        if (this.oGF || this.oGG) {
             throw new IOException("Pipe closed");
         }
-        if (this.oGG != null && !this.oGG.isAlive()) {
+        if (this.oGH != null && !this.oGH.isAlive()) {
             throw new IOException("Read end dead");
         }
     }
 
     private void eeh() throws IOException {
-        while (this.in == this.oGI) {
+        while (this.in == this.oGJ) {
             eeg();
             notifyAll();
             try {
@@ -114,7 +114,7 @@ public class PipedInputStreamAndroid25 extends InputStream {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public synchronized void eei() {
-        this.oGE = true;
+        this.oGF = true;
         notifyAll();
     }
 
@@ -125,19 +125,19 @@ public class PipedInputStreamAndroid25 extends InputStream {
             if (!this.connected) {
                 throw new IOException("Pipe not connected");
             }
-            if (this.oGF) {
+            if (this.oGG) {
                 throw new IOException("Pipe closed");
             }
-            if (this.oGH != null && !this.oGH.isAlive() && !this.oGE && this.in < 0) {
+            if (this.oGI != null && !this.oGI.isAlive() && !this.oGF && this.in < 0) {
                 throw new IOException("Write end dead");
             }
-            this.oGG = Thread.currentThread();
+            this.oGH = Thread.currentThread();
             int i2 = 2;
             while (true) {
                 if (this.in < 0) {
-                    if (this.oGE) {
+                    if (this.oGF) {
                         break;
-                    } else if (this.oGH != null && !this.oGH.isAlive() && i2 - 1 < 0) {
+                    } else if (this.oGI != null && !this.oGI.isAlive() && i2 - 1 < 0) {
                         throw new IOException("Pipe broken");
                     } else {
                         notifyAll();
@@ -150,13 +150,13 @@ public class PipedInputStreamAndroid25 extends InputStream {
                     }
                 } else {
                     byte[] bArr = this.buffer;
-                    int i3 = this.oGI;
-                    this.oGI = i3 + 1;
+                    int i3 = this.oGJ;
+                    this.oGJ = i3 + 1;
                     i = bArr[i3] & 255;
-                    if (this.oGI >= this.buffer.length) {
-                        this.oGI = 0;
+                    if (this.oGJ >= this.buffer.length) {
+                        this.oGJ = 0;
                     }
-                    if (this.in == this.oGI) {
+                    if (this.in == this.oGJ) {
                         this.in = -1;
                     }
                 }
@@ -184,22 +184,22 @@ public class PipedInputStreamAndroid25 extends InputStream {
                     bArr[i] = (byte) read;
                     i3 = 1;
                     while (this.in >= 0 && i2 > 1) {
-                        if (this.in > this.oGI) {
-                            length = Math.min(this.buffer.length - this.oGI, this.in - this.oGI);
+                        if (this.in > this.oGJ) {
+                            length = Math.min(this.buffer.length - this.oGJ, this.in - this.oGJ);
                         } else {
-                            length = this.buffer.length - this.oGI;
+                            length = this.buffer.length - this.oGJ;
                         }
                         if (length > i2 - 1) {
                             length = i2 - 1;
                         }
-                        System.arraycopy(this.buffer, this.oGI, bArr, i + i3, length);
-                        this.oGI += length;
+                        System.arraycopy(this.buffer, this.oGJ, bArr, i + i3, length);
+                        this.oGJ += length;
                         i3 += length;
                         i2 -= length;
-                        if (this.oGI >= this.buffer.length) {
-                            this.oGI = 0;
+                        if (this.oGJ >= this.buffer.length) {
+                            this.oGJ = 0;
                         }
-                        if (this.in == this.oGI) {
+                        if (this.in == this.oGJ) {
                             this.in = -1;
                         }
                     }
@@ -214,19 +214,19 @@ public class PipedInputStreamAndroid25 extends InputStream {
         int length;
         if (this.in < 0) {
             length = 0;
-        } else if (this.in == this.oGI) {
+        } else if (this.in == this.oGJ) {
             length = this.buffer.length;
-        } else if (this.in > this.oGI) {
-            length = this.in - this.oGI;
+        } else if (this.in > this.oGJ) {
+            length = this.in - this.oGJ;
         } else {
-            length = (this.in + this.buffer.length) - this.oGI;
+            length = (this.in + this.buffer.length) - this.oGJ;
         }
         return length;
     }
 
     @Override // java.io.InputStream, java.io.Closeable, java.lang.AutoCloseable
     public void close() throws IOException {
-        this.oGF = true;
+        this.oGG = true;
         synchronized (this) {
             this.in = -1;
         }

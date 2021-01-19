@@ -19,13 +19,13 @@ public class NewVoteCountDownView extends LinearLayout {
     private CountDownTimer gNO;
     private a iow;
     private Context mContext;
-    private TextView nPq;
-    private View nPr;
+    private TextView nPr;
     private View nPs;
     private View nPt;
-    private TextView nPu;
+    private View nPu;
     private TextView nPv;
     private TextView nPw;
+    private TextView nPx;
 
     /* loaded from: classes.dex */
     public interface a {
@@ -83,31 +83,31 @@ public class NewVoteCountDownView extends LinearLayout {
     }
 
     private void tC() {
-        this.nPq = (TextView) findViewById(R.id.prefix_count_down_view);
-        this.nPr = findViewById(R.id.day_num_container);
-        this.nPs = findViewById(R.id.hour_num_container);
-        this.nPt = findViewById(R.id.minute_num_container);
-        this.nPu = (TextView) findViewById(R.id.day_num_count_down_view);
-        this.nPv = (TextView) findViewById(R.id.hour_num_count_down_view);
-        this.nPw = (TextView) findViewById(R.id.minute_num_count_down_view);
+        this.nPr = (TextView) findViewById(R.id.prefix_count_down_view);
+        this.nPs = findViewById(R.id.day_num_container);
+        this.nPt = findViewById(R.id.hour_num_container);
+        this.nPu = findViewById(R.id.minute_num_container);
+        this.nPv = (TextView) findViewById(R.id.day_num_count_down_view);
+        this.nPw = (TextView) findViewById(R.id.hour_num_count_down_view);
+        this.nPx = (TextView) findViewById(R.id.minute_num_count_down_view);
     }
 
     public void setContent(long j, long j2, long j3) {
         String string = TbadkCoreApplication.getInst().getString(R.string.add_zero_when_less_ten);
-        this.nPu.setText(String.format(string, Long.valueOf(j)));
-        this.nPv.setText(String.format(string, Long.valueOf(j2)));
-        this.nPw.setText(String.format(string, Long.valueOf(j3)));
+        this.nPv.setText(String.format(string, Long.valueOf(j)));
+        this.nPw.setText(String.format(string, Long.valueOf(j2)));
+        this.nPx.setText(String.format(string, Long.valueOf(j3)));
     }
 
     public void uo(int i) {
-        ao.setViewTextColor(this.nPq, R.color.CAM_X0105, 1, i);
-        ao.setViewTextColor(this.nPu, R.color.CAM_X0105, 1, i);
-        ao.setBackgroundResource(this.nPr, R.drawable.bg_gradient_round, i);
+        ao.setViewTextColor(this.nPr, R.color.CAM_X0105, 1, i);
+        ao.setViewTextColor(this.nPv, R.color.CAM_X0105, 1, i);
         ao.setBackgroundResource(this.nPs, R.drawable.bg_gradient_round, i);
         ao.setBackgroundResource(this.nPt, R.drawable.bg_gradient_round, i);
-        ao.setViewTextColor(this.nPu, R.color.CAM_X0101, 1, i);
+        ao.setBackgroundResource(this.nPu, R.drawable.bg_gradient_round, i);
         ao.setViewTextColor(this.nPv, R.color.CAM_X0101, 1, i);
         ao.setViewTextColor(this.nPw, R.color.CAM_X0101, 1, i);
+        ao.setViewTextColor(this.nPx, R.color.CAM_X0101, 1, i);
     }
 
     public void setData(long j) {

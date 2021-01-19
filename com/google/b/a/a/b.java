@@ -22,8 +22,8 @@ public class b implements d {
     private SensorManager c;
     private final ArrayList<SensorEventListener> f = new ArrayList<>();
     private int g;
-    private Looper pMl;
-    private SensorEventListener pMm;
+    private Looper pMm;
+    private SensorEventListener pMn;
 
     public b(SensorManager sensorManager, int i) {
         this.c = sensorManager;
@@ -43,7 +43,7 @@ public class b implements d {
         if (this.f7884b) {
             return;
         }
-        this.pMm = new SensorEventListener() { // from class: com.google.b.a.a.b.1
+        this.pMn = new SensorEventListener() { // from class: com.google.b.a.a.b.1
             @Override // android.hardware.SensorEventListener
             public void onAccuracyChanged(Sensor sensor, int i) {
                 synchronized (b.this.f) {
@@ -68,17 +68,17 @@ public class b implements d {
             @Override // android.os.HandlerThread
             protected void onLooperPrepared() {
                 Handler handler = new Handler(Looper.myLooper());
-                b.this.c.registerListener(b.this.pMm, b.this.c.getDefaultSensor(1), b.this.g, handler);
+                b.this.c.registerListener(b.this.pMn, b.this.c.getDefaultSensor(1), b.this.g, handler);
                 Sensor ezI = b.this.ezI();
                 if (ezI == null) {
                     Log.i(b.f7883a, "Uncalibrated gyroscope unavailable, default to regular gyroscope.");
                     ezI = b.this.c.getDefaultSensor(4);
                 }
-                b.this.c.registerListener(b.this.pMm, ezI, b.this.g, handler);
+                b.this.c.registerListener(b.this.pMn, ezI, b.this.g, handler);
             }
         };
         handlerThread.start();
-        this.pMl = handlerThread.getLooper();
+        this.pMm = handlerThread.getLooper();
         this.f7884b = true;
     }
 
@@ -93,10 +93,10 @@ public class b implements d {
     @Override // com.google.b.a.a.d
     public void b() {
         if (this.f7884b) {
-            this.c.unregisterListener(this.pMm);
+            this.c.unregisterListener(this.pMn);
+            this.pMn = null;
+            this.pMm.quit();
             this.pMm = null;
-            this.pMl.quit();
-            this.pMl = null;
             this.f7884b = false;
         }
     }

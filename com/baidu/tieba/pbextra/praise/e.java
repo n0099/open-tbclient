@@ -126,7 +126,7 @@ public class e extends com.baidu.adp.base.d<PraiseListActivity> {
             this.miH.setTitleText("");
         }
         if (list == null || list.size() < 1) {
-            bJ(null, this.miF.pageType);
+            bK(null, this.miF.pageType);
             return;
         }
         this.miI.setVisibility(0);
@@ -163,7 +163,7 @@ public class e extends com.baidu.adp.base.d<PraiseListActivity> {
         }
     }
 
-    public void bJ(String str, int i) {
+    public void bK(String str, int i) {
         this.miQ.setVisibility(8);
         this.miR.setVisibility(8);
         this.miI.setVisibility(8);

@@ -23,7 +23,7 @@ public class b {
 
     /* renamed from: a  reason: collision with root package name */
     public static boolean f7673a = false;
-    private static c plP;
+    private static c plQ;
 
     public static f a(long j, String str, byte[] bArr, a aVar, String str2, boolean z) throws IOException {
         byte[] bArr2;
@@ -113,9 +113,9 @@ public class b {
     private static com.bytedance.tea.crash.upload.f a(java.lang.String r7, byte[] r8, java.lang.String r9, java.lang.String r10, java.lang.String r11, boolean r12, boolean r13) {
         /*
             r3 = 0
-            com.bytedance.tea.crash.upload.c r0 = com.bytedance.tea.crash.upload.b.plP     // Catch: java.lang.Throwable -> L63
+            com.bytedance.tea.crash.upload.c r0 = com.bytedance.tea.crash.upload.b.plQ     // Catch: java.lang.Throwable -> L63
             if (r0 == 0) goto Lb
-            com.bytedance.tea.crash.upload.c r0 = com.bytedance.tea.crash.upload.b.plP     // Catch: java.lang.Throwable -> L63
+            com.bytedance.tea.crash.upload.c r0 = com.bytedance.tea.crash.upload.b.plQ     // Catch: java.lang.Throwable -> L63
             java.lang.String r7 = r0.a(r7, r8)     // Catch: java.lang.Throwable -> L63
         Lb:
             java.util.LinkedList r1 = new java.util.LinkedList     // Catch: java.lang.Throwable -> L63

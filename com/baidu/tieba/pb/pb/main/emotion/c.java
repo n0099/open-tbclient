@@ -54,13 +54,13 @@ public class c implements EmotionView.a, b.a, QueryMatchEmotionModel.a {
         this.lTI = list;
     }
 
-    public void OW(String str) {
+    public void OX(String str) {
         if (!TextUtils.isEmpty(str) && !x.isEmpty(this.lTI) && this.lTI.contains(str)) {
-            OX(str);
+            OY(str);
         }
     }
 
-    private void OX(String str) {
+    private void OY(String str) {
         if (!TextUtils.isEmpty(str) && !str.equals(this.lTL)) {
             this.lTL = str;
             if (this.lTK == null) {

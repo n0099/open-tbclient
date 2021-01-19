@@ -23,7 +23,7 @@ public class c {
 
     /* loaded from: classes7.dex */
     public interface a {
-        void Op(String str);
+        void Oq(String str);
     }
 
     public c(Context context, a aVar) {

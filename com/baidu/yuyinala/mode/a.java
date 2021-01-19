@@ -8,37 +8,37 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes10.dex */
 public class a {
-    private static a oMh;
+    private static a oMi;
     private TbPageContext mPageContext;
-    private b oMi;
+    private b oMj;
 
     public static a egK() {
-        if (oMh == null) {
+        if (oMi == null) {
             synchronized (a.class) {
-                if (oMh == null) {
-                    oMh = new a();
+                if (oMi == null) {
+                    oMi = new a();
                 }
             }
         }
-        return oMh;
+        return oMi;
     }
 
     public void b(TbPageContext tbPageContext, x xVar) {
         if (this.mPageContext != tbPageContext) {
             this.mPageContext = tbPageContext;
-            this.oMi = null;
+            this.oMj = null;
         }
         AlaAudioModeDialogData alaAudioModeDialogData = new AlaAudioModeDialogData();
-        alaAudioModeDialogData.setModeList(WU(xVar == null ? "" : xVar.aGx));
-        if (this.oMi == null) {
-            this.oMi = new b(tbPageContext, xVar, alaAudioModeDialogData);
+        alaAudioModeDialogData.setModeList(WV(xVar == null ? "" : xVar.aGx));
+        if (this.oMj == null) {
+            this.oMj = new b(tbPageContext, xVar, alaAudioModeDialogData);
         } else {
-            this.oMi.a(xVar, alaAudioModeDialogData);
+            this.oMj.a(xVar, alaAudioModeDialogData);
         }
-        this.oMi.show();
+        this.oMj.show();
     }
 
-    private List<com.baidu.yuyinala.mode.b.a> WU(String str) {
+    private List<com.baidu.yuyinala.mode.b.a> WV(String str) {
         try {
             JSONArray optJSONArray = new JSONObject(str).optJSONArray("mode_list");
             int length = optJSONArray.length();
@@ -57,8 +57,8 @@ public class a {
     }
 
     public void Ek() {
-        if (this.oMi != null && this.oMi.isShowing()) {
-            this.oMi.dismiss();
+        if (this.oMj != null && this.oMj.isShowing()) {
+            this.oMj.dismiss();
         }
     }
 }

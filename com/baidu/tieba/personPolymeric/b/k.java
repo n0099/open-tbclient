@@ -170,11 +170,11 @@ public class k extends e implements com.baidu.tieba.model.a, b {
     }
 
     @Override // com.baidu.tieba.personPolymeric.b.b
-    public void PE(String str) {
+    public void PF(String str) {
     }
 
     @Override // com.baidu.tieba.personPolymeric.b.b
-    public void PF(String str) {
+    public void PG(String str) {
     }
 
     @Override // com.baidu.tieba.personPolymeric.b.b

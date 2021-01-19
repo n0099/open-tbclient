@@ -24,7 +24,7 @@ public final class y {
         this.f = str4;
     }
 
-    public static y XL(String str) {
+    public static y XM(String str) {
         Matcher matcher = f5982a.matcher(str);
         if (matcher.lookingAt()) {
             String lowerCase = matcher.group(1).toLowerCase(Locale.US);

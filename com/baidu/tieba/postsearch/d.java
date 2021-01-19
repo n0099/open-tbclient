@@ -74,7 +74,7 @@ public class d {
         this.mDk.registerListener(this.mDP);
     }
 
-    public boolean bL(String str, int i) {
+    public boolean bM(String str, int i) {
         if (StringUtils.isNull(str)) {
             return false;
         }
@@ -83,17 +83,17 @@ public class d {
         }
         switch (i) {
             case 1:
-                return PU(str);
-            case 2:
                 return PV(str);
-            case 3:
+            case 2:
                 return PW(str);
+            case 3:
+                return PX(str);
             default:
                 return false;
         }
     }
 
-    public boolean PU(String str) {
+    public boolean PV(String str) {
         if (this.mDK) {
             return false;
         }
@@ -104,7 +104,7 @@ public class d {
         return true;
     }
 
-    public boolean PV(String str) {
+    public boolean PW(String str) {
         if (this.mDL) {
             return false;
         }
@@ -115,7 +115,7 @@ public class d {
         return true;
     }
 
-    public boolean PW(String str) {
+    public boolean PX(String str) {
         if (this.mDM) {
             return false;
         }

@@ -17,7 +17,7 @@ public final class h {
         try {
             aVar.eyX();
             z = false;
-            return TypeAdapters.pKv.read(aVar);
+            return TypeAdapters.pKw.read(aVar);
         } catch (MalformedJsonException e) {
             throw new JsonSyntaxException(e);
         } catch (EOFException e2) {
@@ -33,7 +33,7 @@ public final class h {
     }
 
     public static void a(JsonElement jsonElement, com.google.gson.stream.b bVar) throws IOException {
-        TypeAdapters.pKv.write(bVar, jsonElement);
+        TypeAdapters.pKw.write(bVar, jsonElement);
     }
 
     public static Writer b(Appendable appendable) {
@@ -44,7 +44,7 @@ public final class h {
     /* loaded from: classes4.dex */
     public static final class a extends Writer {
         private final Appendable appendable;
-        private final C1055a pIG = new C1055a();
+        private final C1055a pIH = new C1055a();
 
         a(Appendable appendable) {
             this.appendable = appendable;
@@ -52,8 +52,8 @@ public final class h {
 
         @Override // java.io.Writer
         public void write(char[] cArr, int i, int i2) throws IOException {
-            this.pIG.chars = cArr;
-            this.appendable.append(this.pIG, i, i + i2);
+            this.pIH.chars = cArr;
+            this.appendable.append(this.pIH, i, i + i2);
         }
 
         @Override // java.io.Writer

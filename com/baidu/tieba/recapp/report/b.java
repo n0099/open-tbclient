@@ -37,19 +37,19 @@ public class b {
         this.mNF.put(str, arrayList);
     }
 
-    public String QL(String str) {
+    public String QM(String str) {
         return fO(this.mNF.get(str));
     }
 
-    public void QM(String str) {
+    public void QN(String str) {
         this.mNF.put(str, new ArrayList());
     }
 
-    public void bN(String str, int i) {
+    public void bO(String str, int i) {
         this.mNG.put(str, Integer.valueOf(i));
     }
 
-    public int QN(String str) {
+    public int QO(String str) {
         Integer num = this.mNG.get(str);
         if (num == null) {
             return 0;

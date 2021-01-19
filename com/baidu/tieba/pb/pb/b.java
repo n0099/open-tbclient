@@ -225,7 +225,7 @@ public class b {
         if (pbCommenFloorItemViewHolder != null && postData != null) {
             if (postData.bnx() == null || postData.bnx().isBaijiahaoUser()) {
             }
-            if (postData.nny) {
+            if (postData.nnz) {
                 ao.setBackgroundColor(pbCommenFloorItemViewHolder.mTopLine, R.color.CAM_X0204);
                 pbCommenFloorItemViewHolder.mTopLine.setVisibility(0);
             } else {

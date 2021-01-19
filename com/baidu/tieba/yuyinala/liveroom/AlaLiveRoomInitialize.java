@@ -53,7 +53,7 @@ public class AlaLiveRoomInitialize {
     private static CustomMessageListener hkv;
     private static CustomMessageListener hkx;
     private static CustomMessageListener hkz;
-    private static HttpMessageListener ohD;
+    private static HttpMessageListener ohE;
     private static boolean hkp = false;
     private static boolean hkq = false;
     private static BdAlertDialog hkr = null;
@@ -99,7 +99,7 @@ public class AlaLiveRoomInitialize {
                 }
             }
         };
-        ohD = new HttpMessageListener(1031044) { // from class: com.baidu.tieba.yuyinala.liveroom.AlaLiveRoomInitialize.4
+        ohE = new HttpMessageListener(1031044) { // from class: com.baidu.tieba.yuyinala.liveroom.AlaLiveRoomInitialize.4
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
@@ -157,7 +157,7 @@ public class AlaLiveRoomInitialize {
         if (TbadkCoreApplication.getInst().isMainProcess(true)) {
             MessageManager.getInstance().registerListener(hku);
             MessageManager.getInstance().registerListener(hkv);
-            MessageManager.getInstance().registerListener(ohD);
+            MessageManager.getInstance().registerListener(ohE);
             MessageManager.getInstance().registerListener(hkx);
             MessageManager.getInstance().registerListener(hkz);
         }

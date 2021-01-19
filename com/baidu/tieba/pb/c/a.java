@@ -106,7 +106,7 @@ public class a {
         if (aVar != null && aVar.bkV() != null) {
             aq aqVar = new aq("c13992");
             if (aVar.bkV().bpo() != null) {
-                aqVar.an("obj_type", Pj(aVar.bkV().bpo().eNB));
+                aqVar.an("obj_type", Pk(aVar.bkV().bpo().eNB));
             }
             aqVar.an("obj_locate", aVar.bkV().eKn);
             aqVar.dW("tid", aVar.bkV().getTid());
@@ -121,7 +121,7 @@ public class a {
         if (aVar != null && aVar.bkV() != null) {
             aq aqVar = new aq("c14020");
             if (aVar.bkV().bpo() != null) {
-                aqVar.an("obj_type", Pj(aVar.bkV().bpo().eNB));
+                aqVar.an("obj_type", Pk(aVar.bkV().bpo().eNB));
             }
             aqVar.dW("tid", aVar.bkV().getTid());
             aqVar.w("fid", aVar.bkV().getFid());
@@ -130,7 +130,7 @@ public class a {
         }
     }
 
-    private static int Pj(String str) {
+    private static int Pk(String str) {
         if ("游戏".equals(str)) {
             return 1;
         }

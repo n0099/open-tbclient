@@ -120,7 +120,7 @@ public class a {
     }
 
     private void bqN() {
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_HOT_USER_RANK, com.baidu.tieba.tbadkCore.a.a.bU(TbConfig.HOT_USER_RANK_URL, 309652));
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_HOT_USER_RANK, com.baidu.tieba.tbadkCore.a.a.bV(TbConfig.HOT_USER_RANK_URL, 309652));
         tbHttpMessageTask.setIsNeedAddCommenParam(false);
         tbHttpMessageTask.setResponsedClass(HotUserRankHttpResMsg.class);
         tbHttpMessageTask.setPriority(4);

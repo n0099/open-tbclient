@@ -22,7 +22,7 @@ public class b extends BaseAdapter {
         public View gde;
         public View jfH;
         public TextView mTitleView;
-        public HeadImageView nze;
+        public HeadImageView nzf;
     }
 
     public b(TbPageContext<?> tbPageContext) {
@@ -61,9 +61,9 @@ public class b extends BaseAdapter {
         } else {
             view = LayoutInflater.from(this.eSJ.getPageActivity()).inflate(R.layout.dressup_item_view, viewGroup, false);
             a aVar2 = new a();
-            aVar2.nze = (HeadImageView) view.findViewById(R.id.dress_icon);
-            aVar2.nze.setDefaultResource(R.drawable.img_default_100);
-            aVar2.nze.setDefaultBgResource(R.color.CAM_X0204);
+            aVar2.nzf = (HeadImageView) view.findViewById(R.id.dress_icon);
+            aVar2.nzf.setDefaultResource(R.drawable.img_default_100);
+            aVar2.nzf.setDefaultBgResource(R.color.CAM_X0204);
             aVar2.mTitleView = (TextView) view.findViewById(R.id.dress_desc_view);
             aVar2.jfH = view.findViewById(R.id.tip_view);
             aVar2.gde = view.findViewById(R.id.divider_line);
@@ -71,7 +71,7 @@ public class b extends BaseAdapter {
             aVar = aVar2;
         }
         if (item != null) {
-            aVar.nze.startLoad(item.getIconUrl(), 10, false);
+            aVar.nzf.startLoad(item.getIconUrl(), 10, false);
             aVar.mTitleView.setText(item.getName());
             if (item.getUpdateTime() - com.baidu.tbadk.core.sharedPref.b.brx().getLong(SharedPrefConfig.DRESSUP_CENTER_RED_TIP + TbadkCoreApplication.getCurrentAccount() + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + item.getType(), 0L) > 0) {
                 aVar.jfH.setVisibility(0);

@@ -24,11 +24,11 @@ public abstract class a implements f.a {
     private final SparseArray<com.ss.android.socialbase.downloader.g.d> d = new SparseArray<>();
     private final SparseArray<com.ss.android.socialbase.downloader.g.d> e = new SparseArray<>();
     private final SparseArray<com.ss.android.socialbase.downloader.g.d> f = new SparseArray<>();
-    private final com.ss.android.socialbase.downloader.m.f<Integer, com.ss.android.socialbase.downloader.g.d> pWo = new com.ss.android.socialbase.downloader.m.f<>();
+    private final com.ss.android.socialbase.downloader.m.f<Integer, com.ss.android.socialbase.downloader.g.d> pWp = new com.ss.android.socialbase.downloader.m.f<>();
     private final SparseArray<Long> h = new SparseArray<>();
-    private final LinkedBlockingDeque<com.ss.android.socialbase.downloader.g.d> pWp = new LinkedBlockingDeque<>();
-    protected final com.ss.android.socialbase.downloader.l.f pWr = new com.ss.android.socialbase.downloader.l.f(Looper.getMainLooper(), this);
-    private final com.ss.android.socialbase.downloader.downloader.k pWq = com.ss.android.socialbase.downloader.downloader.b.eDT();
+    private final LinkedBlockingDeque<com.ss.android.socialbase.downloader.g.d> pWq = new LinkedBlockingDeque<>();
+    protected final com.ss.android.socialbase.downloader.l.f pWs = new com.ss.android.socialbase.downloader.l.f(Looper.getMainLooper(), this);
+    private final com.ss.android.socialbase.downloader.downloader.k pWr = com.ss.android.socialbase.downloader.downloader.b.eDT();
 
     protected abstract com.ss.android.socialbase.downloader.l.c Rt(int i);
 
@@ -101,8 +101,8 @@ public abstract class a implements f.a {
                 a2.a(com.ss.android.socialbase.downloader.b.a.ASYNC_HANDLE_RESTART);
             }
             if (com.ss.android.socialbase.downloader.m.a.a(32768)) {
-                synchronized (this.pWo) {
-                    dVar2 = (com.ss.android.socialbase.downloader.g.d) this.pWo.remove(Integer.valueOf(g));
+                synchronized (this.pWp) {
+                    dVar2 = (com.ss.android.socialbase.downloader.g.d) this.pWp.remove(Integer.valueOf(g));
                 }
                 if (dVar2 != null) {
                     dVar.b(dVar2);
@@ -163,13 +163,13 @@ public abstract class a implements f.a {
         com.ss.android.socialbase.downloader.g.c a2;
         if (dVar != null && (a2 = dVar.a()) != null) {
             try {
-                synchronized (this.pWp) {
-                    if (this.pWp.isEmpty()) {
+                synchronized (this.pWq) {
+                    if (this.pWq.isEmpty()) {
                         a(dVar, true);
-                        this.pWp.put(dVar);
+                        this.pWq.put(dVar);
                     } else if (a2.eEA() == com.ss.android.socialbase.downloader.b.g.ENQUEUE_TAIL) {
-                        if (this.pWp.getFirst().o() != dVar.o() || !a(dVar.o())) {
-                            Iterator<com.ss.android.socialbase.downloader.g.d> it = this.pWp.iterator();
+                        if (this.pWq.getFirst().o() != dVar.o() || !a(dVar.o())) {
+                            Iterator<com.ss.android.socialbase.downloader.g.d> it = this.pWq.iterator();
                             while (true) {
                                 if (!it.hasNext()) {
                                     break;
@@ -180,16 +180,16 @@ public abstract class a implements f.a {
                                     break;
                                 }
                             }
-                            this.pWp.put(dVar);
-                            new com.ss.android.socialbase.downloader.downloader.e(dVar, this.pWr).a();
+                            this.pWq.put(dVar);
+                            new com.ss.android.socialbase.downloader.downloader.e(dVar, this.pWs).a();
                         }
                     } else {
-                        com.ss.android.socialbase.downloader.g.d first = this.pWp.getFirst();
+                        com.ss.android.socialbase.downloader.g.d first = this.pWq.getFirst();
                         if (first.o() != dVar.o() || !a(dVar.o())) {
                             e(first.o());
                             a(dVar, true);
                             if (first.o() != dVar.o()) {
-                                this.pWp.putFirst(dVar);
+                                this.pWq.putFirst(dVar);
                             }
                         }
                     }
@@ -201,7 +201,7 @@ public abstract class a implements f.a {
 
     public com.ss.android.socialbase.downloader.g.c Ru(int i) {
         com.ss.android.socialbase.downloader.g.c a2;
-        com.ss.android.socialbase.downloader.g.c b2 = this.pWq.b(i);
+        com.ss.android.socialbase.downloader.g.c b2 = this.pWr.b(i);
         if (b2 == null) {
             synchronized (this.f13180b) {
                 com.ss.android.socialbase.downloader.g.d dVar = this.f13180b.get(i);
@@ -217,7 +217,7 @@ public abstract class a implements f.a {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
-        List<com.ss.android.socialbase.downloader.g.c> a2 = this.pWq.a(str);
+        List<com.ss.android.socialbase.downloader.g.c> a2 = this.pWr.a(str);
         if (a2 == null || a2.isEmpty()) {
             synchronized (this.f13180b) {
                 arrayList = new ArrayList();
@@ -236,14 +236,14 @@ public abstract class a implements f.a {
 
     public boolean e(int i) {
         com.ss.android.socialbase.downloader.f.a.b("AbsDownloadEngine", "pause id");
-        com.ss.android.socialbase.downloader.g.c b2 = this.pWq.b(i);
+        com.ss.android.socialbase.downloader.g.c b2 = this.pWr.b(i);
         if (b2 == null || b2.q() != 11) {
             b(i);
             if (b2 == null) {
                 synchronized (this.f13180b) {
                     com.ss.android.socialbase.downloader.g.d dVar = this.f13180b.get(i);
                     if (dVar != null) {
-                        new com.ss.android.socialbase.downloader.downloader.e(dVar, this.pWr).d();
+                        new com.ss.android.socialbase.downloader.downloader.e(dVar, this.pWs).d();
                         return true;
                     }
                 }
@@ -253,7 +253,7 @@ public abstract class a implements f.a {
                     synchronized (this.f13180b) {
                         com.ss.android.socialbase.downloader.g.d dVar2 = this.f13180b.get(i);
                         if (dVar2 != null) {
-                            new com.ss.android.socialbase.downloader.downloader.e(dVar2, this.pWr).d();
+                            new com.ss.android.socialbase.downloader.downloader.e(dVar2, this.pWs).d();
                             return true;
                         }
                     }
@@ -273,11 +273,11 @@ public abstract class a implements f.a {
             dVar = Rx(i);
         }
         if (dVar != null) {
-            new com.ss.android.socialbase.downloader.downloader.e(dVar, this.pWr).c();
+            new com.ss.android.socialbase.downloader.downloader.e(dVar, this.pWs).c();
             final com.ss.android.socialbase.downloader.g.c a2 = dVar.a();
             final SparseArray<com.ss.android.socialbase.downloader.d.b> b2 = dVar.b(com.ss.android.socialbase.downloader.b.h.MAIN);
             final SparseArray<com.ss.android.socialbase.downloader.d.b> b3 = dVar.b(com.ss.android.socialbase.downloader.b.h.NOTIFICATION);
-            this.pWr.post(new Runnable() { // from class: com.ss.android.socialbase.downloader.impls.a.1
+            this.pWs.post(new Runnable() { // from class: com.ss.android.socialbase.downloader.impls.a.1
                 @Override // java.lang.Runnable
                 public void run() {
                     if (b2 != null) {
@@ -303,7 +303,7 @@ public abstract class a implements f.a {
                 }
             });
         }
-        com.ss.android.socialbase.downloader.g.c b4 = this.pWq.b(i);
+        com.ss.android.socialbase.downloader.g.c b4 = this.pWr.b(i);
         if (com.ss.android.socialbase.downloader.m.a.a(65536)) {
             if (b4 != null) {
                 b4.c(-4);
@@ -479,7 +479,7 @@ public abstract class a implements f.a {
             }
             z = true;
         } else {
-            com.ss.android.socialbase.downloader.g.c b2 = this.pWq.b(i);
+            com.ss.android.socialbase.downloader.g.c b2 = this.pWr.b(i);
             if (b2 != null && b2.eFa()) {
                 a(new com.ss.android.socialbase.downloader.g.d(b2), false);
             }
@@ -560,11 +560,11 @@ public abstract class a implements f.a {
     }
 
     public void b(final int i, final boolean z) {
-        com.ss.android.socialbase.downloader.g.c b2 = this.pWq.b(i);
+        com.ss.android.socialbase.downloader.g.c b2 = this.pWr.b(i);
         if (b2 != null) {
             a(b2);
         }
-        this.pWr.post(new Runnable() { // from class: com.ss.android.socialbase.downloader.impls.a.2
+        this.pWs.post(new Runnable() { // from class: com.ss.android.socialbase.downloader.impls.a.2
             @Override // java.lang.Runnable
             public void run() {
                 com.ss.android.socialbase.downloader.notification.b.eGk().f(i);
@@ -581,7 +581,7 @@ public abstract class a implements f.a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public synchronized void d(int i, boolean z) {
-        com.ss.android.socialbase.downloader.g.c b2 = this.pWq.b(i);
+        com.ss.android.socialbase.downloader.g.c b2 = this.pWr.b(i);
         if (b2 != null) {
             if (z) {
                 com.ss.android.socialbase.downloader.m.d.a(b2);
@@ -591,7 +591,7 @@ public abstract class a implements f.a {
             b2.eFo();
         }
         try {
-            this.pWq.f(i);
+            this.pWr.f(i);
         } catch (SQLiteException e) {
             e.printStackTrace();
         }
@@ -602,18 +602,18 @@ public abstract class a implements f.a {
         if (this.Au.get(i) != null) {
             this.Au.remove(i);
         }
-        synchronized (this.pWo) {
-            this.pWo.remove(Integer.valueOf(i));
+        synchronized (this.pWp) {
+            this.pWp.remove(Integer.valueOf(i));
         }
         com.ss.android.socialbase.downloader.k.a.b(i);
     }
 
     public void c(final int i, final boolean z) {
-        com.ss.android.socialbase.downloader.g.c b2 = this.pWq.b(i);
+        com.ss.android.socialbase.downloader.g.c b2 = this.pWr.b(i);
         if (b2 != null) {
             a(b2);
         }
-        this.pWr.post(new Runnable() { // from class: com.ss.android.socialbase.downloader.impls.a.4
+        this.pWs.post(new Runnable() { // from class: com.ss.android.socialbase.downloader.impls.a.4
             @Override // java.lang.Runnable
             public void run() {
                 com.ss.android.socialbase.downloader.notification.b.eGk().f(i);
@@ -631,14 +631,14 @@ public abstract class a implements f.a {
     /* JADX INFO: Access modifiers changed from: private */
     public void e(int i, boolean z) {
         try {
-            com.ss.android.socialbase.downloader.g.c b2 = this.pWq.b(i);
+            com.ss.android.socialbase.downloader.g.c b2 = this.pWr.b(i);
             if (b2 != null) {
                 com.ss.android.socialbase.downloader.m.d.a(b2, z);
                 b2.eFo();
             }
             try {
-                this.pWq.d(i);
-                this.pWq.a(b2);
+                this.pWr.d(i);
+                this.pWr.a(b2);
             } catch (SQLiteException e) {
                 e.printStackTrace();
             }
@@ -648,8 +648,8 @@ public abstract class a implements f.a {
             if (this.Au.get(i) != null) {
                 this.Au.remove(i);
             }
-            synchronized (this.pWo) {
-                this.pWo.remove(Integer.valueOf(i));
+            synchronized (this.pWp) {
+                this.pWp.remove(Integer.valueOf(i));
             }
             com.ss.android.socialbase.downloader.k.a.b(i);
         } catch (Throwable th) {
@@ -688,7 +688,7 @@ public abstract class a implements f.a {
     public synchronized void a(int i, int i2, com.ss.android.socialbase.downloader.d.b bVar, com.ss.android.socialbase.downloader.b.h hVar, boolean z) {
         com.ss.android.socialbase.downloader.g.d Rx = Rx(i);
         if (Rx == null) {
-            Rx = this.pWo.get(Integer.valueOf(i));
+            Rx = this.pWp.get(Integer.valueOf(i));
         }
         if (Rx != null) {
             Rx.a(i2, bVar, hVar, z);
@@ -711,7 +711,7 @@ public abstract class a implements f.a {
                     z3 = false;
                 }
                 if (z3) {
-                    this.pWr.post(new Runnable() { // from class: com.ss.android.socialbase.downloader.impls.a.6
+                    this.pWs.post(new Runnable() { // from class: com.ss.android.socialbase.downloader.impls.a.6
                         @Override // java.lang.Runnable
                         public void run() {
                             if (a2 != null && bVar != null) {
@@ -725,12 +725,12 @@ public abstract class a implements f.a {
                     });
                 }
             }
-        } else if (com.ss.android.socialbase.downloader.m.a.a(32768) && (b2 = this.pWq.b(i)) != null && b2.q() != -3) {
-            com.ss.android.socialbase.downloader.g.d dVar = this.pWo.get(Integer.valueOf(i));
+        } else if (com.ss.android.socialbase.downloader.m.a.a(32768) && (b2 = this.pWr.b(i)) != null && b2.q() != -3) {
+            com.ss.android.socialbase.downloader.g.d dVar = this.pWp.get(Integer.valueOf(i));
             if (dVar == null) {
                 dVar = new com.ss.android.socialbase.downloader.g.d(b2);
-                synchronized (this.pWo) {
-                    this.pWo.put(Integer.valueOf(i), dVar);
+                synchronized (this.pWp) {
+                    this.pWp.put(Integer.valueOf(i), dVar);
                 }
             }
             dVar.b(i2, bVar, hVar, z);
@@ -783,14 +783,14 @@ public abstract class a implements f.a {
     }
 
     private void p(int i) {
-        if (!this.pWp.isEmpty()) {
-            synchronized (this.pWp) {
-                com.ss.android.socialbase.downloader.g.d first = this.pWp.getFirst();
+        if (!this.pWq.isEmpty()) {
+            synchronized (this.pWq) {
+                com.ss.android.socialbase.downloader.g.d first = this.pWq.getFirst();
                 if (first != null && first.o() == i) {
-                    this.pWp.poll();
+                    this.pWq.poll();
                 }
-                if (!this.pWp.isEmpty()) {
-                    com.ss.android.socialbase.downloader.g.d first2 = this.pWp.getFirst();
+                if (!this.pWq.isEmpty()) {
+                    com.ss.android.socialbase.downloader.g.d first2 = this.pWq.getFirst();
                     if (first2 != null) {
                         a(first2, true);
                     }
@@ -864,7 +864,7 @@ public abstract class a implements f.a {
     }
 
     public void b(int i, long j) {
-        com.ss.android.socialbase.downloader.g.c b2 = this.pWq.b(i);
+        com.ss.android.socialbase.downloader.g.c b2 = this.pWr.b(i);
         if (b2 != null) {
             b2.jl(j);
         }

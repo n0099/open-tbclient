@@ -30,15 +30,15 @@ public class BaseWheatLayout extends SafeFrameLayout {
     public View dlt;
     public TbPageContext mTbPageContext;
     public View mView;
-    private AlaWheatInfoData oAA;
-    public int oAB;
+    public List<WheatItemView> oAA;
+    private AlaWheatInfoData oAB;
     public int oAC;
-    public RelativeLayout oAD;
-    public a oAx;
-    public List<WheatItemView> oAy;
+    public int oAD;
+    public RelativeLayout oAE;
+    public a oAy;
     public List<WheatItemView> oAz;
-    public List<AlaWheatInfoData> ozw;
     public List<AlaWheatInfoData> ozx;
+    public List<AlaWheatInfoData> ozy;
 
     /* loaded from: classes10.dex */
     public interface a {
@@ -62,7 +62,7 @@ public class BaseWheatLayout extends SafeFrameLayout {
 
     private void initView() {
         this.mView = LayoutInflater.from(getContext()).inflate(a.g.yuyinala_liveroom_wheat_container_layout, this);
-        this.oAD = (RelativeLayout) this.mView.findViewById(a.f.wheat_view_container);
+        this.oAE = (RelativeLayout) this.mView.findViewById(a.f.wheat_view_container);
         this.dlt = this.mView.findViewById(a.f.mask);
     }
 
@@ -70,10 +70,10 @@ public class BaseWheatLayout extends SafeFrameLayout {
         if (UtilHelper.getStatusBarHeight() > 0) {
             this.Yl = UtilHelper.getStatusBarHeight() + e.d(74.0f, getContext());
         }
-        this.oAB = e.d(90.0f, getContext());
-        this.oAC = e.d(98.0f, getContext());
-        this.oAy = new ArrayList();
+        this.oAC = e.d(90.0f, getContext());
+        this.oAD = e.d(98.0f, getContext());
         this.oAz = new ArrayList();
+        this.oAA = new ArrayList();
     }
 
     public void setTbPageContext(TbPageContext tbPageContext) {
@@ -83,24 +83,24 @@ public class BaseWheatLayout extends SafeFrameLayout {
     public AlaWheatInfoData am(int i, boolean z) {
         AlaWheatInfoData alaWheatInfoData = null;
         if (z) {
-            if (!ListUtils.isEmpty(this.ozw) && i >= 0 && i < this.ozw.size() && (alaWheatInfoData = this.ozw.get(i)) != null) {
+            if (!ListUtils.isEmpty(this.ozx) && i >= 0 && i < this.ozx.size() && (alaWheatInfoData = this.ozx.get(i)) != null) {
                 alaWheatInfoData.isHost = true;
             }
-        } else if (!ListUtils.isEmpty(this.ozx) && i >= 0 && i < this.ozx.size() && (alaWheatInfoData = this.ozx.get(i)) != null) {
+        } else if (!ListUtils.isEmpty(this.ozy) && i >= 0 && i < this.ozy.size() && (alaWheatInfoData = this.ozy.get(i)) != null) {
             alaWheatInfoData.isHost = false;
         }
         return alaWheatInfoData;
     }
 
     public void setOnItemClickListener(a aVar) {
-        this.oAx = aVar;
+        this.oAy = aVar;
     }
 
-    public void VB(String str) {
-        View VE = VE(str);
-        if (VE != null) {
+    public void VC(String str) {
+        View VF = VF(str);
+        if (VF != null) {
             AlaWheatInfoData ie = ie(str);
-            LottieAnimationView lottieAnimationView = (LottieAnimationView) VE.findViewById(a.f.speeding_lottieAnimationView);
+            LottieAnimationView lottieAnimationView = (LottieAnimationView) VF.findViewById(a.f.speeding_lottieAnimationView);
             if (ie == null || !ie.isOpenMike()) {
                 if (lottieAnimationView.getVisibility() == 0) {
                     lottieAnimationView.cancelAnimation();
@@ -134,10 +134,10 @@ public class BaseWheatLayout extends SafeFrameLayout {
         }
     }
 
-    public void VC(String str) {
+    public void VD(String str) {
         LottieAnimationView lottieAnimationView;
-        View VE = VE(str);
-        if (VE != null && (lottieAnimationView = (LottieAnimationView) VE.findViewById(a.f.speeding_lottieAnimationView)) != null) {
+        View VF = VF(str);
+        if (VF != null && (lottieAnimationView = (LottieAnimationView) VF.findViewById(a.f.speeding_lottieAnimationView)) != null) {
             lottieAnimationView.cancelAnimation();
             lottieAnimationView.setVisibility(8);
         }
@@ -145,8 +145,8 @@ public class BaseWheatLayout extends SafeFrameLayout {
 
     public void aS(String str, String str2, String str3) {
         AlaEmoticonView alaEmoticonView;
-        View VE = VE(str);
-        if (VE != null && (alaEmoticonView = (AlaEmoticonView) VE.findViewById(a.f.ala_emoticon_view)) != null) {
+        View VF = VF(str);
+        if (VF != null && (alaEmoticonView = (AlaEmoticonView) VF.findViewById(a.f.ala_emoticon_view)) != null) {
             alaEmoticonView.stopLoad();
             alaEmoticonView.aK(str2, str3);
             alaEmoticonView.setVisibility(0);
@@ -154,29 +154,29 @@ public class BaseWheatLayout extends SafeFrameLayout {
         }
     }
 
-    private synchronized View VE(String str) {
+    private synchronized View VF(String str) {
         View view;
         View view2 = null;
         synchronized (this) {
-            this.oAA = null;
+            this.oAB = null;
             int i = 0;
             while (true) {
-                if (i >= ListUtils.getCount(this.ozw)) {
+                if (i >= ListUtils.getCount(this.ozx)) {
                     break;
                 }
-                this.oAA = this.ozw.get(i);
-                if (str == null || this.oAA == null || !str.equals(this.oAA.uk)) {
+                this.oAB = this.ozx.get(i);
+                if (str == null || this.oAB == null || !str.equals(this.oAB.uk)) {
                     i++;
                 } else {
-                    view2 = (View) ListUtils.getItem(this.oAy, i);
+                    view2 = (View) ListUtils.getItem(this.oAz, i);
                     break;
                 }
             }
             if (view2 == null) {
-                for (int i2 = 0; i2 < ListUtils.getCount(this.ozx); i2++) {
-                    this.oAA = this.ozx.get(i2);
-                    if (str != null && this.oAA != null && str.equals(this.oAA.uk)) {
-                        view = (View) ListUtils.getItem(this.oAz, i2);
+                for (int i2 = 0; i2 < ListUtils.getCount(this.ozy); i2++) {
+                    this.oAB = this.ozy.get(i2);
+                    if (str != null && this.oAB != null && str.equals(this.oAB.uk)) {
+                        view = (View) ListUtils.getItem(this.oAA, i2);
                         break;
                     }
                 }
@@ -186,20 +186,20 @@ public class BaseWheatLayout extends SafeFrameLayout {
         return view;
     }
 
-    public synchronized View VF(String str) {
-        View VE;
-        VE = VE(str);
-        return VE != null ? VE.findViewById(a.f.user_avatar) : null;
+    public synchronized View VG(String str) {
+        View VF;
+        VF = VF(str);
+        return VF != null ? VF.findViewById(a.f.user_avatar) : null;
     }
 
     public AlaWheatInfoData ie(String str) {
-        View VF = VF(str);
-        if (VF != null) {
-            AlaWheatInfoData alaWheatInfoData = (AlaWheatInfoData) this.oAA.clone();
+        View VG = VG(str);
+        if (VG != null) {
+            AlaWheatInfoData alaWheatInfoData = (AlaWheatInfoData) this.oAB.clone();
             int[] iArr = new int[2];
-            VF.getLocationOnScreen(iArr);
-            alaWheatInfoData.locationCenterX = iArr[0] + (VF.getWidth() / 2);
-            alaWheatInfoData.locationCenterY = (VF.getHeight() / 2) + iArr[1];
+            VG.getLocationOnScreen(iArr);
+            alaWheatInfoData.locationCenterX = iArr[0] + (VG.getWidth() / 2);
+            alaWheatInfoData.locationCenterY = (VG.getHeight() / 2) + iArr[1];
             return alaWheatInfoData;
         }
         return null;
@@ -216,7 +216,7 @@ public class BaseWheatLayout extends SafeFrameLayout {
     public void ecx() {
         int[] screenFullSize;
         if (this.mTbPageContext != null && this.mTbPageContext.getPageActivity() != null && (screenFullSize = ViewCommonUtil.getScreenFullSize(this.mTbPageContext.getPageActivity())) != null && screenFullSize.length > 0 && screenFullSize[0] > 0 && screenFullSize[0] < e.d(360.0f, getContext())) {
-            this.oAB = screenFullSize[0] / 4;
+            this.oAC = screenFullSize[0] / 4;
         }
     }
 
@@ -242,16 +242,16 @@ public class BaseWheatLayout extends SafeFrameLayout {
             return false;
         }
         int[] screenFullSize = ViewCommonUtil.getScreenFullSize(this.mTbPageContext.getPageActivity());
-        return this.oAD != null && screenFullSize != null && screenFullSize[0] > 0 && this.oAD.getMeasuredWidth() > 0 && this.oAD.getMeasuredWidth() > screenFullSize[0] + 200;
+        return this.oAE != null && screenFullSize != null && screenFullSize[0] > 0 && this.oAE.getMeasuredWidth() > 0 && this.oAE.getMeasuredWidth() > screenFullSize[0] + 200;
     }
 
     private void ecA() {
         int[] screenFullSize = ViewCommonUtil.getScreenFullSize(this.mTbPageContext.getPageActivity());
-        if (this.oAD != null && ecz() && screenFullSize != null) {
-            FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.oAD.getLayoutParams();
+        if (this.oAE != null && ecz() && screenFullSize != null) {
+            FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.oAE.getLayoutParams();
             layoutParams.width = screenFullSize[0];
             layoutParams.height = screenFullSize[1];
-            this.oAD.setLayoutParams(layoutParams);
+            this.oAE.setLayoutParams(layoutParams);
         }
     }
 }

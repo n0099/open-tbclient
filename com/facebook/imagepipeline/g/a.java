@@ -19,7 +19,7 @@ public class a implements c {
     }
 
     @Override // com.facebook.imagepipeline.g.c
-    public void Yp(String str) {
+    public void Yq(String str) {
     }
 
     @Override // com.facebook.imagepipeline.producers.am
@@ -51,7 +51,7 @@ public class a implements c {
     }
 
     @Override // com.facebook.imagepipeline.producers.am
-    public boolean Ys(String str) {
+    public boolean Yt(String str) {
         return false;
     }
 }

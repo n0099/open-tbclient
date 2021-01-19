@@ -8,11 +8,11 @@ import java.util.concurrent.CountDownLatch;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes4.dex */
 public final class b implements ServiceConnection {
-    private /* synthetic */ a qbB;
+    private /* synthetic */ a qbC;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(a aVar) {
-        this.qbB = aVar;
+        this.qbC = aVar;
     }
 
     @Override // android.content.ServiceConnection
@@ -21,17 +21,17 @@ public final class b implements ServiceConnection {
         CountDownLatch countDownLatch;
         CountDownLatch countDownLatch2;
         try {
-            a aVar = this.qbB;
+            a aVar = this.qbC;
             if (iBinder == null) {
                 eVar = null;
             } else {
                 IInterface queryLocalInterface = iBinder.queryLocalInterface("com.uodis.opendevice.aidl.OpenDeviceIdentifierService");
                 eVar = (queryLocalInterface == null || !(queryLocalInterface instanceof com.yxcorp.kuaishou.addfp.a.b.a.b)) ? new e(iBinder) : (d) queryLocalInterface;
             }
-            aVar.qbA = eVar;
-            countDownLatch = this.qbB.d;
+            aVar.qbB = eVar;
+            countDownLatch = this.qbC.d;
             if (countDownLatch != null) {
-                countDownLatch2 = this.qbB.d;
+                countDownLatch2 = this.qbC.d;
                 countDownLatch2.countDown();
             }
         } catch (Throwable th) {
@@ -40,6 +40,6 @@ public final class b implements ServiceConnection {
 
     @Override // android.content.ServiceConnection
     public final void onServiceDisconnected(ComponentName componentName) {
-        this.qbB.qbA = null;
+        this.qbC.qbB = null;
     }
 }

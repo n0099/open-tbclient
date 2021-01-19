@@ -9,16 +9,16 @@ public class q {
             return 1;
         }
         float b2 = b(imageRequest, eVar);
-        if (eVar.evV() == com.facebook.c.b.pvF) {
+        if (eVar.evV() == com.facebook.c.b.pvG) {
             bL = bM(b2);
         } else {
             bL = bL(b2);
         }
         int max = Math.max(eVar.getHeight(), eVar.getWidth());
         com.facebook.imagepipeline.common.d exH = imageRequest.exH();
-        float f = exH != null ? exH.pxN : 2048.0f;
+        float f = exH != null ? exH.pxO : 2048.0f;
         while (max / bL > f) {
-            if (eVar.evV() == com.facebook.c.b.pvF) {
+            if (eVar.evV() == com.facebook.c.b.pvG) {
                 bL *= 2;
             } else {
                 bL++;

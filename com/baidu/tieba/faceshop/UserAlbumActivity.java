@@ -126,7 +126,7 @@ public class UserAlbumActivity extends BaseFragmentActivity implements AbsListVi
     private void initSetting() {
         this.iQZ = new com.baidu.tbadk.album.b(getActivity());
         this.iQY = new com.baidu.tieba.newfaceshop.facemake.g(this, this.mImageList);
-        this.iQY.Od(getPageContext().getString(R.string.can_select_only_ten));
+        this.iQY.Oe(getPageContext().getString(R.string.can_select_only_ten));
         this.iQY.b(this);
         this.dhj.setAdapter((ListAdapter) this.iQY);
         this.dhj.setOnScrollListener(this);

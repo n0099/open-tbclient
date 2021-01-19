@@ -15,12 +15,12 @@ public class k {
     private int mRate;
     private String mType;
     private String mVersion;
-    private String oIS;
     private String oIT;
     private String oIU;
     private String oIV;
     private String oIW;
-    private int oIX = 2;
+    private String oIX;
+    private int oIY = 2;
 
     public k(String str, String str2, String str3, int i, String str4, String str5) {
         this.mId = str;
@@ -47,8 +47,8 @@ public class k {
         this.ewr = i;
     }
 
-    public void Wk(String str) {
-        this.oIS = str;
+    public void Wl(String str) {
+        this.oIT = str;
     }
 
     public String getId() {
@@ -76,7 +76,7 @@ public class k {
     }
 
     public String efj() {
-        return this.oIS;
+        return this.oIT;
     }
 
     public int bez() {
@@ -104,11 +104,11 @@ public class k {
     }
 
     public String efk() {
-        return this.oIT;
+        return this.oIU;
     }
 
-    public void Wl(String str) {
-        this.oIT = str;
+    public void Wm(String str) {
+        this.oIU = str;
     }
 
     public void setVersion(String str) {
@@ -119,35 +119,35 @@ public class k {
         return TextUtils.isEmpty(this.mVersion) ? "0" : this.mVersion;
     }
 
-    public void Wm(String str) {
-        this.oIU = str;
-    }
-
-    public String efl() {
-        return this.oIU;
-    }
-
     public void Wn(String str) {
         this.oIV = str;
     }
 
-    public String efm() {
+    public String efl() {
         return this.oIV;
-    }
-
-    public String efn() {
-        return this.oIW;
     }
 
     public void Wo(String str) {
         this.oIW = str;
     }
 
-    public int efo() {
+    public String efm() {
+        return this.oIW;
+    }
+
+    public String efn() {
         return this.oIX;
     }
 
+    public void Wp(String str) {
+        this.oIX = str;
+    }
+
+    public int efo() {
+        return this.oIY;
+    }
+
     public void MM(int i) {
-        this.oIX = i;
+        this.oIY = i;
     }
 }

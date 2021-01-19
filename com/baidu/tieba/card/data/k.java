@@ -226,7 +226,7 @@ public class k extends b {
                     boolean z = (bkV2.bpd() == null || (bkV2.bpd().dLo() == null && bkV2.bpd().bHn() == null)) ? false : true;
                     Ig3.an("obj_name", z ? 1 : 0);
                     if (z && bkV2.bpd().dLo() != null && bkV2.bpd().dLo().bHf() != null && bkV2.bpd().dLo().bHf().size() > 0) {
-                        Ig3.an(TiebaInitialize.Params.OBJ_TO, bkV2.bpd().nnt ? 2 : 1);
+                        Ig3.an(TiebaInitialize.Params.OBJ_TO, bkV2.bpd().nnu ? 2 : 1);
                     }
                     if (bkV2.bnx() != null) {
                         Ig3.an(TiebaInitialize.Params.AB_TYPE, bkV2.bnx().hadConcerned() ? 1 : 0);
@@ -296,7 +296,7 @@ public class k extends b {
                 boolean z = (bkV.bpd() == null || (bkV.bpd().dLo() == null && bkV.bpd().bHn() == null)) ? false : true;
                 Ig.an("obj_name", z ? 1 : 0);
                 if (z && bkV.bpd().dLo() != null && bkV.bpd().dLo().bHf() != null && bkV.bpd().dLo().bHf().size() > 0) {
-                    Ig.an(TiebaInitialize.Params.OBJ_TO, bkV.bpd().nnt ? 2 : 1);
+                    Ig.an(TiebaInitialize.Params.OBJ_TO, bkV.bpd().nnu ? 2 : 1);
                 }
             }
         }

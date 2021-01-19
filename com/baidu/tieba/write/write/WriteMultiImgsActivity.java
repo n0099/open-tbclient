@@ -11,53 +11,53 @@ import com.baidu.tbadk.img.WriteImagesInfo;
 import com.baidu.tieba.frs.ForumWriteData;
 /* loaded from: classes7.dex */
 public class WriteMultiImgsActivity extends BaseActivity {
-    private j nZo;
-    private k ocq;
+    private j nZp;
+    private k ocs;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setSwipeBackEnabled(false);
-        this.nZo = new j(getPageContext(), new com.baidu.tieba.write.write.sticker.a.c() { // from class: com.baidu.tieba.write.write.WriteMultiImgsActivity.1
+        this.nZp = new j(getPageContext(), new com.baidu.tieba.write.write.sticker.a.c() { // from class: com.baidu.tieba.write.write.WriteMultiImgsActivity.1
             @Override // com.baidu.tieba.write.write.sticker.a.c
             public void dVH() {
-                WriteMultiImgsActivity.this.ocq.dXj();
-                WriteMultiImgsActivity.this.ocq.zr(true);
+                WriteMultiImgsActivity.this.ocs.dXj();
+                WriteMultiImgsActivity.this.ocs.zr(true);
             }
 
             @Override // com.baidu.tieba.write.write.sticker.a.c
             public void dVI() {
-                WriteMultiImgsActivity.this.ocq.dXo();
-                WriteMultiImgsActivity.this.ocq.zr(false);
+                WriteMultiImgsActivity.this.ocs.dXo();
+                WriteMultiImgsActivity.this.ocs.zr(false);
             }
 
             @Override // com.baidu.tieba.write.write.sticker.a.c
             public boolean U(Bitmap bitmap) {
-                return WriteMultiImgsActivity.this.ocq.W(bitmap);
+                return WriteMultiImgsActivity.this.ocs.W(bitmap);
             }
 
             @Override // com.baidu.tieba.write.write.sticker.a.c
             public void dVJ() {
-                WriteMultiImgsActivity.this.ocq.dVJ();
+                WriteMultiImgsActivity.this.ocs.dVJ();
             }
         });
-        setContentView(this.nZo.iNK);
-        this.ocq = new k(getPageContext(), this.nZo, bundle);
-        if (this.ocq.mSkinType != TbadkCoreApplication.getInst().getSkinType()) {
-            TbadkCoreApplication.getInst().setSkinType(this.ocq.mSkinType);
+        setContentView(this.nZp.iNK);
+        this.ocs = new k(getPageContext(), this.nZp, bundle);
+        if (this.ocs.mSkinType != TbadkCoreApplication.getInst().getSkinType()) {
+            TbadkCoreApplication.getInst().setSkinType(this.ocs.mSkinType);
         }
     }
 
     @Override // android.app.Activity
     protected void onSaveInstanceState(Bundle bundle) {
-        if (this.ocq != null && this.ocq.ocB != null) {
-            bundle.putInt("OutState_Current_Index", this.ocq.ocB.getCurrentIndex());
-            bundle.putInt("OutState_Write_Entrance", this.ocq.dXm());
-            bundle.putSerializable("OutState_Write_Info_Data", this.ocq.cBR());
-            this.ocq.ocB.zl(true);
-            if (this.ocq.dXp() != null) {
-                bundle.putString("OutState_Write_Img_Info", this.ocq.dXp().toJsonString());
+        if (this.ocs != null && this.ocs.ocC != null) {
+            bundle.putInt("OutState_Current_Index", this.ocs.ocC.getCurrentIndex());
+            bundle.putInt("OutState_Write_Entrance", this.ocs.dXm());
+            bundle.putSerializable("OutState_Write_Info_Data", this.ocs.cBR());
+            this.ocs.ocC.zl(true);
+            if (this.ocs.dXp() != null) {
+                bundle.putString("OutState_Write_Img_Info", this.ocs.dXp().toJsonString());
             }
         }
         super.onSaveInstanceState(bundle);
@@ -65,15 +65,15 @@ public class WriteMultiImgsActivity extends BaseActivity {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void dXj() {
-        if (this.ocq != null) {
-            this.ocq.dXj();
+        if (this.ocs != null) {
+            this.ocs.dXj();
         }
     }
 
     public void a(boolean z, WriteImagesInfo writeImagesInfo) {
-        if (this.ocq != null) {
-            if (1 == this.ocq.dXm()) {
-                ForumWriteData cBR = this.ocq.cBR();
+        if (this.ocs != null) {
+            if (1 == this.ocs.dXm()) {
+                ForumWriteData cBR = this.ocs.cBR();
                 if (cBR != null) {
                     if (!WriteActivityConfig.isAsyncWriting()) {
                         WriteActivityConfig.newInstance(this).setType(10).setForumWriteData(cBR).setWriteImagesInfo(writeImagesInfo).send();
@@ -81,7 +81,7 @@ public class WriteMultiImgsActivity extends BaseActivity {
                         return;
                     }
                 }
-            } else if (2 == this.ocq.dXm()) {
+            } else if (2 == this.ocs.dXm()) {
                 Intent intent = new Intent(this, WriteActivity.class);
                 intent.putExtra("KEY_WRITE_IMAGES_INFO_STRING", writeImagesInfo.toJsonString());
                 intent.setFlags(536870912);
@@ -119,21 +119,21 @@ public class WriteMultiImgsActivity extends BaseActivity {
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        if (this.nZo != null) {
-            this.nZo.Lj(i);
+        if (this.nZp != null) {
+            this.nZp.Lj(i);
         }
-        this.ocq.ocB.notifyDataSetChanged();
+        this.ocs.ocC.notifyDataSetChanged();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
-        if (this.ocq != null) {
-            this.ocq.destroy();
+        if (this.ocs != null) {
+            this.ocs.destroy();
         }
         TbadkCoreApplication.getInst().delRemoteActivity(this);
-        if (this.nZo != null) {
-            this.nZo.onDestroy();
+        if (this.nZp != null) {
+            this.nZp.onDestroy();
         }
         super.onDestroy();
     }

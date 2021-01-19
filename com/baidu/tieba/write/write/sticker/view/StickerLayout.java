@@ -14,9 +14,9 @@ import java.util.List;
 /* loaded from: classes7.dex */
 public class StickerLayout extends FrameLayout {
     private Context mContext;
-    private List<StickerView> odk;
-    private FrameLayout.LayoutParams odl;
-    private int odm;
+    private List<StickerView> odl;
+    private FrameLayout.LayoutParams odm;
+    private int odn;
 
     public StickerLayout(Context context) {
         this(context, null);
@@ -33,19 +33,19 @@ public class StickerLayout extends FrameLayout {
 
     private void init(Context context) {
         this.mContext = context;
-        this.odk = new ArrayList();
-        this.odl = new FrameLayout.LayoutParams(-1, -1);
+        this.odl = new ArrayList();
+        this.odm = new FrameLayout.LayoutParams(-1, -1);
     }
 
     public StickerView a(Bitmap bitmap, final c cVar) {
         final StickerView stickerView = new StickerView(this.mContext);
         stickerView.setImageBitmap(bitmap);
-        stickerView.setLayoutParams(this.odl);
+        stickerView.setLayoutParams(this.odm);
         stickerView.setmOnStickerActionListener(new a() { // from class: com.baidu.tieba.write.write.sticker.view.StickerLayout.1
             @Override // com.baidu.tieba.write.write.sticker.a.a
             public void cPq() {
                 StickerLayout.this.removeView(stickerView);
-                StickerLayout.this.odk.remove(stickerView);
+                StickerLayout.this.odl.remove(stickerView);
                 StickerLayout.this.dgS();
                 if (cVar != null) {
                     cVar.dVI();
@@ -69,7 +69,7 @@ public class StickerLayout extends FrameLayout {
             }
         });
         addView(stickerView);
-        this.odk.add(stickerView);
+        this.odl.add(stickerView);
         dgS();
         if (cVar != null) {
             cVar.dVH();
@@ -78,7 +78,7 @@ public class StickerLayout extends FrameLayout {
     }
 
     public void a(c cVar) {
-        Iterator<StickerView> it = this.odk.iterator();
+        Iterator<StickerView> it = this.odl.iterator();
         while (it.hasNext()) {
             StickerView next = it.next();
             if (next != null) {
@@ -93,10 +93,10 @@ public class StickerLayout extends FrameLayout {
     }
 
     public void dgS() {
-        if (this.odk.size() > 0) {
-            for (StickerView stickerView : this.odk) {
+        if (this.odl.size() > 0) {
+            for (StickerView stickerView : this.odl) {
                 if (stickerView != null) {
-                    stickerView.setRemoveRes(this.odm);
+                    stickerView.setRemoveRes(this.odn);
                     stickerView.setEdit(false);
                 }
             }
@@ -104,7 +104,7 @@ public class StickerLayout extends FrameLayout {
     }
 
     public Bitmap dXC() {
-        if (x.isEmpty(this.odk)) {
+        if (x.isEmpty(this.odl)) {
             return null;
         }
         dgS();
@@ -112,10 +112,10 @@ public class StickerLayout extends FrameLayout {
     }
 
     public void setRemoveRes(int i) {
-        this.odm = i;
+        this.odn = i;
     }
 
     public List<StickerView> getStickerViews() {
-        return this.odk;
+        return this.odl;
     }
 }

@@ -20,7 +20,7 @@ public class a {
     private final List<InterfaceC1227a> f13063b;
     private int c;
     private volatile int d;
-    private final Application.ActivityLifecycleCallbacks pUd;
+    private final Application.ActivityLifecycleCallbacks pUe;
 
     /* renamed from: com.ss.android.socialbase.downloader.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
@@ -33,18 +33,18 @@ public class a {
     }
 
     public static a eDz() {
-        return b.pUe;
+        return b.pUf;
     }
 
     /* loaded from: classes4.dex */
     private static class b {
-        private static final a pUe = new a();
+        private static final a pUf = new a();
     }
 
     private a() {
         this.f13063b = new ArrayList();
         this.d = -1;
-        this.pUd = new Application.ActivityLifecycleCallbacks() { // from class: com.ss.android.socialbase.downloader.a.a.1
+        this.pUe = new Application.ActivityLifecycleCallbacks() { // from class: com.ss.android.socialbase.downloader.a.a.1
             @Override // android.app.Application.ActivityLifecycleCallbacks
             public void onActivityCreated(Activity activity, Bundle bundle) {
             }
@@ -94,7 +94,7 @@ public class a {
             synchronized (this) {
                 if (this.f13062a == null) {
                     this.f13062a = (Application) context;
-                    this.f13062a.registerActivityLifecycleCallbacks(this.pUd);
+                    this.f13062a.registerActivityLifecycleCallbacks(this.pUe);
                 }
             }
         }

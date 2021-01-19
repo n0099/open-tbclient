@@ -83,7 +83,7 @@ public class c {
         }
     }
 
-    public MyEmotionGroupData NZ(String str) {
+    public MyEmotionGroupData Oa(String str) {
         return com.baidu.tieba.faceshop.a.cxd().eS(TbadkCoreApplication.getCurrentAccount(), str);
     }
 

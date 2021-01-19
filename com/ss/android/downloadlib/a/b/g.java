@@ -15,11 +15,11 @@ public class g {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes4.dex */
     public static class a {
-        private static g pRa = new g();
+        private static g pRb = new g();
     }
 
     public static g eCf() {
-        return a.pRa;
+        return a.pRb;
     }
 
     private g() {

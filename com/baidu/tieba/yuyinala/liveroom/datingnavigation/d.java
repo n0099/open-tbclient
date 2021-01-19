@@ -12,7 +12,7 @@ public class d extends BdBaseModel {
     private Context bJM;
     private BdUniqueId brL = BdUniqueId.gen();
     private final HttpMessageListener bxB;
-    private a okJ;
+    private a okK;
 
     /* loaded from: classes10.dex */
     public interface a {
@@ -22,7 +22,7 @@ public class d extends BdBaseModel {
     }
 
     public void a(a aVar) {
-        this.okJ = aVar;
+        this.okK = aVar;
     }
 
     public d(Context context) {
@@ -37,12 +37,12 @@ public class d extends BdBaseModel {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-                if (httpResponsedMessage != null && (httpResponsedMessage instanceof DatingStageHttpResponseMessage) && httpResponsedMessage.getOrginalMessage().getTag() == d.this.getUniqueId() && d.this.okJ != null) {
+                if (httpResponsedMessage != null && (httpResponsedMessage instanceof DatingStageHttpResponseMessage) && httpResponsedMessage.getOrginalMessage().getTag() == d.this.getUniqueId() && d.this.okK != null) {
                     DatingStageHttpResponseMessage datingStageHttpResponseMessage = (DatingStageHttpResponseMessage) httpResponsedMessage;
                     if (datingStageHttpResponseMessage.getError() != 0 || !datingStageHttpResponseMessage.isSuccess()) {
-                        d.this.okJ.onFail(datingStageHttpResponseMessage.getError(), datingStageHttpResponseMessage.getErrorString());
+                        d.this.okK.onFail(datingStageHttpResponseMessage.getError(), datingStageHttpResponseMessage.getErrorString());
                     } else {
-                        d.this.okJ.a(datingStageHttpResponseMessage);
+                        d.this.okK.a(datingStageHttpResponseMessage);
                     }
                 }
             }

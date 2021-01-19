@@ -187,7 +187,7 @@ public class ForumRulesShowActivity extends BaseActivity<ForumRulesShowActivity>
                 this.joV.mData.clear();
                 this.joU.cFY();
             }
-            new BdTopToast(this, 3000).yS(true).TP(stringExtra).aR(this.joV.getRootView());
+            new BdTopToast(this, 3000).yS(true).TQ(stringExtra).aR(this.joV.getRootView());
         }
     }
 

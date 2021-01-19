@@ -52,7 +52,7 @@ public class a {
         return this.kws;
     }
 
-    public void Cz(int i) {
+    public void Cy(int i) {
         this.kws = i;
     }
 }

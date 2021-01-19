@@ -29,7 +29,7 @@ public class AlaTopTipView extends TextView {
     private b hKe;
     private int mDuration;
     private int mType;
-    private a osj;
+    private a osk;
 
     /* loaded from: classes10.dex */
     public interface a {
@@ -160,8 +160,8 @@ public class AlaTopTipView extends TextView {
                 if (viewGroup != null) {
                     viewGroup.removeView(AlaTopTipView.this);
                 }
-                if (AlaTopTipView.this.osj != null) {
-                    AlaTopTipView.this.osj.cC(AlaTopTipView.this);
+                if (AlaTopTipView.this.osk != null) {
+                    AlaTopTipView.this.osk.cC(AlaTopTipView.this);
                 }
             }
 
@@ -288,8 +288,8 @@ public class AlaTopTipView extends TextView {
         if (viewGroup != null) {
             viewGroup.removeView(this);
         }
-        if (z && this.osj != null) {
-            this.osj.cC(this);
+        if (z && this.osk != null) {
+            this.osk.cC(this);
         }
     }
 
@@ -310,7 +310,7 @@ public class AlaTopTipView extends TextView {
     }
 
     public void setOnTipCompletedCallback(a aVar) {
-        this.osj = aVar;
+        this.osk = aVar;
     }
 
     public int getType() {

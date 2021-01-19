@@ -7,7 +7,7 @@ import java.util.concurrent.Executor;
 /* loaded from: classes3.dex */
 public abstract class z implements aj<com.facebook.imagepipeline.f.e> {
     private final Executor mExecutor;
-    private final com.facebook.common.memory.g pwB;
+    private final com.facebook.common.memory.g pwC;
 
     protected abstract String exa();
 
@@ -16,7 +16,7 @@ public abstract class z implements aj<com.facebook.imagepipeline.f.e> {
     /* JADX INFO: Access modifiers changed from: protected */
     public z(Executor executor, com.facebook.common.memory.g gVar) {
         this.mExecutor = executor;
-        this.pwB = gVar;
+        this.pwC = gVar;
     }
 
     @Override // com.facebook.imagepipeline.producers.aj
@@ -62,9 +62,9 @@ public abstract class z implements aj<com.facebook.imagepipeline.f.e> {
         com.facebook.common.references.a aVar = null;
         try {
             if (i <= 0) {
-                aVar = com.facebook.common.references.a.f(this.pwB.v(inputStream));
+                aVar = com.facebook.common.references.a.f(this.pwC.v(inputStream));
             } else {
-                aVar = com.facebook.common.references.a.f(this.pwB.b(inputStream, i));
+                aVar = com.facebook.common.references.a.f(this.pwC.b(inputStream, i));
             }
             return new com.facebook.imagepipeline.f.e(aVar);
         } finally {

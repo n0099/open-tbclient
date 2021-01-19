@@ -11,14 +11,14 @@ public final class aa implements Runnable {
 
     /* renamed from: b  reason: collision with root package name */
     private final /* synthetic */ Context f7852b;
-    final /* synthetic */ ArCoreApk.a pHJ;
-    private final /* synthetic */ w pHK;
+    final /* synthetic */ ArCoreApk.a pHK;
+    private final /* synthetic */ w pHL;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public aa(w wVar, Context context, ArCoreApk.a aVar) {
-        this.pHK = wVar;
+        this.pHL = wVar;
         this.f7852b = context;
-        this.pHJ = aVar;
+        this.pHK = aVar;
     }
 
     @Override // java.lang.Runnable
@@ -26,14 +26,14 @@ public final class aa implements Runnable {
         com.google.a.b.a.a.a.a aVar;
         Bundle b2;
         try {
-            aVar = this.pHK.pHF;
+            aVar = this.pHL.pHG;
             String str = this.f7852b.getApplicationInfo().packageName;
-            w wVar = this.pHK;
+            w wVar = this.pHL;
             b2 = w.b();
             aVar.a(str, b2, new u(this));
         } catch (RemoteException e) {
             Log.e("ARCore-InstallService", "requestInfo threw", e);
-            this.pHJ.a(ArCoreApk.Availability.UNKNOWN_ERROR);
+            this.pHK.a(ArCoreApk.Availability.UNKNOWN_ERROR);
         }
     }
 }

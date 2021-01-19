@@ -57,17 +57,17 @@ public class h extends BaseAdapter {
         if (view == null) {
             view = LayoutInflater.from(viewGroup.getContext()).inflate(a.g.yuyin_sdk_charm_list_item, viewGroup, false);
             aVar = new a();
-            aVar.ofB = (OnlineAudienceItemView) view.findViewById(a.f.item);
+            aVar.ofC = (OnlineAudienceItemView) view.findViewById(a.f.item);
             view.setTag(aVar);
         } else {
             aVar = (a) view.getTag();
         }
         if (aVar != null && getItem(i) != null && (alaLiveUserInfoData = getItem(i).aFH) != null) {
-            if (aVar.ofB.getTag() == null || !TextUtils.equals(((AlaLiveUserInfoData) aVar.ofB.getTag()).userUk, alaLiveUserInfoData.userUk)) {
-                aVar.ofB.ofA.setData4Yuyin(alaLiveUserInfoData);
-                aVar.ofB.setTag(alaLiveUserInfoData);
+            if (aVar.ofC.getTag() == null || !TextUtils.equals(((AlaLiveUserInfoData) aVar.ofC.getTag()).userUk, alaLiveUserInfoData.userUk)) {
+                aVar.ofC.ofB.setData4Yuyin(alaLiveUserInfoData);
+                aVar.ofC.setTag(alaLiveUserInfoData);
             }
-            aVar.ofB.setData(i + 1, alaLiveUserInfoData.userName, alaLiveUserInfoData.portrait, alaLiveUserInfoData.contribution, alaLiveUserInfoData.contributionStr, alaLiveUserInfoData.nobleRoleId);
+            aVar.ofC.setData(i + 1, alaLiveUserInfoData.userName, alaLiveUserInfoData.portrait, alaLiveUserInfoData.contribution, alaLiveUserInfoData.contributionStr, alaLiveUserInfoData.nobleRoleId);
         }
         this.mPageContext.getLayoutMode().onModeChanged(view);
         return view;
@@ -75,7 +75,7 @@ public class h extends BaseAdapter {
 
     /* loaded from: classes10.dex */
     private class a {
-        private OnlineAudienceItemView ofB;
+        private OnlineAudienceItemView ofC;
 
         private a() {
         }

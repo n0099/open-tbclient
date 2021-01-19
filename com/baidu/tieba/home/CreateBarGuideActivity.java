@@ -29,7 +29,7 @@ public class CreateBarGuideActivity extends BaseActivity<CreateBarGuideActivity>
             }
             CreateBarGuideActivity.this.showToast(str);
             if (i == 260211) {
-                CreateBarGuideActivity.this.KY(null);
+                CreateBarGuideActivity.this.KZ(null);
             }
         }
     };
@@ -52,7 +52,7 @@ public class CreateBarGuideActivity extends BaseActivity<CreateBarGuideActivity>
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void KY(String str) {
+    public void KZ(String str) {
         if (StringUtils.isNull(str)) {
             str = getResources().getString(R.string.tips_version_low);
         }

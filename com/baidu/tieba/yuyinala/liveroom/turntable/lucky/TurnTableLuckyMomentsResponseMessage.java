@@ -4,7 +4,7 @@ import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
 /* loaded from: classes10.dex */
 public class TurnTableLuckyMomentsResponseMessage extends JsonHttpResponsedMessage {
-    public b ost;
+    public b osu;
 
     public TurnTableLuckyMomentsResponseMessage() {
         super(1031063);
@@ -15,7 +15,7 @@ public class TurnTableLuckyMomentsResponseMessage extends JsonHttpResponsedMessa
         JSONObject optJSONObject;
         super.decodeLogicInBackGround(i, jSONObject);
         if (jSONObject != null && i == 1031063 && (optJSONObject = jSONObject.optJSONObject("result")) != null) {
-            this.ost = new b(optJSONObject);
+            this.osu = new b(optJSONObject);
         }
     }
 }

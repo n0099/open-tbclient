@@ -143,7 +143,7 @@ public abstract class ImBaseMessageCenterModel extends BdBaseModel<Object> {
                     private void clearRemoveCache() {
                         for (Pair<String, Integer> pair : this.mRemoveCache) {
                             if (pair != null && !TextUtils.isEmpty(pair.first)) {
-                                e.cTw().bm(pair.first, pair.second.intValue());
+                                e.cTw().bn(pair.first, pair.second.intValue());
                             }
                         }
                         this.mRemoveCache.clear();
@@ -222,7 +222,7 @@ public abstract class ImBaseMessageCenterModel extends BdBaseModel<Object> {
                 for (Pair<String, Integer> pair : this.mRemoveCache) {
                     if (pair != null && !TextUtils.isEmpty(pair.first)) {
                         ImBaseMessageCenterModel.this.removeItemInList(pair.first);
-                        e.cTw().bm(pair.first, pair.second.intValue());
+                        e.cTw().bn(pair.first, pair.second.intValue());
                     }
                 }
                 this.mRemoveCache.clear();

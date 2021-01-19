@@ -219,9 +219,9 @@ public class SelectFriendActivity extends BaseActivity<SelectFriendActivity> {
         aVar.a(R.string.share, new a.b() { // from class: com.baidu.tieba.imMessageCenter.im.selectfriend.SelectFriendActivity.5
             @Override // com.baidu.tbadk.core.dialog.a.b
             public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
-                long bv = b.cUG().bv(String.valueOf(j), 2);
-                MessageUtils.createPersonalChatMessage(bv, 9, shareFromPBMsgData.toChatMessageContent(), j, str, str2, str3);
-                MessageUtils.createPersonalChatMessage(bv + 1, 1, game2GroupShareDialogView.getLeaveMsg(), j, str, str2, str3);
+                long bw = b.cUG().bw(String.valueOf(j), 2);
+                MessageUtils.createPersonalChatMessage(bw, 9, shareFromPBMsgData.toChatMessageContent(), j, str, str2, str3);
+                MessageUtils.createPersonalChatMessage(bw + 1, 1, game2GroupShareDialogView.getLeaveMsg(), j, str, str2, str3);
                 aVar2.dismiss();
                 SelectFriendActivity.this.setResult(-1);
                 if (!j.isNetWorkAvailable()) {
@@ -252,9 +252,9 @@ public class SelectFriendActivity extends BaseActivity<SelectFriendActivity> {
         aVar.a(R.string.share, new a.b() { // from class: com.baidu.tieba.imMessageCenter.im.selectfriend.SelectFriendActivity.7
             @Override // com.baidu.tbadk.core.dialog.a.b
             public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
-                long bv = b.cUG().bv(String.valueOf(j), 2);
-                MessageUtils.createPersonalChatMessage(bv, 9, shareFromGameCenterMsgData.toChatMessageContent(), j, str, str2, str3);
-                MessageUtils.createPersonalChatMessage(bv + 1, 1, game2GroupShareDialogView.getLeaveMsg(), j, str, str2, str3);
+                long bw = b.cUG().bw(String.valueOf(j), 2);
+                MessageUtils.createPersonalChatMessage(bw, 9, shareFromGameCenterMsgData.toChatMessageContent(), j, str, str2, str3);
+                MessageUtils.createPersonalChatMessage(bw + 1, 1, game2GroupShareDialogView.getLeaveMsg(), j, str, str2, str3);
                 aVar2.dismiss();
                 SelectFriendActivity.this.setResult(-1);
                 if (!j.isNetWorkAvailable()) {

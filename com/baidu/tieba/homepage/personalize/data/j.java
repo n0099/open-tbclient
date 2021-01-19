@@ -61,7 +61,7 @@ public class j {
         return this.liveType;
     }
 
-    public void BH(int i) {
+    public void BG(int i) {
         this.liveType = i;
     }
 }

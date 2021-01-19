@@ -21,8 +21,8 @@ public class l {
     private int n;
     private int o;
     private int p;
-    private j pcc;
-    private k pcd;
+    private j pcd;
+    private k pce;
     private String r;
     private String s;
     private String t;
@@ -82,7 +82,7 @@ public class l {
     }
 
     public j elj() {
-        return this.pcc;
+        return this.pcd;
     }
 
     public l NV(int i) {
@@ -154,15 +154,15 @@ public class l {
         return this.z;
     }
 
-    public void Xt(String str) {
+    public void Xu(String str) {
         this.z = str;
     }
 
     public k elv() {
-        return this.pcd;
+        return this.pce;
     }
 
     public void a(k kVar) {
-        this.pcd = kVar;
+        this.pce = kVar;
     }
 }

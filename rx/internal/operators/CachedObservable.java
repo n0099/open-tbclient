@@ -9,30 +9,30 @@ public final class CachedObservable<T> extends rx.d<T> {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes14.dex */
     public static final class a<T> extends rx.internal.util.c implements rx.e<T> {
-        static final ReplayProducer<?>[] qon = new ReplayProducer[0];
+        static final ReplayProducer<?>[] qoo = new ReplayProducer[0];
         volatile boolean isConnected;
-        boolean qdY;
-        final rx.d<? extends T> qok;
-        final rx.subscriptions.d qol;
-        volatile ReplayProducer<?>[] qom;
+        boolean qdZ;
+        final rx.d<? extends T> qol;
+        final rx.subscriptions.d qom;
+        volatile ReplayProducer<?>[] qon;
 
         /* JADX DEBUG: Multi-variable search result rejected for r3v1, resolved type: rx.internal.operators.CachedObservable$ReplayProducer<?>[] */
         /* JADX WARN: Multi-variable type inference failed */
         public void a(ReplayProducer<T> replayProducer) {
-            synchronized (this.qol) {
-                ReplayProducer<?>[] replayProducerArr = this.qom;
+            synchronized (this.qom) {
+                ReplayProducer<?>[] replayProducerArr = this.qon;
                 int length = replayProducerArr.length;
                 ReplayProducer<?>[] replayProducerArr2 = new ReplayProducer[length + 1];
                 System.arraycopy(replayProducerArr, 0, replayProducerArr2, 0, length);
                 replayProducerArr2[length] = replayProducer;
-                this.qom = replayProducerArr2;
+                this.qon = replayProducerArr2;
             }
         }
 
         public void b(ReplayProducer<T> replayProducer) {
             int i = 0;
-            synchronized (this.qol) {
-                ReplayProducer<?>[] replayProducerArr = this.qom;
+            synchronized (this.qom) {
+                ReplayProducer<?>[] replayProducerArr = this.qon;
                 int length = replayProducerArr.length;
                 while (true) {
                     if (i >= length) {
@@ -46,13 +46,13 @@ public final class CachedObservable<T> extends rx.d<T> {
                 }
                 if (i >= 0) {
                     if (length == 1) {
-                        this.qom = qon;
+                        this.qon = qoo;
                         return;
                     }
                     ReplayProducer<?>[] replayProducerArr2 = new ReplayProducer[length - 1];
                     System.arraycopy(replayProducerArr, 0, replayProducerArr2, 0, i);
                     System.arraycopy(replayProducerArr, i + 1, replayProducerArr2, i, (length - i) - 1);
-                    this.qom = replayProducerArr2;
+                    this.qon = replayProducerArr2;
                 }
             }
         }
@@ -74,14 +74,14 @@ public final class CachedObservable<T> extends rx.d<T> {
                     a.this.onCompleted();
                 }
             };
-            this.qol.f(jVar);
-            this.qok.a((rx.j<? super Object>) jVar);
+            this.qom.f(jVar);
+            this.qol.a((rx.j<? super Object>) jVar);
             this.isConnected = true;
         }
 
         @Override // rx.e
         public void onNext(T t) {
-            if (!this.qdY) {
+            if (!this.qdZ) {
                 add(NotificationLite.next(t));
                 dispatch();
             }
@@ -89,26 +89,26 @@ public final class CachedObservable<T> extends rx.d<T> {
 
         @Override // rx.e
         public void onError(Throwable th) {
-            if (!this.qdY) {
-                this.qdY = true;
+            if (!this.qdZ) {
+                this.qdZ = true;
                 add(NotificationLite.error(th));
-                this.qol.unsubscribe();
+                this.qom.unsubscribe();
                 dispatch();
             }
         }
 
         @Override // rx.e
         public void onCompleted() {
-            if (!this.qdY) {
-                this.qdY = true;
+            if (!this.qdZ) {
+                this.qdZ = true;
                 add(NotificationLite.eKC());
-                this.qol.unsubscribe();
+                this.qom.unsubscribe();
                 dispatch();
             }
         }
 
         void dispatch() {
-            for (ReplayProducer<?> replayProducer : this.qom) {
+            for (ReplayProducer<?> replayProducer : this.qon) {
                 replayProducer.replay();
             }
         }

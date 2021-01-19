@@ -34,20 +34,20 @@ import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes10.dex */
 public class b {
-    private static int oyO = 320;
-    private static b oyP;
+    private static int oyP = 320;
+    private static b oyQ;
     private HandlerThread baM = new HandlerThread("read_image_thread");
     private Handler mHandler;
 
     public static b ebX() {
-        if (oyP == null) {
+        if (oyQ == null) {
             synchronized (b.class) {
-                if (oyP == null) {
-                    oyP = new b();
+                if (oyQ == null) {
+                    oyQ = new b();
                 }
             }
         }
-        return oyP;
+        return oyQ;
     }
 
     private b() {
@@ -57,45 +57,45 @@ public class b {
 
     public void a(ViewGroup viewGroup, String str, c cVar) {
         if (viewGroup != null && viewGroup.getContext() != null && !StringUtils.isNull(str)) {
-            String Vz = com.baidu.tieba.yuyinala.liveroom.wheat.lottie.a.c.Vz(com.baidu.live.ah.b.hk(str));
-            if (com.baidu.live.i.a.isDirectory(Vz)) {
-                a(viewGroup, Vz, Vz + "/video.mp4", null, null, cVar);
+            String VA = com.baidu.tieba.yuyinala.liveroom.wheat.lottie.a.c.VA(com.baidu.live.ah.b.hk(str));
+            if (com.baidu.live.i.a.isDirectory(VA)) {
+                a(viewGroup, VA, VA + "/video.mp4", null, null, cVar);
             }
         }
     }
 
     public void a(ViewGroup viewGroup, String str, String str2, String str3, c cVar) {
         if (viewGroup != null && viewGroup.getContext() != null && !StringUtils.isNull(str)) {
-            String Vz = com.baidu.tieba.yuyinala.liveroom.wheat.lottie.a.c.Vz(com.baidu.live.ah.b.hk(str));
-            if (com.baidu.live.i.a.isDirectory(Vz)) {
+            String VA = com.baidu.tieba.yuyinala.liveroom.wheat.lottie.a.c.VA(com.baidu.live.ah.b.hk(str));
+            if (com.baidu.live.i.a.isDirectory(VA)) {
                 HashMap<String, String> hashMap = new HashMap<>();
                 hashMap.put("image_3", str3);
                 hashMap.put("image_7", str2);
-                a(viewGroup, Vz, Vz + "/video.mp4", Vz + "/data.json", hashMap, cVar);
+                a(viewGroup, VA, VA + "/video.mp4", VA + "/data.json", hashMap, cVar);
             }
         }
     }
 
     public void b(ViewGroup viewGroup, String str, String str2, String str3, c cVar) {
         if (viewGroup != null && viewGroup.getContext() != null && !StringUtils.isNull(str)) {
-            String Vz = com.baidu.tieba.yuyinala.liveroom.wheat.lottie.a.c.Vz(com.baidu.live.ah.b.hk(str));
-            if (com.baidu.live.i.a.isDirectory(Vz)) {
+            String VA = com.baidu.tieba.yuyinala.liveroom.wheat.lottie.a.c.VA(com.baidu.live.ah.b.hk(str));
+            if (com.baidu.live.i.a.isDirectory(VA)) {
                 HashMap<String, String> hashMap = new HashMap<>();
                 hashMap.put("image_25", str3);
                 hashMap.put("image_26", str2);
-                a(viewGroup, Vz, Vz + "/video.mp4", Vz + "/data.json", hashMap, cVar);
+                a(viewGroup, VA, VA + "/video.mp4", VA + "/data.json", hashMap, cVar);
             }
         }
     }
 
     public void c(ViewGroup viewGroup, String str, String str2, String str3, c cVar) {
         if (viewGroup != null && viewGroup.getContext() != null && !StringUtils.isNull(str)) {
-            String Vz = com.baidu.tieba.yuyinala.liveroom.wheat.lottie.a.c.Vz(com.baidu.live.ah.b.hk(str));
-            if (com.baidu.live.i.a.isDirectory(Vz)) {
+            String VA = com.baidu.tieba.yuyinala.liveroom.wheat.lottie.a.c.VA(com.baidu.live.ah.b.hk(str));
+            if (com.baidu.live.i.a.isDirectory(VA)) {
                 HashMap<String, String> hashMap = new HashMap<>();
                 hashMap.put("image_25", str3);
                 hashMap.put("image_26", str2);
-                a(viewGroup, Vz, null, Vz + "/data.json", hashMap, cVar);
+                a(viewGroup, VA, null, VA + "/data.json", hashMap, cVar);
             }
         }
     }
@@ -141,7 +141,7 @@ public class b {
                 }
 
                 @Override // com.baidu.tieba.yuyinala.liveroom.wheat.lottie.d
-                public void Vw(String str2) {
+                public void Vx(String str2) {
                     if (alaAudioVideoLayout != null && (alaAudioVideoLayout.getParent() instanceof ViewGroup)) {
                         a.ebS().dj((ViewGroup) alaAudioVideoLayout.getParent());
                     }
@@ -226,7 +226,7 @@ public class b {
         } else {
             final HashMap hashMap2 = new HashMap();
             for (final Map.Entry<String, String> entry : hashMap.entrySet()) {
-                final String urlWithResizeTag = TbImageView.getUrlWithResizeTag(entry.getValue(), oyO, oyO);
+                final String urlWithResizeTag = TbImageView.getUrlWithResizeTag(entry.getValue(), oyP, oyP);
                 BdResourceLoader.getInstance().loadResource(urlWithResizeTag, 25, new BdResourceCallback<BdImage>() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.lottie.b.5
                     /* JADX DEBUG: Method merged with bridge method */
                     /* JADX INFO: Access modifiers changed from: protected */

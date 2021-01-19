@@ -15,7 +15,7 @@ public class i implements com.bytedance.sdk.adnet.e.d {
 
     /* renamed from: b  reason: collision with root package name */
     private final Executor f6034b = Executors.newCachedThreadPool();
-    private com.bytedance.sdk.adnet.c.c pkM = com.bytedance.sdk.adnet.c.f.eor();
+    private com.bytedance.sdk.adnet.c.c pkN = com.bytedance.sdk.adnet.c.f.eor();
 
     public i(final Handler handler) {
         this.f6033a = new Executor() { // from class: com.bytedance.sdk.adnet.core.i.1
@@ -33,8 +33,8 @@ public class i implements com.bytedance.sdk.adnet.e.d {
     @Override // com.bytedance.sdk.adnet.e.d
     public void a(Request<?> request, p<?> pVar) {
         a(request, pVar, null);
-        if (this.pkM != null) {
-            this.pkM.a(request, pVar);
+        if (this.pkN != null) {
+            this.pkN.a(request, pVar);
         }
     }
 
@@ -43,8 +43,8 @@ public class i implements com.bytedance.sdk.adnet.e.d {
         request.markDelivered();
         request.addMarker("post-response");
         e(request).execute(new a(request, pVar, runnable));
-        if (this.pkM != null) {
-            this.pkM.a(request, pVar);
+        if (this.pkN != null) {
+            this.pkN.a(request, pVar);
         }
     }
 
@@ -52,8 +52,8 @@ public class i implements com.bytedance.sdk.adnet.e.d {
     public void a(Request<?> request, VAdError vAdError) {
         request.addMarker("post-error");
         e(request).execute(new a(request, p.c(vAdError), null));
-        if (this.pkM != null) {
-            this.pkM.a(request, vAdError);
+        if (this.pkN != null) {
+            this.pkN.a(request, vAdError);
         }
     }
 
@@ -64,38 +64,38 @@ public class i implements com.bytedance.sdk.adnet.e.d {
         /* renamed from: b  reason: collision with root package name */
         private final p f6036b;
         private final Runnable c;
-        private final Request pkv;
+        private final Request pkw;
 
         public a(Request request, p pVar, Runnable runnable) {
-            this.pkv = request;
+            this.pkw = request;
             this.f6036b = pVar;
             this.c = runnable;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            if (this.pkv.isCanceled()) {
-                this.pkv.a("canceled-at-delivery");
+            if (this.pkw.isCanceled()) {
+                this.pkw.a("canceled-at-delivery");
                 return;
             }
-            this.f6036b.g = this.pkv.getExtra();
-            this.f6036b.ir(SystemClock.elapsedRealtime() - this.pkv.getStartTime());
-            this.f6036b.is(this.pkv.getNetDuration());
+            this.f6036b.g = this.pkw.getExtra();
+            this.f6036b.ir(SystemClock.elapsedRealtime() - this.pkw.getStartTime());
+            this.f6036b.is(this.pkw.getNetDuration());
             if (this.f6036b.a()) {
                 try {
-                    this.pkv.a(this.f6036b);
+                    this.pkw.a(this.f6036b);
                 } catch (Throwable th) {
                 }
             } else {
                 try {
-                    this.pkv.deliverError(this.f6036b);
+                    this.pkw.deliverError(this.f6036b);
                 } catch (Throwable th2) {
                 }
             }
             if (this.f6036b.d) {
-                this.pkv.addMarker("intermediate-response");
+                this.pkw.addMarker("intermediate-response");
             } else {
-                this.pkv.a(AuthoritySharedPreferences.KEY_CONFIG_PRIVILEGE_DONE);
+                this.pkw.a(AuthoritySharedPreferences.KEY_CONFIG_PRIVILEGE_DONE);
             }
             if (this.c != null) {
                 try {

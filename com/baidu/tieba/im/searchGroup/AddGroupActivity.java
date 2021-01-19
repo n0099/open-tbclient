@@ -36,7 +36,7 @@ public class AddGroupActivity extends BaseActivity<AddGroupActivity> {
             } else {
                 ResponseSearchGroupMessage responseSearchGroupMessage = (ResponseSearchGroupMessage) socketResponsedMessage;
                 if (responseSearchGroupMessage.getError() != 0) {
-                    AddGroupActivity.this.bw(responseSearchGroupMessage.getErrorString(), responseSearchGroupMessage.getError());
+                    AddGroupActivity.this.bx(responseSearchGroupMessage.getErrorString(), responseSearchGroupMessage.getError());
                     return;
                 }
                 List<BaseGroupData> searchResult = responseSearchGroupMessage.getSearchResult();
@@ -73,7 +73,7 @@ public class AddGroupActivity extends BaseActivity<AddGroupActivity> {
         } else if (view == this.kDk.cVM()) {
             TiebaStatic.log("add_group_searchbtn_click");
             if (view.getTag() instanceof String) {
-                Mn((String) view.getTag());
+                Mo((String) view.getTag());
             }
         } else if (view == this.kDk.cVL()) {
             this.kDk.cVP();
@@ -100,7 +100,7 @@ public class AddGroupActivity extends BaseActivity<AddGroupActivity> {
         }
     }
 
-    public void Mn(String str) {
+    public void Mo(String str) {
         if (!TextUtils.isEmpty(str) && TextUtils.isDigitsOnly(str)) {
             try {
                 this.kDk.sQ(true);
@@ -129,7 +129,7 @@ public class AddGroupActivity extends BaseActivity<AddGroupActivity> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bw(String str, int i) {
+    public void bx(String str, int i) {
         if (i < 0) {
             showToast(R.string.neterror);
         } else if (!TextUtils.isEmpty(str)) {

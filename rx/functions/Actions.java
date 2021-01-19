@@ -3,10 +3,10 @@ package rx.functions;
 import rx.exceptions.OnErrorNotImplementedException;
 /* loaded from: classes14.dex */
 public final class Actions {
-    private static final b qof = new b();
+    private static final b qog = new b();
 
     public static <T0, T1, T2, T3, T4, T5, T6, T7, T8> b<T0, T1, T2, T3, T4, T5, T6, T7, T8> eKz() {
-        return qof;
+        return qog;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */

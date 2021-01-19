@@ -12,10 +12,10 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class a {
-    private static Boolean npU = true;
     private static Boolean npV = true;
+    private static Boolean npW = true;
 
-    public static void Sv(String str) {
+    public static void Sw(String str) {
         bR(13, str);
     }
 
@@ -68,11 +68,11 @@ public class a {
         return arrayList;
     }
 
-    public static void Sw(String str) {
+    public static void Sx(String str) {
         bS(0, str);
     }
 
-    public static void Sx(String str) {
+    public static void Sy(String str) {
         bS(1, str);
     }
 
@@ -94,7 +94,7 @@ public class a {
         }
     }
 
-    public static void Sy(String str) {
+    public static void Sz(String str) {
         bT(0, str);
     }
 
@@ -191,7 +191,7 @@ public class a {
     }
 
     public static void u(Boolean bool) {
-        npU = bool;
+        npV = bool;
     }
 
     public static void bxN() {

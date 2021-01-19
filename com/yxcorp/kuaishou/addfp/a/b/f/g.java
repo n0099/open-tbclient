@@ -22,7 +22,7 @@ public final class g implements com.yxcorp.kuaishou.addfp.a.b.a, com.yxcorp.kuai
         d dVar;
         if (this.f14361b != null) {
             com.yxcorp.kuaishou.addfp.a.a.a aVar = this.f14361b;
-            dVar = f.qbI;
+            dVar = f.qbJ;
             aVar.a(dVar.a(), this);
         }
     }
@@ -30,7 +30,7 @@ public final class g implements com.yxcorp.kuaishou.addfp.a.b.a, com.yxcorp.kuai
     @Override // com.yxcorp.kuaishou.addfp.a.b.a
     public final void a(com.yxcorp.kuaishou.addfp.a.a.a aVar) {
         d dVar;
-        dVar = f.qbI;
+        dVar = f.qbJ;
         dVar.a(this.f14360a, this);
     }
 
@@ -49,7 +49,7 @@ public final class g implements com.yxcorp.kuaishou.addfp.a.b.a, com.yxcorp.kuai
         d dVar;
         String str = "";
         try {
-            dVar = f.qbI;
+            dVar = f.qbJ;
             str = dVar.a(this.f14360a, "OUID");
             if (str != null) {
             }
@@ -62,14 +62,14 @@ public final class g implements com.yxcorp.kuaishou.addfp.a.b.a, com.yxcorp.kuai
     @Override // com.yxcorp.kuaishou.addfp.a.b.a
     public final boolean c() {
         d dVar;
-        dVar = f.qbI;
+        dVar = f.qbJ;
         return dVar.a();
     }
 
     @Override // com.yxcorp.kuaishou.addfp.a.b.a
     public final void d() {
         d dVar;
-        dVar = f.qbI;
+        dVar = f.qbJ;
         dVar.a(this.f14360a);
     }
 

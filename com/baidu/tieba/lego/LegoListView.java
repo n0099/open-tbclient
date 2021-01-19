@@ -367,7 +367,7 @@ public class LegoListView extends FrameLayout implements AbsListView.OnScrollLis
         }
     }
 
-    public void MJ(String str) {
+    public void MK(String str) {
         if (this.WT != null) {
             this.WT.completePullRefresh();
         }

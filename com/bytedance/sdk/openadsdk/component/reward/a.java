@@ -209,8 +209,8 @@ public class a {
         long elapsedRealtime = remove == null ? 0L : SystemClock.elapsedRealtime() - remove.longValue();
         String str = z ? "load_video_success" : "load_video_error";
         String str2 = null;
-        if (!z && pVar != null && pVar.pkZ != null) {
-            str2 = pVar.pkZ.getMessage();
+        if (!z && pVar != null && pVar.pla != null) {
+            str2 = pVar.pla.getMessage();
         }
         com.bytedance.sdk.openadsdk.c.d.f(this.f6296b, lVar, "fullscreen_interstitial_ad", str, aj.a(z, lVar, elapsedRealtime, j, str2));
     }

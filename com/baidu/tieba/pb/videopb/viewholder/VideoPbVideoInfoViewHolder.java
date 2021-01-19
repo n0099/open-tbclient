@@ -317,11 +317,11 @@ public class VideoPbVideoInfoViewHolder extends TypeAdapter.ViewHolder {
     }
 
     public void a(Context context, PostData postData) {
-        if (postData == null || x.getCount(postData.nnL) < 2) {
+        if (postData == null || x.getCount(postData.nnM) < 2) {
             this.meF = false;
             return;
         }
-        List<PbContent> list = postData.nnL;
+        List<PbContent> list = postData.nnM;
         TbRichText a2 = TbRichTextView.a(context, (List<PbContent>) x.subList(list, 1, list.size()), true);
         a(a2, postData.bpF());
         this.mex.setText(a2);

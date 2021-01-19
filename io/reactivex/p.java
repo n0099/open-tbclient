@@ -3,7 +3,7 @@ package io.reactivex;
 import io.reactivex.internal.util.NotificationLite;
 /* loaded from: classes5.dex */
 public final class p<T> {
-    static final p<Object> qdi = new p<>(null);
+    static final p<Object> qdj = new p<>(null);
     final Object value;
 
     private p(Object obj) {
@@ -59,6 +59,6 @@ public final class p<T> {
     }
 
     public static <T> p<T> eHR() {
-        return (p<T>) qdi;
+        return (p<T>) qdj;
     }
 }

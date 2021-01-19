@@ -126,7 +126,7 @@ public class aj {
                     this.fpP = new ab();
                     this.fpP.parse(optJSONObject2);
                 }
-                com.baidu.tieba.im.db.n.CD(jSONObject.optInt("android_max_stranger"));
+                com.baidu.tieba.im.db.n.CC(jSONObject.optInt("android_max_stranger"));
                 this.fpR = jSONObject.optInt("style_ab_switch", 0);
                 this.fpS = jSONObject.optInt("abstract_ab_switch", 0);
                 this.fpQ = jSONObject.optString("android_splash_video");

@@ -17,10 +17,10 @@ import java.lang.ref.WeakReference;
 public class NewUserGuideModel extends BdBaseModel<BaseFragmentActivity> {
     public static final int LIMIT = 100;
     public static final int OFFSET = 0;
-    private static final String nvr = TbConfig.SERVER_ADDRESS + Config.INTERESTS_FRS_URL;
-    private boolean nvs;
-    private InterestFrsData nvt;
-    private a nvu;
+    private static final String nvs = TbConfig.SERVER_ADDRESS + Config.INTERESTS_FRS_URL;
+    private boolean nvt;
+    private InterestFrsData nvu;
+    private a nvv;
 
     /* loaded from: classes2.dex */
     public interface b {
@@ -34,29 +34,29 @@ public class NewUserGuideModel extends BdBaseModel<BaseFragmentActivity> {
     }
 
     public boolean dOt() {
-        return this.nvs;
-    }
-
-    public void yx(boolean z) {
-        this.nvs = z;
-    }
-
-    public InterestFrsData dOu() {
         return this.nvt;
     }
 
+    public void yx(boolean z) {
+        this.nvt = z;
+    }
+
+    public InterestFrsData dOu() {
+        return this.nvu;
+    }
+
     public void e(InterestFrsData interestFrsData) {
-        this.nvt = interestFrsData;
+        this.nvu = interestFrsData;
     }
 
     public void a(int i, int i2, int i3, b bVar) {
-        this.nvu = new a(i, i2, i3, bVar);
-        this.nvu.execute(new Void[0]);
+        this.nvv = new a(i, i2, i3, bVar);
+        this.nvv.execute(new Void[0]);
     }
 
     public void dOv() {
-        if (this.nvu != null) {
-            this.nvu.cancel();
+        if (this.nvv != null) {
+            this.nvv.cancel();
         }
     }
 
@@ -91,7 +91,7 @@ public class NewUserGuideModel extends BdBaseModel<BaseFragmentActivity> {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: o */
         public InterestFrsData doInBackground(Void... voidArr) {
-            z zVar = new z(NewUserGuideModel.nvr);
+            z zVar = new z(NewUserGuideModel.nvs);
             zVar.addPostData("user_type", String.valueOf(this.userType));
             zVar.addPostData("offset", String.valueOf(this.offset));
             zVar.addPostData(Constants.EXTRA_CONFIG_LIMIT, String.valueOf(this.limit));

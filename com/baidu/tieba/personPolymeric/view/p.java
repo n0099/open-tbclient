@@ -97,7 +97,7 @@ public class p {
     };
     private com.baidu.tieba.personPolymeric.b.a mtF = new com.baidu.tieba.personPolymeric.b.a() { // from class: com.baidu.tieba.personPolymeric.view.p.7
         @Override // com.baidu.tieba.personPolymeric.b.a
-        public void Cl(int i) {
+        public void Ck(int i) {
             p.this.mwM.height = -2;
             p.this.mwL.setLayoutParams(p.this.mwM);
         }
@@ -709,7 +709,7 @@ public class p {
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 com.baidu.tbadk.data.n nVar;
                 if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof com.baidu.tbadk.data.n) && (nVar = (com.baidu.tbadk.data.n) customResponsedMessage.getData()) != null) {
-                    p.this.mwP.PH(nVar.getImgUrl());
+                    p.this.mwP.PI(nVar.getImgUrl());
                 }
             }
         };

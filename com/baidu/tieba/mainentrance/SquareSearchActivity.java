@@ -175,7 +175,7 @@ public class SquareSearchActivity extends BaseActivity<SquareSearchActivity> imp
             }
             SquareSearchActivity.this.dcc();
             SquareSearchActivity.this.lbb.setAdapter((ListAdapter) SquareSearchActivity.this.lbd);
-            SquareSearchActivity.this.lbd.Na(SquareSearchActivity.this.iYq.trim());
+            SquareSearchActivity.this.lbd.Nb(SquareSearchActivity.this.iYq.trim());
             SquareSearchActivity.this.lbd.setData(list);
             SquareSearchActivity.this.lbd.notifyDataSetInvalidated();
         }
@@ -185,7 +185,7 @@ public class SquareSearchActivity extends BaseActivity<SquareSearchActivity> imp
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof String)) {
-                SquareSearchActivity.this.Nd(customResponsedMessage.getData().toString());
+                SquareSearchActivity.this.Ne(customResponsedMessage.getData().toString());
             }
         }
     };
@@ -611,7 +611,7 @@ public class SquareSearchActivity extends BaseActivity<SquareSearchActivity> imp
                                     /* JADX WARN: Can't rename method to resolve collision */
                                     @Override // com.baidu.tbadk.util.ab
                                     public Boolean doInBackground() {
-                                        com.baidu.tieba.tbadkCore.util.a.Sy(str);
+                                        com.baidu.tieba.tbadkCore.util.a.Sz(str);
                                         return true;
                                     }
                                 }, new com.baidu.tbadk.util.l<Boolean>() { // from class: com.baidu.tieba.mainentrance.SquareSearchActivity.14.2
@@ -743,7 +743,7 @@ public class SquareSearchActivity extends BaseActivity<SquareSearchActivity> imp
                 if (this.lbe.forum_list != null && this.lbe.forum_list.size() > 0) {
                     dcc();
                     this.lbb.setAdapter((ListAdapter) this.lbc);
-                    this.lbc.Na(this.iYq);
+                    this.lbc.Nb(this.iYq);
                     this.lbc.aL(this.lbe.forum_list);
                     this.lbc.notifyDataSetInvalidated();
                 } else {
@@ -785,7 +785,7 @@ public class SquareSearchActivity extends BaseActivity<SquareSearchActivity> imp
     }
 
     @Override // com.baidu.tieba.mainentrance.HotForumModel.a
-    public void Nb(String str) {
+    public void Nc(String str) {
         this.lbh = true;
         this.laY = new ArrayList();
         dbX();
@@ -818,7 +818,7 @@ public class SquareSearchActivity extends BaseActivity<SquareSearchActivity> imp
         HotSearchInfoData hotSearchInfoData2 = new HotSearchInfoData();
         hotSearchInfoData2.setId(0L);
         hotSearchInfoData2.setName("");
-        hotSearchInfoData2.Nc("");
+        hotSearchInfoData2.Nd("");
         hotSearchInfoData2.setType(0L);
         com.baidu.tbadk.core.sharedPref.b.brx().putString(SharedPrefConfig.HOT_SEARCH_INFO, OrmObject.jsonStrWithObject(hotSearchInfoData2));
     }
@@ -1073,7 +1073,7 @@ public class SquareSearchActivity extends BaseActivity<SquareSearchActivity> imp
                 /* JADX WARN: Can't rename method to resolve collision */
                 @Override // com.baidu.tbadk.util.ab
                 public Boolean doInBackground() {
-                    com.baidu.tieba.tbadkCore.util.a.Sw(str);
+                    com.baidu.tieba.tbadkCore.util.a.Sx(str);
                     return true;
                 }
             }, null);
@@ -1081,7 +1081,7 @@ public class SquareSearchActivity extends BaseActivity<SquareSearchActivity> imp
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Nd(String str) {
+    public void Ne(String str) {
         if (!j.isNetWorkAvailable()) {
             showToast(R.string.neterror);
         } else if (!StringUtils.isNull(str)) {

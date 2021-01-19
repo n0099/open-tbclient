@@ -8,13 +8,13 @@ import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class q extends ch {
     private final Context e;
-    private final cn pcg;
+    private final cn pch;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public q(Context context, cn cnVar) {
         super(true, false);
         this.e = context;
-        this.pcg = cnVar;
+        this.pch = cnVar;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

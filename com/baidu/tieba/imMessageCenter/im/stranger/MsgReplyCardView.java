@@ -40,47 +40,47 @@ public class MsgReplyCardView extends e {
 
     public void a(TbPageContext<?> tbPageContext, ChatMessage chatMessage, View view) {
         if (chatMessage != null) {
-            a.C0766a MB = a.MB(chatMessage.getContent());
+            a.C0766a MC = a.MC(chatMessage.getContent());
             String valueOf = String.valueOf(chatMessage.getUserId());
-            this.kHN.setText(a(MB, valueOf));
-            this.kHO.setText(MB.kHw);
-            this.kHP.setText(b(MB, valueOf));
-            this.kHQ.setText(MB.fName + this.mContext.getString(R.string.forum));
+            this.kHN.setText(a(MC, valueOf));
+            this.kHO.setText(MC.kHw);
+            this.kHP.setText(b(MC, valueOf));
+            this.kHQ.setText(MC.fName + this.mContext.getString(R.string.forum));
         }
     }
 
     private String a(a.C0766a c0766a, String str) {
         String string;
-        String Db;
+        String Da;
         if (!TextUtils.isEmpty(str) && str.equals(TbadkCoreApplication.getCurrentAccount())) {
-            string = Db(c0766a.kHS);
-            Db = this.mContext.getString(R.string.you);
+            string = Da(c0766a.kHS);
+            Da = this.mContext.getString(R.string.you);
         } else {
             string = this.mContext.getString(R.string.you);
-            Db = Db(c0766a.kHS);
+            Da = Da(c0766a.kHS);
         }
-        return String.format(this.mContext.getString(R.string.add_friend_card_title), string, Dc(c0766a.type), Db);
+        return String.format(this.mContext.getString(R.string.add_friend_card_title), string, Db(c0766a.type), Da);
     }
 
     private String b(a.C0766a c0766a, String str) {
-        String Db;
+        String Da;
         StringBuilder sb = new StringBuilder();
         if (!TextUtils.isEmpty(str) && str.equals(TbadkCoreApplication.getCurrentAccount())) {
-            Db = this.mContext.getString(R.string.me);
+            Da = this.mContext.getString(R.string.me);
         } else {
-            Db = Db(c0766a.kHS);
+            Da = Da(c0766a.kHS);
         }
         if (c0766a.type == 1) {
-            sb.append(String.format(this.mContext.getString(R.string.add_friend_card_quote_comment), Db));
+            sb.append(String.format(this.mContext.getString(R.string.add_friend_card_quote_comment), Da));
             sb.append(c0766a.kHW);
         } else {
-            sb.append(String.format(this.mContext.getString(R.string.add_friend_card_quote_thread), Db));
+            sb.append(String.format(this.mContext.getString(R.string.add_friend_card_quote_thread), Da));
             sb.append(c0766a.title);
         }
         return sb.toString();
     }
 
-    private String Db(int i) {
+    private String Da(int i) {
         if (i == 1) {
             return this.mContext.getResources().getString(R.string.he);
         }
@@ -90,7 +90,7 @@ public class MsgReplyCardView extends e {
         return this.mContext.getResources().getString(R.string.ta);
     }
 
-    private String Dc(int i) {
+    private String Db(int i) {
         return i == 1 ? this.mContext.getResources().getString(R.string.add_friend_card_title_comment) : this.mContext.getResources().getString(R.string.topic_thread);
     }
 }

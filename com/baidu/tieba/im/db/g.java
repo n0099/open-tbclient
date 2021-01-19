@@ -67,7 +67,7 @@ public class g {
         return linkedList;
     }
 
-    public static void Ma(String str) {
+    public static void Mb(String str) {
         try {
             if (!TextUtils.isEmpty(str)) {
                 h.cTB().cTC();

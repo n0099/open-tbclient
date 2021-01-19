@@ -4,7 +4,7 @@ import android.content.Context;
 import android.util.Log;
 /* loaded from: classes4.dex */
 class d {
-    private com.baidu.n.a.a.c oKR;
+    private com.baidu.n.a.a.c oKS;
     private static String TAG = "UnionIDFactory";
     private static boolean DEBUG = a.egd();
 
@@ -15,21 +15,21 @@ class d {
         }
         switch (ege) {
             case 10001:
-                this.oKR = new com.baidu.n.a.b.a(context);
+                this.oKS = new com.baidu.n.a.b.a(context);
                 return;
             case 10002:
                 if (DEBUG) {
                     Log.e(TAG, "UnionIDFactory XMUnionID");
                 }
-                this.oKR = new com.baidu.n.a.b.c(context);
+                this.oKS = new com.baidu.n.a.b.c(context);
                 return;
             default:
-                this.oKR = new com.baidu.n.a.b.b(context);
+                this.oKS = new com.baidu.n.a.b.b(context);
                 return;
         }
     }
 
     public com.baidu.n.a.a.c egf() {
-        return this.oKR;
+        return this.oKS;
     }
 }

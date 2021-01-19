@@ -167,7 +167,7 @@ public class HomePageTabFeedHeaderView extends LinearLayout implements View.OnCl
                     @Override // com.baidu.tbadk.h.c
                     public void a(View view, boolean z, Object obj) {
                         if (z) {
-                            b.Lr("c13751");
+                            b.Ls("c13751");
                         }
                     }
                 });

@@ -11,8 +11,8 @@ public final class o {
     int c;
     boolean d;
     boolean e;
-    o pdA;
     o pdB;
+    o pdC;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public o() {
@@ -37,19 +37,19 @@ public final class o {
     }
 
     public final o emn() {
-        o oVar = this.pdA != this ? this.pdA : null;
-        this.pdB.pdA = this.pdA;
-        this.pdA.pdB = this.pdB;
-        this.pdA = null;
+        o oVar = this.pdB != this ? this.pdB : null;
+        this.pdC.pdB = this.pdB;
+        this.pdB.pdC = this.pdC;
         this.pdB = null;
+        this.pdC = null;
         return oVar;
     }
 
     public final o a(o oVar) {
-        oVar.pdB = this;
-        oVar.pdA = this.pdA;
-        this.pdA.pdB = oVar;
-        this.pdA = oVar;
+        oVar.pdC = this;
+        oVar.pdB = this.pdB;
+        this.pdB.pdC = oVar;
+        this.pdB = oVar;
         return oVar;
     }
 
@@ -66,18 +66,18 @@ public final class o {
         }
         emm.c = emm.f5849b + i;
         this.f5849b += i;
-        this.pdB.a(emm);
+        this.pdC.a(emm);
         return emm;
     }
 
     public final void c() {
-        if (this.pdB == this) {
+        if (this.pdC == this) {
             throw new IllegalStateException();
         }
-        if (this.pdB.e) {
+        if (this.pdC.e) {
             int i = this.c - this.f5849b;
-            if (i <= (this.pdB.d ? 0 : this.pdB.f5849b) + (8192 - this.pdB.c)) {
-                a(this.pdB, i);
+            if (i <= (this.pdC.d ? 0 : this.pdC.f5849b) + (8192 - this.pdC.c)) {
+                a(this.pdC, i);
                 emn();
                 p.b(this);
             }

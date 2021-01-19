@@ -11,5 +11,5 @@ public final class bh {
     /* renamed from: case  reason: not valid java name */
     public String f25case;
     public String java;
-    public List<Info> pZM;
+    public List<Info> pZN;
 }

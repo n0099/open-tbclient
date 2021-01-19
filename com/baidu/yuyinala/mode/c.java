@@ -19,16 +19,16 @@ public class c extends com.baidu.live.tieba.pb.interactionpopupwindow.b<AlaAudio
     private CommonEmptyView btf;
     private View czi;
     private HListView guy;
-    private View oLi;
     private View oLj;
     private View oLk;
-    private boolean oLo;
-    private TextView oMl;
-    private com.baidu.yuyinala.mode.a.a oMm;
-    private a oMn;
-    private AlaAudioModeDialogData oMo;
-    private com.baidu.yuyinala.mode.b.a oMp;
+    private View oLl;
+    private boolean oLp;
+    private TextView oMm;
+    private com.baidu.yuyinala.mode.a.a oMn;
+    private a oMo;
+    private AlaAudioModeDialogData oMp;
     private com.baidu.yuyinala.mode.b.a oMq;
+    private com.baidu.yuyinala.mode.b.a oMr;
 
     /* loaded from: classes10.dex */
     public interface a {
@@ -40,7 +40,7 @@ public class c extends com.baidu.live.tieba.pb.interactionpopupwindow.b<AlaAudio
     }
 
     public void a(a aVar) {
-        this.oMn = aVar;
+        this.oMo = aVar;
     }
 
     @Override // com.baidu.live.tieba.pb.interactionpopupwindow.d
@@ -51,27 +51,27 @@ public class c extends com.baidu.live.tieba.pb.interactionpopupwindow.b<AlaAudio
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.live.tieba.pb.interactionpopupwindow.d
     public void a(AlaAudioModeDialogData alaAudioModeDialogData) {
-        this.oMo = alaAudioModeDialogData;
-        if (this.oMo != null && !ListUtils.isEmpty(alaAudioModeDialogData.getModeList())) {
+        this.oMp = alaAudioModeDialogData;
+        if (this.oMp != null && !ListUtils.isEmpty(alaAudioModeDialogData.getModeList())) {
             a(alaAudioModeDialogData.getModeList(), alaAudioModeDialogData.getChosenMode());
         }
     }
 
     @Override // com.baidu.live.tieba.pb.interactionpopupwindow.d
     public void initView() {
-        this.oMm = new com.baidu.yuyinala.mode.a.a(this.mTbPageContext.getPageActivity());
+        this.oMn = new com.baidu.yuyinala.mode.a.a(this.mTbPageContext.getPageActivity());
         this.czi = getViewGroup().findViewById(a.f.root_layout);
         this.guy = (HListView) getViewGroup().findViewById(a.f.mode_lv);
-        this.guy.setAdapter((ListAdapter) this.oMm);
+        this.guy.setAdapter((ListAdapter) this.oMn);
         this.guy.setDividerWidth(this.mTbPageContext.getResources().getDimensionPixelSize(a.d.sdk_ds8));
         this.guy.setSelector(this.mTbPageContext.getResources().getDrawable(a.e.sdk_transparent_bg));
-        this.oLi = getViewGroup().findViewById(a.f.cancle_tv);
-        this.oLj = getViewGroup().findViewById(a.f.confirm_tv);
+        this.oLj = getViewGroup().findViewById(a.f.cancle_tv);
+        this.oLk = getViewGroup().findViewById(a.f.confirm_tv);
         this.btf = (CommonEmptyView) getViewGroup().findViewById(a.f.mode_empty_view);
-        this.oLk = getViewGroup().findViewById(a.f.mode_succ_view);
-        this.oMl = (TextView) getViewGroup().findViewById(a.f.change_mode_notice);
-        this.oLi.setOnClickListener(this);
+        this.oLl = getViewGroup().findViewById(a.f.mode_succ_view);
+        this.oMm = (TextView) getViewGroup().findViewById(a.f.change_mode_notice);
         this.oLj.setOnClickListener(this);
+        this.oLk.setOnClickListener(this);
         this.guy.setOnItemClickListener(this);
     }
 
@@ -81,13 +81,13 @@ public class c extends com.baidu.live.tieba.pb.interactionpopupwindow.b<AlaAudio
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.oLi) {
+        if (view == this.oLj) {
             egP();
             if (this.bAF != null) {
                 this.bAF.dismiss();
             }
-        } else if (view == this.oLj) {
-            this.oLo = true;
+        } else if (view == this.oLk) {
+            this.oLp = true;
             confirm();
             if (this.bAF != null) {
                 this.bAF.dismiss();
@@ -98,14 +98,14 @@ public class c extends com.baidu.live.tieba.pb.interactionpopupwindow.b<AlaAudio
     @Override // com.baidu.live.tieba.horizonallist.widget.AdapterView.c
     public void a(AdapterView<?> adapterView, View view, int i, long j) {
         MY(i);
-        com.baidu.yuyinala.mode.b.a item = this.oMm.getItem(i);
-        if (item != this.oMp) {
-            if (this.oMp != null) {
-                this.oMp.An(false);
+        com.baidu.yuyinala.mode.b.a item = this.oMn.getItem(i);
+        if (item != this.oMq) {
+            if (this.oMq != null) {
+                this.oMq.An(false);
             }
-            this.oMp = item;
-            this.oMp.An(true);
-            this.oMm.notifyDataSetChanged();
+            this.oMq = item;
+            this.oMq.An(true);
+            this.oMn.notifyDataSetChanged();
         }
     }
 
@@ -116,42 +116,42 @@ public class c extends com.baidu.live.tieba.pb.interactionpopupwindow.b<AlaAudio
     }
 
     private void confirm() {
-        if (this.oMq != this.oMp && this.oMp != null) {
-            if (this.oMn != null) {
-                this.oMn.Nb(this.oMp.getMode());
+        if (this.oMr != this.oMq && this.oMq != null) {
+            if (this.oMo != null) {
+                this.oMo.Nb(this.oMq.getMode());
             }
-            this.oMp = null;
             this.oMq = null;
+            this.oMr = null;
         }
     }
 
     private void egP() {
-        if (this.oMq != this.oMp) {
-            if (this.oMp != null) {
-                this.oMp.An(false);
-            }
+        if (this.oMr != this.oMq) {
             if (this.oMq != null) {
-                this.oMq.An(true);
+                this.oMq.An(false);
             }
-            this.oMp = null;
+            if (this.oMr != null) {
+                this.oMr.An(true);
+            }
             this.oMq = null;
-            this.oMm.notifyDataSetChanged();
+            this.oMr = null;
+            this.oMn.notifyDataSetChanged();
         }
     }
 
     private void a(List<com.baidu.yuyinala.mode.b.a> list, com.baidu.yuyinala.mode.b.a aVar) {
         int i;
-        this.oLk.setVisibility(0);
+        this.oLl.setVisibility(0);
         this.btf.setVisibility(8);
-        this.oMm.setModeList(list);
-        this.oMp = aVar;
+        this.oMn.setModeList(list);
         this.oMq = aVar;
-        if (this.oMq != null && !StringUtils.isNull(this.oMq.getNotice())) {
-            this.oMl.setText(this.oMq.getNotice());
-            this.oMl.setVisibility(0);
+        this.oMr = aVar;
+        if (this.oMr != null && !StringUtils.isNull(this.oMr.getNotice())) {
+            this.oMm.setText(this.oMr.getNotice());
+            this.oMm.setVisibility(0);
             i = a.d.sdk_ds640;
         } else {
-            this.oMl.setVisibility(8);
+            this.oMm.setVisibility(8);
             i = a.d.sdk_ds570;
         }
         ViewGroup.LayoutParams layoutParams = this.czi.getLayoutParams();
@@ -161,8 +161,8 @@ public class c extends com.baidu.live.tieba.pb.interactionpopupwindow.b<AlaAudio
 
     @Override // android.content.DialogInterface.OnDismissListener
     public void onDismiss(DialogInterface dialogInterface) {
-        if (this.oLo) {
-            this.oLo = false;
+        if (this.oLp) {
+            this.oLp = false;
         } else {
             egP();
         }

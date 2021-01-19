@@ -26,31 +26,31 @@ public class c {
     private View jQX;
     private NavigationBar mNavigationBar;
     private View mRoot;
-    private MemberRecommendView nwS;
-    private TextView nwo;
-    private PersonalCardItemView.a nyk;
-    private int nyx = 3;
-    private PersonalCardCategoryActivity nyy;
-    private b nyz;
+    private MemberRecommendView nwT;
+    private TextView nwp;
+    private b nyA;
+    private PersonalCardItemView.a nyl;
+    private int nyy = 3;
+    private PersonalCardCategoryActivity nyz;
 
     public c(PersonalCardCategoryActivity personalCardCategoryActivity) {
         this.agC = 0;
-        this.nyy = personalCardCategoryActivity;
+        this.nyz = personalCardCategoryActivity;
         this.agC = l.getDimens(personalCardCategoryActivity.getPageContext().getPageActivity(), R.dimen.ds120);
-        this.mRoot = LayoutInflater.from(this.nyy.getPageContext().getPageActivity()).inflate(R.layout.category_card_list_layout, (ViewGroup) null);
-        this.nyy.setContentView(this.mRoot);
+        this.mRoot = LayoutInflater.from(this.nyz.getPageContext().getPageActivity()).inflate(R.layout.category_card_list_layout, (ViewGroup) null);
+        this.nyz.setContentView(this.mRoot);
         this.jQX = this.mRoot.findViewById(R.id.body_view);
         this.mNavigationBar = (NavigationBar) this.mRoot.findViewById(R.id.view_navigation_bar);
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         this.mNavigationBar.setTitleText(R.string.personal_card);
         this.fJE = (NoNetworkView) this.mRoot.findViewById(R.id.view_no_network);
-        this.nwS = (MemberRecommendView) this.mRoot.findViewById(R.id.categary_card_recommend);
-        this.nwS.setFromType(9);
-        this.nwo = new TextView(this.nyy.getActivity());
-        this.nwo.setHeight(l.getDimens(this.nyy.getActivity(), R.dimen.ds104));
+        this.nwT = (MemberRecommendView) this.mRoot.findViewById(R.id.categary_card_recommend);
+        this.nwT.setFromType(9);
+        this.nwp = new TextView(this.nyz.getActivity());
+        this.nwp.setHeight(l.getDimens(this.nyz.getActivity(), R.dimen.ds104));
         this.WT = (BdListView) this.mRoot.findViewById(R.id.categary_card_listview);
-        this.nyz = new b(this.nyy.getPageContext());
-        this.WT.setAdapter((ListAdapter) this.nyz);
+        this.nyA = new b(this.nyz.getPageContext());
+        this.WT.setAdapter((ListAdapter) this.nyA);
     }
 
     public void setOnSrollToBottomListener(BdListView.e eVar) {
@@ -63,10 +63,10 @@ public class c {
         } else if (i == 0) {
             czx();
             if (b(eVar)) {
-                this.WT.removeHeaderView(this.nwo);
-                this.WT.addHeaderView(this.nwo);
+                this.WT.removeHeaderView(this.nwp);
+                this.WT.addHeaderView(this.nwp);
             } else {
-                this.WT.removeHeaderView(this.nwo);
+                this.WT.removeHeaderView(this.nwp);
             }
             fV(list);
         }
@@ -74,11 +74,11 @@ public class c {
 
     private boolean b(e eVar) {
         if (eVar == null || StringUtils.isNull(eVar.dPd())) {
-            this.nwS.setVisibility(8);
+            this.nwT.setVisibility(8);
             return false;
         }
-        this.nwS.setVisibility(0);
-        this.nwS.a(eVar);
+        this.nwT.setVisibility(0);
+        this.nwT.a(eVar);
         return true;
     }
 
@@ -88,8 +88,8 @@ public class c {
             return;
         }
         this.WT.setVisibility(0);
-        this.nyz.setData(fW(list));
-        this.nyz.notifyDataSetChanged();
+        this.nyA.setData(fW(list));
+        this.nyA.notifyDataSetChanged();
     }
 
     private List<Object> fW(List<a> list) {
@@ -103,13 +103,13 @@ public class c {
                 int i2 = 0;
                 while (i2 < i) {
                     ArrayList arrayList2 = new ArrayList();
-                    for (int i3 = 0; i3 < this.nyx; i3++) {
+                    for (int i3 = 0; i3 < this.nyy; i3++) {
                         if (i2 + i3 < i) {
                             arrayList2.add(dOX.get(i2 + i3));
                         }
                     }
                     arrayList.add(arrayList2);
-                    i2 = (this.nyx - 1) + i2 + 1;
+                    i2 = (this.nyy - 1) + i2 + 1;
                 }
             }
         }
@@ -118,32 +118,32 @@ public class c {
 
     public void czw() {
         this.jQX.setVisibility(8);
-        String string = this.nyy.getPageContext().getResources().getString(R.string.no_data_text);
-        this.nyy.setNetRefreshViewTopMargin(this.agC);
-        this.nyy.showNetRefreshView(this.mRoot, string, false);
+        String string = this.nyz.getPageContext().getResources().getString(R.string.no_data_text);
+        this.nyz.setNetRefreshViewTopMargin(this.agC);
+        this.nyz.showNetRefreshView(this.mRoot, string, false);
     }
 
     public void czx() {
-        this.nyy.hideNetRefreshView(this.mRoot);
+        this.nyz.hideNetRefreshView(this.mRoot);
         this.jQX.setVisibility(0);
     }
 
     public void onChangeSkinType() {
-        this.nyy.getLayoutMode().setNightMode(TbadkApplication.getInst().getSkinType() == 1);
-        this.nyy.getLayoutMode().onModeChanged(this.mRoot);
+        this.nyz.getLayoutMode().setNightMode(TbadkApplication.getInst().getSkinType() == 1);
+        this.nyz.getLayoutMode().onModeChanged(this.mRoot);
         if (this.mNavigationBar != null) {
-            this.mNavigationBar.onChangeSkinType(this.nyy.getPageContext(), TbadkApplication.getInst().getSkinType());
+            this.mNavigationBar.onChangeSkinType(this.nyz.getPageContext(), TbadkApplication.getInst().getSkinType());
         }
         if (this.fJE != null) {
-            this.fJE.onChangeSkinType(this.nyy.getPageContext(), TbadkApplication.getInst().getSkinType());
+            this.fJE.onChangeSkinType(this.nyz.getPageContext(), TbadkApplication.getInst().getSkinType());
         }
-        if (this.WT != null && this.WT.getVisibility() == 0 && this.nyz != null) {
-            this.nyz.notifyDataSetChanged();
+        if (this.WT != null && this.WT.getVisibility() == 0 && this.nyA != null) {
+            this.nyA.notifyDataSetChanged();
         }
-        if (this.nwS != null && this.nwS.getVisibility() == 0) {
-            this.nwS.btV();
+        if (this.nwT != null && this.nwT.getVisibility() == 0) {
+            this.nwT.btV();
         }
-        ao.setBackgroundColor(this.nwo, R.color.CAM_X0204);
+        ao.setBackgroundColor(this.nwp, R.color.CAM_X0204);
     }
 
     public View getRootView() {
@@ -151,9 +151,9 @@ public class c {
     }
 
     public void setCardViewController(PersonalCardItemView.a aVar) {
-        this.nyk = aVar;
-        if (this.nyz != null) {
-            this.nyz.setCardViewController(aVar);
+        this.nyl = aVar;
+        if (this.nyA != null) {
+            this.nyA.setCardViewController(aVar);
         }
     }
 }

@@ -8,9 +8,9 @@ import com.baidu.tieba.yuyinala.liveroom.wheat.view.TeamFightLayout;
 public class d extends a {
     @Override // com.baidu.tieba.yuyinala.liveroom.wheat.d.a
     public View ecn() {
-        this.ozK = new TeamFightLayout(this.mActivity);
-        this.ozK.setTbPageContext(this.ovz);
-        return this.ozK;
+        this.ozL = new TeamFightLayout(this.mActivity);
+        this.ozL.setTbPageContext(this.ovA);
+        return this.ozL;
     }
 
     @Override // com.baidu.tieba.yuyinala.liveroom.wheat.d.a
@@ -20,8 +20,8 @@ public class d extends a {
 
     @Override // com.baidu.tieba.yuyinala.liveroom.wheat.d.a
     public void KM() {
-        if (this.ozK != null) {
-            this.ozK.a(this.ozz, this.ozA, this.buq);
+        if (this.ozL != null) {
+            this.ozL.a(this.ozA, this.ozB, this.buq);
         }
     }
 
@@ -35,8 +35,8 @@ public class d extends a {
     }
 
     public void setTeamFightProgressData(String str) {
-        if (this.ozK != null && (this.ozK instanceof TeamFightLayout)) {
-            ((TeamFightLayout) this.ozK).setTeamFightProgressData(str);
+        if (this.ozL != null && (this.ozL instanceof TeamFightLayout)) {
+            ((TeamFightLayout) this.ozL).setTeamFightProgressData(str);
         }
     }
 }

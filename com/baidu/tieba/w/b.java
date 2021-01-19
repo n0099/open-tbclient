@@ -11,7 +11,7 @@ public class b extends BdAsyncTask<Void, Void, String> {
     public static final String FILE_SEP = File.separator;
     private String mPath;
     private String mUrl;
-    private a nMe;
+    private a nMf;
 
     /* loaded from: classes.dex */
     public interface a {
@@ -21,7 +21,7 @@ public class b extends BdAsyncTask<Void, Void, String> {
     public b(String str, String str2, a aVar) {
         this.mPath = str;
         this.mUrl = str2;
-        this.nMe = aVar;
+        this.nMf = aVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -49,11 +49,11 @@ public class b extends BdAsyncTask<Void, Void, String> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void onPostExecute(String str) {
-        if (this.nMe != null) {
+        if (this.nMf != null) {
             if (!at.isEmpty(str)) {
-                this.nMe.b(true, str, this.mUrl);
+                this.nMf.b(true, str, this.mUrl);
             } else {
-                this.nMe.b(false, null, null);
+                this.nMf.b(false, null, null);
             }
         }
     }

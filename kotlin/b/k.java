@@ -5,8 +5,8 @@ import kotlin.jvm.internal.o;
 @kotlin.e
 /* loaded from: classes5.dex */
 public final class k extends i {
-    public static final a qjM = new a(null);
-    private static final k qjL = new k(1, 0);
+    public static final a qjN = new a(null);
+    private static final k qjM = new k(1, 0);
 
     public k(long j, long j2) {
         super(j, j2, 1L);

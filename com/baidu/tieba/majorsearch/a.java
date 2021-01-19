@@ -142,7 +142,7 @@ public class a {
     public void q(List<String> list, String str) {
         this.lcm.setVisibility(0);
         if (this.lco != null) {
-            this.lco.Na(str);
+            this.lco.Nb(str);
             this.lco.setData(list);
             this.lcm.setAdapter(this.lco);
         }

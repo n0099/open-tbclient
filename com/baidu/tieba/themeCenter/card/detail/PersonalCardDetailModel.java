@@ -13,19 +13,19 @@ public class PersonalCardDetailModel extends BdBaseModel<PersonalCardDetailActiv
             if (responsedMessage != null) {
                 if ((responsedMessage instanceof PersonalCardDetailHttpReponse) || (responsedMessage instanceof PersonalCardDetailSocketReponse)) {
                     if (responsedMessage instanceof PersonalCardDetailHttpReponse) {
-                        PersonalCardDetailModel.this.nyC = ((PersonalCardDetailHttpReponse) responsedMessage).getCardData();
+                        PersonalCardDetailModel.this.nyD = ((PersonalCardDetailHttpReponse) responsedMessage).getCardData();
                     } else if (responsedMessage instanceof PersonalCardDetailSocketReponse) {
-                        PersonalCardDetailModel.this.nyC = ((PersonalCardDetailSocketReponse) responsedMessage).getCardData();
+                        PersonalCardDetailModel.this.nyD = ((PersonalCardDetailSocketReponse) responsedMessage).getCardData();
                     }
-                    if (PersonalCardDetailModel.this.nyK != null) {
-                        PersonalCardDetailModel.this.nyK.b(responsedMessage.getError(), responsedMessage.getErrorString(), PersonalCardDetailModel.this.nyC);
+                    if (PersonalCardDetailModel.this.nyL != null) {
+                        PersonalCardDetailModel.this.nyL.b(responsedMessage.getError(), responsedMessage.getErrorString(), PersonalCardDetailModel.this.nyD);
                     }
                 }
             }
         }
     };
-    private com.baidu.tieba.themeCenter.a nyC;
-    private a nyK;
+    private com.baidu.tieba.themeCenter.a nyD;
+    private a nyL;
 
     /* loaded from: classes8.dex */
     public interface a {
@@ -59,6 +59,6 @@ public class PersonalCardDetailModel extends BdBaseModel<PersonalCardDetailActiv
     }
 
     public void a(a aVar) {
-        this.nyK = aVar;
+        this.nyL = aVar;
     }
 }

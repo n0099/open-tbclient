@@ -9,17 +9,17 @@ public class a {
     private String mName;
     private int mType;
     private String oLA;
-    private boolean oLB;
-    private String oLy;
+    private String oLB;
+    private boolean oLC;
     private String oLz;
 
     public void parse(JSONObject jSONObject) {
         this.mId = jSONObject.optString("id");
         this.mName = jSONObject.optString("name");
-        this.oLy = jSONObject.optString("thumbnail_url");
-        this.oLz = jSONObject.optString("original_url");
-        this.oLB = jSONObject.optInt("is_chosen", 0) == 1;
-        this.oLA = jSONObject.optString("cover_mp4_zip");
+        this.oLz = jSONObject.optString("thumbnail_url");
+        this.oLA = jSONObject.optString("original_url");
+        this.oLC = jSONObject.optInt("is_chosen", 0) == 1;
+        this.oLB = jSONObject.optString("cover_mp4_zip");
         this.mMd5 = jSONObject.optString("mp4_md5");
         this.mType = jSONObject.optInt("is_dynamic_cover", 0);
     }
@@ -29,19 +29,19 @@ public class a {
     }
 
     public String getThumbnailUrl() {
-        return this.oLy;
-    }
-
-    public String getOriginalUrl() {
         return this.oLz;
     }
 
+    public String getOriginalUrl() {
+        return this.oLA;
+    }
+
     public boolean egB() {
-        return this.oLB;
+        return this.oLC;
     }
 
     public void An(boolean z) {
-        this.oLB = z;
+        this.oLC = z;
     }
 
     public boolean isLoading() {
@@ -57,7 +57,7 @@ public class a {
     }
 
     public String egC() {
-        return this.oLA;
+        return this.oLB;
     }
 
     public String getMd5() {

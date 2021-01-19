@@ -5,40 +5,40 @@ import kotlin.jvm.internal.p;
 @kotlin.e
 /* loaded from: classes5.dex */
 public final class d {
-    private float pPR;
     private float pPS;
-    private boolean pPV;
-    private float pPT = 1.0f;
+    private float pPT;
+    private boolean pPW;
     private float pPU = 1.0f;
+    private float pPV = 1.0f;
     private float ilx = 1.0f;
 
     public final float eBe() {
-        return this.pPR;
-    }
-
-    public final float eBf() {
         return this.pPS;
     }
 
-    public final float eBg() {
+    public final float eBf() {
         return this.pPT;
     }
 
-    public final float eBh() {
+    public final float eBg() {
         return this.pPU;
     }
 
-    public final boolean eBi() {
+    public final float eBh() {
         return this.pPV;
     }
 
+    public final boolean eBi() {
+        return this.pPW;
+    }
+
     private final void eBj() {
-        this.pPR = 0.0f;
         this.pPS = 0.0f;
-        this.pPT = 1.0f;
+        this.pPT = 0.0f;
         this.pPU = 1.0f;
+        this.pPV = 1.0f;
         this.ilx = 1.0f;
-        this.pPV = false;
+        this.pPW = false;
     }
 
     public final void a(float f, float f2, float f3, float f4, ImageView.ScaleType scaleType) {
@@ -51,100 +51,100 @@ public final class d {
             float f8 = f / f2;
             float f9 = f2 / f4;
             float f10 = f / f3;
-            switch (e.pPM[scaleType.ordinal()]) {
+            switch (e.pPN[scaleType.ordinal()]) {
                 case 1:
-                    this.pPR = f5;
-                    this.pPS = f6;
+                    this.pPS = f5;
+                    this.pPT = f6;
                     return;
                 case 2:
                     if (f7 > f8) {
                         this.ilx = f9;
-                        this.pPV = false;
-                        this.pPT = f9;
+                        this.pPW = false;
                         this.pPU = f9;
-                        this.pPR = (f - (f3 * f9)) / 2.0f;
+                        this.pPV = f9;
+                        this.pPS = (f - (f3 * f9)) / 2.0f;
                         return;
                     }
                     this.ilx = f10;
-                    this.pPV = true;
-                    this.pPT = f10;
+                    this.pPW = true;
                     this.pPU = f10;
-                    this.pPS = (f2 - (f4 * f10)) / 2.0f;
+                    this.pPV = f10;
+                    this.pPT = (f2 - (f4 * f10)) / 2.0f;
                     return;
                 case 3:
                     if (f3 < f && f4 < f2) {
-                        this.pPR = f5;
-                        this.pPS = f6;
+                        this.pPS = f5;
+                        this.pPT = f6;
                         return;
                     } else if (f7 > f8) {
                         this.ilx = f10;
-                        this.pPV = true;
-                        this.pPT = f10;
+                        this.pPW = true;
                         this.pPU = f10;
-                        this.pPS = (f2 - (f4 * f10)) / 2.0f;
+                        this.pPV = f10;
+                        this.pPT = (f2 - (f4 * f10)) / 2.0f;
                         return;
                     } else {
                         this.ilx = f9;
-                        this.pPV = false;
-                        this.pPT = f9;
+                        this.pPW = false;
                         this.pPU = f9;
-                        this.pPR = (f - (f3 * f9)) / 2.0f;
+                        this.pPV = f9;
+                        this.pPS = (f - (f3 * f9)) / 2.0f;
                         return;
                     }
                 case 4:
                     if (f7 > f8) {
                         this.ilx = f10;
-                        this.pPV = true;
-                        this.pPT = f10;
+                        this.pPW = true;
                         this.pPU = f10;
-                        this.pPS = (f2 - (f4 * f10)) / 2.0f;
+                        this.pPV = f10;
+                        this.pPT = (f2 - (f4 * f10)) / 2.0f;
                         return;
                     }
                     this.ilx = f9;
-                    this.pPV = false;
-                    this.pPT = f9;
+                    this.pPW = false;
                     this.pPU = f9;
-                    this.pPR = (f - (f3 * f9)) / 2.0f;
+                    this.pPV = f9;
+                    this.pPS = (f - (f3 * f9)) / 2.0f;
                     return;
                 case 5:
                     if (f7 > f8) {
                         this.ilx = f10;
-                        this.pPV = true;
-                        this.pPT = f10;
+                        this.pPW = true;
                         this.pPU = f10;
+                        this.pPV = f10;
                         return;
                     }
                     this.ilx = f9;
-                    this.pPV = false;
-                    this.pPT = f9;
+                    this.pPW = false;
                     this.pPU = f9;
+                    this.pPV = f9;
                     return;
                 case 6:
                     if (f7 > f8) {
                         this.ilx = f10;
-                        this.pPV = true;
-                        this.pPT = f10;
+                        this.pPW = true;
                         this.pPU = f10;
-                        this.pPS = f2 - (f4 * f10);
+                        this.pPV = f10;
+                        this.pPT = f2 - (f4 * f10);
                         return;
                     }
                     this.ilx = f9;
-                    this.pPV = false;
-                    this.pPT = f9;
+                    this.pPW = false;
                     this.pPU = f9;
-                    this.pPR = f - (f3 * f9);
+                    this.pPV = f9;
+                    this.pPS = f - (f3 * f9);
                     return;
                 case 7:
                     this.ilx = Math.max(f10, f9);
-                    this.pPV = f10 > f9;
-                    this.pPT = f10;
-                    this.pPU = f9;
+                    this.pPW = f10 > f9;
+                    this.pPU = f10;
+                    this.pPV = f9;
                     return;
                 default:
                     this.ilx = f10;
-                    this.pPV = true;
-                    this.pPT = f10;
+                    this.pPW = true;
                     this.pPU = f10;
+                    this.pPV = f10;
                     return;
             }
         }

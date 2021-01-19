@@ -15,11 +15,11 @@ public final class b implements a {
     /* renamed from: a  reason: collision with root package name */
     private a f14336a;
     private CountDownLatch c;
-    private com.yxcorp.kuaishou.addfp.a.b.a qbt;
+    private com.yxcorp.kuaishou.addfp.a.b.a qbu;
 
     private b() {
         this.c = null;
-        this.qbt = null;
+        this.qbu = null;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -34,7 +34,7 @@ public final class b implements a {
 
     public static final b eHf() {
         b bVar;
-        bVar = d.qbv;
+        bVar = d.qbw;
         return bVar;
     }
 

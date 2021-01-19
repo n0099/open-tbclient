@@ -44,7 +44,7 @@ public class b {
             this.mNavigationBar = (NavigationBar) this.kDd.findViewById(R.id.view_navigation_bar);
             this.mNavigationBar.showBottomLine();
             this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-            Mm(this.kDd.getResources().getString(R.string.recommend_detail_activity_title));
+            Mn(this.kDd.getResources().getString(R.string.recommend_detail_activity_title));
             this.gxx = (NoNetworkView) this.kDd.findViewById(R.id.view_no_network);
             this.mContentView = (LinearLayout) this.kDd.findViewById(R.id.content_view);
             this.kDe = (HeadImageView) this.kDd.findViewById(R.id.user_image);
@@ -61,7 +61,7 @@ public class b {
         }
     }
 
-    public void Mm(String str) {
+    public void Mn(String str) {
         if (this.mNavigationBar != null) {
             this.mNavigationBar.setCenterTextTitle(str);
         }
@@ -127,7 +127,7 @@ public class b {
         this.mContentView.setVisibility(0);
     }
 
-    public void CH(int i) {
+    public void CG(int i) {
         if (this.mNoDataView == null) {
             this.mNoDataView = NoDataViewFactory.a(this.kDd.getPageContext().getPageActivity(), this.mRootView, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.ds320)), NoDataViewFactory.d.pu(i), null);
         }

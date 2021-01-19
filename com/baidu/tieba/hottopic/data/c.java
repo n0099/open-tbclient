@@ -50,7 +50,7 @@ public class c implements com.baidu.adp.widget.ListView.n {
         return this.klW;
     }
 
-    public void BZ(int i) {
+    public void BY(int i) {
         this.klW = i;
     }
 

@@ -12,7 +12,7 @@ public class b extends BdBaseModel {
     private Context bJM;
     private BdUniqueId brL = BdUniqueId.gen();
     private final HttpMessageListener bxB;
-    private a onP;
+    private a onQ;
 
     /* loaded from: classes10.dex */
     public interface a {
@@ -22,7 +22,7 @@ public class b extends BdBaseModel {
     }
 
     public void a(a aVar) {
-        this.onP = aVar;
+        this.onQ = aVar;
     }
 
     public b(Context context) {
@@ -37,12 +37,12 @@ public class b extends BdBaseModel {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-                if (httpResponsedMessage != null && (httpResponsedMessage instanceof PublishLoverHttpResponseMessage) && httpResponsedMessage.getOrginalMessage().getTag() == b.this.getUniqueId() && b.this.onP != null) {
+                if (httpResponsedMessage != null && (httpResponsedMessage instanceof PublishLoverHttpResponseMessage) && httpResponsedMessage.getOrginalMessage().getTag() == b.this.getUniqueId() && b.this.onQ != null) {
                     PublishLoverHttpResponseMessage publishLoverHttpResponseMessage = (PublishLoverHttpResponseMessage) httpResponsedMessage;
                     if (publishLoverHttpResponseMessage.getError() != 0 || !publishLoverHttpResponseMessage.isSuccess()) {
-                        b.this.onP.onFail(publishLoverHttpResponseMessage.getError(), publishLoverHttpResponseMessage.getErrorString());
+                        b.this.onQ.onFail(publishLoverHttpResponseMessage.getError(), publishLoverHttpResponseMessage.getErrorString());
                     } else {
-                        b.this.onP.a(publishLoverHttpResponseMessage);
+                        b.this.onQ.a(publishLoverHttpResponseMessage);
                     }
                 }
             }

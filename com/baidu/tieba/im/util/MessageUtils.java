@@ -45,7 +45,7 @@ import protobuf.UserInfo;
 /* loaded from: classes.dex */
 public class MessageUtils {
     public static void createPersonalChatMessage(int i, String str, long j, String str2, String str3, String str4) {
-        createPersonalChatMessage(com.baidu.tieba.im.memorycache.b.cUG().bv(String.valueOf(j), 2), i, str, j, str2, str3, str4);
+        createPersonalChatMessage(com.baidu.tieba.im.memorycache.b.cUG().bw(String.valueOf(j), 2), i, str, j, str2, str3, str4);
     }
 
     public static void createPersonalChatMessage(long j, int i, String str, long j2, String str2, String str3, String str4) {
@@ -88,7 +88,7 @@ public class MessageUtils {
     }
 
     public static void createGroupChatMessage(int i, String str, long j) {
-        createGroupChatMessage(com.baidu.tieba.im.memorycache.b.cUG().bv(String.valueOf(j), 1), i, str, j);
+        createGroupChatMessage(com.baidu.tieba.im.memorycache.b.cUG().bw(String.valueOf(j), 1), i, str, j);
     }
 
     public static void createGroupChatMessage(long j, int i, String str, long j2) {
@@ -125,10 +125,10 @@ public class MessageUtils {
     }
 
     public static void sendHasReadMessage(String str, int i) {
-        ImMessageCenterPojo br;
-        if (!StringUtils.isNull(str) && i == 2 && (br = com.baidu.tieba.im.memorycache.b.cUG().br(str, 2)) != null) {
-            long pulled_msgId = br.getPulled_msgId();
-            if (pulled_msgId > br.getSent_msgId()) {
+        ImMessageCenterPojo bs;
+        if (!StringUtils.isNull(str) && i == 2 && (bs = com.baidu.tieba.im.memorycache.b.cUG().bs(str, 2)) != null) {
+            long pulled_msgId = bs.getPulled_msgId();
+            if (pulled_msgId > bs.getSent_msgId()) {
                 RequestPersonalMsgReadMessage requestPersonalMsgReadMessage = new RequestPersonalMsgReadMessage(b.gZ(pulled_msgId), Long.parseLong(str));
                 if (!MessageManager.getInstance().getSocketClient().a(requestPersonalMsgReadMessage)) {
                     MessageManager.getInstance().sendMessage(requestPersonalMsgReadMessage);

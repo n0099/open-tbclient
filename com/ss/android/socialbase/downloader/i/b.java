@@ -13,27 +13,27 @@ public class b {
     /* renamed from: a  reason: collision with root package name */
     private static final String f13171a = b.class.getSimpleName();
     private static long f = -1;
-    private static volatile b pWj = null;
+    private static volatile b pWk = null;
     private long e;
-    private final a pWi;
-    private final j pWh = j.eFX();
+    private final a pWj;
+    private final j pWi = j.eFX();
     private final AtomicInteger c = new AtomicInteger();
 
     public static b eFW() {
-        if (pWj == null) {
+        if (pWk == null) {
             synchronized (b.class) {
-                if (pWj == null) {
-                    pWj = new b();
+                if (pWk == null) {
+                    pWk = new b();
                 }
             }
         }
-        return pWj;
+        return pWk;
     }
 
     private b() {
         HandlerThread handlerThread = new HandlerThread("ParseThread");
         handlerThread.start();
-        this.pWi = new a(handlerThread.getLooper());
+        this.pWj = new a(handlerThread.getLooper());
     }
 
     public void b() {
@@ -42,7 +42,7 @@ public class b {
                 if (com.ss.android.socialbase.downloader.f.a.a()) {
                     com.ss.android.socialbase.downloader.f.a.b(f13171a, "startSampling");
                 }
-                this.pWi.a();
+                this.pWj.a();
                 this.e = SystemClock.uptimeMillis();
             }
         } catch (Throwable th) {
@@ -55,7 +55,7 @@ public class b {
                 if (com.ss.android.socialbase.downloader.f.a.a()) {
                     com.ss.android.socialbase.downloader.f.a.b(f13171a, "stopSampling");
                 }
-                this.pWi.b();
+                this.pWj.b();
                 f();
             }
         } catch (Throwable th) {
@@ -78,7 +78,7 @@ public class b {
             if (f >= 0) {
                 synchronized (this) {
                     long uptimeMillis = SystemClock.uptimeMillis();
-                    this.pWh.a(j, uptimeMillis - this.e);
+                    this.pWi.a(j, uptimeMillis - this.e);
                     this.e = uptimeMillis;
                 }
             }

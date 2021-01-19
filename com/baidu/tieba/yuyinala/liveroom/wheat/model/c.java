@@ -11,17 +11,17 @@ import com.baidu.tieba.yuyinala.liveroom.wheat.message.AlaGetApplyWheatListHttpR
 /* loaded from: classes10.dex */
 public class c extends BdBaseModel {
     private TbPageContext mPageContext;
-    private a ozR;
+    private a ozS;
     private HttpMessageListener messageListener = new HttpMessageListener(1031006) { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.model.c.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            if (httpResponsedMessage != null && (httpResponsedMessage instanceof AlaGetApplyWheatListHttpResponseMessage) && httpResponsedMessage.getOrginalMessage().getTag() == c.this.brL && c.this.ozR != null) {
+            if (httpResponsedMessage != null && (httpResponsedMessage instanceof AlaGetApplyWheatListHttpResponseMessage) && httpResponsedMessage.getOrginalMessage().getTag() == c.this.brL && c.this.ozS != null) {
                 AlaGetApplyWheatListHttpResponseMessage alaGetApplyWheatListHttpResponseMessage = (AlaGetApplyWheatListHttpResponseMessage) httpResponsedMessage;
                 if (alaGetApplyWheatListHttpResponseMessage.getError() != 0 || !alaGetApplyWheatListHttpResponseMessage.isSuccess()) {
-                    c.this.ozR.onFail(alaGetApplyWheatListHttpResponseMessage.getError(), alaGetApplyWheatListHttpResponseMessage.getErrorString());
+                    c.this.ozS.onFail(alaGetApplyWheatListHttpResponseMessage.getError(), alaGetApplyWheatListHttpResponseMessage.getErrorString());
                 } else {
-                    c.this.ozR.a(alaGetApplyWheatListHttpResponseMessage);
+                    c.this.ozS.a(alaGetApplyWheatListHttpResponseMessage);
                 }
             }
         }
@@ -38,7 +38,7 @@ public class c extends BdBaseModel {
     public c(TbPageContext tbPageContext, a aVar) {
         setUniqueId(this.brL);
         this.mPageContext = tbPageContext;
-        this.ozR = aVar;
+        this.ozS = aVar;
         bim();
         registerListener(this.messageListener);
     }

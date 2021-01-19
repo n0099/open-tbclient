@@ -55,7 +55,7 @@ public class h implements com.bytedance.sdk.adnet.e.b {
     /* JADX DEBUG: Multi-variable search result rejected for r0v9, resolved type: com.bytedance.sdk.adnet.e.b$a */
     /* JADX WARN: Multi-variable type inference failed */
     @Override // com.bytedance.sdk.adnet.e.b
-    public synchronized b.a XO(String str) {
+    public synchronized b.a XP(String str) {
         b bVar;
         b.a aVar;
         Throwable th = null;

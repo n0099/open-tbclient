@@ -7,7 +7,7 @@ class c {
     boolean hAu = false;
     String date = "";
     int bnO = 0;
-    int olB = 0;
+    int olC = 0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public String toJsonString() {
@@ -16,7 +16,7 @@ class c {
             jSONObject.put("hasShowMax", this.hAu);
             jSONObject.put("date", this.date);
             jSONObject.put("times", this.bnO);
-            jSONObject.put("clickTimes", this.olB);
+            jSONObject.put("clickTimes", this.olC);
             return jSONObject.toString();
         } catch (JSONException e) {
             e.printStackTrace();

@@ -8,15 +8,15 @@ import java.util.concurrent.TimeUnit;
 import javax.annotation.Nullable;
 /* loaded from: classes6.dex */
 public class c<T extends com.facebook.fresco.animation.a.a> extends b<T> {
-    private final com.facebook.common.time.b pqN;
-    private final ScheduledExecutorService pur;
-    private boolean pus;
-    private long put;
+    private final com.facebook.common.time.b pqO;
+    private final ScheduledExecutorService pus;
+    private boolean put;
     private long puu;
     private long puv;
+    private long puw;
     @Nullable
-    private a puw;
-    private final Runnable pux;
+    private a pux;
+    private final Runnable puy;
 
     /* loaded from: classes6.dex */
     public interface a {
@@ -33,17 +33,17 @@ public class c<T extends com.facebook.fresco.animation.a.a> extends b<T> {
 
     private c(@Nullable T t, @Nullable a aVar, com.facebook.common.time.b bVar, ScheduledExecutorService scheduledExecutorService) {
         super(t);
-        this.pus = false;
-        this.puu = 2000L;
-        this.puv = 1000L;
-        this.pux = new Runnable() { // from class: com.facebook.fresco.animation.a.c.1
+        this.put = false;
+        this.puv = 2000L;
+        this.puw = 1000L;
+        this.puy = new Runnable() { // from class: com.facebook.fresco.animation.a.c.1
             @Override // java.lang.Runnable
             public void run() {
                 synchronized (c.this) {
-                    c.this.pus = false;
+                    c.this.put = false;
                     if (c.this.esN()) {
-                        if (c.this.puw != null) {
-                            c.this.puw.onInactive();
+                        if (c.this.pux != null) {
+                            c.this.pux.onInactive();
                         }
                     } else {
                         c.this.esO();
@@ -51,14 +51,14 @@ public class c<T extends com.facebook.fresco.animation.a.a> extends b<T> {
                 }
             }
         };
-        this.puw = aVar;
-        this.pqN = bVar;
-        this.pur = scheduledExecutorService;
+        this.pux = aVar;
+        this.pqO = bVar;
+        this.pus = scheduledExecutorService;
     }
 
     @Override // com.facebook.fresco.animation.a.b, com.facebook.fresco.animation.a.a
     public boolean a(Drawable drawable, Canvas canvas, int i) {
-        this.put = this.pqN.now();
+        this.puu = this.pqO.now();
         boolean a2 = super.a(drawable, canvas, i);
         esO();
         return a2;
@@ -66,14 +66,14 @@ public class c<T extends com.facebook.fresco.animation.a.a> extends b<T> {
 
     /* JADX INFO: Access modifiers changed from: private */
     public boolean esN() {
-        return this.pqN.now() - this.put > this.puu;
+        return this.pqO.now() - this.puu > this.puv;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public synchronized void esO() {
-        if (!this.pus) {
-            this.pus = true;
-            this.pur.schedule(this.pux, this.puv, TimeUnit.MILLISECONDS);
+        if (!this.put) {
+            this.put = true;
+            this.pus.schedule(this.puy, this.puw, TimeUnit.MILLISECONDS);
         }
     }
 }

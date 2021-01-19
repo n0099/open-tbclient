@@ -15,7 +15,7 @@ import com.qq.e.ads.banner2.UnifiedBannerView;
 import com.qq.e.comm.util.AdError;
 /* loaded from: classes14.dex */
 public class bs extends an {
-    public UnifiedBannerView pFO;
+    public UnifiedBannerView pFP;
 
     /* loaded from: classes14.dex */
     public class a implements UnifiedBannerADListener {
@@ -26,7 +26,7 @@ public class bs extends an {
         public void onADClicked() {
             m.a("GDTBannerAd onADClicked 广告点击");
             bs bsVar = bs.this;
-            ah ahVar = bsVar.pFh;
+            ah ahVar = bsVar.pFi;
             if (ahVar != null) {
                 ((aa) ahVar).c(bsVar.f7752a.f7760a);
             }
@@ -35,7 +35,7 @@ public class bs extends an {
         @Override // com.qq.e.ads.banner2.UnifiedBannerADListener
         public void onADCloseOverlay() {
             m.a("GDTBannerAd onADCloseOverlay");
-            ah ahVar = bs.this.pFh;
+            ah ahVar = bs.this.pFi;
             if (ahVar != null) {
                 aa aaVar = (aa) ahVar;
                 m.a("GDTAdLoaderFactory onADCloseOverlay");
@@ -46,7 +46,7 @@ public class bs extends an {
         public void onADClosed() {
             m.a("GDTBannerAd onADClosed 广告关闭");
             bs bsVar = bs.this;
-            ah ahVar = bsVar.pFh;
+            ah ahVar = bsVar.pFi;
             if (ahVar != null) {
                 ((aa) ahVar).a(bsVar.f7752a.f7760a);
             }
@@ -56,7 +56,7 @@ public class bs extends an {
         public void onADExposure() {
             m.a("GDTBannerAd onADExposure 广告展示成功");
             bs bsVar = bs.this;
-            ah ahVar = bsVar.pFh;
+            ah ahVar = bsVar.pFi;
             if (ahVar != null) {
                 ((aa) ahVar).d(bsVar.f7752a.f7760a);
             }
@@ -65,7 +65,7 @@ public class bs extends an {
         @Override // com.qq.e.ads.banner2.UnifiedBannerADListener
         public void onADLeftApplication() {
             m.a("GDTBannerAd onADLeftApplication");
-            ah ahVar = bs.this.pFh;
+            ah ahVar = bs.this.pFi;
             if (ahVar != null) {
                 if (((aa) ahVar) == null) {
                     throw null;
@@ -77,7 +77,7 @@ public class bs extends an {
         @Override // com.qq.e.ads.banner2.UnifiedBannerADListener
         public void onADOpenOverlay() {
             m.a("GDTBannerAd onADOpenOverlay");
-            ah ahVar = bs.this.pFh;
+            ah ahVar = bs.this.pFi;
             if (ahVar != null) {
                 aa aaVar = (aa) ahVar;
                 m.a("GDTAdLoaderFactory onADOpenOverlay");
@@ -89,11 +89,11 @@ public class bs extends an {
             m.a("GDTBannerAd onADReceiv 广告加载成功");
             bs bsVar = bs.this;
             bsVar.f7753b = false;
-            ak akVar = bsVar.pFg;
+            ak akVar = bsVar.pFh;
             if (akVar != null) {
                 ((x) akVar).b(bsVar.f7752a.f7760a);
             }
-            AdRipper.ripGDTUnifiedBanner(bs.this.pFO);
+            AdRipper.ripGDTUnifiedBanner(bs.this.pFP);
         }
 
         @Override // com.qq.e.ads.banner2.UnifiedBannerADListener
@@ -101,7 +101,7 @@ public class bs extends an {
             bs.this.f7753b = false;
             m.a("GDTBannerAd onNoAD 广告加载错误");
             bs bsVar = bs.this;
-            ak akVar = bsVar.pFg;
+            ak akVar = bsVar.pFh;
             if (akVar != null) {
                 ((x) akVar).a(bsVar.f7752a.f7760a, adError.getErrorCode(), adError.getErrorMsg());
             }
@@ -114,17 +114,17 @@ public class bs extends an {
 
     @Override // com.fun.ad.an
     public void a() {
-        UnifiedBannerView unifiedBannerView = this.pFO;
+        UnifiedBannerView unifiedBannerView = this.pFP;
         if (unifiedBannerView != null) {
             unifiedBannerView.destroy();
-            this.pFO = null;
+            this.pFP = null;
         }
     }
 
     @Override // com.fun.ad.an
     public FunRippedAd exX() {
         AdRipper.RippedGDTAd rippedGDTUnifiedBannerAd;
-        UnifiedBannerView unifiedBannerView = this.pFO;
+        UnifiedBannerView unifiedBannerView = this.pFP;
         if (unifiedBannerView == null || (rippedGDTUnifiedBannerAd = AdRipper.getRippedGDTUnifiedBannerAd(unifiedBannerView, false)) == null) {
             return null;
         }
@@ -149,7 +149,7 @@ public class bs extends an {
             if (!(context instanceof Activity)) {
                 this.f7753b = false;
                 m.a("GDTBannerAd context is not activity");
-                ak akVar2 = this.pFg;
+                ak akVar2 = this.pFh;
                 if (akVar2 != null) {
                     ((x) akVar2).a(this.f7752a.f7760a, 0, "Custom error message: context is not activity");
                     return;
@@ -159,8 +159,8 @@ public class bs extends an {
             UnifiedBannerView unifiedBannerView = new UnifiedBannerView((Activity) context, this.f7752a.f7760a, aVar);
             unifiedBannerView.setRefresh(this.f7752a.f);
             unifiedBannerView.loadAD();
-            this.pFO = unifiedBannerView;
-            ak akVar3 = this.pFg;
+            this.pFP = unifiedBannerView;
+            ak akVar3 = this.pFh;
             if (akVar3 != null) {
                 ((x) akVar3).a(this.f7752a.f7760a);
             }
@@ -170,9 +170,9 @@ public class bs extends an {
     @Override // com.fun.ad.an
     public void a(Activity activity, FunAdView funAdView, ah ahVar) {
         super.a(activity, funAdView, ahVar);
-        UnifiedBannerView unifiedBannerView = this.pFO;
+        UnifiedBannerView unifiedBannerView = this.pFP;
         if (unifiedBannerView == null) {
-            ah ahVar2 = this.pFh;
+            ah ahVar2 = this.pFi;
             if (ahVar2 != null) {
                 ((aa) ahVar2).a(this.f7752a.f7760a, 0, "Custom error message: mUnifiedBannerView is null when show");
                 return;
@@ -180,10 +180,10 @@ public class bs extends an {
             return;
         }
         if (unifiedBannerView.getParent() != null) {
-            ((ViewGroup) this.pFO.getParent()).removeView(this.pFO);
+            ((ViewGroup) this.pFP.getParent()).removeView(this.pFP);
         }
         funAdView.removeAllViews();
         int width = funAdView.getWidth();
-        funAdView.addView(this.pFO, new FrameLayout.LayoutParams(width, Math.round(width / 6.4f)));
+        funAdView.addView(this.pFP, new FrameLayout.LayoutParams(width, Math.round(width / 6.4f)));
     }
 }

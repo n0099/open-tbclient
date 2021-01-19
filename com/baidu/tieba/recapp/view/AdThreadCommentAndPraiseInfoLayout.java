@@ -242,7 +242,7 @@ public class AdThreadCommentAndPraiseInfoLayout extends ThreadCardBottomOpSegmen
                         l.showToast(AdThreadCommentAndPraiseInfoLayout.this.mContext, view2.getResources().getString(R.string.copy_pb_url_success));
                     }
                 });
-                shareDialogConfig.setHideMode(QX(shareItem.linkUrl));
+                shareDialogConfig.setHideMode(QY(shareItem.linkUrl));
                 MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_SHARE_DIALOG_SHOW, shareDialogConfig));
             }
         }
@@ -259,7 +259,7 @@ public class AdThreadCommentAndPraiseInfoLayout extends ThreadCardBottomOpSegmen
 
     private void a(AdvertAppInfo advertAppInfo, String str, int i) {
         c b2 = h.b(advertAppInfo, 8, i);
-        b2.QW(str);
+        b2.QX(str);
         e.dCe().a(b2);
     }
 
@@ -300,7 +300,7 @@ public class AdThreadCommentAndPraiseInfoLayout extends ThreadCardBottomOpSegmen
         return this.fhG;
     }
 
-    private int QX(String str) {
+    private int QY(String str) {
         int i = 0;
         if (TextUtils.isEmpty(str)) {
             return 0;

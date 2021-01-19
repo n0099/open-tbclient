@@ -391,7 +391,7 @@ public class EditHeadActivity extends BaseActivity<EditHeadActivity> {
             public void onClick(View view) {
                 if (!EditHeadActivity.this.mmO.isShowing()) {
                     if ((EditHeadActivity.this.mBitmap != null || EditHeadActivity.this.bFY != null) && view.getTag() != null) {
-                        EditHeadActivity.this.Pu(view.getTag().toString());
+                        EditHeadActivity.this.Pv(view.getTag().toString());
                     }
                 }
             }
@@ -413,7 +413,7 @@ public class EditHeadActivity extends BaseActivity<EditHeadActivity> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Pu(String str) {
+    public void Pv(String str) {
         if (this.mmQ != null) {
             this.mmQ.cancel();
         }

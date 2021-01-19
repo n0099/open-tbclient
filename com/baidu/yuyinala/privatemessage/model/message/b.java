@@ -5,14 +5,14 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes10.dex */
 public class b {
-    public boolean oXT;
-    public TextMsg oXU;
+    public boolean oXU;
+    public TextMsg oXV;
 
     public b(TextMsg textMsg) {
-        this.oXU = textMsg;
+        this.oXV = textMsg;
         try {
-            if (new JSONObject(this.oXU.getMsgContent()).has("notifiyType")) {
-                this.oXT = true;
+            if (new JSONObject(this.oXV.getMsgContent()).has("notifiyType")) {
+                this.oXU = true;
             }
         } catch (JSONException e) {
             e.printStackTrace();
@@ -20,6 +20,6 @@ public class b {
     }
 
     public boolean ekm() {
-        return this.oXT;
+        return this.oXU;
     }
 }

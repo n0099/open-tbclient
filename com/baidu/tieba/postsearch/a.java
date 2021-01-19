@@ -116,7 +116,7 @@ public class a {
         com.baidu.adp.lib.f.e.mB().postDelayed(this.mDl, 500L);
     }
 
-    public void PT(String str) {
+    public void PU(String str) {
         this.iNf.setText(str);
     }
 

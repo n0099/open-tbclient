@@ -152,7 +152,7 @@ public class d extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.frs.forum
         if (this.jpo != null) {
             String format = String.format(this.jpo.getString(R.string.forum_rules_later_days_edit), this.jpq + "");
             if (this.jpo.cFI() != null) {
-                new BdTopToast(this.jpo).yS(false).TP(format).aR(this.jpo.cFI().getRootView());
+                new BdTopToast(this.jpo).yS(false).TQ(format).aR(this.jpo.cFI().getRootView());
             }
         }
     }

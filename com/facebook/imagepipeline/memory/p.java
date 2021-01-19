@@ -4,14 +4,14 @@ import javax.annotation.concurrent.Immutable;
 @Immutable
 /* loaded from: classes3.dex */
 public class p {
-    private final r pAE;
-    private final s pAF;
-    private final r pAG;
+    private final r pAF;
+    private final s pAG;
     private final r pAH;
-    private final s pAI;
-    private final r pAJ;
-    private final s pAK;
-    private final com.facebook.common.memory.c pyv;
+    private final r pAI;
+    private final s pAJ;
+    private final r pAK;
+    private final s pAL;
+    private final com.facebook.common.memory.c pyw;
 
     private p(a aVar) {
         r rVar;
@@ -22,86 +22,86 @@ public class p {
         s sVar2;
         r rVar4;
         s sVar3;
-        if (aVar.pAE == null) {
+        if (aVar.pAF == null) {
             rVar = e.ewo();
         } else {
-            rVar = aVar.pAE;
+            rVar = aVar.pAF;
         }
-        this.pAE = rVar;
-        if (aVar.pAF == null) {
+        this.pAF = rVar;
+        if (aVar.pAG == null) {
             sVar = n.ewt();
         } else {
-            sVar = aVar.pAF;
+            sVar = aVar.pAG;
         }
-        this.pAF = sVar;
-        if (aVar.pAG == null) {
+        this.pAG = sVar;
+        if (aVar.pAH == null) {
             rVar2 = g.ewo();
         } else {
-            rVar2 = aVar.pAG;
+            rVar2 = aVar.pAH;
         }
-        this.pAG = rVar2;
-        if (aVar.pyv == null) {
+        this.pAH = rVar2;
+        if (aVar.pyw == null) {
             cVar = com.facebook.common.memory.d.eqk();
         } else {
-            cVar = aVar.pyv;
+            cVar = aVar.pyw;
         }
-        this.pyv = cVar;
-        if (aVar.pAH == null) {
+        this.pyw = cVar;
+        if (aVar.pAI == null) {
             rVar3 = h.ewo();
         } else {
-            rVar3 = aVar.pAH;
+            rVar3 = aVar.pAI;
         }
-        this.pAH = rVar3;
-        if (aVar.pAI == null) {
+        this.pAI = rVar3;
+        if (aVar.pAJ == null) {
             sVar2 = n.ewt();
         } else {
-            sVar2 = aVar.pAI;
+            sVar2 = aVar.pAJ;
         }
-        this.pAI = sVar2;
-        if (aVar.pAJ == null) {
+        this.pAJ = sVar2;
+        if (aVar.pAK == null) {
             rVar4 = f.ewo();
         } else {
-            rVar4 = aVar.pAJ;
+            rVar4 = aVar.pAK;
         }
-        this.pAJ = rVar4;
-        if (aVar.pAK == null) {
+        this.pAK = rVar4;
+        if (aVar.pAL == null) {
             sVar3 = n.ewt();
         } else {
-            sVar3 = aVar.pAK;
+            sVar3 = aVar.pAL;
         }
-        this.pAK = sVar3;
+        this.pAL = sVar3;
     }
 
     public r eww() {
-        return this.pAE;
-    }
-
-    public s ewx() {
         return this.pAF;
     }
 
-    public com.facebook.common.memory.c euu() {
-        return this.pyv;
-    }
-
-    public r ewy() {
-        return this.pAH;
-    }
-
-    public s ewz() {
-        return this.pAI;
-    }
-
-    public r ewA() {
+    public s ewx() {
         return this.pAG;
     }
 
-    public r ewB() {
+    public com.facebook.common.memory.c euu() {
+        return this.pyw;
+    }
+
+    public r ewy() {
+        return this.pAI;
+    }
+
+    public s ewz() {
         return this.pAJ;
     }
 
-    public s ewC() {
+    public r ewA() {
+        return this.pAH;
+    }
+
+    public r ewB() {
         return this.pAK;
+    }
+
+    public s ewC() {
+        return this.pAL;
     }
 
     public static a ewD() {
@@ -110,14 +110,14 @@ public class p {
 
     /* loaded from: classes3.dex */
     public static class a {
-        private r pAE;
-        private s pAF;
-        private r pAG;
+        private r pAF;
+        private s pAG;
         private r pAH;
-        private s pAI;
-        private r pAJ;
-        private s pAK;
-        private com.facebook.common.memory.c pyv;
+        private r pAI;
+        private s pAJ;
+        private r pAK;
+        private s pAL;
+        private com.facebook.common.memory.c pyw;
 
         private a() {
         }

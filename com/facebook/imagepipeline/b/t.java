@@ -1,7 +1,7 @@
 package com.facebook.imagepipeline.b;
 /* loaded from: classes3.dex */
 public class t implements n {
-    private static t pxz = null;
+    private static t pxA = null;
 
     private t() {
     }
@@ -9,10 +9,10 @@ public class t implements n {
     public static synchronized t etH() {
         t tVar;
         synchronized (t.class) {
-            if (pxz == null) {
-                pxz = new t();
+            if (pxA == null) {
+                pxA = new t();
             }
-            tVar = pxz;
+            tVar = pxA;
         }
         return tVar;
     }

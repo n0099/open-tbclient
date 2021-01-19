@@ -63,7 +63,7 @@ public class h {
                     str = imageUrlData.threadId + "";
                     str2 = imageUrlData.forumId + "";
                     str3 = imageUrlData.postId + "";
-                    i2 = MH(imageUrlData.from);
+                    i2 = MI(imageUrlData.from);
                 }
                 TiebaStatic.log(new aq("c14045").dW("post_id", str3).dW("tid", str).dW("fid", str2).an("obj_source", i2));
             }
@@ -75,7 +75,7 @@ public class h {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public int MH(String str) {
+    public int MI(String str) {
         if ("index".equals(str)) {
             return 1;
         }
@@ -227,7 +227,7 @@ public class h {
                 }
                 shareItem.tid = j + "";
                 shareItem.fid = imageUrlData.forumId;
-                i = h.this.MH(imageUrlData.from);
+                i = h.this.MI(imageUrlData.from);
             }
             if (!at.isEmpty(str)) {
                 shareItem.imageUri = Uri.parse(str);

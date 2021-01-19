@@ -25,9 +25,9 @@ public class au {
         if (tbPageContext != null && !TextUtils.isEmpty(str)) {
             if (str.contains("is_native_app=1")) {
             }
-            if (OU(str)) {
+            if (OV(str)) {
                 MessageManager.getInstance().dispatchResponsedMessage(new GameLaunchMessage(tbPageContext.getPageActivity(), null, str, null));
-            } else if (OV(str)) {
+            } else if (OW(str)) {
                 be.bsB().a((TbPageContext<?>) tbPageContext, new String[]{str}, true);
             } else {
                 be.bsB().b(tbPageContext, new String[]{str});
@@ -35,16 +35,16 @@ public class au {
         }
     }
 
-    public static boolean OT(String str) {
+    public static boolean OU(String str) {
         return str != null && str.contains("bookcover:");
     }
 
-    private boolean OU(String str) {
+    private boolean OV(String str) {
         Map<String, String> paramPair;
         if (!TextUtils.isEmpty(str) && (paramPair = be.getParamPair(be.getParamStr(str))) != null) {
             String str2 = paramPair.get("url");
             if (!TextUtils.isEmpty(str2)) {
-                return OU(com.baidu.adp.lib.util.k.getUrlDecode(str2));
+                return OV(com.baidu.adp.lib.util.k.getUrlDecode(str2));
             }
             String str3 = paramPair.get("tbgametype");
             return !TextUtils.isEmpty(str3) && str3.equals("1");
@@ -52,7 +52,7 @@ public class au {
         return false;
     }
 
-    private boolean OV(String str) {
+    private boolean OW(String str) {
         return !TextUtils.isEmpty(str) && str.contains("xiaoying.tv");
     }
 }

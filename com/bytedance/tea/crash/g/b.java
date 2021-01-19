@@ -5,7 +5,7 @@ import android.os.Build;
 import android.os.Debug;
 /* loaded from: classes4.dex */
 public class b {
-    static final a plI;
+    static final a plJ;
 
     /* loaded from: classes4.dex */
     private static class a {
@@ -51,21 +51,21 @@ public class b {
 
     static {
         if (Build.VERSION.SDK_INT >= 19) {
-            plI = new C1029b();
+            plJ = new C1029b();
         } else {
-            plI = new a();
+            plJ = new a();
         }
     }
 
     public static int a(Debug.MemoryInfo memoryInfo) {
-        return plI.a(memoryInfo);
+        return plJ.a(memoryInfo);
     }
 
     public static int b(Debug.MemoryInfo memoryInfo) {
-        return plI.b(memoryInfo);
+        return plJ.b(memoryInfo);
     }
 
     public static int c(Debug.MemoryInfo memoryInfo) {
-        return plI.c(memoryInfo);
+        return plJ.c(memoryInfo);
     }
 }

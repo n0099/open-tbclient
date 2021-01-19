@@ -21,7 +21,7 @@ public class b {
         mGw.put(EncodeHintType.MARGIN, 0);
     }
 
-    public static Bitmap bM(String str, int i) {
+    public static Bitmap bN(String str, int i) {
         return a(str, i, ViewCompat.MEASURED_STATE_MASK, -1, null);
     }
 

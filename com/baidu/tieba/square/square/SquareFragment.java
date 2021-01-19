@@ -50,9 +50,9 @@ public class SquareFragment extends BaseFragment {
                 }
                 if (!SquareFragment.this.niz) {
                     if (com.baidu.adp.lib.util.j.isNetWorkAvailable()) {
-                        SquareFragment.this.nix.CH(R.string.no_data_text);
+                        SquareFragment.this.nix.CG(R.string.no_data_text);
                     } else {
-                        SquareFragment.this.nix.CH(R.string.game_index_no_network_text);
+                        SquareFragment.this.nix.CG(R.string.game_index_no_network_text);
                     }
                 }
             }

@@ -7,9 +7,9 @@ import androidx.core.view.ViewCompat;
 import java.nio.ByteBuffer;
 /* loaded from: classes7.dex */
 public class GeneratedTexture {
-    private static final int[] pEk = {-16776961, -16711681, -16711936, -65281, -1, 1073742079, 1073807104, -16711681, -65281, MotionEventCompat.ACTION_POINTER_INDEX_MASK, -2147483393, ViewCompat.MEASURED_STATE_MASK, InputDeviceCompat.SOURCE_ANY, -65281, InputDeviceCompat.SOURCE_ANY, SupportMenu.CATEGORY_MASK};
-    private static final ByteBuffer pEl = exV();
-    private static final ByteBuffer pEm = exW();
+    private static final int[] pEl = {-16776961, -16711681, -16711936, -65281, -1, 1073742079, 1073807104, -16711681, -65281, MotionEventCompat.ACTION_POINTER_INDEX_MASK, -2147483393, ViewCompat.MEASURED_STATE_MASK, InputDeviceCompat.SOURCE_ANY, -65281, InputDeviceCompat.SOURCE_ANY, SupportMenu.CATEGORY_MASK};
+    private static final ByteBuffer pEm = exV();
+    private static final ByteBuffer pEn = exW();
 
     /* loaded from: classes7.dex */
     public enum Image {
@@ -20,7 +20,7 @@ public class GeneratedTexture {
     private static ByteBuffer exV() {
         byte[] bArr = new byte[16384];
         for (int i = 0; i < bArr.length; i += 4) {
-            int i2 = pEk[((((i / 4) / 64) / 16) * 4) + (((i / 4) % 64) / 16)];
+            int i2 = pEl[((((i / 4) / 64) / 16) * 4) + (((i / 4) % 64) / 16)];
             if (i == 0) {
                 i2 = -1;
             } else if (i == bArr.length - 4) {

@@ -464,7 +464,7 @@ public class SubPbModel extends DataModel {
         return true;
     }
 
-    public void Pg(String str) {
+    public void Ph(String str) {
         if (!TextUtils.isEmpty(str) && this.lWb != null && this.lWb.djN() != null) {
             ArrayList<PostData> djN = this.lWb.djN();
             int size = djN.size();
@@ -644,7 +644,7 @@ public class SubPbModel extends DataModel {
         return this.lYF;
     }
 
-    public void Ph(String str) {
+    public void Pi(String str) {
         this.lYF = str;
     }
 

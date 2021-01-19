@@ -5,10 +5,10 @@ import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes5.dex */
 public final class PublishSubject<T> extends b<T> {
-    static final PublishDisposable[] qiy = new PublishDisposable[0];
-    static final PublishDisposable[] qiz = new PublishDisposable[0];
     Throwable error;
-    final AtomicReference<PublishDisposable<T>[]> subscribers = new AtomicReference<>(qiz);
+    final AtomicReference<PublishDisposable<T>[]> subscribers = new AtomicReference<>(qiA);
+    static final PublishDisposable[] qiz = new PublishDisposable[0];
+    static final PublishDisposable[] qiA = new PublishDisposable[0];
 
     public static <T> PublishSubject<T> eIx() {
         return new PublishSubject<>();
@@ -41,7 +41,7 @@ public final class PublishSubject<T> extends b<T> {
         PublishDisposable<T>[] publishDisposableArr2;
         do {
             publishDisposableArr = this.subscribers.get();
-            if (publishDisposableArr == qiy) {
+            if (publishDisposableArr == qiz) {
                 return false;
             }
             int length = publishDisposableArr.length;
@@ -57,7 +57,7 @@ public final class PublishSubject<T> extends b<T> {
         PublishDisposable<T>[] publishDisposableArr2;
         do {
             publishDisposableArr = this.subscribers.get();
-            if (publishDisposableArr != qiy && publishDisposableArr != qiz) {
+            if (publishDisposableArr != qiz && publishDisposableArr != qiA) {
                 int length = publishDisposableArr.length;
                 int i = -1;
                 int i2 = 0;
@@ -73,7 +73,7 @@ public final class PublishSubject<T> extends b<T> {
                 }
                 if (i >= 0) {
                     if (length == 1) {
-                        publishDisposableArr2 = qiz;
+                        publishDisposableArr2 = qiA;
                     } else {
                         publishDisposableArr2 = new PublishDisposable[length - 1];
                         System.arraycopy(publishDisposableArr, 0, publishDisposableArr2, 0, i);
@@ -90,7 +90,7 @@ public final class PublishSubject<T> extends b<T> {
 
     @Override // io.reactivex.u
     public void onSubscribe(io.reactivex.disposables.b bVar) {
-        if (this.subscribers.get() == qiy) {
+        if (this.subscribers.get() == qiz) {
             bVar.dispose();
         }
     }
@@ -98,7 +98,7 @@ public final class PublishSubject<T> extends b<T> {
     @Override // io.reactivex.u
     public void onNext(T t) {
         io.reactivex.internal.functions.a.m(t, "onNext called with null. Null values are generally not allowed in 2.x operators and sources.");
-        if (this.subscribers.get() != qiy) {
+        if (this.subscribers.get() != qiz) {
             for (PublishDisposable<T> publishDisposable : this.subscribers.get()) {
                 publishDisposable.onNext(t);
             }
@@ -108,20 +108,20 @@ public final class PublishSubject<T> extends b<T> {
     @Override // io.reactivex.u
     public void onError(Throwable th) {
         io.reactivex.internal.functions.a.m(th, "onError called with null. Null values are generally not allowed in 2.x operators and sources.");
-        if (this.subscribers.get() == qiy) {
+        if (this.subscribers.get() == qiz) {
             io.reactivex.d.a.onError(th);
             return;
         }
         this.error = th;
-        for (PublishDisposable<T> publishDisposable : this.subscribers.getAndSet(qiy)) {
+        for (PublishDisposable<T> publishDisposable : this.subscribers.getAndSet(qiz)) {
             publishDisposable.onError(th);
         }
     }
 
     @Override // io.reactivex.u
     public void onComplete() {
-        if (this.subscribers.get() != qiy) {
-            for (PublishDisposable<T> publishDisposable : this.subscribers.getAndSet(qiy)) {
+        if (this.subscribers.get() != qiz) {
+            for (PublishDisposable<T> publishDisposable : this.subscribers.getAndSet(qiz)) {
                 publishDisposable.onComplete();
             }
         }

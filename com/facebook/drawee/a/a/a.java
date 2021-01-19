@@ -7,11 +7,11 @@ import com.facebook.drawee.drawable.i;
 /* loaded from: classes6.dex */
 public class a implements com.facebook.imagepipeline.e.a {
     private final Resources mResources;
-    private final com.facebook.imagepipeline.e.a ppZ;
+    private final com.facebook.imagepipeline.e.a pqa;
 
     public a(Resources resources, com.facebook.imagepipeline.e.a aVar) {
         this.mResources = resources;
-        this.ppZ = aVar;
+        this.pqa = aVar;
     }
 
     @Override // com.facebook.imagepipeline.e.a
@@ -28,8 +28,8 @@ public class a implements com.facebook.imagepipeline.e.a {
                 return new i(bitmapDrawable, dVar.evR(), dVar.evS());
             }
             return bitmapDrawable;
-        } else if (this.ppZ != null && this.ppZ.a(cVar)) {
-            return this.ppZ.b(cVar);
+        } else if (this.pqa != null && this.pqa.a(cVar)) {
+            return this.pqa.b(cVar);
         } else {
             return null;
         }

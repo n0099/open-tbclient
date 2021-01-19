@@ -24,7 +24,7 @@ import com.baidu.tieba.yuyinala.data.h;
 public class a {
     private Activity activity;
     private String liveId;
-    private b ogT;
+    private b ogU;
     private String roomId;
     private HttpMessageListener gOe = new HttpMessageListener(1031076) { // from class: com.baidu.tieba.yuyinala.a.a.1
         /* JADX DEBUG: Method merged with bridge method */
@@ -47,8 +47,8 @@ public class a {
             } else if (!TextUtils.isEmpty(httpResponsedMessage.getErrorString())) {
                 BdUtilHelper.showToast(a.this.activity, httpResponsedMessage.getErrorString());
             }
-            if (a.this.ogT != null) {
-                a.this.ogT.mU(true);
+            if (a.this.ogU != null) {
+                a.this.ogU.mU(true);
             }
         }
     };
@@ -79,7 +79,7 @@ public class a {
             this.liveId = intent.getStringExtra("live_id");
             this.roomId = intent.getStringExtra("room_id");
         }
-        this.ogT = new b(this.activity, this);
+        this.ogU = new b(this.activity, this);
     }
 
     private static void bTq() {
@@ -105,8 +105,8 @@ public class a {
     }
 
     public View getView() {
-        if (this.ogT != null) {
-            return this.ogT.getView();
+        if (this.ogU != null) {
+            return this.ogU.getView();
         }
         return null;
     }
@@ -117,21 +117,21 @@ public class a {
             hVar.setRoomId(this.roomId);
             hVar.setParams();
             MessageManager.getInstance().sendMessage(hVar);
-            if (this.ogT != null) {
-                this.ogT.mU(false);
+            if (this.ogU != null) {
+                this.ogU.mU(false);
             }
         }
     }
 
     public void Ex() {
-        if (this.ogT != null) {
-            this.ogT.Ex();
+        if (this.ogU != null) {
+            this.ogU.Ex();
         }
     }
 
     public void onKeyboardVisibilityChanged(boolean z) {
-        if (this.ogT != null) {
-            this.ogT.onKeyboardVisibilityChanged(z);
+        if (this.ogU != null) {
+            this.ogU.onKeyboardVisibilityChanged(z);
         }
     }
 }

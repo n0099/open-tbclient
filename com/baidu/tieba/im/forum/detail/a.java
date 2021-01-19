@@ -155,7 +155,7 @@ public class a extends d<ForumDetailActivity> {
         }
     }
 
-    public void CH(int i) {
+    public void CG(int i) {
         if (this.mNoDataView == null) {
             this.mNoDataView = NoDataViewFactory.a(this.kyj.getPageContext().getPageActivity(), this.kym, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NETERROR, kyv), NoDataViewFactory.d.dX(null, this.kyj.getResources().getString(i)), null);
             this.mNoDataView.setOnClickListener(this.eFA);

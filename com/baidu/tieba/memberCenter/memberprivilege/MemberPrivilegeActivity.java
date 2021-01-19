@@ -109,7 +109,7 @@ public class MemberPrivilegeActivity extends BaseActivity<MemberPrivilegeActivit
             String str = ((a.C0793a) this.ljh.ddL().getItem(i)).mLink;
             String str2 = ((a.C0793a) this.ljh.ddL().getItem(i)).mTitle;
             if (!at.isEmpty(str)) {
-                if (No(str)) {
+                if (Np(str)) {
                     sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new BubbleChooseActivityConfig(getPageContext().getPageActivity())));
                 } else {
                     com.baidu.tbadk.browser.a.startWebActivity(getPageContext().getPageActivity(), str2, str, true, true, true);
@@ -128,7 +128,7 @@ public class MemberPrivilegeActivity extends BaseActivity<MemberPrivilegeActivit
         }
     }
 
-    private boolean No(String str) {
+    private boolean Np(String str) {
         Map<String, String> paramPair;
         return (TextUtils.isEmpty(str) || (paramPair = be.getParamPair(be.getParamStr(str))) == null || !"1".equals(paramPair.get("type"))) ? false : true;
     }

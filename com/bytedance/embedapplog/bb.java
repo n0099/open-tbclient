@@ -6,7 +6,7 @@ public final class bb {
 
     /* renamed from: a  reason: collision with root package name */
     private static int f5795a;
-    private static com.bytedance.a.a pcv;
+    private static com.bytedance.a.a pcw;
 
     static {
         a(2);
@@ -14,7 +14,7 @@ public final class bb {
     }
 
     public static void a(com.bytedance.a.a aVar) {
-        pcv = aVar;
+        pcw = aVar;
     }
 
     public static void a(int i) {
@@ -26,8 +26,8 @@ public final class bb {
     }
 
     public static void a(String str, String str2, Throwable th) {
-        if (pcv != null && f5795a <= 2) {
-            pcv.h(str, str2, th);
+        if (pcw != null && f5795a <= 2) {
+            pcw.h(str, str2, th);
         }
     }
 
@@ -36,8 +36,8 @@ public final class bb {
     }
 
     public static void b(String str, String str2, Throwable th) {
-        if (pcv != null && f5795a <= 3) {
-            pcv.j(str, str2, th);
+        if (pcw != null && f5795a <= 3) {
+            pcw.j(str, str2, th);
         }
     }
 
@@ -46,8 +46,8 @@ public final class bb {
     }
 
     public static void c(String str, String str2, Throwable th) {
-        if (pcv != null && f5795a <= 6) {
-            pcv.k(str, str2, th);
+        if (pcw != null && f5795a <= 6) {
+            pcw.k(str, str2, th);
         }
     }
 }

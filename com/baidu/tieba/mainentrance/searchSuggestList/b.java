@@ -33,7 +33,7 @@ public class b extends BaseAdapter {
         }
     }
 
-    public void Na(String str) {
+    public void Nb(String str) {
         if (!StringUtils.isNull(str)) {
             this.enU = str.trim();
         }

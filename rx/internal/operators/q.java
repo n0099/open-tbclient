@@ -6,12 +6,12 @@ import rx.h;
 /* loaded from: classes14.dex */
 public final class q<T> implements h.a<T> {
     final long delay;
-    final h.a<T> qrA;
+    final h.a<T> qrB;
     final rx.g scheduler;
     final TimeUnit unit;
 
     public q(h.a<T> aVar, long j, TimeUnit timeUnit, rx.g gVar) {
-        this.qrA = aVar;
+        this.qrB = aVar;
         this.scheduler = gVar;
         this.delay = j;
         this.unit = timeUnit;
@@ -25,7 +25,7 @@ public final class q<T> implements h.a<T> {
         a aVar = new a(iVar, createWorker, this.delay, this.unit);
         iVar.add(createWorker);
         iVar.add(aVar);
-        this.qrA.call(aVar);
+        this.qrB.call(aVar);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -34,13 +34,13 @@ public final class q<T> implements h.a<T> {
         final rx.i<? super T> actual;
         final long delay;
         Throwable error;
-        final g.a qrB;
+        final g.a qrC;
         final TimeUnit unit;
         T value;
 
         public a(rx.i<? super T> iVar, g.a aVar, long j, TimeUnit timeUnit) {
             this.actual = iVar;
-            this.qrB = aVar;
+            this.qrC = aVar;
             this.delay = j;
             this.unit = timeUnit;
         }
@@ -48,13 +48,13 @@ public final class q<T> implements h.a<T> {
         @Override // rx.i
         public void onSuccess(T t) {
             this.value = t;
-            this.qrB.a(this, this.delay, this.unit);
+            this.qrC.a(this, this.delay, this.unit);
         }
 
         @Override // rx.i
         public void onError(Throwable th) {
             this.error = th;
-            this.qrB.a(this, this.delay, this.unit);
+            this.qrC.a(this, this.delay, this.unit);
         }
 
         @Override // rx.functions.a
@@ -70,7 +70,7 @@ public final class q<T> implements h.a<T> {
                     this.actual.onSuccess(t);
                 }
             } finally {
-                this.qrB.unsubscribe();
+                this.qrC.unsubscribe();
             }
         }
     }

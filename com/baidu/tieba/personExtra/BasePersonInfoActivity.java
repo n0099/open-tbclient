@@ -199,13 +199,13 @@ public abstract class BasePersonInfoActivity extends BaseFragmentActivity implem
             int i = this.mIsHost ? 1 : 2;
             for (int i2 = 0; i2 < i; i2++) {
                 Fragment item = this.mmB.getItem(i2);
-                int CS = this.mmB.CS(i2);
+                int CR = this.mmB.CR(i2);
                 String duJ = duJ();
-                if (CS == 1) {
+                if (CR == 1) {
                     duJ = duK();
                 }
                 if (item != null) {
-                    a(item, CS, duJ);
+                    a(item, CR, duJ);
                 }
             }
             this.mTabHost.initViewPager(3);

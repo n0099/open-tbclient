@@ -15,46 +15,46 @@ import com.baidubce.services.bos.BosClientConfiguration;
 import java.io.File;
 /* loaded from: classes10.dex */
 public class b {
-    private static b oWC;
-    private static DisplayImageOptions oWE;
+    private static b oWD;
     private static DisplayImageOptions oWF;
     private static DisplayImageOptions oWG;
-    public static final String oWD = Environment.getExternalStorageDirectory() + "/baidu/implugin/appcache";
-    private static int oWH = BosClientConfiguration.DEFAULT_STREAM_BUFFER_SIZE;
+    private static DisplayImageOptions oWH;
+    public static final String oWE = Environment.getExternalStorageDirectory() + "/baidu/implugin/appcache";
+    private static int oWI = BosClientConfiguration.DEFAULT_STREAM_BUFFER_SIZE;
 
     private b(Context context) {
         hD(context);
     }
 
     public static b hC(Context context) {
-        if (oWC == null) {
+        if (oWD == null) {
             synchronized (b.class) {
-                if (oWC == null) {
-                    oWC = new b(context);
+                if (oWD == null) {
+                    oWD = new b(context);
                 }
             }
         }
-        return oWC;
+        return oWD;
     }
 
     public static DisplayImageOptions ejX() {
-        return oWE;
-    }
-
-    public static DisplayImageOptions ejY() {
         return oWF;
     }
 
-    public static DisplayImageOptions ejZ() {
+    public static DisplayImageOptions ejY() {
         return oWG;
+    }
+
+    public static DisplayImageOptions ejZ() {
+        return oWH;
     }
 
     private void hD(Context context) {
         int i;
-        oWE = new DisplayImageOptions.Builder().cacheInMemory(true).cacheOnDisc(true).showImageOnLoading(a.e.bd_im_head_left).showImageForEmptyUri(a.e.bd_im_head_left).showImageOnFail(a.e.bd_im_head_left).imageScaleType(ImageScaleType.EXACTLY).resetViewBeforeLoading(true).considerExifParams(true).bitmapConfig(Bitmap.Config.RGB_565).build();
-        oWF = new DisplayImageOptions.Builder().cacheInMemory(true).cacheOnDisc(true).showImageOnLoading(a.e.bd_im_head_user).showImageForEmptyUri(a.e.bd_im_head_user).showImageOnFail(a.e.bd_im_head_user).imageScaleType(ImageScaleType.EXACTLY).resetViewBeforeLoading(true).considerExifParams(true).bitmapConfig(Bitmap.Config.RGB_565).build();
-        oWG = new DisplayImageOptions.Builder().cacheInMemory(true).cacheOnDisc(true).showImageOnLoading(a.e.bd_im_loading_default).showImageForEmptyUri(a.e.bd_im_loading_failed).showImageOnFail(a.e.bd_im_loading_failed).imageScaleType(ImageScaleType.EXACTLY).resetViewBeforeLoading(true).considerExifParams(true).bitmapConfig(Bitmap.Config.RGB_565).build();
-        int i2 = oWH;
+        oWF = new DisplayImageOptions.Builder().cacheInMemory(true).cacheOnDisc(true).showImageOnLoading(a.e.bd_im_head_left).showImageForEmptyUri(a.e.bd_im_head_left).showImageOnFail(a.e.bd_im_head_left).imageScaleType(ImageScaleType.EXACTLY).resetViewBeforeLoading(true).considerExifParams(true).bitmapConfig(Bitmap.Config.RGB_565).build();
+        oWG = new DisplayImageOptions.Builder().cacheInMemory(true).cacheOnDisc(true).showImageOnLoading(a.e.bd_im_head_user).showImageForEmptyUri(a.e.bd_im_head_user).showImageOnFail(a.e.bd_im_head_user).imageScaleType(ImageScaleType.EXACTLY).resetViewBeforeLoading(true).considerExifParams(true).bitmapConfig(Bitmap.Config.RGB_565).build();
+        oWH = new DisplayImageOptions.Builder().cacheInMemory(true).cacheOnDisc(true).showImageOnLoading(a.e.bd_im_loading_default).showImageForEmptyUri(a.e.bd_im_loading_failed).showImageOnFail(a.e.bd_im_loading_failed).imageScaleType(ImageScaleType.EXACTLY).resetViewBeforeLoading(true).considerExifParams(true).bitmapConfig(Bitmap.Config.RGB_565).build();
+        int i2 = oWI;
         try {
             i = (int) (Runtime.getRuntime().freeMemory() / 10);
         } catch (Exception e) {
@@ -62,8 +62,8 @@ public class b {
             i = i2;
         }
         if (i <= 0) {
-            i = oWH;
+            i = oWI;
         }
-        ImageLoader.getInstance().init(new ImageLoaderConfiguration.Builder(context).threadPriority(3).denyCacheImageMultipleSizesInMemory().memoryCacheSize(i).discCache(new UnlimitedDiscCache(new File(oWD))).discCacheFileNameGenerator(new Md5FileNameGenerator()).imageDownloader(new com.baidu.yuyinala.privatemessage.implugin.util.a.a(context)).tasksProcessingOrder(QueueProcessingType.LIFO).build());
+        ImageLoader.getInstance().init(new ImageLoaderConfiguration.Builder(context).threadPriority(3).denyCacheImageMultipleSizesInMemory().memoryCacheSize(i).discCache(new UnlimitedDiscCache(new File(oWE))).discCacheFileNameGenerator(new Md5FileNameGenerator()).imageDownloader(new com.baidu.yuyinala.privatemessage.implugin.util.a.a(context)).tasksProcessingOrder(QueueProcessingType.LIFO).build());
     }
 }

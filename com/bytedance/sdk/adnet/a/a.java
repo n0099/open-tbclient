@@ -21,7 +21,7 @@ import java.util.concurrent.atomic.AtomicBoolean;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class a implements com.bytedance.sdk.adnet.c.a, j.a {
-    private static a pka;
+    private static a pkb;
     private final boolean c;
     private final Context j;
     private volatile boolean d = false;
@@ -31,16 +31,16 @@ public class a implements com.bytedance.sdk.adnet.c.a, j.a {
     private long h = 0;
     private AtomicBoolean i = new AtomicBoolean(false);
     private volatile boolean k = false;
-    final j pkb = new j(Looper.getMainLooper(), this);
+    final j pkc = new j(Looper.getMainLooper(), this);
 
     public static a hV(Context context) {
         a aVar;
         synchronized (a.class) {
-            if (pka == null) {
-                pka = new a(context.getApplicationContext(), g.b(context));
-                com.bytedance.sdk.adnet.a.a(pka);
+            if (pkb == null) {
+                pkb = new a(context.getApplicationContext(), g.b(context));
+                com.bytedance.sdk.adnet.a.a(pkb);
             }
-            aVar = pka;
+            aVar = pkb;
         }
         return aVar;
     }
@@ -72,7 +72,7 @@ public class a implements com.bytedance.sdk.adnet.c.a, j.a {
     }
 
     public static void b(Context context) {
-        a aVar = pka;
+        a aVar = pkb;
         if (aVar != null) {
             if (g.b(context)) {
                 aVar.a(true);
@@ -201,7 +201,7 @@ public class a implements com.bytedance.sdk.adnet.c.a, j.a {
         c();
         this.f = true;
         if (!z) {
-            this.pkb.sendEmptyMessage(102);
+            this.pkc.sendEmptyMessage(102);
             return;
         }
         try {
@@ -317,8 +317,8 @@ public class a implements com.bytedance.sdk.adnet.c.a, j.a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b(int i) {
-        if (this.pkb != null) {
-            this.pkb.sendEmptyMessage(i);
+        if (this.pkc != null) {
+            this.pkc.sendEmptyMessage(i);
         }
     }
 

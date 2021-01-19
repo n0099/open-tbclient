@@ -11,7 +11,7 @@ import com.baidu.live.adp.framework.message.CustomResponsedMessage;
 import java.util.List;
 /* loaded from: classes10.dex */
 public class c {
-    private static IChatSessionChangeListener oXL = new IChatSessionChangeListener() { // from class: com.baidu.yuyinala.privatemessage.model.c.1
+    private static IChatSessionChangeListener oXM = new IChatSessionChangeListener() { // from class: com.baidu.yuyinala.privatemessage.model.c.1
         @Override // com.baidu.android.imsdk.chatmessage.IChatSessionChangeListener
         public void onChatSessionUpdate(ChatSession chatSession, boolean z) {
             c.ekj();
@@ -22,7 +22,7 @@ public class c {
             c.ekj();
         }
     };
-    private static IMediaChatMsgChangedListener oXM = new IMediaChatMsgChangedListener() { // from class: com.baidu.yuyinala.privatemessage.model.c.2
+    private static IMediaChatMsgChangedListener oXN = new IMediaChatMsgChangedListener() { // from class: com.baidu.yuyinala.privatemessage.model.c.2
         @Override // com.baidu.android.imsdk.chatmessage.IMediaChatMsgChangedListener
         public void onMediaChatMsgChangedResult(int i, long j, int i2, long j2, String str, long j3) {
             c.ekj();
@@ -31,18 +31,18 @@ public class c {
 
     public static void eki() {
         release();
-        if (oXL != null) {
-            BIMManager.registerChatSessionChangeListener(BdBaseApplication.getInst(), oXL);
-        }
         if (oXM != null) {
-            BIMManager.mediaRegisterChatMsgChangedListener(BdBaseApplication.getInst(), oXM);
+            BIMManager.registerChatSessionChangeListener(BdBaseApplication.getInst(), oXM);
+        }
+        if (oXN != null) {
+            BIMManager.mediaRegisterChatMsgChangedListener(BdBaseApplication.getInst(), oXN);
         }
         ekj();
     }
 
     public static void release() {
-        BIMManager.unregisterChatSessionChangeListener(BdBaseApplication.getInst(), oXL);
-        BIMManager.mediaUnRegisterChatMsgChangedListener(BdBaseApplication.getInst(), oXM);
+        BIMManager.unregisterChatSessionChangeListener(BdBaseApplication.getInst(), oXM);
+        BIMManager.mediaUnRegisterChatMsgChangedListener(BdBaseApplication.getInst(), oXN);
     }
 
     public static void ekj() {

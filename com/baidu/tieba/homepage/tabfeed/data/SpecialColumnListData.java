@@ -27,7 +27,7 @@ public class SpecialColumnListData extends com.baidu.tbadk.core.data.a implement
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: BK */
+        /* renamed from: BJ */
         public SpecialColumnListData[] newArray(int i) {
             return new SpecialColumnListData[i];
         }

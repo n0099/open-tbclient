@@ -28,7 +28,7 @@ public class a {
         String dGw = dGw();
         if (!TextUtils.isEmpty(dGw)) {
             stop();
-            if (c.Rn(dGw) && G(dGw, "instant", true)) {
+            if (c.Ro(dGw) && G(dGw, "instant", true)) {
                 this.mYS = true;
             }
         }
@@ -62,7 +62,7 @@ public class a {
 
     private boolean G(String str, String str2, boolean z) {
         if (this.mYQ == null) {
-            Rm(str);
+            Rn(str);
             this.mYQ = new b(str, str2, z);
             this.mYQ.a(this.mYT);
             try {
@@ -79,7 +79,7 @@ public class a {
         return true;
     }
 
-    private void Rm(String str) {
+    private void Rn(String str) {
         File file = new File(str);
         if (!file.exists()) {
             if (file.mkdirs()) {

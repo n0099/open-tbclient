@@ -55,9 +55,9 @@ public class c extends com.baidu.tieba.pb.videopb.fragment.a {
     }
 
     private void IY() {
-        this.lEQ = new k(this.mbJ.dlK(), PostData.nmN);
+        this.lEQ = new k(this.mbJ.dlK(), PostData.nmO);
         this.lEQ.a((TbRichTextView.c) this.mbJ.dlK());
-        this.lEZ = new PbReplyLoadMoreAdapter(this.mbJ.dlK(), PostData.nmR);
+        this.lEZ = new PbReplyLoadMoreAdapter(this.mbJ.dlK(), PostData.nmS);
         this.kcC = r.dBe().a(this.mbJ.dlK().getBaseFragmentActivity(), AdvertAppInfo.eIT);
         this.lET = r.dBe().a(this.mbJ.dlK().getBaseFragmentActivity(), AdvertAppInfo.eIX);
         this.bjZ.add(this.kcC);

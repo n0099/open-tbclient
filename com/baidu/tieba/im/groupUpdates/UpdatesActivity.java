@@ -144,7 +144,7 @@ public class UpdatesActivity extends BaseActivity<UpdatesActivity> implements Ab
                 UpdatesActivity.this.kze.setData(convertToUpdatesItemData);
                 UpdatesActivity.this.kzk.calculateSelects(convertToUpdatesItemData);
                 UpdatesActivity.this.kze.sJ(false);
-                UpdatesActivity.this.kze.CI(UpdatesActivity.this.kzk.getDeleteSize());
+                UpdatesActivity.this.kze.CH(UpdatesActivity.this.kzk.getDeleteSize());
                 UpdatesActivity.this.VH();
                 ImMessageCenterPojo imMessageCenterPojo = null;
                 if (convertToUpdatesItemData != null && convertToUpdatesItemData.size() > 0) {
@@ -178,7 +178,7 @@ public class UpdatesActivity extends BaseActivity<UpdatesActivity> implements Ab
                 UpdatesActivity.this.kze.setData(convertToUpdatesItemData);
                 UpdatesActivity.this.kzk.calculateSelects(convertToUpdatesItemData);
                 UpdatesActivity.this.kze.sJ(false);
-                UpdatesActivity.this.kze.CI(UpdatesActivity.this.kzk.getDeleteSize());
+                UpdatesActivity.this.kze.CH(UpdatesActivity.this.kzk.getDeleteSize());
                 UpdatesActivity.this.VH();
             }
         };
@@ -205,7 +205,7 @@ public class UpdatesActivity extends BaseActivity<UpdatesActivity> implements Ab
             } else if (view.equals(this.kze.cUC())) {
                 this.kzk.clearSelect();
                 this.kzk.calculateSelects(this.kze.cUw().getDatas());
-                this.kze.CI(this.kzk.getDeleteSize());
+                this.kze.CH(this.kzk.getDeleteSize());
                 sI(true);
                 this.kze.cUx();
             } else if (view.equals(this.kze.cUD())) {
@@ -217,7 +217,7 @@ public class UpdatesActivity extends BaseActivity<UpdatesActivity> implements Ab
                 this.kze.sJ(true);
                 String deleteDatasIds = this.kzk.deleteDatasIds();
                 if (!TextUtils.isEmpty(deleteDatasIds)) {
-                    Mh(deleteDatasIds);
+                    Mi(deleteDatasIds);
                 } else {
                     this.kze.sJ(false);
                 }
@@ -230,7 +230,7 @@ public class UpdatesActivity extends BaseActivity<UpdatesActivity> implements Ab
         if (4 == i && keyEvent.getAction() == 0 && this.iZn) {
             sI(false);
             this.kzk.clearSelect();
-            this.kze.CI(this.kzk.getDeleteSize());
+            this.kze.CH(this.kzk.getDeleteSize());
             this.kze.cUy();
             return true;
         }
@@ -254,7 +254,7 @@ public class UpdatesActivity extends BaseActivity<UpdatesActivity> implements Ab
         }
     }
 
-    private void Mh(String str) {
+    private void Mi(String str) {
         if (!j.isNetWorkAvailable()) {
             showToast(R.string.neterror);
         } else if (!TextUtils.isEmpty(str)) {
@@ -317,7 +317,7 @@ public class UpdatesActivity extends BaseActivity<UpdatesActivity> implements Ab
                 this.kzk.cancelSelect(updatesItemData);
                 updatesItemData.setSelected(false);
             }
-            this.kze.CI(this.kzk.getDeleteSize());
+            this.kze.CH(this.kzk.getDeleteSize());
             this.kze.cUz();
         }
     }

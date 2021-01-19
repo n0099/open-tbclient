@@ -7,19 +7,19 @@ final class l extends Thread {
     /* renamed from: a  reason: collision with root package name */
     private final Context f7860a;
     private volatile boolean c;
-    private final y pHy;
+    private final y pHz;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public l(Context context, y yVar) {
         this.f7860a = context;
-        this.pHy = yVar;
+        this.pHz = yVar;
     }
 
     @Override // java.lang.Thread, java.lang.Runnable
     public final void run() {
         while (!this.c) {
             if (o.eyA().b(this.f7860a)) {
-                this.pHy.a(p.COMPLETED);
+                this.pHz.a(p.COMPLETED);
                 return;
             }
             try {

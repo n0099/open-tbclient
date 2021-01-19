@@ -26,24 +26,24 @@ public class PostCategoryView extends TextView {
     private TabMenuPopView jCI;
     private View jCw;
     private Context mContext;
-    private boolean nXK;
-    private LinearLayout nXL;
-    private Drawable nXM;
+    private boolean nXL;
+    private LinearLayout nXM;
     private Drawable nXN;
+    private Drawable nXO;
 
     public PostCategoryView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.mContext = context;
-        this.nXK = false;
-        this.nXM = ao.getDrawable(R.drawable.icon_title_down);
-        this.nXM.setBounds(0, 0, this.nXM.getIntrinsicWidth(), this.nXM.getIntrinsicHeight());
-        this.nXN = ao.getDrawable(R.drawable.icon_title_up);
-        this.nXN.setBounds(0, 0, this.nXN.getIntrinsicWidth(), this.nXM.getIntrinsicHeight());
-        setCompoundDrawables(null, null, this.nXM, null);
+        this.nXL = false;
+        this.nXN = ao.getDrawable(R.drawable.icon_title_down);
+        this.nXN.setBounds(0, 0, this.nXN.getIntrinsicWidth(), this.nXN.getIntrinsicHeight());
+        this.nXO = ao.getDrawable(R.drawable.icon_title_up);
+        this.nXO.setBounds(0, 0, this.nXO.getIntrinsicWidth(), this.nXN.getIntrinsicHeight());
+        setCompoundDrawables(null, null, this.nXN, null);
         setPadding(0, 0, l.getDimens(getContext(), R.dimen.ds50), 0);
         this.iNK = (LinearLayout) LayoutInflater.from(this.mContext).inflate(R.layout.pop_category, (ViewGroup) null);
-        this.nXL = (LinearLayout) this.iNK.findViewById(R.id.pop_category_layout);
-        this.jCI = (TabMenuPopView) this.nXL.findViewById(R.id.pop_category_view);
+        this.nXM = (LinearLayout) this.iNK.findViewById(R.id.pop_category_layout);
+        this.jCI = (TabMenuPopView) this.nXM.findViewById(R.id.pop_category_view);
         this.jCw = this.iNK.findViewById(R.id.pop_category_grav);
         this.jCw.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.view.PostCategoryView.1
             @Override // android.view.View.OnClickListener
@@ -66,9 +66,9 @@ public class PostCategoryView extends TextView {
     }
 
     public void dVo() {
-        if (this.nXK) {
-            setCompoundDrawables(null, null, this.nXM, null);
-            this.nXK = false;
+        if (this.nXL) {
+            setCompoundDrawables(null, null, this.nXN, null);
+            this.nXL = false;
         } else {
             a(this);
             if (this.eFC != null) {
@@ -76,8 +76,8 @@ public class PostCategoryView extends TextView {
                 this.eFC.setWidthAsWidthOfDeviceScreen((Activity) this.mContext);
                 this.eFC.setHeight(-1);
                 this.eFC.showWindowInCustomPosition(0, 0);
-                setCompoundDrawables(null, null, this.nXN, null);
-                this.nXK = true;
+                setCompoundDrawables(null, null, this.nXO, null);
+                this.nXL = true;
             }
         }
         invalidate();
@@ -111,8 +111,8 @@ public class PostCategoryView extends TextView {
     public void btV() {
         ao.setBackgroundColor(this, R.color.CAM_X0201);
         ao.setViewTextColor(this, R.color.CAM_X0105, 1);
-        if (this.nXL != null) {
-            ao.setBackgroundColor(this.nXL, R.color.CAM_X0201);
+        if (this.nXM != null) {
+            ao.setBackgroundColor(this.nXM, R.color.CAM_X0201);
         }
         if (this.jCI != null) {
             this.jCI.btV();

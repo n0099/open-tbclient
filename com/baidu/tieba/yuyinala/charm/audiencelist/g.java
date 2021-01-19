@@ -10,27 +10,27 @@ public class g implements com.baidu.live.liveroom.d.d {
     private boolean bkm;
     private boolean bsO;
     private String mLiveId;
-    private YuyinALaAudiencesActivity ofh;
-    com.baidu.live.k.c ofz = null;
+    com.baidu.live.k.c ofA = null;
+    private YuyinALaAudiencesActivity ofi;
 
     public g(YuyinALaAudiencesActivity yuyinALaAudiencesActivity) {
-        this.ofh = yuyinALaAudiencesActivity;
+        this.ofi = yuyinALaAudiencesActivity;
     }
 
     public void createView() {
         com.baidu.live.noble.data.e eVar = new com.baidu.live.noble.data.e();
-        eVar.mTbPageContext = this.ofh.getPageContext();
+        eVar.mTbPageContext = this.ofi.getPageContext();
         eVar.mLiveId = this.mLiveId;
         eVar.bre = this.aBO;
         eVar.mIsHost = this.bkm;
         eVar.bsO = this.bsO;
         CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2501013, com.baidu.live.k.c.class, eVar);
         if (runTask != null && runTask.getData() != null) {
-            this.ofz = (com.baidu.live.k.c) runTask.getData();
+            this.ofA = (com.baidu.live.k.c) runTask.getData();
         }
     }
 
-    public g UA(String str) {
+    public g UB(String str) {
         this.mLiveId = str;
         return this;
     }
@@ -45,30 +45,30 @@ public class g implements com.baidu.live.liveroom.d.d {
         return this;
     }
 
-    public g UB(String str) {
+    public g UC(String str) {
         this.aBO = str;
         return this;
     }
 
-    public g UC(String str) {
+    public g UD(String str) {
         this.bab = str;
         return this;
     }
 
     @Override // com.baidu.live.liveroom.d.d
     public View getPanelView() {
-        if (this.ofz == null) {
+        if (this.ofA == null) {
             return null;
         }
-        return this.ofz.getView();
+        return this.ofA.getView();
     }
 
     @Override // com.baidu.live.liveroom.d.d
     public String getTitle() {
-        if (this.ofz == null) {
+        if (this.ofA == null) {
             return null;
         }
-        return this.ofz.getTitle();
+        return this.ofA.getTitle();
     }
 
     @Override // com.baidu.live.liveroom.d.d
@@ -83,22 +83,22 @@ public class g implements com.baidu.live.liveroom.d.d {
 
     @Override // com.baidu.live.liveroom.d.d
     public void enterBackground() {
-        if (this.ofz != null) {
-            this.ofz.bW(false);
+        if (this.ofA != null) {
+            this.ofA.bW(false);
         }
     }
 
     @Override // com.baidu.live.liveroom.d.d
     public void enterForeground() {
-        if (this.ofz != null) {
-            this.ofz.bW(true);
+        if (this.ofA != null) {
+            this.ofA.bW(true);
         }
     }
 
     @Override // com.baidu.live.liveroom.d.d
     public void onDestroy() {
-        if (this.ofz != null) {
-            this.ofz.onDestroy();
+        if (this.ofA != null) {
+            this.ofA.onDestroy();
         }
     }
 
@@ -107,8 +107,8 @@ public class g implements com.baidu.live.liveroom.d.d {
     }
 
     public void mD(boolean z) {
-        if (this.ofz != null) {
-            this.ofz.bX(z);
+        if (this.ofA != null) {
+            this.ofA.bX(z);
         }
     }
 }

@@ -13,12 +13,12 @@ import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes4.dex */
 public class ApplicationStatus {
     static final /* synthetic */ boolean $assertionsDisabled;
-    private static Object oEe;
-    private static Integer oEf;
-    private static Activity oEg;
-    private static c oEh;
-    private static final com.baidu.turbonet.base.b<b> oEi;
-    private static final com.baidu.turbonet.base.b<c> oEj;
+    private static Object oEf;
+    private static Integer oEg;
+    private static Activity oEh;
+    private static c oEi;
+    private static final com.baidu.turbonet.base.b<b> oEj;
+    private static final com.baidu.turbonet.base.b<c> oEk;
     private static final Map<Activity, a> sActivityInfo;
 
     /* loaded from: classes4.dex */
@@ -36,21 +36,21 @@ public class ApplicationStatus {
 
     static {
         $assertionsDisabled = !ApplicationStatus.class.desiredAssertionStatus();
-        oEe = new Object();
+        oEf = new Object();
         sActivityInfo = new ConcurrentHashMap();
-        oEi = new com.baidu.turbonet.base.b<>();
         oEj = new com.baidu.turbonet.base.b<>();
+        oEk = new com.baidu.turbonet.base.b<>();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes4.dex */
     public static class a {
         private int mStatus;
-        private com.baidu.turbonet.base.b<b> oEl;
+        private com.baidu.turbonet.base.b<b> oEm;
 
         private a() {
             this.mStatus = 6;
-            this.oEl = new com.baidu.turbonet.base.b<>();
+            this.oEm = new com.baidu.turbonet.base.b<>();
         }
 
         public int getStatus() {
@@ -62,7 +62,7 @@ public class ApplicationStatus {
         }
 
         public com.baidu.turbonet.base.b<b> edw() {
-            return this.oEl;
+            return this.oEm;
         }
     }
 
@@ -74,8 +74,8 @@ public class ApplicationStatus {
             @Override // com.baidu.turbonet.base.BaseChromiumApplication.b
             public void m(Activity activity, boolean z) {
                 int aI;
-                if (z && activity != ApplicationStatus.oEg && (aI = ApplicationStatus.aI(activity)) != 6 && aI != 5) {
-                    Activity unused = ApplicationStatus.oEg = activity;
+                if (z && activity != ApplicationStatus.oEh && (aI = ApplicationStatus.aI(activity)) != 6 && aI != 5) {
+                    Activity unused = ApplicationStatus.oEh = activity;
                 }
             }
         });
@@ -121,8 +121,8 @@ public class ApplicationStatus {
         if (activity == null) {
             throw new IllegalArgumentException("null activity is not supported");
         }
-        if (oEg == null || i == 1 || i == 3 || i == 2) {
-            oEg = activity;
+        if (oEh == null || i == 1 || i == 3 || i == 2) {
+            oEh = activity;
         }
         int stateForApplication = getStateForApplication();
         if (i == 1) {
@@ -131,8 +131,8 @@ public class ApplicationStatus {
             }
             sActivityInfo.put(activity, new a());
         }
-        synchronized (oEe) {
-            oEf = null;
+        synchronized (oEf) {
+            oEg = null;
         }
         a aVar = sActivityInfo.get(activity);
         aVar.setStatus(i);
@@ -140,21 +140,21 @@ public class ApplicationStatus {
         while (it.hasNext()) {
             it.next().l(activity, i);
         }
-        Iterator<b> it2 = oEi.iterator();
+        Iterator<b> it2 = oEj.iterator();
         while (it2.hasNext()) {
             it2.next().l(activity, i);
         }
         int stateForApplication2 = getStateForApplication();
         if (stateForApplication2 != stateForApplication) {
-            Iterator<c> it3 = oEj.iterator();
+            Iterator<c> it3 = oEk.iterator();
             while (it3.hasNext()) {
                 it3.next().Mm(stateForApplication2);
             }
         }
         if (i == 6) {
             sActivityInfo.remove(activity);
-            if (activity == oEg) {
-                oEg = null;
+            if (activity == oEh) {
+                oEh = null;
             }
         }
     }
@@ -170,17 +170,17 @@ public class ApplicationStatus {
     @CalledByNative
     public static int getStateForApplication() {
         int intValue;
-        synchronized (oEe) {
-            if (oEf == null) {
-                oEf = Integer.valueOf(edt());
+        synchronized (oEf) {
+            if (oEg == null) {
+                oEg = Integer.valueOf(edt());
             }
-            intValue = oEf.intValue();
+            intValue = oEg.intValue();
         }
         return intValue;
     }
 
     public static void a(c cVar) {
-        oEj.addObserver(cVar);
+        oEk.addObserver(cVar);
     }
 
     @CalledByNative
@@ -188,14 +188,14 @@ public class ApplicationStatus {
         ThreadUtils.runOnUiThread(new Runnable() { // from class: com.baidu.turbonet.base.ApplicationStatus.3
             @Override // java.lang.Runnable
             public void run() {
-                if (ApplicationStatus.oEh == null) {
-                    c unused = ApplicationStatus.oEh = new c() { // from class: com.baidu.turbonet.base.ApplicationStatus.3.1
+                if (ApplicationStatus.oEi == null) {
+                    c unused = ApplicationStatus.oEi = new c() { // from class: com.baidu.turbonet.base.ApplicationStatus.3.1
                         @Override // com.baidu.turbonet.base.ApplicationStatus.c
                         public void Mm(int i) {
                             ApplicationStatus.nativeOnApplicationStateChange(i);
                         }
                     };
-                    ApplicationStatus.a(ApplicationStatus.oEh);
+                    ApplicationStatus.a(ApplicationStatus.oEi);
                 }
             }
         });

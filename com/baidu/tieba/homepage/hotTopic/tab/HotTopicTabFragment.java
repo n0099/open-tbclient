@@ -47,9 +47,9 @@ public class HotTopicTabFragment extends BaseFragment implements am, b {
                     } else {
                         HotTopicTabFragment.this.jYv.bQX();
                         HotTopicTabFragment.this.jYv.hideLoadingView();
-                        List<n> Ln = HotTopicTabFragment.this.jYu.Ln(str);
-                        if (!x.isEmpty(Ln)) {
-                            HotTopicTabFragment.this.jYv.setListData(Ln);
+                        List<n> Lo = HotTopicTabFragment.this.jYu.Lo(str);
+                        if (!x.isEmpty(Lo)) {
+                            HotTopicTabFragment.this.jYv.setListData(Lo);
                         } else {
                             HotTopicTabFragment.this.bQU();
                         }
@@ -172,9 +172,9 @@ public class HotTopicTabFragment extends BaseFragment implements am, b {
     @Override // com.baidu.tieba.homepage.hotTopic.tab.b
     public void loadData() {
         boolean LoadData = this.jYu.LoadData();
-        List<n> Ln = this.jYu.Ln(this.jYu.bvV());
+        List<n> Lo = this.jYu.Lo(this.jYu.bvV());
         if (LoadData) {
-            if (x.isEmpty(Ln) && !this.jYv.cOK()) {
+            if (x.isEmpty(Lo) && !this.jYv.cOK()) {
                 this.jYv.bQX();
                 this.jYv.Vq();
                 showLoadingView();
@@ -184,8 +184,8 @@ public class HotTopicTabFragment extends BaseFragment implements am, b {
         }
         this.jYv.bQX();
         this.jYv.hideLoadingView();
-        if (!x.isEmpty(Ln)) {
-            this.jYv.setListData(Ln);
+        if (!x.isEmpty(Lo)) {
+            this.jYv.setListData(Lo);
         } else if (!j.isNetworkAvailableForImmediately()) {
             bQU();
         }

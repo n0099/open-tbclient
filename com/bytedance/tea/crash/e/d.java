@@ -51,13 +51,13 @@ public final class d {
                     if (com.bytedance.tea.crash.b.a.eoD().a(file.getAbsolutePath())) {
                         com.bytedance.tea.crash.g.d.a(file);
                     } else {
-                        com.bytedance.tea.crash.c.c XR = com.bytedance.tea.crash.g.d.XR(file.getAbsolutePath());
-                        if (XR != null && XR.b() != null) {
-                            JSONObject b2 = XR.b();
+                        com.bytedance.tea.crash.c.c XS = com.bytedance.tea.crash.g.d.XS(file.getAbsolutePath());
+                        if (XS != null && XS.b() != null) {
+                            JSONObject b2 = XS.b();
                             A(file.getName(), b2);
-                            XR.b().put("upload_scene", "launch_scan");
-                            if (com.bytedance.tea.crash.upload.b.L(XR.a(), b2.toString(), XR.c()).a() && !com.bytedance.tea.crash.g.d.a(file)) {
-                                com.bytedance.tea.crash.b.a.eoD().a(com.bytedance.tea.crash.b.a.a.XP(file.getAbsolutePath()));
+                            XS.b().put("upload_scene", "launch_scan");
+                            if (com.bytedance.tea.crash.upload.b.L(XS.a(), b2.toString(), XS.c()).a() && !com.bytedance.tea.crash.g.d.a(file)) {
+                                com.bytedance.tea.crash.b.a.eoD().a(com.bytedance.tea.crash.b.a.a.XQ(file.getAbsolutePath()));
                             }
                         }
                     }

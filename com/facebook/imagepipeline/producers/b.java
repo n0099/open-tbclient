@@ -5,7 +5,7 @@ import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
 /* loaded from: classes3.dex */
 public abstract class b<T> implements k<T> {
-    private boolean pBg = false;
+    private boolean pBh = false;
 
     protected abstract void C(Throwable th);
 
@@ -39,8 +39,8 @@ public abstract class b<T> implements k<T> {
 
     @Override // com.facebook.imagepipeline.producers.k
     public synchronized void g(@Nullable T t, int i) {
-        if (!this.pBg) {
-            this.pBg = PO(i);
+        if (!this.pBh) {
+            this.pBh = PO(i);
             try {
                 f(t, i);
             } catch (Exception e) {
@@ -51,8 +51,8 @@ public abstract class b<T> implements k<T> {
 
     @Override // com.facebook.imagepipeline.producers.k
     public synchronized void D(Throwable th) {
-        if (!this.pBg) {
-            this.pBg = true;
+        if (!this.pBh) {
+            this.pBh = true;
             try {
                 C(th);
             } catch (Exception e) {
@@ -63,8 +63,8 @@ public abstract class b<T> implements k<T> {
 
     @Override // com.facebook.imagepipeline.producers.k
     public synchronized void eqc() {
-        if (!this.pBg) {
-            this.pBg = true;
+        if (!this.pBh) {
+            this.pBh = true;
             try {
                 evD();
             } catch (Exception e) {
@@ -75,7 +75,7 @@ public abstract class b<T> implements k<T> {
 
     @Override // com.facebook.imagepipeline.producers.k
     public synchronized void aX(float f) {
-        if (!this.pBg) {
+        if (!this.pBh) {
             try {
                 bK(f);
             } catch (Exception e) {

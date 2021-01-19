@@ -9,12 +9,12 @@ public class k implements ThreadFactory {
     private final AtomicInteger chF = new AtomicInteger(1);
     private final String mPrefix;
     private final int mThreadPriority;
-    private final boolean pzh;
+    private final boolean pzi;
 
     public k(int i, String str, boolean z) {
         this.mThreadPriority = i;
         this.mPrefix = str;
-        this.pzh = z;
+        this.pzi = z;
     }
 
     @Override // java.util.concurrent.ThreadFactory
@@ -30,7 +30,7 @@ public class k implements ThreadFactory {
                 runnable.run();
             }
         };
-        if (this.pzh) {
+        if (this.pzi) {
             str = this.mPrefix + Constants.ACCEPT_TIME_SEPARATOR_SERVER + this.chF.getAndIncrement();
         } else {
             str = this.mPrefix;

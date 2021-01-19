@@ -20,8 +20,8 @@ import com.kwad.sdk.api.KsScene;
 import java.util.List;
 /* loaded from: classes14.dex */
 public class at extends ac {
-    public AdRipper.RippedKSAd pFe;
-    public KsFeedAd pFl;
+    public AdRipper.RippedKSAd pFf;
+    public KsFeedAd pFm;
 
     /* loaded from: classes14.dex */
     public class b implements KsFeedAd.AdInteractionListener {
@@ -37,7 +37,7 @@ public class at extends ac {
         public void onAdClicked() {
             m.a("KSNativeExpressAd open app download onAdClicked");
             at atVar = at.this;
-            w wVar = atVar.pFc;
+            w wVar = atVar.pFd;
             if (wVar != null) {
                 ((ag) wVar).a(atVar.f7743a.f7760a);
             }
@@ -47,7 +47,7 @@ public class at extends ac {
         public void onAdShow() {
             m.a("KSNativeExpressAd open app download onAdShow");
             at atVar = at.this;
-            w wVar = atVar.pFc;
+            w wVar = atVar.pFd;
             if (wVar != null) {
                 ((ag) wVar).c(atVar.f7743a.f7760a);
             }
@@ -61,7 +61,7 @@ public class at extends ac {
                 ((ViewGroup) this.f7757a.getParent()).removeView(this.f7757a);
             }
             at atVar = at.this;
-            w wVar = atVar.pFc;
+            w wVar = atVar.pFd;
             if (wVar != null) {
                 ((ag) wVar).b(atVar.f7743a.f7760a);
             }
@@ -75,24 +75,24 @@ public class at extends ac {
     @Override // com.fun.ad.ac
     public void a() {
         super.a();
-        this.pFl = null;
-        this.pFe = null;
+        this.pFm = null;
+        this.pFf = null;
     }
 
     @Override // com.fun.ad.ac
     public FunRippedAd exX() {
-        KsFeedAd ksFeedAd = this.pFl;
+        KsFeedAd ksFeedAd = this.pFm;
         if (ksFeedAd == null) {
             return null;
         }
-        if (this.pFe == null) {
-            this.pFe = AdRipper.getRippedKSAd((Object) ksFeedAd, false);
+        if (this.pFf == null) {
+            this.pFf = AdRipper.getRippedKSAd((Object) ksFeedAd, false);
         }
         FunRippedAd funRippedAd = new FunRippedAd();
-        AdRipper.RippedKSAd rippedKSAd = this.pFe;
+        AdRipper.RippedKSAd rippedKSAd = this.pFf;
         funRippedAd.description = rippedKSAd.adDescription;
         funRippedAd.isDeepLinkAd = !TextUtils.isEmpty(rippedKSAd.deeplinkUrl);
-        AdRipper.RippedKSAd rippedKSAd2 = this.pFe;
+        AdRipper.RippedKSAd rippedKSAd2 = this.pFf;
         funRippedAd.uniqueId = rippedKSAd2.adDescription;
         funRippedAd.appName = rippedKSAd2.appName;
         funRippedAd.appPackageName = rippedKSAd2.appPackageName;
@@ -107,7 +107,7 @@ public class at extends ac {
         if (!this.f7744b) {
             this.f7744b = true;
             KsAdSDK.getLoadManager().loadFeedAd(new KsScene.Builder(Long.parseLong(this.f7743a.f7760a)).adNum(1).build(), new a());
-            z zVar2 = this.pFb;
+            z zVar2 = this.pFc;
             if (zVar2 != null) {
                 ((ad) zVar2).a(this.f7743a.f7760a);
             }
@@ -124,7 +124,7 @@ public class at extends ac {
             m.a("KSNativeExpressAd onError code: " + i + ", message: " + str);
             at atVar = at.this;
             atVar.f7744b = false;
-            z zVar = atVar.pFb;
+            z zVar = atVar.pFc;
             if (zVar != null) {
                 ((ad) zVar).a(atVar.f7743a.f7760a, i, str);
             }
@@ -135,13 +135,13 @@ public class at extends ac {
             m.a("KSNativeExpressAd onNativeAdLoad");
             at.this.f7744b = false;
             if (list != null && !list.isEmpty()) {
-                at.this.pFl = list.get(0);
+                at.this.pFm = list.get(0);
                 at atVar = at.this;
-                z zVar = atVar.pFb;
+                z zVar = atVar.pFc;
                 if (zVar != null) {
                     ((ad) zVar).b(atVar.f7743a.f7760a);
                 }
-                AdRipper.ripKS(at.this.pFl);
+                AdRipper.ripKS(at.this.pFm);
                 return;
             }
             m.a("KSNativeExpressAd onNativeAdLoad error: adList is null or empty");
@@ -151,9 +151,9 @@ public class at extends ac {
     @Override // com.fun.ad.ac
     public void a(Activity activity, FunAdView funAdView, w wVar) {
         super.a(activity, funAdView, wVar);
-        KsFeedAd ksFeedAd = this.pFl;
+        KsFeedAd ksFeedAd = this.pFm;
         if (ksFeedAd == null) {
-            w wVar2 = this.pFc;
+            w wVar2 = this.pFd;
             if (wVar2 != null) {
                 ((ag) wVar2).a(this.f7743a.f7760a, 0, "Custom error message: mKsFeedAd is null show");
                 return;
@@ -161,8 +161,8 @@ public class at extends ac {
             return;
         }
         View feedView = ksFeedAd.getFeedView(activity);
-        this.pFl.setAdInteractionListener(new b(feedView));
-        this.pFl.setVideoPlayConfig(new KsAdVideoPlayConfig.Builder().videoSoundEnable(d.f7776b).dataFlowAutoStart(d.c).build());
+        this.pFm.setAdInteractionListener(new b(feedView));
+        this.pFm.setVideoPlayConfig(new KsAdVideoPlayConfig.Builder().videoSoundEnable(d.f7776b).dataFlowAutoStart(d.c).build());
         if (feedView != null && feedView.getParent() != null) {
             ((ViewGroup) feedView.getParent()).removeView(feedView);
         }

@@ -20,9 +20,9 @@ public class a {
     /* renamed from: b  reason: collision with root package name */
     private static String f5987b;
     private static boolean d = true;
-    public static q pjX;
-    private static b pjY;
-    private static com.bytedance.sdk.adnet.c.a pjZ;
+    public static q pjY;
+    private static b pjZ;
+    private static com.bytedance.sdk.adnet.c.a pka;
 
     public static o hU(Context context) {
         return n.hU(context);
@@ -46,18 +46,18 @@ public class a {
     }
 
     public static void a(q qVar) {
-        pjX = qVar;
+        pjY = qVar;
     }
 
     public static void a(b bVar) {
-        pjY = bVar;
+        pjZ = bVar;
     }
 
     public static b eok() {
-        if (pjY == null) {
+        if (pjZ == null) {
             throw new IllegalArgumentException("sITTNetDepend is null");
         }
-        return pjY;
+        return pjZ;
     }
 
     public static void a(boolean z) {
@@ -73,11 +73,11 @@ public class a {
     }
 
     public static void a(com.bytedance.sdk.adnet.c.a aVar) {
-        pjZ = aVar;
+        pka = aVar;
     }
 
     public static com.bytedance.sdk.adnet.c.a eol() {
-        return pjZ;
+        return pka;
     }
 
     public static void a(Context context, Application application, boolean z) {

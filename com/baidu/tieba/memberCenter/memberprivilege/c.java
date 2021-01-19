@@ -194,7 +194,7 @@ public class c extends BaseAdapter {
             aVar.ljp.setVisibility(0);
             aVar.ljs.startLoad(eVar.ljf.liY, 21, false);
             if (this.ljl) {
-                aVar.ljt.setText(Np(F));
+                aVar.ljt.setText(Nq(F));
             } else {
                 if (1 == this.mMemberType) {
                     string = this.ljk.getPageContext().getString(R.string.member);
@@ -243,7 +243,7 @@ public class c extends BaseAdapter {
         return "3";
     }
 
-    private SpannableString Np(String str) {
+    private SpannableString Nq(String str) {
         SpannableString spannableString = new SpannableString(this.ljk.getResources().getString(R.string.endtime_days_tip, str));
         spannableString.setSpan(new ForegroundColorSpan(ao.getColor(R.color.CAM_X0105)), 0, 4, 33);
         spannableString.setSpan(new ForegroundColorSpan(ao.getColor(R.color.CAM_X0308)), 4, 5, 33);

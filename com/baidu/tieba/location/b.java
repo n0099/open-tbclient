@@ -262,8 +262,8 @@ public class b implements com.baidu.adp.lib.c.b {
                 b.this.lastLocationTime = System.currentTimeMillis();
                 b.this.kZM = address;
                 b.this.kZF.onProviderGetLocation(0, "", b.this.kZM, b.this.lastLocationTime, b.this.kZI);
-                com.baidu.tieba.recapp.c.a.dBW().QI(String.valueOf(address.getLatitude()));
-                com.baidu.tieba.recapp.c.a.dBW().QH(String.valueOf(address.getLongitude()));
+                com.baidu.tieba.recapp.c.a.dBW().QJ(String.valueOf(address.getLatitude()));
+                com.baidu.tieba.recapp.c.a.dBW().QI(String.valueOf(address.getLongitude()));
                 com.baidu.tieba.recapp.c.a.dBW().hw(System.currentTimeMillis());
             }
         }

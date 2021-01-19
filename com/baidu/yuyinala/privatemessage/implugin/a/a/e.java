@@ -11,12 +11,12 @@ import com.baidu.yuyinala.privatemessage.model.message.SingleGraphicTextMsgExt;
 /* loaded from: classes10.dex */
 public abstract class e {
     private Context mContext;
-    public TextView oNI;
-    public ImageView oNL;
-    public ImageView oNN;
+    public TextView oNJ;
+    public ImageView oNM;
     public ImageView oNO;
-    public View oNP;
-    public ProgressBar oNQ;
+    public ImageView oNP;
+    public View oNQ;
+    public ProgressBar oNR;
 
     public abstract View getContentView();
 
@@ -24,29 +24,29 @@ public abstract class e {
 
     public void d(ChatMsg chatMsg) {
         if (chatMsg.isMsgSendSuccess()) {
-            this.oNP.setVisibility(4);
+            this.oNQ.setVisibility(4);
             return;
         }
-        this.oNP.setVisibility(0);
+        this.oNQ.setVisibility(0);
         if (chatMsg.getStatus() == 2) {
-            this.oNO.setVisibility(0);
-            this.oNQ.setVisibility(8);
+            this.oNP.setVisibility(0);
+            this.oNR.setVisibility(8);
         } else if (chatMsg.getStatus() == 1) {
-            this.oNO.setVisibility(8);
+            this.oNP.setVisibility(8);
             SingleGraphicTextMsgExt singleGraphicTextMsgExt = null;
             if (chatMsg instanceof SignleGraphicTextMsg) {
                 singleGraphicTextMsgExt = new SingleGraphicTextMsgExt((SignleGraphicTextMsg) chatMsg);
             }
             if (chatMsg.getMsgType() == 1 || (singleGraphicTextMsgExt != null && singleGraphicTextMsgExt.ekl() == SingleGraphicTextMsgExt.SingleGraphicTextType.VIDEOSHARE)) {
                 if (chatMsg.isReSend()) {
-                    this.oNQ.setVisibility(0);
+                    this.oNR.setVisibility(0);
                     return;
                 } else {
-                    this.oNQ.setVisibility(8);
+                    this.oNR.setVisibility(8);
                     return;
                 }
             }
-            this.oNQ.setVisibility(0);
+            this.oNR.setVisibility(0);
         }
     }
 

@@ -16,40 +16,40 @@ import java.lang.reflect.Type;
 public final class TreeTypeAdapter<T> extends TypeAdapter<T> {
     private TypeAdapter<T> delegate;
     final Gson gson;
-    private final JsonSerializer<T> pJo;
-    private final JsonDeserializer<T> pJp;
-    private final com.google.gson.b.a<T> pJq;
-    private final TypeAdapterFactory pJr;
-    private final TreeTypeAdapter<T>.a pJs = new a();
+    private final JsonSerializer<T> pJp;
+    private final JsonDeserializer<T> pJq;
+    private final com.google.gson.b.a<T> pJr;
+    private final TypeAdapterFactory pJs;
+    private final TreeTypeAdapter<T>.a pJt = new a();
 
     public TreeTypeAdapter(JsonSerializer<T> jsonSerializer, JsonDeserializer<T> jsonDeserializer, Gson gson, com.google.gson.b.a<T> aVar, TypeAdapterFactory typeAdapterFactory) {
-        this.pJo = jsonSerializer;
-        this.pJp = jsonDeserializer;
+        this.pJp = jsonSerializer;
+        this.pJq = jsonDeserializer;
         this.gson = gson;
-        this.pJq = aVar;
-        this.pJr = typeAdapterFactory;
+        this.pJr = aVar;
+        this.pJs = typeAdapterFactory;
     }
 
     @Override // com.google.gson.TypeAdapter
     public T read(com.google.gson.stream.a aVar) throws IOException {
-        if (this.pJp == null) {
+        if (this.pJq == null) {
             return eyI().read(aVar);
         }
         JsonElement parse = h.parse(aVar);
         if (parse.isJsonNull()) {
             return null;
         }
-        return this.pJp.deserialize(parse, this.pJq.getType(), this.pJs);
+        return this.pJq.deserialize(parse, this.pJr.getType(), this.pJt);
     }
 
     @Override // com.google.gson.TypeAdapter
     public void write(com.google.gson.stream.b bVar, T t) throws IOException {
-        if (this.pJo == null) {
+        if (this.pJp == null) {
             eyI().write(bVar, t);
         } else if (t == null) {
             bVar.ezq();
         } else {
-            h.a(this.pJo.serialize(t, this.pJq.getType(), this.pJs), bVar);
+            h.a(this.pJp.serialize(t, this.pJr.getType(), this.pJt), bVar);
         }
     }
 
@@ -58,7 +58,7 @@ public final class TreeTypeAdapter<T> extends TypeAdapter<T> {
         if (typeAdapter != null) {
             return typeAdapter;
         }
-        TypeAdapter<T> delegateAdapter = this.gson.getDelegateAdapter(this.pJr, this.pJq);
+        TypeAdapter<T> delegateAdapter = this.gson.getDelegateAdapter(this.pJs, this.pJr);
         this.delegate = delegateAdapter;
         return delegateAdapter;
     }
@@ -74,31 +74,31 @@ public final class TreeTypeAdapter<T> extends TypeAdapter<T> {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes4.dex */
     public static final class SingleTypeFactory implements TypeAdapterFactory {
-        private final JsonSerializer<?> pJo;
-        private final JsonDeserializer<?> pJp;
-        private final com.google.gson.b.a<?> pJu;
-        private final boolean pJv;
-        private final Class<?> pJw;
+        private final JsonSerializer<?> pJp;
+        private final JsonDeserializer<?> pJq;
+        private final com.google.gson.b.a<?> pJv;
+        private final boolean pJw;
+        private final Class<?> pJx;
 
         SingleTypeFactory(Object obj, com.google.gson.b.a<?> aVar, boolean z, Class<?> cls) {
-            this.pJo = obj instanceof JsonSerializer ? (JsonSerializer) obj : null;
-            this.pJp = obj instanceof JsonDeserializer ? (JsonDeserializer) obj : null;
-            com.google.gson.internal.a.checkArgument((this.pJo == null && this.pJp == null) ? false : true);
-            this.pJu = aVar;
-            this.pJv = z;
-            this.pJw = cls;
+            this.pJp = obj instanceof JsonSerializer ? (JsonSerializer) obj : null;
+            this.pJq = obj instanceof JsonDeserializer ? (JsonDeserializer) obj : null;
+            com.google.gson.internal.a.checkArgument((this.pJp == null && this.pJq == null) ? false : true);
+            this.pJv = aVar;
+            this.pJw = z;
+            this.pJx = cls;
         }
 
         @Override // com.google.gson.TypeAdapterFactory
         public <T> TypeAdapter<T> create(Gson gson, com.google.gson.b.a<T> aVar) {
             boolean isAssignableFrom;
-            if (this.pJu != null) {
-                isAssignableFrom = this.pJu.equals(aVar) || (this.pJv && this.pJu.getType() == aVar.ezu());
+            if (this.pJv != null) {
+                isAssignableFrom = this.pJv.equals(aVar) || (this.pJw && this.pJv.getType() == aVar.ezu());
             } else {
-                isAssignableFrom = this.pJw.isAssignableFrom(aVar.ezu());
+                isAssignableFrom = this.pJx.isAssignableFrom(aVar.ezu());
             }
             if (isAssignableFrom) {
-                return new TreeTypeAdapter(this.pJo, this.pJp, gson, aVar, this);
+                return new TreeTypeAdapter(this.pJp, this.pJq, gson, aVar, this);
             }
             return null;
         }

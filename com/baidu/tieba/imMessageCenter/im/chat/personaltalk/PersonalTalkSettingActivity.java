@@ -131,7 +131,7 @@ public class PersonalTalkSettingActivity extends BaseActivity<PersonalTalkSettin
                         /* JADX WARN: Can't rename method to resolve collision */
                         @Override // com.baidu.tbadk.util.ab
                         public Boolean doInBackground() {
-                            return Boolean.valueOf(m.cTO().LR(String.valueOf(PersonalTalkSettingActivity.this.userId)));
+                            return Boolean.valueOf(m.cTO().LS(String.valueOf(PersonalTalkSettingActivity.this.userId)));
                         }
                     }, new l<Boolean>() { // from class: com.baidu.tieba.imMessageCenter.im.chat.personaltalk.PersonalTalkSettingActivity.5.2
                         /* JADX DEBUG: Method merged with bridge method */
@@ -157,7 +157,7 @@ public class PersonalTalkSettingActivity extends BaseActivity<PersonalTalkSettin
             }
             if (this.kGj != null) {
                 this.kGj.w(getUniqueId());
-                this.kGj.Pd(String.valueOf(this.userId));
+                this.kGj.Pe(String.valueOf(this.userId));
                 TiebaStatic.log(new aq("c13063").an("obj_locate", 2));
             }
         } else if (id == R.id.add_to_black) {

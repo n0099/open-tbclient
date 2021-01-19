@@ -4,29 +4,29 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 /* loaded from: classes4.dex */
 class e extends ByteArrayOutputStream {
-    private final d pkH;
+    private final d pkI;
 
     public e(d dVar, int i) {
-        this.pkH = dVar;
-        this.buf = this.pkH.a(Math.max(i, 256));
+        this.pkI = dVar;
+        this.buf = this.pkI.a(Math.max(i, 256));
     }
 
     @Override // java.io.ByteArrayOutputStream, java.io.OutputStream, java.io.Closeable, java.lang.AutoCloseable
     public void close() throws IOException {
-        this.pkH.a(this.buf);
+        this.pkI.a(this.buf);
         this.buf = null;
         super.close();
     }
 
     public void finalize() {
-        this.pkH.a(this.buf);
+        this.pkI.a(this.buf);
     }
 
     private void a(int i) {
         if (this.count + i > this.buf.length) {
-            byte[] a2 = this.pkH.a((this.count + i) * 2);
+            byte[] a2 = this.pkI.a((this.count + i) * 2);
             System.arraycopy(this.buf, 0, a2, 0, this.count);
-            this.pkH.a(this.buf);
+            this.pkI.a(this.buf);
             this.buf = a2;
         }
     }

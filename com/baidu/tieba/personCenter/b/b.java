@@ -120,7 +120,7 @@ public class b implements c.a {
         MessageManager.getInstance().registerListener(this.mUpdatePendantListener);
     }
 
-    public void Pr(String str) {
+    public void Ps(String str) {
         f duA = this.mkr.duA();
         if (duA != null && duA.getUserData() != null) {
             duA.getUserData().setName_show(str);
@@ -128,7 +128,7 @@ public class b implements c.a {
         }
     }
 
-    public void Ps(String str) {
+    public void Pt(String str) {
         f duA = this.mkr.duA();
         if (duA != null && duA.getUserData() != null) {
             duA.getUserData().setPortrait(str);

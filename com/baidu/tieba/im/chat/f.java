@@ -46,8 +46,8 @@ public class f {
         this.eSJ = tbPageContext;
         this.gwr = bdTypeListView;
         IY();
-        this.ksL.Cq(i);
-        this.ksM.Cq(i);
+        this.ksL.Cp(i);
+        this.ksM.Cp(i);
     }
 
     private void IY() {

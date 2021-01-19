@@ -17,7 +17,7 @@ public class f extends c {
         com.bytedance.tea.crash.c.b hX = com.bytedance.tea.crash.c.b.hX(this.f7637b);
         hX.a(h.eoL().a());
         hX.a(h.eoN().a());
-        hX.b(this.plx.c());
+        hX.b(this.ply.c());
         a2.a(hX);
         return a2;
     }

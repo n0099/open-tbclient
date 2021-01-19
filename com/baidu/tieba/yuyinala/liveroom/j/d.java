@@ -12,10 +12,10 @@ import org.json.JSONException;
 /* loaded from: classes10.dex */
 public class d extends a {
     /* JADX WARN: Code restructure failed: missing block: B:19:0x0098, code lost:
-        if (r28.olS == null) goto L27;
+        if (r28.olT == null) goto L27;
      */
     /* JADX WARN: Code restructure failed: missing block: B:20:0x009a, code lost:
-        r28.olS.UG(r28.giftId);
+        r28.olT.UH(r28.giftId);
      */
     @Override // com.baidu.tieba.yuyinala.liveroom.j.a
     /*
@@ -24,7 +24,7 @@ public class d extends a {
     protected void dZh() {
         if (!TextUtils.isEmpty(this.blR) && !TextUtils.isEmpty(this.blT)) {
             if (this.isShow == 1) {
-                aj.b(this.blT, this.olR.userId, this.olR.portrait, this.olR.getNameShow(), String.valueOf(this.liveId), String.valueOf(this.groupId), false, String.valueOf(this.hwm), this.appId, this.blR, "", "", this.msgId, this.bjV);
+                aj.b(this.blT, this.olS.userId, this.olS.portrait, this.olS.getNameShow(), String.valueOf(this.liveId), String.valueOf(this.groupId), false, String.valueOf(this.hwm), this.appId, this.blR, "", "", this.msgId, this.bjV);
                 try {
                     JSONArray jSONArray = new JSONArray(this.blT);
                     if (jSONArray != null && jSONArray.length() > 0) {
@@ -44,9 +44,9 @@ public class d extends a {
                 }
             }
         } else {
-            aj.b(this.giftId, JavaTypesHelper.toInt(this.bkD, 1), this.giftName, this.aTL, this.olR.userId, this.olR.portrait, this.olR.getNameShow(), String.valueOf(this.liveId), String.valueOf(this.groupId), false, String.valueOf(this.hwm), this.appId, this.baa, "", "", this.msgId, this.bjV, this.isDynamic, this.bVb, this.aVd, this.bVc, this.bVd);
-            if (this.olS != null) {
-                this.olS.UG(this.giftId);
+            aj.b(this.giftId, JavaTypesHelper.toInt(this.bkD, 1), this.giftName, this.aTL, this.olS.userId, this.olS.portrait, this.olS.getNameShow(), String.valueOf(this.liveId), String.valueOf(this.groupId), false, String.valueOf(this.hwm), this.appId, this.baa, "", "", this.msgId, this.bjV, this.isDynamic, this.bVb, this.aVd, this.bVc, this.bVd);
+            if (this.olT != null) {
+                this.olT.UH(this.giftId);
             }
         }
         com.baidu.tieba.yuyinala.liveroom.i.c cVar = new com.baidu.tieba.yuyinala.liveroom.i.c();

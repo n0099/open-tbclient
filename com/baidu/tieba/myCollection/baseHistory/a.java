@@ -206,7 +206,7 @@ public class a implements f {
         return this.postID;
     }
 
-    public void NX(String str) {
+    public void NY(String str) {
         this.postID = str;
     }
 

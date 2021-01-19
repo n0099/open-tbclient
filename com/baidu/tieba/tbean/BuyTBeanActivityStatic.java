@@ -30,7 +30,7 @@ public class BuyTBeanActivityStatic {
     }
 
     private static void registerGetYinJiHttpTask() {
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1001533, com.baidu.tieba.tbadkCore.a.a.bU(BuyTBeanModel.GET_ICON_URL, CmdConfigSocket.CMD_GET_YINJI));
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1001533, com.baidu.tieba.tbadkCore.a.a.bV(BuyTBeanModel.GET_ICON_URL, CmdConfigSocket.CMD_GET_YINJI));
         tbHttpMessageTask.setIsNeedLogin(false);
         tbHttpMessageTask.setIsNeedTbs(false);
         tbHttpMessageTask.setIsNeedAddCommenParam(false);

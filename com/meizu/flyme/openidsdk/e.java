@@ -12,13 +12,13 @@ public class e {
 
     /* renamed from: b  reason: collision with root package name */
     public static boolean f11372b;
-    public static volatile e pNS;
+    public static volatile e pNT;
     public Boolean g;
     public BroadcastReceiver h;
-    public a pNT = new a("udid");
-    public a pNU = new a("oaid");
-    public a pNW = new a("vaid");
-    public a pNV = new a("aaid");
+    public a pNU = new a("udid");
+    public a pNV = new a("oaid");
+    public a pNX = new a("vaid");
+    public a pNW = new a("aaid");
 
     public static c C(Cursor cursor) {
         c cVar = new c(null, 0);
@@ -57,26 +57,26 @@ public class e {
     }
 
     public static final e eAb() {
-        if (pNS == null) {
+        if (pNT == null) {
             synchronized (e.class) {
-                pNS = new e();
+                pNT = new e();
             }
         }
-        return pNS;
+        return pNT;
     }
 
-    public a YR(String str) {
+    public a YS(String str) {
         if ("oaid".equals(str)) {
-            return this.pNU;
-        }
-        if ("vaid".equals(str)) {
-            return this.pNW;
-        }
-        if ("aaid".equals(str)) {
             return this.pNV;
         }
+        if ("vaid".equals(str)) {
+            return this.pNX;
+        }
+        if ("aaid".equals(str)) {
+            return this.pNW;
+        }
         if ("udid".equals(str)) {
-            return this.pNT;
+            return this.pNU;
         }
         return null;
     }

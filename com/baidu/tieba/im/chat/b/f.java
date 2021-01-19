@@ -19,11 +19,11 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class f {
-    public static boolean LK(String str) {
+    public static boolean LL(String str) {
         return !TextUtils.isEmpty(str) && "group_intro_change' , 'group_level_up' , 'group_name_change' , 'group_notice_change' , 'dismiss_group' , 'kick_out' , 'group_event_info' , 'group_activitys_change".contains(str);
     }
 
-    public static boolean LL(String str) {
+    public static boolean LM(String str) {
         return !TextUtils.isEmpty(str) && str.equals("apply_join_group");
     }
 
@@ -43,14 +43,14 @@ public class f {
                         j = parseLong;
                     }
                     if (TbadkCoreApplication.getInst().getCustomizedFilter() == null || TbadkCoreApplication.getInst().getCustomizedFilter().a(next)) {
-                        if (LK(next.getCmd())) {
+                        if (LL(next.getCmd())) {
                             linkedList.add(next);
                             if (groupNewsPojo == null) {
                                 groupNewsPojo = next;
                             } else if (parseLong > Long.parseLong(groupNewsPojo.getNotice_id())) {
                                 groupNewsPojo = next;
                             }
-                        } else if (LL(next.getCmd())) {
+                        } else if (LM(next.getCmd())) {
                             linkedList.add(next);
                             if (groupNewsPojo2 == null) {
                                 groupNewsPojo2 = next;
@@ -143,7 +143,7 @@ public class f {
     public static void a(GroupMsgData groupMsgData, ImMessageCenterPojo imMessageCenterPojo, a.b bVar) {
         a.a(groupMsgData, imMessageCenterPojo, bVar, new a.c() { // from class: com.baidu.tieba.im.chat.b.f.1
             @Override // com.baidu.tieba.im.chat.b.a.c
-            public boolean LJ(String str) {
+            public boolean LK(String str) {
                 return true;
             }
         }, false);
@@ -174,9 +174,9 @@ public class f {
                 str4 = jSONObject.optString(TbEnum.SystemMessage.KEY_USER_NAME);
                 str5 = jSONObject.optString(TbEnum.SystemMessage.KEY_GROUP_NAME);
             }
-            ImMessageCenterPojo br = com.baidu.tieba.im.memorycache.b.cUG().br(str3, 1);
-            if (br != null) {
-                str5 = br.getGroup_name();
+            ImMessageCenterPojo bs = com.baidu.tieba.im.memorycache.b.cUG().bs(str3, 1);
+            if (bs != null) {
+                str5 = bs.getGroup_name();
             }
             if (TextUtils.isEmpty(str5) || TextUtils.isEmpty(str4)) {
                 return "";

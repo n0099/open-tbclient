@@ -13,35 +13,35 @@ import java.util.Random;
 /* loaded from: classes7.dex */
 public class j {
     static final /* synthetic */ boolean $assertionsDisabled;
-    private static final int[] nFH;
     private static final int[] nFI;
     private static final int[] nFJ;
-    private static final double[][] nFK;
-    private static final double[] nFW;
-    private ByteOrder nFC;
-    private k nFD;
-    private double nFE;
+    private static final int[] nFK;
+    private static final double[][] nFL;
+    private static final double[] nFX;
+    private ByteOrder nFD;
+    private k nFE;
     private double nFF;
-    private int nFG;
-    private double[][] nFL;
-    private int nFM;
+    private double nFG;
+    private int nFH;
+    private double[][] nFM;
     private int nFN;
     private int nFO;
     private int nFP;
-    private double[] nFQ;
-    private int nFR;
-    private boolean nFS;
-    private int nFT;
-    private long nFU;
+    private int nFQ;
+    private double[] nFR;
+    private int nFS;
+    private boolean nFT;
+    private int nFU;
     private long nFV;
+    private long nFW;
 
     static {
         $assertionsDisabled = !j.class.desiredAssertionStatus();
-        nFH = new int[]{0, StreamConfig.Audio.AUDIO_RTC_FREQUENCY_48K, 44100, 37800, StreamConfig.Audio.AUDIO_RTC_FREQUENCY_32K, 22050, StreamConfig.Audio.AUDIO_RTC_FREQUENCY_48K, 44100};
-        nFI = new int[]{1, 16, 20, 16, 16, 15, 16, 15};
-        nFJ = new int[]{8, 18, 27, 8, 8, 8, 10, 9};
-        nFK = new double[][]{new double[]{-1.0d}, new double[]{-2.87207293510437d, 5.041323184967041d, -6.244299411773682d, 5.848398685455322d, -3.706754207611084d, 1.0495119094848633d, 1.1830236911773682d, -2.1126792430877686d, 1.9094531536102295d, -0.9991308450698853d, 0.17090806365013123d, 0.32615602016448975d, -0.39127644896507263d, 0.2687646150588989d, -0.0976761057972908d, 0.023473845794796944d}, new double[]{-2.6773197650909424d, 4.830892562866211d, -6.570110321044922d, 7.4572014808654785d, -6.726327419281006d, 4.848165035247803d, -2.0412089824676514d, -0.7006359100341797d, 2.95375657081604d, -4.080038547515869d, 4.184521675109863d, -3.331181287765503d, 2.117992639541626d, -0.879302978515625d, 0.031759146600961685d, 0.4238278865814209d, -0.4788210391998291d, 0.35490813851356506d, -0.1749683916568756d, 0.06090816855430603d}, new double[]{-1.6335992813110352d, 2.261549234390259d, -2.407702922821045d, 2.634171724319458d, -2.144036293029785d, 1.8153258562088013d, -1.0816224813461304d, 0.703026533126831d, -0.15991993248462677d, -0.04154951870441437d, 0.2941657602787018d, -0.25183168053627014d, 0.27766478061676025d, -0.15785403549671173d, 0.10165894031524658d, -0.016833892092108727d}, new double[]{-0.8290129899978638d, 0.9892265796661377d, -0.5982571244239807d, 1.0028809309005737d, -0.5993821620941162d, 0.7950245141983032d, -0.42723315954208374d, 0.5449252724647522d, -0.3079260587692261d, 0.3687179982662201d, -0.187920480966568d, 0.2261127084493637d, -0.10573341697454453d, 0.11435490846633911d, -0.0388006791472435d, 0.040842197835445404d}, new double[]{-0.06522997468709946d, 0.5498126149177551d, 0.4027854800224304d, 0.3178376853466034d, 0.2820179760456085d, 0.16985194385051727d, 0.15433363616466522d, 0.12507140636444092d, 0.08903945237398148d, 0.06441012024879456d, 0.04714600369334221d, 0.03280523791909218d, 0.028495194390416145d, 0.011695005930960178d, 0.011831838637590408d}, new double[]{-2.3925774097442627d, 3.4350297451019287d, -3.185370922088623d, 1.8117271661758423d, 0.2012477070093155d, -1.4759907722473145d, 1.7210904359817505d, -0.9774670004844666d, 0.13790138065814972d, 0.38185903429985046d, -0.27421241998672485d, -0.06658421456813812d, 0.35223302245140076d, -0.37672343850135803d, 0.23964276909828186d, -0.06867482513189316d}, new double[]{-2.0833916664123535d, 3.0418450832366943d, -3.204789876937866d, 2.757192611694336d, -1.4978630542755127d, 0.34275946021080017d, 0.7173374891281128d, -1.073705792427063d, 1.0225815773010254d, -0.5664999485015869d, 0.20968692004680634d, 0.06537853181362152d, -0.10322438180446625d, 0.06744202226400375d, 0.00495197344571352d}};
-        nFW = new double[]{0.7d, 0.9d, 0.18d};
+        nFI = new int[]{0, StreamConfig.Audio.AUDIO_RTC_FREQUENCY_48K, 44100, 37800, StreamConfig.Audio.AUDIO_RTC_FREQUENCY_32K, 22050, StreamConfig.Audio.AUDIO_RTC_FREQUENCY_48K, 44100};
+        nFJ = new int[]{1, 16, 20, 16, 16, 15, 16, 15};
+        nFK = new int[]{8, 18, 27, 8, 8, 8, 10, 9};
+        nFL = new double[][]{new double[]{-1.0d}, new double[]{-2.87207293510437d, 5.041323184967041d, -6.244299411773682d, 5.848398685455322d, -3.706754207611084d, 1.0495119094848633d, 1.1830236911773682d, -2.1126792430877686d, 1.9094531536102295d, -0.9991308450698853d, 0.17090806365013123d, 0.32615602016448975d, -0.39127644896507263d, 0.2687646150588989d, -0.0976761057972908d, 0.023473845794796944d}, new double[]{-2.6773197650909424d, 4.830892562866211d, -6.570110321044922d, 7.4572014808654785d, -6.726327419281006d, 4.848165035247803d, -2.0412089824676514d, -0.7006359100341797d, 2.95375657081604d, -4.080038547515869d, 4.184521675109863d, -3.331181287765503d, 2.117992639541626d, -0.879302978515625d, 0.031759146600961685d, 0.4238278865814209d, -0.4788210391998291d, 0.35490813851356506d, -0.1749683916568756d, 0.06090816855430603d}, new double[]{-1.6335992813110352d, 2.261549234390259d, -2.407702922821045d, 2.634171724319458d, -2.144036293029785d, 1.8153258562088013d, -1.0816224813461304d, 0.703026533126831d, -0.15991993248462677d, -0.04154951870441437d, 0.2941657602787018d, -0.25183168053627014d, 0.27766478061676025d, -0.15785403549671173d, 0.10165894031524658d, -0.016833892092108727d}, new double[]{-0.8290129899978638d, 0.9892265796661377d, -0.5982571244239807d, 1.0028809309005737d, -0.5993821620941162d, 0.7950245141983032d, -0.42723315954208374d, 0.5449252724647522d, -0.3079260587692261d, 0.3687179982662201d, -0.187920480966568d, 0.2261127084493637d, -0.10573341697454453d, 0.11435490846633911d, -0.0388006791472435d, 0.040842197835445404d}, new double[]{-0.06522997468709946d, 0.5498126149177551d, 0.4027854800224304d, 0.3178376853466034d, 0.2820179760456085d, 0.16985194385051727d, 0.15433363616466522d, 0.12507140636444092d, 0.08903945237398148d, 0.06441012024879456d, 0.04714600369334221d, 0.03280523791909218d, 0.028495194390416145d, 0.011695005930960178d, 0.011831838637590408d}, new double[]{-2.3925774097442627d, 3.4350297451019287d, -3.185370922088623d, 1.8117271661758423d, 0.2012477070093155d, -1.4759907722473145d, 1.7210904359817505d, -0.9774670004844666d, 0.13790138065814972d, 0.38185903429985046d, -0.27421241998672485d, -0.06658421456813812d, 0.35223302245140076d, -0.37672343850135803d, 0.23964276909828186d, -0.06867482513189316d}, new double[]{-2.0833916664123535d, 3.0418450832366943d, -3.204789876937866d, 2.757192611694336d, -1.4978630542755127d, 0.34275946021080017d, 0.7173374891281128d, -1.073705792427063d, 1.0225815773010254d, -0.5664999485015869d, 0.20968692004680634d, 0.06537853181362152d, -0.10322438180446625d, 0.06744202226400375d, 0.00495197344571352d}};
+        nFX = new double[]{0.7d, 0.9d, 0.18d};
     }
 
     private int z(double d) {
@@ -51,7 +51,7 @@ public class j {
     public int a(int i, int i2, int i3, int i4, int i5, int i6, double d) {
         int[] iArr = new int[97];
         int i7 = 1;
-        while (i7 < 6 && i != nFH[i7]) {
+        while (i7 < 6 && i != nFI[i7]) {
             i7++;
         }
         if ((i5 == 3 || i5 == 4) && i7 == 6) {
@@ -61,15 +61,15 @@ public class j {
         if (i5 == 4 && (i7 == 1 || i7 == 2)) {
             i7 += 5;
         }
-        this.nFM = i7;
-        this.nFL = new double[i2];
-        this.nFN = nFI[this.nFM];
+        this.nFN = i7;
+        this.nFM = new double[i2];
+        this.nFO = nFJ[this.nFN];
         for (int i8 = 0; i8 < i2; i8++) {
-            this.nFL[i8] = new double[this.nFN];
+            this.nFM[i8] = new double[this.nFO];
         }
-        this.nFO = i3;
-        this.nFP = i4;
-        this.nFQ = new double[65536];
+        this.nFP = i3;
+        this.nFQ = i4;
+        this.nFR = new double[65536];
         Random random = new Random(System.currentTimeMillis());
         for (int i9 = 0; i9 < 97; i9++) {
             iArr[i9] = random.nextInt();
@@ -80,7 +80,7 @@ public class j {
                     int nextInt = random.nextInt() % 97;
                     int i11 = iArr[nextInt];
                     iArr[nextInt] = random.nextInt();
-                    this.nFQ[i10] = ((i11 / 2.147483647E9d) - 0.5d) * d;
+                    this.nFR[i10] = ((i11 / 2.147483647E9d) - 0.5d) * d;
                 }
                 break;
             case 1:
@@ -91,7 +91,7 @@ public class j {
                     int nextInt3 = random.nextInt() % 97;
                     int i14 = iArr[nextInt3];
                     iArr[nextInt3] = random.nextInt();
-                    this.nFQ[i12] = ((i13 / 2.147483647E9d) - (i14 / 2.147483647E9d)) * d;
+                    this.nFR[i12] = ((i13 / 2.147483647E9d) - (i14 / 2.147483647E9d)) * d;
                 }
                 break;
             case 2:
@@ -111,89 +111,89 @@ public class j {
                         int nextInt5 = random.nextInt() % 97;
                         iArr[nextInt5] = random.nextInt();
                         d3 = 6.283185307179586d * (iArr[nextInt5] / 2.147483647E9d);
-                        this.nFQ[i15] = d * d2 * Math.cos(d3);
+                        this.nFR[i15] = d * d2 * Math.cos(d3);
                     } else {
                         z = false;
-                        this.nFQ[i15] = d * d2 * Math.sin(d3);
+                        this.nFR[i15] = d * d2 * Math.sin(d3);
                     }
                 }
                 break;
         }
-        this.nFR = 0;
+        this.nFS = 0;
         if (i5 == 0 || i5 == 1) {
             return 1;
         }
-        return nFJ[this.nFM];
+        return nFK[this.nFN];
     }
 
     public int a(double d, double[] dArr, int i, int i2) {
         double z;
         if (i == 1) {
-            double[] dArr2 = this.nFQ;
-            int i3 = this.nFR;
-            this.nFR = i3 + 1;
+            double[] dArr2 = this.nFR;
+            int i3 = this.nFS;
+            this.nFS = i3 + 1;
             double d2 = dArr2[i3 & SupportMenu.USER_MASK] + d;
-            if (d2 < this.nFO) {
-                double d3 = d2 / this.nFO;
+            if (d2 < this.nFP) {
+                double d3 = d2 / this.nFP;
                 if (dArr[0] >= d3) {
                     d3 = dArr[0];
                 }
                 dArr[0] = d3;
-                d2 = this.nFO;
+                d2 = this.nFP;
             }
-            if (d2 > this.nFP) {
-                double d4 = d2 / this.nFP;
+            if (d2 > this.nFQ) {
+                double d4 = d2 / this.nFQ;
                 if (dArr[0] >= d4) {
                     d4 = dArr[0];
                 }
                 dArr[0] = d4;
-                d2 = this.nFP;
+                d2 = this.nFQ;
             }
             return z(d2);
         }
         double d5 = 0.0d;
-        for (int i4 = 0; i4 < this.nFN; i4++) {
-            d5 += nFK[this.nFM][i4] * this.nFL[i2][i4];
+        for (int i4 = 0; i4 < this.nFO; i4++) {
+            d5 += nFL[this.nFN][i4] * this.nFM[i2][i4];
         }
         double d6 = d5 + d;
-        double[] dArr3 = this.nFQ;
-        int i5 = this.nFR;
-        this.nFR = i5 + 1;
+        double[] dArr3 = this.nFR;
+        int i5 = this.nFS;
+        this.nFS = i5 + 1;
         double d7 = d6 + dArr3[i5 & SupportMenu.USER_MASK];
-        for (int i6 = this.nFN - 2; i6 >= 0; i6--) {
-            this.nFL[i2][i6 + 1] = this.nFL[i2][i6];
+        for (int i6 = this.nFO - 2; i6 >= 0; i6--) {
+            this.nFM[i2][i6 + 1] = this.nFM[i2][i6];
         }
-        if (d7 < this.nFO) {
-            double d8 = d7 / this.nFO;
+        if (d7 < this.nFP) {
+            double d8 = d7 / this.nFP;
             if (dArr[0] >= d8) {
                 d8 = dArr[0];
             }
             dArr[0] = d8;
-            z = this.nFO;
-            this.nFL[i2][0] = z - d6;
-            if (this.nFL[i2][0] > 1.0d) {
-                this.nFL[i2][0] = 1.0d;
+            z = this.nFP;
+            this.nFM[i2][0] = z - d6;
+            if (this.nFM[i2][0] > 1.0d) {
+                this.nFM[i2][0] = 1.0d;
             }
-            if (this.nFL[i2][0] < -1.0d) {
-                this.nFL[i2][0] = -1.0d;
+            if (this.nFM[i2][0] < -1.0d) {
+                this.nFM[i2][0] = -1.0d;
             }
-        } else if (d7 > this.nFP) {
-            double d9 = d7 / this.nFP;
+        } else if (d7 > this.nFQ) {
+            double d9 = d7 / this.nFQ;
             if (dArr[0] >= d9) {
                 d9 = dArr[0];
             }
             dArr[0] = d9;
-            z = this.nFP;
-            this.nFL[i2][0] = z - d6;
-            if (this.nFL[i2][0] > 1.0d) {
-                this.nFL[i2][0] = 1.0d;
+            z = this.nFQ;
+            this.nFM[i2][0] = z - d6;
+            if (this.nFM[i2][0] > 1.0d) {
+                this.nFM[i2][0] = 1.0d;
             }
-            if (this.nFL[i2][0] < -1.0d) {
-                this.nFL[i2][0] = -1.0d;
+            if (this.nFM[i2][0] < -1.0d) {
+                this.nFM[i2][0] = -1.0d;
             }
         } else {
             z = z(d7);
-            this.nFL[i2][0] = z - d6;
+            this.nFM[i2][0] = z - d6;
         }
         return (int) z;
     }
@@ -228,23 +228,23 @@ public class j {
     }
 
     private void dRo() {
-        this.nFU = System.currentTimeMillis();
-        this.nFV = 0L;
-        this.nFT = -1;
+        this.nFV = System.currentTimeMillis();
+        this.nFW = 0L;
+        this.nFU = -1;
     }
 
     private void C(double d) {
-        if (!this.nFS) {
-            long currentTimeMillis = System.currentTimeMillis() - this.nFU;
+        if (!this.nFT) {
+            long currentTimeMillis = System.currentTimeMillis() - this.nFV;
             int i = d == 0.0d ? 0 : (int) ((currentTimeMillis * (1.0d - d)) / d);
             int i2 = (int) (100.0d * d);
-            if (i2 != this.nFT || currentTimeMillis != this.nFV) {
+            if (i2 != this.nFU || currentTimeMillis != this.nFW) {
                 System.err.printf(" %3d%% processed", Integer.valueOf(i2));
-                this.nFT = i2;
+                this.nFU = i2;
             }
-            if (currentTimeMillis != this.nFV) {
+            if (currentTimeMillis != this.nFW) {
                 System.err.printf(", ETA =%4dmsec", Integer.valueOf(i));
-                this.nFV = currentTimeMillis;
+                this.nFW = currentTimeMillis;
             }
             System.err.printf("\r", new Object[0]);
             System.err.flush();
@@ -287,8 +287,8 @@ public class j {
         int i13;
         double[] dArr = {0.0d};
         int i14 = 0;
-        int i15 = this.nFG;
-        double d5 = this.nFE;
+        int i15 = this.nFH;
+        double d5 = this.nFF;
         int gcd = gcd(i4, i5);
         int i16 = (i4 / gcd) * i5;
         if (i16 / i5 == 1) {
@@ -339,7 +339,7 @@ public class j {
         for (int i23 = -(i17 / 2); i23 <= i17 / 2; i23++) {
             dArr2[((i17 / 2) + i23) % i18][((i17 / 2) + i23) / i18] = ((a(i23, i17, A, y) * b(i23, d7, i16)) * i16) / i4;
         }
-        double d8 = this.nFE;
+        double d8 = this.nFF;
         if (d8 <= 21.0d) {
             d3 = 0.9222d;
         } else {
@@ -353,7 +353,7 @@ public class j {
                 i9--;
             }
             d4 = i4 / 2;
-            if ((i24 * d3) / (i9 - 1) < this.nFF) {
+            if ((i24 * d3) / (i9 - 1) < this.nFG) {
                 break;
             }
             i25 *= 2;
@@ -374,7 +374,7 @@ public class j {
         int[] iArr3 = new int[(int) (2.0d + Math.sqrt(i27))];
         iArr3[0] = 0;
         double[] dArr4 = new double[i27 / 2];
-        this.nFD.a(i27, 1, dArr3, iArr3, dArr4);
+        this.nFE.a(i27, 1, dArr3, iArr3, dArr4);
         dRo();
         int i29 = i27 / 2;
         int i30 = 0;
@@ -423,7 +423,7 @@ public class j {
                 case 2:
                     i38 = 0;
                     while (i38 < i40 * i) {
-                        dArr7[(i * i31) + i38] = 3.051850947599719E-5d * byteBuffer.order(this.nFC).asShortBuffer().get(i38);
+                        dArr7[(i * i31) + i38] = 3.051850947599719E-5d * byteBuffer.order(this.nFD).asShortBuffer().get(i38);
                         i38++;
                     }
                     break;
@@ -437,7 +437,7 @@ public class j {
                 case 4:
                     i38 = 0;
                     while (i38 < i40 * i) {
-                        dArr7[(i * i31) + i38] = 4.656612875245797E-10d * byteBuffer.order(this.nFC).asIntBuffer().get(i38);
+                        dArr7[(i * i31) + i38] = 4.656612875245797E-10d * byteBuffer.order(this.nFD).asIntBuffer().get(i38);
                         i38++;
                     }
                     break;
@@ -504,14 +504,14 @@ public class j {
                 for (int i57 = i29; i57 < i27; i57++) {
                     dArr6[i44][i57] = 0.0d;
                 }
-                this.nFD.a(i27, 1, dArr6[i44], iArr3, dArr4);
+                this.nFE.a(i27, 1, dArr6[i44], iArr3, dArr4);
                 dArr6[i44][0] = dArr3[0] * dArr6[i44][0];
                 dArr6[i44][1] = dArr3[1] * dArr6[i44][1];
                 for (int i58 = 1; i58 < i27 / 2; i58++) {
                     dArr6[i44][i58 * 2] = (dArr3[i58 * 2] * dArr6[i44][i58 * 2]) - (dArr3[(i58 * 2) + 1] * dArr6[i44][(i58 * 2) + 1]);
                     dArr6[i44][(i58 * 2) + 1] = (dArr3[(i58 * 2) + 1] * dArr6[i44][i58 * 2]) + (dArr3[i58 * 2] * dArr6[i44][(i58 * 2) + 1]);
                 }
-                this.nFD.a(i27, -1, dArr6[i44], iArr3, dArr4);
+                this.nFE.a(i27, -1, dArr6[i44], iArr3, dArr4);
                 int i59 = 0;
                 int i60 = i33;
                 while (i60 < i29) {
@@ -607,7 +607,7 @@ public class j {
                                     z3 = 32767;
                                 }
                             }
-                            allocate2.order(this.nFC).asShortBuffer().put(i38, (short) z3);
+                            allocate2.order(this.nFD).asShortBuffer().put(i38, (short) z3);
                             int i66 = i65 + 1;
                             if (i66 == i) {
                                 i66 = 0;
@@ -784,8 +784,8 @@ public class j {
         int i17;
         int i18;
         double[] dArr2 = {0.0d};
-        int i19 = this.nFG;
-        double d5 = this.nFE;
+        int i19 = this.nFH;
+        double d5 = this.nFF;
         int gcd = gcd(i4, i5);
         if (i5 / gcd == 1) {
             i8 = 1;
@@ -810,7 +810,7 @@ public class j {
             }
             double d6 = (i20 * d2) / (i9 - 1);
             d3 = (i5 - d6) / 2.0d;
-            if (d6 < this.nFF) {
+            if (d6 < this.nFG) {
                 break;
             }
             i21 *= 2;
@@ -831,7 +831,7 @@ public class j {
         int[] iArr3 = new int[(int) (2.0d + Math.sqrt(i23))];
         iArr3[0] = 0;
         double[] dArr4 = new double[i23 / 2];
-        this.nFD.a(i23, 1, dArr3, iArr3, dArr4);
+        this.nFE.a(i23, 1, dArr3, iArr3, dArr4);
         if (i8 == 1) {
             int i25 = (i4 / gcd) * i5;
             double[][] dArr5 = (double[][]) Array.newInstance(Double.TYPE, 1, 1);
@@ -844,7 +844,7 @@ public class j {
             dArr = dArr5;
             i13 = i25;
         } else {
-            double d7 = this.nFE;
+            double d7 = this.nFF;
             int i26 = (i4 / gcd) * i5;
             double d8 = (((i20 / 2) - (i4 / 2)) * 2) / 2.0d;
             double d9 = (i4 / 2) + (((i20 / 2) - (i4 / 2)) / 2.0d);
@@ -946,7 +946,7 @@ public class j {
                 case 2:
                     i43 = 0;
                     while (i43 < i45 * i) {
-                        dArr9[(i * 0) + i43] = 3.051850947599719E-5d * byteBuffer.order(this.nFC).asShortBuffer().get(i43);
+                        dArr9[(i * 0) + i43] = 3.051850947599719E-5d * byteBuffer.order(this.nFD).asShortBuffer().get(i43);
                         i43++;
                     }
                     break;
@@ -960,7 +960,7 @@ public class j {
                 case 4:
                     i43 = 0;
                     while (i43 < i45 * i) {
-                        dArr9[(i * 0) + i43] = 4.656612875245797E-10d * byteBuffer.order(this.nFC).getInt(i43);
+                        dArr9[(i * 0) + i43] = 4.656612875245797E-10d * byteBuffer.order(this.nFD).getInt(i43);
                         i43++;
                     }
                     break;
@@ -996,7 +996,7 @@ public class j {
                 }
                 int i54 = i51 - i34;
                 int i55 = i41 + i50;
-                this.nFD.a(i23, 1, dArr7[i47], iArr3, dArr4);
+                this.nFE.a(i23, 1, dArr7[i47], iArr3, dArr4);
                 dArr7[i47][0] = dArr3[0] * dArr7[i47][0];
                 dArr7[i47][1] = dArr3[1] * dArr7[i47][1];
                 for (int i56 = 1; i56 < i34; i56++) {
@@ -1005,7 +1005,7 @@ public class j {
                     dArr7[i47][i56 * 2] = d10;
                     dArr7[i47][(i56 * 2) + 1] = d11;
                 }
-                this.nFD.a(i23, -1, dArr7[i47], iArr3, dArr4);
+                this.nFE.a(i23, -1, dArr7[i47], iArr3, dArr4);
                 int i57 = 0;
                 while (i57 < i34) {
                     double[] dArr11 = dArr8[i47];
@@ -1125,7 +1125,7 @@ public class j {
                                     z3 = 32767;
                                 }
                             }
-                            allocate2.order(this.nFC).asShortBuffer().put(i43, (short) z3);
+                            allocate2.order(this.nFD).asShortBuffer().put(i43, (short) z3);
                             int i70 = i69 + 1;
                             if (i70 == i) {
                                 i70 = 0;
@@ -1304,7 +1304,7 @@ public class j {
                     ByteBuffer wrap2 = ByteBuffer.wrap(bArr2);
                     wrap2.position(wrap2.limit());
                     wrap2.flip();
-                    d2 = wrap2.order(this.nFC).asShortBuffer().get(0) * 3.051850947599719E-5d;
+                    d2 = wrap2.order(this.nFD).asShortBuffer().get(0) * 3.051850947599719E-5d;
                     byteBuffer = wrap2;
                     break;
                 case 3:
@@ -1326,7 +1326,7 @@ public class j {
                     ByteBuffer wrap4 = ByteBuffer.wrap(bArr4);
                     wrap4.position(wrap4.limit());
                     wrap4.flip();
-                    d2 = wrap4.order(this.nFC).asIntBuffer().get(0) * 4.656612875245797E-10d;
+                    d2 = wrap4.order(this.nFD).asIntBuffer().get(0) * 4.656612875245797E-10d;
                     byteBuffer = wrap4;
                     break;
                 default:
@@ -1398,29 +1398,29 @@ public class j {
     }
 
     public j() {
-        this.nFC = ByteOrder.LITTLE_ENDIAN;
-        this.nFD = new k();
-        this.nFE = 150.0d;
-        this.nFF = 200.0d;
-        this.nFG = 1;
-        this.nFS = false;
+        this.nFD = ByteOrder.LITTLE_ENDIAN;
+        this.nFE = new k();
+        this.nFF = 150.0d;
+        this.nFG = 200.0d;
+        this.nFH = 1;
+        this.nFT = false;
     }
 
     public j(InputStream inputStream, OutputStream outputStream, int i, int i2, int i3, int i4, int i5, int i6, double d, int i7, boolean z) throws Exception {
         int i8;
         int i9;
-        this.nFC = ByteOrder.LITTLE_ENDIAN;
-        this.nFD = new k();
-        this.nFE = 150.0d;
-        this.nFF = 200.0d;
-        this.nFG = 1;
-        this.nFS = false;
+        this.nFD = ByteOrder.LITTLE_ENDIAN;
+        this.nFE = new k();
+        this.nFF = 150.0d;
+        this.nFG = 200.0d;
+        this.nFH = 1;
+        this.nFT = false;
         double[] dArr = {0.0d};
         if (i7 < 0 || i7 > 4) {
             throw new IllegalArgumentException("unrecognized dither type : " + i7);
         }
-        this.nFS = z;
-        if (!this.nFS) {
+        this.nFT = z;
+        if (!this.nFT) {
             System.err.printf("Shibatch sampling rate converter version 1.30(high precision/nio)\n\n", new Object[0]);
         }
         if (i3 != 1 && i3 != 2 && i3 != 3 && i3 != 4) {
@@ -1446,7 +1446,7 @@ public class j {
         } else {
             i9 = 1;
         }
-        if (!this.nFS) {
+        if (!this.nFT) {
             String[] strArr = {"none", "no noise shaping", "triangular spectral shape", "ATH based noise shaping", "ATH based noise shaping(less amplitude)"};
             String[] strArr2 = {"rectangular", "triangular", "gaussian"};
             System.err.printf("frequency : %d -> %d\n", Integer.valueOf(i), Integer.valueOf(i10));
@@ -1489,13 +1489,13 @@ public class j {
         } else {
             dArr[0] = a(inputStream, outputStream, i5, i3, i8, Math.pow(10.0d, (-d) / 20.0d), (i6 / i3) / i5, false, i9);
         }
-        if (!this.nFS) {
+        if (!this.nFT) {
             System.err.printf("\n", new Object[0]);
         }
         if (i9 != 0) {
             Kn(i5);
         }
-        if (dArr[0] > 1.0d && !this.nFS) {
+        if (dArr[0] > 1.0d && !this.nFT) {
             System.err.printf("clipping detected : %gdB\n", Double.valueOf(20.0d * Math.log10(dArr[0])));
         }
     }

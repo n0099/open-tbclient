@@ -6,7 +6,7 @@ import android.content.pm.PackageManager;
 import android.graphics.drawable.Drawable;
 /* loaded from: classes4.dex */
 public final class g {
-    public static a ZO(String str) {
+    public static a ZP(String str) {
         try {
             PackageManager packageManager = com.ss.android.socialbase.downloader.downloader.b.eEd().getPackageManager();
             if (packageManager == null) {
@@ -39,14 +39,14 @@ public final class g {
         private String e;
         private int f;
         private boolean g;
-        private Drawable pTV;
+        private Drawable pTW;
 
         public Drawable a() {
-            return this.pTV;
+            return this.pTW;
         }
 
         public void a(Drawable drawable) {
-            this.pTV = drawable;
+            this.pTW = drawable;
         }
 
         public boolean b() {

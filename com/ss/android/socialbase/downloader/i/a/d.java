@@ -16,11 +16,11 @@ public class d implements g {
     private boolean d;
     private long e;
     private InputStream f;
-    private g pWg;
+    private g pWh;
 
     public void e() throws InterruptedException {
         synchronized (this.f13169a) {
-            if (this.d && this.pWg == null) {
+            if (this.d && this.pWh == null) {
                 this.f13169a.wait();
             }
         }
@@ -36,23 +36,23 @@ public class d implements g {
 
     @Override // com.ss.android.socialbase.downloader.i.g
     public void d() {
-        if (this.pWg != null) {
-            this.pWg.d();
+        if (this.pWh != null) {
+            this.pWh.d();
         }
     }
 
     @Override // com.ss.android.socialbase.downloader.i.e
     public String a(String str) {
-        if (this.pWg != null) {
-            return this.pWg.a(str);
+        if (this.pWh != null) {
+            return this.pWh.a(str);
         }
         return null;
     }
 
     @Override // com.ss.android.socialbase.downloader.i.e
     public int b() throws IOException {
-        if (this.pWg != null) {
-            return this.pWg.b();
+        if (this.pWh != null) {
+            return this.pWh.b();
         }
         return 0;
     }
@@ -63,15 +63,15 @@ public class d implements g {
 
     @Override // com.ss.android.socialbase.downloader.i.e
     public void c() {
-        if (this.pWg != null) {
-            this.pWg.c();
+        if (this.pWh != null) {
+            this.pWh.c();
         }
     }
 
     public boolean g() {
         try {
-            if (this.pWg != null) {
-                return a(this.pWg.b());
+            if (this.pWh != null) {
+                return a(this.pWh.b());
             }
             return false;
         } catch (IOException e) {

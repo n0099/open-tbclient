@@ -91,7 +91,7 @@ public class DetailInfoFragment extends BaseFragment implements com.baidu.tieba.
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && DetailInfoFragment.this.dkd() != null && DetailInfoFragment.this.dkd().getPbData() != null) {
-                DetailInfoFragment.this.Oz((String) customResponsedMessage.getData());
+                DetailInfoFragment.this.OA((String) customResponsedMessage.getData());
                 DetailInfoFragment.this.dkd().dmA();
                 DetailInfoFragment.this.mdb.setData(DetailInfoFragment.this.dkd().getPbData());
             }
@@ -288,7 +288,7 @@ public class DetailInfoFragment extends BaseFragment implements com.baidu.tieba.
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Oz(String str) {
+    public void OA(String str) {
         if (!TextUtils.isEmpty(str)) {
             List<o> dju = dkd().getPbData().dju();
             for (o oVar : dju) {

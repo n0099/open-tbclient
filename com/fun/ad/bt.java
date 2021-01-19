@@ -19,8 +19,8 @@ import com.fun.ad.sdk.R;
 import java.util.List;
 /* loaded from: classes14.dex */
 public class bt extends bd {
-    public TTFeedAd pFQ;
-    public TTNativeAd pFR;
+    public TTFeedAd pFR;
+    public TTNativeAd pFS;
 
     /* loaded from: classes14.dex */
     public class b implements TTNativeAd.AdInteractionListener {
@@ -31,7 +31,7 @@ public class bt extends bd {
         public void onAdClicked(View view, TTNativeAd tTNativeAd) {
             m.a("CSJBannerNativeAd onAdClicked");
             bt btVar = bt.this;
-            ax axVar = btVar.pFv;
+            ax axVar = btVar.pFw;
             if (axVar != null) {
                 ((am) axVar).a(btVar.f7764a.f7760a, view, tTNativeAd.getInteractionType());
             }
@@ -41,7 +41,7 @@ public class bt extends bd {
         public void onAdCreativeClick(View view, TTNativeAd tTNativeAd) {
             m.a("CSJBannerNativeAd onAdCreativeClick");
             bt btVar = bt.this;
-            ax axVar = btVar.pFv;
+            ax axVar = btVar.pFw;
             if (axVar != null) {
                 ((am) axVar).a(btVar.f7764a.f7760a, view, tTNativeAd.getInteractionType());
             }
@@ -51,7 +51,7 @@ public class bt extends bd {
         public void onAdShow(TTNativeAd tTNativeAd) {
             m.a("CSJBannerNativeAd onAdShow");
             bt btVar = bt.this;
-            ax axVar = btVar.pFv;
+            ax axVar = btVar.pFw;
             if (axVar != null) {
                 ((am) axVar).b(btVar.f7764a.f7760a, null, tTNativeAd.getInteractionType());
             }
@@ -65,8 +65,8 @@ public class bt extends bd {
     @Override // com.fun.ad.bd
     public void a() {
         super.a();
-        this.pFQ = null;
         this.pFR = null;
+        this.pFS = null;
     }
 
     @Override // com.fun.ad.bd
@@ -74,8 +74,8 @@ public class bt extends bd {
         int i;
         super.a(activity, funAdView, axVar);
         b bVar = new b();
-        TTFeedAd tTFeedAd = this.pFQ;
-        int imageMode = tTFeedAd != null ? tTFeedAd.getImageMode() : this.pFR.getImageMode();
+        TTFeedAd tTFeedAd = this.pFR;
+        int imageMode = tTFeedAd != null ? tTFeedAd.getImageMode() : this.pFS.getImageMode();
         if (imageMode == 15) {
             i = R.layout.csj_ad_native_vertical_video_view;
         } else if (imageMode != 16) {
@@ -102,14 +102,14 @@ public class bt extends bd {
         f0Var.setAdViewWidth(funAdView.getWidth());
         funAdView.removeAllViews();
         funAdView.addView(f0Var);
-        TTFeedAd tTFeedAd2 = this.pFQ;
+        TTFeedAd tTFeedAd2 = this.pFR;
         if (tTFeedAd2 != null) {
             tTFeedAd2.setActivityForDownloadApp(activity);
-            f0Var.a(activity, this.pFQ, (TTNativeAd.AdInteractionListener) bVar);
+            f0Var.a(activity, this.pFR, (TTNativeAd.AdInteractionListener) bVar);
             return;
         }
-        this.pFR.setActivityForDownloadApp(activity);
-        f0Var.a(activity, this.pFR, bVar);
+        this.pFS.setActivityForDownloadApp(activity);
+        f0Var.a(activity, this.pFS, bVar);
     }
 
     @Override // com.fun.ad.bd
@@ -125,8 +125,8 @@ public class bt extends bd {
     public void c() {
         AdSlot.Builder supportDeepLink = new AdSlot.Builder().setCodeId(this.f7764a.f7760a).setSupportDeepLink(true);
         au.a aVar = this.f7764a;
-        this.pFw.loadNativeAd(supportDeepLink.setImageAcceptedSize(aVar.c, aVar.d).setNativeAdType(1).setAdCount(1).build(), new a());
-        ba baVar = this.pFu;
+        this.pFx.loadNativeAd(supportDeepLink.setImageAcceptedSize(aVar.c, aVar.d).setNativeAdType(1).setAdCount(1).build(), new a());
+        ba baVar = this.pFv;
         if (baVar != null) {
             ((aj) baVar).a(this.f7764a.f7760a);
         }
@@ -135,11 +135,11 @@ public class bt extends bd {
     @Override // com.fun.ad.bd
     public FunRippedAd exX() {
         AdRipper.RippedCSJAd rippedCSJAd;
-        TTNativeAd tTNativeAd = this.pFR;
+        TTNativeAd tTNativeAd = this.pFS;
         if (tTNativeAd != null) {
             rippedCSJAd = AdRipper.getRippedCSJAd(tTNativeAd, false);
         } else {
-            TTFeedAd tTFeedAd = this.pFQ;
+            TTFeedAd tTFeedAd = this.pFR;
             rippedCSJAd = tTFeedAd != null ? AdRipper.getRippedCSJAd(tTFeedAd, false) : null;
         }
         if (rippedCSJAd == null) {
@@ -167,7 +167,7 @@ public class bt extends bd {
             m.a("CSJBannerNativeAd onError code: " + i + ", message: " + str);
             bt btVar = bt.this;
             btVar.f7765b = false;
-            ba baVar = btVar.pFu;
+            ba baVar = btVar.pFv;
             if (baVar != null) {
                 ((aj) baVar).a(btVar.f7764a.f7760a, i, str);
             }
@@ -178,14 +178,14 @@ public class bt extends bd {
             m.a("CSJBannerNativeAd onNativeAdLoad");
             bt.this.f7765b = false;
             if (list != null && !list.isEmpty()) {
-                bt.this.pFR = list.get(0);
-                m.a("CSJBannerNativeAd onNativeAdLoad imageMode: " + bt.this.pFR.getImageMode());
+                bt.this.pFS = list.get(0);
+                m.a("CSJBannerNativeAd onNativeAdLoad imageMode: " + bt.this.pFS.getImageMode());
                 bt btVar = bt.this;
-                ba baVar = btVar.pFu;
+                ba baVar = btVar.pFv;
                 if (baVar != null) {
                     ((aj) baVar).b(btVar.f7764a.f7760a);
                 }
-                AdRipper.ripCSJ(bt.this.pFR);
+                AdRipper.ripCSJ(bt.this.pFS);
                 return;
             }
             m.a("CSJBannerNativeAd onNativeAdLoad error: list is null or empty");

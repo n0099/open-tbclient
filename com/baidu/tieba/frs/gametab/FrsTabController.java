@@ -131,13 +131,13 @@ public class FrsTabController implements VoiceManager.c, com.baidu.tieba.InjectP
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             if (httpResponsedMessage instanceof FrsRecommendResMsg) {
                 if (httpResponsedMessage.getError() != 0) {
-                    new BdTopToast(FrsTabController.this.jwz).yS(false).TP(httpResponsedMessage.getErrorString()).aR((ViewGroup) FrsTabController.this.jwz.findViewById(R.id.frs));
+                    new BdTopToast(FrsTabController.this.jwz).yS(false).TQ(httpResponsedMessage.getErrorString()).aR((ViewGroup) FrsTabController.this.jwz.findViewById(R.id.frs));
                     return;
                 }
                 int pushStatus = ((FrsRecommendResMsg) httpResponsedMessage).getPushStatus();
                 String pushMsg = ((FrsRecommendResMsg) httpResponsedMessage).getPushMsg();
                 if (pushStatus == 1) {
-                    new ScreenTopToast(FrsTabController.this.jwz).TT(FrsTabController.this.jwz.getString(R.string.frs_recommend_suc_tip_title)).TU(FrsTabController.this.jwz.getString(R.string.frs_recommend_suc_tip_content)).TV(FrsTabController.this.jwz.getString(R.string.dialog_confirm_see)).an(new View.OnClickListener() { // from class: com.baidu.tieba.frs.gametab.FrsTabController.1.1
+                    new ScreenTopToast(FrsTabController.this.jwz).TU(FrsTabController.this.jwz.getString(R.string.frs_recommend_suc_tip_title)).TV(FrsTabController.this.jwz.getString(R.string.frs_recommend_suc_tip_content)).TW(FrsTabController.this.jwz.getString(R.string.dialog_confirm_see)).an(new View.OnClickListener() { // from class: com.baidu.tieba.frs.gametab.FrsTabController.1.1
                         @Override // android.view.View.OnClickListener
                         public void onClick(View view) {
                             HashMap hashMap = new HashMap();
@@ -146,7 +146,7 @@ public class FrsTabController implements VoiceManager.c, com.baidu.tieba.InjectP
                         }
                     }).aR((ViewGroup) FrsTabController.this.jwz.findViewById(R.id.frs));
                 } else {
-                    new BdTopToast(FrsTabController.this.jwz).yS(false).TP(pushMsg).aR((ViewGroup) FrsTabController.this.jwz.findViewById(R.id.frs));
+                    new BdTopToast(FrsTabController.this.jwz).yS(false).TQ(pushMsg).aR((ViewGroup) FrsTabController.this.jwz.findViewById(R.id.frs));
                 }
             }
         }
@@ -155,7 +155,7 @@ public class FrsTabController implements VoiceManager.c, com.baidu.tieba.InjectP
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            new ScreenTopToast(FrsTabController.this.jwz).TT(FrsTabController.this.jwz.getString(R.string.frs_recommend_fail_month_tip)).TV(FrsTabController.this.jwz.getString(R.string.frs_recommend_fail_tip_btn)).an(new View.OnClickListener() { // from class: com.baidu.tieba.frs.gametab.FrsTabController.12.1
+            new ScreenTopToast(FrsTabController.this.jwz).TU(FrsTabController.this.jwz.getString(R.string.frs_recommend_fail_month_tip)).TW(FrsTabController.this.jwz.getString(R.string.frs_recommend_fail_tip_btn)).an(new View.OnClickListener() { // from class: com.baidu.tieba.frs.gametab.FrsTabController.12.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     HashMap hashMap = new HashMap();
@@ -262,7 +262,7 @@ public class FrsTabController implements VoiceManager.c, com.baidu.tieba.InjectP
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            new BdTopToast(FrsTabController.this.jwz, 2000).yS(false).TP(FrsTabController.this.jwz.getString(R.string.frs_top_forum_rules_click_toast)).aR((ViewGroup) FrsTabController.this.jwz.findViewById(R.id.frs));
+            new BdTopToast(FrsTabController.this.jwz, 2000).yS(false).TQ(FrsTabController.this.jwz.getString(R.string.frs_top_forum_rules_click_toast)).aR((ViewGroup) FrsTabController.this.jwz.findViewById(R.id.frs));
         }
     };
     private Runnable jxb = new Runnable() { // from class: com.baidu.tieba.frs.gametab.FrsTabController.27

@@ -262,7 +262,7 @@ public class SpecialTopicLayout extends LinearLayout implements p<SpecialColumnL
                     if (HorizontalAdapter.this.ajB != null) {
                         HorizontalAdapter.this.ajB.b(this.itemView, this.kga, getAdapterPosition(), getItemId());
                     }
-                    BL(TbadkCoreApplication.getInst().getSkinType());
+                    BK(TbadkCoreApplication.getInst().getSkinType());
                 }
             }
 
@@ -281,7 +281,7 @@ public class SpecialTopicLayout extends LinearLayout implements p<SpecialColumnL
                 }
             }
 
-            private void BL(int i) {
+            private void BK(int i) {
                 if (this.mSkinType != i) {
                     ao.setViewTextColor(this.mTitleView, R.color.CAM_X0105);
                     ao.setViewTextColor(this.kfZ, R.color.CAM_X0101);

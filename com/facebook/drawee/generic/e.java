@@ -19,7 +19,7 @@ import com.facebook.drawee.generic.RoundingParams;
 import javax.annotation.Nullable;
 /* loaded from: classes3.dex */
 public class e {
-    private static final Drawable ptV = new ColorDrawable(0);
+    private static final Drawable ptW = new ColorDrawable(0);
 
     /* JADX INFO: Access modifiers changed from: package-private */
     @Nullable
@@ -42,7 +42,7 @@ public class e {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static o a(com.facebook.drawee.drawable.c cVar, p.b bVar) {
-        Drawable d = d(cVar.v(ptV), bVar);
+        Drawable d = d(cVar.v(ptW), bVar);
         cVar.v(d);
         g.checkNotNull(d, "Parent has no child drawable!");
         return (o) d;
@@ -58,10 +58,10 @@ public class e {
                 roundedCornersDrawable.setOverlayColor(roundingParams.esC());
                 return;
             }
-            cVar.v(a(cVar.v(ptV), roundingParams));
+            cVar.v(a(cVar.v(ptW), roundingParams));
         } else if (drawable instanceof RoundedCornersDrawable) {
-            cVar.v(((RoundedCornersDrawable) drawable).x(ptV));
-            ptV.setCallback(null);
+            cVar.v(((RoundedCornersDrawable) drawable).x(ptW));
+            ptW.setCallback(null);
         }
     }
 
@@ -73,7 +73,7 @@ public class e {
             if (drawable instanceof j) {
                 a((j) drawable, roundingParams);
             } else if (drawable != null) {
-                a2.v(ptV);
+                a2.v(ptW);
                 a2.v(b(drawable, roundingParams, resources));
             }
         } else if (drawable instanceof j) {
@@ -97,7 +97,7 @@ public class e {
         if (drawable != null && roundingParams != null && roundingParams.esB() == RoundingParams.RoundingMethod.BITMAP_ONLY) {
             if (drawable instanceof com.facebook.drawee.drawable.g) {
                 com.facebook.drawee.drawable.c a2 = a((com.facebook.drawee.drawable.g) drawable);
-                a2.v(b(a2.v(ptV), roundingParams, resources));
+                a2.v(b(a2.v(ptW), roundingParams, resources));
                 return drawable;
             }
             return b(drawable, roundingParams, resources);

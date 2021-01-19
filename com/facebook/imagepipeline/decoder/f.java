@@ -7,7 +7,7 @@ import java.util.Collections;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class f implements d {
-    private final b pzR;
+    private final b pzS;
 
     /* loaded from: classes3.dex */
     public interface b {
@@ -37,12 +37,12 @@ public class f implements d {
     }
 
     public f(b bVar) {
-        this.pzR = (b) g.checkNotNull(bVar);
+        this.pzS = (b) g.checkNotNull(bVar);
     }
 
     @Override // com.facebook.imagepipeline.decoder.d
     public int Pm(int i) {
-        List<Integer> evK = this.pzR.evK();
+        List<Integer> evK = this.pzS.evK();
         if (evK == null || evK.isEmpty()) {
             return i + 1;
         }
@@ -63,6 +63,6 @@ public class f implements d {
 
     @Override // com.facebook.imagepipeline.decoder.d
     public h Pn(int i) {
-        return com.facebook.imagepipeline.f.g.k(i, i >= this.pzR.evL(), false);
+        return com.facebook.imagepipeline.f.g.k(i, i >= this.pzS.evL(), false);
     }
 }

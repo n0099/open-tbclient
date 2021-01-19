@@ -25,26 +25,26 @@ import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class SelectMusicModel extends BdBaseModel {
     private TbPageContext mPageContext;
-    private com.baidu.tieba.video.editvideo.b nDg;
-    private final HttpMessageListener nDh;
+    private com.baidu.tieba.video.editvideo.b nDh;
+    private final HttpMessageListener nDi;
 
     public SelectMusicModel(TbPageContext tbPageContext, com.baidu.tieba.video.editvideo.b bVar) {
         super(tbPageContext);
-        this.nDh = new HttpMessageListener(1003366) { // from class: com.baidu.tieba.video.editvideo.model.SelectMusicModel.2
+        this.nDi = new HttpMessageListener(1003366) { // from class: com.baidu.tieba.video.editvideo.model.SelectMusicModel.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
                 if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003366 && (httpResponsedMessage instanceof VideoSugMusicResponseMessage) && ((VideoSugMusicResponseMessage) httpResponsedMessage).musicDatas != null) {
-                    SelectMusicModel.this.nDg.setMusicData(((VideoSugMusicResponseMessage) httpResponsedMessage).musicDatas);
+                    SelectMusicModel.this.nDh.setMusicData(((VideoSugMusicResponseMessage) httpResponsedMessage).musicDatas);
                 }
             }
         };
         this.mPageContext = tbPageContext;
-        this.nDg = bVar;
+        this.nDh = bVar;
         dQI();
-        this.nDh.setTag(getUniqueId());
-        this.nDh.setSelfListener(true);
-        registerListener(this.nDh);
+        this.nDi.setTag(getUniqueId());
+        this.nDi.setSelfListener(true);
+        registerListener(this.nDi);
     }
 
     public void k(final String str, final String str2, final String str3, final boolean z) {
@@ -68,9 +68,9 @@ public class SelectMusicModel extends BdBaseModel {
                 public void onPostExecute(i iVar) {
                     super.onPostExecute(iVar);
                     if (iVar == null || iVar.result != 0) {
-                        SelectMusicModel.this.nDg.u(null, iVar.result, iVar.msg);
+                        SelectMusicModel.this.nDh.u(null, iVar.result, iVar.msg);
                     } else {
-                        SelectMusicModel.this.nDg.u(str3, -4399, "");
+                        SelectMusicModel.this.nDh.u(str3, -4399, "");
                     }
                 }
             }.execute(new Void[0]);

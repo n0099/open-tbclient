@@ -7,7 +7,7 @@ public interface k {
 
     k QA(int i);
 
-    k ZH(String str);
+    k ZI(String str);
 
     j eCH();
 

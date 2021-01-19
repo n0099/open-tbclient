@@ -166,7 +166,7 @@ public class LegoListActivity extends BaseFragmentActivity implements SwipeBackL
             this.kSk.setItemId(this.itemId);
             this.kSk.setImmersive(this.kRD);
             this.kSk.setPrimary(true);
-            this.kSk.MM(this.kSr);
+            this.kSk.MN(this.kSr);
             this.kSk.fI(this.kSq, this.kSs);
             this.kSk.tp(this.hasAnimation);
             this.kSk.tq(this.kSo);

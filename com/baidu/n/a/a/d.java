@@ -5,11 +5,11 @@ import android.content.Context;
 public abstract class d implements c {
     protected Context mCtx;
     protected int mStatusCode = -200;
-    protected String oKB;
+    protected boolean oKA;
     protected String oKC;
     protected String oKD;
-    protected boolean oKz;
-    protected boolean oLb;
+    protected String oKE;
+    protected boolean oLc;
 
     public d(Context context) {
         if (context != null) {
@@ -19,27 +19,27 @@ public abstract class d implements c {
 
     @Override // com.baidu.n.a.a.c
     public boolean egl() {
-        return this.oKz;
+        return this.oKA;
     }
 
     @Override // com.baidu.n.a.a.c
     public boolean isSupport() {
-        return this.oLb;
+        return this.oLc;
     }
 
     @Override // com.baidu.n.a.a.c
     public String getOAID() {
-        return this.oKB;
-    }
-
-    @Override // com.baidu.n.a.a.c
-    public String getAAID() {
         return this.oKC;
     }
 
     @Override // com.baidu.n.a.a.c
-    public String getVAID() {
+    public String getAAID() {
         return this.oKD;
+    }
+
+    @Override // com.baidu.n.a.a.c
+    public String getVAID() {
+        return this.oKE;
     }
 
     @Override // com.baidu.n.a.a.c
@@ -49,17 +49,12 @@ public abstract class d implements c {
 
     @Override // com.baidu.n.a.a.c
     public void Al(boolean z) {
-        this.oKz = z;
+        this.oKA = z;
     }
 
     @Override // com.baidu.n.a.a.c
     public void Am(boolean z) {
-        this.oLb = z;
-    }
-
-    @Override // com.baidu.n.a.a.c
-    public void WN(String str) {
-        this.oKB = str;
+        this.oLc = z;
     }
 
     @Override // com.baidu.n.a.a.c
@@ -70,6 +65,11 @@ public abstract class d implements c {
     @Override // com.baidu.n.a.a.c
     public void WP(String str) {
         this.oKD = str;
+    }
+
+    @Override // com.baidu.n.a.a.c
+    public void WQ(String str) {
+        this.oKE = str;
     }
 
     @Override // com.baidu.n.a.a.c

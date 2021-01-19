@@ -26,7 +26,7 @@ public class aa {
     /* renamed from: b  reason: collision with root package name */
     static final String[] f5771b = {"aid", "version_code", "ab_client", "ab_version", "ab_feature", "ab_group", "iid", "device_platform"};
     public static final String[] c = {"tt_data", "device_platform"};
-    private static com.bytedance.embedapplog.util.a pci = com.bytedance.embedapplog.util.a.NW(0);
+    private static com.bytedance.embedapplog.util.a pcj = com.bytedance.embedapplog.util.a.NW(0);
 
     private static String a(String str) {
         String[] strArr;
@@ -45,7 +45,7 @@ public class aa {
             for (Pair pair : arrayList) {
                 buildUpon.appendQueryParameter((String) pair.first, (String) pair.second);
             }
-            buildUpon.appendQueryParameter("tt_info", new String(Base64.encode(b.Xs(query), 8)));
+            buildUpon.appendQueryParameter("tt_info", new String(Base64.encode(b.Xt(query), 8)));
             return buildUpon.build().toString();
         }
         return str;
@@ -363,11 +363,11 @@ public class aa {
     }
 
     public static void a(int i) {
-        pci = com.bytedance.embedapplog.util.a.NW(i);
+        pcj = com.bytedance.embedapplog.util.a.NW(i);
     }
 
     public static com.bytedance.embedapplog.util.a elx() {
-        return pci;
+        return pcj;
     }
 
     public static JSONObject w(String str, JSONObject jSONObject) {
@@ -377,7 +377,7 @@ public class aa {
         } else {
             hashMap.put("Content-Type", AbstractBceClient.DEFAULT_CONTENT_TYPE);
         }
-        String a2 = a(1, a(str), hashMap, b.Xs(jSONObject.toString()));
+        String a2 = a(1, a(str), hashMap, b.Xt(jSONObject.toString()));
         if (a2 != null) {
             try {
                 return new JSONObject(a2);
@@ -525,7 +525,7 @@ public class aa {
     */
     public static JSONObject y(String str, JSONObject jSONObject) {
         JSONObject jSONObject2;
-        String a2 = a(1, str, null, b.Xs(jSONObject.toString()));
+        String a2 = a(1, str, null, b.Xt(jSONObject.toString()));
         if (a2 != null) {
             try {
                 jSONObject2 = new JSONObject(a2);
@@ -549,7 +549,7 @@ public class aa {
     */
     public static JSONObject z(String str, JSONObject jSONObject) {
         JSONObject jSONObject2;
-        String a2 = a(1, str, null, b.Xs(jSONObject.toString()));
+        String a2 = a(1, str, null, b.Xt(jSONObject.toString()));
         if (a2 != null) {
             try {
                 jSONObject2 = new JSONObject(a2);

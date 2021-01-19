@@ -94,7 +94,7 @@ public class PraiseListActivity extends BaseActivity<PraiseListActivity> impleme
             str = getResources().getString(R.string.neterror);
         }
         this.mit.dtY();
-        this.mit.bJ(str, this.pageType);
+        this.mit.bK(str, this.pageType);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

@@ -63,7 +63,7 @@ public final class b implements x {
         gVar.emR().a(gVar.emQ(), enq2);
         int c = enq2.c();
         if (this.f5874a && c == 101) {
-            enq = enq2.enn().a(com.bytedance.sdk.a.b.a.c.peA).enq();
+            enq = enq2.enn().a(com.bytedance.sdk.a.b.a.c.peB).enq();
         } else {
             enq = enq2.enn().a(emP.c(enq2)).enq();
         }

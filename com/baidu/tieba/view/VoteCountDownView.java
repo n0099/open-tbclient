@@ -17,10 +17,10 @@ public class VoteCountDownView extends LinearLayout {
     private CountDownTimer gNO;
     private a lVU;
     private Context mContext;
-    private View nPs;
     private View nPt;
-    private TextView nPv;
+    private View nPu;
     private TextView nPw;
+    private TextView nPx;
 
     /* loaded from: classes.dex */
     public interface a {
@@ -73,22 +73,22 @@ public class VoteCountDownView extends LinearLayout {
     }
 
     private void tC() {
-        this.nPs = findViewById(R.id.hour_num_container);
-        this.nPt = findViewById(R.id.minute_num_container);
-        this.nPv = (TextView) findViewById(R.id.hour_num_count_down_view);
-        this.nPw = (TextView) findViewById(R.id.minute_num_count_down_view);
+        this.nPt = findViewById(R.id.hour_num_container);
+        this.nPu = findViewById(R.id.minute_num_container);
+        this.nPw = (TextView) findViewById(R.id.hour_num_count_down_view);
+        this.nPx = (TextView) findViewById(R.id.minute_num_count_down_view);
     }
 
     public void setContent(long j, long j2) {
-        this.nPw.setText(String.valueOf(j2));
-        this.nPv.setText(String.valueOf(j));
+        this.nPx.setText(String.valueOf(j2));
+        this.nPw.setText(String.valueOf(j));
     }
 
     public void uo(int i) {
-        ao.setBackgroundResource(this.nPs, R.drawable.bg_gradient_round, i);
         ao.setBackgroundResource(this.nPt, R.drawable.bg_gradient_round, i);
-        ao.setViewTextColor(this.nPv, R.color.CAM_X0101, 1, i);
-        ao.setViewTextColor(this.nPv, R.color.CAM_X0101, 1, i);
+        ao.setBackgroundResource(this.nPu, R.drawable.bg_gradient_round, i);
+        ao.setViewTextColor(this.nPw, R.color.CAM_X0101, 1, i);
+        ao.setViewTextColor(this.nPw, R.color.CAM_X0101, 1, i);
     }
 
     public void setData(long j) {

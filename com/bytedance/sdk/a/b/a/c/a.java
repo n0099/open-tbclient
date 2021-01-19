@@ -14,10 +14,10 @@ import org.apache.http.cookie.SM;
 import org.apache.http.protocol.HTTP;
 /* loaded from: classes4.dex */
 public final class a implements x {
-    private final p peP;
+    private final p peQ;
 
     public a(p pVar) {
-        this.peP = pVar;
+        this.peQ = pVar;
     }
 
     @Override // com.bytedance.sdk.a.b.x
@@ -34,10 +34,10 @@ public final class a implements x {
             long b2 = eoc.b();
             if (b2 != -1) {
                 eod.hf("Content-Length", Long.toString(b2));
-                eod.XN("Transfer-Encoding");
+                eod.XO("Transfer-Encoding");
             } else {
                 eod.hf("Transfer-Encoding", HTTP.CHUNK_CODING);
-                eod.XN("Content-Length");
+                eod.XO("Content-Length");
             }
         }
         if (emS.a("Host") == null) {
@@ -50,7 +50,7 @@ public final class a implements x {
             z = true;
             eod.hf(Headers.ACCEPT_ENCODING, "gzip");
         }
-        List<o> e = this.peP.e(emS.emp());
+        List<o> e = this.peQ.e(emS.emp());
         if (!e.isEmpty()) {
             eod.hf(SM.COOKIE, a(e));
         }
@@ -58,11 +58,11 @@ public final class a implements x {
             eod.hf("User-Agent", com.bytedance.sdk.a.b.a.d.a());
         }
         com.bytedance.sdk.a.b.b b3 = aVar.b(eod.eoj());
-        e.a(this.peP, emS.emp(), b3.enl());
+        e.a(this.peQ, emS.emp(), b3.enl());
         b.a f = b3.enn().f(emS);
         if (z && "gzip".equalsIgnoreCase(b3.a("Content-Encoding")) && e.e(b3)) {
             com.bytedance.sdk.a.a.j jVar = new com.bytedance.sdk.a.a.j(b3.enm().emU());
-            f.c(b3.enl().enB().XD("Content-Encoding").XD("Content-Length").enC());
+            f.c(b3.enl().enB().XE("Content-Encoding").XE("Content-Length").enC());
             f.a(new h(b3.a("Content-Type"), -1L, com.bytedance.sdk.a.a.l.c(jVar)));
         }
         return f.enq();

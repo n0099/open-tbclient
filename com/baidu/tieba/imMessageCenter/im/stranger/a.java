@@ -26,7 +26,7 @@ public class a {
         public int type;
     }
 
-    public static C0766a MB(String str) {
+    public static C0766a MC(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }

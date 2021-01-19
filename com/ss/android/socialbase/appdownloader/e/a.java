@@ -22,7 +22,7 @@ public class a extends com.ss.android.socialbase.downloader.notification.a {
     private String d;
     private String e;
     private String f;
-    private final Resources pTu;
+    private final Resources pTv;
 
     public a(Context context, int i, String str, String str2, String str3, String str4) {
         super(i, str);
@@ -30,7 +30,7 @@ public class a extends com.ss.android.socialbase.downloader.notification.a {
         this.d = str3;
         this.f = str4;
         this.f13029b = context.getApplicationContext();
-        this.pTu = this.f13029b.getResources();
+        this.pTv = this.f13029b.getResources();
     }
 
     @Override // com.ss.android.socialbase.downloader.notification.a
@@ -114,7 +114,7 @@ public class a extends com.ss.android.socialbase.downloader.notification.a {
         }
         String d = d();
         if (TextUtils.isEmpty(d)) {
-            d = this.pTu.getString(i.b("appdownloader_download_unknown_title"));
+            d = this.pTv.getString(i.b("appdownloader_download_unknown_title"));
         }
         RemoteViews eDb = eDb();
         Intent intent = new Intent(this.f13029b, DownloadHandlerService.class);
@@ -213,13 +213,13 @@ public class a extends com.ss.android.socialbase.downloader.notification.a {
                     } else {
                         b4 = i.b("appdownloader_notification_download_complete_with_install");
                     }
-                    eDc.setContentText(this.pTu.getString(b4));
+                    eDc.setContentText(this.pTv.getString(b4));
                 } else {
                     b4 = i.b("appdownloader_notification_download_complete_without_install");
                     if (com.ss.android.socialbase.downloader.downloader.c.eEh().QU(a3) != null) {
                         b4 = i.b("appdownloader_notification_download_complete_open");
                     }
-                    eDc.setContentText(this.pTu.getString(b4));
+                    eDc.setContentText(this.pTv.getString(b4));
                 }
                 str3 = this.f13029b.getResources().getString(b4);
                 string = this.f13029b.getResources().getString(i.b("appdownloader_notification_download_install"));

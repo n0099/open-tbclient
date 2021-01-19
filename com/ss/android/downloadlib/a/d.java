@@ -5,25 +5,25 @@ import java.util.ArrayList;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class d {
-    private static b pRf;
-    private static c pRg;
+    private static b pRg;
+    private static c pRh;
 
-    public static com.ss.android.socialbase.downloader.downloader.i ZG(String str) {
-        if (pRf == null) {
-            pRf = new b(j.i());
+    public static com.ss.android.socialbase.downloader.downloader.i ZH(String str) {
+        if (pRg == null) {
+            pRg = new b(j.i());
         }
-        return new a(pRf, str);
+        return new a(pRg, str);
     }
 
     public static com.ss.android.socialbase.downloader.downloader.h eCi() {
-        if (pRg == null) {
-            pRg = new c(j.i());
+        if (pRh == null) {
+            pRh = new c(j.i());
         }
-        return pRg;
+        return pRh;
     }
 
     public static com.ss.android.socialbase.downloader.downloader.i B(String str, JSONObject jSONObject) {
-        return (jSONObject == null || !jSONObject.has("download_chunk_config") || com.ss.android.socialbase.downloader.k.a.g("download_chunk_config")) ? ZG(str) : fe(jSONObject);
+        return (jSONObject == null || !jSONObject.has("download_chunk_config") || com.ss.android.socialbase.downloader.k.a.g("download_chunk_config")) ? ZH(str) : fe(jSONObject);
     }
 
     public static com.ss.android.socialbase.downloader.downloader.h fd(JSONObject jSONObject) {
@@ -241,19 +241,19 @@ public class d {
 
         /* renamed from: a  reason: collision with root package name */
         private final String f12947a;
-        private b pRh;
+        private b pRi;
 
         public a(b bVar, String str) {
-            this.pRh = bVar;
+            this.pRi = bVar;
             this.f12947a = str;
         }
 
         @Override // com.ss.android.socialbase.downloader.downloader.i
         public int a(long j) {
-            if (!com.ss.android.downloadlib.f.i.c(this.f12947a) || this.pRh == null) {
+            if (!com.ss.android.downloadlib.f.i.c(this.f12947a) || this.pRi == null) {
                 return 1;
             }
-            return this.pRh.a(j);
+            return this.pRi.a(j);
         }
     }
 }

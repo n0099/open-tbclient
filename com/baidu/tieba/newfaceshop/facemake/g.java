@@ -42,7 +42,7 @@ public class g extends BaseAdapter {
         this.ltU = (this.ltT * 2) + 1;
     }
 
-    public void Od(String str) {
+    public void Oe(String str) {
         this.ltV = str;
     }
 

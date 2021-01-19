@@ -8,9 +8,9 @@ import com.baidu.tieba.video.cloudmusic.data.CloudMusicData;
 import java.io.IOException;
 /* loaded from: classes7.dex */
 public class MusicPlayer {
-    private static MusicPlayer nBz = null;
-    private MusicPlayerState nBA = MusicPlayerState.WAIT;
-    private MediaPlayer nBy;
+    private static MusicPlayer nBA = null;
+    private MusicPlayerState nBB = MusicPlayerState.WAIT;
+    private MediaPlayer nBz;
 
     /* loaded from: classes7.dex */
     public enum MusicPlayerState {
@@ -33,38 +33,38 @@ public class MusicPlayer {
     public static synchronized MusicPlayer dPY() {
         MusicPlayer musicPlayer;
         synchronized (MusicPlayer.class) {
-            if (nBz == null) {
-                nBz = new MusicPlayer();
+            if (nBA == null) {
+                nBA = new MusicPlayer();
             }
-            musicPlayer = nBz;
+            musicPlayer = nBA;
         }
         return musicPlayer;
     }
 
     public void a(String str, final CloudMusicData.MusicTagList.MusicList musicList, a aVar) {
-        if (this.nBA != MusicPlayerState.PAUSE) {
-            if (this.nBy == null) {
-                this.nBy = new MediaPlayer();
-                this.nBy.setAudioStreamType(3);
+        if (this.nBB != MusicPlayerState.PAUSE) {
+            if (this.nBz == null) {
+                this.nBz = new MediaPlayer();
+                this.nBz.setAudioStreamType(3);
             }
             try {
-                this.nBy.reset();
-                this.nBy.setDataSource(str);
-                this.nBy.prepare();
-                this.nBA = MusicPlayerState.WAIT;
-                this.nBy.setOnPreparedListener(new MediaPlayer.OnPreparedListener() { // from class: com.baidu.tieba.video.cloudmusic.MusicPlayer.1
+                this.nBz.reset();
+                this.nBz.setDataSource(str);
+                this.nBz.prepare();
+                this.nBB = MusicPlayerState.WAIT;
+                this.nBz.setOnPreparedListener(new MediaPlayer.OnPreparedListener() { // from class: com.baidu.tieba.video.cloudmusic.MusicPlayer.1
                     @Override // android.media.MediaPlayer.OnPreparedListener
                     public void onPrepared(MediaPlayer mediaPlayer) {
                         com.baidu.tieba.video.cloudmusic.data.a.dQb().a(musicList);
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_ON_CLOUD_MUSIC_PLAY));
-                        MusicPlayer.this.nBy.setLooping(true);
-                        MusicPlayer.this.nBy.start();
-                        MusicPlayer.this.nBA = MusicPlayerState.PREPARED;
+                        MusicPlayer.this.nBz.setLooping(true);
+                        MusicPlayer.this.nBz.start();
+                        MusicPlayer.this.nBB = MusicPlayerState.PREPARED;
                     }
                 });
             } catch (IOException e) {
                 e.printStackTrace();
-                this.nBA = MusicPlayerState.ERROR;
+                this.nBB = MusicPlayerState.ERROR;
                 if (aVar != null) {
                     aVar.dPW();
                 }
@@ -73,27 +73,27 @@ public class MusicPlayer {
     }
 
     public void dPZ() {
-        if (this.nBy != null && this.nBy.isPlaying()) {
-            this.nBy.pause();
+        if (this.nBz != null && this.nBz.isPlaying()) {
+            this.nBz.pause();
         }
-        this.nBA = MusicPlayerState.PAUSE;
+        this.nBB = MusicPlayerState.PAUSE;
     }
 
     public void dQa() {
-        if (this.nBy != null) {
-            this.nBy.start();
-            this.nBy.seekTo(0);
+        if (this.nBz != null) {
+            this.nBz.start();
+            this.nBz.seekTo(0);
         }
-        this.nBA = MusicPlayerState.RESUME;
+        this.nBB = MusicPlayerState.RESUME;
     }
 
     public void bfG() {
-        if (this.nBy != null) {
-            if (this.nBy.isPlaying()) {
-                this.nBy.stop();
+        if (this.nBz != null) {
+            if (this.nBz.isPlaying()) {
+                this.nBz.stop();
             }
-            this.nBy.release();
-            this.nBy = null;
+            this.nBz.release();
+            this.nBz = null;
         }
     }
 }

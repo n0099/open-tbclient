@@ -299,7 +299,7 @@ public class HotTopicHeaderView extends LinearLayout {
             this.kou.setSingleLine();
             fVar.eNh = fVar.eNh.trim();
             if (!StringUtils.isNull(fVar.eNh)) {
-                this.kou.setText(com.baidu.tieba.hottopic.a.a.bd(fVar.eNh, 10));
+                this.kou.setText(com.baidu.tieba.hottopic.a.a.be(fVar.eNh, 10));
             } else {
                 this.kou.setText("");
             }
@@ -397,7 +397,7 @@ public class HotTopicHeaderView extends LinearLayout {
         return z ? this.koI + this.koH : i;
     }
 
-    public void Cd(int i) {
+    public void Cc(int i) {
         ((LinearLayout.LayoutParams) this.iIa.getLayoutParams()).height = i;
         this.iIa.postInvalidate();
     }

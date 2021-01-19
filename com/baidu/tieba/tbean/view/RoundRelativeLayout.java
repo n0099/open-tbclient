@@ -21,7 +21,7 @@ public class RoundRelativeLayout extends RelativeLayout {
     private float mRadius;
     private RectF mRectF;
     private Paint mStrokePaint;
-    private int nsU;
+    private int nsV;
 
     public RoundRelativeLayout(Context context) {
         this(context, null);
@@ -54,9 +54,9 @@ public class RoundRelativeLayout extends RelativeLayout {
     }
 
     public void setBgColorRes(int i) {
-        this.nsU = i;
-        if (this.nsU != 0) {
-            this.bew.setColor(getContext().getResources().getColor(this.nsU));
+        this.nsV = i;
+        if (this.nsV != 0) {
+            this.bew.setColor(getContext().getResources().getColor(this.nsV));
             invalidate();
         }
     }

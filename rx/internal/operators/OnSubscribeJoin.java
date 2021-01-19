@@ -6,11 +6,11 @@ import java.util.Map;
 import rx.d;
 /* loaded from: classes14.dex */
 public final class OnSubscribeJoin<TLeft, TRight, TLeftDuration, TRightDuration, R> implements d.a<R> {
-    final rx.d<TLeft> qoR;
-    final rx.d<TRight> qoS;
-    final rx.functions.g<TLeft, TRight, R> qoV;
-    final rx.functions.f<TLeft, rx.d<TLeftDuration>> qpb;
-    final rx.functions.f<TRight, rx.d<TRightDuration>> qpc;
+    final rx.d<TLeft> qoS;
+    final rx.d<TRight> qoT;
+    final rx.functions.g<TLeft, TRight, R> qoW;
+    final rx.functions.f<TLeft, rx.d<TLeftDuration>> qpc;
+    final rx.functions.f<TRight, rx.d<TRightDuration>> qpd;
 
     @Override // rx.functions.b
     public /* bridge */ /* synthetic */ void call(Object obj) {
@@ -47,8 +47,8 @@ public final class OnSubscribeJoin<TLeft, TRight, TLeftDuration, TRightDuration,
             b bVar = new b();
             this.group.add(aVar);
             this.group.add(bVar);
-            OnSubscribeJoin.this.qoR.a((rx.j<? super TLeft>) aVar);
-            OnSubscribeJoin.this.qoS.a((rx.j<? super TRight>) bVar);
+            OnSubscribeJoin.this.qoS.a((rx.j<? super TLeft>) aVar);
+            OnSubscribeJoin.this.qoT.a((rx.j<? super TRight>) bVar);
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
@@ -88,7 +88,7 @@ public final class OnSubscribeJoin<TLeft, TRight, TLeftDuration, TRightDuration,
                 try {
                     C1307a c1307a = new C1307a(i);
                     ResultSink.this.group.add(c1307a);
-                    OnSubscribeJoin.this.qpb.call(tleft).a((rx.j<? super TLeftDuration>) c1307a);
+                    OnSubscribeJoin.this.qpc.call(tleft).a((rx.j<? super TLeftDuration>) c1307a);
                     ArrayList<Object> arrayList = new ArrayList();
                     synchronized (ResultSink.this) {
                         for (Map.Entry<Integer, TRight> entry : ResultSink.this.rightMap.entrySet()) {
@@ -98,7 +98,7 @@ public final class OnSubscribeJoin<TLeft, TRight, TLeftDuration, TRightDuration,
                         }
                     }
                     for (Object obj : arrayList) {
-                        ResultSink.this.subscriber.onNext(OnSubscribeJoin.this.qoV.n(tleft, obj));
+                        ResultSink.this.subscriber.onNext(OnSubscribeJoin.this.qoW.n(tleft, obj));
                     }
                 } catch (Throwable th) {
                     rx.exceptions.a.a(th, this);
@@ -196,7 +196,7 @@ public final class OnSubscribeJoin<TLeft, TRight, TLeftDuration, TRightDuration,
                 try {
                     a aVar = new a(i);
                     ResultSink.this.group.add(aVar);
-                    OnSubscribeJoin.this.qpc.call(tright).a((rx.j<? super TRightDuration>) aVar);
+                    OnSubscribeJoin.this.qpd.call(tright).a((rx.j<? super TRightDuration>) aVar);
                     ArrayList<Object> arrayList = new ArrayList();
                     synchronized (ResultSink.this) {
                         for (Map.Entry<Integer, TLeft> entry : ResultSink.this.leftMap().entrySet()) {
@@ -206,7 +206,7 @@ public final class OnSubscribeJoin<TLeft, TRight, TLeftDuration, TRightDuration,
                         }
                     }
                     for (Object obj : arrayList) {
-                        ResultSink.this.subscriber.onNext(OnSubscribeJoin.this.qoV.n(obj, tright));
+                        ResultSink.this.subscriber.onNext(OnSubscribeJoin.this.qoW.n(obj, tright));
                     }
                 } catch (Throwable th) {
                     rx.exceptions.a.a(th, this);

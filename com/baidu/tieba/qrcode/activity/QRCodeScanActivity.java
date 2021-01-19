@@ -175,7 +175,7 @@ public class QRCodeScanActivity extends BaseActivity<QRCodeScanActivity> impleme
     }
 
     @Override // com.baidu.tieba.qrcode.activity.a
-    public void PY(final String str) {
+    public void PZ(final String str) {
         com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(getPageContext().getPageActivity());
         aVar.setTitleShowCenter(true);
         aVar.Ac(getString(R.string.qr_url_jump_external_title));
@@ -274,7 +274,7 @@ public class QRCodeScanActivity extends BaseActivity<QRCodeScanActivity> impleme
             WriteImagesInfo writeImagesInfo = new WriteImagesInfo();
             writeImagesInfo.parseJson(stringExtra);
             if (writeImagesInfo.getChosedFiles() != null && writeImagesInfo.getChosedFiles().size() > 0 && (imageFileInfo = writeImagesInfo.getChosedFiles().get(0)) != null) {
-                this.mER.Qe(imageFileInfo.getFilePath());
+                this.mER.Qf(imageFileInfo.getFilePath());
             }
             writeImagesInfo.clear();
         }
@@ -300,7 +300,7 @@ public class QRCodeScanActivity extends BaseActivity<QRCodeScanActivity> impleme
                 public void onClick(View view2) {
                     g.dismissPopupWindow(QRCodeScanActivity.this.mES, QRCodeScanActivity.this);
                     if (QRCodeScanActivity.this.mER != null) {
-                        QRCodeScanActivity.this.mER.PZ(str2);
+                        QRCodeScanActivity.this.mER.Qa(str2);
                     }
                 }
             });

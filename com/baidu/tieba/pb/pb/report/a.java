@@ -29,7 +29,7 @@ public class a implements com.baidu.tieba.ueg.a {
                 UEGReportResponsedMessage uEGReportResponsedMessage = (UEGReportResponsedMessage) httpResponsedMessage;
                 String url = uEGReportResponsedMessage.getUrl();
                 if (!StringUtils.isNull(url)) {
-                    a.this.OC(url);
+                    a.this.OD(url);
                     return;
                 }
                 String errorString = uEGReportResponsedMessage.getErrorString();
@@ -59,15 +59,15 @@ public class a implements com.baidu.tieba.ueg.a {
         MessageManager.getInstance().registerListener(this.eYj);
     }
 
-    public void Pc(String str) {
-        showLoadingDialog();
-        this.lWK.Pc(str);
-    }
-
-    @Override // com.baidu.tieba.ueg.a
     public void Pd(String str) {
         showLoadingDialog();
         this.lWK.Pd(str);
+    }
+
+    @Override // com.baidu.tieba.ueg.a
+    public void Pe(String str) {
+        showLoadingDialog();
+        this.lWK.Pe(str);
     }
 
     private void showLoadingDialog() {
@@ -95,7 +95,7 @@ public class a implements com.baidu.tieba.ueg.a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void OC(String str) {
+    public void OD(String str) {
         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new TbWebViewActivityConfig(this.mContext, this.mContext.getString(R.string.pb_web_view_report_title), str, true)));
     }
 }

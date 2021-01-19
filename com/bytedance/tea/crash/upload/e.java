@@ -20,8 +20,8 @@ public class e {
     private HttpURLConnection f7680b;
     private String c;
     private boolean d;
-    private DataOutputStream plQ;
-    private GZIPOutputStream plR;
+    private DataOutputStream plR;
+    private GZIPOutputStream plS;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(String str, String str2, boolean z) throws IOException {
@@ -35,10 +35,10 @@ public class e {
         this.f7680b.setRequestProperty("Content-Type", "multipart/form-data; boundary=" + this.f7679a);
         if (z) {
             this.f7680b.setRequestProperty("Content-Encoding", "gzip");
-            this.plR = new GZIPOutputStream(this.f7680b.getOutputStream());
+            this.plS = new GZIPOutputStream(this.f7680b.getOutputStream());
             return;
         }
-        this.plQ = new DataOutputStream(this.f7680b.getOutputStream());
+        this.plR = new DataOutputStream(this.f7680b.getOutputStream());
     }
 
     public void a(String str, String str2) {
@@ -46,9 +46,9 @@ public class e {
         sb.append("--").append(this.f7679a).append("\r\n").append("Content-Disposition: form-data; name=\"").append(str).append("\"").append("\r\n").append("Content-Type: text/plain; charset=").append(this.c).append("\r\n").append("\r\n").append(str2).append("\r\n");
         try {
             if (this.d) {
-                this.plR.write(sb.toString().getBytes());
+                this.plS.write(sb.toString().getBytes());
             } else {
-                this.plQ.write(sb.toString().getBytes());
+                this.plR.write(sb.toString().getBytes());
             }
         } catch (IOException e) {
             e.printStackTrace();
@@ -60,9 +60,9 @@ public class e {
         StringBuilder sb = new StringBuilder();
         sb.append("--").append(this.f7679a).append("\r\n").append("Content-Disposition: form-data; name=\"").append(str).append("\"; filename=\"").append(name).append("\"").append("\r\n").append("Content-Transfer-Encoding: binary").append("\r\n").append("\r\n");
         if (this.d) {
-            this.plR.write(sb.toString().getBytes());
+            this.plS.write(sb.toString().getBytes());
         } else {
-            this.plQ.write(sb.toString().getBytes());
+            this.plR.write(sb.toString().getBytes());
         }
         FileInputStream fileInputStream = new FileInputStream(file);
         byte[] bArr = new byte[8192];
@@ -71,31 +71,31 @@ public class e {
             if (read == -1) {
                 break;
             } else if (this.d) {
-                this.plR.write(bArr, 0, read);
+                this.plS.write(bArr, 0, read);
             } else {
-                this.plQ.write(bArr, 0, read);
+                this.plR.write(bArr, 0, read);
             }
         }
         fileInputStream.close();
         if (this.d) {
-            this.plR.write("\r\n".getBytes());
+            this.plS.write("\r\n".getBytes());
             return;
         }
-        this.plQ.write(sb.toString().getBytes());
-        this.plQ.flush();
+        this.plR.write(sb.toString().getBytes());
+        this.plR.flush();
     }
 
     public String a() throws IOException {
         ArrayList<String> arrayList = new ArrayList();
         byte[] bytes = ("\r\n--" + this.f7679a + "--\r\n").getBytes();
         if (this.d) {
-            this.plR.write(bytes);
-            this.plR.finish();
-            this.plR.close();
+            this.plS.write(bytes);
+            this.plS.finish();
+            this.plS.close();
         } else {
-            this.plQ.write(bytes);
-            this.plQ.flush();
-            this.plQ.close();
+            this.plR.write(bytes);
+            this.plR.flush();
+            this.plR.close();
         }
         int responseCode = this.f7680b.getResponseCode();
         if (responseCode == 200) {

@@ -71,18 +71,18 @@ public class AlaLiveAudienceEndView extends RelativeLayout {
     private String mPortrait;
     private TbPageContext mTbPageContext;
     private View mView;
-    private a ohl;
-    private BarImageView ohm;
-    private TextView ohn;
+    private a ohm;
+    private BarImageView ohn;
     private TextView oho;
     private TextView ohp;
     private TextView ohq;
     private TextView ohr;
     private TextView ohs;
-    private LinearLayout oht;
+    private TextView oht;
     private LinearLayout ohu;
-    private TextView ohv;
+    private LinearLayout ohv;
     private TextView ohw;
+    private TextView ohx;
     private String roomId;
 
     /* loaded from: classes10.dex */
@@ -110,22 +110,22 @@ public class AlaLiveAudienceEndView extends RelativeLayout {
         this.mCloseBtn.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.endliveroom.AlaLiveAudienceEndView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (AlaLiveAudienceEndView.this.ohl != null) {
-                    AlaLiveAudienceEndView.this.ohl.Lo();
+                if (AlaLiveAudienceEndView.this.ohm != null) {
+                    AlaLiveAudienceEndView.this.ohm.Lo();
                 }
             }
         });
-        this.ohm = (BarImageView) this.mView.findViewById(a.f.avatar_img);
+        this.ohn = (BarImageView) this.mView.findViewById(a.f.avatar_img);
         this.gQH = (TextView) this.mView.findViewById(a.f.user_name);
-        this.ohn = (TextView) this.mView.findViewById(a.f.tv_user_id);
+        this.oho = (TextView) this.mView.findViewById(a.f.tv_user_id);
         this.gRb = (TextView) this.mView.findViewById(a.f.endText_textView);
-        this.oho = (TextView) this.mView.findViewById(a.f.tv_live_end_newcharmnum);
-        this.ohp = (TextView) this.mView.findViewById(a.f.tv_live_end_givernum);
-        this.ohq = (TextView) this.mView.findViewById(a.f.tv_live_end_watchnum);
-        this.ohr = (TextView) this.mView.findViewById(a.f.tv_live_end_newfansnum);
-        this.ohs = (TextView) this.mView.findViewById(a.f.endText_textView_master);
-        this.oht = (LinearLayout) this.mView.findViewById(a.f.ll_master_bottomview);
-        this.ohu = (LinearLayout) this.mView.findViewById(a.f.ll_audience_bottomview);
+        this.ohp = (TextView) this.mView.findViewById(a.f.tv_live_end_newcharmnum);
+        this.ohq = (TextView) this.mView.findViewById(a.f.tv_live_end_givernum);
+        this.ohr = (TextView) this.mView.findViewById(a.f.tv_live_end_watchnum);
+        this.ohs = (TextView) this.mView.findViewById(a.f.tv_live_end_newfansnum);
+        this.oht = (TextView) this.mView.findViewById(a.f.endText_textView_master);
+        this.ohu = (LinearLayout) this.mView.findViewById(a.f.ll_master_bottomview);
+        this.ohv = (LinearLayout) this.mView.findViewById(a.f.ll_audience_bottomview);
         this.gQZ = (LinearLayout) this.mView.findViewById(a.f.llFollowLabel);
         this.gQY = (TextView) this.mView.findViewById(a.f.follow_label);
         this.gRa = (TextView) this.mView.findViewById(a.f.live_over_name);
@@ -134,27 +134,27 @@ public class AlaLiveAudienceEndView extends RelativeLayout {
 
     private void setUserTypeForView(boolean z) {
         if (z) {
-            this.oht.setVisibility(0);
-            this.ohu.setVisibility(8);
+            this.ohu.setVisibility(0);
+            this.ohv.setVisibility(8);
             return;
         }
-        this.oht.setVisibility(8);
-        this.ohu.setVisibility(0);
+        this.ohu.setVisibility(8);
+        this.ohv.setVisibility(0);
     }
 
     private void dYb() {
-        this.ohq.setText(j.numFormatOverWanNaForAudienceNum(this.mLiveInfo.familyFansCount));
+        this.ohr.setText(j.numFormatOverWanNaForAudienceNum(this.mLiveInfo.familyFansCount));
         if (this.mLiveInfo.newFansCount <= 0) {
-            this.ohr.setText(String.valueOf(this.mLiveInfo.newFansCount));
+            this.ohs.setText(String.valueOf(this.mLiveInfo.newFansCount));
         } else {
-            this.ohr.setText(j.numFormatOverWanNaForAudienceNum(this.mLiveInfo.newFansCount));
+            this.ohs.setText(j.numFormatOverWanNaForAudienceNum(this.mLiveInfo.newFansCount));
         }
-        this.ohp.setText(j.numFormatOverWanNaForAudienceNum(this.mLiveInfo.rewardUserCount));
-        this.oho.setText(j.numFormatOverWanNaForAudienceNum(this.mLiveInfo.charm_count));
+        this.ohq.setText(j.numFormatOverWanNaForAudienceNum(this.mLiveInfo.rewardUserCount));
+        this.ohp.setText(j.numFormatOverWanNaForAudienceNum(this.mLiveInfo.charm_count));
     }
 
     public void setCallback(a aVar) {
-        this.ohl = aVar;
+        this.ohm = aVar;
     }
 
     public void setData(TbPageContext tbPageContext, x xVar, boolean z, boolean z2, String str, String str2) {
@@ -178,17 +178,17 @@ public class AlaLiveAudienceEndView extends RelativeLayout {
         if (this.mOtherParams == null || TextUtils.equals(this.mOtherParams, "null")) {
             this.mOtherParams = "";
         }
-        this.ohm.setShowOval(true);
-        this.ohm.setBorderColor(this.mContext.getResources().getColor(a.c.sdk_cp_bg_line_k_alpha10_1));
-        this.ohm.setAutoChangeStyle(false);
-        this.ohm.setAccuracyWith(30.0f);
+        this.ohn.setShowOval(true);
+        this.ohn.setBorderColor(this.mContext.getResources().getColor(a.c.sdk_cp_bg_line_k_alpha10_1));
+        this.ohn.setAutoChangeStyle(false);
+        this.ohn.setAccuracyWith(30.0f);
         if (TextUtils.isEmpty(this.mPortrait)) {
-            this.ohm.setDefaultResource(a.e.pic_avatar_moren);
+            this.ohn.setDefaultResource(a.e.pic_avatar_moren);
         } else {
-            this.ohm.startLoad(this.mPortrait, 12, false, false);
+            this.ohn.startLoad(this.mPortrait, 12, false, false);
         }
         this.gQH.setText(this.aBr.aGy.room_name);
-        this.ohn.setText(this.mContext.getResources().getString(a.h.room_id_name) + xVar.aGy.croom_id);
+        this.oho.setText(this.mContext.getResources().getString(a.h.room_id_name) + xVar.aGy.croom_id);
         this.gQZ.setVisibility(TextUtils.isEmpty(this.mPortrait) ? 4 : 0);
         if (this.aBr != null && this.aBr.mLiveInfo != null && this.aBr.mLiveInfo.mLiveCloseData != null && !TextUtils.isEmpty(this.aBr.mLiveInfo.mLiveCloseData.title)) {
             this.gRa.setText(this.aBr.mLiveInfo.mLiveCloseData.title);
@@ -213,11 +213,11 @@ public class AlaLiveAudienceEndView extends RelativeLayout {
             setUserTypeForView(true);
             dYb();
             if (TextUtils.isEmpty(this.mLiveInfo.close_reason)) {
-                this.ohs.setVisibility(8);
+                this.oht.setVisibility(8);
                 return;
             }
-            this.ohs.setVisibility(0);
-            this.ohs.setText(this.mLiveInfo.close_reason);
+            this.oht.setVisibility(0);
+            this.oht.setText(this.mLiveInfo.close_reason);
             return;
         }
         setUserTypeForView(false);
@@ -225,13 +225,13 @@ public class AlaLiveAudienceEndView extends RelativeLayout {
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (AlaLiveAudienceEndView.this.aBr == null || AlaLiveAudienceEndView.this.aBr.mLiveInfo == null || AlaLiveAudienceEndView.this.aBr.mLiveInfo.mLiveCloseData == null) {
-                    if (AlaLiveAudienceEndView.this.ohl != null) {
+                    if (AlaLiveAudienceEndView.this.ohm != null) {
                         if (AlaLiveAudienceEndView.this.gRd) {
                             AlaLiveAudienceEndView.this.bUd();
                             return;
                         }
                         LogManager.getLiveCloseLogger().doFollowClickLiveCloseGuestLog(AlaLiveAudienceEndView.this.liveId, AlaLiveAudienceEndView.this.roomId, AlaLiveAudienceEndView.this.aTK, AlaLiveAudienceEndView.this.mOtherParams);
-                        AlaLiveAudienceEndView.this.ohl.mW(AlaLiveAudienceEndView.this.gRd);
+                        AlaLiveAudienceEndView.this.ohm.mW(AlaLiveAudienceEndView.this.gRd);
                     }
                 } else if (!TextUtils.isEmpty(AlaLiveAudienceEndView.this.aBr.mLiveInfo.mLiveCloseData.actionScheme)) {
                     BrowserHelper.startInternalWebActivity(AlaLiveAudienceEndView.this.mContext, AlaLiveAudienceEndView.this.aBr.mLiveInfo.mLiveCloseData.actionScheme);
@@ -278,11 +278,11 @@ public class AlaLiveAudienceEndView extends RelativeLayout {
         this.gQQ = (TbImageView) this.mView.findViewById(a.f.feed_video_item1_cover);
         this.gQR = (TextView) this.mView.findViewById(a.f.feed_video_item1_name);
         this.gQS = (TextView) this.mView.findViewById(a.f.feed_video_item1_watch_num);
-        this.ohv = (TextView) this.mView.findViewById(a.f.live_label_1);
+        this.ohw = (TextView) this.mView.findViewById(a.f.live_label_1);
         this.gQU = (TbImageView) this.mView.findViewById(a.f.feed_video_item2_cover);
         this.gQV = (TextView) this.mView.findViewById(a.f.feed_video_item2_name);
         this.gQW = (TextView) this.mView.findViewById(a.f.feed_video_item2_watch_num);
-        this.ohw = (TextView) this.mView.findViewById(a.f.live_label_2);
+        this.ohx = (TextView) this.mView.findViewById(a.f.live_label_2);
         this.gQO = (RelativeLayout) this.mView.findViewById(a.f.rl_recom_video_cover_1);
         this.gQP = (RelativeLayout) this.mView.findViewById(a.f.rl_recom_video_cover_2);
         this.gQT = (ProgressBar) this.mView.findViewById(a.f.feed_video_item1_progressBar);
@@ -362,8 +362,8 @@ public class AlaLiveAudienceEndView extends RelativeLayout {
     }
 
     public void a(int i, AlaLiveInfoData alaLiveInfoData, int i2, AlaLiveInfoData alaLiveInfoData2, boolean z) {
-        a(this.gQO, this.gQQ, this.gQR, this.gQS, this.gQT, this.ohv, alaLiveInfoData, z, i);
-        a(this.gQP, this.gQU, this.gQV, this.gQW, this.gQX, this.ohw, alaLiveInfoData2, z, i2);
+        a(this.gQO, this.gQQ, this.gQR, this.gQS, this.gQT, this.ohw, alaLiveInfoData, z, i);
+        a(this.gQP, this.gQU, this.gQV, this.gQW, this.gQX, this.ohx, alaLiveInfoData2, z, i2);
     }
 
     public void a(View view, TbImageView tbImageView, TextView textView, TextView textView2, ProgressBar progressBar, TextView textView3, final AlaLiveInfoData alaLiveInfoData, boolean z, int i) {
@@ -378,8 +378,8 @@ public class AlaLiveAudienceEndView extends RelativeLayout {
                 public void onClick(View view2) {
                     if (!BdNetTypeUtil.isNetWorkAvailable()) {
                         BdUtilHelper.showToast(AlaLiveAudienceEndView.this.mContext, a.h.sdk_no_network_guide);
-                    } else if (AlaLiveAudienceEndView.this.ohl != null) {
-                        AlaLiveAudienceEndView.this.ohl.f(alaLiveInfoData);
+                    } else if (AlaLiveAudienceEndView.this.ohm != null) {
+                        AlaLiveAudienceEndView.this.ohm.f(alaLiveInfoData);
                     }
                 }
             });
@@ -424,7 +424,7 @@ public class AlaLiveAudienceEndView extends RelativeLayout {
                 @Override // com.baidu.live.tbadk.core.dialog.BdAlertDialog.OnClickListener
                 public void onClick(BdAlertDialog bdAlertDialog2) {
                     LogManager.getLiveCloseLogger().doClickNoFollowLiveCloseGuestLog(AlaLiveAudienceEndView.this.liveId, AlaLiveAudienceEndView.this.roomId, AlaLiveAudienceEndView.this.aTK, AlaLiveAudienceEndView.this.mOtherParams);
-                    AlaLiveAudienceEndView.this.ohl.mW(AlaLiveAudienceEndView.this.gRd);
+                    AlaLiveAudienceEndView.this.ohm.mW(AlaLiveAudienceEndView.this.gRd);
                     bdAlertDialog2.dismiss();
                 }
             });

@@ -30,17 +30,17 @@ public class ExpandableTextView extends RelativeLayout {
     private f lZE;
     private TextView lZt;
     private boolean lZx;
-    private boolean nQO;
     private boolean nQP;
-    private SpannableClickTextView nQQ;
-    private int nQR;
+    private boolean nQQ;
+    private SpannableClickTextView nQR;
     private int nQS;
     private int nQT;
-    private a nQU;
-    private boolean nQV;
-    private ViewTreeObserver.OnGlobalLayoutListener nQW;
-    private f nQX;
-    private View.OnClickListener nQY;
+    private int nQU;
+    private a nQV;
+    private boolean nQW;
+    private ViewTreeObserver.OnGlobalLayoutListener nQX;
+    private f nQY;
+    private View.OnClickListener nQZ;
     private int textColor;
     private int textSize;
     private int type;
@@ -53,25 +53,25 @@ public class ExpandableTextView extends RelativeLayout {
     public ExpandableTextView(Context context) {
         super(context);
         this.type = 1;
-        this.nQO = true;
-        this.nQP = false;
+        this.nQP = true;
+        this.nQQ = false;
         this.lZx = false;
-        this.nQR = 2;
-        this.nQS = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
-        this.nQV = false;
-        this.nQW = new ViewTreeObserver.OnGlobalLayoutListener() { // from class: com.baidu.tieba.view.expandable.ExpandableTextView.1
+        this.nQS = 2;
+        this.nQT = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
+        this.nQW = false;
+        this.nQX = new ViewTreeObserver.OnGlobalLayoutListener() { // from class: com.baidu.tieba.view.expandable.ExpandableTextView.1
             @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
             public void onGlobalLayout() {
                 Layout layout;
                 String substring;
                 Object[] spans;
-                if (ExpandableTextView.this.nQQ != null && ExpandableTextView.this.lZA != null && ExpandableTextView.this.nQO && (layout = ExpandableTextView.this.nQQ.getLayout()) != null) {
-                    if (!ExpandableTextView.this.nQP) {
-                        if (layout.getLineCount() > ExpandableTextView.this.nQR) {
+                if (ExpandableTextView.this.nQR != null && ExpandableTextView.this.lZA != null && ExpandableTextView.this.nQP && (layout = ExpandableTextView.this.nQR.getLayout()) != null) {
+                    if (!ExpandableTextView.this.nQQ) {
+                        if (layout.getLineCount() > ExpandableTextView.this.nQS) {
                             if (ExpandableTextView.this.lZB == null) {
                                 String spannableStringBuilder = ExpandableTextView.this.lZA.toString();
-                                int lineStart = layout.getLineStart(ExpandableTextView.this.nQR - 1);
-                                int lineEnd = layout.getLineEnd(ExpandableTextView.this.nQR - 1);
+                                int lineStart = layout.getLineStart(ExpandableTextView.this.nQS - 1);
+                                int lineEnd = layout.getLineEnd(ExpandableTextView.this.nQS - 1);
                                 String substring2 = spannableStringBuilder.substring(0, lineStart);
                                 String cutChineseAndEnglishWithSuffix = at.cutChineseAndEnglishWithSuffix(spannableStringBuilder.substring(lineStart, lineEnd), at.getChineseAndEnglishLength(substring) - 6, "");
                                 ExpandableTextView.this.lZB = new SpannableStringBuilder();
@@ -96,9 +96,9 @@ public class ExpandableTextView extends RelativeLayout {
                                 ((i) ExpandableTextView.this.lZD).KF(R.color.transparent);
                             }
                             ExpandableTextView.this.lZt.setVisibility(8);
-                            ExpandableTextView.this.nQQ.setOnTouchListener(ExpandableTextView.this.lZD);
-                            ExpandableTextView.this.nQQ.setText(ExpandableTextView.this.lZB);
-                            if (ExpandableTextView.this.nQV) {
+                            ExpandableTextView.this.nQR.setOnTouchListener(ExpandableTextView.this.lZD);
+                            ExpandableTextView.this.nQR.setText(ExpandableTextView.this.lZB);
+                            if (ExpandableTextView.this.nQW) {
                                 ExpandableTextView.this.dTU();
                             }
                         }
@@ -109,7 +109,7 @@ public class ExpandableTextView extends RelativeLayout {
                             int lineEnd2 = layout.getLineEnd(0);
                             int lineEnd3 = layout.getLineEnd(lineCount - 1) - layout.getLineStart(lineCount - 1);
                             SpannableString spannableString2 = new SpannableString("收起");
-                            spannableString2.setSpan(ExpandableTextView.this.nQX, 0, spannableString2.length(), 17);
+                            spannableString2.setSpan(ExpandableTextView.this.nQY, 0, spannableString2.length(), 17);
                             if (lineEnd2 - lineEnd3 > "收起".length()) {
                                 ExpandableTextView.this.lZA.append((CharSequence) spannableString2);
                             } else {
@@ -120,8 +120,8 @@ public class ExpandableTextView extends RelativeLayout {
                                 ExpandableTextView.this.lZA.append((CharSequence) spannableString2);
                             }
                             ((i) ExpandableTextView.this.lZC).KF(R.color.transparent);
-                            ExpandableTextView.this.nQQ.setOnTouchListener(ExpandableTextView.this.lZC);
-                            ExpandableTextView.this.nQQ.setText(ExpandableTextView.this.lZA);
+                            ExpandableTextView.this.nQR.setOnTouchListener(ExpandableTextView.this.lZC);
+                            ExpandableTextView.this.nQR.setText(ExpandableTextView.this.lZA);
                             ExpandableTextView.this.lZt.setVisibility(8);
                             return;
                         }
@@ -145,13 +145,13 @@ public class ExpandableTextView extends RelativeLayout {
                 ExpandableTextView.this.dTU();
             }
         };
-        this.nQX = new f(2, null) { // from class: com.baidu.tieba.view.expandable.ExpandableTextView.3
+        this.nQY = new f(2, null) { // from class: com.baidu.tieba.view.expandable.ExpandableTextView.3
             @Override // com.baidu.tbadk.widget.richText.f, android.text.style.ClickableSpan
             public void onClick(View view) {
                 ExpandableTextView.this.dTV();
             }
         };
-        this.nQY = new View.OnClickListener() { // from class: com.baidu.tieba.view.expandable.ExpandableTextView.4
+        this.nQZ = new View.OnClickListener() { // from class: com.baidu.tieba.view.expandable.ExpandableTextView.4
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 ExpandableTextView.this.dTV();
@@ -163,25 +163,25 @@ public class ExpandableTextView extends RelativeLayout {
     public ExpandableTextView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.type = 1;
-        this.nQO = true;
-        this.nQP = false;
+        this.nQP = true;
+        this.nQQ = false;
         this.lZx = false;
-        this.nQR = 2;
-        this.nQS = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
-        this.nQV = false;
-        this.nQW = new ViewTreeObserver.OnGlobalLayoutListener() { // from class: com.baidu.tieba.view.expandable.ExpandableTextView.1
+        this.nQS = 2;
+        this.nQT = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
+        this.nQW = false;
+        this.nQX = new ViewTreeObserver.OnGlobalLayoutListener() { // from class: com.baidu.tieba.view.expandable.ExpandableTextView.1
             @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
             public void onGlobalLayout() {
                 Layout layout;
                 String substring;
                 Object[] spans;
-                if (ExpandableTextView.this.nQQ != null && ExpandableTextView.this.lZA != null && ExpandableTextView.this.nQO && (layout = ExpandableTextView.this.nQQ.getLayout()) != null) {
-                    if (!ExpandableTextView.this.nQP) {
-                        if (layout.getLineCount() > ExpandableTextView.this.nQR) {
+                if (ExpandableTextView.this.nQR != null && ExpandableTextView.this.lZA != null && ExpandableTextView.this.nQP && (layout = ExpandableTextView.this.nQR.getLayout()) != null) {
+                    if (!ExpandableTextView.this.nQQ) {
+                        if (layout.getLineCount() > ExpandableTextView.this.nQS) {
                             if (ExpandableTextView.this.lZB == null) {
                                 String spannableStringBuilder = ExpandableTextView.this.lZA.toString();
-                                int lineStart = layout.getLineStart(ExpandableTextView.this.nQR - 1);
-                                int lineEnd = layout.getLineEnd(ExpandableTextView.this.nQR - 1);
+                                int lineStart = layout.getLineStart(ExpandableTextView.this.nQS - 1);
+                                int lineEnd = layout.getLineEnd(ExpandableTextView.this.nQS - 1);
                                 String substring2 = spannableStringBuilder.substring(0, lineStart);
                                 String cutChineseAndEnglishWithSuffix = at.cutChineseAndEnglishWithSuffix(spannableStringBuilder.substring(lineStart, lineEnd), at.getChineseAndEnglishLength(substring) - 6, "");
                                 ExpandableTextView.this.lZB = new SpannableStringBuilder();
@@ -206,9 +206,9 @@ public class ExpandableTextView extends RelativeLayout {
                                 ((i) ExpandableTextView.this.lZD).KF(R.color.transparent);
                             }
                             ExpandableTextView.this.lZt.setVisibility(8);
-                            ExpandableTextView.this.nQQ.setOnTouchListener(ExpandableTextView.this.lZD);
-                            ExpandableTextView.this.nQQ.setText(ExpandableTextView.this.lZB);
-                            if (ExpandableTextView.this.nQV) {
+                            ExpandableTextView.this.nQR.setOnTouchListener(ExpandableTextView.this.lZD);
+                            ExpandableTextView.this.nQR.setText(ExpandableTextView.this.lZB);
+                            if (ExpandableTextView.this.nQW) {
                                 ExpandableTextView.this.dTU();
                             }
                         }
@@ -219,7 +219,7 @@ public class ExpandableTextView extends RelativeLayout {
                             int lineEnd2 = layout.getLineEnd(0);
                             int lineEnd3 = layout.getLineEnd(lineCount - 1) - layout.getLineStart(lineCount - 1);
                             SpannableString spannableString2 = new SpannableString("收起");
-                            spannableString2.setSpan(ExpandableTextView.this.nQX, 0, spannableString2.length(), 17);
+                            spannableString2.setSpan(ExpandableTextView.this.nQY, 0, spannableString2.length(), 17);
                             if (lineEnd2 - lineEnd3 > "收起".length()) {
                                 ExpandableTextView.this.lZA.append((CharSequence) spannableString2);
                             } else {
@@ -230,8 +230,8 @@ public class ExpandableTextView extends RelativeLayout {
                                 ExpandableTextView.this.lZA.append((CharSequence) spannableString2);
                             }
                             ((i) ExpandableTextView.this.lZC).KF(R.color.transparent);
-                            ExpandableTextView.this.nQQ.setOnTouchListener(ExpandableTextView.this.lZC);
-                            ExpandableTextView.this.nQQ.setText(ExpandableTextView.this.lZA);
+                            ExpandableTextView.this.nQR.setOnTouchListener(ExpandableTextView.this.lZC);
+                            ExpandableTextView.this.nQR.setText(ExpandableTextView.this.lZA);
                             ExpandableTextView.this.lZt.setVisibility(8);
                             return;
                         }
@@ -255,13 +255,13 @@ public class ExpandableTextView extends RelativeLayout {
                 ExpandableTextView.this.dTU();
             }
         };
-        this.nQX = new f(2, null) { // from class: com.baidu.tieba.view.expandable.ExpandableTextView.3
+        this.nQY = new f(2, null) { // from class: com.baidu.tieba.view.expandable.ExpandableTextView.3
             @Override // com.baidu.tbadk.widget.richText.f, android.text.style.ClickableSpan
             public void onClick(View view) {
                 ExpandableTextView.this.dTV();
             }
         };
-        this.nQY = new View.OnClickListener() { // from class: com.baidu.tieba.view.expandable.ExpandableTextView.4
+        this.nQZ = new View.OnClickListener() { // from class: com.baidu.tieba.view.expandable.ExpandableTextView.4
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 ExpandableTextView.this.dTV();
@@ -273,25 +273,25 @@ public class ExpandableTextView extends RelativeLayout {
     public ExpandableTextView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         this.type = 1;
-        this.nQO = true;
-        this.nQP = false;
+        this.nQP = true;
+        this.nQQ = false;
         this.lZx = false;
-        this.nQR = 2;
-        this.nQS = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
-        this.nQV = false;
-        this.nQW = new ViewTreeObserver.OnGlobalLayoutListener() { // from class: com.baidu.tieba.view.expandable.ExpandableTextView.1
+        this.nQS = 2;
+        this.nQT = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
+        this.nQW = false;
+        this.nQX = new ViewTreeObserver.OnGlobalLayoutListener() { // from class: com.baidu.tieba.view.expandable.ExpandableTextView.1
             @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
             public void onGlobalLayout() {
                 Layout layout;
                 String substring;
                 Object[] spans;
-                if (ExpandableTextView.this.nQQ != null && ExpandableTextView.this.lZA != null && ExpandableTextView.this.nQO && (layout = ExpandableTextView.this.nQQ.getLayout()) != null) {
-                    if (!ExpandableTextView.this.nQP) {
-                        if (layout.getLineCount() > ExpandableTextView.this.nQR) {
+                if (ExpandableTextView.this.nQR != null && ExpandableTextView.this.lZA != null && ExpandableTextView.this.nQP && (layout = ExpandableTextView.this.nQR.getLayout()) != null) {
+                    if (!ExpandableTextView.this.nQQ) {
+                        if (layout.getLineCount() > ExpandableTextView.this.nQS) {
                             if (ExpandableTextView.this.lZB == null) {
                                 String spannableStringBuilder = ExpandableTextView.this.lZA.toString();
-                                int lineStart = layout.getLineStart(ExpandableTextView.this.nQR - 1);
-                                int lineEnd = layout.getLineEnd(ExpandableTextView.this.nQR - 1);
+                                int lineStart = layout.getLineStart(ExpandableTextView.this.nQS - 1);
+                                int lineEnd = layout.getLineEnd(ExpandableTextView.this.nQS - 1);
                                 String substring2 = spannableStringBuilder.substring(0, lineStart);
                                 String cutChineseAndEnglishWithSuffix = at.cutChineseAndEnglishWithSuffix(spannableStringBuilder.substring(lineStart, lineEnd), at.getChineseAndEnglishLength(substring) - 6, "");
                                 ExpandableTextView.this.lZB = new SpannableStringBuilder();
@@ -316,9 +316,9 @@ public class ExpandableTextView extends RelativeLayout {
                                 ((i) ExpandableTextView.this.lZD).KF(R.color.transparent);
                             }
                             ExpandableTextView.this.lZt.setVisibility(8);
-                            ExpandableTextView.this.nQQ.setOnTouchListener(ExpandableTextView.this.lZD);
-                            ExpandableTextView.this.nQQ.setText(ExpandableTextView.this.lZB);
-                            if (ExpandableTextView.this.nQV) {
+                            ExpandableTextView.this.nQR.setOnTouchListener(ExpandableTextView.this.lZD);
+                            ExpandableTextView.this.nQR.setText(ExpandableTextView.this.lZB);
+                            if (ExpandableTextView.this.nQW) {
                                 ExpandableTextView.this.dTU();
                             }
                         }
@@ -329,7 +329,7 @@ public class ExpandableTextView extends RelativeLayout {
                             int lineEnd2 = layout.getLineEnd(0);
                             int lineEnd3 = layout.getLineEnd(lineCount - 1) - layout.getLineStart(lineCount - 1);
                             SpannableString spannableString2 = new SpannableString("收起");
-                            spannableString2.setSpan(ExpandableTextView.this.nQX, 0, spannableString2.length(), 17);
+                            spannableString2.setSpan(ExpandableTextView.this.nQY, 0, spannableString2.length(), 17);
                             if (lineEnd2 - lineEnd3 > "收起".length()) {
                                 ExpandableTextView.this.lZA.append((CharSequence) spannableString2);
                             } else {
@@ -340,8 +340,8 @@ public class ExpandableTextView extends RelativeLayout {
                                 ExpandableTextView.this.lZA.append((CharSequence) spannableString2);
                             }
                             ((i) ExpandableTextView.this.lZC).KF(R.color.transparent);
-                            ExpandableTextView.this.nQQ.setOnTouchListener(ExpandableTextView.this.lZC);
-                            ExpandableTextView.this.nQQ.setText(ExpandableTextView.this.lZA);
+                            ExpandableTextView.this.nQR.setOnTouchListener(ExpandableTextView.this.lZC);
+                            ExpandableTextView.this.nQR.setText(ExpandableTextView.this.lZA);
                             ExpandableTextView.this.lZt.setVisibility(8);
                             return;
                         }
@@ -365,13 +365,13 @@ public class ExpandableTextView extends RelativeLayout {
                 ExpandableTextView.this.dTU();
             }
         };
-        this.nQX = new f(2, null) { // from class: com.baidu.tieba.view.expandable.ExpandableTextView.3
+        this.nQY = new f(2, null) { // from class: com.baidu.tieba.view.expandable.ExpandableTextView.3
             @Override // com.baidu.tbadk.widget.richText.f, android.text.style.ClickableSpan
             public void onClick(View view) {
                 ExpandableTextView.this.dTV();
             }
         };
-        this.nQY = new View.OnClickListener() { // from class: com.baidu.tieba.view.expandable.ExpandableTextView.4
+        this.nQZ = new View.OnClickListener() { // from class: com.baidu.tieba.view.expandable.ExpandableTextView.4
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 ExpandableTextView.this.dTV();
@@ -382,55 +382,55 @@ public class ExpandableTextView extends RelativeLayout {
 
     private void init(Context context) {
         LayoutInflater.from(context).inflate(R.layout.widget_expandable_text_view, this);
-        this.nQQ = (SpannableClickTextView) findViewById(R.id.expandable_view_title);
-        this.nQQ.setTextSize(0, TbConfig.getContentSize());
-        this.nQQ.setLineSpacing(TbConfig.getContentLineSpace(), 1.0f);
+        this.nQR = (SpannableClickTextView) findViewById(R.id.expandable_view_title);
+        this.nQR.setTextSize(0, TbConfig.getContentSize());
+        this.nQR.setLineSpacing(TbConfig.getContentLineSpace(), 1.0f);
         this.lZt = (TextView) findViewById(R.id.expandable_view_title_up);
-        this.lZt.setOnClickListener(this.nQY);
+        this.lZt.setOnClickListener(this.nQZ);
         this.textSize = l.getDimens(context, R.dimen.tbfontsize42);
         this.textColor = R.color.CAM_X0101;
-        this.nQT = l.getDimens(context, R.dimen.tbds6);
+        this.nQU = l.getDimens(context, R.dimen.tbds6);
     }
 
     public void setTextSize(int i) {
         this.textSize = i;
-        this.nQQ.setTextSize(0, i);
+        this.nQR.setTextSize(0, i);
         this.lZt.setTextSize(0, i);
     }
 
     public void setTextColor(int i) {
         this.textColor = i;
-        ao.setViewTextColor(this.nQQ, this.textColor, 1);
+        ao.setViewTextColor(this.nQR, this.textColor, 1);
     }
 
     public void setLineSpacingExtra(int i) {
-        this.nQT = i;
-        this.nQQ.setLineSpacing(i, 1.0f);
+        this.nQU = i;
+        this.nQR.setLineSpacing(i, 1.0f);
         this.lZt.setLineSpacing(i, 1.0f);
     }
 
     public void setTextMaxLine(int i) {
-        this.nQS = i;
+        this.nQT = i;
     }
 
     public void setExpandable(boolean z) {
-        this.nQO = z;
+        this.nQP = z;
         if (!z) {
             if (Build.VERSION.SDK_INT < 16) {
-                this.nQQ.getViewTreeObserver().removeGlobalOnLayoutListener(this.nQW);
+                this.nQR.getViewTreeObserver().removeGlobalOnLayoutListener(this.nQX);
             } else {
-                this.nQQ.getViewTreeObserver().removeOnGlobalLayoutListener(this.nQW);
+                this.nQR.getViewTreeObserver().removeOnGlobalLayoutListener(this.nQX);
             }
-            this.nQQ.setMaxLines(this.nQS);
-            this.nQQ.setEllipsize(TextUtils.TruncateAt.END);
-            this.nQQ.setText(this.lZA);
-            this.nQQ.setOnTouchListener(null);
+            this.nQR.setMaxLines(this.nQT);
+            this.nQR.setEllipsize(TextUtils.TruncateAt.END);
+            this.nQR.setText(this.lZA);
+            this.nQR.setOnTouchListener(null);
             this.lZt.setVisibility(8);
             return;
         }
-        this.nQQ.getViewTreeObserver().addOnGlobalLayoutListener(this.nQW);
-        this.nQQ.setMaxLines(ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED);
-        this.nQQ.setEllipsize(null);
+        this.nQR.getViewTreeObserver().addOnGlobalLayoutListener(this.nQX);
+        this.nQR.setMaxLines(ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED);
+        this.nQR.setEllipsize(null);
     }
 
     public void setExpandType(int i) {
@@ -445,31 +445,31 @@ public class ExpandableTextView extends RelativeLayout {
         if (charSequence == null) {
             charSequence = "";
         }
-        this.nQV = z;
+        this.nQW = z;
         this.lZA = new SpannableStringBuilder(charSequence);
         this.lZC = new i(this.lZA);
-        this.nQQ.setText(this.lZA);
-        this.nQQ.setLinkTextColor(ao.getColor(R.color.CAM_X0304));
-        this.nQQ.setOnTouchListener(this.lZC);
-        ao.setViewTextColor(this.nQQ, this.textColor, 1);
+        this.nQR.setText(this.lZA);
+        this.nQR.setLinkTextColor(ao.getColor(R.color.CAM_X0304));
+        this.nQR.setOnTouchListener(this.lZC);
+        ao.setViewTextColor(this.nQR, this.textColor, 1);
     }
 
     public TextView getContentView() {
-        return this.nQQ;
+        return this.nQR;
     }
 
     public void onChangeSkinType() {
-        ao.setViewTextColor(this.nQQ, this.textColor, 1);
+        ao.setViewTextColor(this.nQR, this.textColor, 1);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void dTU() {
-        this.nQP = true;
-        if (this.nQU != null) {
-            this.nQU.rz(this.nQP);
+        this.nQQ = true;
+        if (this.nQV != null) {
+            this.nQV.rz(this.nQQ);
         }
-        this.nQQ.setOnTouchListener(this.lZC);
-        this.nQQ.setText(this.lZA);
+        this.nQR.setOnTouchListener(this.lZC);
+        this.nQR.setText(this.lZA);
         if (this.type == 1) {
             this.lZt.setVisibility(0);
         }
@@ -477,16 +477,16 @@ public class ExpandableTextView extends RelativeLayout {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void dTV() {
-        this.nQP = false;
-        if (this.nQU != null) {
-            this.nQU.rz(this.nQP);
+        this.nQQ = false;
+        if (this.nQV != null) {
+            this.nQV.rz(this.nQQ);
         }
-        this.nQQ.setOnTouchListener(this.lZD);
-        this.nQQ.setText(this.lZB);
+        this.nQR.setOnTouchListener(this.lZD);
+        this.nQR.setText(this.lZB);
         this.lZt.setVisibility(8);
     }
 
     public void setOnStatusChangedListener(a aVar) {
-        this.nQU = aVar;
+        this.nQV = aVar;
     }
 }

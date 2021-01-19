@@ -124,7 +124,7 @@ public final class g {
                 }
 
                 @Override // com.baidu.ubs.analytics.b.b.a
-                public final void WD(String str) {
+                public final void WE(String str) {
                     while (g.aY < 2) {
                         synchronized (this) {
                             g.ah();
@@ -157,7 +157,7 @@ public final class g {
             }
 
             @Override // com.baidu.ubs.analytics.b.b.a
-            public final void WD(String str) {
+            public final void WE(String str) {
                 com.baidu.ubs.analytics.d.j.I("SDK getToken Error do you have set correct  BAIDUAB_APPKEY  in Manifest   or network is available");
             }
         });
@@ -190,7 +190,7 @@ public final class g {
             }
 
             @Override // com.baidu.ubs.analytics.b.b.a
-            public final void WD(String str) {
+            public final void WE(String str) {
                 if (str.equals("1")) {
                     com.baidu.ubs.analytics.d.efH().b("");
                 }
@@ -226,12 +226,12 @@ public final class g {
         com.baidu.ubs.analytics.d.c.a(new com.baidu.ubs.analytics.d.d() { // from class: com.baidu.ubs.analytics.c.g.5
             @Override // com.baidu.ubs.analytics.d.d
             protected final void a() {
-                if (!com.baidu.ubs.analytics.d.e.WF("status_updated")) {
+                if (!com.baidu.ubs.analytics.d.e.WG("status_updated")) {
                     HashMap hashMap = new HashMap();
                     hashMap.put("exids", str);
                     com.baidu.ubs.analytics.b.b.a(com.baidu.ubs.analytics.b.b.b("http://absample.baidu.com/appabapp/appapi/updateStatus", hashMap), new b.a<JSONObject>() { // from class: com.baidu.ubs.analytics.c.g.5.1
                         @Override // com.baidu.ubs.analytics.b.b.a
-                        public final void WD(String str2) {
+                        public final void WE(String str2) {
                         }
 
                         /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
@@ -247,8 +247,8 @@ public final class g {
 
     static /* synthetic */ String g(Context context) {
         String c = com.baidu.ubs.analytics.d.e.c("lastkey", "");
-        long WG = com.baidu.ubs.analytics.d.e.WG("token_update_time");
-        if (c.equals(e(context)) && 86400000 + WG >= System.currentTimeMillis()) {
+        long WH = com.baidu.ubs.analytics.d.e.WH("token_update_time");
+        if (c.equals(e(context)) && 86400000 + WH >= System.currentTimeMillis()) {
             String c2 = com.baidu.ubs.analytics.d.e.c("token", "");
             if (!c2.equals("")) {
                 com.baidu.ubs.analytics.d.efH().a(c2);

@@ -19,25 +19,25 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes10.dex */
 public class a {
-    private static a ozc;
+    private static a ozd;
     private cd aOf;
     private HttpMessageListener ibi;
-    private List<av> ozd;
     private List<av> oze;
-    private boolean ozf = false;
+    private List<av> ozf;
+    private boolean ozg = false;
 
     private a() {
     }
 
     public static a ecb() {
-        if (ozc == null) {
+        if (ozd == null) {
             synchronized (a.class) {
-                if (ozc == null) {
-                    ozc = new a();
+                if (ozd == null) {
+                    ozd = new a();
                 }
             }
         }
-        return ozc;
+        return ozd;
     }
 
     public void bcU() {
@@ -53,8 +53,8 @@ public class a {
                 public Boolean doInBackground(cd... cdVarArr) {
                     boolean z = false;
                     if (cdVarArr != null && cdVarArr.length != 0) {
-                        if (!a.this.ozf) {
-                            a.this.ozf = true;
+                        if (!a.this.ozg) {
+                            a.this.ozg = true;
                             cd cdVar = cdVarArr[0];
                             cd fg = cd.fg(d.xf().getString("audio_live_dating_anim", ""));
                             if (fg != null) {
@@ -119,25 +119,25 @@ public class a {
     /* JADX INFO: Access modifiers changed from: private */
     public void ecc() {
         if (this.aOf != null) {
-            if (this.ozd == null) {
-                this.ozd = new ArrayList();
+            if (this.oze == null) {
+                this.oze = new ArrayList();
             } else {
-                this.ozd.clear();
+                this.oze.clear();
             }
-            ListUtils.add(this.ozd, this.aOf.Bs());
-            ListUtils.add(this.ozd, this.aOf.Bp());
-            ListUtils.add(this.ozd, this.aOf.Bq());
-            ListUtils.add(this.ozd, this.aOf.Br());
-            ListUtils.add(this.ozd, this.aOf.Bt());
-            ListUtils.add(this.ozd, this.aOf.Bu());
-            ListUtils.add(this.ozd, this.aOf.Bv());
+            ListUtils.add(this.oze, this.aOf.Bs());
+            ListUtils.add(this.oze, this.aOf.Bp());
+            ListUtils.add(this.oze, this.aOf.Bq());
+            ListUtils.add(this.oze, this.aOf.Br());
+            ListUtils.add(this.oze, this.aOf.Bt());
+            ListUtils.add(this.oze, this.aOf.Bu());
+            ListUtils.add(this.oze, this.aOf.Bv());
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void zU(final boolean z) {
-        if (!ListUtils.isEmpty(z ? this.oze : this.ozd)) {
-            final av gr = gr(z ? this.oze : this.ozd);
+        if (!ListUtils.isEmpty(z ? this.ozf : this.oze)) {
+            final av gr = gr(z ? this.ozf : this.oze);
             if (gr == null) {
                 zU(z);
             } else {
@@ -145,12 +145,12 @@ public class a {
                     @Override // com.baidu.tieba.yuyinala.liveroom.wheat.lottie.a.b.a
                     public void zV(boolean z2) {
                         if (!z && !z2) {
-                            if (a.this.oze == null) {
-                                a.this.oze = new ArrayList();
+                            if (a.this.ozf == null) {
+                                a.this.ozf = new ArrayList();
                             }
-                            a.this.oze.add(gr);
+                            a.this.ozf.add(gr);
                         }
-                        a.this.zU(z || ListUtils.isEmpty(a.this.ozd));
+                        a.this.zU(z || ListUtils.isEmpty(a.this.oze));
                     }
                 });
             }

@@ -1,7 +1,6 @@
 package com.baidu.ar.bus;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes6.dex */
-public final class g {
+final class g {
     final Object kV;
     final e kW;
     volatile boolean kX = true;

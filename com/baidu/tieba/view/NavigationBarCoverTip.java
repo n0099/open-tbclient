@@ -19,7 +19,7 @@ public class NavigationBarCoverTip extends LinearLayout {
     private Activity mActivity;
     private Runnable mHideRunnable;
     private int mSkinType;
-    private a nNa;
+    private a nNb;
 
     /* loaded from: classes.dex */
     public interface a {
@@ -65,8 +65,8 @@ public class NavigationBarCoverTip extends LinearLayout {
         this.bNq.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.view.NavigationBarCoverTip.2
             @Override // android.view.animation.Animation.AnimationListener
             public void onAnimationStart(Animation animation) {
-                if (NavigationBarCoverTip.this.nNa != null) {
-                    NavigationBarCoverTip.this.nNa.onShow();
+                if (NavigationBarCoverTip.this.nNb != null) {
+                    NavigationBarCoverTip.this.nNb.onShow();
                 }
                 if (NavigationBarCoverTip.this.mActivity != null) {
                     UtilHelper.changeStatusBarIconAndTextColor(true, NavigationBarCoverTip.this.mActivity);
@@ -89,8 +89,8 @@ public class NavigationBarCoverTip extends LinearLayout {
 
             @Override // android.view.animation.Animation.AnimationListener
             public void onAnimationEnd(Animation animation) {
-                if (NavigationBarCoverTip.this.nNa != null) {
-                    NavigationBarCoverTip.this.nNa.dTF();
+                if (NavigationBarCoverTip.this.nNb != null) {
+                    NavigationBarCoverTip.this.nNb.dTF();
                 }
                 NavigationBarCoverTip.this.release();
             }
@@ -168,6 +168,6 @@ public class NavigationBarCoverTip extends LinearLayout {
     }
 
     public void setCoverTipListener(a aVar) {
-        this.nNa = aVar;
+        this.nNb = aVar;
     }
 }

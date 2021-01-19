@@ -21,7 +21,7 @@ public class b {
             jSONObject2.put("open_ad_sdk_download_extra", a.a().a(str2).b(jSONObject).a(lVar).b());
         } catch (Exception e) {
         }
-        c.a Bz = new c.a().iV(Long.valueOf(lVar.T()).longValue()).Zy(lVar.I() == null ? null : lVar.I().a()).BA(i.c().k()).BC(!i.c().k()).Zw(lVar.W()).fa(jSONObject2).Zz(str).Bz(true);
+        c.a Bz = new c.a().iV(Long.valueOf(lVar.T()).longValue()).Zz(lVar.I() == null ? null : lVar.I().a()).BA(i.c().k()).BC(!i.c().k()).Zx(lVar.W()).fa(jSONObject2).ZA(str).Bz(true);
         if (com.bytedance.sdk.openadsdk.multipro.b.b()) {
             Bz.BB(true);
             return Bz;
@@ -38,10 +38,10 @@ public class b {
             jSONObject2.put("open_ad_sdk_download_extra", a.a().a(str).b(jSONObject).a(lVar).b());
         } catch (Exception e) {
         }
-        c.a Bz = new c.a().iV(Long.valueOf(lVar.T()).longValue()).Zy(lVar.I() == null ? null : lVar.I().a()).BA(i.c().k()).BC(!i.c().k()).Zw(lVar.W()).fa(jSONObject2).Bz(true);
+        c.a Bz = new c.a().iV(Long.valueOf(lVar.T()).longValue()).Zz(lVar.I() == null ? null : lVar.I().a()).BA(i.c().k()).BC(!i.c().k()).Zx(lVar.W()).fa(jSONObject2).Bz(true);
         com.bytedance.sdk.openadsdk.core.d.b U = lVar.U();
         if (U != null) {
-            Bz.Zz(U.b()).ZA(U.c()).Zx(U.d());
+            Bz.ZA(U.b()).ZB(U.c()).Zy(U.d());
         }
         if (com.bytedance.sdk.openadsdk.multipro.b.b()) {
             Bz.BB(true);
@@ -74,6 +74,6 @@ public class b {
     }
 
     public static b.a a(l lVar, String str) {
-        return new b.a().Zl(str).Zm(str).Zn("click_start").Zp("click_continue").Zo("click_pause").Zs("download_failed").Zq("click_install").Bw(true).By(false);
+        return new b.a().Zm(str).Zn(str).Zo("click_start").Zq("click_continue").Zp("click_pause").Zt("download_failed").Zr("click_install").Bw(true).By(false);
     }
 }

@@ -25,7 +25,7 @@ public class MemberPayResultActivity extends BaseActivity<MemberPayResultActivit
 
     private void initUI() {
         this.lif = new g(getPageContext());
-        this.lif.Nn(this.lig);
+        this.lif.No(this.lig);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

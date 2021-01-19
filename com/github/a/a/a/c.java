@@ -7,7 +7,7 @@ import com.meizu.cloud.pushsdk.constants.PushConstants;
 import java.util.List;
 /* loaded from: classes6.dex */
 public class c {
-    private static final Object pHg = new Object();
+    private static final Object pHh = new Object();
     private static volatile String sProcessName;
 
     public static String eyr() {
@@ -15,7 +15,7 @@ public class c {
         if (sProcessName != null) {
             return sProcessName;
         }
-        synchronized (pHg) {
+        synchronized (pHh) {
             if (sProcessName != null) {
                 str = sProcessName;
             } else {

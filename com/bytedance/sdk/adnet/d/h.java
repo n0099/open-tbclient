@@ -20,7 +20,7 @@ public class h extends SSLSocketFactory {
 
     /* renamed from: b  reason: collision with root package name */
     private static final String[] f6057b;
-    private SSLSocketFactory plc;
+    private SSLSocketFactory pld;
 
     static {
         if (Build.VERSION.SDK_INT >= 26) {
@@ -56,7 +56,7 @@ public class h extends SSLSocketFactory {
         try {
             SSLContext sSLContext = SSLContext.getInstance("TLS");
             sSLContext.init(null, new TrustManager[]{f6056a}, new SecureRandom());
-            this.plc = sSLContext.getSocketFactory();
+            this.pld = sSLContext.getSocketFactory();
         } catch (Exception e) {
             Log.e("TLSSocketFactory", "TLSSocketFactory error: ", e);
         }
@@ -64,76 +64,76 @@ public class h extends SSLSocketFactory {
 
     @Override // javax.net.ssl.SSLSocketFactory
     public String[] getDefaultCipherSuites() {
-        if (this.plc != null) {
-            return this.plc.getDefaultCipherSuites();
+        if (this.pld != null) {
+            return this.pld.getDefaultCipherSuites();
         }
         return null;
     }
 
     @Override // javax.net.ssl.SSLSocketFactory
     public String[] getSupportedCipherSuites() {
-        if (this.plc != null) {
-            return this.plc.getSupportedCipherSuites();
+        if (this.pld != null) {
+            return this.pld.getSupportedCipherSuites();
         }
         return null;
     }
 
     @Override // javax.net.ssl.SSLSocketFactory
     public Socket createSocket(Socket socket, String str, int i, boolean z) throws IOException {
-        if (this.plc == null) {
+        if (this.pld == null) {
             return null;
         }
-        Socket createSocket = this.plc.createSocket(socket, str, i, z);
+        Socket createSocket = this.pld.createSocket(socket, str, i, z);
         a(createSocket);
         return createSocket;
     }
 
     @Override // javax.net.SocketFactory
     public Socket createSocket(String str, int i) throws IOException {
-        if (this.plc == null) {
+        if (this.pld == null) {
             return null;
         }
-        Socket createSocket = this.plc.createSocket(str, i);
+        Socket createSocket = this.pld.createSocket(str, i);
         a(createSocket);
         return createSocket;
     }
 
     @Override // javax.net.SocketFactory
     public Socket createSocket(String str, int i, InetAddress inetAddress, int i2) throws IOException {
-        if (this.plc == null) {
+        if (this.pld == null) {
             return null;
         }
-        Socket createSocket = this.plc.createSocket(str, i, inetAddress, i2);
+        Socket createSocket = this.pld.createSocket(str, i, inetAddress, i2);
         a(createSocket);
         return createSocket;
     }
 
     @Override // javax.net.SocketFactory
     public Socket createSocket(InetAddress inetAddress, int i) throws IOException {
-        if (this.plc == null) {
+        if (this.pld == null) {
             return null;
         }
-        Socket createSocket = this.plc.createSocket(inetAddress, i);
+        Socket createSocket = this.pld.createSocket(inetAddress, i);
         a(createSocket);
         return createSocket;
     }
 
     @Override // javax.net.SocketFactory
     public Socket createSocket(InetAddress inetAddress, int i, InetAddress inetAddress2, int i2) throws IOException {
-        if (this.plc == null) {
+        if (this.pld == null) {
             return null;
         }
-        Socket createSocket = this.plc.createSocket(inetAddress, i, inetAddress2, i2);
+        Socket createSocket = this.pld.createSocket(inetAddress, i, inetAddress2, i2);
         a(createSocket);
         return createSocket;
     }
 
     @Override // javax.net.SocketFactory
     public Socket createSocket() throws IOException {
-        if (this.plc == null) {
+        if (this.pld == null) {
             return null;
         }
-        Socket createSocket = this.plc.createSocket();
+        Socket createSocket = this.pld.createSocket();
         a(createSocket);
         return createSocket;
     }

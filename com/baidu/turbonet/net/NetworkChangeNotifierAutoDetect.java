@@ -349,7 +349,7 @@ public class NetworkChangeNotifierAutoDetect extends BroadcastReceiver {
     /* loaded from: classes4.dex */
     public static abstract class RegistrationPolicy {
         static final /* synthetic */ boolean $assertionsDisabled;
-        private NetworkChangeNotifierAutoDetect oGv;
+        private NetworkChangeNotifierAutoDetect oGw;
 
         protected abstract void destroy();
 
@@ -359,15 +359,15 @@ public class NetworkChangeNotifierAutoDetect extends BroadcastReceiver {
 
         /* JADX INFO: Access modifiers changed from: protected */
         public final void register() {
-            if (!$assertionsDisabled && this.oGv == null) {
+            if (!$assertionsDisabled && this.oGw == null) {
                 throw new AssertionError();
             }
-            this.oGv.register();
+            this.oGw.register();
         }
 
         /* JADX INFO: Access modifiers changed from: protected */
         public void a(NetworkChangeNotifierAutoDetect networkChangeNotifierAutoDetect) {
-            this.oGv = networkChangeNotifierAutoDetect;
+            this.oGw = networkChangeNotifierAutoDetect;
         }
     }
 

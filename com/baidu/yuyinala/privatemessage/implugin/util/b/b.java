@@ -7,16 +7,16 @@ import android.view.ViewTreeObserver;
 public class b implements ViewTreeObserver.OnGlobalLayoutListener {
     private int cJF = 0;
     private View mView;
-    private final Rect oXe;
-    private final int oXf;
-    private c oXg;
+    private final Rect oXf;
+    private final int oXg;
+    private c oXh;
 
     public b(View view, c cVar) {
         this.mView = view;
         a.hH(this.mView.getContext().getApplicationContext());
-        this.oXe = new Rect();
-        this.oXf = (int) d.bB(60.0f);
-        this.oXg = cVar;
+        this.oXf = new Rect();
+        this.oXg = (int) d.bB(60.0f);
+        this.oXh = cVar;
     }
 
     @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
@@ -27,17 +27,17 @@ public class b implements ViewTreeObserver.OnGlobalLayoutListener {
     }
 
     private void ekg() {
-        this.mView.getRootView().getWindowVisibleDisplayFrame(this.oXe);
-        int i = a.eke().heightPixels - this.oXe.bottom;
-        if (this.cJF != i && i > this.oXf) {
+        this.mView.getRootView().getWindowVisibleDisplayFrame(this.oXf);
+        int i = a.eke().heightPixels - this.oXf.bottom;
+        if (this.cJF != i && i > this.oXg) {
             this.cJF = i;
-            if (this.oXg != null) {
-                this.oXg.a(true, this.cJF, this.oXe.width(), this.oXe.bottom);
+            if (this.oXh != null) {
+                this.oXh.a(true, this.cJF, this.oXf.width(), this.oXf.bottom);
             }
-        } else if (this.cJF != 0 && i <= this.oXf) {
+        } else if (this.cJF != 0 && i <= this.oXg) {
             this.cJF = 0;
-            if (this.oXg != null) {
-                this.oXg.a(false, this.cJF, this.oXe.width(), this.oXe.bottom);
+            if (this.oXh != null) {
+                this.oXh.a(false, this.cJF, this.oXf.width(), this.oXf.bottom);
             }
         }
     }

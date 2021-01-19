@@ -18,23 +18,23 @@ public final class a<T, R> extends w<R> {
     /* loaded from: classes5.dex */
     static final class C1291a<T, R> implements y<T> {
         final h<? super T, ? extends R> mapper;
-        final y<? super R> qgb;
+        final y<? super R> qgc;
 
         /* JADX INFO: Access modifiers changed from: package-private */
         public C1291a(y<? super R> yVar, h<? super T, ? extends R> hVar) {
-            this.qgb = yVar;
+            this.qgc = yVar;
             this.mapper = hVar;
         }
 
         @Override // io.reactivex.y
         public void onSubscribe(io.reactivex.disposables.b bVar) {
-            this.qgb.onSubscribe(bVar);
+            this.qgc.onSubscribe(bVar);
         }
 
         @Override // io.reactivex.y
         public void onSuccess(T t) {
             try {
-                this.qgb.onSuccess(io.reactivex.internal.functions.a.m(this.mapper.apply(t), "The mapper function returned a null value."));
+                this.qgc.onSuccess(io.reactivex.internal.functions.a.m(this.mapper.apply(t), "The mapper function returned a null value."));
             } catch (Throwable th) {
                 io.reactivex.exceptions.a.O(th);
                 onError(th);
@@ -43,7 +43,7 @@ public final class a<T, R> extends w<R> {
 
         @Override // io.reactivex.y
         public void onError(Throwable th) {
-            this.qgb.onError(th);
+            this.qgc.onError(th);
         }
     }
 }

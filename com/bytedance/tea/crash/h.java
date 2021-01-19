@@ -17,35 +17,35 @@ public final class h {
     private static volatile int j;
     private static volatile String k;
     @SuppressLint({"StaticFieldLeak"})
-    private static com.bytedance.tea.crash.e.a plK;
+    private static com.bytedance.tea.crash.e.a plL;
     private static String c = DefaultSharedPrefsWrapper.SP_FILE_DEFAULT;
     private static boolean d = false;
-    private static com.bytedance.tea.crash.e.b plL = new com.bytedance.tea.crash.e.b();
-    private static b plM = new b();
-    private static j plN = null;
+    private static com.bytedance.tea.crash.e.b plM = new com.bytedance.tea.crash.e.b();
+    private static b plN = new b();
+    private static j plO = null;
 
     public static com.bytedance.tea.crash.e.a eoL() {
-        return plK;
+        return plL;
     }
 
     public static b eoM() {
-        return plM;
+        return plN;
     }
 
     public static j eoN() {
-        if (plN == null) {
+        if (plO == null) {
             synchronized (h.class) {
-                plN = new j(f7670a);
+                plO = new j(f7670a);
             }
         }
-        return plN;
+        return plO;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static void a(Context context, d dVar) {
         f7671b = System.currentTimeMillis();
         f7670a = context;
-        plK = new com.bytedance.tea.crash.e.a(f7670a, dVar);
+        plL = new com.bytedance.tea.crash.e.a(f7670a, dVar);
     }
 
     public static Context d() {
@@ -53,7 +53,7 @@ public final class h {
     }
 
     public static com.bytedance.tea.crash.e.b eoO() {
-        return plL;
+        return plM;
     }
 
     public static long f() {

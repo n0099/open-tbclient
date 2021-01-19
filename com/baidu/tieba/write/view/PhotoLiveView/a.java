@@ -27,14 +27,14 @@ import java.util.LinkedList;
 public class a extends BaseAdapter {
     private GridView dhj;
     private Context mContext;
-    private BaseActivity nXl;
+    private BaseActivity nXm;
     private b fAo = new b();
     private EditorTools fyO = null;
     private int fAr = 13;
-    private int nXz = 6;
-    private boolean nXA = false;
+    private int nXA = 6;
+    private boolean nXB = false;
     private LinkedList<ImageFileInfo> chosedFiles = null;
-    private InterfaceC0898a nXB = new InterfaceC0898a() { // from class: com.baidu.tieba.write.view.PhotoLiveView.a.1
+    private InterfaceC0898a nXC = new InterfaceC0898a() { // from class: com.baidu.tieba.write.view.PhotoLiveView.a.1
         @Override // com.baidu.tieba.write.view.PhotoLiveView.a.InterfaceC0898a
         public void KY(int i) {
             if (a.this.chosedFiles != null) {
@@ -57,7 +57,7 @@ public class a extends BaseAdapter {
                     }
                 }
                 a.this.dVm();
-                ((WriteActivity) a.this.nXl).q(a.this.chosedFiles);
+                ((WriteActivity) a.this.nXm).q(a.this.chosedFiles);
                 a.this.dVj();
                 a.this.notifyDataSetChanged();
                 a.this.dhj.invalidateViews();
@@ -74,7 +74,7 @@ public class a extends BaseAdapter {
     public void dVj() {
         if (this.chosedFiles == null || this.chosedFiles.size() == 0) {
             dVk();
-        } else if (this.chosedFiles.size() < this.nXz) {
+        } else if (this.chosedFiles.size() < this.nXA) {
             if (this.chosedFiles.size() <= 0 || !this.chosedFiles.get(this.chosedFiles.size() - 1).getFilePath().startsWith("android.resource://")) {
                 dVk();
             }
@@ -110,10 +110,10 @@ public class a extends BaseAdapter {
 
     public a(BaseActivity baseActivity, WriteImagesInfo writeImagesInfo, GridView gridView) {
         this.mContext = null;
-        this.nXl = null;
+        this.nXm = null;
         this.dhj = null;
-        this.nXl = baseActivity;
-        this.mContext = this.nXl.getActivity();
+        this.nXm = baseActivity;
+        this.mContext = this.nXm.getActivity();
         this.dhj = gridView;
     }
 
@@ -211,12 +211,12 @@ public class a extends BaseAdapter {
                 boolean z2;
                 int indexOfChild = viewGroup.indexOfChild(view2);
                 if (indexOfChild >= 0) {
-                    if (z && (a.this.nXl instanceof WriteActivity)) {
+                    if (z && (a.this.nXm instanceof WriteActivity)) {
                         if (a.this.chosedFiles != null && a.this.chosedFiles.size() > 0) {
                             a.this.chosedFiles.remove(a.this.chosedFiles.size() - 1);
                         }
-                        ((WriteActivity) a.this.nXl).q(a.this.chosedFiles);
-                        ((WriteActivity) a.this.nXl).e((com.baidu.tbadk.editortools.a) null);
+                        ((WriteActivity) a.this.nXm).q(a.this.chosedFiles);
+                        ((WriteActivity) a.this.nXm).e((com.baidu.tbadk.editortools.a) null);
                         return;
                     }
                     ImageFileInfo imageFileInfo2 = (ImageFileInfo) a.this.getItem(indexOfChild);
@@ -232,7 +232,7 @@ public class a extends BaseAdapter {
                         if (a.this.dVl()) {
                             a.this.dVm();
                         }
-                        ((WriteActivity) a.this.nXl).q(a.this.chosedFiles);
+                        ((WriteActivity) a.this.nXm).q(a.this.chosedFiles);
                         a.this.fyO.b(new com.baidu.tbadk.editortools.a(15, 0, Integer.valueOf(indexOfChild)));
                     }
                 }
@@ -241,8 +241,8 @@ public class a extends BaseAdapter {
         imageView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.view.PhotoLiveView.a.4
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
-                if (a.this.nXB != null) {
-                    a.this.nXB.KY(i);
+                if (a.this.nXC != null) {
+                    a.this.nXC.KY(i);
                 }
             }
         });
@@ -250,6 +250,6 @@ public class a extends BaseAdapter {
     }
 
     public void KX(int i) {
-        this.nXz = i;
+        this.nXA = i;
     }
 }

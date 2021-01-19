@@ -9,26 +9,26 @@ import java.util.List;
 import java.util.Random;
 /* loaded from: classes5.dex */
 public class g {
-    private static volatile g oIL;
+    private static volatile g oIM;
     private int ewe;
     private int ewf;
     private int ewg;
     private Context mContext;
-    private int oIM = 614400;
-    private int oIN = 153600;
-    private f oIO = new f();
-    private af oHT = new af();
+    private int oIN = 614400;
+    private int oIO = 153600;
+    private f oIP = new f();
+    private af oHU = new af();
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static g eff() {
-        if (oIL == null) {
+        if (oIM == null) {
             synchronized (e.class) {
-                if (oIL == null) {
-                    oIL = new g();
+                if (oIM == null) {
+                    oIM = new g();
                 }
             }
         }
-        return oIL;
+        return oIM;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -38,9 +38,9 @@ public class g {
         ai efB = ai.efB();
         this.ewf = efB.getInt("ubc_data_expire_time", PersonListModel.CACHETIME);
         this.ewg = efB.getInt("ubc_database_limit", 10000);
-        cVar.efa().a(this.oIO);
-        this.oIM = efB.getInt("ubc_launch_upload_max_limit", 614400);
-        this.oIN = efB.getInt("ubc_single_log_max_limit", 153600);
+        cVar.efa().a(this.oIP);
+        this.oIN = efB.getInt("ubc_launch_upload_max_limit", 614400);
+        this.oIO = efB.getInt("ubc_single_log_max_limit", 153600);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -49,68 +49,68 @@ public class g {
             String id = kVar.getId();
             if (!TextUtils.isEmpty(id)) {
                 if ("0".equals(kVar.bew())) {
-                    this.oIO.oIy.add(id);
-                    this.oIO.oIB.remove(id);
+                    this.oIP.oIz.add(id);
+                    this.oIP.oIC.remove(id);
                 } else {
-                    this.oIO.oIy.remove(id);
-                    this.oIO.oIB.add(id);
+                    this.oIP.oIz.remove(id);
+                    this.oIP.oIC.add(id);
                 }
                 if ("1".equals(kVar.bex())) {
-                    this.oIO.oIz.add(id);
+                    this.oIP.oIA.add(id);
                 } else {
-                    this.oIO.oIz.remove(id);
+                    this.oIP.oIA.remove(id);
                 }
                 if ("1".equals(kVar.bey())) {
-                    this.oIO.oIA.add(id);
+                    this.oIP.oIB.add(id);
                 } else {
-                    this.oIO.oIA.remove(id);
+                    this.oIP.oIB.remove(id);
                 }
                 if ("1".equals(kVar.efj())) {
-                    this.oIO.oIC.add(id);
+                    this.oIP.oID.add(id);
                 } else {
-                    this.oIO.oIC.remove(id);
+                    this.oIP.oID.remove(id);
                 }
                 if (kVar.bez() >= 1 && kVar.bez() <= 100) {
-                    this.oIO.oID.put(id, String.valueOf(kVar.bez()));
+                    this.oIP.oIE.put(id, String.valueOf(kVar.bez()));
                 } else {
-                    this.oIO.oID.remove(id);
+                    this.oIP.oIE.remove(id);
                 }
                 if (!TextUtils.isEmpty(kVar.getCategory())) {
-                    this.oIO.oIE.put(id, kVar.getCategory());
+                    this.oIP.oIF.put(id, kVar.getCategory());
                 } else {
-                    this.oIO.oIE.remove(id);
+                    this.oIP.oIF.remove(id);
                 }
                 if (kVar.beB() != 0 && kVar.beA() != 0) {
                     m mVar = new m(id, kVar.beA(), kVar.beB());
-                    this.oIO.oIF.put(mVar.getId(), mVar);
+                    this.oIP.oIG.put(mVar.getId(), mVar);
                 }
                 if (TextUtils.equals(kVar.beC(), "1")) {
-                    this.oIO.oIG.add(id);
+                    this.oIP.oIH.add(id);
                 } else {
-                    this.oIO.oIG.remove(id);
+                    this.oIP.oIH.remove(id);
                 }
                 if (TextUtils.equals(kVar.efl(), "1")) {
-                    this.oIO.oIH.add(id);
+                    this.oIP.oII.add(id);
                 } else {
-                    this.oIO.oIH.remove(id);
+                    this.oIP.oII.remove(id);
                 }
                 String efm = kVar.efm();
                 if (!TextUtils.isEmpty(efm) && !TextUtils.equals(efm, "0")) {
-                    this.oIO.oII.put(id, efm);
+                    this.oIP.oIJ.put(id, efm);
                 } else {
-                    this.oIO.oII.remove(id);
+                    this.oIP.oIJ.remove(id);
                 }
                 String efn = kVar.efn();
                 if (!TextUtils.isEmpty(efn)) {
-                    this.oIO.oIJ.put(id, efn);
+                    this.oIP.oIK.put(id, efn);
                 } else {
-                    this.oIO.oIJ.remove(id);
+                    this.oIP.oIK.remove(id);
                 }
                 int efo = kVar.efo();
                 if (efo != 2) {
-                    this.oIO.oIK.put(id, Integer.valueOf(efo));
+                    this.oIP.oIL.put(id, Integer.valueOf(efo));
                 } else {
-                    this.oIO.oIK.remove(id);
+                    this.oIP.oIL.remove(id);
                 }
             }
         }
@@ -118,23 +118,23 @@ public class g {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public boolean aj(String str, int i) {
-        if (this.oIO.oIy.contains(str)) {
+        if (this.oIP.oIz.contains(str)) {
             return false;
         }
-        return ((i & 16) == 0 && (i & 32) == 0) || this.oIO.oIB.contains(str);
+        return ((i & 16) == 0 && (i & 32) == 0) || this.oIP.oIC.contains(str);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public boolean yd(String str) {
-        if (this.oHT.efw()) {
+        if (this.oHU.efw()) {
             return true;
         }
-        return this.oIO.oIz.contains(str);
+        return this.oIP.oIA.contains(str);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public boolean Wc(String str) {
-        if (!isBeta() && this.oHT.efz() && yg(str) > 0) {
+    public boolean Wd(String str) {
+        if (!isBeta() && this.oHU.efz() && yg(str) > 0) {
             return new Random().nextInt(100) >= yg(str);
         }
         return false;
@@ -142,16 +142,16 @@ public class g {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public boolean ye(String str) {
-        return this.oIO.oIA.contains(str);
+        return this.oIP.oIB.contains(str);
     }
 
-    boolean Wd(String str) {
-        return this.oIO.oIC.contains(str);
+    boolean We(String str) {
+        return this.oIP.oID.contains(str);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public String yf(String str) {
-        return this.oIO.oIE.containsKey(str) ? this.oIO.oIE.get(str) : "";
+        return this.oIP.oIF.containsKey(str) ? this.oIP.oIF.get(str) : "";
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -194,61 +194,61 @@ public class g {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public int efg() {
-        return this.oIM;
+        return this.oIN;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void MK(int i) {
         if (i >= 307200) {
-            this.oIM = i;
+            this.oIN = i;
             ai.efB().putInt("ubc_launch_upload_max_limit", i);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public int efh() {
-        return this.oIN;
+        return this.oIO;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void ML(int i) {
         if (i >= 30720) {
-            this.oIN = i;
+            this.oIO = i;
             ai.efB().putInt("ubc_single_log_max_limit", i);
         }
     }
 
     int yg(String str) {
-        if (TextUtils.isEmpty(str) || !this.oIO.oID.containsKey(str)) {
+        if (TextUtils.isEmpty(str) || !this.oIP.oIE.containsKey(str)) {
             return 0;
         }
-        return Integer.parseInt(this.oIO.oID.get(str));
+        return Integer.parseInt(this.oIP.oIE.get(str));
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public boolean yh(String str) {
-        if (this.oIO.oIF == null || !this.oIO.oIF.containsKey(str)) {
+        if (this.oIP.oIG == null || !this.oIP.oIG.containsKey(str)) {
             return false;
         }
-        return this.oIO.oIF.get(str).beD();
+        return this.oIP.oIG.get(str).beD();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public boolean yi(String str) {
-        if (this.oIO.oIF == null || !this.oIO.oIF.containsKey(str)) {
+        if (this.oIP.oIG == null || !this.oIP.oIG.containsKey(str)) {
             return false;
         }
-        return this.oIO.oIF.get(str).beE();
+        return this.oIP.oIG.get(str).beE();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public String yj(String str) {
-        return (TextUtils.isEmpty(str) || !this.oIO.oIG.contains(str)) ? "0" : "1";
+        return (TextUtils.isEmpty(str) || !this.oIP.oIH.contains(str)) ? "0" : "1";
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public boolean We(String str) {
-        return this.mContext == null || isNetworkConnected(this.mContext) || !Wd(str);
+    public boolean Wf(String str) {
+        return this.mContext == null || isNetworkConnected(this.mContext) || !We(str);
     }
 
     public boolean isNetworkConnected(Context context) {
@@ -257,26 +257,26 @@ public class g {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public boolean Wf(String str) {
-        return this.oIO.oIH.contains(str);
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
     public boolean Wg(String str) {
-        return this.oIO.oIz.contains(str);
+        return this.oIP.oII.contains(str);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public String Wh(String str) {
-        return this.oIO.oII.containsKey(str) ? this.oIO.oII.get(str) : "";
+    public boolean Wh(String str) {
+        return this.oIP.oIA.contains(str);
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public String Wi(String str) {
+        return this.oIP.oIJ.containsKey(str) ? this.oIP.oIJ.get(str) : "";
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public String getUploadType(String str) {
-        return this.oIO.oIJ.containsKey(str) ? this.oIO.oIJ.get(str) : "";
+        return this.oIP.oIK.containsKey(str) ? this.oIP.oIK.get(str) : "";
     }
 
-    public boolean Wi(String str) {
+    public boolean Wj(String str) {
         return TextUtils.equals("0", getUploadType(str));
     }
 
@@ -290,9 +290,9 @@ public class g {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public int Wj(String str) {
+    public int Wk(String str) {
         Integer num;
-        if (!this.oIO.oIK.containsKey(str) || (num = this.oIO.oIK.get(str)) == null) {
+        if (!this.oIP.oIL.containsKey(str) || (num = this.oIP.oIL.get(str)) == null) {
             return 2;
         }
         return num.intValue();

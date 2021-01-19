@@ -117,7 +117,7 @@ public class t implements q {
             }
             if (adCard != null && videoInfo != null) {
                 AdWebVideoActivity.a(advertAppInfo, 0, "DETAIL");
-                String Qr = s.Qr(adCard.getScheme());
+                String Qs = s.Qs(adCard.getScheme());
                 Bundle bundle = new Bundle();
                 bundle.putString("video_url", videoInfo.video_url);
                 bundle.putString(AdWebVideoActivityConfig.KEY_VIDEO_THUMB_URL, videoInfo.thumbnail_url);
@@ -133,7 +133,7 @@ public class t implements q {
                     adCard.tailFrame.buttonText = adCard.buttonText;
                     bundle.putString(AdWebVideoActivityConfig.KEY_TAIL_FRAME, adCard.tailFrame.toJsonString());
                 }
-                AdWebVideoActivity.a(new AdWebVideoActivityConfig(context, "", Qr, true, true, true, bundle));
+                AdWebVideoActivity.a(new AdWebVideoActivityConfig(context, "", Qs, true, true, true, bundle));
             }
         }
     }

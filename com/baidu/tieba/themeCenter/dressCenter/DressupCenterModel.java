@@ -14,8 +14,8 @@ public class DressupCenterModel extends BdBaseModel<DressupCenterModel> {
             if (responsedMessage != null) {
                 if ((responsedMessage instanceof DressupCenterHttpResponseMessage) || (responsedMessage instanceof DressupCenterSocketResponseMessage)) {
                     if (responsedMessage.getError() != 0) {
-                        if (DressupCenterModel.this.nzf != null) {
-                            DressupCenterModel.this.nzf.a(responsedMessage.getError(), responsedMessage.getErrorString(), DressupCenterModel.this.mThemeCarouselList, DressupCenterModel.this.mRecommand, DressupCenterModel.this.mThemeList);
+                        if (DressupCenterModel.this.nzg != null) {
+                            DressupCenterModel.this.nzg.a(responsedMessage.getError(), responsedMessage.getErrorString(), DressupCenterModel.this.mThemeCarouselList, DressupCenterModel.this.mRecommand, DressupCenterModel.this.mThemeList);
                             return;
                         }
                         return;
@@ -31,8 +31,8 @@ public class DressupCenterModel extends BdBaseModel<DressupCenterModel> {
                         DressupCenterModel.this.mRecommand = dressupCenterSocketResponseMessage.getRecommand();
                         DressupCenterModel.this.mThemeCarouselList = dressupCenterSocketResponseMessage.getThemeCarouselList();
                     }
-                    if (DressupCenterModel.this.nzf != null) {
-                        DressupCenterModel.this.nzf.a(responsedMessage.getError(), responsedMessage.getErrorString(), DressupCenterModel.this.mThemeCarouselList, DressupCenterModel.this.mRecommand, DressupCenterModel.this.mThemeList);
+                    if (DressupCenterModel.this.nzg != null) {
+                        DressupCenterModel.this.nzg.a(responsedMessage.getError(), responsedMessage.getErrorString(), DressupCenterModel.this.mThemeCarouselList, DressupCenterModel.this.mRecommand, DressupCenterModel.this.mThemeList);
                     }
                 }
             }
@@ -41,8 +41,8 @@ public class DressupCenterModel extends BdBaseModel<DressupCenterModel> {
     private e mRecommand;
     private List<com.baidu.tieba.themeCenter.dressCenter.a> mThemeCarouselList;
     private List<d> mThemeList;
-    private boolean nwO;
-    private a nzf;
+    private boolean nwP;
+    private a nzg;
 
     /* loaded from: classes8.dex */
     public interface a {
@@ -50,7 +50,7 @@ public class DressupCenterModel extends BdBaseModel<DressupCenterModel> {
     }
 
     public DressupCenterModel(DressupCenterActivity dressupCenterActivity) {
-        this.nwO = dressupCenterActivity.getIntent().getBooleanExtra("member_buy_show", false);
+        this.nwP = dressupCenterActivity.getIntent().getBooleanExtra("member_buy_show", false);
         registerTask();
         registerListener(this.iWa);
     }
@@ -72,7 +72,7 @@ public class DressupCenterModel extends BdBaseModel<DressupCenterModel> {
     }
 
     public void a(a aVar) {
-        this.nzf = aVar;
+        this.nzg = aVar;
     }
 
     public void destroy() {
@@ -80,6 +80,6 @@ public class DressupCenterModel extends BdBaseModel<DressupCenterModel> {
     }
 
     public boolean dIE() {
-        return this.nwO;
+        return this.nwP;
     }
 }

@@ -22,10 +22,10 @@ public class AvatarPendantPerItemView extends LinearLayout {
     private TbImageView ldO;
     private Context mContext;
     private View mRootView;
-    private DressItemData nvL;
-    private HeadPendantView nwi;
-    private ImageView nwj;
-    private c.a nwk;
+    private DressItemData nvM;
+    private HeadPendantView nwj;
+    private ImageView nwk;
+    private c.a nwl;
 
     public AvatarPendantPerItemView(Context context) {
         super(context);
@@ -47,34 +47,34 @@ public class AvatarPendantPerItemView extends LinearLayout {
 
     private void initView() {
         this.mRootView = LayoutInflater.from(this.mContext).inflate(R.layout.avatar_pendant_per_item, this);
-        this.nwi = (HeadPendantView) this.mRootView.findViewById(R.id.avatar_image);
+        this.nwj = (HeadPendantView) this.mRootView.findViewById(R.id.avatar_image);
         this.ldO = (TbImageView) this.mRootView.findViewById(R.id.permission_icon);
         this.ldO.setDefaultResource(R.drawable.transparent_bg);
         this.ldO.setDefaultBgResource(R.drawable.transparent_bg);
-        this.nwj = (ImageView) this.mRootView.findViewById(R.id.choosed_icon);
+        this.nwk = (ImageView) this.mRootView.findViewById(R.id.choosed_icon);
         this.jjc = (TextView) this.mRootView.findViewById(R.id.text_pendant_name);
-        this.nwi.setHasPendantStyle();
-        if (this.nwi.getHeadView() != null) {
-            this.nwi.getHeadView().setIsRound(true);
-            this.nwi.getHeadView().setDrawBorder(false);
+        this.nwj.setHasPendantStyle();
+        if (this.nwj.getHeadView() != null) {
+            this.nwj.getHeadView().setIsRound(true);
+            this.nwj.getHeadView().setDrawBorder(false);
         }
-        if (this.nwi.getPendantView() != null) {
-            this.nwi.getPendantView().setIsRound(true);
-            this.nwi.getPendantView().setDrawBorder(false);
+        if (this.nwj.getPendantView() != null) {
+            this.nwj.getPendantView().setIsRound(true);
+            this.nwj.getPendantView().setDrawBorder(false);
         }
     }
 
     @SuppressLint({"ResourceAsColor"})
     public void d(DressItemData dressItemData) {
         if (dressItemData != null) {
-            this.nvL = dressItemData;
+            this.nvM = dressItemData;
             boolean inUse = dressItemData.getInUse();
             if (dressItemData.isPropIdEven()) {
-                if (this.nwi.getHeadView() != null) {
-                    this.nwi.getHeadView().startLoad(String.valueOf(R.drawable.pic_shop_woman), 24, false);
+                if (this.nwj.getHeadView() != null) {
+                    this.nwj.getHeadView().startLoad(String.valueOf(R.drawable.pic_shop_woman), 24, false);
                 }
-            } else if (this.nwi.getHeadView() != null) {
-                this.nwi.getHeadView().startLoad(String.valueOf(R.drawable.pic_shop_man), 24, false);
+            } else if (this.nwj.getHeadView() != null) {
+                this.nwj.getHeadView().startLoad(String.valueOf(R.drawable.pic_shop_man), 24, false);
             }
             if (at.byteLength(dressItemData.getTitle()) > 8) {
                 this.jjc.setText(at.cutString(dressItemData.getTitle(), 8));
@@ -82,19 +82,19 @@ public class AvatarPendantPerItemView extends LinearLayout {
                 this.jjc.setText(dressItemData.getTitle());
             }
             if (inUse) {
-                this.nwj.setVisibility(0);
-                ao.setImageResource(this.nwj, R.drawable.icon_shop_selected);
+                this.nwk.setVisibility(0);
+                ao.setImageResource(this.nwk, R.drawable.icon_shop_selected);
             } else {
-                this.nwj.setVisibility(8);
+                this.nwk.setVisibility(8);
             }
             this.ldO.startLoad(dressItemData.getPermissionImgUrl(), 10, false);
-            this.nwi.Bi(dressItemData.getExampleImgUrl());
-            this.nwi.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.themeCenter.avatarPendant.AvatarPendantPerItemView.1
+            this.nwj.Bi(dressItemData.getExampleImgUrl());
+            this.nwj.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.themeCenter.avatarPendant.AvatarPendantPerItemView.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    if (view != null && AvatarPendantPerItemView.this.nwk != null) {
-                        if (AvatarPendantPerItemView.this.nvL == null || !AvatarPendantPerItemView.this.nvL.getInUse() || !TbadkCoreApplication.isLogin()) {
-                            AvatarPendantPerItemView.this.nwk.b(AvatarPendantPerItemView.this.nvL);
+                    if (view != null && AvatarPendantPerItemView.this.nwl != null) {
+                        if (AvatarPendantPerItemView.this.nvM == null || !AvatarPendantPerItemView.this.nvM.getInUse() || !TbadkCoreApplication.isLogin()) {
+                            AvatarPendantPerItemView.this.nwl.b(AvatarPendantPerItemView.this.nvM);
                         }
                     }
                 }
@@ -104,6 +104,6 @@ public class AvatarPendantPerItemView extends LinearLayout {
     }
 
     public void setAvatarPendantItemClickListener(c.a aVar) {
-        this.nwk = aVar;
+        this.nwl = aVar;
     }
 }

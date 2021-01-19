@@ -70,11 +70,11 @@ public class f {
         }
     }
 
-    public static com.ss.android.downloadlib.a.b.e ZI(String str) {
+    public static com.ss.android.downloadlib.a.b.e ZJ(String str) {
         return bC(com.ss.android.downloadlib.a.j.a(), str);
     }
 
-    public static com.ss.android.downloadlib.a.b.e ZJ(String str) {
+    public static com.ss.android.downloadlib.a.b.e ZK(String str) {
         if (TextUtils.isEmpty(str)) {
             return new com.ss.android.downloadlib.a.b.e(2, 21);
         }

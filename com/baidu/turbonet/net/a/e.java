@@ -7,12 +7,12 @@ import java.nio.ByteBuffer;
 /* loaded from: classes4.dex */
 public class e extends InputStream {
     private ByteBuffer mBuffer;
-    private final d oHN;
-    private boolean oHO;
-    private IOException oHP;
+    private final d oHO;
+    private boolean oHP;
+    private IOException oHQ;
 
     public e(d dVar) {
-        this.oHN = dVar;
+        this.oHO = dVar;
     }
 
     @Override // java.io.InputStream
@@ -43,24 +43,24 @@ public class e extends InputStream {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void c(IOException iOException) {
-        this.oHP = iOException;
-        this.oHO = true;
+        this.oHQ = iOException;
+        this.oHP = true;
         this.mBuffer = null;
     }
 
     private void eeV() throws IOException {
-        if (this.oHO) {
-            if (this.oHP != null) {
-                throw this.oHP;
+        if (this.oHP) {
+            if (this.oHQ != null) {
+                throw this.oHQ;
             }
         } else if (!eeW()) {
             if (this.mBuffer == null) {
                 this.mBuffer = ByteBuffer.allocateDirect(32768);
             }
             this.mBuffer.clear();
-            this.oHN.p(this.mBuffer);
-            if (this.oHP != null) {
-                throw this.oHP;
+            this.oHO.p(this.mBuffer);
+            if (this.oHQ != null) {
+                throw this.oHQ;
             }
             if (this.mBuffer != null) {
                 this.mBuffer.flip();

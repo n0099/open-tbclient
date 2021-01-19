@@ -7,8 +7,8 @@ import java.io.OutputStream;
 /* loaded from: classes4.dex */
 public abstract class f extends OutputStream {
     private boolean mClosed;
-    private IOException oHP;
-    private boolean oHQ;
+    private IOException oHQ;
+    private boolean oHR;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public abstract void eeH() throws IOException;
@@ -26,13 +26,13 @@ public abstract class f extends OutputStream {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void d(IOException iOException) {
-        this.oHP = iOException;
-        this.oHQ = true;
+        this.oHQ = iOException;
+        this.oHR = true;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void checkNotClosed() throws IOException {
-        if (this.oHQ) {
+        if (this.oHR) {
             eeX();
             throw new IOException("Writing after request completed.");
         } else if (this.mClosed) {
@@ -42,8 +42,8 @@ public abstract class f extends OutputStream {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void eeX() throws IOException {
-        if (this.oHP != null) {
-            throw this.oHP;
+        if (this.oHQ != null) {
+            throw this.oHQ;
         }
     }
 }

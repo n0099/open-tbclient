@@ -106,16 +106,16 @@ public class FrsPraiseView extends LinearLayout {
                 if (user.size() == 1) {
                     if (user.get(0) != null) {
                         this.nkV.setVisibility(0);
-                        this.nkV.setText(RV(user.get(0).getName_show()));
+                        this.nkV.setText(RW(user.get(0).getName_show()));
                     }
                 } else {
                     if (user.get(0) != null) {
                         this.nkV.setVisibility(0);
-                        this.nkV.setText(RV(user.get(0).getName_show()));
+                        this.nkV.setText(RW(user.get(0).getName_show()));
                     }
                     if (user.get(1) != null) {
                         this.nkW.setVisibility(0);
-                        this.nkW.setText("、" + RV(user.get(1).getName_show()));
+                        this.nkW.setText("、" + RW(user.get(1).getName_show()));
                     }
                 }
             }
@@ -129,7 +129,7 @@ public class FrsPraiseView extends LinearLayout {
         }
     }
 
-    private String RV(String str) {
+    private String RW(String str) {
         if (!TextUtils.isEmpty(str) && str.length() > 14) {
             return str.substring(0, 14);
         }

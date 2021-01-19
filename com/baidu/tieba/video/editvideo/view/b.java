@@ -12,15 +12,15 @@ import com.baidu.tieba.video.editvideo.model.SelectMusicModel;
 import java.util.List;
 /* loaded from: classes7.dex */
 public class b implements com.baidu.tieba.c.b, com.baidu.tieba.video.editvideo.b, b.a {
-    private SelectMusicModel nCg;
-    private com.baidu.tieba.video.editvideo.b.a nCi;
-    private BaseActivity nEG;
-    private com.baidu.tieba.video.b nEH;
-    private String nEI;
+    private SelectMusicModel nCh;
+    private com.baidu.tieba.video.editvideo.b.a nCj;
+    private BaseActivity nEH;
+    private com.baidu.tieba.video.b nEI;
+    private String nEJ;
 
     public b(com.baidu.tieba.video.b bVar) {
-        this.nEH = bVar;
-        this.nEG = this.nEH.activity;
+        this.nEI = bVar;
+        this.nEH = this.nEI.activity;
     }
 
     @Override // com.baidu.tieba.c.b
@@ -30,26 +30,26 @@ public class b implements com.baidu.tieba.c.b, com.baidu.tieba.video.editvideo.b
 
     @Override // com.baidu.tieba.c.b
     public void cancel() {
-        if (this.nEH != null) {
-            this.nEH.yB(true);
+        if (this.nEI != null) {
+            this.nEI.yB(true);
         }
-        if (this.nCi != null && this.nCi.dQo()) {
-            this.nCi.dQp();
+        if (this.nCj != null && this.nCj.dQo()) {
+            this.nCj.dQp();
         }
     }
 
     public void dRc() {
-        if (this.nEH != null) {
-            if (this.nEH.isCancel()) {
-                this.nEH.onCancel();
-                this.nEH = null;
-            } else if (!StringUtils.isNull(this.nEH.musicPath) || this.nEH.isMute) {
-                if (this.nCg == null) {
-                    this.nCg = new SelectMusicModel(this.nEG.getPageContext(), this);
+        if (this.nEI != null) {
+            if (this.nEI.isCancel()) {
+                this.nEI.onCancel();
+                this.nEI = null;
+            } else if (!StringUtils.isNull(this.nEI.musicPath) || this.nEI.isMute) {
+                if (this.nCh == null) {
+                    this.nCh = new SelectMusicModel(this.nEH.getPageContext(), this);
                 }
-                this.nCg.k(this.nEH.originPath, this.nEH.musicPath, com.baidu.tieba.video.c.nAB + "video_" + System.currentTimeMillis() + ".mp4", !this.nEH.isMute);
+                this.nCh.k(this.nEI.originPath, this.nEI.musicPath, com.baidu.tieba.video.c.nAC + "video_" + System.currentTimeMillis() + ".mp4", !this.nEI.isMute);
             } else {
-                u(this.nEH.originPath, -4399, "");
+                u(this.nEI.originPath, -4399, "");
             }
         }
     }
@@ -60,72 +60,72 @@ public class b implements com.baidu.tieba.c.b, com.baidu.tieba.video.editvideo.b
 
     @Override // com.baidu.tieba.video.editvideo.b
     public void u(String str, int i, String str2) {
-        if (this.nEH != null && this.nEH.isCancel()) {
-            this.nEH.onCancel();
-            this.nEH = null;
+        if (this.nEI != null && this.nEI.isCancel()) {
+            this.nEI.onCancel();
+            this.nEI = null;
         } else if (TextUtils.isEmpty(str)) {
-            this.nEG.showToast(R.string.mixing_fail);
-            if (this.nEH != null) {
-                this.nEH.bU(i, str2);
+            this.nEH.showToast(R.string.mixing_fail);
+            if (this.nEI != null) {
+                this.nEI.bU(i, str2);
             }
         } else {
-            if (this.nEH != null) {
-                this.nEH.dPE();
+            if (this.nEI != null) {
+                this.nEI.dPE();
             }
-            if (!StringUtils.isNull(this.nEH.filterName)) {
-                if (!at.equals(str, this.nEH.originPath)) {
-                    this.nEH.nAy = str;
+            if (!StringUtils.isNull(this.nEI.filterName)) {
+                if (!at.equals(str, this.nEI.originPath)) {
+                    this.nEI.nAz = str;
                 }
-                if (this.nCi == null) {
-                    this.nCi = new com.baidu.tieba.video.editvideo.b.a(this.nEG.getActivity());
-                    this.nCi.a(this);
+                if (this.nCj == null) {
+                    this.nCj = new com.baidu.tieba.video.editvideo.b.a(this.nEH.getActivity());
+                    this.nCj.a(this);
                 }
-                this.nCi.gy(str, this.nEH.filterName);
+                this.nCj.gy(str, this.nEI.filterName);
                 return;
             }
-            if (this.nEH != null) {
-                this.nEH.dPF();
+            if (this.nEI != null) {
+                this.nEI.dPF();
             }
-            Tr(str);
+            Ts(str);
         }
     }
 
-    private void Tr(String str) {
-        if (this.nEH != null) {
-            if (this.nEH.isCancel()) {
-                this.nEH.onCancel();
-                this.nEH = null;
+    private void Ts(String str) {
+        if (this.nEI != null) {
+            if (this.nEI.isCancel()) {
+                this.nEI.onCancel();
+                this.nEI = null;
                 return;
             }
-            this.nEI = str;
+            this.nEJ = str;
             VideoInfo videoInfo = new VideoInfo();
-            videoInfo.setVideoPath(this.nEI);
-            videoInfo.setThumbPath(this.nEH.coverPath);
-            if (this.nEH != null) {
-                this.nEH.a(videoInfo);
+            videoInfo.setVideoPath(this.nEJ);
+            videoInfo.setThumbPath(this.nEI.coverPath);
+            if (this.nEI != null) {
+                this.nEI.a(videoInfo);
             }
         }
     }
 
     @Override // com.baidu.tieba.video.editvideo.b.b.a
-    public void Tj(String str) {
-        if (this.nEH != null) {
-            this.nEH.dPF();
+    public void Tk(String str) {
+        if (this.nEI != null) {
+            this.nEI.dPF();
         }
-        Tr(str);
+        Ts(str);
     }
 
     @Override // com.baidu.tieba.video.editvideo.b.b.a
     public void bW(int i, String str) {
-        if (this.nEH != null) {
-            this.nEH.bV(i, str);
+        if (this.nEI != null) {
+            this.nEI.bV(i, str);
         }
     }
 
     @Override // com.baidu.tieba.video.editvideo.b.b.a
     public void bX(int i, String str) {
-        if (this.nEH != null) {
-            this.nEH.bV(i, str);
+        if (this.nEI != null) {
+            this.nEI.bV(i, str);
         }
     }
 }

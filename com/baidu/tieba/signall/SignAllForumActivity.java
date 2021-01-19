@@ -99,7 +99,7 @@ public class SignAllForumActivity extends BaseActivity<SignAllForumActivity> imp
         }
 
         @Override // com.baidu.tieba.signall.GetForumListModel.a
-        public void Mf(String str) {
+        public void Mg(String str) {
             SignAllForumActivity.this.ndV.completeRefresh();
             SignAllForumActivity.this.showToast(str, false);
             SignAllForumActivity.this.finish();
@@ -107,8 +107,8 @@ public class SignAllForumActivity extends BaseActivity<SignAllForumActivity> imp
     };
     private SignAllForumModel.a ned = new SignAllForumModel.a() { // from class: com.baidu.tieba.signall.SignAllForumActivity.4
         @Override // com.baidu.tieba.signall.SignAllForumModel.a
-        public void Mf(String str) {
-            SignAllForumActivity.this.RD(str);
+        public void Mg(String str) {
+            SignAllForumActivity.this.RE(str);
         }
 
         @Override // com.baidu.tieba.signall.SignAllForumModel.a
@@ -141,7 +141,7 @@ public class SignAllForumActivity extends BaseActivity<SignAllForumActivity> imp
                         SignAllForumProgressView dIX = SignAllForumActivity.this.ndV.dIX();
                         if (!dIZ.dIs()) {
                             if (hVar.dIL() != 0) {
-                                SignAllForumActivity.this.RE(hVar.dIk());
+                                SignAllForumActivity.this.RF(hVar.dIk());
                                 SignAllForumActivity.this.ada.bqe();
                             } else if (hVar.dIN() != 0) {
                                 SignAllForumActivity.this.showToast(hVar.dIO());
@@ -156,7 +156,7 @@ public class SignAllForumActivity extends BaseActivity<SignAllForumActivity> imp
                         SignAllForumActivity.this.b(dIZ);
                         return;
                     }
-                    SignAllForumActivity.this.RD(dIm.getUserMsg());
+                    SignAllForumActivity.this.RE(dIm.getUserMsg());
                 }
             }
         }
@@ -199,7 +199,7 @@ public class SignAllForumActivity extends BaseActivity<SignAllForumActivity> imp
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void RD(String str) {
+    public void RE(String str) {
         if (this.ndY) {
             c dIZ = this.ndV.dIZ();
             Intent intent = new Intent(getPageContext().getPageActivity(), SignAllForumActivity.class);
@@ -317,7 +317,7 @@ public class SignAllForumActivity extends BaseActivity<SignAllForumActivity> imp
                     showToast(R.string.signallforum_finished);
                 } else {
                     if (dIZ.dIj() != 0) {
-                        RE(dIZ.dIk());
+                        RF(dIZ.dIk());
                         this.ada.bqe();
                     } else if (com.baidu.adp.lib.util.j.isNetWorkAvailable()) {
                         this.nea = true;
@@ -356,7 +356,7 @@ public class SignAllForumActivity extends BaseActivity<SignAllForumActivity> imp
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void RE(String str) {
+    public void RF(String str) {
         this.ada = new com.baidu.tbadk.core.dialog.a(getPageContext().getPageActivity()).Ad(str).a(R.string.signallforum_signnow, new a.b() { // from class: com.baidu.tieba.signall.SignAllForumActivity.7
             @Override // com.baidu.tbadk.core.dialog.a.b
             public void onClick(com.baidu.tbadk.core.dialog.a aVar) {

@@ -464,7 +464,7 @@ public class BuyGiftActivity extends BaseActivity<BuyGiftActivity> implements Vi
         } else if (i == 1990028) {
             rD(true);
         } else if (i == 1990019) {
-            bb(str, 0);
+            bc(str, 0);
             cLM();
         } else if (i == 1990027) {
             if (sendGiftAndroidResIdl != null && sendGiftAndroidResIdl.data != null && sendGiftAndroidResIdl.data.public_key != null) {
@@ -486,12 +486,12 @@ public class BuyGiftActivity extends BaseActivity<BuyGiftActivity> implements Vi
                 }
             });
         } else if (i != 0) {
-            bb(str, R.string.neterror);
+            bc(str, R.string.neterror);
         } else {
             SendGiftSuccessMessage sendGiftSuccessMessage = new SendGiftSuccessMessage(CmdConfigCustom.CMD_GET_GIFT_SUCCEED, Long.valueOf(this.mReceiverId));
             sendGiftSuccessMessage.setGiftInfo(this.mGiftInfo);
             MessageManager.getInstance().dispatchResponsedMessageToUI(sendGiftSuccessMessage);
-            bb(str, R.string.send_gift_succeed);
+            bc(str, R.string.send_gift_succeed);
             closeActivity();
         }
     }
@@ -505,7 +505,7 @@ public class BuyGiftActivity extends BaseActivity<BuyGiftActivity> implements Vi
         }
     }
 
-    private void bb(String str, int i) {
+    private void bc(String str, int i) {
         if (TextUtils.isEmpty(str)) {
             if (i > 0) {
                 showToast(i);

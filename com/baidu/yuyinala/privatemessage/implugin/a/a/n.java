@@ -18,20 +18,20 @@ public class n extends d {
     private Context mContext;
     public View mConvertView;
     public ProgressBar mProgressBar;
-    public ImageView oOT;
+    public ImageView oOU;
 
     public n(Context context, LayoutInflater layoutInflater) {
         this.mContext = context;
         this.mConvertView = layoutInflater.inflate(a.g.bd_im_chating_receive_img_item, (ViewGroup) null);
         this.mProgressBar = (ProgressBar) this.mConvertView.findViewById(a.f.bd_im_chating_progress);
         this.jIy = (ImageView) this.mConvertView.findViewById(a.f.bd_im_chating_msg_content_img);
-        this.oOT = (ImageView) this.mConvertView.findViewById(a.f.bd_im_chating_msg_content_cover);
+        this.oOU = (ImageView) this.mConvertView.findViewById(a.f.bd_im_chating_msg_content_cover);
         this.mContentView = this.mConvertView.findViewById(a.f.bd_im_chating_msg_content_layout);
-        this.oNI = (TextView) this.mConvertView.findViewById(a.f.bd_im_chating_time_txt);
-        this.oNL = (ImageView) this.mConvertView.findViewById(a.f.bd_im_headview);
+        this.oNJ = (TextView) this.mConvertView.findViewById(a.f.bd_im_chating_time_txt);
+        this.oNM = (ImageView) this.mConvertView.findViewById(a.f.bd_im_headview);
         this.jjc = (TextView) this.mConvertView.findViewById(a.f.bd_im_user_name);
         this.moR = (TextView) this.mConvertView.findViewById(a.f.bd_im_user_agetime);
-        this.oNM = (TextView) this.mConvertView.findViewById(a.f.bd_im_user_constellation);
+        this.oNN = (TextView) this.mConvertView.findViewById(a.f.bd_im_user_constellation);
         this.mConvertView.setTag(this);
     }
 
@@ -54,11 +54,11 @@ public class n extends d {
     }
 
     public void ehn() {
-        this.oOT.setVisibility(8);
+        this.oOU.setVisibility(8);
     }
 
     public void eho() {
-        this.oOT.setVisibility(8);
+        this.oOU.setVisibility(8);
     }
 
     public static n i(Context context, LayoutInflater layoutInflater, ChatMsg chatMsg, View view) {
@@ -73,7 +73,7 @@ public class n extends d {
         } else {
             this.mProgressBar.setVisibility(8);
         }
-        this.oOT.setVisibility(8);
+        this.oOU.setVisibility(8);
         this.jIy.setImageResource(a.e.bd_im_loading_default);
         try {
             if (this.mContentView != null) {

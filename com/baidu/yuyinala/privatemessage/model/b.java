@@ -12,18 +12,18 @@ import com.baidu.yuyinala.privatemessage.session.b.f;
 import java.util.List;
 /* loaded from: classes10.dex */
 public class b extends BdBaseModel {
-    private a oXI;
-    private HttpMessageListener oXJ = new HttpMessageListener(1031060) { // from class: com.baidu.yuyinala.privatemessage.model.b.1
+    private a oXJ;
+    private HttpMessageListener oXK = new HttpMessageListener(1031060) { // from class: com.baidu.yuyinala.privatemessage.model.b.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             if (httpResponsedMessage != null && (httpResponsedMessage instanceof NickNameListResponse)) {
                 if (httpResponsedMessage.getError() != 0 || !httpResponsedMessage.isSuccess()) {
-                    if (b.this.oXI != null) {
-                        b.this.oXI.onFail(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString());
+                    if (b.this.oXJ != null) {
+                        b.this.oXJ.onFail(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString());
                     }
-                } else if (b.this.oXI != null) {
-                    b.this.oXI.gC(((NickNameListResponse) httpResponsedMessage).oXV);
+                } else if (b.this.oXJ != null) {
+                    b.this.oXJ.gC(((NickNameListResponse) httpResponsedMessage).oXW);
                 }
             }
         }
@@ -47,11 +47,11 @@ public class b extends BdBaseModel {
         tbHttpMessageTask.setMethod(HttpMessageTask.HTTP_METHOD.POST);
         tbHttpMessageTask.setResponsedClass(NickNameListResponse.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
-        MessageManager.getInstance().registerListener(this.oXJ);
+        MessageManager.getInstance().registerListener(this.oXK);
     }
 
     public void a(String str, a aVar) {
-        this.oXI = aVar;
+        this.oXJ = aVar;
         HttpMessage httpMessage = new HttpMessage(1031060);
         httpMessage.setTag(getUniqueId());
         httpMessage.addParam("uks", str);
@@ -69,7 +69,7 @@ public class b extends BdBaseModel {
     }
 
     public void destory() {
-        MessageManager.getInstance().unRegisterListener(this.oXJ);
+        MessageManager.getInstance().unRegisterListener(this.oXK);
         MessageManager.getInstance().unRegisterTask(1031060);
     }
 }

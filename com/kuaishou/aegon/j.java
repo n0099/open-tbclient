@@ -6,10 +6,10 @@ public final /* synthetic */ class j implements Runnable {
     /* renamed from: b  reason: collision with root package name */
     private final int f8115b;
     private final int c;
-    private final SignalStrengthListener pNN;
+    private final SignalStrengthListener pNO;
 
     private j(SignalStrengthListener signalStrengthListener, int i, int i2) {
-        this.pNN = signalStrengthListener;
+        this.pNO = signalStrengthListener;
         this.f8115b = i;
         this.c = i2;
     }
@@ -20,6 +20,6 @@ public final /* synthetic */ class j implements Runnable {
 
     @Override // java.lang.Runnable
     public void run() {
-        this.pNN.nativeOnSignalStrengthValueUpdate(this.f8115b, this.c);
+        this.pNO.nativeOnSignalStrengthValueUpdate(this.f8115b, this.c);
     }
 }

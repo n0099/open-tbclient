@@ -8,8 +8,8 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.core.util.ad;
 /* loaded from: classes.dex */
 public class c {
-    private static c nvy;
-    private a nvz = dOA();
+    private static c nvz;
+    private a nvA = dOA();
 
     /* loaded from: classes.dex */
     public interface a {
@@ -36,31 +36,31 @@ public class c {
     }
 
     public static c dOB() {
-        if (nvy == null) {
+        if (nvz == null) {
             synchronized (c.class) {
-                if (nvy == null) {
-                    nvy = new c();
+                if (nvz == null) {
+                    nvz = new c();
                 }
             }
         }
-        return nvy;
+        return nvz;
     }
 
     public void autoTrace(Context context) {
-        if (ad.bsf() && this.nvz != null) {
-            this.nvz.autoTrace(context);
+        if (ad.bsf() && this.nvA != null) {
+            this.nvA.autoTrace(context);
         }
     }
 
     public void setAppChannel(Context context, String str, boolean z) {
-        if (ad.bsf() && this.nvz != null) {
-            this.nvz.setAppChannel(context, str, z);
+        if (ad.bsf() && this.nvA != null) {
+            this.nvA.setAppChannel(context, str, z);
         }
     }
 
     public void trackWebView(Context context, WebView webView, WebChromeClient webChromeClient) {
-        if (ad.bsf() && this.nvz != null) {
-            this.nvz.trackWebView(context, webView, webChromeClient);
+        if (ad.bsf() && this.nvA != null) {
+            this.nvA.trackWebView(context, webView, webChromeClient);
         }
     }
 }

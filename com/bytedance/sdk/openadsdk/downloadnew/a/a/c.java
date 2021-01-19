@@ -73,10 +73,10 @@ public class c implements g {
             }
             return;
         }
-        boolean z = TextUtils.isEmpty(pVar2 != null && pVar2.pkZ != null ? pVar2.pkZ.getMessage() : null) ? false : true;
+        boolean z = TextUtils.isEmpty(pVar2 != null && pVar2.pla != null ? pVar2.pla.getMessage() : null) ? false : true;
         if (pVar != null) {
             if (z) {
-                valueOf = pVar2.pkZ.getMessage();
+                valueOf = pVar2.pla.getMessage();
             } else {
                 valueOf = pVar2 != null ? String.valueOf(pVar2.h) : "";
             }

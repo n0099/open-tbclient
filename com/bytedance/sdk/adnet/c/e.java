@@ -14,7 +14,7 @@ public class e {
     /* renamed from: a  reason: collision with root package name */
     private Context f6006a;
     private boolean c;
-    private d pkz = new d();
+    private d pkA = new d();
 
     public e(Context context, boolean z) {
         this.c = true;
@@ -81,7 +81,7 @@ public class e {
                 }
                 return;
             }
-            this.pkz = eR;
+            this.pkA = eR;
             String jSONObject8 = jSONObject2.toString();
             synchronized (d) {
                 this.f6006a.getSharedPreferences("ttnet_tnc_config", 0).edit().putString("tnc_config_str", jSONObject8).apply();
@@ -90,7 +90,7 @@ public class e {
         } catch (Throwable th) {
             try {
                 th.printStackTrace();
-                this.pkz = new d();
+                this.pkA = new d();
                 synchronized (d) {
                     this.f6006a.getSharedPreferences("ttnet_tnc_config", 0).edit().putString("tnc_config_str", "").apply();
                     com.bytedance.sdk.adnet.d.e.a(this.f6006a, 1, "");
@@ -115,7 +115,7 @@ public class e {
             try {
                 d eR = eR(new JSONObject(string));
                 if (eR != null) {
-                    this.pkz = eR;
+                    this.pkA = eR;
                 }
                 com.bytedance.sdk.adnet.d.d.b("TNCConfigHandler", "loadLocalConfig: " + (eR == null ? "null" : eR.toString()));
             } catch (Throwable th) {
@@ -135,7 +135,7 @@ public class e {
             d eR = eR(new JSONObject(a2));
             com.bytedance.sdk.adnet.d.d.b("TNCConfigHandler", "loadLocalConfigForOtherProcess, config: " + (eR == null ? "null" : eR.toString()));
             if (eR != null) {
-                this.pkz = eR;
+                this.pkA = eR;
             }
         } catch (Throwable th) {
             com.bytedance.sdk.adnet.d.d.b("TNCConfigHandler", "loadLocalConfigForOtherProcess, except: " + th.getMessage());
@@ -143,7 +143,7 @@ public class e {
     }
 
     public d eoq() {
-        return this.pkz;
+        return this.pkA;
     }
 
     private d eR(JSONObject jSONObject) {

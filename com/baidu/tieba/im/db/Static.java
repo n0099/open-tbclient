@@ -20,7 +20,7 @@ public class Static {
                         /* renamed from: bLv */
                         public Void doInBackground() {
                             if (customResponsedMessage.getData() instanceof String) {
-                                g.Ma((String) customResponsedMessage.getData());
+                                g.Mb((String) customResponsedMessage.getData());
                                 return null;
                             }
                             return null;

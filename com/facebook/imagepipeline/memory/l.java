@@ -8,12 +8,12 @@ import javax.annotation.concurrent.ThreadSafe;
 public class l implements PooledByteBuffer {
     private final int mSize;
     @GuardedBy("this")
-    com.facebook.common.references.a<NativeMemoryChunk> pAA;
+    com.facebook.common.references.a<NativeMemoryChunk> pAB;
 
     public l(com.facebook.common.references.a<NativeMemoryChunk> aVar, int i) {
         com.facebook.common.internal.g.checkNotNull(aVar);
         com.facebook.common.internal.g.checkArgument(i >= 0 && i <= aVar.get().getSize());
-        this.pAA = aVar.clone();
+        this.pAB = aVar.clone();
         this.mSize = i;
     }
 
@@ -30,7 +30,7 @@ public class l implements PooledByteBuffer {
             eqw();
             com.facebook.common.internal.g.checkArgument(i >= 0);
             com.facebook.common.internal.g.checkArgument(i < this.mSize);
-            Oz = this.pAA.get().Oz(i);
+            Oz = this.pAB.get().Oz(i);
         }
         return Oz;
     }
@@ -39,24 +39,24 @@ public class l implements PooledByteBuffer {
     public synchronized int c(int i, byte[] bArr, int i2, int i3) {
         eqw();
         com.facebook.common.internal.g.checkArgument(i + i3 <= this.mSize);
-        return this.pAA.get().c(i, bArr, i2, i3);
+        return this.pAB.get().c(i, bArr, i2, i3);
     }
 
     @Override // com.facebook.common.memory.PooledByteBuffer
     public synchronized long eqn() {
         eqw();
-        return this.pAA.get().eqn();
+        return this.pAB.get().eqn();
     }
 
     @Override // com.facebook.common.memory.PooledByteBuffer
     public synchronized boolean isClosed() {
-        return !com.facebook.common.references.a.a(this.pAA);
+        return !com.facebook.common.references.a.a(this.pAB);
     }
 
     @Override // java.io.Closeable, java.lang.AutoCloseable
     public synchronized void close() {
-        com.facebook.common.references.a.c(this.pAA);
-        this.pAA = null;
+        com.facebook.common.references.a.c(this.pAB);
+        this.pAB = null;
     }
 
     synchronized void eqw() {

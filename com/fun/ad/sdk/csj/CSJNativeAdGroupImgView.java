@@ -40,17 +40,17 @@ public final class CSJNativeAdGroupImgView extends f0 {
         }
         TTImage tTImage = imageList.get(0);
         if (tTImage != null && tTImage.isValid()) {
-            ap.a.pFk.a(getContext(), tTImage.getImageUrl(), this.h);
+            ap.a.pFl.a(getContext(), tTImage.getImageUrl(), this.h);
         }
         TTImage tTImage2 = imageList.get(1);
         if (tTImage2 != null && tTImage2.isValid()) {
-            ap.a.pFk.a(getContext(), tTImage2.getImageUrl(), this.i);
+            ap.a.pFl.a(getContext(), tTImage2.getImageUrl(), this.i);
         }
         TTImage tTImage3 = imageList.get(2);
         if (tTImage3 == null || !tTImage3.isValid()) {
             return;
         }
-        ap.a.pFk.a(getContext(), tTImage3.getImageUrl(), this.j);
+        ap.a.pFl.a(getContext(), tTImage3.getImageUrl(), this.j);
     }
 
     @Override // com.fun.ad.f0, android.view.View

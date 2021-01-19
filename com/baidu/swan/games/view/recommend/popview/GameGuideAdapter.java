@@ -41,7 +41,7 @@ public class GameGuideAdapter extends RecyclerView.Adapter<a> implements View.On
     public void onBindViewHolder(a aVar, int i) {
         RecommendItemModel recommendItemModel = this.elG.get(i);
         if (recommendItemModel != null) {
-            aVar.elH.setController(com.facebook.drawee.a.a.c.eqV().Ym(recommendItemModel.getIconUrl()).erN());
+            aVar.elH.setController(com.facebook.drawee.a.a.c.eqV().Yn(recommendItemModel.getIconUrl()).erN());
             aVar.textView.setText(recommendItemModel.getAppName());
             aVar.itemView.setTag(Integer.valueOf(i));
         }

@@ -267,7 +267,7 @@ public class c implements NetModel.b {
     }
 
     private String cEC() {
-        return AdExtParam.a.bEB().rx(this.jjT ? 0 : com.baidu.tieba.recapp.a.fL(this.jjI.threadList)).Dq(com.baidu.tieba.recapp.report.b.dCd().QL(this.jjW)).Dr(this.jjj.forumName).bEC();
+        return AdExtParam.a.bEB().rx(this.jjT ? 0 : com.baidu.tieba.recapp.a.fL(this.jjI.threadList)).Dq(com.baidu.tieba.recapp.report.b.dCd().QM(this.jjW)).Dr(this.jjj.forumName).bEC();
     }
 
     private void w(List<App> list, List<n> list2) {

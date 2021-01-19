@@ -12,8 +12,8 @@ public class i<T> implements p.a<T>, Future<p<T>> {
 
     /* renamed from: b  reason: collision with root package name */
     private boolean f6003b = false;
-    private Request<?> pkv;
-    private p<T> pky;
+    private Request<?> pkw;
+    private p<T> pkz;
 
     public static <E> i<E> eop() {
         return new i<>();
@@ -26,8 +26,8 @@ public class i<T> implements p.a<T>, Future<p<T>> {
     public synchronized boolean cancel(boolean z) {
         boolean z2 = false;
         synchronized (this) {
-            if (this.pkv != null && !isDone()) {
-                this.pkv.cancel();
+            if (this.pkw != null && !isDone()) {
+                this.pkw.cancel();
                 z2 = true;
             }
         }
@@ -55,7 +55,7 @@ public class i<T> implements p.a<T>, Future<p<T>> {
     private synchronized p<T> i(Long l) throws InterruptedException, TimeoutException {
         p<T> pVar;
         if (this.f6003b) {
-            pVar = this.pky;
+            pVar = this.pkz;
         } else {
             if (l == null) {
                 while (!isDone()) {
@@ -72,17 +72,17 @@ public class i<T> implements p.a<T>, Future<p<T>> {
             if (!this.f6003b) {
                 throw new TimeoutException();
             }
-            pVar = this.pky;
+            pVar = this.pkz;
         }
         return pVar;
     }
 
     @Override // java.util.concurrent.Future
     public boolean isCancelled() {
-        if (this.pkv == null) {
+        if (this.pkw == null) {
             return false;
         }
-        return this.pkv.isCanceled();
+        return this.pkw.isCanceled();
     }
 
     @Override // java.util.concurrent.Future
@@ -97,14 +97,14 @@ public class i<T> implements p.a<T>, Future<p<T>> {
     @Override // com.bytedance.sdk.adnet.core.p.a
     public synchronized void a(p<T> pVar) {
         this.f6003b = true;
-        this.pky = pVar;
+        this.pkz = pVar;
         notifyAll();
     }
 
     @Override // com.bytedance.sdk.adnet.core.p.a
     public synchronized void b(p<T> pVar) {
         this.f6003b = true;
-        this.pky = pVar;
+        this.pkz = pVar;
         notifyAll();
     }
 }

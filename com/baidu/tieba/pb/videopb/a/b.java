@@ -110,7 +110,7 @@ public class b extends com.baidu.tieba.pb.videopb.fragment.a {
     }
 
     private void IY() {
-        this.mcp = new e(this.mcx.dlK(), PostData.nmM);
+        this.mcp = new e(this.mcx.dlK(), PostData.nmN);
         this.mcq = new PbFirstFloorCommentAndPraiseAdapter(this.mcx.dlK(), o.lCJ);
         this.mcq.setOnClickListener(this.mcu);
         this.mcr = new c(this.mcx.getContext(), s.TYPE);
@@ -122,9 +122,9 @@ public class b extends com.baidu.tieba.pb.videopb.fragment.a {
         this.mcs = new h(this.mcx.dlK(), com.baidu.tbadk.core.data.o.eKj);
         this.mcs.uF(true);
         this.mct = new w(this.mcx.dlK());
-        this.lEQ = new k(this.mcx.dlK(), PostData.nmN);
+        this.lEQ = new k(this.mcx.dlK(), PostData.nmO);
         this.lEQ.a((TbRichTextView.c) this.mcx.dlK());
-        this.lEZ = new PbReplyLoadMoreAdapter(this.mcx.dlK(), PostData.nmR);
+        this.lEZ = new PbReplyLoadMoreAdapter(this.mcx.dlK(), PostData.nmS);
         this.kcC = r.dBe().a(this.mcx.dlK().getBaseFragmentActivity(), AdvertAppInfo.eIT);
         this.lET = r.dBe().a(this.mcx.dlK().getBaseFragmentActivity(), AdvertAppInfo.eIX);
         this.mcB = new d(this.mcx.getPageContext(), bz.eOr, this.mcx.getUniqueId());

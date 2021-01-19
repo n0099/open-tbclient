@@ -13,7 +13,6 @@ import com.baidu.tbadk.coreExtra.view.ImagePagerAdapter;
 import com.baidu.tbadk.widget.DragImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.h.a;
-import com.baidu.tieba.tbadkCore.data.n;
 /* loaded from: classes7.dex */
 public class c implements ImagePagerAdapter.a {
     private DragImageView.d fwe;
@@ -71,7 +70,7 @@ public class c implements ImagePagerAdapter.a {
 
     @Override // com.baidu.tbadk.coreExtra.view.ImagePagerAdapter.a
     public View p(ViewGroup viewGroup, int i) {
-        if (this.mTbPageContext != null && this.kLI != null && this.kLF && Dl(i) && cXH()) {
+        if (this.mTbPageContext != null && this.kLI != null && this.kLF && Dk(i) && cXH()) {
             if (this.mRootView.getParent() instanceof ViewGroup) {
                 ((ViewGroup) this.mRootView.getParent()).removeView(this.mRootView);
             }
@@ -81,8 +80,8 @@ public class c implements ImagePagerAdapter.a {
         return null;
     }
 
-    public boolean Dm(int i) {
-        if (this.mTbPageContext != null && this.kLI != null && this.kLF && Dl(i) && cXH()) {
+    public boolean Dl(int i) {
+        if (this.mTbPageContext != null && this.kLI != null && this.kLF && Dk(i) && cXH()) {
             com.baidu.tieba.h.a.cLv().a(this.mTbPageContext.getPageActivity(), "6051001536-500920287", this.kLI, this.kLL);
             ao.setBackgroundColor(this.kLI, R.color.CAM_X0101, 0);
             Dn(0);
@@ -99,7 +98,7 @@ public class c implements ImagePagerAdapter.a {
         return this.kLF && this.kLI != null && this.kLJ;
     }
 
-    private boolean Dl(int i) {
+    private boolean Dk(int i) {
         return this.kLD != 0 && i == this.kLD;
     }
 
@@ -129,17 +128,17 @@ public class c implements ImagePagerAdapter.a {
             this.kLK = true;
             com.baidu.tieba.h.a.cLv().a(this.kLH, "6051001536-500920287", new a.d() { // from class: com.baidu.tieba.image.c.1
                 @Override // com.baidu.tieba.h.a.d
-                public void a(String str, n nVar) {
+                public void bb(String str, int i4) {
                     c.this.kLK = false;
                     c.this.kLJ = true;
                     if (com.baidu.tieba.h.a.cLv().isAdReady(str)) {
                         c.this.setAddSize(1);
-                        c.this.Dm(i3);
-                        c.this.AR(0);
+                        c.this.Dl(i3);
+                        c.this.Dm(0);
                         return;
                     }
                     c.this.setAddSize(0);
-                    c.this.AR(1);
+                    c.this.Dm(1);
                 }
 
                 @Override // com.baidu.tieba.h.a.d
@@ -147,7 +146,7 @@ public class c implements ImagePagerAdapter.a {
                     c.this.kLK = false;
                     c.this.kLJ = true;
                     c.this.setAddSize(0);
-                    c.this.AR(1);
+                    c.this.Dm(1);
                 }
             });
         }
@@ -159,7 +158,7 @@ public class c implements ImagePagerAdapter.a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void AR(int i) {
+    public void Dm(int i) {
         aq.AM("c14005").an("obj_source", 6).dW("obj_type", PageStayDurationConstants.PageName.BIGIMAGE).an("obj_locate", i).bsu();
     }
 

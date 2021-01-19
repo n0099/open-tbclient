@@ -17,7 +17,7 @@ public class HotForumModel extends BdBaseModel {
 
     /* loaded from: classes7.dex */
     public interface a {
-        void Nb(String str);
+        void Nc(String str);
 
         void a(List<b> list, List<c> list2, HotSearchInfoData hotSearchInfoData, String str);
     }
@@ -38,14 +38,14 @@ public class HotForumModel extends BdBaseModel {
             @Override // com.baidu.adp.framework.listener.a
             public void onMessage(ResponsedMessage<?> responsedMessage) {
                 if (!(responsedMessage instanceof HotForumSocketResponseMessage) && !(responsedMessage instanceof HotForumHttpResponseMessage)) {
-                    HotForumModel.this.laA.Nb(HotForumModel.this.eTl.getString(R.string.neterror));
+                    HotForumModel.this.laA.Nc(HotForumModel.this.eTl.getString(R.string.neterror));
                 } else if (responsedMessage.getOrginalMessage() == null || !(responsedMessage.getOrginalMessage().getExtra() instanceof HotForumNetMessage)) {
-                    HotForumModel.this.laA.Nb(HotForumModel.this.eTl.getString(R.string.neterror));
+                    HotForumModel.this.laA.Nc(HotForumModel.this.eTl.getString(R.string.neterror));
                 } else if (responsedMessage.hasError() || responsedMessage.getError() != 0) {
                     if (!TextUtils.isEmpty(responsedMessage.getErrorString())) {
-                        HotForumModel.this.laA.Nb(responsedMessage.getErrorString());
+                        HotForumModel.this.laA.Nc(responsedMessage.getErrorString());
                     } else {
-                        HotForumModel.this.laA.Nb(HotForumModel.this.eTl.getString(R.string.neterror));
+                        HotForumModel.this.laA.Nc(HotForumModel.this.eTl.getString(R.string.neterror));
                     }
                 } else {
                     if (responsedMessage instanceof HotForumHttpResponseMessage) {

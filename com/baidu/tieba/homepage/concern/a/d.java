@@ -45,7 +45,7 @@ public class d implements n {
             return this.jwp;
         }
 
-        public a Ld(String str) {
+        public a Le(String str) {
             this.jwp = str;
             return this;
         }
@@ -54,7 +54,7 @@ public class d implements n {
             return this.jUh;
         }
 
-        public a Le(String str) {
+        public a Lf(String str) {
             this.jUh = str;
             return this;
         }
@@ -63,7 +63,7 @@ public class d implements n {
             return this.slogan;
         }
 
-        public a Lf(String str) {
+        public a Lg(String str) {
             this.slogan = str;
             return this;
         }
@@ -72,7 +72,7 @@ public class d implements n {
             return this.iGq;
         }
 
-        public a Lg(String str) {
+        public a Lh(String str) {
             this.iGq = str;
             return this;
         }
@@ -81,7 +81,7 @@ public class d implements n {
             return this.jUi;
         }
 
-        public a Bh(int i) {
+        public a Bg(int i) {
             this.jUi = i;
             return this;
         }
@@ -90,7 +90,7 @@ public class d implements n {
             return this.jUj;
         }
 
-        public a Bi(int i) {
+        public a Bh(int i) {
             this.jUj = i;
             return this;
         }

@@ -105,7 +105,7 @@ public class PbEmotionBar extends LinearLayout implements EmotionView.a {
                         PbEmotionBar.this.lUG = new com.baidu.tieba.pb.pb.main.emotion.view.b();
                         PbEmotionBar.this.lUG.a(PbEmotionBar.this.iMM);
                     }
-                    PbEmotionBar.this.lUG.Pa(trim);
+                    PbEmotionBar.this.lUG.Pb(trim);
                 }
             }
         };
@@ -153,7 +153,7 @@ public class PbEmotionBar extends LinearLayout implements EmotionView.a {
                         PbEmotionBar.this.lUG = new com.baidu.tieba.pb.pb.main.emotion.view.b();
                         PbEmotionBar.this.lUG.a(PbEmotionBar.this.iMM);
                     }
-                    PbEmotionBar.this.lUG.Pa(trim);
+                    PbEmotionBar.this.lUG.Pb(trim);
                 }
             }
         };
@@ -201,7 +201,7 @@ public class PbEmotionBar extends LinearLayout implements EmotionView.a {
                         PbEmotionBar.this.lUG = new com.baidu.tieba.pb.pb.main.emotion.view.b();
                         PbEmotionBar.this.lUG.a(PbEmotionBar.this.iMM);
                     }
-                    PbEmotionBar.this.lUG.Pa(trim);
+                    PbEmotionBar.this.lUG.Pb(trim);
                 }
             }
         };

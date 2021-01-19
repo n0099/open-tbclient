@@ -21,8 +21,8 @@ import java.util.List;
 public class d extends BaseAdapter {
     private Context context;
     private List<AlaWheatInfoData> mList;
-    private int otv;
-    private a otw;
+    private int otw;
+    private a otx;
 
     /* loaded from: classes10.dex */
     public interface a {
@@ -72,21 +72,21 @@ public class d extends BaseAdapter {
         if (view == null) {
             view = LayoutInflater.from(this.context).inflate(a.g.yuyin_item_connection_wheat_manager, (ViewGroup) null);
             b bVar2 = new b();
-            bVar2.osW = (TextView) view.findViewById(a.f.tv_rank_num);
-            bVar2.osY = view.findViewById(a.f.margin_top_height);
-            bVar2.otb = (ImageView) view.findViewById(a.f.team_fright_flag);
-            bVar2.osZ = (HeadImageView) view.findViewById(a.f.user_avatar);
-            bVar2.ota = (TextView) view.findViewById(a.f.tv_nickname);
-            bVar2.otc = (TextView) view.findViewById(a.f.tv_temp_nickname);
-            bVar2.otd = (ImageView) view.findViewById(a.f.iv_sex);
-            bVar2.ote = (TextView) view.findViewById(a.f.tv_level);
-            bVar2.otg = (TbImageView) view.findViewById(a.f.iv_level);
-            bVar2.otf = (FrameLayout) view.findViewById(a.f.level_container);
-            bVar2.oth = (TbImageView) view.findViewById(a.f.iv_badge);
-            bVar2.otz = (ImageView) view.findViewById(a.f.iv_mute);
-            bVar2.otA = (TextView) view.findViewById(a.f.tv_hang_up);
-            bVar2.oti = (LinearLayout) view.findViewById(a.f.content_container);
-            bVar2.otj = (LinearLayout) view.findViewById(a.f.icon_container);
+            bVar2.osX = (TextView) view.findViewById(a.f.tv_rank_num);
+            bVar2.osZ = view.findViewById(a.f.margin_top_height);
+            bVar2.otc = (ImageView) view.findViewById(a.f.team_fright_flag);
+            bVar2.ota = (HeadImageView) view.findViewById(a.f.user_avatar);
+            bVar2.otb = (TextView) view.findViewById(a.f.tv_nickname);
+            bVar2.otd = (TextView) view.findViewById(a.f.tv_temp_nickname);
+            bVar2.ote = (ImageView) view.findViewById(a.f.iv_sex);
+            bVar2.otf = (TextView) view.findViewById(a.f.tv_level);
+            bVar2.oth = (TbImageView) view.findViewById(a.f.iv_level);
+            bVar2.otg = (FrameLayout) view.findViewById(a.f.level_container);
+            bVar2.oti = (TbImageView) view.findViewById(a.f.iv_badge);
+            bVar2.otA = (ImageView) view.findViewById(a.f.iv_mute);
+            bVar2.otB = (TextView) view.findViewById(a.f.tv_hang_up);
+            bVar2.otj = (LinearLayout) view.findViewById(a.f.content_container);
+            bVar2.otk = (LinearLayout) view.findViewById(a.f.icon_container);
             view.setTag(bVar2);
             bVar = bVar2;
         } else {
@@ -94,157 +94,157 @@ public class d extends BaseAdapter {
         }
         AlaWheatInfoData alaWheatInfoData = (AlaWheatInfoData) ListUtils.getItem(this.mList, i);
         if (alaWheatInfoData != null) {
-            if (i >= this.otv) {
+            if (i >= this.otw) {
                 if (o.ebo().ebE()) {
-                    bVar.osW.setPadding(0, 0, com.baidu.tieba.yuyinala.liveroom.wheat.e.e.d(3.0f, bVar.osW.getContext()), 0);
-                    bVar.otb.setVisibility(0);
-                    bVar.osW.setTextColor(bVar.osW.getResources().getColor(a.c.sdk_white_alpha100));
-                    bVar.osW.setTextSize(13.0f);
+                    bVar.osX.setPadding(0, 0, com.baidu.tieba.yuyinala.liveroom.wheat.e.e.d(3.0f, bVar.osX.getContext()), 0);
+                    bVar.otc.setVisibility(0);
+                    bVar.osX.setTextColor(bVar.osX.getResources().getColor(a.c.sdk_white_alpha100));
+                    bVar.osX.setTextSize(13.0f);
                     if (alaWheatInfoData.isApplyRedTeam()) {
-                        bVar.otb.setImageResource(a.e.yuyin_audio_wheat_red_flag);
+                        bVar.otc.setImageResource(a.e.yuyin_audio_wheat_red_flag);
                     } else {
-                        bVar.otb.setImageResource(a.e.yuyin_audio_wheat_blue_flag);
+                        bVar.otc.setImageResource(a.e.yuyin_audio_wheat_blue_flag);
                     }
                 } else {
-                    bVar.osW.setPadding(0, 0, 0, 0);
-                    bVar.osW.setTextColor(bVar.osW.getResources().getColor(a.c.sdk_color_B8B8B8));
-                    bVar.otb.setVisibility(8);
-                    bVar.osW.setTextSize(18.0f);
+                    bVar.osX.setPadding(0, 0, 0, 0);
+                    bVar.osX.setTextColor(bVar.osX.getResources().getColor(a.c.sdk_color_B8B8B8));
+                    bVar.otc.setVisibility(8);
+                    bVar.osX.setTextSize(18.0f);
                 }
-                bVar.osW.setText(Integer.toString(alaWheatInfoData.realWheatPosition));
+                bVar.osX.setText(Integer.toString(alaWheatInfoData.realWheatPosition));
             } else {
-                bVar.osW.setPadding(0, 0, 0, 0);
-                bVar.osW.setTextColor(bVar.osW.getResources().getColor(a.c.sdk_color_B8B8B8));
-                bVar.otb.setVisibility(8);
-                bVar.osW.setTextSize(12.0f);
-                bVar.osW.setText(this.context.getString(a.h.yuyin_ala_connection_wheat_host_text));
+                bVar.osX.setPadding(0, 0, 0, 0);
+                bVar.osX.setTextColor(bVar.osX.getResources().getColor(a.c.sdk_color_B8B8B8));
+                bVar.otc.setVisibility(8);
+                bVar.osX.setTextSize(12.0f);
+                bVar.osX.setText(this.context.getString(a.h.yuyin_ala_connection_wheat_host_text));
             }
-            bVar.osZ.setIsRound(true);
-            bVar.osZ.setAutoChangeStyle(false);
-            bVar.osZ.setDefaultResource(a.e.yuyin_sdk_default_avatar);
+            bVar.ota.setIsRound(true);
+            bVar.ota.setAutoChangeStyle(false);
+            bVar.ota.setDefaultResource(a.e.yuyin_sdk_default_avatar);
             if (alaWheatInfoData != null && !TextUtils.isEmpty(alaWheatInfoData.portrait)) {
-                bVar.osZ.setScaleType(ImageView.ScaleType.FIT_XY);
-                bVar.osZ.setUrl(alaWheatInfoData.portrait);
-                bVar.osZ.startLoad(alaWheatInfoData.portrait, 12, false);
+                bVar.ota.setScaleType(ImageView.ScaleType.FIT_XY);
+                bVar.ota.setUrl(alaWheatInfoData.portrait);
+                bVar.ota.startLoad(alaWheatInfoData.portrait, 12, false);
             }
-            bVar.ota.setText(alaWheatInfoData.userName);
-            bVar.otc.setText(alaWheatInfoData.userName);
-            bVar.otz.setSelected(alaWheatInfoData.isOpenMike());
+            bVar.otb.setText(alaWheatInfoData.userName);
+            bVar.otd.setText(alaWheatInfoData.userName);
+            bVar.otA.setSelected(alaWheatInfoData.isOpenMike());
             if (alaWheatInfoData.sex == 0) {
-                bVar.otd.setVisibility(8);
+                bVar.ote.setVisibility(8);
             } else {
-                bVar.otd.setVisibility(0);
-                bVar.otd.setImageResource(alaWheatInfoData.sex == 1 ? a.e.yuyin_sdk_icon_mine_boy : a.e.yuyin_sdk_icon_mine_girl);
+                bVar.ote.setVisibility(0);
+                bVar.ote.setImageResource(alaWheatInfoData.sex == 1 ? a.e.yuyin_sdk_icon_mine_boy : a.e.yuyin_sdk_icon_mine_girl);
             }
             int i3 = alaWheatInfoData.sex == 0 ? 3 : 2;
-            bVar.otf.setVisibility(8);
-            bVar.oth.setVisibility(8);
+            bVar.otg.setVisibility(8);
+            bVar.oti.setVisibility(8);
             int d = com.baidu.tieba.yuyinala.liveroom.wheat.e.e.d(14.0f, view.getContext()) + (com.baidu.tieba.yuyinala.liveroom.wheat.e.e.d(4.0f, view.getContext()) * 2);
             if (alaWheatInfoData.mLiveMarkInfo != null) {
                 i2 = d;
                 for (int i4 = 0; i4 < alaWheatInfoData.mLiveMarkInfo.size() && i4 < i3; i4++) {
                     switch (alaWheatInfoData.mLiveMarkInfo.get(i4).type) {
                         case 1:
-                            bVar.otf.setVisibility(0);
-                            bVar.otg.startLoad(alaWheatInfoData.mLiveMarkInfo.get(i4).mark_pic, 10, false);
-                            bVar.ote.setText(Integer.toString(alaWheatInfoData.level));
+                            bVar.otg.setVisibility(0);
+                            bVar.oth.startLoad(alaWheatInfoData.mLiveMarkInfo.get(i4).mark_pic, 10, false);
+                            bVar.otf.setText(Integer.toString(alaWheatInfoData.level));
                             i2 += com.baidu.tieba.yuyinala.liveroom.wheat.e.e.d(13.0f, view.getContext()) + com.baidu.tieba.yuyinala.liveroom.wheat.e.e.d(4.0f, view.getContext());
                             break;
                         case 105:
-                            bVar.oth.setVisibility(0);
-                            bVar.oth.startLoad(alaWheatInfoData.mLiveMarkInfo.get(i4).mark_pic, 10, false);
-                            i2 += com.baidu.tieba.yuyinala.liveroom.wheat.e.e.d(42.0f, bVar.oth.getContext()) + com.baidu.tieba.yuyinala.liveroom.wheat.e.e.d(4.0f, view.getContext());
+                            bVar.oti.setVisibility(0);
+                            bVar.oti.startLoad(alaWheatInfoData.mLiveMarkInfo.get(i4).mark_pic, 10, false);
+                            i2 += com.baidu.tieba.yuyinala.liveroom.wheat.e.e.d(42.0f, bVar.oti.getContext()) + com.baidu.tieba.yuyinala.liveroom.wheat.e.e.d(4.0f, view.getContext());
                             break;
                     }
                 }
             } else {
                 i2 = d;
             }
-            bVar.osZ.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.adapter.d.1
+            bVar.ota.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.adapter.d.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view2) {
-                    if (d.this.otw != null && view2.getTag() != null && (view2.getTag() instanceof AlaWheatInfoData)) {
-                        d.this.otw.g((AlaWheatInfoData) view2.getTag());
+                    if (d.this.otx != null && view2.getTag() != null && (view2.getTag() instanceof AlaWheatInfoData)) {
+                        d.this.otx.g((AlaWheatInfoData) view2.getTag());
                     }
                 }
             });
-            bVar.ota.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.adapter.d.2
+            bVar.otb.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.adapter.d.2
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view2) {
-                    if (d.this.otw != null && view2.getTag() != null && (view2.getTag() instanceof AlaWheatInfoData)) {
-                        d.this.otw.g((AlaWheatInfoData) view2.getTag());
+                    if (d.this.otx != null && view2.getTag() != null && (view2.getTag() instanceof AlaWheatInfoData)) {
+                        d.this.otx.g((AlaWheatInfoData) view2.getTag());
                     }
                 }
             });
-            bVar.osZ.setTag(alaWheatInfoData);
             bVar.ota.setTag(alaWheatInfoData);
+            bVar.otb.setTag(alaWheatInfoData);
+            bVar.otB.setOnTouchListener(new com.baidu.tieba.yuyinala.liveroom.wheat.view.a());
+            bVar.otB.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.adapter.d.3
+                @Override // android.view.View.OnClickListener
+                public void onClick(View view2) {
+                    if (d.this.otx != null) {
+                        d.this.otx.h((AlaWheatInfoData) view2.getTag());
+                    }
+                }
+            });
             bVar.otA.setOnTouchListener(new com.baidu.tieba.yuyinala.liveroom.wheat.view.a());
-            bVar.otA.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.adapter.d.3
+            bVar.otA.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.adapter.d.4
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view2) {
-                    if (d.this.otw != null) {
-                        d.this.otw.h((AlaWheatInfoData) view2.getTag());
+                    if (d.this.otx != null && view2.getTag() != null && (view2.getTag() instanceof AlaWheatInfoData)) {
+                        d.this.otx.i((AlaWheatInfoData) view2.getTag());
                     }
                 }
             });
-            bVar.otz.setOnTouchListener(new com.baidu.tieba.yuyinala.liveroom.wheat.view.a());
-            bVar.otz.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.adapter.d.4
-                @Override // android.view.View.OnClickListener
-                public void onClick(View view2) {
-                    if (d.this.otw != null && view2.getTag() != null && (view2.getTag() instanceof AlaWheatInfoData)) {
-                        d.this.otw.i((AlaWheatInfoData) view2.getTag());
-                    }
-                }
-            });
+            bVar.otB.setTag(alaWheatInfoData);
             bVar.otA.setTag(alaWheatInfoData);
-            bVar.otz.setTag(alaWheatInfoData);
-            bVar.ota.post(new Runnable() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.adapter.d.5
+            bVar.otb.post(new Runnable() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.adapter.d.5
                 @Override // java.lang.Runnable
                 public void run() {
-                    if (bVar.otc.getMeasuredWidth() + i2 > bVar.oti.getMeasuredWidth()) {
-                        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) bVar.ota.getLayoutParams();
+                    if (bVar.otd.getMeasuredWidth() + i2 > bVar.otj.getMeasuredWidth()) {
+                        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) bVar.otb.getLayoutParams();
                         layoutParams.weight = 1.0f;
-                        bVar.ota.setLayoutParams(layoutParams);
+                        bVar.otb.setLayoutParams(layoutParams);
                         return;
                     }
-                    LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) bVar.ota.getLayoutParams();
+                    LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) bVar.otb.getLayoutParams();
                     layoutParams2.weight = 0.0f;
                     layoutParams2.width = -2;
-                    bVar.ota.setLayoutParams(layoutParams2);
+                    bVar.otb.setLayoutParams(layoutParams2);
                 }
             });
-            bVar.osY.setVisibility(i != 0 ? 8 : 0);
+            bVar.osZ.setVisibility(i != 0 ? 8 : 0);
         }
         return view;
     }
 
     /* loaded from: classes10.dex */
     private class b {
-        private TextView osW;
-        private View osY;
-        private HeadImageView osZ;
-        private TextView otA;
-        private TextView ota;
-        private ImageView otb;
-        private TextView otc;
-        private ImageView otd;
-        private TextView ote;
-        private FrameLayout otf;
-        private TbImageView otg;
+        private TextView osX;
+        private View osZ;
+        private ImageView otA;
+        private TextView otB;
+        private HeadImageView ota;
+        private TextView otb;
+        private ImageView otc;
+        private TextView otd;
+        private ImageView ote;
+        private TextView otf;
+        private FrameLayout otg;
         private TbImageView oth;
-        private LinearLayout oti;
+        private TbImageView oti;
         private LinearLayout otj;
-        private ImageView otz;
+        private LinearLayout otk;
 
         private b() {
         }
     }
 
     public void LR(int i) {
-        this.otv = i;
+        this.otw = i;
     }
 
     public void setListener(a aVar) {
-        this.otw = aVar;
+        this.otx = aVar;
     }
 }

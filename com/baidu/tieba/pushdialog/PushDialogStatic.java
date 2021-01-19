@@ -30,11 +30,11 @@ public class PushDialogStatic {
 
     private static void cth() {
         com.baidu.tieba.tbadkCore.a.a.a(309614, PushDialogSocketResMsg.class, false, false);
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1003412, com.baidu.tieba.tbadkCore.a.a.bU(TbConfig.GET_PUSH_DIALOG_DETAIL, 309614));
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1003412, com.baidu.tieba.tbadkCore.a.a.bV(TbConfig.GET_PUSH_DIALOG_DETAIL, 309614));
         tbHttpMessageTask.setResponsedClass(PushDialogHttpResMsg.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
         com.baidu.tieba.tbadkCore.a.a.a(309618, PullTidSocketResponseMessage.class, false, false);
-        TbHttpMessageTask tbHttpMessageTask2 = new TbHttpMessageTask(CmdConfigHttp.CMD_GET_PUSH_DIALOG_TID, com.baidu.tieba.tbadkCore.a.a.bU(TbConfig.GET_PUSH_DIALOG_TID, 309618));
+        TbHttpMessageTask tbHttpMessageTask2 = new TbHttpMessageTask(CmdConfigHttp.CMD_GET_PUSH_DIALOG_TID, com.baidu.tieba.tbadkCore.a.a.bV(TbConfig.GET_PUSH_DIALOG_TID, 309618));
         tbHttpMessageTask2.setResponsedClass(PullTidHttpRespMessage.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask2);
         CustomMessageTask customMessageTask = new CustomMessageTask(2921359, new CustomMessageTask.CustomRunnable() { // from class: com.baidu.tieba.pushdialog.PushDialogStatic.1

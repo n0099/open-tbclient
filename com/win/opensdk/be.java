@@ -21,7 +21,7 @@ import org.json.JSONException;
 public final class be {
     public static String java;
 
-    public static boolean aaC(String str) {
+    public static boolean aaD(String str) {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
@@ -97,7 +97,7 @@ public final class be {
         } else if (bf.aj(uri)) {
             intent.setPackage("com.android.vending");
         } else {
-            intent = bs.aaM(uri.toString());
+            intent = bs.aaN(uri.toString());
             intent.addFlags(268435456);
         }
         context.startActivity(intent);

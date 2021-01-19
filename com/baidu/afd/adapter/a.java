@@ -81,7 +81,7 @@ public class a extends com.baidu.adp.widget.ListView.a<d, AdCardViewHolder> impl
                 i2 = 102;
             }
             com.baidu.tieba.recapp.report.c b2 = h.b(qU, i2, i);
-            b2.QR(str2);
+            b2.QS(str2);
             com.baidu.tieba.recapp.report.e.dCe().a(b2);
             com.baidu.tieba.lego.card.a.c.a(dVar);
         }

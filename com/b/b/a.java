@@ -16,42 +16,42 @@ public class a {
     /* renamed from: com.b.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
     static class C0011a {
-        private static Object pNZ;
-        private static Method pOa;
+        private static Object pOa;
         private static Method pOb;
         private static Method pOc;
         private static Method pOd;
+        private static Method pOe;
         private static Class<?> sClass;
 
         static {
-            pOa = null;
             pOb = null;
             pOc = null;
             pOd = null;
+            pOe = null;
             try {
                 sClass = Class.forName("com.android.id.impl.IdProviderImpl");
-                pNZ = sClass.newInstance();
-                pOa = sClass.getMethod("getUDID", Context.class);
-                pOb = sClass.getMethod("getOAID", Context.class);
-                pOc = sClass.getMethod("getVAID", Context.class);
-                pOd = sClass.getMethod("getAAID", Context.class);
+                pOa = sClass.newInstance();
+                pOb = sClass.getMethod("getUDID", Context.class);
+                pOc = sClass.getMethod("getOAID", Context.class);
+                pOd = sClass.getMethod("getVAID", Context.class);
+                pOe = sClass.getMethod("getAAID", Context.class);
             } catch (Throwable th) {
                 Log.e("XiaomiId", "xiaomi init error", th);
             }
         }
 
         public static boolean isSupported() {
-            return (sClass == null || pNZ == null) ? false : true;
+            return (sClass == null || pOa == null) ? false : true;
         }
 
         public static String cf(Context context) {
-            return b(context, pOb);
+            return b(context, pOc);
         }
 
         private static String b(Context context, Method method) {
-            if (pNZ != null && method != null) {
+            if (pOa != null && method != null) {
                 try {
-                    Object invoke = method.invoke(pNZ, context);
+                    Object invoke = method.invoke(pOa, context);
                     if (invoke != null) {
                         return (String) invoke;
                     }

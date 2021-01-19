@@ -40,13 +40,13 @@ public class b implements d {
                 str = shareItem.fsB;
             }
             shareEntity.setLinkUrl(str);
-            shareEntity.Rr(shareItem.localFile);
+            shareEntity.Rs(shareItem.localFile);
             shareEntity.setLocation(shareItem.location);
             shareEntity.It(i);
             shareEntity.ae(shareItem.byK());
             shareEntity.Iv(shareItem.shareType);
             shareEntity.setTid(shareItem.tid);
-            shareEntity.Rt(shareItem.fName);
+            shareEntity.Ru(shareItem.fName);
             shareEntity.Iu(shareItem.typeShareToSmallApp);
             shareEntity.topic = shareItem.topic;
             if (i == 6 && !StringUtils.isNull(shareItem.fsM)) {
@@ -55,7 +55,7 @@ public class b implements d {
             }
             shareEntity.taskCompleteId = shareItem.taskCompleteId;
             shareEntity.diskPicOperate = shareItem.diskPicOperate;
-            shareEntity.Rs(shareItem.extLiveInfo);
+            shareEntity.Rt(shareItem.extLiveInfo);
             Bundle bundle = new Bundle();
             bundle.putParcelable("extra_share_data", shareEntity);
             bundle.putInt("extra_skin", TbadkCoreApplication.getInst().getSkinType());

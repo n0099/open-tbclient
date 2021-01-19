@@ -16,49 +16,49 @@ import com.facebook.drawee.view.a;
 import javax.annotation.Nullable;
 /* loaded from: classes3.dex */
 public class DraweeView<DH extends com.facebook.drawee.d.b> extends ImageView {
-    private static boolean pum = false;
-    private final a.C1044a puh;
-    private float pui;
-    private b<DH> puj;
-    private boolean puk;
+    private static boolean pun = false;
+    private final a.C1044a pui;
+    private float puj;
+    private b<DH> puk;
     private boolean pul;
+    private boolean pum;
 
     public static void setGlobalLegacyVisibilityHandlingEnabled(boolean z) {
-        pum = z;
+        pun = z;
     }
 
     public DraweeView(Context context) {
         super(context);
-        this.puh = new a.C1044a();
-        this.pui = 0.0f;
-        this.puk = false;
+        this.pui = new a.C1044a();
+        this.puj = 0.0f;
         this.pul = false;
+        this.pum = false;
         init(context);
     }
 
     public DraweeView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.puh = new a.C1044a();
-        this.pui = 0.0f;
-        this.puk = false;
+        this.pui = new a.C1044a();
+        this.puj = 0.0f;
         this.pul = false;
+        this.pum = false;
         init(context);
     }
 
     public DraweeView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.puh = new a.C1044a();
-        this.pui = 0.0f;
-        this.puk = false;
+        this.pui = new a.C1044a();
+        this.puj = 0.0f;
         this.pul = false;
+        this.pum = false;
         init(context);
     }
 
     private void init(Context context) {
         boolean z = true;
-        if (!this.puk) {
-            this.puk = true;
-            this.puj = b.a(null, context);
+        if (!this.pul) {
+            this.pul = true;
+            this.puk = b.a(null, context);
             if (Build.VERSION.SDK_INT >= 21) {
                 ColorStateList imageTintList = getImageTintList();
                 if (imageTintList != null) {
@@ -67,32 +67,32 @@ public class DraweeView<DH extends com.facebook.drawee.d.b> extends ImageView {
                     return;
                 }
             }
-            this.pul = (!pum || context.getApplicationInfo().targetSdkVersion < 24) ? false : false;
+            this.pum = (!pun || context.getApplicationInfo().targetSdkVersion < 24) ? false : false;
         }
     }
 
     public void setHierarchy(DH dh) {
-        this.puj.setHierarchy(dh);
-        super.setImageDrawable(this.puj.getTopLevelDrawable());
+        this.puk.setHierarchy(dh);
+        super.setImageDrawable(this.puk.getTopLevelDrawable());
     }
 
     public DH getHierarchy() {
-        return this.puj.getHierarchy();
+        return this.puk.getHierarchy();
     }
 
     @Nullable
     public Drawable getTopLevelDrawable() {
-        return this.puj.getTopLevelDrawable();
+        return this.puk.getTopLevelDrawable();
     }
 
     public void setController(@Nullable com.facebook.drawee.d.a aVar) {
-        this.puj.setController(aVar);
-        super.setImageDrawable(this.puj.getTopLevelDrawable());
+        this.puk.setController(aVar);
+        super.setImageDrawable(this.puk.getTopLevelDrawable());
     }
 
     @Nullable
     public com.facebook.drawee.d.a getController() {
-        return this.puj.getController();
+        return this.puk.getController();
     }
 
     @Override // android.widget.ImageView, android.view.View
@@ -132,16 +132,16 @@ public class DraweeView<DH extends com.facebook.drawee.d.b> extends ImageView {
     }
 
     protected void esK() {
-        this.puj.onAttach();
+        this.puk.onAttach();
     }
 
     protected void esL() {
-        this.puj.onDetach();
+        this.puk.onDetach();
     }
 
     @Override // android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
-        if (this.puj.onTouchEvent(motionEvent)) {
+        if (this.puk.onTouchEvent(motionEvent)) {
             return true;
         }
         return super.onTouchEvent(motionEvent);
@@ -151,7 +151,7 @@ public class DraweeView<DH extends com.facebook.drawee.d.b> extends ImageView {
     @Deprecated
     public void setImageDrawable(Drawable drawable) {
         init(getContext());
-        this.puj.setController(null);
+        this.puk.setController(null);
         super.setImageDrawable(drawable);
     }
 
@@ -159,7 +159,7 @@ public class DraweeView<DH extends com.facebook.drawee.d.b> extends ImageView {
     @Deprecated
     public void setImageBitmap(Bitmap bitmap) {
         init(getContext());
-        this.puj.setController(null);
+        this.puk.setController(null);
         super.setImageBitmap(bitmap);
     }
 
@@ -167,7 +167,7 @@ public class DraweeView<DH extends com.facebook.drawee.d.b> extends ImageView {
     @Deprecated
     public void setImageResource(int i) {
         init(getContext());
-        this.puj.setController(null);
+        this.puk.setController(null);
         super.setImageResource(i);
     }
 
@@ -175,31 +175,31 @@ public class DraweeView<DH extends com.facebook.drawee.d.b> extends ImageView {
     @Deprecated
     public void setImageURI(Uri uri) {
         init(getContext());
-        this.puj.setController(null);
+        this.puk.setController(null);
         super.setImageURI(uri);
     }
 
     public void setAspectRatio(float f) {
-        if (f != this.pui) {
-            this.pui = f;
+        if (f != this.puj) {
+            this.puj = f;
             requestLayout();
         }
     }
 
     public float getAspectRatio() {
-        return this.pui;
+        return this.puj;
     }
 
     public void setLegacyVisibilityHandlingEnabled(boolean z) {
-        this.pul = z;
+        this.pum = z;
     }
 
     @Override // android.widget.ImageView, android.view.View
     protected void onMeasure(int i, int i2) {
-        this.puh.width = i;
-        this.puh.height = i2;
-        a.a(this.puh, this.pui, getLayoutParams(), getPaddingLeft() + getPaddingRight(), getPaddingTop() + getPaddingBottom());
-        super.onMeasure(this.puh.width, this.puh.height);
+        this.pui.width = i;
+        this.pui.height = i2;
+        a.a(this.pui, this.puj, getLayoutParams(), getPaddingLeft() + getPaddingRight(), getPaddingTop() + getPaddingBottom());
+        super.onMeasure(this.pui.width, this.pui.height);
     }
 
     @Override // android.view.View
@@ -210,13 +210,13 @@ public class DraweeView<DH extends com.facebook.drawee.d.b> extends ImageView {
 
     private void esM() {
         Drawable drawable;
-        if (this.pul && (drawable = getDrawable()) != null) {
+        if (this.pum && (drawable = getDrawable()) != null) {
             drawable.setVisible(getVisibility() == 0, false);
         }
     }
 
     @Override // android.view.View
     public String toString() {
-        return f.bb(this).I("holder", this.puj != null ? this.puj.toString() : "<no holder set>").toString();
+        return f.bb(this).I("holder", this.puk != null ? this.puk.toString() : "<no holder set>").toString();
     }
 }

@@ -6,7 +6,7 @@ import android.util.Log;
 import com.baidu.n.a.e;
 /* loaded from: classes3.dex */
 public class c {
-    private static c oKE;
+    private static c oKF;
     private Context mCtx;
     private static String TAG = "UnionIDHelper";
     private static boolean DEBUG = false;
@@ -16,15 +16,15 @@ public class c {
     }
 
     public static c hm(Context context) {
-        if (oKE == null) {
+        if (oKF == null) {
             synchronized (c.class) {
-                if (oKE == null) {
-                    oKE = new c(context);
+                if (oKF == null) {
+                    oKF = new c(context);
                     com.baidu.n.a.a.hn(context);
                 }
             }
         }
-        return oKE;
+        return oKF;
     }
 
     public void a(b bVar) {

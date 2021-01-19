@@ -48,12 +48,12 @@ public class a extends BaseAdapter {
         if (view == null) {
             view = LayoutInflater.from(this.mContext).inflate(a.g.item_ala_audio_mode, viewGroup, false);
             C0956a c0956a2 = new C0956a();
-            c0956a2.oLt = (TbImageView) view.findViewById(a.f.thumbnail_iv);
-            c0956a2.oLu = (ImageView) view.findViewById(a.f.chosen_iv);
+            c0956a2.oLu = (TbImageView) view.findViewById(a.f.thumbnail_iv);
+            c0956a2.oLv = (ImageView) view.findViewById(a.f.chosen_iv);
             c0956a2.gKi = (TextView) view.findViewById(a.f.mode_name_tv);
-            c0956a2.oLt.setDefaultResource(a.e.loading_ala_audio_mode);
-            c0956a2.oLt.setDefaultErrorResource(a.e.loading_ala_audio_mode);
-            c0956a2.oLt.setDefaultBgResource(a.e.loading_ala_audio_mode);
+            c0956a2.oLu.setDefaultResource(a.e.loading_ala_audio_mode);
+            c0956a2.oLu.setDefaultErrorResource(a.e.loading_ala_audio_mode);
+            c0956a2.oLu.setDefaultBgResource(a.e.loading_ala_audio_mode);
             view.setTag(c0956a2);
             c0956a = c0956a2;
         } else {
@@ -63,9 +63,9 @@ public class a extends BaseAdapter {
         if (item != null) {
             view.setVisibility(0);
             c0956a.gKi.setText(item.getTitle());
-            c0956a.oLt.startLoad(item.getIconUrl(), 10, false);
-            c0956a.oLt.setVisibility(0);
-            c0956a.oLu.setVisibility(item.egB() ? 0 : 8);
+            c0956a.oLu.startLoad(item.getIconUrl(), 10, false);
+            c0956a.oLu.setVisibility(0);
+            c0956a.oLv.setVisibility(item.egB() ? 0 : 8);
         } else {
             view.setVisibility(8);
         }
@@ -76,8 +76,8 @@ public class a extends BaseAdapter {
     /* loaded from: classes10.dex */
     private class C0956a {
         private TextView gKi;
-        private TbImageView oLt;
-        private ImageView oLu;
+        private TbImageView oLu;
+        private ImageView oLv;
 
         private C0956a() {
         }

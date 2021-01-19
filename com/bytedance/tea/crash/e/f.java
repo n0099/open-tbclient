@@ -12,9 +12,9 @@ import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class f implements Handler.Callback {
-    private static Printer plD = null;
-    private static f plE = null;
-    private static final Printer plF = new Printer() { // from class: com.bytedance.tea.crash.e.f.1
+    private static Printer plE = null;
+    private static f plF = null;
+    private static final Printer plG = new Printer() { // from class: com.bytedance.tea.crash.e.f.1
         @Override // android.util.Printer
         public void println(String str) {
             if (str != null) {
@@ -23,8 +23,8 @@ public class f implements Handler.Callback {
                 } else if (str.startsWith("<<<<< Finished")) {
                     f.eoH().b(str);
                 }
-                if (f.plD != null && f.plD != f.plF) {
-                    f.plD.println(str);
+                if (f.plE != null && f.plE != f.plG) {
+                    f.plE.println(str);
                 }
             }
         }
@@ -44,24 +44,24 @@ public class f implements Handler.Callback {
     }
 
     public static f eoH() {
-        if (plE == null) {
+        if (plF == null) {
             synchronized (f.class) {
-                if (plE == null) {
-                    plE = new f();
+                if (plF == null) {
+                    plF = new f();
                 }
             }
         }
-        return plE;
+        return plF;
     }
 
     public void b() {
         if (!this.k) {
             this.k = true;
-            plD = eoI();
-            if (plD == plF) {
-                plD = null;
+            plE = eoI();
+            if (plE == plG) {
+                plE = null;
             }
-            Looper.getMainLooper().setMessageLogging(plF);
+            Looper.getMainLooper().setMessageLogging(plG);
         }
     }
 

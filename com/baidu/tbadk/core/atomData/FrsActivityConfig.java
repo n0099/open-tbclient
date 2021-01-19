@@ -207,7 +207,7 @@ public class FrsActivityConfig extends IntentConfig {
         frsRequestData.setPn(1);
         frsRequestData.setCallFrom(intExtra);
         j.a(i, frsRequestData);
-        frsRequestData.RW("2");
+        frsRequestData.RX("2");
         frsRequestData.setObjSource("-2");
         frsRequestData.setKw(stringExtra);
         frsRequestData.setWithGroup(1);

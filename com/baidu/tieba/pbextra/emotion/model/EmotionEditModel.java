@@ -38,7 +38,7 @@ public class EmotionEditModel extends BdBaseModel {
             super.handleMessage(message);
             if (message != null) {
                 try {
-                    EmotionEditModel.this.mgV.Pn((String) message.obj);
+                    EmotionEditModel.this.mgV.Po((String) message.obj);
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -58,13 +58,13 @@ public class EmotionEditModel extends BdBaseModel {
                     if (TextUtils.isEmpty(msg)) {
                         msg = EmotionEditModel.this.mgY.getPageContext().getPageActivity().getResources().getString(R.string.emotion_edit_ueg_fail);
                     }
-                    EmotionEditModel.this.mgV.Pm(msg);
+                    EmotionEditModel.this.mgV.Pn(msg);
                 } else {
                     String errorString = httpResponsedMessage.getErrorString();
                     if (TextUtils.isEmpty(errorString)) {
                         errorString = EmotionEditModel.this.mgY.getPageContext().getPageActivity().getResources().getString(R.string.emotion_edit_fail);
                     }
-                    EmotionEditModel.this.mgV.Pm(errorString);
+                    EmotionEditModel.this.mgV.Pn(errorString);
                 }
             }
         }
@@ -72,9 +72,9 @@ public class EmotionEditModel extends BdBaseModel {
 
     /* loaded from: classes2.dex */
     public interface a {
-        void Pm(String str);
-
         void Pn(String str);
+
+        void Po(String str);
 
         void c(ImageUploadResult imageUploadResult);
 
@@ -101,7 +101,7 @@ public class EmotionEditModel extends BdBaseModel {
         return this.iPs;
     }
 
-    public void Po(String str) {
+    public void Pp(String str) {
         HttpMessage httpMessage = new HttpMessage(1003348);
         httpMessage.addParam("text", str);
         sendMessage(httpMessage);
@@ -127,7 +127,7 @@ public class EmotionEditModel extends BdBaseModel {
                 @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
                 public void onPostExecute(String str2) {
                     super.onPostExecute((AnonymousClass1) str2);
-                    EmotionEditModel.this.mgV.Pn(str2);
+                    EmotionEditModel.this.mgV.Po(str2);
                 }
             }.execute(new Void[0]);
         }

@@ -183,7 +183,7 @@ public class FaceSearchFragment extends BaseFragment implements SearchEditView.a
                     public void onClick(View view) {
                         FaceSearchFragment.this.ltD.setText(str);
                         FaceSearchFragment.this.ltD.setSelection(str.length());
-                        FaceSearchFragment.this.Oc(str);
+                        FaceSearchFragment.this.Od(str);
                     }
                 });
                 this.ltG.addView(textView);
@@ -242,7 +242,7 @@ public class FaceSearchFragment extends BaseFragment implements SearchEditView.a
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Oc(String str) {
+    public void Od(String str) {
         if (!TextUtils.isEmpty(str)) {
             if (!j.isNetWorkAvailable()) {
                 showToast(R.string.neterror);
@@ -257,7 +257,7 @@ public class FaceSearchFragment extends BaseFragment implements SearchEditView.a
 
     @Override // com.baidu.tieba.face.view.SearchEditView.a
     public void II(String str) {
-        Oc(str);
+        Od(str);
     }
 
     @Override // com.baidu.tieba.face.view.SearchEditView.a

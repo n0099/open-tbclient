@@ -16,9 +16,9 @@ import com.baidu.tieba.R;
 public class WritePrefixItemLayout extends LinearLayout {
     private TextView gtI;
     private Context mContext;
-    private TextView nTj;
-    private ImageView nTk;
-    private View nTl;
+    private TextView nTk;
+    private ImageView nTl;
+    private View nTm;
 
     public WritePrefixItemLayout(Context context) {
         this(context, null);
@@ -35,13 +35,13 @@ public class WritePrefixItemLayout extends LinearLayout {
         setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
         setOrientation(1);
         this.gtI = (TextView) findViewById(R.id.prefix_text);
-        this.nTj = (TextView) findViewById(R.id.prefix_no_tip);
-        this.nTk = (ImageView) findViewById(R.id.prefix_checked);
-        this.nTl = findViewById(R.id.prefix_item_divider);
+        this.nTk = (TextView) findViewById(R.id.prefix_no_tip);
+        this.nTl = (ImageView) findViewById(R.id.prefix_checked);
+        this.nTm = findViewById(R.id.prefix_item_divider);
         this.gtI.setEllipsize(TextUtils.TruncateAt.MIDDLE);
-        com.baidu.tbadk.core.elementsMaven.c.bv(this.nTj).nV(R.color.CAM_X0109);
-        this.nTk.setImageDrawable(WebPManager.a(R.drawable.icon_pure_set_list_ok16, ao.getColor(R.color.CAM_X0302), WebPManager.ResourceStateType.NORMAL));
-        ao.setBackgroundColor(this.nTl, R.color.CAM_X0204);
+        com.baidu.tbadk.core.elementsMaven.c.bv(this.nTk).nV(R.color.CAM_X0109);
+        this.nTl.setImageDrawable(WebPManager.a(R.drawable.icon_pure_set_list_ok16, ao.getColor(R.color.CAM_X0302), WebPManager.ResourceStateType.NORMAL));
+        ao.setBackgroundColor(this.nTm, R.color.CAM_X0204);
         ao.setBackgroundResource(this, R.drawable.addresslist_item_bg);
     }
 
@@ -54,20 +54,20 @@ public class WritePrefixItemLayout extends LinearLayout {
     }
 
     public void zc(boolean z) {
-        this.nTj.setVisibility(z ? 0 : 8);
+        this.nTk.setVisibility(z ? 0 : 8);
     }
 
     public void zd(boolean z) {
         if (z) {
-            this.nTk.setVisibility(0);
+            this.nTl.setVisibility(0);
         } else {
-            this.nTk.setVisibility(8);
+            this.nTl.setVisibility(8);
         }
     }
 
     public void setDividerStyle(boolean z) {
         if (!z) {
-            ((LinearLayout.LayoutParams) this.nTl.getLayoutParams()).setMargins(l.getDimens(this.mContext, R.dimen.ds30), 0, l.getDimens(this.mContext, R.dimen.ds30), 0);
+            ((LinearLayout.LayoutParams) this.nTm.getLayoutParams()).setMargins(l.getDimens(this.mContext, R.dimen.ds30), 0, l.getDimens(this.mContext, R.dimen.ds30), 0);
         }
     }
 }

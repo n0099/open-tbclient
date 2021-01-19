@@ -27,8 +27,8 @@ public class MemberRecommendView extends FrameLayout {
     private Context mContext;
     private View mRootView;
     private TextView mTitleView;
-    private TextView nvA;
-    private e nvB;
+    private TextView nvB;
+    private e nvC;
 
     public MemberRecommendView(Context context) {
         super(context);
@@ -54,8 +54,8 @@ public class MemberRecommendView extends FrameLayout {
         this.jRc.setDefaultResource(R.drawable.icon_vip_orange);
         this.jRc.setDefaultBgResource(R.drawable.transparent_bg);
         this.mTitleView = (TextView) this.mRootView.findViewById(R.id.title_view);
-        this.nvA = (TextView) this.mRootView.findViewById(R.id.jump_button);
-        this.nvA.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.themeCenter.MemberRecommendView.1
+        this.nvB = (TextView) this.mRootView.findViewById(R.id.jump_button);
+        this.nvB.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.themeCenter.MemberRecommendView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 String str;
@@ -100,7 +100,7 @@ public class MemberRecommendView extends FrameLayout {
                         i = 0;
                         break;
                 }
-                if (MemberRecommendView.this.nvB != null && (tbPageContext = (TbPageContext) j.K(MemberRecommendView.this.mContext)) != null) {
+                if (MemberRecommendView.this.nvC != null && (tbPageContext = (TbPageContext) j.K(MemberRecommendView.this.mContext)) != null) {
                     MemberPayActivityConfig memberPayActivityConfig = new MemberPayActivityConfig(tbPageContext.getPageActivity(), TbadkCoreApplication.getCurrentMemberType(), "", i);
                     memberPayActivityConfig.setReferPageClickZone(str, MemberPayStatistic.CLICK_ZONE_OPENDE_RENEWALFEE_BUTTON);
                     MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, memberPayActivityConfig));
@@ -111,15 +111,15 @@ public class MemberRecommendView extends FrameLayout {
 
     public void a(e eVar) {
         if (eVar != null) {
-            this.nvB = eVar;
-            this.jRc.startLoad(this.nvB.getIconUrl(), 10, false);
-            this.mTitleView.setText(this.nvB.dPd());
-            if (StringUtils.isNull(this.nvB.dPe())) {
-                this.nvA.setVisibility(8);
+            this.nvC = eVar;
+            this.jRc.startLoad(this.nvC.getIconUrl(), 10, false);
+            this.mTitleView.setText(this.nvC.dPd());
+            if (StringUtils.isNull(this.nvC.dPe())) {
+                this.nvB.setVisibility(8);
                 return;
             }
-            this.nvA.setVisibility(0);
-            this.nvA.setText(this.nvB.dPe());
+            this.nvB.setVisibility(0);
+            this.nvB.setText(this.nvC.dPe());
         }
     }
 
@@ -140,6 +140,6 @@ public class MemberRecommendView extends FrameLayout {
     }
 
     public View getButton() {
-        return this.nvA;
+        return this.nvB;
     }
 }

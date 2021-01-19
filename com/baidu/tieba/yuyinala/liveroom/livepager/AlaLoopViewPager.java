@@ -10,8 +10,8 @@ public class AlaLoopViewPager extends AlaVerticalViewPagerNew {
     private boolean hBr;
     ViewPager.OnPageChangeListener hBs;
     private ViewPager.OnPageChangeListener hBu;
-    private AlaLoopPagerAdapterWrapper omo;
-    private a omp;
+    private AlaLoopPagerAdapterWrapper omp;
+    private a omq;
 
     /* loaded from: classes10.dex */
     public interface a {
@@ -22,35 +22,35 @@ public class AlaLoopViewPager extends AlaVerticalViewPagerNew {
 
     public void setBoundaryCaching(boolean z) {
         this.hBr = z;
-        if (this.omo != null) {
-            this.omo.setBoundaryCaching(z);
+        if (this.omp != null) {
+            this.omp.setBoundaryCaching(z);
         }
     }
 
     @Override // com.baidu.tieba.yuyinala.liveroom.livepager.AlaVerticalViewPagerNew
     public void setAdapter(PagerAdapter pagerAdapter) {
-        this.omo = new AlaLoopPagerAdapterWrapper(pagerAdapter);
-        this.omo.setBoundaryCaching(this.hBr);
-        super.setAdapter(this.omo);
+        this.omp = new AlaLoopPagerAdapterWrapper(pagerAdapter);
+        this.omp.setBoundaryCaching(this.hBr);
+        super.setAdapter(this.omp);
         setCurrentItem(0, false);
     }
 
     @Override // com.baidu.tieba.yuyinala.liveroom.livepager.AlaVerticalViewPagerNew
     public PagerAdapter getAdapter() {
-        return this.omo != null ? this.omo.cfJ() : this.omo;
+        return this.omp != null ? this.omp.cfJ() : this.omp;
     }
 
     @Override // com.baidu.tieba.yuyinala.liveroom.livepager.AlaVerticalViewPagerNew
     public int getCurrentItem() {
-        if (this.omo != null) {
-            return this.omo.vs(super.getCurrentItem());
+        if (this.omp != null) {
+            return this.omp.vs(super.getCurrentItem());
         }
         return 0;
     }
 
     @Override // com.baidu.tieba.yuyinala.liveroom.livepager.AlaVerticalViewPagerNew
     public void setCurrentItem(int i, boolean z) {
-        super.setCurrentItem(this.omo.vt(i), z);
+        super.setCurrentItem(this.omp.vt(i), z);
     }
 
     @Override // com.baidu.tieba.yuyinala.liveroom.livepager.AlaVerticalViewPagerNew
@@ -74,7 +74,7 @@ public class AlaLoopViewPager extends AlaVerticalViewPagerNew {
 
             @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
             public void onPageSelected(int i) {
-                int vs = AlaLoopViewPager.this.omo.vs(i);
+                int vs = AlaLoopViewPager.this.omp.vs(i);
                 if (this.hBw != vs) {
                     this.hBw = vs;
                     if (AlaLoopViewPager.this.hBs != null) {
@@ -85,16 +85,16 @@ public class AlaLoopViewPager extends AlaVerticalViewPagerNew {
 
             @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
             public void onPageScrolled(int i, float f, int i2) {
-                if (AlaLoopViewPager.this.omo != null) {
-                    int vs = AlaLoopViewPager.this.omo.vs(i);
-                    if (f == 0.0f && this.hBv == 0.0f && (i == 0 || i == AlaLoopViewPager.this.omo.getCount() - 1)) {
+                if (AlaLoopViewPager.this.omp != null) {
+                    int vs = AlaLoopViewPager.this.omp.vs(i);
+                    if (f == 0.0f && this.hBv == 0.0f && (i == 0 || i == AlaLoopViewPager.this.omp.getCount() - 1)) {
                         AlaLoopViewPager.this.setCurrentItem(vs, false);
                     }
                     i = vs;
                 }
                 this.hBv = f;
                 if (AlaLoopViewPager.this.hBs != null) {
-                    if (AlaLoopViewPager.this.omo != null && i != AlaLoopViewPager.this.omo.cfI() - 1) {
+                    if (AlaLoopViewPager.this.omp != null && i != AlaLoopViewPager.this.omp.cfI() - 1) {
                         AlaLoopViewPager.this.hBs.onPageScrolled(i, f, i2);
                     } else if (f > 0.5d) {
                         AlaLoopViewPager.this.hBs.onPageScrolled(0, 0.0f, 0);
@@ -106,10 +106,10 @@ public class AlaLoopViewPager extends AlaVerticalViewPagerNew {
 
             @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
             public void onPageScrollStateChanged(int i) {
-                if (AlaLoopViewPager.this.omo != null) {
+                if (AlaLoopViewPager.this.omp != null) {
                     int currentItem = AlaLoopViewPager.super.getCurrentItem();
-                    int vs = AlaLoopViewPager.this.omo.vs(currentItem);
-                    if (i == 0 && (currentItem == 0 || currentItem == AlaLoopViewPager.this.omo.getCount() - 1)) {
+                    int vs = AlaLoopViewPager.this.omp.vs(currentItem);
+                    if (i == 0 && (currentItem == 0 || currentItem == AlaLoopViewPager.this.omp.getCount() - 1)) {
                         AlaLoopViewPager.this.setCurrentItem(vs, false);
                     }
                 }
@@ -130,7 +130,7 @@ public class AlaLoopViewPager extends AlaVerticalViewPagerNew {
 
             @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
             public void onPageSelected(int i) {
-                int vs = AlaLoopViewPager.this.omo.vs(i);
+                int vs = AlaLoopViewPager.this.omp.vs(i);
                 if (this.hBw != vs) {
                     this.hBw = vs;
                     if (AlaLoopViewPager.this.hBs != null) {
@@ -141,16 +141,16 @@ public class AlaLoopViewPager extends AlaVerticalViewPagerNew {
 
             @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
             public void onPageScrolled(int i, float f, int i2) {
-                if (AlaLoopViewPager.this.omo != null) {
-                    int vs = AlaLoopViewPager.this.omo.vs(i);
-                    if (f == 0.0f && this.hBv == 0.0f && (i == 0 || i == AlaLoopViewPager.this.omo.getCount() - 1)) {
+                if (AlaLoopViewPager.this.omp != null) {
+                    int vs = AlaLoopViewPager.this.omp.vs(i);
+                    if (f == 0.0f && this.hBv == 0.0f && (i == 0 || i == AlaLoopViewPager.this.omp.getCount() - 1)) {
                         AlaLoopViewPager.this.setCurrentItem(vs, false);
                     }
                     i = vs;
                 }
                 this.hBv = f;
                 if (AlaLoopViewPager.this.hBs != null) {
-                    if (AlaLoopViewPager.this.omo != null && i != AlaLoopViewPager.this.omo.cfI() - 1) {
+                    if (AlaLoopViewPager.this.omp != null && i != AlaLoopViewPager.this.omp.cfI() - 1) {
                         AlaLoopViewPager.this.hBs.onPageScrolled(i, f, i2);
                     } else if (f > 0.5d) {
                         AlaLoopViewPager.this.hBs.onPageScrolled(0, 0.0f, 0);
@@ -162,10 +162,10 @@ public class AlaLoopViewPager extends AlaVerticalViewPagerNew {
 
             @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
             public void onPageScrollStateChanged(int i) {
-                if (AlaLoopViewPager.this.omo != null) {
+                if (AlaLoopViewPager.this.omp != null) {
                     int currentItem = AlaLoopViewPager.super.getCurrentItem();
-                    int vs = AlaLoopViewPager.this.omo.vs(currentItem);
-                    if (i == 0 && (currentItem == 0 || currentItem == AlaLoopViewPager.this.omo.getCount() - 1)) {
+                    int vs = AlaLoopViewPager.this.omp.vs(currentItem);
+                    if (i == 0 && (currentItem == 0 || currentItem == AlaLoopViewPager.this.omp.getCount() - 1)) {
                         AlaLoopViewPager.this.setCurrentItem(vs, false);
                     }
                 }
@@ -183,21 +183,21 @@ public class AlaLoopViewPager extends AlaVerticalViewPagerNew {
 
     @Override // com.baidu.tieba.yuyinala.liveroom.livepager.AlaVerticalViewPagerNew
     public boolean a(AlaVerticalViewPagerNew alaVerticalViewPagerNew, MotionEvent motionEvent) {
-        if (this.omp != null) {
-            return this.omp.a(alaVerticalViewPagerNew, motionEvent);
+        if (this.omq != null) {
+            return this.omq.a(alaVerticalViewPagerNew, motionEvent);
         }
         return true;
     }
 
     @Override // com.baidu.tieba.yuyinala.liveroom.livepager.AlaVerticalViewPagerNew
     public boolean LC(int i) {
-        if (this.omp != null) {
-            return this.omp.LC(i);
+        if (this.omq != null) {
+            return this.omq.LC(i);
         }
         return true;
     }
 
     public void setListener(a aVar) {
-        this.omp = aVar;
+        this.omq = aVar;
     }
 }

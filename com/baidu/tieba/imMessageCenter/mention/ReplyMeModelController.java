@@ -131,7 +131,7 @@ public class ReplyMeModelController extends BdBaseModel implements CacheModel.a<
         return z4;
     }
 
-    public void Dj(int i) {
+    public void Di(int i) {
         if (this.kIv != null && this.kIv.cXu() != null && i < this.kIv.cXu().size()) {
             this.kIv.cXu().remove(i);
         }

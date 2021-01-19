@@ -84,7 +84,7 @@ public class YoungsterVerifyActivity extends TbWebViewActivity {
             if (StringUtils.isNull(str) || !str.contains(TbConfig.URL_YOUNGSTER_VERIFY_AUTHID)) {
                 return super.shouldOverrideUrlLoading(webView, str);
             }
-            YoungsterVerifyActivity.this.mZd.Rp(UrlUtil.getUrlField(str, YoungsterVerifyActivityConfig.PARAMA_AUTH_ID));
+            YoungsterVerifyActivity.this.mZd.Rq(UrlUtil.getUrlField(str, YoungsterVerifyActivityConfig.PARAMA_AUTH_ID));
             return true;
         }
     }

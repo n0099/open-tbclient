@@ -4,7 +4,8 @@ import rx.g;
 import rx.internal.operators.CompletableOnSubscribeConcatIterable;
 /* loaded from: classes14.dex */
 public class b {
-    static final b qny = new b(new a() { // from class: rx.b.1
+    private final a qny;
+    static final b qnz = new b(new a() { // from class: rx.b.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // rx.functions.b
         /* renamed from: a */
@@ -13,7 +14,7 @@ public class b {
             cVar.onCompleted();
         }
     }, false);
-    static final b qnz = new b(new a() { // from class: rx.b.2
+    static final b qnA = new b(new a() { // from class: rx.b.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // rx.functions.b
         /* renamed from: a */
@@ -21,7 +22,6 @@ public class b {
             cVar.onSubscribe(rx.subscriptions.e.eLX());
         }
     }, false);
-    private final a qnx;
 
     /* loaded from: classes14.dex */
     public interface a extends rx.functions.b<c> {
@@ -63,11 +63,11 @@ public class b {
     }
 
     protected b(a aVar) {
-        this.qnx = rx.c.c.b(aVar);
+        this.qny = rx.c.c.b(aVar);
     }
 
     protected b(a aVar, boolean z) {
-        this.qnx = z ? rx.c.c.b(aVar) : aVar;
+        this.qny = z ? rx.c.c.b(aVar) : aVar;
     }
 
     public final b a(final g gVar) {
@@ -150,7 +150,7 @@ public class b {
     public final void b(c cVar) {
         bV(cVar);
         try {
-            rx.c.c.b(this, this.qnx).call(cVar);
+            rx.c.c.b(this, this.qny).call(cVar);
         } catch (NullPointerException e) {
             throw e;
         } catch (Throwable th) {

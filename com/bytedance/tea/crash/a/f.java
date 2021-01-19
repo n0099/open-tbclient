@@ -4,25 +4,25 @@ import android.content.Context;
 import androidx.annotation.NonNull;
 /* loaded from: classes4.dex */
 public class f {
-    private static volatile f plk;
-    private final c pli;
+    private static volatile f pll;
+    private final c plj;
 
     public static f hW(Context context) {
-        if (plk == null) {
+        if (pll == null) {
             synchronized (f.class) {
-                if (plk == null) {
-                    plk = new f(context);
+                if (pll == null) {
+                    pll = new f(context);
                 }
             }
         }
-        return plk;
+        return pll;
     }
 
     private f(@NonNull Context context) {
-        this.pli = new c(context);
+        this.plj = new c(context);
     }
 
     public void a() {
-        this.pli.a();
+        this.plj.a();
     }
 }

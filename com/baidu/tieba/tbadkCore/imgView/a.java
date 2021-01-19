@@ -13,58 +13,58 @@ public class a {
     public float duh;
     private Context mContext;
     private Rect mTempRect = new Rect();
-    private DragLayer noA;
-    private d noB;
-    private c noC;
-    public boolean noD;
-    private float noE;
-    private b noF;
-    private Rect noG;
-    private int noH;
+    private DragLayer noB;
+    private d noC;
+    private c noD;
+    public boolean noE;
+    private float noF;
+    private b noG;
+    private Rect noH;
     private int noI;
+    private int noJ;
 
     public a(Context context) {
         this.mContext = context;
         this.dLj = (Vibrator) context.getSystemService("vibrator");
-        this.noE = this.mContext.getResources().getDisplayMetrics().density * 20.0f;
+        this.noF = this.mContext.getResources().getDisplayMetrics().density * 20.0f;
     }
 
     public void a(DragLayer dragLayer) {
-        this.noA = dragLayer;
+        this.noB = dragLayer;
         dragLayer.setDragController(this);
-        this.noH = this.noA.getPaddingLeft();
-        this.noI = this.noA.getPaddingRight();
+        this.noI = this.noB.getPaddingLeft();
+        this.noJ = this.noB.getPaddingRight();
     }
 
     public void b(View view, Bundle bundle) {
-        if (this.noA != null && view != null && view.getDrawingCache() != null) {
-            this.noD = true;
-            this.noF = new b(this.mContext);
+        if (this.noB != null && view != null && view.getDrawingCache() != null) {
+            this.noE = true;
+            this.noG = new b(this.mContext);
             Rect rect = new Rect();
             view.getDrawingRect(rect);
-            this.noA.offsetDescendantRectToMyCoords(view, rect);
+            this.noB.offsetDescendantRectToMyCoords(view, rect);
             view.setDrawingCacheEnabled(true);
             view.buildDrawingCache();
-            this.noF.bm = Bitmap.createBitmap(view.getDrawingCache());
+            this.noG.bm = Bitmap.createBitmap(view.getDrawingCache());
             view.destroyDrawingCache();
             view.setDrawingCacheEnabled(false);
-            this.noF.rect = rect;
-            this.noF.nph = bundle;
+            this.noG.rect = rect;
+            this.noG.npi = bundle;
             view.setVisibility(4);
-            a(this.noF);
-            this.noA.setDragObject(this.noF);
+            a(this.noG);
+            this.noB.setDragObject(this.noG);
             this.dLj.vibrate(300L);
         }
     }
 
     public void endDrag() {
-        if (this.noD) {
-            this.noD = false;
-            this.noF = null;
-            this.noB.dLK();
-            this.noB.dLL();
-            this.noA.dLN();
-            this.noA.invalidate();
+        if (this.noE) {
+            this.noE = false;
+            this.noG = null;
+            this.noC.dLK();
+            this.noC.dLL();
+            this.noB.dLN();
+            this.noB.invalidate();
         }
     }
 
@@ -80,18 +80,18 @@ public class a {
                 endDrag();
                 break;
         }
-        return this.noD;
+        return this.noE;
     }
 
     public boolean onTouchEvent(MotionEvent motionEvent) {
-        if (this.noD) {
-            if (this.noG == null) {
-                this.noG = new Rect();
-                this.noA.getDrawingRect(this.noG);
-                Rect rect = this.noG;
-                rect.top = (int) (rect.top - this.noE);
-                Rect rect2 = this.noG;
-                rect2.bottom = (int) (rect2.bottom + this.noE);
+        if (this.noE) {
+            if (this.noH == null) {
+                this.noH = new Rect();
+                this.noB.getDrawingRect(this.noH);
+                Rect rect = this.noH;
+                rect.top = (int) (rect.top - this.noF);
+                Rect rect2 = this.noH;
+                rect2.bottom = (int) (rect2.bottom + this.noF);
             }
             switch (motionEvent.getAction() & 255) {
                 case 0:
@@ -106,8 +106,8 @@ public class a {
                 case 2:
                     float x = motionEvent.getX(0);
                     this.duh = x;
-                    this.noF.rect.offset((int) (x - this.duh), 0);
-                    a(this.noF);
+                    this.noG.rect.offset((int) (x - this.duh), 0);
+                    a(this.noG);
                     dLG();
                     break;
             }
@@ -117,49 +117,49 @@ public class a {
     }
 
     public void dLG() {
-        this.mTempRect.set(this.noF.rect);
-        this.noA.offsetRectIntoDescendantCoords((View) this.noB, this.mTempRect);
-        this.noB.i(this.mTempRect);
-        this.noA.invalidate();
-        if (this.noF.npi) {
-            this.noB.dLI();
-        } else if (this.noF.npj) {
-            this.noB.dLJ();
+        this.mTempRect.set(this.noG.rect);
+        this.noB.offsetRectIntoDescendantCoords((View) this.noC, this.mTempRect);
+        this.noC.i(this.mTempRect);
+        this.noB.invalidate();
+        if (this.noG.npj) {
+            this.noC.dLI();
+        } else if (this.noG.npk) {
+            this.noC.dLJ();
         } else {
-            this.noB.dLK();
+            this.noC.dLK();
         }
     }
 
     private void a(b bVar) {
-        bVar.npi = false;
         bVar.npj = false;
+        bVar.npk = false;
         Rect rect = bVar.rect;
         int width = rect.width();
-        int width2 = (this.noA.getWidth() - this.noH) - this.noI;
-        if (rect.left < this.noH) {
-            rect.left = this.noH;
+        int width2 = (this.noB.getWidth() - this.noI) - this.noJ;
+        if (rect.left < this.noI) {
+            rect.left = this.noI;
             rect.right = rect.left + width;
         }
-        if (rect.right > this.noH + width2) {
-            rect.right = this.noH + width2;
+        if (rect.right > this.noI + width2) {
+            rect.right = this.noI + width2;
             rect.left = rect.right - width;
         }
-        if (rect.left < this.noH + this.noE) {
-            bVar.npi = true;
-            bVar.npj = false;
-        }
-        if (rect.right > (this.noH + width2) - this.noE) {
-            bVar.npi = false;
+        if (rect.left < this.noI + this.noF) {
             bVar.npj = true;
+            bVar.npk = false;
+        }
+        if (rect.right > (this.noI + width2) - this.noF) {
+            bVar.npj = false;
+            bVar.npk = true;
         }
     }
 
     public void a(d dVar) {
-        this.noB = dVar;
+        this.noC = dVar;
     }
 
     public void a(c cVar) {
-        this.noC = cVar;
-        this.noC.setDragController(this);
+        this.noD = cVar;
+        this.noD.setDragController(this);
     }
 }

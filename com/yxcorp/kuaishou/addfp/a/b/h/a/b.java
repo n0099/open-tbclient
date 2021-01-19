@@ -17,10 +17,10 @@ public class b {
 
     /* renamed from: b  reason: collision with root package name */
     private boolean f14371b;
-    private static volatile b qbL = null;
-    private static a qbM = null;
+    private static volatile b qbM = null;
     private static a qbN = null;
     private static a qbO = null;
+    private static a qbP = null;
     private static Object g = new Object();
     private static HandlerThread h = null;
     private static Handler i = null;
@@ -112,14 +112,14 @@ public class b {
     }
 
     public static b jb(Context context) {
-        if (qbL == null) {
+        if (qbM == null) {
             synchronized (b.class) {
-                if (qbL == null) {
-                    qbL = new b(context);
+                if (qbM == null) {
+                    qbM = new b(context);
                 }
             }
         }
-        return qbL;
+        return qbM;
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:28:0x006a, code lost:
@@ -175,10 +175,10 @@ public class b {
                 return k;
             }
             a(0, (String) null);
-            if (qbM == null) {
+            if (qbN == null) {
                 Context context = this.f14370a;
-                qbM = new a(qbL, 0, null);
-                context.getContentResolver().registerContentObserver(Uri.parse("content://com.vivo.vms.IdProvider/IdentifierId/OAID"), true, qbM);
+                qbN = new a(qbM, 0, null);
+                context.getContentResolver().registerContentObserver(Uri.parse("content://com.vivo.vms.IdProvider/IdentifierId/OAID"), true, qbN);
             }
             return k;
         }

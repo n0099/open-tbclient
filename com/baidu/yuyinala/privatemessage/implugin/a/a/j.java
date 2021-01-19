@@ -25,19 +25,19 @@ public class j extends c {
     public View mContentView;
     public Context mContext;
     public View mConvertView;
-    private TextView oNV;
-    public LinearLayout oNY;
+    private TextView oNW;
+    public LinearLayout oNZ;
 
     @SuppressLint({"InflateParams"})
     public j(Context context, LayoutInflater layoutInflater) {
         this.mContext = context;
         this.mConvertView = layoutInflater.inflate(a.g.bd_im_chating_push_graphic_multi, (ViewGroup) null);
         this.mContentView = this.mConvertView.findViewById(a.f.bd_im_chating_push_content_view);
-        this.oNI = (TextView) this.mConvertView.findViewById(a.f.bd_im_chating_time_txt);
-        this.oNJ = (TextView) this.mConvertView.findViewById(a.f.bd_im_chating_push_title);
-        this.oNV = (TextView) this.mConvertView.findViewById(a.f.bd_im_chating_push_content);
-        this.oNK = (DarkImageView) this.mConvertView.findViewById(a.f.bd_im_chating_push_image);
-        this.oNY = (LinearLayout) this.mConvertView.findViewById(a.f.bd_im_chating_push_graph_multi);
+        this.oNJ = (TextView) this.mConvertView.findViewById(a.f.bd_im_chating_time_txt);
+        this.oNK = (TextView) this.mConvertView.findViewById(a.f.bd_im_chating_push_title);
+        this.oNW = (TextView) this.mConvertView.findViewById(a.f.bd_im_chating_push_content);
+        this.oNL = (DarkImageView) this.mConvertView.findViewById(a.f.bd_im_chating_push_image);
+        this.oNZ = (LinearLayout) this.mConvertView.findViewById(a.f.bd_im_chating_push_graph_multi);
         this.mConvertView.setTag(this);
     }
 
@@ -61,17 +61,17 @@ public class j extends c {
         final JSONArray jSONArray;
         if (chatMsg instanceof MultiGraphicTextMsg) {
             final MultiGraphicTextMsg multiGraphicTextMsg = (MultiGraphicTextMsg) chatMsg;
-            this.oNK.getWindowVisibleDisplayFrame(new Rect());
+            this.oNL.getWindowVisibleDisplayFrame(new Rect());
             int width = (int) (rect.width() - (4.0f * context.getResources().getDimension(a.d.bd_im_push_lf)));
-            ViewGroup.LayoutParams layoutParams = this.oNK.getLayoutParams();
+            ViewGroup.LayoutParams layoutParams = this.oNL.getLayoutParams();
             layoutParams.width = width;
-            layoutParams.height = (int) (width / com.baidu.yuyinala.privatemessage.implugin.util.a.b.oXb);
-            this.oNK.setLayoutParams(layoutParams);
-            this.oNJ.setText(multiGraphicTextMsg.getArticles()[0].getTitle());
-            this.oNV.setText(multiGraphicTextMsg.getArticles()[0].getDigest());
+            layoutParams.height = (int) (width / com.baidu.yuyinala.privatemessage.implugin.util.a.b.oXc);
+            this.oNL.setLayoutParams(layoutParams);
+            this.oNK.setText(multiGraphicTextMsg.getArticles()[0].getTitle());
+            this.oNW.setText(multiGraphicTextMsg.getArticles()[0].getDigest());
             String cover = multiGraphicTextMsg.getArticles()[0].getCover();
             com.baidu.yuyinala.privatemessage.implugin.util.b.hC(context);
-            ImageLoader.getInstance().displayImage(cover, this.oNK, com.baidu.yuyinala.privatemessage.implugin.util.b.ejZ());
+            ImageLoader.getInstance().displayImage(cover, this.oNL, com.baidu.yuyinala.privatemessage.implugin.util.b.ejZ());
             try {
                 jSONArray = new JSONArray(multiGraphicTextMsg.getExtLog());
             } catch (JSONException e) {
@@ -107,8 +107,8 @@ public class j extends c {
             for (int i = 0; i < multiGraphicTextMsg.getArticles().length - 1; i++) {
                 articleArr[i] = multiGraphicTextMsg.getArticles()[i + 1];
             }
-            if (this.oNY != null && multiGraphicTextMsg.getArticles() != null) {
-                this.oNY.removeAllViews();
+            if (this.oNZ != null && multiGraphicTextMsg.getArticles() != null) {
+                this.oNZ.removeAllViews();
                 for (final int i2 = 0; i2 < articleArr.length; i2++) {
                     final MultiGraphicTextMsg.Article article = articleArr[i2];
                     boolean z = !TextUtils.isEmpty(article.getCover());
@@ -116,20 +116,20 @@ public class j extends c {
                     a aVar = new a();
                     aVar.title = (TextView) inflate.findViewById(a.f.bd_im_chating_push_text);
                     if (z) {
-                        aVar.oOe = (DarkImageView) inflate.findViewById(a.f.bd_im_chating_push_image);
+                        aVar.oOf = (DarkImageView) inflate.findViewById(a.f.bd_im_chating_push_image);
                     }
                     aVar.hie = (TextView) inflate.findViewById(a.f.bd_im_chating_push_image_content);
-                    aVar.oOf = (RelativeLayout) inflate.findViewById(a.f.bd_im_chating_push_txt);
-                    aVar.oOg = inflate.findViewById(a.f.bd_im_cell_seperator);
+                    aVar.oOg = (RelativeLayout) inflate.findViewById(a.f.bd_im_chating_push_txt);
+                    aVar.oOh = inflate.findViewById(a.f.bd_im_cell_seperator);
                     if (aVar != null && article != null) {
                         aVar.title.setText(article.getTitle());
                         aVar.hie.setText(article.getDigest());
                         if (z) {
                             com.baidu.yuyinala.privatemessage.implugin.util.b.hC(context);
-                            ImageLoader.getInstance().displayImage(article.getCover(), aVar.oOe, com.baidu.yuyinala.privatemessage.implugin.util.b.ejZ());
+                            ImageLoader.getInstance().displayImage(article.getCover(), aVar.oOf, com.baidu.yuyinala.privatemessage.implugin.util.b.ejZ());
                         }
                     }
-                    this.oNY.addView(inflate, i2);
+                    this.oNZ.addView(inflate, i2);
                     inflate.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.yuyinala.privatemessage.implugin.a.a.j.3
                         @Override // android.view.View.OnClickListener
                         public void onClick(View view) {
@@ -175,9 +175,9 @@ public class j extends c {
         bVar.a(new b.a() { // from class: com.baidu.yuyinala.privatemessage.implugin.a.a.j.5
             @Override // com.baidu.yuyinala.privatemessage.implugin.ui.material.a.b.a
             public void a(com.baidu.yuyinala.privatemessage.implugin.ui.material.a.b bVar2, int i, int i2) {
-                com.baidu.yuyinala.privatemessage.implugin.ui.fragment.a.c Xl = com.baidu.yuyinala.privatemessage.implugin.ui.fragment.a.d.eiJ().Xl(com.baidu.yuyinala.privatemessage.implugin.ui.fragment.a.d.eiJ().eiK());
-                if (Xl != null) {
-                    Xl.gz(arrayList);
+                com.baidu.yuyinala.privatemessage.implugin.ui.fragment.a.c Xm = com.baidu.yuyinala.privatemessage.implugin.ui.fragment.a.d.eiJ().Xm(com.baidu.yuyinala.privatemessage.implugin.ui.fragment.a.d.eiJ().eiK());
+                if (Xm != null) {
+                    Xm.gz(arrayList);
                 }
             }
         });
@@ -186,9 +186,9 @@ public class j extends c {
     /* loaded from: classes10.dex */
     private class a {
         TextView hie;
-        DarkImageView oOe;
-        RelativeLayout oOf;
-        View oOg;
+        DarkImageView oOf;
+        RelativeLayout oOg;
+        View oOh;
         TextView title;
 
         private a() {

@@ -71,7 +71,7 @@ public class a {
     }
 
     private void a(DetailInfoFragment detailInfoFragment, BdTypeRecyclerView bdTypeRecyclerView) {
-        this.mcp = new e(detailInfoFragment.dlK(), PostData.nmM);
+        this.mcp = new e(detailInfoFragment.dlK(), PostData.nmN);
         this.mcq = new PbFirstFloorCommentAndPraiseAdapter(detailInfoFragment.dlK(), o.lCJ);
         this.mcq.setOnClickListener(this.mcu);
         this.mcr = new c(detailInfoFragment.getContext(), s.TYPE);

@@ -3,35 +3,35 @@ package com.bytedance.sdk.a.a;
 import java.io.IOException;
 /* loaded from: classes4.dex */
 public abstract class h implements s {
-    private final s pdn;
+    private final s pdo;
 
     public h(s sVar) {
         if (sVar == null) {
             throw new IllegalArgumentException("delegate == null");
         }
-        this.pdn = sVar;
+        this.pdo = sVar;
     }
 
     public final s emh() {
-        return this.pdn;
+        return this.pdo;
     }
 
     @Override // com.bytedance.sdk.a.a.s
     public long b(c cVar, long j) throws IOException {
-        return this.pdn.b(cVar, j);
+        return this.pdo.b(cVar, j);
     }
 
     @Override // com.bytedance.sdk.a.a.s
     public t elW() {
-        return this.pdn.elW();
+        return this.pdo.elW();
     }
 
     @Override // com.bytedance.sdk.a.a.s, java.io.Closeable, java.lang.AutoCloseable
     public void close() throws IOException {
-        this.pdn.close();
+        this.pdo.close();
     }
 
     public String toString() {
-        return getClass().getSimpleName() + "(" + this.pdn.toString() + ")";
+        return getClass().getSimpleName() + "(" + this.pdo.toString() + ")";
     }
 }

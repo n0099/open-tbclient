@@ -15,24 +15,24 @@ import com.baidu.tieba.video.cloudmusic.data.CloudMusicData;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class CloudMusicModel extends BdBaseModel {
-    private a<CloudMusicData> nBO;
-    private final HttpMessageListener nBR;
+    private a<CloudMusicData> nBP;
+    private final HttpMessageListener nBS;
 
     public CloudMusicModel(f fVar) {
         super(fVar);
-        this.nBR = new HttpMessageListener(1003371) { // from class: com.baidu.tieba.video.cloudmusic.model.CloudMusicModel.1
+        this.nBS = new HttpMessageListener(1003371) { // from class: com.baidu.tieba.video.cloudmusic.model.CloudMusicModel.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-                if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003371 && (httpResponsedMessage instanceof VideoCloudMusicWithTagResponseMessage) && CloudMusicModel.this.nBO != null) {
-                    CloudMusicModel.this.nBO.aT(((VideoCloudMusicWithTagResponseMessage) httpResponsedMessage).mCloudMusicData);
+                if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003371 && (httpResponsedMessage instanceof VideoCloudMusicWithTagResponseMessage) && CloudMusicModel.this.nBP != null) {
+                    CloudMusicModel.this.nBP.aT(((VideoCloudMusicWithTagResponseMessage) httpResponsedMessage).mCloudMusicData);
                 }
             }
         };
         dQd();
-        this.nBR.setTag(getUniqueId());
-        this.nBR.setSelfListener(true);
-        registerListener(this.nBR);
+        this.nBS.setTag(getUniqueId());
+        this.nBS.setSelfListener(true);
+        registerListener(this.nBS);
     }
 
     private void dQd() {
@@ -62,7 +62,7 @@ public class CloudMusicModel extends BdBaseModel {
     public void a(a<CloudMusicData> aVar) {
         if (aVar != null) {
             sendMessage(new HttpMessage(1003371));
-            this.nBO = aVar;
+            this.nBP = aVar;
         }
     }
 

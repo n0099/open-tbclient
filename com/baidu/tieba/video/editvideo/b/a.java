@@ -11,49 +11,49 @@ import java.util.List;
 /* loaded from: classes7.dex */
 public class a {
     private Context mContext;
-    private b nCA;
-    b.a nCB;
-    private com.baidu.tieba.video.editvideo.data.a nCz;
+    private com.baidu.tieba.video.editvideo.data.a nCA;
+    private b nCB;
+    b.a nCC;
 
     public a(Context context) {
         this.mContext = context;
     }
 
     public void b(com.baidu.tieba.video.editvideo.data.a aVar) {
-        this.nCz = aVar;
+        this.nCA = aVar;
     }
 
     public String dQn() {
-        return (this.nCz == null || "normal".equalsIgnoreCase(this.nCz.value)) ? "" : this.nCz.value;
+        return (this.nCA == null || "normal".equalsIgnoreCase(this.nCA.value)) ? "" : this.nCA.value;
     }
 
     public void gy(String str, String str2) {
-        if ((this.nCA == null || !this.nCA.isRunning()) && !TextUtils.isEmpty(str) && new File(str).exists()) {
-            this.nCA = new b(this.mContext, str, dQq(), str2);
-            if (this.nCB != null) {
-                this.nCA.a(this.nCB);
+        if ((this.nCB == null || !this.nCB.isRunning()) && !TextUtils.isEmpty(str) && new File(str).exists()) {
+            this.nCB = new b(this.mContext, str, dQq(), str2);
+            if (this.nCC != null) {
+                this.nCB.a(this.nCC);
             }
-            this.nCA.dQr();
+            this.nCB.dQr();
         }
     }
 
     public boolean dQo() {
-        if (this.nCA != null) {
-            return this.nCA.isRunning();
+        if (this.nCB != null) {
+            return this.nCB.isRunning();
         }
         return false;
     }
 
     public void dQp() {
-        if (this.nCA != null) {
-            this.nCA.dQs();
+        if (this.nCB != null) {
+            this.nCB.dQs();
         }
     }
 
     public void a(b.a aVar) {
-        this.nCB = aVar;
-        if (this.nCA != null) {
-            this.nCA.a(this.nCB);
+        this.nCC = aVar;
+        if (this.nCB != null) {
+            this.nCB.a(this.nCC);
         }
     }
 
@@ -90,6 +90,6 @@ public class a {
     }
 
     private static String dQq() {
-        return com.baidu.tieba.video.c.nAB + "video_addfilter_" + System.currentTimeMillis() + ".mp4";
+        return com.baidu.tieba.video.c.nAC + "video_addfilter_" + System.currentTimeMillis() + ".mp4";
     }
 }

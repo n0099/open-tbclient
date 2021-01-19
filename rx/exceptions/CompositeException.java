@@ -164,29 +164,10 @@ public final class CompositeException extends RuntimeException {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes14.dex */
     public static final class b extends a {
-        private final PrintStream qds;
+        private final PrintStream qdt;
 
         b(PrintStream printStream) {
-            this.qds = printStream;
-        }
-
-        @Override // rx.exceptions.CompositeException.a
-        Object eKx() {
-            return this.qds;
-        }
-
-        @Override // rx.exceptions.CompositeException.a
-        void bL(Object obj) {
-            this.qds.println(obj);
-        }
-    }
-
-    /* loaded from: classes14.dex */
-    static final class c extends a {
-        private final PrintWriter qdt;
-
-        c(PrintWriter printWriter) {
-            this.qdt = printWriter;
+            this.qdt = printStream;
         }
 
         @Override // rx.exceptions.CompositeException.a
@@ -197,6 +178,25 @@ public final class CompositeException extends RuntimeException {
         @Override // rx.exceptions.CompositeException.a
         void bL(Object obj) {
             this.qdt.println(obj);
+        }
+    }
+
+    /* loaded from: classes14.dex */
+    static final class c extends a {
+        private final PrintWriter qdu;
+
+        c(PrintWriter printWriter) {
+            this.qdu = printWriter;
+        }
+
+        @Override // rx.exceptions.CompositeException.a
+        Object eKx() {
+            return this.qdu;
+        }
+
+        @Override // rx.exceptions.CompositeException.a
+        void bL(Object obj) {
+            this.qdu.println(obj);
         }
     }
 

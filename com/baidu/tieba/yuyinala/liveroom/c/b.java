@@ -24,7 +24,7 @@ public class b {
     private short hoQ = 0;
     private com.baidu.live.liveroom.f.a hoR;
     private com.baidu.live.liveroom.a.c hoS;
-    private com.baidu.tieba.yuyinala.liveroom.data.a oja;
+    private com.baidu.tieba.yuyinala.liveroom.data.a ojb;
     private String otherParams;
 
     public void e(short s) {
@@ -35,25 +35,25 @@ public class b {
         if (this.hoR == null) {
             this.hoR = com.baidu.live.liveroom.f.c.LC().LD().c(s);
             if (this.hoR != null) {
-                this.hoR.setActivity(this.oja.pageContext.getPageActivity());
+                this.hoR.setActivity(this.ojb.pageContext.getPageActivity());
                 this.hoR.a(this.hoS);
-                this.hoR.b(this.oja.okl);
-                if (this.oja.okl.getParent() != null && (this.oja.okl.getParent() instanceof ViewGroup)) {
-                    this.hoR.o((ViewGroup) this.oja.okl.getParent());
+                this.hoR.b(this.ojb.okm);
+                if (this.ojb.okm.getParent() != null && (this.ojb.okm.getParent() instanceof ViewGroup)) {
+                    this.hoR.o((ViewGroup) this.ojb.okm.getParent());
                 }
-                this.hoR.a(this.oja.hxi, this.oja.bon);
+                this.hoR.a(this.ojb.hxi, this.ojb.bon);
                 this.hoQ = (short) 0;
-                this.oja.hxo = false;
+                this.ojb.hxo = false;
                 this.hoR.init();
                 return;
             }
             return;
         }
-        this.hoR.b(this.oja.okl);
-        if (this.oja.okl.getParent() != null && (this.oja.okl.getParent() instanceof ViewGroup)) {
-            this.hoR.o((ViewGroup) this.oja.okl.getParent());
+        this.hoR.b(this.ojb.okm);
+        if (this.ojb.okm.getParent() != null && (this.ojb.okm.getParent() instanceof ViewGroup)) {
+            this.hoR.o((ViewGroup) this.ojb.okm.getParent());
         }
-        this.hoR.a(this.oja.hxi, this.oja.bon);
+        this.hoR.a(this.ojb.hxi, this.ojb.bon);
     }
 
     public void dYt() {
@@ -64,10 +64,10 @@ public class b {
         if (this.hoR == null) {
             c cVar = new c();
             this.hoQ = (short) 0;
-            cVar.a(this.oja);
+            cVar.a(this.ojb);
             cVar.a(this.hoS);
-            cVar.setActivity(this.oja.pageContext.getPageActivity());
-            this.oja.hxo = false;
+            cVar.setActivity(this.ojb.pageContext.getPageActivity());
+            this.ojb.hxo = false;
             cVar.setOtherParams(this.otherParams);
             cVar.init();
             this.hoR = cVar;
@@ -79,19 +79,19 @@ public class b {
     }
 
     public void a(TbPageContext tbPageContext, AlaLiveView alaLiveView, f fVar, e eVar, com.baidu.tieba.yuyinala.liveroom.k.a aVar, String str, boolean z, long j, ArrayList<AlaBroadcastGiftToastData> arrayList, br brVar) {
-        if (this.oja == null) {
-            this.oja = new com.baidu.tieba.yuyinala.liveroom.data.a();
+        if (this.ojb == null) {
+            this.ojb = new com.baidu.tieba.yuyinala.liveroom.data.a();
         }
-        this.oja.pageContext = tbPageContext;
-        this.oja.okl = alaLiveView;
-        this.oja.bon = fVar;
-        this.oja.hxi = eVar;
-        this.oja.okk = aVar;
-        this.oja.fromType = str;
-        this.oja.enterTime = j;
-        this.oja.hxm = z;
-        this.oja.hxp = arrayList;
-        this.oja.hxq = false;
+        this.ojb.pageContext = tbPageContext;
+        this.ojb.okm = alaLiveView;
+        this.ojb.bon = fVar;
+        this.ojb.hxi = eVar;
+        this.ojb.okl = aVar;
+        this.ojb.fromType = str;
+        this.ojb.enterTime = j;
+        this.ojb.hxm = z;
+        this.ojb.hxp = arrayList;
+        this.ojb.hxq = false;
         this.hnH = brVar;
     }
 
@@ -110,22 +110,22 @@ public class b {
     }
 
     public void a(AlaLiveRoomBlurPageLayout alaLiveRoomBlurPageLayout) {
-        if (this.oja != null) {
-            this.oja.hxi = alaLiveRoomBlurPageLayout;
+        if (this.ojb != null) {
+            this.ojb.hxi = alaLiveRoomBlurPageLayout;
         }
     }
 
     public void aF(boolean z, boolean z2) {
-        if (this.oja != null) {
-            this.oja.hxo = false;
+        if (this.ojb != null) {
+            this.ojb.hxo = false;
         }
         try {
             if (this.hoR != null) {
-                if (this.oja != null) {
+                if (this.ojb != null) {
                     if (this.hoR instanceof c) {
                         ((c) this.hoR).b(this.goI);
                     }
-                    this.hoR.m(this.oja.okk.DW());
+                    this.hoR.m(this.ojb.okl.DW());
                 }
                 if (this.hoR instanceof c) {
                     if (z) {
@@ -142,11 +142,11 @@ public class b {
     }
 
     public void a(x xVar, String str, String str2) {
-        if (this.oja != null) {
-            this.oja.hxo = false;
+        if (this.ojb != null) {
+            this.ojb.hxo = false;
         }
         try {
-            if (this.hoR != null && this.oja != null && (this.hoR instanceof c)) {
+            if (this.hoR != null && this.ojb != null && (this.hoR instanceof c)) {
                 ((c) this.hoR).a(xVar, str, str2);
             }
         } catch (Exception e) {
@@ -156,8 +156,8 @@ public class b {
     }
 
     public void caT() {
-        if (this.oja != null) {
-            this.oja.hxn = true;
+        if (this.ojb != null) {
+            this.ojb.hxn = true;
         }
     }
 
@@ -176,8 +176,8 @@ public class b {
     public void nJ(boolean z) {
         if (this.hoQ != 3) {
             try {
-                if (this.oja != null) {
-                    this.oja.hxo = false;
+                if (this.ojb != null) {
+                    this.ojb.hxo = false;
                 }
                 if (this.hoR != null) {
                     this.hoR.cy(z);
@@ -192,10 +192,10 @@ public class b {
     public void caU() {
         if (this.hoQ != 4) {
             try {
-                if (this.oja != null) {
-                    this.oja.hxo = true;
+                if (this.ojb != null) {
+                    this.ojb.hxo = true;
                     if (this.hoR != null) {
-                        this.hoR.n(this.oja.okk.DW());
+                        this.hoR.n(this.ojb.okl.DW());
                     }
                 }
             } catch (Exception e) {
@@ -218,8 +218,8 @@ public class b {
             return false;
         }
         if (this.hoQ != 5) {
-            if (this.oja != null) {
-                this.oja.hxo = false;
+            if (this.ojb != null) {
+                this.ojb.hxo = false;
             }
             try {
                 if (this.hoR != null) {
@@ -289,7 +289,7 @@ public class b {
     }
 
     public com.baidu.tieba.yuyinala.liveroom.data.a dYs() {
-        return this.oja;
+        return this.ojb;
     }
 
     public void setOtherParams(String str) {

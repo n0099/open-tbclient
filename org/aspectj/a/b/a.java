@@ -2,15 +2,15 @@ package org.aspectj.a.b;
 /* loaded from: classes3.dex */
 abstract class a extends d implements org.aspectj.lang.reflect.a {
     Class[] parameterTypes;
-    String[] qkn;
-    Class[] qko;
+    String[] qko;
+    Class[] qkp;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(int i, String str, Class cls, Class[] clsArr, String[] strArr, Class[] clsArr2) {
         super(i, str, cls);
         this.parameterTypes = clsArr;
-        this.qkn = strArr;
-        this.qko = clsArr2;
+        this.qko = strArr;
+        this.qkp = clsArr2;
     }
 
     public Class[] eJq() {
@@ -21,9 +21,9 @@ abstract class a extends d implements org.aspectj.lang.reflect.a {
     }
 
     public Class[] eJr() {
-        if (this.qko == null) {
-            this.qko = Sf(5);
+        if (this.qkp == null) {
+            this.qkp = Sf(5);
         }
-        return this.qko;
+        return this.qkp;
     }
 }

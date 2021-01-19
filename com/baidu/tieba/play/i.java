@@ -274,7 +274,7 @@ public class i {
         }
     }
 
-    public void MS(String str) {
+    public void MT(String str) {
         this.kWB = str;
     }
 
@@ -288,7 +288,7 @@ public class i {
                     e eVar = (e) childAt.getTag();
                     if (eVar.isPlayStarted()) {
                         DN(eVar.getCurrentPosition());
-                        MS(eVar.getPlayUrl());
+                        MT(eVar.getPlayUrl());
                         this.kWE = childAt;
                         this.kWF = eVar.isPlaying();
                         eVar.stopPlay();

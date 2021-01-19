@@ -27,16 +27,16 @@ public class g {
     }
 
     public static void a(String str) {
-        a ZK;
-        if (!TextUtils.isEmpty(str) && (ZK = ZK(str)) != null) {
-            ZK.a();
+        a ZL;
+        if (!TextUtils.isEmpty(str) && (ZL = ZL(str)) != null) {
+            ZL.a();
         }
     }
 
     public static void a(String str, String str2) {
-        a ZK;
-        if (!TextUtils.isEmpty(str) && (ZK = ZK(str)) != null) {
-            ZK.a(str2);
+        a ZL;
+        if (!TextUtils.isEmpty(str) && (ZL = ZL(str)) != null) {
+            ZL.a(str2);
         }
     }
 
@@ -46,7 +46,7 @@ public class g {
         }
     }
 
-    private static a ZK(String str) {
+    private static a ZL(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }

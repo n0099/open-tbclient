@@ -45,12 +45,12 @@ public class g {
     private String mFrom;
     private ViewGroup mParentView;
     private int mSkinType;
-    private a nSX;
-    private boolean nSY;
-    private h nSZ;
-    private String nTa;
+    private a nSY;
+    private boolean nSZ;
+    private h nTa;
     private String nTb;
-    private h.a nTc;
+    private String nTc;
+    private h.a nTd;
     private int statisticFrom;
 
     public g(TbPageContext tbPageContext, ViewGroup viewGroup, String str) {
@@ -59,18 +59,18 @@ public class g {
 
     public g(TbPageContext tbPageContext, ViewGroup viewGroup, String str, int i) {
         int i2 = 0;
-        this.nSY = false;
+        this.nSZ = false;
         this.mSkinType = 3;
-        this.nTa = "";
+        this.nTb = "";
         this.mFrom = "write";
-        this.nTb = "0";
+        this.nTc = "0";
         this.canGoods = false;
-        this.nTc = new h.a() { // from class: com.baidu.tieba.write.g.1
+        this.nTd = new h.a() { // from class: com.baidu.tieba.write.g.1
             @Override // com.baidu.tieba.write.h.a
             public void KM(int i3) {
                 if (i3 == 1) {
-                    g.this.nSY = true;
-                    if (TbSingleton.getInstance().isEnableBenchmark() && !TbSingleton.getInstance().isAnimFpsComputed("anim_switch_sendthread_maintab") && (g.this.nSZ instanceof d)) {
+                    g.this.nSZ = true;
+                    if (TbSingleton.getInstance().isEnableBenchmark() && !TbSingleton.getInstance().isAnimFpsComputed("anim_switch_sendthread_maintab") && (g.this.nTa instanceof d)) {
                         if (g.this.XX == null) {
                             g.this.XX = new com.baidu.tbadk.n.a.a("anim_switch_sendthread_maintab");
                         }
@@ -79,14 +79,14 @@ public class g {
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921401, 0));
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921467, 0));
                 } else if (i3 == 2) {
-                    if (g.this.XX != null && TbSingleton.getInstance().isEnableBenchmark() && !TbSingleton.getInstance().isAnimFpsComputed("anim_switch_sendthread_maintab") && (g.this.nSZ instanceof d)) {
+                    if (g.this.XX != null && TbSingleton.getInstance().isEnableBenchmark() && !TbSingleton.getInstance().isAnimFpsComputed("anim_switch_sendthread_maintab") && (g.this.nTa instanceof d)) {
                         g.this.XX.bEa();
                     }
                     g.this.dUo();
                 } else if (i3 == 4) {
-                    g.this.nSY = false;
-                    if (g.this.nSX.mRootView.getParent() == g.this.mParentView && g.this.mParentView != null && g.this.nSX.mRootView != null && g.this.mParentView.indexOfChild(g.this.nSX.mRootView) > 0) {
-                        g.this.mParentView.removeView(g.this.nSX.mRootView);
+                    g.this.nSZ = false;
+                    if (g.this.nSY.mRootView.getParent() == g.this.mParentView && g.this.mParentView != null && g.this.nSY.mRootView != null && g.this.mParentView.indexOfChild(g.this.nSY.mRootView) > 0) {
+                        g.this.mParentView.removeView(g.this.nSY.mRootView);
                     }
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921401, 1));
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921467, 1));
@@ -104,39 +104,39 @@ public class g {
         this.statisticFrom = i2;
         if (i == 2) {
             a.b bVar = new a.b(this.eSJ, this);
-            this.nSX = bVar;
-            this.nSZ = new d(tbPageContext.getPageActivity(), bVar);
+            this.nSY = bVar;
+            this.nTa = new d(tbPageContext.getPageActivity(), bVar);
         } else if (i == 3) {
             a.C0893a c0893a = new a.C0893a(this.eSJ, this);
-            this.nSX = c0893a;
-            this.nSZ = new f(tbPageContext.getPageActivity(), c0893a);
+            this.nSY = c0893a;
+            this.nTa = new f(tbPageContext.getPageActivity(), c0893a);
         } else {
             a.c cVar = new a.c(this.eSJ, this);
-            this.nSX = cVar;
-            this.nSZ = new e(tbPageContext.getPageActivity(), cVar);
+            this.nSY = cVar;
+            this.nTa = new e(tbPageContext.getPageActivity(), cVar);
         }
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
-        this.nSZ.a(this.nTc);
+        this.nTa.a(this.nTd);
     }
 
     public String getFrom() {
         return this.mFrom;
     }
 
-    public void TX(String str) {
+    public void TY(String str) {
         if (str == null) {
             str = "";
         }
-        this.nTa = str;
+        this.nTb = str;
     }
 
     public String cJI() {
-        return this.nTa;
+        return this.nTb;
     }
 
     public void yZ(boolean z) {
-        if (this.nSX instanceof a.c) {
-            ((a.c) this.nSX).yW(z);
+        if (this.nSY instanceof a.c) {
+            ((a.c) this.nSY).yW(z);
         }
     }
 
@@ -160,12 +160,12 @@ public class g {
         this.jjM = itemInfo;
     }
 
-    public void TY(String str) {
-        this.nTb = str;
+    public void TZ(String str) {
+        this.nTc = str;
     }
 
     public boolean isShowing() {
-        return this.nSY;
+        return this.nSZ;
     }
 
     public void KK(int i) {
@@ -178,12 +178,12 @@ public class g {
 
     public void a(boolean z, View view, View view2) {
         if (this.mParentView != null) {
-            if (this.nSX.mRootView.getParent() == null) {
-                com.baidu.tbadk.l.e.bU(this.mParentView).attachView(this.mParentView, this.nSX.mRootView, z);
+            if (this.nSY.mRootView.getParent() == null) {
+                com.baidu.tbadk.l.e.bU(this.mParentView).attachView(this.mParentView, this.nSY.mRootView, z);
             }
-            this.nSZ.d(view, view2);
-            this.nSZ.show();
-            TiebaStatic.log(new aq("c12052").dW("obj_locate", this.nTb));
+            this.nTa.d(view, view2);
+            this.nTa.show();
+            TiebaStatic.log(new aq("c12052").dW("obj_locate", this.nTc));
             if (com.baidu.adp.lib.util.j.isMobileNet()) {
                 String string = com.baidu.tbadk.core.sharedPref.b.brx().getString(SharedPrefConfig.KEY_BAIDU_SIM_CARD_WRITTING_TIP, "");
                 if (!at.isEmpty(string)) {
@@ -198,30 +198,30 @@ public class g {
     }
 
     public void KL(int i) {
-        if (this.nSX instanceof a.c) {
-            ((a.c) this.nSX).nSh.setIconFade(i);
+        if (this.nSY instanceof a.c) {
+            ((a.c) this.nSY).nSi.setIconFade(i);
         }
     }
 
     public void za(boolean z) {
-        this.nSZ.gE(z);
-        if (!z && (this.nSX instanceof a.c)) {
-            ((a.c) this.nSX).nSh.bCD();
+        this.nTa.gE(z);
+        if (!z && (this.nSY instanceof a.c)) {
+            ((a.c) this.nSY).nSi.bCD();
         }
     }
 
     public void onChangeSkinType(int i) {
         if (this.mSkinType != i) {
             this.mSkinType = i;
-            this.nSX.onChangeSkinType(i);
+            this.nSY.onChangeSkinType(i);
         }
     }
 
     public void onDestroy() {
-        if (this.nSX.mRootView != null && this.nSX.mRootView.getParent() == this.mParentView) {
-            this.mParentView.removeView(this.nSX.mRootView);
+        if (this.nSY.mRootView != null && this.nSY.mRootView.getParent() == this.mParentView) {
+            this.mParentView.removeView(this.nSY.mRootView);
         }
-        this.nSZ.onDestroy();
+        this.nTa.onDestroy();
     }
 
     public void dUj() {
@@ -259,8 +259,8 @@ public class g {
         }
     }
 
-    public void TZ(String str) {
-        TiebaStatic.log(new aq(CommonStatisticKey.KEY_ENTRANCE_CLICKED).dW("obj_locate", this.nTb).an("obj_type", 5));
+    public void Ua(String str) {
+        TiebaStatic.log(new aq(CommonStatisticKey.KEY_ENTRANCE_CLICKED).dW("obj_locate", this.nTc).an("obj_type", 5));
         za(false);
         WriteVoteActivityConfig writeVoteActivityConfig = new WriteVoteActivityConfig(this.eSJ.getPageActivity(), RequestResponseCode.REQUEST_SDK_WEB_VIEW);
         writeVoteActivityConfig.setExtraTitle(str);
@@ -276,7 +276,7 @@ public class g {
     }
 
     public void dUk() {
-        if (this.nSX instanceof a.b) {
+        if (this.nSY instanceof a.b) {
             TiebaStatic.log("c13619");
             dUo();
         }
@@ -297,7 +297,7 @@ public class g {
             aVar.b(this.eSJ).bqe();
             return;
         }
-        a(this.eSJ, this.nTb, this.jnN);
+        a(this.eSJ, this.nTc, this.jnN);
     }
 
     public void a(TbPageContext tbPageContext, final String str, final ForumWriteData forumWriteData) {
@@ -334,8 +334,8 @@ public class g {
     public void dUl() {
         za(false);
         if (!WriteActivityConfig.isAsyncWriting()) {
-            TiebaStatic.log(new aq(CommonStatisticKey.KEY_ENTRANCE_CLICKED).dW("obj_locate", this.nTb).an("obj_type", 3));
-            WriteActivityConfig statisticFrom = WriteActivityConfig.newInstance(this.eSJ.getPageActivity()).setType(0).setForumWriteData(this.jnN).setFrom(this.mFrom).setTitle(this.nTa).setAlbumThread(0).setCallFrom("2").setStatisticFrom(this.statisticFrom);
+            TiebaStatic.log(new aq(CommonStatisticKey.KEY_ENTRANCE_CLICKED).dW("obj_locate", this.nTc).an("obj_type", 3));
+            WriteActivityConfig statisticFrom = WriteActivityConfig.newInstance(this.eSJ.getPageActivity()).setType(0).setForumWriteData(this.jnN).setFrom(this.mFrom).setTitle(this.nTb).setAlbumThread(0).setCallFrom("2").setStatisticFrom(this.statisticFrom);
             if (!a(this.eSJ.getPageActivity(), statisticFrom)) {
                 statisticFrom.send();
             }
@@ -345,7 +345,7 @@ public class g {
     public void dUm() {
         za(false);
         if (!WriteActivityConfig.isAsyncWriting()) {
-            TiebaStatic.log(new aq(CommonStatisticKey.KEY_ENTRANCE_CLICKED).dW("obj_locate", this.nTb).an("obj_type", 2));
+            TiebaStatic.log(new aq(CommonStatisticKey.KEY_ENTRANCE_CLICKED).dW("obj_locate", this.nTc).an("obj_type", 2));
             if (this.jnN == null) {
                 this.jnN = new ForumWriteData("0", null, null, null);
             }
@@ -367,10 +367,10 @@ public class g {
         }
     }
 
-    public void Ua(String str) {
+    public void Ub(String str) {
         za(false);
         if (!WriteActivityConfig.isAsyncWriting()) {
-            TiebaStatic.log(new aq(CommonStatisticKey.KEY_ENTRANCE_CLICKED).dW("obj_locate", this.nTb).an("obj_type", 1));
+            TiebaStatic.log(new aq(CommonStatisticKey.KEY_ENTRANCE_CLICKED).dW("obj_locate", this.nTc).an("obj_type", 1));
             WriteActivityConfig.newInstance(this.eSJ.getPageActivity()).setType(9).setForumWriteData(this.jnN).setFrom(this.mFrom).setTitle(str).setCallFrom("2").setStatisticFrom(this.statisticFrom).send();
         }
     }
@@ -389,16 +389,16 @@ public class g {
     }
 
     public void bGv() {
-        if (this.nSX != null) {
-            this.nSX.dTX();
+        if (this.nSY != null) {
+            this.nSY.dTX();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void dUo() {
         boolean z = com.baidu.tbadk.core.sharedPref.b.brx().getBoolean("home_publish_ala_has_showed", false);
-        if (this.nSX instanceof a.b) {
-            ((a.b) this.nSX).yV(z ? false : true);
+        if (this.nSY instanceof a.b) {
+            ((a.b) this.nSY).yV(z ? false : true);
         }
         com.baidu.tbadk.core.sharedPref.b.brx().putBoolean("home_publish_ala_has_showed", true);
     }

@@ -111,11 +111,11 @@ public class IMBlackListActivity extends BaseActivity<IMBlackListActivity> {
     }
 
     private void a(BlackListItemData blackListItemData) {
-        Mx(String.format(getPageContext().getString(R.string.black_list_ensure_toremove_text), blackListItemData.byI()));
+        My(String.format(getPageContext().getString(R.string.black_list_ensure_toremove_text), blackListItemData.byI()));
         this.ada.bqe();
     }
 
-    private void Mx(String str) {
+    private void My(String str) {
         this.ada = new com.baidu.tbadk.core.dialog.a(getPageContext().getPageActivity());
         this.ada.Ad(str);
         this.ada.a(R.string.confirm, new a.b() { // from class: com.baidu.tieba.imMessageCenter.im.friend.IMBlackListActivity.3

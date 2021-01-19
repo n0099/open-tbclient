@@ -4,67 +4,67 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicInteger;
 /* loaded from: classes10.dex */
 public class d {
-    private static d oTc;
-    private b oTd;
+    private static d oTd;
     private b oTe;
-    private a oTf;
-    private String oTg = "";
-    private ConcurrentHashMap<String, c> oTh = new ConcurrentHashMap<>(4);
+    private b oTf;
+    private a oTg;
+    private String oTh = "";
+    private ConcurrentHashMap<String, c> oTi = new ConcurrentHashMap<>(4);
     private AtomicInteger mOpenCounter = new AtomicInteger();
 
     public static d eiJ() {
-        if (oTc == null) {
+        if (oTd == null) {
             synchronized (d.class) {
-                if (oTc == null) {
-                    oTc = new d();
+                if (oTd == null) {
+                    oTd = new d();
                 }
             }
         }
-        return oTc;
+        return oTd;
     }
 
-    public c Xl(String str) {
-        return this.oTh.get(str);
+    public c Xm(String str) {
+        return this.oTi.get(str);
     }
 
     public String eiK() {
-        return this.oTg;
+        return this.oTh;
     }
 
     public void a(String str, c cVar) {
-        this.oTg = str;
+        this.oTh = str;
         if (cVar != null) {
-            this.oTh.put(str, cVar);
+            this.oTi.put(str, cVar);
         }
     }
 
-    public void Xm(String str) {
-        if (this.oTh.containsKey(str)) {
-            this.oTh.remove(str);
+    public void Xn(String str) {
+        if (this.oTi.containsKey(str)) {
+            this.oTi.remove(str);
         }
     }
 
     public b eiL() {
-        return this.oTd;
-    }
-
-    public void a(b bVar) {
-        this.oTd = bVar;
-    }
-
-    public b eiM() {
         return this.oTe;
     }
 
-    public void b(b bVar) {
+    public void a(b bVar) {
         this.oTe = bVar;
     }
 
+    public b eiM() {
+        return this.oTf;
+    }
+
+    public void b(b bVar) {
+        this.oTf = bVar;
+    }
+
     public static void eiN() {
-        oTc = null;
+        oTd = null;
     }
 
     public a eiO() {
-        return this.oTf;
+        return this.oTg;
     }
 }

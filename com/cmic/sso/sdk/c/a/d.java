@@ -7,7 +7,7 @@ import com.cmic.sso.sdk.e.t;
 import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes6.dex */
 public class d implements b {
-    private b pmk;
+    private b pml;
 
     @Override // com.cmic.sso.sdk.c.a.b
     public void a(final com.cmic.sso.sdk.c.c.c cVar, final com.cmic.sso.sdk.c.d.c cVar2, final com.cmic.sso.sdk.a aVar) {
@@ -44,8 +44,8 @@ public class d implements b {
     }
 
     public void b(com.cmic.sso.sdk.c.c.c cVar, final com.cmic.sso.sdk.c.d.c cVar2, com.cmic.sso.sdk.a aVar) {
-        if (this.pmk != null) {
-            this.pmk.a(cVar, new com.cmic.sso.sdk.c.d.c() { // from class: com.cmic.sso.sdk.c.a.d.2
+        if (this.pml != null) {
+            this.pml.a(cVar, new com.cmic.sso.sdk.c.d.c() { // from class: com.cmic.sso.sdk.c.a.d.2
                 @Override // com.cmic.sso.sdk.c.d.c
                 public void a(com.cmic.sso.sdk.c.d.b bVar) {
                     cVar2.a(bVar);
@@ -60,6 +60,6 @@ public class d implements b {
     }
 
     public void a(b bVar) {
-        this.pmk = bVar;
+        this.pml = bVar;
     }
 }

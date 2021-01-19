@@ -10,16 +10,16 @@ import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class a {
     @SuppressLint({"StaticFieldLeak"})
-    private static volatile a plO;
+    private static volatile a plP;
 
     /* renamed from: b  reason: collision with root package name */
     private volatile Context f7672b;
 
     public static a eoQ() {
-        if (plO == null) {
-            plO = new a(h.d());
+        if (plP == null) {
+            plP = new a(h.d());
         }
-        return plO;
+        return plP;
     }
 
     private a(@NonNull Context context) {

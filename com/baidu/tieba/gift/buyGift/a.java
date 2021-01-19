@@ -47,7 +47,7 @@ public class a extends BaseAdapter {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: AS */
+    /* renamed from: AR */
     public GiftCommonList.GiftItem getItem(int i) {
         if (i < 0 || i >= getCount()) {
             return null;

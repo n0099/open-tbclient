@@ -24,8 +24,8 @@ public class BdTopToast extends LinearLayout {
     private Runnable mHideRunnable;
     private ImageView mIconView;
     private View mStatusBarView;
-    private BottomShadowLinearLayout nMA;
-    private boolean nMB;
+    private BottomShadowLinearLayout nMB;
+    private boolean nMC;
 
     public BdTopToast(Context context, int i) {
         this(context);
@@ -53,7 +53,7 @@ public class BdTopToast extends LinearLayout {
             addView(this.mStatusBarView, 0, new LinearLayout.LayoutParams(-1, UtilHelper.getStatusBarHeight()));
         }
         LayoutInflater.from(getContext()).inflate(R.layout.bd_top_toast_layout, this);
-        this.nMA = (BottomShadowLinearLayout) findViewById(R.id.bd_top_toast_group);
+        this.nMB = (BottomShadowLinearLayout) findViewById(R.id.bd_top_toast_group);
         this.mIconView = (ImageView) findViewById(R.id.bd_top_toast_icon);
         this.cRq = (TextView) findViewById(R.id.bd_top_toast_content);
         initAnimation();
@@ -88,11 +88,11 @@ public class BdTopToast extends LinearLayout {
     }
 
     public BdTopToast yS(boolean z) {
-        this.nMB = z;
+        this.nMC = z;
         return this;
     }
 
-    public BdTopToast TP(String str) {
+    public BdTopToast TQ(String str) {
         this.cRq.setText(str);
         return this;
     }
@@ -128,13 +128,13 @@ public class BdTopToast extends LinearLayout {
 
     public void onChangeSkinType() {
         ao.setBackgroundColor(this.mStatusBarView, R.color.CAM_X0207);
-        if (this.nMB) {
+        if (this.nMC) {
             SvgManager.bsx().a(this.mIconView, R.drawable.ic_icon_pure_succeed_use_n, R.color.CAM_X0302, (SvgManager.SvgResourceStateType) null);
             ao.setViewTextColor(this.cRq, R.color.CAM_X0302);
         } else {
             SvgManager.bsx().a(this.mIconView, R.drawable.ic_icon_pure_defeated_use_n, R.color.CAM_X0301, (SvgManager.SvgResourceStateType) null);
             ao.setViewTextColor(this.cRq, R.color.CAM_X0301);
         }
-        this.nMA.onChangeSkinType();
+        this.nMB.onChangeSkinType();
     }
 }

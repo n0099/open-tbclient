@@ -8,18 +8,18 @@ import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.core.dialog.BdToast;
 /* loaded from: classes10.dex */
 public class l {
-    private static l oxe;
-    private TbPageContext ovz;
+    private static l oxf;
+    private TbPageContext ovA;
 
     public static l ebk() {
-        if (oxe == null) {
-            oxe = new l();
+        if (oxf == null) {
+            oxf = new l();
         }
-        return oxe;
+        return oxf;
     }
 
     public l i(TbPageContext tbPageContext) {
-        this.ovz = tbPageContext;
+        this.ovA = tbPageContext;
         return this;
     }
 

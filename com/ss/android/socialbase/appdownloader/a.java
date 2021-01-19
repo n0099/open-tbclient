@@ -37,7 +37,7 @@ public class a {
         }
     }
 
-    public static a ZM(String str) {
+    public static a ZN(String str) {
         a aVar = null;
         if (!TextUtils.isEmpty(str)) {
             aVar = new a();

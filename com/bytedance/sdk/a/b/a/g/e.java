@@ -16,11 +16,11 @@ import javax.net.ssl.SSLSocketFactory;
 import javax.net.ssl.X509TrustManager;
 /* loaded from: classes4.dex */
 public class e {
-    private static final e pgs = enc();
-    private static final Logger pgf = Logger.getLogger(z.class.getName());
+    private static final e pgt = enc();
+    private static final Logger pgg = Logger.getLogger(z.class.getName());
 
     public static e eng() {
-        return pgs;
+        return pgt;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -51,7 +51,7 @@ public class e {
     }
 
     public void a(int i, String str, Throwable th) {
-        pgf.log(i == 5 ? Level.WARNING : Level.INFO, str, th);
+        pgg.log(i == 5 ? Level.WARNING : Level.INFO, str, th);
     }
 
     public boolean b(String str) {
@@ -59,7 +59,7 @@ public class e {
     }
 
     public Object a(String str) {
-        if (pgf.isLoggable(Level.FINE)) {
+        if (pgg.isLoggable(Level.FINE)) {
             return new Throwable(str);
         }
         return null;
@@ -117,7 +117,7 @@ public class e {
             w wVar = list.get(i);
             if (wVar != w.HTTP_1_0) {
                 cVar.Of(wVar.toString().length());
-                cVar.Xy(wVar.toString());
+                cVar.Xz(wVar.toString());
             }
         }
         return cVar.q();

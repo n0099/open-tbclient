@@ -15,7 +15,7 @@ public class b {
     private CustomMessageListener bSr;
     private PopupWindow.OnDismissListener gIt;
     private Activity mContext;
-    private c ong;
+    private c onh;
 
     public b(Activity activity) {
         this.mContext = activity;
@@ -23,33 +23,33 @@ public class b {
     }
 
     public void gT(String str) {
-        this.ong = new c(this.mContext);
-        this.ong.setOnDismissListener(this.gIt);
-        this.ong.getWebView().setBackgroundColor(gW(str));
+        this.onh = new c(this.mContext);
+        this.onh.setOnDismissListener(this.gIt);
+        this.onh.getWebView().setBackgroundColor(gW(str));
         g gVar = new g();
-        gVar.w(this.mContext).a(this.ong).a(this.ong.getWebView().getSchemeCallback());
+        gVar.w(this.mContext).a(this.onh).a(this.onh.getWebView().getSchemeCallback());
         com.baidu.live.view.web.a[] Wm = gVar.Wm();
         for (com.baidu.live.view.web.a aVar : Wm) {
-            this.ong.getWebView().addJavascriptInterface(aVar, aVar.getName());
+            this.onh.getWebView().addJavascriptInterface(aVar, aVar.getName());
         }
-        this.ong.Fp(str);
+        this.onh.Fp(str);
     }
 
     public void resume() {
-        if (this.ong != null && this.ong.isShowing() && this.ong.getWebView() != null) {
-            this.ong.getWebView().onResume();
+        if (this.onh != null && this.onh.isShowing() && this.onh.getWebView() != null) {
+            this.onh.getWebView().onResume();
         }
     }
 
     public void pause() {
-        if (this.ong != null && this.ong.isShowing() && this.ong.getWebView() != null) {
-            this.ong.getWebView().onPause();
+        if (this.onh != null && this.onh.isShowing() && this.onh.getWebView() != null) {
+            this.onh.getWebView().onPause();
         }
     }
 
     public void dismiss() {
-        if (this.ong != null) {
-            this.ong.Wo();
+        if (this.onh != null) {
+            this.onh.Wo();
         }
     }
 
@@ -67,8 +67,8 @@ public class b {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                if (b.this.ong != null && b.this.ong.isShowing()) {
-                    b.this.ong.dismiss();
+                if (b.this.onh != null && b.this.onh.isShowing()) {
+                    b.this.onh.dismiss();
                 }
             }
         };

@@ -8,31 +8,31 @@ import org.json.JSONException;
 public final class TurbonetContext {
     private String mAppName;
     private Context mContext;
-    private TurbonetEngine oGA;
-    private String oGW;
+    private TurbonetEngine oGB;
+    private String oGX;
 
     public TurbonetContext(Context context, String str, String str2, TurbonetConfig turbonetConfig) {
         this.mContext = context;
         this.mAppName = str;
-        this.oGW = str2;
+        this.oGX = str2;
         a(turbonetConfig);
     }
 
     public TurbonetEngine een() {
-        return this.oGA;
+        return this.oGB;
     }
 
     public long eeo() {
-        return this.oGA.edI();
+        return this.oGB.edI();
     }
 
     private void a(TurbonetConfig turbonetConfig) {
         TurbonetEngine.Builder builder = new TurbonetEngine.Builder(this.mContext);
         if (turbonetConfig == null) {
-            this.oGA = builder.VV(this.mAppName).VU(this.oGW).eev();
+            this.oGB = builder.VW(this.mAppName).VV(this.oGX).eev();
         } else {
             if (turbonetConfig.eem()) {
-                builder.VT(turbonetConfig.eel());
+                builder.VU(turbonetConfig.eel());
             }
             try {
                 if (turbonetConfig.eek().has("nq") && turbonetConfig.eek().getJSONObject("nq").getBoolean("network_quality_enabled")) {
@@ -41,7 +41,7 @@ public final class TurbonetContext {
             } catch (JSONException e) {
                 Log.e("cr_TurbonetContext", "JSON expcetion: " + e);
             }
-            this.oGA = builder.VV(this.mAppName).VU(this.oGW).VW(turbonetConfig.eek().toString()).eev();
+            this.oGB = builder.VW(this.mAppName).VV(this.oGX).VX(turbonetConfig.eek().toString()).eev();
         }
         Log.v("cr_TurbonetContext", "Turbonet init context success.");
     }

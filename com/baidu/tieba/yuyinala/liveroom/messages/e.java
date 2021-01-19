@@ -7,7 +7,7 @@ public class e extends HttpMessage {
     private String brl;
     private long mAlaId;
     private long mTime;
-    private long omN;
+    private long omO;
 
     public void setFrom(String str) {
         this.brl = str;
@@ -22,7 +22,7 @@ public class e extends HttpMessage {
     }
 
     public void aP(long j) {
-        this.omN = j;
+        this.omO = j;
     }
 
     public e() {
@@ -37,8 +37,8 @@ public class e extends HttpMessage {
         addParam("from_type", this.brl);
         addParam("live_id", this.brk);
         addParam("enter_time", this.mTime);
-        if (this.omN > 0) {
-            addParam("send_time", this.omN);
+        if (this.omO > 0) {
+            addParam("send_time", this.omO);
         }
     }
 }

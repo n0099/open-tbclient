@@ -8,8 +8,8 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class c extends BdAsyncTask<String, String, Integer> {
-    private String nzV;
-    private a nzW;
+    private String nzW;
+    private a nzX;
 
     /* loaded from: classes.dex */
     public interface a {
@@ -23,8 +23,8 @@ public class c extends BdAsyncTask<String, String, Integer> {
     }
 
     public c(String str, a aVar) {
-        this.nzV = "https://lookup.api.bsb.baidu.com/urlquery?url=" + URLEncoder.encode(str) + "&ver=2.0&key=Gar7ku5AswED&cid=" + TbadkCoreApplication.getInst().getCuid();
-        this.nzW = aVar;
+        this.nzW = "https://lookup.api.bsb.baidu.com/urlquery?url=" + URLEncoder.encode(str) + "&ver=2.0&key=Gar7ku5AswED&cid=" + TbadkCoreApplication.getInst().getCuid();
+        this.nzX = aVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -34,7 +34,7 @@ public class c extends BdAsyncTask<String, String, Integer> {
     public Integer doInBackground(String... strArr) {
         int i = -1;
         try {
-            z zVar = new z(this.nzV);
+            z zVar = new z(this.nzW);
             zVar.brX().bsG().mIsNeedAddCommenParam = false;
             zVar.brX().bsG().mIsUseCurrentBDUSS = false;
             JSONArray optJSONArray = new JSONObject(new String(zVar.getNetData())).optJSONArray("result");
@@ -58,15 +58,15 @@ public class c extends BdAsyncTask<String, String, Integer> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void onPostExecute(Integer num) {
-        if (this.nzW != null && num != null) {
+        if (this.nzX != null && num != null) {
             if (num.intValue() == -1) {
-                this.nzW.onError(null);
+                this.nzX.onError(null);
             } else if (num.intValue() == 1) {
-                this.nzW.cYu();
+                this.nzX.cYu();
             } else if (num.intValue() == 2 || num.intValue() == 0) {
-                this.nzW.cYv();
+                this.nzX.cYv();
             } else {
-                this.nzW.cYw();
+                this.nzX.cYw();
             }
         }
     }

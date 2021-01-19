@@ -30,7 +30,7 @@ public class PersonCenterMoreActivity extends BaseActivity<PersonCenterMoreActiv
         public void a(View view, h hVar) {
             PersonCenterMoreActivity.this.mjR = hVar;
             if (PersonCenterMoreActivity.this.mjR != null && !PersonCenterMoreActivity.this.cfN()) {
-                PersonCenterMoreActivity.this.Pq(PersonCenterMoreActivity.this.mjR.aEU);
+                PersonCenterMoreActivity.this.Pr(PersonCenterMoreActivity.this.mjR.aEU);
             }
         }
     };
@@ -63,11 +63,11 @@ public class PersonCenterMoreActivity extends BaseActivity<PersonCenterMoreActiv
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity
     public void onRequestPermissionsResult(int i, @NonNull String[] strArr, @NonNull int[] iArr) {
         if (25040 == i && iArr[0] == 0) {
-            Pq(this.mjR.aEU);
+            Pr(this.mjR.aEU);
         }
     }
 
-    private void Pp(String str) {
+    private void Pq(String str) {
         if (!StringUtils.isNull(str)) {
             if (str.startsWith("tieba&")) {
                 if (!TbadkCoreApplication.getInst().appResponseToIntentClass(ConsumptionRecordsActivityConfig.class)) {
@@ -84,10 +84,10 @@ public class PersonCenterMoreActivity extends BaseActivity<PersonCenterMoreActiv
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Pq(String str) {
+    public void Pr(String str) {
         if (!StringUtils.isNull(str)) {
             if (str.startsWith("tieba&")) {
-                Pp(str);
+                Pq(str);
             } else if (str.startsWith("nohead:url")) {
                 be.bsB().b(getPageContext(), new String[]{str.replaceFirst(UrlSchemaHelper.PREFIX_BOOK_TOWN, "") + (str.contains("?") ? ETAG.ITEM_SEPARATOR : "?") + "jump=open_full_screen_web_page&nonavigationbar=1"});
             } else {

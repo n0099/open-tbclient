@@ -21,11 +21,11 @@ import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
 /* loaded from: classes10.dex */
 public class a {
-    private static HandlerThread oXW = new HandlerThread("ChatCoreDataLoader");
+    private static HandlerThread oXX = new HandlerThread("ChatCoreDataLoader");
     private Context mContext;
-    private Handler mSchedulerHandler = new Handler(oXW.getLooper());
+    private Handler mSchedulerHandler = new Handler(oXX.getLooper());
     private Handler mMainHandler = new Handler(Looper.getMainLooper());
-    private com.baidu.yuyinala.privatemessage.model.b oXX = new com.baidu.yuyinala.privatemessage.model.b();
+    private com.baidu.yuyinala.privatemessage.model.b oXY = new com.baidu.yuyinala.privatemessage.model.b();
 
     /* renamed from: com.baidu.yuyinala.privatemessage.session.a$a  reason: collision with other inner class name */
     /* loaded from: classes10.dex */
@@ -34,12 +34,12 @@ public class a {
     }
 
     static {
-        oXW.start();
+        oXX.start();
     }
 
     public void destory() {
-        if (this.oXX != null) {
-            this.oXX.destory();
+        if (this.oXY != null) {
+            this.oXY.destory();
         }
     }
 
@@ -98,7 +98,7 @@ public class a {
             }
         });
         if (bVar != null && ((b) bVar).mList != null) {
-            this.oXX.a(gD(((b) bVar).mList), new b.a() { // from class: com.baidu.yuyinala.privatemessage.session.a.4
+            this.oXY.a(gD(((b) bVar).mList), new b.a() { // from class: com.baidu.yuyinala.privatemessage.session.a.4
                 @Override // com.baidu.yuyinala.privatemessage.model.b.a
                 public void gC(List<f> list) {
                     a.I(bVar.mList, list);
@@ -163,10 +163,10 @@ public class a {
     /* renamed from: com.baidu.yuyinala.privatemessage.session.a$5  reason: invalid class name */
     /* loaded from: classes10.dex */
     public class AnonymousClass5 implements Runnable {
-        final /* synthetic */ InterfaceC0972a oYa;
+        final /* synthetic */ InterfaceC0972a oYb;
 
         AnonymousClass5(InterfaceC0972a interfaceC0972a) {
-            this.oYa = interfaceC0972a;
+            this.oYb = interfaceC0972a;
         }
 
         @Override // java.lang.Runnable
@@ -186,7 +186,7 @@ public class a {
                         a.this.mMainHandler.post(new Runnable() { // from class: com.baidu.yuyinala.privatemessage.session.a.5.1.1
                             @Override // java.lang.Runnable
                             public void run() {
-                                AnonymousClass5.this.oYa.a(bVar);
+                                AnonymousClass5.this.oYb.a(bVar);
                             }
                         });
                     }
@@ -250,7 +250,7 @@ public class a {
                     }
                 });
                 if (!bVar.mList.isEmpty()) {
-                    ChatListActivity.oYA = ((ChatSession) bVar.mList.get(bVar.mList.size() - 1)).getLastMsgTime();
+                    ChatListActivity.oYB = ((ChatSession) bVar.mList.get(bVar.mList.size() - 1)).getLastMsgTime();
                 }
                 a.this.mMainHandler.post(new Runnable() { // from class: com.baidu.yuyinala.privatemessage.session.a.7.2
                     @Override // java.lang.Runnable

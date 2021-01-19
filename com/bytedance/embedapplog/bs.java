@@ -13,17 +13,17 @@ public class bs implements Application.ActivityLifecycleCallbacks {
     private static String g;
     private static Object i;
     private static Object j;
-    private static aj pcN;
     private static aj pcO;
-    private final j pcP;
+    private static aj pcP;
+    private final j pcQ;
 
     /* renamed from: a  reason: collision with root package name */
     private static int f5811a = 0;
     private static int h = -1;
-    private static final HashSet<Integer> pcQ = new HashSet<>(8);
+    private static final HashSet<Integer> pcR = new HashSet<>(8);
 
     public bs(j jVar) {
-        this.pcP = jVar;
+        this.pcQ = jVar;
     }
 
     public static void b(Object obj) {
@@ -31,8 +31,8 @@ public class bs implements Application.ActivityLifecycleCallbacks {
 
     @Override // android.app.Application.ActivityLifecycleCallbacks
     public void onActivityResumed(Activity activity) {
-        pcN = b(activity.getClass().getName(), "", System.currentTimeMillis(), e);
-        pcN.k = !pcQ.remove(Integer.valueOf(activity.hashCode())) ? 1 : 0;
+        pcO = b(activity.getClass().getName(), "", System.currentTimeMillis(), e);
+        pcO.k = !pcR.remove(Integer.valueOf(activity.hashCode())) ? 1 : 0;
         if (!activity.isChild()) {
             try {
                 h = activity.getWindow().getDecorView().hashCode();
@@ -45,14 +45,14 @@ public class bs implements Application.ActivityLifecycleCallbacks {
 
     @Override // android.app.Application.ActivityLifecycleCallbacks
     public void onActivityPaused(Activity activity) {
-        if (pcO != null) {
+        if (pcP != null) {
             b(j);
         }
-        if (pcN != null) {
-            e = pcN.j;
+        if (pcO != null) {
+            e = pcO.j;
             d = System.currentTimeMillis();
-            a(pcN, d);
-            pcN = null;
+            a(pcO, d);
+            pcO = null;
             if (!activity.isChild()) {
                 h = -1;
                 i = null;
@@ -93,8 +93,8 @@ public class bs implements Application.ActivityLifecycleCallbacks {
     @Override // android.app.Application.ActivityLifecycleCallbacks
     public void onActivityStarted(Activity activity) {
         f5811a++;
-        if (f5811a == 1 && this.pcP != null) {
-            this.pcP.show(true);
+        if (f5811a == 1 && this.pcQ != null) {
+            this.pcQ.show(true);
         }
     }
 
@@ -107,8 +107,8 @@ public class bs implements Application.ActivityLifecycleCallbacks {
                 g = null;
                 f = 0L;
                 d = 0L;
-                if (this.pcP != null) {
-                    this.pcP.show(false);
+                if (this.pcQ != null) {
+                    this.pcQ.show(false);
                 }
             }
         }
@@ -120,11 +120,11 @@ public class bs implements Application.ActivityLifecycleCallbacks {
 
     @Override // android.app.Application.ActivityLifecycleCallbacks
     public void onActivityDestroyed(Activity activity) {
-        pcQ.remove(Integer.valueOf(activity.hashCode()));
+        pcR.remove(Integer.valueOf(activity.hashCode()));
     }
 
     @Override // android.app.Application.ActivityLifecycleCallbacks
     public void onActivityCreated(Activity activity, Bundle bundle) {
-        pcQ.add(Integer.valueOf(activity.hashCode()));
+        pcR.add(Integer.valueOf(activity.hashCode()));
     }
 }

@@ -6,7 +6,7 @@ import java.util.Map;
 import javax.annotation.concurrent.GuardedBy;
 /* loaded from: classes3.dex */
 public class u {
-    private static final Class<?> pnm = u.class;
+    private static final Class<?> pnn = u.class;
     @GuardedBy("this")
     private Map<com.facebook.cache.common.b, com.facebook.imagepipeline.f.e> mMap = new HashMap();
 
@@ -76,7 +76,7 @@ public class u {
             synchronized (eVar) {
                 if (!com.facebook.imagepipeline.f.e.f(eVar)) {
                     this.mMap.remove(bVar);
-                    com.facebook.common.c.a.c(pnm, "Found closed reference %d for key %s (%d)", Integer.valueOf(System.identityHashCode(eVar)), bVar.ept(), Integer.valueOf(System.identityHashCode(bVar)));
+                    com.facebook.common.c.a.c(pnn, "Found closed reference %d for key %s (%d)", Integer.valueOf(System.identityHashCode(eVar)), bVar.ept(), Integer.valueOf(System.identityHashCode(bVar)));
                     eVar = null;
                 } else {
                     eVar = com.facebook.imagepipeline.f.e.b(eVar);
@@ -96,7 +96,7 @@ public class u {
                     z = true;
                 } else {
                     this.mMap.remove(bVar);
-                    com.facebook.common.c.a.c(pnm, "Found closed reference %d for key %s (%d)", Integer.valueOf(System.identityHashCode(eVar)), bVar.ept(), Integer.valueOf(System.identityHashCode(bVar)));
+                    com.facebook.common.c.a.c(pnn, "Found closed reference %d for key %s (%d)", Integer.valueOf(System.identityHashCode(eVar)), bVar.ept(), Integer.valueOf(System.identityHashCode(bVar)));
                     z = false;
                 }
             }
@@ -107,6 +107,6 @@ public class u {
     }
 
     private synchronized void etJ() {
-        com.facebook.common.c.a.c(pnm, "Count = %d", Integer.valueOf(this.mMap.size()));
+        com.facebook.common.c.a.c(pnn, "Count = %d", Integer.valueOf(this.mMap.size()));
     }
 }

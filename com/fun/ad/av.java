@@ -15,7 +15,7 @@ import com.qq.e.comm.util.AdError;
 import java.util.List;
 /* loaded from: classes14.dex */
 public class av extends an {
-    public NativeExpressADData2 pFo;
+    public NativeExpressADData2 pFp;
 
     public av(au.a aVar) {
         super(aVar);
@@ -24,10 +24,10 @@ public class av extends an {
     @Override // com.fun.ad.an
     public void a() {
         super.a();
-        NativeExpressADData2 nativeExpressADData2 = this.pFo;
+        NativeExpressADData2 nativeExpressADData2 = this.pFp;
         if (nativeExpressADData2 != null) {
             nativeExpressADData2.destroy();
-            this.pFo = null;
+            this.pFp = null;
         }
     }
 
@@ -46,7 +46,7 @@ public class av extends an {
             av.this.f7753b = false;
             m.a("GDTNativeExpressAd2 onError code: " + adError.getErrorCode() + ", message: " + adError.getErrorMsg());
             av avVar = av.this;
-            ak akVar = avVar.pFg;
+            ak akVar = avVar.pFh;
             if (akVar != null) {
                 ((x) akVar).a(avVar.f7752a.f7760a, adError.getErrorCode(), adError.getErrorMsg());
             }
@@ -56,16 +56,16 @@ public class av extends an {
         public void onLoadSuccess(List<NativeExpressADData2> list) {
             m.a("GDTNativeExpressAd2 onADLoaded");
             if (list != null && !list.isEmpty()) {
-                av.this.pFo = list.get(0);
+                av.this.pFp = list.get(0);
                 av avVar = av.this;
-                avVar.pFo.setAdEventListener(new ay(avVar));
-                avVar.pFo.setMediaListener(new bb(avVar));
-                avVar.pFo.render();
+                avVar.pFp.setAdEventListener(new ay(avVar));
+                avVar.pFp.setMediaListener(new bb(avVar));
+                avVar.pFp.render();
                 return;
             }
             av avVar2 = av.this;
             avVar2.f7753b = false;
-            ak akVar = avVar2.pFg;
+            ak akVar = avVar2.pFh;
             if (akVar != null) {
                 ((x) akVar).a(avVar2.f7752a.f7760a, 0, "Custom error message: adList is epmty");
             }
@@ -90,7 +90,7 @@ public class av extends an {
             builder.setAutoPlayPolicy(d.c ? VideoOption2.AutoPlayPolicy.ALWAYS : VideoOption2.AutoPlayPolicy.WIFI).setAutoPlayMuted(!d.f7776b).setDetailPageMuted(false).setMaxVideoDuration(0).setMinVideoDuration(0);
             nativeExpressAD2.setVideoOption2(builder.build());
             nativeExpressAD2.loadAd(1);
-            ak akVar2 = this.pFg;
+            ak akVar2 = this.pFh;
             if (akVar2 != null) {
                 ((x) akVar2).a(this.f7752a.f7760a);
             }
@@ -100,9 +100,9 @@ public class av extends an {
     @Override // com.fun.ad.an
     public void a(Activity activity, FunAdView funAdView, ah ahVar) {
         super.a(activity, funAdView, ahVar);
-        NativeExpressADData2 nativeExpressADData2 = this.pFo;
+        NativeExpressADData2 nativeExpressADData2 = this.pFp;
         if (nativeExpressADData2 == null) {
-            ah ahVar2 = this.pFh;
+            ah ahVar2 = this.pFi;
             if (ahVar2 != null) {
                 ((aa) ahVar2).a(this.f7752a.f7760a, 0, "Custom error message: mNativeExpressADData2 is null when show");
                 return;

@@ -81,7 +81,7 @@ public class PersonBarModel extends BdBaseModel {
         return false;
     }
 
-    public void Pz(String str) {
+    public void PA(String str) {
         if (this.mnz == 1 && this.mIsHost) {
             String str2 = "";
             if (TbadkCoreApplication.getCurrentAccountObj() != null) {

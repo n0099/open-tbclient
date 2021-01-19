@@ -8,11 +8,11 @@ import tbclient.ThemeBgProp;
 /* loaded from: classes8.dex */
 public class a {
     private List<DressItemData> mAvatarPendantList;
-    private String nwb;
+    private String nwc;
 
     public void a(ThemePendantInMain themePendantInMain) {
         if (themePendantInMain != null) {
-            this.nwb = themePendantInMain.pendant_category;
+            this.nwc = themePendantInMain.pendant_category;
             this.mAvatarPendantList = new ArrayList();
             for (ThemeBgProp themeBgProp : themePendantInMain.props) {
                 this.mAvatarPendantList.add(new DressItemData(themeBgProp));
@@ -21,7 +21,7 @@ public class a {
     }
 
     public String dON() {
-        return this.nwb;
+        return this.nwc;
     }
 
     public List<DressItemData> dOO() {

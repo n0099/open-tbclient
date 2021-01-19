@@ -7,18 +7,18 @@ import com.baidu.live.data.cd;
 import com.baidu.live.sdk.a;
 /* loaded from: classes10.dex */
 public class a {
-    private static a oyM;
-    private int oyN = 0;
+    private static a oyN;
+    private int oyO = 0;
 
     public static a ebS() {
-        if (oyM == null) {
+        if (oyN == null) {
             synchronized (a.class) {
-                if (oyM == null) {
-                    oyM = new a();
+                if (oyN == null) {
+                    oyN = new a();
                 }
             }
         }
-        return oyM;
+        return oyN;
     }
 
     private a() {
@@ -85,12 +85,12 @@ public class a {
         if (avVar == null) {
             return false;
         }
-        boolean Vy = com.baidu.tieba.yuyinala.liveroom.wheat.lottie.a.c.Vy(avVar.Bi());
-        if (!Vy && z) {
+        boolean Vz = com.baidu.tieba.yuyinala.liveroom.wheat.lottie.a.c.Vz(avVar.Bi());
+        if (!Vz && z) {
             com.baidu.tieba.yuyinala.liveroom.wheat.lottie.a.c.b(avVar.getDownloadUrl(), avVar.Bi(), null);
-            return Vy;
+            return Vz;
         }
-        return Vy;
+        return Vz;
     }
 
     private av Bp() {
@@ -179,7 +179,7 @@ public class a {
         }
     }
 
-    public boolean Vv(String str) {
+    public boolean Vw(String str) {
         if (StringUtils.isNull(str, true)) {
             return false;
         }

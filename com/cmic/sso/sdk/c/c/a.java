@@ -17,20 +17,20 @@ import com.cmic.sso.sdk.e.s;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class a {
-    private static a pmh = null;
+    private static a pmi = null;
 
     private a() {
     }
 
     public static a eoW() {
-        if (pmh == null) {
+        if (pmi == null) {
             synchronized (a.class) {
-                if (pmh == null) {
-                    pmh = new a();
+                if (pmi == null) {
+                    pmi = new a();
                 }
             }
         }
-        return pmh;
+        return pmi;
     }
 
     public void a(boolean z, com.cmic.sso.sdk.a aVar, d dVar) {
@@ -114,7 +114,7 @@ public class a {
         aVar2.b(aVar.b("sourceid"));
         aVar2.k(aVar.b("authenticated_appid"));
         aVar2.l(aVar.b("genTokenByAppid"));
-        aVar2.j(aVar2.XT(aVar.b("appkey")));
+        aVar2.j(aVar2.XU(aVar.b("appkey")));
         c1035a.b(n.c());
         c1035a.a(k.b("AID", ""));
         c1035a.c(n.b());

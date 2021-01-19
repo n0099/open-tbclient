@@ -20,8 +20,8 @@ public class p implements com.baidu.adp.widget.ListView.n {
             this.cardId = vipRank.card_id;
             this.leo = new d();
             this.leo.setCategoryName(vipRank.class_name);
-            this.leo.Nk(vipRank.class_url_name);
-            this.leo.Nl(vipRank.class_url);
+            this.leo.Nl(vipRank.class_url_name);
+            this.leo.Nm(vipRank.class_url);
             this.rankScore = vipRank.my_score_rank.intValue();
             this.portrait = vipUser.portrait;
             this.lfp = vipUser;

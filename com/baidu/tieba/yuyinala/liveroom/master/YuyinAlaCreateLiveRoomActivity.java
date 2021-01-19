@@ -52,8 +52,8 @@ public class YuyinAlaCreateLiveRoomActivity extends BaseActivity<YuyinAlaCreateL
     private ViewTreeObserver.OnGlobalLayoutListener globalListener;
     private Bundle hBR;
     private String hkk;
-    private d omA;
-    private a omz;
+    private a omA;
+    private d omB;
     private boolean mIsKeyboardOpen = false;
     private volatile boolean isBackground = false;
     private boolean hBQ = false;
@@ -221,10 +221,10 @@ public class YuyinAlaCreateLiveRoomActivity extends BaseActivity<YuyinAlaCreateL
     }
 
     private void a(Bundle bundle, String str, String str2, String str3) {
-        this.omA = new d(getPageContext());
-        this.omz = new a(this);
-        this.omz.a(this.omA);
-        this.omz.a(str, str2, str3, bundle);
+        this.omB = new d(getPageContext());
+        this.omA = new a(this);
+        this.omA.a(this.omB);
+        this.omA.a(str, str2, str3, bundle);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -277,8 +277,8 @@ public class YuyinAlaCreateLiveRoomActivity extends BaseActivity<YuyinAlaCreateL
     public void onActivityResult(int i, int i2, Intent intent) {
         super.onActivityResult(i, i2, intent);
         Log.i("CreateAudioRoom", "YuyinAlaCreateLiveRoomActivity:onActivityResult:" + i2 + "," + i);
-        if (this.omz != null) {
-            this.omz.onActivityResult(i, i2, intent);
+        if (this.omA != null) {
+            this.omA.onActivityResult(i, i2, intent);
         }
     }
 
@@ -334,8 +334,8 @@ public class YuyinAlaCreateLiveRoomActivity extends BaseActivity<YuyinAlaCreateL
     @Override // com.baidu.live.tbadk.BaseActivity
     public void onKeyboardVisibilityChanged(boolean z) {
         super.onKeyboardVisibilityChanged(z);
-        if (this.omz != null) {
-            this.omz.onKeyboardVisibilityChanged(z);
+        if (this.omA != null) {
+            this.omA.onKeyboardVisibilityChanged(z);
         }
     }
 

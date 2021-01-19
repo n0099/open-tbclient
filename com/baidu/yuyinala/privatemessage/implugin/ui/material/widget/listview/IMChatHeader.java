@@ -19,9 +19,9 @@ public class IMChatHeader extends LinearLayout {
     private LinearLayout mContainer;
     public Context mContext;
     private int mState;
-    private ImageView oUE;
-    private LinearLayout oUF;
-    private TextView oUG;
+    private ImageView oUF;
+    private LinearLayout oUG;
+    private TextView oUH;
 
     public IMChatHeader(Context context) {
         super(context);
@@ -44,10 +44,10 @@ public class IMChatHeader extends LinearLayout {
         this.mContainer = (LinearLayout) LayoutInflater.from(context).inflate(a.g.bd_im_listview_header, (ViewGroup) null);
         addView(this.mContainer, layoutParams);
         this.dvM = (TextView) findViewById(a.f.bd_im_listview_header_hint_textview);
-        this.oUE = (ImageView) findViewById(a.f.bd_im_listview_header_progressbar);
-        this.oUF = (LinearLayout) findViewById(a.f.bd_im_listview_header_content);
-        this.oUG = (TextView) findViewById(a.f.bd_im_listview_header_time);
-        this.mAnimationDrawable = (AnimationDrawable) this.oUE.getDrawable();
+        this.oUF = (ImageView) findViewById(a.f.bd_im_listview_header_progressbar);
+        this.oUG = (LinearLayout) findViewById(a.f.bd_im_listview_header_content);
+        this.oUH = (TextView) findViewById(a.f.bd_im_listview_header_time);
+        this.mAnimationDrawable = (AnimationDrawable) this.oUF.getDrawable();
         this.mAnimationDrawable.start();
     }
 
@@ -85,7 +85,7 @@ public class IMChatHeader extends LinearLayout {
     }
 
     public void setVisiableContent(int i) {
-        this.oUF.setVisibility(i);
+        this.oUG.setVisibility(i);
         if (i != 0 && this.mAnimationDrawable != null) {
             this.mAnimationDrawable.stop();
         }
@@ -119,6 +119,6 @@ public class IMChatHeader extends LinearLayout {
         } else {
             format = String.format(getResources().getString(a.h.bd_im_listview_updated_at), (currentTimeMillis / 31104000000L) + getResources().getString(a.h.bd_im_listview_year));
         }
-        this.oUG.setText(format);
+        this.oUH.setText(format);
     }
 }

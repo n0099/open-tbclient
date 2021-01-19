@@ -20,21 +20,21 @@ public class x extends e {
     public ImageView jIy;
     public View mContentView;
     public View mConvertView;
-    private final ImageView oPa;
+    private final ImageView oPb;
 
     @SuppressLint({"InflateParams"})
     public x(Context context, LayoutInflater layoutInflater) {
         this.mConvertView = layoutInflater.inflate(a.g.bd_im_chating_send_video_item, (ViewGroup) null);
-        this.oNI = (TextView) this.mConvertView.findViewById(a.f.bd_im_chating_time_txt);
-        this.oNL = (ImageView) this.mConvertView.findViewById(a.f.bd_im_headview);
-        this.oNN = (ImageView) this.mConvertView.findViewById(a.f.bd_im_headview_vip);
+        this.oNJ = (TextView) this.mConvertView.findViewById(a.f.bd_im_chating_time_txt);
+        this.oNM = (ImageView) this.mConvertView.findViewById(a.f.bd_im_headview);
+        this.oNO = (ImageView) this.mConvertView.findViewById(a.f.bd_im_headview_vip);
         this.mContentView = this.mConvertView.findViewById(a.f.bd_im_chating_msg_content_layout);
         this.jIy = (ImageView) this.mConvertView.findViewById(a.f.bd_im_chating_msg_content_img);
-        this.oPa = (ImageView) this.mConvertView.findViewById(a.f.bd_im_chating_msg_play_icon);
+        this.oPb = (ImageView) this.mConvertView.findViewById(a.f.bd_im_chating_msg_play_icon);
         this.amI = (TextView) this.mConvertView.findViewById(a.f.bd_im_chating_msg_video_duration);
-        this.oNO = (ImageView) this.mConvertView.findViewById(a.f.bd_im_chating_msg_send_status);
-        this.oNP = this.mConvertView.findViewById(a.f.bd_im_chating_msg_send_status_layout);
-        this.oNQ = (ProgressBar) this.mConvertView.findViewById(a.f.bd_im_chating_msg_send_progress);
+        this.oNP = (ImageView) this.mConvertView.findViewById(a.f.bd_im_chating_msg_send_status);
+        this.oNQ = this.mConvertView.findViewById(a.f.bd_im_chating_msg_send_status_layout);
+        this.oNR = (ProgressBar) this.mConvertView.findViewById(a.f.bd_im_chating_msg_send_progress);
         this.mConvertView.setTag(this);
     }
 
@@ -58,9 +58,9 @@ public class x extends e {
         com.baidu.yuyinala.privatemessage.implugin.util.b.hC(context);
         a(signleGraphicTextMsg);
         SingleGraphicTextMsgExt singleGraphicTextMsgExt = new SingleGraphicTextMsgExt(signleGraphicTextMsg);
-        double d = singleGraphicTextMsgExt.oXR;
-        String str = singleGraphicTextMsgExt.oXQ;
-        this.amI.setText(singleGraphicTextMsgExt.oXS);
+        double d = singleGraphicTextMsgExt.oXS;
+        String str = singleGraphicTextMsgExt.oXR;
+        this.amI.setText(singleGraphicTextMsgExt.oXT);
         super.b(context, chatMsg);
     }
 

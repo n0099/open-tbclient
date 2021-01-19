@@ -4,61 +4,61 @@ import javax.annotation.concurrent.NotThreadSafe;
 @NotThreadSafe
 /* loaded from: classes3.dex */
 public class q {
-    private final p pAL;
-    private k pAM;
-    private com.facebook.common.memory.a pAN;
-    private com.facebook.common.memory.g pwB;
-    private i pwD;
-    private com.facebook.common.memory.j pwP;
-    private c pwy;
+    private final p pAM;
+    private k pAN;
+    private com.facebook.common.memory.a pAO;
+    private com.facebook.common.memory.g pwC;
+    private i pwE;
+    private com.facebook.common.memory.j pwQ;
+    private c pwz;
 
     public q(p pVar) {
-        this.pAL = (p) com.facebook.common.internal.g.checkNotNull(pVar);
+        this.pAM = (p) com.facebook.common.internal.g.checkNotNull(pVar);
     }
 
     public c ewF() {
-        if (this.pwy == null) {
-            this.pwy = new c(this.pAL.euu(), this.pAL.eww(), this.pAL.ewx());
+        if (this.pwz == null) {
+            this.pwz = new c(this.pAM.euu(), this.pAM.eww(), this.pAM.ewx());
         }
-        return this.pwy;
+        return this.pwz;
     }
 
     public i ewG() {
-        if (this.pwD == null) {
-            this.pwD = new i(this.pAL.euu(), this.pAL.ewA());
+        if (this.pwE == null) {
+            this.pwE = new i(this.pAM.euu(), this.pAM.ewA());
         }
-        return this.pwD;
+        return this.pwE;
     }
 
     public int ewH() {
-        return this.pAL.ewA().pAU;
+        return this.pAM.ewA().pAV;
     }
 
     public k ewI() {
-        if (this.pAM == null) {
-            this.pAM = new k(this.pAL.euu(), this.pAL.ewy(), this.pAL.ewz());
+        if (this.pAN == null) {
+            this.pAN = new k(this.pAM.euu(), this.pAM.ewy(), this.pAM.ewz());
         }
-        return this.pAM;
+        return this.pAN;
     }
 
     public com.facebook.common.memory.g ewJ() {
-        if (this.pwB == null) {
-            this.pwB = new m(ewI(), ewK());
+        if (this.pwC == null) {
+            this.pwC = new m(ewI(), ewK());
         }
-        return this.pwB;
+        return this.pwC;
     }
 
     public com.facebook.common.memory.j ewK() {
-        if (this.pwP == null) {
-            this.pwP = new com.facebook.common.memory.j(ewL());
+        if (this.pwQ == null) {
+            this.pwQ = new com.facebook.common.memory.j(ewL());
         }
-        return this.pwP;
+        return this.pwQ;
     }
 
     public com.facebook.common.memory.a ewL() {
-        if (this.pAN == null) {
-            this.pAN = new j(this.pAL.euu(), this.pAL.ewB(), this.pAL.ewC());
+        if (this.pAO == null) {
+            this.pAO = new j(this.pAM.euu(), this.pAM.ewB(), this.pAM.ewC());
         }
-        return this.pAN;
+        return this.pAO;
     }
 }

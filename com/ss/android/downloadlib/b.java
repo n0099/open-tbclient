@@ -27,11 +27,11 @@ public class b implements com.ss.android.b.a.a, b.c, a.InterfaceC1227a {
 
     /* renamed from: a  reason: collision with root package name */
     private static String f12966a = b.class.getSimpleName();
-    private static volatile b pQB;
+    private static volatile b pQC;
 
     /* renamed from: b  reason: collision with root package name */
     private long f12967b;
-    private RunnableC1217b pQA;
+    private RunnableC1217b pQB;
 
     private b() {
         com.ss.android.socialbase.appdownloader.b.a(this);
@@ -39,14 +39,14 @@ public class b implements com.ss.android.b.a.a, b.c, a.InterfaceC1227a {
     }
 
     public static b eBX() {
-        if (pQB == null) {
+        if (pQC == null) {
             synchronized (b.class) {
-                if (pQB == null) {
-                    pQB = new b();
+                if (pQC == null) {
+                    pQC = new b();
                 }
             }
         }
-        return pQB;
+        return pQC;
     }
 
     @WorkerThread
@@ -83,18 +83,18 @@ public class b implements com.ss.android.b.a.a, b.c, a.InterfaceC1227a {
             if (com.ss.android.downloadlib.f.i.a()) {
                 throw new RuntimeException("handleAppInstalled in main thread.");
             }
-            com.ss.android.b.a.b.a ZE = com.ss.android.downloadlib.a.b.d.eCc().ZE(str);
-            if (ZE == null) {
+            com.ss.android.b.a.b.a ZF = com.ss.android.downloadlib.a.b.d.eCc().ZF(str);
+            if (ZF == null) {
                 com.ss.android.downloadlib.a.b.c.eCb().a(str);
             } else {
-                com.ss.android.downloadlib.a.f ZL = h.eCM().ZL(ZE.z());
-                if (ZL != null) {
-                    ZL.e();
+                com.ss.android.downloadlib.a.f ZM = h.eCM().ZM(ZF.z());
+                if (ZM != null) {
+                    ZM.e();
                 }
-                if (!ZE.f12920a.get()) {
-                    a(str, ZE);
-                    if (!com.ss.android.downloadlib.b.a.b(str, ZE) && ZE.v() == 4) {
-                        com.ss.android.downloadlib.a.a.a.eBZ().a(ZE.j());
+                if (!ZF.f12920a.get()) {
+                    a(str, ZF);
+                    if (!com.ss.android.downloadlib.b.a.b(str, ZF) && ZF.v() == 4) {
+                        com.ss.android.downloadlib.a.a.a.eBZ().a(ZF.j());
                     }
                     com.ss.android.downloadlib.a.a.a.eBZ().b(str);
                     com.ss.android.socialbase.downloader.g.c v = v(com.ss.android.socialbase.downloader.downloader.f.iy(j.a()).b("application/vnd.android.package-archive"), str);
@@ -132,7 +132,7 @@ public class b implements com.ss.android.b.a.a, b.c, a.InterfaceC1227a {
             }
             RunnableC1217b runnableC1217b = new RunnableC1217b(aVar.j(), cVar.g(), currentTimeMillis, i);
             f.eCI().a(runnableC1217b, max);
-            this.pQA = runnableC1217b;
+            this.pQB = runnableC1217b;
             com.ss.android.downloadlib.a.b.g.eCf().d(aVar);
         }
     }
@@ -536,10 +536,10 @@ public class b implements com.ss.android.b.a.a, b.c, a.InterfaceC1227a {
     }
 
     synchronized void d() {
-        RunnableC1217b runnableC1217b = this.pQA;
+        RunnableC1217b runnableC1217b = this.pQB;
         if (runnableC1217b != null) {
             runnableC1217b.b();
-            this.pQA = null;
+            this.pQB = null;
         }
     }
 
@@ -590,7 +590,7 @@ public class b implements com.ss.android.b.a.a, b.c, a.InterfaceC1227a {
 
     @Override // com.ss.android.socialbase.appdownloader.b.c
     public void a(com.ss.android.socialbase.downloader.g.c cVar, com.ss.android.socialbase.appdownloader.a aVar) {
-        if (cVar != null && aVar != null && com.ss.android.socialbase.downloader.k.a.RA(cVar.g()).aat("anti_hijack_report_config") != null) {
+        if (cVar != null && aVar != null && com.ss.android.socialbase.downloader.k.a.RA(cVar.g()).aau("anti_hijack_report_config") != null) {
             b(cVar, aVar);
         }
     }
@@ -660,21 +660,21 @@ public class b implements com.ss.android.b.a.a, b.c, a.InterfaceC1227a {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes4.dex */
     public class c implements Runnable {
-        private final com.ss.android.b.a.b.a pQD;
+        private final com.ss.android.b.a.b.a pQE;
 
         public c(com.ss.android.b.a.b.a aVar) {
-            this.pQD = aVar;
+            this.pQE = aVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             try {
-                this.pQD.h(true);
-                b.this.b(this.pQD);
+                this.pQE.h(true);
+                b.this.b(this.pQE);
             } catch (Exception e) {
                 e.printStackTrace();
             } finally {
-                this.pQD.h(false);
+                this.pQE.h(false);
             }
         }
     }
@@ -706,7 +706,7 @@ public class b implements com.ss.android.b.a.a, b.c, a.InterfaceC1227a {
     }
 
     private JSONObject a(com.ss.android.b.a.b.a aVar, String str, int i) {
-        com.ss.android.socialbase.appdownloader.a ZM;
+        com.ss.android.socialbase.appdownloader.a ZN;
         JSONObject jSONObject = new JSONObject();
         try {
             com.ss.android.socialbase.downloader.g.c h = com.ss.android.socialbase.downloader.downloader.f.iy(j.a()).h(aVar.t());
@@ -723,8 +723,8 @@ public class b implements com.ss.android.b.a.a, b.c, a.InterfaceC1227a {
                 } catch (Throwable th) {
                 }
                 String string = h.eFG().getString("anti_hijack_attempt");
-                if (!TextUtils.isEmpty(string) && (ZM = com.ss.android.socialbase.appdownloader.a.ZM(string)) != null) {
-                    ZM.a(jSONObject);
+                if (!TextUtils.isEmpty(string) && (ZN = com.ss.android.socialbase.appdownloader.a.ZN(string)) != null) {
+                    ZN.a(jSONObject);
                 }
             }
             int a2 = a(aVar, h, str, jSONObject);

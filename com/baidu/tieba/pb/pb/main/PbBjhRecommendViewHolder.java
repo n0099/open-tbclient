@@ -218,7 +218,7 @@ public class PbBjhRecommendViewHolder extends TypeAdapter.ViewHolder {
         this.bRa.setOnClickListener(this.ffD);
     }
 
-    public void Ox(String str) {
+    public void Oy(String str) {
         this.lFE = str;
     }
 

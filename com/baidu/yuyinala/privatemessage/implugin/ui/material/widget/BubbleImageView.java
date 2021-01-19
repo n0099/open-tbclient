@@ -22,7 +22,7 @@ import com.baidu.live.sdk.a;
 import com.baidu.yuyinala.privatemessage.implugin.ui.theme.ThemeManager;
 /* loaded from: classes10.dex */
 public class BubbleImageView extends ImageView {
-    private static final Bitmap.Config oTY = Bitmap.Config.ARGB_8888;
+    private static final Bitmap.Config oTZ = Bitmap.Config.ARGB_8888;
     private Paint fyR;
     private int mAngle;
     private int mArrowHeight;
@@ -33,41 +33,41 @@ public class BubbleImageView extends ImageView {
     private BitmapShader mBitmapShader;
     private int mBitmapWidth;
     private Matrix mShaderMatrix;
-    private int oTZ;
     private int oUa;
     private int oUb;
-    private Rect oUc;
+    private int oUc;
+    private Rect oUd;
 
     public BubbleImageView(Context context) {
         super(context);
         this.mAngle = vn(10);
-        this.oTZ = vn(40);
+        this.oUa = vn(40);
         this.mArrowWidth = vn(20);
         this.mArrowHeight = vn(20);
-        this.oUa = 0;
         this.oUb = 0;
+        this.oUc = 0;
         m(null);
     }
 
     public BubbleImageView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         this.mAngle = vn(10);
-        this.oTZ = vn(40);
+        this.oUa = vn(40);
         this.mArrowWidth = vn(20);
         this.mArrowHeight = vn(20);
-        this.oUa = 0;
         this.oUb = 0;
+        this.oUc = 0;
         m(attributeSet);
     }
 
     public BubbleImageView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.mAngle = vn(10);
-        this.oTZ = vn(40);
+        this.oUa = vn(40);
         this.mArrowWidth = vn(20);
         this.mArrowHeight = vn(20);
-        this.oUa = 0;
         this.oUb = 0;
+        this.oUc = 0;
         m(attributeSet);
     }
 
@@ -76,10 +76,10 @@ public class BubbleImageView extends ImageView {
             TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, a.j.BubbleImageView);
             this.mAngle = (int) obtainStyledAttributes.getDimension(a.j.BubbleImageView_bubble_angle, this.mAngle);
             this.mArrowHeight = (int) obtainStyledAttributes.getDimension(a.j.BubbleImageView_bubble_arrowHeight, this.mArrowHeight);
-            this.oUa = (int) obtainStyledAttributes.getDimension(a.j.BubbleImageView_bubble_arrowOffset, this.oUa);
-            this.oTZ = (int) obtainStyledAttributes.getDimension(a.j.BubbleImageView_bubble_arrowTop, this.oTZ);
+            this.oUb = (int) obtainStyledAttributes.getDimension(a.j.BubbleImageView_bubble_arrowOffset, this.oUb);
+            this.oUa = (int) obtainStyledAttributes.getDimension(a.j.BubbleImageView_bubble_arrowTop, this.oUa);
             this.mArrowWidth = (int) obtainStyledAttributes.getDimension(a.j.BubbleImageView_bubble_arrowWidth, this.mAngle);
-            this.oUb = obtainStyledAttributes.getInt(a.j.BubbleImageView_bubble_arrowLocation, this.oUb);
+            this.oUc = obtainStyledAttributes.getInt(a.j.BubbleImageView_bubble_arrowLocation, this.oUc);
             obtainStyledAttributes.recycle();
         }
     }
@@ -156,9 +156,9 @@ public class BubbleImageView extends ImageView {
         }
         try {
             if (drawable instanceof ColorDrawable) {
-                createBitmap = Bitmap.createBitmap(1, 1, oTY);
+                createBitmap = Bitmap.createBitmap(1, 1, oTZ);
             } else {
-                createBitmap = Bitmap.createBitmap(drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight(), oTY);
+                createBitmap = Bitmap.createBitmap(drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight(), oTZ);
             }
             Canvas canvas = new Canvas(createBitmap);
             drawable.setBounds(0, 0, canvas.getWidth(), canvas.getHeight());
@@ -198,14 +198,14 @@ public class BubbleImageView extends ImageView {
         float f;
         this.mShaderMatrix = new Matrix();
         this.mShaderMatrix.set(null);
-        this.oUc = new Rect(0, 0, getRight() - getLeft(), getBottom() - getTop());
-        if (this.mBitmapWidth * this.oUc.height() > this.oUc.width() * this.mBitmapHeight) {
-            width = this.oUc.height() / this.mBitmapHeight;
-            f = (this.oUc.width() - (this.mBitmapWidth * width)) * 0.5f;
+        this.oUd = new Rect(0, 0, getRight() - getLeft(), getBottom() - getTop());
+        if (this.mBitmapWidth * this.oUd.height() > this.oUd.width() * this.mBitmapHeight) {
+            width = this.oUd.height() / this.mBitmapHeight;
+            f = (this.oUd.width() - (this.mBitmapWidth * width)) * 0.5f;
             height = 0.0f;
         } else {
-            width = this.oUc.width() / this.mBitmapWidth;
-            height = (this.oUc.height() - (this.mBitmapHeight * width)) * 0.5f;
+            width = this.oUd.width() / this.mBitmapWidth;
+            height = (this.oUd.height() - (this.mBitmapHeight * width)) * 0.5f;
             f = 0.0f;
         }
         this.mShaderMatrix.setScale(width, width);

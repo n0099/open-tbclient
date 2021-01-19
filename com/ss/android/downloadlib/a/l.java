@@ -5,14 +5,14 @@ import com.ss.android.socialbase.downloader.impls.r;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class l {
-    private static com.ss.android.downloadlib.a.a.d pSc;
+    private static com.ss.android.downloadlib.a.a.d pSd;
 
     public static com.ss.android.downloadlib.a.a.d eCD() {
-        return pSc;
+        return pSd;
     }
 
     public static void a(com.ss.android.downloadlib.a.a.d dVar) {
-        pSc = dVar;
+        pSd = dVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */

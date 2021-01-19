@@ -9,7 +9,7 @@ import com.ss.android.a.a.a.i;
 import com.ss.android.a.a.a.k;
 /* loaded from: classes4.dex */
 public interface a {
-    a YY(String str);
+    a YZ(String str);
 
     a a(@NonNull b bVar);
 

@@ -7,19 +7,19 @@ import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public final class s extends ch {
     private final Context e;
-    private final cn pcg;
+    private final cn pch;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public s(Context context, cn cnVar) {
         super(true, false);
         this.e = context;
-        this.pcg = cnVar;
+        this.pch = cnVar;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.bytedance.embedapplog.ch
     public boolean a(JSONObject jSONObject) {
-        Map<String, String> a2 = ba.a(this.e, this.pcg.elM());
+        Map<String, String> a2 = ba.a(this.e, this.pch.elM());
         if (a2 != null) {
             jSONObject.put("oaid", new JSONObject(a2));
             return true;

@@ -13,8 +13,8 @@ public final class UrlResponseInfo {
     private final String mProxyServer;
     private final List<String> mResponseInfoUrlChain;
     private final boolean mWasCached;
-    private final AtomicLong oHg = new AtomicLong();
-    private final HeaderBlock oHh;
+    private final AtomicLong oHh = new AtomicLong();
+    private final HeaderBlock oHi;
 
     /* loaded from: classes4.dex */
     public static final class HeaderBlock {
@@ -34,7 +34,7 @@ public final class UrlResponseInfo {
         this.mResponseInfoUrlChain = Collections.unmodifiableList(list);
         this.mHttpStatusCode = i;
         this.mHttpStatusText = str;
-        this.oHh = new HeaderBlock(Collections.unmodifiableList(list2));
+        this.oHi = new HeaderBlock(Collections.unmodifiableList(list2));
         this.mWasCached = z;
         this.mNegotiatedProtocol = str2;
         this.mProxyServer = str3;
@@ -57,7 +57,7 @@ public final class UrlResponseInfo {
     }
 
     public List<Map.Entry<String, String>> eeC() {
-        return this.oHh.eeG();
+        return this.oHi.eeG();
     }
 
     public boolean eeD() {
@@ -73,7 +73,7 @@ public final class UrlResponseInfo {
     }
 
     public long getReceivedBytesCount() {
-        return this.oHg.get();
+        return this.oHh.get();
     }
 
     public String toString() {
@@ -82,6 +82,6 @@ public final class UrlResponseInfo {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void hQ(long j) {
-        this.oHg.set(j);
+        this.oHh.set(j);
     }
 }

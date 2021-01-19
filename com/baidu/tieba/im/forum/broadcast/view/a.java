@@ -87,7 +87,7 @@ public class a {
                         oVar.start();
                     }
                 } else if (bVar.cUd() == null || bVar.cUd().is_deleted.intValue() == 1) {
-                    new BdTopToast(a.this.mPageContext.getPageActivity()).yS(false).TP(a.this.mPageContext.getPageActivity().getString(R.string.forum_broadcast_major_history_pb_deleted)).aR((ViewGroup) a.this.mRootView.findViewById(R.id.forum_major_history));
+                    new BdTopToast(a.this.mPageContext.getPageActivity()).yS(false).TQ(a.this.mPageContext.getPageActivity().getString(R.string.forum_broadcast_major_history_pb_deleted)).aR((ViewGroup) a.this.mRootView.findViewById(R.id.forum_major_history));
                 } else {
                     PbActivityConfig pbActivityConfig = new PbActivityConfig(a.this.mPageContext.getPageActivity());
                     pbActivityConfig.createNormalCfg(bVar.cUd().tid + "", null, null);
@@ -156,7 +156,7 @@ public class a {
 
     public void cUh() {
         if (this.kxU == null || !this.kxU.isShow()) {
-            this.kxU = new ScreenTopToast(this.mPageContext.getPageActivity()).TT(this.mPageContext.getPageActivity().getString(R.string.forum_broadcast_major_residue_none_hint)).TV(this.mPageContext.getPageActivity().getString(R.string.frs_recommend_fail_tip_btn)).an(new View.OnClickListener() { // from class: com.baidu.tieba.im.forum.broadcast.view.a.3
+            this.kxU = new ScreenTopToast(this.mPageContext.getPageActivity()).TU(this.mPageContext.getPageActivity().getString(R.string.forum_broadcast_major_residue_none_hint)).TW(this.mPageContext.getPageActivity().getString(R.string.frs_recommend_fail_tip_btn)).an(new View.OnClickListener() { // from class: com.baidu.tieba.im.forum.broadcast.view.a.3
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     HashMap hashMap = new HashMap();
@@ -335,7 +335,7 @@ public class a {
 
     public void cUj() {
         if (this.mRootView != null) {
-            new BdTopToast(this.mPageContext.getPageActivity()).yS(true).TP(this.mPageContext.getPageActivity().getString(R.string.frs_forum_bcast_publish_success_tip)).aR((ViewGroup) this.mRootView.findViewById(R.id.forum_major_history));
+            new BdTopToast(this.mPageContext.getPageActivity()).yS(true).TQ(this.mPageContext.getPageActivity().getString(R.string.frs_forum_bcast_publish_success_tip)).aR((ViewGroup) this.mRootView.findViewById(R.id.forum_major_history));
         }
     }
 

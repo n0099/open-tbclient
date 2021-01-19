@@ -147,7 +147,7 @@ public class i implements h {
     }
 
     @Override // com.baidu.tieba.l.h
-    public void NP(String str) {
+    public void NQ(String str) {
         if (this.cqj != 8 && this.cqj != 7 && this.cqj != 6 && this.cqj != -1) {
             this.mSource = VideoPlatformStatic.DX(str);
             deO();
@@ -158,7 +158,7 @@ public class i implements h {
     }
 
     @Override // com.baidu.tieba.l.h
-    public String NQ(String str) {
+    public String NR(String str) {
         if (this.cqj == 8 || this.cqj == 7 || this.cqj == 6 || this.cqj == -1) {
             return this.mUuid;
         }
@@ -172,7 +172,7 @@ public class i implements h {
     }
 
     @Override // com.baidu.tieba.l.h
-    public boolean NR(String str) {
+    public boolean NS(String str) {
         if (this.cqj == 8 || this.cqj == 7 || this.cqj == 6 || this.cqj == -1 || this.cqj == 1) {
             return false;
         }

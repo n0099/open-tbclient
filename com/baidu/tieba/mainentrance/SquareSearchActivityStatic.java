@@ -55,7 +55,7 @@ public class SquareSearchActivityStatic {
         bVar.setNeedCompress(false);
         bVar.a(SocketMessageTask.DupLicateMode.NONE);
         MessageManager.getInstance().registerTask(bVar);
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1003196, com.baidu.tieba.tbadkCore.a.a.bU(Config.GET_SEARCH_LIST, CmdConfigSocket.CMD_SEARCH_LIST));
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1003196, com.baidu.tieba.tbadkCore.a.a.bV(Config.GET_SEARCH_LIST, CmdConfigSocket.CMD_SEARCH_LIST));
         tbHttpMessageTask.setResponsedClass(SearchListHttpResMessage.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
@@ -89,7 +89,7 @@ public class SquareSearchActivityStatic {
     }
 
     private static void dcj() {
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1001534, com.baidu.tieba.tbadkCore.a.a.bU(TbConfig.GET_HOT_FORUM_URL, CmdConfigSocket.CMD_GET_HOTFORUM));
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1001534, com.baidu.tieba.tbadkCore.a.a.bV(TbConfig.GET_HOT_FORUM_URL, CmdConfigSocket.CMD_GET_HOTFORUM));
         tbHttpMessageTask.setResponsedClass(HotForumHttpResponseMessage.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }

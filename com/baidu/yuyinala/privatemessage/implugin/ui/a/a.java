@@ -4,5 +4,5 @@ import java.util.HashMap;
 import java.util.LinkedList;
 /* loaded from: classes10.dex */
 public class a {
-    private HashMap<String, LinkedList<Runnable>> oWy = new HashMap<>();
+    private HashMap<String, LinkedList<Runnable>> oWz = new HashMap<>();
 }

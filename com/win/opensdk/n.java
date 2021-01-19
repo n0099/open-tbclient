@@ -16,13 +16,13 @@ import androidx.annotation.RequiresApi;
 import com.win.opensdk.d;
 /* loaded from: classes3.dex */
 public final class n extends WebViewClient {
-    private boolean pYL;
-    private y pZk;
-    private h pZo;
+    private boolean pYM;
+    private y pZl;
+    private h pZp;
 
     public n(y yVar, h hVar) {
-        this.pZk = yVar;
-        this.pZo = hVar;
+        this.pZl = yVar;
+        this.pZp = hVar;
     }
 
     @Override // android.webkit.WebViewClient
@@ -40,12 +40,12 @@ public final class n extends WebViewClient {
                 return super.shouldOverrideUrlLoading(webView, str);
             }
             if ("mraid".equals(Uri.parse(str).getScheme())) {
-                if (this.pZo != null) {
-                    this.pZo.aaD(str);
+                if (this.pZp != null) {
+                    this.pZp.aaE(str);
                 }
                 return true;
-            } else if (this.pZo != null) {
-                return this.pZo.aaC(str);
+            } else if (this.pZp != null) {
+                return this.pZp.aaD(str);
             }
         }
         return super.shouldOverrideUrlLoading(webView, str);
@@ -63,13 +63,13 @@ public final class n extends WebViewClient {
                 return super.shouldOverrideUrlLoading(webView, webResourceRequest);
             }
             if ("mraid".equals(scheme)) {
-                if (this.pZo != null) {
-                    this.pZo.aaD(uri);
+                if (this.pZp != null) {
+                    this.pZp.aaE(uri);
                 }
-                g.e(this.pZk, "javascript:window.mraidbridge.nativeCallComplete('" + host + "')");
+                g.e(this.pZl, "javascript:window.mraidbridge.nativeCallComplete('" + host + "')");
                 return true;
-            } else if (this.pZo != null) {
-                return this.pZo.aaC(uri);
+            } else if (this.pZp != null) {
+                return this.pZp.aaD(uri);
             }
         }
         return super.shouldOverrideUrlLoading(webView, webResourceRequest);
@@ -109,14 +109,14 @@ public final class n extends WebViewClient {
     @Override // android.webkit.WebViewClient
     public final void onPageFinished(WebView webView, String str) {
         super.onPageFinished(webView, str);
-        if (!this.pYL) {
-            if (this.pZk != null && this.pZo != null) {
-                this.pZo.a(this.pZk);
+        if (!this.pYM) {
+            if (this.pZl != null && this.pZp != null) {
+                this.pZp.a(this.pZl);
             }
-            if (!this.pZo.java()) {
-                this.pZk.getDispatcher().eGz();
+            if (!this.pZp.java()) {
+                this.pZl.getDispatcher().eGz();
             }
-            this.pYL = true;
+            this.pYM = true;
         }
     }
 

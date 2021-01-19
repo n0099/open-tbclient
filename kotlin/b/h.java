@@ -5,8 +5,8 @@ import kotlin.jvm.internal.o;
 @kotlin.e
 /* loaded from: classes5.dex */
 public final class h extends f {
-    public static final a qjE = new a(null);
-    private static final h qjD = new h(1, 0);
+    public static final a qjF = new a(null);
+    private static final h qjE = new h(1, 0);
 
     public h(int i, int i2) {
         super(i, i2, 1);
@@ -54,7 +54,7 @@ public final class h extends f {
         }
 
         public final h eJi() {
-            return h.qjD;
+            return h.qjE;
         }
     }
 }

@@ -11,14 +11,14 @@ import androidx.annotation.Nullable;
 import com.baidu.live.sdk.a;
 /* loaded from: classes10.dex */
 public class CharmProgressBar extends ProgressBar {
-    private static int oAH = 400;
-    private static float oAI = 1.5f;
-    private static float oAJ = 0.06f;
+    private static int oAI = 400;
+    private static float oAJ = 1.5f;
+    private static float oAK = 0.06f;
     private Paint mPaint;
     private Path mPath;
     private long mStartTime;
-    private float oAF;
-    private SparseArray<Integer> oAG;
+    private float oAG;
+    private SparseArray<Integer> oAH;
 
     public CharmProgressBar(Context context) {
         this(context, null);
@@ -30,35 +30,35 @@ public class CharmProgressBar extends ProgressBar {
 
     public CharmProgressBar(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, 0);
-        this.oAF = 0.0f;
-        this.oAG = new SparseArray<>();
+        this.oAG = 0.0f;
+        this.oAH = new SparseArray<>();
         this.mStartTime = 0L;
         init();
         ecB();
     }
 
     private void ecB() {
-        this.oAG.put(0, 30);
-        this.oAG.put(5, 39);
-        this.oAG.put(10, 51);
-        this.oAG.put(15, 64);
-        this.oAG.put(20, 72);
-        this.oAG.put(25, 82);
-        this.oAG.put(30, 87);
-        this.oAG.put(35, 90);
-        this.oAG.put(40, 95);
-        this.oAG.put(45, 97);
-        this.oAG.put(50, 100);
-        this.oAG.put(55, 100);
-        this.oAG.put(60, 100);
-        this.oAG.put(65, 100);
-        this.oAG.put(70, 98);
-        this.oAG.put(75, 98);
-        this.oAG.put(80, 95);
-        this.oAG.put(85, 93);
-        this.oAG.put(90, 80);
-        this.oAG.put(95, 73);
-        this.oAG.put(100, 70);
+        this.oAH.put(0, 30);
+        this.oAH.put(5, 39);
+        this.oAH.put(10, 51);
+        this.oAH.put(15, 64);
+        this.oAH.put(20, 72);
+        this.oAH.put(25, 82);
+        this.oAH.put(30, 87);
+        this.oAH.put(35, 90);
+        this.oAH.put(40, 95);
+        this.oAH.put(45, 97);
+        this.oAH.put(50, 100);
+        this.oAH.put(55, 100);
+        this.oAH.put(60, 100);
+        this.oAH.put(65, 100);
+        this.oAH.put(70, 98);
+        this.oAH.put(75, 98);
+        this.oAH.put(80, 95);
+        this.oAH.put(85, 93);
+        this.oAH.put(90, 80);
+        this.oAH.put(95, 73);
+        this.oAH.put(100, 70);
     }
 
     protected void init() {
@@ -76,7 +76,7 @@ public class CharmProgressBar extends ProgressBar {
     }
 
     private float getWidthPercent() {
-        return this.oAG.get(getProgress() - (getProgress() % 5)).intValue() / 100.0f;
+        return this.oAH.get(getProgress() - (getProgress() % 5)).intValue() / 100.0f;
     }
 
     @Override // android.widget.ProgressBar, android.view.View
@@ -84,8 +84,8 @@ public class CharmProgressBar extends ProgressBar {
         super.onDraw(canvas);
         if (getProgress() <= 96) {
             int height = getHeight();
-            int i = (int) (height * oAJ);
-            int width = (int) (getWidth() * oAI);
+            int i = (int) (height * oAK);
+            int width = (int) (getWidth() * oAJ);
             int startX = getStartX();
             int endX = getEndX();
             int progress = (height - ((getProgress() * height) / 100)) + i;
@@ -93,7 +93,7 @@ public class CharmProgressBar extends ProgressBar {
             this.mPath.moveTo(startX, progress);
             int i2 = startX;
             while (i2 >= startX && i2 <= endX && i2 <= width) {
-                this.mPath.lineTo(i2, progress - ((float) ((Math.sin(((i2 * 6.283185307179586d) / width) + this.oAF) * i) + i)));
+                this.mPath.lineTo(i2, progress - ((float) ((Math.sin(((i2 * 6.283185307179586d) / width) + this.oAG) * i) + i)));
                 i2++;
             }
             this.mPath.lineTo(i2 - 1, progress);
@@ -103,13 +103,13 @@ public class CharmProgressBar extends ProgressBar {
             this.mPath.moveTo(startX, progress);
             int i3 = startX;
             while (i3 >= startX && i3 <= endX && i3 <= width) {
-                this.mPath.lineTo(i3, progress - ((float) (i - (Math.sin(((i3 * 6.283185307179586d) / width) + this.oAF) * i))));
+                this.mPath.lineTo(i3, progress - ((float) (i - (Math.sin(((i3 * 6.283185307179586d) / width) + this.oAG) * i))));
                 i3++;
             }
             this.mPath.lineTo(i3 - 1, progress);
             this.mPath.close();
             canvas.drawPath(this.mPath, this.mPaint);
-            this.oAF = (float) (getTheta() % 6.283185307179586d);
+            this.oAG = (float) (getTheta() % 6.283185307179586d);
             postInvalidateDelayed(16L);
         }
     }
@@ -119,6 +119,6 @@ public class CharmProgressBar extends ProgressBar {
             this.mStartTime = System.currentTimeMillis();
             return 0.0f;
         }
-        return (((float) (System.currentTimeMillis() - this.mStartTime)) * 1.0f) / oAH;
+        return (((float) (System.currentTimeMillis() - this.mStartTime)) * 1.0f) / oAI;
     }
 }

@@ -12,14 +12,14 @@ import java.net.InetAddress;
 import java.net.UnknownHostException;
 /* loaded from: classes6.dex */
 public class t {
-    private static t pmR = null;
+    private static t pmS = null;
 
     /* renamed from: b  reason: collision with root package name */
     private ConnectivityManager f7737b;
     private ConnectivityManager.NetworkCallback d;
     private boolean e;
     private volatile boolean f = false;
-    private Network pmS;
+    private Network pmT;
 
     /* loaded from: classes6.dex */
     public interface a {
@@ -32,29 +32,29 @@ public class t {
 
     public boolean a() {
         if (Build.VERSION.SDK_INT >= 21) {
-            return this.pmS != null;
+            return this.pmT != null;
         }
         return this.f;
     }
 
     public static t id(Context context) {
-        if (pmR == null) {
+        if (pmS == null) {
             synchronized (t.class) {
-                if (pmR == null) {
-                    pmR = new t(context);
+                if (pmS == null) {
+                    pmS = new t(context);
                 }
             }
         }
-        return pmR;
+        return pmS;
     }
 
     @TargetApi(21)
     public void a(final a aVar) {
         NetworkInfo networkInfo;
         if (Build.VERSION.SDK_INT >= 21) {
-            if (this.pmS != null && !this.e && (networkInfo = this.f7737b.getNetworkInfo(this.pmS)) != null && networkInfo.isAvailable()) {
+            if (this.pmT != null && !this.e && (networkInfo = this.f7737b.getNetworkInfo(this.pmT)) != null && networkInfo.isAvailable()) {
                 Log.e("HttpUtils", "reuse network: ");
-                aVar.d(this.pmS);
+                aVar.d(this.pmT);
                 return;
             }
             if (this.d != null) {
@@ -70,7 +70,7 @@ public class t {
             this.d = new ConnectivityManager.NetworkCallback() { // from class: com.cmic.sso.sdk.e.t.1
                 @Override // android.net.ConnectivityManager.NetworkCallback
                 public void onAvailable(Network network) {
-                    t.this.pmS = network;
+                    t.this.pmT = network;
                     aVar.d(network);
                     t.this.e = false;
                 }
@@ -92,7 +92,7 @@ public class t {
             } else if (this.f7737b != null && this.d != null) {
                 this.f7737b.unregisterNetworkCallback(this.d);
                 this.d = null;
-                this.pmS = null;
+                this.pmT = null;
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -141,7 +141,7 @@ public class t {
                 }
                 Thread.sleep(1000L);
             } catch (InterruptedException e) {
-                com.cmic.sso.sdk.d.a.pmH.add(e);
+                com.cmic.sso.sdk.d.a.pmI.add(e);
                 c.a("WifiNetworkUtils", "check hipri failed");
             }
         }

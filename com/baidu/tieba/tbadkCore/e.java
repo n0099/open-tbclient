@@ -46,7 +46,7 @@ public class e {
         return j;
     }
 
-    public boolean RU(String str) {
+    public boolean RV(String str) {
         if (this.iVY != null && str != null) {
             byte[] bArr = this.iVY.get(TbadkCoreApplication.getCurrentAccount() + str);
             if (bArr != null && bArr.length > 0) {

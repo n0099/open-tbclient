@@ -199,7 +199,7 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
                 if (!"portrait".equals(ImageViewerActivity.this.mFrom) && !bzk) {
                     ImageViewerActivity.this.x(ImageViewerActivity.this.kMx, 0);
                     ImageViewerActivity.this.x(ImageViewerActivity.this.kMy, 0);
-                    ImageViewerActivity.this.MG(ImageViewerActivity.this.kMD);
+                    ImageViewerActivity.this.MH(ImageViewerActivity.this.kMD);
                     if (ImageViewerActivity.this.kNa) {
                         ImageViewerActivity.this.kME.ky(true);
                     } else {
@@ -252,7 +252,7 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
                 if (ImageViewerActivity.this.kMx != null) {
                     ImageViewerActivity.this.kMx.setEnabled(false);
                 }
-                ImageViewerActivity.this.k(b.MC((String) x.getItem(ImageViewerActivity.this.kMH, ImageViewerActivity.this.mIndex)), !ImageViewerActivity.this.mIsSeeHost, true);
+                ImageViewerActivity.this.k(b.MD((String) x.getItem(ImageViewerActivity.this.kMH, ImageViewerActivity.this.mIndex)), !ImageViewerActivity.this.mIsSeeHost, true);
                 TiebaStatic.log(new aq("c13857").an("obj_type", ImageViewerActivity.this.mIsSeeHost ? 7 : 8).dW("post_id", ImageViewerActivity.this.amM).dW("uid", TbadkCoreApplication.getCurrentAccount()).dW("fid", ImageViewerActivity.this.fKR));
                 return true;
             }
@@ -319,7 +319,7 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
             }
             if (ImageViewerActivity.this.kMO && ImageViewerActivity.this.kMM != null && ImageViewerActivity.this.kMI != null && ImageViewerActivity.this.kME != null) {
                 ImageViewerActivity.this.kMM.X(ImageViewerActivity.this.kMI.cXK(), ImageViewerActivity.this.mCount, i);
-                ImageViewerActivity.this.kMM.Dm(i);
+                ImageViewerActivity.this.kMM.Dl(i);
             }
             ImageViewerActivity.this.kMJ.e(ImageViewerActivity.this.kMH, ImageViewerActivity.this.mIndex, i);
             ImageViewerActivity.this.mIndex = i;
@@ -497,7 +497,7 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
         this.kMI.setSourceImageRectInScreen(this.kMa);
         this.kMI.ti(this.kMZ);
         this.kMI.tj(z);
-        this.kMI.ME(this.kMb);
+        this.kMI.MF(this.kMb);
         this.kMI.th(this.kMc);
         this.kMI.setPostId(this.mPostId);
         this.kMI.tl(this.kMd);
@@ -840,7 +840,7 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
         float[] nL = com.baidu.tbadk.core.elementsMaven.a.nL(R.array.S_O_X001);
         this.mTitleView.setShadowLayer(nL[1], nL[2], nL[3], (int) nL[0]);
         this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_LEFT, this.mTitleView, (View.OnClickListener) null);
-        if (b.MD((String) x.getItem(this.kMH, this.mIndex))) {
+        if (b.ME((String) x.getItem(this.kMH, this.mIndex))) {
             this.mNavigationBar.setVisibility(0);
         }
     }
@@ -881,11 +881,11 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
                 ArrayList arrayList = new ArrayList(2);
                 q qVar = new q();
                 qVar.Jl(0);
-                qVar.Sh(getString(R.string.all));
+                qVar.Si(getString(R.string.all));
                 arrayList.add(qVar);
                 q qVar2 = new q();
                 qVar2.Jl(1);
-                qVar2.Sh(getString(R.string.host_name));
+                qVar2.Si(getString(R.string.host_name));
                 arrayList.add(qVar2);
                 this.kMx = (SortSwitchButton) addCustomView.findViewById(R.id.host_all_switch_btn);
                 this.kMx.setNeedDayNight(false);
@@ -943,7 +943,7 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
             if (cYg()) {
                 cYh();
             } else {
-                MF(str);
+                MG(str);
             }
             long j = cYe - 1;
             Dp(j > 0 ? (int) j : 0);
@@ -964,7 +964,7 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
         }
     }
 
-    private void MF(String str) {
+    private void MG(String str) {
         this.mTitleView.setText(str);
         if (this.kMV && !this.kMW && this.kMx != null) {
             this.kMx.iC(this.mIsSeeHost ? 1 : 0);
@@ -1188,7 +1188,7 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
                 imageUrlData.setSourceImageRectInScreen(this.kMa);
             }
         }
-        this.kMb = this.kMX ? null : b.MC((String) x.getItem(this.kMH, this.mIndex));
+        this.kMb = this.kMX ? null : b.MD((String) x.getItem(this.kMH, this.mIndex));
         if (this.mIsSeeHost) {
             TiebaStatic.log(new aq("c13337").dW("obj_type", "2"));
         } else {
@@ -1301,7 +1301,7 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
             this.kMz.setAlaInfo(alaInfoData);
             this.kMz.setOnClickListener(this.kNj);
             if (!TextUtils.isEmpty(alaInfoData.tag)) {
-                MG(alaInfoData.tag);
+                MH(alaInfoData.tag);
             }
             TiebaStatic.log(new aq("c13710").dW("fid", this.fKR).dW("fname", this.gyv).dW("uid", TbadkCoreApplication.getCurrentAccount()).dW("tid", this.amM).dW("obj_param1", alaInfoData.user_info != null ? "" + alaInfoData.user_info.user_id : ""));
         }
@@ -1356,7 +1356,7 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void MG(@NonNull final String str) {
+    public void MH(@NonNull final String str) {
         if (this.kMA != null) {
             this.kMA.post(new Runnable() { // from class: com.baidu.tieba.image.ImageViewerActivity.10
                 @Override // java.lang.Runnable

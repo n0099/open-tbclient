@@ -186,7 +186,7 @@ public class SingleLineCardView extends BaseCardView<SingleLineCard> {
             setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.lego.card.view.SingleLineCardView.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    com.baidu.tieba.lego.i.a((BaseLegoCardInfo) singleLineCard).fF(TiebaInitialize.Params.OBJ_URL, singleLineCard.getScheme()).bz("obj_locate", SingleLineCardView.this.getStatPosition()).a(singleLineCard);
+                    com.baidu.tieba.lego.i.a((BaseLegoCardInfo) singleLineCard).fF(TiebaInitialize.Params.OBJ_URL, singleLineCard.getScheme()).bA("obj_locate", SingleLineCardView.this.getStatPosition()).a(singleLineCard);
                     v.h(SingleLineCardView.this.eSJ, singleLineCard.getScheme());
                 }
             });

@@ -121,8 +121,8 @@ public class d implements View.OnClickListener {
         ViewGroup.LayoutParams layoutParams = this.naR.getLayoutParams();
         if (layoutParams instanceof ViewGroup.MarginLayoutParams) {
             ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) layoutParams;
-            marginLayoutParams.leftMargin = ShareGridLayout.nzl;
-            marginLayoutParams.rightMargin = ShareGridLayout.nzl;
+            marginLayoutParams.leftMargin = ShareGridLayout.nzm;
+            marginLayoutParams.rightMargin = ShareGridLayout.nzm;
             this.naR.setLayoutParams(marginLayoutParams);
         }
         this.naR.setItemParams(hEs, hEt);

@@ -61,10 +61,10 @@ public class a extends com.baidu.adp.widget.ListView.a<by, FunAdCardHolder> impl
                 nVar.aR(KD.get(0).eRU.dKW());
                 byVar.eHK.np(com.baidu.tieba.horizonalList.a.a.cK(20, 100));
                 com.baidu.tieba.h.a.cLv().A("6051001535-87847998", KD.get(0).eRU.dKW());
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921527));
             } else {
                 nVar.aR(null);
             }
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921527));
         }
         a(funAdCardHolder, byVar.eHK);
         return funAdCardHolder.getView();

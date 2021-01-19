@@ -6,9 +6,9 @@ import com.baidu.n.a.a.d;
 public class b extends d {
     public b(Context context) {
         super(context);
-        this.oKB = "";
-        this.oKz = false;
-        this.oLb = false;
+        this.oKC = "";
+        this.oKA = false;
+        this.oLc = false;
         this.mStatusCode = -100;
     }
 

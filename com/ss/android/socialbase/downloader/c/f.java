@@ -27,19 +27,19 @@ public class f implements ServiceConnection, t {
     private static long d = 0;
     private Future<?> arR;
     @Nullable
-    private c pUo;
-    private a pUq;
+    private c pUp;
+    private a pUr;
     private Handler e = new Handler(Looper.getMainLooper());
-    private b pUp = null;
+    private b pUq = null;
     private Runnable h = new Runnable() { // from class: com.ss.android.socialbase.downloader.c.f.1
         @Override // java.lang.Runnable
         public void run() {
-            if (!f.f13098b && f.this.pUq != null) {
-                f.this.pUq.a();
+            if (!f.f13098b && f.this.pUr != null) {
+                f.this.pUr.a();
             }
         }
     };
-    private CountDownLatch pUr = new CountDownLatch(1);
+    private CountDownLatch pUs = new CountDownLatch(1);
 
     /* loaded from: classes4.dex */
     public interface a {
@@ -49,7 +49,7 @@ public class f implements ServiceConnection, t {
     /* JADX DEBUG: Marked for inline */
     /* JADX DEBUG: Method not inlined, still used in: [com.ss.android.socialbase.downloader.c.f.2.run():void] */
     static /* synthetic */ a a(f fVar) {
-        return fVar.pUq;
+        return fVar.pUr;
     }
 
     public f() {
@@ -57,7 +57,7 @@ public class f implements ServiceConnection, t {
     }
 
     public void a(a aVar) {
-        this.pUq = aVar;
+        this.pUr = aVar;
     }
 
     @Override // android.content.ServiceConnection
@@ -65,7 +65,7 @@ public class f implements ServiceConnection, t {
         f13098b = true;
         this.e.removeCallbacks(this.h);
         try {
-            this.pUo = c.a.a(iBinder);
+            this.pUp = c.a.a(iBinder);
         } catch (Throwable th) {
             th.printStackTrace();
         }
@@ -73,16 +73,16 @@ public class f implements ServiceConnection, t {
             @Override // java.lang.Runnable
             public void run() {
                 synchronized (this) {
-                    if (f.this.pUp != null && f.this.pUo != null) {
-                        f.this.pUo.a(f.this.pUp);
+                    if (f.this.pUq != null && f.this.pUp != null) {
+                        f.this.pUp.a(f.this.pUq);
                     }
-                    f.this.pUr.countDown();
+                    f.this.pUs.countDown();
                     try {
                         iBinder.linkToDeath(new IBinder.DeathRecipient() { // from class: com.ss.android.socialbase.downloader.c.f.2.1
                             @Override // android.os.IBinder.DeathRecipient
                             public void binderDied() {
                                 boolean unused = f.f13098b = false;
-                                if (!f.this.f() && f.this.pUq != null) {
+                                if (!f.this.f() && f.this.pUr != null) {
                                     f.this.e.postDelayed(f.this.h, 2000L);
                                 }
                             }
@@ -96,7 +96,7 @@ public class f implements ServiceConnection, t {
 
     @Override // android.content.ServiceConnection
     public void onServiceDisconnected(ComponentName componentName) {
-        this.pUo = null;
+        this.pUp = null;
         f13098b = false;
     }
 
@@ -142,7 +142,7 @@ public class f implements ServiceConnection, t {
                     }
                 });
                 try {
-                    if (!f.this.pUr.await(5000L, TimeUnit.MILLISECONDS)) {
+                    if (!f.this.pUs.await(5000L, TimeUnit.MILLISECONDS)) {
                         z = true;
                     }
                 } catch (Throwable th) {
@@ -161,22 +161,22 @@ public class f implements ServiceConnection, t {
 
     public void a(b bVar) {
         synchronized (this) {
-            if (this.pUo != null) {
+            if (this.pUp != null) {
                 try {
-                    this.pUo.a(bVar);
+                    this.pUp.a(bVar);
                 } catch (RemoteException e) {
                     e.printStackTrace();
                 }
             } else {
-                this.pUp = bVar;
+                this.pUq = bVar;
             }
         }
     }
 
     public void a() {
         try {
-            if (this.pUo != null) {
-                this.pUo.a();
+            if (this.pUp != null) {
+                this.pUp.a();
             }
         } catch (RemoteException e) {
             e.printStackTrace();
@@ -186,8 +186,8 @@ public class f implements ServiceConnection, t {
     @Override // com.ss.android.socialbase.downloader.downloader.k
     public com.ss.android.socialbase.downloader.g.c b(int i) {
         try {
-            if (this.pUo != null) {
-                return this.pUo.b(i);
+            if (this.pUp != null) {
+                return this.pUp.b(i);
             }
         } catch (RemoteException e) {
             e.printStackTrace();
@@ -198,8 +198,8 @@ public class f implements ServiceConnection, t {
     @Override // com.ss.android.socialbase.downloader.downloader.k
     public List<com.ss.android.socialbase.downloader.g.c> a(String str) {
         try {
-            if (this.pUo != null) {
-                return this.pUo.a(str);
+            if (this.pUp != null) {
+                return this.pUp.a(str);
             }
         } catch (RemoteException e) {
             e.printStackTrace();
@@ -210,8 +210,8 @@ public class f implements ServiceConnection, t {
     @Override // com.ss.android.socialbase.downloader.downloader.k
     public List<com.ss.android.socialbase.downloader.g.c> b(String str) {
         try {
-            if (this.pUo != null) {
-                return this.pUo.b(str);
+            if (this.pUp != null) {
+                return this.pUp.b(str);
             }
         } catch (RemoteException e) {
             e.printStackTrace();
@@ -222,8 +222,8 @@ public class f implements ServiceConnection, t {
     @Override // com.ss.android.socialbase.downloader.downloader.k
     public List<com.ss.android.socialbase.downloader.g.c> c(String str) {
         try {
-            if (this.pUo != null) {
-                return this.pUo.c(str);
+            if (this.pUp != null) {
+                return this.pUp.c(str);
             }
         } catch (RemoteException e) {
             e.printStackTrace();
@@ -234,8 +234,8 @@ public class f implements ServiceConnection, t {
     @Override // com.ss.android.socialbase.downloader.downloader.k
     public List<com.ss.android.socialbase.downloader.g.c> d(String str) {
         try {
-            if (this.pUo != null) {
-                return this.pUo.d(str);
+            if (this.pUp != null) {
+                return this.pUp.d(str);
             }
         } catch (RemoteException e) {
             e.printStackTrace();
@@ -246,8 +246,8 @@ public class f implements ServiceConnection, t {
     @Override // com.ss.android.socialbase.downloader.downloader.k
     public List<com.ss.android.socialbase.downloader.g.b> c(int i) {
         try {
-            if (this.pUo != null) {
-                return this.pUo.c(i);
+            if (this.pUp != null) {
+                return this.pUp.c(i);
             }
         } catch (RemoteException e) {
             e.printStackTrace();
@@ -258,8 +258,8 @@ public class f implements ServiceConnection, t {
     @Override // com.ss.android.socialbase.downloader.downloader.k
     public void d(int i) {
         try {
-            if (this.pUo != null) {
-                this.pUo.d(i);
+            if (this.pUp != null) {
+                this.pUp.d(i);
             }
         } catch (RemoteException e) {
             e.printStackTrace();
@@ -269,8 +269,8 @@ public class f implements ServiceConnection, t {
     @Override // com.ss.android.socialbase.downloader.downloader.k
     public void a(com.ss.android.socialbase.downloader.g.b bVar) {
         try {
-            if (this.pUo != null) {
-                this.pUo.a(bVar);
+            if (this.pUp != null) {
+                this.pUp.a(bVar);
             }
         } catch (RemoteException e) {
             e.printStackTrace();
@@ -280,8 +280,8 @@ public class f implements ServiceConnection, t {
     @Override // com.ss.android.socialbase.downloader.downloader.k
     public void b(com.ss.android.socialbase.downloader.g.b bVar) {
         try {
-            if (this.pUo != null) {
-                this.pUo.b(bVar);
+            if (this.pUp != null) {
+                this.pUp.b(bVar);
             }
         } catch (RemoteException e) {
             e.printStackTrace();
@@ -291,8 +291,8 @@ public class f implements ServiceConnection, t {
     @Override // com.ss.android.socialbase.downloader.downloader.k
     public void a(int i, int i2, long j) {
         try {
-            if (this.pUo != null) {
-                this.pUo.a(i, i2, j);
+            if (this.pUp != null) {
+                this.pUp.a(i, i2, j);
             }
         } catch (RemoteException e) {
             e.printStackTrace();
@@ -302,8 +302,8 @@ public class f implements ServiceConnection, t {
     @Override // com.ss.android.socialbase.downloader.downloader.k
     public void a(int i, int i2, int i3, long j) {
         try {
-            if (this.pUo != null) {
-                this.pUo.a(i, i2, i3, j);
+            if (this.pUp != null) {
+                this.pUp.a(i, i2, i3, j);
             }
         } catch (RemoteException e) {
             e.printStackTrace();
@@ -313,8 +313,8 @@ public class f implements ServiceConnection, t {
     @Override // com.ss.android.socialbase.downloader.downloader.k
     public void a(int i, int i2, int i3, int i4) {
         try {
-            if (this.pUo != null) {
-                this.pUo.a(i, i2, i3, i4);
+            if (this.pUp != null) {
+                this.pUp.a(i, i2, i3, i4);
             }
         } catch (RemoteException e) {
             e.printStackTrace();
@@ -324,8 +324,8 @@ public class f implements ServiceConnection, t {
     @Override // com.ss.android.socialbase.downloader.downloader.k
     public com.ss.android.socialbase.downloader.g.c a(int i, int i2) {
         try {
-            if (this.pUo != null) {
-                return this.pUo.a(i, i2);
+            if (this.pUp != null) {
+                return this.pUp.a(i, i2);
             }
         } catch (RemoteException e) {
             e.printStackTrace();
@@ -336,8 +336,8 @@ public class f implements ServiceConnection, t {
     @Override // com.ss.android.socialbase.downloader.downloader.k
     public boolean a(com.ss.android.socialbase.downloader.g.c cVar) {
         try {
-            if (this.pUo != null) {
-                return this.pUo.a(cVar);
+            if (this.pUp != null) {
+                return this.pUp.a(cVar);
             }
         } catch (RemoteException e) {
             e.printStackTrace();
@@ -348,8 +348,8 @@ public class f implements ServiceConnection, t {
     @Override // com.ss.android.socialbase.downloader.downloader.k
     public boolean e(int i) {
         try {
-            if (this.pUo != null) {
-                return this.pUo.e(i);
+            if (this.pUp != null) {
+                return this.pUp.e(i);
             }
         } catch (RemoteException e) {
             e.printStackTrace();
@@ -360,8 +360,8 @@ public class f implements ServiceConnection, t {
     @Override // com.ss.android.socialbase.downloader.downloader.k
     public boolean f(int i) {
         try {
-            if (this.pUo != null) {
-                return this.pUo.f(i);
+            if (this.pUp != null) {
+                return this.pUp.f(i);
             }
         } catch (RemoteException e) {
             e.printStackTrace();
@@ -372,8 +372,8 @@ public class f implements ServiceConnection, t {
     @Override // com.ss.android.socialbase.downloader.downloader.k
     public void b() {
         try {
-            if (this.pUo != null) {
-                this.pUo.b();
+            if (this.pUp != null) {
+                this.pUp.b();
             }
         } catch (RemoteException e) {
             e.printStackTrace();
@@ -383,8 +383,8 @@ public class f implements ServiceConnection, t {
     @Override // com.ss.android.socialbase.downloader.downloader.k
     public com.ss.android.socialbase.downloader.g.c g(int i) {
         try {
-            if (this.pUo != null) {
-                return this.pUo.g(i);
+            if (this.pUp != null) {
+                return this.pUp.g(i);
             }
         } catch (RemoteException e) {
             e.printStackTrace();
@@ -395,8 +395,8 @@ public class f implements ServiceConnection, t {
     @Override // com.ss.android.socialbase.downloader.downloader.k
     public com.ss.android.socialbase.downloader.g.c a(int i, long j, String str, String str2) {
         try {
-            if (this.pUo != null) {
-                return this.pUo.a(i, j, str, str2);
+            if (this.pUp != null) {
+                return this.pUp.a(i, j, str, str2);
             }
         } catch (RemoteException e) {
             e.printStackTrace();
@@ -407,8 +407,8 @@ public class f implements ServiceConnection, t {
     @Override // com.ss.android.socialbase.downloader.downloader.k
     public com.ss.android.socialbase.downloader.g.c a(int i, long j) {
         try {
-            if (this.pUo != null) {
-                return this.pUo.a(i, j);
+            if (this.pUp != null) {
+                return this.pUp.a(i, j);
             }
         } catch (RemoteException e) {
             e.printStackTrace();
@@ -419,8 +419,8 @@ public class f implements ServiceConnection, t {
     @Override // com.ss.android.socialbase.downloader.downloader.k
     public com.ss.android.socialbase.downloader.g.c b(int i, long j) {
         try {
-            if (this.pUo != null) {
-                return this.pUo.b(i, j);
+            if (this.pUp != null) {
+                return this.pUp.b(i, j);
             }
         } catch (RemoteException e) {
             e.printStackTrace();
@@ -431,8 +431,8 @@ public class f implements ServiceConnection, t {
     @Override // com.ss.android.socialbase.downloader.downloader.k
     public com.ss.android.socialbase.downloader.g.c h(int i) {
         try {
-            if (this.pUo != null) {
-                return this.pUo.h(i);
+            if (this.pUp != null) {
+                return this.pUp.h(i);
             }
         } catch (RemoteException e) {
             e.printStackTrace();
@@ -443,8 +443,8 @@ public class f implements ServiceConnection, t {
     @Override // com.ss.android.socialbase.downloader.downloader.k
     public com.ss.android.socialbase.downloader.g.c c(int i, long j) {
         try {
-            if (this.pUo != null) {
-                return this.pUo.c(i, j);
+            if (this.pUp != null) {
+                return this.pUp.c(i, j);
             }
         } catch (RemoteException e) {
             e.printStackTrace();
@@ -455,8 +455,8 @@ public class f implements ServiceConnection, t {
     @Override // com.ss.android.socialbase.downloader.downloader.k
     public com.ss.android.socialbase.downloader.g.c d(int i, long j) {
         try {
-            if (this.pUo != null) {
-                return this.pUo.d(i, j);
+            if (this.pUp != null) {
+                return this.pUp.d(i, j);
             }
         } catch (RemoteException e) {
             e.printStackTrace();
@@ -467,8 +467,8 @@ public class f implements ServiceConnection, t {
     @Override // com.ss.android.socialbase.downloader.downloader.k
     public com.ss.android.socialbase.downloader.g.c i(int i) {
         try {
-            if (this.pUo != null) {
-                return this.pUo.i(i);
+            if (this.pUp != null) {
+                return this.pUp.i(i);
             }
         } catch (RemoteException e) {
             e.printStackTrace();
@@ -479,8 +479,8 @@ public class f implements ServiceConnection, t {
     @Override // com.ss.android.socialbase.downloader.downloader.k
     public com.ss.android.socialbase.downloader.g.c j(int i) {
         try {
-            if (this.pUo != null) {
-                return this.pUo.j(i);
+            if (this.pUp != null) {
+                return this.pUp.j(i);
             }
         } catch (RemoteException e) {
             e.printStackTrace();
@@ -491,8 +491,8 @@ public class f implements ServiceConnection, t {
     @Override // com.ss.android.socialbase.downloader.downloader.k
     public boolean c() {
         try {
-            if (this.pUo != null) {
-                return this.pUo.c();
+            if (this.pUp != null) {
+                return this.pUp.c();
             }
         } catch (RemoteException e) {
             e.printStackTrace();
@@ -503,8 +503,8 @@ public class f implements ServiceConnection, t {
     @Override // com.ss.android.socialbase.downloader.downloader.k
     public boolean d() {
         try {
-            if (this.pUo != null) {
-                return this.pUo.d();
+            if (this.pUp != null) {
+                return this.pUp.d();
             }
         } catch (RemoteException e) {
             e.printStackTrace();
@@ -515,8 +515,8 @@ public class f implements ServiceConnection, t {
     @Override // com.ss.android.socialbase.downloader.downloader.k
     public void b(com.ss.android.socialbase.downloader.g.c cVar) {
         try {
-            if (this.pUo != null) {
-                this.pUo.b(cVar);
+            if (this.pUp != null) {
+                this.pUp.b(cVar);
             }
         } catch (RemoteException e) {
             e.printStackTrace();
@@ -526,8 +526,8 @@ public class f implements ServiceConnection, t {
     @Override // com.ss.android.socialbase.downloader.downloader.k
     public void a(int i, List<com.ss.android.socialbase.downloader.g.b> list) {
         try {
-            if (this.pUo != null) {
-                this.pUo.a(i, list);
+            if (this.pUp != null) {
+                this.pUp.a(i, list);
             }
         } catch (RemoteException e) {
             e.printStackTrace();
@@ -537,8 +537,8 @@ public class f implements ServiceConnection, t {
     @Override // com.ss.android.socialbase.downloader.downloader.k
     public void b(int i, List<com.ss.android.socialbase.downloader.g.b> list) {
         try {
-            if (this.pUo != null) {
-                this.pUo.b(i, list);
+            if (this.pUp != null) {
+                this.pUp.b(i, list);
             }
         } catch (RemoteException e) {
             e.printStackTrace();

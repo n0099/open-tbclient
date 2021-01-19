@@ -5,52 +5,52 @@ import kotlin.jvm.internal.o;
 @kotlin.e
 /* loaded from: classes5.dex */
 public class a implements Iterable<Character> {
-    public static final C1295a qjt = new C1295a(null);
-    private final char qjr;
+    public static final C1295a qju = new C1295a(null);
     private final char qjs;
+    private final char qjt;
     private final int step;
 
     public a(char c, char c2, int i) {
         if (i == 0) {
             throw new IllegalArgumentException("Step must be non-zero");
         }
-        this.qjr = c;
-        this.qjs = (char) kotlin.internal.d.ao(c, c2, i);
+        this.qjs = c;
+        this.qjt = (char) kotlin.internal.d.ao(c, c2, i);
         this.step = i;
     }
 
     public final char eJa() {
-        return this.qjr;
+        return this.qjs;
     }
 
     public final char eJb() {
-        return this.qjs;
+        return this.qjt;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // java.lang.Iterable
     /* renamed from: eJc */
     public kotlin.collections.m iterator() {
-        return new b(this.qjr, this.qjs, this.step);
+        return new b(this.qjs, this.qjt, this.step);
     }
 
     public boolean isEmpty() {
-        return this.step > 0 ? this.qjr > this.qjs : this.qjr < this.qjs;
+        return this.step > 0 ? this.qjs > this.qjt : this.qjs < this.qjt;
     }
 
     public boolean equals(Object obj) {
-        return (obj instanceof a) && ((isEmpty() && ((a) obj).isEmpty()) || (this.qjr == ((a) obj).qjr && this.qjs == ((a) obj).qjs && this.step == ((a) obj).step));
+        return (obj instanceof a) && ((isEmpty() && ((a) obj).isEmpty()) || (this.qjs == ((a) obj).qjs && this.qjt == ((a) obj).qjt && this.step == ((a) obj).step));
     }
 
     public int hashCode() {
         if (isEmpty()) {
             return -1;
         }
-        return (((this.qjr * 31) + this.qjs) * 31) + this.step;
+        return (((this.qjs * 31) + this.qjt) * 31) + this.step;
     }
 
     public String toString() {
-        return this.step > 0 ? "" + this.qjr + IStringUtil.TOP_PATH + this.qjs + " step " + this.step : "" + this.qjr + " downTo " + this.qjs + " step " + (-this.step);
+        return this.step > 0 ? "" + this.qjs + IStringUtil.TOP_PATH + this.qjt + " step " + this.step : "" + this.qjs + " downTo " + this.qjt + " step " + (-this.step);
     }
 
     @kotlin.e

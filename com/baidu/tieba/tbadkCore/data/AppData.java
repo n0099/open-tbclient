@@ -98,9 +98,9 @@ public class AppData extends OrmObject {
         this.app_time = 0;
         this.goods_info = null;
         this.goods = null;
-        ICardInfo MN = com.baidu.tieba.lego.card.b.MN(str);
-        if (MN != null) {
-            ICardInfo viewItem = MN.getViewItem(0, 4);
+        ICardInfo MO = com.baidu.tieba.lego.card.b.MO(str);
+        if (MO != null) {
+            ICardInfo viewItem = MO.getViewItem(0, 4);
             if (viewItem instanceof AdvertAppInfo.ILegoAdvert) {
                 this.legoCard = (AdvertAppInfo.ILegoAdvert) viewItem;
                 if (this.legoCard != null) {
@@ -119,7 +119,7 @@ public class AppData extends OrmObject {
     }
 
     public AppData(App app) {
-        ICardInfo MN;
+        ICardInfo MO;
         this.legoCard = null;
         this.mDiscardReason = -1;
         if (app == null) {
@@ -171,8 +171,8 @@ public class AppData extends OrmObject {
             for (GoodsInfo goodsInfo : app.goods_info) {
                 if (goodsInfo != null) {
                     this.goods = new AppGoods(goodsInfo);
-                    if (SwitchManager.getInstance().findType(AppLegoSwitch.APP_LEGO_KEY) == 1 && !TextUtils.isEmpty(this.goods.lego_card) && (MN = com.baidu.tieba.lego.card.b.MN(this.goods.lego_card)) != null) {
-                        ICardInfo viewItem = MN.getViewItem(0, 1);
+                    if (SwitchManager.getInstance().findType(AppLegoSwitch.APP_LEGO_KEY) == 1 && !TextUtils.isEmpty(this.goods.lego_card) && (MO = com.baidu.tieba.lego.card.b.MO(this.goods.lego_card)) != null) {
+                        ICardInfo viewItem = MO.getViewItem(0, 1);
                         if (viewItem instanceof AdvertAppInfo.ILegoAdvert) {
                             this.legoCard = (AdvertAppInfo.ILegoAdvert) viewItem;
                             return;

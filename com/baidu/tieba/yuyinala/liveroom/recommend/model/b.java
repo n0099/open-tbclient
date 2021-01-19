@@ -24,8 +24,8 @@ public class b extends BdBaseModel {
     private HttpMessageListener mRA;
     public List<AlaRecommendLiveData> mRx;
     public List<AlaRecommendLiveData> mRy;
-    private a ool;
-    private Runnable oom;
+    private a oom;
+    private Runnable oon;
 
     /* loaded from: classes10.dex */
     public interface a {
@@ -48,8 +48,8 @@ public class b extends BdBaseModel {
                 int i2;
                 if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1031053 && (httpResponsedMessage instanceof AlaRecommendLiveResponseMessage)) {
                     if (httpResponsedMessage.hasError() || httpResponsedMessage.getError() != 0) {
-                        if (b.this.ool != null) {
-                            b.this.ool.onFail(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString());
+                        if (b.this.oom != null) {
+                            b.this.oom.onFail(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString());
                             return;
                         }
                         return;
@@ -74,12 +74,12 @@ public class b extends BdBaseModel {
                             b.this.mRy = new ArrayList();
                         }
                     }
-                    if (alaRecommendLiveResponseMessage.ooo != null && !ListUtils.isEmpty(alaRecommendLiveResponseMessage.ooo.list)) {
-                        b.this.mRx.addAll(alaRecommendLiveResponseMessage.ooo.list);
-                    }
                     if (alaRecommendLiveResponseMessage.oop != null && !ListUtils.isEmpty(alaRecommendLiveResponseMessage.oop.list)) {
-                        b.this.mRy.addAll(alaRecommendLiveResponseMessage.oop.list);
-                        b.this.hasMore = alaRecommendLiveResponseMessage.oop.jOB == 1;
+                        b.this.mRx.addAll(alaRecommendLiveResponseMessage.oop.list);
+                    }
+                    if (alaRecommendLiveResponseMessage.ooq != null && !ListUtils.isEmpty(alaRecommendLiveResponseMessage.ooq.list)) {
+                        b.this.mRy.addAll(alaRecommendLiveResponseMessage.ooq.list);
+                        b.this.hasMore = alaRecommendLiveResponseMessage.ooq.jOB == 1;
                     } else {
                         b.this.hasMore = false;
                     }
@@ -91,9 +91,9 @@ public class b extends BdBaseModel {
                         for (int i3 = 0; i3 < b.this.mRx.size(); i3 += 2) {
                             com.baidu.tieba.yuyinala.liveroom.recommend.data.a aVar2 = new com.baidu.tieba.yuyinala.liveroom.recommend.data.a();
                             aVar2.type = 0;
-                            aVar2.ooj = b.this.mRx.get(i3);
+                            aVar2.ook = b.this.mRx.get(i3);
                             if (i3 + 1 < b.this.mRx.size()) {
-                                aVar2.ook = b.this.mRx.get(i3 + 1);
+                                aVar2.ool = b.this.mRx.get(i3 + 1);
                             }
                             arrayList.add(aVar2);
                         }
@@ -103,20 +103,20 @@ public class b extends BdBaseModel {
                         for (int i4 = 0; i4 < b.this.mRy.size(); i4 += 2) {
                             com.baidu.tieba.yuyinala.liveroom.recommend.data.a aVar3 = new com.baidu.tieba.yuyinala.liveroom.recommend.data.a();
                             aVar3.type = 1;
-                            aVar3.ooj = b.this.mRy.get(i4);
+                            aVar3.ook = b.this.mRy.get(i4);
                             if (i4 + 1 < b.this.mRy.size()) {
-                                aVar3.ook = b.this.mRy.get(i4 + 1);
+                                aVar3.ool = b.this.mRy.get(i4 + 1);
                             }
                             arrayList.add(aVar3);
                         }
                     }
-                    if (b.this.ool != null) {
-                        b.this.ool.h(arrayList, ListUtils.getCount(b.this.mRx), i);
+                    if (b.this.oom != null) {
+                        b.this.oom.h(arrayList, ListUtils.getCount(b.this.mRx), i);
                     }
                 }
             }
         };
-        this.oom = new Runnable() { // from class: com.baidu.tieba.yuyinala.liveroom.recommend.model.b.2
+        this.oon = new Runnable() { // from class: com.baidu.tieba.yuyinala.liveroom.recommend.model.b.2
             @Override // java.lang.Runnable
             public void run() {
                 b.this.ibN = 0L;
@@ -149,7 +149,7 @@ public class b extends BdBaseModel {
             this.ibN = System.currentTimeMillis();
             i = 0;
             this.handler.removeCallbacksAndMessages(null);
-            this.handler.postDelayed(this.oom, this.duration);
+            this.handler.postDelayed(this.oon, this.duration);
         }
         aVar.setTag(getUniqueId());
         aVar.liveId = j;
@@ -189,10 +189,10 @@ public class b extends BdBaseModel {
         MessageManager.getInstance().unRegisterListener(this.mRA);
         cancelMessage();
         this.handler.removeCallbacksAndMessages(null);
-        this.ool = null;
+        this.oom = null;
     }
 
     public void a(a aVar) {
-        this.ool = aVar;
+        this.oom = aVar;
     }
 }

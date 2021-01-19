@@ -32,10 +32,10 @@ public class h extends BaseAdapter {
     private n fAy;
     private Context mContext;
     private LayoutInflater mLayoutInflater;
-    private a ocj;
-    private int ock;
+    private a ock;
+    private int ocl;
     private List<ImageFileInfo> mDataList = new ArrayList();
-    private boolean nUf = false;
+    private boolean nUg = false;
 
     /* loaded from: classes7.dex */
     public interface a {
@@ -55,18 +55,18 @@ public class h extends BaseAdapter {
         this.mContext = context;
         this.mLayoutInflater = LayoutInflater.from(this.mContext);
         this.fAo = bVar;
-        this.ocj = aVar;
+        this.ock = aVar;
     }
 
     public void a(WriteImagesInfo writeImagesInfo) {
         if (writeImagesInfo != null) {
-            this.ock = writeImagesInfo.getMaxImagesAllowed();
+            this.ocl = writeImagesInfo.getMaxImagesAllowed();
             int count = x.getCount(writeImagesInfo.getChosedFiles());
             this.mDataList.clear();
             if (count > 0) {
                 this.mDataList.addAll(writeImagesInfo.getChosedFiles());
             }
-            if (count < this.ock && this.nUf) {
+            if (count < this.ocl && this.nUg) {
                 ImageFileInfo imageFileInfo = new ImageFileInfo();
                 imageFileInfo.setFilePath("FLAG_ADD_ICON");
                 this.mDataList.add(imageFileInfo);
@@ -125,9 +125,9 @@ public class h extends BaseAdapter {
             inflate.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.write.h.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view2) {
-                    if (h.this.ocj != null) {
+                    if (h.this.ock != null) {
                         TiebaStatic.log(new aq("c12612").an("obj_locate", 13));
-                        h.this.ocj.dXi();
+                        h.this.ock.dXi();
                     }
                 }
             });
@@ -171,8 +171,8 @@ public class h extends BaseAdapter {
                         if (h.this.fAy != null) {
                             h.this.fAy.b(new com.baidu.tbadk.editortools.a(15, 0, Integer.valueOf(i)));
                         }
-                        if (h.this.ocj != null) {
-                            h.this.ocj.Li(i);
+                        if (h.this.ock != null) {
+                            h.this.ock.Li(i);
                         }
                     }
                 }
@@ -181,8 +181,8 @@ public class h extends BaseAdapter {
         linearLayout.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.write.h.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
-                if (h.this.ocj != null) {
-                    h.this.ocj.KY(i);
+                if (h.this.ock != null) {
+                    h.this.ock.KY(i);
                 }
             }
         });
@@ -236,6 +236,6 @@ public class h extends BaseAdapter {
     }
 
     public void zf(boolean z) {
-        this.nUf = z;
+        this.nUg = z;
     }
 }

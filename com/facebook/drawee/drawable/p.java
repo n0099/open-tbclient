@@ -9,15 +9,15 @@ public class p {
 
     /* loaded from: classes3.dex */
     public interface b {
-        public static final b ptg = j.ptp;
-        public static final b pth = i.ptp;
-        public static final b pti = g.ptp;
-        public static final b ptj = h.ptp;
-        public static final b ptk = c.ptp;
-        public static final b ptl = e.ptp;
-        public static final b ptm = d.ptp;
-        public static final b ptn = k.ptp;
-        public static final b pto = f.ptp;
+        public static final b pth = j.ptq;
+        public static final b pti = i.ptq;
+        public static final b ptj = g.ptq;
+        public static final b ptk = h.ptq;
+        public static final b ptl = c.ptq;
+        public static final b ptm = e.ptq;
+        public static final b ptn = d.ptq;
+        public static final b pto = k.ptq;
+        public static final b ptp = f.ptq;
 
         Matrix a(Matrix matrix, Rect rect, int i, int i2, float f, float f2);
     }
@@ -64,7 +64,7 @@ public class p {
 
     /* loaded from: classes3.dex */
     private static class j extends a {
-        public static final b ptp = new j();
+        public static final b ptq = new j();
 
         private j() {
         }
@@ -82,7 +82,7 @@ public class p {
 
     /* loaded from: classes3.dex */
     private static class i extends a {
-        public static final b ptp = new i();
+        public static final b ptq = new i();
 
         private i() {
         }
@@ -101,7 +101,7 @@ public class p {
 
     /* loaded from: classes3.dex */
     private static class f extends a {
-        public static final b ptp = new f();
+        public static final b ptq = new f();
 
         private f() {
         }
@@ -120,7 +120,7 @@ public class p {
 
     /* loaded from: classes3.dex */
     private static class g extends a {
-        public static final b ptp = new g();
+        public static final b ptq = new g();
 
         private g() {
         }
@@ -140,7 +140,7 @@ public class p {
 
     /* loaded from: classes3.dex */
     private static class h extends a {
-        public static final b ptp = new h();
+        public static final b ptq = new h();
 
         private h() {
         }
@@ -160,7 +160,7 @@ public class p {
 
     /* loaded from: classes3.dex */
     private static class c extends a {
-        public static final b ptp = new c();
+        public static final b ptq = new c();
 
         private c() {
         }
@@ -177,7 +177,7 @@ public class p {
 
     /* loaded from: classes3.dex */
     private static class e extends a {
-        public static final b ptp = new e();
+        public static final b ptq = new e();
 
         private e() {
         }
@@ -197,7 +197,7 @@ public class p {
 
     /* loaded from: classes3.dex */
     private static class d extends a {
-        public static final b ptp = new d();
+        public static final b ptq = new d();
 
         private d() {
         }
@@ -225,7 +225,7 @@ public class p {
 
     /* loaded from: classes3.dex */
     private static class k extends a {
-        public static final b ptp = new k();
+        public static final b ptq = new k();
 
         private k() {
         }

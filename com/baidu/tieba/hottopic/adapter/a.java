@@ -40,7 +40,7 @@ public class a {
             this.kkg.cQF();
         }
         if (this.kke != null) {
-            this.kke.Lt(str);
+            this.kke.Lu(str);
         }
         if (this.gwr != null) {
             this.gwr.setData(arrayList);

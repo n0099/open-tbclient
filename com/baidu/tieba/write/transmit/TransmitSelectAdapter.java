@@ -32,17 +32,17 @@ import tbclient.RecommendForumListForBottle.ForumInfo;
 /* loaded from: classes7.dex */
 public class TransmitSelectAdapter extends com.baidu.adp.widget.ListView.a<c, TransmitSelectViewHolder> {
     private ArrayList<HotTopicBussinessData> mForumList;
-    private List<TransmitForumData> nSl;
-    private com.baidu.tieba.likedForum.a nWE;
-    private w nWF;
-    private a.InterfaceC0776a nWG;
+    private List<TransmitForumData> nSm;
+    private com.baidu.tieba.likedForum.a nWF;
+    private w nWG;
+    private a.InterfaceC0776a nWH;
 
     /* JADX INFO: Access modifiers changed from: private */
     public boolean gc(long j) {
-        if (this.nSl == null) {
+        if (this.nSm == null) {
             return false;
         }
-        for (TransmitForumData transmitForumData : this.nSl) {
+        for (TransmitForumData transmitForumData : this.nSm) {
             if (transmitForumData != null && transmitForumData.forumId == j) {
                 return true;
             }
@@ -67,7 +67,7 @@ public class TransmitSelectAdapter extends com.baidu.adp.widget.ListView.a<c, Tr
     /* JADX INFO: Access modifiers changed from: protected */
     public TransmitSelectAdapter(Context context, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2, List<TransmitForumData> list) {
         super(context, bdUniqueId, bdUniqueId2);
-        this.nWF = new w() { // from class: com.baidu.tieba.write.transmit.TransmitSelectAdapter.1
+        this.nWG = new w() { // from class: com.baidu.tieba.write.transmit.TransmitSelectAdapter.1
             @Override // com.baidu.adp.widget.ListView.w
             public void a(View view, n nVar, BdUniqueId bdUniqueId3, ViewGroup viewGroup, int i, long j) {
                 if (!j.isNetWorkAvailable()) {
@@ -78,12 +78,12 @@ public class TransmitSelectAdapter extends com.baidu.adp.widget.ListView.a<c, Tr
                     TransmitSelectAdapter.this.dPg();
                     return;
                 }
-                TransmitSelectAdapter.this.nWE = new com.baidu.tieba.likedForum.a(TransmitSelectAdapter.this.mPageId);
-                TransmitSelectAdapter.this.nWE.a(TransmitSelectAdapter.this.nWG);
-                TransmitSelectAdapter.this.nWE.loadData();
+                TransmitSelectAdapter.this.nWF = new com.baidu.tieba.likedForum.a(TransmitSelectAdapter.this.mPageId);
+                TransmitSelectAdapter.this.nWF.a(TransmitSelectAdapter.this.nWH);
+                TransmitSelectAdapter.this.nWF.loadData();
             }
         };
-        this.nWG = new a.InterfaceC0776a() { // from class: com.baidu.tieba.write.transmit.TransmitSelectAdapter.2
+        this.nWH = new a.InterfaceC0776a() { // from class: com.baidu.tieba.write.transmit.TransmitSelectAdapter.2
             @Override // com.baidu.tieba.likedForum.a.InterfaceC0776a
             public void a(boolean z, int i, String str, List<ForumInfo> list2) {
                 ArrayList arrayList = new ArrayList();
@@ -108,8 +108,8 @@ public class TransmitSelectAdapter extends com.baidu.adp.widget.ListView.a<c, Tr
                 }
             }
         };
-        a(this.nWF);
-        this.nSl = list;
+        a(this.nWG);
+        this.nSm = list;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -124,7 +124,7 @@ public class TransmitSelectAdapter extends com.baidu.adp.widget.ListView.a<c, Tr
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, c cVar, TransmitSelectViewHolder transmitSelectViewHolder) {
-        ao.setViewTextColor(transmitSelectViewHolder.nWI, R.color.CAM_X0302);
+        ao.setViewTextColor(transmitSelectViewHolder.nWJ, R.color.CAM_X0302);
         ao.setImageResource(transmitSelectViewHolder.iTh, R.drawable.icon_post_add_ba_n);
         return view;
     }
@@ -132,18 +132,18 @@ public class TransmitSelectAdapter extends com.baidu.adp.widget.ListView.a<c, Tr
     /* loaded from: classes7.dex */
     public static class TransmitSelectViewHolder extends TypeAdapter.ViewHolder {
         public ImageView iTh;
-        public TextView nWI;
+        public TextView nWJ;
 
         public TransmitSelectViewHolder(View view) {
             super(view);
-            this.nWI = (TextView) view.findViewById(R.id.select_by_self);
+            this.nWJ = (TextView) view.findViewById(R.id.select_by_self);
             this.iTh = (ImageView) view.findViewById(R.id.add_icon);
         }
     }
 
     public void destroy() {
-        if (this.nWE != null) {
-            this.nWE.destroy();
+        if (this.nWF != null) {
+            this.nWF.destroy();
         }
     }
 }

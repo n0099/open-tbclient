@@ -17,10 +17,10 @@ public class PoseidonReceiver extends BroadcastReceiver {
         if ("android.intent.action.USER_PRESENT".equals(intent.getAction())) {
             u iH = u.iH(context);
             Context eGE = iH.eGE();
-            if (eGE == null || iH.pYO == null || !az.iJ(eGE) || !iH.pYO.isReady()) {
+            if (eGE == null || iH.pYP == null || !az.iJ(eGE) || !iH.pYP.isReady()) {
                 return;
             }
-            iH.pYO.show();
+            iH.pYP.show();
             az.j(eGE, (float) System.currentTimeMillis());
             return;
         }
@@ -33,9 +33,9 @@ public class PoseidonReceiver extends BroadcastReceiver {
         if (TextUtils.isEmpty(m65c)) {
             return;
         }
-        if (iH2.pYO == null) {
-            iH2.pYO = new PBInterstitial(eGE2, m65c);
-            iH2.pYO.setInterstitialListener(new PBInterstitialListener() { // from class: com.win.opensdk.u.1
+        if (iH2.pYP == null) {
+            iH2.pYP = new PBInterstitial(eGE2, m65c);
+            iH2.pYP.setInterstitialListener(new PBInterstitialListener() { // from class: com.win.opensdk.u.1
                 @Override // com.win.opensdk.PBListener
                 public final void onFail(PBError pBError) {
                 }
@@ -61,9 +61,9 @@ public class PoseidonReceiver extends BroadcastReceiver {
                 }
             });
         }
-        if (iH2.pYO == null || iH2.pYO.isReady()) {
+        if (iH2.pYP == null || iH2.pYP.isReady()) {
             return;
         }
-        iH2.pYO.load();
+        iH2.pYP.load();
     }
 }

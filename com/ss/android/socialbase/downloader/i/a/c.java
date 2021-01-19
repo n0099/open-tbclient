@@ -22,7 +22,7 @@ public class c implements e {
     private long h;
     private boolean i;
     private boolean j;
-    private e pWf;
+    private e pWg;
     private Map<String, String> f = null;
     protected final Object d = new Object();
 
@@ -46,12 +46,12 @@ public class c implements e {
         if (this.f == null) {
             try {
                 this.j = true;
-                this.pWf = com.ss.android.socialbase.downloader.downloader.b.v(this.f13167a, this.c);
+                this.pWg = com.ss.android.socialbase.downloader.downloader.b.v(this.f13167a, this.c);
                 synchronized (this.d) {
-                    if (this.pWf != null) {
+                    if (this.pWg != null) {
                         this.f = new HashMap();
-                        a(this.pWf, this.f);
-                        this.g = this.pWf.b();
+                        a(this.pWg, this.f);
+                        this.g = this.pWg.b();
                         this.h = System.currentTimeMillis();
                         this.i = a(this.g);
                     }
@@ -60,10 +60,10 @@ public class c implements e {
                 }
             } catch (Throwable th) {
                 synchronized (this.d) {
-                    if (this.pWf != null) {
+                    if (this.pWg != null) {
                         this.f = new HashMap();
-                        a(this.pWf, this.f);
-                        this.g = this.pWf.b();
+                        a(this.pWg, this.f);
+                        this.g = this.pWg.b();
                         this.h = System.currentTimeMillis();
                         this.i = a(this.g);
                     }
@@ -102,8 +102,8 @@ public class c implements e {
         if (this.f != null) {
             return this.f.get(str);
         }
-        if (this.pWf != null) {
-            return this.pWf.a(str);
+        if (this.pWg != null) {
+            return this.pWg.a(str);
         }
         return null;
     }
@@ -115,8 +115,8 @@ public class c implements e {
 
     @Override // com.ss.android.socialbase.downloader.i.e
     public void c() {
-        if (this.pWf != null) {
-            this.pWf.c();
+        if (this.pWg != null) {
+            this.pWg.c();
         }
     }
 

@@ -111,7 +111,7 @@ public class j extends com.baidu.adp.base.d<Object> {
         }
     }
 
-    public void CH(int i) {
+    public void CG(int i) {
         if (this.mNoDataView == null) {
             this.mNoDataView = NoDataViewFactory.a(this.iPu.getPageActivity(), null, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.ds240)), NoDataViewFactory.d.pu(i), null);
         }

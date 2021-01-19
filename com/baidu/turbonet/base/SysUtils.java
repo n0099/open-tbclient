@@ -10,7 +10,7 @@ import java.util.regex.Pattern;
 /* loaded from: classes4.dex */
 public class SysUtils {
     static final /* synthetic */ boolean $assertionsDisabled;
-    private static Boolean oEx;
+    private static Boolean oEy;
 
     static {
         $assertionsDisabled = !SysUtils.class.desiredAssertionStatus();
@@ -58,10 +58,10 @@ public class SysUtils {
 
     @CalledByNative
     public static boolean isLowEndDevice() {
-        if (oEx == null) {
-            oEx = Boolean.valueOf(edG());
+        if (oEy == null) {
+            oEy = Boolean.valueOf(edG());
         }
-        return oEx.booleanValue();
+        return oEy.booleanValue();
     }
 
     private static boolean edG() {

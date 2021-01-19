@@ -10,8 +10,8 @@ import com.baidu.live.tbadk.task.TbHttpMessageTask;
 /* loaded from: classes10.dex */
 public class d extends BdBaseModel<YuyinALaAudiencesActivity> {
     private HttpMessageListener gLY;
-    private b ofo;
-    private a ofp;
+    private b ofp;
+    private a ofq;
 
     /* loaded from: classes10.dex */
     public interface a {
@@ -36,17 +36,17 @@ public class d extends BdBaseModel<YuyinALaAudiencesActivity> {
                         bVar = onlineListHttpResponseMessage.dXT();
                     }
                     if (error == 0) {
-                        d.this.ofo = bVar;
-                        if (d.this.ofp != null) {
-                            d.this.ofp.a(j, d.this.ofo);
+                        d.this.ofp = bVar;
+                        if (d.this.ofq != null) {
+                            d.this.ofq.a(j, d.this.ofp);
                         }
-                    } else if (d.this.ofp != null) {
-                        d.this.ofp.w(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString());
+                    } else if (d.this.ofq != null) {
+                        d.this.ofq.w(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString());
                     }
                 }
             }
         };
-        this.ofp = aVar;
+        this.ofq = aVar;
         MessageManager.getInstance().registerListener(this.gLY);
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1031031, com.baidu.live.a.avU + "ala/audio/live/getAudienceInfo");
         tbHttpMessageTask.setIsNeedLogin(false);
@@ -57,7 +57,7 @@ public class d extends BdBaseModel<YuyinALaAudiencesActivity> {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    public void Uy(String str) {
+    public void Uz(String str) {
         HttpMessage httpMessage = new HttpMessage(1031031);
         httpMessage.addParam("live_id", str);
         MessageManager.getInstance().sendMessage(httpMessage);

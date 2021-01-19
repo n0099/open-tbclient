@@ -197,7 +197,7 @@ public class MemberPayView extends LinearLayout {
     }
 
     private void ddE() {
-        this.liq.setText(bB(this.lhq, this.liJ));
+        this.liq.setText(bC(this.lhq, this.liJ));
         if (2 == this.lgC) {
             if (at.isEmpty(this.liE)) {
                 this.liz.setVisibility(8);
@@ -231,7 +231,7 @@ public class MemberPayView extends LinearLayout {
             this.liD.setVisibility(8);
         } else {
             this.lir.setVisibility(0);
-            this.lir.setText(bB(this.lhr, this.liJ));
+            this.lir.setText(bC(this.lhr, this.liJ));
             this.liB.setVisibility(0);
             if (at.isEmpty(this.lho.lhN)) {
                 ao.setImageResource(this.liB, R.drawable.icon_vip_member, 0);
@@ -280,7 +280,7 @@ public class MemberPayView extends LinearLayout {
                     aVar.liQ = (TextView) inflate.findViewById(R.id.tv_money);
                     aVar.mRootView = (RelativeLayout) inflate.findViewById(R.id.root);
                     aVar.liR = inflate.findViewById(R.id.v_line);
-                    aVar.liN.setText(bB(dVar.mTitle, 7));
+                    aVar.liN.setText(bC(dVar.mTitle, 7));
                     if (!TextUtils.isEmpty(dVar.mIcon)) {
                         aVar.liO.setVisibility(0);
                         aVar.liO.startLoad(dVar.mIcon, 10, false);
@@ -289,7 +289,7 @@ public class MemberPayView extends LinearLayout {
                         aVar.liP.setVisibility(8);
                     } else {
                         aVar.liP.setVisibility(0);
-                        aVar.liP.setText(bB(dVar.mDiscount, 10));
+                        aVar.liP.setText(bC(dVar.mDiscount, 10));
                     }
                     aVar.liQ.setText("¥" + (dVar.lhV / 100));
                     if (dVar.isChecked) {
@@ -301,7 +301,7 @@ public class MemberPayView extends LinearLayout {
                     }
                     aVar.liM.setTag(dVar);
                     aVar.liM.setText(R.string.click_open);
-                    inflate.setContentDescription(bB(dVar.mTitle, 7));
+                    inflate.setContentDescription(bC(dVar.mTitle, 7));
                     inflate.setOnClickListener(new b(list));
                     inflate.setTag(aVar);
                     inflate.setLayoutParams(layoutParams);
@@ -445,7 +445,7 @@ public class MemberPayView extends LinearLayout {
         }
         this.mTitle = str;
         if (!StringUtils.isNULL(str)) {
-            this.mNavigationBar.setTitleText(bB(str, 10));
+            this.mNavigationBar.setTitleText(bC(str, 10));
         }
     }
 
@@ -471,7 +471,7 @@ public class MemberPayView extends LinearLayout {
         }
     }
 
-    public String bB(String str, int i) {
+    public String bC(String str, int i) {
         if (str.length() > i) {
             return str.substring(0, i - 1) + StringHelper.STRING_MORE;
         }

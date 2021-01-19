@@ -11,17 +11,17 @@ import com.baidu.tieba.yuyinala.liveroom.wheat.message.AlaAcceptConnectionWheatH
 /* loaded from: classes10.dex */
 public class a extends BdBaseModel {
     private TbPageContext mPageContext;
-    private InterfaceC0941a ozN;
+    private InterfaceC0941a ozO;
     private HttpMessageListener messageListener = new HttpMessageListener(1031009) { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.model.a.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            if (httpResponsedMessage != null && (httpResponsedMessage instanceof AlaAcceptConnectionWheatHttpResponseMessage) && httpResponsedMessage.getOrginalMessage().getTag() == a.this.brL && a.this.ozN != null) {
+            if (httpResponsedMessage != null && (httpResponsedMessage instanceof AlaAcceptConnectionWheatHttpResponseMessage) && httpResponsedMessage.getOrginalMessage().getTag() == a.this.brL && a.this.ozO != null) {
                 AlaAcceptConnectionWheatHttpResponseMessage alaAcceptConnectionWheatHttpResponseMessage = (AlaAcceptConnectionWheatHttpResponseMessage) httpResponsedMessage;
                 if (alaAcceptConnectionWheatHttpResponseMessage.getError() != 0 || !alaAcceptConnectionWheatHttpResponseMessage.isSuccess()) {
-                    a.this.ozN.b(alaAcceptConnectionWheatHttpResponseMessage);
+                    a.this.ozO.b(alaAcceptConnectionWheatHttpResponseMessage);
                 } else {
-                    a.this.ozN.a(alaAcceptConnectionWheatHttpResponseMessage);
+                    a.this.ozO.a(alaAcceptConnectionWheatHttpResponseMessage);
                 }
             }
         }
@@ -39,7 +39,7 @@ public class a extends BdBaseModel {
     public a(TbPageContext tbPageContext, InterfaceC0941a interfaceC0941a) {
         setUniqueId(this.brL);
         this.mPageContext = tbPageContext;
-        this.ozN = interfaceC0941a;
+        this.ozO = interfaceC0941a;
         bim();
         registerListener(this.messageListener);
     }

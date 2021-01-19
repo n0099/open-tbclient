@@ -460,7 +460,7 @@ public class FrsTabHostFragment extends BaseFragment {
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921468, true));
         if (this.jeT == null) {
             this.jeT = new com.baidu.tieba.write.g(this.iEK.getPageContext(), this.ajf, "frs");
-            this.jeT.TY("2");
+            this.jeT.TZ("2");
             ItemInfo itemInfo = this.jeP.cBN().itemInfo;
             this.jeT.yZ((itemInfo == null || itemInfo.id.intValue() <= 0 || com.baidu.tbadk.core.util.at.isEmpty(itemInfo.name)) ? false : true);
         }

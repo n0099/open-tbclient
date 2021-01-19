@@ -3,7 +3,7 @@ package com.bytedance.tea.crash.a;
 import java.io.File;
 /* loaded from: classes4.dex */
 public class d implements Runnable {
-    private final c pli;
+    private final c plj;
     private volatile boolean c = false;
     private Runnable d = new Runnable() { // from class: com.bytedance.tea.crash.a.d.1
         @Override // java.lang.Runnable
@@ -17,7 +17,7 @@ public class d implements Runnable {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(c cVar) {
-        this.pli = cVar;
+        this.plj = cVar;
         com.bytedance.tea.crash.e.g.a(2L);
         com.bytedance.tea.crash.e.f.eoH().a(4500L, this.d);
         com.bytedance.tea.crash.e.f.eoH().a(5000L, this, 40, 5000L);
@@ -34,7 +34,7 @@ public class d implements Runnable {
             } else {
                 i = 100;
             }
-            if (this.pli.a(i, str, 25)) {
+            if (this.plj.a(i, str, 25)) {
                 this.c = true;
             }
         }

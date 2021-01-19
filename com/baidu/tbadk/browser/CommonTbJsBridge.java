@@ -579,7 +579,7 @@ public class CommonTbJsBridge implements com.baidu.tieba.tbadkCore.e.b {
         }
         this.mPermissionJudgement.appendRequestPermission((Activity) this.mContext, "android.permission.WRITE_EXTERNAL_STORAGE");
         if (this.mPermissionJudgement.startRequestPermission((Activity) this.mContext)) {
-            cVar.Sk("权限申请");
+            cVar.Sl("权限申请");
             return cVar;
         }
         new o((Activity) this.mContext, str, new o.a() { // from class: com.baidu.tbadk.browser.CommonTbJsBridge.2
@@ -615,7 +615,7 @@ public class CommonTbJsBridge implements com.baidu.tieba.tbadkCore.e.b {
     public com.baidu.tieba.tbadkCore.e.a.c saveImageSuccess(HashMap<String, Integer> hashMap) {
         com.baidu.tieba.tbadkCore.e.a.c cVar = new com.baidu.tieba.tbadkCore.e.a.c();
         if (hashMap != null && hashMap.get("result").intValue() == -1) {
-            cVar.Sk("图片保存错误");
+            cVar.Sl("图片保存错误");
         }
         return cVar;
     }

@@ -10,7 +10,7 @@ public class a extends FileObserver {
     /* renamed from: b  reason: collision with root package name */
     private final int f7610b;
     private volatile boolean c;
-    private final c ple;
+    private final c plf;
 
     public a(c cVar, String str, int i) {
         super(str, i);
@@ -19,14 +19,14 @@ public class a extends FileObserver {
         if (cVar == null || TextUtils.isEmpty(str)) {
             throw new IllegalArgumentException("params is not right path is null or ANRManager is null");
         }
-        this.ple = cVar;
+        this.plf = cVar;
     }
 
     @Override // android.os.FileObserver
     public void onEvent(int i, String str) {
-        if (this.c && i == 8 && !TextUtils.isEmpty(str) && str.contains(Config.TRACE_PART) && this.ple != null) {
+        if (this.c && i == 8 && !TextUtils.isEmpty(str) && str.contains(Config.TRACE_PART) && this.plf != null) {
             this.c = false;
-            this.ple.a(200, "/data/anr/" + str, 80);
+            this.plf.a(200, "/data/anr/" + str, 80);
             getClass();
             new C1028a(5000).start();
         }

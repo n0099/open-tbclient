@@ -69,7 +69,7 @@ public class b implements View.OnClickListener {
     private LinearLayout gOx;
     private LinearLayout gOy;
     private ScrollView gOz;
-    private a ogV;
+    private a ogW;
     private int screenWidth;
     private int gOB = 2000;
     private long gOG = 2000;
@@ -79,7 +79,7 @@ public class b implements View.OnClickListener {
 
     public b(final Activity activity, a aVar) {
         this.activity = activity;
-        this.ogV = aVar;
+        this.ogW = aVar;
         initView();
         initData();
         bTs();
@@ -457,8 +457,8 @@ public class b implements View.OnClickListener {
             hVar.fi(this.gOG);
             hVar.fj(this.gOH);
             hVar.Gd(str);
-            if (this.ogV != null) {
-                this.ogV.a(hVar);
+            if (this.ogW != null) {
+                this.ogW.a(hVar);
             }
         }
         if (this.gOU && (inputMethodManager = (InputMethodManager) this.activity.getSystemService("input_method")) != null) {

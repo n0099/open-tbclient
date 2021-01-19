@@ -13,10 +13,10 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class b {
-    private static b nAb = new b();
+    private static b nAc = new b();
 
     public static b dPj() {
-        return nAb;
+        return nAc;
     }
 
     public void dPk() {
@@ -53,15 +53,15 @@ public class b {
         if (dPl != null) {
             for (File file : dPl) {
                 String name = file.getName();
-                JSONObject SW = SW(file.getAbsolutePath() + f.a.lmd + "kpi");
-                if (SW == null) {
-                    com.baidu.tieba.l.d.NI(name);
+                JSONObject SX = SX(file.getAbsolutePath() + f.a.lmd + "kpi");
+                if (SX == null) {
+                    com.baidu.tieba.l.d.NJ(name);
                 } else {
-                    JSONObject SX = SX(file.getAbsolutePath() + f.a.lmd + "debug");
-                    if (SX == null) {
-                        com.baidu.tieba.l.d.NI(name);
+                    JSONObject SY = SY(file.getAbsolutePath() + f.a.lmd + "debug");
+                    if (SY == null) {
+                        com.baidu.tieba.l.d.NJ(name);
                     } else {
-                        arrayList.add(new a(name, a(VideoPlatformStatic.bKr(), SW, SX)));
+                        arrayList.add(new a(name, a(VideoPlatformStatic.bKr(), SX, SY)));
                     }
                 }
             }
@@ -69,7 +69,7 @@ public class b {
         return arrayList;
     }
 
-    private static JSONObject SW(String str) {
+    private static JSONObject SX(String str) {
         File file = new File(str);
         if (file.exists()) {
             try {
@@ -93,10 +93,10 @@ public class b {
         return (optInt == -1 || optInt2 == -1 || optInt3 == -1 || (optInt3 != 1 && optInt <= 0)) ? false : true;
     }
 
-    private static JSONObject SX(String str) {
+    private static JSONObject SY(String str) {
         if (!StringUtils.isNull(str) && new File(str).exists()) {
             try {
-                return new JSONObject().put("running", ac(com.baidu.tieba.l.d.NH(str)));
+                return new JSONObject().put("running", ac(com.baidu.tieba.l.d.NI(str)));
             } catch (Exception e) {
                 e.printStackTrace();
                 return null;
@@ -158,7 +158,7 @@ public class b {
     public void a(a aVar) {
         try {
             c.e(c.eM(aVar.hQe), TbConfig.SERVER_ADDRESS + TbConfig.URL_POST_VIDEO_MONITOR_REPORT);
-            com.baidu.tieba.l.d.NI(aVar.uuid);
+            com.baidu.tieba.l.d.NJ(aVar.uuid);
         } catch (Exception e) {
             e.printStackTrace();
         }

@@ -15,18 +15,18 @@ import org.a.d;
 /* loaded from: classes5.dex */
 public final class FlowableWithLatestFromMany<T, R> extends io.reactivex.internal.operators.flowable.a<T, R> {
     final h<? super Object[], R> combiner;
-    final org.a.b<?>[] qeO;
-    final Iterable<? extends org.a.b<?>> qeP;
+    final org.a.b<?>[] qeP;
+    final Iterable<? extends org.a.b<?>> qeQ;
 
     @Override // io.reactivex.g
     protected void a(org.a.c<? super R> cVar) {
         int length;
-        org.a.b<?>[] bVarArr = this.qeO;
+        org.a.b<?>[] bVarArr = this.qeP;
         int i = 0;
         if (bVarArr == null) {
             bVarArr = new org.a.b[8];
             try {
-                for (org.a.b<?> bVar : this.qeP) {
+                for (org.a.b<?> bVar : this.qeQ) {
                     if (i == bVarArr.length) {
                         bVarArr = (org.a.b[]) Arrays.copyOf(bVarArr, (i >> 1) + i);
                     }
@@ -44,13 +44,13 @@ public final class FlowableWithLatestFromMany<T, R> extends io.reactivex.interna
             length = bVarArr.length;
         }
         if (length == 0) {
-            new b(this.qdR, new a()).a(cVar);
+            new b(this.qdS, new a()).a(cVar);
             return;
         }
         WithLatestFromSubscriber withLatestFromSubscriber = new WithLatestFromSubscriber(cVar, this.combiner, length);
         cVar.onSubscribe(withLatestFromSubscriber);
         withLatestFromSubscriber.subscribe(bVarArr, length);
-        this.qdR.a((j) withLatestFromSubscriber);
+        this.qdS.a((j) withLatestFromSubscriber);
     }
 
     /* loaded from: classes5.dex */

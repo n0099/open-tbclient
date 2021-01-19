@@ -12,8 +12,8 @@ import com.baidu.yuyinala.privatemessage.implugin.ui.theme.ThemeManager;
 public class RedTipImageView extends ImageView {
     private float mDensity;
     private Paint mPaint;
-    private boolean oUd;
-    private a oUl;
+    private boolean oUe;
+    private a oUm;
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes10.dex */
@@ -37,44 +37,44 @@ public class RedTipImageView extends ImageView {
 
     public RedTipImageView(Context context) {
         super(context);
-        this.oUd = false;
+        this.oUe = false;
         init();
     }
 
     public RedTipImageView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.oUd = false;
+        this.oUe = false;
         init();
     }
 
     public RedTipImageView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.oUd = false;
+        this.oUe = false;
         init();
     }
 
     private void init() {
         this.mPaint = new Paint();
-        this.oUl = new a();
+        this.oUm = new a();
     }
 
     @Override // android.widget.ImageView, android.view.View
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        if (this.oUd) {
-            float width = ((getWidth() - this.oUl.ftw) + (this.mDensity * 3.0f)) - this.oUl.radius;
-            float f = (this.oUl.Yl + this.oUl.radius) - (this.mDensity * 3.0f);
+        if (this.oUe) {
+            float width = ((getWidth() - this.oUm.ftw) + (this.mDensity * 3.0f)) - this.oUm.radius;
+            float f = (this.oUm.Yl + this.oUm.radius) - (this.mDensity * 3.0f);
             Log.d("RedTipImageView", "cx = " + width + " cy= " + f);
             int color = this.mPaint.getColor();
-            this.mPaint.setColor(this.oUl.color);
+            this.mPaint.setColor(this.oUm.color);
             this.mPaint.setStyle(Paint.Style.FILL);
-            canvas.drawCircle(width, f, this.oUl.radius, this.mPaint);
+            canvas.drawCircle(width, f, this.oUm.radius, this.mPaint);
             this.mPaint.setColor(color);
         }
     }
 
     public void setTipOn(boolean z) {
-        this.oUd = z;
+        this.oUe = z;
         invalidate();
     }
 }

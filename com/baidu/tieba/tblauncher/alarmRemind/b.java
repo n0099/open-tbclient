@@ -20,24 +20,24 @@ import com.baidu.tbadk.core.message.BackgroundSwitchMessage;
 import tbclient.GetClientConfig.DataRes;
 /* loaded from: classes.dex */
 public class b {
-    private static b nuw;
-    private ClientConfigModel nuu;
-    private a nuv;
-    private boolean nux = false;
+    private static b nux;
+    private ClientConfigModel nuv;
+    private a nuw;
+    private boolean nuy = false;
     private final com.baidu.tbadk.clientConfig.a eHj = new com.baidu.tbadk.clientConfig.a() { // from class: com.baidu.tieba.tblauncher.alarmRemind.b.1
         @Override // com.baidu.tbadk.clientConfig.a
         public void at(Object obj) {
-            b.this.nux = false;
+            b.this.nuy = false;
             if (obj != null && (obj instanceof DataRes)) {
                 DataRes dataRes = (DataRes) obj;
                 if (dataRes.local_dialog != null) {
                     String c = com.baidu.tieba.tblauncher.alarmRemind.a.c(dataRes);
                     if (!TextUtils.isEmpty(c)) {
-                        TbadkSettings.getInst().saveString(b.this.SS(SharedPrefConfig.REMIND_RECOMMEND_INFO), c);
-                        TbadkSettings.getInst().saveInt(b.this.SS(SharedPrefConfig.REMIND_RECOMMEND_SERVER_SWITCH), dataRes.local_dialog.show.intValue());
-                        TbadkSettings.getInst().saveString(b.this.SS(SharedPrefConfig.REMIND_RECOMMEND_DLALOG_TIME), dataRes.local_dialog.time);
+                        TbadkSettings.getInst().saveString(b.this.ST(SharedPrefConfig.REMIND_RECOMMEND_INFO), c);
+                        TbadkSettings.getInst().saveInt(b.this.ST(SharedPrefConfig.REMIND_RECOMMEND_SERVER_SWITCH), dataRes.local_dialog.show.intValue());
+                        TbadkSettings.getInst().saveString(b.this.ST(SharedPrefConfig.REMIND_RECOMMEND_DLALOG_TIME), dataRes.local_dialog.time);
                         b.this.yu(true);
-                        TbadkSettings.getInst().saveLong(b.this.SS(SharedPrefConfig.REMIND_RECOMMEND_DATA_TIME), System.currentTimeMillis());
+                        TbadkSettings.getInst().saveLong(b.this.ST(SharedPrefConfig.REMIND_RECOMMEND_DATA_TIME), System.currentTimeMillis());
                     }
                 }
             }
@@ -45,7 +45,7 @@ public class b {
 
         @Override // com.baidu.tbadk.clientConfig.a
         public void onError(String str) {
-            b.this.nux = false;
+            b.this.nuy = false;
         }
     };
     CustomMessageListener PO = new CustomMessageListener(MessageConfig.CMD_NETWORK_CHANGED) { // from class: com.baidu.tieba.tblauncher.alarmRemind.b.2
@@ -69,25 +69,25 @@ public class b {
     };
 
     public static b dOh() {
-        if (nuw == null) {
+        if (nux == null) {
             synchronized (b.class) {
-                if (nuw == null) {
-                    nuw = new b();
+                if (nux == null) {
+                    nux = new b();
                 }
             }
         }
-        return nuw;
+        return nux;
     }
 
     private b() {
     }
 
     public void f(BaseFragmentActivity baseFragmentActivity) {
-        this.nuv = new a();
-        baseFragmentActivity.registerListener(this.nuv);
+        this.nuw = new a();
+        baseFragmentActivity.registerListener(this.nuw);
         baseFragmentActivity.registerListener(this.PO);
         baseFragmentActivity.registerListener(this.mAccountChangedListener);
-        this.nuu = new ClientConfigModel(baseFragmentActivity, this.eHj);
+        this.nuv = new ClientConfigModel(baseFragmentActivity, this.eHj);
         com.baidu.tbadk.core.sharedPref.b.brx().putLong(SharedPrefConfig.TIEBA_LAST_ACTIVE_TIME, System.currentTimeMillis());
         if (dOj()) {
             yu(true);
@@ -97,7 +97,7 @@ public class b {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void dOi() {
-        if (!com.baidu.tieba.tblauncher.alarmRemind.a.isTaday(TbadkSettings.getInst().loadLong(SS(SharedPrefConfig.REMIND_RECOMMEND_DATA_TIME), 0L)) && !TbadkCoreApplication.getInst().checkInterrupt()) {
+        if (!com.baidu.tieba.tblauncher.alarmRemind.a.isTaday(TbadkSettings.getInst().loadLong(ST(SharedPrefConfig.REMIND_RECOMMEND_DATA_TIME), 0L)) && !TbadkCoreApplication.getInst().checkInterrupt()) {
             dOk();
         }
     }
@@ -118,14 +118,14 @@ public class b {
         }
     }
 
-    public String SS(String str) {
+    public String ST(String str) {
         return TbadkCoreApplication.getCurrentAccount() + str;
     }
 
     private void dOk() {
-        if (this.nuu != null && !this.nux) {
-            this.nux = true;
-            this.nuu.zp("local_dialog");
+        if (this.nuv != null && !this.nuy) {
+            this.nuy = true;
+            this.nuv.zp("local_dialog");
         }
     }
 

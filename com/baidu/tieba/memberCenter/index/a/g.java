@@ -21,8 +21,8 @@ public class g implements com.baidu.adp.widget.ListView.n {
             this.leo = new d();
             this.leo.Ea(1);
             this.leo.setCategoryName(vipDailyList.class_name);
-            this.leo.Nk(vipDailyList.class_url_name);
-            this.leo.Nl(vipDailyList.class_url);
+            this.leo.Nl(vipDailyList.class_url_name);
+            this.leo.Nm(vipDailyList.class_url);
             this.lev = new ArrayList();
             for (VipThemeItem vipThemeItem : vipDailyList.item) {
                 this.lev.add(new h(vipThemeItem));

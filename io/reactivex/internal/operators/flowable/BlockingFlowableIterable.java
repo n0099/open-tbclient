@@ -16,12 +16,12 @@ import org.a.d;
 /* loaded from: classes5.dex */
 public final class BlockingFlowableIterable<T> implements Iterable<T> {
     final int bufferSize;
-    final g<T> qdR;
+    final g<T> qdS;
 
     @Override // java.lang.Iterable
     public Iterator<T> iterator() {
         BlockingFlowableIterator blockingFlowableIterator = new BlockingFlowableIterator(this.bufferSize);
-        this.qdR.a((j) blockingFlowableIterator);
+        this.qdS.a((j) blockingFlowableIterator);
         return blockingFlowableIterator;
     }
 

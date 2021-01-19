@@ -14,19 +14,19 @@ import javax.annotation.Nullable;
 /* loaded from: classes3.dex */
 public class l extends Drawable implements j {
     @Nullable
-    float[] psF;
+    float[] psG;
     private final float[] bPQ = new float[8];
-    final float[] psE = new float[8];
+    final float[] psF = new float[8];
     final Paint mPaint = new Paint(1);
     private boolean fLW = false;
     private float mBorderWidth = 0.0f;
     private float mPadding = 0.0f;
     private int mBorderColor = 0;
-    private boolean psG = false;
+    private boolean psH = false;
     final Path mPath = new Path();
     final Path eTX = new Path();
     private int mColor = 0;
-    private final RectF psH = new RectF();
+    private final RectF psI = new RectF();
     private int mAlpha = 255;
 
     public l(int i) {
@@ -115,8 +115,8 @@ public class l extends Drawable implements j {
 
     @Override // com.facebook.drawee.drawable.j
     public void AV(boolean z) {
-        if (this.psG != z) {
-            this.psG = z;
+        if (this.psH != z) {
+            this.psH = z;
             esb();
             invalidateSelf();
         }
@@ -148,33 +148,33 @@ public class l extends Drawable implements j {
     private void esb() {
         this.mPath.reset();
         this.eTX.reset();
-        this.psH.set(getBounds());
-        this.psH.inset(this.mBorderWidth / 2.0f, this.mBorderWidth / 2.0f);
+        this.psI.set(getBounds());
+        this.psI.inset(this.mBorderWidth / 2.0f, this.mBorderWidth / 2.0f);
         if (this.fLW) {
-            this.eTX.addCircle(this.psH.centerX(), this.psH.centerY(), Math.min(this.psH.width(), this.psH.height()) / 2.0f, Path.Direction.CW);
+            this.eTX.addCircle(this.psI.centerX(), this.psI.centerY(), Math.min(this.psI.width(), this.psI.height()) / 2.0f, Path.Direction.CW);
         } else {
-            for (int i = 0; i < this.psE.length; i++) {
-                this.psE[i] = (this.bPQ[i] + this.mPadding) - (this.mBorderWidth / 2.0f);
+            for (int i = 0; i < this.psF.length; i++) {
+                this.psF[i] = (this.bPQ[i] + this.mPadding) - (this.mBorderWidth / 2.0f);
             }
-            this.eTX.addRoundRect(this.psH, this.psE, Path.Direction.CW);
+            this.eTX.addRoundRect(this.psI, this.psF, Path.Direction.CW);
         }
-        this.psH.inset((-this.mBorderWidth) / 2.0f, (-this.mBorderWidth) / 2.0f);
-        float f = (this.psG ? this.mBorderWidth : 0.0f) + this.mPadding;
-        this.psH.inset(f, f);
+        this.psI.inset((-this.mBorderWidth) / 2.0f, (-this.mBorderWidth) / 2.0f);
+        float f = (this.psH ? this.mBorderWidth : 0.0f) + this.mPadding;
+        this.psI.inset(f, f);
         if (this.fLW) {
-            this.mPath.addCircle(this.psH.centerX(), this.psH.centerY(), Math.min(this.psH.width(), this.psH.height()) / 2.0f, Path.Direction.CW);
-        } else if (this.psG) {
-            if (this.psF == null) {
-                this.psF = new float[8];
+            this.mPath.addCircle(this.psI.centerX(), this.psI.centerY(), Math.min(this.psI.width(), this.psI.height()) / 2.0f, Path.Direction.CW);
+        } else if (this.psH) {
+            if (this.psG == null) {
+                this.psG = new float[8];
             }
-            for (int i2 = 0; i2 < this.psF.length; i2++) {
-                this.psF[i2] = this.bPQ[i2] - this.mBorderWidth;
+            for (int i2 = 0; i2 < this.psG.length; i2++) {
+                this.psG[i2] = this.bPQ[i2] - this.mBorderWidth;
             }
-            this.mPath.addRoundRect(this.psH, this.psF, Path.Direction.CW);
+            this.mPath.addRoundRect(this.psI, this.psG, Path.Direction.CW);
         } else {
-            this.mPath.addRoundRect(this.psH, this.bPQ, Path.Direction.CW);
+            this.mPath.addRoundRect(this.psI, this.bPQ, Path.Direction.CW);
         }
-        this.psH.inset(-f, -f);
+        this.psI.inset(-f, -f);
     }
 
     public void a(ColorFilter colorFilter) {

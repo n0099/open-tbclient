@@ -17,21 +17,21 @@ public class i extends c {
     public View mContentView;
     public Context mContext;
     public View mConvertView;
-    public TextView oNV;
-    public View oNW;
-    public TextView oNX;
+    public TextView oNW;
+    public View oNX;
+    public TextView oNY;
 
     public i(Context context, LayoutInflater layoutInflater) {
-        this.oNV = null;
+        this.oNW = null;
         this.mContext = context;
         this.mConvertView = layoutInflater.inflate(a.g.bd_im_chating_push_graphic_txt, (ViewGroup) null);
         this.mContentView = this.mConvertView.findViewById(a.f.bd_im_chating_push_content_view);
-        this.oNI = (TextView) this.mConvertView.findViewById(a.f.bd_im_chating_time_txt);
-        this.oNJ = (TextView) this.mConvertView.findViewById(a.f.bd_im_chating_push_title);
-        this.oNV = (TextView) this.mConvertView.findViewById(a.f.bd_im_chating_push_content);
-        this.oNK = (DarkImageView) this.mConvertView.findViewById(a.f.bd_im_chating_push_image);
-        this.oNW = this.mConvertView.findViewById(a.f.bd_im_seperator);
-        this.oNX = (TextView) this.mConvertView.findViewById(a.f.bd_im_readfulltxt);
+        this.oNJ = (TextView) this.mConvertView.findViewById(a.f.bd_im_chating_time_txt);
+        this.oNK = (TextView) this.mConvertView.findViewById(a.f.bd_im_chating_push_title);
+        this.oNW = (TextView) this.mConvertView.findViewById(a.f.bd_im_chating_push_content);
+        this.oNL = (DarkImageView) this.mConvertView.findViewById(a.f.bd_im_chating_push_image);
+        this.oNX = this.mConvertView.findViewById(a.f.bd_im_seperator);
+        this.oNY = (TextView) this.mConvertView.findViewById(a.f.bd_im_readfulltxt);
         this.mConvertView.setTag(this);
     }
 
@@ -54,25 +54,25 @@ public class i extends c {
         if (chatMsg instanceof SignleGraphicTextMsg) {
             SignleGraphicTextMsg signleGraphicTextMsg = (SignleGraphicTextMsg) chatMsg;
             Rect rect = new Rect();
-            this.oNK.getWindowVisibleDisplayFrame(rect);
+            this.oNL.getWindowVisibleDisplayFrame(rect);
             int width = (int) (rect.width() - (4.0f * context.getResources().getDimension(a.d.bd_im_push_lf)));
-            ViewGroup.LayoutParams layoutParams = this.oNK.getLayoutParams();
+            ViewGroup.LayoutParams layoutParams = this.oNL.getLayoutParams();
             layoutParams.width = width;
-            layoutParams.height = (int) (width / com.baidu.yuyinala.privatemessage.implugin.util.a.b.oXb);
-            this.oNK.setLayoutParams(layoutParams);
-            this.oNJ.setText(signleGraphicTextMsg.getTitle());
-            this.oNV.setText(signleGraphicTextMsg.getDigest());
+            layoutParams.height = (int) (width / com.baidu.yuyinala.privatemessage.implugin.util.a.b.oXc);
+            this.oNL.setLayoutParams(layoutParams);
+            this.oNK.setText(signleGraphicTextMsg.getTitle());
+            this.oNW.setText(signleGraphicTextMsg.getDigest());
             com.baidu.yuyinala.privatemessage.implugin.util.f.j(context, signleGraphicTextMsg.getMsgTime());
             String cover = signleGraphicTextMsg.getCover();
             if (TextUtils.isEmpty(cover) || cover.length() < 6) {
-                this.oNK.setVisibility(8);
-                int paddingLeft = this.oNV.getPaddingLeft();
-                int paddingRight = this.oNV.getPaddingRight();
-                this.oNV.getPaddingTop();
-                this.oNV.setPadding(paddingLeft, 0, paddingRight, this.oNV.getPaddingBottom());
+                this.oNL.setVisibility(8);
+                int paddingLeft = this.oNW.getPaddingLeft();
+                int paddingRight = this.oNW.getPaddingRight();
+                this.oNW.getPaddingTop();
+                this.oNW.setPadding(paddingLeft, 0, paddingRight, this.oNW.getPaddingBottom());
             } else {
                 com.baidu.yuyinala.privatemessage.implugin.util.b.hC(context);
-                ImageLoader.getInstance().displayImage(cover, this.oNK, com.baidu.yuyinala.privatemessage.implugin.util.b.ejZ());
+                ImageLoader.getInstance().displayImage(cover, this.oNL, com.baidu.yuyinala.privatemessage.implugin.util.b.ejZ());
             }
         }
         ehk();

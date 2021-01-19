@@ -168,7 +168,7 @@ public class ForumRulesShowModel extends BdBaseModel<ForumRulesShowActivity> {
 
     private void bim() {
         com.baidu.tieba.tbadkCore.a.a.a(309690, ForumRuleDetailScoketResMsg.class, false, false);
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_FORUM_RULES_SHOW, com.baidu.tieba.tbadkCore.a.a.bU(TbConfig.FORUM_RULES_SHOW, 309690));
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_FORUM_RULES_SHOW, com.baidu.tieba.tbadkCore.a.a.bV(TbConfig.FORUM_RULES_SHOW, 309690));
         tbHttpMessageTask.setResponsedClass(ForumRuleDetailHttpResMsg.class);
         tbHttpMessageTask.setIsNeedAddCommenParam(true);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);

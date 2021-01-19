@@ -15,15 +15,15 @@ public class k extends Thread {
     /* renamed from: a  reason: collision with root package name */
     private final BlockingQueue<Request<?>> f6039a;
     private volatile boolean e = false;
-    private final com.bytedance.sdk.adnet.e.c pkP;
-    private final com.bytedance.sdk.adnet.e.b pkQ;
-    private final com.bytedance.sdk.adnet.e.d pkR;
+    private final com.bytedance.sdk.adnet.e.c pkQ;
+    private final com.bytedance.sdk.adnet.e.b pkR;
+    private final com.bytedance.sdk.adnet.e.d pkS;
 
     public k(BlockingQueue<Request<?>> blockingQueue, com.bytedance.sdk.adnet.e.c cVar, com.bytedance.sdk.adnet.e.b bVar, com.bytedance.sdk.adnet.e.d dVar) {
         this.f6039a = blockingQueue;
-        this.pkP = cVar;
-        this.pkQ = bVar;
-        this.pkR = dVar;
+        this.pkQ = cVar;
+        this.pkR = bVar;
+        this.pkS = dVar;
     }
 
     public void a() {
@@ -73,7 +73,7 @@ public class k extends Thread {
                         return;
                     }
                     g(request);
-                    l c = this.pkP.c(request);
+                    l c = this.pkQ.c(request);
                     request.setNetDuration(c.f);
                     request.addMarker("network-http-complete");
                     if (c.e && request.hasHadResponseDelivered()) {
@@ -84,12 +84,12 @@ public class k extends Thread {
                     p<?> a2 = request.a(c);
                     request.setNetDuration(c.f);
                     request.addMarker("network-parse-complete");
-                    if (request.shouldCache() && a2.pkY != null) {
-                        this.pkQ.a(request.getCacheKey(), a2.pkY);
+                    if (request.shouldCache() && a2.pkZ != null) {
+                        this.pkR.a(request.getCacheKey(), a2.pkZ);
                         request.addMarker("network-cache-written");
                     }
                     request.markDelivered();
-                    this.pkR.a(request, a2);
+                    this.pkS.a(request, a2);
                     request.b(a2);
                 } catch (VAdError e) {
                     e.setNetworkTimeMs(SystemClock.elapsedRealtime() - elapsedRealtime);
@@ -100,7 +100,7 @@ public class k extends Thread {
                 r.a(e2, "Unhandled exception %s", e2.toString());
                 VAdError vAdError = new VAdError(e2);
                 vAdError.setNetworkTimeMs(SystemClock.elapsedRealtime() - elapsedRealtime);
-                this.pkR.a(request, vAdError);
+                this.pkS.a(request, vAdError);
                 request.e();
             }
         } finally {
@@ -109,6 +109,6 @@ public class k extends Thread {
     }
 
     private void a(Request<?> request, VAdError vAdError) {
-        this.pkR.a(request, request.a(vAdError));
+        this.pkS.a(request, request.a(vAdError));
     }
 }

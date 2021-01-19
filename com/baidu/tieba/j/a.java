@@ -28,7 +28,7 @@ public class a {
     private String title;
     private String userName;
 
-    public void KK(String str) {
+    public void KL(String str) {
         this.jQp = str;
     }
 
@@ -36,7 +36,7 @@ public class a {
         return this.bvw;
     }
 
-    public void KL(String str) {
+    public void KM(String str) {
         this.bvw = str;
     }
 
@@ -44,7 +44,7 @@ public class a {
         this.title = str;
     }
 
-    public void KM(String str) {
+    public void KN(String str) {
         this.originalPrice = str;
     }
 
@@ -64,7 +64,7 @@ public class a {
         this.jQq = bVar;
     }
 
-    public void KN(String str) {
+    public void KO(String str) {
         this.jQr = str;
     }
 
@@ -72,7 +72,7 @@ public class a {
         return this.jQs;
     }
 
-    public void KO(String str) {
+    public void KP(String str) {
         this.jQs = str;
     }
 
@@ -80,23 +80,23 @@ public class a {
         this.userName = str;
     }
 
-    public void KP(String str) {
+    public void KQ(String str) {
         this.jQt = str;
     }
 
-    public void KQ(String str) {
+    public void KR(String str) {
         this.jQu = str;
     }
 
-    public void KR(String str) {
+    public void KS(String str) {
         this.bvG = str;
     }
 
-    public void KS(String str) {
+    public void KT(String str) {
         this.bvF = str;
     }
 
-    public void KT(String str) {
+    public void KU(String str) {
         this.jQv = str;
     }
 
@@ -108,7 +108,7 @@ public class a {
         return this.eKF;
     }
 
-    public void KU(String str) {
+    public void KV(String str) {
         this.eKF = str;
     }
 
@@ -130,7 +130,7 @@ public class a {
         private String jQy;
         private String jQz;
 
-        public void KV(String str) {
+        public void KW(String str) {
             this.jQx = str;
         }
 
@@ -138,7 +138,7 @@ public class a {
             return this.jQy;
         }
 
-        public void KW(String str) {
+        public void KX(String str) {
             this.jQy = str;
         }
 
@@ -146,7 +146,7 @@ public class a {
             return this.jQz;
         }
 
-        public void KX(String str) {
+        public void KY(String str) {
             this.jQz = str;
         }
     }
@@ -170,10 +170,10 @@ public class a {
             return null;
         }
         a aVar = new a();
-        aVar.KN(jSONObject.optString("commission"));
-        aVar.KR(jSONObject.optString("coupon"));
-        aVar.KU(jSONObject.optString("goodsId"));
-        aVar.KP(jSONObject.optString("goodsStatus"));
+        aVar.KO(jSONObject.optString("commission"));
+        aVar.KS(jSONObject.optString("coupon"));
+        aVar.KV(jSONObject.optString("goodsId"));
+        aVar.KQ(jSONObject.optString("goodsStatus"));
         JSONArray optJSONArray = jSONObject.optJSONArray("imageList");
         if (optJSONArray != null && optJSONArray.length() > 0) {
             ArrayList arrayList = new ArrayList();
@@ -187,22 +187,22 @@ public class a {
             }
             aVar.dR(arrayList);
         }
-        aVar.KT(jSONObject.optString("isBindingVideo"));
+        aVar.KU(jSONObject.optString("isBindingVideo"));
         aVar.setIsSelected(jSONObject.optBoolean("isSelected"));
         aVar.setNid(jSONObject.optString(IntentConfig.NID));
-        aVar.KK(jSONObject.optString("originalGoodsId"));
-        aVar.KM(jSONObject.optString("originalPrice"));
-        aVar.KL(jSONObject.optString("originalTitle"));
-        aVar.KO(jSONObject.optString("tpName"));
+        aVar.KL(jSONObject.optString("originalGoodsId"));
+        aVar.KN(jSONObject.optString("originalPrice"));
+        aVar.KM(jSONObject.optString("originalTitle"));
+        aVar.KP(jSONObject.optString("tpName"));
         aVar.setPrice(jSONObject.optString("price"));
-        aVar.KS(jSONObject.optString("saleNum"));
-        aVar.KQ(jSONObject.optString("shareStatus"));
+        aVar.KT(jSONObject.optString("saleNum"));
+        aVar.KR(jSONObject.optString("shareStatus"));
         JSONObject optJSONObject2 = jSONObject.optJSONObject("slink");
         if (optJSONObject2 != null) {
             b bVar = new b();
-            bVar.KW(optJSONObject2.optString("Android"));
-            bVar.KV(optJSONObject2.optString("IOS"));
-            bVar.KX(optJSONObject2.optString("h5"));
+            bVar.KX(optJSONObject2.optString("Android"));
+            bVar.KW(optJSONObject2.optString("IOS"));
+            bVar.KY(optJSONObject2.optString("h5"));
             aVar.a(bVar);
         }
         aVar.setTitle(jSONObject.optString("title"));

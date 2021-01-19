@@ -4,7 +4,7 @@ import java.util.concurrent.ThreadFactory;
 import rx.internal.util.RxThreadFactory;
 /* loaded from: classes14.dex */
 public class g {
-    private static final g que = new g();
+    private static final g quf = new g();
 
     public static rx.g eLz() {
         return c(new RxThreadFactory("RxComputationScheduler-"));
@@ -57,6 +57,6 @@ public class g {
     }
 
     public static g eLF() {
-        return que;
+        return quf;
     }
 }

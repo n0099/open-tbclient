@@ -58,7 +58,7 @@ public class b {
                 b.this.cMI();
             }
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_MAIN_TAB_WIDGET_CLICK, 0));
-            b.this.Bf(1);
+            b.this.Be(1);
         }
     };
     public View.OnClickListener jSi = new View.OnClickListener() { // from class: com.baidu.tieba.homepage.concern.b.4
@@ -71,7 +71,7 @@ public class b {
                 b.this.cMI();
             }
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_MAIN_TAB_WIDGET_CLICK, 0));
-            b.this.Bf(2);
+            b.this.Be(2);
         }
     };
 
@@ -256,7 +256,7 @@ public class b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Bf(int i) {
+    public void Be(int i) {
         aq aqVar = new aq("c14054");
         aqVar.an("obj_type", i);
         TiebaStatic.log(aqVar);

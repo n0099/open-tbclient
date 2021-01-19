@@ -6,7 +6,7 @@ public class c {
 
     /* loaded from: classes10.dex */
     public interface a {
-        void UG(String str);
+        void UH(String str);
     }
 
     public static void b(com.baidu.tieba.yuyinala.liveroom.data.a aVar, com.baidu.live.im.data.b bVar, JSONObject jSONObject, a aVar2) {

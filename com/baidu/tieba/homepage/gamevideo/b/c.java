@@ -109,7 +109,7 @@ public class c {
         @Override // com.baidu.tbadk.core.view.f.c
         public void onListPullRefresh(boolean z) {
             if (j.isNetWorkAvailable()) {
-                c.this.jXF.BC(c.this.fce);
+                c.this.jXF.BB(c.this.fce);
                 c.this.cOo();
                 c.this.jXE.rS(false);
                 return;
@@ -122,7 +122,7 @@ public class c {
         @Override // com.baidu.adp.widget.ListView.BdListView.e
         public void onScrollToBottom() {
             c.this.jXE.bQN();
-            c.this.jXF.BD(c.this.fce);
+            c.this.jXF.BC(c.this.fce);
             c.this.cOo();
         }
     };
@@ -134,7 +134,7 @@ public class c {
             if (z || z2) {
                 c.this.jXE.b((f.e) null);
             } else {
-                c.this.jXE.b(c.this.BB(i));
+                c.this.jXE.b(c.this.BA(i));
             }
             if (!c.this.cOp()) {
                 if (!x.isEmpty(c.this.jXF.cOq()) && !StringUtils.isNull(com.baidu.tbadk.core.sharedPref.b.brx().getString("key_game_video_tab_has_choosed_sub_class_name", ""))) {
@@ -182,7 +182,7 @@ public class c {
         public void onClick(View view) {
             if (c.this.jXE != null && c.this.jXF != null) {
                 c.this.jXE.bQN();
-                c.this.jXF.BD(c.this.fce);
+                c.this.jXF.BC(c.this.fce);
             }
         }
     };
@@ -196,11 +196,11 @@ public class c {
         public void b(com.baidu.tieba.homepage.gamevideo.c.a aVar) {
             if (aVar != null) {
                 c.this.fce = aVar.sub_class_id;
-                c.this.BA(aVar.sub_class_id);
+                c.this.Bz(aVar.sub_class_id);
                 if (c.this.jXE != null) {
-                    c.this.jXE.By(aVar.sub_class_id);
+                    c.this.jXE.Bx(aVar.sub_class_id);
                     c.this.jXE.rU(false);
-                    c.this.jXE.Ll(aVar.sub_class_name);
+                    c.this.jXE.Lm(aVar.sub_class_name);
                 }
             }
         }
@@ -218,11 +218,11 @@ public class c {
         public void a(com.baidu.tieba.homepage.gamevideo.c.a aVar) {
             if (aVar != null) {
                 c.this.fce = aVar.sub_class_id;
-                c.this.BA(aVar.sub_class_id);
+                c.this.Bz(aVar.sub_class_id);
                 if (c.this.jXE != null) {
-                    c.this.jXE.By(aVar.sub_class_id);
+                    c.this.jXE.Bx(aVar.sub_class_id);
                     c.this.jXE.rU(false);
-                    c.this.jXE.Ll(aVar.sub_class_name);
+                    c.this.jXE.Lm(aVar.sub_class_name);
                 }
             }
         }
@@ -239,7 +239,7 @@ public class c {
         this.jXG.a(this.jXt);
         this.jXE.F(this.jXJ);
         this.fce = com.baidu.tbadk.core.sharedPref.b.brx().getInt("key_game_video_tab_has_choosed_sub_class_id", 0);
-        this.jXE.By(this.fce);
+        this.jXE.Bx(this.fce);
     }
 
     public void init() {
@@ -268,7 +268,7 @@ public class c {
             this.jXE.showLoadingView();
         }
         if (this.jXF != null) {
-            this.jXF.BC(this.fce);
+            this.jXF.BB(this.fce);
         }
     }
 
@@ -282,9 +282,9 @@ public class c {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void BA(int i) {
+    public void Bz(int i) {
         if (this.jXH != null) {
-            this.jXH.Bz(i);
+            this.jXH.By(i);
         }
         if (this.jXF != null) {
             this.jXF.reset();
@@ -305,7 +305,7 @@ public class c {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public f.e BB(int i) {
+    public f.e BA(int i) {
         String string;
         if (i <= 0) {
             string = this.mPageContext.getResources().getString(R.string.game_video_no_more);
@@ -378,9 +378,9 @@ public class c {
         if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof JSONObject) && this.jXF != null && !x.isEmpty(this.jXF.getDataList())) {
             String optString = ((JSONObject) customResponsedMessage.getData()).optString("tid");
             this.jXF.Km(optString);
-            this.jXF.Lk(optString);
+            this.jXF.Ll(optString);
             if (this.jXE != null) {
-                this.jXE.Lm(optString);
+                this.jXE.Ln(optString);
             }
         }
     }

@@ -19,23 +19,23 @@ public class v extends e {
     public View mContentView;
     private Context mContext;
     public View mConvertView;
-    public DarkImageView oOU;
-    public TextView oOV;
+    public DarkImageView oOV;
     public TextView oOW;
+    public TextView oOX;
 
     @SuppressLint({"InflateParams"})
     public v(Context context, LayoutInflater layoutInflater) {
         this.mContext = context;
         this.mConvertView = layoutInflater.inflate(a.g.bd_im_chating_send_shared_item, (ViewGroup) null);
-        this.oNO = (ImageView) this.mConvertView.findViewById(a.f.bd_im_chating_msg_send_status);
-        this.oNP = this.mConvertView.findViewById(a.f.bd_im_chating_msg_send_status_layout);
-        this.oNQ = (ProgressBar) this.mConvertView.findViewById(a.f.bd_im_chating_msg_send_progress);
-        this.oNL = (ImageView) this.mConvertView.findViewById(a.f.bd_im_headview);
-        this.oNN = (ImageView) this.mConvertView.findViewById(a.f.bd_im_headview_vip);
-        this.oNI = (TextView) this.mConvertView.findViewById(a.f.bd_im_chating_time_txt);
-        this.oOU = (DarkImageView) this.mConvertView.findViewById(a.f.bd_im_chat_shared_cover);
-        this.oOW = (TextView) this.mConvertView.findViewById(a.f.bd_im_chat_shared_title);
-        this.oOV = (TextView) this.mConvertView.findViewById(a.f.bd_im_chat_shared_content);
+        this.oNP = (ImageView) this.mConvertView.findViewById(a.f.bd_im_chating_msg_send_status);
+        this.oNQ = this.mConvertView.findViewById(a.f.bd_im_chating_msg_send_status_layout);
+        this.oNR = (ProgressBar) this.mConvertView.findViewById(a.f.bd_im_chating_msg_send_progress);
+        this.oNM = (ImageView) this.mConvertView.findViewById(a.f.bd_im_headview);
+        this.oNO = (ImageView) this.mConvertView.findViewById(a.f.bd_im_headview_vip);
+        this.oNJ = (TextView) this.mConvertView.findViewById(a.f.bd_im_chating_time_txt);
+        this.oOV = (DarkImageView) this.mConvertView.findViewById(a.f.bd_im_chat_shared_cover);
+        this.oOX = (TextView) this.mConvertView.findViewById(a.f.bd_im_chat_shared_title);
+        this.oOW = (TextView) this.mConvertView.findViewById(a.f.bd_im_chat_shared_content);
         this.mContentView = this.mConvertView.findViewById(a.f.bd_im_chating_msg_content_layout);
         this.mConvertView.setTag(this);
     }
@@ -62,9 +62,9 @@ public class v extends e {
             covers = signleGraphicTextMsg.getCover();
         }
         com.baidu.yuyinala.privatemessage.implugin.util.b.hC(this.mContext);
-        ImageLoader.getInstance().displayImage(covers, this.oOU, com.baidu.yuyinala.privatemessage.implugin.util.b.ejZ());
-        this.oOW.setText(signleGraphicTextMsg.getTitle());
-        this.oOV.setText(signleGraphicTextMsg.getDigest());
+        ImageLoader.getInstance().displayImage(covers, this.oOV, com.baidu.yuyinala.privatemessage.implugin.util.b.ejZ());
+        this.oOX.setText(signleGraphicTextMsg.getTitle());
+        this.oOW.setText(signleGraphicTextMsg.getDigest());
         super.b(context, chatMsg);
     }
 }

@@ -44,21 +44,21 @@ import org.json.JSONObject;
 public class TeamFightLayout extends BaseWheatLayout {
     public int Yl;
     private int activity_stage;
-    private AddTimeEndGameView oBm;
-    private TBLottieAnimationView oBn;
+    private AddTimeEndGameView oBn;
     private TBLottieAnimationView oBo;
     private TBLottieAnimationView oBp;
     private TBLottieAnimationView oBq;
-    private ImageView oBr;
-    private g oBs;
-    private AlaLoadingToastView oBt;
-    private int oBu;
+    private TBLottieAnimationView oBr;
+    private ImageView oBs;
+    private g oBt;
+    private AlaLoadingToastView oBu;
     private int oBv;
     private int oBw;
-    private long oBx;
+    private int oBx;
     private long oBy;
-    private String oiU;
-    public CustomMessageListener okc;
+    private long oBz;
+    private String oiV;
+    public CustomMessageListener okd;
 
     public TeamFightLayout(@NonNull Context context) {
         this(context, null);
@@ -70,15 +70,15 @@ public class TeamFightLayout extends BaseWheatLayout {
 
     public TeamFightLayout(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.oBu = 1;
         this.oBv = 1;
+        this.oBw = 1;
         this.Yl = e.d(94.0f, getContext());
-        this.okc = new CustomMessageListener(2501014) { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.view.TeamFightLayout.7
+        this.okd = new CustomMessageListener(2501014) { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.view.TeamFightLayout.7
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2501014 && (customResponsedMessage.getData() instanceof com.baidu.live.data.g) && ((com.baidu.live.data.g) customResponsedMessage.getData()).AC() != 2 && TeamFightLayout.this.oBs != null && TeamFightLayout.this.oBs.isShowing()) {
-                    TeamFightLayout.this.oBs.dismiss();
+                if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2501014 && (customResponsedMessage.getData() instanceof com.baidu.live.data.g) && ((com.baidu.live.data.g) customResponsedMessage.getData()).AC() != 2 && TeamFightLayout.this.oBt != null && TeamFightLayout.this.oBt.isShowing()) {
+                    TeamFightLayout.this.oBt.dismiss();
                 }
             }
         };
@@ -93,13 +93,13 @@ public class TeamFightLayout extends BaseWheatLayout {
         this.mView.post(new Runnable() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.view.TeamFightLayout.1
             @Override // java.lang.Runnable
             public void run() {
-                TeamFightLayout.this.ozw = list;
-                TeamFightLayout.this.ozx = list2;
-                if (ListUtils.getCount(TeamFightLayout.this.oAy) == 0 || ListUtils.getCount(TeamFightLayout.this.oAy) != ListUtils.getCount(list) || ListUtils.getCount(TeamFightLayout.this.oAz) == 0 || ListUtils.getCount(TeamFightLayout.this.oAz) != ListUtils.getCount(list2)) {
+                TeamFightLayout.this.ozx = list;
+                TeamFightLayout.this.ozy = list2;
+                if (ListUtils.getCount(TeamFightLayout.this.oAz) == 0 || ListUtils.getCount(TeamFightLayout.this.oAz) != ListUtils.getCount(list) || ListUtils.getCount(TeamFightLayout.this.oAA) == 0 || ListUtils.getCount(TeamFightLayout.this.oAA) != ListUtils.getCount(list2)) {
                     TeamFightLayout.this.ecx();
-                    TeamFightLayout.this.oAD.removeAllViews();
-                    TeamFightLayout.this.oAy.clear();
+                    TeamFightLayout.this.oAE.removeAllViews();
                     TeamFightLayout.this.oAz.clear();
+                    TeamFightLayout.this.oAA.clear();
                     TeamFightLayout.this.ecP();
                     TeamFightLayout.this.ecO();
                     TeamFightLayout.this.ecN();
@@ -114,17 +114,17 @@ public class TeamFightLayout extends BaseWheatLayout {
                         }
                     }
                     TeamFightLayout.this.ecM();
-                    TeamFightLayout.this.oAD.invalidate();
-                    TeamFightLayout.this.oAD.requestLayout();
-                }
-                if (!ListUtils.isEmpty(TeamFightLayout.this.oAy)) {
-                    for (int i3 = 0; i3 < TeamFightLayout.this.oAy.size(); i3++) {
-                        TeamFightLayout.this.oAy.get(i3).setData(TeamFightLayout.this.am(i3, true), i3, true, xVar);
-                    }
+                    TeamFightLayout.this.oAE.invalidate();
+                    TeamFightLayout.this.oAE.requestLayout();
                 }
                 if (!ListUtils.isEmpty(TeamFightLayout.this.oAz)) {
-                    for (int i4 = 0; i4 < TeamFightLayout.this.oAz.size(); i4++) {
-                        TeamFightLayout.this.oAz.get(i4).setData(TeamFightLayout.this.am(i4, false), i4, false, xVar);
+                    for (int i3 = 0; i3 < TeamFightLayout.this.oAz.size(); i3++) {
+                        TeamFightLayout.this.oAz.get(i3).setData(TeamFightLayout.this.am(i3, true), i3, true, xVar);
+                    }
+                }
+                if (!ListUtils.isEmpty(TeamFightLayout.this.oAA)) {
+                    for (int i4 = 0; i4 < TeamFightLayout.this.oAA.size(); i4++) {
+                        TeamFightLayout.this.oAA.get(i4).setData(TeamFightLayout.this.am(i4, false), i4, false, xVar);
                     }
                 }
             }
@@ -133,32 +133,32 @@ public class TeamFightLayout extends BaseWheatLayout {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void ecM() {
-        this.oBt = new AlaLoadingToastView(getContext());
+        this.oBu = new AlaLoadingToastView(getContext());
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
         layoutParams.addRule(13);
-        this.oBt.setLayoutParams(layoutParams);
+        this.oBu.setLayoutParams(layoutParams);
         ViewGroup viewGroup = null;
         if (this.mTbPageContext != null && this.mTbPageContext.getPageActivity() != null) {
             viewGroup = (ViewGroup) this.mTbPageContext.getPageActivity().findViewById(a.f.ala_liveroom_view);
         }
         if (viewGroup != null) {
-            u.a(viewGroup, this.oBt, 650);
+            u.a(viewGroup, this.oBu, 650);
         } else {
-            this.oAD.addView(this.oBt);
+            this.oAE.addView(this.oBu);
         }
-        this.oBt.setVisibility(8);
-        this.oBt.setContent(getContext().getResources().getString(a.h.yuyin_ala_settlement_text));
+        this.oBu.setVisibility(8);
+        this.oBu.setContent(getContext().getResources().getString(a.h.yuyin_ala_settlement_text));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void ecN() {
-        this.oBm = new AddTimeEndGameView(getContext());
+        this.oBn = new AddTimeEndGameView(getContext());
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
         layoutParams.addRule(11);
         layoutParams.rightMargin = e.d(10.0f, getContext());
         layoutParams.topMargin = this.Yl + e.d(19.0f, getContext());
-        this.oBm.setLayoutParams(layoutParams);
-        this.oBm.setListener(new AddTimeEndGameView.a() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.view.TeamFightLayout.2
+        this.oBn.setLayoutParams(layoutParams);
+        this.oBn.setListener(new AddTimeEndGameView.a() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.view.TeamFightLayout.2
             @Override // com.baidu.tieba.yuyinala.liveroom.wheat.view.AddTimeEndGameView.a
             public void ect() {
                 JSONObject jSONObject = new JSONObject();
@@ -209,8 +209,8 @@ public class TeamFightLayout extends BaseWheatLayout {
                 return TeamFightLayout.this.Mf(i);
             }
         });
-        this.oAD.addView(this.oBm);
-        this.oBm.setVisibility(8);
+        this.oAE.addView(this.oBn);
+        this.oBn.setVisibility(8);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -220,7 +220,7 @@ public class TeamFightLayout extends BaseWheatLayout {
         int i3;
         int i4;
         int[] screenFullSize = ViewCommonUtil.getScreenFullSize(this.mTbPageContext.getPageActivity());
-        if (screenFullSize.length > 0 && screenFullSize[0] > 0 && screenFullSize[0] >= (this.oAB * 4) + e.d(14.0f, getContext())) {
+        if (screenFullSize.length > 0 && screenFullSize[0] > 0 && screenFullSize[0] >= (this.oAC * 4) + e.d(14.0f, getContext())) {
             i = (int) ((((screenFullSize[0] - (e.d(7.0f, getContext()) * 2)) * 1.0d) * 1101.0d) / 2400.0d);
             i2 = (int) (e.d(7.0f, getContext()) + (((screenFullSize[0] - (e.d(7.0f, getContext()) * 2)) * 41.0d) / 1200.0d));
             i3 = (int) (((screenFullSize[0] - (e.d(7.0f, getContext()) * 2)) * 11.5d) / 1200.0d);
@@ -231,98 +231,98 @@ public class TeamFightLayout extends BaseWheatLayout {
             i3 = (int) ((screenFullSize[0] * 11.5d) / 1200.0d);
             i4 = (int) (((screenFullSize[0] * 72) * 1.0d) / 120.0d);
         }
-        this.oBn = new TBLottieAnimationView(getContext());
-        this.oBn.setImageAssetsFolder("lottie/yuyin_connection_wheat_red_safety_mask/");
-        this.oBn.setAnimation("lottie/yuyin_connection_wheat_red_safety_mask.json");
+        this.oBo = new TBLottieAnimationView(getContext());
+        this.oBo.setImageAssetsFolder("lottie/yuyin_connection_wheat_red_safety_mask/");
+        this.oBo.setAnimation("lottie/yuyin_connection_wheat_red_safety_mask.json");
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(i, i4);
         layoutParams.leftMargin = i2;
-        layoutParams.topMargin = this.Yl + this.oAC + e.d(70.0f, getContext());
-        this.oBn.setLayoutParams(layoutParams);
-        this.oAD.addView(this.oBn);
-        this.oBo = new TBLottieAnimationView(getContext());
-        this.oBo.setImageAssetsFolder("lottie/yuyin_connection_wheat_red_advantage/");
-        this.oBo.setAnimation("lottie/yuyin_connection_wheat_red_advantage.json");
-        this.oBo.setRepeatMode(1);
-        this.oBo.setRepeatCount(-1);
+        layoutParams.topMargin = this.Yl + this.oAD + e.d(70.0f, getContext());
+        this.oBo.setLayoutParams(layoutParams);
+        this.oAE.addView(this.oBo);
+        this.oBp = new TBLottieAnimationView(getContext());
+        this.oBp.setImageAssetsFolder("lottie/yuyin_connection_wheat_red_advantage/");
+        this.oBp.setAnimation("lottie/yuyin_connection_wheat_red_advantage.json");
+        this.oBp.setRepeatMode(1);
+        this.oBp.setRepeatCount(-1);
         RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams(i, i4);
         layoutParams2.leftMargin = i2;
-        layoutParams2.topMargin = this.Yl + this.oAC + e.d(70.0f, getContext());
-        this.oBo.setLayoutParams(layoutParams2);
-        this.oAD.addView(this.oBo);
-        this.oBp = new TBLottieAnimationView(getContext());
-        this.oBp.setImageAssetsFolder("lottie/yuyin_connection_wheat_blue_safety_mask/");
-        this.oBp.setAnimation("lottie/yuyin_connection_wheat_blue_safety_mask.json");
-        RelativeLayout.LayoutParams layoutParams3 = new RelativeLayout.LayoutParams(i, i4);
-        layoutParams3.topMargin = this.Yl + this.oAC + e.d(70.0f, getContext());
-        layoutParams3.leftMargin = (screenFullSize[0] / 2) + i3;
-        this.oBp.setLayoutParams(layoutParams3);
-        this.oAD.addView(this.oBp);
+        layoutParams2.topMargin = this.Yl + this.oAD + e.d(70.0f, getContext());
+        this.oBp.setLayoutParams(layoutParams2);
+        this.oAE.addView(this.oBp);
         this.oBq = new TBLottieAnimationView(getContext());
-        this.oBq.setImageAssetsFolder("lottie/yuyin_connection_wheat_blue_advantage/");
-        this.oBq.setAnimation("lottie/yuyin_connection_wheat_blue_advantage.json");
-        this.oBq.setRepeatMode(1);
-        this.oBq.setRepeatCount(-1);
+        this.oBq.setImageAssetsFolder("lottie/yuyin_connection_wheat_blue_safety_mask/");
+        this.oBq.setAnimation("lottie/yuyin_connection_wheat_blue_safety_mask.json");
+        RelativeLayout.LayoutParams layoutParams3 = new RelativeLayout.LayoutParams(i, i4);
+        layoutParams3.topMargin = this.Yl + this.oAD + e.d(70.0f, getContext());
+        layoutParams3.leftMargin = (screenFullSize[0] / 2) + i3;
+        this.oBq.setLayoutParams(layoutParams3);
+        this.oAE.addView(this.oBq);
+        this.oBr = new TBLottieAnimationView(getContext());
+        this.oBr.setImageAssetsFolder("lottie/yuyin_connection_wheat_blue_advantage/");
+        this.oBr.setAnimation("lottie/yuyin_connection_wheat_blue_advantage.json");
+        this.oBr.setRepeatMode(1);
+        this.oBr.setRepeatCount(-1);
         RelativeLayout.LayoutParams layoutParams4 = new RelativeLayout.LayoutParams(i, i4);
         layoutParams4.leftMargin = (screenFullSize[0] / 2) + i3;
-        layoutParams4.topMargin = this.Yl + this.oAC + e.d(70.0f, getContext());
-        this.oBq.setLayoutParams(layoutParams4);
-        this.oAD.addView(this.oBq);
+        layoutParams4.topMargin = this.Yl + this.oAD + e.d(70.0f, getContext());
+        this.oBr.setLayoutParams(layoutParams4);
+        this.oAE.addView(this.oBr);
     }
 
     public void Mh(int i) {
         if (i == 0) {
-            if (this.oBn != null) {
-                this.oBn.setVisibility(0);
-                this.oBn.playAnimation();
-            }
-        } else if (i == 1) {
             if (this.oBo != null) {
                 this.oBo.setVisibility(0);
                 this.oBo.playAnimation();
             }
-        } else if (i == 2) {
+        } else if (i == 1) {
             if (this.oBp != null) {
                 this.oBp.setVisibility(0);
                 this.oBp.playAnimation();
             }
-        } else if (i == 3 && this.oBq != null) {
-            this.oBq.setVisibility(0);
-            this.oBq.playAnimation();
+        } else if (i == 2) {
+            if (this.oBq != null) {
+                this.oBq.setVisibility(0);
+                this.oBq.playAnimation();
+            }
+        } else if (i == 3 && this.oBr != null) {
+            this.oBr.setVisibility(0);
+            this.oBr.playAnimation();
         }
     }
 
     public void Mi(int i) {
         if (i == 0) {
-            if (this.oBn != null) {
-                this.oBn.setVisibility(8);
-                this.oBn.pauseAnimation();
-            }
-        } else if (i == 1) {
             if (this.oBo != null) {
                 this.oBo.setVisibility(8);
                 this.oBo.pauseAnimation();
             }
-        } else if (i == 2) {
+        } else if (i == 1) {
             if (this.oBp != null) {
                 this.oBp.setVisibility(8);
                 this.oBp.pauseAnimation();
             }
-        } else if (i == 3 && this.oBq != null) {
-            this.oBq.setVisibility(8);
-            this.oBq.pauseAnimation();
+        } else if (i == 2) {
+            if (this.oBq != null) {
+                this.oBq.setVisibility(8);
+                this.oBq.pauseAnimation();
+            }
+        } else if (i == 3 && this.oBr != null) {
+            this.oBr.setVisibility(8);
+            this.oBr.pauseAnimation();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void ecP() {
         int i;
-        this.oBr = new ImageView(getContext());
+        this.oBs = new ImageView(getContext());
         int d = e.d(228.0f, getContext());
         if (this.mTbPageContext == null || this.mTbPageContext.getPageActivity() == null) {
             i = 0;
         } else {
             int[] screenFullSize = ViewCommonUtil.getScreenFullSize(this.mTbPageContext.getPageActivity());
-            if (screenFullSize.length > 0 && screenFullSize[0] > 0 && screenFullSize[0] >= (this.oAB * 4) + e.d(14.0f, getContext())) {
+            if (screenFullSize.length > 0 && screenFullSize[0] > 0 && screenFullSize[0] >= (this.oAC * 4) + e.d(14.0f, getContext())) {
                 i = e.d(7.0f, getContext());
                 d = (int) ((((screenFullSize[0] - e.d(14.0f, getContext())) * 72) * 1.0d) / 120.0d);
             } else {
@@ -332,12 +332,12 @@ public class TeamFightLayout extends BaseWheatLayout {
         }
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, d);
         layoutParams.addRule(14);
-        layoutParams.topMargin = this.Yl + this.oAC + e.d(70.0f, getContext());
+        layoutParams.topMargin = this.Yl + this.oAD + e.d(70.0f, getContext());
         layoutParams.leftMargin = i;
         layoutParams.rightMargin = i;
-        this.oBr.setLayoutParams(layoutParams);
-        this.oBr.setBackgroundResource(a.e.yuyin_audio_wheat_team_fight_bg);
-        this.oAD.addView(this.oBr);
+        this.oBs.setLayoutParams(layoutParams);
+        this.oBs.setBackgroundResource(a.e.yuyin_audio_wheat_team_fight_bg);
+        this.oAE.addView(this.oBs);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -345,34 +345,34 @@ public class TeamFightLayout extends BaseWheatLayout {
         int[] iArr = new int[2];
         int[] screenFullSize = ViewCommonUtil.getScreenFullSize(this.mTbPageContext.getPageActivity());
         if (z) {
-            iArr[0] = (screenFullSize[0] / 2) - (this.oAB / 2);
+            iArr[0] = (screenFullSize[0] / 2) - (this.oAC / 2);
             iArr[1] = this.Yl;
         } else {
-            int d = ((this.mTbPageContext == null || this.mTbPageContext.getPageActivity() == null) && screenFullSize.length > 0 && screenFullSize[0] > 0 && screenFullSize[0] >= (this.oAB * 4) + e.d(5.0f, getContext())) ? e.d(5.0f, getContext()) : 0;
+            int d = ((this.mTbPageContext == null || this.mTbPageContext.getPageActivity() == null) && screenFullSize.length > 0 && screenFullSize[0] > 0 && screenFullSize[0] >= (this.oAC * 4) + e.d(5.0f, getContext())) ? e.d(5.0f, getContext()) : 0;
             if (i == 0) {
-                iArr[0] = (((screenFullSize[0] / 2) - this.oAB) - this.oAB) - d;
-                iArr[1] = this.Yl + this.oAC + e.d(75.0f, getContext());
+                iArr[0] = (((screenFullSize[0] / 2) - this.oAC) - this.oAC) - d;
+                iArr[1] = this.Yl + this.oAD + e.d(75.0f, getContext());
             } else if (i == 1) {
-                iArr[0] = ((screenFullSize[0] / 2) - this.oAB) - d;
-                iArr[1] = this.Yl + this.oAC + e.d(75.0f, getContext());
+                iArr[0] = ((screenFullSize[0] / 2) - this.oAC) - d;
+                iArr[1] = this.Yl + this.oAD + e.d(75.0f, getContext());
             } else if (i == 2) {
-                iArr[0] = (((screenFullSize[0] / 2) - this.oAB) - this.oAB) - d;
-                iArr[1] = this.Yl + this.oAC + e.d(75.0f, getContext()) + this.oAC;
+                iArr[0] = (((screenFullSize[0] / 2) - this.oAC) - this.oAC) - d;
+                iArr[1] = this.Yl + this.oAD + e.d(75.0f, getContext()) + this.oAD;
             } else if (i == 3) {
-                iArr[0] = ((screenFullSize[0] / 2) - this.oAB) - d;
-                iArr[1] = this.Yl + this.oAC + e.d(75.0f, getContext()) + this.oAC;
+                iArr[0] = ((screenFullSize[0] / 2) - this.oAC) - d;
+                iArr[1] = this.Yl + this.oAD + e.d(75.0f, getContext()) + this.oAD;
             } else if (i == 4) {
                 iArr[0] = d + (screenFullSize[0] / 2);
-                iArr[1] = this.Yl + this.oAC + e.d(75.0f, getContext());
+                iArr[1] = this.Yl + this.oAD + e.d(75.0f, getContext());
             } else if (i == 5) {
-                iArr[0] = d + (screenFullSize[0] / 2) + this.oAB;
-                iArr[1] = this.Yl + this.oAC + e.d(75.0f, getContext());
+                iArr[0] = d + (screenFullSize[0] / 2) + this.oAC;
+                iArr[1] = this.Yl + this.oAD + e.d(75.0f, getContext());
             } else if (i == 6) {
                 iArr[0] = d + (screenFullSize[0] / 2);
-                iArr[1] = this.Yl + this.oAC + e.d(75.0f, getContext()) + this.oAC;
+                iArr[1] = this.Yl + this.oAD + e.d(75.0f, getContext()) + this.oAD;
             } else if (i == 7) {
-                iArr[0] = d + (screenFullSize[0] / 2) + this.oAB;
-                iArr[1] = this.Yl + this.oAC + e.d(75.0f, getContext()) + this.oAC;
+                iArr[0] = d + (screenFullSize[0] / 2) + this.oAC;
+                iArr[1] = this.Yl + this.oAD + e.d(75.0f, getContext()) + this.oAD;
             } else {
                 iArr[1] = 0;
                 iArr[0] = 0;
@@ -384,16 +384,16 @@ public class TeamFightLayout extends BaseWheatLayout {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(int[] iArr, boolean z) {
         WheatItemView wheatItemView = new WheatItemView(getContext());
-        RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(this.oAB, this.oAC);
+        RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(this.oAC, this.oAD);
         layoutParams.leftMargin = iArr[0];
         layoutParams.topMargin = iArr[1];
         wheatItemView.setLayoutParams(layoutParams);
-        this.oAD.addView(wheatItemView);
-        wheatItemView.setOnItemClickListener(this.oAx);
+        this.oAE.addView(wheatItemView);
+        wheatItemView.setOnItemClickListener(this.oAy);
         if (z) {
-            this.oAy.add(wheatItemView);
-        } else {
             this.oAz.add(wheatItemView);
+        } else {
+            this.oAA.add(wheatItemView);
         }
     }
 
@@ -401,13 +401,13 @@ public class TeamFightLayout extends BaseWheatLayout {
     protected void onAttachedToWindow() {
         super.onAttachedToWindow();
         ecT();
-        MessageManager.getInstance().registerListener(this.okc);
+        MessageManager.getInstance().registerListener(this.okd);
     }
 
     @Override // android.view.ViewGroup, android.view.View
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        MessageManager.getInstance().unRegisterListener(this.okc);
+        MessageManager.getInstance().unRegisterListener(this.okd);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -431,9 +431,9 @@ public class TeamFightLayout extends BaseWheatLayout {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void ecw() {
-        this.oBw = 1;
-        this.oBs = new g(this.mTbPageContext);
-        this.oBs.a(new g.a() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.view.TeamFightLayout.4
+        this.oBx = 1;
+        this.oBt = new g(this.mTbPageContext);
+        this.oBt.a(new g.a() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.view.TeamFightLayout.4
             @Override // com.baidu.tieba.yuyinala.liveroom.wheat.dialog.g.a
             public void onCancel() {
             }
@@ -443,15 +443,15 @@ public class TeamFightLayout extends BaseWheatLayout {
                 TeamFightLayout.this.dM(1, 1);
             }
         });
-        this.oBs.show();
-        this.oBs.setText(getContext().getResources().getString(a.h.yuyin_ala_punish_team_fight_text));
+        this.oBt.show();
+        this.oBt.setText(getContext().getResources().getString(a.h.yuyin_ala_punish_team_fight_text));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void ecQ() {
-        this.oBw = 3;
-        this.oBs = new g(this.mTbPageContext);
-        this.oBs.a(new g.a() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.view.TeamFightLayout.5
+        this.oBx = 3;
+        this.oBt = new g(this.mTbPageContext);
+        this.oBt.a(new g.a() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.view.TeamFightLayout.5
             @Override // com.baidu.tieba.yuyinala.liveroom.wheat.dialog.g.a
             public void onCancel() {
             }
@@ -461,8 +461,8 @@ public class TeamFightLayout extends BaseWheatLayout {
                 TeamFightLayout.this.dM(3, 1);
             }
         });
-        this.oBs.show();
-        this.oBs.setText(getContext().getResources().getString(a.h.yuyin_ala_end_team_fight_text));
+        this.oBt.show();
+        this.oBt.setText(getContext().getResources().getString(a.h.yuyin_ala_end_team_fight_text));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -488,7 +488,7 @@ public class TeamFightLayout extends BaseWheatLayout {
 
     @Override // com.baidu.tieba.yuyinala.liveroom.wheat.view.BaseWheatLayout
     public int getWheatHeight() {
-        return this.Yl + this.oAC + e.d(298.0f, getContext());
+        return this.Yl + this.oAD + e.d(298.0f, getContext());
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -514,10 +514,10 @@ public class TeamFightLayout extends BaseWheatLayout {
 
     public void setTeamFightProgressData(String str) {
         JSONObject optJSONObject;
-        if (this.oBo == null || this.oBq == null) {
+        if (this.oBp == null || this.oBr == null) {
             return;
         }
-        if (this.oBn != null || this.oBp != null) {
+        if (this.oBo != null || this.oBq != null) {
             if (TextUtils.isEmpty(str)) {
                 ecT();
                 return;
@@ -527,54 +527,54 @@ public class TeamFightLayout extends BaseWheatLayout {
                 if (jSONObject != null && (optJSONObject = jSONObject.optJSONObject("data")) != null) {
                     this.activity_stage = optJSONObject.optInt("activity_stage");
                     JSONObject optJSONObject2 = optJSONObject.optJSONObject("pk_value");
-                    this.oiU = optJSONObject.optString("pk_winner");
+                    this.oiV = optJSONObject.optString("pk_winner");
                     if (optJSONObject2 != null) {
                         long parseLong = Long.parseLong(optJSONObject2.optString("a"));
                         long parseLong2 = Long.parseLong(optJSONObject2.optString(com.baidu.pass.biometrics.face.liveness.d.b.f4043a));
                         if (this.activity_stage == 1 && (parseLong != 0 || parseLong2 != 0)) {
                             if (parseLong == parseLong2) {
-                                if (!this.oBo.isAnimating() && !this.oBq.isAnimating()) {
+                                if (!this.oBp.isAnimating() && !this.oBr.isAnimating()) {
                                     Mh(1);
                                 }
                             } else if (parseLong > parseLong2) {
-                                if (!this.oBo.isAnimating()) {
+                                if (!this.oBp.isAnimating()) {
                                     Mh(1);
                                 }
                                 Mi(3);
                             } else {
-                                if (!this.oBq.isAnimating()) {
+                                if (!this.oBr.isAnimating()) {
                                     Mh(3);
                                 }
                                 Mi(1);
                             }
-                            if (parseLong > this.oBx) {
+                            if (parseLong > this.oBy) {
                                 Mh(0);
                             }
-                            if (parseLong2 > this.oBy) {
+                            if (parseLong2 > this.oBz) {
                                 Mh(2);
                             }
-                            this.oBx = parseLong;
-                            this.oBy = parseLong2;
+                            this.oBy = parseLong;
+                            this.oBz = parseLong2;
                         } else {
-                            this.oBx = 0L;
                             this.oBy = 0L;
+                            this.oBz = 0L;
                             ecT();
                         }
                         ecR();
                         ecS();
-                        if (this.oBm != null) {
+                        if (this.oBn != null) {
                             if (o.ebo().id(o.ebo().Wz())) {
-                                this.oBm.setVisibility(0);
-                                this.oBm.setButtonState(this.activity_stage);
+                                this.oBn.setVisibility(0);
+                                this.oBn.setButtonState(this.activity_stage);
                             } else {
-                                this.oBm.setVisibility(8);
+                                this.oBn.setVisibility(8);
                             }
                         }
-                        if (this.oBt != null) {
-                            this.oBt.setVisibility(this.activity_stage != 2 ? 8 : 0);
+                        if (this.oBu != null) {
+                            this.oBu.setVisibility(this.activity_stage != 2 ? 8 : 0);
                         }
-                        if (this.oBs != null && this.oBs.isShowing() && this.oBw != this.activity_stage) {
-                            this.oBs.dismiss();
+                        if (this.oBt != null && this.oBt.isShowing() && this.oBx != this.activity_stage) {
+                            this.oBt.dismiss();
                         }
                     }
                 }
@@ -585,38 +585,34 @@ public class TeamFightLayout extends BaseWheatLayout {
     }
 
     private void ecR() {
-        if (this.oBu == 0 && this.activity_stage == 1) {
-            this.oBu = 1;
+        if (this.oBv == 0 && this.activity_stage == 1) {
+            this.oBv = 1;
             View findViewById = (this.mTbPageContext == null || this.mTbPageContext.getPageActivity() == null) ? null : this.mTbPageContext.getPageActivity().findViewById(a.f.ala_liveroom_view);
             if (findViewById != null) {
                 com.baidu.tieba.yuyinala.liveroom.wheat.lottie.a.ebS().b((ViewGroup) findViewById, null);
             }
         } else if (this.activity_stage == 0) {
-            this.oBu = 0;
-        }
-    }
-
-    private void ecS() {
-        if (this.oBv == 0 && this.activity_stage == 3) {
-            this.oBv = 1;
-            View findViewById = (this.mTbPageContext == null || this.mTbPageContext.getPageActivity() == null) ? null : this.mTbPageContext.getPageActivity().findViewById(a.f.ala_liveroom_view);
-            if (findViewById != null) {
-                if ("a".equals(this.oiU)) {
-                    com.baidu.tieba.yuyinala.liveroom.wheat.lottie.a.ebS().c((ViewGroup) findViewById, null);
-                } else if (com.baidu.pass.biometrics.face.liveness.d.b.f4043a.equals(this.oiU)) {
-                    com.baidu.tieba.yuyinala.liveroom.wheat.lottie.a.ebS().d((ViewGroup) findViewById, null);
-                }
-            }
-        } else if (this.activity_stage == 0 || this.activity_stage == 1 || this.activity_stage == 2) {
             this.oBv = 0;
         }
     }
 
-    private void ecT() {
-        if (this.oBn != null) {
-            this.oBn.setVisibility(8);
-            this.oBn.pauseAnimation();
+    private void ecS() {
+        if (this.oBw == 0 && this.activity_stage == 3) {
+            this.oBw = 1;
+            View findViewById = (this.mTbPageContext == null || this.mTbPageContext.getPageActivity() == null) ? null : this.mTbPageContext.getPageActivity().findViewById(a.f.ala_liveroom_view);
+            if (findViewById != null) {
+                if ("a".equals(this.oiV)) {
+                    com.baidu.tieba.yuyinala.liveroom.wheat.lottie.a.ebS().c((ViewGroup) findViewById, null);
+                } else if (com.baidu.pass.biometrics.face.liveness.d.b.f4043a.equals(this.oiV)) {
+                    com.baidu.tieba.yuyinala.liveroom.wheat.lottie.a.ebS().d((ViewGroup) findViewById, null);
+                }
+            }
+        } else if (this.activity_stage == 0 || this.activity_stage == 1 || this.activity_stage == 2) {
+            this.oBw = 0;
         }
+    }
+
+    private void ecT() {
         if (this.oBo != null) {
             this.oBo.setVisibility(8);
             this.oBo.pauseAnimation();
@@ -628,6 +624,10 @@ public class TeamFightLayout extends BaseWheatLayout {
         if (this.oBq != null) {
             this.oBq.setVisibility(8);
             this.oBq.pauseAnimation();
+        }
+        if (this.oBr != null) {
+            this.oBr.setVisibility(8);
+            this.oBr.pauseAnimation();
         }
     }
 }

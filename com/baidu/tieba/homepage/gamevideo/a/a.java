@@ -79,18 +79,18 @@ public class a {
         }
     }
 
-    public void By(int i) {
+    public void Bx(int i) {
         if (this.jXe != null) {
-            this.jXe.By(i);
+            this.jXe.Bx(i);
         }
         if (this.jXf != null) {
-            this.jXf.By(i);
+            this.jXf.Bx(i);
         }
         if (this.jXg != null) {
-            this.jXg.By(i);
+            this.jXg.Bx(i);
         }
         if (this.jXh != null) {
-            this.jXh.By(i);
+            this.jXh.Bx(i);
         }
     }
 

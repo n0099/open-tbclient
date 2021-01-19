@@ -19,82 +19,74 @@ import com.baidu.tieba.tbadkCore.y;
 import java.io.File;
 /* loaded from: classes.dex */
 public class a implements NewWriteModel.d {
-    private final NewWriteModel nqR;
-    private boolean nqS;
-    private BdUniqueId nqT;
-    private String nqU;
+    private final NewWriteModel nqS;
+    private boolean nqT;
+    private BdUniqueId nqU;
     private String nqV;
     private String nqW;
+    private String nqX;
 
     public static a dMJ() {
         b.d("AsyncWriteHelper.getInstance()");
-        return C0870a.nqX;
+        return C0870a.nqY;
     }
 
     public boolean isAsyncWriting() {
-        return this.nqS;
+        return this.nqT;
     }
 
     public void a(@NonNull TbPageContextSupport tbPageContextSupport) {
         b.d("AsyncWriteHelper.initWriteStatus()");
-        this.nqR.h(tbPageContextSupport.getPageContext());
-        this.nqR.f((WriteData) null);
-        this.nqR.yl(false);
+        this.nqS.h(tbPageContextSupport.getPageContext());
+        this.nqS.f((WriteData) null);
+        this.nqS.yl(false);
     }
 
     public void setSpanGroupManager(SpanGroupManager spanGroupManager) {
         b.d("AsyncWriteHelper.setSpanGroupManager()");
-        this.nqR.dNb();
-        this.nqR.setSpanGroupManager(spanGroupManager);
+        this.nqS.dNb();
+        this.nqS.setSpanGroupManager(spanGroupManager);
     }
 
     public boolean dMK() {
         b.d("AsyncWriteHelper.startPostWrite()");
-        this.nqR.dNb();
-        this.nqS = this.nqR.dMY();
-        return this.nqS;
+        this.nqS.dNb();
+        this.nqT = this.nqS.dMY();
+        return this.nqT;
     }
 
     public void dML() {
         b.d("AsyncWriteHelper.onWriteActClose()");
-        this.nqR.h((com.baidu.adp.base.f<?>) null);
-        this.nqR.setSpanGroupManager(null);
+        this.nqS.h((com.baidu.adp.base.f<?>) null);
+        this.nqS.setSpanGroupManager(null);
     }
 
     public void cEk() {
         b.d("AsyncWriteHelper.cancelLoadData()");
-        this.nqR.cancelLoadData();
+        this.nqS.cancelLoadData();
     }
 
     public void yl(boolean z) {
         b.d("AsyncWriteHelper.setHasImage = " + z);
-        this.nqR.yl(z);
+        this.nqS.yl(z);
     }
 
     public void f(WriteData writeData) {
         b.d("AsyncWriteHelper.setWriteData = " + (writeData == null ? "null" : writeData.toDraftString()));
-        this.nqR.f(writeData);
+        this.nqS.f(writeData);
     }
 
     public WriteData cYx() {
-        b.d("AsyncWriteHelper.getWriteData = " + (this.nqR.cYx() == null ? "null" : this.nqR.cYx().toDraftString()));
-        return this.nqR.cYx();
+        b.d("AsyncWriteHelper.getWriteData = " + (this.nqS.cYx() == null ? "null" : this.nqS.cYx().toDraftString()));
+        return this.nqS.cYx();
     }
 
     public boolean dMM() {
-        b.d("AsyncWriteHelper.checkImageNum = " + this.nqR.dMM());
-        return this.nqR.dMM();
+        b.d("AsyncWriteHelper.checkImageNum = " + this.nqS.dMM());
+        return this.nqS.dMM();
     }
 
     public String dMN() {
-        return this.nqU;
-    }
-
-    public void SH(String str) {
-        this.nqU = str;
-    }
-
-    public String dMO() {
         return this.nqV;
     }
 
@@ -102,7 +94,7 @@ public class a implements NewWriteModel.d {
         this.nqV = str;
     }
 
-    public String dMP() {
+    public String dMO() {
         return this.nqW;
     }
 
@@ -110,12 +102,20 @@ public class a implements NewWriteModel.d {
         this.nqW = str;
     }
 
+    public String dMP() {
+        return this.nqX;
+    }
+
+    public void SK(String str) {
+        this.nqX = str;
+    }
+
     public BdUniqueId dMQ() {
-        return this.nqT;
+        return this.nqU;
     }
 
     public void D(BdUniqueId bdUniqueId) {
-        this.nqT = bdUniqueId;
+        this.nqU = bdUniqueId;
     }
 
     @Override // com.baidu.tieba.tbadkCore.writeModel.NewWriteModel.d
@@ -142,7 +142,7 @@ public class a implements NewWriteModel.d {
                 bg.a(writeData, 100).js(false);
                 c.a(postWriteCallBackData, ahVar, writeData, antiData);
             }
-            this.nqS = false;
+            this.nqT = false;
         }
     }
 
@@ -164,7 +164,7 @@ public class a implements NewWriteModel.d {
     }
 
     private void dMR() {
-        n.deleteFileOrDir(new File(com.baidu.tieba.video.c.nAB));
+        n.deleteFileOrDir(new File(com.baidu.tieba.video.c.nAC));
     }
 
     private void j(PostWriteCallBackData postWriteCallBackData) {
@@ -172,16 +172,16 @@ public class a implements NewWriteModel.d {
     }
 
     private a() {
-        this.nqS = false;
-        this.nqT = null;
-        this.nqR = new NewWriteModel();
-        this.nqR.b(this);
+        this.nqT = false;
+        this.nqU = null;
+        this.nqS = new NewWriteModel();
+        this.nqS.b(this);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.tieba.tbadkCore.writeModel.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
     public static class C0870a {
-        private static final a nqX = new a();
+        private static final a nqY = new a();
     }
 }

@@ -7,14 +7,14 @@ import java.util.HashMap;
 class ModernLinker extends Linker {
     static final /* synthetic */ boolean $assertionsDisabled;
     private boolean mInitialized = false;
-    private boolean oED = false;
-    private HashMap<String, Linker.LibInfo> oER = null;
-    private Bundle oES = null;
-    private boolean oEC = true;
-    private long oEG = -1;
+    private boolean oEE = false;
+    private HashMap<String, Linker.LibInfo> oES = null;
+    private Bundle oET = null;
+    private boolean oED = true;
     private long oEH = -1;
-    private boolean oEI = false;
-    private HashMap<String, Linker.LibInfo> oEJ = null;
+    private long oEI = -1;
+    private boolean oEJ = false;
+    private HashMap<String, Linker.LibInfo> oEK = null;
 
     private static native boolean nativeCreateSharedRelro(String str, long j, String str2, Linker.LibInfo libInfo);
 

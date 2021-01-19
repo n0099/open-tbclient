@@ -34,7 +34,7 @@ public class a extends BaseAdapter {
         }
     }
 
-    public void Na(String str) {
+    public void Nb(String str) {
         this.enU = str;
     }
 

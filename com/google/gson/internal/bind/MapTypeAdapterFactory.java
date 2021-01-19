@@ -36,19 +36,19 @@ public final class MapTypeAdapterFactory implements TypeAdapterFactory {
     }
 
     private TypeAdapter<?> a(Gson gson, Type type) {
-        return (type == Boolean.TYPE || type == Boolean.class) ? TypeAdapters.pJD : gson.getAdapter(com.google.gson.b.a.r(type));
+        return (type == Boolean.TYPE || type == Boolean.class) ? TypeAdapters.pJE : gson.getAdapter(com.google.gson.b.a.r(type));
     }
 
     /* loaded from: classes4.dex */
     private final class Adapter<K, V> extends TypeAdapter<Map<K, V>> {
-        private final e<? extends Map<K, V>> pIO;
-        private final TypeAdapter<K> pIZ;
-        private final TypeAdapter<V> pJa;
+        private final e<? extends Map<K, V>> pIP;
+        private final TypeAdapter<K> pJa;
+        private final TypeAdapter<V> pJb;
 
         public Adapter(Gson gson, Type type, TypeAdapter<K> typeAdapter, Type type2, TypeAdapter<V> typeAdapter2, e<? extends Map<K, V>> eVar) {
-            this.pIZ = new TypeAdapterRuntimeTypeWrapper(gson, typeAdapter, type);
-            this.pJa = new TypeAdapterRuntimeTypeWrapper(gson, typeAdapter2, type2);
-            this.pIO = eVar;
+            this.pJa = new TypeAdapterRuntimeTypeWrapper(gson, typeAdapter, type);
+            this.pJb = new TypeAdapterRuntimeTypeWrapper(gson, typeAdapter2, type2);
+            this.pIP = eVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -60,13 +60,13 @@ public final class MapTypeAdapterFactory implements TypeAdapterFactory {
                 aVar.ezd();
                 return null;
             }
-            Map<K, V> eyE = this.pIO.eyE();
+            Map<K, V> eyE = this.pIP.eyE();
             if (eyX == JsonToken.BEGIN_ARRAY) {
                 aVar.eyV();
                 while (aVar.hasNext()) {
                     aVar.eyV();
-                    K read = this.pIZ.read(aVar);
-                    if (eyE.put(read, this.pJa.read(aVar)) != null) {
+                    K read = this.pJa.read(aVar);
+                    if (eyE.put(read, this.pJb.read(aVar)) != null) {
                         throw new JsonSyntaxException("duplicate key: " + read);
                     }
                     aVar.endArray();
@@ -76,9 +76,9 @@ public final class MapTypeAdapterFactory implements TypeAdapterFactory {
             }
             aVar.eyW();
             while (aVar.hasNext()) {
-                d.pIh.a(aVar);
-                K read2 = this.pIZ.read(aVar);
-                if (eyE.put(read2, this.pJa.read(aVar)) != null) {
+                d.pIi.a(aVar);
+                K read2 = this.pJa.read(aVar);
+                if (eyE.put(read2, this.pJb.read(aVar)) != null) {
                     throw new JsonSyntaxException("duplicate key: " + read2);
                 }
             }
@@ -99,8 +99,8 @@ public final class MapTypeAdapterFactory implements TypeAdapterFactory {
             } else if (!MapTypeAdapterFactory.this.complexMapKeySerialization) {
                 bVar.ezo();
                 for (Map.Entry<K, V> entry : map.entrySet()) {
-                    bVar.YI(String.valueOf(entry.getKey()));
-                    this.pJa.write(bVar, entry.getValue());
+                    bVar.YJ(String.valueOf(entry.getKey()));
+                    this.pJb.write(bVar, entry.getValue());
                 }
                 bVar.ezp();
             } else {
@@ -108,7 +108,7 @@ public final class MapTypeAdapterFactory implements TypeAdapterFactory {
                 ArrayList arrayList2 = new ArrayList(map.size());
                 boolean z = false;
                 for (Map.Entry<K, V> entry2 : map.entrySet()) {
-                    JsonElement jsonTree = this.pIZ.toJsonTree(entry2.getKey());
+                    JsonElement jsonTree = this.pJa.toJsonTree(entry2.getKey());
                     arrayList.add(jsonTree);
                     arrayList2.add(entry2.getValue());
                     z = (jsonTree.isJsonArray() || jsonTree.isJsonObject()) | z;
@@ -119,7 +119,7 @@ public final class MapTypeAdapterFactory implements TypeAdapterFactory {
                     while (i < size) {
                         bVar.ezm();
                         h.a((JsonElement) arrayList.get(i), bVar);
-                        this.pJa.write(bVar, arrayList2.get(i));
+                        this.pJb.write(bVar, arrayList2.get(i));
                         bVar.ezn();
                         i++;
                     }
@@ -129,8 +129,8 @@ public final class MapTypeAdapterFactory implements TypeAdapterFactory {
                 bVar.ezo();
                 int size2 = arrayList.size();
                 while (i < size2) {
-                    bVar.YI(b((JsonElement) arrayList.get(i)));
-                    this.pJa.write(bVar, arrayList2.get(i));
+                    bVar.YJ(b((JsonElement) arrayList.get(i)));
+                    this.pJb.write(bVar, arrayList2.get(i));
                     i++;
                 }
                 bVar.ezp();

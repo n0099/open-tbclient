@@ -293,8 +293,8 @@ public class ConcernFragment extends BaseFragment implements am {
         this.jSk.setCallback(aVar);
     }
 
-    public void bc(String str, int i) {
-        this.jSk.bc(str, i);
+    public void bd(String str, int i) {
+        this.jSk.bd(str, i);
     }
 
     public void a(DataRes dataRes, boolean z) {

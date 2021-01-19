@@ -9,8 +9,8 @@ import java.util.concurrent.TimeUnit;
 /* loaded from: classes4.dex */
 public final class d {
     private Context d;
-    private com.yxcorp.kuaishou.addfp.a.b.b qbx;
-    public a qbJ = null;
+    private com.yxcorp.kuaishou.addfp.a.b.b qby;
+    public a qbK = null;
 
     /* renamed from: b  reason: collision with root package name */
     private String f14363b = null;
@@ -20,9 +20,9 @@ public final class d {
     private void a(boolean z) {
         try {
             if (z) {
-                this.qbx.a(this.qbJ);
+                this.qby.a(this.qbK);
             } else {
-                this.qbx.e();
+                this.qby.e();
             }
         } catch (Throwable th) {
             com.yxcorp.kuaishou.addfp.android.b.b.a(th);
@@ -31,8 +31,8 @@ public final class d {
 
     public final String a() {
         try {
-            if (this.qbJ != null) {
-                return this.qbJ.a();
+            if (this.qbK != null) {
+                return this.qbK.a();
             }
         } catch (RemoteException e) {
         }
@@ -48,13 +48,13 @@ public final class d {
 
     public final void a(Context context, com.yxcorp.kuaishou.addfp.a.b.b bVar) {
         try {
-            this.qbx = bVar;
+            this.qby = bVar;
             this.d = context;
             Intent intent = new Intent();
             intent.setClassName("com.samsung.android.deviceidservice", "com.samsung.android.deviceidservice.DeviceIdService");
             if (context.bindService(intent, this.f, 1)) {
                 this.e.await(2000L, TimeUnit.MILLISECONDS);
-                if (this.qbJ != null) {
+                if (this.qbK != null) {
                     a(true);
                 } else {
                     a(false);
@@ -70,6 +70,6 @@ public final class d {
     }
 
     public final boolean b() {
-        return this.qbJ != null;
+        return this.qbK != null;
     }
 }

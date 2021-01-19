@@ -11,7 +11,7 @@ public class a implements InnerIdSupplier {
 
     /* renamed from: a  reason: collision with root package name */
     private Context f5741a;
-    private SupplierListener pbz;
+    private SupplierListener pbA;
     private boolean f = false;
 
     /* renamed from: b  reason: collision with root package name */
@@ -29,11 +29,11 @@ public class a implements InnerIdSupplier {
         try {
             this.f = !TextUtils.isEmpty(this.c);
             if (this.f) {
-                if (this.pbz != null) {
-                    this.pbz.OnSupport(this.f, this);
+                if (this.pbA != null) {
+                    this.pbA.OnSupport(this.f, this);
                 }
-            } else if (this.pbz != null) {
-                this.pbz.OnSupport(this.f, new com.bun.miitmdid.supplier.a());
+            } else if (this.pbA != null) {
+                this.pbA.OnSupport(this.f, new com.bun.miitmdid.supplier.a());
             }
         } catch (Exception e) {
             com.bun.miitmdid.utils.a.a(getClass().getSimpleName(), "CallBack", e);
@@ -42,7 +42,7 @@ public class a implements InnerIdSupplier {
 
     @Override // com.bun.miitmdid.supplier.InnerIdSupplier
     public void a(SupplierListener supplierListener) {
-        this.pbz = supplierListener;
+        this.pbA = supplierListener;
         new Thread(new Runnable() { // from class: com.bun.miitmdid.supplier.b.a.1
             @Override // java.lang.Runnable
             public void run() {

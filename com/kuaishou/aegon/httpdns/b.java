@@ -13,7 +13,7 @@ public final /* synthetic */ class b implements a.InterfaceC1062a {
         this.f8113a = str;
     }
 
-    public static a.InterfaceC1062a YP(String str) {
+    public static a.InterfaceC1062a YQ(String str) {
         return new b(str);
     }
 

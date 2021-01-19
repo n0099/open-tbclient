@@ -961,7 +961,7 @@ public class c {
         int i2 = 100;
         if (this.gxn != null && this.kUH != null) {
             this.kUH.showProgress();
-            this.mStartPosition = com.baidu.tieba.play.n.dxY().PL(this.mVideoUrl);
+            this.mStartPosition = com.baidu.tieba.play.n.dxY().PM(this.mVideoUrl);
             if (this.mxO) {
                 this.gxn.setVolume(1.0f, 1.0f);
                 this.gxn.start();
@@ -974,7 +974,7 @@ public class c {
                     this.currentState = 1;
                     dxD();
                 }
-                this.mStartPosition = com.baidu.tieba.play.n.dxY().PL(this.mVideoUrl);
+                this.mStartPosition = com.baidu.tieba.play.n.dxY().PM(this.mVideoUrl);
                 this.kUH.setPlayer(this.gxn);
                 if (this.mStartPosition != 0) {
                     this.mxI = true;
@@ -1334,7 +1334,7 @@ public class c {
             this.abN = true;
             this.currentState = 1;
             this.gxn.b((TbVideoViewSet.a) null);
-            this.mStartPosition = com.baidu.tieba.play.n.dxY().PL(this.mVideoUrl);
+            this.mStartPosition = com.baidu.tieba.play.n.dxY().PM(this.mVideoUrl);
             this.mxI = true;
             if (this.mStartPosition > 100 && this.gxn.getDuration() > this.mStartPosition) {
                 i2 = this.mStartPosition;
@@ -1398,7 +1398,7 @@ public class c {
 
     public void dxv() {
         if (this.gxn.getDuration() >= this.gxn.getCurrentPosition()) {
-            com.baidu.tieba.play.n.dxY().bK(this.mVideoUrl, this.gxn.getCurrentPositionSync());
+            com.baidu.tieba.play.n.dxY().bL(this.mVideoUrl, this.gxn.getCurrentPositionSync());
         }
     }
 
@@ -1460,7 +1460,7 @@ public class c {
         this.mxx = hVar;
     }
 
-    public void Pl(String str) {
+    public void Pm(String str) {
         this.mab = str;
     }
 
@@ -1547,7 +1547,7 @@ public class c {
         kVm.unregister(this.mActivity);
     }
 
-    public void PK(String str) {
+    public void PL(String str) {
         this.kUU.setText(str);
     }
 

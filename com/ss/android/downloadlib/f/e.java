@@ -18,26 +18,26 @@ public class e {
     public static void a(JSONObject jSONObject, int i) {
         if (jSONObject != null) {
             com.ss.android.socialbase.downloader.k.a RA = com.ss.android.socialbase.downloader.k.a.RA(i);
-            JSONObject aat = RA.aat("anti_hijack_report_config");
-            if (aat != null) {
+            JSONObject aau = RA.aau("anti_hijack_report_config");
+            if (aau != null) {
                 try {
-                    g.a ZO = com.ss.android.socialbase.appdownloader.b.ZO(aat.optString("report_installer_pkg_name"));
-                    if (ZO != null) {
-                        jSONObject.put("installer_package_name", ZO.c());
-                        jSONObject.put("installer_version_code", ZO.f());
-                        jSONObject.put("installer_version_name", ZO.g());
+                    g.a ZP = com.ss.android.socialbase.appdownloader.b.ZP(aau.optString("report_installer_pkg_name"));
+                    if (ZP != null) {
+                        jSONObject.put("installer_package_name", ZP.c());
+                        jSONObject.put("installer_version_code", ZP.f());
+                        jSONObject.put("installer_version_name", ZP.g());
                     }
-                    g.a ZO2 = com.ss.android.socialbase.appdownloader.b.ZO(aat.optString("report_file_manager_pkg_name"));
-                    if (ZO2 != null) {
-                        jSONObject.put("file_manager_package_name", ZO2.c());
-                        jSONObject.put("file_manager_version_code", ZO2.f());
-                        jSONObject.put("file_manager_version_name", ZO2.g());
+                    g.a ZP2 = com.ss.android.socialbase.appdownloader.b.ZP(aau.optString("report_file_manager_pkg_name"));
+                    if (ZP2 != null) {
+                        jSONObject.put("file_manager_package_name", ZP2.c());
+                        jSONObject.put("file_manager_version_code", ZP2.f());
+                        jSONObject.put("file_manager_version_name", ZP2.g());
                     }
-                    g.a ZO3 = com.ss.android.socialbase.appdownloader.b.ZO(aat.optString("report_appstore_pkg_name"));
-                    if (ZO3 != null) {
-                        jSONObject.put("appstore_package_name", ZO3.c());
-                        jSONObject.put("appstore_version_code", ZO3.f());
-                        jSONObject.put("appstore_version_name", ZO3.g());
+                    g.a ZP3 = com.ss.android.socialbase.appdownloader.b.ZP(aau.optString("report_appstore_pkg_name"));
+                    if (ZP3 != null) {
+                        jSONObject.put("appstore_package_name", ZP3.c());
+                        jSONObject.put("appstore_version_code", ZP3.f());
+                        jSONObject.put("appstore_version_name", ZP3.g());
                     }
                     jSONObject.put("rom_version", com.ss.android.socialbase.downloader.m.g.g());
                 } catch (Throwable th) {
