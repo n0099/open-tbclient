@@ -372,7 +372,7 @@ public class PbPageRequestMessage extends NetMessage {
             builder.ori_ugc_type = Integer.valueOf(this.oriUgcType);
             builder.ori_ugc_vid = this.oriUgcVid;
             builder.after_ad_thread_count = Integer.valueOf(this.mAfterAdThreadCount);
-            builder.ad_context_list = com.baidu.tieba.recapp.report.b.dCd().QL("PB");
+            builder.ad_context_list = com.baidu.tieba.recapp.report.b.dCd().QM("PB");
             builder.up_schema = this.mSchemeUrl;
             builder.from_push = Integer.valueOf(this.from_push);
             builder.ad_ext_params = AdExtParam.a.bEB().rw(this.updateType).bEC();

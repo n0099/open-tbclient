@@ -59,7 +59,7 @@ public class FrsGameStrategyItemView extends com.baidu.tieba.card.b<com.baidu.ti
             bz bkV = bVar.bkV();
             this.mTitle.setText(bkV.getTitle());
             com.baidu.tieba.tbadkCore.util.d readThreadHistory = TbadkCoreApplication.getInst().getReadThreadHistory();
-            if (readThreadHistory != null && readThreadHistory.SC(bkV.getId())) {
+            if (readThreadHistory != null && readThreadHistory.SD(bkV.getId())) {
                 ao.setViewTextColor(this.mTitle, R.color.CAM_X0108);
             } else {
                 ao.setViewTextColor(this.mTitle, R.color.CAM_X0105);

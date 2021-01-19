@@ -55,7 +55,7 @@ public interface a {
             return jSONObject.toString();
         }
 
-        public static C0773a MP(String str) {
+        public static C0773a MQ(String str) {
             if (TextUtils.isEmpty(str)) {
                 return new C0773a();
             }
@@ -67,7 +67,7 @@ public interface a {
             }
         }
 
-        public void MQ(String str) {
+        public void MR(String str) {
             if (!TextUtils.isEmpty(str)) {
                 try {
                     JSONArray optJSONArray = new JSONObject(str).optJSONArray(SocialConstants.PARAM_IMAGE);

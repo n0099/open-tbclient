@@ -14,20 +14,20 @@ import com.baidu.tieba.yuyinala.liveroom.wheat.model.a;
 import org.json.JSONObject;
 /* loaded from: classes10.dex */
 public class a {
-    private static a owe;
-    private InterfaceC0938a owd;
-    com.baidu.tieba.yuyinala.liveroom.wheat.a.e owf = new com.baidu.tieba.yuyinala.liveroom.wheat.a.e() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.c.a.3
+    private static a owf;
+    private InterfaceC0938a owe;
+    com.baidu.tieba.yuyinala.liveroom.wheat.a.e owg = new com.baidu.tieba.yuyinala.liveroom.wheat.a.e() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.c.a.3
         @Override // com.baidu.tieba.yuyinala.liveroom.wheat.a.e, com.baidu.tieba.yuyinala.liveroom.wheat.a.d
         public void onError(int i, int i2, String str) {
-            if (a.this.owd != null) {
-                a.this.owd.onFail();
+            if (a.this.owe != null) {
+                a.this.owe.onFail();
             }
         }
 
         @Override // com.baidu.tieba.yuyinala.liveroom.wheat.a.e, com.baidu.tieba.yuyinala.liveroom.wheat.a.d
         public void LX(int i) {
-            if (a.this.owd != null) {
-                a.this.owd.onSuccess();
+            if (a.this.owe != null) {
+                a.this.owe.onSuccess();
             }
         }
     };
@@ -35,7 +35,7 @@ public class a {
     /* renamed from: com.baidu.tieba.yuyinala.liveroom.wheat.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes10.dex */
     public interface InterfaceC0938a {
-        void Vh(String str);
+        void Vi(String str);
 
         void onFail();
 
@@ -43,10 +43,10 @@ public class a {
     }
 
     public static a eaR() {
-        if (owe == null) {
-            owe = new a();
+        if (owf == null) {
+            owf = new a();
         }
-        return owe;
+        return owf;
     }
 
     public void b(final String str, final String str2, final String str3, final long j, String str4) {
@@ -61,8 +61,8 @@ public class a {
 
             @Override // com.baidu.tieba.yuyinala.liveroom.wheat.model.a.InterfaceC0941a
             public void b(AlaAcceptConnectionWheatHttpResponseMessage alaAcceptConnectionWheatHttpResponseMessage) {
-                if (a.this.owd != null) {
-                    a.this.owd.onFail();
+                if (a.this.owe != null) {
+                    a.this.owe.onFail();
                 }
                 JSONObject jSONObject = new JSONObject();
                 try {
@@ -82,8 +82,8 @@ public class a {
     }
 
     public void b(String str, String str2, String str3, long j, String str4, String str5) {
-        if (o.ebo().UU(str)) {
-            com.baidu.tieba.yuyinala.liveroom.wheat.a.c.eax().b(this.owf).L(com.baidu.tieba.yuyinala.liveroom.wheat.a.c.eax().eaC(), TbadkCoreApplication.getCurrentAccountInfo().getAccountNameShow(), str4, str5);
+        if (o.ebo().UV(str)) {
+            com.baidu.tieba.yuyinala.liveroom.wheat.a.c.eax().b(this.owg).L(com.baidu.tieba.yuyinala.liveroom.wheat.a.c.eax().eaC(), TbadkCoreApplication.getCurrentAccountInfo().getAccountNameShow(), str4, str5);
             return;
         }
         com.baidu.tieba.yuyinala.liveroom.wheat.a.c.eax().eaz().a(str, str2, str3, j, com.baidu.tieba.yuyinala.liveroom.wheat.a.c.eax().eaC(), true, str4, str5, new IStatusListener() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.c.a.2
@@ -103,18 +103,18 @@ public class a {
                         BdLog.e(e);
                     }
                     UbcStatisticManager.getInstance().logEvent(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_AUDIO_OWNER_JOIN_CHAT, UbcStatConstant.ContentType.UBC_TYPE_AUDIO_LIVE_CHAT, UbcStatConstant.Page.AUDIO_LIVE_ROOM, "user_apply_join_chat_result").setContentExt(jSONObject));
-                    if (a.this.owd != null) {
-                        a.this.owd.onFail();
+                    if (a.this.owe != null) {
+                        a.this.owe.onFail();
                     }
                 }
             }
         });
-        if (this.owd != null) {
-            this.owd.Vh(str);
+        if (this.owe != null) {
+            this.owe.Vi(str);
         }
     }
 
     public void a(InterfaceC0938a interfaceC0938a) {
-        this.owd = interfaceC0938a;
+        this.owe = interfaceC0938a;
     }
 }

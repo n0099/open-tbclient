@@ -10,15 +10,15 @@ public final class f {
     private final Class c;
     private String[] e;
     private String[] f;
-    public h qbW;
-    public i qbX;
+    public h qbX;
+    public i qbY;
 
     private f() {
         this.e = null;
         this.f = null;
         this.c = b();
-        this.qbW = new h(this);
-        this.qbX = new i(this);
+        this.qbX = new h(this);
+        this.qbY = new i(this);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -96,7 +96,7 @@ public final class f {
     public static f je(Context context) {
         f fVar;
         d = context;
-        fVar = g.qbY;
+        fVar = g.qbZ;
         return fVar;
     }
 }

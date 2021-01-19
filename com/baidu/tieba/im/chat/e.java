@@ -257,7 +257,7 @@ public class e extends com.baidu.adp.base.c<MsglistActivity<?>> {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void Cr(int i) {
+    public void Cq(int i) {
         this.ksB.setVisibility(i);
     }
 
@@ -330,7 +330,7 @@ public class e extends com.baidu.adp.base.c<MsglistActivity<?>> {
         this.ksD = z;
     }
 
-    public void Cq(int i) {
+    public void Cp(int i) {
         this.ksh = i;
     }
 }

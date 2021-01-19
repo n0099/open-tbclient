@@ -54,7 +54,7 @@ public class KSNativeAdSingleImgH5OpenView extends o1 {
             if (ksImage != null && ksImage.isValid()) {
                 this.e = (ksImage.getWidth() * 1.0f) / (ksImage.getHeight() * 1.0f);
                 m.a("KSNativeAd Single img width: " + ksImage.getWidth() + ", height: " + ksImage.getHeight());
-                ap.a.pFk.a(this, ksImage.getImageUrl(), this.f7832b);
+                ap.a.pFl.a(this, ksImage.getImageUrl(), this.f7832b);
             }
         }
         this.f7831a.setText(ksNativeAd.getAdDescription());

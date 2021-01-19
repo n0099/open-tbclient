@@ -55,18 +55,18 @@ public final class j implements h {
 
     /* renamed from: java  reason: collision with other field name */
     private ag f63java;
-    private boolean pYL;
-    private y pZk;
-    private boolean pZl;
-    private y.Ccase pZm;
+    private boolean pYM;
+    private y pZl;
+    private boolean pZm;
+    private y.Ccase pZn;
 
     public j(y yVar) {
-        this.pZk = yVar;
+        this.pZl = yVar;
     }
 
     @Override // com.win.opensdk.h
     public final boolean java() {
-        return this.pYL;
+        return this.pYM;
     }
 
     /* JADX WARN: Can't wrap try/catch for region: R(13:14|(1:16)(1:42)|17|(1:19)(1:41)|20|(7:22|(1:24)(2:37|(1:39))|25|(1:36)(1:29)|30|31|32)|40|25|(1:27)|36|30|31|32) */
@@ -80,12 +80,12 @@ public final class j implements h {
     public final void a(y yVar) {
         int[] iArr;
         boolean z;
-        if (this.pZk != null && !this.pZl) {
-            String str = this.pZk.getMraidMideaType() == af.BANNER ? "inline" : "interstitial";
-            this.pYL = yVar.getMraidState().equals(ag.STATE_EXPANDED);
+        if (this.pZl != null && !this.pZm) {
+            String str = this.pZl.getMraidMideaType() == af.BANNER ? "inline" : "interstitial";
+            this.pYM = yVar.getMraidState().equals(ag.STATE_EXPANDED);
             g.e(yVar, "javascript:window.mraidbridge.setPlacementType('" + str + "')");
-            if (!this.pYL) {
-                if (this.pZk != null) {
+            if (!this.pYM) {
+                if (this.pZl != null) {
                     boolean z2 = ax(new Intent("android.intent.action.VIEW", Uri.parse("sms:11035000")));
                     boolean z3 = ax(new Intent("android.intent.action.VIEW", Uri.parse("tel:11035000")));
                     if (Build.VERSION.SDK_INT >= 14) {
@@ -94,35 +94,35 @@ public final class j implements h {
                         } else if (ax(new Intent("android.intent.action.EDIT").setType("vnd.android.cursor.item/event"))) {
                             z = true;
                         }
-                        boolean z4 = this.pZk.getContext().getPackageManager().checkPermission("android.permission.WRITE_EXTERNAL_STORAGE", this.pZk.getContext().getPackageName()) != 0 && Build.VERSION.SDK_INT >= 11;
+                        boolean z4 = this.pZl.getContext().getPackageManager().checkPermission("android.permission.WRITE_EXTERNAL_STORAGE", this.pZl.getContext().getPackageName()) != 0 && Build.VERSION.SDK_INT >= 11;
                         boolean z5 = f((Activity) yVar.getViewContext(), yVar);
-                        g.e(this.pZk, "javascript:window.mraidbridge.setSupports(" + z2 + "," + z3 + "," + z + "," + z4 + "," + z5 + ")");
+                        g.e(this.pZl, "javascript:window.mraidbridge.setSupports(" + z2 + "," + z3 + "," + z + "," + z4 + "," + z5 + ")");
                     }
                     z = false;
-                    if (this.pZk.getContext().getPackageManager().checkPermission("android.permission.WRITE_EXTERNAL_STORAGE", this.pZk.getContext().getPackageName()) != 0) {
+                    if (this.pZl.getContext().getPackageManager().checkPermission("android.permission.WRITE_EXTERNAL_STORAGE", this.pZl.getContext().getPackageName()) != 0) {
                     }
                     boolean z52 = f((Activity) yVar.getViewContext(), yVar);
-                    g.e(this.pZk, "javascript:window.mraidbridge.setSupports(" + z2 + "," + z3 + "," + z + "," + z4 + "," + z52 + ")");
+                    g.e(this.pZl, "javascript:window.mraidbridge.setSupports(" + z2 + "," + z3 + "," + z + "," + z4 + "," + z52 + ")");
                 }
                 a();
                 eGA();
-                if (this.pZk != null) {
+                if (this.pZl != null) {
                     try {
                         int[] iArr2 = new int[2];
-                        this.pZk.getLocationOnScreen(iArr2);
-                        iArr2[1] = iArr2[1] - (this.pZk.getViewContext() instanceof Activity ? ((Activity) this.pZk.getViewContext()).getWindow().findViewById(16908290).getTop() : 0);
-                        this.pZk.measure(0, 0);
-                        bi.b(this.pZk.getViewContext(), new int[]{this.pZk.getMeasuredWidth(), this.pZk.getMeasuredHeight()});
-                        g.e(this.pZk, "javascript:window.mraidbridge.setDefaultPosition(" + iArr2[0] + "," + iArr2[1] + "," + iArr[0] + "," + iArr[1] + ")");
+                        this.pZl.getLocationOnScreen(iArr2);
+                        iArr2[1] = iArr2[1] - (this.pZl.getViewContext() instanceof Activity ? ((Activity) this.pZl.getViewContext()).getWindow().findViewById(16908290).getTop() : 0);
+                        this.pZl.measure(0, 0);
+                        bi.b(this.pZl.getViewContext(), new int[]{this.pZl.getMeasuredWidth(), this.pZl.getMeasuredHeight()});
+                        g.e(this.pZl, "javascript:window.mraidbridge.setDefaultPosition(" + iArr2[0] + "," + iArr2[1] + "," + iArr[0] + "," + iArr[1] + ")");
                     } catch (Exception e) {
                     }
                 }
             }
-            this.pZk.eGz();
+            this.pZl.eGz();
             a(yVar, yVar.getMraidState());
             g.e(yVar, "javascript:window.mraidbridge.notifyReadyEvent()");
-            this.pZl = true;
-            CC(this.pZk.java());
+            this.pZm = true;
+            CC(this.pZl.java());
         }
     }
 
@@ -139,26 +139,26 @@ public final class j implements h {
     }
 
     private boolean ax(Intent intent) {
-        if (this.pZk == null) {
+        if (this.pZl == null) {
             return false;
         }
         try {
-            return this.pZk.getContext().getPackageManager().queryIntentActivities(intent, 0).size() > 0;
+            return this.pZl.getContext().getPackageManager().queryIntentActivities(intent, 0).size() > 0;
         } catch (Exception e) {
             return false;
         }
     }
 
     private void CC(boolean z) {
-        if (this.pZk != null && this.pZl) {
+        if (this.pZl != null && this.pZm) {
             this.f13750a = z;
-            g.b(this.pZk, z);
+            g.b(this.pZl, z);
         }
     }
 
     @Override // com.win.opensdk.h
     public final void S(int i, int i2, int i3, int i4) {
-        if (this.pZk != null) {
+        if (this.pZl != null) {
             try {
                 int[] iArr = new int[4];
                 if (iArr[0] != i || iArr[1] != i2 || iArr[2] != i3 || iArr[3] != i4) {
@@ -166,14 +166,14 @@ public final class j implements h {
                     iArr[1] = i2;
                     iArr[2] = i3;
                     iArr[3] = i4;
-                    int[] iArr2 = {i, i2 - (this.pZk.getViewContext() instanceof Activity ? ((Activity) this.pZk.getViewContext()).getWindow().findViewById(16908290).getTop() : 0), i3, i4};
-                    bi.b(this.pZk.getViewContext(), iArr2);
+                    int[] iArr2 = {i, i2 - (this.pZl.getViewContext() instanceof Activity ? ((Activity) this.pZl.getViewContext()).getWindow().findViewById(16908290).getTop() : 0), i3, i4};
+                    bi.b(this.pZl.getViewContext(), iArr2);
                     int i5 = iArr2[0];
                     int i6 = iArr2[1];
                     int i7 = iArr2[2];
                     int i8 = iArr2[3];
-                    g.e(this.pZk, "javascript:window.mraidbridge.setCurrentPosition(" + i5 + "," + i6 + "," + i7 + "," + i8 + ")");
-                    g.e(this.pZk, "javascript:window.mraidbridge.notifySizeChangeEvent(" + i7 + "," + i8 + ")");
+                    g.e(this.pZl, "javascript:window.mraidbridge.setCurrentPosition(" + i5 + "," + i6 + "," + i7 + "," + i8 + ")");
+                    g.e(this.pZl, "javascript:window.mraidbridge.notifySizeChangeEvent(" + i7 + "," + i8 + ")");
                 }
             } catch (Exception e) {
             }
@@ -184,28 +184,28 @@ public final class j implements h {
     public final void eGz() {
         Activity activity;
         try {
-            if (this.pZk != null) {
-                if (this.f13751b || this.c || this.pYL) {
-                    this.pZk.eGA();
-                    a(this.pZk, ag.STATE_DEFAULT);
-                    if (!this.pZk.eGX() && !this.pYL) {
-                        this.pZk.getDispatcher().eGA();
+            if (this.pZl != null) {
+                if (this.f13751b || this.c || this.pYM) {
+                    this.pZl.eGA();
+                    a(this.pZl, ag.STATE_DEFAULT);
+                    if (!this.pZl.eGX() && !this.pYM) {
+                        this.pZl.getDispatcher().eGA();
                     }
-                    if (!this.pZk.m79a() && !this.pYL) {
-                        this.pZk.getDispatcher().eGA();
+                    if (!this.pZl.m79a() && !this.pYM) {
+                        this.pZl.getDispatcher().eGA();
                     }
-                    if ((this.pZk.getViewContext() instanceof Activity) && (activity = (Activity) this.pZk.getViewContext()) != null) {
+                    if ((this.pZl.getViewContext() instanceof Activity) && (activity = (Activity) this.pZl.getViewContext()) != null) {
                         activity.setRequestedOrientation(-1);
                     }
                     this.f13751b = false;
                     this.c = false;
-                    this.pZm = null;
-                } else if (this.pZk.eGX()) {
-                    this.pZk.getDispatcher().eGA();
-                } else if (this.pZk.m79a()) {
-                    this.pZk.getDispatcher().eGA();
+                    this.pZn = null;
+                } else if (this.pZl.eGX()) {
+                    this.pZl.getDispatcher().eGA();
+                } else if (this.pZl.m79a()) {
+                    this.pZl.getDispatcher().eGA();
                 } else {
-                    y yVar = this.pZk;
+                    y yVar = this.pZl;
                     if (yVar.getVisibility() == 8) {
                         return;
                     }
@@ -217,9 +217,9 @@ public final class j implements h {
     }
 
     private void CD(boolean z) {
-        if (this.pZk != null) {
+        if (this.pZl != null) {
             try {
-                this.pZk.setMRAIDUseCustomClose(z);
+                this.pZl.setMRAIDUseCustomClose(z);
             } catch (Exception e) {
             }
         }
@@ -230,7 +230,7 @@ public final class j implements h {
         DisplayMetrics displayMetrics;
         char c;
         String decode;
-        if (this.pZk != null) {
+        if (this.pZl != null) {
             String str = null;
             try {
                 Iterator<Pair<String, String>> it = arrayList.iterator();
@@ -300,12 +300,12 @@ public final class j implements h {
                 }
                 if (!TextUtils.isEmpty(str)) {
                     try {
-                        this.pZm = new y.Ccase(this.pZk.getViewContext(), this.pZk.getMraidMideaType(), this);
-                        this.pZm.loadUrl(str);
+                        this.pZn = new y.Ccase(this.pZl.getViewContext(), this.pZl.getMraidMideaType(), this);
+                        this.pZn.loadUrl(str);
                     } catch (Exception e3) {
                     }
                 } else {
-                    y yVar = this.pZk;
+                    y yVar = this.pZl;
                     ((WindowManager) yVar.getContext().getSystemService("window")).getDefaultDisplay().getMetrics(new DisplayMetrics());
                     FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(yVar.getLayoutParams());
                     int i3 = i != -1 ? (int) ((i * displayMetrics.density) + 0.5d) : i;
@@ -315,25 +315,25 @@ public final class j implements h {
                     layoutParams.gravity = 17;
                     yVar.setLayoutParams(layoutParams);
                 }
-                a(this.pZk, ag.STATE_EXPANDED);
+                a(this.pZl, ag.STATE_EXPANDED);
                 this.f13751b = true;
                 CD(z);
-                this.pZk.getDispatcher();
+                this.pZl.getDispatcher();
             } catch (Exception e4) {
             }
         }
     }
 
     @Override // com.win.opensdk.h
-    public final boolean aaC(String str) {
-        if (this.pZk == null || TextUtils.isEmpty(str)) {
+    public final boolean aaD(String str) {
+        if (this.pZl == null || TextUtils.isEmpty(str)) {
             return false;
         }
-        return this.pZk.getDispatcher().aaC(str);
+        return this.pZl.getDispatcher().aaD(str);
     }
 
     private void br(ArrayList<Pair<String, String>> arrayList) {
-        if (this.pZk != null) {
+        if (this.pZl != null) {
             String str = null;
             Iterator<Pair<String, String>> it = arrayList.iterator();
             while (it.hasNext()) {
@@ -342,7 +342,7 @@ public final class j implements h {
             }
             if (str != null) {
                 final String decode = Uri.decode(str);
-                AlertDialog.Builder builder = new AlertDialog.Builder(bi.ey(this.pZk));
+                AlertDialog.Builder builder = new AlertDialog.Builder(bi.ey(this.pZl));
                 builder.setTitle(d.e.store_picture_title);
                 builder.setMessage(d.e.store_picture_message);
                 builder.setPositiveButton(d.e.store_picture_accept, new DialogInterface.OnClickListener() { // from class: com.win.opensdk.j.1
@@ -381,7 +381,7 @@ public final class j implements h {
                             }
                             try {
                                 if (file.canWrite()) {
-                                    fileOutputStream.write(!z ? bc.aaJ(decode.substring(decode.lastIndexOf(",") + 1, decode.length())) : Base64.decode(decode.substring(decode.lastIndexOf(",") + 1, decode.length()), 0));
+                                    fileOutputStream.write(!z ? bc.aaK(decode.substring(decode.lastIndexOf(",") + 1, decode.length())) : Base64.decode(decode.substring(decode.lastIndexOf(",") + 1, decode.length()), 0));
                                 }
                                 try {
                                     fileOutputStream.close();
@@ -394,7 +394,7 @@ public final class j implements h {
                                     } catch (IOException e6) {
                                     }
                                 }
-                                j.this.pZk.getDispatcher().aaC(null);
+                                j.this.pZl.getDispatcher().aaD(null);
                             } catch (IOException e7) {
                                 if (fileOutputStream != null) {
                                     try {
@@ -402,7 +402,7 @@ public final class j implements h {
                                     } catch (IOException e8) {
                                     }
                                 }
-                                j.this.pZk.getDispatcher().aaC(null);
+                                j.this.pZl.getDispatcher().aaD(null);
                             } catch (IllegalArgumentException e9) {
                                 if (fileOutputStream != null) {
                                     try {
@@ -410,7 +410,7 @@ public final class j implements h {
                                     } catch (IOException e10) {
                                     }
                                 }
-                                j.this.pZk.getDispatcher().aaC(null);
+                                j.this.pZl.getDispatcher().aaD(null);
                             } catch (Throwable th3) {
                                 th = th3;
                                 fileOutputStream2 = fileOutputStream;
@@ -423,9 +423,9 @@ public final class j implements h {
                                 throw th;
                             }
                         } else {
-                            DownloadManager downloadManager = (DownloadManager) j.this.pZk.getContext().getSystemService("download");
+                            DownloadManager downloadManager = (DownloadManager) j.this.pZl.getContext().getSystemService("download");
                             DownloadManager.Request request = new DownloadManager.Request(Uri.parse(decode));
-                            if (j.this.pZk.getContext().getPackageManager().checkPermission("android.permission.WRITE_EXTERNAL_STORAGE", j.this.pZk.getContext().getPackageName()) == 0) {
+                            if (j.this.pZl.getContext().getPackageManager().checkPermission("android.permission.WRITE_EXTERNAL_STORAGE", j.this.pZl.getContext().getPackageName()) == 0) {
                                 request.setDestinationInExternalPublicDir(Environment.DIRECTORY_PICTURES, decode.split("/")[decode.split("/").length - 1]);
                                 try {
                                     request.allowScanningByMediaScanner();
@@ -435,7 +435,7 @@ public final class j implements h {
                                 }
                             }
                         }
-                        j.this.pZk.getDispatcher().aaC(null);
+                        j.this.pZl.getDispatcher().aaD(null);
                     }
                 });
                 builder.setNegativeButton(d.e.store_picture_decline, new DialogInterface.OnClickListener() { // from class: com.win.opensdk.j.2
@@ -451,7 +451,7 @@ public final class j implements h {
     private void a(ArrayList<Pair<String, String>> arrayList) {
         boolean z;
         int i;
-        if (this.pZk != null) {
+        if (this.pZl != null) {
             int i2 = aj.java;
             Iterator<Pair<String, String>> it = arrayList.iterator();
             int i3 = i2;
@@ -476,8 +476,8 @@ public final class j implements h {
                     i3 = i;
                 }
             }
-            if ((this.f13751b || this.pZk.eGX() || this.pZk.m79a()) && (this.pZk.getViewContext() instanceof Activity)) {
-                Activity activity = (Activity) this.pZk.getViewContext();
+            if ((this.f13751b || this.pZl.eGX() || this.pZl.m79a()) && (this.pZl.getViewContext() instanceof Activity)) {
+                Activity activity = (Activity) this.pZl.getViewContext();
                 if (z2) {
                     activity.setRequestedOrientation(-1);
                     return;
@@ -542,7 +542,7 @@ public final class j implements h {
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
     private void b(ArrayList<Pair<String, String>> arrayList) {
         char c;
-        if (this.pZk != null) {
+        if (this.pZl != null) {
             Iterator<Pair<String, String>> it = arrayList.iterator();
             String str = "top-right";
             int i = -1;
@@ -628,7 +628,7 @@ public final class j implements h {
                     MraidLayout.java.valueOf(str.replace('-', '_'));
                 } catch (IllegalArgumentException e2) {
                 }
-                y yVar = this.pZk;
+                y yVar = this.pZl;
                 DisplayMetrics displayMetrics = new DisplayMetrics();
                 ((WindowManager) yVar.getContext().getSystemService("window")).getDefaultDisplay().getMetrics(displayMetrics);
                 FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(yVar.getLayoutParams());
@@ -637,12 +637,12 @@ public final class j implements h {
                 layoutParams.width = (int) ((f * i2) + 0.5d);
                 layoutParams.gravity = 17;
                 yVar.setLayoutParams(layoutParams);
-                this.pZk.getDispatcher().aaC(null);
-                a(this.pZk, ag.STATE_RESIZED);
+                this.pZl.getDispatcher().aaD(null);
+                a(this.pZl, ag.STATE_RESIZED);
                 this.c = true;
                 return;
             }
-            g.e(this.pZk, "javascript:window.mraidbridge.notifyErrorEvent('Resize called with resizeProperties larger than the screen.','mraid.resize()')");
+            g.e(this.pZl, "javascript:window.mraidbridge.notifyErrorEvent('Resize called with resizeProperties larger than the screen.','mraid.resize()')");
         }
     }
 
@@ -660,13 +660,13 @@ public final class j implements h {
 
     @Override // com.win.opensdk.h
     public final void eGA() {
-        if (this.pZk != null) {
+        if (this.pZl != null) {
             try {
-                int[] iX = bi.iX(this.pZk.getViewContext());
+                int[] iX = bi.iX(this.pZl.getViewContext());
                 int i = iX[0];
-                int top = iX[1] - (this.pZk.getViewContext() instanceof Activity ? ((Activity) this.pZk.getViewContext()).getWindow().findViewById(16908290).getTop() : 0);
-                float f = this.pZk.getViewContext().getResources().getDisplayMetrics().density;
-                g.a(this.pZk, (int) ((i / f) + 0.5f), (int) ((top / f) + 0.5f));
+                int top = iX[1] - (this.pZl.getViewContext() instanceof Activity ? ((Activity) this.pZl.getViewContext()).getWindow().findViewById(16908290).getTop() : 0);
+                float f = this.pZl.getViewContext().getResources().getDisplayMetrics().density;
+                g.a(this.pZl, (int) ((i / f) + 0.5f), (int) ((top / f) + 0.5f));
             } catch (Exception e) {
             }
         }
@@ -674,12 +674,12 @@ public final class j implements h {
 
     @Override // com.win.opensdk.h
     public final void a() {
-        if (this.pZk != null) {
+        if (this.pZl != null) {
             try {
-                int[] iY = bi.iY(this.pZk.getViewContext());
+                int[] iY = bi.iY(this.pZl.getViewContext());
                 this.f62java = iY[0];
                 this.f61case = iY[1];
-                g.b(this.pZk, this.f62java, this.f61case);
+                g.b(this.pZl, this.f62java, this.f61case);
             } catch (Exception e) {
             }
         }
@@ -688,13 +688,13 @@ public final class j implements h {
     @Override // com.win.opensdk.h
     public final void b() {
         boolean java2;
-        if (this.pZk != null && this.f13750a != (java2 = this.pZk.java())) {
+        if (this.pZl != null && this.f13750a != (java2 = this.pZl.java())) {
             CC(java2);
         }
     }
 
     @Override // com.win.opensdk.h
-    public final void aaD(String str) {
+    public final void aaE(String str) {
         boolean z = true;
         try {
             String host = Uri.parse(str).getHost();
@@ -721,7 +721,7 @@ public final class j implements h {
                             Pair<String, String> next = it.next();
                             str3 = ((String) next.first).equals("url") ? Uri.decode((String) next.second) : str3;
                         }
-                        aaC(str3);
+                        aaD(str3);
                     } else if (!"playVideo".equals(host)) {
                         if (ResizeImageAction.ACTION_NAME.equals(host)) {
                             b(arrayList);
@@ -733,19 +733,19 @@ public final class j implements h {
                             CD(Boolean.parseBoolean((String) arrayList.get(0).second));
                         }
                     }
-                } else if (this.pZk != null) {
+                } else if (this.pZl != null) {
                     if (Build.VERSION.SDK_INT < 14 || (!ax(new Intent("android.intent.action.EDIT").setData(CalendarContract.Events.CONTENT_URI)) && !ax(new Intent("android.intent.action.EDIT").setType("vnd.android.cursor.item/event")))) {
                         z = false;
                     }
                     if (z) {
                         try {
-                            o aaE = arrayList.size() > 0 ? o.aaE(URLDecoder.decode((String) arrayList.get(0).second, "UTF-8")) : null;
-                            if (aaE != null) {
+                            o aaF = arrayList.size() > 0 ? o.aaF(URLDecoder.decode((String) arrayList.get(0).second, "UTF-8")) : null;
+                            if (aaF != null) {
                                 try {
-                                    Intent eGB = aaE.eGB();
+                                    Intent eGB = aaF.eGB();
                                     eGB.setFlags(268435456);
-                                    this.pZk.getContext().startActivity(eGB);
-                                    this.pZk.getDispatcher().aaC(null);
+                                    this.pZl.getContext().startActivity(eGB);
+                                    this.pZl.getDispatcher().aaD(null);
                                 } catch (ActivityNotFoundException e) {
                                 }
                             }

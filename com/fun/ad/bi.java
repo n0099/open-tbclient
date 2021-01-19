@@ -7,17 +7,17 @@ public class bi implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
     public Context f7769a;
-    public bf pFB;
+    public bf pFC;
 
     public bi(Context context, bf bfVar) {
         this.f7769a = context.getApplicationContext();
-        this.pFB = bfVar;
+        this.pFC = bfVar;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         bk il = bk.il(this.f7769a);
-        bf bfVar = this.pFB;
+        bf bfVar = this.pFC;
         if (il == null) {
             throw null;
         }

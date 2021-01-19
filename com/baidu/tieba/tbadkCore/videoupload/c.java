@@ -1,6 +1,6 @@
 package com.baidu.tieba.tbadkCore.videoupload;
 /* loaded from: classes.dex */
 public class c {
-    public String nqo;
-    public int nqp;
+    public String nqp;
+    public int nqq;
 }

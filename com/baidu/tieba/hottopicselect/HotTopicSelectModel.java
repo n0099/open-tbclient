@@ -34,7 +34,7 @@ public class HotTopicSelectModel extends BdBaseModel<HotTopicSelectActivity> {
 
     /* loaded from: classes7.dex */
     public interface a {
-        void Ly(String str);
+        void LA(String str);
 
         void Lz(String str);
 
@@ -75,11 +75,11 @@ public class HotTopicSelectModel extends BdBaseModel<HotTopicSelectActivity> {
         sendMessage(new HotSelectCacheReqMessage());
     }
 
-    public void LA(String str) {
+    public void LB(String str) {
         this.iYq = str;
         this.krh = true;
         if (!j.isNetWorkAvailable()) {
-            this.krg.Lz("");
+            this.krg.LA("");
         } else if (!this.kri) {
             this.kri = true;
             HotTopicSelectNetMessage cSb = cSb();
@@ -107,7 +107,7 @@ public class HotTopicSelectModel extends BdBaseModel<HotTopicSelectActivity> {
         return hotTopicSelectNetMessage;
     }
 
-    public void LB(String str) {
+    public void LC(String str) {
         this.iYq = str;
     }
 
@@ -129,14 +129,14 @@ public class HotTopicSelectModel extends BdBaseModel<HotTopicSelectActivity> {
     public void b(boolean z, ResponsedMessage<?> responsedMessage) {
         if (responsedMessage == null || TextUtils.isEmpty(responsedMessage.getErrorString())) {
             if (z) {
-                this.krg.Lz("");
+                this.krg.LA("");
             } else {
-                this.krg.Ly(this.mPageContext.getString(R.string.neterror));
+                this.krg.Lz(this.mPageContext.getString(R.string.neterror));
             }
         } else if (z) {
-            this.krg.Lz("");
+            this.krg.LA("");
         } else {
-            this.krg.Ly(responsedMessage.getErrorString());
+            this.krg.Lz(responsedMessage.getErrorString());
         }
     }
 

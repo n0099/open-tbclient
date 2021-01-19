@@ -11,7 +11,7 @@ import com.google.ar.core.ArCoreApk;
 import com.google.ar.core.exceptions.FatalException;
 /* loaded from: classes5.dex */
 public final class o extends ArCoreApk {
-    private static final o pHA = new o();
+    private static final o pHB = new o();
 
     /* renamed from: a */
     Exception f7862a;
@@ -21,14 +21,14 @@ public final class o extends ArCoreApk {
     private boolean i;
     private boolean j;
     private int k;
-    private ArCoreApk.Availability pHB;
-    private w pHC;
+    private ArCoreApk.Availability pHC;
+    private w pHD;
 
     o() {
     }
 
     public static o eyA() {
-        return pHA;
+        return pHB;
     }
 
     @Override // com.google.ar.core.ArCoreApk
@@ -42,7 +42,7 @@ public final class o extends ArCoreApk {
                 return n.io(context);
             }
             synchronized (this) {
-                if ((this.pHB == null || this.pHB.isUnknown()) && !this.g) {
+                if ((this.pHC == null || this.pHC.isUnknown()) && !this.g) {
                     this.g = true;
                     n nVar = new n(this);
                     if (b(context)) {
@@ -55,8 +55,8 @@ public final class o extends ArCoreApk {
                         iq(context).a(context, nVar);
                     }
                 }
-                if (this.pHB != null) {
-                    return this.pHB;
+                if (this.pHC != null) {
+                    return this.pHC;
                 } else if (this.g) {
                     return ArCoreApk.Availability.UNKNOWN_CHECKING;
                 } else {
@@ -71,12 +71,12 @@ public final class o extends ArCoreApk {
     }
 
     public final synchronized w iq(Context context) {
-        if (this.pHC == null) {
+        if (this.pHD == null) {
             w wVar = new w((byte) 0);
             wVar.a(context.getApplicationContext());
-            this.pHC = wVar;
+            this.pHD = wVar;
         }
-        return this.pHC;
+        return this.pHD;
     }
 
     public final synchronized void b() {
@@ -84,9 +84,9 @@ public final class o extends ArCoreApk {
             this.d = 0;
         }
         this.c = false;
-        if (this.pHC != null) {
-            this.pHC.a();
-            this.pHC = null;
+        if (this.pHD != null) {
+            this.pHD.a();
+            this.pHD = null;
         }
     }
 

@@ -15,8 +15,8 @@ import java.util.List;
 /* loaded from: classes10.dex */
 public class a extends BaseAdapter {
     private final TbPageContext mPageContext;
-    private List<com.baidu.yuyinala.more.b.a> oMJ;
-    private b oMK;
+    private List<com.baidu.yuyinala.more.b.a> oMK;
+    private b oML;
 
     /* loaded from: classes10.dex */
     public interface b {
@@ -29,14 +29,14 @@ public class a extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public int getCount() {
-        return ListUtils.getCount(this.oMJ);
+        return ListUtils.getCount(this.oMK);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
     /* renamed from: Nd */
     public com.baidu.yuyinala.more.b.a getItem(int i) {
-        return (com.baidu.yuyinala.more.b.a) ListUtils.getItem(this.oMJ, i);
+        return (com.baidu.yuyinala.more.b.a) ListUtils.getItem(this.oMK, i);
     }
 
     @Override // android.widget.Adapter
@@ -53,7 +53,7 @@ public class a extends BaseAdapter {
             c0958a.mRootView = view.findViewById(a.f.func_item_layout);
             c0958a.gKi = (TextView) view.findViewById(a.f.func_name_tv);
             c0958a.mIconIv = (TbImageView) view.findViewById(a.f.func_icon_iv);
-            c0958a.oMO = view.findViewById(a.f.func_red_dot_iv);
+            c0958a.oMP = view.findViewById(a.f.func_red_dot_iv);
             ViewGroup.LayoutParams layoutParams = c0958a.mRootView.getLayoutParams();
             layoutParams.width = (int) ((ScreenHelper.getScreenWidth(this.mPageContext.getPageActivity()) - this.mPageContext.getPageActivity().getResources().getDimension(a.d.sdk_ds48)) / 4.5d);
             c0958a.mRootView.setLayoutParams(layoutParams);
@@ -61,12 +61,12 @@ public class a extends BaseAdapter {
         } else {
             c0958a = (C0958a) view.getTag();
         }
-        final com.baidu.yuyinala.more.b.a aVar = (com.baidu.yuyinala.more.b.a) ListUtils.getItem(this.oMJ, i);
+        final com.baidu.yuyinala.more.b.a aVar = (com.baidu.yuyinala.more.b.a) ListUtils.getItem(this.oMK, i);
         if (aVar != null) {
             c0958a.mRootView.setVisibility(0);
             c0958a.gKi.setText(aVar.getName());
             c0958a.mIconIv.startLoad(aVar.getIconUrl(), 10, false);
-            c0958a.oMO.setVisibility(aVar.ehd() ? 0 : 8);
+            c0958a.oMP.setVisibility(aVar.ehd() ? 0 : 8);
         } else {
             c0958a.mRootView.setVisibility(8);
         }
@@ -95,12 +95,12 @@ public class a extends BaseAdapter {
     }
 
     public void gx(List<com.baidu.yuyinala.more.b.a> list) {
-        this.oMJ = list;
+        this.oMK = list;
         notifyDataSetChanged();
     }
 
     public void a(b bVar) {
-        this.oMK = bVar;
+        this.oML = bVar;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -109,8 +109,8 @@ public class a extends BaseAdapter {
             boolean ehd = aVar.ehd();
             aVar.Ap(false);
             notifyDataSetChanged();
-            if (this.oMK != null) {
-                this.oMK.a(aVar, ehd);
+            if (this.oML != null) {
+                this.oML.a(aVar, ehd);
             }
         }
     }
@@ -121,7 +121,7 @@ public class a extends BaseAdapter {
         private TextView gKi;
         private TbImageView mIconIv;
         private View mRootView;
-        private View oMO;
+        private View oMP;
 
         private C0958a() {
         }

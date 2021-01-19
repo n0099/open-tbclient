@@ -21,7 +21,7 @@ public class x extends bz {
         return this.fortune_desc;
     }
 
-    public void RY(String str) {
+    public void RZ(String str) {
         this.fortune_desc = str;
     }
 

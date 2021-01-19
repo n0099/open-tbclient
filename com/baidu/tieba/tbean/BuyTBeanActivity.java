@@ -26,14 +26,14 @@ public class BuyTBeanActivity extends BaseActivity<BuyTBeanActivity> implements 
     private String mClickZone;
     private long mGiftBbean;
     private String mReferPage;
-    private BuyTBeanModel nrQ;
-    private a nrR;
+    private BuyTBeanModel nrR;
+    private a nrS;
     private boolean mIsPayDialog = true;
     private String SCENE_ID = "4001001000";
-    private boolean nrS = false;
+    private boolean nrT = false;
     private int isFromDecreaseGiftStepStrategy = 0;
-    private long nrT = 0;
-    private CustomMessageListener nrU = new CustomMessageListener(2921407) { // from class: com.baidu.tieba.tbean.BuyTBeanActivity.4
+    private long nrU = 0;
+    private CustomMessageListener nrV = new CustomMessageListener(2921407) { // from class: com.baidu.tieba.tbean.BuyTBeanActivity.4
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -51,10 +51,10 @@ public class BuyTBeanActivity extends BaseActivity<BuyTBeanActivity> implements 
         }
         this.mReferPage = getIntent().getStringExtra("refer_page");
         this.mClickZone = getIntent().getStringExtra("click_zone");
-        this.nrS = getIntent().getBooleanExtra(BuyTBeanActivityConfig.IS_FROM_ALA, false);
+        this.nrT = getIntent().getBooleanExtra(BuyTBeanActivityConfig.IS_FROM_ALA, false);
         this.isFromDecreaseGiftStepStrategy = getIntent().getIntExtra(BuyTBeanActivityConfig.IS_FROM_ALA_GIFT_PANEL, 0);
-        this.nrT = getIntent().getLongExtra(BuyTBeanActivityConfig.TBEAN_LEFT_TO_BUY_ALA_GIFT, 0L);
-        this.nrS = false;
+        this.nrU = getIntent().getLongExtra(BuyTBeanActivityConfig.TBEAN_LEFT_TO_BUY_ALA_GIFT, 0L);
+        this.nrT = false;
         setIsAddSwipeBackLayout(false);
         setUseStyleImmersiveSticky(false);
         addGlobalLayoutListener();
@@ -65,26 +65,26 @@ public class BuyTBeanActivity extends BaseActivity<BuyTBeanActivity> implements 
         }
         getGiftTBean(getIntent());
         showLoadingDialog(getPageContext().getString(R.string.flist_loading));
-        this.nrR = new a(this);
-        setContentView(this.nrR.getRootView());
-        if (this.isFromDecreaseGiftStepStrategy != 0 && this.nrT > 0) {
-            this.nrR.hC(this.nrT);
+        this.nrS = new a(this);
+        setContentView(this.nrS.getRootView());
+        if (this.isFromDecreaseGiftStepStrategy != 0 && this.nrU > 0) {
+            this.nrS.hC(this.nrU);
         }
-        this.nrR.hideRootView();
-        this.nrQ = new BuyTBeanModel(this, this);
-        this.nrQ.dNt();
-        this.nrQ.registerYinJiHttpListener();
-        this.nrQ.dNv();
-        this.nrQ.dNu();
+        this.nrS.hideRootView();
+        this.nrR = new BuyTBeanModel(this, this);
+        this.nrR.dNt();
+        this.nrR.registerYinJiHttpListener();
+        this.nrR.dNv();
+        this.nrR.dNu();
         this.lgE = new PayConfigModel(this, new com.baidu.tbadk.pay.a() { // from class: com.baidu.tieba.tbean.BuyTBeanActivity.1
             @Override // com.baidu.tbadk.pay.a
             public void onError(String str2) {
-                BuyTBeanActivity.this.nrQ.requestYinJiInfo();
+                BuyTBeanActivity.this.nrR.requestYinJiInfo();
             }
 
             @Override // com.baidu.tbadk.pay.a
             public void onPayNative() {
-                BuyTBeanActivity.this.nrQ.requestYinJiInfo();
+                BuyTBeanActivity.this.nrR.requestYinJiInfo();
             }
 
             /* JADX DEBUG: Multi-variable search result rejected for r2v2, resolved type: com.baidu.tieba.tbean.BuyTBeanActivity */
@@ -96,7 +96,7 @@ public class BuyTBeanActivity extends BaseActivity<BuyTBeanActivity> implements 
             }
         });
         this.lgE.bDC();
-        registerListener(this.nrU);
+        registerListener(this.nrV);
         TiebaStatic.log(TbeanStatisticKey.BUY_TBEAN_ACTIVITY);
     }
 
@@ -117,8 +117,8 @@ public class BuyTBeanActivity extends BaseActivity<BuyTBeanActivity> implements 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
-        if (this.nrR != null) {
-            this.nrR.onChangeSkinType(i);
+        if (this.nrS != null) {
+            this.nrS.onChangeSkinType(i);
         }
     }
 
@@ -132,9 +132,9 @@ public class BuyTBeanActivity extends BaseActivity<BuyTBeanActivity> implements 
     public void onClick(View view) {
         if (view.getId() == R.id.buy_tbean_use_rule || view.getId() == R.id.t_dou_introduce_activity_right_button) {
             be.bsB().b(getPageContext(), new String[]{"https://tieba.baidu.com/tb/tdou_mobile.html"});
-        } else if ((view.getId() == R.id.buy_tbean_close_image || view.getId() == R.id.buy_tbean_root_view) && this.nrR != null) {
-            if (this.nrR.dNA()) {
-                this.nrR.hideSoftKeyPad();
+        } else if ((view.getId() == R.id.buy_tbean_close_image || view.getId() == R.id.buy_tbean_root_view) && this.nrS != null) {
+            if (this.nrS.dNA()) {
+                this.nrS.hideSoftKeyPad();
             } else {
                 processClose();
             }
@@ -190,19 +190,19 @@ public class BuyTBeanActivity extends BaseActivity<BuyTBeanActivity> implements 
     public void onFailed(String str) {
         showToast(str);
         closeLoadingDialog();
-        if (this.nrR != null) {
-            this.nrR.showRootView();
-            this.nrR.cGs();
+        if (this.nrS != null) {
+            this.nrS.showRootView();
+            this.nrS.cGs();
         }
     }
 
     @Override // com.baidu.tieba.tbean.BuyTBeanModel.a
     public void onSuccess() {
         closeLoadingDialog();
-        if (this.nrR != null) {
-            this.nrR.showRootView();
-            this.nrR.cGt();
-            this.nrR.a(this.nrQ.dNw(), this.nrQ.dNy(), this.nrQ.dNx(), this.nrQ.getUserInfo());
+        if (this.nrS != null) {
+            this.nrS.showRootView();
+            this.nrS.cGt();
+            this.nrS.a(this.nrR.dNw(), this.nrR.dNy(), this.nrR.dNx(), this.nrR.getUserInfo());
         }
     }
 
@@ -214,10 +214,10 @@ public class BuyTBeanActivity extends BaseActivity<BuyTBeanActivity> implements 
     }
 
     public void refresh() {
-        if (this.nrQ != null && this.nrR != null) {
+        if (this.nrR != null && this.nrS != null) {
             showLoadingDialog(getPageContext().getString(R.string.flist_loading));
-            this.nrR.hideRootView();
-            this.nrQ.requestYinJiInfo();
+            this.nrS.hideRootView();
+            this.nrR.requestYinJiInfo();
         }
     }
 
@@ -233,8 +233,8 @@ public class BuyTBeanActivity extends BaseActivity<BuyTBeanActivity> implements 
         clearAnimatable();
         clearAnimation();
         super.onDestroy();
-        if (this.nrR != null) {
-            this.nrR.onDestroy();
+        if (this.nrS != null) {
+            this.nrS.onDestroy();
         }
     }
 
@@ -242,8 +242,8 @@ public class BuyTBeanActivity extends BaseActivity<BuyTBeanActivity> implements 
     @Override // com.baidu.tbadk.BaseActivity
     public void onKeyboardVisibilityChanged(boolean z) {
         super.onKeyboardVisibilityChanged(z);
-        if (this.nrR != null) {
-            this.nrR.onKeyboardVisibilityChanged(z);
+        if (this.nrS != null) {
+            this.nrS.onKeyboardVisibilityChanged(z);
         }
     }
 

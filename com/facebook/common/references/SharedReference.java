@@ -7,39 +7,39 @@ import javax.annotation.concurrent.GuardedBy;
 /* loaded from: classes14.dex */
 public class SharedReference<T> {
     @GuardedBy("itself")
-    private static final Map<Object, Integer> poZ = new IdentityHashMap();
+    private static final Map<Object, Integer> ppa = new IdentityHashMap();
     @GuardedBy("this")
     private int mRefCount = 1;
     @GuardedBy("this")
     private T mValue;
-    private final c<T> poN;
+    private final c<T> poO;
 
     public SharedReference(T t, c<T> cVar) {
         this.mValue = (T) g.checkNotNull(t);
-        this.poN = (c) g.checkNotNull(cVar);
+        this.poO = (c) g.checkNotNull(cVar);
         bd(t);
     }
 
     private static void bd(Object obj) {
-        synchronized (poZ) {
-            Integer num = poZ.get(obj);
+        synchronized (ppa) {
+            Integer num = ppa.get(obj);
             if (num == null) {
-                poZ.put(obj, 1);
+                ppa.put(obj, 1);
             } else {
-                poZ.put(obj, Integer.valueOf(num.intValue() + 1));
+                ppa.put(obj, Integer.valueOf(num.intValue() + 1));
             }
         }
     }
 
     private static void be(Object obj) {
-        synchronized (poZ) {
-            Integer num = poZ.get(obj);
+        synchronized (ppa) {
+            Integer num = ppa.get(obj);
             if (num == null) {
                 com.facebook.common.c.a.h("SharedReference", "No entry in sLiveObjects for value of type %s", obj.getClass());
             } else if (num.intValue() == 1) {
-                poZ.remove(obj);
+                ppa.remove(obj);
             } else {
-                poZ.put(obj, Integer.valueOf(num.intValue() - 1));
+                ppa.put(obj, Integer.valueOf(num.intValue() - 1));
             }
         }
     }
@@ -68,7 +68,7 @@ public class SharedReference<T> {
                 t = this.mValue;
                 this.mValue = null;
             }
-            this.poN.release(t);
+            this.poO.release(t);
             be(t);
         }
     }

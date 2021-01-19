@@ -7,19 +7,19 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes10.dex */
 public class g {
-    private a ovO;
-    private Handler ovP;
-    private ConcurrentHashMap<Long, b> ovN = new ConcurrentHashMap<>();
-    boolean ovQ = false;
+    private a ovP;
+    private Handler ovQ;
+    private ConcurrentHashMap<Long, b> ovO = new ConcurrentHashMap<>();
+    boolean ovR = false;
     private Runnable mRunnable = new Runnable() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.a.g.1
         @Override // java.lang.Runnable
         public void run() {
-            g.this.ovQ = true;
+            g.this.ovR = true;
             g.this.eaF();
-            if (g.this.ovN != null && g.this.ovN.size() > 0) {
-                g.this.ovP.postDelayed(g.this.mRunnable, 1000L);
+            if (g.this.ovO != null && g.this.ovO.size() > 0) {
+                g.this.ovQ.postDelayed(g.this.mRunnable, 1000L);
             } else {
-                g.this.ovQ = false;
+                g.this.ovR = false;
             }
         }
     };
@@ -30,28 +30,28 @@ public class g {
     }
 
     public g(Handler handler) {
-        this.ovP = handler;
+        this.ovQ = handler;
     }
 
     public void c(b bVar) {
         if (bVar != null && !TextUtils.isEmpty(bVar.thirdUserId)) {
-            bVar.ovS = System.currentTimeMillis();
-            this.ovN.put(Long.valueOf(bVar.imUK), bVar);
+            bVar.ovT = System.currentTimeMillis();
+            this.ovO.put(Long.valueOf(bVar.imUK), bVar);
             sC();
         }
     }
 
     public void hN(long j) {
-        this.ovN.remove(Long.valueOf(j));
+        this.ovO.remove(Long.valueOf(j));
     }
 
     public void eaF() {
-        Iterator<Map.Entry<Long, b>> it = this.ovN.entrySet().iterator();
+        Iterator<Map.Entry<Long, b>> it = this.ovO.entrySet().iterator();
         while (it.hasNext()) {
             Map.Entry<Long, b> next = it.next();
-            if (System.currentTimeMillis() - next.getValue().ovS > 10000) {
-                if (this.ovO != null) {
-                    this.ovO.b(next.getValue());
+            if (System.currentTimeMillis() - next.getValue().ovT > 10000) {
+                if (this.ovP != null) {
+                    this.ovP.b(next.getValue());
                 }
                 it.remove();
             }
@@ -59,16 +59,16 @@ public class g {
     }
 
     public void a(a aVar) {
-        this.ovO = aVar;
+        this.ovP = aVar;
     }
 
     private void sC() {
-        if (this.ovP == null) {
-            this.ovQ = false;
-        } else if (this.ovN == null || this.ovN.size() == 0) {
-            this.ovQ = false;
+        if (this.ovQ == null) {
+            this.ovR = false;
+        } else if (this.ovO == null || this.ovO.size() == 0) {
+            this.ovR = false;
         } else {
-            this.ovP.postDelayed(this.mRunnable, 0L);
+            this.ovQ.postDelayed(this.mRunnable, 0L);
         }
     }
 
@@ -77,7 +77,7 @@ public class g {
         public long appId;
         public String cuid;
         public long imUK;
-        public long ovS;
+        public long ovT;
         public String thirdUserId;
 
         public b(long j, long j2, String str, String str2) {

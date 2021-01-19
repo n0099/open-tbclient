@@ -14,7 +14,7 @@ import com.baidu.live.tbadk.ubc.UbcStatConstant;
 public class b extends BdBaseModel<YuyinCharmRankTotalActivity> {
     private BdUniqueId brL;
     private HttpMessageListener gLY;
-    private a ogv;
+    private a ogw;
 
     /* loaded from: classes10.dex */
     public interface a {
@@ -32,16 +32,16 @@ public class b extends BdBaseModel<YuyinCharmRankTotalActivity> {
                 if (httpResponsedMessage != null && (httpResponsedMessage instanceof CharmRankListHttpResponseMessage) && httpResponsedMessage.getOrginalMessage().getTag() == b.this.getUniqueId()) {
                     CharmRankListHttpResponseMessage charmRankListHttpResponseMessage = (CharmRankListHttpResponseMessage) httpResponsedMessage;
                     if (httpResponsedMessage.getError() == 0) {
-                        if (b.this.ogv != null) {
-                            b.this.ogv.a(charmRankListHttpResponseMessage.dXX());
+                        if (b.this.ogw != null) {
+                            b.this.ogw.a(charmRankListHttpResponseMessage.dXX());
                         }
-                    } else if (b.this.ogv != null) {
-                        b.this.ogv.w(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString());
+                    } else if (b.this.ogw != null) {
+                        b.this.ogw.w(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString());
                     }
                 }
             }
         };
-        this.ogv = aVar;
+        this.ogw = aVar;
         this.brL = BdUniqueId.gen();
         setUniqueId(this.brL);
         MessageManager.getInstance().registerListener(this.gLY);

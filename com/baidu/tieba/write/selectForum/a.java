@@ -19,11 +19,11 @@ public class a extends BaseAdapter {
     private final Context mContext;
     private List<HotTopicBussinessData> mData;
     private ViewGroup mParent = null;
-    private HotTopicChangeFourmActivity nVM;
+    private HotTopicChangeFourmActivity nVN;
 
     public a(HotTopicChangeFourmActivity hotTopicChangeFourmActivity) {
-        this.nVM = hotTopicChangeFourmActivity;
-        this.mContext = this.nVM.getPageContext().getContext();
+        this.nVN = hotTopicChangeFourmActivity;
+        this.mContext = this.nVN.getPageContext().getContext();
     }
 
     public void setData(List<HotTopicBussinessData> list) {
@@ -48,7 +48,7 @@ public class a extends BaseAdapter {
         return null;
     }
 
-    private String Ue(String str) {
+    private String Uf(String str) {
         if (StringUtils.isNull(str)) {
             return "";
         }
@@ -88,10 +88,10 @@ public class a extends BaseAdapter {
         } else {
             c0896a = (C0896a) obj;
         }
-        c0896a.nVO.setText(Ue(hotTopicBussinessData.mForumName));
-        c0896a.nVN.startLoad(hotTopicBussinessData.mForumAvatar, 10, false);
+        c0896a.nVP.setText(Uf(hotTopicBussinessData.mForumName));
+        c0896a.nVO.startLoad(hotTopicBussinessData.mForumAvatar, 10, false);
         ao.setBackgroundResource(c0896a.mRootView, R.drawable.select_forum_item_bg);
-        ao.setViewTextColor(c0896a.nVO, R.color.CAM_X0105);
+        ao.setViewTextColor(c0896a.nVP, R.color.CAM_X0105);
         ao.setBackgroundColor(c0896a.jnl, R.color.CAM_X0205);
         return c0896a;
     }
@@ -100,12 +100,12 @@ public class a extends BaseAdapter {
         C0896a c0896a = new C0896a();
         c0896a.mRootView = LayoutInflater.from(this.mContext).inflate(R.layout.hot_topic_change_item, (ViewGroup) null);
         ao.setBackgroundResource(c0896a.mRootView, R.drawable.select_forum_item_bg);
-        ao.setViewTextColor(c0896a.nVO, R.color.CAM_X0105);
-        c0896a.nVO = (TextView) c0896a.mRootView.findViewById(R.id.fourm_tv);
+        ao.setViewTextColor(c0896a.nVP, R.color.CAM_X0105);
+        c0896a.nVP = (TextView) c0896a.mRootView.findViewById(R.id.fourm_tv);
         c0896a.jnl = c0896a.mRootView.findViewById(R.id.line_view);
-        c0896a.nVN = (TbImageView) c0896a.mRootView.findViewById(R.id.icon_img);
-        c0896a.nVN.setDefaultBgResource(R.color.CAM_X0205);
-        c0896a.nVN.setDefaultResource(R.drawable.transparent_bg);
+        c0896a.nVO = (TbImageView) c0896a.mRootView.findViewById(R.id.icon_img);
+        c0896a.nVO.setDefaultBgResource(R.color.CAM_X0205);
+        c0896a.nVO.setDefaultResource(R.drawable.transparent_bg);
         c0896a.mRootView.setTag(c0896a);
         return c0896a;
     }
@@ -116,8 +116,8 @@ public class a extends BaseAdapter {
     public class C0896a {
         public View jnl;
         public View mRootView;
-        public TbImageView nVN;
-        public TextView nVO;
+        public TbImageView nVO;
+        public TextView nVP;
 
         private C0896a() {
         }

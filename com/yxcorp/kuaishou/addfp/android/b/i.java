@@ -9,10 +9,10 @@ public final class i {
 
     /* renamed from: a  reason: collision with root package name */
     private final String f14392a = "wifi";
-    private /* synthetic */ f qbZ;
+    private /* synthetic */ f qca;
 
     public i(f fVar) {
-        this.qbZ = fVar;
+        this.qca = fVar;
     }
 
     public final String a() {
@@ -24,12 +24,12 @@ public final class i {
         }
         Parcel obtain = Parcel.obtain();
         Parcel obtain2 = Parcel.obtain();
-        a2 = this.qbZ.a("wifi");
+        a2 = this.qca.a("wifi");
         if (TextUtils.isEmpty(a2)) {
             return "";
         }
         obtain.writeInterfaceToken(a2);
-        a3 = this.qbZ.a("wifi", "TRANSACTION_getConnectionInfo", obtain, obtain2);
+        a3 = this.qca.a("wifi", "TRANSACTION_getConnectionInfo", obtain, obtain2);
         if (a3 != null) {
             try {
                 obtain2.readException();

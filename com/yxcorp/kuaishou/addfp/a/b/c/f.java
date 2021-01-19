@@ -21,7 +21,7 @@ public final class f implements ServiceConnection {
         CountDownLatch countDownLatch;
         CountDownLatch countDownLatch2;
         try {
-            this.f14351a.qbC = b.a(iBinder);
+            this.f14351a.qbD = b.a(iBinder);
             countDownLatch = this.f14351a.d;
             if (countDownLatch != null) {
                 countDownLatch2 = this.f14351a.d;
@@ -33,6 +33,6 @@ public final class f implements ServiceConnection {
 
     @Override // android.content.ServiceConnection
     public final void onServiceDisconnected(ComponentName componentName) {
-        this.f14351a.qbC = null;
+        this.f14351a.qbD = null;
     }
 }

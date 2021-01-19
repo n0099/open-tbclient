@@ -32,7 +32,7 @@ public class m implements com.bytedance.sdk.adnet.e.a {
     }
 
     public m(SSLSocketFactory sSLSocketFactory, X509TrustManager x509TrustManager, HostnameVerifier hostnameVerifier) {
-        this.f6042a = new z.a().d(10000L, TimeUnit.MILLISECONDS).e(10000L, TimeUnit.MILLISECONDS).f(10000L, TimeUnit.MILLISECONDS).a(hostnameVerifier == null ? com.bytedance.sdk.a.b.a.i.e.pgv : hostnameVerifier).a(sSLSocketFactory == null ? new com.bytedance.sdk.adnet.d.h() : sSLSocketFactory, x509TrustManager == null ? com.bytedance.sdk.adnet.d.h.f6056a : x509TrustManager).enZ();
+        this.f6042a = new z.a().d(10000L, TimeUnit.MILLISECONDS).e(10000L, TimeUnit.MILLISECONDS).f(10000L, TimeUnit.MILLISECONDS).a(hostnameVerifier == null ? com.bytedance.sdk.a.b.a.i.e.pgw : hostnameVerifier).a(sSLSocketFactory == null ? new com.bytedance.sdk.adnet.d.h() : sSLSocketFactory, x509TrustManager == null ? com.bytedance.sdk.adnet.d.h.f6056a : x509TrustManager).enZ();
     }
 
     @Override // com.bytedance.sdk.adnet.e.a
@@ -45,7 +45,7 @@ public class m implements com.bytedance.sdk.adnet.e.a {
         }
         b(request);
         if (!TextUtils.isEmpty(request.getUserAgent())) {
-            h.XN("User-Agent").hg("User-Agent", request.getUserAgent() + " " + com.bytedance.sdk.a.b.a.d.a());
+            h.XO("User-Agent").hg("User-Agent", request.getUserAgent() + " " + com.bytedance.sdk.a.b.a.d.a());
         }
         Map<String, String> headers = request.getHeaders();
         if (headers != null) {
@@ -113,7 +113,7 @@ public class m implements com.bytedance.sdk.adnet.e.a {
         ab.a aVar = new ab.a();
         URL url = new URL(request.getUrl());
         String host = url.getHost();
-        String a2 = com.bytedance.sdk.adnet.a.pjX != null ? com.bytedance.sdk.adnet.a.pjX.a(host) : null;
+        String a2 = com.bytedance.sdk.adnet.a.pjY != null ? com.bytedance.sdk.adnet.a.pjY.a(host) : null;
         if (TextUtils.isEmpty(a2)) {
             z = false;
         } else {
@@ -155,7 +155,7 @@ public class m implements com.bytedance.sdk.adnet.e.a {
             case -1:
                 byte[] postBody = request.getPostBody();
                 if (postBody != null) {
-                    aVar.a(ac.b(y.XL(request.getBodyContentType()), postBody));
+                    aVar.a(ac.b(y.XM(request.getBodyContentType()), postBody));
                     return;
                 }
                 return;
@@ -197,23 +197,23 @@ public class m implements com.bytedance.sdk.adnet.e.a {
                 return null;
             }
         }
-        return ac.b(y.XL(request.getBodyContentType()), body);
+        return ac.b(y.XM(request.getBodyContentType()), body);
     }
 
     /* loaded from: classes4.dex */
     static class a extends FilterInputStream {
-        private final com.bytedance.sdk.a.b.c pkS;
+        private final com.bytedance.sdk.a.b.c pkT;
 
         a(com.bytedance.sdk.a.b.c cVar) {
             super(m.b(cVar));
-            this.pkS = cVar;
+            this.pkT = cVar;
         }
 
         @Override // java.io.FilterInputStream, java.io.InputStream, java.io.Closeable, java.lang.AutoCloseable
         public void close() throws IOException {
             super.close();
             try {
-                this.pkS.close();
+                this.pkT.close();
             } catch (Throwable th) {
             }
         }

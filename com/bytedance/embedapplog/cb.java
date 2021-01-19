@@ -7,16 +7,16 @@ import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes4.dex */
 public class cb extends bv {
-    private static final long[] pcY = {AppStatusRules.DEFAULT_GRANULARITY};
+    private static final long[] pcZ = {AppStatusRules.DEFAULT_GRANULARITY};
     private long e;
-    private final m pcR;
-    private final ad pcZ;
+    private final m pcS;
+    private final ad pda;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public cb(Context context, m mVar, ad adVar) {
         super(context);
-        this.pcZ = adVar;
-        this.pcR = mVar;
+        this.pda = adVar;
+        this.pcS = mVar;
     }
 
     @Override // com.bytedance.embedapplog.bv
@@ -31,7 +31,7 @@ public class cb extends bv {
 
     @Override // com.bytedance.embedapplog.bv
     long[] elB() {
-        return pcY;
+        return pcZ;
     }
 
     @Override // com.bytedance.embedapplog.bv
@@ -43,12 +43,12 @@ public class cb extends bv {
             b.k("play_session", L);
             b.flush();
         }
-        if (this.pcR.o() == 0) {
+        if (this.pcS.o() == 0) {
             return false;
         }
-        JSONObject b2 = this.pcR.b();
+        JSONObject b2 = this.pcS.b();
         if (b2 != null) {
-            boolean a2 = this.pcZ.a(b2);
+            boolean a2 = this.pda.a(b2);
             this.e = System.currentTimeMillis();
             return a2;
         }

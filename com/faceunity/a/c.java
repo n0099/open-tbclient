@@ -9,8 +9,8 @@ import java.nio.ByteBuffer;
 /* loaded from: classes7.dex */
 public class c {
     private final MediaMuxer cdy;
-    private int nCL = 2;
-    private int pDG = 0;
+    private int nCM = 2;
+    private int pDH = 0;
     private boolean mIsStarted = false;
 
     public c(String str) throws IOException {
@@ -20,8 +20,8 @@ public class c {
     /* JADX INFO: Access modifiers changed from: package-private */
     public synchronized boolean start() {
         Log.v("MediaMuxerWrapper", "start:");
-        this.pDG++;
-        if (this.nCL > 0 && this.pDG == this.nCL) {
+        this.pDH++;
+        if (this.nCM > 0 && this.pDH == this.nCM) {
             this.cdy.start();
             this.mIsStarted = true;
             notifyAll();
@@ -32,9 +32,9 @@ public class c {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public synchronized void stop() {
-        Log.v("MediaMuxerWrapper", "stop:mStatredCount=" + this.pDG);
-        this.pDG--;
-        if (this.nCL > 0 && this.pDG <= 0) {
+        Log.v("MediaMuxerWrapper", "stop:mStatredCount=" + this.pDH);
+        this.pDH--;
+        if (this.nCM > 0 && this.pDH <= 0) {
             this.cdy.stop();
             this.cdy.release();
             this.mIsStarted = false;
@@ -49,13 +49,13 @@ public class c {
             throw new IllegalStateException("muxer already started");
         }
         addTrack = this.cdy.addTrack(mediaFormat);
-        Log.i("MediaMuxerWrapper", "addTrack:trackNum=" + this.nCL + ",trackIx=" + addTrack + ",format=" + mediaFormat);
+        Log.i("MediaMuxerWrapper", "addTrack:trackNum=" + this.nCM + ",trackIx=" + addTrack + ",format=" + mediaFormat);
         return addTrack;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public synchronized void c(int i, ByteBuffer byteBuffer, MediaCodec.BufferInfo bufferInfo) {
-        if (this.pDG > 0) {
+        if (this.pDH > 0) {
             this.cdy.writeSampleData(i, byteBuffer, bufferInfo);
         }
     }

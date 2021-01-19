@@ -199,11 +199,11 @@ public class e {
             int i3 = (i + i2) - 1;
             if (!this.kaX && this.kaW != i3) {
                 this.kaW = i3;
-                e.this.BE(this.kaW);
+                e.this.BD(this.kaW);
             }
             if (this.kaX && this.kaW != i) {
                 this.kaW = i;
-                e.this.BE(this.kaW);
+                e.this.BD(this.kaW);
             }
             e.this.kaO = i;
             e.this.jcJ = i;
@@ -281,11 +281,11 @@ public class e {
             Object data = customResponsedMessage.getData();
             switch (data instanceof Integer ? ((Integer) data).intValue() : 0) {
                 case 2:
-                    new BdTopToast(e.this.mPageContext.getPageActivity(), 2000).yS(true).TP(e.this.mPageContext.getPageActivity().getString(R.string.youngster_open_title)).aR((ViewGroup) e.this.mPageContext.getPageActivity().findViewById(R.id.maintabContainer));
+                    new BdTopToast(e.this.mPageContext.getPageActivity(), 2000).yS(true).TQ(e.this.mPageContext.getPageActivity().getString(R.string.youngster_open_title)).aR((ViewGroup) e.this.mPageContext.getPageActivity().findViewById(R.id.maintabContainer));
                     e.this.sa(true);
                     return;
                 case 3:
-                    new BdTopToast(e.this.mPageContext.getPageActivity(), 2000).yS(true).TP(e.this.mPageContext.getPageActivity().getString(R.string.youngster_close_title)).aR((ViewGroup) e.this.mPageContext.getPageActivity().findViewById(R.id.maintabContainer));
+                    new BdTopToast(e.this.mPageContext.getPageActivity(), 2000).yS(true).TQ(e.this.mPageContext.getPageActivity().getString(R.string.youngster_close_title)).aR((ViewGroup) e.this.mPageContext.getPageActivity().findViewById(R.id.maintabContainer));
                     e.this.sa(false);
                     return;
                 case 4:
@@ -296,7 +296,7 @@ public class e {
                     }
                     return;
                 case 5:
-                    new BdTopToast(e.this.mPageContext.getPageActivity(), 2000).yS(true).TP(e.this.mPageContext.getPageActivity().getString(R.string.youngster_reset_title)).aR((ViewGroup) e.this.mPageContext.getPageActivity().findViewById(R.id.maintabContainer));
+                    new BdTopToast(e.this.mPageContext.getPageActivity(), 2000).yS(true).TQ(e.this.mPageContext.getPageActivity().getString(R.string.youngster_reset_title)).aR((ViewGroup) e.this.mPageContext.getPageActivity().findViewById(R.id.maintabContainer));
                     e.this.sa(true);
                     return;
             }
@@ -415,7 +415,7 @@ public class e {
     private int kaO = 0;
     private d kaQ = new d() { // from class: com.baidu.tieba.homepage.personalize.e.16
         @Override // com.baidu.tieba.homepage.personalize.d
-        public void Bn(final int i) {
+        public void Bm(final int i) {
             if (e.this.kaP == null) {
                 e.this.kaP = new Runnable() { // from class: com.baidu.tieba.homepage.personalize.e.16.1
                     @Override // java.lang.Runnable
@@ -468,7 +468,7 @@ public class e {
             if (customResponsedMessage != null && e.this.kas != null && com.baidu.tbadk.core.util.x.getCount(e.this.kas.thread_list) != 0) {
                 String str = (String) customResponsedMessage.getData();
                 e.this.h(str, e.this.mDataList);
-                e.this.Lo(str);
+                e.this.Lp(str);
                 if (e.this.jZH != null) {
                     e.this.jZH.cC(new ArrayList(e.this.mDataList));
                 }
@@ -620,8 +620,8 @@ public class e {
         if (this.jZv != null) {
             this.jZv.setOnTabSelectedListener(new ScrollFragmentTabHost.b() { // from class: com.baidu.tieba.homepage.personalize.e.1
                 @Override // com.baidu.tieba.homepage.framework.indicator.ScrollFragmentTabHost.b
-                public void Bx(int i) {
-                    if (e.this.jZv.Bw(i) != 1 && e.this.iJv != null) {
+                public void Bw(int i) {
+                    if (e.this.jZv.Bv(i) != 1 && e.this.iJv != null) {
                         e.this.iJv.hideTip();
                     }
                 }
@@ -998,7 +998,7 @@ public class e {
 
     public void onPause() {
         c.i(this.jgC);
-        BF(this.kaO);
+        BE(this.kaO);
         if (this.kaw != null) {
             this.kaw.bDI();
         }
@@ -1161,9 +1161,9 @@ public class e {
             }
         }
         com.baidu.tieba.homepage.framework.a.cNr().E(System.currentTimeMillis() - currentTimeMillis, 1);
-        long Bm = com.baidu.tieba.homepage.framework.a.cNr().Bm(1);
-        if (Bm > 0) {
-            com.baidu.tieba.homepage.framework.a.cNr().F(System.currentTimeMillis() - Bm, 1);
+        long Bl = com.baidu.tieba.homepage.framework.a.cNr().Bl(1);
+        if (Bl > 0) {
+            com.baidu.tieba.homepage.framework.a.cNr().F(System.currentTimeMillis() - Bl, 1);
             com.baidu.tieba.homepage.framework.a.cNr().G(0L, 1);
         }
         if (dataRes.anti != null && dataRes.anti.block_pop_info != null) {
@@ -1172,8 +1172,8 @@ public class e {
         bj bjVar = new bj();
         bjVar.a(dataRes.recom_post_topic);
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.MAINTAB_TAB_REFRESH_TOPIC_TIP, bjVar));
-        if (!z && Bm > 0) {
-            com.baidu.tbadk.n.l.bDT().eH(System.currentTimeMillis() - Bm);
+        if (!z && Bl > 0) {
+            com.baidu.tbadk.n.l.bDT().eH(System.currentTimeMillis() - Bl);
             return z4;
         }
         return z4;
@@ -1304,7 +1304,7 @@ public class e {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Lo(String str) {
+    public void Lp(String str) {
         if (!TextUtils.isEmpty(str) && this.kas != null && this.kas.banner_list != null && this.kas.banner_list.app != null && this.kas.banner_list.app.size() > 0) {
             ArrayList arrayList = new ArrayList();
             for (App app : this.kas.banner_list.app) {
@@ -1431,7 +1431,7 @@ public class e {
                     this.kaE.setOnDeleteClick(new HomePageYoungsterTopView.a() { // from class: com.baidu.tieba.homepage.personalize.e.7
                         @Override // com.baidu.tieba.homepage.personalize.view.HomePageYoungsterTopView.a
                         public void cPq() {
-                            new BdTopToast(e.this.mPageContext.getPageActivity(), 2000).yS(true).TP(e.this.mPageContext.getPageActivity().getString(R.string.youngster_frs_top_toast)).aR((ViewGroup) e.this.mPageContext.getPageActivity().findViewById(R.id.maintabContainer));
+                            new BdTopToast(e.this.mPageContext.getPageActivity(), 2000).yS(true).TQ(e.this.mPageContext.getPageActivity().getString(R.string.youngster_frs_top_toast)).aR((ViewGroup) e.this.mPageContext.getPageActivity().findViewById(R.id.maintabContainer));
                             e.this.sa(false);
                             com.baidu.tbadk.core.sharedPref.b.brx().putBoolean("key_youngster_homgpage_top_view_closed", true);
                         }
@@ -1655,7 +1655,7 @@ public class e {
         }
     }
 
-    public void BE(int i) {
+    public void BD(int i) {
         if ((this.jax != null ? this.jax.Jh(i) : -1) >= 0 && this.jgC != null && this.jgC.getData() != null && this.jgC.getData().size() > i) {
             this.jax.Ji(i);
         }
@@ -1669,7 +1669,7 @@ public class e {
         this.jYj = z;
     }
 
-    public void BF(final int i) {
+    public void BE(final int i) {
         ac.a(new com.baidu.tbadk.util.ab<Object>() { // from class: com.baidu.tieba.homepage.personalize.e.15
             @Override // com.baidu.tbadk.util.ab
             public Object doInBackground() {
@@ -1698,10 +1698,10 @@ public class e {
         }, new com.baidu.tbadk.util.l<String>() { // from class: com.baidu.tieba.homepage.personalize.e.18
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tbadk.util.l
-            /* renamed from: Lp */
+            /* renamed from: Lq */
             public void onReturnDataInUI(String str) {
                 if (dVar != null) {
-                    dVar.Bn(com.baidu.adp.lib.f.b.toInt(str, 0));
+                    dVar.Bm(com.baidu.adp.lib.f.b.toInt(str, 0));
                 }
             }
         });

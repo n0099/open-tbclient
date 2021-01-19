@@ -15,12 +15,12 @@ import java.net.URL;
 public class a extends AsyncTask<String, Integer, Integer> {
     private String mFilePath;
     private String mUrl;
-    private b oPO;
-    private int oPP = 0;
+    private b oPP;
+    private int oPQ = 0;
 
     public a(Context context, String str, String str2, b bVar) {
         this.mUrl = str;
-        this.oPO = bVar;
+        this.oPP = bVar;
         this.mFilePath = str2;
     }
 
@@ -162,10 +162,10 @@ public class a extends AsyncTask<String, Integer, Integer> {
             try {
                 if (numArr.length > 0) {
                     Integer num = numArr[0];
-                    if (num.intValue() > this.oPP) {
-                        this.oPP = num.intValue();
-                        if (this.oPO != null) {
-                            this.oPO.onProgress(this.oPP);
+                    if (num.intValue() > this.oPQ) {
+                        this.oPQ = num.intValue();
+                        if (this.oPP != null) {
+                            this.oPP.onProgress(this.oPQ);
                         }
                     }
                 }
@@ -188,8 +188,8 @@ public class a extends AsyncTask<String, Integer, Integer> {
 
     private void notifyFailed(int i) {
         try {
-            if (this.oPO != null) {
-                this.oPO.onFailed(i);
+            if (this.oPP != null) {
+                this.oPP.onFailed(i);
             }
         } catch (Exception e) {
             c.e("AsyncDownloadTask", "notifyFailed:" + e.getMessage());
@@ -198,8 +198,8 @@ public class a extends AsyncTask<String, Integer, Integer> {
 
     private void notifyFinished() {
         try {
-            if (this.oPO != null) {
-                this.oPO.Xb(this.mFilePath);
+            if (this.oPP != null) {
+                this.oPP.Xc(this.mFilePath);
             }
             if (c.isDebugMode()) {
                 c.d("AsyncDownloadTask", "donwLoad finshed sucess:" + System.currentTimeMillis());

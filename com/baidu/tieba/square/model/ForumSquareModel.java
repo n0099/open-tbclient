@@ -175,14 +175,14 @@ public class ForumSquareModel extends BdBaseModel {
         registerListener(this.fli);
     }
 
-    public c RM(String str) {
+    public c RN(String str) {
         if (str == null) {
             return null;
         }
         return this.nhY.get(str);
     }
 
-    public void RN(String str) {
+    public void RO(String str) {
         c cVar;
         ForumSquareRequestMessage forumSquareRequestMessage = new ForumSquareRequestMessage();
         forumSquareRequestMessage.className = str;
@@ -204,7 +204,7 @@ public class ForumSquareModel extends BdBaseModel {
         return this.isLoading;
     }
 
-    public boolean RO(String str) {
+    public boolean RP(String str) {
         if (TextUtils.isEmpty(str)) {
             return false;
         }

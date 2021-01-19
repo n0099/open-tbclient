@@ -13,12 +13,12 @@ public class p {
         throw ((KotlinNullPointerException) T(new KotlinNullPointerException()));
     }
 
-    public static void abd(String str) {
+    public static void abe(String str) {
         throw ((UninitializedPropertyAccessException) T(new UninitializedPropertyAccessException(str)));
     }
 
-    public static void abe(String str) {
-        abd("lateinit property " + str + " has not been initialized");
+    public static void abf(String str) {
+        abe("lateinit property " + str + " has not been initialized");
     }
 
     public static void n(Object obj, String str) {
@@ -29,11 +29,11 @@ public class p {
 
     public static void o(Object obj, String str) {
         if (obj == null) {
-            abf(str);
+            abg(str);
         }
     }
 
-    private static void abf(String str) {
+    private static void abg(String str) {
         StackTraceElement stackTraceElement = Thread.currentThread().getStackTrace()[3];
         String className = stackTraceElement.getClassName();
         throw ((IllegalArgumentException) T(new IllegalArgumentException("Parameter specified as non-null is null: method " + className + "." + stackTraceElement.getMethodName() + ", parameter " + str)));
@@ -44,10 +44,10 @@ public class p {
     }
 
     public static void eIX() {
-        abg("This function has a reified type parameter and thus can only be inlined at compilation time, not called directly.");
+        abh("This function has a reified type parameter and thus can only be inlined at compilation time, not called directly.");
     }
 
-    public static void abg(String str) {
+    public static void abh(String str) {
         throw new UnsupportedOperationException(str);
     }
 

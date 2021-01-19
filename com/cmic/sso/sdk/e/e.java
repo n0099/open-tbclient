@@ -19,7 +19,7 @@ public class e {
         f7723a.remove(str);
     }
 
-    public static com.cmic.sso.sdk.b.b XW(String str) {
+    public static com.cmic.sso.sdk.b.b XX(String str) {
         return f7723a.get(str);
     }
 

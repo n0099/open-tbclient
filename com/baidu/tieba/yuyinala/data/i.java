@@ -7,25 +7,25 @@ import org.json.JSONObject;
 /* loaded from: classes10.dex */
 public class i extends BaseData {
     private ArrayList<c> goH;
-    private g ohe;
-    private int ohf = 10;
+    private g ohf;
+    private int ohg = 10;
 
     public ArrayList<c> getList() {
         return this.goH;
     }
 
     public g dXZ() {
-        return this.ohe;
+        return this.ohf;
     }
 
     public int dYa() {
-        return this.ohf;
+        return this.ohg;
     }
 
     @Override // com.baidu.live.tbadk.core.data.BaseData
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
-            this.ohf = jSONObject.optInt("rank_size");
+            this.ohg = jSONObject.optInt("rank_size");
             JSONArray optJSONArray = jSONObject.optJSONArray("rank_list");
             if (optJSONArray != null) {
                 this.goH = new ArrayList<>();
@@ -36,10 +36,10 @@ public class i extends BaseData {
                     this.goH.add(cVar);
                 }
             }
-            this.ohe = new g();
+            this.ohf = new g();
             JSONObject optJSONObject2 = jSONObject.optJSONObject("charm_data");
             if (optJSONObject2 != null) {
-                this.ohe.parserJson(optJSONObject2);
+                this.ohf.parserJson(optJSONObject2);
             }
         }
     }

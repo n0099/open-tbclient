@@ -8,8 +8,8 @@ import com.baidu.tieba.R;
 /* loaded from: classes8.dex */
 public class MeasuredWrapperRelativeLayout extends RelativeLayout {
     private int lastHeight;
-    private a nsS;
-    private boolean nsT;
+    private a nsT;
+    private boolean nsU;
 
     /* loaded from: classes8.dex */
     public interface a {
@@ -42,23 +42,23 @@ public class MeasuredWrapperRelativeLayout extends RelativeLayout {
             int i2 = this.lastHeight - size;
             if (Math.abs(i2) >= context.getResources().getDimensionPixelSize(R.dimen.ds200)) {
                 if (i2 > 0) {
-                    this.nsT = true;
+                    this.nsU = true;
                 } else {
-                    this.nsT = false;
+                    this.nsU = false;
                 }
-                G(this.nsT, Math.abs(i2));
+                G(this.nsU, Math.abs(i2));
                 this.lastHeight = size;
             }
         }
     }
 
     private void G(boolean z, int i) {
-        if (this.nsS != null) {
-            this.nsS.H(z, i);
+        if (this.nsT != null) {
+            this.nsT.H(z, i);
         }
     }
 
     public void setKeyBoardListener(a aVar) {
-        this.nsS = aVar;
+        this.nsT = aVar;
     }
 }

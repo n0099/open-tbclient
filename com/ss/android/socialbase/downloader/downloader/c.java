@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class c {
-    private static volatile c pVe = null;
+    private static volatile c pVf = null;
 
     /* renamed from: b  reason: collision with root package name */
     private volatile SparseArray<Boolean> f13133b = new SparseArray<>();
@@ -18,12 +18,12 @@ public class c {
     private volatile List<com.ss.android.socialbase.downloader.d.n> d = new ArrayList();
 
     public static c eEh() {
-        if (pVe == null) {
+        if (pVf == null) {
             synchronized (c.class) {
-                pVe = new c();
+                pVf = new c();
             }
         }
-        return pVe;
+        return pVf;
     }
 
     public void b() {

@@ -3,10 +3,10 @@ package com.baidu.ubs.analytics.d;
 import android.os.Environment;
 /* loaded from: classes3.dex */
 public final class a {
-    private static final String oKg = Environment.getExternalStorageDirectory().getPath();
-    static final String oKh = oKg + "/baidu/ab/crash/";
-    static final String oKi = oKg + "/baidu/ab/sdklog/";
-    public static final String aS = oKg + "/baidu/ab/sdkupdata/" + efV() + "/";
+    private static final String oKh = Environment.getExternalStorageDirectory().getPath();
+    static final String oKi = oKh + "/baidu/ab/crash/";
+    static final String oKj = oKh + "/baidu/ab/sdklog/";
+    public static final String aS = oKh + "/baidu/ab/sdkupdata/" + efV() + "/";
     private static int aoW = EnumC0949a.aV;
 
     /* JADX WARN: $VALUES field not found */

@@ -681,7 +681,7 @@ public abstract class AbsHListView extends AdapterView<ListAdapter> implements V
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // android.os.Parcelable.Creator
-            /* renamed from: BO */
+            /* renamed from: BN */
             public SavedState[] newArray(int i) {
                 return new SavedState[i];
             }

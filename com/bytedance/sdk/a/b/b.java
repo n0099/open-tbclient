@@ -11,32 +11,32 @@ public final class b implements Closeable {
     final String d;
     final long k;
     final long l;
-    final ab pdR;
+    final ab pdS;
     final b pgA;
     final b pgB;
-    private volatile g pgC;
-    final u pgw;
-    final v pgx;
-    final c pgy;
-    final b pgz;
+    final b pgC;
+    private volatile g pgD;
+    final u pgx;
+    final v pgy;
+    final c pgz;
 
     b(a aVar) {
-        this.pdR = aVar.pdR;
+        this.pdS = aVar.pdS;
         this.f5953b = aVar.f5954b;
         this.c = aVar.c;
         this.d = aVar.d;
-        this.pgw = aVar.pgw;
-        this.pgx = aVar.pgD.enC();
-        this.pgy = aVar.pgy;
+        this.pgx = aVar.pgx;
+        this.pgy = aVar.pgE.enC();
         this.pgz = aVar.pgz;
         this.pgA = aVar.pgA;
         this.pgB = aVar.pgB;
+        this.pgC = aVar.pgC;
         this.k = aVar.k;
         this.l = aVar.l;
     }
 
     public ab emS() {
-        return this.pdR;
+        return this.pdS;
     }
 
     public w enj() {
@@ -52,7 +52,7 @@ public final class b implements Closeable {
     }
 
     public u enk() {
-        return this.pgw;
+        return this.pgx;
     }
 
     public String a(String str) {
@@ -60,16 +60,16 @@ public final class b implements Closeable {
     }
 
     public String a(String str, String str2) {
-        String a2 = this.pgx.a(str);
+        String a2 = this.pgy.a(str);
         return a2 != null ? a2 : str2;
     }
 
     public v enl() {
-        return this.pgx;
+        return this.pgy;
     }
 
     public c enm() {
-        return this.pgy;
+        return this.pgz;
     }
 
     public a enn() {
@@ -77,16 +77,16 @@ public final class b implements Closeable {
     }
 
     public b eno() {
-        return this.pgB;
+        return this.pgC;
     }
 
     public g enp() {
-        g gVar = this.pgC;
+        g gVar = this.pgD;
         if (gVar != null) {
             return gVar;
         }
-        g d = g.d(this.pgx);
-        this.pgC = d;
+        g d = g.d(this.pgy);
+        this.pgD = d;
         return d;
     }
 
@@ -100,14 +100,14 @@ public final class b implements Closeable {
 
     @Override // java.io.Closeable, java.lang.AutoCloseable
     public void close() {
-        if (this.pgy == null) {
+        if (this.pgz == null) {
             throw new IllegalStateException("response is not eligible for a body and must not be closed");
         }
-        this.pgy.close();
+        this.pgz.close();
     }
 
     public String toString() {
-        return "Response{protocol=" + this.f5953b + ", code=" + this.c + ", message=" + this.d + ", url=" + this.pdR.emp() + '}';
+        return "Response{protocol=" + this.f5953b + ", code=" + this.c + ", message=" + this.d + ", url=" + this.pdS.emp() + '}';
     }
 
     /* loaded from: classes4.dex */
@@ -119,37 +119,37 @@ public final class b implements Closeable {
         String d;
         long k;
         long l;
-        ab pdR;
+        ab pdS;
         b pgA;
         b pgB;
-        v.a pgD;
-        u pgw;
-        c pgy;
-        b pgz;
+        b pgC;
+        v.a pgE;
+        u pgx;
+        c pgz;
 
         public a() {
             this.c = -1;
-            this.pgD = new v.a();
+            this.pgE = new v.a();
         }
 
         a(b bVar) {
             this.c = -1;
-            this.pdR = bVar.pdR;
+            this.pdS = bVar.pdS;
             this.f5954b = bVar.f5953b;
             this.c = bVar.c;
             this.d = bVar.d;
-            this.pgw = bVar.pgw;
-            this.pgD = bVar.pgx.enB();
-            this.pgy = bVar.pgy;
+            this.pgx = bVar.pgx;
+            this.pgE = bVar.pgy.enB();
             this.pgz = bVar.pgz;
             this.pgA = bVar.pgA;
             this.pgB = bVar.pgB;
+            this.pgC = bVar.pgC;
             this.k = bVar.k;
             this.l = bVar.l;
         }
 
         public a f(ab abVar) {
-            this.pdR = abVar;
+            this.pdS = abVar;
             return this;
         }
 
@@ -163,28 +163,28 @@ public final class b implements Closeable {
             return this;
         }
 
-        public a XA(String str) {
+        public a XB(String str) {
             this.d = str;
             return this;
         }
 
         public a a(u uVar) {
-            this.pgw = uVar;
+            this.pgx = uVar;
             return this;
         }
 
         public a hb(String str, String str2) {
-            this.pgD.hc(str, str2);
+            this.pgE.hc(str, str2);
             return this;
         }
 
         public a c(v vVar) {
-            this.pgD = vVar.enB();
+            this.pgE = vVar.enB();
             return this;
         }
 
         public a a(c cVar) {
-            this.pgy = cVar;
+            this.pgz = cVar;
             return this;
         }
 
@@ -192,7 +192,7 @@ public final class b implements Closeable {
             if (bVar != null) {
                 a("networkResponse", bVar);
             }
-            this.pgz = bVar;
+            this.pgA = bVar;
             return this;
         }
 
@@ -200,21 +200,21 @@ public final class b implements Closeable {
             if (bVar != null) {
                 a("cacheResponse", bVar);
             }
-            this.pgA = bVar;
+            this.pgB = bVar;
             return this;
         }
 
         private void a(String str, b bVar) {
-            if (bVar.pgy != null) {
+            if (bVar.pgz != null) {
                 throw new IllegalArgumentException(str + ".body != null");
             }
-            if (bVar.pgz != null) {
+            if (bVar.pgA != null) {
                 throw new IllegalArgumentException(str + ".networkResponse != null");
             }
-            if (bVar.pgA != null) {
+            if (bVar.pgB != null) {
                 throw new IllegalArgumentException(str + ".cacheResponse != null");
             }
-            if (bVar.pgB != null) {
+            if (bVar.pgC != null) {
                 throw new IllegalArgumentException(str + ".priorResponse != null");
             }
         }
@@ -223,12 +223,12 @@ public final class b implements Closeable {
             if (bVar != null) {
                 k(bVar);
             }
-            this.pgB = bVar;
+            this.pgC = bVar;
             return this;
         }
 
         private void k(b bVar) {
-            if (bVar.pgy != null) {
+            if (bVar.pgz != null) {
                 throw new IllegalArgumentException("priorResponse.body != null");
             }
         }
@@ -244,7 +244,7 @@ public final class b implements Closeable {
         }
 
         public b enq() {
-            if (this.pdR == null) {
+            if (this.pdS == null) {
                 throw new IllegalStateException("request == null");
             }
             if (this.f5954b == null) {

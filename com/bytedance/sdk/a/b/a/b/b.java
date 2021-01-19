@@ -49,7 +49,7 @@ public final class b {
             throw new UnknownServiceException("Unable to find acceptable protocols. isFallback=" + this.d + ", modes=" + this.f5860a + ", supported protocols=" + Arrays.toString(sSLSocket.getEnabledProtocols()));
         }
         this.c = b(sSLSocket);
-        com.bytedance.sdk.a.b.a.a.pdM.a(nVar, sSLSocket, this.d);
+        com.bytedance.sdk.a.b.a.a.pdN.a(nVar, sSLSocket, this.d);
         return nVar;
     }
 

@@ -33,22 +33,22 @@ public class a {
         private String d;
         private String e;
 
-        public C1213a YZ(String str) {
+        public C1213a Za(String str) {
             this.f12893a = str;
             return this;
         }
 
-        public C1213a Za(String str) {
+        public C1213a Zb(String str) {
             this.f12894b = str;
             return this;
         }
 
-        public C1213a Zb(String str) {
+        public C1213a Zc(String str) {
             this.d = str;
             return this;
         }
 
-        public C1213a Zc(String str) {
+        public C1213a Zd(String str) {
             this.e = str;
             return this;
         }

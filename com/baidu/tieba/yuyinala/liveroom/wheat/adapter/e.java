@@ -19,11 +19,11 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes10.dex */
 public class e extends BaseAdapter {
-    private static boolean otC = true;
+    private static boolean otD = true;
     private Context mContext;
     private ArrayList<AlaWheatInfoData> ajz = new ArrayList<>();
-    private ArrayList<AlaWheatInfoData> otB = new ArrayList<>();
-    private a otD = null;
+    private ArrayList<AlaWheatInfoData> otC = new ArrayList<>();
+    private a otE = null;
 
     /* loaded from: classes10.dex */
     public interface a {
@@ -37,7 +37,7 @@ public class e extends BaseAdapter {
     }
 
     public void a(a aVar) {
-        this.otD = aVar;
+        this.otE = aVar;
     }
 
     @Override // android.widget.Adapter
@@ -71,8 +71,8 @@ public class e extends BaseAdapter {
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
                 if (i == 0) {
-                    boolean unused = e.otC = e.otC ? false : true;
-                    e.this.zD(e.otC);
+                    boolean unused = e.otD = e.otD ? false : true;
+                    e.this.zD(e.otD);
                 } else {
                     AlaWheatInfoData item = e.this.getItem(i);
                     if (item != null) {
@@ -82,8 +82,8 @@ public class e extends BaseAdapter {
                     }
                 }
                 e.this.notifyDataSetChanged();
-                if (e.this.otD != null) {
-                    e.this.otD.I(view2, i);
+                if (e.this.otE != null) {
+                    e.this.otE.I(view2, i);
                 }
             }
         });
@@ -92,12 +92,12 @@ public class e extends BaseAdapter {
     }
 
     public void eae() {
-        this.otB.clear();
+        this.otC.clear();
         for (int i = 0; i < this.ajz.size(); i++) {
             if (this.ajz.get(i) != null) {
-                this.otB.add((AlaWheatInfoData) this.ajz.get(i).clone());
+                this.otC.add((AlaWheatInfoData) this.ajz.get(i).clone());
             } else {
-                this.otB.add(null);
+                this.otC.add(null);
             }
         }
         this.ajz.clear();
@@ -113,11 +113,11 @@ public class e extends BaseAdapter {
         for (int i2 = 0; i2 < this.ajz.size(); i2++) {
             AlaWheatInfoData alaWheatInfoData = this.ajz.get(i2);
             if (alaWheatInfoData != null) {
-                if (otC) {
-                    alaWheatInfoData.clearSelectFlag = otC;
+                if (otD) {
+                    alaWheatInfoData.clearSelectFlag = otD;
                 } else {
-                    for (int i3 = 0; i3 < this.otB.size(); i3++) {
-                        AlaWheatInfoData alaWheatInfoData2 = this.otB.get(i3);
+                    for (int i3 = 0; i3 < this.otC.size(); i3++) {
+                        AlaWheatInfoData alaWheatInfoData2 = this.otC.get(i3);
                         if (alaWheatInfoData2 != null && TextUtils.equals(alaWheatInfoData.uk, alaWheatInfoData2.uk)) {
                             alaWheatInfoData.clearSelectFlag = alaWheatInfoData2.clearSelectFlag;
                         }
@@ -126,8 +126,8 @@ public class e extends BaseAdapter {
             }
         }
         notifyDataSetChanged();
-        if (this.otD != null) {
-            this.otD.notifyDataSetChanged();
+        if (this.otE != null) {
+            this.otE.notifyDataSetChanged();
         }
     }
 
@@ -153,7 +153,7 @@ public class e extends BaseAdapter {
     }
 
     public boolean eag() {
-        return otC;
+        return otD;
     }
 
     public void eah() {
@@ -164,7 +164,7 @@ public class e extends BaseAdapter {
                     z = false;
                 }
             }
-            otC = z;
+            otD = z;
         }
     }
 
@@ -188,39 +188,39 @@ public class e extends BaseAdapter {
         public HeadImageView bec;
         public TextView htP;
         public boolean mSelected = false;
-        public FrameLayout otG;
-        public ImageView otH;
-        public LinearLayout otI;
-        public TextView otJ;
+        public FrameLayout otH;
+        public ImageView otI;
+        public LinearLayout otJ;
         public TextView otK;
-        public LinearLayout otL;
-        public ImageView otM;
-        public AlaWheatInfoData otN;
+        public TextView otL;
+        public LinearLayout otM;
+        public ImageView otN;
+        public AlaWheatInfoData otO;
 
         public b(View view) {
-            this.otG = (FrameLayout) view.findViewById(a.f.user_avatar_container);
+            this.otH = (FrameLayout) view.findViewById(a.f.user_avatar_container);
             this.bec = (HeadImageView) view.findViewById(a.f.user_avatar);
-            this.otH = (ImageView) view.findViewById(a.f.user_avatar_circle);
-            this.otI = (LinearLayout) view.findViewById(a.f.user_label);
-            this.otJ = (TextView) view.findViewById(a.f.tv_host_label);
-            this.otK = (TextView) view.findViewById(a.f.tv_anchor_label);
-            this.otL = (LinearLayout) view.findViewById(a.f.charm_container_ll);
-            this.otM = (ImageView) view.findViewById(a.f.iv_charm_icon);
+            this.otI = (ImageView) view.findViewById(a.f.user_avatar_circle);
+            this.otJ = (LinearLayout) view.findViewById(a.f.user_label);
+            this.otK = (TextView) view.findViewById(a.f.tv_host_label);
+            this.otL = (TextView) view.findViewById(a.f.tv_anchor_label);
+            this.otM = (LinearLayout) view.findViewById(a.f.charm_container_ll);
+            this.otN = (ImageView) view.findViewById(a.f.iv_charm_icon);
             this.htP = (TextView) view.findViewById(a.f.tv_charm_value);
         }
 
         public void a(int i, AlaWheatInfoData alaWheatInfoData) {
-            this.otN = alaWheatInfoData;
-            this.otH.setVisibility(8);
+            this.otO = alaWheatInfoData;
+            this.otI.setVisibility(8);
             if (alaWheatInfoData != null) {
-                this.otI.setVisibility(0);
+                this.otJ.setVisibility(0);
                 if (i == 0) {
                     this.bec.setIsRound(false);
                     this.bec.setDrawBorder(false);
                     this.bec.setAutoChangeStyle(false);
                     this.bec.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
-                    this.bec.setImageResource(e.otC ? a.e.wheat_clear_all_selected : a.e.wheat_clear_all_unselect);
-                    this.otM.setVisibility(8);
+                    this.bec.setImageResource(e.otD ? a.e.wheat_clear_all_selected : a.e.wheat_clear_all_unselect);
+                    this.otN.setVisibility(8);
                     this.htP.setText("全麦");
                     return;
                 } else if (i == 1) {
@@ -234,14 +234,14 @@ public class e extends BaseAdapter {
                     this.bec.setImageResource(0);
                     this.bec.setUrl(alaWheatInfoData.portrait);
                     this.bec.startLoad(alaWheatInfoData.portrait, 12, false, false);
-                    this.otJ.setSelected(alaWheatInfoData.clearSelectFlag);
                     this.otK.setSelected(alaWheatInfoData.clearSelectFlag);
-                    this.otH.setVisibility(alaWheatInfoData.clearSelectFlag ? 0 : 8);
-                    this.otJ.setVisibility(0);
-                    this.otK.setVisibility(8);
-                    this.otL.setVisibility(0);
+                    this.otL.setSelected(alaWheatInfoData.clearSelectFlag);
+                    this.otI.setVisibility(alaWheatInfoData.clearSelectFlag ? 0 : 8);
+                    this.otK.setVisibility(0);
+                    this.otL.setVisibility(8);
                     this.otM.setVisibility(0);
-                    this.otM.setImageResource(alaWheatInfoData.isFemale() ? a.e.yuyin_sdk_wheat_heartbeat_female_value : a.e.yuyin_sdk_wheat_heartbeat_male_value);
+                    this.otN.setVisibility(0);
+                    this.otN.setImageResource(alaWheatInfoData.isFemale() ? a.e.yuyin_sdk_wheat_heartbeat_female_value : a.e.yuyin_sdk_wheat_heartbeat_male_value);
                     this.htP.setText(alaWheatInfoData.charmCount);
                     this.htP.setVisibility(0);
                     return;
@@ -256,15 +256,15 @@ public class e extends BaseAdapter {
                     this.bec.setImageResource(0);
                     this.bec.setUrl(alaWheatInfoData.portrait);
                     this.bec.startLoad(alaWheatInfoData.portrait, 12, false, false);
-                    this.otJ.setSelected(alaWheatInfoData.clearSelectFlag);
                     this.otK.setSelected(alaWheatInfoData.clearSelectFlag);
-                    this.otH.setVisibility(alaWheatInfoData.clearSelectFlag ? 0 : 8);
-                    this.otJ.setVisibility(8);
-                    this.otK.setVisibility(0);
-                    this.otK.setText(Integer.toString(i - 1));
+                    this.otL.setSelected(alaWheatInfoData.clearSelectFlag);
+                    this.otI.setVisibility(alaWheatInfoData.clearSelectFlag ? 0 : 8);
+                    this.otK.setVisibility(8);
                     this.otL.setVisibility(0);
+                    this.otL.setText(Integer.toString(i - 1));
                     this.otM.setVisibility(0);
-                    this.otM.setImageResource(alaWheatInfoData.isFemale() ? a.e.yuyin_sdk_wheat_heartbeat_female_value : a.e.yuyin_sdk_wheat_heartbeat_male_value);
+                    this.otN.setVisibility(0);
+                    this.otN.setImageResource(alaWheatInfoData.isFemale() ? a.e.yuyin_sdk_wheat_heartbeat_female_value : a.e.yuyin_sdk_wheat_heartbeat_male_value);
                     this.htP.setText(alaWheatInfoData.charmCount);
                     this.htP.setVisibility(0);
                     return;
@@ -275,13 +275,13 @@ public class e extends BaseAdapter {
             this.bec.setAutoChangeStyle(false);
             this.bec.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
             this.bec.setImageResource(a.e.wheat_clear_empty_icon);
-            this.otI.setVisibility(0);
-            this.otJ.setVisibility(i == 1 ? 0 : 8);
-            this.otJ.setSelected(false);
-            this.otK.setVisibility(i != 1 ? 0 : 8);
-            this.otK.setText(Integer.toString(i - 1));
+            this.otJ.setVisibility(0);
+            this.otK.setVisibility(i == 1 ? 0 : 8);
             this.otK.setSelected(false);
-            this.otL.setVisibility(4);
+            this.otL.setVisibility(i != 1 ? 0 : 8);
+            this.otL.setText(Integer.toString(i - 1));
+            this.otL.setSelected(false);
+            this.otM.setVisibility(4);
         }
     }
 }

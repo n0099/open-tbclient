@@ -26,25 +26,25 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes10.dex */
 public class b {
-    private static b owj;
-    private TbPageContext ovz;
-    private com.baidu.tieba.yuyinala.liveroom.wheat.model.a owk;
-    private com.baidu.tieba.yuyinala.liveroom.wheat.model.i owl;
-    private String owm = "";
-    private com.baidu.tieba.yuyinala.liveroom.wheat.dialog.f own;
+    private static b owk;
+    private TbPageContext ovA;
+    private com.baidu.tieba.yuyinala.liveroom.wheat.model.a owl;
+    private com.baidu.tieba.yuyinala.liveroom.wheat.model.i owm;
+    private String own = "";
+    private com.baidu.tieba.yuyinala.liveroom.wheat.dialog.f owo;
 
     public static b eaS() {
-        if (owj == null) {
-            owj = new b();
+        if (owk == null) {
+            owk = new b();
         }
-        return owj;
+        return owk;
     }
 
     private b() {
     }
 
     public b g(TbPageContext tbPageContext) {
-        this.ovz = tbPageContext;
+        this.ovA = tbPageContext;
         return this;
     }
 
@@ -67,11 +67,11 @@ public class b {
         try {
             JSONObject jSONObject2 = new JSONObject(bIMInviteSyncRtcInfo.getRtcExt());
             str = jSONObject2.optString("invite_name");
-            this.owm = jSONObject2.optString("invite_uk");
+            this.own = jSONObject2.optString("invite_uk");
             String optString = jSONObject2.optString("type");
             str2 = jSONObject2.optString("pushUrl");
             str3 = jSONObject2.optString("pushSingleUrl");
-            z = com.baidu.tieba.yuyinala.liveroom.wheat.a.b.Vb(optString);
+            z = com.baidu.tieba.yuyinala.liveroom.wheat.a.b.Vc(optString);
         } catch (JSONException e2) {
             e2.printStackTrace();
             z = false;
@@ -86,13 +86,13 @@ public class b {
                     if (alaLinkCallBackHttpResponseMessage.isError()) {
                         com.baidu.tieba.yuyinala.liveroom.wheat.a.b eaz = com.baidu.tieba.yuyinala.liveroom.wheat.a.c.eax().eaz();
                         if (eaz != null) {
-                            eaz.UY("上麦CallBack回调失败onSucc");
+                            eaz.UZ("上麦CallBack回调失败onSucc");
                             return;
                         }
                         return;
                     }
                     UbcAudioFlowStatisticManager.getInstance().doSlotEnd(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_AUDIO_ANCHOR_JOIN_MIC, "auidolivechatflow", UbcStatConstant.Page.AUDIO_LIVE_ROOM, ""), "micAuthApi");
-                    l.ebk().i(b.this.ovz).LZ(4);
+                    l.ebk().i(b.this.ovA).LZ(4);
                     b.this.a(bIMInviteSyncRtcInfo, 1, TbadkCoreApplication.getCurrentAccountInfo().getAccountNameShow(), str2, str3, true, false);
                 }
 
@@ -113,7 +113,7 @@ public class b {
                     UbcStatisticManager.getInstance().logEvent(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_AUDIO_OWNER_JOIN_CHAT, UbcStatConstant.ContentType.UBC_TYPE_AUDIO_LIVE_CHAT, UbcStatConstant.Page.AUDIO_LIVE_ROOM, "user_apply_join_chat_result").setContentExt(jSONObject3));
                     com.baidu.tieba.yuyinala.liveroom.wheat.a.b eaz = com.baidu.tieba.yuyinala.liveroom.wheat.a.c.eax().eaz();
                     if (eaz != null) {
-                        eaz.UY("上麦CallBack回调失败onFail");
+                        eaz.UZ("上麦CallBack回调失败onFail");
                     }
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2501036, false));
                 }
@@ -137,18 +137,18 @@ public class b {
             BdLog.e(e);
         }
         UbcStatisticManager.getInstance().logEvent(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_AUDIO_OWNER_JOIN_CHAT, UbcStatConstant.ContentType.UBC_TYPE_AUDIO_LIVE_CHAT, UbcStatConstant.Page.AUDIO_LIVE_ROOM, "user_receive_invite").setContentExt(jSONObject));
-        if (this.own != null && this.own.isShowing()) {
-            this.own.dismiss();
+        if (this.owo != null && this.owo.isShowing()) {
+            this.owo.dismiss();
         }
-        this.own = new com.baidu.tieba.yuyinala.liveroom.wheat.dialog.f(activity);
-        this.own.show();
+        this.owo = new com.baidu.tieba.yuyinala.liveroom.wheat.dialog.f(activity);
+        this.owo.show();
         x WA2 = com.baidu.tieba.yuyinala.liveroom.wheat.a.c.eax().WA();
         if (WA2 != null && WA2.aGJ >= 0) {
             i = WA2.aGJ;
         }
-        this.own.Mc(i * 1000);
-        this.own.Vt(str);
-        this.own.a(new f.a() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.c.b.2
+        this.owo.Mc(i * 1000);
+        this.owo.Vu(str);
+        this.owo.a(new f.a() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.c.b.2
             @Override // com.baidu.tieba.yuyinala.liveroom.wheat.dialog.f.a
             public void eaT() {
                 d.eaW().a(activity, activity, new d.a() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.c.b.2.1
@@ -184,7 +184,7 @@ public class b {
 
             @Override // com.baidu.tieba.yuyinala.liveroom.wheat.dialog.f.a
             public void eaU() {
-                com.baidu.tieba.yuyinala.liveroom.wheat.a.c.eax().eaz().a(bIMInviteSyncRtcInfo, 2, TbadkCoreApplication.getCurrentAccountInfo().getAccountNameShow(), null, null, false, b.this.owm);
+                com.baidu.tieba.yuyinala.liveroom.wheat.a.c.eax().eaz().a(bIMInviteSyncRtcInfo, 2, TbadkCoreApplication.getCurrentAccountInfo().getAccountNameShow(), null, null, false, b.this.own);
                 JSONObject jSONObject2 = new JSONObject();
                 try {
                     x WA3 = com.baidu.tieba.yuyinala.liveroom.wheat.a.c.eax().WA();
@@ -201,7 +201,7 @@ public class b {
 
             @Override // com.baidu.tieba.yuyinala.liveroom.wheat.dialog.f.a
             public void akj() {
-                com.baidu.tieba.yuyinala.liveroom.wheat.a.c.eax().eaz().a(bIMInviteSyncRtcInfo, 2, TbadkCoreApplication.getCurrentAccountInfo().getAccountNameShow(), null, null, false, b.this.owm);
+                com.baidu.tieba.yuyinala.liveroom.wheat.a.c.eax().eaz().a(bIMInviteSyncRtcInfo, 2, TbadkCoreApplication.getCurrentAccountInfo().getAccountNameShow(), null, null, false, b.this.own);
                 JSONObject jSONObject2 = new JSONObject();
                 try {
                     x WA3 = com.baidu.tieba.yuyinala.liveroom.wheat.a.c.eax().WA();
@@ -220,13 +220,13 @@ public class b {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(final BIMInviteSyncRtcInfo bIMInviteSyncRtcInfo, String str) {
-        if (this.owk == null) {
-            this.owk = new com.baidu.tieba.yuyinala.liveroom.wheat.model.a(null, new a.InterfaceC0941a() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.c.b.3
+        if (this.owl == null) {
+            this.owl = new com.baidu.tieba.yuyinala.liveroom.wheat.model.a(null, new a.InterfaceC0941a() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.c.b.3
                 @Override // com.baidu.tieba.yuyinala.liveroom.wheat.model.a.InterfaceC0941a
                 public void a(AlaAcceptConnectionWheatHttpResponseMessage alaAcceptConnectionWheatHttpResponseMessage) {
                     if (!alaAcceptConnectionWheatHttpResponseMessage.isError()) {
                         UbcAudioFlowStatisticManager.getInstance().doSlotEnd(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_AUDIO_ANCHOR_JOIN_MIC, "auidolivechatflow", UbcStatConstant.Page.AUDIO_LIVE_ROOM, ""), "micAuthApi");
-                        l.ebk().i(b.this.ovz).LZ(3);
+                        l.ebk().i(b.this.ovA).LZ(3);
                         b.this.a(bIMInviteSyncRtcInfo, 1, TbadkCoreApplication.getCurrentAccountInfo().getAccountNameShow(), alaAcceptConnectionWheatHttpResponseMessage.getPushUrl(), alaAcceptConnectionWheatHttpResponseMessage.ecd(), false, true);
                     }
                 }
@@ -250,22 +250,22 @@ public class b {
                 }
             });
         }
-        this.owk.aT(com.baidu.tieba.yuyinala.liveroom.wheat.a.c.eax().yv(), str, "2");
+        this.owl.aT(com.baidu.tieba.yuyinala.liveroom.wheat.a.c.eax().yv(), str, "2");
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(BIMInviteSyncRtcInfo bIMInviteSyncRtcInfo, int i, String str, String str2, String str3, boolean z, boolean z2) {
         if (z2) {
-            com.baidu.tieba.yuyinala.liveroom.wheat.a.c.eax().eaz().a(bIMInviteSyncRtcInfo, i, str, str2, str3, z, this.owm);
+            com.baidu.tieba.yuyinala.liveroom.wheat.a.c.eax().eaz().a(bIMInviteSyncRtcInfo, i, str, str2, str3, z, this.own);
         } else {
-            com.baidu.tieba.yuyinala.liveroom.wheat.a.c.eax().eaz().a(bIMInviteSyncRtcInfo, i, str, str2, str3, z, this.owm);
+            com.baidu.tieba.yuyinala.liveroom.wheat.a.c.eax().eaz().a(bIMInviteSyncRtcInfo, i, str, str2, str3, z, this.own);
         }
     }
 
     public void onDestroy() {
-        if (this.owl != null) {
-            this.owl.onDestroy();
-            this.owl = null;
+        if (this.owm != null) {
+            this.owm.onDestroy();
+            this.owm = null;
         }
     }
 }

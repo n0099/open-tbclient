@@ -7,7 +7,7 @@ import kotlin.text.l;
 @e
 /* loaded from: classes5.dex */
 public final class c {
-    public static final b qjc;
+    public static final b qjd;
 
     static {
         b bVar;
@@ -31,7 +31,7 @@ public final class c {
                 throw new TypeCastException("null cannot be cast to non-null type kotlin.internal.PlatformImplementations");
             }
             bVar = (b) newInstance;
-            qjc = bVar;
+            qjd = bVar;
         }
         if (eIT >= 65543) {
             try {
@@ -50,10 +50,10 @@ public final class c {
                 throw new TypeCastException("null cannot be cast to non-null type kotlin.internal.PlatformImplementations");
             }
             bVar = (b) newInstance2;
-            qjc = bVar;
+            qjd = bVar;
         }
         bVar = new b();
-        qjc = bVar;
+        qjd = bVar;
     }
 
     private static final int eIT() {

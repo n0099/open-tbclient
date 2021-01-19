@@ -14,7 +14,7 @@ public final class bq {
 
     /* renamed from: b  reason: collision with root package name */
     public static ExecutorService f7775b = Executors.newSingleThreadExecutor();
-    public static a pFN;
+    public static a pFO;
 
     /* loaded from: classes14.dex */
     public interface a {

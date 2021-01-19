@@ -50,14 +50,14 @@ public class a extends BaseAdapter {
         if (view == null) {
             view = LayoutInflater.from(this.mContext).inflate(a.g.item_ala_audio_background, viewGroup, false);
             c0951a = new C0951a();
-            c0951a.oLt = (TbImageView) view.findViewById(a.f.thumbnail_iv);
-            c0951a.oLu = (ImageView) view.findViewById(a.f.chosen_iv);
+            c0951a.oLu = (TbImageView) view.findViewById(a.f.thumbnail_iv);
+            c0951a.oLv = (ImageView) view.findViewById(a.f.chosen_iv);
             c0951a.gKi = (TextView) view.findViewById(a.f.bg_name_tv);
-            c0951a.oLv = (ProgressBar) view.findViewById(a.f.loading_pb);
-            c0951a.oLw = (TextView) view.findViewById(a.f.video_tag);
-            c0951a.oLt.setDefaultResource(a.e.loading_ala_audio_bg);
-            c0951a.oLt.setDefaultErrorResource(a.e.loading_ala_audio_bg);
-            c0951a.oLt.setDefaultBgResource(a.e.loading_ala_audio_bg);
+            c0951a.oLw = (ProgressBar) view.findViewById(a.f.loading_pb);
+            c0951a.oLx = (TextView) view.findViewById(a.f.video_tag);
+            c0951a.oLu.setDefaultResource(a.e.loading_ala_audio_bg);
+            c0951a.oLu.setDefaultErrorResource(a.e.loading_ala_audio_bg);
+            c0951a.oLu.setDefaultBgResource(a.e.loading_ala_audio_bg);
             view.setTag(c0951a);
         } else {
             c0951a = (C0951a) view.getTag();
@@ -66,12 +66,12 @@ public class a extends BaseAdapter {
         if (aVar != null) {
             view.setVisibility(0);
             c0951a.gKi.setText(aVar.getName());
-            c0951a.oLt.startLoad(aVar.getThumbnailUrl(), 10, false);
-            c0951a.oLt.setVisibility(0);
-            c0951a.oLu.setVisibility(aVar.egB() ? 0 : 8);
-            c0951a.oLv.setVisibility(aVar.isLoading() ? 0 : 8);
-            c0951a.oLw.setVisibility(aVar.getType() != 1 ? 8 : 0);
-            if (aVar.getType() == 1 && !b.WQ(aVar.getMd5())) {
+            c0951a.oLu.startLoad(aVar.getThumbnailUrl(), 10, false);
+            c0951a.oLu.setVisibility(0);
+            c0951a.oLv.setVisibility(aVar.egB() ? 0 : 8);
+            c0951a.oLw.setVisibility(aVar.isLoading() ? 0 : 8);
+            c0951a.oLx.setVisibility(aVar.getType() != 1 ? 8 : 0);
+            if (aVar.getType() == 1 && !b.WR(aVar.getMd5())) {
                 b.b(aVar.egC(), aVar.getMd5(), null);
             }
         } else {
@@ -84,10 +84,10 @@ public class a extends BaseAdapter {
     /* loaded from: classes10.dex */
     private class C0951a {
         private TextView gKi;
-        private TbImageView oLt;
-        private ImageView oLu;
-        private ProgressBar oLv;
-        private TextView oLw;
+        private TbImageView oLu;
+        private ImageView oLv;
+        private ProgressBar oLw;
+        private TextView oLx;
 
         private C0951a() {
         }

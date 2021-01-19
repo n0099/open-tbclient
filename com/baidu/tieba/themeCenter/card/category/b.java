@@ -14,16 +14,16 @@ import java.util.List;
 public class b extends BaseAdapter {
     private TbPageContext<?> eSJ;
     private int iWk;
-    private List<Object> nwF;
-    private int nyj;
-    private PersonalCardItemView.a nyk;
+    private List<Object> nwG;
+    private int nyk;
+    private PersonalCardItemView.a nyl;
 
     /* loaded from: classes8.dex */
     public static class a {
-        public PersonalCardItemView nyl;
         public PersonalCardItemView nym;
         public PersonalCardItemView nyn;
-        public View nyo;
+        public PersonalCardItemView nyo;
+        public View nyp;
     }
 
     /* renamed from: com.baidu.tieba.themeCenter.card.category.b$b  reason: collision with other inner class name */
@@ -33,27 +33,27 @@ public class b extends BaseAdapter {
     }
 
     public b(TbPageContext<?> tbPageContext) {
-        this.nyj = 0;
+        this.nyk = 0;
         this.iWk = 0;
         this.eSJ = tbPageContext;
-        this.nyj = l.getDimens(tbPageContext.getPageActivity(), R.dimen.ds28);
+        this.nyk = l.getDimens(tbPageContext.getPageActivity(), R.dimen.ds28);
         this.iWk = l.getDimens(tbPageContext.getPageActivity(), R.dimen.ds20);
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.nwF != null) {
-            return this.nwF.size();
+        if (this.nwG != null) {
+            return this.nwG.size();
         }
         return 0;
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        if (this.nwF == null || this.nwF.size() <= 0 || i < 0 || i >= this.nwF.size()) {
+        if (this.nwG == null || this.nwG.size() <= 0 || i < 0 || i >= this.nwG.size()) {
             return null;
         }
-        return this.nwF.get(i);
+        return this.nwG.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -90,7 +90,7 @@ public class b extends BaseAdapter {
                 C0879b c0879b2 = new C0879b();
                 view = LayoutInflater.from(this.eSJ.getPageActivity()).inflate(R.layout.background_group_header, viewGroup, false);
                 c0879b2.eFr = (TextView) view.findViewById(R.id.group_name);
-                c0879b2.eFr.setPadding(0, this.nyj, 0, this.iWk);
+                c0879b2.eFr.setPadding(0, this.nyk, 0, this.iWk);
                 view.setTag(c0879b2);
                 c0879b = c0879b2;
             }
@@ -103,47 +103,47 @@ public class b extends BaseAdapter {
             } else {
                 aVar = new a();
                 view = LayoutInflater.from(this.eSJ.getPageActivity()).inflate(R.layout.category_card_list_item, viewGroup, false);
-                aVar.nyl = (PersonalCardItemView) view.findViewById(R.id.card1);
-                aVar.nym = (PersonalCardItemView) view.findViewById(R.id.card2);
-                aVar.nyn = (PersonalCardItemView) view.findViewById(R.id.card3);
-                aVar.nyo = view.findViewById(R.id.divider_line);
-                aVar.nyl.setCardViewController(this.nyk);
-                aVar.nym.setCardViewController(this.nyk);
-                aVar.nyn.setCardViewController(this.nyk);
+                aVar.nym = (PersonalCardItemView) view.findViewById(R.id.card1);
+                aVar.nyn = (PersonalCardItemView) view.findViewById(R.id.card2);
+                aVar.nyo = (PersonalCardItemView) view.findViewById(R.id.card3);
+                aVar.nyp = view.findViewById(R.id.divider_line);
+                aVar.nym.setCardViewController(this.nyl);
+                aVar.nyn.setCardViewController(this.nyl);
+                aVar.nyo.setCardViewController(this.nyl);
                 view.setTag(aVar);
             }
             if (item != null) {
                 List list = (List) item;
                 switch (list.size()) {
                     case 1:
-                        aVar.nyl.b((com.baidu.tieba.themeCenter.a) list.get(0));
-                        aVar.nyl.setVisibility(0);
-                        aVar.nym.setVisibility(8);
+                        aVar.nym.b((com.baidu.tieba.themeCenter.a) list.get(0));
+                        aVar.nym.setVisibility(0);
                         aVar.nyn.setVisibility(8);
+                        aVar.nyo.setVisibility(8);
                         break;
                     case 2:
-                        aVar.nyl.b((com.baidu.tieba.themeCenter.a) list.get(0));
-                        aVar.nym.b((com.baidu.tieba.themeCenter.a) list.get(1));
-                        aVar.nyl.setVisibility(0);
-                        aVar.nym.setVisibility(0);
-                        aVar.nyn.setVisibility(8);
-                        break;
-                    case 3:
-                        aVar.nyl.b((com.baidu.tieba.themeCenter.a) list.get(0));
-                        aVar.nym.b((com.baidu.tieba.themeCenter.a) list.get(1));
-                        aVar.nyn.b((com.baidu.tieba.themeCenter.a) list.get(2));
-                        aVar.nyl.setVisibility(0);
+                        aVar.nym.b((com.baidu.tieba.themeCenter.a) list.get(0));
+                        aVar.nyn.b((com.baidu.tieba.themeCenter.a) list.get(1));
                         aVar.nym.setVisibility(0);
                         aVar.nyn.setVisibility(0);
+                        aVar.nyo.setVisibility(8);
+                        break;
+                    case 3:
+                        aVar.nym.b((com.baidu.tieba.themeCenter.a) list.get(0));
+                        aVar.nyn.b((com.baidu.tieba.themeCenter.a) list.get(1));
+                        aVar.nyo.b((com.baidu.tieba.themeCenter.a) list.get(2));
+                        aVar.nym.setVisibility(0);
+                        aVar.nyn.setVisibility(0);
+                        aVar.nyo.setVisibility(0);
                         break;
                     default:
                         view.setVisibility(8);
                         break;
                 }
                 if (getItem(i + 1) instanceof List) {
-                    aVar.nyo.setVisibility(8);
+                    aVar.nyp.setVisibility(8);
                 } else {
-                    aVar.nyo.setVisibility(0);
+                    aVar.nyp.setVisibility(0);
                 }
             }
         }
@@ -152,10 +152,10 @@ public class b extends BaseAdapter {
     }
 
     public void setData(List<Object> list) {
-        this.nwF = list;
+        this.nwG = list;
     }
 
     public void setCardViewController(PersonalCardItemView.a aVar) {
-        this.nyk = aVar;
+        this.nyl = aVar;
     }
 }

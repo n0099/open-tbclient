@@ -30,7 +30,7 @@ public class SpecialColumnItemData implements Parcelable, n {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: BJ */
+        /* renamed from: BI */
         public SpecialColumnItemData[] newArray(int i) {
             return new SpecialColumnItemData[i];
         }

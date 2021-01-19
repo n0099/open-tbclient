@@ -57,7 +57,7 @@ public class c {
         public void f(View view, int i, int i2, int i3, int i4) {
             c.this.acb = i2;
             if (c.this.koT != null) {
-                c.this.koT.Cd(i2);
+                c.this.koT.Cc(i2);
             }
         }
     };
@@ -65,7 +65,7 @@ public class c {
         @Override // com.baidu.tbadk.widget.layout.e
         public void f(View view, int i, int i2, int i3, int i4) {
             c.this.dwJ = i2;
-            c.this.koU.BT(i2);
+            c.this.koU.BS(i2);
             c.this.koV.setHeaderViewHeight(i2);
         }
     };
@@ -79,7 +79,7 @@ public class c {
                 float y = c.this.koT.getY();
                 if (c.this.koU != null) {
                     if (Math.abs(c.this.kpb) != c.this.cRE() || c.this.kpb == y) {
-                        c.this.koU.BX((int) (c.this.kpb - y));
+                        c.this.koU.BW((int) (c.this.kpb - y));
                         return;
                     }
                     c.this.koU.aM(y);
@@ -95,7 +95,7 @@ public class c {
             if (cQD != null) {
                 if (absListView == cQD.getListView()) {
                     if (c.this.koS != null) {
-                        c.this.koS.Ch(i);
+                        c.this.koS.Cg(i);
                     }
                     c.this.cRF();
                 }
@@ -258,15 +258,15 @@ public class c {
             String str = eVar.cRi().eNh;
             if (StringUtils.isNull(str)) {
                 this.jiX.setVisibility(8);
-                Lv("");
+                Lw("");
             } else {
-                Lv(com.baidu.tieba.hottopic.a.a.bd(str, 10));
+                Lw(com.baidu.tieba.hottopic.a.a.be(str, 10));
             }
             this.koT.setHeaderBottomLineShow(true);
         }
     }
 
-    private void Lv(String str) {
+    private void Lw(String str) {
         if (this.koX != null) {
             this.koX.setText(str);
         } else if (this.koQ != null) {
@@ -288,7 +288,7 @@ public class c {
         }
     }
 
-    public void Ce(int i) {
+    public void Cd(int i) {
         this.koT.setVisibility(i);
         this.eWN.setVisibility(i);
     }
@@ -351,6 +351,12 @@ public class c {
         return (this.dwJ - this.koW) - this.acb;
     }
 
+    public void BT(int i) {
+        if (this.koU != null) {
+            this.koU.BT(i);
+        }
+    }
+
     public void BU(int i) {
         if (this.koU != null) {
             this.koU.BU(i);
@@ -360,12 +366,6 @@ public class c {
     public void BV(int i) {
         if (this.koU != null) {
             this.koU.BV(i);
-        }
-    }
-
-    public void BW(int i) {
-        if (this.koU != null) {
-            this.koU.BW(i);
         }
     }
 

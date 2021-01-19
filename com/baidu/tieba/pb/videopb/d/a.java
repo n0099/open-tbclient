@@ -41,7 +41,7 @@ public class a {
                 int i3 = dkd.getHostMode() ? 1 : 0;
                 boolean z = false;
                 if (pbData.getForum() != null) {
-                    if ((pbData.getForum().isLike() == 1) && AddExperiencedModel.Rq(pbData.getForumId())) {
+                    if ((pbData.getForum().isLike() == 1) && AddExperiencedModel.Rr(pbData.getForumId())) {
                         z = true;
                     }
                 }

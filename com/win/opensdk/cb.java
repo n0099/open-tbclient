@@ -6,15 +6,15 @@ import java.nio.BufferUnderflowException;
 import java.nio.ByteBuffer;
 /* loaded from: classes3.dex */
 public final class cb {
-    ByteBuffer qaL;
-    ca qaP;
-    final byte[] pZy = new byte[256];
+    ByteBuffer qaM;
+    ca qaQ;
+    final byte[] pZz = new byte[256];
     int java = 0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public final void eGz() {
         boolean z = false;
-        while (!z && !java() && this.qaP.f43case <= Integer.MAX_VALUE) {
+        while (!z && !java() && this.qaQ.f43case <= Integer.MAX_VALUE) {
             switch (eHc()) {
                 case 33:
                     switch (eHc()) {
@@ -22,20 +22,20 @@ public final class cb {
                             b();
                             continue;
                         case 249:
-                            this.qaP.qaR = new bz();
+                            this.qaQ.qaS = new bz();
                             eHc();
                             int eHc = eHc();
-                            this.qaP.qaR.c = (eHc & 28) >> 2;
-                            if (this.qaP.qaR.c == 0) {
-                                this.qaP.qaR.c = 1;
+                            this.qaQ.qaS.c = (eHc & 28) >> 2;
+                            if (this.qaQ.qaS.c == 0) {
+                                this.qaQ.qaS.c = 1;
                             }
-                            this.qaP.qaR.pZl = (eHc & 1) != 0;
-                            short s = this.qaL.getShort();
+                            this.qaQ.qaS.pZm = (eHc & 1) != 0;
+                            short s = this.qaM.getShort();
                             if (s < 2) {
                                 s = 10;
                             }
-                            this.qaP.qaR.e = s * 10;
-                            this.qaP.qaR.d = eHc();
+                            this.qaQ.qaS.e = s * 10;
+                            this.qaQ.qaS.d = eHc();
                             eHc();
                             continue;
                         case GDiffPatcher.COPY_INT_INT /* 254 */:
@@ -45,7 +45,7 @@ public final class cb {
                             eGL();
                             String str = "";
                             for (int i = 0; i < 11; i++) {
-                                str = str + ((char) this.pZy[i]);
+                                str = str + ((char) this.pZz[i]);
                             }
                             if (str.equals("NETSCAPE2.0")) {
                                 a();
@@ -59,37 +59,37 @@ public final class cb {
                             continue;
                     }
                 case 44:
-                    if (this.qaP.qaR == null) {
-                        this.qaP.qaR = new bz();
+                    if (this.qaQ.qaS == null) {
+                        this.qaQ.qaS = new bz();
                     }
-                    this.qaP.qaR.java = this.qaL.getShort();
-                    this.qaP.qaR.f41case = this.qaL.getShort();
-                    this.qaP.qaR.f13735a = this.qaL.getShort();
-                    this.qaP.qaR.f13736b = this.qaL.getShort();
+                    this.qaQ.qaS.java = this.qaM.getShort();
+                    this.qaQ.qaS.f41case = this.qaM.getShort();
+                    this.qaQ.qaS.f13735a = this.qaM.getShort();
+                    this.qaQ.qaS.f13736b = this.qaM.getShort();
                     int eHc2 = eHc();
                     boolean z2 = (eHc2 & 128) != 0;
                     int pow = (int) Math.pow(2.0d, (eHc2 & 7) + 1);
-                    this.qaP.qaR.pYL = (eHc2 & 64) != 0;
+                    this.qaQ.qaS.pYM = (eHc2 & 64) != 0;
                     if (z2) {
-                        this.qaP.qaR.f42java = RL(pow);
+                        this.qaQ.qaS.f42java = RL(pow);
                     } else {
-                        this.qaP.qaR.f42java = null;
+                        this.qaQ.qaS.f42java = null;
                     }
-                    this.qaP.qaR.f = this.qaL.position();
+                    this.qaQ.qaS.f = this.qaM.position();
                     eHc();
                     b();
                     if (java()) {
                         break;
                     } else {
-                        this.qaP.f43case++;
-                        this.qaP.pZM.add(this.qaP.qaR);
+                        this.qaQ.f43case++;
+                        this.qaQ.pZN.add(this.qaQ.qaS);
                         break;
                     }
                 case 59:
                     z = true;
                     break;
                 default:
-                    this.qaP.java = 1;
+                    this.qaQ.java = 1;
                     break;
             }
         }
@@ -98,10 +98,10 @@ public final class cb {
     private void a() {
         do {
             eGL();
-            if (this.pZy[0] == 1) {
-                this.qaP.g = (this.pZy[1] & 255) | ((this.pZy[2] & 255) << 8);
-                if (this.qaP.g == 0) {
-                    this.qaP.g = -1;
+            if (this.pZz[0] == 1) {
+                this.qaQ.g = (this.pZz[1] & 255) | ((this.pZz[2] & 255) << 8);
+                if (this.qaQ.g == 0) {
+                    this.qaQ.g = -1;
                 }
             }
             if (this.java <= 0) {
@@ -117,19 +117,19 @@ public final class cb {
             str = str + ((char) eHc());
         }
         if (!str.startsWith("GIF")) {
-            this.qaP.java = 1;
+            this.qaQ.java = 1;
             return;
         }
-        this.qaP.f13737a = this.qaL.getShort();
-        this.qaP.f13738b = this.qaL.getShort();
+        this.qaQ.f13737a = this.qaM.getShort();
+        this.qaQ.f13738b = this.qaM.getShort();
         int eHc = eHc();
-        this.qaP.pYL = (eHc & 128) != 0;
-        this.qaP.c = 2 << (eHc & 7);
-        this.qaP.d = eHc();
-        this.qaP.e = eHc();
-        if (this.qaP.pYL && !java()) {
-            this.qaP.f44java = RL(this.qaP.c);
-            this.qaP.f = this.qaP.f44java[this.qaP.d];
+        this.qaQ.pYM = (eHc & 128) != 0;
+        this.qaQ.c = 2 << (eHc & 7);
+        this.qaQ.d = eHc();
+        this.qaQ.e = eHc();
+        if (this.qaQ.pYM && !java()) {
+            this.qaQ.f44java = RL(this.qaQ.c);
+            this.qaQ.f = this.qaQ.f44java[this.qaQ.d];
         }
     }
 
@@ -137,7 +137,7 @@ public final class cb {
         int[] iArr = null;
         byte[] bArr = new byte[i * 3];
         try {
-            this.qaL.get(bArr);
+            this.qaM.get(bArr);
             iArr = new int[256];
             int i2 = 0;
             int i3 = 0;
@@ -152,7 +152,7 @@ public final class cb {
                 i3 = i8;
             }
         } catch (BufferUnderflowException e) {
-            this.qaP.java = 1;
+            this.qaQ.java = 1;
         }
         return iArr;
     }
@@ -162,7 +162,7 @@ public final class cb {
         do {
             try {
                 eHc = eHc();
-                this.qaL.position(this.qaL.position() + eHc);
+                this.qaM.position(this.qaM.position() + eHc);
             } catch (IllegalArgumentException e) {
                 return;
             }
@@ -176,10 +176,10 @@ public final class cb {
             while (i < this.java) {
                 try {
                     int i2 = this.java - i;
-                    this.qaL.get(this.pZy, i, i2);
+                    this.qaM.get(this.pZz, i, i2);
                     i += i2;
                 } catch (Exception e) {
-                    this.qaP.java = 1;
+                    this.qaQ.java = 1;
                 }
             }
         }
@@ -188,15 +188,15 @@ public final class cb {
 
     private int eHc() {
         try {
-            return this.qaL.get() & 255;
+            return this.qaM.get() & 255;
         } catch (Exception e) {
-            this.qaP.java = 1;
+            this.qaQ.java = 1;
             return 0;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public final boolean java() {
-        return this.qaP.java != 0;
+        return this.qaQ.java != 0;
     }
 }

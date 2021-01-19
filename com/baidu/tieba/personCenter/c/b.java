@@ -17,7 +17,7 @@ public class b {
         return this.mkx;
     }
 
-    public void Pt(String str) {
+    public void Pu(String str) {
         if (!StringUtils.isNull(str)) {
             try {
                 JSONObject jSONObject = new JSONObject(str);

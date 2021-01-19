@@ -43,8 +43,8 @@ public class g {
         this.mEd.Hh(i);
     }
 
-    public void PT(String str) {
-        this.mEb.PT(str);
+    public void PU(String str) {
+        this.mEb.PU(str);
     }
 
     public void a(int i, b bVar, boolean z) {

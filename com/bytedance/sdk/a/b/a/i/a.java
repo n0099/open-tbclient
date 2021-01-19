@@ -10,10 +10,10 @@ import java.util.List;
 import javax.net.ssl.SSLPeerUnverifiedException;
 /* loaded from: classes4.dex */
 public final class a extends c {
-    private final f pgu;
+    private final f pgv;
 
     public a(f fVar) {
-        this.pgu = fVar;
+        this.pgv = fVar;
     }
 
     @Override // com.bytedance.sdk.a.b.a.i.c
@@ -27,7 +27,7 @@ public final class a extends c {
             boolean z2 = z;
             if (i < 9) {
                 X509Certificate x509Certificate = (X509Certificate) arrayList.get(arrayList.size() - 1);
-                X509Certificate b2 = this.pgu.b(x509Certificate);
+                X509Certificate b2 = this.pgv.b(x509Certificate);
                 if (b2 != null) {
                     if (arrayList.size() > 1 || !x509Certificate.equals(b2)) {
                         arrayList.add(b2);
@@ -71,13 +71,13 @@ public final class a extends c {
     }
 
     public int hashCode() {
-        return this.pgu.hashCode();
+        return this.pgv.hashCode();
     }
 
     public boolean equals(Object obj) {
         if (obj == this) {
             return true;
         }
-        return (obj instanceof a) && ((a) obj).pgu.equals(this.pgu);
+        return (obj instanceof a) && ((a) obj).pgv.equals(this.pgv);
     }
 }

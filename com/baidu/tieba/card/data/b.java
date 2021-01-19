@@ -162,7 +162,7 @@ public abstract class b extends com.baidu.tbadk.core.data.a implements ag {
             dW.an("is_vertical", cry().intValue());
         }
         if (bkV.bpd() != null && bkV.bpd().dLo() != null && bkV.bpd().dLo().bHf() != null && bkV.bpd().dLo().bHf().size() > 0) {
-            dW.an(TiebaInitialize.Params.OBJ_TO, bkV.bpd().nnt ? 2 : 1);
+            dW.an(TiebaInitialize.Params.OBJ_TO, bkV.bpd().nnu ? 2 : 1);
         }
         return dW;
     }

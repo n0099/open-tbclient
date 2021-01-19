@@ -117,7 +117,7 @@ public class a {
                     LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2, 1.0f);
                     layoutParams.setMargins(0, 0, (int) this.lgl.getResources().getDimension(R.dimen.ds16), 0);
                     textView.setLayoutParams(layoutParams);
-                    textView.setText(bB(dVar.mTitle, 7));
+                    textView.setText(bC(dVar.mTitle, 7));
                     textView.setGravity(17);
                     textView.setSingleLine(true);
                     textView.setTextSize(0, this.lgl.getResources().getDimensionPixelSize(R.dimen.fontsize28));
@@ -192,7 +192,7 @@ public class a {
         }
     }
 
-    public String bB(String str, int i) {
+    public String bC(String str, int i) {
         if (str == null) {
             return "";
         }

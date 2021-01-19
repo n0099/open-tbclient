@@ -31,7 +31,7 @@ public abstract class i extends BaseHttpRequest {
         return "GET";
     }
 
-    public String Xe(String str) {
+    public String Xf(String str) {
         switch (com.baidu.yuyinala.privatemessage.implugin.d.b.ehs().hv(this.mContext)) {
             case 0:
                 return "https://ext.baidu.com/";

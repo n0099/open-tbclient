@@ -26,7 +26,7 @@ public class a {
         }
     }
 
-    public static String bU(String str, int i) {
+    public static String bV(String str, int i) {
         return TbConfig.SERVER_ADDRESS + str + "?cmd=" + i;
     }
 
@@ -51,7 +51,7 @@ public class a {
     }
 
     public static TbHttpMessageTask a(int i, int i2, String str, Class<? extends HttpResponsedMessage> cls, boolean z, boolean z2, boolean z3, boolean z4) {
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(i2, bU(str, i));
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(i2, bV(str, i));
         tbHttpMessageTask.setIsNeedLogin(z);
         tbHttpMessageTask.setIsNeedTbs(z2);
         tbHttpMessageTask.setIsNeedAddCommenParam(z3);

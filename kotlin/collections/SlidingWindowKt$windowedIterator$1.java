@@ -48,7 +48,7 @@ final class SlidingWindowKt$windowedIterator$1 extends CoroutineImpl implements 
     public final Object invoke(kotlin.coroutines.experimental.f<? super List<? extends T>> fVar, kotlin.coroutines.experimental.b<? super kotlin.h> bVar) {
         kotlin.jvm.internal.p.o(fVar, "$receiver");
         kotlin.jvm.internal.p.o(bVar, "continuation");
-        return ((SlidingWindowKt$windowedIterator$1) create((kotlin.coroutines.experimental.f) fVar, bVar)).doResume(kotlin.h.qiJ, null);
+        return ((SlidingWindowKt$windowedIterator$1) create((kotlin.coroutines.experimental.f) fVar, bVar)).doResume(kotlin.h.qiK, null);
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [37=10] */
@@ -138,7 +138,7 @@ final class SlidingWindowKt$windowedIterator$1 extends CoroutineImpl implements 
                                     return eIS;
                                 }
                             }
-                            return kotlin.h.qiJ;
+                            return kotlin.h.qiK;
                         }
                     }
                 } else {
@@ -206,7 +206,7 @@ final class SlidingWindowKt$windowedIterator$1 extends CoroutineImpl implements 
                                         }
                                     }
                                 }
-                                return kotlin.h.qiJ;
+                                return kotlin.h.qiK;
                             }
                         }
                     }
@@ -238,7 +238,7 @@ final class SlidingWindowKt$windowedIterator$1 extends CoroutineImpl implements 
                 if (th != null) {
                     throw th;
                 }
-                return kotlin.h.qiJ;
+                return kotlin.h.qiK;
             case 3:
                 it = (Iterator) this.L$3;
                 Object obj3 = this.L$2;
@@ -276,7 +276,7 @@ final class SlidingWindowKt$windowedIterator$1 extends CoroutineImpl implements 
                 if (th != null) {
                     throw th;
                 }
-                return kotlin.h.qiJ;
+                return kotlin.h.qiK;
             default:
                 throw new IllegalStateException("call to 'resume' before 'invoke' with coroutine");
         }

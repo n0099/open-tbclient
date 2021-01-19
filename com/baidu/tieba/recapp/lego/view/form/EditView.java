@@ -184,15 +184,15 @@ public class EditView extends FormItemBaseView {
         @Override // android.text.InputFilter
         public CharSequence filter(CharSequence charSequence, int i, int i2, Spanned spanned, int i3, int i4) {
             int i5;
-            int length = spanned.toString().length() + QB(spanned.toString());
-            int length2 = charSequence.toString().length() + QB(charSequence.toString());
+            int length = spanned.toString().length() + QC(spanned.toString());
+            int length2 = charSequence.toString().length() + QC(charSequence.toString());
             if (length + length2 > this.mMc) {
                 int i6 = this.mMc - length;
                 String str = "";
                 int i7 = 0;
                 while (i6 > 0) {
                     char charAt = charSequence.charAt(i7);
-                    if (QC(charAt + "")) {
+                    if (QD(charAt + "")) {
                         if (length2 >= 2) {
                             str = str + charAt;
                         }
@@ -209,7 +209,7 @@ public class EditView extends FormItemBaseView {
             return charSequence;
         }
 
-        private int QB(String str) {
+        private int QC(String str) {
             Matcher matcher = Pattern.compile(this.regEx).matcher(str);
             int i = 0;
             while (matcher.find()) {
@@ -220,7 +220,7 @@ public class EditView extends FormItemBaseView {
             return i;
         }
 
-        private boolean QC(String str) {
+        private boolean QD(String str) {
             return Pattern.matches(this.regEx, str);
         }
     }

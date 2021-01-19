@@ -241,7 +241,7 @@ public class r implements q<com.bytedance.sdk.openadsdk.c.a> {
                     @Override // com.bytedance.sdk.adnet.core.p.a
                     public void b(com.bytedance.sdk.adnet.core.p<JSONObject> pVar) {
                         int i2;
-                        VAdError vAdError = pVar.pkZ;
+                        VAdError vAdError = pVar.pla;
                         if (vAdError instanceof com.bytedance.sdk.adnet.err.e) {
                             r.this.a(bVar);
                             r.this.a(pVar.e, adSlot.getCodeId(), i, null, -1, h.a(-1));
@@ -364,8 +364,8 @@ public class r implements q<com.bytedance.sdk.openadsdk.c.a> {
             if (!z2 && i == 200) {
                 str = "server say not success";
                 z = true;
-            } else if (pVar != null && pVar.pkZ != null) {
-                str = pVar.pkZ.getMessage();
+            } else if (pVar != null && pVar.pla != null) {
+                str = pVar.pla.getMessage();
             }
             c(a2);
             return new com.bytedance.sdk.openadsdk.c.h(z2, i, str, z);
@@ -867,8 +867,8 @@ public class r implements q<com.bytedance.sdk.openadsdk.c.a> {
                 public void b(com.bytedance.sdk.adnet.core.p<JSONObject> pVar) {
                     String a2 = h.a(-2);
                     int i = pVar != null ? (int) pVar.h : -2;
-                    if (pVar != null && pVar.pkZ != null) {
-                        a2 = pVar.pkZ.getMessage();
+                    if (pVar != null && pVar.pla != null) {
+                        a2 = pVar.pla.getMessage();
                     }
                     cVar.a(i, a2);
                 }
@@ -1026,8 +1026,8 @@ public class r implements q<com.bytedance.sdk.openadsdk.c.a> {
             try {
                 i = (int) pVar.h;
                 try {
-                    if (pVar.pkZ != null) {
-                        str = pVar.pkZ.getMessage();
+                    if (pVar.pla != null) {
+                        str = pVar.pla.getMessage();
                     }
                 } catch (Throwable th2) {
                 }

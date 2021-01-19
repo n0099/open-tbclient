@@ -23,13 +23,13 @@ public class c {
     private long h;
     private String i;
     private int j;
-    private Network pmD;
-    private g pmE;
+    private Network pmE;
+    private g pmF;
 
     private c(String str, Map<String, String> map, g gVar, String str2, String str3) {
         this.e = false;
         this.f7714b = str;
-        this.pmE = gVar;
+        this.pmF = gVar;
         this.c = map == null ? new HashMap<>() : map;
         this.f7713a = gVar == null ? "" : gVar.b().toString();
         this.d = str2;
@@ -88,11 +88,11 @@ public class c {
     }
 
     public Network eoX() {
-        return this.pmD;
+        return this.pmE;
     }
 
     public void d(Network network) {
-        this.pmD = network;
+        this.pmE = network;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -112,6 +112,6 @@ public class c {
     }
 
     public g eoY() {
-        return this.pmE;
+        return this.pmF;
     }
 }

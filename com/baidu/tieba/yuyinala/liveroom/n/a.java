@@ -23,7 +23,7 @@ public class a extends Dialog implements View.OnClickListener {
     private TextView hIy;
     private TextView hIz;
     private TbPageContext mPageContext;
-    private b onJ;
+    private b onK;
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.tieba.yuyinala.liveroom.n.a$a  reason: collision with other inner class name */
@@ -34,8 +34,6 @@ public class a extends Dialog implements View.OnClickListener {
 
     /* loaded from: classes10.dex */
     public interface b {
-        void UK(String str);
-
         void UL(String str);
 
         void UM(String str);
@@ -45,6 +43,8 @@ public class a extends Dialog implements View.OnClickListener {
         void UO(String str);
 
         void UP(String str);
+
+        void UQ(String str);
 
         void onCancel();
     }
@@ -76,7 +76,7 @@ public class a extends Dialog implements View.OnClickListener {
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         dismiss();
-        if (this.onJ != null) {
+        if (this.onK != null) {
             if (view == this.hIx) {
                 if (this.hIC != null && this.hIC.user_info != null) {
                     if (cje()) {
@@ -87,7 +87,7 @@ public class a extends Dialog implements View.OnClickListener {
                                     if (a.this.hIC.mYuyinBanMangerData != null) {
                                         a.this.hIC.mYuyinBanMangerData.userBanManger = 0;
                                     }
-                                    a.this.onJ.UM(a.this.hIC.user_info.user_id);
+                                    a.this.onK.UN(a.this.hIC.user_info.user_id);
                                 }
                             }
                         }, String.format(getContext().getResources().getString(a.h.yuyin_ala_person_relieve_forbidden_this_confirm_tip), this.hIC.user_info.getNameShow()));
@@ -99,7 +99,7 @@ public class a extends Dialog implements View.OnClickListener {
                                     if (a.this.hIC.mYuyinBanMangerData != null) {
                                         a.this.hIC.mYuyinBanMangerData.userBanManger = 1;
                                     }
-                                    a.this.onJ.UK(a.this.hIC.user_info.user_id);
+                                    a.this.onK.UL(a.this.hIC.user_info.user_id);
                                 }
                             }
                         }, String.format(getContext().getResources().getString(a.h.yuyin_ala_person_forbid_this_confirm_tip), this.hIC.user_info.getNameShow()));
@@ -115,7 +115,7 @@ public class a extends Dialog implements View.OnClickListener {
                                     if (a.this.hIC.mYuyinBanMangerData != null) {
                                         a.this.hIC.mYuyinBanMangerData.userBanManger = 0;
                                     }
-                                    a.this.onJ.UN(a.this.hIC.user_info.user_id);
+                                    a.this.onK.UO(a.this.hIC.user_info.user_id);
                                 }
                             }
                         }, String.format(getContext().getResources().getString(a.h.yuyin_ala_person_relieve_forbidden_forever_confirm_tip), this.hIC.user_info.getNameShow()));
@@ -127,7 +127,7 @@ public class a extends Dialog implements View.OnClickListener {
                                     if (a.this.hIC.mYuyinBanMangerData != null) {
                                         a.this.hIC.mYuyinBanMangerData.userBanManger = 3;
                                     }
-                                    a.this.onJ.UL(a.this.hIC.user_info.user_id);
+                                    a.this.onK.UM(a.this.hIC.user_info.user_id);
                                 }
                             }
                         }, String.format(getContext().getResources().getString(a.h.yuyin_ala_person_forbid_forever_confirm_tip), this.hIC.user_info.getNameShow()));
@@ -143,7 +143,7 @@ public class a extends Dialog implements View.OnClickListener {
                                     if (a.this.hIC.mYuyinBanMangerData != null) {
                                         a.this.hIC.mYuyinBanMangerData.userCardIndentity = 2;
                                     }
-                                    a.this.onJ.UO(a.this.hIC.user_info.user_id);
+                                    a.this.onK.UP(a.this.hIC.user_info.user_id);
                                 }
                             }
                         }, String.format(getContext().getResources().getString(a.h.yuyin_ala_person_appoint_admin_confirm_tip), this.hIC.user_info.getNameShow()));
@@ -155,14 +155,14 @@ public class a extends Dialog implements View.OnClickListener {
                                     if (a.this.hIC.mYuyinBanMangerData != null) {
                                         a.this.hIC.mYuyinBanMangerData.userCardIndentity = 3;
                                     }
-                                    a.this.onJ.UP(a.this.hIC.user_info.user_id);
+                                    a.this.onK.UQ(a.this.hIC.user_info.user_id);
                                 }
                             }
                         }, String.format(getContext().getResources().getString(a.h.yuyin_ala_person_fire_admin_confirm_tip), this.hIC.user_info.getNameShow()));
                     }
                 }
             } else if (view == this.bUf) {
-                this.onJ.onCancel();
+                this.onK.onCancel();
             }
         }
     }
@@ -230,7 +230,7 @@ public class a extends Dialog implements View.OnClickListener {
     }
 
     public void a(b bVar) {
-        this.onJ = bVar;
+        this.onK = bVar;
     }
 
     private boolean cjc() {

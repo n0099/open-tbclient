@@ -19,35 +19,35 @@ import java.util.Set;
 import javax.annotation.Nullable;
 /* loaded from: classes3.dex */
 public class h {
-    private static b pyF = new b();
+    private static b pyG = new b();
     private final Bitmap.Config mBitmapConfig;
     private final Context mContext;
-    private final Set<com.facebook.imagepipeline.g.c> pqm;
+    private final Set<com.facebook.imagepipeline.g.c> pqn;
     @Nullable
-    private final com.facebook.imagepipeline.a.f puz;
-    private final e pvi;
-    private final n pwT;
-    private final boolean pyA;
-    private final com.facebook.cache.disk.b pyB;
+    private final com.facebook.imagepipeline.a.f puA;
+    private final e pvj;
+    private final n pwU;
+    private final com.facebook.imagepipeline.decoder.d pyA;
+    private final boolean pyB;
+    private final com.facebook.cache.disk.b pyC;
     @Nullable
-    private final com.facebook.imagepipeline.decoder.c pyC;
-    private final i pyD;
-    private final boolean pyE;
-    private final com.facebook.common.internal.j<Boolean> pyb;
-    private final com.facebook.imagepipeline.b.f pyg;
-    private final com.facebook.common.internal.j<q> pyo;
-    private final h.a pyp;
-    private final boolean pyq;
-    private final f pyr;
-    private final com.facebook.common.internal.j<q> pys;
+    private final com.facebook.imagepipeline.decoder.c pyD;
+    private final i pyE;
+    private final boolean pyF;
+    private final com.facebook.common.internal.j<Boolean> pyc;
+    private final com.facebook.imagepipeline.b.f pyh;
+    private final com.facebook.common.internal.j<q> pyp;
+    private final h.a pyq;
+    private final boolean pyr;
+    private final f pys;
+    private final com.facebook.common.internal.j<q> pyt;
     @Nullable
-    private final com.facebook.imagepipeline.decoder.b pyt;
-    private final com.facebook.cache.disk.b pyu;
-    private final com.facebook.common.memory.c pyv;
-    private final af pyw;
-    private final int pyx;
-    private final com.facebook.imagepipeline.memory.q pyy;
-    private final com.facebook.imagepipeline.decoder.d pyz;
+    private final com.facebook.imagepipeline.decoder.b pyu;
+    private final com.facebook.cache.disk.b pyv;
+    private final com.facebook.common.memory.c pyw;
+    private final af pyx;
+    private final int pyy;
+    private final com.facebook.imagepipeline.memory.q pyz;
 
     private h(a aVar) {
         com.facebook.imagepipeline.b.f fVar;
@@ -55,68 +55,68 @@ public class h {
         com.facebook.common.memory.c cVar;
         com.facebook.imagepipeline.memory.q qVar;
         com.facebook.common.g.b eqC;
-        this.pyD = aVar.pyI.euR();
-        this.pyo = aVar.pyo == null ? new com.facebook.imagepipeline.b.i((ActivityManager) aVar.mContext.getSystemService(PushConstants.INTENT_ACTIVITY_NAME)) : aVar.pyo;
-        this.pyp = aVar.pyp == null ? new com.facebook.imagepipeline.b.d() : aVar.pyp;
+        this.pyE = aVar.pyJ.euR();
+        this.pyp = aVar.pyp == null ? new com.facebook.imagepipeline.b.i((ActivityManager) aVar.mContext.getSystemService(PushConstants.INTENT_ACTIVITY_NAME)) : aVar.pyp;
+        this.pyq = aVar.pyq == null ? new com.facebook.imagepipeline.b.d() : aVar.pyq;
         this.mBitmapConfig = aVar.mBitmapConfig == null ? Bitmap.Config.ARGB_8888 : aVar.mBitmapConfig;
-        if (aVar.pyg == null) {
+        if (aVar.pyh == null) {
             fVar = com.facebook.imagepipeline.b.j.ety();
         } else {
-            fVar = aVar.pyg;
+            fVar = aVar.pyh;
         }
-        this.pyg = fVar;
+        this.pyh = fVar;
         this.mContext = (Context) com.facebook.common.internal.g.checkNotNull(aVar.mContext);
-        this.pyr = aVar.pyr == null ? new com.facebook.imagepipeline.c.b(new d()) : aVar.pyr;
-        this.pyq = aVar.pyq;
-        this.pys = aVar.pys == null ? new com.facebook.imagepipeline.b.k() : aVar.pys;
-        if (aVar.pwT == null) {
+        this.pys = aVar.pys == null ? new com.facebook.imagepipeline.c.b(new d()) : aVar.pys;
+        this.pyr = aVar.pyr;
+        this.pyt = aVar.pyt == null ? new com.facebook.imagepipeline.b.k() : aVar.pyt;
+        if (aVar.pwU == null) {
             nVar = t.etH();
         } else {
-            nVar = aVar.pwT;
+            nVar = aVar.pwU;
         }
-        this.pwT = nVar;
-        this.pyt = aVar.pyt;
-        this.pyb = aVar.pyb == null ? new com.facebook.common.internal.j<Boolean>() { // from class: com.facebook.imagepipeline.c.h.1
+        this.pwU = nVar;
+        this.pyu = aVar.pyu;
+        this.pyc = aVar.pyc == null ? new com.facebook.common.internal.j<Boolean>() { // from class: com.facebook.imagepipeline.c.h.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.facebook.common.internal.j
             /* renamed from: eqi */
             public Boolean get() {
                 return true;
             }
-        } : aVar.pyb;
-        this.pyu = aVar.pyu == null ? ii(aVar.mContext) : aVar.pyu;
-        if (aVar.pyv == null) {
+        } : aVar.pyc;
+        this.pyv = aVar.pyv == null ? ii(aVar.mContext) : aVar.pyv;
+        if (aVar.pyw == null) {
             cVar = com.facebook.common.memory.d.eqk();
         } else {
-            cVar = aVar.pyv;
+            cVar = aVar.pyw;
         }
-        this.pyv = cVar;
-        this.pyx = aVar.pyH < 0 ? 30000 : aVar.pyH;
-        this.pyw = aVar.pyw == null ? new u(this.pyx) : aVar.pyw;
-        this.puz = aVar.puz;
-        if (aVar.pyy == null) {
+        this.pyw = cVar;
+        this.pyy = aVar.pyI < 0 ? 30000 : aVar.pyI;
+        this.pyx = aVar.pyx == null ? new u(this.pyy) : aVar.pyx;
+        this.puA = aVar.puA;
+        if (aVar.pyz == null) {
             qVar = new com.facebook.imagepipeline.memory.q(p.ewD().ewE());
         } else {
-            qVar = aVar.pyy;
+            qVar = aVar.pyz;
         }
-        this.pyy = qVar;
-        this.pyz = aVar.pyz == null ? new com.facebook.imagepipeline.decoder.f() : aVar.pyz;
-        this.pqm = aVar.pqm == null ? new HashSet<>() : aVar.pqm;
-        this.pyA = aVar.pyA;
-        this.pyB = aVar.pyB == null ? this.pyu : aVar.pyB;
-        this.pyC = aVar.pyC;
-        this.pvi = aVar.pvi == null ? new com.facebook.imagepipeline.c.a(this.pyy.ewH()) : aVar.pvi;
-        this.pyE = aVar.pyE;
-        com.facebook.common.g.b euJ = this.pyD.euJ();
+        this.pyz = qVar;
+        this.pyA = aVar.pyA == null ? new com.facebook.imagepipeline.decoder.f() : aVar.pyA;
+        this.pqn = aVar.pqn == null ? new HashSet<>() : aVar.pqn;
+        this.pyB = aVar.pyB;
+        this.pyC = aVar.pyC == null ? this.pyv : aVar.pyC;
+        this.pyD = aVar.pyD;
+        this.pvj = aVar.pvj == null ? new com.facebook.imagepipeline.c.a(this.pyz.ewH()) : aVar.pvj;
+        this.pyF = aVar.pyF;
+        com.facebook.common.g.b euJ = this.pyE.euJ();
         if (euJ != null) {
-            a(euJ, this.pyD, new com.facebook.imagepipeline.a.d(euw()));
-        } else if (this.pyD.euG() && com.facebook.common.g.c.ppt && (eqC = com.facebook.common.g.c.eqC()) != null) {
-            a(eqC, this.pyD, new com.facebook.imagepipeline.a.d(euw()));
+            a(euJ, this.pyE, new com.facebook.imagepipeline.a.d(euw()));
+        } else if (this.pyE.euG() && com.facebook.common.g.c.ppu && (eqC = com.facebook.common.g.c.eqC()) != null) {
+            a(eqC, this.pyE, new com.facebook.imagepipeline.a.d(euw()));
         }
     }
 
     private static void a(com.facebook.common.g.b bVar, i iVar, com.facebook.common.g.a aVar) {
-        com.facebook.common.g.c.ppw = bVar;
+        com.facebook.common.g.c.ppx = bVar;
         b.a euI = iVar.euI();
         if (euI != null) {
             bVar.a(euI);
@@ -135,15 +135,15 @@ public class h {
     }
 
     public com.facebook.common.internal.j<q> eui() {
-        return this.pyo;
-    }
-
-    public h.a euj() {
         return this.pyp;
     }
 
+    public h.a euj() {
+        return this.pyq;
+    }
+
     public com.facebook.imagepipeline.b.f euh() {
-        return this.pyg;
+        return this.pyh;
     }
 
     public Context getContext() {
@@ -151,81 +151,81 @@ public class h {
     }
 
     public static b euk() {
-        return pyF;
+        return pyG;
     }
 
     public f eul() {
-        return this.pyr;
-    }
-
-    public boolean eum() {
-        return this.pyq;
-    }
-
-    public boolean eun() {
-        return this.pyE;
-    }
-
-    public com.facebook.common.internal.j<q> euo() {
         return this.pys;
     }
 
+    public boolean eum() {
+        return this.pyr;
+    }
+
+    public boolean eun() {
+        return this.pyF;
+    }
+
+    public com.facebook.common.internal.j<q> euo() {
+        return this.pyt;
+    }
+
     public e eup() {
-        return this.pvi;
+        return this.pvj;
     }
 
     public n euq() {
-        return this.pwT;
+        return this.pwU;
     }
 
     @Nullable
     public com.facebook.imagepipeline.decoder.b eur() {
-        return this.pyt;
-    }
-
-    public com.facebook.common.internal.j<Boolean> eus() {
-        return this.pyb;
-    }
-
-    public com.facebook.cache.disk.b eut() {
         return this.pyu;
     }
 
-    public com.facebook.common.memory.c euu() {
+    public com.facebook.common.internal.j<Boolean> eus() {
+        return this.pyc;
+    }
+
+    public com.facebook.cache.disk.b eut() {
         return this.pyv;
     }
 
-    public af euv() {
+    public com.facebook.common.memory.c euu() {
         return this.pyw;
     }
 
-    public com.facebook.imagepipeline.memory.q euw() {
-        return this.pyy;
+    public af euv() {
+        return this.pyx;
     }
 
-    public com.facebook.imagepipeline.decoder.d eux() {
+    public com.facebook.imagepipeline.memory.q euw() {
         return this.pyz;
     }
 
-    public Set<com.facebook.imagepipeline.g.c> euy() {
-        return Collections.unmodifiableSet(this.pqm);
-    }
-
-    public boolean euz() {
+    public com.facebook.imagepipeline.decoder.d eux() {
         return this.pyA;
     }
 
-    public com.facebook.cache.disk.b euA() {
+    public Set<com.facebook.imagepipeline.g.c> euy() {
+        return Collections.unmodifiableSet(this.pqn);
+    }
+
+    public boolean euz() {
         return this.pyB;
+    }
+
+    public com.facebook.cache.disk.b euA() {
+        return this.pyC;
     }
 
     @Nullable
     public com.facebook.imagepipeline.decoder.c euB() {
-        return this.pyC;
+        return this.pyD;
     }
 
     public i euC() {
-        return this.pyD;
+        return this.pyE;
     }
 
     public static a ij(Context context) {
@@ -234,14 +234,14 @@ public class h {
 
     /* loaded from: classes3.dex */
     public static class b {
-        private boolean pyJ;
+        private boolean pyK;
 
         private b() {
-            this.pyJ = false;
+            this.pyK = false;
         }
 
         public boolean euE() {
-            return this.pyJ;
+            return this.pyK;
         }
     }
 
@@ -249,36 +249,36 @@ public class h {
     public static class a {
         private Bitmap.Config mBitmapConfig;
         private final Context mContext;
-        private Set<com.facebook.imagepipeline.g.c> pqm;
-        private com.facebook.imagepipeline.a.f puz;
-        private e pvi;
-        private n pwT;
-        private boolean pyA;
-        private com.facebook.cache.disk.b pyB;
-        private com.facebook.imagepipeline.decoder.c pyC;
-        private boolean pyE;
-        private int pyH;
-        private final i.a pyI;
-        private com.facebook.common.internal.j<Boolean> pyb;
-        private com.facebook.imagepipeline.b.f pyg;
-        private com.facebook.common.internal.j<q> pyo;
-        private h.a pyp;
-        private boolean pyq;
-        private f pyr;
-        private com.facebook.common.internal.j<q> pys;
-        private com.facebook.imagepipeline.decoder.b pyt;
-        private com.facebook.cache.disk.b pyu;
-        private com.facebook.common.memory.c pyv;
-        private af pyw;
-        private com.facebook.imagepipeline.memory.q pyy;
-        private com.facebook.imagepipeline.decoder.d pyz;
+        private Set<com.facebook.imagepipeline.g.c> pqn;
+        private com.facebook.imagepipeline.a.f puA;
+        private e pvj;
+        private n pwU;
+        private com.facebook.imagepipeline.decoder.d pyA;
+        private boolean pyB;
+        private com.facebook.cache.disk.b pyC;
+        private com.facebook.imagepipeline.decoder.c pyD;
+        private boolean pyF;
+        private int pyI;
+        private final i.a pyJ;
+        private com.facebook.common.internal.j<Boolean> pyc;
+        private com.facebook.imagepipeline.b.f pyh;
+        private com.facebook.common.internal.j<q> pyp;
+        private h.a pyq;
+        private boolean pyr;
+        private f pys;
+        private com.facebook.common.internal.j<q> pyt;
+        private com.facebook.imagepipeline.decoder.b pyu;
+        private com.facebook.cache.disk.b pyv;
+        private com.facebook.common.memory.c pyw;
+        private af pyx;
+        private com.facebook.imagepipeline.memory.q pyz;
 
         private a(Context context) {
-            this.pyq = false;
-            this.pyA = true;
-            this.pyH = -1;
-            this.pyI = new i.a(this);
-            this.pyE = true;
+            this.pyr = false;
+            this.pyB = true;
+            this.pyI = -1;
+            this.pyJ = new i.a(this);
+            this.pyF = true;
             this.mContext = (Context) com.facebook.common.internal.g.checkNotNull(context);
         }
 

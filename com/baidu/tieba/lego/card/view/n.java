@@ -80,7 +80,7 @@ public class n {
                                 z3 = true;
                             } else {
                                 if (!TextUtils.isEmpty(eVar.getPlayUrl()) && eVar.getCurrentPosition() > 0) {
-                                    bA(eVar.getPlayUrl(), eVar.getCurrentPosition());
+                                    bB(eVar.getPlayUrl(), eVar.getCurrentPosition());
                                 }
                                 g(i3, childAt);
                             }
@@ -114,7 +114,7 @@ public class n {
                                 if (childAt3.getTag() instanceof com.baidu.tieba.play.e) {
                                     com.baidu.tieba.play.e eVar3 = (com.baidu.tieba.play.e) childAt3.getTag();
                                     if (!TextUtils.isEmpty(eVar3.getPlayUrl()) && eVar3.getCurrentPosition() > 0) {
-                                        bA(eVar3.getPlayUrl(), eVar3.getCurrentPosition());
+                                        bB(eVar3.getPlayUrl(), eVar3.getCurrentPosition());
                                     }
                                 }
                                 g(i3, childAt3);
@@ -135,7 +135,7 @@ public class n {
                                 z5 = z4;
                             } else {
                                 if (!TextUtils.isEmpty(eVar4.getPlayUrl()) && eVar4.getCurrentPosition() > 0) {
-                                    bA(eVar4.getPlayUrl(), eVar4.getCurrentPosition());
+                                    bB(eVar4.getPlayUrl(), eVar4.getCurrentPosition());
                                 }
                                 g(i3, childAt4);
                             }
@@ -188,7 +188,7 @@ public class n {
         if (view != null && !du(view) && (view.getTag() instanceof com.baidu.tieba.play.e)) {
             com.baidu.tieba.play.e eVar = (com.baidu.tieba.play.e) view.getTag();
             if (!TextUtils.isEmpty(eVar.getPlayUrl()) && eVar.getCurrentPosition() > 0) {
-                bA(eVar.getPlayUrl(), eVar.getCurrentPosition());
+                bB(eVar.getPlayUrl(), eVar.getCurrentPosition());
             }
             eVar.stopPlay();
         }
@@ -224,7 +224,7 @@ public class n {
         return this.kWB;
     }
 
-    public void MS(String str) {
+    public void MT(String str) {
         this.kWB = str;
     }
 
@@ -232,14 +232,14 @@ public class n {
         return this.kWC;
     }
 
-    public int MT(String str) {
+    public int MU(String str) {
         if (this.kWD.containsKey(str)) {
             return this.kWD.get(str).intValue();
         }
         return 0;
     }
 
-    public void bA(String str, int i) {
+    public void bB(String str, int i) {
         if (this.kWD.containsKey(str)) {
             if (this.kWD.get(str).intValue() != 0) {
                 this.kWD.put(str, Integer.valueOf(i));
@@ -250,7 +250,7 @@ public class n {
         this.kWD.put(str, Integer.valueOf(i));
     }
 
-    public void MU(String str) {
+    public void MV(String str) {
         if (this.kWD.containsKey(str)) {
             this.kWD.put(str, 0);
         }
@@ -266,7 +266,7 @@ public class n {
                     com.baidu.tieba.play.e eVar = (com.baidu.tieba.play.e) childAt.getTag();
                     if (eVar.isPlayStarted()) {
                         DN(eVar.getCurrentPosition());
-                        MS(eVar.getPlayUrl());
+                        MT(eVar.getPlayUrl());
                         this.kWE = childAt;
                         this.kWF = eVar.isPlaying();
                         eVar.stopPlay();

@@ -33,15 +33,15 @@ import com.facebook.imagepipeline.request.ImageRequest;
 /* loaded from: classes10.dex */
 public class WheatItemView extends SafeFrameLayout {
     private x buq;
-    private BaseWheatLayout.a oAx;
-    private PublishLoverView oBU;
-    private AlaWheatInfoData oBV;
-    private View oBW;
-    private a oBX;
+    private BaseWheatLayout.a oAy;
+    private PublishLoverView oBV;
+    private AlaWheatInfoData oBW;
+    private View oBX;
+    private a oBY;
 
     /* loaded from: classes10.dex */
     public interface a {
-        void VH(String str);
+        void VI(String str);
     }
 
     public WheatItemView(@NonNull Context context) {
@@ -55,20 +55,20 @@ public class WheatItemView extends SafeFrameLayout {
     public WheatItemView(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         LayoutInflater.from(getContext()).inflate(a.g.yuyinala_liveroom_wheat_item_layout, this);
-        this.oBU = (PublishLoverView) findViewById(a.f.view_pubish_lover);
-        this.oBW = findViewById(a.f.view_choose_lover);
-        this.oBW.setVisibility(8);
-        this.oBU.setVisibility(4);
-        this.oBU.setOnPublishClickListener(new PublishLoverView.a() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.view.WheatItemView.1
+        this.oBV = (PublishLoverView) findViewById(a.f.view_pubish_lover);
+        this.oBX = findViewById(a.f.view_choose_lover);
+        this.oBX.setVisibility(8);
+        this.oBV.setVisibility(4);
+        this.oBV.setOnPublishClickListener(new PublishLoverView.a() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.view.WheatItemView.1
             @Override // com.baidu.tieba.yuyinala.liveroom.wheat.view.PublishLoverView.a
             public void onClick() {
                 b bVar = new b(WheatItemView.this.getContext());
-                bVar.m(g.Wz(), WheatItemView.this.oBV.uk, g.av(WheatItemView.this.buq), g.au(WheatItemView.this.buq));
+                bVar.m(g.Wz(), WheatItemView.this.oBW.uk, g.av(WheatItemView.this.buq), g.au(WheatItemView.this.buq));
                 bVar.a(new b.a() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.view.WheatItemView.1.1
                     @Override // com.baidu.tieba.yuyinala.liveroom.publishlover.b.a
                     public void a(PublishLoverHttpResponseMessage publishLoverHttpResponseMessage) {
                         BdUtilHelper.showToast(WheatItemView.this.getContext(), "操作成功");
-                        WheatItemView.this.oBU.ecL();
+                        WheatItemView.this.oBV.ecL();
                     }
 
                     @Override // com.baidu.tieba.yuyinala.liveroom.publishlover.b.a
@@ -99,10 +99,10 @@ public class WheatItemView extends SafeFrameLayout {
         LottieAnimationView lottieAnimationView = (LottieAnimationView) findViewById(a.f.speeding_lottieAnimationView);
         textView.setText("");
         textView2.setText("");
-        this.oBV = alaWheatInfoData;
+        this.oBW = alaWheatInfoData;
         this.buq = xVar;
         a(z, xVar);
-        if (this.oBV == null) {
+        if (this.oBW == null) {
             relativeLayout3.setVisibility(8);
             if (lottieAnimationView.getVisibility() == 0) {
                 lottieAnimationView.cancelAnimation();
@@ -224,9 +224,9 @@ public class WheatItemView extends SafeFrameLayout {
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 int intValue = ((Integer) view.getTag()).intValue();
-                if (WheatItemView.this.oAx != null) {
+                if (WheatItemView.this.oAy != null) {
                     if (WheatItemView.this.buq != null && WheatItemView.this.buq.aGQ) {
-                        WheatItemView.this.oAx.a(alaWheatInfoData, z, intValue);
+                        WheatItemView.this.oAy.a(alaWheatInfoData, z, intValue);
                     } else {
                         BdUtilHelper.showToast(WheatItemView.this.getContext(), "正在获取数据，请稍等");
                     }
@@ -268,8 +268,8 @@ public class WheatItemView extends SafeFrameLayout {
     }
 
     private void a(boolean z, x xVar) {
-        this.oBU.setVisibility(4);
-        if (this.oBV != null && this.buq != null) {
+        this.oBV.setVisibility(4);
+        if (this.oBW != null && this.buq != null) {
             int as = g.as(xVar);
             int at = g.at(xVar);
             boolean ecs = g.ecs();
@@ -277,53 +277,53 @@ public class WheatItemView extends SafeFrameLayout {
                 switch (at) {
                     case 2:
                         if (ecs) {
-                            if (this.oBV.select != 0) {
-                                c(this.oBV.sex != 2, "选" + this.oBV.select, false);
-                                this.oBU.setVisibility(0);
+                            if (this.oBW.select != 0) {
+                                c(this.oBW.sex != 2, "选" + this.oBW.select, false);
+                                this.oBV.setVisibility(0);
                                 return;
                             }
                             return;
                         } else if (isSelf()) {
-                            if (this.oBV.select == 0) {
+                            if (this.oBW.select == 0) {
                                 if (this.buq != null && !TextUtils.isEmpty(this.buq.aGO)) {
-                                    if (this.oBX != null) {
-                                        this.oBX.VH(this.buq.aGO);
+                                    if (this.oBY != null) {
+                                        this.oBY.VI(this.buq.aGO);
                                     }
                                     this.buq.aGO = "";
                                     return;
                                 }
                                 return;
                             }
-                            c(this.oBV.sex != 2, "选" + this.oBV.select, false);
-                            this.oBU.setVisibility(0);
+                            c(this.oBW.sex != 2, "选" + this.oBW.select, false);
+                            this.oBV.setVisibility(0);
                             return;
-                        } else if (this.oBV.select != 0) {
-                            zW(this.oBV.sex != 2);
-                            this.oBU.setVisibility(0);
+                        } else if (this.oBW.select != 0) {
+                            zW(this.oBW.sex != 2);
+                            this.oBV.setVisibility(0);
                             return;
                         } else {
                             return;
                         }
                     case 3:
-                        if (this.oBV.select == 0) {
-                            this.oBU.setVisibility(0);
+                        if (this.oBW.select == 0) {
+                            this.oBV.setVisibility(0);
                             ecK();
                             return;
                         } else if (ecs) {
-                            this.oBU.setVisibility(0);
-                            c(this.oBV.sex != 2, "选" + this.oBV.select, this.oBV.publish == 0);
+                            this.oBV.setVisibility(0);
+                            c(this.oBW.sex != 2, "选" + this.oBW.select, this.oBW.publish == 0);
                             return;
                         } else if (isSelf()) {
-                            c(this.oBV.sex != 2, "选" + this.oBV.select, false);
-                            this.oBU.setVisibility(0);
+                            c(this.oBW.sex != 2, "选" + this.oBW.select, false);
+                            this.oBV.setVisibility(0);
                             return;
-                        } else if (this.oBV.publish == 1) {
-                            c(this.oBV.sex != 2, "选" + this.oBV.select, false);
-                            this.oBU.setVisibility(0);
+                        } else if (this.oBW.publish == 1) {
+                            c(this.oBW.sex != 2, "选" + this.oBW.select, false);
+                            this.oBV.setVisibility(0);
                             return;
-                        } else if (this.oBV.publish == 0) {
-                            zW(this.oBV.sex != 2);
-                            this.oBU.setVisibility(0);
+                        } else if (this.oBW.publish == 0) {
+                            zW(this.oBW.sex != 2);
+                            this.oBV.setVisibility(0);
                             return;
                         } else {
                             return;
@@ -336,57 +336,57 @@ public class WheatItemView extends SafeFrameLayout {
     }
 
     private boolean isSelf() {
-        return this.oBV.uk.equals(g.Wz());
+        return this.oBW.uk.equals(g.Wz());
     }
 
     public void a(SimpleDraweeView simpleDraweeView, String str) {
-        simpleDraweeView.setController(c.eqV().bo(ImageRequest.Yx(str)).AT(true).c(simpleDraweeView.getController()).erN());
+        simpleDraweeView.setController(c.eqV().bo(ImageRequest.Yy(str)).AT(true).c(simpleDraweeView.getController()).erN());
     }
 
     public void zW(boolean z) {
-        if (this.oBU != null) {
-            this.oBU.setVisibility(0);
-            this.oBU.zW(z);
+        if (this.oBV != null) {
+            this.oBV.setVisibility(0);
+            this.oBV.zW(z);
         }
     }
 
     public void c(boolean z, String str, boolean z2) {
-        if (this.oBU != null) {
-            this.oBU.setVisibility(0);
-            this.oBU.c(z, str, z2);
+        if (this.oBV != null) {
+            this.oBV.setVisibility(0);
+            this.oBV.c(z, str, z2);
         }
     }
 
     public void ecK() {
-        if (this.oBU != null) {
-            this.oBU.setVisibility(0);
-            this.oBU.ecK();
+        if (this.oBV != null) {
+            this.oBV.setVisibility(0);
+            this.oBV.ecK();
         }
     }
 
     public AlaWheatInfoData getAlaWheatInfoData() {
-        return this.oBV;
+        return this.oBW;
     }
 
     public void setOnItemClickListener(BaseWheatLayout.a aVar) {
-        this.oAx = aVar;
+        this.oAy = aVar;
     }
 
     public void setChooseLoverBgView(boolean z) {
-        if (this.oBW != null) {
-            this.oBW.setVisibility(z ? 0 : 8);
+        if (this.oBX != null) {
+            this.oBX.setVisibility(z ? 0 : 8);
         }
     }
 
     public void ede() {
-        if (this.oBU != null) {
-            this.oBU.ev(this.oBU);
-            c(this.oBV.sex != 2, "选" + this.oBV.select, false);
-            this.oBU.setVisibility(0);
+        if (this.oBV != null) {
+            this.oBV.ev(this.oBV);
+            c(this.oBW.sex != 2, "选" + this.oBW.select, false);
+            this.oBV.setVisibility(0);
         }
     }
 
     public void setDialogLister(a aVar) {
-        this.oBX = aVar;
+        this.oBY = aVar;
     }
 }

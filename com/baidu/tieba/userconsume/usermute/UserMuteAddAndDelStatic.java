@@ -200,7 +200,7 @@ public class UserMuteAddAndDelStatic {
                             com.baidu.tieba.usermute.a aVar2 = new com.baidu.tieba.usermute.a();
                             if (responsedMessage instanceof UserMuteCheckSocketResponsedMessage) {
                                 UserMuteCheckSocketResponsedMessage userMuteCheckSocketResponsedMessage = (UserMuteCheckSocketResponsedMessage) responsedMessage;
-                                aVar2.nAo = userMuteCheckSocketResponsedMessage.getResult();
+                                aVar2.nAp = userMuteCheckSocketResponsedMessage.getResult();
                                 aVar2.error = userMuteCheckSocketResponsedMessage.getError();
                                 aVar2.errorString = userMuteCheckSocketResponsedMessage.getErrorString();
                                 CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(CmdConfigCustom.CMD_USER_MUTE_CHECK_RESPONSE, aVar2);
@@ -209,7 +209,7 @@ public class UserMuteAddAndDelStatic {
                             }
                             if (responsedMessage instanceof UserMuteCheckHttpResponsedMessage) {
                                 UserMuteCheckHttpResponsedMessage userMuteCheckHttpResponsedMessage = (UserMuteCheckHttpResponsedMessage) responsedMessage;
-                                aVar2.nAo = userMuteCheckHttpResponsedMessage.getResult();
+                                aVar2.nAp = userMuteCheckHttpResponsedMessage.getResult();
                                 aVar2.error = userMuteCheckHttpResponsedMessage.getError();
                                 aVar2.errorString = userMuteCheckHttpResponsedMessage.getErrorString();
                                 CustomResponsedMessage customResponsedMessage2 = new CustomResponsedMessage(CmdConfigCustom.CMD_USER_MUTE_CHECK_RESPONSE, aVar2);

@@ -86,7 +86,7 @@ public class HotTopicRankLayout extends LinearLayout implements View.OnClickList
         this.mTopLine.setVisibility(0);
         this.mBottomLine.setVisibility(8);
         com.baidu.tbadk.a.b.b.bp(this.mTopLine);
-        com.baidu.tieba.homepage.tabfeed.b.Lr("c13753");
+        com.baidu.tieba.homepage.tabfeed.b.Ls("c13753");
     }
 
     @Override // com.baidu.card.q

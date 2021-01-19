@@ -67,17 +67,17 @@ public class HomePageTabFeedCollegeSecondListAdapter extends RecyclerView.Adapte
 
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public void onBindViewHolder(RecyclerView.ViewHolder viewHolder, final int i) {
-        final SpecialColumnItemData BI = BI(i);
+        final SpecialColumnItemData BH = BH(i);
         if (viewHolder instanceof b) {
-            ((b) viewHolder).a(BI);
+            ((b) viewHolder).a(BH);
         } else if (viewHolder instanceof a) {
-            ((a) viewHolder).a(BI);
+            ((a) viewHolder).a(BH);
         }
         viewHolder.itemView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.homepage.tabfeed.college.HomePageTabFeedCollegeSecondListAdapter.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (HomePageTabFeedCollegeSecondListAdapter.this.kfi != null) {
-                    HomePageTabFeedCollegeSecondListAdapter.this.kfi.a(view, BI, i, i);
+                    HomePageTabFeedCollegeSecondListAdapter.this.kfi.a(view, BH, i, i);
                 }
             }
         });
@@ -180,7 +180,7 @@ public class HomePageTabFeedCollegeSecondListAdapter extends RecyclerView.Adapte
         return x.getCount(this.kfh);
     }
 
-    private SpecialColumnItemData BI(int i) {
+    private SpecialColumnItemData BH(int i) {
         return (SpecialColumnItemData) x.getItem(this.kfh, i);
     }
 

@@ -59,8 +59,8 @@ public class c {
         if (at.isEmpty(sV)) {
             return 0;
         }
-        SampleResult Wy = com.baidu.ubs.analytics.a.Wy(sV);
-        return (Wy == SampleResult.T1 || Wy == SampleResult.T2 || Wy == SampleResult.T3 || Wy == SampleResult.T4 || Wy == SampleResult.T5) ? 1 : 0;
+        SampleResult Wz = com.baidu.ubs.analytics.a.Wz(sV);
+        return (Wz == SampleResult.T1 || Wz == SampleResult.T2 || Wz == SampleResult.T3 || Wz == SampleResult.T4 || Wz == SampleResult.T5) ? 1 : 0;
     }
 
     private String sV(int i) {

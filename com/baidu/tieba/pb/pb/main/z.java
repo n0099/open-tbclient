@@ -66,21 +66,21 @@ public class z {
                 String decode = Uri.decode(uri.getEncodedPath());
                 if (!StringUtils.isNull(decode)) {
                     Kw(decode);
-                    HashMap<String, Object> OL = OL(decode);
-                    String str = (String) OL.get("tid");
-                    if ("mpush".equals((String) OL.get("fr")) && !StringUtils.isNull(str)) {
+                    HashMap<String, Object> OM = OM(decode);
+                    String str = (String) OM.get("tid");
+                    if ("mpush".equals((String) OM.get("fr")) && !StringUtils.isNull(str)) {
                         TiebaStatic.log(new com.baidu.tbadk.core.util.aq("c11895").dW("tid", str));
                     }
                     HttpMessage httpMessage = new HttpMessage(1003393);
                     httpMessage.addParam("call_url", uri2);
                     MessageManager.getInstance().sendMessage(httpMessage);
-                    aVar.onCallBack(OL);
+                    aVar.onCallBack(OM);
                 }
             }
         }
     }
 
-    public HashMap<String, Object> OL(String str) {
+    public HashMap<String, Object> OM(String str) {
         if (StringUtils.isNull(str)) {
             return null;
         }

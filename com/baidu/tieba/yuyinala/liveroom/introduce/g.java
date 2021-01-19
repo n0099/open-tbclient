@@ -15,7 +15,7 @@ import org.json.JSONObject;
 /* loaded from: classes10.dex */
 public class g extends com.baidu.tieba.yuyinala.liveroom.a {
     private x aBr;
-    public PlayIntroduceView omi;
+    public PlayIntroduceView omj;
 
     public g(TbPageContext tbPageContext) {
         super(tbPageContext);
@@ -26,8 +26,8 @@ public class g extends com.baidu.tieba.yuyinala.liveroom.a {
     }
 
     public void cFF() {
-        if (this.omi != null) {
-            this.omi.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.liveroom.introduce.g.1
+        if (this.omj != null) {
+            this.omj.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.liveroom.introduce.g.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     new d(g.this.getPageContext().getPageActivity()).af(g.this.aBr);
@@ -56,38 +56,38 @@ public class g extends com.baidu.tieba.yuyinala.liveroom.a {
     }
 
     private void aN(ViewGroup viewGroup) {
-        if (this.omi != null && this.omi.getParent() != null) {
-            ((ViewGroup) this.omi.getParent()).removeView(this.omi);
+        if (this.omj != null && this.omj.getParent() != null) {
+            ((ViewGroup) this.omj.getParent()).removeView(this.omj);
         }
-        if (this.omi == null) {
-            this.omi = new PlayIntroduceView(getPageContext().getPageActivity());
+        if (this.omj == null) {
+            this.omj = new PlayIntroduceView(getPageContext().getPageActivity());
         }
-        this.omi.setId(a.f.ala_liveroom_play_introduce);
+        this.omj.setId(a.f.ala_liveroom_play_introduce);
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
         layoutParams.addRule(1, a.f.ala_liveroom_charm_rank);
         layoutParams.addRule(3, a.f.ala_liveroom_hostheader);
         layoutParams.leftMargin = getPageContext().getPageActivity().getResources().getDimensionPixelSize(a.d.sdk_ds19);
         layoutParams.topMargin = getPageContext().getPageActivity().getResources().getDimensionPixelSize(a.d.sdk_ds14);
-        viewGroup.addView(this.omi, layoutParams);
+        viewGroup.addView(this.omj, layoutParams);
     }
 
     @Override // com.baidu.tieba.yuyinala.liveroom.a
     public void zH() {
         super.zH();
-        if (this.omi != null && this.omi.getParent() != null) {
-            ((ViewGroup) this.omi.getParent()).removeView(this.omi);
+        if (this.omj != null && this.omj.getParent() != null) {
+            ((ViewGroup) this.omj.getParent()).removeView(this.omj);
         }
-        if (this.omi != null) {
-            this.omi.destory();
-            this.omi = null;
+        if (this.omj != null) {
+            this.omj.destory();
+            this.omj = null;
         }
     }
 
     @Override // com.baidu.tieba.yuyinala.liveroom.a
     public void onDestroy() {
-        if (this.omi != null) {
-            this.omi.destory();
-            this.omi = null;
+        if (this.omj != null) {
+            this.omj.destory();
+            this.omj = null;
         }
     }
 

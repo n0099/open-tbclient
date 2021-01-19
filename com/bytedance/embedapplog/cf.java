@@ -7,32 +7,32 @@ import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class cf extends ch {
     private final Context e;
-    private final cn pcg;
+    private final cn pch;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public cf(Context context, cn cnVar) {
         super(true, false);
         this.e = context;
-        this.pcg = cnVar;
+        this.pch = cnVar;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.bytedance.embedapplog.ch
     public boolean a(JSONObject jSONObject) {
-        if (!TextUtils.isEmpty(this.pcg.J())) {
-            jSONObject.put("ab_client", this.pcg.J());
+        if (!TextUtils.isEmpty(this.pch.J())) {
+            jSONObject.put("ab_client", this.pch.J());
         }
-        if (!TextUtils.isEmpty(this.pcg.t())) {
+        if (!TextUtils.isEmpty(this.pch.t())) {
             if (au.f5786b) {
-                au.a("init config has abversion:" + this.pcg.t(), null);
+                au.a("init config has abversion:" + this.pch.t(), null);
             }
-            jSONObject.put("ab_version", this.pcg.t());
+            jSONObject.put("ab_version", this.pch.t());
         }
-        if (!TextUtils.isEmpty(this.pcg.K())) {
-            jSONObject.put("ab_group", this.pcg.K());
+        if (!TextUtils.isEmpty(this.pch.K())) {
+            jSONObject.put("ab_group", this.pch.K());
         }
-        if (!TextUtils.isEmpty(this.pcg.L())) {
-            jSONObject.put("ab_feature", this.pcg.L());
+        if (!TextUtils.isEmpty(this.pch.L())) {
+            jSONObject.put("ab_feature", this.pch.L());
             return true;
         }
         return true;

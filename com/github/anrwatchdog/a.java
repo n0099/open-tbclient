@@ -6,35 +6,35 @@ import android.os.Looper;
 import android.util.Log;
 /* loaded from: classes6.dex */
 public class a extends Thread {
-    private static final b pFW = new b() { // from class: com.github.anrwatchdog.a.1
+    private static final b pFX = new b() { // from class: com.github.anrwatchdog.a.1
         @Override // com.github.anrwatchdog.a.b
         public void onAppNotResponding(ANRError aNRError) {
             throw aNRError;
         }
     };
-    private static final InterfaceC1053a pFX = new InterfaceC1053a() { // from class: com.github.anrwatchdog.a.2
+    private static final InterfaceC1053a pFY = new InterfaceC1053a() { // from class: com.github.anrwatchdog.a.2
         @Override // com.github.anrwatchdog.a.InterfaceC1053a
         public long iN(long j) {
             return 0L;
         }
     };
-    private static final c pFY = new c() { // from class: com.github.anrwatchdog.a.3
+    private static final c pFZ = new c() { // from class: com.github.anrwatchdog.a.3
         @Override // com.github.anrwatchdog.a.c
         public void a(InterruptedException interruptedException) {
             Log.w("ANRWatchdog", "Interrupted: " + interruptedException.getMessage());
         }
     };
-    private b pFZ;
-    private InterfaceC1053a pGa;
-    private c pGb;
-    private final Handler pGc;
-    private final int pGd;
-    private String pGe;
-    private boolean pGf;
+    private b pGa;
+    private InterfaceC1053a pGb;
+    private c pGc;
+    private final Handler pGd;
+    private final int pGe;
+    private String pGf;
     private boolean pGg;
-    private volatile long pGh;
-    private volatile boolean pGi;
-    private final Runnable pGj;
+    private boolean pGh;
+    private volatile long pGi;
+    private volatile boolean pGj;
+    private final Runnable pGk;
 
     /* renamed from: com.github.anrwatchdog.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
@@ -57,36 +57,36 @@ public class a extends Thread {
     }
 
     public a(int i) {
-        this.pFZ = pFW;
         this.pGa = pFX;
         this.pGb = pFY;
-        this.pGc = new Handler(Looper.getMainLooper());
-        this.pGe = "";
-        this.pGf = false;
-        this.pGg = true;
-        this.pGh = 0L;
-        this.pGi = false;
-        this.pGj = new Runnable() { // from class: com.github.anrwatchdog.a.4
+        this.pGc = pFZ;
+        this.pGd = new Handler(Looper.getMainLooper());
+        this.pGf = "";
+        this.pGg = false;
+        this.pGh = true;
+        this.pGi = 0L;
+        this.pGj = false;
+        this.pGk = new Runnable() { // from class: com.github.anrwatchdog.a.4
             @Override // java.lang.Runnable
             public void run() {
-                a.this.pGh = 0L;
-                a.this.pGi = false;
+                a.this.pGi = 0L;
+                a.this.pGj = false;
             }
         };
-        this.pGd = i;
+        this.pGe = i;
     }
 
     public a a(b bVar) {
         if (bVar == null) {
-            this.pFZ = pFW;
+            this.pGa = pFX;
         } else {
-            this.pFZ = bVar;
+            this.pGa = bVar;
         }
         return this;
     }
 
     public a eyb() {
-        this.pGe = null;
+        this.pGf = null;
         return this;
     }
 
@@ -94,35 +94,35 @@ public class a extends Thread {
     public void run() {
         ANRError NewMainOnly;
         setName("|ANR-WatchDog|");
-        long j = this.pGd;
+        long j = this.pGe;
         while (!isInterrupted()) {
-            boolean z = this.pGh == 0;
-            this.pGh += j;
+            boolean z = this.pGi == 0;
+            this.pGi += j;
             if (z) {
-                this.pGc.post(this.pGj);
+                this.pGd.post(this.pGk);
             }
             try {
                 Thread.sleep(j);
-                if (this.pGh != 0 && !this.pGi) {
-                    if (!this.pGg && (Debug.isDebuggerConnected() || Debug.waitingForDebugger())) {
+                if (this.pGi != 0 && !this.pGj) {
+                    if (!this.pGh && (Debug.isDebuggerConnected() || Debug.waitingForDebugger())) {
                         Log.w("ANRWatchdog", "An ANR was detected but ignored because the debugger is connected (you can prevent this with setIgnoreDebugger(true))");
-                        this.pGi = true;
+                        this.pGj = true;
                     } else {
-                        j = this.pGa.iN(this.pGh);
+                        j = this.pGb.iN(this.pGi);
                         if (j <= 0) {
-                            if (this.pGe != null) {
-                                NewMainOnly = ANRError.New(this.pGh, this.pGe, this.pGf);
+                            if (this.pGf != null) {
+                                NewMainOnly = ANRError.New(this.pGi, this.pGf, this.pGg);
                             } else {
-                                NewMainOnly = ANRError.NewMainOnly(this.pGh);
+                                NewMainOnly = ANRError.NewMainOnly(this.pGi);
                             }
-                            this.pFZ.onAppNotResponding(NewMainOnly);
-                            j = this.pGd;
-                            this.pGi = true;
+                            this.pGa.onAppNotResponding(NewMainOnly);
+                            j = this.pGe;
+                            this.pGj = true;
                         }
                     }
                 }
             } catch (InterruptedException e) {
-                this.pGb.a(e);
+                this.pGc.a(e);
                 return;
             }
         }

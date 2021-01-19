@@ -84,7 +84,7 @@ public class e extends a {
         }
         String imgUrl = shareEntity.getImgUrl();
         if (BU(shareEntity.dGP())) {
-            a(this.nao, Rw(shareEntity.dGP()));
+            a(this.nao, Rx(shareEntity.dGP()));
         } else if (!TextUtils.isEmpty(imgUrl) && (imgUrl.startsWith("http://") || imgUrl.startsWith(SapiUtils.COOKIE_HTTPS_URL_PREFIX))) {
             com.baidu.adp.lib.e.d.mx().a(imgUrl, 10, this.fDG, 0, 0, getPageId(), new Object[0]);
         } else if (z(shareEntity.getImageUri())) {
@@ -149,7 +149,7 @@ public class e extends a {
         webpageObject.identify = Utility.generateGUID();
         webpageObject.title = "";
         webpageObject.description = "";
-        webpageObject.actionUrl = Ry(str);
+        webpageObject.actionUrl = Rz(str);
         return webpageObject;
     }
 
@@ -160,9 +160,9 @@ public class e extends a {
         WebpageObject webpageObject = new WebpageObject();
         webpageObject.setThumbImage(bitmap);
         webpageObject.identify = Utility.generateGUID();
-        webpageObject.title = Ry(str);
-        webpageObject.description = Ry(str2);
-        webpageObject.actionUrl = Ry(str3);
+        webpageObject.title = Rz(str);
+        webpageObject.description = Rz(str2);
+        webpageObject.actionUrl = Rz(str3);
         return webpageObject;
     }
 
@@ -171,8 +171,8 @@ public class e extends a {
             return null;
         }
         TextObject textObject = new TextObject();
-        textObject.title = Ry(this.nao.getTitle());
-        textObject.text = Ry(this.nao.topic) + Ry(this.nao.getContent());
+        textObject.title = Rz(this.nao.getTitle());
+        textObject.text = Rz(this.nao.topic) + Rz(this.nao.getContent());
         return textObject;
     }
 
@@ -183,7 +183,7 @@ public class e extends a {
         return imageObject;
     }
 
-    private String Ry(String str) {
+    private String Rz(String str) {
         return str == null ? "" : str;
     }
 

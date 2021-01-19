@@ -4,44 +4,44 @@ import android.graphics.Bitmap;
 import java.util.List;
 /* loaded from: classes5.dex */
 public class e {
-    private final b pvZ;
-    private int pwa;
-    private com.facebook.common.references.a<Bitmap> pwb;
-    private List<com.facebook.common.references.a<Bitmap>> pwc;
+    private final b pwa;
+    private int pwb;
+    private com.facebook.common.references.a<Bitmap> pwc;
+    private List<com.facebook.common.references.a<Bitmap>> pwd;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(b bVar) {
-        this.pvZ = bVar;
+        this.pwa = bVar;
     }
 
     public b etf() {
-        return this.pvZ;
+        return this.pwa;
     }
 
     public com.facebook.common.references.a<Bitmap> etg() {
-        return com.facebook.common.references.a.b(this.pwb);
+        return com.facebook.common.references.a.b(this.pwc);
     }
 
     public e j(com.facebook.common.references.a<Bitmap> aVar) {
-        this.pwb = com.facebook.common.references.a.b(aVar);
+        this.pwc = com.facebook.common.references.a.b(aVar);
         return this;
     }
 
     public int eth() {
-        return this.pwa;
+        return this.pwb;
     }
 
     public e Pe(int i) {
-        this.pwa = i;
+        this.pwb = i;
         return this;
     }
 
     public List<com.facebook.common.references.a<Bitmap>> eti() {
-        return com.facebook.common.references.a.m(this.pwc);
+        return com.facebook.common.references.a.m(this.pwd);
     }
 
     public e gM(List<com.facebook.common.references.a<Bitmap>> list) {
-        this.pwc = com.facebook.common.references.a.m(list);
+        this.pwd = com.facebook.common.references.a.m(list);
         return this;
     }
 
@@ -50,10 +50,10 @@ public class e {
         try {
             return new d(this);
         } finally {
-            com.facebook.common.references.a.c(this.pwb);
-            this.pwb = null;
-            com.facebook.common.references.a.b(this.pwc);
+            com.facebook.common.references.a.c(this.pwc);
             this.pwc = null;
+            com.facebook.common.references.a.b(this.pwd);
+            this.pwd = null;
         }
     }
 }

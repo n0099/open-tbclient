@@ -7,8 +7,8 @@ import android.view.MotionEvent;
 import android.widget.FrameLayout;
 /* loaded from: classes.dex */
 public class DragLayer extends FrameLayout {
-    private a noM;
-    private b npg;
+    private a noN;
+    private b nph;
 
     public DragLayer(Context context) {
         super(context);
@@ -30,38 +30,38 @@ public class DragLayer extends FrameLayout {
 
     @Override // android.view.ViewGroup
     public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
-        return this.noM.onInterceptTouchEvent(motionEvent);
+        return this.noN.onInterceptTouchEvent(motionEvent);
     }
 
     @Override // android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
-        return this.noM.onTouchEvent(motionEvent);
+        return this.noN.onTouchEvent(motionEvent);
     }
 
     public a getDragController() {
-        return this.noM;
+        return this.noN;
     }
 
     public void setDragController(a aVar) {
-        this.noM = aVar;
+        this.noN = aVar;
     }
 
     public void setDragObject(b bVar) {
-        this.npg = bVar;
+        this.nph = bVar;
         invalidate();
     }
 
     public b getDragObject() {
-        return this.npg;
+        return this.nph;
     }
 
     public void dLN() {
-        if (this.npg != null) {
-            if (this.npg.bm != null) {
-                this.npg.bm.recycle();
-                this.npg.bm = null;
+        if (this.nph != null) {
+            if (this.nph.bm != null) {
+                this.nph.bm.recycle();
+                this.nph.bm = null;
             }
-            this.npg = null;
+            this.nph = null;
         }
     }
 
@@ -73,8 +73,8 @@ public class DragLayer extends FrameLayout {
     @Override // android.view.ViewGroup, android.view.View
     protected void dispatchDraw(Canvas canvas) {
         super.dispatchDraw(canvas);
-        if (this.npg != null && this.noM.noD) {
-            this.npg.draw(canvas);
+        if (this.nph != null && this.noN.noE) {
+            this.nph.draw(canvas);
         }
     }
 

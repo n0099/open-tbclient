@@ -96,7 +96,7 @@ public class PaymentConfirmActivity extends BaseActivity<PaymentConfirmActivity>
                 if (!responsePaymentPayMessage.hasError()) {
                     int error = responsePaymentPayMessage.getError();
                     if (error == 0) {
-                        d.Om("c10294");
+                        d.On("c10294");
                         PayResultData payRequestDataData = responsePaymentPayMessage.getPayRequestDataData();
                         if (payRequestDataData != null && payRequestDataData.getDescribe() != null && payRequestDataData.getDescribe().getWord() != null) {
                             string = payRequestDataData.getDescribe().getWord();
@@ -109,7 +109,7 @@ public class PaymentConfirmActivity extends BaseActivity<PaymentConfirmActivity>
                             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_BOOK_BUY_STATE_CHANGED, PaymentConfirmActivity.this.lyM));
                         }
                         if (PaymentConfirmActivity.this.lyH != null) {
-                            PaymentConfirmActivity.this.Oj(PaymentConfirmActivity.this.lyH.getOrder_id());
+                            PaymentConfirmActivity.this.Ok(PaymentConfirmActivity.this.lyH.getOrder_id());
                         }
                         PaymentConfirmActivity.this.closeActivity();
                         return;
@@ -207,7 +207,7 @@ public class PaymentConfirmActivity extends BaseActivity<PaymentConfirmActivity>
         initUI();
         register();
         dim();
-        d.Om("c10291");
+        d.On("c10291");
     }
 
     private void initData() {
@@ -227,13 +227,13 @@ public class PaymentConfirmActivity extends BaseActivity<PaymentConfirmActivity>
 
     private void initUI() {
         this.lyF = new c(this, this.lyL == 2);
-        this.lyF.dis().setChecked(com.baidu.tbadk.core.sharedPref.b.brx().getBoolean(Ok(SharedPrefConfig.PAYMENT_CONFIRM_SHOW), true) ? false : true);
+        this.lyF.dis().setChecked(com.baidu.tbadk.core.sharedPref.b.brx().getBoolean(Ol(SharedPrefConfig.PAYMENT_CONFIRM_SHOW), true) ? false : true);
         this.lyF.dis().setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() { // from class: com.baidu.tieba.payment.PaymentConfirmActivity.1
             @Override // android.widget.CompoundButton.OnCheckedChangeListener
             public void onCheckedChanged(CompoundButton compoundButton, boolean z) {
-                com.baidu.tbadk.core.sharedPref.b.brx().putBoolean(PaymentConfirmActivity.this.Ok(SharedPrefConfig.PAYMENT_CONFIRM_SHOW), !z);
+                com.baidu.tbadk.core.sharedPref.b.brx().putBoolean(PaymentConfirmActivity.this.Ol(SharedPrefConfig.PAYMENT_CONFIRM_SHOW), !z);
                 if (!z) {
-                    com.baidu.tbadk.core.sharedPref.b.brx().putInt(PaymentConfirmActivity.this.Ok(SharedPrefConfig.PAYMENT_CONFIRM_NOT_SHOW_COUNT), 0);
+                    com.baidu.tbadk.core.sharedPref.b.brx().putInt(PaymentConfirmActivity.this.Ol(SharedPrefConfig.PAYMENT_CONFIRM_NOT_SHOW_COUNT), 0);
                 }
             }
         });
@@ -243,10 +243,10 @@ public class PaymentConfirmActivity extends BaseActivity<PaymentConfirmActivity>
                 if (PaymentConfirmActivity.this.lyJ) {
                     PaymentConfirmActivity.this.bI(0, null);
                 } else if (PaymentConfirmActivity.this.lyI) {
-                    d.Om("c10292");
+                    d.On("c10292");
                     PaymentConfirmActivity.this.dio();
                 } else {
-                    d.Om("c10293");
+                    d.On("c10293");
                     PaymentConfirmActivity.this.din();
                 }
             }
@@ -273,7 +273,7 @@ public class PaymentConfirmActivity extends BaseActivity<PaymentConfirmActivity>
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Oj(String str) {
+    public void Ok(String str) {
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_PAYMENT_CONFIRM_SUCCESS, str));
     }
 
@@ -310,12 +310,12 @@ public class PaymentConfirmActivity extends BaseActivity<PaymentConfirmActivity>
             din();
             return true;
         }
-        if (cpath.getTip_exist() != 1 || com.baidu.tbadk.core.sharedPref.b.brx().getBoolean(Ok(SharedPrefConfig.PAYMENT_CONFIRM_SHOW), true)) {
+        if (cpath.getTip_exist() != 1 || com.baidu.tbadk.core.sharedPref.b.brx().getBoolean(Ol(SharedPrefConfig.PAYMENT_CONFIRM_SHOW), true)) {
             return false;
         }
-        int i = com.baidu.tbadk.core.sharedPref.b.brx().getInt(Ok(SharedPrefConfig.PAYMENT_CONFIRM_NOT_SHOW_COUNT), 0);
+        int i = com.baidu.tbadk.core.sharedPref.b.brx().getInt(Ol(SharedPrefConfig.PAYMENT_CONFIRM_NOT_SHOW_COUNT), 0);
         if (i < cpath.getTip_days()) {
-            com.baidu.tbadk.core.sharedPref.b.brx().putInt(Ok(SharedPrefConfig.PAYMENT_CONFIRM_NOT_SHOW_COUNT), i + 1);
+            com.baidu.tbadk.core.sharedPref.b.brx().putInt(Ol(SharedPrefConfig.PAYMENT_CONFIRM_NOT_SHOW_COUNT), i + 1);
             if (z) {
                 dio();
                 return true;
@@ -452,7 +452,7 @@ public class PaymentConfirmActivity extends BaseActivity<PaymentConfirmActivity>
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public String Ok(String str) {
+    public String Ol(String str) {
         return str + this.mUserId;
     }
 

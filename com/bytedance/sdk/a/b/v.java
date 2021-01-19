@@ -97,7 +97,7 @@ public final class v {
         final List<String> f5979a = new ArrayList(20);
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        public a XC(String str) {
+        public a XD(String str) {
             int indexOf = str.indexOf(":", 1);
             if (indexOf != -1) {
                 return hd(str.substring(0, indexOf), str.substring(indexOf + 1));
@@ -120,7 +120,7 @@ public final class v {
             return this;
         }
 
-        public a XD(String str) {
+        public a XE(String str) {
             int i = 0;
             while (true) {
                 int i2 = i;
@@ -139,7 +139,7 @@ public final class v {
 
         public a he(String str, String str2) {
             d(str, str2);
-            XD(str);
+            XE(str);
             hd(str, str2);
             return this;
         }

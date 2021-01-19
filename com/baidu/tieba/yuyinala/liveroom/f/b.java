@@ -7,7 +7,7 @@ import com.baidu.tieba.yuyinala.liveroom.views.d;
 public class b {
     private TbPageContext mPageContext;
     private View mRootView;
-    private com.baidu.tieba.yuyinala.liveroom.views.b oki;
+    private com.baidu.tieba.yuyinala.liveroom.views.b okj;
 
     public b(TbPageContext tbPageContext) {
         this.mPageContext = tbPageContext;
@@ -15,8 +15,8 @@ public class b {
     }
 
     private void init() {
-        this.oki = new com.baidu.tieba.yuyinala.liveroom.views.b(this.mPageContext);
-        this.mRootView = this.oki.getView();
+        this.okj = new com.baidu.tieba.yuyinala.liveroom.views.b(this.mPageContext);
+        this.mRootView = this.okj.getView();
     }
 
     public View getView() {
@@ -24,50 +24,50 @@ public class b {
     }
 
     public boolean cdv() {
-        return this.oki.cdv();
+        return this.okj.cdv();
     }
 
     public boolean cdw() {
-        return this.oki.cdw();
+        return this.okj.cdw();
     }
 
     public String getLiveTitle() {
-        return this.oki.getLiveTitle();
+        return this.okj.getLiveTitle();
     }
 
     public boolean cdx() {
-        return this.oki.cdx();
+        return this.okj.cdx();
     }
 
     public boolean cdy() {
-        return this.oki.cdy();
+        return this.okj.cdy();
     }
 
     public String cdA() {
-        return this.oki.cdA();
+        return this.okj.cdA();
     }
 
     public void a(d.b bVar) {
-        this.oki.a(bVar);
+        this.okj.a(bVar);
     }
 
     public void a(d.a aVar) {
-        this.oki.a(aVar);
+        this.okj.a(aVar);
     }
 
     public void Hd(String str) {
-        this.oki.Hd(str);
+        this.okj.Hd(str);
     }
 
     public void cdD() {
-        if (this.oki != null) {
-            this.oki.cdD();
+        if (this.okj != null) {
+            this.okj.cdD();
         }
     }
 
     public void onKeyboardVisibilityChanged(boolean z) {
-        if (this.oki != null) {
-            this.oki.onKeyboardVisibilityChanged(z);
+        if (this.okj != null) {
+            this.okj.onKeyboardVisibilityChanged(z);
         }
     }
 }

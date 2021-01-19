@@ -35,7 +35,7 @@ public abstract class b {
     private int k = 0;
     private boolean l = false;
     private boolean o = false;
-    private HttpURLConnection pPW = null;
+    private HttpURLConnection pPX = null;
 
     public b(Context context, String str) {
         str = (str == null || str.length() <= 0) ? "" : "";
@@ -68,7 +68,7 @@ public abstract class b {
                 str = "GET";
                 break;
         }
-        this.pPW.setRequestMethod(str);
+        this.pPX.setRequestMethod(str);
     }
 
     /*  JADX ERROR: JadxRuntimeException in pass: BlockProcessor
@@ -97,12 +97,12 @@ public abstract class b {
             java.net.Proxy r3 = java.net.Proxy.NO_PROXY     // Catch: java.lang.Throwable -> L9a
             java.net.URLConnection r0 = r0.openConnection(r3)     // Catch: java.lang.Throwable -> L9a
             java.net.HttpURLConnection r0 = (java.net.HttpURLConnection) r0     // Catch: java.lang.Throwable -> L9a
-            r4.pPW = r0     // Catch: java.lang.Throwable -> L9a
+            r4.pPX = r0     // Catch: java.lang.Throwable -> L9a
         L25:
-            java.net.HttpURLConnection r0 = r4.pPW     // Catch: java.lang.Throwable -> L9a
+            java.net.HttpURLConnection r0 = r4.pPX     // Catch: java.lang.Throwable -> L9a
             int r3 = r4.i     // Catch: java.lang.Throwable -> L9a
             r0.setConnectTimeout(r3)     // Catch: java.lang.Throwable -> L9a
-            java.net.HttpURLConnection r0 = r4.pPW     // Catch: java.lang.Throwable -> L9a
+            java.net.HttpURLConnection r0 = r4.pPX     // Catch: java.lang.Throwable -> L9a
             int r3 = r4.i     // Catch: java.lang.Throwable -> L9a
             r0.setReadTimeout(r3)     // Catch: java.lang.Throwable -> L9a
             int r0 = r4.d     // Catch: java.lang.Throwable -> L9a
@@ -114,33 +114,33 @@ public abstract class b {
             byte[] r0 = r4.f     // Catch: java.lang.Throwable -> L9a
             int r0 = r0.length     // Catch: java.lang.Throwable -> L9a
             if (r0 <= 0) goto L5d
-            java.net.HttpURLConnection r0 = r4.pPW     // Catch: java.lang.Throwable -> L9a
+            java.net.HttpURLConnection r0 = r4.pPX     // Catch: java.lang.Throwable -> L9a
             r3 = 1
             r0.setDoOutput(r3)     // Catch: java.lang.Throwable -> L9a
-            java.net.HttpURLConnection r0 = r4.pPW     // Catch: java.lang.Throwable -> L9a
+            java.net.HttpURLConnection r0 = r4.pPX     // Catch: java.lang.Throwable -> L9a
             java.io.OutputStream r0 = r0.getOutputStream()     // Catch: java.lang.Throwable -> L9a
             byte[] r3 = r4.f     // Catch: java.lang.Throwable -> L9a
             r0.write(r3)     // Catch: java.lang.Throwable -> L9a
             r0.flush()     // Catch: java.lang.Throwable -> L9a
             r0.close()     // Catch: java.lang.Throwable -> L9a
         L5d:
-            java.net.HttpURLConnection r0 = r4.pPW     // Catch: java.lang.Throwable -> L9a
+            java.net.HttpURLConnection r0 = r4.pPX     // Catch: java.lang.Throwable -> L9a
             r0.connect()     // Catch: java.lang.Throwable -> L9a
-            java.net.HttpURLConnection r0 = r4.pPW     // Catch: java.lang.Throwable -> Lab
+            java.net.HttpURLConnection r0 = r4.pPX     // Catch: java.lang.Throwable -> Lab
             int r0 = r0.getResponseCode()     // Catch: java.lang.Throwable -> Lab
             r4.g = r0     // Catch: java.lang.Throwable -> Lab
-            java.net.HttpURLConnection r0 = r4.pPW     // Catch: java.lang.Throwable -> Lab
+            java.net.HttpURLConnection r0 = r4.pPX     // Catch: java.lang.Throwable -> Lab
             java.io.InputStream r0 = r0.getInputStream()     // Catch: java.lang.Throwable -> Lab
             byte[] r3 = r4.a(r0)     // Catch: java.lang.Throwable -> Lcc
             r4.h = r3     // Catch: java.lang.Throwable -> Lcc
             if (r0 == 0) goto L7b
             r0.close()     // Catch: java.lang.Throwable -> L9a
         L7b:
-            java.net.HttpURLConnection r0 = r4.pPW
+            java.net.HttpURLConnection r0 = r4.pPX
             if (r0 == 0) goto Lce
-            java.net.HttpURLConnection r0 = r4.pPW
+            java.net.HttpURLConnection r0 = r4.pPX
             r0.disconnect()
-            r4.pPW = r1
+            r4.pPX = r1
             r0 = r2
         L87:
             if (r0 == 0) goto L90
@@ -152,17 +152,17 @@ public abstract class b {
         L91:
             java.net.URLConnection r0 = r0.openConnection()     // Catch: java.lang.Throwable -> L9a
             java.net.HttpURLConnection r0 = (java.net.HttpURLConnection) r0     // Catch: java.lang.Throwable -> L9a
-            r4.pPW = r0     // Catch: java.lang.Throwable -> L9a
+            r4.pPX = r0     // Catch: java.lang.Throwable -> L9a
             goto L25
         L9a:
             r0 = move-exception
             r0.printStackTrace()     // Catch: java.lang.Throwable -> Lb3
             r0 = 0
-            java.net.HttpURLConnection r2 = r4.pPW
+            java.net.HttpURLConnection r2 = r4.pPX
             if (r2 == 0) goto L87
-            java.net.HttpURLConnection r2 = r4.pPW
+            java.net.HttpURLConnection r2 = r4.pPX
             r2.disconnect()
-            r4.pPW = r1
+            r4.pPX = r1
             goto L87
         Lab:
             r0 = move-exception
@@ -173,11 +173,11 @@ public abstract class b {
             goto L7b
         Lb3:
             r0 = move-exception
-            java.net.HttpURLConnection r2 = r4.pPW
+            java.net.HttpURLConnection r2 = r4.pPX
             if (r2 == 0) goto Lbf
-            java.net.HttpURLConnection r2 = r4.pPW
+            java.net.HttpURLConnection r2 = r4.pPX
             r2.disconnect()
-            r4.pPW = r1
+            r4.pPX = r1
         Lbf:
             throw r0
         Lc0:
@@ -229,15 +229,15 @@ public abstract class b {
                 break;
         }
         if (str.length() > 0) {
-            this.pPW.addRequestProperty("Content-Type", str);
+            this.pPX.addRequestProperty("Content-Type", str);
         }
-        this.pPW.addRequestProperty(SM.COOKIE, "sessionid=" + this.c);
+        this.pPX.addRequestProperty(SM.COOKIE, "sessionid=" + this.c);
         try {
             String language = Locale.getDefault().getLanguage();
             if (language.equalsIgnoreCase("zh")) {
-                this.pPW.addRequestProperty("Accept-Language", Locale.getDefault().toString() + "," + language + ";q=0.9");
+                this.pPX.addRequestProperty("Accept-Language", Locale.getDefault().toString() + "," + language + ";q=0.9");
             } else {
-                this.pPW.addRequestProperty("Accept-Language", Locale.getDefault().toString() + "," + language + ";q=0.9,en-US;q=0.6,en;q=0.4");
+                this.pPX.addRequestProperty("Accept-Language", Locale.getDefault().toString() + "," + language + ";q=0.9,en-US;q=0.6,en;q=0.4");
             }
         } catch (Throwable th) {
         }

@@ -9,7 +9,7 @@ import com.baidu.tieba.R;
 /* loaded from: classes7.dex */
 public class AlbumVideoCompressingDialogView extends FrameLayout {
     private TextView fgm;
-    private AlbumCompressProgressView nXk;
+    private AlbumCompressProgressView nXl;
 
     public AlbumVideoCompressingDialogView(Context context) {
         super(context);
@@ -28,13 +28,13 @@ public class AlbumVideoCompressingDialogView extends FrameLayout {
 
     private void init(Context context) {
         LayoutInflater.from(context).inflate(R.layout.dailog_album_video_compress, this);
-        this.nXk = (AlbumCompressProgressView) findViewById(R.id.view_compress_progress);
+        this.nXl = (AlbumCompressProgressView) findViewById(R.id.view_compress_progress);
         this.fgm = (TextView) findViewById(R.id.txt_compress_progress);
     }
 
     public void setPercent(int i) {
         if (i >= 0 && i <= 100) {
-            this.nXk.setProgress(i);
+            this.nXl.setProgress(i);
             this.fgm.setText(i + "%");
         }
     }

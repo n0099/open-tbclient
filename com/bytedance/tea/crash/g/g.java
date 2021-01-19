@@ -5,7 +5,7 @@ import android.app.ActivityManager;
 import android.os.Build;
 /* loaded from: classes4.dex */
 public class g {
-    static final a plJ;
+    static final a plK;
 
     /* loaded from: classes4.dex */
     private static class a {
@@ -32,13 +32,13 @@ public class g {
 
     static {
         if (Build.VERSION.SDK_INT >= 16) {
-            plJ = new b();
+            plK = new b();
         } else {
-            plJ = new a();
+            plK = new a();
         }
     }
 
     public static long a(ActivityManager.MemoryInfo memoryInfo) {
-        return plJ.a(memoryInfo);
+        return plK.a(memoryInfo);
     }
 }

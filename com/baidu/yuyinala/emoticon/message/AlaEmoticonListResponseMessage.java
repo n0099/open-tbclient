@@ -9,7 +9,7 @@ import org.json.JSONObject;
 /* loaded from: classes10.dex */
 public class AlaEmoticonListResponseMessage extends JsonHttpResponsedMessage {
     private int mSendIntervalTime;
-    private List<a> oLV;
+    private List<a> oLW;
 
     public AlaEmoticonListResponseMessage() {
         super(1031004);
@@ -22,18 +22,18 @@ public class AlaEmoticonListResponseMessage extends JsonHttpResponsedMessage {
         this.mSendIntervalTime = optJSONObject.optInt("interval_time", 4);
         JSONArray optJSONArray = optJSONObject.optJSONArray("img");
         if (optJSONArray != null && optJSONArray.length() != 0) {
-            this.oLV = new ArrayList();
+            this.oLW = new ArrayList();
             int length = optJSONArray.length();
             for (int i2 = 0; i2 < length; i2++) {
                 a aVar = new a();
                 aVar.parse(optJSONArray.getJSONObject(i2));
-                this.oLV.add(aVar);
+                this.oLW.add(aVar);
             }
         }
     }
 
     public List<a> getEmoticonList() {
-        return this.oLV;
+        return this.oLW;
     }
 
     public int getSendIntervalTime() {

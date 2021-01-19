@@ -43,7 +43,7 @@ public class f implements h {
         this.mDialog = new Dialog(this.mContext, i.d.SoLoaderDialogStyle);
         this.mDialog.setContentView(i.b.dialog_soloader);
         this.gJz = (SimpleDraweeView) this.mDialog.findViewById(i.a.soloader_loading_anim);
-        this.gJz.setController(com.facebook.drawee.a.a.c.eqV().Ym("https://pic.rmb.bdstatic.com/qmpic_InRooc_1563447539.webp").AT(true).erN());
+        this.gJz.setController(com.facebook.drawee.a.a.c.eqV().Yn("https://pic.rmb.bdstatic.com/qmpic_InRooc_1563447539.webp").AT(true).erN());
         this.mTitle = (TextView) this.mDialog.findViewById(i.a.soloader_title);
         this.gJA = this.mDialog.findViewById(i.a.soloader_hide);
         this.mDialog.setOnDismissListener(new DialogInterface.OnDismissListener() { // from class: com.baidu.tieba.ala.b.f.1

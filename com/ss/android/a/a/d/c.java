@@ -19,7 +19,7 @@ public class c {
     public Drawable g;
     public View i;
     public int j;
-    public b pQt;
+    public b pQu;
 
     /* loaded from: classes4.dex */
     public interface b {
@@ -39,7 +39,7 @@ public class c {
         this.e = aVar.g;
         this.f = aVar.h;
         this.g = aVar.i;
-        this.pQt = aVar.pQu;
+        this.pQu = aVar.pQv;
         this.i = aVar.f12899a;
         this.j = aVar.f12900b;
     }
@@ -59,28 +59,28 @@ public class c {
         private String g;
         private boolean h;
         private Drawable i;
-        private b pQu;
+        private b pQv;
 
         public a(Context context) {
             this.c = context;
         }
 
-        public a Zd(String str) {
+        public a Ze(String str) {
             this.d = str;
             return this;
         }
 
-        public a Ze(String str) {
+        public a Zf(String str) {
             this.e = str;
             return this;
         }
 
-        public a Zf(String str) {
+        public a Zg(String str) {
             this.f = str;
             return this;
         }
 
-        public a Zg(String str) {
+        public a Zh(String str) {
             this.g = str;
             return this;
         }
@@ -96,7 +96,7 @@ public class c {
         }
 
         public a a(b bVar) {
-            this.pQu = bVar;
+            this.pQv = bVar;
             return this;
         }
 

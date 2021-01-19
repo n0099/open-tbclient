@@ -107,7 +107,7 @@ public class SingleThreadEmotionModel extends NativeManageEmotionModel implement
                     for (MyEmotionGroupData myEmotionGroupData : dgl) {
                         if (myEmotionGroupData != null) {
                             jSONArray.put(myEmotionGroupData.getGroupId());
-                            SingleThreadEmotionModel.this.Oe(myEmotionGroupData.getGroupId());
+                            SingleThreadEmotionModel.this.Of(myEmotionGroupData.getGroupId());
                         }
                     }
                 }
@@ -136,7 +136,7 @@ public class SingleThreadEmotionModel extends NativeManageEmotionModel implement
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public synchronized void Oe(String str) {
+    public synchronized void Of(String str) {
         this.lvg.add(str);
     }
 

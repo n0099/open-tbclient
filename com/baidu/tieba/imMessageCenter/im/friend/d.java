@@ -113,7 +113,7 @@ public class d extends com.baidu.adp.base.d<InviteFriendListActivity> implements
         this.kHl.setOnClickListener(this.kHg);
         btV();
         cWI();
-        CZ(0);
+        CY(0);
     }
 
     private void bEt() {
@@ -303,7 +303,7 @@ public class d extends com.baidu.adp.base.d<InviteFriendListActivity> implements
     public void g(com.baidu.tbadk.coreExtra.relationship.a aVar) {
         if (aVar != null) {
             this.kHj.d(aVar);
-            CZ(this.kHj.getItemLength());
+            CY(this.kHj.getItemLength());
             cWR();
         }
     }
@@ -311,7 +311,7 @@ public class d extends com.baidu.adp.base.d<InviteFriendListActivity> implements
     public void h(com.baidu.tbadk.coreExtra.relationship.a aVar) {
         if (aVar != null) {
             this.kHj.f(aVar);
-            CZ(this.kHj.getItemLength());
+            CY(this.kHj.getItemLength());
             cWR();
         }
     }
@@ -328,7 +328,7 @@ public class d extends com.baidu.adp.base.d<InviteFriendListActivity> implements
         l.hideSoftKeyPad(this.kHg.getPageContext().getPageActivity(), this.cyH);
     }
 
-    private void CZ(int i) {
+    private void CY(int i) {
         this.kHl.setText(String.format(this.kHg.getPageContext().getString(R.string.invite_friend_candidate_send), Integer.valueOf(i)));
     }
 
@@ -336,7 +336,7 @@ public class d extends com.baidu.adp.base.d<InviteFriendListActivity> implements
         return this.kHm;
     }
 
-    public void Da(int i) {
+    public void CZ(int i) {
         this.kHm = i;
         this.kHj.setMaxCount(i);
     }

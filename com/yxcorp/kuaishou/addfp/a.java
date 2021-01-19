@@ -16,7 +16,7 @@ public class a {
     private String e;
     private String f;
     private boolean g;
-    private b qbs;
+    private b qbt;
     private static int c = -1;
 
     /* renamed from: a  reason: collision with root package name */
@@ -72,7 +72,7 @@ public class a {
 
     private void a(boolean z) {
         String str;
-        LinkedHashMap aaN;
+        LinkedHashMap aaO;
         try {
             Pair a2 = com.yxcorp.kuaishou.addfp.android.a.c.jc(this.f14334b).a();
             if (a2 != null && a2.second != null) {
@@ -88,13 +88,13 @@ public class a {
                     if (com.yxcorp.kuaishou.addfp.android.b.e.e(this.f14334b, new String[]{"android.permission.READ_EXTERNAL_STORAGE", "android.permission.WRITE_EXTERNAL_STORAGE"})) {
                         str = com.yxcorp.kuaishou.addfp.android.a.c.jc(this.f14334b).b("Lm91a2R0ZnQ=");
                         if (TextUtils.isEmpty(a3) || !TextUtils.isEmpty(str)) {
-                            aaN = com.yxcorp.kuaishou.addfp.android.a.c.jc(this.f14334b).aaN(a3);
-                            if (aaN != null || aaN.size() == 0) {
-                                aaN = com.yxcorp.kuaishou.addfp.android.a.c.jc(this.f14334b).aaN(str);
+                            aaO = com.yxcorp.kuaishou.addfp.android.a.c.jc(this.f14334b).aaO(a3);
+                            if (aaO != null || aaO.size() == 0) {
+                                aaO = com.yxcorp.kuaishou.addfp.android.a.c.jc(this.f14334b).aaO(str);
                             }
-                            if (aaN != null || aaN.size() <= 0) {
+                            if (aaO != null || aaO.size() <= 0) {
                             }
-                            String str3 = (String) aaN.get(com.yxcorp.kuaishou.addfp.android.a.a.eHl().b());
+                            String str3 = (String) aaO.get(com.yxcorp.kuaishou.addfp.android.a.a.eHl().b());
                             if (TextUtils.isEmpty(str3)) {
                                 return;
                             }
@@ -107,11 +107,11 @@ public class a {
                 str = "";
                 if (TextUtils.isEmpty(a3)) {
                 }
-                aaN = com.yxcorp.kuaishou.addfp.android.a.c.jc(this.f14334b).aaN(a3);
-                if (aaN != null) {
+                aaO = com.yxcorp.kuaishou.addfp.android.a.c.jc(this.f14334b).aaO(a3);
+                if (aaO != null) {
                 }
-                aaN = com.yxcorp.kuaishou.addfp.android.a.c.jc(this.f14334b).aaN(str);
-                if (aaN != null) {
+                aaO = com.yxcorp.kuaishou.addfp.android.a.c.jc(this.f14334b).aaO(str);
+                if (aaO != null) {
                 }
             }
         } catch (Throwable th) {
@@ -129,7 +129,7 @@ public class a {
 
     public void a(Context context, boolean z, b bVar) {
         try {
-            this.qbs = bVar;
+            this.qbt = bVar;
             this.f14334b = context;
             this.g = z;
             Thread thread = new Thread(new c(this));

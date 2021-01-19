@@ -25,7 +25,7 @@ public class a {
         public int kwj = 0;
     }
 
-    public static C0753a LH(String str) {
+    public static C0753a LI(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }

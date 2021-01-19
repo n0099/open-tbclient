@@ -12,7 +12,7 @@ public class c {
         return this.kwv == 1;
     }
 
-    public void CC(int i) {
+    public void CB(int i) {
         this.kwv = i;
     }
 

@@ -167,7 +167,7 @@ public class OfficialBarChatActivity extends CommonPersonalChatActivity<Official
         this.ksX = new OfficialBarMsglistView(this, this.ksY.getIsAcceptNotify());
         this.kud = (OfficialBarMsglistView) this.ksX;
         if (this.mUserType == 4) {
-            this.kud.Ct(R.string.more);
+            this.kud.Cs(R.string.more);
             this.kud.closeNotNotify();
             this.kud.closeReceiver();
             this.kud.cSY();

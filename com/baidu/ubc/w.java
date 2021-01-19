@@ -17,12 +17,12 @@ public class w {
     private List<k> ewR = new ArrayList();
     private String mSign;
     private int mThreshold;
-    private JSONObject oIY;
     private JSONObject oIZ;
-    private String oJa;
+    private JSONObject oJa;
     private String oJb;
-    private int oJc;
+    private String oJc;
     private int oJd;
+    private int oJe;
 
     public w(String str, JSONObject jSONObject) {
         this.mSign = str;
@@ -46,19 +46,19 @@ public class w {
     }
 
     public String efp() {
-        return this.oJb;
-    }
-
-    public JSONObject efq() {
-        return this.oIZ;
-    }
-
-    public int efr() {
         return this.oJc;
     }
 
-    public int efs() {
+    public JSONObject efq() {
+        return this.oJa;
+    }
+
+    public int efr() {
         return this.oJd;
+    }
+
+    public int efs() {
+        return this.oJe;
     }
 
     public boolean beX() {
@@ -67,19 +67,19 @@ public class w {
                 return false;
             }
             JSONObject jSONObject = this.ewQ;
-            this.oIY = jSONObject.optJSONObject("set");
+            this.oIZ = jSONObject.optJSONObject("set");
             this.mThreshold = jSONObject.optInt("threshold", 10000);
             this.ewP = jSONObject.optInt("timeup", PersonListModel.CACHETIME);
-            this.oJb = jSONObject.optString("step");
-            this.oJa = jSONObject.optString("replace");
-            this.oIZ = jSONObject.optJSONObject("del");
-            this.oJc = jSONObject.optInt("all_size", 614400);
-            this.oJd = jSONObject.optInt("single_size", 153600);
-            if (this.oIY != null) {
-                Iterator<String> keys = this.oIY.keys();
+            this.oJc = jSONObject.optString("step");
+            this.oJb = jSONObject.optString("replace");
+            this.oJa = jSONObject.optJSONObject("del");
+            this.oJd = jSONObject.optInt("all_size", 614400);
+            this.oJe = jSONObject.optInt("single_size", 153600);
+            if (this.oIZ != null) {
+                Iterator<String> keys = this.oIZ.keys();
                 while (keys.hasNext()) {
                     String next = keys.next();
-                    JSONObject jSONObject2 = this.oIY.getJSONObject(next);
+                    JSONObject jSONObject2 = this.oIZ.getJSONObject(next);
                     if (jSONObject2 != null) {
                         JSONObject jSONObject3 = jSONObject2.getJSONObject("data");
                         String string = jSONObject2.getString("version");
@@ -107,24 +107,24 @@ public class w {
                                     kVar.ym(jSONObject3.getString("idtype"));
                                 }
                                 if (jSONObject3.has("ch")) {
-                                    kVar.Wk(jSONObject3.getString("ch"));
+                                    kVar.Wl(jSONObject3.getString("ch"));
                                 }
                                 if (jSONObject3.has("dfc")) {
-                                    kVar.Wl(jSONObject3.getString("dfc"));
+                                    kVar.Wm(jSONObject3.getString("dfc"));
                                 }
                                 if (jSONObject3.has("reallog")) {
-                                    kVar.Wm(jSONObject3.getString("reallog"));
+                                    kVar.Wn(jSONObject3.getString("reallog"));
                                 }
                                 if (jSONObject3.has("gflow")) {
                                     String string6 = jSONObject3.getString("gflow");
                                     if (!TextUtils.isEmpty(string6) && !TextUtils.equals(string6, "0")) {
-                                        kVar.Wn(string6);
+                                        kVar.Wo(string6);
                                     }
                                 }
                                 if (jSONObject3.has("uploadType")) {
                                     String string7 = jSONObject3.getString("uploadType");
                                     if (!TextUtils.isEmpty(string7)) {
-                                        kVar.Wo(string7);
+                                        kVar.Wp(string7);
                                     }
                                 }
                                 int optInt = jSONObject3.optInt("lcache", 2);

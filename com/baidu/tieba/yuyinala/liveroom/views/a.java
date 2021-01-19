@@ -38,10 +38,10 @@ public abstract class a implements d {
     protected String hNh;
     protected TbPageContext mPageContext;
     protected ViewGroup mRootView;
-    protected TextView oor;
-    protected TextView osu;
-    protected c osv;
-    protected d.b osw;
+    protected TextView oos;
+    protected TextView osv;
+    protected c osw;
+    protected d.b osx;
     private boolean hKS = false;
     private View.OnFocusChangeListener focusChangeListener = new View.OnFocusChangeListener() { // from class: com.baidu.tieba.yuyinala.liveroom.views.a.5
         @Override // android.view.View.OnFocusChangeListener
@@ -58,16 +58,16 @@ public abstract class a implements d {
 
     public a(TbPageContext tbPageContext) {
         this.mPageContext = tbPageContext;
-        this.osv = new c(this.mPageContext);
+        this.osw = new c(this.mPageContext);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void cjN() {
         this.hKK = (EditText) this.mRootView.findViewById(a.f.ala_liveroom_prepare_title);
-        this.oor = (TextView) this.mRootView.findViewById(a.f.ala_liveroom_prepare_title_limit);
-        this.osu = (TextView) this.mRootView.findViewById(a.f.ala_liveroom_prepare_title_limit_max);
+        this.oos = (TextView) this.mRootView.findViewById(a.f.ala_liveroom_prepare_title_limit);
+        this.osv = (TextView) this.mRootView.findViewById(a.f.ala_liveroom_prepare_title_limit_max);
         this.hKL = (LinearLayout) this.mRootView.findViewById(a.f.ala_live_prepare_locate_layout);
-        this.osv.aO(this.hKL);
+        this.osw.aO(this.hKL);
         this.hKN = (CheckBox) this.mRootView.findViewById(a.f.ala_live_prepare_licence);
         this.hKO = (TextView) this.mRootView.findViewById(a.f.ala_live_prepare_licence_detail);
         this.hKP = (Button) this.mRootView.findViewById(a.f.ala_live_prepare_start);
@@ -121,9 +121,9 @@ public abstract class a implements d {
     }
 
     private boolean cjT() {
-        if (this.osw != null) {
+        if (this.osx != null) {
             this.hKR = true;
-            this.osw.chr();
+            this.osx.chr();
             return true;
         }
         return false;
@@ -146,7 +146,7 @@ public abstract class a implements d {
             this.hKO.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.liveroom.views.a.2
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    a.this.osw.chu();
+                    a.this.osx.chu();
                     JSONObject jSONObject = new JSONObject();
                     try {
                         jSONObject.put(UbcStatConstant.KEY_LIVE_TYPE, UbcStatConstant.VALUE_LIVE_TYPE_AUDIO);
@@ -165,8 +165,8 @@ public abstract class a implements d {
 
             @Override // android.text.TextWatcher
             public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-                if (a.this.oor != null) {
-                    a.this.oor.setText(a.this.mPageContext.getResources().getString(a.h.yuyin_ala_createroom_title_limit, Integer.valueOf(a.this.w(charSequence))));
+                if (a.this.oos != null) {
+                    a.this.oos.setText(a.this.mPageContext.getResources().getString(a.h.yuyin_ala_createroom_title_limit, Integer.valueOf(a.this.w(charSequence))));
                 }
             }
 
@@ -181,14 +181,14 @@ public abstract class a implements d {
                         a.this.hKK.setTextKeepState(editable);
                     }
                     if (w == 0) {
-                        a.this.oor.setTextColor(a.this.mPageContext.getResources().getColor(a.c.sdk_white_alpha30));
-                        a.this.osu.setTextColor(a.this.mPageContext.getResources().getColor(a.c.sdk_white_alpha30));
+                        a.this.oos.setTextColor(a.this.mPageContext.getResources().getColor(a.c.sdk_white_alpha30));
+                        a.this.osv.setTextColor(a.this.mPageContext.getResources().getColor(a.c.sdk_white_alpha30));
                     } else if (w < 10) {
-                        a.this.oor.setTextColor(a.this.mPageContext.getResources().getColor(a.c.sdk_white_alpha100));
-                        a.this.osu.setTextColor(a.this.mPageContext.getResources().getColor(a.c.sdk_white_alpha100));
+                        a.this.oos.setTextColor(a.this.mPageContext.getResources().getColor(a.c.sdk_white_alpha100));
+                        a.this.osv.setTextColor(a.this.mPageContext.getResources().getColor(a.c.sdk_white_alpha100));
                     } else {
-                        a.this.oor.setTextColor(a.this.mPageContext.getResources().getColor(a.c.sdk_color_ffeaaa));
-                        a.this.osu.setTextColor(a.this.mPageContext.getResources().getColor(a.c.sdk_white_alpha100));
+                        a.this.oos.setTextColor(a.this.mPageContext.getResources().getColor(a.c.sdk_color_ffeaaa));
+                        a.this.osv.setTextColor(a.this.mPageContext.getResources().getColor(a.c.sdk_white_alpha100));
                     }
                 } catch (Exception e) {
                 }
@@ -221,11 +221,11 @@ public abstract class a implements d {
     }
 
     public boolean cdy() {
-        return this.osv.isShowLocation();
+        return this.osw.isShowLocation();
     }
 
     public void a(d.b bVar) {
-        this.osw = bVar;
+        this.osx = bVar;
     }
 
     public boolean cdv() {

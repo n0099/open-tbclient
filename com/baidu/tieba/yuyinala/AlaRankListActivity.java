@@ -47,8 +47,8 @@ public class AlaRankListActivity extends BaseActivity<AlaRankListActivity> imple
     private View mRootView;
     private int mScreenWidth;
     private String mUserName;
-    private String oeF;
-    private AlaRankListFragmentAdapter oeG;
+    private String oeG;
+    private AlaRankListFragmentAdapter oeH;
     private String otherParams;
     private Handler mHandler = new Handler();
     private boolean aTo = false;
@@ -98,7 +98,7 @@ public class AlaRankListActivity extends BaseActivity<AlaRankListActivity> imple
             this.bac = getIntent().getStringExtra("feed_id");
             this.gmS = getIntent().getLongExtra("live_id", -1L);
             this.otherParams = getIntent().getStringExtra(IntentConfig.OTHER_PARAMS);
-            this.oeF = getIntent().getStringExtra(YuyinAlaCharmRankActivityConfig.C_ROOM_ID);
+            this.oeG = getIntent().getStringExtra(YuyinAlaCharmRankActivityConfig.C_ROOM_ID);
             this.mRoomId = getIntent().getStringExtra("room_id");
             initView();
             ActivityPendingTransitionFactory.enterExitAnimation(getPageContext(), 0);
@@ -266,11 +266,11 @@ public class AlaRankListActivity extends BaseActivity<AlaRankListActivity> imple
     }
 
     private void initTabSpec() {
-        this.oeG = new AlaRankListFragmentAdapter(this, this.oeF);
+        this.oeH = new AlaRankListFragmentAdapter(this, this.oeG);
         this.aCE = (AlaLiveRoomPanelTabHost) this.mRootView.findViewById(a.f.ala_charm_tab_host);
         this.aCE.setTabWidgetBg(a.e.yuyin_ala_rank_list_title_corner_bg);
         this.aCE.setViewPagerBg(a.e.yuyin_ala_rank_white_bg);
-        this.aCE.setData(this.oeG.getDataList());
+        this.aCE.setData(this.oeH.getDataList());
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -282,7 +282,7 @@ public class AlaRankListActivity extends BaseActivity<AlaRankListActivity> imple
     @Override // com.baidu.live.tbadk.BaseActivity, com.baidu.live.adp.base.BdBaseActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        Iterator<d> it = this.oeG.getDataList().iterator();
+        Iterator<d> it = this.oeH.getDataList().iterator();
         while (it.hasNext()) {
             it.next().onDestroy();
         }

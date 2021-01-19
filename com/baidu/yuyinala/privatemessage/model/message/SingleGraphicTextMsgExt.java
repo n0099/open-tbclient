@@ -9,10 +9,10 @@ import org.json.JSONObject;
 /* loaded from: classes10.dex */
 public class SingleGraphicTextMsgExt {
     public String groupId;
-    public SignleGraphicTextMsg oXP;
-    public String oXQ;
-    public double oXR;
-    public String oXS;
+    public SignleGraphicTextMsg oXQ;
+    public String oXR;
+    public double oXS;
+    public String oXT;
     public String vid;
 
     /* loaded from: classes10.dex */
@@ -23,13 +23,13 @@ public class SingleGraphicTextMsgExt {
     }
 
     public SingleGraphicTextMsgExt(SignleGraphicTextMsg signleGraphicTextMsg) {
-        this.oXP = signleGraphicTextMsg;
+        this.oXQ = signleGraphicTextMsg;
         try {
             JSONObject jSONObject = new JSONObject(signleGraphicTextMsg.getMsgContent());
-            this.oXQ = jSONObject.optString("quanminUrl");
+            this.oXR = jSONObject.optString("quanminUrl");
             this.groupId = jSONObject.optString(TbEnum.SystemMessage.KEY_GROUP_ID);
-            this.oXR = jSONObject.optDouble("coverHW");
-            this.oXS = jSONObject.optString(QzonePublish.PUBLISH_TO_QZONE_VIDEO_DURATION, "0:00");
+            this.oXS = jSONObject.optDouble("coverHW");
+            this.oXT = jSONObject.optString(QzonePublish.PUBLISH_TO_QZONE_VIDEO_DURATION, "0:00");
             this.vid = jSONObject.optString("vid");
         } catch (JSONException e) {
             e.printStackTrace();
@@ -37,7 +37,7 @@ public class SingleGraphicTextMsgExt {
     }
 
     public SingleGraphicTextType ekl() {
-        if (!TextUtils.isEmpty(this.oXQ)) {
+        if (!TextUtils.isEmpty(this.oXR)) {
             return SingleGraphicTextType.VIDEOSHARE;
         }
         if (!TextUtils.isEmpty(this.groupId)) {

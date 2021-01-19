@@ -15,13 +15,13 @@ import com.baidu.tbadk.core.util.bg;
 public class d {
     private int mFrom = -1;
     private TbPageContext<?> mPageContext;
-    private int nwW;
-    public BdUniqueId nwX;
+    private int nwX;
+    public BdUniqueId nwY;
 
     public d(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
-        this.nwX = null;
+        this.nwY = null;
         this.mPageContext = tbPageContext;
-        this.nwX = bdUniqueId;
+        this.nwY = bdUniqueId;
     }
 
     public void setFrom(int i) {
@@ -42,11 +42,11 @@ public class d {
                 bg.skipToLoginActivity(this.mPageContext.getPageActivity());
                 return;
             }
-            this.nwW = dressItemData.getPropsId();
+            this.nwX = dressItemData.getPropsId();
             BackgroundSetRequestMessage backgroundSetRequestMessage = new BackgroundSetRequestMessage();
             backgroundSetRequestMessage.setFromDetail(z);
-            backgroundSetRequestMessage.setRequestUniqueId(this.nwX);
-            backgroundSetRequestMessage.setPropId(this.nwW);
+            backgroundSetRequestMessage.setRequestUniqueId(this.nwY);
+            backgroundSetRequestMessage.setPropId(this.nwX);
             MessageManager.getInstance().sendMessage(backgroundSetRequestMessage);
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_REFRESH_PERSONAL));
         }
@@ -60,7 +60,7 @@ public class d {
             i2 = 0;
         }
         if (!StringUtils.isNull(str)) {
-            if (i == com.baidu.tieba.themeCenter.c.nvR) {
+            if (i == com.baidu.tieba.themeCenter.c.nvS) {
                 String str2 = "";
                 if (this.mFrom == 1) {
                     str2 = MemberPayStatistic.REFER_PAGE_PERSONALITY_BACKGROUND_TRY;
@@ -68,13 +68,13 @@ public class d {
                     str2 = MemberPayStatistic.REFER_PAGE_ALL_BACKGROUND_TRY;
                 }
                 com.baidu.tieba.themeCenter.b.a(this.mPageContext, z ? 4 : 2, str, i2, str2, MemberPayStatistic.CLICK_ZONE_BOTTOM_OPENDE_RENEWALFEE_BUTTON);
-            } else if (i == com.baidu.tieba.themeCenter.c.nvS) {
+            } else if (i == com.baidu.tieba.themeCenter.c.nvT) {
                 com.baidu.tieba.themeCenter.b.a(this.mPageContext, z ? 4 : 2, str, i2);
             }
         }
     }
 
     public int getPropId() {
-        return this.nwW;
+        return this.nwX;
     }
 }

@@ -7,8 +7,8 @@ public final class d {
 
     /* renamed from: b  reason: collision with root package name */
     final Proxy f5956b;
-    final a pep;
-    final InetSocketAddress pgF;
+    final a peq;
+    final InetSocketAddress pgG;
 
     public d(a aVar, Proxy proxy, InetSocketAddress inetSocketAddress) {
         if (aVar == null) {
@@ -20,13 +20,13 @@ public final class d {
         if (inetSocketAddress == null) {
             throw new NullPointerException("inetSocketAddress == null");
         }
-        this.pep = aVar;
+        this.peq = aVar;
         this.f5956b = proxy;
-        this.pgF = inetSocketAddress;
+        this.pgG = inetSocketAddress;
     }
 
     public a ens() {
-        return this.pep;
+        return this.peq;
     }
 
     public Proxy ent() {
@@ -34,22 +34,22 @@ public final class d {
     }
 
     public InetSocketAddress enu() {
-        return this.pgF;
+        return this.pgG;
     }
 
     public boolean d() {
-        return this.pep.pdJ != null && this.f5956b.type() == Proxy.Type.HTTP;
+        return this.peq.pdK != null && this.f5956b.type() == Proxy.Type.HTTP;
     }
 
     public boolean equals(Object obj) {
-        return (obj instanceof d) && ((d) obj).pep.equals(this.pep) && ((d) obj).f5956b.equals(this.f5956b) && ((d) obj).pgF.equals(this.pgF);
+        return (obj instanceof d) && ((d) obj).peq.equals(this.peq) && ((d) obj).f5956b.equals(this.f5956b) && ((d) obj).pgG.equals(this.pgG);
     }
 
     public int hashCode() {
-        return ((((this.pep.hashCode() + 527) * 31) + this.f5956b.hashCode()) * 31) + this.pgF.hashCode();
+        return ((((this.peq.hashCode() + 527) * 31) + this.f5956b.hashCode()) * 31) + this.pgG.hashCode();
     }
 
     public String toString() {
-        return "Route{" + this.pgF + "}";
+        return "Route{" + this.pgG + "}";
     }
 }

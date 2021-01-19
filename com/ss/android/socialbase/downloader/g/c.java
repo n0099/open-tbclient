@@ -178,7 +178,7 @@ public class c implements Parcelable {
         this.m = aVar.l;
         this.n = aVar.m;
         this.o = aVar.n;
-        this.k = aVar.pVN;
+        this.k = aVar.pVO;
         this.l = aVar.k;
         this.p = aVar.o;
         this.q = aVar.p;
@@ -197,7 +197,7 @@ public class c implements Parcelable {
         this.y = aVar.A;
         this.H = aVar.E;
         this.L = aVar.F;
-        this.al = aVar.pVO;
+        this.al = aVar.pVP;
         this.J = aVar.H;
         this.K = aVar.I;
         this.av = aVar.M;
@@ -205,7 +205,7 @@ public class c implements Parcelable {
         this.ax = aVar.J;
         this.N = aVar.K;
         this.au = aVar.L;
-        JSONObject jSONObject = aVar.pVP;
+        JSONObject jSONObject = aVar.pVQ;
         if (jSONObject != null) {
             a("download_setting", jSONObject.toString());
         }
@@ -2012,8 +2012,8 @@ public class c implements Parcelable {
         private int m;
         private boolean n;
         private int p;
-        private String[] pVN;
-        private JSONObject pVP;
+        private String[] pVO;
+        private JSONObject pVQ;
         private int q;
         private List<String> r;
         private boolean s;
@@ -2025,7 +2025,7 @@ public class c implements Parcelable {
         private String z;
         private boolean o = true;
         private boolean x = true;
-        private g pVO = g.ENQUEUE_NONE;
+        private g pVP = g.ENQUEUE_NONE;
         private boolean M = true;
 
         public a() {
@@ -2035,27 +2035,27 @@ public class c implements Parcelable {
             this.c = str;
         }
 
-        public a ZY(String str) {
+        public a ZZ(String str) {
             this.f13155a = str;
             return this;
         }
 
-        public a ZZ(String str) {
+        public a aaa(String str) {
             this.f13156b = str;
             return this;
         }
 
-        public a aaa(String str) {
+        public a aab(String str) {
             this.c = str;
             return this;
         }
 
-        public a aab(String str) {
+        public a aac(String str) {
             this.d = str;
             return this;
         }
 
-        public a aac(String str) {
+        public a aad(String str) {
             this.g = str;
             return this;
         }
@@ -2100,7 +2100,7 @@ public class c implements Parcelable {
             return this;
         }
 
-        public a aad(String str) {
+        public a aae(String str) {
             this.t = str;
             return this;
         }
@@ -2135,12 +2135,12 @@ public class c implements Parcelable {
             return this;
         }
 
-        public a aae(String str) {
+        public a aaf(String str) {
             this.z = str;
             return this;
         }
 
-        public a aaf(String str) {
+        public a aag(String str) {
             this.A = str;
             return this;
         }
@@ -2155,7 +2155,7 @@ public class c implements Parcelable {
             return this;
         }
 
-        public a aag(String str) {
+        public a aah(String str) {
             this.D = str;
             return this;
         }
@@ -2171,7 +2171,7 @@ public class c implements Parcelable {
         }
 
         public a b(g gVar) {
-            this.pVO = gVar;
+            this.pVP = gVar;
             return this;
         }
 
@@ -2186,11 +2186,11 @@ public class c implements Parcelable {
         }
 
         public a fj(JSONObject jSONObject) {
-            this.pVP = jSONObject;
+            this.pVQ = jSONObject;
             return this;
         }
 
-        public a aah(String str) {
+        public a aai(String str) {
             this.K = str;
             return this;
         }

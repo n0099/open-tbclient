@@ -60,7 +60,7 @@ public class b implements Parcelable {
         this.g = aVar.f;
         this.i = aVar.g;
         this.h = new AtomicInteger(-1);
-        a(aVar.pVM);
+        a(aVar.pVN);
         this.n = new AtomicBoolean(false);
     }
 
@@ -478,7 +478,7 @@ public class b implements Parcelable {
         private long e;
         private int f;
         private long g;
-        private b pVM;
+        private b pVN;
 
         public a(int i) {
             this.f13151a = i;
@@ -510,7 +510,7 @@ public class b implements Parcelable {
         }
 
         public a c(b bVar) {
-            this.pVM = bVar;
+            this.pVN = bVar;
             return this;
         }
 

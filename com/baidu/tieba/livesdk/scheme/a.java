@@ -31,7 +31,7 @@ public class a implements f {
     }
 
     @Override // com.baidu.tieba.sdk.b.f
-    public void MY(String str) {
+    public void MZ(String str) {
         openScheme(str);
     }
 }

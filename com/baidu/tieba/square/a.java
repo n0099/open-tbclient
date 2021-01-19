@@ -37,7 +37,7 @@ public class a implements d {
 
     private void cHP() {
         this.nfy.dJk();
-        this.nfx.RN(this.nfA);
+        this.nfx.RO(this.nfA);
     }
 
     public void dJe() {
@@ -69,7 +69,7 @@ public class a implements d {
             } else if (x.getCount(list) < 10) {
                 this.nfy.dJo();
             } else {
-                this.nfy.xP(this.nfx.RO(str));
+                this.nfy.xP(this.nfx.RP(str));
             }
         }
     }
@@ -78,14 +78,14 @@ public class a implements d {
     public void a(String str, ErrorData errorData) {
         if (this.nfy != null && this.nfx != null) {
             this.nfy.dJl();
-            com.baidu.tieba.square.data.c RM = this.nfx.RM(str);
-            if (RM == null || (RM.hasMore && x.isEmpty(RM.getDataList()))) {
+            com.baidu.tieba.square.data.c RN = this.nfx.RN(str);
+            if (RN == null || (RN.hasMore && x.isEmpty(RN.getDataList()))) {
                 this.nfy.bRO();
                 this.nfy.dJi();
                 return;
             }
-            this.nfy.fS(RM.getDataList());
-            r(str, RM.getDataList());
+            this.nfy.fS(RN.getDataList());
+            r(str, RN.getDataList());
         }
     }
 
@@ -100,9 +100,9 @@ public class a implements d {
         String className = getClassName();
         if (this.nfx != null && this.nfy != null) {
             boolean isLoading = this.nfx.isLoading();
-            boolean xP = this.nfy.xP(this.nfx.RO(className));
+            boolean xP = this.nfy.xP(this.nfx.RP(className));
             if (!isLoading && xP) {
-                this.nfx.RN(className);
+                this.nfx.RO(className);
             }
         }
     }
@@ -112,35 +112,35 @@ public class a implements d {
             this.nfy.dJk();
         }
         if (this.nfx != null) {
-            this.nfx.RN(getClassName());
-        }
-    }
-
-    public void RG(String str) {
-        RH(this.nfA);
-        this.nfA = str;
-        if (this.nfx != null && this.nfy != null) {
-            com.baidu.tieba.square.data.c RM = this.nfx.RM(str);
-            if (RM == null || (RM.hasMore && x.isEmpty(RM.getDataList()))) {
-                this.nfy.dJm();
-                r(str, null);
-                this.nfx.RN(str);
-                this.nfy.scrollToPositionWithOffset(0, 0);
-                return;
-            }
-            this.nfy.dJl();
-            r(str, RM.getDataList());
-            this.nfy.fS(RM.getDataList());
-            this.nfy.scrollToPositionWithOffset(RM.nfY, RM.fdc);
+            this.nfx.RO(getClassName());
         }
     }
 
     public void RH(String str) {
-        com.baidu.tieba.square.data.c RM;
+        RI(this.nfA);
+        this.nfA = str;
+        if (this.nfx != null && this.nfy != null) {
+            com.baidu.tieba.square.data.c RN = this.nfx.RN(str);
+            if (RN == null || (RN.hasMore && x.isEmpty(RN.getDataList()))) {
+                this.nfy.dJm();
+                r(str, null);
+                this.nfx.RO(str);
+                this.nfy.scrollToPositionWithOffset(0, 0);
+                return;
+            }
+            this.nfy.dJl();
+            r(str, RN.getDataList());
+            this.nfy.fS(RN.getDataList());
+            this.nfy.scrollToPositionWithOffset(RN.nfY, RN.fdc);
+        }
+    }
+
+    public void RI(String str) {
+        com.baidu.tieba.square.data.c RN;
         Pair<Integer, Integer> dJg;
-        if (this.nfy != null && this.nfx != null && !TextUtils.isEmpty(str) && (RM = this.nfx.RM(str)) != null && (dJg = this.nfy.dJg()) != null) {
-            RM.nfY = ((Integer) dJg.first).intValue();
-            RM.fdc = ((Integer) dJg.second).intValue();
+        if (this.nfy != null && this.nfx != null && !TextUtils.isEmpty(str) && (RN = this.nfx.RN(str)) != null && (dJg = this.nfy.dJg()) != null) {
+            RN.nfY = ((Integer) dJg.first).intValue();
+            RN.fdc = ((Integer) dJg.second).intValue();
         }
     }
 
@@ -159,10 +159,10 @@ public class a implements d {
         }
     }
 
-    public void RI(String str) {
+    public void RJ(String str) {
         if (!TextUtils.isEmpty(str)) {
-            this.nfy.RJ(str);
-            RG(str);
+            this.nfy.RK(str);
+            RH(str);
         }
     }
 }

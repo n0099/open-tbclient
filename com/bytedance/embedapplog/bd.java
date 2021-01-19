@@ -17,7 +17,7 @@ import com.bytedance.embedapplog.cl;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes4.dex */
 public final class bd implements bi {
-    private static final aw<Boolean> pcw = new aw<Boolean>() { // from class: com.bytedance.embedapplog.bd.1
+    private static final aw<Boolean> pcx = new aw<Boolean>() { // from class: com.bytedance.embedapplog.bd.1
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.bytedance.embedapplog.aw
@@ -32,7 +32,7 @@ public final class bd implements bi {
         if (context == null) {
             return false;
         }
-        return pcw.b(context).booleanValue();
+        return pcx.b(context).booleanValue();
     }
 
     @Override // com.bytedance.embedapplog.bi

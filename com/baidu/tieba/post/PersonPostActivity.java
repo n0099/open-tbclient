@@ -191,11 +191,11 @@ public class PersonPostActivity extends BaseFragmentActivity implements ViewPage
             int count = this.mCq.getCount();
             for (int i = 0; i < count; i++) {
                 Fragment item = this.mCq.getItem(i);
-                int CS = this.mCq.CS(i);
+                int CR = this.mCq.CR(i);
                 if (item != null) {
-                    if (CS == 0) {
+                    if (CR == 0) {
                         a(item, 0, getPageContext().getString(R.string.person_post_thread_new));
-                    } else if (CS == 1) {
+                    } else if (CR == 1) {
                         a(item, 1, getPageContext().getString(R.string.reply));
                     }
                 }
@@ -364,7 +364,7 @@ public class PersonPostActivity extends BaseFragmentActivity implements ViewPage
 
     private void dvF() {
         com.baidu.tieba.tbadkCore.a.a.a(CmdConfigSocket.CMD_USER_POST_PAGE, UserPostPageSocketResponsedMessage.class, false, false);
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1001503, com.baidu.tieba.tbadkCore.a.a.bU(Config.USER_POST_ADDRESS, CmdConfigSocket.CMD_USER_POST_PAGE));
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1001503, com.baidu.tieba.tbadkCore.a.a.bV(Config.USER_POST_ADDRESS, CmdConfigSocket.CMD_USER_POST_PAGE));
         tbHttpMessageTask.setIsNeedLogin(false);
         tbHttpMessageTask.setIsNeedTbs(false);
         tbHttpMessageTask.setIsNeedAddCommenParam(false);

@@ -54,9 +54,9 @@ public class SmartAppBrowseHistoryActivity extends BaseActivity {
     };
     private i.a mpJ = new i.a() { // from class: com.baidu.tieba.personExtra.SmartAppBrowseHistoryActivity.2
         @Override // com.baidu.tieba.personExtra.i.a
-        public void PC(String str) {
+        public void PD(String str) {
             if (SmartAppBrowseHistoryActivity.this.mpF != null) {
-                SmartAppBrowseHistoryActivity.this.mpF.PD(str);
+                SmartAppBrowseHistoryActivity.this.mpF.PE(str);
                 if (SmartAppBrowseHistoryActivity.this.mpF.getItemCount() == 0) {
                     SmartAppBrowseHistoryActivity.this.wu(true);
                 }

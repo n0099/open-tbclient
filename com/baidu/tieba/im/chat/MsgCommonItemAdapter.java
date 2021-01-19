@@ -62,7 +62,7 @@ public abstract class MsgCommonItemAdapter<T> extends com.baidu.adp.widget.ListV
         this.ksg = z;
     }
 
-    public void Cq(int i) {
+    public void Cp(int i) {
         this.ksh = i;
     }
 

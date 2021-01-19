@@ -153,7 +153,7 @@ public class b {
         for (PbSortType pbSortType : list) {
             q qVar = new q();
             qVar.Jl(pbSortType.sort_type.intValue());
-            qVar.Sh(pbSortType.sort_name);
+            qVar.Si(pbSortType.sort_name);
             arrayList.add(qVar);
         }
         this.lPj.setVisibility(0);

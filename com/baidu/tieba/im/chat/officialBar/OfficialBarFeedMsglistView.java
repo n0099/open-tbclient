@@ -174,8 +174,8 @@ public class OfficialBarFeedMsglistView extends com.baidu.adp.base.d<OfficialBar
             for (int i = 0; i < 10 && i < list2.size(); i++) {
                 com.baidu.tieba.im.db.pojo.a aVar = list2.get(i);
                 OfficialBarFeedMsglistAdapter.a aVar2 = new OfficialBarFeedMsglistAdapter.a();
-                aVar2.LD(aVar.cTT());
-                aVar2.LE(aVar.getForumName());
+                aVar2.LE(aVar.cTT());
+                aVar2.LF(aVar.getForumName());
                 aVar2.setUnReadCount(aVar.getUnReadCount());
                 aVar2.setUserType(aVar.getUserType());
                 aVar2.setGroupId(Long.parseLong(aVar.getGid()));
@@ -234,7 +234,7 @@ public class OfficialBarFeedMsglistView extends com.baidu.adp.base.d<OfficialBar
     }
 
     public void showTipToast(boolean z, String str) {
-        new BdTopToast(this.mActivity).yS(z).TP(str).aR(this.kuA);
+        new BdTopToast(this.mActivity).yS(z).TQ(str).aR(this.kuA);
     }
 
     @Override // com.baidu.tieba.im.chat.officialBar.OfficialBarFeedMsglistAdapter.c

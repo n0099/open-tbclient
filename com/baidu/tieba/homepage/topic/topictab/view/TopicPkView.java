@@ -85,7 +85,7 @@ public class TopicPkView extends RelativeLayout implements View.OnClickListener 
 
     /* loaded from: classes2.dex */
     public interface b {
-        void BN(int i);
+        void BM(int i);
     }
 
     public TopicPkView(Context context) {
@@ -333,7 +333,7 @@ public class TopicPkView extends RelativeLayout implements View.OnClickListener 
                 }
                 TiebaStatic.log(new aq("c13352").an("obj_type", i2).w("topic_id", this.kil.topicId).an("obj_source", this.kil.from));
                 if (this.kiX != null) {
-                    this.kiX.BN(i2 == i ? 0 : i2);
+                    this.kiX.BM(i2 == i ? 0 : i2);
                 }
                 RequestBlessMessage requestBlessMessage = new RequestBlessMessage();
                 requestBlessMessage.setPkId(Long.valueOf(this.kil.pkId));

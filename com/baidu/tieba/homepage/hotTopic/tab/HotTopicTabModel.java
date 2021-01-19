@@ -20,12 +20,12 @@ public class HotTopicTabModel extends BdBaseModel {
     private final HashMap<String, List<n>> jYB;
     private boolean mIsLoading;
 
-    public List<n> Ln(String str) {
+    public List<n> Lo(String str) {
         return this.jYB.get(str);
     }
 
     public List<n> cOI() {
-        return Ln(this.foo);
+        return Lo(this.foo);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */

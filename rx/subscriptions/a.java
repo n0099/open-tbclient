@@ -4,19 +4,19 @@ import java.util.concurrent.atomic.AtomicReference;
 import rx.k;
 /* loaded from: classes14.dex */
 public final class a implements k {
-    static final rx.functions.a quJ = new rx.functions.a() { // from class: rx.subscriptions.a.1
+    static final rx.functions.a quK = new rx.functions.a() { // from class: rx.subscriptions.a.1
         @Override // rx.functions.a
         public void call() {
         }
     };
-    final AtomicReference<rx.functions.a> quI;
+    final AtomicReference<rx.functions.a> quJ;
 
     public a() {
-        this.quI = new AtomicReference<>();
+        this.quJ = new AtomicReference<>();
     }
 
     private a(rx.functions.a aVar) {
-        this.quI = new AtomicReference<>(aVar);
+        this.quJ = new AtomicReference<>(aVar);
     }
 
     public static a eLQ() {
@@ -29,13 +29,13 @@ public final class a implements k {
 
     @Override // rx.k
     public boolean isUnsubscribed() {
-        return this.quI.get() == quJ;
+        return this.quJ.get() == quK;
     }
 
     @Override // rx.k
     public void unsubscribe() {
         rx.functions.a andSet;
-        if (this.quI.get() != quJ && (andSet = this.quI.getAndSet(quJ)) != null && andSet != quJ) {
+        if (this.quJ.get() != quK && (andSet = this.quJ.getAndSet(quK)) != null && andSet != quK) {
             andSet.call();
         }
     }

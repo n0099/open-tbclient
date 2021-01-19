@@ -138,9 +138,9 @@ public class b {
         this.jXz.setAnimationListener(this.jXB);
     }
 
-    public void Bz(int i) {
+    public void By(int i) {
         if (this.jXs != null) {
-            this.jXs.Bz(i);
+            this.jXs.By(i);
         }
     }
 

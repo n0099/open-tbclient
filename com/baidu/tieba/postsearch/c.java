@@ -55,7 +55,7 @@ public class c {
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
                 TiebaStatic.log(new aq("c12403").dW("fid", c.this.mDk.mForumId).dW("uid", TbadkCoreApplication.getCurrentAccount()).dW("fname", c.this.mDk.mForumName));
                 String str = (String) c.this.mDt.getItemAtPosition(i + 1);
-                c.this.mDk.PT(str);
+                c.this.mDk.PU(str);
                 c.this.mDk.xx(str);
                 PostSearchActivity unused = c.this.mDk;
                 TiebaStatic.log(new aq("c12842").dW("obj_name", str).dW("obj_source", "3").dW("obj_type", "2").dW("fid", c.this.mDk.mForumId));
@@ -91,7 +91,7 @@ public class c {
         this.mDv.bqe();
     }
 
-    private void CH(int i) {
+    private void CG(int i) {
         if (this.mNoDataView == null) {
             this.mNoDataView = NoDataViewFactory.a(this.mDk.getPageContext().getPageActivity(), this.mDs, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, l.getDimens(this.mDk.getActivity(), R.dimen.ds320)), NoDataViewFactory.d.pu(R.string.text_no_search_record), null);
             this.mNoDataView.onChangeSkinType(this.mDk.getPageContext(), TbadkCoreApplication.getInst().getSkinType());
@@ -109,12 +109,12 @@ public class c {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void showNoDataView() {
-        CH(R.string.new_text_no_search_record);
+        CG(R.string.new_text_no_search_record);
     }
 
     public void dzv() {
         this.mDt.setVisibility(8);
-        CH(R.string.new_text_no_search_result);
+        CG(R.string.new_text_no_search_result);
     }
 
     public void hideNoDataView() {

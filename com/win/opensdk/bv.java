@@ -104,7 +104,7 @@ public final class bv {
 
     public static boolean bK(Context context, String str) {
         try {
-            return new File(new StringBuilder().append(iP(context)).append(File.separator).append("win").append(File.separator).append(aaG(str)).toString()).exists();
+            return new File(new StringBuilder().append(iP(context)).append(File.separator).append("win").append(File.separator).append(aaH(str)).toString()).exists();
         } catch (Exception e) {
             e.printStackTrace();
             return false;
@@ -113,14 +113,14 @@ public final class bv {
 
     public static String bO(Context context, String str) {
         try {
-            return iP(context) + File.separator + "win" + File.separator + aaG(str);
+            return iP(context) + File.separator + "win" + File.separator + aaH(str);
         } catch (Exception e) {
             e.printStackTrace();
             return "";
         }
     }
 
-    public static String aaG(String str) {
+    public static String aaH(String str) {
         String str2;
         String[] split;
         try {

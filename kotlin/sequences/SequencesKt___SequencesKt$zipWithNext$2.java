@@ -40,7 +40,7 @@ final class SequencesKt___SequencesKt$zipWithNext$2 extends CoroutineImpl implem
     public final Object invoke(kotlin.coroutines.experimental.f<? super R> fVar, kotlin.coroutines.experimental.b<? super h> bVar) {
         p.o(fVar, "$receiver");
         p.o(bVar, "continuation");
-        return ((SequencesKt___SequencesKt$zipWithNext$2) create((kotlin.coroutines.experimental.f) fVar, bVar)).doResume(h.qiJ, null);
+        return ((SequencesKt___SequencesKt$zipWithNext$2) create((kotlin.coroutines.experimental.f) fVar, bVar)).doResume(h.qiK, null);
     }
 
     /* JADX WARN: Removed duplicated region for block: B:15:0x0031  */
@@ -67,7 +67,7 @@ final class SequencesKt___SequencesKt$zipWithNext$2 extends CoroutineImpl implem
                         fVar = fVar2;
                         break;
                     } else {
-                        return h.qiJ;
+                        return h.qiK;
                     }
                 } else {
                     throw th;
@@ -104,7 +104,7 @@ final class SequencesKt___SequencesKt$zipWithNext$2 extends CoroutineImpl implem
             obj3 = obj2;
             it2 = it;
             if (!it2.hasNext()) {
-                return h.qiJ;
+                return h.qiK;
             }
         }
     }

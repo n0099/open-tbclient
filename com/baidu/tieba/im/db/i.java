@@ -131,13 +131,13 @@ public class i {
                         h.cTB().cTD();
                         return false;
                     } else if (imMessageCenterPojo.getCustomGroupType() == 1) {
-                        c.cTu().bh(imMessageCenterPojo.getGid(), i.kwR);
+                        c.cTu().bi(imMessageCenterPojo.getGid(), i.kwR);
                     } else if (imMessageCenterPojo.getCustomGroupType() == 2) {
-                        m.cTO().bh(imMessageCenterPojo.getGid(), i.kwR);
+                        m.cTO().bi(imMessageCenterPojo.getGid(), i.kwR);
                     } else if (imMessageCenterPojo.getCustomGroupType() == 4) {
-                        l.cTL().bh(imMessageCenterPojo.getGid(), i.kwR);
+                        l.cTL().bi(imMessageCenterPojo.getGid(), i.kwR);
                     } else if (imMessageCenterPojo.getCustomGroupType() == -2) {
-                        d.cTv().bh(imMessageCenterPojo.getGid(), i.kwR);
+                        d.cTv().bi(imMessageCenterPojo.getGid(), i.kwR);
                     }
                 }
             } catch (Exception e2) {

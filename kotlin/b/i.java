@@ -6,52 +6,52 @@ import kotlin.jvm.internal.o;
 @kotlin.e
 /* loaded from: classes5.dex */
 public class i implements Iterable<Long> {
-    public static final a qjI = new a(null);
-    private final long qjF;
+    public static final a qjJ = new a(null);
     private final long qjG;
     private final long qjH;
+    private final long qjI;
 
     public i(long j, long j2, long j3) {
         if (j3 == 0) {
             throw new IllegalArgumentException("Step must be non-zero");
         }
-        this.qjF = j;
-        this.qjG = kotlin.internal.d.j(j, j2, j3);
-        this.qjH = j3;
+        this.qjG = j;
+        this.qjH = kotlin.internal.d.j(j, j2, j3);
+        this.qjI = j3;
     }
 
     public final long eJj() {
-        return this.qjF;
+        return this.qjG;
     }
 
     public final long eJk() {
-        return this.qjG;
+        return this.qjH;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // java.lang.Iterable
     /* renamed from: eJl */
     public z iterator() {
-        return new j(this.qjF, this.qjG, this.qjH);
+        return new j(this.qjG, this.qjH, this.qjI);
     }
 
     public boolean isEmpty() {
-        return this.qjH > 0 ? this.qjF > this.qjG : this.qjF < this.qjG;
+        return this.qjI > 0 ? this.qjG > this.qjH : this.qjG < this.qjH;
     }
 
     public boolean equals(Object obj) {
-        return (obj instanceof i) && ((isEmpty() && ((i) obj).isEmpty()) || (this.qjF == ((i) obj).qjF && this.qjG == ((i) obj).qjG && this.qjH == ((i) obj).qjH));
+        return (obj instanceof i) && ((isEmpty() && ((i) obj).isEmpty()) || (this.qjG == ((i) obj).qjG && this.qjH == ((i) obj).qjH && this.qjI == ((i) obj).qjI));
     }
 
     public int hashCode() {
         if (isEmpty()) {
             return -1;
         }
-        return (int) ((31 * ((31 * (this.qjF ^ (this.qjF >>> 32))) + (this.qjG ^ (this.qjG >>> 32)))) + (this.qjH ^ (this.qjH >>> 32)));
+        return (int) ((31 * ((31 * (this.qjG ^ (this.qjG >>> 32))) + (this.qjH ^ (this.qjH >>> 32)))) + (this.qjI ^ (this.qjI >>> 32)));
     }
 
     public String toString() {
-        return this.qjH > 0 ? "" + this.qjF + IStringUtil.TOP_PATH + this.qjG + " step " + this.qjH : "" + this.qjF + " downTo " + this.qjG + " step " + (-this.qjH);
+        return this.qjI > 0 ? "" + this.qjG + IStringUtil.TOP_PATH + this.qjH + " step " + this.qjI : "" + this.qjG + " downTo " + this.qjH + " step " + (-this.qjI);
     }
 
     @kotlin.e

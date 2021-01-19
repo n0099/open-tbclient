@@ -100,7 +100,7 @@ public class SquareSearchViewController implements b {
                     if (!it.hasNext()) {
                         break;
                     }
-                    a.Ne(it.next());
+                    a.Nf(it.next());
                     try {
                         this.mRootView = LayoutInflater.from(this.mActivity).inflate(R.layout.new_home_dialog_search, (ViewGroup) null);
                         this.mActivity.setContentView(this.mRootView);
@@ -325,7 +325,7 @@ public class SquareSearchViewController implements b {
         } else if (!StringUtils.isNull(str)) {
             if (z) {
                 this.lcc = false;
-                this.lbP.Nh(str);
+                this.lbP.Ni(str);
                 this.lcc = true;
             }
             l.hideSoftKeyPad(this.mActivity.getPageContext().getPageActivity(), this.lbP.dcw());
@@ -342,11 +342,11 @@ public class SquareSearchViewController implements b {
                 /* JADX WARN: Can't rename method to resolve collision */
                 @Override // com.baidu.tbadk.util.ab
                 public Boolean doInBackground() {
-                    com.baidu.tieba.tbadkCore.util.a.Sw(str);
+                    com.baidu.tieba.tbadkCore.util.a.Sx(str);
                     return true;
                 }
             }, null);
-            this.lcd.Nf(str);
+            this.lcd.Ng(str);
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_TURN_TAB_LOC, str));
         }
     }
@@ -432,9 +432,9 @@ public class SquareSearchViewController implements b {
     private void dbV() {
         if (this.lbP != null) {
             if (this.mHotSearchInfo == null) {
-                this.lbP.Ng(this.mActivity.getResources().getString(R.string.search_bar));
+                this.lbP.Nh(this.mActivity.getResources().getString(R.string.search_bar));
             } else {
-                this.lbP.Ng(this.mHotSearchInfo.ctU());
+                this.lbP.Nh(this.mHotSearchInfo.ctU());
             }
         }
     }

@@ -14,7 +14,7 @@ import javax.net.ssl.SSLException;
 import javax.net.ssl.SSLSession;
 /* loaded from: classes4.dex */
 public final class e implements HostnameVerifier {
-    public static final e pgv = new e();
+    public static final e pgw = new e();
 
     private e() {
     }

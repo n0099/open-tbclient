@@ -32,7 +32,7 @@ public class d {
 
     /* loaded from: classes7.dex */
     public interface b {
-        void Oo(String str);
+        void Op(String str);
 
         void diD();
 
@@ -68,7 +68,7 @@ public class d {
         this.lAA = bVar;
     }
 
-    public void Oq(String str) {
+    public void Or(String str) {
         if (!StringUtils.isNull(str) && this.kWQ != null) {
             this.kWQ.startLoad(str, 12, false);
         }
@@ -120,7 +120,7 @@ public class d {
     public void a(final UserInfo userInfo) {
         if (userInfo != null) {
             setName(userInfo.name);
-            Oq(userInfo.portrait);
+            Or(userInfo.portrait);
             this.kWQ.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.chosen.view.d.2
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
@@ -167,7 +167,7 @@ public class d {
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             if (d.this.lAA != null) {
-                d.this.lAA.Oo(this.forumName);
+                d.this.lAA.Op(this.forumName);
             }
         }
     }

@@ -9,7 +9,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import java.util.HashMap;
 /* loaded from: classes.dex */
 public class c extends d {
-    private volatile HashMap<String, Long> nqe;
+    private volatile HashMap<String, Long> nqf;
 
     static {
         MessageManager.getInstance().registerListener(new CustomMessageListener(CmdConfigCustom.METHOD_ACCOUNT_CHANGE) { // from class: com.baidu.tieba.tbadkCore.util.c.1
@@ -25,14 +25,14 @@ public class c extends d {
 
     public c(int i) {
         super(i);
-        this.nqe = new HashMap<>();
+        this.nqf = new HashMap<>();
     }
 
-    public long SA(String str) {
+    public long SB(String str) {
         long longValue;
         try {
             synchronized (this) {
-                longValue = this.nqe.get(str) != null ? this.nqe.get(str).longValue() : 0L;
+                longValue = this.nqf.get(str) != null ? this.nqf.get(str).longValue() : 0L;
             }
             return longValue;
         } catch (Exception e) {
@@ -44,8 +44,8 @@ public class c extends d {
     @Override // com.baidu.tieba.tbadkCore.util.d
     public void dMy() {
         synchronized (this) {
+            this.nqg.clear();
             this.nqf.clear();
-            this.nqe.clear();
         }
     }
 }

@@ -98,16 +98,16 @@ public class b extends BaseAdapter {
             postData = (PostData) getItem(i);
         }
         if (view == null) {
-            if (postData.getType() == PostData.nmQ) {
+            if (postData.getType() == PostData.nmR) {
                 view = dqJ();
             } else {
                 view = createView();
             }
         }
-        if ((view.getTag() instanceof a) && postData.getType() != PostData.nmQ) {
+        if ((view.getTag() instanceof a) && postData.getType() != PostData.nmR) {
             view = createView();
         }
-        if ((view.getTag() instanceof SparseArray) && postData.getType() == PostData.nmQ) {
+        if ((view.getTag() instanceof SparseArray) && postData.getType() == PostData.nmR) {
             view = dqJ();
         }
         if ((view.getTag() instanceof SparseArray) && (c0837b = (C0837b) ((SparseArray) view.getTag()).get(R.id.tag_holder)) != null && postData != null) {
@@ -199,9 +199,9 @@ public class b extends BaseAdapter {
         boolean z8;
         SparseArray sparseArray;
         if (c0837b != null && postData != null) {
-            if (!postData.nnF && (this.mContext instanceof com.baidu.tieba.pb.pb.a)) {
+            if (!postData.nnG && (this.mContext instanceof com.baidu.tieba.pb.pb.a)) {
                 com.baidu.tieba.pb.pb.a aVar = (com.baidu.tieba.pb.pb.a) this.mContext;
-                postData.a(aVar.getPageContext(), postData.bnx() != null && aVar.Ov(postData.bnx().getUserId()));
+                postData.a(aVar.getPageContext(), postData.bnx() != null && aVar.Ow(postData.bnx().getUserId()));
             }
             if (z3) {
                 ao.setBackgroundColor(c0837b.rootView, R.color.CAM_X0204);
@@ -418,7 +418,7 @@ public class b extends BaseAdapter {
         }
     }
 
-    public void Pf(String str) {
+    public void Pg(String str) {
         this.mPostId = str;
     }
 

@@ -52,12 +52,12 @@ public class b {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (b.this.jQc != null) {
                 if (!(customResponsedMessage instanceof GodSquareCacheResponsedMsg)) {
-                    b.this.Bb(1);
+                    b.this.Ba(1);
                     return;
                 }
                 GodSquareCacheResponsedMsg godSquareCacheResponsedMsg = (GodSquareCacheResponsedMsg) customResponsedMessage;
                 if (godSquareCacheResponsedMsg.getResult() == null || x.isEmpty(godSquareCacheResponsedMsg.getResult().user_list)) {
-                    b.this.Bb(1);
+                    b.this.Ba(1);
                 } else {
                     b.this.jQc.a(b.this.a(godSquareCacheResponsedMsg.getResult()), b.this.jQd, true, godSquareCacheResponsedMsg.getErrorString());
                 }
@@ -80,19 +80,19 @@ public class b {
         this.jQe = 1;
         this.jQd = true;
         if (j.isNetworkAvailableForImmediately()) {
-            Bb(1);
+            Ba(1);
         } else {
-            Bc(1);
+            Bb(1);
         }
     }
 
     public void bQy() {
         this.jQd = false;
-        Bb(this.pn + 1);
+        Ba(this.pn + 1);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Bb(int i) {
+    public void Ba(int i) {
         if (this.mActivity != null) {
             this.pn = i;
             GodSquareRequestMsg godSquareRequestMsg = new GodSquareRequestMsg();
@@ -101,7 +101,7 @@ public class b {
         }
     }
 
-    private void Bc(int i) {
+    private void Bb(int i) {
         if (this.mActivity != null) {
             GodSquareCacheRequestMsg godSquareCacheRequestMsg = new GodSquareCacheRequestMsg();
             godSquareCacheRequestMsg.cacheKey = i + "";

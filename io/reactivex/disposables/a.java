@@ -7,7 +7,7 @@ import java.util.ArrayList;
 /* loaded from: classes5.dex */
 public final class a implements b, io.reactivex.internal.disposables.a {
     volatile boolean disposed;
-    g<b> qdr;
+    g<b> qds;
 
     @Override // io.reactivex.disposables.b
     public void dispose() {
@@ -15,8 +15,8 @@ public final class a implements b, io.reactivex.internal.disposables.a {
             synchronized (this) {
                 if (!this.disposed) {
                     this.disposed = true;
-                    g<b> gVar = this.qdr;
-                    this.qdr = null;
+                    g<b> gVar = this.qds;
+                    this.qds = null;
                     a(gVar);
                 }
             }
@@ -34,10 +34,10 @@ public final class a implements b, io.reactivex.internal.disposables.a {
         if (!this.disposed) {
             synchronized (this) {
                 if (!this.disposed) {
-                    g<b> gVar = this.qdr;
+                    g<b> gVar = this.qds;
                     if (gVar == null) {
                         gVar = new g<>();
-                        this.qdr = gVar;
+                        this.qds = gVar;
                     }
                     gVar.add(bVar);
                     return true;
@@ -64,7 +64,7 @@ public final class a implements b, io.reactivex.internal.disposables.a {
         if (!this.disposed) {
             synchronized (this) {
                 if (!this.disposed) {
-                    g<b> gVar = this.qdr;
+                    g<b> gVar = this.qds;
                     if (gVar != null && gVar.remove(bVar)) {
                         z = true;
                     }
@@ -78,7 +78,7 @@ public final class a implements b, io.reactivex.internal.disposables.a {
         if (!this.disposed) {
             synchronized (this) {
                 if (!this.disposed) {
-                    g<b> gVar = this.qdr;
+                    g<b> gVar = this.qds;
                     r0 = gVar != null ? gVar.size() : 0;
                 }
             }

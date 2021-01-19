@@ -70,11 +70,11 @@ public class UBC {
     }
 
     public static void onMutilProcessEvent(String str, String str2, String str3) {
-        String Wv = com.baidu.m.a.Wv(str3);
+        String Ww = com.baidu.m.a.Ww(str3);
         if (DEBUG) {
-            Log.d(TAG, "on onMutilProcessEvent id:" + str + " value:" + str2 + " name: " + Wv);
+            Log.d(TAG, "on onMutilProcessEvent id:" + str + " value:" + str2 + " name: " + Ww);
         }
-        d.efb().n(str, str2, Wv, 8);
+        d.efb().n(str, str2, Ww, 8);
     }
 
     public static final Flow beginFlow(String str) {

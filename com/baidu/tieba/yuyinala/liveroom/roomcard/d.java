@@ -74,20 +74,20 @@ public class d extends BaseAdapter {
         }
         e.a aVar3 = (e.a) getItem(i);
         aVar.hpn.setDrawBorder(true);
-        switch (aVar3.ooN) {
+        switch (aVar3.ooO) {
             case 1:
-                aVar.ooD.setBackgroundResource(a.e.yuyin_round_header_day_list_bg_fangzhu);
+                aVar.ooE.setBackgroundResource(a.e.yuyin_round_header_day_list_bg_fangzhu);
                 break;
             case 2:
-                aVar.ooD.setBackgroundResource(a.e.yuyin_round_header_day_list_bg_manage);
+                aVar.ooE.setBackgroundResource(a.e.yuyin_round_header_day_list_bg_manage);
                 break;
             case 3:
-                aVar.ooD.setBackgroundResource(a.e.yuyin_round_header_day_list_bg_zhuchi);
+                aVar.ooE.setBackgroundResource(a.e.yuyin_round_header_day_list_bg_zhuchi);
                 break;
         }
-        aVar.ooD.setText(aVar3.dZx());
-        if (!TextUtils.isEmpty(aVar3.ooO)) {
-            aVar.hpn.startLoad(aVar3.ooO, 12, false, false);
+        aVar.ooE.setText(aVar3.dZx());
+        if (!TextUtils.isEmpty(aVar3.ooP)) {
+            aVar.hpn.startLoad(aVar3.ooP, 12, false, false);
         } else {
             aVar.hpn.setDefaultResource(a.e.yuyin_sdk_icon_default_zhuchi);
         }
@@ -97,13 +97,13 @@ public class d extends BaseAdapter {
     /* loaded from: classes10.dex */
     public static class a {
         public HeadImageView hpn;
-        public TextView ooD;
+        public TextView ooE;
         public View rootView;
 
         public a(View view) {
             this.rootView = view;
             this.hpn = (HeadImageView) view.findViewById(a.f.ala_live_room_audience_header_img);
-            this.ooD = (TextView) view.findViewById(a.f.ala_live_room_audience_charm_count);
+            this.ooE = (TextView) view.findViewById(a.f.ala_live_room_audience_charm_count);
         }
     }
 }

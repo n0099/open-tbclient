@@ -177,10 +177,10 @@ public class CDNIPDirectConnect extends e {
 
     @Override // com.baidu.tbadk.core.util.b.e
     public HttpGet httpGetFactory(String str, int i, boolean z) {
-        return z ? bx(str, i) : by(str, i);
+        return z ? by(str, i) : bz(str, i);
     }
 
-    private HttpGet bx(String str, int i) {
+    private HttpGet by(String str, int i) {
         String ipString;
         if (!this.kOJ.getIsUsedIp() || (ipString = this.kOJ.getIpString(i)) == null) {
             return new HttpGet(str);
@@ -191,7 +191,7 @@ public class CDNIPDirectConnect extends e {
         return fD(str, ipString);
     }
 
-    private HttpGet by(String str, int i) {
+    private HttpGet bz(String str, int i) {
         String mobileCdnIp;
         if (!this.kOQ.eHg || (mobileCdnIp = this.kOJ.getMobileCdnIp(i)) == null) {
             return new HttpGet(str);

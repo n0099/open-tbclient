@@ -5,9 +5,8 @@ import android.content.pm.PackageManager;
 import android.text.TextUtils;
 import android.util.Log;
 import androidx.annotation.Nullable;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes4.dex */
-public final class bc {
+final class bc {
     /* JADX INFO: Access modifiers changed from: package-private */
     public static boolean a(Context context, String str) {
         try {
@@ -27,9 +26,8 @@ public final class bc {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes4.dex */
-    public static class a implements Runnable {
+    static class a implements Runnable {
 
         /* renamed from: a  reason: collision with root package name */
         private final Runnable f5796a;

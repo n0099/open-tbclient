@@ -1,8 +1,9 @@
 package com.baidu.ufosdk.ui;
 
 import android.view.View;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes7.dex */
-final class fc implements View.OnClickListener {
+public final class fc implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
     final /* synthetic */ fa f5590a;

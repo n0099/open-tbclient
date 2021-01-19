@@ -8,11 +8,11 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /* loaded from: classes8.dex */
 public class d {
-    public static String NA(String str) {
-        return NB(trim(str));
+    public static String NB(String str) {
+        return NC(trim(str));
     }
 
-    private static String NB(String str) {
+    private static String NC(String str) {
         Pattern compile = Pattern.compile(TbadkCoreApplication.getInst().getString(R.string.tail_remove_dupe_regex));
         boolean z = false;
         int i = 0;
@@ -33,22 +33,22 @@ public class d {
         return str.trim();
     }
 
-    public static String NC(String str) {
-        String NB = NB(str);
-        if (StringUtils.isNull(NB)) {
+    public static String ND(String str) {
+        String NC = NC(str);
+        if (StringUtils.isNull(NC)) {
             return TbadkCoreApplication.getInst().getString(R.string.tail_empty_toast);
         }
-        if (!NE(NB)) {
+        if (!NF(NC)) {
             return TbadkCoreApplication.getInst().getString(R.string.tail_invalid_emotion);
         }
         return "";
     }
 
-    public static String ND(String str) {
-        return NB(str).trim();
+    public static String NE(String str) {
+        return NC(str).trim();
     }
 
-    public static boolean NE(String str) {
+    public static boolean NF(String str) {
         Matcher matcher = Pattern.compile(TbFaceManager.fDL).matcher(str);
         while (matcher.find()) {
             if (TbFaceManager.bCw().Cw(matcher.group()) <= 0) {

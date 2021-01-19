@@ -130,7 +130,7 @@ public class m {
         if (f6608b != null) {
             lVar.AG(f6608b.isCanUsePhoneState());
             if (!f6608b.isCanUsePhoneState()) {
-                lVar.Xt(f6608b.getDevImei());
+                lVar.Xu(f6608b.getDevImei());
             }
             lVar.AF(f6608b.isCanUseWifiState());
         }

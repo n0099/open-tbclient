@@ -7,14 +7,14 @@ import okio.BufferedSource;
 import okio.ByteString;
 /* loaded from: classes5.dex */
 public final class c {
-    private FieldEncoding pQq;
+    private FieldEncoding pQr;
     private int recursionDepth;
     private final BufferedSource source;
     private long pos = 0;
     private long limit = Long.MAX_VALUE;
     private int state = 2;
     private int tag = -1;
-    private long pQp = -1;
+    private long pQq = -1;
 
     public c(BufferedSource bufferedSource) {
         this.source = bufferedSource;
@@ -29,8 +29,8 @@ public final class c {
         if (i > 65) {
             throw new IOException("Wire recursion limit exceeded");
         }
-        long j = this.pQp;
-        this.pQp = -1L;
+        long j = this.pQq;
+        this.pQq = -1L;
         this.state = 6;
         return j;
     }
@@ -41,7 +41,7 @@ public final class c {
         }
         int i = this.recursionDepth - 1;
         this.recursionDepth = i;
-        if (i < 0 || this.pQp != -1) {
+        if (i < 0 || this.pQq != -1) {
             throw new IllegalStateException("No corresponding call to beginMessage()");
         }
         if (this.pos != this.limit && this.recursionDepth != 0) {
@@ -66,26 +66,26 @@ public final class c {
                 int i = eBt & 7;
                 switch (i) {
                     case 0:
-                        this.pQq = FieldEncoding.VARINT;
+                        this.pQr = FieldEncoding.VARINT;
                         this.state = 0;
                         return this.tag;
                     case 1:
-                        this.pQq = FieldEncoding.FIXED64;
+                        this.pQr = FieldEncoding.FIXED64;
                         this.state = 1;
                         return this.tag;
                     case 2:
-                        this.pQq = FieldEncoding.LENGTH_DELIMITED;
+                        this.pQr = FieldEncoding.LENGTH_DELIMITED;
                         this.state = 2;
                         int eBt2 = eBt();
                         if (eBt2 < 0) {
                             throw new ProtocolException("Negative length: " + eBt2);
                         }
-                        if (this.pQp != -1) {
+                        if (this.pQq != -1) {
                             throw new IllegalStateException();
                         }
-                        this.pQp = this.limit;
+                        this.pQq = this.limit;
                         this.limit = eBt2 + this.pos;
-                        if (this.limit > this.pQp) {
+                        if (this.limit > this.pQq) {
                             throw new EOFException();
                         }
                         return this.tag;
@@ -94,7 +94,7 @@ public final class c {
                     case 4:
                         throw new ProtocolException("Unexpected end group");
                     case 5:
-                        this.pQq = FieldEncoding.FIXED32;
+                        this.pQr = FieldEncoding.FIXED32;
                         this.state = 5;
                         return this.tag;
                     default:
@@ -106,7 +106,7 @@ public final class c {
     }
 
     public FieldEncoding eBr() {
-        return this.pQq;
+        return this.pQr;
     }
 
     private void Qn(int i) throws IOException {
@@ -253,8 +253,8 @@ public final class c {
             throw new IOException("Expected to end at " + this.limit + " but was " + this.pos);
         } else {
             if (this.pos == this.limit) {
-                this.limit = this.pQp;
-                this.pQp = -1L;
+                this.limit = this.pQq;
+                this.pQq = -1L;
                 this.state = 6;
                 return;
             }
@@ -270,8 +270,8 @@ public final class c {
         this.source.require(j);
         this.state = 6;
         this.pos = this.limit;
-        this.limit = this.pQp;
-        this.pQp = -1L;
+        this.limit = this.pQq;
+        this.pQq = -1L;
         return j;
     }
 }

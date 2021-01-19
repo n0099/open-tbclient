@@ -186,7 +186,7 @@ public class FrsRequestData extends OrmObject implements com.baidu.tbadk.mvc.b.e
         this.refreshCount = i;
     }
 
-    public void RW(String str) {
+    public void RX(String str) {
         this.nlb = str;
     }
 
@@ -270,7 +270,7 @@ public class FrsRequestData extends OrmObject implements com.baidu.tbadk.mvc.b.e
         builder2.yoga_lib_version = "";
         builder.ad_param = builder2.build(false);
         builder.is_default_navtab = Integer.valueOf(this.isDefaultNavTab);
-        builder.ad_context_list = com.baidu.tieba.recapp.report.b.dCd().QL("FRS");
+        builder.ad_context_list = com.baidu.tieba.recapp.report.b.dCd().QM("FRS");
         builder.up_schema = this.mSchemeUrl;
         builder.default_sort_type = Integer.valueOf(this.nlf);
         builder.ad_ext_params = AdExtParam.a.bEB().bEC();

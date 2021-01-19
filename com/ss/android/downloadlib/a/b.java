@@ -6,20 +6,20 @@ import android.os.Looper;
 import java.io.File;
 /* loaded from: classes4.dex */
 public class b {
-    private static volatile b pQR;
+    private static volatile b pQS;
 
     /* renamed from: b  reason: collision with root package name */
     private Handler f12927b = null;
 
     public static b eCa() {
-        if (pQR == null) {
+        if (pQS == null) {
             synchronized (b.class) {
-                if (pQR == null) {
-                    pQR = new b();
+                if (pQS == null) {
+                    pQS = new b();
                 }
             }
         }
-        return pQR;
+        return pQS;
     }
 
     public void a(Context context, com.ss.android.socialbase.downloader.g.c cVar) {
@@ -41,9 +41,9 @@ public class b {
                 @Override // java.lang.Runnable
                 public void run() {
                     j.eCo().a(3, j.a(), null, "下载失败，请重试！", null, 0);
-                    f ZL = com.ss.android.downloadlib.h.eCM().ZL(j);
-                    if (ZL != null) {
-                        ZL.f();
+                    f ZM = com.ss.android.downloadlib.h.eCM().ZM(j);
+                    if (ZM != null) {
+                        ZM.f();
                     }
                 }
             });

@@ -75,7 +75,7 @@ public class a implements MethodChannel.MethodCallHandler, PlatformView {
         } else if (methodCall.method.equals("selectForumCategory")) {
             String str = (String) methodCall.arguments;
             if (this.aol != null && !TextUtils.isEmpty(str)) {
-                this.aol.RI(str);
+                this.aol.RJ(str);
             }
             result.success(null);
         } else {

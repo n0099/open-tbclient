@@ -44,11 +44,11 @@ import tbclient.GetMyPost.GetMyPostResIdl;
 /* loaded from: classes.dex */
 public class c {
     public static AntiData antiData;
-    private static WeakReference<com.baidu.tbadk.core.view.a> nqY;
-    public static PostWriteCallBackData nqZ;
-    public static ah nra;
-    public static WriteData nrb;
-    public static Intent nrc;
+    private static WeakReference<com.baidu.tbadk.core.view.a> nqZ;
+    public static PostWriteCallBackData nra;
+    public static ah nrb;
+    public static WriteData nrc;
+    public static Intent nrd;
     private static final BdUniqueId uniqueId = BdUniqueId.gen();
 
     static {
@@ -179,9 +179,9 @@ public class c {
             b.d("发帖-失败： 失败弹框 -- 无backData");
             return;
         }
-        nqZ = postWriteCallBackData;
-        nra = ahVar;
-        nrb = writeData;
+        nra = postWriteCallBackData;
+        nrb = ahVar;
+        nrc = writeData;
         antiData = antiData2;
         b.d("发帖-失败： 失败弹框 -- start");
         final Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
@@ -231,8 +231,8 @@ public class c {
                 b.d("发帖-失败： 重新编辑 -- start");
                 view.setOnClickListener(null);
                 WriteActivityConfig newInstance = WriteActivityConfig.newInstance(currentActivity);
-                if (c.nrc != null) {
-                    newInstance.setIntent(c.nrc);
+                if (c.nrd != null) {
+                    newInstance.setIntent(c.nrd);
                 }
                 newInstance.setFromErrorDialog(true);
                 newInstance.send();
@@ -368,7 +368,7 @@ public class c {
     /* JADX INFO: Access modifiers changed from: private */
     public static void aC(Activity activity) {
         com.baidu.tbadk.core.view.a aVar = new com.baidu.tbadk.core.view.a(activity);
-        nqY = new WeakReference<>(aVar);
+        nqZ = new WeakReference<>(aVar);
         aVar.setDialogVisiable(true);
         b.d("发帖-成功： 开始分享 -- 显示loading");
     }
@@ -377,10 +377,10 @@ public class c {
     public static void cjr() {
         com.baidu.tbadk.core.view.a aVar;
         b.d("发帖-成功： 开始分享 -- 隐藏loading -- start");
-        if (nqY != null && (aVar = nqY.get()) != null) {
+        if (nqZ != null && (aVar = nqZ.get()) != null) {
             aVar.setDialogVisiable(false);
             b.d("发帖-成功： 开始分享 -- 隐藏loading -- end");
-            nqY.clear();
+            nqZ.clear();
         }
     }
 }

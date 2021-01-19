@@ -559,7 +559,7 @@ public class FrsFragment extends BaseFragment implements BdListView.e, a.Interfa
             int i2 = 0;
             if (httpResponsedMessage != null && FrsFragment.this.getContext() != null && FrsFragment.this.jaB != null) {
                 if (httpResponsedMessage.getError() == 0) {
-                    new BdTopToast(FrsFragment.this.getContext()).yS(true).TP(FrsFragment.this.getContext().getString(R.string.frs_move_area_move_suc)).aR(FrsFragment.this.jaB.cmp());
+                    new BdTopToast(FrsFragment.this.getContext()).yS(true).TQ(FrsFragment.this.getContext().getString(R.string.frs_move_area_move_suc)).aR(FrsFragment.this.jaB.cmp());
                     if (com.baidu.tieba.frs.a.czZ().yj(com.baidu.tieba.frs.a.czZ().cAb())) {
                         FrsCommonTabFragment frsCommonTabFragment = null;
                         if (FrsFragment.this.jaV != null && FrsFragment.this.jaV.cKz() != null && (FrsFragment.this.jaV.cKz().fragment instanceof FrsCommonTabFragment)) {
@@ -589,7 +589,7 @@ public class FrsFragment extends BaseFragment implements BdListView.e, a.Interfa
                     com.baidu.tieba.frs.a.czZ().reset();
                     return;
                 }
-                new BdTopToast(FrsFragment.this.getContext()).yS(false).TP(httpResponsedMessage.getErrorString()).aR(FrsFragment.this.jaB.cmp());
+                new BdTopToast(FrsFragment.this.getContext()).yS(false).TQ(httpResponsedMessage.getErrorString()).aR(FrsFragment.this.jaB.cmp());
             }
         }
     };
@@ -597,7 +597,7 @@ public class FrsFragment extends BaseFragment implements BdListView.e, a.Interfa
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.tbadk.mutiprocess.b
         public boolean a(TopToastEvent topToastEvent) {
-            new BdTopToast(FrsFragment.this.getContext()).yS(topToastEvent.isSuccess()).TP(topToastEvent.getContent()).aR(FrsFragment.this.jaB.cmp());
+            new BdTopToast(FrsFragment.this.getContext()).yS(topToastEvent.isSuccess()).TQ(topToastEvent.getContent()).aR(FrsFragment.this.jaB.cmp());
             return false;
         }
     };
@@ -1156,7 +1156,7 @@ public class FrsFragment extends BaseFragment implements BdListView.e, a.Interfa
             if ((httpResponsedMessage instanceof ForumManagerRightsResMsg) && FrsFragment.this.isResumed()) {
                 ForumManagerRightsResMsg forumManagerRightsResMsg = (ForumManagerRightsResMsg) httpResponsedMessage;
                 if (forumManagerRightsResMsg.broadcastTotalCount - forumManagerRightsResMsg.broadcastUsedCount <= 0) {
-                    new ScreenTopToast(FrsFragment.this.getContext()).TT(FrsFragment.this.getString(R.string.frs_forum_bawu_send_broadcast_none_tip)).TV(FrsFragment.this.getString(R.string.frs_recommend_fail_tip_btn)).an(new View.OnClickListener() { // from class: com.baidu.tieba.frs.FrsFragment.62.1
+                    new ScreenTopToast(FrsFragment.this.getContext()).TU(FrsFragment.this.getString(R.string.frs_forum_bawu_send_broadcast_none_tip)).TW(FrsFragment.this.getString(R.string.frs_recommend_fail_tip_btn)).an(new View.OnClickListener() { // from class: com.baidu.tieba.frs.FrsFragment.62.1
                         @Override // android.view.View.OnClickListener
                         public void onClick(View view) {
                             HashMap hashMap = new HashMap();
@@ -1921,7 +1921,7 @@ public class FrsFragment extends BaseFragment implements BdListView.e, a.Interfa
                 if (Settings.canDrawOverlays(getContext())) {
                     cBF();
                 } else {
-                    new BdTopToast(getContext()).yS(false).TP(getContext().getString(R.string.forum_broadcast_copy_no_permission_hint)).aR(this.jaB.cmp());
+                    new BdTopToast(getContext()).yS(false).TQ(getContext().getString(R.string.forum_broadcast_copy_no_permission_hint)).aR(this.jaB.cmp());
                 }
             } else {
                 cBF();
@@ -2086,7 +2086,7 @@ public class FrsFragment extends BaseFragment implements BdListView.e, a.Interfa
                     if (i3 == 1) {
                         com.baidu.adp.lib.util.l.showToast(FrsFragment.this.getContext(), R.string.frs_multi_delete_max_num);
                     } else if (i3 == 2 && FrsFragment.this.jaB != null) {
-                        new BdTopToast(FrsFragment.this.getContext()).yS(false).TP(FrsFragment.this.getContext().getString(R.string.frs_move_area_max_num)).aR(FrsFragment.this.jaB.cmp());
+                        new BdTopToast(FrsFragment.this.getContext()).yS(false).TQ(FrsFragment.this.getContext().getString(R.string.frs_move_area_max_num)).aR(FrsFragment.this.jaB.cmp());
                     }
                 }
             }
@@ -2703,7 +2703,7 @@ public class FrsFragment extends BaseFragment implements BdListView.e, a.Interfa
                 com.baidu.adp.lib.f.h.mC().submitTask(new Runnable() { // from class: com.baidu.tieba.frs.FrsFragment.37
                     @Override // java.lang.Runnable
                     public void run() {
-                        com.baidu.tieba.tbadkCore.util.a.Sw(FrsFragment.this.jat);
+                        com.baidu.tieba.tbadkCore.util.a.Sx(FrsFragment.this.jat);
                     }
                 });
                 break;
@@ -2844,7 +2844,7 @@ public class FrsFragment extends BaseFragment implements BdListView.e, a.Interfa
                 @Override // com.baidu.tbadk.core.e
                 public void onPermissionResult(boolean z) {
                     if (!z) {
-                        new BdTopToast(FrsFragment.this.getContext()).yS(false).TP(FrsFragment.this.getContext().getString(R.string.forum_broadcast_copy_no_permission_hint)).aR(FrsFragment.this.jaB.cmp());
+                        new BdTopToast(FrsFragment.this.getContext()).yS(false).TQ(FrsFragment.this.getContext().getString(R.string.forum_broadcast_copy_no_permission_hint)).aR(FrsFragment.this.jaB.cmp());
                         return;
                     }
                     com.baidu.tbadk.k.d.bCj().kZ(true);
@@ -2877,7 +2877,7 @@ public class FrsFragment extends BaseFragment implements BdListView.e, a.Interfa
     }
 
     public void Ju(String str) {
-        new BdTopToast(getContext(), 3000).yS(true).TP(str).aR(this.jaB.cmp());
+        new BdTopToast(getContext(), 3000).yS(true).TQ(str).aR(this.jaB.cmp());
     }
 
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
@@ -3047,8 +3047,8 @@ public class FrsFragment extends BaseFragment implements BdListView.e, a.Interfa
                                 MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new MangaBrowserActivityConfig(FrsFragment.this.getPageContext().getPageActivity(), boK.getCartoonId(), boK.getChapterId(), 2)));
                             } else {
                                 com.baidu.tieba.tbadkCore.util.d readThreadHistory = TbadkCoreApplication.getInst().getReadThreadHistory();
-                                if (readThreadHistory != null && !readThreadHistory.SC(bzVar.getId())) {
-                                    readThreadHistory.SB(bzVar.getId());
+                                if (readThreadHistory != null && !readThreadHistory.SD(bzVar.getId())) {
+                                    readThreadHistory.SC(bzVar.getId());
                                 }
                                 boolean z = false;
                                 final String bnD = bzVar.bnD();

@@ -19,22 +19,22 @@ import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public final class b {
     @SuppressLint({"StaticFieldLeak"})
-    private static volatile cn pbW;
+    private static volatile cn pbX;
     @SuppressLint({"StaticFieldLeak"})
-    public static m pbX;
-    private static volatile h pbZ;
-    public static f pcb;
+    public static m pbY;
+    private static volatile h pca;
+    public static f pcc;
 
     /* renamed from: b  reason: collision with root package name */
     private static boolean f5793b = true;
     private static boolean c = false;
-    private static ao pbY = new ao();
-    public static ConcurrentHashMap<String, String> pca = new ConcurrentHashMap<>(4);
+    private static ao pbZ = new ao();
+    public static ConcurrentHashMap<String, String> pcb = new ConcurrentHashMap<>(4);
 
     public static void a(@NonNull Context context, @NonNull l lVar) {
         if (!au.f5786b && Looper.myLooper() != Looper.getMainLooper()) {
             au.a(new RuntimeException("Wrong thread!"));
-        } else if (pbW != null) {
+        } else if (pbX != null) {
             au.a(new RuntimeException("Init Twice!"));
             return;
         } else if (lVar.elv() == null) {
@@ -46,8 +46,8 @@ public final class b {
         cn cnVar = new cn(application, lVar);
         m mVar = new m(application, cnVar);
         elC.a(application, cnVar, mVar, new bs(lVar.elj()));
-        pbW = cnVar;
-        pbX = mVar;
+        pbX = cnVar;
+        pbY = mVar;
         au.d("Inited", null);
     }
 
@@ -56,45 +56,45 @@ public final class b {
     }
 
     public static h ekS() {
-        return pbZ;
+        return pca;
     }
 
     public static f ekT() {
-        return pcb;
+        return pcc;
     }
 
     public static void H(HashMap<String, Object> hashMap) {
-        if (pbX != null) {
-            pbX.a(hashMap);
+        if (pbY != null) {
+            pbY.a(hashMap);
         }
     }
 
     public static String ekU() {
-        if (pbX != null) {
-            return pbX.q();
+        if (pbY != null) {
+            return pbY.q();
         }
         return null;
     }
 
     @Nullable
     public static JSONObject ekV() {
-        if (pbW != null) {
-            return pbW.elO();
+        if (pbX != null) {
+            return pbX.elO();
         }
         return null;
     }
 
     @Nullable
     public static String ekW() {
-        if (pbW != null) {
-            return pbW.t();
+        if (pbX != null) {
+            return pbX.t();
         }
         return null;
     }
 
     public static <T> T C(String str, T t) {
-        if (pbX != null) {
-            return (T) pbX.D(str, t);
+        if (pbY != null) {
+            return (T) pbY.D(str, t);
         }
         return null;
     }
@@ -105,7 +105,7 @@ public final class b {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static byte[] Xs(String str) {
+    public static byte[] Xt(String str) {
         GZIPOutputStream gZIPOutputStream;
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream(8192);
         try {
@@ -216,29 +216,29 @@ public final class b {
     }
 
     public static String getDid() {
-        return pbX != null ? pbX.g() : "";
+        return pbY != null ? pbY.g() : "";
     }
 
     public static String getSsid() {
-        return pbX != null ? pbX.k() : "";
+        return pbY != null ? pbY.k() : "";
     }
 
     public static String ekZ() {
-        return pbX != null ? pbX.l() : "";
+        return pbY != null ? pbY.l() : "";
     }
 
     public static void a(g gVar) {
-        pbY.b(gVar);
+        pbZ.b(gVar);
     }
 
     @NonNull
     public static g ela() {
-        return pbY;
+        return pbZ;
     }
 
     public static int elb() {
-        if (pbW != null) {
-            return pbW.i();
+        if (pbX != null) {
+            return pbX.i();
         }
         return 0;
     }
@@ -249,8 +249,8 @@ public final class b {
     }
 
     public static l elc() {
-        if (pbW != null) {
-            return pbW.elS();
+        if (pbX != null) {
+            return pbX.elS();
         }
         return null;
     }

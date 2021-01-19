@@ -6,26 +6,26 @@ import kotlin.jvm.internal.o;
 @kotlin.e
 /* loaded from: classes5.dex */
 public class f implements Iterable<Integer> {
-    public static final a qjC = new a(null);
-    private final int oZX;
-    private final int qjB;
+    public static final a qjD = new a(null);
+    private final int oZY;
+    private final int qjC;
     private final int step;
 
     public f(int i, int i2, int i3) {
         if (i3 == 0) {
             throw new IllegalArgumentException("Step must be non-zero");
         }
-        this.qjB = i;
-        this.oZX = kotlin.internal.d.ao(i, i2, i3);
+        this.qjC = i;
+        this.oZY = kotlin.internal.d.ao(i, i2, i3);
         this.step = i3;
     }
 
     public final int getFirst() {
-        return this.qjB;
+        return this.qjC;
     }
 
     public final int getLast() {
-        return this.oZX;
+        return this.oZY;
     }
 
     public final int eJd() {
@@ -36,26 +36,26 @@ public class f implements Iterable<Integer> {
     @Override // java.lang.Iterable
     /* renamed from: eJe */
     public y iterator() {
-        return new g(this.qjB, this.oZX, this.step);
+        return new g(this.qjC, this.oZY, this.step);
     }
 
     public boolean isEmpty() {
-        return this.step > 0 ? this.qjB > this.oZX : this.qjB < this.oZX;
+        return this.step > 0 ? this.qjC > this.oZY : this.qjC < this.oZY;
     }
 
     public boolean equals(Object obj) {
-        return (obj instanceof f) && ((isEmpty() && ((f) obj).isEmpty()) || (this.qjB == ((f) obj).qjB && this.oZX == ((f) obj).oZX && this.step == ((f) obj).step));
+        return (obj instanceof f) && ((isEmpty() && ((f) obj).isEmpty()) || (this.qjC == ((f) obj).qjC && this.oZY == ((f) obj).oZY && this.step == ((f) obj).step));
     }
 
     public int hashCode() {
         if (isEmpty()) {
             return -1;
         }
-        return (((this.qjB * 31) + this.oZX) * 31) + this.step;
+        return (((this.qjC * 31) + this.oZY) * 31) + this.step;
     }
 
     public String toString() {
-        return this.step > 0 ? "" + this.qjB + IStringUtil.TOP_PATH + this.oZX + " step " + this.step : "" + this.qjB + " downTo " + this.oZX + " step " + (-this.step);
+        return this.step > 0 ? "" + this.qjC + IStringUtil.TOP_PATH + this.oZY + " step " + this.step : "" + this.qjC + " downTo " + this.oZY + " step " + (-this.step);
     }
 
     @kotlin.e

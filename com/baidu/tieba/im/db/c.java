@@ -35,7 +35,7 @@ public class c {
         return cVar;
     }
 
-    public int LM(String str) {
+    public int LN(String str) {
         int i = 0;
         if (!TextUtils.isEmpty(str)) {
             Cursor cursor = null;
@@ -65,7 +65,7 @@ public class c {
     /* JADX WARN: Type inference failed for: r4v1 */
     /* JADX WARN: Type inference failed for: r4v4, types: [android.database.Cursor] */
     /* JADX WARN: Type inference failed for: r4v5 */
-    public long LN(String str) {
+    public long LO(String str) {
         Cursor cursor;
         long j;
         Cursor cursor2 = null;
@@ -100,7 +100,7 @@ public class c {
                         try {
                             TiebaStatic.printDBExceptionLog(e, "GroupMsgDao.getMaxLastMid", new Object[0]);
                             e.printStackTrace();
-                            LS(str);
+                            LT(str);
                             com.baidu.adp.lib.util.n.close(cursor2);
                             return 0L;
                         } catch (Throwable th) {
@@ -153,7 +153,7 @@ public class c {
     /* JADX WARN: Type inference failed for: r2v3 */
     /* JADX WARN: Type inference failed for: r2v4, types: [android.database.Cursor] */
     /* JADX WARN: Type inference failed for: r2v7, types: [android.database.Cursor] */
-    public CommonMsgPojo LO(String str) {
+    public CommonMsgPojo LP(String str) {
         ?? r2;
         Cursor cursor;
         CommonMsgPojo commonMsgPojo = null;
@@ -188,7 +188,7 @@ public class c {
                         e = e;
                         e.printStackTrace();
                         TiebaStatic.printDBExceptionLog(e, "GroupMsgDao.getNewestMsgContext", new Object[0]);
-                        LS(str);
+                        LT(str);
                         com.baidu.adp.lib.util.n.close((Cursor) cursor);
                         str2 = cursor;
                         return commonMsgPojo;
@@ -335,7 +335,7 @@ public class c {
                             e = e;
                             e.printStackTrace();
                             TiebaStatic.printDBExceptionLog(e, "GroupMsgDao.getAll", new Object[0]);
-                            LS(str);
+                            LT(str);
                             com.baidu.adp.lib.util.n.close(cursor);
                             return linkedList;
                         } catch (Exception e2) {
@@ -394,7 +394,7 @@ public class c {
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [591=4] */
     public boolean c(String str, List<CommonMsgPojo> list, boolean z) {
         SQLiteStatement sQLiteStatement;
-        SQLiteStatement Mc;
+        SQLiteStatement Md;
         if (list == null || TextUtils.isEmpty(str) || list == null || list.size() == 0) {
             return false;
         }
@@ -402,7 +402,7 @@ public class c {
         SQLiteStatement sQLiteStatement2 = null;
         try {
             try {
-                Mc = h.cTB().Mc(" INSERT INTO " + str2 + "(content,create_time,ext,mid," + IMConstants.MSG_STATUS + ",msg_type,uid,user_info,rid,read_flag,is_delete) VALUES(?,?,?,?,?,?,?,?,?,?,?);");
+                Md = h.cTB().Md(" INSERT INTO " + str2 + "(content,create_time,ext,mid," + IMConstants.MSG_STATUS + ",msg_type,uid,user_info,rid,read_flag,is_delete) VALUES(?,?,?,?,?,?,?,?,?,?,?);");
             } catch (Exception e) {
                 e = e;
                 sQLiteStatement = null;
@@ -428,27 +428,27 @@ public class c {
                     contentValues.put("read_flag", Integer.valueOf(commonMsgPojo.getRead_flag()));
                     contentValues.put("is_delete", Integer.valueOf(commonMsgPojo.getIs_delete()));
                     if (h.cTB().b(str2, contentValues, "mid=?", new String[]{String.valueOf(commonMsgPojo.getMid())}) == 0) {
-                        Mc.clearBindings();
-                        Mc.bindString(1, TextUtils.isEmpty(commonMsgPojo.getContent()) ? "" : commonMsgPojo.getContent());
-                        Mc.bindLong(2, commonMsgPojo.getCreate_time());
-                        Mc.bindString(3, TextUtils.isEmpty(commonMsgPojo.getExt()) ? "" : commonMsgPojo.getExt());
-                        Mc.bindLong(4, commonMsgPojo.getMid());
-                        Mc.bindLong(5, commonMsgPojo.getMsg_status());
-                        Mc.bindLong(6, commonMsgPojo.getMsg_type());
-                        Mc.bindString(7, TextUtils.isEmpty(commonMsgPojo.getUid()) ? "" : commonMsgPojo.getUid());
-                        Mc.bindString(8, TextUtils.isEmpty(commonMsgPojo.getUser_info()) ? "" : commonMsgPojo.getUser_info());
-                        Mc.bindLong(9, commonMsgPojo.getRid());
-                        Mc.bindLong(10, commonMsgPojo.getRead_flag());
-                        Mc.bindLong(11, commonMsgPojo.getIs_delete());
-                        h.cTB().a(Mc);
+                        Md.clearBindings();
+                        Md.bindString(1, TextUtils.isEmpty(commonMsgPojo.getContent()) ? "" : commonMsgPojo.getContent());
+                        Md.bindLong(2, commonMsgPojo.getCreate_time());
+                        Md.bindString(3, TextUtils.isEmpty(commonMsgPojo.getExt()) ? "" : commonMsgPojo.getExt());
+                        Md.bindLong(4, commonMsgPojo.getMid());
+                        Md.bindLong(5, commonMsgPojo.getMsg_status());
+                        Md.bindLong(6, commonMsgPojo.getMsg_type());
+                        Md.bindString(7, TextUtils.isEmpty(commonMsgPojo.getUid()) ? "" : commonMsgPojo.getUid());
+                        Md.bindString(8, TextUtils.isEmpty(commonMsgPojo.getUser_info()) ? "" : commonMsgPojo.getUser_info());
+                        Md.bindLong(9, commonMsgPojo.getRid());
+                        Md.bindLong(10, commonMsgPojo.getRead_flag());
+                        Md.bindLong(11, commonMsgPojo.getIs_delete());
+                        h.cTB().a(Md);
                     }
                 }
                 com.baidu.adp.lib.util.n.close((Cursor) null);
-                com.baidu.adp.lib.util.n.close(Mc);
+                com.baidu.adp.lib.util.n.close(Md);
                 return true;
             } catch (Exception e2) {
                 e = e2;
-                sQLiteStatement = Mc;
+                sQLiteStatement = Md;
                 try {
                     e.printStackTrace();
                     TiebaStatic.printDBExceptionLog(e, "GroupMsgDao.insertOrUpdate", new Object[0]);
@@ -491,7 +491,7 @@ public class c {
             }
             for (ImMessageCenterPojo imMessageCenterPojo : list) {
                 if (!linkedList.contains("tb_group_msg_" + imMessageCenterPojo.getGid())) {
-                    LS(imMessageCenterPojo.getGid());
+                    LT(imMessageCenterPojo.getGid());
                 }
             }
         }
@@ -525,10 +525,10 @@ public class c {
         }
     }
 
-    public boolean LP(String str) {
+    public boolean LQ(String str) {
         if (!TextUtils.isEmpty(str)) {
             try {
-                h.cTB().Mb("DROP TABLE IF EXISTS " + ("tb_group_msg_" + str));
+                h.cTB().Mc("DROP TABLE IF EXISTS " + ("tb_group_msg_" + str));
             } catch (Exception e) {
                 e.printStackTrace();
                 TiebaStatic.printDBExceptionLog(e, "GroupMsgDao.dropMsgTableById", new Object[0]);
@@ -537,12 +537,12 @@ public class c {
         return false;
     }
 
-    public boolean LQ(String str) {
+    public boolean LR(String str) {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
         try {
-            h.cTB().Mb("delete from " + ("tb_group_msg_" + str));
+            h.cTB().Mc("delete from " + ("tb_group_msg_" + str));
             return true;
         } catch (Exception e) {
             e.printStackTrace();
@@ -551,13 +551,13 @@ public class c {
         }
     }
 
-    public void LS(String str) {
+    public void LT(String str) {
         if (!TextUtils.isEmpty(str)) {
-            h.cTB().Mb("CREATE TABLE IF NOT EXISTS " + ("tb_group_msg_" + str) + "(mid BIGINT PRIMARY KEY, uid TEXT, user_info blob, create_time BIGINT, msg_type int, " + IMConstants.MSG_STATUS + " int, content blob, ext blob, read_flag int default 0, is_delete int default 0, rid BIGINT);");
+            h.cTB().Mc("CREATE TABLE IF NOT EXISTS " + ("tb_group_msg_" + str) + "(mid BIGINT PRIMARY KEY, uid TEXT, user_info blob, create_time BIGINT, msg_type int, " + IMConstants.MSG_STATUS + " int, content blob, ext blob, read_flag int default 0, is_delete int default 0, rid BIGINT);");
         }
     }
 
-    public boolean bh(String str, int i) {
+    public boolean bi(String str, int i) {
         Cursor cursor;
         Cursor cursor2 = null;
         try {

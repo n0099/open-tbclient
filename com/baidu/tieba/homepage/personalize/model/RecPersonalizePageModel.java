@@ -186,7 +186,7 @@ public class RecPersonalizePageModel extends BdBaseModel<BaseFragmentActivity> {
     }
 
     private void bqN() {
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1003070, com.baidu.tieba.tbadkCore.a.a.bU(TbConfig.RECOMMEND_HOME_PAGE_ADDRESS, CmdConfigSocket.CMD_RECOMMEND_PERSONALIZED));
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1003070, com.baidu.tieba.tbadkCore.a.a.bV(TbConfig.RECOMMEND_HOME_PAGE_ADDRESS, CmdConfigSocket.CMD_RECOMMEND_PERSONALIZED));
         tbHttpMessageTask.setIsNeedAddCommenParam(true);
         tbHttpMessageTask.setResponsedClass(RecPersonalizeHttpResponse.class);
         tbHttpMessageTask.setPriority(4);
@@ -213,31 +213,31 @@ public class RecPersonalizePageModel extends BdBaseModel<BaseFragmentActivity> {
 
     public void a(boolean z, boolean z2, ResponsedMessage<?> responsedMessage) {
         if (k.bDO().isSmallFlow()) {
-            long Bl = com.baidu.tieba.homepage.framework.a.cNr().Bl(1);
+            long Bk = com.baidu.tieba.homepage.framework.a.cNr().Bk(1);
             long createTime = com.baidu.tieba.homepage.framework.a.cNr().getCreateTime();
-            com.baidu.tbadk.n.d dVar = new com.baidu.tbadk.n.d(1005, z2, responsedMessage, 0L, createTime, com.baidu.tieba.homepage.framework.a.cNr().Bk(1), false, Bl + createTime);
+            com.baidu.tbadk.n.d dVar = new com.baidu.tbadk.n.d(1005, z2, responsedMessage, 0L, createTime, com.baidu.tieba.homepage.framework.a.cNr().Bj(1), false, Bk + createTime);
             dVar.pageType = 1;
             if (z) {
-                dVar.fHt = Bl;
+                dVar.fHt = Bk;
                 dVar.lj(false);
                 return;
             }
-            dVar.fHs = Bl;
+            dVar.fHs = Bk;
             dVar.lj(true);
         }
     }
 
     public void a(int i, boolean z, ResponsedMessage<?> responsedMessage) {
         if (k.bDO().isSmallFlow() && com.baidu.tieba.homepage.framework.a.cNr().getCreateTime() > 0) {
-            long Bl = com.baidu.tieba.homepage.framework.a.cNr().Bl(1);
-            long createTime = com.baidu.tieba.homepage.framework.a.cNr().getCreateTime();
             long Bk = com.baidu.tieba.homepage.framework.a.cNr().Bk(1);
-            long j = Bl + createTime;
+            long createTime = com.baidu.tieba.homepage.framework.a.cNr().getCreateTime();
             long Bj = com.baidu.tieba.homepage.framework.a.cNr().Bj(1);
-            if (Bj > 0) {
-                j = System.currentTimeMillis() - Bj;
+            long j = Bk + createTime;
+            long Bi = com.baidu.tieba.homepage.framework.a.cNr().Bi(1);
+            if (Bi > 0) {
+                j = System.currentTimeMillis() - Bi;
             }
-            com.baidu.tbadk.n.d dVar = new com.baidu.tbadk.n.d(1005, z, responsedMessage, 0L, createTime, Bk, false, j);
+            com.baidu.tbadk.n.d dVar = new com.baidu.tbadk.n.d(1005, z, responsedMessage, 0L, createTime, Bj, false, j);
             if (dVar != null) {
                 dVar.pageType = i;
                 dVar.bDL();

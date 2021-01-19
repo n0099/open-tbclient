@@ -12,7 +12,7 @@ public class AvatarPendantModel extends BdBaseModel<AvatarPendantActivity> {
     private com.baidu.adp.framework.listener.a iWa;
     private List<com.baidu.tieba.themeCenter.avatarPendant.a> mAvatarPendantList;
     private e mRecommand;
-    private a nwg;
+    private a nwh;
 
     /* loaded from: classes8.dex */
     public interface a {
@@ -35,8 +35,8 @@ public class AvatarPendantModel extends BdBaseModel<AvatarPendantActivity> {
                             AvatarPendantModel.this.mAvatarPendantList = avatarPendantListHttpResponseMessage.getAvatarPendantListList();
                             AvatarPendantModel.this.mRecommand = avatarPendantListHttpResponseMessage.getRecommand();
                         }
-                        if (AvatarPendantModel.this.nwg != null) {
-                            AvatarPendantModel.this.nwg.a(responsedMessage.getError(), responsedMessage.getErrorString(), AvatarPendantModel.this.mRecommand, AvatarPendantModel.this.mAvatarPendantList);
+                        if (AvatarPendantModel.this.nwh != null) {
+                            AvatarPendantModel.this.nwh.a(responsedMessage.getError(), responsedMessage.getErrorString(), AvatarPendantModel.this.mRecommand, AvatarPendantModel.this.mAvatarPendantList);
                         }
                     }
                 }
@@ -59,7 +59,7 @@ public class AvatarPendantModel extends BdBaseModel<AvatarPendantActivity> {
     }
 
     public void a(a aVar) {
-        this.nwg = aVar;
+        this.nwh = aVar;
     }
 
     public List<com.baidu.tieba.themeCenter.avatarPendant.a> dOO() {

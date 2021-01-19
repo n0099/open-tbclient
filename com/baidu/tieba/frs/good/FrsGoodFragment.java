@@ -344,8 +344,8 @@ public class FrsGoodFragment extends BaseFragment implements BdListView.e, a.Int
                 if (bzVar.boz() == null || bzVar.boz().getGroup_id() == 0 || bg.checkUpIsLogin(FrsGoodFragment.this.getActivity())) {
                     if (bzVar.bok() != 1 || bg.checkUpIsLogin(FrsGoodFragment.this.getActivity())) {
                         d readThreadHistory = TbadkCoreApplication.getInst().getReadThreadHistory();
-                        if (readThreadHistory != null && !readThreadHistory.SC(bzVar.getId())) {
-                            readThreadHistory.SB(bzVar.getId());
+                        if (readThreadHistory != null && !readThreadHistory.SD(bzVar.getId())) {
+                            readThreadHistory.SC(bzVar.getId());
                             if (FrsGoodFragment.this.jxG != null) {
                                 FrsGoodFragment.this.jxG.cCv();
                             }
@@ -728,7 +728,7 @@ public class FrsGoodFragment extends BaseFragment implements BdListView.e, a.Int
                 h.mC().submitTask(new Runnable() { // from class: com.baidu.tieba.frs.good.FrsGoodFragment.12
                     @Override // java.lang.Runnable
                     public void run() {
-                        com.baidu.tieba.tbadkCore.util.a.Sw(FrsGoodFragment.this.jat);
+                        com.baidu.tieba.tbadkCore.util.a.Sx(FrsGoodFragment.this.jat);
                     }
                 });
                 break;

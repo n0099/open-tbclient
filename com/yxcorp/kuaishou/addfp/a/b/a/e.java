@@ -12,9 +12,9 @@ public final class e {
     /* renamed from: b  reason: collision with root package name */
     private Context f14342b;
     private CountDownLatch d = new CountDownLatch(1);
-    private ServiceConnection pbC = new f(this);
-    public b qbw;
-    private com.yxcorp.kuaishou.addfp.a.b.b qbx;
+    private ServiceConnection pbD = new f(this);
+    public b qbx;
+    private com.yxcorp.kuaishou.addfp.a.b.b qby;
 
     public e(Context context) {
         this.f14342b = context;
@@ -23,9 +23,9 @@ public final class e {
     private void a(boolean z) {
         try {
             if (z) {
-                this.qbx.a(this.qbw);
+                this.qby.a(this.qbx);
             } else {
-                this.qbx.e();
+                this.qby.e();
             }
         } catch (Throwable th) {
             com.yxcorp.kuaishou.addfp.android.b.b.a(th);
@@ -33,22 +33,22 @@ public final class e {
     }
 
     public final void a() {
-        if (this.pbC == null || this.f14342b == null) {
+        if (this.pbD == null || this.f14342b == null) {
             return;
         }
-        this.f14342b.unbindService(this.pbC);
+        this.f14342b.unbindService(this.pbD);
     }
 
     public final void a(com.yxcorp.kuaishou.addfp.a.b.b bVar) {
         try {
-            this.qbx = bVar;
+            this.qby = bVar;
             Intent intent = new Intent("com.asus.msa.action.ACCESS_DID");
             ComponentName componentName = new ComponentName("com.asus.msa.SupplementaryDID", "com.asus.msa.SupplementaryDID.SupplementaryDIDService");
             Intent intent2 = new Intent(intent);
             intent2.setComponent(componentName);
-            if (this.f14342b.bindService(intent2, this.pbC, 1)) {
+            if (this.f14342b.bindService(intent2, this.pbD, 1)) {
                 this.d.await(2000L, TimeUnit.MILLISECONDS);
-                if (this.qbw != null) {
+                if (this.qbx != null) {
                     a(true);
                 } else {
                     a(false);

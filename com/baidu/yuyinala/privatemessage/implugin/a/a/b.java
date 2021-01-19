@@ -15,7 +15,7 @@ import com.baidu.live.sdk.a;
 import com.baidu.yuyinala.privatemessage.model.message.SingleGraphicTextMsgExt;
 /* loaded from: classes10.dex */
 public class b {
-    private static volatile b oNG;
+    private static volatile b oNH;
 
     /* loaded from: classes10.dex */
     public interface a {
@@ -25,10 +25,10 @@ public class b {
     public static synchronized b hr(Context context) {
         b bVar;
         synchronized (b.class) {
-            if (oNG == null) {
-                oNG = new b();
+            if (oNH == null) {
+                oNH = new b();
             }
-            bVar = oNG;
+            bVar = oNH;
         }
         return bVar;
     }
@@ -73,7 +73,7 @@ public class b {
         }
         if (r != null) {
             r.b(context, a(context, chatMsg));
-            r.oNN = (ImageView) r.getConvertView().findViewById(a.f.bd_im_headview_vip);
+            r.oNO = (ImageView) r.getConvertView().findViewById(a.f.bd_im_headview_vip);
         }
         return r;
     }
@@ -136,7 +136,7 @@ public class b {
         }
         if (l != null) {
             l.b(context, a(context, chatMsg));
-            l.oNN = (ImageView) l.getConvertView().findViewById(a.f.bd_im_headview_vip);
+            l.oNO = (ImageView) l.getConvertView().findViewById(a.f.bd_im_headview_vip);
         }
         return l;
     }

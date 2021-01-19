@@ -25,8 +25,8 @@ public final class a {
     /* renamed from: b  reason: collision with root package name */
     private static String f7663b = null;
     private static Class<?> c = null;
-    private static Field plG = null;
     private static Field plH = null;
+    private static Field plI = null;
     private static boolean f = false;
 
     /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:31:0x0068 -> B:32:0x0005). Please submit an issue!!! */
@@ -275,15 +275,15 @@ public final class a {
     @NonNull
     public static String e(Context context) {
         Class<?> hY = hY(context);
-        if (plG == null && hY != null) {
+        if (plH == null && hY != null) {
             try {
-                plG = hY.getDeclaredField("VERSION_NAME");
+                plH = hY.getDeclaredField("VERSION_NAME");
             } catch (NoSuchFieldException e) {
             }
         }
-        if (plG != null) {
+        if (plH != null) {
             try {
-                return (String) plG.get(null);
+                return (String) plH.get(null);
             } catch (Throwable th) {
             }
         }
@@ -292,15 +292,15 @@ public final class a {
 
     public static int f(Context context) {
         Class<?> hY = hY(context);
-        if (plH == null && hY != null) {
+        if (plI == null && hY != null) {
             try {
-                plH = hY.getDeclaredField("VERSION_CODE");
+                plI = hY.getDeclaredField("VERSION_CODE");
             } catch (NoSuchFieldException e) {
             }
         }
-        if (plH != null) {
+        if (plI != null) {
             try {
-                return ((Integer) plH.get(null)).intValue();
+                return ((Integer) plI.get(null)).intValue();
             } catch (Throwable th) {
             }
         }

@@ -49,7 +49,7 @@ public class PersonGroupAdapter extends FragmentPagerAdapter {
         return kBY;
     }
 
-    public int CS(int i) {
+    public int CR(int i) {
         return this.gUa[i];
     }
 }

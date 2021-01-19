@@ -54,9 +54,9 @@ public class f extends ProxyAdkBaseActivity<Object> implements SwipeBackLayout.c
                 }
                 if (!f.this.niz) {
                     if (com.baidu.adp.lib.util.j.isNetWorkAvailable()) {
-                        f.this.nix.CH(R.string.no_data_text);
+                        f.this.nix.CG(R.string.no_data_text);
                     } else {
-                        f.this.nix.CH(R.string.game_index_no_network_text);
+                        f.this.nix.CG(R.string.game_index_no_network_text);
                     }
                 }
             }

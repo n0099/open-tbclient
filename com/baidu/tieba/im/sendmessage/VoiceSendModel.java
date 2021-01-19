@@ -55,7 +55,7 @@ public class VoiceSendModel extends BdBaseModel {
         /* renamed from: l */
         public String doInBackground(Object... objArr) {
             try {
-                return this.kDR.Mo(this.mVid);
+                return this.kDR.Mp(this.mVid);
             } catch (Exception e) {
                 return null;
             }

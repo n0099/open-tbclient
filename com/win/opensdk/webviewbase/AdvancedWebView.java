@@ -45,7 +45,7 @@ import java.util.MissingResourceException;
 import org.apache.http.HttpHost;
 /* loaded from: classes3.dex */
 public class AdvancedWebView extends WebView {
-    protected static final String[] pZs = {"org.mozilla.firefox", "com.android.chrome", "com.opera.browser", "org.mozilla.firefox_beta", "com.chrome.beta", "com.opera.browser.beta"};
+    protected static final String[] pZt = {"org.mozilla.firefox", "com.android.chrome", "com.opera.browser", "org.mozilla.firefox_beta", "com.chrome.beta", "com.opera.browser.beta"};
 
     /* renamed from: case  reason: not valid java name */
     protected String f81case;
@@ -53,21 +53,21 @@ public class AdvancedWebView extends WebView {
 
     /* renamed from: java  reason: collision with other field name */
     protected String f82java;
-    protected boolean pYL;
-    protected WeakReference<Activity> pZC;
-    protected final List<String> pZM;
-    protected long pZe;
-    protected final Map<String, String> pZz;
-    protected WeakReference<Fragment> qbk;
-    protected a qbl;
-    protected ValueCallback<Uri> qbm;
-    protected ValueCallback<Uri[]> qbn;
-    protected WebViewClient qbo;
-    protected WebChromeClient qbp;
+    protected boolean pYM;
+    protected final Map<String, String> pZA;
+    protected WeakReference<Activity> pZD;
+    protected final List<String> pZN;
+    protected long pZf;
+    protected WeakReference<Fragment> qbl;
+    protected a qbm;
+    protected ValueCallback<Uri> qbn;
+    protected ValueCallback<Uri[]> qbo;
+    protected WebViewClient qbp;
+    protected WebChromeClient qbq;
 
     /* loaded from: classes3.dex */
     public interface a {
-        void aaD(String str);
+        void aaE(String str);
 
         void cd(int i, String str);
 
@@ -76,45 +76,45 @@ public class AdvancedWebView extends WebView {
 
     public AdvancedWebView(Context context) {
         super(context);
-        this.pZM = new LinkedList();
+        this.pZN = new LinkedList();
         this.java = 51426;
         this.f81case = "*/*";
-        this.pZz = new HashMap();
+        this.pZA = new HashMap();
         iI(context);
     }
 
     public AdvancedWebView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.pZM = new LinkedList();
+        this.pZN = new LinkedList();
         this.java = 51426;
         this.f81case = "*/*";
-        this.pZz = new HashMap();
+        this.pZA = new HashMap();
         iI(context);
     }
 
     public AdvancedWebView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.pZM = new LinkedList();
+        this.pZN = new LinkedList();
         this.java = 51426;
         this.f81case = "*/*";
-        this.pZz = new HashMap();
+        this.pZA = new HashMap();
         iI(context);
     }
 
     public final void a(Activity activity, a aVar) {
-        this.pZC = new WeakReference<>(activity);
-        this.qbl = aVar;
+        this.pZD = new WeakReference<>(activity);
+        this.qbm = aVar;
         this.java = 51426;
     }
 
     @Override // android.webkit.WebView
     public void setWebViewClient(WebViewClient webViewClient) {
-        this.qbo = webViewClient;
+        this.qbp = webViewClient;
     }
 
     @Override // android.webkit.WebView
     public void setWebChromeClient(WebChromeClient webChromeClient) {
-        this.qbp = webChromeClient;
+        this.qbq = webChromeClient;
     }
 
     @SuppressLint({"SetJavaScriptEnabled"})
@@ -123,14 +123,14 @@ public class AdvancedWebView extends WebView {
         if (z) {
             getSettings().setJavaScriptEnabled(true);
             getSettings().setGeolocationEnabled(true);
-            if (this.qbk != null && this.qbk.get() != null && Build.VERSION.SDK_INT >= 11 && this.qbk.get().getActivity() != null) {
-                activity = this.qbk.get().getActivity();
-            } else if (this.pZC != null && this.pZC.get() != null) {
-                activity = this.pZC.get();
+            if (this.qbl != null && this.qbl.get() != null && Build.VERSION.SDK_INT >= 11 && this.qbl.get().getActivity() != null) {
+                activity = this.qbl.get().getActivity();
+            } else if (this.pZD != null && this.pZD.get() != null) {
+                activity = this.pZD.get();
             }
             getSettings().setGeolocationDatabasePath(activity.getFilesDir().getPath());
         }
-        this.pYL = z;
+        this.pYM = z;
     }
 
     public void setUploadableFileTypes(String str) {
@@ -160,10 +160,10 @@ public class AdvancedWebView extends WebView {
         if (i == this.java) {
             if (i2 == -1) {
                 if (intent != null) {
-                    if (this.qbm != null) {
-                        this.qbm.onReceiveValue(intent.getData());
-                        this.qbm = null;
-                    } else if (this.qbn != null) {
+                    if (this.qbn != null) {
+                        this.qbn.onReceiveValue(intent.getData());
+                        this.qbn = null;
+                    } else if (this.qbo != null) {
                         try {
                             if (intent.getDataString() != null) {
                                 uriArr = new Uri[]{Uri.parse(intent.getDataString())};
@@ -182,22 +182,22 @@ public class AdvancedWebView extends WebView {
                         } catch (Exception e2) {
                             uriArr = null;
                         }
-                        this.qbn.onReceiveValue(uriArr);
-                        this.qbn = null;
+                        this.qbo.onReceiveValue(uriArr);
+                        this.qbo = null;
                     }
                 }
-            } else if (this.qbm != null) {
-                this.qbm.onReceiveValue(null);
-                this.qbm = null;
             } else if (this.qbn != null) {
                 this.qbn.onReceiveValue(null);
                 this.qbn = null;
+            } else if (this.qbo != null) {
+                this.qbo.onReceiveValue(null);
+                this.qbo = null;
             }
         }
     }
 
     public List<String> getPermittedHostnames() {
-        return this.pZM;
+        return this.pZN;
     }
 
     @SuppressLint({"NewApi"})
@@ -246,7 +246,7 @@ public class AdvancedWebView extends WebView {
     private void iI(final Context context) {
         if (!isInEditMode()) {
             if (context instanceof Activity) {
-                this.pZC = new WeakReference<>((Activity) context);
+                this.pZD = new WeakReference<>((Activity) context);
             }
             this.f82java = getLanguageIso3();
             setFocusable(true);
@@ -274,38 +274,38 @@ public class AdvancedWebView extends WebView {
             super.setWebViewClient(new WebViewClient() { // from class: com.win.opensdk.webviewbase.AdvancedWebView.1
                 @Override // android.webkit.WebViewClient
                 public final void onPageStarted(WebView webView, String str2, Bitmap bitmap) {
-                    if (!AdvancedWebView.this.java() && AdvancedWebView.this.qbl != null) {
-                        AdvancedWebView.this.qbl.eGz();
+                    if (!AdvancedWebView.this.java() && AdvancedWebView.this.qbm != null) {
+                        AdvancedWebView.this.qbm.eGz();
                     }
-                    if (AdvancedWebView.this.qbo != null) {
-                        AdvancedWebView.this.qbo.onPageStarted(webView, str2, bitmap);
+                    if (AdvancedWebView.this.qbp != null) {
+                        AdvancedWebView.this.qbp.onPageStarted(webView, str2, bitmap);
                     }
                 }
 
                 @Override // android.webkit.WebViewClient
                 public final void onPageFinished(WebView webView, String str2) {
-                    if (!AdvancedWebView.this.java() && AdvancedWebView.this.qbl != null) {
-                        AdvancedWebView.this.qbl.aaD(str2);
+                    if (!AdvancedWebView.this.java() && AdvancedWebView.this.qbm != null) {
+                        AdvancedWebView.this.qbm.aaE(str2);
                     }
-                    if (AdvancedWebView.this.qbo != null) {
-                        AdvancedWebView.this.qbo.onPageFinished(webView, str2);
+                    if (AdvancedWebView.this.qbp != null) {
+                        AdvancedWebView.this.qbp.onPageFinished(webView, str2);
                     }
                 }
 
                 @Override // android.webkit.WebViewClient
                 public final void onReceivedError(WebView webView, int i, String str2, String str3) {
                     AdvancedWebView.this.eGz();
-                    if (AdvancedWebView.this.qbl != null) {
-                        AdvancedWebView.this.qbl.cd(i, str3);
+                    if (AdvancedWebView.this.qbm != null) {
+                        AdvancedWebView.this.qbm.cd(i, str3);
                     }
-                    if (AdvancedWebView.this.qbo != null) {
-                        AdvancedWebView.this.qbo.onReceivedError(webView, i, str2, str3);
+                    if (AdvancedWebView.this.qbp != null) {
+                        AdvancedWebView.this.qbp.onReceivedError(webView, i, str2, str3);
                     }
                 }
 
                 @Override // android.webkit.WebViewClient
                 public final boolean shouldOverrideUrlLoading(WebView webView, String str2) {
-                    if (AdvancedWebView.this.aaC(str2) && (AdvancedWebView.this.qbo == null || !AdvancedWebView.this.qbo.shouldOverrideUrlLoading(webView, str2))) {
+                    if (AdvancedWebView.this.aaD(str2) && (AdvancedWebView.this.qbp == null || !AdvancedWebView.this.qbp.shouldOverrideUrlLoading(webView, str2))) {
                         Uri parse = Uri.parse(str2);
                         String scheme = parse.getScheme();
                         if ((TextUtils.isEmpty(scheme) || scheme.equals(HttpHost.DEFAULT_SCHEME_NAME) || scheme.equals("https")) ? false : true) {
@@ -323,8 +323,8 @@ public class AdvancedWebView extends WebView {
 
                 @Override // android.webkit.WebViewClient
                 public final void onLoadResource(WebView webView, String str2) {
-                    if (AdvancedWebView.this.qbo != null) {
-                        AdvancedWebView.this.qbo.onLoadResource(webView, str2);
+                    if (AdvancedWebView.this.qbp != null) {
+                        AdvancedWebView.this.qbp.onLoadResource(webView, str2);
                     } else {
                         super.onLoadResource(webView, str2);
                     }
@@ -334,8 +334,8 @@ public class AdvancedWebView extends WebView {
                 @SuppressLint({"NewApi"})
                 public final WebResourceResponse shouldInterceptRequest(WebView webView, String str2) {
                     if (Build.VERSION.SDK_INT >= 11) {
-                        if (AdvancedWebView.this.qbo != null) {
-                            return AdvancedWebView.this.qbo.shouldInterceptRequest(webView, str2);
+                        if (AdvancedWebView.this.qbp != null) {
+                            return AdvancedWebView.this.qbp.shouldInterceptRequest(webView, str2);
                         }
                         return super.shouldInterceptRequest(webView, str2);
                     }
@@ -346,8 +346,8 @@ public class AdvancedWebView extends WebView {
                 @SuppressLint({"NewApi"})
                 public final WebResourceResponse shouldInterceptRequest(WebView webView, WebResourceRequest webResourceRequest) {
                     if (Build.VERSION.SDK_INT >= 21) {
-                        if (AdvancedWebView.this.qbo != null) {
-                            return AdvancedWebView.this.qbo.shouldInterceptRequest(webView, webResourceRequest);
+                        if (AdvancedWebView.this.qbp != null) {
+                            return AdvancedWebView.this.qbp.shouldInterceptRequest(webView, webResourceRequest);
                         }
                         return super.shouldInterceptRequest(webView, webResourceRequest);
                     }
@@ -356,8 +356,8 @@ public class AdvancedWebView extends WebView {
 
                 @Override // android.webkit.WebViewClient
                 public final void onFormResubmission(WebView webView, Message message, Message message2) {
-                    if (AdvancedWebView.this.qbo != null) {
-                        AdvancedWebView.this.qbo.onFormResubmission(webView, message, message2);
+                    if (AdvancedWebView.this.qbp != null) {
+                        AdvancedWebView.this.qbp.onFormResubmission(webView, message, message2);
                     } else {
                         super.onFormResubmission(webView, message, message2);
                     }
@@ -365,8 +365,8 @@ public class AdvancedWebView extends WebView {
 
                 @Override // android.webkit.WebViewClient
                 public final void doUpdateVisitedHistory(WebView webView, String str2, boolean z) {
-                    if (AdvancedWebView.this.qbo != null) {
-                        AdvancedWebView.this.qbo.doUpdateVisitedHistory(webView, str2, z);
+                    if (AdvancedWebView.this.qbp != null) {
+                        AdvancedWebView.this.qbp.doUpdateVisitedHistory(webView, str2, z);
                     } else {
                         super.doUpdateVisitedHistory(webView, str2, z);
                     }
@@ -374,8 +374,8 @@ public class AdvancedWebView extends WebView {
 
                 @Override // android.webkit.WebViewClient
                 public final void onReceivedSslError(WebView webView, SslErrorHandler sslErrorHandler, SslError sslError) {
-                    if (AdvancedWebView.this.qbo != null) {
-                        AdvancedWebView.this.qbo.onReceivedSslError(webView, sslErrorHandler, sslError);
+                    if (AdvancedWebView.this.qbp != null) {
+                        AdvancedWebView.this.qbp.onReceivedSslError(webView, sslErrorHandler, sslError);
                     } else {
                         super.onReceivedSslError(webView, sslErrorHandler, sslError);
                     }
@@ -385,8 +385,8 @@ public class AdvancedWebView extends WebView {
                 @SuppressLint({"NewApi"})
                 public final void onReceivedClientCertRequest(WebView webView, ClientCertRequest clientCertRequest) {
                     if (Build.VERSION.SDK_INT >= 21) {
-                        if (AdvancedWebView.this.qbo != null) {
-                            AdvancedWebView.this.qbo.onReceivedClientCertRequest(webView, clientCertRequest);
+                        if (AdvancedWebView.this.qbp != null) {
+                            AdvancedWebView.this.qbp.onReceivedClientCertRequest(webView, clientCertRequest);
                         } else {
                             super.onReceivedClientCertRequest(webView, clientCertRequest);
                         }
@@ -395,8 +395,8 @@ public class AdvancedWebView extends WebView {
 
                 @Override // android.webkit.WebViewClient
                 public final void onReceivedHttpAuthRequest(WebView webView, HttpAuthHandler httpAuthHandler, String str2, String str3) {
-                    if (AdvancedWebView.this.qbo != null) {
-                        AdvancedWebView.this.qbo.onReceivedHttpAuthRequest(webView, httpAuthHandler, str2, str3);
+                    if (AdvancedWebView.this.qbp != null) {
+                        AdvancedWebView.this.qbp.onReceivedHttpAuthRequest(webView, httpAuthHandler, str2, str3);
                     } else {
                         super.onReceivedHttpAuthRequest(webView, httpAuthHandler, str2, str3);
                     }
@@ -404,13 +404,13 @@ public class AdvancedWebView extends WebView {
 
                 @Override // android.webkit.WebViewClient
                 public final boolean shouldOverrideKeyEvent(WebView webView, KeyEvent keyEvent) {
-                    return AdvancedWebView.this.qbo != null ? AdvancedWebView.this.qbo.shouldOverrideKeyEvent(webView, keyEvent) : super.shouldOverrideKeyEvent(webView, keyEvent);
+                    return AdvancedWebView.this.qbp != null ? AdvancedWebView.this.qbp.shouldOverrideKeyEvent(webView, keyEvent) : super.shouldOverrideKeyEvent(webView, keyEvent);
                 }
 
                 @Override // android.webkit.WebViewClient
                 public final void onUnhandledKeyEvent(WebView webView, KeyEvent keyEvent) {
-                    if (AdvancedWebView.this.qbo != null) {
-                        AdvancedWebView.this.qbo.onUnhandledKeyEvent(webView, keyEvent);
+                    if (AdvancedWebView.this.qbp != null) {
+                        AdvancedWebView.this.qbp.onUnhandledKeyEvent(webView, keyEvent);
                     } else {
                         super.onUnhandledKeyEvent(webView, keyEvent);
                     }
@@ -418,8 +418,8 @@ public class AdvancedWebView extends WebView {
 
                 @Override // android.webkit.WebViewClient
                 public final void onScaleChanged(WebView webView, float f, float f2) {
-                    if (AdvancedWebView.this.qbo != null) {
-                        AdvancedWebView.this.qbo.onScaleChanged(webView, f, f2);
+                    if (AdvancedWebView.this.qbp != null) {
+                        AdvancedWebView.this.qbp.onScaleChanged(webView, f, f2);
                     } else {
                         super.onScaleChanged(webView, f, f2);
                     }
@@ -429,8 +429,8 @@ public class AdvancedWebView extends WebView {
                 @SuppressLint({"NewApi"})
                 public final void onReceivedLoginRequest(WebView webView, String str2, String str3, String str4) {
                     if (Build.VERSION.SDK_INT >= 12) {
-                        if (AdvancedWebView.this.qbo != null) {
-                            AdvancedWebView.this.qbo.onReceivedLoginRequest(webView, str2, str3, str4);
+                        if (AdvancedWebView.this.qbp != null) {
+                            AdvancedWebView.this.qbp.onReceivedLoginRequest(webView, str2, str3, str4);
                         } else {
                             super.onReceivedLoginRequest(webView, str2, str3, str4);
                         }
@@ -449,8 +449,8 @@ public class AdvancedWebView extends WebView {
 
                 @Override // android.webkit.WebChromeClient
                 public final void onProgressChanged(WebView webView, int i) {
-                    if (AdvancedWebView.this.qbp != null) {
-                        AdvancedWebView.this.qbp.onProgressChanged(webView, i);
+                    if (AdvancedWebView.this.qbq != null) {
+                        AdvancedWebView.this.qbq.onProgressChanged(webView, i);
                     } else {
                         super.onProgressChanged(webView, i);
                     }
@@ -458,8 +458,8 @@ public class AdvancedWebView extends WebView {
 
                 @Override // android.webkit.WebChromeClient
                 public final void onReceivedTitle(WebView webView, String str2) {
-                    if (AdvancedWebView.this.qbp != null) {
-                        AdvancedWebView.this.qbp.onReceivedTitle(webView, str2);
+                    if (AdvancedWebView.this.qbq != null) {
+                        AdvancedWebView.this.qbq.onReceivedTitle(webView, str2);
                     } else {
                         super.onReceivedTitle(webView, str2);
                     }
@@ -467,8 +467,8 @@ public class AdvancedWebView extends WebView {
 
                 @Override // android.webkit.WebChromeClient
                 public final void onReceivedIcon(WebView webView, Bitmap bitmap) {
-                    if (AdvancedWebView.this.qbp != null) {
-                        AdvancedWebView.this.qbp.onReceivedIcon(webView, bitmap);
+                    if (AdvancedWebView.this.qbq != null) {
+                        AdvancedWebView.this.qbq.onReceivedIcon(webView, bitmap);
                     } else {
                         super.onReceivedIcon(webView, bitmap);
                     }
@@ -476,8 +476,8 @@ public class AdvancedWebView extends WebView {
 
                 @Override // android.webkit.WebChromeClient
                 public final void onReceivedTouchIconUrl(WebView webView, String str2, boolean z) {
-                    if (AdvancedWebView.this.qbp != null) {
-                        AdvancedWebView.this.qbp.onReceivedTouchIconUrl(webView, str2, z);
+                    if (AdvancedWebView.this.qbq != null) {
+                        AdvancedWebView.this.qbq.onReceivedTouchIconUrl(webView, str2, z);
                     } else {
                         super.onReceivedTouchIconUrl(webView, str2, z);
                     }
@@ -485,8 +485,8 @@ public class AdvancedWebView extends WebView {
 
                 @Override // android.webkit.WebChromeClient
                 public final void onShowCustomView(View view, WebChromeClient.CustomViewCallback customViewCallback) {
-                    if (AdvancedWebView.this.qbp != null) {
-                        AdvancedWebView.this.qbp.onShowCustomView(view, customViewCallback);
+                    if (AdvancedWebView.this.qbq != null) {
+                        AdvancedWebView.this.qbq.onShowCustomView(view, customViewCallback);
                     } else {
                         super.onShowCustomView(view, customViewCallback);
                     }
@@ -496,8 +496,8 @@ public class AdvancedWebView extends WebView {
                 @SuppressLint({"NewApi"})
                 public final void onShowCustomView(View view, int i, WebChromeClient.CustomViewCallback customViewCallback) {
                     if (Build.VERSION.SDK_INT >= 14) {
-                        if (AdvancedWebView.this.qbp != null) {
-                            AdvancedWebView.this.qbp.onShowCustomView(view, i, customViewCallback);
+                        if (AdvancedWebView.this.qbq != null) {
+                            AdvancedWebView.this.qbq.onShowCustomView(view, i, customViewCallback);
                         } else {
                             super.onShowCustomView(view, i, customViewCallback);
                         }
@@ -506,8 +506,8 @@ public class AdvancedWebView extends WebView {
 
                 @Override // android.webkit.WebChromeClient
                 public final void onHideCustomView() {
-                    if (AdvancedWebView.this.qbp != null) {
-                        AdvancedWebView.this.qbp.onHideCustomView();
+                    if (AdvancedWebView.this.qbq != null) {
+                        AdvancedWebView.this.qbq.onHideCustomView();
                     } else {
                         super.onHideCustomView();
                     }
@@ -515,13 +515,13 @@ public class AdvancedWebView extends WebView {
 
                 @Override // android.webkit.WebChromeClient
                 public final boolean onCreateWindow(WebView webView, boolean z, boolean z2, Message message) {
-                    return AdvancedWebView.this.qbp != null ? AdvancedWebView.this.qbp.onCreateWindow(webView, z, z2, message) : super.onCreateWindow(webView, z, z2, message);
+                    return AdvancedWebView.this.qbq != null ? AdvancedWebView.this.qbq.onCreateWindow(webView, z, z2, message) : super.onCreateWindow(webView, z, z2, message);
                 }
 
                 @Override // android.webkit.WebChromeClient
                 public final void onRequestFocus(WebView webView) {
-                    if (AdvancedWebView.this.qbp != null) {
-                        AdvancedWebView.this.qbp.onRequestFocus(webView);
+                    if (AdvancedWebView.this.qbq != null) {
+                        AdvancedWebView.this.qbq.onRequestFocus(webView);
                     } else {
                         super.onRequestFocus(webView);
                     }
@@ -529,8 +529,8 @@ public class AdvancedWebView extends WebView {
 
                 @Override // android.webkit.WebChromeClient
                 public final void onCloseWindow(WebView webView) {
-                    if (AdvancedWebView.this.qbp != null) {
-                        AdvancedWebView.this.qbp.onCloseWindow(webView);
+                    if (AdvancedWebView.this.qbq != null) {
+                        AdvancedWebView.this.qbq.onCloseWindow(webView);
                     } else {
                         super.onCloseWindow(webView);
                     }
@@ -538,30 +538,30 @@ public class AdvancedWebView extends WebView {
 
                 @Override // android.webkit.WebChromeClient
                 public final boolean onJsAlert(WebView webView, String str2, String str3, JsResult jsResult) {
-                    return AdvancedWebView.this.qbp != null ? AdvancedWebView.this.qbp.onJsAlert(webView, str2, str3, jsResult) : super.onJsAlert(webView, str2, str3, jsResult);
+                    return AdvancedWebView.this.qbq != null ? AdvancedWebView.this.qbq.onJsAlert(webView, str2, str3, jsResult) : super.onJsAlert(webView, str2, str3, jsResult);
                 }
 
                 @Override // android.webkit.WebChromeClient
                 public final boolean onJsConfirm(WebView webView, String str2, String str3, JsResult jsResult) {
-                    return AdvancedWebView.this.qbp != null ? AdvancedWebView.this.qbp.onJsConfirm(webView, str2, str3, jsResult) : super.onJsConfirm(webView, str2, str3, jsResult);
+                    return AdvancedWebView.this.qbq != null ? AdvancedWebView.this.qbq.onJsConfirm(webView, str2, str3, jsResult) : super.onJsConfirm(webView, str2, str3, jsResult);
                 }
 
                 @Override // android.webkit.WebChromeClient
                 public final boolean onJsPrompt(WebView webView, String str2, String str3, String str4, JsPromptResult jsPromptResult) {
-                    return AdvancedWebView.this.qbp != null ? AdvancedWebView.this.qbp.onJsPrompt(webView, str2, str3, str4, jsPromptResult) : super.onJsPrompt(webView, str2, str3, str4, jsPromptResult);
+                    return AdvancedWebView.this.qbq != null ? AdvancedWebView.this.qbq.onJsPrompt(webView, str2, str3, str4, jsPromptResult) : super.onJsPrompt(webView, str2, str3, str4, jsPromptResult);
                 }
 
                 @Override // android.webkit.WebChromeClient
                 public final boolean onJsBeforeUnload(WebView webView, String str2, String str3, JsResult jsResult) {
-                    return AdvancedWebView.this.qbp != null ? AdvancedWebView.this.qbp.onJsBeforeUnload(webView, str2, str3, jsResult) : super.onJsBeforeUnload(webView, str2, str3, jsResult);
+                    return AdvancedWebView.this.qbq != null ? AdvancedWebView.this.qbq.onJsBeforeUnload(webView, str2, str3, jsResult) : super.onJsBeforeUnload(webView, str2, str3, jsResult);
                 }
 
                 @Override // android.webkit.WebChromeClient
                 public final void onGeolocationPermissionsShowPrompt(String str2, GeolocationPermissions.Callback callback) {
-                    if (AdvancedWebView.this.pYL) {
+                    if (AdvancedWebView.this.pYM) {
                         callback.invoke(str2, true, false);
-                    } else if (AdvancedWebView.this.qbp != null) {
-                        AdvancedWebView.this.qbp.onGeolocationPermissionsShowPrompt(str2, callback);
+                    } else if (AdvancedWebView.this.qbq != null) {
+                        AdvancedWebView.this.qbq.onGeolocationPermissionsShowPrompt(str2, callback);
                     } else {
                         super.onGeolocationPermissionsShowPrompt(str2, callback);
                     }
@@ -569,8 +569,8 @@ public class AdvancedWebView extends WebView {
 
                 @Override // android.webkit.WebChromeClient
                 public final void onGeolocationPermissionsHidePrompt() {
-                    if (AdvancedWebView.this.qbp != null) {
-                        AdvancedWebView.this.qbp.onGeolocationPermissionsHidePrompt();
+                    if (AdvancedWebView.this.qbq != null) {
+                        AdvancedWebView.this.qbq.onGeolocationPermissionsHidePrompt();
                     } else {
                         super.onGeolocationPermissionsHidePrompt();
                     }
@@ -580,8 +580,8 @@ public class AdvancedWebView extends WebView {
                 @SuppressLint({"NewApi"})
                 public final void onPermissionRequest(PermissionRequest permissionRequest) {
                     if (Build.VERSION.SDK_INT >= 21) {
-                        if (AdvancedWebView.this.qbp != null) {
-                            AdvancedWebView.this.qbp.onPermissionRequest(permissionRequest);
+                        if (AdvancedWebView.this.qbq != null) {
+                            AdvancedWebView.this.qbq.onPermissionRequest(permissionRequest);
                         } else {
                             super.onPermissionRequest(permissionRequest);
                         }
@@ -592,8 +592,8 @@ public class AdvancedWebView extends WebView {
                 @SuppressLint({"NewApi"})
                 public final void onPermissionRequestCanceled(PermissionRequest permissionRequest) {
                     if (Build.VERSION.SDK_INT >= 21) {
-                        if (AdvancedWebView.this.qbp != null) {
-                            AdvancedWebView.this.qbp.onPermissionRequestCanceled(permissionRequest);
+                        if (AdvancedWebView.this.qbq != null) {
+                            AdvancedWebView.this.qbq.onPermissionRequestCanceled(permissionRequest);
                         } else {
                             super.onPermissionRequestCanceled(permissionRequest);
                         }
@@ -602,13 +602,13 @@ public class AdvancedWebView extends WebView {
 
                 @Override // android.webkit.WebChromeClient
                 public final boolean onJsTimeout() {
-                    return AdvancedWebView.this.qbp != null ? AdvancedWebView.this.qbp.onJsTimeout() : super.onJsTimeout();
+                    return AdvancedWebView.this.qbq != null ? AdvancedWebView.this.qbq.onJsTimeout() : super.onJsTimeout();
                 }
 
                 @Override // android.webkit.WebChromeClient
                 public final void onConsoleMessage(String str2, int i, String str3) {
-                    if (AdvancedWebView.this.qbp != null) {
-                        AdvancedWebView.this.qbp.onConsoleMessage(str2, i, str3);
+                    if (AdvancedWebView.this.qbq != null) {
+                        AdvancedWebView.this.qbq.onConsoleMessage(str2, i, str3);
                     } else {
                         super.onConsoleMessage(str2, i, str3);
                     }
@@ -616,23 +616,23 @@ public class AdvancedWebView extends WebView {
 
                 @Override // android.webkit.WebChromeClient
                 public final boolean onConsoleMessage(ConsoleMessage consoleMessage) {
-                    return AdvancedWebView.this.qbp != null ? AdvancedWebView.this.qbp.onConsoleMessage(consoleMessage) : super.onConsoleMessage(consoleMessage);
+                    return AdvancedWebView.this.qbq != null ? AdvancedWebView.this.qbq.onConsoleMessage(consoleMessage) : super.onConsoleMessage(consoleMessage);
                 }
 
                 @Override // android.webkit.WebChromeClient
                 public final Bitmap getDefaultVideoPoster() {
-                    return AdvancedWebView.this.qbp != null ? AdvancedWebView.this.qbp.getDefaultVideoPoster() : super.getDefaultVideoPoster();
+                    return AdvancedWebView.this.qbq != null ? AdvancedWebView.this.qbq.getDefaultVideoPoster() : super.getDefaultVideoPoster();
                 }
 
                 @Override // android.webkit.WebChromeClient
                 public final View getVideoLoadingProgressView() {
-                    return AdvancedWebView.this.qbp != null ? AdvancedWebView.this.qbp.getVideoLoadingProgressView() : super.getVideoLoadingProgressView();
+                    return AdvancedWebView.this.qbq != null ? AdvancedWebView.this.qbq.getVideoLoadingProgressView() : super.getVideoLoadingProgressView();
                 }
 
                 @Override // android.webkit.WebChromeClient
                 public final void getVisitedHistory(ValueCallback<String[]> valueCallback) {
-                    if (AdvancedWebView.this.qbp != null) {
-                        AdvancedWebView.this.qbp.getVisitedHistory(valueCallback);
+                    if (AdvancedWebView.this.qbq != null) {
+                        AdvancedWebView.this.qbq.getVisitedHistory(valueCallback);
                     } else {
                         super.getVisitedHistory(valueCallback);
                     }
@@ -640,8 +640,8 @@ public class AdvancedWebView extends WebView {
 
                 @Override // android.webkit.WebChromeClient
                 public final void onExceededDatabaseQuota(String str2, String str3, long j, long j2, long j3, WebStorage.QuotaUpdater quotaUpdater) {
-                    if (AdvancedWebView.this.qbp != null) {
-                        AdvancedWebView.this.qbp.onExceededDatabaseQuota(str2, str3, j, j2, j3, quotaUpdater);
+                    if (AdvancedWebView.this.qbq != null) {
+                        AdvancedWebView.this.qbq.onExceededDatabaseQuota(str2, str3, j, j2, j3, quotaUpdater);
                     } else {
                         super.onExceededDatabaseQuota(str2, str3, j, j2, j3, quotaUpdater);
                     }
@@ -649,8 +649,8 @@ public class AdvancedWebView extends WebView {
 
                 @Override // android.webkit.WebChromeClient
                 public final void onReachedMaxAppCacheSize(long j, long j2, WebStorage.QuotaUpdater quotaUpdater) {
-                    if (AdvancedWebView.this.qbp != null) {
-                        AdvancedWebView.this.qbp.onReachedMaxAppCacheSize(j, j2, quotaUpdater);
+                    if (AdvancedWebView.this.qbq != null) {
+                        AdvancedWebView.this.qbq.onReachedMaxAppCacheSize(j, j2, quotaUpdater);
                     } else {
                         super.onReachedMaxAppCacheSize(j, j2, quotaUpdater);
                     }
@@ -668,17 +668,17 @@ public class AdvancedWebView extends WebView {
     @Override // android.webkit.WebView
     public void loadUrl(String str, Map<String, String> map) {
         if (map == null) {
-            map = this.pZz;
-        } else if (this.pZz.size() > 0) {
-            map.putAll(this.pZz);
+            map = this.pZA;
+        } else if (this.pZA.size() > 0) {
+            map.putAll(this.pZA);
         }
         super.loadUrl(str, map);
     }
 
     @Override // android.webkit.WebView
     public void loadUrl(String str) {
-        if (this.pZz.size() > 0) {
-            super.loadUrl(str, this.pZz);
+        if (this.pZA.size() > 0) {
+            super.loadUrl(str, this.pZA);
         } else {
             super.loadUrl(str);
         }
@@ -688,8 +688,8 @@ public class AdvancedWebView extends WebView {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public final boolean aaC(String str) {
-        if (this.pZM.size() == 0) {
+    public final boolean aaD(String str) {
+        if (this.pZN.size() == 0) {
             return true;
         }
         Uri parse = Uri.parse(str);
@@ -697,7 +697,7 @@ public class AdvancedWebView extends WebView {
         if (host != null && host.matches("^[a-zA-Z0-9._!~*')(;:&=+$,%\\[\\]-]*$")) {
             String userInfo = parse.getUserInfo();
             if (userInfo == null || userInfo.matches("^[a-zA-Z0-9._!~*')(;:&=+$,%-]*$")) {
-                for (String str2 : this.pZM) {
+                for (String str2 : this.pZN) {
                     if (host.equals(str2) || host.endsWith(".".concat(String.valueOf(str2)))) {
                         return true;
                     }
@@ -712,11 +712,11 @@ public class AdvancedWebView extends WebView {
     }
 
     protected final void eGz() {
-        this.pZe = System.currentTimeMillis();
+        this.pZf = System.currentTimeMillis();
     }
 
     protected final boolean java() {
-        return this.pZe + 500 >= System.currentTimeMillis();
+        return this.pZf + 500 >= System.currentTimeMillis();
     }
 
     protected static String getLanguageIso3() {
@@ -730,104 +730,104 @@ public class AdvancedWebView extends WebView {
     /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:77:0x01da -> B:5:0x0012). Please submit an issue!!! */
     protected String getFileUploadPromptLabel() {
         if (this.f82java.equals("zho")) {
-            return aaG("6YCJ5oup5LiA5Liq5paH5Lu2");
+            return aaH("6YCJ5oup5LiA5Liq5paH5Lu2");
         } else if (this.f82java.equals("spa")) {
-            return aaG("RWxpamEgdW4gYXJjaGl2bw==");
+            return aaH("RWxpamEgdW4gYXJjaGl2bw==");
         } else {
             if (this.f82java.equals("hin")) {
-                return aaG("4KSP4KSVIOCkq+CkvOCkvuCkh+CksiDgpJrgpYHgpKjgpYfgpII=");
+                return aaH("4KSP4KSVIOCkq+CkvOCkvuCkh+CksiDgpJrgpYHgpKjgpYfgpII=");
             }
             if (this.f82java.equals("ben")) {
-                return aaG("4KaP4KaV4Kaf4Ka/IOCmq+CmvuCmh+CmsiDgpqjgpr/gprDgp43gpqzgpr7gpprgpqg=");
+                return aaH("4KaP4KaV4Kaf4Ka/IOCmq+CmvuCmh+CmsiDgpqjgpr/gprDgp43gpqzgpr7gpprgpqg=");
             }
             if (this.f82java.equals("ara")) {
-                return aaG("2KfYrtiq2YrYp9ixINmF2YTZgSDZiNin2K3Yrw==");
+                return aaH("2KfYrtiq2YrYp9ixINmF2YTZgSDZiNin2K3Yrw==");
             }
             if (this.f82java.equals("por")) {
-                return aaG("RXNjb2xoYSB1bSBhcnF1aXZv");
+                return aaH("RXNjb2xoYSB1bSBhcnF1aXZv");
             }
             if (this.f82java.equals("rus")) {
-                return aaG("0JLRi9Cx0LXRgNC40YLQtSDQvtC00LjQvSDRhNCw0LnQuw==");
+                return aaH("0JLRi9Cx0LXRgNC40YLQtSDQvtC00LjQvSDRhNCw0LnQuw==");
             }
             if (this.f82java.equals("jpn")) {
-                return aaG("MeODleOCoeOCpOODq+OCkumBuOaKnuOBl+OBpuOBj+OBoOOBleOBhA==");
+                return aaH("MeODleOCoeOCpOODq+OCkumBuOaKnuOBl+OBpuOBj+OBoOOBleOBhA==");
             }
             if (this.f82java.equals("pan")) {
-                return aaG("4KiH4Kmx4KiVIOCoq+CovuCoh+CosiDgqJrgqYHgqKPgqYs=");
+                return aaH("4KiH4Kmx4KiVIOCoq+CovuCoh+CosiDgqJrgqYHgqKPgqYs=");
             }
             if (this.f82java.equals("deu")) {
-                return aaG("V8OkaGxlIGVpbmUgRGF0ZWk=");
+                return aaH("V8OkaGxlIGVpbmUgRGF0ZWk=");
             }
             if (this.f82java.equals("jav")) {
-                return aaG("UGlsaWggc2lqaSBiZXJrYXM=");
+                return aaH("UGlsaWggc2lqaSBiZXJrYXM=");
             }
             if (this.f82java.equals("msa")) {
-                return aaG("UGlsaWggc2F0dSBmYWls");
+                return aaH("UGlsaWggc2F0dSBmYWls");
             }
             if (this.f82java.equals("tel")) {
-                return aaG("4LCS4LCVIOCwq+CxhuCxluCwsuCxjeCwqOCxgSDgsI7gsILgsJrgsYHgsJXgsYvgsILgsKHgsL8=");
+                return aaH("4LCS4LCVIOCwq+CxhuCxluCwsuCxjeCwqOCxgSDgsI7gsILgsJrgsYHgsJXgsYvgsILgsKHgsL8=");
             }
             if (this.f82java.equals("vie")) {
-                return aaG("Q2jhu41uIG3hu5l0IHThuq1wIHRpbg==");
+                return aaH("Q2jhu41uIG3hu5l0IHThuq1wIHRpbg==");
             }
             if (this.f82java.equals("kor")) {
-                return aaG("7ZWY64KY7J2YIO2MjOydvOydhCDshKDtg50=");
+                return aaH("7ZWY64KY7J2YIO2MjOydvOydhCDshKDtg50=");
             }
             if (this.f82java.equals("fra")) {
-                return aaG("Q2hvaXNpc3NleiB1biBmaWNoaWVy");
+                return aaH("Q2hvaXNpc3NleiB1biBmaWNoaWVy");
             }
             if (this.f82java.equals("mar")) {
-                return aaG("4KSr4KS+4KSH4KSyIOCkqOCkv+CkteCkoeCkvg==");
+                return aaH("4KSr4KS+4KSH4KSyIOCkqOCkv+CkteCkoeCkvg==");
             }
             if (this.f82java.equals("tam")) {
-                return aaG("4K6S4K6w4K+BIOCuleCvh+CuvuCuquCvjeCuquCviCDgrqTgr4fgrrDgr43grrXgr4E=");
+                return aaH("4K6S4K6w4K+BIOCuleCvh+CuvuCuquCvjeCuquCviCDgrqTgr4fgrrDgr43grrXgr4E=");
             }
             if (this.f82java.equals("urd")) {
-                return aaG("2KfbjNqpINmB2KfYptmEINmF24zauiDYs9uSINin2YbYqtiu2KfYqCDaqdix24zaug==");
+                return aaH("2KfbjNqpINmB2KfYptmEINmF24zauiDYs9uSINin2YbYqtiu2KfYqCDaqdix24zaug==");
             }
             if (this.f82java.equals("fas")) {
-                return aaG("2LHYpyDYp9mG2KrYrtin2Kgg2qnZhtuM2K8g24zaqSDZgdin24zZhA==");
+                return aaH("2LHYpyDYp9mG2KrYrtin2Kgg2qnZhtuM2K8g24zaqSDZgdin24zZhA==");
             }
             if (this.f82java.equals("tur")) {
-                return aaG("QmlyIGRvc3lhIHNlw6dpbg==");
+                return aaH("QmlyIGRvc3lhIHNlw6dpbg==");
             }
             if (this.f82java.equals("ita")) {
-                return aaG("U2NlZ2xpIHVuIGZpbGU=");
+                return aaH("U2NlZ2xpIHVuIGZpbGU=");
             }
             if (this.f82java.equals("tha")) {
-                return aaG("4LmA4Lil4Li34Lit4LiB4LmE4Lif4Lil4LmM4Lir4LiZ4Li24LmI4LiH");
+                return aaH("4LmA4Lil4Li34Lit4LiB4LmE4Lif4Lil4LmM4Lir4LiZ4Li24LmI4LiH");
             }
             if (this.f82java.equals("guj")) {
-                return aaG("4KqP4KqVIOCqq+CqvuCqh+CqsuCqqOCrhyDgqqrgqrjgqoLgqqY=");
+                return aaH("4KqP4KqVIOCqq+CqvuCqh+CqsuCqqOCrhyDgqqrgqrjgqoLgqqY=");
             }
             return "Choose a file";
         }
     }
 
-    private static String aaG(String str) {
+    private static String aaH(String str) {
         return new String(Base64.decode(str, 0), "UTF-8");
     }
 
     @SuppressLint({"NewApi"})
     protected final void a(ValueCallback<Uri[]> valueCallback, boolean z) {
-        if (this.qbm != null) {
-            this.qbm.onReceiveValue(null);
-        }
-        this.qbm = null;
         if (this.qbn != null) {
             this.qbn.onReceiveValue(null);
         }
-        this.qbn = valueCallback;
+        this.qbn = null;
+        if (this.qbo != null) {
+            this.qbo.onReceiveValue(null);
+        }
+        this.qbo = valueCallback;
         Intent intent = new Intent("android.intent.action.GET_CONTENT");
         intent.addCategory("android.intent.category.OPENABLE");
         if (z && Build.VERSION.SDK_INT >= 18) {
             intent.putExtra("android.intent.extra.ALLOW_MULTIPLE", true);
         }
         intent.setType(this.f81case);
-        if (this.qbk != null && this.qbk.get() != null && Build.VERSION.SDK_INT >= 11) {
-            this.qbk.get().startActivityForResult(Intent.createChooser(intent, getFileUploadPromptLabel()), this.java);
-        } else if (this.pZC != null && this.pZC.get() != null) {
-            this.pZC.get().startActivityForResult(Intent.createChooser(intent, getFileUploadPromptLabel()), this.java);
+        if (this.qbl != null && this.qbl.get() != null && Build.VERSION.SDK_INT >= 11) {
+            this.qbl.get().startActivityForResult(Intent.createChooser(intent, getFileUploadPromptLabel()), this.java);
+        } else if (this.pZD != null && this.pZD.get() != null) {
+            this.pZD.get().startActivityForResult(Intent.createChooser(intent, getFileUploadPromptLabel()), this.java);
         }
     }
 }

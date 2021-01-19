@@ -422,14 +422,14 @@ public class e {
 
     /* JADX INFO: Access modifiers changed from: private */
     public boolean fQ(String str, String str2) {
-        Bitmap Ob = com.baidu.tieba.newfaceshop.facemake.b.Ob(str);
-        if (Ob == null) {
+        Bitmap Oc = com.baidu.tieba.newfaceshop.facemake.b.Oc(str);
+        if (Oc == null) {
             BdLog.e("cover bitmap null");
             return false;
-        } else if (TextUtils.isEmpty(com.baidu.tieba.newfaceshop.b.saveFileAsPNG(str2, "panel.png", Ob, 60))) {
+        } else if (TextUtils.isEmpty(com.baidu.tieba.newfaceshop.b.saveFileAsPNG(str2, "panel.png", Oc, 60))) {
             BdLog.e("fail to save Panel");
             return false;
-        } else if (TextUtils.isEmpty(com.baidu.tieba.newfaceshop.b.saveFileAsPNG(str2, "panel_momo.png", Ob, 60))) {
+        } else if (TextUtils.isEmpty(com.baidu.tieba.newfaceshop.b.saveFileAsPNG(str2, "panel_momo.png", Oc, 60))) {
             BdLog.e("fail to save PanelMomo");
             return false;
         } else {

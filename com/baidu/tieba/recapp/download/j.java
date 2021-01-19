@@ -57,7 +57,7 @@ public class j implements com.baidu.tbadk.download.c {
             NotificationHelper.cancelNotification(TbadkCoreApplication.getInst().getApp(), downloadData.getNotifyId());
             i.dBq().b(downloadData);
             String path = downloadData.getPath();
-            com.baidu.tieba.ad.download.b.a.cop.get().bLi().onSuccess(downloadData.getId(), TextUtils.isEmpty(path) ? i.dBq().Qw(downloadData.getId()) : path);
+            com.baidu.tieba.ad.download.b.a.cop.get().bLi().onSuccess(downloadData.getId(), TextUtils.isEmpty(path) ? i.dBq().Qx(downloadData.getId()) : path);
             if (downloadData.isNeedInvokeApk()) {
                 UtilHelper.install_apk(TbadkCoreApplication.getInst().getApp(), downloadData.getId().replace(".", PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS) + ".apk");
             }

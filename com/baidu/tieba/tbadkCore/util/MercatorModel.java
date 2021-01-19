@@ -17,24 +17,24 @@ import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class MercatorModel {
     private final a.InterfaceC0015a gGO;
-    private boolean npW;
+    private boolean npX;
 
     private MercatorModel() {
-        this.npW = false;
+        this.npX = false;
         this.gGO = new a.InterfaceC0015a() { // from class: com.baidu.tieba.tbadkCore.util.MercatorModel.1
             @Override // com.baidu.adp.lib.c.a.InterfaceC0015a
             public void onLocationGeted(int i, String str, Address address) {
                 TbadkCoreApplication inst = TbadkCoreApplication.getInst();
-                if (i == 0 && address != null && inst != null && !MercatorModel.this.npW) {
-                    MercatorModel.this.npW = true;
+                if (i == 0 && address != null && inst != null && !MercatorModel.this.npX) {
+                    MercatorModel.this.npX = true;
                     String valueOf = String.valueOf(address.getLatitude());
                     String valueOf2 = String.valueOf(address.getLongitude());
                     String locString = BDLocManager.getInstance(inst).getLocString();
                     String version = TbConfig.getVersion();
                     String cuid = TbadkCoreApplication.getInst().getCuid();
                     String clientIP = UtilHelper.getClientIP();
-                    com.baidu.tieba.recapp.c.a.dBW().QI(valueOf);
-                    com.baidu.tieba.recapp.c.a.dBW().QH(valueOf2);
+                    com.baidu.tieba.recapp.c.a.dBW().QJ(valueOf);
+                    com.baidu.tieba.recapp.c.a.dBW().QI(valueOf2);
                     com.baidu.tieba.recapp.c.a.dBW().hw(System.currentTimeMillis());
                     HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_GET_MERCATOR);
                     httpMessage.addParam("cuid", cuid);
@@ -44,7 +44,7 @@ public class MercatorModel {
                     httpMessage.addParam("longitude", valueOf2);
                     httpMessage.addParam("latitude", valueOf);
                     MessageManager.getInstance().sendMessage(httpMessage);
-                    MercatorModel.this.npW = false;
+                    MercatorModel.this.npX = false;
                 }
             }
         };
@@ -58,13 +58,13 @@ public class MercatorModel {
     }
 
     public static MercatorModel dMr() {
-        return a.nqd;
+        return a.nqe;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static class a {
-        private static final MercatorModel nqd = new MercatorModel();
+        private static final MercatorModel nqe = new MercatorModel();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -98,41 +98,41 @@ public class MercatorModel {
 
     /* loaded from: classes.dex */
     public static class MercatorData extends OrmObject {
-        String npY;
         String npZ;
         String nqa;
-        int nqb;
-        long nqc;
+        String nqb;
+        int nqc;
+        long nqd;
 
         public MercatorData() {
         }
 
         public MercatorData(String str, String str2, String str3, int i, long j) {
-            this.npY = str;
-            this.npZ = str2;
-            this.nqa = str3;
-            this.nqb = i;
-            this.nqc = j;
+            this.npZ = str;
+            this.nqa = str2;
+            this.nqb = str3;
+            this.nqc = i;
+            this.nqd = j;
         }
 
         public String dMs() {
-            return this.npY;
-        }
-
-        public String dMt() {
             return this.npZ;
         }
 
-        public String dMu() {
+        public String dMt() {
             return this.nqa;
         }
 
-        public int dMv() {
+        public String dMu() {
             return this.nqb;
         }
 
-        public long dMw() {
+        public int dMv() {
             return this.nqc;
+        }
+
+        public long dMw() {
+            return this.nqd;
         }
     }
 }

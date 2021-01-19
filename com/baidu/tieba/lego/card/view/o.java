@@ -101,14 +101,14 @@ public class o {
             if (o.this.gxn != null) {
                 o.this.kVN.dad();
                 if (o.this.kXm == null || o.this.kXm.daC() == null || !o.this.kXm.daC().equals(o.this.mVideoUrl) || o.this.kXm.daD() <= 0) {
-                    if (o.this.kXm != null && o.this.kXm.MT(o.this.mVideoUrl) > 0) {
-                        o.this.gxn.seekTo(o.this.kXm.MT(o.this.mVideoUrl));
+                    if (o.this.kXm != null && o.this.kXm.MU(o.this.mVideoUrl) > 0) {
+                        o.this.gxn.seekTo(o.this.kXm.MU(o.this.mVideoUrl));
                         return;
                     }
                     return;
                 }
                 o.this.gxn.seekTo(o.this.kXm.daD());
-                o.this.kXm.MS(null);
+                o.this.kXm.MT(null);
                 o.this.kXm.DN(0);
             }
         }

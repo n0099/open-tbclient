@@ -19,7 +19,7 @@ public class b extends BaseAdapter {
     private TbPageContext mPageContext;
     private String mRoomId;
     private int mType;
-    private a ofI;
+    private a ofJ;
 
     /* loaded from: classes10.dex */
     public interface a {
@@ -72,17 +72,17 @@ public class b extends BaseAdapter {
         if (view == null) {
             view = LayoutInflater.from(viewGroup.getContext()).inflate(a.g.yuyin_sdk_banned_post_list_item, viewGroup, false);
             C0910b c0910b2 = new C0910b();
-            c0910b2.ofK = (BannedPostItemView) view.findViewById(a.f.item);
+            c0910b2.ofL = (BannedPostItemView) view.findViewById(a.f.item);
             view.setTag(c0910b2);
             c0910b = c0910b2;
         } else {
             c0910b = (C0910b) view.getTag();
         }
         if (c0910b != null && getItem(i) != null && (item = getItem(i)) != null) {
-            c0910b.ofK.setData(item, this.mLiveId, this.mGroupId, this.mRoomId, this.mType);
-            c0910b.ofK.setCallBack(new BannedPostItemView.a() { // from class: com.baidu.tieba.yuyinala.charm.bannedpost.b.1
+            c0910b.ofL.setData(item, this.mLiveId, this.mGroupId, this.mRoomId, this.mType);
+            c0910b.ofL.setCallBack(new BannedPostItemView.a() { // from class: com.baidu.tieba.yuyinala.charm.bannedpost.b.1
                 @Override // com.baidu.tieba.yuyinala.charm.bannedpost.BannedPostItemView.a
-                public void UD(String str) {
+                public void UE(String str) {
                     Iterator it = b.this.eTF.iterator();
                     while (it.hasNext()) {
                         a.C0909a c0909a = (a.C0909a) it.next();
@@ -91,8 +91,8 @@ public class b extends BaseAdapter {
                         }
                     }
                     b.this.notifyDataSetChanged();
-                    if ((b.this.eTF == null || b.this.eTF.size() == 0) && b.this.ofI != null) {
-                        b.this.ofI.bQU();
+                    if ((b.this.eTF == null || b.this.eTF.size() == 0) && b.this.ofJ != null) {
+                        b.this.ofJ.bQU();
                     }
                 }
             });
@@ -104,13 +104,13 @@ public class b extends BaseAdapter {
     /* renamed from: com.baidu.tieba.yuyinala.charm.bannedpost.b$b  reason: collision with other inner class name */
     /* loaded from: classes10.dex */
     private class C0910b {
-        private BannedPostItemView ofK;
+        private BannedPostItemView ofL;
 
         private C0910b() {
         }
     }
 
     public void a(a aVar) {
-        this.ofI = aVar;
+        this.ofJ = aVar;
     }
 }

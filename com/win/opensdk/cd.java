@@ -33,30 +33,30 @@ public final class cd {
 
     /* renamed from: java  reason: collision with other field name */
     private String f48java;
-    Context pYI;
-    public PBNativeListener pYR;
-    public ad pZR;
-    public Info pZd;
-    bj pZf;
-    float qaJ;
+    Context pYJ;
+    public PBNativeListener pYS;
+    public ad pZS;
+    public Info pZe;
+    bj pZg;
     float qaK;
-    private View qaT;
-    private List<View> pZM = Collections.synchronizedList(new ArrayList());
-    long pZe = 0;
-    private ae<Info> pZO = new ae<Info>() { // from class: com.win.opensdk.cd.1
+    float qaL;
+    private View qaU;
+    private List<View> pZN = Collections.synchronizedList(new ArrayList());
+    long pZf = 0;
+    private ae<Info> pZP = new ae<Info>() { // from class: com.win.opensdk.cd.1
         /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
         @Override // com.win.opensdk.ae
         public final /* synthetic */ void bH(Info info) {
             Info info2 = info;
             try {
-                cd.this.pZd = info2;
-                if (cd.this.pYR != null) {
+                cd.this.pZe = info2;
+                if (cd.this.pYS != null) {
                     if (info2 != null && info2.getType() == 11) {
                         if (cd.this.m73java()) {
-                            cd.this.pYR.onLoaded();
+                            cd.this.pYS.onLoaded();
                         }
                     } else {
-                        cd.this.pYR.onFail(PBError.PID_TYPE_ERROR);
+                        cd.this.pYS.onFail(PBError.PID_TYPE_ERROR);
                     }
                 }
             } catch (Exception e) {
@@ -65,49 +65,49 @@ public final class cd {
 
         @Override // com.win.opensdk.ae
         public final void b(PBError pBError) {
-            if (cd.this.pYR != null) {
-                cd.this.pYR.onFail(pBError);
+            if (cd.this.pYS != null) {
+                cd.this.pYS.onFail(pBError);
             }
         }
     };
-    boolean pYL = false;
-    long pZK = 0;
+    boolean pYM = false;
+    long pZL = 0;
 
     public cd(Context context, String str) {
-        this.pYI = context;
+        this.pYJ = context;
         this.f48java = str;
-        this.pZR = new ad(context, str, e.f13745a);
-        this.pZR.pZO = this.pZO;
-        this.pZf = new bj(context);
+        this.pZS = new ad(context, str, e.f13745a);
+        this.pZS.pZP = this.pZP;
+        this.pZg = new bj(context);
     }
 
     /* renamed from: java  reason: collision with other method in class */
     public final boolean m73java() {
-        return this.pZd != null && this.pZd.isEffective();
+        return this.pZe != null && this.pZe.isEffective();
     }
 
     private String java() {
-        return m73java() ? this.pZd.getLoad() : "";
+        return m73java() ? this.pZe.getLoad() : "";
     }
 
     public final void a(final View view, PBMediaView pBMediaView, List<View> list) {
         if (view != null && list != null && list.size() != 0 && m73java()) {
-            this.pZe = 0L;
-            if (this.qaT != null) {
+            this.pZf = 0L;
+            if (this.qaU != null) {
                 eGz();
             }
-            this.qaT = view;
+            this.qaU = view;
             hg(list);
             a(pBMediaView);
-            w.iK(this.pYI).a(new x(this.pZd)).eGz();
-            if (this.pYR != null) {
-                this.pYR.onDisplayed();
+            w.iK(this.pYJ).a(new x(this.pZe)).eGz();
+            if (this.pYS != null) {
+                this.pYS.onDisplayed();
             }
-            if (this.pZd != null) {
-                az.k(this.pYI, this.pZd.getId() + ":" + System.currentTimeMillis(), false);
+            if (this.pZe != null) {
+                az.k(this.pYJ, this.pZe.getId() + ":" + System.currentTimeMillis(), false);
             }
-            z.b(this.pZd);
-            new ce().a(view, this.pZd, new ce.a() { // from class: com.win.opensdk.cd.2
+            z.b(this.pZe);
+            new ce().a(view, this.pZe, new ce.a() { // from class: com.win.opensdk.cd.2
                 @Override // com.win.opensdk.ce.a
                 public final void eGz() {
                     if (view != null) {
@@ -117,13 +117,13 @@ public final class cd {
                                 try {
                                     View rootView = view.getRootView();
                                     if (rootView != null && rootView.getVisibility() == 0) {
-                                        w.iK(cd.this.pYI).a(new x(cd.this.pZd), view.getWidth(), view.getHeight()).eGz();
+                                        w.iK(cd.this.pYJ).a(new x(cd.this.pZe), view.getWidth(), view.getHeight()).eGz();
                                     }
                                 } catch (Exception e) {
                                     e.printStackTrace();
                                 }
                             }
-                        }, cd.this.pZd.getSpet());
+                        }, cd.this.pZe.getSpet());
                     }
                 }
             });
@@ -135,18 +135,18 @@ public final class cd {
             try {
                 if (pBMediaView.getHtmlWebView() != null) {
                     bw htmlWebView = pBMediaView.getHtmlWebView();
-                    htmlWebView.a(java(), this.pZd);
-                    if (this.pZd.isNat()) {
-                        htmlWebView.qal.setOnTouchListener(new View.OnTouchListener() { // from class: com.win.opensdk.cd.3
+                    htmlWebView.a(java(), this.pZe);
+                    if (this.pZe.isNat()) {
+                        htmlWebView.qam.setOnTouchListener(new View.OnTouchListener() { // from class: com.win.opensdk.cd.3
                             /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [298=5] */
                             @Override // android.view.View.OnTouchListener
                             public final boolean onTouch(View view, MotionEvent motionEvent) {
                                 switch (motionEvent.getAction()) {
                                     case 0:
-                                        cd.this.pYL = true;
-                                        cd.this.pZK = System.currentTimeMillis();
-                                        cd.this.qaJ = motionEvent.getX();
-                                        cd.this.qaK = motionEvent.getY();
+                                        cd.this.pYM = true;
+                                        cd.this.pZL = System.currentTimeMillis();
+                                        cd.this.qaK = motionEvent.getX();
+                                        cd.this.qaL = motionEvent.getY();
                                         cd.this.java = (int) motionEvent.getRawX();
                                         cd.this.f47case = (int) motionEvent.getRawY();
                                         cd.this.f45a = System.currentTimeMillis();
@@ -155,12 +155,12 @@ public final class cd {
                                         cd.this.f13739a = (int) motionEvent.getRawX();
                                         cd.this.f13740b = (int) motionEvent.getRawY();
                                         cd.this.f46b = System.currentTimeMillis();
-                                        Math.abs(motionEvent.getX() - cd.this.qaJ);
-                                        Math.abs(motionEvent.getY() - cd.this.qaK);
-                                        if ((System.currentTimeMillis() - cd.this.pZK < 2000) && cd.this.pYL && cd.this.pZd != null && aw.a(cd.this.pZd, cd.this.pZe)) {
-                                            cd.this.pZe = System.currentTimeMillis();
-                                            aw.a(cd.this.pYI, cd.this.pZd.getOpen(), cd.this.pZd, cd.this.pZf);
-                                            w.a a2 = w.iK(cd.this.pYI).a(new x(cd.this.pZd), (String) null);
+                                        Math.abs(motionEvent.getX() - cd.this.qaK);
+                                        Math.abs(motionEvent.getY() - cd.this.qaL);
+                                        if ((System.currentTimeMillis() - cd.this.pZL < 2000) && cd.this.pYM && cd.this.pZe != null && aw.a(cd.this.pZe, cd.this.pZf)) {
+                                            cd.this.pZf = System.currentTimeMillis();
+                                            aw.a(cd.this.pYJ, cd.this.pZe.getOpen(), cd.this.pZe, cd.this.pZg);
+                                            w.a a2 = w.iK(cd.this.pYJ).a(new x(cd.this.pZe), (String) null);
                                             cd cdVar = cd.this;
                                             HashMap hashMap = new HashMap();
                                             hashMap.put("dx", Integer.valueOf(cdVar.java));
@@ -170,9 +170,9 @@ public final class cd {
                                             hashMap.put("uy", Integer.valueOf(cdVar.f13740b));
                                             hashMap.put("uts", Long.valueOf(cdVar.f46b));
                                             a2.hu("desc", hashMap.toString()).eGz();
-                                            z.a(cd.this.pZd);
-                                            if (cd.this.pYR != null) {
-                                                cd.this.pYR.onClicked();
+                                            z.a(cd.this.pZe);
+                                            if (cd.this.pYS != null) {
+                                                cd.this.pYS.onClicked();
                                                 break;
                                             }
                                         }
@@ -182,25 +182,25 @@ public final class cd {
                             }
                         });
                     }
-                    htmlWebView.pZw = new bo() { // from class: com.win.opensdk.cd.4
+                    htmlWebView.pZx = new bo() { // from class: com.win.opensdk.cd.4
                         /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [328=4] */
                         @Override // com.win.opensdk.bo
                         public final boolean ht(String str, String str2) {
-                            if (aw.a(cd.this.pZd, cd.this.pZe)) {
-                                cd.this.pZe = System.currentTimeMillis();
-                                aw.a(cd.this.pYI, str, cd.this.pZd, cd.this.pZf);
-                                w.iK(cd.this.pYI).a(new x(cd.this.pZd), str).hu("desc", str2).eGz();
-                                if (cd.this.pYR != null) {
-                                    cd.this.pYR.onClicked();
+                            if (aw.a(cd.this.pZe, cd.this.pZf)) {
+                                cd.this.pZf = System.currentTimeMillis();
+                                aw.a(cd.this.pYJ, str, cd.this.pZe, cd.this.pZg);
+                                w.iK(cd.this.pYJ).a(new x(cd.this.pZe), str).hu("desc", str2).eGz();
+                                if (cd.this.pYS != null) {
+                                    cd.this.pYS.onClicked();
                                 }
-                                z.a(cd.this.pZd);
+                                z.a(cd.this.pZe);
                                 return true;
                             }
                             return true;
                         }
 
                         @Override // com.win.opensdk.bo
-                        public final void aaD(String str) {
+                        public final void aaE(String str) {
                         }
                     };
                 }
@@ -214,8 +214,8 @@ public final class cd {
             a aVar = new a();
             for (View view : list) {
                 if (view != null && !(view instanceof PBMediaView)) {
-                    if (!this.pZM.contains(view)) {
-                        this.pZM.add(view);
+                    if (!this.pZN.contains(view)) {
+                        this.pZN.add(view);
                     }
                     view.setOnClickListener(aVar);
                     view.setOnTouchListener(aVar);
@@ -258,8 +258,8 @@ public final class cd {
         /* renamed from: case  reason: not valid java name */
         private int f49case;
         private int java;
-        private long pZK;
-        private long pZe;
+        private long pZL;
+        private long pZf;
 
         a() {
         }
@@ -275,29 +275,29 @@ public final class cd {
                 case 0:
                     this.java = (int) motionEvent.getRawX();
                     this.f49case = (int) motionEvent.getRawY();
-                    this.pZe = System.currentTimeMillis();
+                    this.pZf = System.currentTimeMillis();
                     return false;
                 case 1:
                     this.f13741a = (int) motionEvent.getRawX();
                     this.f13742b = (int) motionEvent.getRawY();
-                    this.pZK = System.currentTimeMillis();
-                    if (cd.this.pZd == null || !aw.a(cd.this.pZd, cd.this.pZe)) {
+                    this.pZL = System.currentTimeMillis();
+                    if (cd.this.pZe == null || !aw.a(cd.this.pZe, cd.this.pZf)) {
                         return false;
                     }
-                    cd.this.pZe = System.currentTimeMillis();
-                    aw.a(cd.this.pYI, cd.this.pZd.getOpen(), cd.this.pZd, cd.this.pZf);
-                    w.a a2 = w.iK(cd.this.pYI).a(new x(cd.this.pZd), (String) null);
+                    cd.this.pZf = System.currentTimeMillis();
+                    aw.a(cd.this.pYJ, cd.this.pZe.getOpen(), cd.this.pZe, cd.this.pZg);
+                    w.a a2 = w.iK(cd.this.pYJ).a(new x(cd.this.pZe), (String) null);
                     HashMap hashMap = new HashMap();
                     hashMap.put("dx", Integer.valueOf(this.java));
                     hashMap.put("dy", Integer.valueOf(this.f49case));
-                    hashMap.put("dts", Long.valueOf(this.pZe));
+                    hashMap.put("dts", Long.valueOf(this.pZf));
                     hashMap.put("ux", Integer.valueOf(this.f13741a));
                     hashMap.put("uy", Integer.valueOf(this.f13742b));
-                    hashMap.put("uts", Long.valueOf(this.pZK));
+                    hashMap.put("uts", Long.valueOf(this.pZL));
                     a2.hu("desc", hashMap.toString()).eGz();
-                    z.a(cd.this.pZd);
-                    if (cd.this.pYR != null) {
-                        cd.this.pYR.onClicked();
+                    z.a(cd.this.pZe);
+                    if (cd.this.pYS != null) {
+                        cd.this.pYS.onClicked();
                         return false;
                     }
                     return false;
@@ -309,14 +309,14 @@ public final class cd {
 
     public final void eGz() {
         try {
-            for (View view : this.pZM) {
+            for (View view : this.pZN) {
                 if (view != null) {
                     view.setOnClickListener(null);
                 }
             }
-            this.pZM.clear();
-            if (this.qaT != null) {
-                this.qaT = null;
+            this.pZN.clear();
+            if (this.qaU != null) {
+                this.qaU = null;
             }
         } catch (Exception e) {
         }

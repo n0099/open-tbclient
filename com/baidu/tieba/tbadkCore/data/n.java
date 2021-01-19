@@ -5,6 +5,7 @@ public class n {
     private boolean nmG = false;
     private boolean nmH = false;
     private boolean nmI = false;
+    public final long nmJ = System.currentTimeMillis();
 
     public n(Object obj) {
         this.nmF = obj;
@@ -40,5 +41,9 @@ public class n {
 
     public void xY(boolean z) {
         this.nmI = z;
+    }
+
+    public boolean isValid() {
+        return System.currentTimeMillis() - this.nmJ < 1020000;
     }
 }

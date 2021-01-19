@@ -21,21 +21,21 @@ final class u extends com.google.a.b.a.a.a.e {
         switch (i) {
             case -5:
                 Log.e("ARCore-InstallService", "The device is not supported.");
-                this.f7868a.pHJ.a(ArCoreApk.Availability.UNSUPPORTED_DEVICE_NOT_CAPABLE);
+                this.f7868a.pHK.a(ArCoreApk.Availability.UNSUPPORTED_DEVICE_NOT_CAPABLE);
                 return;
             case -4:
             case -2:
             case -1:
             default:
                 Log.e("ARCore-InstallService", new StringBuilder(33).append("requestInfo returned: ").append(i).toString());
-                this.f7868a.pHJ.a(ArCoreApk.Availability.UNKNOWN_ERROR);
+                this.f7868a.pHK.a(ArCoreApk.Availability.UNKNOWN_ERROR);
                 return;
             case -3:
                 Log.e("ARCore-InstallService", "The Google Play application must be updated.");
-                this.f7868a.pHJ.a(ArCoreApk.Availability.UNKNOWN_ERROR);
+                this.f7868a.pHK.a(ArCoreApk.Availability.UNKNOWN_ERROR);
                 return;
             case 0:
-                this.f7868a.pHJ.a(ArCoreApk.Availability.SUPPORTED_NOT_INSTALLED);
+                this.f7868a.pHK.a(ArCoreApk.Availability.SUPPORTED_NOT_INSTALLED);
                 return;
         }
     }

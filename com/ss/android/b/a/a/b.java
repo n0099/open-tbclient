@@ -20,7 +20,7 @@ public class b implements com.ss.android.a.a.b.b {
     private boolean k;
     private boolean l;
     private String m;
-    private JSONObject pmw;
+    private JSONObject pmx;
 
     public b() {
     }
@@ -39,7 +39,7 @@ public class b implements com.ss.android.a.a.b.b {
         this.k = aVar.k;
         this.l = aVar.l;
         this.m = aVar.m;
-        this.pmw = aVar.pmw;
+        this.pmx = aVar.pmx;
     }
 
     @Override // com.ss.android.a.a.b.b
@@ -109,7 +109,7 @@ public class b implements com.ss.android.a.a.b.b {
 
     @Override // com.ss.android.a.a.b.b
     public JSONObject eBD() {
-        return this.pmw;
+        return this.pmx;
     }
 
     /* loaded from: classes4.dex */
@@ -131,44 +131,44 @@ public class b implements com.ss.android.a.a.b.b {
         private boolean k = true;
         private boolean l = false;
         private String m;
-        private JSONObject pmw;
+        private JSONObject pmx;
 
-        public a Zl(String str) {
+        public a Zm(String str) {
             this.f12914a = str;
             return this;
         }
 
-        public a Zm(String str) {
+        public a Zn(String str) {
             this.f12915b = str;
             return this;
         }
 
-        public a Zn(String str) {
+        public a Zo(String str) {
             this.d = str;
             return this;
         }
 
-        public a Zo(String str) {
+        public a Zp(String str) {
             this.e = str;
             return this;
         }
 
-        public a Zp(String str) {
+        public a Zq(String str) {
             this.f = str;
             return this;
         }
 
-        public a Zq(String str) {
+        public a Zr(String str) {
             this.g = str;
             return this;
         }
 
         @Deprecated
-        public a Zr(String str) {
+        public a Zs(String str) {
             return this;
         }
 
-        public a Zs(String str) {
+        public a Zt(String str) {
             this.h = str;
             return this;
         }
@@ -193,7 +193,7 @@ public class b implements com.ss.android.a.a.b.b {
             return this;
         }
 
-        public a Zt(String str) {
+        public a Zu(String str) {
             this.m = str;
             return this;
         }

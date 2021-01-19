@@ -17,21 +17,21 @@ public class p extends d {
     public View mContentView;
     public Context mContext;
     public View mConvertView;
-    public DarkImageView oOU;
-    public TextView oOV;
+    public DarkImageView oOV;
     public TextView oOW;
+    public TextView oOX;
 
     public p(Context context, LayoutInflater layoutInflater) {
         this.mContext = context;
         this.mConvertView = layoutInflater.inflate(a.g.bd_im_chating_receive_shared_item, (ViewGroup) null);
-        this.oNI = (TextView) this.mConvertView.findViewById(a.f.bd_im_chating_time_txt);
-        this.oNL = (ImageView) this.mConvertView.findViewById(a.f.bd_im_headview);
+        this.oNJ = (TextView) this.mConvertView.findViewById(a.f.bd_im_chating_time_txt);
+        this.oNM = (ImageView) this.mConvertView.findViewById(a.f.bd_im_headview);
         this.jjc = (TextView) this.mConvertView.findViewById(a.f.bd_im_user_name);
         this.moR = (TextView) this.mConvertView.findViewById(a.f.bd_im_user_agetime);
-        this.oNM = (TextView) this.mConvertView.findViewById(a.f.bd_im_user_constellation);
-        this.oOU = (DarkImageView) this.mConvertView.findViewById(a.f.bd_im_chat_shared_cover);
-        this.oOW = (TextView) this.mConvertView.findViewById(a.f.bd_im_chat_shared_title);
-        this.oOV = (TextView) this.mConvertView.findViewById(a.f.bd_im_chat_shared_content);
+        this.oNN = (TextView) this.mConvertView.findViewById(a.f.bd_im_user_constellation);
+        this.oOV = (DarkImageView) this.mConvertView.findViewById(a.f.bd_im_chat_shared_cover);
+        this.oOX = (TextView) this.mConvertView.findViewById(a.f.bd_im_chat_shared_title);
+        this.oOW = (TextView) this.mConvertView.findViewById(a.f.bd_im_chat_shared_content);
         this.mContentView = this.mConvertView.findViewById(a.f.bd_im_chating_msg_content_layout);
         this.mConvertView.setTag(this);
     }
@@ -59,9 +59,9 @@ public class p extends d {
                 covers = signleGraphicTextMsg.getCover();
             }
             com.baidu.yuyinala.privatemessage.implugin.util.b.hC(context);
-            ImageLoader.getInstance().displayImage(covers, this.oOU, com.baidu.yuyinala.privatemessage.implugin.util.b.ejZ());
-            this.oOW.setText(signleGraphicTextMsg.getTitle());
-            this.oOV.setText(signleGraphicTextMsg.getDigest());
+            ImageLoader.getInstance().displayImage(covers, this.oOV, com.baidu.yuyinala.privatemessage.implugin.util.b.ejZ());
+            this.oOX.setText(signleGraphicTextMsg.getTitle());
+            this.oOW.setText(signleGraphicTextMsg.getDigest());
             this.mContentView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.yuyinala.privatemessage.implugin.a.a.p.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {

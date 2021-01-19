@@ -8,9 +8,9 @@ import java.util.concurrent.atomic.AtomicBoolean;
 public class a extends d {
     public a(Context context) {
         super(context);
-        this.oKB = "";
-        this.oKz = false;
-        this.oLb = false;
+        this.oKC = "";
+        this.oKA = false;
+        this.oLc = false;
         this.mStatusCode = -200;
     }
 
@@ -20,9 +20,9 @@ public class a extends d {
         com.b.a.a.a(this.mCtx, new a.b() { // from class: com.baidu.n.a.b.a.1
             @Override // com.b.a.a.b
             public void bl(String str, boolean z) {
-                a.this.oKB = str;
-                a.this.oKz = z;
-                a.this.oLb = true;
+                a.this.oKC = str;
+                a.this.oKA = z;
+                a.this.oLc = true;
                 a.this.mStatusCode = 0;
                 atomicBoolean.set(true);
                 synchronized (obj) {

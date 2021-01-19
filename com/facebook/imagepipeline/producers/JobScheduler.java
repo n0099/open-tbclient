@@ -9,15 +9,15 @@ import javax.annotation.concurrent.GuardedBy;
 /* loaded from: classes3.dex */
 public class JobScheduler {
     private final Executor mExecutor;
-    private final a pBS;
-    private final int pBV;
-    private final Runnable pBT = new Runnable() { // from class: com.facebook.imagepipeline.producers.JobScheduler.1
+    private final a pBT;
+    private final int pBW;
+    private final Runnable pBU = new Runnable() { // from class: com.facebook.imagepipeline.producers.JobScheduler.1
         @Override // java.lang.Runnable
         public void run() {
             JobScheduler.this.exk();
         }
     };
-    private final Runnable pBU = new Runnable() { // from class: com.facebook.imagepipeline.producers.JobScheduler.2
+    private final Runnable pBV = new Runnable() { // from class: com.facebook.imagepipeline.producers.JobScheduler.2
         @Override // java.lang.Runnable
         public void run() {
             JobScheduler.this.exj();
@@ -28,11 +28,11 @@ public class JobScheduler {
     @GuardedBy("this")
     int mStatus = 0;
     @GuardedBy("this")
-    JobState pBW = JobState.IDLE;
-    @GuardedBy("this")
-    long pBX = 0;
+    JobState pBX = JobState.IDLE;
     @GuardedBy("this")
     long pBY = 0;
+    @GuardedBy("this")
+    long pBZ = 0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes3.dex */
@@ -51,20 +51,20 @@ public class JobScheduler {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes3.dex */
     public static class b {
-        private static ScheduledExecutorService pCb;
+        private static ScheduledExecutorService pCc;
 
         static ScheduledExecutorService exn() {
-            if (pCb == null) {
-                pCb = Executors.newSingleThreadScheduledExecutor();
+            if (pCc == null) {
+                pCc = Executors.newSingleThreadScheduledExecutor();
             }
-            return pCb;
+            return pCc;
         }
     }
 
     public JobScheduler(Executor executor, a aVar, int i) {
         this.mExecutor = executor;
-        this.pBS = aVar;
-        this.pBV = i;
+        this.pBT = aVar;
+        this.pBW = i;
     }
 
     public void exh() {
@@ -97,15 +97,15 @@ public class JobScheduler {
         long j = 0;
         synchronized (this) {
             if (f(this.mEncodedImage, this.mStatus)) {
-                switch (this.pBW) {
+                switch (this.pBX) {
                     case IDLE:
-                        j = Math.max(this.pBY + this.pBV, uptimeMillis);
-                        this.pBX = uptimeMillis;
-                        this.pBW = JobState.QUEUED;
+                        j = Math.max(this.pBZ + this.pBW, uptimeMillis);
+                        this.pBY = uptimeMillis;
+                        this.pBX = JobState.QUEUED;
                         z = true;
                         break;
                     case RUNNING:
-                        this.pBW = JobState.RUNNING_AND_PENDING;
+                        this.pBX = JobState.RUNNING_AND_PENDING;
                         break;
                 }
                 if (z) {
@@ -119,15 +119,15 @@ public class JobScheduler {
 
     private void iM(long j) {
         if (j > 0) {
-            b.exn().schedule(this.pBU, j, TimeUnit.MILLISECONDS);
+            b.exn().schedule(this.pBV, j, TimeUnit.MILLISECONDS);
         } else {
-            this.pBU.run();
+            this.pBV.run();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void exj() {
-        this.mExecutor.execute(this.pBT);
+        this.mExecutor.execute(this.pBU);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -140,12 +140,12 @@ public class JobScheduler {
             i = this.mStatus;
             this.mEncodedImage = null;
             this.mStatus = 0;
-            this.pBW = JobState.RUNNING;
-            this.pBY = uptimeMillis;
+            this.pBX = JobState.RUNNING;
+            this.pBZ = uptimeMillis;
         }
         try {
             if (f(eVar, i)) {
-                this.pBS.d(eVar, i);
+                this.pBT.d(eVar, i);
             }
         } finally {
             com.facebook.imagepipeline.f.e.e(eVar);
@@ -158,13 +158,13 @@ public class JobScheduler {
         long j = 0;
         boolean z = false;
         synchronized (this) {
-            if (this.pBW == JobState.RUNNING_AND_PENDING) {
-                j = Math.max(this.pBY + this.pBV, uptimeMillis);
+            if (this.pBX == JobState.RUNNING_AND_PENDING) {
+                j = Math.max(this.pBZ + this.pBW, uptimeMillis);
                 z = true;
-                this.pBX = uptimeMillis;
-                this.pBW = JobState.QUEUED;
+                this.pBY = uptimeMillis;
+                this.pBX = JobState.QUEUED;
             } else {
-                this.pBW = JobState.IDLE;
+                this.pBX = JobState.IDLE;
             }
         }
         if (z) {
@@ -177,6 +177,6 @@ public class JobScheduler {
     }
 
     public synchronized long exm() {
-        return this.pBY - this.pBX;
+        return this.pBZ - this.pBY;
     }
 }

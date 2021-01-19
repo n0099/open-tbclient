@@ -46,15 +46,15 @@ public class al {
         /* renamed from: case  reason: not valid java name */
         String f22case;
         String java;
-        Context pYI;
-        protected r<bh> pZX;
+        Context pYJ;
+        protected r<bh> pZY;
 
         public a(Context context) {
-            this.pYI = context;
+            this.pYJ = context;
         }
 
         public final a a(r<bh> rVar) {
-            this.pZX = rVar;
+            this.pZY = rVar;
             return this;
         }
 
@@ -159,7 +159,7 @@ public class al {
                             }
                         }
                     }
-                    bhVar.pZM = arrayList;
+                    bhVar.pZN = arrayList;
                     return bhVar;
                 }
             } catch (Exception e2) {
@@ -170,13 +170,13 @@ public class al {
     }
 
     static /* synthetic */ void a(final a aVar) {
-        if (TextUtils.isEmpty(aVar.f22case) || aVar.pYI == null || TextUtils.isEmpty(aVar.java)) {
+        if (TextUtils.isEmpty(aVar.f22case) || aVar.pYJ == null || TextUtils.isEmpty(aVar.java)) {
             return;
         }
         ba.D(new Runnable() { // from class: com.win.opensdk.al.1
             @Override // java.lang.Runnable
             public final void run() {
-                HashMap<String, String> iM = ak.iM(a.this.pYI);
+                HashMap<String, String> iM = ak.iM(a.this.pYJ);
                 iM.put("pid", a.this.java);
                 al.a(a.this, iM);
                 al.b(a.this, iM);
@@ -190,29 +190,29 @@ public class al {
                     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
                     @Override // com.win.opensdk.r
                     public final /* synthetic */ void bH(am amVar) {
-                        bh fm = al.fm(amVar.pZY);
-                        if (a.this.pZX != null) {
+                        bh fm = al.fm(amVar.pZZ);
+                        if (a.this.pZY != null) {
                             if (fm == null) {
-                                a.this.pZX.cd(101, "");
+                                a.this.pZY.cd(101, "");
                             } else if (!TextUtils.isEmpty(a.this.java) && a.this.java.equalsIgnoreCase(fm.java)) {
-                                a.this.pZX.bH(fm);
+                                a.this.pZY.bH(fm);
                             } else {
-                                a.this.pZX.cd(2003, "");
+                                a.this.pZY.cd(2003, "");
                             }
                         }
                     }
 
                     @Override // com.win.opensdk.r
                     public final void eGz() {
-                        if (a.this.pZX != null) {
-                            a.this.pZX.eGz();
+                        if (a.this.pZY != null) {
+                            a.this.pZY.eGz();
                         }
                     }
 
                     @Override // com.win.opensdk.r
                     public final void cd(int i, String str2) {
-                        if (a.this.pZX != null) {
-                            a.this.pZX.cd(i, str2);
+                        if (a.this.pZY != null) {
+                            a.this.pZY.cd(i, str2);
                         }
                     }
                 });
@@ -224,22 +224,22 @@ public class al {
         if (!aVar.java.startsWith("602")) {
             return;
         }
-        hashMap.put("lo_timeout", String.valueOf(az.m60a(aVar.pYI)));
+        hashMap.put("lo_timeout", String.valueOf(az.m60a(aVar.pYJ)));
     }
 
     static /* synthetic */ void b(a aVar, HashMap hashMap) {
         try {
-            String[] split = az.f(aVar.pYI).split(",");
+            String[] split = az.f(aVar.pYJ).split(",");
             ArrayList<aa> arrayList = new ArrayList();
             arrayList.clear();
             for (String str : split) {
                 String[] split2 = str.split(":");
                 String str2 = split2[0];
                 String str3 = split2[1];
-                if (System.currentTimeMillis() - Long.parseLong(str3) < az.m68e(aVar.pYI)) {
+                if (System.currentTimeMillis() - Long.parseLong(str3) < az.m68e(aVar.pYJ)) {
                     aa aaVar = new aa();
                     aaVar.java = str2;
-                    aaVar.pZe = Long.parseLong(str3);
+                    aaVar.pZf = Long.parseLong(str3);
                     arrayList.add(aaVar);
                 }
             }
@@ -248,13 +248,13 @@ public class al {
                 String str5 = "";
                 for (aa aaVar2 : arrayList) {
                     str4 = str4 + aaVar2.java + ",";
-                    str5 = str5 + aaVar2.java + ":" + aaVar2.pZe + ",";
+                    str5 = str5 + aaVar2.java + ":" + aaVar2.pZf + ",";
                 }
                 if (!TextUtils.isEmpty(str4)) {
                     hashMap.put("a605", str4.substring(0, str4.length() - 1));
                 }
                 if (!TextUtils.isEmpty(str5)) {
-                    az.k(aVar.pYI, str5.substring(0, str5.length() - 1), true);
+                    az.k(aVar.pYJ, str5.substring(0, str5.length() - 1), true);
                 }
             }
         } catch (Exception e2) {
@@ -264,17 +264,17 @@ public class al {
 
     static /* synthetic */ void c(a aVar, HashMap hashMap) {
         try {
-            String[] split = az.g(aVar.pYI).split(",");
+            String[] split = az.g(aVar.pYJ).split(",");
             ArrayList<aa> arrayList = new ArrayList();
             arrayList.clear();
             for (String str : split) {
                 String[] split2 = str.split(":");
                 String str2 = split2[0];
                 String str3 = split2[1];
-                if (System.currentTimeMillis() - Long.parseLong(str3) <= az.m68e(aVar.pYI)) {
+                if (System.currentTimeMillis() - Long.parseLong(str3) <= az.m68e(aVar.pYJ)) {
                     aa aaVar = new aa();
                     aaVar.java = str2;
-                    aaVar.pZe = Long.parseLong(str3);
+                    aaVar.pZf = Long.parseLong(str3);
                     arrayList.add(aaVar);
                 }
             }
@@ -283,13 +283,13 @@ public class al {
                 String str5 = "";
                 for (aa aaVar2 : arrayList) {
                     str4 = str4 + aaVar2.java + ",";
-                    str5 = str5 + aaVar2.java + ":" + aaVar2.pZe + ",";
+                    str5 = str5 + aaVar2.java + ":" + aaVar2.pZf + ",";
                 }
                 if (!TextUtils.isEmpty(str4)) {
                     hashMap.put("a601", str4.substring(0, str4.length() - 1));
                 }
                 if (!TextUtils.isEmpty(str5)) {
-                    az.l(aVar.pYI, str5.substring(0, str5.length() - 1), true);
+                    az.l(aVar.pYJ, str5.substring(0, str5.length() - 1), true);
                 }
             }
         } catch (Exception e2) {

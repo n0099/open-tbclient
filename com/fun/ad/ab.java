@@ -19,7 +19,7 @@ import com.fun.ad.sdk.FunRippedAd;
 import com.sina.weibo.sdk.constant.WBConstants;
 /* loaded from: classes14.dex */
 public class ab extends bd {
-    public TTSplashAd pEZ;
+    public TTSplashAd pFa;
 
     /* loaded from: classes14.dex */
     public class a implements TTAdNative.SplashAdListener {
@@ -32,7 +32,7 @@ public class ab extends bd {
             m.a("CSJSplashAd onError code: " + i + ", message: " + str);
             ab abVar = ab.this;
             abVar.f7765b = false;
-            ba baVar = abVar.pFu;
+            ba baVar = abVar.pFv;
             if (baVar != null) {
                 ((aj) baVar).a(abVar.f7764a.f7760a, i, str);
             }
@@ -44,8 +44,8 @@ public class ab extends bd {
             m.a("CSJSplashAd onSplashAdLoad");
             ab abVar = ab.this;
             abVar.f7765b = false;
-            abVar.pEZ = tTSplashAd;
-            ba baVar = abVar.pFu;
+            abVar.pFa = tTSplashAd;
+            ba baVar = abVar.pFv;
             if (baVar != null) {
                 ((aj) baVar).b(abVar.f7764a.f7760a);
             }
@@ -58,7 +58,7 @@ public class ab extends bd {
             ab.this.f7765b = false;
             m.a("CSJSplashAd onTimeout");
             ab abVar = ab.this;
-            ba baVar = abVar.pFu;
+            ba baVar = abVar.pFv;
             if (baVar != null) {
                 String str = abVar.f7764a.f7760a;
                 aj ajVar = (aj) baVar;
@@ -66,7 +66,7 @@ public class ab extends bd {
                     throw null;
                 }
                 m.a("FunAdLoader 穿山甲广告加载超时，广告ID：" + str);
-                p.a(ajVar.pEP, ajVar.pEO.getSid(), ajVar.f7750b.f7761b, str, 0, "Custom error message: Ad load onTimeout");
+                p.a(ajVar.pEQ, ajVar.pEP.getSid(), ajVar.f7750b.f7761b, str, 0, "Custom error message: Ad load onTimeout");
             }
         }
     }
@@ -80,7 +80,7 @@ public class ab extends bd {
         public void onAdClicked(View view, int i) {
             m.a("CSJSplashAd onAdClicked type: " + i);
             ab abVar = ab.this;
-            ax axVar = abVar.pFv;
+            ax axVar = abVar.pFw;
             if (axVar != null) {
                 ((am) axVar).a(abVar.f7764a.f7760a, view, i);
             }
@@ -90,7 +90,7 @@ public class ab extends bd {
         public void onAdShow(View view, int i) {
             m.a("CSJSplashAd onAdShow type: " + i);
             ab abVar = ab.this;
-            ax axVar = abVar.pFv;
+            ax axVar = abVar.pFw;
             if (axVar != null) {
                 ((am) axVar).b(abVar.f7764a.f7760a, view, i);
             }
@@ -100,7 +100,7 @@ public class ab extends bd {
         public void onAdSkip() {
             m.a("CSJSplashAd onAdSkip");
             ab abVar = ab.this;
-            ax axVar = abVar.pFv;
+            ax axVar = abVar.pFw;
             if (axVar != null) {
                 String str = abVar.f7764a.f7760a;
                 am amVar = (am) axVar;
@@ -108,12 +108,12 @@ public class ab extends bd {
                     throw null;
                 }
                 m.a("FunAdLoader 穿山甲广告 onAdSkip，广告ID：" + str);
-                FunAdInteractionListener funAdInteractionListener = amVar.pEU;
+                FunAdInteractionListener funAdInteractionListener = amVar.pEV;
                 if (funAdInteractionListener != null) {
-                    funAdInteractionListener.onAdClose(amVar.pEW.pEE.f7758a);
+                    funAdInteractionListener.onAdClose(amVar.pEX.pEF.f7758a);
                 }
-                d.b bVar = d.pEt;
-                ((d.a) bVar).a(amVar.f7751b, amVar.pEV.f7761b, str);
+                d.b bVar = d.pEu;
+                ((d.a) bVar).a(amVar.f7751b, amVar.pEW.f7761b, str);
             }
         }
 
@@ -121,7 +121,7 @@ public class ab extends bd {
         public void onAdTimeOver() {
             m.a("CSJSplashAd onAdTimeOver");
             ab abVar = ab.this;
-            ax axVar = abVar.pFv;
+            ax axVar = abVar.pFw;
             if (axVar != null) {
                 String str = abVar.f7764a.f7760a;
                 am amVar = (am) axVar;
@@ -129,12 +129,12 @@ public class ab extends bd {
                     throw null;
                 }
                 m.a("FunAdLoader 穿山甲广告 onAdTimeOver，广告ID：" + str);
-                FunAdInteractionListener funAdInteractionListener = amVar.pEU;
+                FunAdInteractionListener funAdInteractionListener = amVar.pEV;
                 if (funAdInteractionListener != null) {
-                    funAdInteractionListener.onAdClose(amVar.pEW.pEE.f7758a);
+                    funAdInteractionListener.onAdClose(amVar.pEX.pEF.f7758a);
                 }
-                d.b bVar = d.pEt;
-                ((d.a) bVar).a(amVar.f7751b, amVar.pEV.f7761b, str);
+                d.b bVar = d.pEu;
+                ((d.a) bVar).a(amVar.f7751b, amVar.pEW.f7761b, str);
             }
         }
     }
@@ -146,13 +146,13 @@ public class ab extends bd {
     @Override // com.fun.ad.bd
     public void a() {
         super.a();
-        this.pEZ = null;
+        this.pFa = null;
     }
 
     @Override // com.fun.ad.bd
     public void a(Activity activity, FunAdView funAdView, ax axVar) {
         super.a(activity, funAdView, axVar);
-        TTSplashAd tTSplashAd = this.pEZ;
+        TTSplashAd tTSplashAd = this.pFa;
         if (tTSplashAd == null) {
             return;
         }
@@ -162,13 +162,13 @@ public class ab extends bd {
         }
         funAdView.removeAllViews();
         funAdView.addView(splashView);
-        this.pEZ.setSplashInteractionListener(new b());
+        this.pFa.setSplashInteractionListener(new b());
     }
 
     @Override // com.fun.ad.bd
     public FunRippedAd exX() {
         AdRipper.RippedCSJAd rippedCSJAd;
-        TTSplashAd tTSplashAd = this.pEZ;
+        TTSplashAd tTSplashAd = this.pFa;
         if (tTSplashAd == null || (rippedCSJAd = AdRipper.getRippedCSJAd(tTSplashAd, false)) == null) {
             return null;
         }
@@ -193,8 +193,8 @@ public class ab extends bd {
         super.a(context.getApplicationContext(), funAdSlot, baVar);
         if (!this.f7765b) {
             this.f7765b = true;
-            this.pFw.loadSplashAd(eya(), new a(), 5000);
-            ba baVar2 = this.pFu;
+            this.pFx.loadSplashAd(eya(), new a(), 5000);
+            ba baVar2 = this.pFv;
             if (baVar2 != null) {
                 ((aj) baVar2).a(this.f7764a.f7760a);
             }

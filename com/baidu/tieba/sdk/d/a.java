@@ -162,11 +162,11 @@ public class a implements BdPageContextCreator {
         TbConfig.PACKAGE_NAME = str;
     }
 
-    public static void Rb(String str) {
+    public static void Rc(String str) {
         TbConfig.FILE_PROVIDER_AUTHORITIES = str;
     }
 
-    public static void Rc(String str) {
+    public static void Rd(String str) {
         TbConfig.FILE_OUTPUT_FILE_ROOT_PATH = str;
     }
 
@@ -533,7 +533,7 @@ public class a implements BdPageContextCreator {
         return buyTBeanActivityConfig2;
     }
 
-    public void Rd(String str) {
+    public void Re(String str) {
         if (TbadkCoreApplication.getInst().getContext() != null) {
             com.baidu.tieba.sdk.login.a.dDz().dDA();
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, bo(TbadkCoreApplication.getInst(), str)));
@@ -668,7 +668,7 @@ public class a implements BdPageContextCreator {
             @Override // com.baidu.live.tbadk.core.util.UrlManager.UrlWebDealListener
             public void deal(TbPageContext<?> tbPageContext, String str, String str2, boolean z, UrlManager.UrlWebDialogCancelListener urlWebDialogCancelListener, boolean z2) {
                 if (a.this.mTv != null) {
-                    a.this.mTv.MY(str2);
+                    a.this.mTv.MZ(str2);
                 }
             }
         });
@@ -823,11 +823,11 @@ public class a implements BdPageContextCreator {
         return SchemeUtils.openScheme(context, str, schemeCallback);
     }
 
-    public void Re(String str) {
+    public void Rf(String str) {
         TbConfig.setFromHost(str);
     }
 
-    public void Rf(String str) {
+    public void Rg(String str) {
         TbConfig.setCurrentFromHost(str);
     }
 
@@ -883,7 +883,7 @@ public class a implements BdPageContextCreator {
         HostResourceManager.getInstance().setResourceAdapter(iResourceAdapter);
     }
 
-    public void bP(String str, int i) {
+    public void bQ(String str, int i) {
         if (TbadkCoreApplication.getInst().getContext() != null && !StringUtils.isNull(str)) {
             UpdateAttentionMessage.UpdateAttentionData updateAttentionData = new UpdateAttentionMessage.UpdateAttentionData();
             updateAttentionData.isSucc = true;

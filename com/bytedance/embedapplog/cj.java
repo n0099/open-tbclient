@@ -6,18 +6,18 @@ import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes4.dex */
 public final class cj extends ch {
-    private final cn pch;
+    private final cn pci;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public cj(Context context, cn cnVar) {
         super(true, false);
-        this.pch = cnVar;
+        this.pci = cnVar;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.bytedance.embedapplog.ch
     public boolean a(JSONObject jSONObject) {
-        String c = ba.c(this.pch.elM());
+        String c = ba.c(this.pci.elM());
         if (TextUtils.isEmpty(c)) {
             return false;
         }

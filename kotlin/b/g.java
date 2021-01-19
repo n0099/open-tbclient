@@ -7,13 +7,13 @@ import kotlin.collections.y;
 public final class g extends y {
     private boolean hasNext;
     private int next;
-    private final int qju;
+    private final int qjv;
     private final int step;
 
     public g(int i, int i2, int i3) {
         boolean z = true;
         this.step = i3;
-        this.qju = i2;
+        this.qjv = i2;
         if (this.step > 0) {
             if (i > i2) {
                 z = false;
@@ -22,7 +22,7 @@ public final class g extends y {
             z = false;
         }
         this.hasNext = z;
-        this.next = this.hasNext ? i : this.qju;
+        this.next = this.hasNext ? i : this.qjv;
     }
 
     @Override // java.util.Iterator
@@ -33,7 +33,7 @@ public final class g extends y {
     @Override // kotlin.collections.y
     public int ezg() {
         int i = this.next;
-        if (i == this.qju) {
+        if (i == this.qjv) {
             if (!this.hasNext) {
                 throw new NoSuchElementException();
             }

@@ -44,7 +44,7 @@ public class j implements com.baidu.tieba.l.g {
 
     @Override // com.baidu.tieba.l.g
     public void deI() {
-        dyZ().NJ(this.mUuid);
+        dyZ().NK(this.mUuid);
     }
 
     @Override // com.baidu.tieba.l.g
@@ -54,7 +54,7 @@ public class j implements com.baidu.tieba.l.g {
 
     @Override // com.baidu.tieba.l.g
     public void deJ() {
-        dyZ().NK(this.mUuid);
+        dyZ().NL(this.mUuid);
         report(this.mUuid);
     }
 
@@ -64,12 +64,12 @@ public class j implements com.baidu.tieba.l.g {
     }
 
     @Override // com.baidu.tieba.l.g
-    public void NN(String str) {
+    public void NO(String str) {
         if (!StringUtils.isNull(this.lmo)) {
-            if (NL(this.lmo) || NM(this.lmo)) {
+            if (NM(this.lmo) || NN(this.lmo)) {
                 report(this.lmo);
             } else {
-                com.baidu.tieba.l.d.NI(this.lmo);
+                com.baidu.tieba.l.d.NJ(this.lmo);
                 this.mMap.remove(this.mUuid);
             }
             deH();
@@ -84,23 +84,23 @@ public class j implements com.baidu.tieba.l.g {
     }
 
     @Override // com.baidu.tieba.l.g
-    public void NO(String str) {
+    public void NP(String str) {
         dyZ().fO(this.mUuid, str);
-        if (NL(this.mUuid) || NM(this.mUuid)) {
+        if (NM(this.mUuid) || NN(this.mUuid)) {
             report(this.mUuid);
         } else {
-            com.baidu.tieba.l.d.NI(this.mUuid);
+            com.baidu.tieba.l.d.NJ(this.mUuid);
             this.mMap.remove(this.mUuid);
         }
         this.mUuid = null;
     }
 
-    public boolean NL(String str) {
-        return dyZ().NL(str);
-    }
-
     public boolean NM(String str) {
         return dyZ().NM(str);
+    }
+
+    public boolean NN(String str) {
+        return dyZ().NN(str);
     }
 
     public void report(String str) {

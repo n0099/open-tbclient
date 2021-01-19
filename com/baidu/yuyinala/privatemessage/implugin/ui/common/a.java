@@ -9,13 +9,13 @@ import android.view.MotionEvent;
 import android.widget.TextView;
 /* loaded from: classes10.dex */
 public class a extends BaseMovementMethod {
-    private static a oRx;
+    private static a oRy;
 
     public static a ehX() {
-        if (oRx == null) {
-            oRx = new a();
+        if (oRy == null) {
+            oRy = new a();
         }
-        return oRx;
+        return oRy;
     }
 
     @Override // android.text.method.BaseMovementMethod, android.text.method.MovementMethod

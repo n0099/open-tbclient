@@ -73,7 +73,7 @@ public final class JavaWebSockeClientImpl implements IWebSocketClient {
                 if (hVar != null && (eJZ = hVar.eJZ()) != null) {
                     while (eJZ.hasNext()) {
                         String next = eJZ.next();
-                        hashMap.put(next, hVar.abq(next));
+                        hashMap.put(next, hVar.abr(next));
                     }
                 }
                 IWebSocketListener.this.onOpen(hashMap);
@@ -115,13 +115,13 @@ public final class JavaWebSockeClientImpl implements IWebSocketClient {
             int intValue = connectionLostTimeout.intValue();
             a aVar6 = this.webSocketClient;
             if (aVar6 == null) {
-                p.abe("webSocketClient");
+                p.abf("webSocketClient");
             }
             aVar6.setConnectionLostTimeout(intValue);
         }
         a aVar7 = this.webSocketClient;
         if (aVar7 == null) {
-            p.abe("webSocketClient");
+            p.abf("webSocketClient");
         }
         aVar7.connect();
     }
@@ -131,7 +131,7 @@ public final class JavaWebSockeClientImpl implements IWebSocketClient {
         p.o(str, TiebaInitialize.LogFields.REASON);
         a aVar = this.webSocketClient;
         if (aVar == null) {
-            p.abe("webSocketClient");
+            p.abf("webSocketClient");
         }
         aVar.close();
     }
@@ -141,7 +141,7 @@ public final class JavaWebSockeClientImpl implements IWebSocketClient {
         p.o(str, "message");
         a aVar = this.webSocketClient;
         if (aVar == null) {
-            p.abe("webSocketClient");
+            p.abf("webSocketClient");
         }
         aVar.send(str);
     }
@@ -151,7 +151,7 @@ public final class JavaWebSockeClientImpl implements IWebSocketClient {
         p.o(byteBuffer, "data");
         a aVar = this.webSocketClient;
         if (aVar == null) {
-            p.abe("webSocketClient");
+            p.abf("webSocketClient");
         }
         aVar.send(byteBuffer);
     }

@@ -23,7 +23,7 @@ public final class FlowableBufferBoundary<T, U extends Collection<? super T>, Op
     protected void a(org.a.c<? super U> cVar) {
         BufferBoundarySubscriber bufferBoundarySubscriber = new BufferBoundarySubscriber(cVar, this.bufferOpen, this.bufferClose, this.bufferSupplier);
         cVar.onSubscribe(bufferBoundarySubscriber);
-        this.qdR.a((j) bufferBoundarySubscriber);
+        this.qdS.a((j) bufferBoundarySubscriber);
     }
 
     /* loaded from: classes5.dex */

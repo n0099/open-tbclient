@@ -21,15 +21,15 @@ public class RoundedCornersDrawable extends g implements j {
     private float mPadding;
     final Paint mPaint;
     private final Path mPath;
-    final float[] psE;
-    private boolean psG;
-    Type psI;
+    final float[] psF;
+    private boolean psH;
+    Type psJ;
     @Nullable
-    private RectF psJ;
+    private RectF psK;
     @Nullable
-    private Matrix psK;
-    private int psL;
-    private final RectF psM;
+    private Matrix psL;
+    private int psM;
+    private final RectF psN;
 
     /* loaded from: classes3.dex */
     public enum Type {
@@ -39,20 +39,20 @@ public class RoundedCornersDrawable extends g implements j {
 
     public RoundedCornersDrawable(Drawable drawable) {
         super((Drawable) com.facebook.common.internal.g.checkNotNull(drawable));
-        this.psI = Type.OVERLAY_COLOR;
+        this.psJ = Type.OVERLAY_COLOR;
         this.mBounds = new RectF();
         this.bPQ = new float[8];
-        this.psE = new float[8];
+        this.psF = new float[8];
         this.mPaint = new Paint(1);
         this.fLW = false;
         this.mBorderWidth = 0.0f;
         this.mBorderColor = 0;
-        this.psL = 0;
+        this.psM = 0;
         this.mPadding = 0.0f;
-        this.psG = false;
+        this.psH = false;
         this.mPath = new Path();
         this.eTX = new Path();
-        this.psM = new RectF();
+        this.psN = new RectF();
     }
 
     @Override // com.facebook.drawee.drawable.j
@@ -82,7 +82,7 @@ public class RoundedCornersDrawable extends g implements j {
     }
 
     public void setOverlayColor(int i) {
-        this.psL = i;
+        this.psM = i;
         invalidateSelf();
     }
 
@@ -103,7 +103,7 @@ public class RoundedCornersDrawable extends g implements j {
 
     @Override // com.facebook.drawee.drawable.j
     public void AV(boolean z) {
-        this.psG = z;
+        this.psH = z;
         esb();
         invalidateSelf();
     }
@@ -124,31 +124,31 @@ public class RoundedCornersDrawable extends g implements j {
     private void esb() {
         this.mPath.reset();
         this.eTX.reset();
-        this.psM.set(getBounds());
-        this.psM.inset(this.mPadding, this.mPadding);
-        this.mPath.addRect(this.psM, Path.Direction.CW);
+        this.psN.set(getBounds());
+        this.psN.inset(this.mPadding, this.mPadding);
+        this.mPath.addRect(this.psN, Path.Direction.CW);
         if (this.fLW) {
-            this.mPath.addCircle(this.psM.centerX(), this.psM.centerY(), Math.min(this.psM.width(), this.psM.height()) / 2.0f, Path.Direction.CW);
+            this.mPath.addCircle(this.psN.centerX(), this.psN.centerY(), Math.min(this.psN.width(), this.psN.height()) / 2.0f, Path.Direction.CW);
         } else {
-            this.mPath.addRoundRect(this.psM, this.bPQ, Path.Direction.CW);
+            this.mPath.addRoundRect(this.psN, this.bPQ, Path.Direction.CW);
         }
-        this.psM.inset(-this.mPadding, -this.mPadding);
-        this.psM.inset(this.mBorderWidth / 2.0f, this.mBorderWidth / 2.0f);
+        this.psN.inset(-this.mPadding, -this.mPadding);
+        this.psN.inset(this.mBorderWidth / 2.0f, this.mBorderWidth / 2.0f);
         if (this.fLW) {
-            this.eTX.addCircle(this.psM.centerX(), this.psM.centerY(), Math.min(this.psM.width(), this.psM.height()) / 2.0f, Path.Direction.CW);
+            this.eTX.addCircle(this.psN.centerX(), this.psN.centerY(), Math.min(this.psN.width(), this.psN.height()) / 2.0f, Path.Direction.CW);
         } else {
-            for (int i = 0; i < this.psE.length; i++) {
-                this.psE[i] = (this.bPQ[i] + this.mPadding) - (this.mBorderWidth / 2.0f);
+            for (int i = 0; i < this.psF.length; i++) {
+                this.psF[i] = (this.bPQ[i] + this.mPadding) - (this.mBorderWidth / 2.0f);
             }
-            this.eTX.addRoundRect(this.psM, this.psE, Path.Direction.CW);
+            this.eTX.addRoundRect(this.psN, this.psF, Path.Direction.CW);
         }
-        this.psM.inset((-this.mBorderWidth) / 2.0f, (-this.mBorderWidth) / 2.0f);
+        this.psN.inset((-this.mBorderWidth) / 2.0f, (-this.mBorderWidth) / 2.0f);
     }
 
     @Override // com.facebook.drawee.drawable.g, android.graphics.drawable.Drawable
     public void draw(Canvas canvas) {
         this.mBounds.set(getBounds());
-        switch (this.psI) {
+        switch (this.psJ) {
             case CLIPPING:
                 int save = canvas.save();
                 this.mPath.setFillType(Path.FillType.EVEN_ODD);
@@ -157,25 +157,25 @@ public class RoundedCornersDrawable extends g implements j {
                 canvas.restoreToCount(save);
                 break;
             case OVERLAY_COLOR:
-                if (this.psG) {
-                    if (this.psJ == null) {
-                        this.psJ = new RectF(this.mBounds);
-                        this.psK = new Matrix();
+                if (this.psH) {
+                    if (this.psK == null) {
+                        this.psK = new RectF(this.mBounds);
+                        this.psL = new Matrix();
                     } else {
-                        this.psJ.set(this.mBounds);
+                        this.psK.set(this.mBounds);
                     }
-                    this.psJ.inset(this.mBorderWidth, this.mBorderWidth);
-                    this.psK.setRectToRect(this.mBounds, this.psJ, Matrix.ScaleToFit.FILL);
+                    this.psK.inset(this.mBorderWidth, this.mBorderWidth);
+                    this.psL.setRectToRect(this.mBounds, this.psK, Matrix.ScaleToFit.FILL);
                     int save2 = canvas.save();
                     canvas.clipRect(this.mBounds);
-                    canvas.concat(this.psK);
+                    canvas.concat(this.psL);
                     super.draw(canvas);
                     canvas.restoreToCount(save2);
                 } else {
                     super.draw(canvas);
                 }
                 this.mPaint.setStyle(Paint.Style.FILL);
-                this.mPaint.setColor(this.psL);
+                this.mPaint.setColor(this.psM);
                 this.mPaint.setStrokeWidth(0.0f);
                 this.mPath.setFillType(Path.FillType.EVEN_ODD);
                 canvas.drawPath(this.mPath, this.mPaint);

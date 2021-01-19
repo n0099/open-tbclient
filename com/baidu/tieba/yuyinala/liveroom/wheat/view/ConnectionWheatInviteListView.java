@@ -15,8 +15,8 @@ import com.baidu.tieba.yuyinala.liveroom.wheat.model.g;
 import java.util.List;
 /* loaded from: classes10.dex */
 public class ConnectionWheatInviteListView extends BaseConnectionWheatListView {
-    private c oBg;
-    private g oBh;
+    private c oBh;
+    private g oBi;
 
     public ConnectionWheatInviteListView(@NonNull Context context) {
         this(context, null);
@@ -36,8 +36,8 @@ public class ConnectionWheatInviteListView extends BaseConnectionWheatListView {
 
     @Override // com.baidu.tieba.yuyinala.liveroom.wheat.view.BaseConnectionWheatListView
     protected void dyO() {
-        this.oBg = new c(getContext());
-        this.oxO.setAdapter((ListAdapter) this.oBg);
+        this.oBh = new c(getContext());
+        this.oxP.setAdapter((ListAdapter) this.oBh);
         this.btf.setRefreshButton(getResources().getString(a.h.yuyin_ala_connection_wheat_load_data_retry), new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.view.ConnectionWheatInviteListView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
@@ -50,8 +50,8 @@ public class ConnectionWheatInviteListView extends BaseConnectionWheatListView {
         if (z) {
             showLoading();
         }
-        if (this.oBh == null) {
-            this.oBh = new g(this.ovz, new g.a() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.view.ConnectionWheatInviteListView.2
+        if (this.oBi == null) {
+            this.oBi = new g(this.ovA, new g.a() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.view.ConnectionWheatInviteListView.2
                 @Override // com.baidu.tieba.yuyinala.liveroom.wheat.model.g.a
                 public void a(AlaGetInviteConnectionWheatListHttpResponseMessage alaGetInviteConnectionWheatListHttpResponseMessage) {
                     ConnectionWheatInviteListView.this.b(alaGetInviteConnectionWheatListHttpResponseMessage);
@@ -67,13 +67,13 @@ public class ConnectionWheatInviteListView extends BaseConnectionWheatListView {
                 }
             });
         }
-        this.oBh.request();
+        this.oBi.request();
     }
 
     @Override // com.baidu.tieba.yuyinala.liveroom.wheat.view.BaseConnectionWheatListView
     public int getCount() {
-        if (this.oBg != null) {
-            return this.oBg.getCount();
+        if (this.oBh != null) {
+            return this.oBh.getCount();
         }
         return 0;
     }
@@ -90,38 +90,38 @@ public class ConnectionWheatInviteListView extends BaseConnectionWheatListView {
             return;
         }
         if (alaGetInviteConnectionWheatListHttpResponseMessage.getCount() > 0) {
-            this.oAu.setVisibility(0);
-            this.oAu.setText(String.format(getContext().getString(a.h.yuyin_ala_connection_wheat_online_audience_counts_text), Integer.valueOf(alaGetInviteConnectionWheatListHttpResponseMessage.getCount())));
+            this.oAv.setVisibility(0);
+            this.oAv.setText(String.format(getContext().getString(a.h.yuyin_ala_connection_wheat_online_audience_counts_text), Integer.valueOf(alaGetInviteConnectionWheatListHttpResponseMessage.getCount())));
         } else {
-            this.oAu.setVisibility(8);
+            this.oAv.setVisibility(8);
         }
         setData(alaGetInviteConnectionWheatListHttpResponseMessage.ecl());
     }
 
     private void setData(List<n> list) {
-        if (this.oBg != null) {
-            this.oBg.setData(list);
+        if (this.oBh != null) {
+            this.oBh.setData(list);
         }
     }
 
     @Override // com.baidu.tieba.yuyinala.liveroom.wheat.view.BaseConnectionWheatListView
     public void setTbPageContext(TbPageContext tbPageContext) {
-        this.ovz = tbPageContext;
+        this.ovA = tbPageContext;
     }
 
     public void setOnItemClickLister(c.a aVar) {
-        if (this.oBg != null) {
-            this.oBg.setOnItemClickLister(aVar);
+        if (this.oBh != null) {
+            this.oBh.setOnItemClickLister(aVar);
         }
     }
 
     public void onDestroy() {
-        if (this.oBg != null) {
-            this.oBg.clear();
-        }
         if (this.oBh != null) {
-            this.oBh.onDestroy();
-            this.oBh = null;
+            this.oBh.clear();
+        }
+        if (this.oBi != null) {
+            this.oBi.onDestroy();
+            this.oBi = null;
         }
     }
 }

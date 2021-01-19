@@ -15,35 +15,35 @@ import java.util.concurrent.atomic.AtomicBoolean;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class e {
-    private static e oKU;
-    private volatile com.baidu.n.a.a.c oKR;
-    private AtomicBoolean oKV = new AtomicBoolean(false);
+    private static e oKV;
+    private volatile com.baidu.n.a.a.c oKS;
     private AtomicBoolean oKW = new AtomicBoolean(false);
+    private AtomicBoolean oKX = new AtomicBoolean(false);
     private static String TAG = "UnionIDHelper";
     private static boolean DEBUG = com.baidu.n.a.a.egd();
-    private static final String oKS = d(new byte[]{81, 72, 116, 79, 75, 72, 69, 52, 76, 51, 103, 61}, new byte[]{82, 51, 104, 90, 83, 122, 65, 105, Constants.SHORT_PING_CMD_TYPE, 49, 107, 61});
-    private static final String oKT = d(new byte[]{76, 67, 77, 53, 77, 70, 90, 73, 81, 107, 107, 61}, new byte[]{90, 105, 108, 121, 79, 68, 100, 81, 86, 121, 89, 61});
+    private static final String oKT = d(new byte[]{81, 72, 116, 79, 75, 72, 69, 52, 76, 51, 103, 61}, new byte[]{82, 51, 104, 90, 83, 122, 65, 105, Constants.SHORT_PING_CMD_TYPE, 49, 107, 61});
+    private static final String oKU = d(new byte[]{76, 67, 77, 53, 77, 70, 90, 73, 81, 107, 107, 61}, new byte[]{90, 105, 108, 121, 79, 68, 100, 81, 86, 121, 89, 61});
     private static final Object sLock = new Object();
 
     private e() {
     }
 
     public static e egg() {
-        if (oKU == null) {
+        if (oKV == null) {
             synchronized (e.class) {
-                if (oKU == null) {
-                    oKU = new e();
+                if (oKV == null) {
+                    oKV = new e();
                 }
             }
         }
-        return oKU;
+        return oKV;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void egh() {
-        this.oKR = this.oKR.egk();
+        this.oKS = this.oKS.egk();
         if (DEBUG) {
-            Log.d(TAG, "asyncRequest, requestFromManufacturer done :" + this.oKR.getOAID());
+            Log.d(TAG, "asyncRequest, requestFromManufacturer done :" + this.oKS.getOAID());
         }
     }
 
@@ -54,16 +54,16 @@ public class e {
         final a aVar = new a(looper, bVar);
         if (egi()) {
             aVar.obtainMessage(100, null).sendToTarget();
-        } else if (this.oKR != null && this.oKW.get()) {
+        } else if (this.oKS != null && this.oKX.get()) {
             if (DEBUG) {
-                Log.d(TAG, "asyncRequest, mIUnionId.getOAID：" + this.oKR.getOAID());
-                Log.d(TAG, "asyncRequest, mIUnionId.isTrackLimited：" + this.oKR.egl());
-                Log.d(TAG, "asyncRequest, mIUnionId.getStatusCode：" + this.oKR.getStatusCode());
+                Log.d(TAG, "asyncRequest, mIUnionId.getOAID：" + this.oKS.getOAID());
+                Log.d(TAG, "asyncRequest, mIUnionId.isTrackLimited：" + this.oKS.egl());
+                Log.d(TAG, "asyncRequest, mIUnionId.getStatusCode：" + this.oKS.getStatusCode());
             }
-            aVar.obtainMessage(100, this.oKR).sendToTarget();
+            aVar.obtainMessage(100, this.oKS).sendToTarget();
         } else {
-            if (!this.oKW.get()) {
-                this.oKR = new c(context).oKR;
+            if (!this.oKX.get()) {
+                this.oKS = new c(context).oKS;
             }
             new Thread(new Runnable() { // from class: com.baidu.n.a.e.1
                 @Override // java.lang.Runnable
@@ -83,7 +83,7 @@ public class e {
                         if (e.DEBUG) {
                             Log.d(e.TAG, "asyncRequest, trySaveFiles！");
                         }
-                        e.this.oKW.set(e.this.hp(context));
+                        e.this.oKX.set(e.this.hp(context));
                         if (e.DEBUG) {
                             Log.d(e.TAG, "asyncRequest, trySaveFiles done");
                         }
@@ -91,7 +91,7 @@ public class e {
                     if (e.DEBUG) {
                         Log.d(e.TAG, "asyncRequest, send  innerHandler message");
                     }
-                    aVar.obtainMessage(100, e.this.oKR).sendToTarget();
+                    aVar.obtainMessage(100, e.this.oKS).sendToTarget();
                 }
             }).start();
         }
@@ -126,16 +126,16 @@ public class e {
                 String optString = optJSONObject.optString(str5);
                 String optString2 = optJSONObject.optString(str6);
                 String optString3 = optJSONObject.optString(str7);
-                this.oKR.Al(optBoolean);
-                this.oKR.Am(optBoolean2);
-                this.oKR.MX(optInt);
-                this.oKR.WN(optString);
-                this.oKR.WO(optString2);
-                this.oKR.WP(optString3);
-                aVar.oLa = this.oKR;
+                this.oKS.Al(optBoolean);
+                this.oKS.Am(optBoolean2);
+                this.oKS.MX(optInt);
+                this.oKS.WO(optString);
+                this.oKS.WP(optString2);
+                this.oKS.WQ(optString3);
+                aVar.oLb = this.oKS;
                 return true;
             }
-            aVar.oLa = null;
+            aVar.oLb = null;
             if (DEBUG) {
                 Log.d(TAG, "tryParseCacheJsonObject return cause null：");
                 return false;
@@ -167,7 +167,7 @@ public class e {
     /* JADX INFO: Access modifiers changed from: private */
     public boolean hp(Context context) {
         try {
-            if (this.oKR == null || TextUtils.isEmpty(this.oKR.getOAID())) {
+            if (this.oKS == null || TextUtils.isEmpty(this.oKS.getOAID())) {
                 return false;
             }
             File file = new File(context.getFilesDir().getAbsolutePath() + "/bdunionid/");
@@ -189,14 +189,14 @@ public class e {
             String str6 = new String(com.baidu.n.a.c.c.decode("b2FpZA==".getBytes()));
             String str7 = new String(com.baidu.n.a.c.c.decode("YWFpZA==".getBytes()));
             String str8 = new String(com.baidu.n.a.c.c.decode("dmFpZA==".getBytes()));
-            optJSONObject.put(str3, this.oKR.egl());
-            optJSONObject.put(str4, this.oKR.isSupport());
-            optJSONObject.put(str5, this.oKR.getStatusCode());
-            optJSONObject.put(str6, this.oKR.getOAID());
-            optJSONObject.put(str7, this.oKR.getAAID());
-            optJSONObject.put(str8, this.oKR.getVAID());
+            optJSONObject.put(str3, this.oKS.egl());
+            optJSONObject.put(str4, this.oKS.isSupport());
+            optJSONObject.put(str5, this.oKS.getStatusCode());
+            optJSONObject.put(str6, this.oKS.getOAID());
+            optJSONObject.put(str7, this.oKS.getAAID());
+            optJSONObject.put(str8, this.oKS.getVAID());
             jSONObject.put(str2, optJSONObject);
-            com.baidu.n.a.c.e.a(WL(jSONObject.toString()), file2, false, sLock);
+            com.baidu.n.a.c.e.a(WM(jSONObject.toString()), file2, false, sLock);
             if (DEBUG) {
                 Log.d(TAG, "trySaveFiles, app: " + jSONObject.toString());
             }
@@ -235,12 +235,12 @@ public class e {
         if (TextUtils.isEmpty(a2)) {
             return null;
         }
-        String WM = WM(a2);
+        String WN = WN(a2);
         if (DEBUG) {
-            Log.d(TAG, "getCacheObject ，json：" + WM);
+            Log.d(TAG, "getCacheObject ，json：" + WN);
         }
         try {
-            JSONObject jSONObject = new JSONObject(WM);
+            JSONObject jSONObject = new JSONObject(WN);
             com.baidu.n.a.a.a aVar = new com.baidu.n.a.a.a();
             a(aVar, jSONObject);
             return aVar;
@@ -261,23 +261,23 @@ public class e {
         return sb.toString();
     }
 
-    static String WL(String str) {
-        if (TextUtils.isEmpty(str)) {
-            return null;
-        }
-        try {
-            return com.baidu.n.a.c.c.encode(com.baidu.n.a.c.a.encrypt(oKS, oKT, str.getBytes()), "utf-8");
-        } catch (UnsupportedEncodingException | Exception e) {
-            return "";
-        }
-    }
-
     static String WM(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
         try {
-            return new String(com.baidu.n.a.c.a.decrypt(oKS, oKT, com.baidu.n.a.c.c.decode(str.getBytes())));
+            return com.baidu.n.a.c.c.encode(com.baidu.n.a.c.a.encrypt(oKT, oKU, str.getBytes()), "utf-8");
+        } catch (UnsupportedEncodingException | Exception e) {
+            return "";
+        }
+    }
+
+    static String WN(String str) {
+        if (TextUtils.isEmpty(str)) {
+            return null;
+        }
+        try {
+            return new String(com.baidu.n.a.c.a.decrypt(oKT, oKU, com.baidu.n.a.c.c.decode(str.getBytes())));
         } catch (Exception e) {
             if (DEBUG) {
                 Log.d(TAG, "getCacheObject ，decryptUnionID：" + e.getMessage());
@@ -288,14 +288,14 @@ public class e {
 
     /* loaded from: classes4.dex */
     private static class a extends Handler {
-        private com.baidu.n.a.a.b oKZ;
+        private com.baidu.n.a.a.b oLa;
 
         public a() {
         }
 
         public a(Looper looper, com.baidu.n.a.a.b bVar) {
             super(looper);
-            this.oKZ = bVar;
+            this.oLa = bVar;
         }
 
         @Override // android.os.Handler
@@ -307,8 +307,8 @@ public class e {
                     if (e.DEBUG) {
                         Log.d(e.TAG, "handleMessage ，what：" + (cVar == null ? "" : cVar.getOAID()));
                     }
-                    if (this.oKZ != null) {
-                        this.oKZ.a(cVar);
+                    if (this.oLa != null) {
+                        this.oLa.a(cVar);
                         return;
                     }
                     return;

@@ -18,24 +18,24 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes10.dex */
 public class a extends BdBaseModel {
-    private static a oMf;
+    private static a oMg;
     private x aBr;
-    private AlaEmoticonListDialogData oMd = new AlaEmoticonListDialogData();
-    private InterfaceC0955a oMe;
+    private AlaEmoticonListDialogData oMe = new AlaEmoticonListDialogData();
+    private InterfaceC0955a oMf;
 
     /* renamed from: com.baidu.yuyinala.emoticon.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes10.dex */
     public interface InterfaceC0955a {
-        void WS(String str);
+        void WT(String str);
 
         void a(AlaEmoticonListDialogData alaEmoticonListDialogData);
     }
 
     public static a aM(x xVar) {
-        if (oMf == null) {
-            oMf = new a(xVar);
+        if (oMg == null) {
+            oMg = new a(xVar);
         }
-        return oMf;
+        return oMg;
     }
 
     public void aN(x xVar) {
@@ -50,11 +50,11 @@ public class a extends BdBaseModel {
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
                 if (httpResponsedMessage instanceof AlaEmoticonListResponseMessage) {
                     AlaEmoticonListResponseMessage alaEmoticonListResponseMessage = (AlaEmoticonListResponseMessage) httpResponsedMessage;
-                    a.this.oMd.setEmoticonList(alaEmoticonListResponseMessage.getEmoticonList());
-                    a.this.oMd.setSendIntervalTime(alaEmoticonListResponseMessage.getSendIntervalTime());
-                    a.this.oMd.setNetError(!alaEmoticonListResponseMessage.isSuccess());
-                    if (a.this.oMe != null) {
-                        a.this.oMe.a(a.this.oMd);
+                    a.this.oMe.setEmoticonList(alaEmoticonListResponseMessage.getEmoticonList());
+                    a.this.oMe.setSendIntervalTime(alaEmoticonListResponseMessage.getSendIntervalTime());
+                    a.this.oMe.setNetError(!alaEmoticonListResponseMessage.isSuccess());
+                    if (a.this.oMf != null) {
+                        a.this.oMf.a(a.this.oMe);
                     }
                 }
             }
@@ -67,11 +67,11 @@ public class a extends BdBaseModel {
                     AlaSendEmoticonResponseMessage alaSendEmoticonResponseMessage = (AlaSendEmoticonResponseMessage) httpResponsedMessage;
                     if (httpResponsedMessage.getError() == 0) {
                         a.this.a(alaSendEmoticonResponseMessage);
-                    } else if (a.this.oMe != null) {
+                    } else if (a.this.oMf != null) {
                         if (httpResponsedMessage.getError() == 149010) {
-                            a.this.oMe.WS(((AlaSendEmoticonResponseMessage) httpResponsedMessage).getUserMsg());
+                            a.this.oMf.WT(((AlaSendEmoticonResponseMessage) httpResponsedMessage).getUserMsg());
                         } else {
-                            a.this.oMe.WS(null);
+                            a.this.oMf.WT(null);
                         }
                     }
                 }
@@ -86,9 +86,9 @@ public class a extends BdBaseModel {
         try {
             JSONObject jSONObject = new JSONObject();
             JSONObject jSONObject2 = new JSONObject();
-            jSONObject2.put("compression_img", alaSendEmoticonResponseMessage.oMb);
-            jSONObject2.put("prototype_img", alaSendEmoticonResponseMessage.oMa);
-            jSONObject2.put("result_img", alaSendEmoticonResponseMessage.oMc);
+            jSONObject2.put("compression_img", alaSendEmoticonResponseMessage.oMc);
+            jSONObject2.put("prototype_img", alaSendEmoticonResponseMessage.oMb);
+            jSONObject2.put("result_img", alaSendEmoticonResponseMessage.oMd);
             jSONObject.put("user_uk", this.aBr.aGd.userUk);
             jSONObject.put("content_type", "audio_emoticon");
             jSONObject.put("emoticon_info", jSONObject2);
@@ -133,14 +133,14 @@ public class a extends BdBaseModel {
     }
 
     public void a(InterfaceC0955a interfaceC0955a) {
-        this.oMe = interfaceC0955a;
+        this.oMf = interfaceC0955a;
     }
 
     public void egJ() {
         sendMessage(new HttpMessage(1031004));
     }
 
-    public void WT(String str) {
+    public void WU(String str) {
         String str2;
         String str3;
         String str4;

@@ -27,8 +27,8 @@ public class a implements com.baidu.live.ab.a {
     private PendantParentView glA;
     private PendantChildView glB;
     private Context mContext;
-    private RedPacketCharmView ofd;
-    private Long ofe = 0L;
+    private RedPacketCharmView ofe;
+    private Long ofg = 0L;
 
     public a(Context context) {
         this.mContext = context;
@@ -163,10 +163,10 @@ public class a implements com.baidu.live.ab.a {
         if (this.glB == null) {
             bNr();
         }
-        if (this.ofd == null || (this.glB != null && this.glB.indexOfChild(this.ofd) < 0)) {
-            this.ofd = new RedPacketCharmView(this.mContext);
-            this.glB.addView(this.ofd, new FrameLayout.LayoutParams(-2, -2));
-            this.ofd.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.charm.a.3
+        if (this.ofe == null || (this.glB != null && this.glB.indexOfChild(this.ofe) < 0)) {
+            this.ofe = new RedPacketCharmView(this.mContext);
+            this.glB.addView(this.ofe, new FrameLayout.LayoutParams(-2, -2));
+            this.ofe.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.charm.a.3
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     a.this.bSY();
@@ -183,18 +183,18 @@ public class a implements com.baidu.live.ab.a {
             i = 0;
         }
         tZ(i);
-        this.ofd.setAvatar(redPacketCharmInfo.senderAvatar);
+        this.ofe.setAvatar(redPacketCharmInfo.senderAvatar);
         switch (redPacketCharmInfo.status) {
             case 2:
                 if (j > 60) {
-                    this.ofd.ub(1);
+                    this.ofe.ub(1);
                 } else if (j > 10) {
-                    this.ofd.ub(2);
+                    this.ofe.ub(2);
                 } else {
-                    this.ofd.ub(3);
+                    this.ofe.ub(3);
                 }
                 if (c(redPacketCharmInfo)) {
-                    this.ofd.setCountDownTimer(String.valueOf(j), k.bs(1000 * j));
+                    this.ofe.setCountDownTimer(String.valueOf(j), k.bs(1000 * j));
                     fb(j * 1000);
                     break;
                 }
@@ -202,10 +202,10 @@ public class a implements com.baidu.live.ab.a {
             case 3:
                 bSZ();
                 fc(0L);
-                this.ofd.ub(4);
+                this.ofe.ub(4);
                 break;
             default:
-                this.ofd.ub(1);
+                this.ofe.ub(1);
                 break;
         }
         this.gLr = redPacketCharmInfo;
@@ -225,7 +225,7 @@ public class a implements com.baidu.live.ab.a {
             dcVar.liveId = String.valueOf(this.aBr.mLiveInfo.live_id);
             dcVar.aQG = String.valueOf(this.aBr.mLiveInfo.user_uk);
             dcVar.roomId = String.valueOf(this.aBr.mLiveInfo.room_id);
-            dcVar.time = this.ofe.longValue();
+            dcVar.time = this.ofg.longValue();
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913134, dcVar));
         }
     }
@@ -239,14 +239,14 @@ public class a implements com.baidu.live.ab.a {
         this.gLs = new CountDownTimer(j, 1000L) { // from class: com.baidu.tieba.yuyinala.charm.a.4
             @Override // android.os.CountDownTimer
             public void onTick(long j2) {
-                if (a.this.ofd != null) {
+                if (a.this.ofe != null) {
                     long round = Math.round(j2 / 1000.0d);
-                    a.this.ofe = Long.valueOf(round);
-                    a.this.ofd.setCountDownTimer(String.valueOf(round), k.bs(1000 * round));
+                    a.this.ofg = Long.valueOf(round);
+                    a.this.ofe.setCountDownTimer(String.valueOf(round), k.bs(1000 * round));
                     if (round > 10 && round <= 60) {
-                        a.this.ofd.ub(2);
+                        a.this.ofe.ub(2);
                     } else if (round <= 10) {
-                        a.this.ofd.ub(3);
+                        a.this.ofe.ub(3);
                     }
                     a.this.fc(round);
                 }
@@ -255,8 +255,8 @@ public class a implements com.baidu.live.ab.a {
             @Override // android.os.CountDownTimer
             public void onFinish() {
                 int i;
-                if (a.this.ofd != null) {
-                    a.this.ofd.ub(4);
+                if (a.this.ofe != null) {
+                    a.this.ofe.ub(4);
                     if (a.this.gLr != null) {
                         a aVar = a.this;
                         if (a.this.gLr.count > 1) {
@@ -275,14 +275,14 @@ public class a implements com.baidu.live.ab.a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void tZ(int i) {
-        if (this.ofd != null) {
+        if (this.ofe != null) {
             String str = "";
             if (i > 99) {
                 str = "99+";
             } else if (i >= 1) {
                 str = String.valueOf(i);
             }
-            this.ofd.setBadge(TextUtils.isEmpty(str) ? false : true, str);
+            this.ofe.setBadge(TextUtils.isEmpty(str) ? false : true, str);
         }
     }
 
@@ -294,7 +294,7 @@ public class a implements com.baidu.live.ab.a {
     private void bSZ() {
         if (this.gLs != null) {
             this.gLs.cancel();
-            this.ofe = 0L;
+            this.ofg = 0L;
         }
     }
 
@@ -309,10 +309,10 @@ public class a implements com.baidu.live.ab.a {
     }
 
     private void mr(boolean z) {
-        if (this.ofd != null) {
-            this.ofd.release();
-            if (this.ofd.getParent() instanceof ViewGroup) {
-                ((ViewGroup) this.ofd.getParent()).removeView(this.ofd);
+        if (this.ofe != null) {
+            this.ofe.release();
+            if (this.ofe.getParent() instanceof ViewGroup) {
+                ((ViewGroup) this.ofe.getParent()).removeView(this.ofe);
             }
         }
         if (z && this.glB != null && (this.glB.getParent() instanceof ViewGroup)) {

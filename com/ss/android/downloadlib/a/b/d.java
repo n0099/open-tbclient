@@ -24,11 +24,11 @@ public class d {
 
     /* loaded from: classes4.dex */
     private static class b {
-        private static d pQU = new d();
+        private static d pQV = new d();
     }
 
     public static d eCc() {
-        return b.pQU;
+        return b.pQV;
     }
 
     private d() {
@@ -99,7 +99,7 @@ public class d {
         return this.e;
     }
 
-    public com.ss.android.b.a.b.a ZE(String str) {
+    public com.ss.android.b.a.b.a ZF(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
@@ -111,7 +111,7 @@ public class d {
         return null;
     }
 
-    public com.ss.android.b.a.b.a ZF(String str) {
+    public com.ss.android.b.a.b.a ZG(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
@@ -167,11 +167,11 @@ public class d {
     public a jc(long j) {
         a aVar = new a();
         aVar.f12938a = j;
-        aVar.pQV = iY(j);
-        aVar.pQW = iZ(j);
-        aVar.pQX = ja(j);
-        if (aVar.pQX == null) {
-            aVar.pQX = new com.ss.android.b.a.a.a();
+        aVar.pQW = iY(j);
+        aVar.pQX = iZ(j);
+        aVar.pQY = ja(j);
+        if (aVar.pQY == null) {
+            aVar.pQY = new com.ss.android.b.a.a.a();
         }
         return aVar;
     }
@@ -201,7 +201,7 @@ public class d {
         if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
             for (com.ss.android.a.a.b.c cVar : this.f12937b.values()) {
                 if ((cVar instanceof com.ss.android.b.a.a.c) && TextUtils.equals(cVar.a(), str)) {
-                    ((com.ss.android.b.a.a.c) cVar).Zu(str2);
+                    ((com.ss.android.b.a.a.c) cVar).Zv(str2);
                 }
             }
         }
@@ -222,22 +222,22 @@ public class d {
 
         /* renamed from: a  reason: collision with root package name */
         public long f12938a;
-        public com.ss.android.a.a.b.c pQV;
-        public com.ss.android.a.a.b.b pQW;
-        public com.ss.android.a.a.b.a pQX;
+        public com.ss.android.a.a.b.c pQW;
+        public com.ss.android.a.a.b.b pQX;
+        public com.ss.android.a.a.b.a pQY;
 
         public a() {
         }
 
         public a(long j, com.ss.android.a.a.b.c cVar, com.ss.android.a.a.b.b bVar, com.ss.android.a.a.b.a aVar) {
             this.f12938a = j;
-            this.pQV = cVar;
-            this.pQW = bVar;
-            this.pQX = aVar;
+            this.pQW = cVar;
+            this.pQX = bVar;
+            this.pQY = aVar;
         }
 
         public boolean a() {
-            return this.f12938a <= 0 || this.pQV == null || this.pQW == null || this.pQX == null;
+            return this.f12938a <= 0 || this.pQW == null || this.pQX == null || this.pQY == null;
         }
     }
 }

@@ -10,7 +10,7 @@ import java.util.concurrent.Future;
 import java.util.concurrent.ThreadPoolExecutor;
 /* loaded from: classes4.dex */
 public class e extends a {
-    private static com.ss.android.socialbase.downloader.l.d pWC;
+    private static com.ss.android.socialbase.downloader.l.d pWD;
 
     public static void c(List<Callable<Object>> list) throws InterruptedException {
         ExecutorService eDP = com.ss.android.socialbase.downloader.downloader.b.eDP();
@@ -29,7 +29,7 @@ public class e extends a {
     }
 
     public e() {
-        pWC = new com.ss.android.socialbase.downloader.l.d();
+        pWD = new com.ss.android.socialbase.downloader.l.d();
     }
 
     public static Runnable he(List<Future> list) {
@@ -67,7 +67,7 @@ public class e extends a {
     @Override // com.ss.android.socialbase.downloader.impls.a
     public boolean a(int i) {
         com.ss.android.socialbase.downloader.g.c Ru;
-        if (pWC == null || !pWC.a(i) || (Ru = Ru(i)) == null) {
+        if (pWD == null || !pWD.a(i) || (Ru = Ru(i)) == null) {
             return false;
         }
         if (!com.ss.android.socialbase.downloader.b.f.b(Ru.q())) {
@@ -79,8 +79,8 @@ public class e extends a {
 
     @Override // com.ss.android.socialbase.downloader.impls.a
     public void a(com.ss.android.socialbase.downloader.l.c cVar) {
-        if (pWC != null) {
-            pWC.b(cVar);
+        if (pWD != null) {
+            pWD.b(cVar);
         }
     }
 
@@ -88,34 +88,34 @@ public class e extends a {
     public void a(int i, com.ss.android.socialbase.downloader.g.d dVar) {
         if (dVar != null) {
             com.ss.android.socialbase.downloader.f.a.b("DownloadTask", "start doDownload for task : " + i);
-            pWC.a(new com.ss.android.socialbase.downloader.l.c(dVar, this.pWr));
+            pWD.a(new com.ss.android.socialbase.downloader.l.c(dVar, this.pWs));
         }
     }
 
     @Override // com.ss.android.socialbase.downloader.impls.a
     public void b(int i) {
-        if (pWC != null) {
-            pWC.c(i);
+        if (pWD != null) {
+            pWD.c(i);
         }
     }
 
     @Override // com.ss.android.socialbase.downloader.impls.a
     protected com.ss.android.socialbase.downloader.l.c Rt(int i) {
-        if (pWC == null) {
+        if (pWD == null) {
             return null;
         }
-        return pWC.RD(i);
+        return pWD.RD(i);
     }
 
     @Override // com.ss.android.socialbase.downloader.impls.a
     public List<Integer> a() {
-        return pWC.a();
+        return pWD.a();
     }
 
     @Override // com.ss.android.socialbase.downloader.impls.a
     public void a(int i, long j) {
-        if (pWC != null) {
-            pWC.a(i, j);
+        if (pWD != null) {
+            pWD.a(i, j);
         }
     }
 }

@@ -14,12 +14,12 @@ public class a implements b {
     }
 
     @Override // org.java_websocket.b.b
-    public boolean abm(String str) {
+    public boolean abn(String str) {
         return true;
     }
 
     @Override // org.java_websocket.b.b
-    public boolean abn(String str) {
+    public boolean abo(String str) {
         return true;
     }
 

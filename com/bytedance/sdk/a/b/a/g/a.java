@@ -25,18 +25,18 @@ public class a extends e {
 
     /* renamed from: a  reason: collision with root package name */
     private final Class<?> f5927a;
-    private final d<Socket> pgn;
     private final d<Socket> pgo;
     private final d<Socket> pgp;
     private final d<Socket> pgq;
-    private final c pgr = c.ene();
+    private final d<Socket> pgr;
+    private final c pgs = c.ene();
 
     a(Class<?> cls, d<Socket> dVar, d<Socket> dVar2, d<Socket> dVar3, d<Socket> dVar4) {
         this.f5927a = cls;
-        this.pgn = dVar;
-        this.pgo = dVar2;
-        this.pgp = dVar3;
-        this.pgq = dVar4;
+        this.pgo = dVar;
+        this.pgp = dVar2;
+        this.pgq = dVar3;
+        this.pgr = dVar4;
     }
 
     @Override // com.bytedance.sdk.a.b.a.g.e
@@ -83,19 +83,19 @@ public class a extends e {
     @Override // com.bytedance.sdk.a.b.a.g.e
     public void a(SSLSocket sSLSocket, String str, List<w> list) {
         if (str != null) {
-            this.pgn.c(sSLSocket, true);
-            this.pgo.c(sSLSocket, str);
+            this.pgo.c(sSLSocket, true);
+            this.pgp.c(sSLSocket, str);
         }
-        if (this.pgq != null && this.pgq.a((d<Socket>) sSLSocket)) {
-            this.pgq.e(sSLSocket, gH(list));
+        if (this.pgr != null && this.pgr.a((d<Socket>) sSLSocket)) {
+            this.pgr.e(sSLSocket, gH(list));
         }
     }
 
     @Override // com.bytedance.sdk.a.b.a.g.e
     public String c(SSLSocket sSLSocket) {
-        if (this.pgp != null && this.pgp.a((d<Socket>) sSLSocket)) {
-            byte[] bArr = (byte[]) this.pgp.e(sSLSocket, new Object[0]);
-            return bArr != null ? new String(bArr, com.bytedance.sdk.a.b.a.c.peH) : null;
+        if (this.pgq != null && this.pgq.a((d<Socket>) sSLSocket)) {
+            byte[] bArr = (byte[]) this.pgq.e(sSLSocket, new Object[0]);
+            return bArr != null ? new String(bArr, com.bytedance.sdk.a.b.a.c.peI) : null;
         }
         return null;
     }
@@ -128,12 +128,12 @@ public class a extends e {
 
     @Override // com.bytedance.sdk.a.b.a.g.e
     public Object a(String str) {
-        return this.pgr.a(str);
+        return this.pgs.a(str);
     }
 
     @Override // com.bytedance.sdk.a.b.a.g.e
     public void a(String str, Object obj) {
-        if (!this.pgr.a(obj)) {
+        if (!this.pgs.a(obj)) {
             a(5, str, (Throwable) null);
         }
     }

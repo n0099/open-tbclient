@@ -18,8 +18,8 @@ import com.baidu.yuyinala.privatemessage.implugin.util.f;
 /* loaded from: classes10.dex */
 public class e {
     private boolean mIsLoading = false;
-    private b oTS;
-    private a oTT;
+    private b oTT;
+    private a oTU;
 
     /* loaded from: classes10.dex */
     public interface a {
@@ -31,47 +31,47 @@ public class e {
     }
 
     public void Nq(int i) {
-        if (this.oTS != null && this.mIsLoading) {
-            this.oTS.Nr(i);
+        if (this.oTT != null && this.mIsLoading) {
+            this.oTT.Nr(i);
         }
     }
 
     public void showToast(Context context, String str) {
-        if (this.oTS != null && this.mIsLoading) {
-            this.oTS.hideLoading();
+        if (this.oTT != null && this.mIsLoading) {
+            this.oTT.hideLoading();
         }
-        this.oTS = new b(context);
-        this.oTS.showToast(str);
+        this.oTT = new b(context);
+        this.oTT.showToast(str);
     }
 
     public void bw(Context context, String str) {
-        if (this.oTS != null && this.mIsLoading) {
-            this.oTS.hideLoading();
+        if (this.oTT != null && this.mIsLoading) {
+            this.oTT.hideLoading();
         }
-        this.oTS = new b(context);
-        this.oTS.Xn(str);
+        this.oTT = new b(context);
+        this.oTT.Xo(str);
     }
 
     public void bx(Context context, String str) {
-        if (this.oTS != null && this.mIsLoading) {
-            this.oTS.hideLoading();
+        if (this.oTT != null && this.mIsLoading) {
+            this.oTT.hideLoading();
         }
-        this.oTS = new b(context);
-        this.oTS.Xo(str);
+        this.oTT = new b(context);
+        this.oTT.Xp(str);
     }
 
     public void hideLoading() {
-        if (this.oTS != null && this.mIsLoading) {
-            this.oTS.hideLoading();
+        if (this.oTT != null && this.mIsLoading) {
+            this.oTT.hideLoading();
         }
     }
 
     public void dismiss() {
         hideLoading();
-        if (this.oTS != null) {
-            this.oTS.cancel();
+        if (this.oTT != null) {
+            this.oTT.cancel();
         }
-        this.oTT = null;
+        this.oTU = null;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -84,8 +84,8 @@ public class e {
         private Runnable mRunnable;
         private View mView;
         private WindowManager mWM;
-        private ImageView oTU;
         private ImageView oTV;
+        private ImageView oTW;
 
         @SuppressLint({"InflateParams"})
         public b(Context context) {
@@ -95,8 +95,8 @@ public class e {
             this.mWM = (WindowManager) this.mContext.getSystemService("window");
             this.mView = LayoutInflater.from(this.mContext).inflate(a.g.bd_im_menu_toast_dialog, (ViewGroup) null);
             this.htt = (TextView) this.mView.findViewById(a.f.tipsText);
-            this.oTU = (ImageView) this.mView.findViewById(a.f.tipsImage);
-            this.oTV = (ImageView) this.mView.findViewById(a.f.subscribe_image);
+            this.oTV = (ImageView) this.mView.findViewById(a.f.tipsImage);
+            this.oTW = (ImageView) this.mView.findViewById(a.f.subscribe_image);
         }
 
         public void Nr(int i) {
@@ -110,22 +110,22 @@ public class e {
             if (this.mView != null) {
                 e.this.mIsLoading = false;
                 try {
-                    ((AnimationDrawable) this.oTU.getDrawable()).stop();
+                    ((AnimationDrawable) this.oTV.getDrawable()).stop();
                     this.mWM.removeView(this.mView);
                 } catch (Exception e) {
                     Log.e("ToastDialog", e.getMessage());
                 }
-                if (e.this.oTT != null) {
-                    e.this.oTT.eiY();
+                if (e.this.oTU != null) {
+                    e.this.oTU.eiY();
                 }
-                e.this.oTT = null;
+                e.this.oTU = null;
                 this.mHandler.removeCallbacks(this.mRunnable);
             }
         }
 
         public void showToast(String str) {
-            this.oTU.setVisibility(8);
             this.oTV.setVisibility(8);
+            this.oTW.setVisibility(8);
             setView(this.mView);
             setDuration(0);
             setGravity(80, 0, ((int) this.mContext.getResources().getDimension(a.d.bd_im_chat_bottom_bar)) + 44);
@@ -135,9 +135,9 @@ public class e {
             show();
         }
 
-        public void Xn(String str) {
-            this.oTU.setVisibility(8);
+        public void Xo(String str) {
             this.oTV.setVisibility(8);
+            this.oTW.setVisibility(8);
             setView(this.mView);
             setDuration(0);
             setGravity(17, 0, 0);
@@ -147,8 +147,8 @@ public class e {
             show();
         }
 
-        public void Xo(String str) {
-            this.oTU.setVisibility(8);
+        public void Xp(String str) {
+            this.oTV.setVisibility(8);
             this.mView.setMinimumHeight(f.dip2px(this.mContext, 104.0f));
             this.mView.setPadding(f.dip2px(this.mContext, 26.0f), 0, f.dip2px(this.mContext, 26.0f), 0);
             this.htt.setTextSize(13.0f);

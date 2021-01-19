@@ -24,7 +24,7 @@ public class JumpUnknownSourceActivity extends Activity {
     @Nullable
     private Intent c;
     private JSONObject d;
-    private j pTZ;
+    private j pUa;
 
     @Override // android.app.Activity
     protected void onNewIntent(Intent intent) {
@@ -59,15 +59,15 @@ public class JumpUnknownSourceActivity extends Activity {
             }
         }
         b();
-        if (this.pTZ != null && !this.pTZ.b()) {
-            this.pTZ.a();
-        } else if (this.pTZ == null) {
+        if (this.pUa != null && !this.pUa.b()) {
+            this.pUa.a();
+        } else if (this.pUa == null) {
             finish();
         }
     }
 
     private void b() {
-        if (this.pTZ == null && this.f13061b != null) {
+        if (this.pUa == null && this.f13061b != null) {
             try {
                 c eCR = d.eCW().eCR();
                 k kVar = null;
@@ -82,7 +82,7 @@ public class JumpUnknownSourceActivity extends Activity {
                 if (TextUtils.isEmpty(optString)) {
                     optString = getString(i.a(this, "appdownloader_jump_unknown_source_tips"));
                 }
-                aVar.QA(a2).ZH(optString).h(a3, new DialogInterface.OnClickListener() { // from class: com.ss.android.socialbase.appdownloader.view.JumpUnknownSourceActivity.3
+                aVar.QA(a2).ZI(optString).h(a3, new DialogInterface.OnClickListener() { // from class: com.ss.android.socialbase.appdownloader.view.JumpUnknownSourceActivity.3
                     @Override // android.content.DialogInterface.OnClickListener
                     public void onClick(DialogInterface dialogInterface, int i) {
                         if (!b.a(JumpUnknownSourceActivity.this, JumpUnknownSourceActivity.this.c, JumpUnknownSourceActivity.this.d)) {
@@ -107,7 +107,7 @@ public class JumpUnknownSourceActivity extends Activity {
                         JumpUnknownSourceActivity.this.finish();
                     }
                 }).BE(false);
-                this.pTZ = aVar.eCH();
+                this.pUa = aVar.eCH();
             } catch (Exception e) {
                 e.printStackTrace();
             }

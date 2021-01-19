@@ -9,7 +9,7 @@ public class NetcheckTaskListenerWrapper {
 
     /* renamed from: b  reason: collision with root package name */
     public Executor f8116b;
-    public a.b pNP;
+    public a.b pNQ;
 
     @Keep
     public void OnFinish(long j, String str) {

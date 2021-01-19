@@ -1,7 +1,7 @@
 package com.facebook.common.e;
 /* loaded from: classes14.dex */
 public class a {
-    private static volatile b ppa = new C1036a();
+    private static volatile b ppb = new C1036a();
 
     /* loaded from: classes14.dex */
     public interface b {
@@ -18,6 +18,6 @@ public class a {
     }
 
     public static void loadLibrary(String str) {
-        ppa.loadLibrary(str);
+        ppb.loadLibrary(str);
     }
 }

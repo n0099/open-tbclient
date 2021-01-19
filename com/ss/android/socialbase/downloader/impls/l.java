@@ -4,7 +4,7 @@ public class l {
 
     /* renamed from: b  reason: collision with root package name */
     private static volatile com.ss.android.socialbase.downloader.downloader.n f13191b;
-    private static volatile com.ss.android.socialbase.downloader.downloader.n pVf;
+    private static volatile com.ss.android.socialbase.downloader.downloader.n pVg;
 
     public static com.ss.android.socialbase.downloader.downloader.n Cu(boolean z) {
         if (z) {
@@ -17,13 +17,13 @@ public class l {
             }
             return f13191b;
         }
-        if (pVf == null) {
+        if (pVg == null) {
             synchronized (l.class) {
-                if (pVf == null) {
-                    pVf = new p();
+                if (pVg == null) {
+                    pVg = new p();
                 }
             }
         }
-        return pVf;
+        return pVg;
     }
 }

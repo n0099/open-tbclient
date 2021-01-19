@@ -55,7 +55,7 @@ public class WDownLoadService extends Service {
         try {
             this.f51case = intent.getStringExtra("down_load_apk_url");
             this.f13744a = intent.getStringExtra("down_load_pkg_name");
-            this.f53java = bv.iP(getApplicationContext()) + File.separator + "win" + File.separator + bv.aaG(this.f51case);
+            this.f53java = bv.iP(getApplicationContext()) + File.separator + "win" + File.separator + bv.aaH(this.f51case);
             File parentFile = new File(this.f53java).getParentFile();
             if (!parentFile.exists()) {
                 parentFile.mkdirs();
@@ -70,11 +70,11 @@ public class WDownLoadService extends Service {
             } else {
                 java(info, getString(d.e.wdownload_start), getString(d.e.wdownload_start), 0);
             }
-            w.iK(getApplicationContext()).b(new x(info), this.f51case).hu("desc", w.aaG(this.f53java)).eGz();
+            w.iK(getApplicationContext()).b(new x(info), this.f51case).hu("desc", w.aaH(this.f53java)).eGz();
             try {
                 z.a(info, 300);
                 if (info != null && !TextUtils.isEmpty(info.getVv_downs_urls())) {
-                    z.aaD(info.getVv_downs_urls());
+                    z.aaE(info.getVv_downs_urls());
                 }
             } catch (Exception e2) {
                 e2.printStackTrace();
@@ -85,7 +85,7 @@ public class WDownLoadService extends Service {
             bt btVar = new bt() { // from class: com.win.opensdk.downloader.WDownLoadService.1
                 @Override // com.win.opensdk.bt
                 public final void RJ(int i3) {
-                    bu.eHa().pYL = true;
+                    bu.eHa().pYM = true;
                     if (info != null) {
                         WDownLoadService.this.java(info, info.getDl_name(), WDownLoadService.this.getString(d.e.wdownload_processing), i3);
                     } else {
@@ -95,7 +95,7 @@ public class WDownLoadService extends Service {
 
                 @Override // com.win.opensdk.bt
                 public final void eGz() {
-                    bu.eHa().pYL = false;
+                    bu.eHa().pYM = false;
                     if (info != null) {
                         WDownLoadService.this.java(info, info.getDl_name(), WDownLoadService.this.getString(d.e.wdownload_failed_msg), 0);
                     } else {
@@ -108,13 +108,13 @@ public class WDownLoadService extends Service {
 
                 @Override // com.win.opensdk.bt
                 public final void eGA() {
-                    bu.eHa().pYL = false;
+                    bu.eHa().pYM = false;
                     w.iK(WDownLoadService.this.getApplicationContext()).b(new x(info), 200).eGz();
                     Info info2 = info;
                     try {
                         z.a(info2, 301);
                         if (info2 != null && !TextUtils.isEmpty(info2.getVv_downf_urls())) {
-                            z.aaD(info2.getVv_downf_urls());
+                            z.aaE(info2.getVv_downf_urls());
                         }
                     } catch (Exception e3) {
                         e3.printStackTrace();
@@ -133,7 +133,7 @@ public class WDownLoadService extends Service {
                             Toast.makeText(WDownLoadService.this.getApplicationContext(), d.e.win_toast_network_error2, 0).show();
                         }
                     });
-                    bu.eHa().pYL = false;
+                    bu.eHa().pYM = false;
                     w.iK(WDownLoadService.this.getApplicationContext()).b(new x(info), 2).eGz();
                     if (info != null) {
                         WDownLoadService.this.java(info, info.getDl_name(), WDownLoadService.this.getString(d.e.wdownload_failed_msg), 0);
@@ -148,7 +148,7 @@ public class WDownLoadService extends Service {
                     WDownLoadService.this.stopSelf();
                 }
             };
-            if (!eHa.pYL) {
+            if (!eHa.pYM) {
                 File file = new File(str2.substring(0, str2.lastIndexOf("/") + 1));
                 File file2 = new File(str2);
                 if (!file.exists()) {
@@ -161,8 +161,8 @@ public class WDownLoadService extends Service {
                         e3.printStackTrace();
                     }
                 }
-                eHa.qax = new i(str, str2, btVar);
-                new WeakReference(eHa.qai.submit(eHa.qax));
+                eHa.qay = new i(str, str2, btVar);
+                new WeakReference(eHa.qaj.submit(eHa.qay));
             }
         } catch (Exception e4) {
             e4.printStackTrace();
@@ -230,7 +230,7 @@ public class WDownLoadService extends Service {
     public void onDestroy() {
         super.onDestroy();
         try {
-            bu.eHa().pYL = false;
+            bu.eHa().pYM = false;
             if (this.f52java != null) {
                 this.f52java.cancel(232);
             }

@@ -16,21 +16,21 @@ public class b {
     /* renamed from: b  reason: collision with root package name */
     private final Set<String> f13252b = new HashSet();
     private final SparseArray<a> d = new SparseArray<>();
-    private static volatile b pYo = null;
+    private static volatile b pYp = null;
     private static final Object c = new Object();
 
     private b() {
     }
 
     public static b eGk() {
-        if (pYo == null) {
+        if (pYp == null) {
             synchronized (b.class) {
-                if (pYo == null) {
-                    pYo = new b();
+                if (pYp == null) {
+                    pYp = new b();
                 }
             }
         }
-        return pYo;
+        return pYp;
     }
 
     public void a(int i) {

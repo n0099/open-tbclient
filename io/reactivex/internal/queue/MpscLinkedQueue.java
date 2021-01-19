@@ -4,8 +4,8 @@ import io.reactivex.internal.a.e;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes5.dex */
 public final class MpscLinkedQueue<T> implements e<T> {
-    private final AtomicReference<LinkedQueueNode<T>> qge = new AtomicReference<>();
     private final AtomicReference<LinkedQueueNode<T>> qgf = new AtomicReference<>();
+    private final AtomicReference<LinkedQueueNode<T>> qgg = new AtomicReference<>();
 
     public MpscLinkedQueue() {
         LinkedQueueNode<T> linkedQueueNode = new LinkedQueueNode<>();
@@ -51,23 +51,23 @@ public final class MpscLinkedQueue<T> implements e<T> {
     }
 
     LinkedQueueNode<T> eIb() {
-        return this.qge.get();
+        return this.qgf.get();
     }
 
     LinkedQueueNode<T> a(LinkedQueueNode<T> linkedQueueNode) {
-        return this.qge.getAndSet(linkedQueueNode);
+        return this.qgf.getAndSet(linkedQueueNode);
     }
 
     LinkedQueueNode<T> eIc() {
-        return this.qgf.get();
+        return this.qgg.get();
     }
 
     LinkedQueueNode<T> eId() {
-        return this.qgf.get();
+        return this.qgg.get();
     }
 
     void b(LinkedQueueNode<T> linkedQueueNode) {
-        this.qgf.lazySet(linkedQueueNode);
+        this.qgg.lazySet(linkedQueueNode);
     }
 
     @Override // io.reactivex.internal.a.f

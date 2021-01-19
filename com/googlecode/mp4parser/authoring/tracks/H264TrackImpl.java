@@ -275,12 +275,12 @@ public class H264TrackImpl extends AbstractTrack {
     public class a {
         ByteBuffer buffer;
         DataSource dataSource;
-        long pMY = 0;
-        int pMZ = 0;
+        long pMZ = 0;
+        int pNa = 0;
         long start;
 
         public void ezN() throws IOException {
-            this.buffer = this.dataSource.map(this.pMY, Math.min(this.dataSource.size() - this.pMY, H264TrackImpl.BUFFER));
+            this.buffer = this.dataSource.map(this.pMZ, Math.min(this.dataSource.size() - this.pMZ, H264TrackImpl.BUFFER));
         }
 
         a(DataSource dataSource) throws IOException {
@@ -289,9 +289,9 @@ public class H264TrackImpl extends AbstractTrack {
         }
 
         boolean ezO() throws IOException {
-            if (this.buffer.limit() - this.pMZ >= 3) {
-                return this.buffer.get(this.pMZ) == 0 && this.buffer.get(this.pMZ + 1) == 0 && this.buffer.get(this.pMZ + 2) == 1;
-            } else if (this.pMY + this.pMZ != this.dataSource.size()) {
+            if (this.buffer.limit() - this.pNa >= 3) {
+                return this.buffer.get(this.pNa) == 0 && this.buffer.get(this.pNa + 1) == 0 && this.buffer.get(this.pNa + 2) == 1;
+            } else if (this.pMZ + this.pNa != this.dataSource.size()) {
                 System.err.println(H264TrackImpl.this.samples.size());
                 throw new RuntimeException("buffer repositioning require");
             } else {
@@ -300,32 +300,32 @@ public class H264TrackImpl extends AbstractTrack {
         }
 
         boolean ezP() throws IOException {
-            if (this.buffer.limit() - this.pMZ >= 3) {
-                return this.buffer.get(this.pMZ) == 0 && this.buffer.get(this.pMZ + 1) == 0 && (this.buffer.get(this.pMZ + 2) == 0 || this.buffer.get(this.pMZ + 2) == 1);
-            } else if (this.pMY + this.pMZ + 3 > this.dataSource.size()) {
-                return this.pMY + ((long) this.pMZ) == this.dataSource.size();
+            if (this.buffer.limit() - this.pNa >= 3) {
+                return this.buffer.get(this.pNa) == 0 && this.buffer.get(this.pNa + 1) == 0 && (this.buffer.get(this.pNa + 2) == 0 || this.buffer.get(this.pNa + 2) == 1);
+            } else if (this.pMZ + this.pNa + 3 > this.dataSource.size()) {
+                return this.pMZ + ((long) this.pNa) == this.dataSource.size();
             } else {
-                this.pMY = this.start;
-                this.pMZ = 0;
+                this.pMZ = this.start;
+                this.pNa = 0;
                 ezN();
                 return ezP();
             }
         }
 
         void ezQ() {
-            this.pMZ++;
+            this.pNa++;
         }
 
         void ezR() {
-            this.pMZ += 3;
-            this.start = this.pMY + this.pMZ;
+            this.pNa += 3;
+            this.start = this.pMZ + this.pNa;
         }
 
         public ByteBuffer ezS() {
-            if (this.start >= this.pMY) {
-                this.buffer.position((int) (this.start - this.pMY));
+            if (this.start >= this.pMZ) {
+                this.buffer.position((int) (this.start - this.pMZ));
                 ByteBuffer slice = this.buffer.slice();
-                slice.limit((int) (this.pMZ - (this.start - this.pMY)));
+                slice.limit((int) (this.pNa - (this.start - this.pMZ)));
                 return slice;
             }
             throw new RuntimeException("damn sample crosses buffers");

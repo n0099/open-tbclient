@@ -140,7 +140,7 @@ public class PbChosenActivity extends BaseActivity<PbChosenActivity> implements 
     };
     private c.a lzY = new c.a() { // from class: com.baidu.tieba.pb.chosen.PbChosenActivity.14
         @Override // com.baidu.tieba.pb.chosen.view.c.a
-        public void Op(String str) {
+        public void Oq(String str) {
             if (PbChosenActivity.this.checkUpIsLogin() && PbChosenActivity.this.chosenData != null && PbChosenActivity.this.chosenData.getThreadInfo() != null && !StringUtils.isNull(str)) {
                 if (PbChosenActivity.this.chosenData != null && PbChosenActivity.this.chosenData.getThreadInfo() != null) {
                     TiebaStatic.log(new aq("c10093").dW("tid", PbChosenActivity.this.chosenData.getThreadInfo().thread_id + "").dW("obj_name", PbChosenActivity.this.chosenData.getThreadInfo().tag_name).an("obj_source", PbChosenActivity.this.chosenData.getThreadInfo().source.intValue()).dW("abtest", PbChosenActivity.this.chosenData.getThreadInfo().abtest));
@@ -213,7 +213,7 @@ public class PbChosenActivity extends BaseActivity<PbChosenActivity> implements 
         }
 
         @Override // com.baidu.tieba.pb.chosen.view.d.b
-        public void Oo(String str) {
+        public void Op(String str) {
             if (!StringUtils.isNull(str)) {
                 PbChosenActivity.this.sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_START_NORMAL, new FrsActivityConfig(PbChosenActivity.this.getPageContext().getPageActivity()).createNormalCfg(str, "from_chosen_pb")));
                 if (PbChosenActivity.this.chosenData != null && PbChosenActivity.this.chosenData.getThreadInfo() != null && PbChosenActivity.this.chosenData.getThreadInfo().excid != null) {
@@ -380,7 +380,7 @@ public class PbChosenActivity extends BaseActivity<PbChosenActivity> implements 
             if (this.lzN != null && threadInfo.post_num != null) {
                 String numFormatOver10000 = at.numFormatOver10000(threadInfo.post_num.longValue());
                 this.lzN.setText(getResources().getString(R.string.chosen_pb_reply_number_text, numFormatOver10000));
-                this.lzM.Or(getResources().getString(R.string.chosen_pb_reply_count_text, numFormatOver10000));
+                this.lzM.Os(getResources().getString(R.string.chosen_pb_reply_count_text, numFormatOver10000));
             }
             this.lzK.a(threadInfo);
             this.lzJ.a(getPageContext().getPageActivity(), threadInfo);

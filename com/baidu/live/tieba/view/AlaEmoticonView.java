@@ -83,7 +83,7 @@ public class AlaEmoticonView extends FrameLayout {
     private void aL(String str, final String str2) {
         if (!TextUtils.isEmpty(str)) {
             this.bGx.setVisibility(0);
-            this.bGx.setController(c.eqV().bo(ImageRequest.Yx(str)).c(this.bGx.getController()).AT(true).c(new com.facebook.drawee.controller.b<f>() { // from class: com.baidu.live.tieba.view.AlaEmoticonView.1
+            this.bGx.setController(c.eqV().bo(ImageRequest.Yy(str)).c(this.bGx.getController()).AT(true).c(new com.facebook.drawee.controller.b<f>() { // from class: com.baidu.live.tieba.view.AlaEmoticonView.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.facebook.drawee.controller.b, com.facebook.drawee.controller.c
                 public void a(String str3, f fVar, Animatable animatable) {

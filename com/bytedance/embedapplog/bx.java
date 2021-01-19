@@ -12,7 +12,7 @@ import java.util.Comparator;
 import java.util.Iterator;
 /* loaded from: classes4.dex */
 public class bx implements Handler.Callback, Comparator<ac> {
-    private static bx pcU;
+    private static bx pcV;
 
     /* renamed from: a  reason: collision with root package name */
     public Application f5816a;
@@ -20,15 +20,15 @@ public class bx implements Handler.Callback, Comparator<ac> {
     private final ArrayList<ac> f = new ArrayList<>(32);
     private Handler i;
     private Handler k;
-    private bt pcV;
-    private ad pcW;
-    private ce pcX;
-    private cn pch;
-    private m pcl;
+    private bt pcW;
+    private ad pcX;
+    private ce pcY;
+    private cn pci;
+    private m pcm;
 
     public static void a() {
-        if (pcU != null) {
-            pcU.b(null);
+        if (pcV != null) {
+            pcV.b(null);
         }
     }
 
@@ -36,14 +36,14 @@ public class bx implements Handler.Callback, Comparator<ac> {
     }
 
     public static bx elC() {
-        if (pcU == null) {
+        if (pcV == null) {
             synchronized (bx.class) {
-                if (pcU == null) {
-                    pcU = new bx();
+                if (pcV == null) {
+                    pcV = new bx();
                 }
             }
         }
-        return pcU;
+        return pcV;
     }
 
     public static String c() {
@@ -51,8 +51,8 @@ public class bx implements Handler.Callback, Comparator<ac> {
     }
 
     public static ce elD() {
-        if (pcU != null) {
-            return pcU.pcX;
+        if (pcV != null) {
+            return pcV.pcY;
         }
         au.a(null);
         return null;
@@ -60,10 +60,10 @@ public class bx implements Handler.Callback, Comparator<ac> {
 
     public void a(Application application, cn cnVar, m mVar, bs bsVar) {
         this.f5816a = application;
-        this.pcW = new ad(application, mVar, cnVar);
-        this.pch = cnVar;
-        this.pcl = mVar;
-        this.pcX = new ce(this.pcl, this.pch);
+        this.pcX = new ad(application, mVar, cnVar);
+        this.pci = cnVar;
+        this.pcm = mVar;
+        this.pcY = new ce(this.pcm, this.pci);
         this.f5816a.registerActivityLifecycleCallbacks(bsVar);
         HandlerThread handlerThread = new HandlerThread("bd_tracker_w");
         handlerThread.start();
@@ -76,9 +76,9 @@ public class bx implements Handler.Callback, Comparator<ac> {
     public boolean handleMessage(Message message) {
         switch (message.what) {
             case 1:
-                au.f5785a = this.pch.w();
-                if (this.pcl.e()) {
-                    if (this.pch.r()) {
+                au.f5785a = this.pci.w();
+                if (this.pcm.e()) {
+                    if (this.pci.r()) {
                         HandlerThread handlerThread = new HandlerThread("bd_tracker_n");
                         handlerThread.start();
                         this.i = new Handler(handlerThread.getLooper(), this);
@@ -97,10 +97,10 @@ public class bx implements Handler.Callback, Comparator<ac> {
                 break;
             case 2:
                 ArrayList arrayList = new ArrayList(4);
-                arrayList.add(new cc(this.f5816a, this.pcl, this.pcX));
-                arrayList.add(new bw(this.f5816a, this.pcl, this.pch));
-                arrayList.add(new cb(this.f5816a, this.pcl, this.pcW));
-                arrayList.add(new cd(this.f5816a, this.pcW, this.pch, this.pcl));
+                arrayList.add(new cc(this.f5816a, this.pcm, this.pcY));
+                arrayList.add(new bw(this.f5816a, this.pcm, this.pci));
+                arrayList.add(new cb(this.f5816a, this.pcm, this.pcX));
+                arrayList.add(new cd(this.f5816a, this.pcX, this.pci, this.pcm));
                 Iterator it = arrayList.iterator();
                 while (it.hasNext()) {
                     bv bvVar = (bv) it.next();
@@ -143,20 +143,20 @@ public class bx implements Handler.Callback, Comparator<ac> {
     }
 
     private void g() {
-        if (this.pch.v()) {
-            if (this.pcV == null) {
-                this.pcV = new bt(this.f5816a, this.pcl, this.pch);
-                this.i.obtainMessage(6, this.pcV).sendToTarget();
+        if (this.pci.v()) {
+            if (this.pcW == null) {
+                this.pcW = new bt(this.f5816a, this.pcm, this.pci);
+                this.i.obtainMessage(6, this.pcW).sendToTarget();
             }
-        } else if (this.pcV != null) {
-            this.pcV.f();
-            this.pcV = null;
+        } else if (this.pcW != null) {
+            this.pcW.f();
+            this.pcW = null;
         }
     }
 
     public boolean e() {
         this.d = true;
-        bu buVar = new bu(this.f5816a, this.pcl);
+        bu buVar = new bu(this.f5816a, this.pcm);
         if (this.i != null) {
             this.i.obtainMessage(6, buVar).sendToTarget();
             return true;
@@ -176,12 +176,12 @@ public class bx implements Handler.Callback, Comparator<ac> {
         if (strArr != null) {
             arrayList.ensureCapacity(arrayList.size() + strArr.length);
             for (String str : strArr) {
-                arrayList.add(ac.Xu(str));
+                arrayList.add(ac.Xv(str));
             }
         }
-        boolean bl = this.pch.bl(arrayList);
+        boolean bl = this.pci.bl(arrayList);
         if (arrayList.size() > 0) {
-            if (this.pch.r()) {
+            if (this.pci.r()) {
                 if (bl || arrayList.size() > 100) {
                     Collections.sort(arrayList, this);
                     ArrayList<ac> arrayList2 = new ArrayList<>(arrayList.size());
@@ -193,7 +193,7 @@ public class bx implements Handler.Callback, Comparator<ac> {
                             break;
                         }
                         ac next = it.next();
-                        if (this.pcX.a(next, arrayList2)) {
+                        if (this.pcY.a(next, arrayList2)) {
                             h();
                         }
                         if (next instanceof aj) {
@@ -209,11 +209,11 @@ public class bx implements Handler.Callback, Comparator<ac> {
                         if (z4) {
                             this.k.removeMessages(7);
                         } else {
-                            this.k.sendEmptyMessageDelayed(7, this.pch.elP());
+                            this.k.sendEmptyMessageDelayed(7, this.pci.elP());
                         }
                     }
-                    this.pcW.a(arrayList2);
-                    if (!this.d && this.pcX.b() && this.i != null && b.ekY()) {
+                    this.pcX.a(arrayList2);
+                    if (!this.d && this.pcY.b() && this.i != null && b.ekY()) {
                         e();
                         return;
                     }
@@ -248,17 +248,17 @@ public class bx implements Handler.Callback, Comparator<ac> {
 
     private void h() {
         if (au.f5786b) {
-            au.a("packAndSend once, " + this.pcX.f5820a + ", hadUI:" + this.pcX.b(), null);
+            au.a("packAndSend once, " + this.pcY.f5820a + ", hadUI:" + this.pcY.b(), null);
         }
         if (this.i != null) {
-            this.i.sendMessage(this.k.obtainMessage(6, new by(this.f5816a, this.pcl, this.pcW)));
-            this.i.sendMessage(this.k.obtainMessage(6, new bz(this.f5816a, this.pcW, this.pch, this.pcl)));
+            this.i.sendMessage(this.k.obtainMessage(6, new by(this.f5816a, this.pcm, this.pcX)));
+            this.i.sendMessage(this.k.obtainMessage(6, new bz(this.f5816a, this.pcX, this.pci, this.pcm)));
         }
     }
 
     public static void a(ac acVar) {
         int size;
-        bx bxVar = pcU;
+        bx bxVar = pcV;
         if (bxVar == null) {
             au.b("Init comes First!", null);
             cg.a(acVar);
@@ -268,7 +268,7 @@ public class bx implements Handler.Callback, Comparator<ac> {
             au.a(null);
         }
         if (acVar instanceof ak) {
-            ((ak) acVar).i = bxVar.pch.i();
+            ((ak) acVar).i = bxVar.pci.i();
         }
         synchronized (bxVar.f) {
             size = bxVar.f.size();
@@ -281,7 +281,7 @@ public class bx implements Handler.Callback, Comparator<ac> {
     }
 
     public static void a(String[] strArr) {
-        bx bxVar = pcU;
+        bx bxVar = pcV;
         if (bxVar == null) {
             au.a(new RuntimeException("Init comes First!"));
         } else if (bxVar.k != null) {

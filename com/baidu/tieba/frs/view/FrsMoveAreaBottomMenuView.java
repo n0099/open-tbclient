@@ -81,7 +81,7 @@ public class FrsMoveAreaBottomMenuView extends RelativeLayout implements View.On
         } else if (view == this.jJC) {
             if (this.mPageContext == null || this.jJE != null || x.isEmpty(com.baidu.tieba.frs.a.czZ().cAd())) {
                 if (this.jJE == null && getContext() != null) {
-                    new BdTopToast(getContext()).yS(false).TP(TbadkCoreApplication.getInst().getString(R.string.frs_move_area_choose_empty)).aR((ViewGroup) getParent());
+                    new BdTopToast(getContext()).yS(false).TQ(TbadkCoreApplication.getInst().getString(R.string.frs_move_area_choose_empty)).aR((ViewGroup) getParent());
                     return;
                 }
                 return;

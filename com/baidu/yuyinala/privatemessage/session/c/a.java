@@ -24,13 +24,13 @@ import java.util.concurrent.CopyOnWriteArrayList;
 /* loaded from: classes10.dex */
 public class a extends com.baidu.yuyinala.privatemessage.model.a {
     private Handler mHandler;
-    private boolean oZk;
-    private volatile CopyOnWriteArrayList<com.baidu.yuyinala.privatemessage.session.b.a> oZj = new CopyOnWriteArrayList<>();
-    private com.baidu.yuyinala.privatemessage.session.a oZl = new com.baidu.yuyinala.privatemessage.session.a(BdBaseApplication.getInst());
+    private boolean oZl;
+    private volatile CopyOnWriteArrayList<com.baidu.yuyinala.privatemessage.session.b.a> oZk = new CopyOnWriteArrayList<>();
+    private com.baidu.yuyinala.privatemessage.session.a oZm = new com.baidu.yuyinala.privatemessage.session.a(BdBaseApplication.getInst());
 
     @Override // com.baidu.yuyinala.privatemessage.model.a
     public synchronized List<com.baidu.yuyinala.privatemessage.session.b.a> getDataList() {
-        return this.oZj;
+        return this.oZk;
     }
 
     @Override // com.baidu.yuyinala.privatemessage.model.a
@@ -47,14 +47,14 @@ public class a extends com.baidu.yuyinala.privatemessage.model.a {
                 bVar.x("", -1, "Im 未登录");
             }
         } else if (i != 4) {
-            this.oZk = true;
-            this.oZl.a(new a.InterfaceC0972a<ChatSession>() { // from class: com.baidu.yuyinala.privatemessage.session.c.a.1
+            this.oZl = true;
+            this.oZm.a(new a.InterfaceC0972a<ChatSession>() { // from class: com.baidu.yuyinala.privatemessage.session.c.a.1
                 @Override // com.baidu.yuyinala.privatemessage.session.a.InterfaceC0972a
                 public void a(a.b<ChatSession> bVar2) {
-                    a.this.oZk = false;
+                    a.this.oZl = false;
                     if (bVar2 != null) {
-                        a.this.oZj.clear();
-                        a.this.oZj.addAll(a.this.gF(bVar2.getList()));
+                        a.this.oZk.clear();
+                        a.this.oZk.addAll(a.this.gF(bVar2.getList()));
                         if (bVar != null) {
                             bVar.NI(i);
                         }
@@ -120,8 +120,8 @@ public class a extends com.baidu.yuyinala.privatemessage.model.a {
         if (this.mHandler != null) {
             this.mHandler.removeCallbacksAndMessages(null);
         }
-        if (this.oZl != null) {
-            this.oZl.destory();
+        if (this.oZm != null) {
+            this.oZm.destory();
         }
     }
 
@@ -129,10 +129,10 @@ public class a extends com.baidu.yuyinala.privatemessage.model.a {
     public void a(Context context, j jVar, IMediaDeleteChatSessionListener iMediaDeleteChatSessionListener) {
         if (jVar != null) {
             if (jVar.isMediaRole) {
-                BIMManager.mediaDeleteChatSession(context, jVar.oZf, jVar.oZe, null);
+                BIMManager.mediaDeleteChatSession(context, jVar.oZg, jVar.oZf, null);
             } else {
-                IMBoxManager.setMarkTop(context, jVar.oZf, 0, null);
-                BIMManager.deleteMsgs(context, jVar.oZd, jVar.contacter, false);
+                IMBoxManager.setMarkTop(context, jVar.oZg, 0, null);
+                BIMManager.deleteMsgs(context, jVar.oZe, jVar.contacter, false);
             }
             if (iMediaDeleteChatSessionListener != null) {
                 iMediaDeleteChatSessionListener.onMediaDeleteChatSessionResult(0, "success");

@@ -10,8 +10,13 @@ import android.widget.TextView;
 import androidx.annotation.Nullable;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.live.tbadk.pagestayduration.PageStayDurationConstants;
 import com.baidu.tbadk.core.data.bz;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.aq;
 import com.baidu.tieba.tbadkCore.data.n;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
@@ -39,7 +44,7 @@ public class a {
 
     /* loaded from: classes.dex */
     public interface b {
-        void KE(String str);
+        void KF(String str);
 
         View a(Activity activity, String str, View view, c cVar);
 
@@ -67,7 +72,7 @@ public class a {
 
     /* loaded from: classes.dex */
     public interface d {
-        void a(String str, n nVar);
+        void bb(String str, int i);
 
         void onError(String str);
     }
@@ -164,7 +169,7 @@ public class a {
 
     public void KC(String str) {
         if (this.jLI != null) {
-            this.jLI.KE(str);
+            this.jLI.KF(str);
         }
     }
 
@@ -190,7 +195,56 @@ public class a {
 
     @Nullable
     public List<bz> KD(String str) {
-        return this.jLG.get(str);
+        List<bz> list = this.jLG.get(str);
+        if (list != null) {
+            ArrayList arrayList = new ArrayList(list.size());
+            String KE = KE(str);
+            for (bz bzVar : list) {
+                if (bzVar.eRU != null && !bzVar.eRU.isValid()) {
+                    arrayList.add(bzVar);
+                    TiebaStatic.log(new aq("c14088").an("obj_source", 6).dW("obj_type", KE).an("obj_locate", 1));
+                }
+            }
+            list.removeAll(arrayList);
+        }
+        return list;
+    }
+
+    private String KE(String str) {
+        if (StringUtils.isNull(str)) {
+            return "";
+        }
+        char c2 = 65535;
+        switch (str.hashCode()) {
+            case -1391279521:
+                if (str.equals("6051001536-500920287")) {
+                    c2 = 2;
+                    break;
+                }
+                break;
+            case -1052231573:
+                if (str.equals("6051001537-901554884")) {
+                    c2 = 0;
+                    break;
+                }
+                break;
+            case 1426113805:
+                if (str.equals("6051001535-87847998")) {
+                    c2 = 1;
+                    break;
+                }
+                break;
+        }
+        switch (c2) {
+            case 0:
+                return PageStayDurationConstants.PageName.PB;
+            case 1:
+                return PageStayDurationConstants.PageName.FRS;
+            case 2:
+                return PageStayDurationConstants.PageName.BIGIMAGE;
+            default:
+                return "";
+        }
     }
 
     public void A(String str, Object obj) {

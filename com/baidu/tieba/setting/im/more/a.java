@@ -49,7 +49,7 @@ public class a {
         return this.mUi;
     }
 
-    public void bQ(String str, int i) {
+    public void bR(String str, int i) {
         com.baidu.tbadk.core.sharedPref.b.brx().putInt(str + TbadkCoreApplication.getCurrentAccount(), i);
     }
 

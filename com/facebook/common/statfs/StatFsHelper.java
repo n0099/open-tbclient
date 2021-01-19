@@ -16,14 +16,14 @@ import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
 /* loaded from: classes14.dex */
 public class StatFsHelper {
-    private static StatFsHelper ppb;
-    private static final long ppc = TimeUnit.MINUTES.toMillis(2);
-    private volatile File ppe;
-    private volatile File ppg;
+    private static StatFsHelper ppc;
+    private static final long ppd = TimeUnit.MINUTES.toMillis(2);
+    private volatile File ppf;
+    private volatile File pph;
     @GuardedBy("lock")
-    private long pph;
-    private volatile StatFs ppd = null;
-    private volatile StatFs ppf = null;
+    private long ppj;
+    private volatile StatFs ppe = null;
+    private volatile StatFs ppg = null;
     private volatile boolean mInitialized = false;
     private final Lock lock = new ReentrantLock();
 
@@ -36,10 +36,10 @@ public class StatFsHelper {
     public static synchronized StatFsHelper eqx() {
         StatFsHelper statFsHelper;
         synchronized (StatFsHelper.class) {
-            if (ppb == null) {
-                ppb = new StatFsHelper();
+            if (ppc == null) {
+                ppc = new StatFsHelper();
             }
-            statFsHelper = ppb;
+            statFsHelper = ppc;
         }
         return statFsHelper;
     }
@@ -52,8 +52,8 @@ public class StatFsHelper {
             this.lock.lock();
             try {
                 if (!this.mInitialized) {
-                    this.ppe = Environment.getDataDirectory();
-                    this.ppg = Environment.getExternalStorageDirectory();
+                    this.ppf = Environment.getDataDirectory();
+                    this.pph = Environment.getExternalStorageDirectory();
                     eqz();
                     this.mInitialized = true;
                 }
@@ -75,7 +75,7 @@ public class StatFsHelper {
         long availableBlocks;
         ensureInitialized();
         eqy();
-        StatFs statFs = storageType == StorageType.INTERNAL ? this.ppd : this.ppf;
+        StatFs statFs = storageType == StorageType.INTERNAL ? this.ppe : this.ppg;
         if (statFs != null) {
             if (Build.VERSION.SDK_INT >= 18) {
                 blockSize = statFs.getBlockSizeLong();
@@ -92,7 +92,7 @@ public class StatFsHelper {
     private void eqy() {
         if (this.lock.tryLock()) {
             try {
-                if (SystemClock.uptimeMillis() - this.pph > ppc) {
+                if (SystemClock.uptimeMillis() - this.ppj > ppd) {
                     eqz();
                 }
             } finally {
@@ -103,9 +103,9 @@ public class StatFsHelper {
 
     @GuardedBy("lock")
     private void eqz() {
-        this.ppd = a(this.ppd, this.ppe);
-        this.ppf = a(this.ppf, this.ppg);
-        this.pph = SystemClock.uptimeMillis();
+        this.ppe = a(this.ppe, this.ppf);
+        this.ppg = a(this.ppg, this.pph);
+        this.ppj = SystemClock.uptimeMillis();
     }
 
     private StatFs a(@Nullable StatFs statFs, @Nullable File file) {
@@ -114,7 +114,7 @@ public class StatFsHelper {
         }
         try {
             if (statFs == null) {
-                statFs = Yk(file.getAbsolutePath());
+                statFs = Yl(file.getAbsolutePath());
             } else {
                 statFs.restat(file.getAbsolutePath());
             }
@@ -126,7 +126,7 @@ public class StatFsHelper {
         }
     }
 
-    protected static StatFs Yk(String str) {
+    protected static StatFs Yl(String str) {
         return new StatFs(str);
     }
 }

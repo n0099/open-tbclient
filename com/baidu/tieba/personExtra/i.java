@@ -32,7 +32,7 @@ public class i {
                 httpMessage.addParam("swan_app_key", i.this.mpN.id);
                 MessageManager.getInstance().sendMessage(httpMessage);
                 if (i.this.mpR != null) {
-                    i.this.mpR.PC(i.this.mpN.id);
+                    i.this.mpR.PD(i.this.mpN.id);
                 }
                 aq aqVar = new aq("c13436");
                 aqVar.w("uid", TbadkCoreApplication.getCurrentAccountId());
@@ -49,7 +49,7 @@ public class i {
 
     /* loaded from: classes7.dex */
     public interface a {
-        void PC(String str);
+        void PD(String str);
     }
 
     static {

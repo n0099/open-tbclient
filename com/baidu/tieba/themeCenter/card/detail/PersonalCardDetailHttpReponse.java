@@ -31,9 +31,9 @@ public class PersonalCardDetailHttpReponse extends TbHttpResponsedMessage {
                 }
                 this.cardData.setTitle(getCardResIdl.data.title);
                 this.cardData.setDescription(getCardResIdl.data.description);
-                this.cardData.ST(getCardResIdl.data.pic_url);
-                this.cardData.SU(getCardResIdl.data.permission);
-                this.cardData.SV(getCardResIdl.data.props_state_img);
+                this.cardData.SU(getCardResIdl.data.pic_url);
+                this.cardData.SV(getCardResIdl.data.permission);
+                this.cardData.SW(getCardResIdl.data.props_state_img);
                 this.cardData.JJ(getCardResIdl.data.in_use.intValue());
                 this.cardData.setFreeUserLevel(getCardResIdl.data.free_user_level.intValue());
                 this.cardData.setActivityUrl(getCardResIdl.data.activity_url);

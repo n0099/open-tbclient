@@ -82,7 +82,7 @@ public abstract class a<V extends SimpleDraweeView, M extends b> extends com.bai
                 roundingParams.bH(m.cIO);
                 com.facebook.drawee.generic.a esy = new com.facebook.drawee.generic.b(v.getResources()).esy();
                 esy.a(roundingParams);
-                esy.b(p.b.ptg);
+                esy.b(p.b.pth);
                 v.setHierarchy(esy);
                 v.setController(erJ);
             }

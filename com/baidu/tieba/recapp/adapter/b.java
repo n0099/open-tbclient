@@ -303,7 +303,7 @@ public class b extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
                 Map.Entry<String, Object> next = it.next();
                 if (next != null && "da_area".equals(next.getKey())) {
                     if (next.getValue() instanceof String) {
-                        b2.QW((String) next.getValue());
+                        b2.QX((String) next.getValue());
                     }
                 }
             }
@@ -318,7 +318,7 @@ public class b extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
     public void a(AdvertAppInfo advertAppInfo, boolean z, int i, String str, String str2, HashMap<String, Object> hashMap) {
         com.baidu.tbadk.distribute.a.bAC().a(advertAppInfo, str, 0L, advertAppInfo.page, "click", i);
         com.baidu.tieba.recapp.report.c c = com.baidu.tieba.recapp.report.h.c(advertAppInfo, 2, i);
-        c.QR(str2);
+        c.QS(str2);
         if (hashMap != null) {
             Iterator<Map.Entry<String, Object>> it = hashMap.entrySet().iterator();
             while (true) {
@@ -328,7 +328,7 @@ public class b extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
                 Map.Entry<String, Object> next = it.next();
                 if (next != null && "da_area".equals(next.getKey())) {
                     if (next.getValue() instanceof String) {
-                        c.QW((String) next.getValue());
+                        c.QX((String) next.getValue());
                     }
                 }
             }

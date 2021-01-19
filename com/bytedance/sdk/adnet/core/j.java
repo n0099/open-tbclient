@@ -26,7 +26,7 @@ public class j implements com.bytedance.sdk.adnet.e.a {
 
     /* renamed from: b  reason: collision with root package name */
     private final SSLSocketFactory f6037b;
-    private final b pkO;
+    private final b pkP;
 
     /* loaded from: classes4.dex */
     public interface b {
@@ -42,7 +42,7 @@ public class j implements com.bytedance.sdk.adnet.e.a {
     }
 
     public j(b bVar, SSLSocketFactory sSLSocketFactory) {
-        this.pkO = bVar;
+        this.pkP = bVar;
         this.f6037b = sSLSocketFactory;
     }
 
@@ -57,8 +57,8 @@ public class j implements com.bytedance.sdk.adnet.e.a {
         }
         hashMap.putAll(map);
         hashMap.putAll(request.getHeaders());
-        if (this.pkO != null) {
-            str = this.pkO.a(url);
+        if (this.pkP != null) {
+            str = this.pkP.a(url);
             if (str == null) {
                 throw new IOException("URL blocked by rewriter: " + url);
             }
@@ -144,7 +144,7 @@ public class j implements com.bytedance.sdk.adnet.e.a {
         HttpURLConnection httpURLConnection = null;
         if (url != null) {
             String host = url.getHost();
-            String a2 = com.bytedance.sdk.adnet.a.pjX != null ? com.bytedance.sdk.adnet.a.pjX.a(host) : null;
+            String a2 = com.bytedance.sdk.adnet.a.pjY != null ? com.bytedance.sdk.adnet.a.pjY.a(host) : null;
             if (!TextUtils.isEmpty(a2)) {
                 try {
                     httpURLConnection = (HttpURLConnection) new URL(url.toString().replaceFirst(host, a2)).openConnection();

@@ -134,7 +134,7 @@ public class PostSearchListFragment extends BaseFragment implements BdListView.e
                 }
                 if (z2) {
                     showLoadingView(this.mRootView, false, this.mDk.getResources().getDimensionPixelSize(R.dimen.ds320));
-                    this.mDk.dzq().bL(str, this.hSs);
+                    this.mDk.dzq().bM(str, this.hSs);
                     this.mDD = str;
                 }
             }
@@ -157,7 +157,7 @@ public class PostSearchListFragment extends BaseFragment implements BdListView.e
 
     @Override // com.baidu.adp.widget.ListView.BdListView.e
     public void onScrollToBottom() {
-        if (!StringUtils.isNull(this.mDD) && this.mDC != null && this.mDC.isHasMore() && this.mDk.dzq().bL(this.mDD, this.hSs)) {
+        if (!StringUtils.isNull(this.mDD) && this.mDC != null && this.mDC.isHasMore() && this.mDk.dzq().bM(this.mDD, this.hSs)) {
             dzz();
         }
     }

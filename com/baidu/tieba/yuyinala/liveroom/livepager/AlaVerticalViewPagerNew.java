@@ -99,10 +99,10 @@ public class AlaVerticalViewPagerNew extends ViewGroup {
     private final Rect mTempRect;
     private int mTouchSlop;
     private VelocityTracker mVelocityTracker;
-    private final b omt;
-    private e omu;
-    private d omv;
-    private com.baidu.tieba.yuyinala.liveroom.livepager.a omx;
+    private final b omu;
+    private e omv;
+    private d omw;
+    private com.baidu.tieba.yuyinala.liveroom.livepager.a omy;
     private static final int[] LAYOUT_ATTRS = {16842931};
     private static final Comparator<b> COMPARATOR = new Comparator<b>() { // from class: com.baidu.tieba.yuyinala.liveroom.livepager.AlaVerticalViewPagerNew.1
         /* JADX DEBUG: Method merged with bridge method */
@@ -119,7 +119,7 @@ public class AlaVerticalViewPagerNew extends ViewGroup {
             return (f3 * f3 * f3 * f3 * f3) + 1.0f;
         }
     };
-    private static final f omw = new f();
+    private static final f omx = new f();
 
     /* loaded from: classes10.dex */
     interface a {
@@ -155,7 +155,7 @@ public class AlaVerticalViewPagerNew extends ViewGroup {
         super(context);
         this.hBC = true;
         this.mItems = new ArrayList<>();
-        this.omt = new b();
+        this.omu = new b();
         this.mTempRect = new Rect();
         this.mRestoredCurItem = -1;
         this.mRestoredAdapterState = null;
@@ -181,7 +181,7 @@ public class AlaVerticalViewPagerNew extends ViewGroup {
         super(context, attributeSet);
         this.hBC = true;
         this.mItems = new ArrayList<>();
-        this.omt = new b();
+        this.omu = new b();
         this.mTempRect = new Rect();
         this.mRestoredCurItem = -1;
         this.mRestoredAdapterState = null;
@@ -223,7 +223,7 @@ public class AlaVerticalViewPagerNew extends ViewGroup {
         if (ViewCompat.getImportantForAccessibility(this) == 0) {
             ViewCompat.setImportantForAccessibility(this, 1);
         }
-        this.omx = new com.baidu.tieba.yuyinala.liveroom.livepager.a(this);
+        this.omy = new com.baidu.tieba.yuyinala.liveroom.livepager.a(this);
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -247,7 +247,7 @@ public class AlaVerticalViewPagerNew extends ViewGroup {
 
     public void setAdapter(PagerAdapter pagerAdapter) {
         if (this.mAdapter != null) {
-            this.mAdapter.unregisterDataSetObserver(this.omu);
+            this.mAdapter.unregisterDataSetObserver(this.omv);
             this.mAdapter.startUpdate((ViewGroup) this);
             for (int i = 0; i < this.mItems.size(); i++) {
                 b bVar = this.mItems.get(i);
@@ -263,10 +263,10 @@ public class AlaVerticalViewPagerNew extends ViewGroup {
         this.mAdapter = pagerAdapter;
         this.mExpectedAdapterCount = 0;
         if (this.mAdapter != null) {
-            if (this.omu == null) {
-                this.omu = new e();
+            if (this.omv == null) {
+                this.omv = new e();
             }
-            this.mAdapter.registerDataSetObserver(this.omu);
+            this.mAdapter.registerDataSetObserver(this.omv);
             this.mPopulatePending = false;
             boolean z = this.mFirstLayout;
             this.mFirstLayout = true;
@@ -283,8 +283,8 @@ public class AlaVerticalViewPagerNew extends ViewGroup {
                 requestLayout();
             }
         }
-        if (this.omv != null && pagerAdapter2 != pagerAdapter) {
-            this.omv.b(pagerAdapter2, pagerAdapter);
+        if (this.omw != null && pagerAdapter2 != pagerAdapter) {
+            this.omw.b(pagerAdapter2, pagerAdapter);
         }
     }
 
@@ -309,7 +309,7 @@ public class AlaVerticalViewPagerNew extends ViewGroup {
     }
 
     void setOnAdapterChangeListener(d dVar) {
-        this.omv = dVar;
+        this.omw = dVar;
     }
 
     private int getClientHeight() {
@@ -759,7 +759,7 @@ public class AlaVerticalViewPagerNew extends ViewGroup {
             for (int i = 0; i < childCount; i++) {
                 this.mDrawingOrderedChildren.add(getChildAt(i));
             }
-            Collections.sort(this.mDrawingOrderedChildren, omw);
+            Collections.sort(this.mDrawingOrderedChildren, omx);
         }
     }
 
@@ -1478,7 +1478,7 @@ public class AlaVerticalViewPagerNew extends ViewGroup {
                 if (this.mFakeDragging) {
                     return true;
                 }
-                this.omx.onTouchEvent(motionEvent);
+                this.omy.onTouchEvent(motionEvent);
                 if ((motionEvent.getAction() == 0 && motionEvent.getEdgeFlags() != 0) || this.mAdapter == null || this.mAdapter.getCount() == 0) {
                     return false;
                 }
@@ -1656,7 +1656,7 @@ public class AlaVerticalViewPagerNew extends ViewGroup {
             if (z || bVar3.position == i + 1) {
                 bVar = bVar3;
             } else {
-                b bVar4 = this.omt;
+                b bVar4 = this.omu;
                 bVar4.offset = f4 + f3 + f2;
                 bVar4.position = i + 1;
                 bVar4.fYI = this.mAdapter.getPageWidth(bVar4.position);
@@ -2055,8 +2055,8 @@ public class AlaVerticalViewPagerNew extends ViewGroup {
     }
 
     public void setEventListener(a.InterfaceC0925a interfaceC0925a) {
-        if (this.omx != null) {
-            this.omx.setEventListener(interfaceC0925a);
+        if (this.omy != null) {
+            this.omy.setEventListener(interfaceC0925a);
         }
     }
 

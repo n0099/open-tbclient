@@ -30,12 +30,12 @@ public class c {
     }
 
     private void setContent(String str) {
-        this.aBG.setText(TbFaceManager.bCw().a(this.mContext, com.baidu.tieba.memberCenter.tail.a.d.NA(str), null));
+        this.aBG.setText(TbFaceManager.bCw().a(this.mContext, com.baidu.tieba.memberCenter.tail.a.d.NB(str), null));
     }
 
     private void setColor(String str) {
         this.mColor = str;
-        this.aBG.setTextColor(com.baidu.tieba.memberCenter.tail.a.c.Nz(str));
+        this.aBG.setTextColor(com.baidu.tieba.memberCenter.tail.a.c.NA(str));
     }
 
     public void B(TbPageContext<?> tbPageContext) {

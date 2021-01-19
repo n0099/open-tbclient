@@ -50,7 +50,7 @@ public class NestedScrollHeader extends RelativeLayout {
 
     /* loaded from: classes2.dex */
     public interface a {
-        void Li(String str);
+        void Lj(String str);
     }
 
     public NestedScrollHeader(@NonNull Context context) {
@@ -74,7 +74,7 @@ public class NestedScrollHeader extends RelativeLayout {
                             String str = (String) tag;
                             if (!TextUtils.isEmpty(str)) {
                                 if (NestedScrollHeader.this.jVJ != null) {
-                                    NestedScrollHeader.this.jVJ.Li(str);
+                                    NestedScrollHeader.this.jVJ.Lj(str);
                                 }
                                 NestedScrollHeader.this.cNy();
                             }

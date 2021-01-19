@@ -82,7 +82,7 @@ public class e extends BaseExpandableListAdapter {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.ExpandableListAdapter
-    /* renamed from: Cp */
+    /* renamed from: Co */
     public c getGroup(int i) {
         return this.mList.get(i);
     }

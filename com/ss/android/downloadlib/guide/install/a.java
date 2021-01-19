@@ -47,9 +47,9 @@ public class a extends Dialog {
     private View m;
     private Handler n;
     private int o;
-    private ClipImageView pSH;
-    private Drawable pSI;
-    private m pSJ;
+    private ClipImageView pSI;
+    private Drawable pSJ;
+    private m pSK;
 
     static /* synthetic */ int g(a aVar) {
         int i = aVar.o;
@@ -63,9 +63,9 @@ public class a extends Dialog {
         this.f12993a = new WeakReference<>(activity);
         this.f12994b = i;
         this.c = str;
-        this.pSI = drawable;
+        this.pSJ = drawable;
         this.j = str2;
-        this.pSJ = mVar;
+        this.pSK = mVar;
         this.o = (int) (j / 1000);
     }
 
@@ -120,7 +120,7 @@ public class a extends Dialog {
     }
 
     private void b() {
-        this.pSH = (ClipImageView) findViewById(a.b.app_icon_iv);
+        this.pSI = (ClipImageView) findViewById(a.b.app_icon_iv);
         this.f = (TextView) findViewById(a.b.install_app_tv);
         this.g = (TextView) findViewById(a.b.app_name_tv);
         this.h = (ViewStub) findViewById(a.b.install_hijack_view);
@@ -131,13 +131,13 @@ public class a extends Dialog {
             }
         });
         this.g.setText(this.c);
-        this.pSH.setClip(true);
-        this.pSH.setRoundRadius(i.a(j.a(), 4.0f));
+        this.pSI.setClip(true);
+        this.pSI.setRoundRadius(i.a(j.a(), 4.0f));
         Bitmap a2 = com.ss.android.socialbase.appdownloader.e.c.eDe().a(this.f12994b);
         if (a2 != null) {
-            this.pSH.setImageBitmap(a2);
-        } else if (this.pSI != null) {
-            this.pSH.setImageDrawable(this.pSI);
+            this.pSI.setImageBitmap(a2);
+        } else if (this.pSJ != null) {
+            this.pSI.setImageDrawable(this.pSJ);
         }
         this.f.setText(String.format(Locale.getDefault(), "立即安装 %d 秒", Integer.valueOf(this.o)));
         this.k = findViewById(a.b.local_install_hijack_layout);
@@ -173,9 +173,9 @@ public class a extends Dialog {
         Activity activity = this.f12993a.get();
         if (activity != null && !activity.isFinishing()) {
             dismiss();
-        } else if (this.pSJ != null) {
-            this.pSJ.a();
-            this.pSJ = null;
+        } else if (this.pSK != null) {
+            this.pSK.a();
+            this.pSK = null;
         }
     }
 
@@ -225,9 +225,9 @@ public class a extends Dialog {
         if (activity != null && !activity.isFinishing()) {
             activity.finish();
         }
-        if (this.pSJ != null) {
-            this.pSJ.a();
-            this.pSJ = null;
+        if (this.pSK != null) {
+            this.pSK.a();
+            this.pSK = null;
         }
     }
 
@@ -236,7 +236,7 @@ public class a extends Dialog {
         this.n.postDelayed(new Runnable() { // from class: com.ss.android.downloadlib.guide.install.a.6
             @Override // java.lang.Runnable
             public void run() {
-                if (a.this.pSJ != null) {
+                if (a.this.pSK != null) {
                     Activity activity = (Activity) a.this.f12993a.get();
                     if (activity == null || !activity.isFinishing()) {
                         a.g(a.this);

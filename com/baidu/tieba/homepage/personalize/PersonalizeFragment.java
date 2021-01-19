@@ -245,8 +245,8 @@ public class PersonalizeFragment extends BaseFragment implements VoiceManager.c,
         this.jZC.setCallback(bVar);
     }
 
-    public void bc(String str, int i) {
-        this.jZC.bc(str, i);
+    public void bd(String str, int i) {
+        this.jZC.bd(str, i);
     }
 
     public void cNF() {

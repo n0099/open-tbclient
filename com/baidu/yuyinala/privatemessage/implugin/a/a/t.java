@@ -24,24 +24,24 @@ public class t extends e {
     public ImageView jIy;
     public View mContentView;
     public View mConvertView;
-    private ImageView oPc;
-    public View oPd;
-    private TextView oPe;
+    private ImageView oPd;
+    public View oPe;
+    private TextView oPf;
 
     @SuppressLint({"InflateParams"})
     public t(Context context, LayoutInflater layoutInflater) {
         this.mConvertView = layoutInflater.inflate(a.g.bd_im_chating_send_img_item, (ViewGroup) null);
-        this.oNI = (TextView) this.mConvertView.findViewById(a.f.bd_im_chating_time_txt);
-        this.oNL = (ImageView) this.mConvertView.findViewById(a.f.bd_im_headview);
-        this.oNN = (ImageView) this.mConvertView.findViewById(a.f.bd_im_headview_vip);
+        this.oNJ = (TextView) this.mConvertView.findViewById(a.f.bd_im_chating_time_txt);
+        this.oNM = (ImageView) this.mConvertView.findViewById(a.f.bd_im_headview);
+        this.oNO = (ImageView) this.mConvertView.findViewById(a.f.bd_im_headview_vip);
         this.mContentView = this.mConvertView.findViewById(a.f.bd_im_chating_msg_content_layout);
-        this.oPd = this.mConvertView.findViewById(a.f.bd_im_chating_msg_uploadingLayout);
-        this.oPe = (TextView) this.mConvertView.findViewById(a.f.progressTV);
+        this.oPe = this.mConvertView.findViewById(a.f.bd_im_chating_msg_uploadingLayout);
+        this.oPf = (TextView) this.mConvertView.findViewById(a.f.progressTV);
         this.jIy = (ImageView) this.mConvertView.findViewById(a.f.bd_im_chating_msg_content_img);
-        this.oPc = (ImageView) this.mConvertView.findViewById(a.f.bd_im_chating_msg_content_cover);
-        this.oNO = (ImageView) this.mConvertView.findViewById(a.f.bd_im_chating_msg_send_status);
-        this.oNP = this.mConvertView.findViewById(a.f.bd_im_chating_msg_send_status_layout);
-        this.oNQ = (ProgressBar) this.mConvertView.findViewById(a.f.bd_im_chating_msg_send_progress);
+        this.oPd = (ImageView) this.mConvertView.findViewById(a.f.bd_im_chating_msg_content_cover);
+        this.oNP = (ImageView) this.mConvertView.findViewById(a.f.bd_im_chating_msg_send_status);
+        this.oNQ = this.mConvertView.findViewById(a.f.bd_im_chating_msg_send_status_layout);
+        this.oNR = (ProgressBar) this.mConvertView.findViewById(a.f.bd_im_chating_msg_send_progress);
         this.mConvertView.setTag(this);
     }
 
@@ -65,27 +65,27 @@ public class t extends e {
         ImageMsg imageMsg = (ImageMsg) chatMsg;
         Pair<Integer, Integer> a2 = a(context, imageMsg);
         if (chatMsg.isReSend()) {
+            this.oPe.setVisibility(8);
             this.oPd.setVisibility(8);
-            this.oPc.setVisibility(8);
         } else {
             if (imageMsg.getProgress() > 0 && imageMsg.getProgress() < 100) {
-                this.oPe.setText(String.valueOf(imageMsg.getProgress()) + "%");
+                this.oPf.setText(String.valueOf(imageMsg.getProgress()) + "%");
             }
             if (chatMsg.isMsgSendSuccess()) {
+                this.oPe.setVisibility(8);
                 this.oPd.setVisibility(8);
-                this.oPc.setVisibility(8);
             } else if (chatMsg.getStatus() == 1) {
                 if (a2 != null) {
                     layoutParams = new RelativeLayout.LayoutParams(((Integer) a2.first).intValue(), ((Integer) a2.second).intValue());
                 } else {
                     layoutParams = new RelativeLayout.LayoutParams(0, 0);
                 }
-                this.oPc.setLayoutParams(layoutParams);
-                this.oPc.setVisibility(0);
+                this.oPd.setLayoutParams(layoutParams);
                 this.oPd.setVisibility(0);
+                this.oPe.setVisibility(0);
             } else if (chatMsg.getStatus() == 2) {
+                this.oPe.setVisibility(8);
                 this.oPd.setVisibility(8);
-                this.oPc.setVisibility(8);
             }
         }
         super.b(context, chatMsg);

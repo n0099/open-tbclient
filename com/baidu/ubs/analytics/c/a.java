@@ -8,9 +8,9 @@ import java.util.LinkedHashSet;
 import java.util.Set;
 /* loaded from: classes3.dex */
 final class a {
-    private static final a oJG = new a();
+    private static final a oJH = new a();
     private boolean ac;
-    private final Set<InterfaceC0947a> oJH = new LinkedHashSet();
+    private final Set<InterfaceC0947a> oJI = new LinkedHashSet();
 
     /* renamed from: com.baidu.ubs.analytics.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
@@ -29,25 +29,25 @@ final class a {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static a efJ() {
-        return oJG;
+        return oJH;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public final Set<InterfaceC0947a> efK() {
-        return this.oJH;
+        return this.oJI;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public final void a(InterfaceC0947a interfaceC0947a) {
-        synchronized (this.oJH) {
-            this.oJH.add(interfaceC0947a);
+        synchronized (this.oJI) {
+            this.oJI.add(interfaceC0947a);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public final void S() {
-        synchronized (this.oJH) {
-            this.oJH.clear();
+        synchronized (this.oJI) {
+            this.oJI.clear();
         }
     }
 

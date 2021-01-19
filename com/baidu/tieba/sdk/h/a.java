@@ -12,7 +12,7 @@ public class a implements CustomMessageTask.CustomRunnable {
             String str = (String) customMessage.getData();
             f dDu = com.baidu.tieba.sdk.d.a.dDk().dDu();
             if (dDu != null) {
-                dDu.MY(str);
+                dDu.MZ(str);
                 return null;
             }
             return null;

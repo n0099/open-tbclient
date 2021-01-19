@@ -337,6 +337,6 @@ public class OfficialBarMsglistModel extends CommonPersonalMsglistModel {
 
     @Override // com.baidu.tieba.im.model.MsglistModel
     public long getMaxMid() {
-        return b.cUG().bu(String.valueOf(a.kDw), -9);
+        return b.cUG().bv(String.valueOf(a.kDw), -9);
     }
 }

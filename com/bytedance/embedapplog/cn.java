@@ -17,32 +17,32 @@ public class cn {
     private final SharedPreferences e;
     private volatile JSONObject f;
     private volatile JSONObject g;
-    private final l pdh;
-    private final SharedPreferences pdi;
+    private final l pdi;
+    private final SharedPreferences pdj;
 
     public cn(Context context, l lVar) {
         this.f5826a = context;
-        this.pdh = lVar;
+        this.pdi = lVar;
         this.e = this.f5826a.getSharedPreferences("embed_applog_stats", 0);
         this.c = this.f5826a.getSharedPreferences("embed_header_custom", 0);
-        this.pdi = this.f5826a.getSharedPreferences("embed_last_sp_session", 0);
+        this.pdj = this.f5826a.getSharedPreferences("embed_last_sp_session", 0);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public String a() {
-        return this.pdh.eli();
+        return this.pdi.eli();
     }
 
     public String c() {
-        return this.pdi.getString("session_last_day", "");
+        return this.pdj.getString("session_last_day", "");
     }
 
     public void a(String str, int i) {
-        this.pdi.edit().putString("session_last_day", str).putInt("session_order", i).apply();
+        this.pdj.edit().putString("session_last_day", str).putInt("session_order", i).apply();
     }
 
     public int d() {
-        return this.pdi.getInt("session_order", 0);
+        return this.pdj.getInt("session_order", 0);
     }
 
     public SharedPreferences elM() {
@@ -50,7 +50,7 @@ public class cn {
     }
 
     public boolean f() {
-        return this.pdh.elf();
+        return this.pdi.elf();
     }
 
     public JSONObject elN() {
@@ -121,27 +121,27 @@ public class cn {
     }
 
     public String j() {
-        return this.pdh.uE();
+        return this.pdi.uE();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public String k() {
-        return this.pdh.getChannel();
+        return this.pdi.getChannel();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public String l() {
-        return this.pdh.elg();
+        return this.pdi.elg();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public String m() {
-        return this.pdh.getLanguage();
+        return this.pdi.getLanguage();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public String n() {
-        return this.pdh.elh();
+        return this.pdi.elh();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -165,10 +165,10 @@ public class cn {
     }
 
     public boolean r() {
-        if (this.pdh.getProcess() == 0) {
-            this.pdh.AE(!av.a(this.f5826a).contains(":"));
+        if (this.pdi.getProcess() == 0) {
+            this.pdi.AE(!av.a(this.f5826a).contains(":"));
         }
-        return this.pdh.getProcess() == 1;
+        return this.pdi.getProcess() == 1;
     }
 
     public long s() {
@@ -183,7 +183,7 @@ public class cn {
     }
 
     public String t() {
-        return !TextUtils.isEmpty(this.pdh.elo()) ? this.pdh.elo() : this.c.getString("ab_version", null);
+        return !TextUtils.isEmpty(this.pdi.elo()) ? this.pdi.elo() : this.c.getString("ab_version", null);
     }
 
     public JSONObject elO() {
@@ -226,7 +226,7 @@ public class cn {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public String A() {
-        return this.pdh.ele();
+        return this.pdi.ele();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -250,58 +250,58 @@ public class cn {
     }
 
     public String D() {
-        return this.pdh.getAppName();
+        return this.pdi.getAppName();
     }
 
     public int E() {
-        return this.pdh.getVersionCode();
+        return this.pdi.getVersionCode();
     }
 
     public int F() {
-        return this.pdh.ell();
+        return this.pdi.ell();
     }
 
     public int G() {
-        return this.pdh.elm();
+        return this.pdi.elm();
     }
 
     public String H() {
-        return this.pdh.getVersion();
+        return this.pdi.getVersion();
     }
 
     public String I() {
-        return this.pdh.elk();
+        return this.pdi.elk();
     }
 
     public String J() {
-        return this.pdh.eln();
+        return this.pdi.eln();
     }
 
     public String K() {
-        return this.pdh.elp();
+        return this.pdi.elp();
     }
 
     public String L() {
-        return this.pdh.elq();
+        return this.pdi.elq();
     }
 
     public String M() {
-        return this.pdh.elr();
+        return this.pdi.elr();
     }
 
     public String N() {
-        return this.pdh.elu() == null ? "" : this.pdh.elu();
+        return this.pdi.elu() == null ? "" : this.pdi.elu();
     }
 
     public boolean O() {
-        return this.pdh.elt();
+        return this.pdi.elt();
     }
 
     public l elS() {
-        return this.pdh;
+        return this.pdi;
     }
 
     public CharSequence elT() {
-        return this.pdh.els();
+        return this.pdi.els();
     }
 }

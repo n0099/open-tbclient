@@ -50,8 +50,8 @@ public class d extends BdBaseModel {
     private BdAlertDialog hFT;
     private HttpMessageListener hGb;
     private HttpMessageListener hGl;
-    private a.InterfaceC0922a omH;
-    private AlaGetVerifyStrategyResponseHttpMessage omZ;
+    private a.InterfaceC0922a omI;
+    private AlaGetVerifyStrategyResponseHttpMessage ona;
 
     public d(BdPageContext<?> bdPageContext) {
         super(bdPageContext);
@@ -142,7 +142,7 @@ public class d extends BdBaseModel {
                     }
                     if (httpResponsedMessage.getError() == 0) {
                         if (alaGetVerifyStrategyResponseHttpMessage.hFa != 1 || alaGetVerifyStrategyResponseHttpMessage.hEY != 1 || alaGetVerifyStrategyResponseHttpMessage.hFd != 1) {
-                            d.this.omZ = alaGetVerifyStrategyResponseHttpMessage;
+                            d.this.ona = alaGetVerifyStrategyResponseHttpMessage;
                             if (alaGetVerifyStrategyResponseHttpMessage.hFd != 1) {
                                 d.this.hFD.postDelayed(new Runnable() { // from class: com.baidu.tieba.yuyinala.liveroom.k.d.2.2
                                     @Override // java.lang.Runnable
@@ -163,7 +163,7 @@ public class d extends BdBaseModel {
                                 return;
                             }
                         }
-                        d.this.omZ = null;
+                        d.this.ona = null;
                     }
                 }
             }
@@ -175,7 +175,7 @@ public class d extends BdBaseModel {
     }
 
     public void a(a.InterfaceC0922a interfaceC0922a) {
-        this.omH = interfaceC0922a;
+        this.omI = interfaceC0922a;
     }
 
     public void cio() {
@@ -260,8 +260,8 @@ public class d extends BdBaseModel {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b(int i, String str, int i2, Object obj) {
-        if (this.omH != null) {
-            this.omH.a(i, str, i2, obj);
+        if (this.omI != null) {
+            this.omI.a(i, str, i2, obj);
         }
     }
 
@@ -292,7 +292,7 @@ public class d extends BdBaseModel {
         bdAlertDialog.dismiss();
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913086));
         this.bhf.getPageActivity().finish();
-        this.omZ = null;
+        this.ona = null;
         this.hFT = null;
     }
 
@@ -409,6 +409,6 @@ public class d extends BdBaseModel {
             this.hFT.dismiss();
             this.hFT = null;
         }
-        this.omZ = null;
+        this.ona = null;
     }
 }

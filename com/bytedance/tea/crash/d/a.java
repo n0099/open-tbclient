@@ -14,13 +14,13 @@ import java.util.List;
 import java.util.Random;
 /* loaded from: classes4.dex */
 public class a implements Thread.UncaughtExceptionHandler {
-    private static a pls;
+    private static a plt;
 
     /* renamed from: b  reason: collision with root package name */
     private Thread.UncaughtExceptionHandler f7631b;
     private HashSet<Thread.UncaughtExceptionHandler> c = new HashSet<>();
     private long e = -1;
-    private b plt;
+    private b plu;
 
     private a() {
         c();
@@ -48,14 +48,14 @@ public class a implements Thread.UncaughtExceptionHandler {
     }
 
     public static a eoE() {
-        if (pls == null) {
-            pls = new a();
+        if (plt == null) {
+            plt = new a();
         }
-        return pls;
+        return plt;
     }
 
     public void a(b bVar) {
-        this.plt = bVar;
+        this.plu = bVar;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -81,8 +81,8 @@ public class a implements Thread.UncaughtExceptionHandler {
                 if (c) {
                     com.bytedance.tea.crash.c cVar = com.bytedance.tea.crash.c.JAVA;
                     d(thread, th);
-                    if (c && this.plt != null && this.plt.a(th)) {
-                        this.plt.a(currentTimeMillis, thread, th);
+                    if (c && this.plu != null && this.plu.a(th)) {
+                        this.plu.a(currentTimeMillis, thread, th);
                         Log.i("crash_dispatcher", "end dispose " + th);
                     }
                 }

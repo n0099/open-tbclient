@@ -31,7 +31,7 @@ public class m {
         return this.lCA;
     }
 
-    public void Ou(String str) {
+    public void Ov(String str) {
         this.lCA = str;
     }
 

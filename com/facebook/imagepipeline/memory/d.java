@@ -9,9 +9,9 @@ import javax.annotation.concurrent.NotThreadSafe;
 class d<V> {
     public final int lsS;
     public final int mItemSize;
-    final Queue pAs;
-    private final boolean pAt;
-    private int pAu;
+    final Queue pAt;
+    private final boolean pAu;
+    private int pAv;
 
     public d(int i, int i2, int i3, boolean z) {
         com.facebook.common.internal.g.checkState(i > 0);
@@ -19,45 +19,45 @@ class d<V> {
         com.facebook.common.internal.g.checkState(i3 >= 0);
         this.mItemSize = i;
         this.lsS = i2;
-        this.pAs = new LinkedList();
-        this.pAu = i3;
-        this.pAt = z;
+        this.pAt = new LinkedList();
+        this.pAv = i3;
+        this.pAu = z;
     }
 
     public boolean ewk() {
-        return this.pAu + ewl() > this.lsS;
+        return this.pAv + ewl() > this.lsS;
     }
 
     int ewl() {
-        return this.pAs.size();
+        return this.pAt.size();
     }
 
     @Nullable
     public V get() {
         V pop = pop();
         if (pop != null) {
-            this.pAu++;
+            this.pAv++;
         }
         return pop;
     }
 
     @Nullable
     public V pop() {
-        return (V) this.pAs.poll();
+        return (V) this.pAt.poll();
     }
 
     public void ewm() {
-        this.pAu++;
+        this.pAv++;
     }
 
     public void release(V v) {
         com.facebook.common.internal.g.checkNotNull(v);
-        if (this.pAt) {
-            com.facebook.common.internal.g.checkState(this.pAu > 0);
-            this.pAu--;
+        if (this.pAu) {
+            com.facebook.common.internal.g.checkState(this.pAv > 0);
+            this.pAv--;
             bz(v);
-        } else if (this.pAu > 0) {
-            this.pAu--;
+        } else if (this.pAv > 0) {
+            this.pAv--;
             bz(v);
         } else {
             com.facebook.common.c.a.e("BUCKET", "Tried to release value %s from an empty bucket!", v);
@@ -65,11 +65,11 @@ class d<V> {
     }
 
     void bz(V v) {
-        this.pAs.add(v);
+        this.pAt.add(v);
     }
 
     public void ewn() {
-        com.facebook.common.internal.g.checkState(this.pAu > 0);
-        this.pAu--;
+        com.facebook.common.internal.g.checkState(this.pAv > 0);
+        this.pAv--;
     }
 }

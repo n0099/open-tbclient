@@ -8,24 +8,24 @@ import java.util.regex.Matcher;
 @kotlin.e
 /* loaded from: classes5.dex */
 public final class j implements i {
-    private final CharSequence qkb;
-    private final MatchResult qkj;
-    private final g qkk;
-    private final Matcher qkl;
+    private final CharSequence qkc;
+    private final MatchResult qkk;
+    private final g qkl;
+    private final Matcher qkm;
 
     public j(Matcher matcher, CharSequence charSequence) {
         kotlin.jvm.internal.p.o(matcher, "matcher");
         kotlin.jvm.internal.p.o(charSequence, Config.INPUT_PART);
-        this.qkl = matcher;
-        this.qkb = charSequence;
-        this.qkj = this.qkl.toMatchResult();
-        this.qkk = new a();
+        this.qkm = matcher;
+        this.qkc = charSequence;
+        this.qkk = this.qkm.toMatchResult();
+        this.qkl = new a();
     }
 
     @Override // kotlin.text.i
     public kotlin.b.h eJo() {
         kotlin.b.h a2;
-        MatchResult matchResult = this.qkj;
+        MatchResult matchResult = this.qkk;
         kotlin.jvm.internal.p.n(matchResult, "matchResult");
         a2 = k.a(matchResult);
         return a2;
@@ -52,7 +52,7 @@ public final class j implements i {
 
         @Override // kotlin.collections.a
         public int getSize() {
-            return j.this.qkj.groupCount() + 1;
+            return j.this.qkk.groupCount() + 1;
         }
 
         @Override // kotlin.collections.a, java.util.Collection
@@ -67,11 +67,11 @@ public final class j implements i {
 
         public f RZ(int i) {
             kotlin.b.h a2;
-            MatchResult matchResult = j.this.qkj;
+            MatchResult matchResult = j.this.qkk;
             kotlin.jvm.internal.p.n(matchResult, "matchResult");
             a2 = k.a(matchResult, i);
             if (a2.eJf().intValue() >= 0) {
-                String group = j.this.qkj.group(i);
+                String group = j.this.qkk.group(i);
                 kotlin.jvm.internal.p.n(group, "matchResult.group(index)");
                 return new f(group, a2);
             }
@@ -82,9 +82,9 @@ public final class j implements i {
     @Override // kotlin.text.i
     public i eJp() {
         i a2;
-        int end = (this.qkj.end() == this.qkj.start() ? 1 : 0) + this.qkj.end();
-        if (end <= this.qkb.length()) {
-            a2 = k.a(this.qkl, end, this.qkb);
+        int end = (this.qkk.end() == this.qkk.start() ? 1 : 0) + this.qkk.end();
+        if (end <= this.qkc.length()) {
+            a2 = k.a(this.qkm, end, this.qkc);
             return a2;
         }
         return null;

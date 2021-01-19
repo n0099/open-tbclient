@@ -12,21 +12,21 @@ public final class ab {
     /* renamed from: b  reason: collision with root package name */
     final String f5948b;
     final Object e;
-    final s pdD;
-    final ac peB;
-    final v pjU;
-    private volatile g pjV;
+    final s pdE;
+    final ac peC;
+    final v pjV;
+    private volatile g pjW;
 
     ab(a aVar) {
-        this.pdD = aVar.pdD;
+        this.pdE = aVar.pdE;
         this.f5948b = aVar.f5949b;
-        this.pjU = aVar.pjW.enC();
-        this.peB = aVar.peB;
+        this.pjV = aVar.pjX.enC();
+        this.peC = aVar.peC;
         this.e = aVar.e != null ? aVar.e : this;
     }
 
     public s emp() {
-        return this.pdD;
+        return this.pdE;
     }
 
     public String b() {
@@ -34,15 +34,15 @@ public final class ab {
     }
 
     public v emV() {
-        return this.pjU;
+        return this.pjV;
     }
 
     public String a(String str) {
-        return this.pjU.a(str);
+        return this.pjV.a(str);
     }
 
     public ac eoc() {
-        return this.peB;
+        return this.peC;
     }
 
     public a eod() {
@@ -50,21 +50,21 @@ public final class ab {
     }
 
     public g eoe() {
-        g gVar = this.pjV;
+        g gVar = this.pjW;
         if (gVar != null) {
             return gVar;
         }
-        g d = g.d(this.pjU);
-        this.pjV = d;
+        g d = g.d(this.pjV);
+        this.pjW = d;
         return d;
     }
 
     public boolean g() {
-        return this.pdD.c();
+        return this.pdE.c();
     }
 
     public String toString() {
-        return "Request{method=" + this.f5948b + ", url=" + this.pdD + ", tag=" + (this.e != this ? this.e : null) + '}';
+        return "Request{method=" + this.f5948b + ", url=" + this.pdE + ", tag=" + (this.e != this ? this.e : null) + '}';
     }
 
     /* loaded from: classes4.dex */
@@ -73,32 +73,32 @@ public final class ab {
         /* renamed from: b  reason: collision with root package name */
         String f5949b;
         Object e;
-        s pdD;
-        ac peB;
-        v.a pjW;
+        s pdE;
+        ac peC;
+        v.a pjX;
 
         public a() {
             this.f5949b = "GET";
-            this.pjW = new v.a();
+            this.pjX = new v.a();
         }
 
         a(ab abVar) {
-            this.pdD = abVar.pdD;
+            this.pdE = abVar.pdE;
             this.f5949b = abVar.f5948b;
-            this.peB = abVar.peB;
+            this.peC = abVar.peC;
             this.e = abVar.e;
-            this.pjW = abVar.pjU.enB();
+            this.pjX = abVar.pjV.enB();
         }
 
         public a f(s sVar) {
             if (sVar == null) {
                 throw new NullPointerException("url == null");
             }
-            this.pdD = sVar;
+            this.pdE = sVar;
             return this;
         }
 
-        public a XM(String str) {
+        public a XN(String str) {
             if (str == null) {
                 throw new NullPointerException("url == null");
             }
@@ -107,11 +107,11 @@ public final class ab {
             } else if (str.regionMatches(true, 0, "wss:", 0, 4)) {
                 str = UrlSchemaHelper.SCHEMA_TYPE_HTTPS + str.substring(4);
             }
-            s XG = s.XG(str);
-            if (XG == null) {
+            s XH = s.XH(str);
+            if (XH == null) {
                 throw new IllegalArgumentException("unexpected url: " + str);
             }
-            return f(XG);
+            return f(XH);
         }
 
         public a e(URL url) {
@@ -126,22 +126,22 @@ public final class ab {
         }
 
         public a hf(String str, String str2) {
-            this.pjW.he(str, str2);
+            this.pjX.he(str, str2);
             return this;
         }
 
         public a hg(String str, String str2) {
-            this.pjW.hc(str, str2);
+            this.pjX.hc(str, str2);
             return this;
         }
 
-        public a XN(String str) {
-            this.pjW.XD(str);
+        public a XO(String str) {
+            this.pjX.XE(str);
             return this;
         }
 
         public a e(v vVar) {
-            this.pjW = vVar.enB();
+            this.pjX = vVar.enB();
             return this;
         }
 
@@ -162,7 +162,7 @@ public final class ab {
         }
 
         public a eoi() {
-            return b(com.bytedance.sdk.a.b.a.c.peB);
+            return b(com.bytedance.sdk.a.b.a.c.peC);
         }
 
         public a c(ac acVar) {
@@ -187,12 +187,12 @@ public final class ab {
                 throw new IllegalArgumentException("method " + str + " must have a request body.");
             }
             this.f5949b = str;
-            this.peB = acVar;
+            this.peC = acVar;
             return this;
         }
 
         public ab eoj() {
-            if (this.pdD == null) {
+            if (this.pdE == null) {
                 throw new IllegalStateException("url == null");
             }
             return new ab(this);

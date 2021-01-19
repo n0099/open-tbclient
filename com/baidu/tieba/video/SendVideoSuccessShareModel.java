@@ -48,7 +48,7 @@ public class SendVideoSuccessShareModel extends BdBaseModel {
         return false;
     }
 
-    public void Tb(String str) {
+    public void Tc(String str) {
         HttpMessage httpMessage = new HttpMessage(1003384);
         httpMessage.addParam("video_id", str);
         sendMessage(httpMessage);

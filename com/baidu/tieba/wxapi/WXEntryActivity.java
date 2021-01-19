@@ -30,8 +30,8 @@ import com.tencent.mm.sdk.openapi.WXAPIFactory;
 /* loaded from: classes.dex */
 public class WXEntryActivity extends BaseActivity<WXEntryActivity> implements IWXAPIEventHandler {
     private NavigationBar mNavigationBar;
-    private IWXAPI oeB;
-    private Intent oeC;
+    private IWXAPI oeC;
+    private Intent oeD;
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
@@ -42,13 +42,13 @@ public class WXEntryActivity extends BaseActivity<WXEntryActivity> implements IW
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         this.mNavigationBar.setTitleText(getResources().getString(R.string.login));
         try {
-            this.oeB = WXAPIFactory.createWXAPI(getActivity(), TbConfig.WEIXIN_SHARE_APP_ID, false);
+            this.oeC = WXAPIFactory.createWXAPI(getActivity(), TbConfig.WEIXIN_SHARE_APP_ID, false);
         } catch (Exception e) {
             e.printStackTrace();
         }
-        this.oeC = getIntent();
-        if (this.oeC != null && this.oeB != null) {
-            this.oeB.handleIntent(getIntent(), this);
+        this.oeD = getIntent();
+        if (this.oeD != null && this.oeC != null) {
+            this.oeC.handleIntent(getIntent(), this);
         }
     }
 
@@ -56,9 +56,9 @@ public class WXEntryActivity extends BaseActivity<WXEntryActivity> implements IW
     protected void onNewIntent(Intent intent) {
         super.onNewIntent(intent);
         setIntent(intent);
-        this.oeC = intent;
-        if (this.oeC != null && this.oeB != null) {
-            this.oeB.handleIntent(intent, this);
+        this.oeD = intent;
+        if (this.oeD != null && this.oeC != null) {
+            this.oeC.handleIntent(intent, this);
         }
     }
 

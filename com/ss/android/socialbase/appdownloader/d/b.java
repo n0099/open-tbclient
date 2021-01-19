@@ -223,7 +223,7 @@ public class b implements m {
     }
 
     private void a(com.ss.android.socialbase.downloader.g.c cVar, boolean z, boolean z2) {
-        com.ss.android.socialbase.appdownloader.d.eCW().a(new com.ss.android.socialbase.appdownloader.f(com.ss.android.socialbase.downloader.downloader.b.eEd(), cVar.j()).ZP(cVar.i()).ZQ(cVar.h()).ZR(cVar.k()).BF(cVar.efU()).BH(cVar.x() || z2).ZS(cVar.C()).ZT(cVar.eEO()).gX(cVar.eEC()).BJ(true).QL(cVar.J()).QM(cVar.K()).gY(cVar.eFi()).QN(cVar.eFm()).QO(cVar.eFl()).BK(z).BI(cVar.eEP()).ZU(cVar.D()).ZV(cVar.F()).je(cVar.eBR()).BN(cVar.o()).BO(cVar.ad()).BQ(cVar.ae()).a(cVar.eEA()).BS(cVar.aj()).BR(cVar.af()).BL(cVar.eEQ()).ZW(cVar.eER()).fi(a(cVar.R())).ZX(cVar.eET()).QP(cVar.eFH()));
+        com.ss.android.socialbase.appdownloader.d.eCW().a(new com.ss.android.socialbase.appdownloader.f(com.ss.android.socialbase.downloader.downloader.b.eEd(), cVar.j()).ZQ(cVar.i()).ZR(cVar.h()).ZS(cVar.k()).BF(cVar.efU()).BH(cVar.x() || z2).ZT(cVar.C()).ZU(cVar.eEO()).gX(cVar.eEC()).BJ(true).QL(cVar.J()).QM(cVar.K()).gY(cVar.eFi()).QN(cVar.eFm()).QO(cVar.eFl()).BK(z).BI(cVar.eEP()).ZV(cVar.D()).ZW(cVar.F()).je(cVar.eBR()).BN(cVar.o()).BO(cVar.ad()).BQ(cVar.ae()).a(cVar.eEA()).BS(cVar.aj()).BR(cVar.af()).BL(cVar.eEQ()).ZX(cVar.eER()).fi(a(cVar.R())).ZY(cVar.eET()).QP(cVar.eFH()));
     }
 
     private JSONObject a(String str) {

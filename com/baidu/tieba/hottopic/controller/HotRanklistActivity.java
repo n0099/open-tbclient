@@ -182,14 +182,14 @@ public class HotRanklistActivity extends BaseActivity<HotRanklistActivity> imple
             hideLoadingView(this.kkZ.cRx());
             showNetRefreshView(this.kkZ.cRx(), getResources().getString(R.string.refresh_view_title_text), null, getResources().getString(R.string.refresh_view_button_text), true, getNetRefreshListener());
             setNetRefreshViewEmotionMarginTop(l.getDimens(getActivity(), R.dimen.ds350));
-            this.kkZ.Ca(0);
+            this.kkZ.BZ(0);
+            this.kkZ.Ca(8);
             this.kkZ.Cb(8);
-            this.kkZ.Cc(8);
             return;
         }
-        this.kkZ.Ca(8);
+        this.kkZ.BZ(8);
+        this.kkZ.Ca(0);
         this.kkZ.Cb(0);
-        this.kkZ.Cc(0);
         cQI();
     }
 

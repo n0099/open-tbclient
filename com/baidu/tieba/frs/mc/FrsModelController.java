@@ -235,7 +235,7 @@ public class FrsModelController extends BdBaseModel<BaseFragmentActivity> implem
             this.jzi.setCallFrom(bundle.getInt(FrsActivityConfig.FRS_CALL_FROM));
             this.jzi.hB(bundle.getLong(FrsActivityConfig.FRS_HOT_THREAD_ID, 0L));
         }
-        this.jzi.RW("2");
+        this.jzi.RX("2");
         this.jzi.setObjSource("-2");
         this.jzi.setKw(this.jat);
         this.jzi.setWithGroup(1);
@@ -402,7 +402,7 @@ public class FrsModelController extends BdBaseModel<BaseFragmentActivity> implem
         this.jzc.qm(z);
         this.jzk.yq(i);
         this.jzj.a(frsRequestData);
-        frsRequestData.RW(this.jzc.cBQ() ? "1" : "2");
+        frsRequestData.RX(this.jzc.cBQ() ? "1" : "2");
         if (this.jzz) {
             frsRequestData.setObjSource(String.valueOf(com.baidu.tieba.frs.d.j.Aj(this.jzx)));
         } else {
@@ -774,7 +774,7 @@ public class FrsModelController extends BdBaseModel<BaseFragmentActivity> implem
         public Void doInBackground(Object... objArr) {
             int i;
             CustomResponsedMessage runTask;
-            if (this.needCache && com.baidu.tieba.tbadkCore.e.dKh().RU(this.mCacheKey)) {
+            if (this.needCache && com.baidu.tieba.tbadkCore.e.dKh().RV(this.mCacheKey)) {
                 if (!com.baidu.tieba.tbadkCore.e.dKh().isSameDay(TbadkCoreApplication.getCurrentAccount() + this.mCacheKey)) {
                     com.baidu.tieba.tbadkCore.e.dKh().getResponseData().getForum().getSignData().is_signed = 0;
                 }

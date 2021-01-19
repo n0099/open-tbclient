@@ -20,7 +20,7 @@ public final class k extends com.baidu.ubs.analytics.d.d {
     protected final void a() {
         d dVar;
         String str;
-        dVar = d.a.oJL;
+        dVar = d.a.oJM;
         if (dVar.efL().size() == 0) {
             com.baidu.ubs.analytics.d.b.I(" 线程轮询  app 应该是退出了");
         }
@@ -44,7 +44,7 @@ public final class k extends com.baidu.ubs.analytics.d.d {
                     int i2 = i;
                     if (i2 < J2.size()) {
                         if (J2.get(i2).O() == null) {
-                            pVar.WC(J2.get(i2).I());
+                            pVar.WD(J2.get(i2).I());
                         }
                         i = i2 + 1;
                     } else {
@@ -117,7 +117,7 @@ public final class k extends com.baidu.ubs.analytics.d.d {
                 stringBuffer.append("]");
                 if (com.baidu.ubs.analytics.b.a.a(com.baidu.ubs.analytics.d.efH().getContext(), stringBuffer.toString())) {
                     com.baidu.ubs.analytics.d.b.I("上传成功，删除本地文件的       ");
-                    com.baidu.ubs.analytics.d.g.WI(az + "ABJson.log");
+                    com.baidu.ubs.analytics.d.g.WJ(az + "ABJson.log");
                     a(jVar, pVar, mVar, bVar, J3, J, J4);
                     return;
                 }
@@ -149,7 +149,7 @@ public final class k extends com.baidu.ubs.analytics.d.d {
 
     private static void a(com.baidu.ubs.analytics.a.j jVar, p pVar, com.baidu.ubs.analytics.a.m mVar, com.baidu.ubs.analytics.a.b bVar, List<com.baidu.ubs.analytics.a.l> list, List<com.baidu.ubs.analytics.a.i> list2, List<com.baidu.ubs.analytics.a.a> list3) {
         jVar.a(list2.size() != 0 ? list2.get(list2.size() - 1).getId() : 0);
-        pVar.WA(m.efQ().I());
+        pVar.WB(m.efQ().I());
         mVar.a(list.size() != 0 ? list.get(list.size() - 1).getId() : 0);
         bVar.a(list3.size() != 0 ? list3.get(list3.size() - 1).getId() : 0);
     }

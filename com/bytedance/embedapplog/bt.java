@@ -9,14 +9,14 @@ public class bt extends bv {
 
     /* renamed from: b  reason: collision with root package name */
     private long f5812b;
-    private final m pcR;
-    private final cn pce;
+    private final m pcS;
+    private final cn pcf;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bt(Application application, m mVar, cn cnVar) {
         super(application);
-        this.pcR = mVar;
-        this.pce = cnVar;
+        this.pcS = mVar;
+        this.pcf = cnVar;
     }
 
     @Override // com.bytedance.embedapplog.bv
@@ -26,7 +26,7 @@ public class bt extends bv {
 
     @Override // com.bytedance.embedapplog.bv
     long b() {
-        long s = this.pce.s();
+        long s = this.pcf.s();
         return (s >= 600000 ? s : 600000L) + this.f5812b;
     }
 
@@ -37,20 +37,20 @@ public class bt extends bv {
 
     @Override // com.bytedance.embedapplog.bv
     boolean d() {
-        JSONObject a2 = this.pcR.a();
-        if (this.pcR.o() != 0 && a2 != null) {
+        JSONObject a2 = this.pcS.a();
+        if (this.pcS.o() != 0 && a2 != null) {
             long currentTimeMillis = System.currentTimeMillis();
             JSONObject jSONObject = new JSONObject();
-            jSONObject.put(WebSocketRequest.PARAM_KEY_HEADER, this.pcR.a());
+            jSONObject.put(WebSocketRequest.PARAM_KEY_HEADER, this.pcS.a());
             jSONObject.put("magic_tag", "ss_app_log");
             jSONObject.put("_gen_time", currentTimeMillis);
-            JSONObject z = aa.z(aa.a(ab.a(this.f5814a, this.pcR.a(), aa.elx().elJ(), true, b.ekT()), aa.c), jSONObject);
+            JSONObject z = aa.z(aa.a(ab.a(this.f5814a, this.pcS.a(), aa.elx().elJ(), true, b.ekT()), aa.c), jSONObject);
             if (z != null) {
                 b.ela().onRemoteAbConfigGet(av.a(b.ekV(), z) ? false : true, z);
                 if (au.f5786b) {
                     au.a("getAbConfig " + z, null);
                 }
-                this.pcR.a(z);
+                this.pcS.a(z);
                 this.f5812b = currentTimeMillis;
                 return true;
             }

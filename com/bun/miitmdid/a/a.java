@@ -9,14 +9,14 @@ import org.json.JSONObject;
 import org.json.JSONTokener;
 /* loaded from: classes5.dex */
 public class a implements b {
-    public C0978a pbo = new C0978a();
+    public C0978a pbp = new C0978a();
 
     /* renamed from: com.bun.miitmdid.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
     public class C0978a {
-        public com.bun.miitmdid.a.a.a pbp;
-        public com.bun.miitmdid.a.a.b pbq;
-        public c pbr;
+        public com.bun.miitmdid.a.a.a pbq;
+        public com.bun.miitmdid.a.a.b pbr;
+        public c pbs;
 
         public C0978a() {
         }
@@ -30,9 +30,9 @@ public class a implements b {
             return false;
         }
         if (jSONObject.optJSONObject(RomUtils.MANUFACTURER_HUAWEI) != null) {
-            aVar.pbo.pbp = new com.bun.miitmdid.a.a.a();
+            aVar.pbp.pbq = new com.bun.miitmdid.a.a.a();
         }
-        return aVar.pbo.pbp != null;
+        return aVar.pbp.pbq != null;
     }
 
     private static boolean b(a aVar, JSONObject jSONObject) {
@@ -40,9 +40,9 @@ public class a implements b {
             return false;
         }
         if (jSONObject.optJSONObject(RomUtils.MANUFACTURER_XIAOMI) != null) {
-            aVar.pbo.pbr = new c();
+            aVar.pbp.pbs = new c();
         }
-        return aVar.pbo.pbr != null;
+        return aVar.pbp.pbs != null;
     }
 
     private static boolean c(a aVar, JSONObject jSONObject) {
@@ -53,9 +53,9 @@ public class a implements b {
         com.bun.miitmdid.a.a.b bVar = new com.bun.miitmdid.a.a.b();
         if (optJSONObject != null) {
             bVar.f5732a = optJSONObject.optString("appid");
-            aVar.pbo.pbq = bVar;
+            aVar.pbp.pbr = bVar;
         }
-        return aVar.pbo.pbq != null;
+        return aVar.pbp.pbr != null;
     }
 
     public static a hI(Context context) {
@@ -82,6 +82,6 @@ public class a implements b {
 
     @Override // com.bun.miitmdid.a.b
     public String a() {
-        return (this.pbo == null || this.pbo.pbq == null || this.pbo.pbq.f5732a == null) ? "" : this.pbo.pbq.f5732a;
+        return (this.pbp == null || this.pbp.pbr == null || this.pbp.pbr.f5732a == null) ? "" : this.pbp.pbr.f5732a;
     }
 }

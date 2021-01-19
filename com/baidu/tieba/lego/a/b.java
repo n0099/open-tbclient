@@ -24,23 +24,23 @@ public class b implements com.baidu.tbadk.b.e {
 
     public void k(Object obj, String str) {
         if (str != null) {
-            a ML = a.ML(str);
-            f fVar = this.kSf.get(ML.getKey());
-            if (fVar != null && ML.isValid()) {
-                fVar.a(obj, ML.getParams(), str);
+            a MM = a.MM(str);
+            f fVar = this.kSf.get(MM.getKey());
+            if (fVar != null && MM.isValid()) {
+                fVar.a(obj, MM.getParams(), str);
             }
         }
     }
 
     public void a(Object obj, String str, HashMap<String, String> hashMap, com.baidu.adp.base.e eVar) {
         if (str != null) {
-            a ML = a.ML(str);
-            f fVar = this.kSf.get(ML.getKey());
-            if (fVar != null && ML.isValid()) {
+            a MM = a.MM(str);
+            f fVar = this.kSf.get(MM.getKey());
+            if (fVar != null && MM.isValid()) {
                 if (hashMap != null && !hashMap.isEmpty()) {
-                    ML.getParams().putAll(hashMap);
+                    MM.getParams().putAll(hashMap);
                 }
-                fVar.a(obj, ML.getParams(), str, eVar);
+                fVar.a(obj, MM.getParams(), str, eVar);
             }
         }
     }
@@ -87,7 +87,7 @@ public class b implements com.baidu.tbadk.b.e {
             this.eXq = new HashMap<>();
         }
 
-        public String MK(String str) {
+        public String ML(String str) {
             if (TextUtils.isEmpty(str)) {
                 return null;
             }
@@ -101,7 +101,7 @@ public class b implements com.baidu.tbadk.b.e {
             return null;
         }
 
-        public static a ML(String str) {
+        public static a MM(String str) {
             return new a(str);
         }
     }

@@ -26,7 +26,7 @@ public class b {
 
     public void setColor(String str) {
         this.mColor = str;
-        this.mRootView.setBackgroundColor(com.baidu.tieba.memberCenter.tail.a.c.Nz(str));
+        this.mRootView.setBackgroundColor(com.baidu.tieba.memberCenter.tail.a.c.NA(str));
     }
 
     public void setOnClickListener(View.OnClickListener onClickListener) {
@@ -40,6 +40,6 @@ public class b {
     public void onChangeSkinType(TbPageContext<?> tbPageContext) {
         tbPageContext.getLayoutMode().setNightMode(TbadkCoreApplication.getInst().getSkinType() == 1);
         tbPageContext.getLayoutMode().onModeChanged(this.mRootView);
-        this.mRootView.setBackgroundColor(com.baidu.tieba.memberCenter.tail.a.c.Nz(this.mColor));
+        this.mRootView.setBackgroundColor(com.baidu.tieba.memberCenter.tail.a.c.NA(this.mColor));
     }
 }

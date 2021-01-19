@@ -25,24 +25,24 @@ public class BackgroundItemView extends LinearLayout {
     private TbImageView ldO;
     private Context mContext;
     private View mRootView;
-    private DressItemData nvL;
-    private d nwG;
-    private TbImageView nwY;
-    private SkinProgressView nwZ;
-    private ImageView nwj;
+    private DressItemData nvM;
+    private d nwH;
+    private TbImageView nwZ;
+    private ImageView nwk;
+    private SkinProgressView nxa;
 
     public BackgroundItemView(Context context) {
         super(context);
         this.jcl = new View.OnClickListener() { // from class: com.baidu.tieba.themeCenter.background.BackgroundItemView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (view != null && BackgroundItemView.this.nvL != null && BackgroundItemView.this.nwG != null) {
-                    if (view == BackgroundItemView.this.nwZ) {
-                        TiebaStatic.log(new aq("c10280").an("obj_id", BackgroundItemView.this.nvL.getPropsId()));
-                        BackgroundItemView.this.nwG.a(BackgroundItemView.this.nvL, false);
+                if (view != null && BackgroundItemView.this.nvM != null && BackgroundItemView.this.nwH != null) {
+                    if (view == BackgroundItemView.this.nxa) {
+                        TiebaStatic.log(new aq("c10280").an("obj_id", BackgroundItemView.this.nvM.getPropsId()));
+                        BackgroundItemView.this.nwH.a(BackgroundItemView.this.nvM, false);
                     } else if (view == BackgroundItemView.this.ldN) {
-                        TiebaStatic.log(new aq("c10279").an("obj_id", BackgroundItemView.this.nvL.getPropsId()));
-                        BackgroundItemView.this.nwG.e(BackgroundItemView.this.nvL);
+                        TiebaStatic.log(new aq("c10279").an("obj_id", BackgroundItemView.this.nvM.getPropsId()));
+                        BackgroundItemView.this.nwH.e(BackgroundItemView.this.nvM);
                     }
                 }
             }
@@ -56,13 +56,13 @@ public class BackgroundItemView extends LinearLayout {
         this.jcl = new View.OnClickListener() { // from class: com.baidu.tieba.themeCenter.background.BackgroundItemView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (view != null && BackgroundItemView.this.nvL != null && BackgroundItemView.this.nwG != null) {
-                    if (view == BackgroundItemView.this.nwZ) {
-                        TiebaStatic.log(new aq("c10280").an("obj_id", BackgroundItemView.this.nvL.getPropsId()));
-                        BackgroundItemView.this.nwG.a(BackgroundItemView.this.nvL, false);
+                if (view != null && BackgroundItemView.this.nvM != null && BackgroundItemView.this.nwH != null) {
+                    if (view == BackgroundItemView.this.nxa) {
+                        TiebaStatic.log(new aq("c10280").an("obj_id", BackgroundItemView.this.nvM.getPropsId()));
+                        BackgroundItemView.this.nwH.a(BackgroundItemView.this.nvM, false);
                     } else if (view == BackgroundItemView.this.ldN) {
-                        TiebaStatic.log(new aq("c10279").an("obj_id", BackgroundItemView.this.nvL.getPropsId()));
-                        BackgroundItemView.this.nwG.e(BackgroundItemView.this.nvL);
+                        TiebaStatic.log(new aq("c10279").an("obj_id", BackgroundItemView.this.nvM.getPropsId()));
+                        BackgroundItemView.this.nwH.e(BackgroundItemView.this.nvM);
                     }
                 }
             }
@@ -76,13 +76,13 @@ public class BackgroundItemView extends LinearLayout {
         this.jcl = new View.OnClickListener() { // from class: com.baidu.tieba.themeCenter.background.BackgroundItemView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (view != null && BackgroundItemView.this.nvL != null && BackgroundItemView.this.nwG != null) {
-                    if (view == BackgroundItemView.this.nwZ) {
-                        TiebaStatic.log(new aq("c10280").an("obj_id", BackgroundItemView.this.nvL.getPropsId()));
-                        BackgroundItemView.this.nwG.a(BackgroundItemView.this.nvL, false);
+                if (view != null && BackgroundItemView.this.nvM != null && BackgroundItemView.this.nwH != null) {
+                    if (view == BackgroundItemView.this.nxa) {
+                        TiebaStatic.log(new aq("c10280").an("obj_id", BackgroundItemView.this.nvM.getPropsId()));
+                        BackgroundItemView.this.nwH.a(BackgroundItemView.this.nvM, false);
                     } else if (view == BackgroundItemView.this.ldN) {
-                        TiebaStatic.log(new aq("c10279").an("obj_id", BackgroundItemView.this.nvL.getPropsId()));
-                        BackgroundItemView.this.nwG.e(BackgroundItemView.this.nvL);
+                        TiebaStatic.log(new aq("c10279").an("obj_id", BackgroundItemView.this.nvM.getPropsId()));
+                        BackgroundItemView.this.nwH.e(BackgroundItemView.this.nvM);
                     }
                 }
             }
@@ -99,13 +99,13 @@ public class BackgroundItemView extends LinearLayout {
         this.ldO = (TbImageView) this.mRootView.findViewById(R.id.permission_icon);
         this.ldO.setDefaultResource(R.drawable.transparent_bg);
         this.ldO.setDefaultBgResource(R.drawable.transparent_bg);
-        this.nwY = (TbImageView) this.mRootView.findViewById(R.id.state_icon);
-        this.nwY.setDefaultResource(R.drawable.transparent_bg);
-        this.nwY.setDefaultBgResource(R.drawable.transparent_bg);
-        this.nwj = (ImageView) this.mRootView.findViewById(R.id.choosed_icon);
+        this.nwZ = (TbImageView) this.mRootView.findViewById(R.id.state_icon);
+        this.nwZ.setDefaultResource(R.drawable.transparent_bg);
+        this.nwZ.setDefaultBgResource(R.drawable.transparent_bg);
+        this.nwk = (ImageView) this.mRootView.findViewById(R.id.choosed_icon);
         this.jjc = (TextView) this.mRootView.findViewById(R.id.text_bg_name);
-        this.nwZ = (SkinProgressView) this.mRootView.findViewById(R.id.view_bg_use);
-        this.nwZ.setOnClickListener(this.jcl);
+        this.nxa = (SkinProgressView) this.mRootView.findViewById(R.id.view_bg_use);
+        this.nxa.setOnClickListener(this.jcl);
         this.ldN.setOnClickListener(this.jcl);
         FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.ldN.getLayoutParams();
         layoutParams.height = this.eNY;
@@ -115,7 +115,7 @@ public class BackgroundItemView extends LinearLayout {
 
     public void d(DressItemData dressItemData) {
         if (dressItemData != null) {
-            this.nvL = dressItemData;
+            this.nvM = dressItemData;
             Boolean valueOf = Boolean.valueOf(dressItemData.getInUse());
             if (dressItemData.getPropsId() == 0) {
                 ao.setImageResource(this.ldN, R.drawable.pic_bg_moren);
@@ -125,17 +125,17 @@ public class BackgroundItemView extends LinearLayout {
             }
             this.jjc.setText(dressItemData.getTitle());
             if (valueOf.booleanValue()) {
-                this.nwj.setVisibility(0);
-                ao.setImageResource(this.nwj, R.drawable.icon_choose_photo);
+                this.nwk.setVisibility(0);
+                ao.setImageResource(this.nwk, R.drawable.icon_choose_photo);
             } else {
-                this.nwj.setVisibility(8);
+                this.nwk.setVisibility(8);
             }
             this.ldO.startLoad(dressItemData.getPermissionImgUrl(), 10, false);
-            this.nwY.startLoad(dressItemData.getPropsStateImg(), 10, false);
+            this.nwZ.startLoad(dressItemData.getPropsStateImg(), 10, false);
             if (valueOf.booleanValue()) {
-                this.nwZ.n(0, 0.0f);
+                this.nxa.n(0, 0.0f);
             } else {
-                this.nwZ.n(4, 0.0f);
+                this.nxa.n(4, 0.0f);
             }
             setVisibility(0);
         }
@@ -146,6 +146,6 @@ public class BackgroundItemView extends LinearLayout {
     }
 
     public void setController(d dVar) {
-        this.nwG = dVar;
+        this.nwH = dVar;
     }
 }

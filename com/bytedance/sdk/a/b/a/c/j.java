@@ -30,7 +30,7 @@ public final class j implements x {
     private final boolean f5883b;
     private Object d;
     private volatile boolean e;
-    private com.bytedance.sdk.a.b.a.b.g peY;
+    private com.bytedance.sdk.a.b.a.b.g peZ;
 
     public j(z zVar, boolean z) {
         this.f5882a = zVar;
@@ -53,14 +53,14 @@ public final class j implements x {
         g gVar = (g) aVar;
         com.bytedance.sdk.a.b.h emQ = gVar.emQ();
         t emR = gVar.emR();
-        this.peY = new com.bytedance.sdk.a.b.a.b.g(this.f5882a.enU(), c(emS.emp()), emQ, emR, this.d);
+        this.peZ = new com.bytedance.sdk.a.b.a.b.g(this.f5882a.enU(), c(emS.emp()), emQ, emR, this.d);
         com.bytedance.sdk.a.b.b bVar = null;
         int i = 0;
         ab abVar = emS;
         while (!this.e) {
             try {
                 try {
-                    a2 = gVar.a(abVar, this.peY, null, null);
+                    a2 = gVar.a(abVar, this.peZ, null, null);
                     if (bVar != null) {
                         a2 = a2.enn().j(bVar.enn().a((com.bytedance.sdk.a.b.c) null).enq()).enq();
                     }
@@ -76,23 +76,23 @@ public final class j implements x {
                 }
                 if (f == null) {
                     if (!this.f5883b) {
-                        this.peY.c();
+                        this.peZ.c();
                     }
                     return a2;
                 }
                 com.bytedance.sdk.a.b.a.c.a(a2.enm());
                 int i2 = i + 1;
                 if (i2 > 20) {
-                    this.peY.c();
+                    this.peZ.c();
                     throw new ProtocolException("Too many follow-up requests: " + i2);
                 } else if (f.eoc() instanceof l) {
-                    this.peY.c();
+                    this.peZ.c();
                     throw new HttpRetryException("Cannot retry streamed HTTP body", a2.c());
                 } else {
                     if (!a(a2, f.emp())) {
-                        this.peY.c();
-                        this.peY = new com.bytedance.sdk.a.b.a.b.g(this.f5882a.enU(), c(f.emp()), emQ, emR, this.d);
-                    } else if (this.peY.emJ() != null) {
+                        this.peZ.c();
+                        this.peZ = new com.bytedance.sdk.a.b.a.b.g(this.f5882a.enU(), c(f.emp()), emQ, emR, this.d);
+                    } else if (this.peZ.emJ() != null) {
                         throw new IllegalStateException("Closing the body of " + a2 + " didn't close its backing stream. Bad interceptor?");
                     }
                     bVar = a2;
@@ -100,12 +100,12 @@ public final class j implements x {
                     abVar = f;
                 }
             } catch (Throwable th) {
-                this.peY.a((IOException) null);
-                this.peY.c();
+                this.peZ.a((IOException) null);
+                this.peZ.c();
                 throw th;
             }
         }
-        this.peY.c();
+        this.peZ.c();
         throw new IOException(ResponseException.CANCELED);
     }
 
@@ -126,9 +126,9 @@ public final class j implements x {
     }
 
     private boolean a(IOException iOException, boolean z, ab abVar) {
-        this.peY.a(iOException);
+        this.peZ.a(iOException);
         if (this.f5882a.r()) {
-            return !(z && (abVar.eoc() instanceof l)) && a(iOException, z) && this.peY.e();
+            return !(z && (abVar.eoc() instanceof l)) && a(iOException, z) && this.peZ.e();
         }
         return false;
     }
@@ -150,12 +150,12 @@ public final class j implements x {
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
     private ab f(com.bytedance.sdk.a.b.b bVar) throws IOException {
         String a2;
-        s XE;
+        s XF;
         Proxy emG;
         if (bVar == null) {
             throw new IllegalStateException();
         }
-        com.bytedance.sdk.a.b.a.b.c emL = this.peY.emL();
+        com.bytedance.sdk.a.b.a.b.c emL = this.peZ.emL();
         com.bytedance.sdk.a.b.d emC = emL != null ? emL.emC() : null;
         int c = bVar.c();
         String b2 = bVar.emS().b();
@@ -194,10 +194,10 @@ public final class j implements x {
             default:
                 return null;
         }
-        if (!this.f5882a.q() || (a2 = bVar.a(Headers.LOCATION)) == null || (XE = bVar.emS().emp().XE(a2)) == null) {
+        if (!this.f5882a.q() || (a2 = bVar.a(Headers.LOCATION)) == null || (XF = bVar.emS().emp().XF(a2)) == null) {
             return null;
         }
-        if (XE.b().equals(bVar.emS().emp().b()) || this.f5882a.p()) {
+        if (XF.b().equals(bVar.emS().emp().b()) || this.f5882a.p()) {
             ab.a eod = bVar.emS().eod();
             if (f.c(b2)) {
                 boolean d = f.d(b2);
@@ -207,15 +207,15 @@ public final class j implements x {
                     eod.a(b2, d ? bVar.emS().eoc() : null);
                 }
                 if (!d) {
-                    eod.XN("Transfer-Encoding");
-                    eod.XN("Content-Length");
-                    eod.XN("Content-Type");
+                    eod.XO("Transfer-Encoding");
+                    eod.XO("Content-Length");
+                    eod.XO("Content-Type");
                 }
             }
-            if (!a(bVar, XE)) {
-                eod.XN("Authorization");
+            if (!a(bVar, XF)) {
+                eod.XO("Authorization");
             }
-            return eod.f(XE).eoj();
+            return eod.f(XF).eoj();
         }
         return null;
     }

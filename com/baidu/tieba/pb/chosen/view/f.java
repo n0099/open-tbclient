@@ -34,7 +34,7 @@ public class f {
         this.lAX.setOnClickListener(onClickListener);
     }
 
-    public void Or(String str) {
+    public void Os(String str) {
         this.lAW.setText(str);
     }
 

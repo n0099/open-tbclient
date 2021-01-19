@@ -213,10 +213,10 @@ public class TTDelegateActivity extends Activity implements ActivityCompat.OnReq
             return;
         }
         k eCo = j.eCo();
-        c.a Zd = new c.a(this).Zd("已安装完成");
+        c.a Ze = new c.a(this).Ze("已安装完成");
         Object[] objArr = new Object[1];
         objArr[0] = TextUtils.isEmpty(jb.C()) ? "刚刚下载的应用" : jb.C();
-        eCo.b(Zd.Ze(String.format("%1$s已安装完成，是否立即打开？", objArr)).Zf("打开").Zg(PayHelper.STATUS_CANCEL_DESC).Bp(false).I(i.c(this, jb.m())).a(new c.b() { // from class: com.ss.android.downloadlib.activity.TTDelegateActivity.2
+        eCo.b(Ze.Zf(String.format("%1$s已安装完成，是否立即打开？", objArr)).Zg("打开").Zh(PayHelper.STATUS_CANCEL_DESC).Bp(false).I(i.c(this, jb.m())).a(new c.b() { // from class: com.ss.android.downloadlib.activity.TTDelegateActivity.2
             @Override // com.ss.android.a.a.d.c.b
             public void a(DialogInterface dialogInterface) {
                 com.ss.android.downloadlib.b.a.a(jb);

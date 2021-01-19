@@ -57,9 +57,9 @@ public class ActiveStaticBannerItemView extends FrameLayout implements c {
         this.hkL = (SimpleDraweeView) findViewById(a.f.ala_live_active_view_img);
         this.hkM = findViewById(a.f.new_icon);
         com.facebook.drawee.generic.a hierarchy = this.hkL.getHierarchy();
-        hierarchy.a(a.e.sdk_transparent_bg, p.b.ptm);
-        hierarchy.b(a.e.sdk_transparent_bg, p.b.ptm);
-        hierarchy.b(p.b.pti);
+        hierarchy.a(a.e.sdk_transparent_bg, p.b.ptn);
+        hierarchy.b(a.e.sdk_transparent_bg, p.b.ptn);
+        hierarchy.b(p.b.ptj);
         setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.activeview.ActiveStaticBannerItemView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {

@@ -22,14 +22,14 @@ public class b {
                 if (StringUtils.isNull(httpResponsedMessage.getErrorString())) {
                     httpResponsedMessage.setErrorString(TbadkCoreApplication.getInst().getString(R.string.share_sdk_check_no_resp));
                 }
-                if (b.this.nVQ != null) {
-                    b.this.nVQ.a(checkResponseData, httpResponsedMessage.getError(), httpResponsedMessage.getErrorString());
+                if (b.this.nVR != null) {
+                    b.this.nVR.a(checkResponseData, httpResponsedMessage.getError(), httpResponsedMessage.getErrorString());
                 }
             }
         }
     };
     private BdUniqueId mPageId;
-    private a nVQ;
+    private a nVR;
 
     public b(BdUniqueId bdUniqueId) {
         this.mPageId = bdUniqueId;
@@ -52,13 +52,13 @@ public class b {
     }
 
     public void a(a aVar) {
-        this.nVQ = aVar;
+        this.nVR = aVar;
     }
 
     public void gG(String str, String str2) {
         if (StringUtils.isNull(str)) {
-            if (this.nVQ != null) {
-                this.nVQ.a(null, -2112, TbadkCoreApplication.getInst().getString(R.string.check_share_sdk_appkey_null));
+            if (this.nVR != null) {
+                this.nVR.a(null, -2112, TbadkCoreApplication.getInst().getString(R.string.check_share_sdk_appkey_null));
                 return;
             }
             return;

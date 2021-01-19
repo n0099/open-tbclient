@@ -16,8 +16,8 @@ import org.json.JSONObject;
 /* loaded from: classes10.dex */
 public class a extends BdBaseModel {
     private x aBr;
-    private InterfaceC0957a oMt;
-    private int oMu = -1;
+    private InterfaceC0957a oMu;
+    private int oMv = -1;
 
     /* renamed from: com.baidu.yuyinala.mode.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes10.dex */
@@ -29,7 +29,7 @@ public class a extends BdBaseModel {
 
     public a(x xVar, InterfaceC0957a interfaceC0957a) {
         this.aBr = xVar;
-        this.oMt = interfaceC0957a;
+        this.oMu = interfaceC0957a;
         registerListener();
     }
 
@@ -44,14 +44,14 @@ public class a extends BdBaseModel {
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
                 if (httpResponsedMessage.getCmd() == 1031079) {
                     if (httpResponsedMessage.getError() != 0) {
-                        if (a.this.oMt != null) {
-                            a.this.oMt.egL();
+                        if (a.this.oMu != null) {
+                            a.this.oMu.egL();
                             return;
                         }
                         return;
                     }
-                    if (a.this.oMt != null) {
-                        a.this.oMt.egM();
+                    if (a.this.oMu != null) {
+                        a.this.oMu.egM();
                     }
                     a.this.egQ();
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2501073));
@@ -62,14 +62,14 @@ public class a extends BdBaseModel {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void egQ() {
-        if (this.oMu >= 0) {
+        if (this.oMv >= 0) {
             JSONObject jSONObject = new JSONObject();
             try {
-                if (this.oMu == 0) {
+                if (this.oMv == 0) {
                     jSONObject.put(UbcStatConstant.KEY_CONTENT_EXT_MODE, "normal");
-                } else if (this.oMu == 1) {
+                } else if (this.oMv == 1) {
                     jSONObject.put(UbcStatConstant.KEY_CONTENT_EXT_MODE, "dating");
-                } else if (this.oMu == 2) {
+                } else if (this.oMv == 2) {
                     jSONObject.put(UbcStatConstant.KEY_CONTENT_EXT_MODE, "battle");
                 }
                 jSONObject.put(UbcStatConstant.KEY_CUSTOM_ROOM_ID, com.baidu.live.aq.a.Wu().WA().aGy.croom_id);
@@ -91,7 +91,7 @@ public class a extends BdBaseModel {
     }
 
     public void Nb(int i) {
-        this.oMu = i;
+        this.oMv = i;
         String str = null;
         if (this.aBr != null && this.aBr.aGy != null) {
             str = this.aBr.aGy.aQH;

@@ -13,8 +13,8 @@ import java.util.concurrent.TimeUnit;
 public class g implements Executor {
     static final /* synthetic */ boolean $assertionsDisabled;
     private final String mUrl;
-    private boolean oHR = false;
     private boolean oHS = false;
+    private boolean oHT = false;
     private long mThreadId = -1;
     private final BlockingQueue<Runnable> mQueue = new LinkedBlockingQueue();
 
@@ -65,20 +65,20 @@ public class g implements Executor {
         }
         long nanoTime = System.nanoTime();
         long convert = TimeUnit.NANOSECONDS.convert(i, TimeUnit.MILLISECONDS);
-        if (this.oHS) {
+        if (this.oHT) {
             throw new IllegalStateException("Cannot run loop as an exception has occurred previously.");
         }
-        if (this.oHR) {
+        if (this.oHS) {
             throw new IllegalStateException("Cannot run loop when it is already running.");
         }
-        this.oHR = true;
-        while (this.oHR) {
+        this.oHS = true;
+        while (this.oHS) {
             if (i == 0) {
                 try {
                     p(false, 0L).run();
                 } catch (InterruptedIOException | RuntimeException e) {
-                    this.oHR = false;
-                    this.oHS = true;
+                    this.oHS = false;
+                    this.oHT = true;
                     throw e;
                 }
             } else {
@@ -91,7 +91,7 @@ public class g implements Executor {
         if (!$assertionsDisabled && !eeY()) {
             throw new AssertionError();
         }
-        this.oHR = false;
+        this.oHS = false;
     }
 
     @Override // java.util.concurrent.Executor

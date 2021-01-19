@@ -75,7 +75,7 @@ public class MessageCenterFragment extends BaseFragment implements VoiceManager.
         View inflate = layoutInflater.inflate(R.layout.message_center_activity, viewGroup, false);
         this.kJA = new g(this);
         this.kJA.a(inflate, bundle);
-        this.kJA.Dh(2);
+        this.kJA.Dg(2);
         this.kJA.a(this.kJB);
         this.kJD.setPriority(ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED);
         registerListener(this.kJD);
@@ -142,7 +142,7 @@ public class MessageCenterFragment extends BaseFragment implements VoiceManager.
 
     private void a(Intent intent, Bundle bundle) {
         if (this.kJA != null) {
-            this.kJA.Dh(1);
+            this.kJA.Dg(1);
         }
     }
 

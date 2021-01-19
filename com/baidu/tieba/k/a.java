@@ -9,7 +9,7 @@ import com.baidu.tbadk.core.util.z;
 import java.net.URLEncoder;
 /* loaded from: classes.dex */
 public class a {
-    public static boolean Be(int i) {
+    public static boolean Bd(int i) {
         switch (i) {
             case CmdConfigSocket.CMD_GROUP_CHAT_MSG /* 202001 */:
             case CmdConfigSocket.CMD_COMMIT_PERSONAL_MSG /* 205001 */:

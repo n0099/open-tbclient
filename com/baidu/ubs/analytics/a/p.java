@@ -3,29 +3,29 @@ package com.baidu.ubs.analytics.a;
 import java.util.List;
 /* loaded from: classes3.dex */
 public final class p {
-    private o oJF = new o();
+    private o oJG = new o();
 
     public final void c(n nVar) {
-        this.oJF.a(nVar);
+        this.oJG.a(nVar);
     }
 
     public final void b(n nVar) {
-        this.oJF.b(nVar);
+        this.oJG.b(nVar);
     }
 
     public final List<n> J() {
-        return this.oJF.J();
+        return this.oJG.J();
     }
 
-    public final void WA(String str) {
-        this.oJF.WA(str);
+    public final void WB(String str) {
+        this.oJG.WB(str);
     }
 
-    public final void WC(String str) {
-        this.oJF.WA(str);
+    public final void WD(String str) {
+        this.oJG.WB(str);
     }
 
-    public final boolean WB(String str) {
-        return this.oJF.WB(str);
+    public final boolean WC(String str) {
+        return this.oJG.WC(str);
     }
 }

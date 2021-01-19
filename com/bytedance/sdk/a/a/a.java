@@ -10,10 +10,10 @@ public class a extends t {
     /* renamed from: b  reason: collision with root package name */
     private static final long f5837b = TimeUnit.SECONDS.toMillis(60);
     private static final long d = TimeUnit.MILLISECONDS.toNanos(f5837b);
-    static a pdj;
+    static a pdk;
     private boolean e;
     private long g;
-    private a pdk;
+    private a pdl;
 
     public final void a() {
         if (this.e) {
@@ -29,8 +29,8 @@ public class a extends t {
 
     private static synchronized void a(a aVar, long j, boolean z) {
         synchronized (a.class) {
-            if (pdj == null) {
-                pdj = new a();
+            if (pdk == null) {
+                pdk = new a();
                 new C0988a().start();
             }
             long nanoTime = System.nanoTime();
@@ -44,13 +44,13 @@ public class a extends t {
                 throw new AssertionError();
             }
             long b2 = aVar.b(nanoTime);
-            a aVar2 = pdj;
-            while (aVar2.pdk != null && b2 >= aVar2.pdk.b(nanoTime)) {
-                aVar2 = aVar2.pdk;
+            a aVar2 = pdk;
+            while (aVar2.pdl != null && b2 >= aVar2.pdl.b(nanoTime)) {
+                aVar2 = aVar2.pdl;
             }
-            aVar.pdk = aVar2.pdk;
-            aVar2.pdk = aVar;
-            if (aVar2 == pdj) {
+            aVar.pdl = aVar2.pdl;
+            aVar2.pdl = aVar;
+            if (aVar2 == pdk) {
                 a.class.notify();
             }
         }
@@ -65,8 +65,8 @@ public class a extends t {
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:8:0x000b, code lost:
-        r0.pdk = r3.pdk;
-        r3.pdk = null;
+        r0.pdl = r3.pdl;
+        r3.pdl = null;
      */
     /* JADX WARN: Code restructure failed: missing block: B:9:0x0012, code lost:
         r0 = false;
@@ -77,13 +77,13 @@ public class a extends t {
     private static synchronized boolean a(a aVar) {
         boolean z;
         synchronized (a.class) {
-            a aVar2 = pdj;
+            a aVar2 = pdk;
             while (true) {
                 if (aVar2 != null) {
-                    if (aVar2.pdk == aVar) {
+                    if (aVar2.pdl == aVar) {
                         break;
                     }
-                    aVar2 = aVar2.pdk;
+                    aVar2 = aVar2.pdl;
                 } else {
                     z = true;
                     break;
@@ -107,7 +107,7 @@ public class a extends t {
                 u.a(cVar.f5840b, 0L, j);
                 long j2 = j;
                 while (j2 > 0) {
-                    o oVar = cVar.pdo;
+                    o oVar = cVar.pdp;
                     long j3 = 0;
                     while (true) {
                         if (j3 >= 65536) {
@@ -118,7 +118,7 @@ public class a extends t {
                             j3 = j2;
                             break;
                         }
-                        oVar = oVar.pdA;
+                        oVar = oVar.pdB;
                     }
                     a.this.a();
                     try {
@@ -264,8 +264,8 @@ public class a extends t {
                 synchronized (a.class) {
                     a elV = a.elV();
                     if (elV != null) {
-                        if (elV == a.pdj) {
-                            a.pdj = null;
+                        if (elV == a.pdk) {
+                            a.pdk = null;
                             return;
                         }
                     }
@@ -275,14 +275,14 @@ public class a extends t {
     }
 
     static a elV() throws InterruptedException {
-        a aVar = pdj.pdk;
+        a aVar = pdk.pdl;
         if (aVar == null) {
             long nanoTime = System.nanoTime();
             a.class.wait(f5837b);
-            if (pdj.pdk != null || System.nanoTime() - nanoTime < d) {
+            if (pdk.pdl != null || System.nanoTime() - nanoTime < d) {
                 return null;
             }
-            return pdj;
+            return pdk;
         }
         long b2 = aVar.b(System.nanoTime());
         if (b2 > 0) {
@@ -290,8 +290,8 @@ public class a extends t {
             a.class.wait(j, (int) (b2 - (TimeUtils.NANOS_PER_MS * j)));
             return null;
         }
-        pdj.pdk = aVar.pdk;
-        aVar.pdk = null;
+        pdk.pdl = aVar.pdl;
+        aVar.pdl = null;
         return aVar;
     }
 }

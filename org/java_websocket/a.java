@@ -79,15 +79,15 @@ public abstract class a extends b {
         cancelConnectionLostTimer();
         this.connectionLostTimer = new Timer("WebSocketTimer");
         this.connectionLostTimerTask = new TimerTask() { // from class: org.java_websocket.a.1
-            private ArrayList<WebSocket> qmu = new ArrayList<>();
+            private ArrayList<WebSocket> qmv = new ArrayList<>();
 
             @Override // java.util.TimerTask, java.lang.Runnable
             public void run() {
-                this.qmu.clear();
+                this.qmv.clear();
                 try {
-                    this.qmu.addAll(a.this.getConnections());
+                    this.qmv.addAll(a.this.getConnections());
                     long currentTimeMillis = System.currentTimeMillis() - (a.this.connectionLostTimeout * 1500);
-                    Iterator<WebSocket> it = this.qmu.iterator();
+                    Iterator<WebSocket> it = this.qmv.iterator();
                     while (it.hasNext()) {
                         WebSocket next = it.next();
                         if (next instanceof c) {
@@ -109,7 +109,7 @@ public abstract class a extends b {
                         System.out.println("Exception during connection lost ping: " + e.getMessage());
                     }
                 }
-                this.qmu.clear();
+                this.qmv.clear();
             }
         };
         this.connectionLostTimer.scheduleAtFixedRate(this.connectionLostTimerTask, this.connectionLostTimeout * 1000, this.connectionLostTimeout * 1000);

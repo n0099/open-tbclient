@@ -62,7 +62,7 @@ public class g {
             imageView.setVisibility(0);
             imageView.setTag(Integer.valueOf(tag));
             b(imageView, tag, TbadkCoreApplication.getInst().getSkinType());
-            textView.setText(be(cVar.getName(), 8));
+            textView.setText(bf(cVar.getName(), 8));
             linearLayout.setTag(cVar);
         } else {
             textView.setText(R.string.hot_forum_title_more);
@@ -93,7 +93,7 @@ public class g {
         }
     }
 
-    private String be(String str, int i) {
+    private String bf(String str, int i) {
         if (StringUtils.isNull(str)) {
             return "";
         }

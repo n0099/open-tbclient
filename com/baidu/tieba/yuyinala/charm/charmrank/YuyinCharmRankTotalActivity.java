@@ -25,8 +25,8 @@ import com.baidu.live.utils.i;
 public class YuyinCharmRankTotalActivity extends BaseActivity<YuyinCharmRankTotalActivity> implements View.OnTouchListener {
     private View mRootView;
     private int mScreenWidth;
-    private f ogP;
-    private a ogQ;
+    private f ogQ;
+    private a ogR;
     private Handler mHandler = new Handler();
     private boolean aTo = false;
     private boolean aXA = false;
@@ -41,7 +41,7 @@ public class YuyinCharmRankTotalActivity extends BaseActivity<YuyinCharmRankTota
                     YuyinCharmRankTotalActivity.this.mHandler.postDelayed(new Runnable() { // from class: com.baidu.tieba.yuyinala.charm.charmrank.YuyinCharmRankTotalActivity.3.1
                         @Override // java.lang.Runnable
                         public void run() {
-                            i.ae(YuyinCharmRankTotalActivity.this.ogP.getView());
+                            i.ae(YuyinCharmRankTotalActivity.this.ogQ.getView());
                         }
                     }, 300L);
                 }
@@ -76,8 +76,8 @@ public class YuyinCharmRankTotalActivity extends BaseActivity<YuyinCharmRankTota
         setIsAddSwipeBackLayout(false);
         super.onCreate(bundle);
         if (!isFinishing()) {
-            this.ogP = new f(this);
-            this.mRootView = this.ogP.getView();
+            this.ogQ = new f(this);
+            this.mRootView = this.ogQ.getView();
             setContentView(this.mRootView);
             registerListener(this.aTF);
             this.aXA = false;
@@ -146,8 +146,8 @@ public class YuyinCharmRankTotalActivity extends BaseActivity<YuyinCharmRankTota
                 public void onAnimationEnd(Animation animation) {
                     YuyinCharmRankTotalActivity.super.finish();
                     YuyinCharmRankTotalActivity.this.mRootView.setVisibility(8);
-                    if (YuyinCharmRankTotalActivity.this.ogQ != null) {
-                        YuyinCharmRankTotalActivity.this.ogQ.cnx();
+                    if (YuyinCharmRankTotalActivity.this.ogR != null) {
+                        YuyinCharmRankTotalActivity.this.ogR.cnx();
                     }
                 }
 
@@ -186,12 +186,12 @@ public class YuyinCharmRankTotalActivity extends BaseActivity<YuyinCharmRankTota
             this.mScreenWidth = screenDimensions[0];
             window.setBackgroundDrawableResource(17170445);
             window.getDecorView().getViewTreeObserver().addOnGlobalLayoutListener(this.aXw);
-            if (this.ogP.getView().getLayoutParams() instanceof FrameLayout.LayoutParams) {
-                FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.ogP.getView().getLayoutParams();
+            if (this.ogQ.getView().getLayoutParams() instanceof FrameLayout.LayoutParams) {
+                FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.ogQ.getView().getLayoutParams();
                 layoutParams.width = screenDimensions[0];
                 layoutParams.height = (int) (screenDimensions[1] * 0.6d);
                 layoutParams.gravity = 80;
-                this.ogP.getView().setLayoutParams(layoutParams);
+                this.ogQ.getView().setLayoutParams(layoutParams);
             }
         }
     }
@@ -212,7 +212,7 @@ public class YuyinCharmRankTotalActivity extends BaseActivity<YuyinCharmRankTota
     @Override // com.baidu.live.tbadk.BaseActivity, com.baidu.live.adp.base.BdBaseActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        this.ogP.onDestory();
+        this.ogQ.onDestory();
         this.mHandler.removeCallbacksAndMessages(null);
         getWindow().getDecorView().getViewTreeObserver().removeGlobalOnLayoutListener(this.aXw);
         MessageManager.getInstance().unRegisterListener(this.bdo);
@@ -220,6 +220,6 @@ public class YuyinCharmRankTotalActivity extends BaseActivity<YuyinCharmRankTota
     }
 
     public void a(a aVar) {
-        this.ogQ = aVar;
+        this.ogR = aVar;
     }
 }

@@ -6,7 +6,6 @@ import android.view.View;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.bz;
 import com.baidu.tbadk.core.util.x;
 import com.baidu.tieba.R;
 import com.baidu.tieba.h.a;
@@ -84,7 +83,7 @@ public class b implements a.b {
             @Override // com.fun.ad.sdk.FunAdLoadListener
             public void onAdLoaded(String str2) {
                 if (dVar != null) {
-                    dVar.a(str2, null);
+                    dVar.bb(str2, 0);
                 }
                 System.currentTimeMillis();
             }
@@ -163,9 +162,8 @@ public class b implements a.b {
             @Override // com.fun.ad.sdk.FunNativeAdLoadListener
             public void onNativeAdLoaded(String str2, List<FunNativeAd> list) {
                 c.onNativeAdLoaded(str2, list);
-                List<bz> KD = com.baidu.tieba.h.a.cLv().KD("6051001537-901554884");
                 if (weakReference.get() != null) {
-                    ((a.d) weakReference.get()).a(str2, x.isEmpty(KD) ? null : KD.get(0).eRU);
+                    ((a.d) weakReference.get()).bb(str2, x.getCount(list));
                 }
             }
 
@@ -179,7 +177,7 @@ public class b implements a.b {
     }
 
     @Override // com.baidu.tieba.h.a.b
-    public void KE(String str) {
+    public void KF(String str) {
         if (!StringUtils.isNull(str)) {
             FunAdSdk.getAdFactory().destroyNativeAd(str);
         }

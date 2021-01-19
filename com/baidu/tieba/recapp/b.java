@@ -66,7 +66,7 @@ public class b implements l, n {
                             /* renamed from: fd */
                             public void onItemGet(String str, String str2) {
                                 if (!TextUtils.isEmpty(str2)) {
-                                    Iterator it = b.this.Qn(str2).iterator();
+                                    Iterator it = b.this.Qo(str2).iterator();
                                     while (it.hasNext()) {
                                         g gVar = (g) it.next();
                                         if (gVar != null) {
@@ -133,14 +133,14 @@ public class b implements l, n {
 
     private int m(String str, boolean z, boolean z2) {
         g gVar = this.mHL.get(str);
-        if (gVar == null || !Qo(dAU())) {
+        if (gVar == null || !Qp(dAU())) {
             return 0;
         }
         return gVar.ay(z, z2);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public ArrayList<g> Qn(String str) {
+    public ArrayList<g> Qo(String str) {
         ArrayList<g> arrayList = new ArrayList<>();
         if (!TextUtils.isEmpty(str)) {
             try {
@@ -196,7 +196,7 @@ public class b implements l, n {
 
     @Override // com.baidu.tieba.recapp.n
     public int dAT() {
-        if (Qo(dAU())) {
+        if (Qp(dAU())) {
             return this.mHM;
         }
         return 0;
@@ -206,7 +206,7 @@ public class b implements l, n {
         return new SimpleDateFormat("yyyy-MM-dd").format(new Date());
     }
 
-    private boolean Qo(String str) {
+    private boolean Qp(String str) {
         if (TextUtils.isEmpty(this.mHN)) {
             return false;
         }
@@ -215,7 +215,7 @@ public class b implements l, n {
 
     private void dAV() {
         String dAU = dAU();
-        if (!Qo(dAU)) {
+        if (!Qp(dAU)) {
             this.mHL.clear();
             this.mHM = 0;
             this.mHN = dAU;

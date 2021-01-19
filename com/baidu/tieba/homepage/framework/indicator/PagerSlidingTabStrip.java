@@ -295,7 +295,7 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
                         TiebaStatic.log(new aq(CommonStatisticKey.KEY_RECOMMEND_TIP_ITEM_CLICK).an("obj_locate", i + 1).dW("obj_type", "1"));
                         PagerSlidingTabStrip.this.bnv = true;
                         if (PagerSlidingTabStrip.this.fcV.getAdapter() instanceof NewScrollFragmentAdapter) {
-                            ((NewScrollFragmentAdapter) PagerSlidingTabStrip.this.fcV.getAdapter()).Bt(i);
+                            ((NewScrollFragmentAdapter) PagerSlidingTabStrip.this.fcV.getAdapter()).Bs(i);
                         }
                         PagerSlidingTabStrip.this.fcV.setCurrentItem(i);
                         PagerSlidingTabStrip.this.updateTabStyles();
@@ -596,7 +596,7 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // android.os.Parcelable.Creator
-            /* renamed from: Bv */
+            /* renamed from: Bu */
             public SavedState[] newArray(int i) {
                 return new SavedState[i];
             }
@@ -619,7 +619,7 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
         }
     }
 
-    public View Bu(int i) {
+    public View Bt(int i) {
         return this.fcU.getChildAt(i);
     }
 

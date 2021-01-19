@@ -5,14 +5,14 @@ import tbclient.ThemeRecommand;
 public class e {
     private String iconUrl;
     private String linkUrl;
-    private String nzk;
+    private String nzl;
     private String tipString;
 
     public void a(ThemeRecommand themeRecommand) {
         if (themeRecommand != null) {
             this.iconUrl = themeRecommand.icon;
             this.tipString = themeRecommand.tip_text;
-            this.nzk = themeRecommand.button_text;
+            this.nzl = themeRecommand.button_text;
             this.linkUrl = themeRecommand.button_url;
         }
     }
@@ -26,6 +26,6 @@ public class e {
     }
 
     public String dPe() {
-        return this.nzk;
+        return this.nzl;
     }
 }

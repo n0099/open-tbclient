@@ -50,10 +50,10 @@ public class GodRecommendLayout extends LinearLayout {
     private RecyclerView.OnScrollListener ikd;
     private final Context mContext;
     private TextView mTitleView;
-    private TextView nNJ;
-    private GodRecommendListAdapter nNK;
-    private boolean nNL;
-    private com.baidu.tbadk.h.f nNM;
+    private TextView nNK;
+    private GodRecommendListAdapter nNL;
+    private boolean nNM;
+    private com.baidu.tbadk.h.f nNN;
 
     public GodRecommendLayout(Context context) {
         this(context, null);
@@ -66,7 +66,7 @@ public class GodRecommendLayout extends LinearLayout {
     public GodRecommendLayout(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         this.aLY = new ArrayList();
-        this.nNL = true;
+        this.nNM = true;
         this.iLz = new CustomMessageListener(2156674) { // from class: com.baidu.tieba.view.GodRecommendLayout.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
@@ -83,7 +83,7 @@ public class GodRecommendLayout extends LinearLayout {
                 }
             }
         };
-        this.nNM = new com.baidu.tbadk.h.f<MetaData>() { // from class: com.baidu.tieba.view.GodRecommendLayout.2
+        this.nNN = new com.baidu.tbadk.h.f<MetaData>() { // from class: com.baidu.tieba.view.GodRecommendLayout.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tbadk.h.f
             public void a(View view, MetaData metaData, int i2, long j) {
@@ -127,11 +127,11 @@ public class GodRecommendLayout extends LinearLayout {
         setOrientation(1);
         setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
         this.mTitleView = (TextView) findViewById(R.id.title);
-        this.nNJ = (TextView) findViewById(R.id.change);
+        this.nNK = (TextView) findViewById(R.id.change);
         this.iLs = (RecyclerView) findViewById(R.id.thread_card_list);
-        this.nNK = new GodRecommendListAdapter(this.mContext);
-        this.nNK.setOnItemCoverListener(this.nNM);
-        this.iLs.setAdapter(this.nNK);
+        this.nNL = new GodRecommendListAdapter(this.mContext);
+        this.nNL.setOnItemCoverListener(this.nNN);
+        this.iLs.setAdapter(this.nNL);
         this.iLs.setClipChildren(false);
         if (TbSingleton.getInstance().isSlideAnimEnable()) {
             this.iLx = new l(new j());
@@ -148,37 +148,37 @@ public class GodRecommendLayout extends LinearLayout {
 
     public void onChangeSkinType() {
         ao.setViewTextColor(this.mTitleView, R.color.CAM_X0101);
-        ao.setViewTextColor(this.nNJ, R.color.CAM_X0101);
+        ao.setViewTextColor(this.nNK, R.color.CAM_X0101);
         ao.setBackgroundColor(this, R.color.CAM_X0604);
-        this.nNK.notifyDataSetChanged();
+        this.nNL.notifyDataSetChanged();
     }
 
     public void setData(br brVar) {
         if (brVar != null) {
-            this.nNK.setData(brVar.bmK());
-            this.nNK.notifyDataSetChanged();
+            this.nNL.setData(brVar.bmK());
+            this.nNL.notifyDataSetChanged();
             this.iLs.scrollToPosition(0);
             this.aLY.clear();
-            this.nNL = true;
+            this.nNM = true;
         }
     }
 
     public void setPageUniqueId(BdUniqueId bdUniqueId) {
         this.iLz.setTag(bdUniqueId);
         MessageManager.getInstance().registerListener(this.iLz);
-        this.nNK.setPageUniqueId(bdUniqueId);
+        this.nNL.setPageUniqueId(bdUniqueId);
     }
 
     public void setPageContext(TbPageContext tbPageContext) {
-        this.nNK.setPageContext(tbPageContext);
+        this.nNL.setPageContext(tbPageContext);
     }
 
     public void setRefreshListener(View.OnClickListener onClickListener) {
-        this.nNJ.setOnClickListener(onClickListener);
+        this.nNK.setOnClickListener(onClickListener);
     }
 
     public void setCouldStatistic(boolean z) {
-        this.nNL = z;
+        this.nNM = z;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -243,7 +243,7 @@ public class GodRecommendLayout extends LinearLayout {
         /* renamed from: a */
         public void onViewAttachedToWindow(@NonNull GodViewHolder godViewHolder) {
             super.onViewAttachedToWindow(godViewHolder);
-            if (GodRecommendLayout.this.nNL && godViewHolder.itemView != null && (godViewHolder.itemView.getTag(R.id.tag_user_id) instanceof MetaData) && (godViewHolder.itemView.getTag(R.id.tag_holder) instanceof Boolean)) {
+            if (GodRecommendLayout.this.nNM && godViewHolder.itemView != null && (godViewHolder.itemView.getTag(R.id.tag_user_id) instanceof MetaData) && (godViewHolder.itemView.getTag(R.id.tag_holder) instanceof Boolean)) {
                 boolean booleanValue = ((Boolean) godViewHolder.itemView.getTag(R.id.tag_holder)).booleanValue();
                 MetaData metaData = (MetaData) godViewHolder.itemView.getTag(R.id.tag_user_id);
                 if (booleanValue && !GodRecommendLayout.this.aLY.contains(metaData.getUserId())) {

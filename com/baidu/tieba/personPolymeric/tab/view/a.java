@@ -112,7 +112,7 @@ public class a {
         if (x.isEmpty(list)) {
             bRO();
             if (this.Ya.getHeaderViewsCount() == 0) {
-                CH(R.string.person_center_listempty_txt);
+                CG(R.string.person_center_listempty_txt);
             }
         } else if (this.mNoDataView != null && this.mNoDataView.getParent() != null) {
             this.Ya.removeHeaderView(this.mNoDataView);
@@ -121,7 +121,7 @@ public class a {
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921435, Integer.valueOf(this.muI.getTabType())));
     }
 
-    private void CH(int i) {
+    private void CG(int i) {
         String string;
         if (this.muI.getTabType() == 1) {
             string = this.muI.getResources().getString(R.string.person_center_listempty_dynamic_txt);

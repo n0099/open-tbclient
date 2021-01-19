@@ -41,7 +41,7 @@ public class TailEditActivity extends BaseActivity<TailEditActivity> {
         public void onClick(View view) {
             if (TailEditActivity.this.ljO.getEditText().length() != 0) {
                 TailEditActivity.this.ljO.showProgressBar();
-                TailEditActivity.this.ljN.Nt(TailEditActivity.this.ljO.getEditText().getText().toString());
+                TailEditActivity.this.ljN.Nu(TailEditActivity.this.ljO.getEditText().getText().toString());
                 return;
             }
             TailEditActivity.this.showToast(TailEditActivity.this.getResources().getString(R.string.tail_submit_empty_toast));
@@ -80,7 +80,7 @@ public class TailEditActivity extends BaseActivity<TailEditActivity> {
 
         @Override // android.text.TextWatcher
         public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-            TailEditActivity.this.Nr(charSequence.toString());
+            TailEditActivity.this.Ns(charSequence.toString());
         }
     };
     private com.baidu.tbadk.editortools.b ljV = new com.baidu.tbadk.editortools.b() { // from class: com.baidu.tieba.memberCenter.tail.edit.TailEditActivity.7
@@ -161,19 +161,19 @@ public class TailEditActivity extends BaseActivity<TailEditActivity> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Nr(String str) {
-        String Ns = Ns(str);
-        this.ljN.ddT().setContent(Ns);
-        this.ljO.cW(this.ljN.Nv(Ns), 50);
+    public void Ns(String str) {
+        String Nt = Nt(str);
+        this.ljN.ddT().setContent(Nt);
+        this.ljO.cW(this.ljN.Nw(Nt), 50);
         this.ljO.tI(this.ljN.ddU());
     }
 
-    private String Ns(String str) {
-        if (this.ljN.En(this.ljN.Nv(str))) {
-            String Nw = this.ljN.Nw(str);
-            this.ljO.setContent(Nw);
+    private String Nt(String str) {
+        if (this.ljN.En(this.ljN.Nw(str))) {
+            String Nx = this.ljN.Nx(str);
+            this.ljO.setContent(Nx);
             this.ljO.ddX();
-            return Nw;
+            return Nx;
         }
         return str;
     }
@@ -187,7 +187,7 @@ public class TailEditActivity extends BaseActivity<TailEditActivity> {
         if (obj != null) {
             String obj2 = obj.toString();
             this.ljO.setColor(obj2);
-            this.ljN.Nu(obj2);
+            this.ljN.Nv(obj2);
             this.ljO.tI(this.ljN.ddU());
         }
     }
@@ -195,7 +195,7 @@ public class TailEditActivity extends BaseActivity<TailEditActivity> {
     /* JADX INFO: Access modifiers changed from: private */
     public void aP(Object obj) {
         this.ljN.ddT().setContent(this.ljO.getContent());
-        if (this.ljN.Em(this.ljN.Nv(this.ljN.ddT().getContent()))) {
+        if (this.ljN.Em(this.ljN.Nw(this.ljN.ddT().getContent()))) {
             showToast(R.string.over_limit_tip);
         } else if (obj != null && (obj instanceof u)) {
             new com.baidu.tieba.memberCenter.tail.a.b().a(this, this.ljO.getEditText(), (u) obj);

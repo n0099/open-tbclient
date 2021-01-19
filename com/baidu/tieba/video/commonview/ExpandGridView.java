@@ -9,9 +9,9 @@ import android.widget.Scroller;
 /* loaded from: classes7.dex */
 public class ExpandGridView extends GridView {
     private Scroller mScroller;
-    private boolean nBT;
-    private a nBU;
-    private boolean nBV;
+    private boolean nBU;
+    private a nBV;
+    private boolean nBW;
 
     /* loaded from: classes7.dex */
     public interface a {
@@ -20,35 +20,35 @@ public class ExpandGridView extends GridView {
 
     public ExpandGridView(Context context) {
         super(context);
-        this.nBT = false;
-        this.nBV = false;
+        this.nBU = false;
+        this.nBW = false;
         this.mScroller = new Scroller(context);
     }
 
     public ExpandGridView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.nBT = false;
-        this.nBV = false;
+        this.nBU = false;
+        this.nBW = false;
         this.mScroller = new Scroller(context);
     }
 
     public ExpandGridView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.nBT = false;
-        this.nBV = false;
+        this.nBU = false;
+        this.nBW = false;
         this.mScroller = new Scroller(context);
     }
 
     public void setScrollCallBack(a aVar) {
-        this.nBU = aVar;
+        this.nBV = aVar;
     }
 
     @Override // android.view.ViewGroup, android.view.View
     public boolean dispatchTouchEvent(MotionEvent motionEvent) {
         if (motionEvent.getAction() == 3 || motionEvent.getAction() == 1) {
-            this.nBT = false;
+            this.nBU = false;
         } else {
-            this.nBT = true;
+            this.nBU = true;
         }
         return super.dispatchTouchEvent(motionEvent);
     }
@@ -61,10 +61,10 @@ public class ExpandGridView extends GridView {
     @Override // android.view.View
     public void computeScroll() {
         if (this.mScroller.computeScrollOffset()) {
-            this.nBV = true;
+            this.nBW = true;
             int currY = this.mScroller.getCurrY();
-            if (this.nBU != null) {
-                this.nBU.aY(currY);
+            if (this.nBV != null) {
+                this.nBV.aY(currY);
             }
             if (getLayoutParams() != null) {
                 ViewGroup.LayoutParams layoutParams = getLayoutParams();
@@ -72,7 +72,7 @@ public class ExpandGridView extends GridView {
                 setLayoutParams(layoutParams);
             }
         } else {
-            this.nBV = false;
+            this.nBW = false;
         }
         super.computeScroll();
     }

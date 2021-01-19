@@ -8,17 +8,17 @@ import java.util.Iterator;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes3.dex */
 public final class h implements Application.ActivityLifecycleCallbacks {
-    private a oJS;
+    private a oJT;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(a aVar) {
-        this.oJS = aVar;
+        this.oJT = aVar;
     }
 
     @Override // android.app.Application.ActivityLifecycleCallbacks
     public final void onActivityResumed(Activity activity) {
-        synchronized (this.oJS.efK()) {
-            for (a.InterfaceC0947a interfaceC0947a : this.oJS.efK()) {
+        synchronized (this.oJT.efK()) {
+            for (a.InterfaceC0947a interfaceC0947a : this.oJT.efK()) {
                 interfaceC0947a.T();
             }
         }
@@ -26,8 +26,8 @@ public final class h implements Application.ActivityLifecycleCallbacks {
 
     @Override // android.app.Application.ActivityLifecycleCallbacks
     public final void onActivityPaused(Activity activity) {
-        synchronized (this.oJS.efK()) {
-            for (a.InterfaceC0947a interfaceC0947a : this.oJS.efK()) {
+        synchronized (this.oJT.efK()) {
+            for (a.InterfaceC0947a interfaceC0947a : this.oJT.efK()) {
                 interfaceC0947a.U();
             }
         }
@@ -35,8 +35,8 @@ public final class h implements Application.ActivityLifecycleCallbacks {
 
     @Override // android.app.Application.ActivityLifecycleCallbacks
     public final void onActivityCreated(Activity activity, Bundle bundle) {
-        synchronized (this.oJS.efK()) {
-            for (a.InterfaceC0947a interfaceC0947a : this.oJS.efK()) {
+        synchronized (this.oJT.efK()) {
+            for (a.InterfaceC0947a interfaceC0947a : this.oJT.efK()) {
                 interfaceC0947a.a(activity);
             }
         }
@@ -44,8 +44,8 @@ public final class h implements Application.ActivityLifecycleCallbacks {
 
     @Override // android.app.Application.ActivityLifecycleCallbacks
     public final void onActivityStarted(Activity activity) {
-        synchronized (this.oJS.efK()) {
-            Iterator<a.InterfaceC0947a> it = this.oJS.efK().iterator();
+        synchronized (this.oJT.efK()) {
+            Iterator<a.InterfaceC0947a> it = this.oJT.efK().iterator();
             while (it.hasNext()) {
                 it.next();
             }
@@ -54,8 +54,8 @@ public final class h implements Application.ActivityLifecycleCallbacks {
 
     @Override // android.app.Application.ActivityLifecycleCallbacks
     public final void onActivityStopped(Activity activity) {
-        synchronized (this.oJS.efK()) {
-            Iterator<a.InterfaceC0947a> it = this.oJS.efK().iterator();
+        synchronized (this.oJT.efK()) {
+            Iterator<a.InterfaceC0947a> it = this.oJT.efK().iterator();
             while (it.hasNext()) {
                 it.next();
             }
@@ -64,8 +64,8 @@ public final class h implements Application.ActivityLifecycleCallbacks {
 
     @Override // android.app.Application.ActivityLifecycleCallbacks
     public final void onActivitySaveInstanceState(Activity activity, Bundle bundle) {
-        synchronized (this.oJS.efK()) {
-            Iterator<a.InterfaceC0947a> it = this.oJS.efK().iterator();
+        synchronized (this.oJT.efK()) {
+            Iterator<a.InterfaceC0947a> it = this.oJT.efK().iterator();
             while (it.hasNext()) {
                 it.next();
             }
@@ -74,8 +74,8 @@ public final class h implements Application.ActivityLifecycleCallbacks {
 
     @Override // android.app.Application.ActivityLifecycleCallbacks
     public final void onActivityDestroyed(Activity activity) {
-        synchronized (this.oJS.efK()) {
-            for (a.InterfaceC0947a interfaceC0947a : this.oJS.efK()) {
+        synchronized (this.oJT.efK()) {
+            for (a.InterfaceC0947a interfaceC0947a : this.oJT.efK()) {
                 interfaceC0947a.onActivityDestroyed(activity);
             }
         }

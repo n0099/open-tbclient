@@ -17,19 +17,19 @@ import java.util.NoSuchElementException;
 /* loaded from: classes4.dex */
 public final class f {
     private int f;
-    private final com.bytedance.sdk.a.b.a pep;
-    private final d peq;
-    private final h per;
-    private final t pes;
+    private final com.bytedance.sdk.a.b.a peq;
+    private final d per;
+    private final h pes;
+    private final t pet;
     private List<Proxy> e = Collections.emptyList();
     private List<InetSocketAddress> g = Collections.emptyList();
     private final List<com.bytedance.sdk.a.b.d> h = new ArrayList();
 
     public f(com.bytedance.sdk.a.b.a aVar, d dVar, h hVar, t tVar) {
-        this.pep = aVar;
-        this.peq = dVar;
-        this.per = hVar;
-        this.pes = tVar;
+        this.peq = aVar;
+        this.per = dVar;
+        this.pes = hVar;
+        this.pet = tVar;
         a(aVar.emp(), aVar.emu());
     }
 
@@ -46,8 +46,8 @@ public final class f {
             Proxy emG = emG();
             int size = this.g.size();
             for (int i = 0; i < size; i++) {
-                com.bytedance.sdk.a.b.d dVar = new com.bytedance.sdk.a.b.d(this.pep, emG, this.g.get(i));
-                if (this.peq.c(dVar)) {
+                com.bytedance.sdk.a.b.d dVar = new com.bytedance.sdk.a.b.d(this.peq, emG, this.g.get(i));
+                if (this.per.c(dVar)) {
                     this.h.add(dVar);
                 } else {
                     arrayList.add(dVar);
@@ -65,10 +65,10 @@ public final class f {
     }
 
     public void a(com.bytedance.sdk.a.b.d dVar, IOException iOException) {
-        if (dVar.ent().type() != Proxy.Type.DIRECT && this.pep.emt() != null) {
-            this.pep.emt().connectFailed(this.pep.emp().enD(), dVar.ent().address(), iOException);
+        if (dVar.ent().type() != Proxy.Type.DIRECT && this.peq.emt() != null) {
+            this.peq.emt().connectFailed(this.peq.emp().enD(), dVar.ent().address(), iOException);
         }
-        this.peq.a(dVar);
+        this.per.a(dVar);
     }
 
     private void a(s sVar, Proxy proxy) {
@@ -76,7 +76,7 @@ public final class f {
         if (proxy != null) {
             this.e = Collections.singletonList(proxy);
         } else {
-            List<Proxy> select = this.pep.emt().select(sVar.enD());
+            List<Proxy> select = this.peq.emt().select(sVar.enD());
             if (select != null && !select.isEmpty()) {
                 P = com.bytedance.sdk.a.b.a.c.a(select);
             } else {
@@ -93,7 +93,7 @@ public final class f {
 
     private Proxy emG() throws IOException {
         if (!c()) {
-            throw new SocketException("No route to " + this.pep.emp().f() + "; exhausted proxy configurations: " + this.e);
+            throw new SocketException("No route to " + this.peq.emp().f() + "; exhausted proxy configurations: " + this.e);
         }
         List<Proxy> list = this.e;
         int i = this.f;
@@ -108,8 +108,8 @@ public final class f {
         int g;
         this.g = new ArrayList();
         if (proxy.type() == Proxy.Type.DIRECT || proxy.type() == Proxy.Type.SOCKS) {
-            f = this.pep.emp().f();
-            g = this.pep.emp().g();
+            f = this.peq.emp().f();
+            g = this.peq.emp().g();
         } else {
             SocketAddress address = proxy.address();
             if (!(address instanceof InetSocketAddress)) {
@@ -126,12 +126,12 @@ public final class f {
             this.g.add(InetSocketAddress.createUnresolved(f, g));
             return;
         }
-        this.pes.a(this.per, f);
-        List<InetAddress> a2 = this.pep.emq().a(f);
+        this.pet.a(this.pes, f);
+        List<InetAddress> a2 = this.peq.emq().a(f);
         if (a2.isEmpty()) {
-            throw new UnknownHostException(this.pep.emq() + " returned no addresses for " + f);
+            throw new UnknownHostException(this.peq.emq() + " returned no addresses for " + f);
         }
-        this.pes.a(this.per, f, a2);
+        this.pet.a(this.pes, f, a2);
         int size = a2.size();
         for (int i = 0; i < size; i++) {
             this.g.add(new InetSocketAddress(a2.get(i), g));

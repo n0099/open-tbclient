@@ -19,21 +19,21 @@ public class BackgroundPreviewModel extends BdBaseModel<BackgroundPreviewModel> 
                             BackgroundPreviewModel.this.mBgItem = ((BackgroundGetSocketResponseMessage) responsedMessage).getBgItem();
                         }
                     }
-                    if (BackgroundPreviewModel.this.nxB != null) {
+                    if (BackgroundPreviewModel.this.nxC != null) {
                         if (BackgroundPreviewModel.this.mBgItem != null) {
-                            BackgroundPreviewModel.this.mBgItem.setPropsId(BackgroundPreviewModel.this.nwW);
-                            BackgroundPreviewModel.this.mBgItem.setInUse(BackgroundPreviewModel.this.nxq == 1);
+                            BackgroundPreviewModel.this.mBgItem.setPropsId(BackgroundPreviewModel.this.nwX);
+                            BackgroundPreviewModel.this.mBgItem.setInUse(BackgroundPreviewModel.this.nxr == 1);
                         }
-                        BackgroundPreviewModel.this.nxB.a(responsedMessage.getError(), responsedMessage.getErrorString(), BackgroundPreviewModel.this.mBgItem);
+                        BackgroundPreviewModel.this.nxC.a(responsedMessage.getError(), responsedMessage.getErrorString(), BackgroundPreviewModel.this.mBgItem);
                     }
                 }
             }
         }
     };
     private DressItemData mBgItem;
-    private int nwW;
-    private a nxB;
-    private int nxq;
+    private int nwX;
+    private a nxC;
+    private int nxr;
 
     /* loaded from: classes8.dex */
     public interface a {
@@ -41,8 +41,8 @@ public class BackgroundPreviewModel extends BdBaseModel<BackgroundPreviewModel> 
     }
 
     public BackgroundPreviewModel(int i, int i2) {
-        this.nwW = i;
-        this.nxq = i2;
+        this.nwX = i;
+        this.nxr = i2;
         registerTask();
         registerListener(this.iWa);
     }
@@ -55,7 +55,7 @@ public class BackgroundPreviewModel extends BdBaseModel<BackgroundPreviewModel> 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean LoadData() {
         BackgroundGetRequestMessage backgroundGetRequestMessage = new BackgroundGetRequestMessage();
-        backgroundGetRequestMessage.setPropId(this.nwW);
+        backgroundGetRequestMessage.setPropId(this.nwX);
         sendMessage(backgroundGetRequestMessage);
         return false;
     }
@@ -66,7 +66,7 @@ public class BackgroundPreviewModel extends BdBaseModel<BackgroundPreviewModel> 
     }
 
     public void a(a aVar) {
-        this.nxB = aVar;
+        this.nxC = aVar;
     }
 
     public void destroy() {

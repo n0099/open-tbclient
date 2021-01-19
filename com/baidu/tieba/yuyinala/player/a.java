@@ -37,8 +37,8 @@ public class a implements com.baidu.live.e.b {
     private int mLastScreenHeight;
     private int mLastScreenWidth;
     private TbPageContext mPageContext;
-    private com.baidu.live.e.a oCH;
-    private b oCI;
+    private com.baidu.live.e.a oCI;
+    private b oCJ;
     private Handler mHandler = new Handler();
     private boolean mIsKeyboardOpen = false;
     private boolean bJk = true;
@@ -48,8 +48,8 @@ public class a implements com.baidu.live.e.b {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (customResponsedMessage != null && (customResponsedMessage instanceof AlaCloseLiveRoomResponsedMessage) && a.this.oCI != null) {
-                a.this.oCI.U(false, true);
+            if (customResponsedMessage != null && (customResponsedMessage instanceof AlaCloseLiveRoomResponsedMessage) && a.this.oCJ != null) {
+                a.this.oCJ.U(false, true);
             }
         }
     };
@@ -57,9 +57,9 @@ public class a implements com.baidu.live.e.b {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (a.this.oCI != null) {
-                a.this.oCI.oV(false);
-                a.this.oCI.bXW();
+            if (a.this.oCJ != null) {
+                a.this.oCJ.oV(false);
+                a.this.oCJ.bXW();
             }
         }
     };
@@ -74,8 +74,8 @@ public class a implements com.baidu.live.e.b {
                 if (netWorkChangedMessage.mLastNetState != netType || !BdNetTypeUtil.isWifiNet() || netWorkChangedMessage.mlastChangedTime != 0) {
                     if (!BdNetTypeUtil.isNetWorkAvailable()) {
                         a.this.cfU();
-                        if (a.this.oCI != null) {
-                            a.this.oCI.oS(false);
+                        if (a.this.oCJ != null) {
+                            a.this.oCJ.oS(false);
                             return;
                         }
                         return;
@@ -85,9 +85,9 @@ public class a implements com.baidu.live.e.b {
                     } else if (BdNetTypeUtil.isWifiNet()) {
                         a.this.cfV();
                     }
-                    if (a.this.oCI != null) {
-                        a.this.oCI.onStart();
-                        a.this.oCI.cne();
+                    if (a.this.oCJ != null) {
+                        a.this.oCJ.onStart();
+                        a.this.oCJ.cne();
                     }
                 }
             }
@@ -109,11 +109,11 @@ public class a implements com.baidu.live.e.b {
             if ((customResponsedMessage instanceof BackgroundSwitchMessage) && !((BackgroundSwitchMessage) customResponsedMessage).getData().booleanValue()) {
                 if (!BdNetTypeUtil.isNetWorkAvailable()) {
                     a.this.cfU();
-                    if (a.this.oCI != null) {
-                        a.this.oCI.oS(false);
+                    if (a.this.oCJ != null) {
+                        a.this.oCJ.oS(false);
                     }
-                } else if (a.this.oCI != null) {
-                    if (a.this.oCI.cmN()) {
+                } else if (a.this.oCJ != null) {
+                    if (a.this.oCJ.cmN()) {
                         if (!TbadkCoreApplication.isShownNetChangeDialog.booleanValue() && BdNetTypeUtil.isMobileNet() && m.TI()) {
                             TbadkCoreApplication.isShownNetChangeDialog = true;
                             a.this.cfT();
@@ -134,7 +134,7 @@ public class a implements com.baidu.live.e.b {
     @Override // com.baidu.live.e.b
     public void a(TbPageContext tbPageContext, com.baidu.live.e.a aVar) {
         this.mPageContext = tbPageContext;
-        this.oCH = aVar;
+        this.oCI = aVar;
         init();
     }
 
@@ -169,8 +169,8 @@ public class a implements com.baidu.live.e.b {
         }
         Intent intent = getPageContext().getPageActivity().getIntent();
         if (intent != null && intent.getExtras() != null) {
-            this.oCI = new b(getPageContext(), this);
-            this.oCI.au(intent);
+            this.oCJ = new b(getPageContext(), this);
+            this.oCJ.au(intent);
             return;
         }
         getPageContext().showToast(getPageContext().getPageActivity().getResources().getString(a.h.ala_entry_live_failed));
@@ -194,8 +194,8 @@ public class a implements com.baidu.live.e.b {
 
     @Override // com.baidu.live.e.b
     public void onConfigurationChanged(Configuration configuration) {
-        if (this.oCI != null) {
-            this.oCI.co(getPageContext().getPageActivity().getResources().getConfiguration().orientation);
+        if (this.oCJ != null) {
+            this.oCJ.co(getPageContext().getPageActivity().getResources().getConfiguration().orientation);
         }
     }
 
@@ -210,13 +210,13 @@ public class a implements com.baidu.live.e.b {
                 boolean z = a.this.availableHeight != rect.bottom;
                 a.this.availableHeight = rect.bottom;
                 if (a.this.mLastScreenHeight != screenFullSize[1]) {
-                    if (a.this.oCI != null) {
-                        a.this.oCI.cmV();
+                    if (a.this.oCJ != null) {
+                        a.this.oCJ.cmV();
                     }
                     a.this.mLastScreenHeight = screenFullSize[1];
                 } else if (a.this.mLastScreenWidth != screenFullSize[0]) {
-                    if (a.this.oCI != null) {
-                        a.this.oCI.cmV();
+                    if (a.this.oCJ != null) {
+                        a.this.oCJ.cmV();
                     }
                     a.this.mLastScreenWidth = screenFullSize[0];
                 }
@@ -236,11 +236,11 @@ public class a implements com.baidu.live.e.b {
     @Override // com.baidu.live.e.b
     public void onWindowFocusChanged(boolean z) {
         int realScreenOrientation = UtilHelper.getRealScreenOrientation(getPageContext().getPageActivity());
-        if (this.oCI != null) {
+        if (this.oCJ != null) {
             if (realScreenOrientation == 2) {
-                this.oCI.cmW();
+                this.oCJ.cmW();
             } else {
-                this.oCI.cmX();
+                this.oCJ.cmX();
             }
         }
     }
@@ -253,8 +253,8 @@ public class a implements com.baidu.live.e.b {
     public void onResume() {
         TbadkCoreApplication.getInst().AddResumeNum();
         this.bJk = true;
-        if (this.oCI != null) {
-            this.oCI.onResume();
+        if (this.oCJ != null) {
+            this.oCJ.onResume();
         }
         UtilHelper.changeStatusBarIconAndTextColor(true, getPageContext().getPageActivity());
     }
@@ -281,9 +281,9 @@ public class a implements com.baidu.live.e.b {
 
     @Override // com.baidu.live.e.b
     public void onStart() {
-        if (this.oCI != null) {
-            this.oCI.oX(false);
-            this.oCI.onStart();
+        if (this.oCJ != null) {
+            this.oCJ.oX(false);
+            this.oCJ.onStart();
         }
     }
 
@@ -292,36 +292,36 @@ public class a implements com.baidu.live.e.b {
         TbadkCoreApplication.getInst().DelResumeNum();
         if (this.hZh) {
             this.bJk = false;
-            if (this.oCI != null) {
-                this.oCI.onPause();
+            if (this.oCJ != null) {
+                this.oCJ.onPause();
             }
         }
     }
 
     @Override // com.baidu.live.e.b
     public void onStop() {
-        if (this.oCI != null) {
-            this.oCI.oX(true);
-            this.oCI.oS(true);
+        if (this.oCJ != null) {
+            this.oCJ.oX(true);
+            this.oCJ.oS(true);
         }
         AlaStatManager.getInstance().forceUpload();
     }
 
     @Override // com.baidu.live.e.b
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
-        return i == 4 && this.oCI != null && this.oCI.onKeyDown(i, keyEvent);
+        return i == 4 && this.oCJ != null && this.oCJ.onKeyDown(i, keyEvent);
     }
 
     public void onKeyboardVisibilityChanged(boolean z) {
-        if (this.oCI != null) {
-            this.oCI.onKeyboardVisibilityChanged(z);
+        if (this.oCJ != null) {
+            this.oCJ.onKeyboardVisibilityChanged(z);
         }
     }
 
     @Override // com.baidu.live.e.b
     public void onActivityResult(int i, int i2, Intent intent) {
-        if (this.oCI != null) {
-            this.oCI.onActivityResult(i, i2, intent);
+        if (this.oCJ != null) {
+            this.oCJ.onActivityResult(i, i2, intent);
         }
     }
 
@@ -331,10 +331,10 @@ public class a implements com.baidu.live.e.b {
             this.mHandler.postDelayed(new Runnable() { // from class: com.baidu.tieba.yuyinala.player.a.8
                 @Override // java.lang.Runnable
                 public void run() {
-                    if (a.this.oCI != null) {
-                        a.this.oCI.nJ(true);
-                        a.this.oCI.cmM();
-                        a.this.oCI.zX(false);
+                    if (a.this.oCJ != null) {
+                        a.this.oCJ.nJ(true);
+                        a.this.oCJ.cmM();
+                        a.this.oCJ.zX(false);
                     }
                 }
             }, 1L);
@@ -348,11 +348,11 @@ public class a implements com.baidu.live.e.b {
         com.baidu.live.ah.a.b.Pv().release();
         aj.Ee();
         com.baidu.live.entereffect.a.BG().release();
-        if (this.oCI != null) {
-            this.oCI.cnd();
+        if (this.oCJ != null) {
+            this.oCJ.cnd();
         }
-        if (this.oCH != null) {
-            this.oCH.a(z, !z2, j);
+        if (this.oCI != null) {
+            this.oCI.a(z, !z2, j);
         } else {
             getPageContext().getPageActivity().finish();
         }
@@ -370,9 +370,9 @@ public class a implements com.baidu.live.e.b {
             getPageContext().getPageActivity().getWindow().clearFlags(128);
             getPageContext().getPageActivity().getWindow().getDecorView().getViewTreeObserver().removeGlobalOnLayoutListener(this.globalListener);
             this.globalListener = null;
-            if (this.oCI != null) {
-                this.oCI.destroy();
-                this.oCI = null;
+            if (this.oCJ != null) {
+                this.oCJ.destroy();
+                this.oCJ = null;
             }
             this.mHandler.removeCallbacksAndMessages(null);
             this.mHandler = null;

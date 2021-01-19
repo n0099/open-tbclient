@@ -27,7 +27,7 @@ public abstract class c implements Closeable {
 
     private Charset enr() {
         y emT = emT();
-        return emT != null ? emT.a(com.bytedance.sdk.a.b.a.c.peH) : com.bytedance.sdk.a.b.a.c.peH;
+        return emT != null ? emT.a(com.bytedance.sdk.a.b.a.c.peI) : com.bytedance.sdk.a.b.a.c.peI;
     }
 
     @Override // java.io.Closeable, java.lang.AutoCloseable

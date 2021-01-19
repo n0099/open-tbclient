@@ -328,7 +328,7 @@ public class f {
         return null;
     }
 
-    public void Os(String str) {
+    public void Ot(String str) {
         if (this.gvQ != null) {
             this.gvQ.zS(str);
         }
@@ -363,7 +363,7 @@ public class f {
     public void a(DataRes dataRes, Context context) {
         if (dataRes != null) {
             try {
-                com.baidu.tieba.recapp.c.a.dBW().QJ(dataRes.asp_shown_info);
+                com.baidu.tieba.recapp.c.a.dBW().QK(dataRes.asp_shown_info);
                 List<User> list = dataRes.user_list;
                 if (list != null) {
                     for (int i = 0; i < list.size(); i++) {
@@ -671,7 +671,7 @@ public class f {
         List<String> zB;
         App app = dataRes.banner_list.pb_banner_ad;
         com.baidu.tieba.tbadkCore.data.o oVar = new com.baidu.tieba.tbadkCore.data.o();
-        oVar.nmK = true;
+        oVar.nmL = true;
         oVar.e(app);
         AppData dLa = oVar.dLa();
         if (dLa.goods != null) {
@@ -763,7 +763,7 @@ public class f {
         return this.lBg;
     }
 
-    public void Ot(String str) {
+    public void Ou(String str) {
         this.lBg = str;
     }
 

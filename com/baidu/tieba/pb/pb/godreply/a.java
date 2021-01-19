@@ -215,7 +215,7 @@ public class a implements com.baidu.tbadk.m.a {
 
     private void a(BdTypeListView bdTypeListView) {
         if (this.lDF == null) {
-            this.lDF = new k(this.lDB, PostData.nmN);
+            this.lDF = new k(this.lDB, PostData.nmO);
             this.lDF.setDuiEnabled(false);
             ArrayList arrayList = new ArrayList(1);
             arrayList.add(this.lDF);

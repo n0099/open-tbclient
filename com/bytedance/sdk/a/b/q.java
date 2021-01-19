@@ -19,9 +19,9 @@ public final class q {
 
     /* renamed from: b  reason: collision with root package name */
     private int f5970b = 5;
-    private final Deque<aa.a> pjg = new ArrayDeque();
     private final Deque<aa.a> pjh = new ArrayDeque();
-    private final Deque<aa> pji = new ArrayDeque();
+    private final Deque<aa.a> pji = new ArrayDeque();
+    private final Deque<aa> pjj = new ArrayDeque();
 
     public synchronized ExecutorService a() {
         if (this.d == null) {
@@ -31,16 +31,16 @@ public final class q {
     }
 
     private void c() {
-        if (this.pjh.size() < this.f5969a && !this.pjg.isEmpty()) {
-            Iterator<aa.a> it = this.pjg.iterator();
+        if (this.pji.size() < this.f5969a && !this.pjh.isEmpty()) {
+            Iterator<aa.a> it = this.pjh.iterator();
             while (it.hasNext()) {
                 aa.a next = it.next();
                 if (a(next) < this.f5970b) {
                     it.remove();
-                    this.pjh.add(next);
+                    this.pji.add(next);
                     a().execute(next);
                 }
-                if (this.pjh.size() >= this.f5969a) {
+                if (this.pji.size() >= this.f5969a) {
                     return;
                 }
             }
@@ -49,7 +49,7 @@ public final class q {
 
     private int a(aa.a aVar) {
         int i = 0;
-        Iterator<aa.a> it = this.pjh.iterator();
+        Iterator<aa.a> it = this.pji.iterator();
         while (true) {
             int i2 = i;
             if (it.hasNext()) {
@@ -62,17 +62,17 @@ public final class q {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public synchronized void a(aa aaVar) {
-        this.pji.add(aaVar);
+        this.pjj.add(aaVar);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void b(aa.a aVar) {
-        a(this.pjh, aVar, true);
+        a(this.pji, aVar, true);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void b(aa aaVar) {
-        a(this.pji, aaVar, false);
+        a(this.pjj, aaVar, false);
     }
 
     private <T> void a(Deque<T> deque, T t, boolean z) {
@@ -94,6 +94,6 @@ public final class q {
     }
 
     public synchronized int b() {
-        return this.pjh.size() + this.pji.size();
+        return this.pji.size() + this.pjj.size();
     }
 }

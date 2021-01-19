@@ -61,22 +61,22 @@ public class e implements k {
         AlertDialog.Builder onCancelListener = new AlertDialog.Builder(activity, Build.VERSION.SDK_INT >= 21 ? ac.g(activity, "Theme.Dialog.TTDownload") : ac.g(activity, "Theme.Dialog.TTDownloadOld")).setTitle(cVar.f12898b).setMessage(cVar.c).setPositiveButton(cVar.d, new DialogInterface.OnClickListener() { // from class: com.bytedance.sdk.openadsdk.downloadnew.a.a.e.3
             @Override // android.content.DialogInterface.OnClickListener
             public void onClick(DialogInterface dialogInterface, int i) {
-                if (cVar.pQt != null) {
-                    cVar.pQt.a(dialogInterface);
+                if (cVar.pQu != null) {
+                    cVar.pQu.a(dialogInterface);
                 }
             }
         }).setNegativeButton(cVar.e, new DialogInterface.OnClickListener() { // from class: com.bytedance.sdk.openadsdk.downloadnew.a.a.e.2
             @Override // android.content.DialogInterface.OnClickListener
             public void onClick(DialogInterface dialogInterface, int i) {
-                if (cVar.pQt != null) {
-                    cVar.pQt.b(dialogInterface);
+                if (cVar.pQu != null) {
+                    cVar.pQu.b(dialogInterface);
                 }
             }
         }).setOnCancelListener(new DialogInterface.OnCancelListener() { // from class: com.bytedance.sdk.openadsdk.downloadnew.a.a.e.1
             @Override // android.content.DialogInterface.OnCancelListener
             public void onCancel(DialogInterface dialogInterface) {
-                if (cVar.pQt != null) {
-                    cVar.pQt.c(dialogInterface);
+                if (cVar.pQu != null) {
+                    cVar.pQu.c(dialogInterface);
                 }
             }
         });
@@ -92,22 +92,22 @@ public class e implements k {
         return new com.bytedance.sdk.openadsdk.core.widget.e(activity).a(cVar.f12898b).b(cVar.c).c(cVar.d).d(cVar.e).a(cVar.g).a(new e.a() { // from class: com.bytedance.sdk.openadsdk.downloadnew.a.a.e.5
             @Override // com.bytedance.sdk.openadsdk.core.widget.e.a
             public void a(Dialog dialog) {
-                if (cVar.pQt != null) {
-                    cVar.pQt.a(dialog);
+                if (cVar.pQu != null) {
+                    cVar.pQu.a(dialog);
                 }
             }
 
             @Override // com.bytedance.sdk.openadsdk.core.widget.e.a
             public void b(Dialog dialog) {
-                if (cVar.pQt != null) {
-                    cVar.pQt.b(dialog);
+                if (cVar.pQu != null) {
+                    cVar.pQu.b(dialog);
                 }
             }
         }).a(new DialogInterface.OnCancelListener() { // from class: com.bytedance.sdk.openadsdk.downloadnew.a.a.e.4
             @Override // android.content.DialogInterface.OnCancelListener
             public void onCancel(DialogInterface dialogInterface) {
-                if (cVar.pQt != null) {
-                    cVar.pQt.c(dialogInterface);
+                if (cVar.pQu != null) {
+                    cVar.pQu.c(dialogInterface);
                 }
             }
         });
@@ -117,22 +117,22 @@ public class e implements k {
         g.a aVar = new g.a() { // from class: com.bytedance.sdk.openadsdk.downloadnew.a.a.e.6
             @Override // com.bytedance.sdk.openadsdk.utils.g.a
             public void a() {
-                if (cVar.pQt != null) {
-                    cVar.pQt.a(new a());
+                if (cVar.pQu != null) {
+                    cVar.pQu.a(new a());
                 }
             }
 
             @Override // com.bytedance.sdk.openadsdk.utils.g.a
             public void b() {
-                if (cVar.pQt != null) {
-                    cVar.pQt.b(new a());
+                if (cVar.pQu != null) {
+                    cVar.pQu.b(new a());
                 }
             }
 
             @Override // com.bytedance.sdk.openadsdk.utils.g.a
             public void c() {
-                if (cVar.pQt != null) {
-                    cVar.pQt.c(new a());
+                if (cVar.pQu != null) {
+                    cVar.pQu.c(new a());
                 }
             }
         };

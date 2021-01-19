@@ -4,7 +4,7 @@ public final class g<T> {
     final float loadFactor;
     int mask;
     int maxSize;
-    T[] qhz;
+    T[] qhA;
     int size;
 
     public g() {
@@ -16,12 +16,12 @@ public final class g<T> {
         int RT = h.RT(i);
         this.mask = RT - 1;
         this.maxSize = (int) (RT * f);
-        this.qhz = (T[]) new Object[RT];
+        this.qhA = (T[]) new Object[RT];
     }
 
     public boolean add(T t) {
         T t2;
-        T[] tArr = this.qhz;
+        T[] tArr = this.qhA;
         int i = this.mask;
         int RS = RS(t.hashCode()) & i;
         T t3 = tArr[RS];
@@ -48,7 +48,7 @@ public final class g<T> {
 
     public boolean remove(T t) {
         T t2;
-        T[] tArr = this.qhz;
+        T[] tArr = this.qhA;
         int i = this.mask;
         int RS = RS(t.hashCode()) & i;
         T t3 = tArr[RS];
@@ -97,7 +97,7 @@ public final class g<T> {
     }
 
     void rehash() {
-        T[] tArr = this.qhz;
+        T[] tArr = this.qhA;
         int length = tArr.length;
         int i = length << 1;
         int i2 = i - 1;
@@ -120,7 +120,7 @@ public final class g<T> {
             } else {
                 this.mask = i2;
                 this.maxSize = (int) (i * this.loadFactor);
-                this.qhz = tArr2;
+                this.qhA = tArr2;
                 return;
             }
         }
@@ -132,7 +132,7 @@ public final class g<T> {
     }
 
     public Object[] eIp() {
-        return this.qhz;
+        return this.qhA;
     }
 
     public int size() {

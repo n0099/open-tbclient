@@ -11,7 +11,7 @@ public final class q extends f {
     public q(c cVar, int i) {
         super(null);
         u.a(cVar.f5840b, 0L, i);
-        o oVar = cVar.pdo;
+        o oVar = cVar.pdp;
         int i2 = 0;
         int i3 = 0;
         while (i3 < i) {
@@ -20,11 +20,11 @@ public final class q extends f {
             }
             i3 += oVar.c - oVar.f5849b;
             i2++;
-            oVar = oVar.pdA;
+            oVar = oVar.pdB;
         }
         this.f = new byte[i2];
         this.g = new int[i2 * 2];
-        o oVar2 = cVar.pdo;
+        o oVar2 = cVar.pdp;
         int i4 = 0;
         int i5 = 0;
         while (i5 < i) {
@@ -37,7 +37,7 @@ public final class q extends f {
             this.g[this.f.length + i4] = oVar2.f5849b;
             oVar2.d = true;
             i4++;
-            oVar2 = oVar2.pdA;
+            oVar2 = oVar2.pdB;
             i5 = i6;
         }
     }
@@ -120,12 +120,12 @@ public final class q extends f {
             int i3 = this.g[length + i];
             int i4 = this.g[i];
             o oVar = new o(this.f[i], i3, (i3 + i4) - i2, true, false);
-            if (cVar.pdo == null) {
+            if (cVar.pdp == null) {
+                oVar.pdC = oVar;
                 oVar.pdB = oVar;
-                oVar.pdA = oVar;
-                cVar.pdo = oVar;
+                cVar.pdp = oVar;
             } else {
-                cVar.pdo.pdB.a(oVar);
+                cVar.pdp.pdC.a(oVar);
             }
             i++;
             i2 = i4;

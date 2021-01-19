@@ -243,11 +243,11 @@ public class PersonPolymericFragment extends BaseFragment implements VoiceManage
         }
         if (this.mpW.dwd() != null) {
             if (!StringUtils.isNull(this.mkb)) {
-                this.mpW.dwd().PE(this.mkb);
+                this.mpW.dwd().PF(this.mkb);
                 this.mkb = null;
             }
             if (!StringUtils.isNull(this.mkc)) {
-                this.mpW.dwd().PF(this.mkc);
+                this.mpW.dwd().PG(this.mkc);
                 this.mkc = null;
             }
             if (this.jFw) {

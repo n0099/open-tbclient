@@ -6,11 +6,11 @@ import android.util.Printer;
 import com.baidu.android.imsdk.internal.IMConnection;
 /* loaded from: classes6.dex */
 public class g implements Printer {
-    private long pGA;
-    private long pGB = 0;
+    private long pGB;
     private long pGC = 0;
-    private a pGD;
-    private final boolean pGE;
+    private long pGD = 0;
+    private a pGE;
+    private final boolean pGF;
 
     /* loaded from: classes6.dex */
     public interface a {
@@ -18,22 +18,22 @@ public class g implements Printer {
     }
 
     public g(a aVar, long j, boolean z) {
-        this.pGA = IMConnection.RETRY_DELAY_TIMES;
-        this.pGD = null;
+        this.pGB = IMConnection.RETRY_DELAY_TIMES;
+        this.pGE = null;
         if (aVar == null) {
             throw new IllegalArgumentException("blockListener should not be null.");
         }
-        this.pGD = aVar;
-        this.pGA = j;
-        this.pGE = z;
+        this.pGE = aVar;
+        this.pGB = j;
+        this.pGF = z;
     }
 
     @Override // android.util.Printer
     public void println(String str) {
-        if (!this.pGE || !Debug.isDebuggerConnected()) {
+        if (!this.pGF || !Debug.isDebuggerConnected()) {
             if (str.charAt(0) == '>') {
-                this.pGB = System.currentTimeMillis();
-                this.pGC = SystemClock.currentThreadTimeMillis();
+                this.pGC = System.currentTimeMillis();
+                this.pGD = SystemClock.currentThreadTimeMillis();
                 eyn();
                 return;
             }
@@ -46,36 +46,36 @@ public class g implements Printer {
     }
 
     private boolean iO(long j) {
-        return j - this.pGB > this.pGA;
+        return j - this.pGC > this.pGB;
     }
 
     private void iP(final long j) {
-        final long j2 = this.pGB;
-        final long j3 = this.pGC;
+        final long j2 = this.pGC;
+        final long j3 = this.pGD;
         final long currentThreadTimeMillis = SystemClock.currentThreadTimeMillis();
         e.eyl().post(new Runnable() { // from class: com.github.a.a.g.1
             @Override // java.lang.Runnable
             public void run() {
-                g.this.pGD.d(j2, j, j3, currentThreadTimeMillis);
+                g.this.pGE.d(j2, j, j3, currentThreadTimeMillis);
             }
         });
     }
 
     private void eyn() {
-        if (c.eyg().pGp != null) {
-            c.eyg().pGp.start();
-        }
         if (c.eyg().pGq != null) {
             c.eyg().pGq.start();
+        }
+        if (c.eyg().pGr != null) {
+            c.eyg().pGr.start();
         }
     }
 
     private void eyo() {
-        if (c.eyg().pGp != null) {
-            c.eyg().pGp.stop();
-        }
         if (c.eyg().pGq != null) {
             c.eyg().pGq.stop();
+        }
+        if (c.eyg().pGr != null) {
+            c.eyg().pGr.stop();
         }
     }
 }

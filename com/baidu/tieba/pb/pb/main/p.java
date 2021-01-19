@@ -226,7 +226,7 @@ public class p extends l<PostData, PbFirstFloorViewHolder> {
                 pbFirstFloorViewHolder.lGf.setOnClickListener(null);
             }
             if (postData.dLm() == 1) {
-                pbFirstFloorViewHolder.a(this.lFd, this.lEi.djV(), postData.nnx);
+                pbFirstFloorViewHolder.a(this.lFd, this.lEi.djV(), postData.nny);
                 a(pbFirstFloorViewHolder.lHw, view, this.lHo);
                 String str = null;
                 String str2 = null;
@@ -280,7 +280,7 @@ public class p extends l<PostData, PbFirstFloorViewHolder> {
                         this.lFX.setThreadData(this.lFd.diN());
                     }
                 }
-                this.lFX.Pf(postData.getId());
+                this.lFX.Pg(postData.getId());
             }
             pbFirstFloorViewHolder.lHw.setLinkTextColor(com.baidu.tbadk.core.util.ao.getColor(R.color.CAM_X0304));
             if (this.lFe) {

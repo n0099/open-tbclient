@@ -7,8 +7,8 @@ public class e {
     private String OW;
     private String mAction;
     private JSONObject mParams;
-    private String npr;
     private String nps;
+    private String npt;
 
     public String getAction() {
         return this.mAction;
@@ -35,15 +35,15 @@ public class e {
     }
 
     public String dLX() {
-        return this.npr;
-    }
-
-    public void Sm(String str) {
-        this.npr = str;
+        return this.nps;
     }
 
     public void Sn(String str) {
         this.nps = str;
+    }
+
+    public void So(String str) {
+        this.npt = str;
     }
 
     public String dLY() {

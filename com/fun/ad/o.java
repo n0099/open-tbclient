@@ -11,7 +11,7 @@ import com.win.opensdk.PBInterstitial;
 import com.win.opensdk.PBInterstitialListener;
 /* loaded from: classes14.dex */
 public class o extends i {
-    public PBInterstitial pEC;
+    public PBInterstitial pED;
 
     /* loaded from: classes14.dex */
     public class a implements PBInterstitialListener {
@@ -22,7 +22,7 @@ public class o extends i {
         public void onClicked() {
             m.a("JYInterstitialAd onClicked");
             o oVar = o.this;
-            c cVar = oVar.pEz;
+            c cVar = oVar.pEA;
             if (cVar != null) {
                 ((u) cVar).a(oVar.f7781a.f7760a);
             }
@@ -33,7 +33,7 @@ public class o extends i {
             m.a("JYInterstitialAd onFail code: " + pBError.getCode() + ", message: " + pBError.getMsg());
             o oVar = o.this;
             oVar.f7782b = false;
-            f fVar = oVar.pEy;
+            f fVar = oVar.pEz;
             if (fVar != null) {
                 ((r) fVar).a(oVar.f7781a.f7760a, pBError.getCode(), pBError.getMsg());
             }
@@ -43,7 +43,7 @@ public class o extends i {
         public void onInterstitialDismissed() {
             m.a("JYInterstitialAd onInterstitialDismissed");
             o oVar = o.this;
-            c cVar = oVar.pEz;
+            c cVar = oVar.pEA;
             if (cVar != null) {
                 ((u) cVar).b(oVar.f7781a.f7760a);
             }
@@ -53,7 +53,7 @@ public class o extends i {
         public void onInterstitialDisplayed() {
             m.a("JYInterstitialAd onInterstitialDisplayed");
             o oVar = o.this;
-            c cVar = oVar.pEz;
+            c cVar = oVar.pEA;
             if (cVar != null) {
                 ((u) cVar).c(oVar.f7781a.f7760a);
             }
@@ -63,7 +63,7 @@ public class o extends i {
         public void onInterstitialShowFail(String str) {
             m.a("JYInterstitialAd onInterstitialShowFail");
             o oVar = o.this;
-            c cVar = oVar.pEz;
+            c cVar = oVar.pEA;
             if (cVar != null) {
                 ((u) cVar).a(oVar.f7781a.f7760a, 0, str);
             }
@@ -74,7 +74,7 @@ public class o extends i {
             m.a("JYInterstitialAd onLoaded");
             o oVar = o.this;
             oVar.f7782b = false;
-            f fVar = oVar.pEy;
+            f fVar = oVar.pEz;
             if (fVar != null) {
                 ((r) fVar).b(oVar.f7781a.f7760a);
             }
@@ -88,21 +88,21 @@ public class o extends i {
     @Override // com.fun.ad.i
     public void a() {
         super.a();
-        PBInterstitial pBInterstitial = this.pEC;
+        PBInterstitial pBInterstitial = this.pED;
         if (pBInterstitial != null) {
             pBInterstitial.destroy();
-            this.pEC = null;
+            this.pED = null;
         }
     }
 
     @Override // com.fun.ad.i
     public void a(Activity activity, FunAdView funAdView, c cVar) {
         super.a(activity, funAdView, cVar);
-        PBInterstitial pBInterstitial = this.pEC;
+        PBInterstitial pBInterstitial = this.pED;
         if (pBInterstitial == null || !pBInterstitial.isReady()) {
             m.a("JYInterstitialAd show error: Ad is not ready");
         } else {
-            this.pEC.show();
+            this.pED.show();
         }
     }
 
@@ -119,8 +119,8 @@ public class o extends i {
             PBInterstitial pBInterstitial = new PBInterstitial(context.getApplicationContext(), this.f7781a.f7760a);
             pBInterstitial.setInterstitialListener(new a());
             pBInterstitial.load();
-            this.pEC = pBInterstitial;
-            f fVar2 = this.pEy;
+            this.pED = pBInterstitial;
+            f fVar2 = this.pEz;
             if (fVar2 != null) {
                 ((r) fVar2).a(this.f7781a.f7760a);
             }

@@ -7,9 +7,9 @@ public interface h {
 
     void a(y yVar);
 
-    boolean aaC(String str);
+    boolean aaD(String str);
 
-    void aaD(String str);
+    void aaE(String str);
 
     void b();
 

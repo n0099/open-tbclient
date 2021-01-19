@@ -15,18 +15,18 @@ import com.baidu.tieba.yuyinala.liveroom.wheat.message.AlaLinkCallBackHttpRespon
 import com.baidu.tieba.yuyinala.liveroom.wheat.model.i;
 /* loaded from: classes10.dex */
 public class h {
-    private static h owN;
-    private TbPageContext ovz;
-    private com.baidu.tieba.yuyinala.liveroom.wheat.dialog.e owO;
-    private boolean owP;
+    private static h owO;
+    private TbPageContext ovA;
+    private com.baidu.tieba.yuyinala.liveroom.wheat.dialog.e owP;
     private boolean owQ;
-    private com.baidu.tieba.yuyinala.liveroom.wheat.model.i owl;
+    private boolean owR;
+    private com.baidu.tieba.yuyinala.liveroom.wheat.model.i owm;
 
     public static h ebd() {
-        if (owN == null) {
-            owN = new h();
+        if (owO == null) {
+            owO = new h();
         }
-        return owN;
+        return owO;
     }
 
     public void a(TbPageContext tbPageContext, AlaLinkCallBackHttpResponseMessage alaLinkCallBackHttpResponseMessage) {
@@ -39,25 +39,25 @@ public class h {
             } else if (pageActivity == null || pageActivity.isFinishing()) {
                 return;
             }
-            if (tbPageContext != null && tbPageContext != this.ovz) {
-                this.ovz = tbPageContext;
+            if (tbPageContext != null && tbPageContext != this.ovA) {
+                this.ovA = tbPageContext;
                 hide();
             }
-            if (this.owO == null) {
-                this.owP = false;
-                this.owO = new com.baidu.tieba.yuyinala.liveroom.wheat.dialog.e(tbPageContext);
-                this.owO.g(new DialogInterface.OnDismissListener() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.c.h.1
+            if (this.owP == null) {
+                this.owQ = false;
+                this.owP = new com.baidu.tieba.yuyinala.liveroom.wheat.dialog.e(tbPageContext);
+                this.owP.g(new DialogInterface.OnDismissListener() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.c.h.1
                     @Override // android.content.DialogInterface.OnDismissListener
                     public void onDismiss(DialogInterface dialogInterface) {
-                        h.this.owP = false;
-                        h.this.owO = null;
+                        h.this.owQ = false;
+                        h.this.owP = null;
                     }
                 });
             }
-            this.owO.show();
+            this.owP.show();
             AccountData currentAccountInfo = TbadkCoreApplication.getCurrentAccountInfo();
             if (currentAccountInfo != null) {
-                this.owO.d(currentAccountInfo.getPortrait(), currentAccountInfo.getAccountNameShow(), alaLinkCallBackHttpResponseMessage.ecg(), alaLinkCallBackHttpResponseMessage.cXq(), alaLinkCallBackHttpResponseMessage.ech());
+                this.owP.d(currentAccountInfo.getPortrait(), currentAccountInfo.getAccountNameShow(), alaLinkCallBackHttpResponseMessage.ecg(), alaLinkCallBackHttpResponseMessage.cXq(), alaLinkCallBackHttpResponseMessage.ech());
             }
         }
     }
@@ -72,38 +72,38 @@ public class h {
             } else if (pageActivity == null || pageActivity.isFinishing()) {
                 return;
             }
-            if (tbPageContext != null && tbPageContext != this.ovz) {
-                this.ovz = tbPageContext;
+            if (tbPageContext != null && tbPageContext != this.ovA) {
+                this.ovA = tbPageContext;
                 hide();
             }
-            if (this.owO == null) {
-                this.owP = false;
-                this.owO = new com.baidu.tieba.yuyinala.liveroom.wheat.dialog.e(tbPageContext);
-                this.owO.g(new DialogInterface.OnDismissListener() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.c.h.2
+            if (this.owP == null) {
+                this.owQ = false;
+                this.owP = new com.baidu.tieba.yuyinala.liveroom.wheat.dialog.e(tbPageContext);
+                this.owP.g(new DialogInterface.OnDismissListener() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.c.h.2
                     @Override // android.content.DialogInterface.OnDismissListener
                     public void onDismiss(DialogInterface dialogInterface) {
-                        h.this.owP = false;
-                        h.this.owO = null;
+                        h.this.owQ = false;
+                        h.this.owP = null;
                     }
                 });
             }
-            this.owO.show();
+            this.owP.show();
             AccountData currentAccountInfo = TbadkCoreApplication.getCurrentAccountInfo();
             if (currentAccountInfo != null) {
-                this.owO.d(currentAccountInfo.getPortrait(), currentAccountInfo.getAccountNameShow(), alaEndConnectionWheatHttpResponseMessage.ecg(), alaEndConnectionWheatHttpResponseMessage.cXq(), alaEndConnectionWheatHttpResponseMessage.ech());
+                this.owP.d(currentAccountInfo.getPortrait(), currentAccountInfo.getAccountNameShow(), alaEndConnectionWheatHttpResponseMessage.ecg(), alaEndConnectionWheatHttpResponseMessage.cXq(), alaEndConnectionWheatHttpResponseMessage.ech());
             }
         }
     }
 
     public void zJ(boolean z) {
-        this.owQ = z;
+        this.owR = z;
         if (o.ebo().ib(o.ebo().Wz())) {
-            if (this.owl == null) {
-                this.owl = new com.baidu.tieba.yuyinala.liveroom.wheat.model.i(null, new i.a() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.c.h.3
+            if (this.owm == null) {
+                this.owm = new com.baidu.tieba.yuyinala.liveroom.wheat.model.i(null, new i.a() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.c.h.3
                     @Override // com.baidu.tieba.yuyinala.liveroom.wheat.model.i.a
                     public void a(AlaLinkCallBackHttpResponseMessage alaLinkCallBackHttpResponseMessage) {
                         h.this.a(o.ebo().ebu(), alaLinkCallBackHttpResponseMessage);
-                        if (h.this.owQ) {
+                        if (h.this.owR) {
                             BdToast.makeText(TbadkCoreApplication.getInst(), TbadkCoreApplication.getInst().getString(a.h.yuyin_ala_connection_wheat_hung_up_text)).show();
                         }
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2501009));
@@ -117,24 +117,24 @@ public class h {
                     }
                 });
             }
-            this.owl.request("end");
+            this.owm.request("end");
         }
     }
 
     public void hide() {
-        if (this.owO != null) {
-            this.owO.dismiss();
-            this.owO = null;
+        if (this.owP != null) {
+            this.owP.dismiss();
+            this.owP = null;
         }
     }
 
     public h zK(boolean z) {
-        this.owP = z;
+        this.owQ = z;
         return this;
     }
 
     public boolean ebe() {
-        return this.owP;
+        return this.owQ;
     }
 
     public void onDestroy() {

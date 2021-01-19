@@ -52,7 +52,7 @@ public class AdCardLoopPicView extends AdCardBaseView {
             }
 
             @Override // com.baidu.tieba.recapp.lego.view.LoopADView.a
-            public String Qz(String str) {
+            public String QA(String str) {
                 return at.cutStringWithSuffix(str, 100, StringHelper.STRING_MORE);
             }
 

@@ -20,12 +20,12 @@ import org.json.JSONObject;
 public class c extends i {
     private String mKey;
     private String mType;
-    private long oPV;
-    private final String oQa = "http://cp01-zhangsukun.epc.baidu.com:8220/";
+    private long oPW;
+    private final String oQb = "http://cp01-zhangsukun.epc.baidu.com:8220/";
 
     public c(Context context, String str, long j, String str2) {
         this.mKey = "";
-        this.oPV = j;
+        this.oPW = j;
         this.mKey = str2;
         this.mContext = context;
         this.mType = str;
@@ -33,7 +33,7 @@ public class c extends i {
 
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.Request
     public String getHost() {
-        return Xe("http://cp01-zhangsukun.epc.baidu.com:8220/") + "api/subscribe/v1/relation/receive";
+        return Xf("http://cp01-zhangsukun.epc.baidu.com:8220/") + "api/subscribe/v1/relation/receive";
     }
 
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
@@ -50,12 +50,12 @@ public class c extends i {
         } else {
             z = false;
         }
-        k.hz(this.mContext).a(i, new String(bArr), this.oPV, this.mKey, z);
+        k.hz(this.mContext).a(i, new String(bArr), this.oPW, this.mKey, z);
     }
 
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
     public void onFailure(int i, byte[] bArr, Throwable th) {
-        k.hz(this.mContext).a(i, new String(bArr), this.oPV, this.mKey, false);
+        k.hz(this.mContext).a(i, new String(bArr), this.oPW, this.mKey, false);
     }
 
     @Override // com.baidu.yuyinala.privatemessage.implugin.f.i, com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.Request
@@ -83,9 +83,9 @@ public class c extends i {
         StringBuilder sb = new StringBuilder();
         sb.append("op_type=").append(IMTrack.DbBuilder.ACTION_ADD);
         sb.append("&type=").append(this.mType);
-        sb.append("&third_id=").append(ExtraParamsManager.getEncryptionUserId(this.oPV + ""));
+        sb.append("&third_id=").append(ExtraParamsManager.getEncryptionUserId(this.oPW + ""));
         sb.append("&sfrom=").append("mingame");
-        if (ChatInfo.oPq) {
+        if (ChatInfo.oPr) {
             sb.append("&source=").append("im_c2cchat_sgame");
         } else {
             sb.append("&source=").append("im_c2cchat");

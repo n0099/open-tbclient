@@ -123,21 +123,21 @@ public class HotTopicDetailPagerAdapter extends PagerAdapter {
         }
     }
 
-    private void BU(int i) {
+    private void BT(int i) {
         HotTopicDetailFeedView hotTopicDetailFeedView;
         if (this.kkv != null && EJ(i) < this.kkv.size() && (hotTopicDetailFeedView = this.kkv.get(EJ(i))) != null) {
             hotTopicDetailFeedView.Vo();
         }
     }
 
-    private void BV(int i) {
+    private void BU(int i) {
         HotTopicDetailFeedView hotTopicDetailFeedView;
         if (this.kkv != null && EJ(i) < this.kkv.size() && (hotTopicDetailFeedView = this.kkv.get(EJ(i))) != null) {
             hotTopicDetailFeedView.Vp();
         }
     }
 
-    private void BW(int i) {
+    private void BV(int i) {
         HotTopicDetailFeedView hotTopicDetailFeedView;
         if (this.kkv != null && EJ(i) < this.kkv.size() && (hotTopicDetailFeedView = this.kkv.get(EJ(i))) != null) {
             hotTopicDetailFeedView.bRO();
@@ -202,10 +202,10 @@ public class HotTopicDetailPagerAdapter extends PagerAdapter {
             dVar2.pageData = dVar.pageData;
             dVar2.lastId = dVar.lastId;
             if ((dVar2.pageData == null || dVar2.pageData.bmm() == 0) ? false : true) {
-                BU(i);
+                BT(i);
             } else {
-                BW(i);
                 BV(i);
+                BU(i);
             }
             ((HotTopicDetailFeedView) x.getItem(this.kkv, EJ(i) % lqi)).setData(dVar2.e(this.kmc));
         }

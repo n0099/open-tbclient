@@ -82,7 +82,7 @@ public class j {
             int size2 = this.kmP.size() <= 20 ? this.kmP.size() : 20;
             for (int i2 = 0; i2 < size2; i2++) {
                 c cVar = this.kmP.get(i2);
-                cVar.BZ(i2 + 1);
+                cVar.BY(i2 + 1);
                 this.klZ.add(cVar);
             }
         }

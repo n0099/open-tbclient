@@ -23,7 +23,7 @@ import org.json.JSONObject;
 public class f {
     private String mAppCachePath = BdBaseApplication.getInst().getContext().getCacheDir().getAbsolutePath() + "/";
     private BdUniqueId mPageId;
-    private e nWk;
+    private e nWl;
 
     public f(BdUniqueId bdUniqueId) {
         this.mPageId = bdUniqueId;
@@ -36,7 +36,7 @@ public class f {
     }
 
     public void a(e eVar) {
-        this.nWk = eVar;
+        this.nWl = eVar;
     }
 
     /* loaded from: classes7.dex */
@@ -68,7 +68,7 @@ public class f {
                 }
             }
             if (StringUtils.isNull(str)) {
-                str = cVar.nVV;
+                str = cVar.nVW;
             }
             z zVar = new z();
             zVar.setUrl(TbConfig.SERVER_ADDRESS + TbConfig.POST_THREAD_ADDRESS);
@@ -82,7 +82,7 @@ public class f {
             zVar.addPostData("new_vcode", "1");
             zVar.addPostData("content", cVar.comment);
             zVar.addPostData("fid", cVar.forumId);
-            zVar.addPostData("kw", cVar.nVU);
+            zVar.addPostData("kw", cVar.nVV);
             zVar.addPostData("is_hide", "0");
             zVar.addPostData("call_from", "2");
             zVar.addPostData("title", cVar.comment);
@@ -105,18 +105,18 @@ public class f {
                 zVar.addPostData("name_show", TbadkCoreApplication.getCurrentAccountNameShow());
             }
             zVar.addPostData("tbopen_app_key", cVar.appKey);
-            zVar.addPostData("tbopen_app_icon", cVar.nVT);
+            zVar.addPostData("tbopen_app_icon", cVar.nVU);
             zVar.addPostData("tbopen_app_name", cVar.appName);
             zVar.addPostData("share_abstract", cVar.content);
             zVar.addPostData("share_image", str);
             zVar.addPostData("share_h5_url", cVar.linkUrl);
-            zVar.addPostData("share_swan_app_key", cVar.nVS);
-            zVar.addPostData("share_swan_path", cVar.nVW);
+            zVar.addPostData("share_swan_app_key", cVar.nVT);
+            zVar.addPostData("share_swan_path", cVar.nVX);
             String postNetData = zVar.postNetData();
             d dVar = new d();
             try {
                 JSONObject jSONObject = new JSONObject(postNetData);
-                dVar.nVY = jSONObject.optString("msg");
+                dVar.nVZ = jSONObject.optString("msg");
                 dVar.preMsg = jSONObject.optString("pre_msg");
                 dVar.fid = cVar.forumId;
                 dVar.tid = jSONObject.optString("tid");
@@ -134,7 +134,7 @@ public class f {
             if (errorData.error_code != 0 && !j.isNetWorkAvailable()) {
                 errorData.setError_msg(TbadkCoreApplication.getInst().getApp().getString(R.string.neterror));
             }
-            dVar.nVX = errorData;
+            dVar.nVY = errorData;
             AntiData antiData = new AntiData();
             try {
                 antiData.parserJson(new JSONObject(postNetData).optJSONObject("anti_stat"));
@@ -157,8 +157,8 @@ public class f {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: b */
         public void onPostExecute(d dVar) {
-            if (f.this.nWk != null) {
-                f.this.nWk.a(dVar);
+            if (f.this.nWl != null) {
+                f.this.nWl.a(dVar);
             }
         }
     }

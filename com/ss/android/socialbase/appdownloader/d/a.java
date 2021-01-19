@@ -24,7 +24,7 @@ public class a extends com.ss.android.socialbase.appdownloader.c.b {
     }
 
     @Override // com.ss.android.socialbase.appdownloader.c.k
-    public k ZH(String str) {
+    public k ZI(String str) {
         if (this.f13021a != null) {
             this.f13021a.setMessage(str);
         }

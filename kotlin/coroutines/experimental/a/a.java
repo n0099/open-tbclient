@@ -4,9 +4,9 @@ import kotlin.e;
 @e
 /* loaded from: classes5.dex */
 public final class a {
-    private static final Object qjb = new Object();
+    private static final Object qjc = new Object();
 
     public static final Object eIS() {
-        return qjb;
+        return qjc;
     }
 }

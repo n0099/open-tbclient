@@ -212,7 +212,7 @@ public class b extends a<PostData, PbCommenFloorItemViewHolder> {
             pbCommenFloorItemViewHolder.mPosition = i;
             com.baidu.tieba.pb.pb.b.a(pbCommenFloorItemViewHolder, postData, view, i, this.lYY, this.ahu, this.lIB);
             com.baidu.tieba.pb.pb.b.a(pbCommenFloorItemViewHolder, postData, this.ahu, i, this.lIB);
-            if (this.lIB && postData.nnK) {
+            if (this.lIB && postData.nnL) {
                 pbCommenFloorItemViewHolder.lGp.setVisibility(8);
                 pbCommenFloorItemViewHolder.lGt.setVisibility(0);
                 if (this.ahu.bmg()) {
@@ -228,7 +228,7 @@ public class b extends a<PostData, PbCommenFloorItemViewHolder> {
                 pbCommenFloorItemViewHolder.lGl.setVisibility(0);
                 pbCommenFloorItemViewHolder.lGH.setVisibility(8);
             }
-            com.baidu.tieba.pb.pb.b.a(pbCommenFloorItemViewHolder, postData, postData.nnK, this.lIB);
+            com.baidu.tieba.pb.pb.b.a(pbCommenFloorItemViewHolder, postData, postData.nnL, this.lIB);
             com.baidu.tieba.pb.pb.b.a(this.lYY, pbCommenFloorItemViewHolder, postData, view, this.lFe, this.mIsFromCDN, i != 0, this.lFW);
             com.baidu.tieba.pb.pb.b.a(this.lYY, pbCommenFloorItemViewHolder, postData, this.ahu);
             com.baidu.tieba.pb.pb.b.a(pbCommenFloorItemViewHolder, postData);
@@ -239,7 +239,7 @@ public class b extends a<PostData, PbCommenFloorItemViewHolder> {
 
     private void j(PbCommenFloorItemViewHolder pbCommenFloorItemViewHolder, PostData postData) {
         if (pbCommenFloorItemViewHolder != null && postData != null) {
-            pbCommenFloorItemViewHolder.lGR.setVisibility(postData.nnG ? 0 : 8);
+            pbCommenFloorItemViewHolder.lGR.setVisibility(postData.nnH ? 0 : 8);
         }
     }
 
@@ -282,7 +282,7 @@ public class b extends a<PostData, PbCommenFloorItemViewHolder> {
                 pbCommenFloorItemViewHolder.jMm.setTag(sparseArray4);
             }
             sparseArray4.put(R.id.tag_load_sub_data, postData);
-            sparseArray4.put(R.id.tag_is_subpb, Boolean.valueOf(!postData.nnK));
+            sparseArray4.put(R.id.tag_is_subpb, Boolean.valueOf(!postData.nnL));
         }
     }
 
@@ -402,7 +402,7 @@ public class b extends a<PostData, PbCommenFloorItemViewHolder> {
         this.ahu = bzVar;
     }
 
-    public void Pi(String str) {
+    public void Pj(String str) {
         this.lYZ = str;
     }
 }

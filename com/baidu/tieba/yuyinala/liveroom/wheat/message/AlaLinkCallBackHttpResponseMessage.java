@@ -6,9 +6,9 @@ import org.json.JSONObject;
 /* loaded from: classes10.dex */
 public class AlaLinkCallBackHttpResponseMessage extends BaseJsonHttpResponsedMessage {
     private int fans;
-    private String ozo;
-    private int ozp;
+    private String ozp;
     private int ozq;
+    private int ozr;
 
     public AlaLinkCallBackHttpResponseMessage() {
         super(1031027);
@@ -19,19 +19,19 @@ public class AlaLinkCallBackHttpResponseMessage extends BaseJsonHttpResponsedMes
         JSONObject optJSONObject;
         super.decodeLogicInBackGround(i, jSONObject);
         if (jSONObject != null && i == 1031027 && (optJSONObject = jSONObject.optJSONObject("data")) != null) {
-            this.ozo = optJSONObject.optString("minute");
+            this.ozp = optJSONObject.optString("minute");
             this.fans = optJSONObject.optInt("fans");
-            this.ozp = optJSONObject.optInt(SdkStaticKeys.RANK_TYPE_CHARM);
-            this.ozq = optJSONObject.optInt(SubPbActivityConfig.KEY_USER_IDENTITY);
+            this.ozq = optJSONObject.optInt(SdkStaticKeys.RANK_TYPE_CHARM);
+            this.ozr = optJSONObject.optInt(SubPbActivityConfig.KEY_USER_IDENTITY);
         }
     }
 
     public boolean ecf() {
-        return this.ozq == 1 || this.ozq == 2 || this.ozq == 3;
+        return this.ozr == 1 || this.ozr == 2 || this.ozr == 3;
     }
 
     public String ecg() {
-        return this.ozo;
+        return this.ozp;
     }
 
     public int cXq() {
@@ -39,6 +39,6 @@ public class AlaLinkCallBackHttpResponseMessage extends BaseJsonHttpResponsedMes
     }
 
     public int ech() {
-        return this.ozp;
+        return this.ozq;
     }
 }

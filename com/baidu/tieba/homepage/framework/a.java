@@ -25,7 +25,7 @@ public class a {
         this.creatTime = j;
     }
 
-    public long Bj(int i) {
+    public long Bi(int i) {
         Long l = this.jVc.get(i);
         if (l == null) {
             return -1L;
@@ -37,7 +37,7 @@ public class a {
         this.jVc.put(i, Long.valueOf(j));
     }
 
-    public long Bk(int i) {
+    public long Bj(int i) {
         Long l = this.jVb.get(i);
         if (l == null) {
             return -1L;
@@ -49,7 +49,7 @@ public class a {
         this.jVb.put(i, Long.valueOf(j));
     }
 
-    public long Bl(int i) {
+    public long Bk(int i) {
         Long l = this.jVd.get(i);
         if (l == null) {
             return -1L;
@@ -61,7 +61,7 @@ public class a {
         this.jVd.put(i, Long.valueOf(j));
     }
 
-    public long Bm(int i) {
+    public long Bl(int i) {
         Long l = this.jVe.get(i);
         if (l == null) {
             return -1L;

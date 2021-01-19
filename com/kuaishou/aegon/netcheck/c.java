@@ -4,12 +4,12 @@ import java.util.EnumSet;
 /* loaded from: classes4.dex */
 final /* synthetic */ class c implements Runnable {
     private final String c;
-    private final NetcheckTaskListenerWrapper pNQ;
-    private final EnumSet pNR;
+    private final NetcheckTaskListenerWrapper pNR;
+    private final EnumSet pNS;
 
     private c(NetcheckTaskListenerWrapper netcheckTaskListenerWrapper, EnumSet enumSet, String str) {
-        this.pNQ = netcheckTaskListenerWrapper;
-        this.pNR = enumSet;
+        this.pNR = netcheckTaskListenerWrapper;
+        this.pNS = enumSet;
         this.c = str;
     }
 
@@ -19,6 +19,6 @@ final /* synthetic */ class c implements Runnable {
 
     @Override // java.lang.Runnable
     public void run() {
-        this.pNQ.pNP.a(this.pNR, this.c);
+        this.pNR.pNQ.a(this.pNS, this.c);
     }
 }

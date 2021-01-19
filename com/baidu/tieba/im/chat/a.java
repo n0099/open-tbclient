@@ -233,7 +233,7 @@ public class a {
         krO.put("#(白眼)", "image_emoticon124");
     }
 
-    private static String LC(String str) {
+    private static String LD(String str) {
         return krO.get(str);
     }
 
@@ -274,8 +274,8 @@ public class a {
                             break;
                         }
                     }
-                    String LC = LC(str2);
-                    if (TextUtils.isEmpty(LC)) {
+                    String LD = LD(str2);
+                    if (TextUtils.isEmpty(LD)) {
                         str3 = str4 + str2;
                     } else {
                         if (TextUtils.isEmpty(str4)) {
@@ -291,7 +291,7 @@ public class a {
                             }
                             str3 = "";
                         }
-                        SpannableString a2 = a(tbRichTextData.bHk(), LC, str2);
+                        SpannableString a2 = a(tbRichTextData.bHk(), LD, str2);
                         if (a2 != null) {
                             tbRichTextData.q(a2);
                         }

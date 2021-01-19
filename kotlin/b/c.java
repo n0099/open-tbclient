@@ -5,8 +5,8 @@ import kotlin.jvm.internal.o;
 @kotlin.e
 /* loaded from: classes5.dex */
 public final class c extends kotlin.b.a {
-    public static final a qjw = new a(null);
-    private static final c qjv = new c((char) 1, (char) 0);
+    public static final a qjx = new a(null);
+    private static final c qjw = new c((char) 1, (char) 0);
 
     public c(char c, char c2) {
         super(c, c2, 1);

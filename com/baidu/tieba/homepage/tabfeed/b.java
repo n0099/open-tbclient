@@ -15,7 +15,7 @@ import com.baidu.tieba.card.s;
 import com.baidu.tieba.homepage.tabfeed.data.SpecialColumnItemData;
 /* loaded from: classes2.dex */
 public class b {
-    public static void Lr(String str) {
+    public static void Ls(String str) {
         aq aqVar = new aq(str);
         aqVar.an("obj_type", 1);
         aqVar.dW("uid", TbadkCoreApplication.getCurrentAccount());

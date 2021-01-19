@@ -43,18 +43,18 @@ public class by {
 
     /* renamed from: java  reason: collision with other field name */
     private int[] f40java;
-    private boolean pYL;
-    private boolean pZl;
-    private final int[] pZt;
-    private byte[] pZy;
-    private Bitmap qaB;
-    private ByteBuffer qaL;
+    private boolean pYM;
+    private boolean pZm;
+    private final int[] pZu;
+    private byte[] pZz;
+    private Bitmap qaC;
+    private ByteBuffer qaM;
     @Nullable
-    private byte[] qaM;
-    private cb qaN;
-    private short[] qaO;
-    public ca qaP;
-    private a qaQ;
+    private byte[] qaN;
+    private cb qaO;
+    private short[] qaP;
+    public ca qaQ;
+    private a qaR;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes3.dex */
@@ -68,11 +68,11 @@ public class by {
     }
 
     private by(a aVar) {
-        this.pZt = new int[256];
+        this.pZu = new int[256];
         this.f13733a = 0;
         this.f13734b = 0;
-        this.qaQ = aVar;
-        this.qaP = new ca();
+        this.qaR = aVar;
+        this.qaQ = new ca();
     }
 
     public by() {
@@ -100,28 +100,28 @@ public class by {
         int i7;
         short s;
         int i8;
-        if (this.qaP.f43case <= 0 || this.f39java < 0) {
+        if (this.qaQ.f43case <= 0 || this.f39java < 0) {
             this.c = 1;
         }
         if (this.c == 1 || this.c == 2) {
             bitmap = null;
         } else {
             this.c = 0;
-            bz bzVar2 = this.qaP.pZM.get(this.f39java);
+            bz bzVar2 = this.qaQ.pZN.get(this.f39java);
             int i9 = this.f39java - 1;
             if (i9 < 0) {
                 bzVar = null;
             } else {
-                bzVar = this.qaP.pZM.get(i9);
+                bzVar = this.qaQ.pZN.get(i9);
             }
-            this.f40java = bzVar2.f42java != null ? bzVar2.f42java : this.qaP.f44java;
+            this.f40java = bzVar2.f42java != null ? bzVar2.f42java : this.qaQ.f44java;
             if (this.f40java == null) {
                 this.c = 1;
                 bitmap = null;
             } else {
-                if (bzVar2.pZl) {
-                    System.arraycopy(this.f40java, 0, this.pZt, 0, this.f40java.length);
-                    this.f40java = this.pZt;
+                if (bzVar2.pZm) {
+                    System.arraycopy(this.f40java, 0, this.pZu, 0, this.f40java.length);
+                    this.f40java = this.pZu;
                     this.f40java[bzVar2.d] = 0;
                 }
                 int[] iArr = this.f35a;
@@ -131,38 +131,38 @@ public class by {
                 if (bzVar != null && bzVar.c > 0) {
                     if (bzVar.c == 2) {
                         int i10 = 0;
-                        if (!bzVar2.pZl) {
-                            i10 = this.qaP.f;
-                            if (bzVar2.f42java != null && this.qaP.d == bzVar2.d) {
+                        if (!bzVar2.pZm) {
+                            i10 = this.qaQ.f;
+                            if (bzVar2.f42java != null && this.qaQ.d == bzVar2.d) {
                                 i10 = 0;
                             }
                         } else if (this.f39java == 0) {
-                            this.pZl = true;
+                            this.pZm = true;
                         }
                         a(iArr, bzVar, i10);
                     } else if (bzVar.c == 3) {
-                        if (this.qaB == null) {
+                        if (this.qaC == null) {
                             a(iArr, bzVar, 0);
                         } else {
                             int i11 = bzVar.f13736b / this.d;
                             int i12 = bzVar.f41case / this.d;
                             int i13 = bzVar.f13735a / this.d;
                             int i14 = bzVar.java / this.d;
-                            this.qaB.getPixels(iArr, (this.f * i12) + i14, this.f, i14, i12, i13, i11);
+                            this.qaC.getPixels(iArr, (this.f * i12) + i14, this.f, i14, i12, i13, i11);
                         }
                     }
                 }
                 this.f13733a = 0;
                 this.f13734b = 0;
                 if (bzVar2 != null) {
-                    this.qaL.position(bzVar2.f);
+                    this.qaM.position(bzVar2.f);
                 }
-                int i15 = bzVar2 == null ? this.qaP.f13737a * this.qaP.f13738b : bzVar2.f13735a * bzVar2.f13736b;
+                int i15 = bzVar2 == null ? this.qaQ.f13737a * this.qaQ.f13738b : bzVar2.f13735a * bzVar2.f13736b;
                 if (this.f37c == null || this.f37c.length < i15) {
-                    this.f37c = this.qaQ.RK(i15);
+                    this.f37c = this.qaR.RK(i15);
                 }
-                if (this.qaO == null) {
-                    this.qaO = new short[4096];
+                if (this.qaP == null) {
+                    this.qaP = new short[4096];
                 }
                 if (this.f34a == null) {
                     this.f34a = new byte[4096];
@@ -177,7 +177,7 @@ public class by {
                 int i19 = eGL + 1;
                 int i20 = (1 << i19) - 1;
                 for (int i21 = 0; i21 < i16; i21++) {
-                    this.qaO[i21] = 0;
+                    this.qaP[i21] = 0;
                     this.f34a[i21] = (byte) i21;
                 }
                 int i22 = 0;
@@ -205,7 +205,7 @@ public class by {
                         i6 = i26;
                         i7 = i30;
                     }
-                    int i31 = i29 + ((this.pZy[i6] & 255) << i23);
+                    int i31 = i29 + ((this.pZz[i6] & 255) << i23);
                     int i32 = i23 + 8;
                     i26 = i6 + 1;
                     i30 = i7 - 1;
@@ -256,14 +256,14 @@ public class by {
                             }
                             while (s >= i16) {
                                 this.f36b[i8] = this.f34a[s];
-                                s = this.qaO[s];
+                                s = this.qaP[s];
                                 i8++;
                             }
                             i34 = this.f34a[s] & 255;
                             int i37 = i8 + 1;
                             this.f36b[i8] = (byte) i34;
                             if (i18 < 4096) {
-                                this.qaO[i18] = (short) i33;
+                                this.qaP[i18] = (short) i33;
                                 this.f34a[i18] = (byte) i34;
                                 i18++;
                                 if ((i18 & i20) == 0 && i18 < 4096) {
@@ -297,7 +297,7 @@ public class by {
                 boolean z = this.f39java == 0;
                 int i47 = 0;
                 while (i47 < i40) {
-                    if (bzVar2.pYL) {
+                    if (bzVar2.pYM) {
                         if (i46 >= i40) {
                             i44++;
                             switch (i44) {
@@ -368,8 +368,8 @@ public class by {
                             }
                             if (i5 != 0) {
                                 iArr[i55] = i5;
-                            } else if (!this.pZl && z) {
-                                this.pZl = true;
+                            } else if (!this.pZm && z) {
+                                this.pZm = true;
                             }
                             i55++;
                             i56 += this.d;
@@ -380,11 +380,11 @@ public class by {
                     i45 = i3;
                     i44 = i4;
                 }
-                if (this.pYL && (bzVar2.c == 0 || bzVar2.c == 1)) {
-                    if (this.qaB == null) {
-                        this.qaB = eHd();
+                if (this.pYM && (bzVar2.c == 0 || bzVar2.c == 1)) {
+                    if (this.qaC == null) {
+                        this.qaC = eHd();
                     }
-                    this.qaB.setPixels(iArr, 0, this.f, 0, 0, this.f, this.e);
+                    this.qaC.setPixels(iArr, 0, this.f, 0, 0, this.f, this.e);
                 }
                 bitmap = eHd();
                 bitmap.setPixels(iArr, 0, this.f, 0, 0, this.f, this.e);
@@ -404,63 +404,63 @@ public class by {
     private synchronized void b(ca caVar, ByteBuffer byteBuffer) {
         int highestOneBit = Integer.highestOneBit(1);
         this.c = 0;
-        this.qaP = caVar;
-        this.pZl = false;
+        this.qaQ = caVar;
+        this.pZm = false;
         this.f39java = -1;
         this.f38case = 0;
-        this.qaL = byteBuffer.asReadOnlyBuffer();
-        this.qaL.position(0);
-        this.qaL.order(ByteOrder.LITTLE_ENDIAN);
-        this.pYL = false;
-        Iterator<bz> it = caVar.pZM.iterator();
+        this.qaM = byteBuffer.asReadOnlyBuffer();
+        this.qaM.position(0);
+        this.qaM.order(ByteOrder.LITTLE_ENDIAN);
+        this.pYM = false;
+        Iterator<bz> it = caVar.pZN.iterator();
         while (true) {
             if (!it.hasNext()) {
                 break;
             } else if (it.next().c == 3) {
-                this.pYL = true;
+                this.pYM = true;
                 break;
             }
         }
         this.d = highestOneBit;
         this.f = caVar.f13737a / highestOneBit;
         this.e = caVar.f13738b / highestOneBit;
-        this.f37c = this.qaQ.RK(caVar.f13737a * caVar.f13738b);
-        this.f35a = this.qaQ.RL(this.f * this.e);
+        this.f37c = this.qaR.RK(caVar.f13737a * caVar.f13738b);
+        this.f35a = this.qaR.RL(this.f * this.e);
     }
 
     public final synchronized int at(byte[] bArr) {
-        if (this.qaN == null) {
-            this.qaN = new cb();
+        if (this.qaO == null) {
+            this.qaO = new cb();
         }
-        cb cbVar = this.qaN;
+        cb cbVar = this.qaO;
         if (bArr != null) {
             ByteBuffer wrap = ByteBuffer.wrap(bArr);
-            cbVar.qaL = null;
-            Arrays.fill(cbVar.pZy, (byte) 0);
-            cbVar.qaP = new ca();
+            cbVar.qaM = null;
+            Arrays.fill(cbVar.pZz, (byte) 0);
+            cbVar.qaQ = new ca();
             cbVar.java = 0;
-            cbVar.qaL = wrap.asReadOnlyBuffer();
-            cbVar.qaL.position(0);
-            cbVar.qaL.order(ByteOrder.LITTLE_ENDIAN);
+            cbVar.qaM = wrap.asReadOnlyBuffer();
+            cbVar.qaM.position(0);
+            cbVar.qaM.order(ByteOrder.LITTLE_ENDIAN);
         } else {
-            cbVar.qaL = null;
-            cbVar.qaP.java = 2;
+            cbVar.qaM = null;
+            cbVar.qaQ.java = 2;
         }
-        if (cbVar.qaL == null) {
+        if (cbVar.qaM == null) {
             throw new IllegalStateException("You must call setData() before parseHeader()");
         }
         if (!cbVar.java()) {
             cbVar.eGA();
             if (!cbVar.java()) {
                 cbVar.eGz();
-                if (cbVar.qaP.f43case < 0) {
-                    cbVar.qaP.java = 1;
+                if (cbVar.qaQ.f43case < 0) {
+                    cbVar.qaQ.java = 1;
                 }
             }
         }
-        this.qaP = cbVar.qaP;
+        this.qaQ = cbVar.qaQ;
         if (bArr != null) {
-            a(this.qaP, bArr);
+            a(this.qaQ, bArr);
         }
         return this.c;
     }
@@ -482,19 +482,19 @@ public class by {
 
     private void eGz() {
         if (this.f13733a <= this.f13734b) {
-            if (this.qaM == null) {
-                this.qaM = this.qaQ.RK(16384);
+            if (this.qaN == null) {
+                this.qaN = this.qaR.RK(16384);
             }
             this.f13734b = 0;
-            this.f13733a = Math.min(this.qaL.remaining(), 16384);
-            this.qaL.get(this.qaM, 0, this.f13733a);
+            this.f13733a = Math.min(this.qaM.remaining(), 16384);
+            this.qaM.get(this.qaN, 0, this.f13733a);
         }
     }
 
     private int eGL() {
         try {
             eGz();
-            byte[] bArr = this.qaM;
+            byte[] bArr = this.qaN;
             int i = this.f13734b;
             this.f13734b = i + 1;
             return bArr[i] & 255;
@@ -508,19 +508,19 @@ public class by {
         int eGL = eGL();
         if (eGL > 0) {
             try {
-                if (this.pZy == null) {
-                    this.pZy = this.qaQ.RK(255);
+                if (this.pZz == null) {
+                    this.pZz = this.qaR.RK(255);
                 }
                 int i = this.f13733a - this.f13734b;
                 if (i >= eGL) {
-                    System.arraycopy(this.qaM, this.f13734b, this.pZy, 0, eGL);
+                    System.arraycopy(this.qaN, this.f13734b, this.pZz, 0, eGL);
                     this.f13734b += eGL;
-                } else if (this.qaL.remaining() + i >= eGL) {
-                    System.arraycopy(this.qaM, this.f13734b, this.pZy, 0, i);
+                } else if (this.qaM.remaining() + i >= eGL) {
+                    System.arraycopy(this.qaN, this.f13734b, this.pZz, 0, i);
                     this.f13734b = this.f13733a;
                     eGz();
                     int i2 = eGL - i;
-                    System.arraycopy(this.qaM, 0, this.pZy, i, i2);
+                    System.arraycopy(this.qaN, 0, this.pZz, i, i2);
                     this.f13734b += i2;
                 } else {
                     this.c = 1;
@@ -533,7 +533,7 @@ public class by {
     }
 
     private Bitmap eHd() {
-        Bitmap j = this.qaQ.j(this.f, this.e, this.pZl ? Bitmap.Config.ARGB_8888 : Bitmap.Config.RGB_565);
+        Bitmap j = this.qaR.j(this.f, this.e, this.pZm ? Bitmap.Config.ARGB_8888 : Bitmap.Config.RGB_565);
         al(j);
         return j;
     }

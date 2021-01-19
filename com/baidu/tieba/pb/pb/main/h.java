@@ -63,7 +63,7 @@ public class h extends l<com.baidu.tbadk.core.data.o, PbBjhRecommendViewHolder> 
         pbBjhRecommendViewHolder.setBjhFrom(this.from);
         pbBjhRecommendViewHolder.uF(this.lFB);
         if (this.lFA != null) {
-            pbBjhRecommendViewHolder.Ox(this.lFA.getThreadId());
+            pbBjhRecommendViewHolder.Oy(this.lFA.getThreadId());
             pbBjhRecommendViewHolder.uG(this.lFA.djn());
             if (this.lFA.diN() != null && this.lFA.diN().getBaijiahaoData() != null) {
                 pbBjhRecommendViewHolder.setNid(this.lFA.diN().getBaijiahaoData().oriUgcNid);

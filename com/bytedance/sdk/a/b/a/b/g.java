@@ -20,34 +20,34 @@ public final class g {
     private boolean l;
     private boolean m;
     private boolean n;
-    private final m peg;
-    public final com.bytedance.sdk.a.b.a pep;
-    private f.a pet;
-    private com.bytedance.sdk.a.b.d peu;
-    public final h pev;
-    public final t pew;
-    private final f pex;
-    private c pey;
-    private com.bytedance.sdk.a.b.a.c.c pez;
+    private com.bytedance.sdk.a.b.a.c.c peA;
+    private final m peh;
+    public final com.bytedance.sdk.a.b.a peq;
+    private f.a peu;
+    private com.bytedance.sdk.a.b.d pev;
+    public final h pew;
+    public final t pex;
+    private final f pey;
+    private c pez;
 
     static {
         d = !g.class.desiredAssertionStatus();
     }
 
     public g(m mVar, com.bytedance.sdk.a.b.a aVar, h hVar, t tVar, Object obj) {
-        this.peg = mVar;
-        this.pep = aVar;
-        this.pev = hVar;
-        this.pew = tVar;
-        this.pex = new f(aVar, emK(), hVar, tVar);
+        this.peh = mVar;
+        this.peq = aVar;
+        this.pew = hVar;
+        this.pex = tVar;
+        this.pey = new f(aVar, emK(), hVar, tVar);
         this.h = obj;
     }
 
     public com.bytedance.sdk.a.b.a.c.c a(z zVar, x.a aVar, boolean z) {
         try {
             com.bytedance.sdk.a.b.a.c.c a2 = a(aVar.b(), aVar.c(), aVar.d(), zVar.r(), z).a(zVar, aVar, this);
-            synchronized (this.peg) {
-                this.pez = a2;
+            synchronized (this.peh) {
+                this.peA = a2;
             }
             return a2;
         } catch (IOException e) {
@@ -59,7 +59,7 @@ public final class g {
         c f;
         while (true) {
             f = f(i, i2, i3, z);
-            synchronized (this.peg) {
+            synchronized (this.peh) {
                 if (f.f5863b != 0) {
                     if (f.a(z2)) {
                         break;
@@ -80,64 +80,64 @@ public final class g {
         boolean z2 = false;
         c cVar3 = null;
         com.bytedance.sdk.a.b.d dVar = null;
-        synchronized (this.peg) {
+        synchronized (this.peh) {
             if (this.m) {
                 throw new IllegalStateException("released");
             }
-            if (this.pez != null) {
+            if (this.peA != null) {
                 throw new IllegalStateException("codec != null");
             }
             if (this.n) {
                 throw new IOException(ResponseException.CANCELED);
             }
-            cVar = this.pey;
+            cVar = this.pez;
             emI = emI();
-            if (this.pey != null) {
-                cVar3 = this.pey;
+            if (this.pez != null) {
+                cVar3 = this.pez;
                 cVar = null;
             }
             if (!this.l) {
                 cVar = null;
             }
             if (cVar3 == null) {
-                com.bytedance.sdk.a.b.a.a.pdM.a(this.peg, this.pep, this, null);
-                if (this.pey != null) {
+                com.bytedance.sdk.a.b.a.a.pdN.a(this.peh, this.peq, this, null);
+                if (this.pez != null) {
                     z2 = true;
-                    cVar3 = this.pey;
+                    cVar3 = this.pez;
                 } else {
-                    dVar = this.peu;
+                    dVar = this.pev;
                 }
             }
         }
         com.bytedance.sdk.a.b.a.c.a(emI);
         if (cVar != null) {
-            this.pew.b(this.pev, cVar);
+            this.pex.b(this.pew, cVar);
         }
         if (z2) {
-            this.pew.a(this.pev, cVar3);
+            this.pex.a(this.pew, cVar3);
         }
         if (cVar3 != null) {
             return cVar3;
         }
         boolean z3 = false;
-        if (dVar == null && (this.pet == null || !this.pet.a())) {
+        if (dVar == null && (this.peu == null || !this.peu.a())) {
             z3 = true;
-            this.pet = this.pex.emF();
+            this.peu = this.pey.emF();
         }
-        synchronized (this.peg) {
+        synchronized (this.peh) {
             if (this.n) {
                 throw new IOException(ResponseException.CANCELED);
             }
             if (z3) {
-                List<com.bytedance.sdk.a.b.d> c = this.pet.c();
+                List<com.bytedance.sdk.a.b.d> c = this.peu.c();
                 int size = c.size();
                 for (int i4 = 0; i4 < size; i4++) {
                     com.bytedance.sdk.a.b.d dVar2 = c.get(i4);
-                    com.bytedance.sdk.a.b.a.a.pdM.a(this.peg, this.pep, this, dVar2);
-                    if (this.pey != null) {
+                    com.bytedance.sdk.a.b.a.a.pdN.a(this.peh, this.peq, this, dVar2);
+                    if (this.pez != null) {
                         z2 = true;
-                        c cVar4 = this.pey;
-                        this.peu = dVar2;
+                        c cVar4 = this.pez;
+                        this.pev = dVar2;
                         cVar2 = cVar4;
                         break;
                     }
@@ -145,36 +145,36 @@ public final class g {
             }
             cVar2 = cVar3;
             if (!z2) {
-                com.bytedance.sdk.a.b.d emH = dVar == null ? this.pet.emH() : dVar;
-                this.peu = emH;
+                com.bytedance.sdk.a.b.d emH = dVar == null ? this.peu.emH() : dVar;
+                this.pev = emH;
                 this.j = 0;
-                cVar2 = new c(this.peg, emH);
+                cVar2 = new c(this.peh, emH);
                 a(cVar2, false);
             }
         }
         if (z2) {
-            this.pew.a(this.pev, cVar2);
+            this.pex.a(this.pew, cVar2);
             return cVar2;
         }
-        cVar2.a(i, i2, i3, z, this.pev, this.pew);
+        cVar2.a(i, i2, i3, z, this.pew, this.pex);
         emK().b(cVar2.emC());
         Socket socket = null;
-        synchronized (this.peg) {
+        synchronized (this.peh) {
             this.l = true;
-            com.bytedance.sdk.a.b.a.a.pdM.a(this.peg, cVar2);
+            com.bytedance.sdk.a.b.a.a.pdN.a(this.peh, cVar2);
             if (cVar2.d()) {
-                socket = com.bytedance.sdk.a.b.a.a.pdM.a(this.peg, this.pep, this);
-                cVar2 = this.pey;
+                socket = com.bytedance.sdk.a.b.a.a.pdN.a(this.peh, this.peq, this);
+                cVar2 = this.pez;
             }
         }
         com.bytedance.sdk.a.b.a.c.a(socket);
-        this.pew.a(this.pev, cVar2);
+        this.pex.a(this.pew, cVar2);
         return cVar2;
     }
 
     private Socket emI() {
-        if (d || Thread.holdsLock(this.peg)) {
-            c cVar = this.pey;
+        if (d || Thread.holdsLock(this.peh)) {
+            c cVar = this.pez;
             if (cVar == null || !cVar.f5862a) {
                 return null;
             }
@@ -187,108 +187,108 @@ public final class g {
         c cVar2;
         Socket n;
         boolean z2;
-        this.pew.b(this.pev, j);
-        synchronized (this.peg) {
+        this.pex.b(this.pew, j);
+        synchronized (this.peh) {
             if (cVar != null) {
-                if (cVar == this.pez) {
+                if (cVar == this.peA) {
                     if (!z) {
-                        this.pey.f5863b++;
+                        this.pez.f5863b++;
                     }
-                    cVar2 = this.pey;
+                    cVar2 = this.pez;
                     n = n(z, false, true);
-                    if (this.pey != null) {
+                    if (this.pez != null) {
                         cVar2 = null;
                     }
                     z2 = this.m;
                 }
             }
-            throw new IllegalStateException("expected " + this.pez + " but was " + cVar);
+            throw new IllegalStateException("expected " + this.peA + " but was " + cVar);
         }
         com.bytedance.sdk.a.b.a.c.a(n);
         if (cVar2 != null) {
-            this.pew.b(this.pev, cVar2);
+            this.pex.b(this.pew, cVar2);
         }
         if (iOException != null) {
-            this.pew.a(this.pev, iOException);
+            this.pex.a(this.pew, iOException);
         } else if (z2) {
-            this.pew.g(this.pev);
+            this.pex.g(this.pew);
         }
     }
 
     public com.bytedance.sdk.a.b.a.c.c emJ() {
         com.bytedance.sdk.a.b.a.c.c cVar;
-        synchronized (this.peg) {
-            cVar = this.pez;
+        synchronized (this.peh) {
+            cVar = this.peA;
         }
         return cVar;
     }
 
     private d emK() {
-        return com.bytedance.sdk.a.b.a.a.pdM.a(this.peg);
+        return com.bytedance.sdk.a.b.a.a.pdN.a(this.peh);
     }
 
     public synchronized c emL() {
-        return this.pey;
+        return this.pez;
     }
 
     public void c() {
         c cVar;
         Socket n;
-        synchronized (this.peg) {
-            cVar = this.pey;
+        synchronized (this.peh) {
+            cVar = this.pez;
             n = n(false, true, false);
-            if (this.pey != null) {
+            if (this.pez != null) {
                 cVar = null;
             }
         }
         com.bytedance.sdk.a.b.a.c.a(n);
         if (cVar != null) {
-            this.pew.b(this.pev, cVar);
+            this.pex.b(this.pew, cVar);
         }
     }
 
     public void d() {
         c cVar;
         Socket n;
-        synchronized (this.peg) {
-            cVar = this.pey;
+        synchronized (this.peh) {
+            cVar = this.pez;
             n = n(true, false, false);
-            if (this.pey != null) {
+            if (this.pez != null) {
                 cVar = null;
             }
         }
         com.bytedance.sdk.a.b.a.c.a(n);
         if (cVar != null) {
-            this.pew.b(this.pev, cVar);
+            this.pex.b(this.pew, cVar);
         }
     }
 
     private Socket n(boolean z, boolean z2, boolean z3) {
         Socket socket;
-        if (d || Thread.holdsLock(this.peg)) {
+        if (d || Thread.holdsLock(this.peh)) {
             if (z3) {
-                this.pez = null;
+                this.peA = null;
             }
             if (z2) {
                 this.m = true;
             }
-            if (this.pey != null) {
+            if (this.pez != null) {
                 if (z) {
-                    this.pey.f5862a = true;
+                    this.pez.f5862a = true;
                 }
-                if (this.pez == null) {
-                    if (this.m || this.pey.f5862a) {
-                        a(this.pey);
-                        if (this.pey.d.isEmpty()) {
-                            this.pey.e = System.nanoTime();
-                            if (com.bytedance.sdk.a.b.a.a.pdM.b(this.peg, this.pey)) {
-                                socket = this.pey.emD();
-                                this.pey = null;
+                if (this.peA == null) {
+                    if (this.m || this.pez.f5862a) {
+                        a(this.pez);
+                        if (this.pez.d.isEmpty()) {
+                            this.pez.e = System.nanoTime();
+                            if (com.bytedance.sdk.a.b.a.a.pdN.b(this.peh, this.pez)) {
+                                socket = this.pez.emD();
+                                this.pez = null;
                                 return socket;
                             }
                         }
                         socket = null;
-                        this.pey = null;
+                        this.pez = null;
                         return socket;
                     }
                     return null;
@@ -305,45 +305,45 @@ public final class g {
         Socket n;
         boolean z = false;
         boolean z2 = true;
-        synchronized (this.peg) {
+        synchronized (this.peh) {
             if (iOException instanceof o) {
                 o oVar = (o) iOException;
                 if (oVar.f5926a == com.bytedance.sdk.a.b.a.e.b.REFUSED_STREAM) {
                     this.j++;
                 }
                 if (oVar.f5926a != com.bytedance.sdk.a.b.a.e.b.REFUSED_STREAM || this.j > 1) {
-                    this.peu = null;
+                    this.pev = null;
                     z = true;
                 }
                 z2 = z;
-            } else if (this.pey == null || (this.pey.d() && !(iOException instanceof com.bytedance.sdk.a.b.a.e.a))) {
+            } else if (this.pez == null || (this.pez.d() && !(iOException instanceof com.bytedance.sdk.a.b.a.e.a))) {
                 z2 = false;
-            } else if (this.pey.f5863b == 0) {
-                if (this.peu != null && iOException != null) {
-                    this.pex.a(this.peu, iOException);
+            } else if (this.pez.f5863b == 0) {
+                if (this.pev != null && iOException != null) {
+                    this.pey.a(this.pev, iOException);
                 }
-                this.peu = null;
+                this.pev = null;
             }
-            cVar = this.pey;
+            cVar = this.pez;
             n = n(z2, false, true);
-            if (this.pey != null || !this.l) {
+            if (this.pez != null || !this.l) {
                 cVar = null;
             }
         }
         com.bytedance.sdk.a.b.a.c.a(n);
         if (cVar != null) {
-            this.pew.b(this.pev, cVar);
+            this.pex.b(this.pew, cVar);
         }
     }
 
     public void a(c cVar, boolean z) {
-        if (!d && !Thread.holdsLock(this.peg)) {
+        if (!d && !Thread.holdsLock(this.peh)) {
             throw new AssertionError();
         }
-        if (this.pey != null) {
+        if (this.pez != null) {
             throw new IllegalStateException();
         }
-        this.pey = cVar;
+        this.pez = cVar;
         this.l = z;
         cVar.d.add(new a(this, this.h));
     }
@@ -360,11 +360,11 @@ public final class g {
     }
 
     public Socket b(c cVar) {
-        if (d || Thread.holdsLock(this.peg)) {
-            if (this.pez == null && this.pey.d.size() == 1) {
+        if (d || Thread.holdsLock(this.peh)) {
+            if (this.peA == null && this.pez.d.size() == 1) {
                 Socket n = n(true, false, false);
-                this.pey = cVar;
-                cVar.d.add(this.pey.d.get(0));
+                this.pez = cVar;
+                cVar.d.add(this.pez.d.get(0));
                 return n;
             }
             throw new IllegalStateException();
@@ -373,12 +373,12 @@ public final class g {
     }
 
     public boolean e() {
-        return this.peu != null || (this.pet != null && this.pet.a()) || this.pex.a();
+        return this.pev != null || (this.peu != null && this.peu.a()) || this.pey.a();
     }
 
     public String toString() {
         c emL = emL();
-        return emL != null ? emL.toString() : this.pep.toString();
+        return emL != null ? emL.toString() : this.peq.toString();
     }
 
     /* loaded from: classes4.dex */

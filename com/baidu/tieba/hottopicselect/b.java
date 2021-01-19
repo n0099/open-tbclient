@@ -47,7 +47,7 @@ public class b extends BaseAdapter {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: Co */
+    /* renamed from: Cn */
     public d getItem(int i) {
         return this.mList.get(i);
     }

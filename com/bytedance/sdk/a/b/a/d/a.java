@@ -27,15 +27,15 @@ public final class a implements com.bytedance.sdk.a.b.a.c.c {
     final z f5886a;
     int e = 0;
     private long f = PlaybackStateCompat.ACTION_SET_REPEAT_MODE;
-    final com.bytedance.sdk.a.a.d pdP;
-    final g peR;
-    final com.bytedance.sdk.a.a.e peX;
+    final com.bytedance.sdk.a.a.d pdQ;
+    final g peS;
+    final com.bytedance.sdk.a.a.e peY;
 
     public a(z zVar, g gVar, com.bytedance.sdk.a.a.e eVar, com.bytedance.sdk.a.a.d dVar) {
         this.f5886a = zVar;
-        this.peR = gVar;
-        this.peX = eVar;
-        this.pdP = dVar;
+        this.peS = gVar;
+        this.peY = eVar;
+        this.pdQ = dVar;
     }
 
     @Override // com.bytedance.sdk.a.b.a.c.c
@@ -51,12 +51,12 @@ public final class a implements com.bytedance.sdk.a.b.a.c.c {
 
     @Override // com.bytedance.sdk.a.b.a.c.c
     public void d(ab abVar) throws IOException {
-        a(abVar.emV(), i.a(abVar, this.peR.emL().emC().ent().type()));
+        a(abVar.emV(), i.a(abVar, this.peS.emL().emC().ent().type()));
     }
 
     @Override // com.bytedance.sdk.a.b.a.c.c
     public com.bytedance.sdk.a.b.c c(com.bytedance.sdk.a.b.b bVar) throws IOException {
-        this.peR.pew.f(this.peR.pev);
+        this.peS.pex.f(this.peS.pew);
         String a2 = bVar.a("Content-Type");
         if (!com.bytedance.sdk.a.b.a.c.e.e(bVar)) {
             return new h(a2, 0L, l.c(io(0L)));
@@ -73,24 +73,24 @@ public final class a implements com.bytedance.sdk.a.b.a.c.c {
 
     @Override // com.bytedance.sdk.a.b.a.c.c
     public void a() throws IOException {
-        this.pdP.flush();
+        this.pdQ.flush();
     }
 
     @Override // com.bytedance.sdk.a.b.a.c.c
     public void b() throws IOException {
-        this.pdP.flush();
+        this.pdQ.flush();
     }
 
     public void a(v vVar, String str) throws IOException {
         if (this.e != 0) {
             throw new IllegalStateException("state: " + this.e);
         }
-        this.pdP.Xy(str).Xy("\r\n");
+        this.pdQ.Xz(str).Xz("\r\n");
         int a2 = vVar.a();
         for (int i = 0; i < a2; i++) {
-            this.pdP.Xy(vVar.a(i)).Xy(": ").Xy(vVar.b(i)).Xy("\r\n");
+            this.pdQ.Xz(vVar.a(i)).Xz(": ").Xz(vVar.b(i)).Xz("\r\n");
         }
-        this.pdP.Xy("\r\n");
+        this.pdQ.Xz("\r\n");
         this.e = 1;
     }
 
@@ -100,22 +100,22 @@ public final class a implements com.bytedance.sdk.a.b.a.c.c {
             throw new IllegalStateException("state: " + this.e);
         }
         try {
-            k Xz = k.Xz(f());
-            b.a c2 = new b.a().a(Xz.f5884a).Ok(Xz.f5885b).XA(Xz.c).c(emV());
-            if (z && Xz.f5885b == 100) {
+            k XA = k.XA(f());
+            b.a c2 = new b.a().a(XA.f5884a).Ok(XA.f5885b).XB(XA.c).c(emV());
+            if (z && XA.f5885b == 100) {
                 return null;
             }
             this.e = 4;
             return c2;
         } catch (EOFException e2) {
-            IOException iOException = new IOException("unexpected end of stream on " + this.peR);
+            IOException iOException = new IOException("unexpected end of stream on " + this.peS);
             iOException.initCause(e2);
             throw iOException;
         }
     }
 
     private String f() throws IOException {
-        String e2 = this.peX.e(this.f);
+        String e2 = this.peY.e(this.f);
         this.f -= e2.length();
         return e2;
     }
@@ -125,7 +125,7 @@ public final class a implements com.bytedance.sdk.a.b.a.c.c {
         while (true) {
             String f2 = f();
             if (f2.length() != 0) {
-                com.bytedance.sdk.a.b.a.a.pdM.a(aVar, f2);
+                com.bytedance.sdk.a.b.a.a.pdN.a(aVar, f2);
             } else {
                 return aVar.enC();
             }
@@ -168,17 +168,17 @@ public final class a implements com.bytedance.sdk.a.b.a.c.c {
         if (this.e != 4) {
             throw new IllegalStateException("state: " + this.e);
         }
-        if (this.peR == null) {
+        if (this.peS == null) {
             throw new IllegalStateException("streamAllocation == null");
         }
         this.e = 5;
-        this.peR.d();
+        this.peS.d();
         return new f();
     }
 
     void a(com.bytedance.sdk.a.a.i iVar) {
         t elW = iVar.elW();
-        iVar.a(t.pdC);
+        iVar.a(t.pdD);
         elW.eml();
         elW.emk();
     }
@@ -188,16 +188,16 @@ public final class a implements com.bytedance.sdk.a.b.a.c.c {
     public final class d implements r {
         private boolean c;
         private long d;
-        private final com.bytedance.sdk.a.a.i pfb;
+        private final com.bytedance.sdk.a.a.i pfc;
 
         d(long j) {
-            this.pfb = new com.bytedance.sdk.a.a.i(a.this.pdP.elW());
+            this.pfc = new com.bytedance.sdk.a.a.i(a.this.pdQ.elW());
             this.d = j;
         }
 
         @Override // com.bytedance.sdk.a.a.r
         public t elW() {
-            return this.pfb;
+            return this.pfc;
         }
 
         @Override // com.bytedance.sdk.a.a.r
@@ -209,14 +209,14 @@ public final class a implements com.bytedance.sdk.a.b.a.c.c {
             if (j > this.d) {
                 throw new ProtocolException("expected " + this.d + " bytes but received " + j);
             }
-            a.this.pdP.a(cVar, j);
+            a.this.pdQ.a(cVar, j);
             this.d -= j;
         }
 
         @Override // com.bytedance.sdk.a.a.r, java.io.Flushable
         public void flush() throws IOException {
             if (!this.c) {
-                a.this.pdP.flush();
+                a.this.pdQ.flush();
             }
         }
 
@@ -227,7 +227,7 @@ public final class a implements com.bytedance.sdk.a.b.a.c.c {
                 if (this.d > 0) {
                     throw new ProtocolException("unexpected end of stream");
                 }
-                a.this.a(this.pfb);
+                a.this.a(this.pfc);
                 a.this.e = 3;
             }
         }
@@ -237,15 +237,15 @@ public final class a implements com.bytedance.sdk.a.b.a.c.c {
     /* loaded from: classes4.dex */
     public final class b implements r {
         private boolean c;
-        private final com.bytedance.sdk.a.a.i pfb;
+        private final com.bytedance.sdk.a.a.i pfc;
 
         b() {
-            this.pfb = new com.bytedance.sdk.a.a.i(a.this.pdP.elW());
+            this.pfc = new com.bytedance.sdk.a.a.i(a.this.pdQ.elW());
         }
 
         @Override // com.bytedance.sdk.a.a.r
         public t elW() {
-            return this.pfb;
+            return this.pfc;
         }
 
         @Override // com.bytedance.sdk.a.a.r
@@ -254,17 +254,17 @@ public final class a implements com.bytedance.sdk.a.b.a.c.c {
                 throw new IllegalStateException(LogConfig.TYPE_CLOSED);
             }
             if (j != 0) {
-                a.this.pdP.ik(j);
-                a.this.pdP.Xy("\r\n");
-                a.this.pdP.a(cVar, j);
-                a.this.pdP.Xy("\r\n");
+                a.this.pdQ.ik(j);
+                a.this.pdQ.Xz("\r\n");
+                a.this.pdQ.a(cVar, j);
+                a.this.pdQ.Xz("\r\n");
             }
         }
 
         @Override // com.bytedance.sdk.a.a.r, java.io.Flushable
         public synchronized void flush() throws IOException {
             if (!this.c) {
-                a.this.pdP.flush();
+                a.this.pdQ.flush();
             }
         }
 
@@ -272,8 +272,8 @@ public final class a implements com.bytedance.sdk.a.b.a.c.c {
         public synchronized void close() throws IOException {
             if (!this.c) {
                 this.c = true;
-                a.this.pdP.Xy("0\r\n\r\n");
-                a.this.a(this.pfb);
+                a.this.pdQ.Xz("0\r\n\r\n");
+                a.this.a(this.pfc);
                 a.this.e = 3;
             }
         }
@@ -287,22 +287,22 @@ public final class a implements com.bytedance.sdk.a.b.a.c.c {
         /* renamed from: b  reason: collision with root package name */
         protected boolean f5887b;
         protected long c;
-        protected final com.bytedance.sdk.a.a.i peZ;
+        protected final com.bytedance.sdk.a.a.i pfa;
 
         private AbstractC0989a() {
-            this.peZ = new com.bytedance.sdk.a.a.i(a.this.peX.elW());
+            this.pfa = new com.bytedance.sdk.a.a.i(a.this.peY.elW());
             this.c = 0L;
         }
 
         @Override // com.bytedance.sdk.a.a.s
         public t elW() {
-            return this.peZ;
+            return this.pfa;
         }
 
         @Override // com.bytedance.sdk.a.a.s
         public long b(com.bytedance.sdk.a.a.c cVar, long j) throws IOException {
             try {
-                long b2 = a.this.peX.b(cVar, j);
+                long b2 = a.this.peY.b(cVar, j);
                 if (b2 > 0) {
                     this.c += b2;
                 }
@@ -318,10 +318,10 @@ public final class a implements com.bytedance.sdk.a.b.a.c.c {
                 if (a.this.e != 5) {
                     throw new IllegalStateException("state: " + a.this.e);
                 }
-                a.this.a(this.peZ);
+                a.this.a(this.pfa);
                 a.this.e = 6;
-                if (a.this.peR != null) {
-                    a.this.peR.a(!z, a.this, this.c, iOException);
+                if (a.this.peS != null) {
+                    a.this.peS.a(!z, a.this, this.c, iOException);
                 }
             }
         }
@@ -380,13 +380,13 @@ public final class a implements com.bytedance.sdk.a.b.a.c.c {
     public class c extends AbstractC0989a {
         private long g;
         private boolean h;
-        private final com.bytedance.sdk.a.b.s pfd;
+        private final com.bytedance.sdk.a.b.s pfe;
 
         c(com.bytedance.sdk.a.b.s sVar) {
             super();
             this.g = -1L;
             this.h = true;
-            this.pfd = sVar;
+            this.pfe = sVar;
         }
 
         @Override // com.bytedance.sdk.a.b.a.d.a.AbstractC0989a, com.bytedance.sdk.a.a.s
@@ -418,16 +418,16 @@ public final class a implements com.bytedance.sdk.a.b.a.c.c {
 
         private void b() throws IOException {
             if (this.g != -1) {
-                a.this.peX.p();
+                a.this.peY.p();
             }
             try {
-                this.g = a.this.peX.m();
-                String trim = a.this.peX.p().trim();
+                this.g = a.this.peY.m();
+                String trim = a.this.peY.p().trim();
                 if (this.g < 0 || (!trim.isEmpty() && !trim.startsWith(ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR))) {
                     throw new ProtocolException("expected chunk size and optional extensions but was \"" + this.g + trim + "\"");
                 } else if (this.g == 0) {
                     this.h = false;
-                    com.bytedance.sdk.a.b.a.c.e.a(a.this.f5886a.enL(), this.pfd, a.this.emV());
+                    com.bytedance.sdk.a.b.a.c.e.a(a.this.f5886a.enL(), this.pfe, a.this.emV());
                     a(true, null);
                 }
             } catch (NumberFormatException e) {

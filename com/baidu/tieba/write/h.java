@@ -8,11 +8,11 @@ public abstract class h {
     protected View eXk;
     protected View mAnchorView;
     protected Context mContext;
-    protected com.baidu.tieba.write.a nSX;
-    protected a nTc;
+    protected com.baidu.tieba.write.a nSY;
+    protected a nTd;
     protected int mState = 4;
-    protected Rect nTh = new Rect();
     protected Rect nTi = new Rect();
+    protected Rect nTj = new Rect();
 
     /* loaded from: classes.dex */
     public interface a {
@@ -29,18 +29,18 @@ public abstract class h {
 
     public h(Context context, com.baidu.tieba.write.a aVar) {
         this.mContext = context;
-        this.nSX = aVar;
+        this.nSY = aVar;
     }
 
     public void a(a aVar) {
-        this.nTc = aVar;
+        this.nTd = aVar;
     }
 
     public void d(View view, View view2) {
         this.mAnchorView = view;
         this.eXk = view2;
         if (this.eXk != null) {
-            this.eXk.getGlobalVisibleRect(this.nTh);
+            this.eXk.getGlobalVisibleRect(this.nTi);
         }
     }
 

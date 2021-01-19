@@ -4,20 +4,20 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class f {
-    private static volatile f pQY;
+    private static volatile f pQZ;
 
     private f() {
     }
 
     public static f eCe() {
-        if (pQY == null) {
+        if (pQZ == null) {
             synchronized (c.class) {
-                if (pQY == null) {
-                    pQY = new f();
+                if (pQZ == null) {
+                    pQZ = new f();
                 }
             }
         }
-        return pQY;
+        return pQZ;
     }
 
     public void a(int i, int i2, com.ss.android.b.a.b.a aVar) {

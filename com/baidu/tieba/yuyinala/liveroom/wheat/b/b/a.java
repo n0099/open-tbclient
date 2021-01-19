@@ -10,7 +10,7 @@ public class a extends com.baidu.tieba.yuyinala.liveroom.wheat.b.a {
     }
 
     @Override // com.baidu.tieba.yuyinala.liveroom.wheat.b.a
-    public void Ve(String str) {
+    public void Vf(String str) {
         if (o.ebo().eaE()) {
             eaN();
         } else if (o.ebo().ebs()) {
@@ -23,7 +23,7 @@ public class a extends com.baidu.tieba.yuyinala.liveroom.wheat.b.a {
     }
 
     @Override // com.baidu.tieba.yuyinala.liveroom.wheat.b.a
-    public void Vf(String str) {
+    public void Vg(String str) {
         if (eaH()) {
             eaO();
         } else if (eaI()) {
@@ -40,7 +40,7 @@ public class a extends com.baidu.tieba.yuyinala.liveroom.wheat.b.a {
                 eaN();
             } else if (o.ebo().id(str)) {
                 eaN();
-            } else if (o.ebo().Vr(str)) {
+            } else if (o.ebo().Vs(str)) {
                 eaP();
             } else {
                 eaM();

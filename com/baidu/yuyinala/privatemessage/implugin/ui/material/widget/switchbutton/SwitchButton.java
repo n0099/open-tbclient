@@ -25,7 +25,7 @@ import com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.switchbutto
 import com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.switchbutton.b;
 /* loaded from: classes10.dex */
 public class SwitchButton extends CompoundButton {
-    private static boolean oWm = false;
+    private static boolean oWn = false;
     private float bIH;
     private float duh;
     private boolean isAnimating;
@@ -34,33 +34,33 @@ public class SwitchButton extends CompoundButton {
     private float mLastX;
     private Paint mRectPaint;
     private int mTouchSlop;
-    private b oWn;
-    private Rect oWo;
+    private b oWo;
     private Rect oWp;
     private Rect oWq;
-    private RectF oWr;
-    private com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.switchbutton.a oWs;
-    private a oWt;
-    private float oWu;
-    private int oWv;
-    private CompoundButton.OnCheckedChangeListener oWw;
+    private Rect oWr;
+    private RectF oWs;
+    private com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.switchbutton.a oWt;
+    private a oWu;
+    private float oWv;
+    private int oWw;
+    private CompoundButton.OnCheckedChangeListener oWx;
 
     @SuppressLint({"NewApi"})
     public SwitchButton(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         this.mIsChecked = false;
-        this.oWt = new a();
+        this.oWu = new a();
         this.isAnimating = false;
         this.mBounds = null;
         initView();
         TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, a.j.SwitchButton);
-        this.oWn.Nx(obtainStyledAttributes.getDimensionPixelSize(a.j.SwitchButton_kswThumb_margin, this.oWn.ejx()));
-        this.oWn.P(obtainStyledAttributes.getDimensionPixelSize(a.j.SwitchButton_kswThumb_marginTop, this.oWn.ejy()), obtainStyledAttributes.getDimensionPixelSize(a.j.SwitchButton_kswThumb_marginBottom, this.oWn.ejz()), obtainStyledAttributes.getDimensionPixelSize(a.j.SwitchButton_kswThumb_marginLeft, this.oWn.ejA()), obtainStyledAttributes.getDimensionPixelSize(a.j.SwitchButton_kswThumb_marginRight, this.oWn.ejB()));
-        this.oWn.setRadius(obtainStyledAttributes.getInt(a.j.SwitchButton_kswRadius, b.a.DEFAULT_RADIUS));
-        this.oWn.dT(obtainStyledAttributes.getDimensionPixelSize(a.j.SwitchButton_kswThumb_width, -1), obtainStyledAttributes.getDimensionPixelSize(a.j.SwitchButton_kswThumb_height, -1));
-        this.oWn.bz(obtainStyledAttributes.getFloat(a.j.SwitchButton_kswMeasureFactor, -1.0f));
-        this.oWn.Q(obtainStyledAttributes.getDimensionPixelSize(a.j.SwitchButton_kswInsetLeft, 0), obtainStyledAttributes.getDimensionPixelSize(a.j.SwitchButton_kswInsetTop, 0), obtainStyledAttributes.getDimensionPixelSize(a.j.SwitchButton_kswInsetRight, 0), obtainStyledAttributes.getDimensionPixelSize(a.j.SwitchButton_kswInsetBottom, 0));
-        this.oWs.Nw(obtainStyledAttributes.getInteger(a.j.SwitchButton_kswAnimationVelocity, -1));
+        this.oWo.Nx(obtainStyledAttributes.getDimensionPixelSize(a.j.SwitchButton_kswThumb_margin, this.oWo.ejx()));
+        this.oWo.P(obtainStyledAttributes.getDimensionPixelSize(a.j.SwitchButton_kswThumb_marginTop, this.oWo.ejy()), obtainStyledAttributes.getDimensionPixelSize(a.j.SwitchButton_kswThumb_marginBottom, this.oWo.ejz()), obtainStyledAttributes.getDimensionPixelSize(a.j.SwitchButton_kswThumb_marginLeft, this.oWo.ejA()), obtainStyledAttributes.getDimensionPixelSize(a.j.SwitchButton_kswThumb_marginRight, this.oWo.ejB()));
+        this.oWo.setRadius(obtainStyledAttributes.getInt(a.j.SwitchButton_kswRadius, b.a.DEFAULT_RADIUS));
+        this.oWo.dT(obtainStyledAttributes.getDimensionPixelSize(a.j.SwitchButton_kswThumb_width, -1), obtainStyledAttributes.getDimensionPixelSize(a.j.SwitchButton_kswThumb_height, -1));
+        this.oWo.bz(obtainStyledAttributes.getFloat(a.j.SwitchButton_kswMeasureFactor, -1.0f));
+        this.oWo.Q(obtainStyledAttributes.getDimensionPixelSize(a.j.SwitchButton_kswInsetLeft, 0), obtainStyledAttributes.getDimensionPixelSize(a.j.SwitchButton_kswInsetTop, 0), obtainStyledAttributes.getDimensionPixelSize(a.j.SwitchButton_kswInsetRight, 0), obtainStyledAttributes.getDimensionPixelSize(a.j.SwitchButton_kswInsetBottom, 0));
+        this.oWt.Nw(obtainStyledAttributes.getInteger(a.j.SwitchButton_kswAnimationVelocity, -1));
         c(obtainStyledAttributes);
         obtainStyledAttributes.recycle();
         if (Build.VERSION.SDK_INT >= 11) {
@@ -77,22 +77,22 @@ public class SwitchButton extends CompoundButton {
     }
 
     private void initView() {
-        this.oWn = b.by(getContext().getResources().getDisplayMetrics().density);
+        this.oWo = b.by(getContext().getResources().getDisplayMetrics().density);
         this.mTouchSlop = ViewConfiguration.get(getContext()).getScaledTouchSlop();
-        this.oWv = ViewConfiguration.getPressedStateDuration() + ViewConfiguration.getTapTimeout();
-        this.oWs = com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.switchbutton.a.ejq().a(this.oWt);
+        this.oWw = ViewConfiguration.getPressedStateDuration() + ViewConfiguration.getTapTimeout();
+        this.oWt = com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.switchbutton.a.ejq().a(this.oWu);
         this.mBounds = new Rect();
-        if (oWm) {
+        if (oWn) {
             this.mRectPaint = new Paint();
             this.mRectPaint.setStyle(Paint.Style.STROKE);
         }
     }
 
     private void c(TypedArray typedArray) {
-        if (this.oWn != null) {
-            this.oWn.r(a(typedArray, a.j.SwitchButton_kswOffDrawable, a.j.SwitchButton_kswOffColor, b.a.oWe));
-            this.oWn.s(a(typedArray, a.j.SwitchButton_kswOnDrawable, a.j.SwitchButton_kswOnColor, b.a.oWf));
-            this.oWn.setThumbDrawable(d(typedArray));
+        if (this.oWo != null) {
+            this.oWo.r(a(typedArray, a.j.SwitchButton_kswOffDrawable, a.j.SwitchButton_kswOffColor, b.a.oWf));
+            this.oWo.s(a(typedArray, a.j.SwitchButton_kswOnDrawable, a.j.SwitchButton_kswOnColor, b.a.oWg));
+            this.oWo.setThumbDrawable(d(typedArray));
         }
     }
 
@@ -101,7 +101,7 @@ public class SwitchButton extends CompoundButton {
         if (drawable == null) {
             int color = typedArray.getColor(i2, i3);
             GradientDrawable gradientDrawable = new GradientDrawable();
-            gradientDrawable.setCornerRadius(this.oWn.getRadius());
+            gradientDrawable.setCornerRadius(this.oWo.getRadius());
             gradientDrawable.setColor(color);
             return gradientDrawable;
         }
@@ -111,14 +111,14 @@ public class SwitchButton extends CompoundButton {
     private Drawable d(TypedArray typedArray) {
         Drawable drawable = typedArray.getDrawable(a.j.SwitchButton_kswThumbDrawable);
         if (drawable == null) {
-            int color = typedArray.getColor(a.j.SwitchButton_kswThumbColor, b.a.oWg);
-            int color2 = typedArray.getColor(a.j.SwitchButton_kswThumbPressedColor, b.a.oWh);
+            int color = typedArray.getColor(a.j.SwitchButton_kswThumbColor, b.a.oWh);
+            int color2 = typedArray.getColor(a.j.SwitchButton_kswThumbPressedColor, b.a.oWi);
             StateListDrawable stateListDrawable = new StateListDrawable();
             GradientDrawable gradientDrawable = new GradientDrawable();
-            gradientDrawable.setCornerRadius(this.oWn.getRadius());
+            gradientDrawable.setCornerRadius(this.oWo.getRadius());
             gradientDrawable.setColor(color);
             GradientDrawable gradientDrawable2 = new GradientDrawable();
-            gradientDrawable2.setCornerRadius(this.oWn.getRadius());
+            gradientDrawable2.setCornerRadius(this.oWo.getRadius());
             gradientDrawable2.setColor(color2);
             stateListDrawable.addState(View.PRESSED_ENABLED_STATE_SET, gradientDrawable2);
             stateListDrawable.addState(new int[0], gradientDrawable);
@@ -128,21 +128,21 @@ public class SwitchButton extends CompoundButton {
     }
 
     public b getConfiguration() {
-        return this.oWn;
+        return this.oWo;
     }
 
     public void setConfiguration(b bVar) {
-        if (this.oWn == null) {
-            this.oWn = b.by(bVar.getDensity());
+        if (this.oWo == null) {
+            this.oWo = b.by(bVar.getDensity());
         }
-        this.oWn.r(bVar.ejD());
-        this.oWn.s(bVar.ejE());
-        this.oWn.setThumbDrawable(bVar.ejF());
-        this.oWn.P(bVar.ejy(), bVar.ejz(), bVar.ejA(), bVar.ejB());
-        this.oWn.dT(bVar.ejN(), bVar.ejO());
-        this.oWn.Nw(bVar.ejC());
-        this.oWn.bz(bVar.ejG());
-        this.oWs.Nw(this.oWn.ejC());
+        this.oWo.r(bVar.ejD());
+        this.oWo.s(bVar.ejE());
+        this.oWo.setThumbDrawable(bVar.ejF());
+        this.oWo.P(bVar.ejy(), bVar.ejz(), bVar.ejA(), bVar.ejB());
+        this.oWo.dT(bVar.ejN(), bVar.ejO());
+        this.oWo.Nw(bVar.ejC());
+        this.oWo.bz(bVar.ejG());
+        this.oWt.Nw(this.oWo.ejC());
         requestLayout();
         setup();
         setChecked(this.mIsChecked);
@@ -165,7 +165,7 @@ public class SwitchButton extends CompoundButton {
         ejR();
         ejS();
         if (getMeasuredWidth() > 0 && getMeasuredHeight() > 0) {
-            this.oWr = new RectF(0.0f, 0.0f, getMeasuredWidth(), getMeasuredHeight());
+            this.oWs = new RectF(0.0f, 0.0f, getMeasuredWidth(), getMeasuredHeight());
         }
         ViewGroup viewGroup = (ViewGroup) getParent();
         if (viewGroup != null) {
@@ -177,63 +177,63 @@ public class SwitchButton extends CompoundButton {
         int measuredWidth = getMeasuredWidth();
         int measuredHeight = getMeasuredHeight();
         if (measuredWidth > 0 && measuredHeight > 0) {
-            if (this.oWo == null) {
-                this.oWo = new Rect();
+            if (this.oWp == null) {
+                this.oWp = new Rect();
             }
-            int paddingLeft = getPaddingLeft() + (this.oWn.ejA() > 0 ? this.oWn.ejA() : 0);
-            int paddingRight = (-this.oWn.ejK()) + ((measuredWidth - getPaddingRight()) - (this.oWn.ejB() > 0 ? this.oWn.ejB() : 0));
-            this.oWo.set(paddingLeft, (this.oWn.ejy() > 0 ? this.oWn.ejy() : 0) + getPaddingTop(), paddingRight, ((measuredHeight - getPaddingBottom()) - (this.oWn.ejz() > 0 ? this.oWn.ejz() : 0)) + (-this.oWn.ejL()));
-            this.oWu = this.oWo.left + (((this.oWo.right - this.oWo.left) - this.oWn.ejN()) / 2);
+            int paddingLeft = getPaddingLeft() + (this.oWo.ejA() > 0 ? this.oWo.ejA() : 0);
+            int paddingRight = (-this.oWo.ejK()) + ((measuredWidth - getPaddingRight()) - (this.oWo.ejB() > 0 ? this.oWo.ejB() : 0));
+            this.oWp.set(paddingLeft, (this.oWo.ejy() > 0 ? this.oWo.ejy() : 0) + getPaddingTop(), paddingRight, ((measuredHeight - getPaddingBottom()) - (this.oWo.ejz() > 0 ? this.oWo.ejz() : 0)) + (-this.oWo.ejL()));
+            this.oWv = this.oWp.left + (((this.oWp.right - this.oWp.left) - this.oWo.ejN()) / 2);
             return;
         }
-        this.oWo = null;
+        this.oWp = null;
     }
 
     private void ejQ() {
         int measuredWidth = getMeasuredWidth();
         int measuredHeight = getMeasuredHeight();
         if (measuredWidth > 0 && measuredHeight > 0) {
-            if (this.oWp == null) {
-                this.oWp = new Rect();
+            if (this.oWq == null) {
+                this.oWq = new Rect();
             }
-            int paddingLeft = getPaddingLeft() + (this.oWn.ejA() > 0 ? 0 : -this.oWn.ejA());
-            int paddingRight = (-this.oWn.ejK()) + ((measuredWidth - getPaddingRight()) - (this.oWn.ejB() > 0 ? 0 : -this.oWn.ejB()));
-            this.oWp.set(paddingLeft, (this.oWn.ejy() > 0 ? 0 : -this.oWn.ejy()) + getPaddingTop(), paddingRight, ((measuredHeight - getPaddingBottom()) - (this.oWn.ejz() <= 0 ? -this.oWn.ejz() : 0)) + (-this.oWn.ejL()));
+            int paddingLeft = getPaddingLeft() + (this.oWo.ejA() > 0 ? 0 : -this.oWo.ejA());
+            int paddingRight = (-this.oWo.ejK()) + ((measuredWidth - getPaddingRight()) - (this.oWo.ejB() > 0 ? 0 : -this.oWo.ejB()));
+            this.oWq.set(paddingLeft, (this.oWo.ejy() > 0 ? 0 : -this.oWo.ejy()) + getPaddingTop(), paddingRight, ((measuredHeight - getPaddingBottom()) - (this.oWo.ejz() <= 0 ? -this.oWo.ejz() : 0)) + (-this.oWo.ejL()));
             return;
         }
-        this.oWp = null;
+        this.oWq = null;
     }
 
     private void ejR() {
         int measuredWidth = getMeasuredWidth();
         int measuredHeight = getMeasuredHeight();
         if (measuredWidth > 0 && measuredHeight > 0) {
-            if (this.oWq == null) {
-                this.oWq = new Rect();
+            if (this.oWr == null) {
+                this.oWr = new Rect();
             }
-            int ejN = this.mIsChecked ? this.oWo.right - this.oWn.ejN() : this.oWo.left;
-            int i = this.oWo.top;
-            this.oWq.set(ejN, i, this.oWn.ejN() + ejN, this.oWn.ejO() + i);
+            int ejN = this.mIsChecked ? this.oWp.right - this.oWo.ejN() : this.oWp.left;
+            int i = this.oWp.top;
+            this.oWr.set(ejN, i, this.oWo.ejN() + ejN, this.oWo.ejO() + i);
             return;
         }
-        this.oWq = null;
+        this.oWr = null;
     }
 
     private void ejS() {
-        if (this.oWp != null) {
-            this.oWn.ejv().setBounds(this.oWp);
-            this.oWn.ejw().setBounds(this.oWp);
-        }
         if (this.oWq != null) {
-            this.oWn.getThumbDrawable().setBounds(this.oWq);
+            this.oWo.ejv().setBounds(this.oWq);
+            this.oWo.ejw().setBounds(this.oWq);
+        }
+        if (this.oWr != null) {
+            this.oWo.getThumbDrawable().setBounds(this.oWr);
         }
     }
 
     private int measureWidth(int i) {
         int mode = View.MeasureSpec.getMode(i);
         int size = View.MeasureSpec.getSize(i);
-        int ejN = (int) ((this.oWn.ejN() * this.oWn.ejG()) + getPaddingLeft() + getPaddingRight());
-        int ejA = this.oWn.ejA() + this.oWn.ejB();
+        int ejN = (int) ((this.oWo.ejN() * this.oWo.ejG()) + getPaddingLeft() + getPaddingRight());
+        int ejA = this.oWo.ejA() + this.oWo.ejB();
         if (ejA > 0) {
             ejN += ejA;
         }
@@ -242,14 +242,14 @@ public class SwitchButton extends CompoundButton {
         } else if (mode == Integer.MIN_VALUE) {
             ejN = Math.min(size, ejN);
         }
-        return ejN + this.oWn.ejH().left + this.oWn.ejH().right;
+        return ejN + this.oWo.ejH().left + this.oWo.ejH().right;
     }
 
     private int measureHeight(int i) {
         int mode = View.MeasureSpec.getMode(i);
         int size = View.MeasureSpec.getSize(i);
-        int ejO = this.oWn.ejO() + getPaddingTop() + getPaddingBottom();
-        int ejy = this.oWn.ejy() + this.oWn.ejz();
+        int ejO = this.oWo.ejO() + getPaddingTop() + getPaddingBottom();
+        int ejy = this.oWo.ejy() + this.oWo.ejz();
         if (ejy > 0) {
             ejO += ejy;
         }
@@ -258,55 +258,55 @@ public class SwitchButton extends CompoundButton {
         } else if (mode == Integer.MIN_VALUE) {
             ejO = Math.min(size, ejO);
         }
-        return ejO + this.oWn.ejH().top + this.oWn.ejH().bottom;
+        return ejO + this.oWo.ejH().top + this.oWo.ejH().bottom;
     }
 
     @Override // android.widget.CompoundButton, android.widget.TextView, android.view.View
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
         canvas.getClipBounds(this.mBounds);
-        if (this.mBounds != null && this.oWn.ejM()) {
-            this.mBounds.inset(this.oWn.ejI(), this.oWn.ejJ());
+        if (this.mBounds != null && this.oWo.ejM()) {
+            this.mBounds.inset(this.oWo.ejI(), this.oWo.ejJ());
             canvas.clipRect(this.mBounds, Region.Op.REPLACE);
-            canvas.translate(this.oWn.ejH().left, this.oWn.ejH().top);
+            canvas.translate(this.oWo.ejH().left, this.oWo.ejH().top);
         }
         boolean z = !isEnabled() && ejT();
         if (z) {
-            canvas.saveLayerAlpha(this.oWr, 127, 31);
+            canvas.saveLayerAlpha(this.oWs, 127, 31);
         }
-        if (this.oWn.ejw() != null) {
-            this.oWn.ejw().draw(canvas);
+        if (this.oWo.ejw() != null) {
+            this.oWo.ejw().draw(canvas);
         }
-        if (this.oWn.ejv() != null) {
-            this.oWn.ejv().setAlpha(ejU());
-            this.oWn.ejv().draw(canvas);
+        if (this.oWo.ejv() != null) {
+            this.oWo.ejv().setAlpha(ejU());
+            this.oWo.ejv().draw(canvas);
         }
-        if (this.oWn.getThumbDrawable() != null) {
-            this.oWn.getThumbDrawable().draw(canvas);
+        if (this.oWo.getThumbDrawable() != null) {
+            this.oWo.getThumbDrawable().draw(canvas);
         }
         if (z) {
             canvas.restore();
         }
-        if (oWm) {
+        if (oWn) {
             this.mRectPaint.setColor(Color.parseColor("#AA0000"));
-            canvas.drawRect(this.oWp, this.mRectPaint);
-            this.mRectPaint.setColor(Color.parseColor("#00FF00"));
-            canvas.drawRect(this.oWo, this.mRectPaint);
-            this.mRectPaint.setColor(Color.parseColor("#0000FF"));
             canvas.drawRect(this.oWq, this.mRectPaint);
+            this.mRectPaint.setColor(Color.parseColor("#00FF00"));
+            canvas.drawRect(this.oWp, this.mRectPaint);
+            this.mRectPaint.setColor(Color.parseColor("#0000FF"));
+            canvas.drawRect(this.oWr, this.mRectPaint);
         }
     }
 
     private boolean ejT() {
-        return ((this.oWn.getThumbDrawable() instanceof StateListDrawable) && (this.oWn.ejv() instanceof StateListDrawable) && (this.oWn.ejw() instanceof StateListDrawable)) ? false : true;
+        return ((this.oWo.getThumbDrawable() instanceof StateListDrawable) && (this.oWo.ejv() instanceof StateListDrawable) && (this.oWo.ejw() instanceof StateListDrawable)) ? false : true;
     }
 
     private int ejU() {
         int ejN;
-        if (this.oWo == null || this.oWo.right == this.oWo.left || (ejN = (this.oWo.right - this.oWn.ejN()) - this.oWo.left) <= 0) {
+        if (this.oWp == null || this.oWp.right == this.oWp.left || (ejN = (this.oWp.right - this.oWo.ejN()) - this.oWp.left) <= 0) {
             return 255;
         }
-        return ((this.oWq.left - this.oWo.left) * 255) / ejN;
+        return ((this.oWr.left - this.oWp.left) * 255) / ejN;
     }
 
     @Override // android.widget.TextView, android.view.View
@@ -331,7 +331,7 @@ public class SwitchButton extends CompoundButton {
                 setPressed(false);
                 boolean statusBasedOnPos = getStatusBasedOnPos();
                 float eventTime = (float) (motionEvent.getEventTime() - motionEvent.getDownTime());
-                if (x < this.mTouchSlop && y < this.mTouchSlop && eventTime < this.oWv) {
+                if (x < this.mTouchSlop && y < this.mTouchSlop && eventTime < this.oWw) {
                     performClick();
                     break;
                 } else {
@@ -351,12 +351,12 @@ public class SwitchButton extends CompoundButton {
 
     /* JADX INFO: Access modifiers changed from: private */
     public boolean getStatusBasedOnPos() {
-        return ((float) this.oWq.left) > this.oWu;
+        return ((float) this.oWr.left) > this.oWv;
     }
 
     @Override // android.view.View
     public void invalidate() {
-        if (this.mBounds != null && this.oWn.ejM()) {
+        if (this.mBounds != null && this.oWo.ejM()) {
             invalidate(this.mBounds);
         } else {
             super.invalidate();
@@ -376,7 +376,7 @@ public class SwitchButton extends CompoundButton {
     }
 
     public void setChecked(boolean z, boolean z2) {
-        if (this.oWq != null) {
+        if (this.oWr != null) {
             ND(z ? getMeasuredWidth() : -getMeasuredWidth());
         }
         aI(z, z2);
@@ -408,10 +408,10 @@ public class SwitchButton extends CompoundButton {
     @Override // android.widget.CompoundButton, android.widget.TextView, android.view.View
     protected void drawableStateChanged() {
         super.drawableStateChanged();
-        if (this.oWn != null) {
-            setDrawableState(this.oWn.getThumbDrawable());
-            setDrawableState(this.oWn.ejv());
-            setDrawableState(this.oWn.ejw());
+        if (this.oWo != null) {
+            setDrawableState(this.oWo.getThumbDrawable());
+            setDrawableState(this.oWo.ejv());
+            setDrawableState(this.oWo.ejw());
         }
     }
 
@@ -424,7 +424,7 @@ public class SwitchButton extends CompoundButton {
 
     @Override // android.widget.CompoundButton
     public void setOnCheckedChangeListener(CompoundButton.OnCheckedChangeListener onCheckedChangeListener) {
-        this.oWw = onCheckedChangeListener;
+        this.oWx = onCheckedChangeListener;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -436,36 +436,36 @@ public class SwitchButton extends CompoundButton {
         if (this.mIsChecked != z) {
             this.mIsChecked = z;
             refreshDrawableState();
-            if (this.oWw != null && z2) {
-                this.oWw.onCheckedChanged(this, this.mIsChecked);
+            if (this.oWx != null && z2) {
+                this.oWx.onCheckedChanged(this, this.mIsChecked);
             }
         }
     }
 
     public void AD(boolean z) {
         if (!this.isAnimating) {
-            this.oWs.dS(this.oWq.left, z ? this.oWo.right - this.oWn.ejN() : this.oWo.left);
+            this.oWt.dS(this.oWr.left, z ? this.oWp.right - this.oWo.ejN() : this.oWp.left);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void ND(int i) {
-        int i2 = this.oWq.left + i;
-        int i3 = this.oWq.right + i;
-        if (i2 < this.oWo.left) {
-            i2 = this.oWo.left;
-            i3 = this.oWn.ejN() + i2;
+        int i2 = this.oWr.left + i;
+        int i3 = this.oWr.right + i;
+        if (i2 < this.oWp.left) {
+            i2 = this.oWp.left;
+            i3 = this.oWo.ejN() + i2;
         }
-        if (i3 > this.oWo.right) {
-            i3 = this.oWo.right;
-            i2 = i3 - this.oWn.ejN();
+        if (i3 > this.oWp.right) {
+            i3 = this.oWp.right;
+            i2 = i3 - this.oWo.ejN();
         }
         dU(i2, i3);
     }
 
     private void dU(int i, int i2) {
-        this.oWq.set(i, this.oWq.top, i2, this.oWq.bottom);
-        this.oWn.getThumbDrawable().setBounds(this.oWq);
+        this.oWr.set(i, this.oWr.top, i2, this.oWr.bottom);
+        this.oWo.getThumbDrawable().setBounds(this.oWr);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -481,7 +481,7 @@ public class SwitchButton extends CompoundButton {
 
         @Override // com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.switchbutton.a.b
         public boolean ejr() {
-            return SwitchButton.this.oWq.right < SwitchButton.this.oWo.right && SwitchButton.this.oWq.left > SwitchButton.this.oWo.left;
+            return SwitchButton.this.oWr.right < SwitchButton.this.oWp.right && SwitchButton.this.oWr.left > SwitchButton.this.oWp.left;
         }
 
         @Override // com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.switchbutton.a.b

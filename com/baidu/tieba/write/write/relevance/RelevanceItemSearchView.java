@@ -36,25 +36,25 @@ public class RelevanceItemSearchView implements ViewPager.OnPageChangeListener, 
     private final LinearLayout fvH;
     private final NavigationBar ghr;
     private ImageView iKV;
-    private final RelevanceItemSearchActivity ocO;
-    private TbTabLayout ocP;
-    private CustomViewPager ocQ;
-    private FragmentAdapter ocR;
-    private View ocS;
-    private EditText ocT;
-    private String[] ocN = {"游戏", "数码"};
-    private List<a> ocU = new ArrayList();
-    private CustomMessageListener obM = new CustomMessageListener(2921522) { // from class: com.baidu.tieba.write.write.relevance.RelevanceItemSearchView.1
+    private final RelevanceItemSearchActivity ocP;
+    private TbTabLayout ocQ;
+    private CustomViewPager ocR;
+    private FragmentAdapter ocS;
+    private View ocT;
+    private EditText ocU;
+    private String[] ocO = {"游戏", "数码"};
+    private List<a> ocV = new ArrayList();
+    private CustomMessageListener obN = new CustomMessageListener(2921522) { // from class: com.baidu.tieba.write.write.relevance.RelevanceItemSearchView.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && (customResponsedMessage instanceof EvaluateRelevanceItemUpdatedMessage)) {
                 EvaluateRelevanceItemUpdatedMessage evaluateRelevanceItemUpdatedMessage = (EvaluateRelevanceItemUpdatedMessage) customResponsedMessage;
-                RelevanceItemSearchView.this.ocO.hideLoadingView(RelevanceItemSearchView.this.fvH);
+                RelevanceItemSearchView.this.ocP.hideLoadingView(RelevanceItemSearchView.this.fvH);
                 if (!x.isEmpty(evaluateRelevanceItemUpdatedMessage.tabs)) {
                     String[] strArr = (String[]) evaluateRelevanceItemUpdatedMessage.tabs.toArray(new String[0]);
-                    if (!Arrays.equals(RelevanceItemSearchView.this.ocN, strArr)) {
-                        RelevanceItemSearchView.this.ocN = strArr;
+                    if (!Arrays.equals(RelevanceItemSearchView.this.ocO, strArr)) {
+                        RelevanceItemSearchView.this.ocO = strArr;
                         RelevanceItemSearchView.this.initData();
                     }
                 }
@@ -65,35 +65,35 @@ public class RelevanceItemSearchView implements ViewPager.OnPageChangeListener, 
     public RelevanceItemSearchView(RelevanceItemSearchActivity relevanceItemSearchActivity, LinearLayout linearLayout, NavigationBar navigationBar) {
         this.fvH = linearLayout;
         this.ghr = navigationBar;
-        this.ocO = relevanceItemSearchActivity;
+        this.ocP = relevanceItemSearchActivity;
         initUI();
         initListener();
         initData();
     }
 
     private void initListener() {
-        MessageManager.getInstance().registerListener(this.obM);
+        MessageManager.getInstance().registerListener(this.obN);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void initData() {
         String[] strArr;
-        this.ocU.clear();
-        this.ocP.removeAllTabs();
-        for (String str : this.ocN) {
-            this.ocP.a(this.ocP.qN());
+        this.ocV.clear();
+        this.ocQ.removeAllTabs();
+        for (String str : this.ocO) {
+            this.ocQ.a(this.ocQ.qN());
             a aVar = new a();
-            aVar.ocX = new RelevanceItemListFragment();
-            aVar.ocX.setCategory(str);
+            aVar.ocY = new RelevanceItemListFragment();
+            aVar.ocY.setCategory(str);
             aVar.title = str;
-            this.ocU.add(aVar);
+            this.ocV.add(aVar);
         }
-        this.ocR.setData(this.ocU);
+        this.ocS.setData(this.ocV);
     }
 
     private void initUI() {
         LayoutInflater.from(this.fvH.getContext()).inflate(R.layout.relevance_item_search_view, (ViewGroup) this.fvH, true);
-        this.ocO.showLoadingView(this.fvH);
+        this.ocP.showLoadingView(this.fvH);
         dXr();
         bEt();
         cOO();
@@ -101,10 +101,10 @@ public class RelevanceItemSearchView implements ViewPager.OnPageChangeListener, 
     }
 
     private void dXr() {
-        this.ocS = this.fvH.findViewById(R.id.search_container);
+        this.ocT = this.fvH.findViewById(R.id.search_container);
         this.iKV = (ImageView) this.fvH.findViewById(R.id.search_icon);
-        this.ocT = (EditText) this.fvH.findViewById(R.id.search_text);
-        this.ocT.addTextChangedListener(new TextWatcher() { // from class: com.baidu.tieba.write.write.relevance.RelevanceItemSearchView.2
+        this.ocU = (EditText) this.fvH.findViewById(R.id.search_text);
+        this.ocU.addTextChangedListener(new TextWatcher() { // from class: com.baidu.tieba.write.write.relevance.RelevanceItemSearchView.2
             @Override // android.text.TextWatcher
             public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
             }
@@ -122,23 +122,23 @@ public class RelevanceItemSearchView implements ViewPager.OnPageChangeListener, 
 
     /* JADX INFO: Access modifiers changed from: private */
     public void dXs() {
-        MessageManager.getInstance().dispatchResponsedMessage(new EvaluateRelevanceItemSearchMessage(this.ocT.getText().toString()));
+        MessageManager.getInstance().dispatchResponsedMessage(new EvaluateRelevanceItemSearchMessage(this.ocU.getText().toString()));
     }
 
     private void initViewPager() {
-        this.ocQ = (CustomViewPager) this.fvH.findViewById(R.id.viewpager);
-        this.ocQ.addOnPageChangeListener(this);
-        this.ocQ.setViewPagerScroll(0);
-        this.ocR = new FragmentAdapter(this.ocO.getSupportFragmentManager());
-        this.ocQ.setAdapter(this.ocR);
-        this.ocP.setupWithViewPager(this.ocQ);
+        this.ocR = (CustomViewPager) this.fvH.findViewById(R.id.viewpager);
+        this.ocR.addOnPageChangeListener(this);
+        this.ocR.setViewPagerScroll(0);
+        this.ocS = new FragmentAdapter(this.ocP.getSupportFragmentManager());
+        this.ocR.setAdapter(this.ocS);
+        this.ocQ.setupWithViewPager(this.ocR);
     }
 
     private void cOO() {
-        this.ocP = (TbTabLayout) this.fvH.findViewById(R.id.tablayout);
-        this.ocP.setTabTextSize(l.getDimens(this.ocO, R.dimen.tbds46));
-        this.ocP.setSelectedTabTextSize(l.getDimens(this.ocO, R.dimen.tbds52));
-        this.ocP.setSelectedIndicatorBottomMargin(l.getDimens(this.ocO, R.dimen.tbds11));
+        this.ocQ = (TbTabLayout) this.fvH.findViewById(R.id.tablayout);
+        this.ocQ.setTabTextSize(l.getDimens(this.ocP, R.dimen.tbds46));
+        this.ocQ.setSelectedTabTextSize(l.getDimens(this.ocP, R.dimen.tbds52));
+        this.ocQ.setSelectedIndicatorBottomMargin(l.getDimens(this.ocP, R.dimen.tbds11));
     }
 
     private void bEt() {
@@ -149,7 +149,7 @@ public class RelevanceItemSearchView implements ViewPager.OnPageChangeListener, 
     }
 
     public EditText dXt() {
-        return this.ocT;
+        return this.ocU;
     }
 
     @Override // com.baidu.tbadk.suspended.a
@@ -165,18 +165,18 @@ public class RelevanceItemSearchView implements ViewPager.OnPageChangeListener, 
     @Override // com.baidu.tbadk.suspended.a
     public void rs(int i) {
         SvgManager.bsx().a(this.iKV, R.drawable.icon_pure_search_import16_svg, R.color.CAM_X0109, (SvgManager.SvgResourceStateType) null);
-        ao.setViewTextColor(this.ocT, R.color.CAM_X0109);
-        ao.setBackgroundResource(this.ocS, R.drawable.enter_forum_search_bg);
+        ao.setViewTextColor(this.ocU, R.color.CAM_X0109);
+        ao.setBackgroundResource(this.ocT, R.drawable.enter_forum_search_bg);
         SvgManager.bsx().a(this.iKV, R.drawable.icon_pure_search_import16_svg, R.color.CAM_X0109, (SvgManager.SvgResourceStateType) null);
         if (i == 2) {
-            this.ocT.setHintTextColor(ao.getColor(R.color.s_navbar_title_color));
+            this.ocU.setHintTextColor(ao.getColor(R.color.s_navbar_title_color));
         } else {
-            this.ocT.setHintTextColor(ao.getColor(R.color.CAM_X0110));
+            this.ocU.setHintTextColor(ao.getColor(R.color.CAM_X0110));
         }
-        ao.setNavbarTitleColor(this.ocT, R.color.CAM_X0105, R.color.s_navbar_title_color);
-        this.ocP.setTabTextColors(ao.getColor(R.color.CAM_X0108), ao.getColor(R.color.CAM_X0105));
-        this.ocP.setSelectedTabTextBlod(true);
-        this.ocP.setSelectedTabIndicatorColor(ao.getColor(R.color.CAM_X0302));
+        ao.setNavbarTitleColor(this.ocU, R.color.CAM_X0105, R.color.s_navbar_title_color);
+        this.ocQ.setTabTextColors(ao.getColor(R.color.CAM_X0108), ao.getColor(R.color.CAM_X0105));
+        this.ocQ.setSelectedTabTextBlod(true);
+        this.ocQ.setSelectedTabIndicatorColor(ao.getColor(R.color.CAM_X0302));
     }
 
     @Override // com.baidu.tbadk.suspended.a
@@ -197,13 +197,13 @@ public class RelevanceItemSearchView implements ViewPager.OnPageChangeListener, 
     }
 
     public void onDestroy() {
-        MessageManager.getInstance().unRegisterListener(this.obM);
+        MessageManager.getInstance().unRegisterListener(this.obN);
     }
 
     /* loaded from: classes7.dex */
     public static class FragmentAdapter extends FragmentPagerAdapter {
         private List<a> gvo;
-        private Long ocW;
+        private Long ocX;
 
         public FragmentAdapter(FragmentManager fragmentManager) {
             super(fragmentManager);
@@ -211,7 +211,7 @@ public class RelevanceItemSearchView implements ViewPager.OnPageChangeListener, 
         }
 
         public void setData(List<a> list) {
-            this.ocW = Long.valueOf(System.currentTimeMillis());
+            this.ocX = Long.valueOf(System.currentTimeMillis());
             this.gvo.clear();
             if (!x.isEmpty(list)) {
                 this.gvo.addAll(list);
@@ -223,7 +223,7 @@ public class RelevanceItemSearchView implements ViewPager.OnPageChangeListener, 
         public Fragment getItem(int i) {
             a aVar = this.gvo.get(i);
             if (aVar != null) {
-                return aVar.ocX;
+                return aVar.ocY;
             }
             return null;
         }
@@ -242,13 +242,13 @@ public class RelevanceItemSearchView implements ViewPager.OnPageChangeListener, 
 
         @Override // androidx.fragment.app.FragmentPagerAdapter
         public long getItemId(int i) {
-            return super.getItemId(i) + this.ocW.longValue();
+            return super.getItemId(i) + this.ocX.longValue();
         }
     }
 
     /* loaded from: classes7.dex */
     public class a {
-        public RelevanceItemListFragment ocX;
+        public RelevanceItemListFragment ocY;
         public String title;
 
         public a() {

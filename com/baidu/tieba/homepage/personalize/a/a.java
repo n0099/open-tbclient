@@ -41,7 +41,7 @@ public class a {
                 }
                 c.dKg().a(bdUniqueId, a2, a3);
                 if (g.isEnabled()) {
-                    g.Lq(a2);
+                    g.Lr(a2);
                     if (g.cPs() >= 10) {
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921482));
                         g.setEnabled(false);

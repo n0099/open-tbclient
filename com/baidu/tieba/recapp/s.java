@@ -51,7 +51,7 @@ public class s {
         if (StringUtils.isNull(str2)) {
             str2 = str;
         }
-        com.baidu.tieba.recapp.download.e.dBk().a(advertAppInfo.eJl, advertAppInfo.apkUrl, str2, i, com.baidu.tieba.recapp.download.e.Qv(advertAppInfo.eJl).intValue(), null, true, false, true, advertAppInfo.eJr.userPortrait, downloadStaticsData, advertAppInfo.eJr.userName);
+        com.baidu.tieba.recapp.download.e.dBk().a(advertAppInfo.eJl, advertAppInfo.apkUrl, str2, i, com.baidu.tieba.recapp.download.e.Qw(advertAppInfo.eJl).intValue(), null, true, false, true, advertAppInfo.eJr.userPortrait, downloadStaticsData, advertAppInfo.eJr.userName);
         return true;
     }
 
@@ -239,11 +239,11 @@ public class s {
         return f(context, Uri.parse(Uri.parse(str).getQueryParameter(TableDefine.DRColumns.COLUMN_JUMP_TO_RECENT)));
     }
 
-    public static boolean Qq(String str) {
+    public static boolean Qr(String str) {
         return !TextUtils.isEmpty(str) && str.startsWith("tieba://deeplink?");
     }
 
-    public static String Qr(String str) {
+    public static String Qs(String str) {
         if (!TextUtils.isEmpty(str) && str.startsWith("tieba://deeplink?")) {
             return Uri.parse(str).getQueryParameter("wap");
         }

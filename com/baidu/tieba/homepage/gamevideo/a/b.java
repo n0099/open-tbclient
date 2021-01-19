@@ -43,7 +43,7 @@ public class b extends BaseAdapter {
         }
     }
 
-    public void Bz(int i) {
+    public void By(int i) {
         this.jXi = i;
     }
 

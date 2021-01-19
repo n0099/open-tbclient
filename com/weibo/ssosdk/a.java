@@ -33,30 +33,30 @@ public class a {
     /* renamed from: com.weibo.ssosdk.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
     public static final class C1268a {
-        private Intent pYu;
+        private Intent pYv;
 
         private C1268a(Context context) {
-            this.pYu = context.registerReceiver(null, new IntentFilter("android.intent.action.BATTERY_CHANGED"));
+            this.pYv = context.registerReceiver(null, new IntentFilter("android.intent.action.BATTERY_CHANGED"));
         }
 
         /* JADX INFO: Access modifiers changed from: private */
         public int getLevel() {
-            return this.pYu.getIntExtra("level", 0);
+            return this.pYv.getIntExtra("level", 0);
         }
 
         /* JADX INFO: Access modifiers changed from: private */
         public int eGr() {
-            return this.pYu.getIntExtra("scale", 0);
+            return this.pYv.getIntExtra("scale", 0);
         }
 
         /* JADX INFO: Access modifiers changed from: private */
         public int eGs() {
-            return this.pYu.getIntExtra("voltage", 0);
+            return this.pYv.getIntExtra("voltage", 0);
         }
 
         /* JADX INFO: Access modifiers changed from: private */
         public int eGt() {
-            return this.pYu.getIntExtra("temperature", 0);
+            return this.pYv.getIntExtra("temperature", 0);
         }
     }
 

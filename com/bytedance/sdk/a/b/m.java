@@ -22,8 +22,8 @@ public final class m {
     private final int e;
     private final long f;
     private final Runnable g;
-    private final Deque<com.bytedance.sdk.a.b.a.b.c> piZ;
-    final com.bytedance.sdk.a.b.a.b.d pja;
+    private final Deque<com.bytedance.sdk.a.b.a.b.c> pja;
+    final com.bytedance.sdk.a.b.a.b.d pjb;
 
     static {
         c = !m.class.desiredAssertionStatus();
@@ -56,8 +56,8 @@ public final class m {
                 }
             }
         };
-        this.piZ = new ArrayDeque();
-        this.pja = new com.bytedance.sdk.a.b.a.b.d();
+        this.pja = new ArrayDeque();
+        this.pjb = new com.bytedance.sdk.a.b.a.b.d();
         this.e = i;
         this.f = timeUnit.toNanos(j);
         if (j <= 0) {
@@ -68,7 +68,7 @@ public final class m {
     /* JADX INFO: Access modifiers changed from: package-private */
     public com.bytedance.sdk.a.b.a.b.c a(a aVar, com.bytedance.sdk.a.b.a.b.g gVar, d dVar) {
         if (c || Thread.holdsLock(this)) {
-            for (com.bytedance.sdk.a.b.a.b.c cVar : this.piZ) {
+            for (com.bytedance.sdk.a.b.a.b.c cVar : this.pja) {
                 if (cVar.a(aVar, dVar)) {
                     gVar.a(cVar, true);
                     return cVar;
@@ -82,7 +82,7 @@ public final class m {
     /* JADX INFO: Access modifiers changed from: package-private */
     public Socket a(a aVar, com.bytedance.sdk.a.b.a.b.g gVar) {
         if (c || Thread.holdsLock(this)) {
-            for (com.bytedance.sdk.a.b.a.b.c cVar : this.piZ) {
+            for (com.bytedance.sdk.a.b.a.b.c cVar : this.pja) {
                 if (cVar.a(aVar, null) && cVar.d() && cVar != gVar.emL()) {
                     return gVar.b(cVar);
                 }
@@ -101,14 +101,14 @@ public final class m {
             this.f5964b = true;
             d.execute(this.g);
         }
-        this.piZ.add(cVar);
+        this.pja.add(cVar);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public boolean d(com.bytedance.sdk.a.b.a.b.c cVar) {
         if (c || Thread.holdsLock(this)) {
             if (cVar.f5862a || this.e == 0) {
-                this.piZ.remove(cVar);
+                this.pja.remove(cVar);
                 return true;
             }
             notifyAll();
@@ -123,7 +123,7 @@ public final class m {
         synchronized (this) {
             int i = 0;
             int i2 = 0;
-            for (com.bytedance.sdk.a.b.a.b.c cVar2 : this.piZ) {
+            for (com.bytedance.sdk.a.b.a.b.c cVar2 : this.pja) {
                 if (a(cVar2, j) > 0) {
                     i2++;
                 } else {
@@ -138,7 +138,7 @@ public final class m {
                 }
             }
             if (j2 >= this.f || i > this.e) {
-                this.piZ.remove(cVar);
+                this.pja.remove(cVar);
                 com.bytedance.sdk.a.b.a.c.a(cVar.emD());
                 return 0L;
             } else if (i > 0) {

@@ -14,7 +14,7 @@ public class a extends com.baidu.tieba.yuyinala.liveroom.a {
     private String hJg;
     private boolean mIsHost;
     private String mPortrait;
-    public CharmRankView ojU;
+    public CharmRankView ojV;
     public String otherParams;
 
     public a(TbPageContext tbPageContext) {
@@ -33,8 +33,8 @@ public class a extends com.baidu.tieba.yuyinala.liveroom.a {
     }
 
     public void setOnClickListener(View.OnClickListener onClickListener) {
-        if (this.ojU != null) {
-            this.ojU.setOnClickListener(onClickListener);
+        if (this.ojV != null) {
+            this.ojV.setOnClickListener(onClickListener);
         }
     }
 
@@ -45,38 +45,38 @@ public class a extends com.baidu.tieba.yuyinala.liveroom.a {
     }
 
     private void aN(ViewGroup viewGroup) {
-        if (this.ojU != null && this.ojU.getParent() != null) {
-            ((ViewGroup) this.ojU.getParent()).removeView(this.ojU);
+        if (this.ojV != null && this.ojV.getParent() != null) {
+            ((ViewGroup) this.ojV.getParent()).removeView(this.ojV);
         }
-        if (this.ojU == null) {
-            this.ojU = new CharmRankView(getPageContext().getPageActivity());
+        if (this.ojV == null) {
+            this.ojV = new CharmRankView(getPageContext().getPageActivity());
         }
-        this.ojU.setId(a.f.ala_liveroom_charm_rank);
+        this.ojV.setId(a.f.ala_liveroom_charm_rank);
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
         layoutParams.addRule(1, a.f.ala_liveroom_ranklist);
         layoutParams.addRule(3, a.f.ala_liveroom_hostheader);
         layoutParams.leftMargin = getPageContext().getPageActivity().getResources().getDimensionPixelSize(a.d.sdk_ds19);
         layoutParams.topMargin = getPageContext().getPageActivity().getResources().getDimensionPixelSize(a.d.sdk_ds14);
-        viewGroup.addView(this.ojU, layoutParams);
+        viewGroup.addView(this.ojV, layoutParams);
     }
 
     @Override // com.baidu.tieba.yuyinala.liveroom.a
     public void zH() {
         super.zH();
-        if (this.ojU != null && this.ojU.getParent() != null) {
-            ((ViewGroup) this.ojU.getParent()).removeView(this.ojU);
+        if (this.ojV != null && this.ojV.getParent() != null) {
+            ((ViewGroup) this.ojV.getParent()).removeView(this.ojV);
         }
-        if (this.ojU != null) {
-            this.ojU.destory();
-            this.ojU = null;
+        if (this.ojV != null) {
+            this.ojV.destory();
+            this.ojV = null;
         }
     }
 
     @Override // com.baidu.tieba.yuyinala.liveroom.a
     public void onDestroy() {
-        if (this.ojU != null) {
-            this.ojU.destory();
-            this.ojU = null;
+        if (this.ojV != null) {
+            this.ojV.destory();
+            this.ojV = null;
         }
     }
 

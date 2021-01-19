@@ -1,13 +1,13 @@
 package com.google.b.a.a.a;
 /* loaded from: classes4.dex */
 public class a {
-    private b pLe;
     private b pLf;
     private b pLg;
-    private g pLh;
+    private b pLh;
     private g pLi;
-    private C1054a pLj;
+    private g pLj;
     private C1054a pLk;
+    private C1054a pLl;
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.google.b.a.a.a.a$a  reason: collision with other inner class name */
@@ -44,41 +44,41 @@ public class a {
     private void c(g gVar, long j) {
         if (gVar.c() < 0.3499999940395355d) {
             double max = Math.max(0.0d, 1.0d - (gVar.c() / 0.3499999940395355d));
-            this.pLg.a(this.pLf.ezH(), j, max * max);
+            this.pLh.a(this.pLg.ezH(), j, max * max);
         }
     }
 
     public void a() {
-        this.pLh = new g();
         this.pLi = new g();
-        this.pLe = new b(1.0d);
-        this.pLf = new b(10.0d);
-        this.pLg = new b(0.15000000596046448d);
-        this.pLj = new C1054a(10);
+        this.pLj = new g();
+        this.pLf = new b(1.0d);
+        this.pLg = new b(10.0d);
+        this.pLh = new b(0.15000000596046448d);
         this.pLk = new C1054a(10);
+        this.pLl = new C1054a(10);
     }
 
     public void a(g gVar) {
-        if (this.pLg.a() < 30) {
+        if (this.pLh.a() < 30) {
             gVar.a();
             return;
         }
-        gVar.a(this.pLg.ezH());
-        gVar.a(Math.min(1.0d, (this.pLg.a() - 30) / 100.0d));
+        gVar.a(this.pLh.ezH());
+        gVar.a(Math.min(1.0d, (this.pLh.a() - 30) / 100.0d));
     }
 
     public void a(g gVar, long j) {
-        this.pLf.a(gVar, j);
-        g.b(gVar, this.pLf.ezH(), this.pLh);
-        this.pLk.a(this.pLh.c() < 0.00800000037997961d);
-        if (this.pLk.a() && this.pLj.a()) {
+        this.pLg.a(gVar, j);
+        g.b(gVar, this.pLg.ezH(), this.pLi);
+        this.pLl.a(this.pLi.c() < 0.00800000037997961d);
+        if (this.pLl.a() && this.pLk.a()) {
             c(gVar, j);
         }
     }
 
     public void b(g gVar, long j) {
-        this.pLe.a(gVar, j);
-        g.b(gVar, this.pLe.ezH(), this.pLi);
-        this.pLj.a(this.pLi.c() < 0.5d);
+        this.pLf.a(gVar, j);
+        g.b(gVar, this.pLf.ezH(), this.pLj);
+        this.pLk.a(this.pLj.c() < 0.5d);
     }
 }

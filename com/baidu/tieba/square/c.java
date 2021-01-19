@@ -69,7 +69,7 @@ public class c {
     private LeftAdapter.a nfK = new LeftAdapter.a() { // from class: com.baidu.tieba.square.c.4
         @Override // com.baidu.tieba.square.adapter.LeftAdapter.a
         public void a(View view, int i, String str) {
-            c.this.nfw.RG(str);
+            c.this.nfw.RH(str);
         }
     };
     private RecyclerView.OnScrollListener nfL = new RecyclerView.OnScrollListener() { // from class: com.baidu.tieba.square.c.5

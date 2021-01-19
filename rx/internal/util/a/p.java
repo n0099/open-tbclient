@@ -1,7 +1,7 @@
 package rx.internal.util.a;
 /* loaded from: classes14.dex */
 abstract class p<E> extends n<E> {
-    private volatile long qtq;
+    private volatile long qtr;
 
     public p(int i) {
         super(i);
@@ -9,11 +9,11 @@ abstract class p<E> extends n<E> {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public final long eLj() {
-        return this.qtq;
+        return this.qtr;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public final void jB(long j) {
-        this.qtq = j;
+        this.qtr = j;
     }
 }

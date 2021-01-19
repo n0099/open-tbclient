@@ -331,11 +331,11 @@ public class MemberPayFragmentActivity extends BaseFragmentActivity implements V
     /* JADX INFO: Access modifiers changed from: private */
     public void ddv() {
         if (this.mFrom == 2) {
-            Nm("consume_10");
+            Nn("consume_10");
         } else if (this.mFrom == 1) {
-            Nm("consume_5");
+            Nn("consume_5");
         } else if (this.mFrom == 3) {
-            Nm("consume_35");
+            Nn("consume_35");
         } else if (this.mFrom == 4) {
             TiebaStatic.log("c10032");
         } else if (this.mFrom == 5) {
@@ -347,7 +347,7 @@ public class MemberPayFragmentActivity extends BaseFragmentActivity implements V
         }
     }
 
-    private void Nm(String str) {
+    private void Nn(String str) {
         TiebaStatic.eventStat(getPageContext().getPageActivity(), str, "click");
     }
 

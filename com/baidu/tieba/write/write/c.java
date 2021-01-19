@@ -18,8 +18,8 @@ import java.util.regex.Pattern;
 /* loaded from: classes7.dex */
 public class c {
     private String erX;
-    private ArrayList<String> nSp;
-    private final String nYY = "@[\\u4e00-\\u9fa5\\w\\ud83c\\udc00-\\ud83c\\udfff\\ud83d\\udc00-\\ud83d\\udfff\\u2600-\\u27ff]+";
+    private ArrayList<String> nSq;
+    private final String nYZ = "@[\\u4e00-\\u9fa5\\w\\ud83c\\udc00-\\ud83c\\udfff\\ud83d\\udc00-\\ud83d\\udfff\\u2600-\\u27ff]+";
 
     public void a(EditText editText, boolean z) {
         Editable text;
@@ -39,10 +39,10 @@ public class c {
     }
 
     private void b(Spannable spannable) {
-        if (spannable != null && !x.isEmpty(this.nSp)) {
+        if (spannable != null && !x.isEmpty(this.nSq)) {
             String obj = spannable.toString();
             if (!TextUtils.isEmpty(obj)) {
-                Iterator<String> it = this.nSp.iterator();
+                Iterator<String> it = this.nSq.iterator();
                 while (it.hasNext()) {
                     a(spannable, obj, it.next());
                 }
@@ -114,14 +114,14 @@ public class c {
     }
 
     public void bh(ArrayList<String> arrayList) {
-        this.nSp = arrayList;
+        this.nSq = arrayList;
     }
 
     public ArrayList<String> dTZ() {
-        return this.nSp;
+        return this.nSq;
     }
 
-    public void TW(String str) {
+    public void TX(String str) {
         this.erX = str;
     }
 

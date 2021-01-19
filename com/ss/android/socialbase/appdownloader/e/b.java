@@ -23,7 +23,7 @@ public class b extends z {
     private String d;
     private String e;
     private String f;
-    private com.ss.android.socialbase.downloader.notification.a pTv;
+    private com.ss.android.socialbase.downloader.notification.a pTw;
 
     public b(Context context, int i, String str, String str2, String str3, String str4) {
         if (context != null) {
@@ -40,12 +40,12 @@ public class b extends z {
 
     public b(com.ss.android.socialbase.downloader.notification.a aVar) {
         this.f13030a = com.ss.android.socialbase.downloader.downloader.b.eEd();
-        this.pTv = aVar;
+        this.pTw = aVar;
     }
 
     @Override // com.ss.android.socialbase.downloader.d.z
     public com.ss.android.socialbase.downloader.notification.a eDd() {
-        return (this.pTv != null || this.f13030a == null) ? this.pTv : new a(this.f13030a, this.f13031b, this.c, this.d, this.e, this.f);
+        return (this.pTw != null || this.f13030a == null) ? this.pTw : new a(this.f13030a, this.f13031b, this.c, this.d, this.e, this.f);
     }
 
     @Override // com.ss.android.socialbase.downloader.d.z, com.ss.android.socialbase.downloader.d.x, com.ss.android.socialbase.downloader.d.b

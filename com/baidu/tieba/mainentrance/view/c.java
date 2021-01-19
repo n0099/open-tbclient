@@ -200,13 +200,13 @@ public class c {
         this.fel.setVisibility(z ? 0 : 8);
     }
 
-    public void Ng(String str) {
+    public void Nh(String str) {
         if (!StringUtils.isNull(str)) {
             this.ikk.setHint(str);
         }
     }
 
-    public void Nh(String str) {
+    public void Ni(String str) {
         if (!StringUtils.isNull(str)) {
             this.ikk.setText(str);
             this.ikk.setSelection(str.length());
@@ -216,7 +216,7 @@ public class c {
     public void o(List<String> list, String str) {
         if (!x.isEmpty(list)) {
             dcc();
-            this.lbd.Na(str);
+            this.lbd.Nb(str);
             this.lbd.setData(list);
             this.lbb.setAdapter((ListAdapter) this.lbd);
         }
@@ -225,7 +225,7 @@ public class c {
     public void p(List<ForumInfo> list, String str) {
         if (!x.isEmpty(list) && !TextUtils.isEmpty(str)) {
             dcc();
-            this.lbY.Na(str);
+            this.lbY.Nb(str);
             this.lbY.eP(list);
             this.lbb.setAdapter((ListAdapter) this.lbY);
         }

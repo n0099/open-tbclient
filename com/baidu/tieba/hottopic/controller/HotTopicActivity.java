@@ -184,10 +184,10 @@ public class HotTopicActivity extends BaseActivity<HotTopicActivity> implements 
             hideLoadingView(this.klp.cRx());
             showNetRefreshView(this.klp.cRx(), getResources().getString(R.string.neterror), true);
             setNetRefreshViewTopMargin(l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds530));
-            this.klp.Ce(8);
+            this.klp.Cd(8);
             return;
         }
-        this.klp.Ce(0);
+        this.klp.Cd(0);
         cQP();
     }
 
@@ -453,7 +453,7 @@ public class HotTopicActivity extends BaseActivity<HotTopicActivity> implements 
         return this.klp.getCurrentTab() == 0 ? 1 : 0;
     }
 
-    public int BY(int i) {
+    public int BX(int i) {
         return i == 1 ? 0 : 1;
     }
 
@@ -474,12 +474,12 @@ public class HotTopicActivity extends BaseActivity<HotTopicActivity> implements 
     @Override // com.baidu.tieba.hottopic.controller.HotRelateThreadModel.b
     public void a(boolean z, com.baidu.tieba.hottopic.data.d dVar, int i) {
         if (!z || dVar == null || x.isEmpty(this.mHotTopicDataList) || x.getCount(dVar.gaa) == 0) {
-            this.klp.BW(BY(i));
+            this.klp.BV(BX(i));
             return;
         }
-        e eVar = (e) x.getItem(this.mHotTopicDataList, BY(i));
+        e eVar = (e) x.getItem(this.mHotTopicDataList, BX(i));
         if (eVar == null) {
-            this.klp.BW(BY(i));
+            this.klp.BV(BX(i));
             return;
         }
         eVar.a(dVar);
@@ -489,40 +489,40 @@ public class HotTopicActivity extends BaseActivity<HotTopicActivity> implements 
 
     private void a(int i, com.baidu.tbadk.core.data.ax axVar) {
         if (axVar != null) {
-            int BY = BY(i);
-            e eVar = (e) x.getItem(this.mHotTopicDataList, BY);
+            int BX = BX(i);
+            e eVar = (e) x.getItem(this.mHotTopicDataList, BX);
             if (eVar != null) {
                 eVar.a(axVar);
             }
             if (axVar.bmm() != 0) {
-                this.klp.BU(BY);
+                this.klp.BT(BX);
                 return;
             }
-            this.klp.BW(BY);
-            this.klp.BV(BY);
+            this.klp.BV(BX);
+            this.klp.BU(BX);
         }
     }
 
     private void cQS() {
-        int BY = BY(getSortType());
-        e eVar = (e) x.getItem(this.mHotTopicDataList, BY);
+        int BX = BX(getSortType());
+        e eVar = (e) x.getItem(this.mHotTopicDataList, BX);
         if (eVar == null || eVar.getPageData() == null) {
-            this.klp.BW(BY);
+            this.klp.BV(BX);
             return;
         }
         if (eVar.getPageData().bmm() != 0) {
-            this.klp.BW(BY);
+            this.klp.BV(BX);
             return;
         }
-        this.klp.BW(BY);
-        this.klp.BV(BY);
+        this.klp.BV(BX);
+        this.klp.BU(BX);
     }
 
     @Override // com.baidu.tbadk.BaseActivity
     protected void onNetRefreshButtonClicked() {
         if (j.isNetWorkAvailable() && this.klp != null) {
             this.klp.Vq();
-            this.klp.Ce(0);
+            this.klp.Cd(0);
             cQP();
         }
     }

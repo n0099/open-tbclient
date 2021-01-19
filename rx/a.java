@@ -3,10 +3,10 @@ package rx;
 import rx.exceptions.MissingBackpressureException;
 /* loaded from: classes14.dex */
 public final class a {
-    public static final d qnq = c.qnw;
-    public static final d qnr = qnq;
-    public static final d qns = b.qnv;
-    public static final d qnt = C1301a.qnu;
+    public static final d qnr = c.qnx;
+    public static final d qns = qnr;
+    public static final d qnt = b.qnw;
+    public static final d qnu = C1301a.qnv;
 
     /* loaded from: classes14.dex */
     public interface d {
@@ -15,7 +15,7 @@ public final class a {
 
     /* loaded from: classes14.dex */
     static final class b implements d {
-        static final b qnv = new b();
+        static final b qnw = new b();
 
         private b() {
         }
@@ -29,7 +29,7 @@ public final class a {
     /* renamed from: rx.a$a  reason: collision with other inner class name */
     /* loaded from: classes14.dex */
     static final class C1301a implements d {
-        static final C1301a qnu = new C1301a();
+        static final C1301a qnv = new C1301a();
 
         private C1301a() {
         }
@@ -42,7 +42,7 @@ public final class a {
 
     /* loaded from: classes14.dex */
     static final class c implements d {
-        static final c qnw = new c();
+        static final c qnx = new c();
 
         private c() {
         }

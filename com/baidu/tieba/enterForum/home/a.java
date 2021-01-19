@@ -480,7 +480,7 @@ public class a implements com.baidu.tbadk.imageManager.b, com.baidu.tbadk.mvc.c.
                 TbadkCoreApplication.getInst().clearSignedForum();
                 String currentAccount = TbadkCoreApplication.getCurrentAccount();
                 if (currentAccount != null && currentAccount.length() > 0) {
-                    com.baidu.tieba.tbadkCore.util.a.Sv(currentAccount);
+                    com.baidu.tieba.tbadkCore.util.a.Sw(currentAccount);
                 }
                 this.iDa.pT(this.iDb.cvu());
             }

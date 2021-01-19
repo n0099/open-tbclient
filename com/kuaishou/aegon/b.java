@@ -1,7 +1,7 @@
 package com.kuaishou.aegon;
 /* loaded from: classes4.dex */
 final /* synthetic */ class b implements Runnable {
-    private static final b pNG = new b();
+    private static final b pNH = new b();
 
     private b() {
     }

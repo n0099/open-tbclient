@@ -13,8 +13,8 @@ import java.util.Locale;
 import javax.annotation.Nullable;
 /* loaded from: classes3.dex */
 abstract class b implements e {
-    protected static final byte[] pBa = {-1, -39};
-    private final com.facebook.imagepipeline.memory.a pBb = com.facebook.imagepipeline.memory.b.ewj();
+    protected static final byte[] pBb = {-1, -39};
+    private final com.facebook.imagepipeline.memory.a pBc = com.facebook.imagepipeline.memory.b.ewj();
 
     abstract Bitmap a(com.facebook.common.references.a<PooledByteBuffer> aVar, int i, BitmapFactory.Options options);
 
@@ -66,12 +66,12 @@ abstract class b implements e {
     public com.facebook.common.references.a<Bitmap> ai(Bitmap bitmap) {
         try {
             Bitmaps.ah(bitmap);
-            if (!this.pBb.ac(bitmap)) {
+            if (!this.pBc.ac(bitmap)) {
                 int ak = com.facebook.d.a.ak(bitmap);
                 bitmap.recycle();
-                throw new TooManyBitmapsException(String.format(Locale.US, "Attempted to pin a bitmap of size %d bytes. The current pool count is %d, the current pool size is %d bytes. The current pool max count is %d, the current pool max size is %d bytes.", Integer.valueOf(ak), Integer.valueOf(this.pBb.getCount()), Long.valueOf(this.pBb.getSize()), Integer.valueOf(this.pBb.bXe()), Integer.valueOf(this.pBb.getMaxSize())));
+                throw new TooManyBitmapsException(String.format(Locale.US, "Attempted to pin a bitmap of size %d bytes. The current pool count is %d, the current pool size is %d bytes. The current pool max count is %d, the current pool max size is %d bytes.", Integer.valueOf(ak), Integer.valueOf(this.pBc.getCount()), Long.valueOf(this.pBc.getSize()), Integer.valueOf(this.pBc.bXe()), Integer.valueOf(this.pBc.getMaxSize())));
             }
-            return com.facebook.common.references.a.a(bitmap, this.pBb.ewh());
+            return com.facebook.common.references.a.a(bitmap, this.pBc.ewh());
         } catch (Exception e) {
             bitmap.recycle();
             throw l.t(e);

@@ -169,9 +169,9 @@ public class StrangerListActivity extends BaseActivity<StrangerListActivity> {
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.widget.AdapterView.OnItemClickListener
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-        ImMessageCenterShowItemData Cs;
-        if (this.kHY != null && this.kHY.cXa() != null && (Cs = this.kHY.cXa().getItem(i)) != null) {
-            PersonalChatActivityConfig personalChatActivityConfig = new PersonalChatActivityConfig(this.kIa.getPageContext().getContext(), com.baidu.adp.lib.f.b.toLong(Cs.getFriendId(), 0L), Cs.getFriendName(), Cs.getFriendNameShow(), Cs.getFriendPortrait(), 0, 0);
+        ImMessageCenterShowItemData Cr;
+        if (this.kHY != null && this.kHY.cXa() != null && (Cr = this.kHY.cXa().getItem(i)) != null) {
+            PersonalChatActivityConfig personalChatActivityConfig = new PersonalChatActivityConfig(this.kIa.getPageContext().getContext(), com.baidu.adp.lib.f.b.toLong(Cr.getFriendId(), 0L), Cr.getFriendName(), Cr.getFriendNameShow(), Cr.getFriendPortrait(), 0, 0);
             personalChatActivityConfig.setFollowStatus(0);
             sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSONAL_CHAT, personalChatActivityConfig));
         }
@@ -179,8 +179,8 @@ public class StrangerListActivity extends BaseActivity<StrangerListActivity> {
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.widget.AdapterView.OnItemLongClickListener
     public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long j) {
-        final ImMessageCenterShowItemData Cs;
-        if (this.kHY == null || this.kHY.cXa() == null || (Cs = this.kHY.cXa().getItem(i)) == null) {
+        final ImMessageCenterShowItemData Cr;
+        if (this.kHY == null || this.kHY.cXa() == null || (Cr = this.kHY.cXa().getItem(i)) == null) {
             return false;
         }
         final int size = this.kHZ.getData().size();
@@ -194,7 +194,7 @@ public class StrangerListActivity extends BaseActivity<StrangerListActivity> {
                 if (size == 1) {
                     StrangerListActivity.this.kHZ.a(StrangerListActivity.this.kvk);
                 } else {
-                    StrangerListActivity.this.kHZ.asyncDeleteItem(Cs, StrangerListActivity.this.kvk);
+                    StrangerListActivity.this.kHZ.asyncDeleteItem(Cr, StrangerListActivity.this.kvk);
                 }
             }
         });

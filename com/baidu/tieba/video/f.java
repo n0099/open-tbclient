@@ -11,45 +11,45 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.model.VideoHolyCardModel;
 /* loaded from: classes.dex */
 public class f {
-    private static f nBa;
+    private static f nBb;
     private VideoHolyCardModel.a lmb = new VideoHolyCardModel.a() { // from class: com.baidu.tieba.video.f.2
         @Override // com.baidu.tieba.model.VideoHolyCardModel.a
         public void onResult(boolean z) {
-            f.this.nBc = z;
+            f.this.nBd = z;
         }
     };
-    private VideoHolyCardModel nBb;
-    private boolean nBc;
+    private VideoHolyCardModel nBc;
     private boolean nBd;
+    private boolean nBe;
 
     public static f dPM() {
-        if (nBa == null) {
+        if (nBb == null) {
             synchronized (f.class) {
-                if (nBa == null) {
-                    nBa = new f();
+                if (nBb == null) {
+                    nBb = new f();
                 }
             }
         }
-        return nBa;
+        return nBb;
     }
 
     public boolean dPN() {
-        return this.nBc;
+        return this.nBd;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void dPO() {
-        if (this.nBb == null) {
-            this.nBb = new VideoHolyCardModel();
-            this.nBb.a(this.lmb);
+        if (this.nBc == null) {
+            this.nBc = new VideoHolyCardModel();
+            this.nBc.a(this.lmb);
         }
-        this.nBb.deG();
+        this.nBc.deG();
     }
 
     public void gW(Context context) {
-        if (this.nBc && !this.nBd) {
+        if (this.nBd && !this.nBe) {
             l.showToast(context, R.string.free_data_tips);
-            this.nBd = true;
+            this.nBe = true;
         }
     }
 

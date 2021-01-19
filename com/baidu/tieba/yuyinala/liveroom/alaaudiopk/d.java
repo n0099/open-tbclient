@@ -2,14 +2,14 @@ package com.baidu.tieba.yuyinala.liveroom.alaaudiopk;
 /* loaded from: classes10.dex */
 public class d {
     public int activity_stage;
-    public int oiR;
     public int oiS;
     public int oiT;
-    public String oiU;
-    public a oiV;
-    public int oiW;
-    public int oiX = 0;
-    public int oiY = 500;
+    public int oiU;
+    public String oiV;
+    public a oiW;
+    public int oiX;
+    public int oiY = 0;
+    public int oiZ = 500;
 
     /* loaded from: classes10.dex */
     public static class a {

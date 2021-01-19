@@ -15,10 +15,10 @@ class a implements j {
     private int m;
     private int n;
     private int o;
-    private d pTS;
-    private g pTT;
+    private d pTT;
+    private g pTU;
     private boolean c = false;
-    private C1226a pTU = new C1226a();
+    private C1226a pTV = new C1226a();
 
     public a() {
         g();
@@ -27,24 +27,24 @@ class a implements j {
     public void a(InputStream inputStream) {
         a();
         if (inputStream != null) {
-            this.pTS = new d(inputStream, false);
+            this.pTT = new d(inputStream, false);
         }
     }
 
     public void a() {
         if (this.c) {
             this.c = false;
-            this.pTS.a();
-            this.pTS = null;
+            this.pTT.a();
             this.pTT = null;
+            this.pTU = null;
             this.e = null;
-            this.pTU.a();
+            this.pTV.a();
             g();
         }
     }
 
     public int b() throws i, IOException {
-        if (this.pTS == null) {
+        if (this.pTT == null) {
             throw new i("Parser is not opened.", this, null);
         }
         try {
@@ -75,7 +75,7 @@ class a implements j {
 
     public String a(int i) {
         int i2 = this.l[e(i) + 1];
-        return i2 == -1 ? "" : this.pTT.a(i2);
+        return i2 == -1 ? "" : this.pTU.a(i2);
     }
 
     public int b(int i) {
@@ -89,7 +89,7 @@ class a implements j {
     public String QQ(int i) {
         int e = e(i);
         if (this.l[e + 3] == 3) {
-            return this.pTT.a(this.l[e + 2]);
+            return this.pTU.a(this.l[e + 2]);
         }
         int i2 = this.l[e + 4];
         return "";
@@ -132,11 +132,11 @@ class a implements j {
         Code decompiled incorrectly, please refer to instructions dump.
     */
     private final void h() throws IOException {
-        if (this.pTT == null) {
-            b.a(this.pTS, 524291);
-            this.pTS.c();
-            this.pTT = g.a(this.pTS);
-            this.pTU.e();
+        if (this.pTU == null) {
+            b.a(this.pTT, 524291);
+            this.pTT.c();
+            this.pTU = g.a(this.pTT);
+            this.pTV.e();
             this.c = true;
         }
         if (this.h != 1) {
@@ -145,66 +145,66 @@ class a implements j {
             while (true) {
                 if (this.g) {
                     this.g = false;
-                    this.pTU.f();
+                    this.pTV.f();
                 }
-                if (i == 3 && this.pTU.d() == 1 && this.pTU.b() == 0) {
+                if (i == 3 && this.pTV.d() == 1 && this.pTV.b() == 0) {
                     this.h = 1;
                     return;
                 }
-                int b2 = i == 0 ? 1048834 : this.pTS.b();
+                int b2 = i == 0 ? 1048834 : this.pTT.b();
                 if (b2 == 524672) {
-                    int b3 = this.pTS.b();
+                    int b3 = this.pTT.b();
                     if (b3 < 8 || b3 % 4 != 0) {
                         break;
                     }
-                    this.e = this.pTS.b((b3 / 4) - 2);
+                    this.e = this.pTT.b((b3 / 4) - 2);
                 } else if (b2 < 1048832 || b2 > 1048836) {
                     break;
                 } else if (b2 == 1048834 && i == -1) {
                     this.h = 0;
                     return;
                 } else {
-                    this.pTS.c();
-                    int b4 = this.pTS.b();
-                    this.pTS.c();
+                    this.pTT.c();
+                    int b4 = this.pTT.b();
+                    this.pTT.c();
                     if (b2 == 1048832 || b2 == 1048833) {
                         if (b2 == 1048832) {
-                            this.pTU.a(this.pTS.b(), this.pTS.b());
+                            this.pTV.a(this.pTT.b(), this.pTT.b());
                         } else {
-                            this.pTS.c();
-                            this.pTS.c();
-                            this.pTU.c();
+                            this.pTT.c();
+                            this.pTT.c();
+                            this.pTV.c();
                         }
                     } else {
                         this.i = b4;
                         if (b2 == 1048834) {
-                            this.k = this.pTS.b();
-                            this.j = this.pTS.b();
-                            this.pTS.c();
-                            int b5 = this.pTS.b();
+                            this.k = this.pTT.b();
+                            this.j = this.pTT.b();
+                            this.pTT.c();
+                            int b5 = this.pTT.b();
                             this.m = (b5 >>> 16) - 1;
                             int i2 = b5 & SupportMenu.USER_MASK;
-                            this.n = this.pTS.b();
+                            this.n = this.pTT.b();
                             this.o = (this.n >>> 16) - 1;
                             this.n = (this.n & SupportMenu.USER_MASK) - 1;
-                            this.l = this.pTS.b(i2 * 5);
+                            this.l = this.pTT.b(i2 * 5);
                             for (int i3 = 3; i3 < this.l.length; i3 += 5) {
                                 int[] iArr = this.l;
                                 iArr[i3] = iArr[i3] >>> 24;
                             }
-                            this.pTU.e();
+                            this.pTV.e();
                             this.h = 2;
                             return;
                         } else if (b2 == 1048835) {
-                            this.k = this.pTS.b();
-                            this.j = this.pTS.b();
+                            this.k = this.pTT.b();
+                            this.j = this.pTT.b();
                             this.h = 3;
                             this.g = true;
                             return;
                         } else if (b2 == 1048836) {
-                            this.j = this.pTS.b();
-                            this.pTS.c();
-                            this.pTS.c();
+                            this.j = this.pTT.b();
+                            this.pTT.c();
+                            this.pTT.c();
                             this.h = 4;
                             return;
                         }

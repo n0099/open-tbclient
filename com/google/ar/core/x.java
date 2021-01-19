@@ -26,38 +26,38 @@ final class x extends com.google.a.b.a.a.a.e {
             int i = bundle.getInt("error.code", -100);
             int i2 = bundle.getInt("install.status", 0);
             if (i2 == 4) {
-                this.f7872b.pHy.a(p.COMPLETED);
+                this.f7872b.pHz.a(p.COMPLETED);
             } else if (i != 0) {
                 Log.w("ARCore-InstallService", new StringBuilder(51).append("requestInstall = ").append(i).append(", launching fullscreen.").toString());
-                w wVar = this.f7872b.pHK;
-                w.b(this.f7872b.f7855a, this.f7872b.pHy);
+                w wVar = this.f7872b.pHL;
+                w.b(this.f7872b.f7855a, this.f7872b.pHz);
             } else if (bundle.containsKey("resolution.intent")) {
-                w wVar2 = this.f7872b.pHK;
-                w.a(this.f7872b.f7855a, bundle, this.f7872b.pHy);
+                w wVar2 = this.f7872b.pHL;
+                w.a(this.f7872b.f7855a, bundle, this.f7872b.pHz);
             } else {
                 switch (i2) {
                     case 1:
                     case 2:
                     case 3:
-                        this.f7872b.pHy.a(p.ACCEPTED);
+                        this.f7872b.pHz.a(p.ACCEPTED);
                         return;
                     case 4:
-                        this.f7872b.pHy.a(p.COMPLETED);
+                        this.f7872b.pHz.a(p.COMPLETED);
                         return;
                     case 5:
-                        this.f7872b.pHy.a(new FatalException("Unexpected FAILED install status without error."));
+                        this.f7872b.pHz.a(new FatalException("Unexpected FAILED install status without error."));
                         return;
                     case 6:
-                        this.f7872b.pHy.a(p.CANCELLED);
+                        this.f7872b.pHz.a(p.CANCELLED);
                         return;
                     case 7:
                     case 8:
                     case 9:
                     default:
-                        this.f7872b.pHy.a(new FatalException(new StringBuilder(38).append("Unexpected install status: ").append(i2).toString()));
+                        this.f7872b.pHz.a(new FatalException(new StringBuilder(38).append("Unexpected install status: ").append(i2).toString()));
                         return;
                     case 10:
-                        this.f7872b.pHy.a(new FatalException("Unexpected REQUIRES_UI_INTENT install status without an intent."));
+                        this.f7872b.pHz.a(new FatalException("Unexpected REQUIRES_UI_INTENT install status without an intent."));
                         return;
                 }
             }

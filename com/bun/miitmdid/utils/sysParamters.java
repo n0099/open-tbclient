@@ -10,7 +10,7 @@ import androidx.annotation.Keep;
 import com.xiaomi.mipush.sdk.Constants;
 /* loaded from: classes5.dex */
 public class sysParamters {
-    private static volatile sysParamters pbR;
+    private static volatile sysParamters pbS;
 
     /* renamed from: a  reason: collision with root package name */
     private String f5767a;
@@ -47,14 +47,14 @@ public class sysParamters {
     }
 
     public static sysParamters ekR() {
-        if (pbR == null) {
+        if (pbS == null) {
             synchronized (sysParamters.class) {
-                if (pbR == null) {
-                    pbR = new sysParamters();
+                if (pbS == null) {
+                    pbS = new sysParamters();
                 }
             }
         }
-        return pbR;
+        return pbS;
     }
 
     public static String f() {

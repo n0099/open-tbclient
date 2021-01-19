@@ -20,8 +20,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes10.dex */
 public class c {
-    private static c owt;
-    private a owu;
+    private static c owu;
+    private a owv;
 
     /* loaded from: classes10.dex */
     public interface a {
@@ -31,17 +31,17 @@ public class c {
     }
 
     public static c eaV() {
-        if (owt == null) {
-            owt = new c();
+        if (owu == null) {
+            owu = new c();
         }
-        return owt;
+        return owu;
     }
 
     private c() {
     }
 
     public void a(Context context, Activity activity, String str, String str2) {
-        if (Vi(str)) {
+        if (Vj(str)) {
             a(context, activity, str);
         } else {
             b(context, activity, str, str2);
@@ -65,8 +65,8 @@ public class c {
             @Override // com.baidu.tieba.yuyinala.liveroom.wheat.c.d.a
             public void zI(boolean z) {
                 if (z) {
-                    if (c.this.owu != null) {
-                        c.this.owu.dbt();
+                    if (c.this.owv != null) {
+                        c.this.owv.dbt();
                     }
                     UbcAudioFlowStatisticManager.getInstance().beginFlow(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_AUDIO_OWNER_JOIN_MIC, "auidolivechatflow", UbcStatConstant.Page.AUDIO_LIVE_ROOM, ""));
                     UbcAudioFlowStatisticManager.getInstance().doSlotStart(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_AUDIO_OWNER_JOIN_MIC, "auidolivechatflow", UbcStatConstant.Page.AUDIO_LIVE_ROOM, ""), "hostJoinMic", null);
@@ -123,8 +123,8 @@ public class c {
                     new com.baidu.tieba.yuyinala.liveroom.wheat.model.d(null, new d.a() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.c.c.2.1
                         @Override // com.baidu.tieba.yuyinala.liveroom.wheat.model.d.a
                         public void b(AlaApplyWheatHttpResponseMessage alaApplyWheatHttpResponseMessage) {
-                            if (!alaApplyWheatHttpResponseMessage.isError() && c.this.owu != null) {
-                                c.this.owu.eaQ();
+                            if (!alaApplyWheatHttpResponseMessage.isError() && c.this.owv != null) {
+                                c.this.owv.eaQ();
                             }
                         }
 
@@ -144,16 +144,16 @@ public class c {
         }
     }
 
-    private boolean Vi(String str) {
+    private boolean Vj(String str) {
         return "1".equals(str);
     }
 
     public void onDestroy() {
-        owt = null;
+        owu = null;
     }
 
     public c a(a aVar) {
-        this.owu = aVar;
+        this.owv = aVar;
         return this;
     }
 }

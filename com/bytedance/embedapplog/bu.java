@@ -8,12 +8,12 @@ public class bu extends bv {
 
     /* renamed from: b  reason: collision with root package name */
     private boolean f5813b;
-    private final m pcS;
+    private final m pcT;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bu(Context context, m mVar) {
         super(context);
-        this.pcS = mVar;
+        this.pcT = mVar;
     }
 
     @Override // com.bytedance.embedapplog.bv
@@ -28,15 +28,15 @@ public class bu extends bv {
 
     @Override // com.bytedance.embedapplog.bv
     long[] elB() {
-        return cc.pcY;
+        return cc.pcZ;
     }
 
     @Override // com.bytedance.embedapplog.bv
     boolean d() {
-        if (this.pcS.o() != 0) {
-            JSONObject a2 = this.pcS.a();
+        if (this.pcT.o() != 0) {
+            JSONObject a2 = this.pcT.a();
             if (a2 != null) {
-                this.f5813b = aa.x(ab.a(this.f5814a, this.pcS.a(), aa.elx().elH(), true, b.ekT()), a2);
+                this.f5813b = aa.x(ab.a(this.f5814a, this.pcT.a(), aa.elx().elH(), true, b.ekT()), a2);
             } else {
                 au.a(null);
             }

@@ -115,7 +115,7 @@ public class GDTNativeUnifiedVideoView extends v0 {
     @Override // com.fun.ad.v0
     public void a(Activity activity, au.a aVar, NativeUnifiedADData nativeUnifiedADData, ah ahVar) {
         super.a(activity, aVar, nativeUnifiedADData, ahVar);
-        ap.a.pFk.a(getContext(), nativeUnifiedADData.getIconUrl(), this.e);
+        ap.a.pFl.a(getContext(), nativeUnifiedADData.getIconUrl(), this.e);
         m.a("GDTNativeUnifiedAd image width: " + nativeUnifiedADData.getPictureWidth() + ", height: " + nativeUnifiedADData.getPictureHeight());
         this.f = (nativeUnifiedADData.getPictureWidth() * 1.0f) / (nativeUnifiedADData.getPictureHeight() * 1.0f);
         nativeUnifiedADData.bindMediaView(this.d, new VideoOption.Builder().setAutoPlayPolicy(d.c ? 1 : 0).setAutoPlayMuted(!d.f7776b).setDetailPageMuted(false).setNeedCoverImage(true).setNeedProgressBar(true).setEnableDetailPage(false).setEnableUserControl(false).build(), new a(this, ahVar, aVar));

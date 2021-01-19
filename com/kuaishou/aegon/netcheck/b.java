@@ -4,10 +4,10 @@ final /* synthetic */ class b implements Runnable {
 
     /* renamed from: b  reason: collision with root package name */
     private final int f8119b;
-    private final NetcheckTaskListenerWrapper pNQ;
+    private final NetcheckTaskListenerWrapper pNR;
 
     private b(NetcheckTaskListenerWrapper netcheckTaskListenerWrapper, int i) {
-        this.pNQ = netcheckTaskListenerWrapper;
+        this.pNR = netcheckTaskListenerWrapper;
         this.f8119b = i;
     }
 
@@ -17,6 +17,6 @@ final /* synthetic */ class b implements Runnable {
 
     @Override // java.lang.Runnable
     public void run() {
-        this.pNQ.pNP.a(this.f8119b);
+        this.pNR.pNQ.a(this.f8119b);
     }
 }

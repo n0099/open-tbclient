@@ -45,7 +45,7 @@ public class b extends BaseAdapter {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: Ck */
+    /* renamed from: Cj */
     public p getItem(int i) {
         if (i < 0 || i >= this.tagList.size()) {
             return null;

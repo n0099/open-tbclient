@@ -217,7 +217,7 @@ public class PersonListModel extends BdBaseModel<PersonListActivity> {
         return false;
     }
 
-    public void NU(String str) {
+    public void NV(String str) {
         new b(str).execute(new Void[0]);
     }
 

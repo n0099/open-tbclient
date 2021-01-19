@@ -16,8 +16,8 @@ public class c {
     private List<ImageFileInfo> bIc;
     private final com.baidu.adp.base.f mContext;
     private WriteImagesInfo mWriteImagesInfo;
-    private VideoFileInfo nTP;
-    private ImageFileInfo nTQ;
+    private VideoFileInfo nTQ;
+    private ImageFileInfo nTR;
     private int maxImagesAllowed = 9;
     private final List<com.baidu.tbadk.album.a> bId = new ArrayList();
 
@@ -26,11 +26,11 @@ public class c {
     }
 
     public void a(VideoFileInfo videoFileInfo) {
-        this.nTP = videoFileInfo;
+        this.nTQ = videoFileInfo;
     }
 
     public VideoFileInfo dUz() {
-        return this.nTP;
+        return this.nTQ;
     }
 
     public boolean SW() {
@@ -38,15 +38,15 @@ public class c {
     }
 
     public boolean SX() {
-        return this.nTP != null;
+        return this.nTQ != null;
     }
 
     public boolean b(VideoFileInfo videoFileInfo) {
-        return (this.nTP == null || videoFileInfo == null || this.nTP.videoId != videoFileInfo.videoId) ? false : true;
+        return (this.nTQ == null || videoFileInfo == null || this.nTQ.videoId != videoFileInfo.videoId) ? false : true;
     }
 
     public void d(ImageFileInfo imageFileInfo) {
-        this.nTQ = imageFileInfo;
+        this.nTR = imageFileInfo;
     }
 
     public void addChooseFile(ImageFileInfo imageFileInfo) {
@@ -199,7 +199,7 @@ public class c {
     }
 
     public int getCurrentIndex() {
-        if (this.nTQ == null || TextUtils.isEmpty(this.nTQ.getFilePath())) {
+        if (this.nTR == null || TextUtils.isEmpty(this.nTR.getFilePath())) {
             return 0;
         }
         if (this.bIc == null || this.bIc.size() == 0) {
@@ -208,7 +208,7 @@ public class c {
         int size = this.bIc.size();
         for (int i = 0; i < size; i++) {
             ImageFileInfo imageFileInfo = this.bIc.get(i);
-            if (imageFileInfo != null && this.nTQ.getFilePath().equals(imageFileInfo.getFilePath())) {
+            if (imageFileInfo != null && this.nTR.getFilePath().equals(imageFileInfo.getFilePath())) {
                 return i;
             }
         }

@@ -55,7 +55,7 @@ public class c {
         turbonetConfig.Ac(true);
         turbonetConfig.Af(true);
         turbonetConfig.Ae(true);
-        turbonetConfig.VQ("http://tb-video.bdstatic.com|2");
+        turbonetConfig.VR("http://tb-video.bdstatic.com|2");
         turbonetConfig.Ad(true);
         turbonetConfig.e("bdns", "bce_http_dns_account_id", "119799");
         turbonetConfig.e("bdns", "bce_http_dns_secret", "87JNTZjGacgUzuMBYvid");
@@ -70,7 +70,7 @@ public class c {
         } else {
             file.mkdirs();
         }
-        turbonetConfig.VP(file.getAbsolutePath());
+        turbonetConfig.VQ(file.getAbsolutePath());
         turbonetConfig.B(3, 10485760L);
         turbonetConfig.e(TbConfig.TMP_LOG_DIR_NAME, "lite_log_in_response_header", true);
         turbonetConfig.e("app", "app_package_name", "com.baidu.tieba");

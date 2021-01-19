@@ -8,35 +8,35 @@ import java.util.List;
 import rx.k;
 /* loaded from: classes14.dex */
 public final class i implements k {
-    private volatile boolean qod;
-    private List<k> qtg;
+    private volatile boolean qoe;
+    private List<k> qth;
 
     public i() {
     }
 
     public i(k... kVarArr) {
-        this.qtg = new LinkedList(Arrays.asList(kVarArr));
+        this.qth = new LinkedList(Arrays.asList(kVarArr));
     }
 
     public i(k kVar) {
-        this.qtg = new LinkedList();
-        this.qtg.add(kVar);
+        this.qth = new LinkedList();
+        this.qth.add(kVar);
     }
 
     @Override // rx.k
     public boolean isUnsubscribed() {
-        return this.qod;
+        return this.qoe;
     }
 
     public void add(k kVar) {
         if (!kVar.isUnsubscribed()) {
-            if (!this.qod) {
+            if (!this.qoe) {
                 synchronized (this) {
-                    if (!this.qod) {
-                        List list = this.qtg;
+                    if (!this.qoe) {
+                        List list = this.qth;
                         if (list == null) {
                             list = new LinkedList();
-                            this.qtg = list;
+                            this.qth = list;
                         }
                         list.add(kVar);
                         return;
@@ -48,10 +48,10 @@ public final class i implements k {
     }
 
     public void a(k kVar) {
-        if (!this.qod) {
+        if (!this.qoe) {
             synchronized (this) {
-                List<k> list = this.qtg;
-                if (!this.qod && list != null) {
+                List<k> list = this.qth;
+                if (!this.qoe && list != null) {
                     boolean remove = list.remove(kVar);
                     if (remove) {
                         kVar.unsubscribe();
@@ -63,12 +63,12 @@ public final class i implements k {
 
     @Override // rx.k
     public void unsubscribe() {
-        if (!this.qod) {
+        if (!this.qoe) {
             synchronized (this) {
-                if (!this.qod) {
-                    this.qod = true;
-                    List<k> list = this.qtg;
-                    this.qtg = null;
+                if (!this.qoe) {
+                    this.qoe = true;
+                    List<k> list = this.qth;
+                    this.qth = null;
                     u(list);
                 }
             }

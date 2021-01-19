@@ -61,7 +61,7 @@ public class b {
                 b.this.kol.h(view, i, i2, i3, i4);
             }
             if (b.this.kon != null) {
-                b.this.kon.Cl(i2);
+                b.this.kon.Ck(i2);
             }
         }
     };
@@ -158,7 +158,7 @@ public class b {
             this.kon = new com.baidu.tieba.hottopic.view.indicator.c(this.kom);
             this.kon.a(this.kor);
         }
-        this.kon.Cm(this.topHeight);
+        this.kon.Cl(this.topHeight);
         if (!this.kon.isShowing() && (jVar = (com.baidu.tieba.hottopic.data.j) x.getItem(this.kol.cRR(), 0)) != null) {
             this.kon.a(this.koj.getActivity(), jVar.kmN, this.eWN.getCurrentItem());
             if (this.kok != null) {
@@ -173,7 +173,7 @@ public class b {
         }
     }
 
-    public void Ca(int i) {
+    public void BZ(int i) {
         if (this.gvm != null) {
             this.gvm.setVisibility(i);
         }
@@ -200,11 +200,11 @@ public class b {
         }
     }
 
-    public void Cb(int i) {
+    public void Ca(int i) {
         this.eWN.setVisibility(i);
     }
 
-    public void Cc(int i) {
+    public void Cb(int i) {
         if (this.kok != null) {
             this.kok.setVisibility(i);
         }

@@ -7,9 +7,9 @@ import java.util.List;
 public interface a {
     void N(Bitmap bitmap);
 
-    void Pm(String str);
+    void Pn(String str);
 
-    void Tf(String str);
+    void Tg(String str);
 
     void bzc();
 

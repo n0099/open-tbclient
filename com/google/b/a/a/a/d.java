@@ -12,7 +12,6 @@ public class d {
 
     /* renamed from: b  reason: collision with root package name */
     private double[] f7880b = new double[16];
-    private c pLn = new c();
     private c pLo = new c();
     private c pLp = new c();
     private c pLq = new c();
@@ -21,22 +20,22 @@ public class d {
     private c pLt = new c();
     private c pLu = new c();
     private c pLv = new c();
-    private g pLw = new g();
+    private c pLw = new c();
     private g pLx = new g();
     private g pLy = new g();
     private g pLz = new g();
     private g pLA = new g();
     private g pLB = new g();
     private g pLC = new g();
-    private final g pLD = new g();
+    private g pLD = new g();
+    private final g pLE = new g();
     private double u = 0.0d;
     private double v = 0.0d;
     private boolean x = false;
     private boolean z = true;
-    private c pLE = new c();
     private c pLF = new c();
-    private g pLG = new g();
-    private c pLH = new c();
+    private c pLG = new c();
+    private g pLH = new g();
     private c pLI = new c();
     private c pLJ = new c();
     private c pLK = new c();
@@ -44,7 +43,7 @@ public class d {
     private c pLM = new c();
     private c pLN = new c();
     private c pLO = new c();
-    private g pLP = new g();
+    private c pLP = new c();
     private g pLQ = new g();
     private g pLR = new g();
     private g pLS = new g();
@@ -52,7 +51,7 @@ public class d {
     private g pLU = new g();
     private g pLV = new g();
     private g pLW = new g();
-    private c pLX = new c();
+    private g pLX = new g();
     private c pLY = new c();
     private c pLZ = new c();
     private c pMa = new c();
@@ -61,7 +60,8 @@ public class d {
     private c pMd = new c();
     private c pMe = new c();
     private c pMf = new c();
-    private e pMg = new e();
+    private c pMg = new c();
+    private e pMh = new e();
 
     static {
         f7879a = !d.class.desiredAssertionStatus();
@@ -87,9 +87,9 @@ public class d {
     }
 
     private void a(c cVar, g gVar) {
-        c.a(cVar, this.pLB, this.pLy);
-        this.pMg.a(this.pLy, this.pLx, this.pMe);
-        this.pMg.a(this.pMe, gVar);
+        c.a(cVar, this.pLC, this.pLz);
+        this.pMh.a(this.pLz, this.pLy, this.pMf);
+        this.pMh.a(this.pMf, gVar);
     }
 
     private void b(double d) {
@@ -97,14 +97,14 @@ public class d {
         this.u = d;
         this.v = (abs * 0.5d) + (this.v * 0.5d);
         double min = Math.min(7.0d, ((this.v / 0.15d) * 6.25d) + 0.75d);
-        this.pLs.a(min * min);
+        this.pLt.a(min * min);
     }
 
     private void c() {
-        this.pLo.d(this.pMc);
-        c.b(this.pLp, this.pMc, this.pMd);
-        c.b(this.pLo, this.pMd, this.pLp);
-        this.pLo.b();
+        this.pLp.d(this.pMd);
+        c.b(this.pLq, this.pMd, this.pMe);
+        c.b(this.pLp, this.pMe, this.pLq);
+        this.pLp.b();
     }
 
     private double[] f(c cVar) {
@@ -128,29 +128,28 @@ public class d {
     }
 
     public double[] K(double d) {
-        g gVar = this.pLG;
-        gVar.a(this.pLD);
+        g gVar = this.pLH;
+        gVar.a(this.pLE);
         gVar.a(-d);
-        c cVar = this.pLE;
+        c cVar = this.pLF;
         f.a(gVar, cVar);
-        c cVar2 = this.pLF;
-        c.b(cVar, this.pLn, cVar2);
+        c cVar2 = this.pLG;
+        c.b(cVar, this.pLo, cVar2);
         return f(cVar2);
     }
 
     public synchronized void a() {
         this.s = 0L;
-        this.pLn.b();
         this.pLo.b();
-        this.pLp.a();
-        this.pLp.a(25.0d);
+        this.pLp.b();
         this.pLq.a();
-        this.pLq.a(1.0d);
+        this.pLq.a(25.0d);
         this.pLr.a();
-        this.pLr.a(0.0625d);
+        this.pLr.a(1.0d);
         this.pLs.a();
-        this.pLs.a(0.5625d);
+        this.pLs.a(0.0625d);
         this.pLt.a();
+        this.pLt.a(0.5625d);
         this.pLu.a();
         this.pLv.a();
         this.pLw.a();
@@ -158,8 +157,9 @@ public class d {
         this.pLy.a();
         this.pLz.a();
         this.pLA.a();
-        this.pLB.a(0.0d, 0.0d, 9.81d);
-        this.pLC.a(0.0d, 1.0d, 0.0d);
+        this.pLB.a();
+        this.pLC.a(0.0d, 0.0d, 9.81d);
+        this.pLD.a(0.0d, 1.0d, 0.0d);
         this.ac = false;
         this.ad = false;
     }
@@ -172,56 +172,56 @@ public class d {
             } else {
                 a(f);
             }
-            this.pLz.a(gVar);
-            this.pLz.a(-f);
-            f.a(this.pLz, this.pLo);
-            this.pLI.a(this.pLn);
-            c.b(this.pLo, this.pLn, this.pLI);
-            this.pLn.a(this.pLI);
+            this.pLA.a(gVar);
+            this.pLA.a(-f);
+            f.a(this.pLA, this.pLp);
+            this.pLJ.a(this.pLo);
+            c.b(this.pLp, this.pLo, this.pLJ);
+            this.pLo.a(this.pLJ);
             c();
-            this.pLJ.a(this.pLq);
-            this.pLJ.b(f * f);
-            this.pLp.b(this.pLJ);
+            this.pLK.a(this.pLr);
+            this.pLK.b(f * f);
+            this.pLq.b(this.pLK);
         }
         this.s = j;
-        this.pLD.a(gVar);
+        this.pLE.a(gVar);
     }
 
     public synchronized void b(g gVar, long j) {
-        this.pLx.a(gVar);
-        b(this.pLx.c());
+        this.pLy.a(gVar);
+        b(this.pLy.c());
         if (this.ac) {
-            a(this.pLn, this.pLw);
+            a(this.pLo, this.pLx);
             for (int i = 0; i < 3; i++) {
-                g gVar2 = this.pLR;
+                g gVar2 = this.pLS;
                 gVar2.a();
                 gVar2.c(i, 1.0E-7d);
-                f.a(gVar2, this.pLK);
-                c.b(this.pLK, this.pLn, this.pLL);
-                a(this.pLL, this.pLP);
-                g.b(this.pLw, this.pLP, this.pLQ);
-                this.pLQ.a(1.0d / 1.0E-7d);
-                this.pLu.a(i, this.pLQ);
+                f.a(gVar2, this.pLL);
+                c.b(this.pLL, this.pLo, this.pLM);
+                a(this.pLM, this.pLQ);
+                g.b(this.pLx, this.pLQ, this.pLR);
+                this.pLR.a(1.0d / 1.0E-7d);
+                this.pLv.a(i, this.pLR);
             }
-            this.pLu.d(this.pLM);
-            c.b(this.pLp, this.pLM, this.pLN);
-            c.b(this.pLu, this.pLN, this.pLO);
-            c.a(this.pLO, this.pLs, this.pLt);
-            this.pLt.e(this.pLM);
-            this.pLu.d(this.pLN);
-            c.b(this.pLN, this.pLM, this.pLO);
-            c.b(this.pLp, this.pLO, this.pLv);
-            c.a(this.pLv, this.pLw, this.pLA);
-            c.b(this.pLv, this.pLu, this.pLM);
-            this.pLN.b();
-            this.pLN.c(this.pLM);
-            c.b(this.pLN, this.pLp, this.pLM);
-            this.pLp.a(this.pLM);
-            f.a(this.pLA, this.pLo);
-            c.b(this.pLo, this.pLn, this.pLn);
+            this.pLv.d(this.pLN);
+            c.b(this.pLq, this.pLN, this.pLO);
+            c.b(this.pLv, this.pLO, this.pLP);
+            c.a(this.pLP, this.pLt, this.pLu);
+            this.pLu.e(this.pLN);
+            this.pLv.d(this.pLO);
+            c.b(this.pLO, this.pLN, this.pLP);
+            c.b(this.pLq, this.pLP, this.pLw);
+            c.a(this.pLw, this.pLx, this.pLB);
+            c.b(this.pLw, this.pLv, this.pLN);
+            this.pLO.b();
+            this.pLO.c(this.pLN);
+            c.b(this.pLO, this.pLq, this.pLN);
+            this.pLq.a(this.pLN);
+            f.a(this.pLB, this.pLp);
+            c.b(this.pLp, this.pLo, this.pLo);
             c();
         } else {
-            this.pMg.a(this.pLB, this.pLx, this.pLn);
+            this.pMh.a(this.pLC, this.pLy, this.pLo);
             this.ac = true;
         }
     }

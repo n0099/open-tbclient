@@ -16,7 +16,7 @@ public class a extends BaseAdapter {
     private LayoutInflater krl;
     private Context mContext;
     private List<com.baidu.yuyinala.privatemessage.session.b.a> mDatas = new ArrayList();
-    private Set<com.baidu.yuyinala.privatemessage.session.b.a> oYT = new HashSet();
+    private Set<com.baidu.yuyinala.privatemessage.session.b.a> oYU = new HashSet();
 
     public a(Context context, List<com.baidu.yuyinala.privatemessage.session.b.a> list) {
         this.mContext = context;

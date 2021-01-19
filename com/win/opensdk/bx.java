@@ -19,57 +19,57 @@ public final class bx implements View.OnTouchListener {
     /* renamed from: case  reason: not valid java name */
     private int f33case;
     private int java;
-    private long pZK;
-    private Info pZd;
-    private final a qaI;
-    private float qaJ;
+    private long pZL;
+    private Info pZe;
+    private final a qaJ;
     private float qaK;
-    private boolean pYL = false;
-    private long pZe = 0;
+    private float qaL;
+    private boolean pYM = false;
+    private long pZf = 0;
 
     /* loaded from: classes3.dex */
     public interface a {
-        boolean aaC(String str);
+        boolean aaD(String str);
 
-        void aaD(String str);
+        void aaE(String str);
     }
 
     public bx(Info info, a aVar) {
-        this.qaI = aVar;
-        this.pZd = info;
+        this.qaJ = aVar;
+        this.pZe = info;
     }
 
     @Override // android.view.View.OnTouchListener
     public final boolean onTouch(View view, MotionEvent motionEvent) {
         switch (motionEvent.getAction()) {
             case 0:
-                this.pYL = true;
-                this.pZe = System.currentTimeMillis();
-                this.qaJ = motionEvent.getX();
-                this.qaK = motionEvent.getY();
+                this.pYM = true;
+                this.pZf = System.currentTimeMillis();
+                this.qaK = motionEvent.getX();
+                this.qaL = motionEvent.getY();
                 this.java = (int) motionEvent.getRawX();
                 this.f33case = (int) motionEvent.getRawY();
-                this.pZK = System.currentTimeMillis();
+                this.pZL = System.currentTimeMillis();
                 return false;
             case 1:
                 this.f13731a = (int) motionEvent.getRawX();
                 this.f13732b = (int) motionEvent.getRawY();
                 this.f32a = System.currentTimeMillis();
-                boolean z = Math.abs(motionEvent.getX() - this.qaJ) < 51.0f;
-                boolean z2 = Math.abs(motionEvent.getY() - this.qaK) < 51.0f;
-                boolean z3 = System.currentTimeMillis() - this.pZe < 2000;
-                if (z && z2 && z3 && this.pYL) {
+                boolean z = Math.abs(motionEvent.getX() - this.qaK) < 51.0f;
+                boolean z2 = Math.abs(motionEvent.getY() - this.qaL) < 51.0f;
+                boolean z3 = System.currentTimeMillis() - this.pZf < 2000;
+                if (z && z2 && z3 && this.pYM) {
                     String str = null;
                     try {
                         str = eGM().toString();
-                        this.qaI.aaD(str);
+                        this.qaJ.aaE(str);
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
-                    return this.qaI.aaC(str);
-                } else if (this.qaI != null) {
+                    return this.qaJ.aaD(str);
+                } else if (this.qaJ != null) {
                     try {
-                        this.qaI.aaD(eGM().toString());
+                        this.qaJ.aaE(eGM().toString());
                         return false;
                     } catch (Exception e2) {
                         e2.printStackTrace();
@@ -87,7 +87,7 @@ public final class bx implements View.OnTouchListener {
         HashMap<String, Object> hashMap = new HashMap<>();
         hashMap.put("dx", Integer.valueOf(this.java));
         hashMap.put("dy", Integer.valueOf(this.f33case));
-        hashMap.put("dts", Long.valueOf(this.pZK));
+        hashMap.put("dts", Long.valueOf(this.pZL));
         hashMap.put("ux", Integer.valueOf(this.f13731a));
         hashMap.put("uy", Integer.valueOf(this.f13732b));
         hashMap.put("uts", Long.valueOf(this.f32a));

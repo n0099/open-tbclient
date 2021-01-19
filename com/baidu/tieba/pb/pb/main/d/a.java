@@ -193,15 +193,15 @@ public class a {
         if (postData.dLo() != null) {
             str = postData.dLo().toString();
         }
-        SpannableString bI = bI(postData.bnx().getName_show() + " : ", ao.getColor(R.color.CAM_X0109));
-        SpannableString bI2 = bI(str, ao.getColor(R.color.CAM_X0107));
+        SpannableString bJ = bJ(postData.bnx().getName_show() + " : ", ao.getColor(R.color.CAM_X0109));
+        SpannableString bJ2 = bJ(str, ao.getColor(R.color.CAM_X0107));
         SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
-        spannableStringBuilder.append((CharSequence) bI);
-        spannableStringBuilder.append((CharSequence) bI2);
+        spannableStringBuilder.append((CharSequence) bJ);
+        spannableStringBuilder.append((CharSequence) bJ2);
         return spannableStringBuilder;
     }
 
-    public static SpannableString bI(String str, int i) {
+    public static SpannableString bJ(String str, int i) {
         SpannableString spannableString = new SpannableString(str);
         spannableString.setSpan(new ForegroundColorSpan(i), 0, str.length(), 33);
         return spannableString;

@@ -16,7 +16,7 @@ public class a {
     private ViewGroup.LayoutParams hpF = new ViewGroup.LayoutParams(-2, -1);
     private ViewGroup mParentView;
     private TbPageContext mTbPageContext;
-    protected c ojP;
+    protected c ojQ;
 
     public a(TbPageContext tbPageContext, ViewGroup viewGroup) {
         this.mTbPageContext = tbPageContext;
@@ -38,14 +38,14 @@ public class a {
                 bNr();
                 this.mParentView.setVisibility(this.gLt ? 0 : 8);
             }
-            if (this.ojP == null || (this.mParentView != null && this.mParentView.indexOfChild(this.ojP.getView()) < 0)) {
-                this.ojP = new c(this.mTbPageContext);
-                this.mParentView.addView(this.ojP.getView(), new FrameLayout.LayoutParams(-2, -1));
-                this.ojP.cby().setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.liveroom.d.a.1
+            if (this.ojQ == null || (this.mParentView != null && this.mParentView.indexOfChild(this.ojQ.getView()) < 0)) {
+                this.ojQ = new c(this.mTbPageContext);
+                this.mParentView.addView(this.ojQ.getView(), new FrameLayout.LayoutParams(-2, -1));
+                this.ojQ.cby().setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.liveroom.d.a.1
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
-                        a.this.ojP.cbx();
-                        a.this.ojP.hide();
+                        a.this.ojQ.cbx();
+                        a.this.ojQ.hide();
                     }
                 });
             }
@@ -55,8 +55,8 @@ public class a {
             bVar2.setScheme(bVar.getScheme());
             bVar2.setImageId(a.e.back_to_come_logo);
             bVar2.vg(a.h.ala_back_to_come_title);
-            this.ojP.a(bVar2);
-            this.ojP.show();
+            this.ojQ.a(bVar2);
+            this.ojQ.show();
         }
     }
 
@@ -70,8 +70,8 @@ public class a {
     }
 
     private void mr(boolean z) {
-        if (this.ojP != null && this.ojP.getView() != null && (this.ojP.getView().getParent() instanceof ViewGroup)) {
-            ((ViewGroup) this.ojP.getView().getParent()).removeView(this.ojP.getView());
+        if (this.ojQ != null && this.ojQ.getView() != null && (this.ojQ.getView().getParent() instanceof ViewGroup)) {
+            ((ViewGroup) this.ojQ.getView().getParent()).removeView(this.ojQ.getView());
         }
         if (z && this.mParentView != null && (this.mParentView.getParent() instanceof ViewGroup)) {
             ((ViewGroup) this.mParentView.getParent()).removeView(this.mParentView);

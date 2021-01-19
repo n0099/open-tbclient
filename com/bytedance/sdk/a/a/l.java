@@ -37,14 +37,14 @@ public final class l {
                 u.a(cVar.f5840b, 0L, j);
                 while (j > 0) {
                     t.this.g();
-                    o oVar = cVar.pdo;
+                    o oVar = cVar.pdp;
                     int min = (int) Math.min(j, oVar.c - oVar.f5849b);
                     outputStream.write(oVar.f5848a, oVar.f5849b, min);
                     oVar.f5849b += min;
                     j -= min;
                     cVar.f5840b -= min;
                     if (oVar.f5849b == oVar.c) {
-                        cVar.pdo = oVar.emn();
+                        cVar.pdp = oVar.emn();
                         p.b(oVar);
                     }
                 }

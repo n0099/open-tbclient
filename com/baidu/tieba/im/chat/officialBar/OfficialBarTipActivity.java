@@ -76,7 +76,7 @@ public class OfficialBarTipActivity extends BaseActivity<OfficialBarTipActivity>
                     RequestUpdateMaskInfoMessage requestUpdateMaskInfoMessage = (RequestUpdateMaskInfoMessage) orginalMessage;
                     if (requestUpdateMaskInfoMessage.getMaskType() == 12 && requestUpdateMaskInfoMessage.getIsMask() == 1) {
                         if (responseUpdateMaskInfoMessage.getError() == 0) {
-                            OfficialBarTipActivity.this.LF(requestUpdateMaskInfoMessage.getList());
+                            OfficialBarTipActivity.this.LG(requestUpdateMaskInfoMessage.getList());
                         } else {
                             OfficialBarTipActivity.this.getPageContext().showToast(StringUtils.isNull(responseUpdateMaskInfoMessage.getErrorString()) ? OfficialBarTipActivity.this.getPageContext().getResources().getString(R.string.neterror) : responseUpdateMaskInfoMessage.getErrorString());
                         }
@@ -179,9 +179,9 @@ public class OfficialBarTipActivity extends BaseActivity<OfficialBarTipActivity>
         this.kve.cTf().setOnItemClickListener(new AdapterView.OnItemClickListener() { // from class: com.baidu.tieba.im.chat.officialBar.OfficialBarTipActivity.1
             @Override // android.widget.AdapterView.OnItemClickListener
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-                ImMessageCenterShowItemData Cs = OfficialBarTipActivity.this.kve.cTg().getItem(i);
-                if (Cs != null && view != null) {
-                    ImMessageCenterShowItemData imMessageCenterShowItemData = Cs;
+                ImMessageCenterShowItemData Cr = OfficialBarTipActivity.this.kve.cTg().getItem(i);
+                if (Cr != null && view != null) {
+                    ImMessageCenterShowItemData imMessageCenterShowItemData = Cr;
                     if (OfficialBarTipActivity.this.kve.cTg().cSP()) {
                         ImageView imageView = (ImageView) view.findViewById(R.id.select_status);
                         if (imMessageCenterShowItemData.isSelected()) {
@@ -222,9 +222,9 @@ public class OfficialBarTipActivity extends BaseActivity<OfficialBarTipActivity>
 
         @Override // android.widget.AdapterView.OnItemLongClickListener
         public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long j) {
-            ImMessageCenterShowItemData Cs = OfficialBarTipActivity.this.kve.cTg().getItem(i);
-            if (Cs != null) {
-                final ImMessageCenterShowItemData imMessageCenterShowItemData = Cs;
+            ImMessageCenterShowItemData Cr = OfficialBarTipActivity.this.kve.cTg().getItem(i);
+            if (Cr != null) {
+                final ImMessageCenterShowItemData imMessageCenterShowItemData = Cr;
                 if (OfficialBarTipActivity.this.kve.cTg().cSP()) {
                     ImageView imageView = (ImageView) view.findViewById(R.id.select_status);
                     if (imMessageCenterShowItemData.isSelected()) {
@@ -354,7 +354,7 @@ public class OfficialBarTipActivity extends BaseActivity<OfficialBarTipActivity>
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void LF(final String str) {
+    public void LG(final String str) {
         this.kvd.asyncDeleteItem(this.kvf, this.kvk);
         new BdAsyncTask<Void, Void, Void>() { // from class: com.baidu.tieba.im.chat.officialBar.OfficialBarTipActivity.6
             /* JADX DEBUG: Method merged with bridge method */

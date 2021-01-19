@@ -48,7 +48,7 @@ public class c {
         return hashMap;
     }
 
-    private static void MR(String str) {
+    private static void MS(String str) {
         if (!TextUtils.isEmpty(str)) {
             new c(str).cZA();
         }
@@ -59,24 +59,24 @@ public class c {
             return false;
         }
         String str = bVar.getParallelCharge().kTo;
-        MR(str);
+        MS(str);
         boolean z = !TextUtils.isEmpty(str);
         Iterator<String> it = bVar.getParallelCharge().kTr.iterator();
         boolean z2 = z;
         while (it.hasNext()) {
             String next = it.next();
             z2 = z2 || !TextUtils.isEmpty(next);
-            MR(next);
+            MS(next);
         }
         return z2;
     }
 
     public static void b(b bVar) {
         if (bVar != null && bVar.getParallelCharge() != null) {
-            MR(bVar.getParallelCharge().kTp);
+            MS(bVar.getParallelCharge().kTp);
             Iterator<String> it = bVar.getParallelCharge().kTq.iterator();
             while (it.hasNext()) {
-                MR(it.next());
+                MS(it.next());
             }
         }
     }

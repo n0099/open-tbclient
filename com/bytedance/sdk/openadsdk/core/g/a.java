@@ -310,11 +310,11 @@ public class a {
                     if (pVar != null) {
                         if (pVar.h != 0) {
                             i = Long.valueOf(pVar.h).intValue();
-                        } else if (pVar.pkZ != null && pVar.pkZ.networkResponse != null && pVar.pkZ.networkResponse.f6040a != 0) {
-                            i = pVar.pkZ.networkResponse.f6040a;
+                        } else if (pVar.pla != null && pVar.pla.networkResponse != null && pVar.pla.networkResponse.f6040a != 0) {
+                            i = pVar.pla.networkResponse.f6040a;
                         }
-                        if (pVar.pkZ != null) {
-                            str = pVar.pkZ.getMessage();
+                        if (pVar.pla != null) {
+                            str = pVar.pla.getMessage();
                         }
                     }
                     com.bytedance.sdk.openadsdk.core.g.b.a(p.a(), lVar, i, str);

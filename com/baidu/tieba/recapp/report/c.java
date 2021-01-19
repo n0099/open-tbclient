@@ -54,15 +54,15 @@ public class c {
         this.pageNumber = i;
     }
 
-    public void QO(String str) {
+    public void QP(String str) {
         this.placeId = str;
     }
 
-    public void QP(String str) {
+    public void QQ(String str) {
         this.mNJ = str;
     }
 
-    public void QQ(String str) {
+    public void QR(String str) {
     }
 
     public void HF(int i) {
@@ -85,7 +85,7 @@ public class c {
         this.mNR = i;
     }
 
-    public void QR(String str) {
+    public void QS(String str) {
         this.mNS = str;
     }
 
@@ -161,23 +161,23 @@ public class c {
         return jSONObject;
     }
 
-    public void QS(String str) {
+    public void QT(String str) {
         this.mNT = str;
     }
 
-    public void QT(String str) {
+    public void QU(String str) {
         this.mNU = str;
     }
 
-    public void QU(String str) {
+    public void QV(String str) {
         this.mNV = str;
     }
 
-    public void QV(String str) {
+    public void QW(String str) {
         this.mNW = str;
     }
 
-    public void QW(String str) {
+    public void QX(String str) {
         this.mNX = str;
     }
 }

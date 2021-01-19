@@ -57,7 +57,7 @@ public class w extends z {
                     query.moveToFirst();
                     String string = query.getString(query.getColumnIndex("_data"));
                     if (string != null) {
-                        eVar = e(new FileInputStream(string), Yu(string));
+                        eVar = e(new FileInputStream(string), Yv(string));
                     }
                 }
             } finally {
@@ -67,7 +67,7 @@ public class w extends z {
         return eVar;
     }
 
-    private static int Yu(String str) {
+    private static int Yv(String str) {
         if (str == null) {
             return -1;
         }

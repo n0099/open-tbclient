@@ -7,33 +7,33 @@ import java.util.LinkedHashMap;
 /* loaded from: classes3.dex */
 public final class l {
     private static String aE;
-    private static String oJV;
-    private final LinkedHashMap<String, Long> oJW = new LinkedHashMap<>();
+    private static String oJW;
+    private final LinkedHashMap<String, Long> oJX = new LinkedHashMap<>();
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public final void Ww(String str) {
+    public final void Wx(String str) {
         if (!TextUtils.isEmpty(str)) {
-            synchronized (this.oJW) {
-                this.oJW.put(str, Long.valueOf(System.currentTimeMillis()));
-                oJV = str;
+            synchronized (this.oJX) {
+                this.oJX.put(str, Long.valueOf(System.currentTimeMillis()));
+                oJW = str;
                 aE = String.valueOf(System.currentTimeMillis());
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public final void Wx(String str) {
+    public final void Wy(String str) {
         d dVar;
         if (!TextUtils.isEmpty(str)) {
             final com.baidu.ubs.analytics.a.l lVar = new com.baidu.ubs.analytics.a.l();
-            synchronized (this.oJW) {
-                Long remove = this.oJW.remove(str);
+            synchronized (this.oJX) {
+                Long remove = this.oJX.remove(str);
                 if (remove != null) {
                     try {
                         lVar.setStartTime(String.valueOf(remove));
                         lVar.t(str);
                         lVar.z(String.valueOf(System.currentTimeMillis()));
-                        dVar = d.a.oJL;
+                        dVar = d.a.oJM;
                         lVar.setPath(dVar.abU());
                         lVar.x(m.efQ().I());
                     } catch (Exception e) {

@@ -33,7 +33,7 @@ public class d extends BaseAdapter {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: AV */
+    /* renamed from: AU */
     public e getItem(int i) {
         if (this.aWX == null || i < 0 || i >= getCount() - 1) {
             return null;

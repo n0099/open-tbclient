@@ -12,7 +12,7 @@ import rx.j;
 import rx.k;
 /* loaded from: classes14.dex */
 public final class ReplaySubject<T> extends c<T, T> {
-    private static final Object[] qhX = new Object[0];
+    private static final Object[] qhY = new Object[0];
     final ReplayState<T> state;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -168,18 +168,18 @@ public final class ReplaySubject<T> extends c<T, T> {
         volatile boolean done;
         Throwable error;
         final int limit;
-        volatile Node<T> quw;
-        Node<T> qux;
+        volatile Node<T> qux;
+        Node<T> quy;
         int size;
 
         @Override // rx.subjects.ReplaySubject.a
         public void next(T t) {
             Node<T> node = new Node<>(t);
-            this.qux.set(node);
-            this.qux = node;
+            this.quy.set(node);
+            this.quy = node;
             int i = this.size;
             if (i == this.limit) {
-                this.quw = this.quw.get();
+                this.qux = this.qux.get();
             } else {
                 this.size = i + 1;
             }
@@ -209,7 +209,7 @@ public final class ReplaySubject<T> extends c<T, T> {
                     long j2 = 0;
                     Node<T> node2 = (Node) replayProducer.node;
                     if (node2 == null) {
-                        node2 = this.quw;
+                        node2 = this.qux;
                     }
                     while (true) {
                         node = node2;
@@ -287,9 +287,9 @@ public final class ReplaySubject<T> extends c<T, T> {
         volatile boolean done;
         Throwable error;
         final int limit;
-        final long qut;
-        volatile TimedNode<T> quu;
-        TimedNode<T> quv;
+        final long quu;
+        volatile TimedNode<T> quv;
+        TimedNode<T> quw;
         final g scheduler;
         int size;
 
@@ -298,11 +298,11 @@ public final class ReplaySubject<T> extends c<T, T> {
             TimedNode<T> timedNode;
             long now = this.scheduler.now();
             TimedNode<T> timedNode2 = new TimedNode<>(t, now);
-            this.quv.set(timedNode2);
-            this.quv = timedNode2;
-            long j = now - this.qut;
+            this.quw.set(timedNode2);
+            this.quw = timedNode2;
+            long j = now - this.quu;
             int i = this.size;
-            TimedNode<T> timedNode3 = this.quu;
+            TimedNode<T> timedNode3 = this.quv;
             if (i == this.limit) {
                 timedNode = timedNode3.get();
             } else {
@@ -319,7 +319,7 @@ public final class ReplaySubject<T> extends c<T, T> {
             }
             this.size = i;
             if (timedNode != timedNode3) {
-                this.quu = timedNode;
+                this.quv = timedNode;
             }
         }
 
@@ -337,8 +337,8 @@ public final class ReplaySubject<T> extends c<T, T> {
         }
 
         void eLN() {
-            long now = this.scheduler.now() - this.qut;
-            TimedNode<T> timedNode = this.quu;
+            long now = this.scheduler.now() - this.quu;
+            TimedNode<T> timedNode = this.quv;
             TimedNode<T> timedNode2 = timedNode;
             while (true) {
                 TimedNode<T> timedNode3 = timedNode2.get();
@@ -348,14 +348,14 @@ public final class ReplaySubject<T> extends c<T, T> {
                 timedNode2 = timedNode3;
             }
             if (timedNode != timedNode2) {
-                this.quu = timedNode2;
+                this.quv = timedNode2;
             }
         }
 
         TimedNode<T> eLO() {
             TimedNode<T> timedNode;
-            long now = this.scheduler.now() - this.qut;
-            TimedNode<T> timedNode2 = this.quu;
+            long now = this.scheduler.now() - this.quu;
+            TimedNode<T> timedNode2 = this.quv;
             while (true) {
                 timedNode = timedNode2;
                 timedNode2 = timedNode.get();

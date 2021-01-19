@@ -29,7 +29,7 @@ public class c {
     }
 
     public void IY() {
-        this.lYm = new com.baidu.tieba.pb.pb.sub.adapter.b(this.lXw, PostData.nmN);
+        this.lYm = new com.baidu.tieba.pb.pb.sub.adapter.b(this.lXw, PostData.nmO);
         this.lYm.C(this.aYB);
         this.lYm.a(this.lYo);
         this.lYm.setFromCDN(this.lYp);
@@ -43,7 +43,7 @@ public class c {
     public void a(bz bzVar, List<n> list) {
         this.lYm.setThreadData(bzVar);
         if (!at.isEmpty(this.lXw.dqm().dmd())) {
-            this.lYm.Pi(this.lXw.dqm().dmd());
+            this.lYm.Pj(this.lXw.dqm().dmd());
         }
         this.gwr.setData(list);
         this.gwr.getAdapter().notifyDataSetChanged();

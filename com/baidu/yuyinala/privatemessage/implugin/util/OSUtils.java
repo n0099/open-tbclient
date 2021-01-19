@@ -12,7 +12,7 @@ import java.util.regex.Pattern;
 @Deprecated
 /* loaded from: classes10.dex */
 public class OSUtils {
-    private static final ROM oWI = eka();
+    private static final ROM oWJ = eka();
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [332=17, 334=16, 335=16, 336=16] */
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */

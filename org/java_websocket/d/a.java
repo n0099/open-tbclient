@@ -1,7 +1,7 @@
 package org.java_websocket.d;
 /* loaded from: classes4.dex */
 public interface a {
-    boolean abs(String str);
+    boolean abt(String str);
 
     String eKa();
 

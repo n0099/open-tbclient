@@ -37,13 +37,13 @@ public class H5Activity extends Activity implements ar.a {
 
     /* renamed from: case  reason: not valid java name */
     private String f8case;
-    private Context pYI;
-    private ViewGroup pZa;
-    private CloseParentView pZb;
-    private bn pZc;
-    private Info pZd;
-    private long pZe = 0;
-    private bj pZf;
+    private Context pYJ;
+    private ViewGroup pZb;
+    private CloseParentView pZc;
+    private bn pZd;
+    private Info pZe;
+    private long pZf = 0;
+    private bj pZg;
 
     public static void a(Context context, Info info, String str) {
         if (context != null && info != null) {
@@ -64,11 +64,11 @@ public class H5Activity extends Activity implements ar.a {
         char c;
         super.onCreate(bundle);
         setContentView(d.c.layout_activity_h5);
-        this.pYI = getApplicationContext();
-        this.pZa = (ViewGroup) findViewById(d.b.parent);
-        this.pZb = (CloseParentView) findViewById(d.b.close_parent);
-        this.pZe = 0L;
-        this.pZf = new bj(this);
+        this.pYJ = getApplicationContext();
+        this.pZb = (ViewGroup) findViewById(d.b.parent);
+        this.pZc = (CloseParentView) findViewById(d.b.close_parent);
+        this.pZf = 0L;
+        this.pZg = new bj(this);
         ar.a("hcl", this);
         ar.a("onT", this);
         ar.a("onRewardedShowFail", this);
@@ -79,24 +79,24 @@ public class H5Activity extends Activity implements ar.a {
         String stringExtra = intent.getStringExtra("id");
         this.f8case = intent.getStringExtra("pid");
         String stringExtra2 = intent.getStringExtra("traceid");
-        this.pZd = br.eGZ().aaL(bp.aW(stringExtra2, stringExtra, this.f8case));
-        this.pZc = bp.eGY().aaK(bp.aW(stringExtra2, stringExtra, this.f8case));
-        if (!((this.pZc == null || this.pZd == null) ? false : true)) {
+        this.pZe = br.eGZ().aaM(bp.aW(stringExtra2, stringExtra, this.f8case));
+        this.pZd = bp.eGY().aaL(bp.aW(stringExtra2, stringExtra, this.f8case));
+        if (!((this.pZd == null || this.pZe == null) ? false : true)) {
             finish();
         }
         try {
-            if (this.pZd != null && this.pZd.getXn() > 0) {
+            if (this.pZe != null && this.pZe.getXn() > 0) {
                 if (Build.VERSION.SDK_INT > 11 && Build.VERSION.SDK_INT < 19) {
                     getWindow().getDecorView().setSystemUiVisibility(8);
                 } else if (Build.VERSION.SDK_INT >= 19) {
                     getWindow().getDecorView().setSystemUiVisibility(4102);
                 }
             }
-            Info info = this.pZd;
+            Info info = this.pZe;
             int i2 = Build.VERSION.SDK_INT;
             if (i2 <= 25 || i2 >= 28) {
                 String str = this.f8case;
-                if (ax.aaC(str)) {
+                if (ax.aaD(str)) {
                     String substring = str.substring(0, 3);
                     switch (substring.hashCode()) {
                         case 53431:
@@ -164,46 +164,46 @@ public class H5Activity extends Activity implements ar.a {
                 }
                 setRequestedOrientation(i);
             }
-            View eGC = this.pZc.eGC();
+            View eGC = this.pZd.eGC();
             eGC.setLayoutParams(new RelativeLayout.LayoutParams(-1, -1));
-            this.pZa.addView(eGC, 0);
-            if (this.pZc instanceof bw) {
-                this.pZc.a(this.pZd.getLoad(), this.pZd);
+            this.pZb.addView(eGC, 0);
+            if (this.pZd instanceof bw) {
+                this.pZd.a(this.pZe.getLoad(), this.pZe);
             }
-            this.pZc.a(new bo() { // from class: com.win.opensdk.activitys.H5Activity.1
+            this.pZd.a(new bo() { // from class: com.win.opensdk.activitys.H5Activity.1
                 @Override // com.win.opensdk.bo
                 public final boolean ht(String str2, String str3) {
-                    if (aw.a(H5Activity.this.pZd, H5Activity.this.pZe)) {
-                        H5Activity.this.pZe = System.currentTimeMillis();
-                        aw.a(H5Activity.this.pYI, str2, H5Activity.this.pZd, H5Activity.this.pZf);
-                        w.iK(H5Activity.this.pYI).a(new x(H5Activity.this.pZd), str2).hu("desc", str3).eGz();
-                        ar.f(H5Activity.this.pZd.getId() + H5Activity.this.f8case, "is_click", null);
-                        z.a(H5Activity.this.pZd);
+                    if (aw.a(H5Activity.this.pZe, H5Activity.this.pZf)) {
+                        H5Activity.this.pZf = System.currentTimeMillis();
+                        aw.a(H5Activity.this.pYJ, str2, H5Activity.this.pZe, H5Activity.this.pZg);
+                        w.iK(H5Activity.this.pYJ).a(new x(H5Activity.this.pZe), str2).hu("desc", str3).eGz();
+                        ar.f(H5Activity.this.pZe.getId() + H5Activity.this.f8case, "is_click", null);
+                        z.a(H5Activity.this.pZe);
                         return true;
                     }
                     return true;
                 }
 
                 @Override // com.win.opensdk.bo
-                public final void aaD(String str2) {
+                public final void aaE(String str2) {
                     H5Activity.this.f13717a = str2;
                 }
             });
-            this.pZb.setCollectVisible(false);
-            this.pZb.setLocation(220);
-            this.pZb.setCountDown(this.pZd.getCdt());
-            this.pZb.setOnCloseListener(new CloseParentView.b() { // from class: com.win.opensdk.activitys.H5Activity.2
+            this.pZc.setCollectVisible(false);
+            this.pZc.setLocation(220);
+            this.pZc.setCountDown(this.pZe.getCdt());
+            this.pZc.setOnCloseListener(new CloseParentView.b() { // from class: com.win.opensdk.activitys.H5Activity.2
                 @Override // com.win.opensdk.views.CloseParentView.b
                 public final void eGz() {
                     H5Activity.this.finish();
                 }
             });
-            w.iK(this.pYI).a(new x(this.pZd)).eGz();
-            ar.f(this.pZd.getId() + this.f8case, "is_display", null);
-            if (this.pZd != null) {
-                az.l(this.pYI, this.pZd.getId() + ":" + System.currentTimeMillis(), false);
+            w.iK(this.pYJ).a(new x(this.pZe)).eGz();
+            ar.f(this.pZe.getId() + this.f8case, "is_display", null);
+            if (this.pZe != null) {
+                az.l(this.pYJ, this.pZe.getId() + ":" + System.currentTimeMillis(), false);
             }
-            z.b(this.pZd);
+            z.b(this.pZe);
         } catch (Exception e) {
             finish();
         }
@@ -211,7 +211,7 @@ public class H5Activity extends Activity implements ar.a {
 
     @Override // android.app.Activity
     public void onBackPressed() {
-        if (this.pZd.getCb() == 0) {
+        if (this.pZe.getCb() == 0) {
             super.onBackPressed();
         }
     }
@@ -220,15 +220,15 @@ public class H5Activity extends Activity implements ar.a {
     @Override // android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        w.iK(this.pYI).c(new x(this.pZd)).eGz();
-        if (this.pZc != null) {
-            this.pZc.eGz();
+        w.iK(this.pYJ).c(new x(this.pZe)).eGz();
+        if (this.pZd != null) {
+            this.pZd.eGz();
         }
     }
 
     @Override // android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
-        if (keyEvent.getKeyCode() != 4 || this.pZd == null || this.pZd.getCb() > 0) {
+        if (keyEvent.getKeyCode() != 4 || this.pZe == null || this.pZe.getCb() > 0) {
             return super.onKeyDown(i, keyEvent);
         }
         return true;
@@ -238,70 +238,70 @@ public class H5Activity extends Activity implements ar.a {
     public final void f(String str, String str2, Object obj) {
         if (str.equals("hcl")) {
             finish();
-            ar.f(this.pZd.getId() + this.f8case, "is_dismiss", null);
-            ar.aaD(this.pZd.getId() + this.f8case);
-            ar.aaD("hcl");
-            ar.aaD("onT");
-            ar.aaD("onRewardedShowFail");
-            ar.aaD("onPlayProgress");
-            ar.aaD("onRewardedAdFinish");
-            ar.aaD("onRewardedAdStart");
+            ar.f(this.pZe.getId() + this.f8case, "is_dismiss", null);
+            ar.aaE(this.pZe.getId() + this.f8case);
+            ar.aaE("hcl");
+            ar.aaE("onT");
+            ar.aaE("onRewardedShowFail");
+            ar.aaE("onPlayProgress");
+            ar.aaE("onRewardedAdFinish");
+            ar.aaE("onRewardedAdStart");
         } else if (str.equals("onRewardedShowFail")) {
             try {
-                w.iK(this.pYI).i(new x(this.pZd), (String) obj).eGz();
-                ar.f(this.pZd.getId() + this.f8case, "VIDEO_SHOW_FAIL", (String) obj);
+                w.iK(this.pYJ).i(new x(this.pZe), (String) obj).eGz();
+                ar.f(this.pZe.getId() + this.f8case, "VIDEO_SHOW_FAIL", (String) obj);
             } catch (Exception e) {
                 e.printStackTrace();
             }
         } else if (str.equals("onRewardedAdFinish")) {
             int intValue = ((Integer) obj).intValue();
-            if (intValue >= 0 && intValue >= this.pZd.getVvt() * 0.9d) {
-                w.iK(this.pYI).a(new x(this.pZd), this.pZd.getVvamount()).eGz();
-                ar.f(this.pZd.getId() + this.f8case, "VIDEO_USER_EARNED_REWARD", Long.valueOf(this.pZd.getVvamount()));
+            if (intValue >= 0 && intValue >= this.pZe.getVvt() * 0.9d) {
+                w.iK(this.pYJ).a(new x(this.pZe), this.pZe.getVvamount()).eGz();
+                ar.f(this.pZe.getId() + this.f8case, "VIDEO_USER_EARNED_REWARD", Long.valueOf(this.pZe.getVvamount()));
             } else {
-                ar.f(this.pZd.getId() + this.f8case, "VIDEO_USER_EARNED_REWARD", null);
+                ar.f(this.pZe.getId() + this.f8case, "VIDEO_USER_EARNED_REWARD", null);
             }
-            Info info = this.pZd;
+            Info info = this.pZe;
             try {
                 z.a(info, 401);
                 if (info != null && !TextUtils.isEmpty(info.getVv_finish_urls())) {
-                    z.aaD(info.getVv_finish_urls());
+                    z.aaE(info.getVv_finish_urls());
                 }
             } catch (Exception e2) {
                 e2.printStackTrace();
             }
         } else if (str.equals("onPlayProgress")) {
             try {
-                w.iK(this.pYI).c(new x(this.pZd), ((Integer) obj).intValue()).eGz();
+                w.iK(this.pYJ).c(new x(this.pZe), ((Integer) obj).intValue()).eGz();
             } catch (Exception e3) {
                 e3.printStackTrace();
             }
         } else if (str.equals("onRewardedAdStart")) {
-            Info info2 = this.pZd;
+            Info info2 = this.pZe;
             if (info2 != null) {
                 try {
                     if (!TextUtils.isEmpty(info2.getVv_start_urls())) {
                         z.a(info2, 400);
-                        z.aaD(info2.getVv_start_urls());
+                        z.aaE(info2.getVv_start_urls());
                     }
                 } catch (Exception e4) {
                     e4.printStackTrace();
                 }
             }
-        } else if (str.equals("onT") && aw.a(this.pZd, this.pZe)) {
-            this.pZe = System.currentTimeMillis();
+        } else if (str.equals("onT") && aw.a(this.pZe, this.pZf)) {
+            this.pZf = System.currentTimeMillis();
             if (TextUtils.isEmpty(this.f13717a)) {
                 this.f13717a = "";
             }
             try {
                 String str3 = (String) obj;
                 String str4 = this.f13717a;
-                if (!bu.eHa().pYL) {
-                    aw.a(this.pYI, str3, this.pZd, this.pZf);
-                    w.iK(this.pYI).a(new x(this.pZd), str3).hu("desc", str4).eGz();
-                    z.a(this.pZd);
+                if (!bu.eHa().pYM) {
+                    aw.a(this.pYJ, str3, this.pZe, this.pZg);
+                    w.iK(this.pYJ).a(new x(this.pZe), str3).hu("desc", str4).eGz();
+                    z.a(this.pZe);
                 }
-                ar.f(this.pZd.getId() + this.f8case, "is_click", null);
+                ar.f(this.pZe.getId() + this.f8case, "is_click", null);
             } catch (Exception e5) {
                 e5.printStackTrace();
             }

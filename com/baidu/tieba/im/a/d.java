@@ -71,7 +71,7 @@ public class d extends j {
             boolean z = false;
             for (GroupMsgData groupMsgData : groupMsg) {
                 if (groupMsgData != null && groupMsgData.getGroupInfo() != null) {
-                    if (com.baidu.tieba.im.memorycache.c.CK(groupMsgData.getGroupInfo().getCustomType())) {
+                    if (com.baidu.tieba.im.memorycache.c.CJ(groupMsgData.getGroupInfo().getCustomType())) {
                         Long l2 = cUR.get(groupMsgData.getGroupInfo().getGroupId());
                         if (l2 != null && (l = messageSyncMessage.getGroupMids().get(groupMsgData.getGroupInfo().getGroupId())) != null) {
                             if (l2.longValue() > l.longValue()) {

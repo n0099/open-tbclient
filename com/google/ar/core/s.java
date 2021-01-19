@@ -4,16 +4,16 @@ import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes5.dex */
 public final class s implements View.OnClickListener {
-    private final /* synthetic */ InstallActivity pHD;
+    private final /* synthetic */ InstallActivity pHE;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public s(InstallActivity installActivity) {
-        this.pHD = installActivity;
+        this.pHE = installActivity;
     }
 
     @Override // android.view.View.OnClickListener
     public final void onClick(View view) {
-        this.pHD.eyw();
-        this.pHD.eyy();
+        this.pHE.eyw();
+        this.pHE.eyy();
     }
 }

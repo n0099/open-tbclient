@@ -39,7 +39,7 @@ public class PBInitialize {
         if (context == null) {
             throw new RuntimeException("Error:Context is not allowed to be null");
         }
-        eGN.pYI = context.getApplicationContext();
+        eGN.pYJ = context.getApplicationContext();
         if (!TextUtils.isEmpty(str)) {
             az.bL(context, str);
         }
@@ -77,13 +77,13 @@ public class PBInitialize {
         });
         final ab iL = ab.iL(context);
         if (iL.m59java()) {
-            iL.pZe = System.currentTimeMillis();
+            iL.pZf = System.currentTimeMillis();
             ba.D(new Runnable() { // from class: com.win.opensdk.ab.1
                 @Override // java.lang.Runnable
                 public final void run() {
                     String str2 = "";
                     try {
-                        str2 = ab.f7case + ak.R(ak.iM(iL.pYI));
+                        str2 = ab.f7case + ak.R(ak.iM(iL.pYJ));
                     } catch (UnsupportedEncodingException e3) {
                     }
                     ai.a(str2, new r<am>() { // from class: com.win.opensdk.ab.1.1
@@ -93,7 +93,7 @@ public class PBInitialize {
 
                         @Override // com.win.opensdk.r
                         public final /* synthetic */ void bH(am amVar) {
-                            iL.pZK = System.currentTimeMillis() - iL.pZe;
+                            iL.pZL = System.currentTimeMillis() - iL.pZf;
                             ab.a(iL, amVar);
                         }
 
@@ -103,8 +103,8 @@ public class PBInitialize {
 
                         @Override // com.win.opensdk.r
                         public final void cd(int i, String str3) {
-                            iL.pZK = System.currentTimeMillis() - iL.pZe;
-                            w.iK(iL.pYI).F(i, iL.pZK).eGz();
+                            iL.pZL = System.currentTimeMillis() - iL.pZf;
+                            w.iK(iL.pYJ).F(i, iL.pZL).eGz();
                         }
                     });
                 }

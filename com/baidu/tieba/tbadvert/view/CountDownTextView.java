@@ -11,7 +11,7 @@ public class CountDownTextView extends TextView {
     private final Runnable giz;
     private Handler mHandler;
     private String mText;
-    private b nrM;
+    private b nrN;
 
     /* loaded from: classes7.dex */
     public interface b {
@@ -39,13 +39,13 @@ public class CountDownTextView extends TextView {
         super(context);
         this.cPK = 0;
         this.mText = "";
-        this.nrM = null;
+        this.nrN = null;
         this.mHandler = new Handler();
         this.giz = new a();
     }
 
     public void setTimeoutListener(b bVar) {
-        this.nrM = bVar;
+        this.nrN = bVar;
     }
 
     @Override // android.widget.TextView, android.view.View
@@ -85,8 +85,8 @@ public class CountDownTextView extends TextView {
     public void tb(int i) {
         this.cPK -= i;
         if (this.cPK == 0) {
-            if (this.nrM != null) {
-                this.nrM.cj(this);
+            if (this.nrN != null) {
+                this.nrN.cj(this);
             }
             this.mHandler.removeCallbacksAndMessages(null);
             return;

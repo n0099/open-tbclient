@@ -108,9 +108,9 @@ public class PersonGroupActivity extends BaseFragmentActivity implements ViewPag
         aVar.a(R.string.share, new a.b() { // from class: com.baidu.tieba.im.mygroup.PersonGroupActivity.1
             @Override // com.baidu.tbadk.core.dialog.a.b
             public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
-                long bv = b.cUG().bv(String.valueOf(j), 1);
-                MessageUtils.createGroupChatMessage(bv, 9, shareFromGameCenterMsgData.toChatMessageContent(), j);
-                MessageUtils.createGroupChatMessage(bv + 1, 1, game2GroupShareDialogView.getLeaveMsg(), j);
+                long bw = b.cUG().bw(String.valueOf(j), 1);
+                MessageUtils.createGroupChatMessage(bw, 9, shareFromGameCenterMsgData.toChatMessageContent(), j);
+                MessageUtils.createGroupChatMessage(bw + 1, 1, game2GroupShareDialogView.getLeaveMsg(), j);
                 aVar2.dismiss();
                 PersonGroupActivity.this.setResult(-1);
                 if (!j.isNetWorkAvailable()) {
@@ -310,15 +310,15 @@ public class PersonGroupActivity extends BaseFragmentActivity implements ViewPag
         if (this.kBT != null) {
             boolean z = this.isHost ? true : true;
             Fragment item = this.kBT.getItem(0);
-            int CS = this.kBT.CS(0);
+            int CR = this.kBT.CR(0);
             if (item != null) {
-                a(item, CS, getPageContext().getContext().getString(R.string.person_group_no_personal_title));
+                a(item, CR, getPageContext().getContext().getString(R.string.person_group_no_personal_title));
             }
             if (z) {
                 Fragment item2 = this.kBT.getItem(1);
-                int CS2 = this.kBT.CS(1);
+                int CR2 = this.kBT.CR(1);
                 if (item2 != null) {
-                    a(item2, CS2, getPageContext().getContext().getString(R.string.commongroup));
+                    a(item2, CR2, getPageContext().getContext().getString(R.string.commongroup));
                 }
             }
             this.mTabHost.initViewPager();

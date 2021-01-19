@@ -16,16 +16,16 @@ public class h {
     private AlaLiveRoomPanelTabHost aCE;
     private View contentView;
     private View mRootView;
-    private YuyinBannedPostListActivity ofW;
+    private YuyinBannedPostListActivity ofX;
 
     public h(YuyinBannedPostListActivity yuyinBannedPostListActivity) {
-        this.ofW = yuyinBannedPostListActivity;
+        this.ofX = yuyinBannedPostListActivity;
         initView();
         bTl();
     }
 
     private void initView() {
-        this.mRootView = LayoutInflater.from(this.ofW).inflate(a.g.yuyin_ala_baned_post_activity_layout, (ViewGroup) null);
+        this.mRootView = LayoutInflater.from(this.ofX).inflate(a.g.yuyin_ala_baned_post_activity_layout, (ViewGroup) null);
         this.contentView = this.mRootView.findViewById(a.f.ala_charm_root_view);
         this.aCE = (AlaLiveRoomPanelTabHost) this.mRootView.findViewById(a.f.ala_charm_tab_host);
         this.aCE.setIndicatorWidthAuto(false);
@@ -39,14 +39,14 @@ public class h {
     }
 
     private void bTl() {
-        Intent intent = this.ofW.getIntent();
+        Intent intent = this.ofX.getIntent();
         String stringExtra = intent.getStringExtra("room_id");
         String stringExtra2 = intent.getStringExtra("live_id");
         String stringExtra3 = intent.getStringExtra("group_id");
-        final e eVar = new e(this.ofW, stringExtra2, stringExtra3, stringExtra, 1);
+        final e eVar = new e(this.ofX, stringExtra2, stringExtra3, stringExtra, 1);
         eVar.createView();
         this.aCB.add(eVar);
-        final e eVar2 = new e(this.ofW, stringExtra2, stringExtra3, stringExtra, 2);
+        final e eVar2 = new e(this.ofX, stringExtra2, stringExtra3, stringExtra, 2);
         eVar2.createView();
         this.aCB.add(eVar2);
         this.aCE.setData(this.aCB);

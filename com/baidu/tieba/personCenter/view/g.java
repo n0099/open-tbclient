@@ -273,7 +273,7 @@ public class g extends com.baidu.tieba.card.b<com.baidu.tieba.personCenter.c.h> 
                     return;
                 case 36:
                     TiebaStatic.log(new aq("c12524").an("obj_locate", this.mmo.itemId));
-                    Pq(this.mmo.aEU);
+                    Pr(this.mmo.aEU);
                     return;
                 case 37:
                     TiebaStatic.log(new aq("c12523").an("obj_locate", 24));
@@ -362,7 +362,7 @@ public class g extends com.baidu.tieba.card.b<com.baidu.tieba.personCenter.c.h> 
         }
     }
 
-    private void Pp(String str) {
+    private void Pq(String str) {
         if (!StringUtils.isNull(str)) {
             if (str.startsWith("tieba&")) {
                 if (!TbadkCoreApplication.getInst().appResponseToIntentClass(ConsumptionRecordsActivityConfig.class)) {
@@ -378,10 +378,10 @@ public class g extends com.baidu.tieba.card.b<com.baidu.tieba.personCenter.c.h> 
         }
     }
 
-    private void Pq(String str) {
+    private void Pr(String str) {
         if (!StringUtils.isNull(str)) {
             if (str.startsWith("tieba&")) {
-                Pp(str);
+                Pq(str);
             } else if (str.startsWith("nohead:url")) {
                 be.bsB().b(this.mTbPageContext, new String[]{str.replaceFirst(UrlSchemaHelper.PREFIX_BOOK_TOWN, "") + (str.contains("?") ? ETAG.ITEM_SEPARATOR : "?") + "jump=open_full_screen_web_page&nonavigationbar=1"});
             } else {

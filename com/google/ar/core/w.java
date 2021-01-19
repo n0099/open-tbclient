@@ -31,8 +31,8 @@ public class w {
     private BroadcastReceiver e;
     private Context f;
     private final ServiceConnection g;
-    private com.google.a.b.a.a.a.a pHF;
-    private final AtomicReference<l> pHG;
+    private com.google.a.b.a.a.a.a pHG;
+    private final AtomicReference<l> pHH;
 
     w() {
     }
@@ -75,7 +75,7 @@ public class w {
 
     public void a(Activity activity, y yVar) {
         l lVar = new l(activity, yVar);
-        l andSet = this.pHG.getAndSet(lVar);
+        l andSet = this.pHH.getAndSet(lVar);
         if (andSet != null) {
             andSet.a();
         }
@@ -99,7 +99,7 @@ public class w {
         this.f7869a = new ArrayDeque();
         this.c = al.f7858a;
         this.g = new z(this);
-        this.pHG = new AtomicReference<>();
+        this.pHH = new AtomicReference<>();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -136,7 +136,7 @@ public class w {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void c() {
-        l andSet = this.pHG.getAndSet(null);
+        l andSet = this.pHH.getAndSet(null);
         if (andSet != null) {
             andSet.a();
         }
@@ -146,7 +146,7 @@ public class w {
     public synchronized void a(IBinder iBinder) {
         com.google.a.b.a.a.a.a a2 = com.google.a.b.a.a.a.b.a(iBinder);
         Log.i("ARCore-InstallService", "Install service connected");
-        this.pHF = a2;
+        this.pHG = a2;
         this.c = al.c;
         for (Runnable runnable : this.f7869a) {
             runnable.run();
@@ -157,7 +157,7 @@ public class w {
     public synchronized void d() {
         Log.i("ARCore-InstallService", "Install service disconnected");
         this.c = al.f7858a;
-        this.pHF = null;
+        this.pHG = null;
         c();
     }
 

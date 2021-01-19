@@ -27,7 +27,7 @@ public class d {
         return kwB;
     }
 
-    public void LT(String str) {
+    public void LU(String str) {
         try {
             if (!TextUtils.isEmpty(str)) {
                 ContentValues contentValues = new ContentValues();
@@ -40,7 +40,7 @@ public class d {
         }
     }
 
-    public int bi(String str, int i) {
+    public int bj(String str, int i) {
         Cursor cursor = null;
         int i2 = 0;
         try {
@@ -62,7 +62,7 @@ public class d {
         return i2;
     }
 
-    public int LU(String str) {
+    public int LV(String str) {
         Cursor cursor = null;
         int i = 0;
         try {
@@ -136,7 +136,7 @@ public class d {
                                     if (convertToValidateItemData != null) {
                                         for (ValidateItemData validateItemData : linkedList2) {
                                             if (convertToValidateItemData.getUserId() != null && convertToValidateItemData.getUserId().equals(validateItemData.getUserId()) && convertToValidateItemData.getGroupId() != null && convertToValidateItemData.getGroupId().equals(validateItemData.getGroupId())) {
-                                                LW(validateItemData.getNotice_id());
+                                                LX(validateItemData.getNotice_id());
                                             }
                                         }
                                     }
@@ -236,13 +236,13 @@ public class d {
             }
             int size2 = arrayList.size();
             for (int i3 = 0; i3 < size2; i3++) {
-                bj((String) arrayList.get(i3), 3);
+                bk((String) arrayList.get(i3), 3);
             }
         }
         return linkedList2;
     }
 
-    public GroupNewsPojo LV(String str) {
+    public GroupNewsPojo LW(String str) {
         GroupNewsPojo groupNewsPojo;
         Cursor cursor;
         GroupNewsPojo groupNewsPojo2 = null;
@@ -293,7 +293,7 @@ public class d {
         }
     }
 
-    public boolean LW(String str) {
+    public boolean LX(String str) {
         Boolean bool;
         Boolean.valueOf(false);
         try {
@@ -307,7 +307,7 @@ public class d {
         return bool.booleanValue();
     }
 
-    public int bj(String str, int i) {
+    public int bk(String str, int i) {
         try {
             if (TextUtils.isEmpty(str)) {
                 return 0;
@@ -367,7 +367,7 @@ public class d {
             stringBuffer.append(",");
             stringBuffer.append("time");
             stringBuffer.append(") VALUES(?,?,?,?,?,?,?)");
-            sQLiteStatement = h.cTB().Mc(stringBuffer.toString());
+            sQLiteStatement = h.cTB().Md(stringBuffer.toString());
             if (sQLiteStatement != null) {
                 sQLiteStatement.clearBindings();
                 f.a(sQLiteStatement, 1, groupNewsPojo.getCmd());
@@ -387,7 +387,7 @@ public class d {
         return j;
     }
 
-    public boolean bh(String str, int i) {
+    public boolean bi(String str, int i) {
         Cursor cursor;
         Cursor cursor2 = null;
         if (i < 1000) {

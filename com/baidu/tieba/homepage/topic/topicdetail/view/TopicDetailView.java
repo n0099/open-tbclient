@@ -128,7 +128,7 @@ public class TopicDetailView extends RelativeLayout implements View.OnClickListe
                     TopicDetailView.this.kha.bAP().hide();
                 }
                 if (z) {
-                    TopicDetailView.this.khc.TW(null);
+                    TopicDetailView.this.khc.TX(null);
                     TopicDetailView.this.khc.bh(null);
                     TopicDetailView.this.khc.yX(false);
                     if (postWriteCallBackData != null) {
@@ -141,7 +141,7 @@ public class TopicDetailView extends RelativeLayout implements View.OnClickListe
                     }
                 } else if (postWriteCallBackData != null && postWriteCallBackData.isSensitiveError()) {
                     TopicDetailView.this.khc.bh(postWriteCallBackData.getSensitiveWords());
-                    TopicDetailView.this.khc.TW(postWriteCallBackData.getErrorString());
+                    TopicDetailView.this.khc.TX(postWriteCallBackData.getErrorString());
                     if (!x.isEmpty(TopicDetailView.this.khc.dTZ())) {
                         TopicDetailView.this.sf(true);
                     }
@@ -228,8 +228,8 @@ public class TopicDetailView extends RelativeLayout implements View.OnClickListe
         this.kgU = new TopicDetailHeadView(getContext());
         this.kgU.kgR.setPkClickListener(new TopicPkView.b() { // from class: com.baidu.tieba.homepage.topic.topicdetail.view.TopicDetailView.4
             @Override // com.baidu.tieba.homepage.topic.topictab.view.TopicPkView.b
-            public void BN(int i) {
-                TopicDetailView.this.BM(i);
+            public void BM(int i) {
+                TopicDetailView.this.BL(i);
             }
         });
         if (this.gGD == null) {
@@ -314,7 +314,7 @@ public class TopicDetailView extends RelativeLayout implements View.OnClickListe
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void BM(int i) {
+    public void BL(int i) {
         this.khe = i;
         this.kgZ.setVisibility(0);
         if (i == 1) {
@@ -355,11 +355,11 @@ public class TopicDetailView extends RelativeLayout implements View.OnClickListe
             this.kgV.setData(aVar.mDataList);
             if (this.mTopicDetailData.kgm.kgr != null) {
                 if (this.mTopicDetailData.kgm.kgr.khL.khR) {
-                    BM(1);
+                    BL(1);
                 } else if (this.mTopicDetailData.kgm.kgr.khM.khR) {
-                    BM(2);
+                    BL(2);
                 } else {
-                    BM(0);
+                    BL(0);
                 }
                 dimens = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds140);
             } else {
@@ -455,7 +455,7 @@ public class TopicDetailView extends RelativeLayout implements View.OnClickListe
             ao.setBackgroundResource(this.kgX, R.color.CAM_X0207);
             ao.setViewTextColor(this.kgY, R.color.CAM_X0109);
             this.kgY.setBackgroundDrawable(ao.aO(l.getDimens(this.mPageContext.getPageActivity(), R.dimen.tbds47), ao.getColor(R.color.CAM_X0209)));
-            BM(this.khe);
+            BL(this.khe);
             SvgManager.bsx().a(this.mBackImageView, R.drawable.ic_icon_pure_topbar_return40_svg, R.color.white_alpha100, SvgManager.SvgResourceStateType.NORMAL_PRESS);
             if (this.jMm != null) {
                 SvgManager.bsx().a(this.jMm, R.drawable.icon_pure_topbar_share44_svg, R.color.white_alpha100, SvgManager.SvgResourceStateType.NORMAL_PRESS);

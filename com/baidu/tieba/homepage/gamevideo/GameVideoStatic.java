@@ -19,7 +19,7 @@ public class GameVideoStatic {
         bVar.setResponsedClass(GameVideoSocketResMessage.class);
         bVar.setNeedAck(true);
         MessageManager.getInstance().registerTask(bVar);
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_GAME_VIDEO, a.bU(TbConfig.URL_GAME_VIDEO, 309646));
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_GAME_VIDEO, a.bV(TbConfig.URL_GAME_VIDEO, 309646));
         tbHttpMessageTask.setIsNeedAddCommenParam(true);
         tbHttpMessageTask.setResponsedClass(GameVideoHttpResMessage.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);

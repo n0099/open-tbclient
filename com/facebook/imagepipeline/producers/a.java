@@ -1,15 +1,15 @@
 package com.facebook.imagepipeline.producers;
 /* loaded from: classes3.dex */
 public class a implements aj<com.facebook.imagepipeline.f.e> {
-    private final aj<com.facebook.imagepipeline.f.e> pBf;
+    private final aj<com.facebook.imagepipeline.f.e> pBg;
 
     public a(aj<com.facebook.imagepipeline.f.e> ajVar) {
-        this.pBf = ajVar;
+        this.pBg = ajVar;
     }
 
     @Override // com.facebook.imagepipeline.producers.aj
     public void a(k<com.facebook.imagepipeline.f.e> kVar, ak akVar) {
-        this.pBf.a(new C1049a(kVar), akVar);
+        this.pBg.a(new C1049a(kVar), akVar);
     }
 
     /* renamed from: com.facebook.imagepipeline.producers.a$a  reason: collision with other inner class name */

@@ -109,8 +109,8 @@ public class SecretSettingActivity extends BaseActivity<SecretSettingActivity> {
                     }
                     SecretSettingActivity.this.showToast(R.string.success);
                     if (!TextUtils.equals(Headers.LOCATION, operation)) {
-                        SecretSettingActivity.this.mUq.bQ(operation, type);
-                        SecretSettingActivity.this.mUp.bS(operation, type);
+                        SecretSettingActivity.this.mUq.bR(operation, type);
+                        SecretSettingActivity.this.mUp.bT(operation, type);
                     }
                 }
             }
@@ -242,19 +242,19 @@ public class SecretSettingActivity extends BaseActivity<SecretSettingActivity> {
                     String tag = ((m) SecretSettingActivity.this.mUs.get(i)).getTag();
                     int i2 = 0;
                     if ("showAll".equals(tag)) {
-                        SecretSettingActivity.this.bR(str, 1);
+                        SecretSettingActivity.this.bS(str, 1);
                         i2 = 1;
                     } else if ("friendOnly".equals(tag)) {
-                        SecretSettingActivity.this.bR(str, 2);
+                        SecretSettingActivity.this.bS(str, 2);
                         i2 = 2;
                     } else if ("hideAll".equals(tag)) {
-                        SecretSettingActivity.this.bR(str, 3);
+                        SecretSettingActivity.this.bS(str, 3);
                         i2 = 3;
                     } else if ("my_fans_reply".equals(tag)) {
-                        SecretSettingActivity.this.bR(str, 5);
+                        SecretSettingActivity.this.bS(str, 5);
                         i2 = 5;
                     } else if ("my_attention_reply".equals(tag)) {
-                        SecretSettingActivity.this.bR(str, 6);
+                        SecretSettingActivity.this.bS(str, 6);
                         i2 = 6;
                     }
                     SecretSettingActivity.this.mUA.refresh(i);
@@ -309,7 +309,7 @@ public class SecretSettingActivity extends BaseActivity<SecretSettingActivity> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bR(String str, int i) {
+    public void bS(String str, int i) {
         sendMessage(new PrivacySettingMessage(str, i));
     }
 

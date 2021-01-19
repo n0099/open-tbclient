@@ -38,7 +38,7 @@ public class l {
         a2.an("obj_param5", v(bzVar));
         a2.an("obj_type", bzVar.boF());
         if (bzVar.bpd() != null) {
-            a2.an("obj_name", bzVar.bpd().nnH ? 1 : 0);
+            a2.an("obj_name", bzVar.bpd().nnI ? 1 : 0);
         }
         if (bzVar.getBaijiahaoData() != null) {
             a2.dW("obj_param4", bzVar.getBaijiahaoData().oriUgcNid);

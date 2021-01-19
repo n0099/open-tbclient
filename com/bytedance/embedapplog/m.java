@@ -23,8 +23,8 @@ public class m {
 
     /* renamed from: b  reason: collision with root package name */
     private final Context f5832b;
-    private final cn pce;
-    private final SharedPreferences pcf;
+    private final cn pcf;
+    private final SharedPreferences pcg;
     private final ArrayList<ch> e = new ArrayList<>(32);
     private int h = 0;
     @NonNull
@@ -32,8 +32,8 @@ public class m {
 
     public m(Context context, cn cnVar) {
         this.f5832b = context;
-        this.pce = cnVar;
-        this.pcf = cnVar.elM();
+        this.pcf = cnVar;
+        this.pcg = cnVar.elM();
         ba.a(this.f5832b);
     }
 
@@ -102,21 +102,21 @@ public class m {
             if (this.e.size() == 0) {
                 this.e.add(new ci());
                 this.e.add(new ck(this.f5832b));
-                this.e.add(new cm(this.f5832b, this.pce));
+                this.e.add(new cm(this.f5832b, this.pcf));
                 this.e.add(new n(this.f5832b));
                 this.e.add(new p(this.f5832b));
-                this.e.add(new q(this.f5832b, this.pce));
+                this.e.add(new q(this.f5832b, this.pcf));
                 this.e.add(new r(this.f5832b));
                 this.e.add(new t(this.f5832b));
-                this.e.add(new u(this.f5832b, this.pce));
+                this.e.add(new u(this.f5832b, this.pcf));
                 this.e.add(new v());
-                this.e.add(new w(this.pce));
+                this.e.add(new w(this.pcf));
                 this.e.add(new x(this.f5832b));
                 this.e.add(new y(this.f5832b));
-                this.e.add(new z(this.f5832b, this.pce));
-                this.e.add(new cf(this.f5832b, this.pce));
-                this.e.add(new s(this.f5832b, this.pce));
-                this.e.add(new cj(this.f5832b, this.pce));
+                this.e.add(new z(this.f5832b, this.pcf));
+                this.e.add(new cf(this.f5832b, this.pcf));
+                this.e.add(new s(this.f5832b, this.pcf));
+                this.e.add(new cj(this.f5832b, this.pcf));
             }
         }
         JSONObject elw = elw();
@@ -180,7 +180,7 @@ public class m {
     }
 
     private boolean a(ch chVar) {
-        boolean z = !this.pce.r() && chVar.d;
+        boolean z = !this.pcf.r() && chVar.d;
         if (au.f5786b) {
             au.a("needSyncFromSub " + chVar + " " + z, null);
         }
@@ -188,7 +188,7 @@ public class m {
     }
 
     public void a(JSONObject jSONObject) {
-        this.pce.c(jSONObject);
+        this.pcf.c(jSONObject);
         b(jSONObject);
     }
 
@@ -278,7 +278,7 @@ public class m {
             }
         }
         if (E("custom", jSONObject)) {
-            this.pce.b(jSONObject);
+            this.pcf.b(jSONObject);
         }
     }
 
@@ -369,7 +369,7 @@ public class m {
         String optString = elw().optString("device_id", "");
         elw().optString("install_id", "");
         if (e(optString)) {
-            return this.pcf.getInt("version_code", 0) == elw().optInt("version_code", -1) ? 1 : 2;
+            return this.pcg.getInt("version_code", 0) == elw().optInt("version_code", -1) ? 1 : 2;
         }
         return 0;
     }
@@ -386,9 +386,9 @@ public class m {
         boolean e2 = e(str2);
         try {
             boolean e3 = e(str3);
-            int i = this.pcf.getInt("version_code", 0);
+            int i = this.pcg.getInt("version_code", 0);
             int optInt = elw().optInt("version_code", 0);
-            SharedPreferences.Editor edit = this.pcf.edit();
+            SharedPreferences.Editor edit = this.pcg.edit();
             if (i != optInt) {
                 edit.putInt("version_code", optInt);
             }

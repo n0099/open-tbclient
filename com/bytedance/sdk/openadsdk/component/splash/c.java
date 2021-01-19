@@ -75,8 +75,8 @@ public class c {
             str = z2 ? "download_video_image_success" : "download_video_image_fail";
         }
         String str2 = null;
-        if (!z2 && pVar != null && pVar.pkZ != null) {
-            str2 = pVar.pkZ.getMessage();
+        if (!z2 && pVar != null && pVar.pla != null) {
+            str2 = pVar.pla.getMessage();
         }
         if (z) {
             Map<String, Object> a2 = aj.a(z2, lVar, elapsedRealtime, j2, str2);

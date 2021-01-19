@@ -20,7 +20,7 @@ public class c extends Request<File> {
     private final Object e;
     @Nullable
     @GuardedBy("mLock")
-    private p.a<File> pkk;
+    private p.a<File> pkl;
 
     /* loaded from: classes4.dex */
     public interface a extends p.a<File> {
@@ -30,7 +30,7 @@ public class c extends Request<File> {
     public c(String str, String str2, p.a<File> aVar) {
         super(str2, aVar);
         this.e = new Object();
-        this.pkk = aVar;
+        this.pkl = aVar;
         this.c = new File(str);
         this.d = new File(str + ".tmp");
         try {
@@ -55,7 +55,7 @@ public class c extends Request<File> {
     public void cancel() {
         super.cancel();
         synchronized (this.e) {
-            this.pkk = null;
+            this.pkl = null;
         }
     }
 
@@ -366,10 +366,10 @@ public class c extends Request<File> {
     public void a(p<File> pVar) {
         p.a<File> aVar;
         synchronized (this.e) {
-            aVar = this.pkk;
+            aVar = this.pkl;
         }
         if (aVar != null) {
-            aVar.a(p.a(this.c, pVar.pkY));
+            aVar.a(p.a(this.c, pVar.pkZ));
         }
     }
 
@@ -377,7 +377,7 @@ public class c extends Request<File> {
     protected void a(long j, long j2) {
         p.a<File> aVar;
         synchronized (this.e) {
-            aVar = this.pkk;
+            aVar = this.pkl;
         }
         if (aVar instanceof a) {
             ((a) aVar).a(j, j2);

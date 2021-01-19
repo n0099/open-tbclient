@@ -9,30 +9,30 @@ import kotlin.text.l;
 @kotlin.e
 /* loaded from: classes5.dex */
 public final class b {
-    private Path pPA;
-    private final String pPz;
+    private final String pPA;
+    private Path pPB;
 
     public b(String str) {
         p.o(str, "originValue");
-        this.pPz = l.a((CharSequence) str, (CharSequence) ",", false, 2, (Object) null) ? l.a(str, ",", " ", false, 4, (Object) null) : str;
+        this.pPA = l.a((CharSequence) str, (CharSequence) ",", false, 2, (Object) null) ? l.a(str, ",", " ", false, 4, (Object) null) : str;
     }
 
     public final void a(Path path) {
         Set set;
         p.o(path, "toPath");
-        Path path2 = this.pPA;
+        Path path2 = this.pPB;
         if (path2 != null) {
             path.set(path2);
             return;
         }
         Path path3 = new Path();
-        StringTokenizer stringTokenizer = new StringTokenizer(this.pPz, "MLHVCSQRAZmlhvcsqraz", true);
+        StringTokenizer stringTokenizer = new StringTokenizer(this.pPA, "MLHVCSQRAZmlhvcsqraz", true);
         String str = "";
         while (stringTokenizer.hasMoreTokens()) {
             String nextToken = stringTokenizer.nextToken();
             p.n(nextToken, "segment");
             if (!(nextToken.length() == 0)) {
-                set = c.pPB;
+                set = c.pPC;
                 if (set.contains(nextToken)) {
                     if (p.l(nextToken, "Z") || p.l(nextToken, "z")) {
                         a(path3, nextToken, new StringTokenizer("", ""));
@@ -44,7 +44,7 @@ public final class b {
                 str = nextToken;
             }
         }
-        this.pPA = path3;
+        this.pPB = path3;
         path.set(path3);
     }
 

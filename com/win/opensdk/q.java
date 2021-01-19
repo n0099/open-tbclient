@@ -9,65 +9,65 @@ import com.win.opensdk.views.MraidLayout;
 import org.apache.http.HttpHost;
 /* loaded from: classes3.dex */
 public final class q implements bn, k {
-    private y pZk;
-    private MraidLayout pZu;
-    public bq pZv;
-    public bo pZw;
+    private y pZl;
+    private MraidLayout pZv;
+    public bq pZw;
+    public bo pZx;
 
     public q(Context context, af afVar) {
-        this.pZk = new y(context, afVar);
-        this.pZk.pYZ = this;
-        this.pZu = new MraidLayout(context);
-        this.pZu.addView(this.pZk, new FrameLayout.LayoutParams(-1, -1));
-        this.pZk.setMraidListener(this);
+        this.pZl = new y(context, afVar);
+        this.pZl.pZa = this;
+        this.pZv = new MraidLayout(context);
+        this.pZv.addView(this.pZl, new FrameLayout.LayoutParams(-1, -1));
+        this.pZl.setMraidListener(this);
     }
 
     @Override // com.win.opensdk.bn
     public final void a(String str, Info info) {
         if (!TextUtils.isEmpty(str)) {
-            if (this.pZv != null) {
-                this.pZv.eGz();
+            if (this.pZw != null) {
+                this.pZw.eGz();
             }
             if (!str.startsWith(HttpHost.DEFAULT_SCHEME_NAME)) {
-                this.pZk.aaD(str);
+                this.pZl.aaE(str);
             } else {
-                this.pZk.loadUrl(str);
+                this.pZl.loadUrl(str);
             }
         }
     }
 
     @Override // com.win.opensdk.bn
     public final void a(bo boVar) {
-        this.pZw = boVar;
+        this.pZx = boVar;
     }
 
     @Override // com.win.opensdk.bn
     public final View eGC() {
-        return this.pZu;
+        return this.pZv;
     }
 
     @Override // com.win.opensdk.bn
     public final void eGz() {
-        if (this.pZu != null) {
-            this.pZu.removeAllViews();
+        if (this.pZv != null) {
+            this.pZv.removeAllViews();
         }
-        if (this.pZk != null) {
-            this.pZk.eGA();
-            this.pZk.destroy();
+        if (this.pZl != null) {
+            this.pZl.eGA();
+            this.pZl.destroy();
         }
     }
 
     @Override // com.win.opensdk.k
     public final void eGA() {
-        if (this.pZv != null) {
-            this.pZv.eGA();
+        if (this.pZw != null) {
+            this.pZw.eGA();
         }
     }
 
     @Override // com.win.opensdk.k
-    public final boolean aaC(String str) {
-        if (this.pZw != null) {
-            return this.pZw.ht(str, "");
+    public final boolean aaD(String str) {
+        if (this.pZx != null) {
+            return this.pZx.ht(str, "");
         }
         return false;
     }

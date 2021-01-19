@@ -134,7 +134,7 @@ public class e {
         }
     }
 
-    public void Ch(int i) {
+    public void Cg(int i) {
         if (this.kqa) {
             this.index = i;
             if (this.kpR.getDrawable() instanceof AnimationDrawable) {

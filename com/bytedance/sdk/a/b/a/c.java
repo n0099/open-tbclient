@@ -31,21 +31,21 @@ public final class c {
 
     /* renamed from: b  reason: collision with root package name */
     public static final String[] f5871b = new String[0];
-    public static final com.bytedance.sdk.a.b.c peA = com.bytedance.sdk.a.b.c.a(null, f5870a);
-    public static final ac peB = ac.b(null, f5870a);
-    private static final f peC = f.b("efbbbf");
-    private static final f peD = f.b("feff");
-    private static final f peE = f.b("fffe");
-    private static final f peF = f.b("0000ffff");
-    private static final f peG = f.b("ffff0000");
-    public static final Charset peH = Charset.forName("UTF-8");
-    public static final Charset peI = Charset.forName("ISO-8859-1");
+    public static final com.bytedance.sdk.a.b.c peB = com.bytedance.sdk.a.b.c.a(null, f5870a);
+    public static final ac peC = ac.b(null, f5870a);
+    private static final f peD = f.b("efbbbf");
+    private static final f peE = f.b("feff");
+    private static final f peF = f.b("fffe");
+    private static final f peG = f.b("0000ffff");
+    private static final f peH = f.b("ffff0000");
+    public static final Charset peI = Charset.forName("UTF-8");
+    public static final Charset peJ = Charset.forName("ISO-8859-1");
     private static final Charset n = Charset.forName(CharEncoding.UTF_16BE);
-    private static final Charset peJ = Charset.forName(CharEncoding.UTF_16LE);
-    private static final Charset peK = Charset.forName("UTF-32BE");
-    private static final Charset peL = Charset.forName("UTF-32LE");
-    public static final TimeZone peM = TimeZone.getTimeZone("GMT");
-    public static final Comparator<String> peN = new Comparator<String>() { // from class: com.bytedance.sdk.a.b.a.c.1
+    private static final Charset peK = Charset.forName(CharEncoding.UTF_16LE);
+    private static final Charset peL = Charset.forName("UTF-32BE");
+    private static final Charset peM = Charset.forName("UTF-32LE");
+    public static final TimeZone peN = TimeZone.getTimeZone("GMT");
+    public static final Comparator<String> peO = new Comparator<String>() { // from class: com.bytedance.sdk.a.b.a.c.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.Comparator
         /* renamed from: a */
@@ -53,7 +53,7 @@ public final class c {
             return str.compareTo(str2);
         }
     };
-    private static final Pattern peO = Pattern.compile("([0-9a-fA-F]*:[0-9a-fA-F:.]*)|([\\d.]+)");
+    private static final Pattern peP = Pattern.compile("([0-9a-fA-F]*:[0-9a-fA-F:.]*)|([\\d.]+)");
 
     public static void a(long j, long j2, long j3) {
         if ((j2 | j3) < 0 || j2 > j || j - j2 < j3) {
@@ -327,7 +327,7 @@ public final class c {
     }
 
     public static boolean c(String str) {
-        return peO.matcher(str).matches();
+        return peP.matcher(str).matches();
     }
 
     public static String a(String str, Object... objArr) {
@@ -335,21 +335,21 @@ public final class c {
     }
 
     public static Charset a(e eVar, Charset charset) throws IOException {
-        if (eVar.a(0L, peC)) {
-            eVar.h(peC.g());
-            return peH;
-        } else if (eVar.a(0L, peD)) {
+        if (eVar.a(0L, peD)) {
             eVar.h(peD.g());
-            return n;
+            return peI;
         } else if (eVar.a(0L, peE)) {
             eVar.h(peE.g());
-            return peJ;
+            return n;
         } else if (eVar.a(0L, peF)) {
             eVar.h(peF.g());
             return peK;
         } else if (eVar.a(0L, peG)) {
             eVar.h(peG.g());
             return peL;
+        } else if (eVar.a(0L, peH)) {
+            eVar.h(peH.g());
+            return peM;
         } else {
             return charset;
         }

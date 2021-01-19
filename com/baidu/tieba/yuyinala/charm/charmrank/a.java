@@ -26,18 +26,18 @@ public class a {
     private TextView idK;
     private String mRoomId;
     private View mRootView;
-    private YuyinCharmRankTotalActivity ogk;
-    private c.a ogl;
-    private boolean ogm;
+    private YuyinCharmRankTotalActivity ogl;
+    private c.a ogm;
+    private boolean ogn;
 
     public a(YuyinCharmRankTotalActivity yuyinCharmRankTotalActivity, String str) {
-        this.ogk = yuyinCharmRankTotalActivity;
+        this.ogl = yuyinCharmRankTotalActivity;
         this.mRoomId = str;
         initView();
     }
 
     private void initView() {
-        this.mRootView = LayoutInflater.from(this.ogk).inflate(a.g.yuyin_ala_rank_list_charm_bottom_layout, (ViewGroup) null);
+        this.mRootView = LayoutInflater.from(this.ogl).inflate(a.g.yuyin_ala_rank_list_charm_bottom_layout, (ViewGroup) null);
         this.contentView = this.mRootView.findViewById(a.f.content_view);
         this.idG = (TextView) this.mRootView.findViewById(a.f.ala_rank_list_user_rank);
         this.idH = (HeadImageView) this.mRootView.findViewById(a.f.ala_rank_list_user_header);
@@ -49,9 +49,9 @@ public class a {
         this.idK.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.charm.charmrank.a.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (a.this.ogl != null) {
-                    a.this.ogk.finish();
-                    a.this.ogm = true;
+                if (a.this.ogm != null) {
+                    a.this.ogl.finish();
+                    a.this.ogn = true;
                 }
             }
         });
@@ -59,13 +59,13 @@ public class a {
             this.idH.setIsRound(true);
             this.idH.setAutoChangeStyle(false);
         }
-        if (this.ogk != null) {
-            this.ogk.a(new YuyinCharmRankTotalActivity.a() { // from class: com.baidu.tieba.yuyinala.charm.charmrank.a.2
+        if (this.ogl != null) {
+            this.ogl.a(new YuyinCharmRankTotalActivity.a() { // from class: com.baidu.tieba.yuyinala.charm.charmrank.a.2
                 @Override // com.baidu.tieba.yuyinala.charm.charmrank.YuyinCharmRankTotalActivity.a
                 public void cnx() {
-                    if (a.this.ogm && a.this.ogl != null) {
-                        a.this.ogm = false;
-                        a.this.ogl.ep(a.this.idK);
+                    if (a.this.ogn && a.this.ogm != null) {
+                        a.this.ogn = false;
+                        a.this.ogm.ep(a.this.idK);
                     }
                 }
             });
@@ -77,14 +77,14 @@ public class a {
     }
 
     public void a(c.a aVar) {
-        this.ogl = aVar;
+        this.ogm = aVar;
     }
 
     public void a(j.a aVar) {
         if (aVar != null) {
             SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
             if (aVar.aEM <= 0) {
-                spannableStringBuilder.append((CharSequence) this.ogk.getString(a.h.yuyin_bottom_rank_list_no_money));
+                spannableStringBuilder.append((CharSequence) this.ogl.getString(a.h.yuyin_bottom_rank_list_no_money));
                 spannableStringBuilder.setSpan(new ForegroundColorSpan(Color.parseColor("#FD1E65")), 2, 5, 34);
                 this.idG.setText("未上榜");
                 this.idK.setText("去上榜");
@@ -100,7 +100,7 @@ public class a {
                         this.idJ.setVisibility(8);
                         this.idK.setText("去守榜");
                     } else {
-                        String format = String.format(this.ogk.getString(a.h.yuyin_bottom_rank_list_1), StringHelper.formatForHourRankValue(aVar.aEM - aVar.aEO) + "");
+                        String format = String.format(this.ogl.getString(a.h.yuyin_bottom_rank_list_1), StringHelper.formatForHourRankValue(aVar.aEM - aVar.aEO) + "");
                         spannableStringBuilder.append((CharSequence) format);
                         spannableStringBuilder.setSpan(new ForegroundColorSpan(Color.parseColor("#FD1E65")), 6, format.length(), 34);
                         this.idK.setText("去守榜");
@@ -109,13 +109,13 @@ public class a {
                     }
                 } else if (aVar.aEL >= 2 && aVar.aEL <= 100) {
                     String str = StringHelper.formatForHourRankValue((aVar.aEN - aVar.aEM) + 1) + "";
-                    spannableStringBuilder.append((CharSequence) String.format(this.ogk.getString(a.h.yuyin_bottom_rank_list__in), str));
+                    spannableStringBuilder.append((CharSequence) String.format(this.ogl.getString(a.h.yuyin_bottom_rank_list__in), str));
                     spannableStringBuilder.setSpan(new ForegroundColorSpan(Color.parseColor("#FD1E65")), 2, str.length() + 4, 34);
                     this.idK.setText("去冲榜");
                     this.idJ.setVisibility(0);
                     this.idJ.setText(spannableStringBuilder);
                 } else if (aVar.aEL > 100) {
-                    String format2 = String.format(this.ogk.getString(a.h.yuyin_bottom_rank_list_out), StatisticData.ERROR_CODE_NOT_FOUND, StringHelper.formatForHourRankValue((aVar.aEQ - aVar.aEM) + 1) + "");
+                    String format2 = String.format(this.ogl.getString(a.h.yuyin_bottom_rank_list_out), StatisticData.ERROR_CODE_NOT_FOUND, StringHelper.formatForHourRankValue((aVar.aEQ - aVar.aEM) + 1) + "");
                     spannableStringBuilder.append((CharSequence) format2);
                     spannableStringBuilder.setSpan(new ForegroundColorSpan(Color.parseColor("#FD1E65")), StatisticData.ERROR_CODE_NOT_FOUND.length() + 6, format2.length(), 34);
                     this.idK.setText("去冲榜");

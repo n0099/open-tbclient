@@ -8,17 +8,17 @@ import io.reactivex.u;
 public final class a<T> extends b<T> implements a.InterfaceC1294a<Object> {
     volatile boolean done;
     boolean emitting;
-    final b<T> qiD;
+    final b<T> qiE;
     io.reactivex.internal.util.a<Object> queue;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(b<T> bVar) {
-        this.qiD = bVar;
+        this.qiE = bVar;
     }
 
     @Override // io.reactivex.q
     protected void a(u<? super T> uVar) {
-        this.qiD.subscribe(uVar);
+        this.qiE.subscribe(uVar);
     }
 
     @Override // io.reactivex.u
@@ -45,7 +45,7 @@ public final class a<T> extends b<T> implements a.InterfaceC1294a<Object> {
             bVar.dispose();
             return;
         }
-        this.qiD.onSubscribe(bVar);
+        this.qiE.onSubscribe(bVar);
         emitLoop();
     }
 
@@ -64,7 +64,7 @@ public final class a<T> extends b<T> implements a.InterfaceC1294a<Object> {
                         return;
                     }
                     this.emitting = true;
-                    this.qiD.onNext(t);
+                    this.qiE.onNext(t);
                     emitLoop();
                 }
             }
@@ -96,7 +96,7 @@ public final class a<T> extends b<T> implements a.InterfaceC1294a<Object> {
             if (z) {
                 io.reactivex.d.a.onError(th);
             } else {
-                this.qiD.onError(th);
+                this.qiE.onError(th);
             }
         }
     }
@@ -117,7 +117,7 @@ public final class a<T> extends b<T> implements a.InterfaceC1294a<Object> {
                         return;
                     }
                     this.emitting = true;
-                    this.qiD.onComplete();
+                    this.qiE.onComplete();
                 }
             }
         }
@@ -140,6 +140,6 @@ public final class a<T> extends b<T> implements a.InterfaceC1294a<Object> {
 
     @Override // io.reactivex.internal.util.a.InterfaceC1294a, io.reactivex.b.j
     public boolean test(Object obj) {
-        return NotificationLite.acceptFull(obj, this.qiD);
+        return NotificationLite.acceptFull(obj, this.qiE);
     }
 }

@@ -7,16 +7,16 @@ import java.util.concurrent.CancellationException;
 import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes3.dex */
 public class o implements aj<com.facebook.imagepipeline.f.e> {
-    private final aj<com.facebook.imagepipeline.f.e> pBf;
-    private final com.facebook.imagepipeline.b.e pyf;
-    private final com.facebook.imagepipeline.b.f pyg;
-    private final com.facebook.imagepipeline.b.e pzj;
+    private final aj<com.facebook.imagepipeline.f.e> pBg;
+    private final com.facebook.imagepipeline.b.e pyg;
+    private final com.facebook.imagepipeline.b.f pyh;
+    private final com.facebook.imagepipeline.b.e pzk;
 
     public o(com.facebook.imagepipeline.b.e eVar, com.facebook.imagepipeline.b.e eVar2, com.facebook.imagepipeline.b.f fVar, aj<com.facebook.imagepipeline.f.e> ajVar) {
-        this.pzj = eVar;
-        this.pyf = eVar2;
-        this.pyg = fVar;
-        this.pBf = ajVar;
+        this.pzk = eVar;
+        this.pyg = eVar2;
+        this.pyh = fVar;
+        this.pBg = ajVar;
     }
 
     @Override // com.facebook.imagepipeline.producers.aj
@@ -27,8 +27,8 @@ public class o implements aj<com.facebook.imagepipeline.f.e> {
             return;
         }
         akVar.ewQ().hm(akVar.getId(), "DiskCacheProducer");
-        com.facebook.cache.common.b c = this.pyg.c(ewP, akVar.erD());
-        com.facebook.imagepipeline.b.e eVar = ewP.exE() == ImageRequest.CacheChoice.SMALL ? this.pyf : this.pzj;
+        com.facebook.cache.common.b c = this.pyh.c(ewP, akVar.erD());
+        com.facebook.imagepipeline.b.e eVar = ewP.exE() == ImageRequest.CacheChoice.SMALL ? this.pyg : this.pzk;
         AtomicBoolean atomicBoolean = new AtomicBoolean(false);
         eVar.a(c, atomicBoolean).a(b(kVar, akVar));
         a(atomicBoolean, akVar);
@@ -47,7 +47,7 @@ public class o implements aj<com.facebook.imagepipeline.f.e> {
                     kVar.eqc();
                 } else if (gVar.hC()) {
                     ewQ.a(id, "DiskCacheProducer", gVar.hD(), (Map<String, String>) null);
-                    o.this.pBf.a(kVar, akVar);
+                    o.this.pBg.a(kVar, akVar);
                 } else {
                     com.facebook.imagepipeline.f.e result = gVar.getResult();
                     if (result != null) {
@@ -58,7 +58,7 @@ public class o implements aj<com.facebook.imagepipeline.f.e> {
                         result.close();
                     } else {
                         ewQ.b(id, "DiskCacheProducer", o.a(ewQ, id, false, 0));
-                        o.this.pBf.a(kVar, akVar);
+                        o.this.pBg.a(kVar, akVar);
                     }
                 }
                 return null;
@@ -75,12 +75,12 @@ public class o implements aj<com.facebook.imagepipeline.f.e> {
         if (akVar.ewR().getValue() >= ImageRequest.RequestLevel.DISK_CACHE.getValue()) {
             kVar.g(null, 1);
         } else {
-            this.pBf.a(kVar, akVar);
+            this.pBg.a(kVar, akVar);
         }
     }
 
     static Map<String, String> a(am amVar, String str, boolean z, int i) {
-        if (!amVar.Ys(str)) {
+        if (!amVar.Yt(str)) {
             return null;
         }
         if (z) {

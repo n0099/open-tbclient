@@ -7,11 +7,11 @@ import com.kwad.sdk.collector.AppStatusRules;
 public final class c {
     private long e;
     private Context mContext;
-    private boolean oJo;
-    private long oJp;
+    private boolean oJp;
     private long oJq;
-    private boolean oJr;
-    private int oJs;
+    private long oJr;
+    private boolean oJs;
+    private int oJt;
 
     /* synthetic */ c(a aVar, byte b2) {
         this(aVar);
@@ -19,12 +19,12 @@ public final class c {
 
     private c(a aVar) {
         this.mContext = aVar.mContext;
-        this.oJo = aVar.oJo;
-        this.e = aVar.oJt;
         this.oJp = aVar.oJp;
-        this.oJr = aVar.oJr;
+        this.e = aVar.oJu;
         this.oJq = aVar.oJq;
         this.oJs = aVar.oJs;
+        this.oJr = aVar.oJr;
+        this.oJt = aVar.oJt;
     }
 
     public final Context b() {
@@ -32,7 +32,7 @@ public final class c {
     }
 
     public final boolean c() {
-        return this.oJo;
+        return this.oJp;
     }
 
     public final long d() {
@@ -40,30 +40,30 @@ public final class c {
     }
 
     public final long e() {
-        return this.oJp;
-    }
-
-    public final long f() {
         return this.oJq;
     }
 
-    public final boolean g() {
+    public final long f() {
         return this.oJr;
     }
 
-    public final int h() {
+    public final boolean g() {
         return this.oJs;
+    }
+
+    public final int h() {
+        return this.oJt;
     }
 
     /* loaded from: classes3.dex */
     public static class a {
         private Context mContext;
-        private boolean oJo = true;
-        private long oJt = 30000;
-        private long oJp = AppStatusRules.DEFAULT_GRANULARITY;
-        private long oJq = 10000;
-        private boolean oJr = false;
-        private int oJs = 1000;
+        private boolean oJp = true;
+        private long oJu = 30000;
+        private long oJq = AppStatusRules.DEFAULT_GRANULARITY;
+        private long oJr = 10000;
+        private boolean oJs = false;
+        private int oJt = 1000;
 
         public a hl(Context context) {
             this.mContext = context;
@@ -71,33 +71,33 @@ public final class c {
         }
 
         public a Ai(boolean z) {
-            this.oJo = z;
+            this.oJp = z;
             return this;
         }
 
         public a hR(long j) {
-            this.oJt = 1000 * j;
+            this.oJu = 1000 * j;
             return this;
         }
 
         public a MS(int i) {
-            this.oJp = i * 60 * 1000;
+            this.oJq = i * 60 * 1000;
             return this;
         }
 
         public a hS(long j) {
-            this.oJq = 1000 * j;
+            this.oJr = 1000 * j;
             return this;
         }
 
         public a Aj(boolean z) {
-            this.oJr = z;
+            this.oJs = z;
             return this;
         }
 
         public a MT(int i) {
             int i2 = i <= 0 ? 0 : i;
-            this.oJs = i2 < 1000 ? i2 : 1000;
+            this.oJt = i2 < 1000 ? i2 : 1000;
             return this;
         }
 

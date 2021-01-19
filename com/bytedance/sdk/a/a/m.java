@@ -7,20 +7,20 @@ import java.nio.ByteBuffer;
 /* loaded from: classes4.dex */
 public final class m implements d {
     boolean c;
-    public final c pdp = new c();
-    public final r pdx;
+    public final c pdq = new c();
+    public final r pdy;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public m(r rVar) {
         if (rVar == null) {
             throw new NullPointerException("sink == null");
         }
-        this.pdx = rVar;
+        this.pdy = rVar;
     }
 
     @Override // com.bytedance.sdk.a.a.d, com.bytedance.sdk.a.a.e
     public c elX() {
-        return this.pdp;
+        return this.pdq;
     }
 
     @Override // com.bytedance.sdk.a.a.r
@@ -28,16 +28,16 @@ public final class m implements d {
         if (this.c) {
             throw new IllegalStateException(LogConfig.TYPE_CLOSED);
         }
-        this.pdp.a(cVar, j);
+        this.pdq.a(cVar, j);
         emg();
     }
 
     @Override // com.bytedance.sdk.a.a.d
-    public d Xy(String str) throws IOException {
+    public d Xz(String str) throws IOException {
         if (this.c) {
             throw new IllegalStateException(LogConfig.TYPE_CLOSED);
         }
-        this.pdp.Xy(str);
+        this.pdq.Xz(str);
         return emg();
     }
 
@@ -46,7 +46,7 @@ public final class m implements d {
         if (this.c) {
             throw new IllegalStateException(LogConfig.TYPE_CLOSED);
         }
-        this.pdp.ai(bArr);
+        this.pdq.ai(bArr);
         return emg();
     }
 
@@ -55,7 +55,7 @@ public final class m implements d {
         if (this.c) {
             throw new IllegalStateException(LogConfig.TYPE_CLOSED);
         }
-        this.pdp.w(bArr, i, i2);
+        this.pdq.w(bArr, i, i2);
         return emg();
     }
 
@@ -64,7 +64,7 @@ public final class m implements d {
         if (this.c) {
             throw new IllegalStateException(LogConfig.TYPE_CLOSED);
         }
-        int write = this.pdp.write(byteBuffer);
+        int write = this.pdq.write(byteBuffer);
         emg();
         return write;
     }
@@ -74,7 +74,7 @@ public final class m implements d {
         if (this.c) {
             throw new IllegalStateException(LogConfig.TYPE_CLOSED);
         }
-        this.pdp.Of(i);
+        this.pdq.Of(i);
         return emg();
     }
 
@@ -83,7 +83,7 @@ public final class m implements d {
         if (this.c) {
             throw new IllegalStateException(LogConfig.TYPE_CLOSED);
         }
-        this.pdp.Oe(i);
+        this.pdq.Oe(i);
         return emg();
     }
 
@@ -92,7 +92,7 @@ public final class m implements d {
         if (this.c) {
             throw new IllegalStateException(LogConfig.TYPE_CLOSED);
         }
-        this.pdp.Od(i);
+        this.pdq.Od(i);
         return emg();
     }
 
@@ -101,7 +101,7 @@ public final class m implements d {
         if (this.c) {
             throw new IllegalStateException(LogConfig.TYPE_CLOSED);
         }
-        this.pdp.il(j);
+        this.pdq.il(j);
         return emg();
     }
 
@@ -110,7 +110,7 @@ public final class m implements d {
         if (this.c) {
             throw new IllegalStateException(LogConfig.TYPE_CLOSED);
         }
-        this.pdp.ik(j);
+        this.pdq.ik(j);
         return emg();
     }
 
@@ -119,9 +119,9 @@ public final class m implements d {
         if (this.c) {
             throw new IllegalStateException(LogConfig.TYPE_CLOSED);
         }
-        long g = this.pdp.g();
+        long g = this.pdq.g();
         if (g > 0) {
-            this.pdx.a(this.pdp, g);
+            this.pdy.a(this.pdq, g);
         }
         return this;
     }
@@ -131,10 +131,10 @@ public final class m implements d {
         if (this.c) {
             throw new IllegalStateException(LogConfig.TYPE_CLOSED);
         }
-        if (this.pdp.f5840b > 0) {
-            this.pdx.a(this.pdp, this.pdp.f5840b);
+        if (this.pdq.f5840b > 0) {
+            this.pdy.a(this.pdq, this.pdq.f5840b);
         }
-        this.pdx.flush();
+        this.pdy.flush();
     }
 
     @Override // java.nio.channels.Channel
@@ -147,14 +147,14 @@ public final class m implements d {
         if (!this.c) {
             Throwable th = null;
             try {
-                if (this.pdp.f5840b > 0) {
-                    this.pdx.a(this.pdp, this.pdp.f5840b);
+                if (this.pdq.f5840b > 0) {
+                    this.pdy.a(this.pdq, this.pdq.f5840b);
                 }
             } catch (Throwable th2) {
                 th = th2;
             }
             try {
-                this.pdx.close();
+                this.pdy.close();
             } catch (Throwable th3) {
                 if (th == null) {
                     th = th3;
@@ -169,10 +169,10 @@ public final class m implements d {
 
     @Override // com.bytedance.sdk.a.a.r
     public t elW() {
-        return this.pdx.elW();
+        return this.pdy.elW();
     }
 
     public String toString() {
-        return "buffer(" + this.pdx + ")";
+        return "buffer(" + this.pdy + ")";
     }
 }

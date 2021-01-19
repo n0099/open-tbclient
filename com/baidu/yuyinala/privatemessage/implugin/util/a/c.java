@@ -10,7 +10,7 @@ public class c {
 
     public static File getCacheDir() {
         if (ekd()) {
-            File file = new File(Environment.getExternalStorageDirectory().getAbsolutePath() + File.separator + d.oWN);
+            File file = new File(Environment.getExternalStorageDirectory().getAbsolutePath() + File.separator + d.oWO);
             if (file.exists() || file.mkdirs()) {
                 return file;
             }

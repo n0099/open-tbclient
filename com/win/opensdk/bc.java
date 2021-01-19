@@ -3,7 +3,7 @@ package com.win.opensdk;
 import android.text.TextUtils;
 /* loaded from: classes3.dex */
 public final class bc {
-    public static byte[] aaJ(String str) {
+    public static byte[] aaK(String str) {
         int length = str.length();
         byte[] bArr = new byte[length / 2];
         for (int i = 0; i < length; i += 2) {
@@ -12,11 +12,11 @@ public final class bc {
         return bArr;
     }
 
-    public static String aaG(String str) {
+    public static String aaH(String str) {
         return TextUtils.isEmpty(str) ? str : new aq(ap.java() + "4c6k", ap.eGG() + "o7my").hv(str, "CBC");
     }
 
-    public static String aaH(String str) {
+    public static String aaI(String str) {
         if (!TextUtils.isEmpty(str)) {
             String hv = an.hv(ap.a() + "mloo0ks9", str);
             if (!TextUtils.isEmpty(hv)) {

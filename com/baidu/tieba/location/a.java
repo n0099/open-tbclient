@@ -148,8 +148,8 @@ public class a implements com.baidu.adp.lib.c.b {
                 }
                 if (a.this.kZF != null) {
                     a.this.kZF.onProviderGetLocation(0, "", a.this.lastAddress, a.this.lastLocationTime, a.this.kZI);
-                    com.baidu.tieba.recapp.c.a.dBW().QI(String.valueOf(a.this.lastAddress.getLatitude()));
-                    com.baidu.tieba.recapp.c.a.dBW().QH(String.valueOf(a.this.lastAddress.getLongitude()));
+                    com.baidu.tieba.recapp.c.a.dBW().QJ(String.valueOf(a.this.lastAddress.getLatitude()));
+                    com.baidu.tieba.recapp.c.a.dBW().QI(String.valueOf(a.this.lastAddress.getLongitude()));
                     com.baidu.tieba.recapp.c.a.dBW().hw(System.currentTimeMillis());
                 }
             }

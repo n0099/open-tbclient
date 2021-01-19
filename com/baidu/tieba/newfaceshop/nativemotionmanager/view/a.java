@@ -75,10 +75,10 @@ public class a implements View.OnClickListener, com.baidu.tieba.faceshop.emotion
         if (dgD != null && TextUtils.isEmpty(dgD.getFailMsg())) {
             l.showToast(this.mPageContext.getPageActivity(), dgD.getFailMsg());
         }
-        Of(null);
+        Og(null);
     }
 
-    public void Of(String str) {
+    public void Og(String str) {
         if (this.iTn != null) {
             this.iTn.dismiss();
         }

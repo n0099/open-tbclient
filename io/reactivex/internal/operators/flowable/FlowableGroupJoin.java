@@ -17,7 +17,7 @@ import org.a.d;
 /* loaded from: classes5.dex */
 public final class FlowableGroupJoin<TLeft, TRight, TLeftEnd, TRightEnd, R> extends io.reactivex.internal.operators.flowable.a<TLeft, R> {
     final h<? super TLeft, ? extends org.a.b<TLeftEnd>> leftEnd;
-    final org.a.b<? extends TRight> qel;
+    final org.a.b<? extends TRight> qem;
     final io.reactivex.b.c<? super TLeft, ? super g<TRight>, ? extends R> resultSelector;
     final h<? super TRight, ? extends org.a.b<TRightEnd>> rightEnd;
 
@@ -43,8 +43,8 @@ public final class FlowableGroupJoin<TLeft, TRight, TLeftEnd, TRightEnd, R> exte
         groupJoinSubscription.disposables.a(leftRightSubscriber);
         LeftRightSubscriber leftRightSubscriber2 = new LeftRightSubscriber(groupJoinSubscription, false);
         groupJoinSubscription.disposables.a(leftRightSubscriber2);
-        this.qdR.a((j) leftRightSubscriber);
-        this.qel.subscribe(leftRightSubscriber2);
+        this.qdS.a((j) leftRightSubscriber);
+        this.qem.subscribe(leftRightSubscriber2);
     }
 
     /* loaded from: classes5.dex */

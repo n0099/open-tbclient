@@ -13,7 +13,7 @@ public abstract class b {
     public String filterName;
     public boolean isMute;
     public String musicPath;
-    public String nAy;
+    public String nAz;
     public String originPath;
 
     public abstract void dPE();
@@ -56,8 +56,8 @@ public abstract class b {
     }
 
     private void dPD() {
-        if (!at.isEmpty(this.nAy)) {
-            n.deleteFile(new File(this.nAy));
+        if (!at.isEmpty(this.nAz)) {
+            n.deleteFile(new File(this.nAz));
         }
     }
 

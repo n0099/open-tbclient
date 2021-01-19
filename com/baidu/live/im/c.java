@@ -70,13 +70,13 @@ public class c extends TypeAdapter.ViewHolder {
         this.bgX = (SimpleDraweeView) getView().findViewById(a.f.head_imageView);
         com.facebook.drawee.generic.a hierarchy = this.bgX.getHierarchy();
         if (TbadkCoreApplication.getInst().isHaokan()) {
-            hierarchy.a(a.e.sdk_icon_default_avatar100_hk, p.b.ptm);
-            hierarchy.b(a.e.sdk_icon_default_avatar100_hk, p.b.ptm);
+            hierarchy.a(a.e.sdk_icon_default_avatar100_hk, p.b.ptn);
+            hierarchy.b(a.e.sdk_icon_default_avatar100_hk, p.b.ptn);
         } else {
-            hierarchy.a(a.e.sdk_icon_default_avatar100, p.b.ptm);
-            hierarchy.b(a.e.sdk_icon_default_avatar100, p.b.ptm);
+            hierarchy.a(a.e.sdk_icon_default_avatar100, p.b.ptn);
+            hierarchy.b(a.e.sdk_icon_default_avatar100, p.b.ptn);
         }
-        hierarchy.b(p.b.ptm);
+        hierarchy.b(p.b.ptn);
         RoundingParams roundingParams = new RoundingParams();
         roundingParams.AY(true);
         hierarchy.a(roundingParams);

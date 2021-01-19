@@ -19,8 +19,8 @@ public class f {
     private ContriInfo mContriInfo;
     private bs mReplyPrivacyTip;
     private VideoEasterEggData mVideoEasterEggData;
-    private String nru;
     private String nrv;
+    private String nrw;
     private String preMsg;
     private String videoId;
     private String threadId = null;
@@ -110,19 +110,19 @@ public class f {
     }
 
     public String dNg() {
-        return this.nru;
-    }
-
-    public void SK(String str) {
-        this.nru = str;
-    }
-
-    public String dNh() {
         return this.nrv;
     }
 
     public void SL(String str) {
         this.nrv = str;
+    }
+
+    public String dNh() {
+        return this.nrw;
+    }
+
+    public void SM(String str) {
+        this.nrw = str;
     }
 
     public CustomDialogData getActivityDialog() {

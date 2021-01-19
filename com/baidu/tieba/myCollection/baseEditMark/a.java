@@ -136,7 +136,7 @@ public class a {
         return jSONArray.toString();
     }
 
-    public void NV(String str) {
+    public void NW(String str) {
         try {
             paserJson(new JSONObject(str));
         } catch (Exception e) {
@@ -145,7 +145,7 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public ArrayList<MarkData> NW(String str) {
+    public ArrayList<MarkData> NX(String str) {
         JSONObject jSONObject;
         ArrayList<MarkData> arrayList = new ArrayList<>();
         try {
@@ -246,7 +246,7 @@ public class a {
             this.data = this.chV.postNetData();
             this.lpn.parserJson(this.data);
             if (this.chV.brX().bsH().isRequestSuccess()) {
-                aVar.NV(this.data);
+                aVar.NW(this.data);
                 if (this.offset == 0) {
                     if (a.this.lpj == null) {
                         a.this.lpj = new ArrayList();
@@ -278,7 +278,7 @@ public class a {
             String str = strArr[0];
             ArrayList<MarkData> arrayList = new ArrayList<>();
             if (str != null) {
-                arrayList = a.this.NW(str);
+                arrayList = a.this.NX(str);
                 if (this.lpp.booleanValue()) {
                     a.this.aU(arrayList);
                 } else {
@@ -541,14 +541,14 @@ public class a {
                 String id = next.getId();
                 int replyNum = next.getReplyNum();
                 if (!hashSet.add(id)) {
-                    bF(id, replyNum);
+                    bG(id, replyNum);
                     it.remove();
                 }
             }
         }
     }
 
-    private void bF(String str, int i) {
+    private void bG(String str, int i) {
         if (this.lpj != null && x.getCount(this.lpj) > 0) {
             Iterator<MarkData> it = this.lpj.iterator();
             while (it.hasNext()) {

@@ -17,11 +17,11 @@ import java.util.List;
 public class a {
     private static final List<String> nke = Arrays.asList(PageStayDurationConstants.PageName.FRS, PageStayDurationConstants.PageName.PB, PageStayDurationConstants.PageName.BIGIMAGE, PageStayDurationConstants.PageName.HOMEPAGE_PERSONALIZE);
 
-    public static String RS(String str) {
+    public static String RT(String str) {
         return "enterfourm_att_" + str;
     }
 
-    public static String RT(String str) {
+    public static String RU(String str) {
         return "enterfourm_rec_" + str;
     }
 

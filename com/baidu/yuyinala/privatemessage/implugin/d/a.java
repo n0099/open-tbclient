@@ -5,8 +5,8 @@ import com.baidu.sapi2.SapiAccountManager;
 /* loaded from: classes10.dex */
 public class a {
     private static String mqF = "";
-    private static String oPQ = "";
     private static String oPR = "";
+    private static String oPS = "";
     private static String mDisplayName = "";
 
     public static String getBDUSS() {

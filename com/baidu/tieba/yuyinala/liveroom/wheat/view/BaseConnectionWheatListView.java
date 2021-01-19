@@ -17,12 +17,12 @@ import com.baidu.tieba.yuyinala.liveroom.wheat.view.ConnectionWheatButtonView;
 /* loaded from: classes10.dex */
 public abstract class BaseConnectionWheatListView extends SafeFrameLayout implements View.OnClickListener {
     public CommonEmptyView btf;
-    public TextView oAu;
-    public RelativeLayout oAv;
-    public TbPageContext ovz;
-    public AlaConnectionWheatListView oxO;
-    public int oxS;
-    public ConnectionWheatButtonView oxT;
+    public TextView oAv;
+    public RelativeLayout oAw;
+    public TbPageContext ovA;
+    public AlaConnectionWheatListView oxP;
+    public int oxT;
+    public ConnectionWheatButtonView oxU;
 
     protected abstract void dyO();
 
@@ -49,14 +49,14 @@ public abstract class BaseConnectionWheatListView extends SafeFrameLayout implem
 
     private void initView() {
         LayoutInflater.from(getContext()).inflate(a.g.yuyin_layout_dialog_connection_wheat_item, this);
-        this.oxO = (AlaConnectionWheatListView) findViewById(a.f.listView);
+        this.oxP = (AlaConnectionWheatListView) findViewById(a.f.listView);
         this.btf = (CommonEmptyView) findViewById(a.f.empty_view);
-        this.oAu = (TextView) findViewById(a.f.tv_online_user_num);
-        this.oAv = (RelativeLayout) findViewById(a.f.loading_view_container);
-        this.oxT = (ConnectionWheatButtonView) findViewById(a.f.connection_wheat_button_view);
+        this.oAv = (TextView) findViewById(a.f.tv_online_user_num);
+        this.oAw = (RelativeLayout) findViewById(a.f.loading_view_container);
+        this.oxU = (ConnectionWheatButtonView) findViewById(a.f.connection_wheat_button_view);
         if (this instanceof ConnectionWheatApplyListView) {
-            this.oxT.init();
-            this.oxT.setListener(getConnectionWheatButtonClickListener());
+            this.oxU.init();
+            this.oxU.setListener(getConnectionWheatButtonClickListener());
         }
     }
 
@@ -74,11 +74,11 @@ public abstract class BaseConnectionWheatListView extends SafeFrameLayout implem
 
     public void ebH() {
         if (getCount() != 0) {
-            this.oxO.setVisibility(0);
+            this.oxP.setVisibility(0);
             this.btf.setVisibility(8);
             return;
         }
-        this.oxO.setVisibility(8);
+        this.oxP.setVisibility(8);
         this.btf.setVisibility(0);
         this.btf.reset();
         this.btf.setTitle(getNoDataStr());
@@ -87,11 +87,11 @@ public abstract class BaseConnectionWheatListView extends SafeFrameLayout implem
     }
 
     public void ebI() {
-        this.oAu.setVisibility(8);
-        this.oxO.setVisibility(8);
+        this.oAv.setVisibility(8);
+        this.oxP.setVisibility(8);
         this.btf.setVisibility(0);
         if (this instanceof ConnectionWheatApplyListView) {
-            this.oxT.setVisibility(8);
+            this.oxU.setVisibility(8);
         }
         this.btf.reset();
         this.btf.setRefreshButton(a.h.yuyin_ala_connection_wheat_refresh_load_text, new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.view.BaseConnectionWheatListView.1
@@ -111,22 +111,22 @@ public abstract class BaseConnectionWheatListView extends SafeFrameLayout implem
     }
 
     public void setTbPageContext(TbPageContext tbPageContext) {
-        this.ovz = tbPageContext;
+        this.ovA = tbPageContext;
     }
 
     public void setApplyPosition(int i) {
-        this.oxS = i;
+        this.oxT = i;
     }
 
     public void showLoading() {
-        if (this.oAv != null) {
-            this.oAv.setVisibility(0);
+        if (this.oAw != null) {
+            this.oAw.setVisibility(0);
         }
     }
 
     public void hideLoading() {
-        if (this.oAv != null) {
-            this.oAv.setVisibility(8);
+        if (this.oAw != null) {
+            this.oAw.setVisibility(8);
         }
     }
 }

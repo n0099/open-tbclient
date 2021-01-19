@@ -458,7 +458,7 @@ public class g {
             this.jhJ.b(this.mar);
             this.mab = null;
             this.maa = null;
-            this.jhJ.Pl(this.mab);
+            this.jhJ.Pm(this.mab);
             this.jhJ.dam().setOnDragingListener(kXp);
             this.jhJ.a(new c.InterfaceC0845c() { // from class: com.baidu.tieba.pb.video.g.3
                 @Override // com.baidu.tieba.play.c.InterfaceC0845c
@@ -489,7 +489,7 @@ public class g {
                 @Override // com.baidu.tieba.play.c.h
                 public void drv() {
                     if (g.this.lEi != null && g.this.maa != null && !StringUtils.isNull(g.this.maa.getId())) {
-                        g.this.lEi.OA(g.this.maa.getId());
+                        g.this.lEi.OB(g.this.maa.getId());
                     }
                 }
             });
@@ -511,14 +511,14 @@ public class g {
             this.jhJ.setThumbnail(videoInfo.thumbnail_url);
             this.jhJ.setVideoUrl(this.mVideoUrl, bzVar.getTid());
             this.jhJ.setFid(str);
-            this.jhJ.PK(bzVar.getTitle());
+            this.jhJ.PL(bzVar.getTitle());
             this.jhJ.a(maD);
             this.jhJ.cQE();
             this.jhJ.show();
         }
     }
 
-    public void Pk(String str) {
+    public void Pl(String str) {
         if (this.lZW != null) {
             this.lZW.fKR = str;
         }
@@ -538,10 +538,10 @@ public class g {
         this.maa = bzVar;
     }
 
-    public void Pl(String str) {
+    public void Pm(String str) {
         this.mab = str;
         if (this.jhJ != null) {
-            this.jhJ.Pl(this.mab);
+            this.jhJ.Pm(this.mab);
         }
     }
 

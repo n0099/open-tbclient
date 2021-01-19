@@ -12,11 +12,11 @@ class k {
 
     /* renamed from: b  reason: collision with root package name */
     private static final byte[] f5920b = {13, 23, 28, 28, 28, 28, 28, 28, 28, 24, 30, 28, 28, 30, 28, 28, 28, 28, 28, 28, 28, 28, 30, 28, 28, 28, 28, 28, 28, 28, 28, 28, 6, 10, 10, 12, 13, 6, 8, Constants.GZIP_CAST_TYPE, 10, 10, 8, Constants.GZIP_CAST_TYPE, 8, 6, 6, 6, 5, 5, 5, 6, 6, 6, 6, 6, 6, 6, 7, 8, 15, 6, 12, 10, 13, 6, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 8, 7, 8, 13, 19, 13, 14, 6, 15, 5, 6, 5, 6, 5, 6, 6, 6, 5, 7, 7, 6, 6, 6, 5, 6, 7, 6, 5, 5, 6, 7, 7, 7, 7, 7, 15, Constants.GZIP_CAST_TYPE, 14, 13, 28, 20, 22, 20, 20, 22, 22, 22, 23, 22, 23, 23, 23, 23, 23, 24, 23, 24, 24, 22, 23, 24, 23, 23, 23, 23, 21, 22, 23, 22, 23, 23, 24, 22, 21, 20, 22, 22, 23, 23, 21, 23, 22, 22, 24, 21, 22, 23, 23, 21, 21, 22, 21, 23, 22, 23, 23, 20, 22, 22, 22, 23, 22, 22, 23, 26, 26, 20, 19, 22, 23, 22, 25, 26, 26, 26, 27, 27, 26, 24, 25, 19, 21, 26, 27, 27, 26, 27, 24, 21, 21, 26, 26, 28, 27, 27, 27, 20, 24, 20, 21, 22, 21, 21, 23, 22, 22, 25, 25, 24, 24, 26, 23, 26, 27, 26, 26, 27, 27, 27, 27, 27, 28, 27, 27, 27, 27, 27, 26};
-    private static final k pgi = new k();
-    private final a pgj = new a();
+    private static final k pgj = new k();
+    private final a pgk = new a();
 
     public static k enb() {
-        return pgi;
+        return pgj;
     }
 
     private k() {
@@ -63,7 +63,7 @@ class k {
     /* JADX INFO: Access modifiers changed from: package-private */
     public byte[] a(byte[] bArr) {
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-        a aVar = this.pgj;
+        a aVar = this.pgk;
         int i = 0;
         int i2 = 0;
         int i3 = 0;
@@ -71,11 +71,11 @@ class k {
             i3 = (i3 << 8) | (bArr[i] & 255);
             int i4 = i2 + 8;
             while (i4 >= 8) {
-                a aVar2 = aVar.pgk[(i3 >>> (i4 - 8)) & 255];
-                if (aVar2.pgk == null) {
+                a aVar2 = aVar.pgl[(i3 >>> (i4 - 8)) & 255];
+                if (aVar2.pgl == null) {
                     byteArrayOutputStream.write(aVar2.f5921b);
                     i4 -= aVar2.c;
-                    aVar2 = this.pgj;
+                    aVar2 = this.pgk;
                 } else {
                     i4 -= 8;
                 }
@@ -85,13 +85,13 @@ class k {
             i2 = i4;
         }
         while (i2 > 0) {
-            a aVar3 = aVar.pgk[(i3 << (8 - i2)) & 255];
-            if (aVar3.pgk != null || aVar3.c > i2) {
+            a aVar3 = aVar.pgl[(i3 << (8 - i2)) & 255];
+            if (aVar3.pgl != null || aVar3.c > i2) {
                 break;
             }
             byteArrayOutputStream.write(aVar3.f5921b);
             i2 -= aVar3.c;
-            aVar = this.pgj;
+            aVar = this.pgk;
         }
         return byteArrayOutputStream.toByteArray();
     }
@@ -104,25 +104,25 @@ class k {
 
     private void a(int i, int i2, byte b2) {
         a aVar = new a(i, b2);
-        a aVar2 = this.pgj;
+        a aVar2 = this.pgk;
         while (true) {
             a aVar3 = aVar2;
             if (b2 > 8) {
                 b2 = (byte) (b2 - 8);
                 int i3 = (i2 >>> b2) & 255;
-                if (aVar3.pgk == null) {
+                if (aVar3.pgl == null) {
                     throw new IllegalStateException("invalid dictionary: prefix not unique");
                 }
-                if (aVar3.pgk[i3] == null) {
-                    aVar3.pgk[i3] = new a();
+                if (aVar3.pgl[i3] == null) {
+                    aVar3.pgl[i3] = new a();
                 }
-                aVar2 = aVar3.pgk[i3];
+                aVar2 = aVar3.pgl[i3];
             } else {
                 int i4 = 8 - b2;
                 int i5 = (i2 << i4) & 255;
                 int i6 = 1 << i4;
                 for (int i7 = i5; i7 < i5 + i6; i7++) {
-                    aVar3.pgk[i7] = aVar;
+                    aVar3.pgl[i7] = aVar;
                 }
                 return;
             }
@@ -136,16 +136,16 @@ class k {
         /* renamed from: b  reason: collision with root package name */
         final int f5921b;
         final int c;
-        final a[] pgk;
+        final a[] pgl;
 
         a() {
-            this.pgk = new a[256];
+            this.pgl = new a[256];
             this.f5921b = 0;
             this.c = 0;
         }
 
         a(int i, int i2) {
-            this.pgk = null;
+            this.pgl = null;
             this.f5921b = i;
             int i3 = i2 & 7;
             this.c = i3 == 0 ? 8 : i3;

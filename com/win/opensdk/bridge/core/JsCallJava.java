@@ -16,7 +16,7 @@ public class JsCallJava {
     /* renamed from: case  reason: not valid java name */
     private String f29case;
     private String java;
-    private JSONObject pZY;
+    private JSONObject pZZ;
 
     private JsCallJava() {
     }
@@ -38,10 +38,10 @@ public class JsCallJava {
                 }
                 this.f13730a = String.valueOf(parse.getPort());
                 try {
-                    this.pZY = new JSONObject(parse.getQuery());
+                    this.pZZ = new JSONObject(parse.getQuery());
                 } catch (JSONException e) {
                     e.printStackTrace();
-                    this.pZY = new JSONObject();
+                    this.pZZ = new JSONObject();
                 }
             }
             Method hw = NativeMethodInjectHelper.eGR().hw(this.java, this.f29case);
@@ -51,7 +51,7 @@ public class JsCallJava {
                 return;
             }
             try {
-                hw.invoke(null, webView, this.pZY, g);
+                hw.invoke(null, webView, this.pZZ, g);
             } catch (IllegalAccessException e2) {
                 e2.printStackTrace();
             } catch (InvocationTargetException e3) {

@@ -67,21 +67,21 @@ public class AlaLiveBottomOperationView extends FrameLayout {
     public CustomMessageListener onA;
     public CustomMessageListener onB;
     public CustomMessageListener onC;
-    private n onD;
-    private a onE;
-    private CustomMessageListener onF;
+    public CustomMessageListener onD;
+    private n onE;
+    private a onF;
     private CustomMessageListener onG;
     private CustomMessageListener onH;
-    private b onp;
-    public FrameLayout onq;
-    public ImageView onr;
-    public TextView ons;
-    private TextView ont;
-    private FrameLayout onu;
-    public View onv;
-    private View onw;
+    private CustomMessageListener onI;
+    private b onq;
+    public FrameLayout onr;
+    public ImageView ons;
+    public TextView ont;
+    private TextView onu;
+    private FrameLayout onv;
+    public View onw;
     private View onx;
-    public CustomMessageListener ony;
+    private View ony;
     public CustomMessageListener onz;
     public View rootView;
 
@@ -115,9 +115,9 @@ public class AlaLiveBottomOperationView extends FrameLayout {
         this.aCu = new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.liveroom.operation.AlaLiveBottomOperationView.8
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (AlaLiveBottomOperationView.this.onp != null) {
-                    if (view == AlaLiveBottomOperationView.this.onu) {
-                        AlaLiveBottomOperationView.this.onp.a(view, 23, null);
+                if (AlaLiveBottomOperationView.this.onq != null) {
+                    if (view == AlaLiveBottomOperationView.this.onv) {
+                        AlaLiveBottomOperationView.this.onq.a(view, 23, null);
                     } else if (view == AlaLiveBottomOperationView.this.hHe) {
                         AlaLiveBottomOperationView.this.hHR = view;
                         if (com.baidu.live.af.a.OJ().bru.aKs == 1 && !LoginManager.getInstance(AlaLiveBottomOperationView.this.mContext).isIMLogined()) {
@@ -141,25 +141,25 @@ public class AlaLiveBottomOperationView extends FrameLayout {
                                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913192));
                                 AlaLiveBottomOperationView.this.bng = 2;
                             } else {
-                                AlaLiveBottomOperationView.this.onp.a(view, 11, null);
+                                AlaLiveBottomOperationView.this.onq.a(view, 11, null);
                             }
                         } else {
-                            AlaLiveBottomOperationView.this.onp.a(view, 11, null);
+                            AlaLiveBottomOperationView.this.onq.a(view, 11, null);
                         }
                         AlaLiveBottomOperationView.this.zz(true);
                     } else if (view == AlaLiveBottomOperationView.this.hDS) {
-                        AlaLiveBottomOperationView.this.onp.a(view, 8, null);
-                    } else if (view != AlaLiveBottomOperationView.this.onq) {
-                        if (view == AlaLiveBottomOperationView.this.onw) {
-                            AlaLiveBottomOperationView.this.onp.a(view, 22, null);
+                        AlaLiveBottomOperationView.this.onq.a(view, 8, null);
+                    } else if (view != AlaLiveBottomOperationView.this.onr) {
+                        if (view == AlaLiveBottomOperationView.this.onx) {
+                            AlaLiveBottomOperationView.this.onq.a(view, 22, null);
                         }
                     } else {
-                        AlaLiveBottomOperationView.this.a(new e(c.eax().WA(), null, g.owM, 0));
+                        AlaLiveBottomOperationView.this.a(new e(c.eax().WA(), null, g.owN, 0));
                     }
                 }
             }
         };
-        this.onF = new CustomMessageListener(2501010) { // from class: com.baidu.tieba.yuyinala.liveroom.operation.AlaLiveBottomOperationView.9
+        this.onG = new CustomMessageListener(2501010) { // from class: com.baidu.tieba.yuyinala.liveroom.operation.AlaLiveBottomOperationView.9
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -168,19 +168,19 @@ public class AlaLiveBottomOperationView extends FrameLayout {
                 }
             }
         };
-        this.onG = new CustomMessageListener(2501027) { // from class: com.baidu.tieba.yuyinala.liveroom.operation.AlaLiveBottomOperationView.10
+        this.onH = new CustomMessageListener(2501027) { // from class: com.baidu.tieba.yuyinala.liveroom.operation.AlaLiveBottomOperationView.10
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2501027 && (customResponsedMessage.getData() instanceof String)) {
-                    if (AlaLiveBottomOperationView.this.onD == null) {
-                        AlaLiveBottomOperationView.this.onD = new n();
+                    if (AlaLiveBottomOperationView.this.onE == null) {
+                        AlaLiveBottomOperationView.this.onE = new n();
                     }
-                    AlaLiveBottomOperationView.this.onD.a(AlaLiveBottomOperationView.this.onq, AlaLiveBottomOperationView.this.ons, (String) customResponsedMessage.getData(), AlaLiveBottomOperationView.this.bnf);
+                    AlaLiveBottomOperationView.this.onE.a(AlaLiveBottomOperationView.this.onr, AlaLiveBottomOperationView.this.ont, (String) customResponsedMessage.getData(), AlaLiveBottomOperationView.this.bnf);
                 }
             }
         };
-        this.onH = new CustomMessageListener(2501011) { // from class: com.baidu.tieba.yuyinala.liveroom.operation.AlaLiveBottomOperationView.11
+        this.onI = new CustomMessageListener(2501011) { // from class: com.baidu.tieba.yuyinala.liveroom.operation.AlaLiveBottomOperationView.11
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -204,7 +204,7 @@ public class AlaLiveBottomOperationView extends FrameLayout {
                                 if (AlaLiveBottomOperationView.this.bng == 1) {
                                     AlaLiveBottomOperationView.this.cA(AlaLiveBottomOperationView.this.hHR);
                                 } else if (AlaLiveBottomOperationView.this.bng == 2) {
-                                    AlaLiveBottomOperationView.this.onp.a(AlaLiveBottomOperationView.this.hHS, 11, null);
+                                    AlaLiveBottomOperationView.this.onq.a(AlaLiveBottomOperationView.this.hHS, 11, null);
                                 }
                             } else {
                                 AlaLiveBottomOperationView.this.a(yuyinImForbiddenStateData);
@@ -226,8 +226,8 @@ public class AlaLiveBottomOperationView extends FrameLayout {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void nK(boolean z) {
-        if (this.onp != null && z) {
-            this.onp.a(this.hHh, 2, null);
+        if (this.onq != null && z) {
+            this.onq.a(this.hHh, 2, null);
         }
     }
 
@@ -236,31 +236,31 @@ public class AlaLiveBottomOperationView extends FrameLayout {
     }
 
     public void setChatBtnVisible(boolean z) {
-        this.onu.setVisibility(z ? 0 : 8);
+        this.onv.setVisibility(z ? 0 : 8);
     }
 
     public void setConnectWheatBtnVisible(boolean z) {
-        this.onq.setVisibility(z ? 0 : 8);
+        this.onr.setVisibility(z ? 0 : 8);
     }
 
     public void setQuickImInputVisible(boolean z) {
         this.hHw.setVisibility(z ? 0 : 8);
-        this.onv.setVisibility(z ? 0 : 8);
+        this.onw.setVisibility(z ? 0 : 8);
     }
 
     private void initView() {
         this.rootView = View.inflate(this.mContext, a.g.yuyinala_liveroom_vertical_bottom_operation, this);
-        this.onw = this.rootView.findViewById(a.f.ala_audio_more_layout);
-        this.onx = this.rootView.findViewById(a.f.func_red_dot_iv);
+        this.onx = this.rootView.findViewById(a.f.ala_audio_more_layout);
+        this.ony = this.rootView.findViewById(a.f.func_red_dot_iv);
         this.hHe = (RelativeLayout) this.rootView.findViewById(a.f.ala_live_room_guest_message_layout);
         this.hHf = (ImageView) this.rootView.findViewById(a.f.ala_live_room_gift_btn);
         this.hHh = (FrameLayout) this.rootView.findViewById(a.f.ala_live_room_gift_layout);
-        this.onq = (FrameLayout) this.rootView.findViewById(a.f.ala_live_room_connect_wheat_layout);
-        this.onr = (ImageView) this.rootView.findViewById(a.f.ala_live_room_connect_wheat_btn);
-        this.ons = (TextView) this.rootView.findViewById(a.f.ala_live_room_connect_wheat_red_dot_iv);
-        this.ont = (TextView) this.rootView.findViewById(a.f.ala_live_room_chat_num_tv);
-        this.onu = (FrameLayout) this.rootView.findViewById(a.f.ala_live_room_chat_btn_layout);
-        this.onv = this.rootView.findViewById(a.f.divider);
+        this.onr = (FrameLayout) this.rootView.findViewById(a.f.ala_live_room_connect_wheat_layout);
+        this.ons = (ImageView) this.rootView.findViewById(a.f.ala_live_room_connect_wheat_btn);
+        this.ont = (TextView) this.rootView.findViewById(a.f.ala_live_room_connect_wheat_red_dot_iv);
+        this.onu = (TextView) this.rootView.findViewById(a.f.ala_live_room_chat_num_tv);
+        this.onv = (FrameLayout) this.rootView.findViewById(a.f.ala_live_room_chat_btn_layout);
+        this.onw = this.rootView.findViewById(a.f.divider);
         this.hHw = (ImageView) this.rootView.findViewById(a.f.iv_quick_im_input);
         this.hDS = (FrameLayout) View.inflate(this.mContext, a.g.ala_live_room_top_pure_layout_hk, null);
         this.hHg = (TBLottieAnimationView) this.rootView.findViewById(a.f.ala_live_room_gift_btn_lottie);
@@ -289,12 +289,12 @@ public class AlaLiveBottomOperationView extends FrameLayout {
 
     private void Dn() {
         this.hHh.setOnClickListener(this.aCu);
-        this.onq.setOnClickListener(this.aCu);
-        this.onu.setOnClickListener(this.aCu);
+        this.onr.setOnClickListener(this.aCu);
+        this.onv.setOnClickListener(this.aCu);
         this.hHe.setOnClickListener(this.aCu);
         this.hHw.setOnClickListener(this.aCu);
         this.hDS.setOnClickListener(this.aCu);
-        this.onw.setOnClickListener(this.aCu);
+        this.onx.setOnClickListener(this.aCu);
     }
 
     @Override // android.view.View
@@ -303,7 +303,7 @@ public class AlaLiveBottomOperationView extends FrameLayout {
     }
 
     public void setOnLiveViewOperationBtnClickListener(b bVar) {
-        this.onp = bVar;
+        this.onq = bVar;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -329,7 +329,7 @@ public class AlaLiveBottomOperationView extends FrameLayout {
             alaStaticItem.addParams("feed_id", HKStaticManager.FEED_ID);
             AlaStaticsManager.getInst().onStatic(alaStaticItem);
         }
-        this.onp.a(this.hHh, 2, strArr);
+        this.onq.a(this.hHh, 2, strArr);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -337,24 +337,24 @@ public class AlaLiveBottomOperationView extends FrameLayout {
         if (!TbadkCoreApplication.isLogin()) {
             ViewHelper.skipToLoginActivity(this.mContext);
         } else {
-            this.onp.a(21, eVar);
+            this.onq.a(21, eVar);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void cA(View view) {
-        this.onp.a(view, 1, null);
+        this.onq.a(view, 1, null);
         if (TbadkCoreApplication.getInst().isHaokan() || TbadkCoreApplication.getInst().isQuanmin() || TbadkCoreApplication.getInst().isYinbo()) {
             zz(false);
         }
     }
 
     private void ciV() {
-        if (this.onE == null) {
-            this.onE = new a();
+        if (this.onF == null) {
+            this.onF = new a();
         }
-        this.hHV.removeCallbacks(this.onE);
-        this.hHV.postDelayed(this.onE, 5000L);
+        this.hHV.removeCallbacks(this.onF);
+        this.hHV.postDelayed(this.onF, 5000L);
     }
 
     public void cbC() {
@@ -374,16 +374,16 @@ public class AlaLiveBottomOperationView extends FrameLayout {
         this.handler.removeCallbacksAndMessages(null);
         MessageManager.getInstance().unRegisterListener(this.blj);
         MessageManager.getInstance().unRegisterListener(this.bdo);
-        MessageManager.getInstance().unRegisterListener(this.onA);
-        MessageManager.getInstance().unRegisterListener(this.ony);
-        MessageManager.getInstance().unRegisterListener(this.onz);
         MessageManager.getInstance().unRegisterListener(this.onB);
+        MessageManager.getInstance().unRegisterListener(this.onz);
+        MessageManager.getInstance().unRegisterListener(this.onA);
         MessageManager.getInstance().unRegisterListener(this.onC);
+        MessageManager.getInstance().unRegisterListener(this.onD);
         MessageManager.getInstance().unRegisterTask(2501010);
         MessageManager.getInstance().unRegisterTask(2501027);
-        MessageManager.getInstance().unRegisterListener(this.onF);
         MessageManager.getInstance().unRegisterListener(this.onG);
         MessageManager.getInstance().unRegisterListener(this.onH);
+        MessageManager.getInstance().unRegisterListener(this.onI);
         MessageManager.getInstance().unRegisterListener(this.bWi);
     }
 
@@ -448,43 +448,43 @@ public class AlaLiveBottomOperationView extends FrameLayout {
         };
         this.bdo.setTag(this.bnf.getUniqueId());
         MessageManager.getInstance().registerListener(this.bdo);
-        if (this.ony == null) {
-            this.ony = new CustomMessageListener(2501002) { // from class: com.baidu.tieba.yuyinala.liveroom.operation.AlaLiveBottomOperationView.15
+        if (this.onz == null) {
+            this.onz = new CustomMessageListener(2501002) { // from class: com.baidu.tieba.yuyinala.liveroom.operation.AlaLiveBottomOperationView.15
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.live.adp.framework.listener.MessageListener
                 public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                    AlaLiveBottomOperationView.this.onp.a(null, 3, null);
+                    AlaLiveBottomOperationView.this.onq.a(null, 3, null);
                 }
             };
         }
-        MessageManager.getInstance().registerListener(this.ony);
-        this.onz = new CustomMessageListener(2501003) { // from class: com.baidu.tieba.yuyinala.liveroom.operation.AlaLiveBottomOperationView.2
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.live.adp.framework.listener.MessageListener
-            public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                AlaLiveBottomOperationView.this.onp.a(null, 16, null);
-            }
-        };
         MessageManager.getInstance().registerListener(this.onz);
-        this.onA = new CustomMessageListener(2501004) { // from class: com.baidu.tieba.yuyinala.liveroom.operation.AlaLiveBottomOperationView.3
+        this.onA = new CustomMessageListener(2501003) { // from class: com.baidu.tieba.yuyinala.liveroom.operation.AlaLiveBottomOperationView.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                AlaLiveBottomOperationView.this.onp.a(null, 20, null);
+                AlaLiveBottomOperationView.this.onq.a(null, 16, null);
             }
         };
         MessageManager.getInstance().registerListener(this.onA);
-        this.onB = new CustomMessageListener(2501017) { // from class: com.baidu.tieba.yuyinala.liveroom.operation.AlaLiveBottomOperationView.4
+        this.onB = new CustomMessageListener(2501004) { // from class: com.baidu.tieba.yuyinala.liveroom.operation.AlaLiveBottomOperationView.3
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.baidu.live.adp.framework.listener.MessageListener
+            public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+                AlaLiveBottomOperationView.this.onq.a(null, 20, null);
+            }
+        };
+        MessageManager.getInstance().registerListener(this.onB);
+        this.onC = new CustomMessageListener(2501017) { // from class: com.baidu.tieba.yuyinala.liveroom.operation.AlaLiveBottomOperationView.4
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2501017 && (customResponsedMessage.getData() instanceof Boolean)) {
-                    AlaLiveBottomOperationView.this.onx.setVisibility(((Boolean) customResponsedMessage.getData()).booleanValue() ? 0 : 8);
+                    AlaLiveBottomOperationView.this.ony.setVisibility(((Boolean) customResponsedMessage.getData()).booleanValue() ? 0 : 8);
                 }
             }
         };
-        MessageManager.getInstance().registerListener(this.onB);
-        this.onC = new CustomMessageListener(2501020) { // from class: com.baidu.tieba.yuyinala.liveroom.operation.AlaLiveBottomOperationView.5
+        MessageManager.getInstance().registerListener(this.onC);
+        this.onD = new CustomMessageListener(2501020) { // from class: com.baidu.tieba.yuyinala.liveroom.operation.AlaLiveBottomOperationView.5
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -493,33 +493,33 @@ public class AlaLiveBottomOperationView extends FrameLayout {
                 }
             }
         };
-        MessageManager.getInstance().registerListener(this.onC);
+        MessageManager.getInstance().registerListener(this.onD);
         this.bWi = new CustomMessageListener(2501074) { // from class: com.baidu.tieba.yuyinala.liveroom.operation.AlaLiveBottomOperationView.6
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                AlaLiveBottomOperationView.this.onr.setImageResource(com.baidu.live.aq.a.Wu().ib(com.baidu.live.aq.a.Wu().Wz()) ? a.e.yuyin_sdk_wheat_connected_wheat : a.e.yuyin_sdk_wheat_connecting_wheat);
+                AlaLiveBottomOperationView.this.ons.setImageResource(com.baidu.live.aq.a.Wu().ib(com.baidu.live.aq.a.Wu().Wz()) ? a.e.yuyin_sdk_wheat_connected_wheat : a.e.yuyin_sdk_wheat_connecting_wheat);
             }
         };
         MessageManager.getInstance().registerListener(this.bWi);
         this.blj.setTag(this.bnf.getUniqueId());
         MessageManager.getInstance().registerListener(this.blj);
-        MessageManager.getInstance().registerListener(this.onF);
         MessageManager.getInstance().registerListener(this.onG);
         MessageManager.getInstance().registerListener(this.onH);
+        MessageManager.getInstance().registerListener(this.onI);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void LI(int i) {
         if (i <= 0) {
-            this.ont.setVisibility(8);
+            this.onu.setVisibility(8);
             return;
         }
-        ViewGroup.LayoutParams layoutParams = this.ont.getLayoutParams();
+        ViewGroup.LayoutParams layoutParams = this.onu.getLayoutParams();
         layoutParams.width = LK(i);
-        this.ont.setLayoutParams(layoutParams);
-        this.ont.setText(LJ(i));
-        this.ont.setVisibility(0);
+        this.onu.setLayoutParams(layoutParams);
+        this.onu.setText(LJ(i));
+        this.onu.setVisibility(0);
     }
 
     private String LJ(int i) {
@@ -559,8 +559,8 @@ public class AlaLiveBottomOperationView extends FrameLayout {
             }
             AlaLiveBottomOperationView.this.hHg.playAnimation();
             AlaLiveBottomOperationView.this.hHf.setVisibility(4);
-            AlaLiveBottomOperationView.this.hHV.removeCallbacks(AlaLiveBottomOperationView.this.onE);
-            AlaLiveBottomOperationView.this.hHV.postDelayed(AlaLiveBottomOperationView.this.onE, 32000L);
+            AlaLiveBottomOperationView.this.hHV.removeCallbacks(AlaLiveBottomOperationView.this.onF);
+            AlaLiveBottomOperationView.this.hHV.postDelayed(AlaLiveBottomOperationView.this.onF, 32000L);
         }
     }
 }

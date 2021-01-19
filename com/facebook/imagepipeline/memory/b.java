@@ -4,10 +4,10 @@ import com.baidu.searchbox.account.contants.AccountConstants;
 import com.facebook.infer.annotation.ThreadSafe;
 /* loaded from: classes3.dex */
 public class b {
-    private static volatile a pAr;
-    private static final Class<?> pnm = b.class;
-    public static final int pAp = ewi();
-    private static int pAq = 384;
+    private static volatile a pAs;
+    private static final Class<?> pnn = b.class;
+    public static final int pAq = ewi();
+    private static int pAr = 384;
 
     private static int ewi() {
         int min = (int) Math.min(Runtime.getRuntime().maxMemory(), 2147483647L);
@@ -16,13 +16,13 @@ public class b {
 
     @ThreadSafe
     public static a ewj() {
-        if (pAr == null) {
+        if (pAs == null) {
             synchronized (b.class) {
-                if (pAr == null) {
-                    pAr = new a(pAq, pAp);
+                if (pAs == null) {
+                    pAs = new a(pAr, pAq);
                 }
             }
         }
-        return pAr;
+        return pAs;
     }
 }

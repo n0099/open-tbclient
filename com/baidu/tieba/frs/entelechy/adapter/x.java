@@ -103,7 +103,7 @@ public class x extends com.baidu.tieba.frs.k<by, ThreadCardViewHolder<by>> imple
                     } else {
                         int i = 6;
                         if (byVar.eHK.bpd() != null && byVar.eHK.bpd().dLo() != null && byVar.eHK.bpd().dLo().bHf() != null && byVar.eHK.bpd().dLo().bHf().size() > 0) {
-                            i = byVar.eHK.bpd().nnt ? 9 : 8;
+                            i = byVar.eHK.bpd().nnu ? 9 : 8;
                         }
                         com.baidu.tieba.frs.b.c.cIR().a(x.this.jkJ, byVar.eHK, i);
                     }

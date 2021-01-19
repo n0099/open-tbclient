@@ -9,7 +9,7 @@ import android.widget.TextView;
 import com.baidu.live.sdk.a;
 /* loaded from: classes10.dex */
 public class d extends Dialog {
-    private Animation oTR;
+    private Animation oTS;
 
     public d(Context context) {
         super(context, a.i.CustomProgressDialog);
@@ -22,11 +22,11 @@ public class d extends Dialog {
     @Override // android.app.Dialog, android.view.Window.Callback
     public void onWindowFocusChanged(boolean z) {
         ImageView imageView = (ImageView) findViewById(a.f.loadingImageView);
-        this.oTR = new RotateAnimation(0.0f, 359.0f, 1, 0.5f, 1, 0.5f);
-        this.oTR.setRepeatMode(-1);
-        this.oTR.setRepeatCount(-1);
-        this.oTR.setDuration(1500L);
-        imageView.startAnimation(this.oTR);
+        this.oTS = new RotateAnimation(0.0f, 359.0f, 1, 0.5f, 1, 0.5f);
+        this.oTS.setRepeatMode(-1);
+        this.oTS.setRepeatCount(-1);
+        this.oTS.setDuration(1500L);
+        imageView.startAnimation(this.oTS);
     }
 
     public void setMessage(String str) {

@@ -182,13 +182,13 @@ public final class s {
     }
 
     public String m() {
-        return XF("/...").XI("").XJ("").enH().toString();
+        return XG("/...").XJ("").XK("").enH().toString();
     }
 
-    public s XE(String str) {
-        a XF = XF(str);
-        if (XF != null) {
-            return XF.enH();
+    public s XF(String str) {
+        a XG = XG(str);
+        if (XG != null) {
+            return XG.enH();
         }
         return null;
     }
@@ -202,12 +202,12 @@ public final class s {
         aVar.e = this.c != a(this.f5971a) ? this.c : -1;
         aVar.f.clear();
         aVar.f.addAll(enE());
-        aVar.XK(j());
+        aVar.XL(j());
         aVar.h = l();
         return aVar;
     }
 
-    public a XF(String str) {
+    public a XG(String str) {
         a aVar = new a();
         if (aVar.b(this, str) == a.EnumC0991a.SUCCESS) {
             return aVar;
@@ -215,7 +215,7 @@ public final class s {
         return null;
     }
 
-    public static s XG(String str) {
+    public static s XH(String str) {
         a aVar = new a();
         if (aVar.b(null, str) == a.EnumC0991a.SUCCESS) {
             return aVar.enH();
@@ -224,7 +224,7 @@ public final class s {
     }
 
     public static s d(URL url) {
-        return XG(url.toString());
+        return XH(url.toString());
     }
 
     public boolean equals(Object obj) {
@@ -269,7 +269,7 @@ public final class s {
             this.f.add("");
         }
 
-        public a XH(String str) {
+        public a XI(String str) {
             if (str == null) {
                 throw new NullPointerException("scheme == null");
             }
@@ -283,7 +283,7 @@ public final class s {
             return this;
         }
 
-        public a XI(String str) {
+        public a XJ(String str) {
             if (str == null) {
                 throw new NullPointerException("username == null");
             }
@@ -291,7 +291,7 @@ public final class s {
             return this;
         }
 
-        public a XJ(String str) {
+        public a XK(String str) {
             if (str == null) {
                 throw new NullPointerException("password == null");
             }
@@ -299,7 +299,7 @@ public final class s {
             return this;
         }
 
-        public a XF(String str) {
+        public a XG(String str) {
             if (str == null) {
                 throw new NullPointerException("host == null");
             }
@@ -323,7 +323,7 @@ public final class s {
             return this.e != -1 ? this.e : s.a(this.f5973a);
         }
 
-        public a XK(String str) {
+        public a XL(String str) {
             this.g = str != null ? s.b(s.a(str, " \"'<>#", true, false, true, true)) : null;
             return this;
         }
@@ -473,7 +473,7 @@ public final class s {
                 this.f.clear();
                 this.f.addAll(sVar.enE());
                 if (a2 == b2 || str.charAt(a2) == '#') {
-                    XK(sVar.j());
+                    XL(sVar.j());
                 }
             }
             int a6 = com.bytedance.sdk.a.b.a.c.a(str, a2, b2, "?#");
@@ -696,12 +696,12 @@ public final class s {
             int codePointAt = str.codePointAt(i);
             if (!z || (codePointAt != 9 && codePointAt != 10 && codePointAt != 12 && codePointAt != 13)) {
                 if (codePointAt == 43 && z3) {
-                    cVar.Xy(z ? "+" : "%2B");
+                    cVar.Xz(z ? "+" : "%2B");
                 } else if (codePointAt < 32 || codePointAt == 127 || ((codePointAt >= 128 && z4) || str2.indexOf(codePointAt) != -1 || (codePointAt == 37 && (!z || (z2 && !a(str, i, i2)))))) {
                     if (cVar2 == null) {
                         cVar2 = new com.bytedance.sdk.a.a.c();
                     }
-                    if (charset == null || charset.equals(com.bytedance.sdk.a.b.a.c.peH)) {
+                    if (charset == null || charset.equals(com.bytedance.sdk.a.b.a.c.peI)) {
                         cVar2.NX(codePointAt);
                     } else {
                         cVar2.a(str, i, Character.charCount(codePointAt) + i, charset);

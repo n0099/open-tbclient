@@ -76,11 +76,11 @@ public class ForumDetailActivity extends BaseActivity<ForumDetailActivity> imple
         if (l.isNetOk()) {
             this.kya.showLoading();
             this.kyb.sendMessage(this.mForumId);
-            this.kyb.Mg(this.mForumId);
+            this.kyb.Mh(this.mForumId);
             return;
         }
         this.kya.hideLoading();
-        this.kya.CH(R.string.refresh_view_title_text);
+        this.kya.CG(R.string.refresh_view_title_text);
         showToast(R.string.neterror);
     }
 
@@ -106,7 +106,7 @@ public class ForumDetailActivity extends BaseActivity<ForumDetailActivity> imple
     }
 
     @Override // com.baidu.tieba.im.forum.detail.ForumDetailModel.a
-    public void Mf(String str) {
+    public void Mg(String str) {
         this.kya.hideLoading();
         if (TextUtils.isEmpty(str)) {
             showToast(R.string.neterror);
@@ -114,9 +114,9 @@ public class ForumDetailActivity extends BaseActivity<ForumDetailActivity> imple
             showToast(str);
         }
         if (l.isNetOk()) {
-            this.kya.CH(R.string.no_data_common_txt);
+            this.kya.CG(R.string.no_data_common_txt);
         } else {
-            this.kya.CH(R.string.refresh_view_title_text);
+            this.kya.CG(R.string.refresh_view_title_text);
         }
     }
 
@@ -165,7 +165,7 @@ public class ForumDetailActivity extends BaseActivity<ForumDetailActivity> imple
             return;
         }
         this.kyh = false;
-        this.kya.CH(R.string.no_data_common_txt);
+        this.kya.CG(R.string.no_data_common_txt);
     }
 
     private List<SimpleThreadInfo> eB(List<SimpleThreadInfo> list) {
@@ -310,7 +310,7 @@ public class ForumDetailActivity extends BaseActivity<ForumDetailActivity> imple
                     return;
                 }
                 ForumDetailActivity.this.kya.hideLoading();
-                ForumDetailActivity.this.kya.CH(R.string.refresh_view_title_text);
+                ForumDetailActivity.this.kya.CG(R.string.refresh_view_title_text);
             }
         }
     }

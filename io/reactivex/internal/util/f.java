@@ -4,34 +4,34 @@ import java.util.ArrayList;
 /* loaded from: classes5.dex */
 public class f {
     final int capacityHint;
-    Object[] qhw;
     Object[] qhx;
-    int qhy;
+    Object[] qhy;
+    int qhz;
     volatile int size;
 
     public void add(Object obj) {
         if (this.size == 0) {
-            this.qhw = new Object[this.capacityHint + 1];
-            this.qhx = this.qhw;
-            this.qhw[0] = obj;
-            this.qhy = 1;
+            this.qhx = new Object[this.capacityHint + 1];
+            this.qhy = this.qhx;
+            this.qhx[0] = obj;
+            this.qhz = 1;
             this.size = 1;
-        } else if (this.qhy == this.capacityHint) {
+        } else if (this.qhz == this.capacityHint) {
             Object[] objArr = new Object[this.capacityHint + 1];
             objArr[0] = obj;
-            this.qhx[this.capacityHint] = objArr;
-            this.qhx = objArr;
-            this.qhy = 1;
+            this.qhy[this.capacityHint] = objArr;
+            this.qhy = objArr;
+            this.qhz = 1;
             this.size++;
         } else {
-            this.qhx[this.qhy] = obj;
-            this.qhy++;
+            this.qhy[this.qhz] = obj;
+            this.qhz++;
             this.size++;
         }
     }
 
     public Object[] eIo() {
-        return this.qhw;
+        return this.qhx;
     }
 
     public int size() {

@@ -328,8 +328,8 @@ public class FrsNewAreaFragment extends BaseFragment implements ActivityCompat.O
                 if (bzVar.boz() == null || bzVar.boz().getGroup_id() == 0 || bg.checkUpIsLogin(FrsNewAreaFragment.this.getActivity())) {
                     if (bzVar.bok() != 1 || bg.checkUpIsLogin(FrsNewAreaFragment.this.getActivity())) {
                         com.baidu.tieba.tbadkCore.util.d readThreadHistory = TbadkCoreApplication.getInst().getReadThreadHistory();
-                        if (readThreadHistory != null && !readThreadHistory.SC(bzVar.getId())) {
-                            readThreadHistory.SB(bzVar.getId());
+                        if (readThreadHistory != null && !readThreadHistory.SD(bzVar.getId())) {
+                            readThreadHistory.SC(bzVar.getId());
                             if (FrsNewAreaFragment.this.jAa != null) {
                                 FrsNewAreaFragment.this.jAa.cCv();
                             }
@@ -702,7 +702,7 @@ public class FrsNewAreaFragment extends BaseFragment implements ActivityCompat.O
                 com.baidu.adp.lib.f.h.mC().submitTask(new Runnable() { // from class: com.baidu.tieba.frs.mc.FrsNewAreaFragment.10
                     @Override // java.lang.Runnable
                     public void run() {
-                        com.baidu.tieba.tbadkCore.util.a.Sw(FrsNewAreaFragment.this.jat);
+                        com.baidu.tieba.tbadkCore.util.a.Sx(FrsNewAreaFragment.this.jat);
                     }
                 });
                 break;

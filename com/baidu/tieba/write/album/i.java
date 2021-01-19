@@ -30,33 +30,33 @@ public class i extends BaseAdapter {
     private com.baidu.tieba.c.e eTK;
     private BaseFragmentActivity iEK;
     private LayoutInflater mLayoutInflater;
-    private com.baidu.tieba.write.album.c nUe;
-    private View.OnClickListener nUg;
-    private g nUh;
-    private h nUi;
-    private TbCameraView.c nUj;
-    private TbCameraView.a nUk;
-    private a nUl;
+    private com.baidu.tieba.write.album.c nUf;
+    private View.OnClickListener nUh;
+    private g nUi;
+    private h nUj;
+    private TbCameraView.c nUk;
+    private TbCameraView.a nUl;
+    private a nUm;
     private final List<MediaFileInfo> mDataList = new ArrayList();
     private boolean bIk = false;
-    private boolean nUf = true;
+    private boolean nUg = true;
 
     public TbCameraView dUF() {
-        if (this.nUl != null) {
-            return this.nUl.nUo;
+        if (this.nUm != null) {
+            return this.nUm.nUp;
         }
         return null;
     }
 
     public i(BaseFragmentActivity baseFragmentActivity, com.baidu.tieba.write.album.c cVar) {
         this.iEK = baseFragmentActivity;
-        this.nUe = cVar;
+        this.nUf = cVar;
         this.mLayoutInflater = LayoutInflater.from(this.iEK.getPageContext().getPageActivity());
     }
 
     public void setData(List<MediaFileInfo> list) {
         this.mDataList.clear();
-        if (this.nUf) {
+        if (this.nUg) {
             this.mDataList.add(dUG());
         }
         if (!x.isEmpty(list)) {
@@ -120,49 +120,49 @@ public class i extends BaseAdapter {
 
     private View a(int i, View view, ViewGroup viewGroup, MediaFileInfo mediaFileInfo) {
         if (mediaFileInfo != null && mediaFileInfo.getType() == 2) {
-            if (this.nUl == null || this.nUl.nUo == null) {
-                this.nUl = new a();
+            if (this.nUm == null || this.nUm.nUp == null) {
+                this.nUm = new a();
                 View inflate = this.mLayoutInflater.inflate(R.layout.album_make_picture_view, viewGroup, false);
-                this.nUl.rootView = inflate;
-                this.nUl.nUo = (TbCameraView) inflate.findViewById(R.id.camera_surfaceview);
-                this.nUl.nUp = (TBLottieAnimationView) inflate.findViewById(R.id.anim_make_photo);
-                this.nUl.nUn = inflate.findViewById(R.id.icon_placer_holder);
-                this.nUl.nUp.setScaleType(ImageView.ScaleType.CENTER_CROP);
-                this.nUl.nUp.setFrame(0);
-                this.nUl.nUp.useHardwareAcceleration(true);
-                ao.a(this.nUl.nUp, R.raw.lottie_photo);
-                inflate.setTag(this.nUl);
+                this.nUm.rootView = inflate;
+                this.nUm.nUp = (TbCameraView) inflate.findViewById(R.id.camera_surfaceview);
+                this.nUm.nUq = (TBLottieAnimationView) inflate.findViewById(R.id.anim_make_photo);
+                this.nUm.nUo = inflate.findViewById(R.id.icon_placer_holder);
+                this.nUm.nUq.setScaleType(ImageView.ScaleType.CENTER_CROP);
+                this.nUm.nUq.setFrame(0);
+                this.nUm.nUq.useHardwareAcceleration(true);
+                ao.a(this.nUm.nUq, R.raw.lottie_photo);
+                inflate.setTag(this.nUm);
                 if (!com.baidu.tbadk.core.sharedPref.b.brx().getBoolean("write_camera_animaton_key", false)) {
                     com.baidu.tbadk.core.sharedPref.b.brx().putBoolean("write_camera_animaton_key", true);
-                    this.nUl.nUp.postDelayed(new Runnable() { // from class: com.baidu.tieba.write.album.i.1
+                    this.nUm.nUq.postDelayed(new Runnable() { // from class: com.baidu.tieba.write.album.i.1
                         @Override // java.lang.Runnable
                         public void run() {
-                            i.this.nUl.nUp.playAnimation();
+                            i.this.nUm.nUq.playAnimation();
                         }
                     }, 2000L);
                 }
-                showTip(this.nUl.nUn);
+                showTip(this.nUm.nUo);
             }
-            ao.setBackgroundColor(this.nUl.rootView, R.color.black_alpha90);
-            this.nUl.nUo.setOnRequestPermissionListener(this.nUj);
-            this.nUl.nUo.setOnOpenCameraFailedListener(this.nUk);
-            this.nUl.nUp.setOnClickListener(this.nUg);
-            this.nUl.nUo.setOnClickListener(this.nUg);
-            this.nUl.rootView.setOnClickListener(this.nUg);
-            this.nUl.nUp.addAnimatorUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.write.album.i.2
+            ao.setBackgroundColor(this.nUm.rootView, R.color.black_alpha90);
+            this.nUm.nUp.setOnRequestPermissionListener(this.nUk);
+            this.nUm.nUp.setOnOpenCameraFailedListener(this.nUl);
+            this.nUm.nUq.setOnClickListener(this.nUh);
+            this.nUm.nUp.setOnClickListener(this.nUh);
+            this.nUm.rootView.setOnClickListener(this.nUh);
+            this.nUm.nUq.addAnimatorUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.write.album.i.2
                 @Override // android.animation.ValueAnimator.AnimatorUpdateListener
                 public void onAnimationUpdate(ValueAnimator valueAnimator) {
                 }
             });
-            this.nUl.nUp.addAnimatorListener(new Animator.AnimatorListener() { // from class: com.baidu.tieba.write.album.i.3
+            this.nUm.nUq.addAnimatorListener(new Animator.AnimatorListener() { // from class: com.baidu.tieba.write.album.i.3
                 @Override // android.animation.Animator.AnimatorListener
                 public void onAnimationStart(Animator animator) {
                 }
 
                 @Override // android.animation.Animator.AnimatorListener
                 public void onAnimationEnd(Animator animator) {
-                    i.this.nUl.nUp.cancelAnimation();
-                    i.this.nUl.nUp.setFrame(0);
+                    i.this.nUm.nUq.cancelAnimation();
+                    i.this.nUm.nUq.setFrame(0);
                 }
 
                 @Override // android.animation.Animator.AnimatorListener
@@ -173,7 +173,7 @@ public class i extends BaseAdapter {
                 public void onAnimationRepeat(Animator animator) {
                 }
             });
-            return this.nUl.rootView;
+            return this.nUm.rootView;
         }
         return view;
     }
@@ -212,7 +212,7 @@ public class i extends BaseAdapter {
                 dVar2.iNs.setLongIconSupport(true);
                 dVar2.bIq = (ImageView) view.findViewById(R.id.select_icon);
                 dVar2.bIr = (RelativeLayout) view.findViewById(R.id.lay_select);
-                if (this.nUe != null && this.nUe.getWriteImagesInfo() != null && this.nUe.getWriteImagesInfo().isFromQRCode()) {
+                if (this.nUf != null && this.nUf.getWriteImagesInfo() != null && this.nUf.getWriteImagesInfo().isFromQRCode()) {
                     dVar2.bIr.setVisibility(8);
                 }
                 view.setTag(dVar2);
@@ -238,30 +238,30 @@ public class i extends BaseAdapter {
                 c cVar2 = new c();
                 view = this.mLayoutInflater.inflate(R.layout.album_video_item_view, viewGroup, false);
                 cVar2.rootView = view;
-                cVar2.nUr = (TbImageView) view.findViewById(R.id.video_thumb);
-                cVar2.nUr.setDefaultResource(0);
-                cVar2.nUr.setTagPaddingDis(8, 8);
-                cVar2.nUr.setGifIconSupport(false);
-                cVar2.nUr.setLongIconSupport(false);
-                cVar2.nUs = (TextView) view.findViewById(R.id.video_play_time);
+                cVar2.nUs = (TbImageView) view.findViewById(R.id.video_thumb);
+                cVar2.nUs.setDefaultResource(0);
+                cVar2.nUs.setTagPaddingDis(8, 8);
+                cVar2.nUs.setGifIconSupport(false);
+                cVar2.nUs.setLongIconSupport(false);
+                cVar2.nUt = (TextView) view.findViewById(R.id.video_play_time);
                 view.setTag(cVar2);
                 cVar = cVar2;
             } else {
                 cVar = (c) view.getTag();
             }
-            cVar.nUr.startLoad(videoFileInfo.videoPath, 37, false);
-            cVar.nUs.setText(at.stringForVideoTime(videoFileInfo.videoDuration));
-            cVar.nUr.setOnClickListener(new b(mediaFileInfo, i));
+            cVar.nUs.startLoad(videoFileInfo.videoPath, 37, false);
+            cVar.nUt.setText(at.stringForVideoTime(videoFileInfo.videoDuration));
+            cVar.nUs.setOnClickListener(new b(mediaFileInfo, i));
         }
         return view;
     }
 
     private void a(ImageView imageView, MediaFileInfo mediaFileInfo) {
         boolean z = false;
-        if (this.nUe != null && (mediaFileInfo instanceof ImageFileInfo)) {
-            z = this.nUe.isAdded((ImageFileInfo) mediaFileInfo);
-        } else if (this.nUe != null && (mediaFileInfo instanceof VideoFileInfo)) {
-            z = this.nUe.b((VideoFileInfo) mediaFileInfo);
+        if (this.nUf != null && (mediaFileInfo instanceof ImageFileInfo)) {
+            z = this.nUf.isAdded((ImageFileInfo) mediaFileInfo);
+        } else if (this.nUf != null && (mediaFileInfo instanceof VideoFileInfo)) {
+            z = this.nUf.b((VideoFileInfo) mediaFileInfo);
         }
         b(imageView, z);
     }
@@ -281,26 +281,26 @@ public class i extends BaseAdapter {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes7.dex */
     public class b implements View.OnClickListener {
-        private MediaFileInfo nUq;
+        private MediaFileInfo nUr;
         private int position;
 
         public b(MediaFileInfo mediaFileInfo, int i) {
-            this.nUq = mediaFileInfo;
+            this.nUr = mediaFileInfo;
             this.position = i;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             if (view.getId() == R.id.pic) {
-                if (i.this.nUh != null && this.nUq != null) {
-                    i.this.nUh.a(this.position, this.nUq);
+                if (i.this.nUi != null && this.nUr != null) {
+                    i.this.nUi.a(this.position, this.nUr);
                 }
             } else if (view.getId() == R.id.lay_select) {
-                if (this.nUq != null && i.this.nUi != null) {
-                    i.this.nUi.b(this.position, this.nUq);
+                if (this.nUr != null && i.this.nUj != null) {
+                    i.this.nUj.b(this.position, this.nUr);
                 }
-            } else if (view.getId() == R.id.video_thumb && i.this.nUi != null && this.nUq != null) {
-                i.this.nUi.b(this.position, this.nUq);
+            } else if (view.getId() == R.id.video_thumb && i.this.nUj != null && this.nUr != null) {
+                i.this.nUj.b(this.position, this.nUr);
             }
         }
     }
@@ -314,19 +314,19 @@ public class i extends BaseAdapter {
     }
 
     public void a(g gVar) {
-        this.nUh = gVar;
+        this.nUi = gVar;
     }
 
     public void a(h hVar) {
-        this.nUi = hVar;
+        this.nUj = hVar;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes7.dex */
     public class a {
-        View nUn;
-        TbCameraView nUo;
-        TBLottieAnimationView nUp;
+        View nUo;
+        TbCameraView nUp;
+        TBLottieAnimationView nUq;
         View rootView;
 
         private a() {
@@ -348,8 +348,8 @@ public class i extends BaseAdapter {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes7.dex */
     public class c {
-        TbImageView nUr;
-        TextView nUs;
+        TbImageView nUs;
+        TextView nUt;
         View rootView;
 
         private c() {
@@ -378,20 +378,20 @@ public class i extends BaseAdapter {
     }
 
     public void ao(View.OnClickListener onClickListener) {
-        this.nUg = onClickListener;
+        this.nUh = onClickListener;
     }
 
     public void setOnRequestPermissionListener(TbCameraView.c cVar) {
-        this.nUj = cVar;
+        this.nUk = cVar;
     }
 
     public void setOnOpenCameraFailedListener(TbCameraView.a aVar) {
-        this.nUk = aVar;
+        this.nUl = aVar;
     }
 
     public void zf(boolean z) {
-        if (this.nUf != z) {
-            this.nUf = z;
+        if (this.nUg != z) {
+            this.nUg = z;
             notifyDataSetChanged();
         }
     }

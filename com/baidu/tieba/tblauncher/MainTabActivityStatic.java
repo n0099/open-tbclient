@@ -35,8 +35,8 @@ import java.net.URLDecoder;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class MainTabActivityStatic {
-    private static int ntQ = 0;
-    private static boolean ntR = false;
+    private static int ntR = 0;
+    private static boolean ntS = false;
 
     static {
         cAy();
@@ -173,9 +173,9 @@ public class MainTabActivityStatic {
         if (responsedMessage != null && (responsedMessage instanceof NewsRemindMessage) && (newsRemindMessage = (NewsRemindMessage) responsedMessage) != null) {
             int a2 = a(newsRemindMessage);
             boolean b2 = b(newsRemindMessage);
-            if (a2 != ntQ || b2 != ntR) {
-                ntQ = a2;
-                ntR = b2;
+            if (a2 != ntR || b2 != ntS) {
+                ntR = a2;
+                ntS = b2;
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_HOME_NOTIFY_MSG, new Pair(Integer.valueOf(a2), Boolean.valueOf(b2))));
             }
         }

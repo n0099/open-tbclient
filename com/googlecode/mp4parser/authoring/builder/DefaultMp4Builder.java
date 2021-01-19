@@ -337,8 +337,8 @@ public class DefaultMp4Builder implements Mp4Builder {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes3.dex */
     public class a implements Box {
-        List<List<Sample>> pMA;
-        long pMB;
+        List<List<Sample>> pMB;
+        long pMC;
         Container parent;
         List<Track> tracks;
 
@@ -362,8 +362,8 @@ public class DefaultMp4Builder implements Mp4Builder {
         }
 
         private a(Movie movie, Map<Track, int[]> map, long j) {
-            this.pMA = new ArrayList();
-            this.pMB = j;
+            this.pMB = new ArrayList();
+            this.pMC = j;
             this.tracks = movie.getTracks();
             for (int i = 0; i < map.values().iterator().next().length; i++) {
                 for (Track track : this.tracks) {
@@ -372,7 +372,7 @@ public class DefaultMp4Builder implements Mp4Builder {
                     for (int i2 = 0; i2 < i; i2++) {
                         j2 += iArr[i2];
                     }
-                    this.pMA.add(DefaultMp4Builder.this.track2Sample.get(track).subList(CastUtils.l2i(j2), CastUtils.l2i(j2 + iArr[i])));
+                    this.pMB.add(DefaultMp4Builder.this.track2Sample.get(track).subList(CastUtils.l2i(j2), CastUtils.l2i(j2 + iArr[i])));
                 }
             }
         }
@@ -400,7 +400,7 @@ public class DefaultMp4Builder implements Mp4Builder {
 
         @Override // com.coremedia.iso.boxes.Box
         public long getSize() {
-            return 16 + this.pMB;
+            return 16 + this.pMC;
         }
 
         private boolean iR(long j) {
@@ -424,7 +424,7 @@ public class DefaultMp4Builder implements Mp4Builder {
             }
             allocate.rewind();
             writableByteChannel.write(allocate);
-            for (List<Sample> list : this.pMA) {
+            for (List<Sample> list : this.pMB) {
                 for (Sample sample : list) {
                     sample.writeTo(writableByteChannel);
                 }

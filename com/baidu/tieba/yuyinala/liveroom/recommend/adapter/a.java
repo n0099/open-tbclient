@@ -36,17 +36,17 @@ import org.json.JSONObject;
 public class a extends AbsDelegateAdapter<com.baidu.tieba.yuyinala.liveroom.recommend.data.a, C0929a> {
     private x buq;
     private int cardWidth;
-    private int ooc;
-    private TbPageContext ood;
+    private int ood;
+    private TbPageContext ooe;
 
     public a(Context context, BdUniqueId bdUniqueId, int i, TbPageContext tbPageContext) {
         super(context, bdUniqueId);
         this.cardWidth = i;
-        this.ood = tbPageContext;
+        this.ooe = tbPageContext;
     }
 
     public void LM(int i) {
-        this.ooc = i;
+        this.ood = i;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -54,7 +54,7 @@ public class a extends AbsDelegateAdapter<com.baidu.tieba.yuyinala.liveroom.reco
     @Override // com.baidu.live.adp.widget.listview.AbsDelegateAdapter
     /* renamed from: df */
     public C0929a onCreateViewHolder(ViewGroup viewGroup) {
-        return new C0929a(LayoutInflater.from(this.mContext).inflate(a.g.ala_recommend_live_item_layout, viewGroup, false), this.mContext, this.cardWidth, this.ood);
+        return new C0929a(LayoutInflater.from(this.mContext).inflate(a.g.ala_recommend_live_item_layout, viewGroup, false), this.mContext, this.cardWidth, this.ooe);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -62,7 +62,7 @@ public class a extends AbsDelegateAdapter<com.baidu.tieba.yuyinala.liveroom.reco
     @Override // com.baidu.live.adp.widget.listview.AbsDelegateAdapter
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, com.baidu.tieba.yuyinala.liveroom.recommend.data.a aVar, C0929a c0929a) {
-        c0929a.a(aVar, i, this.ooc, this.buq);
+        c0929a.a(aVar, i, this.ood, this.buq);
         return view;
     }
 
@@ -84,9 +84,9 @@ public class a extends AbsDelegateAdapter<com.baidu.tieba.yuyinala.liveroom.reco
         private Context mContext;
         private TbPageContext mPageContext;
         private int mPosition;
-        private int ooc;
-        private TextView[] ooe;
-        private com.baidu.tieba.yuyinala.liveroom.recommend.data.a oof;
+        private int ood;
+        private TextView[] oof;
+        private com.baidu.tieba.yuyinala.liveroom.recommend.data.a oog;
 
         private C0929a(View view, Context context, int i, TbPageContext tbPageContext) {
             super(view);
@@ -99,7 +99,7 @@ public class a extends AbsDelegateAdapter<com.baidu.tieba.yuyinala.liveroom.reco
             this.ibz = new TextView[2];
             this.ibA = new LinearLayout[2];
             this.ibB = new TextView[2];
-            this.ooe = new TextView[2];
+            this.oof = new TextView[2];
             this.ibw[0] = (RelativeLayout) view.findViewById(a.f.left_content_layout);
             this.ibw[1] = (RelativeLayout) view.findViewById(a.f.right_content_layout);
             this.ibx[0] = (TbImageView) view.findViewById(a.f.left_cover_imageView);
@@ -112,8 +112,8 @@ public class a extends AbsDelegateAdapter<com.baidu.tieba.yuyinala.liveroom.reco
             this.ibA[1] = (LinearLayout) view.findViewById(a.f.right_location_layout);
             this.ibB[0] = (TextView) view.findViewById(a.f.left_location_textView);
             this.ibB[1] = (TextView) view.findViewById(a.f.right_location_textView);
-            this.ooe[0] = (TextView) view.findViewById(a.f.left_live_label);
-            this.ooe[1] = (TextView) view.findViewById(a.f.right_live_label);
+            this.oof[0] = (TextView) view.findViewById(a.f.left_live_label);
+            this.oof[1] = (TextView) view.findViewById(a.f.right_live_label);
             this.ibx[0].getLayoutParams().width = i;
             this.ibx[0].getLayoutParams().height = i;
             this.ibx[1].getLayoutParams().width = i;
@@ -126,11 +126,11 @@ public class a extends AbsDelegateAdapter<com.baidu.tieba.yuyinala.liveroom.reco
             this.ibw[0].setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.liveroom.recommend.adapter.a.a.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view2) {
-                    if (C0929a.this.oof != null) {
-                        if (C0929a.this.oof.ooj != null) {
-                            C0929a.this.b(C0929a.this.oof.ooj, 0, C0929a.this.oof.type);
-                        } else if (C0929a.this.oof.ook != null) {
-                            C0929a.this.b(C0929a.this.oof.ook, 0, C0929a.this.oof.type);
+                    if (C0929a.this.oog != null) {
+                        if (C0929a.this.oog.ook != null) {
+                            C0929a.this.b(C0929a.this.oog.ook, 0, C0929a.this.oog.type);
+                        } else if (C0929a.this.oog.ool != null) {
+                            C0929a.this.b(C0929a.this.oog.ool, 0, C0929a.this.oog.type);
                         }
                     }
                 }
@@ -138,8 +138,8 @@ public class a extends AbsDelegateAdapter<com.baidu.tieba.yuyinala.liveroom.reco
             this.ibw[1].setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.liveroom.recommend.adapter.a.a.2
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view2) {
-                    if (C0929a.this.oof != null && C0929a.this.oof.ook != null) {
-                        C0929a.this.b(C0929a.this.oof.ook, 1, C0929a.this.oof.type);
+                    if (C0929a.this.oog != null && C0929a.this.oog.ool != null) {
+                        C0929a.this.b(C0929a.this.oog.ool, 1, C0929a.this.oog.type);
                     }
                 }
             });
@@ -149,22 +149,22 @@ public class a extends AbsDelegateAdapter<com.baidu.tieba.yuyinala.liveroom.reco
             boolean z;
             int i3;
             if (aVar != null) {
-                this.oof = aVar;
+                this.oog = aVar;
                 this.mPosition = i;
-                this.ooc = i2;
+                this.ood = i2;
                 this.buq = xVar;
-                if (aVar.ooj != null) {
-                    a(aVar.ooj, 0, this.oof.type);
-                }
                 if (aVar.ook != null) {
-                    if (aVar.ooj == null) {
+                    a(aVar.ook, 0, this.oog.type);
+                }
+                if (aVar.ool != null) {
+                    if (aVar.ook == null) {
                         i3 = 0;
                         z = false;
                     } else {
                         i3 = 1;
                         z = true;
                     }
-                    a(aVar.ook, i3, this.oof.type);
+                    a(aVar.ool, i3, this.oog.type);
                 } else {
                     z = false;
                 }
@@ -187,11 +187,11 @@ public class a extends AbsDelegateAdapter<com.baidu.tieba.yuyinala.liveroom.reco
                 this.ibA[i].setVisibility(8);
             }
             if (alaRecommendLiveData.corner_tag == 2) {
-                this.ooe[i].setVisibility(0);
-                this.ooe[i].setText(this.ooe[i].getContext().getResources().getString(a.h.yuyin_dating));
-                this.ooe[i].setBackgroundResource(a.e.shape_yuyin_dating_bg);
+                this.oof[i].setVisibility(0);
+                this.oof[i].setText(this.oof[i].getContext().getResources().getString(a.h.yuyin_dating));
+                this.oof[i].setBackgroundResource(a.e.shape_yuyin_dating_bg);
             } else {
-                this.ooe[i].setVisibility(8);
+                this.oof[i].setVisibility(8);
             }
             a(UbcStatisticLiveKey.KEY_ID_1392, "show", alaRecommendLiveData, i2, i);
         }
@@ -281,8 +281,8 @@ public class a extends AbsDelegateAdapter<com.baidu.tieba.yuyinala.liveroom.reco
                     try {
                         if (i == 0) {
                             i3 = ((this.mPosition - 1) * 2) + i2 + 1;
-                        } else if (this.ooc > 0) {
-                            i3 = ((((this.mPosition - 1) - 1) - ((int) ((this.ooc / 2) + 0.9f))) * 2) + i2 + 1;
+                        } else if (this.ood > 0) {
+                            i3 = ((((this.mPosition - 1) - 1) - ((int) ((this.ood / 2) + 0.9f))) * 2) + i2 + 1;
                         } else {
                             i3 = ((this.mPosition - 1) * 2) + i2 + 1;
                         }

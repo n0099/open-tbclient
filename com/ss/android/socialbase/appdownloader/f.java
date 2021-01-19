@@ -39,20 +39,20 @@ public class f {
     private String g;
     private List<com.ss.android.socialbase.downloader.g.e> h;
     private String o;
-    private com.ss.android.socialbase.downloader.d.b pTD;
     private com.ss.android.socialbase.downloader.d.b pTE;
-    private com.ss.android.socialbase.downloader.downloader.h pTF;
-    private com.ss.android.socialbase.downloader.downloader.i pTG;
-    private s pTH;
-    private com.ss.android.socialbase.downloader.notification.a pTI;
-    private com.ss.android.socialbase.downloader.d.c pTK;
-    private ad pTL;
-    private com.ss.android.socialbase.appdownloader.c.e pTM;
-    private ah pTN;
-    private af pTO;
-    private r pTP;
-    private JSONObject pTQ;
-    private ab pTR;
+    private com.ss.android.socialbase.downloader.d.b pTF;
+    private com.ss.android.socialbase.downloader.downloader.h pTG;
+    private com.ss.android.socialbase.downloader.downloader.i pTH;
+    private s pTI;
+    private com.ss.android.socialbase.downloader.notification.a pTJ;
+    private com.ss.android.socialbase.downloader.d.c pTL;
+    private ad pTM;
+    private com.ss.android.socialbase.appdownloader.c.e pTN;
+    private ah pTO;
+    private af pTP;
+    private r pTQ;
+    private JSONObject pTR;
+    private ab pTS;
     private boolean q;
     private boolean v;
     private boolean w;
@@ -66,7 +66,7 @@ public class f {
     private String p = "application/vnd.android.package-archive";
     private int B = 5;
     private boolean F = true;
-    private com.ss.android.socialbase.downloader.b.g pTJ = com.ss.android.socialbase.downloader.b.g.ENQUEUE_NONE;
+    private com.ss.android.socialbase.downloader.b.g pTK = com.ss.android.socialbase.downloader.b.g.ENQUEUE_NONE;
     private int K = 150;
     private boolean M = true;
 
@@ -116,11 +116,11 @@ public class f {
     }
 
     public com.ss.android.socialbase.downloader.d.b eDf() {
-        return this.pTD;
+        return this.pTE;
     }
 
     public com.ss.android.socialbase.downloader.d.b eDg() {
-        return this.pTE;
+        return this.pTF;
     }
 
     public String m() {
@@ -136,15 +136,15 @@ public class f {
     }
 
     public com.ss.android.socialbase.downloader.notification.a eDh() {
-        return this.pTI;
+        return this.pTJ;
     }
 
     public com.ss.android.socialbase.downloader.downloader.i eDi() {
-        return this.pTG;
+        return this.pTH;
     }
 
     public com.ss.android.socialbase.downloader.downloader.h eDj() {
-        return this.pTF;
+        return this.pTG;
     }
 
     public boolean s() {
@@ -192,7 +192,7 @@ public class f {
     }
 
     public s eDk() {
-        return this.pTH;
+        return this.pTI;
     }
 
     public int E() {
@@ -220,7 +220,7 @@ public class f {
     }
 
     public com.ss.android.socialbase.downloader.b.g eDl() {
-        return this.pTJ;
+        return this.pTK;
     }
 
     public boolean L() {
@@ -232,27 +232,27 @@ public class f {
     }
 
     public com.ss.android.socialbase.downloader.d.c eDm() {
-        return this.pTK;
-    }
-
-    public ad eDn() {
         return this.pTL;
     }
 
-    public com.ss.android.socialbase.appdownloader.c.e eDo() {
+    public ad eDn() {
         return this.pTM;
     }
 
-    public ah eDp() {
+    public com.ss.android.socialbase.appdownloader.c.e eDo() {
         return this.pTN;
     }
 
+    public ah eDp() {
+        return this.pTO;
+    }
+
     public r eDq() {
-        return this.pTP;
+        return this.pTQ;
     }
 
     public ab eDr() {
-        return this.pTR;
+        return this.pTS;
     }
 
     public boolean T() {
@@ -267,17 +267,17 @@ public class f {
         return this.Z;
     }
 
-    public f ZP(String str) {
+    public f ZQ(String str) {
         this.e = str;
         return this;
     }
 
-    public f ZQ(String str) {
+    public f ZR(String str) {
         this.f = str;
         return this;
     }
 
-    public f ZR(@NonNull String str) {
+    public f ZS(@NonNull String str) {
         this.g = str;
         return this;
     }
@@ -303,16 +303,16 @@ public class f {
     }
 
     public f a(com.ss.android.socialbase.downloader.d.b bVar) {
-        this.pTD = bVar;
-        return this;
-    }
-
-    public f ZS(String str) {
-        this.o = str;
+        this.pTE = bVar;
         return this;
     }
 
     public f ZT(String str) {
+        this.o = str;
+        return this;
+    }
+
+    public f ZU(String str) {
         this.p = str;
         return this;
     }
@@ -323,12 +323,12 @@ public class f {
     }
 
     public f a(com.ss.android.socialbase.downloader.downloader.i iVar) {
-        this.pTG = iVar;
+        this.pTH = iVar;
         return this;
     }
 
     public f a(com.ss.android.socialbase.downloader.downloader.h hVar) {
-        this.pTF = hVar;
+        this.pTG = hVar;
         return this;
     }
 
@@ -342,12 +342,12 @@ public class f {
         return this;
     }
 
-    public f ZU(String str) {
+    public f ZV(String str) {
         this.x = str;
         return this;
     }
 
-    public f ZV(String str) {
+    public f ZW(String str) {
         this.y = str;
         return this;
     }
@@ -372,7 +372,7 @@ public class f {
         return this;
     }
 
-    public f ZW(String str) {
+    public f ZX(String str) {
         this.E = str;
         return this;
     }
@@ -418,7 +418,7 @@ public class f {
     }
 
     public f a(com.ss.android.socialbase.downloader.b.g gVar) {
-        this.pTJ = gVar;
+        this.pTK = gVar;
         return this;
     }
 
@@ -428,11 +428,11 @@ public class f {
     }
 
     public f a(ah ahVar) {
-        this.pTN = ahVar;
+        this.pTO = ahVar;
         return this;
     }
 
-    public f ZX(String str) {
+    public f ZY(String str) {
         this.W = str;
         return this;
     }
@@ -456,25 +456,25 @@ public class f {
     }
 
     public af eDv() {
-        return this.pTO;
+        return this.pTP;
     }
 
     public f a(af afVar) {
-        this.pTO = afVar;
+        this.pTP = afVar;
         return this;
     }
 
     public JSONObject eDw() {
-        return this.pTQ;
+        return this.pTR;
     }
 
     public f fi(JSONObject jSONObject) {
-        this.pTQ = jSONObject;
+        this.pTR = jSONObject;
         return this;
     }
 
     public f a(ab abVar) {
-        this.pTR = abVar;
+        this.pTS = abVar;
         return this;
     }
 }

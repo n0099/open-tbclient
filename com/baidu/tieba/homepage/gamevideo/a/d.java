@@ -91,7 +91,7 @@ public class d extends com.baidu.adp.widget.ListView.a<k, ThreadCardViewHolder<k
         this.fEN = bdUniqueId;
     }
 
-    public void By(int i) {
+    public void Bx(int i) {
         this.fce = i;
     }
 }

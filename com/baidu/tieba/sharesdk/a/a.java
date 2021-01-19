@@ -64,15 +64,15 @@ public abstract class a implements com.baidu.tieba.sharesdk.b.a {
         return bdUniqueId;
     }
 
-    protected void Ru(String str) {
-        bT(str, R.drawable.icon_toast_game_error);
-    }
-
     protected void Rv(String str) {
-        bT(str, R.drawable.icon_toast_game_ok);
+        bU(str, R.drawable.icon_toast_game_error);
     }
 
-    protected void bT(String str, int i) {
+    protected void Rw(String str) {
+        bU(str, R.drawable.icon_toast_game_ok);
+    }
+
+    protected void bU(String str, int i) {
         BdToast.b(getAppContext(), str, i, false).bqk();
     }
 
@@ -87,17 +87,17 @@ public abstract class a implements com.baidu.tieba.sharesdk.b.a {
             if (TextUtils.isEmpty(str)) {
                 str = getString(R.string.share_success, new Object[0]);
             }
-            Rv(str);
+            Rw(str);
         } else if (i == 3) {
             if (TextUtils.isEmpty(str)) {
                 str = getString(R.string.share_cancel, new Object[0]);
             }
-            Ru(str);
+            Rv(str);
         } else if (i == 2) {
             if (TextUtils.isEmpty(str)) {
                 str = getString(R.string.share_failed, new Object[0]);
             }
-            Ru(str);
+            Rv(str);
         }
         if (!TextUtils.isEmpty(this.tid)) {
             dq(i, i2);
@@ -135,7 +135,7 @@ public abstract class a implements com.baidu.tieba.sharesdk.b.a {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public Bitmap Rw(String str) {
+    public Bitmap Rx(String str) {
         return BitmapHelper.loadBitmap(str);
     }
 
@@ -211,7 +211,7 @@ public abstract class a implements com.baidu.tieba.sharesdk.b.a {
         this.tid = str;
     }
 
-    public void Rs(String str) {
+    public void Rt(String str) {
         this.extLiveInfo = str;
     }
 

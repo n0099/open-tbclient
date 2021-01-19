@@ -15,7 +15,7 @@ import okhttp3.internal.http.StatusLine;
 /* loaded from: classes3.dex */
 public class u extends c<t> {
     private final ExecutorService mExecutorService;
-    private int pyH;
+    private int pyI;
 
     public u() {
         this(Executors.newFixedThreadPool(3));
@@ -23,7 +23,7 @@ public class u extends c<t> {
 
     public u(int i) {
         this(Executors.newFixedThreadPool(3));
-        this.pyH = i;
+        this.pyI = i;
     }
 
     u(ExecutorService executorService) {
@@ -126,7 +126,7 @@ public class u extends c<t> {
 
     private HttpURLConnection c(Uri uri, int i) throws IOException {
         HttpURLConnection ab = ab(uri);
-        ab.setConnectTimeout(this.pyH);
+        ab.setConnectTimeout(this.pyI);
         int responseCode = ab.getResponseCode();
         if (!PQ(responseCode)) {
             if (isHttpRedirect(responseCode)) {

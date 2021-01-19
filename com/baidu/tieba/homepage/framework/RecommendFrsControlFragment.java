@@ -228,12 +228,12 @@ public class RecommendFrsControlFragment extends BaseFragment implements g {
     private ConcernPageView.a jVt = new ConcernPageView.a() { // from class: com.baidu.tieba.homepage.framework.RecommendFrsControlFragment.4
         @Override // com.baidu.tieba.homepage.concern.ConcernPageView.a
         public void onPullToRefresh() {
-            RecommendFrsControlFragment.this.jVg.Lh("");
+            RecommendFrsControlFragment.this.jVg.Li("");
         }
 
         @Override // com.baidu.tieba.homepage.concern.ConcernPageView.a
-        public void La(String str) {
-            RecommendFrsControlFragment.this.jVg.Lh(str);
+        public void Lb(String str) {
+            RecommendFrsControlFragment.this.jVg.Li(str);
         }
 
         @Override // com.baidu.tieba.homepage.concern.ConcernPageView.a
@@ -400,8 +400,8 @@ public class RecommendFrsControlFragment extends BaseFragment implements g {
         if (TbadkCoreApplication.isLogin() && this.jVf.getCurrentTabType() != 0) {
             this.jVg.rN(System.currentTimeMillis() > com.baidu.tbadk.core.sharedPref.b.brx().getLong(com.baidu.tbadk.core.sharedPref.b.getSharedPrefKeyWithAccount(SharedPrefConfig.CONCERN_UNREAD_TIP_NEXT_SHOW_TIME), 0L));
         }
-        a.cNr().setCreateTime(System.currentTimeMillis() - a.cNr().Bj(1));
-        com.baidu.tbadk.n.l.bDT().eG(System.currentTimeMillis() - a.cNr().Bj(1));
+        a.cNr().setCreateTime(System.currentTimeMillis() - a.cNr().Bi(1));
+        com.baidu.tbadk.n.l.bDT().eG(System.currentTimeMillis() - a.cNr().Bi(1));
         if (com.baidu.tbadk.a.d.biU()) {
             this.jVf.cNT();
         } else {

@@ -10,14 +10,14 @@ import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
 /* loaded from: classes3.dex */
 public abstract class a<T> extends AbstractDataSource<T> {
-    private final com.facebook.imagepipeline.g.c pya;
-    private final ap pzB;
+    private final com.facebook.imagepipeline.g.c pyb;
+    private final ap pzC;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public a(aj<T> ajVar, ap apVar, com.facebook.imagepipeline.g.c cVar) {
-        this.pzB = apVar;
-        this.pya = cVar;
-        this.pya.a(apVar.ewP(), this.pzB.erD(), this.pzB.getId(), this.pzB.ewS());
+        this.pzC = apVar;
+        this.pyb = cVar;
+        this.pyb.a(apVar.ewP(), this.pzC.erD(), this.pzC.getId(), this.pzC.ewS());
         ajVar.a(evC(), apVar);
     }
 
@@ -49,14 +49,14 @@ public abstract class a<T> extends AbstractDataSource<T> {
     public void f(@Nullable T t, int i) {
         boolean PO = com.facebook.imagepipeline.producers.b.PO(i);
         if (super.c(t, PO) && PO) {
-            this.pya.a(this.pzB.ewP(), this.pzB.getId(), this.pzB.ewS());
+            this.pyb.a(this.pzC.ewP(), this.pzC.getId(), this.pzC.ewS());
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void C(Throwable th) {
         if (super.u(th)) {
-            this.pya.a(this.pzB.ewP(), this.pzB.getId(), th, this.pzB.ewS());
+            this.pyb.a(this.pzC.ewP(), this.pzC.getId(), th, this.pzC.ewS());
         }
     }
 
@@ -71,8 +71,8 @@ public abstract class a<T> extends AbstractDataSource<T> {
             return false;
         }
         if (!super.isFinished()) {
-            this.pya.Yp(this.pzB.getId());
-            this.pzB.cancel();
+            this.pyb.Yq(this.pzC.getId());
+            this.pzC.cancel();
         }
         return true;
     }

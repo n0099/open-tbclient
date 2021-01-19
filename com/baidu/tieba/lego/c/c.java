@@ -71,7 +71,7 @@ public class c implements a {
         return this.rank;
     }
 
-    public void MW(String str) {
+    public void MX(String str) {
         this.rank = str;
     }
 
@@ -135,12 +135,12 @@ public class c implements a {
             ArrayList arrayList = new ArrayList();
             if (dataRes.cards != null) {
                 for (int i3 = 0; i3 < dataRes.cards.size(); i3++) {
-                    ICardInfo MN = com.baidu.tieba.lego.card.b.MN(dataRes.cards.get(i3));
-                    if (MN != null && MN.isValid()) {
-                        arrayList.add(MN);
+                    ICardInfo MO = com.baidu.tieba.lego.card.b.MO(dataRes.cards.get(i3));
+                    if (MO != null && MO.isValid()) {
+                        arrayList.add(MO);
                     }
-                    if (i3 == dataRes.cards.size() - 1 && MN != null) {
-                        MW(MN.getFlipId());
+                    if (i3 == dataRes.cards.size() - 1 && MO != null) {
+                        MX(MO.getFlipId());
                     }
                 }
             }
@@ -154,7 +154,7 @@ public class c implements a {
         }
     }
 
-    public void MX(String str) {
+    public void MY(String str) {
         try {
             JSONObject jSONObject = new JSONObject(str);
             String optString = jSONObject.optString("page_info");
@@ -190,12 +190,12 @@ public class c implements a {
             ArrayList arrayList = new ArrayList();
             if (optJSONArray2 != null) {
                 for (int i2 = 0; i2 < optJSONArray2.length(); i2++) {
-                    ICardInfo MN = com.baidu.tieba.lego.card.b.MN(optJSONArray2.getString(i2));
-                    if (MN != null && MN.isValid()) {
-                        arrayList.add(MN);
+                    ICardInfo MO = com.baidu.tieba.lego.card.b.MO(optJSONArray2.getString(i2));
+                    if (MO != null && MO.isValid()) {
+                        arrayList.add(MO);
                     }
-                    if (i2 == optJSONArray2.length() - 1 && MN != null) {
-                        MW(MN.getFlipId());
+                    if (i2 == optJSONArray2.length() - 1 && MO != null) {
+                        MX(MO.getFlipId());
                     }
                 }
             }

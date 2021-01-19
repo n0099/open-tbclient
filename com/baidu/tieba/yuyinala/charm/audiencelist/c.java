@@ -23,12 +23,12 @@ public class c {
     private boolean aGY;
     private View contentView;
     private View mRootView;
-    private YuyinALaAudiencesActivity ofh;
-    private NobilityAlaLiveRoomPanelTabHost ofi;
-    private f ofj;
-    private g ofk;
+    private YuyinALaAudiencesActivity ofi;
+    private NobilityAlaLiveRoomPanelTabHost ofj;
+    private f ofk;
+    private g ofl;
     private List<com.baidu.live.liveroom.d.d> aCB = new LinkedList();
-    private HttpMessageListener ofl = new HttpMessageListener(1031031) { // from class: com.baidu.tieba.yuyinala.charm.audiencelist.c.1
+    private HttpMessageListener ofm = new HttpMessageListener(1031031) { // from class: com.baidu.tieba.yuyinala.charm.audiencelist.c.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
@@ -37,7 +37,7 @@ public class c {
                 if (httpResponsedMessage instanceof OnlineListHttpResponseMessage) {
                     j = ((OnlineListHttpResponseMessage) httpResponsedMessage).bTg();
                 }
-                c.this.ofi.C(String.format(c.this.ofh.getPageContext().getString(a.h.sdk_yuyin_onlineuser_tab_title), String.valueOf(j)), c.this.aCB.indexOf(c.this.ofj));
+                c.this.ofj.C(String.format(c.this.ofi.getPageContext().getString(a.h.sdk_yuyin_onlineuser_tab_title), String.valueOf(j)), c.this.aCB.indexOf(c.this.ofk));
             }
         }
     };
@@ -47,38 +47,38 @@ public class c {
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             final com.baidu.live.noble.data.d MS;
             if (httpResponsedMessage != null && (httpResponsedMessage instanceof AlaNobleUserListResponseMessage) && (MS = ((AlaNobleUserListResponseMessage) httpResponsedMessage).MS()) != null) {
-                c.this.ofi.setRightIconClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.charm.audiencelist.c.2.1
+                c.this.ofj.setRightIconClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.charm.audiencelist.c.2.1
                     /* JADX DEBUG: Multi-variable search result rejected for r1v2, resolved type: com.baidu.tieba.yuyinala.charm.audiencelist.YuyinALaAudiencesActivity */
                     /* JADX WARN: Multi-variable type inference failed */
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
                         if (!UtilHelper.isFastDoubleClick() && !StringUtils.isNull(MS.bsD)) {
-                            UrlManager.getInstance().dealOneLink(c.this.ofh.getPageContext(), new String[]{MS.bsD});
+                            UrlManager.getInstance().dealOneLink(c.this.ofi.getPageContext(), new String[]{MS.bsD});
                         }
                     }
                 });
-                c.this.ofi.C(String.format(c.this.ofh.getPageContext().getString(a.h.sdk_yuyin_onlinenoble_tab_title), String.valueOf(MS.bsC)), c.this.aCB.indexOf(c.this.ofk));
+                c.this.ofj.C(String.format(c.this.ofi.getPageContext().getString(a.h.sdk_yuyin_onlinenoble_tab_title), String.valueOf(MS.bsC)), c.this.aCB.indexOf(c.this.ofl));
             }
         }
     };
 
     public c(YuyinALaAudiencesActivity yuyinALaAudiencesActivity) {
-        this.ofh = yuyinALaAudiencesActivity;
+        this.ofi = yuyinALaAudiencesActivity;
         MessageManager.getInstance().registerListener(this.bsV);
-        MessageManager.getInstance().registerListener(this.ofl);
+        MessageManager.getInstance().registerListener(this.ofm);
         initView();
         bTl();
     }
 
     private void initView() {
-        this.mRootView = LayoutInflater.from(this.ofh).inflate(a.g.yuyin_ala_charm_activity_layout, (ViewGroup) null);
+        this.mRootView = LayoutInflater.from(this.ofi).inflate(a.g.yuyin_ala_charm_activity_layout, (ViewGroup) null);
         this.contentView = this.mRootView.findViewById(a.f.ala_charm_root_view);
         this.contentView.setBackgroundResource(a.e.yuyin_ala_audiencelist_white_corner);
-        this.ofi = (NobilityAlaLiveRoomPanelTabHost) this.mRootView.findViewById(a.f.ala_charm_tab_host);
-        this.ofi.setIndicatorWidthAuto(false);
-        this.ofi.setmIndicatorHeight(BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), a.d.sdk_ds8));
-        this.ofi.setmIndicatorWidth(BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), a.d.sdk_ds40));
-        this.ofi.setRightIconVisible(false);
+        this.ofj = (NobilityAlaLiveRoomPanelTabHost) this.mRootView.findViewById(a.f.ala_charm_tab_host);
+        this.ofj.setIndicatorWidthAuto(false);
+        this.ofj.setmIndicatorHeight(BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), a.d.sdk_ds8));
+        this.ofj.setmIndicatorWidth(BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), a.d.sdk_ds40));
+        this.ofj.setRightIconVisible(false);
     }
 
     public View getView() {
@@ -86,7 +86,7 @@ public class c {
     }
 
     private void bTl() {
-        Intent intent = this.ofh.getIntent();
+        Intent intent = this.ofi.getIntent();
         intent.getStringExtra("user_name");
         intent.getStringExtra("group_id");
         String stringExtra = intent.getStringExtra("live_id");
@@ -94,22 +94,22 @@ public class c {
         String stringExtra2 = intent.getStringExtra("live_owner_uid");
         String stringExtra3 = intent.getStringExtra("login_user_id");
         boolean booleanExtra = intent.getBooleanExtra(YuyinAlaCharmCardActivityConfig.IS_SHOW_BUY_ENTRY, false);
-        this.ofj = new f(this.ofh);
-        this.ofj.Uz(stringExtra).createView();
-        this.aCB.add(this.ofj);
-        this.ofk = new g(this.ofh);
-        this.ofk.zv(this.aGY).UA(stringExtra).UB(stringExtra2).UC(stringExtra3).zu(booleanExtra).createView();
+        this.ofk = new f(this.ofi);
+        this.ofk.UA(stringExtra).createView();
         this.aCB.add(this.ofk);
-        this.ofi.setData(this.aCB);
-        this.ofi.setPageSelectedListener(new NobilityAlaLiveRoomPanelTabHost.b() { // from class: com.baidu.tieba.yuyinala.charm.audiencelist.c.3
+        this.ofl = new g(this.ofi);
+        this.ofl.zv(this.aGY).UB(stringExtra).UC(stringExtra2).UD(stringExtra3).zu(booleanExtra).createView();
+        this.aCB.add(this.ofl);
+        this.ofj.setData(this.aCB);
+        this.ofj.setPageSelectedListener(new NobilityAlaLiveRoomPanelTabHost.b() { // from class: com.baidu.tieba.yuyinala.charm.audiencelist.c.3
             @Override // com.baidu.live.bottompanel.NobilityAlaLiveRoomPanelTabHost.b
             public void onPageSelected(int i) {
                 if (i == 0) {
-                    c.this.ofj.mD(false);
-                    c.this.ofi.setRightIconVisible(false);
-                } else if (i == 1) {
                     c.this.ofk.mD(false);
-                    c.this.ofi.setRightIconVisible(true);
+                    c.this.ofj.setRightIconVisible(false);
+                } else if (i == 1) {
+                    c.this.ofl.mD(false);
+                    c.this.ofj.setRightIconVisible(true);
                 }
             }
         });
@@ -120,6 +120,6 @@ public class c {
             dVar.onDestroy();
         }
         MessageManager.getInstance().unRegisterListener(this.bsV);
-        MessageManager.getInstance().unRegisterListener(this.ofl);
+        MessageManager.getInstance().unRegisterListener(this.ofm);
     }
 }

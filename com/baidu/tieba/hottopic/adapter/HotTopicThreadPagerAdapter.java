@@ -169,10 +169,10 @@ public class HotTopicThreadPagerAdapter extends PagerAdapter {
     public void destroyItem(ViewGroup viewGroup, int i, Object obj) {
     }
 
-    public void BT(int i) {
+    public void BS(int i) {
         if (!x.isEmpty(this.kkv)) {
             for (HotTopicView hotTopicView : this.kkv) {
-                hotTopicView.Cf(i);
+                hotTopicView.Ce(i);
             }
         }
     }
@@ -199,31 +199,31 @@ public class HotTopicThreadPagerAdapter extends PagerAdapter {
         }
     }
 
-    public void BU(int i) {
+    public void BT(int i) {
         HotTopicView hotTopicView;
         if (this.kkv != null && i < this.kkv.size() && (hotTopicView = this.kkv.get(i)) != null) {
             hotTopicView.Vo();
         }
     }
 
-    public void BV(int i) {
+    public void BU(int i) {
         HotTopicView hotTopicView;
         if (this.kkv != null && i < this.kkv.size() && (hotTopicView = this.kkv.get(i)) != null) {
             hotTopicView.Vp();
         }
     }
 
-    public void BW(int i) {
+    public void BV(int i) {
         HotTopicView hotTopicView;
         if (this.kkv != null && i < this.kkv.size() && (hotTopicView = this.kkv.get(i)) != null) {
             hotTopicView.bRO();
         }
     }
 
-    public void BX(int i) {
+    public void BW(int i) {
         for (HotTopicView hotTopicView : this.kkv) {
             if (hotTopicView != null && hotTopicView != cQD()) {
-                hotTopicView.Cg(i);
+                hotTopicView.Cf(i);
             }
         }
     }

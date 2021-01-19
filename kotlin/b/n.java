@@ -4,11 +4,11 @@ package kotlin.b;
 /* loaded from: classes5.dex */
 public class n extends m {
     public static final f eo(int i, int i2) {
-        return f.qjC.ap(i, i2, -1);
+        return f.qjD.ap(i, i2, -1);
     }
 
     public static final h ep(int i, int i2) {
-        return i2 <= Integer.MIN_VALUE ? h.qjE.eJi() : new h(i, i2 - 1);
+        return i2 <= Integer.MIN_VALUE ? h.qjF.eJi() : new h(i, i2 - 1);
     }
 
     public static final int eq(int i, int i2) {

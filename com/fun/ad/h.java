@@ -14,7 +14,7 @@ import com.fun.ad.sdk.FunRippedAd;
 import java.util.List;
 /* loaded from: classes14.dex */
 public class h extends bd {
-    public TTNativeExpressAd pEw;
+    public TTNativeExpressAd pEx;
 
     public h(au.a aVar) {
         super(aVar);
@@ -23,28 +23,28 @@ public class h extends bd {
     @Override // com.fun.ad.bd
     public void a() {
         super.a();
-        TTNativeExpressAd tTNativeExpressAd = this.pEw;
+        TTNativeExpressAd tTNativeExpressAd = this.pEx;
         if (tTNativeExpressAd != null) {
             tTNativeExpressAd.destroy();
-            this.pEw = null;
+            this.pEx = null;
         }
     }
 
     @Override // com.fun.ad.bd
     public void a(Activity activity, FunAdView funAdView, ax axVar) {
         super.a(activity, funAdView, axVar);
-        TTNativeExpressAd tTNativeExpressAd = this.pEw;
+        TTNativeExpressAd tTNativeExpressAd = this.pEx;
         if (tTNativeExpressAd == null) {
             return;
         }
         tTNativeExpressAd.setDownloadListener(new bj(null));
-        this.pEw.showInteractionExpressAd(activity);
+        this.pEx.showInteractionExpressAd(activity);
     }
 
     @Override // com.fun.ad.bd
     public FunRippedAd exX() {
         AdRipper.RippedCSJAd rippedCSJAd;
-        TTNativeExpressAd tTNativeExpressAd = this.pEw;
+        TTNativeExpressAd tTNativeExpressAd = this.pEx;
         if (tTNativeExpressAd == null || (rippedCSJAd = AdRipper.getRippedCSJAd(tTNativeExpressAd, false)) == null) {
             return null;
         }
@@ -70,7 +70,7 @@ public class h extends bd {
             m.a("CSJInteractionExpressAd onError code: " + i + ", message: " + str);
             h hVar = h.this;
             hVar.f7765b = false;
-            ba baVar = hVar.pFu;
+            ba baVar = hVar.pFv;
             if (baVar != null) {
                 ((aj) baVar).a(hVar.f7764a.f7760a, i, str);
             }
@@ -80,10 +80,10 @@ public class h extends bd {
         public void onNativeExpressAdLoad(List<TTNativeExpressAd> list) {
             m.a("CSJInteractionExpressAd onNativeExpressAdLoad");
             if (list != null && !list.isEmpty()) {
-                h.this.pEw = list.get(0);
-                AdRipper.ripCSJ(h.this.pEw);
+                h.this.pEx = list.get(0);
+                AdRipper.ripCSJ(h.this.pEx);
                 h hVar = h.this;
-                TTNativeExpressAd tTNativeExpressAd = hVar.pEw;
+                TTNativeExpressAd tTNativeExpressAd = hVar.pEx;
                 tTNativeExpressAd.setExpressInteractionListener((TTNativeExpressAd.AdInteractionListener) new k(hVar));
                 tTNativeExpressAd.render();
                 return;
@@ -104,8 +104,8 @@ public class h extends bd {
             } else {
                 expressWidth = funAdSlot.getExpressWidth();
             }
-            this.pFw.loadInteractionExpressAd(adCount.setExpressViewAcceptedSize(expressWidth, 0.0f).build(), new a());
-            ba baVar2 = this.pFu;
+            this.pFx.loadInteractionExpressAd(adCount.setExpressViewAcceptedSize(expressWidth, 0.0f).build(), new a());
+            ba baVar2 = this.pFv;
             if (baVar2 != null) {
                 ((aj) baVar2).a(this.f7764a.f7760a);
             }

@@ -48,7 +48,7 @@ public class a {
         return this.bPj;
     }
 
-    public void KF(String str) {
+    public void KG(String str) {
         this.bPj = str;
     }
 
@@ -56,7 +56,7 @@ public class a {
         return this.gej;
     }
 
-    public void KG(String str) {
+    public void KH(String str) {
         this.gej = str;
     }
 }

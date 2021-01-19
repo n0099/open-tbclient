@@ -14,14 +14,14 @@ public final class a<M extends Message<M, B>, B extends Message.a<M, B>> {
     private ProtoAdapter<Object> adapter;
     private final Field messageField;
     public final String name;
-    public final WireField.Label pQd;
-    private final String pQe;
+    public final WireField.Label pQe;
     private final String pQf;
-    public final boolean pQg;
-    private final Field pQh;
-    private final Method pQi;
-    private ProtoAdapter<?> pQj;
+    private final String pQg;
+    public final boolean pQh;
+    private final Field pQi;
+    private final Method pQj;
     private ProtoAdapter<?> pQk;
+    private ProtoAdapter<?> pQl;
     public final int tag;
 
     private static Field j(Class<?> cls, String str) {
@@ -42,40 +42,40 @@ public final class a<M extends Message<M, B>, B extends Message.a<M, B>> {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(WireField wireField, Field field, Class<B> cls) {
-        this.pQd = wireField.eBy();
+        this.pQe = wireField.eBy();
         this.name = field.getName();
         this.tag = wireField.tag();
-        this.pQe = wireField.eBw();
-        this.pQf = wireField.eBx();
-        this.pQg = wireField.eBz();
+        this.pQf = wireField.eBw();
+        this.pQg = wireField.eBx();
+        this.pQh = wireField.eBz();
         this.messageField = field;
-        this.pQh = j(cls, this.name);
-        this.pQi = a(cls, this.name, field.getType());
+        this.pQi = j(cls, this.name);
+        this.pQj = a(cls, this.name, field.getType());
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public boolean eBm() {
-        return !this.pQe.isEmpty();
+        return !this.pQf.isEmpty();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ProtoAdapter<?> eBn() {
-        ProtoAdapter<?> protoAdapter = this.pQj;
-        if (protoAdapter != null) {
-            return protoAdapter;
-        }
-        ProtoAdapter<?> protoAdapter2 = ProtoAdapter.get(this.pQf);
-        this.pQj = protoAdapter2;
-        return protoAdapter2;
-    }
-
-    ProtoAdapter<?> eBo() {
         ProtoAdapter<?> protoAdapter = this.pQk;
         if (protoAdapter != null) {
             return protoAdapter;
         }
-        ProtoAdapter<?> protoAdapter2 = ProtoAdapter.get(this.pQe);
+        ProtoAdapter<?> protoAdapter2 = ProtoAdapter.get(this.pQg);
         this.pQk = protoAdapter2;
+        return protoAdapter2;
+    }
+
+    ProtoAdapter<?> eBo() {
+        ProtoAdapter<?> protoAdapter = this.pQl;
+        if (protoAdapter != null) {
+            return protoAdapter;
+        }
+        ProtoAdapter<?> protoAdapter2 = ProtoAdapter.get(this.pQf);
+        this.pQl = protoAdapter2;
         return protoAdapter2;
     }
 
@@ -88,7 +88,7 @@ public final class a<M extends Message<M, B>, B extends Message.a<M, B>> {
                 this.adapter = newMapAdapter;
                 return newMapAdapter;
             }
-            ProtoAdapter<?> withLabel = eBn().withLabel(this.pQd);
+            ProtoAdapter<?> withLabel = eBn().withLabel(this.pQe);
             this.adapter = withLabel;
             return withLabel;
         }
@@ -97,9 +97,9 @@ public final class a<M extends Message<M, B>, B extends Message.a<M, B>> {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(B b2, Object obj) {
-        if (this.pQd.isRepeated()) {
+        if (this.pQe.isRepeated()) {
             ((List) a((a<M, B>) b2)).add(obj);
-        } else if (!this.pQe.isEmpty()) {
+        } else if (!this.pQf.isEmpty()) {
             ((Map) a((a<M, B>) b2)).putAll((Map) obj);
         } else {
             b(b2, obj);
@@ -109,10 +109,10 @@ public final class a<M extends Message<M, B>, B extends Message.a<M, B>> {
     /* JADX INFO: Access modifiers changed from: package-private */
     public void b(B b2, Object obj) {
         try {
-            if (this.pQd.isOneOf()) {
-                this.pQi.invoke(b2, obj);
+            if (this.pQe.isOneOf()) {
+                this.pQj.invoke(b2, obj);
             } else {
-                this.pQh.set(b2, obj);
+                this.pQi.set(b2, obj);
             }
         } catch (IllegalAccessException | InvocationTargetException e) {
             throw new AssertionError(e);
@@ -131,7 +131,7 @@ public final class a<M extends Message<M, B>, B extends Message.a<M, B>> {
     /* JADX INFO: Access modifiers changed from: package-private */
     public Object a(B b2) {
         try {
-            return this.pQh.get(b2);
+            return this.pQi.get(b2);
         } catch (IllegalAccessException e) {
             throw new AssertionError(e);
         }

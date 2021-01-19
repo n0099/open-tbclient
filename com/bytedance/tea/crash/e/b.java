@@ -1,7 +1,7 @@
 package com.bytedance.tea.crash.e;
 /* loaded from: classes4.dex */
 public class b {
-    private static com.bytedance.tea.b.a.a.a plB = null;
+    private static com.bytedance.tea.b.a.a.a plC = null;
 
     /* renamed from: a  reason: collision with root package name */
     private boolean f7642a = true;

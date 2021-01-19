@@ -12,15 +12,15 @@ import org.json.JSONObject;
 public class b implements Cloneable {
     private Context appContext;
     private String appKey = "";
-    private String pYD = "";
-    private String from = "";
     private String pYE = "";
+    private String from = "";
     private String pYF = "";
     private String pYG = "";
     private String pYH = "";
+    private String pYI = "";
     private HashMap<String, String> extra = new HashMap<>();
 
-    private String aaA(String str) {
+    private String aaB(String str) {
         try {
             return URLEncoder.encode(str, "utf-8");
         } catch (UnsupportedEncodingException e) {
@@ -41,29 +41,29 @@ public class b implements Cloneable {
             }
         }
         if (z) {
-            return aaA(jSONObject.toString());
+            return aaB(jSONObject.toString());
         }
         return jSONObject.toString();
     }
 
     public String Cw(boolean z) {
-        return z ? aaA(this.pYG) : this.pYG;
+        return z ? aaB(this.pYH) : this.pYH;
     }
 
     public String Cx(boolean z) {
-        return z ? aaA(this.pYE) : this.pYE;
+        return z ? aaB(this.pYF) : this.pYF;
     }
 
-    public void aaB(String str) {
-        this.pYE = str;
+    public void aaC(String str) {
+        this.pYF = str;
     }
 
     public String Cy(boolean z) {
-        return z ? aaA(this.pYF) : this.pYF;
+        return z ? aaB(this.pYG) : this.pYG;
     }
 
     public String Cz(boolean z) {
-        return z ? aaA(this.from) : this.from;
+        return z ? aaB(this.from) : this.from;
     }
 
     public void setFrom(String str) {
@@ -71,7 +71,7 @@ public class b implements Cloneable {
     }
 
     public String CA(boolean z) {
-        return z ? aaA(this.appKey) : this.appKey;
+        return z ? aaB(this.appKey) : this.appKey;
     }
 
     public void setAppKey(String str) {
@@ -87,11 +87,11 @@ public class b implements Cloneable {
     }
 
     public String CB(boolean z) {
-        return z ? aaA(this.pYD) : this.pYD;
+        return z ? aaB(this.pYE) : this.pYE;
     }
 
     public boolean eGx() {
-        return (this.appContext == null || TextUtils.isEmpty(this.appKey) || TextUtils.isEmpty(this.from) || TextUtils.isEmpty(this.pYE)) ? false : true;
+        return (this.appContext == null || TextUtils.isEmpty(this.appKey) || TextUtils.isEmpty(this.from) || TextUtils.isEmpty(this.pYF)) ? false : true;
     }
 
     public Object clone() {

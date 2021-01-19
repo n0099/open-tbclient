@@ -9,7 +9,7 @@ import java.net.Socket;
 import javax.net.ssl.SSLSocket;
 /* loaded from: classes4.dex */
 public abstract class a {
-    public static a pdM;
+    public static a pdN;
 
     public abstract int a(b.a aVar);
 

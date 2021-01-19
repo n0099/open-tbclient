@@ -26,7 +26,7 @@ public class b implements com.baidu.tieba.ad.download.b.a {
         downloadData.setUrl(downloadCacheKey.mDownloadUrl);
         downloadData.setName(downloadCacheKey.mPackageName);
         downloadData.setType(12);
-        downloadData.setNotifyId(i.Qv(downloadCacheKey.mPackageName).intValue());
+        downloadData.setNotifyId(i.Qw(downloadCacheKey.mPackageName).intValue());
         downloadData.setNeedNotify(true);
         downloadData.setNeedInvokeApk(true);
         downloadData.setPosition(0);
@@ -51,7 +51,7 @@ public class b implements com.baidu.tieba.ad.download.b.a {
             downloadData.setUrl(downloadCacheKey.mDownloadUrl);
             downloadData.setName(downloadCacheKey.mPackageName);
             downloadData.setType(12);
-            downloadData.setNotifyId(i.Qv(downloadData.getName()).intValue());
+            downloadData.setNotifyId(i.Qw(downloadData.getName()).intValue());
             downloadData.setNeedNotify(true);
             downloadData.setNeedInvokeApk(true);
             downloadData.setPosition(0);

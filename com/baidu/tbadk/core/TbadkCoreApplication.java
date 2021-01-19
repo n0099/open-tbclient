@@ -322,8 +322,8 @@ public class TbadkCoreApplication extends BdBaseApplication implements b.a, c.a 
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof com.baidu.tieba.tbadkCore.e.a.d)) {
                 com.baidu.tieba.tbadkCore.e.a.d dVar = (com.baidu.tieba.tbadkCore.e.a.d) customResponsedMessage.getData();
-                DescriptionTableInfo.setModuleSet(dVar.npp);
-                DescriptionTableInfo.setDescriptionTable(dVar.npq);
+                DescriptionTableInfo.setModuleSet(dVar.npq);
+                DescriptionTableInfo.setDescriptionTable(dVar.npr);
             }
         }
     };
@@ -383,8 +383,8 @@ public class TbadkCoreApplication extends BdBaseApplication implements b.a, c.a 
                         TbadkCoreApplication.this.setLocationLat(valueOf);
                         TbadkCoreApplication.this.setLocationLng(valueOf2);
                         TbadkCoreApplication.this.setLocationPos(address.getAddressLine(0));
-                        com.baidu.tieba.recapp.c.a.dBW().QI(valueOf);
-                        com.baidu.tieba.recapp.c.a.dBW().QH(valueOf2);
+                        com.baidu.tieba.recapp.c.a.dBW().QJ(valueOf);
+                        com.baidu.tieba.recapp.c.a.dBW().QI(valueOf2);
                         com.baidu.tieba.recapp.c.a.dBW().hw(System.currentTimeMillis());
                     }
                 } catch (IllegalStateException e) {

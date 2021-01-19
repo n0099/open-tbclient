@@ -14,8 +14,8 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes10.dex */
 public class ConnectionWheatManagerListView extends BaseConnectionWheatListView {
-    private d oBj;
-    private d.a otw;
+    private d oBk;
+    private d.a otx;
 
     public ConnectionWheatManagerListView(@NonNull Context context) {
         this(context, null);
@@ -35,8 +35,8 @@ public class ConnectionWheatManagerListView extends BaseConnectionWheatListView 
 
     @Override // com.baidu.tieba.yuyinala.liveroom.wheat.view.BaseConnectionWheatListView
     protected void dyO() {
-        this.oBj = new d(getContext());
-        this.oxO.setAdapter((ListAdapter) this.oBj);
+        this.oBk = new d(getContext());
+        this.oxP.setAdapter((ListAdapter) this.oBk);
     }
 
     public void ebp() {
@@ -50,20 +50,20 @@ public class ConnectionWheatManagerListView extends BaseConnectionWheatListView 
 
     @Override // com.baidu.tieba.yuyinala.liveroom.wheat.view.BaseConnectionWheatListView
     public void zR(boolean z) {
-        this.oBj.LR(o.ebo().Wx().size());
+        this.oBk.LR(o.ebo().Wx().size());
         ArrayList arrayList = new ArrayList();
         arrayList.addAll(o.ebo().Wx());
         arrayList.addAll(o.ebo().Ww());
         gs(arrayList);
-        if (this.otw != null && this.oBj != null) {
-            this.otw.LS(this.oBj.getCount());
+        if (this.otx != null && this.oBk != null) {
+            this.otx.LS(this.oBk.getCount());
         }
     }
 
     @Override // com.baidu.tieba.yuyinala.liveroom.wheat.view.BaseConnectionWheatListView
     public int getCount() {
-        if (this.oBj != null) {
-            return this.oBj.getCount();
+        if (this.oBk != null) {
+            return this.oBk.getCount();
         }
         return 0;
     }
@@ -74,15 +74,15 @@ public class ConnectionWheatManagerListView extends BaseConnectionWheatListView 
     }
 
     private void gs(List<AlaWheatInfoData> list) {
-        if (this.oBj != null) {
-            this.oBj.setData(list);
+        if (this.oBk != null) {
+            this.oBk.setData(list);
         }
     }
 
     public void setListener(d.a aVar) {
-        this.otw = aVar;
-        if (this.oBj != null) {
-            this.oBj.setListener(aVar);
+        this.otx = aVar;
+        if (this.oBk != null) {
+            this.oBk.setListener(aVar);
         }
     }
 

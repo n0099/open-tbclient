@@ -93,16 +93,16 @@ public class a {
         GroupMsgData groupMsgData2;
         if (groupMsgData != null && groupMsgData.getGroupInfo() != null && (listMessage = groupMsgData.getListMessage()) != null && listMessage.size() != 0) {
             long groupId = groupMsgData.getGroupInfo().getGroupId();
-            ImMessageCenterPojo bo = j.cTF().bo(String.valueOf(groupId), groupMsgData.getGroupInfo().getCustomType());
-            if (!(bo != null)) {
+            ImMessageCenterPojo bp = j.cTF().bp(String.valueOf(groupId), groupMsgData.getGroupInfo().getCustomType());
+            if (!(bp != null)) {
                 if (!this.kCE.contains(Long.valueOf(groupId))) {
                     a(groupMsgData, listMessage, groupId);
                     return;
                 }
                 return;
             }
-            long sid = bo.getSid();
-            long gZ = com.baidu.tieba.im.util.b.gZ(bo.getPulled_msgId());
+            long sid = bp.getSid();
+            long gZ = com.baidu.tieba.im.util.b.gZ(bp.getPulled_msgId());
             GroupMsgData groupMsgData3 = this.kCB.get(Long.valueOf(groupId));
             if (groupMsgData3 == null) {
                 GroupMsgData groupMsgData4 = new GroupMsgData(groupMsgData.getCmd());

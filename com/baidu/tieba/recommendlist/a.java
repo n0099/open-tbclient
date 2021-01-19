@@ -731,15 +731,15 @@ public class a implements View.OnClickListener, com.baidu.live.aa.a, b, d {
                 z2 = z;
             }
             if (z3) {
-                QY("followtab_show");
+                QZ("followtab_show");
             }
             if (z2) {
-                QY("hottab_show");
+                QZ("hottab_show");
             }
         }
     }
 
-    private void QY(String str) {
+    private void QZ(String str) {
         UbcStatisticManager.getInstance().logEvent(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_1394, "display", UbcStatConstant.Page.LIVE_RECOMMEND, str));
     }
 }

@@ -21,7 +21,7 @@ import com.baidu.yuyinala.privatemessage.implugin.ui.theme.ThemeManager;
 /* loaded from: classes10.dex */
 public class TempRoundedImageView extends ImageView {
     static final /* synthetic */ boolean $assertionsDisabled;
-    private static final ImageView.ScaleType[] oUn;
+    private static final ImageView.ScaleType[] oUo;
     private float borderWidth;
     private float cornerRadius;
     private Drawable mBackgroundDrawable;
@@ -31,27 +31,27 @@ public class TempRoundedImageView extends ImageView {
     private Paint mPaint;
     private ImageView.ScaleType mScaleType;
     private int mWidth;
-    private ColorStateList oUo;
-    private boolean oUp;
+    private ColorStateList oUp;
     private boolean oUq;
-    private int oUr;
-    private boolean oUs;
+    private boolean oUr;
+    private int oUs;
     private boolean oUt;
+    private boolean oUu;
 
     static {
         $assertionsDisabled = !TempRoundedImageView.class.desiredAssertionStatus();
-        oUn = new ImageView.ScaleType[]{ImageView.ScaleType.MATRIX, ImageView.ScaleType.FIT_XY, ImageView.ScaleType.FIT_START, ImageView.ScaleType.FIT_CENTER, ImageView.ScaleType.FIT_END, ImageView.ScaleType.CENTER, ImageView.ScaleType.CENTER_CROP, ImageView.ScaleType.CENTER_INSIDE};
+        oUo = new ImageView.ScaleType[]{ImageView.ScaleType.MATRIX, ImageView.ScaleType.FIT_XY, ImageView.ScaleType.FIT_START, ImageView.ScaleType.FIT_CENTER, ImageView.ScaleType.FIT_END, ImageView.ScaleType.CENTER, ImageView.ScaleType.CENTER_CROP, ImageView.ScaleType.CENTER_INSIDE};
     }
 
     public TempRoundedImageView(Context context) {
         super(context);
         this.cornerRadius = 90.0f;
         this.borderWidth = 0.0f;
-        this.oUo = ColorStateList.valueOf(ViewCompat.MEASURED_STATE_MASK);
-        this.oUp = false;
-        this.oUs = false;
+        this.oUp = ColorStateList.valueOf(ViewCompat.MEASURED_STATE_MASK);
         this.oUq = false;
         this.oUt = false;
+        this.oUr = false;
+        this.oUu = false;
     }
 
     public TempRoundedImageView(Context context, AttributeSet attributeSet) {
@@ -62,16 +62,16 @@ public class TempRoundedImageView extends ImageView {
         super(context, attributeSet, i);
         this.cornerRadius = 90.0f;
         this.borderWidth = 0.0f;
-        this.oUo = ColorStateList.valueOf(ViewCompat.MEASURED_STATE_MASK);
-        this.oUp = false;
-        this.oUs = false;
+        this.oUp = ColorStateList.valueOf(ViewCompat.MEASURED_STATE_MASK);
         this.oUq = false;
         this.oUt = false;
+        this.oUr = false;
+        this.oUu = false;
         this.mDensity = getResources().getDisplayMetrics().density;
         TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, a.j.RoundedImageView, i, 0);
         int i2 = obtainStyledAttributes.getInt(a.j.RoundedImageView_android_scaleType, -1);
         if (i2 >= 0) {
-            setScaleType(oUn[i2]);
+            setScaleType(oUo[i2]);
         } else {
             setScaleType(ImageView.ScaleType.CENTER_CROP);
         }
@@ -83,13 +83,13 @@ public class TempRoundedImageView extends ImageView {
         if (this.borderWidth < 0.0f) {
             this.borderWidth = 0.0f;
         }
-        this.oUo = obtainStyledAttributes.getColorStateList(a.j.RoundedImageView_border_color);
-        if (this.oUo == null) {
-            this.oUo = ColorStateList.valueOf(ViewCompat.MEASURED_STATE_MASK);
+        this.oUp = obtainStyledAttributes.getColorStateList(a.j.RoundedImageView_border_color);
+        if (this.oUp == null) {
+            this.oUp = ColorStateList.valueOf(ViewCompat.MEASURED_STATE_MASK);
         }
-        this.oUq = obtainStyledAttributes.getBoolean(a.j.RoundedImageView_mutate_background, false);
-        this.oUp = obtainStyledAttributes.getBoolean(a.j.RoundedImageView_oval, false);
-        this.oUs = obtainStyledAttributes.getBoolean(a.j.RoundedImageView_support_night, false);
+        this.oUr = obtainStyledAttributes.getBoolean(a.j.RoundedImageView_mutate_background, false);
+        this.oUq = obtainStyledAttributes.getBoolean(a.j.RoundedImageView_oval, false);
+        this.oUt = obtainStyledAttributes.getBoolean(a.j.RoundedImageView_support_night, false);
         updateDrawableAttrs();
         AA(true);
         obtainStyledAttributes.recycle();
@@ -98,13 +98,13 @@ public class TempRoundedImageView extends ImageView {
     @Override // android.widget.ImageView, android.view.View
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        if (this.oUt) {
+        if (this.oUu) {
             this.mPaint = new Paint();
             this.mPaint.setAntiAlias(true);
             canvas.drawColor(1056964607);
             canvas.drawRoundRect(new RectF(this.mWidth, this.mHeight, this.mWidth, this.mHeight), this.cornerRadius, this.cornerRadius, this.mPaint);
         }
-        if (this.oUs && ThemeManager.ejW() == ThemeManager.ThemeMode.NIGHT) {
+        if (this.oUt && ThemeManager.ejW() == ThemeManager.ThemeMode.NIGHT) {
             this.mPaint = new Paint();
             this.mPaint.setAntiAlias(true);
             canvas.drawColor(-1240132331);
@@ -209,7 +209,7 @@ public class TempRoundedImageView extends ImageView {
 
     @Override // android.widget.ImageView
     public void setImageDrawable(Drawable drawable) {
-        this.oUr = 0;
+        this.oUs = 0;
         this.mDrawable = com.baidu.yuyinala.privatemessage.implugin.ui.material.b.a.fromDrawable(drawable);
         updateDrawableAttrs();
         super.setImageDrawable(this.mDrawable);
@@ -217,7 +217,7 @@ public class TempRoundedImageView extends ImageView {
 
     @Override // android.widget.ImageView
     public void setImageBitmap(Bitmap bitmap) {
-        this.oUr = 0;
+        this.oUs = 0;
         this.mDrawable = com.baidu.yuyinala.privatemessage.implugin.ui.material.b.a.Y(bitmap);
         updateDrawableAttrs();
         super.setImageDrawable(this.mDrawable);
@@ -225,8 +225,8 @@ public class TempRoundedImageView extends ImageView {
 
     @Override // android.widget.ImageView
     public void setImageResource(int i) {
-        if (this.oUr != i) {
-            this.oUr = i;
+        if (this.oUs != i) {
+            this.oUs = i;
             this.mDrawable = eiZ();
             updateDrawableAttrs();
             super.setImageDrawable(this.mDrawable);
@@ -245,12 +245,12 @@ public class TempRoundedImageView extends ImageView {
         if (resources == null) {
             return null;
         }
-        if (this.oUr != 0) {
+        if (this.oUs != 0) {
             try {
-                drawable = resources.getDrawable(this.oUr);
+                drawable = resources.getDrawable(this.oUs);
             } catch (Exception e) {
-                Log.w("TempRoundedImageView", "Unable to find resource: " + this.oUr, e);
-                this.oUr = 0;
+                Log.w("TempRoundedImageView", "Unable to find resource: " + this.oUs, e);
+                this.oUs = 0;
             }
         }
         return com.baidu.yuyinala.privatemessage.implugin.ui.material.b.a.fromDrawable(drawable);
@@ -261,7 +261,7 @@ public class TempRoundedImageView extends ImageView {
     }
 
     private void AA(boolean z) {
-        if (this.oUq) {
+        if (this.oUr) {
             if (z) {
                 this.mBackgroundDrawable = com.baidu.yuyinala.privatemessage.implugin.ui.material.b.a.fromDrawable(this.mBackgroundDrawable);
             }
@@ -272,7 +272,7 @@ public class TempRoundedImageView extends ImageView {
     private void p(Drawable drawable) {
         if (drawable != null) {
             if (drawable instanceof com.baidu.yuyinala.privatemessage.implugin.ui.material.b.a) {
-                ((com.baidu.yuyinala.privatemessage.implugin.ui.material.b.a) drawable).b(this.mScaleType).bu(this.cornerRadius).bv(this.borderWidth).b(this.oUo).Ay(this.oUp);
+                ((com.baidu.yuyinala.privatemessage.implugin.ui.material.b.a) drawable).b(this.mScaleType).bu(this.cornerRadius).bv(this.borderWidth).b(this.oUp).Ay(this.oUq);
             } else if (drawable instanceof LayerDrawable) {
                 LayerDrawable layerDrawable = (LayerDrawable) drawable;
                 int numberOfLayers = layerDrawable.getNumberOfLayers();
@@ -325,15 +325,15 @@ public class TempRoundedImageView extends ImageView {
     }
 
     public ColorStateList getBorderColors() {
-        return this.oUo;
+        return this.oUp;
     }
 
     public void setBorderColor(ColorStateList colorStateList) {
-        if (!this.oUo.equals(colorStateList)) {
+        if (!this.oUp.equals(colorStateList)) {
             if (colorStateList == null) {
                 colorStateList = ColorStateList.valueOf(ViewCompat.MEASURED_STATE_MASK);
             }
-            this.oUo = colorStateList;
+            this.oUp = colorStateList;
             updateDrawableAttrs();
             AA(false);
             if (this.borderWidth > 0.0f) {
@@ -343,15 +343,15 @@ public class TempRoundedImageView extends ImageView {
     }
 
     public void setOval(boolean z) {
-        this.oUp = z;
+        this.oUq = z;
         updateDrawableAttrs();
         AA(false);
         invalidate();
     }
 
     public void setMutateBackground(boolean z) {
-        if (this.oUq != z) {
-            this.oUq = z;
+        if (this.oUr != z) {
+            this.oUr = z;
             AA(true);
             invalidate();
         }
@@ -360,6 +360,6 @@ public class TempRoundedImageView extends ImageView {
     @Override // android.view.View
     public void setPressed(boolean z) {
         super.setPressed(z);
-        this.oUt = z;
+        this.oUu = z;
     }
 }

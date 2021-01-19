@@ -35,13 +35,13 @@ public class e {
                 this.lTA.a(fVar.diN().bnO(), fVar.diN(), fVar.getForumId());
                 this.lTA.startPlay();
             } else {
-                this.lTA.Pk(fVar.getForumId());
+                this.lTA.Pl(fVar.getForumId());
             }
             com.baidu.tieba.pb.c.a.a(this.lEi.getUniqueId(), fVar, postData, 1, 1);
             if (fVar.diO() != null && fVar.diO().size() >= 1) {
                 bz bzVar = fVar.diO().get(0);
                 this.lTA.aP(bzVar);
-                this.lTA.Pl(bzVar.getTitle());
+                this.lTA.Pm(bzVar.getTitle());
             }
             this.lTA.b(postData, fVar.diN(), fVar.djm());
             this.lTC = false;

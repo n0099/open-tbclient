@@ -20,7 +20,7 @@ public class g extends Dialog implements DialogInterface.OnDismissListener, View
     private TextView bUg;
     private Context mContext;
     private TextView mTitle;
-    private a ogd;
+    private a oge;
 
     /* loaded from: classes10.dex */
     public interface a {
@@ -82,7 +82,7 @@ public class g extends Dialog implements DialogInterface.OnDismissListener, View
         }
     }
 
-    public void UE(String str) {
+    public void UF(String str) {
         if (this.bUf != null && !TextUtils.isEmpty(str)) {
             this.bUf.setText(str);
         }
@@ -110,13 +110,13 @@ public class g extends Dialog implements DialogInterface.OnDismissListener, View
     public void onClick(View view) {
         if (view == this.bUe || view == this.bUf) {
             dismiss();
-            if (this.ogd != null) {
-                this.ogd.onCancel();
+            if (this.oge != null) {
+                this.oge.onCancel();
             }
         } else if (view == this.bUg) {
             dismiss();
-            if (this.ogd != null) {
-                this.ogd.onConfirm();
+            if (this.oge != null) {
+                this.oge.onConfirm();
             }
         }
     }
@@ -126,6 +126,6 @@ public class g extends Dialog implements DialogInterface.OnDismissListener, View
     }
 
     public void a(a aVar) {
-        this.ogd = aVar;
+        this.oge = aVar;
     }
 }

@@ -6,8 +6,9 @@ import com.baidu.ala.recorder.video.drawer.EncoderTextureDrawer;
 import com.baidu.mobstat.Config;
 import org.apache.http.HttpStatus;
 import org.json.JSONObject;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes4.dex */
-class n extends ch {
+public class n extends ch {
     private final Context e;
 
     /* JADX INFO: Access modifiers changed from: package-private */

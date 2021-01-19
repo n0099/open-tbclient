@@ -632,9 +632,9 @@ public class m extends com.baidu.adp.base.d {
         cXg();
     }
 
-    public void Dk(int i) {
+    public void Dj(int i) {
         if (this.kKg != null) {
-            this.kKg.Dk(i);
+            this.kKg.Dj(i);
         }
     }
 

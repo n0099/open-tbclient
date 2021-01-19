@@ -8,7 +8,7 @@ import com.baidu.tieba.yuyinala.liveroom.wheat.model.j;
 /* loaded from: classes10.dex */
 public class m {
     private String mikeStatus;
-    private a oxf;
+    private a oxg;
 
     /* loaded from: classes10.dex */
     public interface a {
@@ -24,15 +24,15 @@ public class m {
             public void a(AlaManagerMikeHttpResponseMessage alaManagerMikeHttpResponseMessage) {
                 if (!alaManagerMikeHttpResponseMessage.isError()) {
                     m.this.gO(str, str2);
-                } else if (m.this.oxf != null) {
-                    m.this.oxf.ebm();
+                } else if (m.this.oxg != null) {
+                    m.this.oxg.ebm();
                 }
             }
 
             @Override // com.baidu.tieba.yuyinala.liveroom.wheat.model.j.a
             public void b(AlaManagerMikeHttpResponseMessage alaManagerMikeHttpResponseMessage) {
-                if (m.this.oxf != null) {
-                    m.this.oxf.ebm();
+                if (m.this.oxg != null) {
+                    m.this.oxg.ebm();
                 }
             }
         }).aT(com.baidu.tieba.yuyinala.liveroom.wheat.a.c.eax().yv(), str, str2);
@@ -42,34 +42,34 @@ public class m {
     public void gO(String str, String str2) {
         com.baidu.tieba.yuyinala.liveroom.wheat.a.b eaz = com.baidu.tieba.yuyinala.liveroom.wheat.a.c.eax().eaz();
         if (eaz != null) {
-            if (o.ebo().UU(str)) {
-                eaz.zE(Vp(str2));
-                if (this.oxf != null) {
-                    this.oxf.zL(true);
+            if (o.ebo().UV(str)) {
+                eaz.zE(Vq(str2));
+                if (this.oxg != null) {
+                    this.oxg.zL(true);
                 }
             } else {
-                eaz.bg(str, Vp(str2));
-                if (this.oxf != null) {
-                    this.oxf.zL(false);
+                eaz.bg(str, Vq(str2));
+                if (this.oxg != null) {
+                    this.oxg.zL(false);
                 }
             }
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2501009, Headers.REFRESH));
         }
     }
 
-    private boolean Vp(String str) {
+    private boolean Vq(String str) {
         return "1".equals(str);
     }
 
     public void a(a aVar) {
-        this.oxf = aVar;
+        this.oxg = aVar;
     }
 
     /* loaded from: classes10.dex */
     public static abstract class b implements a {
         private String mikeStatus;
 
-        public void Vq(String str) {
+        public void Vr(String str) {
             this.mikeStatus = str;
         }
 

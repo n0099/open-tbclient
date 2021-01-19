@@ -187,7 +187,7 @@ public class MyEmotionManagerModel extends NativeManageEmotionModel implements c
                     for (MyEmotionGroupData myEmotionGroupData : dgl) {
                         if (myEmotionGroupData != null) {
                             jSONArray.put(myEmotionGroupData.getGroupId());
-                            MyEmotionManagerModel.this.Oe(myEmotionGroupData.getGroupId());
+                            MyEmotionManagerModel.this.Of(myEmotionGroupData.getGroupId());
                         }
                     }
                 }
@@ -208,7 +208,7 @@ public class MyEmotionManagerModel extends NativeManageEmotionModel implements c
                     for (MyEmotionGroupData myEmotionGroupData : dgl) {
                         if (myEmotionGroupData != null) {
                             jSONArray.put(myEmotionGroupData.getGroupId());
-                            MyEmotionManagerModel.this.Oe(myEmotionGroupData.getGroupId());
+                            MyEmotionManagerModel.this.Of(myEmotionGroupData.getGroupId());
                         }
                     }
                 }
@@ -226,7 +226,7 @@ public class MyEmotionManagerModel extends NativeManageEmotionModel implements c
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public synchronized void Oe(String str) {
+    public synchronized void Of(String str) {
         this.lvg.add(str);
     }
 

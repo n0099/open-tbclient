@@ -119,7 +119,7 @@ public class a {
             if (z || z2) {
                 a.this.kje.b((f.e) null);
             } else {
-                a.this.kje.b(a.this.BB(i));
+                a.this.kje.b(a.this.BA(i));
             }
             if (i != 0) {
                 a.this.kje.bs(a.this.kjd.getDataList());
@@ -183,7 +183,7 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public f.e BB(int i) {
+    public f.e BA(int i) {
         String string;
         if (i <= 0) {
             string = this.mPageContext.getResources().getString(R.string.video_tab_no_more);
@@ -232,9 +232,9 @@ public class a {
         if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof JSONObject) && this.kjd != null && !x.isEmpty(this.kjd.getDataList())) {
             String optString = ((JSONObject) customResponsedMessage.getData()).optString("tid");
             this.kjd.Km(optString);
-            this.kjd.Lk(optString);
+            this.kjd.Ll(optString);
             if (this.kje != null) {
-                this.kje.Lm(optString);
+                this.kje.Ln(optString);
             }
         }
     }

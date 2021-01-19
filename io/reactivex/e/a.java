@@ -6,39 +6,39 @@ import io.reactivex.v;
 import java.util.concurrent.Callable;
 /* loaded from: classes5.dex */
 public final class a {
-    static final v qim = io.reactivex.d.a.g(new h());
-    static final v qin = io.reactivex.d.a.d(new b());
-    static final v qio = io.reactivex.d.a.e(new c());
-    static final v qip = k.eIm();
-    static final v qiq = io.reactivex.d.a.f(new f());
+    static final v qin = io.reactivex.d.a.g(new h());
+    static final v qio = io.reactivex.d.a.d(new b());
+    static final v qip = io.reactivex.d.a.e(new c());
+    static final v qiq = k.eIm();
+    static final v qir = io.reactivex.d.a.f(new f());
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: io.reactivex.e.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
     public static final class C1288a {
-        static final v qir = new io.reactivex.internal.schedulers.a();
+        static final v qis = new io.reactivex.internal.schedulers.a();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes5.dex */
     public static final class d {
-        static final v qir = new io.reactivex.internal.schedulers.d();
+        static final v qis = new io.reactivex.internal.schedulers.d();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes5.dex */
     public static final class e {
-        static final v qir = new io.reactivex.internal.schedulers.e();
+        static final v qis = new io.reactivex.internal.schedulers.e();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes5.dex */
     public static final class g {
-        static final v qir = new j();
+        static final v qis = new j();
     }
 
     public static v eIu() {
-        return io.reactivex.d.a.a(qim);
+        return io.reactivex.d.a.a(qin);
     }
 
     /* loaded from: classes5.dex */
@@ -50,7 +50,7 @@ public final class a {
         @Override // java.util.concurrent.Callable
         /* renamed from: eIv */
         public v call() throws Exception {
-            return d.qir;
+            return d.qis;
         }
     }
 
@@ -63,7 +63,7 @@ public final class a {
         @Override // java.util.concurrent.Callable
         /* renamed from: eIv */
         public v call() throws Exception {
-            return e.qir;
+            return e.qis;
         }
     }
 
@@ -76,7 +76,7 @@ public final class a {
         @Override // java.util.concurrent.Callable
         /* renamed from: eIv */
         public v call() throws Exception {
-            return g.qir;
+            return g.qis;
         }
     }
 
@@ -89,7 +89,7 @@ public final class a {
         @Override // java.util.concurrent.Callable
         /* renamed from: eIv */
         public v call() throws Exception {
-            return C1288a.qir;
+            return C1288a.qis;
         }
     }
 }

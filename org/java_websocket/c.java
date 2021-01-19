@@ -26,43 +26,43 @@ import org.java_websocket.framing.g;
 public class c implements WebSocket {
     static final /* synthetic */ boolean $assertionsDisabled;
     public static boolean DEBUG;
-    public static int qmw;
+    public static int qmx;
     private Draft draft;
-    public SelectionKey qmA;
-    public ByteChannel qmB;
-    private List<Draft> qmE;
-    private WebSocket.Role qmF;
-    private g qmO;
-    private Object qmP;
-    public final BlockingQueue<ByteBuffer> qmx;
+    private final d qmA;
+    public SelectionKey qmB;
+    public ByteChannel qmC;
+    private List<Draft> qmF;
+    private WebSocket.Role qmG;
+    private g qmP;
+    private Object qmQ;
     public final BlockingQueue<ByteBuffer> qmy;
-    private final d qmz;
-    private volatile boolean qmC = false;
-    private WebSocket.READYSTATE qmD = WebSocket.READYSTATE.NOT_YET_CONNECTED;
-    private ByteBuffer qmG = ByteBuffer.allocate(0);
-    private org.java_websocket.c.a qmH = null;
-    private String qmI = null;
-    private Integer qmJ = null;
-    private Boolean qmK = null;
-    private String qmL = null;
-    private long qmM = System.currentTimeMillis();
-    private final Object qmN = new Object();
+    public final BlockingQueue<ByteBuffer> qmz;
+    private volatile boolean qmD = false;
+    private WebSocket.READYSTATE qmE = WebSocket.READYSTATE.NOT_YET_CONNECTED;
+    private ByteBuffer qmH = ByteBuffer.allocate(0);
+    private org.java_websocket.c.a qmI = null;
+    private String qmJ = null;
+    private Integer qmK = null;
+    private Boolean qmL = null;
+    private String qmM = null;
+    private long qmN = System.currentTimeMillis();
+    private final Object qmO = new Object();
 
     static {
         $assertionsDisabled = !c.class.desiredAssertionStatus();
-        qmw = 16384;
+        qmx = 16384;
         DEBUG = false;
     }
 
     public c(d dVar, Draft draft) {
         this.draft = null;
-        if (dVar == null || (draft == null && this.qmF == WebSocket.Role.SERVER)) {
+        if (dVar == null || (draft == null && this.qmG == WebSocket.Role.SERVER)) {
             throw new IllegalArgumentException("parameters must not be null");
         }
-        this.qmx = new LinkedBlockingQueue();
         this.qmy = new LinkedBlockingQueue();
-        this.qmz = dVar;
-        this.qmF = WebSocket.Role.CLIENT;
+        this.qmz = new LinkedBlockingQueue();
+        this.qmA = dVar;
+        this.qmG = WebSocket.Role.CLIENT;
         if (draft != null) {
             this.draft = draft.eJH();
         }
@@ -80,13 +80,13 @@ public class c implements WebSocket {
                 t(byteBuffer);
             }
         } else if (s(byteBuffer) && !isClosing() && !isClosed()) {
-            if (!$assertionsDisabled && this.qmG.hasRemaining() == byteBuffer.hasRemaining() && byteBuffer.hasRemaining()) {
+            if (!$assertionsDisabled && this.qmH.hasRemaining() == byteBuffer.hasRemaining() && byteBuffer.hasRemaining()) {
                 throw new AssertionError();
             }
             if (byteBuffer.hasRemaining()) {
                 t(byteBuffer);
-            } else if (this.qmG.hasRemaining()) {
-                t(this.qmG);
+            } else if (this.qmH.hasRemaining()) {
+                t(this.qmH);
             }
         }
         if (!$assertionsDisabled && !isClosing() && !isFlushAndClose() && byteBuffer.hasRemaining()) {
@@ -98,18 +98,18 @@ public class c implements WebSocket {
         ByteBuffer byteBuffer2;
         f y;
         boolean z;
-        if (this.qmG.capacity() == 0) {
+        if (this.qmH.capacity() == 0) {
             byteBuffer2 = byteBuffer;
         } else {
-            if (this.qmG.remaining() < byteBuffer.remaining()) {
-                ByteBuffer allocate = ByteBuffer.allocate(this.qmG.capacity() + byteBuffer.remaining());
-                this.qmG.flip();
-                allocate.put(this.qmG);
-                this.qmG = allocate;
+            if (this.qmH.remaining() < byteBuffer.remaining()) {
+                ByteBuffer allocate = ByteBuffer.allocate(this.qmH.capacity() + byteBuffer.remaining());
+                this.qmH.flip();
+                allocate.put(this.qmH);
+                this.qmH = allocate;
             }
-            this.qmG.put(byteBuffer);
-            this.qmG.flip();
-            byteBuffer2 = this.qmG;
+            this.qmH.put(byteBuffer);
+            this.qmH.flip();
+            byteBuffer2 = this.qmH;
         }
         byteBuffer2.mark();
         try {
@@ -118,7 +118,7 @@ public class c implements WebSocket {
                 b(e);
             }
         } catch (IncompleteHandshakeException e2) {
-            if (this.qmG.capacity() == 0) {
+            if (this.qmH.capacity() == 0) {
                 byteBuffer2.reset();
                 int preferedSize = e2.getPreferedSize();
                 if (preferedSize == 0) {
@@ -126,19 +126,19 @@ public class c implements WebSocket {
                 } else if (!$assertionsDisabled && e2.getPreferedSize() < byteBuffer2.remaining()) {
                     throw new AssertionError();
                 }
-                this.qmG = ByteBuffer.allocate(preferedSize);
-                this.qmG.put(byteBuffer);
+                this.qmH = ByteBuffer.allocate(preferedSize);
+                this.qmH.put(byteBuffer);
             } else {
-                this.qmG.position(this.qmG.limit());
-                this.qmG.limit(this.qmG.capacity());
+                this.qmH.position(this.qmH.limit());
+                this.qmH.limit(this.qmH.capacity());
             }
         }
-        if (this.qmF == WebSocket.Role.SERVER) {
+        if (this.qmG == WebSocket.Role.SERVER) {
             if (this.draft == null) {
-                for (Draft draft : this.qmE) {
+                for (Draft draft : this.qmF) {
                     Draft eJH = draft.eJH();
                     try {
-                        eJH.a(this.qmF);
+                        eJH.a(this.qmG);
                         byteBuffer2.reset();
                         y = eJH.y(byteBuffer2);
                     } catch (InvalidHandshakeException e3) {
@@ -149,14 +149,14 @@ public class c implements WebSocket {
                     } else {
                         org.java_websocket.c.a aVar = (org.java_websocket.c.a) y;
                         if (eJH.a(aVar) == Draft.HandshakeState.MATCHED) {
-                            this.qmL = aVar.getResourceDescriptor();
+                            this.qmM = aVar.getResourceDescriptor();
                             try {
-                                write(eJH.a(eJH.a(aVar, this.qmz.onWebsocketHandshakeReceivedAsServer(this, eJH, aVar)), this.qmF));
+                                write(eJH.a(eJH.a(aVar, this.qmA.onWebsocketHandshakeReceivedAsServer(this, eJH, aVar)), this.qmG));
                                 this.draft = eJH;
                                 a(aVar);
                                 z = true;
                             } catch (RuntimeException e4) {
-                                this.qmz.onWebsocketError(this, e4);
+                                this.qmA.onWebsocketError(this, e4);
                                 b(e4);
                                 z = false;
                             } catch (InvalidDataException e5) {
@@ -187,21 +187,21 @@ public class c implements WebSocket {
             close(1002, "the handshake did finaly not match");
             return false;
         }
-        if (this.qmF == WebSocket.Role.CLIENT) {
-            this.draft.a(this.qmF);
+        if (this.qmG == WebSocket.Role.CLIENT) {
+            this.draft.a(this.qmG);
             f y3 = this.draft.y(byteBuffer2);
             if (!(y3 instanceof h)) {
                 s(1002, "wrong http function", false);
                 return false;
             }
             h hVar = (h) y3;
-            if (this.draft.a(this.qmH, hVar) == Draft.HandshakeState.MATCHED) {
+            if (this.draft.a(this.qmI, hVar) == Draft.HandshakeState.MATCHED) {
                 try {
-                    this.qmz.onWebsocketHandshakeReceivedAsClient(this, this.qmH, hVar);
+                    this.qmA.onWebsocketHandshakeReceivedAsClient(this, this.qmI, hVar);
                     a(hVar);
                     return true;
                 } catch (RuntimeException e6) {
-                    this.qmz.onWebsocketError(this, e6);
+                    this.qmA.onWebsocketError(this, e6);
                     s(-1, e6.getMessage(), false);
                     return false;
                 } catch (InvalidDataException e7) {
@@ -223,7 +223,7 @@ public class c implements WebSocket {
                 this.draft.a(this, framedata);
             }
         } catch (InvalidDataException e) {
-            this.qmz.onWebsocketError(this, e);
+            this.qmA.onWebsocketError(this, e);
             b(e);
         }
     }
@@ -248,11 +248,11 @@ public class c implements WebSocket {
                 str = "500 Internal Server Error";
                 break;
         }
-        return ByteBuffer.wrap(org.java_websocket.e.c.Yl("HTTP/1.1 " + str + "\r\nContent-Type: text/html\nServer: TooTallNate Java-WebSocket\r\nContent-Length: " + (str.length() + 48) + "\r\n\r\n<html><head></head><body><h1>" + str + "</h1></body></html>"));
+        return ByteBuffer.wrap(org.java_websocket.e.c.Ym("HTTP/1.1 " + str + "\r\nContent-Type: text/html\nServer: TooTallNate Java-WebSocket\r\nContent-Length: " + (str.length() + 48) + "\r\n\r\n<html><head></head><body><h1>" + str + "</h1></body></html>"));
     }
 
     public synchronized void q(int i, String str, boolean z) {
-        if (getReadyState() != WebSocket.READYSTATE.CLOSING && this.qmD != WebSocket.READYSTATE.CLOSED) {
+        if (getReadyState() != WebSocket.READYSTATE.CLOSING && this.qmE != WebSocket.READYSTATE.CLOSED) {
             if (getReadyState() == WebSocket.READYSTATE.OPEN) {
                 if (i == 1006) {
                     if (!$assertionsDisabled && z) {
@@ -265,12 +265,12 @@ public class c implements WebSocket {
                         if (!z) {
                             try {
                                 try {
-                                    this.qmz.onWebsocketCloseInitiated(this, i, str);
+                                    this.qmA.onWebsocketCloseInitiated(this, i, str);
                                 } catch (RuntimeException e) {
-                                    this.qmz.onWebsocketError(this, e);
+                                    this.qmA.onWebsocketError(this, e);
                                 }
                             } catch (InvalidDataException e2) {
-                                this.qmz.onWebsocketError(this, e2);
+                                this.qmA.onWebsocketError(this, e2);
                                 s(1006, "generated frame is invalid", false);
                             }
                         }
@@ -295,7 +295,7 @@ public class c implements WebSocket {
                 s(-1, str, false);
             }
             a(WebSocket.READYSTATE.CLOSING);
-            this.qmG = null;
+            this.qmH = null;
         }
     }
 
@@ -308,31 +308,31 @@ public class c implements WebSocket {
             if (getReadyState() == WebSocket.READYSTATE.OPEN && i == 1006) {
                 a(WebSocket.READYSTATE.CLOSING);
             }
-            if (this.qmA != null) {
-                this.qmA.cancel();
-            }
             if (this.qmB != null) {
+                this.qmB.cancel();
+            }
+            if (this.qmC != null) {
                 try {
-                    this.qmB.close();
+                    this.qmC.close();
                 } catch (IOException e) {
                     if (e.getMessage().equals("Broken pipe")) {
                         if (DEBUG) {
                             System.out.println("Caught IOException: Broken pipe during closeConnection()");
                         }
                     } else {
-                        this.qmz.onWebsocketError(this, e);
+                        this.qmA.onWebsocketError(this, e);
                     }
                 }
             }
             try {
-                this.qmz.onWebsocketClose(this, i, str, z);
+                this.qmA.onWebsocketClose(this, i, str, z);
             } catch (RuntimeException e2) {
-                this.qmz.onWebsocketError(this, e2);
+                this.qmA.onWebsocketError(this, e2);
             }
             if (this.draft != null) {
                 this.draft.reset();
             }
-            this.qmH = null;
+            this.qmI = null;
             a(WebSocket.READYSTATE.CLOSED);
         }
     }
@@ -346,33 +346,33 @@ public class c implements WebSocket {
     }
 
     public synchronized void s(int i, String str, boolean z) {
-        if (!this.qmC) {
-            this.qmJ = Integer.valueOf(i);
-            this.qmI = str;
-            this.qmK = Boolean.valueOf(z);
-            this.qmC = true;
-            this.qmz.onWriteDemand(this);
+        if (!this.qmD) {
+            this.qmK = Integer.valueOf(i);
+            this.qmJ = str;
+            this.qmL = Boolean.valueOf(z);
+            this.qmD = true;
+            this.qmA.onWriteDemand(this);
             try {
-                this.qmz.onWebsocketClosing(this, i, str, z);
+                this.qmA.onWebsocketClosing(this, i, str, z);
             } catch (RuntimeException e) {
-                this.qmz.onWebsocketError(this, e);
+                this.qmA.onWebsocketError(this, e);
             }
             if (this.draft != null) {
                 this.draft.reset();
             }
-            this.qmH = null;
+            this.qmI = null;
         }
     }
 
     public void eJC() {
         if (getReadyState() == WebSocket.READYSTATE.NOT_YET_CONNECTED) {
             ap(-1, true);
-        } else if (this.qmC) {
-            r(this.qmJ.intValue(), this.qmI, this.qmK.booleanValue());
+        } else if (this.qmD) {
+            r(this.qmK.intValue(), this.qmJ, this.qmL.booleanValue());
         } else if (this.draft.eJG() == Draft.CloseHandshakeType.NONE) {
             ap(1000, true);
         } else if (this.draft.eJG() == Draft.CloseHandshakeType.ONEWAY) {
-            if (this.qmF == WebSocket.Role.SERVER) {
+            if (this.qmG == WebSocket.Role.SERVER) {
                 ap(1006, true);
             } else {
                 ap(1000, true);
@@ -394,14 +394,14 @@ public class c implements WebSocket {
         if (str == null) {
             throw new IllegalArgumentException("Cannot send 'null' data to a WebSocketImpl.");
         }
-        s(this.draft.bp(str, this.qmF == WebSocket.Role.CLIENT));
+        s(this.draft.bp(str, this.qmG == WebSocket.Role.CLIENT));
     }
 
     public void send(ByteBuffer byteBuffer) throws IllegalArgumentException, WebsocketNotConnectedException {
         if (byteBuffer == null) {
             throw new IllegalArgumentException("Cannot send 'null' data to a WebSocketImpl.");
         }
-        s(this.draft.b(byteBuffer, this.qmF == WebSocket.Role.CLIENT));
+        s(this.draft.b(byteBuffer, this.qmG == WebSocket.Role.CLIENT));
     }
 
     public void send(byte[] bArr) throws IllegalArgumentException, WebsocketNotConnectedException {
@@ -439,27 +439,27 @@ public class c implements WebSocket {
     }
 
     public void sendPing() throws NotYetConnectedException {
-        if (this.qmO == null) {
-            this.qmO = new g();
+        if (this.qmP == null) {
+            this.qmP = new g();
         }
-        sendFrame(this.qmO);
+        sendFrame(this.qmP);
     }
 
     public boolean hasBufferedData() {
-        return !this.qmx.isEmpty();
+        return !this.qmy.isEmpty();
     }
 
     public void a(org.java_websocket.c.b bVar) throws InvalidHandshakeException {
-        this.qmH = this.draft.b(bVar);
-        this.qmL = bVar.getResourceDescriptor();
-        if (!$assertionsDisabled && this.qmL == null) {
+        this.qmI = this.draft.b(bVar);
+        this.qmM = bVar.getResourceDescriptor();
+        if (!$assertionsDisabled && this.qmM == null) {
             throw new AssertionError();
         }
         try {
-            this.qmz.onWebsocketHandshakeSentAsClient(this, this.qmH);
-            write(this.draft.a(this.qmH, this.qmF));
+            this.qmA.onWebsocketHandshakeSentAsClient(this, this.qmI);
+            write(this.draft.a(this.qmI, this.qmG));
         } catch (RuntimeException e) {
-            this.qmz.onWebsocketError(this, e);
+            this.qmA.onWebsocketError(this, e);
             throw new InvalidHandshakeException("rejected because of" + e);
         } catch (InvalidDataException e2) {
             throw new InvalidHandshakeException("Handshake data rejected by client.");
@@ -470,12 +470,12 @@ public class c implements WebSocket {
         if (DEBUG) {
             System.out.println("write(" + byteBuffer.remaining() + "): {" + (byteBuffer.remaining() > 1000 ? "too big to display" : new String(byteBuffer.array())) + '}');
         }
-        this.qmx.add(byteBuffer);
-        this.qmz.onWriteDemand(this);
+        this.qmy.add(byteBuffer);
+        this.qmA.onWriteDemand(this);
     }
 
     private void write(List<ByteBuffer> list) {
-        synchronized (this.qmN) {
+        synchronized (this.qmO) {
             for (ByteBuffer byteBuffer : list) {
                 u(byteBuffer);
             }
@@ -488,15 +488,15 @@ public class c implements WebSocket {
         }
         a(WebSocket.READYSTATE.OPEN);
         try {
-            this.qmz.onWebsocketOpen(this, fVar);
+            this.qmA.onWebsocketOpen(this, fVar);
         } catch (RuntimeException e) {
-            this.qmz.onWebsocketError(this, e);
+            this.qmA.onWebsocketError(this, e);
         }
     }
 
     @Deprecated
     public boolean isConnecting() {
-        if ($assertionsDisabled || !this.qmC || getReadyState() == WebSocket.READYSTATE.CONNECTING) {
+        if ($assertionsDisabled || !this.qmD || getReadyState() == WebSocket.READYSTATE.CONNECTING) {
             return getReadyState() == WebSocket.READYSTATE.CONNECTING;
         }
         throw new AssertionError();
@@ -511,7 +511,7 @@ public class c implements WebSocket {
     }
 
     public boolean isFlushAndClose() {
-        return this.qmC;
+        return this.qmD;
     }
 
     public boolean isClosed() {
@@ -519,11 +519,11 @@ public class c implements WebSocket {
     }
 
     public WebSocket.READYSTATE getReadyState() {
-        return this.qmD;
+        return this.qmE;
     }
 
     private void a(WebSocket.READYSTATE readystate) {
-        this.qmD = readystate;
+        this.qmE = readystate;
     }
 
     public int hashCode() {
@@ -535,11 +535,11 @@ public class c implements WebSocket {
     }
 
     public InetSocketAddress getRemoteSocketAddress() {
-        return this.qmz.getRemoteSocketAddress(this);
+        return this.qmA.getRemoteSocketAddress(this);
     }
 
     public InetSocketAddress getLocalSocketAddress() {
-        return this.qmz.getLocalSocketAddress(this);
+        return this.qmA.getLocalSocketAddress(this);
     }
 
     public void close() {
@@ -548,22 +548,22 @@ public class c implements WebSocket {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public long eJD() {
-        return this.qmM;
+        return this.qmN;
     }
 
     public void eJE() {
-        this.qmM = System.currentTimeMillis();
+        this.qmN = System.currentTimeMillis();
     }
 
     public d eJF() {
-        return this.qmz;
+        return this.qmA;
     }
 
     public <T> T getAttachment() {
-        return (T) this.qmP;
+        return (T) this.qmQ;
     }
 
     public <T> void setAttachment(T t) {
-        this.qmP = t;
+        this.qmQ = t;
     }
 }

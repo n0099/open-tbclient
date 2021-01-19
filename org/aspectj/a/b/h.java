@@ -3,64 +3,64 @@ package org.aspectj.a.b;
 import java.lang.reflect.Modifier;
 /* loaded from: classes3.dex */
 class h {
-    static h qkO = new h();
-    static h qkP;
+    static h qkP = new h();
     static h qkQ;
-    boolean qkF = true;
+    static h qkR;
     boolean qkG = true;
-    boolean qkH = false;
+    boolean qkH = true;
     boolean qkI = false;
     boolean qkJ = false;
-    boolean qkK = true;
+    boolean qkK = false;
     boolean qkL = true;
     boolean qkM = true;
-    int qkN;
+    boolean qkN = true;
+    int qkO;
 
     h() {
     }
 
     static {
-        qkO.qkF = true;
-        qkO.qkG = false;
-        qkO.qkH = false;
-        qkO.qkI = false;
-        qkO.qkJ = true;
-        qkO.qkK = false;
-        qkO.qkL = false;
-        qkO.qkN = 0;
-        qkP = new h();
-        qkP.qkF = true;
         qkP.qkG = true;
         qkP.qkH = false;
         qkP.qkI = false;
         qkP.qkJ = false;
-        qkO.qkN = 1;
+        qkP.qkK = true;
+        qkP.qkL = false;
+        qkP.qkM = false;
+        qkP.qkO = 0;
         qkQ = new h();
-        qkQ.qkF = false;
         qkQ.qkG = true;
-        qkQ.qkH = false;
-        qkQ.qkI = true;
+        qkQ.qkH = true;
+        qkQ.qkI = false;
         qkQ.qkJ = false;
-        qkQ.qkM = false;
-        qkQ.qkN = 2;
+        qkQ.qkK = false;
+        qkP.qkO = 1;
+        qkR = new h();
+        qkR.qkG = false;
+        qkR.qkH = true;
+        qkR.qkI = false;
+        qkR.qkJ = true;
+        qkR.qkK = false;
+        qkR.qkN = false;
+        qkR.qkO = 2;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public String abi(String str) {
+    public String abj(String str) {
         int lastIndexOf = str.lastIndexOf(45);
         return lastIndexOf == -1 ? str : str.substring(lastIndexOf + 1);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public String Sg(int i) {
-        if (this.qkI) {
+        if (this.qkJ) {
             String modifier = Modifier.toString(i);
             return modifier.length() == 0 ? "" : new StringBuffer().append(modifier).append(" ").toString();
         }
         return "";
     }
 
-    String abj(String str) {
+    String abk(String str) {
         int lastIndexOf = str.lastIndexOf(46);
         return lastIndexOf == -1 ? str : str.substring(lastIndexOf + 1);
     }
@@ -73,18 +73,18 @@ class h {
             Class<?> componentType = cls.getComponentType();
             return new StringBuffer().append(b(componentType, componentType.getName(), z)).append("[]").toString();
         } else if (z) {
-            return abj(str).replace('$', '.');
+            return abk(str).replace('$', '.');
         } else {
             return str.replace('$', '.');
         }
     }
 
     public String H(Class cls) {
-        return b(cls, cls.getName(), this.qkF);
+        return b(cls, cls.getName(), this.qkG);
     }
 
     public String l(Class cls, String str) {
-        return b(cls, str, this.qkJ);
+        return b(cls, str, this.qkK);
     }
 
     public void a(StringBuffer stringBuffer, Class[] clsArr) {
@@ -98,7 +98,7 @@ class h {
 
     public void b(StringBuffer stringBuffer, Class[] clsArr) {
         if (clsArr != null) {
-            if (!this.qkG) {
+            if (!this.qkH) {
                 if (clsArr.length == 0) {
                     stringBuffer.append("()");
                     return;
@@ -114,7 +114,7 @@ class h {
     }
 
     public void c(StringBuffer stringBuffer, Class[] clsArr) {
-        if (this.qkH && clsArr != null && clsArr.length != 0) {
+        if (this.qkI && clsArr != null && clsArr.length != 0) {
             stringBuffer.append(" throws ");
             a(stringBuffer, clsArr);
         }

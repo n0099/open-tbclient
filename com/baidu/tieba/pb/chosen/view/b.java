@@ -69,7 +69,7 @@ public class b {
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (post != null && post.id != null && b.this.lzY != null) {
-                    b.this.lzY.Op(String.valueOf(post.id));
+                    b.this.lzY.Oq(String.valueOf(post.id));
                 }
             }
         });

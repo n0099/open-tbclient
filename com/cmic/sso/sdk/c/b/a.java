@@ -22,10 +22,10 @@ public class a extends g {
     private String k;
     private long l;
     private String m;
-    private JSONObject pmw;
+    private JSONObject pmx;
 
     public void a(JSONObject jSONObject) {
-        this.pmw = jSONObject;
+        this.pmx = jSONObject;
     }
 
     public void a(long j) {
@@ -104,14 +104,14 @@ public class a extends g {
             jSONObject.put("sourceid", this.i);
             jSONObject.put("authenticated_appid", this.j);
             jSONObject.put("genTokenByAppid", this.k);
-            jSONObject.put("rcData", this.pmw);
+            jSONObject.put("rcData", this.pmx);
         } catch (JSONException e) {
             e.printStackTrace();
         }
         return jSONObject;
     }
 
-    public String XT(String str) {
+    public String XU(String str) {
         return dD(this.f7698a + this.c + str + this.d);
     }
 

@@ -3,18 +3,18 @@ package kotlin.jvm.internal;
 /* loaded from: classes5.dex */
 public final class r implements l {
     private final String klL;
-    private final Class<?> qjn;
+    private final Class<?> qjo;
 
     public r(Class<?> cls, String str) {
         p.o(cls, "jClass");
         p.o(str, "moduleName");
-        this.qjn = cls;
+        this.qjo = cls;
         this.klL = str;
     }
 
     @Override // kotlin.jvm.internal.l
     public Class<?> eIU() {
-        return this.qjn;
+        return this.qjo;
     }
 
     public boolean equals(Object obj) {

@@ -19,7 +19,7 @@ public class g extends com.baidu.tieba.yuyinala.liveroom.wheat.dialog.a implemen
     private TextView bUg;
     public CustomMessageListener bdo;
     private TextView mTitle;
-    private a oyq;
+    private a oyr;
 
     /* loaded from: classes10.dex */
     public interface a {
@@ -72,20 +72,20 @@ public class g extends com.baidu.tieba.yuyinala.liveroom.wheat.dialog.a implemen
         }
     }
 
-    public void UE(String str) {
+    public void UF(String str) {
         if (this.bUf != null && !TextUtils.isEmpty(str)) {
             this.bUf.setText(str);
         }
     }
 
-    public void cc(String str, int i) {
+    public void cd(String str, int i) {
         if (this.bUf != null && !TextUtils.isEmpty(str)) {
             this.bUf.setText(str);
             this.bUf.setTextColor(TbadkCoreApplication.getInst().getResources().getColor(i));
         }
     }
 
-    public void cd(String str, int i) {
+    public void ce(String str, int i) {
         if (this.bUg != null) {
             this.bUg.setText(str);
             this.bUg.setTextColor(TbadkCoreApplication.getInst().getResources().getColor(i));
@@ -147,13 +147,13 @@ public class g extends com.baidu.tieba.yuyinala.liveroom.wheat.dialog.a implemen
     public void onClick(View view) {
         if (view == this.bUf) {
             dismiss();
-            if (this.oyq != null) {
-                this.oyq.onCancel();
+            if (this.oyr != null) {
+                this.oyr.onCancel();
             }
         } else if (view == this.bUg) {
             dismiss();
-            if (this.oyq != null) {
-                this.oyq.onConfirm();
+            if (this.oyr != null) {
+                this.oyr.onConfirm();
             }
         }
     }
@@ -164,6 +164,6 @@ public class g extends com.baidu.tieba.yuyinala.liveroom.wheat.dialog.a implemen
     }
 
     public void a(a aVar) {
-        this.oyq = aVar;
+        this.oyr = aVar;
     }
 }

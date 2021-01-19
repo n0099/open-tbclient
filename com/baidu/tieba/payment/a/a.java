@@ -11,7 +11,7 @@ import javax.crypto.Cipher;
 public class a {
     public static String encrypt(String str, String str2) {
         try {
-            PublicKey generatePublic = KeyFactory.getInstance(RSAUtil.ALGORITHM_RSA).generatePublic(new X509EncodedKeySpec(c.decode(On(str2))));
+            PublicKey generatePublic = KeyFactory.getInstance(RSAUtil.ALGORITHM_RSA).generatePublic(new X509EncodedKeySpec(c.decode(Oo(str2))));
             Cipher cipher = Cipher.getInstance("RSA/ECB/PKCS1Padding");
             cipher.init(1, generatePublic);
             return c.encodeBytes(cipher.doFinal(str.getBytes("GBK")));
@@ -21,7 +21,7 @@ public class a {
         }
     }
 
-    private static String On(String str) {
+    private static String Oo(String str) {
         return StringUtils.isNull(str) ? "" : str.replace("-----BEGIN PUBLIC KEY-----", "").replace("-----END PUBLIC KEY-----", "");
     }
 }

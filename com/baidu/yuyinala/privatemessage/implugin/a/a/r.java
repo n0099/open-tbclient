@@ -26,7 +26,7 @@ public class r extends d {
     private Context mContext;
     public View mConvertView;
     public ProgressBar mProgressBar;
-    private final ImageView oPa;
+    private final ImageView oPb;
 
     public r(Context context, LayoutInflater layoutInflater) {
         this.mContext = context;
@@ -34,12 +34,12 @@ public class r extends d {
         this.mProgressBar = (ProgressBar) this.mConvertView.findViewById(a.f.bd_im_chating_progress);
         this.jIy = (ImageView) this.mConvertView.findViewById(a.f.bd_im_chating_msg_content_img);
         this.mContentView = this.mConvertView.findViewById(a.f.bd_im_chating_msg_content_layout);
-        this.oNI = (TextView) this.mConvertView.findViewById(a.f.bd_im_chating_time_txt);
-        this.oNL = (ImageView) this.mConvertView.findViewById(a.f.bd_im_headview);
+        this.oNJ = (TextView) this.mConvertView.findViewById(a.f.bd_im_chating_time_txt);
+        this.oNM = (ImageView) this.mConvertView.findViewById(a.f.bd_im_headview);
         this.jjc = (TextView) this.mConvertView.findViewById(a.f.bd_im_user_name);
         this.moR = (TextView) this.mConvertView.findViewById(a.f.bd_im_user_agetime);
-        this.oNM = (TextView) this.mConvertView.findViewById(a.f.bd_im_user_constellation);
-        this.oPa = (ImageView) this.mConvertView.findViewById(a.f.bd_im_chating_msg_play_icon);
+        this.oNN = (TextView) this.mConvertView.findViewById(a.f.bd_im_user_constellation);
+        this.oPb = (ImageView) this.mConvertView.findViewById(a.f.bd_im_chating_msg_play_icon);
         this.amI = (TextView) this.mConvertView.findViewById(a.f.bd_im_chating_msg_video_duration);
         this.mConvertView.setTag(this);
     }
@@ -89,7 +89,7 @@ public class r extends d {
         if (TextUtils.isEmpty(covers)) {
             covers = signleGraphicTextMsg.getCover();
         }
-        this.amI.setText(new SingleGraphicTextMsgExt(signleGraphicTextMsg).oXS);
+        this.amI.setText(new SingleGraphicTextMsgExt(signleGraphicTextMsg).oXT);
         com.baidu.yuyinala.privatemessage.implugin.util.b.hC(this.mContext);
         ImageLoader.getInstance().displayImage(covers, this.jIy, com.baidu.yuyinala.privatemessage.implugin.util.b.ejZ(), new ImageLoadingListener() { // from class: com.baidu.yuyinala.privatemessage.implugin.a.a.r.1
             @Override // com.baidu.sumeru.universalimageloader.core.assist.ImageLoadingListener

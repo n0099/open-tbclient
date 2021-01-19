@@ -17,16 +17,16 @@ public class f {
     private AlaLiveRoomPanelTabHost aCE;
     private View contentView;
     private View mRootView;
-    private YuyinCharmRankTotalActivity ogk;
+    private YuyinCharmRankTotalActivity ogl;
 
     public f(YuyinCharmRankTotalActivity yuyinCharmRankTotalActivity) {
-        this.ogk = yuyinCharmRankTotalActivity;
+        this.ogl = yuyinCharmRankTotalActivity;
         initView();
         bTl();
     }
 
     private void initView() {
-        this.mRootView = LayoutInflater.from(this.ogk).inflate(a.g.yuyin_ala_charm_rank_total_activity_layout, (ViewGroup) null);
+        this.mRootView = LayoutInflater.from(this.ogl).inflate(a.g.yuyin_ala_charm_rank_total_activity_layout, (ViewGroup) null);
         this.contentView = this.mRootView.findViewById(a.f.ala_charm_root_view);
         this.aCE = (AlaLiveRoomPanelTabHost) this.mRootView.findViewById(a.f.ala_charm_tab_host);
         this.aCE.setIndicatorWidthAuto(false);
@@ -40,14 +40,14 @@ public class f {
     }
 
     private void bTl() {
-        Intent intent = this.ogk.getIntent();
+        Intent intent = this.ogl.getIntent();
         String stringExtra = intent.getStringExtra(YuyinAlaCharmRankActivityConfig.C_ROOM_ID);
         String stringExtra2 = intent.getStringExtra("live_id");
         int intExtra = intent.getIntExtra("user_type", 0);
-        final d dVar = new d(this.ogk, 0, stringExtra, stringExtra2, intExtra);
+        final d dVar = new d(this.ogl, 0, stringExtra, stringExtra2, intExtra);
         dVar.createView();
         this.aCB.add(dVar);
-        final d dVar2 = new d(this.ogk, 1, stringExtra, stringExtra2, intExtra);
+        final d dVar2 = new d(this.ogl, 1, stringExtra, stringExtra2, intExtra);
         dVar2.createView();
         this.aCB.add(dVar2);
         this.aCE.setData(this.aCB);

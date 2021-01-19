@@ -70,7 +70,7 @@ public class ConcernPageView extends FrameLayout {
 
     /* loaded from: classes2.dex */
     public interface a {
-        void La(String str);
+        void Lb(String str);
 
         void ai(boolean z, boolean z2);
 
@@ -163,13 +163,13 @@ public class ConcernPageView extends FrameLayout {
             }
 
             @Override // com.baidu.tieba.homepage.concern.d.a
-            public void KZ(String str) {
+            public void La(String str) {
                 ConcernPageView.this.Vq();
                 ConcernPageView.this.hideNoDataView();
                 ConcernPageView.this.hideLoadingView();
                 ConcernPageView.this.cMN();
                 if (ConcernPageView.this.jSs != null) {
-                    ConcernPageView.this.jSs.La(str);
+                    ConcernPageView.this.jSs.Lb(str);
                 }
             }
 
@@ -317,13 +317,13 @@ public class ConcernPageView extends FrameLayout {
             }
 
             @Override // com.baidu.tieba.homepage.concern.d.a
-            public void KZ(String str) {
+            public void La(String str) {
                 ConcernPageView.this.Vq();
                 ConcernPageView.this.hideNoDataView();
                 ConcernPageView.this.hideLoadingView();
                 ConcernPageView.this.cMN();
                 if (ConcernPageView.this.jSs != null) {
-                    ConcernPageView.this.jSs.La(str);
+                    ConcernPageView.this.jSs.Lb(str);
                 }
             }
 
@@ -471,13 +471,13 @@ public class ConcernPageView extends FrameLayout {
             }
 
             @Override // com.baidu.tieba.homepage.concern.d.a
-            public void KZ(String str) {
+            public void La(String str) {
                 ConcernPageView.this.Vq();
                 ConcernPageView.this.hideNoDataView();
                 ConcernPageView.this.hideLoadingView();
                 ConcernPageView.this.cMN();
                 if (ConcernPageView.this.jSs != null) {
-                    ConcernPageView.this.jSs.La(str);
+                    ConcernPageView.this.jSs.Lb(str);
                 }
             }
 
@@ -698,7 +698,7 @@ public class ConcernPageView extends FrameLayout {
         cMP();
     }
 
-    public void bc(String str, int i) {
+    public void bd(String str, int i) {
         this.jSt.a(true, null, i, str);
     }
 

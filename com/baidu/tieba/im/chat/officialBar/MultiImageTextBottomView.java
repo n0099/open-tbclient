@@ -72,11 +72,11 @@ public class MultiImageTextBottomView extends LinearLayout {
                             be.bsB().b(tbPageContext, new String[]{c0758a.url});
                             if (i == 1) {
                                 TiebaStatic.eventStat(MultiImageTextBottomView.this.mContext, "official_msg_ck", "click", 1, "fid", c0758a.fid);
-                                com.baidu.tieba.im.data.d Mu = com.baidu.tieba.im.util.c.Mu(MultiImageTextBottomView.this.ktW);
-                                if (Mu != null) {
-                                    TiebaStatic.eventStat(MultiImageTextBottomView.this.mContext, "message_open_detail", "click", 1, "task_type", Mu.kww, "task_id", Mu.taskId, "loc", "" + MultiImageTextBottomView.this.ktV);
-                                    if ((c0758a.userType == 1 || c0758a.userType == 3) && !"0".equals(Mu.taskId)) {
-                                        com.baidu.tieba.im.b.a.cVY().Mp(Mu.taskId);
+                                com.baidu.tieba.im.data.d Mv = com.baidu.tieba.im.util.c.Mv(MultiImageTextBottomView.this.ktW);
+                                if (Mv != null) {
+                                    TiebaStatic.eventStat(MultiImageTextBottomView.this.mContext, "message_open_detail", "click", 1, "task_type", Mv.kww, "task_id", Mv.taskId, "loc", "" + MultiImageTextBottomView.this.ktV);
+                                    if ((c0758a.userType == 1 || c0758a.userType == 3) && !"0".equals(Mv.taskId)) {
+                                        com.baidu.tieba.im.b.a.cVY().Mq(Mv.taskId);
                                     }
                                 }
                                 aq aqVar = new aq("official_message_open_detail");

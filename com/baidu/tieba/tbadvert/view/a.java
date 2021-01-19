@@ -16,8 +16,8 @@ import com.baidu.tieba.tbadvert.view.CountDownTextView;
 public class a {
     private FrameLayout ajf;
     private Context mContext;
-    private ImageView nrN;
-    private InterfaceC0873a nrO;
+    private ImageView nrO;
+    private InterfaceC0873a nrP;
 
     /* renamed from: com.baidu.tieba.tbadvert.view.a$a  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
@@ -28,7 +28,7 @@ public class a {
     }
 
     public a(Context context, InterfaceC0873a interfaceC0873a) {
-        this.nrO = interfaceC0873a;
+        this.nrP = interfaceC0873a;
         this.mContext = context;
         this.ajf = new FrameLayout(context);
     }
@@ -46,20 +46,20 @@ public class a {
     }
 
     private void i(com.baidu.adp.widget.ImageView.a aVar) {
-        this.nrN = new ImageView(this.mContext);
-        this.nrN.setScaleType(ImageView.ScaleType.CENTER_CROP);
+        this.nrO = new ImageView(this.mContext);
+        this.nrO.setScaleType(ImageView.ScaleType.CENTER_CROP);
         if (aVar != null) {
-            this.nrN.setImageBitmap(aVar.getRawBitmap());
+            this.nrO.setImageBitmap(aVar.getRawBitmap());
         }
-        this.nrN.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.tbadvert.view.a.1
+        this.nrO.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.tbadvert.view.a.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (a.this.nrO != null) {
-                    a.this.nrO.dNj();
+                if (a.this.nrP != null) {
+                    a.this.nrP.dNj();
                 }
             }
         });
-        this.ajf.addView(this.nrN);
+        this.ajf.addView(this.nrO);
     }
 
     private void dNq() {
@@ -104,16 +104,16 @@ public class a {
         countDownTextView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.tbadvert.view.a.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (a.this.nrO != null) {
-                    a.this.nrO.dNk();
+                if (a.this.nrP != null) {
+                    a.this.nrP.dNk();
                 }
             }
         });
         countDownTextView.setTimeoutListener(new CountDownTextView.b() { // from class: com.baidu.tieba.tbadvert.view.a.3
             @Override // com.baidu.tieba.tbadvert.view.CountDownTextView.b
             public void cj(View view) {
-                if (a.this.nrO != null) {
-                    a.this.nrO.dNk();
+                if (a.this.nrP != null) {
+                    a.this.nrP.dNk();
                 }
             }
         });

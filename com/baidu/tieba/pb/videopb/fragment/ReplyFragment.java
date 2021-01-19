@@ -595,13 +595,13 @@ public class ReplyFragment extends BaseVideoPBReplyFragment implements com.baidu
         }
     }
 
-    public void OO(String str) {
+    public void OP(String str) {
         if (this.jiy != null) {
             this.jiy.setText(str);
         }
     }
 
-    public void OP(String str) {
+    public void OQ(String str) {
         if (this.jiy != null) {
             this.jiy.as(str, this.agC);
         }

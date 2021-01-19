@@ -33,7 +33,7 @@ public class GetForumListModel extends BdBaseModel<SignAllForumActivity> {
 
     /* loaded from: classes7.dex */
     public interface a {
-        void Mf(String str);
+        void Mg(String str);
 
         void a(c cVar);
     }
@@ -54,7 +54,7 @@ public class GetForumListModel extends BdBaseModel<SignAllForumActivity> {
                         if (error == 110001) {
                             GetForumListModel.this.d(httpResponsedMessage);
                         }
-                        GetForumListModel.this.ndN.Mf(httpResponsedMessage.getErrorString());
+                        GetForumListModel.this.ndN.Mg(httpResponsedMessage.getErrorString());
                     } else if (error == 0) {
                         GetForumListModel.this.ndM = ((GetForumResponsed) httpResponsedMessage).listData;
                         if (GetForumListModel.this.ndN != null) {
@@ -65,11 +65,11 @@ public class GetForumListModel extends BdBaseModel<SignAllForumActivity> {
                                 if (StringUtils.isNull(errorString)) {
                                     errorString = TbadkCoreApplication.getInst().getContext().getString(R.string.neterror);
                                 }
-                                GetForumListModel.this.ndN.Mf(errorString);
+                                GetForumListModel.this.ndN.Mg(errorString);
                             }
                         }
                     } else {
-                        GetForumListModel.this.ndN.Mf(httpResponsedMessage.getErrorString());
+                        GetForumListModel.this.ndN.Mg(httpResponsedMessage.getErrorString());
                     }
                     GetForumListModel.this.ndO = null;
                 }

@@ -28,28 +28,28 @@ import com.baidu.tieba.themeCenter.dressCenter.e;
 import java.util.List;
 /* loaded from: classes8.dex */
 public class AvatarPendantActivity extends BaseActivity implements View.OnClickListener, SetAvatarPendantModel.a, c.a {
-    private c nvU;
-    private AvatarPendantModel nvV;
-    private SetAvatarPendantModel nvW;
-    private boolean nvY;
-    private String nvX = "";
-    private AvatarPendantModel.a nvZ = new AvatarPendantModel.a() { // from class: com.baidu.tieba.themeCenter.avatarPendant.AvatarPendantActivity.1
+    private c nvV;
+    private AvatarPendantModel nvW;
+    private SetAvatarPendantModel nvX;
+    private boolean nvZ;
+    private String nvY = "";
+    private AvatarPendantModel.a nwa = new AvatarPendantModel.a() { // from class: com.baidu.tieba.themeCenter.avatarPendant.AvatarPendantActivity.1
         @Override // com.baidu.tieba.themeCenter.avatarPendant.AvatarPendantModel.a
         public void a(int i, String str, e eVar, List<a> list) {
-            AvatarPendantActivity.this.hideLoadingView(AvatarPendantActivity.this.nvU.getRootView());
+            AvatarPendantActivity.this.hideLoadingView(AvatarPendantActivity.this.nvV.getRootView());
             if (i == 0) {
-                AvatarPendantActivity.this.nvU.a(eVar, list);
+                AvatarPendantActivity.this.nvV.a(eVar, list);
             } else {
                 AvatarPendantActivity.this.showToast(str);
-                AvatarPendantActivity.this.nvU.czw();
+                AvatarPendantActivity.this.nvV.czw();
             }
-            AvatarPendantActivity.this.nvY = !x.isEmpty(list);
+            AvatarPendantActivity.this.nvZ = !x.isEmpty(list);
         }
     };
     private NoNetworkView.a fJH = new NoNetworkView.a() { // from class: com.baidu.tieba.themeCenter.avatarPendant.AvatarPendantActivity.2
         @Override // com.baidu.tbadk.core.view.NoNetworkView.a
         public void onNetworkChange(boolean z) {
-            BdListViewHelper.a(AvatarPendantActivity.this.nvU.dOQ(), BdListViewHelper.HeadType.DEFAULT, z);
+            BdListViewHelper.a(AvatarPendantActivity.this.nvV.dOQ(), BdListViewHelper.HeadType.DEFAULT, z);
         }
     };
 
@@ -59,38 +59,38 @@ public class AvatarPendantActivity extends BaseActivity implements View.OnClickL
         super.onCreate(bundle);
         initUI();
         initData();
-        showLoadingView(this.nvU.getRootView());
-        this.nvV.LoadData();
+        showLoadingView(this.nvV.getRootView());
+        this.nvW.LoadData();
     }
 
     private void initUI() {
-        this.nvU = new c(this);
-        this.nvU.a(this.fJH);
-        this.nvU.setAvatarPendantItemClickListener(this);
+        this.nvV = new c(this);
+        this.nvV.a(this.fJH);
+        this.nvV.setAvatarPendantItemClickListener(this);
     }
 
     private void initData() {
-        this.nvV = new AvatarPendantModel(this);
-        this.nvV.a(this.nvZ);
-        this.nvW = new SetAvatarPendantModel();
-        this.nvW.a(this);
+        this.nvW = new AvatarPendantModel(this);
+        this.nvW.a(this.nwa);
+        this.nvX = new SetAvatarPendantModel();
+        this.nvX.a(this);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity
     public void onNetRefreshButtonClicked() {
-        if (this.nvV != null && this.nvU != null) {
-            showLoadingView(this.nvU.getRootView());
-            this.nvV.LoadData();
+        if (this.nvW != null && this.nvV != null) {
+            showLoadingView(this.nvV.getRootView());
+            this.nvW.LoadData();
         }
     }
 
     @Override // com.baidu.tieba.themeCenter.avatarPendant.c.a
     public void b(DressItemData dressItemData) {
-        if (GJ() && dressItemData != null && dressItemData.getPropsId() >= 0 && this.nvY) {
-            this.nvX = c(dressItemData);
-            TiebaStatic.log(new aq("c11614").dW("obj_type", this.nvX));
-            this.nvW.i(dressItemData.getPropsId(), 1, dressItemData.getFreeUserLevel());
+        if (GJ() && dressItemData != null && dressItemData.getPropsId() >= 0 && this.nvZ) {
+            this.nvY = c(dressItemData);
+            TiebaStatic.log(new aq("c11614").dW("obj_type", this.nvY));
+            this.nvX.i(dressItemData.getPropsId(), 1, dressItemData.getFreeUserLevel());
         }
     }
 
@@ -98,7 +98,7 @@ public class AvatarPendantActivity extends BaseActivity implements View.OnClickL
         List<a> dOO;
         String str;
         String str2 = "";
-        if (dressItemData != null && (dOO = this.nvV.dOO()) != null && dOO.size() > 0) {
+        if (dressItemData != null && (dOO = this.nvW.dOO()) != null && dOO.size() > 0) {
             int size = dOO.size();
             int i = 0;
             while (i < size) {
@@ -124,8 +124,8 @@ public class AvatarPendantActivity extends BaseActivity implements View.OnClickL
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        this.nvW.onDestroy();
-        this.nvV.onDestory();
+        this.nvX.onDestroy();
+        this.nvW.onDestory();
     }
 
     public void i(int i, String str, int i2) {
@@ -136,9 +136,9 @@ public class AvatarPendantActivity extends BaseActivity implements View.OnClickL
             i3 = 0;
         }
         if (!StringUtils.isNull(str)) {
-            if (i == com.baidu.tieba.themeCenter.c.nvR) {
+            if (i == com.baidu.tieba.themeCenter.c.nvS) {
                 com.baidu.tieba.themeCenter.b.a(getPageContext(), 7, str, i3, MemberPayStatistic.REFER_PAGE_AVANTAR_PENDANT, MemberPayStatistic.CLICK_ZONE_POP_UPS_OPENDE_RENEWWALFEE_BUTTON);
-            } else if (i == com.baidu.tieba.themeCenter.c.nvS) {
+            } else if (i == com.baidu.tieba.themeCenter.c.nvT) {
                 com.baidu.tieba.themeCenter.b.a(getPageContext(), 7, str, i3);
             }
         }
@@ -151,7 +151,7 @@ public class AvatarPendantActivity extends BaseActivity implements View.OnClickL
             i(i2, str, i);
             return;
         }
-        List<a> dOO = this.nvV.dOO();
+        List<a> dOO = this.nvW.dOO();
         if (dOO != null && dOO.size() > 0) {
             if (i == 0) {
                 TiebaStatic.log("c11681");
@@ -181,7 +181,7 @@ public class AvatarPendantActivity extends BaseActivity implements View.OnClickL
             n nVar = new n();
             nVar.ee(j);
             nVar.zM(str3);
-            this.nvU.fV(this.nvV.dOO());
+            this.nvV.fV(this.nvW.dOO());
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_UPDATE_PENDANT, nVar));
         }
     }
@@ -189,7 +189,7 @@ public class AvatarPendantActivity extends BaseActivity implements View.OnClickL
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
-        this.nvU.byV();
+        this.nvV.byV();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -199,7 +199,7 @@ public class AvatarPendantActivity extends BaseActivity implements View.OnClickL
         if (i2 == -1) {
             switch (i) {
                 case RequestResponseCode.REQUEST_LOGIN_AVATAR_PENDANT /* 11041 */:
-                    this.nvV.LoadData();
+                    this.nvW.LoadData();
                     return;
                 default:
                     return;
@@ -218,7 +218,7 @@ public class AvatarPendantActivity extends BaseActivity implements View.OnClickL
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.nvU.dOP().getButton() && GJ()) {
+        if (view == this.nvV.dOP().getButton() && GJ()) {
             TiebaStatic.log("c11613");
             MemberPayActivityConfig memberPayActivityConfig = new MemberPayActivityConfig(getActivity(), TbadkCoreApplication.getCurrentMemberType(), "", 22);
             memberPayActivityConfig.setReferPageClickZone(MemberPayStatistic.REFER_PAGE_AVANTAR_PENDANT, MemberPayStatistic.CLICK_ZONE_OPENDE_RENEWALFEE_BUTTON);

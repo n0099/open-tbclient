@@ -25,8 +25,8 @@ public class d {
     private final Map<String, a> e = Collections.synchronizedMap(new HashMap());
     private final Map<String, a> f = Collections.synchronizedMap(new HashMap());
     private final Handler g = new Handler(Looper.getMainLooper());
-    private final o pkl;
-    private final b pkm;
+    private final o pkm;
+    private final b pkn;
 
     /* loaded from: classes4.dex */
     public interface b {
@@ -48,8 +48,8 @@ public class d {
     }
 
     public d(o oVar, b bVar) {
-        this.pkl = oVar;
-        this.pkm = bVar == null ? new com.bytedance.sdk.adnet.b.a() : bVar;
+        this.pkm = oVar;
+        this.pkn = bVar == null ? new com.bytedance.sdk.adnet.b.a() : bVar;
     }
 
     public void a(String str, InterfaceC0993d interfaceC0993d) {
@@ -78,7 +78,7 @@ public class d {
             }
         });
         String a2 = a(str, i, i2, scaleType);
-        Bitmap a3 = this.pkm.a(a2);
+        Bitmap a3 = this.pkn.a(a2);
         if (a3 != null) {
             final c cVar = new c(a3, str, null, null);
             this.g.post(new Runnable() { // from class: com.bytedance.sdk.adnet.b.d.3
@@ -100,7 +100,7 @@ public class d {
             return;
         }
         Request<Bitmap> b2 = b(str, i, i2, scaleType, a2);
-        this.pkl.j(b2);
+        this.pkm.j(b2);
         this.e.put(a2, new a(b2, cVar2));
     }
 
@@ -129,7 +129,7 @@ public class d {
     }
 
     protected void a(String str, p<Bitmap> pVar) {
-        this.pkm.a(str, pVar.f6045a);
+        this.pkn.a(str, pVar.f6045a);
         a remove = this.e.remove(str);
         if (remove == null) {
             return;
@@ -142,7 +142,7 @@ public class d {
     protected void b(String str, p<Bitmap> pVar) {
         a remove = this.e.remove(str);
         if (remove != null) {
-            remove.b(pVar.pkZ);
+            remove.b(pVar.pla);
             remove.a(pVar);
             a(str, remove);
         }
@@ -155,13 +155,13 @@ public class d {
         private Bitmap f6002b;
         private final String d;
         private final String e;
-        private final InterfaceC0993d pkw;
+        private final InterfaceC0993d pkx;
 
         public c(Bitmap bitmap, String str, String str2, InterfaceC0993d interfaceC0993d) {
             this.f6002b = bitmap;
             this.e = str;
             this.d = str2;
-            this.pkw = interfaceC0993d;
+            this.pkx = interfaceC0993d;
         }
 
         public Bitmap a() {
@@ -178,10 +178,10 @@ public class d {
         private Bitmap c;
         private VAdError d;
         private final List<c> e = Collections.synchronizedList(new ArrayList());
-        private final Request<?> pkv;
+        private final Request<?> pkw;
 
         public a(Request<?> request, c cVar) {
-            this.pkv = request;
+            this.pkw = request;
             this.e.add(cVar);
         }
 
@@ -214,14 +214,14 @@ public class d {
                 a aVar2 = (a) d.this.f.get(str);
                 if (aVar2 != null) {
                     for (c cVar : aVar2.e) {
-                        if (cVar.pkw != null) {
+                        if (cVar.pkx != null) {
                             if (aVar2.eon() == null) {
                                 cVar.f6002b = aVar2.c;
-                                cVar.pkw.a(cVar, false);
+                                cVar.pkx.a(cVar, false);
                             } else {
-                                cVar.pkw.b(aVar2.eoo());
+                                cVar.pkx.b(aVar2.eoo());
                             }
-                            cVar.pkw.b();
+                            cVar.pkx.b();
                         }
                     }
                 }
@@ -231,7 +231,7 @@ public class d {
     }
 
     private String a(String str, int i, int i2, ImageView.ScaleType scaleType) {
-        String a2 = this.pkm.a(str, i, i2, scaleType);
+        String a2 = this.pkn.a(str, i, i2, scaleType);
         if (!TextUtils.isEmpty(a2)) {
             return a2;
         }

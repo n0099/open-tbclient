@@ -36,7 +36,7 @@ public class b {
     private List<Long> d = new ArrayList();
     private List<String> e = new ArrayList();
     private List<Long> f = new ArrayList();
-    private final Application.ActivityLifecycleCallbacks plv = new Application.ActivityLifecycleCallbacks() { // from class: com.bytedance.tea.crash.e.a.b.1
+    private final Application.ActivityLifecycleCallbacks plw = new Application.ActivityLifecycleCallbacks() { // from class: com.bytedance.tea.crash.e.a.b.1
         @Override // android.app.Application.ActivityLifecycleCallbacks
         public void onActivityCreated(Activity activity, Bundle bundle) {
             b.this.g = activity.getClass().getName();
@@ -111,7 +111,7 @@ public class b {
 
     private void c() {
         if (Build.VERSION.SDK_INT >= 14 && this.f7634a != null) {
-            this.f7634a.registerActivityLifecycleCallbacks(this.plv);
+            this.f7634a.registerActivityLifecycleCallbacks(this.plw);
         }
     }
 

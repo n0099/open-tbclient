@@ -12,11 +12,11 @@ import java.util.List;
 /* loaded from: classes8.dex */
 public class b extends BaseAdapter {
     private List<DressItemData> mDataList;
-    private AvatarPendantActivity nwc;
-    private c.a nwd;
+    private AvatarPendantActivity nwd;
+    private c.a nwe;
 
     public b(AvatarPendantActivity avatarPendantActivity) {
-        this.nwc = avatarPendantActivity;
+        this.nwd = avatarPendantActivity;
     }
 
     public void setData(List<DressItemData> list) {
@@ -50,10 +50,10 @@ public class b extends BaseAdapter {
     public View getView(int i, View view, ViewGroup viewGroup) {
         a aVar;
         if (view == null || !(view.getTag() instanceof a)) {
-            view = LayoutInflater.from(this.nwc.getActivity()).inflate(R.layout.avatar_pendant_gridview_item, viewGroup, false);
+            view = LayoutInflater.from(this.nwd.getActivity()).inflate(R.layout.avatar_pendant_gridview_item, viewGroup, false);
             a aVar2 = new a();
-            aVar2.nwe = (AvatarPendantPerItemView) view.findViewById(R.id.avatar_pendant_per_item);
-            aVar2.nwe.setAvatarPendantItemClickListener(this.nwd);
+            aVar2.nwf = (AvatarPendantPerItemView) view.findViewById(R.id.avatar_pendant_per_item);
+            aVar2.nwf.setAvatarPendantItemClickListener(this.nwe);
             view.setTag(aVar2);
             aVar = aVar2;
         } else {
@@ -61,7 +61,7 @@ public class b extends BaseAdapter {
         }
         DressItemData item = getItem(i);
         if (item != null) {
-            aVar.nwe.d(item);
+            aVar.nwf.d(item);
         }
         em(view);
         return view;
@@ -70,20 +70,20 @@ public class b extends BaseAdapter {
     private void em(View view) {
         int skinType = TbadkApplication.getInst().getSkinType();
         if (view != null) {
-            this.nwc.getLayoutMode().setNightMode(skinType == 1);
-            this.nwc.getLayoutMode().onModeChanged(view);
+            this.nwd.getLayoutMode().setNightMode(skinType == 1);
+            this.nwd.getLayoutMode().onModeChanged(view);
         }
     }
 
     /* loaded from: classes8.dex */
     private class a {
-        AvatarPendantPerItemView nwe;
+        AvatarPendantPerItemView nwf;
 
         private a() {
         }
     }
 
     public void setAvatarPendantItemClickListener(c.a aVar) {
-        this.nwd = aVar;
+        this.nwe = aVar;
     }
 }

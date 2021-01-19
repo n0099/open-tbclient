@@ -6,7 +6,7 @@ import android.widget.TextView;
 import androidx.annotation.Nullable;
 /* loaded from: classes10.dex */
 public class CountDownTextView extends TextView {
-    private a oiF;
+    private a oiG;
 
     public CountDownTextView(Context context) {
         super(context);
@@ -17,24 +17,24 @@ public class CountDownTextView extends TextView {
     }
 
     public a getData() {
-        return this.oiF;
+        return this.oiG;
     }
 
     public void setData(a aVar) {
-        this.oiF = aVar;
-        if (this.oiF != null) {
-            setText(aVar.oiH);
+        this.oiG = aVar;
+        if (this.oiG != null) {
+            setText(aVar.oiI);
         }
     }
 
     /* loaded from: classes10.dex */
     public static class a {
-        public int oiG;
-        public String oiH;
+        public int oiH;
+        public String oiI;
 
         public a(int i, String str) {
-            this.oiG = i;
-            this.oiH = str;
+            this.oiH = i;
+            this.oiI = str;
         }
     }
 }

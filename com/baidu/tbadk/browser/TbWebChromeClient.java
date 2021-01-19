@@ -95,7 +95,7 @@ public class TbWebChromeClient extends WebChromeClient {
     public boolean onJsPrompt(WebView webView, String str, String str2, String str3, JsPromptResult jsPromptResult) {
         if (!y.BE(str) && str2.startsWith("tiebaapp")) {
             com.baidu.tieba.tbadkCore.e.a.c cVar = new com.baidu.tieba.tbadkCore.e.a.c();
-            cVar.Sj(com.baidu.tieba.tbadkCore.e.a.g.Sq(str2));
+            cVar.Sk(com.baidu.tieba.tbadkCore.e.a.g.Sr(str2));
             cVar.setStatus(301);
             callJsMethod(webView, cVar.ctj(), cVar.dLV());
         }

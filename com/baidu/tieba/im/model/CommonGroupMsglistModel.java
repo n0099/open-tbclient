@@ -83,7 +83,7 @@ public abstract class CommonGroupMsglistModel extends MsglistModel {
     @Override // com.baidu.tieba.im.model.MsglistModel
     public long getMaxMid() {
         if (getGroup() != null) {
-            return b.cUG().bu(String.valueOf(getGroup().getGroupId()), this.customGroupType);
+            return b.cUG().bv(String.valueOf(getGroup().getGroupId()), this.customGroupType);
         }
         return 0L;
     }

@@ -15,15 +15,15 @@ public class t extends s {
     @kotlin.e
     /* loaded from: classes5.dex */
     public static final class a implements kotlin.sequences.c<T> {
-        final /* synthetic */ Iterable qiS;
+        final /* synthetic */ Iterable qiT;
 
         public a(Iterable iterable) {
-            this.qiS = iterable;
+            this.qiT = iterable;
         }
 
         @Override // kotlin.sequences.c
         public Iterator<T> iterator() {
-            return this.qiS.iterator();
+            return this.qiT.iterator();
         }
     }
 

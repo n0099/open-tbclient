@@ -59,17 +59,17 @@ public class b {
         if (jVar == null || session == null) {
             a((j.c) null);
         } else if (jVar.getType() == 0) {
-            Og(jVar.getAuthToken());
+            Oh(jVar.getAuthToken());
         } else if (jVar.getType() == 1) {
-            Oh(session.bduss);
-        } else if (jVar.getType() == 2) {
             Oi(session.bduss);
+        } else if (jVar.getType() == 2) {
+            Oj(session.bduss);
         } else if (jVar.getType() == 3) {
             dhT();
         }
     }
 
-    private void Og(String str) {
+    private void Oh(String str) {
         Context context = SapiAccountManager.getInstance().getSapiConfiguration().context;
         Intent intent = new Intent(context, AuthActivity.class);
         intent.putExtra("EXTRA_TYPE", 0);
@@ -78,7 +78,7 @@ public class b {
         context.startActivity(intent);
     }
 
-    private void Oh(String str) {
+    private void Oi(String str) {
         Context context = SapiAccountManager.getInstance().getSapiConfiguration().context;
         Intent intent = new Intent(context, AuthActivity.class);
         intent.putExtra("EXTRA_TYPE", 1);
@@ -87,7 +87,7 @@ public class b {
         context.startActivity(intent);
     }
 
-    private void Oi(String str) {
+    private void Oj(String str) {
         Context context = SapiAccountManager.getInstance().getSapiConfiguration().context;
         Intent intent = new Intent(context, AuthActivity.class);
         intent.putExtra("EXTRA_TYPE", 2);

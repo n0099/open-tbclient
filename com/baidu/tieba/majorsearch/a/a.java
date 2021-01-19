@@ -89,7 +89,7 @@ public class a {
     private void dcC() {
         SearchMajorResultItemAdapter.a aVar = new SearchMajorResultItemAdapter.a() { // from class: com.baidu.tieba.majorsearch.a.a.4
             @Override // com.baidu.tieba.majorsearch.adapter.SearchMajorResultItemAdapter.a
-            public void Ni(String str) {
+            public void Nj(String str) {
                 Intent intent = new Intent();
                 intent.putExtra(IntentConfig.SEARCH_MAJOR_NAME, str);
                 a.this.lcj.Z(intent);

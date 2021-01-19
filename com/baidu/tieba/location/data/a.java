@@ -37,7 +37,7 @@ public class a {
             return this.screatString;
         }
 
-        public void MZ(String str) {
+        public void Na(String str) {
             this.screatString = str;
         }
     }

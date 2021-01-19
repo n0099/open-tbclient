@@ -71,7 +71,7 @@ public class c {
     private View b(final Context context, List<p> list, int i) {
         View inflate = LayoutInflater.from(context).inflate(R.layout.topic_scroll_fragment_more, (ViewGroup) null);
         this.iQc = inflate.findViewById(R.id.topic_more_top_view);
-        Cl(this.topHeight);
+        Ck(this.topHeight);
         GridView gridView = (GridView) inflate.findViewById(R.id.topic_scroll_fragment_more_content);
         gridView.setSelector(new ColorDrawable(17170445));
         this.kqy = new b(context, i);
@@ -87,7 +87,7 @@ public class c {
         return inflate;
     }
 
-    public void Cl(int i) {
+    public void Ck(int i) {
         LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.iQc.getLayoutParams();
         layoutParams.height = i;
         this.iQc.setLayoutParams(layoutParams);
@@ -117,7 +117,7 @@ public class c {
         return this.kqs;
     }
 
-    public void Cm(int i) {
+    public void Cl(int i) {
         this.topHeight = i;
     }
 }

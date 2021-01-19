@@ -146,10 +146,10 @@ public class g extends com.baidu.adp.base.d implements NoNetworkView.a {
         }
     }
 
-    public void Dh(int i) {
-        TbTabLayout.e Di = Di(i);
-        if (Di != null) {
-            Di.select();
+    public void Dg(int i) {
+        TbTabLayout.e Dh = Dh(i);
+        if (Dh != null) {
+            Dh.select();
         }
     }
 
@@ -160,7 +160,7 @@ public class g extends com.baidu.adp.base.d implements NoNetworkView.a {
         return this.gcC.aZ(this.gcC.getSelectedTabPosition());
     }
 
-    public TbTabLayout.e Di(int i) {
+    public TbTabLayout.e Dh(int i) {
         int tabCount;
         if (this.gcC != null && (tabCount = this.gcC.getTabCount()) > 0) {
             for (int i2 = 0; i2 < tabCount; i2++) {

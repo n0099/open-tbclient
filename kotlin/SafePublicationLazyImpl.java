@@ -9,7 +9,7 @@ import kotlin.jvm.internal.p;
 /* loaded from: classes5.dex */
 public final class SafePublicationLazyImpl<T> implements Serializable, c<T> {
     public static final a Companion = new a(null);
-    private static final AtomicReferenceFieldUpdater<SafePublicationLazyImpl<?>, Object> qiH = AtomicReferenceFieldUpdater.newUpdater(SafePublicationLazyImpl.class, Object.class, "_value");
+    private static final AtomicReferenceFieldUpdater<SafePublicationLazyImpl<?>, Object> qiI = AtomicReferenceFieldUpdater.newUpdater(SafePublicationLazyImpl.class, Object.class, "_value");
     private volatile Object _value;
 
     /* renamed from: final  reason: not valid java name */
@@ -19,18 +19,18 @@ public final class SafePublicationLazyImpl<T> implements Serializable, c<T> {
     public SafePublicationLazyImpl(kotlin.jvm.a.a<? extends T> aVar) {
         p.o(aVar, "initializer");
         this.initializer = aVar;
-        this._value = g.qiI;
-        this.f1023final = g.qiI;
+        this._value = g.qiJ;
+        this.f1023final = g.qiJ;
     }
 
     @Override // kotlin.c
     public T getValue() {
         T t = (T) this._value;
-        if (t == g.qiI) {
+        if (t == g.qiJ) {
             kotlin.jvm.a.a<? extends T> aVar = this.initializer;
             if (aVar != null) {
                 T invoke = aVar.invoke();
-                if (Companion.eIA().compareAndSet(this, g.qiI, invoke)) {
+                if (Companion.eIA().compareAndSet(this, g.qiJ, invoke)) {
                     this.initializer = null;
                     return invoke;
                 }
@@ -41,7 +41,7 @@ public final class SafePublicationLazyImpl<T> implements Serializable, c<T> {
     }
 
     public boolean isInitialized() {
-        return this._value != g.qiI;
+        return this._value != g.qiJ;
     }
 
     public String toString() {
@@ -64,7 +64,7 @@ public final class SafePublicationLazyImpl<T> implements Serializable, c<T> {
 
         /* JADX INFO: Access modifiers changed from: private */
         public final AtomicReferenceFieldUpdater<SafePublicationLazyImpl<?>, Object> eIA() {
-            return SafePublicationLazyImpl.qiH;
+            return SafePublicationLazyImpl.qiI;
         }
     }
 }

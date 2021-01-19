@@ -73,8 +73,8 @@ public class FrsGameStrategyItemListView extends FrameLayout implements com.baid
                     if (bkV.boz() == null || bkV.boz().getGroup_id() == 0 || bg.checkUpIsLogin(FrsGameStrategyItemListView.this.mPageContext.getPageActivity())) {
                         if (bkV.bok() != 1 || bg.checkUpIsLogin(FrsGameStrategyItemListView.this.mPageContext.getPageActivity())) {
                             com.baidu.tieba.tbadkCore.util.d readThreadHistory = TbadkCoreApplication.getInst().getReadThreadHistory();
-                            if (readThreadHistory != null && !readThreadHistory.SC(bkV.getId())) {
-                                readThreadHistory.SB(bkV.getId());
+                            if (readThreadHistory != null && !readThreadHistory.SD(bkV.getId())) {
+                                readThreadHistory.SC(bkV.getId());
                                 FrsGameStrategyItemListView.this.jsI.notifyDataSetChanged();
                             }
                             boolean z = false;

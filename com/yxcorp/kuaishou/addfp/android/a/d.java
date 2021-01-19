@@ -64,7 +64,7 @@ public final class d {
                 String str = "";
                 if (Build.VERSION.SDK_INT < 29) {
                     try {
-                        str = f.je(context).qbW.b();
+                        str = f.je(context).qbX.b();
                     } catch (Throwable th) {
                     }
                     if (TextUtils.isEmpty(str) || str.startsWith("KWE")) {
@@ -198,7 +198,7 @@ public final class d {
                 return "";
             }
             try {
-                a2 = f.je(context).qbW.a();
+                a2 = f.je(context).qbX.a();
             } catch (Throwable th) {
             }
             if ((TextUtils.isEmpty(a2) || a2.startsWith("KWE")) && (telephonyManager = (TelephonyManager) context.getSystemService("phone")) != null) {
@@ -248,7 +248,7 @@ public final class d {
 
     public static String d(Context context) {
         try {
-            String m = com.yxcorp.kuaishou.addfp.a.eHe().m(context, b.qbT.b(), false);
+            String m = com.yxcorp.kuaishou.addfp.a.eHe().m(context, b.qbU.b(), false);
             return !TextUtils.isEmpty(m) ? m : "KWE_N";
         } catch (Throwable th) {
             com.yxcorp.kuaishou.addfp.android.b.b.a(th);
@@ -392,12 +392,12 @@ public final class d {
             if (TextUtils.isEmpty(a2) && TextUtils.isEmpty(str)) {
                 return "KWE_N";
             }
-            LinkedHashMap aaN = c.jc(context).aaN(a2);
-            if (aaN == null || aaN.size() == 0) {
-                aaN = c.jc(context).aaN(str);
+            LinkedHashMap aaO = c.jc(context).aaO(a2);
+            if (aaO == null || aaO.size() == 0) {
+                aaO = c.jc(context).aaO(str);
             }
-            if (aaN != null && aaN.size() > 0) {
-                ListIterator listIterator = new ArrayList(aaN.entrySet()).listIterator(aaN.size());
+            if (aaO != null && aaO.size() > 0) {
+                ListIterator listIterator = new ArrayList(aaO.entrySet()).listIterator(aaO.size());
                 JSONObject jSONObject = new JSONObject();
                 while (listIterator.hasPrevious() && i < 10) {
                     try {
@@ -537,7 +537,7 @@ public final class d {
             if (TextUtils.isEmpty(b2) || f14383a.equals(Config.DEF_MAC_ID)) {
                 if (com.yxcorp.kuaishou.addfp.android.b.e.a(context, new String[]{"android.permission.ACCESS_WIFI_STATE"}) && context != null) {
                     try {
-                        f14383a = f.je(context).qbX.a();
+                        f14383a = f.je(context).qbY.a();
                     } catch (Throwable th) {
                     }
                     if (TextUtils.isEmpty(f14383a)) {

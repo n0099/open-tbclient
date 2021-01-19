@@ -47,8 +47,8 @@ public class ConcernPageRequestMessage extends NetMessage {
     }
 
     private String buildAdParam() {
-        int QN = TextUtils.isEmpty(this.pageTag) ? 0 : com.baidu.tieba.recapp.report.b.dCd().QN("CONCERN");
-        return AdExtParam.a.bEB().rx(QN).Dp(TbadkCoreApplication.getInst().getCuidGalaxy2()).Dq(com.baidu.tieba.recapp.report.b.dCd().QL("CONCERN")).bEC();
+        int QO = TextUtils.isEmpty(this.pageTag) ? 0 : com.baidu.tieba.recapp.report.b.dCd().QO("CONCERN");
+        return AdExtParam.a.bEB().rx(QO).Dp(TbadkCoreApplication.getInst().getCuidGalaxy2()).Dq(com.baidu.tieba.recapp.report.b.dCd().QM("CONCERN")).bEC();
     }
 
     public String getPageTag() {

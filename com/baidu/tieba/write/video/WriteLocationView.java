@@ -17,8 +17,8 @@ public class WriteLocationView extends LocationInfoView {
     private final LocationModel.a fBF;
     private LocationModel fBr;
     private int fBx;
-    private BaseActivity<?> nXl;
-    private final CustomMessageListener npA;
+    private BaseActivity<?> nXm;
+    private final CustomMessageListener npB;
 
     public WriteLocationView(Context context) {
         this(context, null);
@@ -30,15 +30,15 @@ public class WriteLocationView extends LocationInfoView {
         this.fBF = new LocationModel.a() { // from class: com.baidu.tieba.write.video.WriteLocationView.1
             @Override // com.baidu.tieba.tbadkCore.location.LocationModel.a
             public void bBP() {
-                WriteLocationView.this.nXl.showToast(R.string.no_network_guide);
+                WriteLocationView.this.nXm.showToast(R.string.no_network_guide);
                 WriteLocationView.this.b(0, true, null);
             }
 
             @Override // com.baidu.tieba.tbadkCore.location.LocationModel.a
             public void onFail(String str) {
-                BaseActivity baseActivity = WriteLocationView.this.nXl;
+                BaseActivity baseActivity = WriteLocationView.this.nXm;
                 if (StringUtils.isNull(str)) {
-                    str = WriteLocationView.this.nXl.getResources().getString(R.string.location_fail);
+                    str = WriteLocationView.this.nXm.getResources().getString(R.string.location_fail);
                 }
                 baseActivity.showToast(str);
                 WriteLocationView.this.b(0, true, null);
@@ -53,7 +53,7 @@ public class WriteLocationView extends LocationInfoView {
                 }
             }
         };
-        this.npA = new CustomMessageListener(CmdConfigCustom.CMD_SELECT_LOCATION) { // from class: com.baidu.tieba.write.video.WriteLocationView.2
+        this.npB = new CustomMessageListener(CmdConfigCustom.CMD_SELECT_LOCATION) { // from class: com.baidu.tieba.write.video.WriteLocationView.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {

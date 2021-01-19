@@ -130,7 +130,7 @@ public class GiftTabView implements ViewPager.OnPageChangeListener {
 
     /* loaded from: classes8.dex */
     public interface f {
-        void AW(int i);
+        void AV(int i);
     }
 
     public GiftTabView(GiftTabActivity giftTabActivity, View.OnClickListener onClickListener) {
@@ -359,7 +359,7 @@ public class GiftTabView implements ViewPager.OnPageChangeListener {
                 public void onClick(View view) {
                     if (GiftTabView.this.jOg != null) {
                         GiftTabView.this.aYA.append(GiftTabView.this.aYt, true);
-                        GiftTabView.this.jOg.AW(((com.baidu.tieba.gift.giftTab.c) GiftTabView.this.aXO.get(GiftTabView.this.aYt)).getCategoryId());
+                        GiftTabView.this.jOg.AV(((com.baidu.tieba.gift.giftTab.c) GiftTabView.this.aXO.get(GiftTabView.this.aYt)).getCategoryId());
                     }
                 }
             });
@@ -812,7 +812,7 @@ public class GiftTabView implements ViewPager.OnPageChangeListener {
         if (i >= 0 && i < childCount && this.aXO != null && this.aXO.size() > i && this.aXO.get(i) != null && !this.aYA.get(i)) {
             if ((this.aXO.get(i).Dg() == null || this.aXO.get(i).Dg().size() <= 0) && this.jOg != null) {
                 this.aYA.append(i, true);
-                this.jOg.AW(this.aXO.get(i).getCategoryId());
+                this.jOg.AV(this.aXO.get(i).getCategoryId());
             }
         }
     }
@@ -855,7 +855,7 @@ public class GiftTabView implements ViewPager.OnPageChangeListener {
         }
     }
 
-    public void AZ(int i) {
+    public void AY(int i) {
         this.freeChance = i;
         cLT();
         if (this.jOh != null && this.jOh.aFw == 5) {
@@ -871,7 +871,7 @@ public class GiftTabView implements ViewPager.OnPageChangeListener {
         this.jNF = eVar;
     }
 
-    public void KI(String str) {
+    public void KJ(String str) {
         this.addFreeUrl = str;
     }
 

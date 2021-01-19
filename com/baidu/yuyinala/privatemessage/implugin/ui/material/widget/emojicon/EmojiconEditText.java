@@ -10,7 +10,7 @@ import com.baidu.yuyinala.privatemessage.implugin.util.f;
 import java.lang.reflect.Field;
 /* loaded from: classes10.dex */
 public class EmojiconEditText extends EditText {
-    private int oUu;
+    private int oUv;
 
     public EmojiconEditText(Context context) {
         super(context);
@@ -28,7 +28,7 @@ public class EmojiconEditText extends EditText {
 
     private void a(AttributeSet attributeSet, Context context) {
         TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, a.j.Emojicon);
-        this.oUu = (int) obtainStyledAttributes.getDimension(a.j.Emojicon_emojiconSize, getTextSize() + f.dip2px(context, 2.0f));
+        this.oUv = (int) obtainStyledAttributes.getDimension(a.j.Emojicon_emojiconSize, getTextSize() + f.dip2px(context, 2.0f));
         try {
             Field declaredField = getClass().getDeclaredField("mCursorDrawableRes");
             declaredField.setAccessible(true);
@@ -43,10 +43,10 @@ public class EmojiconEditText extends EditText {
 
     @Override // android.widget.TextView
     protected void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-        b.a(getContext(), getText(), this.oUu, i, i2, i3);
+        b.a(getContext(), getText(), this.oUv, i, i2, i3);
     }
 
     public void setEmojiconSize(int i) {
-        this.oUu = i;
+        this.oUv = i;
     }
 }

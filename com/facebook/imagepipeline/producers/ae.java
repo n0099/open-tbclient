@@ -8,21 +8,21 @@ import java.util.Map;
 import javax.annotation.Nullable;
 /* loaded from: classes3.dex */
 public class ae implements aj<com.facebook.imagepipeline.f.e> {
-    private final com.facebook.common.memory.a poT;
-    private final com.facebook.common.memory.g pwB;
-    private final af pyw;
+    private final com.facebook.common.memory.a poU;
+    private final com.facebook.common.memory.g pwC;
+    private final af pyx;
 
     public ae(com.facebook.common.memory.g gVar, com.facebook.common.memory.a aVar, af afVar) {
-        this.pwB = gVar;
-        this.poT = aVar;
-        this.pyw = afVar;
+        this.pwC = gVar;
+        this.poU = aVar;
+        this.pyx = afVar;
     }
 
     @Override // com.facebook.imagepipeline.producers.aj
     public void a(k<com.facebook.imagepipeline.f.e> kVar, ak akVar) {
         akVar.ewQ().hm(akVar.getId(), "NetworkFetchProducer");
-        final t d = this.pyw.d(kVar, akVar);
-        this.pyw.a((af) d, new af.a() { // from class: com.facebook.imagepipeline.producers.ae.1
+        final t d = this.pyx.d(kVar, akVar);
+        this.pyx.a((af) d, new af.a() { // from class: com.facebook.imagepipeline.producers.ae.1
             @Override // com.facebook.imagepipeline.producers.af.a
             public void f(InputStream inputStream, int i) throws IOException {
                 ae.this.a(d, inputStream, i);
@@ -43,11 +43,11 @@ public class ae implements aj<com.facebook.imagepipeline.f.e> {
     protected void a(t tVar, InputStream inputStream, int i) throws IOException {
         com.facebook.common.memory.i eqo;
         if (i > 0) {
-            eqo = this.pwB.OA(i);
+            eqo = this.pwC.OA(i);
         } else {
-            eqo = this.pwB.eqo();
+            eqo = this.pwC.eqo();
         }
-        byte[] bArr = this.poT.get(16384);
+        byte[] bArr = this.poU.get(16384);
         while (true) {
             try {
                 int read = inputStream.read(bArr);
@@ -58,12 +58,12 @@ public class ae implements aj<com.facebook.imagepipeline.f.e> {
                         tVar.exc().aX(eh(eqo.size(), i));
                     }
                 } else {
-                    this.pyw.a((af) tVar, eqo.size());
+                    this.pyx.a((af) tVar, eqo.size());
                     b(eqo, tVar);
                     return;
                 }
             } finally {
-                this.poT.release(bArr);
+                this.poU.release(bArr);
                 eqo.close();
             }
         }
@@ -128,15 +128,15 @@ public class ae implements aj<com.facebook.imagepipeline.f.e> {
 
     private boolean c(t tVar) {
         if (tVar.exd().ewU()) {
-            return this.pyw.a(tVar);
+            return this.pyx.a(tVar);
         }
         return false;
     }
 
     @Nullable
     private Map<String, String> b(t tVar, int i) {
-        if (tVar.ewQ().Ys(tVar.getId())) {
-            return this.pyw.b(tVar, i);
+        if (tVar.ewQ().Yt(tVar.getId())) {
+            return this.pyx.b(tVar, i);
         }
         return null;
     }

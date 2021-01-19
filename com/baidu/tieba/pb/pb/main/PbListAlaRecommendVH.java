@@ -67,7 +67,7 @@ public class PbListAlaRecommendVH extends TypeAdapter.ViewHolder implements View
     }
 
     public void a(x xVar) {
-        BL(TbadkCoreApplication.getInst().getSkinType());
+        BK(TbadkCoreApplication.getInst().getSkinType());
         if (xVar != null) {
             this.lLJ = xVar;
             this.jZs.setOnClickListener(this);
@@ -172,7 +172,7 @@ public class PbListAlaRecommendVH extends TypeAdapter.ViewHolder implements View
         }
     }
 
-    private void BL(int i) {
+    private void BK(int i) {
         if (this.akf != i) {
             com.baidu.tbadk.core.util.ao.c(this.jZs, R.color.CAM_X0205, R.color.CAM_X0204, i);
             com.baidu.tbadk.core.util.ao.setViewTextColor(this.knN, R.color.CAM_X0105, 1, i);

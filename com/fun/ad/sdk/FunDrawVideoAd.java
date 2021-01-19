@@ -67,10 +67,10 @@ public class FunDrawVideoAd {
             }
             FunDrawVideoAd.this.ripKsAd();
             if (FunDrawVideoAd.this.mRippedKSAd != null) {
-                ((d.a) com.fun.ad.d.pEt).a(FunDrawVideoAd.this.mSid, FunAdType.KS_DRAW_VIDEO, FunDrawVideoAd.this.mAid, FunDrawVideoAd.this.mRippedKSAd.appPackageName, FunDrawVideoAd.this.mRippedKSAd.appDownloadUrl);
+                ((d.a) com.fun.ad.d.pEu).a(FunDrawVideoAd.this.mSid, FunAdType.KS_DRAW_VIDEO, FunDrawVideoAd.this.mAid, FunDrawVideoAd.this.mRippedKSAd.appPackageName, FunDrawVideoAd.this.mRippedKSAd.appDownloadUrl);
                 return;
             }
-            ((d.a) com.fun.ad.d.pEt).a(FunDrawVideoAd.this.mSid, FunAdType.KS_DRAW_VIDEO, FunDrawVideoAd.this.mAid, (String) null, (String) null);
+            ((d.a) com.fun.ad.d.pEu).a(FunDrawVideoAd.this.mSid, FunAdType.KS_DRAW_VIDEO, FunDrawVideoAd.this.mAid, (String) null, (String) null);
         }
 
         @Override // com.kwad.sdk.api.KsDrawAd.AdInteractionListener
@@ -80,7 +80,7 @@ public class FunDrawVideoAd {
             if (funDrawVideoAdInteractionListener != null) {
                 funDrawVideoAdInteractionListener.onAdShow(FunDrawVideoAd.this.mSid);
             }
-            ((d.a) com.fun.ad.d.pEt).d(FunDrawVideoAd.this.mSid, FunAdType.KS_DRAW_VIDEO, FunDrawVideoAd.this.mAid);
+            ((d.a) com.fun.ad.d.pEu).d(FunDrawVideoAd.this.mSid, FunAdType.KS_DRAW_VIDEO, FunDrawVideoAd.this.mAid);
         }
 
         @Override // com.kwad.sdk.api.KsDrawAd.AdInteractionListener
@@ -230,10 +230,10 @@ public class FunDrawVideoAd {
                 funDrawVideoAdInteractionListener.onAdClick(FunDrawVideoAd.this.mSid);
             }
             if (FunDrawVideoAd.this.mRippedCSJAd != null) {
-                ((d.a) com.fun.ad.d.pEt).a(FunDrawVideoAd.this.mSid, FunAdType.CSJ_DRAW_VIDEO, FunDrawVideoAd.this.mAid, FunDrawVideoAd.this.mRippedCSJAd.appPackageName, FunDrawVideoAd.this.mRippedCSJAd.appLinkUrl);
+                ((d.a) com.fun.ad.d.pEu).a(FunDrawVideoAd.this.mSid, FunAdType.CSJ_DRAW_VIDEO, FunDrawVideoAd.this.mAid, FunDrawVideoAd.this.mRippedCSJAd.appPackageName, FunDrawVideoAd.this.mRippedCSJAd.appLinkUrl);
                 return;
             }
-            ((d.a) com.fun.ad.d.pEt).a(FunDrawVideoAd.this.mSid, FunAdType.CSJ_DRAW_VIDEO, FunDrawVideoAd.this.mAid, (String) null, (String) null);
+            ((d.a) com.fun.ad.d.pEu).a(FunDrawVideoAd.this.mSid, FunAdType.CSJ_DRAW_VIDEO, FunDrawVideoAd.this.mAid, (String) null, (String) null);
         }
 
         @Override // com.bytedance.sdk.openadsdk.TTNativeExpressAd.ExpressAdInteractionListener
@@ -243,7 +243,7 @@ public class FunDrawVideoAd {
             if (funDrawVideoAdInteractionListener != null) {
                 funDrawVideoAdInteractionListener.onAdShow(FunDrawVideoAd.this.mSid);
             }
-            ((d.a) com.fun.ad.d.pEt).d(FunDrawVideoAd.this.mSid, FunAdType.CSJ_DRAW_VIDEO, FunDrawVideoAd.this.mAid);
+            ((d.a) com.fun.ad.d.pEu).d(FunDrawVideoAd.this.mSid, FunAdType.CSJ_DRAW_VIDEO, FunDrawVideoAd.this.mAid);
         }
 
         @Override // com.bytedance.sdk.openadsdk.TTNativeExpressAd.ExpressAdInteractionListener

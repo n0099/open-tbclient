@@ -33,7 +33,7 @@ public class WinDReceiver extends BroadcastReceiver {
                     try {
                         z.a(info, 302);
                         if (info != null && !TextUtils.isEmpty(info.getVv_ins_urls())) {
-                            z.aaD(info.getVv_ins_urls());
+                            z.aaE(info.getVv_ins_urls());
                         }
                     } catch (Exception e) {
                         e.printStackTrace();

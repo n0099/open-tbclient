@@ -93,7 +93,7 @@ public class LegoListFragment extends BaseFragment {
         @Override // com.baidu.tieba.lego.card.view.m
         public void mc(String str) {
             if (LegoListFragment.this.kRM != null) {
-                LegoListFragment.this.kRM.MU(str);
+                LegoListFragment.this.kRM.MV(str);
             }
         }
     };
@@ -626,7 +626,7 @@ public class LegoListFragment extends BaseFragment {
     public void onPrimary() {
         super.onPrimary();
         if (!TextUtils.isEmpty(this.kSK)) {
-            this.kSB.MX(this.kSK);
+            this.kSB.MY(this.kSK);
             if (this.kSB.daR()) {
                 eK(this.kSB.daQ());
                 this.kSA.a(this.kSB, true);
@@ -789,13 +789,13 @@ public class LegoListFragment extends BaseFragment {
         super.onChangeSkinType(i);
     }
 
-    public void MM(String str) {
+    public void MN(String str) {
         this.kSK = str;
     }
 
     public void fI(String str, String str2) {
-        this.kSI = a.C0773a.MP(str);
-        this.kSI.MQ(str2);
+        this.kSI = a.C0773a.MQ(str);
+        this.kSI.MR(str2);
     }
 
     public void tp(boolean z) {

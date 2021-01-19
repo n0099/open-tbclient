@@ -3,7 +3,7 @@ package com.cmic.sso.sdk.e;
 import android.util.Log;
 /* loaded from: classes6.dex */
 public class c {
-    private static final c pmK = new c();
+    private static final c pmL = new c();
 
     /* renamed from: b  reason: collision with root package name */
     private static boolean f7722b = false;

@@ -28,8 +28,8 @@ public class e implements com.baidu.adp.widget.ListView.n {
             this.leo = new d();
             this.leo.Ea(4);
             this.leo.setCategoryName(vipSpecialList.class_name);
-            this.leo.Nk(vipSpecialList.class_url_name);
-            this.leo.Nl(vipSpecialList.class_url);
+            this.leo.Nl(vipSpecialList.class_url_name);
+            this.leo.Nm(vipSpecialList.class_url);
             if (TbadkCoreApplication.isLogin()) {
                 str = TbadkCoreApplication.getCurrentAccount();
             } else {

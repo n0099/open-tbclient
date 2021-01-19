@@ -9,7 +9,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class g {
-    public static String So(String str) {
+    public static String Sp(String str) {
         String[] split;
         String[] split2;
         String[] split3;
@@ -19,7 +19,7 @@ public class g {
         return split3[split3.length - 1];
     }
 
-    public static String Sp(String str) {
+    public static String Sq(String str) {
         String[] split;
         String[] split2;
         String str2;
@@ -36,7 +36,7 @@ public class g {
         }
     }
 
-    public static String Sq(String str) {
+    public static String Sr(String str) {
         Uri parse;
         if (at.isEmpty(str) || (parse = Uri.parse(str)) == null) {
             return null;
@@ -44,7 +44,7 @@ public class g {
         return parse.getQueryParameter(BuyTBeanActivityConfig.CALLBACK);
     }
 
-    public static String Sr(String str) {
+    public static String Ss(String str) {
         Uri parse;
         if (at.isEmpty(str) || (parse = Uri.parse(str)) == null) {
             return null;
@@ -52,7 +52,7 @@ public class g {
         return parse.getQueryParameter("notificationName");
     }
 
-    public static String Ss(String str) {
+    public static String St(String str) {
         Uri parse;
         if (at.isEmpty(str) || (parse = Uri.parse(str)) == null) {
             return null;
@@ -60,7 +60,7 @@ public class g {
         return parse.getQueryParameter(UnitedSchemeConstants.UNITED_SCHEME_UPGRADE);
     }
 
-    public static JSONObject St(String str) throws JSONException {
+    public static JSONObject Su(String str) throws JSONException {
         if (at.isEmpty(str)) {
             return new JSONObject();
         }

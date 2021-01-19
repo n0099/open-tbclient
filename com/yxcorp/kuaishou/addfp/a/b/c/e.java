@@ -11,21 +11,21 @@ public final class e {
     /* renamed from: a  reason: collision with root package name */
     private Context f14350a;
     private CountDownLatch d = new CountDownLatch(1);
-    private ServiceConnection pbC = new f(this);
-    private a qbC;
-    private com.yxcorp.kuaishou.addfp.a.b.b qbx;
+    private ServiceConnection pbD = new f(this);
+    private a qbD;
+    private com.yxcorp.kuaishou.addfp.a.b.b qby;
 
     public e(Context context, com.yxcorp.kuaishou.addfp.a.b.b bVar) {
         this.f14350a = null;
         try {
             this.f14350a = context;
-            this.qbx = bVar;
+            this.qby = bVar;
             Intent intent = new Intent();
             intent.setClassName("com.zui.deviceidservice", "com.zui.deviceidservice.DeviceidService");
-            if (this.f14350a.bindService(intent, this.pbC, 1)) {
+            if (this.f14350a.bindService(intent, this.pbD, 1)) {
                 com.yxcorp.kuaishou.addfp.android.b.b.b("bindService Successful!");
                 this.d.await(2000L, TimeUnit.MILLISECONDS);
-                if (this.qbC != null) {
+                if (this.qbD != null) {
                     a(true);
                 } else {
                     a(false);
@@ -43,9 +43,9 @@ public final class e {
     private void a(boolean z) {
         try {
             if (z) {
-                this.qbx.a(this.qbC);
+                this.qby.a(this.qbD);
             } else {
-                this.qbx.e();
+                this.qby.e();
             }
         } catch (Throwable th) {
             com.yxcorp.kuaishou.addfp.android.b.b.a(th);
@@ -54,8 +54,8 @@ public final class e {
 
     public final String a() {
         try {
-            if (this.qbC != null) {
-                return this.qbC.a();
+            if (this.qbD != null) {
+                return this.qbD.a();
             }
         } catch (Throwable th) {
             com.yxcorp.kuaishou.addfp.android.b.b.a(th);
@@ -65,8 +65,8 @@ public final class e {
 
     public final String b() {
         try {
-            if (this.qbC != null) {
-                return this.qbC.b();
+            if (this.qbD != null) {
+                return this.qbD.b();
             }
         } catch (Throwable th) {
             com.yxcorp.kuaishou.addfp.android.b.b.a(th);
@@ -76,10 +76,10 @@ public final class e {
 
     public final boolean c() {
         try {
-            if (this.qbC == null) {
+            if (this.qbD == null) {
                 return false;
             }
-            return this.qbC.c();
+            return this.qbD.c();
         } catch (Throwable th) {
             com.yxcorp.kuaishou.addfp.android.b.b.a(th);
             return false;
@@ -92,8 +92,8 @@ public final class e {
             com.yxcorp.kuaishou.addfp.android.b.b.b("empty pkg");
         } else {
             try {
-                if (this.qbC != null) {
-                    return this.qbC.a(packageName);
+                if (this.qbD != null) {
+                    return this.qbD.a(packageName);
                 }
             } catch (Throwable th) {
                 com.yxcorp.kuaishou.addfp.android.b.b.a(th);
@@ -108,8 +108,8 @@ public final class e {
             com.yxcorp.kuaishou.addfp.android.b.b.b("empty pkg");
         } else {
             try {
-                if (this.qbC != null) {
-                    return this.qbC.b(packageName);
+                if (this.qbD != null) {
+                    return this.qbD.b(packageName);
                 }
             } catch (Throwable th) {
                 com.yxcorp.kuaishou.addfp.android.b.b.a(th);
@@ -120,11 +120,11 @@ public final class e {
 
     public final void f() {
         try {
-            this.f14350a.unbindService(this.pbC);
+            this.f14350a.unbindService(this.pbD);
             com.yxcorp.kuaishou.addfp.android.b.b.b("unBind Service");
         } catch (Throwable th) {
             com.yxcorp.kuaishou.addfp.android.b.b.a(th);
         }
-        this.qbC = null;
+        this.qbD = null;
     }
 }

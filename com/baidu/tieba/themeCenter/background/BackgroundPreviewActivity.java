@@ -11,20 +11,20 @@ import com.baidu.tieba.themeCenter.background.BackgroundPreviewModel;
 /* loaded from: classes8.dex */
 public class BackgroundPreviewActivity extends BaseActivity<BackgroundPreviewActivity> {
     private int mFrom;
-    private int nwW;
-    private BackgroundPreviewModel nxo;
-    private j nxp;
-    private int nxq;
-    private BackgroundPreviewModel.a nxr = new BackgroundPreviewModel.a() { // from class: com.baidu.tieba.themeCenter.background.BackgroundPreviewActivity.1
+    private int nwX;
+    private BackgroundPreviewModel nxp;
+    private j nxq;
+    private int nxr;
+    private BackgroundPreviewModel.a nxs = new BackgroundPreviewModel.a() { // from class: com.baidu.tieba.themeCenter.background.BackgroundPreviewActivity.1
         @Override // com.baidu.tieba.themeCenter.background.BackgroundPreviewModel.a
         public void a(int i, String str, DressItemData dressItemData) {
-            BackgroundPreviewActivity.this.hideLoadingView(BackgroundPreviewActivity.this.nxp.getRootView());
+            BackgroundPreviewActivity.this.hideLoadingView(BackgroundPreviewActivity.this.nxq.getRootView());
             if (i == 0) {
-                BackgroundPreviewActivity.this.nxp.g(dressItemData);
+                BackgroundPreviewActivity.this.nxq.g(dressItemData);
                 return;
             }
             BackgroundPreviewActivity.this.showToast(str);
-            BackgroundPreviewActivity.this.nxp.czw();
+            BackgroundPreviewActivity.this.nxq.czw();
         }
     };
 
@@ -35,15 +35,15 @@ public class BackgroundPreviewActivity extends BaseActivity<BackgroundPreviewAct
         TbadkCoreApplication.getInst().setThemeWebviewOpen(false);
         Intent intent = getIntent();
         if (intent != null) {
-            this.nwW = intent.getIntExtra(PersonalBackgroundPreviewActivityConfig.PROPID, 0);
-            this.nxq = intent.getIntExtra(PersonalBackgroundPreviewActivityConfig.INUSE, 0);
+            this.nwX = intent.getIntExtra(PersonalBackgroundPreviewActivityConfig.PROPID, 0);
+            this.nxr = intent.getIntExtra(PersonalBackgroundPreviewActivityConfig.INUSE, 0);
             this.mFrom = intent.getIntExtra("from", -1);
         }
-        this.nxo = new BackgroundPreviewModel(this.nwW, this.nxq);
-        this.nxo.a(this.nxr);
-        this.nxp = new j(this);
-        showLoadingView(this.nxp.getRootView());
-        this.nxp.setExpandListRefreshListener(new BdExpandListView.a() { // from class: com.baidu.tieba.themeCenter.background.BackgroundPreviewActivity.2
+        this.nxp = new BackgroundPreviewModel(this.nwX, this.nxr);
+        this.nxp.a(this.nxs);
+        this.nxq = new j(this);
+        showLoadingView(this.nxq.getRootView());
+        this.nxq.setExpandListRefreshListener(new BdExpandListView.a() { // from class: com.baidu.tieba.themeCenter.background.BackgroundPreviewActivity.2
             @Override // com.baidu.adp.widget.ListView.BdExpandListView.a
             public void onRefresh() {
             }
@@ -56,7 +56,7 @@ public class BackgroundPreviewActivity extends BaseActivity<BackgroundPreviewAct
             public void onExpandingDegree(float f) {
             }
         });
-        this.nxo.LoadData();
+        this.nxp.LoadData();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -65,8 +65,8 @@ public class BackgroundPreviewActivity extends BaseActivity<BackgroundPreviewAct
         super.onResume();
         if (TbadkCoreApplication.getInst().getThemeWebviewOpen()) {
             TbadkCoreApplication.getInst().setThemeWebviewOpen(false);
-            showLoadingView(this.nxp.getRootView());
-            this.nxo.LoadData();
+            showLoadingView(this.nxq.getRootView());
+            this.nxp.LoadData();
         }
     }
 
@@ -83,8 +83,8 @@ public class BackgroundPreviewActivity extends BaseActivity<BackgroundPreviewAct
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        if (this.nxp != null) {
-            this.nxp.byV();
+        if (this.nxq != null) {
+            this.nxq.byV();
         }
     }
 
@@ -92,20 +92,20 @@ public class BackgroundPreviewActivity extends BaseActivity<BackgroundPreviewAct
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        if (this.nxo != null) {
-            this.nxo.destroy();
-        }
         if (this.nxp != null) {
-            this.nxp.onDestroy();
+            this.nxp.destroy();
+        }
+        if (this.nxq != null) {
+            this.nxq.onDestroy();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity
     public void onNetRefreshButtonClicked() {
-        if (this.nxo != null && this.nxp != null) {
-            showLoadingView(this.nxp.getRootView());
-            this.nxo.LoadData();
+        if (this.nxp != null && this.nxq != null) {
+            showLoadingView(this.nxq.getRootView());
+            this.nxp.LoadData();
         }
     }
 
@@ -119,7 +119,7 @@ public class BackgroundPreviewActivity extends BaseActivity<BackgroundPreviewAct
         com.baidu.tbadk.m.d pageStayDurationItem = super.getPageStayDurationItem();
         if (pageStayDurationItem != null) {
             pageStayDurationItem.isRouteStat = true;
-            pageStayDurationItem.objID = String.valueOf(this.nwW);
+            pageStayDurationItem.objID = String.valueOf(this.nwX);
         }
         return pageStayDurationItem;
     }

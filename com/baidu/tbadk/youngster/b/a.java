@@ -134,7 +134,7 @@ public class a {
                 switch (i2) {
                     case 3:
                         aVar.dismiss();
-                        new BdTopToast(tbPageContext.getPageActivity(), 2000).yS(true).TP(tbPageContext.getPageActivity().getString(R.string.youngster_close_title)).aR((ViewGroup) tbPageContext.getPageActivity().findViewById(i));
+                        new BdTopToast(tbPageContext.getPageActivity(), 2000).yS(true).TQ(tbPageContext.getPageActivity().getString(R.string.youngster_close_title)).aR((ViewGroup) tbPageContext.getPageActivity().findViewById(i));
                         return;
                     default:
                         return;
@@ -165,7 +165,7 @@ public class a {
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 com.baidu.tbadk.core.sharedPref.b.brx().putBoolean("key_youngster_frs_dialog_no_tip_again", YoungsterFrsDialogView.this.bqc());
-                new BdTopToast(tbPageContext.getPageActivity(), 2000).yS(true).TP(tbPageContext.getPageActivity().getString(R.string.youngster_frs_top_toast)).aR((ViewGroup) tbPageContext.getPageActivity().findViewById(i));
+                new BdTopToast(tbPageContext.getPageActivity(), 2000).yS(true).TQ(tbPageContext.getPageActivity().getString(R.string.youngster_frs_top_toast)).aR((ViewGroup) tbPageContext.getPageActivity().findViewById(i));
                 aVar.dismiss();
             }
         });

@@ -43,7 +43,7 @@ public class HttpDnsResolver {
     public static List<ResolvedIP> resolve(String str) {
         if (Aegon.isInitialized()) {
             Aegon.ezY();
-            List<ResolvedIP> list = (List) com.kuaishou.aegon.a.a.a(b.YP(str));
+            List<ResolvedIP> list = (List) com.kuaishou.aegon.a.a.a(b.YQ(str));
             return list == null ? new ArrayList() : list;
         }
         return new ArrayList();
@@ -59,7 +59,7 @@ public class HttpDnsResolver {
     public static void updateConfig(String str) {
         if (Aegon.isInitialized()) {
             Aegon.ezY();
-            com.kuaishou.aegon.a.a.b(c.YQ(str));
+            com.kuaishou.aegon.a.a.b(c.YR(str));
         }
     }
 }

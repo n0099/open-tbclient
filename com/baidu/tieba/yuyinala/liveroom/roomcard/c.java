@@ -7,17 +7,17 @@ import com.baidu.live.adp.framework.listener.CustomMessageListener;
 import com.baidu.live.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes10.dex */
 public class c {
-    public static c ooz;
-    private a ooA;
-    private CustomMessageListener ooB = new CustomMessageListener(2501061) { // from class: com.baidu.tieba.yuyinala.liveroom.roomcard.c.1
+    public static c ooA;
+    private a ooB;
+    private CustomMessageListener ooC = new CustomMessageListener(2501061) { // from class: com.baidu.tieba.yuyinala.liveroom.roomcard.c.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2501061) {
-                if (c.this.ooA != null) {
-                    c.this.ooA.zA(true);
+                if (c.this.ooB != null) {
+                    c.this.ooB.zA(true);
                 }
-                MessageManager.getInstance().unRegisterListener(c.this.ooB);
+                MessageManager.getInstance().unRegisterListener(c.this.ooC);
             }
         }
     };
@@ -28,10 +28,10 @@ public class c {
     }
 
     public static c dZv() {
-        if (ooz == null) {
-            ooz = new c();
+        if (ooA == null) {
+            ooA = new c();
         }
-        return ooz;
+        return ooA;
     }
 
     public void a(Context context, Activity activity, a aVar) {
@@ -42,7 +42,7 @@ public class c {
             }
             return;
         }
-        this.ooA = aVar;
-        MessageManager.getInstance().registerListener(this.ooB);
+        this.ooB = aVar;
+        MessageManager.getInstance().registerListener(this.ooC);
     }
 }

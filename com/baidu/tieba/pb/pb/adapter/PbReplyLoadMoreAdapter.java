@@ -54,7 +54,7 @@ public class PbReplyLoadMoreAdapter extends l<PostData, ReplyLoadMoreViewHolder>
 
         public void setData(PostData postData) {
             if (postData != null) {
-                if (postData.nnn) {
+                if (postData.nno) {
                     Drawable drawable = ao.getDrawable(R.drawable.icon_emotion_smallarrow_n);
                     drawable.setBounds(0, 0, drawable.getMinimumWidth(), drawable.getMinimumHeight());
                     this.lDA.setCompoundDrawables(null, null, drawable, null);

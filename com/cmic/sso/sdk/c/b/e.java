@@ -13,7 +13,7 @@ public class e extends g {
     private String c;
     private String d;
     private boolean e = false;
-    private a pmx;
+    private a pmy;
 
     public void a(boolean z) {
         this.e = z;
@@ -32,16 +32,16 @@ public class e extends g {
     }
 
     public void a(a aVar) {
-        this.pmx = aVar;
+        this.pmy = aVar;
     }
 
     public a eoV() {
-        return this.pmx;
+        return this.pmy;
     }
 
     @Override // com.cmic.sso.sdk.c.b.g
     public String a() {
-        return this.pmx.a();
+        return this.pmy.a();
     }
 
     @Override // com.cmic.sso.sdk.c.b.g
@@ -50,7 +50,7 @@ public class e extends g {
         if (this.e) {
             try {
                 jSONObject.put("encrypted", this.c);
-                jSONObject.put("reqdata", com.cmic.sso.sdk.e.a.a(this.f7707b, this.pmx.toString()));
+                jSONObject.put("reqdata", com.cmic.sso.sdk.e.a.a(this.f7707b, this.pmy.toString()));
                 jSONObject.put("securityreinforce", this.d);
             } catch (JSONException e) {
                 e.printStackTrace();
@@ -118,11 +118,11 @@ public class e extends g {
         }
 
         public void e(String str) {
-            this.f7708a = XV(str);
+            this.f7708a = XW(str);
         }
 
         public void f(String str) {
-            this.f7709b = XV(str);
+            this.f7709b = XW(str);
         }
 
         public String a() {
@@ -130,82 +130,82 @@ public class e extends g {
         }
 
         public void g(String str) {
-            this.c = XV(str);
+            this.c = XW(str);
         }
 
         public void h(String str) {
-            this.d = XV(str);
+            this.d = XW(str);
         }
 
         public void i(String str) {
-            this.e = XV(str);
+            this.e = XW(str);
         }
 
         public void j(String str) {
-            this.f = XV(str);
+            this.f = XW(str);
         }
 
         public void k(String str) {
-            this.g = XV(str);
+            this.g = XW(str);
         }
 
         public void l(String str) {
-            this.h = XV(str);
+            this.h = XW(str);
         }
 
         public void m(String str) {
-            this.i = XV(str);
+            this.i = XW(str);
         }
 
         public void n(String str) {
-            String XV = XV(str);
+            String XW = XW(str);
             try {
-                this.j = URLEncoder.encode(XV, "utf-8");
+                this.j = URLEncoder.encode(XW, "utf-8");
             } catch (UnsupportedEncodingException e) {
                 e.printStackTrace();
-                this.j = XV;
+                this.j = XW;
             }
         }
 
         public void o(String str) {
-            String XV = XV(str);
+            String XW = XW(str);
             try {
-                this.k = URLEncoder.encode(XV, "utf-8");
+                this.k = URLEncoder.encode(XW, "utf-8");
             } catch (UnsupportedEncodingException e) {
                 e.printStackTrace();
-                this.k = XV;
+                this.k = XW;
             }
         }
 
         public void p(String str) {
-            this.l = XV(str);
+            this.l = XW(str);
         }
 
         public void q(String str) {
-            this.m = XV(str);
+            this.m = XW(str);
         }
 
         public void r(String str) {
-            this.o = XV(str);
+            this.o = XW(str);
         }
 
         public void s(String str) {
-            this.p = XV(str);
+            this.p = XW(str);
         }
 
         public void t(String str) {
-            this.A = XV(str);
+            this.A = XW(str);
         }
 
         public void u(String str) {
-            this.B = XV(str);
+            this.B = XW(str);
         }
 
         public void v(String str) {
-            this.E = XV(str);
+            this.E = XW(str);
         }
 
-        public String XU(String str) {
+        public String XV(String str) {
             return com.cmic.sso.sdk.e.d.a(this.f7709b + this.c + this.d + this.e + this.f + this.g + this.h + this.i + this.j + this.k + this.l + this.m + this.o + this.p + str + this.r + this.s + this.t + this.u + this.v + this.w + this.x + this.y + this.z + this.A + this.B + this.C + this.D);
         }
 
@@ -213,7 +213,7 @@ public class e extends g {
             return this.f7708a + ETAG.ITEM_SEPARATOR + this.f7709b + ETAG.ITEM_SEPARATOR + this.c + ETAG.ITEM_SEPARATOR + this.d + ETAG.ITEM_SEPARATOR + this.e + ETAG.ITEM_SEPARATOR + this.f + ETAG.ITEM_SEPARATOR + this.g + ETAG.ITEM_SEPARATOR + this.h + ETAG.ITEM_SEPARATOR + this.i + ETAG.ITEM_SEPARATOR + this.j + ETAG.ITEM_SEPARATOR + this.k + ETAG.ITEM_SEPARATOR + this.l + ETAG.ITEM_SEPARATOR + this.m + ETAG.ITEM_SEPARATOR + "6.0" + ETAG.ITEM_SEPARATOR + this.n + ETAG.ITEM_SEPARATOR + this.o + ETAG.ITEM_SEPARATOR + this.p + ETAG.ITEM_SEPARATOR + this.r + ETAG.ITEM_SEPARATOR + this.s + ETAG.ITEM_SEPARATOR + this.t + ETAG.ITEM_SEPARATOR + this.u + ETAG.ITEM_SEPARATOR + this.v + ETAG.ITEM_SEPARATOR + this.w + ETAG.ITEM_SEPARATOR + this.x + ETAG.ITEM_SEPARATOR + this.y + ETAG.ITEM_SEPARATOR + this.z + ETAG.ITEM_SEPARATOR + this.A + ETAG.ITEM_SEPARATOR + this.B + ETAG.ITEM_SEPARATOR + this.E + "&&" + this.C + ETAG.ITEM_SEPARATOR + this.D;
         }
 
-        private String XV(String str) {
+        private String XW(String str) {
             return str == null ? "" : str;
         }
     }

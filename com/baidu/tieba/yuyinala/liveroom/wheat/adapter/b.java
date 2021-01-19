@@ -23,8 +23,8 @@ import java.util.List;
 public class b extends BaseAdapter {
     private Context context;
     private List<com.baidu.live.data.e> mList;
-    private int osS = -1;
-    private a otk;
+    private int osT = -1;
+    private a otl;
 
     /* loaded from: classes10.dex */
     public interface a {
@@ -41,7 +41,7 @@ public class b extends BaseAdapter {
 
     public void setData(List<com.baidu.live.data.e> list, int i) {
         this.mList = list;
-        this.osS = i;
+        this.osT = i;
         notifyDataSetChanged();
     }
 
@@ -72,21 +72,21 @@ public class b extends BaseAdapter {
         if (view == null) {
             view = LayoutInflater.from(this.context).inflate(a.g.yuyin_item_connection_wheat_apply, (ViewGroup) null);
             C0937b c0937b2 = new C0937b();
-            c0937b2.osW = (TextView) view.findViewById(a.f.tv_rank_num);
-            c0937b2.osX = (LinearLayout) view.findViewById(a.f.item_selected_bg);
-            c0937b2.osY = view.findViewById(a.f.margin_top_height);
-            c0937b2.osZ = (HeadImageView) view.findViewById(a.f.user_avatar);
-            c0937b2.otb = (ImageView) view.findViewById(a.f.team_fright_flag);
-            c0937b2.ota = (TextView) view.findViewById(a.f.tv_nickname);
-            c0937b2.otc = (TextView) view.findViewById(a.f.tv_temp_nickname);
-            c0937b2.otd = (ImageView) view.findViewById(a.f.iv_sex);
-            c0937b2.ote = (TextView) view.findViewById(a.f.tv_level);
-            c0937b2.otg = (TbImageView) view.findViewById(a.f.iv_level);
-            c0937b2.otf = (FrameLayout) view.findViewById(a.f.level_container);
-            c0937b2.oth = (TbImageView) view.findViewById(a.f.iv_badge);
-            c0937b2.oto = (AlaAcceptAndInviteBtn) view.findViewById(a.f.tv_accept_invite);
-            c0937b2.oti = (LinearLayout) view.findViewById(a.f.content_container);
-            c0937b2.otj = (LinearLayout) view.findViewById(a.f.icon_container);
+            c0937b2.osX = (TextView) view.findViewById(a.f.tv_rank_num);
+            c0937b2.osY = (LinearLayout) view.findViewById(a.f.item_selected_bg);
+            c0937b2.osZ = view.findViewById(a.f.margin_top_height);
+            c0937b2.ota = (HeadImageView) view.findViewById(a.f.user_avatar);
+            c0937b2.otc = (ImageView) view.findViewById(a.f.team_fright_flag);
+            c0937b2.otb = (TextView) view.findViewById(a.f.tv_nickname);
+            c0937b2.otd = (TextView) view.findViewById(a.f.tv_temp_nickname);
+            c0937b2.ote = (ImageView) view.findViewById(a.f.iv_sex);
+            c0937b2.otf = (TextView) view.findViewById(a.f.tv_level);
+            c0937b2.oth = (TbImageView) view.findViewById(a.f.iv_level);
+            c0937b2.otg = (FrameLayout) view.findViewById(a.f.level_container);
+            c0937b2.oti = (TbImageView) view.findViewById(a.f.iv_badge);
+            c0937b2.otp = (AlaAcceptAndInviteBtn) view.findViewById(a.f.tv_accept_invite);
+            c0937b2.otj = (LinearLayout) view.findViewById(a.f.content_container);
+            c0937b2.otk = (LinearLayout) view.findViewById(a.f.icon_container);
             view.setTag(c0937b2);
             c0937b = c0937b2;
         } else {
@@ -96,89 +96,89 @@ public class b extends BaseAdapter {
         final int d = com.baidu.tieba.yuyinala.liveroom.wheat.e.e.d(14.0f, view.getContext()) + (com.baidu.tieba.yuyinala.liveroom.wheat.e.e.d(4.0f, view.getContext()) * 2);
         if (eVar != null) {
             if (!o.ebo().ebE()) {
-                c0937b.osW.setTextColor(c0937b.osW.getResources().getColor(a.c.sdk_color_B8B8B8));
-                c0937b.otb.setVisibility(8);
-                c0937b.osW.setTextSize(18.0f);
+                c0937b.osX.setTextColor(c0937b.osX.getResources().getColor(a.c.sdk_color_B8B8B8));
+                c0937b.otc.setVisibility(8);
+                c0937b.osX.setTextSize(18.0f);
             } else {
-                c0937b.otb.setVisibility(0);
-                c0937b.osW.setTextColor(c0937b.osW.getResources().getColor(a.c.sdk_white_alpha100));
-                c0937b.osW.setTextSize(13.0f);
+                c0937b.otc.setVisibility(0);
+                c0937b.osX.setTextColor(c0937b.osX.getResources().getColor(a.c.sdk_white_alpha100));
+                c0937b.osX.setTextSize(13.0f);
                 if (eVar.isApplyRedTeam()) {
-                    c0937b.otb.setImageResource(a.e.yuyin_audio_wheat_red_flag);
+                    c0937b.otc.setImageResource(a.e.yuyin_audio_wheat_red_flag);
                 } else {
-                    c0937b.otb.setImageResource(a.e.yuyin_audio_wheat_blue_flag);
+                    c0937b.otc.setImageResource(a.e.yuyin_audio_wheat_blue_flag);
                 }
             }
-            c0937b.osX.setBackgroundColor(this.osS == i ? Color.parseColor("#F5F5F5") : Color.parseColor("#FFFFFF"));
-            c0937b.oto.setSelectedState(eVar.aEw ? 1 : 0);
-            c0937b.osW.setText(Integer.toString(eVar.mPos));
-            c0937b.osZ.setIsRound(true);
-            c0937b.osZ.setAutoChangeStyle(false);
-            c0937b.osZ.setDefaultResource(a.e.yuyin_sdk_default_avatar);
+            c0937b.osY.setBackgroundColor(this.osT == i ? Color.parseColor("#F5F5F5") : Color.parseColor("#FFFFFF"));
+            c0937b.otp.setSelectedState(eVar.aEw ? 1 : 0);
+            c0937b.osX.setText(Integer.toString(eVar.mPos));
+            c0937b.ota.setIsRound(true);
+            c0937b.ota.setAutoChangeStyle(false);
+            c0937b.ota.setDefaultResource(a.e.yuyin_sdk_default_avatar);
             if (eVar != null && !TextUtils.isEmpty(eVar.mPortrait)) {
-                c0937b.osZ.setScaleType(ImageView.ScaleType.FIT_XY);
-                c0937b.osZ.setUrl(eVar.mPortrait);
-                c0937b.osZ.startLoad(eVar.mPortrait, 12, false);
+                c0937b.ota.setScaleType(ImageView.ScaleType.FIT_XY);
+                c0937b.ota.setUrl(eVar.mPortrait);
+                c0937b.ota.startLoad(eVar.mPortrait, 12, false);
             }
-            c0937b.ota.setText(eVar.mUserName);
-            c0937b.otc.setText(eVar.mUserName);
+            c0937b.otb.setText(eVar.mUserName);
+            c0937b.otd.setText(eVar.mUserName);
             if (eVar.mSex == 0) {
-                c0937b.otd.setVisibility(8);
+                c0937b.ote.setVisibility(8);
             } else {
-                c0937b.otd.setVisibility(0);
-                c0937b.otd.setImageResource(eVar.mSex == 1 ? a.e.yuyin_sdk_icon_mine_boy : a.e.yuyin_sdk_icon_mine_girl);
+                c0937b.ote.setVisibility(0);
+                c0937b.ote.setImageResource(eVar.mSex == 1 ? a.e.yuyin_sdk_icon_mine_boy : a.e.yuyin_sdk_icon_mine_girl);
             }
             int i2 = eVar.mSex == 0 ? 3 : 2;
-            c0937b.otf.setVisibility(8);
-            c0937b.oth.setVisibility(8);
+            c0937b.otg.setVisibility(8);
+            c0937b.oti.setVisibility(8);
             if (eVar.mLiveMarkInfo != null) {
                 for (int i3 = 0; i3 < eVar.mLiveMarkInfo.size() && i3 < i2; i3++) {
                     switch (eVar.mLiveMarkInfo.get(i3).type) {
                         case 1:
-                            c0937b.otf.setVisibility(0);
-                            c0937b.otg.startLoad(eVar.mLiveMarkInfo.get(i3).mark_pic, 10, false);
-                            c0937b.ote.setText(Integer.toString(eVar.level));
+                            c0937b.otg.setVisibility(0);
+                            c0937b.oth.startLoad(eVar.mLiveMarkInfo.get(i3).mark_pic, 10, false);
+                            c0937b.otf.setText(Integer.toString(eVar.level));
                             d += com.baidu.tieba.yuyinala.liveroom.wheat.e.e.d(13.0f, view.getContext()) + com.baidu.tieba.yuyinala.liveroom.wheat.e.e.d(4.0f, view.getContext());
                             break;
                         case 105:
-                            c0937b.oth.setVisibility(0);
-                            c0937b.oth.startLoad(eVar.mLiveMarkInfo.get(i3).mark_pic, 10, false);
-                            d += com.baidu.tieba.yuyinala.liveroom.wheat.e.e.d(42.0f, c0937b.oth.getContext()) + com.baidu.tieba.yuyinala.liveroom.wheat.e.e.d(4.0f, view.getContext());
+                            c0937b.oti.setVisibility(0);
+                            c0937b.oti.startLoad(eVar.mLiveMarkInfo.get(i3).mark_pic, 10, false);
+                            d += com.baidu.tieba.yuyinala.liveroom.wheat.e.e.d(42.0f, c0937b.oti.getContext()) + com.baidu.tieba.yuyinala.liveroom.wheat.e.e.d(4.0f, view.getContext());
                             break;
                     }
                 }
             }
         }
-        c0937b.osZ.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.adapter.b.1
+        c0937b.ota.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.adapter.b.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
-                if (b.this.otk != null && view2.getTag() != null && (view2.getTag() instanceof com.baidu.live.data.e)) {
-                    b.this.otk.a((com.baidu.live.data.e) view2.getTag());
+                if (b.this.otl != null && view2.getTag() != null && (view2.getTag() instanceof com.baidu.live.data.e)) {
+                    b.this.otl.a((com.baidu.live.data.e) view2.getTag());
                 }
             }
         });
-        c0937b.ota.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.adapter.b.2
+        c0937b.otb.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.adapter.b.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
-                if (b.this.otk != null && view2.getTag() != null && (view2.getTag() instanceof com.baidu.live.data.e)) {
-                    b.this.otk.a((com.baidu.live.data.e) view2.getTag());
+                if (b.this.otl != null && view2.getTag() != null && (view2.getTag() instanceof com.baidu.live.data.e)) {
+                    b.this.otl.a((com.baidu.live.data.e) view2.getTag());
                 }
             }
         });
-        c0937b.osZ.setTag(eVar);
         c0937b.ota.setTag(eVar);
-        c0937b.oto.setTag(eVar);
-        c0937b.oto.setOnTouchListener(new com.baidu.tieba.yuyinala.liveroom.wheat.view.a());
-        c0937b.oto.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.adapter.b.3
+        c0937b.otb.setTag(eVar);
+        c0937b.otp.setTag(eVar);
+        c0937b.otp.setOnTouchListener(new com.baidu.tieba.yuyinala.liveroom.wheat.view.a());
+        c0937b.otp.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.adapter.b.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
                 if (eVar.aEw || b.this.context == null) {
-                    if (b.this.otk != null) {
+                    if (b.this.otl != null) {
                         if (view2.getTag() == null || !(view2.getTag() instanceof com.baidu.live.data.e)) {
-                            b.this.otk.b(null);
+                            b.this.otl.b(null);
                             return;
                         } else {
-                            b.this.otk.b((com.baidu.live.data.e) view2.getTag());
+                            b.this.otl.b((com.baidu.live.data.e) view2.getTag());
                             return;
                         }
                     }
@@ -187,53 +187,53 @@ public class b extends BaseAdapter {
                 BdToast.makeText(b.this.context, b.this.context.getText(a.h.yuyin_ala_apply_unable_text)).show();
             }
         });
-        c0937b.ota.post(new Runnable() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.adapter.b.4
+        c0937b.otb.post(new Runnable() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.adapter.b.4
             @Override // java.lang.Runnable
             public void run() {
-                if (c0937b.otc.getMeasuredWidth() + d > c0937b.oti.getMeasuredWidth()) {
-                    LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) c0937b.ota.getLayoutParams();
+                if (c0937b.otd.getMeasuredWidth() + d > c0937b.otj.getMeasuredWidth()) {
+                    LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) c0937b.otb.getLayoutParams();
                     layoutParams.weight = 1.0f;
-                    c0937b.ota.setLayoutParams(layoutParams);
+                    c0937b.otb.setLayoutParams(layoutParams);
                     return;
                 }
-                LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) c0937b.ota.getLayoutParams();
+                LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) c0937b.otb.getLayoutParams();
                 layoutParams2.weight = 0.0f;
                 layoutParams2.width = -2;
-                c0937b.ota.setLayoutParams(layoutParams2);
+                c0937b.otb.setLayoutParams(layoutParams2);
             }
         });
-        c0937b.osY.setVisibility(i != 0 ? 8 : 0);
+        c0937b.osZ.setVisibility(i != 0 ? 8 : 0);
         return view;
     }
 
     /* renamed from: com.baidu.tieba.yuyinala.liveroom.wheat.adapter.b$b  reason: collision with other inner class name */
     /* loaded from: classes10.dex */
     private class C0937b {
-        private TextView osW;
-        private LinearLayout osX;
-        private View osY;
-        private HeadImageView osZ;
-        private TextView ota;
-        private ImageView otb;
-        private TextView otc;
-        private ImageView otd;
-        private TextView ote;
-        private FrameLayout otf;
-        private TbImageView otg;
+        private TextView osX;
+        private LinearLayout osY;
+        private View osZ;
+        private HeadImageView ota;
+        private TextView otb;
+        private ImageView otc;
+        private TextView otd;
+        private ImageView ote;
+        private TextView otf;
+        private FrameLayout otg;
         private TbImageView oth;
-        private LinearLayout oti;
+        private TbImageView oti;
         private LinearLayout otj;
-        private AlaAcceptAndInviteBtn oto;
+        private LinearLayout otk;
+        private AlaAcceptAndInviteBtn otp;
 
         private C0937b() {
         }
     }
 
     public void setOnItemClickLister(a aVar) {
-        this.otk = aVar;
+        this.otl = aVar;
     }
 
-    public void UT(String str) {
+    public void UU(String str) {
         if (!ListUtils.isEmpty(this.mList)) {
             int i = 0;
             while (true) {

@@ -62,10 +62,10 @@ public class d {
     private static volatile SparseArray<Boolean> d = new SparseArray<>();
     private static volatile SparseArray<List<s>> e = new SparseArray<>();
     private static final char[] f = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
-    private static Pattern pXR = null;
     private static Pattern pXS = null;
-    private static Boolean pXT;
-    private static Boolean pXp;
+    private static Pattern pXT = null;
+    private static Boolean pXU;
+    private static Boolean pXq;
 
     public static String a(byte[] bArr) {
         if (bArr == null) {
@@ -149,17 +149,17 @@ public class d {
             return null;
         }
         try {
-            if (pXR == null) {
-                pXR = Pattern.compile("attachment;\\s*filename\\s*=\\s*\"([^\"]*)\"");
+            if (pXS == null) {
+                pXS = Pattern.compile("attachment;\\s*filename\\s*=\\s*\"([^\"]*)\"");
             }
-            Matcher matcher = pXR.matcher(str);
+            Matcher matcher = pXS.matcher(str);
             if (matcher.find()) {
                 return matcher.group(1);
             }
-            if (pXS == null) {
-                pXS = Pattern.compile("attachment;\\s*filename\\s*=\\s*(.*)");
+            if (pXT == null) {
+                pXT = Pattern.compile("attachment;\\s*filename\\s*=\\s*(.*)");
             }
-            Matcher matcher2 = pXS.matcher(str);
+            Matcher matcher2 = pXT.matcher(str);
             if (matcher2.find()) {
                 return matcher2.group(1);
             }
@@ -305,9 +305,9 @@ public class d {
 
     public static void b(com.ss.android.socialbase.downloader.g.c cVar) {
         com.ss.android.socialbase.downloader.k.a RA;
-        JSONObject aat;
-        if (cVar != null && (aat = (RA = com.ss.android.socialbase.downloader.k.a.RA(cVar.g())).aat("anti_hijack_dir")) != null) {
-            String optString = aat.optString("ins_desc");
+        JSONObject aau;
+        if (cVar != null && (aau = (RA = com.ss.android.socialbase.downloader.k.a.RA(cVar.g())).aau("anti_hijack_dir")) != null) {
+            String optString = aau.optString("ins_desc");
             if (!TextUtils.isEmpty(optString)) {
                 c(cVar.k(), optString);
             }
@@ -1205,19 +1205,19 @@ public class d {
 
     public static boolean a() {
         boolean z = false;
-        if (pXT != null) {
-            return pXT.booleanValue();
+        if (pXU != null) {
+            return pXU.booleanValue();
         }
         String c2 = c(com.ss.android.socialbase.downloader.downloader.b.eEd());
         if (c2 != null && c2.contains(":")) {
-            pXT = false;
+            pXU = false;
         } else {
             if (c2 != null && c2.equals(com.ss.android.socialbase.downloader.downloader.b.eEd().getPackageName())) {
                 z = true;
             }
-            pXT = Boolean.valueOf(z);
+            pXU = Boolean.valueOf(z);
         }
-        return pXT.booleanValue();
+        return pXU.booleanValue();
     }
 
     public static boolean b() {
@@ -1225,16 +1225,16 @@ public class d {
     }
 
     public static boolean c() {
-        if (pXp != null) {
-            return pXp.booleanValue();
+        if (pXq != null) {
+            return pXq.booleanValue();
         }
         String c2 = c(com.ss.android.socialbase.downloader.downloader.b.eEd());
         if (c2 != null && c2.equals(com.ss.android.socialbase.downloader.downloader.b.eEd().getPackageName() + ":downloader")) {
-            pXp = true;
+            pXq = true;
         } else {
-            pXp = false;
+            pXq = false;
         }
-        return pXp.booleanValue();
+        return pXq.booleanValue();
     }
 
     public static boolean e(String str) {
@@ -1604,11 +1604,11 @@ public class d {
     }
 
     public static String a(String str, com.ss.android.socialbase.downloader.k.a aVar) {
-        JSONObject aat;
-        if (aVar == null || (aat = aVar.aat("anti_hijack_dir")) == null) {
+        JSONObject aau;
+        if (aVar == null || (aau = aVar.aau("anti_hijack_dir")) == null) {
             return "";
         }
-        String optString = aat.optString("dir_name");
+        String optString = aau.optString("dir_name");
         if (!TextUtils.isEmpty(optString) && optString.startsWith("/")) {
             optString = optString.substring(1);
         }

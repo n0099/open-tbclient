@@ -79,7 +79,7 @@ public class e extends b<com.baidu.tieba.e.b> {
             ao.setBackgroundResource(this.ipn, R.color.CAM_X0204);
             ao.setViewTextColor(this.ipp, R.color.CAM_X0101, 1);
             com.baidu.tieba.tbadkCore.util.d readThreadHistory = TbadkCoreApplication.getInst().getReadThreadHistory();
-            if (readThreadHistory != null && readThreadHistory.SC(this.ipt.bkV().getId())) {
+            if (readThreadHistory != null && readThreadHistory.SD(this.ipt.bkV().getId())) {
                 ao.setViewTextColor(this.ipq, R.color.CAM_X0108);
             } else {
                 ao.setViewTextColor(this.ipq, R.color.CAM_X0105);
@@ -118,7 +118,7 @@ public class e extends b<com.baidu.tieba.e.b> {
             this.hix.startLoad(str, 10, false);
             this.ipq.setText(bVar.bkV().getTitle());
             com.baidu.tieba.tbadkCore.util.d readThreadHistory = TbadkCoreApplication.getInst().getReadThreadHistory();
-            if (readThreadHistory != null && readThreadHistory.SC(bVar.bkV().getId())) {
+            if (readThreadHistory != null && readThreadHistory.SD(bVar.bkV().getId())) {
                 ao.setViewTextColor(this.ipq, R.color.CAM_X0108);
             } else {
                 ao.setViewTextColor(this.ipq, R.color.CAM_X0105);

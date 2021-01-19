@@ -4,63 +4,63 @@ import com.baidu.live.tbadk.log.LogConfig;
 import org.json.JSONObject;
 /* loaded from: classes10.dex */
 public class a {
-    public d ogZ;
-    public C0914a oha;
+    public d oha;
+    public C0914a ohb;
 
     public void parserJson(JSONObject jSONObject) {
         JSONObject optJSONObject = jSONObject.optJSONObject("red_packet_info");
         if (optJSONObject != null) {
-            this.ogZ = new d();
-            this.ogZ.parserJson(optJSONObject);
+            this.oha = new d();
+            this.oha.parserJson(optJSONObject);
         }
         JSONObject optJSONObject2 = jSONObject.optJSONObject("user_cond");
         if (optJSONObject2 != null) {
-            this.oha = new C0914a();
-            this.oha.parserJson(optJSONObject2);
+            this.ohb = new C0914a();
+            this.ohb.parserJson(optJSONObject2);
         }
     }
 
     public boolean bTw() {
-        return this.ogZ != null && this.ogZ.status == 5;
+        return this.oha != null && this.oha.status == 5;
     }
 
     public boolean bTx() {
-        return this.ogZ != null && this.ogZ.status == 4;
+        return this.oha != null && this.oha.status == 4;
     }
 
     public boolean isValid() {
-        return this.ogZ != null && (this.ogZ.status == 2 || this.ogZ.status == 3);
+        return this.oha != null && (this.oha.status == 2 || this.oha.status == 3);
     }
 
     public boolean bTy() {
-        return this.ogZ != null && this.oha != null && this.ogZ.status == 2 && this.ogZ.startTime > this.ogZ.gPZ;
+        return this.oha != null && this.ohb != null && this.oha.status == 2 && this.oha.startTime > this.oha.gPZ;
     }
 
     public boolean bTz() {
-        return this.oha != null && this.oha.gPw == 1;
+        return this.ohb != null && this.ohb.gPw == 1;
     }
 
     public long bTA() {
-        if (this.oha != null) {
-            return this.oha.gPx;
+        if (this.ohb != null) {
+            return this.ohb.gPx;
         }
         return 0L;
     }
 
     public boolean bTB() {
-        return this.oha != null && ((this.oha.gPy && !this.oha.isFollowed) || ((this.oha.gPz && !this.oha.gPA) || (this.oha.ohb && !this.oha.ohc)));
+        return this.ohb != null && ((this.ohb.gPy && !this.ohb.isFollowed) || ((this.ohb.gPz && !this.ohb.gPA) || (this.ohb.ohc && !this.ohb.ohd)));
     }
 
     public boolean bTD() {
-        return (this.oha == null || !this.oha.gPy || this.oha.isFollowed) ? false : true;
+        return (this.ohb == null || !this.ohb.gPy || this.ohb.isFollowed) ? false : true;
     }
 
     public boolean bTE() {
-        return (this.oha == null || !this.oha.gPz || this.oha.gPA) ? false : true;
+        return (this.ohb == null || !this.ohb.gPz || this.ohb.gPA) ? false : true;
     }
 
     public boolean dXY() {
-        return (this.oha == null || !this.oha.ohb || this.oha.ohc) ? false : true;
+        return (this.ohb == null || !this.ohb.ohc || this.ohb.ohd) ? false : true;
     }
 
     public int fe(long j) {
@@ -108,16 +108,16 @@ public class a {
         public boolean gPy;
         public boolean gPz;
         public boolean isFollowed;
-        public boolean ohb;
         public boolean ohc;
+        public boolean ohd;
 
         public void parserJson(JSONObject jSONObject) {
             this.gPy = jSONObject.optInt("need_follow") == 1;
             this.gPz = jSONObject.optInt("need_send_gift") == 1;
             this.isFollowed = jSONObject.optInt("follow") == 1;
             this.gPA = jSONObject.optInt("send_gift") == 1;
-            this.ohb = jSONObject.optInt("need_collect_room") == 1;
-            this.ohc = jSONObject.optInt("collect_room") == 1;
+            this.ohc = jSONObject.optInt("need_collect_room") == 1;
+            this.ohd = jSONObject.optInt("collect_room") == 1;
             this.gPB = jSONObject.optInt("need_follow_sender") == 1;
             this.gPC = jSONObject.optString("sender_user_id");
             this.gPD = jSONObject.optInt("follow_sender") == 1;

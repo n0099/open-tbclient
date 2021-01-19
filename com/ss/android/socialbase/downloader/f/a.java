@@ -7,7 +7,7 @@ public class a {
 
     /* renamed from: a  reason: collision with root package name */
     private static int f13147a = 4;
-    private static AbstractC1246a pVL;
+    private static AbstractC1246a pVM;
 
     public static void a(int i) {
         f13147a = i;
@@ -42,8 +42,8 @@ public class a {
             if (f13147a <= 4) {
                 Log.i(b(str), str2);
             }
-            if (pVL != null) {
-                pVL.a(b(str), str2);
+            if (pVM != null) {
+                pVM.a(b(str), str2);
             }
         }
     }
@@ -53,8 +53,8 @@ public class a {
             if (f13147a <= 5) {
                 Log.w(b(str), str2);
             }
-            if (pVL != null) {
-                pVL.c(b(str), str2);
+            if (pVM != null) {
+                pVM.c(b(str), str2);
             }
         }
     }
@@ -64,8 +64,8 @@ public class a {
             if (f13147a <= 6) {
                 Log.e(b(str), str2);
             }
-            if (pVL != null) {
-                pVL.b(b(str), str2);
+            if (pVM != null) {
+                pVM.b(b(str), str2);
             }
         }
     }
@@ -75,8 +75,8 @@ public class a {
             if (f13147a <= 6) {
                 Log.e(b(str), str2, th);
             }
-            if (pVL != null) {
-                pVL.a(b(str), str2, th);
+            if (pVM != null) {
+                pVM.a(b(str), str2, th);
             }
         }
     }

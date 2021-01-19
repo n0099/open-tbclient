@@ -5,10 +5,10 @@ import java.security.PrivilegedAction;
 /* loaded from: classes14.dex */
 public final class f {
     private static final boolean IS_ANDROID;
-    private static final int qsV = eKY();
+    private static final int qsW = eKY();
 
     static {
-        IS_ANDROID = qsV != 0;
+        IS_ANDROID = qsW != 0;
     }
 
     public static boolean isAndroid() {
@@ -16,7 +16,7 @@ public final class f {
     }
 
     public static int eKX() {
-        return qsV;
+        return qsW;
     }
 
     private static int eKY() {

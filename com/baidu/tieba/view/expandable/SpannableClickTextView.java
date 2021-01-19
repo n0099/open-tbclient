@@ -46,7 +46,7 @@ public class SpannableClickTextView extends TextView {
 
     /* loaded from: classes.dex */
     private static class a extends LinkMovementMethod {
-        private static a nRa;
+        private static a nRb;
 
         private a() {
         }
@@ -81,10 +81,10 @@ public class SpannableClickTextView extends TextView {
         }
 
         public static a dTW() {
-            if (nRa == null) {
-                nRa = new a();
+            if (nRb == null) {
+                nRb = new a();
             }
-            return nRa;
+            return nRb;
         }
     }
 }

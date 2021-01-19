@@ -15,7 +15,7 @@ import java.lang.reflect.Method;
 import javax.annotation.Nullable;
 /* loaded from: classes3.dex */
 public class c extends b {
-    private static Method pBc;
+    private static Method pBd;
 
     @Override // com.facebook.imagepipeline.h.b, com.facebook.imagepipeline.h.e
     public /* bridge */ /* synthetic */ com.facebook.common.references.a a(com.facebook.imagepipeline.f.e eVar, Bitmap.Config config, @Nullable Rect rect) {
@@ -39,7 +39,7 @@ public class c extends b {
 
     @Override // com.facebook.imagepipeline.h.b
     protected Bitmap a(com.facebook.common.references.a<PooledByteBuffer> aVar, int i, BitmapFactory.Options options) {
-        return a(aVar, i, b(aVar, i) ? null : pBa, options);
+        return a(aVar, i, b(aVar, i) ? null : pBb, options);
     }
 
     private static MemoryFile a(com.facebook.common.references.a<PooledByteBuffer> aVar, int i, @Nullable byte[] bArr) throws IOException {
@@ -90,14 +90,14 @@ public class c extends b {
     }
 
     private synchronized Method ewN() {
-        if (pBc == null) {
+        if (pBd == null) {
             try {
-                pBc = MemoryFile.class.getDeclaredMethod("getFileDescriptor", new Class[0]);
+                pBd = MemoryFile.class.getDeclaredMethod("getFileDescriptor", new Class[0]);
             } catch (Exception e) {
                 throw l.t(e);
             }
         }
-        return pBc;
+        return pBd;
     }
 
     private FileDescriptor a(MemoryFile memoryFile) {
@@ -113,7 +113,7 @@ public class c extends b {
         try {
             try {
                 memoryFile = a(aVar, i, bArr);
-                return (Bitmap) g.checkNotNull(com.facebook.common.g.c.ppw.decodeFileDescriptor(a(memoryFile), null, options), "BitmapFactory returned null");
+                return (Bitmap) g.checkNotNull(com.facebook.common.g.c.ppx.decodeFileDescriptor(a(memoryFile), null, options), "BitmapFactory returned null");
             } catch (IOException e) {
                 throw l.t(e);
             }

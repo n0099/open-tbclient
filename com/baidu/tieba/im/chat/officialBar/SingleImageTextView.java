@@ -105,7 +105,7 @@ public class SingleImageTextView extends RelativeLayout {
                 com.baidu.tbadk.widget.richText.f fVar = new com.baidu.tbadk.widget.richText.f(2, c0758a.url) { // from class: com.baidu.tieba.im.chat.officialBar.SingleImageTextView.2
                     @Override // com.baidu.tbadk.widget.richText.f, android.text.style.ClickableSpan
                     public void onClick(View view2) {
-                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new ForumRulesShowActivityConfig(SingleImageTextView.this.mContext, SingleImageTextView.this.LG(c0758a.url), ForumRulesShowActivityConfig.FORUM_RULE_SHOW_FROM_MESSAGE)));
+                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new ForumRulesShowActivityConfig(SingleImageTextView.this.mContext, SingleImageTextView.this.LH(c0758a.url), ForumRulesShowActivityConfig.FORUM_RULE_SHOW_FROM_MESSAGE)));
                     }
 
                     @Override // com.baidu.tbadk.widget.richText.f, android.text.style.ClickableSpan, android.text.style.CharacterStyle
@@ -162,11 +162,11 @@ public class SingleImageTextView extends RelativeLayout {
                         }
                         if (i == 1) {
                             TiebaStatic.eventStat(SingleImageTextView.this.mContext, "official_msg_ck", "click", 1, "fid", c0758a.fid);
-                            com.baidu.tieba.im.data.d Mu = com.baidu.tieba.im.util.c.Mu(c0758a.ktW);
-                            if (Mu != null) {
-                                TiebaStatic.eventStat(SingleImageTextView.this.mContext, "message_open_detail", "click", 1, "task_type", Mu.kww, "task_id", Mu.taskId, "loc", "0");
-                                if ((c0758a.userType == 1 || c0758a.userType == 3) && !"0".equals(Mu.taskId)) {
-                                    com.baidu.tieba.im.b.a.cVY().Mp(Mu.taskId);
+                            com.baidu.tieba.im.data.d Mv = com.baidu.tieba.im.util.c.Mv(c0758a.ktW);
+                            if (Mv != null) {
+                                TiebaStatic.eventStat(SingleImageTextView.this.mContext, "message_open_detail", "click", 1, "task_type", Mv.kww, "task_id", Mv.taskId, "loc", "0");
+                                if ((c0758a.userType == 1 || c0758a.userType == 3) && !"0".equals(Mv.taskId)) {
+                                    com.baidu.tieba.im.b.a.cVY().Mq(Mv.taskId);
                                 }
                             }
                             aq aqVar = new aq("official_message_open_detail");
@@ -289,7 +289,7 @@ public class SingleImageTextView extends RelativeLayout {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public String LG(String str) {
+    public String LH(String str) {
         try {
             return Uri.parse(str).getQueryParameter(TbTitleActivityConfig.FORUM_ID);
         } catch (Exception e) {

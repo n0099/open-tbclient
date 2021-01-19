@@ -367,7 +367,7 @@ public class FrsViewData extends m implements com.baidu.tbadk.mvc.b.m, Serializa
                 }
                 x xVar = new x();
                 xVar.xU(this.fortuneBag);
-                xVar.RY(this.fortuneDesc);
+                xVar.RZ(this.fortuneDesc);
                 xVar.a(this.gconAccount);
                 xVar.nj(1003);
                 if (this.threadList != null && this.threadList.size() > 0) {

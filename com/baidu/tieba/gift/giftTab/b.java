@@ -44,7 +44,7 @@ public class b extends BaseAdapter {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: AU */
+    /* renamed from: AT */
     public ah getItem(int i) {
         if (i < 0 || i >= getCount()) {
             return null;

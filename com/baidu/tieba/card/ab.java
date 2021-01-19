@@ -91,7 +91,7 @@ public class ab extends com.baidu.tbadk.core.dialog.i {
                                 com.baidu.adp.lib.util.l.showToast(ab.this.mContext, R.string.delete_success);
                                 return;
                             } else {
-                                String string = !TextUtils.isEmpty(bVar.npN) ? bVar.npN : ab.this.getString(R.string.delete_fail, new Object[0]);
+                                String string = !TextUtils.isEmpty(bVar.npO) ? bVar.npO : ab.this.getString(R.string.delete_fail, new Object[0]);
                                 if (bVar.mErrCode == 1211066) {
                                     if (ab.this.itE == null) {
                                         ab.this.itE = new com.baidu.tbadk.core.dialog.a(ab.this.mPageContext.getPageActivity());
@@ -119,10 +119,10 @@ public class ab extends com.baidu.tbadk.core.dialog.i {
                                 com.baidu.adp.lib.util.l.showToast(ab.this.mContext, ab.this.getString(R.string.mute_fail, new Object[0]));
                                 return;
                             } else if (dVar.mSuccess) {
-                                com.baidu.adp.lib.util.l.showToast(ab.this.mContext, !TextUtils.isEmpty(dVar.npN) ? dVar.npN : ab.this.getString(R.string.mute_success, new Object[0]));
+                                com.baidu.adp.lib.util.l.showToast(ab.this.mContext, !TextUtils.isEmpty(dVar.npO) ? dVar.npO : ab.this.getString(R.string.mute_success, new Object[0]));
                                 return;
                             } else {
-                                com.baidu.adp.lib.util.l.showToast(ab.this.mContext, !TextUtils.isEmpty(dVar.npN) ? dVar.npN : ab.this.getString(R.string.mute_fail, new Object[0]));
+                                com.baidu.adp.lib.util.l.showToast(ab.this.mContext, !TextUtils.isEmpty(dVar.npO) ? dVar.npO : ab.this.getString(R.string.mute_fail, new Object[0]));
                                 return;
                             }
                         case 2:
@@ -137,7 +137,7 @@ public class ab extends com.baidu.tbadk.core.dialog.i {
                                 com.baidu.adp.lib.util.l.showToast(ab.this.mContext, ab.this.getString(R.string.operation_failed, new Object[0]));
                                 return;
                             } else {
-                                ab.this.al(gVar.npQ);
+                                ab.this.al(gVar.npR);
                                 return;
                             }
                         default:
@@ -392,12 +392,12 @@ public class ab extends com.baidu.tbadk.core.dialog.i {
                 if (com.baidu.tieba.frs.j.cAS()) {
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921469, yVar));
                 } else {
-                    str = aU(gVar.npN, R.string.set_good_success);
+                    str = aU(gVar.npO, R.string.set_good_success);
                     z = false;
                 }
             } else if (i == 3) {
                 this.ale.nk(0);
-                str = aU(gVar.npN, R.string.operation_success);
+                str = aU(gVar.npO, R.string.operation_success);
                 z = false;
             } else if (i == 4) {
                 this.ale.nj(1);
@@ -407,7 +407,7 @@ public class ab extends com.baidu.tbadk.core.dialog.i {
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921469, yVar2));
             } else if (i == 5) {
                 this.ale.nj(0);
-                str = aU(gVar.npN, R.string.operation_success);
+                str = aU(gVar.npO, R.string.operation_success);
                 z = false;
             } else {
                 z = false;
@@ -416,7 +416,7 @@ public class ab extends com.baidu.tbadk.core.dialog.i {
             eVar.threadId = this.ale.getId();
             eVar.forumName = this.ale.bnB();
             eVar.forumId = String.valueOf(this.ale.getFid());
-            eVar.npO = i;
+            eVar.npP = i;
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_THREAD_MANAGE, eVar));
             if (TextUtils.isEmpty(str)) {
                 str = getString(R.string.operation_success, new Object[0]);
@@ -427,8 +427,8 @@ public class ab extends com.baidu.tbadk.core.dialog.i {
             }
             return;
         }
-        if (gVar != null && !TextUtils.isEmpty(gVar.npN)) {
-            string = gVar.npN;
+        if (gVar != null && !TextUtils.isEmpty(gVar.npO)) {
+            string = gVar.npO;
         } else {
             string = getString(R.string.operation_failed, new Object[0]);
         }
@@ -470,7 +470,7 @@ public class ab extends com.baidu.tbadk.core.dialog.i {
             String valueOf = String.valueOf(this.ale.getFid());
             boolean isCurrentAccount = UtilHelper.isCurrentAccount(userId);
             if (jSONArray != null) {
-                this.gca.Su(at.S(jSONArray));
+                this.gca.Sv(at.S(jSONArray));
             }
             this.gca.a(valueOf, bnB, id, null, 0, 1, isCurrentAccount, this.ale.getBaijiahaoData());
         }

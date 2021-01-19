@@ -4,13 +4,13 @@ import java.io.File;
 /* loaded from: classes3.dex */
 public class ay {
     public static final String java = ay.class.getSimpleName();
-    private static boolean pYL;
+    private static boolean pYM;
 
     public static boolean java() {
         String[] split;
         String str;
-        if (pYL) {
-            return pYL;
+        if (pYM) {
+            return pYM;
         }
         int length = System.getenv("PATH").split(":").length;
         int i = 0;
@@ -27,7 +27,7 @@ public class ay {
             }
         }
         boolean z = str != null;
-        pYL = z;
+        pYM = z;
         return z;
     }
 }

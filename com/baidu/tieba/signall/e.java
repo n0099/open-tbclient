@@ -24,7 +24,7 @@ public class e {
         return this.chV.postNetData();
     }
 
-    public String RC(String str) {
+    public String RD(String str) {
         AccountData currentAccountObj = TbadkApplication.getCurrentAccountObj();
         String str2 = null;
         if (currentAccountObj != null) {

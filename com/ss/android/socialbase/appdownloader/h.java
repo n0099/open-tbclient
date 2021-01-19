@@ -77,11 +77,11 @@ public class h {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes4.dex */
     public static class a {
-        private static final h pTW = new h();
+        private static final h pTX = new h();
     }
 
     public static h eDx() {
-        return a.pTW;
+        return a.pTX;
     }
 
     public int f(final Context context, final int i, final boolean z) {

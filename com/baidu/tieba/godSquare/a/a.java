@@ -77,7 +77,7 @@ public class a extends com.baidu.tieba.card.b<h> {
         if (hVar != null && hVar.ePn != null && hVar.ePn.getGodUserData() != null) {
             this.jQn = hVar;
             this.jQm = hVar.ePn;
-            Bd(hVar.rank);
+            Bc(hVar.rank);
             this.jLA.setData(hVar.ePn);
             this.jQj.setText(hVar.ePn.getName_show());
             this.jQk.setText(hVar.ePn.getGodUserData().getIntro());
@@ -86,7 +86,7 @@ public class a extends com.baidu.tieba.card.b<h> {
         }
     }
 
-    private void Bd(int i) {
+    private void Bc(int i) {
         String str;
         switch (i) {
             case 1:

@@ -25,12 +25,12 @@ public class CharmRankItemView extends LinearLayout {
     public ImageView gMM;
     public HeadImageView gMN;
     public TextView gMQ;
-    public YuyinALALevelView ofA;
-    public TbImageView ogo;
+    public YuyinALALevelView ofB;
     public TbImageView ogp;
-    private TBLottieAnimationView ogq;
-    private j.b ogr;
-    private a ogs;
+    public TbImageView ogq;
+    private TBLottieAnimationView ogr;
+    private j.b ogs;
+    private a ogt;
 
     /* loaded from: classes10.dex */
     public interface a {
@@ -49,7 +49,7 @@ public class CharmRankItemView extends LinearLayout {
 
     public void setData(int i, j.b bVar) {
         int i2;
-        this.ogr = bVar;
+        this.ogs = bVar;
         if (i == 1) {
             this.gML.setVisibility(8);
             this.gMM.setVisibility(0);
@@ -67,7 +67,7 @@ public class CharmRankItemView extends LinearLayout {
             this.gMM.setVisibility(8);
             this.gML.setText(i + "");
         }
-        this.aBZ.setText(this.ogr.user_nickname);
+        this.aBZ.setText(this.ogs.user_nickname);
         m.a(this.gMN, bVar.bd_portrait, true, false);
         this.gMQ.setText(bVar.aES);
         try {
@@ -76,52 +76,52 @@ public class CharmRankItemView extends LinearLayout {
             i2 = 0;
         }
         if (i2 == 7) {
-            this.ogp.setVisibility(0);
-            this.ogo.setVisibility(8);
-            this.ogp.setImageResource(a.e.sdk_pic_noble_avatar_box_king);
+            this.ogq.setVisibility(0);
+            this.ogp.setVisibility(8);
+            this.ogq.setImageResource(a.e.sdk_pic_noble_avatar_box_king);
         } else if (i2 == 6) {
-            this.ogp.setVisibility(0);
-            this.ogo.setVisibility(8);
-            this.ogp.setImageResource(a.e.sdk_pic_noble_avatar_box_duke);
+            this.ogq.setVisibility(0);
+            this.ogp.setVisibility(8);
+            this.ogq.setImageResource(a.e.sdk_pic_noble_avatar_box_duke);
         } else if (i2 == 5) {
-            this.ogp.setVisibility(0);
-            this.ogo.setVisibility(8);
-            this.ogp.setImageResource(a.e.sdk_pic_noble_avatar_box_marquis);
+            this.ogq.setVisibility(0);
+            this.ogp.setVisibility(8);
+            this.ogq.setImageResource(a.e.sdk_pic_noble_avatar_box_marquis);
         } else if (i2 == 4) {
-            this.ogp.setVisibility(0);
-            this.ogo.setVisibility(8);
-            this.ogp.setImageResource(a.e.sdk_pic_noble_avatar_box_earl);
+            this.ogq.setVisibility(0);
+            this.ogp.setVisibility(8);
+            this.ogq.setImageResource(a.e.sdk_pic_noble_avatar_box_earl);
         } else if (i == 1) {
-            this.ogo.setVisibility(0);
-            this.ogp.setVisibility(8);
-            this.ogo.setImageResource(a.e.yuyin_pic_live_list_top1);
+            this.ogp.setVisibility(0);
+            this.ogq.setVisibility(8);
+            this.ogp.setImageResource(a.e.yuyin_pic_live_list_top1);
         } else if (i == 2) {
-            this.ogo.setVisibility(0);
-            this.ogp.setVisibility(8);
-            this.ogo.setImageResource(a.e.yuyin_pic_live_list_top2);
+            this.ogp.setVisibility(0);
+            this.ogq.setVisibility(8);
+            this.ogp.setImageResource(a.e.yuyin_pic_live_list_top2);
         } else if (i == 3) {
-            this.ogo.setVisibility(0);
-            this.ogp.setVisibility(8);
-            this.ogo.setImageResource(a.e.yuyin_pic_live_list_top3);
+            this.ogp.setVisibility(0);
+            this.ogq.setVisibility(8);
+            this.ogp.setImageResource(a.e.yuyin_pic_live_list_top3);
         } else {
-            this.ogo.setVisibility(8);
             this.ogp.setVisibility(8);
+            this.ogq.setVisibility(8);
         }
         if (ExtraParamsManager.getEncryptionUserId(String.valueOf(TbadkCoreApplication.getCurrentAccountId())).equals(bVar.user_uk)) {
-            this.ogq.setVisibility(4);
+            this.ogr.setVisibility(4);
         } else {
             aE(bVar.AE(), false);
         }
     }
 
     public j.b getData() {
-        return this.ogr;
+        return this.ogs;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void clL() {
-        if (this.ogs != null) {
-            this.ogs.dXW();
+        if (this.ogt != null) {
+            this.ogt.dXW();
         }
     }
 
@@ -136,23 +136,23 @@ public class CharmRankItemView extends LinearLayout {
         this.gML = (TextView) findViewById(a.f.tv_rank);
         this.gMM = (ImageView) findViewById(a.f.iv_rank);
         this.gMN = (HeadImageView) findViewById(a.f.iv_avatar);
-        this.ogo = (TbImageView) findViewById(a.f.iv_pendant);
-        this.ogp = (TbImageView) findViewById(a.f.iv_noble);
-        this.ofA = (YuyinALALevelView) findViewById(a.f.level);
+        this.ogp = (TbImageView) findViewById(a.f.iv_pendant);
+        this.ogq = (TbImageView) findViewById(a.f.iv_noble);
+        this.ofB = (YuyinALALevelView) findViewById(a.f.level);
         this.aBZ = (TextView) findViewById(a.f.tv_name);
         this.gMQ = (TextView) findViewById(a.f.tv_value);
-        this.ogq = (TBLottieAnimationView) findViewById(a.f.anim_follow);
+        this.ogr = (TBLottieAnimationView) findViewById(a.f.anim_follow);
     }
 
     private void initView() {
         this.gMN.setAutoChangeStyle(false);
         this.gMN.setDrawBorder(false);
         this.gMN.setIsRound(true);
-        this.ogo.setDefaultBgResource(a.c.sdk_transparent);
-        this.ogo.setDefaultErrorResource(a.e.sdk_shape_transparent);
-        this.ogq.enableMergePathsForKitKatAndAbove(true);
-        this.ogq.setAnimation("charm_rank_item_follow.json");
-        this.ogq.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.charm.charmrank.CharmRankItemView.1
+        this.ogp.setDefaultBgResource(a.c.sdk_transparent);
+        this.ogp.setDefaultErrorResource(a.e.sdk_shape_transparent);
+        this.ogr.enableMergePathsForKitKatAndAbove(true);
+        this.ogr.setAnimation("charm_rank_item_follow.json");
+        this.ogr.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.charm.charmrank.CharmRankItemView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 CharmRankItemView.this.clL();
@@ -163,18 +163,18 @@ public class CharmRankItemView extends LinearLayout {
     public void aE(boolean z, boolean z2) {
         if (z) {
             if (z2) {
-                this.ogq.playAnimation();
+                this.ogr.playAnimation();
                 return;
             } else {
-                this.ogq.setVisibility(4);
+                this.ogr.setVisibility(4);
                 return;
             }
         }
-        this.ogq.setVisibility(0);
-        this.ogq.setProgress(0.0f);
+        this.ogr.setVisibility(0);
+        this.ogr.setProgress(0.0f);
     }
 
     public void setmCallBack(a aVar) {
-        this.ogs = aVar;
+        this.ogt = aVar;
     }
 }

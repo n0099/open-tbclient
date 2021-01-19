@@ -240,7 +240,7 @@ public final class e {
             public JSONObject a() {
                 return e.i();
             }
-        }).a(new com.bytedance.sdk.openadsdk.downloadnew.a.a.a(applicationContext)).a(new a.C1213a().Za("143").YZ("open_news").Zb("3.2.5.1").Zc(String.valueOf(3251)).eBK()).YY(packageName + ".TTFileProvider").a(a(applicationContext, i()));
+        }).a(new com.bytedance.sdk.openadsdk.downloadnew.a.a.a(applicationContext)).a(new a.C1213a().Zb("143").Za("open_news").Zc("3.2.5.1").Zd(String.valueOf(3251)).eBK()).YZ(packageName + ".TTFileProvider").a(a(applicationContext, i()));
         com.ss.android.downloadlib.f.a.a();
         i.ix(applicationContext).eCO().a(1);
         i.ix(applicationContext).a(f);

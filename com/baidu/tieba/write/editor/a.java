@@ -44,7 +44,7 @@ public class a {
         }
     }
 
-    public static void ca(String str, int i) {
+    public static void cb(String str, int i) {
         l<String> Ab;
         if (!StringUtils.isNull(str)) {
             String currentAccount = TbadkCoreApplication.getCurrentAccount();

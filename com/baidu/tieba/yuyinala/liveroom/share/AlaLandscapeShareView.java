@@ -12,7 +12,7 @@ public class AlaLandscapeShareView extends LinearLayout implements View.OnClickL
     private ShareEntity hJk;
     private TbPageContext mContext;
     private IShareChannel mShareChannel;
-    private a opr;
+    private a ops;
 
     /* loaded from: classes10.dex */
     interface a {
@@ -42,8 +42,8 @@ public class AlaLandscapeShareView extends LinearLayout implements View.OnClickL
             this.hJk.shareType = 1;
             this.mShareChannel.shareToSinaWeibo(this.hJk, null);
         }
-        if (this.opr != null) {
-            this.opr.onClick(view);
+        if (this.ops != null) {
+            this.ops.onClick(view);
         }
     }
 }

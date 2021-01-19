@@ -14,7 +14,7 @@ public class h {
         }
         c cVar = new c();
         cVar.HD(i);
-        cVar.QP(advertAppInfo.price);
+        cVar.QQ(advertAppInfo.price);
         cVar.setExtInfo(advertAppInfo.extensionInfo);
         if ("PB_BANNER".equals(advertAppInfo.page)) {
             cVar.HE(-1);
@@ -26,10 +26,10 @@ public class h {
             cVar.HE(com.baidu.adp.lib.f.b.toInt(advertAppInfo.adPosition, 0));
             cVar.setPageNumber(i2);
         }
-        cVar.QS(advertAppInfo.eJu);
-        cVar.QT(advertAppInfo.eJv);
-        cVar.QU(advertAppInfo.eJw);
-        cVar.QV(advertAppInfo.page);
+        cVar.QT(advertAppInfo.eJu);
+        cVar.QU(advertAppInfo.eJv);
+        cVar.QV(advertAppInfo.eJw);
+        cVar.QW(advertAppInfo.page);
         return cVar;
     }
 
@@ -50,8 +50,8 @@ public class h {
             cVar.HE(com.baidu.adp.lib.f.b.toInt(advertAppInfo.adPosition, 0));
             cVar.setPageNumber(i2);
         }
-        cVar.QW(str);
-        cVar.QV(advertAppInfo.page);
+        cVar.QX(str);
+        cVar.QW(advertAppInfo.page);
         return cVar;
     }
 
@@ -68,7 +68,7 @@ public class h {
         }
         c cVar = new c();
         cVar.HD(i);
-        cVar.QP(advertAppInfo.price);
+        cVar.QQ(advertAppInfo.price);
         cVar.setExtInfo(advertAppInfo.extensionInfo);
         if ("PB_BANNER".equals(advertAppInfo.page)) {
             cVar.HE(-1);
@@ -77,10 +77,10 @@ public class h {
             cVar.HE(advertAppInfo.eJm);
             cVar.setPageNumber(i2);
         }
-        cVar.QS(advertAppInfo.eJu);
-        cVar.QT(advertAppInfo.eJv);
-        cVar.QU(advertAppInfo.eJw);
-        cVar.QV(advertAppInfo.page);
+        cVar.QT(advertAppInfo.eJu);
+        cVar.QU(advertAppInfo.eJv);
+        cVar.QV(advertAppInfo.eJw);
+        cVar.QW(advertAppInfo.page);
         return cVar;
     }
 
@@ -110,7 +110,7 @@ public class h {
         AppData dLa = oVar.dLa();
         c cVar = new c();
         cVar.setExtInfo(dLa.ext_info);
-        if (oVar.nmK) {
+        if (oVar.nmL) {
             cVar.HE(-1);
             cVar.setPageNumber(-1);
         } else {
@@ -118,11 +118,11 @@ public class h {
             cVar.setPageNumber(oVar.pageNumber);
         }
         cVar.HD(i);
-        cVar.QP(dLa.price);
-        cVar.QS(oVar.eJu);
-        cVar.QT(oVar.eJv);
-        cVar.QU(oVar.forumId);
-        cVar.QV(oVar.dLd());
+        cVar.QQ(dLa.price);
+        cVar.QT(oVar.eJu);
+        cVar.QU(oVar.eJv);
+        cVar.QV(oVar.forumId);
+        cVar.QW(oVar.dLd());
         return cVar;
     }
 
@@ -134,9 +134,9 @@ public class h {
         if (i6 != -1 && i == 32) {
             b2.HJ(i6);
         }
-        b2.QV(advertAppInfo.page);
+        b2.QW(advertAppInfo.page);
         if (i == 2) {
-            b2.QR("video");
+            b2.QS("video");
         }
         return b2;
     }
@@ -150,10 +150,10 @@ public class h {
             a2.HJ(i6);
         }
         if (dVar != null) {
-            a2.QV(dVar.qU().page);
+            a2.QW(dVar.qU().page);
         }
         if (i == 2) {
-            a2.QR("video");
+            a2.QS("video");
         }
         return a2;
     }
@@ -165,10 +165,10 @@ public class h {
     public static c d(String str, int i, String str2, String str3) {
         c cVar = new c();
         cVar.HD(i);
-        cVar.QO(str2);
-        cVar.QV("HOMEPAGE");
+        cVar.QP(str2);
+        cVar.QW("HOMEPAGE");
         cVar.setExtInfo(str);
-        cVar.QW(str3);
+        cVar.QX(str3);
         return cVar;
     }
 
@@ -197,7 +197,7 @@ public class h {
         c cVar = new c();
         cVar.HD(aVar.abw);
         cVar.HE(aVar.aby);
-        cVar.QV(aVar.abx);
+        cVar.QW(aVar.abx);
         cVar.setExtInfo(aVar.extraParam);
         return cVar;
     }
@@ -206,11 +206,11 @@ public class h {
         c cVar = new c();
         cVar.HD(aVar.abw);
         cVar.HE(aVar.aby);
-        cVar.QV(aVar.abx);
+        cVar.QW(aVar.abx);
         cVar.setExtInfo(aVar.extraParam);
         cVar.HF(aVar.abk);
         if (!TextUtils.isEmpty(aVar.tplName)) {
-            cVar.QQ(aVar.tplName);
+            cVar.QR(aVar.tplName);
         }
         cVar.HH(aVar.abl);
         return cVar;
@@ -220,7 +220,7 @@ public class h {
         c cVar = new c();
         cVar.HD(aVar.abw);
         cVar.HE(aVar.aby);
-        cVar.QV(aVar.abx);
+        cVar.QW(aVar.abx);
         cVar.setExtInfo(aVar.extraParam);
         cVar.HF(0);
         cVar.HG(aVar.abA);
@@ -233,7 +233,7 @@ public class h {
         c cVar = new c();
         cVar.HD(aVar.abw);
         cVar.HE(aVar.aby);
-        cVar.QV(aVar.abx);
+        cVar.QW(aVar.abx);
         cVar.setExtInfo(aVar.extraParam);
         return cVar;
     }

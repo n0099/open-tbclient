@@ -57,7 +57,7 @@ public class a {
         }
     }
 
-    public boolean PS(String str) {
+    public boolean PT(String str) {
         boolean z;
         if (at.isEmpty(str)) {
             return false;

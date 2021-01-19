@@ -1,5 +1,5 @@
 package com.win.opensdk;
 /* loaded from: classes3.dex */
 public class a {
-    public static boolean pYT = false;
+    public static boolean pYU = false;
 }

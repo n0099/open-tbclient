@@ -38,7 +38,7 @@ public class PostSearchActivityStatic {
                 if (StringUtils.isNull(data)) {
                     return null;
                 }
-                com.baidu.tieba.tbadkCore.util.a.Sx(data);
+                com.baidu.tieba.tbadkCore.util.a.Sy(data);
                 return new CustomResponsedMessage<>(CmdConfigCustom.SAVE_SEARCH_POST_DATA);
             }
         });

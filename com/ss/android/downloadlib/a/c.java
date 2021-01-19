@@ -10,9 +10,9 @@ public class c implements j.a {
 
     /* renamed from: a  reason: collision with root package name */
     private static String f12943a = c.class.getSimpleName();
-    private static volatile c pRb;
+    private static volatile c pRc;
     private ConcurrentHashMap<Long, Runnable> d;
-    private com.ss.android.downloadlib.f.j pQH = new com.ss.android.downloadlib.f.j(Looper.getMainLooper(), this);
+    private com.ss.android.downloadlib.f.j pQI = new com.ss.android.downloadlib.f.j(Looper.getMainLooper(), this);
 
     public c() {
         this.d = null;
@@ -20,14 +20,14 @@ public class c implements j.a {
     }
 
     public static c eCg() {
-        if (pRb == null) {
+        if (pRc == null) {
             synchronized (c.class) {
-                if (pRb == null) {
-                    pRb = new c();
+                if (pRc == null) {
+                    pRc = new c();
                 }
             }
         }
-        return pRb;
+        return pRc;
     }
 
     @Override // com.ss.android.downloadlib.f.j.a
@@ -63,7 +63,7 @@ public class c implements j.a {
                         return;
                     }
                     if (runnable != null) {
-                        this.pQH.post(runnable);
+                        this.pQI.post(runnable);
                     }
                     com.ss.android.downloadlib.e.a.eCL().a(j, false, 1);
                     return;
@@ -73,11 +73,11 @@ public class c implements j.a {
 
     public void a(int i, com.ss.android.a.a.b.c cVar, com.ss.android.a.a.b.b bVar) {
         com.ss.android.downloadlib.f.h.i(f12943a, "sendQuickAppMsg msgWhat:" + i, null);
-        if (this.pQH != null) {
+        if (this.pQI != null) {
             Message obtain = Message.obtain();
             obtain.what = i;
             obtain.obj = Long.valueOf(cVar.d());
-            this.pQH.sendMessageDelayed(obtain, b());
+            this.pQI.sendMessageDelayed(obtain, b());
         }
     }
 

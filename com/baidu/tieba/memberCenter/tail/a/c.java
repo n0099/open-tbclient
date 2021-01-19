@@ -15,7 +15,7 @@ public class c {
         return TbadkCoreApplication.getInst().getString(R.string.color_prefix) + str;
     }
 
-    public static int Nz(String str) {
+    public static int NA(String str) {
         try {
             return Color.parseColor(getShowColorText(str));
         } catch (Exception e) {

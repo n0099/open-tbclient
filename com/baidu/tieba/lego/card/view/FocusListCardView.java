@@ -146,7 +146,7 @@ public class FocusListCardView extends BaseCardView<FocusListCard> {
                             if (!TextUtils.isEmpty(focusListCard.getFocusItemList().get(i).scheme)) {
                                 s.crj().mC(true);
                                 com.baidu.tieba.lego.e a2 = com.baidu.tieba.lego.i.a((BaseLegoCardInfo) focusListCard);
-                                a2.bz("obj_locate", i + 1);
+                                a2.bA("obj_locate", i + 1);
                                 a2.fF(TiebaInitialize.Params.OBJ_URL, focusListCard.getFocusItemList().get(i).scheme);
                                 a2.O("obj_id", focusListCard.getFocusItemList().get(i).kTG);
                                 a2.a(focusListCard);

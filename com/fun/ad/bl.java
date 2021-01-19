@@ -16,7 +16,7 @@ import com.fun.ad.sdk.FunAdView;
 import com.fun.ad.sdk.FunRippedAd;
 /* loaded from: classes14.dex */
 public class bl extends bd {
-    public TTBannerAd pFE;
+    public TTBannerAd pFF;
 
     /* loaded from: classes14.dex */
     public class a implements TTAdNative.BannerAdListener {
@@ -28,8 +28,8 @@ public class bl extends bd {
             m.a("CSJBannerAd onBannerAdLoad");
             bl blVar = bl.this;
             blVar.f7765b = false;
-            blVar.pFE = tTBannerAd;
-            ba baVar = blVar.pFu;
+            blVar.pFF = tTBannerAd;
+            ba baVar = blVar.pFv;
             if (baVar != null) {
                 ((aj) baVar).b(blVar.f7764a.f7760a);
             }
@@ -41,7 +41,7 @@ public class bl extends bd {
             m.a("CSJBannerAd onError code: " + i + ", message: " + str);
             bl blVar = bl.this;
             blVar.f7765b = false;
-            ba baVar = blVar.pFu;
+            ba baVar = blVar.pFv;
             if (baVar != null) {
                 ((aj) baVar).a(blVar.f7764a.f7760a, i, str);
             }
@@ -57,7 +57,7 @@ public class bl extends bd {
         public void onAdClicked(View view, int i) {
             m.a("CSJBannerAd onAdClicked type: " + i);
             bl blVar = bl.this;
-            ax axVar = blVar.pFv;
+            ax axVar = blVar.pFw;
             if (axVar != null) {
                 ((am) axVar).a(blVar.f7764a.f7760a, view, i);
             }
@@ -67,7 +67,7 @@ public class bl extends bd {
         public void onAdShow(View view, int i) {
             m.a("CSJBannerAd onAdShow type: " + i);
             bl blVar = bl.this;
-            ax axVar = blVar.pFv;
+            ax axVar = blVar.pFw;
             if (axVar != null) {
                 ((am) axVar).b(blVar.f7764a.f7760a, view, i);
             }
@@ -102,7 +102,7 @@ public class bl extends bd {
                 ((ViewGroup) this.f7771a.getParent()).removeView(this.f7771a);
             }
             bl blVar = bl.this;
-            ax axVar = blVar.pFv;
+            ax axVar = blVar.pFw;
             if (axVar != null) {
                 ((am) axVar).a(blVar.f7764a.f7760a);
             }
@@ -116,13 +116,13 @@ public class bl extends bd {
     @Override // com.fun.ad.bd
     public void a() {
         super.a();
-        this.pFE = null;
+        this.pFF = null;
     }
 
     @Override // com.fun.ad.bd
     public FunRippedAd exX() {
         AdRipper.RippedCSJAd rippedCSJAd;
-        TTBannerAd tTBannerAd = this.pFE;
+        TTBannerAd tTBannerAd = this.pFF;
         if (tTBannerAd == null || (rippedCSJAd = AdRipper.getRippedCSJAd(tTBannerAd, false)) == null) {
             return null;
         }
@@ -145,8 +145,8 @@ public class bl extends bd {
             this.f7765b = true;
             AdSlot.Builder supportDeepLink = new AdSlot.Builder().setCodeId(this.f7764a.f7760a).setSupportDeepLink(true);
             au.a aVar = this.f7764a;
-            this.pFw.loadBannerAd(supportDeepLink.setImageAcceptedSize(aVar.c, aVar.d).build(), new a());
-            ba baVar2 = this.pFu;
+            this.pFx.loadBannerAd(supportDeepLink.setImageAcceptedSize(aVar.c, aVar.d).build(), new a());
+            ba baVar2 = this.pFv;
             if (baVar2 != null) {
                 ((aj) baVar2).a(this.f7764a.f7760a);
             }
@@ -156,7 +156,7 @@ public class bl extends bd {
     @Override // com.fun.ad.bd
     public void a(Activity activity, FunAdView funAdView, ax axVar) {
         super.a(activity, funAdView, axVar);
-        TTBannerAd tTBannerAd = this.pFE;
+        TTBannerAd tTBannerAd = this.pFF;
         if (tTBannerAd != null) {
             View bannerView = tTBannerAd.getBannerView();
             if (bannerView != null && bannerView.getParent() != null) {
@@ -166,10 +166,10 @@ public class bl extends bd {
                 funAdView.removeAllViews();
                 funAdView.addView(bannerView);
             }
-            this.pFE.setSlideIntervalTime(this.f7764a.f);
-            this.pFE.setBannerInteractionListener(new b());
-            this.pFE.setShowDislikeIcon(new c(bannerView));
-            this.pFE.setDownloadListener(new bj(null));
+            this.pFF.setSlideIntervalTime(this.f7764a.f);
+            this.pFF.setBannerInteractionListener(new b());
+            this.pFF.setShowDislikeIcon(new c(bannerView));
+            this.pFF.setDownloadListener(new bj(null));
         }
     }
 }

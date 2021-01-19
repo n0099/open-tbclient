@@ -11,7 +11,7 @@ public class ForumBroadcastMajorResidueData extends OrmObject {
         return this.kxD;
     }
 
-    public void CE(int i) {
+    public void CD(int i) {
         this.kxD = i;
     }
 
@@ -19,11 +19,11 @@ public class ForumBroadcastMajorResidueData extends OrmObject {
         return this.kxE;
     }
 
-    public void CF(int i) {
+    public void CE(int i) {
         this.kxE = i;
     }
 
-    public void CG(int i) {
+    public void CF(int i) {
         this.kxF = i;
     }
 }

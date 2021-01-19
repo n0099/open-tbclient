@@ -59,7 +59,7 @@ public class HotTopicModel extends BdBaseModel<BaseActivity<?>> {
         int equipmentWidth = l.getEquipmentWidth(TbadkCoreApplication.getInst().getApp());
         int equipmentHeight = l.getEquipmentHeight(TbadkCoreApplication.getInst().getApp());
         requestHotTopicMessage.setTopicId(Long.valueOf(j));
-        requestHotTopicMessage.setCall_from(Lu(str4));
+        requestHotTopicMessage.setCall_from(Lv(str4));
         requestHotTopicMessage.setTopicName(str);
         requestHotTopicMessage.setScrH(Integer.valueOf(equipmentHeight));
         requestHotTopicMessage.setTopic_tid(j3);
@@ -113,7 +113,7 @@ public class HotTopicModel extends BdBaseModel<BaseActivity<?>> {
         return false;
     }
 
-    private int Lu(String str) {
+    private int Lv(String str) {
         if ("1".equals(str)) {
             return 1;
         }

@@ -20,7 +20,7 @@ public class OnlineAudienceItemView extends LinearLayout {
     public HeadImageView gMN;
     public TbImageView gMO;
     public TextView gMQ;
-    public YuyinALALevelView ofA;
+    public YuyinALALevelView ofB;
 
     public OnlineAudienceItemView(Context context) {
         this(context, null);
@@ -72,7 +72,7 @@ public class OnlineAudienceItemView extends LinearLayout {
     private void EO() {
         this.gMN = (HeadImageView) findViewById(a.f.iv_avatar);
         this.gMO = (TbImageView) findViewById(a.f.iv_pendant);
-        this.ofA = (YuyinALALevelView) findViewById(a.f.level);
+        this.ofB = (YuyinALALevelView) findViewById(a.f.level);
         this.aBZ = (TextView) findViewById(a.f.tv_name);
         this.gMQ = (TextView) findViewById(a.f.tv_value);
     }

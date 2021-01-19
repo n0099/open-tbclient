@@ -208,7 +208,7 @@ public class NewSubPbActivity extends BaseActivity<NewSubPbActivity> implements 
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && NewSubPbActivity.this.lWQ != null && (customResponsedMessage.getData() instanceof PostWriteCallBackData) && com.baidu.tbadk.core.util.at.equals(((PostWriteCallBackData) customResponsedMessage.getData()).getThreadId(), NewSubPbActivity.this.lWQ.dme())) {
                 if (NewSubPbActivity.this.khc != null) {
-                    NewSubPbActivity.this.khc.TW(null);
+                    NewSubPbActivity.this.khc.TX(null);
                     NewSubPbActivity.this.khc.bh(null);
                     NewSubPbActivity.this.khc.yX(false);
                 }
@@ -230,7 +230,7 @@ public class NewSubPbActivity extends BaseActivity<NewSubPbActivity> implements 
                 }
             }
             if (z) {
-                NewSubPbActivity.this.khc.TW(null);
+                NewSubPbActivity.this.khc.TX(null);
                 NewSubPbActivity.this.khc.bh(null);
                 NewSubPbActivity.this.khc.yX(false);
                 if (postWriteCallBackData != null && postWriteCallBackData.getIconStampData() != null) {
@@ -238,7 +238,7 @@ public class NewSubPbActivity extends BaseActivity<NewSubPbActivity> implements 
                 }
             } else if (postWriteCallBackData != null && postWriteCallBackData.isSensitiveError()) {
                 NewSubPbActivity.this.khc.bh(postWriteCallBackData.getSensitiveWords());
-                NewSubPbActivity.this.khc.TW(postWriteCallBackData.getErrorString());
+                NewSubPbActivity.this.khc.TX(postWriteCallBackData.getErrorString());
                 if (!x.isEmpty(NewSubPbActivity.this.khc.dTZ())) {
                     NewSubPbActivity.this.lKL = postWriteCallBackData;
                     if (NewSubPbActivity.this.kKo.bBL()) {
@@ -338,7 +338,7 @@ public class NewSubPbActivity extends BaseActivity<NewSubPbActivity> implements 
                 com.baidu.tieba.usermute.a aVar = (com.baidu.tieba.usermute.a) customResponsedMessage.getData();
                 NewSubPbActivity.this.lWS.cjr();
                 SparseArray<Object> sparseArray = (SparseArray) NewSubPbActivity.this.mExtra;
-                DataRes dataRes = aVar.nAo;
+                DataRes dataRes = aVar.nAp;
                 if (aVar.error == 0 && dataRes != null) {
                     boolean z2 = com.baidu.adp.lib.f.b.toInt(dataRes.is_mute, 0) == 1;
                     sparseArray.put(R.id.tag_user_mute_visible, true);
@@ -641,7 +641,7 @@ public class NewSubPbActivity extends BaseActivity<NewSubPbActivity> implements 
                         if (NewSubPbActivity.this.lIE != null) {
                             if (bjH != null) {
                                 NewSubPbActivity.this.lWQ.vR(true);
-                                NewSubPbActivity.this.lWQ.Ph(NewSubPbActivity.this.lWQ.bBr());
+                                NewSubPbActivity.this.lWQ.Pi(NewSubPbActivity.this.lWQ.bBr());
                                 NewSubPbActivity.this.showToast(R.string.add_mark_on_pb);
                             } else {
                                 NewSubPbActivity.this.showToast(NewSubPbActivity.this.getPageContext().getString(R.string.add_mark));
@@ -653,7 +653,7 @@ public class NewSubPbActivity extends BaseActivity<NewSubPbActivity> implements 
                     } else {
                         eVar.setData(null);
                         NewSubPbActivity.this.lWQ.vR(false);
-                        NewSubPbActivity.this.lWQ.Ph(null);
+                        NewSubPbActivity.this.lWQ.Pi(null);
                         NewSubPbActivity.this.showToast(NewSubPbActivity.this.getPageContext().getString(R.string.remove_mark));
                         if (NewSubPbActivity.this.lWS != null) {
                             NewSubPbActivity.this.lWS.vQ(false);
@@ -707,7 +707,7 @@ public class NewSubPbActivity extends BaseActivity<NewSubPbActivity> implements 
                         int i2 = com.baidu.adp.lib.f.b.toInt(String.valueOf(objArr[3]), 0);
                         if (NewSubPbActivity.this.lWQ != null && NewSubPbActivity.this.lWQ.dqL() != null && NewSubPbActivity.this.lWQ.dqL().bBS() != null && NewSubPbActivity.this.lWQ.dqL().bkV() != null) {
                             if (objArr.length > 4) {
-                                NewSubPbActivity.this.lWR.Su(String.valueOf(objArr[4]));
+                                NewSubPbActivity.this.lWR.Sv(String.valueOf(objArr[4]));
                             }
                             NewSubPbActivity.this.lWR.a(NewSubPbActivity.this.lWQ.dqL().bBS().getId(), NewSubPbActivity.this.lWQ.dqL().bBS().getName(), NewSubPbActivity.this.lWQ.dqL().bkV().getId(), valueOf, i2, i, z, NewSubPbActivity.this.lWQ.dqL().bkV().getBaijiahaoData());
                             return;
@@ -737,7 +737,7 @@ public class NewSubPbActivity extends BaseActivity<NewSubPbActivity> implements 
                         return;
                     case 1:
                         ForumManageModel.d dVar = (ForumManageModel.d) obj;
-                        NewSubPbActivity.this.lWS.a(1, dVar.mSuccess, dVar.npN, true);
+                        NewSubPbActivity.this.lWS.a(1, dVar.mSuccess, dVar.npO, true);
                         return;
                     default:
                         return;
@@ -904,7 +904,7 @@ public class NewSubPbActivity extends BaseActivity<NewSubPbActivity> implements 
                                                                                         if (obj instanceof PostData) {
                                                                                             PostData postData2 = (PostData) obj;
                                                                                             if (postData2.getType() != PostData.eOs && !TextUtils.isEmpty(postData2.getBimg_url()) && k.bkB().isShowImages()) {
-                                                                                                NewSubPbActivity.this.Pe(postData2.getId());
+                                                                                                NewSubPbActivity.this.Pf(postData2.getId());
                                                                                                 return;
                                                                                             }
                                                                                             return;
@@ -983,7 +983,7 @@ public class NewSubPbActivity extends BaseActivity<NewSubPbActivity> implements 
                                                         } else {
                                                             Object tag = view.getTag();
                                                             if (tag instanceof String) {
-                                                                NewSubPbActivity.this.OB((String) tag);
+                                                                NewSubPbActivity.this.OC((String) tag);
                                                                 return;
                                                             } else if (tag instanceof SparseArray) {
                                                                 SparseArray<Object> sparseArray6 = (SparseArray) tag;
@@ -1035,7 +1035,7 @@ public class NewSubPbActivity extends BaseActivity<NewSubPbActivity> implements 
                                             if (tag2 instanceof String) {
                                                 String str4 = (String) tag2;
                                                 if (NewSubPbActivity.this.checkUpIsLogin()) {
-                                                    NewSubPbActivity.this.OB(str4);
+                                                    NewSubPbActivity.this.OC(str4);
                                                     return;
                                                 }
                                                 return;
@@ -1241,7 +1241,7 @@ public class NewSubPbActivity extends BaseActivity<NewSubPbActivity> implements 
                         }
                         aa aaVar = NewSubPbActivity.this.lWT;
                         int djc = NewSubPbActivity.this.djc();
-                        if (NewSubPbActivity.this.lIB && NewSubPbActivity.this.khK.nnK) {
+                        if (NewSubPbActivity.this.lIB && NewSubPbActivity.this.khK.nnL) {
                             z = true;
                         }
                         aaVar.a(sparseArray2, djc, z3, z);
@@ -1268,10 +1268,10 @@ public class NewSubPbActivity extends BaseActivity<NewSubPbActivity> implements 
                 try {
                     if (view.getTag(R.id.tag_rich_text_meme_info) == null || !(view.getTag(R.id.tag_rich_text_meme_info) instanceof TbRichTextMemeInfo) || !(view instanceof TbImageView)) {
                         p dqL = NewSubPbActivity.this.lWQ.dqL();
-                        TbRichText bG = NewSubPbActivity.this.bG(str, i);
+                        TbRichText bH = NewSubPbActivity.this.bH(str, i);
                         TbRichTextData tbRichTextData = null;
-                        if (bG != null && bG.bHf() != null) {
-                            tbRichTextData = bG.bHf().get(NewSubPbActivity.this.lJO);
+                        if (bH != null && bH.bHf() != null) {
+                            tbRichTextData = bH.bHf().get(NewSubPbActivity.this.lJO);
                         }
                         if (tbRichTextData != null) {
                             ArrayList<String> arrayList = new ArrayList<>();
@@ -1310,14 +1310,14 @@ public class NewSubPbActivity extends BaseActivity<NewSubPbActivity> implements 
                                 ArrayList arrayList2 = new ArrayList();
                                 arrayList2.add(x.getItem(arrayList, 0));
                                 ImageViewerConfig.a aVar = new ImageViewerConfig.a();
-                                aVar.s(arrayList2).zs(str5).zt(str6).zu(str4).je(z4).zv(arrayList.get(0)).jf(true).d(concurrentHashMap).jg(true).jh(false).ji(false).s(NewSubPbActivity.this.bkV()).zw(String.valueOf(bG.getPostId())).zx(NewSubPbActivity.this.lWQ.getFromForumId());
+                                aVar.s(arrayList2).zs(str5).zt(str6).zu(str4).je(z4).zv(arrayList.get(0)).jf(true).d(concurrentHashMap).jg(true).jh(false).ji(false).s(NewSubPbActivity.this.bkV()).zw(String.valueOf(bH.getPostId())).zx(NewSubPbActivity.this.lWQ.getFromForumId());
                                 NewSubPbActivity.this.sendMessage(new CustomMessage((int) CmdConfigCustom.IMAGE_VIEWER_CUSTOM_CMD, aVar.eQ(NewSubPbActivity.this.getPageContext().getPageActivity())));
                                 return;
                             }
                             NewSubPbActivity.this.lJP = false;
                             TbRichText dLo = dqL.djF().dLo();
                             int size = arrayList.size();
-                            int a2 = NewSubPbActivity.this.a(dLo, bG, i, i, arrayList, concurrentHashMap);
+                            int a2 = NewSubPbActivity.this.a(dLo, bH, i, i, arrayList, concurrentHashMap);
                             int size2 = arrayList.size();
                             if (size == size2) {
                                 str2 = "";
@@ -1352,7 +1352,7 @@ public class NewSubPbActivity extends BaseActivity<NewSubPbActivity> implements 
                             ArrayList arrayList3 = new ArrayList();
                             arrayList3.add(x.getItem(arrayList, a2));
                             ImageViewerConfig.a aVar2 = new ImageViewerConfig.a();
-                            aVar2.s(arrayList3).zs(str8).zt(str9).zu(str3).je(z3).zv(str2).jf(true).d(concurrentHashMap).jg(true).jh(false).ji(false).s(NewSubPbActivity.this.bkV()).zw(String.valueOf(bG.getPostId())).zx(NewSubPbActivity.this.lWQ.getFromForumId());
+                            aVar2.s(arrayList3).zs(str8).zt(str9).zu(str3).je(z3).zv(str2).jf(true).d(concurrentHashMap).jg(true).jh(false).ji(false).s(NewSubPbActivity.this.bkV()).zw(String.valueOf(bH.getPostId())).zx(NewSubPbActivity.this.lWQ.getFromForumId());
                             NewSubPbActivity.this.sendMessage(new CustomMessage((int) CmdConfigCustom.IMAGE_VIEWER_CUSTOM_CMD, aVar2.eQ(NewSubPbActivity.this.getPageContext().getPageActivity())));
                             return;
                         }
@@ -1411,7 +1411,7 @@ public class NewSubPbActivity extends BaseActivity<NewSubPbActivity> implements 
                 if (postData.bnx() != null) {
                     MetaData bnx = postData.bnx();
                     this.kKo.setReplyId(bnx.getUserId());
-                    boolean z2 = postData.nnK;
+                    boolean z2 = postData.nnL;
                     String str = "";
                     if (postData.dLo() != null) {
                         str = postData.dLo().toString();
@@ -1594,7 +1594,7 @@ public class NewSubPbActivity extends BaseActivity<NewSubPbActivity> implements 
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public TbRichText bG(String str, int i) {
+    public TbRichText bH(String str, int i) {
         if (this.lWQ == null || this.lWQ.dqL() == null || str == null || i < 0) {
             return null;
         }
@@ -1740,10 +1740,10 @@ public class NewSubPbActivity extends BaseActivity<NewSubPbActivity> implements 
             if (i == 4) {
                 this.lWS.HW(str + "(4)");
             } else {
-                this.lWS.CH(R.string.no_data_text);
+                this.lWS.CG(R.string.no_data_text);
             }
         } else {
-            this.lWS.CH(R.string.recommend_pb_no_net_text);
+            this.lWS.CG(R.string.recommend_pb_no_net_text);
         }
     }
 
@@ -1896,7 +1896,7 @@ public class NewSubPbActivity extends BaseActivity<NewSubPbActivity> implements 
     public void a(ForumManageModel.b bVar, boolean z) {
         int i = 0;
         if (bVar != null) {
-            this.lWS.a(0, bVar.mSuccess, bVar.npN, z);
+            this.lWS.a(0, bVar.mSuccess, bVar.npO, z);
             if (bVar.mSuccess) {
                 if (bVar.iHw == 1) {
                     if (this.lWS.getListView() instanceof BdTypeListView) {
@@ -1912,7 +1912,7 @@ public class NewSubPbActivity extends BaseActivity<NewSubPbActivity> implements 
                         }
                     }
                 } else if (bVar.iHw == 2) {
-                    this.lWQ.Pg(bVar.mPostId);
+                    this.lWQ.Ph(bVar.mPostId);
                     this.lWS.a(this.lWQ.dqL(), this.lWQ.djc(), this.lWQ.dqZ() != null, false);
                     if (this.lWQ.dqW()) {
                         this.lWQ.vS(false);
@@ -1928,7 +1928,7 @@ public class NewSubPbActivity extends BaseActivity<NewSubPbActivity> implements 
         }
     }
 
-    public void OB(String str) {
+    public void OC(String str) {
         if (this.lWQ != null && this.lWQ.dqL() != null && this.lWQ.dqL().bkV() != null && this.lWQ.dqL().bkV().isBjh()) {
             String format = String.format(TbConfig.URL_BJH_REPORT, this.lWQ.dme(), str);
             bz bkV = this.lWQ.dqL().bkV();
@@ -1939,13 +1939,13 @@ public class NewSubPbActivity extends BaseActivity<NewSubPbActivity> implements 
             } else if (bkV.bmf()) {
                 format = format + "&channelid=33840";
             }
-            OC(format);
+            OD(format);
             return;
         }
-        this.lID.Pc(str);
+        this.lID.Pd(str);
     }
 
-    private void OC(String str) {
+    private void OD(String str) {
         TbWebViewActivityConfig tbWebViewActivityConfig = new TbWebViewActivityConfig(this, "", str, true);
         tbWebViewActivityConfig.setFixTitle(true);
         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, tbWebViewActivityConfig));
@@ -2108,13 +2108,13 @@ public class NewSubPbActivity extends BaseActivity<NewSubPbActivity> implements 
         return (VoiceManager.b) findViewWithTag;
     }
 
-    public boolean OU(String str) {
+    public boolean OV(String str) {
         Map<String, String> paramPair;
         if (!TextUtils.isEmpty(str) && (paramPair = be.getParamPair(be.getParamStr(str))) != null) {
             this.lXc = true;
             String str2 = paramPair.get("url");
             if (!TextUtils.isEmpty(str2)) {
-                return OU(com.baidu.adp.lib.util.k.getUrlDecode(str2));
+                return OV(com.baidu.adp.lib.util.k.getUrlDecode(str2));
             }
             String str3 = paramPair.get(lWP);
             return !TextUtils.isEmpty(str3) && str3.equals("1");
@@ -2125,7 +2125,7 @@ public class NewSubPbActivity extends BaseActivity<NewSubPbActivity> implements 
     @Override // com.baidu.tbadk.widget.richText.h
     public void g(Context context, String str, boolean z) {
         if (!TextUtils.isEmpty(str)) {
-            if (OU(str)) {
+            if (OV(str)) {
                 MessageManager.getInstance().dispatchResponsedMessage(new GameLaunchMessage(getApplicationContext(), null, str, null));
                 return;
             }
@@ -2445,7 +2445,7 @@ public class NewSubPbActivity extends BaseActivity<NewSubPbActivity> implements 
     }
 
     @Override // com.baidu.tieba.pb.pb.a
-    public boolean Ov(String str) {
+    public boolean Ow(String str) {
         if (StringUtils.isNull(str) || this.lWQ == null || this.lWQ.dqL() == null || this.lWQ.dqL().bkV() == null || this.lWQ.dqL().bkV().bnx() == null) {
             return false;
         }
@@ -2496,7 +2496,7 @@ public class NewSubPbActivity extends BaseActivity<NewSubPbActivity> implements 
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Pe(String str) {
+    public void Pf(String str) {
         if (!StringUtils.isNull(str) && bg.checkUpIsLogin(getPageContext().getPageActivity())) {
             String string = com.baidu.tbadk.core.sharedPref.b.brx().getString("bubble_link", "");
             if (!StringUtils.isNull(string)) {

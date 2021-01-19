@@ -8,7 +8,7 @@ import java.lang.reflect.Method;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes5.dex */
 public final class e<E extends g> extends ProtoAdapter<E> {
-    private Method pQr;
+    private Method pQs;
     private final Class<E> type;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -18,13 +18,13 @@ public final class e<E extends g> extends ProtoAdapter<E> {
     }
 
     private Method eBv() {
-        Method method = this.pQr;
+        Method method = this.pQs;
         if (method != null) {
             return method;
         }
         try {
             Method method2 = this.type.getMethod("fromValue", Integer.TYPE);
-            this.pQr = method2;
+            this.pQs = method2;
             return method2;
         } catch (NoSuchMethodException e) {
             throw new AssertionError(e);

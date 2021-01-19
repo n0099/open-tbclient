@@ -11,18 +11,18 @@ import rx.internal.schedulers.h;
 import rx.internal.schedulers.j;
 /* loaded from: classes14.dex */
 public final class Schedulers {
-    private static final AtomicReference<Schedulers> qoa = new AtomicReference<>();
-    private final g qug;
+    private static final AtomicReference<Schedulers> qob = new AtomicReference<>();
     private final g quh;
     private final g qui;
+    private final g quj;
 
     private static Schedulers eLH() {
         Schedulers schedulers;
         while (true) {
-            schedulers = qoa.get();
+            schedulers = qob.get();
             if (schedulers == null) {
                 schedulers = new Schedulers();
-                if (qoa.compareAndSet(null, schedulers)) {
+                if (qob.compareAndSet(null, schedulers)) {
                     break;
                 }
                 schedulers.eLJ();
@@ -37,42 +37,42 @@ public final class Schedulers {
         rx.c.g eLy = f.eLt().eLy();
         g eLC = eLy.eLC();
         if (eLC != null) {
-            this.qug = eLC;
+            this.quh = eLC;
         } else {
-            this.qug = rx.c.g.eLz();
+            this.quh = rx.c.g.eLz();
         }
         g eLD = eLy.eLD();
         if (eLD != null) {
-            this.quh = eLD;
+            this.qui = eLD;
         } else {
-            this.quh = rx.c.g.eLA();
+            this.qui = rx.c.g.eLA();
         }
         g eLE = eLy.eLE();
         if (eLE != null) {
-            this.qui = eLE;
+            this.quj = eLE;
         } else {
-            this.qui = rx.c.g.eLB();
+            this.quj = rx.c.g.eLB();
         }
     }
 
     public static g immediate() {
-        return e.qso;
+        return e.qsp;
     }
 
     public static g trampoline() {
-        return j.qsL;
+        return j.qsM;
     }
 
     public static g newThread() {
-        return c.k(eLH().qui);
+        return c.k(eLH().quj);
     }
 
     public static g computation() {
-        return c.i(eLH().qug);
+        return c.i(eLH().quh);
     }
 
     public static g io() {
-        return c.j(eLH().quh);
+        return c.j(eLH().qui);
     }
 
     public static TestScheduler test() {
@@ -84,7 +84,7 @@ public final class Schedulers {
     }
 
     public static void reset() {
-        Schedulers andSet = qoa.getAndSet(null);
+        Schedulers andSet = qob.getAndSet(null);
         if (andSet != null) {
             andSet.eLJ();
         }
@@ -94,7 +94,7 @@ public final class Schedulers {
         Schedulers eLH = eLH();
         eLH.eLI();
         synchronized (eLH) {
-            d.qsm.start();
+            d.qsn.start();
         }
     }
 
@@ -102,31 +102,31 @@ public final class Schedulers {
         Schedulers eLH = eLH();
         eLH.eLJ();
         synchronized (eLH) {
-            d.qsm.shutdown();
+            d.qsn.shutdown();
         }
     }
 
     synchronized void eLI() {
-        if (this.qug instanceof h) {
-            ((h) this.qug).start();
-        }
         if (this.quh instanceof h) {
             ((h) this.quh).start();
         }
         if (this.qui instanceof h) {
             ((h) this.qui).start();
         }
+        if (this.quj instanceof h) {
+            ((h) this.quj).start();
+        }
     }
 
     synchronized void eLJ() {
-        if (this.qug instanceof h) {
-            ((h) this.qug).shutdown();
-        }
         if (this.quh instanceof h) {
             ((h) this.quh).shutdown();
         }
         if (this.qui instanceof h) {
             ((h) this.qui).shutdown();
+        }
+        if (this.quj instanceof h) {
+            ((h) this.quj).shutdown();
         }
     }
 }

@@ -850,7 +850,7 @@ public class PbModel extends DataModel {
         }
     }
 
-    public void OA(String str) {
+    public void OB(String str) {
         if (!StringUtils.isNull(str)) {
             this.lLR = str;
             this.lLT = null;
@@ -896,7 +896,7 @@ public class PbModel extends DataModel {
         if (this.lMP != null) {
             this.lMP.cancelLoadData();
         }
-        com.baidu.tieba.recapp.report.b.dCd().QM("PB");
+        com.baidu.tieba.recapp.report.b.dCd().QN("PB");
         cvv();
     }
 
@@ -1556,7 +1556,7 @@ public class PbModel extends DataModel {
                         if (dmW() || this.lFA.djq()) {
                             if (this.lFA.diP().size() - this.lMV >= 3) {
                                 this.lMU = new PostData();
-                                this.lMU.nnn = true;
+                                this.lMU.nno = true;
                                 this.lMU.setPostType(53);
                                 this.lFA.diP().add(this.lMU);
                             }
@@ -1565,7 +1565,7 @@ public class PbModel extends DataModel {
                         } else {
                             if (this.lMV - this.lMW >= 3) {
                                 this.lMU = new PostData();
-                                this.lMU.nnn = false;
+                                this.lMU.nno = false;
                                 this.lMU.setPostType(53);
                                 this.lFA.diP().add(0, this.lMU);
                             }
@@ -1573,7 +1573,7 @@ public class PbModel extends DataModel {
                             size = 0;
                         }
                         if (!com.baidu.tbadk.core.util.at.isTaday(com.baidu.tbadk.core.sharedPref.b.brx().getLong(SharedPrefConfig.KEY_PB_POST_RECOMMEND_LIVE_DATE_PREFIX + TbadkCoreApplication.getCurrentAccount(), 0L))) {
-                            this.lMT.nnA = this.lFA.djo();
+                            this.lMT.nnB = this.lFA.djo();
                             com.baidu.tbadk.core.sharedPref.b.brx().putLong(SharedPrefConfig.KEY_PB_POST_RECOMMEND_LIVE_DATE_PREFIX + TbadkCoreApplication.getCurrentAccount(), System.currentTimeMillis());
                         }
                         i6 = size;
@@ -1706,7 +1706,7 @@ public class PbModel extends DataModel {
 
     private void q(com.baidu.tieba.pb.data.f fVar) {
         if (fVar != null) {
-            fVar.Ot(this.lFA.dji());
+            fVar.Ou(this.lFA.dji());
             if (!this.lFA.lBX && fVar.lBX && this.lFA.diX() != null) {
                 fVar.e(this.lFA.diX());
             }
@@ -1746,7 +1746,7 @@ public class PbModel extends DataModel {
         return false;
     }
 
-    public boolean OG(String str) {
+    public boolean OH(String str) {
         this.lLW = !this.lLW;
         this.lLT = str;
         TiebaStatic.log(new com.baidu.tbadk.core.util.aq("pb_onlyowner_click").an("obj_source", 0));
@@ -1950,7 +1950,7 @@ public class PbModel extends DataModel {
         return dms();
     }
 
-    public boolean OH(String str) {
+    public boolean OI(String str) {
         if (getPbData() == null || getPbData().diN() == null || getPbData().diN().bnx() == null || StringUtils.isNull(str)) {
             return false;
         }
@@ -2008,7 +2008,7 @@ public class PbModel extends DataModel {
         return this.lMB;
     }
 
-    public void OI(String str) {
+    public void OJ(String str) {
         this.lMB = str;
     }
 
@@ -2043,8 +2043,8 @@ public class PbModel extends DataModel {
         this.lMR = i;
     }
 
-    public void OJ(String str) {
-        if ((!this.lLW || OH(TbadkCoreApplication.getCurrentAccount())) && this.lFA.diP() != null) {
+    public void OK(String str) {
+        if ((!this.lLW || OI(TbadkCoreApplication.getCurrentAccount())) && this.lFA.diP() != null) {
             this.lFA.getPage().na(1);
             if (this.lFA.getPage().bmm() == 0) {
                 this.lFA.getPage().na(1);
@@ -2117,7 +2117,7 @@ public class PbModel extends DataModel {
         return this.lMY;
     }
 
-    public void OK(String str) {
+    public void OL(String str) {
         this.lMY = str;
     }
 

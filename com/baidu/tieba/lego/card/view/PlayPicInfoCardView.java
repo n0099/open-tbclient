@@ -200,7 +200,7 @@ public class PlayPicInfoCardView extends BaseCardView<PlayPicInfoCard> {
                         com.baidu.tieba.lego.e d = com.baidu.tieba.lego.i.d(bVar.statistics, bVar.statTab, playPicInfoCard.getCardType(), playPicInfoCard.getItemId());
                         d.fF("obj_id", bVar.picId);
                         d.fF(TiebaInitialize.Params.OBJ_URL, bVar.scheme);
-                        d.bz("obj_locate", PlayPicInfoCardView.this.getStatPosition());
+                        d.bA("obj_locate", PlayPicInfoCardView.this.getStatPosition());
                         d.a(playPicInfoCard);
                         v.h(PlayPicInfoCardView.this.eSJ, bVar.scheme);
                     }

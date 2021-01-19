@@ -11,25 +11,25 @@ import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes6.dex */
 public final class c {
-    private static c pGr;
-    private static b pGs;
-    g pGo;
-    private List<d> pGt = new LinkedList();
-    i pGp = new i(Looper.getMainLooper().getThread(), pGs.provideDumpInterval());
-    h pGq = new h(pGs.provideDumpInterval());
+    private static c pGs;
+    private static b pGt;
+    g pGp;
+    private List<d> pGu = new LinkedList();
+    i pGq = new i(Looper.getMainLooper().getThread(), pGt.provideDumpInterval());
+    h pGr = new h(pGt.provideDumpInterval());
 
     public c() {
         a(new g(new g.a() { // from class: com.github.a.a.c.1
             @Override // com.github.a.a.g.a
             public void d(long j, long j2, long j3, long j4) {
-                ArrayList<String> P = c.this.pGp.P(j, j2);
+                ArrayList<String> P = c.this.pGq.P(j, j2);
                 if (!P.isEmpty()) {
-                    com.github.a.a.a.a eyq = com.github.a.a.a.a.eyp().e(j, j2, j3, j4).YD(c.this.pGq.getCpuRateInfo()).bp(P).eyq();
+                    com.github.a.a.a.a eyq = com.github.a.a.a.a.eyp().e(j, j2, j3, j4).YE(c.this.pGr.getCpuRateInfo()).bp(P).eyq();
                     if (c.eyh().displayNotification()) {
-                        f.YC(eyq.toString());
+                        f.YD(eyq.toString());
                     }
-                    if (c.this.pGt.size() != 0) {
-                        for (d dVar : c.this.pGt) {
+                    if (c.this.pGu.size() != 0) {
+                        for (d dVar : c.this.pGu) {
                             dVar.onBlock(c.eyh().provideContext(), eyq);
                         }
                     }
@@ -40,42 +40,42 @@ public final class c {
     }
 
     public g eyd() {
-        return this.pGo;
-    }
-
-    public i eye() {
         return this.pGp;
     }
 
-    public h eyf() {
+    public i eye() {
         return this.pGq;
     }
 
+    public h eyf() {
+        return this.pGr;
+    }
+
     public static c eyg() {
-        if (pGr == null) {
+        if (pGs == null) {
             synchronized (c.class) {
-                if (pGr == null) {
-                    pGr = new c();
+                if (pGs == null) {
+                    pGs = new c();
                 }
             }
         }
-        return pGr;
-    }
-
-    public static void a(b bVar) {
-        pGs = bVar;
-    }
-
-    public static b eyh() {
         return pGs;
     }
 
+    public static void a(b bVar) {
+        pGt = bVar;
+    }
+
+    public static b eyh() {
+        return pGt;
+    }
+
     public void addBlockInterceptor(d dVar) {
-        this.pGt.add(dVar);
+        this.pGu.add(dVar);
     }
 
     private void a(g gVar) {
-        this.pGo = gVar;
+        this.pGp = gVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */

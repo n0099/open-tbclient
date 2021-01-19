@@ -164,7 +164,7 @@ public class HomeTabBarView extends RelativeLayout implements View.OnClickListen
                 if (!TextUtils.isEmpty(str)) {
                     cNy();
                     if (this.jVJ != null) {
-                        this.jVJ.Li(str);
+                        this.jVJ.Lj(str);
                     }
                 }
             }
@@ -228,8 +228,8 @@ public class HomeTabBarView extends RelativeLayout implements View.OnClickListen
         }
     }
 
-    public View Bu(int i) {
-        return this.kep.Bu(i);
+    public View Bt(int i) {
+        return this.kep.Bt(i);
     }
 
     public void onResume() {
@@ -303,9 +303,9 @@ public class HomeTabBarView extends RelativeLayout implements View.OnClickListen
                     this.kep.post(new Runnable() { // from class: com.baidu.tieba.homepage.personalize.view.HomeTabBarView.2
                         @Override // java.lang.Runnable
                         public void run() {
-                            View Bu = HomeTabBarView.this.kep.Bu(HomeTabBarView.this.kep.getCurrentTabIndex());
-                            if (Bu != null && Bu.getRight() > HomeTabBarView.this.kep.getRight()) {
-                                HomeTabBarView.this.kep.scrollTo(Bu.getWidth() + HomeTabBarView.this.kep.getScrollX(), 0);
+                            View Bt = HomeTabBarView.this.kep.Bt(HomeTabBarView.this.kep.getCurrentTabIndex());
+                            if (Bt != null && Bt.getRight() > HomeTabBarView.this.kep.getRight()) {
+                                HomeTabBarView.this.kep.scrollTo(Bt.getWidth() + HomeTabBarView.this.kep.getScrollX(), 0);
                             }
                         }
                     });

@@ -316,7 +316,7 @@ public class b extends com.baidu.tieba.card.b<g> implements c {
             });
             this.jhJ.setThumbnail(gVar.jil.thumbnailUrl);
             this.jhJ.setVideoUrl(gVar.jil.videoUrl, gVar.threadId);
-            this.jhJ.PK(gVar.title);
+            this.jhJ.PL(gVar.title);
             this.jhJ.a(new c.i() { // from class: com.baidu.tieba.frs.aggregation.b.7
                 @Override // com.baidu.tieba.play.c.i
                 public void cEf() {

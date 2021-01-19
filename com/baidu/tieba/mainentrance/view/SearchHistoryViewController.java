@@ -135,7 +135,7 @@ public class SearchHistoryViewController {
         this.lbP.dcu();
     }
 
-    public void Nf(String str) {
+    public void Ng(String str) {
         if (!StringUtils.isNull(str) && this.lbQ != null) {
             this.lbQ.remove(str);
             this.lbQ.add(0, str);
@@ -210,13 +210,13 @@ public class SearchHistoryViewController {
                     @Override // com.baidu.tbadk.util.ab
                     /* renamed from: cPr */
                     public String doInBackground() {
-                        com.baidu.tieba.tbadkCore.util.a.Sy(optString);
+                        com.baidu.tieba.tbadkCore.util.a.Sz(optString);
                         return optString;
                     }
                 }, new l<String>() { // from class: com.baidu.tieba.mainentrance.view.SearchHistoryViewController.SearchJsBridge.2
                     /* JADX DEBUG: Method merged with bridge method */
                     @Override // com.baidu.tbadk.util.l
-                    /* renamed from: Lp */
+                    /* renamed from: Lq */
                     public void onReturnDataInUI(String str2) {
                         SearchHistoryViewController.this.lbQ.remove(str2);
                     }

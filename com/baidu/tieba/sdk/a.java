@@ -52,12 +52,12 @@ public class a {
         com.baidu.tieba.sdk.d.a.dDk().setPackageName(str);
     }
 
-    public static void Rb(String str) {
-        com.baidu.tieba.sdk.d.a.Rb(str);
-    }
-
     public static void Rc(String str) {
         com.baidu.tieba.sdk.d.a.Rc(str);
+    }
+
+    public static void Rd(String str) {
+        com.baidu.tieba.sdk.d.a.Rd(str);
     }
 
     public void c(Application application) {
@@ -128,9 +128,9 @@ public class a {
         com.baidu.tieba.sdk.d.a.dDk().d(context, str, z, str2, jSONObject);
     }
 
-    public void Rd(String str) {
+    public void Re(String str) {
         com.baidu.tieba.sdk.login.a.dDz().dDA();
-        com.baidu.tieba.sdk.d.a.dDk().Rd(str);
+        com.baidu.tieba.sdk.d.a.dDk().Re(str);
     }
 
     public void a(com.baidu.tieba.sdk.b.a aVar) {
@@ -248,12 +248,12 @@ public class a {
         return com.baidu.tieba.sdk.d.a.dDk().openScheme(context, str, schemeCallback);
     }
 
-    public void Re(String str) {
-        com.baidu.tieba.sdk.d.a.dDk().Re(str);
-    }
-
     public void Rf(String str) {
         com.baidu.tieba.sdk.d.a.dDk().Rf(str);
+    }
+
+    public void Rg(String str) {
+        com.baidu.tieba.sdk.d.a.dDk().Rg(str);
     }
 
     public void setSubappVersionName(String str) {
@@ -276,8 +276,8 @@ public class a {
         com.baidu.tieba.sdk.d.a.dDk().dDj();
     }
 
-    public void bP(String str, int i) {
-        com.baidu.tieba.sdk.d.a.dDk().bP(str, i);
+    public void bQ(String str, int i) {
+        com.baidu.tieba.sdk.d.a.dDk().bQ(str, i);
     }
 
     public void setAttentionStatusChangedFromSDKCallBack(IAttentionStatusCallBack iAttentionStatusCallBack) {

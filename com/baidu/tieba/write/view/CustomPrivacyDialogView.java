@@ -13,9 +13,9 @@ import com.baidu.tbadk.core.view.commonBtn.c;
 import com.baidu.tieba.R;
 /* loaded from: classes7.dex */
 public class CustomPrivacyDialogView extends LinearLayout {
-    private EMTextView nXt;
-    private TBSpecificationBtn nXu;
+    private EMTextView nXu;
     private TBSpecificationBtn nXv;
+    private TBSpecificationBtn nXw;
 
     public CustomPrivacyDialogView(Context context) {
         this(context, null);
@@ -40,52 +40,52 @@ public class CustomPrivacyDialogView extends LinearLayout {
         gradientDrawable.setColor(ao.getColor(R.color.CAM_X0211));
         setBackgroundDrawable(gradientDrawable);
         inflate(context, R.layout.custom_privacy_dialog_view, this);
-        this.nXt = (EMTextView) findViewById(R.id.privacy_message);
-        this.nXu = (TBSpecificationBtn) findViewById(R.id.custom_privacy_dialog_cancel_button);
-        this.nXv = (TBSpecificationBtn) findViewById(R.id.custom_privacy_dialog_confirm_button);
-        this.nXu.setTextSize(R.dimen.tbds34);
+        this.nXu = (EMTextView) findViewById(R.id.privacy_message);
+        this.nXv = (TBSpecificationBtn) findViewById(R.id.custom_privacy_dialog_cancel_button);
+        this.nXw = (TBSpecificationBtn) findViewById(R.id.custom_privacy_dialog_confirm_button);
+        this.nXv.setTextSize(R.dimen.tbds34);
         c cVar = new c();
         cVar.pO(R.color.CAM_X0105);
-        this.nXu.setConfig(cVar);
-        this.nXv.setTextSize(R.dimen.tbds34);
+        this.nXv.setConfig(cVar);
+        this.nXw.setTextSize(R.dimen.tbds34);
         c cVar2 = new c();
         cVar2.pM(R.color.CAM_X0302);
-        this.nXv.setConfig(cVar2);
+        this.nXw.setConfig(cVar2);
     }
 
     public void setMessageTextViewColor(int i) {
-        if (this.nXt != null) {
-            this.nXt.setTextColor(i);
+        if (this.nXu != null) {
+            this.nXu.setTextColor(i);
         }
     }
 
     public void setMessageTextViewMessage(String str) {
-        if (this.nXt != null) {
-            this.nXt.setText(str);
-        }
-    }
-
-    public void setPrivacyDialogCancelButtonListener(View.OnClickListener onClickListener) {
-        if (this.nXu != null) {
-            this.nXu.setOnClickListener(onClickListener);
-        }
-    }
-
-    public void setPrivacyDialogConfirmButtonListener(View.OnClickListener onClickListener) {
-        if (this.nXv != null) {
-            this.nXv.setOnClickListener(onClickListener);
-        }
-    }
-
-    public void setPrivacyDialogCancelButtonText(String str) {
         if (this.nXu != null) {
             this.nXu.setText(str);
         }
     }
 
-    public void setPrivacyDialogConfirmButtonText(String str) {
+    public void setPrivacyDialogCancelButtonListener(View.OnClickListener onClickListener) {
+        if (this.nXv != null) {
+            this.nXv.setOnClickListener(onClickListener);
+        }
+    }
+
+    public void setPrivacyDialogConfirmButtonListener(View.OnClickListener onClickListener) {
+        if (this.nXw != null) {
+            this.nXw.setOnClickListener(onClickListener);
+        }
+    }
+
+    public void setPrivacyDialogCancelButtonText(String str) {
         if (this.nXv != null) {
             this.nXv.setText(str);
+        }
+    }
+
+    public void setPrivacyDialogConfirmButtonText(String str) {
+        if (this.nXw != null) {
+            this.nXw.setText(str);
         }
     }
 }

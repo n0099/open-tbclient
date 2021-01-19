@@ -622,7 +622,7 @@ public class PushDialogVideoView extends RelativeLayout implements View.OnClickL
             e.mB().removeCallbacks(this.abT);
             e.mB().postDelayed(this.abT, 20L);
             e.mB().removeCallbacks(this.kVq);
-            this.mStartPosition = n.dxY().PL(this.mVideoUrl);
+            this.mStartPosition = n.dxY().PM(this.mVideoUrl);
             if (this.mStartPosition != 0) {
                 this.gxn.seekTo(this.mStartPosition);
                 if (!this.mxN) {
@@ -729,7 +729,7 @@ public class PushDialogVideoView extends RelativeLayout implements View.OnClickL
     }
 
     public void dxv() {
-        n.dxY().bK(this.mVideoUrl, this.gxn.getCurrentPositionSync());
+        n.dxY().bL(this.mVideoUrl, this.gxn.getCurrentPositionSync());
     }
 
     /* JADX INFO: Access modifiers changed from: private */

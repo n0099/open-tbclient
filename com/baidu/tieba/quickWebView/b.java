@@ -186,7 +186,7 @@ public class b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static void Qj(String str) {
+    public static void Qk(String str) {
         String[] list;
         if (!TextUtils.isEmpty(str)) {
             String str2 = DOWNLOAD_DIR + "bdtbWCache";
@@ -673,7 +673,7 @@ public class b {
             d dAB = b.this.dAB();
             if (dAB != null && !TextUtils.isEmpty(dAB.mGT) && dAB.mGU != null && dAB.mGU.size() != 0 && dAB.mGV != null) {
                 if (b.this.a(dAB)) {
-                    b.Qj(dAB.mGW);
+                    b.Qk(dAB.mGW);
                     return dAB;
                 }
                 b.mGP = 5;

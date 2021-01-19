@@ -232,7 +232,7 @@ public class NewScrollFragmentAdapter extends AbsFragmentStatePagerAdapter {
         return TbadkCoreApplication.getInst().getString(i);
     }
 
-    public int Bp(int i) {
+    public int Bo(int i) {
         a aVar = (a) com.baidu.tbadk.core.util.x.getItem(this.jWd, i);
         if (aVar != null) {
             return aVar.type;
@@ -240,7 +240,7 @@ public class NewScrollFragmentAdapter extends AbsFragmentStatePagerAdapter {
         return 1;
     }
 
-    public int Lj(String str) {
+    public int Lk(String str) {
         int i = 0;
         while (true) {
             int i2 = i;
@@ -271,7 +271,7 @@ public class NewScrollFragmentAdapter extends AbsFragmentStatePagerAdapter {
     }
 
     @Deprecated
-    public int Bq(int i) {
+    public int Bp(int i) {
         int i2 = 0;
         while (true) {
             int i3 = i2;
@@ -320,16 +320,16 @@ public class NewScrollFragmentAdapter extends AbsFragmentStatePagerAdapter {
             if (!z) {
                 int position = com.baidu.tbadk.core.util.x.getPosition(buZ(), (BaseFragment) this.jVT);
                 if (position < 0) {
-                    position = Bq(1);
+                    position = Bp(1);
                 }
-                Br(position);
+                Bq(position);
                 completePullRefresh();
             }
             ((BaseFragment) this.jVT).setPrimary(z);
         }
     }
 
-    public void Br(final int i) {
+    public void Bq(final int i) {
         ac.a(new ab<Object>() { // from class: com.baidu.tieba.homepage.framework.indicator.NewScrollFragmentAdapter.1
             @Override // com.baidu.tbadk.util.ab
             public Object doInBackground() {
@@ -346,7 +346,7 @@ public class NewScrollFragmentAdapter extends AbsFragmentStatePagerAdapter {
     public void a(com.baidu.tieba.homepage.framework.d dVar) {
         if (!this.jVW) {
             this.jVW = true;
-            dVar.Bn(1);
+            dVar.Bm(1);
         }
     }
 
@@ -381,10 +381,10 @@ public class NewScrollFragmentAdapter extends AbsFragmentStatePagerAdapter {
 
     public void z(String str, int i, int i2) {
         if (i2 == 1 && this.jVO != null && this.jVT == this.jVO) {
-            this.jVO.bc(str, i);
+            this.jVO.bd(str, i);
         }
         if (i2 == 0 && this.jVN != null) {
-            this.jVN.bc(str, i);
+            this.jVN.bd(str, i);
         }
     }
 
@@ -431,13 +431,13 @@ public class NewScrollFragmentAdapter extends AbsFragmentStatePagerAdapter {
         }
     }
 
-    public void Bs(int i) {
+    public void Br(int i) {
         if (i == 1 && this.jVO != null) {
             this.jVO.cOR();
         }
     }
 
-    public void Bt(int i) {
+    public void Bs(int i) {
         if (this.currentIndex == i) {
             this.jVX = -1;
         } else {

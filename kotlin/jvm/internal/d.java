@@ -5,22 +5,22 @@ import java.util.NoSuchElementException;
 /* loaded from: classes5.dex */
 final class d extends kotlin.collections.u {
     private int index;
-    private final double[] qjh;
+    private final double[] qji;
 
     public d(double[] dArr) {
         p.o(dArr, com.baidu.fsg.base.statistics.b.j);
-        this.qjh = dArr;
+        this.qji = dArr;
     }
 
     @Override // java.util.Iterator
     public boolean hasNext() {
-        return this.index < this.qjh.length;
+        return this.index < this.qji.length;
     }
 
     @Override // kotlin.collections.u
     public double eze() {
         try {
-            double[] dArr = this.qjh;
+            double[] dArr = this.qji;
             int i = this.index;
             this.index = i + 1;
             return dArr[i];

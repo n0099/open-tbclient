@@ -27,7 +27,7 @@ public class b {
         dHs();
     }
 
-    public void RB(String str) {
+    public void RC(String str) {
         if (this.mActivity != null) {
             HttpMessage httpMessage = new HttpMessage(1002701);
             httpMessage.addParam("fname", str);

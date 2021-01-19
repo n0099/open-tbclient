@@ -9,15 +9,15 @@ public class a {
     private View hkM;
     private int mPosition;
     private View mRoot;
-    private TbImageView ohN;
+    private TbImageView ohO;
 
     public a(View view, int i) {
         this.mRoot = view;
-        this.ohN = (TbImageView) view.findViewById(a.f.ala_live_active_view_img);
+        this.ohO = (TbImageView) view.findViewById(a.f.ala_live_active_view_img);
         this.hkM = view.findViewById(a.f.new_icon);
-        this.ohN.setDefaultErrorResource(0);
-        this.ohN.setDefaultBgResource(a.c.sdk_transparent);
-        this.ohN.setAutoChangeStyle(false);
+        this.ohO.setDefaultErrorResource(0);
+        this.ohO.setDefaultBgResource(a.c.sdk_transparent);
+        this.ohO.setAutoChangeStyle(false);
         this.mPosition = i;
     }
 
@@ -29,7 +29,7 @@ public class a {
         if (pVar != null) {
             this.mRoot.setTag(a.f.ala_active_view_position, Integer.valueOf(this.mPosition));
             this.mRoot.setTag(a.f.ala_active_view_data, pVar);
-            this.ohN.startLoad(pVar.pic_url, 10, false);
+            this.ohO.startLoad(pVar.pic_url, 10, false);
             if (pVar.aFk) {
                 this.hkM.setVisibility(0);
             } else {

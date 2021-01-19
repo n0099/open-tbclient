@@ -97,13 +97,13 @@ public class b extends d {
     }
 
     private void eJS() {
-        byte[] abt = org.java_websocket.e.c.abt(this.reason);
+        byte[] abu = org.java_websocket.e.c.abu(this.reason);
         ByteBuffer allocate = ByteBuffer.allocate(4);
         allocate.putInt(this.code);
         allocate.position(2);
-        ByteBuffer allocate2 = ByteBuffer.allocate(abt.length + 2);
+        ByteBuffer allocate2 = ByteBuffer.allocate(abu.length + 2);
         allocate2.put(allocate);
-        allocate2.put(abt);
+        allocate2.put(abu);
         allocate2.rewind();
         super.A(allocate2);
     }

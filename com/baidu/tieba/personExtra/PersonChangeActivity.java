@@ -349,7 +349,7 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
                 @Override // com.baidu.tbadk.coreExtra.view.b.a
                 public void g(AccountData accountData2) {
                     if (accountData2 != null) {
-                        PersonChangeActivity.this.PB(accountData2.getAccount());
+                        PersonChangeActivity.this.PC(accountData2.getAccount());
                     }
                 }
             });
@@ -872,7 +872,7 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
         return i7;
     }
 
-    private void PA(String str) {
+    private void PB(String str) {
         if (!TextUtils.isEmpty(str)) {
             this.moB = true;
             this.mou.dvz().setPhotoChanged(true);
@@ -1047,14 +1047,14 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
     public void onResume() {
         super.onResume();
         if (this.jbo && !TextUtils.isEmpty(this.moL)) {
-            PA(this.moL);
+            PB(this.moL);
             this.jbo = false;
             this.moL = "";
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void PB(String str) {
+    public void PC(String str) {
         if (!StringUtils.isNull(str)) {
             this.moD = true;
             this.moF.setText(str);

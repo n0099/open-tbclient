@@ -10,12 +10,12 @@ import java.util.concurrent.TimeUnit;
 import okhttp3.internal.http.StatusLine;
 /* loaded from: classes4.dex */
 public final class c {
-    public final ab pdR;
-    public final com.bytedance.sdk.a.b.b pdS;
+    public final ab pdS;
+    public final com.bytedance.sdk.a.b.b pdT;
 
     c(ab abVar, com.bytedance.sdk.a.b.b bVar) {
-        this.pdR = abVar;
-        this.pdS = bVar;
+        this.pdS = abVar;
+        this.pdT = bVar;
     }
 
     public static boolean a(com.bytedance.sdk.a.b.b bVar, ab abVar) {
@@ -56,16 +56,16 @@ public final class c {
         private long j;
         private String k;
         private int l;
-        final ab pdT;
-        final com.bytedance.sdk.a.b.b pdU;
-        private Date pdV;
+        final ab pdU;
+        final com.bytedance.sdk.a.b.b pdV;
         private Date pdW;
+        private Date pdX;
 
         public a(long j, ab abVar, com.bytedance.sdk.a.b.b bVar) {
             this.l = -1;
             this.f5855a = j;
-            this.pdT = abVar;
-            this.pdU = bVar;
+            this.pdU = abVar;
+            this.pdV = bVar;
             if (bVar != null) {
                 this.i = bVar.k();
                 this.j = bVar.l();
@@ -78,9 +78,9 @@ public final class c {
                         this.d = com.bytedance.sdk.a.b.a.c.d.a(b2);
                         this.e = b2;
                     } else if (Headers.EXPIRES.equalsIgnoreCase(a3)) {
-                        this.pdW = com.bytedance.sdk.a.b.a.c.d.a(b2);
+                        this.pdX = com.bytedance.sdk.a.b.a.c.d.a(b2);
                     } else if (Headers.LAST_MODIFIED.equalsIgnoreCase(a3)) {
-                        this.pdV = com.bytedance.sdk.a.b.a.c.d.a(b2);
+                        this.pdW = com.bytedance.sdk.a.b.a.c.d.a(b2);
                         this.g = b2;
                     } else if (Headers.ETAG.equalsIgnoreCase(a3)) {
                         this.k = b2;
@@ -93,7 +93,7 @@ public final class c {
 
         public c emz() {
             c emA = emA();
-            if (emA.pdR != null && this.pdT.eoe().i()) {
+            if (emA.pdS != null && this.pdU.eoe().i()) {
                 return new c(null, null);
             }
             return emA;
@@ -103,22 +103,22 @@ public final class c {
             String str;
             String str2;
             long j = 0;
-            if (this.pdU == null) {
-                return new c(this.pdT, null);
+            if (this.pdV == null) {
+                return new c(this.pdU, null);
             }
-            if (this.pdT.g() && this.pdU.enk() == null) {
-                return new c(this.pdT, null);
+            if (this.pdU.g() && this.pdV.enk() == null) {
+                return new c(this.pdU, null);
             }
-            if (!c.a(this.pdU, this.pdT)) {
-                return new c(this.pdT, null);
+            if (!c.a(this.pdV, this.pdU)) {
+                return new c(this.pdU, null);
             }
-            g eoe = this.pdT.eoe();
-            if (eoe.a() || a(this.pdT)) {
-                return new c(this.pdT, null);
+            g eoe = this.pdU.eoe();
+            if (eoe.a() || a(this.pdU)) {
+                return new c(this.pdU, null);
             }
-            g enp = this.pdU.enp();
+            g enp = this.pdV.enp();
             if (enp.j()) {
-                return new c(null, this.pdU);
+                return new c(null, this.pdV);
             }
             long d = d();
             long c = c();
@@ -130,7 +130,7 @@ public final class c {
                 j = TimeUnit.SECONDS.toMillis(eoe.g());
             }
             if (!enp.a() && d + millis < j + c) {
-                b.a enn = this.pdU.enn();
+                b.a enn = this.pdV.enn();
                 if (millis + d >= c) {
                     enn.hb("Warning", "110 HttpURLConnection \"Response is stale\"");
                 }
@@ -142,35 +142,35 @@ public final class c {
             if (this.k != null) {
                 str = "If-None-Match";
                 str2 = this.k;
-            } else if (this.pdV != null) {
+            } else if (this.pdW != null) {
                 str = "If-Modified-Since";
                 str2 = this.g;
             } else if (this.d != null) {
                 str = "If-Modified-Since";
                 str2 = this.e;
             } else {
-                return new c(this.pdT, null);
+                return new c(this.pdU, null);
             }
-            v.a enB = this.pdT.emV().enB();
-            com.bytedance.sdk.a.b.a.a.pdM.a(enB, str, str2);
-            return new c(this.pdT.eod().e(enB.enC()).eoj(), this.pdU);
+            v.a enB = this.pdU.emV().enB();
+            com.bytedance.sdk.a.b.a.a.pdN.a(enB, str, str2);
+            return new c(this.pdU.eod().e(enB.enC()).eoj(), this.pdV);
         }
 
         private long c() {
             g enp;
-            if (this.pdU.enp().c() != -1) {
+            if (this.pdV.enp().c() != -1) {
                 return TimeUnit.SECONDS.toMillis(enp.c());
             }
-            if (this.pdW != null) {
-                long time = this.pdW.getTime() - (this.d != null ? this.d.getTime() : this.j);
+            if (this.pdX != null) {
+                long time = this.pdX.getTime() - (this.d != null ? this.d.getTime() : this.j);
                 if (time <= 0) {
                     time = 0;
                 }
                 return time;
-            } else if (this.pdV == null || this.pdU.emS().emp().k() != null) {
+            } else if (this.pdW == null || this.pdV.emS().emp().k() != null) {
                 return 0L;
             } else {
-                long time2 = (this.d != null ? this.d.getTime() : this.i) - this.pdV.getTime();
+                long time2 = (this.d != null ? this.d.getTime() : this.i) - this.pdW.getTime();
                 if (time2 > 0) {
                     return time2 / 10;
                 }
@@ -187,7 +187,7 @@ public final class c {
         }
 
         private boolean e() {
-            return this.pdU.enp().c() == -1 && this.pdW == null;
+            return this.pdV.enp().c() == -1 && this.pdX == null;
         }
 
         private static boolean a(ab abVar) {

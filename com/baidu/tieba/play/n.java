@@ -35,7 +35,7 @@ public class n {
         return myU;
     }
 
-    public void bK(String str, int i) {
+    public void bL(String str, int i) {
         if (i != 0 || !this.myV.containsKey(str)) {
             this.myV.put(str, Integer.valueOf(i));
         }
@@ -47,7 +47,7 @@ public class n {
         }
     }
 
-    public int PL(String str) {
+    public int PM(String str) {
         Integer num = this.myV.get(str);
         if (num != null) {
             return num.intValue();

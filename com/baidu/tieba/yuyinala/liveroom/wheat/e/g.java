@@ -77,8 +77,8 @@ public class g {
         com.baidu.tieba.yuyinala.liveroom.wheat.dialog.g gVar = new com.baidu.tieba.yuyinala.liveroom.wheat.dialog.g(activity);
         gVar.show();
         gVar.setText(str);
-        gVar.UE(PayHelper.STATUS_CANCEL_DESC);
-        gVar.cd("确认", a.c.sdk_black_alpha100);
+        gVar.UF(PayHelper.STATUS_CANCEL_DESC);
+        gVar.ce("确认", a.c.sdk_black_alpha100);
         gVar.ebP();
         gVar.a(new g.a() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.e.g.1
             @Override // com.baidu.tieba.yuyinala.liveroom.wheat.dialog.g.a

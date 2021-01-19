@@ -10,8 +10,8 @@ import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class TurbonetConfig {
     private String mStoragePath;
-    private boolean oGV = false;
-    private JSONObject oGU = new JSONObject();
+    private boolean oGW = false;
+    private JSONObject oGV = new JSONObject();
 
     @Retention(RetentionPolicy.SOURCE)
     /* loaded from: classes4.dex */
@@ -26,7 +26,7 @@ public class TurbonetConfig {
         e(SchemeCollecter.CLASSIFY_BASE, ETAG.KEY_QUIC_ENABLED, Boolean.valueOf(z));
     }
 
-    public void VP(String str) {
+    public void VQ(String str) {
         if (!new File(str).isDirectory()) {
             throw new IllegalArgumentException("Storage path must be set to existing directory");
         }
@@ -38,7 +38,7 @@ public class TurbonetConfig {
             if (eel() == null) {
                 throw new IllegalArgumentException("Storage path must be set");
             }
-            this.oGV = true;
+            this.oGW = true;
         } else if (eel() != null) {
             throw new IllegalArgumentException("Storage path must not be set");
         }
@@ -64,7 +64,7 @@ public class TurbonetConfig {
         e("conn", "preconnect_enabled", Boolean.valueOf(z));
     }
 
-    public void VQ(String str) {
+    public void VR(String str) {
         e("conn", "preconnect_app_hosts", str);
     }
 
@@ -81,7 +81,7 @@ public class TurbonetConfig {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public JSONObject eek() {
-        return this.oGU;
+        return this.oGV;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -91,17 +91,17 @@ public class TurbonetConfig {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public boolean eem() {
-        return this.oGV;
+        return this.oGW;
     }
 
     public void e(String str, String str2, Object obj) {
         try {
-            JSONObject optJSONObject = this.oGU.optJSONObject(str);
+            JSONObject optJSONObject = this.oGV.optJSONObject(str);
             if (optJSONObject == null) {
                 optJSONObject = new JSONObject();
             }
             optJSONObject.put(str2, obj);
-            this.oGU.put(str, optJSONObject);
+            this.oGV.put(str, optJSONObject);
         } catch (JSONException e) {
             throw new IllegalStateException("JSON expcetion:", e);
         }

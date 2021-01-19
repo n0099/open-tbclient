@@ -22,12 +22,12 @@ public class b {
             b2 = bVar.b(imageFileInfo, true);
         }
         if (b2 == null) {
-            return Ob(imageFileInfo.getFilePath());
+            return Oc(imageFileInfo.getFilePath());
         }
         return b2;
     }
 
-    public static Bitmap Ob(String str) {
+    public static Bitmap Oc(String str) {
         Bitmap bitmap = null;
         try {
             File file = new File(str);

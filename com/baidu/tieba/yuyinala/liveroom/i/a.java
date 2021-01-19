@@ -39,9 +39,9 @@ public class a {
     private AnimatorSet hBg;
     private Context mContext;
     private String mName;
-    private h ohg;
-    private BarImageView olF;
-    private AlaLoadingButton olG;
+    private h ohh;
+    private BarImageView olG;
+    private AlaLoadingButton olH;
     private View mView = null;
     public boolean hBb = false;
 
@@ -55,32 +55,32 @@ public class a {
     }
 
     private void initView() {
-        this.ohg = new h(this.mContext);
+        this.ohh = new h(this.mContext);
         this.mView = View.inflate(this.mContext, a.g.yuyin_ala_liveroom_hostheader_layout, null);
-        this.olG = (AlaLoadingButton) this.mView.findViewById(a.f.ala_liveroom_hostheader_attention);
-        this.olG.setSelected(true);
-        this.olF = (BarImageView) this.mView.findViewById(a.f.ala_liveroom_hostheader_image);
+        this.olH = (AlaLoadingButton) this.mView.findViewById(a.f.ala_liveroom_hostheader_attention);
+        this.olH.setSelected(true);
+        this.olG = (BarImageView) this.mView.findViewById(a.f.ala_liveroom_hostheader_image);
         this.eGI = (TextView) this.mView.findViewById(a.f.ala_liveroom_hostheader_guest);
         this.hAV = (ImageView) this.mView.findViewById(a.f.ala_follow_success_img);
         this.hAX = (RelativeLayout) this.mView.findViewById(a.f.follow_btn);
-        this.olF.setShowOval(true);
-        this.olF.setBorderColor(this.mContext.getResources().getColor(a.c.sdk_cp_bg_line_k_alpha10_1));
-        this.olF.setAutoChangeStyle(false);
-        this.olG.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.liveroom.i.a.1
+        this.olG.setShowOval(true);
+        this.olG.setBorderColor(this.mContext.getResources().getColor(a.c.sdk_cp_bg_line_k_alpha10_1));
+        this.olG.setAutoChangeStyle(false);
+        this.olH.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.liveroom.i.a.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 a.this.dZc();
                 if (!TbadkCoreApplication.isLogin()) {
                     ViewHelper.skipToLoginActivity(a.this.mContext);
                 } else if (BdUtilHelper.isNetOk()) {
-                    a.this.olG.setStatus(3);
-                    a.this.ohg.y(a.this.hAZ.aGy.aQH, a.this.hAZ.aGy.live_id, 1);
-                    a.this.ohg.a(new h.a() { // from class: com.baidu.tieba.yuyinala.liveroom.i.a.1.1
+                    a.this.olH.setStatus(3);
+                    a.this.ohh.y(a.this.hAZ.aGy.aQH, a.this.hAZ.aGy.live_id, 1);
+                    a.this.ohh.a(new h.a() { // from class: com.baidu.tieba.yuyinala.liveroom.i.a.1.1
                         @Override // com.baidu.tieba.yuyinala.liveroom.roomcard.h.a
                         public void a(AlaGetCollectRoomHttpResponseMessage alaGetCollectRoomHttpResponseMessage) {
                             a.this.dYZ();
                             a.this.bik = true;
-                            a.this.olG.setStatus(4);
+                            a.this.olH.setStatus(4);
                             a.this.cfu();
                             BdUtilHelper.showToast(a.this.mContext, "收藏成功，将收到房间的开播提醒", 3000);
                         }
@@ -88,7 +88,7 @@ public class a {
                         @Override // com.baidu.tieba.yuyinala.liveroom.roomcard.h.a
                         public void onFail(int i, String str) {
                             a.this.bik = false;
-                            a.this.olG.setStatus(1);
+                            a.this.olH.setStatus(1);
                             BdUtilHelper.showToast(a.this.mContext, "房间收藏失败", 3000);
                         }
                     });
@@ -140,7 +140,7 @@ public class a {
         return this.mView;
     }
 
-    public void UH(String str) {
+    public void UI(String str) {
         this.mName = str;
         dZf();
     }
@@ -162,8 +162,8 @@ public class a {
         }
     }
 
-    public void UI(String str) {
-        this.olF.startLoad(str, 12, false, false);
+    public void UJ(String str) {
+        this.olG.startLoad(str, 12, false, false);
     }
 
     public void ad(x xVar) {
@@ -172,9 +172,9 @@ public class a {
             if (this.hAZ.aGy != null) {
                 this.bik = this.hAZ.aGy.is_followed;
                 this.mName = this.hAZ.aGy.room_name;
-                if (!this.hAZ.aGy.cover.equals(this.olF.getUrl())) {
-                    this.olF.stopLoad();
-                    this.olF.startLoad(this.hAZ.aGy.cover, 12, false, false);
+                if (!this.hAZ.aGy.cover.equals(this.olG.getUrl())) {
+                    this.olG.stopLoad();
+                    this.olG.startLoad(this.hAZ.aGy.cover, 12, false, false);
                 }
                 dZf();
                 this.hBb = false;
@@ -183,8 +183,8 @@ public class a {
                     return;
                 }
                 this.hAX.setVisibility(0);
-                this.olG.setStatus(1);
-                this.olG.setVisibility(0);
+                this.olH.setStatus(1);
+                this.olH.setVisibility(0);
             }
         }
     }
@@ -194,8 +194,8 @@ public class a {
             this.hAZ = xVar;
             if (this.hAZ.aGy != null) {
                 this.mName = this.hAZ.aGy.room_name;
-                this.olF.stopLoad();
-                this.olF.startLoad(this.hAZ.aGy.cover, 12, false, false);
+                this.olG.stopLoad();
+                this.olG.startLoad(this.hAZ.aGy.cover, 12, false, false);
                 dZf();
             }
         }
@@ -218,17 +218,17 @@ public class a {
     }
 
     private AnimatorSet a(final AnimatorSet animatorSet) {
-        ObjectAnimator duration = ObjectAnimator.ofFloat(this.olG, "scaleX", 1.15f, 0.0f).setDuration(210L);
-        ObjectAnimator duration2 = ObjectAnimator.ofFloat(this.olG, "scaleY", 1.15f, 0.0f).setDuration(210L);
+        ObjectAnimator duration = ObjectAnimator.ofFloat(this.olH, "scaleX", 1.15f, 0.0f).setDuration(210L);
+        ObjectAnimator duration2 = ObjectAnimator.ofFloat(this.olH, "scaleY", 1.15f, 0.0f).setDuration(210L);
         AnimatorSet animatorSet2 = new AnimatorSet();
         animatorSet2.play(duration).with(duration2);
         animatorSet2.addListener(new AnimatorListenerAdapter() { // from class: com.baidu.tieba.yuyinala.liveroom.i.a.2
             @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
             public void onAnimationEnd(Animator animator) {
                 super.onAnimationEnd(animator);
-                a.this.olG.setVisibility(8);
-                a.this.olG.setScaleX(1.0f);
-                a.this.olG.setScaleY(1.0f);
+                a.this.olH.setVisibility(8);
+                a.this.olH.setScaleX(1.0f);
+                a.this.olH.setScaleY(1.0f);
                 a.this.b(animatorSet);
             }
         });
@@ -236,16 +236,16 @@ public class a {
     }
 
     private AnimatorSet cfv() {
-        ObjectAnimator duration = ObjectAnimator.ofFloat(this.olG, "scaleX", 1.0f, 1.15f).setDuration(42L);
-        ObjectAnimator duration2 = ObjectAnimator.ofFloat(this.olG, "scaleY", 1.0f, 1.15f).setDuration(42L);
+        ObjectAnimator duration = ObjectAnimator.ofFloat(this.olH, "scaleX", 1.0f, 1.15f).setDuration(42L);
+        ObjectAnimator duration2 = ObjectAnimator.ofFloat(this.olH, "scaleY", 1.0f, 1.15f).setDuration(42L);
         AnimatorSet animatorSet = new AnimatorSet();
         animatorSet.play(duration).with(duration2);
         animatorSet.addListener(new AnimatorListenerAdapter() { // from class: com.baidu.tieba.yuyinala.liveroom.i.a.3
             @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
             public void onAnimationEnd(Animator animator) {
                 super.onAnimationEnd(animator);
-                a.this.olG.setScaleX(1.15f);
-                a.this.olG.setScaleY(1.15f);
+                a.this.olH.setScaleX(1.15f);
+                a.this.olH.setScaleY(1.15f);
             }
         });
         return animatorSet;
@@ -318,10 +318,10 @@ public class a {
             this.hBb = false;
             cancelAnimation();
         }
-        this.olG.setScaleY(1.0f);
-        this.olG.setScaleX(1.0f);
-        this.olG.setStatus(1);
-        this.olG.setVisibility(0);
+        this.olH.setScaleY(1.0f);
+        this.olH.setScaleX(1.0f);
+        this.olH.setStatus(1);
+        this.olH.setVisibility(0);
         this.hAX.setVisibility(0);
         this.hAV.setVisibility(4);
     }

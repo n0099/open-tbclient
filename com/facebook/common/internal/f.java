@@ -30,14 +30,14 @@ public final class f {
     /* loaded from: classes14.dex */
     public static final class a {
         private final String className;
-        private C1037a poA;
         private C1037a poB;
-        private boolean poC;
+        private C1037a poC;
+        private boolean poD;
 
         private a(String str) {
-            this.poA = new C1037a();
-            this.poB = this.poA;
-            this.poC = false;
+            this.poB = new C1037a();
+            this.poC = this.poB;
+            this.poD = false;
             this.className = (String) g.checkNotNull(str);
         }
 
@@ -49,15 +49,15 @@ public final class f {
             return J(str, String.valueOf(z));
         }
 
-        public a cj(String str, int i) {
+        public a ck(String str, int i) {
             return J(str, String.valueOf(i));
         }
 
         public String toString() {
-            boolean z = this.poC;
+            boolean z = this.poD;
             String str = "";
             StringBuilder append = new StringBuilder(32).append(this.className).append('{');
-            for (C1037a c1037a = this.poA.poD; c1037a != null; c1037a = c1037a.poD) {
+            for (C1037a c1037a = this.poB.poE; c1037a != null; c1037a = c1037a.poE) {
                 if (!z || c1037a.value != null) {
                     append.append(str);
                     str = ", ";
@@ -72,8 +72,8 @@ public final class f {
 
         private C1037a eqe() {
             C1037a c1037a = new C1037a();
-            this.poB.poD = c1037a;
-            this.poB = c1037a;
+            this.poC.poE = c1037a;
+            this.poC = c1037a;
             return c1037a;
         }
 
@@ -90,7 +90,7 @@ public final class f {
         public static final class C1037a {
             @Nullable
             String name;
-            C1037a poD;
+            C1037a poE;
             @Nullable
             Object value;
 

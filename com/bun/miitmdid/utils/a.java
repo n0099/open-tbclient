@@ -3,7 +3,7 @@ package com.bun.miitmdid.utils;
 import android.util.Log;
 /* loaded from: classes5.dex */
 public class a {
-    private static a pbQ;
+    private static a pbR;
 
     /* renamed from: b  reason: collision with root package name */
     private int f5764b = -1;
@@ -44,13 +44,13 @@ public class a {
     }
 
     public static a ekQ() {
-        if (pbQ == null) {
+        if (pbR == null) {
             synchronized (a.class) {
-                if (pbQ == null) {
-                    pbQ = new a();
+                if (pbR == null) {
+                    pbR = new a();
                 }
             }
         }
-        return pbQ;
+        return pbR;
     }
 }

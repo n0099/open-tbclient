@@ -39,7 +39,7 @@ public final class aw {
                         if ((info != null ? info.getPs() : 0) == 0) {
                             if (!a(context, Uri.parse(open2), info)) {
                                 if (info.getOpent() == 1) {
-                                    if (bu.eHa().pYL) {
+                                    if (bu.eHa().pYM) {
                                         Toast.makeText(context, context.getString(d.e.wdownload_loading), 1).show();
                                         if (info != null) {
                                             w.iK(context).a(new x(info), 5).eGz();
@@ -80,8 +80,8 @@ public final class aw {
                             return;
                         }
                         final bf eGW = bf.eGW();
-                        eGW.pYI = context;
-                        eGW.pZd = info;
+                        eGW.pYJ = context;
+                        eGW.pZe = info;
                         WebView webView = new WebView(context);
                         WebSettings settings = webView.getSettings();
                         settings.setAllowContentAccess(true);
@@ -92,7 +92,7 @@ public final class aw {
                             webView.removeJavascriptInterface("accessibilityTraversal");
                         }
                         webView.setWebViewClient(new WebViewClient() { // from class: com.win.opensdk.bf.2
-                            private boolean pYL;
+                            private boolean pYM;
 
                             @Override // android.webkit.WebViewClient
                             public final void onPageStarted(WebView webView2, String str2, Bitmap bitmap) {
@@ -101,18 +101,18 @@ public final class aw {
 
                             @Override // android.webkit.WebViewClient
                             public final boolean shouldOverrideUrlLoading(WebView webView2, String str2) {
-                                return Build.VERSION.SDK_INT < 24 ? aaC(str2) : super.shouldOverrideUrlLoading(webView2, str2);
+                                return Build.VERSION.SDK_INT < 24 ? aaD(str2) : super.shouldOverrideUrlLoading(webView2, str2);
                             }
 
                             @Override // android.webkit.WebViewClient
                             public final boolean shouldOverrideUrlLoading(WebView webView2, WebResourceRequest webResourceRequest) {
-                                return Build.VERSION.SDK_INT >= 24 ? aaC(webResourceRequest.getUrl().toString()) : super.shouldOverrideUrlLoading(webView2, webResourceRequest);
+                                return Build.VERSION.SDK_INT >= 24 ? aaD(webResourceRequest.getUrl().toString()) : super.shouldOverrideUrlLoading(webView2, webResourceRequest);
                             }
 
-                            private boolean aaC(String str2) {
+                            private boolean aaD(String str2) {
                                 Uri parse = Uri.parse(str2);
                                 if (bf.ai(parse) || bf.aj(parse)) {
-                                    this.pYL = true;
+                                    this.pYM = true;
                                     if (aw.a(context, parse, null)) {
                                         return true;
                                     }
@@ -125,13 +125,13 @@ public final class aw {
                             @Override // android.webkit.WebViewClient
                             public final void onPageFinished(WebView webView2, String str2) {
                                 super.onPageFinished(webView2, str2);
-                                bf.this.pZQ.removeMessages(11);
-                                if (!this.pYL) {
+                                bf.this.pZR.removeMessages(11);
+                                if (!this.pYM) {
                                     w.iK(context).b(new x(info), 2004, str2).eGz();
                                     Message obtain = Message.obtain();
                                     obtain.what = 12;
                                     obtain.obj = open2;
-                                    bf.this.pZQ.sendMessage(obtain);
+                                    bf.this.pZR.sendMessage(obtain);
                                 }
                             }
                         });
@@ -141,7 +141,7 @@ public final class aw {
                         Message obtain = Message.obtain();
                         obtain.what = 11;
                         obtain.obj = open2;
-                        eGW.pZQ.sendMessageDelayed(obtain, 5000L);
+                        eGW.pZR.sendMessageDelayed(obtain, 5000L);
                         return;
                     }
                     return;
@@ -183,7 +183,7 @@ public final class aw {
                 } catch (Exception e) {
                     if (info != null) {
                         w.iK(context).a(new x(info), e.getMessage(), 2).eGz();
-                        a.pYT = false;
+                        a.pYU = false;
                         return false;
                     }
                     return false;
@@ -192,7 +192,7 @@ public final class aw {
             be.j(context, uri);
             if (info != null) {
                 w.iK(context).a(new x(info), uri.toString(), 0).eGz();
-                a.pYT = true;
+                a.pYU = true;
             }
             return true;
         }

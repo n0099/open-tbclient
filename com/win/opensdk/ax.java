@@ -5,7 +5,7 @@ import android.text.TextUtils;
 import org.json.JSONArray;
 /* loaded from: classes3.dex */
 public final class ax {
-    public static boolean aaC(String str) {
+    public static boolean aaD(String str) {
         return !TextUtils.isEmpty(str) && str.length() > 3;
     }
 

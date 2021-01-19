@@ -316,7 +316,7 @@ public class SwanAppAlbumPreviewAdapter extends PagerAdapter {
                 } else if (obj instanceof com.facebook.imagepipeline.f.a) {
                     hugePhotoDraweeView.setIsDynamicBitmap(true);
                     hugePhotoDraweeView.setZoomEnabled(false);
-                    hugePhotoDraweeView.getHierarchy().b(p.b.pti);
+                    hugePhotoDraweeView.getHierarchy().b(p.b.ptj);
                 }
             }
 

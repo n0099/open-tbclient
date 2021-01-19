@@ -5,13 +5,13 @@ import android.view.MotionEvent;
 import android.view.ViewConfiguration;
 /* loaded from: classes3.dex */
 public class a {
-    InterfaceC1041a ptW;
-    final float ptX;
-    boolean ptY;
+    InterfaceC1041a ptX;
+    final float ptY;
     boolean ptZ;
-    long pua;
-    float pub;
+    boolean pua;
+    long pub;
     float puc;
+    float pud;
 
     /* renamed from: com.facebook.drawee.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
@@ -20,7 +20,7 @@ public class a {
     }
 
     public a(Context context) {
-        this.ptX = ViewConfiguration.get(context).getScaledTouchSlop();
+        this.ptY = ViewConfiguration.get(context).getScaledTouchSlop();
         init();
     }
 
@@ -30,51 +30,51 @@ public class a {
     }
 
     public void init() {
-        this.ptW = null;
+        this.ptX = null;
         reset();
     }
 
     public void reset() {
-        this.ptY = false;
         this.ptZ = false;
+        this.pua = false;
     }
 
     public void a(InterfaceC1041a interfaceC1041a) {
-        this.ptW = interfaceC1041a;
+        this.ptX = interfaceC1041a;
     }
 
     public boolean esF() {
-        return this.ptY;
+        return this.ptZ;
     }
 
     public boolean onTouchEvent(MotionEvent motionEvent) {
         switch (motionEvent.getAction()) {
             case 0:
-                this.ptY = true;
                 this.ptZ = true;
-                this.pua = motionEvent.getEventTime();
-                this.pub = motionEvent.getX();
-                this.puc = motionEvent.getY();
+                this.pua = true;
+                this.pub = motionEvent.getEventTime();
+                this.puc = motionEvent.getX();
+                this.pud = motionEvent.getY();
                 break;
             case 1:
-                this.ptY = false;
-                if (Math.abs(motionEvent.getX() - this.pub) > this.ptX || Math.abs(motionEvent.getY() - this.puc) > this.ptX) {
-                    this.ptZ = false;
-                }
-                if (this.ptZ && motionEvent.getEventTime() - this.pua <= ViewConfiguration.getLongPressTimeout() && this.ptW != null) {
-                    this.ptW.erB();
-                }
                 this.ptZ = false;
+                if (Math.abs(motionEvent.getX() - this.puc) > this.ptY || Math.abs(motionEvent.getY() - this.pud) > this.ptY) {
+                    this.pua = false;
+                }
+                if (this.pua && motionEvent.getEventTime() - this.pub <= ViewConfiguration.getLongPressTimeout() && this.ptX != null) {
+                    this.ptX.erB();
+                }
+                this.pua = false;
                 break;
             case 2:
-                if (Math.abs(motionEvent.getX() - this.pub) > this.ptX || Math.abs(motionEvent.getY() - this.puc) > this.ptX) {
-                    this.ptZ = false;
+                if (Math.abs(motionEvent.getX() - this.puc) > this.ptY || Math.abs(motionEvent.getY() - this.pud) > this.ptY) {
+                    this.pua = false;
                     break;
                 }
                 break;
             case 3:
-                this.ptY = false;
                 this.ptZ = false;
+                this.pua = false;
                 break;
         }
         return true;

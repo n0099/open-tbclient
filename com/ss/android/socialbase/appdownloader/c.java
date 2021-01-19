@@ -31,7 +31,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class c {
-    private static NotificationChannel pTb = null;
+    private static NotificationChannel pTc = null;
 
     private static String e(long j, long j2, String str) {
         return new DecimalFormat("#.##").format(j2 > 1 ? j / j2 : j) + " " + str;
@@ -487,11 +487,11 @@ public class c {
     }
 
     public static String a(String str, com.ss.android.socialbase.downloader.k.a aVar) {
-        JSONObject aat;
-        if (aVar == null || (aat = aVar.aat("anti_hijack_dir")) == null) {
+        JSONObject aau;
+        if (aVar == null || (aau = aVar.aau("anti_hijack_dir")) == null) {
             return "";
         }
-        String optString = aat.optString("dir_name");
+        String optString = aau.optString("dir_name");
         if (!TextUtils.isEmpty(optString) && optString.startsWith("/")) {
             optString = optString.substring(1);
         }
@@ -633,11 +633,11 @@ public class c {
     @TargetApi(26)
     public static String b(@NonNull Context context) {
         try {
-            if (pTb == null) {
-                pTb = new NotificationChannel("111111", "channel_appdownloader", 3);
-                pTb.setSound(null, null);
-                pTb.setShowBadge(false);
-                ((NotificationManager) context.getSystemService(ActionJsonData.TAG_NOTIFICATION)).createNotificationChannel(pTb);
+            if (pTc == null) {
+                pTc = new NotificationChannel("111111", "channel_appdownloader", 3);
+                pTc.setSound(null, null);
+                pTc.setShowBadge(false);
+                ((NotificationManager) context.getSystemService(ActionJsonData.TAG_NOTIFICATION)).createNotificationChannel(pTc);
                 return "111111";
             }
             return "111111";

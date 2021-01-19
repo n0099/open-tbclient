@@ -70,10 +70,10 @@ public class a {
 
     public void a(ChatMessage chatMessage, Context context) {
         UserData userInfo;
-        d Mt;
+        d Mu;
         if (chatMessage != null && !StringUtils.isNull(chatMessage.getContent()) && (userInfo = chatMessage.getUserInfo()) != null) {
-            if ((userInfo.getUserType() == 1 || userInfo.getUserType() == 3) && (Mt = c.Mt(chatMessage.getContent())) != null && !TextUtils.isEmpty(Mt.taskId) && this.kEi.add(Mt.taskId)) {
-                TiebaStatic.eventStat(context, "message_open", "click", 1, "task_type", Mt.kww, "task_id", Mt.taskId);
+            if ((userInfo.getUserType() == 1 || userInfo.getUserType() == 3) && (Mu = c.Mu(chatMessage.getContent())) != null && !TextUtils.isEmpty(Mu.taskId) && this.kEi.add(Mu.taskId)) {
+                TiebaStatic.eventStat(context, "message_open", "click", 1, "task_type", Mu.kww, "task_id", Mu.taskId);
             }
         }
     }
@@ -89,7 +89,7 @@ public class a {
         }
     }
 
-    public void Mp(String str) {
+    public void Mq(String str) {
         if (str != null && str.length() > 0) {
             this.kEj.append(str).append(",");
         }

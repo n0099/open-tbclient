@@ -140,7 +140,7 @@ public abstract class AdPostBaseView extends PostAdBaseView<AdPost> {
     /* JADX INFO: Access modifiers changed from: private */
     public void p(int i, String str, String str2) {
         if (!TextUtils.isEmpty(this.mNk.preloadLegoCardStr)) {
-            str2 = QG(str2);
+            str2 = QH(str2);
         }
         a.bKO().a(this.eSJ.getPageActivity(), new String[]{str2}, null);
         if (this.kUi != null) {
@@ -150,7 +150,7 @@ public abstract class AdPostBaseView extends PostAdBaseView<AdPost> {
         }
     }
 
-    private String QG(String str) {
+    private String QH(String str) {
         return str + ETAG.ITEM_SEPARATOR + LegoListActivityConfig.PRE_LOAD + "=" + URLEncoder.encode(this.mNk.preloadLegoCardStr);
     }
 

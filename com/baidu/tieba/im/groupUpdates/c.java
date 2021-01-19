@@ -52,7 +52,7 @@ public class c extends d<UpdatesActivity> {
         this.kzB.setOnClickListener(this.kzn);
         this.kzC = (Button) this.kzF.findViewById(R.id.btn_cancel);
         this.kzC.setOnClickListener(this.kzn);
-        CI(0);
+        CH(0);
         sJ(false);
     }
 
@@ -83,7 +83,7 @@ public class c extends d<UpdatesActivity> {
         this.kzx.setVisibility(0);
         this.kzC.setVisibility(8);
         this.kzE.setVisibility(8);
-        CI(0);
+        CH(0);
         cUz();
     }
 
@@ -99,7 +99,7 @@ public class c extends d<UpdatesActivity> {
         }
     }
 
-    public void CI(int i) {
+    public void CH(int i) {
         if (this.kzD != null && this.kzn != null) {
             this.kzD.setText(String.format(this.kzn.getPageContext().getString(R.string.del_count), Integer.valueOf(i)));
             if (i == 0) {

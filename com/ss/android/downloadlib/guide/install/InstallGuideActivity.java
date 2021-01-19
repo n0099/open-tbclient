@@ -16,10 +16,10 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class InstallGuideActivity extends TTDelegateActivity {
-    private static m pSG;
+    private static m pSH;
 
     public static void a(int i, @NonNull m mVar) {
-        pSG = mVar;
+        pSH = mVar;
         Intent intent = new Intent(j.a(), InstallGuideActivity.class);
         intent.addFlags(268435456);
         intent.putExtra("type", 6);
@@ -62,7 +62,7 @@ public class InstallGuideActivity extends TTDelegateActivity {
                 }
             }
             c.b();
-            j.eCA().a(this, intExtra, h2, drawable, b2, QD, pSG);
+            j.eCA().a(this, intExtra, h2, drawable, b2, QD, pSH);
         }
     }
 
@@ -73,8 +73,8 @@ public class InstallGuideActivity extends TTDelegateActivity {
     }
 
     private void a(int i) {
-        if (pSG != null) {
-            pSG.a();
+        if (pSH != null) {
+            pSH.a();
             return;
         }
         JSONObject jSONObject = new JSONObject();

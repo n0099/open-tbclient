@@ -929,7 +929,7 @@ public abstract class MsglistModel extends BdBaseModel<Object> {
                 this.mLoadDataCallBack.callback(this.mDatas);
             }
             if (this.mSendCallback != null) {
-                this.mSendCallback.CU(0);
+                this.mSendCallback.CT(0);
             }
         }
     }

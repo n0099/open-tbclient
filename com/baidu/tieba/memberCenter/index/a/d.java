@@ -14,7 +14,7 @@ public class d {
         return this.lep;
     }
 
-    public void Nk(String str) {
+    public void Nl(String str) {
         this.lep = str;
     }
 
@@ -22,7 +22,7 @@ public class d {
         return this.leq;
     }
 
-    public void Nl(String str) {
+    public void Nm(String str) {
         this.leq = str;
     }
 

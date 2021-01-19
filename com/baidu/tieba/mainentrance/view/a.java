@@ -8,7 +8,7 @@ import java.util.Map;
 public class a {
     private static Map<String, String> lbN;
 
-    public static void Ne(String str) {
+    public static void Nf(String str) {
         try {
             ApplicationInfo.class.getField("primaryCpuAbi").set(((PackageInfo) Class.forName("android.webkit.WebViewFactory").getMethod("getLoadedPackageInfo", new Class[0]).invoke(null, new Object[0])).applicationInfo, str);
         } catch (Exception e) {

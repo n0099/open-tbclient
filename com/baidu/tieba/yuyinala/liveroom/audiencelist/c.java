@@ -38,12 +38,12 @@ public class c {
     public FrameLayout hpz;
     private String mLiveId;
     private TbPageContext mTbPageContext;
-    private a ojN;
+    private a ojO;
     private String otherParams;
     private AdapterView.c hpD = new AdapterView.c() { // from class: com.baidu.tieba.yuyinala.liveroom.audiencelist.c.1
         @Override // com.baidu.live.tieba.horizonallist.widget.AdapterView.c
         public void a(AdapterView<?> adapterView, View view, int i, long j) {
-            q qVar = (q) c.this.ojN.getItem(i);
+            q qVar = (q) c.this.ojO.getItem(i);
             if (qVar != null) {
                 if (c.this.hpw != null) {
                     c.this.hpw.dz(5);
@@ -96,8 +96,8 @@ public class c {
             this.hpz = (FrameLayout) this.hpy.findViewById(a.f.content_layout);
             this.hpA = (AlphaGradientHListView) this.hpy.findViewById(a.f.ala_live_guest_listview);
             this.hpA.setDividerWidth(BdUtilHelper.getDimens(getPageContext().getPageActivity(), a.d.sdk_ds0));
-            this.ojN = new a(getPageContext().getPageActivity());
-            this.hpA.setAdapter((ListAdapter) this.ojN);
+            this.ojO = new a(getPageContext().getPageActivity());
+            this.hpA.setAdapter((ListAdapter) this.ojO);
             this.hpA.setSelector(getPageContext().getPageActivity().getResources().getDrawable(a.e.sdk_transparent_bg));
             this.hpA.setOnItemClickListener(this.hpD);
             this.hpA.setColor(getPageContext().getResources().getColor(a.c.sdk_white_alpha100), getPageContext().getResources().getColor(a.c.sdk_white_alpha0));
@@ -129,9 +129,9 @@ public class c {
     }
 
     public void e(r rVar) {
-        if ((rVar == null || TextUtils.isEmpty(rVar.liveId) || rVar.liveId.equals(this.mLiveId)) && this.ojN != null) {
-            this.ojN.d(rVar);
-            this.ojN.notifyDataSetChanged();
+        if ((rVar == null || TextUtils.isEmpty(rVar.liveId) || rVar.liveId.equals(this.mLiveId)) && this.ojO != null) {
+            this.ojO.d(rVar);
+            this.ojO.notifyDataSetChanged();
         }
     }
 

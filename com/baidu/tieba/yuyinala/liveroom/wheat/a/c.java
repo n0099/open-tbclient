@@ -39,12 +39,12 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes10.dex */
 public class c {
-    private static c ovx;
+    private static c ovy;
     private Activity mActivity;
-    private HashMap<String, b> ovv = new HashMap<>();
-    private HashMap<String, List<d>> ovw = new HashMap<>();
-    private x ovy;
-    private TbPageContext ovz;
+    private TbPageContext ovA;
+    private HashMap<String, b> ovw = new HashMap<>();
+    private HashMap<String, List<d>> ovx = new HashMap<>();
+    private x ovz;
 
     /* loaded from: classes10.dex */
     public interface a {
@@ -52,11 +52,11 @@ public class c {
     }
 
     public static c eax() {
-        if (ovx == null) {
-            ovx = new c();
+        if (ovy == null) {
+            ovy = new c();
             eay();
         }
-        return ovx;
+        return ovy;
     }
 
     public static void eay() {
@@ -76,7 +76,7 @@ public class c {
         return a(yv(), dVar);
     }
 
-    public b Vc(String str) {
+    public b Vd(String str) {
         return a(str, (d) null);
     }
 
@@ -90,21 +90,21 @@ public class c {
             return null;
         }
         if (dVar != null) {
-            if (this.ovw.containsKey(str) && this.ovw.get(str) != null) {
-                List<d> list = this.ovw.get(str);
+            if (this.ovx.containsKey(str) && this.ovx.get(str) != null) {
+                List<d> list = this.ovx.get(str);
                 if (!list.contains(dVar)) {
                     list.add(dVar);
                 }
             } else {
                 ArrayList arrayList = new ArrayList();
                 arrayList.add(dVar);
-                this.ovw.put(str, arrayList);
+                this.ovx.put(str, arrayList);
             }
         }
-        if (this.ovv.containsKey(str) && this.ovv.get(str) != null) {
-            return this.ovv.get(str);
+        if (this.ovw.containsKey(str) && this.ovw.get(str) != null) {
+            return this.ovw.get(str);
         }
-        Iterator<Map.Entry<String, b>> it = this.ovv.entrySet().iterator();
+        Iterator<Map.Entry<String, b>> it = this.ovw.entrySet().iterator();
         if (it != null) {
             while (it.hasNext()) {
                 Map.Entry<String, b> next = it.next();
@@ -113,13 +113,13 @@ public class c {
                 }
             }
         }
-        this.ovv.clear();
+        this.ovw.clear();
         final b bVar = new b(TbadkCoreApplication.getInst(), str, str2);
-        this.ovv.put(str, bVar);
+        this.ovw.put(str, bVar);
         bVar.a(new e() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.a.c.1
             @Override // com.baidu.tieba.yuyinala.liveroom.wheat.a.e, com.baidu.tieba.yuyinala.liveroom.wheat.a.d
             public void onError(int i, int i2, String str3) {
-                List list2 = (List) c.this.ovw.get(str);
+                List list2 = (List) c.this.ovx.get(str);
                 for (int i3 = 0; i3 < ListUtils.getCount(list2); i3++) {
                     d dVar2 = (d) list2.get(i3);
                     if (dVar2 != null) {
@@ -133,7 +133,7 @@ public class c {
                                 BdToast.makeText(TbadkCoreApplication.getInst(), TbadkCoreApplication.getInst().getString(a.h.yuyin_ala_connection_wheat_error_status_text)).show();
                             } else if (i2 == 2) {
                                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2501036, false));
-                                c.this.Vd("RTC_LOGIN_TYPE_OWNER_CHAT");
+                                c.this.Ve("RTC_LOGIN_TYPE_OWNER_CHAT");
                                 JSONObject jSONObject = new JSONObject();
                                 try {
                                     x WA = c.eax().WA();
@@ -149,13 +149,13 @@ public class c {
                                 UbcStatisticManager.getInstance().logEvent(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_AUDIO_OWNER_JOIN_CHAT, UbcStatConstant.ContentType.UBC_TYPE_AUDIO_LIVE_CHAT, UbcStatConstant.Page.AUDIO_LIVE_ROOM, "owner_join_chat_result").setContentExt(jSONObject));
                             } else if (i2 == 3) {
                                 BdToast.makeText(TbadkCoreApplication.getInst(), TbadkCoreApplication.getInst().getString(a.h.yuyin_ala_connection_wheat_error_invite_text)).show();
-                                c.this.Vd("RTC_LOGIN_TYPE_INVITE");
+                                c.this.Ve("RTC_LOGIN_TYPE_INVITE");
                             } else if (i2 == 4) {
                                 BdToast.makeText(TbadkCoreApplication.getInst(), TbadkCoreApplication.getInst().getString(a.h.yuyin_ala_connection_wheat_error_apply_text)).show();
-                                c.this.Vd("RTC_LOGIN_TYPE_APPLY");
+                                c.this.Ve("RTC_LOGIN_TYPE_APPLY");
                             } else if (i2 == 5) {
                                 BdToast.makeText(TbadkCoreApplication.getInst(), TbadkCoreApplication.getInst().getString(a.h.yuyin_ala_connection_wheat_error_drops_text)).show();
-                                c.this.Vd("RTC_LOGIN_TYPE_ENFORE_LOGIN");
+                                c.this.Ve("RTC_LOGIN_TYPE_ENFORE_LOGIN");
                             }
                         } else if (i == 2) {
                             if (i2 == 1) {
@@ -168,12 +168,12 @@ public class c {
                                 BdToast.makeText(TbadkCoreApplication.getInst(), TbadkCoreApplication.getInst().getString(a.h.yuyin_ala_connection_wheat_error_operation_text)).show();
                             } else if (i2 == 8) {
                                 BdToast.makeText(TbadkCoreApplication.getInst(), TbadkCoreApplication.getInst().getString(a.h.yuyin_ala_connection_wheat_error_drops_text)).show();
-                                c.this.Vd("IMRTC_ERROR_ONLINE");
+                                c.this.Ve("IMRTC_ERROR_ONLINE");
                             } else if (i2 == 7) {
                                 BdToast.makeText(TbadkCoreApplication.getInst(), TbadkCoreApplication.getInst().getString(a.h.yuyin_ala_connection_wheat_error_status_text)).show();
                             } else if (i2 == 6) {
                                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2501036, false));
-                                c.this.Vd("IMRTC_ERROR_OWNER_JOINCHAT");
+                                c.this.Ve("IMRTC_ERROR_OWNER_JOINCHAT");
                                 JSONObject jSONObject2 = new JSONObject();
                                 try {
                                     x WA2 = c.eax().WA();
@@ -196,7 +196,7 @@ public class c {
             @Override // com.baidu.tieba.yuyinala.liveroom.wheat.a.e, com.baidu.tieba.yuyinala.liveroom.wheat.a.d
             public void LX(int i) {
                 if (i != 5) {
-                    List list2 = (List) c.this.ovw.get(str);
+                    List list2 = (List) c.this.ovx.get(str);
                     for (int i2 = 0; i2 < ListUtils.getCount(list2); i2++) {
                         d dVar2 = (d) list2.get(i2);
                         if (dVar2 != null) {
@@ -249,14 +249,14 @@ public class c {
                         UbcStatisticManager.getInstance().logEvent(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_AUDIO_OWNER_JOIN_CHAT, UbcStatConstant.ContentType.UBC_TYPE_AUDIO_LIVE_CHAT, UbcStatConstant.Page.AUDIO_LIVE_ROOM, "user_apply_join_chat_result").setContentExt(jSONObject3));
                     }
                 } else if (!o.ebo().ib(o.ebo().Wz()) && bVar != null) {
-                    bVar.UX("RTC_LOGIN_TYPE_ENFORE_LOGIN");
+                    bVar.UY("RTC_LOGIN_TYPE_ENFORE_LOGIN");
                 }
             }
 
             @Override // com.baidu.tieba.yuyinala.liveroom.wheat.a.e, com.baidu.tieba.yuyinala.liveroom.wheat.a.d
             public void LY(int i) {
                 AlaWheatInfoData ie;
-                List list2 = (List) c.this.ovw.get(str);
+                List list2 = (List) c.this.ovx.get(str);
                 for (int i2 = 0; i2 < ListUtils.getCount(list2); i2++) {
                     d dVar2 = (d) list2.get(i2);
                     if (dVar2 != null) {
@@ -311,7 +311,7 @@ public class c {
 
             @Override // com.baidu.tieba.yuyinala.liveroom.wheat.a.e, com.baidu.tieba.yuyinala.liveroom.wheat.a.d
             public void PB() {
-                List list2 = (List) c.this.ovw.get(str);
+                List list2 = (List) c.this.ovx.get(str);
                 int i = 0;
                 while (true) {
                     int i2 = i;
@@ -329,7 +329,7 @@ public class c {
 
             @Override // com.baidu.tieba.yuyinala.liveroom.wheat.a.e, com.baidu.tieba.yuyinala.liveroom.wheat.a.d
             public void hL(long j) {
-                List list2 = (List) c.this.ovw.get(str);
+                List list2 = (List) c.this.ovx.get(str);
                 int i = 0;
                 while (true) {
                     int i2 = i;
@@ -347,7 +347,7 @@ public class c {
 
             @Override // com.baidu.tieba.yuyinala.liveroom.wheat.a.e, com.baidu.tieba.yuyinala.liveroom.wheat.a.d
             public void hM(long j) {
-                List list2 = (List) c.this.ovw.get(str);
+                List list2 = (List) c.this.ovx.get(str);
                 int i = 0;
                 while (true) {
                     int i2 = i;
@@ -365,7 +365,7 @@ public class c {
 
             @Override // com.baidu.tieba.yuyinala.liveroom.wheat.a.e, com.baidu.tieba.yuyinala.liveroom.wheat.a.d
             public void bM(long j) {
-                List list2 = (List) c.this.ovw.get(str);
+                List list2 = (List) c.this.ovx.get(str);
                 int i = 0;
                 while (true) {
                     int i2 = i;
@@ -383,7 +383,7 @@ public class c {
 
             @Override // com.baidu.tieba.yuyinala.liveroom.wheat.a.e, com.baidu.tieba.yuyinala.liveroom.wheat.a.d
             public void v(long j, boolean z) {
-                List list2 = (List) c.this.ovw.get(str);
+                List list2 = (List) c.this.ovx.get(str);
                 int i = 0;
                 while (true) {
                     int i2 = i;
@@ -401,13 +401,13 @@ public class c {
 
             @Override // com.baidu.tieba.yuyinala.liveroom.wheat.a.e, com.baidu.tieba.yuyinala.liveroom.wheat.a.d
             public void a(BIMInviteSyncRtcInfo bIMInviteSyncRtcInfo) {
-                if (c.this.ovy != null && c.this.ovy.aGy != null && TextUtils.equals(c.this.ovy.aGy.aQI, bIMInviteSyncRtcInfo.getRtcRoomId())) {
-                    List list2 = (List) c.this.ovw.get(str);
+                if (c.this.ovz != null && c.this.ovz.aGy != null && TextUtils.equals(c.this.ovz.aGy.aQI, bIMInviteSyncRtcInfo.getRtcRoomId())) {
+                    List list2 = (List) c.this.ovx.get(str);
                     int i = 0;
                     while (true) {
                         int i2 = i;
                         if (i2 >= ListUtils.getCount(list2)) {
-                            com.baidu.tieba.yuyinala.liveroom.wheat.c.b.eaS().g(c.this.ovz).a(c.this.mActivity, bIMInviteSyncRtcInfo);
+                            com.baidu.tieba.yuyinala.liveroom.wheat.c.b.eaS().g(c.this.ovA).a(c.this.mActivity, bIMInviteSyncRtcInfo);
                             c.this.eaA();
                             return;
                         }
@@ -422,8 +422,8 @@ public class c {
 
             @Override // com.baidu.tieba.yuyinala.liveroom.wheat.a.e, com.baidu.tieba.yuyinala.liveroom.wheat.a.d
             public void b(BIMRtcInfo bIMRtcInfo, int i) {
-                if (c.this.ovy != null && c.this.ovy.aGy != null && TextUtils.equals(c.this.ovy.aGy.aQI, bIMRtcInfo.getRtcRoomId())) {
-                    List list2 = (List) c.this.ovw.get(str);
+                if (c.this.ovz != null && c.this.ovz.aGy != null && TextUtils.equals(c.this.ovz.aGy.aQI, bIMRtcInfo.getRtcRoomId())) {
+                    List list2 = (List) c.this.ovx.get(str);
                     int i2 = 0;
                     while (true) {
                         int i3 = i2;
@@ -443,7 +443,7 @@ public class c {
 
             @Override // com.baidu.tieba.yuyinala.liveroom.wheat.a.e, com.baidu.tieba.yuyinala.liveroom.wheat.a.d
             public void s(int i, int i2, String str3) {
-                List list2 = (List) c.this.ovw.get(str);
+                List list2 = (List) c.this.ovx.get(str);
                 int i3 = 0;
                 while (true) {
                     int i4 = i3;
@@ -476,11 +476,11 @@ public class c {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Vd(String str) {
+    public void Ve(String str) {
         if (BdNetTypeUtil.isNetWorkAvailable()) {
             b eaz = eaz();
             if (eaz != null) {
-                eaz.UX(str);
+                eaz.UY(str);
             }
             if (o.ebo().ib(o.ebo().Wz())) {
                 o.ebo().J(true, str);
@@ -518,20 +518,20 @@ public class c {
     }
 
     public c f(TbPageContext tbPageContext) {
-        this.ovz = tbPageContext;
+        this.ovA = tbPageContext;
         return this;
     }
 
     public void aR(String str, String str2, String str3) {
         b a2 = eax().a(str, str2, (d) null);
         if (a2 != null) {
-            a2.UZ(str3);
+            a2.Va(str3);
         }
     }
 
     public void ak(x xVar) {
         if (xVar != null && xVar.aGy != null && xVar.aGy.aQH != null) {
-            this.ovy = xVar;
+            this.ovz = xVar;
             b a2 = eax().a(xVar.aGy.aQH, (d) null);
             String str = xVar.mLiveInfo.session_info.flvUrl;
             if (eaE()) {
@@ -551,65 +551,65 @@ public class c {
 
     public void onDestroy() {
         eaB();
-        if (this.ovv != null) {
-            this.ovv.clear();
-        }
         if (this.ovw != null) {
             this.ovw.clear();
+        }
+        if (this.ovx != null) {
+            this.ovx.clear();
         }
         com.baidu.tieba.yuyinala.liveroom.wheat.c.b.eaS().onDestroy();
     }
 
     public String WB() {
-        if (this.ovy == null || this.ovy.aGy == null) {
+        if (this.ovz == null || this.ovz.aGy == null) {
             return null;
         }
-        return this.ovy.aGy.live_id;
+        return this.ovz.aGy.live_id;
     }
 
     public String yv() {
-        if (this.ovy == null || this.ovy.aGy == null) {
+        if (this.ovz == null || this.ovz.aGy == null) {
             return null;
         }
-        return this.ovy.aGy.aQH;
+        return this.ovz.aGy.aQH;
     }
 
     public String getCustomRoomId() {
-        if (this.ovy == null || this.ovy.aGy == null) {
+        if (this.ovz == null || this.ovz.aGy == null) {
             return null;
         }
-        return this.ovy.aGy.croom_id;
+        return this.ovz.aGy.croom_id;
     }
 
     public String Wy() {
-        if (this.ovy == null || this.ovy.mLiveInfo == null) {
+        if (this.ovz == null || this.ovz.mLiveInfo == null) {
             return null;
         }
-        return this.ovy.mLiveInfo.user_uk;
+        return this.ovz.mLiveInfo.user_uk;
     }
 
     public String eaC() {
-        if (this.ovy == null || this.ovy.aGy == null) {
+        if (this.ovz == null || this.ovz.aGy == null) {
             return null;
         }
-        return this.ovy.aGy.aQI;
+        return this.ovz.aGy.aQI;
     }
 
     public String eaD() {
-        if (this.ovy == null || this.ovy.mLiveInfo == null || this.ovy.mLiveInfo.mCastIds == null) {
+        if (this.ovz == null || this.ovz.mLiveInfo == null || this.ovz.mLiveInfo.mCastIds == null) {
             return null;
         }
-        return this.ovy.mLiveInfo.mCastIds.chatMCastId;
+        return this.ovz.mLiveInfo.mCastIds.chatMCastId;
     }
 
     private boolean eaE() {
         String encryptionUserId;
         AccountData currentAccountInfo = TbadkCoreApplication.getCurrentAccountInfo();
-        return (currentAccountInfo == null || this.ovy == null || this.ovy.mLiveInfo == null || (encryptionUserId = ExtraParamsManager.getEncryptionUserId(currentAccountInfo.getID())) == null || !encryptionUserId.equals(this.ovy.mLiveInfo.user_uk)) ? false : true;
+        return (currentAccountInfo == null || this.ovz == null || this.ovz.mLiveInfo == null || (encryptionUserId = ExtraParamsManager.getEncryptionUserId(currentAccountInfo.getID())) == null || !encryptionUserId.equals(this.ovz.mLiveInfo.user_uk)) ? false : true;
     }
 
     public x WA() {
-        return this.ovy;
+        return this.ovz;
     }
 
     public synchronized void a(String str, final boolean z, final a aVar) {

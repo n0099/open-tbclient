@@ -185,7 +185,7 @@ public class b {
         int processingResponsedMessageNum = MessageManager.getInstance().getSocketClient().getProcessingResponsedMessageNum(CmdConfigSocket.CMD_MESSAGE_SYNC);
         if (a2 || processingResponsedMessageNum > 0) {
             i.h(false, false, true);
-            CR(i);
+            CQ(i);
             return;
         }
         cVk();
@@ -288,8 +288,8 @@ public class b {
     public void cVd() {
         int[] socketGetMsgStratgy = TbadkCoreApplication.getInst().getSocketGetMsgStratgy();
         if (socketGetMsgStratgy.length == 2) {
-            CO(socketGetMsgStratgy[0] * 1000);
-            CP(socketGetMsgStratgy[1] * 1000);
+            CN(socketGetMsgStratgy[0] * 1000);
+            CO(socketGetMsgStratgy[1] * 1000);
         }
     }
 
@@ -310,13 +310,13 @@ public class b {
         cVc().kBr = cVc().kBp;
     }
 
-    public void CO(int i) {
+    public void CN(int i) {
         if (i > 0) {
             this.kBq = i;
         }
     }
 
-    public void CP(int i) {
+    public void CO(int i) {
         if (i > 0) {
             this.kBp = i;
         }
@@ -449,11 +449,11 @@ public class b {
     }
 
     public synchronized void cVh() {
-        CQ(2);
+        CP(2);
     }
 
     public synchronized void cVi() {
-        CQ(3);
+        CP(3);
     }
 
     public void cVj() {
@@ -472,13 +472,13 @@ public class b {
         }
     }
 
-    private synchronized void CQ(int i) {
+    private synchronized void CP(int i) {
         this.kBC = true;
         this.kBz = i;
         a((LongSparseArray<Long>) null, i);
     }
 
-    private void CR(int i) {
+    private void CQ(int i) {
         if (i == 1) {
             if (this.kBv != 2) {
                 this.kBv = 1;

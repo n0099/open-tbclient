@@ -60,16 +60,16 @@ public class h {
                 h.this.jtc.setChecked(true);
                 h.this.mScore = 5;
             }
-            if (h.this.nPW != null) {
-                h.this.nPW.Hr(h.this.mScore);
+            if (h.this.nPX != null) {
+                h.this.nPX.Hr(h.this.mScore);
             }
         }
     };
     private int mScore;
-    private d nPU;
-    private b nPV;
-    private e nPW;
-    private LinearLayout nPX;
+    private d nPV;
+    private b nPW;
+    private e nPX;
+    private LinearLayout nPY;
     private String titleText;
     private View view;
 
@@ -112,7 +112,7 @@ public class h {
             this.jtc.setOnClickListener(this.mOnClickListener);
             this.jtd = (RadioButton) this.view.findViewById(R.id.comment_grade_5);
             this.jtd.setOnClickListener(this.mOnClickListener);
-            this.nPX = (LinearLayout) this.view.findViewById(R.id.comment_grade);
+            this.nPY = (LinearLayout) this.view.findViewById(R.id.comment_grade);
         }
     }
 
@@ -179,11 +179,11 @@ public class h {
     }
 
     public void KC(int i) {
-        this.nPX.setVisibility(i);
+        this.nPY.setVisibility(i);
     }
 
     public void N(int i, int i2, int i3, int i4) {
-        this.nPX.setPadding(i, i2, i3, i4);
+        this.nPY.setPadding(i, i2, i3, i4);
     }
 
     public void setTitlePadding(int i, int i2, int i3, int i4) {
@@ -195,7 +195,7 @@ public class h {
     }
 
     public d dTR() {
-        return this.nPU;
+        return this.nPV;
     }
 
     public void bB(List<a> list) {
@@ -219,11 +219,11 @@ public class h {
     }
 
     public void a(b bVar) {
-        this.nPV = bVar;
+        this.nPW = bVar;
     }
 
     public void a(e eVar) {
-        this.nPW = eVar;
+        this.nPX = eVar;
     }
 
     public void KD(int i) {
@@ -236,7 +236,7 @@ public class h {
         ao.setBackgroundColor(this.eTx, R.color.CAM_X0204);
         ao.setBackgroundResource(this.eTy, R.drawable.bg_bottom_up_list_dialog_item);
         ao.setViewTextColor(this.eTy, R.color.CAM_X0106);
-        ao.setBackgroundResource(this.nPX, R.drawable.bg_bottom_up_list_dialog_item);
+        ao.setBackgroundResource(this.nPY, R.drawable.bg_bottom_up_list_dialog_item);
         if (this.mItems != null) {
             for (a aVar : this.mItems) {
                 aVar.onChangeSkinType();
@@ -250,11 +250,11 @@ public class h {
         } else {
             this.eFr.setVisibility(8);
         }
-        if (this.nPV != null) {
+        if (this.nPW != null) {
             this.eTy.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.view.h.2
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    h.this.nPV.onClick();
+                    h.this.nPW.onClick();
                 }
             });
         }
@@ -268,8 +268,8 @@ public class h {
         private String mText;
         private TextView mTextView;
         private View mView;
-        private h nPZ;
-        private c nQa;
+        private h nQa;
+        private c nQb;
         private int mTextColor = R.drawable.person_more_pop_cancel_text_selector;
         private int eSY = R.drawable.person_more_pop_item_bg_selector;
         private int eSZ = 17;
@@ -277,11 +277,11 @@ public class h {
         private final View.OnClickListener mOnClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.view.h.a.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (a.this.nQa != null) {
-                    a.this.nQa.onClick();
+                if (a.this.nQb != null) {
+                    a.this.nQb.onClick();
                 }
-                if (a.this.nPZ != null && a.this.nPZ.dTR() != null) {
-                    a.this.nPZ.dTR().dR(a.this.mId);
+                if (a.this.nQa != null && a.this.nQa.dTR() != null) {
+                    a.this.nQa.dTR().dR(a.this.mId);
                 }
             }
         };
@@ -289,7 +289,7 @@ public class h {
 
         public a(String str, h hVar) {
             this.mText = str;
-            this.nPZ = hVar;
+            this.nQa = hVar;
             initView();
             initListener();
         }
@@ -299,7 +299,7 @@ public class h {
         }
 
         public void a(c cVar) {
-            this.nQa = cVar;
+            this.nQb = cVar;
             initListener();
         }
 
@@ -310,8 +310,8 @@ public class h {
         }
 
         private void initView() {
-            if (this.nPZ != null && this.nPZ.getContext() != null) {
-                this.mView = LayoutInflater.from(this.nPZ.getContext()).inflate(R.layout.bottom_up_list_dialog_item, this.nPZ.getView(), false);
+            if (this.nQa != null && this.nQa.getContext() != null) {
+                this.mView = LayoutInflater.from(this.nQa.getContext()).inflate(R.layout.bottom_up_list_dialog_item, this.nQa.getView(), false);
                 this.mTextView = (TextView) this.mView.findViewById(R.id.item_view);
                 this.mTextView.setText(this.mText);
                 this.mTextView.setGravity(this.eSZ);

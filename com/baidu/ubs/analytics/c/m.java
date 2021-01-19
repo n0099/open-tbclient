@@ -11,19 +11,19 @@ import java.util.UUID;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes3.dex */
 public final class m implements a.InterfaceC0947a {
-    private static n oJZ;
-    private static long oJt = f.Z();
-    private static long oKa;
-    private Runnable oKc;
-    private boolean oKb = false;
+    private static long oJu = f.Z();
+    private static n oKa;
+    private static long oKb;
+    private Runnable oKd;
+    private boolean oKc = false;
     private boolean aK = true;
     private Handler handler = new Handler();
-    private a oKd = new a() { // from class: com.baidu.ubs.analytics.c.m.1
+    private a oKe = new a() { // from class: com.baidu.ubs.analytics.c.m.1
         @Override // com.baidu.ubs.analytics.c.m.a
         public final void aq() {
             long currentTimeMillis = System.currentTimeMillis();
             com.baidu.ubs.analytics.d.b.I("app   went foreground ");
-            if (currentTimeMillis - m.oKa > m.oJt) {
+            if (currentTimeMillis - m.oKb > m.oJu) {
                 m.this.d(currentTimeMillis);
             }
             if (com.baidu.ubs.analytics.d.efH().i()) {
@@ -41,11 +41,11 @@ public final class m implements a.InterfaceC0947a {
         @Override // com.baidu.ubs.analytics.c.m.a
         public final void ar() {
             d dVar;
-            dVar = d.a.oJL;
+            dVar = d.a.oJM;
             if (dVar.efL().size() == 0) {
                 com.baidu.ubs.analytics.d.b.I("后台应用退出了 了               ");
                 com.baidu.ubs.analytics.d.efH().a(true);
-                long unused = m.oKa = 0L;
+                long unused = m.oKb = 0L;
                 return;
             }
             com.baidu.ubs.analytics.d.b.I("进入后台但没退出                  ");
@@ -62,26 +62,26 @@ public final class m implements a.InterfaceC0947a {
     /* JADX INFO: Access modifiers changed from: package-private */
     public m() {
         long currentTimeMillis = System.currentTimeMillis();
-        oKa = currentTimeMillis;
+        oKb = currentTimeMillis;
         d(currentTimeMillis);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static n efQ() {
-        return oJZ;
+        return oKa;
     }
 
     @Override // com.baidu.ubs.analytics.c.a.InterfaceC0947a
     public final void T() {
         this.aK = false;
-        boolean z = this.oKb ? false : true;
-        this.oKb = true;
-        if (this.oKc != null) {
-            this.handler.removeCallbacks(this.oKc);
+        boolean z = this.oKc ? false : true;
+        this.oKc = true;
+        if (this.oKd != null) {
+            this.handler.removeCallbacks(this.oKd);
         }
         if (z) {
             try {
-                this.oKd.aq();
+                this.oKe.aq();
             } catch (Exception e) {
                 com.baidu.ubs.analytics.d.j.I("Listener threw exception!:" + e.toString());
             }
@@ -91,26 +91,26 @@ public final class m implements a.InterfaceC0947a {
     @Override // com.baidu.ubs.analytics.c.a.InterfaceC0947a
     public final void U() {
         this.aK = true;
-        if (this.oKc != null) {
-            this.handler.removeCallbacks(this.oKc);
-            this.oKc = null;
+        if (this.oKd != null) {
+            this.handler.removeCallbacks(this.oKd);
+            this.oKd = null;
         }
-        oKa = System.currentTimeMillis();
+        oKb = System.currentTimeMillis();
         com.baidu.ubs.analytics.d.c.execute(new com.baidu.ubs.analytics.d.d() { // from class: com.baidu.ubs.analytics.c.m.3
             @Override // com.baidu.ubs.analytics.d.d
             protected final void a() {
                 long currentTimeMillis = System.currentTimeMillis();
-                m.oJZ.z(String.valueOf(currentTimeMillis));
+                m.oKa.z(String.valueOf(currentTimeMillis));
                 try {
-                    m.oJZ.A(String.valueOf(currentTimeMillis - Long.parseLong(m.oJZ.N())));
+                    m.oKa.A(String.valueOf(currentTimeMillis - Long.parseLong(m.oKa.N())));
                 } catch (NumberFormatException e) {
                     com.baidu.ubs.analytics.d.b.I(e.getLocalizedMessage());
                 }
                 p pVar = new p();
-                if (pVar.WB(m.oJZ.I())) {
-                    pVar.b(m.oJZ);
+                if (pVar.WC(m.oKa.I())) {
+                    pVar.b(m.oKa);
                 } else {
-                    pVar.c(m.oJZ);
+                    pVar.c(m.oKa);
                 }
             }
         });
@@ -118,17 +118,17 @@ public final class m implements a.InterfaceC0947a {
         Runnable runnable = new Runnable() { // from class: com.baidu.ubs.analytics.c.m.2
             @Override // java.lang.Runnable
             public final void run() {
-                if (m.this.oKb && m.this.aK) {
-                    m.this.oKb = false;
+                if (m.this.oKc && m.this.aK) {
+                    m.this.oKc = false;
                     try {
-                        m.this.oKd.ar();
+                        m.this.oKe.ar();
                     } catch (Exception e) {
                         com.baidu.ubs.analytics.d.j.I("Listener threw exception!:" + e.toString());
                     }
                 }
             }
         };
-        this.oKc = runnable;
+        this.oKd = runnable;
         handler.postDelayed(runnable, 1000L);
     }
 
@@ -143,14 +143,14 @@ public final class m implements a.InterfaceC0947a {
     /* JADX INFO: Access modifiers changed from: private */
     public void d(long j) {
         n nVar = new n();
-        oJZ = nVar;
+        oKa = nVar;
         nVar.setStartTime(String.valueOf(j));
-        oJZ.x(UUID.randomUUID().toString().replace(Constants.ACCEPT_TIME_SEPARATOR_SERVER, ""));
+        oKa.x(UUID.randomUUID().toString().replace(Constants.ACCEPT_TIME_SEPARATOR_SERVER, ""));
         com.baidu.ubs.analytics.d.c.execute(new com.baidu.ubs.analytics.d.d() { // from class: com.baidu.ubs.analytics.c.m.4
             @Override // com.baidu.ubs.analytics.d.d
             protected final void a() {
                 com.baidu.ubs.analytics.d.b.I("超时了……………… 一个新的session");
-                new p().c(m.oJZ);
+                new p().c(m.oKa);
             }
         });
     }

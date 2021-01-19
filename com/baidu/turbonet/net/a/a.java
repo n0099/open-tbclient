@@ -9,9 +9,9 @@ import java.nio.ByteBuffer;
 /* loaded from: classes4.dex */
 public final class a extends f {
     private ByteBuffer mBuffer;
-    private final int oHq;
-    private final d oHr;
-    private final UploadDataProvider oHe = new C0945a();
+    private final int oHr;
+    private final d oHs;
+    private final UploadDataProvider oHf = new C0945a();
     private boolean mConnected = false;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -25,9 +25,9 @@ public final class a extends f {
         if (j < 0) {
             throw new IllegalArgumentException("Content length < 0.");
         }
-        this.oHr = dVar;
-        this.oHq = (int) j;
-        this.mBuffer = ByteBuffer.allocate(this.oHq);
+        this.oHs = dVar;
+        this.oHr = (int) j;
+        this.mBuffer = ByteBuffer.allocate(this.oHr);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -35,8 +35,8 @@ public final class a extends f {
         if (dVar == null) {
             throw new NullPointerException();
         }
-        this.oHr = dVar;
-        this.oHq = -1;
+        this.oHs = dVar;
+        this.oHr = -1;
         this.mBuffer = ByteBuffer.allocate(16384);
     }
 
@@ -55,13 +55,13 @@ public final class a extends f {
     }
 
     private void MG(int i) throws IOException {
-        if (this.oHq != -1 && this.mBuffer.position() + i > this.oHq) {
-            throw new ProtocolException("exceeded content-length limit of " + this.oHq + " bytes");
+        if (this.oHr != -1 && this.mBuffer.position() + i > this.oHr) {
+            throw new ProtocolException("exceeded content-length limit of " + this.oHr + " bytes");
         }
         if (this.mConnected) {
             throw new IllegalStateException("Cannot write after being connected.");
         }
-        if (this.oHq == -1 && this.mBuffer.limit() - this.mBuffer.position() <= i) {
+        if (this.oHr == -1 && this.mBuffer.limit() - this.mBuffer.position() <= i) {
             ByteBuffer allocate = ByteBuffer.allocate(Math.max(this.mBuffer.capacity() * 2, this.mBuffer.capacity() + i));
             this.mBuffer.flip();
             allocate.put(this.mBuffer);
@@ -73,7 +73,7 @@ public final class a extends f {
     @Override // com.baidu.turbonet.net.a.f
     public void eeH() throws IOException {
         this.mConnected = true;
-        if (this.mBuffer.position() < this.oHq) {
+        if (this.mBuffer.position() < this.oHr) {
             throw new ProtocolException("Content received is less than Content-Length");
         }
         this.mBuffer.flip();
@@ -87,7 +87,7 @@ public final class a extends f {
     /* JADX INFO: Access modifiers changed from: package-private */
     @Override // com.baidu.turbonet.net.a.f
     public UploadDataProvider eeJ() {
-        return this.oHe;
+        return this.oHf;
     }
 
     /* renamed from: com.baidu.turbonet.net.a.a$a  reason: collision with other inner class name */
@@ -98,10 +98,10 @@ public final class a extends f {
 
         @Override // com.baidu.turbonet.net.UploadDataProvider
         public long getLength() {
-            if (a.this.oHq == -1) {
+            if (a.this.oHr == -1) {
                 return a.this.mConnected ? a.this.mBuffer.limit() : a.this.mBuffer.position();
             }
-            return a.this.oHq;
+            return a.this.oHr;
         }
 
         @Override // com.baidu.turbonet.net.UploadDataProvider

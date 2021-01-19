@@ -12,7 +12,7 @@ public class e extends BdBaseModel {
     private Context bJM;
     private BdUniqueId brL = BdUniqueId.gen();
     private final HttpMessageListener bxB;
-    private a omf;
+    private a omg;
 
     /* loaded from: classes10.dex */
     public interface a {
@@ -22,7 +22,7 @@ public class e extends BdBaseModel {
     }
 
     public void a(a aVar) {
-        this.omf = aVar;
+        this.omg = aVar;
     }
 
     public e(Context context) {
@@ -37,12 +37,12 @@ public class e extends BdBaseModel {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-                if (httpResponsedMessage != null && (httpResponsedMessage instanceof AlaModifyRoomIntroduceHttpResponseMessage) && httpResponsedMessage.getOrginalMessage().getTag() == e.this.getUniqueId() && e.this.omf != null) {
+                if (httpResponsedMessage != null && (httpResponsedMessage instanceof AlaModifyRoomIntroduceHttpResponseMessage) && httpResponsedMessage.getOrginalMessage().getTag() == e.this.getUniqueId() && e.this.omg != null) {
                     AlaModifyRoomIntroduceHttpResponseMessage alaModifyRoomIntroduceHttpResponseMessage = (AlaModifyRoomIntroduceHttpResponseMessage) httpResponsedMessage;
                     if (alaModifyRoomIntroduceHttpResponseMessage.getError() == 0 && alaModifyRoomIntroduceHttpResponseMessage.isSuccess()) {
-                        e.this.omf.a(alaModifyRoomIntroduceHttpResponseMessage);
+                        e.this.omg.a(alaModifyRoomIntroduceHttpResponseMessage);
                     } else {
-                        e.this.omf.n(alaModifyRoomIntroduceHttpResponseMessage.getError(), alaModifyRoomIntroduceHttpResponseMessage.getErrorString(), alaModifyRoomIntroduceHttpResponseMessage.dZj().omh.usermsg);
+                        e.this.omg.n(alaModifyRoomIntroduceHttpResponseMessage.getError(), alaModifyRoomIntroduceHttpResponseMessage.getErrorString(), alaModifyRoomIntroduceHttpResponseMessage.dZj().omi.usermsg);
                     }
                 }
             }

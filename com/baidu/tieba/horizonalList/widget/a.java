@@ -26,7 +26,7 @@ class a {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static a BR(int i) {
+    public static a BQ(int i) {
         return J(2, i, 0, 0);
     }
 

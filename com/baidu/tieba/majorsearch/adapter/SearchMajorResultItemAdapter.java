@@ -23,7 +23,7 @@ public class SearchMajorResultItemAdapter extends RecyclerView.Adapter<ViewHolde
 
     /* loaded from: classes7.dex */
     public interface a {
-        void Ni(String str);
+        void Nj(String str);
     }
 
     public SearchMajorResultItemAdapter(Context context) {
@@ -53,7 +53,7 @@ public class SearchMajorResultItemAdapter extends RecyclerView.Adapter<ViewHolde
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
                         if (SearchMajorResultItemAdapter.this.lcr != null) {
-                            SearchMajorResultItemAdapter.this.lcr.Ni(str);
+                            SearchMajorResultItemAdapter.this.lcr.Nj(str);
                         }
                     }
                 });
@@ -85,7 +85,7 @@ public class SearchMajorResultItemAdapter extends RecyclerView.Adapter<ViewHolde
         }
     }
 
-    public void Na(String str) {
+    public void Nb(String str) {
         this.enU = str;
     }
 

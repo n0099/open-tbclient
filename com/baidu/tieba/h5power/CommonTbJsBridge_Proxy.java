@@ -334,7 +334,7 @@ public class CommonTbJsBridge_Proxy extends a {
             while (it.hasNext()) {
                 b next = it.next();
                 c cVar = new c();
-                cVar.Sj(next.getName());
+                cVar.Sk(next.getName());
                 cVar.setStatus(dealClickGoBackToH5.getStatus());
                 cVar.setMessage(dealClickGoBackToH5.getMessage());
                 cVar.setData(dealClickGoBackToH5.getData());

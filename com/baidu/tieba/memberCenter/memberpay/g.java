@@ -64,7 +64,7 @@ public class g {
         ao.setBackgroundResource(this.lim, R.drawable.btn_all_orange);
     }
 
-    public void Nn(String str) {
+    public void No(String str) {
         this.lij.setText(String.format(this.mContext.getString(R.string.pay_member_content), str));
     }
 

@@ -11,9 +11,9 @@ import tbclient.T;
 public class SetAvatarPendantModel extends BdBaseModel<BaseActivity<T>> {
     public static final int TYPE_SET_USE = 1;
     private int freeUseLevel;
-    private a nwy;
+    private a nwz;
     private long pendantId;
-    private boolean nwx = false;
+    private boolean nwy = false;
     private com.baidu.adp.framework.listener.a iWa = new com.baidu.adp.framework.listener.a(1003179, CmdConfigSocket.CMD_SET_PENDANT) { // from class: com.baidu.tieba.themeCenter.avatarPendant.SetAvatarPendantModel.1
         @Override // com.baidu.adp.framework.listener.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
@@ -33,12 +33,12 @@ public class SetAvatarPendantModel extends BdBaseModel<BaseActivity<T>> {
                         SetAvatarPendantModel.this.hE(setPendantSocketResponse.getPendantId());
                         SetAvatarPendantModel.this.freeUseLevel = setPendantSocketResponse.getFreeUseLevel();
                     }
-                    if (SetAvatarPendantModel.this.nwy != null) {
-                        int i = com.baidu.tieba.themeCenter.c.nvS;
-                        if (responsedMessage.getError() == com.baidu.tieba.themeCenter.c.nvT) {
-                            i = com.baidu.tieba.themeCenter.c.nvR;
+                    if (SetAvatarPendantModel.this.nwz != null) {
+                        int i = com.baidu.tieba.themeCenter.c.nvT;
+                        if (responsedMessage.getError() == com.baidu.tieba.themeCenter.c.nvU) {
+                            i = com.baidu.tieba.themeCenter.c.nvS;
                         }
-                        SetAvatarPendantModel.this.nwy.a(SetAvatarPendantModel.this.nwx, SetAvatarPendantModel.this.pendantId, SetAvatarPendantModel.this.freeUseLevel, responsedMessage.getErrorString(), i);
+                        SetAvatarPendantModel.this.nwz.a(SetAvatarPendantModel.this.nwy, SetAvatarPendantModel.this.pendantId, SetAvatarPendantModel.this.freeUseLevel, responsedMessage.getErrorString(), i);
                     }
                 }
             }
@@ -83,10 +83,10 @@ public class SetAvatarPendantModel extends BdBaseModel<BaseActivity<T>> {
     }
 
     public void yy(boolean z) {
-        this.nwx = z;
+        this.nwy = z;
     }
 
     public void a(a aVar) {
-        this.nwy = aVar;
+        this.nwz = aVar;
     }
 }

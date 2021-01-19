@@ -21,8 +21,8 @@ public class n implements com.baidu.adp.widget.ListView.n {
             this.leo = new d();
             this.leo.Ea(1);
             this.leo.setCategoryName(vipSpecialList.class_name);
-            this.leo.Nk(vipSpecialList.class_url_name);
-            this.leo.Nl(vipSpecialList.class_url);
+            this.leo.Nl(vipSpecialList.class_url_name);
+            this.leo.Nm(vipSpecialList.class_url);
             this.lev = new ArrayList();
             for (VipSpecialItem vipSpecialItem : vipSpecialList.item) {
                 this.lev.add(new o(vipSpecialItem));

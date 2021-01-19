@@ -3,16 +3,16 @@ package com.baidu.tieba.video.record;
 import android.animation.Animator;
 /* loaded from: classes7.dex */
 public abstract class m implements Animator.AnimatorListener {
-    protected boolean nJF = false;
+    protected boolean nJG = false;
 
     @Override // android.animation.Animator.AnimatorListener
     public void onAnimationStart(Animator animator) {
-        this.nJF = false;
+        this.nJG = false;
     }
 
     @Override // android.animation.Animator.AnimatorListener
     public void onAnimationCancel(Animator animator) {
-        this.nJF = true;
+        this.nJG = true;
     }
 
     @Override // android.animation.Animator.AnimatorListener

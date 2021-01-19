@@ -8,7 +8,7 @@ import java.io.IOException;
 import java.security.MessageDigest;
 /* loaded from: classes6.dex */
 public class c {
-    private static final char[] pYq = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
+    private static final char[] pYr = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
 
     public static String aA(File file) {
         return a(file, 9, 8192L);
@@ -39,29 +39,29 @@ public class c {
                     int i = -1;
                     long j = -1;
                     try {
-                        a aav = aav(str);
-                        if (aav != null) {
-                            if (aav.pYr > 1) {
+                        a aaw = aaw(str);
+                        if (aaw != null) {
+                            if (aaw.pYs > 1) {
                                 return 3;
                             }
-                            i = aav.sampleCount;
-                            j = aav.sampleSize;
+                            i = aaw.sampleCount;
+                            j = aaw.sampleSize;
                         }
                         String b2 = b(file, i, j);
                         if (b2 == null || b2.length() == 0) {
                             return 6;
                         }
-                        if (aav == null || (aav.pYr == 1 && aav.pYs == 1)) {
+                        if (aaw == null || (aaw.pYs == 1 && aaw.pYt == 1)) {
                             if (b2.equals(str)) {
                                 return 0;
                             }
-                        } else if (aav.pYt != null) {
+                        } else if (aaw.pYu != null) {
                             try {
-                                aVar = aav(b2);
+                                aVar = aaw(b2);
                             } catch (Throwable th) {
                                 aVar = null;
                             }
-                            if (aVar != null && aav.sampleCount == aVar.sampleCount && aav.sampleSize == aVar.sampleSize && aav.pYt.equals(aVar.pYt)) {
+                            if (aVar != null && aaw.sampleCount == aVar.sampleCount && aaw.sampleSize == aVar.sampleSize && aaw.pYu.equals(aVar.pYu)) {
                                 return 0;
                             }
                         }
@@ -156,9 +156,9 @@ public class c {
         for (int i2 = 0; i2 < length; i2++) {
             int i3 = bArr[i2 + 0] & 255;
             int i4 = i + 1;
-            cArr[i] = pYq[i3 >> 4];
+            cArr[i] = pYr[i3 >> 4];
             i = i4 + 1;
-            cArr[i4] = pYq[i3 & 15];
+            cArr[i4] = pYr[i3 & 15];
         }
         return new String(cArr, 0, length * 2);
     }
@@ -167,20 +167,20 @@ public class c {
         return "ttmd5:1:1:" + jr(i) + IXAdRequestInfo.GPS + jr(j);
     }
 
-    private static a aav(String str) throws Exception {
+    private static a aaw(String str) throws Exception {
         if (str.startsWith("ttmd5:")) {
             String[] split = str.split(ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR);
             String[] split2 = split[0].split(":");
             a aVar = new a();
-            aVar.pYr = Integer.parseInt(split2[1]);
-            if (aVar.pYr > 1) {
+            aVar.pYs = Integer.parseInt(split2[1]);
+            if (aVar.pYs > 1) {
                 return aVar;
             }
-            aVar.pYs = Integer.parseInt(split2[2]);
+            aVar.pYt = Integer.parseInt(split2[2]);
             String[] split3 = split2[3].split(IXAdRequestInfo.GPS);
-            aVar.sampleCount = (int) aaw(split3[0]);
-            aVar.sampleSize = aaw(split3[1]);
-            aVar.pYt = split[1];
+            aVar.sampleCount = (int) aax(split3[0]);
+            aVar.sampleSize = aax(split3[1]);
+            aVar.pYu = split[1];
             return aVar;
         }
         return null;
@@ -190,7 +190,7 @@ public class c {
         return Long.toHexString((j << 4) + 31);
     }
 
-    private static long aaw(String str) throws RuntimeException {
+    private static long aax(String str) throws RuntimeException {
         try {
             return (Long.parseLong(str, 16) - 31) >> 4;
         } catch (Throwable th) {
@@ -201,9 +201,9 @@ public class c {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes6.dex */
     public static class a {
-        private int pYr;
         private int pYs;
-        private String pYt;
+        private int pYt;
+        private String pYu;
         private int sampleCount;
         private long sampleSize;
 

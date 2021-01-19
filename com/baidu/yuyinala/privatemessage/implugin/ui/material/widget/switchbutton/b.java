@@ -12,48 +12,48 @@ import java.lang.reflect.Field;
 /* loaded from: classes10.dex */
 public class b implements Cloneable {
     private float djw;
-    private Rect oWd;
-    private Drawable oVS = null;
+    private Rect oWe;
     private Drawable oVT = null;
+    private Drawable oVU = null;
     private Drawable mThumbDrawable = null;
-    private int oVU = a.oWf;
-    private int oVV = a.oWe;
-    private int orT = a.oWg;
-    private int oVW = a.oWh;
-    private int oVX = 0;
+    private int oVV = a.oWg;
+    private int oVW = a.oWf;
+    private int orU = a.oWh;
+    private int oVX = a.oWi;
     private int oVY = 0;
     private int oVZ = 0;
     private int oWa = 0;
+    private int oWb = 0;
     private int mThumbWidth = -1;
-    private int oWb = -1;
+    private int oWc = -1;
     private int bFw = -1;
     private float mRadius = -1.0f;
-    private float oWc = 0.0f;
+    private float oWd = 0.0f;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes10.dex */
     public static class a {
-        static int oWe = Color.parseColor("#E3E3E3");
-        static int oWf = Color.parseColor("#02BFE7");
-        static int oWg = Color.parseColor("#FFFFFF");
-        static int oWh = Color.parseColor("#fafafa");
-        static int oWi = 2;
+        static int oWf = Color.parseColor("#E3E3E3");
+        static int oWg = Color.parseColor("#02BFE7");
+        static int oWh = Color.parseColor("#FFFFFF");
+        static int oWi = Color.parseColor("#fafafa");
+        static int oWj = 2;
         static int DEFAULT_RADIUS = 999;
-        static float oWj = 2.0f;
-        static int oWk = 0;
+        static float oWk = 2.0f;
+        static int oWl = 0;
     }
 
     /* renamed from: com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.switchbutton.b$b  reason: collision with other inner class name */
     /* loaded from: classes10.dex */
     static class C0970b {
-        static int oWl = 24;
+        static int oWm = 24;
     }
 
     public static b by(float f) {
         b bVar = new b();
         bVar.djw = f;
         bVar.Nx(bVar.ejx());
-        bVar.oWd = new Rect(a.oWk, a.oWk, a.oWk, a.oWk);
+        bVar.oWe = new Rect(a.oWl, a.oWl, a.oWl, a.oWl);
         return bVar;
     }
 
@@ -62,7 +62,7 @@ public class b implements Cloneable {
         if (drawable == null) {
             c.e("SwitchButtonConfiguration", "off drawable can not be null");
         } else {
-            this.oVT = drawable;
+            this.oVU = drawable;
         }
     }
 
@@ -71,16 +71,16 @@ public class b implements Cloneable {
         if (drawable == null) {
             c.e("SwitchButtonConfiguration", "onDrawable can not be null");
         } else {
-            this.oVS = drawable;
+            this.oVT = drawable;
         }
     }
 
     public Drawable ejv() {
-        return this.oVS;
+        return this.oVT;
     }
 
     public Drawable ejw() {
-        return this.oVT;
+        return this.oVU;
     }
 
     public void setThumbDrawable(Drawable drawable) {
@@ -96,10 +96,10 @@ public class b implements Cloneable {
     }
 
     public void P(int i, int i2, int i3, int i4) {
-        this.oVX = i;
-        this.oVY = i2;
-        this.oVZ = i3;
-        this.oWa = i4;
+        this.oVY = i;
+        this.oVZ = i2;
+        this.oWa = i3;
+        this.oWb = i4;
     }
 
     public void Nx(int i) {
@@ -107,23 +107,23 @@ public class b implements Cloneable {
     }
 
     public int ejx() {
-        return (int) (a.oWi * this.djw);
+        return (int) (a.oWj * this.djw);
     }
 
     public int ejy() {
-        return this.oVX;
-    }
-
-    public int ejz() {
         return this.oVY;
     }
 
-    public int ejA() {
+    public int ejz() {
         return this.oVZ;
     }
 
-    public int ejB() {
+    public int ejA() {
         return this.oWa;
+    }
+
+    public int ejB() {
+        return this.oWb;
     }
 
     public float getDensity() {
@@ -151,16 +151,16 @@ public class b implements Cloneable {
             this.mThumbWidth = i;
         }
         if (i2 > 0) {
-            this.oWb = i2;
+            this.oWc = i2;
         }
     }
 
     public Drawable ejD() {
-        return this.oVT != null ? this.oVT : NC(this.oVV);
+        return this.oVU != null ? this.oVU : NC(this.oVW);
     }
 
     public Drawable ejE() {
-        return this.oVS != null ? this.oVS : NC(this.oVU);
+        return this.oVT != null ? this.oVT : NC(this.oVV);
     }
 
     public Drawable ejF() {
@@ -169,8 +169,8 @@ public class b implements Cloneable {
             return this.mThumbDrawable;
         }
         StateListDrawable stateListDrawable = new StateListDrawable();
-        Drawable NC = NC(this.orT);
-        Drawable NC2 = NC(this.oVW);
+        Drawable NC = NC(this.orU);
+        Drawable NC2 = NC(this.oVX);
         try {
             Field declaredField = View.class.getDeclaredField("PRESSED_ENABLED_STATE_SET");
             declaredField.setAccessible(true);
@@ -187,21 +187,21 @@ public class b implements Cloneable {
     }
 
     public float ejG() {
-        if (this.oWc <= 0.0f) {
-            this.oWc = a.oWj;
+        if (this.oWd <= 0.0f) {
+            this.oWd = a.oWk;
         }
-        return this.oWc;
+        return this.oWd;
     }
 
     public void bz(float f) {
         if (f <= 0.0f) {
-            this.oWc = a.oWj;
+            this.oWd = a.oWk;
         }
-        this.oWc = f;
+        this.oWd = f;
     }
 
     public Rect ejH() {
-        return this.oWd;
+        return this.oWe;
     }
 
     public void Q(int i, int i2, int i3, int i4) {
@@ -215,28 +215,28 @@ public class b implements Cloneable {
         if (i > 0) {
             i = -i;
         }
-        this.oWd.left = i;
+        this.oWe.left = i;
     }
 
     public void Nz(int i) {
         if (i > 0) {
             i = -i;
         }
-        this.oWd.top = i;
+        this.oWe.top = i;
     }
 
     public void NA(int i) {
         if (i > 0) {
             i = -i;
         }
-        this.oWd.right = i;
+        this.oWe.right = i;
     }
 
     public void NB(int i) {
         if (i > 0) {
             i = -i;
         }
-        this.oWd.bottom = i;
+        this.oWe.bottom = i;
     }
 
     public int ejI() {
@@ -248,15 +248,15 @@ public class b implements Cloneable {
     }
 
     public int ejK() {
-        return this.oWd.left + this.oWd.right;
+        return this.oWe.left + this.oWe.right;
     }
 
     public int ejL() {
-        return this.oWd.top + this.oWd.bottom;
+        return this.oWe.top + this.oWe.bottom;
     }
 
     public boolean ejM() {
-        return ((this.oWd.left + this.oWd.right) + this.oWd.top) + this.oWd.bottom != 0;
+        return ((this.oWe.left + this.oWe.right) + this.oWe.top) + this.oWe.bottom != 0;
     }
 
     private Drawable NC(int i) {
@@ -275,7 +275,7 @@ public class b implements Cloneable {
                     c.e("SwitchButtonConfiguration", "density must be a positive number");
                     return i;
                 }
-                return (int) (C0970b.oWl * this.djw);
+                return (int) (C0970b.oWm * this.djw);
             }
             return i;
         }
@@ -284,14 +284,14 @@ public class b implements Cloneable {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public int ejO() {
-        int i = this.oWb;
+        int i = this.oWc;
         if (i < 0) {
             if (this.mThumbDrawable == null || (i = this.mThumbDrawable.getIntrinsicHeight()) <= 0) {
                 if (this.djw <= 0.0f) {
                     c.e("SwitchButtonConfiguration", "density must be a positive number");
                     return i;
                 }
-                return (int) (C0970b.oWl * this.djw);
+                return (int) (C0970b.oWm * this.djw);
             }
             return i;
         }

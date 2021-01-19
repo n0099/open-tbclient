@@ -130,7 +130,7 @@ public class MoreGodReplyModel extends BdBaseModel<f> {
             PostData postData = list.get(i);
             if (postData != null) {
                 arrayList.add(postData);
-                postData.nnw = i < size + (-1);
+                postData.nnx = i < size + (-1);
             }
             i++;
         }

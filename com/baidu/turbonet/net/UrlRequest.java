@@ -26,9 +26,9 @@ public interface UrlRequest {
 
     void Ms(int i);
 
-    void VM(String str);
-
     void VN(String str);
+
+    void VO(String str);
 
     void a(UploadDataProvider uploadDataProvider, Executor executor);
 
@@ -63,18 +63,18 @@ public interface UrlRequest {
         Object mTag;
         Executor mUploadDataProviderExecutor;
         final String mUrl;
-        boolean oFA;
-        boolean oFC;
-        int oFD;
+        boolean oFB;
+        boolean oFD;
         int oFE;
         int oFF;
         int oFG;
-        String oFH;
+        int oFH;
         String oFI;
-        final Callback oFl;
-        final TurbonetEngine oGA;
-        UploadDataProvider oHe;
-        boolean oHf;
+        String oFJ;
+        final Callback oFm;
+        final TurbonetEngine oGB;
+        UploadDataProvider oHf;
+        boolean oHg;
         final ArrayList<Pair<String, String>> mRequestHeaders = new ArrayList<>();
         int mPriority = 3;
         Collection<Object> mRequestAnnotations = Collections.emptyList();
@@ -98,21 +98,21 @@ public interface UrlRequest {
                 throw new NullPointerException("TurbonetEngine is required.");
             }
             this.mUrl = str;
-            this.oFl = callback;
+            this.oFm = callback;
             this.mExecutor = executor;
-            this.oGA = turbonetEngine;
-            this.oHf = false;
-            this.oFC = false;
-            this.oFD = 0;
+            this.oGB = turbonetEngine;
+            this.oHg = false;
+            this.oFD = false;
             this.oFE = 0;
             this.oFF = 0;
             this.oFG = 0;
+            this.oFH = 0;
             this.mTag = null;
-            this.oFH = null;
             this.oFI = null;
+            this.oFJ = null;
         }
 
-        public Builder VX(String str) {
+        public Builder VY(String str) {
             if (str == null) {
                 throw new NullPointerException("Method is required.");
             }
@@ -141,37 +141,37 @@ public interface UrlRequest {
         }
 
         public Builder eex() {
-            this.oHf = true;
+            this.oHg = true;
             return this;
         }
 
         public Builder eey() {
-            this.oFA = true;
+            this.oFB = true;
             return this;
         }
 
         public Builder MC(int i) {
-            this.oFD = i;
-            return this;
-        }
-
-        public Builder MD(int i) {
             this.oFE = i;
             return this;
         }
 
-        public Builder ME(int i) {
+        public Builder MD(int i) {
             this.oFF = i;
             return this;
         }
 
-        public Builder VY(String str) {
-            this.oFH = str;
+        public Builder ME(int i) {
+            this.oFG = i;
             return this;
         }
 
         public Builder VZ(String str) {
             this.oFI = str;
+            return this;
+        }
+
+        public Builder Wa(String str) {
+            this.oFJ = str;
             return this;
         }
 
@@ -185,13 +185,13 @@ public interface UrlRequest {
             if (this.mMethod == null) {
                 this.mMethod = "POST";
             }
-            this.oHe = uploadDataProvider;
+            this.oHf = uploadDataProvider;
             this.mUploadDataProviderExecutor = executor;
             return this;
         }
 
         public UrlRequest eez() {
-            UrlRequest a2 = this.oGA.a(this.mUrl, this.oFl, this.mExecutor, this.mPriority, this.mRequestAnnotations, this.mDisableCache, this.mDisableConnectionMigration, this.oFA);
+            UrlRequest a2 = this.oGB.a(this.mUrl, this.oFm, this.mExecutor, this.mPriority, this.mRequestAnnotations, this.mDisableCache, this.mDisableConnectionMigration, this.oFB);
             if (this.mMethod != null) {
                 a2.setHttpMethod(this.mMethod);
             }
@@ -200,35 +200,35 @@ public interface UrlRequest {
                 Pair<String, String> next = it.next();
                 a2.addHeader((String) next.first, (String) next.second);
             }
-            if (this.oHe != null) {
-                a2.a(this.oHe, this.mUploadDataProviderExecutor);
+            if (this.oHf != null) {
+                a2.a(this.oHf, this.mUploadDataProviderExecutor);
             }
-            if (this.oHf) {
+            if (this.oHg) {
                 a2.edL();
             }
-            if (this.oFC) {
+            if (this.oFD) {
                 a2.edM();
             }
-            if (this.oFD > 0) {
-                a2.setTimeout(this.oFD);
-            }
             if (this.oFE > 0) {
-                a2.Mq(this.oFE);
+                a2.setTimeout(this.oFE);
             }
             if (this.oFF > 0) {
-                a2.Mr(this.oFF);
+                a2.Mq(this.oFF);
             }
             if (this.oFG > 0) {
-                a2.Ms(this.oFG);
+                a2.Mr(this.oFG);
+            }
+            if (this.oFH > 0) {
+                a2.Ms(this.oFH);
             }
             if (this.mTag != null) {
                 a2.setTag(this.mTag);
             }
-            if (!TextUtils.isEmpty(this.oFH)) {
-                a2.VM(this.oFH);
-            }
             if (!TextUtils.isEmpty(this.oFI)) {
                 a2.VN(this.oFI);
+            }
+            if (!TextUtils.isEmpty(this.oFJ)) {
+                a2.VO(this.oFJ);
             }
             return a2;
         }

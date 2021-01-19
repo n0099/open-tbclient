@@ -14,17 +14,17 @@ import org.a.d;
 /* loaded from: classes5.dex */
 public final class FlowableSampleTimed<T> extends a<T, T> {
     final long period;
-    final boolean qeB;
+    final boolean qeC;
     final v scheduler;
     final TimeUnit unit;
 
     @Override // io.reactivex.g
     protected void a(org.a.c<? super T> cVar) {
         io.reactivex.subscribers.b bVar = new io.reactivex.subscribers.b(cVar);
-        if (this.qeB) {
-            this.qdR.a((j) new SampleTimedEmitLast(bVar, this.period, this.unit, this.scheduler));
+        if (this.qeC) {
+            this.qdS.a((j) new SampleTimedEmitLast(bVar, this.period, this.unit, this.scheduler));
         } else {
-            this.qdR.a((j) new SampleTimedNoLast(bVar, this.period, this.unit, this.scheduler));
+            this.qdS.a((j) new SampleTimedNoLast(bVar, this.period, this.unit, this.scheduler));
         }
     }
 

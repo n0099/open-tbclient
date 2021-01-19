@@ -34,7 +34,7 @@ public class MsgLeftViewItemAdapter extends MsgCommonItemAdapter<MsgleftView> {
     public View a(int i, View view, ViewGroup viewGroup, ChatMessage chatMessage, MsgCommonItemAdapter.MsgViewHolder<MsgleftView> msgViewHolder) {
         super.a(i, view, viewGroup, chatMessage, (MsgCommonItemAdapter.MsgViewHolder) msgViewHolder);
         MsgleftView cSH = msgViewHolder.cSH();
-        cSH.Cq(this.ksh);
+        cSH.Cp(this.ksh);
         cSH.sq(this.mNeedShowName);
         chatMessage.getCacheData().setIs_left(1);
         cSH.a(this.krY);

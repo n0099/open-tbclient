@@ -10,7 +10,7 @@ public final class FlowableReduce<T> extends a<T, T> {
 
     @Override // io.reactivex.g
     protected void a(org.a.c<? super T> cVar) {
-        this.qdR.a((j) new ReduceSubscriber(cVar, this.reducer));
+        this.qdS.a((j) new ReduceSubscriber(cVar, this.reducer));
     }
 
     /* loaded from: classes5.dex */

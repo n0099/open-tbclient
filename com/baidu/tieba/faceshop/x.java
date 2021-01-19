@@ -43,7 +43,7 @@ public class x extends com.baidu.tbadk.editortools.emotiontool.a {
                 int i2 = i;
                 if (i2 < this.iQS.size()) {
                     w wVar = (w) this.iQS.get(i2);
-                    if (wVar.isReady() && com.baidu.tieba.newfaceshop.c.dgk().NZ(wVar.getGroupId()) == null && interfaceC0576a != null) {
+                    if (wVar.isReady() && com.baidu.tieba.newfaceshop.c.dgk().Oa(wVar.getGroupId()) == null && interfaceC0576a != null) {
                         interfaceC0576a.a(wVar);
                     }
                     i = i2 + 1;

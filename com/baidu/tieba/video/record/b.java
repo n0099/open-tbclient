@@ -6,20 +6,20 @@ import android.view.MotionEvent;
 class b {
     private Camera mCamera;
     private int mode = 0;
-    private float nFX;
-    private int nFY;
-    private i nFZ;
+    private float nFY;
+    private int nFZ;
+    private i nGa;
 
     public b(Camera camera) {
         this.mCamera = camera;
     }
 
     public void setRecordController(i iVar) {
-        this.nFZ = iVar;
+        this.nGa = iVar;
     }
 
     public boolean handleTouchEvent(MotionEvent motionEvent) {
-        if (this.nFZ == null || !this.nFZ.bvp()) {
+        if (this.nGa == null || !this.nGa.bvp()) {
             switch (motionEvent.getAction() & 255) {
                 case 0:
                     this.mode = 0;
@@ -27,21 +27,21 @@ class b {
                 case 2:
                     if (this.mode == 1 && motionEvent.getPointerCount() >= 2) {
                         float spacing = spacing(motionEvent);
-                        int i = (int) ((spacing - this.nFX) / 10.0f);
+                        int i = (int) ((spacing - this.nFY) / 10.0f);
                         if (i >= 1 || i <= -1) {
-                            int i2 = i + this.nFY;
+                            int i2 = i + this.nFZ;
                             if (i2 > getMaxZoom()) {
                                 i2 = getMaxZoom();
                             }
                             setZoom(i2 >= 0 ? i2 : 0);
-                            this.nFX = spacing;
+                            this.nFY = spacing;
                             break;
                         }
                     }
                     break;
                 case 5:
                     this.mode = 1;
-                    this.nFX = spacing(motionEvent);
+                    this.nFY = spacing(motionEvent);
                     break;
             }
         }
@@ -77,7 +77,7 @@ class b {
             if (parameters.isZoomSupported()) {
                 parameters.setZoom(i);
                 this.mCamera.setParameters(parameters);
-                this.nFY = i;
+                this.nFZ = i;
             }
         }
     }

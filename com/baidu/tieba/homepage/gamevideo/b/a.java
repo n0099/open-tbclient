@@ -28,7 +28,7 @@ public class a {
             if (a.this.jXs != null && i < a.this.jXs.getCount() && a.this.jXs.getItem(i) != null && (a.this.jXs.getItem(i) instanceof com.baidu.tieba.homepage.gamevideo.c.a)) {
                 com.baidu.tieba.homepage.gamevideo.c.a aVar = (com.baidu.tieba.homepage.gamevideo.c.a) a.this.jXs.getItem(i);
                 if (aVar.enable == 1) {
-                    a.this.jXs.Bz(aVar.sub_class_id);
+                    a.this.jXs.By(aVar.sub_class_id);
                     if (a.this.jXt != null) {
                         a.this.jXt.a(aVar);
                     }

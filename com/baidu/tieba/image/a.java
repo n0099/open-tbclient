@@ -54,7 +54,7 @@ public class a implements ImagePagerAdapter.a {
         if (this.eSJ == null || this.kLE == null) {
             return null;
         }
-        if (Dl(i)) {
+        if (Dk(i)) {
             this.kLG = r.dBe().a(this.eSJ, this.kLE.legoCard, 99, this.fut, this.mForumId, this.mPostId);
             if (this.kLG == null) {
                 return null;
@@ -67,7 +67,7 @@ public class a implements ImagePagerAdapter.a {
         return null;
     }
 
-    private boolean Dl(int i) {
+    private boolean Dk(int i) {
         return cXG() && this.kLD != 0 && i == this.kLD;
     }
 

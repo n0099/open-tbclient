@@ -15,7 +15,7 @@ import rx.j;
 import rx.k;
 /* loaded from: classes14.dex */
 public final class UnicastSubject<T> extends c<T, T> {
-    final State<T> quH;
+    final State<T> quI;
 
     public static <T> UnicastSubject<T> a(int i, rx.functions.a aVar) {
         return new UnicastSubject<>(new State(i, aVar));
@@ -23,22 +23,22 @@ public final class UnicastSubject<T> extends c<T, T> {
 
     private UnicastSubject(State<T> state) {
         super(state);
-        this.quH = state;
+        this.quI = state;
     }
 
     @Override // rx.e
     public void onNext(T t) {
-        this.quH.onNext(t);
+        this.quI.onNext(t);
     }
 
     @Override // rx.e
     public void onError(Throwable th) {
-        this.quH.onError(th);
+        this.quI.onError(th);
     }
 
     @Override // rx.e
     public void onCompleted() {
-        this.quH.onCompleted();
+        this.quI.onCompleted();
     }
 
     /* loaded from: classes14.dex */

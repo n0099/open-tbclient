@@ -31,11 +31,11 @@ public class BuyTBeanModel extends BdBaseModel<BuyTBeanActivity> {
     public static final String GET_ICON_URL = "c/e/pay/geticonlist";
     public static final int SUPER_MEMBER = 2;
     private boolean mIsShowUserDifineTBeanItem;
-    private BuyTBeanActivity nrW;
-    private a nrX;
-    private List<com.baidu.tieba.tbean.b.b> nrY;
-    private List<com.baidu.tieba.tbean.b.a> nrZ;
-    private com.baidu.tieba.tbean.b.c nsa;
+    private BuyTBeanActivity nrX;
+    private a nrY;
+    private List<com.baidu.tieba.tbean.b.b> nrZ;
+    private List<com.baidu.tieba.tbean.b.a> nsa;
+    private com.baidu.tieba.tbean.b.c nsb;
     private UserInfo userInfo;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -50,10 +50,10 @@ public class BuyTBeanModel extends BdBaseModel<BuyTBeanActivity> {
 
     public BuyTBeanModel(BuyTBeanActivity buyTBeanActivity, a aVar) {
         super(buyTBeanActivity.getPageContext());
-        this.nrY = new LinkedList();
         this.nrZ = new LinkedList();
-        this.nrW = buyTBeanActivity;
-        this.nrX = aVar;
+        this.nsa = new LinkedList();
+        this.nrX = buyTBeanActivity;
+        this.nrY = aVar;
     }
 
     public UserInfo getUserInfo() {
@@ -70,18 +70,18 @@ public class BuyTBeanModel extends BdBaseModel<BuyTBeanActivity> {
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(SocketResponsedMessage socketResponsedMessage) {
                 if (socketResponsedMessage == null || !(socketResponsedMessage instanceof GetYinJiResponseMessage)) {
-                    BuyTBeanModel.this.nrX.onFailed(BuyTBeanModel.this.nrW.getPageContext().getString(R.string.neterror));
+                    BuyTBeanModel.this.nrY.onFailed(BuyTBeanModel.this.nrX.getPageContext().getString(R.string.neterror));
                     return;
                 }
                 GetYinJiResponseMessage getYinJiResponseMessage = (GetYinJiResponseMessage) socketResponsedMessage;
                 if (getYinJiResponseMessage.getError() != 0) {
                     if (!TextUtils.isEmpty(getYinJiResponseMessage.getErrorString())) {
-                        BuyTBeanModel.this.nrX.onFailed(getYinJiResponseMessage.getErrorString());
+                        BuyTBeanModel.this.nrY.onFailed(getYinJiResponseMessage.getErrorString());
                     } else {
-                        BuyTBeanModel.this.nrX.onFailed(BuyTBeanModel.this.nrW.getPageContext().getString(R.string.neterror));
+                        BuyTBeanModel.this.nrY.onFailed(BuyTBeanModel.this.nrX.getPageContext().getString(R.string.neterror));
                     }
-                    if (BuyTBeanModel.this.nrW != null && getYinJiResponseMessage.getError() == 1990055) {
-                        BuyTBeanModel.this.nrW.finish();
+                    if (BuyTBeanModel.this.nrX != null && getYinJiResponseMessage.getError() == 1990055) {
+                        BuyTBeanModel.this.nrX.finish();
                         return;
                     }
                     return;
@@ -89,9 +89,9 @@ public class BuyTBeanModel extends BdBaseModel<BuyTBeanActivity> {
                 BuyTBeanModel.this.userInfo = getYinJiResponseMessage.getUserInfo();
                 BuyTBeanModel.this.a(getYinJiResponseMessage);
                 if (getYinJiResponseMessage.getUserInfo() == null || x.isEmpty(getYinJiResponseMessage.getIconInfoList())) {
-                    BuyTBeanModel.this.nrX.onFailed(BuyTBeanModel.this.nrW.getPageContext().getString(R.string.no_data_tip));
+                    BuyTBeanModel.this.nrY.onFailed(BuyTBeanModel.this.nrX.getPageContext().getString(R.string.no_data_tip));
                 } else {
-                    BuyTBeanModel.this.nrX.onSuccess();
+                    BuyTBeanModel.this.nrY.onSuccess();
                 }
             }
         };
@@ -102,11 +102,11 @@ public class BuyTBeanModel extends BdBaseModel<BuyTBeanActivity> {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(com.baidu.tieba.tbean.message.a aVar) {
         if (aVar != null && aVar.getUserInfo() != null && !x.isEmpty(aVar.getIconInfoList())) {
-            if (this.nrY != null) {
-                this.nrY.clear();
-            }
             if (this.nrZ != null) {
                 this.nrZ.clear();
+            }
+            if (this.nsa != null) {
+                this.nsa.clear();
             }
             ArrayList<com.baidu.tieba.tbean.b.a> arrayList = new ArrayList();
             ArrayList arrayList2 = new ArrayList();
@@ -115,34 +115,34 @@ public class BuyTBeanModel extends BdBaseModel<BuyTBeanActivity> {
                     if (custom.is_custom_price.intValue() == 1) {
                         this.mIsShowUserDifineTBeanItem = true;
                         com.baidu.tieba.tbean.b.c cVar = new com.baidu.tieba.tbean.b.c();
-                        cVar.nsG = custom;
+                        cVar.nsH = custom;
                         arrayList2.add(cVar);
                     } else if (custom.is_custom_price.intValue() == 0) {
                         com.baidu.tieba.tbean.b.a aVar2 = new com.baidu.tieba.tbean.b.a();
-                        aVar2.nsG = custom;
+                        aVar2.nsH = custom;
                         arrayList.add(aVar2);
                     }
                 }
             }
             if (!x.isEmpty(arrayList)) {
                 for (com.baidu.tieba.tbean.b.a aVar3 : arrayList) {
-                    aVar3.nsH = aVar.getSetting();
-                    this.nrZ.add(aVar3);
+                    aVar3.nsI = aVar.getSetting();
+                    this.nsa.add(aVar3);
                 }
             }
             if (!x.isEmpty(aVar.getIconInfoList())) {
                 for (IconInfo iconInfo : aVar.getIconInfoList()) {
                     com.baidu.tieba.tbean.b.b bVar = new com.baidu.tieba.tbean.b.b();
-                    bVar.nsI = iconInfo;
+                    bVar.nsJ = iconInfo;
                     bVar.userInfo = aVar.getUserInfo();
-                    bVar.nsH = aVar.getSetting();
-                    this.nrY.add(bVar);
+                    bVar.nsI = aVar.getSetting();
+                    this.nrZ.add(bVar);
                 }
             }
             if (!x.isEmpty(arrayList2)) {
-                this.nsa = (com.baidu.tieba.tbean.b.c) x.getItem(arrayList2, 0);
-                this.nsa.nsH = aVar.getSetting();
-                this.nsa.userInfo = aVar.getUserInfo();
+                this.nsb = (com.baidu.tieba.tbean.b.c) x.getItem(arrayList2, 0);
+                this.nsb.nsI = aVar.getSetting();
+                this.nsb.userInfo = aVar.getUserInfo();
             }
         }
     }
@@ -154,8 +154,8 @@ public class BuyTBeanModel extends BdBaseModel<BuyTBeanActivity> {
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
                 if (httpResponsedMessage != null && (httpResponsedMessage instanceof GetBigTbeanWalletH5ResponseMessage)) {
                     GetBigTbeanWalletH5ResponseMessage getBigTbeanWalletH5ResponseMessage = (GetBigTbeanWalletH5ResponseMessage) httpResponsedMessage;
-                    if (getBigTbeanWalletH5ResponseMessage.getError() == 0 && BuyTBeanModel.this.nrX != null) {
-                        BuyTBeanModel.this.nrX.onGetWalletUrl(getBigTbeanWalletH5ResponseMessage.url);
+                    if (getBigTbeanWalletH5ResponseMessage.getError() == 0 && BuyTBeanModel.this.nrY != null) {
+                        BuyTBeanModel.this.nrY.onGetWalletUrl(getBigTbeanWalletH5ResponseMessage.url);
                     }
                 }
             }
@@ -168,18 +168,18 @@ public class BuyTBeanModel extends BdBaseModel<BuyTBeanActivity> {
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
                 if (httpResponsedMessage == null || !(httpResponsedMessage instanceof GetYinJiHttpResponseMessage)) {
-                    BuyTBeanModel.this.nrX.onFailed(BuyTBeanModel.this.nrW.getPageContext().getString(R.string.neterror));
+                    BuyTBeanModel.this.nrY.onFailed(BuyTBeanModel.this.nrX.getPageContext().getString(R.string.neterror));
                     return;
                 }
                 GetYinJiHttpResponseMessage getYinJiHttpResponseMessage = (GetYinJiHttpResponseMessage) httpResponsedMessage;
                 if (getYinJiHttpResponseMessage.getError() != 0) {
                     if (!TextUtils.isEmpty(getYinJiHttpResponseMessage.getErrorString())) {
-                        BuyTBeanModel.this.nrX.onFailed(getYinJiHttpResponseMessage.getErrorString());
+                        BuyTBeanModel.this.nrY.onFailed(getYinJiHttpResponseMessage.getErrorString());
                     } else {
-                        BuyTBeanModel.this.nrX.onFailed(BuyTBeanModel.this.nrW.getPageContext().getString(R.string.neterror));
+                        BuyTBeanModel.this.nrY.onFailed(BuyTBeanModel.this.nrX.getPageContext().getString(R.string.neterror));
                     }
-                    if (BuyTBeanModel.this.nrW != null && getYinJiHttpResponseMessage.getError() == 1990055) {
-                        BuyTBeanModel.this.nrW.finish();
+                    if (BuyTBeanModel.this.nrX != null && getYinJiHttpResponseMessage.getError() == 1990055) {
+                        BuyTBeanModel.this.nrX.finish();
                         return;
                     }
                     return;
@@ -187,9 +187,9 @@ public class BuyTBeanModel extends BdBaseModel<BuyTBeanActivity> {
                 BuyTBeanModel.this.userInfo = getYinJiHttpResponseMessage.getUserInfo();
                 BuyTBeanModel.this.a(getYinJiHttpResponseMessage);
                 if (getYinJiHttpResponseMessage.getUserInfo() == null || x.isEmpty(getYinJiHttpResponseMessage.getIconInfoList())) {
-                    BuyTBeanModel.this.nrX.onFailed(BuyTBeanModel.this.nrW.getPageContext().getString(R.string.no_data_tip));
+                    BuyTBeanModel.this.nrY.onFailed(BuyTBeanModel.this.nrX.getPageContext().getString(R.string.no_data_tip));
                 } else {
-                    BuyTBeanModel.this.nrX.onSuccess();
+                    BuyTBeanModel.this.nrY.onSuccess();
                 }
             }
         };
@@ -204,8 +204,8 @@ public class BuyTBeanModel extends BdBaseModel<BuyTBeanActivity> {
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
                 String str;
                 if (httpResponsedMessage == null || !(httpResponsedMessage instanceof ResponseGetPayinfoMessage) || httpResponsedMessage.getCmd() != 1001505) {
-                    if (BuyTBeanModel.this.nrW != null) {
-                        BuyTBeanModel.this.nrW.showToast(R.string.neterror);
+                    if (BuyTBeanModel.this.nrX != null) {
+                        BuyTBeanModel.this.nrX.showToast(R.string.neterror);
                         return;
                     }
                     return;
@@ -216,19 +216,19 @@ public class BuyTBeanModel extends BdBaseModel<BuyTBeanActivity> {
                 HttpMessage httpMessage = (HttpMessage) responseGetPayinfoMessage.getOrginalMessage();
                 if (statusCode == 200 && error == 0) {
                     if (responseGetPayinfoMessage.getPayInfoResultData() == null) {
-                        if (BuyTBeanModel.this.nrW != null) {
-                            BuyTBeanModel.this.nrW.showToast(R.string.buy_tbean_failed_tip);
+                        if (BuyTBeanModel.this.nrX != null) {
+                            BuyTBeanModel.this.nrX.showToast(R.string.buy_tbean_failed_tip);
                             return;
                         }
                     } else {
                         int pay_status = responseGetPayinfoMessage.getPayInfoResultData().getPay_status();
                         if (pay_status != 0) {
-                            if (BuyTBeanModel.this.nrW != null) {
-                                BuyTBeanModel.this.nrW.showToast(R.string.buy_tbean_failed_tip);
+                            if (BuyTBeanModel.this.nrX != null) {
+                                BuyTBeanModel.this.nrX.showToast(R.string.buy_tbean_failed_tip);
                                 return;
                             }
                         } else {
-                            c.Om(TbeanStatisticKey.BUY_TBEAN_SUCCESS);
+                            c.On(TbeanStatisticKey.BUY_TBEAN_SUCCESS);
                             if (!(httpMessage.getExtra() instanceof String)) {
                                 str = "";
                             } else {
@@ -237,19 +237,19 @@ public class BuyTBeanModel extends BdBaseModel<BuyTBeanActivity> {
                             g gVar = new g();
                             gVar.setTBeanNum(str);
                             gVar.setStatus(pay_status);
-                            gVar.setFromDecreaseGiftStepStrategy(BuyTBeanModel.this.nrW.isFromDecreaseGiftStepStrategy());
+                            gVar.setFromDecreaseGiftStepStrategy(BuyTBeanModel.this.nrX.isFromDecreaseGiftStepStrategy());
                             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_BUY_YINJI_SUCCESS, gVar));
-                            if (BuyTBeanModel.this.nrW != null) {
-                                BuyTBeanModel.this.nrW.finish();
+                            if (BuyTBeanModel.this.nrX != null) {
+                                BuyTBeanModel.this.nrX.finish();
                                 return;
                             }
                         }
                     }
                 }
                 if (!TextUtils.isEmpty(responseGetPayinfoMessage.getErrorString())) {
-                    BuyTBeanModel.this.nrW.showToast(responseGetPayinfoMessage.getErrorString());
+                    BuyTBeanModel.this.nrX.showToast(responseGetPayinfoMessage.getErrorString());
                 } else {
-                    BuyTBeanModel.this.nrW.showToast(R.string.neterror);
+                    BuyTBeanModel.this.nrX.showToast(R.string.neterror);
                 }
             }
         });
@@ -266,14 +266,14 @@ public class BuyTBeanModel extends BdBaseModel<BuyTBeanActivity> {
     }
 
     public List<com.baidu.tieba.tbean.b.b> dNw() {
-        return this.nrY;
-    }
-
-    public List<com.baidu.tieba.tbean.b.a> dNx() {
         return this.nrZ;
     }
 
-    public com.baidu.tieba.tbean.b.c dNy() {
+    public List<com.baidu.tieba.tbean.b.a> dNx() {
         return this.nsa;
+    }
+
+    public com.baidu.tieba.tbean.b.c dNy() {
+        return this.nsb;
     }
 }

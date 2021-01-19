@@ -110,7 +110,7 @@ public class i {
         return sb.toString();
     }
 
-    public String Qw(String str) {
+    public String Qx(String str) {
         return getFilePath(str.replace(".", PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS) + ".apk");
     }
 
@@ -302,7 +302,7 @@ public class i {
         return 0;
     }
 
-    public boolean Qt(String str) {
+    public boolean Qu(String str) {
         for (DownloadData downloadData : com.baidu.tieba.recapp.download.a.dBj().getDownloadList()) {
             if (downloadData.getId() != null && downloadData.getId().equals(str) && downloadData.getStatus() == 5) {
                 return true;
@@ -368,7 +368,7 @@ public class i {
         int i = 6;
         if (dBq().Cs(downloadData.getId())) {
             i = 3;
-        } else if (dBq().Qt(downloadData.getId())) {
+        } else if (dBq().Qu(downloadData.getId())) {
             i = 5;
         } else if (dBq().Cr(downloadData.getId())) {
             i = 1;
@@ -381,13 +381,13 @@ public class i {
         } else {
             id = downloadData.getId();
         }
-        if (!TextUtils.isEmpty(id) && com.baidu.tieba.a.bIN().bIO() && dBq().Qu(id)) {
+        if (!TextUtils.isEmpty(id) && com.baidu.tieba.a.bIN().bIO() && dBq().Qv(id)) {
             return 8;
         }
         return i;
     }
 
-    private boolean Qu(String str) {
+    private boolean Qv(String str) {
         TbadkApplication inst = TbadkApplication.getInst();
         if (inst != null) {
             try {
@@ -403,7 +403,7 @@ public class i {
         return false;
     }
 
-    public static Integer Qv(String str) {
+    public static Integer Qw(String str) {
         if (mJe.containsKey(str)) {
             return mJe.get(str);
         }

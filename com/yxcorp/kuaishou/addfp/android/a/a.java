@@ -23,11 +23,11 @@ public class a {
 
     /* renamed from: b  reason: collision with root package name */
     private String f14382b;
-    private ReentrantLock pcz;
+    private ReentrantLock pcA;
 
     private a() {
         this.f14382b = "";
-        this.pcz = new ReentrantLock();
+        this.pcA = new ReentrantLock();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -170,7 +170,7 @@ public class a {
     }
 
     public static a eHl() {
-        return b.qbT;
+        return b.qbU;
     }
 
     public final void a(String str) {
@@ -191,14 +191,14 @@ public class a {
     public final String c(Context context, boolean z, boolean z2) {
         long currentTimeMillis = System.currentTimeMillis();
         try {
-            this.pcz.lock();
+            this.pcA.lock();
         } catch (Throwable th) {
             try {
                 com.yxcorp.kuaishou.addfp.android.b.b.a(th);
                 this.f14382b = "KWE_PE";
-                this.pcz.unlock();
+                this.pcA.unlock();
             } finally {
-                this.pcz.unlock();
+                this.pcA.unlock();
             }
         }
         if (TextUtils.isEmpty(this.f14382b)) {

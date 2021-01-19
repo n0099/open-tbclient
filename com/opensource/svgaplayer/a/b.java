@@ -27,22 +27,22 @@ import kotlin.text.l;
 @e
 /* loaded from: classes5.dex */
 public final class b extends com.opensource.svgaplayer.a.a {
-    private final c pOi;
-    private final C1169b pPi;
-    private final HashMap<String, Bitmap> pPj;
-    private final a pPk;
-    private final float[] pPl;
+    private final c pOj;
+    private final C1169b pPj;
+    private final HashMap<String, Bitmap> pPk;
+    private final a pPl;
+    private final float[] pPm;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public b(f fVar, c cVar) {
         super(fVar);
         p.o(fVar, "videoItem");
         p.o(cVar, "dynamicItem");
-        this.pOi = cVar;
-        this.pPi = new C1169b();
-        this.pPj = new HashMap<>();
-        this.pPk = new a();
-        this.pPl = new float[16];
+        this.pOj = cVar;
+        this.pPj = new C1169b();
+        this.pPk = new HashMap<>();
+        this.pPl = new a();
+        this.pPm = new float[16];
     }
 
     @Override // com.opensource.svgaplayer.a.a
@@ -50,7 +50,7 @@ public final class b extends com.opensource.svgaplayer.a.a {
         p.o(canvas, "canvas");
         p.o(scaleType, "scaleType");
         super.a(canvas, i, scaleType);
-        this.pPk.aD(canvas);
+        this.pPl.aD(canvas);
         for (a.C1168a c1168a : Qi(i)) {
             a(c1168a, canvas, i);
         }
@@ -79,7 +79,7 @@ public final class b extends com.opensource.svgaplayer.a.a {
     }
 
     private final Matrix h(Matrix matrix) {
-        Matrix eAG = this.pPi.eAG();
+        Matrix eAG = this.pPj.eAG();
         eAG.postScale(eAB().eBg(), eAB().eBh());
         eAG.postTranslate(eAB().eBe(), eAB().eBf());
         eAG.preConcat(matrix);
@@ -94,14 +94,14 @@ public final class b extends com.opensource.svgaplayer.a.a {
 
     private final void a(a.C1168a c1168a, Canvas canvas) {
         String imageKey = c1168a.getImageKey();
-        if (imageKey != null && !p.l(this.pOi.eAg().get(imageKey), true)) {
-            Bitmap bitmap = this.pOi.eAh().get(imageKey);
+        if (imageKey != null && !p.l(this.pOj.eAg().get(imageKey), true)) {
+            Bitmap bitmap = this.pOj.eAh().get(imageKey);
             if (bitmap == null) {
                 bitmap = eAf().eAz().get(imageKey);
             }
             if (bitmap != null) {
                 Matrix h = h(c1168a.eAC().eAO());
-                Paint eAD = this.pPi.eAD();
+                Paint eAD = this.pPj.eAD();
                 eAD.setAntiAlias(eAf().eAt());
                 eAD.setFilterBitmap(eAf().eAt());
                 eAD.setAlpha((int) (c1168a.eAC().eBa() * 255));
@@ -110,7 +110,7 @@ public final class b extends com.opensource.svgaplayer.a.a {
                     if (eBc != null) {
                         canvas.save();
                         eAD.reset();
-                        Path eAE = this.pPi.eAE();
+                        Path eAE = this.pPj.eAE();
                         eBc.a(eAE);
                         eAE.transform(h);
                         canvas.clipPath(eAE);
@@ -132,24 +132,24 @@ public final class b extends com.opensource.svgaplayer.a.a {
     private final void a(Canvas canvas, Bitmap bitmap, a.C1168a c1168a, Matrix matrix) {
         Bitmap bitmap2;
         Rect rect;
-        if (this.pOi.eAn()) {
-            this.pPj.clear();
-            this.pOi.Bo(false);
+        if (this.pOj.eAn()) {
+            this.pPk.clear();
+            this.pOj.Bo(false);
         }
         String imageKey = c1168a.getImageKey();
         if (imageKey != null) {
             Bitmap bitmap3 = null;
-            String str = this.pOi.eAi().get(imageKey);
+            String str = this.pOj.eAi().get(imageKey);
             if (str != null) {
-                TextPaint textPaint = this.pOi.eAj().get(imageKey);
-                if (textPaint != null && (bitmap3 = this.pPj.get(imageKey)) == null) {
+                TextPaint textPaint = this.pOj.eAj().get(imageKey);
+                if (textPaint != null && (bitmap3 = this.pPk.get(imageKey)) == null) {
                     Bitmap createBitmap = Bitmap.createBitmap(bitmap.getWidth(), bitmap.getHeight(), Bitmap.Config.ARGB_8888);
                     Canvas canvas2 = new Canvas(createBitmap);
                     p.n(textPaint, "drawingTextPaint");
                     textPaint.setAntiAlias(true);
                     textPaint.getTextBounds(str, 0, str.length(), new Rect());
                     canvas2.drawText(str, (float) ((bitmap.getWidth() - rect.width()) / 2.0d), (((0 + bitmap.getHeight()) - textPaint.getFontMetrics().bottom) - textPaint.getFontMetrics().top) / 2, textPaint);
-                    HashMap<String, Bitmap> hashMap = this.pPj;
+                    HashMap<String, Bitmap> hashMap = this.pPk;
                     if (createBitmap == null) {
                         throw new TypeCastException("null cannot be cast to non-null type android.graphics.Bitmap");
                     }
@@ -160,9 +160,9 @@ public final class b extends com.opensource.svgaplayer.a.a {
             } else {
                 bitmap2 = bitmap3;
             }
-            StaticLayout staticLayout = this.pOi.eAk().get(imageKey);
+            StaticLayout staticLayout = this.pOj.eAk().get(imageKey);
             if (staticLayout != null) {
-                Bitmap bitmap4 = this.pPj.get(imageKey);
+                Bitmap bitmap4 = this.pPk.get(imageKey);
                 if (bitmap4 == null) {
                     p.n(staticLayout, AdvanceSetting.NETWORK_TYPE);
                     TextPaint paint = staticLayout.getPaint();
@@ -173,7 +173,7 @@ public final class b extends com.opensource.svgaplayer.a.a {
                     Canvas canvas3 = new Canvas(createBitmap2);
                     canvas3.translate(0.0f, (bitmap.getHeight() - staticLayout2.getHeight()) / 2);
                     staticLayout2.draw(canvas3);
-                    HashMap<String, Bitmap> hashMap2 = this.pPj;
+                    HashMap<String, Bitmap> hashMap2 = this.pPk;
                     if (createBitmap2 == null) {
                         throw new TypeCastException("null cannot be cast to non-null type android.graphics.Bitmap");
                     }
@@ -183,7 +183,7 @@ public final class b extends com.opensource.svgaplayer.a.a {
                 bitmap2 = bitmap4;
             }
             if (bitmap2 != null) {
-                Paint eAD = this.pPi.eAD();
+                Paint eAD = this.pPj.eAD();
                 eAD.setAntiAlias(eAf().eAt());
                 if (c1168a.eAC().eBc() != null) {
                     com.opensource.svgaplayer.entities.b eBc = c1168a.eAC().eBc();
@@ -192,7 +192,7 @@ public final class b extends com.opensource.svgaplayer.a.a {
                         canvas.concat(matrix);
                         canvas.clipRect(0, 0, bitmap.getWidth(), bitmap.getHeight());
                         eAD.setShader(new BitmapShader(bitmap2, Shader.TileMode.REPEAT, Shader.TileMode.REPEAT));
-                        Path eAE = this.pPi.eAE();
+                        Path eAE = this.pPj.eAE();
                         eBc.a(eAE);
                         canvas.drawPath(eAE, eAD);
                         canvas.restore();
@@ -215,14 +215,14 @@ public final class b extends com.opensource.svgaplayer.a.a {
         for (SVGAVideoShapeEntity sVGAVideoShapeEntity : c1168a.eAC().iY()) {
             sVGAVideoShapeEntity.eAR();
             if (sVGAVideoShapeEntity.eAQ() != null) {
-                Paint eAD = this.pPi.eAD();
+                Paint eAD = this.pPj.eAD();
                 eAD.reset();
                 eAD.setAntiAlias(eAf().eAt());
                 eAD.setAlpha((int) (c1168a.eAC().eBa() * 255));
-                Path eAE = this.pPi.eAE();
+                Path eAE = this.pPj.eAE();
                 eAE.reset();
-                eAE.addPath(this.pPk.a(sVGAVideoShapeEntity));
-                Matrix eAH = this.pPi.eAH();
+                eAE.addPath(this.pPl.a(sVGAVideoShapeEntity));
+                Matrix eAH = this.pPj.eAH();
                 eAH.reset();
                 Matrix eAO = sVGAVideoShapeEntity.eAO();
                 if (eAO != null) {
@@ -240,7 +240,7 @@ public final class b extends com.opensource.svgaplayer.a.a {
                     }
                     com.opensource.svgaplayer.entities.b eBc = c1168a.eAC().eBc();
                     if (eBc != null) {
-                        Path eAF = this.pPi.eAF();
+                        Path eAF = this.pPj.eAF();
                         eBc.a(eAF);
                         eAF.transform(h);
                         canvas.clipPath(eAF);
@@ -299,7 +299,7 @@ public final class b extends com.opensource.svgaplayer.a.a {
                     }
                     com.opensource.svgaplayer.entities.b eBc2 = c1168a.eAC().eBc();
                     if (eBc2 != null) {
-                        Path eAF2 = this.pPi.eAF();
+                        Path eAF2 = this.pPj.eAF();
                         eBc2.a(eAF2);
                         eAF2.transform(h);
                         canvas.clipPath(eAF2);
@@ -314,14 +314,14 @@ public final class b extends com.opensource.svgaplayer.a.a {
     }
 
     private final float i(Matrix matrix) {
-        matrix.getValues(this.pPl);
-        if (this.pPl[0] == 0.0f) {
+        matrix.getValues(this.pPm);
+        if (this.pPm[0] == 0.0f) {
             return 0.0f;
         }
-        double d = this.pPl[0];
-        double d2 = this.pPl[3];
-        double d3 = this.pPl[1];
-        double d4 = this.pPl[4];
+        double d = this.pPm[0];
+        double d2 = this.pPm[3];
+        double d3 = this.pPm[1];
+        double d4 = this.pPm[4];
         if (d * d4 == d2 * d3) {
             return 0.0f;
         }
@@ -342,7 +342,7 @@ public final class b extends com.opensource.svgaplayer.a.a {
     private final void b(a.C1168a c1168a, Canvas canvas, int i) {
         String imageKey = c1168a.getImageKey();
         if (imageKey != null) {
-            kotlin.jvm.a.c<Canvas, Integer, Boolean> cVar = this.pOi.eAl().get(imageKey);
+            kotlin.jvm.a.c<Canvas, Integer, Boolean> cVar = this.pOj.eAl().get(imageKey);
             if (cVar != null) {
                 Matrix h = h(c1168a.eAC().eAO());
                 canvas.save();
@@ -350,7 +350,7 @@ public final class b extends com.opensource.svgaplayer.a.a {
                 cVar.invoke(canvas, Integer.valueOf(i));
                 canvas.restore();
             }
-            d<Canvas, Integer, Integer, Integer, Boolean> dVar = this.pOi.eAm().get(imageKey);
+            d<Canvas, Integer, Integer, Integer, Boolean> dVar = this.pOj.eAm().get(imageKey);
             if (dVar != null) {
                 Matrix h2 = h(c1168a.eAC().eAO());
                 canvas.save();
@@ -365,62 +365,62 @@ public final class b extends com.opensource.svgaplayer.a.a {
     /* renamed from: com.opensource.svgaplayer.a.b$b  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
     public static final class C1169b {
-        private final Paint pPp = new Paint();
-        private final Path pPq = new Path();
+        private final Paint pPq = new Paint();
         private final Path pPr = new Path();
-        private final Matrix pPs = new Matrix();
+        private final Path pPs = new Path();
         private final Matrix pPt = new Matrix();
+        private final Matrix pPu = new Matrix();
 
         public final Paint eAD() {
-            this.pPp.reset();
-            return this.pPp;
-        }
-
-        public final Path eAE() {
             this.pPq.reset();
             return this.pPq;
         }
 
-        public final Path eAF() {
+        public final Path eAE() {
             this.pPr.reset();
             return this.pPr;
         }
 
-        public final Matrix eAG() {
+        public final Path eAF() {
             this.pPs.reset();
             return this.pPs;
         }
 
-        public final Matrix eAH() {
+        public final Matrix eAG() {
             this.pPt.reset();
             return this.pPt;
+        }
+
+        public final Matrix eAH() {
+            this.pPu.reset();
+            return this.pPu;
         }
     }
 
     @e
     /* loaded from: classes5.dex */
     public static final class a {
-        private int pPm;
         private int pPn;
-        private final HashMap<SVGAVideoShapeEntity, Path> pPo = new HashMap<>();
+        private int pPo;
+        private final HashMap<SVGAVideoShapeEntity, Path> pPp = new HashMap<>();
 
         public final void aD(Canvas canvas) {
             p.o(canvas, "canvas");
-            if (this.pPm != canvas.getWidth() || this.pPn != canvas.getHeight()) {
-                this.pPo.clear();
+            if (this.pPn != canvas.getWidth() || this.pPo != canvas.getHeight()) {
+                this.pPp.clear();
             }
-            this.pPm = canvas.getWidth();
-            this.pPn = canvas.getHeight();
+            this.pPn = canvas.getWidth();
+            this.pPo = canvas.getHeight();
         }
 
         public final Path a(SVGAVideoShapeEntity sVGAVideoShapeEntity) {
             p.o(sVGAVideoShapeEntity, "shape");
-            if (!this.pPo.containsKey(sVGAVideoShapeEntity)) {
+            if (!this.pPp.containsKey(sVGAVideoShapeEntity)) {
                 Path path = new Path();
                 path.set(sVGAVideoShapeEntity.eAQ());
-                this.pPo.put(sVGAVideoShapeEntity, path);
+                this.pPp.put(sVGAVideoShapeEntity, path);
             }
-            Path path2 = this.pPo.get(sVGAVideoShapeEntity);
+            Path path2 = this.pPp.get(sVGAVideoShapeEntity);
             if (path2 == null) {
                 p.eIW();
             }

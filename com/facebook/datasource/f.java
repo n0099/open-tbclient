@@ -10,13 +10,13 @@ import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
 /* loaded from: classes14.dex */
 public class f<T> implements j<b<T>> {
-    private final List<j<b<T>>> ppM;
-    private final boolean ppR;
+    private final List<j<b<T>>> ppN;
+    private final boolean ppS;
 
     private f(List<j<b<T>>> list, boolean z) {
         com.facebook.common.internal.g.checkArgument(!list.isEmpty(), "List of suppliers is empty!");
-        this.ppM = list;
-        this.ppR = z;
+        this.ppN = list;
+        this.ppS = z;
     }
 
     public static <T> f<T> B(List<j<b<T>>> list, boolean z) {
@@ -31,7 +31,7 @@ public class f<T> implements j<b<T>> {
     }
 
     public int hashCode() {
-        return this.ppM.hashCode();
+        return this.ppN.hashCode();
     }
 
     public boolean equals(Object obj) {
@@ -41,11 +41,11 @@ public class f<T> implements j<b<T>> {
         if (!(obj instanceof f)) {
             return false;
         }
-        return com.facebook.common.internal.f.equal(this.ppM, ((f) obj).ppM);
+        return com.facebook.common.internal.f.equal(this.ppN, ((f) obj).ppN);
     }
 
     public String toString() {
-        return com.facebook.common.internal.f.bb(this).I("list", this.ppM).toString();
+        return com.facebook.common.internal.f.bb(this).I("list", this.ppN).toString();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -54,32 +54,32 @@ public class f<T> implements j<b<T>> {
     public class a extends AbstractDataSource<T> {
         @GuardedBy("IncreasingQualityDataSource.this")
         @Nullable
-        private ArrayList<b<T>> ppS;
+        private ArrayList<b<T>> ppT;
         @GuardedBy("IncreasingQualityDataSource.this")
-        private int ppT;
         private int ppU;
-        private AtomicInteger ppV;
+        private int ppV;
+        private AtomicInteger ppW;
         @Nullable
-        private Throwable ppW;
+        private Throwable ppX;
 
         public a() {
-            if (!f.this.ppR) {
+            if (!f.this.ppS) {
                 eqO();
             }
         }
 
         private void eqO() {
-            if (this.ppV == null) {
+            if (this.ppW == null) {
                 synchronized (this) {
-                    if (this.ppV == null) {
-                        this.ppV = new AtomicInteger(0);
-                        int size = f.this.ppM.size();
+                    if (this.ppW == null) {
+                        this.ppW = new AtomicInteger(0);
+                        int size = f.this.ppN.size();
+                        this.ppV = size;
                         this.ppU = size;
-                        this.ppT = size;
-                        this.ppS = new ArrayList<>(size);
+                        this.ppT = new ArrayList<>(size);
                         for (int i = 0; i < size; i++) {
-                            b<T> bVar = (b) ((j) f.this.ppM.get(i)).get();
-                            this.ppS.add(bVar);
+                            b<T> bVar = (b) ((j) f.this.ppN.get(i)).get();
+                            this.ppT.add(bVar);
                             bVar.a(new C1039a(i), com.facebook.common.b.a.epY());
                             if (bVar.eqE()) {
                                 break;
@@ -92,15 +92,15 @@ public class f<T> implements j<b<T>> {
 
         @Nullable
         private synchronized b<T> OC(int i) {
-            return (this.ppS == null || i >= this.ppS.size()) ? null : this.ppS.get(i);
+            return (this.ppT == null || i >= this.ppT.size()) ? null : this.ppT.get(i);
         }
 
         @Nullable
         private synchronized b<T> OD(int i) {
             b<T> bVar = null;
             synchronized (this) {
-                if (this.ppS != null && i < this.ppS.size()) {
-                    bVar = this.ppS.set(i, null);
+                if (this.ppT != null && i < this.ppT.size()) {
+                    bVar = this.ppT.set(i, null);
                 }
             }
             return bVar;
@@ -108,14 +108,14 @@ public class f<T> implements j<b<T>> {
 
         @Nullable
         private synchronized b<T> eqN() {
-            return OC(this.ppT);
+            return OC(this.ppU);
         }
 
         @Override // com.facebook.datasource.AbstractDataSource, com.facebook.datasource.b
         @Nullable
         public synchronized T getResult() {
             b<T> eqN;
-            if (f.this.ppR) {
+            if (f.this.ppS) {
                 eqO();
             }
             eqN = eqN();
@@ -125,7 +125,7 @@ public class f<T> implements j<b<T>> {
         @Override // com.facebook.datasource.AbstractDataSource, com.facebook.datasource.b
         public synchronized boolean eqE() {
             boolean z;
-            if (f.this.ppR) {
+            if (f.this.ppS) {
                 eqO();
             }
             b<T> eqN = eqN();
@@ -138,13 +138,13 @@ public class f<T> implements j<b<T>> {
         @Override // com.facebook.datasource.AbstractDataSource, com.facebook.datasource.b
         public boolean apn() {
             int i = 0;
-            if (f.this.ppR) {
+            if (f.this.ppS) {
                 eqO();
             }
             synchronized (this) {
                 if (super.apn()) {
-                    ArrayList<b<T>> arrayList = this.ppS;
-                    this.ppS = null;
+                    ArrayList<b<T>> arrayList = this.ppT;
+                    this.ppT = null;
                     if (arrayList != null) {
                         while (true) {
                             int i2 = i;
@@ -174,27 +174,27 @@ public class f<T> implements j<b<T>> {
         public void b(int i, b<T> bVar) {
             l(c(i, bVar));
             if (i == 0) {
-                this.ppW = bVar.eqG();
+                this.ppX = bVar.eqG();
             }
             eqP();
         }
 
         private void eqP() {
-            if (this.ppV.incrementAndGet() == this.ppU && this.ppW != null) {
-                u(this.ppW);
+            if (this.ppW.incrementAndGet() == this.ppV && this.ppX != null) {
+                u(this.ppX);
             }
         }
 
         private void a(int i, b<T> bVar, boolean z) {
             synchronized (this) {
-                int i2 = this.ppT;
-                if (bVar == OC(i) && i != this.ppT) {
-                    if (eqN() == null || (z && i < this.ppT)) {
-                        this.ppT = i;
+                int i2 = this.ppU;
+                if (bVar == OC(i) && i != this.ppU) {
+                    if (eqN() == null || (z && i < this.ppU)) {
+                        this.ppU = i;
                     } else {
                         i = i2;
                     }
-                    for (int i3 = this.ppT; i3 > i; i3--) {
+                    for (int i3 = this.ppU; i3 > i; i3--) {
                         l(OD(i3));
                     }
                 }

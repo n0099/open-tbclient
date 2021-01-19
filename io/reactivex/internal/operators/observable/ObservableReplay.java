@@ -15,10 +15,10 @@ import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes5.dex */
 public final class ObservableReplay<T> extends io.reactivex.c.a<T> implements io.reactivex.disposables.b {
-    static final a qfy = new c();
+    static final a qfz = new c();
     final AtomicReference<ReplayObserver<T>> current;
-    final t<T> qfr;
-    final a<T> qfx;
+    final t<T> qfs;
+    final a<T> qfy;
     final t<T> source;
 
     /* loaded from: classes5.dex */
@@ -51,7 +51,7 @@ public final class ObservableReplay<T> extends io.reactivex.c.a<T> implements io
 
     @Override // io.reactivex.q
     protected void a(u<? super T> uVar) {
-        this.qfr.subscribe(uVar);
+        this.qfs.subscribe(uVar);
     }
 
     @Override // io.reactivex.c.a
@@ -62,7 +62,7 @@ public final class ObservableReplay<T> extends io.reactivex.c.a<T> implements io
             if (replayObserver != null && !replayObserver.isDisposed()) {
                 break;
             }
-            ReplayObserver<T> replayObserver2 = new ReplayObserver<>(this.qfx.eHZ());
+            ReplayObserver<T> replayObserver2 = new ReplayObserver<>(this.qfy.eHZ());
             if (this.current.compareAndSet(replayObserver, replayObserver2)) {
                 replayObserver = replayObserver2;
                 break;

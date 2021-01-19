@@ -18,11 +18,11 @@ import org.a.d;
 /* loaded from: classes5.dex */
 public final class CompletableConcat extends a {
     final int prefetch;
-    final b<? extends e> qdM;
+    final b<? extends e> qdN;
 
     @Override // io.reactivex.a
     public void b(c cVar) {
-        this.qdM.subscribe(new CompletableConcatSubscriber(cVar, this.prefetch));
+        this.qdN.subscribe(new CompletableConcatSubscriber(cVar, this.prefetch));
     }
 
     /* loaded from: classes5.dex */

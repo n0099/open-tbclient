@@ -350,8 +350,8 @@ public class e implements com.baidu.tieba.InjectPlugin.FrsFeedAd.d {
     @Override // com.baidu.tieba.InjectPlugin.FrsFeedAd.d
     public void a(List<com.baidu.tieba.InjectPlugin.FrsFeedAd.c> list, String str, String str2, String str3, String str4, boolean z, int i) {
         if (!com.baidu.tieba.lego.card.c.a.isEmpty(list)) {
-            Set<com.baidu.adp.widget.ListView.n> QK = com.baidu.tieba.recapp.report.a.QK("FRS");
-            HashSet hashSet = QK == null ? new HashSet() : QK;
+            Set<com.baidu.adp.widget.ListView.n> QL = com.baidu.tieba.recapp.report.a.QL("FRS");
+            HashSet hashSet = QL == null ? new HashSet() : QL;
             HashSet hashSet2 = new HashSet();
             for (com.baidu.tieba.InjectPlugin.FrsFeedAd.c cVar : list) {
                 if (cVar != null) {

@@ -4,64 +4,64 @@ import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 /* loaded from: classes4.dex */
 public class i extends t {
-    private t pdq;
+    private t pdr;
 
     public i(t tVar) {
         if (tVar == null) {
             throw new IllegalArgumentException("delegate == null");
         }
-        this.pdq = tVar;
+        this.pdr = tVar;
     }
 
     public final t elW() {
-        return this.pdq;
+        return this.pdr;
     }
 
     public final i a(t tVar) {
         if (tVar == null) {
             throw new IllegalArgumentException("delegate == null");
         }
-        this.pdq = tVar;
+        this.pdr = tVar;
         return this;
     }
 
     @Override // com.bytedance.sdk.a.a.t
     public t c(long j, TimeUnit timeUnit) {
-        return this.pdq.c(j, timeUnit);
+        return this.pdr.c(j, timeUnit);
     }
 
     @Override // com.bytedance.sdk.a.a.t
     public long emi() {
-        return this.pdq.emi();
+        return this.pdr.emi();
     }
 
     @Override // com.bytedance.sdk.a.a.t
     public boolean c() {
-        return this.pdq.c();
+        return this.pdr.c();
     }
 
     @Override // com.bytedance.sdk.a.a.t
     public long emj() {
-        return this.pdq.emj();
+        return this.pdr.emj();
     }
 
     @Override // com.bytedance.sdk.a.a.t
     public t im(long j) {
-        return this.pdq.im(j);
+        return this.pdr.im(j);
     }
 
     @Override // com.bytedance.sdk.a.a.t
     public t emk() {
-        return this.pdq.emk();
+        return this.pdr.emk();
     }
 
     @Override // com.bytedance.sdk.a.a.t
     public t eml() {
-        return this.pdq.eml();
+        return this.pdr.eml();
     }
 
     @Override // com.bytedance.sdk.a.a.t
     public void g() throws IOException {
-        this.pdq.g();
+        this.pdr.g();
     }
 }

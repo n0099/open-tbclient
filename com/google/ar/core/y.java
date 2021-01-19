@@ -8,23 +8,23 @@ public class y {
 
     /* renamed from: a  reason: collision with root package name */
     boolean f7873a = false;
-    final /* synthetic */ InstallActivity pHH;
+    final /* synthetic */ InstallActivity pHI;
 
     public void a(p pVar) {
-        synchronized (this.pHH) {
+        synchronized (this.pHI) {
             if (!this.f7873a) {
-                InstallActivity.a(this.pHH, pVar);
+                InstallActivity.a(this.pHI, pVar);
                 switch (pVar.ordinal()) {
                     case 0:
                         return;
                     case 1:
-                        InstallActivity.a(this.pHH, new UnavailableUserDeclinedInstallationException());
+                        InstallActivity.a(this.pHI, new UnavailableUserDeclinedInstallationException());
                         break;
                     case 2:
-                        if (!InstallActivity.d(this.pHH)) {
-                            InstallActivity.e(this.pHH);
+                        if (!InstallActivity.d(this.pHI)) {
+                            InstallActivity.e(this.pHI);
                         }
-                        InstallActivity.a(this.pHH, (Exception) null);
+                        InstallActivity.a(this.pHI, (Exception) null);
                         break;
                 }
                 this.f7873a = true;
@@ -33,19 +33,19 @@ public class y {
     }
 
     public void a(Exception exc) {
-        synchronized (this.pHH) {
+        synchronized (this.pHI) {
             if (!this.f7873a) {
                 this.f7873a = true;
-                InstallActivity.a(this.pHH, p.CANCELLED);
+                InstallActivity.a(this.pHI, p.CANCELLED);
                 if (!(exc instanceof UnavailableException)) {
                 }
-                InstallActivity.a(this.pHH, exc);
+                InstallActivity.a(this.pHI, exc);
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public y(InstallActivity installActivity) {
-        this.pHH = installActivity;
+        this.pHI = installActivity;
     }
 }

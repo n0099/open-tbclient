@@ -166,7 +166,7 @@ public class PersonCommentHolder extends TypeAdapter.ViewHolder implements View.
             this.fiz.setTag(str3);
             this.mua.setText(String.format(TbadkCoreApplication.getInst().getContext().getString(R.string.comment_num_tip), str2));
             this.fiz.setOnClickListener(this);
-            PI(str);
+            PJ(str);
             if (this.loO != null) {
                 this.loO.setTag(strArr);
             }
@@ -175,7 +175,7 @@ public class PersonCommentHolder extends TypeAdapter.ViewHolder implements View.
         }
     }
 
-    private void PI(String str) {
+    private void PJ(String str) {
         if (mtW != null && !mtW.equals(str)) {
             mtV = null;
         }

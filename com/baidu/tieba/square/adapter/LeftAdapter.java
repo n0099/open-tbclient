@@ -106,7 +106,7 @@ public class LeftAdapter extends RecyclerView.Adapter<ViewHolder> {
         return (String) x.getItem(this.mDataList, i);
     }
 
-    public int RK(String str) {
+    public int RL(String str) {
         return x.getPosition(this.mDataList, str);
     }
 

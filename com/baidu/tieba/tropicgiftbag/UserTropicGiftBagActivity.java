@@ -23,25 +23,25 @@ public class UserTropicGiftBagActivity extends BaseActivity {
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             TbPageContext<?> pageContext = UserTropicGiftBagActivity.this.getPageContext();
-            if (view.getId() == UserTropicGiftBagActivity.this.nzG.getId()) {
+            if (view.getId() == UserTropicGiftBagActivity.this.nzH.getId()) {
                 be.bsB().a(pageContext, new String[]{TbConfig.URL_JUMP_TAG_CARDBOX}, true);
                 UserTropicGiftBagActivity.this.JV(2);
                 UserTropicGiftBagActivity.this.finish();
             }
-            if (view.getId() == UserTropicGiftBagActivity.this.nzK.getId()) {
+            if (view.getId() == UserTropicGiftBagActivity.this.nzL.getId()) {
                 UserTropicGiftBagActivity.this.finish();
             }
         }
     };
     private RoundRelativeLayout mRE;
-    private TextView nzD;
     private TextView nzE;
     private TextView nzF;
-    private Button nzG;
-    private TbImageView nzH;
+    private TextView nzG;
+    private Button nzH;
     private TbImageView nzI;
     private TbImageView nzJ;
     private TbImageView nzK;
+    private TbImageView nzL;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
@@ -68,19 +68,19 @@ public class UserTropicGiftBagActivity extends BaseActivity {
     public void onChangeSkinType(int i) {
         boolean z = false;
         super.onChangeSkinType(i);
-        ao.setImageResource(this.nzH, R.drawable.icon_tropic);
-        this.nzH.setIsNight(i == 4 || i == 1);
-        ao.setImageResource(this.nzI, R.drawable.icon_tropic_left);
-        this.nzJ.setIsNight(i == 4 || i == 1);
-        ao.setImageResource(this.nzJ, R.drawable.icon_tropic_right);
-        this.nzJ.setIsNight(i == 4 || i == 1);
+        ao.setImageResource(this.nzI, R.drawable.icon_tropic);
+        this.nzI.setIsNight(i == 4 || i == 1);
+        ao.setImageResource(this.nzJ, R.drawable.icon_tropic_left);
+        this.nzK.setIsNight(i == 4 || i == 1);
+        ao.setImageResource(this.nzK, R.drawable.icon_tropic_right);
+        this.nzK.setIsNight(i == 4 || i == 1);
         ao.setBackgroundColor(this.mRE, R.color.CAM_X0205);
-        ao.setViewTextColor(this.nzD, R.color.CAM_X0105);
         ao.setViewTextColor(this.nzE, R.color.CAM_X0105);
-        ao.setViewTextColor(this.nzF, R.color.CAM_X0109);
-        ao.k(this.nzG, R.color.CAM_X0302, R.color.cp_link_tip_a_alpha50);
-        ao.setImageResource(this.nzK, R.drawable.icon_popup_close);
-        TbImageView tbImageView = this.nzK;
+        ao.setViewTextColor(this.nzF, R.color.CAM_X0105);
+        ao.setViewTextColor(this.nzG, R.color.CAM_X0109);
+        ao.k(this.nzH, R.color.CAM_X0302, R.color.cp_link_tip_a_alpha50);
+        ao.setImageResource(this.nzL, R.drawable.icon_popup_close);
+        TbImageView tbImageView = this.nzL;
         if (i == 4 || i == 1) {
             z = true;
         }
@@ -106,19 +106,19 @@ public class UserTropicGiftBagActivity extends BaseActivity {
     private void initView() {
         this.mRE = (RoundRelativeLayout) findViewById(R.id.tropic_gift_bag_layout);
         this.mRE.setAllCornerRound(l.getDimens(this, R.dimen.tbds32));
-        this.nzD = (TextView) findViewById(R.id.tropic_greetings);
-        this.nzH = (TbImageView) findViewById(R.id.vip_pic);
-        this.nzI = (TbImageView) findViewById(R.id.line_tropic_left);
-        this.nzJ = (TbImageView) findViewById(R.id.line_tropic_right);
-        this.nzE = (TextView) findViewById(R.id.seven_day_vip);
-        this.nzF = (TextView) findViewById(R.id.seven_day_vip_dec);
-        this.nzG = (Button) findViewById(R.id.tropic_know);
-        this.nzK = (TbImageView) findViewById(R.id.close);
+        this.nzE = (TextView) findViewById(R.id.tropic_greetings);
+        this.nzI = (TbImageView) findViewById(R.id.vip_pic);
+        this.nzJ = (TbImageView) findViewById(R.id.line_tropic_left);
+        this.nzK = (TbImageView) findViewById(R.id.line_tropic_right);
+        this.nzF = (TextView) findViewById(R.id.seven_day_vip);
+        this.nzG = (TextView) findViewById(R.id.seven_day_vip_dec);
+        this.nzH = (Button) findViewById(R.id.tropic_know);
+        this.nzL = (TbImageView) findViewById(R.id.close);
     }
 
     private void cNq() {
-        this.nzG.setOnClickListener(this.mOnClickListener);
-        this.nzK.setOnClickListener(this.mOnClickListener);
+        this.nzH.setOnClickListener(this.mOnClickListener);
+        this.nzL.setOnClickListener(this.mOnClickListener);
     }
 
     /* JADX INFO: Access modifiers changed from: private */

@@ -19,31 +19,31 @@ public class as {
     /* loaded from: classes3.dex */
     public static class a {
         String java;
-        private boolean pYL;
+        private boolean pYM;
 
         public a(String str, boolean z) {
             this.java = str;
-            this.pYL = z;
+            this.pYM = z;
         }
     }
 
     /* loaded from: classes3.dex */
     public static class b implements ServiceConnection {
-        private Context pYI;
-        boolean pYL = false;
-        final BlockingQueue<IBinder> qad = new LinkedBlockingQueue();
+        private Context pYJ;
+        boolean pYM = false;
+        final BlockingQueue<IBinder> qae = new LinkedBlockingQueue();
 
         public b(Context context) {
-            this.pYI = context;
+            this.pYJ = context;
         }
 
         @Override // android.content.ServiceConnection
         public final void onServiceConnected(ComponentName componentName, IBinder iBinder) {
             try {
-                this.qad.put(iBinder);
+                this.qae.put(iBinder);
                 String java = java.AbstractBinderC1273java.java(iBinder).java();
                 if (!TextUtils.isEmpty(java)) {
-                    az.bJ(this.pYI, java);
+                    az.bJ(this.pYJ, java);
                 }
             } catch (RemoteException e) {
                 e.printStackTrace();
@@ -72,12 +72,12 @@ public class as {
             context.unbindService(bVar);
         }
         if (context.bindService(intent, bVar, 1)) {
-            if (bVar.pYL) {
+            if (bVar.pYM) {
                 throw new IllegalStateException("Binder already consumed");
             }
-            IBinder take = bVar.qad.take();
+            IBinder take = bVar.qae.take();
             if (take != null) {
-                bVar.pYL = true;
+                bVar.pYM = true;
             }
             java java2 = java.AbstractBinderC1273java.java(take);
             return new a(java2.java(), java2.m78java());

@@ -290,7 +290,7 @@ public class b implements Runnable {
             @Override // com.bytedance.sdk.adnet.core.p.a
             public void b(com.bytedance.sdk.adnet.core.p<JSONObject> pVar) {
                 if (pVar != null) {
-                    u.c("ApplistHelper", "upload failed: code=" + pVar.h, pVar.pkZ);
+                    u.c("ApplistHelper", "upload failed: code=" + pVar.h, pVar.pla);
                 }
                 b.this.d.set(false);
             }

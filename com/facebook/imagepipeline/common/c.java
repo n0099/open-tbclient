@@ -4,43 +4,43 @@ import android.graphics.Bitmap;
 import javax.annotation.Nullable;
 /* loaded from: classes5.dex */
 public class c {
-    private boolean pxI;
     private boolean pxJ;
     private boolean pxK;
     private boolean pxL;
+    private boolean pxM;
     @Nullable
-    private com.facebook.imagepipeline.decoder.b pxM;
-    private int pxH = 100;
+    private com.facebook.imagepipeline.decoder.b pxN;
+    private int pxI = 100;
     private Bitmap.Config mBitmapConfig = Bitmap.Config.ARGB_8888;
 
     public int etM() {
-        return this.pxH;
-    }
-
-    public boolean etN() {
         return this.pxI;
     }
 
-    public boolean etO() {
+    public boolean etN() {
         return this.pxJ;
     }
 
-    public boolean etP() {
+    public boolean etO() {
         return this.pxK;
     }
 
+    public boolean etP() {
+        return this.pxL;
+    }
+
     public c AZ(boolean z) {
-        this.pxL = z;
+        this.pxM = z;
         return this;
     }
 
     @Nullable
     public com.facebook.imagepipeline.decoder.b etQ() {
-        return this.pxM;
+        return this.pxN;
     }
 
     public boolean etR() {
-        return this.pxL;
+        return this.pxM;
     }
 
     public Bitmap.Config etS() {

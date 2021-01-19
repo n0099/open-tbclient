@@ -1,8 +1,8 @@
 package com.baidu.tieba.video.meida;
 /* loaded from: classes7.dex */
 public abstract class c {
-    String nFp;
-    a nFq;
+    String nFq;
+    a nFr;
 
     /* loaded from: classes7.dex */
     public interface a {
@@ -12,14 +12,14 @@ public abstract class c {
     /* loaded from: classes7.dex */
     public static class b {
         public int channel;
-        public String nFr;
-        public int nFs;
+        public String nFs;
+        public int nFt;
         public long sampleRate;
         public int size;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(String str) {
-        this.nFp = str;
+        this.nFq = str;
     }
 }

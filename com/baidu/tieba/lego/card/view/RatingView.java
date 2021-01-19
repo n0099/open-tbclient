@@ -46,7 +46,7 @@ public class RatingView extends LinearLayout {
         return imageView;
     }
 
-    private a MV(String str) {
+    private a MW(String str) {
         a aVar = new a();
         aVar.title = "";
         if (!TextUtils.isEmpty(str)) {
@@ -68,7 +68,7 @@ public class RatingView extends LinearLayout {
     }
 
     public void setRating(String str, String str2) {
-        this.kXc = MV(str2);
+        this.kXc = MW(str2);
         this.kXc.kXd = str;
         daG();
     }

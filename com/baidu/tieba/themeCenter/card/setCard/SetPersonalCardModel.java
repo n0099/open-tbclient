@@ -13,9 +13,9 @@ public class SetPersonalCardModel extends BdBaseModel<BaseActivity<T>> {
     public static final int TYPE_DELETE_USE = 2;
     public static final int TYPE_SET_USE = 1;
     private long cardId;
-    private a nyY;
+    private a nyZ;
     private int type;
-    private boolean nwx = false;
+    private boolean nwy = false;
     private boolean isLoading = false;
     private com.baidu.adp.framework.listener.a iWa = new com.baidu.adp.framework.listener.a(1003095, CmdConfigSocket.CMD_SET_PERSONAL_CARD) { // from class: com.baidu.tieba.themeCenter.card.setCard.SetPersonalCardModel.1
         @Override // com.baidu.adp.framework.listener.a
@@ -37,12 +37,12 @@ public class SetPersonalCardModel extends BdBaseModel<BaseActivity<T>> {
                         SetPersonalCardModel.this.setCardId(setPersonalCardSocketResponse.getCardId());
                         SetPersonalCardModel.this.setType(setPersonalCardSocketResponse.getType());
                     }
-                    if (SetPersonalCardModel.this.nyY != null) {
-                        int i = c.nvS;
-                        if (responsedMessage.getError() == c.nvT) {
-                            i = c.nvR;
+                    if (SetPersonalCardModel.this.nyZ != null) {
+                        int i = c.nvT;
+                        if (responsedMessage.getError() == c.nvU) {
+                            i = c.nvS;
                         }
-                        SetPersonalCardModel.this.nyY.b(SetPersonalCardModel.this.nwx, SetPersonalCardModel.this.cardId, SetPersonalCardModel.this.type, responsedMessage.getErrorString(), i);
+                        SetPersonalCardModel.this.nyZ.b(SetPersonalCardModel.this.nwy, SetPersonalCardModel.this.cardId, SetPersonalCardModel.this.type, responsedMessage.getErrorString(), i);
                     }
                 }
             }
@@ -93,10 +93,10 @@ public class SetPersonalCardModel extends BdBaseModel<BaseActivity<T>> {
     }
 
     public void yy(boolean z) {
-        this.nwx = z;
+        this.nwy = z;
     }
 
     public void a(a aVar) {
-        this.nyY = aVar;
+        this.nyZ = aVar;
     }
 }

@@ -8,22 +8,22 @@ public class h {
     private JSONObject mData;
     private long mPaId;
     private String mType;
-    private String oQc;
-    private int oQd;
-    public int oQe;
-    public int oQf = -1;
+    private String oQd;
+    private int oQe;
+    public int oQf;
+    public int oQg = -1;
 
-    public void Xc(String str) {
+    public void Xd(String str) {
         try {
             JSONObject jSONObject = new JSONObject(str);
-            this.oQf = jSONObject.optInt(BaseJsonData.TAG_ERRNO);
-            if (this.oQf == 0) {
+            this.oQg = jSONObject.optInt(BaseJsonData.TAG_ERRNO);
+            if (this.oQg == 0) {
                 this.mData = jSONObject.optJSONObject("data");
                 if (this.mData != null) {
                     this.mType = this.mData.optString("type");
-                    this.oQc = this.mData.optString("third_id");
-                    this.oQd = this.mData.optInt("has_sub");
-                    this.oQe = this.mData.optInt("notify");
+                    this.oQd = this.mData.optString("third_id");
+                    this.oQe = this.mData.optInt("has_sub");
+                    this.oQf = this.mData.optInt("notify");
                 }
             }
         } catch (JSONException e) {
@@ -40,30 +40,30 @@ public class h {
     }
 
     public String getThirdId() {
-        return this.oQc;
+        return this.oQd;
     }
 
     public int ehv() {
-        return this.oQe;
+        return this.oQf;
     }
 
     public void Nh(int i) {
-        this.oQe = i;
+        this.oQf = i;
     }
 
     public String getType() {
-        return Xd("type") ? this.mType : "";
+        return Xe("type") ? this.mType : "";
     }
 
     public String ehw() {
-        return Xd("third_id") ? this.oQc : "";
+        return Xe("third_id") ? this.oQd : "";
     }
 
     public boolean isDataValid() {
-        return this.oQf == 0;
+        return this.oQg == 0;
     }
 
-    private boolean Xd(String str) {
+    private boolean Xe(String str) {
         return isDataValid() && this.mData != null && this.mData.has(str);
     }
 }

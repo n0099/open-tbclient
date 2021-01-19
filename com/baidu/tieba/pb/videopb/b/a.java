@@ -252,7 +252,7 @@ public class a {
                     Object tag = view.getTag();
                     if (tag instanceof String) {
                         TiebaStatic.log(new aq("c13079"));
-                        a.this.OB((String) tag);
+                        a.this.OC((String) tag);
                         return;
                     } else if (tag instanceof SparseArray) {
                         TiebaStatic.log(new aq("c11739").an("obj_locate", 4));
@@ -943,7 +943,7 @@ public class a {
         return ((this.mcN.dkd().getPbData().djc() != 0) || this.mcN.dkd().getPbData().diN() == null || this.mcN.dkd().getPbData().diN().bnx() == null || TextUtils.equals(this.mcN.dkd().getPbData().diN().bnx().getUserId(), TbadkCoreApplication.getCurrentAccount()) || z) ? false : true;
     }
 
-    public void OB(String str) {
+    public void OC(String str) {
         if (this.mcN.dkd() != null && this.mcN.dkd().getPbData() != null && this.mcN.dkd().getPbData().djq()) {
             String format = String.format(TbConfig.URL_BJH_REPORT, this.mcN.dkd().dme(), str);
             bz diN = this.mcN.dkd().getPbData().diN();
@@ -954,13 +954,13 @@ public class a {
             } else if (diN.bmf()) {
                 format = format + "&channelid=33840";
             }
-            OC(format);
+            OD(format);
             return;
         }
-        this.lID.Pc(str);
+        this.lID.Pd(str);
     }
 
-    private void OC(String str) {
+    private void OD(String str) {
         TbWebViewActivityConfig tbWebViewActivityConfig = new TbWebViewActivityConfig(this.mcN.getContext(), "", str, true);
         tbWebViewActivityConfig.setFixTitle(true);
         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, tbWebViewActivityConfig));

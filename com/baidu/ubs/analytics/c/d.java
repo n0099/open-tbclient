@@ -6,36 +6,36 @@ import java.lang.ref.WeakReference;
 import java.util.Stack;
 /* loaded from: classes3.dex */
 public final class d {
-    private Stack<WeakReference<Activity>> oJK;
+    private Stack<WeakReference<Activity>> oJL;
 
     /* synthetic */ d(byte b2) {
         this();
     }
 
     private d() {
-        this.oJK = new Stack<>();
+        this.oJL = new Stack<>();
     }
 
     public final Stack<WeakReference<Activity>> efL() {
-        return this.oJK;
+        return this.oJL;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public final void a(WeakReference<Activity> weakReference) {
-        this.oJK.add(weakReference);
+        this.oJL.add(weakReference);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public final void b(Activity activity) {
-        if (this.oJK != null) {
+        if (this.oJL != null) {
             int i = 0;
             while (true) {
                 int i2 = i;
-                if (i2 >= this.oJK.size()) {
+                if (i2 >= this.oJL.size()) {
                     break;
                 }
-                if (this.oJK.get(i2).get() == activity) {
-                    this.oJK.remove(this.oJK.get(i2));
+                if (this.oJL.get(i2).get() == activity) {
+                    this.oJL.remove(this.oJL.get(i2));
                 }
                 i = i2 + 1;
             }
@@ -46,8 +46,8 @@ public final class d {
     /* JADX INFO: Access modifiers changed from: package-private */
     public final String abU() {
         StringBuilder sb = new StringBuilder();
-        for (int i = 0; i < this.oJK.size(); i++) {
-            Activity activity = this.oJK.get(i).get();
+        for (int i = 0; i < this.oJL.size(); i++) {
+            Activity activity = this.oJL.get(i).get();
             if (activity != null) {
                 sb.append(activity.getClass().getSimpleName());
                 sb.append(PerfFrameTrackUIUtil.SEPERATOR_ARROR);
@@ -59,6 +59,6 @@ public final class d {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes3.dex */
     public static class a {
-        private static final d oJL = new d((byte) 0);
+        private static final d oJM = new d((byte) 0);
     }
 }

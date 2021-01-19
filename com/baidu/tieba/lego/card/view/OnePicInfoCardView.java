@@ -132,7 +132,7 @@ public class OnePicInfoCardView extends BaseCardView<OnePicInfoCard> {
             this.kRS.setVisibility(8);
         }
         com.baidu.tieba.tbadkCore.util.d readThreadHistory = TbadkCoreApplication.getInst().getReadThreadHistory();
-        if (readThreadHistory != null && readThreadHistory.SC(String.valueOf(onePicInfoCard.getItemId()))) {
+        if (readThreadHistory != null && readThreadHistory.SD(String.valueOf(onePicInfoCard.getItemId()))) {
             this.kWd = R.color.CAM_X0108;
         } else {
             this.kWd = R.color.CAM_X0105;
@@ -167,7 +167,7 @@ public class OnePicInfoCardView extends BaseCardView<OnePicInfoCard> {
     @Override // com.baidu.tieba.lego.card.view.BaseLegoCardView
     /* renamed from: b */
     public void e(OnePicInfoCard onePicInfoCard) {
-        com.baidu.tieba.lego.i.a((BaseLegoCardInfo) onePicInfoCard).fF(TiebaInitialize.Params.OBJ_URL, onePicInfoCard.getScheme()).bz("obj_locate", getStatPosition()).a(onePicInfoCard);
+        com.baidu.tieba.lego.i.a((BaseLegoCardInfo) onePicInfoCard).fF(TiebaInitialize.Params.OBJ_URL, onePicInfoCard.getScheme()).bA("obj_locate", getStatPosition()).a(onePicInfoCard);
         super.e(onePicInfoCard);
     }
 }

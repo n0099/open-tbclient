@@ -237,7 +237,7 @@ public class EmotionEditActivity extends BaseActivity implements EmotionEditMode
                     break;
                 case 3:
                     if (!TextUtils.isEmpty(this.mgF) && this.mgF.equals(text) && !TextUtils.isEmpty(this.mgC)) {
-                        Pn(this.mgC);
+                        Po(this.mgC);
                         return;
                     }
                     break;
@@ -257,7 +257,7 @@ public class EmotionEditActivity extends BaseActivity implements EmotionEditMode
     }
 
     private void dtt() {
-        this.mgB.Po(this.mgA.getText());
+        this.mgB.Pp(this.mgA.getText());
     }
 
     private void dtu() {
@@ -437,7 +437,7 @@ public class EmotionEditActivity extends BaseActivity implements EmotionEditMode
     }
 
     @Override // com.baidu.tieba.pbextra.emotion.model.EmotionEditModel.a
-    public void Pm(String str) {
+    public void Pn(String str) {
         showToast(str);
         this.mgG = 1;
         cIV();
@@ -454,7 +454,7 @@ public class EmotionEditActivity extends BaseActivity implements EmotionEditMode
     }
 
     @Override // com.baidu.tieba.pbextra.emotion.model.EmotionEditModel.a
-    public void Pn(String str) {
+    public void Po(String str) {
         this.mgA.getTextView().setBackgroundResource(R.drawable.bg_emotion_edit);
         if (TextUtils.isEmpty(str)) {
             cIV();

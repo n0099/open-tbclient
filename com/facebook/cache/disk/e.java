@@ -10,32 +10,32 @@ import java.util.Collection;
 import javax.annotation.Nullable;
 /* loaded from: classes5.dex */
 public class e implements c {
-    private static final Class<?> pnm = e.class;
+    private static final Class<?> pnn = e.class;
     private final int mVersion;
-    volatile a pnZ = new a(null, null);
-    private final CacheErrorLogger pnr;
-    private final String pny;
-    private final j<File> pnz;
+    private final j<File> pnA;
+    private final CacheErrorLogger pns;
+    private final String pnz;
+    volatile a poa = new a(null, null);
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes5.dex */
     public static class a {
         @Nullable
-        public final c poa;
+        public final c pob;
         @Nullable
-        public final File pob;
+        public final File poc;
 
         a(@Nullable File file, @Nullable c cVar) {
-            this.poa = cVar;
-            this.pob = file;
+            this.pob = cVar;
+            this.poc = file;
         }
     }
 
     public e(int i, j<File> jVar, String str, CacheErrorLogger cacheErrorLogger) {
         this.mVersion = i;
-        this.pnr = cacheErrorLogger;
-        this.pnz = jVar;
-        this.pny = str;
+        this.pns = cacheErrorLogger;
+        this.pnA = jVar;
+        this.pnz = str;
     }
 
     @Override // com.facebook.cache.disk.c
@@ -62,7 +62,7 @@ public class e implements c {
         try {
             epS().epx();
         } catch (IOException e) {
-            com.facebook.common.c.a.b(pnm, "purgeUnexpectedResources", e);
+            com.facebook.common.c.a.b(pnn, "purgeUnexpectedResources", e);
         }
     }
 
@@ -82,8 +82,8 @@ public class e implements c {
     }
 
     @Override // com.facebook.cache.disk.c
-    public long Yb(String str) throws IOException {
-        return epS().Yb(str);
+    public long Yc(String str) throws IOException {
+        return epS().Yc(str);
     }
 
     synchronized c epS() throws IOException {
@@ -91,32 +91,32 @@ public class e implements c {
             epU();
             epV();
         }
-        return (c) com.facebook.common.internal.g.checkNotNull(this.pnZ.poa);
+        return (c) com.facebook.common.internal.g.checkNotNull(this.poa.pob);
     }
 
     private boolean epT() {
-        a aVar = this.pnZ;
-        return aVar.poa == null || aVar.pob == null || !aVar.pob.exists();
+        a aVar = this.poa;
+        return aVar.pob == null || aVar.poc == null || !aVar.poc.exists();
     }
 
     void epU() {
-        if (this.pnZ.poa != null && this.pnZ.pob != null) {
-            com.facebook.common.file.a.ay(this.pnZ.pob);
+        if (this.poa.pob != null && this.poa.poc != null) {
+            com.facebook.common.file.a.ay(this.poa.poc);
         }
     }
 
     private void epV() throws IOException {
-        File file = new File(this.pnz.get(), this.pny);
+        File file = new File(this.pnA.get(), this.pnz);
         ax(file);
-        this.pnZ = new a(file, new DefaultDiskStorage(file, this.mVersion, this.pnr));
+        this.poa = new a(file, new DefaultDiskStorage(file, this.mVersion, this.pns));
     }
 
     void ax(File file) throws IOException {
         try {
             FileUtils.az(file);
-            com.facebook.common.c.a.d(pnm, "Created cache directory %s", file.getAbsolutePath());
+            com.facebook.common.c.a.d(pnn, "Created cache directory %s", file.getAbsolutePath());
         } catch (FileUtils.CreateDirectoryException e) {
-            this.pnr.a(CacheErrorLogger.CacheErrorCategory.WRITE_CREATE_DIR, pnm, "createRootDirectoryIfNecessary", e);
+            this.pns.a(CacheErrorLogger.CacheErrorCategory.WRITE_CREATE_DIR, pnn, "createRootDirectoryIfNecessary", e);
             throw e;
         }
     }

@@ -9,13 +9,13 @@ import java.nio.ByteBuffer;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes4.dex */
 public final class c extends f {
-    private static int oHy = 16384;
+    private static int oHz = 16384;
     private final ByteBuffer mBuffer;
-    private long oHA;
-    private final UploadDataProvider oHe = new a();
-    private final d oHr;
-    private final g oHt;
-    private final long oHz;
+    private final long oHA;
+    private long oHB;
+    private final UploadDataProvider oHf = new a();
+    private final d oHs;
+    private final g oHu;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(d dVar, long j, g gVar) {
@@ -25,11 +25,11 @@ public final class c extends f {
         if (j < 0) {
             throw new IllegalArgumentException("Content length must be larger than 0 for non-chunked upload.");
         }
-        this.oHz = j;
-        this.mBuffer = ByteBuffer.allocate((int) Math.min(this.oHz, oHy));
-        this.oHr = dVar;
-        this.oHt = gVar;
-        this.oHA = 0L;
+        this.oHA = j;
+        this.mBuffer = ByteBuffer.allocate((int) Math.min(this.oHA, oHz));
+        this.oHs = dVar;
+        this.oHu = gVar;
+        this.oHB = 0L;
     }
 
     @Override // java.io.OutputStream
@@ -38,7 +38,7 @@ public final class c extends f {
         MH(1);
         eeK();
         this.mBuffer.put((byte) i);
-        this.oHA++;
+        this.oHB++;
         eeM();
     }
 
@@ -56,7 +56,7 @@ public final class c extends f {
             this.mBuffer.put(bArr, (i + i2) - i3, min);
             i3 -= min;
         }
-        this.oHA += i2;
+        this.oHB += i2;
         eeM();
     }
 
@@ -67,7 +67,7 @@ public final class c extends f {
     }
 
     private void eeM() throws IOException {
-        if (this.oHA == this.oHz) {
+        if (this.oHB == this.oHA) {
             eeL();
         }
     }
@@ -75,13 +75,13 @@ public final class c extends f {
     private void eeL() throws IOException {
         checkNotClosed();
         this.mBuffer.flip();
-        this.oHt.eeZ();
+        this.oHu.eeZ();
         eeX();
     }
 
     private void MH(int i) throws ProtocolException {
-        if (this.oHA + i > this.oHz) {
-            throw new ProtocolException("expected " + (this.oHz - this.oHA) + " bytes but received " + i);
+        if (this.oHB + i > this.oHA) {
+            throw new ProtocolException("expected " + (this.oHA - this.oHB) + " bytes but received " + i);
         }
     }
 
@@ -93,7 +93,7 @@ public final class c extends f {
     /* JADX INFO: Access modifiers changed from: package-private */
     @Override // com.baidu.turbonet.net.a.f
     public void eeI() throws IOException {
-        if (this.oHA < this.oHz) {
+        if (this.oHB < this.oHA) {
             throw new ProtocolException("Content received is less than Content-Length.");
         }
     }
@@ -101,7 +101,7 @@ public final class c extends f {
     /* JADX INFO: Access modifiers changed from: package-private */
     @Override // com.baidu.turbonet.net.a.f
     public UploadDataProvider eeJ() {
-        return this.oHe;
+        return this.oHf;
     }
 
     /* loaded from: classes4.dex */
@@ -111,7 +111,7 @@ public final class c extends f {
 
         @Override // com.baidu.turbonet.net.UploadDataProvider
         public long getLength() {
-            return c.this.oHz;
+            return c.this.oHA;
         }
 
         @Override // com.baidu.turbonet.net.UploadDataProvider
@@ -120,7 +120,7 @@ public final class c extends f {
                 byteBuffer.put(c.this.mBuffer);
                 c.this.mBuffer.clear();
                 uploadDataSink.onReadSucceeded(false);
-                c.this.oHt.quit();
+                c.this.oHu.quit();
                 return;
             }
             int limit = c.this.mBuffer.limit();

@@ -13,10 +13,10 @@ public abstract class ac {
     }
 
     public static ac a(y yVar, String str) {
-        Charset charset = com.bytedance.sdk.a.b.a.c.peH;
+        Charset charset = com.bytedance.sdk.a.b.a.c.peI;
         if (yVar != null && (charset = yVar.enI()) == null) {
-            charset = com.bytedance.sdk.a.b.a.c.peH;
-            yVar = y.XL(yVar + "; charset=utf-8");
+            charset = com.bytedance.sdk.a.b.a.c.peI;
+            yVar = y.XM(yVar + "; charset=utf-8");
         }
         return b(yVar, str.getBytes(charset));
     }

@@ -12,40 +12,40 @@ import java.util.Iterator;
 import java.util.Locale;
 /* loaded from: classes6.dex */
 public class a {
-    public static String pGO;
-    public static int pGP;
+    public static String pGP;
+    public static int pGQ;
     public String model;
     public String network;
-    public long nos;
-    public String pGQ;
-    public String pGT;
+    public long nou;
+    public String pGR;
     public String pGU;
-    public long pGV;
-    public String pGW;
+    public String pGV;
+    public long pGW;
     public String pGX;
-    public boolean pGY;
-    public String pGZ;
+    public String pGY;
+    public boolean pGZ;
+    public String pHa;
     public String processName;
     public String uid;
     public int versionCode;
-    public static final SimpleDateFormat pGz = new SimpleDateFormat("MM-dd HH:mm:ss.SSS", Locale.US);
+    public static final SimpleDateFormat pGA = new SimpleDateFormat("MM-dd HH:mm:ss.SSS", Locale.US);
     public static String sModel = Build.MODEL;
-    public static String pGN = com.github.a.a.c.eyh().provideQualifier();
-    public String pGR = "";
-    public int pGS = -1;
+    public static String pGO = com.github.a.a.c.eyh().provideQualifier();
+    public String pGS = "";
+    public int pGT = -1;
     public String versionName = "";
     public String duration = "-1";
-    public ArrayList<String> pHa = new ArrayList<>();
-    private StringBuilder pHb = new StringBuilder();
+    public ArrayList<String> pHb = new ArrayList<>();
     private StringBuilder pHc = new StringBuilder();
     private StringBuilder pHd = new StringBuilder();
-    public StringBuilder pHe = new StringBuilder();
+    private StringBuilder pHe = new StringBuilder();
+    public StringBuilder pHf = new StringBuilder();
 
     static {
-        pGO = "";
-        pGP = -1;
-        pGP = b.getNumCores();
-        pGO = Build.VERSION.SDK_INT + " " + Build.VERSION.RELEASE;
+        pGP = "";
+        pGQ = -1;
+        pGQ = b.getNumCores();
+        pGP = Build.VERSION.SDK_INT + " " + Build.VERSION.RELEASE;
     }
 
     public static a eyp() {
@@ -60,70 +60,70 @@ public class a {
                 Log.e("BlockInfo", "newInstance: ", th);
             }
         }
-        aVar.pGS = pGP;
+        aVar.pGT = pGQ;
         aVar.model = sModel;
+        aVar.pGS = pGP;
         aVar.pGR = pGO;
-        aVar.pGQ = pGN;
         aVar.uid = com.github.a.a.c.eyh().provideUid();
         aVar.processName = c.eyr();
         aVar.network = com.github.a.a.c.eyh().provideNetworkType();
-        aVar.pGT = String.valueOf(b.getFreeMemory());
-        aVar.pGU = String.valueOf(b.getTotalMemory());
+        aVar.pGU = String.valueOf(b.getFreeMemory());
+        aVar.pGV = String.valueOf(b.getTotalMemory());
         if (Build.VERSION.SDK_INT >= 24) {
             aVar.duration = Long.toString(SystemClock.elapsedRealtime() - Process.getStartElapsedRealtime());
         }
         return aVar;
     }
 
-    public a YD(String str) {
-        this.pGZ = str;
+    public a YE(String str) {
+        this.pHa = str;
         return this;
     }
 
     public a bp(ArrayList<String> arrayList) {
-        this.pHa = arrayList;
+        this.pHb = arrayList;
         return this;
     }
 
     public a e(long j, long j2, long j3, long j4) {
-        this.nos = j2 - j;
-        this.pGV = j4 - j3;
-        this.pGW = Long.toString(j);
-        this.pGX = Long.toString(j2);
+        this.nou = j2 - j;
+        this.pGW = j4 - j3;
+        this.pGX = Long.toString(j);
+        this.pGY = Long.toString(j2);
         return this;
     }
 
     public a eyq() {
-        this.pHb.append("qua").append(" = ").append(this.pGQ).append("\r\n");
-        this.pHb.append("versionName").append(" = ").append(this.versionName).append("\r\n");
-        this.pHb.append("versionCode").append(" = ").append(this.versionCode).append("\r\n");
-        this.pHb.append("uid").append(" = ").append(this.uid).append("\r\n");
-        this.pHb.append("network").append(" = ").append(this.network).append("\r\n");
-        this.pHb.append("model").append(" = ").append(this.model).append("\r\n");
-        this.pHb.append("api-level").append(" = ").append(this.pGR).append("\r\n");
-        this.pHb.append("cpu-core").append(" = ").append(this.pGS).append("\r\n");
-        this.pHb.append("process").append(" = ").append(this.processName).append("\r\n");
-        this.pHb.append("freeMemory").append(" = ").append(this.pGT).append("\r\n");
-        this.pHb.append("totalMemory").append(" = ").append(this.pGU).append("\r\n");
-        this.pHd.append("time").append(" = ").append(this.nos).append("\r\n");
-        this.pHd.append("thread-time").append(" = ").append(this.pGV).append("\r\n");
-        this.pHd.append("time-start").append(" = ").append(this.pGW).append("\r\n");
-        this.pHd.append("time-end").append(" = ").append(this.pGX).append("\r\n");
-        this.pHc.append("cpu-busy").append(" = ").append(this.pGY).append("\r\n");
-        this.pHc.append("cpu-rate").append(" = ").append(this.pGZ).append("\r\n");
-        if (this.pHa != null && !this.pHa.isEmpty()) {
+        this.pHc.append("qua").append(" = ").append(this.pGR).append("\r\n");
+        this.pHc.append("versionName").append(" = ").append(this.versionName).append("\r\n");
+        this.pHc.append("versionCode").append(" = ").append(this.versionCode).append("\r\n");
+        this.pHc.append("uid").append(" = ").append(this.uid).append("\r\n");
+        this.pHc.append("network").append(" = ").append(this.network).append("\r\n");
+        this.pHc.append("model").append(" = ").append(this.model).append("\r\n");
+        this.pHc.append("api-level").append(" = ").append(this.pGS).append("\r\n");
+        this.pHc.append("cpu-core").append(" = ").append(this.pGT).append("\r\n");
+        this.pHc.append("process").append(" = ").append(this.processName).append("\r\n");
+        this.pHc.append("freeMemory").append(" = ").append(this.pGU).append("\r\n");
+        this.pHc.append("totalMemory").append(" = ").append(this.pGV).append("\r\n");
+        this.pHe.append("time").append(" = ").append(this.nou).append("\r\n");
+        this.pHe.append("thread-time").append(" = ").append(this.pGW).append("\r\n");
+        this.pHe.append("time-start").append(" = ").append(this.pGX).append("\r\n");
+        this.pHe.append("time-end").append(" = ").append(this.pGY).append("\r\n");
+        this.pHd.append("cpu-busy").append(" = ").append(this.pGZ).append("\r\n");
+        this.pHd.append("cpu-rate").append(" = ").append(this.pHa).append("\r\n");
+        if (this.pHb != null && !this.pHb.isEmpty()) {
             StringBuilder sb = new StringBuilder();
-            Iterator<String> it = this.pHa.iterator();
+            Iterator<String> it = this.pHb.iterator();
             while (it.hasNext()) {
                 sb.append(it.next());
                 sb.append("\r\n");
             }
-            this.pHe.append("stack").append(" = ").append(sb.toString()).append("\r\n");
+            this.pHf.append("stack").append(" = ").append(sb.toString()).append("\r\n");
         }
         return this;
     }
 
     public String toString() {
-        return String.valueOf(this.pHb) + ((Object) this.pHd) + ((Object) this.pHc) + ((Object) this.pHe);
+        return String.valueOf(this.pHc) + ((Object) this.pHe) + ((Object) this.pHd) + ((Object) this.pHf);
     }
 }

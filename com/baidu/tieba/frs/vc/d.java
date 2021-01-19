@@ -192,11 +192,11 @@ public class d implements com.baidu.tieba.frs.entelechy.a.d {
     public void yL(int i) {
         if (this.jeT == null) {
             this.jeT = new com.baidu.tieba.write.g(this.jcX.getPageContext(), this.jEa, "frs");
-            this.jeT.TY("2");
+            this.jeT.TZ("2");
             ItemInfo itemInfo = this.jcX.cBN().itemInfo;
             this.jeT.yZ((itemInfo == null || itemInfo.id.intValue() <= 0 || at.isEmpty(itemInfo.name)) ? false : true);
         }
-        this.jeT.TX(cJI());
+        this.jeT.TY(cJI());
         if (this.jcX.cBN().getAnti() != null) {
             this.jeT.zb(this.jcX.cBN().getAnti().getCanGoods());
         }

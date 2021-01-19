@@ -3,7 +3,7 @@ package com.baidu.yuyinala.privatemessage.session.b;
 public class a {
     protected String dQu;
 
-    public void Xp(String str) {
+    public void Xq(String str) {
         this.dQu = str;
     }
 }

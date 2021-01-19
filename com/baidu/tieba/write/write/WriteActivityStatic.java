@@ -59,8 +59,8 @@ import com.baidu.tieba.write.write.vote.WriteVoteActivity;
 import java.util.Map;
 /* loaded from: classes7.dex */
 public class WriteActivityStatic {
-    private static int obW = 11;
-    private static int obX = 18;
+    private static int obX = 11;
+    private static int obY = 18;
 
     static {
         TbadkCoreApplication.getInst().RegisterIntent(WriteActivityConfig.class, WriteActivity.class);
@@ -118,7 +118,7 @@ public class WriteActivityStatic {
     /* JADX INFO: Access modifiers changed from: private */
     public static void J(TbPageContext<?> tbPageContext) {
         BdStatisticsManager.getInstance().forceUploadAllLogIgnoreSwitch();
-        if (Build.VERSION.SDK_INT <= obX && Build.VERSION.SDK_INT >= obW) {
+        if (Build.VERSION.SDK_INT <= obY && Build.VERSION.SDK_INT >= obX) {
             N(tbPageContext);
         } else {
             O(tbPageContext);
@@ -167,7 +167,7 @@ public class WriteActivityStatic {
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
         com.baidu.tieba.tbadkCore.a.a.c(309686, UrlParserSocketResponseMessage.class, false);
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_URL_PARSER_MESSAGE, com.baidu.tieba.tbadkCore.a.a.bU(TbConfig.URL_URL_PARSER, 309686));
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_URL_PARSER_MESSAGE, com.baidu.tieba.tbadkCore.a.a.bV(TbConfig.URL_URL_PARSER, 309686));
         tbHttpMessageTask.setResponsedClass(UrlParserHttpResponseMessage.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }

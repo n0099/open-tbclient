@@ -11,12 +11,12 @@ import java.util.List;
 public class a extends com.baidu.tieba.yuyinala.liveroom.a {
     private final List<AlaTopTipView> hKg;
     private com.baidu.live.liveroom.a.a hKi;
-    private final AlaTopTipView.a osl;
+    private final AlaTopTipView.a osm;
 
     public a(TbPageContext tbPageContext, com.baidu.live.liveroom.a.a aVar) {
         super(tbPageContext);
         this.hKg = new LinkedList();
-        this.osl = new AlaTopTipView.a() { // from class: com.baidu.tieba.yuyinala.liveroom.tippop.a.1
+        this.osm = new AlaTopTipView.a() { // from class: com.baidu.tieba.yuyinala.liveroom.tippop.a.1
             @Override // com.baidu.tieba.yuyinala.liveroom.tippop.AlaTopTipView.a
             public void cC(View view) {
                 a.this.hKg.remove(view);
@@ -33,7 +33,7 @@ public class a extends com.baidu.tieba.yuyinala.liveroom.a {
             }
             alaTopTipView.setType(i);
             alaTopTipView.setText(str);
-            alaTopTipView.setOnTipCompletedCallback(this.osl);
+            alaTopTipView.setOnTipCompletedCallback(this.osm);
             alaTopTipView.v(viewGroup, 0);
             this.hKg.add(alaTopTipView);
         }
@@ -45,7 +45,7 @@ public class a extends com.baidu.tieba.yuyinala.liveroom.a {
                 AlaTopTipView alaTopTipView = new AlaTopTipView(viewGroup.getContext());
                 alaTopTipView.setType(i);
                 alaTopTipView.setText(str);
-                alaTopTipView.setOnTipCompletedCallback(this.osl);
+                alaTopTipView.setOnTipCompletedCallback(this.osm);
                 alaTopTipView.v(viewGroup, 0);
                 this.hKg.add(alaTopTipView);
             }

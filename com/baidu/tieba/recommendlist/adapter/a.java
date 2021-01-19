@@ -128,7 +128,7 @@ public class a extends AbsDelegateAdapter<com.baidu.tieba.recommendlist.data.a, 
                     b(alaRecommendLiveData);
                 } else {
                     BdLog.e("openByScheme: " + alaRecommendLiveData.scheme);
-                    if (!QZ(alaRecommendLiveData.scheme)) {
+                    if (!Ra(alaRecommendLiveData.scheme)) {
                         BdLog.e("openInner: scheme: " + alaRecommendLiveData.scheme);
                         b(alaRecommendLiveData);
                     }
@@ -137,7 +137,7 @@ public class a extends AbsDelegateAdapter<com.baidu.tieba.recommendlist.data.a, 
             }
         }
 
-        private boolean QZ(String str) {
+        private boolean Ra(String str) {
             return openScheme(TbadkCoreApplication.getInst(), str);
         }
 

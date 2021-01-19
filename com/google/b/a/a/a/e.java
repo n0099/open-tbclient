@@ -1,15 +1,15 @@
 package com.google.b.a.a.a;
 /* loaded from: classes4.dex */
 public class e {
-    private g pMh = new g();
     private g pMi = new g();
-    private g pLl = new g();
-    private g pLh = new g();
-    private g pLi = new g();
-    private c pLq = new c();
-    private c pLr = new c();
     private g pMj = new g();
+    private g pLm = new g();
+    private g pLi = new g();
+    private g pLj = new g();
+    private c pLr = new c();
+    private c pLs = new c();
     private g pMk = new g();
+    private g pMl = new g();
 
     private static void a(g gVar, double d, double d2, c cVar) {
         double d3 = gVar.f7881a * gVar.f7881a;
@@ -33,9 +33,9 @@ public class e {
     }
 
     private void a(g gVar, c cVar) {
-        this.pMk.a(gVar);
-        this.pMk.a(3.141592653589793d / this.pMk.c());
-        a(this.pMk, 0.0d, 0.20264236728467558d, cVar);
+        this.pMl.a(gVar);
+        this.pMl.a(3.141592653589793d / this.pMl.c());
+        a(this.pMl, 0.0d, 0.20264236728467558d, cVar);
     }
 
     public void a(c cVar, g gVar) {
@@ -53,7 +53,7 @@ public class e {
             double a3 = cVar.a(0, 0) - a2;
             double a4 = cVar.a(1, 1) - a2;
             double a5 = cVar.a(2, 2) - a2;
-            g gVar2 = this.pMj;
+            g gVar2 = this.pMk;
             if (a3 * a3 > a4 * a4 && a3 * a3 > a5 * a5) {
                 gVar2.a(a3, (cVar.a(1, 0) + cVar.a(0, 1)) / 2.0d, (cVar.a(0, 2) + cVar.a(2, 0)) / 2.0d);
             } else if (a4 * a4 > a5 * a5) {
@@ -71,31 +71,31 @@ public class e {
     }
 
     public void a(g gVar, g gVar2, c cVar) {
-        g.c(gVar, gVar2, this.pMi);
-        if (this.pMi.c() == 0.0d) {
+        g.c(gVar, gVar2, this.pMj);
+        if (this.pMj.c() == 0.0d) {
             if (g.a(gVar, gVar2) >= 0.0d) {
                 cVar.b();
                 return;
             }
-            g.b(gVar, this.pLi);
-            a(this.pLi, cVar);
+            g.b(gVar, this.pLj);
+            a(this.pLj, cVar);
             return;
         }
-        this.pLl.a(gVar);
-        this.pLh.a(gVar2);
-        this.pMi.b();
-        this.pLl.b();
-        this.pLh.b();
-        c cVar2 = this.pLq;
-        cVar2.a(0, this.pLl);
-        cVar2.a(1, this.pMi);
-        g.c(this.pMi, this.pLl, this.pMh);
-        cVar2.a(2, this.pMh);
-        c cVar3 = this.pLr;
-        cVar3.a(0, this.pLh);
-        cVar3.a(1, this.pMi);
-        g.c(this.pMi, this.pLh, this.pMh);
-        cVar3.a(2, this.pMh);
+        this.pLm.a(gVar);
+        this.pLi.a(gVar2);
+        this.pMj.b();
+        this.pLm.b();
+        this.pLi.b();
+        c cVar2 = this.pLr;
+        cVar2.a(0, this.pLm);
+        cVar2.a(1, this.pMj);
+        g.c(this.pMj, this.pLm, this.pMi);
+        cVar2.a(2, this.pMi);
+        c cVar3 = this.pLs;
+        cVar3.a(0, this.pLi);
+        cVar3.a(1, this.pMj);
+        g.c(this.pMj, this.pLi, this.pMi);
+        cVar3.a(2, this.pMi);
         cVar2.c();
         c.b(cVar3, cVar2, cVar);
     }

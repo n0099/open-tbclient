@@ -5,7 +5,7 @@ import com.ss.android.socialbase.downloader.d.ah;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class f {
-    private static volatile f pVB = null;
+    private static volatile f pVC = null;
 
     private f() {
     }
@@ -13,8 +13,8 @@ public class f {
     public static synchronized void b(g gVar) {
         synchronized (f.class) {
             if (gVar != null) {
-                if (pVB == null) {
-                    pVB = gVar.eEt();
+                if (pVC == null) {
+                    pVC = gVar.eEt();
                 } else {
                     b.b(gVar);
                 }
@@ -28,15 +28,15 @@ public class f {
     }
 
     public static f iy(Context context) {
-        if (pVB == null) {
+        if (pVC == null) {
             synchronized (f.class) {
-                if (pVB == null) {
+                if (pVC == null) {
                     b.a(context);
-                    pVB = new f();
+                    pVC = new f();
                 }
             }
         }
-        return pVB;
+        return pVC;
     }
 
     public static com.ss.android.socialbase.downloader.g.d iz(Context context) {

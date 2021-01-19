@@ -76,7 +76,7 @@ public class PushDialogLoopManager {
                     if (com.baidu.tieba.screenlocknotify.a.dCY().mSA.dPB()) {
                         PushDialogLoopManager.this.mEn = true;
                     } else {
-                        PushDialogLoopManager.this.PX(str);
+                        PushDialogLoopManager.this.PY(str);
                     }
                 }
             }
@@ -139,11 +139,11 @@ public class PushDialogLoopManager {
     /* JADX INFO: Access modifiers changed from: package-private */
     public void dzN() {
         this.mEo = false;
-        PX(this.mEm);
+        PY(this.mEm);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void PX(String str) {
+    public void PY(String str) {
         if (!com.baidu.tieba.screenlocknotify.a.dCY().mSA.dPB() && TbSingleton.getInstance().getLastResumeTime() <= UtilHelper.getTodayZeroTime()) {
             Activity currentActivity = com.baidu.adp.base.b.kC().currentActivity();
             if (currentActivity != null && currentActivity.getClass() != null && currentActivity.getClass().getName().equals(ScreenLockActivity.class.getName())) {

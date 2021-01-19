@@ -2,7 +2,7 @@ package com.baidu.tieba.tbadkCore.e.a;
 /* loaded from: classes.dex */
 public class b {
     private String name;
-    private boolean npl;
+    private boolean npm;
 
     public String getName() {
         return this.name;
@@ -13,10 +13,10 @@ public class b {
     }
 
     public boolean dLP() {
-        return this.npl;
+        return this.npm;
     }
 
     public void ye(boolean z) {
-        this.npl = z;
+        this.npm = z;
     }
 }

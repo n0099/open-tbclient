@@ -60,34 +60,34 @@ public class a {
         private final boolean eLO;
         private final aq kRQ;
         private final String key;
-        private final String nol;
         private final String nom;
         private final String non;
+        private final String noo;
         private final String page;
 
         private C0869a(String str, String str2, String str3, String str4, String str5) {
             this.key = str;
-            this.nol = str2;
+            this.nom = str2;
             this.page = str3;
-            this.nom = str4;
-            this.non = str5;
+            this.non = str4;
+            this.noo = str5;
             this.eLO = StringUtils.isNull(str) || StringUtils.isNull(str2) || StringUtils.isNull(str3) || StringUtils.isNull(str4) || StringUtils.isNull(str5) ? false : true;
             this.kRQ = dLD();
         }
 
         private aq dLD() {
             aq aqVar = new aq(this.key);
-            if (!StringUtils.isNull(this.nol)) {
-                aqVar = aqVar.dW("line", this.nol);
+            if (!StringUtils.isNull(this.nom)) {
+                aqVar = aqVar.dW("line", this.nom);
             }
             if (!StringUtils.isNull(this.page)) {
                 aqVar = aqVar.dW("page", this.page);
             }
-            if (!StringUtils.isNull(this.nom)) {
-                aqVar = aqVar.dW("locate", this.nom);
-            }
             if (!StringUtils.isNull(this.non)) {
-                return aqVar.dW("task", this.non);
+                aqVar = aqVar.dW("locate", this.non);
+            }
+            if (!StringUtils.isNull(this.noo)) {
+                return aqVar.dW("task", this.noo);
             }
             return aqVar;
         }

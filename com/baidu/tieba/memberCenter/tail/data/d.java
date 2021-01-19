@@ -24,7 +24,7 @@ public class d {
                     getTails().add(tailData);
                 }
             }
-            Nq(resData.default_color);
+            Nr(resData.default_color);
             for (ColorInfo colorInfo : resData.colorList) {
                 ddN().add(colorInfo.fontColor);
             }
@@ -39,7 +39,7 @@ public class d {
         return this.ljI;
     }
 
-    public void Nq(String str) {
+    public void Nr(String str) {
         this.ljJ = str;
     }
 

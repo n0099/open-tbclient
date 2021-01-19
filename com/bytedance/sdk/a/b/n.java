@@ -5,10 +5,10 @@ import java.util.List;
 import javax.net.ssl.SSLSocket;
 /* loaded from: classes4.dex */
 public final class n {
-    private static final k[] pjc = {k.piM, k.piQ, k.piN, k.piR, k.piX, k.piW, k.pim, k.pix, k.pio, k.piy, k.phS, k.phT, k.phq, k.phu, k.pgU};
-    public static final n pjd = new a(true).a(pjc).a(ad.TLS_1_3, ad.TLS_1_2, ad.TLS_1_1, ad.TLS_1_0).AI(true).enz();
-    public static final n pje = new a(pjd).a(ad.TLS_1_0).AI(true).enz();
-    public static final n pjf = new a(false).enz();
+    private static final k[] pjd = {k.piN, k.piR, k.piO, k.piS, k.piY, k.piX, k.pio, k.piy, k.pip, k.piz, k.phT, k.phU, k.phr, k.phv, k.pgV};
+    public static final n pje = new a(true).a(pjd).a(ad.TLS_1_3, ad.TLS_1_2, ad.TLS_1_1, ad.TLS_1_0).AI(true).enz();
+    public static final n pjf = new a(pje).a(ad.TLS_1_0).AI(true).enz();
+    public static final n pjg = new a(false).enz();
     final boolean d;
     final boolean e;
     final String[] f;
@@ -63,7 +63,7 @@ public final class n {
             enabledCipherSuites = sSLSocket.getEnabledCipherSuites();
         }
         if (this.g != null) {
-            enabledProtocols = com.bytedance.sdk.a.b.a.c.a(com.bytedance.sdk.a.b.a.c.peN, sSLSocket.getEnabledProtocols(), this.g);
+            enabledProtocols = com.bytedance.sdk.a.b.a.c.a(com.bytedance.sdk.a.b.a.c.peO, sSLSocket.getEnabledProtocols(), this.g);
         } else {
             enabledProtocols = sSLSocket.getEnabledProtocols();
         }
@@ -77,7 +77,7 @@ public final class n {
 
     public boolean e(SSLSocket sSLSocket) {
         if (this.d) {
-            if (this.g == null || com.bytedance.sdk.a.b.a.c.b(com.bytedance.sdk.a.b.a.c.peN, this.g, sSLSocket.getEnabledProtocols())) {
+            if (this.g == null || com.bytedance.sdk.a.b.a.c.b(com.bytedance.sdk.a.b.a.c.peO, this.g, sSLSocket.getEnabledProtocols())) {
                 return this.f == null || com.bytedance.sdk.a.b.a.c.b(k.f5963a, this.f, sSLSocket.getEnabledCipherSuites());
             }
             return false;
@@ -139,7 +139,7 @@ public final class n {
             if (this.f5965a) {
                 String[] strArr = new String[kVarArr.length];
                 for (int i = 0; i < kVarArr.length; i++) {
-                    strArr[i] = kVarArr[i].piY;
+                    strArr[i] = kVarArr[i].piZ;
                 }
                 return ag(strArr);
             }

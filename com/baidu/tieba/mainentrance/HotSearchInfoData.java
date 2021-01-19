@@ -37,7 +37,7 @@ public class HotSearchInfoData extends OrmObject {
         }
     }
 
-    public void Nc(String str) {
+    public void Nd(String str) {
         this.iBZ = str;
     }
 

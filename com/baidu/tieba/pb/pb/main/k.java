@@ -261,15 +261,15 @@ public class k extends l<PostData, PbCommenFloorItemViewHolder> implements View.
     private void i(PostData postData) {
         if (postData != null) {
             int i = 8;
-            if (postData.nnH) {
+            if (postData.nnI) {
                 i = 2;
             }
             com.baidu.tbadk.core.util.aq b2 = com.baidu.tieba.pb.c.a.b(this.lFd, postData, postData.locate, i, 6);
-            postData.nnI = b2;
+            postData.nnJ = b2;
             if (!com.baidu.tbadk.core.util.x.isEmpty(postData.dLj())) {
                 Iterator<PostData> it = postData.dLj().iterator();
                 while (it.hasNext()) {
-                    it.next().nnI = b2;
+                    it.next().nnJ = b2;
                 }
             }
         }
@@ -466,10 +466,10 @@ public class k extends l<PostData, PbCommenFloorItemViewHolder> implements View.
         if (this.lFd != null) {
             if (this.lFd.djn()) {
                 if (this.lHb != null) {
-                    com.baidu.tieba.pb.c.a.a(this.lHb.getUniqueId(), this.lFd, postData, postData.locate, postData.nnH ? 2 : 8);
+                    com.baidu.tieba.pb.c.a.a(this.lHb.getUniqueId(), this.lFd, postData, postData.locate, postData.nnI ? 2 : 8);
                 }
             } else if (this.lEi != null) {
-                com.baidu.tieba.pb.c.a.a(this.lEi.getUniqueId(), this.lFd, postData, postData.locate, postData.nnH ? 2 : 8);
+                com.baidu.tieba.pb.c.a.a(this.lEi.getUniqueId(), this.lFd, postData, postData.locate, postData.nnI ? 2 : 8);
             }
         }
     }
@@ -509,7 +509,7 @@ public class k extends l<PostData, PbCommenFloorItemViewHolder> implements View.
         if (pbCommenFloorItemViewHolder != null && postData != null) {
             if (postData.bnx() == null || postData.bnx().isBaijiahaoUser()) {
             }
-            if (postData.nny) {
+            if (postData.nnz) {
                 com.baidu.tbadk.core.util.ao.setBackgroundColor(pbCommenFloorItemViewHolder.mTopLine, R.color.CAM_X0204);
                 pbCommenFloorItemViewHolder.mTopLine.setVisibility(0);
             } else {
@@ -551,7 +551,7 @@ public class k extends l<PostData, PbCommenFloorItemViewHolder> implements View.
                 }
                 String avater = postData.bnx().getAvater();
                 int i2 = 8;
-                if (postData.nnH) {
+                if (postData.nnI) {
                     i2 = 2;
                 }
                 pbCommenFloorItemViewHolder.hXC.setTag(R.id.tag_user_id, postData.bnx().getUserId());
@@ -901,7 +901,7 @@ public class k extends l<PostData, PbCommenFloorItemViewHolder> implements View.
             if (z2) {
                 pbCommenFloorItemViewHolder.lGk.setVisibility(0);
                 pbCommenFloorItemViewHolder.lGk.setPadding(this.jro, 0, 0, 0);
-                if (postData.nnG) {
+                if (postData.nnH) {
                     pbCommenFloorItemViewHolder.lGk.setText(com.baidu.tbadk.core.util.at.cutStringWithSuffix(dLp.getName(), 7, StringHelper.STRING_MORE));
                 } else {
                     pbCommenFloorItemViewHolder.lGk.setText(dLp.getName());
@@ -1044,7 +1044,7 @@ public class k extends l<PostData, PbCommenFloorItemViewHolder> implements View.
                             this.lFX.setThreadData(this.lFd.diN());
                         }
                     }
-                    this.lFX.Pf(postData.getId());
+                    this.lFX.Pg(postData.getId());
                     pbCommenFloorItemViewHolder.lGq.setSubPbAdapter(this.lFX);
                     pbCommenFloorItemViewHolder.lGq.setVisibility(0);
                     pbCommenFloorItemViewHolder.lGq.setData(postData, view);
@@ -1061,7 +1061,7 @@ public class k extends l<PostData, PbCommenFloorItemViewHolder> implements View.
                     pbCommenFloorItemViewHolder.lGq.setVisibility(8);
                 }
             }
-            if (postData.nnw) {
+            if (postData.nnx) {
                 pbCommenFloorItemViewHolder.mBottomLine.setVisibility(0);
             } else {
                 pbCommenFloorItemViewHolder.mBottomLine.setVisibility(4);
@@ -1101,12 +1101,12 @@ public class k extends l<PostData, PbCommenFloorItemViewHolder> implements View.
 
     private void i(PbCommenFloorItemViewHolder pbCommenFloorItemViewHolder, PostData postData) {
         if (pbCommenFloorItemViewHolder != null && pbCommenFloorItemViewHolder.lGM != null && pbCommenFloorItemViewHolder.lGJ != null) {
-            if (postData == null || postData.nnA == null || StringUtils.isNull(postData.nnA.liveTitle)) {
+            if (postData == null || postData.nnB == null || StringUtils.isNull(postData.nnB.liveTitle)) {
                 pbCommenFloorItemViewHolder.lGJ.setVisibility(8);
                 return;
             }
-            pbCommenFloorItemViewHolder.lGM.setText(postData.nnA.liveTitle);
-            pbCommenFloorItemViewHolder.lGJ.setTag(postData.nnA);
+            pbCommenFloorItemViewHolder.lGM.setText(postData.nnB.liveTitle);
+            pbCommenFloorItemViewHolder.lGJ.setTag(postData.nnB);
             pbCommenFloorItemViewHolder.lGJ.setVisibility(0);
             com.baidu.tbadk.core.util.aq aqVar = new com.baidu.tbadk.core.util.aq("c12639");
             if (TbadkCoreApplication.getCurrentAccount() != null) {
@@ -1118,7 +1118,7 @@ public class k extends l<PostData, PbCommenFloorItemViewHolder> implements View.
 
     private void j(PbCommenFloorItemViewHolder pbCommenFloorItemViewHolder, PostData postData) {
         if (pbCommenFloorItemViewHolder != null && postData != null) {
-            pbCommenFloorItemViewHolder.lGR.setVisibility(postData.nnG ? 0 : 8);
+            pbCommenFloorItemViewHolder.lGR.setVisibility(postData.nnH ? 0 : 8);
         }
     }
 

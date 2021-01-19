@@ -10,22 +10,22 @@ public class ChatInfo {
     public static PaInfo mPainfo;
     public static long mUid;
     public static String nickname;
-    public static String oPg;
-    public static long oPh;
-    public static String oPi;
+    public static String oPh;
+    public static long oPi;
     public static String oPj;
-    public static int oPk;
-    public static String oPm;
+    public static String oPk;
+    public static int oPl;
     public static String oPn;
-    public static int oPo;
+    public static String oPo;
     public static int oPp;
-    public static ChatCategory oPf = ChatCategory.C2C;
-    public static int oPl = -1;
+    public static int oPq;
+    public static ChatCategory oPg = ChatCategory.C2C;
+    public static int oPm = -1;
     public static int vip = 0;
-    public static boolean oPq = false;
-    public static boolean oPr = true;
+    public static boolean oPr = false;
+    public static boolean oPs = true;
     public static int mStatus = 3;
-    public static String oPs = "ugc";
+    public static String oPt = "ugc";
 
     /* loaded from: classes10.dex */
     public enum ChatCategory {

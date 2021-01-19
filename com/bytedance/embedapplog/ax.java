@@ -11,7 +11,7 @@ public abstract class ax<SERVICE> implements bi {
 
     /* renamed from: a  reason: collision with root package name */
     private final String f5790a;
-    private aw<Boolean> pcr = new aw<Boolean>() { // from class: com.bytedance.embedapplog.ax.1
+    private aw<Boolean> pcs = new aw<Boolean>() { // from class: com.bytedance.embedapplog.ax.1
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.bytedance.embedapplog.aw
@@ -35,15 +35,15 @@ public abstract class ax<SERVICE> implements bi {
         if (context == null) {
             return false;
         }
-        return this.pcr.b(context).booleanValue();
+        return this.pcs.b(context).booleanValue();
     }
 
     @Override // com.bytedance.embedapplog.bi
     public bi.a hP(Context context) {
-        return Xv((String) new bp(context, c(context), elz()).a());
+        return Xw((String) new bp(context, c(context), elz()).a());
     }
 
-    private bi.a Xv(String str) {
+    private bi.a Xw(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }

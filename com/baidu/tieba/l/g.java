@@ -1,9 +1,9 @@
 package com.baidu.tieba.l;
 /* loaded from: classes.dex */
 public interface g {
-    void NN(String str);
-
     void NO(String str);
+
+    void NP(String str);
 
     void bE(int i, String str);
 

@@ -16,11 +16,11 @@ import javax.annotation.Nullable;
 public class y implements aw<com.facebook.imagepipeline.f.e> {
     private final ContentResolver mContentResolver;
     private final Executor mExecutor;
-    private final com.facebook.common.memory.g pwB;
+    private final com.facebook.common.memory.g pwC;
 
     public y(Executor executor, com.facebook.common.memory.g gVar, ContentResolver contentResolver) {
         this.mExecutor = executor;
-        this.pwB = gVar;
+        this.pwC = gVar;
         this.mContentResolver = contentResolver;
     }
 
@@ -44,7 +44,7 @@ public class y implements aw<com.facebook.imagepipeline.f.e> {
                 if (ad == null || !ad.hasThumbnail()) {
                     return null;
                 }
-                return y.this.a(y.this.pwB.al(ad.getThumbnail()), ad);
+                return y.this.a(y.this.pwC.al(ad.getThumbnail()), ad);
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -76,7 +76,7 @@ public class y implements aw<com.facebook.imagepipeline.f.e> {
     ExifInterface ad(Uri uri) {
         String a2 = com.facebook.common.util.d.a(this.mContentResolver, uri);
         try {
-            if (Yw(a2)) {
+            if (Yx(a2)) {
                 return new ExifInterface(a2);
             }
         } catch (IOException e) {
@@ -96,7 +96,7 @@ public class y implements aw<com.facebook.imagepipeline.f.e> {
         try {
             com.facebook.imagepipeline.f.e eVar = new com.facebook.imagepipeline.f.e(f);
             com.facebook.common.references.a.c(f);
-            eVar.c(com.facebook.c.b.pvF);
+            eVar.c(com.facebook.c.b.pvG);
             eVar.Pq(a2);
             eVar.setWidth(intValue);
             eVar.setHeight(intValue2);
@@ -111,7 +111,7 @@ public class y implements aw<com.facebook.imagepipeline.f.e> {
         return com.facebook.d.b.PV(Integer.parseInt(exifInterface.getAttribute("Orientation")));
     }
 
-    boolean Yw(String str) throws IOException {
+    boolean Yx(String str) throws IOException {
         if (str == null) {
             return false;
         }

@@ -67,10 +67,10 @@ public class j implements ImageViewerBottomLayout.b, ImageViewerBottomLayout.c {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             p pVar;
             if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof p) && !j.this.kLH.isFinishing() && (pVar = (p) customResponsedMessage.getData()) != null) {
-                pVar.nnW = null;
-                if (!TextUtils.isEmpty(pVar.nnY) && !TextUtils.isEmpty(pVar.nnV) && pVar.nnV.equals(j.this.kNF)) {
-                    j.this.kME.setCurrentImageQRInfo(pVar.nnY);
-                    j.this.MI(pVar.nnY);
+                pVar.nnX = null;
+                if (!TextUtils.isEmpty(pVar.nnZ) && !TextUtils.isEmpty(pVar.nnW) && pVar.nnW.equals(j.this.kNF)) {
+                    j.this.kME.setCurrentImageQRInfo(pVar.nnZ);
+                    j.this.MJ(pVar.nnZ);
                 }
             }
         }
@@ -504,7 +504,7 @@ public class j implements ImageViewerBottomLayout.b, ImageViewerBottomLayout.c {
     public void cYs() {
     }
 
-    public void MI(String str) {
+    public void MJ(String str) {
         int i;
         boolean z = false;
         if (this.irT != null && !this.kLH.isFinishing() && this.irT.isShowing() && !TextUtils.isEmpty(str) && !"qr_none".equals(str)) {
@@ -539,14 +539,14 @@ public class j implements ImageViewerBottomLayout.b, ImageViewerBottomLayout.c {
             if ((imageUrlData == null || TextUtils.isEmpty(imageUrlData.qrInfo)) && (imageBitmap = dragImageView.getImageBitmap()) != null && !imageBitmap.isRecycled()) {
                 p pVar = new p();
                 pVar.type = 0;
-                pVar.nnW = imageBitmap;
+                pVar.nnX = imageBitmap;
                 String currentImageUrl = this.kME.getCurrentImageUrl();
                 if (!TextUtils.isEmpty(currentImageUrl)) {
-                    pVar.nnV = String.valueOf(System.currentTimeMillis()) + av.getNameMd5FromUrl(currentImageUrl);
+                    pVar.nnW = String.valueOf(System.currentTimeMillis()) + av.getNameMd5FromUrl(currentImageUrl);
                 } else {
-                    pVar.nnV = String.valueOf(BdUniqueId.gen().getId());
+                    pVar.nnW = String.valueOf(BdUniqueId.gen().getId());
                 }
-                this.kNF = pVar.nnV;
+                this.kNF = pVar.nnW;
                 this.kLH.sendMessage(new CustomMessage(2921403, pVar));
             }
         }

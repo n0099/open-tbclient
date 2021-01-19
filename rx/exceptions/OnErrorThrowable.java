@@ -64,7 +64,7 @@ public final class OnErrorThrowable extends RuntimeException {
         /* JADX INFO: Access modifiers changed from: package-private */
         /* loaded from: classes14.dex */
         public static final class a {
-            static final Set<Class<?>> qoe = eKy();
+            static final Set<Class<?>> qof = eKy();
 
             private static Set<Class<?>> eKy() {
                 HashSet hashSet = new HashSet();
@@ -100,7 +100,7 @@ public final class OnErrorThrowable extends RuntimeException {
             if (obj == null) {
                 return "null";
             }
-            if (a.qoe.contains(obj.getClass())) {
+            if (a.qof.contains(obj.getClass())) {
                 return obj.toString();
             }
             if (obj instanceof String) {

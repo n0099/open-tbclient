@@ -163,7 +163,7 @@ public class PbReplyTitleViewHolder extends TypeAdapter.ViewHolder {
         for (PbSortType pbSortType : list) {
             com.baidu.tieba.tbadkCore.data.q qVar = new com.baidu.tieba.tbadkCore.data.q();
             qVar.Jl(pbSortType.sort_type.intValue());
-            qVar.Sh(pbSortType.sort_name);
+            qVar.Si(pbSortType.sort_name);
             arrayList.add(qVar);
         }
         this.lPj.setVisibility(0);

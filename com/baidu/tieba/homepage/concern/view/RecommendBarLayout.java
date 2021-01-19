@@ -97,9 +97,9 @@ public class RecommendBarLayout extends LinearLayout implements View.OnClickList
 
             @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
             public void onPageSelected(int i) {
-                n Bg = RecommendBarLayout.this.jUU.Bg(i);
-                if (Bg instanceof d) {
-                    d dVar = (d) Bg;
+                n Bf = RecommendBarLayout.this.jUU.Bf(i);
+                if (Bf instanceof d) {
+                    d dVar = (d) Bf;
                     aq an = new aq("c14004").dW("uid", TbadkApplication.getCurrentAccount()).an("obj_locate", RecommendBarLayout.this.jTS).an("obj_param1", i);
                     if (!StringUtils.isNull(dVar.jUe)) {
                         an = an.dW("obj_name", dVar.jUe);
@@ -142,9 +142,9 @@ public class RecommendBarLayout extends LinearLayout implements View.OnClickList
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         if (view.getId() == R.id.recommend_bar_top) {
-            n Bg = this.jUU.Bg(this.jUT.getCurrentItem());
-            if (Bg instanceof d) {
-                d dVar = (d) Bg;
+            n Bf = this.jUU.Bf(this.jUT.getCurrentItem());
+            if (Bf instanceof d) {
+                d dVar = (d) Bf;
                 MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new ForumSquareActivityConfig(this.mContext, dVar.aEU)));
                 aq an = new aq("c13645").dW("uid", TbadkApplication.getCurrentAccount()).an("obj_locate", this.jTS);
                 TiebaStatic.log(StringUtils.isNull(dVar.jUe) ? an : an.dW("obj_name", dVar.jUe));

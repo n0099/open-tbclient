@@ -201,7 +201,7 @@ public class HotTopicDetailModel extends BdBaseModel {
         RequestHotTopicMessage requestHotTopicMessage = new RequestHotTopicMessage();
         requestHotTopicMessage.setTopicId(Long.valueOf(this.topicId));
         requestHotTopicMessage.setTopicName(this.eNh);
-        requestHotTopicMessage.setCall_from(Lu(this.from));
+        requestHotTopicMessage.setCall_from(Lv(this.from));
         requestHotTopicMessage.setSort_type(Integer.valueOf(i));
         requestHotTopicMessage.setScrH(Integer.valueOf(this.height));
         requestHotTopicMessage.setScrW(Integer.valueOf(this.width));
@@ -224,7 +224,7 @@ public class HotTopicDetailModel extends BdBaseModel {
             RequestHotTopicMessage requestHotTopicMessage = new RequestHotTopicMessage();
             requestHotTopicMessage.setTopicId(Long.valueOf(this.topicId));
             requestHotTopicMessage.setTopicName(this.eNh);
-            requestHotTopicMessage.setCall_from(Lu(this.from));
+            requestHotTopicMessage.setCall_from(Lv(this.from));
             requestHotTopicMessage.setSort_type(1);
             requestHotTopicMessage.setScrH(Integer.valueOf(this.height));
             requestHotTopicMessage.setScrW(Integer.valueOf(this.width));
@@ -309,7 +309,7 @@ public class HotTopicDetailModel extends BdBaseModel {
         return false;
     }
 
-    private int Lu(String str) {
+    private int Lv(String str) {
         if ("1".equals(str)) {
             return 1;
         }

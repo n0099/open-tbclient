@@ -31,42 +31,42 @@ public class c {
     private View jQX;
     private NavigationBar mNavigationBar;
     private View mRoot;
-    private BackgroundGroupActivity nwM;
-    private MemberRecommendView nwS;
-    private TextView nwT;
-    private a nwU;
-    private TextView nwo;
+    private BackgroundGroupActivity nwN;
+    private MemberRecommendView nwT;
+    private TextView nwU;
+    private a nwV;
+    private TextView nwp;
 
     public c(BackgroundGroupActivity backgroundGroupActivity, d dVar) {
         this.agC = 0;
-        this.nwM = backgroundGroupActivity;
+        this.nwN = backgroundGroupActivity;
         this.agC = l.getDimens(backgroundGroupActivity.getPageContext().getPageActivity(), R.dimen.ds320);
-        this.mRoot = LayoutInflater.from(this.nwM.getPageContext().getPageActivity()).inflate(R.layout.background_group, (ViewGroup) null);
-        this.nwM.setContentView(this.mRoot);
+        this.mRoot = LayoutInflater.from(this.nwN.getPageContext().getPageActivity()).inflate(R.layout.background_group, (ViewGroup) null);
+        this.nwN.setContentView(this.mRoot);
         this.jQX = this.mRoot.findViewById(R.id.body_view);
         this.mNavigationBar = (NavigationBar) this.mRoot.findViewById(R.id.view_navigation_bar);
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         this.mNavigationBar.setTitleText(R.string.personal_background);
-        this.nwS = (MemberRecommendView) this.mRoot.findViewById(R.id.view_member_recommend);
-        this.nwS.setFromType(4);
+        this.nwT = (MemberRecommendView) this.mRoot.findViewById(R.id.view_member_recommend);
+        this.nwT.setFromType(4);
         this.WT = (BdListView) this.mRoot.findViewById(R.id.listview_bg_group);
-        this.nwo = new TextView(this.nwM.getActivity());
-        this.nwo.setHeight(l.getDimens(this.nwM.getActivity(), R.dimen.ds104));
-        this.nwT = (TextView) LayoutInflater.from(this.nwM.getPageContext().getPageActivity()).inflate(R.layout.look_more_view, (ViewGroup) null);
-        this.nwT.setText(R.string.more_backgrounds);
-        this.nwT.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.themeCenter.background.c.1
+        this.nwp = new TextView(this.nwN.getActivity());
+        this.nwp.setHeight(l.getDimens(this.nwN.getActivity(), R.dimen.ds104));
+        this.nwU = (TextView) LayoutInflater.from(this.nwN.getPageContext().getPageActivity()).inflate(R.layout.look_more_view, (ViewGroup) null);
+        this.nwU.setText(R.string.more_backgrounds);
+        this.nwU.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.themeCenter.background.c.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 TiebaStatic.log("c10283");
-                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PersonalBackdropListActivityConfig(c.this.nwM.getActivity())));
+                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PersonalBackdropListActivityConfig(c.this.nwN.getActivity())));
             }
         });
-        this.nwU = new a(this.nwM.getPageContext(), dVar);
-        TextView textView = new TextView(this.nwM.getActivity());
-        textView.setLayoutParams(new AbsListView.LayoutParams(-1, UtilHelper.getLightStatusBarHeight() + l.getDimens(this.nwM.getActivity(), R.dimen.ds98)));
+        this.nwV = new a(this.nwN.getPageContext(), dVar);
+        TextView textView = new TextView(this.nwN.getActivity());
+        textView.setLayoutParams(new AbsListView.LayoutParams(-1, UtilHelper.getLightStatusBarHeight() + l.getDimens(this.nwN.getActivity(), R.dimen.ds98)));
         this.WT.addHeaderView(textView, 0);
-        this.WT.addFooterView(this.nwT);
-        this.WT.setAdapter((ListAdapter) this.nwU);
+        this.WT.addFooterView(this.nwU);
+        this.WT.setAdapter((ListAdapter) this.nwV);
     }
 
     public void a(com.baidu.tieba.themeCenter.dressCenter.e eVar, List<b> list, boolean z) {
@@ -76,10 +76,10 @@ public class c {
         }
         czx();
         if (b(eVar)) {
-            this.WT.removeHeaderView(this.nwo);
-            this.WT.addHeaderView(this.nwo);
+            this.WT.removeHeaderView(this.nwp);
+            this.WT.addHeaderView(this.nwp);
         } else {
-            this.WT.removeHeaderView(this.nwo);
+            this.WT.removeHeaderView(this.nwp);
         }
         fV(fW(list));
     }
@@ -112,31 +112,31 @@ public class c {
             return;
         }
         this.WT.setVisibility(0);
-        this.nwU.setData(list);
-        this.nwU.notifyDataSetChanged();
+        this.nwV.setData(list);
+        this.nwV.notifyDataSetChanged();
     }
 
     private boolean b(com.baidu.tieba.themeCenter.dressCenter.e eVar) {
         if (eVar == null || StringUtils.isNull(eVar.dPd())) {
-            this.nwS.setVisibility(8);
+            this.nwT.setVisibility(8);
             return false;
         }
-        this.nwS.setVisibility(0);
-        this.nwS.a(eVar);
+        this.nwT.setVisibility(0);
+        this.nwT.a(eVar);
         return true;
     }
 
     public void czw() {
         this.jQX.setVisibility(8);
         ao.setBackgroundColor(this.mRoot, R.color.CAM_X0201);
-        String string = this.nwM.getPageContext().getResources().getString(R.string.no_data_text);
-        this.nwM.setNetRefreshViewTopMargin(this.agC);
-        this.nwM.showNetRefreshView(this.mRoot, string, false);
+        String string = this.nwN.getPageContext().getResources().getString(R.string.no_data_text);
+        this.nwN.setNetRefreshViewTopMargin(this.agC);
+        this.nwN.showNetRefreshView(this.mRoot, string, false);
     }
 
     public void czx() {
         ao.setBackgroundColor(this.mRoot, R.color.CAM_X0204);
-        this.nwM.hideNetRefreshView(this.mRoot);
+        this.nwN.hideNetRefreshView(this.mRoot);
         this.jQX.setVisibility(0);
     }
 
@@ -149,15 +149,15 @@ public class c {
     }
 
     public void byV() {
-        com.baidu.tbadk.r.a.a(this.nwM.getPageContext(), this.mRoot);
-        this.nwM.getLayoutMode().onModeChanged(this.nwT);
+        com.baidu.tbadk.r.a.a(this.nwN.getPageContext(), this.mRoot);
+        this.nwN.getLayoutMode().onModeChanged(this.nwU);
         if (this.mNavigationBar != null) {
-            this.mNavigationBar.onChangeSkinType(this.nwM.getPageContext(), TbadkApplication.getInst().getSkinType());
+            this.mNavigationBar.onChangeSkinType(this.nwN.getPageContext(), TbadkApplication.getInst().getSkinType());
         }
-        if (this.WT != null && this.WT.getVisibility() == 0 && this.nwU != null) {
-            this.nwU.notifyDataSetChanged();
+        if (this.WT != null && this.WT.getVisibility() == 0 && this.nwV != null) {
+            this.nwV.notifyDataSetChanged();
         }
-        ao.setBackgroundColor(this.nwo, R.color.CAM_X0204);
+        ao.setBackgroundColor(this.nwp, R.color.CAM_X0204);
     }
 
     public View getRootView() {

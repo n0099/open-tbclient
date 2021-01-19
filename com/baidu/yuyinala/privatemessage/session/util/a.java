@@ -14,7 +14,7 @@ import java.util.Date;
 import java.util.Locale;
 /* loaded from: classes10.dex */
 public final class a {
-    private static long oZp = -1;
+    private static long oZq = -1;
 
     public static String k(Context context, long j) {
         Calendar calendar = Calendar.getInstance(ekB());
@@ -61,13 +61,13 @@ public final class a {
     }
 
     public static long hZ(long j) {
-        if (oZp < 0) {
-            oZp = j;
+        if (oZq < 0) {
+            oZq = j;
         }
-        if (Math.abs(oZp - j) > 1000) {
-            oZp = j;
+        if (Math.abs(oZq - j) > 1000) {
+            oZq = j;
         }
-        return oZp;
+        return oZq;
     }
 
     public static Locale ekB() {

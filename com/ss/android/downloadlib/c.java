@@ -19,21 +19,21 @@ public class c implements com.ss.android.b.a.b {
 
     /* renamed from: a  reason: collision with root package name */
     private static String f12973a = c.class.getSimpleName();
-    private static volatile c pSe;
-    private i pSf = i.ix(j.a());
+    private static volatile c pSf;
+    private i pSg = i.ix(j.a());
 
     private c() {
     }
 
     public static c eCE() {
-        if (pSe == null) {
+        if (pSf == null) {
             synchronized (c.class) {
-                if (pSe == null) {
-                    pSe = new c();
+                if (pSf == null) {
+                    pSf = new c();
                 }
             }
         }
-        return pSe;
+        return pSf;
     }
 
     @Override // com.ss.android.b.a.b
@@ -44,18 +44,18 @@ public class c implements com.ss.android.b.a.b {
         } else if (context == null || TextUtils.isEmpty(cVar.a())) {
             return null;
         } else {
-            this.pSf.a(context, i, dVar, cVar);
+            this.pSg.a(context, i, dVar, cVar);
             final com.ss.android.a.a.b.b bVar2 = (com.ss.android.a.a.b.b) com.ss.android.downloadlib.f.i.M(bVar, eCG());
             final com.ss.android.a.a.b.a aVar2 = (com.ss.android.a.a.b.a) com.ss.android.downloadlib.f.i.M(aVar, eCF());
             if ((j.i().optInt("disable_lp_dialog", 0) == 1) | z) {
-                this.pSf.a(cVar.a(), cVar.d(), 2, bVar2, aVar2);
+                this.pSg.a(cVar.a(), cVar.d(), 2, bVar2, aVar2);
                 return null;
             }
             com.ss.android.downloadlib.f.h.i(f12973a, "tryStartDownload show dialog appName:" + cVar.a(), null);
-            Dialog b2 = j.eCo().b(new c.a(context).Zd(cVar.h()).Ze("确认要下载此应用吗？").Zf("确认").Zg(PayHelper.STATUS_CANCEL_DESC).a(new c.b() { // from class: com.ss.android.downloadlib.c.1
+            Dialog b2 = j.eCo().b(new c.a(context).Ze(cVar.h()).Zf("确认要下载此应用吗？").Zg("确认").Zh(PayHelper.STATUS_CANCEL_DESC).a(new c.b() { // from class: com.ss.android.downloadlib.c.1
                 @Override // com.ss.android.a.a.d.c.b
                 public void a(DialogInterface dialogInterface) {
-                    c.this.pSf.a(cVar.a(), cVar.d(), 2, bVar2, aVar2);
+                    c.this.pSg.a(cVar.a(), cVar.d(), 2, bVar2, aVar2);
                     com.ss.android.downloadlib.e.a.eCL().a("landing_download_dialog_confirm", cVar, bVar2);
                     dialogInterface.dismiss();
                 }
@@ -80,12 +80,12 @@ public class c implements com.ss.android.b.a.b {
     public boolean a(Context context, long j, String str, com.ss.android.a.a.b.d dVar, int i) {
         com.ss.android.b.a.b.a jb = com.ss.android.downloadlib.a.b.d.eCc().jb(j);
         if (jb != null) {
-            this.pSf.a(context, i, dVar, jb.eBU());
+            this.pSg.a(context, i, dVar, jb.eBU());
             return true;
         }
         com.ss.android.a.a.b.c iY = com.ss.android.downloadlib.a.b.d.eCc().iY(j);
         if (iY != null) {
-            this.pSf.a(context, i, dVar, iY);
+            this.pSg.a(context, i, dVar, iY);
             return true;
         }
         return false;
@@ -97,9 +97,9 @@ public class c implements com.ss.android.b.a.b {
         com.ss.android.b.a.a.c eBU = (iY != null || jb == null) ? iY : jb.eBU();
         if (eBU != null) {
             if (jb == null) {
-                this.pSf.a(eBU.a(), j, 2, eCG(), eCF());
+                this.pSg.a(eBU.a(), j, 2, eCG(), eCF());
             } else {
-                this.pSf.a(eBU.a(), j, 2, new b.a().Zl(jb.x()).Zt(jb.y()).By(jb.u()).Bw(false).Zn("click_start_detail").Zo("click_pause_detail").Zp("click_continue_detail").Zq("click_install_detail").Zs("storage_deny_detail").eBO(), jb.eBW());
+                this.pSg.a(eBU.a(), j, 2, new b.a().Zm(jb.x()).Zu(jb.y()).By(jb.u()).Bw(false).Zo("click_start_detail").Zp("click_pause_detail").Zq("click_continue_detail").Zr("click_install_detail").Zt("storage_deny_detail").eBO(), jb.eBW());
             }
         }
     }
@@ -121,7 +121,7 @@ public class c implements com.ss.android.b.a.b {
         }
         com.ss.android.a.a.b.b bVar2 = (com.ss.android.a.a.b.b) com.ss.android.downloadlib.f.i.M(bVar, eCG());
         if ((cVar instanceof com.ss.android.b.a.a.c) && TextUtils.isEmpty(cVar.a())) {
-            ((com.ss.android.b.a.a.c) cVar).Zv(uri.toString());
+            ((com.ss.android.b.a.a.c) cVar).Zw(uri.toString());
             eCF = BD(true);
         } else if (cVar.a().startsWith("market")) {
             eCF = BD(true);
@@ -131,12 +131,12 @@ public class c implements com.ss.android.b.a.b {
         d.a aVar2 = new d.a(cVar.d(), cVar, bVar2, eCF);
         String queryParameter = uri.getQueryParameter("id");
         if (!TextUtils.isEmpty(queryParameter) && (cVar instanceof com.ss.android.b.a.a.c)) {
-            ((com.ss.android.b.a.a.c) cVar).Zu(queryParameter);
+            ((com.ss.android.b.a.a.c) cVar).Zv(queryParameter);
         }
         if (com.ss.android.downloadlib.f.i.b(cVar) && com.ss.android.socialbase.downloader.k.a.eGg().b("app_link_opt") == 1 && com.ss.android.downloadlib.b.a.b(aVar2)) {
             return true;
         }
-        com.ss.android.downloadlib.e.a.eCL().a("market_click_open", cVar, aVar2.pQW);
+        com.ss.android.downloadlib.e.a.eCL().a("market_click_open", cVar, aVar2.pQX);
         com.ss.android.downloadlib.a.b.e bA = com.ss.android.downloadlib.f.f.bA(context, queryParameter);
         JSONObject jSONObject = new JSONObject();
         try {
@@ -146,8 +146,8 @@ public class c implements com.ss.android.b.a.b {
         }
         if (bA.a() == 5) {
             com.ss.android.downloadlib.e.a.eCL().a("market_open_success", jSONObject, aVar2);
-            j.eCn().a(context, aVar2.pQV, aVar2.pQX, aVar2.pQW, aVar2.pQV.v());
-            com.ss.android.b.a.b.a aVar3 = new com.ss.android.b.a.b.a(aVar2.pQV, aVar2.pQW, aVar2.pQX);
+            j.eCn().a(context, aVar2.pQW, aVar2.pQY, aVar2.pQX, aVar2.pQW.v());
+            com.ss.android.b.a.b.a aVar3 = new com.ss.android.b.a.b.a(aVar2.pQW, aVar2.pQX, aVar2.pQY);
             if (!TextUtils.isEmpty(queryParameter)) {
                 aVar3.b(queryParameter);
             }
@@ -186,6 +186,6 @@ public class c implements com.ss.android.b.a.b {
     }
 
     public static com.ss.android.a.a.b.b eCG() {
-        return new b.a().Zl("landing_h5_download_ad_button").Zm("landing_h5_download_ad_button").Zn("click_start_detail").Zo("click_pause_detail").Zp("click_continue_detail").Zq("click_install_detail").Zr("click_open_detail").Zs("storage_deny_detail").Qu(1).Bw(false).Bx(true).By(false).eBO();
+        return new b.a().Zm("landing_h5_download_ad_button").Zn("landing_h5_download_ad_button").Zo("click_start_detail").Zp("click_pause_detail").Zq("click_continue_detail").Zr("click_install_detail").Zs("click_open_detail").Zt("storage_deny_detail").Qu(1).Bw(false).Bx(true).By(false).eBO();
     }
 }

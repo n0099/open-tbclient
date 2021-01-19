@@ -22,7 +22,7 @@ public final class g implements com.yxcorp.kuaishou.addfp.a.b.a, com.yxcorp.kuai
         d dVar;
         if (this.f14365b != null) {
             com.yxcorp.kuaishou.addfp.a.a.a aVar = this.f14365b;
-            dVar = f.qbK;
+            dVar = f.qbL;
             aVar.a(dVar.b(), this);
         }
     }
@@ -30,7 +30,7 @@ public final class g implements com.yxcorp.kuaishou.addfp.a.b.a, com.yxcorp.kuai
     @Override // com.yxcorp.kuaishou.addfp.a.b.a
     public final void a(com.yxcorp.kuaishou.addfp.a.a.a aVar) {
         d dVar;
-        dVar = f.qbK;
+        dVar = f.qbL;
         dVar.a(this.f14364a, this);
     }
 
@@ -48,9 +48,9 @@ public final class g implements com.yxcorp.kuaishou.addfp.a.b.a, com.yxcorp.kuai
     public final String b() {
         d dVar;
         d dVar2;
-        dVar = f.qbK;
+        dVar = f.qbL;
         if (dVar.b()) {
-            dVar2 = f.qbK;
+            dVar2 = f.qbL;
             String a2 = dVar2.a();
             return a2 == null ? "" : a2;
         }
@@ -60,14 +60,14 @@ public final class g implements com.yxcorp.kuaishou.addfp.a.b.a, com.yxcorp.kuai
     @Override // com.yxcorp.kuaishou.addfp.a.b.a
     public final boolean c() {
         d dVar;
-        dVar = f.qbK;
+        dVar = f.qbL;
         return dVar.b();
     }
 
     @Override // com.yxcorp.kuaishou.addfp.a.b.a
     public final void d() {
         d dVar;
-        dVar = f.qbK;
+        dVar = f.qbL;
         dVar.a(this.f14364a);
     }
 

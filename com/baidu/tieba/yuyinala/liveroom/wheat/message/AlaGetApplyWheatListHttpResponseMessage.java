@@ -7,8 +7,8 @@ import org.json.JSONObject;
 /* loaded from: classes10.dex */
 public class AlaGetApplyWheatListHttpResponseMessage extends BaseJsonHttpResponsedMessage {
     private int count;
-    private List<com.baidu.live.data.e> ozr;
-    private int ozs;
+    private List<com.baidu.live.data.e> ozs;
+    private int ozt;
     private int phone_order;
     private int position;
 
@@ -21,29 +21,29 @@ public class AlaGetApplyWheatListHttpResponseMessage extends BaseJsonHttpRespons
         JSONArray jSONArray;
         super.decodeLogicInBackGround(i, jSONObject);
         if (jSONObject != null && i == 1031006) {
-            if (this.ozr == null) {
-                this.ozr = new ArrayList();
+            if (this.ozs == null) {
+                this.ozs = new ArrayList();
             }
-            this.ozr.clear();
+            this.ozs.clear();
             JSONObject optJSONObject = jSONObject.optJSONObject("data");
             if (optJSONObject != null && (jSONArray = optJSONObject.getJSONArray("list")) != null && jSONArray.length() > 0) {
                 for (int i2 = 0; i2 < jSONArray.length(); i2++) {
                     com.baidu.live.data.e eVar = new com.baidu.live.data.e();
                     eVar.parseJson((JSONObject) jSONArray.get(i2));
-                    this.ozr.add(eVar);
+                    this.ozs.add(eVar);
                 }
             }
             if (optJSONObject != null) {
                 this.count = optJSONObject.optInt("count", 0);
                 this.position = optJSONObject.optInt("pos", 0);
                 this.phone_order = optJSONObject.optInt("phone_order", 0);
-                this.ozs = optJSONObject.optInt("link_status", 0);
+                this.ozt = optJSONObject.optInt("link_status", 0);
             }
         }
     }
 
     public List<com.baidu.live.data.e> eci() {
-        return this.ozr;
+        return this.ozs;
     }
 
     public int getPosition() {
@@ -55,7 +55,7 @@ public class AlaGetApplyWheatListHttpResponseMessage extends BaseJsonHttpRespons
     }
 
     public boolean ecj() {
-        return this.ozs == 1;
+        return this.ozt == 1;
     }
 
     public int eck() {

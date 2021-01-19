@@ -32,11 +32,11 @@ public class e {
     }
 
     public void setText(String str) {
-        this.fgZ.setText(TbFaceManager.bCw().a(this.mContext, com.baidu.tieba.memberCenter.tail.a.d.NA(str), null));
+        this.fgZ.setText(TbFaceManager.bCw().a(this.mContext, com.baidu.tieba.memberCenter.tail.a.d.NB(str), null));
     }
 
     public void setColor(String str) {
-        this.fgZ.setTextColor(com.baidu.tieba.memberCenter.tail.a.c.Nz(str));
+        this.fgZ.setTextColor(com.baidu.tieba.memberCenter.tail.a.c.NA(str));
     }
 
     public void a(TailData tailData) {

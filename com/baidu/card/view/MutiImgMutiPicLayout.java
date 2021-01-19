@@ -257,7 +257,7 @@ public class MutiImgMutiPicLayout extends LinearLayout implements p<com.baidu.tb
         this.alm.setTag(voiceModel);
         this.alm.btU();
         if (voiceModel != null) {
-            this.alm.CY(voiceModel.voice_status.intValue());
+            this.alm.CX(voiceModel.voice_status.intValue());
         }
         this.alm.cbz();
         this.alp = true;

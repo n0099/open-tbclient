@@ -57,7 +57,7 @@ public class bc implements Runnable {
                     return;
                 }
                 a(this.f7762a, optString);
-                ((FunAdSdk.a) bq.pFN).a(a3);
+                ((FunAdSdk.a) bq.pFO).a(a3);
             }
         } catch (MalformedURLException e) {
             e.printStackTrace();

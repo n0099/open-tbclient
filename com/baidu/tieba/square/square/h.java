@@ -48,7 +48,7 @@ public class h {
         }
         try {
             parserJson(new JSONObject(str));
-            RQ(str);
+            RR(str);
         } catch (Exception e) {
             this.isSuccess = false;
             BdLog.e(e.toString());
@@ -173,7 +173,7 @@ public class h {
         return this.mTimeStamp;
     }
 
-    private void RQ(String str) {
+    private void RR(String str) {
         JSONArray optJSONArray;
         if (str != null) {
             try {

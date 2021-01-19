@@ -155,11 +155,11 @@ public class FrsActivity extends BaseFragmentActivity implements com.baidu.tbadk
             ForumData forum = this.iZx.cHv().getForum();
             this.iZE.dTJ();
             this.iZE.e(this.iZx.cHv().getUserData());
-            this.iZE.TQ(forum.getName());
+            this.iZE.TR(forum.getName());
             this.iZE.K(forum.getMember_num(), forum.getThread_num());
             this.iZE.setForumId(Integer.parseInt(forum.getId()));
             this.iZE.zK(forum.getName());
-            this.iZE.TR(String.valueOf(this.iZx.cHv().getUserData().getLevel_id()));
+            this.iZE.TS(String.valueOf(this.iZx.cHv().getUserData().getLevel_id()));
         }
     }
 

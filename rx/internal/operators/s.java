@@ -5,10 +5,10 @@ import rx.d;
 import rx.h;
 /* loaded from: classes14.dex */
 public final class s<T> implements h.a<T> {
-    final d.a<T> qrF;
+    final d.a<T> qrG;
 
     public s(d.a<T> aVar) {
-        this.qrF = aVar;
+        this.qrG = aVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -17,7 +17,7 @@ public final class s<T> implements h.a<T> {
     public void call(rx.i<? super T> iVar) {
         a aVar = new a(iVar);
         iVar.add(aVar);
-        this.qrF.call(aVar);
+        this.qrG.call(aVar);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */

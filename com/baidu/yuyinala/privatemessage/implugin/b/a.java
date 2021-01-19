@@ -13,23 +13,23 @@ import com.baidu.yuyinala.privatemessage.implugin.ui.fragment.a.d;
 /* loaded from: classes10.dex */
 public class a {
     private static final String TAG = a.class.getSimpleName();
-    private static a oPK;
+    private static a oPL;
     private Context mContext;
-    private LongSparseArray<ImageMsg> oPL = new LongSparseArray<>();
+    private LongSparseArray<ImageMsg> oPM = new LongSparseArray<>();
 
     private a(Context context) {
         this.mContext = context.getApplicationContext();
     }
 
     public static a hs(Context context) {
-        if (oPK == null) {
+        if (oPL == null) {
             synchronized (a.class) {
-                if (oPK == null) {
-                    oPK = new a(context);
+                if (oPL == null) {
+                    oPL = new a(context);
                 }
             }
         }
-        return oPK;
+        return oPL;
     }
 
     public void a(ChatMsg chatMsg, String str) {
@@ -68,9 +68,9 @@ public class a {
     }
 
     public void a(ImageMsg imageMsg) {
-        if (this.oPL != null) {
-            if (this.oPL.get(imageMsg.getRowId()) != null) {
-                imageMsg.setProgress(this.oPL.get(imageMsg.getRowId()).getProgress());
+        if (this.oPM != null) {
+            if (this.oPM.get(imageMsg.getRowId()) != null) {
+                imageMsg.setProgress(this.oPM.get(imageMsg.getRowId()).getProgress());
             } else {
                 imageMsg.setStatus(2);
             }
@@ -78,12 +78,12 @@ public class a {
     }
 
     public void a(int i, ChatMsg chatMsg, String str) {
-        c Xl = d.eiJ().Xl(str);
-        if (Xl != null) {
-            Xl.onSendMessageResult(i, chatMsg);
+        c Xm = d.eiJ().Xm(str);
+        if (Xm != null) {
+            Xm.onSendMessageResult(i, chatMsg);
         }
         if (chatMsg.getMsgType() == 1) {
-            this.oPL.remove(chatMsg.getRowId());
+            this.oPM.remove(chatMsg.getRowId());
         }
     }
 

@@ -11,7 +11,7 @@ import com.baidu.tieba.themeCenter.background.DressItemData;
 /* loaded from: classes8.dex */
 public class a {
     private TbPageContext<?> mPageContext;
-    private int nwW;
+    private int nwX;
 
     public a(TbPageContext<?> tbPageContext) {
         this.mPageContext = tbPageContext;
@@ -27,10 +27,10 @@ public class a {
                 a2 = h(dressItemData);
             }
             if (a2) {
-                this.nwW = dressItemData.getPropsId();
+                this.nwX = dressItemData.getPropsId();
                 HttpMessage httpMessage = new HttpMessage(1003056);
-                httpMessage.setExtra(Integer.valueOf(this.nwW));
-                httpMessage.addParam("bcode", String.valueOf(this.nwW));
+                httpMessage.setExtra(Integer.valueOf(this.nwX));
+                httpMessage.addParam("bcode", String.valueOf(this.nwX));
                 MessageManager.getInstance().sendMessage(httpMessage);
             } else if (dressItemData.getFreeUserLevel() == 100) {
                 if (dressItemData.getActivityFinish() == 0) {

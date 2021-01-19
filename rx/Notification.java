@@ -1,9 +1,9 @@
 package rx;
 /* loaded from: classes14.dex */
 public final class Notification<T> {
-    private static final Notification<Void> qnM = new Notification<>(Kind.OnCompleted, null, null);
-    private final Kind qnK;
-    private final Throwable qnL;
+    private static final Notification<Void> qnN = new Notification<>(Kind.OnCompleted, null, null);
+    private final Kind qnL;
+    private final Throwable qnM;
     private final T value;
 
     /* loaded from: classes14.dex */
@@ -22,17 +22,17 @@ public final class Notification<T> {
     }
 
     public static <T> Notification<T> eKf() {
-        return (Notification<T>) qnM;
+        return (Notification<T>) qnN;
     }
 
     private Notification(Kind kind, T t, Throwable th) {
         this.value = t;
-        this.qnL = th;
-        this.qnK = kind;
+        this.qnM = th;
+        this.qnL = kind;
     }
 
     public Throwable eKg() {
-        return this.qnL;
+        return this.qnM;
     }
 
     public T getValue() {
@@ -44,11 +44,11 @@ public final class Notification<T> {
     }
 
     public boolean eKh() {
-        return eHP() && this.qnL != null;
+        return eHP() && this.qnM != null;
     }
 
     public Kind eKi() {
-        return this.qnK;
+        return this.qnL;
     }
 
     public boolean eHP() {
@@ -96,7 +96,7 @@ public final class Notification<T> {
         }
         if (obj.getClass() == getClass()) {
             Notification notification = (Notification) obj;
-            if (notification.eKi() != eKi() || ((this.value != notification.value && (this.value == null || !this.value.equals(notification.value))) || (this.qnL != notification.qnL && (this.qnL == null || !this.qnL.equals(notification.qnL))))) {
+            if (notification.eKi() != eKi() || ((this.value != notification.value && (this.value == null || !this.value.equals(notification.value))) || (this.qnM != notification.qnM && (this.qnM == null || !this.qnM.equals(notification.qnM))))) {
                 z = false;
             }
             return z;

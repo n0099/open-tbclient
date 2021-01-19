@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Map;
 /* loaded from: classes4.dex */
 public interface b {
-    a XO(String str);
+    a XP(String str);
 
     void a();
 

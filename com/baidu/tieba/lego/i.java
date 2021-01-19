@@ -41,7 +41,7 @@ public class i implements e {
     }
 
     @Override // com.baidu.tieba.lego.e
-    public e bz(String str, int i) {
+    public e bA(String str, int i) {
         if (!TextUtils.isEmpty(str)) {
             this.kRQ.an(str, i);
         }
@@ -106,7 +106,7 @@ public class i implements e {
         }
 
         @Override // com.baidu.tieba.lego.e
-        public e bz(String str, int i) {
+        public e bA(String str, int i) {
             return this;
         }
 

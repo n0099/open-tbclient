@@ -23,17 +23,17 @@ public class e {
     private MediaCodec mEncoder;
     private Surface mInputSurface;
     private int mTrackIndex;
-    private g noh;
-    private c pDB;
+    private g noi;
+    private c pDC;
     private Bundle dqI = new Bundle();
-    private long pEf = 0;
-    private boolean pEa = false;
+    private long pEg = 0;
+    private boolean pEb = false;
 
     public e(int i, int i2, int i3, c cVar) throws IOException {
         CustomResponsedMessage runTask = MessageManager.getInstance().runTask(CmdConfigCustom.CMD_GET_VIDEO_PLATFORM_FACTORY, k.class);
         k kVar = runTask != null ? (k) runTask.getData() : null;
         if (kVar != null) {
-            this.noh = kVar.deY();
+            this.noi = kVar.deY();
         }
         this.mBufferInfo = new MediaCodec.BufferInfo();
         MediaFormat createVideoFormat = MediaFormat.createVideoFormat(f.f2313b, i, i2);
@@ -51,11 +51,11 @@ public class e {
         }
         this.mTrackIndex = -1;
         this.cdz = false;
-        this.pDB = cVar;
+        this.pDC = cVar;
     }
 
     public synchronized void requestStop() {
-        this.pEa = true;
+        this.pEb = true;
     }
 
     public Surface getInputSurface() {
@@ -68,15 +68,15 @@ public class e {
             this.mEncoder.release();
             this.mEncoder = null;
         }
-        if (this.pDB != null) {
+        if (this.pDC != null) {
             try {
-                this.pDB.stop();
+                this.pDC.stop();
             } catch (IllegalStateException e) {
-                if (this.noh != null) {
-                    this.noh.bE(17, com.baidu.tieba.l.a.p(e));
+                if (this.noi != null) {
+                    this.noi.bE(17, com.baidu.tieba.l.a.p(e));
                 }
             }
-            this.pDB = null;
+            this.pDC = null;
         }
     }
 
@@ -99,19 +99,19 @@ public class e {
                 }
                 MediaFormat outputFormat = this.mEncoder.getOutputFormat();
                 Log.d("VideoEncoder", "encoder output format changed: " + outputFormat);
-                this.mTrackIndex = this.pDB.f(outputFormat);
-                if (!this.pDB.start()) {
-                    synchronized (this.pDB) {
-                        while (!this.pDB.isStarted() && !this.pEa) {
+                this.mTrackIndex = this.pDC.f(outputFormat);
+                if (!this.pDC.start()) {
+                    synchronized (this.pDC) {
+                        while (!this.pDC.isStarted() && !this.pEb) {
                             try {
-                                this.pDB.wait(100L);
+                                this.pDC.wait(100L);
                             } catch (InterruptedException e) {
                                 e.printStackTrace();
                             }
                         }
                     }
                 }
-                if (!this.pEa) {
+                if (!this.pEb) {
                     this.cdz = true;
                 } else {
                     return;
@@ -132,12 +132,12 @@ public class e {
                     }
                     byteBuffer.position(this.mBufferInfo.offset);
                     byteBuffer.limit(this.mBufferInfo.offset + this.mBufferInfo.size);
-                    this.pDB.c(this.mTrackIndex, byteBuffer, this.mBufferInfo);
+                    this.pDC.c(this.mTrackIndex, byteBuffer, this.mBufferInfo);
                 }
                 this.mEncoder.releaseOutputBuffer(dequeueOutputBuffer, false);
-                if (Build.VERSION.SDK_INT >= 19 && System.currentTimeMillis() - this.pEf >= 500) {
+                if (Build.VERSION.SDK_INT >= 19 && System.currentTimeMillis() - this.pEg >= 500) {
                     this.mEncoder.setParameters(this.dqI);
-                    this.pEf = System.currentTimeMillis();
+                    this.pEg = System.currentTimeMillis();
                 }
                 if ((this.mBufferInfo.flags & 4) != 0) {
                     if (!z) {

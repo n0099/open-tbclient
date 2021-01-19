@@ -4,19 +4,19 @@ import java.io.IOException;
 import java.io.OutputStream;
 /* loaded from: classes4.dex */
 public class PipedOutputStreamAndroid25 extends OutputStream {
-    private PipedInputStreamAndroid25 oGJ;
+    private PipedInputStreamAndroid25 oGK;
 
     @Override // java.io.OutputStream
     public void write(int i) throws IOException {
-        if (this.oGJ == null) {
+        if (this.oGK == null) {
             throw new IOException("Pipe not connected");
         }
-        this.oGJ.MB(i);
+        this.oGK.MB(i);
     }
 
     @Override // java.io.OutputStream
     public void write(byte[] bArr, int i, int i2) throws IOException {
-        if (this.oGJ == null) {
+        if (this.oGK == null) {
             throw new IOException("Pipe not connected");
         }
         if (bArr == null) {
@@ -26,23 +26,23 @@ public class PipedOutputStreamAndroid25 extends OutputStream {
             throw new IndexOutOfBoundsException();
         }
         if (i2 != 0) {
-            this.oGJ.u(bArr, i, i2);
+            this.oGK.u(bArr, i, i2);
         }
     }
 
     @Override // java.io.OutputStream, java.io.Flushable
     public synchronized void flush() throws IOException {
-        if (this.oGJ != null) {
-            synchronized (this.oGJ) {
-                this.oGJ.notifyAll();
+        if (this.oGK != null) {
+            synchronized (this.oGK) {
+                this.oGK.notifyAll();
             }
         }
     }
 
     @Override // java.io.OutputStream, java.io.Closeable, java.lang.AutoCloseable
     public void close() throws IOException {
-        if (this.oGJ != null) {
-            this.oGJ.eei();
+        if (this.oGK != null) {
+            this.oGK.eei();
         }
     }
 }

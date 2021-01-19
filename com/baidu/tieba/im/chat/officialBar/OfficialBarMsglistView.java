@@ -310,7 +310,7 @@ public class OfficialBarMsglistView extends CommonPersonalMsglistView {
         return false;
     }
 
-    public void Ct(int i) {
+    public void Cs(int i) {
         if (this.krR != null) {
             this.krR.setText(i);
         }

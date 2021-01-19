@@ -17,7 +17,7 @@ public class e extends i {
 
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.Request
     public String getHost() {
-        return Xe(null) + "api/subscribe/v1/resource/pauid_thirdid";
+        return Xf(null) + "api/subscribe/v1/resource/pauid_thirdid";
     }
 
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler

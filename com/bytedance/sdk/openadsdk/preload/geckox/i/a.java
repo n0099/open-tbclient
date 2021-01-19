@@ -21,7 +21,7 @@ public class a implements b {
 
     @Override // com.bytedance.sdk.openadsdk.preload.geckox.i.b
     public c a(String str, String str2) throws Exception {
-        com.bytedance.sdk.a.b.b enq = this.f7491a.g(new ab.a().XM(str).a(ac.a(y.XL(AbstractBceClient.DEFAULT_CONTENT_TYPE), str2)).eoj()).enq();
+        com.bytedance.sdk.a.b.b enq = this.f7491a.g(new ab.a().XN(str).a(ac.a(y.XM(AbstractBceClient.DEFAULT_CONTENT_TYPE), str2)).eoj()).enq();
         return new c(a(enq.enl()), enq.c() == 200 ? enq.enm().e() : null, enq.c(), enq.d());
     }
 
@@ -30,7 +30,7 @@ public class a implements b {
         BufferedInputStream bufferedInputStream;
         int i = 0;
         try {
-            com.bytedance.sdk.a.b.b enq = this.f7492b.g(new ab.a().eog().XM(str).eoj()).enq();
+            com.bytedance.sdk.a.b.b enq = this.f7492b.g(new ab.a().eog().XN(str).eoj()).enq();
             i = enq.c();
             bufferedInputStream = new BufferedInputStream(enq.enm().c());
             try {

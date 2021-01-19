@@ -28,20 +28,20 @@ public class f implements g, j.a {
     private WeakReference<Context> e;
     private boolean k;
     private long l;
-    private SoftReference<s> pRB;
-    private com.ss.android.a.a.d.e pRu;
-    private com.ss.android.socialbase.downloader.g.c pRv;
-    private c pRw;
+    private SoftReference<s> pRC;
+    private com.ss.android.a.a.d.e pRv;
+    private com.ss.android.socialbase.downloader.g.c pRw;
+    private c pRx;
     private boolean r;
-    private final com.ss.android.downloadlib.f.j pRs = new com.ss.android.downloadlib.f.j(Looper.getMainLooper(), this);
+    private final com.ss.android.downloadlib.f.j pRt = new com.ss.android.downloadlib.f.j(Looper.getMainLooper(), this);
     private final Map<Integer, Object> f = new ConcurrentHashMap();
-    private final com.ss.android.socialbase.downloader.d.b pRx = new h.a(this.pRs);
+    private final com.ss.android.socialbase.downloader.d.b pRy = new h.a(this.pRt);
     private long m = -1;
-    private com.ss.android.a.a.b.c pRy = null;
-    private com.ss.android.a.a.b.b pRz = null;
-    private com.ss.android.a.a.b.a pRA = null;
-    private h pRt = new h();
-    private e pRp = new e(this.pRs);
+    private com.ss.android.a.a.b.c pRz = null;
+    private com.ss.android.a.a.b.b pRA = null;
+    private com.ss.android.a.a.b.a pRB = null;
+    private h pRu = new h();
+    private e pRq = new e(this.pRt);
     private final boolean s = com.ss.android.socialbase.downloader.k.a.eGg().a("ttdownloader_callback_twice");
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -88,7 +88,7 @@ public class f implements g, j.a {
         if (cVar != null) {
             com.ss.android.downloadlib.a.b.d.eCc().a(cVar);
             this.m = cVar.d();
-            this.pRy = cVar;
+            this.pRz = cVar;
             if (i.b(cVar)) {
                 ((com.ss.android.b.a.a.c) cVar).a(3L);
                 com.ss.android.b.a.b.a jb = com.ss.android.downloadlib.a.b.d.eCc().jb(this.m);
@@ -105,7 +105,7 @@ public class f implements g, j.a {
     @Override // com.ss.android.downloadlib.a.g
     /* renamed from: a */
     public f b(com.ss.android.a.a.b.a aVar) {
-        this.pRA = aVar;
+        this.pRB = aVar;
         com.ss.android.downloadlib.a.b.d.eCc().a(this.m, eCk());
         return this;
     }
@@ -114,7 +114,7 @@ public class f implements g, j.a {
     @Override // com.ss.android.downloadlib.a.g
     /* renamed from: a */
     public f b(com.ss.android.a.a.b.b bVar) {
-        this.pRz = bVar;
+        this.pRA = bVar;
         this.r = eCj().k() == 0;
         com.ss.android.downloadlib.a.b.d.eCc().a(this.m, eCj());
         return this;
@@ -123,9 +123,9 @@ public class f implements g, j.a {
     @Override // com.ss.android.downloadlib.a.g
     public g a(s sVar) {
         if (sVar == null) {
-            this.pRB = null;
+            this.pRC = null;
         } else {
-            this.pRB = new SoftReference<>(sVar);
+            this.pRC = new SoftReference<>(sVar);
         }
         return this;
     }
@@ -135,7 +135,7 @@ public class f implements g, j.a {
         this.k = true;
         com.ss.android.downloadlib.a.b.d.eCc().a(this.m, eCj());
         com.ss.android.downloadlib.a.b.d.eCc().a(this.m, eCk());
-        this.pRt.a(this.m);
+        this.pRu.a(this.m);
         p();
         if (j.i().optInt("enable_empty_listener", 1) == 1 && this.f.get(Integer.MIN_VALUE) == null) {
             b(Integer.MIN_VALUE, new com.ss.android.a.a.a.a());
@@ -152,17 +152,17 @@ public class f implements g, j.a {
         if (this.f.isEmpty()) {
             this.k = false;
             this.l = System.currentTimeMillis();
-            if (this.pRv != null) {
-                com.ss.android.socialbase.downloader.downloader.f.iy(j.a()).k(this.pRv.g());
+            if (this.pRw != null) {
+                com.ss.android.socialbase.downloader.downloader.f.iy(j.a()).k(this.pRw.g());
             }
-            if (this.pRw != null && this.pRw.getStatus() != AsyncTask.Status.FINISHED) {
-                this.pRw.cancel(true);
+            if (this.pRx != null && this.pRx.getStatus() != AsyncTask.Status.FINISHED) {
+                this.pRx.cancel(true);
             }
-            this.pRt.a(this.pRv);
-            com.ss.android.downloadlib.f.h.i(f12956a, "onUnbind removeCallbacksAndMessages, downloadUrl:" + (this.pRv == null ? "" : this.pRv.j()), null);
-            this.pRs.removeCallbacksAndMessages(null);
-            this.pRu = null;
+            this.pRu.a(this.pRw);
+            com.ss.android.downloadlib.f.h.i(f12956a, "onUnbind removeCallbacksAndMessages, downloadUrl:" + (this.pRw == null ? "" : this.pRw.j()), null);
+            this.pRt.removeCallbacksAndMessages(null);
             this.pRv = null;
+            this.pRw = null;
             return true;
         }
         return false;
@@ -170,18 +170,18 @@ public class f implements g, j.a {
 
     @Override // com.ss.android.downloadlib.a.g
     public void a(boolean z) {
-        if (this.pRv != null) {
+        if (this.pRw != null) {
             if (z) {
                 com.ss.android.socialbase.appdownloader.c.d eCS = com.ss.android.socialbase.appdownloader.d.eCW().eCS();
                 if (eCS != null) {
-                    eCS.a(this.pRv);
+                    eCS.a(this.pRw);
                 }
-                com.ss.android.socialbase.downloader.downloader.f.iy(com.ss.android.socialbase.downloader.downloader.b.eEd()).a(this.pRv.g(), true);
+                com.ss.android.socialbase.downloader.downloader.f.iy(com.ss.android.socialbase.downloader.downloader.b.eEd()).a(this.pRw.g(), true);
                 return;
             }
             Intent intent = new Intent(j.a(), DownloadHandlerService.class);
             intent.setAction("android.ss.intent.action.DOWNLOAD_DELETE");
-            intent.putExtra("extra_click_download_ids", this.pRv.g());
+            intent.putExtra("extra_click_download_ids", this.pRw.g());
             j.a().startService(intent);
         }
     }
@@ -192,7 +192,7 @@ public class f implements g, j.a {
     }
 
     public boolean c() {
-        return this.pRv != null;
+        return this.pRw != null;
     }
 
     @Override // com.ss.android.downloadlib.a.g
@@ -208,14 +208,14 @@ public class f implements g, j.a {
         if (j > 0) {
             com.ss.android.a.a.b.c iY = com.ss.android.downloadlib.a.b.d.eCc().iY(j);
             if (iY != null) {
-                this.pRy = iY;
+                this.pRz = iY;
                 this.m = j;
-                this.pRt.a(this.m);
+                this.pRu.a(this.m);
             }
         } else {
             com.ss.android.downloadlib.f.i.b();
         }
-        if (!this.pRt.e(k(), i, this.r)) {
+        if (!this.pRu.e(k(), i, this.r)) {
             boolean b2 = b(i);
             switch (i) {
                 case 1:
@@ -239,13 +239,13 @@ public class f implements g, j.a {
     }
 
     private boolean i() {
-        return j.i().optInt("quick_app_enable_switch", 0) == 0 && com.ss.android.downloadlib.a.c.b(this.pRy) && com.ss.android.downloadlib.a.c.a(this.pRv);
+        return j.i().optInt("quick_app_enable_switch", 0) == 0 && com.ss.android.downloadlib.a.c.b(this.pRz) && com.ss.android.downloadlib.a.c.a(this.pRw);
     }
 
     private boolean b(int i) {
         if (i()) {
             int i2 = -1;
-            String a2 = this.pRy.eBH().a();
+            String a2 = this.pRz.eBH().a();
             switch (i) {
                 case 1:
                     i2 = 5;
@@ -259,9 +259,9 @@ public class f implements g, j.a {
             if (c2) {
                 Message obtain = Message.obtain();
                 obtain.what = i2;
-                obtain.obj = Long.valueOf(this.pRy.d());
-                this.pRs.sendMessageDelayed(obtain, com.ss.android.downloadlib.a.c.eCg().b());
-                com.ss.android.downloadlib.a.c.eCg().a(i2, this.pRy, this.pRz);
+                obtain.obj = Long.valueOf(this.pRz.d());
+                this.pRt.sendMessageDelayed(obtain, com.ss.android.downloadlib.a.c.eCg().b());
+                com.ss.android.downloadlib.a.c.eCg().a(i2, this.pRz, this.pRA);
             } else {
                 com.ss.android.downloadlib.e.a.eCL().a(this.m, false, 0);
             }
@@ -271,7 +271,7 @@ public class f implements g, j.a {
     }
 
     private void b(boolean z) {
-        switch (this.pRt.a(this.r)) {
+        switch (this.pRu.a(this.r)) {
             case 1:
                 if (z) {
                     com.ss.android.downloadlib.e.a.eCL().a(this.m, 1);
@@ -285,12 +285,12 @@ public class f implements g, j.a {
     }
 
     private void j() {
-        if (this.pRB != null && this.pRB.get() != null) {
-            this.pRB.get().a(this.pRy, eCj(), eCk());
-            this.pRB = null;
+        if (this.pRC != null && this.pRC.get() != null) {
+            this.pRC.get().a(this.pRz, eCj(), eCk());
+            this.pRC = null;
             return;
         }
-        j.eCn().a(k(), this.pRy, eCk(), eCj());
+        j.eCn().a(k(), this.pRz, eCk(), eCj());
     }
 
     private void c(boolean z) {
@@ -305,7 +305,7 @@ public class f implements g, j.a {
     }
 
     public void e() {
-        this.pRs.post(new Runnable() { // from class: com.ss.android.downloadlib.a.f.1
+        this.pRt.post(new Runnable() { // from class: com.ss.android.downloadlib.a.f.1
             @Override // java.lang.Runnable
             public void run() {
                 for (com.ss.android.a.a.b.d dVar : h.a(f.this.f)) {
@@ -320,8 +320,8 @@ public class f implements g, j.a {
         if (message != null && this.k) {
             switch (message.what) {
                 case 3:
-                    this.pRv = (com.ss.android.socialbase.downloader.g.c) message.obj;
-                    this.pRt.a(message, eCl(), this.f);
+                    this.pRw = (com.ss.android.socialbase.downloader.g.c) message.obj;
+                    this.pRu.a(message, eCl(), this.f);
                     return;
                 case 4:
                     if (j.eCv() == null || !j.eCv().a()) {
@@ -350,17 +350,17 @@ public class f implements g, j.a {
 
     @NonNull
     private com.ss.android.a.a.b.b eCj() {
-        return this.pRz == null ? new f.a().eBJ() : this.pRz;
+        return this.pRA == null ? new f.a().eBJ() : this.pRA;
     }
 
     @NonNull
     private com.ss.android.a.a.b.a eCk() {
-        return this.pRA == null ? new a.C1214a().eBN() : this.pRA;
+        return this.pRB == null ? new a.C1214a().eBN() : this.pRB;
     }
 
     private void e(boolean z) {
         com.ss.android.downloadlib.f.h.i(f12956a, "performItemClickWithNewDownloader", null);
-        if (this.pRt.c(this.pRv)) {
+        if (this.pRu.c(this.pRw)) {
             com.ss.android.downloadlib.f.h.i(f12956a, "performItemClickWithNewDownloader ButtonClick", null);
             f(z);
             return;
@@ -371,16 +371,16 @@ public class f implements g, j.a {
 
     private void f(boolean z) {
         com.ss.android.downloadlib.f.h.i(f12956a, "performButtonClickWithNewDownloader", null);
-        if (this.pRv == null || (this.pRv.q() != -3 && !com.ss.android.socialbase.downloader.downloader.f.iy(j.a()).d(this.pRv.g()))) {
+        if (this.pRw == null || (this.pRw.q() != -3 && !com.ss.android.socialbase.downloader.downloader.f.iy(j.a()).d(this.pRw.g()))) {
             if (z) {
                 com.ss.android.downloadlib.e.a.eCL().a(this.m, 2);
             }
-            if (com.ss.android.downloadlib.f.d.i(this.pRy) != 0) {
+            if (com.ss.android.downloadlib.f.d.i(this.pRz) != 0) {
                 n();
                 return;
             }
             com.ss.android.downloadlib.f.h.i(f12956a, "performButtonClickWithNewDownloader not start", null);
-            this.pRt.a(new q() { // from class: com.ss.android.downloadlib.a.f.2
+            this.pRu.a(new q() { // from class: com.ss.android.downloadlib.a.f.2
                 @Override // com.ss.android.a.a.a.q
                 public void a() {
                     com.ss.android.downloadlib.f.h.i(f.f12956a, "performButtonClickWithNewDownloader start download", null);
@@ -394,25 +394,25 @@ public class f implements g, j.a {
             });
             return;
         }
-        com.ss.android.downloadlib.f.h.i(f12956a, "performButtonClickWithNewDownloader continue download, status:" + this.pRv.q(), null);
-        this.pRt.d(this.pRv);
-        if (this.pRv != null && this.pRy != null) {
-            this.pRv.c(this.pRy.m());
+        com.ss.android.downloadlib.f.h.i(f12956a, "performButtonClickWithNewDownloader continue download, status:" + this.pRw.q(), null);
+        this.pRu.d(this.pRw);
+        if (this.pRw != null && this.pRz != null) {
+            this.pRw.c(this.pRz.m());
         }
-        final int q = this.pRv.q();
-        final int g = this.pRv.g();
-        com.ss.android.b.a.b.a j = com.ss.android.downloadlib.a.b.d.eCc().j(this.pRv);
+        final int q = this.pRw.q();
+        final int g = this.pRw.g();
+        com.ss.android.b.a.b.a j = com.ss.android.downloadlib.a.b.d.eCc().j(this.pRw);
         if (q == -4 || q == -2 || q == -1) {
             if (j != null) {
                 j.h(System.currentTimeMillis());
-                j.iX(this.pRv.eEJ());
+                j.iX(this.pRw.eEJ());
             }
-            this.pRv.d(false);
-            this.pRp.a(new d.a(this.m, this.pRy, eCj(), eCk()));
-            this.pRp.a(g, this.pRv.eEJ(), this.pRv.efR(), new a() { // from class: com.ss.android.downloadlib.a.f.3
+            this.pRw.d(false);
+            this.pRq.a(new d.a(this.m, this.pRz, eCj(), eCk()));
+            this.pRq.a(g, this.pRw.eEJ(), this.pRw.efR(), new a() { // from class: com.ss.android.downloadlib.a.f.3
                 @Override // com.ss.android.downloadlib.a.f.a
                 public void a() {
-                    if (!f.this.pRp.a()) {
+                    if (!f.this.pRq.a()) {
                         com.ss.android.socialbase.appdownloader.d.eCW().e(j.a(), g, q);
                     }
                 }
@@ -420,19 +420,19 @@ public class f implements g, j.a {
             return;
         }
         if (l.a(q)) {
-            this.pRp.a(true);
+            this.pRq.a(true);
         }
         com.ss.android.socialbase.appdownloader.d.eCW().e(j.a(), g, q);
-        l.a(j, this.pRv, q);
+        l.a(j, this.pRw, q);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void n() {
-        this.pRp.a(new d.a(this.m, this.pRy, eCj(), eCk()));
-        this.pRp.a(0, 0L, 0L, new a() { // from class: com.ss.android.downloadlib.a.f.4
+        this.pRq.a(new d.a(this.m, this.pRz, eCj(), eCk()));
+        this.pRq.a(0, 0L, 0L, new a() { // from class: com.ss.android.downloadlib.a.f.4
             @Override // com.ss.android.downloadlib.a.f.a
             public void a() {
-                if (!f.this.pRp.a()) {
+                if (!f.this.pRq.a()) {
                     f.this.o();
                 }
             }
@@ -442,29 +442,29 @@ public class f implements g, j.a {
     /* JADX INFO: Access modifiers changed from: private */
     public void o() {
         for (com.ss.android.a.a.b.d dVar : h.a(this.f)) {
-            dVar.a(this.pRy, eCk());
+            dVar.a(this.pRz, eCk());
         }
-        int a2 = this.pRt.a(j.a(), this.pRx);
-        com.ss.android.b.a.b.a a3 = a(this.pRy, a2);
+        int a2 = this.pRu.a(j.a(), this.pRy);
+        com.ss.android.b.a.b.a a3 = a(this.pRz, a2);
         com.ss.android.downloadlib.a.b.d.eCc().d(a3);
         a3.g(a2);
         a3.h(System.currentTimeMillis());
         a3.iX(0L);
         com.ss.android.downloadlib.f.h.i(f12956a, "beginDownloadWithNewDownloader id:" + a2, null);
         if (a2 != 0) {
-            if (this.pRv == null) {
-                this.pRt.b();
+            if (this.pRw == null) {
+                this.pRu.b();
             } else {
-                this.pRt.d(this.pRv);
+                this.pRu.d(this.pRw);
             }
         } else {
-            com.ss.android.socialbase.downloader.g.c a4 = new c.a(this.pRy.a()).a();
+            com.ss.android.socialbase.downloader.g.c a4 = new c.a(this.pRz.a()).a();
             a4.c(-1);
             a(a4);
             com.ss.android.downloadlib.e.a.eCL().a(this.m, new com.ss.android.socialbase.downloader.e.a(2, "start download failed, id=0"));
             com.ss.android.downloadlib.f.i.b();
         }
-        if (this.pRt.b(c())) {
+        if (this.pRu.b(c())) {
             com.ss.android.downloadlib.f.h.i(f12956a, "beginDownloadWithNewDownloader onItemClick id:" + a2, null);
             j();
         }
@@ -474,7 +474,7 @@ public class f implements g, j.a {
         com.ss.android.b.a.b.a aVar = new com.ss.android.b.a.b.a(cVar, eCj(), eCk(), i);
         if (com.ss.android.socialbase.downloader.k.a.RA(i).a("download_event_opt", 1) > 1) {
             try {
-                String v = this.pRy.v();
+                String v = this.pRz.v();
                 if (!TextUtils.isEmpty(v)) {
                     aVar.f(j.a().getPackageManager().getPackageInfo(v, 0) != null);
                 }
@@ -489,8 +489,8 @@ public class f implements g, j.a {
             for (com.ss.android.a.a.b.d dVar : h.a(this.f)) {
                 dVar.a();
             }
-            if (this.pRv != null) {
-                this.pRv.c(-4);
+            if (this.pRw != null) {
+                this.pRw.c(-4);
             }
         }
     }
@@ -510,8 +510,8 @@ public class f implements g, j.a {
             if (strArr != null) {
                 if (strArr.length < 1 || !TextUtils.isEmpty(strArr[0])) {
                     String str = strArr[0];
-                    if (f.this.pRy != null && !TextUtils.isEmpty(f.this.pRy.n())) {
-                        cVar = com.ss.android.socialbase.downloader.downloader.f.iy(j.a()).hs(str, f.this.pRy.n());
+                    if (f.this.pRz != null && !TextUtils.isEmpty(f.this.pRz.n())) {
+                        cVar = com.ss.android.socialbase.downloader.downloader.f.iy(j.a()).hs(str, f.this.pRz.n());
                     }
                     if (cVar == null) {
                         return com.ss.android.socialbase.appdownloader.d.eCW().bH(j.a(), str);
@@ -529,49 +529,49 @@ public class f implements g, j.a {
         /* renamed from: a */
         public void onPostExecute(com.ss.android.socialbase.downloader.g.c cVar) {
             super.onPostExecute(cVar);
-            if (!isCancelled() && f.this.pRy != null) {
+            if (!isCancelled() && f.this.pRz != null) {
                 try {
-                    com.ss.android.downloadlib.a.b.b A = com.ss.android.downloadlib.f.i.A(f.this.pRy.v(), f.this.pRy.r(), f.this.pRy.s());
-                    com.ss.android.downloadlib.a.b.f.eCe().a(f.this.pRy.r(), A.b(), com.ss.android.downloadlib.a.b.d.eCc().j(cVar));
+                    com.ss.android.downloadlib.a.b.b A = com.ss.android.downloadlib.f.i.A(f.this.pRz.v(), f.this.pRz.r(), f.this.pRz.s());
+                    com.ss.android.downloadlib.a.b.f.eCe().a(f.this.pRz.r(), A.b(), com.ss.android.downloadlib.a.b.d.eCc().j(cVar));
                     boolean a2 = A.a();
                     if (cVar != null && cVar.g() != 0 && (a2 || !com.ss.android.socialbase.downloader.downloader.f.iy(j.a()).a(cVar))) {
                         com.ss.android.socialbase.downloader.downloader.f.iy(j.a()).k(cVar.g());
-                        if (f.this.pRv == null || f.this.pRv.q() != -4) {
-                            f.this.pRv = cVar;
+                        if (f.this.pRw == null || f.this.pRw.q() != -4) {
+                            f.this.pRw = cVar;
                             if (f.this.s) {
-                                com.ss.android.socialbase.downloader.downloader.f.iy(j.a()).a(f.this.pRv.g(), f.this.pRx, false);
+                                com.ss.android.socialbase.downloader.downloader.f.iy(j.a()).a(f.this.pRw.g(), f.this.pRy, false);
                             } else {
-                                com.ss.android.socialbase.downloader.downloader.f.iy(j.a()).a(f.this.pRv.g(), f.this.pRx);
+                                com.ss.android.socialbase.downloader.downloader.f.iy(j.a()).a(f.this.pRw.g(), f.this.pRy);
                             }
                         } else {
-                            f.this.pRv = null;
+                            f.this.pRw = null;
                         }
-                        f.this.pRt.a(f.this.pRv, f.this.eCl(), h.a(f.this.f));
+                        f.this.pRu.a(f.this.pRw, f.this.eCl(), h.a(f.this.f));
                     } else {
                         if (cVar != null && com.ss.android.socialbase.downloader.downloader.f.iy(j.a()).a(cVar)) {
                             com.ss.android.socialbase.downloader.notification.b.eGk().f(cVar.g());
-                            f.this.pRv = null;
+                            f.this.pRw = null;
                         }
-                        if (f.this.pRv != null) {
-                            com.ss.android.socialbase.downloader.downloader.f.iy(j.a()).k(f.this.pRv.g());
+                        if (f.this.pRw != null) {
+                            com.ss.android.socialbase.downloader.downloader.f.iy(j.a()).k(f.this.pRw.g());
                             if (f.this.s) {
-                                com.ss.android.socialbase.downloader.downloader.f.iy(f.this.k()).a(f.this.pRv.g(), f.this.pRx, false);
+                                com.ss.android.socialbase.downloader.downloader.f.iy(f.this.k()).a(f.this.pRw.g(), f.this.pRy, false);
                             } else {
-                                com.ss.android.socialbase.downloader.downloader.f.iy(f.this.k()).a(f.this.pRv.g(), f.this.pRx);
+                                com.ss.android.socialbase.downloader.downloader.f.iy(f.this.k()).a(f.this.pRw.g(), f.this.pRy);
                             }
                         }
                         if (!a2) {
                             for (com.ss.android.a.a.b.d dVar : h.a(f.this.f)) {
                                 dVar.a();
                             }
-                            f.this.pRv = null;
+                            f.this.pRw = null;
                         } else {
-                            f.this.pRv = new c.a(f.this.pRy.a()).a();
-                            f.this.pRv.c(-3);
-                            f.this.pRt.a(f.this.pRv, f.this.eCl(), h.a(f.this.f));
+                            f.this.pRw = new c.a(f.this.pRz.a()).a();
+                            f.this.pRw.c(-3);
+                            f.this.pRu.a(f.this.pRw, f.this.eCl(), h.a(f.this.f));
                         }
                     }
-                    f.this.pRt.b(f.this.pRv);
+                    f.this.pRu.b(f.this.pRw);
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -583,23 +583,23 @@ public class f implements g, j.a {
         Message obtain = Message.obtain();
         obtain.what = 3;
         obtain.obj = cVar;
-        this.pRs.sendMessage(obtain);
+        this.pRt.sendMessage(obtain);
     }
 
     private void p() {
-        if (this.pRw != null && this.pRw.getStatus() != AsyncTask.Status.FINISHED) {
-            this.pRw.cancel(true);
+        if (this.pRx != null && this.pRx.getStatus() != AsyncTask.Status.FINISHED) {
+            this.pRx.cancel(true);
         }
-        this.pRw = new c();
-        com.ss.android.downloadlib.f.b.a(this.pRw, this.pRy.a(), this.pRy.v());
+        this.pRx = new c();
+        com.ss.android.downloadlib.f.b.a(this.pRx, this.pRz.a(), this.pRz.v());
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public com.ss.android.a.a.d.e eCl() {
-        if (this.pRu == null) {
-            this.pRu = new com.ss.android.a.a.d.e();
+        if (this.pRv == null) {
+            this.pRv = new com.ss.android.a.a.d.e();
         }
-        return this.pRu;
+        return this.pRv;
     }
 
     @Override // com.ss.android.downloadlib.a.g

@@ -11,7 +11,7 @@ import javax.annotation.Nullable;
 import org.apache.http.HttpHost;
 /* loaded from: classes14.dex */
 public class d {
-    private static final Uri pps = Uri.withAppendedPath(ContactsContract.AUTHORITY_URI, "display_photo");
+    private static final Uri ppt = Uri.withAppendedPath(ContactsContract.AUTHORITY_URI, "display_photo");
 
     @Nullable
     public static URL J(@Nullable Uri uri) {
@@ -39,7 +39,7 @@ public class d {
     }
 
     public static boolean N(Uri uri) {
-        return M(uri) && "com.android.contacts".equals(uri.getAuthority()) && !uri.getPath().startsWith(pps.getPath());
+        return M(uri) && "com.android.contacts".equals(uri.getAuthority()) && !uri.getPath().startsWith(ppt.getPath());
     }
 
     public static boolean O(Uri uri) {

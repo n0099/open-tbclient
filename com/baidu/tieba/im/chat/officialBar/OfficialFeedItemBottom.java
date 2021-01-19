@@ -51,7 +51,7 @@ public class OfficialFeedItemBottom extends LinearLayout {
         }
     }
 
-    public void Cv(int i) {
+    public void Cu(int i) {
         LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.kvG.getLayoutParams();
         layoutParams.topMargin = i;
         this.kvG.setLayoutParams(layoutParams);

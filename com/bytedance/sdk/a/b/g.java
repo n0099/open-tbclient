@@ -7,8 +7,8 @@ import java.util.concurrent.TimeUnit;
 import org.apache.http.cookie.ClientCookie;
 /* loaded from: classes4.dex */
 public final class g {
-    public static final g pgI = new a().env().enx();
-    public static final g pgJ = new a().enw().a(ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED, TimeUnit.SECONDS).enx();
+    public static final g pgJ = new a().env().enx();
+    public static final g pgK = new a().enw().a(ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED, TimeUnit.SECONDS).enx();
     String c;
     private final boolean d;
     private final boolean e;

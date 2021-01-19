@@ -2,7 +2,7 @@ package kotlin.jvm.internal;
 @kotlin.e
 /* loaded from: classes5.dex */
 public final class u {
-    public static final u qjq = new u();
+    public static final u qjr = new u();
 
     private u() {
     }

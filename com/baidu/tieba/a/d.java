@@ -100,13 +100,13 @@ public class d {
 
     public void onPageStart(String str) {
         if (at.isEmpty(str) || this.gdw == null || !this.gdw.bKt()) {
-            com.baidu.ubs.analytics.a.Ww(str);
+            com.baidu.ubs.analytics.a.Wx(str);
         }
     }
 
     public void onPageEnd(String str) {
         if (at.isEmpty(str) || this.gdw == null || !this.gdw.bKt()) {
-            com.baidu.ubs.analytics.a.Wx(str);
+            com.baidu.ubs.analytics.a.Wy(str);
         }
     }
 

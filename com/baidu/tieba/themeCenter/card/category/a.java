@@ -7,19 +7,19 @@ import tbclient.ThemeCardPropMain;
 /* loaded from: classes8.dex */
 public class a {
     private String aEF;
-    private ArrayList<com.baidu.tieba.themeCenter.a> nyi;
+    private ArrayList<com.baidu.tieba.themeCenter.a> nyj;
 
     public void a(ThemeCardInMain themeCardInMain) {
         if (themeCardInMain != null) {
             this.aEF = themeCardInMain.card_category;
             List<ThemeCardPropMain> list = themeCardInMain.props;
             if (list != null && list.size() > 0) {
-                this.nyi = new ArrayList<>();
+                this.nyj = new ArrayList<>();
                 for (ThemeCardPropMain themeCardPropMain : list) {
                     if (themeCardPropMain != null) {
                         com.baidu.tieba.themeCenter.a aVar = new com.baidu.tieba.themeCenter.a();
                         aVar.a(themeCardPropMain);
-                        this.nyi.add(aVar);
+                        this.nyj.add(aVar);
                     }
                 }
             }
@@ -31,6 +31,6 @@ public class a {
     }
 
     public ArrayList<com.baidu.tieba.themeCenter.a> dOX() {
-        return this.nyi;
+        return this.nyj;
     }
 }

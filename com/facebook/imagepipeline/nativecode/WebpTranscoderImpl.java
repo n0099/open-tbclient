@@ -16,12 +16,12 @@ public class WebpTranscoderImpl implements c {
 
     @Override // com.facebook.imagepipeline.nativecode.c
     public boolean d(com.facebook.c.c cVar) {
-        if (cVar == com.facebook.c.b.pvJ) {
+        if (cVar == com.facebook.c.b.pvK) {
             return Build.VERSION.SDK_INT >= 14;
-        } else if (cVar == com.facebook.c.b.pvK || cVar == com.facebook.c.b.pvL || cVar == com.facebook.c.b.pvM) {
-            return com.facebook.common.g.c.ppv;
+        } else if (cVar == com.facebook.c.b.pvL || cVar == com.facebook.c.b.pvM || cVar == com.facebook.c.b.pvN) {
+            return com.facebook.common.g.c.ppw;
         } else {
-            if (cVar != com.facebook.c.b.pvN) {
+            if (cVar != com.facebook.c.b.pvO) {
                 throw new IllegalArgumentException("Image format is not a WebP.");
             }
             return false;

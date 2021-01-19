@@ -8,8 +8,8 @@ public class c {
     public Bitmap bitmap;
     public int height;
     public int money;
-    public float okU;
-    public boolean okV;
+    public float okV;
+    public boolean okW;
     public float rotation;
     public float speed;
     public int width;
@@ -28,8 +28,8 @@ public class c {
         this.y = -this.height;
         this.speed = i + (((float) Math.random()) * 1000.0f);
         this.rotation = (((float) Math.random()) * 180.0f) - 90.0f;
-        this.okU = (((float) Math.random()) * 90.0f) - 45.0f;
-        this.okV = dYQ();
+        this.okV = (((float) Math.random()) * 90.0f) - 45.0f;
+        this.okW = dYQ();
     }
 
     public boolean H(float f, float f2) {

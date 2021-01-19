@@ -11,14 +11,14 @@ import java.util.Iterator;
 /* loaded from: classes4.dex */
 public class NetworkChangeNotifier {
     static final /* synthetic */ boolean $assertionsDisabled;
-    private static NetworkChangeNotifier oGq;
+    private static NetworkChangeNotifier oGr;
     private final Context mContext;
-    private NetworkChangeNotifierAutoDetect oGo;
+    private NetworkChangeNotifierAutoDetect oGp;
     private int mCurrentConnectionType = 0;
-    private double oGp = Double.POSITIVE_INFINITY;
+    private double oGq = Double.POSITIVE_INFINITY;
     private int mMaxBandwidthConnectionType = this.mCurrentConnectionType;
     private final ArrayList<Long> mNativeChangeNotifiers = new ArrayList<>();
-    private final com.baidu.turbonet.base.b<ConnectionTypeObserver> oGn = new com.baidu.turbonet.base.b<>();
+    private final com.baidu.turbonet.base.b<ConnectionTypeObserver> oGo = new com.baidu.turbonet.base.b<>();
 
     /* loaded from: classes4.dex */
     public interface ConnectionTypeObserver {
@@ -55,10 +55,10 @@ public class NetworkChangeNotifier {
 
     @CalledByNative
     public static NetworkChangeNotifier init(Context context) {
-        if (oGq == null) {
-            oGq = new NetworkChangeNotifier(context);
+        if (oGr == null) {
+            oGr = new NetworkChangeNotifier(context);
         }
-        return oGq;
+        return oGr;
     }
 
     @CalledByNative
@@ -68,28 +68,28 @@ public class NetworkChangeNotifier {
 
     @CalledByNative
     public int getCurrentConnectionSubtype() {
-        if (this.oGo == null) {
+        if (this.oGp == null) {
             return 0;
         }
-        return this.oGo.getCurrentConnectionSubtype(this.oGo.getCurrentNetworkState());
+        return this.oGp.getCurrentConnectionSubtype(this.oGp.getCurrentNetworkState());
     }
 
     @CalledByNative
     public double getCurrentMaxBandwidthInMbps() {
-        return this.oGp;
+        return this.oGq;
     }
 
     @CalledByNative
     public int getCurrentDefaultNetId() {
-        if (this.oGo == null) {
+        if (this.oGp == null) {
             return -1;
         }
-        return this.oGo.getDefaultNetId();
+        return this.oGp.getDefaultNetId();
     }
 
     @CalledByNative
     public int[] getCurrentNetworksAndTypes() {
-        return this.oGo == null ? new int[0] : this.oGo.getNetworksAndTypes();
+        return this.oGp == null ? new int[0] : this.oGp.getNetworksAndTypes();
     }
 
     public static double Mv(int i) {
@@ -107,8 +107,8 @@ public class NetworkChangeNotifier {
     }
 
     public static NetworkChangeNotifier edU() {
-        if ($assertionsDisabled || oGq != null) {
-            return oGq;
+        if ($assertionsDisabled || oGr != null) {
+            return oGr;
         }
         throw new AssertionError();
     }
@@ -118,16 +118,16 @@ public class NetworkChangeNotifier {
     }
 
     private void edW() {
-        if (this.oGo != null) {
-            this.oGo.destroy();
-            this.oGo = null;
+        if (this.oGp != null) {
+            this.oGp.destroy();
+            this.oGp = null;
         }
     }
 
     private void a(boolean z, NetworkChangeNotifierAutoDetect.RegistrationPolicy registrationPolicy) {
         if (z) {
-            if (this.oGo == null) {
-                this.oGo = new NetworkChangeNotifierAutoDetect(new NetworkChangeNotifierAutoDetect.Observer() { // from class: com.baidu.turbonet.net.NetworkChangeNotifier.1
+            if (this.oGp == null) {
+                this.oGp = new NetworkChangeNotifierAutoDetect(new NetworkChangeNotifierAutoDetect.Observer() { // from class: com.baidu.turbonet.net.NetworkChangeNotifier.1
                     @Override // com.baidu.turbonet.net.NetworkChangeNotifierAutoDetect.Observer
                     public void onConnectionTypeChanged(int i) {
                         NetworkChangeNotifier.this.updateCurrentConnectionType(i);
@@ -158,9 +158,9 @@ public class NetworkChangeNotifier {
                         NetworkChangeNotifier.this.q(iArr);
                     }
                 }, this.mContext, registrationPolicy);
-                NetworkChangeNotifierAutoDetect.c currentNetworkState = this.oGo.getCurrentNetworkState();
-                updateCurrentConnectionType(this.oGo.getCurrentConnectionType(currentNetworkState));
-                G(this.oGo.getCurrentMaxBandwidthInMbps(currentNetworkState));
+                NetworkChangeNotifierAutoDetect.c currentNetworkState = this.oGp.getCurrentNetworkState();
+                updateCurrentConnectionType(this.oGp.getCurrentConnectionType(currentNetworkState));
+                G(this.oGp.getCurrentMaxBandwidthInMbps(currentNetworkState));
                 return;
             }
             return;
@@ -218,8 +218,8 @@ public class NetworkChangeNotifier {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void G(double d) {
-        if (d != this.oGp || this.mCurrentConnectionType != this.mMaxBandwidthConnectionType) {
-            this.oGp = d;
+        if (d != this.oGq || this.mCurrentConnectionType != this.mMaxBandwidthConnectionType) {
+            this.oGq = d;
             this.mMaxBandwidthConnectionType = this.mCurrentConnectionType;
             H(d);
         }
@@ -234,7 +234,7 @@ public class NetworkChangeNotifier {
         while (it.hasNext()) {
             nativeNotifyConnectionTypeChanged(it.next().longValue(), i, i2);
         }
-        Iterator<ConnectionTypeObserver> it2 = this.oGn.iterator();
+        Iterator<ConnectionTypeObserver> it2 = this.oGo.iterator();
         while (it2.hasNext()) {
             it2.next().onConnectionTypeChanged(i);
         }

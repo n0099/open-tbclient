@@ -13,7 +13,7 @@ public class e extends BdBaseModel {
     private Context bJM;
     private BdUniqueId brL = BdUniqueId.gen();
     private final HttpMessageListener bxB;
-    private a oCk;
+    private a oCl;
 
     /* loaded from: classes10.dex */
     public interface a {
@@ -23,7 +23,7 @@ public class e extends BdBaseModel {
     }
 
     public void a(a aVar) {
-        this.oCk = aVar;
+        this.oCl = aVar;
     }
 
     public e(Context context) {
@@ -38,12 +38,12 @@ public class e extends BdBaseModel {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-                if (httpResponsedMessage != null && (httpResponsedMessage instanceof JsonHttpResponsedMessage) && httpResponsedMessage.getOrginalMessage().getTag() == e.this.getUniqueId() && e.this.oCk != null) {
+                if (httpResponsedMessage != null && (httpResponsedMessage instanceof JsonHttpResponsedMessage) && httpResponsedMessage.getOrginalMessage().getTag() == e.this.getUniqueId() && e.this.oCl != null) {
                     JsonHttpResponsedMessage jsonHttpResponsedMessage = (JsonHttpResponsedMessage) httpResponsedMessage;
                     if (jsonHttpResponsedMessage.getError() != 0 || !jsonHttpResponsedMessage.isSuccess()) {
-                        e.this.oCk.onFail(jsonHttpResponsedMessage.getError(), jsonHttpResponsedMessage.getErrorString());
+                        e.this.oCl.onFail(jsonHttpResponsedMessage.getError(), jsonHttpResponsedMessage.getErrorString());
                     } else {
-                        e.this.oCk.a(jsonHttpResponsedMessage);
+                        e.this.oCl.a(jsonHttpResponsedMessage);
                     }
                 }
             }

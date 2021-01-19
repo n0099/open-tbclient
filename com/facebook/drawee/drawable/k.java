@@ -16,7 +16,7 @@ public class k extends m {
     private final Bitmap mBitmap;
     private final Paint mBorderPaint;
     private final Paint mPaint;
-    private WeakReference<Bitmap> psD;
+    private WeakReference<Bitmap> psE;
 
     public k(Resources resources, @Nullable Bitmap bitmap, @Nullable Paint paint) {
         super(new BitmapDrawable(resources, bitmap));
@@ -40,7 +40,7 @@ public class k extends m {
         esb();
         updatePaint();
         int save = canvas.save();
-        canvas.concat(this.pta);
+        canvas.concat(this.ptb);
         canvas.drawPath(this.mPath, this.mPaint);
         if (this.mBorderWidth > 0.0f) {
             this.mBorderPaint.setStrokeWidth(this.mBorderWidth);
@@ -51,14 +51,14 @@ public class k extends m {
     }
 
     private void updatePaint() {
-        if (this.psD == null || this.psD.get() != this.mBitmap) {
-            this.psD = new WeakReference<>(this.mBitmap);
+        if (this.psE == null || this.psE.get() != this.mBitmap) {
+            this.psE = new WeakReference<>(this.mBitmap);
             this.mPaint.setShader(new BitmapShader(this.mBitmap, Shader.TileMode.CLAMP, Shader.TileMode.CLAMP));
-            this.psQ = true;
+            this.psR = true;
         }
-        if (this.psQ) {
-            this.mPaint.getShader().setLocalMatrix(this.ptc);
-            this.psQ = false;
+        if (this.psR) {
+            this.mPaint.getShader().setLocalMatrix(this.ptd);
+            this.psR = false;
         }
     }
 

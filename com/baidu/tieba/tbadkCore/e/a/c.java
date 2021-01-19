@@ -12,16 +12,16 @@ public class c {
     private String mData;
     private String mMessage;
     private String mMethodName;
-    private boolean npm;
     private boolean npn;
+    private boolean npo;
     private int mStatus = -1;
-    private boolean npo = true;
+    private boolean npp = true;
 
     public String ctj() {
         return this.mMethodName;
     }
 
-    public void Sj(String str) {
+    public void Sk(String str) {
         this.mMethodName = str;
     }
 
@@ -33,19 +33,19 @@ public class c {
         this.mStatus = i;
         switch (i) {
             case 0:
-                Sl(TbadkCoreApplication.getInst().getString(R.string.scheme_action_status_ok));
+                Sm(TbadkCoreApplication.getInst().getString(R.string.scheme_action_status_ok));
                 return;
             case 101:
-                Sl(TbadkCoreApplication.getInst().getString(R.string.scheme_action_status_scheme_parse_fail));
+                Sm(TbadkCoreApplication.getInst().getString(R.string.scheme_action_status_scheme_parse_fail));
                 return;
             case 201:
-                Sl(TbadkCoreApplication.getInst().getString(R.string.scheme_action_can_not_find_module));
+                Sm(TbadkCoreApplication.getInst().getString(R.string.scheme_action_can_not_find_module));
                 return;
             case 202:
-                Sl(TbadkCoreApplication.getInst().getString(R.string.scheme_action_can_not_find_action));
+                Sm(TbadkCoreApplication.getInst().getString(R.string.scheme_action_can_not_find_action));
                 return;
             case 301:
-                Sl(TbadkCoreApplication.getInst().getString(R.string.scheme_action_security_check_fail));
+                Sm(TbadkCoreApplication.getInst().getString(R.string.scheme_action_security_check_fail));
                 return;
             default:
                 return;
@@ -56,13 +56,13 @@ public class c {
         this.mMessage = str;
     }
 
-    public void Sk(String str) {
-        Sl(str);
+    public void Sl(String str) {
+        Sm(str);
         Js(401);
     }
 
     public void dLQ() {
-        Sl(TbadkCoreApplication.getInst().getString(R.string.na_business_error));
+        Sm(TbadkCoreApplication.getInst().getString(R.string.na_business_error));
         Js(401);
     }
 
@@ -76,7 +76,7 @@ public class c {
         }
     }
 
-    public void Sl(String str) {
+    public void Sm(String str) {
         if (at.isEmpty(this.mMessage)) {
             this.mMessage = str;
         }
@@ -91,27 +91,27 @@ public class c {
     }
 
     public boolean dLR() {
-        return this.npm;
-    }
-
-    public void yf(boolean z) {
-        this.npm = z;
-    }
-
-    public boolean dLS() {
         return this.npn;
     }
 
-    public void yg(boolean z) {
+    public void yf(boolean z) {
         this.npn = z;
     }
 
-    public boolean dLT() {
+    public boolean dLS() {
         return this.npo;
     }
 
-    public void yh(boolean z) {
+    public void yg(boolean z) {
         this.npo = z;
+    }
+
+    public boolean dLT() {
+        return this.npp;
+    }
+
+    public void yh(boolean z) {
+        this.npp = z;
     }
 
     public boolean isError() {

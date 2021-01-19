@@ -5,9 +5,9 @@ import java.lang.reflect.AccessibleObject;
 import java.lang.reflect.Field;
 /* loaded from: classes4.dex */
 final class c extends b {
-    private static Class pKM;
-    private final Object pKN = ezs();
-    private final Field pKO = ezt();
+    private static Class pKN;
+    private final Object pKO = ezs();
+    private final Field pKP = ezt();
 
     @Override // com.google.gson.internal.a.b
     public void c(AccessibleObject accessibleObject) {
@@ -21,9 +21,9 @@ final class c extends b {
     }
 
     boolean d(AccessibleObject accessibleObject) {
-        if (this.pKN != null && this.pKO != null) {
+        if (this.pKO != null && this.pKP != null) {
             try {
-                pKM.getMethod("putBoolean", Object.class, Long.TYPE, Boolean.TYPE).invoke(this.pKN, accessibleObject, Long.valueOf(((Long) pKM.getMethod("objectFieldOffset", Field.class).invoke(this.pKN, this.pKO)).longValue()), true);
+                pKN.getMethod("putBoolean", Object.class, Long.TYPE, Boolean.TYPE).invoke(this.pKO, accessibleObject, Long.valueOf(((Long) pKN.getMethod("objectFieldOffset", Field.class).invoke(this.pKO, this.pKP)).longValue()), true);
                 return true;
             } catch (Exception e) {
             }
@@ -33,8 +33,8 @@ final class c extends b {
 
     private static Object ezs() {
         try {
-            pKM = Class.forName("sun.misc.Unsafe");
-            Field declaredField = pKM.getDeclaredField("theUnsafe");
+            pKN = Class.forName("sun.misc.Unsafe");
+            Field declaredField = pKN.getDeclaredField("theUnsafe");
             declaredField.setAccessible(true);
             return declaredField.get(null);
         } catch (Exception e) {

@@ -13,31 +13,31 @@ public class d implements ak {
     @GuardedBy("this")
     private final List<al> mCallbacks = new ArrayList();
     private final String mId;
-    private final am pBh;
-    private final ImageRequest.RequestLevel pBi;
+    private final am pBi;
+    private final ImageRequest.RequestLevel pBj;
     @GuardedBy("this")
-    private Priority pBj;
+    private Priority pBk;
     @GuardedBy("this")
-    private boolean pBk;
+    private boolean pBl;
+    private final ImageRequest pqA;
     @GuardedBy("this")
-    private boolean pqJ;
-    private final Object pqy;
-    private final ImageRequest pqz;
+    private boolean pqK;
+    private final Object pqz;
 
     public d(ImageRequest imageRequest, String str, am amVar, Object obj, ImageRequest.RequestLevel requestLevel, boolean z, boolean z2, Priority priority) {
-        this.pqz = imageRequest;
+        this.pqA = imageRequest;
         this.mId = str;
-        this.pBh = amVar;
-        this.pqy = obj;
-        this.pBi = requestLevel;
-        this.pqJ = z;
-        this.pBj = priority;
-        this.pBk = z2;
+        this.pBi = amVar;
+        this.pqz = obj;
+        this.pBj = requestLevel;
+        this.pqK = z;
+        this.pBk = priority;
+        this.pBl = z2;
     }
 
     @Override // com.facebook.imagepipeline.producers.ak
     public ImageRequest ewP() {
-        return this.pqz;
+        return this.pqA;
     }
 
     @Override // com.facebook.imagepipeline.producers.ak
@@ -47,32 +47,32 @@ public class d implements ak {
 
     @Override // com.facebook.imagepipeline.producers.ak
     public am ewQ() {
-        return this.pBh;
-    }
-
-    @Override // com.facebook.imagepipeline.producers.ak
-    public Object erD() {
-        return this.pqy;
-    }
-
-    @Override // com.facebook.imagepipeline.producers.ak
-    public ImageRequest.RequestLevel ewR() {
         return this.pBi;
     }
 
     @Override // com.facebook.imagepipeline.producers.ak
-    public synchronized boolean ewS() {
-        return this.pqJ;
+    public Object erD() {
+        return this.pqz;
     }
 
     @Override // com.facebook.imagepipeline.producers.ak
-    public synchronized Priority ewT() {
+    public ImageRequest.RequestLevel ewR() {
         return this.pBj;
     }
 
     @Override // com.facebook.imagepipeline.producers.ak
-    public synchronized boolean ewU() {
+    public synchronized boolean ewS() {
+        return this.pqK;
+    }
+
+    @Override // com.facebook.imagepipeline.producers.ak
+    public synchronized Priority ewT() {
         return this.pBk;
+    }
+
+    @Override // com.facebook.imagepipeline.producers.ak
+    public synchronized boolean ewU() {
+        return this.pBl;
     }
 
     @Override // com.facebook.imagepipeline.producers.ak
@@ -96,10 +96,10 @@ public class d implements ak {
     @Nullable
     public synchronized List<al> Bb(boolean z) {
         ArrayList arrayList;
-        if (z == this.pqJ) {
+        if (z == this.pqK) {
             arrayList = null;
         } else {
-            this.pqJ = z;
+            this.pqK = z;
             arrayList = new ArrayList(this.mCallbacks);
         }
         return arrayList;
@@ -108,10 +108,10 @@ public class d implements ak {
     @Nullable
     public synchronized List<al> a(Priority priority) {
         ArrayList arrayList;
-        if (priority == this.pBj) {
+        if (priority == this.pBk) {
             arrayList = null;
         } else {
-            this.pBj = priority;
+            this.pBk = priority;
             arrayList = new ArrayList(this.mCallbacks);
         }
         return arrayList;
@@ -120,10 +120,10 @@ public class d implements ak {
     @Nullable
     public synchronized List<al> Bc(boolean z) {
         ArrayList arrayList;
-        if (z == this.pBk) {
+        if (z == this.pBl) {
             arrayList = null;
         } else {
-            this.pBk = z;
+            this.pBl = z;
             arrayList = new ArrayList(this.mCallbacks);
         }
         return arrayList;

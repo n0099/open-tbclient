@@ -2,9 +2,9 @@ package com.github.a.a;
 /* loaded from: classes6.dex */
 public class h extends a {
     private int mPid;
-    private StringBuffer pGI;
-    private long pGJ;
+    private StringBuffer pGJ;
     private long pGK;
+    private long pGL;
 
     @Override // com.github.a.a.a
     public /* bridge */ /* synthetic */ void stop() {
@@ -13,10 +13,10 @@ public class h extends a {
 
     public h(long j) {
         super(j);
-        this.pGI = new StringBuffer();
+        this.pGJ = new StringBuffer();
         this.mPid = 0;
-        this.pGJ = 0L;
         this.pGK = 0L;
+        this.pGL = 0L;
     }
 
     @Override // com.github.a.a.a
@@ -26,7 +26,7 @@ public class h extends a {
     }
 
     public String getCpuRateInfo() {
-        return this.pGI.toString();
+        return this.pGJ.toString();
     }
 
     /*  JADX ERROR: JadxRuntimeException in pass: BlockProcessor
@@ -42,7 +42,7 @@ public class h extends a {
         /*
             r8 = this;
             r2 = 0
-            java.lang.StringBuffer r0 = r8.pGI
+            java.lang.StringBuffer r0 = r8.pGJ
             r1 = 0
             r0.setLength(r1)
             java.io.BufferedReader r3 = new java.io.BufferedReader     // Catch: java.lang.Throwable -> L7f
@@ -157,8 +157,8 @@ public class h extends a {
     }
 
     private void reset() {
-        this.pGJ = 0L;
         this.pGK = 0L;
+        this.pGL = 0L;
     }
 
     private void ho(String str, String str2) {
@@ -172,11 +172,11 @@ public class h extends a {
             long parseLong6 = parseLong5 + parseLong + parseLong2 + parseLong3 + parseLong4 + Long.parseLong(split[6]) + Long.parseLong(split[7]);
             if (str2.split(" ").length >= 17) {
                 if (parseLong6 != 0) {
-                    long j = parseLong6 - this.pGK;
-                    this.pGI.append(((j - (parseLong4 - this.pGJ)) * 100) / j);
+                    long j = parseLong6 - this.pGL;
+                    this.pGJ.append(((j - (parseLong4 - this.pGK)) * 100) / j);
                 }
-                this.pGJ = parseLong4;
-                this.pGK = parseLong6;
+                this.pGK = parseLong4;
+                this.pGL = parseLong6;
             }
         }
     }

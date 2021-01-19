@@ -73,12 +73,12 @@ public class d {
             return this;
         }
 
-        public a Zh(String str) {
+        public a Zi(String str) {
             this.f12904b = str;
             return this;
         }
 
-        public a Zi(String str) {
+        public a Zj(String str) {
             this.c = str;
             return this;
         }
@@ -93,7 +93,7 @@ public class d {
             return this;
         }
 
-        public a Zj(String str) {
+        public a Zk(String str) {
             this.f = str;
             return this;
         }
@@ -123,7 +123,7 @@ public class d {
             return this;
         }
 
-        public a Zk(String str) {
+        public a Zl(String str) {
             this.m = str;
             return this;
         }

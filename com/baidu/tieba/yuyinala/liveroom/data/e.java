@@ -6,13 +6,13 @@ import com.baidu.live.data.x;
 public class e {
     public AlaWheatInfoData bYs;
     public x hcZ;
-    public int okm;
     public int okn;
+    public int oko;
 
     public e(x xVar, AlaWheatInfoData alaWheatInfoData, int i, int i2) {
         this.hcZ = xVar;
         this.bYs = alaWheatInfoData;
-        this.okm = i;
-        this.okn = i2;
+        this.okn = i;
+        this.oko = i2;
     }
 }

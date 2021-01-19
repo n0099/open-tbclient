@@ -36,7 +36,7 @@ public final class WeiboSsoManager {
         bVar.setContext(context);
         bVar.setAppKey(str);
         bVar.setFrom("1478195010");
-        bVar.aaB("1000_0001");
+        bVar.aaC("1000_0001");
         WeiboSsoSdk.a(bVar);
         initAid();
     }

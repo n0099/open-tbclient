@@ -1,10 +1,10 @@
 package com.baidu.yuyinala.privatemessage.implugin.ma;
 /* loaded from: classes10.dex */
 public class MABottomToolBar {
-    private CommonMenuType oPG;
-    private CommonToolBarType oPH;
-    private a oPI;
-    private b oPJ;
+    private CommonMenuType oPH;
+    private CommonToolBarType oPI;
+    private a oPJ;
+    private b oPK;
 
     @Deprecated
     /* loaded from: classes10.dex */
@@ -35,10 +35,10 @@ public class MABottomToolBar {
 
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("mCommonToolBarType = " + this.oPH + "\n");
-        sb.append("mCommonMenuType = " + this.oPG + "\n");
-        sb.append("mOnCommonToolBarClickListener = " + this.oPI + "\n");
-        sb.append("mOnCommonToolMenuClickListener = " + this.oPJ);
+        sb.append("mCommonToolBarType = " + this.oPI + "\n");
+        sb.append("mCommonMenuType = " + this.oPH + "\n");
+        sb.append("mOnCommonToolBarClickListener = " + this.oPJ + "\n");
+        sb.append("mOnCommonToolMenuClickListener = " + this.oPK);
         return sb.toString();
     }
 }

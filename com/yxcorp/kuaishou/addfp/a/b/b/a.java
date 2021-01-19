@@ -10,8 +10,8 @@ public final class a {
 
     /* renamed from: b  reason: collision with root package name */
     private Context f14343b;
-    private com.yxcorp.kuaishou.addfp.a.b.b qbz;
-    private d qbA = null;
+    private com.yxcorp.kuaishou.addfp.a.b.b qbA;
+    private d qbB = null;
     private CountDownLatch d = new CountDownLatch(1);
     private long e = 0;
     private ServiceConnection f = new b(this);
@@ -23,9 +23,9 @@ public final class a {
     private void a(boolean z) {
         try {
             if (z) {
-                this.qbz.a(this.qbA);
+                this.qbA.a(this.qbB);
             } else {
-                this.qbz.e();
+                this.qbA.e();
             }
         } catch (Throwable th) {
             com.yxcorp.kuaishou.addfp.android.b.b.a(th);
@@ -42,7 +42,7 @@ public final class a {
     public final void a(com.yxcorp.kuaishou.addfp.a.b.b bVar) {
         long currentTimeMillis = System.currentTimeMillis();
         try {
-            this.qbz = bVar;
+            this.qbA = bVar;
             this.f14343b.getPackageManager().getPackageInfo("com.huawei.hwid", 0);
             Intent intent = new Intent("com.uodis.opendevice.OPENIDS_SERVICE");
             intent.setPackage("com.huawei.hwid");
@@ -50,7 +50,7 @@ public final class a {
             com.yxcorp.kuaishou.addfp.android.b.b.b("hua wei lala  : " + this.e);
             if (this.f14343b.bindService(intent, this.f, 1)) {
                 this.d.await(2000L, TimeUnit.MILLISECONDS);
-                if (this.qbA != null) {
+                if (this.qbB != null) {
                     com.yxcorp.kuaishou.addfp.android.b.b.b("lalala " + Long.toString(System.currentTimeMillis() - currentTimeMillis));
                     a(true);
                 } else {

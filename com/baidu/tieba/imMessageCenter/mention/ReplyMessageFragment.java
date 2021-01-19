@@ -153,8 +153,8 @@ public class ReplyMessageFragment extends BaseFragment implements NoNetworkView.
             bVar.a(new b.a() { // from class: com.baidu.tieba.imMessageCenter.mention.ReplyMessageFragment.7.1
                 @Override // com.baidu.tieba.imMessageCenter.mention.DelReplyAtMsg.b.a
                 public void cXf() {
-                    ReplyMessageFragment.this.kKy.Dk(i);
-                    ReplyMessageFragment.this.kKx.Dj(i);
+                    ReplyMessageFragment.this.kKy.Dj(i);
+                    ReplyMessageFragment.this.kKx.Di(i);
                 }
             });
             bVar.show();

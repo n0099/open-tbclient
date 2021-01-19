@@ -6,35 +6,35 @@ import java.io.IOException;
 import java.io.Writer;
 /* loaded from: classes4.dex */
 public class b implements Closeable, Flushable {
-    private static final String[] pLa = new String[128];
-    private static final String[] pLb;
+    private static final String[] pLb = new String[128];
+    private static final String[] pLc;
     private boolean htmlSafe;
     private String indent;
     private boolean lenient;
-    private final Writer pLc;
-    private String pLd;
+    private final Writer pLd;
+    private String pLe;
     private String separator;
     private boolean serializeNulls;
-    private int[] pKZ = new int[32];
-    private int pIS = 0;
+    private int[] pLa = new int[32];
+    private int pIT = 0;
 
     static {
         for (int i = 0; i <= 31; i++) {
-            pLa[i] = String.format("\\u%04x", Integer.valueOf(i));
+            pLb[i] = String.format("\\u%04x", Integer.valueOf(i));
         }
-        pLa[34] = "\\\"";
-        pLa[92] = "\\\\";
-        pLa[9] = "\\t";
-        pLa[8] = "\\b";
-        pLa[10] = "\\n";
-        pLa[13] = "\\r";
-        pLa[12] = "\\f";
-        pLb = (String[]) pLa.clone();
-        pLb[60] = "\\u003c";
-        pLb[62] = "\\u003e";
-        pLb[38] = "\\u0026";
-        pLb[61] = "\\u003d";
-        pLb[39] = "\\u0027";
+        pLb[34] = "\\\"";
+        pLb[92] = "\\\\";
+        pLb[9] = "\\t";
+        pLb[8] = "\\b";
+        pLb[10] = "\\n";
+        pLb[13] = "\\r";
+        pLb[12] = "\\f";
+        pLc = (String[]) pLb.clone();
+        pLc[60] = "\\u003c";
+        pLc[62] = "\\u003e";
+        pLc[38] = "\\u0026";
+        pLc[61] = "\\u003d";
+        pLc[39] = "\\u0027";
     }
 
     public b(Writer writer) {
@@ -44,10 +44,10 @@ public class b implements Closeable, Flushable {
         if (writer == null) {
             throw new NullPointerException("out == null");
         }
-        this.pLc = writer;
+        this.pLd = writer;
     }
 
-    public final void YM(String str) {
+    public final void YN(String str) {
         if (str.length() == 0) {
             this.indent = null;
             this.separator = ":";
@@ -102,7 +102,7 @@ public class b implements Closeable, Flushable {
     private b cc(int i, String str) throws IOException {
         beforeValue();
         push(i);
-        this.pLc.write(str);
+        this.pLd.write(str);
         return this;
     }
 
@@ -111,63 +111,63 @@ public class b implements Closeable, Flushable {
         if (peek != i2 && peek != i) {
             throw new IllegalStateException("Nesting problem.");
         }
-        if (this.pLd != null) {
-            throw new IllegalStateException("Dangling name: " + this.pLd);
+        if (this.pLe != null) {
+            throw new IllegalStateException("Dangling name: " + this.pLe);
         }
-        this.pIS--;
+        this.pIT--;
         if (peek == i2) {
             newline();
         }
-        this.pLc.write(str);
+        this.pLd.write(str);
         return this;
     }
 
     private void push(int i) {
-        if (this.pIS == this.pKZ.length) {
-            int[] iArr = new int[this.pIS * 2];
-            System.arraycopy(this.pKZ, 0, iArr, 0, this.pIS);
-            this.pKZ = iArr;
+        if (this.pIT == this.pLa.length) {
+            int[] iArr = new int[this.pIT * 2];
+            System.arraycopy(this.pLa, 0, iArr, 0, this.pIT);
+            this.pLa = iArr;
         }
-        int[] iArr2 = this.pKZ;
-        int i2 = this.pIS;
-        this.pIS = i2 + 1;
+        int[] iArr2 = this.pLa;
+        int i2 = this.pIT;
+        this.pIT = i2 + 1;
         iArr2[i2] = i;
     }
 
     private int peek() {
-        if (this.pIS == 0) {
+        if (this.pIT == 0) {
             throw new IllegalStateException("JsonWriter is closed.");
         }
-        return this.pKZ[this.pIS - 1];
+        return this.pLa[this.pIT - 1];
     }
 
     private void Qe(int i) {
-        this.pKZ[this.pIS - 1] = i;
+        this.pLa[this.pIT - 1] = i;
     }
 
-    public b YI(String str) throws IOException {
+    public b YJ(String str) throws IOException {
         if (str == null) {
             throw new NullPointerException("name == null");
         }
-        if (this.pLd != null) {
+        if (this.pLe != null) {
             throw new IllegalStateException();
         }
-        if (this.pIS == 0) {
+        if (this.pIT == 0) {
             throw new IllegalStateException("JsonWriter is closed.");
         }
-        this.pLd = str;
+        this.pLe = str;
         return this;
     }
 
     private void ezF() throws IOException {
-        if (this.pLd != null) {
+        if (this.pLe != null) {
             ezG();
-            string(this.pLd);
-            this.pLd = null;
+            string(this.pLe);
+            this.pLe = null;
         }
     }
 
-    public b YJ(String str) throws IOException {
+    public b YK(String str) throws IOException {
         if (str == null) {
             return ezq();
         }
@@ -178,23 +178,23 @@ public class b implements Closeable, Flushable {
     }
 
     public b ezq() throws IOException {
-        if (this.pLd != null) {
+        if (this.pLe != null) {
             if (this.serializeNulls) {
                 ezF();
             } else {
-                this.pLd = null;
+                this.pLe = null;
                 return this;
             }
         }
         beforeValue();
-        this.pLc.write("null");
+        this.pLd.write("null");
         return this;
     }
 
     public b Bg(boolean z) throws IOException {
         ezF();
         beforeValue();
-        this.pLc.write(z ? "true" : "false");
+        this.pLd.write(z ? "true" : "false");
         return this;
     }
 
@@ -204,14 +204,14 @@ public class b implements Closeable, Flushable {
         }
         ezF();
         beforeValue();
-        this.pLc.write(bool.booleanValue() ? "true" : "false");
+        this.pLd.write(bool.booleanValue() ? "true" : "false");
         return this;
     }
 
     public b iQ(long j) throws IOException {
         ezF();
         beforeValue();
-        this.pLc.write(Long.toString(j));
+        this.pLd.write(Long.toString(j));
         return this;
     }
 
@@ -225,25 +225,25 @@ public class b implements Closeable, Flushable {
             throw new IllegalArgumentException("Numeric values must be finite, but was " + number);
         }
         beforeValue();
-        this.pLc.append((CharSequence) obj);
+        this.pLd.append((CharSequence) obj);
         return this;
     }
 
     public void flush() throws IOException {
-        if (this.pIS == 0) {
+        if (this.pIT == 0) {
             throw new IllegalStateException("JsonWriter is closed.");
         }
-        this.pLc.flush();
+        this.pLd.flush();
     }
 
     @Override // java.io.Closeable, java.lang.AutoCloseable
     public void close() throws IOException {
-        this.pLc.close();
-        int i = this.pIS;
-        if (i > 1 || (i == 1 && this.pKZ[i - 1] != 7)) {
+        this.pLd.close();
+        int i = this.pIT;
+        if (i > 1 || (i == 1 && this.pLa[i - 1] != 7)) {
             throw new IOException("Incomplete document");
         }
-        this.pIS = 0;
+        this.pIT = 0;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:17:0x0033  */
@@ -253,8 +253,8 @@ public class b implements Closeable, Flushable {
     private void string(String str) throws IOException {
         int i;
         String str2;
-        String[] strArr = this.htmlSafe ? pLb : pLa;
-        this.pLc.write("\"");
+        String[] strArr = this.htmlSafe ? pLc : pLb;
+        this.pLd.write("\"");
         int length = str.length();
         int i2 = 0;
         for (i = 0; i < length; i = i + 1) {
@@ -263,9 +263,9 @@ public class b implements Closeable, Flushable {
                 str2 = strArr[charAt];
                 i = str2 == null ? i + 1 : 0;
                 if (i2 < i) {
-                    this.pLc.write(str, i2, i - i2);
+                    this.pLd.write(str, i2, i - i2);
                 }
-                this.pLc.write(str2);
+                this.pLd.write(str2);
                 i2 = i + 1;
             } else {
                 if (charAt == 8232) {
@@ -275,22 +275,22 @@ public class b implements Closeable, Flushable {
                 }
                 if (i2 < i) {
                 }
-                this.pLc.write(str2);
+                this.pLd.write(str2);
                 i2 = i + 1;
             }
         }
         if (i2 < length) {
-            this.pLc.write(str, i2, length - i2);
+            this.pLd.write(str, i2, length - i2);
         }
-        this.pLc.write("\"");
+        this.pLd.write("\"");
     }
 
     private void newline() throws IOException {
         if (this.indent != null) {
-            this.pLc.write("\n");
-            int i = this.pIS;
+            this.pLd.write("\n");
+            int i = this.pIT;
             for (int i2 = 1; i2 < i; i2++) {
-                this.pLc.write(this.indent);
+                this.pLd.write(this.indent);
             }
         }
     }
@@ -298,7 +298,7 @@ public class b implements Closeable, Flushable {
     private void ezG() throws IOException {
         int peek = peek();
         if (peek == 5) {
-            this.pLc.write(44);
+            this.pLd.write(44);
         } else if (peek != 3) {
             throw new IllegalStateException("Nesting problem.");
         }
@@ -314,7 +314,7 @@ public class b implements Closeable, Flushable {
                 newline();
                 return;
             case 2:
-                this.pLc.append(',');
+                this.pLd.append(',');
                 newline();
                 return;
             case 3:
@@ -322,7 +322,7 @@ public class b implements Closeable, Flushable {
             default:
                 throw new IllegalStateException("Nesting problem.");
             case 4:
-                this.pLc.append((CharSequence) this.separator);
+                this.pLd.append((CharSequence) this.separator);
                 Qe(5);
                 return;
             case 6:

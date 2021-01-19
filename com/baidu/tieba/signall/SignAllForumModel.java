@@ -16,7 +16,7 @@ public class SignAllForumModel extends BdBaseModel<SignAllForumActivity> {
 
     /* loaded from: classes7.dex */
     public interface a {
-        void Mf(String str);
+        void Mg(String str);
 
         void b(h hVar);
     }
@@ -155,7 +155,7 @@ public class SignAllForumModel extends BdBaseModel<SignAllForumActivity> {
                     this.neU = new e();
                     this.neU.setAuthSid(SignAllForumModel.this.mAuthSid);
                     if (com.baidu.adp.lib.util.j.isNetWorkAvailable()) {
-                        RF(sb.toString());
+                        RG(sb.toString());
                     }
                 }
             }
@@ -173,14 +173,14 @@ public class SignAllForumModel extends BdBaseModel<SignAllForumActivity> {
             return null;
         }
 
-        private h RF(String str) {
-            String RC = this.neU.RC(str);
+        private h RG(String str) {
+            String RD = this.neU.RD(str);
             if (this.neU.isRequestSuccess()) {
-                SignAllForumModel.this.neR.parserJson(RC);
+                SignAllForumModel.this.neR.parserJson(RD);
                 return SignAllForumModel.this.neR;
             }
             SignAllForumModel.this.neR = null;
-            this.tokenData = AuthTokenData.parse(RC);
+            this.tokenData = AuthTokenData.parse(RD);
             return null;
         }
 
@@ -204,7 +204,7 @@ public class SignAllForumModel extends BdBaseModel<SignAllForumActivity> {
                 if (SignAllForumModel.this.neR != null) {
                     SignAllForumModel.this.neS.b(SignAllForumModel.this.neR);
                 } else {
-                    SignAllForumModel.this.neS.Mf(this.neU != null ? this.neU.bkz() : null);
+                    SignAllForumModel.this.neS.Mg(this.neU != null ? this.neU.bkz() : null);
                 }
             }
         }

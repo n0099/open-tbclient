@@ -472,7 +472,7 @@ public class LegoHotPageView extends FrameLayout implements AbsListView.OnScroll
         return this.kRq.kXA;
     }
 
-    public void bc(String str, int i) {
+    public void bd(String str, int i) {
         if (this.gxy != null) {
             this.gxy.endLoadData();
         }

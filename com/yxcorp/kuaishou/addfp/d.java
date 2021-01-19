@@ -8,11 +8,11 @@ public final class d implements com.yxcorp.kuaishou.addfp.a.a.a {
 
     /* renamed from: a  reason: collision with root package name */
     private /* synthetic */ Context f14393a;
-    private /* synthetic */ a qcb;
+    private /* synthetic */ a qcc;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(a aVar, Context context) {
-        this.qcb = aVar;
+        this.qcc = aVar;
         this.f14393a = context;
     }
 

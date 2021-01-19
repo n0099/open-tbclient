@@ -5,9 +5,9 @@ import java.io.IOException;
 import java.io.InputStream;
 /* loaded from: classes14.dex */
 public class b extends FilterInputStream {
-    private final byte[] ppl;
-    private int ppm;
+    private final byte[] ppm;
     private int ppn;
+    private int ppo;
 
     public b(InputStream inputStream, byte[] bArr) {
         super(inputStream);
@@ -17,7 +17,7 @@ public class b extends FilterInputStream {
         if (bArr == null) {
             throw new NullPointerException();
         }
-        this.ppl = bArr;
+        this.ppm = bArr;
     }
 
     @Override // java.io.FilterInputStream, java.io.InputStream
@@ -59,7 +59,7 @@ public class b extends FilterInputStream {
     public void reset() throws IOException {
         if (this.in.markSupported()) {
             this.in.reset();
-            this.ppm = this.ppn;
+            this.ppn = this.ppo;
             return;
         }
         throw new IOException("mark is not supported");
@@ -69,17 +69,17 @@ public class b extends FilterInputStream {
     public void mark(int i) {
         if (this.in.markSupported()) {
             super.mark(i);
-            this.ppn = this.ppm;
+            this.ppo = this.ppn;
         }
     }
 
     private int eqA() {
-        if (this.ppm >= this.ppl.length) {
+        if (this.ppn >= this.ppm.length) {
             return -1;
         }
-        byte[] bArr = this.ppl;
-        int i = this.ppm;
-        this.ppm = i + 1;
+        byte[] bArr = this.ppm;
+        int i = this.ppn;
+        this.ppn = i + 1;
         return bArr[i] & 255;
     }
 }

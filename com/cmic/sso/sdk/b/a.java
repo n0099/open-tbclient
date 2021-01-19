@@ -21,20 +21,20 @@ import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class a {
     @SuppressLint({"StaticFieldLeak"})
-    private static a plV = null;
+    private static a plW = null;
     private Context mContext;
     private Handler mHandler;
     private final Object mObject;
-    private c plU;
-    private long plW;
-    private String plX;
+    private c plV;
+    private long plX;
+    private String plY;
 
     private a(Context context) {
-        this.plW = 8000L;
+        this.plX = 8000L;
         this.mObject = new Object();
         this.mContext = context.getApplicationContext();
         this.mHandler = new Handler(this.mContext.getMainLooper());
-        this.plU = c.ic(this.mContext);
+        this.plV = c.ic(this.mContext);
         t.id(this.mContext);
         k.a(this.mContext);
         j.a(this.mContext);
@@ -66,29 +66,29 @@ public class a {
 
     private a(Context context, String str) {
         this(context);
-        this.plX = str;
+        this.plY = str;
     }
 
     public static a ia(Context context) {
-        if (plV == null) {
+        if (plW == null) {
             synchronized (a.class) {
-                if (plV == null) {
-                    plV = new a(context);
+                if (plW == null) {
+                    plW = new a(context);
                 }
             }
         }
-        return plV;
+        return plW;
     }
 
     public static a by(Context context, String str) {
-        if (plV == null) {
+        if (plW == null) {
             synchronized (a.class) {
-                if (plV == null) {
-                    plV = new a(context, str);
+                if (plW == null) {
+                    plW = new a(context, str);
                 }
             }
         }
-        return plV;
+        return plW;
     }
 
     public void a(final String str, final String str2, final b bVar) {
@@ -141,29 +141,29 @@ public class a {
     /* renamed from: com.cmic.sso.sdk.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
     public class RunnableC1033a implements Runnable {
-        private com.cmic.sso.sdk.a pmg;
+        private com.cmic.sso.sdk.a pmh;
 
         RunnableC1033a(com.cmic.sso.sdk.a aVar) {
-            this.pmg = aVar;
+            this.pmh = aVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             JSONObject a2;
-            if (!t.id(a.this.mContext).a() && this.pmg.b("doNetworkSwitch", false)) {
+            if (!t.id(a.this.mContext).a() && this.pmh.b("doNetworkSwitch", false)) {
                 a2 = e.a("102508", "数据网络切换失败");
             } else {
                 a2 = e.a("200023", "登录超时");
             }
-            a.this.a(a2.optString("resultCode", "200023"), a2.optString("resultString", "登录超时"), this.pmg, a2);
+            a.this.a(a2.optString("resultCode", "200023"), a2.optString("resultString", "登录超时"), this.pmh, a2);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(com.cmic.sso.sdk.a aVar) {
         final RunnableC1033a runnableC1033a = new RunnableC1033a(aVar);
-        this.mHandler.postDelayed(runnableC1033a, this.plW);
-        this.plU.a(aVar, new d() { // from class: com.cmic.sso.sdk.b.a.5
+        this.mHandler.postDelayed(runnableC1033a, this.plX);
+        this.plV.a(aVar, new d() { // from class: com.cmic.sso.sdk.b.a.5
             @Override // com.cmic.sso.sdk.b.d
             public void b(String str, String str2, com.cmic.sso.sdk.a aVar2, JSONObject jSONObject) {
                 a.this.mHandler.removeCallbacks(runnableC1033a);
@@ -176,13 +176,13 @@ public class a {
     public boolean a(com.cmic.sso.sdk.a aVar, String str, String str2, String str3, int i, b bVar) {
         boolean z;
         aVar.a("CLOSE_CERT_VERIFY", q.h());
-        aVar.a("use2048PublicKey", "rsa2048".equals(this.plX));
+        aVar.a("use2048PublicKey", "rsa2048".equals(this.plY));
         aVar.a("systemStartTime", SystemClock.elapsedRealtime());
         aVar.a(LogBuilder.KEY_START_TIME, p.a());
         aVar.a("loginMethod", str3);
         aVar.a("appkey", str2);
         aVar.a("appid", str);
-        aVar.a("timeOut", String.valueOf(this.plW));
+        aVar.a("timeOut", String.valueOf(this.plX));
         boolean z2 = false;
         if (g.a(this.mContext, "android.permission.READ_PHONE_STATE")) {
             z2 = true;
@@ -273,9 +273,9 @@ public class a {
             String b2 = aVar.b("traceId");
             if (!com.cmic.sso.sdk.e.e.a(b2)) {
                 synchronized (this) {
-                    final b XW = com.cmic.sso.sdk.e.e.XW(b2);
+                    final b XX = com.cmic.sso.sdk.e.e.XX(b2);
                     com.cmic.sso.sdk.e.e.b(b2);
-                    if (XW != null) {
+                    if (XX != null) {
                         aVar.a("systemEndTime", SystemClock.elapsedRealtime());
                         aVar.a(LogBuilder.KEY_END_TIME, p.a());
                         int b3 = aVar.b("logintype", -1);
@@ -290,7 +290,7 @@ public class a {
                         this.mHandler.post(new Runnable() { // from class: com.cmic.sso.sdk.b.a.6
                             @Override // java.lang.Runnable
                             public void run() {
-                                XW.onGetTokenComplete(c);
+                                XX.onGetTokenComplete(c);
                             }
                         });
                         a(this.mContext, str, aVar);
@@ -322,7 +322,7 @@ public class a {
     }
 
     public void iw(long j) {
-        this.plW = j;
+        this.plX = j;
     }
 
     public JSONObject ib(Context context) {

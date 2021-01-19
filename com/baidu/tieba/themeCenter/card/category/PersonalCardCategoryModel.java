@@ -19,8 +19,8 @@ public class PersonalCardCategoryModel extends BdBaseModel<PersonalCardCategoryM
                 if ((responsedMessage instanceof PersonalCardCategorySocktResponse) || (responsedMessage instanceof PersonalCardCategoryHttpResponse)) {
                     if (responsedMessage.getError() != 0) {
                         PersonalCardCategoryModel.a(PersonalCardCategoryModel.this);
-                        if (PersonalCardCategoryModel.this.nyv != null) {
-                            PersonalCardCategoryModel.this.nyv.a(responsedMessage.getError(), responsedMessage.getErrorString(), PersonalCardCategoryModel.this.mRecommand, PersonalCardCategoryModel.this.mCardCategoryList, PersonalCardCategoryModel.this.hasMore);
+                        if (PersonalCardCategoryModel.this.nyw != null) {
+                            PersonalCardCategoryModel.this.nyw.a(responsedMessage.getError(), responsedMessage.getErrorString(), PersonalCardCategoryModel.this.mRecommand, PersonalCardCategoryModel.this.mCardCategoryList, PersonalCardCategoryModel.this.hasMore);
                             return;
                         }
                         return;
@@ -46,8 +46,8 @@ public class PersonalCardCategoryModel extends BdBaseModel<PersonalCardCategoryM
                         PersonalCardCategoryModel.this.mRecommand = personalCardCategoryHttpResponse.getRecommand();
                         PersonalCardCategoryModel.this.hasMore = personalCardCategoryHttpResponse.isHasMore();
                     }
-                    if (PersonalCardCategoryModel.this.nyv != null) {
-                        PersonalCardCategoryModel.this.nyv.a(responsedMessage.getError(), responsedMessage.getErrorString(), PersonalCardCategoryModel.this.mRecommand, PersonalCardCategoryModel.this.mCardCategoryList, PersonalCardCategoryModel.this.hasMore);
+                    if (PersonalCardCategoryModel.this.nyw != null) {
+                        PersonalCardCategoryModel.this.nyw.a(responsedMessage.getError(), responsedMessage.getErrorString(), PersonalCardCategoryModel.this.mRecommand, PersonalCardCategoryModel.this.mCardCategoryList, PersonalCardCategoryModel.this.hasMore);
                     }
                 }
             }
@@ -55,7 +55,7 @@ public class PersonalCardCategoryModel extends BdBaseModel<PersonalCardCategoryM
     };
     private List<com.baidu.tieba.themeCenter.card.category.a> mCardCategoryList;
     private e mRecommand;
-    private a nyv;
+    private a nyw;
 
     /* loaded from: classes8.dex */
     public interface a {
@@ -99,8 +99,8 @@ public class PersonalCardCategoryModel extends BdBaseModel<PersonalCardCategoryM
 
     public void J(long j, int i) {
         K(j, i);
-        if (this.nyv != null) {
-            this.nyv.a(0, null, this.mRecommand, this.mCardCategoryList, this.hasMore);
+        if (this.nyw != null) {
+            this.nyw.a(0, null, this.mRecommand, this.mCardCategoryList, this.hasMore);
         }
     }
 
@@ -119,7 +119,7 @@ public class PersonalCardCategoryModel extends BdBaseModel<PersonalCardCategoryM
                                 }
                             } else if (i == 1) {
                                 aVar2.JJ(0);
-                            } else if (aVar2.getCardId() == com.baidu.tieba.themeCenter.a.nvD) {
+                            } else if (aVar2.getCardId() == com.baidu.tieba.themeCenter.a.nvE) {
                                 aVar2.JJ(1);
                             }
                         }
@@ -130,7 +130,7 @@ public class PersonalCardCategoryModel extends BdBaseModel<PersonalCardCategoryM
     }
 
     public void a(a aVar) {
-        this.nyv = aVar;
+        this.nyw = aVar;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel

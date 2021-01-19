@@ -18,24 +18,24 @@ public class j {
 
     /* renamed from: a  reason: collision with root package name */
     private static Context f12962a;
-    private static com.ss.android.a.a.a.f pRJ;
-    private static com.ss.android.a.a.a.c pRK;
-    private static com.ss.android.a.a.a.k pRL;
-    private static com.ss.android.a.a.a.g pRM;
-    private static com.ss.android.a.a.a.h pRN;
-    private static com.ss.android.a.a.a.i pRO;
-    private static com.ss.android.a.a.d.a pRP;
-    private static com.ss.android.a.a.a.b pRQ;
-    private static com.ss.android.socialbase.appdownloader.c.h pRR;
-    private static com.ss.android.a.a.a.d pRS;
-    private static com.ss.android.a.a.a.e pRT;
-    private static o pRU;
-    private static com.ss.android.a.a.a.j pRV;
-    private static r pRW;
-    private static n pRX;
-    private static m pRY;
-    private static com.ss.android.a.a.a.l pRZ;
-    private static com.ss.android.a.a.c.a pSa;
+    private static com.ss.android.a.a.a.f pRK;
+    private static com.ss.android.a.a.a.c pRL;
+    private static com.ss.android.a.a.a.k pRM;
+    private static com.ss.android.a.a.a.g pRN;
+    private static com.ss.android.a.a.a.h pRO;
+    private static com.ss.android.a.a.a.i pRP;
+    private static com.ss.android.a.a.d.a pRQ;
+    private static com.ss.android.a.a.a.b pRR;
+    private static com.ss.android.socialbase.appdownloader.c.h pRS;
+    private static com.ss.android.a.a.a.d pRT;
+    private static com.ss.android.a.a.a.e pRU;
+    private static o pRV;
+    private static com.ss.android.a.a.a.j pRW;
+    private static r pRX;
+    private static n pRY;
+    private static m pRZ;
+    private static com.ss.android.a.a.a.l pSa;
+    private static com.ss.android.a.a.c.a pSb;
 
     public static void a(Context context) {
         if (context == null || context.getApplicationContext() == null) {
@@ -58,23 +58,23 @@ public class j {
     }
 
     public static void b(@NonNull com.ss.android.a.a.a.f fVar) {
-        pRJ = fVar;
+        pRK = fVar;
     }
 
     public static void b(@NonNull com.ss.android.a.a.a.k kVar) {
-        pRL = kVar;
+        pRM = kVar;
     }
 
     public static void b(@NonNull com.ss.android.a.a.a.g gVar) {
-        pRM = gVar;
+        pRN = gVar;
     }
 
     public static void b(@NonNull com.ss.android.a.a.a.h hVar) {
-        pRN = hVar;
+        pRO = hVar;
     }
 
     public static void b(@NonNull com.ss.android.a.a.a.i iVar) {
-        pRO = iVar;
+        pRP = iVar;
         try {
             com.ss.android.socialbase.appdownloader.d.eCW().b(y());
         } catch (Exception e) {
@@ -83,21 +83,21 @@ public class j {
     }
 
     public static void b(@NonNull com.ss.android.a.a.d.a aVar) {
-        pRP = aVar;
+        pRQ = aVar;
     }
 
     public static void b(@NonNull com.ss.android.a.a.a.b bVar) {
-        pRQ = bVar;
+        pRR = bVar;
     }
 
     public static com.ss.android.a.a.a.f eCm() {
-        return pRJ;
+        return pRK;
     }
 
     @NonNull
     public static com.ss.android.a.a.a.c eCn() {
-        if (pRK == null) {
-            pRK = new com.ss.android.a.a.a.c() { // from class: com.ss.android.downloadlib.a.j.1
+        if (pRL == null) {
+            pRL = new com.ss.android.a.a.a.c() { // from class: com.ss.android.downloadlib.a.j.1
                 @Override // com.ss.android.a.a.a.c
                 public void a(@Nullable Context context, @NonNull com.ss.android.a.a.b.c cVar, @Nullable com.ss.android.a.a.b.a aVar, @Nullable com.ss.android.a.a.b.b bVar) {
                 }
@@ -107,81 +107,81 @@ public class j {
                 }
             };
         }
-        return pRK;
+        return pRL;
     }
 
     @NonNull
     public static com.ss.android.a.a.a.k eCo() {
-        if (pRL == null) {
-            pRL = new com.ss.android.downloadlib.c.a();
+        if (pRM == null) {
+            pRM = new com.ss.android.downloadlib.c.a();
         }
-        return pRL;
+        return pRM;
     }
 
     public static com.ss.android.a.a.a.g eCp() {
-        return pRM;
+        return pRN;
     }
 
     @NonNull
     public static com.ss.android.a.a.a.h eCq() {
-        if (pRN == null) {
-            pRN = new com.ss.android.downloadlib.c.b();
+        if (pRO == null) {
+            pRO = new com.ss.android.downloadlib.c.b();
         }
-        return pRN;
+        return pRO;
     }
 
     public static com.ss.android.socialbase.appdownloader.c.h eCr() {
-        if (pRR == null) {
-            pRR = new com.ss.android.socialbase.appdownloader.c.h() { // from class: com.ss.android.downloadlib.a.j.2
+        if (pRS == null) {
+            pRS = new com.ss.android.socialbase.appdownloader.c.h() { // from class: com.ss.android.downloadlib.a.j.2
                 @Override // com.ss.android.socialbase.appdownloader.c.h
                 public void a(com.ss.android.socialbase.downloader.g.c cVar, com.ss.android.socialbase.downloader.e.a aVar, int i) {
                 }
             };
         }
-        return pRR;
+        return pRS;
     }
 
     public static o eCs() {
-        return pRU;
+        return pRV;
     }
 
     @NonNull
     public static JSONObject i() {
-        if (pRO == null) {
-            pRO = new com.ss.android.a.a.a.i() { // from class: com.ss.android.downloadlib.a.j.3
+        if (pRP == null) {
+            pRP = new com.ss.android.a.a.a.i() { // from class: com.ss.android.downloadlib.a.j.3
                 @Override // com.ss.android.a.a.a.i
                 public JSONObject a() {
                     return new JSONObject();
                 }
             };
         }
-        return (JSONObject) com.ss.android.downloadlib.f.i.M(pRO.a(), new JSONObject());
+        return (JSONObject) com.ss.android.downloadlib.f.i.M(pRP.a(), new JSONObject());
     }
 
     @NonNull
     public static com.ss.android.a.a.d.a eCt() {
-        if (pRP == null) {
-            pRP = new a.C1213a().eBK();
+        if (pRQ == null) {
+            pRQ = new a.C1213a().eBK();
         }
-        return pRP;
+        return pRQ;
     }
 
     public static m eCu() {
-        return pRY;
+        return pRZ;
     }
 
     @Nullable
     public static com.ss.android.a.a.a.b eCv() {
-        return pRQ;
+        return pRR;
     }
 
     @Nullable
     public static n eCw() {
-        return pRX;
+        return pRY;
     }
 
     public static com.ss.android.a.a.a.l eCx() {
-        return pRZ;
+        return pSa;
     }
 
     public static void a(String str) {
@@ -193,42 +193,42 @@ public class j {
     }
 
     public static com.ss.android.a.a.a.d eCy() {
-        return pRS;
+        return pRT;
     }
 
     public static com.ss.android.a.a.a.e eCz() {
-        return pRT;
+        return pRU;
     }
 
     @NonNull
     public static com.ss.android.a.a.c.a eCA() {
-        if (pSa == null) {
-            pSa = new com.ss.android.a.a.c.a() { // from class: com.ss.android.downloadlib.a.j.4
-                com.ss.android.downloadlib.guide.install.a pSb = null;
+        if (pSb == null) {
+            pSb = new com.ss.android.a.a.c.a() { // from class: com.ss.android.downloadlib.a.j.4
+                com.ss.android.downloadlib.guide.install.a pSc = null;
 
                 @Override // com.ss.android.a.a.c.a
                 public void a(Activity activity, int i, String str, Drawable drawable, String str2, long j, com.ss.android.socialbase.appdownloader.c.m mVar) {
-                    this.pSb = new com.ss.android.downloadlib.guide.install.a(activity, i, str, drawable, str2, j, mVar);
-                    this.pSb.show();
+                    this.pSc = new com.ss.android.downloadlib.guide.install.a(activity, i, str, drawable, str2, j, mVar);
+                    this.pSc.show();
                 }
 
                 @Override // com.ss.android.a.a.c.a
                 public void a() {
-                    if (this.pSb != null && this.pSb.isShowing()) {
-                        this.pSb.dismiss();
+                    if (this.pSc != null && this.pSc.isShowing()) {
+                        this.pSc.dismiss();
                     }
                 }
             };
         }
-        return pSa;
+        return pSb;
     }
 
     public static com.ss.android.a.a.a.j eCB() {
-        return pRV;
+        return pRW;
     }
 
     public static r eCC() {
-        return pRW;
+        return pRX;
     }
 
     public static boolean u() {

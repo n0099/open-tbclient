@@ -47,8 +47,8 @@ public class au {
 
         @Override // android.location.LocationListener
         public final void onLocationChanged(Location location) {
-            a.eGO().qaf = location.getLatitude();
-            a.eGO().qag = location.getLongitude();
+            a.eGO().qag = location.getLatitude();
+            a.eGO().qah = location.getLongitude();
         }
 
         @Override // android.location.LocationListener
@@ -66,12 +66,12 @@ public class au {
 
     /* loaded from: classes3.dex */
     public static class a {
-        private static final a qae = new a();
-        public double qaf;
+        private static final a qaf = new a();
         public double qag;
+        public double qah;
 
         public static a eGO() {
-            return qae;
+            return qaf;
         }
     }
 }

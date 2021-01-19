@@ -43,7 +43,7 @@ public class h {
         if (StringUtils.isNull(str2)) {
             str2 = str;
         }
-        i.dBq().a(advertAppInfo.eJl, advertAppInfo.apkUrl, str2, i, i.Qv(advertAppInfo.eJl).intValue(), null, true, false, true, advertAppInfo.eJr.userPortrait, downloadStaticsData, advertAppInfo.eJr.userName);
+        i.dBq().a(advertAppInfo.eJl, advertAppInfo.apkUrl, str2, i, i.Qw(advertAppInfo.eJl).intValue(), null, true, false, true, advertAppInfo.eJr.userPortrait, downloadStaticsData, advertAppInfo.eJr.userName);
         return true;
     }
 

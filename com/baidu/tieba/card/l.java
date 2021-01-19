@@ -127,11 +127,11 @@ public class l extends b<com.baidu.tieba.card.data.l> implements View.OnClickLis
             } catch (Exception e) {
                 e.printStackTrace();
             }
-            int PL = com.baidu.tieba.play.n.dxY().PL(this.mVideoUrl);
-            if (PL <= 100 || this.abI.getDuration() <= PL) {
-                PL = 100;
+            int PM = com.baidu.tieba.play.n.dxY().PM(this.mVideoUrl);
+            if (PM <= 100 || this.abI.getDuration() <= PM) {
+                PM = 100;
             }
-            this.abO = PL;
+            this.abO = PM;
             this.ire.sendEmptyMessageDelayed(202, 20L);
         }
     }

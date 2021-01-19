@@ -68,12 +68,12 @@ public class c extends BaseAdapter {
         if (dVar == null || dVar.lhV < 0) {
             return;
         }
-        aVar.lhC.setText(bB(dVar.mTitle, 7));
+        aVar.lhC.setText(bC(dVar.mTitle, 7));
         if (TextUtils.isEmpty(dVar.mDiscount)) {
             aVar.lhB.setVisibility(4);
         } else {
             aVar.lhB.setVisibility(0);
-            aVar.lhB.setText(bB(dVar.mDiscount, 10));
+            aVar.lhB.setText(bC(dVar.mDiscount, 10));
         }
         aVar.lhA.setText("" + (dVar.lhV / 100));
         if (TextUtils.isEmpty(dVar.mTagName)) {
@@ -104,7 +104,7 @@ public class c extends BaseAdapter {
         a(dVar, aVar);
     }
 
-    private String bB(String str, int i) {
+    private String bC(String str, int i) {
         if (str.length() > i) {
             return str.substring(0, i - 1) + StringHelper.STRING_MORE;
         }

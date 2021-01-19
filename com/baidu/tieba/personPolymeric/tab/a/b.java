@@ -44,7 +44,7 @@ public class b {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof String)) {
-                b.this.PJ((String) customResponsedMessage.getData());
+                b.this.PK((String) customResponsedMessage.getData());
             }
         }
     };
@@ -118,7 +118,7 @@ public class b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void PJ(String str) {
+    public void PK(String str) {
         boolean z;
         bz i;
         if (!StringUtils.isNull(str) && this.muj != null && !x.isEmpty(this.muj.cQc()) && this.muj.dxc() != null && this.muj.dxc().dxe() != null) {

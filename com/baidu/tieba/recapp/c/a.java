@@ -37,11 +37,11 @@ public class a {
         return mNC;
     }
 
-    public void QH(String str) {
+    public void QI(String str) {
         this.longitude = str;
     }
 
-    public void QI(String str) {
+    public void QJ(String str) {
         this.latitude = str;
     }
 
@@ -72,7 +72,7 @@ public class a {
         }
     }
 
-    public void QJ(String str) {
+    public void QK(String str) {
         this.mNB = str;
     }
 

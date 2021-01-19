@@ -5,36 +5,36 @@ import org.aspectj.lang.a;
 /* loaded from: classes3.dex */
 public class c implements org.aspectj.lang.b {
     Object[] args;
-    Object qku;
-    a.InterfaceC1298a qkv;
+    Object qkv;
+    a.InterfaceC1298a qkw;
     Object target;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes3.dex */
     public static class a implements a.InterfaceC1298a {
         private int id;
-        String qkw;
-        org.aspectj.lang.c qkx;
-        org.aspectj.lang.reflect.d qky;
+        String qkx;
+        org.aspectj.lang.c qky;
+        org.aspectj.lang.reflect.d qkz;
 
         public a(int i, String str, org.aspectj.lang.c cVar, org.aspectj.lang.reflect.d dVar) {
-            this.qkw = str;
-            this.qkx = cVar;
-            this.qky = dVar;
+            this.qkx = str;
+            this.qky = cVar;
+            this.qkz = dVar;
             this.id = i;
         }
 
         public String eJs() {
-            return this.qkw;
+            return this.qkx;
         }
 
         public org.aspectj.lang.c eJt() {
-            return this.qkx;
+            return this.qky;
         }
 
         String a(h hVar) {
             StringBuffer stringBuffer = new StringBuffer();
-            stringBuffer.append(hVar.abi(eJs()));
+            stringBuffer.append(hVar.abj(eJs()));
             stringBuffer.append("(");
             stringBuffer.append(((f) eJt()).a(hVar));
             stringBuffer.append(")");
@@ -42,13 +42,13 @@ public class c implements org.aspectj.lang.b {
         }
 
         public final String toString() {
-            return a(h.qkP);
+            return a(h.qkQ);
         }
     }
 
     public c(a.InterfaceC1298a interfaceC1298a, Object obj, Object obj2, Object[] objArr) {
-        this.qkv = interfaceC1298a;
-        this.qku = obj;
+        this.qkw = interfaceC1298a;
+        this.qkv = obj;
         this.target = obj2;
         this.args = objArr;
     }
@@ -59,6 +59,6 @@ public class c implements org.aspectj.lang.b {
     }
 
     public final String toString() {
-        return this.qkv.toString();
+        return this.qkw.toString();
     }
 }

@@ -46,8 +46,8 @@ public class ab {
             } catch (Exception e2) {
                 au.a(e2);
             }
-            if (b.pca.size() > 0) {
-                hashMap.putAll(b.pca);
+            if (b.pcb.size() > 0) {
+                hashMap.putAll(b.pcb);
             }
             if (z) {
                 hashMap.put("ssmix", "a");

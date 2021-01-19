@@ -100,7 +100,7 @@ public class FlatManifestWriterImpl extends AbstractManifestWriter {
                 createElement3.setAttribute("MaxWidth", Long.toString(aVar.width));
                 createElement3.setAttribute("MaxHeight", Long.toString(aVar.height));
                 createElement3.setAttribute("CodecPrivateData", aVar.codecPrivateData);
-                createElement3.setAttribute("NALUnitLengthField", Integer.toString(aVar.pMz));
+                createElement3.setAttribute("NALUnitLengthField", Integer.toString(aVar.pMA));
                 createElement2.appendChild(createElement3);
             }
             for (int i2 = 0; i2 < this.videoFragmentsDurations.length; i2++) {
@@ -455,7 +455,7 @@ public class FlatManifestWriterImpl extends AbstractManifestWriter {
             aVar.fourCC = "AVC1";
             aVar.width = visualSampleEntry.getWidth();
             aVar.height = visualSampleEntry.getHeight();
-            aVar.pMz = avcConfigurationBox.getLengthSizeMinusOne() + 1;
+            aVar.pMA = avcConfigurationBox.getLengthSizeMinusOne() + 1;
             return aVar;
         }
         throw new InternalError("I don't know how to handle video of type " + getFormat(visualSampleEntry));
@@ -487,43 +487,43 @@ public class FlatManifestWriterImpl extends AbstractManifestWriter {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes3.dex */
     public class a {
-        private byte pMv;
         private byte pMw;
-        private EC3SpecificBox.Entry pMx;
+        private byte pMx;
+        private EC3SpecificBox.Entry pMy;
 
         public a(byte b2, byte b3, EC3SpecificBox.Entry entry) {
-            this.pMv = b2;
-            this.pMw = b3;
-            this.pMx = entry;
+            this.pMw = b2;
+            this.pMx = b3;
+            this.pMy = entry;
         }
 
         public byte ezJ() {
-            return this.pMv;
-        }
-
-        public byte ezK() {
             return this.pMw;
         }
 
+        public byte ezK() {
+            return this.pMx;
+        }
+
         public a ezL() {
-            switch (this.pMx.chan_loc) {
+            switch (this.pMy.chan_loc) {
                 case 0:
-                    this.pMv = (byte) (this.pMv | 3);
+                    this.pMw = (byte) (this.pMw | 3);
                     break;
                 case 1:
-                    this.pMv = (byte) (this.pMv | 12);
+                    this.pMw = (byte) (this.pMw | 12);
                     break;
                 case 2:
-                    this.pMw = (byte) (this.pMw | 128);
+                    this.pMx = (byte) (this.pMx | 128);
                     break;
                 case 3:
-                    this.pMw = (byte) (this.pMw | 8);
+                    this.pMx = (byte) (this.pMx | 8);
                     break;
                 case 6:
-                    this.pMw = (byte) (this.pMw | 5);
+                    this.pMx = (byte) (this.pMx | 5);
                     break;
                 case 7:
-                    this.pMw = (byte) (this.pMw | 2);
+                    this.pMx = (byte) (this.pMx | 2);
                     break;
             }
             return this;

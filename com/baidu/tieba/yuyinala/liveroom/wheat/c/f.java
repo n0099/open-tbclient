@@ -8,17 +8,17 @@ import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes10.dex */
 public class f {
     private RelativeLayout loZ;
-    private final ConcurrentHashMap<String, ConnectionLineView> owG = new ConcurrentHashMap<>();
-    private final ConcurrentHashMap<String, Boolean> owH = new ConcurrentHashMap<>();
-    private a owI;
+    private final ConcurrentHashMap<String, ConnectionLineView> owH = new ConcurrentHashMap<>();
+    private final ConcurrentHashMap<String, Boolean> owI = new ConcurrentHashMap<>();
+    private a owJ;
 
     /* loaded from: classes10.dex */
     public interface a {
-        void Vl(String str);
+        void Vm(String str);
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:14:0x0032, code lost:
-        if (r8.loZ.indexOfChild(r8.owG.get(r1)) == (-1)) goto L16;
+        if (r8.loZ.indexOfChild(r8.owH.get(r1)) == (-1)) goto L16;
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -26,7 +26,7 @@ public class f {
     public synchronized void a(int[] iArr, RelativeLayout relativeLayout, double[] dArr, double[] dArr2, int i) {
         if (dArr[0] != dArr2[0] || dArr[1] != dArr2[1]) {
             String o = o(iArr);
-            if (this.owG.containsKey(o)) {
+            if (this.owH.containsKey(o)) {
             }
             this.loZ = relativeLayout;
             ConnectionLineView connectionLineView = new ConnectionLineView(relativeLayout.getContext());
@@ -41,27 +41,27 @@ public class f {
             }
             connectionLineView.setRotation(b2);
             relativeLayout.addView(connectionLineView, i + 1);
-            this.owG.put(o, connectionLineView);
-            if (this.owI != null) {
-                this.owI.Vl(o);
+            this.owH.put(o, connectionLineView);
+            if (this.owJ != null) {
+                this.owJ.Vm(o);
             }
         }
     }
 
-    public synchronized void Vj(String str) {
-        if (!ListUtils.isEmpty(this.owG) && this.owG.containsKey(str)) {
-            ConnectionLineView connectionLineView = this.owG.get(str);
+    public synchronized void Vk(String str) {
+        if (!ListUtils.isEmpty(this.owH) && this.owH.containsKey(str)) {
+            ConnectionLineView connectionLineView = this.owH.get(str);
             if (connectionLineView != null && this.loZ.indexOfChild(connectionLineView) != -1) {
                 this.loZ.removeView(connectionLineView);
             }
-            this.owG.remove(str);
+            this.owH.remove(str);
         }
     }
 
     public synchronized void eba() {
-        if (!ListUtils.isEmpty(this.owG)) {
-            for (Map.Entry<String, ConnectionLineView> entry : this.owG.entrySet()) {
-                Vj(entry.getKey());
+        if (!ListUtils.isEmpty(this.owH)) {
+            for (Map.Entry<String, ConnectionLineView> entry : this.owH.entrySet()) {
+                Vk(entry.getKey());
             }
         }
     }
@@ -85,36 +85,36 @@ public class f {
     }
 
     public void a(a aVar) {
-        this.owI = aVar;
+        this.owJ = aVar;
     }
 
     public synchronized void p(int[] iArr) {
         ConnectionLineView connectionLineView;
-        if (!ListUtils.isEmpty(this.owG) && (connectionLineView = this.owG.get(o(iArr))) != null) {
+        if (!ListUtils.isEmpty(this.owH) && (connectionLineView = this.owH.get(o(iArr))) != null) {
             connectionLineView.ecI();
         }
     }
 
     public ConcurrentHashMap<String, ConnectionLineView> ebb() {
-        return this.owG;
+        return this.owH;
     }
 
     public synchronized void bh(String str, boolean z) {
-        if (this.owH != null) {
-            if (this.owH.containsKey(str)) {
-                this.owH.remove(str);
+        if (this.owI != null) {
+            if (this.owI.containsKey(str)) {
+                this.owI.remove(str);
             }
-            this.owH.put(str, Boolean.valueOf(z));
+            this.owI.put(str, Boolean.valueOf(z));
         }
     }
 
-    public synchronized boolean Vk(String str) {
-        return (this.owH == null || !this.owH.containsKey(str)) ? false : this.owH.get(str).booleanValue();
+    public synchronized boolean Vl(String str) {
+        return (this.owI == null || !this.owI.containsKey(str)) ? false : this.owI.get(str).booleanValue();
     }
 
     public synchronized void ebc() {
-        if (this.owH != null) {
-            this.owH.clear();
+        if (this.owI != null) {
+            this.owI.clear();
         }
     }
 }

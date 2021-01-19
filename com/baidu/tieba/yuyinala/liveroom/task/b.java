@@ -6,7 +6,7 @@ import com.kwad.sdk.collector.AppStatusRules;
 /* loaded from: classes10.dex */
 public class b {
     private static int hJX = 0;
-    private static volatile b opy = null;
+    private static volatile b opz = null;
     private long currLiveId;
     private long duration;
     private long now;
@@ -21,14 +21,14 @@ public class b {
     };
 
     public static b dZz() {
-        if (opy == null) {
+        if (opz == null) {
             synchronized (b.class) {
-                if (opy == null) {
-                    opy = new b();
+                if (opz == null) {
+                    opz = new b();
                 }
             }
         }
-        return opy;
+        return opz;
     }
 
     public void fF(long j) {

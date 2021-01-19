@@ -29,16 +29,16 @@ public class c {
         return path;
     }
 
-    public static boolean Rn(String str) {
-        String Ro = Ro(str);
-        if (TextUtils.isEmpty(Ro)) {
+    public static boolean Ro(String str) {
+        String Rp = Rp(str);
+        if (TextUtils.isEmpty(Rp)) {
             return false;
         }
-        File file = new File(Ro);
+        File file = new File(Rp);
         return (file.exists() && file.isDirectory()) || file.mkdirs();
     }
 
-    private static String Ro(String str) {
+    private static String Rp(String str) {
         if (!TextUtils.isEmpty(str)) {
             int lastIndexOf = str.lastIndexOf(File.separator);
             return lastIndexOf == -1 ? "" : str.substring(0, lastIndexOf);

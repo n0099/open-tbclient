@@ -371,7 +371,7 @@ public class e {
         return 0;
     }
 
-    public boolean Qt(String str) {
+    public boolean Qu(String str) {
         for (DownloadData downloadData : f.dBm().getDownloadList()) {
             if (downloadData.getId() != null && downloadData.getId().equals(str) && downloadData.getStatus() == 5) {
                 return true;
@@ -435,7 +435,7 @@ public class e {
         int i = 6;
         if (dBk().Cs(downloadData.getId())) {
             i = 3;
-        } else if (dBk().Qt(downloadData.getId())) {
+        } else if (dBk().Qu(downloadData.getId())) {
             i = 5;
         } else if (dBk().Cr(downloadData.getId())) {
             i = 1;
@@ -448,13 +448,13 @@ public class e {
         } else {
             id = downloadData.getId();
         }
-        if (!TextUtils.isEmpty(id) && com.baidu.tieba.a.bIN().bIO() && dBk().Qu(id)) {
+        if (!TextUtils.isEmpty(id) && com.baidu.tieba.a.bIN().bIO() && dBk().Qv(id)) {
             return 8;
         }
         return i;
     }
 
-    private boolean Qu(String str) {
+    private boolean Qv(String str) {
         TbadkApplication inst = TbadkApplication.getInst();
         if (inst != null) {
             try {
@@ -470,7 +470,7 @@ public class e {
         return false;
     }
 
-    public static Integer Qv(String str) {
+    public static Integer Qw(String str) {
         if (mJe.containsKey(str)) {
             return mJe.get(str);
         }
